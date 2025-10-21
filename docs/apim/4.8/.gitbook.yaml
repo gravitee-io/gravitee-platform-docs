@@ -5,6 +5,7 @@ structure:
   summary: SUMMARY.md
 
 redirects:
+ 4.0/community-and-support/community: introduction/community-forum.md
  4.0/community-and-support/community/readme: introduction/community-forum.md
  4.0/community-and-support/enterprise-support: README.md
  4.0/getting-started/configuration/configure-a-production-ready-apim-environment: prepare-a-production-environment/production-best-practices/authentication.md
@@ -28,6 +29,7 @@ redirects:
  4.0/getting-started/configuration/configure-cache: prepare-a-production-environment/cache.md
  4.0/getting-started/configuration/configure-http-reverse-proxy: README.md
  4.0/getting-started/configuration/configure-notifications: configure-and-manage-the-platform/gravitee-gateway/notifications.md
+ 4.0/getting-started/configuration/configure-reporters: analyze-and-monitor-apis/reporters/tcp-reporter.md
  4.0/getting-started/configuration/configure-reporters/formats: README.md
  4.0/getting-started/configuration/configure-reporters/readme: analyze-and-monitor-apis/reporters/tcp-reporter.md
  4.0/getting-started/configuration/configure-repositories/elasticsearch: prepare-a-production-environment/repositories/elasticsearch.md
@@ -100,6 +102,7 @@ redirects:
  4.0/guides/create-apis/the-api-creation-wizard/readme: README.md
  4.0/guides/create-apis/the-api-creation-wizard/v2-api-creation-wizard: create-and-configure-apis/create-apis/v2-api-creation-wizard.md
  4.0/guides/create-apis/the-api-creation-wizard/v4-api-creation-wizard: README.md
+ 4.0/guides/developer-contributions: introduction/contribute-to-apim.md
  4.0/guides/developer-contributions/custom-plugins: README.md
  4.0/guides/developer-contributions/custom-policies: create-and-configure-apis/apply-policies/policy-reference/maven-archetype.md
  4.0/guides/developer-contributions/readme: introduction/contribute-to-apim.md
@@ -132,6 +135,7 @@ redirects:
  4.0/guides/policy-studio/v4-api-policy-studio: README.md
  4.0/guides/prologue: README.md
  4.0/overview/apim-architecture: README.md
+ 4.0/overview/ee-vs-oss: introduction/enterprise-edition.md
  4.0/overview/ee-vs-oss/readme: introduction/enterprise-edition.md
  4.0/overview/gravitee-api-definitions-and-execution-engines/access-control-allowed-origin: README.md
  4.0/overview/gravitee-api-definitions-and-execution-engines/connection-close: README.md
@@ -206,6 +210,7 @@ redirects:
  4.0/releases-and-changelog/changelog/apim-4.0.x: README.md
  4.0/releases-and-changelog/changelog/readme: release-information/changelog/README.md
  4.0/releases-and-changelog/release-notes/readme: README.md
+ 4.1/community-and-support/community: introduction/community-forum.md
  4.1/community-and-support/community/readme: introduction/community-forum.md
  4.1/community-and-support/enterprise-support: README.md
  4.1/getting-started/configuration/authentication-and-sso: README.md
@@ -224,6 +229,7 @@ redirects:
  4.1/getting-started/configuration/configure-authentication/connect-with-gravitee.io-access-management: README.md
  4.1/getting-started/configuration/configure-cache: prepare-a-production-environment/cache.md
  4.1/getting-started/configuration/configure-http-reverse-proxy: README.md
+ 4.1/getting-started/configuration/configure-reporters: analyze-and-monitor-apis/reporters/tcp-reporter.md
  4.1/getting-started/configuration/configure-reporters/formats: README.md
  4.1/getting-started/configuration/configure-reporters/readme: analyze-and-monitor-apis/reporters/tcp-reporter.md
  4.1/getting-started/configuration/configure-repositories/elasticsearch: prepare-a-production-environment/repositories/elasticsearch.md
@@ -285,7 +291,7 @@ redirects:
  4.1/guides/api-configuration/v2-api-configuration/api-general-settings: README.md
  4.1/guides/api-configuration/v2-api-configuration/api-general-settings (1): README.md
  4.1/guides/api-configuration/v2-api-configuration/api-general-settings-1: README.md
- 4.1/guides/api-configuration/v2-api-configuration/configure-cors: create-and-configure-apis/configure-v2-apis/proxy-settings.md
+ 4.1/guides/api-configuration/v2-api-configuration/configure-cors: create-and-configure-apis/configure-v4-apis/response-templates.md
  4.1/guides/api-configuration/v2-api-configuration/configure-service-discovery: README.md
  4.1/guides/api-configuration/v2-api-configuration/configure-user-and-group-access: README.md
  4.1/guides/api-configuration/v2-api-configuration/documentation: README.md
@@ -316,6 +322,7 @@ redirects:
  4.1/guides/create-apis/import-apis/openapi-spec-import: create-and-configure-apis/create-apis/import-apis.md
  4.1/guides/create-apis/import-apis/readme: README.md
  4.1/guides/create-apis/readme: README.md
+ 4.1/guides/developer-contributions: introduction/contribute-to-apim.md
  4.1/guides/developer-contributions/dev-guide-plugins: README.md
  4.1/guides/developer-contributions/dev-guide-policies: create-and-configure-apis/apply-policies/policy-reference/maven-archetype.md
  4.1/guides/developer-contributions/readme: introduction/contribute-to-apim.md
@@ -353,6 +360,7 @@ redirects:
  4.1/guides/policy-design/v4-api-policy-design-studio: README.md
  4.1/guides/prologue: README.md
  4.1/overview/apim-architecture: README.md
+ 4.1/overview/ee-vs-oss: introduction/enterprise-edition.md
  4.1/overview/ee-vs-oss/readme: introduction/enterprise-edition.md
  4.1/overview/gravitee-api-definitions-and-execution-engines/access-control-allowed-origin: README.md
  4.1/overview/gravitee-api-definitions-and-execution-engines/connection-close: README.md
@@ -365,6 +373,7 @@ redirects:
  4.1/overview/gravitee-api-definitions-and-execution-engines/reactive-execution-engine: README.md
  4.1/overview/gravitee-api-definitions-and-execution-engines/readme: README.md
  4.1/overview/gravitee-api-definitions-and-execution-engines/timeout-management: README.md
+ 4.1/overview/integrations: introduction/integrations.md
  4.1/overview/integrations/readme: introduction/integrations.md
  4.1/overview/introduction-to-gravitee-api-management-apim/apim-architecture: README.md
  4.1/overview/introduction-to-gravitee-api-management-apim/plugins: plugins/README.md
@@ -375,7 +384,7 @@ redirects:
  4.1/reference/policy-reference/assign-content: README.md
  4.1/reference/policy-reference/assign-metrics: create-and-configure-apis/apply-policies/policy-reference/assign-metrics.md
  4.1/reference/policy-reference/avro-json: create-and-configure-apis/apply-policies/policy-reference/protobuf-to-json.md
- 4.1/reference/policy-reference/avro-to-protobuf: create-and-configure-apis/apply-policies/policy-reference/protobuf-to-json.md
+ 4.1/reference/policy-reference/avro-to-protobuf: create-and-configure-apis/apply-policies/policy-reference/avro-to-protobuf.md
  4.1/reference/policy-reference/aws-lambda: README.md
  4.1/reference/policy-reference/basic-authentication: create-and-configure-apis/apply-policies/policy-reference/basic-authentication.md
  4.1/reference/policy-reference/cache: create-and-configure-apis/apply-policies/policy-reference/cache.md
@@ -429,6 +438,7 @@ redirects:
  4.1/releases-and-changelog/changelog/apim-4.1.x: README.md
  4.1/releases-and-changelog/changelog/readme: release-information/changelog/README.md
  4.1/releases-and-changelog/release-notes/readme: README.md
+ 4.2/community-and-support/community: introduction/community-forum.md
  4.2/community-and-support/community/readme: introduction/community-forum.md
  4.2/community-and-support/enterprise-support: README.md
  4.2/getting-started/configuration/apim-console: configure-and-manage-the-platform/manage-organizations-and-environments/apim-console.md
@@ -444,6 +454,7 @@ redirects:
  4.2/getting-started/configuration/notifications: configure-and-manage-the-platform/gravitee-gateway/notifications.md
  4.2/getting-started/configuration/production-ready-apim-environment: prepare-a-production-environment/production-best-practices/authentication.md
  4.2/getting-started/configuration/readme: README.md
+ 4.2/getting-started/configuration/reporters: analyze-and-monitor-apis/reporters/tcp-reporter.md
  4.2/getting-started/configuration/reporters/formats: README.md
  4.2/getting-started/configuration/reporters/readme: analyze-and-monitor-apis/reporters/tcp-reporter.md
  4.2/getting-started/configuration/repositories/elasticsearch: prepare-a-production-environment/repositories/elasticsearch.md
@@ -501,7 +512,7 @@ redirects:
  4.2/guides/api-configuration/v2-api-configuration/configure-user-and-group-access: README.md
  4.2/guides/api-configuration/v2-api-configuration/documentation: README.md
  4.2/guides/api-configuration/v2-api-configuration/general-info-settings: README.md
- 4.2/guides/api-configuration/v2-api-configuration/general-proxy-settings: create-and-configure-apis/configure-v2-apis/proxy-settings.md
+ 4.2/guides/api-configuration/v2-api-configuration/general-proxy-settings: create-and-configure-apis/configure-v4-apis/response-templates.md
  4.2/guides/api-configuration/v2-api-configuration/load-balancing-failover-and-health-checks: README.md
  4.2/guides/api-configuration/v2-api-configuration/readme: README.md
  4.2/guides/api-configuration/v2-api-configuration/service-discovery: README.md
@@ -535,6 +546,7 @@ redirects:
  4.2/guides/create-apis/readme: create-and-configure-apis/gravitee-api-definitions/README.md
  4.2/guides/create-apis/the-api-creation-wizard/v2-api-creation-wizard: create-and-configure-apis/create-apis/v2-api-creation-wizard.md
  4.2/guides/create-apis/the-api-creation-wizard/v4-api-creation-wizard: README.md
+ 4.2/guides/developer-contributions: introduction/contribute-to-apim.md
  4.2/guides/developer-contributions/custom-plugins: README.md
  4.2/guides/developer-contributions/custom-policies: create-and-configure-apis/apply-policies/policy-reference/maven-archetype.md
  4.2/guides/developer-contributions/readme: introduction/contribute-to-apim.md
@@ -570,11 +582,13 @@ redirects:
  4.2/overview/apim-architecture/readme: README.md
  4.2/overview/changelog/apim-4.2.x: README.md
  4.2/overview/changelog/readme: release-information/changelog/README.md
+ 4.2/overview/gravitee-api-definitions-and-execution-engines: create-and-configure-apis/gravitee-api-definitions/execution-engine.md
  4.2/overview/gravitee-api-definitions-and-execution-engines/message-flow-control: README.md
  4.2/overview/gravitee-api-definitions-and-execution-engines/reactive-execution-engine: README.md
  4.2/overview/gravitee-api-definitions-and-execution-engines/readme: create-and-configure-apis/gravitee-api-definitions/execution-engine.md
+ 4.2/overview/gravitee-apim-enterprise-edition: introduction/enterprise-edition.md
  4.2/overview/gravitee-apim-enterprise-edition/readme: introduction/enterprise-edition.md
- 4.2/overview/integrations: introduction/integrations.md
+ 4.2/overview/integrations: readme/integrations.md
  4.2/overview/plugins: plugins.md
  4.2/overview/release-notes/readme: README.md
  4.2/reference/endpoint-reference/kafka: create-and-configure-apis/configure-v4-apis/endpoints/kafka.md
@@ -592,7 +606,7 @@ redirects:
  4.2/reference/policy-reference/assign-content: README.md
  4.2/reference/policy-reference/assign-metrics: create-and-configure-apis/apply-policies/policy-reference/assign-metrics.md
  4.2/reference/policy-reference/avro-to-json: create-and-configure-apis/apply-policies/policy-reference/protobuf-to-json.md
- 4.2/reference/policy-reference/avro-to-protobuf: create-and-configure-apis/apply-policies/policy-reference/protobuf-to-json.md
+ 4.2/reference/policy-reference/avro-to-protobuf: create-and-configure-apis/apply-policies/policy-reference/avro-to-protobuf.md
  4.2/reference/policy-reference/aws-lambda: README.md
  4.2/reference/policy-reference/basic-authentication: create-and-configure-apis/apply-policies/policy-reference/basic-authentication.md
  4.2/reference/policy-reference/cache: create-and-configure-apis/apply-policies/policy-reference/cache.md
@@ -643,6 +657,7 @@ redirects:
  4.2/reference/policy-reference/xml-to-json: create-and-configure-apis/apply-policies/policy-reference/xml-to-json.md
  4.2/reference/policy-reference/xml-validation: create-and-configure-apis/apply-policies/policy-reference/xml-validation.md
  4.2/reference/policy-reference/xslt: create-and-configure-apis/apply-policies/policy-reference/xslt.md
+ 4.3/community-and-support/community: introduction/community-forum.md
  4.3/community-and-support/community/readme: introduction/community-forum.md
  4.3/community-and-support/enterprise-support: README.md
  4.3/getting-started/configuration/apim-console: configure-and-manage-the-platform/manage-organizations-and-environments/apim-console.md
@@ -676,6 +691,7 @@ redirects:
  4.3/getting-started/configuration/production-ready-apim-environment/internal-apis: prepare-a-production-environment/production-best-practices/internal-apis.md
  4.3/getting-started/configuration/production-ready-apim-environment/readme: prepare-a-production-environment/production-best-practices/README.md
  4.3/getting-started/configuration/readme: README.md
+ 4.3/getting-started/configuration/reporters: analyze-and-monitor-apis/reporters/tcp-reporter.md
  4.3/getting-started/configuration/reporters/formats: README.md
  4.3/getting-started/configuration/reporters/readme: analyze-and-monitor-apis/reporters/tcp-reporter.md
  4.3/getting-started/configuration/repositories/elasticsearch: prepare-a-production-environment/repositories/elasticsearch.md
@@ -774,6 +790,7 @@ redirects:
  4.3/guides/create-apis/the-api-creation-wizard/readme: README.md
  4.3/guides/create-apis/the-api-creation-wizard/v2-api-creation-wizard: create-and-configure-apis/create-apis/v2-api-creation-wizard.md
  4.3/guides/create-apis/the-api-creation-wizard/v4-api-creation-wizard: README.md
+ 4.3/guides/developer-contributions: introduction/contribute-to-apim.md
  4.3/guides/developer-contributions/custom-plugins: plugins/customization.md
  4.3/guides/developer-contributions/custom-policies: create-and-configure-apis/apply-policies/custom-policies.md
  4.3/guides/developer-contributions/readme: introduction/contribute-to-apim.md
@@ -815,6 +832,7 @@ redirects:
  4.3/overview/gravitee-api-definitions-and-execution-engines/engine-comparisons: create-and-configure-apis/gravitee-api-definitions/execution-engine.md
  4.3/overview/gravitee-api-definitions-and-execution-engines/reactive-execution-engine: README.md
  4.3/overview/gravitee-api-definitions-and-execution-engines/readme: README.md
+ 4.3/overview/gravitee-apim-enterprise-edition: introduction/enterprise-edition.md
  4.3/overview/gravitee-apim-enterprise-edition/readme: introduction/enterprise-edition.md
  4.3/overview/integrations: introduction/integrations.md
  4.3/overview/plugins: plugins.md
@@ -889,6 +907,7 @@ redirects:
  4.3/reference/policy-reference/xml-to-json: create-and-configure-apis/apply-policies/policy-reference/xml-to-json.md
  4.3/reference/policy-reference/xml-validation: create-and-configure-apis/apply-policies/policy-reference/xml-validation.md
  4.3/reference/policy-reference/xslt: create-and-configure-apis/apply-policies/policy-reference/xslt.md
+ 4.4/community-and-support/community: introduction/community-forum.md
  4.4/community-and-support/community/readme: introduction/community-forum.md
  4.4/community-and-support/developer-contributions: introduction/contribute-to-apim.md
  4.4/configuration/authentication/authentication-providers: configure-and-manage-the-platform/manage-organizations-and-environments/authentication/authentication-providers.md
@@ -932,6 +951,7 @@ redirects:
  4.4/installation-and-upgrades/upgrading-gravitee-api-management/upgrading-gravitee-api-management-installed-with-rpm-packages: upgrade-guides/upgrade-with-rpm.md
  4.4/overview/changelog/apim-4.4.x: README.md
  4.4/overview/changelog/readme: release-information/changelog/README.md
+ 4.4/overview/gravitee-apim-enterprise-edition: introduction/enterprise-edition.md
  4.4/overview/gravitee-apim-enterprise-edition/enterprise-support: README.md
  4.4/overview/gravitee-apim-enterprise-edition/readme: introduction/enterprise-edition.md
  4.4/overview/integrations: introduction/integrations.md
@@ -1090,6 +1110,7 @@ redirects:
  4.4/using-the-product/production-ready-apim-environment/internal-apis: prepare-a-production-environment/production-best-practices/internal-apis.md
  4.4/using-the-product/production-ready-apim-environment/production-deployments-and-capacity-planning: prepare-a-production-environment/gateway-resource-sizing-guidelines.md
  4.4/using-the-product/production-ready-apim-environment/readme: prepare-a-production-environment/production-best-practices/README.md
+ 4.4/using-the-product/using-the-gravitee-api-management-components/apim-console: configure-and-manage-the-platform/manage-organizations-and-environments/apim-console.md
  4.4/using-the-product/using-the-gravitee-api-management-components/apim-console/notifications: configure-and-manage-the-platform/gravitee-gateway/notifications.md
  4.4/using-the-product/using-the-gravitee-api-management-components/apim-console/readme: configure-and-manage-the-platform/manage-organizations-and-environments/apim-console.md
  4.4/using-the-product/using-the-gravitee-api-management-components/configuration: README.md
@@ -1102,6 +1123,7 @@ redirects:
  4.4/using-the-product/using-the-gravitee-api-management-components/developer-portal-101/publishing-and-managing-apis-with-the-gravitee-developer-portal/readme: README.md
  4.4/using-the-product/using-the-gravitee-api-management-components/developer-portal-101/readme: README.md
  4.4/using-the-product/using-the-gravitee-api-management-components/developer-portal-101/webhook-subscription-management: developer-portal/classic-developer-portal/webhook-subscriptions.md
+ 4.4/using-the-product/using-the-gravitee-api-management-components/general-configuration: prepare-a-production-environment/configure-your-http-server.md
  4.4/using-the-product/using-the-gravitee-api-management-components/general-configuration-1/internal-api: configure-and-manage-the-platform/management-api/mapi-internal-api.md
  4.4/using-the-product/using-the-gravitee-api-management-components/general-configuration-1/management-api-reference: README.md
  4.4/using-the-product/using-the-gravitee-api-management-components/general-configuration-1/readme: README.md
@@ -1125,6 +1147,7 @@ redirects:
  4.4/using-the-product/using-the-gravitee-api-management-components/general-configuration/sharding-tags: README.md
  4.4/using-the-product/using-the-gravitee-api-management-components/general-configuration/tenants: configure-and-manage-the-platform/gravitee-gateway/tenants.md
  4.4/using-the-product/using-the-gravitee-api-management-components/readme: README.md
+ 4.5/community-and-support/community: introduction/community-forum.md
  4.5/community-and-support/community/contributing-to-the-gravitee-api-management-developement: introduction/contribute-to-apim.md
  4.5/community-and-support/community/readme: introduction/community-forum.md
  4.5/community-and-support/contributing-to-the-gravitee-api-management-developement: introduction/contribute-to-apim.md
@@ -1154,6 +1177,7 @@ redirects:
  4.5/installation-and-upgrades/upgrading-gravitee-api-management/upgrading-gravitee-api-management-installed-with-rpm-packages: upgrade-guides/upgrade-with-rpm.md
  4.5/overview/changelog/apim-4.5.x: README.md
  4.5/overview/changelog/readme: release-information/changelog/README.md
+ 4.5/overview/gravitee-apim-enterprise-edition: introduction/enterprise-edition.md
  4.5/overview/gravitee-apim-enterprise-edition/enterprise-support: README.md
  4.5/overview/gravitee-apim-enterprise-edition/readme: introduction/enterprise-edition.md
  4.5/overview/integrations: introduction/integrations.md
@@ -1336,6 +1360,7 @@ redirects:
  4.5/using-the-product/production-ready-apim-environment/internal-apis: prepare-a-production-environment/production-best-practices/internal-apis.md
  4.5/using-the-product/production-ready-apim-environment/production-deployments-and-capacity-planning: prepare-a-production-environment/gateway-resource-sizing-guidelines.md
  4.5/using-the-product/production-ready-apim-environment/readme: prepare-a-production-environment/production-best-practices/README.md
+ 4.5/using-the-product/using-the-gravitee-api-management-components/apim-console: configure-and-manage-the-platform/manage-organizations-and-environments/apim-console.md
  4.5/using-the-product/using-the-gravitee-api-management-components/apim-console/configuring-notifications-and-alerts-for-your-apis: configure-and-manage-the-platform/gravitee-gateway/notifications.md
  4.5/using-the-product/using-the-gravitee-api-management-components/apim-console/readme: configure-and-manage-the-platform/manage-organizations-and-environments/apim-console.md
  4.5/using-the-product/using-the-gravitee-api-management-components/configuration: README.md
@@ -1353,6 +1378,7 @@ redirects:
  4.5/using-the-product/using-the-gravitee-api-management-components/developer-portal/readme: README.md
  4.5/using-the-product/using-the-gravitee-api-management-components/developer-portal/user-management: developer-portal/classic-developer-portal/manage-users.md
  4.5/using-the-product/using-the-gravitee-api-management-components/developer-portal/webhook-subscription-management: developer-portal/classic-developer-portal/webhook-subscriptions.md
+ 4.5/using-the-product/using-the-gravitee-api-management-components/general-configuration: prepare-a-production-environment/configure-your-http-server.md
  4.5/using-the-product/using-the-gravitee-api-management-components/general-configuration-1/configuring-the-internal-api: configure-and-manage-the-platform/management-api/mapi-internal-api.md
  4.5/using-the-product/using-the-gravitee-api-management-components/general-configuration-1/readme: README.md
  4.5/using-the-product/using-the-gravitee-api-management-components/general-configuration-1/security: README.md
@@ -1369,6 +1395,7 @@ redirects:
  4.5/using-the-product/using-the-gravitee-api-management-components/general-configuration/plans-and-policies/plans-and-policies-overview: README.md
  4.5/using-the-product/using-the-gravitee-api-management-components/general-configuration/plans-and-policies/readme: README.md
  4.5/using-the-product/using-the-gravitee-api-management-components/general-configuration/readme: prepare-a-production-environment/configure-your-http-server.md
+ 4.5/using-the-product/using-the-gravitee-api-management-components/general-configuration/reporters: analyze-and-monitor-apis/reporters/tcp-reporter.md
  4.5/using-the-product/using-the-gravitee-api-management-components/general-configuration/reporters/formats: README.md
  4.5/using-the-product/using-the-gravitee-api-management-components/general-configuration/reporters/readme: analyze-and-monitor-apis/reporters/tcp-reporter.md
  4.5/using-the-product/using-the-gravitee-api-management-components/general-configuration/secret-providers: README.md
@@ -1388,8 +1415,8 @@ redirects:
  4.6/api-analytics/api-quality: analyze-and-monitor-apis/api-quality.md
  4.6/api-analytics/audit-trail: analyze-and-monitor-apis/audit-trail.md
  4.6/api-analytics/dashboards: analyze-and-monitor-apis/dashboards.md
- 4.6/community/community-forum: introduction/community-forum.md
- 4.6/community/contribute-to-apim: introduction/contribute-to-apim.md
+ 4.6/community/community-forum: readme/community-forum.md
+ 4.6/community/contribute-to-apim: readme/contribute-to-apim.md
  4.6/configure-apim/apim-components/apim-console: configure-and-manage-the-platform/manage-organizations-and-environments/apim-console.md
  4.6/configure-apim/apim-components/developer-portal: configure-and-manage-the-platform/manage-organizations-and-environments/developer-portal.md
  4.6/configure-apim/apim-components/gravitee-gateway: prepare-a-production-environment/configure-your-http-server.md
@@ -1401,6 +1428,7 @@ redirects:
  4.6/configure-apim/repositories/mongodb: prepare-a-production-environment/repositories/mongodb.md
  4.6/configure-apim/repositories/readme: README.md
  4.6/configure-apim/repositories/redis: prepare-a-production-environment/repositories/redis.md
+ 4.6/configure-apim/sensitive-data-management: prepare-a-production-environment/sensitive-data-management/configure-secrets.md
  4.6/configure-apim/sensitive-data-management/configuration-level-secrets: prepare-a-production-environment/sensitive-data-management/apply-secrets-to-configurations.md
  4.6/configure-apim/sensitive-data-management/readme: prepare-a-production-environment/sensitive-data-management/configure-secrets.md
  4.6/configure-apim/sensitive-data-management/secret-provider-plugins-configuration: prepare-a-production-environment/sensitive-data-management/configure-secret-provider-plugins.md
@@ -1445,6 +1473,7 @@ redirects:
  4.6/developer-portal/manage-users: developer-portal/classic-developer-portal/manage-users.md
  4.6/developer-portal/settings: developer-portal/classic-developer-portal/portal-settings.md
  4.6/developer-portal/webhook-subscriptions: developer-portal/classic-developer-portal/webhook-subscriptions.md
+ 4.6/expose-apis/applications: kafka-gateway/applications.md
  4.6/expose-apis/applications/global-settings: secure-and-expose-apis/applications/global-settings.md
  4.6/expose-apis/applications/metadata: README.md
  4.6/expose-apis/applications/notifications: README.md
@@ -1473,7 +1502,7 @@ redirects:
  4.6/federation/integrations: govern-apis/federation/integrations.md
  4.6/federation/overview: govern-apis/federation.md
  4.6/getting-started/gravitee-expression-language: gravitee-expression-language.md
- 4.6/getting-started/integrations: introduction/integrations.md
+ 4.6/getting-started/integrations: readme/integrations.md
  4.6/getting-started/plugins/customization: plugins/customization.md
  4.6/getting-started/plugins/deployment: plugins/deployment.md
  4.6/getting-started/plugins/readme: plugins/README.md
@@ -1528,6 +1557,7 @@ redirects:
  4.6/install-and-upgrade/rpm/troubleshooting: self-hosted-installation-guides/rpm/troubleshooting.md
  4.6/install-and-upgrade/rpm/upgrade-with-rpm: upgrade-guides/upgrade-with-rpm.md
  4.6/install-and-upgrade/upgrade-guide: README.md
+ 4.6/kafka-gateway/applications: secure-and-expose-apis/applications/create-an-application.md
  4.6/kafka-gateway/configure-kafka-apis/configuration: kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/configuration.md
  4.6/kafka-gateway/configure-kafka-apis/consumers: kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/consumers.md
  4.6/kafka-gateway/configure-kafka-apis/deployment: kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/deployment.md
@@ -1539,6 +1569,7 @@ redirects:
  4.6/kafka-gateway/create-kafka-apis: kafka-gateway/create-and-configure-kafka-apis/create-kafka-apis.md
  4.6/kafka-gateway/policies/kafka-acl: create-and-configure-apis/apply-policies/policy-reference/kafka-acl.md
  4.6/kafka-gateway/policies/kafka-quota: create-and-configure-apis/apply-policies/policy-reference/kafka-quota.md
+ 4.6/kafka-gateway/subscriptions: secure-and-expose-apis/subscriptions/subscription-requests.md
  4.6/management-api/internal-api: configure-and-manage-the-platform/management-api/mapi-internal-api.md
  4.6/management-api/management-api-reference: management-api-reference.md
  4.6/management-api/management-settings: configure-and-manage-the-platform/management-api/settings.md
@@ -1547,7 +1578,7 @@ redirects:
  4.6/overview/architecture: README.md
  4.6/overview/changelog/apim-4.6.x: README.md
  4.6/overview/changelog/readme: release-information/changelog/README.md
- 4.6/overview/enterprise-edition: introduction/enterprise-edition.md
+ 4.6/overview/enterprise-edition: readme/enterprise-edition.md
  4.6/overview/execution-engine: create-and-configure-apis/gravitee-api-definitions/execution-engine.md
  4.6/overview/release-notes/readme: README.md
  4.6/overview/support: configure-and-manage-the-platform/manage-organizations-and-environments/support.md
@@ -1586,6 +1617,7 @@ redirects:
  4.7/configure-apim/repositories/mongodb: prepare-a-production-environment/repositories/mongodb.md
  4.7/configure-apim/repositories/readme: prepare-a-production-environment/repositories/README.md
  4.7/configure-apim/repositories/redis: prepare-a-production-environment/repositories/redis.md
+ 4.7/configure-apim/sensitive-data-management: prepare-a-production-environment/sensitive-data-management/configure-secrets.md
  4.7/configure-apim/sensitive-data-management/configuration-level-secrets: prepare-a-production-environment/sensitive-data-management/apply-secrets-to-configurations.md
  4.7/configure-apim/sensitive-data-management/readme: prepare-a-production-environment/sensitive-data-management/configure-secrets.md
  4.7/configure-apim/sensitive-data-management/secret-provider-plugins-configuration: prepare-a-production-environment/sensitive-data-management/configure-secret-provider-plugins.md
@@ -1627,6 +1659,7 @@ redirects:
  4.7/create-apis/v4-api-creation-wizard: create-and-configure-apis/create-apis/v4-api-creation-wizard.md
  4.7/developer-portal/classic-developer-portal/settings: developer-portal/classic-developer-portal/portal-settings.md
  4.7/developer-portal/overview: developer-portal/README.md
+ 4.7/expose-apis/applications: kafka-gateway/applications.md
  4.7/expose-apis/applications/global-settings: secure-and-expose-apis/applications/global-settings.md
  4.7/expose-apis/applications/metadata: README.md
  4.7/expose-apis/applications/notifications: README.md
@@ -1725,12 +1758,14 @@ redirects:
  4.7/install-and-upgrade/rpm/troubleshooting: self-hosted-installation-guides/rpm/troubleshooting.md
  4.7/install-and-upgrade/rpm/upgrade-with-rpm: upgrade-guides/upgrade-with-rpm.md
  4.7/install-and-upgrade/upgrade-guide: README.md
+ 4.7/kafka-gateway/applications: secure-and-expose-apis/applications/create-an-application.md
  4.7/kafka-gateway/configure-kafka-apis/configuration: kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/configuration.md
  4.7/kafka-gateway/configure-kafka-apis/consumers: kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/consumers.md
  4.7/kafka-gateway/configure-kafka-apis/deployment: kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/deployment.md
  4.7/kafka-gateway/configure-kafka-apis/documentation: kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/documentation.md
  4.7/kafka-gateway/configure-kafka-apis/endpoints: kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/endpoints.md
  4.7/kafka-gateway/configure-kafka-apis/entrypoints: kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/entrypoints.md
+ 4.7/kafka-gateway/configure-kafka-apis/policies: kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/policies.md
  4.7/kafka-gateway/configure-kafka-apis/policies/kafka-acl: create-and-configure-apis/apply-policies/policy-reference/kafka-acl.md
  4.7/kafka-gateway/configure-kafka-apis/policies/kafka-quota: create-and-configure-apis/apply-policies/policy-reference/kafka-quota.md
  4.7/kafka-gateway/configure-kafka-apis/policies/kafka-topic-mapping: create-and-configure-apis/apply-policies/policy-reference/kafka-topic-mapping.md
@@ -1739,6 +1774,7 @@ redirects:
  4.7/kafka-gateway/configure-the-kafka-gateway-and-client: kafka-gateway/configure-the-kafka-client-and-gateway.md
  4.7/kafka-gateway/create-kafka-apis: kafka-gateway/create-and-configure-kafka-apis/create-kafka-apis.md
  4.7/kafka-gateway/overview: kafka-gateway.md
+ 4.7/kafka-gateway/subscriptions: secure-and-expose-apis/subscriptions/subscription-requests.md
  4.7/management-api/management-api-reference: management-api-reference.md
  4.7/management-api/management-settings: configure-and-manage-the-platform/management-api/settings.md
  4.7/management-api/mapi-internal-api: configure-and-manage-the-platform/management-api/mapi-internal-api.md
@@ -1762,3 +1798,8 @@ redirects:
  4.9/create-and-configure-apis/apply-policies/policy-reference/4.9-groovy: create-and-configure-apis/apply-policies/policy-reference/groovy.md
  4.9/create-and-configure-apis/apply-policies/policy-reference/4.9-jwt-validator: create-and-configure-apis/apply-policies/policy-reference/jwt-validator.md
  4.9/prepare-a-production-environment/sensitive-data-management/configure-secrets/reference-secrets-in-configurations: prepare-a-production-environment/sensitive-data-management/apply-secrets-to-configurations.md
+ 4.9/readme/community-forum: introduction/community-forum.md
+ 4.9/readme/contribute-to-apim: introduction/contribute-to-apim.md
+ 4.9/readme/core-concepts: introduction/core-concepts.md
+ 4.9/readme/enterprise-edition: introduction/enterprise-edition.md
+ 4.9/readme/integrations: introduction/integrations.md
