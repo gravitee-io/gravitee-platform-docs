@@ -45,7 +45,7 @@ In your `docker.yml` file, you must set the following environment variables:
 {% tab title="Kubernetes" %}
 Kubernetes&#x20;
 
-* In your `vaules.yml` file, set the following environment variable, navigate to `portal`, and then set the following environment variable: `defaultPortal: "next"`.
+* In your `values.yml` file, set the following environment variable, navigate to `portal`, and then set the following environment variable: `defaultPortal: "next"`.
 {% endtab %}
 
 {% tab title="Cloud" %}
