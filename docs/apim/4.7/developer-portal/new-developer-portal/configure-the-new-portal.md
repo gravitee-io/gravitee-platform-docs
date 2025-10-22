@@ -36,19 +36,29 @@ To configure Gravitee to default to the new Developer Portal, complete the follo
 
 {% tabs %}
 {% tab title="Docker" %}
-In your `docker.yml` file, you must set the following environment variables:
+In your `docker-compose.yml` file, you must set the following environment variables:
 
-1. Navigate to `management_ui`, and then set the following environment variable: `DEFAULT_PORTAL=next`.&#x20;
-2. Navigate to `portal_ui`, and then set the following environment variable: `DEFAULT_PORTAL=next`.
+1. In your `management_ui` service, set the following environment variable: `DEFAULT_PORTAL=next`
+2. In your `portal_ui` service, set the following environment variable: `DEFAULT_PORTAL=next`
+
 {% endtab %}
 
 {% tab title="Kubernetes" %}
 Kubernetes&#x20;
 
-* In your `values.yml` file, set the following environment variable, navigate to `portal`, and then set the following environment variable: `defaultPortal: "next"`.
+In your `values.yml` file, add this configuration:
+```yml
+  ...
+  portal:
+    ...
+    defaultPortal: next
+    ...
+  ```
 {% endtab %}
 
 {% tab title="Cloud" %}
-* In the your `values.yaml`, set the following, add the following environment variable: `defaultPortal: "next"`.
+
+Contact us
+
 {% endtab %}
 {% endtabs %}
