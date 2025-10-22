@@ -12,8 +12,8 @@
 * [vanilla-kubernetes](next-gen-cloud/kubernetes/vanilla-kubernetes/ "mention")
 * [AWS EKS](next-gen-cloud/kubernetes/aws-eks.md)
 * [azure-aks.md](next-gen-cloud/kubernetes/azure-aks.md "mention")
+* [OpenShift](next-gen-cloud/kubernetes/openshift.md)
 * GCP GKE
-* [Broken link](broken-reference "mention")
 
 #### RPM
 
