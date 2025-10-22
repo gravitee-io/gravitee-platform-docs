@@ -1,26 +1,28 @@
 # Local Install with Docker
 
-### Prerequisites
+## Prerequisites
 
-* You must install Docker. For more information about installing Docker, go to [Docker Desktop](https://docs.docker.com/desktop/).
-* You must create a working directory for Gravitee.
+* Install Docker. For more information about installing Docker, see [Docker Desktop](https://docs.docker.com/desktop/).
+* Create a working directory for Gravitee.
+* **(Enterprise Edition only)** Obtain a license key. For more information about Enterprise Edition, see [enterprise-edition.md](../readme/enterprise-edition.md "mention").
 
-### Installing Gravitee API Management with Docker
+## Install Gravitee API Management with Docker
 
-1.  Download the `docker-compose.yml` file as `docker-compose-apim.yml` using the following command:
+1.  Download the `docker-compose.yml` file to your working directory as `docker-compose-apim.yml` using the following command:
 
     ```bash
     curl -L https://bit.ly/docker-apim-4x -o docker-compose-apim.yml
     ```
-2. (**Enterprise Edition only**) Add you license key by completing the follow sub-steps:
-   1. &#x20;In a text editor, open `docker-compose-apim.yml.`
-   2. Navigate to `$services.management_api.volumes`.&#x20;
-   3.  On a new line, add the path to the license key. This addition ensures that the Management API can access the licensing key.
+2. **(Enterprise Edition only)** In your working directory, create a sub-folder called `gravitee`, and then add your license key to this sub-folder.
+3. **(Enterprise Edition only)** Add your license key to your `docker-compose-apim.yml` by completing the following sub-steps:
+   1. In a text editor, open `docker-compose-apim.yml`.
+   2. Navigate to `$services.management_api`, and then add a `volumes` section.
+   3.  In the volumes section, add the path to the license key. This addition ensures that the Management API can access the license key.
 
-       ```bash
+       ```yaml
        - ./gravitee/license.key:/opt/graviteeio-management-api/license/license.key
        ```
-3.  Start the components using the following command:&#x20;
+4.  Start the components using the following command:&#x20;
 
     ```bash
     docker compose -f docker-compose-apim.yml up -d
@@ -30,13 +32,11 @@
 APIM can take up to a minute to fully initialize with Docker.&#x20;
 {% endhint %}
 
-### **Verification**
+## **Verification**
 
-Once Docker is initialized, you can access the Console and the Developer Portal by following the following steps:&#x20;
+* To open the APIM Console, go to `http://localhost:8084`. The default username and password are both `admin`.
+* To open the Developer Portal, go to `http://localhost:8085`. The default username and password are both `admin`.
 
-1. To open the Console, start your browser, and then go to [http://localhost:8084](http://localhost:8084).
-   * Default username: admin
-   * Default password: admin
-2. To open the Developer Portal, start your browser, and then go to [http://localhost:8085](http://localhost:8085).
-   * Default username: admin
-   * Default password: admin
+## Next steps
+
+* Create your first API. For more information about creating your first API, see [create-and-publish-your-first-api](../how-to-guides/create-and-publish-your-first-api/ "mention").
