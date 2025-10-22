@@ -1,5 +1,9 @@
 # Local Install with Docker
 
+{% hint style="warning" %}
+This installation guide is for only development and quick start purposes. Do not use it for production environments. For more information about best practices for production environments, contact Gravitee.
+{% endhint %}
+
 ## Prerequisites
 
 * Install Docker. For more information about installing Docker, see [Docker Desktop](https://docs.docker.com/desktop/).
