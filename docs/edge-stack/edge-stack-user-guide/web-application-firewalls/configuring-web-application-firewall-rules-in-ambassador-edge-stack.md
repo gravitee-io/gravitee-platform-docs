@@ -15,9 +15,9 @@ When writing your own firewall rules, it's important to consider a few ways that
 Ambassador Labs publishes and maintains a set of firewall rules that are ready to use. The latest version of the Ambassador Labs Web Application Firewall ruleset can be downloaded with these commands:
 
 ```bash
-wget https://app.getambassador.io/download/waf/v1-20230825/aes-waf.conf
-wget https://app.getambassador.io/download/waf/v1-20230825/crs-setup.conf
-wget https://app.getambassador.io/download/waf/v1-20230825/waf-rules.conf
+wget https://app.getambassador.io/download/waf/v1-20251023/aes-waf.conf
+wget https://app.getambassador.io/download/waf/v1-20251023/crs-setup.conf
+wget https://app.getambassador.io/download/waf/v1-20251023/waf-rules.conf
 ```
 
 Each file must be imported into Ambassador Edge Stack's Web Application Firewall in the following order:
@@ -37,6 +37,16 @@ If you'd like to customize the Ambassador Labs default ruleset, you can load you
 ### Web Application Firewall Rules Release Notes <a href="#web-application-firewall-rules-release-notes" id="web-application-firewall-rules-release-notes"></a>
 
 To install any of the rules below, import all the files for the desired version in the order they are listed.
+
+#### Version v1-20251023 <a href="#version-v1-20230825" id="version-v1-20230825"></a>
+
+Added variables which Coraza uses to bypass warning logs.
+
+Files:
+
+* [aes-waf.conf](https://app.getambassador.io/download/waf/v1-20251023/aes-waf.conf)
+* [crs-setup.conf](https://app.getambassador.io/download/waf/v1-20251023/crs-setup.conf)
+* [waf-rules.conf](https://app.getambassador.io/download/waf/v1-20251023/waf-rules.conf)
 
 #### Version v1-20230825 <a href="#version-v1-20230825" id="version-v1-20230825"></a>
 
