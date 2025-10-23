@@ -11,7 +11,6 @@ This guide explains how to configure CORS settings for Security Domains, includi
 In AM, CORS configuration at the Security Domain level is important for scenarios like:
 
 * When frontend applications are hosted on different domains than the AM Gateway and need to make cross-origin requests.
-* The "try-it" feature of Swagger pages for API testing is enabled.
 * Single-page applications (SPAs) need to authenticate users.
 * Third-party applications integrate with and consume authentication endpoints.
 
