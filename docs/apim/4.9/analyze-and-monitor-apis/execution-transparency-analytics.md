@@ -73,7 +73,7 @@ Execution Transparency Analytics categorizes diagnostics into two types based on
 
 #### **Errors**
 
-`ExecutionFailure` represents a fatal error that interrupts request processing. For example: Invalid API key `401` , Backend connection failure `502` , Request timeout `504`  Expression language evaluation error `500` .
+`ExecutionFailure` represents a fatal error that interrupts request processing. For example: Invalid API key `401` , Backend connection failure `502` , Request timeout `504` , Expression language evaluation error `500` .
 
 ### **Warnings**
 
