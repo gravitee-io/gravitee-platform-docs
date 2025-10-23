@@ -186,7 +186,7 @@ You can run the Edge Stack using either of the following methods:
     * Replace `<namespace>` with the Kubernetes namespace that has the API that you want to discover.
     * Replace `<true | false>` with either true of false depending on if you want to discover APIs for Emissary.
     * Replace `<base64 encoded value>` with&#x20;
-2.  Add the Gravitee Heml Chart repository using the following command:\
+2.  Add the Gravitee Helm Chart repository using the following command:\
 
 
     ```bash
