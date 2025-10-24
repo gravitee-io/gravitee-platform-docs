@@ -44,7 +44,7 @@ Gravitee automatically upgrades your maintenance version and patch version. This
 
 These upgrades happen when Gravitee needs to upgrade the infrastructure and dependencies. If there is a risk of downtime, Gravitee notifies you of the upgrade 30 days before the upgrade. If there is no risk  of downtime, Gravitee does not notify you.&#x20;
 
-elease Schedule.
+release Schedule.
 
 Gravitee automatically upgrades your Control plane.
 
