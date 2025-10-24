@@ -1,5 +1,50 @@
 # APIM 4.7.x
  
+## Gravitee API Management 4.7.17 - October 24, 2025
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Management API**
+
+* Flow id missing in create api response of V4 APIs [#10888](https://github.com/gravitee-io/issues/issues/10888)
+* Visibility flag is not getting updated as part of api creation using mAPI [#10895](https://github.com/gravitee-io/issues/issues/10895)
+* Federation Agent connection causes ThreadBlocked while fetching token [#10913](https://github.com/gravitee-io/issues/issues/10913)
+
+**Console**
+
+* Fetching groups for an application takes a really long time [#10709](https://github.com/gravitee-io/issues/issues/10709)
+
+**Other**
+
+* Webhook Entrypoint: Linear retry delay incorrectly interpreted as milliseconds instead of seconds [#10520](https://github.com/gravitee-io/issues/issues/10520)
+* Ensure IPv4 backward compatibility in docker images [#10859](https://github.com/gravitee-io/issues/issues/10859)
+* Requests blocked (403) when IP Filtering Policy contains both hostname and IP [#10866](https://github.com/gravitee-io/issues/issues/10866)
+* Inconsistency in portal sub-path configuration between IPv4 and IPv6 NGINX files [#10904](https://github.com/gravitee-io/issues/issues/10904)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Management API**
+
+* 502 Bad Gateway Error when backend response headers exceed endpoint size limit [#10863](https://github.com/gravitee-io/issues/issues/10863)
+
+**Console**
+
+* New updated API picture & background not visible without refreshing the page [#10857](https://github.com/gravitee-io/issues/issues/10857)
+* 502 Bad Gateway Error when backend response headers exceed endpoint size limit [#10863](https://github.com/gravitee-io/issues/issues/10863)
+
+**Helm Charts**
+
+* Gravitee Gateway removes password attribute from SSL section when password is empty string "" [#10861](https://github.com/gravitee-io/issues/issues/10861)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.7.16 - October 10, 2025
 <details>
 
