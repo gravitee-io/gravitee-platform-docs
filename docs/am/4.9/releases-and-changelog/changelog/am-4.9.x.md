@@ -15,7 +15,7 @@ description: >-
 **Gateway**
 
 * Account's password is expired error when using account linking [#10851](https://github.com/gravitee-io/issues/issues/10851)
-* Password policy apply to LDAP idp [#10874](https://github.com/gravitee-io/issues/issues/10874)
+* Password policy applies to LDAP IdP [#10874](https://github.com/gravitee-io/issues/issues/10874)
 * Fix performance degradation introduced in 4.9.0 [#10876](https://github.com/gravitee-io/issues/issues/10876)
 * Add Domain object to EL context for HTTP IDP [#10881](https://github.com/gravitee-io/issues/issues/10881)
 
