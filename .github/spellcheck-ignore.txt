@@ -1,6 +1,8 @@
 .ZIP
 ACLs
+aks
 AKS
+als
 ALS
 AM
 AMQP
