@@ -6,6 +6,33 @@ description: >-
 
 # APIM 4.5.x
  
+## Gravitee API Management 4.5.29 - October 24, 2025
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Management API**
+
+* V4 - Flow id missing in create api response, plan is not created as part of same api [#10888](https://github.com/gravitee-io/issues/issues/10888)
+
+**Console**
+
+* Fetching groups for an application takes a really long time [#10709](https://github.com/gravitee-io/issues/issues/10709)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Console**
+
+* New updated API picture & background not visible without refreshing the page [#10857](https://github.com/gravitee-io/issues/issues/10857)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.5.28 - October 10, 2025
 <details>
 
