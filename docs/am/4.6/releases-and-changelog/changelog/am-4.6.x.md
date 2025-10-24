@@ -6,6 +6,30 @@ description: >-
 
 # AM 4.6.x
 
+## Gravitee Access Management 4.6.24 - October 24, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Account's password is expired error when using account linking [#10851](https://github.com/gravitee-io/issues/issues/10851)
+* Password policy apply to LDAP idp [#10874](https://github.com/gravitee-io/issues/issues/10874)
+
+**Management API**
+
+* Domain deletion does not remove all entities [#10899](https://github.com/gravitee-io/issues/issues/10899)
+
+
+
+**Other**
+
+* Make datasource configurable using helm values [#10884](https://github.com/gravitee-io/issues/issues/10884)
+
+</details>
+
+
 ## Gravitee Access Management 4.6.23 - October 10, 2025
 
 <details>
