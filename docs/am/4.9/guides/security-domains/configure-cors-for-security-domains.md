@@ -124,7 +124,7 @@ The following examples demonstrate common CORS configurations for different use 
 
 ### Basic Development Setup
 
-For development environments use the following confguration:
+For development environments use the following configuration:
 
 ```json
 {

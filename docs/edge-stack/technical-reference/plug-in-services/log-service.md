@@ -51,7 +51,7 @@ spec:
 apiVersion: getambassador.io/v3alpha1
 kind: LogService
 metadata:
-  name: als
+  name: ALS
 spec:
   service: "als.default:3000"
   driver: http

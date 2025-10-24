@@ -288,7 +288,7 @@ The following example shows a typical use case, where the `kubernetes` plugin co
 
 ```yaml
 secrets:
-  loadFirst: kubernetes  # tell Gravitee to load kubernetes forst
+  loadFirst: kubernetes  # tell Gravitee to load kubernetes first
   kubernetes:
     enabled: true
   vault:
