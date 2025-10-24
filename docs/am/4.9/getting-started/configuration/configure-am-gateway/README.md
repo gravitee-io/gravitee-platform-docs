@@ -122,28 +122,34 @@ gravitee.security.providers[0].users[1].password=password
 
 ### Configure HTTP server
 
+{% hint style="warning" %}
+Ensure that you set the `maxRequestSize`. If you do not set the max size request and a request exceeds the maximum request size, the Gateway returns a `400` error with the following message: `Size exceeded the maximum capacity.`
+{% endhint %}
+
 You can update the HTTP server configuration in the following section of the `gravitee.yml` file.
 
 {% code title="gravitee.yml" %}
 ```yaml
 http:
   port: 8092
+  host: 0.0.0.0
   idleTimeout: 0
   tcpKeepAlive: true
   compressionSupported: false
-  pool:
-    workers: 100
+  maxHeaderSize: 8192
+  maxChunkSize: 8192
+  maxInitialLineLength: 4096
+  maxFormAttributeSize: 2048
+  maxRequestSize: 2 # Maxiumum HTTP request size. The default size is 2KB. -1 means that there is no maximum request limit..
+  instances: 0
   secured: false
-  ssl:
-    clientAuth: false
-    keystore:
-      path:
-      password:
-    truststore:
-      path:
-      password:
+  alpn: false
 ```
 {% endcode %}
+
+### **Configure Max Size Request**
+
+
 
 ### **Enable HTTPS support**
 
