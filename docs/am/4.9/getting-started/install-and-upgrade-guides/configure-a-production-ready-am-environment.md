@@ -301,7 +301,7 @@ http:
   maxChunkSize: 8192
   maxInitialLineLength: 4096
   maxFormAttributeSize: 2048
-  maxRequestSize: 2 # Maxiumum HTTP request size. The default size is 2KB. -1 means that there is no maximum request limit.
+  maxRequestSize: 2 # Maximum HTTP request size. The default size is 2KB. -1 means that there is no maximum request limit.
   instances: 0
   secured: false
   alpn: false

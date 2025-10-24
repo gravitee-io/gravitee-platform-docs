@@ -159,14 +159,14 @@ api:
            enabled: true
            host: dev.vault.my.company.com
            ...
-        environements: ["db0d7ed4-387f-43c9-91b8-f479c9d1956b"]
+        environments: ["db0d7ed4-387f-43c9-91b8-f479c9d1956b"]
      - id: test
         plugin: vault
         configuration:
            enabled: true
            host: prod.vault.my.company.com
            ...
-        environements: ["bb204730-9e07-45c1-8ca1-ad351d4391a1"]
+        environments: ["bb204730-9e07-45c1-8ca1-ad351d4391a1"]
 ```
 
 You must use `id` . It creates an alias of the secret provider plugin. This lets you use the same plugin multiple times for a given Gateway without a naming collision. Also, it hides which secret manager is used. For example, API Publisher might not need to know the underlying technology.
