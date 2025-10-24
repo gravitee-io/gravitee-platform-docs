@@ -6,6 +6,34 @@ description: >-
 
 # AM 4.9.x
 
+## Gravitee Access Management 4.9.1 - October 24, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Account's password is expired error when using account linking [#10851](https://github.com/gravitee-io/issues/issues/10851)
+* Password policy apply to LDAP idp [#10874](https://github.com/gravitee-io/issues/issues/10874)
+* Fix performance degradation introduced in 4.9.0 [#10876](https://github.com/gravitee-io/issues/issues/10876)
+* Add Domain object to EL context for HTTP IDP [#10881](https://github.com/gravitee-io/issues/issues/10881)
+
+**Management API**
+
+* Domain deletion does not remove all entities [#10899](https://github.com/gravitee-io/issues/issues/10899)
+
+**Console**
+
+* Client secrets - Renew - Wording needs be altered [#10891](https://github.com/gravitee-io/issues/issues/10891)
+
+**Other**
+
+* Support posix groups in LDAP mappings [#10848](https://github.com/gravitee-io/issues/issues/10848)
+
+</details>
+
+
 #### Gravitee Access Management 4.9 - Oct 9, 2025 <a href="#gravitee-access-management-4.8" id="gravitee-access-management-4.8"></a>
 
 <details>
