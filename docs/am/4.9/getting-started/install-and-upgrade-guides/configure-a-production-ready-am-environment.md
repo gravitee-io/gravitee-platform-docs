@@ -278,7 +278,39 @@ http:
     - frame-ancestors 'none';
 ```
 
-## Step 8: Sending email
+## Step 8: Set the max request size for HTTP requests
+
+Set the max request size to a value that ensures that the Gateway receives all requests. The default size is 2kb. If you do not set the appropriate max request size, and then the Gateway receives a request that exceeds the maximum size, the Gateway returns a `400` error with the following message: `Size exceeded the maximum capacity`.
+
+To set the max request size, complete the following steps:&#x20;
+
+1. In your `gravitee.yml` file, navigate to the `http` section.&#x20;
+2. Add the `maxRequestSize` configuration with the maximum size value. The default size is 2KB. If you do not want a limit, set the size to -1.
+
+Here is an example `gravitee.yml` file with the `maxRquestSize` set:
+
+{% code title="gravitee.yml" %}
+```yaml
+http:
+  port: 8092
+  host: 0.0.0.0
+  idleTimeout: 0
+  tcpKeepAlive: true
+  compressionSupported: false
+  maxHeaderSize: 8192
+  maxChunkSize: 8192
+  maxInitialLineLength: 4096
+  maxFormAttributeSize: 2048
+  maxRequestSize: 2 # Maxiumum HTTP request size. The default size is 2KB. -1 means that there is no maximum request limit.
+  instances: 0
+  secured: false
+  alpn: false
+```
+{% endcode %}
+
+
+
+## Step 9: Sending email
 
 The AM Management API and the AM Gateway are able to send email via the `email` section in the `gravitee.yaml` of each service.&#x20;
 
