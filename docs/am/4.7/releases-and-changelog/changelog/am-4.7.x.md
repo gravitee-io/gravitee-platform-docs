@@ -6,6 +6,28 @@ description: >-
 
 # AM 4.7.x
 
+## Gravitee Access Management 4.7.18 - October 24, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Account's password is expired error when using account linking [#10851](https://github.com/gravitee-io/issues/issues/10851)
+* Password policy apply to LDAP idp [#10874](https://github.com/gravitee-io/issues/issues/10874)
+
+**Management API**
+
+* Domain deletion does not remove all entities [#10899](https://github.com/gravitee-io/issues/issues/10899)
+
+
+
+
+
+</details>
+
+
 ## Gravitee Access Management 4.7.17 - October 13, 2025
 
 <details>
