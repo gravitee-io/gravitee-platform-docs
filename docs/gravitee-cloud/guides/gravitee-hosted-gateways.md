@@ -125,7 +125,7 @@ Tenant tags help route API requests to upstream services based on the Gateway's 
 
 To update Sharding tags or Tenant tags on an existing Gateway, complete the following steps:
 
-1.  Navigate to your Gravitee Cloud Dashboard, and then click the Gateway nam&#x65;**.** \
+1.  Navigate to your Gravitee Cloud Dashboard, and then click the Gateway name&#x65;**.** \
 
 
     <figure><img src="../.gitbook/assets/sharding-tags-gateway.png" alt=""><figcaption></figcaption></figure>

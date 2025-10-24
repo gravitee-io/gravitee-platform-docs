@@ -111,7 +111,7 @@ By default,  `retry` and `watch` are disabled.
 
 #### Alternative SSL configuration
 
-* To use an inline PEM, add the following configurtation:
+* To use an inline PEM, add the following configuration:
 
 ```yaml
 secrets:
