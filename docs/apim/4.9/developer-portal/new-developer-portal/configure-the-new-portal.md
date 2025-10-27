@@ -1,4 +1,4 @@
-# Configure the New Portal
+# Enable the New Developer Portal
 
 {% hint style="warning" %}
 This feature is in tech preview.&#x20;
@@ -6,49 +6,129 @@ This feature is in tech preview.&#x20;
 
 ## Overview
 
-Gravitee allows you to run either the classic or new Developer Portal, depending on your preference. You can configure Gravitee to use the new Developer Portal by enabling a setting. Gravitee launches the classic Developer Portal by default, but you can set the default to the new Developer Portal using environment variables.&#x20;
+The New Developer Portal has an updated interface and improved customization options. By default, Gravitee launches the Classic Developer Portal. But you can access, test, and preview the New Developer Portal using the API Management (APIM) Console. This does not change your default settings.&#x20;
 
-## Enable the new Developer Portal
+For self-hosted installations and hybrid deployments of Gravitee, you can set the New Developer Portal as the default experience by setting the appropriate configurations in your `docker-compose-apim.yml` file or `values.yaml` file. If you use Gravitee Cloud, and you want to set the New Developer Portal as the default experience, contact Gravitee.&#x20;
 
-To configure Gravitee to use the new Developer Portal:
+## Enable the New Developer Portal
 
-1. Log in to your APIM Console.
-2.  From the home page, click **Settings**.\
-
-
-    <figure><img src="../../.gitbook/assets/image (268).png" alt=""><figcaption></figcaption></figure>
-3.  In the **Portal** section of the settings menu, click **Settings**.\
+1.  From the **Dashboard**, click **Settings**. \
 
 
-    <figure><img src="../../.gitbook/assets/image (269).png" alt=""><figcaption></figcaption></figure>
-4.  Navigate to the **New Developer Portal** section, and then turn on the **Enable the New Developer Portal** toggle.\
+    <figure><img src="../../.gitbook/assets/image (436).png" alt=""><figcaption></figcaption></figure>
+2.  In the **Portal** section of the **Settings** menu, click **Settings**.\
 
 
-    <figure><img src="../../.gitbook/assets/image (270).png" alt=""><figcaption><p>New Developer Portal section</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (438).png" alt=""><figcaption></figcaption></figure>
+3.  Navigate to the **New Developer Portal** section, and then turn on the **Enable the New Developer Portal** toggle.\
 
-To verify that the new theme is enabled, click the **Open Website** button. The new Developer Portal should launch.&#x20;
 
-## Use the new Developer Portal by default
+    <figure><img src="../../.gitbook/assets/image (440).png" alt=""><figcaption></figcaption></figure>
+4.  In the **You have unsaved changes** pop-up window, click **Save**.\
 
-You also have the option to enable the new Developer Portal by default. This is done by setting environment variables.
 
-To configure Gravitee to default to the new Developer Portal, complete the following steps for your installation type:
+    <figure><img src="../../.gitbook/assets/image (441).png" alt=""><figcaption></figcaption></figure>
+
+### Verification
+
+*   Click the **Open Website** button. The New Developer Portal opens in a new tab. \
+
+
+    <figure><img src="../../.gitbook/assets/image (442).png" alt=""><figcaption></figcaption></figure>
+
+## Set the New Developer Portal as default
+
+To configure Gravitee to use the New Developer Portal by default, complete the following steps for your installation type:
 
 {% tabs %}
 {% tab title="Docker" %}
-In your `docker.yml` file, you must set the following environment variables:
+1. In your `docker-compose-apim.yml` file, you must set the following environment variables:
+   1. Navigate to `management_ui`, and then set the following environment variable: `DEFAULT_PORTAL=next`.&#x20;
+   2. Navigate to `portal_ui`, and then set the following environment variable: `DEFAULT_PORTAL=next`.
 
-1. Navigate to `management_ui`, and then set the following environment variable: `DEFAULT_PORTAL=next`.&#x20;
-2. Navigate to `portal_ui`, and then set the following environment variable: `DEFAULT_PORTAL=next`.
+Here is an example of the environmental variables set in a `docker-compose-apim.yml` file:
+
+```yaml
+  management_ui:
+    image: graviteeio/apim-management-ui:${APIM_VERSION:-4}
+    container_name: gio_apim_management_ui
+    restart: always
+    ports:
+      - "8084:8080"
+    depends_on:
+      - management_api
+    environment:
+      - MGMT_API_URL=http://localhost:8083/management/organizations/DEFAULT/environments/DEFAULT/
+      - DEFAULT_PORTAL=next
+    networks:
+      - frontend
+
+  portal_ui:
+    image: graviteeio/apim-portal-ui:${APIM_VERSION:-4}
+    container_name: gio_apim_portal_ui
+    restart: always
+    ports:
+      - "8085:8080"
+    depends_on:
+      - management_api
+    environment:
+      - PORTAL_API_URL=http://localhost:8083/portal/environments/DEFAULT
+      - DEFAULT_PORTAL=next
+    networks:
+      - frontend 
+```
+
+2.  Restart APIM using the following commands:\
+
+
+    ```bash
+    docker compose -f docker-compose-apim.yml down
+    docker compose -f docker-compose-apim.yml up -d
+    ```
 {% endtab %}
 
 {% tab title="Kubernetes" %}
-Kubernetes&#x20;
+1.  In your `values.yml` file, navigate to the `portal` section, and then set `defaultPortal` to `"next"`:\
 
-* In your `vaules.yml` file, set the following environment variable, navigate to `portal`, and then set the following environment variable: `defaultPortal: "next"`.
+
+    ```yaml
+    portal:
+      defaultPortal: "next"
+      enabled: true
+      ingressClassName: nginx
+      scheme: http
+      pathType: Prefix
+      path: /portal
+      hosts:
+            - apim.localhost
+      annotations:
+        nginx.ingress.kubernetes.io/enable-cors: "true"
+        nginx.ingress.kubernetes.io/cors-allow-origin: "*"
+        nginx.ingress.kubernetes.io/cors-allow-methods: "GET, POST, PUT, DELETE, OPTIONS"
+        nginx.ingress.kubernetes.io/cors-allow-headers: "Authorization, Content-Type, X-Requested-With, Accept, Origin"
+    ```
+2.  Restart APIM using the following commands:\
+
+
+    ```bash
+    helm upgrade gravitee-apim gravitee/apim \
+      --namespace gravitee-apim \
+      -f ./values.yaml
+    ```
 {% endtab %}
 
 {% tab title="Cloud" %}
-* In the your `values.yaml`, set the following, add the following environment variable: `defaultPortal: "next"`.
+* To enable the New Developer Portal in your Gravitee Cloud account, Contact Gravitee.
 {% endtab %}
 {% endtabs %}
+
+### Verification&#x20;
+
+*   In the APIM Console, click **Developer Portal**. The New Developer Portal opens in a new tab.\
+
+
+    <figure><img src="../../.gitbook/assets/image (443).png" alt=""><figcaption></figcaption></figure>
+
+## Next Steps
+
+* Customize your New Developer Portal. For more information about customizing your New Developer Portal, see [layout-and-theme.md](layout-and-theme.md "mention") and [customize-the-homepage.md](customize-the-homepage.md "mention").

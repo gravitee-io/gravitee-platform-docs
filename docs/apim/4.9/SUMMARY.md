@@ -251,7 +251,7 @@
     * [Transfer Subscriptions](secure-and-expose-apis/subscriptions/transfer-subscriptions.md)
 * [Developer Portal](developer-portal/README.md)
   * [New Developer Portal](developer-portal/new-developer-portal/README.md)
-    * [Configure the New Portal](developer-portal/new-developer-portal/configure-the-new-portal.md)
+    * [Enable the New Developer Portal](developer-portal/new-developer-portal/configure-the-new-portal.md)
     * [Layout and Theme](developer-portal/new-developer-portal/layout-and-theme.md)
     * [Customize the homepage](developer-portal/new-developer-portal/customize-the-homepage.md)
     * [Application Logs](developer-portal/new-developer-portal/application-logs.md)
