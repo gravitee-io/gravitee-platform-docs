@@ -33,7 +33,7 @@ These enhancements include more structured, descriptive status information that 
 
 Prerequisites
 - Gravitee Kubernetes Operator version 4.9.0 or above
-- A Kubernetes cluster with the GKO installed. For more information about installing GKO, see [https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/getting-started/quickstart-guide](Quick Start Guide)
+- A Kubernetes cluster with the GKO installed. For more information about installing GKO, see [Quick Start Guide](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/getting-started/quickstart-guide)
 - Access to view CRDs with `kubectl get` commands
 
 ## Viewing CRD Status
