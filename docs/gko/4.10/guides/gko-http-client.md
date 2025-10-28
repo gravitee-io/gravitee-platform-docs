@@ -1,4 +1,29 @@
-# Configure GKO TrustStore
+# GKO HTTP Client
+
+## Configure GKO HTTP Proxy
+If GKO needs to connect to APIM via a proxy, you can provide the proxy settings using the following values.yaml
+
+```yaml
+manager:
+  httpClient:
+    proxy:
+      enabled: true
+      url: "YOUR_PROXY_SERVER" # The proxy url eg: http://localhost:8080 or socks5://localhost:1080
+      username: "MY_USERNAME" # The proxy username if authentication is needed
+      password: "MY_PASSWORD" # The proxy password if authentication is needed
+```
+
+It is also possible to set the proxy via an environment variable. In this case you can install GKO withe the following settings and the app will use your pre-defined env HTTP_PROXY, HTTPS_PROXY or NO_PROXY (or their lowercase versions)
+```yaml
+manager:
+  httpClient:
+    proxy:
+      enabled: true
+      useSystemProxy: true
+```
+
+
+## Configure GKO HTTP client TrustStore
 
 If you have self-signed certificates, you can easily configure GKO to use your CA certificate and connect to APIM securely. First of all make sure that you already created a secret using you CA pem in your cluster
 
