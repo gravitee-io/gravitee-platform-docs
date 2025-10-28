@@ -2,82 +2,82 @@
 description: RBAC customization for GKO
 ---
 
-# RBAC customization
+
+# RBAC Customization
 
 ## Introduction
 
-Kubernetes role-based access control (RBAC) mechanism is a method of regulating access to computer or network resources based on the roles of individual users within your organization. When you use RBAC, you must be familiar with the following two modes (scopes) that you can install GKO in:
+The Kubernetes Role-Based Access Control (RBAC) mechanism is essential for regulating access to cluster resources. When deploying the Gravitee Kubernetes Operator (GKO), it's crucial to understand the two primary operational modes (scopes) that dictate its required permissions:
 
-* Cluster scope
-* Namespaced Mode
+* Cluster Scope
+* Namespaced Scope
 
 ### Cluster Scope
 
-With Cluster scope, there is normally a single Gravitee Kubernetes Operator (GKO) instance running in the cluster that is watching several namespaces in the cluster. In this case, GKO needs to have Cluster-Role and Cluster-Role-bindings assigned to it to have access to different resources. For example, CRDs or secrets, and ConfigMaps in different namespaces.
+In Cluster Scope, a single GKO instance typically runs within the cluster, monitoring resources across multiple namespaces. To function effectively, the GKO requires ClusterRole and ClusterRoleBinding resources. These grant the necessary cluster-level access to various resources, such as Custom Resource Definitions (CRDs) and Secrets or ConfigMaps residing in different namespaces.
 
-### Namespaced Mode
+### Namespaced Scope
 
-With Namespaced Mode, GKO only listens to a single namespace or specific namespaces. So, it does not need to have broad access to all the resources at the cluster level.
+In Namespaced Scope, the GKO only monitors a single namespace or a predefined list of specific namespaces. Consequently, it does not require the broad, cluster-level access needed in the Cluster Scope mode.
 
-## Required Resources for GKO
+## Required Resources
 
-The following diagram provides a visual breakdown of the resources GKO might need access to, along with the corresponding permissions required for each.
+The following diagram provides a visual breakdown of the resources the GKO might need access to, along with the corresponding permissions required for each.
 
-<figure><img src="../../.gitbook/assets/image (18).png" alt=""><figcaption><p>GKO required permissions</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (18).png" alt=""><figcaption><p>GKO Required Permissions</p></figcaption></figure>
 
-GKO needs access to the following resources:
+The GKO requires access to the following resources:
 
-1. **GKO Admission/Mutation webhooks**: We create the following two webhooks, and we need to have GET/UPDATE access to them: _gko-validating-webhook-configurations_ and _gko-mutating-webhook-configurations._
-2. **All GKO CRDs**: GKO needs to have access to all our CRDs and their finalizers. For example, APIDefinition, Application, and Subscription.
-3. We expect at least the following access to our resources: GET, UPDATE, LIST and WATCH. For finalizers, we need to have UPDATE access to our finalizers. If you want GKO to automatically apply CRD updates on "helm upgrades", then GKO also needs to be able to GET, CREATE, and PATTCH our CRDs at the cluster level.
-4. **ConfigMaps**: We might need to have access to ConfigMaps for 2 reasons:
-   1. You try to use GKO [templating](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/guides/templating). For more information about templating, see [templating.md](../../guides/templating.md "mention").
-   2. You do not want to use APIM, and you want to only install our CRDs locally. In this case, GKO writes the API definitions to ConfigMaps. GKO needs the proper permissions to CREATE, UPDATE, LIST, and DELETE ConfigMaps.
-5. **Secrets**: GKO needs to have GET, CREATE and UPDATE access to its secret, which is used for our Admission/Mutation webhook. By default, it is called **gko-webhook-cert**. Also, if you are using GKO templating, we might need to have access to your secrets. For more information about templating, see [templating.md](../../guides/templating.md "mention"). If you use GKO to handle your ingress resources, GKO needs access to all the secrets that are referred to inside your Ingress resources.
-6. **Ingress**: If you want APIM Gateway as your ingress controller, GKO needs the following access to your Ingress Resources, GET, UPDATE, WATCH and LIST.
-7. **Tokenreviews**: If you want to enable, GKO rbacProxy, we need to have Cluster-Role to create this resource.
+1.  GKO Admission/Mutation Webhooks: The Operator creates the following two webhooks and requires GET/UPDATE access to them: gko-validating-webhook-configurations and gko-mutating-webhook-configurations.
+2.  All GKO CRDs: The GKO requires access to all its CRDs and their finalizers (e.g., APIDefinition, Application, and Subscription). The expected access level for the CRD resources is GET, UPDATE, LIST, and WATCH. For finalizers, UPDATE access is required. If you configure the GKO to automatically apply CRD updates during Helm upgrades, the GKO will also need GET, CREATE, and PATCH access to its CRDs at the cluster level.
+3.  ConfigMaps: Access to ConfigMaps may be required for two reasons:
+    a. You are using GKO templating for dynamic configuration (for more information, see [templating.md](../../guides/templating.md "mention")).
+    b. You are deploying CRDs locally without using APIM. In this scenario, the GKO writes the API definitions to ConfigMaps and requires the proper permissions (CREATE, UPDATE, LIST, and DELETE) to manage these resources.
+4.  Secrets: The GKO requires GET, CREATE, and UPDATE access to its dedicated secret (default name: gko-webhook-cert), which is used for the Admission/Mutation webhook. If you use GKO templating, the GKO may also require access to your specific secrets (for more information, see [templating.md](../../guides/templating.md "mention")). Additionally, if the GKO is managing your Ingress resources, it will need access to all Secrets referenced within those resources.
+5.  Ingress: If you intend to use the APIM Gateway as your ingress controller, the GKO requires the following access to your Ingress Resources: GET, UPDATE, WATCH, and LIST.
+6.  TokenReviews: To enable the optional GKO rbacProxy, a ClusterRole is needed to allow the GKO to create this resource.
 
-## Default RBAC Settings in GKO
+## Default RBAC Settings
 
-Salesforce example, you might have DEV, TEST, PROD environments, or you have different namespaces for each team. 2. GET, UPDATE, WATCH, and LIST access to all Secrets and ConfigMaps in the whole cluster. GKO needs this access for the following reasons:
+The default RBAC configuration grants the GKO access for the following primary reasons:
 
-1. We assume that people use GKO templating in different namespaces, and GKO needs to have access to these two resources.
-2. if you want to apply the CRDs locally without relying on Management Context and mAPI console, GKO also need to CREATE/DELETE ConfigMaps .
-3. GET, CREATE, UPDATE to the secret that we create or update for our Admission and Mutation Webhooks. By default, this secret is called **"gko-webhook-cert"** .
-4. Create and update access to our Admission and Mutation webhook resources.
+1.  It is assumed that users may utilize GKO templating across different namespaces, necessitating access to the related resources.
+2.  To support users who apply CRDs locally without relying on a Management Context or mAPI console, the GKO requires CREATE/DELETE access to ConfigMaps.
+3.  It requires GET, CREATE, and UPDATE access to the secret (gko-webhook-cert by default) created or updated for the Admission and Mutation Webhooks.
+4.  It requires CREATE and UPDATE access to the Admission and Mutation webhook resources themselves.
 
 ## Modify GKO RBAC Settings
 
-Here are the following values that you can use to adjust RBAC.
+The following values can be used in your Helm chart to adjust the GKO's RBAC settings.
 
 ```yaml
 manager:
   scope:
-    cluster: true # set to false so GKO will listen only to its own Namespace
+    cluster: true # set to false for Namespaced Scope: GKO will only watch its own Namespace
 
-    # you can specify namespaces that GKO is listening to 
-    # please bear in mind that if you set namespaces in here, then you need to keep the cluster scope as "true"
+    # You can specify namespaces that GKO monitors.
+    # Note: If namespaces are explicitly set here, the 'cluster' scope must remain 'true'.
     namespaces: ["ns1", "ns2", "ns3"]
 
   # This feature is deprecated and will be replaced in a future release. If true, the manager will patch Custom Resource Definitions on startup.
-  applyCRDs: true # set to false if you want to manually apply latest GKO CRDs in your cluster
+  applyCRDs: true # set to false if you want to manually apply the latest GKO CRDs in your cluster
 
   webhook:
     cert:
       secret:
-        name: gko-webhook-cert # you can change the secret name if needed
-
+        name: gko-webhook-cert # The secret name can be customized
+        
 rbac:
-  create: true # set to false if you don't want GKO to create/configure RBAC
-```
+  create: true # set to false if you don't want GKO to automatically create/configure RBAC
+````
 
 ### Cluster Scope
 
-By default, GKO applies its RBAC using Cluster-Role and Cluster-Role-Binding in cluster scope. You do not need to modify anything.
+By default, the GKO applies its RBAC configuration using a ClusterRole and ClusterRoleBinding at the cluster level. No modification is required for this default behavior.
 
 ### Namespaced Scope
 
-If you use GKO on specific namespaces, you have to sue the following values to allow GKO modify RBAC for you:
+If you want the GKO to monitor a specific list of namespaces, use the following configuration to allow the GKO to modify the necessary RBAC resources:
 
 ```yaml
 manager:
@@ -86,11 +86,11 @@ manager:
     namespaces: ["ns1", "ns2", "ns3"]
 ```
 
-In this case, GKO only has access to the resources in those specified namespaces.
+With this setting, the GKO will only have access to resources within the specified namespaces.
 
 ### Single Namespaced Scope
 
-If you want GKO to watch only its namespace, you can set the following helm values:
+To configure the GKO to only monitor its own namespace, set the following Helm values:
 
 ```yaml
 manager:
@@ -98,33 +98,35 @@ manager:
     cluster: false
 ```
 
-With this configuration, GKO does not have access to any other namespaces for resources like Secrets or ConfigMaps.
+In this configuration, the GKO will not have access to resources like Secrets or ConfigMaps in any other namespace.
 
 ### Disable GKO RBAC Creation
 
-To disable GKO RBAC creation, see the following values in your helm chart:
+To prevent the GKO from automatically creating and configuring RBAC resources, use the following values in your Helm chart:
 
 ```yaml
 serviceAccount:
-  create: false  # GKO will not create SA automatically
-  name: gko-controller-manager # You can also modify the name if needed
+  create: false  # GKO will not create the Service Account automatically
+  name: gko-controller-manager # The ServiceAccount name can also be modified
 
 rbac:
-  create: false # GKO will NOT create any RBAC automatically
+  create: false # GKO will NOT create any RBAC resources automatically
 ```
 
 ## Customizing RBAC Manually
 
-You can customize RBAC with Gravitee's RBAC templates. To learn more about Gravitee's templates, go to Gravitee's following GitHub repository:
+You can manually customize the RBAC settings using Gravitee's provided RBAC templates. To review these templates, refer to the following files in the Gravitee Kubernetes Operator GitHub repository:
 
-* If you are deploying to a single namespace, go to the [manager-role.yaml](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/helm/gko/templates/rbac/manager-role.yaml).&#x20;
-* If you are deploying to multiple namespaces, go to [manager-cluster-role.yaml](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/helm/gko/templates/rbac/manager-cluster-role.yaml).
+  * For single-namespace deployments: [manager-role.yaml](https://www.google.com/search?q=https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/helm/gko/templates/rbac/manager-role.yaml)
+  * For multi-namespace (cluster) deployments: [manager-cluster-role.yaml](https://www.google.com/search?q=https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/helm/gko/templates/rbac/manager-cluster-role.yaml)
 
-Here is a summary of what is needed for GKO to work properly:
+Here is a summary of the minimum permissions required for the GKO to function correctly:
 
 ### Required Permissions for GKO CRDs
 
-* GKO needs GET, UPDATE, WATCH and LIST to all our CRDs. GKO needs to reconcile your resources when they are applied. This can be both Role or ClusterRole. Here is a generic ClusterRole example that you can apply in your cluster:
+The GKO requires GET, UPDATE, WATCH, and LIST access to all of its CRDs to reconcile the resources when they are applied. This access can be granted via a Role (for Namespaced Scope) or a ClusterRole (for Cluster Scope).
+
+Below is a generic ClusterRole example:
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -283,7 +285,7 @@ rules:
       - subscriptions
 ```
 
-* GKO ClusterRole to GET, CREATE, PATCH our CRDs, only if you want GKO to apply the updated versions of our CRDs on "helm upgrades". If you want to do this manually, there is no reason to provide this access.
+A second ClusterRole is needed to grant the GKO GET, CREATE, and PATCH access to its CRDs only if you want the GKO to apply updated CRD versions during Helm upgrades. If you prefer to manage CRD updates manually, this access is not required.
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -324,7 +326,7 @@ rules:
 
 ### GKO Admission/Mutation Webhooks
 
-* **ClusterRole is required** for Admission/Mutation webhooks. For more information about GKO Admission/Mutation Webhooks, go to [admission-webhook-cluster-role.yaml in our GitHub repository.](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/helm/gko/templates/rbac/admission-webhook-cluster-role.yaml)
+A ClusterRole is required for the Admission/Mutation webhooks. More details can be found in the [admission-webhook-cluster-role.yaml file in the GitHub repository.](https://www.google.com/search?q=https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/helm/gko/templates/rbac/admission-webhook-cluster-role.yaml)
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -354,11 +356,11 @@ rules:
 
 ### (Optional) ConfigMaps
 
-* This can be applied in both Cluster or Namespaced mode
+Permissions for ConfigMaps can be applied in either Cluster or Namespaced scope.
 
-GKO can work without having access to any ConfigMaps. And if you don't want to use ConfigMaps for GKO Templating or if you don't want to deploy your CRDs locally, they you don't need to apply any changes for ConfigMaps.
+The GKO can operate without access to any ConfigMaps. If you do not plan to use ConfigMaps for GKO Templating or for deploying CRDs locally, you do not need to apply any ConfigMap-related permissions.
 
-But If you just want to use GKO templating and you already know the name of ConfigMaps that you might be using, then you can only give access to those specific ConfigMaps.
+If you are only using GKO templating and know the names of the ConfigMaps that will be used, you can limit access to those specific resources:
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -376,13 +378,13 @@ rules:
     resourceNames: ["my-cofig-1", "my-config-2"]
 ```
 
-If you want to apply CRDs locally, then you need to give GKO GET, CREATE, UPDATE, LIST and DELETE access to your ConfigMaps. This is because GKO needs to create/update and delete ConfigMaps for each APIDefinition CRD.
+If you intend to apply CRDs locally, the GKO will need GET, CREATE, UPDATE, LIST, and DELETE access to ConfigMaps, as it manages a ConfigMap for each APIDefinition CRD.
 
 ### Secrets
 
-* This can be applied in both Cluster or Namespaced mode
+Permissions for Secrets can be applied in either Cluster or Namespaced scope.
 
-The only secret that GKO needs to have access to work is called "gko-webhook-cert", which is required for our Admission/Mutation to work. GKO needs GET, CREATE and UPDATE access to this secret. The name can be changed using the following values:
+The only secret the GKO absolutely requires access to is the gko-webhook-cert secret, which is necessary for the Admission/Mutation webhooks to function. The GKO needs GET, CREATE, and UPDATE access to this secret. Its name can be customized using the following values:
 
 ```yaml
 manager:
@@ -392,7 +394,7 @@ manager:
         name: gko-webhook-cert
 ```
 
-### (Cluster-) Role
+#### (Cluster-) Role for Webhook Secret
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -411,15 +413,15 @@ rules:
     resourceNames: ["gko-webhook-cert"]
 ```
 
-If you are not using GKO templating and you do not use GKO to handle your Ingress resources, that's the only secret the GKO needs to have access to.
+If you are not using GKO templating and the GKO is not managing your Ingress resources, this is the only Secret access required.
 
-If you use templating, and you already know the name of the secrets that you might use, or you have secrets that you referred to inside your ManagementContext CRDs, then you can give GET, UPDATE and LIST access to those specific secrets.
+If you are using templating, and you know the names of the secrets you will reference (either directly or within ManagementContext CRDs), you can grant GET, UPDATE, and LIST access to those specific secrets.
 
-And if you use GKO for your ingress, then you can also access the GKO access to those specific Secrets if needed.
+If the GKO is managing your Ingress resources, it will need access to any Secrets referenced within those Ingress resources.
 
 ### Ingress
 
-* This can be applied in both Cluster or Namespaced mode
+Permissions for Ingress resources can be applied in either Cluster or Namespaced scope.
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -436,33 +438,4 @@ rules:
       - networking.k8s.io
     resources:
       - ingresses
-```
-
-### Tokenreviews (Optional)
-
-* This is Cluster level
-
-Doesn't need to be applied if you don't use the GKO RBAC proxy.
-
-```yaml
-rules:
- - verbs:
- - create
- apiGroups:
- - authentication.k8s.io
- resources:
- - tokenreviews
- - verbs:
- - create
- apiGroups:
- - authorization.k8s.io
- resources:
- - subjectaccessreviews
-```
-
-The RBAC Proxy can be disabled using:
-
-```yaml
-rbacProxy:
-  enabled: false
 ```
