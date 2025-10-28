@@ -46,6 +46,7 @@
 * [Gravitee Ingress Controller](guides/gravitee-ingress-controller.md)
 * [DB-less mode](guides/db-less-mode.md)
 * [Templating](guides/templating.md)
+* [GKO TrustStore](guides/gko-truststore.md)
 
 ## REFERENCE
 
