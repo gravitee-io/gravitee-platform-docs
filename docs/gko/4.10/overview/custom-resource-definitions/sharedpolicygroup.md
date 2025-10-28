@@ -40,7 +40,7 @@ spec:
 * SharedPolicyGroup Phase is immutable
 * SharedPolicyGroup ApiType is immutable
 * You can't delete a SharedPolicyGroup CRD when it is already referenced inside another resource
-* You can't reference a Non-exiting SharedPolicyGroup CRD inside your other resources such as ApiV4Definition CRDs
+* You can't reference a Non-existing SharedPolicyGroup CRD inside your other resources such as ApiV4Definition CRDs
 
 ## Referencing a SharedPolicyGroup from an ApiV4Definition
 

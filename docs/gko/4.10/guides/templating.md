@@ -114,7 +114,7 @@ spec:
 You can create a matching Kubernetes Secret with the following command (make sure to insert the value of your own personal access token):
 
 ```bash
-k create secret generic http-github-fetcher --from-literal=pat=<YOUR-TOKEN>
+kubectl create secret generic http-github-fetcher --from-literal=pat=<YOUR-TOKEN>
 ```
 
 When you create this API, it will dynamically load the README.md Markdown file from the referenced GitHub repository and add it to your API as a page. You can use the Gravitee API Management Console to make sure it was created successfully. You should see both the contents of the page (first screenshot) and the configuration of the doc fetcher (second screenshot):
