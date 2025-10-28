@@ -375,7 +375,7 @@ rules:
       - ''
     resources:
       - configmaps
-    resourceNames: ["my-cofig-1", "my-config-2"]
+    resourceNames: ["my-config-1", "my-config-2"]
 ```
 
 If you intend to apply CRDs locally, the GKO will need GET, CREATE, UPDATE, LIST, and DELETE access to ConfigMaps, as it manages a ConfigMap for each APIDefinition CRD.
