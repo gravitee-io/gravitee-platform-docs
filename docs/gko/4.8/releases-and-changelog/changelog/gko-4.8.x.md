@@ -1,5 +1,17 @@
 # GKO 4.8.x
 
+## Gravitee Kubernetes Operator 4.8.10 - October 28, 2025
+    
+<details>
+<summary>Improvements</summary>
+
+  **GKO**
+
+  * Add support for configuring APIM HTTP client with a custom truststore [#10929](https://github.com/gravitee-io/issues/issues/10929)
+
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.8.9 - October 15, 2025
     
 <details>
