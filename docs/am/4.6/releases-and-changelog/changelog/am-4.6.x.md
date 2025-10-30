@@ -6,6 +6,25 @@ description: >-
 
 # AM 4.6.x
 
+## Gravitee Access Management 4.6.25 - October 30, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* StackOverflowError when logging out [#10928](https://github.com/gravitee-io/issues/issues/10928)
+
+
+
+
+
+
+
+</details>
+
+
 ## Gravitee Access Management 4.6.24 - October 24, 2025
 
 <details>
