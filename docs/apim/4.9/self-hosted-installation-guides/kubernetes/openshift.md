@@ -1,13 +1,13 @@
 # OpenShift
 
+{% include "../../.gitbook/includes/installation-guide-note.md" %}
+
 ## Prerequisites
 
 * Gravitee API Management (APIM) Helm chart is compatible with OpenShift versions 3.10 and later.
-* Install the following command line tools:
+* Install the following command-line tools:
   * [Kubectl or OC](https://docs.openshift.com/container-platform/4.9/cli_reference/openshift_cli/getting-started-cli.html#cli-installing-cli_cli-developer-commands)
   * [Helm](https://docs.openshift.com/container-platform/4.10/applications/working_with_helm_charts/installing-helm.html)
-
-{% include "../../.gitbook/includes/installation-guide-note.md" %}
 
 ## Procedure
 
@@ -304,7 +304,7 @@ You can configure the following Gravitee components:
 * Gravitee Gateway
 * Alert Engine
 
-The process for configuring the Gravitee components on OpenShift is the same process as configuring the Gravitee components on Kubernetes with some adjustments. To configure the Gravitee components, see [#gravitee-parameters](vanilla-kubernetes/#gravitee-parameters "mention").
+The process for configuring the Gravitee components on OpenShift is the same process as configuring the Gravitee components on Kubernetes, with some adjustments. To configure the Gravitee components, see [#gravitee-parameters](vanilla-kubernetes/#gravitee-parameters "mention").
 
 #### Adjustments needed for OpenShift
 
