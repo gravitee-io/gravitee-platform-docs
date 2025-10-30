@@ -329,7 +329,7 @@ It may take a few minutes for the load balancer IP to be available.
 
 
     ```bash
-    minikube tunnel
+    sudo minikube tunnel
     ```
 
 #### Verification
