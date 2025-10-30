@@ -1,0 +1,21 @@
+docs_roots:
+  - docs/
+site_base_urls:
+  - https://documentation.gravitee.io
+ignore_schemes:
+  - mailto:
+  - tel:
+  - javascript:
+external_rate_limit_per_host_per_sec: 2
+external_timeout_seconds: 12
+max_concurrency: 32
+success_statuses: [200, 301, 302, 308]
+treat_404_410_as_broken: true
+redirect_hop_limit: 5
+suggestion_threshold:
+  fuzzy_score_min: 82
+  topical_score_min: 0.22
+skip_domains:
+  - localhost
+  - 127.0.0.1
+treat_images_separately: true
