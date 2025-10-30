@@ -1,5 +1,9 @@
 # AWS EKS
 
+{% hint style="warning" %}
+This installation guide is for only development and quick start purposes. Do not use it for production environments. For more information about best practices for production environments, contact your Technical Account Manager.
+{% endhint %}
+
 ## Overview&#x20;
 
 This guide explains how to deploy a complete self-hosted Gravitee APIM platform on Amazon Elastic Kubernetes Service (EKS) using Helm charts.
@@ -15,10 +19,6 @@ Before you install the Gravitee APIM, complete the following steps:
 * Have a [valid AWS account](https://signin.aws.amazon.com/signup?request_type=register)
 * (Optional) License key for Enterprise features
 * (Optional) Register a domain name in Route53 or have access to DNS management
-
-{% hint style="warning" %}
-This installation guide is for only development and quick start purposes. Do not use it for production environments. For more information about best practices for production environments, contact your Technical Account Manager.
-{% endhint %}
 
 ## Components Overview&#x20;
 
@@ -48,7 +48,7 @@ The EBS CSI driver is required for persistent volumes.&#x20;
     ```bash
     kubectl apply -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-1.35"
     ```
-2. Create IAM service account for EBS CSI driver using the following command:
+2. Create an IAM service account for the EBS CSI driver using the following command:
 
 ```bash
 eksctl create iamserviceaccount \
@@ -62,7 +62,7 @@ eksctl create iamserviceaccount \
 
 ```
 
-3.  Restart EBS CSI controller to apply permissions using the following command:
+3.  Restart the EBS CSI controller to apply permissions using the following command:
 
     ```sh
     kubectl rollout restart deployment ebs-csi-controller -n kube-system
@@ -122,7 +122,7 @@ To verify that your storage class was created successfully, use the following co
 kubectl get storageclass
 ```
 
-The output should show the `gp3` storage class as the default indicated by `(default)` next to the name:
+The output should show the `gp3` storage class as the default, indicated by `(default)` next to the name:
 
 ```bash
 NAME            PROVISIONER             RECLAIMPOLICY   VOLUMEBINDINGMODE   ALLOWVOLUMEEXPANSION   AGE
@@ -423,65 +423,24 @@ To support API definitions and configuration, you must install MongoDB into your
 1.  Install MongoDB with Helm using the following command:&#x20;
 
     ```bash
-    helm install gravitee-mongodb oci://registry-1.docker.io/bitnamicharts/mongodb \
-      --version 14.12.3 \
-      --namespace gravitee-apim \
-      --set image.registry=docker.io \
-      --set image.repository=mongo \
-      --set image.tag=5.0 \
+    helm install gravitee-mongodb oci://registry-1.docker.io/cloudpirates/mongodb \
+      -n gravitee-apim \
       --set auth.enabled=false \
-      --set architecture=standalone \
       --set persistence.enabled=false \
-      --set podSecurityContext.enabled=false \
-      --set containerSecurityContext.enabled=false \
-      --set volumePermissions.enabled=true \
-      --set volumePermissions.image.repository=bitnamilegacy/os-shell \
       --set resources.requests.memory=512Mi \
       --set resources.requests.cpu=250m
     ```
 
-
-
-2.  Extract the MongoDB hostname from the command output, and then save it for future use. The following sample output lists `gravitee-mongodb.gravitee-apim.svc.cluster.local`  as the MongoDB hostname: \
-
-
-    ```bash
-    NAME: gravitee-mongodb
-    LAST DEPLOYED: DDD MMM DD HH:MM:SS YYYY
-    NAMESPACE: gravitee-apim
-    STATUS: deployed
-    REVISION: 1
-    TEST SUITE: None
-    NOTES:
-    CHART NAME: mongodb
-    CHART VERSION: 14.12.3
-    APP VERSION: 7.0.11
-    ...
-    ** Please be patient while the chart is being deployed **
-
-       gravitee-mongodb.gravitee-apim.svc.cluster.local
-
-    To connect to your database, create a MongoDB&reg; client container:
-
-        kubectl run --namespace gravitee-apim gravitee-mongodb-client --rm --tty -i --restart='Never' --env="MONGODB_ROOT_PASSWORD=$MONGODB_ROOT_PASSWORD" --image docker.io/bitnamilegacy/mongodb:5.0 --command -- bash
-
-    Then, run the following command:
-        mongosh admin --host "gravitee-mongodb"
-
-    ```
-
 #### Verification
 
-1.  To verify that your MongoDB deployment succeeded, check pod status using the following command:\
-
+1.  To verify that your MongoDB deployment succeeded, check pod status using the following command:
 
     ```bash
     kubectl get pods -n gravitee-apim -l app.kubernetes.io/instance=gravitee-mongodb
     ```
 
     \
-    The command generates the following output: \
-
+    The command generates the following output:&#x20;
 
     ```bash
     NAME                  READY   STATUS    RESTARTS   AGE
@@ -494,55 +453,33 @@ To support API definitions and configuration, you must install MongoDB into your
 
 To support analytics and logging, you must install Elasticsearch into your Kubernetes cluster. For more information on installing Elasticsearch, see the [official chart documentation.](https://artifacthub.io/packages/helm/bitnami/elasticsearch)&#x20;
 
-1.  Install Elasticsearch with Helm using the following command:\
-
+1.  Install Elasticsearch with Helm using the following command:
 
     ```bash
-    helm install gravitee-elasticsearch oci://registry-1.docker.io/bitnamicharts/elasticsearch \
-        --version 19.5.0 \
-        --namespace gravitee-apim \
-        --set image.registry=docker.io \
-        --set image.repository=bitnami/elasticsearch \
-        --set image.tag=8.8.2-debian-11-r0 \
-        --set sysctlImage.registry=docker.io \
-        --set sysctlImage.repository=bitnami/os-shell \
-        --set sysctlImage.tag=11-debian-11-r40 \
-        --set security.enabled=false \
-        --set master.replicaCount=1 \
-        --set data.replicaCount=0 \
-        --set coordinating.replicaCount=0 \
-        --set ingest.replicaCount=0 \
-        --set master.persistence.enabled=true \
-        --set master.persistence.size=20Gi \
-        --set master.resources.requests.memory=1536Mi \
-        --set master.resources.requests.cpu=500m
+    helm repo add elastic https://helm.elastic.co
+
+    helm repo update
+
+    helm -n gravitee-apim install elasticsearch elastic/elasticsearch \
+      --set persistence.enabled=false \
+      --set replicas=1 \
+      --set minimumMasterNodes=1
     ```
-2.  Extract the Elasticsearch hostname from the command output and save it for future use. The following sample output lists `http://gravitee-elasticsearch.gravitee-apim.svc.cluster.local:9200`as the Elasticsearch hostname:\
-
+2.  Follow the instructions that appear in your terminal, and retrieve the Elastic user's password.
 
     ```bash
-    Pulled: registry-1.docker.io/bitnamicharts/elasticsearch:19.13.14
-    Digest: sha256:68e9602a61d0fbe171f9bc2df3893ad792e0f27f13731d8627a8e23b2b336
-    NAME: gravitee-elasticsearch
-    LAST DEPLOYED: DDD MMM DD HH:MM:SS YYYY
-    NAMESPACE: gravitee-apim
-    STATUS: deployed
-    REVISION: 1
-    TEST SUITE: None
-    NOTES:
-    CHART NAME: elasticsearch
-    CHART VERSION: 19.13.14
-    APP VERSION: 8.11.3
-
-    -------------------------------------------------------------------------------
-
-          https://www.elastic.co/guide/en/elasticsearch/reference/current/file-descriptors.html
-          https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html
-
-      To access from outside the cluster execute the following commands:
-
-        kubectl port-forward --namespace gravitee-apim svc/gravitee-elasticsearch 9200:9200 &
-        curl http://127.0.0.1:9200/
+    NAME: elasticsearch                                                                                                                                                                                                                                            
+    LAST DEPLOYED: Fri Oct 24 12:13:02 2025                                                                                                                                                                                                                        
+    NAMESPACE: gravitee-apim                                                                                                                                                                                                                                             
+    STATUS: deployed                                                                                                                                                                                                                                               
+    REVISION: 1                                                                                                                                                                                                                                                    
+    NOTES:                                                                                                                                                                                                                                                         
+    1. Watch all cluster members come up.                                                                                                                                                                                                                          
+      $ kubectl get pods --namespace=gravitee-apim -l app=elasticsearch-master -w                                                                                                                                                                                        
+    2. Retrieve elastic user's password.                                                                                                                                                                                                                           
+      $ kubectl get secrets --namespace=gravitee-apim elasticsearch-master-credentials -ojsonpath='{.data.password}' | base64 -d                                                                                                                                         
+    3. Test cluster health using Helm test.
+      $ helm --namespace=gravitee-apim test elasticsearch
     ```
 
 #### Verification
@@ -559,8 +496,8 @@ To support analytics and logging, you must install Elasticsearch into your Kuber
 
 
     ```bash
-    NAME                              READY   STATUS    RESTARTS   AGE
-    gravitee-elasticsearch-master-0   1/1     Running   0          2m
+    NAME                     READY   STATUS    RESTARTS   AGE
+    elasticsearch-master-0   1/1     Running   0          55m
     ```
 
     \
@@ -573,37 +510,10 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
 1.  Install Redis with Helm using the following command: &#x20;
 
     ```bash
-    helm install gravitee-redis oci://registry-1.docker.io/bitnamicharts/redis \
-      --version 18.6.1 \
-      --namespace gravitee-apim \
-      --set image.repository=bitnamilegacy/redis \
-      --set architecture=standalone \
+    helm install gravitee-redis oci://registry-1.docker.io/cloudpirates/redis \
+      -n gravitee-apim \
       --set auth.enabled=true \
-      --set auth.password=redis-password \
-      --set master.persistence.enabled=true \
-      --set master.persistence.size=8Gi
-    ```
-2.  Extract the Redis hostname from the command output and save it for future use. The following sample output lists `gravitee-apim-redis-master.gravitee-apim.svc.cluster.local` as the Redis hostname:
-
-    ```sh
-    NAME: gravitee-redis
-    LAST DEPLOYED:  DDD MMM DD HH:MM:SS YYYY
-    NAMESPACE: gravitee-apim
-    STATUS: deployed
-    REVISION: 1
-    TEST SUITE: None
-    NOTES:
-    CHART NAME: redis
-    CHART VERSION: 18.6.1
-    APP VERSION: 7.2.4
-    ...
-    ** Please be patient while the chart is being deployed **
-
-    Redis(TM) can be accessed on the following DNS names from within your cluster:
-        gravitee-redis-master.gravitee-apim.svc.cluster.local for read/write operations (port 6379)
-
-    To get your password run:
-        export REDIS_PASSWORD=$(kubectl get secret --namespace gravitee-apim gravitee-redis -o jsonpath="{.data.redis-password}" | base64 -d)
+      --set auth.password=redis-password
     ```
 
 #### Verification
@@ -616,8 +526,7 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
     ```
 
     \
-    The command generates the following output: \
-
+    The command generates the following output:&#x20;
 
     ```bash
     NAME                      READY   STATUS    RESTARTS   AGE
@@ -632,10 +541,8 @@ To support management data, you can install PostgreSQL into your Kubernetes clus
 
 
     ```bash
-    helm install gravitee-postgresql oci://registry-1.docker.io/bitnamicharts/postgresql \
-      --version 13.2.24 \
-      --namespace gravitee-apim \
-      --set image.repository=bitnamilegacy/postgresql \
+    helm install gravitee-postgresql oci://registry-1.docker.io/cloudpirates/postgres \
+      -n gravitee-apim \
       --set auth.database=gravitee \
       --set auth.username=gravitee \
       --set auth.password=changeme \
@@ -645,40 +552,19 @@ To support management data, you can install PostgreSQL into your Kubernetes clus
       --set resources.requests.cpu=250m
     ```
 
-
-2.  Extract the PostgreSQL hostname from the command output and save it for future use. The following sample output lists `gravitee-postgresql.gravitee-apim.svc.cluster.local`  as the PostgreSQL hostname:
-
-    ```bash
-    NAME: gravitee-postgresql
-    LAST DEPLOYED: DDD MMM DD HH:MM:SS YYYY
-    NAMESPACE: gravitee-apim
-    STATUS: deployed
-    REVISION: 1
-    TEST SUITE: None
-    NOTES:
-    CHART NAME: postgresql
-    CHART VERSION: 13.2.24
-    APP VERSION: 16.3.0
-    ...
-    ** Please be patient while the chart is being deployed **
-
-    To get the password for "gravitee" run:
-        export POSTGRES_PASSWORD=$(kubectl get secret --namespace gravitee-apim gravitee-postgresql -o jsonpath="{.data.postgres-password}" | base64 -d)
-    ```
-
 #### Verification&#x20;
 
 1.  To verify that your PostgreSQL deployment succeeded, retrieve the password using the following command:
 
     ```bash
-    kubectl get secret --namespace gravitee-apim gravitee-postgresql -o jsonpath="{.data.postgres-password}" | base64 -d
+    kubectl -n gravitee-apim get secret gravitee-postgresql -o jsonpath="{.data.postgres-password}" | base64 -d
     ```
 
 
 2.  Check pod status using the following command:
 
     ```bash
-    kubectl get pods -n gravitee-apim -l app.kubernetes.io/instance=gravitee-postgresql
+    kubectl -n gravitee-apim get pods -n gravitee-apim -l app.kubernetes.io/instance=gravitee-postgresql
     ```
 
     \
@@ -723,32 +609,14 @@ Before installing Gravitee APIM for [enterprise edition](https://documentation.g
     es:
       enabled: true
       endpoints:
-        - http://gravitee-elasticsearch.gravitee-apim.svc.cluster.local:9200
-
-    # # PostgreSQL Configuration
-    # jdbc:
-    #   url: jdbc:postgresql://gravitee-postgresql.gravitee-apim.svc.cluster.local:5432/gravitee
-    #   username: gravitee
-    #   password: changeme
-    #   driver: https://repo1.maven.org/maven2/org/postgresql/postgresql/42.7.2/postgresql-42.7.2.jar
-    #   liquibase: true
-    #   schema: public
-    #   pool:
-    #     autoCommit: true
-    #     connectionTimeout: 10000
-    #     idleTimeout: 600000
-    #     maxLifetime: 1800000
-    #     minIdle: 10
-    #     maxPoolSize: 10
-    #     registerMbeans: true
-
-    # # Redis Configuration for caching and rate limiting
-    # redis:
-    #   download: false
-    #   host: gravitee-redis-master.gravitee-apim.svc.cluster.local
-    #   port: 6379
-    #   password: redis-password
-    #   ssl: false
+        - https://elasticsearch-master:9200
+      security:
+        enabled: true
+        username: elastic
+        password: [ELASTIC PASSWORD FROM ES INSTALLATION]
+      ssl:
+        verifyHostname: false
+        trustAll: true
 
     # Repository types
     management:
@@ -757,7 +625,6 @@ Before installing Gravitee APIM for [enterprise edition](https://documentation.g
     ratelimit:
       type: mongodb
 
-    # Add analytics configuration
     analytics:
       type: elasticsearch
 
@@ -777,11 +644,19 @@ Before installing Gravitee APIM for [enterprise edition](https://documentation.g
         - name: gravitee_http_cors_allow-origin
           value: "*"
         - name: gravitee_http_cors_allow-headers
-          value: "Authorization,Content-Type,X-Requested-With,Accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers"
+          value: "Authorization,Content-Type,X-Requested-With,Accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers,Cookie"
         - name: gravitee_http_cors_allow-methods
-          value: "GET,POST,PUT,DELETE,OPTIONS"
+          value: "GET,POST,PUT,DELETE,OPTIONS,PATCH"
         - name: gravitee_http_cors_exposed-headers
-          value: "X-Total-Count"
+          value: "X-Total-Count,Set-Cookie"
+        - name: gravitee_http_cors_allow-credentials
+          value: "true"
+
+        # Cookie Configuration for HTTPS
+        - name: gravitee_http_cookie_sameSite
+          value: "None"
+        - name: gravitee_http_cookie_secure
+          value: "true"
 
         # Security exclusions for public endpoints
         - name: gravitee_management_security_providers_0_type
@@ -794,50 +669,66 @@ Before installing Gravitee APIM for [enterprise edition](https://documentation.g
           value: "/_health"
         - name: gravitee_management_security_exclude_3
           value: "/info"
+        - name: gravitee_management_security_exclude_4
+          value: "/portal/**"
+
+        # Make portal public by default
+        - name: gravitee_portal_authentication_forceLogin_enabled
+          value: "false"
 
       service:
         type: ClusterIP
         externalPort: 83
         internalPort: 8083
 
-      # Ingress configuration for Management API
       ingress:
         management:
           enabled: true
+          ingressClassName: alb
+          scheme: https
           pathType: Prefix
           path: /management
-          ingressClassName: "alb"
           hosts:
-            - api.yourdomain.com  # Replace with your domain
+            - api.yourdomain.com
           annotations:
             alb.ingress.kubernetes.io/scheme: internet-facing
             alb.ingress.kubernetes.io/target-type: ip
             alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS": 443}, {"HTTP": 80}]'
-            alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:region:account:certificate/certificate-id  # Replace with your certificate ARN
+            alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:region:account:certificate/certificate-id
             alb.ingress.kubernetes.io/ssl-redirect: '443'
             alb.ingress.kubernetes.io/healthcheck-path: /management/_health
+            alb.ingress.kubernetes.io/healthcheck-interval-seconds: '30'
+            alb.ingress.kubernetes.io/healthcheck-timeout-seconds: '5'
+            alb.ingress.kubernetes.io/healthy-threshold-count: '2'
+            alb.ingress.kubernetes.io/unhealthy-threshold-count: '3'
             alb.ingress.kubernetes.io/enable-cors: "true"
             alb.ingress.kubernetes.io/cors-allow-origin: "*"
-            alb.ingress.kubernetes.io/cors-allow-methods: "GET,POST,PUT,DELETE,OPTIONS"
-            alb.ingress.kubernetes.io/cors-allow-headers: "Authorization,Content-Type,X-Requested-With,Accept,Origin"
+            alb.ingress.kubernetes.io/cors-allow-methods: "GET,POST,PUT,DELETE,OPTIONS,PATCH"
+            alb.ingress.kubernetes.io/cors-allow-headers: "Authorization,Content-Type,X-Requested-With,Accept,Origin,Cookie"
+            alb.ingress.kubernetes.io/cors-expose-headers: "Content-Length,Content-Range,Set-Cookie"
+            alb.ingress.kubernetes.io/cors-allow-credentials: "true"
 
         portal:
           enabled: true
+          ingressClassName: alb
+          scheme: https
           pathType: Prefix
           path: /portal
-          ingressClassName: "alb"
           hosts:
-            - api.yourdomain.com  # Replace with your domain
+            - api.yourdomain.com
           annotations:
             alb.ingress.kubernetes.io/scheme: internet-facing
             alb.ingress.kubernetes.io/target-type: ip
             alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS": 443}, {"HTTP": 80}]'
-            alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:region:account:certificate/certificate-id  # Replace with your certificate ARN
+            alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:region:account:certificate/certificate-id
             alb.ingress.kubernetes.io/ssl-redirect: '443'
+            alb.ingress.kubernetes.io/healthcheck-path: /portal/_health
             alb.ingress.kubernetes.io/enable-cors: "true"
-            alb.ingress.kubernetes.io/cors-allow-origin: "*"
-            alb.ingress.kubernetes.io/cors-allow-methods: "GET,POST,PUT,DELETE,OPTIONS"
-            alb.ingress.kubernetes.io/cors-allow-headers: "Authorization,Content-Type,X-Requested-With,Accept,Origin"
+            alb.ingress.kubernetes.io/cors-allow-origin: "https://portal.yourdomain.com"
+            alb.ingress.kubernetes.io/cors-allow-methods: "GET,POST,PUT,DELETE,OPTIONS,PATCH"
+            alb.ingress.kubernetes.io/cors-allow-headers: "DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization,Accept,Origin,Cookie"
+            alb.ingress.kubernetes.io/cors-expose-headers: "Content-Length,Content-Range,Set-Cookie"
+            alb.ingress.kubernetes.io/cors-allow-credentials: "true"
 
       resources:
         requests:
@@ -845,9 +736,16 @@ Before installing Gravitee APIM for [enterprise edition](https://documentation.g
           cpu: "500m"
         limits:
           memory: "2Gi"
-          cpu: "1000m"
+          cpu: "1"
 
-      # License volume configuration for Management API (uncomment for enterprise edition)
+      autoscaling:
+        enabled: true
+        minReplicas: 2
+        maxReplicas: 5
+        targetAverageUtilization: 70
+        targetMemoryAverageUtilization: 80
+
+      # License volume configuration for Management API (uncomment for enterprise edition using license key)
       # extraVolumes: |
       #   - name: gravitee-license
       #     secret:
@@ -872,21 +770,24 @@ Before installing Gravitee APIM for [enterprise edition](https://documentation.g
         externalPort: 82
         internalPort: 8082
 
-      # Ingress configuration for Gateway
       ingress:
         enabled: true
+        ingressClassName: alb
         pathType: Prefix
         path: /
-        ingressClassName: "alb"
         hosts:
-          - gateway.yourdomain.com  # Replace with your gateway domain
+          - gateway.yourdomain.com
         annotations:
           alb.ingress.kubernetes.io/scheme: internet-facing
           alb.ingress.kubernetes.io/target-type: ip
           alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS": 443}, {"HTTP": 80}]'
-          alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:region:account:certificate/certificate-id  # Replace with your certificate ARN
+          alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:region:account:certificate/certificate-id
           alb.ingress.kubernetes.io/ssl-redirect: '443'
           alb.ingress.kubernetes.io/healthcheck-path: /_health
+          alb.ingress.kubernetes.io/healthcheck-interval-seconds: '15'
+          alb.ingress.kubernetes.io/healthcheck-timeout-seconds: '5'
+          alb.ingress.kubernetes.io/healthy-threshold-count: '2'
+          alb.ingress.kubernetes.io/unhealthy-threshold-count: '3'
 
       resources:
         requests:
@@ -894,7 +795,14 @@ Before installing Gravitee APIM for [enterprise edition](https://documentation.g
           cpu: "500m"
         limits:
           memory: "2Gi"
-          cpu: "1000m"
+          cpu: "1"
+
+      autoscaling:
+        enabled: true
+        minReplicas: 2
+        maxReplicas: 10
+        targetAverageUtilization: 70
+        targetMemoryAverageUtilization: 80
 
     # Management Console UI
     ui:
@@ -907,28 +815,28 @@ Before installing Gravitee APIM for [enterprise edition](https://documentation.g
 
       env:
         - name: MGMT_API_URL
-          value: "https://api.yourdomain.com/management/organizations/DEFAULT/environments/DEFAULT/"  # Replace with your domain
+          value: "https://api.yourdomain.com/management/organizations/DEFAULT/environments/DEFAULT/"
 
       service:
         type: ClusterIP
         externalPort: 8002
         internalPort: 8080
 
-      # Ingress configuration for Management Console
       ingress:
         enabled: true
+        ingressClassName: alb
         pathType: ImplementationSpecific
         path: /console(/.*)?
-        ingressClassName: "alb"
         hosts:
-          - console.yourdomain.com  # Replace with your console domain
+          - console.yourdomain.com
         annotations:
           alb.ingress.kubernetes.io/scheme: internet-facing
           alb.ingress.kubernetes.io/target-type: ip
           alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS": 443}, {"HTTP": 80}]'
-          alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:region:account:certificate/certificate-id  # Replace with your certificate ARN
+          alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:region:account:certificate/certificate-id
           alb.ingress.kubernetes.io/ssl-redirect: '443'
-          alb.ingress.kubernetes.io/actions.ssl-redirect: '{"Type": "redirect", "RedirectConfig": { "Protocol": "HTTPS", "Port": "443", "StatusCode": "HTTP_301"}}'
+          alb.ingress.kubernetes.io/healthcheck-path: /
+          alb.ingress.kubernetes.io/healthcheck-interval-seconds: '30'
 
       resources:
         requests:
@@ -937,6 +845,13 @@ Before installing Gravitee APIM for [enterprise edition](https://documentation.g
         limits:
           memory: "512Mi"
           cpu: "250m"
+
+      autoscaling:
+        enabled: true
+        minReplicas: 1
+        maxReplicas: 3
+        targetAverageUtilization: 70
+        targetMemoryAverageUtilization: 80
 
     # Developer Portal UI
     portal:
@@ -949,27 +864,28 @@ Before installing Gravitee APIM for [enterprise edition](https://documentation.g
 
       env:
         - name: PORTAL_API_URL
-          value: "https://api.yourdomain.com/portal/environments/DEFAULT"  # Replace with your domain
+          value: "https://api.yourdomain.com/portal/environments/DEFAULT"
 
       service:
         type: ClusterIP
         externalPort: 8003
         internalPort: 8080
 
-      # Ingress configuration for Developer Portal
       ingress:
         enabled: true
+        ingressClassName: alb
         pathType: Prefix
         path: /
-        ingressClassName: "alb"
         hosts:
-          - portal.yourdomain.com  # Replace with your portal domain
+          - portal.yourdomain.com
         annotations:
           alb.ingress.kubernetes.io/scheme: internet-facing
           alb.ingress.kubernetes.io/target-type: ip
           alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS": 443}, {"HTTP": 80}]'
-          alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:region:account:certificate/certificate-id  # Replace with your certificate ARN
+          alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:region:account:certificate/certificate-id
           alb.ingress.kubernetes.io/ssl-redirect: '443'
+          alb.ingress.kubernetes.io/healthcheck-path: /
+          alb.ingress.kubernetes.io/healthcheck-interval-seconds: '30'
 
       resources:
         requests:
@@ -979,13 +895,23 @@ Before installing Gravitee APIM for [enterprise edition](https://documentation.g
           memory: "512Mi"
           cpu: "250m"
 
-    # External dependencies (disabled - using external deployments)
+      autoscaling:
+        enabled: true
+        minReplicas: 1
+        maxReplicas: 3
+        targetAverageUtilization: 70
+        targetMemoryAverageUtilization: 80
+
+    # External dependencies
     elasticsearch:
       enabled: false
+
     mongodb:
       enabled: false
+
     postgresql:
       enabled: false
+
     redis:
       enabled: false
 
@@ -997,47 +923,31 @@ Before installing Gravitee APIM for [enterprise edition](https://documentation.g
     apim:
       name: apim
 
-    # Main ingress disabled (using individual ingresses)
+    # Main ingress disabled
     ingress:
       enabled: false
-
-    # Autoscaling configuration
-    api:
-      autoscaling:
-        enabled: true
-        minReplicas: 1
-        maxReplicas: 5
-        targetAverageUtilization: 70
-        targetMemoryAverageUtilization: 80
-
-    gateway:
-      autoscaling:
-        enabled: true
-        minReplicas: 1
-        maxReplicas: 5
-        targetAverageUtilization: 70
-        targetMemoryAverageUtilization: 80
-
-    ui:
-      autoscaling:
-        enabled: true
-        minReplicas: 1
-        maxReplicas: 3
-        targetAverageUtilization: 70
-        targetMemoryAverageUtilization: 80
-
-    portal:
-      autoscaling:
-        enabled: true
-        minReplicas: 1
-        maxReplicas: 3
-        targetAverageUtilization: 70
-        targetMemoryAverageUtilization: 80
     ```
 
+a. Replace `[ELASTIC PASSWORD FROM ES INSTALLATION]` with your Elasticsearch password.
 
+b. If your Kubernetes cluster does not support IPV6 networking, both the UI and Portal deployments must set the `IPV4_ONLY` environment variable to `true`.
 
-2. Save your Gravitee `values.yaml` file in your working directory.
+2. **(Enterprise Edition only)** Navigate to the following section, and then uncomment the following configuration:&#x20;
+
+```yaml
+ # License volume configuration for Management API (uncomment for enterprise edition)
+  # extraVolumes: |
+  #   - name: gravitee-license
+  #     secret:
+  #       secretName: gravitee-license
+  # extraVolumeMounts: |
+  #   - name: gravitee-license
+  #     mountPath: "/opt/graviteeio-management-api/license/license.key"
+  #     subPath: license.key
+  #     readOnly: true
+```
+
+3. Save your Gravitee `values.yaml` file in your working directory.
 
 <details>
 
@@ -1095,7 +1005,9 @@ To install your Gravitee APIM with Helm, complete the following steps:
     ```bash
     helm install gravitee-apim gravitee/apim \
       --namespace gravitee-apim \
-      -f ./values.yaml
+      -f ./gravitee-eks-values.yaml \
+      --wait \
+      --timeout 10m
     ```
 
 #### Verification&#x20;
@@ -1299,9 +1211,6 @@ To validate the Gateway URL, complete the following steps:
     ```bash
     No context-path matches the request URI.
     ```
-
-    \
-
 
 ## Next steps <a href="#next-steps" id="next-steps"></a>
 
