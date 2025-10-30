@@ -6,6 +6,27 @@ description: >-
 
 # AM 4.7.x
 
+## Gravitee Access Management 4.7.19 - October 30, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* StackOverflowError when logging out [#10928](https://github.com/gravitee-io/issues/issues/10928)
+
+
+
+**Console**
+
+* Unable to delete a user when the IDP has been removed [#10915](https://github.com/gravitee-io/issues/issues/10915)
+
+
+
+</details>
+
+
 ## Gravitee Access Management 4.7.18 - October 24, 2025
 
 <details>
