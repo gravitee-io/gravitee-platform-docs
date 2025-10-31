@@ -48,14 +48,12 @@ If you have already installed MongoDB, you do not need to install MongoDB again.
 *   To install MongoDB with Helm, use the following command:
 
     ```sh
-    helm repo add bitnami https://charts.bitnami.com/bitnami
-
-    helm repo update
-
-    helm install mongodb bitnami/mongodb \
-      --namespace gravitee-apim --create-namespace \
-      --set image.repository=bitnamilegacy/mongodb \
-      --set auth.rootPassword=r00t
+    helm install gravitee-mongodb oci://registry-1.docker.io/cloudpirates/mongodb \
+      -n gravitee-apim \
+      --set auth.enabled=false \
+      --set persistence.enabled=false \
+      --set resources.requests.memory=512Mi \
+      --set resources.requests.cpu=250m
     ```
 
 **Configure the connection MongoDB**
@@ -130,18 +128,15 @@ To install a new PostgreSQL database, complete the following steps:
 2.  Run the following commands:
 
     ```bash
-    helm repo add bitnami https://charts.bitnami.com/bitnami
-
-    helm repo update
-
-    helm install postgres-apim bitnami/postgresql \
-      -n gravitee-apim --create-namespace \
-      --set image.repository=bitnamilegacy/postgresql \
-      --set metrics.image.repository=bitnamilegacy/postgres-exporter \
-      --set volumePermissions.image.repository=bitnamilegacy/os-shell \
-      --set postgresqlUsername=postgres \
-      --set postgresqlPassword='P@ssw0rd' \
-      --set postgresqlDatabase=graviteeapim
+    helm install gravitee-postgresql oci://registry-1.docker.io/cloudpirates/postgres \
+      -n gravitee-apim \
+      --set auth.database=gravitee \
+      --set auth.username=gravitee \
+      --set auth.password=changeme \
+      --set persistence.enabled=true \
+      --set persistence.size=8Gi \
+      --set resources.requests.memory=512Mi \
+      --set resources.requests.cpu=250m
     ```
 
 **Verification**
@@ -155,8 +150,8 @@ kubectl get pods
 If the PostgreSQL is running correctly, you see an output similar to the following expected output:
 
 ```
-NAME                                      READY   UP-TO-DATE   AVAILABLE   AGE
-postgres-apim-postgresql-0                1/1     Running      0           98s
+NAME                    READY   STATUS    RESTARTS   AGE
+gravitee-postgresql-0   1/1     Running    0          2m
 ```
 
 **Configure PostgreSQL**
@@ -189,7 +184,10 @@ helm repo add elastic https://helm.elastic.co
 
 helm repo update
 
-helm install es-kb-quickstart elastic/eck-stack -n elastic-stack --create-namespace
+helm -n gravitee-apim install elasticsearch elastic/elasticsearch \
+  --set persistence.enabled=false \
+  --set replicas=1 \
+  --set minimumMasterNodes=1
 ```
 
 **Configure ElasticSearch**
@@ -219,15 +217,10 @@ If you have already installed Redis, you do not need to install Redis again.
 To install Redis, use the following commands:
 
 ```bash
-helm repo add bitnami https://charts.bitnami.com/bitnami
-
-helm repo update
-
-helm install redis-apim bitnami/redis \
-  --namespace gravitee-apim --create-namespace \
-  --set image.repository=bitnamilegacy/redis \
+helm install gravitee-redis oci://registry-1.docker.io/cloudpirates/redis \
+  -n gravitee-apim \
   --set auth.enabled=true \
-  --set auth.password='p@ssw0rd'
+  --set auth.password=redis-password
 ```
 
 For more information about Redis, go to [Redis](https://github.com/bitnami/charts/tree/main/bitnami/redis).
