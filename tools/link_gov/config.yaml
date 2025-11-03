@@ -19,3 +19,5 @@ skip_domains:
   - localhost
   - 127.0.0.1
 treat_images_separately: true
+github_repo: "gravitee-io/gravitee-platform-docs"   # org/repo
+github_default_branch: "main"                       # or "master" if that’s your default
