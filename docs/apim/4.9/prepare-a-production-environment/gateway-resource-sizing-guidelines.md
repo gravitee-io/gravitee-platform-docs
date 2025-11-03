@@ -6,7 +6,7 @@ Resource recommendations for a Gateway instance are based on traffic, the deploy
 
 The following matrix defines the most common use cases for an APIM Gateway and considers both the expected global throughput and the number of APIs that will be deployed.
 
-<table><thead><tr><th width="120.87890625">Gateway size</th><th width="123.30078125">Number of APIs</th><th width="122.06640625">Throughput</th><th>Usage</th></tr></thead><tbody><tr><td><strong>Small</strong></td><td>1 - 20</td><td>~200 req/s</td><td>Development, test, or small production environment that is not used intensively but may sometimes encounter peaks in traffic.</td></tr><tr><td><strong>Medium</strong></td><td>20 - 200</td><td>~1000 req/s</td><td>Real production environment that can handle considerable throughput.</td></tr><tr><td><strong>Large</strong></td><td>200+</td><td>5000+ req/s</td><td>Mission-critical environment such as a centralized enterprise gateway that must handle a very high throughput.</td></tr></tbody></table>
+<table><thead><tr><th width="120.87890625">Gateway size</th><th width="123.30078125">Number of APIs</th><th width="122.06640625">Throughput</th><th>Usage</th></tr></thead><tbody><tr><td><strong>Small</strong></td><td>1 - 20</td><td>~200 req/s</td><td>Development, test, or small production environment that is not used intensively but may sometimes encounter peaks in traffic.</td></tr><tr><td><strong>Medium</strong></td><td>20 - 200</td><td>~1000 req/s</td><td>Real production environment that can handle considerable throughput.</td></tr><tr><td><strong>Large</strong></td><td>200+</td><td>5000+ req/s</td><td>Mission-critical environment such as a centralized enterprise Gateway that must handle a very high throughput.</td></tr></tbody></table>
 
 ## Sizing recommendations
 
@@ -14,7 +14,7 @@ The following matrix defines the most common use cases for an APIM Gateway and c
 
 The Gravitee Gateway supports both container-based (cloud) and VM-based deployments.
 
-Based on the [above matrix](gateway-resource-sizing-guidelines.md#overview) summarizing the different use cases, we recommend the minimum resource allocations shown in the tables below.
+Based on the [above matrix](gateway-resource-sizing-guidelines.md#overview) summarizing the different use cases, we recommend using the minimum resource allocations shown in the tables below.
 
 {% hint style="warning" %}
 These are informative estimates only and you should adjust allocations as needed.
@@ -34,19 +34,19 @@ Container-based deployments are characterized by resource constraints, so instea
 
 #### VM-based deployments
 
-| Gateway size | CPU     | System memory | Gateway memoy | Disk space |
-| ------------ | ------- | ------------- | ------------- | ---------- |
-| **Small**    | 1 core  | 1024m         | 256m          | 20 GB      |
-| **Medium**   | 2 cores | 1536m         | 512m          | 20 GB      |
-| **Large**    | 4 cores | 2048m         | 1024m         | 20 GB      |
+| Gateway size | CPU     | System memory | Gateway memory | Disk space |
+| ------------ | ------- | ------------- | -------------- | ---------- |
+| **Small**    | 1 core  | 1024m         | 256m           | 20 GB      |
+| **Medium**   | 2 cores | 1536m         | 512m           | 20 GB      |
+| **Large**    | 4 cores | 2048m         | 1024m          | 20 GB      |
 
-VM-based deployments are resource intensive and require more memory and CPU than container-based deployments.
+VM-based deployments are resource-intensive and require more memory and CPU than container-based deployments.
 
 ### Node sizing recommendations
 
 The following table shows baseline hardware recommendations for a self-hosted deployment.
 
-<table><thead><tr><th width="239">Component</th><th width="156" align="center">vCPU</th><th width="165" align="center">RAM (GB)</th><th align="center">Disk (GB)</th></tr></thead><tbody><tr><td><strong>Dev Portal + REST API</strong> (Dev Portal only)</td><td align="center">1</td><td align="center">2</td><td align="center">20</td></tr><tr><td><strong>Console + REST API</strong> (Console only)</td><td align="center">1</td><td align="center">2</td><td align="center">20</td></tr><tr><td><strong>Dev Portal + Console + REST API</strong></td><td align="center">2</td><td align="center">4</td><td align="center">20</td></tr><tr><td><strong>API Gateway instance</strong><br>Production best practice (HA) is 2 nodes.</td><td align="center">0.25 - 4</td><td align="center">512 MB - 8</td><td align="center">20</td></tr><tr><td><strong>Alert Engine instance</strong><br>Production best practice (HA) is 2 nodes</td><td align="center">0.25 - 4</td><td align="center">512 MB - 8</td><td align="center">20</td></tr><tr><td><strong>Analytics DB instance (ElasticSearch)</strong><br><a href="https://www.elastic.co/guide/en/elasticsearch/reference/7.17/setup.html">Production best practice is 3 nodes</a>.<br><a href="https://www.elastic.co/guide/en/elasticsearch/guide/master/hardware.html">Official hardware recommendations</a>.</td><td align="center">1 - 8</td><td align="center"> 2 - 8 or more</td><td align="center">20 + 0.5 per million requests for default metrics</td></tr><tr><td><strong>Config DB instance</strong> (MongoDB or JDBC DB)<br><a href="https://www.mongodb.com/docs/manual/administration/production-notes">Production best practice is 3 nodes</a></td><td align="center">1</td><td align="center">2</td><td align="center">30</td></tr><tr><td><strong>Rate Limit DB instance</strong> (Redis)<br><a href="https://docs.redis.com/latest/rs/installing-upgrading/hardware-requirements/#productionenvironment">Production best practice is 3 nodes</a></td><td align="center">2</td><td align="center">4</td><td align="center">20</td></tr></tbody></table>
+<table><thead><tr><th width="239">Component</th><th width="156" align="center">vCPU</th><th width="165" align="center">RAM (GB)</th><th align="center">Disk (GB)</th></tr></thead><tbody><tr><td><strong>Dev Portal + REST API</strong> (Dev Portal only)</td><td align="center">1</td><td align="center">2</td><td align="center">20</td></tr><tr><td><strong>Console + REST API</strong> (Console only)</td><td align="center">1</td><td align="center">2</td><td align="center">20</td></tr><tr><td><strong>Dev Portal + Console + REST API</strong></td><td align="center">2</td><td align="center">4</td><td align="center">20</td></tr><tr><td><strong>API Gateway instance</strong><br>Production best practice (HA) is 2 nodes.</td><td align="center">0.25 - 4</td><td align="center">512 MB - 8</td><td align="center">20</td></tr><tr><td><strong>Alert Engine instance</strong><br>Production best practice (HA) is 2 nodes</td><td align="center">0.25 - 4</td><td align="center">512 MB - 8</td><td align="center">20</td></tr><tr><td><strong>Analytics DB instance (Elasticsearch)</strong><br><a href="https://www.elastic.co/guide/en/elasticsearch/reference/7.17/setup.html">Production best practice is 3 nodes</a>.<br><a href="https://www.elastic.co/guide/en/elasticsearch/guide/master/hardware.html">Official hardware recommendations</a>.</td><td align="center">1 - 8</td><td align="center"> 2 - 8 or more</td><td align="center">20 + 0.5 per million requests for default metrics</td></tr><tr><td><strong>Config DB instance</strong> (MongoDB or JDBC DB)<br><a href="https://www.mongodb.com/docs/manual/administration/production-notes">Production best practice is 3 nodes</a></td><td align="center">1</td><td align="center">2</td><td align="center">30</td></tr><tr><td><strong>Rate Limit DB instance</strong> (Redis)<br><a href="https://docs.redis.com/latest/rs/installing-upgrading/hardware-requirements/#productionenvironment">Production best practice is 3 nodes</a></td><td align="center">2</td><td align="center">4</td><td align="center">20</td></tr></tbody></table>
 
 ### Gravitee JVM memory sizing <a href="#gravitee-jvm-memory-sizing" id="gravitee-jvm-memory-sizing"></a>
 
@@ -78,13 +78,13 @@ services:
 ```
 {% endcode %}
 
-**Note:** During bootstrap, which occurs when the Gravitee component starts up, the `GIO_MIN_MEM`and `GIO_MAX_MEM` variables are injected into the `JAVA_OPTS`.
+**Note:** During bootstrap, which occurs when the Gravitee component starts up, the `GIO_MIN_MEM` and `GIO_MAX_MEM` variables are injected into the `JAVA_OPTS`.
 
 2. Run `docker compose up -d` to restart your containers with this new configuration.
 {% endtab %}
 
 {% tab title="Kubernetes (Helm)" %}
-When deploying containers within Kubernetes, it is typical to configure the JVM and resources at the same time. The best practice is to configure the JVM to be 70% of the defined resources.  If you define `resources.limits.memory: 1024Mi` and define `resources.requests.memory:1024Mi`, then `GIO_MIN_MEM` and `GIO_MAX_MEM` should be `716m`.
+When deploying containers within Kubernetes, it is typical to configure the JVM and resources at the same time. Best practice is to configure the JVM to be 70% of the defined resources.  If you define `resources.limits.memory: 1024Mi` and define `resources.requests.memory:1024Mi`, then `GIO_MIN_MEM` and `GIO_MAX_MEM` should be `716m`.
 
 {% hint style="info" %}
 We recommend that you set the same value for `resources.limits.memory` and `resources.requests.memory`
@@ -225,7 +225,7 @@ TLS, JWT encryption/decryption, and signature verifications can be CPU intensive
 
 ### High availability
 
-At least 2 Gateway instances are required to ensure your platform will experience minimum downtime in the event of critical issues or during rolling updates. In practice, you should set up the number of Gateway instances your platform requires to satisfy your performance criteria, plus one more. Then, if one instance is compromised, the remaining instances are able to handle all traffic until the failing instance recovers.
+At least two Gateway instances are required to ensure your platform will experience minimum downtime in the event of critical issues or during rolling updates. In practice, you should set up the number of Gateway instances your platform requires to satisfy your performance criteria, plus one more. Then, if one instance is compromised, the remaining instances are able to handle all traffic until the failing instance recovers.
 
 To increase resilience and uptime, you must eliminate single points of failure (SPOF), ensure reliable crossover, and detect failures as they occur.
 
@@ -243,32 +243,32 @@ In Active/Active mode, both instances of the component are actively processing r
 
 Alternatively, Active/Passive mode involves designating one instance as active while the other remains in standby mode, ready to take over operations if the active instance fails. In this setup, the passive instance remains idle until it is needed, thereby conserving resources. Automatic failover mechanisms are employed to detect failures in the active instance and seamlessly transition operations to the passive instance without causing service disruptions.
 
-<figure><img src="../.gitbook/assets/deployments and capacity.png" alt=""><figcaption><p>Load balancer</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/deployments and capacity.png" alt="" width="563"><figcaption><p>Load balancer</p></figcaption></figure>
 
 {% hint style="info" %}
 **VM installation**
 
-When installing on bare metal, e.g., VMs, use dedicated VMs for the Gateways and Alert Engine instances.
+Use dedicated VMs for the Gateway and Alert Engine instances.
 {% endhint %}
 {% endtab %}
 
 {% tab title="Reliable crossover" %}
-To ensure seamless and reliable traffic distribution to the Gravitee API Gateways, it is essential to implement a robust load-balancing solution (e.g., Nginx, HAproxy, F5, Traefik, Squid, Kemp, LinuxHA, etc.). By placing a reliable load balancer in front of the gateways, incoming requests can be efficiently distributed across multiple gateway instances, thereby optimizing performance and enhancing system reliability.
+To ensure seamless and reliable traffic distribution to the Gravitee API Gateways, it is essential to implement a robust load-balancing solution (e.g., Nginx, HAProxy, F5, Traefik, Squid, Kemp, LinuxHA, etc.). By placing a reliable load balancer in front of the Gateways, incoming requests can be efficiently distributed across multiple Gateway instances, thereby optimizing performance and enhancing system reliability.
 
 #### **Health Checks**
 
-Incorporating active or passive health checks into the load balancer configuration is essential for maintaining the reliability of the crossover setup. Health checks monitor the status and availability of backend gateway instances, enabling the load balancer to make informed routing decisions and dynamically adjust traffic distribution based on the health and performance of each instance.
+Incorporating active or passive health checks into the load balancer configuration is essential for maintaining the reliability of the crossover setup. Health checks monitor the status and availability of backend Gateway instances, enabling the load balancer to make informed routing decisions and dynamically adjust traffic distribution based on the health and performance of each instance.
 
 * **Active Health Checks**: Active health checks involve sending periodic probes or requests to the backend instances to assess their health and responsiveness. If an instance fails to respond within a specified timeout period or returns an error status, it is marked as unhealthy, and traffic is diverted away from it until it recovers.
 * **Passive Health Checks**: Passive health checks rely on monitoring the actual traffic and responses from the backend instances. The load balancer analyzes the responses received from each instance and detects anomalies or errors indicative of a failure. Passive health checks are typically less intrusive than active checks but may have slightly longer detection times.
 
 There are some key differences to note between active and passive health checks as noted in the table below:
 
-|                         | Active health checks                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Passive health checks (circuit breakers)                                               |
-| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| **Re-enable a backend** | Automatically re-enables a backend in the backend group as soon as it is healthy                                                                                                                                                                                                                                                                                                                                                                                                                           | Cannot automatically re-enable a backend in the backend group as soon as it is healthy |
-| **Additional traffic**  | Produces additional traffic to the target                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Does not produce additional traffic to the target                                      |
-| **Probe endpoint**      | Requires a known URL with a reliable status response in the backend to be configured as a request endpoint (e.g.,"/"). By providing a custom probe endpoint for an active health checker, a backend can determine its health metrics and produce a status code to be consumed by Gravitee. Even though a target continues to serve traffic which looks healthy to the passive health checker, it can respond to the active probe with a failure status, essentially requesting to stop taking new traffic. | Does not require configuration                                                         |
+|                         | Active health checks                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Passive health checks (circuit breakers)                                               |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| **Re-enable a backend** | Automatically re-enables a backend in the backend group as soon as it is healthy                                                                                                                                                                                                                                                                                                                                                                                                                            | Cannot automatically re-enable a backend in the backend group as soon as it is healthy |
+| **Additional traffic**  | Produces additional traffic to the target                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Does not produce additional traffic to the target                                      |
+| **Probe endpoint**      | Requires a known URL with a reliable status response in the backend to be configured as a request endpoint (e.g., "/"). By providing a custom probe endpoint for an active health checker, a backend can determine its health metrics and produce a status code to be consumed by Gravitee. Even though a target continues to serve traffic which looks healthy to the passive health checker, it can respond to the active probe with a failure status, essentially requesting to stop taking new traffic. | Does not require configuration                                                         |
 {% endtab %}
 
 {% tab title="Detect failures" %}
@@ -280,7 +280,7 @@ The[ Gateway internal API](../configure-and-manage-the-platform/gravitee-gateway
 
 **Mock Policy for Active Health Checks**
 
-Utilizing an API with a [Mock policy](broken-reference) enables administrators to perform active health checks on the Gravitee APIM Gateways. By configuring mock endpoints that simulate various scenarios, such as successful requests, timeouts, or errors, administrators can verify the gateway's responsiveness and behavior under different conditions.
+Utilizing an API with a [Mock policy](broken-reference) enables administrators to perform active health checks on the Gravitee APIM Gateways. By configuring mock endpoints that simulate various scenarios, such as successful requests, timeouts, or errors, administrators can verify the Gateway's responsiveness and behavior under different conditions.
 
 **Prometheus Metrics**
 
