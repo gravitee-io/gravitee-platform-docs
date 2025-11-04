@@ -83,30 +83,25 @@ def _relativize(from_src_path: str, to_repo_path: str) -> str:
 
 def _load_autofix_rows(csv_path: Path) -> dict[str, list[dict]]:
     """
-    Group rows by 'src' file, but only for internal broken items we can fix.
-    Handles BOM (UTF-8-sig) safely.
+    Group rows by 'src' file.
+    Accept only internal broken-link reasons we can actually fix,
+    and only when we have a suggested target (path or anchor).
     """
-    allow_reasons = {"missing_file", "missing_anchor"}
-    allow_categories = {"internal_page", "internal_anchor"}
-
     grouped: dict[str, list[dict]] = {}
-    with csv_path.open("r", encoding="utf-8-sig") as f:  # strips BOM if present
+    with csv_path.open("r", encoding="utf-8-sig", newline="") as f:
         reader = csv.DictReader(f)
         for row in reader:
             reason = (row.get("reason") or "").strip()
-            category = (row.get("category") or "").strip()
+            if reason not in {"missing_file", "missing_anchor"}:
+                continue
+            if not (
+                (row.get("suggest_path") or "").strip() or (row.get("suggest_anchor") or "").strip()
+            ):
+                continue
+            # src may be prefixed by BOM in some spreadsheets; guard for that
             src = (row.get("src") or row.get("\ufeffsrc") or "").strip()
-            suggest_path = (row.get("suggest_path") or "").strip()
-            suggest_anchor = (row.get("suggest_anchor") or "").strip()
-
-            # Only process broken internal links that have valid suggestions
-            if reason not in allow_reasons:
+            if not src:
                 continue
-            if category not in allow_categories:
-                continue
-            if not src or (not suggest_path and not suggest_anchor):
-                continue
-
             grouped.setdefault(src, []).append(row)
     return grouped
 
@@ -141,7 +136,7 @@ def _replace_in_file(
     for i, line in enumerate(lines):
         line_no = i + 1
 
-        def _one_sub(m, *, _line_no=line_no):
+        def _one_sub(m, _line_no=line_no):
             text, url = m.group(1), m.group(2)
             for old_cands, new_url in planned:
                 if url in old_cands:
