@@ -16,10 +16,6 @@ If you enable logging on APIs, you can use the `data-logging-masking` policy to 
 
 ## Examples
 
-{% hint style="warning" %}
-This policy can be applied to v2 APIs. It cannot be applied to v4 proxy APIs or v4 message APIs.
-{% endhint %}
-
 {% tabs %}
 {% tab title="v2 API example" %}
 Sample policy configuration:
