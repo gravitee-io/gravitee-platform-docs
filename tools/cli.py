@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 import typer
@@ -11,6 +12,7 @@ from .link_gov.extract_links import extract_links
 from .link_gov.index_build import build_indexes
 from .link_gov.report_csv import make_team_reports
 from .link_gov.suggest_corrections import build_suggestions_preview, build_suggestions_scored
+from .link_gov.utils import CACHE_DIR
 
 app = typer.Typer(
     add_completion=False,
@@ -72,6 +74,18 @@ def check(
 ):
     """Run internal existence checks and external HTTP probes. Write broken_links.csv."""
     broken_count, csv_path = run_checks(config)
+    try:
+        stats = json.loads((CACHE_DIR / "external_check_stats.json").read_text(encoding="utf-8"))
+        typer.secho(
+            f"↳ externals: checked={stats.get('external_checked',0)}, "
+            f"ignored(dedup)={stats.get('ignored_external_dedup',0)}, "
+            f"ignored(eval)={stats.get('ignored_external_eval',0)}, "
+            f"ignored(changelog)={stats.get('ignored_changelog',0)}, "
+            f"none_status={stats.get('external_none_status',0)}",
+            fg=typer.colors.BLUE,
+        )
+    except Exception:
+        pass
     if broken_count == 0:
         typer.secho("✅ No broken links detected.", fg=typer.colors.GREEN)
     else:
@@ -91,15 +105,18 @@ def report(
 
 
 @app.command()
-def suggest(
-    config: Path = DEFAULT_CONFIG,
-    limit: int = typer.Option(
-        500, "--limit", "-n", help="Max broken internal links to process for preview"
-    ),
-):
-    """Generate a preview of suggested fixes (no changes made)."""
-    count, path = build_suggestions_preview(config, limit=limit)
-    typer.secho(f"✅ Suggestions preview for {count} items → {path}", fg=typer.colors.GREEN)
+def suggest(config: Path = DEFAULT_CONFIG):
+    """
+    Build suggestions for missing anchors/pages. Writes:
+      - tools/.cache/suggestions_preview.json
+      - tools/.cache/suggestions_scored.json
+    """
+    prev = build_suggestions_preview(config)
+    scored = build_suggestions_scored(config)
+    import typer
+
+    typer.secho(f"🔎 Suggestions preview → {prev}", fg=typer.colors.CYAN)
+    typer.secho(f"🧮 Suggestions scored  → {scored}", fg=typer.colors.CYAN)
 
 
 @app.command()

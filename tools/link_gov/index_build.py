@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 import typer
@@ -11,6 +12,49 @@ from .utils import CACHE_DIR, load_config
 
 MD_EXTS = {".md", ".mdx"}
 
+# Files we never index (avoid noise)
+SKIP_BASENAMES = {"SUMMARY.md"}
+
+# --- GitBook / HTML anchor helpers ---
+# Strip fenced code so we don't match ids/titles inside code blocks.
+FENCE_RE = re.compile(
+    r"(?m)^\s*```[\s\S]*?^\s*```|^\s*~~~[\s\S]*?^\s*~~~",
+    re.MULTILINE,
+)
+
+# {% tab title="..." %} (allow single/double/curly quotes, extra attrs, odd spacing)
+TAB_TITLE_RE = re.compile(
+    r"""\{\%\s*tab\b[^%]*?\btitle\s*=\s*   # {% tab ... title =
+        (?:
+           "([^"]+)"                       # "foo"
+         | '([^']+)'                       # 'foo'
+         | “([^”]+)”                       # “foo”
+        )
+        [^%]*?\%\}                         # ... %}
+    """,
+    re.IGNORECASE | re.VERBOSE,
+)
+
+# <summary ...>Title</summary>  -> anchor slug(Title)
+SUMMARY_RE = re.compile(
+    r"<summary[^>]*>([\s\S]*?)</summary>",
+    re.IGNORECASE,
+)
+
+# id="..." OR name="..." (catch legacy <a name="..."> anchors too)
+HTML_ID_RE = re.compile(
+    r"""\b(?:id|name)\s*=\s*
+        (?:
+           "([^"\s>]+)"      # "id"
+         | '([^'\s>]+)'      # 'id'
+        )
+    """,
+    re.IGNORECASE | re.VERBOSE,
+)
+
+# Remove any inline tags when extracting <summary> text
+TAG_RE = re.compile(r"<[^>]+>")
+
 
 def _iter_docs(dirs: list[str]) -> list[Path]:
     files: list[Path] = []
@@ -19,7 +63,7 @@ def _iter_docs(dirs: list[str]) -> list[Path]:
         if not root.exists():
             continue
         for p in root.rglob("*"):
-            if p.suffix.lower() in MD_EXTS and p.is_file():
+            if p.is_file() and p.suffix.lower() in MD_EXTS and p.name not in SKIP_BASENAMES:
                 files.append(p)
     return files
 
@@ -33,6 +77,50 @@ def _slug(text: str) -> str:
     - unicode-friendly
     """
     return slugify(text, lowercase=True, allow_unicode=True, separator="-")
+
+
+def _strip_code_fences(text: str) -> str:
+    """Remove fenced code blocks so regexes don't match inside code."""
+    return FENCE_RE.sub("", text)
+
+
+def _strip_html_tags(text: str) -> str:
+    """Very light tag stripper for <summary> content."""
+    return TAG_RE.sub("", text)
+
+
+def _extract_gitbook_and_html_ids(md_text: str) -> list[dict[str, str]]:
+    """
+    Return pseudo-headings for anchors GitBook injects:
+      - Tabs: {% tab title="RBAC" %}  -> id slug('rbac')
+      - Expandables: <summary>Title</summary>  -> id slug('Title')
+      - Generic HTML id= / legacy name=  -> id itself (lowercased)
+    Each item: {"level": 0, "text": <label>, "id": <slug or id>}
+    """
+    clean = _strip_code_fences(md_text)
+    pseudo: list[dict[str, str]] = []
+
+    # Tabs — handle "..." / '...' / “...”
+    for m in TAB_TITLE_RE.finditer(clean):
+        label = next((g for g in m.groups() if g), "").strip()
+        if label:
+            slugged = _slug(label)
+            pseudo.append({"level": 0, "text": label, "id": slugged})
+
+    # Expandables (<details><summary ...>Title</summary>...</details>)
+    for raw in SUMMARY_RE.findall(clean):
+        label = _strip_html_tags(raw or "").strip()
+        if label:
+            pseudo.append({"level": 0, "text": label, "id": _slug(label)})
+
+    # Generic HTML id= / name=
+    for m in HTML_ID_RE.finditer(clean):
+        hid = next((g for g in m.groups() if g), "")
+        hid = (hid or "").strip().lower()
+        if hid:
+            pseudo.append({"level": 0, "text": hid, "id": hid})
+
+    return pseudo
 
 
 def _extract_headings(md_text: str) -> list[dict[str, str]]:
@@ -72,6 +160,8 @@ def _extract_headings(md_text: str) -> list[dict[str, str]]:
                     if text:
                         out.append({"level": level, "text": text, "id": hid})
         i += 1
+    # Also collect GitBook/HTML-generated anchors (tabs, expandables, id="...").
+    out.extend(_extract_gitbook_and_html_ids(md_text))
     return out
 
 
@@ -129,7 +219,8 @@ def build_indexes(config_path: Path) -> None:
 
         for h in headings:
             # primary (text-based) slug with per-file disambiguation
-            base = _slug(h["text"])
+            txt_for_slug = re.sub(r"\s+", " ", h["text"]).strip()
+            base = _slug(txt_for_slug)
             n = seen_text_slug.get(base, 0)
             primary = base if n == 0 else f"{base}-{n}"
             seen_text_slug[base] = n + 1
@@ -137,12 +228,50 @@ def build_indexes(config_path: Path) -> None:
             pairs.append((h, primary))
             file_slugs.append(primary)
 
+            # --- NEW: GitBook "numbered heading" anchor variants ---
+            # If the heading text starts with "3. " / "10. " / "3) " / "3: " etc., GitBook often emits anchors like:
+            #   id-3.-<slug>  (note the "id-" prefix and the dot after the number)
+            m = re.match(r"^\s*(\d+)[\.\):-]\s+", h["text"])
+            if m:
+                _num = m.group(1)
+                # take the text AFTER the numeric prefix, normalize whitespace, then slugify
+                _tail = h["text"][m.end() :]
+                _tail = re.sub(r"\s+", " ", _tail).strip()
+                _tail_slug = _slug(_tail)
+                _variants = [
+                    f"id-{_num}.-{_tail_slug}",  # common GitBook form
+                    f"id-{_num}-{_tail_slug}",  # seen in some renders
+                    f"{_num}.-{_tail_slug}",  # bare numeric-prefixed
+                    f"{_num}-{_tail_slug}",
+                ]
+                for v in _variants:
+                    if v not in file_slugs:
+                        pairs.append((h, v))
+                        file_slugs.append(v)
+
             # optional explicit-id slug (no disambiguation; ids are unique by authoring)
             hid = (h.get("id") or "").strip().lower()
             if hid and hid != primary:
                 pairs.append((h, hid))
                 if hid not in file_slugs:
                     file_slugs.append(hid)
+
+            # --- OPTIONAL: accept GitHub's 'user-content-' prefix for slugs of THIS heading ---
+            # Build 'user-content-<slug>' for every slug we just added for this heading.
+            # (Do NOT do this for all slugs in the file, or you'll mis-attach headings.)
+            _new_for_this_heading = []
+            _new_for_this_heading.append(primary)
+            if m:  # we added numbered variants above
+                _new_for_this_heading.extend(_variants)
+            if hid and hid != primary:
+                _new_for_this_heading.append(hid)
+
+            for _s in _new_for_this_heading:
+                _uc = f"user-content-{_s}"
+                if _uc not in file_slugs:
+                    pairs.append((h, _uc))
+                    file_slugs.append(_uc)
+            # --- END OPTIONAL ---
 
         # write to global headings_index as path#slug -> text
         for h, slug in pairs:
@@ -155,14 +284,6 @@ def build_indexes(config_path: Path) -> None:
             "title": title,
             "headings_count": len(headings),  # count of headings, not of slugs
             "h1_h4_slugs": file_slugs,  # keep the original field name for downstream code
-        }
-
-        # store per-file summary (title = first H1 if present, else filename)
-        title = next((h["text"] for h in headings if h["level"] == 1), p.stem)
-        files_index[p.as_posix()] = {
-            "title": title,
-            "headings_count": len(headings),
-            "h1_h4_slugs": file_slugs,
         }
 
     # --- Sanity check: detect duplicate slugs per file ---
