@@ -108,7 +108,7 @@
     * [SMTP Configuration](configure-and-manage-the-platform/manage-organizations-and-environments/smtp-configuration.md)
     * [CORS Configuration](configure-and-manage-the-platform/manage-organizations-and-environments/cors-configuration.md)
     * [Support](configure-and-manage-the-platform/manage-organizations-and-environments/support.md)
-  * [Debug logging](configure-and-manage-the-platform/debug-logging.md)
+  * [Debug Logging](configure-and-manage-the-platform/debug-logging.md)
 * [Create & Configure APIs](create-and-configure-apis/README.md)
   * [Gravitee API Definitions](create-and-configure-apis/gravitee-api-definitions/README.md)
     * [v2 and v4 API Comparison](create-and-configure-apis/gravitee-api-definitions/v2-and-v4-api-comparison.md)
