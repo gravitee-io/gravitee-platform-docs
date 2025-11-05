@@ -18,8 +18,6 @@ Component-based debug logging means that you enable debug logging for the follow
 
 * Management API
 * Gateway
-* Console&#x20;
-* Developer Portal
 
 Java-class debug logging means the individual Java classes and packages that are included in the Gravitee components. Here are some examples of Java classes:
 
