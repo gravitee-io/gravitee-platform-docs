@@ -7,6 +7,8 @@ from pathlib import Path
 
 from .utils import CACHE_DIR
 
+BROKEN_CSV = CACHE_DIR / "broken_links.csv"
+
 _FIELDS = [
     "src",
     "text",
@@ -22,6 +24,34 @@ _FIELDS = [
 ]
 
 
+def _load_broken_lookups() -> tuple[dict, dict]:
+    """Build quick lookups from broken_links.csv.
+    anchor_by_key[(src, original_anchor_lower)] -> {normalized_path, raw_url}
+    page_by_key[(src, original_path)] -> {normalized_path, raw_url}
+    """
+    anchor_by_key, page_by_key = {}, {}
+    with BROKEN_CSV.open("r", encoding="utf-8", newline="") as f:
+        r = csv.DictReader(f)
+        for row in r:
+            src = row.get("src", "")
+            reason = row.get("reason", "")
+            if reason == "missing_anchor":
+                orig = (row.get("normalized_anchor", "") or "").strip().lower()
+                if orig:
+                    anchor_by_key[(src, orig)] = {
+                        "normalized_path": row.get("normalized_path", ""),
+                        "raw_url": row.get("raw_url", ""),
+                    }
+            elif reason == "missing_file":
+                orig_path = (row.get("normalized_path", "") or "").strip()
+                if orig_path:
+                    page_by_key[(src, orig_path)] = {
+                        "normalized_path": orig_path,
+                        "raw_url": row.get("raw_url", ""),
+                    }
+    return anchor_by_key, page_by_key
+
+
 def _rows_from_csv(path: Path) -> Iterator[dict]:
     with path.open("r", encoding="utf-8", newline="") as f:
         reader = csv.DictReader(f)
@@ -30,39 +60,79 @@ def _rows_from_csv(path: Path) -> Iterator[dict]:
 
 def _rows_from_json(path: Path) -> Iterator[dict]:
     """
-    Expect shape like:
+    Expect shape:
       {
-        "safe": [ { ..., "suggestion": {"path": "...", "anchor": "...", "heading": "...", "score": 0.xx, "confidence": "high"} }, ... ],
-        "needs_review": [ { ..., "suggestion": {... or null}, "confidence": "medium"/"low" }, ... ]
+        "safe": [ { "src", "kind": "anchor"|"page", "original", "suggestion", "score", "reason" }, ... ],
+        "needs_review": [ ...same shape... ]
       }
-    We normalize each item to the CSV field schema.
+    We enrich with data from broken_links.csv and map to the CSV field schema.
     """
     data = json.loads(path.read_text(encoding="utf-8"))
+    anchor_by_key, page_by_key = _load_broken_lookups()
 
-    def _emit(items: Iterable[dict], default_conf: str | None) -> Iterator[dict]:
+    def _emit(items: Iterable[dict], default_conf: str) -> Iterator[dict]:
         for it in items or []:
-            sug = it.get("suggestion") or {}
-            conf = (sug.get("confidence") or it.get("confidence") or default_conf or "").lower()
+            src = it.get("src", "")
+            kind = (it.get("kind") or "").strip().lower()
+            original = (it.get("original") or "").strip()
+            suggestion = (it.get("suggestion") or "").strip()
+
+            # Defaults
+            normalized_path = ""
+            normalized_anchor = ""
+            raw_url = ""
+            suggest_path = ""
+            suggest_anchor = ""
+
+            if kind == "anchor":
+                # locate the broken row by (src, original_anchor)
+                ctx = anchor_by_key.get((src, original.lower()), {})
+                normalized_path = ctx.get("normalized_path", "")
+                raw_url = ctx.get("raw_url", "")
+
+                # suggestion could be just a slug or "path#slug"
+                if "#" in suggestion:
+                    p, a = suggestion.split("#", 1)
+                    suggest_path = p.strip()
+                    suggest_anchor = a.strip()
+                else:
+                    # same-page anchor fix
+                    suggest_path = ""  # keep empty so apply_autofix emits "#anchor"
+                    suggest_anchor = suggestion
+
+                reason = "missing_anchor"
+
+            elif kind == "page":
+                # locate by (src, wanted_path) — in broken CSV this equals normalized_path
+                ctx = page_by_key.get((src, original), {})
+                normalized_path = ctx.get("normalized_path", "") or original
+                raw_url = ctx.get("raw_url", "")
+                suggest_path = suggestion  # full path
+                suggest_anchor = ""
+                reason = "missing_file"
+
+            else:
+                # unknown kind — skip
+                continue
 
             yield {
-                "src": it.get("src", ""),
-                "text": it.get("text", ""),
-                "reason": it.get("reason", ""),
-                "raw_url": it.get("raw_url", ""),
-                "normalized_path": it.get("normalized_path", ""),
-                "normalized_anchor": it.get("normalized_anchor", ""),
-                "suggest_path": sug.get("path", "") or "",
-                "suggest_anchor": sug.get("anchor", "") or "",
-                "suggest_heading": sug.get("heading", "") or "",
-                "suggest_score": str(sug.get("score", "")),
-                "confidence": conf,
+                "src": src,
+                "text": "",  # not required by autofix
+                "reason": reason,
+                "raw_url": raw_url,
+                "normalized_path": normalized_path,
+                "normalized_anchor": normalized_anchor,
+                "suggest_path": suggest_path,
+                "suggest_anchor": suggest_anchor,
+                "suggest_heading": "",
+                "suggest_score": str(it.get("score", "")),
+                "confidence": default_conf.lower(),
             }
 
-    # 'safe' are our highs
+    # 'safe' -> high, 'needs_review' -> medium (we only write highs/mediums w/ suggestions)
     for row in _emit(data.get("safe", []), default_conf="high"):
         yield row
 
-    # 'needs_review' include mediums/lows
     for row in _emit(data.get("needs_review", []), default_conf="medium"):
         yield row
 

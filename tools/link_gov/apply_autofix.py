@@ -2,10 +2,12 @@ from __future__ import annotations
 
 import csv
 import json
+import os
 import posixpath
 import re
 import shutil
 import textwrap
+from collections import Counter
 from datetime import UTC, datetime
 from pathlib import Path
 
@@ -17,6 +19,9 @@ from .utils import CACHE_DIR
 MD_LINK_RE = re.compile(r"\[([^\]]+)\]\(([^)\s]+)\)")
 
 _SCHEME_RE = re.compile(r"^[a-zA-Z][a-zA-Z0-9+.-]*:")
+
+# Allow cross-page anchor autofixes when explicitly enabled (default: off)
+CROSS_PAGE_ANCHOR_OK = os.getenv("LG_CROSS_PAGE_ANCHOR_OK", "0").lower() in {"1", "true", "yes"}
 
 
 def _write_json(path: Path, obj: dict) -> None:
@@ -75,32 +80,105 @@ def _assemble_target(src_path: str, raw_url: str, suggest_path: str, suggest_anc
     return f"{target_path}#{suggest_anchor}" if suggest_anchor else target_path
 
 
-def _candidate_old_urls(raw_url: str) -> list[str]:
+def _candidate_old_urls(raw_url: str, src_path: str | None = "") -> list[str]:
     """
-    Generate a tiny set of 'old url' variants to catch small formatting differences.
-    We stay conservative to avoid unintended edits.
+    Build a conservative set of variants the existing Markdown might contain so we
+    can safely match and replace more cases:
+      - strip './'
+      - README.md <-> index.md <-> trailing slash directory
+      - handle spaces vs %20
+      - lowercased anchors
+      - treat same-page forms as equivalent: 'README.md#frag' <-> '#frag'
     """
-    cands = []
-    if raw_url:
-        cands.append(raw_url)
-        # common variants
-        if raw_url.startswith("./"):
-            cands.append(raw_url[2:])
-        if raw_url.startswith("../"):
-            # don't guess too much for parent-links; keep exact
-            pass
-        if "#" in raw_url:
-            path, frag = raw_url.split("#", 1)
-            if not path:  # hash-only case like '#some-anchor'
-                cands.append(f"#{frag}")
-    # de-dupe preserving order
-    seen = set()
-    out = []
-    for u in cands:
-        if u not in seen:
-            seen.add(u)
-            out.append(u)
-    return out
+    if not raw_url:
+        return []
+
+    u = raw_url.replace("\\", "/")  # normalize slashes just in case
+    cands: list[str] = []
+
+    def add(v: str) -> None:
+        if v and v not in cands:
+            cands.append(v)
+
+    add(u)  # as-is
+
+    # split into path + fragment (anchor) if present
+    path, frag = "", ""
+    if "#" in u:
+        path, frag = u.split("#", 1)
+    else:
+        path = u
+
+    # add './' variant for simple relative forms (helps [text](./thing) vs [text](thing))
+    if not u.startswith("./") and not _SCHEME_RE.match(u) and not u.startswith("/"):
+        add(f"./{u}")
+    if (
+        path
+        and not path.startswith("./")
+        and not _SCHEME_RE.match(path)
+        and not path.startswith("/")
+    ):
+        add(f"./{path}" + (f"#{frag}" if frag else ""))
+
+    # strip leading "./" variants
+    if u.startswith("./"):
+        add(u[2:])
+    if path.startswith("./"):
+        p2 = path[2:]
+        add(p2 + (f"#{frag}" if frag else ""))
+
+    # spaces <-> %20
+    if "%20" in u:
+        add(u.replace("%20", " "))
+    if " " in u:
+        add(u.replace(" ", "%20"))
+
+    # trailing slash variants (path-only or path+frag)
+    if path.endswith("/"):
+        p = path[:-1]
+        add(p + (f"#{frag}" if frag else ""))
+        # directory default docs
+        add(path + "README.md" + (f"#{frag}" if frag else ""))
+        add(path + "index.md" + (f"#{frag}" if frag else ""))
+    else:
+        # allow adding a trailing slash if linking to a dir default
+        if path.endswith("/README.md"):
+            base = path[: -len("/README.md")]
+            add(base + "/index.md" + (f"#{frag}" if frag else ""))
+            add(base + "/" + (f"#{frag}" if frag else ""))
+        if path.endswith("/index.md"):
+            base = path[: -len("/index.md")]
+            add(base + "/README.md" + (f"#{frag}" if frag else ""))
+            add(base + "/" + (f"#{frag}" if frag else ""))
+
+    # anchor case variants
+    if frag:
+        # keep as-is + lowercased anchor on same path
+        add(path + "#" + frag.lower())
+        # also generate './' stripped + lowercased
+        if path.startswith("./"):
+            p2 = path[2:]
+            add(p2 + "#" + frag)
+            add(p2 + "#" + frag.lower())
+
+    # If this was a same-page link *authored with a path*, also accept pure '#frag'
+    # Consider it "same page" when authored path resolves to the same file as src_path.
+    if frag and src_path:
+        authored = (path or "").lstrip("./")
+        src_base = posixpath.basename(src_path or "")
+        # same page if:
+        #   - no path (already '#frag'), or
+        #   - path is exactly the current file's basename, or
+        #   - path is a default-doc in the same dir (README.md / index.md) and src is that file
+        if (
+            authored == ""
+            or authored == src_base
+            or (authored in {"README.md", "index.md"} and src_base in {"README.md", "index.md"})
+        ):
+            add("#" + frag)  # as authored
+            add("#" + frag.lower())  # lowercased anchor only
+
+    return cands
 
 
 def _relativize(from_src_path: str, to_repo_path: str) -> str:
@@ -113,15 +191,14 @@ def _relativize(from_src_path: str, to_repo_path: str) -> str:
     return rel if not rel.startswith("./") else rel[2:]
 
 
-def _load_autofix_rows(csv_path: Path) -> dict[str, list[dict]]:
+def _load_autofix_rows(
+    csv_path: Path,
+    allow_cross_page_anchors: bool = False,
+    skip_log: list[dict] | None = None,
+) -> dict[str, list[dict]]:
     """
     Group rows by 'src' file.
-    Accept only internal broken-link reasons we can actually fix,
-    and only when we have a suggested target (path or anchor).
-    Extra guards:
-      - skip any row where src/normalized_path/suggest_path is SUMMARY.md
-      - enforce same product+version unless changelog/release-notes is involved
-      - for missing_anchor, require same page + non-empty suggest_anchor
+    We log every row we skip with a reason so we can report later.
     """
     grouped: dict[str, list[dict]] = {}
     with csv_path.open("r", encoding="utf-8-sig", newline="") as f:
@@ -129,6 +206,8 @@ def _load_autofix_rows(csv_path: Path) -> dict[str, list[dict]]:
         for row in reader:
             reason = (row.get("reason") or "").strip()
             if reason not in {"missing_file", "missing_anchor"}:
+                if skip_log is not None:
+                    _log_skip(skip_log, row, stage="load", reason="unsupported_reason")
                 continue
 
             # Must have either a target path or an anchor to fix.
@@ -136,11 +215,15 @@ def _load_autofix_rows(csv_path: Path) -> dict[str, list[dict]]:
                 row.get("suggest_anchor") or ""
             ).strip()
             if not has_suggest:
+                if skip_log is not None:
+                    _log_skip(skip_log, row, stage="load", reason="no_suggestion")
                 continue
 
             # Source (guard BOM) and early exits.
             src = (row.get("src") or row.get("\ufeffsrc") or "").strip()
             if not src:
+                if skip_log is not None:
+                    _log_skip(skip_log, row, stage="load", reason="missing_src")
                 continue
 
             # Never touch SUMMARY.md anywhere in the row (source or targets)
@@ -149,6 +232,8 @@ def _load_autofix_rows(csv_path: Path) -> dict[str, list[dict]]:
                 or _is_summary(row.get("normalized_path", ""))
                 or _is_summary(row.get("suggest_path", ""))
             ):
+                if skip_log is not None:
+                    _log_skip(skip_log, row, stage="load", reason="summary_guard")
                 continue
 
             # Enforce strict same-version rule unless changelog context.
@@ -163,74 +248,98 @@ def _load_autofix_rows(csv_path: Path) -> dict[str, list[dict]]:
                 and (_is_changelog_context(src) or _is_changelog_context(spath))
             )
             if not (same_version or allowed_cross):
+                if skip_log is not None:
+                    _log_skip(skip_log, row, stage="load", reason="cross_version_blocked")
                 continue
 
-            # Extra safety for missing_anchor: must stay on same page and have an anchor.
+            # Extra safety for missing_anchor
             if reason == "missing_anchor":
                 normalized_page = (row.get("normalized_path") or src or "").strip()
-                if spath and spath != normalized_page:
-                    continue
                 if not (row.get("suggest_anchor") or "").strip():
+                    if skip_log is not None:
+                        _log_skip(
+                            skip_log, row, stage="load", reason="missing_anchor_no_suggest_anchor"
+                        )
+                    continue
+                if (not allow_cross_page_anchors) and spath and spath != normalized_page:
+                    if skip_log is not None:
+                        _log_skip(skip_log, row, stage="load", reason="cross_page_anchor_blocked")
                     continue
 
             grouped.setdefault(src, []).append(row)
+
     return grouped
 
 
 def _replace_in_file(
     file_path: Path,
     rows: list[dict],
-) -> tuple[str, str, list[dict]]:
+) -> tuple[str, str, list[dict], list[dict]]:
     """
     Perform conservative replacements in a file’s content.
-    Returns (original_text, new_text, changes[])
+    Returns (original_text, new_text, changes[], unmatched_rows[])
     where each 'change' is a dict with:
         line_no, link_text, old_url, new_url, before, after
     """
     original = file_path.read_text(encoding="utf-8")
     lines = original.splitlines(keepends=True)
 
-    # rows may share the same src file; resolve each independently
-    # build map of old->new for quick lookup per row, but match only when exact
-    planned = []
+    # plan entries keep a direct reference to the source row so we can log unmatched
+    planned: list[dict] = []
     for r in rows:
         src_path = r.get("src", "")
         suggest_path = r.get("suggest_path", "") or ""
         suggest_anchor = r.get("suggest_anchor", "") or ""
         raw_url = r.get("raw_url", "") or r.get("normalized_path", "") or ""
-        old_candidates = _candidate_old_urls(raw_url)
+        old_candidates = _candidate_old_urls(raw_url, src_path)
         new_url = _assemble_target(src_path, raw_url, suggest_path, suggest_anchor)
-        planned.append((old_candidates, new_url))
+        planned.append(
+            {
+                "old": old_candidates,
+                "new": new_url,
+                "row": r,
+                "matched": False,
+            }
+        )
 
     changes: list[dict] = []
-    # Work line by line so we can record line numbers in the report
+
     for i, line in enumerate(lines):
         line_no = i + 1
 
         def _one_sub(m, _line_no=line_no):
             text, url = m.group(1), m.group(2)
-            for old_cands, new_url in planned:
-                if url in old_cands:
+            for plan in planned:
+                if url in plan["old"]:
                     before = m.group(0)
-                    after = f"[{text}]({new_url})"
+                    after = f"[{text}]({plan['new']})"
                     changes.append(
                         {
-                            "line_no": _line_no,  # use bound value
+                            "line_no": _line_no,
                             "link_text": text,
                             "old_url": url,
-                            "new_url": new_url,
+                            "new_url": plan["new"],
                             "before": before,
                             "after": after,
                         }
                     )
+                    plan["matched"] = True
                     return after
             return m.group(0)
 
-        new_line = MD_LINK_RE.sub(_one_sub, line)
-        lines[i] = new_line
+        lines[i] = MD_LINK_RE.sub(_one_sub, line)
 
     new_text = "".join(lines)
-    return original, new_text, changes
+
+    # collect any rows that never matched text in file; attach candidates for debugging
+    unmatched_rows: list[dict] = []
+    for p in planned:
+        if not p["matched"]:
+            r = dict(p["row"])
+            r["candidate_old_urls"] = list(p["old"])
+            unmatched_rows.append(r)
+
+    return original, new_text, changes, unmatched_rows
 
 
 def _write_report(
@@ -272,25 +381,128 @@ def _write_report(
     report_path.write_text("\n".join(md) + "\n", encoding="utf-8")
 
 
+def _log_skip(skip_log: list[dict], row: dict, stage: str, reason: str) -> None:
+    skip_log.append(
+        {
+            "stage": stage,  # "load" or "apply"
+            "reason": reason,  # machine-friendly reason
+            "src": row.get("src", ""),
+            "kind": row.get("reason", ""),  # missing_file / missing_anchor
+            "raw_url": row.get("raw_url", ""),
+            "normalized_path": row.get("normalized_path", ""),
+            "normalized_anchor": row.get("normalized_anchor", ""),
+            "suggest_path": row.get("suggest_path", ""),
+            "suggest_anchor": row.get("suggest_anchor", ""),
+            # optional debugging fields (only present for 'apply' unmatched rows)
+            "candidate_old_urls": row.get("candidate_old_urls", []),
+        }
+    )
+
+
+def _write_skip_report(
+    path: Path,
+    skip_log: list[dict],
+    high_total: int,
+    grouped_total: int,
+    applied_links: int,
+) -> None:
+    # Aggregate by reason for quick at-a-glance summary
+    by_reason = Counter(e["reason"] for e in skip_log)
+    doc = {
+        "generated_at": _utc_now_iso(),
+        "input_rows_total": high_total,
+        "kept_after_filters": grouped_total,
+        "applied_link_changes": applied_links,
+        "skipped_items": skip_log,
+        "skipped_by_reason": dict(by_reason),
+    }
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(doc, indent=2, ensure_ascii=False), encoding="utf-8")
+
+
+def _write_skip_csv(path: Path, skip_log: list[dict]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(
+            f,
+            fieldnames=[
+                "stage",
+                "reason",
+                "src",
+                "kind",
+                "raw_url",
+                "normalized_path",
+                "normalized_anchor",
+                "suggest_path",
+                "suggest_anchor",
+                "candidate_old_urls",
+            ],
+        )
+        writer.writeheader()
+        for r in skip_log:
+            writer.writerow(
+                {
+                    **r,
+                    "candidate_old_urls": ";".join(r.get("candidate_old_urls", [])),
+                }
+            )
+
+
+def _print_skip_explanations(skip_log: list[dict]) -> None:
+    # summary by reason
+    by_reason = Counter(e["reason"] for e in skip_log)
+    if not by_reason:
+        print("No skips.")
+        return
+
+    print("\nSkipped by reason")
+    for reason, count in sorted(by_reason.items(), key=lambda x: -x[1]):
+        print(f"  • {reason}: {count}")
+
+    # detailed rows
+    print("\nDetails")
+    for r in skip_log:
+        line = f"- [{r['stage']}] {r['reason']} :: {r.get('src','')} | {r.get('raw_url','')}"
+        print(line)
+        if r["reason"] == "no_textual_match_in_file" and r.get("candidate_old_urls"):
+            print(f"    tried: {', '.join(r['candidate_old_urls'])}")
+
+
 def apply_autofix(
     high_csv: Path | None = None,
     dry_run: bool = True,
     backup_dir: Path | None = None,
     preview_out: Path | None = None,
     verbose: bool = False,
+    allow_cross_page_anchors: bool = False,
+    skips_out: Path | None = None,
+    explain: bool = True,
+    skips_csv: Path | None = None,
 ) -> tuple[int, int, Path, Path | None]:
     """
-    Apply high-confidence suggestions to the docs.
+    Apply high-confidence suggestions to the docs (conservative).
     Returns (files_changed, links_changed, report_md_path, preview_json_path)
-    - In dry-run mode, always writes a JSON preview (autofix_preview.json by default).
-    - In apply mode, writes a markdown report and (if backup_dir is provided) backs up originals first.
+    Also writes a skip report JSON with reasons for every non-applied row.
     """
     csv_path = high_csv or (CACHE_DIR / "high_confidence_autofix.csv")
-    grouped = _load_autofix_rows(csv_path)
+
+    # Count input rows for summary
+    total_rows = 0
+    with csv_path.open("r", encoding="utf-8-sig", newline="") as _f:
+        for _ in csv.DictReader(_f):
+            total_rows += 1
+
+    skip_log: list[dict] = []
+    grouped = _load_autofix_rows(
+        csv_path,
+        allow_cross_page_anchors=allow_cross_page_anchors,
+        skip_log=skip_log,
+    )
 
     per_file_changes: list[tuple[Path, list[dict]]] = []
     files_changed = 0
     links_changed = 0
+    grouped_total = sum(len(v) for v in grouped.values())
 
     # For JSON preview
     preview_changes: list[dict] = []
@@ -298,10 +510,12 @@ def apply_autofix(
     for src_rel, rows in grouped.items():
         file_path = Path(src_rel)
         if not file_path.exists():
-            # safety: skip if file missing
+            # Record a skip for all rows in this file if the file is missing
+            for r in rows:
+                _log_skip(skip_log, r, stage="apply", reason="source_file_missing")
             continue
 
-        original, new_text, changes = _replace_in_file(file_path, rows)
+        original, new_text, changes, unmatched_rows = _replace_in_file(file_path, rows)
 
         # Accumulate preview entries regardless of dry-run/apply
         if changes:
@@ -315,6 +529,10 @@ def apply_autofix(
                         "new_url": ch["new_url"],
                     }
                 )
+
+        # Any planned rows that didn’t match text in this file → log as skip
+        for ur in unmatched_rows:
+            _log_skip(skip_log, ur, stage="apply", reason="no_textual_match_in_file")
 
         if changes:
             per_file_changes.append((file_path, changes))
@@ -335,7 +553,7 @@ def apply_autofix(
                 if verbose:
                     print(f"[write]  {file_path}")
 
-    # Markdown report (same path as before)
+    # Markdown report
     report_path = CACHE_DIR / "autofix_report.md"
     _write_report(report_path, per_file_changes, dry_run, files_changed, links_changed)
 
@@ -353,6 +571,27 @@ def apply_autofix(
         _write_json(preview_path, doc)
         if verbose:
             print(f"[preview] wrote {preview_path} with {len(preview_changes)} entries")
+
+    # Skips report (always write)
+    skips_path = skips_out or (CACHE_DIR / "autofix_skipped.json")
+    _write_skip_report(
+        skips_path,
+        skip_log,
+        high_total=total_rows,
+        grouped_total=grouped_total,
+        applied_links=links_changed,
+    )
+    if verbose:
+        print(f"[skips] wrote {skips_path} with {len(skip_log)} items")
+
+    # Optional CSV and console explanations
+    if skips_csv:
+        _write_skip_csv(skips_csv, skip_log)
+        if verbose:
+            print(f"[skips] wrote CSV {skips_csv}")
+
+    if explain:
+        _print_skip_explanations(skip_log)
 
     return files_changed, links_changed, report_path, preview_path
 
@@ -382,6 +621,38 @@ PREVIEW_OUT_OPT: Path | None = typer.Option(
     help="Where to write the dry-run preview JSON (default: tools/.cache/autofix_preview.json)",
 )
 VERBOSE_OPT: bool = typer.Option(False, "--verbose", help="Verbose logging")
+ALLOW_XPAGE_ANCHORS_OPT: bool = typer.Option(
+    CROSS_PAGE_ANCHOR_OK,
+    "--allow-cross-page-anchors",
+    help=(
+        "Allow fixing missing anchors by moving links to a different page "
+        "(still same product/version). Defaults to LG_CROSS_PAGE_ANCHOR_OK env."
+    ),
+)
+# ---- Typer option singletons for 'autofix' command (avoid B008) ----
+DRY_RUN_TOGGLE_OPT: bool = typer.Option(
+    True,
+    "--dry-run/--no-dry-run",
+    help="Preview only (default). Use --no-dry-run to write files.",
+)
+
+SKIPS_OUT_OPT: Path | None = typer.Option(
+    None,
+    "--skips-out",
+    help="Where to write JSON report of skipped rows (default: tools/.cache/autofix_skipped.json).",
+)
+
+SKIPS_CSV_OPT: Path | None = typer.Option(
+    None,
+    "--skips-csv",
+    help="Also write a CSV of non-applied rows and reasons.",
+)
+
+EXPLAIN_OPT: bool = typer.Option(
+    True,
+    "--explain/--no-explain",
+    help="Print grouped and per-row reasons for skipped high-confidence rows (default on).",
+)
 
 
 @app.command()
@@ -391,6 +662,10 @@ def main(
     backup_dir: Path | None = BACKUP_DIR_OPT,
     preview_out: Path | None = PREVIEW_OUT_OPT,
     verbose: bool = VERBOSE_OPT,
+    allow_cross_page_anchors: bool = ALLOW_XPAGE_ANCHORS_OPT,
+    skips_out: Path | None = SKIPS_OUT_OPT,
+    skips_csv: Path | None = SKIPS_CSV_OPT,  # <-- add
+    explain: bool = EXPLAIN_OPT,  # <-- add
 ):
     """
     Apply (or preview) auto-fixes based on high_confidence_autofix.csv.
@@ -406,6 +681,10 @@ def main(
             backup_dir=backup_dir,
             preview_out=preview_out,
             verbose=verbose,
+            allow_cross_page_anchors=allow_cross_page_anchors,
+            skips_out=skips_out,
+            explain=explain,  # <-- add
+            skips_csv=skips_csv,  # <-- add
         )
 
         # In dry-run, success=0 if we *would* change anything; 2 if nothing to do.

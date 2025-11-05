@@ -1,0 +1,10 @@
+pyyaml
+markdown-it-py
+python-slugify
+aiohttp
+typer
+rich
+click
+black
+ruff
+pre-commit

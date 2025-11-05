@@ -2,7 +2,7 @@
 
 ## Overview
 
-You can configure your general Gravitee APIM Management API settings using the `gravitee.yaml` file. As detailed in [APIM Components](broken-reference), you can override these settings by using system properties or environment variables.
+You can configure your general Gravitee APIM Management API settings using the `gravitee.yaml` file. As detailed in [APIM Components](README.md), you can override these settings by using system properties or environment variables.
 
 The `gravitee.yaml` file, found in `GRAVITEE_HOME/config/`, is the default way to configure APIM.
 

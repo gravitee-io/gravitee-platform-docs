@@ -156,7 +156,7 @@ sudo systemctl restart graviteeio-apim-rest-api
 Before you install the Management Console, you must complete the following configuration.
 
 1. Ensure you have configured your package management system, as described in [Configure the package management system (yum).](../#configure-the-package-management-system-yum)
-2. Install and run the [management API](broken-reference/).
+2. Install and run the [management API](README.md).
 3. Install Nginx by running the following commands:
 
 ```sh
@@ -230,7 +230,7 @@ sudo systemctl restart nginx
 Before you install the Developer Portal, you must complete the following configuration.
 
 1. Ensure you have configured your package management system, as described in [Configure the package management system (yum).](../#configure-the-package-management-system-yum)
-2. Install and run the [management API](broken-reference/).
+2. Install and run the [management API](README.md).
 3. Install Nginx by running the following commands:
 
 ```sh
