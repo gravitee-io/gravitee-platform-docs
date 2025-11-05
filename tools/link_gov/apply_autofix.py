@@ -14,6 +14,24 @@ MD_LINK_RE = re.compile(r"\[([^\]]+)\]\(([^)\s]+)\)")
 _SCHEME_RE = re.compile(r"^[a-zA-Z][a-zA-Z0-9+.-]*:")
 
 
+# --- extra safety helpers (mirror gate rules) ---
+_PV_RE = re.compile(r"^docs/([^/]+)/([^/]+)/")
+
+
+def _pv(p: str) -> tuple[str, str]:
+    m = _PV_RE.match(p or "")
+    return (m.group(1), m.group(2)) if m else ("", "")
+
+
+def _is_changelog_context(path: str) -> bool:
+    p = (path or "").lower()
+    return ("releases-and-changelog" in p) or ("release-notes" in p)
+
+
+def _is_summary(path: str) -> bool:
+    return Path(path or "").name.lower() == "summary.md"
+
+
 def _is_relative_url(u: str) -> bool:
     """True if it's a relative URL like 'foo/bar.md#x' or '../x'."""
     return bool(u) and not _SCHEME_RE.match(u) and not u.startswith("/")
@@ -86,6 +104,10 @@ def _load_autofix_rows(csv_path: Path) -> dict[str, list[dict]]:
     Group rows by 'src' file.
     Accept only internal broken-link reasons we can actually fix,
     and only when we have a suggested target (path or anchor).
+    Extra guards:
+      - skip any row where src/normalized_path/suggest_path is SUMMARY.md
+      - enforce same product+version unless changelog/release-notes is involved
+      - for missing_anchor, require same page + non-empty suggest_anchor
     """
     grouped: dict[str, list[dict]] = {}
     with csv_path.open("r", encoding="utf-8-sig", newline="") as f:
@@ -94,14 +116,49 @@ def _load_autofix_rows(csv_path: Path) -> dict[str, list[dict]]:
             reason = (row.get("reason") or "").strip()
             if reason not in {"missing_file", "missing_anchor"}:
                 continue
-            if not (
-                (row.get("suggest_path") or "").strip() or (row.get("suggest_anchor") or "").strip()
-            ):
+
+            # Must have either a target path or an anchor to fix.
+            has_suggest = (row.get("suggest_path") or "").strip() or (
+                row.get("suggest_anchor") or ""
+            ).strip()
+            if not has_suggest:
                 continue
-            # src may be prefixed by BOM in some spreadsheets; guard for that
+
+            # Source (guard BOM) and early exits.
             src = (row.get("src") or row.get("\ufeffsrc") or "").strip()
             if not src:
                 continue
+
+            # Never touch SUMMARY.md anywhere in the row (source or targets)
+            if (
+                _is_summary(src)
+                or _is_summary(row.get("normalized_path", ""))
+                or _is_summary(row.get("suggest_path", ""))
+            ):
+                continue
+
+            # Enforce strict same-version rule unless changelog context.
+            spath = (row.get("suggest_path") or "").strip()
+            sprod, sver = _pv(src)
+            dprod, dver = _pv(spath)
+            same_product = sprod and dprod and (sprod == dprod)
+            same_version = same_product and sver and dver and (sver == dver)
+            allowed_cross = (
+                same_product
+                and (not same_version)
+                and (_is_changelog_context(src) or _is_changelog_context(spath))
+            )
+            if not (same_version or allowed_cross):
+                continue
+
+            # Extra safety for missing_anchor: must stay on same page and have an anchor.
+            if reason == "missing_anchor":
+                normalized_page = (row.get("normalized_path") or src or "").strip()
+                if spath and spath != normalized_page:
+                    continue
+                if not (row.get("suggest_anchor") or "").strip():
+                    continue
+
             grouped.setdefault(src, []).append(row)
     return grouped
 

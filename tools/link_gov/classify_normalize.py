@@ -102,6 +102,9 @@ def _normalize_record(rec: dict, ignore_schemes: set[str]) -> dict:
     parsed = urlparse(raw_url) if raw_url else None
     scheme = parsed.scheme.lower() if parsed else ""
     ignored = scheme in ignore_schemes
+    # Never act on SUMMARY sources
+    if Path(src).name.lower() == "summary.md":
+        ignored = True
 
     is_external = False
     normalized_path = ""

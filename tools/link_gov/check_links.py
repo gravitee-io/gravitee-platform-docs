@@ -3,13 +3,50 @@ from __future__ import annotations
 import asyncio
 import csv
 import json
+import random
+import re
+import socket
 from collections import Counter, defaultdict
 from collections.abc import Iterable
 from pathlib import Path
+from urllib.parse import urlparse
 
 import aiohttp
 
 from .utils import CACHE_DIR, load_config
+
+# Polite default headers for external probes
+_DEFAULT_HEADERS = {
+    "User-Agent": "Gravitee-Docs-LinkChecker/1.0 (+docs)",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+}
+
+
+def _resolve_dir_default(p: Path) -> Path | None:
+    """If p is a directory (or clearly pointing to one), return its default doc."""
+    if p.is_dir():
+        for cand in ("README.md", "readme.md", "index.md", "Index.md"):
+            cp = p / cand
+            if cp.exists():
+                return cp
+    return None
+
+
+def _strip_wrapping_quotes(u: str) -> str:
+    u = (u or "").strip()
+    # Also strip angle brackets (Markdown autolinks like <https://...>)
+    u = u.strip("'\"<>")
+    # Remove *leading* or *trailing* encoded quotes if present
+    if u.startswith(("%22", "%27")):
+        u = u[3:]
+    if u.endswith(("%22", "%27")):
+        u = u[:-3]
+    return u
+
+
+def _clean_url_for_probe(u: str) -> str:
+    # conservative clean: only handle common accidental quotes
+    return _strip_wrapping_quotes(u)
 
 
 # ---------- helpers ----------
@@ -37,6 +74,97 @@ def _load_indexes() -> tuple[dict, dict]:
     files_index = json.loads(files_idx_path.read_text(encoding="utf-8"))
     headings_index = json.loads(headings_idx_path.read_text(encoding="utf-8"))
     return files_index, headings_index
+
+
+# --- context & domain helpers ---
+
+_CHANGELOG_RE = re.compile(r"(changelog|release[-_]notes|releases?)", re.IGNORECASE)
+
+
+def _is_changelog_path(p: str) -> bool:
+    return bool(_CHANGELOG_RE.search(p or ""))
+
+
+# Domains that often rate-limit/block HEAD but are valid for changelogs
+_SAFE_CHANGELOG_DOMAINS = {
+    "github.com",
+    "raw.githubusercontent.com",
+}
+
+# Per-domain "soft OK" statuses (don’t treat as broken)
+_DOMAIN_SOFT_OK = {
+    # Heavy bot protection / rate limiting
+    "github.com": {429, 403, 503},
+    "raw.githubusercontent.com": {429, 403, 503},
+    # Common docs/vendor sites that block HEAD or throttle aggressively
+    "aws.amazon.com": {403, 429, 503},
+    "signin.aws.amazon.com": {403, 429, 503},
+    "eksctl.io": {403, 429, 503},
+    "artifacthub.io": {403, 429, 503},
+    "helm.sh": {403, 429, 503},
+    "kubernetes.io": {403, 429, 503},
+    "documentation.gravitee.io": {403, 429, 503},
+    "aws.github.io": {403, 429, 503},
+    "docs.aws.amazon.com": {403, 429, 503},
+}
+
+# Hosts where HEAD is often blocked: prefer GET first
+_HEAD_BLOCKED_HOSTS = {
+    "github.com",
+    "raw.githubusercontent.com",
+    "aws.amazon.com",
+    "signin.aws.amazon.com",
+    "eksctl.io",
+    "artifacthub.io",
+    "helm.sh",
+    "kubernetes.io",
+    "documentation.gravitee.io",
+    "aws.github.io",
+    "docs.aws.amazon.com",
+}
+
+# Statuses worth retrying with backoff
+_RETRYABLE_STATUSES = {408, 425, 429, 500, 502, 503, 504}
+
+
+def _host_of(url: str) -> str:
+    try:
+        u = _strip_wrapping_quotes(url)
+        parsed = urlparse(u)
+        host = (parsed.hostname or "").lower()
+        if host.startswith("www."):
+            host = host[4:]
+        return host
+    except Exception:
+        return ""
+
+
+_IGNORE_EXTERNAL_HOSTS = {
+    "example.com",
+    "www.example.com",
+    "localhost",
+    "127.0.0.1",
+    "0.0.0.0",
+}
+
+_FAKE_TLDS = (".test", ".example", ".invalid", ".localhost")
+
+
+def _should_ignore_url(url: str) -> bool:
+    url = _clean_url_for_probe(url)
+    host = _host_of(url)
+    if not host:
+        return False
+    if host in _IGNORE_EXTERNAL_HOSTS:
+        return True
+    if host.startswith("localhost") or host.startswith("127."):
+        return True
+    # ignore any host using well-known “fake” TLDs
+    if host.endswith(_FAKE_TLDS):
+        return True
+    if url.strip().lower().startswith(("mailto:", "javascript:")):
+        return True
+    return False
 
 
 def _categorize(rec: dict) -> str:
@@ -85,6 +213,18 @@ def prepare_for_check(
         path = rec.get("normalized_path", "")
         anchor = rec.get("normalized_anchor", "")
 
+        # --- NEW: resolve directory defaults (e.g., "installation/") before checks ---
+        if path:
+            p = Path(path)
+            # treat both "looks like a folder" and actual folder on disk
+            if str(path).endswith("/") or p.is_dir():
+                resolved = _resolve_dir_default(p)
+                if resolved:
+                    # update both local var and record so downstream code (CSV etc.) sees the final path
+                    path = resolved.as_posix()
+                    rec = {**rec, "normalized_path": path}
+        # --- END NEW ---
+
         file_known = bool(path) and (path in files_index)
         anchor_known = False
         if anchor:
@@ -120,23 +260,68 @@ def prepare_for_check(
 
 # ---------- Step 2.5: actual checks & CSV report ----------
 async def _probe_one(url: str, session: aiohttp.ClientSession, timeout_s: int) -> int | None:
-    """Return final status code (int) or None if network error."""
-    try:
-        # Try HEAD first (fast), then fallback to GET if method not allowed
-        async with session.head(url, allow_redirects=True, timeout=timeout_s) as resp:
-            return resp.status
-    except aiohttp.ClientResponseError as e:
-        if e.status in (405, 501):  # method not allowed/not implemented
-            try:
-                async with session.get(url, allow_redirects=True, timeout=timeout_s) as resp:
-                    # read small body to allow reuse of connection
+    """Return final status code (int) or None if network error.
+
+    Strategy (per attempt):
+      - If host is known to block HEAD, use GET first; else try HEAD then fallback to GET.
+      - On retryable statuses or network errors, back off with jitter and retry.
+    """
+    host = _host_of(url)  # default
+    max_attempts = 1
+
+    # A little leniency for well-known, stricter domains
+    if host in _DOMAIN_SOFT_OK or host in _HEAD_BLOCKED_HOSTS:
+        max_attempts = 3
+    else:
+        max_attempts = 2
+
+    for attempt in range(1, max_attempts + 1):
+        try:
+            if host in _HEAD_BLOCKED_HOSTS:
+                # GET first
+                async with session.get(
+                    url, allow_redirects=True, timeout=timeout_s, headers=_DEFAULT_HEADERS
+                ) as resp:
                     await resp.read()
-                    return resp.status
-            except Exception:
-                return None
-        return e.status
-    except Exception:
-        return None
+                    status = resp.status
+            else:
+                # Try HEAD first
+                try:
+                    async with session.head(
+                        url, allow_redirects=True, timeout=timeout_s, headers=_DEFAULT_HEADERS
+                    ) as resp:
+                        status = resp.status
+                except aiohttp.ClientResponseError as e:
+                    # If HEAD not allowed, fallback to GET immediately
+                    if e.status in (405, 501):
+                        async with session.get(
+                            url, allow_redirects=True, timeout=timeout_s, headers=_DEFAULT_HEADERS
+                        ) as resp:
+                            await resp.read()
+                            status = resp.status
+                    else:
+                        status = e.status
+
+            # If we got a retryable status and still have attempts left, back off & retry
+            if attempt < max_attempts and status in _RETRYABLE_STATUSES:
+                # Exponential backoff with jitter: 0.3, 0.6, 1.2 ...
+                await asyncio.sleep(0.3 * (2 ** (attempt - 1)) + random.random() * 0.2)
+                continue
+
+            return status
+
+        except aiohttp.ClientResponseError as e:
+            # Retry certain statuses
+            if attempt < max_attempts and e.status in _RETRYABLE_STATUSES:
+                await asyncio.sleep(0.3 * (2 ** (attempt - 1)) + random.random() * 0.2)
+                continue
+            return e.status
+        except Exception:
+            # Network/SSL/DNS issues: retry if we can
+            if attempt < max_attempts:
+                await asyncio.sleep(0.3 * (2 ** (attempt - 1)) + random.random() * 0.2)
+                continue
+            return None
 
 
 async def _probe_external_batch(
@@ -146,31 +331,43 @@ async def _probe_external_batch(
     sem = asyncio.Semaphore(max_concurrency)
     results: dict[str, int | None] = {}
 
-    async def run(url: str):
+    async def run(url: str, session: aiohttp.ClientSession):
         async with sem:
-            # small stagger to avoid thundering herd
-            await asyncio.sleep(0)
+            await asyncio.sleep(0)  # small yield
             status = await _probe_one(url, session, timeout_s)
             results[url] = status
 
-    connector = aiohttp.TCPConnector(limit_per_host=max_concurrency)
+    # Prefer IPv4 to avoid odd AAAA-only/CDN paths; cache DNS a bit
+    connector = aiohttp.TCPConnector(
+        limit_per_host=max_concurrency,
+        family=socket.AF_INET,
+        ttl_dns_cache=300,
+        force_close=True,
+    )
+
     async with aiohttp.ClientSession(connector=connector) as session:
-        tasks = [asyncio.create_task(run(u)) for u in urls]
+        tasks = [asyncio.create_task(run(u, session)) for u in urls]
         await asyncio.gather(*tasks)
 
     return results
 
 
-def _unique_external_urls(rows_iter: Iterable[dict]) -> list[str]:
+def _unique_external_urls(rows_iter: Iterable[dict]) -> tuple[list[str], int]:
     seen = set()
     uniq = []
+    # local counter so function stays pure; we'll merge in run_checks
+    ignored = 0
     for r in rows_iter:
         if r.get("is_external") and not r.get("ignored"):
-            url = (r.get("raw_url") or r.get("url") or "").strip()
-            if url and url not in seen:
-                seen.add(url)
-                uniq.append(url)
-    return uniq
+            raw = (r.get("raw_url") or r.get("url") or "").strip()
+            u = _clean_url_for_probe(raw)
+            if not u or _should_ignore_url(u):
+                ignored += 1
+                continue
+            if u not in seen:
+                seen.add(u)
+                uniq.append(u)
+    return uniq, ignored
 
 
 def _read_ready(path: Path) -> Iterable[dict]:
@@ -182,8 +379,11 @@ def _read_ready(path: Path) -> Iterable[dict]:
             yield json.loads(line)
 
 
-def _is_success(status: int, ok: set[int]) -> bool:
-    return status in ok
+def _is_success(status: int, ok: set[int], host: str) -> bool:
+    if status in ok:
+        return True
+    soft = _DOMAIN_SOFT_OK.get(host)
+    return bool(soft and status in soft)
 
 
 def _reason_for_internal(rec: dict) -> str | None:
@@ -226,16 +426,27 @@ def run_checks(
     Write only *broken* items to CSV.
     """
     cfg = load_config(config_path)
-    ok_statuses = set(cfg.get("success_statuses", [200, 301, 302, 308]))
+    ok_statuses = set(cfg.get("success_statuses", [200, 301, 302, 307, 308]))
     timeout_s = int(cfg.get("external_timeout_seconds", 12))
     max_conc = int(cfg.get("max_concurrency", 32))
 
     in_file = in_path or (CACHE_DIR / "links_ready.jsonl")
     out_file = out_csv or (CACHE_DIR / "broken_links.csv")
+    debug = {
+        "ignored_external_dedup": 0,  # filtered at URL collection time
+        "ignored_external_eval": 0,  # filtered during per-record evaluation
+        "ignored_changelog": 0,
+        "external_checked": 0,
+        "external_by_host": Counter(),
+        "external_fail_status": Counter(),
+        "external_soft_ok": Counter(),
+        "external_none_status": 0,
+    }
 
     # First pass: collect records and find external URL set
     ready_rows = list(_read_ready(in_file))
-    ext_urls = _unique_external_urls(ready_rows)
+    ext_urls, ignored_dedup = _unique_external_urls(ready_rows)
+    debug["ignored_external_dedup"] = ignored_dedup
 
     # Probe externals (deduped)
     ext_results: dict[str, int | None] = {}
@@ -260,11 +471,30 @@ def run_checks(
         http_status = None
 
         if reason is None and r.get("is_external"):
-            url = (r.get("raw_url") or r.get("url") or "").strip()
+            original = (r.get("raw_url") or r.get("url") or "").strip()
+            url = _clean_url_for_probe(original)
+            host = _host_of(url)
+            if _should_ignore_url(url):
+                debug["ignored_external_eval"] += 1
+                continue
+            src_path = r.get("src", "")
+
+            if _is_changelog_path(src_path) and host in _SAFE_CHANGELOG_DOMAINS:
+                debug["ignored_changelog"] += 1
+                continue
+
             http_status = ext_results.get(url)
+            debug["external_checked"] += 1
+            debug["external_by_host"][host] += 1
+
             if http_status is None:
+                if host in _DOMAIN_SOFT_OK or host in _SAFE_CHANGELOG_DOMAINS:
+                    debug["external_soft_ok"][host] += 1
+                    continue
+                debug["external_none_status"] += 1
                 reason = "external_error"
-            elif not _is_success(http_status, ok_statuses):
+            elif not _is_success(http_status, ok_statuses, host):
+                debug["external_fail_status"][str(http_status)] += 1
                 reason = f"external_http_{http_status}"
 
         if reason:
@@ -277,4 +507,17 @@ def run_checks(
             )
 
     _write_csv(out_file, broken)
+    # dump debug stats for this run
+    (CACHE_DIR / "external_check_stats.json").write_text(
+        json.dumps(
+            {
+                **debug,
+                "external_by_host": dict(debug["external_by_host"]),
+                "external_fail_status": dict(debug["external_fail_status"]),
+                "external_soft_ok": dict(debug["external_soft_ok"]),
+            },
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
     return (len(broken), out_file)
