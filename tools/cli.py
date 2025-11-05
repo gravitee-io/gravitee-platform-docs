@@ -23,6 +23,39 @@ app = typer.Typer(
 # Use a module-level constant as the default (no function call in default args)
 DEFAULT_CONFIG = Path("tools/link_gov/config.yaml")
 
+# Typer option singletons (avoid B008: no function calls in defaults)
+CSV_OPT: Path | None = typer.Option(
+    None,
+    "--csv",
+    help="Path to high_confidence_autofix.csv (defaults to tools/.cache/high_confidence_autofix.csv)",
+)
+APPLY_OPT: bool = typer.Option(
+    False,
+    "--apply",
+    help="Write changes to files; default is DRY-RUN",
+)
+BACKUP_DIR_OPT: Path | None = typer.Option(
+    None,
+    "--backup-dir",
+    help="Where to store backups when applying",
+)
+PREVIEW_OUT_OPT: Path | None = typer.Option(
+    None,
+    "--preview-out",
+    help="Dry-run preview JSON path (default: tools/.cache/autofix_preview.json)",
+)
+VERBOSE_OPT: bool = typer.Option(
+    False,
+    "--verbose",
+    help="Verbose logs",
+)
+LIMIT_OPT: int = typer.Option(
+    2000,
+    "--limit",
+    "-n",
+    help="Max broken internal links to score",
+)
+
 
 @app.command()
 def index(
@@ -113,7 +146,6 @@ def suggest(config: Path = DEFAULT_CONFIG):
     """
     prev = build_suggestions_preview(config)
     scored = build_suggestions_scored(config)
-    import typer
 
     typer.secho(f"🔎 Suggestions preview → {prev}", fg=typer.colors.CYAN)
     typer.secho(f"🧮 Suggestions scored  → {scored}", fg=typer.colors.CYAN)
@@ -122,7 +154,7 @@ def suggest(config: Path = DEFAULT_CONFIG):
 @app.command()
 def score(
     config: Path = DEFAULT_CONFIG,
-    limit: int = typer.Option(2000, "--limit", "-n", help="Max broken internal links to score"),
+    limit: int = LIMIT_OPT,
 ):
     """Generate scored suggestions with confidence labels."""
     count, path = build_suggestions_scored(config, limit=limit)
@@ -142,12 +174,68 @@ def gate(
 
 @app.command()
 def autofix(
-    apply: bool = typer.Option(False, "--apply", help="Write changes to files (default: dry-run)"),
+    config: Path = DEFAULT_CONFIG,
+    csv: Path | None = CSV_OPT,
+    apply: bool = APPLY_OPT,
+    backup_dir: Path | None = BACKUP_DIR_OPT,
+    preview_out: Path | None = PREVIEW_OUT_OPT,
+    verbose: bool = VERBOSE_OPT,
 ):
-    """Apply high-confidence fixes. Default is DRY-RUN; pass --apply to write."""
-    files, links, report = apply_autofix(dry_run=not apply)
-    mode = "APPLIED" if apply else "DRY-RUN"
-    typer.secho(f"✅ {mode}: {links} links across {files} files → {report}", fg=typer.colors.GREEN)
+    """
+    Apply high-confidence fixes. Default is DRY-RUN; pass --apply to write.
+    Exit codes:
+      0 = has/does changes
+      2 = nothing to do
+      1 = error
+    """
+    try:
+        files, links, report_md, preview_json = apply_autofix(
+            high_csv=csv,
+            dry_run=not apply,
+            backup_dir=backup_dir,
+            preview_out=preview_out,
+            verbose=verbose,
+        )
+        if apply:
+            mode = "APPLIED"
+            typer.secho(
+                f"✅ {mode}: {links} links across {files} files → {report_md}",
+                fg=typer.colors.GREEN,
+            )
+            raise SystemExit(0 if (files > 0 or links > 0) else 2)
+        else:
+            mode = "DRY-RUN"
+            typer.secho(
+                f"📝 {mode}: would change {links} links across {files} files", fg=typer.colors.BLUE
+            )
+            if preview_json:
+                typer.secho(f"Preview → {preview_json}", fg=typer.colors.BLUE)
+            raise SystemExit(0 if (files > 0 or links > 0) else 2)
+    except SystemExit as e:
+        raise e
+    except Exception as e:
+        typer.secho(f"❌ autofix failed: {e}", fg=typer.colors.RED)
+        raise SystemExit(1) from e
+
+
+@app.command("apply")
+def apply_cmd(
+    csv: Path | None = CSV_OPT,
+    backup_dir: Path | None = BACKUP_DIR_OPT,
+    verbose: bool = VERBOSE_OPT,
+):
+    """Alias for: tools.cli autofix --apply [--csv ...] [--backup-dir ...]"""
+    files, links, report_md, _ = apply_autofix(
+        high_csv=csv,
+        dry_run=False,
+        backup_dir=backup_dir,
+        preview_out=None,
+        verbose=verbose,
+    )
+    typer.secho(
+        f"✅ APPLIED: {links} links across {files} files → {report_md}", fg=typer.colors.GREEN
+    )
+    raise SystemExit(0 if (files > 0 or links > 0) else 2)
 
 
 if __name__ == "__main__":
