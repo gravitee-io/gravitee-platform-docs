@@ -27,7 +27,7 @@ Policies marked with an asterisk require an Enterprise Edition license.
 * [Generate JWT](generate-jwt.md)
 * [GeoIP Filtering](geoip-filtering.md)\*
 * [GraphQL Rate Limit](graphql-rate-limit.md)\*
-* [Groovy](broken-reference)
+* [Groovy](retry.md)
 * [HTML to JSON Transformation](html-to-json.md)
 * [HTTP Callout](http-callout.md)
 * [HTTP Redirect](http-redirect.md)
@@ -41,7 +41,7 @@ Policies marked with an asterisk require an Enterprise Edition license.
 * [JSON Threat Protection](json-threat-protection.md)
 * [JSON Validation](json-validation.md)
 * [JWS Validator](jws-validator.md)
-* [JWT Validator](broken-reference)
+* [JWT Validator](retry.md)
 * [Kafka ACL](kafka-acl.md)\*
 * [Kafka Message Filtering](kafka-message-filtering.md)\*
 * [Kafka Offloading](kafka-offloading.md)\*

@@ -36,7 +36,7 @@ The OAuth2 policy can be configured in the Gravitee API Management Console:
 3. Select the API you want to secure.
 4. Click **Policy Studio** in the inner left sidebar.
 5. Select the flow you want to secure.
-6.  Under the Initial connection tab, click the `+` icon of the **Request phase**. The OAuth2 policy can be applied to [v2 APIs and v4 proxy APIs.](broken-reference) It cannot be applied at the message level.&#x20;
+6.  Under the Initial connection tab, click the `+` icon of the **Request phase**. The OAuth2 policy can be applied to [v2 APIs and v4 proxy APIs.](README.md) It cannot be applied at the message level.&#x20;
 
     <figure><img src="../../../.gitbook/assets/oauth2 add to flow.png" alt=""><figcaption><p>Add a policy to Request phase flow</p></figcaption></figure>
 7.  In the resulting dialog box, **Select** the OAuth2 tile:

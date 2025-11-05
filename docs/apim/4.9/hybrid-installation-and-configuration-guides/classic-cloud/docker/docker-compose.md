@@ -126,7 +126,7 @@ The following sections of this article assume you are using the `docker-compose.
 * Ensure the version of your Gravitee Cloud environment corresponds to the Gateway version used by your `docker-compose.yml`, e.g., `image: graviteeio/apim-gateway:4.4.4` in the sample `docker-compose.yml`.
 * Ensure the Logstash and Redis versions used by your `docker-compose.yml` are supported by Gravitee:
   * For supported version of Redis, refer to [Supported databases](../../../prepare-a-production-environment/repositories/redis.md#supported-databases).
-  * For supported version of Logstash, refer to [Compatibility with Elasticsearch](broken-reference).
+  * For supported version of Logstash, refer to [Compatibility with Elasticsearch](docker-cli.md).
   * For the installed version of Elasticsearch on the control plane, which Logstash will interact with via an S3 bucket, please reach out to your Technical Account Manager.
 
 ## **Gateway service configuration**&#x20;

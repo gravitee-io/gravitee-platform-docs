@@ -5,7 +5,7 @@ description: Manage and expose your backend resources with Gravitee
 # Gateway APIs 101 - Traditional & Message Proxies
 
 {% hint style="warning" %}
-Before beginning this guide, you should already have the Gravitee API Management Console up and running. [Start here](broken-reference) if you need help!
+Before beginning this guide, you should already have the Gravitee API Management Console up and running. [Start here](README.md) if you need help!
 {% endhint %}
 
 ## Overview

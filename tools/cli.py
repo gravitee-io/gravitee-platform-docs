@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 
 import typer
@@ -29,11 +30,6 @@ CSV_OPT: Path | None = typer.Option(
     "--csv",
     help="Path to high_confidence_autofix.csv (defaults to tools/.cache/high_confidence_autofix.csv)",
 )
-APPLY_OPT: bool = typer.Option(
-    False,
-    "--apply",
-    help="Write changes to files; default is DRY-RUN",
-)
 BACKUP_DIR_OPT: Path | None = typer.Option(
     None,
     "--backup-dir",
@@ -54,6 +50,37 @@ LIMIT_OPT: int = typer.Option(
     "--limit",
     "-n",
     help="Max broken internal links to score",
+)
+ALLOW_XPAGE_ANCHORS_OPT: bool = typer.Option(
+    False,
+    "--allow-cross-page-anchors",
+    help="Allow fixing missing anchors by moving links to a different page (still same product/version).",
+)
+# env default for cross-page anchors (conservative by default)
+_CROSS_PAGE_ANCHOR_OK = os.getenv("LG_CROSS_PAGE_ANCHOR_OK", "0").lower() in {"1", "true", "yes"}
+# ---- Typer option singletons for 'autofix' command (avoid B008) ----
+DRY_RUN_TOGGLE_OPT: bool = typer.Option(
+    True,
+    "--dry-run/--no-dry-run",
+    help="Preview only (default). Use --no-dry-run to write files.",
+)
+
+SKIPS_OUT_OPT: Path | None = typer.Option(
+    None,
+    "--skips-out",
+    help="Where to write JSON report of skipped rows (default: tools/.cache/autofix_skipped.json).",
+)
+
+SKIPS_CSV_OPT: Path | None = typer.Option(
+    None,
+    "--skips-csv",
+    help="Also write a CSV of non-applied rows and reasons.",
+)
+
+EXPLAIN_OPT: bool = typer.Option(
+    True,
+    "--explain/--no-explain",
+    help="Print grouped and per-row reasons for skipped high-confidence rows (default on).",
 )
 
 
@@ -172,45 +199,58 @@ def gate(
     typer.secho(f"✅ Split complete: {hi} high | {med} medium | {lo} low", fg=typer.colors.GREEN)
 
 
-@app.command()
-def autofix(
-    config: Path = DEFAULT_CONFIG,
+@app.command("autofix")
+def autofix_cli(
     csv: Path | None = CSV_OPT,
-    apply: bool = APPLY_OPT,
+    dry_run: bool = DRY_RUN_TOGGLE_OPT,
     backup_dir: Path | None = BACKUP_DIR_OPT,
     preview_out: Path | None = PREVIEW_OUT_OPT,
     verbose: bool = VERBOSE_OPT,
+    allow_cross_page_anchors: bool = ALLOW_XPAGE_ANCHORS_OPT,
+    skips_out: Path | None = SKIPS_OUT_OPT,
+    skips_csv: Path | None = SKIPS_CSV_OPT,
+    explain: bool = EXPLAIN_OPT,
 ):
     """
-    Apply high-confidence fixes. Default is DRY-RUN; pass --apply to write.
+    Apply (or preview) conservative auto-fixes based on high_confidence_autofix.csv.
     Exit codes:
-      0 = has/does changes
-      2 = nothing to do
+      0 = success and changes exist (or preview has changes)
+      2 = no changes to make
       1 = error
     """
     try:
         files, links, report_md, preview_json = apply_autofix(
             high_csv=csv,
-            dry_run=not apply,
+            dry_run=dry_run,
             backup_dir=backup_dir,
             preview_out=preview_out,
             verbose=verbose,
+            allow_cross_page_anchors=allow_cross_page_anchors,
+            skips_out=skips_out,
+            explain=explain,
+            skips_csv=skips_csv,
         )
-        if apply:
-            mode = "APPLIED"
+
+        if dry_run:
+            if files > 0 or links > 0:
+                typer.secho(
+                    f"📝 DRY-RUN: would change {links} links across {files} files.",
+                    fg=typer.colors.BLUE,
+                )
+                if preview_json:
+                    typer.secho(f"Preview → {preview_json}", fg=typer.colors.BLUE)
+                raise SystemExit(0)
+            else:
+                typer.secho("DRY-RUN: no changes to make.", fg=typer.colors.YELLOW)
+                raise SystemExit(2)
+        else:
             typer.secho(
-                f"✅ {mode}: {links} links across {files} files → {report_md}",
+                f"✅ Applied changes: {links} links across {files} files.",
                 fg=typer.colors.GREEN,
             )
+            typer.secho(f"Report → {report_md}", fg=typer.colors.GREEN)
             raise SystemExit(0 if (files > 0 or links > 0) else 2)
-        else:
-            mode = "DRY-RUN"
-            typer.secho(
-                f"📝 {mode}: would change {links} links across {files} files", fg=typer.colors.BLUE
-            )
-            if preview_json:
-                typer.secho(f"Preview → {preview_json}", fg=typer.colors.BLUE)
-            raise SystemExit(0 if (files > 0 or links > 0) else 2)
+
     except SystemExit as e:
         raise e
     except Exception as e:
@@ -223,6 +263,7 @@ def apply_cmd(
     csv: Path | None = CSV_OPT,
     backup_dir: Path | None = BACKUP_DIR_OPT,
     verbose: bool = VERBOSE_OPT,
+    allow_cross_page_anchors: bool = ALLOW_XPAGE_ANCHORS_OPT,
 ):
     """Alias for: tools.cli autofix --apply [--csv ...] [--backup-dir ...]"""
     files, links, report_md, _ = apply_autofix(
@@ -231,6 +272,7 @@ def apply_cmd(
         backup_dir=backup_dir,
         preview_out=None,
         verbose=verbose,
+        allow_cross_page_anchors=allow_cross_page_anchors,
     )
     typer.secho(
         f"✅ APPLIED: {links} links across {files} files → {report_md}", fg=typer.colors.GREEN

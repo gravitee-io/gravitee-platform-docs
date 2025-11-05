@@ -35,7 +35,7 @@ Gravitee doesn’t support the versioning of federated APIs. Each version of a 3
 {% endhint %}
 
 {% hint style="info" %}
-When Gravitee APIs are created from integrations, 3rd-party provider API attributes are mapped into Gravitee API attributes. Which attributes are available and how they are imported depends on the provider. See the [provider documentation](broken-reference) for more information.
+When Gravitee APIs are created from integrations, 3rd-party provider API attributes are mapped into Gravitee API attributes. Which attributes are available and how they are imported depends on the provider. See the [provider documentation](README.md) for more information.
 {% endhint %}
 
 ## Configuring federated APIs

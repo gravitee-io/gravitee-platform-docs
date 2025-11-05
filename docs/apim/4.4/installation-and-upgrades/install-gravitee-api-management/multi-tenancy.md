@@ -30,7 +30,7 @@ The following sections describe:
 * [A typical multi-tenant setup](multi-tenancy.md#a-typical-multi-tenant-setup)
 
 {% hint style="info" %}
-For information on how to run a `standalone` (not multi-tenant) installation with APIM, refer to the [Upgrade Guide](broken-reference).
+For information on how to run a `standalone` (not multi-tenant) installation with APIM, refer to the [Upgrade Guide](README.md).
 {% endhint %}
 
 ## How to set up multi-tenancy
