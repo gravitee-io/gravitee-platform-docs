@@ -1,10 +1,15 @@
 from __future__ import annotations
 
 import csv
+import json
 import posixpath
 import re
+import shutil
 import textwrap
+from datetime import UTC, datetime
 from pathlib import Path
+
+import typer
 
 from .utils import CACHE_DIR
 
@@ -12,6 +17,15 @@ from .utils import CACHE_DIR
 MD_LINK_RE = re.compile(r"\[([^\]]+)\]\(([^)\s]+)\)")
 
 _SCHEME_RE = re.compile(r"^[a-zA-Z][a-zA-Z0-9+.-]*:")
+
+
+def _write_json(path: Path, obj: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(obj, indent=2, ensure_ascii=False), encoding="utf-8")
+
+
+def _utc_now_iso() -> str:
+    return datetime.now(UTC).isoformat()
 
 
 # --- extra safety helpers (mirror gate rules) ---
@@ -258,10 +272,18 @@ def _write_report(
     report_path.write_text("\n".join(md) + "\n", encoding="utf-8")
 
 
-def apply_autofix(high_csv: Path | None = None, dry_run: bool = True) -> tuple[int, int, Path]:
+def apply_autofix(
+    high_csv: Path | None = None,
+    dry_run: bool = True,
+    backup_dir: Path | None = None,
+    preview_out: Path | None = None,
+    verbose: bool = False,
+) -> tuple[int, int, Path, Path | None]:
     """
     Apply high-confidence suggestions to the docs.
-    Returns (files_changed, links_changed, report_path)
+    Returns (files_changed, links_changed, report_md_path, preview_json_path)
+    - In dry-run mode, always writes a JSON preview (autofix_preview.json by default).
+    - In apply mode, writes a markdown report and (if backup_dir is provided) backs up originals first.
     """
     csv_path = high_csv or (CACHE_DIR / "high_confidence_autofix.csv")
     grouped = _load_autofix_rows(csv_path)
@@ -270,19 +292,149 @@ def apply_autofix(high_csv: Path | None = None, dry_run: bool = True) -> tuple[i
     files_changed = 0
     links_changed = 0
 
+    # For JSON preview
+    preview_changes: list[dict] = []
+
     for src_rel, rows in grouped.items():
         file_path = Path(src_rel)
         if not file_path.exists():
             # safety: skip if file missing
             continue
+
         original, new_text, changes = _replace_in_file(file_path, rows)
+
+        # Accumulate preview entries regardless of dry-run/apply
         if changes:
+            for ch in changes:
+                preview_changes.append(
+                    {
+                        "file": file_path.as_posix(),
+                        "line_no": ch["line_no"],
+                        "link_text": ch["link_text"],
+                        "old_url": ch["old_url"],
+                        "new_url": ch["new_url"],
+                    }
+                )
+
+        if changes:
+            per_file_changes.append((file_path, changes))
             files_changed += 1
             links_changed += len(changes)
-            per_file_changes.append((file_path, changes))
-            if not dry_run:
-                file_path.write_text(new_text, encoding="utf-8")
 
+            if not dry_run:
+                # Back up first (if requested)
+                if backup_dir:
+                    backup_target = (backup_dir / file_path).resolve()
+                    backup_target.parent.mkdir(parents=True, exist_ok=True)
+                    shutil.copy2(file_path, backup_target)
+                    if verbose:
+                        print(f"[backup] {file_path} -> {backup_target}")
+
+                # Write the modified file
+                file_path.write_text(new_text, encoding="utf-8")
+                if verbose:
+                    print(f"[write]  {file_path}")
+
+    # Markdown report (same path as before)
     report_path = CACHE_DIR / "autofix_report.md"
     _write_report(report_path, per_file_changes, dry_run, files_changed, links_changed)
-    return files_changed, links_changed, report_path
+
+    # Always write preview JSON in dry-run
+    preview_path: Path | None = None
+    if dry_run:
+        preview_path = preview_out or (CACHE_DIR / "autofix_preview.json")
+        doc = {
+            "generated_at": _utc_now_iso(),
+            "dry_run": True,
+            "files_changed": files_changed,
+            "links_changed": links_changed,
+            "changes": preview_changes,
+        }
+        _write_json(preview_path, doc)
+        if verbose:
+            print(f"[preview] wrote {preview_path} with {len(preview_changes)} entries")
+
+    return files_changed, links_changed, report_path, preview_path
+
+
+app = typer.Typer(add_completion=False)
+
+
+# ---- Typer option singletons (avoid Ruff B008 in defaults) ----
+CSV_PATH_OPT: Path | None = typer.Option(
+    None,
+    "--csv",
+    help="Path to high_confidence_autofix.csv (defaults to tools/.cache/high_confidence_autofix.csv)",
+)
+DRY_RUN_OPT: bool = typer.Option(
+    False,
+    "--dry-run",
+    help="Do not write files; produce preview JSON.",
+)
+BACKUP_DIR_OPT: Path | None = typer.Option(
+    None,
+    "--backup-dir",
+    help="Directory to store backups when applying changes.",
+)
+PREVIEW_OUT_OPT: Path | None = typer.Option(
+    None,
+    "--preview-out",
+    help="Where to write the dry-run preview JSON (default: tools/.cache/autofix_preview.json)",
+)
+VERBOSE_OPT: bool = typer.Option(False, "--verbose", help="Verbose logging")
+
+
+@app.command()
+def main(
+    csv_path: Path | None = CSV_PATH_OPT,
+    dry_run: bool = DRY_RUN_OPT,
+    backup_dir: Path | None = BACKUP_DIR_OPT,
+    preview_out: Path | None = PREVIEW_OUT_OPT,
+    verbose: bool = VERBOSE_OPT,
+):
+    """
+    Apply (or preview) auto-fixes based on high_confidence_autofix.csv.
+    Exit codes:
+      0 = success and changes exist (or preview has changes)
+      2 = no changes to make
+      1 = error
+    """
+    try:
+        files, links, report_md, preview_json = apply_autofix(
+            high_csv=csv_path,
+            dry_run=dry_run,
+            backup_dir=backup_dir,
+            preview_out=preview_out,
+            verbose=verbose,
+        )
+
+        # In dry-run, success=0 if we *would* change anything; 2 if nothing to do.
+        # In apply mode, success=0 if we *did* change anything; 2 if nothing to do.
+        if dry_run:
+            if files > 0 or links > 0:
+                typer.secho(
+                    f"📝 DRY-RUN: would change {links} links across {files} files.",
+                    fg=typer.colors.BLUE,
+                )
+                typer.secho(f"Preview → {preview_json}", fg=typer.colors.BLUE)
+                raise SystemExit(0)
+            else:
+                typer.secho("DRY-RUN: no changes to make.", fg=typer.colors.YELLOW)
+                raise SystemExit(2)
+        else:
+            typer.secho(
+                f"✅ Applied changes: {links} links across {files} files.", fg=typer.colors.GREEN
+            )
+            typer.secho(f"Report → {report_md}", fg=typer.colors.GREEN)
+            # If nothing was applied, return 2 so CI can short-circuit.
+            raise SystemExit(0 if (files > 0 or links > 0) else 2)
+
+    except SystemExit as e:
+        raise e
+    except Exception as e:
+        typer.secho(f"❌ apply_autofix failed: {e}", fg=typer.colors.RED)
+        raise SystemExit(1) from e
+
+
+if __name__ == "__main__":
+    app()
