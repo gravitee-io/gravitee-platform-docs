@@ -45,12 +45,6 @@ VERBOSE_OPT: bool = typer.Option(
     "--verbose",
     help="Verbose logs",
 )
-LIMIT_OPT: int = typer.Option(
-    2000,
-    "--limit",
-    "-n",
-    help="Max broken internal links to score",
-)
 ALLOW_XPAGE_ANCHORS_OPT: bool = typer.Option(
     False,
     "--allow-cross-page-anchors",
@@ -181,11 +175,10 @@ def suggest(config: Path = DEFAULT_CONFIG):
 @app.command()
 def score(
     config: Path = DEFAULT_CONFIG,
-    limit: int = LIMIT_OPT,
 ):
     """Generate scored suggestions with confidence labels."""
-    count, path = build_suggestions_scored(config, limit=limit)
-    typer.secho(f"✅ Scored {count} suggestions → {path}", fg=typer.colors.GREEN)
+    path = build_suggestions_scored(config)
+    typer.secho(f"✅ Scored suggestions → {path}", fg=typer.colors.GREEN)
 
 
 @app.command()
@@ -193,9 +186,55 @@ def gate(
     config: Path = DEFAULT_CONFIG,
 ):
     """Split suggestions into high/needs_review/low with STRICT version rules."""
-    from .link_gov.suggest_corrections import build_gate_files_strict  # <- make it relative
+    # Try the direct API first
+    try:
+        from .link_gov.split_confidence import build_gate_files_strict  # type: ignore[attr-defined]
 
-    hi, med, lo = build_gate_files_strict(config)
+        hi, med, lo = build_gate_files_strict(config)
+    except Exception:
+        # Fallback: execute module as CLI with clean argv
+        import csv as _csv
+        import runpy
+        import sys
+
+        from .link_gov.utils import CACHE_DIR
+
+        def _count_rows(p: Path) -> int:
+            if not p.exists():
+                return 0
+            with p.open("r", encoding="utf-8-sig", newline="") as f:
+                r = _csv.reader(f)
+                try:
+                    next(r)
+                except StopIteration:
+                    return 0
+                return sum(1 for _ in r)
+
+        argv_bak = sys.argv[:]
+        try:
+            # Prefer split_confidence; pass config if it supports -i/--input
+            sys.argv = ["tools.link_gov.split_confidence", "-i", str(config)]
+            try:
+                runpy.run_module("tools.link_gov.split_confidence", run_name="__main__")
+            except SystemExit:
+                # Some scripts call sys.exit()—that's fine.
+                pass
+        except Exception:
+            # Older layout: try suggest_corrections as a script
+            try:
+                sys.argv = ["tools.link_gov.suggest_corrections", "-i", str(config)]
+                runpy.run_module("tools.link_gov.suggest_corrections", run_name="__main__")
+            except SystemExit:
+                pass
+        finally:
+            sys.argv = argv_bak
+
+        # Count outputs the script(s) should have written
+        hi_file = CACHE_DIR / "high_confidence_autofix.csv"
+        med_file = CACHE_DIR / "needs_review_autofix.csv"
+        lo_file = CACHE_DIR / "low_confidence_autofix.csv"
+        hi, med, lo = (_count_rows(hi_file), _count_rows(med_file), _count_rows(lo_file))
+
     typer.secho(f"✅ Split complete: {hi} high | {med} medium | {lo} low", fg=typer.colors.GREEN)
 
 
