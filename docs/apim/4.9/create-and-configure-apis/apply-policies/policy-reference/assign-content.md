@@ -24,7 +24,7 @@ A typical usage would be to simply overwrite the original request payload with s
 }
 ```
 
-<figure><img src="../../../.gitbook/assets/image (255).png" alt="" width="375"><figcaption><p>Assign Content policy configuration UI</p></figcaption></figure>
+<figure><img src="../../../../4.7/.gitbook/assets/image (186).png" alt="" width="375"><figcaption><p>Assign Content policy configuration UI</p></figcaption></figure>
 
 ### Replace original payload with dynamic values
 
@@ -39,7 +39,7 @@ You can use the Assign Content policy to inject a request header, context attrib
 ```
 
 {% hint style="info" %}
-Notice the use of `${}` instead of `#{}`.  This is needed for compatibility with the Freemarker template engine.
+Notice the use of `${}` instead of `#{}`. This is needed for compatibility with the Freemarker template engine.
 {% endhint %}
 
 For v4 message APIs, you can use the Assign Content policy to inject the metadata into the message:
@@ -52,7 +52,7 @@ For v4 message APIs, you can use the Assign Content policy to inject the metadat
 
 ### Append to existing content
 
-You can append new content to the existing payload using Freemaker. &#x20;
+You can append new content to the existing payload using Freemaker.
 
 In the following example, the original JSON payload (`request.content`) is injected into a new JSON attribute (`result`), as well as other new content (`requestId` and `requestCost`):
 
@@ -87,38 +87,36 @@ In the following example, the original JSON payload (`request.content`) is injec
   "requestCost": "${context.attributes['monetization_cost']}",
   "result": ${request.content}
 }
-
 </code></pre></td><td><pre class="language-json"><code class="lang-json">{
-  "requestId": "123456",
-  "requestCost": "0.12",
-  "result": [
-    {
-      "runway": "E",
-      "runwayName": "EAST",
-      "runwayStatus": "OPEN",
-      "runwayDirection": "26R",
-      "visibilityCategory": "I",
-      "lastChange": "2024-09-11T10:45:45Z"
-    },
-    {
-      "runway": "S",
-      "runwayName": "SOUTH",
-      "runwayStatus": "CLOSED",
-      "runwayDirection": "26L",
-      "visibilityCategory": "I",
-      "lastChange": "2024-07-08T09:00:00Z"
-    },
-    {
-      "runway": "W",
-      "runwayName": "WEST",
-      "runwayStatus": "OPEN",
-      "runwayDirection": "08L",
-      "visibilityCategory": "Z",
-      "lastChange": "2024-09-11T10:45:45Z"
-    }
-  ]
+"requestId": "123456",
+"requestCost": "0.12",
+"result": [
+{
+"runway": "E",
+"runwayName": "EAST",
+"runwayStatus": "OPEN",
+"runwayDirection": "26R",
+"visibilityCategory": "I",
+"lastChange": "2024-09-11T10:45:45Z"
+},
+{
+"runway": "S",
+"runwayName": "SOUTH",
+"runwayStatus": "CLOSED",
+"runwayDirection": "26L",
+"visibilityCategory": "I",
+"lastChange": "2024-07-08T09:00:00Z"
+},
+{
+"runway": "W",
+"runwayName": "WEST",
+"runwayStatus": "OPEN",
+"runwayDirection": "08L",
+"visibilityCategory": "Z",
+"lastChange": "2024-09-11T10:45:45Z"
 }
-
+]
+}
 </code></pre></td></tr></tbody></table>
 
 ### Rewrite or transform the payload
@@ -179,19 +177,19 @@ This content is transformed using [Freemarker](https://freemarker.apache.org/) c
 
 Let's walk through the above Freemarker code, line by line:
 
-**Line 1:**  Assign the `response.content` value to a variable called `body` , and evaluate it into a JSON object.
+**Line 1:** Assign the `response.content` value to a variable called `body` , and evaluate it into a JSON object.
 
-**Line 2:**  Using the root (`body`) array, iterate through each item (`runwayItem`).
+**Line 2:** Using the root (`body`) array, iterate through each item (`runwayItem`).
 
 **Line 3:** Using a standard `if` statement, check if the `runway` attribute equals `OPEN`.
 
-**Lines 4 and 5:**  Start the final response with a JSON array (using square brackets for the array, and curly brackets for each array object).
+**Lines 4 and 5:** Start the final response with a JSON array (using square brackets for the array, and curly brackets for each array object).
 
-**Line 6:**  Get all items within this unique `runwayItem` object and loop through each of them, using `key` as the index/iterator.
+**Line 6:** Get all items within this unique `runwayItem` object and loop through each of them, using `key` as the index/iterator.
 
-**Line 7:**  Output all key/value pairs to the final response.
+**Line 7:** Output all key/value pairs to the final response.
 
-<figure><img src="../../../.gitbook/assets/image (254).png" alt=""><figcaption><p>Assign Content policy configuration UI</p></figcaption></figure>
+<figure><img src="../../../../4.7/.gitbook/assets/image (185).png" alt=""><figcaption><p>Assign Content policy configuration UI</p></figcaption></figure>
 
 {% code title="Final response payload (sent onto client):" %}
 ```json
@@ -256,8 +254,6 @@ This snippet of a v4 HTTP proxy API definition includes a flow that uses the `po
   ...
 }
 </code></pre>
-
-
 
 This snippet of a v4 message API definition includes a flow that uses the `policy-assign-content` policy in the publish phase to simply rewrite the message that will be sent onto the backend event broker:
 

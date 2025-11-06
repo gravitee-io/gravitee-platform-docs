@@ -183,4 +183,4 @@ To install APIM with RPM packages, complete the following steps:
 The services may take a few minutes to initialize.
 {% endhint %}
 
-{% include "../../.gitbook/includes/verify-console-and-portal-access.md" %}
+{% include "../../../4.8/.gitbook/includes/verify-console-and-portal-access (1).md" %}

@@ -1,4 +1,4 @@
-# Local Install with Docker
+# Fully self-hosted installation with Docker
 
 {% hint style="warning" %}
 This installation guide is for only development and quick start purposes. Do not use it for production environments. For more information about best practices for production environments, contact Gravitee.
@@ -26,14 +26,14 @@ This installation guide is for only development and quick start purposes. Do not
        ```yaml
        - ./gravitee/license.key:/opt/graviteeio-management-api/license/license.key
        ```
-4.  Start the components using the following command:&#x20;
+4.  Start the components using the following command:
 
     ```bash
     docker compose -f docker-compose-apim.yml up -d
     ```
 
 {% hint style="info" %}
-APIM can take up to a minute to fully initialize with Docker.&#x20;
+APIM can take up to a minute to fully initialize with Docker.
 {% endhint %}
 
 ## **Verification**
@@ -43,4 +43,4 @@ APIM can take up to a minute to fully initialize with Docker.&#x20;
 
 ## Next steps
 
-* Create your first API. For more information about creating your first API, see [create-and-publish-your-first-api](../how-to-guides/create-and-publish-your-first-api/ "mention").
+* Create your first API. For more information about creating your first API, see [create-and-publish-your-first-api](create-and-publish-your-first-api/ "mention").

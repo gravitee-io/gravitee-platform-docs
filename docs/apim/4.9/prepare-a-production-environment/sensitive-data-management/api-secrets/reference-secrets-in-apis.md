@@ -15,11 +15,11 @@ This article explains the syntax that you can use to resolve secrets in v4 APIs 
 
 ## Reference a secret with specialized syntax
 
-Secrets can be resolved in fields that support [Gravitee Expression Language (EL)](README.md). Only some fields that support EL allow the resolution of secrets. In general, any field supporting EL that may contain sensitive information support secrets, such as URLs, header values, passwords, and SSL/TLS settings.
+Secrets can be resolved in fields that support [Gravitee Expression Language (EL)](./). Only some fields that support EL allow the resolution of secrets. In general, any field supporting EL that may contain sensitive information support secrets, such as URLs, header values, passwords, and SSL/TLS settings.
 
 ### General syntax
 
-`{#secrets.get('`<mark style="color:$info;">`<path to secret>`</mark>`')}`
+`{#secrets.get('``<path to secret>``')}`
 
 Arguments can have the following formats:
 
@@ -33,11 +33,11 @@ Arguments can have the following formats:
 
 Arguments can be embedded in a larger string, like in the following example:
 
-`"My password is {#secrets.get('`<mark style="color:$info;">`<path to secret>`</mark>`')} and should remain a secret"`
+`"My password is {#secrets.get('``<path to secret>``')} and should remain a secret"`
 
 ### Secret URI syntax
 
-Secret URI syntax is a subset of URL syntax that you can use to [Broken link](broken-reference "mention") (`secret://...`). Secret URI syntax allows you to specify the secret you want to resolve.
+Secret URI syntax is a subset of URL syntax that you can use to [broken-reference](broken-reference/ "mention") (`secret://...`). Secret URI syntax allows you to specify the secret you want to resolve.
 
 A URI is composed of the following components:
 
@@ -78,11 +78,11 @@ You can specific the secret using an EL. Here some example uses cases:
 
 Here is an example with a Dynamic URI:
 
-`{#secrets.get('`<mark style="color:$info;">`#expression_to_get_the_secret_path`</mark>`')}`
+`{#secrets.get('``#expression_to_get_the_secret_path``')}`
 
-Here is an example with query parameters:&#x20;
+Here is an example with query parameters:
 
-`{#secrets.get('`<mark style="color:$info;">`#expression_to_get_the_secret_path`</mark>`?`<mark style="color:orange;">`query_paramter`</mark>`')}`
+`{#secrets.get('``#expression_to_get_the_secret_path``?`<mark style="color:orange;">`query_paramter`</mark>`')}`
 
 ## Secret resolution and evaluation
 
@@ -96,7 +96,7 @@ Once a secret is resolved, whether it is found or in error, then other APIs do n
 
 ### Evaluation
 
-Although secrets are resolved at the time of deployment, the secret reference may not evaluate immediately. It may have an impact on the deployment and when errors are logged. The following sections explain the different cases.&#x20;
+Although secrets are resolved at the time of deployment, the secret reference may not evaluate immediately. It may have an impact on the deployment and when errors are logged. The following sections explain the different cases.
 
 #### Secrets evaluated during API deployment
 
@@ -137,11 +137,11 @@ You can do this by using the following two query parameters:
 *   `renewable=true`. This parameter enables automatic renewal of a secret. When added to a secret reference, it activates a renewal mechanism that checks the secret’s TTL, and then refreshes its value when necessary. Here is an example URI with this query parameter:
 
     `{#secrets.get('/`<mark style="color:red;">`provider`</mark>`/`<mark style="color:green;">`path`</mark>`:`<mark style="color:yellow;">`key`</mark>`?`<mark style="color:orange;">`renewable=true`</mark>`')}`
-* `reloadOnChange=true`. If this query parameter is set with the `renewable=true` parameter, the API is reloaded to use the new secret value. This ensures that the API operates with the most current value. Here is an example URI with this query parameter: \
+* `reloadOnChange=true`. If this query parameter is set with the `renewable=true` parameter, the API is reloaded to use the new secret value. This ensures that the API operates with the most current value. Here is an example URI with this query parameter:\
   \
-  `{#secrets.get('/`<mark style="color:red;">`provider`</mark>`/`<mark style="color:green;">`path`</mark>`:`<mark style="color:yellow;">`key`</mark>`?`<mark style="color:orange;">`renewable=true&reloadOnChange=true`</mark>`')}`&#x20;
+  `{#secrets.get('/`<mark style="color:red;">`provider`</mark>`/`<mark style="color:green;">`path`</mark>`:`<mark style="color:yellow;">`key`</mark>`?`<mark style="color:orange;">`renewable=true&reloadOnChange=true`</mark>`')}`
 
-Secret TTL is global to all secrets that have the `renewable` option enabled. For more information about TTL renewal, see [Broken link](broken-reference "mention") .
+Secret TTL is global to all secrets that have the `renewable` option enabled. For more information about TTL renewal, see [broken-reference](broken-reference/ "mention") .
 
 ## Multi-environment secret references
 
@@ -173,23 +173,23 @@ You must use `id` . It creates an alias of the secret provider plugin. This lets
 
 ### Aliased secret reference
 
-The consequence of using  `id`  is that instead of using the plugin name in secret references, you use an alias. A secret reference looks like the following examples:
+The consequence of using `id` is that instead of using the plugin name in secret references, you use an alias. A secret reference looks like the following examples:
 
-`{#secrets.get('/`<mark style="color:red;">`dev`</mark>`/`<mark style="color:green;">`secret/gravitee/passwords`</mark>`:`<mark style="color:yellow;">`redis`</mark>`')}`&#x20;
+`{#secrets.get('/`<mark style="color:red;">`dev`</mark>`/`<mark style="color:green;">`secret/gravitee/passwords`</mark>`:`<mark style="color:yellow;">`redis`</mark>`')}`
 
-or&#x20;
+or
 
-`{#secrets.get('/`<mark style="color:red;">`test`</mark>`/`<mark style="color:green;">`secret/gravitee/passwords`</mark>`:`<mark style="color:yellow;">`redis`</mark>`')}`&#x20;
+`{#secrets.get('/`<mark style="color:red;">`test`</mark>`/`<mark style="color:green;">`secret/gravitee/passwords`</mark>`:`<mark style="color:yellow;">`redis`</mark>`')}`
 
-### Cross-environment invariant using dictionaries&#x20;
+### Cross-environment invariant using dictionaries
 
 The following dictionary is for a development environment:
 
 * The dictionary name is `api-secrets` and has the following properties:
   * Name: `redis-password` .
-  * Value: `{#secrets.get('/`<mark style="color:red;">`dev`</mark>`/`<mark style="color:green;">`secret/gravitee/passwords`</mark>`:`<mark style="color:yellow;">`redis`</mark>`')}`&#x20;
+  * Value: `{#secrets.get('/`<mark style="color:red;">`dev`</mark>`/`<mark style="color:green;">`secret/gravitee/passwords`</mark>`:`<mark style="color:yellow;">`redis`</mark>`')}`
 
-If you reproduce this in the production environment, but with the  '`/`<mark style="color:red;">`test`</mark>`/...`' secret reference, you now have the following invariant `#dictionaries['api-secrets']['redis-password']`  that exists in both environments.
+If you reproduce this in the production environment, but with the '`/`<mark style="color:red;">`test`</mark>`/...`' secret reference, you now have the following invariant `#dictionaries['api-secrets']['redis-password']` that exists in both environments.
 
 You can create an API with the following secret reference. Redis is also managed with dictionaries:
 
@@ -212,7 +212,7 @@ You can create an API with the following secret reference. Redis is also managed
 }
 ```
 
-When this API promoted from "dev" to "test" environment, it can resolve a secret without any change to its definition.&#x20;
+When this API promoted from "dev" to "test" environment, it can resolve a secret without any change to its definition.
 
 ## Secret cache
 
@@ -269,7 +269,7 @@ spec:
 
 ### Redis Cache example
 
-Here is an extract of a provider configuration:&#x20;
+Here is an extract of a provider configuration:
 
 ```yaml
 api:
@@ -312,7 +312,7 @@ The definition does not contain a clear text secret. This definition is saved, a
 
 Here is an example of how to reference a secret when you configure a Redis Cache resource:
 
-<figure><img src="../../../.gitbook/assets/image (212).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.7/.gitbook/assets/image (143).png" alt=""><figcaption></figcaption></figure>
 
 ### Native Kafka endpoint API example
 
@@ -381,4 +381,4 @@ The definition does not contain a clear text secret. This definition is saved as
 
 Here is an example of how to reference a secret during a SASL configuration:
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2025-01-23 at 13.54.01.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.7/.gitbook/assets/Screenshot 2025-01-23 at 13.54.01.png" alt=""><figcaption></figcaption></figure>

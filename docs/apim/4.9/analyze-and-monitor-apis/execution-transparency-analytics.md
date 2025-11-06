@@ -8,11 +8,11 @@ Execution transparency analytics provides clear, actionable diagnostics when err
 
 Execution transparency analytics provides the following benefits:
 
-* Improved visibility: You can identify which component policy, endpoint, or internal system caused a failure.&#x20;
+* Improved visibility: You can identify which component policy, endpoint, or internal system caused a failure.
 * Actionable diagnostics: Execution transparency provides human-readable error messages with specific details about what went wrong.
 * Warning tracking: Monitor non-fatal issues before they become critical problems.
 
-## Execution Transparency Analytics Components&#x20;
+## Execution Transparency Analytics Components
 
 Execution transparency analytics provides structured diagnostic information when an error or warning occurs. The diagnostic information contains the following:
 
@@ -23,7 +23,7 @@ Execution transparency analytics provides structured diagnostic information when
 
 The diagnostic information appears in the trace console:
 
-* Runtime Logs: Detailed trace views with error context in V2 and V4 API.&#x20;
+* Runtime Logs: Detailed trace views with error context in V2 and V4 API.
 * Analytics Dashboard: Error overview and trends.
 * Metrics: Integrated with Elasticsearch and other reporters.
 
@@ -39,7 +39,7 @@ Execution transparency analytics requires the following components before you ca
 * V4 APIs or V2 APIs with V4 emulation enabled.
 * Analytics backend configured. For example: Elasticsearch.
 
-## Configure Execution Transparency&#x20;
+## Configure Execution Transparency
 
 * Warning reporting is enabled by default in your environment. Here is what the default configuration looks like in the Gateway section of your `gravitee.yml` file:
 
@@ -64,7 +64,7 @@ The Gateway processes errors through the following steps:
 2. **Component tracking**: The Gateway automatically captures the component type and identifier.
 3. **Diagnostic creation**: Structured diagnostic information is generated with error details
 4. **Metrics attachment**: The diagnostic is attached to request metrics
-5. **Reporter processing**: Metrics are sent to configured reporters. For example: Elasticsearch, JSON, CSV.&#x20;
+5. **Reporter processing**: Metrics are sent to configured reporters. For example: Elasticsearch, JSON, CSV.
 6. **UI display**: Diagnostics appear in Console V2 and V4 Runtime Logs and Analytics
 
 ### Types of Diagnostics
@@ -81,7 +81,7 @@ Execution Transparency Analytics categorizes diagnostics into two types based on
 
 ## View Execution Transparency Analytics
 
-Execution transparency displays diagnostic information in Runtime Logs. You can view Execution transparency analytics in V4 and V2 API, by completing the following steps:&#x20;
+Execution transparency displays diagnostic information in Runtime Logs. You can view Execution transparency analytics in V4 and V2 API, by completing the following steps:
 
 * [#view-execution-transparency-analytics-in-v4-apis](execution-transparency-analytics.md#view-execution-transparency-analytics-in-v4-apis "mention")
 * [#view-execution-transparency-analytics-in-v2-apis](execution-transparency-analytics.md#view-execution-transparency-analytics-in-v2-apis "mention")
@@ -93,31 +93,23 @@ Runtime Logs provide detailed error information for individual API requests. To 
 
 1.  Navigate to your API Management Console.
 
-    <figure><img src="../.gitbook/assets/api-mangement-console.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../4.8/.gitbook/assets/api-mangement-console (1).png" alt=""><figcaption></figcaption></figure>
 2.  Click **APIs** in the left sidebar.
 
-    <figure><img src="../.gitbook/assets/apis-sidebar.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../4.8/.gitbook/assets/apis-sidebar (1).png" alt=""><figcaption></figcaption></figure>
 3.  Select your API.
 
-    <figure><img src="../.gitbook/assets/select-your-api.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../4.8/.gitbook/assets/select-your-api (1).png" alt=""><figcaption></figcaption></figure>
+4. Select **Logs** to view detailed request information including: Timestamp, Method, Status, URI, Application, Response time.
 
+<figure><img src="../../4.8/.gitbook/assets/view-logs-v4 (1).png" alt=""><figcaption></figcaption></figure>
 
+5.  Click on the **Timestamp** or Log details of any log entry.
 
-4. Select **Logs** to view detailed request information including: Timestamp, Method, Status, URI, Application, Response time.&#x20;
-
-<figure><img src="../.gitbook/assets/view-logs-v4.png" alt=""><figcaption></figcaption></figure>
-
-
-
-5.  Click on the **Timestamp** or Log details of any log entry.&#x20;
-
-    <figure><img src="../.gitbook/assets/timestamp-log-details (1).png" alt=""><figcaption></figcaption></figure>
-
-
-
+    <figure><img src="../../4.8/.gitbook/assets/timestamp-log-details (1).png" alt=""><figcaption></figcaption></figure>
 6.  The Log Overview section displays complete diagnostic information including:Complete Request Details, Header Details, Response Information, Gateway status, Error Message, Error Key, Component Name, Component Type.
 
-    <figure><img src="../.gitbook/assets/v4-execution-transparency-analytics-logs (4).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../4.8/.gitbook/assets/v4-execution-transparency-analytics-logs (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### View Execution Transparency Analytics in V2 APIs
 
@@ -125,52 +117,42 @@ V2 APIs display execution transparency directly in the logs without requiring ad
 
 1.  Navigate to your API Management Console.
 
-    <figure><img src="../.gitbook/assets/api-mangement-console (1).png" alt=""><figcaption></figcaption></figure>
-2.  Click **APIs** in the left sidebar. \
+    <figure><img src="../../4.8/.gitbook/assets/api-mangement-console (1).png" alt=""><figcaption></figcaption></figure>
+2.  Click **APIs** in the left sidebar. \\
 
-
-    <figure><img src="../.gitbook/assets/apis-sidebar (1).png" alt=""><figcaption></figcaption></figure>
-
-
+    <figure><img src="../../4.8/.gitbook/assets/apis-sidebar (1).png" alt=""><figcaption></figcaption></figure>
 3.  Select your V2 API.
 
-    <figure><img src="../.gitbook/assets/select-v2-api.png" alt=""><figcaption></figcaption></figure>
-4.  Click **Logs** in the left sidebar.&#x20;
+    <figure><img src="../../4.8/.gitbook/assets/select-v2-api (1).png" alt=""><figcaption></figcaption></figure>
+4.  Click **Logs** in the left sidebar.
 
-    <figure><img src="../.gitbook/assets/click-logs-v2 (2).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../4.8/.gitbook/assets/click-logs-v2 (1).png" alt=""><figcaption></figcaption></figure>
 5.  The logs list displays the following for each request: Errors, Warnings, Date, Status, Application, Plan, Method, Path.
 
-    <figure><img src="../.gitbook/assets/view-logs-v2-api.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../4.8/.gitbook/assets/view-logs-v2-api (1).png" alt=""><figcaption></figcaption></figure>
+6.  Click on a specific Date.
 
-
-6.  Click on a specific Date.&#x20;
-
-    <figure><img src="../.gitbook/assets/click-on-a-specific-date.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../4.8/.gitbook/assets/click-on-a-specific-date (1).png" alt=""><figcaption></figcaption></figure>
 7.  The log details appear, showing all warnings and errors associated with the request.
 
-    <figure><img src="../.gitbook/assets/log-details-request-errors-v2.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../4.8/.gitbook/assets/log-details-request-errors-v2 (1).png" alt=""><figcaption></figcaption></figure>
 
-
-
-### **View Execution Transparency Analytics in Dashboard Console**&#x20;
+### **View Execution Transparency Analytics in Dashboard Console**
 
 You can view execution transparency logs from the global analytics page in your dashboard. To view execution transparency from the Dashboard console, complete the following steps:
 
 1.  Navigate to your API Management Console home page.
 
-    <figure><img src="../.gitbook/assets/apim-management-console.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../4.8/.gitbook/assets/apim-management-console (1).png" alt=""><figcaption></figcaption></figure>
 2.  Click **Analytics** in the left sidebar.
 
-    <figure><img src="../.gitbook/assets/global-analytics.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../4.8/.gitbook/assets/global-analytics (1).png" alt=""><figcaption></figcaption></figure>
 3.  Click **Logs** to view the list of log entries.
 
-    <figure><img src="../.gitbook/assets/click-global-logs.png" alt=""><figcaption></figcaption></figure>
-
-
-
+    <figure><img src="../../4.8/.gitbook/assets/click-global-logs (1).png" alt=""><figcaption></figcaption></figure>
 4.  Click on a specific log entry to view error details, warn information with complete request and response information.
 
-    <figure><img src="../.gitbook/assets/failure-details.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../4.8/.gitbook/assets/failure-details (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Common Error Scenarios
 
@@ -180,7 +162,7 @@ Execution transparency analytics helps you diagnose and resolve common API error
 
 A 401 Unauthorized error occurs when authentication fails due to an invalid or expired API key, missing subscription, plan selection rule not matching, or a paused or closed subscription.
 
-For Example:&#x20;
+For Example:
 
 ```json
 {
@@ -193,7 +175,7 @@ For Example:&#x20;
 
 #### 502 Bad Gateway
 
-A 502 Bad Gateway error occurs when the Gateway cannot reach the backend service due to Backend service unavailable, Connection refused, Unknown host, SSL certificate issues between gateway and backend.&#x20;
+A 502 Bad Gateway error occurs when the Gateway cannot reach the backend service due to Backend service unavailable, Connection refused, Unknown host, SSL certificate issues between gateway and backend.
 
 For Example:
 
@@ -208,7 +190,7 @@ For Example:
 
 #### 504 Gateway Timeout
 
-A 504 Gateway Timeout error occurs when the backend response exceeds the configured timeout due to: Backend response exceeding timeout of 30 seconds, Custom timeout configuration exceeded, Slow downstream service.&#x20;
+A 504 Gateway Timeout error occurs when the backend response exceeds the configured timeout due to: Backend response exceeding timeout of 30 seconds, Custom timeout configuration exceeded, Slow downstream service.
 
 For Example:
 
@@ -223,7 +205,7 @@ For Example:
 
 #### 500 Expression Language Error
 
-A 500 Expression language error occurs when an expression evaluation fails due to Invalid EL syntax in policy configuration, reference to undefined variable, type mismatch in expression.&#x20;
+A 500 Expression language error occurs when an expression evaluation fails due to Invalid EL syntax in policy configuration, reference to undefined variable, type mismatch in expression.
 
 For Example:
 
@@ -238,7 +220,7 @@ For Example:
 
 #### Warning: Rate Limit Repository Unavailable
 
-A Rate Limit Repository Unavailable warning occurs when the rate limit repository connection is lost, but the call passes through as a fallback due to Redis or other rate limit repository connection lost, and the Repository temporarily down.&#x20;
+A Rate Limit Repository Unavailable warning occurs when the rate limit repository connection is lost, but the call passes through as a fallback due to Redis or other rate limit repository connection lost, and the Repository temporarily down.
 
 Example warning:
 

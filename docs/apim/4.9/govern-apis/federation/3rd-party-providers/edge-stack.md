@@ -4,7 +4,7 @@
 
 Edge Stack is a cloud native API gateway that runs in Kubernetes.
 
-## Prerequisites&#x20;
+## Prerequisites
 
 Before you install the Edge stack agent, complete the following steps:
 
@@ -23,39 +23,35 @@ Before you install the Edge stack agent, complete the following steps:
 
 ## Install the Edge Stack agent
 
-To install Edge stack agent, you must complete the following steps:&#x20;
+To install Edge stack agent, you must complete the following steps:
 
 1. [#create-the-edge-stack-agent-integration](edge-stack.md#create-the-edge-stack-agent-integration "mention")
 2. [#configure-and-run-the-edge-stack-agent](edge-stack.md#configure-and-run-the-edge-stack-agent "mention")
 
 ### Create the Edge Stack agent integration
 
-1.  From the APIM console, click **Integrations**. \
+1.  From the APIM console, click **Integrations**. \\
 
+    <figure><img src="../../../../4.8/.gitbook/assets/6F54CA44-3D24-4B1F-BC85-D02023B39481 (1).jpeg" alt=""><figcaption></figcaption></figure>
+2.  Click **Create Integration**. \\
 
-    <figure><img src="../../../.gitbook/assets/6F54CA44-3D24-4B1F-BC85-D02023B39481.jpeg" alt=""><figcaption></figcaption></figure>
-2.  Click **Create Integration**. \
-
-
-    <figure><img src="../../../.gitbook/assets/85E11164-ADD0-4235-8743-4987417C8312.jpeg" alt=""><figcaption></figcaption></figure>
-3.  Click **Edge Stack**, and then click **Next**. \
-
+    <figure><img src="../../../../4.8/.gitbook/assets/85E11164-ADD0-4235-8743-4987417C8312 (1).jpeg" alt=""><figcaption></figcaption></figure>
+3.  Click **Edge Stack**, and then click **Next**. \\
 
     <figure><img src="../../../.gitbook/assets/image (375).png" alt=""><figcaption></figcaption></figure>
 4. In the **Create Integration** screen, type the name of the integration.
 5. (Optional) Type a description for the integration.
-6.  Click **Create** **Integration**. \
+6.  Click **Create** **Integration**. \\
 
+    <figure><img src="../../../../4.8/.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
-    <figure><img src="../../../.gitbook/assets/image (374).png" alt=""><figcaption></figcaption></figure>
-
-#### Verification&#x20;
+#### Verification
 
 The Edge stack integration appears in the **Integrations** screen.
 
-<figure><img src="../../../.gitbook/assets/7243EB9F-3D83-44B4-9CBA-B35981D57DCD_4_5005_c.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.8/.gitbook/assets/7243EB9F-3D83-44B4-9CBA-B35981D57DCD_4_5005_c (1).jpeg" alt=""><figcaption></figcaption></figure>
 
-### Configure and run the Edge Stack agent&#x20;
+### Configure and run the Edge Stack agent
 
 You can run the Edge Stack using either of the following methods:
 
@@ -64,8 +60,7 @@ You can run the Edge Stack using either of the following methods:
 
 #### Configure and run the Edge Stack agent locally with Docker compose
 
-*   In your `docker-compose.yml` file, navigate to the `services` section, and then add the following configuration:\
-
+*   In your `docker-compose.yml` file, navigate to the `services` section, and then add the following configuration:\\
 
     ```sh
     services:
@@ -88,8 +83,7 @@ You can run the Edge Stack using either of the following methods:
 
     ```
 
-2.  In your `.env` file, add the following variables:\
-
+2.  In your `.env` file, add the following variables:\\
 
     ```bash
     ## GRAVITEE PARAMETERS ##
@@ -124,20 +118,18 @@ You can run the Edge Stack using either of the following methods:
     ```
 
 * Replace `<your-APIM-management-API-host/integration-controller>` with the Gravitee APIM URL.
-* Replace `<your-token>` with the Graviee APIM token that you want the agent to use.&#x20;
-* Replace `<your-integration-id>` with the ID of the APIM integration.&#x20;
+* Replace `<your-token>` with the Graviee APIM token that you want the agent to use.
+* Replace `<your-integration-id>` with the ID of the APIM integration.
 * Replace `<kubernetes namespace>` with the Kubernetes namespace that has the API that you want to discover.
 * Replace `<true | false>` with either true of false depending on if you want to discover APIs for Emissary.
 * Replace `<path to the kubeconfig file>` with the the absolute path to the kubeconfig file.
 
-3.  Pull the latest docker image with the following command:\
-
+3.  Pull the latest docker image with the following command:\\
 
     ```
     docker compose -f docker-compose-apim.yml pull
     ```
-4.  Start the Edge Stack agent with the following command:\
-
+4.  Start the Edge Stack agent with the following command:\\
 
     ```
     docker compose up -d
@@ -145,8 +137,7 @@ You can run the Edge Stack using either of the following methods:
 
 #### Configure and run the Edge agent within Helm
 
-1.  In your `values.yaml file`, add the following configuration: \
-
+1.  In your `values.yaml file`, add the following configuration: \\
 
     ```bash
     agent:
@@ -182,25 +173,23 @@ You can run the Edge Stack using either of the following methods:
     ```
 
     * Replace `<your-APIM-management-API-host/integration-controller>` with the Gravitee APIM URL.
-    * Replace `<your-integration-id>` with the ID of the APIM integration.&#x20;
+    * Replace `<your-integration-id>` with the ID of the APIM integration.
     * Replace `<namespace>` with the Kubernetes namespace that has the API that you want to discover.
     * Replace `<true | false>` with either true of false depending on if you want to discover APIs for Emissary.
     * Replace `<base64 encoded value>` with the following string encoded in base64: `Bearer <personal_token>`.
-2.  Add the Gravitee Helm Chart repository using the following command:\
-
+2.  Add the Gravitee Helm Chart repository using the following command:\\
 
     ```bash
     helm repo add graviteeio https://helm.gravitee.io
     ```
-3.  Install the Edge Stack federation agent using the following command: \
-
+3.  Install the Edge Stack federation agent using the following command: \\
 
     ```
     helm install edge-stack-federation-agent -f es-federation-agent-values.yaml graviteeio/federation-agent-edge-stack
     ```
 
-### Verification&#x20;
+### Verification
 
 In the **Integrations** screen of the APIM Console, the agent status shows **Connected**.
 
-<figure><img src="../../../.gitbook/assets/7E1EE616-C0AB-488E-BECC-1CE7B116FCE9_4_5005_c.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.8/.gitbook/assets/7E1EE616-C0AB-488E-BECC-1CE7B116FCE9_4_5005_c (1).jpeg" alt=""><figcaption></figcaption></figure>

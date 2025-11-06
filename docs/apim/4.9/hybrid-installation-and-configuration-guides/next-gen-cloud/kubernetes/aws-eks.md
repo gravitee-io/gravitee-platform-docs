@@ -1,6 +1,6 @@
 # AWS EKS
 
-## Overview&#x20;
+## Overview
 
 This guide explains how to install and connect a Hybrid Gateway to Gravitee Cloud using Amazon Elastic Kubernetes Service (EKS).
 
@@ -8,7 +8,7 @@ This guide explains how to install and connect a Hybrid Gateway to Gravitee Clou
 This installation guide is for only development and quick start purposes. Do not use it for production environments. For more information about best practices for production environments, contact your Technical Account Manager.
 {% endhint %}
 
-## Prerequisites&#x20;
+## Prerequisites
 
 * Install [helm](https://helm.sh/docs/intro/install/).
 * Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
@@ -19,7 +19,7 @@ This installation guide is for only development and quick start purposes. Do not
 * Ensure the self-hosted target environment has outbound Internet connectivity to Gravitee Cloud using HTTPS/443.
 * Complete the steps in [#prepare-your-installation](../#prepare-your-installation "mention").
 
-## Configure your Cluster&#x20;
+## Configure your Cluster
 
 Set up and configure your EKS cluster with the necessary components to support the Gravitee Hybrid Gateway.
 
@@ -28,11 +28,11 @@ Set up and configure your EKS cluster with the necessary components to support t
 3. [#create-default-storage-class](aws-eks.md#create-default-storage-class "mention")
 4. [#install-aws-load-balancer-controller](aws-eks.md#install-aws-load-balancer-controller "mention")
 
-### Create an EKS Cluster&#x20;
+### Create an EKS Cluster
 
 If you do not have an existing EKS cluster, create one by following these steps:
 
-1.  Sign in to AWS with the command:&#x20;
+1.  Sign in to AWS with the command:
 
     ```bash
     # Configure AWS CLI with your credentials
@@ -65,7 +65,7 @@ If you do not have an existing EKS cluster, create one by following these steps:
     kubectl get nodes
     ```
 
-## Install EBS CSI Driver&#x20;
+## Install EBS CSI Driver
 
 1.  Install the EBS driver with the `kubectl` command:
 
@@ -74,7 +74,7 @@ If you do not have an existing EKS cluster, create one by following these steps:
     ```
 
 {% hint style="info" %}
-The EBS CSI driver is required for persistent volumes.&#x20;
+The EBS CSI driver is required for persistent volumes.
 {% endhint %}
 
 2. Create IAM service account for EBS CSI driver using the following command:
@@ -99,8 +99,7 @@ eksctl create iamserviceaccount \
 
 ## Create Default Storage Class
 
-1.  Create an optimized storage class and apply the storage class using `kubectl apply -f storageclass.yaml` \
-
+1.  Create an optimized storage class and apply the storage class using `kubectl apply -f storageclass.yaml` \\
 
     ```yaml
     apiVersion: storage.k8s.io/v1
@@ -123,8 +122,7 @@ Without a default storage class, Kubernetes cannot dynamically provision persist
 
 ## Install AWS Load Balancer Controller
 
-1.  Create the IAM Policy file named `iam_policy.json` by copying and pasting the following JSON content:\
-
+1.  Create the IAM Policy file named `iam_policy.json` by copying and pasting the following JSON content:\\
 
     ```json
     {
@@ -323,7 +321,7 @@ Without a default storage class, Kubernetes cannot dynamically provision persist
         --policy-document file://iam_policy.json \
         --region <region>
     ```
-3.  Create IAM Service Account using the following command:&#x20;
+3.  Create IAM Service Account using the following command:
 
     ```bash
     # Replace these values:
@@ -367,7 +365,7 @@ Without a default storage class, Kubernetes cannot dynamically provision persist
     kubectl get pods -n kube-system -l app.kubernetes.io/name=aws-load-balancer-controller
     ```
 
-## Install the Gateway&#x20;
+## Install the Gateway
 
 To install the Gravitee Gateway, complete the following steps:
 
@@ -379,7 +377,7 @@ To install the Gravitee Gateway, complete the following steps:
 
 To support caching and rate-limiting, you must install Redis into your Kubernetes cluster. For more information, see [Bitnami package for Redis®](https://artifacthub.io/packages/helm/bitnami/redis).
 
-1.  Install Redis with Helm using the following command, which also creates a new `gravitee-apim` namespace:&#x20;
+1.  Install Redis with Helm using the following command, which also creates a new `gravitee-apim` namespace:
 
     ```bash
     helm install gravitee-apim-redis oci://registry-1.docker.io/bitnamicharts/redis \
@@ -426,7 +424,7 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
     ```
 
     \
-    &#x20;The command generates the following output:
+    The command generates the following output:
 
     ```bash
     NAME                              READY   STATUS    RESTARTS   AGE
@@ -438,8 +436,7 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
 
 ### Prepare `values.yaml` for Helm
 
-1.  Copy the following Gravitee `values.yaml` file. This is the base configuration for your new hybrid Gateway.\
-
+1.  Copy the following Gravitee `values.yaml` file. This is the base configuration for your new hybrid Gateway.\\
 
     ```yaml
     #This is the license key provided in your Gravitee Cloud account 
@@ -588,58 +585,57 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
    * Replace `<redis_hostname>` with your extracted Redis hostname.
    * Replace `<redis_password>` with your extracted Redis password.
    * Replace `<hosts>` with the host information you entered in the Gravitee Cloud Gateway setup.
-   *   Set the `tag` field in the Gateway image section to the value displayed in the Overview section of your Gravitee Cloud Dashboard. \
+   *   Set the `tag` field in the Gateway image section to the value displayed in the Overview section of your Gravitee Cloud Dashboard. \\
 
-
-       <figure><img src="../../../.gitbook/assets/image (343).png" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../../../.gitbook/assets/image (339) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 The `tag` field specifies the version of your Gravitee Gateway. Your Gateway version must match your Gravitee Cloud Control Plane version to ensure compatibility between your hybrid Gateway and the Cloud Management platform.
 {% endhint %}
 
-3. Save your Gravitee `values.yaml` file in your working directory.&#x20;
+3. Save your Gravitee `values.yaml` file in your working directory.
 
 <details>
 
 <summary>Explanations of key predefined <code>values.yaml</code> parameter settings</summary>
 
-**Service configuration**&#x20;
+**Service configuration**
 
 This uses AWS's native load balancing through the AWS Load Balancer Controller, providing SSL termination and path-based routing through Application Load Balancer (ALB).
 
-**Ingress configuration**&#x20;
+**Ingress configuration**
 
 The ingress is enabled with ALB (Application Load Balancer) as the controller class, creating an external endpoint through AWS's load balancer. The hosts field must match at least one of the hosts configured in your Gravitee Cloud setup, and multiple hostnames are supported for multi-domain deployments.
 
-**Gateway version**&#x20;
+**Gateway version**
 
 The `tag` field is commented out by default, allowing the Helm chart to use its default version. You can uncomment and specify a version when you need to ensure compatibility with a specific Gravitee Cloud control plane version or when performing controlled upgrades.
 
-**Resource allocation**&#x20;
+**Resource allocation**
 
 The configured limits prevent excessive cluster resource consumption while ensuring adequate performance for API processing. You can adjust these based on your expected load patterns and available node group capacity.
 
-**Deployment strategy**&#x20;
+**Deployment strategy**
 
 The `RollingUpdate` strategy with `maxUnavailable` set to 0 ensures zero-downtime updates during configuration changes or version upgrades.
 
 </details>
 
-### Install with Helm&#x20;
+### Install with Helm
 
 To install your Gravitee Gateway with Helm, complete the following steps:
 
-1.  From your working directory, add the Gravitee Helm chart repository to your Kubernetes environment using the following command:&#x20;
+1.  From your working directory, add the Gravitee Helm chart repository to your Kubernetes environment using the following command:
 
     ```bash
     helm repo add graviteeio https://helm.gravitee.io
     ```
-2.  Install the Helm chart with the Gravitee `values.yaml` file into a dedicated namespace using the following command:&#x20;
+2.  Install the Helm chart with the Gravitee `values.yaml` file into a dedicated namespace using the following command:
 
     ```bash
     helm install graviteeio-apim-gateway graviteeio/apim --namespace gravitee-apim -f ./values.yaml
     ```
-3.  Verify the installation was successful. The command output should be similar to the following:&#x20;
+3.  Verify the installation was successful. The command output should be similar to the following:
 
     ```bash
     NAME: graviteeio-apim-gateway
@@ -659,7 +655,7 @@ To install your Gravitee Gateway with Helm, complete the following steps:
     ```
 
     \
-    The command generates the following output:&#x20;
+    The command generates the following output:
 
     ```bash
     NAME                                              READY   STATUS    RESTARTS   AGE
@@ -674,11 +670,11 @@ helm uninstall graviteeio-apim-gateway --namespace gravitee-apim
 ```
 {% endhint %}
 
-## Verification&#x20;
+## Verification
 
 Your Gateway appears in the Gateways section of your [Gravitee Cloud](https://cloud.gravitee.io/) Dashboard.
 
-<figure><img src="../../../.gitbook/assets/image (341).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.8/.gitbook/assets/image (318) (1).png" alt=""><figcaption></figcaption></figure>
 
 To verify that your Gateway is up and running, complete the following steps:
 
@@ -691,32 +687,32 @@ To verify that your Gateway is up and running, complete the following steps:
 7. [#validate-the-ingress-configuration](aws-eks.md#validate-the-ingress-configuration "mention")
 8. [#validate-the-gateway-url](aws-eks.md#validate-the-gateway-url "mention")
 
-### Validate the pods&#x20;
+### Validate the pods
 
 A healthy Gateway pod displays the `Running` status with `1/1` ready containers and zero or minimal restart counts. The pod startup process includes license validation, Cloud Token authentication, and Redis connectivity verification.
 
 To validate your pods, complete the following steps:
 
-1.  Use the following command to query the pod status:&#x20;
+1.  Use the following command to query the pod status:
 
     ```bash
     kubectl get pods --namespace=gravitee-apim -l app.kubernetes.io/instance=graviteeio-apim-gateway
     ```
-2.  Verify that the deployment was successful. The output should show that a Gravitee Gateway is ready and running with no restarts.&#x20;
+2.  Verify that the deployment was successful. The output should show that a Gravitee Gateway is ready and running with no restarts.
 
     ```sh
     NAME                                               READY   STATUS    RESTARTS   AGE
     graviteeio-apim-gateway-gateway-6b77d4dd96-8k5l9   1/1     Running   0          6m17s
     ```
 
-### Validate EBS CSI Driver&#x20;
+### Validate EBS CSI Driver
 
 1.  Verify the EBS CSI driver is running with this command:
 
     ```sh
     kubectl get pods -n kube-system | grep ebs-csi
     ```
-2.  The output should show running EBS CSI driver pods:&#x20;
+2.  The output should show running EBS CSI driver pods:
 
     ```bash
     ebs-csi-controller-xxxxxxxxx-xxxxx    6/6     Running   0          5m
@@ -725,7 +721,7 @@ To validate your pods, complete the following steps:
     ebs-csi-node-xxxxx                    3/3     Running   0          5m
     ```
 
-### Validate Storage Class&#x20;
+### Validate Storage Class
 
 1.  Verify the storage class with the following command:
 
@@ -742,12 +738,12 @@ To validate your pods, complete the following steps:
 
 ### Validate Load Balancer Controller
 
-1.  Check if  pods are running with this command:&#x20;
+1.  Check if pods are running with this command:
 
     ```sh
     kubectl get pods -n kube-system -l app.kubernetes.io/name=aws-load-balancer-controller
     ```
-2.  The output should show running AWS Load Balancer Controller pods:&#x20;
+2.  The output should show running AWS Load Balancer Controller pods:
 
     ```sh
     NAME                                           READY   STATUS    RESTARTS   AGE
@@ -755,14 +751,14 @@ To validate your pods, complete the following steps:
     aws-load-balancer-controller-xxxxxxxxx-xxxxx   1/1     Running   0          2m
     ```
 
-### Validate Redis&#x20;
+### Validate Redis
 
-1.  Check pod status using this command:&#x20;
+1.  Check pod status using this command:
 
     ```sh
     kubectl get pods -n gravitee-apim -l app.kubernetes.io/instance=gravitee-apim-redis
     ```
-2.  The command generates the following output:&#x20;
+2.  The command generates the following output:
 
     ```sh
     NAME                              READY   STATUS    RESTARTS   AGE
@@ -772,7 +768,7 @@ To validate your pods, complete the following steps:
     gravitee-apim-redis-replicas-2    1/1     Running   0          2m
     ```
 
-### Validate the Gateway logs&#x20;
+### Validate the Gateway logs
 
 To validate the Gateway logs, complete the following steps:
 
@@ -787,15 +783,11 @@ To validate the Gateway logs, complete the following steps:
     NAME                                               READY   STATUS    RESTARTS   AGE
     graviteeio-apim-gateway-gateway-6b77d4dd96-8k5l9   1/1     Running   0          6m17s
     ```
-
-
 3.  To obtain the logs from this specific pod, use the following command. Replace `<NAME_OF_THE_POD>` with your pod name.
 
     ```bash
     kubectl logs --namespace=gravitee-apim <NAME_OF_THE_POD>
     ```
-
-
 4.  Review the log file. The following example output shows the important log entries.
 
     ```
@@ -833,7 +825,7 @@ To validate the Gateway logs, complete the following steps:
     14:02:04.324 [gio.sync-deployer-0] [] INFO  i.g.g.p.o.m.DefaultOrganizationManager - Register organization ReactableOrganization(definition=Organization{id='[redacted]', name='Organization'}, enabled=true, deployedAt=Sat Oct 19 17:08:22 GMT 2024)
     ```
 
-### Validate the ingress configuration&#x20;
+### Validate the ingress configuration
 
 1.  Check the ingress configuration:
 
@@ -842,14 +834,12 @@ To validate the Gateway logs, complete the following steps:
     ```
 
     \
-    The output shows your configured host and the AWS Load Balancer address:&#x20;
+    The output shows your configured host and the AWS Load Balancer address:
 
     ```
     NAME                              CLASS   HOSTS                           ADDRESS                                                              PORTS   AGE
     graviteeio-apim-gateway-gateway   alb     xxxxxxx.xxx.xxx.xxx.xxx         k8s-xxxxxxx-xxx-xxxxxxxxxx-xxxxxxxxxx.us-west-2.elb.amazonaws.com   80, 443      24m
     ```
-
-
 2.  Get the external address of your AWS Load Balancer:
 
     ```sh
@@ -862,7 +852,7 @@ The Gateway URL is determined by the networking settings you specify in the `ing
 
 To validate the Gateway URL, complete the following steps:
 
-1. Get and use the ingress details from the [#validate-the-ingress-configuration](aws-eks.md#validate-the-ingress-configuration "mention") section above to find your Load Balancer address.&#x20;
+1. Get and use the ingress details from the [#validate-the-ingress-configuration](aws-eks.md#validate-the-ingress-configuration "mention") section above to find your Load Balancer address.
 2.  Make a GET request to the Gateway using the Load Balancer address and your configured hostname:
 
     ```sh
@@ -888,12 +878,11 @@ To validate the Gateway URL, complete the following steps:
 You can now create and deploy APIs to your hybrid Gateway.
 {% endhint %}
 
-### Next steps&#x20;
+### Next steps
 
 * Access your API Management Console. To access your Console, complete the following steps:
   1. Log in to your [Gravitee Cloud](https://cloud.gravitee.io/).
   2. From the Dashboard, navigate to the Environment where you created your Gateway.
   3. Click on **APIM Console** to open the user interface where you can create and manage your APIs.
-* Create your first API. For more information about creating your first API, see [create-and-publish-your-first-api](../../../how-to-guides/create-and-publish-your-first-api/ "mention")
+* Create your first API. For more information about creating your first API, see [create-and-publish-your-first-api](../../../getting-started/create-and-publish-your-first-api/ "mention")
 * Add native Kafka capabilities. For more information about adding native Kafka capabilities, see [configure-the-kafka-client-and-gateway.md](../../../kafka-gateway/configure-the-kafka-client-and-gateway.md "mention")
-
