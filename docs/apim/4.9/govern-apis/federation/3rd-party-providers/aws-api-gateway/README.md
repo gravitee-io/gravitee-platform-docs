@@ -20,7 +20,7 @@ Head to the Gravitee APIM Console, open the Integrations section in the left men
 
 Once you've created the integration, copy the integration ID that will be visible on the integration overview tab, you'll use this later:
 
-<figure><img src="../../../../.gitbook/assets/image (72).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## 2. Configure the AWS APIM federation agent
 
@@ -111,7 +111,7 @@ docker compose up -d
 
 In the Gravitee API Management console, after refreshing, you should now see the agent's status set to `Connected:`
 
-<figure><img src="../../../../.gitbook/assets/image (73).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 If your **Agent Connection** still shows as `Disconnected`, then please inspect the agent's container logs. There you should find error logs that will help you troubleshoot.
 
@@ -149,5 +149,5 @@ PolicyDocument:
 By default, the AWS agent only discovers REST APIs that are attached to a usage plan in AWS. To ingest REST APIs that are not attached to a usage plan, use the `acceptApiWithoutUsagePlan` parameter.
 
 {% hint style="info" %}
-If you ingest an API that is attached to a usage plan, Gravitee creates a plan for that API. If you detach an API from a usage plan, the plan that is created is not automatically removed, and you must remove the plan manually.&#x20;
+If you ingest an API that is attached to a usage plan, Gravitee creates a plan for that API. If you detach an API from a usage plan, the plan that is created is not automatically removed, and you must remove the plan manually.
 {% endhint %}

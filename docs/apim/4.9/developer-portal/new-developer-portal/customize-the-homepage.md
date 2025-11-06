@@ -10,38 +10,34 @@ In the New Developer Portal, you can customize the homepage of your Developer Po
 
 You can edit the homepage with a Markdown editor. A preview appears next to the Markdown editor.
 
-<figure><img src="../../.gitbook/assets/C8F30709-7053-491F-B74E-ED0FD990C109_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.8/.gitbook/assets/C8F30709-7053-491F-B74E-ED0FD990C109_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
 
-## Prerequisites&#x20;
+## Prerequisites
 
 * Enable the New Developer Portal. For more information about enabling the New Developer Portal, see [configure-the-new-portal.md](configure-the-new-portal.md "mention").
 
-## Customize the homepage&#x20;
+## Customize the homepage
 
 To customize the homepage, complete the following steps:
 
 1. [#access-the-homepage-editor](customize-the-homepage.md#access-the-homepage-editor "mention")
 2. [#edit-the-homepage](customize-the-homepage.md#edit-the-homepage "mention")
 
-### Access the Homepage editor&#x20;
+### Access the Homepage editor
 
 1. Sign in to your APIM Console.
-2.  From the **Dashboard**, click **Settings**.\
+2.  From the **Dashboard**, click **Settings**.\\
 
+    <figure><img src="../../../4.8/.gitbook/assets/76D66FB4-4D8E-467D-AADE-543FC7813158_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+3.  In the **Settings** menu, navigate to the **Portal** section, and then click **Settings**.\\
 
-    <figure><img src="../../.gitbook/assets/76D66FB4-4D8E-467D-AADE-543FC7813158_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
-3.  In the **Settings** menu, navigate to the **Portal** section, and then click **Settings**.\
+    <figure><img src="../../../4.8/.gitbook/assets/601A31D5-D722-4B6B-AC99-72E0D9D5E765_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+4.  Navigate to the **New Developer Portal** section of the page, and then click **Open Settings**. The settings open in a new tab.\\
 
+    <figure><img src="../../../4.8/.gitbook/assets/8F20A23D-0B5B-4863-B454-6AA244B820AC_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+5.  In the New Developer Portal settings menu, click **Homepage**.\\
 
-    <figure><img src="../../.gitbook/assets/601A31D5-D722-4B6B-AC99-72E0D9D5E765_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
-4.  Navigate to the **New Developer Portal** section of the page, and then click **Open Settings**. The settings open in a new tab.\
-
-
-    <figure><img src="../../.gitbook/assets/8F20A23D-0B5B-4863-B454-6AA244B820AC_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
-5.  In the New Developer Portal settings menu, click **Homepage**.\
-
-
-    <figure><img src="../../.gitbook/assets/9C598C3F-9360-464F-95A7-562E2081F60F_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../4.8/.gitbook/assets/9C598C3F-9360-464F-95A7-562E2081F60F_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
 
 ### Edit the homepage
 
@@ -156,46 +152,37 @@ By default, the Developer Portal homepage has the following content :
 
 To edit the homepage, complete the following steps:
 
-1.  In the Markdown editor, enter your Markdown or GMD to customize the homepage.For more information about the GMD components that you can enter to customize the homepage, see [#gravitee-markdown-components](customize-the-homepage.md#gravitee-markdown-components "mention").\
+1.  In the Markdown editor, enter your Markdown or GMD to customize the homepage.For more information about the GMD components that you can enter to customize the homepage, see [#gravitee-markdown-components](customize-the-homepage.md#gravitee-markdown-components "mention").\\
 
+    \{% hint style="info" %\} To view the GMD components in the Markdown editor, press option and the space bar at the same time, and then type the component the name of the component that you want to use. For example, Grid. \{% endhint %\}
 
-    {% hint style="info" %}
-    To view the GMD components in the Markdown editor, press option and the space bar at the same time, and then type the component the name of the component that you want to use. For example, Grid.
-    {% endhint %}
+    <figure><img src="../../../4.8/.gitbook/assets/FF5F9BA4-70DA-4E07-B90A-7E321A6260B6_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+2.  Click **Save**. \\
 
+    <figure><img src="../../../4.8/.gitbook/assets/406DBE86-4767-4B3F-B7B4-D048AC25B9F8_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
 
+## Verification
 
-    <figure><img src="../../.gitbook/assets/FF5F9BA4-70DA-4E07-B90A-7E321A6260B6_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
-2.  Click **Save**. \
+*   To verify that you updated your Developer Portal, click **Open Website**. Your Developer Portal opens in a new tab.\\
 
-
-    <figure><img src="../../.gitbook/assets/406DBE86-4767-4B3F-B7B4-D048AC25B9F8_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
-
-## Verification&#x20;
-
-*   To verify that you updated your Developer Portal, click **Open Website**. Your Developer Portal opens in a new tab.\
-
-
-    <figure><img src="../../.gitbook/assets/4FABA433-1720-44BD-BB04-71931137CA69_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../4.8/.gitbook/assets/4FABA433-1720-44BD-BB04-71931137CA69_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
 
 ## Unpublish the homepage
 
-1.  To unpublish the homepage, click **Unpublish**.\
+1.  To unpublish the homepage, click **Unpublish**.\\
 
+    <figure><img src="../../../4.8/.gitbook/assets/A9BD4556-F502-4F49-8795-1AADC7EFCC33_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+2.  In the **Unpublish page?** pop-up window, click **Unpublish.**\\
 
-    <figure><img src="../../.gitbook/assets/A9BD4556-F502-4F49-8795-1AADC7EFCC33_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
-2.  In the **Unpublish page?** pop-up window, click **Unpublish.**\
+    <figure><img src="../../../4.8/.gitbook/assets/A3F78550-AA9D-4D97-9EF9-5E173B78A6FC (1).jpeg" alt=""><figcaption></figcaption></figure>
 
+### Verification
 
-    <figure><img src="../../.gitbook/assets/A3F78550-AA9D-4D97-9EF9-5E173B78A6FC.jpeg" alt=""><figcaption></figcaption></figure>
+If the page unpublished successfully, you receive the following pop-up message:
 
-### Verification&#x20;
+<figure><img src="../../../4.8/.gitbook/assets/C8E492D0-4A52-4531-8F4B-A60727E453FA_4_5005_c (1).jpeg" alt=""><figcaption></figcaption></figure>
 
-If the page unpublished successfully, you receive the following pop-up message:&#x20;
-
-<figure><img src="../../.gitbook/assets/C8E492D0-4A52-4531-8F4B-A60727E453FA_4_5005_c.jpeg" alt=""><figcaption></figcaption></figure>
-
-## Gravitee Markdown components&#x20;
+## Gravitee Markdown components
 
 Here are available Gravitee Markdown components:
 
@@ -208,7 +195,7 @@ Here are available Gravitee Markdown components:
 
 This block component is a wrapper for Markdown content in Gravitee's Markdown system. With this component, you can add standard Markdown content within Gravitee Markdown components.
 
-Here is an example of the block component with Markdown:&#x20;
+Here is an example of the block component with Markdown:
 
 ```markdown
 <gmd-md>
@@ -221,13 +208,13 @@ Here is an example of the block component with Markdown:&#x20;
 </gmd-md>
 ```
 
-### Button&#x20;
+### Button
 
 The button component has the following three appearances that all support internal and external links:
 
 {% tabs %}
 {% tab title="Filled" %}
-This style has a solid background with white text. By default, the color is the primary color of the Developer Portal theme. For more information about the Developer Portal theme, see [Broken link](broken-reference "mention").
+This style has a solid background with white text. By default, the color is the primary color of the Developer Portal theme. For more information about the Developer Portal theme, see [broken-reference](broken-reference/ "mention").
 
 **Examples**
 
@@ -241,7 +228,7 @@ Filled button with an internal link:
 
 {% hint style="info" %}
 * Internal links must start with a backslash ( / ).
-* The default target is `_self` , which opens the link in the same tab.  To open the link in a new tab, set `target` to `target="_blank"` .
+* The default target is `_self` , which opens the link in the same tab. To open the link in a new tab, set `target` to `target="_blank"` .
 {% endhint %}
 
 ```markdown
@@ -251,8 +238,8 @@ Filled button with an internal link:
 Filled button with an external link:
 
 {% hint style="info" %}
-* External links must be the full URL. For example, [https://example.com"](https://example.com").&#x20;
-* The default target is `_self` , which opens the link in the same tab.  To open the link in a new tab, set `target` to `target="_blank"` .
+* External links must be the full URL. For example, [https://example.com"](https://example.com").
+* The default target is `_self` , which opens the link in the same tab. To open the link in a new tab, set `target` to `target="_blank"` .
 {% endhint %}
 
 ```markdown
@@ -261,7 +248,7 @@ Filled button with an external link:
 {% endtab %}
 
 {% tab title="Outlined" %}
-This style is a transparent background with a colored border and text. By default, the button color is blue (#1976d2), the border color is light gray (#CDD7E1), the button label text is the primary color of the Developer portal theme. For more information about the Developer Portal theme, see [Broken link](broken-reference "mention").
+This style is a transparent background with a colored border and text. By default, the button color is blue (#1976d2), the border color is light gray (#CDD7E1), the button label text is the primary color of the Developer portal theme. For more information about the Developer Portal theme, see [broken-reference](broken-reference/ "mention").
 
 **Examples**
 
@@ -275,7 +262,7 @@ Outlined button with an internal link:
 
 {% hint style="info" %}
 * Internal links must start with a backslash ( / ).
-* The default target is `_self` , which opens the link in the same tab.  To open the link in a new tab, set `target` to `target="_blank"` .
+* The default target is `_self` , which opens the link in the same tab. To open the link in a new tab, set `target` to `target="_blank"` .
 {% endhint %}
 
 ```markdown
@@ -285,8 +272,8 @@ Outlined button with an internal link:
 Outlined button with an external link:
 
 {% hint style="info" %}
-* External links must be the full URL. For example, [https://example.com"](https://example.com").&#x20;
-* The default target is `_self` , which opens the link in the same tab.  To open the link in a new tab, set `target` to `target="_blank"` .
+* External links must be the full URL. For example, [https://example.com"](https://example.com").
+* The default target is `_self` , which opens the link in the same tab. To open the link in a new tab, set `target` to `target="_blank"` .
 {% endhint %}
 
 ```markdown
@@ -295,7 +282,7 @@ Outlined button with an external link:
 {% endtab %}
 
 {% tab title="Text" %}
-This style is a transparent background with colored text only. By default, the color is primary color of the Developer Portal theme. For information about the Developer Portal theme, see [Broken link](broken-reference "mention").
+This style is a transparent background with colored text only. By default, the color is primary color of the Developer Portal theme. For information about the Developer Portal theme, see [broken-reference](broken-reference/ "mention").
 
 **Examples**
 
@@ -309,7 +296,7 @@ Text button with an internal link:
 
 {% hint style="info" %}
 * Internal links must start with a backslash ( / ).
-* The default target is `_self` , which opens the link in the same tab.  To open the link in a new tab, set `target` to `target="_blank"` .
+* The default target is `_self` , which opens the link in the same tab. To open the link in a new tab, set `target` to `target="_blank"` .
 {% endhint %}
 
 ```markdown
@@ -319,8 +306,8 @@ Text button with an internal link:
 Text button with an external link:
 
 {% hint style="info" %}
-* External links must be the full URL. For example, [https://example.com"](https://example.com").&#x20;
-* The default target is `_self` , which opens the link in the same tab.  To open the link in a new tab, set `target` to `target="_blank"` .
+* External links must be the full URL. For example, [https://example.com"](https://example.com").
+* The default target is `_self` , which opens the link in the same tab. To open the link in a new tab, set `target` to `target="_blank"` .
 {% endhint %}
 
 ```markdown
@@ -331,19 +318,19 @@ Text button with an external link:
 
 ### Card
 
-The card component displays structured content. It uses a token-based theming system with CSS custom properties and input properties. The card consists of the following elements:&#x20;
+The card component displays structured content. It uses a token-based theming system with CSS custom properties and input properties. The card consists of the following elements:
 
-* Container. The main card wrapper.&#x20;
+* Container. The main card wrapper.
 * Title. The main title of the card.
 * Subtitle. The subtitle of the card.
 * Content. The content contains the markdown content blocks.
 
 The card component provides the following benefits:
 
-* Flexible content structure&#x20;
-* Customizable styling&#x20;
+* Flexible content structure
+* Customizable styling
 * Input-based overrides
-* Responsive design&#x20;
+* Responsive design
 * Markdown support with Gravitee Markdown components
 
 You can customize the following elements of the card:
@@ -459,11 +446,11 @@ Here are some use case examples:
 
 ### Grid
 
-The grid component provides a flexible layout for organizing content with columns.&#x20;
+The grid component provides a flexible layout for organizing content with columns.
 
 To add content to to your Grid, you must specify the number of columns with the `columns=` attribute, and then use either the `cell` component or any GMD component.
 
-Also, you can style the grid with CSS Grid by targeting the  `.grid-container` class and its responsive variants.&#x20;
+Also, you can style the grid with CSS Grid by targeting the `.grid-container` class and its responsive variants.
 
 The component adjusts to the following screens sizes:
 

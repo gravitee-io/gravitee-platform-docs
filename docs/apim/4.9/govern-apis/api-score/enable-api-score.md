@@ -16,15 +16,12 @@ API Score is only available in Gravitee Cloud. If you are running a self-hosted 
 
 API Score is a technology preview feature, meaning you must to opt-in to use it. You can opt-in to API Score from the API Management Console:
 
-1.  From the home page, click **Settings**.\
+1.  From the home page, click **Settings**.\\
 
+    <figure><img src="../../../4.7/.gitbook/assets/image (218) (1).png" alt=""><figcaption></figcaption></figure>
+2.  In the **Portal** section, click **API Quality**.\\
 
-    <figure><img src="../../.gitbook/assets/image (288).png" alt=""><figcaption></figcaption></figure>
-2.  In the **Portal** section, click **API Quality**.\
+    <figure><img src="../../../4.7/.gitbook/assets/image (220) (1).png" alt=""><figcaption></figcaption></figure>
+3.  In the **API Score** section, turn on **Enable API Score**.\\
 
-
-    <figure><img src="../../.gitbook/assets/image (289).png" alt=""><figcaption></figcaption></figure>
-3.  In the **API Score** section, turn on **Enable API Score**.\
-
-
-    <figure><img src="../../.gitbook/assets/image (290).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../4.7/.gitbook/assets/image (221) (1).png" alt=""><figcaption></figcaption></figure>

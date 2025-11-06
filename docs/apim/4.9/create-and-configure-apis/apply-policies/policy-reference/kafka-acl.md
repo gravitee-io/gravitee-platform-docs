@@ -19,22 +19,22 @@ To create and apply an ACL, complete the following steps. These steps configure 
    * `Expression`: Resources that match the specified expression receive the ACL. For example, `foo.*.bar.?` matches `foo.42.bar.x`.
      * `*` matches zero or more characters
      * `?` matches exactly one character
-3. Define the **action** that the ACL permits.&#x20;
+3. Define the **action** that the ACL permits.
 
-You can add more than one ACL in the same policy.&#x20;
+You can add more than one ACL in the same policy.
 
 {% hint style="info" %}
 Kafka follows the rule that if there is an ACL that denies an action, it takes precedence over ACLs that allow an action. If more than one ACL applies to the client connection to the Gateway, the most restrictive ACL is applied.
 {% endhint %}
 
-<figure><img src="../../../.gitbook/assets/image (228).png" alt=""><figcaption><p>Kafka ACL Policy UI</p></figcaption></figure>
+<figure><img src="../../../../4.7/.gitbook/assets/image (159).png" alt=""><figcaption><p>Kafka ACL Policy UI</p></figcaption></figure>
 
 ## Examples
 
 * If you want to allow only reads and not writes to all topics, set the `Resource` to `Topic`, the `Pattern` to `ANY`, and the `Action` to `Read`.
 * If you want to allow read-only access to all topic names starting with "integrator," then set the `Resource` to `Topic`, the `Pattern Type` to `PREFIXED`, and the `Pattern` to `integrator`.
 * If you want to allow only certain application users to delete consumer groups, enable `Delete` on the `Group` resource option.
-* If you want to create a dynamic ACL that can match complicated conditions, you can specify an expression pattern on the `Group`, `Topic`, or `Transactional ID` resources.&#x20;
+* If you want to create a dynamic ACL that can match complicated conditions, you can specify an expression pattern on the `Group`, `Topic`, or `Transactional ID` resources.
 
 ## Using expressions in the condition
 
@@ -50,7 +50,7 @@ Gravitee Expression Language (EL) can be used to define conditions on each ACL. 
 
 ### Token resource
 
-ACLs on the `Token` resource determine whether the user can manage [delegation tokens](https://docs.confluent.io/platform/current/security/authentication/delegation-tokens/overview.html#kafka-sasl-delegate-auth) in the cluster. When added to the policy, proxy clients are either permitted or restricted from using delegation tokens to perform clustered operations through the proxy.&#x20;
+ACLs on the `Token` resource determine whether the user can manage [delegation tokens](https://docs.confluent.io/platform/current/security/authentication/delegation-tokens/overview.html#kafka-sasl-delegate-auth) in the cluster. When added to the policy, proxy clients are either permitted or restricted from using delegation tokens to perform clustered operations through the proxy.
 
 For example, when using a clustered processing framework like [Apache Spark](https://spark.apache.org/), delegation tokens can be used to share resources across the same application without requiring the distribution of Kerberos keytabs across the cluster when mTLS is used.
 
@@ -76,15 +76,15 @@ This shows how to implement the example above using the APIM Console.
 
 Kafka Topic Mapping configuration:
 
-<figure><img src="../../../.gitbook/assets/00 3.png" alt=""><figcaption><p>Kafka Topic Mapping policy configuration UI</p></figcaption></figure>
+<figure><img src="../../../../4.7/.gitbook/assets/00 3 (1).png" alt=""><figcaption><p>Kafka Topic Mapping policy configuration UI</p></figcaption></figure>
 
 Kafka ACL configuration:
 
-<figure><img src="../../../.gitbook/assets/00 5.png" alt=""><figcaption><p>Kafka ACL policy configuration UI</p></figcaption></figure>
+<figure><img src="../../../../4.7/.gitbook/assets/00 5 (1).png" alt=""><figcaption><p>Kafka ACL policy configuration UI</p></figcaption></figure>
 
 Here is how the policies should be ordered in the policy chain:
 
-<figure><img src="../../../.gitbook/assets/00 ta.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.7/.gitbook/assets/00 ta (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="v4 API definition" %}
@@ -151,15 +151,15 @@ This shows how to implement the example above using the APIM Console.
 
 ACL configuration:
 
-<figure><img src="../../../.gitbook/assets/00 6.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.7/.gitbook/assets/00 6 (1).png" alt=""><figcaption></figcaption></figure>
 
 Topic mapping configuration:
 
-<figure><img src="../../../.gitbook/assets/00 4.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.7/.gitbook/assets/00 4 (1).png" alt=""><figcaption></figcaption></figure>
 
 Here is how the policies should be ordered in the policy chain:
 
-<figure><img src="../../../.gitbook/assets/00 at.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.7/.gitbook/assets/00 at (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="v4 API definition" %}

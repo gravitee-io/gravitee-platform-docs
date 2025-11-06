@@ -25,13 +25,13 @@ If you have a broker-side topic called `internal.orders.processed` and you want 
 * Client-side name: `processed-orders`
 * Broker-side name: `internal.orders.processed`
 
-Kafka clients will now be able to specify the mapped topic name (`processed-orders`) in their connection configuration.  For example: `kafka-console-consumer.sh --bootstrap-server foo.kafka.local:9092 --consumer.config config/client.properties --topic processed-orders`
+Kafka clients will now be able to specify the mapped topic name (`processed-orders`) in their connection configuration. For example: `kafka-console-consumer.sh --bootstrap-server foo.kafka.local:9092 --consumer.config config/client.properties --topic processed-orders`
 
 {% tabs %}
 {% tab title="Using the APIM Console" %}
 This shows how to implement the example above using the APIM Console:
 
-<figure><img src="../../../.gitbook/assets/00 1.png" alt=""><figcaption><p>Kafka Topic Mapping policy configuration UI</p></figcaption></figure>
+<figure><img src="../../../../4.7/.gitbook/assets/00 1 (1).png" alt=""><figcaption><p>Kafka Topic Mapping policy configuration UI</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="v4 API definition" %}
@@ -75,11 +75,11 @@ This code snippet of a v4 API definition shows how to implement the example abov
 
 The following examples are more complex and use Gravitee Expression Language.
 
-#### Example 2: I want to simplify internal-only topic names as an  external-friendly topic name (with support from an OAuth2 provider)
+#### Example 2: I want to simplify internal-only topic names as an external-friendly topic name (with support from an OAuth2 provider)
 
-In this scenario, each customer of a company has their own dedicated topic in the Kafka cluster.  Each customer also has their own unique `organizationId`, so the topic naming schema is  `internal.organization-updates.{organizationId}`.
+In this scenario, each customer of a company has their own dedicated topic in the Kafka cluster. Each customer also has their own unique `organizationId`, so the topic naming schema is `internal.organization-updates.{organizationId}`.
 
-The customer may not know their own `organizationId`, but it has been included in their access token in a field named `rf_org`.  After the user has authenticated with the identity provider, Gravitee can extract this payload data from their access token, as shown below:
+The customer may not know their own `organizationId`, but it has been included in their access token in a field named `rf_org`. After the user has authenticated with the identity provider, Gravitee can extract this payload data from their access token, as shown below:
 
 {% code title="Example access token payload:" %}
 ```json
@@ -96,13 +96,13 @@ Using the above payload data, the broker-side topic should be: `internal.organiz
 
 This company wants to simplify customer requirements so customers can specify a generic client-side topic, such as `organization-updates`, and Gravitee will dynamically map that to the relevant broker-side topic in Kafka using the details obtained from each OAuth2 access token payload.
 
-You can use the Kafka Topic Mapping policy to create a new topic mapping with a client-side name of `organization-updates` and a broker-side name of `integrator.organization-updates.{#jsonPath(#context.attributes['oauth.payload'], '$.rf_org')}`.  This broker-side name includes the use of Gravitee Expression Language to dynamically inject the `rf_org` value from the OAuth2 payload.
+You can use the Kafka Topic Mapping policy to create a new topic mapping with a client-side name of `organization-updates` and a broker-side name of `integrator.organization-updates.{#jsonPath(#context.attributes['oauth.payload'], '$.rf_org')}`. This broker-side name includes the use of Gravitee Expression Language to dynamically inject the `rf_org` value from the OAuth2 payload.
 
 {% tabs %}
 {% tab title="Using the APIM Console" %}
 This shows how to implement the example above using the APIM Console:
 
-<figure><img src="../../../.gitbook/assets/image (227).png" alt=""><figcaption><p>Kafka Topic Mapping policy configuration UI</p></figcaption></figure>
+<figure><img src="../../../../4.7/.gitbook/assets/image (158).png" alt=""><figcaption><p>Kafka Topic Mapping policy configuration UI</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="v4 API definition" %}
@@ -144,9 +144,9 @@ This shows how to implement the example above in a v4 API definition:
 
 #### Example 3: I want dynamic topic mapping based on user identity and permissions (with support from an OAuth2 provider)
 
-Suppose an enterprise system dynamically maps topics based on user roles.  Admins need to access the full `internal.system.logs` topic, but other users should only see a filtered version that is mapped to `internal.user.logs`.&#x20;
+Suppose an enterprise system dynamically maps topics based on user roles. Admins need to access the full `internal.system.logs` topic, but other users should only see a filtered version that is mapped to `internal.user.logs`.
 
-Topics can be be mapped based on user roles retrieved from an OAuth2 provider, with the correct permissions applied based on user identity.  First, the user's role is extracted from the OAuth2 access token supplied by the identity server.  OAuth2 roles are automatically added to `context.attributes` by Gravitee.  Next, topics are dynamically mapped based on user role.&#x20;
+Topics can be be mapped based on user roles retrieved from an OAuth2 provider, with the correct permissions applied based on user identity. First, the user's role is extracted from the OAuth2 access token supplied by the identity server. OAuth2 roles are automatically added to `context.attributes` by Gravitee. Next, topics are dynamically mapped based on user role.
 
 With this configuration, admin users see logs mapped to `internal.system.logs` and other users see logs mapped to `internal.user.logs`.
 
@@ -154,7 +154,7 @@ With this configuration, admin users see logs mapped to `internal.system.logs` a
 {% tab title="Using the APIM Console" %}
 This shows how to implement the example above using the APIM Console:
 
-<figure><img src="../../../.gitbook/assets/00 2.png" alt=""><figcaption><p>Kafka Topic Mapping policy configuration UI</p></figcaption></figure>
+<figure><img src="../../../../4.7/.gitbook/assets/00 2 (1).png" alt=""><figcaption><p>Kafka Topic Mapping policy configuration UI</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="v4 API definition" %}
@@ -211,15 +211,15 @@ This shows how to implement the example above using the APIM Console.
 
 Kafka Topic Mapping configuration:
 
-<figure><img src="../../../.gitbook/assets/00 3.png" alt=""><figcaption><p>Kafka Topic Mapping policy configuration UI</p></figcaption></figure>
+<figure><img src="../../../../4.7/.gitbook/assets/00 3 (1).png" alt=""><figcaption><p>Kafka Topic Mapping policy configuration UI</p></figcaption></figure>
 
 Kafka ACL configuration:
 
-<figure><img src="../../../.gitbook/assets/00 5.png" alt=""><figcaption><p>Kafka ACL policy configuration UI</p></figcaption></figure>
+<figure><img src="../../../../4.7/.gitbook/assets/00 5 (1).png" alt=""><figcaption><p>Kafka ACL policy configuration UI</p></figcaption></figure>
 
 Here is how the policies should be ordered in the policy chain:
 
-<figure><img src="../../../.gitbook/assets/00 ta.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.7/.gitbook/assets/00 ta (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="v4 API definition" %}
@@ -286,15 +286,15 @@ This shows how to implement the example above using the APIM Console.
 
 ACL configuration:
 
-<figure><img src="../../../.gitbook/assets/00 6.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.7/.gitbook/assets/00 6 (1).png" alt=""><figcaption></figcaption></figure>
 
 Topic mapping configuration:
 
-<figure><img src="../../../.gitbook/assets/00 4.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.7/.gitbook/assets/00 4 (1).png" alt=""><figcaption></figcaption></figure>
 
 Here is how the policies should be ordered in the policy chain:
 
-<figure><img src="../../../.gitbook/assets/00 at.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.7/.gitbook/assets/00 at (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="v4 API definition" %}

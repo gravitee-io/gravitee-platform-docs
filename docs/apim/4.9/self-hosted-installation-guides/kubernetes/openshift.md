@@ -1,6 +1,6 @@
 # OpenShift
 
-{% include "../../.gitbook/includes/installation-guide-note.md" %}
+{% include "../../../4.6/.gitbook/includes/installation-guide-note (1).md" %}
 
 ## Prerequisites
 

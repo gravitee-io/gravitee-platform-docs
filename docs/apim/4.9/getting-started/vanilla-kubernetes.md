@@ -1,4 +1,4 @@
-# Fully self-hosted installation with  Vanilla Kubernetes
+# Fully self-hosted installation with Vanilla Kubernetes
 
 {% hint style="warning" %}
 **This installation guide is for only development and quick start purposes. Do not use it for production environments. For more information about best practices for production environments, contact your Technical Account Manager.**
@@ -52,17 +52,15 @@ To install the Gravitee APIM, complete the following steps:
 
 Kubernetes namespaces provide logical isolation and organization within a cluster. Creating a dedicated namespace for Gravitee APIM has the following benefits: Isolates resources, Separates APIM components from other applications and Simplifies management by grouping related services, pods, and configurations together.
 
-*   Create the namespace using the following command:\
-
+*   Create the namespace using the following command:\\
 
     ```bash
     kubectl create namespace gravitee-apim
     ```
 
-#### Verification&#x20;
+#### Verification
 
-*   Ensure that you created the namespace using the following command:\
-
+*   Ensure that you created the namespace using the following command:\\
 
     ```bash
     kubectl get namespaces
@@ -70,8 +68,6 @@ Kubernetes namespaces provide logical isolation and organization within a cluste
 
     \
     The command generates an output similar to the following output:
-
-
 
     ```bash
     NAME              STATUS   AGE
@@ -86,8 +82,7 @@ Kubernetes namespaces provide logical isolation and organization within a cluste
 
 To support API definitions and configuration, you must install MongoDB into your Kubernetes cluster. For more information about installing MongoDB, see the [official chart documentation](https://artifacthub.io/packages/helm/bitnami/mongodb)
 
-1.  Install MongoDB with Helm using the following command:\
-
+1.  Install MongoDB with Helm using the following command:\\
 
     ```bash
     helm install gravitee-mongodb oci://registry-1.docker.io/cloudpirates/mongodb \
@@ -107,7 +102,7 @@ To support API definitions and configuration, you must install MongoDB into your
     ```
 
     \
-    After a few minutes, the command generates the following output:&#x20;
+    After a few minutes, the command generates the following output:
 
     ```bash
     NAME                  READY   STATUS    RESTARTS   AGE
@@ -118,8 +113,7 @@ To support API definitions and configuration, you must install MongoDB into your
 
 To support analytics and logging, you must install Elasticsearch into your Kubernetes cluster. For more information on installing Elasticsearch, see the [official chart documentation.](https://artifacthub.io/packages/helm/elastic/elasticsearch)
 
-1.  Install Elasticsearch using the following command:\
-
+1.  Install Elasticsearch using the following command:\\
 
     ```bash
     helm repo add elastic https://helm.elastic.co
@@ -131,8 +125,7 @@ To support analytics and logging, you must install Elasticsearch into your Kuber
       --set replicas=1 \
       --set minimumMasterNodes=1
     ```
-2.  Follow the instructions that appear in your terminal, and retrieve Elastic user's password.\
-
+2.  Follow the instructions that appear in your terminal, and retrieve Elastic user's password.\\
 
     ```bash
     NAME: elasticsearch                                                                                                                                                                                                                                            
@@ -151,16 +144,14 @@ To support analytics and logging, you must install Elasticsearch into your Kuber
 
 #### Verification
 
-*   To verify that your Elasticsearch deployment succeeded, check pod status using the following command:\
-
+*   To verify that your Elasticsearch deployment succeeded, check pod status using the following command:\\
 
     ```bash
     kubectl get pods --namespace=gravitee-apim -l app=elasticsearch-master -w 
     ```
 
     \
-    After a few minutes, the command generates the following output: \
-
+    After a few minutes, the command generates the following output: \\
 
     ```purebasic
     NAME                     READY   STATUS    RESTARTS   AGE
@@ -231,22 +222,16 @@ The ingress-nginx controller has been installed.
 It may take a few minutes for the load balancer IP to be available.
 ```
 
-#### (Minikube users only) Install Ingress Controller&#x20;
+#### (Minikube users only) Install Ingress Controller
 
-1.  Enable the built-in ingress addon using the following command:\
-
+1.  Enable the built-in ingress addon using the following command:\\
 
     ```bash
     minikube addons enable ingress
     ```
-2.  In a separate terminal, enable the network tunnel using the following command:\
+2.  In a separate terminal, enable the network tunnel using the following command:\\
 
-
-    {% hint style="danger" %}
-    Keep the tunnel command running in a separate terminal window. The tunnel must remain active for ingress to function properly.
-    {% endhint %}
-
-
+    \{% hint style="danger" %\} Keep the tunnel command running in a separate terminal window. The tunnel must remain active for ingress to function properly. \{% endhint %\}
 
     ```bash
     sudo minikube tunnel
@@ -254,16 +239,14 @@ It may take a few minutes for the load balancer IP to be available.
 
 #### Verification
 
-*   Verify the ingress controller is running using the following command:\
-
+*   Verify the ingress controller is running using the following command:\\
 
     ```bash
     kubectl get pods -n ingress-nginx
     ```
 
     \
-    The output should show the ingress controller pod in Running status:\
-
+    The output should show the ingress controller pod in Running status:\\
 
     ```bash
     NAME                                       READY   STATUS    RESTARTS   AGE
@@ -308,8 +291,7 @@ Ensure that you have the following sections complete:
 * [#configure-dns-resolution](vanilla-kubernetes.md#configure-dns-resolution "mention")
 {% endhint %}
 
-1.  Create a `values.yaml` file in your working directory, and then copy the following Gravitee configuration into the file. This is the base configuration for your self-hosted APIM platform:\
-
+1.  Create a `values.yaml` file in your working directory, and then copy the following Gravitee configuration into the file. This is the base configuration for your self-hosted APIM platform:\\
 
     ```yaml
     # MongoDB Configuration
@@ -593,8 +575,7 @@ Ensure that you have the following sections complete:
 
     1. Replace `[ELASTIC PASSWORD FROM ES INSTALLATION]` with your Elasticsearch password.
     2. If your Kubernetes cluster does not support IPV6 networking, both the UI and Portal deployments must set the `IPV4_ONLY` environment variable to `true`.
-2.  **(Enterprise Edition only)** Navigate to the following section, and then uncomment the following configuration: \
-
+2.  **(Enterprise Edition only)** Navigate to the following section, and then uncomment the following configuration: \\
 
     ```yaml
      # License volume configuration for Management API (uncomment for enterprise edition)
@@ -661,7 +642,7 @@ The ingress configuration enables external access with path-based and host-based
 
 #### Verification
 
-* Verify that the installation was successful with the following command:&#x20;
+* Verify that the installation was successful with the following command:
 
 ```bash
 kubectl get pods --namespace=gravitee-apim -l app.kubernetes.io/instance=gravitee-apim -w
@@ -684,4 +665,4 @@ REVISION: 1
 
 ## Next steps
 
-* Create your first API. For more information about creating your first API, see [create-and-publish-your-first-api](../how-to-guides/create-and-publish-your-first-api/ "mention").
+* Create your first API. For more information about creating your first API, see [create-and-publish-your-first-api](create-and-publish-your-first-api/ "mention").

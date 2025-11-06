@@ -16,7 +16,7 @@ The API definitions for Kafka APIs can be generated using the APIM Console's API
 2. Click on **APIs** in the left nav
 3. In the Create New API , click on **Create V4 API**.
 
-<figure><img src="../../.gitbook/assets/image (208).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.7/.gitbook/assets/image (139).png" alt=""><figcaption></figcaption></figure>
 
 The API creation wizard comprises several steps, each of which requires you to define certain sets of information.
 
@@ -26,7 +26,7 @@ Define a name, version number, and description for your API.
 
 The name and version number are required, but we also recommend giving your API a description so that it is more easily understood and managed by internal users.
 
-<figure><img src="../../.gitbook/assets/v4 wizard_step 1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/v4 wizard_step 1 (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Entrypoints
 
@@ -34,17 +34,17 @@ When choosing how you want to expose your backend, you will be presented with th
 
 Select Kafka Protocol to create a Kafka API. Kafka APIs proxy the native Kafka protocol, with the Gravitee Gateway acting as a Kafka broker to Kafka clients.
 
-<figure><img src="../../.gitbook/assets/A1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.7/.gitbook/assets/A1.png" alt=""><figcaption></figcaption></figure>
 
 The only field to configure for the Kafka API entrypoint is the **Host prefix**, for which you should enter the host name. If the default hostname is set, you only need to enter the prefix. This is used to uniquely identify your API server on the gateway.
 
-<figure><img src="../../.gitbook/assets/A2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.7/.gitbook/assets/A2.png" alt=""><figcaption></figcaption></figure>
 
 ## Endpoints
 
 The Kafka endpoint configuration is the Kafka cluster being proxied by your API. Configure the bootstrap server list and security protocol to talk to the cluster.
 
-<figure><img src="../../.gitbook/assets/A3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.7/.gitbook/assets/A3.png" alt=""><figcaption></figcaption></figure>
 
 Of the following configuration settings, only entering a host/port pair is required. Modifying any other configuration parameters is optional.
 
@@ -85,7 +85,7 @@ Of the following configuration settings, only entering a host/port pair is requi
 
 Define a plan to secure, monitor, and transparently communicate information on how to access your Kafka API. The plan types presented are the same as the plan types used for regular HTTP APIs in Gravitee, but map to a Kafka authentication equivalent.
 
-<figure><img src="../../.gitbook/assets/A4.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.7/.gitbook/assets/A4.png" alt=""><figcaption></figcaption></figure>
 
 Gravitee automatically assigns each API a Default Keyless plan, which grants public access. Click **+ Add plan** to create additional plans.
 
@@ -109,7 +109,7 @@ Individual plan configurations as they pertain to Kafka APIs are described in de
 
 Select **Keyless (public)** from the **+ Add plan** drop-down menu, then define general details and restrictions.
 
-#### General
+**General**
 
 You must enter a value in the **Name** field. Modifying the other configuration parameters is optional.
 
@@ -126,7 +126,7 @@ You must enter a value in the **Name** field. Modifying the other configuration 
 
 Select **API Key** from the **+ Add plan** drop-down menu, then define general details, configuration settings, and restrictions.
 
-#### General
+**General**
 
 You must enter a value in the **Name** field. Modifying the other configuration parameters is optional.
 
@@ -136,10 +136,10 @@ You must enter a value in the **Name** field. Modifying the other configuration 
 4. **Subscriptions:** Choose whether to auto-validate subscriptions, require a message from a consumer during subscription, and/or present a message to the consumer upon subscription.
 5. **Access control:** Select any Groups within APIM that you do not want to have access to this API.
 
-#### Configuration
+**Configuration**
 
 * (Optional) Choose whether to propagate your API key to upstream APIs.
-* (Optional) Use the [Gravitee Expression Language](broken-reference) to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
+* (Optional) Use the [Gravitee Expression Language](broken-reference/) to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
 
 </details>
 
@@ -149,7 +149,7 @@ You must enter a value in the **Name** field. Modifying the other configuration 
 
 Select **JWT** from the **+ Add plan** drop-down menu, then define general details, configuration settings, and restrictions.
 
-#### General
+**General**
 
 You must enter a value in the **Name** field. Modifying the other configuration parameters is optional.
 
@@ -159,7 +159,7 @@ You must enter a value in the **Name** field. Modifying the other configuration 
 4. **Subscriptions:** Choose whether to auto-validate subscriptions, require a message from a consumer during subscription, and/or present a message to the consumer upon subscription.
 5. **Access control:** Select any Groups within APIM that you do not want to have access to this API.
 
-#### Configuration
+**Configuration**
 
 Only the **Signature** and **JWKS resolver** selections are required. Modifying the other configuration parameters is optional.
 
@@ -174,7 +174,7 @@ Only the **Signature** and **JWKS resolver** selections are required. Modifying 
    * GIVEN\_KEY
    * GATEWAY\_KEYS
    * JWKS\_URL
-3. Define your Resolver parameter. This field supports the [Gravitee Expression Language](broken-reference).
+3. Define your Resolver parameter. This field supports the [Gravitee Expression Language](broken-reference/).
 4. If your resolver is **JWKS\_URL**, set the **JWKS URL connect timeout**.
 5. If your resolver is **JWKS\_URL**, set the **JWKS URL request timeout**.
 6. Choose whether to use a system proxy.
@@ -200,7 +200,7 @@ Only the **Signature** and **JWKS resolver** selections are required. Modifying 
 
 Select **OAuth2** from the **+ Add plan** drop-down menu, then define general details, configuration settings, and restrictions.
 
-#### General
+**General**
 
 You must enter a value in the **Name** field. Modifying the other configuration parameters is optional.
 
@@ -210,7 +210,7 @@ You must enter a value in the **Name** field. Modifying the other configuration 
 4. **Subscriptions:** Choose whether to auto-validate subscriptions, require a message from a consumer during subscription, and/or present a message to the consumer upon subscription.
 5. **Access control:** Select any Groups within APIM that you do not want to have access to this API.
 
-#### Configuration
+**Configuration**
 
 Only the **OAuth2 resource** and **Cache resource** fields are required. Modifying the other configuration parameters is optional.
 
@@ -220,7 +220,7 @@ Only the **OAuth2 resource** and **Cache resource** fields are required. Modifyi
 4. Choose whether to instruct your authentication method to check required scopes in order to access the resource. If you choose to check scopes, you must define your list of required scopes using the **Required scopes** module.
 5. Choose whether strict mode is enabled or disabled. If you choose **Strict**, scopes will be checked against the exact list you provided in the **Required scopes** section.
 6. Choose whether to permit authorization headers to target endpoints.
-7. Use the [Gravitee Expression Language](broken-reference) to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
+7. Use the [Gravitee Expression Language](broken-reference/) to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
 
 </details>
 
