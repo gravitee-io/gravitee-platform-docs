@@ -2,19 +2,27 @@
 
 ## Overview
 
+{% hint style="warning" %}
+This feature is in private tech preview. Contact your customer team to request access to this feature.
+{% endhint %}
+
 The Gravitee Kafka Console is a standalone application that integrates with APIM to provide a user interface for managing and monitoring Kafka clusters. It is based on Kafbat UI and communicates with the APIM Management API (mAPI) through JWT-based authentication.
 
 The Kafka Console deployment requires coordination between the Management API, which must be configured to enable the Kafka Console integration, and the Kafka Console application, which runs as a separate service that connects to the mAPI.
 
-This guide explains how to configure and deploy Kafka Console using either Docker Compose or the Gravitee Helm Chart.&#x20;
+This guide explains how to configure and deploy Kafka Console using either Docker Compose or the Gravitee Helm Chart.
 
 ## Prerequisites
 
+{% hint style="warning" %}
+Kafka Console is currently only available for self-hosted deployments and not compatible with next-gen cloud.
+{% endhint %}
+
 Before deploying Kafka Console, ensure the following criteria are met:
 
-* Version **4.9.0-alpha.3** or later for APIM or the Gravitee Helm Chart, depending on your deployment method. The `4.9.0-alpha.3` tag is available in Azure Container Registry only. There is no `latest` tag for Kafka Console.
+* Version **4.9.0-alpha.3** or later for APIM or the Gravitee Helm Chart, depending on your deployment method. There is no `latest` tag for Kafka Console.
 * An Enterprise license that includes the **apim-cluster** feature.
-* Access to Gravitee's Azure Container Registry, `graviteeio.azurecr.io`, to use the Kafka Console image.
+* The Kafka Console container image is not available on the public Docker registry. Contact your customer team for access to the container image.
 * The Kafka Console must be able to reach the Management API using the internal Docker network. Use service names, such as `mapi`, instead of `localhost`.
 * A 32-character secret string for JWT token signing. The same secret must be used for the mAPI `gravitee_kafka_console_server_security_secret` and the Kafka Console `AUTH_JWT_SECRET`.
 * If you are using SASL security protocols on ports 9095 and 9096, configure the cluster with:
@@ -29,12 +37,7 @@ Before deploying Kafka Console, ensure the following criteria are met:
 
 To deploy the Kafka Console using Docker Compose, complete the following steps.
 
-1.  Before pulling the Kafka Console image, run the following commands to authenticate with Azure Container Registry:
-
-    ```bash
-    az login
-    az acr login -n graviteeio.azurecr.io
-    ```
+1. Before deploying, ensure you have obtained access to the Kafka Console container image from your customer team.
 2.  Configure the mAPI service in your `docker-compose.yml` by adding the following environment variables:
 
     ```yaml
@@ -52,7 +55,8 @@ To deploy the Kafka Console using Docker Compose, complete the following steps.
 
     ```yaml
     kafkaConsole:
-      image: graviteeio.azurecr.io/apim-kafka-console:4.9.0-alpha.3
+     # Contact your customer team for access to the container image
+      image: <CONTACT_YOUR_CUSTOMER_TEAM_FOR_IMAGE_ACCESS>
       container_name: gio_apim_kafka_console
       networks:
         - kafkaConsole
@@ -300,7 +304,8 @@ services:
       - email
 
   kafkaConsole:
-    image: graviteeio.azurecr.io/apim-kafka-console:4.9.0-alpha.3
+    # Contact your customer team for access to the container image
+    image: <CONTACT_YOUR_CUSTOMER_TEAM_FOR_IMAGE_ACCESS>
     container_name: gio_apim_kafka_console
     networks:
       - kafkaConsole
@@ -396,8 +401,9 @@ There is a bug in `4.9.0-alpha.3` that requires adding the JWT secret to both th
     kafkaConsole:
       name: kafka-console
       image:
-        repository: graviteeio.azurecr.io/apim-kafka-console
-        tag: 4.9.0-alpha.3
+        repository: <CONTACT_YOUR_CUSTOMER_TEAM_FOR_IMAGE_ACCESS>
+        # Contact your customer team for access to the container image
+        tag: <CONTACT_YOUR_CUSTOMER_TEAM_FOR_TAG>
       enabled: true
       jwt:
         secret: YOUR_32_CHARACTER_SECRET
@@ -479,6 +485,8 @@ Kafka Console is subject to the following known limitations:
   * Helm/Kubernetes: `kubectl rollout restart deployment/kafka-console`
   * Production/hybrid deployments: Contact your platform team or submit a support ticket
 * **File-based user bug**: There is a known issue when adding file-based users from `gravitee.yml` to cluster permissions. This does not affect deployments that use external user management systems such as LDAP or OAuth.
+* **Incompatible with Next-Gen cloud**: Kafka Console cannot be deployed in next-gen cloud environments.
+* **Classic cloud authentication**: Classic cloud deployments require the Gravitee platform team to add a special configuration to allow authentication of the console with the Management API.
 * **Read-only mode**: The alpha version provides read-only access to Kafka clusters. Message publishing and topic management capabilities are not included in this release.
 
 ## Troubleshooting
