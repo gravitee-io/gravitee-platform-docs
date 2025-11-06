@@ -40,7 +40,7 @@ EE plugins are installed from their respective repositories in GitHub. Graviteeâ
 
 For example, the Data Logging Masking policy repository is at `https://github.com/gravitee-io/gravitee-policy-data-logging-masking`.&#x20;
 
-If you have not been granted access to private EE plugin repositories as part of your EE license request process, email [contact@graviteesource.com](mailto:contact@graviteesource.com). Information on plugin deployment can be found [here](../plugins-and-api-definitions-for-gravitee-api-management/plugins/#deployment). Packs are described in more detail below.
+If you have not been granted access to private EE plugin repositories as part of your EE license request process, email [contact@graviteesource.com](mailto:contact@graviteesource.com). Information on plugin deployment can be found [here](../plugins-and-api-definitions-for-gravitee-api-management/plugins/deploying-plugins.md#deployment). Packs are described in more detail below.
 
 <details>
 
@@ -93,8 +93,8 @@ The Legacy Upgrade pack comprises the following plugins and capabilities to enab
 
 The Observability pack includes capabilities to better implement enterprise-grade API monitoring and observability:
 
-* [**Datadog reporter**](../../using-the-product/using-the-gravitee-api-management-components/general-configuration/reporters/#datadog-reporter): Push API metrics to your Datadog instance and dashboards.
-* [**TCP reporter**](../../using-the-product/using-the-gravitee-api-management-components/general-configuration/reporters/#tcp-reporter): Report Gateway events to a TCP listening server.
+* [**Datadog reporter**](../../using-the-product/using-the-gravitee-api-management-components/general-configuration/reporters/configuring-reporters-for-gravitee-api-management.md#datadog-reporter): Push API metrics to your Datadog instance and dashboards.
+* [**TCP reporter**](../../using-the-product/using-the-gravitee-api-management-components/general-configuration/reporters/configuring-reporters-for-gravitee-api-management.md#tcp-reporter): Report Gateway events to a TCP listening server.
 
 </details>
 

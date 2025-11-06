@@ -111,7 +111,7 @@ To close a plan, click on the 'x' icon:
 APIM automatically routes each API request to the correct plan. The plan selection workflow parses all published plans in the following order: **JWT**, **OAuth2**, **API Key**, **Keyless**.&#x20;
 
 {% hint style="warning" %}
-This workflow only applies to [v4 APIs and v2 APIs in emulation mode.](../../../../overview/plugins-and-api-definitions/gravitee-api-definitions-and-execution-engines/#plan-selection)
+This workflow only applies to [v4 APIs and v2 APIs in emulation mode.](../../../../overview/plugins-and-api-definitions/gravitee-api-definitions-and-execution-engines/engine-comparisons.md#plan-selection)
 {% endhint %}
 
 The parsing rules for each plan type are detailed below:

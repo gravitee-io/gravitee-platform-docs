@@ -21,7 +21,7 @@ A Gravitee API definition is very similar to an API specification (e.g., OpenAPI
 To execute your Gateway APIs and policy flows, the Gateway needs a runtime environment, or engine. This is generally referred to as the execution engine. As of APIM 4.0, there is support for both the v2 and v4 Gravitee API definitions, where v2 API definitions run on the legacy execution engine and v4 API definitions run on the reactive execution engine.
 
 {% hint style="warning" %}
-You can run v2 Gateway APIs in [emulation mode](./#v2-gateway-api-emulation-mode), which emulates some of the execution flow improvements of the reactive execution engine.&#x20;
+You can run v2 Gateway APIs in [emulation mode](reactive-execution-engine.md#v2-gateway-api-emulation-mode), which emulates some of the execution flow improvements of the reactive execution engine.&#x20;
 {% endhint %}
 
 The [v2 API Creation Wizard ](../../guides/create-apis/how-to/v2-api-creation-wizard.md)creates v2 Gateway APIs compatible with the legacy execution engine that can be augmented with flows designed in the [v2 Policy Studio](../../guides/policy-design/v2-api-policy-design-studio.md). The [v4 API Creation Wizard](../../guides/create-apis/how-to/v4-api-creation-wizard.md) creates v4 APIs compatible with the reactive execution engine that can be augmented with flows designed in the [v4 Policy Studio](../../guides/policy-design/v4-api-policy-design-studio.md).
