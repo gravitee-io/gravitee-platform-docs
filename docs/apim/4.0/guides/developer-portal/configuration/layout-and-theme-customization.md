@@ -195,7 +195,7 @@ This page allows the administrator to customize every aspect of the Developer Po
 {% hint style="warning" %}
 **Enable live preview**
 
-To enable a live preview, you must provide a Portal URL per the [General settings section](layout-and-theme-customization.md#general-settings).
+To enable a live preview, you must provide a Portal URL per the [General settings section](general-settings.md#general-settings).
 {% endhint %}
 
 The top menu includes the following options:

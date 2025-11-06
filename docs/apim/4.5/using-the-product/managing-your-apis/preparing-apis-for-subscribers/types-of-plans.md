@@ -75,7 +75,7 @@ API keys can only be shared across API Key plans that belong to distinct Gateway
 
 <img src="../../../.gitbook/assets/Screen Shot 2023-03-16 at 11.44.51 AM.png" alt="Subscribing in the APIM Console" data-size="original">
 
-To select the API key type, the shared API key mode must be [enabled](types-of-plans.md#api-key-plan) before creating an application. To enable this option, create a new application and subscribe to two API Key plans.
+To select the API key type, the shared API key mode must be [enabled](subscriptions.md#api-key-plans) before creating an application. To enable this option, create a new application and subscribe to two API Key plans.
 
 If shared API key mode is disabled, applications that have already been configured to use a shared key will continue to do so, but consumers will no longer be asked to choose between modes on their second subscription.
 

@@ -582,7 +582,7 @@ To configure your OAuth2 plan, select OAuth2 from the **+Add plan** drop-down me
 * **Description**
 * **Characteristics**
 * **Subscription:** choose whether to auto-validate subscriptions, require a message from a consumer during subscription, and/or present a message to the consumer upon subscription.
-* **Access control:** select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../../administration/#users-and-user-groups).
+* **Access control:** select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../../administration/user-management-and-permissions.md#users-and-user-groups).
 
 <img src="../../../../.gitbook/assets/image (92).png" alt="" data-size="original">
 
@@ -623,7 +623,7 @@ If you chose **JWT**, you will need to specify general details, the authenticati
 * **Description**
 * **Characteristics**
 * **Subscription:** choose whether to auto-validate subscriptions, require a message from a consumer during subscription, and/or present a message to the consumer upon subscription.
-* **Access control:** select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../../administration/#users-and-user-groups).
+* **Access control:** select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../../administration/user-management-and-permissions.md#users-and-user-groups).
 
 Once you're done with your general details, select Next to define your JWT authentication configuration. This will require you to:
 
@@ -668,7 +668,7 @@ If you chose API key, you will define general settings, the API key authenticati
 * **Description**
 * **Characteristics**
 * **Subscription:** choose whether to auto-validate subscriptions, require a message from a consumer during subscription, and/or present a message to the consumer upon subscription.
-* **Access control:** select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../../administration/#users-and-user-groups).
+* **Access control:** select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../../administration/user-management-and-permissions.md#users-and-user-groups).
 
 Select Next to be taken to the **API key authentication** configuration page. Here, you need to:
 
@@ -698,7 +698,7 @@ If you chose Keyless, you will only need to define general details and restricti
 * **Description**
 * **Characteristics**
 * **Subscription:** choose whether to auto-validate subscriptions, require a message from a consumer during subscription, and/or present a message to the consumer upon subscription.
-* **Access control:** select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../../administration/#users-and-user-groups).
+* **Access control:** select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../../administration/user-management-and-permissions.md#users-and-user-groups).
 
 Select Next to be taken to the **Restriction** page to define any additional restrictions that you want to be associated with your plan. Your options include:
 

@@ -307,7 +307,7 @@ A published plan can either be deprecated or closed. Neither operation can be un
 APIM automatically routes each API request to the correct plan. The plan selection workflow parses all the published plans in the following order: JWT, OAuth2, API Key, Keyless. Each plan type has the following rules:
 
 {% hint style="warning" %}
-This workflow only applies to [v4 APIs and v2 APIs in emulation mode.](../../overview/gravitee-api-definitions-and-execution-engines/#plan-selection)
+This workflow only applies to [v4 APIs and v2 APIs in emulation mode.](../../overview/gravitee-api-definitions-and-execution-engines/plan-selection.md#plan-selection)
 {% endhint %}
 
 * JWT

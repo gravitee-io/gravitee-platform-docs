@@ -234,7 +234,7 @@ plugins:
 Users can add plugins not included in APIM's default distribution to this directory. This includes different versions of Gravitee plugins or their own [custom plugins](../../getting-started/plugins/customization.md).&#x20;
 
 {% hint style="info" %}
-To understand how Gravitee handles duplicate plugins, see plugins [discovery and loading.](../../getting-started/plugins/#discovery-and-loading)
+To understand how Gravitee handles duplicate plugins, see plugins [discovery and loading.](../../getting-started/plugins/deployment.md#discovery-and-loading)
 {% endhint %}
 
 If you do not wish to modify the default directory, Gravitee also lets you specify additional folders in an array:
@@ -264,7 +264,7 @@ api:
 ```
 {% endcode %}
 
-The property `removePlugins` has been removed from the Helm chart as it is no longer necessary. See [plugin discovery and loading](../../getting-started/plugins/#discovery-and-loading) for more information.
+The property `removePlugins` has been removed from the Helm chart as it is no longer necessary. See [plugin discovery and loading](../../getting-started/plugins/deployment.md#discovery-and-loading) for more information.
 {% endtab %}
 {% endtabs %}
 
@@ -390,7 +390,7 @@ ratelimit:
     password: 'mysecretpassword'
 ```
 
-Redis Sentinel and Redis SSL configuration options are presented [here](../repositories/#redis).
+Redis Sentinel and Redis SSL configuration options are presented [here](../repositories/redis.md#redis).
 {% endtab %}
 {% endtabs %}
 

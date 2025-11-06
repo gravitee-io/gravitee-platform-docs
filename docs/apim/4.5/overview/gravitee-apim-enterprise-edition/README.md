@@ -40,7 +40,7 @@ EE plugins are installed from their respective repositories in GitHub. Graviteeâ
 
 For example, the Data Logging Masking policy repository is at `https://github.com/gravitee-io/gravitee-policy-data-logging-masking`.&#x20;
 
-If you have not been granted access to private EE plugin repositories as part of your EE license request process, email [contact@graviteesource.com](mailto:contact@graviteesource.com). Information on plugin deployment can be found [here](../plugins-and-api-definitions/plugins/plugins.md#deployment). Packs are described in more detail below.
+If you have not been granted access to private EE plugin repositories as part of your EE license request process, email [contact@graviteesource.com](mailto:contact@graviteesource.com). Information on plugin deployment can be found [here](../plugins-and-api-definitions/plugins/deploying-plugins.md#deployment). Packs are described in more detail below.
 
 <details>
 
@@ -72,7 +72,7 @@ The Event-native pack includes capabilities that enable Gravitee to expose, secu
 * [**Message Filtering policy**](../../using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/l-p/message-filtering.md)**:** Filter messages streamed to clients/subscribers based on API publisher and/or client criteria.
 * [**Avro to JSON policy**](../../using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/a-c/avro-to-json.md)**:** Transform information from Avro format to JSON format.
 * **Gateway message reactor plugin:** Enable the Gravitee Gateway to intercept and introspect messages when publishing and subscribing to/from message-based systems.
-* [**Confluent Schema Registry resource**](../../using-the-product/managing-your-apis/resources/#confluent-schema-registry)**:** Define Confluent Schema Registry as a resource for serialization and deserialization policies.
+* [**Confluent Schema Registry resource**](../../using-the-product/managing-your-apis/resources/confluent-and-keycloak-resources.md#confluent-schema-registry)**:** Define Confluent Schema Registry as a resource for serialization and deserialization policies.
 
 </details>
 

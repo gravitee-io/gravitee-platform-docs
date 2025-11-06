@@ -396,7 +396,7 @@ ratelimit:
     password: 'mysecretpassword'
 ```
 
-Redis Sentinel and Redis SSL configuration options are presented [here](../repositories/#redis).
+Redis Sentinel and Redis SSL configuration options are presented [here](../repositories/redis.md#redis).
 {% endtab %}
 {% endtabs %}
 

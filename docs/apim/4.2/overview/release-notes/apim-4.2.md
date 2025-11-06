@@ -76,7 +76,7 @@ To learn more about TCP proxy support and how to create TCP proxy APIs, refer to
 
 The HTTP POST entrypoint now supports initiating an empty message flow that gives policies full access to the context (i.e., to construct messages with metadata, headers, etc.) whenever the POST request is made to the entrypoint.&#x20;
 
-For more information, see [HTTP POST in Entrypoint Configuration](../../guides/api-configuration/v4-api-configuration/entrypoints/#http-post).
+For more information, see [HTTP POST in Entrypoint Configuration](../../guides/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints/http-post.md#http-post).
 
 ## Endpoints
 
@@ -99,7 +99,7 @@ In addition, a RabbitMQ endpoint can now be configured using TLS/mTLS to securel
 * PEM certificate and key file
 * PEM certificate and key content
 
-For more information, see [RabbitMQ in Endpoint Configuration](../../guides/api-configuration/v4-api-configuration/endpoints/#rabbitmq).
+For more information, see [RabbitMQ in Endpoint Configuration](../../guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/rabbitmq.md#rabbitmq).
 
 ### Kafka
 
@@ -112,7 +112,7 @@ When creating or configuring a v4 message API with a Kafka endpoint, the user ca
 * **Specify List of Topics:** The topic(s) from which your Gravitee Gateway client will consume messages.
 * **Specify Topic Expression:** A single Java regular expression.  to consume only messages from Kafka topics that match the expression.
 
-For more information, see [Kafka in Endpoint Configuration](../../guides/api-configuration/v4-api-configuration/endpoints/#kafka).
+For more information, see [Kafka in Endpoint Configuration](../../guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/kafka.md#kafka).
 
 #### SASL OAUTHBEARER
 

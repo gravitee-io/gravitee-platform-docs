@@ -25,7 +25,7 @@ Some important initial differences are as follows:
 {% hint style="info" %}
 * The [v2 API Creation Wizard ](../../../using-the-product/managing-your-apis/create-apis/the-api-creation-wizard/v2-api-creation-wizard.md)creates APIs compatible with the legacy execution engine. These can be augmented with flows designed in the [v2 Policy Studio](../../../using-the-product/managing-your-apis/policy-studio/v2-api-policy-studio.md).
 * The [v4 API Creation Wizard](../../../using-the-product/managing-your-apis/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md) creates v4 APIs compatible with the reactive execution engine. These can be augmented with flows designed in the [v4 Policy Studio](../../../using-the-product/managing-your-apis/policy-studio/v4-api-policy-studio.md).
-* v2 Gateway APIs can run in [emulation mode](./#v2-gateway-api-emulation-mode) to take advantage of certain execution flow improvements of the reactive engine.&#x20;
+* v2 Gateway APIs can run in [emulation mode](reactive-execution-engine.md#v2-gateway-api-emulation-mode) to take advantage of certain execution flow improvements of the reactive engine.&#x20;
 {% endhint %}
 
 The following sections summarize differences between the reactive and legacy execution engines and provides guidance for managing changes in system behavior when switching to the reactive engine or enabling compatibility mode with a v2 API.

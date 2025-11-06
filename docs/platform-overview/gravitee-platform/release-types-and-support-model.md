@@ -50,6 +50,6 @@ When utilizing a beta feature or version, please note:
 
 ## General availability <a href="#general-availability" id="general-availability"></a>
 
-When a feature or release version reaches general availability, it signifies that the software has been publicly released and is fully supported according to [Gravitee's support and maintenance policy](release-types-and-support-model.md#support-model). Generally available features are officially documented and their interfaces are stable.
+When a feature or release version reaches general availability, it signifies that the software has been publicly released and is fully supported according to [Gravitee's support and maintenance policy](support-model/README.md#support-model). Generally available features are officially documented and their interfaces are stable.
 
 Interfaces associated with GA features adhere to a [semantic versioning model](https://semver.org/). This ensures that any changes made to the interfaces follow a consistent and predictable versioning scheme, maintaining compatibility with existing implementations.

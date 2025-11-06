@@ -12,7 +12,7 @@ The v2 Policy Studio consists of the following sections:
 
 * [**Design**](v2-api-policy-studio.md#design)**:** Manage all flows associated with your Gateway API
 * [**Configuration**](v2-api-policy-studio.md#configure-flow-mode)**:** Modify settings related to flow execution
-* [**Debug**](v2-api-policy-studio.md#debug-mode)**:** Test and troubleshoot your Gateway APIs
+* [**Debug**](debug-mode.md#debug-mode)**:** Test and troubleshoot your Gateway APIs
 
 ## Design
 

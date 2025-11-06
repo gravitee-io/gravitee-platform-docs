@@ -69,7 +69,7 @@ services:
       - gravitee_integration_providers_0_configuration_0_appDomains=${SOLACE_APPLICATION_0_DOMAIN:-}
 ```
 
-Next, create a file named `.env` in the same directory. We'll use it to set the required Docker Compose variables. Fill the values in this file from those you obtained in [step 2](solace.md#id-2.-configure-the-azure-federation-agent).
+Next, create a file named `.env` in the same directory. We'll use it to set the required Docker Compose variables. Fill the values in this file from those you obtained in [step 2](azure-api-management.md#id-2.-configure-the-azure-federation-agent).
 
 ```bash
 ## GRAVITEE PARAMETERS ##

@@ -22,6 +22,42 @@ _SCHEME_RE = re.compile(r"^[a-zA-Z][a-zA-Z0-9+.-]*:")
 
 # Allow cross-page anchor autofixes when explicitly enabled (default: off)
 CROSS_PAGE_ANCHOR_OK = os.getenv("LG_CROSS_PAGE_ANCHOR_OK", "0").lower() in {"1", "true", "yes"}
+# Anchors we never want to auto-redirect to on a different page
+_BANNED_XPAGE_ANCHORS = {
+    "overview",
+    "introduction",
+    "configuration",
+    "compatibility-matrix",
+    "supported-databases",
+    "federation",
+    "implementation",
+    "reference",
+    "architecture",
+}
+
+# Prefixes/Patterns we also want to block on cross-page redirects
+# e.g. "use-a-custom-prefix" and "use-a-custom-prefix-1"
+_BANNED_XPAGE_ANCHOR_PREFIXES = ("use-a-custom-prefix",)
+
+# e.g. "step-5-documentation", "step-12-documentation", etc.
+_BANNED_XPAGE_ANCHOR_REGEXES = [
+    re.compile(r"^step-\d+-documentation$", re.IGNORECASE),
+]
+
+
+def _is_banned_cross_page_anchor(anchor: str) -> bool:
+    """True if this anchor should never be auto-redirected to another page."""
+    a = (anchor or "").strip().lower()
+    if not a:
+        return False
+    if a in _BANNED_XPAGE_ANCHORS:
+        return True
+    if any(a == p or a.startswith(p + "-") for p in _BANNED_XPAGE_ANCHOR_PREFIXES):
+        return True
+    for rx in _BANNED_XPAGE_ANCHOR_REGEXES:
+        if rx.match(a):
+            return True
+    return False
 
 
 def _write_json(path: Path, obj: dict) -> None:
@@ -265,6 +301,15 @@ def _load_autofix_rows(
                     if skip_log is not None:
                         _log_skip(skip_log, row, stage="load", reason="cross_page_anchor_blocked")
                     continue
+                # If this fix would redirect to a different page's *generic* section, skip it.
+                # (We only apply this rule for cross-page anchor moves.)
+                if spath and spath != normalized_page:
+                    if _is_banned_cross_page_anchor(row.get("suggest_anchor") or ""):
+                        if skip_log is not None:
+                            _log_skip(
+                                skip_log, row, stage="load", reason="cross_page_anchor_denied"
+                            )
+                        continue
 
             grouped.setdefault(src, []).append(row)
 
@@ -311,6 +356,11 @@ def _replace_in_file(
             text, url = m.group(1), m.group(2)
             for plan in planned:
                 if url in plan["old"]:
+                    # If the replacement is identical to the current URL, don't count it.
+                    if plan["new"] == url:
+                        plan["matched"] = True
+                        return m.group(0)
+
                     before = m.group(0)
                     after = f"[{text}]({plan['new']})"
                     changes.append(

@@ -28,7 +28,7 @@ API details is the first step of the API creation wizard. Provide a name, versio
 
 ### Proxy selection: Choose your path
 
-This step is where you decide between the [traditional proxy and message proxy](creating-a-gateway-api.md#traditional-and-message-proxies):
+This step is where you decide between the [traditional proxy and message proxy](README.md#traditional-and-message-proxies):
 
 * **Traditional proxy:** Select **Proxy Upstream Protocol** to configure the Gateway API to proxy backend API servers
 * **Message proxy**: Select **Introspect Messages From Event-Driven Backend** to configure the Gateway API to proxy event/message brokers

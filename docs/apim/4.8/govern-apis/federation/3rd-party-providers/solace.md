@@ -71,7 +71,7 @@ services:
       # - gravitee_cloud_token=${GRAVITEE_CLOUD_TOKEN}
 ```
 
-Next, create a file named `.env` in the same directory. We'll use it to set the required Docker Compose variables. Fill the values in this file from those you obtained in [step 2](solace.md#id-2.-configure-the-azure-federation-agent).
+Next, create a file named `.env` in the same directory. We'll use it to set the required Docker Compose variables. Fill the values in this file from those you obtained in [step 2](azure-api-management.md#id-2.-configure-the-azure-federation-agent).
 
 ```bash
 ## GRAVITEE PARAMETERS ##

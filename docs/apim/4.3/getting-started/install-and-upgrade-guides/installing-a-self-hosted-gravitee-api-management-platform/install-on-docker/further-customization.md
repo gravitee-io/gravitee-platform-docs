@@ -68,7 +68,7 @@ To use JDBC as the datastore for management:
    * The `plugin-ext` folder is `/gravitee/apim-management-api/plugins` for the Management API
 
 {% hint style="info" %}
-For more information on the JDBC plugin and drivers, see [JDBC](../../../configuration/repositories/#jdbc).
+For more information on the JDBC plugin and drivers, see [JDBC](../../../configuration/repositories/jdbc.md#jdbc).
 {% endhint %}
 
 ### 2. Use JDBC

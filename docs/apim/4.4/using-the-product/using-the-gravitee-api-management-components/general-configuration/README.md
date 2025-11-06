@@ -240,7 +240,7 @@ plugins:
 Users can add plugins not included in APIM's default distribution to this directory. This includes different versions of Gravitee plugins or their own [custom plugins](../../../overview/plugins-and-api-definitions-for-gravitee-api-management/plugins/custom-plugins.md).&#x20;
 
 {% hint style="info" %}
-To understand how Gravitee handles duplicate plugins, see plugins [discovery and loading.](../../../overview/plugins-and-api-definitions-for-gravitee-api-management/plugins/#discovery-and-loading)
+To understand how Gravitee handles duplicate plugins, see plugins [discovery and loading.](../../../overview/plugins-and-api-definitions-for-gravitee-api-management/plugins/deploying-plugins.md#discovery-and-loading)
 {% endhint %}
 
 If you do not wish to modify the default directory, Gravitee also lets you specify additional folders in an array:
@@ -270,7 +270,7 @@ api:
 ```
 {% endcode %}
 
-The property `removePlugins` has been removed from the Helm chart as it is no longer necessary. See [plugin discovery and loading](../../../overview/plugins-and-api-definitions-for-gravitee-api-management/plugins/#discovery-and-loading) for more information.
+The property `removePlugins` has been removed from the Helm chart as it is no longer necessary. See [plugin discovery and loading](../../../overview/plugins-and-api-definitions-for-gravitee-api-management/plugins/deploying-plugins.md#discovery-and-loading) for more information.
 {% endtab %}
 {% endtabs %}
 
