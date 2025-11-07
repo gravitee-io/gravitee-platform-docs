@@ -6,6 +6,28 @@ description: >-
 
 # AM 4.7.x
 
+## Gravitee Access Management 4.7.20 - November 7, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* VertX Thread Blocked when JWKS is loaded [#10932](https://github.com/gravitee-io/issues/issues/10932)
+* Upgrade Spring Data R2DBC [#10936](https://github.com/gravitee-io/issues/issues/10936)
+
+
+
+
+
+**Other**
+
+* Reduce log verbosity on MFA validation failure [#10903](https://github.com/gravitee-io/issues/issues/10903)
+
+</details>
+
+
 ## Gravitee Access Management 4.7.19 - October 30, 2025
 
 <details>
