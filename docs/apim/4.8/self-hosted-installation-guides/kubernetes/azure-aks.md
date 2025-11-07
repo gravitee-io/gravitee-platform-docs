@@ -97,7 +97,7 @@ To install the Gravitee APIM, complete the following steps:
 4. [#optional-install-redis](azure-aks.md#optional-install-redis "mention")
 5. [#optional-install-postgresql](azure-aks.md#optional-install-postgresql "mention")
 6. [#enterprise-edition-only-create-secret](azure-aks.md#enterprise-edition-only-create-secret "mention")
-7. [#prepare-the-values.yamlfor-helm](azure-aks.md#prepare-the-values.yamlfor-helm "mention")
+7. [#prepare-the-values.yamlfor-helm](#prepare-the-valuesyaml-for-helmx20)
 8. [#install-using-helm](azure-aks.md#install-using-helm "mention")
 
 ### Create Namespace&#x20;

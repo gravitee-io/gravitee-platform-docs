@@ -60,7 +60,7 @@ kubectl apply -f https://raw.githubusercontent.com/gravitee-io/gravitee-kubernet
 {% endcode %}
 
 {% hint style="info" %}
-For full details on creating a `ManagementContext` custom resource, see [Create a ManagementContext custom resource](test-gko-after-deployment.md#create-a-management-context-custom-resource).
+For full details on creating a `ManagementContext` custom resource, see [Create a ManagementContext custom resource](#1-create-a-managementcontext-custom-resource).
 {% endhint %}
 
 ### Create an `ApiDefinition` custom resource
@@ -80,7 +80,7 @@ kubectl apply -f https://raw.githubusercontent.com/gravitee-io/gravitee-kubernet
 {% endcode %}
 
 {% hint style="info" %}
-For full details on creating an `ApiDefinition` custom resource, see [Create an `ApiDefinition` custom resource](test-gko-after-deployment.md#create-an-apidefinition-custom-resource).
+For full details on creating an `ApiDefinition` custom resource, see [Create an `ApiDefinition` custom resource](#2-create-an-apidefinition-custom-resource).
 {% endhint %}
 
 ### Test the new API by calling it through the APIM Gateway
@@ -94,7 +94,7 @@ curl -i http://localhost:9000/gateway/k8s-basic-with-ctx
 The entrypoint used in the Gateway URL may differ depending on your deployment. The example above shows the typical Gateway URL generated when using a local cluster created through the local cluster installation process.
 
 {% hint style="info" %}
-For full details on trying out the GKO functionality after deployment, see [Call the API through the APIM Gateway](test-gko-after-deployment.md#step-3-call-the-api-through-the-apim-gateway).
+For full details on trying out the GKO functionality after deployment, see [Call the API through the APIM Gateway](#3-call-the-api-through-the-apim-gateway).
 {% endhint %}
 
 ## Next steps

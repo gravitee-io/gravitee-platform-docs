@@ -71,7 +71,7 @@ docker run -d --name local-es7 -p 9200:9200 -p 9300:9300 -e "discovery.type=sing
 
 {% tabs %}
 {% tab title="CLI version" %}
-Run `./gravitee` from the `${GRAVITEE_HOME}/bin` directory. `${GRAVITEE_HOME}` refers to the `target/distribution` folder created [previously when cloning the project](./#clone-the-project-and-prepare-your-workspace).
+Run `./gravitee` from the `${GRAVITEE_HOME}/bin` directory. `${GRAVITEE_HOME}` refers to the `target/distribution` folder created [previously when cloning the project](#1-clone-the-project-and-prepare-your-workspace).
 {% endtab %}
 
 {% tab title="IntelliJ configuration" %}
@@ -93,7 +93,7 @@ By default, the project includes the configuration `Gateway - MongoDB` to run th
 
 {% tabs %}
 {% tab title="CLI version" %}
-Run `./gravitee` from the `${GRAVITEE_HOME}/bin` directory. `${GRAVITEE_HOME}` refers to the `target/distribution` folder created [previously when cloning the project](./#clone-the-project-and-prepare-your-workspace).
+Run `./gravitee` from the `${GRAVITEE_HOME}/bin` directory. `${GRAVITEE_HOME}` refers to the `target/distribution` folder created [previously when cloning the project](#1-clone-the-project-and-prepare-your-workspace).
 {% endtab %}
 
 {% tab title="IntelliJ configuration" %}

@@ -54,7 +54,7 @@ http:
 This section discusses how to enable support for:
 
 * [HTTPS](gravitee-gateway.md#enable-https-support)
-* [HTTP/2](gravitee-gateway.md#enable-http-2-support)
+* [HTTP/2](#enable-http2-support)
 * [WebSocket](gravitee-gateway.md#enable-websocket-support)
 * [Certificate-based client authentication](gravitee-gateway.md#enable-certificate-based-client-authentication)
 * [Multi-server](gravitee-gateway.md#multi-server-support)

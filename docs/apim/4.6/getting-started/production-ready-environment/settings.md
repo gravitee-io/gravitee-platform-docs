@@ -8,7 +8,7 @@ This page discusses other configuration settings that fall into the following ca
 * [Documentation sanitizer](settings.md#documentation-sanitizer)
 * [Notifiers](settings.md#notifiers)
 * [Default APIM settings](settings.md#default-apim-settings)
-* [Portal & Console default Nginx security config](settings.md#portal-and-console-default-nginx-security-config)
+* [Portal & Console default Nginx security config](#portal-console-default-nginx-security-config)
 
 ## Property encryption
 
