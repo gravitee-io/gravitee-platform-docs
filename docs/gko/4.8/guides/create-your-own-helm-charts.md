@@ -10,7 +10,7 @@ Below are the basic steps to deploy CRDs with Helm:
 
 1. [Create an empty project using Helm](create-your-own-helm-charts.md#id-1.-create-an-empty-project-using-helm)
 2. [Add required templates for the Gravitee CRDs](create-your-own-helm-charts.md#id-2.-add-required-templates-for-the-gravitee-crds)
-3. [Install/upgrade your Helm Charts](create-your-own-helm-charts.md#id-3.-install-upgrade-your-helm-charts)
+3. [Install/upgrade your Helm Charts](#id-3.-installupgrade-your-helm-charts)
 
 ### 1. Create an empty project using Helm
 

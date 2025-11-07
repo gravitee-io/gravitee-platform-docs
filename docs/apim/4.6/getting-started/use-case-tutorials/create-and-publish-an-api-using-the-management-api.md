@@ -13,7 +13,7 @@ This example uses the Gravitee Echo API to set up an HTTP proxy API. The Gravite
 
 To create, deploy, and publish your API to the Developer Portal, you must complete the following steps:
 
-* [Obtain a Personal Access Token](create-and-publish-an-api-using-the-management-api.md#obtaining-a-personal-access-token)
+* [Obtain a Personal Access Token](#obtain-a-personal-access-token)
 * [Create the API definition in JSON](create-and-publish-an-api-using-the-management-api.md#create-the-api-definition-in-json)
 * [Create API via a mAPI call](create-and-publish-an-api-using-the-management-api.md#creating-the-api-via-a-mapi-call)
 * [Create a plan for the API](create-and-publish-an-api-using-the-management-api.md#create-a-plan-for-the-api)

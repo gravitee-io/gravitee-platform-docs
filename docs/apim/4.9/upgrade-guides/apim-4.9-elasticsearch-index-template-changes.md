@@ -19,7 +19,7 @@ Add the following fields to your existing templates to enable error component an
 
 1. [#elasticsearch-7.x-v2-request-template](apim-4.9-elasticsearch-index-template-changes.md#elasticsearch-7.x-v2-request-template "mention")
 2. [#elasticsearch-7.x-v4-metrics-template](apim-4.9-elasticsearch-index-template-changes.md#elasticsearch-7.x-v4-metrics-template "mention")
-3. [#elasticsearch-8.x-v2-request-template](apim-4.9-elasticsearch-index-template-changes.md#elasticsearch-8.x-v2-request-template "mention")
+3. [#elasticsearch-8.x-v2-request-template](#elasticsearch-7x-v2-request-template)
 4. [#elasticsearch-8.x-v4-metrics-template](apim-4.9-elasticsearch-index-template-changes.md#elasticsearch-8.x-v4-metrics-template "mention")
 
 ### Elasticsearch 7.x v2 Request Template

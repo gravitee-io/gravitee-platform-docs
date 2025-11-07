@@ -8,7 +8,7 @@ Every API includes a context path, virtual host(s), or host(s). These values mus
 
 All items from the import bundle are imported, for example, groups, members, pages, plans, and metadata.
 
-Additional information that applies to importing an OpenAPI specification can be found [below](import-apis.md#importing-an-openapi-spec).
+Additional information that applies to importing an OpenAPI specification can be found [below](#import-an-openapi-spec).
 
 {% hint style="warning" %}
 When you import an API with a JSON payload that has duplicate keys, APIM keeps the last key.
