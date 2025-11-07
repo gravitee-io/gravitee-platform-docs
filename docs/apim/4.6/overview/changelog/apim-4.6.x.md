@@ -18,7 +18,7 @@ description: >-
 **Management API**
 
 * Using payload filter in v2 API logs does not always return correct number of results [#10747](https://github.com/gravitee-io/issues/issues/10747)
-* Different between policy names based on the creation method. [#10803](https://github.com/gravitee-io/issues/issues/10803)
+* Difference between policy names based on the creation method. [#10803](https://github.com/gravitee-io/issues/issues/10803)
 * Search API feature not working on Developer Portal [#10892](https://github.com/gravitee-io/issues/issues/10892)
 * Path mapping on import fails for certain paths [#10909](https://github.com/gravitee-io/issues/issues/10909)
 
