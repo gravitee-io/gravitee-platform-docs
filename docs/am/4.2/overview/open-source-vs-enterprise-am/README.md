@@ -39,7 +39,7 @@ EE plugins are installed from their respective repositories in GitHub. Graviteeâ
 
 If you have not been granted access to private EE plugin repositories as part of your EE license request process, email [contact@graviteesource.com](mailto:contact@graviteesource.com).
 
-Information on plugin deployment can be found [here](broken-reference).
+
 
 ### Enterprise Identity Provider pack <a href="#enterprise-policy-pack" id="enterprise-policy-pack"></a>
 

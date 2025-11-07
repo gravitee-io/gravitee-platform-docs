@@ -136,7 +136,7 @@ reporters:
 
 ## Custom metrics
 
-You can use the [Assign Metrics](broken-reference/) policy to add custom metrics to the output of the Datadog Reporter. They appear in Datadog with the name `gravitee.apim.{metricName}`, where `metricName` is configured in the policy.
+You can use the Assign Metrics policy to add custom metrics to the output of the Datadog Reporter. They appear in Datadog with the name `gravitee.apim.{metricName}`, where `metricName` is configured in the policy.
 
 {% hint style="info" %}
 The default metrics published by Gravitee can be found [here](./#metrics-sent-via-reporters).

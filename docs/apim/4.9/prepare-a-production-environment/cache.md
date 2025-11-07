@@ -61,8 +61,8 @@ More information can be found in the [Hazelcast documentation](https://docs.haze
 
 API publishers can create Cache resources to:
 
-* Cache upstream of a response with the [Cache policy](broken-reference)
-* Cache access tokens with the [OAuth2 policy](broken-reference)
+* Cache upstream of a response with the Cache policy
+* Cache access tokens with the OAuth2 policy
 
 The default distribution includes the [Cache ](cache.md)resource plugin, which stores content in-memory and is locally managed on each Gateway node of the installation.
 

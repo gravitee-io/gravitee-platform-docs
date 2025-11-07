@@ -248,5 +248,5 @@ We can now open up Management Console and see our two gateways running:
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/hybrid/hybrid_deployment_gateways.png" alt=""><figcaption><p>Hybrid K8 deployment</p></figcaption></figure>
 
 {% hint style="success" %}
-Congratulations! Now that APIM is up and running, check out the [Tutorials](broken-reference) for your next steps.
+Congratulations! Now that APIM is up and running, check out the Tutorials for your next steps.
 {% endhint %}

@@ -139,7 +139,7 @@ You must enter a value in the **Name** field. Modifying the other configuration 
 **Configuration**
 
 * (Optional) Choose whether to propagate your API key to upstream APIs.
-* (Optional) Use the [Gravitee Expression Language](broken-reference/) to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
+* (Optional) Use the Gravitee Expression Language to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
 
 </details>
 
@@ -174,7 +174,7 @@ Only the **Signature** and **JWKS resolver** selections are required. Modifying 
    * GIVEN\_KEY
    * GATEWAY\_KEYS
    * JWKS\_URL
-3. Define your Resolver parameter. This field supports the [Gravitee Expression Language](broken-reference/).
+3. Define your Resolver parameter. This field supports the Gravitee Expression Language.
 4. If your resolver is **JWKS\_URL**, set the **JWKS URL connect timeout**.
 5. If your resolver is **JWKS\_URL**, set the **JWKS URL request timeout**.
 6. Choose whether to use a system proxy.
@@ -220,7 +220,7 @@ Only the **OAuth2 resource** and **Cache resource** fields are required. Modifyi
 4. Choose whether to instruct your authentication method to check required scopes in order to access the resource. If you choose to check scopes, you must define your list of required scopes using the **Required scopes** module.
 5. Choose whether strict mode is enabled or disabled. If you choose **Strict**, scopes will be checked against the exact list you provided in the **Required scopes** section.
 6. Choose whether to permit authorization headers to target endpoints.
-7. Use the [Gravitee Expression Language](broken-reference/) to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
+7. Use the Gravitee Expression Language to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
 
 </details>
 

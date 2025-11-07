@@ -177,7 +177,7 @@ To view your new link, click **Save** and navigate to the Developer Portal:
 
 <figure><img src="../../../.gitbook/assets/dev_portal_custom_link_example.png" alt=""><figcaption><p>Sample "Gravitee Homepage" custom link</p></figcaption></figure>
 
-Each custom link offers additional features such as translations and access control. See [Documentation](broken-reference) for more information.
+Each custom link offers additional features such as translations and access control. 
 {% endtab %}
 {% endtabs %}
 

@@ -15,7 +15,7 @@ Gravitee version 4.1 was released on September 28th, 2023. 4.1 focused on improv
 {% hint style="info" %}
 **Changelog vs release notes**
 
-If you want a more condensed version of what's new, please refer to the [Changelog](broken-reference). Also, if you want to learn about breaking changes or bug fixes, we are tracking those in the changelog as well.
+If you want a more condensed version of what's new, please refer to the changelog. Also, if you want to learn about breaking changes or bug fixes, we are tracking those in the changelog as well.
 {% endhint %}
 
 ## User feedback portal
