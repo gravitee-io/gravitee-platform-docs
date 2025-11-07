@@ -60,7 +60,7 @@ http:
 This section discusses how to enable support for:
 
 * [HTTPS](general-configuration.md#enable-https-support)
-* [HTTP/2](#enable-http2-support)
+* [HTTP/2](general-configuration.md#enable-http-2-support)
 * [WebSocket](general-configuration.md#enable-websocket-support)
 * [Certificate-based client authentication](general-configuration.md#enable-certificate-based-client-authentication)
 * [Multi-server](general-configuration.md#multi-server-support)

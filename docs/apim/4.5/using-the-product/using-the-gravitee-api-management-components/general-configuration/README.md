@@ -54,7 +54,7 @@ http:
 This section discusses how to enable support for:
 
 * [HTTPS](./#enable-https-support)
-* [HTTP/2](#enable-http2-support)
+* [HTTP/2](./#enable-http-2-support)
 * [WebSocket](./#enable-websocket-support)
 * [Certificate-based client authentication](./#enable-certificate-based-client-authentication)
 * [Multi-server](./#multi-server-support)
