@@ -238,6 +238,24 @@ def gate(
     typer.secho(f"✅ Split complete: {hi} high | {med} medium | {lo} low", fg=typer.colors.GREEN)
 
 
+@app.command("autofix-from-scored")
+def autofix_from_scored(
+    config: Path = DEFAULT_CONFIG,
+    reasons: str = "fuzzy_same_page",
+):
+    """
+    Create an apply_autofix-compatible CSV from suggestions_scored.json
+    keeping only anchor suggestions whose reason is in `reasons`
+    (comma-separated; default: 'fuzzy_same_page').
+    """
+    # import here to avoid circulars at module import
+    from .link_gov.split_confidence import build_autofix_csv_from_scored
+
+    allowed = tuple(r.strip() for r in reasons.split(",") if r.strip())
+    path = build_autofix_csv_from_scored(config, reasons=allowed)
+    typer.secho(f"✅ Built CSV from scored → {path}", fg=typer.colors.GREEN)
+
+
 @app.command("autofix")
 def autofix_cli(
     csv: Path | None = CSV_OPT,

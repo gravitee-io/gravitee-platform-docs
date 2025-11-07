@@ -206,6 +206,88 @@ def split_confidence(
     return totals
 
 
+# NEW: build_autofix_csv_from_scored(...) – only keep "fuzzy_same_page" anchors
+def build_autofix_csv_from_scored(
+    config: Path | None = None,
+    scored_path: Path | None = None,
+    reasons: tuple[str, ...] = ("fuzzy_same_page",),
+    out_path: Path | None = None,
+) -> Path:
+    """
+    Build a CSV (apply_autofix-compatible) directly from suggestions_scored.json,
+    filtered to 'anchor' items whose suggestion 'reason' is in `reasons` and
+    suggestion is not null. This is purpose-built for same-page anchor fixes.
+    """
+    # inputs / outputs
+    scored = scored_path or (CACHE_DIR / "suggestions_scored.json")
+    if not scored.exists():
+        raise FileNotFoundError(f"{scored} not found; run `python -m tools.cli suggest` first")
+
+    out_csv = out_path or (CACHE_DIR / "autofix_fuzzy_same_page.csv")
+
+    # needed to enrich with raw_url / normalized_path
+    anchor_by_key, page_by_key = _load_broken_lookups()
+
+    payload = json.loads(scored.read_text(encoding="utf-8"))
+    rows_out: list[dict] = []
+
+    def _emit(items: Iterable[dict]) -> None:
+        for it in items or []:
+            if (it.get("kind") or "").strip().lower() != "anchor":
+                continue
+            if (it.get("reason") or "") not in reasons:
+                continue
+            suggestion = it.get("suggestion")
+            if not suggestion:
+                continue  # nothing to apply
+
+            src = it.get("src", "")
+            original_anchor = (it.get("original") or "").strip().lower()
+            # find the broken row (gives us raw_url + normalized_path)
+            ctx = anchor_by_key.get((src, original_anchor), {})
+            normalized_path = ctx.get("normalized_path", "")
+            raw_url = ctx.get("raw_url", "")
+
+            # suggestion could be "#slug" implied or "path#slug"; for fuzzy_same_page we expect same page
+            suggest_path = ""
+            suggest_anchor = ""
+            if "#" in suggestion:
+                p, a = suggestion.split("#", 1)
+                suggest_path = p.strip()
+                suggest_anchor = a.strip().lower()
+            else:
+                suggest_anchor = (suggestion or "").strip().lower()
+
+            rows_out.append(
+                {
+                    "src": src,
+                    "text": "",
+                    "reason": "missing_anchor",
+                    "raw_url": raw_url,
+                    "normalized_path": normalized_path or src,
+                    "normalized_anchor": "",  # not needed by apply
+                    "suggest_path": suggest_path,  # keep empty for same-page; if present, apply_autofix will still work
+                    "suggest_anchor": suggest_anchor,  # the fixed anchor
+                    "suggest_heading": "",
+                    "suggest_score": str(it.get("score", "")),
+                    "confidence": "high",  # treat these as high so they’re applied
+                }
+            )
+
+    _emit(payload.get("safe", []))
+    _emit(payload.get("needs_review", []))
+
+    # write CSV
+    out_csv.parent.mkdir(parents=True, exist_ok=True)
+    with out_csv.open("w", encoding="utf-8", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=_FIELDS)
+        w.writeheader()
+        for r in rows_out:
+            w.writerow(r)
+
+    return out_csv
+
+
 # --- simple CLI ---
 if __name__ == "__main__":
     import argparse
