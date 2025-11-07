@@ -67,7 +67,7 @@ docker run -d --name local-es7 -p 9200:9200 -p 9300:9300 -e "discovery.type=sing
 
 #### **CLI Version**
 
-Run `./gravitee` from the `${GRAVITEE_HOME}/bin` directory. `${GRAVITEE_HOME}` refers to the `target/distribution` folder created [previously when cloning the project](./#clone-the-project-and-prepare-your-workspace).
+Run `./gravitee` from the `${GRAVITEE_HOME}/bin` directory. `${GRAVITEE_HOME}` refers to the `target/distribution` folder created previously when cloning the project.
 
 #### **IntelliJ configuration**
 
@@ -89,7 +89,7 @@ It contains by default the following configuration:
 
 #### **CLI Version**
 
-Run `./gravitee` from the `${GRAVITEE_HOME}/bin` directory. `${GRAVITEE_HOME}` refers to the `target/distribution` folder created [previously when cloning the project](./#clone-the-project-and-prepare-your-workspace).
+Run `./gravitee` from the `${GRAVITEE_HOME}/bin` directory. `${GRAVITEE_HOME}` refers to the `target/distribution` folder created previously when cloning the project.
 
 #### **IntelliJ configuration**
 
