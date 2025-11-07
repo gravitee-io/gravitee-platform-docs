@@ -14,7 +14,7 @@ To learn more about how to deploy APIs to specific Gateways based on sharding ta
 
 The sections below discuss:
 
-* [Tagged Gateway/API behavior](#tagged-gatewayapi-behavior)
+* [Tagged Gateway/API behavior](sharding-tags.md#tagged-gateway-api-behavior)
 * [Configuring sharding tags for Gravitee API Gateways](sharding-tags.md#configure-sharding-tags-for-your-gravitee-api-gateways)
 * [Defining sharding tags for an organization](sharding-tags.md#define-sharding-tags-for-an-organization)
 * [Adding sharding tags to an API](sharding-tags.md#add-sharding-tags-to-an-api)
