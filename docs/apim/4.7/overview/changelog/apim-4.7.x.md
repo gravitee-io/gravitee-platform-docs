@@ -1,5 +1,47 @@
 # APIM 4.7.x
  
+## Gravitee API Management 4.7.18 - November 7, 2025
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Sec-WebSocket-Protocol header not propagated in WebSocket connections for v4 APIs [#10950](https://github.com/gravitee-io/issues/issues/10950)
+
+**Management API**
+
+* Using payload filter in v2 API logs does not always return correct number of results [#10747](https://github.com/gravitee-io/issues/issues/10747)
+* Difference between policy names based on the creation method. [#10803](https://github.com/gravitee-io/issues/issues/10803)
+* Search API feature not working on Developer Portal [#10892](https://github.com/gravitee-io/issues/issues/10892)
+* Path mapping on import fails for certain paths [#10909](https://github.com/gravitee-io/issues/issues/10909)
+
+**Console**
+
+* Applied filter tags disappear in log view [#10931](https://github.com/gravitee-io/issues/issues/10931)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Gateway**
+
+* API traffic runtime logs incorrectly show endpoint response 200 [#10896](https://github.com/gravitee-io/issues/issues/10896)
+
+**Console**
+
+* Update Management API connection failure banner copy [#10945](https://github.com/gravitee-io/issues/issues/10945)
+
+**Other**
+
+* Configure the header name to read API Key from [#10939](https://github.com/gravitee-io/issues/issues/10939)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.7.17 - October 24, 2025
 <details>
 
