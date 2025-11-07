@@ -6,6 +6,25 @@ description: >-
 
 # AM 4.6.x
 
+## Gravitee Access Management 4.6.26 - November 7, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* Reduce log verbosity on MFA validation failure [#10903](https://github.com/gravitee-io/issues/issues/10903)
+
+</details>
+
+
 ## Gravitee Access Management 4.6.25 - October 30, 2025
 
 <details>
