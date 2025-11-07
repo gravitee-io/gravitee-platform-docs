@@ -50,7 +50,7 @@ Amazon Linux instances use the package manager `yum`. The steps below show how t
 Choose to either:
 
 * [Install the full APIM stack](install-on-red-hat-and-centos.md#install-the-full-apim-stack) (includes all components)
-* [Install components one-by-one](#install-components-one-by-one)
+* [Install components one-by-one](install-on-red-hat-and-centos.md#install-the-components-one-by-one)
 
 {% hint style="warning" %}
 An SELinux configuration issue can prevent Nginx from opening on ports 8084/8085. To correct this:
