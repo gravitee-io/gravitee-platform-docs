@@ -7,7 +7,7 @@ description: Add layers of security and functionality to your backend resources
 {% hint style="warning" %}
 This is the second section of the Quickstart Guide.&#x20;
 
-* By this point, you should already have [created a Gateway API](broken-reference).&#x20;
+* By this point, you should already have created a Gateway API.&#x20;
 * Steps will be provided for both traditional proxy and message proxy Gateway APIs.
 {% endhint %}
 

@@ -280,7 +280,7 @@ The[ Gateway internal API](../configure-and-manage-the-platform/gravitee-gateway
 
 **Mock Policy for Active Health Checks**
 
-Utilizing an API with a [Mock policy](broken-reference) enables administrators to perform active health checks on the Gravitee APIM Gateways. By configuring mock endpoints that simulate various scenarios, such as successful requests, timeouts, or errors, administrators can verify the gateway's responsiveness and behavior under different conditions.
+Utilizing an API with a Mock policy enables administrators to perform active health checks on the Gravitee APIM Gateways. By configuring mock endpoints that simulate various scenarios, such as successful requests, timeouts, or errors, administrators can verify the gateway's responsiveness and behavior under different conditions.
 
 **Prometheus Metrics**
 

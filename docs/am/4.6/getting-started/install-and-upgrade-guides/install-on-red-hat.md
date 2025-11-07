@@ -137,7 +137,7 @@ For version 4.1.8 and above, you can upgrade and restart AM to perform an `rpm` 
 {% endhint %}
 
 {% hint style="warning" %}
-Refer to the [changelog](broken-reference) to follow potential breaking changes.
+Refer to the changelog to follow potential breaking changes.
 {% endhint %}
 
 ```sh

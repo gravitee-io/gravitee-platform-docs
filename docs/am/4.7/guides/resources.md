@@ -101,7 +101,7 @@ To configure a Twilio Verify resource, you must specify:
 1. Log in to AM Console
 2. Select **Settings** from the left nav
 3. From the Resources section of the inner left nav, select **Services**
-4.  Click the plus icon <img src="broken-reference" alt="" data-size="line"> at the bottom of the page&#x20;
+4.  Click the plus icon at the bottom of the page&#x20;
 
     <div align="left"><figure><img src="../.gitbook/assets/resource_add.png" alt="" width="563"><figcaption><p>Add a resource</p></figcaption></figure></div>
 5.  Select the resource type and click **Next**&#x20;
