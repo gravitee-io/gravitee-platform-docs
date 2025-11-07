@@ -6,7 +6,6 @@ from pathlib import Path
 
 import typer
 from markdown_it import MarkdownIt
-from slugify import slugify
 
 from .utils import CACHE_DIR, load_config
 
@@ -70,13 +69,23 @@ def _iter_docs(dirs: list[str]) -> list[Path]:
 
 def _slug(text: str) -> str:
     """
-    GitHub/GitBook-like slug:
+    GitHub/GitBook-like slug that preserves underscores ( _ ):
+    - strip inline code backticks
     - lowercase
-    - spaces -> hyphens
-    - strip punctuation
-    - unicode-friendly
+    - collapse whitespace -> hyphens
+    - remove chars except [a-z0-9_-]
     """
-    return slugify(text, lowercase=True, allow_unicode=True, separator="-")
+    # 1) strip inline code ticks: `FOO_BAR` -> FOO_BAR
+    text = re.sub(r"`([^`]*)`", r"\1", text or "")
+    # 2) lowercase
+    text = text.strip().lower()
+    # 3) collapse any whitespace to single hyphen
+    text = re.sub(r"\s+", "-", text)
+    # 4) drop anything that's not a-z, 0-9, underscore, or hyphen
+    text = re.sub(r"[^a-z0-9_-]", "", text)
+    # 5) collapse multi-hyphens and trim edge hyphens
+    text = re.sub(r"-{2,}", "-", text).strip("-")
+    return text
 
 
 def _strip_code_fences(text: str) -> str:

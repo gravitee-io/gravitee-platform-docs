@@ -1,3 +1,19 @@
+"""
+Auto-apply link fixes from a CSV.
+
+Typical usage:
+  • Dry-run against fuzzy same-page fixes:
+      python -m tools.autofix_apply --csv tools/.cache/autofix_fuzzy_same_page.csv --dry-run
+  • Apply (with backups) trusting the CSV completely:
+      python -m tools.autofix_apply --csv tools/.cache/autofix_fuzzy_same_page.csv --force-all --no-dry-run --backup-dir backups/
+
+Notes:
+  • --force-all bypasses most safety checks and attempts every row grouped by 'src'
+    (SUMMARY.md remains guarded; missing 'src' rows are skipped).
+  • No-ops (where the new URL already matches) are filtered out before planning changes,
+    so “Links updated” counts only real edits.
+"""
+
 from __future__ import annotations
 
 import csv
@@ -15,8 +31,8 @@ import typer
 
 from .utils import CACHE_DIR
 
-# Inline markdown link: [link text](url)
-MD_LINK_RE = re.compile(r"\[([^\]]+)\]\(([^)\s]+)\)")
+# Inline markdown link: [link text](url "optional title")
+MD_LINK_RE = re.compile(r'\[([^\]]+)\]\(([^)\s]+?)(?:\s+"[^"]*")?\)')
 
 _SCHEME_RE = re.compile(r"^[a-zA-Z][a-zA-Z0-9+.-]*:")
 
@@ -43,6 +59,7 @@ _BANNED_XPAGE_ANCHOR_PREFIXES = ("use-a-custom-prefix",)
 _BANNED_XPAGE_ANCHOR_REGEXES = [
     re.compile(r"^step-\d+-documentation$", re.IGNORECASE),
 ]
+DEBUG_APPLY = os.getenv("LG_DEBUG_APPLY", "0").lower() in {"1", "true", "yes"}
 
 
 def _is_banned_cross_page_anchor(anchor: str) -> bool:
@@ -116,36 +133,74 @@ def _assemble_target(src_path: str, raw_url: str, suggest_path: str, suggest_anc
     return f"{target_path}#{suggest_anchor}" if suggest_anchor else target_path
 
 
+# Insert just above _candidate_old_urls (near the other helpers)
+_ANCHOR_NUM_SUFFIXES = ("-1", "-2", "-3")
+
+
+def _mutate_anchor_for_legacy_forms(frag: str) -> list[str]:
+    """
+    Legacy/erroneous anchor variants observed in the repo:
+    - lowercase
+    - dots removed: plugin.properties -> pluginproperties; values.yaml -> valuesyaml
+    - collapse multiple hyphens
+    - hyphenless
+    - GitBook 'id-N.-slug' <-> 'id-N-slug'
+    - add/remove GH duplicate suffixes: -1/-2/-3
+    - trailing 'x20'
+    """
+    base = (frag or "").strip().lower()
+    if not base:
+        return []
+    out: set[str] = {base}
+
+    nodots = base.replace(".", "")
+    out.add(nodots)
+
+    out.add(re.sub(r"-{2,}", "-", base))  # collapse --
+    out.add(base.replace("-", ""))  # hyphenless
+
+    m = re.match(r"^id-(\d+)\.\-(.+)$", base)
+    if m:
+        out.add(f"id-{m.group(1)}-{m.group(2)}")
+    m2 = re.match(r"^id-(\d+)\-(.+)$", base)
+    if m2:
+        out.add(f"id-{m2.group(1)}.-{m2.group(2)}")
+
+    # add -1/-2/-3 variants and a no-suffix version
+    for s in list(out):
+        if not re.search(r"-\d+$", s):
+            for suf in _ANCHOR_NUM_SUFFIXES:
+                out.add(s + suf)
+        else:
+            out.add(re.sub(r"-\d+$", "", s))
+
+    # accidental '%20' that landed as 'x20'
+    for s in list(out):
+        out.add(s + "x20")
+
+    return list(out)
+
+
 def _candidate_old_urls(raw_url: str, src_path: str | None = "") -> list[str]:
-    """
-    Build a conservative set of variants the existing Markdown might contain so we
-    can safely match and replace more cases:
-      - strip './'
-      - README.md <-> index.md <-> trailing slash directory
-      - handle spaces vs %20
-      - lowercased anchors
-      - treat same-page forms as equivalent: 'README.md#frag' <-> '#frag'
-    """
     if not raw_url:
         return []
 
-    u = raw_url.replace("\\", "/")  # normalize slashes just in case
+    u = raw_url.replace("\\", "/")
     cands: list[str] = []
 
     def add(v: str) -> None:
         if v and v not in cands:
             cands.append(v)
 
-    add(u)  # as-is
+    add(u)  # as-authored
 
-    # split into path + fragment (anchor) if present
-    path, frag = "", ""
+    # split path + fragment if present
     if "#" in u:
         path, frag = u.split("#", 1)
     else:
-        path = u
+        path, frag = u, ""
 
-    # add './' variant for simple relative forms (helps [text](./thing) vs [text](thing))
+    # './' forms (both full and path-only)
     if not u.startswith("./") and not _SCHEME_RE.match(u) and not u.startswith("/"):
         add(f"./{u}")
     if (
@@ -156,7 +211,7 @@ def _candidate_old_urls(raw_url: str, src_path: str | None = "") -> list[str]:
     ):
         add(f"./{path}" + (f"#{frag}" if frag else ""))
 
-    # strip leading "./" variants
+    # strip leading './'
     if u.startswith("./"):
         add(u[2:])
     if path.startswith("./"):
@@ -169,15 +224,13 @@ def _candidate_old_urls(raw_url: str, src_path: str | None = "") -> list[str]:
     if " " in u:
         add(u.replace(" ", "%20"))
 
-    # trailing slash variants (path-only or path+frag)
+    # README/index/trailing-slash
     if path.endswith("/"):
         p = path[:-1]
         add(p + (f"#{frag}" if frag else ""))
-        # directory default docs
         add(path + "README.md" + (f"#{frag}" if frag else ""))
         add(path + "index.md" + (f"#{frag}" if frag else ""))
     else:
-        # allow adding a trailing slash if linking to a dir default
         if path.endswith("/README.md"):
             base = path[: -len("/README.md")]
             add(base + "/index.md" + (f"#{frag}" if frag else ""))
@@ -187,32 +240,54 @@ def _candidate_old_urls(raw_url: str, src_path: str | None = "") -> list[str]:
             add(base + "/README.md" + (f"#{frag}" if frag else ""))
             add(base + "/" + (f"#{frag}" if frag else ""))
 
-    # anchor case variants
+    # --- NEW: extensionless & .html variants for path ---
+    if path.endswith(".md"):
+        stem = path[:-3]  # drop '.md'
+        add(stem + (f"#{frag}" if frag else ""))
+        if path.startswith("./"):
+            add(stem[2:] + (f"#{frag}" if frag else ""))
+        # .html (some docs render to html links)
+        add(stem + ".html" + (f"#{frag}" if frag else ""))
+        if path.startswith("./"):
+            add(stem[2:] + ".html" + (f"#{frag}" if frag else ""))
+
+    # --- Anchor variants (lowercased + legacy forms) ---
     if frag:
-        # keep as-is + lowercased anchor on same path
         add(path + "#" + frag.lower())
-        # also generate './' stripped + lowercased
         if path.startswith("./"):
             p2 = path[2:]
             add(p2 + "#" + frag)
             add(p2 + "#" + frag.lower())
+        for f2 in _mutate_anchor_for_legacy_forms(frag):
+            add(path + "#" + f2)
+            if path.startswith("./"):
+                add(path[2:] + "#" + f2)
+        # if extensionless path is plausible, include those with mutated anchors too
+        if path.endswith(".md"):
+            stem = path[:-3]
+            for f2 in _mutate_anchor_for_legacy_forms(frag):
+                add(stem + "#" + f2)
+                add(stem + ".html#" + f2)
+                if path.startswith("./"):
+                    add(stem[2:] + "#" + f2)
+                    add(stem[2:] + ".html#" + f2)
 
-    # If this was a same-page link *authored with a path*, also accept pure '#frag'
-    # Consider it "same page" when authored path resolves to the same file as src_path.
+    # Pure same-page '#frag' (and all mutated variants)
     if frag and src_path:
         authored = (path or "").lstrip("./")
         src_base = posixpath.basename(src_path or "")
-        # same page if:
-        #   - no path (already '#frag'), or
-        #   - path is exactly the current file's basename, or
-        #   - path is a default-doc in the same dir (README.md / index.md) and src is that file
         if (
             authored == ""
             or authored == src_base
             or (authored in {"README.md", "index.md"} and src_base in {"README.md", "index.md"})
+            or (
+                authored.endswith(".md") and src_base in {"README.md", "index.md"}
+            )  # common same-dir case
         ):
-            add("#" + frag)  # as authored
-            add("#" + frag.lower())  # lowercased anchor only
+            add("#" + frag)
+            add("#" + frag.lower())
+            for f2 in _mutate_anchor_for_legacy_forms(frag):
+                add("#" + f2)
 
     return cands
 
@@ -231,6 +306,7 @@ def _load_autofix_rows(
     csv_path: Path,
     allow_cross_page_anchors: bool = False,
     skip_log: list[dict] | None = None,
+    force_all: bool = False,
 ) -> dict[str, list[dict]]:
     """
     Group rows by 'src' file.
@@ -239,6 +315,28 @@ def _load_autofix_rows(
     grouped: dict[str, list[dict]] = {}
     with csv_path.open("r", encoding="utf-8-sig", newline="") as f:
         reader = csv.DictReader(f)
+        if force_all:
+            # Passthrough: group *every* row by src, minimal guards.
+            for row in reader:
+                # source (guard BOM)
+                src = (row.get("src") or row.get("\ufeffsrc") or "").strip()
+                if not src:
+                    if skip_log is not None:
+                        _log_skip(skip_log, row, stage="load", reason="missing_src")
+                    continue
+
+                # Keep SUMMARY.md off-limits even in force mode (source *or* targets)
+                if (
+                    _is_summary(src)
+                    or _is_summary(row.get("normalized_path", ""))
+                    or _is_summary(row.get("suggest_path", ""))
+                ):
+                    if skip_log is not None:
+                        _log_skip(skip_log, row, stage="load", reason="summary_guard")
+                    continue
+
+                grouped.setdefault(src, []).append(row)
+            return grouped
         for row in reader:
             reason = (row.get("reason") or "").strip()
             if reason not in {"missing_file", "missing_anchor"}:
@@ -274,10 +372,23 @@ def _load_autofix_rows(
 
             # Enforce strict same-version rule unless changelog context.
             spath = (row.get("suggest_path") or "").strip()
-            sprod, sver = _pv(src)
-            dprod, dver = _pv(spath)
-            same_product = sprod and dprod and (sprod == dprod)
-            same_version = same_product and sver and dver and (sver == dver)
+            normalized_page = (row.get("normalized_path") or src or "").strip()
+
+            # If this is a same-page anchor fix (no suggest_path OR suggest_path equals the normalized page),
+            # force the version check to pass; we’re staying on the same file.
+            same_page_anchor_fix = (reason == "missing_anchor") and (
+                not spath or spath == normalized_page
+            )
+
+            if same_page_anchor_fix:
+                same_product = True
+                same_version = True
+            else:
+                sprod, sver = _pv(src)
+                dprod, dver = _pv(spath)
+                same_product = sprod and dprod and (sprod == dprod)
+                same_version = same_product and sver and dver and (sver == dver)
+
             allowed_cross = (
                 same_product
                 and (not same_version)
@@ -316,6 +427,29 @@ def _load_autofix_rows(
     return grouped
 
 
+def _extract_csv_candidates(row: dict) -> list[str]:
+    """
+    If the CSV already provides multiple old-URL variants in one field (semicolon-separated),
+    use them verbatim. We support several likely header names.
+    """
+    fields = [
+        "candidate_old_urls",
+        "old_url_variants",
+        "old_urls",
+        "candidates",
+        "all_old_urls",
+        "tried",  # sometimes exported under this name
+    ]
+    for k in fields:
+        v = (row.get(k) or "").strip()
+        if v:
+            # accept both ';' and ',' as separators, but prefer ';'
+            parts = [p.strip() for p in re.split(r"[;,]", v) if p.strip()]
+            if parts:
+                return parts
+    return []
+
+
 def _replace_in_file(
     file_path: Path,
     rows: list[dict],
@@ -336,8 +470,28 @@ def _replace_in_file(
         suggest_path = r.get("suggest_path", "") or ""
         suggest_anchor = r.get("suggest_anchor", "") or ""
         raw_url = r.get("raw_url", "") or r.get("normalized_path", "") or ""
-        old_candidates = _candidate_old_urls(raw_url, src_path)
+
+        # NEW: prefer old-URL variants precomputed in CSV; otherwise fall back.
+        csv_old_variants = _extract_csv_candidates(r)
+        old_candidates = csv_old_variants or _candidate_old_urls(raw_url, src_path)
+        # --- ensure path+anchor variant is present for same-page fixes ---
+        # If the author wrote links as "file.md#frag" but the CSV normalized to "#frag",
+        # include the authored-with-path form so we can match either.
+        if raw_url and "#" in raw_url and src_path:
+            path_part, frag_part = raw_url.split("#", 1)
+            basenames = {posixpath.basename(src_path)}
+            if path_part:
+                basenames.add(posixpath.basename(path_part))
+            for b in basenames:
+                for prefix in ("", "./"):
+                    cand = f"{prefix}{b}#{frag_part}"
+                    if cand not in old_candidates:
+                        old_candidates.append(cand)
+
         new_url = _assemble_target(src_path, raw_url, suggest_path, suggest_anchor)
+        # ✅ filter out no-ops here
+        if new_url in old_candidates:
+            continue
         planned.append(
             {
                 "old": old_candidates,
@@ -346,6 +500,12 @@ def _replace_in_file(
                 "matched": False,
             }
         )
+
+    if DEBUG_APPLY:
+        print(f"[apply] file={file_path} planned={len(planned)}")
+        for p in planned[:5]:
+            olds_preview = p["old"][:3]
+            print(f"  new={p['new']!r} old0..2={olds_preview!r} (total_old={len(p['old'])})")
 
     changes: list[dict] = []
 
@@ -356,7 +516,7 @@ def _replace_in_file(
             text, url = m.group(1), m.group(2)
             for plan in planned:
                 if url in plan["old"]:
-                    # If the replacement is identical to the current URL, don't count it.
+                    # If the replacement is identical to the current URL, do nothing (no-op, not recorded).
                     if plan["new"] == url:
                         plan["matched"] = True
                         return m.group(0)
@@ -376,6 +536,10 @@ def _replace_in_file(
                     plan["matched"] = True
                     return after
             return m.group(0)
+
+        if DEBUG_APPLY:
+            for m in MD_LINK_RE.finditer(line):
+                print(f"[apply] L{line_no} captured_url={m.group(2)!r}")
 
         lines[i] = MD_LINK_RE.sub(_one_sub, line)
 
@@ -528,11 +692,17 @@ def apply_autofix(
     skips_out: Path | None = None,
     explain: bool = True,
     skips_csv: Path | None = None,
+    force_all: bool = False,
 ) -> tuple[int, int, Path, Path | None]:
     """
-    Apply high-confidence suggestions to the docs (conservative).
-    Returns (files_changed, links_changed, report_md_path, preview_json_path)
-    Also writes a skip report JSON with reasons for every non-applied row.
+    Apply CSV-driven link fixes to the docs.
+
+    In normal mode, conservative safety checks are used. With force_all=True,
+    most checks are bypassed (except SUMMARY.md and missing 'src'), and every
+    CSV row is attempted. No-ops are filtered out before application.
+
+    Returns (files_changed, links_changed, report_md_path, preview_json_path).
+    Also writes a skip report JSON with reasons for non-applied rows.
     """
     csv_path = high_csv or (CACHE_DIR / "high_confidence_autofix.csv")
 
@@ -547,6 +717,7 @@ def apply_autofix(
         csv_path,
         allow_cross_page_anchors=allow_cross_page_anchors,
         skip_log=skip_log,
+        force_all=force_all,
     )
 
     per_file_changes: list[tuple[Path, list[dict]]] = []
@@ -567,9 +738,12 @@ def apply_autofix(
 
         original, new_text, changes, unmatched_rows = _replace_in_file(file_path, rows)
 
+        # Keep only real edits (no no-ops by construction, but protect anyway)
+        real_changes = [ch for ch in changes if not ch.get("noop")]
+
         # Accumulate preview entries regardless of dry-run/apply
-        if changes:
-            for ch in changes:
+        if real_changes:
+            for ch in real_changes:
                 preview_changes.append(
                     {
                         "file": file_path.as_posix(),
@@ -584,10 +758,10 @@ def apply_autofix(
         for ur in unmatched_rows:
             _log_skip(skip_log, ur, stage="apply", reason="no_textual_match_in_file")
 
-        if changes:
-            per_file_changes.append((file_path, changes))
+        if real_changes:
+            per_file_changes.append((file_path, real_changes))
             files_changed += 1
-            links_changed += len(changes)
+            links_changed += len(real_changes)
 
             if not dry_run:
                 # Back up first (if requested)
@@ -646,19 +820,20 @@ def apply_autofix(
     return files_changed, links_changed, report_path, preview_path
 
 
-app = typer.Typer(add_completion=False)
+app = typer.Typer(
+    add_completion=False,
+    help="Apply CSV-driven docs link fixes (dry-run by default). Pass --csv to use your fuzzy file.",
+)
 
 
 # ---- Typer option singletons (avoid Ruff B008 in defaults) ----
 CSV_PATH_OPT: Path | None = typer.Option(
     None,
     "--csv",
-    help="Path to high_confidence_autofix.csv (defaults to tools/.cache/high_confidence_autofix.csv)",
-)
-DRY_RUN_OPT: bool = typer.Option(
-    False,
-    "--dry-run",
-    help="Do not write files; produce preview JSON.",
+    help=(
+        "Path to the fixes CSV. Defaults to tools/.cache/high_confidence_autofix.csv. "
+        "Point this at tools/.cache/autofix_fuzzy_same_page.csv to apply same-page fixes."
+    ),
 )
 BACKUP_DIR_OPT: Path | None = typer.Option(
     None,
@@ -675,8 +850,8 @@ ALLOW_XPAGE_ANCHORS_OPT: bool = typer.Option(
     CROSS_PAGE_ANCHOR_OK,
     "--allow-cross-page-anchors",
     help=(
-        "Allow fixing missing anchors by moving links to a different page "
-        "(still same product/version). Defaults to LG_CROSS_PAGE_ANCHOR_OK env."
+        "Permit moving links to a different page (same product/version unless in changelog context). "
+        "Default is taken from LG_CROSS_PAGE_ANCHOR_OK."
     ),
 )
 # ---- Typer option singletons for 'autofix' command (avoid B008) ----
@@ -704,11 +879,20 @@ EXPLAIN_OPT: bool = typer.Option(
     help="Print grouped and per-row reasons for skipped high-confidence rows (default on).",
 )
 
+FORCE_ALL_OPT: bool = typer.Option(
+    False,
+    "--force-all",
+    help=(
+        "Trust the CSV completely: bypass normal safety checks and attempt every row grouped by 'src'. "
+        "Still skips SUMMARY.md and rows missing 'src'."
+    ),
+)
+
 
 @app.command()
 def main(
     csv_path: Path | None = CSV_PATH_OPT,
-    dry_run: bool = DRY_RUN_OPT,
+    dry_run: bool = DRY_RUN_TOGGLE_OPT,
     backup_dir: Path | None = BACKUP_DIR_OPT,
     preview_out: Path | None = PREVIEW_OUT_OPT,
     verbose: bool = VERBOSE_OPT,
@@ -716,9 +900,15 @@ def main(
     skips_out: Path | None = SKIPS_OUT_OPT,
     skips_csv: Path | None = SKIPS_CSV_OPT,  # <-- add
     explain: bool = EXPLAIN_OPT,  # <-- add
+    force_all: bool = FORCE_ALL_OPT,  # <--- NEW
 ):
     """
-    Apply (or preview) auto-fixes based on high_confidence_autofix.csv.
+    Apply (or preview) auto-fixes sourced from a CSV.
+
+    Examples:
+      python -m tools.link_gov.apply_autofix --csv tools/.cache/autofix_fuzzy_same_page.csv --dry-run
+      python -m tools.link_gov.apply_autofix --csv tools/.cache/autofix_fuzzy_same_page.csv --force-all --no-dry-run --backup-dir backups/
+
     Exit codes:
       0 = success and changes exist (or preview has changes)
       2 = no changes to make
@@ -735,6 +925,7 @@ def main(
             skips_out=skips_out,
             explain=explain,  # <-- add
             skips_csv=skips_csv,  # <-- add
+            force_all=force_all,
         )
 
         # In dry-run, success=0 if we *would* change anything; 2 if nothing to do.

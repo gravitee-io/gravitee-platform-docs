@@ -39,6 +39,25 @@ def _slug_norm(s: str) -> str:
     return s
 
 
+def _same_path(a: str, b: str) -> bool:
+    """
+    Case-insensitive, POSIX-normalized path compare.
+    Treat leading './' as no-op and collapse duplicate slashes.
+    """
+
+    def _norm(p: str) -> str:
+        p = (p or "").replace("\\", "/")
+        p = re.sub(r"/{2,}", "/", p)  # collapse '//' runs
+        p = p.lstrip("./")  # strip leading './'
+        return p.lower()
+
+    return _norm(a) == _norm(b)
+
+
+def _same_anchor(a: str, b: str) -> bool:
+    return _slug_norm(a) == _slug_norm(b)
+
+
 def _version_bucket(path: str) -> str:
     # e.g., docs/gko/4.9/... -> ("docs/gko/4.9")
     m = re.match(r"^(.+?/\d+(?:\.\d+)*)/", path.replace("\\", "/"))
@@ -227,6 +246,17 @@ def build_suggestions_preview(config_path: Path) -> Path:
     # produce a lightweight preview for triage
     preview = []
     for s in [*anchor_sugs, *page_sugs]:
+        # Drop no-ops: suggestion resolves to the same target we already had
+        if s.suggestion is None:
+            keep = True
+        elif s.kind == "anchor":
+            keep = not _same_anchor(s.original, s.suggestion.split("#")[-1])
+        else:  # "page"
+            keep = not _same_path(s.original, s.suggestion)
+
+        if not keep:
+            continue
+
         preview.append(
             {
                 "src": s.src,
