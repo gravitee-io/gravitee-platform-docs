@@ -179,7 +179,7 @@ To enable OpenTelemetry for an API, you must have OpenTelemetry enabled on your 
 6. Scroll down to the **OpenTelemetry** section and toggle **Enabled** to ON.
 7. (Optional) Toggle **Verbose** to ON to enable technical tracing.
 
-<figure><img src="../.gitbook/assets/1 otel 1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../4.6/.gitbook/assets/1 otel 1 (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 Enabling **Verbose** increases the number of spans per trace, which can negatively impact performance.

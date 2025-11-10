@@ -2,9 +2,9 @@
 
 ## Overview
 
-The **Global settings** section displays general application details and includes a Danger Zone for executing functional and sometimes irreversible actions.&#x20;
+The **Global settings** section displays general application details and includes a Danger Zone for executing functional and sometimes irreversible actions.
 
-<figure><img src="../../.gitbook/assets/1 global 1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.6/.gitbook/assets/1 global 1 (1).png" alt=""><figcaption></figcaption></figure>
 
 Some general details are common to all applications, and others vary by application type.
 
@@ -26,9 +26,9 @@ To delete an application, the primary owner must:
 2. Select **Applications** from the left nav
 3. Select your application
 4. Select **Global Settings** from the inner left nav
-5.  In the **Danger Zone**, click **Delete**&#x20;
+5.  In the **Danger Zone**, click **Delete**
 
-    <figure><img src="../../.gitbook/assets/delete application.png" alt=""><figcaption><p>Delete an application</p></figcaption></figure>
+    <figure><img src="../../../../../.gitbook/assets/delete application (1).png" alt=""><figcaption><p>Delete an application</p></figcaption></figure>
 
 * A deleted application has a status of `ARCHIVED`, meaning:
   * The link to the primary owner of the application is deleted.

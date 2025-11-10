@@ -19,9 +19,9 @@ The default simple application enables an API consumer to define the `client_id`
 
 1. Log in to your APIM Console
 2. Select **Settings** from the left nav
-3.  Select **Client Registration** from the inner left nav&#x20;
+3.  Select **Client Registration** from the inner left nav
 
-    <figure><img src="../.gitbook/assets/client registration.png" alt=""><figcaption><p>Client Registration</p></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/client registration (1).png" alt=""><figcaption><p>Client Registration</p></figcaption></figure>
 4. Under **Default application type**, toggle **Simple** ON
 
 {% hint style="info" %}
@@ -55,18 +55,18 @@ DCR is an OAuth flow. Review relevant OAuth terminology below.
 
 <summary>OAuth terminology</summary>
 
-### OAuth 2.0 roles
+#### OAuth 2.0 roles
 
 * **Authorization server:** Issues access tokens to the client after authenticating the resource owner and obtaining authorization. Can be the resource server.
 * **Client:** An application making protected resource requests on behalf of the resource owner and with the resource owner’s authorization. The term client does not imply any particular implementation characteristics (i.e., whether the application executes on a server, a desktop, or another device).
 * **Resource owner**: An entity enabled to grant access to a protected resource. When the resource owner is a person, it is referred to as an end user.
 * **Resource server:** Hosts the protected resources. Capable of accepting and responding to protected resource requests using access tokens. Can be the authorization server.
 
-### Additional terminology&#x20;
+#### Additional terminology
 
 * **Access Token:** Used by the client to communicate with the resource server
 * **Authorization Code:** Short-lived code sent to the client from the authorization server. The client sends the authorization code and client secret back to the authorization server to receive an access token.
-* **Client ID:** Used by the authorization server to identify the client&#x20;
+* **Client ID:** Used by the authorization server to identify the client
 * **Client Secret:** Password known to only the client and authorization server
 * **Consent:** Verifies scopes with the resource owner to determine if the client will receive the requested permissions
 * **Redirect URI**: The URL the authorization server will redirect the resource owner back to after granting permission to the client. Often referred to as the callback URL.
@@ -81,7 +81,7 @@ DCR is an OAuth flow. Review relevant OAuth terminology below.
 * **Authorization server:** The client registration provider
 * **Client:** The consumer application attempting to register through the Developer Portal or Management Console
 * **Resource owner:** The API publisher (owner of the backend APIs protected by Gravitee's Gateway)
-* **Resource server:** The APIM Gateway sitting in front of the backend APIs&#x20;
+* **Resource server:** The APIM Gateway sitting in front of the backend APIs
 {% endhint %}
 
 ### Enable DCR
@@ -90,9 +90,9 @@ To enable DCR:
 
 1. Log in to your APIM Console
 2. Select **Settings** from the left nav
-3.  Select **Client Registration** from the inner left nav&#x20;
+3.  Select **Client Registration** from the inner left nav
 
-    <figure><img src="../.gitbook/assets/client registration.png" alt=""><figcaption><p>Client Registration</p></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/client registration (1).png" alt=""><figcaption><p>Client Registration</p></figcaption></figure>
 4. Toggle **Enable Dynamic Client Registration** ON
 
 ### Add a DCR provider
@@ -101,16 +101,14 @@ To enable DCR:
 Any authentication server supporting OIDC can be used as a DCR provider. This guide uses Gravitee Access Management (AM).
 {% endhint %}
 
-At the bottom of the **Client Registration** page, click **+ Add a provider** and configure the following:&#x20;
+At the bottom of the **Client Registration** page, click **+ Add a provider** and configure the following:
 
-<figure><img src="../.gitbook/assets/client registration provider.png" alt=""><figcaption><p>Add a client registration provider</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/client registration provider (1).png" alt=""><figcaption><p>Add a client registration provider</p></figcaption></figure>
 
 * Set a **Name** and **Description** for the provider
 *   **OpenID Connect Discovery Endpoint:** Enter the URL where an OIDC-compatible authorization server publishes its metadata
 
-    {% hint style="info" %}
-    Metadata is a JSON listing of the OpenID/OAuth endpoints, supported scopes and claims, public keys used to sign the tokens, etc., which can be used to construct a request to the authorization server). Metadata field names and values are defined in the [OIDC Discovery Specification.](https://openid.net/specs/openid-connect-discovery-1_0.html)
-    {% endhint %}
+    \{% hint style="info" %\} Metadata is a JSON listing of the OpenID/OAuth endpoints, supported scopes and claims, public keys used to sign the tokens, etc., which can be used to construct a request to the authorization server). Metadata field names and values are defined in the [OIDC Discovery Specification.](https://openid.net/specs/openid-connect-discovery-1_0.html) \{% endhint %\}
 * Use the **Initial Access Token Provider** drop-down menu to select the [initial access token flow](applications.md#initial-access-token-flows):
   * **Initial Access Token:** For direct provisioning, enter the **Initial Access Token** in the corresponding field
   * Provide the following **Client Credentials**:
@@ -119,7 +117,7 @@ At the bottom of the **Client Registration** page, click **+ Add a provider** an
     * **Scopes:** Default scopes to use for application registration
     * **Client Template (software\_id):** Client template ID to use for all applications registering through this provider
 * **Enable renew client\_secret support:** Allow registered clients to call the endpoint with their `client_id` to renew the `client_secret` issued by the authorization server
-  * Provide the **HTTP Method**&#x20;
+  * Provide the **HTTP Method**
   * Provide the **Endpoint**. This field supports Gravitee Expression Language, e.g.,\
     `https://<your-am-gateway-domain>/<your-security-domain>/oidc/register/{#client_id}/renew_secret`
 
@@ -151,7 +149,7 @@ APIM supports the following authorization grant flows out of the box:
 {% tab title="Authorization code" %}
 The authorization code is a temporary code returned after requesting the authorization of the end user.
 
-#### **Flow**
+**Flow**
 
 1. The end user signs in to the application
 2. The end user is redirected to the authorization server
@@ -161,7 +159,7 @@ The authorization code is a temporary code returned after requesting the authori
 6. The application calls the authorization server to exchange the code for an access token and (optionally) a refresh token
 7. The application uses the access token to make secure API calls on behalf of the end user
 
-#### Additional information
+**Additional information**
 
 * Authorization codes are single-use.
 * For server-side web apps, e.g., native (mobile) and Javascript, the [PKCE extension](https://tools.ietf.org/html/rfc7636) is used as part of the flow to provide protection against attacks where the authorization code may be intercepted
@@ -176,7 +174,7 @@ The OAuth standard discourages using an implicit grant to request access tokens 
 
 The implicit grant is a simplified authorization code flow. Instead of first getting a temporary code, you can retrieve an access token directly from web browser redirection.
 
-#### **Flow**
+**Flow**
 
 1. The end user signs in to the application
 2. The end user is redirected to the authorization server
@@ -195,7 +193,7 @@ The resource owner credentials (username and password) can be used directly as a
 This grant type should only be used when there is a high degree of trust between the resource owner and the client, e.g., the client is part of the device operating system or a highly privileged application, and other authorization grant types are not available.
 {% endhint %}
 
-#### **Flow**
+**Flow**
 
 1. The end user signs in to the application using the resource owner credentials
 2. The application forwards the credentials to the authorization server
@@ -237,9 +235,9 @@ To delete an application, the primary owner must:
 2. Select **Applications** from the left nav
 3. Select your application
 4. Select **Global Settings** from the inner left nav
-5.  In the **Danger Zone**, click **Delete**&#x20;
+5.  In the **Danger Zone**, click **Delete**
 
-    <figure><img src="../.gitbook/assets/delete application.png" alt=""><figcaption><p>Delete an application</p></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/delete application (1).png" alt=""><figcaption><p>Delete an application</p></figcaption></figure>
 
 * A deleted application has a status of `ARCHIVED`, meaning:
   * The link to the primary owner of the application is deleted.
