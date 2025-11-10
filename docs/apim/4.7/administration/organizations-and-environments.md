@@ -2,7 +2,7 @@
 
 ## Overview
 
-In Gravitee, an **Organization** represents a logical portion of a company that shares unique characteristics and/or serves a specific business purpose, e.g., a region or business unit.&#x20;
+In Gravitee, an **Organization** represents a logical portion of a company that shares unique characteristics and/or serves a specific business purpose, e.g., a region or business unit.
 
 Organizations are defined to maximize resources and capabilities. In the context of an APIM installation, an organization is the level at which shared Environment configurations are managed, such as users, roles, identity providers, and notification templates. A single Organization can include multiple Environments.
 
@@ -32,13 +32,13 @@ environments: dev,integration
 
 ### Using the Console
 
-To access your Organization settings:&#x20;
+To access your Organization settings:
 
 1. Log in to your Gravitee APIM Console
 2. Select **Organization** from the left nav
-3.  Select **Settings** under **Console**&#x20;
+3.  Select **Settings** under **Console**
 
-    <figure><img src="../.gitbook/assets/organization settings.png" alt=""><figcaption><p>Organization settings</p></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/organization settings (1).png" alt=""><figcaption><p>Organization settings</p></figcaption></figure>
 4. View or define the settings for your Organization, described below
 
 {% tabs %}
