@@ -1,8 +1,6 @@
 # Configure a Production-ready AM Environment
 
-## Configure a Production-ready AM Environment
-
-### Overview
+## Overview
 
 During Gravitee Access Management (AM) installation, some default settings are created. While these default settings can be useful for testing your new installation, some of them may not be suitable for a production environment, where security is more of a consideration.
 
@@ -14,7 +12,7 @@ You can also read the OAuth 2.0 best practices for more details about configurin
 
 You can configure AM settings in various ways — the `gravitee.yml` file, the AM Console settings, and environment and system variables. When you configure new settings, it is important to understand that one configuration type can override another. Configure AM API gives a good overview of this topic.
 
-### Step 1: Disable the internal APIs
+## Step 1: Disable the internal APIs
 
 AM API and AM Gateway include internal APIs which are enabled by default. If you do not intend to use them, we recommend you disable them.
 
@@ -47,7 +45,7 @@ To learn more about the internal APIs, see:
 * Configure the AM API internal API
 * Configure the AM Gateway internal API
 
-### Step 2: Update the default users
+## Step 2: Update the default users
 
 Some default users are created for you during installation. We recommend you remove any users you do not need.
 
@@ -97,7 +95,7 @@ security:
 
     <figure><img src="https://docs.gravitee.io/images/apim/3.x/how-tos/configure-apim/admin-pwd.png" alt=""><figcaption><p>Admin password</p></figcaption></figure>
 
-### Step 3: Update the JWT secret
+## Step 3: Update the JWT secret
 
 The JWT secret is used for multiple purposes :
 
@@ -135,7 +133,7 @@ jwt:
    * the `cookie-path` and `cookie-domain` values, to adapt them to your own environment; the values you define must be specific to the domain and path where the API is running and not apply to any another environment (for example, `.gravitee.io` could apply to any domain called `xxx.gravitee.io`, such as `dev.gravitee.io` or `qa.gravitee.io`)
    * the `cookie-secure` to adapt the Secure flag for the Session Cookie (should be set to true).
 
-### Step 4: Update CORS policy
+## Step 4: Update CORS policy
 
 Cross-origin resource sharing (CORS) is a mechanism that allows restricted resources on a web page to be requested from another domain outside the domain from which the first resource was served.
 
@@ -168,7 +166,7 @@ Perform the following steps on the AM API component:
 ```
 {% endcode %}
 
-### Step 5: Update URL Redirects policy
+## Step 5: Update URL Redirects policy
 
 During login and logout operations AM API uses callback URLs to redirect the end-user back to the AM Console.
 
@@ -209,7 +207,7 @@ Perform the following steps on the AM API component:
 ```
 {% endcode %}
 
-### Step 6: Enable Secure Cookies
+## Step 6: Enable Secure Cookies
 
 Cookies are used by AM API and AM Gateway to keep minimal information about user sessions. The "Secure" flag instructs a user’s browser to only send the cookie along with requests over HTTPS to in-scope addresses.
 
@@ -251,7 +249,7 @@ Perform the following steps on the AM Gateway component:
 
 3\. You can also consider updating the \`sameSite\` to \[Strict]\(https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie#syntax) and adapt the session timeout:
 
-### Step 7: Mitigate Cross-Site Scripting (XSS) and Cross Site Framing
+## Step 7: Mitigate Cross-Site Scripting (XSS) and Cross Site Framing
 
 The AM Gateway implements [Content-Security-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) and [X-Frame-Options](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options).
 
@@ -270,7 +268,7 @@ http:
     - frame-ancestors 'none';
 ```
 
-### Step 8: Set the max request size for HTTP requests
+## Step 8: Set the max request size for HTTP requests
 
 Set the max request size to a value that ensures that the Gateway receives all requests. The default size is 2kb. If you do not set the appropriate max request size, and then the Gateway receives a request that exceeds the maximum size, the Gateway returns a `400` error with the following message: `Size exceeded the maximum capacity`.
 
@@ -300,7 +298,7 @@ http:
 ```
 {% endcode %}
 
-### Step 9: Sending email
+## Step 9: Sending email
 
 The AM Management API and the AM Gateway are able to send email via the `email` section in the `gravitee.yaml` of each service.
 
