@@ -1,29 +1,27 @@
 # Docker CLI
 
-## Overview&#x20;
+## Overview
 
-This guide explains how to install the Data Plane using Docker CLI commands. The Data Plane includes core components like the Gateway and Redis for rate limiting.&#x20;
+This guide explains how to install the Data Plane using Docker CLI commands. The Data Plane includes core components like the Gateway and Redis for rate limiting.
 
-{% include "../../../.gitbook/includes/installation-guide-note (1).md" %}
+{% include "../../../../4.6/.gitbook/includes/installation-guide-note (1).md" %}
 
 ## Prerequisites
 
-* Install [Docker](https://docs.docker.com/engine/install/).&#x20;
+* Install [Docker](https://docs.docker.com/engine/install/).
 * Ensure you have access to [Gravitee Cloud](https://cloud.gravitee.io/), with permissions to install new Gateways.
 * Complete the steps in [#prepare-your-installation](../#prepare-your-installation "mention").
 
 ## Install Gateway and Configure Redis
 
-To enable API rate-limiting, configure your Gateway to use a rate-limiting repository, such as Redis with the following steps:&#x20;
+To enable API rate-limiting, configure your Gateway to use a rate-limiting repository, such as Redis with the following steps:
 
-1.  Create a Docker network with the following command:\
-
+1.  Create a Docker network with the following command:\\
 
     ```sh
     docker network create gravitee-network
     ```
-2.  Run the command below to start Redis. \
-
+2.  Run the command below to start Redis. \\
 
     ```sh
     docker run -d \
@@ -35,8 +33,7 @@ To enable API rate-limiting, configure your Gateway to use a rate-limiting repos
     ```
 
     * Replace `<redis_password>` with your own secure password.
-3.  Run the Gateway with Redis rate limiting enabled with the following command:\
-
+3.  Run the Gateway with Redis rate limiting enabled with the following command:\\
 
     ```bash
     docker run -d \
@@ -57,8 +54,7 @@ To enable API rate-limiting, configure your Gateway to use a rate-limiting repos
     * Replace `<cloud_token>` with your Cloud Token from Gravitee Cloud.
     * Replace `<license_key>` with your License Key from Gravitee Cloud.
     * Set `redis_password` environment variable: `export redis_password=your_redis_password` or replace `${redis_password}` with your actual Redis password.
-    *   Replace `<CONTROL_PLANE_VERSION>` with the version that matches your Gravitee Cloud Control Plane. For example. 4.8.2.\
-
+    *   Replace `<CONTROL_PLANE_VERSION>` with the version that matches your Gravitee Cloud Control Plane. For example. 4.8.2.\\
 
         <figure><img src="../../../.gitbook/assets/image (324) (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -75,16 +71,14 @@ To confirm that your Hybrid installation is working, complete the following step
 
 ### Check container status
 
-*   Check the container status using the following command:\
-
+*   Check the container status using the following command:\\
 
     ```sh
     docker ps
     ```
 
     \
-    The command generates the following output. \
-
+    The command generates the following output. \\
 
     ```sh
     CONTAINER ID   IMAGE                         COMMAND                  CREATED             STATUS             PORTS                    NAMES
@@ -92,18 +86,16 @@ To confirm that your Hybrid installation is working, complete the following step
     a8d3e6f1c2b4   redis:7.2-alpine              "redis-server --requ..." About an hour ago   Up About an hour   0.0.0.0:6379->6379/tcp   gio-apim-hybrid-redis
     ```
 
-### Check port mapping&#x20;
+### Check port mapping
 
-*   To verify the container's port is correctly mapped run the following command:\
-
+*   To verify the container's port is correctly mapped run the following command:\\
 
     ```sh
     docker port gio-apim-hybrid-gateway
     ```
 
     \
-    The command generates the following output:\
-
+    The command generates the following output:\\
 
     ```sh
     8082/tcp -> 0.0.0.0:8082
@@ -131,18 +123,16 @@ No context-path matches the request URI.
 This response confirms that the Gateway has initialized, but no APIs have been deployed. Once APIs are published through the Control Plane, this message is replaced by valid responses routed through the configured context paths.
 {% endhint %}
 
-### Verify the Redis Connection&#x20;
+### Verify the Redis Connection
 
-*   Test the Redis connection with the following command:\
-
+*   Test the Redis connection with the following command:\\
 
     ```bash
     docker exec -it gio-apim-hybrid-redis redis-cli -a <redis_password> ping
     ```
 
     \
-    The command generates the following output:\
-
+    The command generates the following output:\\
 
     ```bash
     PONG
@@ -157,8 +147,7 @@ This response confirms that the Gateway has initialized, but no APIs have been d
     ```
 
     \
-    The command generates the following output: \
-
+    The command generates the following output: \\
 
     ```bash
     [gio-apim-hybrid-gateway] INFO  i.g.p.c.internal.PluginRegistryImpl - Loading plugins from /opt/graviteeio-gateway/plugins
@@ -176,9 +165,6 @@ This response confirms that the Gateway has initialized, but no APIs have been d
     [gio-apim-hybrid-gateway] INFO  i.g.g.s.s.p.r.s.api.ApiSynchronizer - 0 apis synchronized in 26ms
     [gio-apim-hybrid-gateway] INFO  i.g.g.s.s.p.r.DefaultSyncManager - Sync service has been scheduled with delay [10000 MILLISECONDS]
     ```
-
-
-
 *   To check the Redis logs, use the following command:
 
     ```bash
@@ -186,7 +172,7 @@ This response confirms that the Gateway has initialized, but no APIs have been d
     ```
 
     \
-    The command generates the following output:&#x20;
+    The command generates the following output:
 
     ```bash
     1:C 19 Aug 2025 10:30:15.123 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
@@ -202,14 +188,12 @@ This response confirms that the Gateway has initialized, but no APIs have been d
 
 To shut down the Gateway, choose one of the following options.
 
-*   This command stops the containers but keeps them available to restart. The Redis data is preserved.\
-
+*   This command stops the containers but keeps them available to restart. The Redis data is preserved.\\
 
     ```sh
     docker stop gio-apim-hybrid-gateway gio-apim-hybrid-redis
     ```
-*   These commands remove the containers, their data, and the network, and all Redis data is lost.\
-
+*   These commands remove the containers, their data, and the network, and all Redis data is lost.\\
 
     ```sh
     docker stop gio-apim-hybrid-gateway gio-apim-hybrid-redis

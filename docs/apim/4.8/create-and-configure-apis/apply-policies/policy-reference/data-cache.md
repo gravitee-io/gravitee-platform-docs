@@ -61,19 +61,19 @@ The full example is shown below:
 {% tab title="Policy Studio" %}
 The sequence of policies is as follows:
 
-<figure><img src="../../../.gitbook/assets/image (183).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.6/.gitbook/assets/image (145) (1).png" alt=""><figcaption></figcaption></figure>
 
 The configuration for the first data cache policy is:
 
-<figure><img src="../../../.gitbook/assets/image (184).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.6/.gitbook/assets/image (146) (1).png" alt=""><figcaption></figcaption></figure>
 
 Then the HTTP Callout policy has a trigger condition representing the attribute. The return value is put in a context variable called `access-token`:
 
-<figure><img src="../../../.gitbook/assets/image (185).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.6/.gitbook/assets/image (147) (1).png" alt=""><figcaption></figcaption></figure>
 
 Lastly, if the first policy resulted in a cache miss, put the token from the HTTP callout policy in the cache:
 
-<figure><img src="../../../.gitbook/assets/image (186).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.6/.gitbook/assets/image (148) (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="API Definition" %}

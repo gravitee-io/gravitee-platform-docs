@@ -7,7 +7,7 @@
   * [Kubectl or OC](https://docs.openshift.com/container-platform/4.9/cli_reference/openshift_cli/getting-started-cli.html#cli-installing-cli_cli-developer-commands)
   * [Helm](https://docs.openshift.com/container-platform/4.10/applications/working_with_helm_charts/installing-helm.html)
 
-{% include "../../.gitbook/includes/installation-guide-note.md" %}
+{% include "../../../4.6/.gitbook/includes/installation-guide-note (1).md" %}
 
 ## Procedure
 

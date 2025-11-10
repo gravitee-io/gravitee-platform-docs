@@ -10,17 +10,17 @@ You'll need access to an Apigee X account that includes access to features like 
 
 The account will need a minimum set of permissions in order for the federation agent to do its job. The minimum permissions are described in section [Minimum Apigee permissions required by the agent](apigee-x.md#minimum-apigee-permissions-required-by-the-agent).
 
-You'll also need to be running Gravitee API Management version 4.4 or above, with an enterprise license.&#x20;
+You'll also need to be running Gravitee API Management version 4.4 or above, with an enterprise license.
 
 For the federation agent to authenticate with Gravitee API Management, you'll also need an access token. Head to our dedicated guide on [how to create a service account and an access token](../federation-agent-service-account.md) for the federation agent.
 
 ## 1. Create an Apigee X integration in the Gravitee APIM Console
 
-Head to the Gravitee APIM Console, open the Integrations section in the left menu, and create a new Apigee X integration.&#x20;
+Head to the Gravitee APIM Console, open the Integrations section in the left menu, and create a new Apigee X integration.
 
 Once you've created the integration, copy the integration ID that will be visible on the integration overview tab, you'll use this later:
 
-<figure><img src="../../../.gitbook/assets/image (160).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/image (121) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## 2. Configure the Apigee X federation agent
 
@@ -34,15 +34,15 @@ The Apigee X federation agent will need the following configuration parameters i
 
 To find the ID of the Google Cloud project you want to work with, you can head to the GCP console and open the Project drop down in the header bar. In there, you should be able to find your desired project's ID:
 
-<figure><img src="../../../.gitbook/assets/image (161).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/image (122) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Create a GCP service account key for the agent
 
-To generate a Service Account Key you need to create a service account first. Please view the dedicated GCP docs on [How to create a GCP Service Account](https://cloud.google.com/iam/docs/service-accounts-create).&#x20;
+To generate a Service Account Key you need to create a service account first. Please view the dedicated GCP docs on [How to create a GCP Service Account](https://cloud.google.com/iam/docs/service-accounts-create).
 
 Once your service account is created, enter the GCP IAM application and choose the _Service Accounts_ tab from the menu bar on the left side. Then select your service account and click on the _Keys_ tab → _Add key_ button → _Create new key_ button _→ Key type: JSON →_ Save the key on your compute&#x72;_._
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2024-10-09 at 17.52.53.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/Screenshot 2024-10-09 at 17.52.53 (1).png" alt=""><figcaption></figcaption></figure>
 
 In step 3, we'll show you how to configure your agent's Docker Compose file. There are two ways in which you can pass the service account key as a parameter in Docker Compose.
 
@@ -158,7 +158,7 @@ docker compose up -d
 
 In the Gravitee API Management console, after refreshing, you should now see the agent's status set to `Connected:`
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2024-10-09 at 17.41.58.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/Screenshot 2024-10-09 at 17.41.58 (1).png" alt=""><figcaption></figcaption></figure>
 
 If your **Agent Connection** still shows as `Disconnected`, then please inspect the agent's container logs. There you should find error logs that will help you troubleshoot.
 
