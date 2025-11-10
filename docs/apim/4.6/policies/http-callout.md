@@ -69,70 +69,23 @@ This flow demonstrates the use of the HTTP Callout policy to make an external ca
   } ],
 ```
 ````
-{% endtab %}
 
-{% tab title="V4 API CRD" %}
-This flow demonstrates the use of the HTTP Callout policy to make an external callout to the JsonPlaceholder API, retrieve key elements that are inserted in Context Variables, and chained with an Assign Content policy that maps the response to the consumer.
+\{% endtab %\}
 
-```yaml
-flows:
-    - id: "0e919364-f985-4d4b-9193-64f9857d4b9b"
-      path-operator:
-        path: "/"
-        operator: "STARTS_WITH"
-      condition: ""
-      consumers: []
-      methods: []
-      pre:
-      - name: "HTTP Callout"
-        description: ""
-        enabled: true
-        policy: "policy-http-callout"
-        configuration:
-          variables:
-          - name: "name"
-            value: "{#jsonPath(#calloutResponse.content, '$.name')}"
-          - value: "true"
-            name: "idtest"
-          method: "GET"
-          fireAndForget: false
-          scope: "REQUEST"
-          errorStatusCode: "500"
-          errorCondition: "{#calloutResponse.status >= 400 and #calloutResponse.status\
-            \ <= 599}"
-          url: "https://jsonplaceholder.typicode.com/users/{#request.headers['userId'][0]}/"
-          exitOnError: false
-      - name: "HTTP Callout"
-        description: ""
-        enabled: true
-        policy: "policy-http-callout"
-        condition: "{#context.attributes['idtest'] = true}"
-        configuration:
-          variables:
-          - name: "posts"
-            value: "{#calloutResponse.content}"
-          method: "GET"
-          fireAndForget: false
-          scope: "REQUEST"
-          errorStatusCode: "500"
-          errorCondition: "{#calloutResponse.status >= 400 and #calloutResponse.status\
-            \ <= 599}"
-          url: "https://jsonplaceholder.typicode.com/users/{#request.headers['userId'][0]}/posts"
-          exitOnError: false
-      post:
-      - name: "Assign content"
-        description: ""
-        enabled: true
-        policy: "policy-assign-content"
-        condition: "{#context.attributes['posts'] != null}"
-        configuration:
-          scope: "RESPONSE"
-          body: "{\n\"userId\": ${request.headers['userId'][0]},\n\"name\": ${context.attributes['name']},\n\
-            \"posts\": ${context.attributes['posts']}\n}"
-      enabled: true
+\{% tab title="V4 API CRD" %\} This flow demonstrates the use of the HTTP Callout policy to make an external callout to the JsonPlaceholder API, retrieve key elements that are inserted in Context Variables, and chained with an Assign Content policy that maps the response to the consumer.
+
+\`
+
+\`\`yaml flows: - id: "0e919364-f985-4d4b-9193-64f9857d4b9b" path-operator: path: "/" operator: "STARTS\_WITH" condition: "" consumers: \[] methods: \[] pre: - name: "HTTP Callout" description: "" enabled: true policy: "policy-http-callout" configuration: variables: - name: "name" value: "{#jsonPath(#calloutResponse.content, '$.name')}" - value: "true" name: "idtest" method: "GET" fireAndForget: false scope: "REQUEST" errorStatusCode: "500" errorCondition: "{#calloutResponse.status >= 400 and #calloutResponse.status\
+\ <= 599}" url: "https://jsonplaceholder.typicode.com/users/{#request.headers\['userId']\[0]}/" exitOnError: false - name: "HTTP Callout" description: "" enabled: true policy: "policy-http-callout" condition: "{#context.attributes\['idtest'] = true}" configuration: variables: - name: "posts" value: "{#calloutResponse.content}" method: "GET" fireAndForget: false scope: "REQUEST" errorStatusCode: "500" errorCondition: "{#calloutResponse.status >= 400 and #calloutResponse.status\
+\ <= 599}" url: "https://jsonplaceholder.typicode.com/users/{#request.headers\['userId']\[0]}/posts" exitOnError: false post: - name: "Assign content" description: "" enabled: true policy: "policy-assign-content" condition: "{#context.attributes\['posts'] != null}" configuration: scope: "RESPONSE" body: "{\n"userId": ${request.headers\['userId']\[0]},\n"name": ${context.attributes\['name']},\n\
+"posts": ${context.attributes\['posts']}\n}" enabled: true
+
 ```
-{% endtab %}
-{% endtabs %}
+
+</div>
+
+</div>
 
 ## Configuration
 
@@ -157,14 +110,11 @@ If the option `useSystemProxy` is checked, proxy information will be read from `
 #### HTTP client proxy options
 
 ```
-# global configuration of the http client
-system:
-  proxy:
-    type: HTTP
-    host: localhost
-    port: 3128
-    username: user
-    password: secret
+
+## global configuration of the http client
+
+system: proxy: type: HTTP host: localhost port: 3128 username: user password: secret
+
 ```
 
 ## Compatibility matrix
@@ -185,4 +135,7 @@ The error keys sent by this policy are as follows:
 
 ## Changelogs
 
-{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-callout-http/blob/master/CHANGELOG.md" %}
+<div data-gb-custom-block data-tag="@github-files/github-code-block" data-url='https://github.com/gravitee-io/gravitee-policy-callout-http/blob/master/CHANGELOG.md'></div>
+```
+{% endtab %}
+{% endtabs %}
