@@ -10,7 +10,7 @@ Once you configure your chosen identity provider(s) in API Management, you can a
 
 After you add your identity provider, two new items appear within your identity provider configuration: **Groups Mapping** and **Roles Mapping**.
 
-<figure><img src="../../../.gitbook/assets/image (37).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.6/.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 **Groups Mapping** maps users into groups. Groups can be assigned to APIs. You can use the APIM Console to control the interactions between groups and the APIs to which they are assigned. The visibility of APIs and API documentation pages can be controlled at the group level using the Developer Portal.
 
@@ -36,7 +36,7 @@ You can create a new group in Gravitee, and then link it to your specific API. N
 
 </details>
 
-**Roles Mapping** maps users to Gravitee roles. Roles provide the user with a functional group of individual permissions to perform certain actions. For example, permissions to create, read, update, or delete specific pages or configurations. &#x20;
+**Roles Mapping** maps users to Gravitee roles. Roles provide the user with a functional group of individual permissions to perform certain actions. For example, permissions to create, read, update, or delete specific pages or configurations.
 
 <details>
 
@@ -91,11 +91,11 @@ The following example configurations grant the user FULL\_ADMIN permissions, or 
 
 Create a new Groups Mapping and specify the name of the group that you've already added to your API via the **User Permissions** configuration page.
 
-Gravitee uses Gravitee Expression Language in the **Condition** to evaluate the specific data in the JSON returned by the IdP’s UserInfo endpoint.&#x20;
+Gravitee uses Gravitee Expression Language in the **Condition** to evaluate the specific data in the JSON returned by the IdP’s UserInfo endpoint.
 
-In the following example, Gravitee checks if the value of "my_API_Group" in the UserInfo endpoint's response payload contains "Petstore-Group." If true, the user is added to the "Petstore-Group."
+In the following example, Gravitee checks if the value of "my\_API\_Group" in the UserInfo endpoint's response payload contains "Petstore-Group." If true, the user is added to the "Petstore-Group."
 
-<figure><img src="../../../.gitbook/assets/image (192).png" alt=""><figcaption><p>Group Mapping configuration</p></figcaption></figure>
+<figure><img src="../../../../4.6/.gitbook/assets/image (150) (1).png" alt=""><figcaption><p>Group Mapping configuration</p></figcaption></figure>
 
 ### Roles Mapping
 
@@ -103,4 +103,4 @@ The procedure for mapping a role is similar to adding a user to a group, but the
 
 In the example below, the condition evaluates the `roles` custom claim, or JSON key, in the JSON returned by the IdP’s UserInfo endpoint. If the `roles` array contains `FULL_ADMIN`, Gravitee will actions the role mapping.
 
-<figure><img src="../../../.gitbook/assets/image (194).png" alt=""><figcaption><p>Role Mapping configuration</p></figcaption></figure>
+<figure><img src="../../../../4.6/.gitbook/assets/image (152) (1).png" alt=""><figcaption><p>Role Mapping configuration</p></figcaption></figure>

@@ -10,21 +10,21 @@ Event Portal is a Solace product that acts like an API portal, but for Events. G
 
 In order to Federate Solace Event APIs into Gravitee, you'll need permission to access the Solace console, or you'll at least need access to somebody who does so that they can provide you with credentials that the agent will use to authenticate against Solace's management API.
 
-For more information about how to use the Solace Event portal to manage Event API, check out the getting started guide: [https://api.solace.dev/cloud/reference/apim-getting-started](https://api.solace.dev/cloud/reference/apim-getting-started).&#x20;
+For more information about how to use the Solace Event portal to manage Event API, check out the getting started guide: [https://api.solace.dev/cloud/reference/apim-getting-started](https://api.solace.dev/cloud/reference/apim-getting-started).
 
 The minimum permissions required by the federation agent are described in the section called [Minimum Solace permissions required by the agent](solace.md#minimum-solace-permissions-required-by-the-agent). It is also worth taking a look at the Solace documentation about [authenticating against the Solace management API](https://api.solace.dev/cloud/reference/apim-getting-started#api-authentication).
 
-You'll also need to be running Gravitee API Management version 4.4 or above, with an enterprise license.&#x20;
+You'll also need to be running Gravitee API Management version 4.4 or above, with an enterprise license.
 
 For the federation agent to authenticate with Gravitee API Management, you'll also need an access token. Head to our dedicated guide on [how to create a service account and an access token](../federation-agent-service-account.md) for the federation agent.
 
 ## 1. Create a Solace integration in the Gravitee APIM Console
 
-Head to the Gravitee APIM Console, open the Integrations section in the left menu, and create a new Solace integration.&#x20;
+Head to the Gravitee APIM Console, open the Integrations section in the left menu, and create a new Solace integration.
 
 Once you've created the integration, copy the integration ID that will be visible on the integration overview tab, you'll use this later:
 
-<figure><img src="../../../.gitbook/assets/image (39).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
 ## 2. Configure the Solace federation agent
 
@@ -33,7 +33,7 @@ The Solace federation agent will need the following configuration parameters in 
 * Solace endpoint
 * Solace API token
 
-The Solace endpoint to be used is common for all Solace customers:&#x20;
+The Solace endpoint to be used is common for all Solace customers:
 
 ```properties
 https://apim-production-api.solace.cloud/api/v2/apim
@@ -120,7 +120,7 @@ docker compose up -d
 
 In the Gravitee API Management console, after refreshing, you should now see the agent's status set to `Connected:`
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2024-10-10 at 00.27.32.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/Screenshot 2024-10-10 at 00.27.32 (1).png" alt=""><figcaption></figcaption></figure>
 
 If your **Agent Connection** still shows as `Disconnected`, then please inspect the agent's container logs. There you should find error logs that will help you troubleshoot.
 

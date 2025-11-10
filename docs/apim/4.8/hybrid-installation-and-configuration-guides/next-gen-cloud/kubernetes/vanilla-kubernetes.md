@@ -4,7 +4,7 @@
 
 This guide explains how to install a Hybrid Gateway and connect it to Gravitee Next-Gen Cloud using Kubernetes.
 
-{% include "../../../.gitbook/includes/installation-guide-note.md" %}
+{% include "../../../../4.6/.gitbook/includes/installation-guide-note (1).md" %}
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ To install the Gravitee Gateway, complete the following steps:
 
 To support caching and rate-limiting, you must install Redis into your Kubernetes cluster. For more information, see [Bitnami package for Redis®](https://artifacthub.io/packages/helm/bitnami/redis).
 
-1.  Install Redis with Helm using the following command, which also creates a new `gravitee-apim` namespace:&#x20;
+1.  Install Redis with Helm using the following command, which also creates a new `gravitee-apim` namespace:
 
     ```bash
     helm install gravitee-apim-redis oci://registry-1.docker.io/bitnamicharts/redis \
@@ -77,7 +77,7 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
     kubectl get pods -n gravitee-apim -l app.kubernetes.io/instance=gravitee-apim-redis
     ```
 
-    The command generates the following output:&#x20;
+    The command generates the following output:
 
     ```sh
     NAME                            READY   STATUS    RESTARTS   AGE
@@ -93,7 +93,8 @@ To prepare your Gravitee `values.yaml` file for Helm, complete the following ste
 
 1.  Copy the following Gravitee `values.yaml` file. This is the base configuration for your new hybrid Gateway.
 
-    {% code title="values.yaml" %}
+    \{% code title="values.yaml" %\}
+
     ```yaml
     #This is the license key provided in your Gravitee Cloud account 
     #example: Ic5OXgAAACAAAAACAAAADAAAAAhhbGVydC1lbmdpbmVpbmNsdWRlZAAAABsAAAACAAAABwAAAAhjb21wYW55R3Jhdml0ZWUAAAAxAAAAAgAAAAUAAAAgZW1haWxwbGF0Zm9ybS10ZWFtQGdyYXZpdGVlc291cmNlLmNvbQAAABoAAAALAAAACmV4cGlyeURhdGUAAAGhUXU7/wAAACAAAAACAAAACAAAAAxmZWF0dXJlc2FsZXJ0LWVuZ2luZQAAACEAAAAMAAAACWxpY2Vuc2VJZJTWw5qIQT4bEYqYFx9wSH4AAAEcAAAAAQAAABAAAAEAbGljZW5zZVNpZ25hdHVyZULCHNcIqMuFwEMkSCgE4Q/42YSVluW/vvMtaHZWJ5Xoh3rsWEjCMg8Ku2cTKuSP7FzR/b8GVedDJqxf+o2n8B/LV+WwzZjOAi09EBfLmTLOzzXFNp1KRDk3G4rrKznJ1Kqz9EXjyNAiT/c7en3om6Lx0A4BscZtu6k6i1pAnfHhotJkHMIdNkDqSU4fkyAH6FS+NYcLEcudaeeRr2Th/Dvyn0py7xOUNicgXdBjEXJXMF2vxyNkm0kML4ADG12++dZyG2kgGYg5+A8UdABGxCvIfNsl9uVuP2F5ACr8Uc73HytKpIaZqz71RMxQDuJtRzmkkGxHajJJeZWQZXtLdBoAAAARAAAAAgAAAAUAAAAAcGFja3MAAAAiAAAAAgAAAA8AAAAHc2lnbmF0dXJhfgzanZXN0U0hBLTI1NgAAABgAAAACAAAABAAAAAh0aWVydW5pdmVyc2U=
@@ -195,37 +196,33 @@ To prepare your Gravitee `values.yaml` file for Helm, complete the following ste
     ratelimit:
         type: redis
     ```
-    {% endcode %}
+
+    \{% endcode %\}
 2. Make the following modifications to your `values.yaml` file:
    * Replace `<cloud_token>` with your Cloud Token.
    * Replace `<license_key>` with your License Key.
    * Replace `<redis_hostname>` with your extracted Redis hostname.
    * Replace `<redis_password>` with your extracted Redis password.
-   *   Set the `tag` field in the `image` section to the value displayed in the Overview section of your Gravitee Cloud Dashboard.  \
-
+   *   Set the `tag` field in the `image` section to the value displayed in the Overview section of your Gravitee Cloud Dashboard. \\
 
        <figure><img src="../../../.gitbook/assets/gateway-cloud-version.png" alt=""><figcaption></figcaption></figure>
 
-
-
-       {% hint style="info" %}
-       The `tag` field specifies the version of your Gravitee Gateway. Your Gateway version must match your Gravitee Cloud Control Plane version to ensure compatibility between your hybrid Gateway and the Cloud Management platform.
-       {% endhint %}
+       \{% hint style="info" %\} The `tag` field specifies the version of your Gravitee Gateway. Your Gateway version must match your Gravitee Cloud Control Plane version to ensure compatibility between your hybrid Gateway and the Cloud Management platform. \{% endhint %\}
 3. Save your Gravitee `values.yaml` file in your working directory.
 
 <details>
 
 <summary>Explanations of key predefined <code>values.yaml</code> parameter settings</summary>
 
-#### Service configuration
+**Service configuration**
 
 The `LoadBalancer` type with `loadBalancerIP` set to `127.0.0.1` creates a local endpoint accessible at `localhost:8082`. This environment is suitable for test or development. You can modify this configuration for production deployments that use external load balancers, ingress controllers, or service mesh integration.
 
-#### Resource allocation
+**Resource allocation**
 
 The configured limits prevent excessive cluster resource consumption, but ensure adequate performance for API processing. These values support moderate traffic volumes and can be adjusted based on your expected load patterns and available cluster capacity.
 
-#### Deployment strategy
+**Deployment strategy**
 
 The `RollingUpdate` strategy with `maxUnavailable` set to 0 ensures zero-downtime updates during configuration changes or version upgrades.
 
@@ -398,7 +395,7 @@ To validate your pods, complete the following steps:
     ```bash
     kubectl get pods --namespace=gravitee-apim -l app.kubernetes.io/instance=graviteeio-apim-gateway
     ```
-2.  Verify that the deployment was successful. The output should show that a Gravitee Gateway is ready and running with no restarts.&#x20;
+2.  Verify that the deployment was successful. The output should show that a Gravitee Gateway is ready and running with no restarts.
 
     ```sh
     NAME                                               READY   STATUS    RESTARTS   AGE
@@ -414,7 +411,7 @@ To validate the Gateway logs, complete the following steps:
     ```bash
     kubectl get pods --namespace=gravitee-apim -l app.kubernetes.io/instance=graviteeio-apim-gateway
     ```
-2.  In the output, navigate to the pod that you want to obtain logs for. For example, `graviteeio-apim-gateway-gateway-6b77d4dd96-8k5l9`.&#x20;
+2.  In the output, navigate to the pod that you want to obtain logs for. For example, `graviteeio-apim-gateway-gateway-6b77d4dd96-8k5l9`.
 
     ```sh
     NAME                                               READY   STATUS    RESTARTS   AGE
@@ -425,7 +422,7 @@ To validate the Gateway logs, complete the following steps:
     ```bash
     kubectl logs --namespace=gravitee-apim <NAME_OF_THE_POD>
     ```
-4.  Review the log file. The following example output shows the important log entries:&#x20;
+4.  Review the log file. The following example output shows the important log entries:
 
     ```sh
     =========================================================================

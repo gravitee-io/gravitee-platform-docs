@@ -6,7 +6,7 @@ Cross-Origin Resource Sharing (CORS) is a mechanism that allows resources on a w
 
 For more information about CORS, go to [CORS specification](https://www.w3.org/TR/cors).
 
-You can apply CORS at following levels:&#x20;
+You can apply CORS at following levels:
 
 * API
 * Environment
@@ -82,31 +82,26 @@ If you change the CORS settings using the `gravitee.yml` or environment variable
 
 ### Configure CORS at the organization level
 
-1.  From the **Dashboard**, click **Organization**. \
-
+1.  From the **Dashboard**, click **Organization**. \\
 
     <figure><img src="../../.gitbook/assets/31738772-8FFD-4BC5-B5EF-5F303E24249E_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
-2.  In the **Settings screen**, navigate to the **CORS** section.\
+2.  In the **Settings screen**, navigate to the **CORS** section.\\
 
-
-    <figure><img src="../../.gitbook/assets/image (371).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../4.9/.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 ### Configure CORS at the environment level
 
-1.  From the **Dashboard**, click **Settings**. \
-
+1.  From the **Dashboard**, click **Settings**. \\
 
     <figure><img src="../../.gitbook/assets/135B4F2E-B8C1-43A5-8D01-902F42C7816D_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
-2.  In the **Settings** menu click **Settings**. \
-
+2.  In the **Settings** menu click **Settings**. \\
 
     <figure><img src="../../.gitbook/assets/7FA0E4F4-7452-47FD-B854-644ADE2EF363_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
-3.  In the **Settings** section, navigate to the **CORS** section.\
-
+3.  In the **Settings** section, navigate to the **CORS** section.\\
 
     <figure><img src="../../.gitbook/assets/883255A4-7111-42D3-93B7-B0CA04CED7F0_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 
-### Configure CORS settings&#x20;
+### Configure CORS settings
 
 #### Allow-Origin
 
@@ -116,7 +111,7 @@ The `Allow-Origin` setting specifies which origins are permitted to access the r
 
 The following examples demonstrate common `Allow-Origin` configurations:
 
-* `*` - Allows all origins&#x20;
+* `*` - Allows all origins
 * `https://mydomain.com` - Allows specific domain
 * `(http|https).*.mydomain.com` - Allows subdomains using regex patterns
 
@@ -124,7 +119,7 @@ The following examples demonstrate common `Allow-Origin` configurations:
 
 The `Allow-Methods` setting specifies which HTTP methods are allowed when accessing the resource.
 
-<figure><img src="../../.gitbook/assets/image (372).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.9/.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Configuration details for `Allow Methods` include the following:
 
@@ -133,9 +128,9 @@ Configuration details for `Allow Methods` include the following:
 
 #### Allow-Headers
 
-The `Allow-Headers` setting defines which headers can be used in cross-origin requests.&#x20;
+The `Allow-Headers` setting defines which headers can be used in cross-origin requests.
 
-<figure><img src="../../.gitbook/assets/image (373).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.9/.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 Configuration details for `Allow Headers` include the following :
 
@@ -152,7 +147,7 @@ The `Exposed-Headers` setting defines which response headers can be used in cros
 
 ### Max Age (Seconds)
 
-The `Max age` setting controls how long pre-flight request results are cached.&#x20;
+The `Max age` setting controls how long pre-flight request results are cached.
 
 <figure><img src="../../.gitbook/assets/10E6B5B1-9DF0-4CDE-A4C1-28038AFF833C.jpeg" alt=""><figcaption></figcaption></figure>
 

@@ -16,7 +16,7 @@ The implementation of Gravitee's API management capabilities hinge on the follow
 
 ## Architecture
 
-Gravitee offers three different API Management architecture schemes: [self-hosted](core-concepts.md#self-hosted-architecture), [hybrid](core-concepts.md#hybrid-architecture), and [Gravitee-managed](core-concepts.md#gravitee-managed-architecture). Each architecture relies on a specific set of Gravitee components. Some components are common to all architectures while others are architecture-specific.&#x20;
+Gravitee offers three different API Management architecture schemes: [self-hosted](core-concepts.md#self-hosted-architecture), [hybrid](core-concepts.md#hybrid-architecture), and [Gravitee-managed](core-concepts.md#gravitee-managed-architecture). Each architecture relies on a specific set of Gravitee components. Some components are common to all architectures while others are architecture-specific.
 
 Gravitee-managed architecture refers to a scheme where all Gravitee API Management components are Gravitee-managed SaaS components. Gravitee Cloud and API Designer are optional and can be connected to a Gravitee-managed API Management installation.
 
@@ -54,7 +54,7 @@ Certain properties are case-sensitive and cannot use uppercase characters. We re
 
 <summary>Environment variable override examples</summary>
 
-### Example 1
+#### Example 1
 
 To override this property:
 
@@ -71,7 +71,7 @@ gravitee_management_mongodb_dbname=myDatabase
 gravitee.management.mongodb.dbname=myDatabase
 ```
 
-### Example 2
+#### Example 2
 
 Some properties are arrays:
 
