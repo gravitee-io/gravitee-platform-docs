@@ -1,18 +1,20 @@
 # Configure a Production-ready AM Environment
 
-## Overview
+## Configure a Production-ready AM Environment
+
+### Overview
 
 During Gravitee Access Management (AM) installation, some default settings are created. While these default settings can be useful for testing your new installation, some of them may not be suitable for a production environment, where security is more of a consideration.
 
-This how-to gives some tips on important settings to check in AM when preparing to move to a production environment. AM includes many other configuration options and every environment is unique. We recommend you also read the [Configuration Guide](../configuration/) to determine if you have completed all the configuration you need before you deploy AM in production.
+This how-to gives some tips on important settings to check in AM when preparing to move to a production environment. AM includes many other configuration options and every environment is unique. We recommend you also read the Configuration Guide to determine if you have completed all the configuration you need before you deploy AM in production.
 
 {% hint style="info" %}
-You can also read the [OAuth 2.0 best practices](../../guides/auth-protocols/oauth-2.0/best-practices.md) for more details about configuring your AM environment.
+You can also read the OAuth 2.0 best practices for more details about configuring your AM environment.
 {% endhint %}
 
-You can configure AM settings in various ways — the `gravitee.yml` file, the AM Console settings, and environment and system variables. When you configure new settings, it is important to understand that one configuration type can override another. [Configure AM API](../configuration/configure-am-api/) gives a good overview of this topic.
+You can configure AM settings in various ways — the `gravitee.yml` file, the AM Console settings, and environment and system variables. When you configure new settings, it is important to understand that one configuration type can override another. Configure AM API gives a good overview of this topic.
 
-## Step 1: Disable the internal APIs
+### Step 1: Disable the internal APIs
 
 AM API and AM Gateway include internal APIs which are enabled by default. If you do not intend to use them, we recommend you disable them.
 
@@ -22,7 +24,6 @@ Perform the following steps on both the AM API component and the AM Gateway comp
 2. In the `services:` section, set the `http:` `enabled` value to `false`:
 
 {% code title="gravitee.yml" %}
-````
 ```yaml
 services:
   core:
@@ -39,15 +40,14 @@ services:
         users:
           admin: adminadmin
 ```
-````
 {% endcode %}
 
 To learn more about the internal APIs, see:
 
-* [Configure the AM API internal API](../configuration/configure-am-api/internal-api.md)
-* [Configure the AM Gateway internal API](../configuration/configure-am-gateway/internal-api.md)
+* Configure the AM API internal API
+* Configure the AM Gateway internal API
 
-## Step 2: Update the default users
+### Step 2: Update the default users
 
 Some default users are created for you during installation. We recommend you remove any users you do not need.
 
@@ -61,7 +61,6 @@ Perform the following steps on the AM API component:
 2. In the `security \ providers` section, remove any users you do not need:
 
 {% code title="gravitee.yml" overflow="wrap" %}
-````
 ```yaml
 # Security section is used to defined organization users available on AM bootstrap
 security:
@@ -92,14 +91,13 @@ security:
           password: $2a$10$NG5WLbspq8V1yJDzUKfUK.oum94qL/Ne3B5fQCgekw/Y4aOEaoFZq
           role: ORGANIZATION_OWNER
 ```
-````
 {% endcode %}
 
 3.  Update the default administrator password:
 
     <figure><img src="https://docs.gravitee.io/images/apim/3.x/how-tos/configure-apim/admin-pwd.png" alt=""><figcaption><p>Admin password</p></figcaption></figure>
 
-## Step 3: Update the JWT secret
+### Step 3: Update the JWT secret
 
 The JWT secret is used for multiple purposes :
 
@@ -119,7 +117,6 @@ Perform the following steps on the AM API and Gateway components:
 2. In the `jwt` section, update the `secret` value:
 
 {% code title="gravitee.yml" overflow="wrap" %}
-````
 ```yaml
 # JWT used to generate signed token for management security mechanism (Bearer Token) and to verify emails
 jwt:
@@ -131,7 +128,6 @@ jwt:
   #cookie-domain: .gravitee.io # cookie domain (default "")
   #cookie-secure: true # cookie secure flag (default false)
 ```
-````
 {% endcode %}
 
 3. You can also update other values, such as:
@@ -139,7 +135,7 @@ jwt:
    * the `cookie-path` and `cookie-domain` values, to adapt them to your own environment; the values you define must be specific to the domain and path where the API is running and not apply to any another environment (for example, `.gravitee.io` could apply to any domain called `xxx.gravitee.io`, such as `dev.gravitee.io` or `qa.gravitee.io`)
    * the `cookie-secure` to adapt the Secure flag for the Session Cookie (should be set to true).
 
-## Step 4: Update CORS policy
+### Step 4: Update CORS policy
 
 Cross-origin resource sharing (CORS) is a mechanism that allows restricted resources on a web page to be requested from another domain outside the domain from which the first resource was served.
 
@@ -172,7 +168,7 @@ Perform the following steps on the AM API component:
 ```
 {% endcode %}
 
-## Step 5: Update URL Redirects policy
+### Step 5: Update URL Redirects policy
 
 During login and logout operations AM API uses callback URLs to redirect the end-user back to the AM Console.
 
@@ -213,7 +209,7 @@ Perform the following steps on the AM API component:
 ```
 {% endcode %}
 
-## Step 6: Enable Secure Cookies
+### Step 6: Enable Secure Cookies
 
 Cookies are used by AM API and AM Gateway to keep minimal information about user sessions. The "Secure" flag instructs a user’s browser to only send the cookie along with requests over HTTPS to in-scope addresses.
 
@@ -223,7 +219,6 @@ Perform the following steps on the AM API component:
 2. In the `jwt` section, update the `cookie-secure` value:
 
 {% code title="gravitee.yml" overflow="wrap" %}
-````
 ```yaml
 # JWT used to generate signed token for management security mechanism (Bearer Token) and to verify emails
 jwt:
@@ -235,7 +230,6 @@ jwt:
   #cookie-domain: .gravitee.io # cookie domain (default "")
   #cookie-secure: true # cookie secure flag (default false)
 ```
-````
 {% endcode %}
 
 Perform the following steps on the AM Gateway component:
@@ -244,7 +238,6 @@ Perform the following steps on the AM Gateway component:
 2. In the `http.cookie` section, update the `secure` value:
 
 {% code title="gravitee.yml" overflow="wrap" %}
-````
 ```yaml
 #http
 ##  cookie:
@@ -254,12 +247,11 @@ Perform the following steps on the AM Gateway component:
 #      name: session-name
 #      timeout: 1800000 # (in milliseconds)
 ```
-````
 {% endcode %}
 
 3\. You can also consider updating the \`sameSite\` to \[Strict]\(https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie#syntax) and adapt the session timeout:
 
-## Step 7: Mitigate Cross-Site Scripting (XSS) and Cross Site Framing
+### Step 7: Mitigate Cross-Site Scripting (XSS) and Cross Site Framing
 
 The AM Gateway implements [Content-Security-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) and [X-Frame-Options](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options).
 
@@ -278,9 +270,39 @@ http:
     - frame-ancestors 'none';
 ```
 
-## Step 8: Sending email
+### Step 8: Set the max request size for HTTP requests
 
-The AM Management API and the AM Gateway are able to send email via the `email` section in the `gravitee.yaml` of each service.&#x20;
+Set the max request size to a value that ensures that the Gateway receives all requests. The default size is 2kb. If you do not set the appropriate max request size, and then the Gateway receives a request that exceeds the maximum size, the Gateway returns a `400` error with the following message: `Size exceeded the maximum capacity`.
+
+To set the max request size, complete the following steps:
+
+1. In your `gravitee.yml` file, navigate to the `http` section.
+2. Add the `maxRequestSize` configuration with the maximum size value. The default size is 2KB. If you do not want a limit, set the size to -1.
+
+Here is an example `gravitee.yml` file with the `maxRquestSize` set:
+
+{% code title="gravitee.yml" %}
+```yaml
+http:
+  port: 8092
+  host: 0.0.0.0
+  idleTimeout: 0
+  tcpKeepAlive: true
+  compressionSupported: false
+  maxHeaderSize: 8192
+  maxChunkSize: 8192
+  maxInitialLineLength: 4096
+  maxFormAttributeSize: 2048
+  maxRequestSize: 2 # Maximum HTTP request size. The default size is 2KB. -1 means that there is no maximum request limit.
+  instances: 0
+  secured: false
+  alpn: false
+```
+{% endcode %}
+
+### Step 9: Sending email
+
+The AM Management API and the AM Gateway are able to send email via the `email` section in the `gravitee.yaml` of each service.
 
 As of AM version 4.0.2, the `allowedfrom` attribute has been added to restrict the FROM attribute a user can define in the AM UI when customizing the email form or when configuring the `Send Email` policy. It is highly recommended to update this value to restrict authorized domain names.
 
