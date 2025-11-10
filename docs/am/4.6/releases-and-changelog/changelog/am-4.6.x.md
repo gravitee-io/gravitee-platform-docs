@@ -12,7 +12,9 @@ description: >-
 
 <summary>Bug fixes</summary>
 
+**Gateway**
 
+* Improve Thread Management for RDBMS backend [#10938](https://github.com/gravitee-io/issues/issues/10938)
 
 
 
