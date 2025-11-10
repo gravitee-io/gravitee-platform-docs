@@ -29,13 +29,13 @@ Kafka APIs support OAuth2, JWT, API Key, and Keyless (public) plans. For more in
 
 To edit a plan, click on the pencil icon:
 
-<figure><img src="../../.gitbook/assets/plan_edit.png" alt=""><figcaption><p>Edit a plan</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/plan_edit.png" alt=""><figcaption><p>Edit a plan</p></figcaption></figure>
 
 ### Publish a plan
 
 To publish a plan, click on the icon of a cloud with an arrow:
 
-<figure><img src="../../.gitbook/assets/plan_publish.png" alt=""><figcaption><p>Publish a plan</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/plan_publish.png" alt=""><figcaption><p>Publish a plan</p></figcaption></figure>
 
 Once a plan has been published, it must be redeployed.
 
@@ -43,17 +43,17 @@ Once a plan has been published, it must be redeployed.
 
 To deprecate a plan, click on the icon of a cloud with an 'x':
 
-<figure><img src="../../.gitbook/assets/plan_deprecate.png" alt=""><figcaption><p>Deprecate a plan</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/plan_deprecate.png" alt=""><figcaption><p>Deprecate a plan</p></figcaption></figure>
 
 ### Close a plan
 
 To close a plan, click on the 'x' icon:
 
-<figure><img src="../../.gitbook/assets/plan_close.png" alt=""><figcaption><p>Close a plan</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/plan_close.png" alt=""><figcaption><p>Close a plan</p></figcaption></figure>
 
 ## Subscriptions
 
-Select the **Subscriptions** tab to manage your subscriptions. From here you can create, modify, or filter subscriptions. You can also export a subscription as a CSV.&#x20;
+Select the **Subscriptions** tab to manage your subscriptions. From here you can create, modify, or filter subscriptions. You can also export a subscription as a CSV.
 
 <figure><img src="../../.gitbook/assets/1 sub 1.png" alt=""><figcaption></figcaption></figure>
 
@@ -80,16 +80,13 @@ From here you can transfer, pause, change the end date for, or close your subscr
 
 Existing subscriptions can be managed from the **Subscriptions** header. From here you can use the filters to:
 
-*   Display subscriptions based on plan selections\
-
+*   Display subscriptions based on plan selections\\
 
     <figure><img src="../../.gitbook/assets/1 sub c.png" alt=""><figcaption></figcaption></figure>
-*   Search for an application display subscriptions associated with a plan name\
-
+*   Search for an application display subscriptions associated with a plan name\\
 
     <figure><img src="../../.gitbook/assets/1 sub b.png" alt=""><figcaption></figcaption></figure>
-*   Select subscription status options to display subscriptions matching that criteria\
-
+*   Select subscription status options to display subscriptions matching that criteria\\
 
     <figure><img src="../../.gitbook/assets/1 sub a.png" alt=""><figcaption></figcaption></figure>
 
@@ -104,8 +101,7 @@ To configure message delivery mechanism, recipients, and content:
 1. Select **APIs** from the left sidebar of the Management Console
 2. Select the API you want to send a message about
 3. Select **Consumers** from the inner left sidebar
-4.  Select the **Broadcasts** tab \
-
+4.  Select the **Broadcasts** tab \\
 
     <figure><img src="../../.gitbook/assets/1 broadcast.png" alt=""><figcaption></figcaption></figure>
 5. Specify the following:

@@ -35,20 +35,8 @@ The above values are defined as follows:
 
 ## Endpoints
 
-<table data-full-width="true">
-  <thead>
-    <tr>
-      <th width="201">Operation</th>
-      <th width="320.3333333333333">Description</th>
-      <th>Example</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><pre data-overflow="wrap"><code>GET /_node</code></pre></td>
-      <td>Gets generic node information.</td>
-      <td>
-        <pre data-overflow="wrap"><code>HTTP/1.1 200 OK
+<table data-full-width="true"><thead><tr><th width="201">Operation</th><th width="320.3333333333333">Description</th><th>Example</th></tr></thead><tbody><tr><td><pre data-overflow="wrap"><code>GET /_node
+</code></pre></td><td>Gets generic node information.</td><td><pre data-overflow="wrap"><code>HTTP/1.1 200 OK
 Content-Type: application/json
 {
     "id": "a70b9fd9-9deb-4ccd-8b9f-d99deb6ccd32",
@@ -61,38 +49,16 @@ Content-Type: application/json
         "REVISION": "132e719ef314b40f352e6399034d68a9a95e95ef"
     }
 }
-        </code></pre>
-      </td>
-    </tr>
-    <tr>
-    <td><pre data-overflow="wrap"><code>GET /_node/health</code></pre></td>
-    <td>
-      <p>Gets the health status of the component.</p>
-      <p>Probes can be filtered using the optional <code>probes</code> query parameter, which can handle a list of probes separated by commas (<code>,</code>). If no query param is provided, the health of all probes is returned. If the return status is 200, everything is ok; if it is 500, there is at least one error.</p>
-      <p>This endpoint can be used by a load balancer, e.g., to determine if a component instance is not in the pool.</p>
-      <p>
-        &#9888; The following probes are not displayed by default and you must explicitly use the query param to retrieve them:
-        <lu>
-          <li><strong>cpu</strong></li>
-          <li><strong>memory</strong></li>
-          <li><strong>api-sync</strong></li>
-        </lu>
-      </p>
-      <p>
-        These probes are considered healthy if they are under a configurable threshold (default is 80%). To configure the default, add it to your <code>gravitee.yml</code>:
-        <pre><code class="yaml">
+        
+</code></pre></td></tr><tr><td><pre data-overflow="wrap"><code>GET /_node/health
+</code></pre></td><td><p>Gets the health status of the component.</p><p>Probes can be filtered using the optional <code>probes</code> query parameter, which can handle a list of probes separated by commas (<code>,</code>). If no query param is provided, the health of all probes is returned. If the return status is 200, everything is ok; if it is 500, there is at least one error.</p><p>This endpoint can be used by a load balancer, e.g., to determine if a component instance is not in the pool.</p><p>⚠ The following probes are not displayed by default and you must explicitly use the query param to retrieve them:</p><ul><li><strong>cpu</strong></li><li><strong>memory</strong></li><li><strong>api-sync</strong></li></ul><p>These probes are considered healthy if they are under a configurable threshold (default is 80%). To configure the default, add it to your <code>gravitee.yml</code>:</p><pre><code>
 services:
   health:
     threshold:
       cpu: 80
       memory: 80
-        </code></pre>
-      </p>
-    </td>
-    <td>
-      <p>
-        <code>GET /_node/health</code>
-        <pre><code>HTTP/1.1 200 OK
+        
+</code></pre></td><td><p><code>GET /_node/health</code></p><pre><code>HTTP/1.1 200 OK
 Content-Type: application/json
 {
   "ratelimit-repository": {
@@ -105,11 +71,8 @@ Content-Type: application/json
     "healthy": true
   }
 }
-        </code></pre>
-      </p>
-      <p>
-        <code>GET /_node/health?probes=management-repository,http-server</code>
-        <pre><code>HTTP/1.1 200 OK
+        
+</code></pre><p><code>GET /_node/health?probes=management-repository,http-server</code></p><pre><code>HTTP/1.1 200 OK
 Content-Type: application/json
 {
   "management-repository": {
@@ -119,11 +82,8 @@ Content-Type: application/json
     "healthy": true
   }
 }
-        </code></pre>
-      </p>
-    </td>
-  </tr>
-  <tr><td><pre data-overflow="wrap"><code>GET /_node/configuration
+        
+</code></pre></td></tr><tr><td><pre data-overflow="wrap"><code>GET /_node/configuration
 </code></pre></td><td>Gets the node configuration from the <code>gravitee.yml</code> file and/or environment variables.</td><td><pre><code><strong>HTTP/1.1 200 OK
 </strong>Content-Type: application/json
 {

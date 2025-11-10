@@ -16,7 +16,7 @@ Gravitee supports importing APIs as:
 Additional information that applies to importing an OpenAPI specification can be found [below](import-apis.md#importing-an-openapi-spec).
 
 {% hint style="warning" %}
-When you import an API with a JSON payload that has duplicate keys, APIM keeps the last key.&#x20;
+When you import an API with a JSON payload that has duplicate keys, APIM keeps the last key.
 
 To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection.md](../policies/json-threat-protection.md "mention").
 {% endhint %}
@@ -27,21 +27,21 @@ To import your API:
 
 1. Log in to your API Console
 2. Select **APIs** from the left nav
-3.  Select **+ Add API**&#x20;
+3.  Select **+ Add API**
 
-    <figure><img src="../.gitbook/assets/import_add api.png" alt=""><figcaption></figcaption></figure>
-4.  In the **Import an API definition** tile, click **Import**&#x20;
+    <figure><img src="../../../../.gitbook/assets/import_add api.png" alt=""><figcaption></figcaption></figure>
+4.  In the **Import an API definition** tile, click **Import**
 
-    <figure><img src="../.gitbook/assets/import_import.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/import_import.png" alt=""><figcaption></figcaption></figure>
 5. Choose and configure an import option:
    * **Upload a file:** Import a YML, YAML, JSON, WSDL, or XML file
-   * **Swagger / OpenAPI:**&#x20;
+   * **Swagger / OpenAPI:**
      * Provide a **Swagger descriptor URL**
      * **Create documentation:** Overwrites existing documentation or create it if it does not exist
      * **Create the path mapping for analytics:** Overwrites all of the path-mappings
      * **Create policies on paths:** Overwrites all of the policies. Policies that you can create upon import include **JSON Validation**, **Mock**, **Request Validation**, **REST to SOAP**, and **XML Validation**.
    * **API definition:** Provide a URL that links to your API definition
-   * **WSDL:**&#x20;
+   * **WSDL:**
      * Provide a **WSDL descriptor URL**
      * **Create documentation:** Overwrites existing documentation or create it if it does not exist
      * **Create the path mapping for analytics:** Overwrites all of the path-mappings
@@ -75,29 +75,29 @@ Once you've imported your API, it will be created as a private API and you will 
     "title": "Swagger Petstore"
   },
   "host": "petstore.swagger.io",
-
-  ...
+...
 }
 </code></pre></td><td>/swaggerpetstore</td><td></td></tr><tr><td>OpenAPI (V3)</td><td>Path of the first <code>servers.url</code>, if it exists, without "/".<br></td><td><pre><code>openapi: "3.0.0"
 info:
-  version: 1.0.0
-  title: Swagger Petstore
-  license:
-    name: MIT
+version: 1.0.0
+title: Swagger Petstore
+license:
+name: MIT
 servers:
-  - url: http://petstore.swagger.io/v1
+
+url: http://petstore.swagger.io/v1
 paths:
 ...
 </code></pre></td><td>/v1</td></tr><tr><td>If not, lowercase trimmed <code>info.title</code>.</td><td><pre><code>openapi: "3.0.0"
 info:
-  version: 1.0.0
-  title: Swagger Petstore
-  license:
-    name: MIT
+version: 1.0.0
+title: Swagger Petstore
+license:
+name: MIT
 servers:
-  - url: http://petstore.swagger.io/
+url: http://petstore.swagger.io/
 paths:
-  ...
+...
 </code></pre></td><td>/swaggerpetstore</td><td></td></tr></tbody></table>
 
 ### Vendor Extensions
@@ -199,7 +199,7 @@ For more information, see the Request Validation policy in the [policy reference
 {% endtab %}
 
 {% tab title="XML Validation" %}
-For each operation, if a `application/xml` request body exists, then a XSD schema is computed from this body to configure an XML Validation policy.&#x20;
+For each operation, if a `application/xml` request body exists, then a XSD schema is computed from this body to configure an XML Validation policy.
 
 For more information, see the XML Validation policy in the [policy reference](../policies/policy-reference/).
 {% endtab %}
