@@ -6,7 +6,7 @@ Cryptographic algorithms such as KeyStore (private/public key) are used to sign 
 
 Certificate definitions apply at the _security domain_ level.
 
-By default AM is able to load certificate using JKS or PKCS12 format you can upload ugin the console or the REST API. An Enterprise prise plugin also exist to load PCKS12 certificate from [AWS Secret Manager](aws-certificate-plugin.md).&#x20;
+By default AM is able to load certificate using JKS or PKCS12 format you can upload ugin the console or the REST API. An Enterprise prise plugin also exist to load PCKS12 certificate from [AWS Secret Manager](aws-certificate-plugin.md).
 
 ## Create certificates
 
@@ -91,7 +91,7 @@ Since AM 4.4.0, certificates section can manage client certificate for Mutual TL
 System certificates can't be used for mTLS authentication as they are self signed certificates generated internally by Access Management.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.5/.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Custom certificates
 
