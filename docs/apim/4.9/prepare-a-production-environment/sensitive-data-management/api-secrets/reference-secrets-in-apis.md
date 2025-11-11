@@ -37,7 +37,7 @@ Arguments can be embedded in a larger string, like in the following example:
 
 ### Secret URI syntax
 
-Secret URI syntax is a subset of URL syntax that you can use to [broken-reference](broken-reference/ "mention") (`secret://...`). Secret URI syntax allows you to specify the secret you want to resolve.
+Secret URI syntax is a subset of URL syntax that you can use to [apply secrets to configurations ](../configure-secrets/configuration.md)(`secret://...`). Secret URI syntax allows you to specify the secret you want to resolve.
 
 A URI is composed of the following components:
 
@@ -141,7 +141,7 @@ You can do this by using the following two query parameters:
   \
   `{#secrets.get('/`<mark style="color:red;">`provider`</mark>`/`<mark style="color:green;">`path`</mark>`:`<mark style="color:yellow;">`key`</mark>`?`<mark style="color:orange;">`renewable=true&reloadOnChange=true`</mark>`')}`
 
-Secret TTL is global to all secrets that have the `renewable` option enabled. For more information about TTL renewal, see [broken-reference](broken-reference/ "mention") .
+Secret TTL is global to all secrets that have the `renewable` option enabled. For more information about TTL renewal, see [configuration.md](configuration.md "mention") .
 
 ## Multi-environment secret references
 
