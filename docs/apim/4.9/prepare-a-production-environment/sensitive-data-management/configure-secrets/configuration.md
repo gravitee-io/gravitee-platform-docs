@@ -30,10 +30,6 @@ A `secret provider` plugin must be either bundled or added to the plugin directo
 
 You can enable a `secret-provider` plugin by configuring it in `gravitee.yml`. The configurations for each secret provider plugin are discussed in the following sections.
 
-{% hint style="info" %}
-The following examples apply to `gravitee.yml`. To learn how to map these examples to Helm charts and environment variables, see [Broken link](broken-reference "mention") and[Broken link](broken-reference "mention").&#x20;
-{% endhint %}
-
 ### Kubernetes
 
 The following example is a typical configuration for running Gravitee in Kubernetes. With this configuration, secrets are **resolved in the same namespace**.
@@ -97,10 +93,10 @@ secrets:
       pollIntervalSec: 30
 ```
 
-With this configuration, Gravitee authenticates using a secure connection a Vault token, watches secrets via polling, and has 2 retry attempts to fetch a secret.&#x20;
+With this configuration, Gravitee authenticates using a secure connection a Vault token, watches secrets via polling, and has 2 retry attempts to fetch a secret.
 
 {% hint style="info" %}
-By default,  `retry` and `watch` are disabled.
+By default, `retry` and `watch` are disabled.
 {% endhint %}
 
 #### Alternative SSL configuration
