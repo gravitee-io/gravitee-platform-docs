@@ -51,7 +51,7 @@ The rest of this article primarily focuses on how to implement the items in this
 
 ### Internal APIs
 
-APIM API and APIM Gateway include internal APIs that are enabled by default. These internal APIs permit the retrieval of monitoring and technical information pertaining to Gravitee components (more information [here](https://documentation.gravitee.io/apim/getting-started/configuration/configure-apim-management-api/internal-api-1)).
+APIM API and APIM Gateway include internal APIs that are enabled by default. These internal APIs permit the retrieval of monitoring and technical information pertaining to Gravitee components (more information [here](https://documentation.gravitee.io/apim/configure-and-manage-the-platform/management-api/mapi-internal-api)).
 
 #### Disabling internal APIs
 
@@ -160,7 +160,7 @@ http:
 
 The Console REST API will remain inaccessible to the outside world if you decide to make your Developer Portal reachable from outside of your company. However, Gravitee recommends that you do not expose your Console or Developer Portal publicly if there is no particular business requirement.&#x20;
 
-Refer to the [Gravitee documentation](https://documentation.gravitee.io/apim/getting-started/configuration/configure-apim-management-api/internal-api#configure-the-management-and-portal-apis) for more information about Console and Portal APIs.
+Refer to the [Gravitee documentation](https://documentation.gravitee.io/apim/configure-and-manage-the-platform/management-api/mapi-internal-api) for more information about Console and Portal APIs.
 
 #### Enable HTTPS
 
@@ -186,14 +186,14 @@ You can find additional details regarding HTTPS support for the REST APIs in the
 
 **We highly recommend using your own corporate identity provider** (must be OAuth2/OIDC-compliant) to delegate authentication to your Management Console and Portal. You have several choices:
 
-* [Gravitee Access Management](https://documentation.gravitee.io/apim/getting-started/configuration/authentication-and-sso#gravitee-access-management-authentication)
+* [Gravitee Access Management](https://documentation.gravitee.io/apim#gravitee-access-management-authentication)
 * [GitHub](https://documentation.gravitee.io/apim/getting-started/configuration/authentication-and-sso#github-authentication)
 * [Google](https://documentation.gravitee.io/apim/getting-started/configuration/authentication-and-sso#google-authentication)
 * [Any compliant OAuth/OIDC server](https://documentation.gravitee.io/apim/getting-started/configuration/authentication-and-sso#openid-connect-authentication)
 
-Alternatively, you can rely on your [LDAP server](https://documentation.gravitee.io/apim/getting-started/configuration/authentication-and-sso#ldap-authentication).
+Alternatively, you can rely on your [LDAP server](https://documentation.gravitee.io/apim#ldap-authentication).
 
-It is preferable to rely on an external identity provider to handle security so you can easily comply with your internal company security policy. You can configure role mapping to automatically assign a role to a given user matching particular criteria. Refer to the [Gravitee documentation](https://documentation.gravitee.io/apim/getting-started/configuration/authentication-and-sso#gravitee-access-management-authentication) for an example of role or group mapping.
+It is preferable to rely on an external identity provider to handle security so you can easily comply with your internal company security policy. You can configure role mapping to automatically assign a role to a given user matching particular criteria. Refer to the [Gravitee documentation](https://documentation.gravitee.io/apim#gravitee-access-management-authentication) for an example of role or group mapping.
 
 #### Developer Portal authentication
 
