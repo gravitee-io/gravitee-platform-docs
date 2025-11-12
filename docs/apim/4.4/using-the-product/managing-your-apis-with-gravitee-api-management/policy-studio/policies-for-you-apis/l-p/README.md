@@ -4,7 +4,7 @@ Here are the policies that fall between L and O:
 
 * [latency.md](latency.md "mention")
 * [message-filtering.md](message-filtering.md "mention")
-* [mock.md](docs/apim/4.4/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/endpoints/v4-message-api-endpoints/mock.md "mention")
+* [mock.md](../../../configuring-apis-with-the-gravitee-api-management/v4-api-configuration/endpoints/v4-message-api-endpoints/mock.md "mention")
 * [oauth2](oauth2/ "mention")
 * [openid-connect-userinfo.md](openid-connect-userinfo.md "mention")
 * [override-http-method.md](override-http-method.md "mention")

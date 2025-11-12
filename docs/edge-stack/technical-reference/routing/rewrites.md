@@ -82,4 +82,4 @@ would be forwarded to:
 
 More than one group can be captured in the `pattern` to be referenced by `\2`, `\3` and `\n` in the `substitution` section.
 
-For more information on how `Mapping` can be configured, see [advanced-mapping-configuration.md](docs/edge-stack/technical-reference/using-custom-resources/advanced-mapping-configuration.md "mention").
+For more information on how `Mapping` can be configured, see [advanced-mapping-configuration.md](../using-custom-resources/advanced-mapping-configuration.md "mention").

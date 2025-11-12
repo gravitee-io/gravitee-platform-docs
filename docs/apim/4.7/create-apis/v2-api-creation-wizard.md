@@ -7,7 +7,7 @@ In Gravitee, your API definition is a JSON representation of your Gateway API. T
 {% hint style="warning" %}
 When you create an API with a JSON payload that has duplicate keys, APIM keeps the last key.
 
-To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection.md](docs/apim/4.7/policies/json-threat-protection.md "mention").
+To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection.md](../policies/json-threat-protection.md "mention").
 {% endhint %}
 
 ## Access the API creation wizard

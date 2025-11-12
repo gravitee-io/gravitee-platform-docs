@@ -73,7 +73,7 @@ would allow 30 seconds to validate the generated Envoy configuration.
 
 By default, Ambassador Edge Stack will pass through error responses without modification, and errors generated locally will use Envoy's default response body, if any.
 
-See [custom-error-responses.md](docs/edge-stack/technical-reference/traffic-management/custom-error-responses.md "mention") for usage details. For example, this configuration:
+See [custom-error-responses.md](../traffic-management/custom-error-responses.md "mention") for usage details. For example, this configuration:
 
 ```yaml
 error_response_overrides:
@@ -368,7 +368,7 @@ A `Mapping` can override both `enable_ipv4` and `enable_ipv6`, but if either is 
 
 **Cross origin resource sharing (CORS)**
 
-* `cors` sets the default CORS configuration for all mappings in the cluster. See the CORS syntax for more information: [cross-origin-resource-sharing-cors.md](docs/edge-stack/technical-reference/ingress-and-load-balancing/cross-origin-resource-sharing-cors.md "mention").
+* `cors` sets the default CORS configuration for all mappings in the cluster. See the CORS syntax for more information: [cross-origin-resource-sharing-cors.md](../ingress-and-load-balancing/cross-origin-resource-sharing-cors.md "mention").
 
 For example:
 

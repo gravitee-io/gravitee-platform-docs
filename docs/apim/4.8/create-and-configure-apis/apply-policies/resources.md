@@ -221,7 +221,7 @@ The LDAP Authentication Provider resource authenticates a user in LDAP.
 
 #### Configuration
 
-The following table shows the available configurations for the LDAP Authentication provider, including if the resource supports Secrets. For more information about Secrets, see [apply-secrets-to-apis.md](docs/apim/4.8/prepare-a-production-environment/sensitive-data-management/apply-secrets-to-apis.md "mention").
+The following table shows the available configurations for the LDAP Authentication provider, including if the resource supports Secrets. For more information about Secrets, see [apply-secrets-to-apis.md](../../prepare-a-production-environment/sensitive-data-management/apply-secrets-to-apis.md "mention").
 
 | Property              | Required | Description                                                                                                                                                    | Type             | Default                         | Supports EL | Supports Secrets |
 | --------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------------------------------- | ----------- | ---------------- |

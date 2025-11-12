@@ -57,6 +57,6 @@ The following table shows which features have been implemented for each of these
 
 See the following page to know how to use this integration:
 
-* [configure-secret-provider-plugins.md](docs/apim/4.8/prepare-a-production-environment/sensitive-data-management/configure-secret-provider-plugins.md "mention")
-* [apply-secrets-to-configurations.md](docs/apim/4.8/prepare-a-production-environment/sensitive-data-management/apply-secrets-to-configurations.md "mention")
-* [apply-secrets-to-apis.md](docs/apim/4.8/prepare-a-production-environment/sensitive-data-management/apply-secrets-to-apis.md "mention")
+* [configure-secret-provider-plugins.md](../prepare-a-production-environment/sensitive-data-management/configure-secret-provider-plugins.md "mention")
+* [apply-secrets-to-configurations.md](../prepare-a-production-environment/sensitive-data-management/apply-secrets-to-configurations.md "mention")
+* [apply-secrets-to-apis.md](../prepare-a-production-environment/sensitive-data-management/apply-secrets-to-apis.md "mention")

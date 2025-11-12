@@ -177,7 +177,7 @@ However, depending on the content-type, you can have access to specific content.
 {% hint style="warning" %}
 If a JSON payload that has duplicate keys, APIM keeps the last key.&#x20;
 
-To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection.md](docs/apim/4.6/policies/json-threat-protection.md "mention").
+To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection.md](../policies/json-threat-protection.md "mention").
 {% endhint %}
 
 You can access specific attribute of a JSON request/response payload with `{#request.jsonContent.foo.bar}` , where the request body is similar to the following example:

@@ -195,7 +195,7 @@ Here are examples for configuring secrets the following:
 * gravitee.yml (all products)
 * Helm Charts (APIM)
 
-For more information about API-level secrets, see [api-level-secrets.md](docs/apim/4.6/configure-v4-apis/api-level-secrets.md "mention").
+For more information about API-level secrets, see [api-level-secrets.md](../../configure-v4-apis/api-level-secrets.md "mention").
 
 ### gravitee.yml
 

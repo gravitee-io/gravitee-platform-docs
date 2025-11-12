@@ -2,9 +2,9 @@
 
 ## Overview
 
-You can configure secrets managers to work with your APIs. You can use secrets to hide information in any field that supports Gravitee Expression Language. For more information about Gravitee Expression Language, see [gravitee-expression-language.md](docs/apim/4.8/gravitee-expression-language.md "mention").
+You can configure secrets managers to work with your APIs. You can use secrets to hide information in any field that supports Gravitee Expression Language. For more information about Gravitee Expression Language, see [gravitee-expression-language.md](../../gravitee-expression-language.md "mention").
 
-Secret provider plugins extend the operable range of secret managers to resolve secrets on startup and resolve secrets in APIs. For more information about secret provider plugins, see [integrations.md](docs/apim/4.8/readme/integrations.md "mention").
+Secret provider plugins extend the operable range of secret managers to resolve secrets on startup and resolve secrets in APIs. For more information about secret provider plugins, see [integrations.md](../../readme/integrations.md "mention").
 
 This article explains the syntax used to resolve secrets in v4 APIs and configure secret managers.
 
@@ -243,7 +243,7 @@ Once a secret is resolved, whether it is found or in error, then other APIs won'
 
 Although secrets are resolved at the time of deployment, the secret reference is not evaluated immediately. You can access different context data both depending on the plugin and when the EL is evaluated.
 
-For more information on what you can access, see [gravitee-expression-language.md](docs/apim/4.8/gravitee-expression-language.md "mention").
+For more information on what you can access, see [gravitee-expression-language.md](../../gravitee-expression-language.md "mention").
 
 ### Secrets evaluated during API deployment
 

@@ -63,6 +63,6 @@ The following table shows which features have been implemented for each of these
 
 See the following page to know how to use this integration:
 
-* [secret-provider-plugins-configuration.md](docs/apim/4.6/configure-apim/sensitive-data-management/secret-provider-plugins-configuration.md "mention")
-* [configuration-level-secrets.md](docs/apim/4.6/configure-apim/sensitive-data-management/configuration-level-secrets.md "mention")
-* [api-level-secrets.md](docs/apim/4.6/configure-v4-apis/api-level-secrets.md "mention")
+* [secret-provider-plugins-configuration.md](../configure-apim/sensitive-data-management/secret-provider-plugins-configuration.md "mention")
+* [configuration-level-secrets.md](../configure-apim/sensitive-data-management/configuration-level-secrets.md "mention")
+* [api-level-secrets.md](../configure-v4-apis/api-level-secrets.md "mention")

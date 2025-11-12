@@ -46,8 +46,8 @@ You can filter APIs with the drop-down menus on the **APIs** screen. Here is a l
 
 * **API Type.** This is the type of API. For example, V4 - HTTP Proxy.
 * **API Status.** This maps to if your API is started or stopped on the Gateway.
-* **Sharding Tags.** These are the sharding tags that you set for your environment. For more information about sharding tags, see [sharding-tags.md](docs/apim/4.9/configure-and-manage-the-platform/gravitee-gateway/sharding-tags.md "mention").
-* **Categories.** These are the categories that you create in your Developer Portal's catalog. For more information about categories, see [#categories](docs/apim/4.9/developer-portal/classic-developer-portal/layout-and-theme.md#categories "mention").
+* **Sharding Tags.** These are the sharding tags that you set for your environment. For more information about sharding tags, see [sharding-tags.md](../../configure-and-manage-the-platform/gravitee-gateway/sharding-tags.md "mention").
+* **Categories.** These are the categories that you create in your Developer Portal's catalog. For more information about categories, see [#categories](../../developer-portal/classic-developer-portal/layout-and-theme.md#categories "mention").
 * **Portal Status.** This maps to whether or not your API is published in your Developer Portal.
 *   **Portal Visibility.** This maps to if your API is set to public or private in your Developer Portal.\\
 

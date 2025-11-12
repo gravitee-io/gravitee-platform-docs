@@ -228,5 +228,5 @@ There are many options for advanced mapping configurations, with features like a
 * [advanced-mapping-configuration.md](../../technical-reference/using-custom-resources/advanced-mapping-configuration.md "mention")&#x20;
 * [automatic-retries.md](../../technical-reference/ingress-and-load-balancing/automatic-retries.md "mention")
 * [timeouts.md](../../technical-reference/routing/timeouts.md "mention")
-* [basic-rate-limiting.md](docs/edge-stack/edge-stack-user-guide/rate-limiting/basic-rate-limiting.md "mention")
+* [basic-rate-limiting.md](../rate-limiting/basic-rate-limiting.md "mention")
 * [redirects.md](../../technical-reference/routing/redirects.md "mention")

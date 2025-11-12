@@ -6,9 +6,9 @@ description: Configuration and syntax to access secrets within v4 APIs.
 
 ## Overview
 
-You can configure secrets managers to work with your APIs. You can use secrets to hide information in any field that supports Gravitee Expression Language. For more information about Gravitee Expression Language, see [gravitee-expression-language.md](docs/apim/4.6/getting-started/gravitee-expression-language.md "mention").
+You can configure secrets managers to work with your APIs. You can use secrets to hide information in any field that supports Gravitee Expression Language. For more information about Gravitee Expression Language, see [gravitee-expression-language.md](../getting-started/gravitee-expression-language.md "mention").
 
-Secret provider plugins extend the operable range of secret managers to resolve secrets on startup and resolve secrets in APIs. For more information about these plugins, see [integrations.md](docs/apim/4.6/getting-started/integrations.md "mention").
+Secret provider plugins extend the operable range of secret managers to resolve secrets on startup and resolve secrets in APIs. For more information about these plugins, see [integrations.md](../getting-started/integrations.md "mention").
 
 This article explains the syntax for resolving secrets in v4 APIs and configuring secret managers with `secret-provider` plugins.
 
@@ -94,7 +94,7 @@ gateway:
 
 #### Use configuration-level secrets to configuration API-level secrets
 
-If you want to hide sensitive information in a secret manager, you must secure credentials. You can use [configuration-level-secrets.md](docs/apim/4.6/configure-apim/sensitive-data-management/configuration-level-secrets.md "mention") to hide credentials in `gravitee.yml`.&#x20;
+If you want to hide sensitive information in a secret manager, you must secure credentials. You can use [configuration-level-secrets.md](../configure-apim/sensitive-data-management/configuration-level-secrets.md "mention") to hide credentials in `gravitee.yml`.&#x20;
 
 Here is an example with Kubernetes:
 
@@ -206,7 +206,7 @@ Like any other EL, it can be embedded in a larger string, such as:&#x20;
 
 ### Secret URI syntax
 
-Secret URI syntax is a subset of secret URLs you can use with [configuration-level-secrets.md](docs/apim/4.6/configure-apim/sensitive-data-management/configuration-level-secrets.md "mention") (`secret://...`). Secret URI syntax allows you to specify the secret you want to resolve.
+Secret URI syntax is a subset of secret URLs you can use with [configuration-level-secrets.md](../configure-apim/sensitive-data-management/configuration-level-secrets.md "mention") (`secret://...`). Secret URI syntax allows you to specify the secret you want to resolve.
 
 A URI is composed of the following components:
 
@@ -247,7 +247,7 @@ Once a secret is resolved, whether it is found or in error, then other APIs won'
 
 Although secrets are resolved at the time of deployment, the secret reference is not evaluated immediately. You can access different context data both depending on the plugin and when the EL is evaluated.
 
-For more information on what you can access, see [gravitee-expression-language.md](docs/apim/4.6/getting-started/gravitee-expression-language.md "mention").
+For more information on what you can access, see [gravitee-expression-language.md](../getting-started/gravitee-expression-language.md "mention").
 
 ### Secrets evaluated during API deployment
 

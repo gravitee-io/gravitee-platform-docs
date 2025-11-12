@@ -311,7 +311,7 @@ However, defining a policy or a flow condition based on the request or response 
 {% hint style="warning" %}
 If a JSON payload has duplicate keys, APIM keeps the last key.
 
-To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection.md](docs/apim/4.7/policies/json-threat-protection.md "mention").
+To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection.md](../../policies/json-threat-protection.md "mention").
 {% endhint %}
 
 Using the reactive execution engine, you can access the request/response raw content using `{#request.content}` .

@@ -23,7 +23,7 @@ In this guide, you'll learn how to import AI agents from their Agent Cards, enri
 
 ## Prerequisites
 
-* You must have an Enterprise Edition license. For more information about an Enterprise License, see [enterprise-edition.md](docs/apim/4.8/readme/enterprise-edition.md "mention").&#x20;
+* You must have an Enterprise Edition license. For more information about an Enterprise License, see [enterprise-edition.md](../readme/enterprise-edition.md "mention").&#x20;
 * You must enable Federation. For more information about enabling Federation, see [federation](../govern-apis/federation/ "mention").
 
 ## Create an A2A protocol integration&#x20;

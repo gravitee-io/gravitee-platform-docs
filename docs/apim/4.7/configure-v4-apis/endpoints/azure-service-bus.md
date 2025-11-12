@@ -49,7 +49,7 @@ Define the following:
 
 ### Tenants
 
-You can configure tenants to specify which users can proxy requests to this endpoint. Tenants ensure that certain groups of users receive information from only specific APIs. For more information about configuring tenants, see [tenants.md](docs/apim/4.7/gravitee-gateway/tenants.md "mention").
+You can configure tenants to specify which users can proxy requests to this endpoint. Tenants ensure that certain groups of users receive information from only specific APIs. For more information about configuring tenants, see [tenants.md](../../gravitee-gateway/tenants.md "mention").
 
 ## Reference
 

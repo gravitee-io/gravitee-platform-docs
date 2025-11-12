@@ -66,7 +66,7 @@ metadata:
 {% hint style="info" %}
 **For more information**
 
-* For a detailed guide on managing subscriptions with GKO, see [manage-jwt-subscriptions-with-gko.md](docs/gko/4.10/guides/manage-jwt-subscriptions-with-gko.md "mention").
+* For a detailed guide on managing subscriptions with GKO, see [manage-jwt-subscriptions-with-gko.md](../../guides/manage-jwt-subscriptions-with-gko.md "mention").
 * The `Subscription` CRD code is available on [GitHub](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/api/v1alpha1/subscription_types.go).
 * The `Subscription` CRD API reference is documented [here](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/docs/api/reference.md#subscription).
 {% endhint %}

@@ -38,7 +38,7 @@ A `secret provider` plugin must be either bundled or added to the plugin directo
 
 You can enable `secret-provider` plugins by configuring them in `gravitee.yml`. The configurations for each secret provider plugin are discussed in the following sections.
 
-The following examples are for `gravitee.yml`. For information about using these examples in Helm charts and with environment variables, see [reference-secrets-in-configurations.md](docs/apim/4.9/prepare-a-production-environment/sensitive-data-management/configure-secrets/reference-secrets-in-configurations.md "mention").
+The following examples are for `gravitee.yml`. For information about using these examples in Helm charts and with environment variables, see [reference-secrets-in-configurations.md](../configure-secrets/reference-secrets-in-configurations.md "mention").
 
 ### Kubernetes
 
