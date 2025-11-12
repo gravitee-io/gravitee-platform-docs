@@ -27,7 +27,7 @@ To perform a new EE installation:
 1. Download the full bundles of the desired products (APIM, AM, AE) from [the Gravitee platform downloads page](https://www.gravitee.io/downloads).
 2. Install the relevant product bundles by following the relevant [APIM](/apim/getting-started/install-guides) and [AM](/am/getting-started/install-and-upgrade-guides) installation guides.
 3. Download/install the desired EE modules.
-   1. To install AE, consult the Alert Engine section on the [Gravitee downloads web page](https://www.gravitee.io/downloads) and/or follow [AE](https://documentation.gravitee.io/ae/getting-started/install-and-upgrade-guides) installation guide.
+   1. To install AE, consult the Alert Engine section on the [Gravitee downloads web page](https://www.gravitee.io/downloads) and/or follow [AE](../../../ae/getting-started/install-and-upgrade-guides/README.md) installation guide.
    2. EE plugins are installed from their respective repositories in GitHub. Gravitee’s EE plugin repositories are private and their names are prefixed as `gravitee-io/gravitee-policy-<plugin-name>`. For example, the Data Logging Masking Policy repository is at `https://github.com/gravitee-io/gravitee-policy-data-logging-masking`. To request access to private EE plugin repositories, email [contact@graviteesource.com](mailto:contact@graviteesource.com) in case you have not been granted such access already as part of your EE license request process.
 4. Request an EE license by emailing [contact@graviteesource.com](mailto:contact@graviteesource.com).
 5. [Apply the EE license](enterprise-edition-licensing.md#applying-an-ee-license) to the relevant existing product instances.
@@ -42,7 +42,7 @@ We have removed the option to install EE bundles and EE licenses using Docker as
 ### Migrating from an existing CE installation
 
 {% hint style="warning" %}
-Before you proceed, please ensure that you are running a [long-term support (LTS) version](docs/platform-overview/gravitee-platform/release-types-and-support-model.md) of the respective product(s).
+Before you proceed, please ensure that you are running a [long-term support (LTS) version](../release-types-and-support-model.md) of the respective product(s).
 {% endhint %}
 
 To migrate from an existing Community Edition (CE) installation to EE:

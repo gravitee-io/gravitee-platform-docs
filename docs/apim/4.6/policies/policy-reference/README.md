@@ -6,72 +6,72 @@ The following policies can be applied to Gravitee APIs.
 Policies marked with an asterisk require an Enterprise Edition license.
 {% endhint %}
 
-* [API Key](docs/apim/4.6/policies/api-key.md)
-* [Assign Attributes](docs/apim/4.6/policies/assign-attributes.md)
-* [Assign Content](docs/apim/4.6/policies/assign-content.md)
-* [Assign Metrics](docs/apim/4.6/policies/assign-metrics.md)\*
-* [AVRO to JSON Transformation](docs/apim/4.6/policies/avro-to-json.md)\*
-* [AVRO to Protobuf Transformation](docs/apim/4.6/policies/avro-to-protobuf.md)\*
-* [AWS Lambda](docs/apim/4.6/policies/aws-lambda.md)
-* [Basic Authentication](docs/apim/4.6/policies/basic-authentication.md)
-* [Cache](docs/apim/4.6/policies/cache.md)
-* [Circuit Breaker](docs/apim/4.6/policies/circuit-breaker.md)
-* [CloudEvents](docs/apim/4.6/policies/cloudevents.md)\*
-* [Custom Query Parameters Parser](docs/apim/4.6/policies/custom-query-parameters-parser.md)
-* [Data Cache](docs/apim/4.6/policies/data-cache.md)
-* [Data Logging Masking](docs/apim/4.6/policies/data-logging-masking.md)\*
-* [Dynamic Routing](docs/apim/4.6/policies/dynamic-routing.md)
-* [Generate HTTP Signature](docs/apim/4.6/policies/generate-http-signature.md)
-* [Generate JWT](docs/apim/4.6/policies/generate-jwt.md)
-* [GeoIP Filtering](docs/apim/4.6/policies/geoip-filtering.md)\*
-* [GraphQL Rate Limit](docs/apim/4.6/policies/graphql-rate-limit.md)\*
-* [Groovy](docs/apim/4.6/policies/groovy.md)
-* [HTML to JSON Transformation](docs/apim/4.6/policies/html-to-json.md)
-* [HTTP Callout](docs/apim/4.6/policies/http-callout.md)
-* [HTTP Signature](docs/apim/4.6/policies/http-signature.md)
-* [InterOPS](docs/apim/4.6/policies/interops.md)\*
-* [Interrupt](docs/apim/4.6/policies/interrupt.md)
-* [IP Filtering](docs/apim/4.6/policies/ip-filtering.md)
-* [JavaScript](docs/apim/4.6/policies/javascript.md)
-* [JSON Threat Protection](docs/apim/4.6/policies/json-threat-protection.md)
-* [JSON to JSON Transformation](docs/apim/4.6/policies/json-to-json.md)
-* [JSON Validation](docs/apim/4.6/policies/json-validation.md)
-* [JSON to XML Transformation](docs/apim/4.6/policies/json-to-xml.md)
-* [JWS Validator](docs/apim/4.6/policies/jws-validator.md)
-* [JWT Validator](docs/apim/4.6/policies/jwt-validator.md)
+* [API Key](../api-key.md)
+* [Assign Attributes](../assign-attributes.md)
+* [Assign Content](../assign-content.md)
+* [Assign Metrics](../assign-metrics.md)\*
+* [AVRO to JSON Transformation](../avro-to-json.md)\*
+* [AVRO to Protobuf Transformation](../avro-to-protobuf.md)\*
+* [AWS Lambda](../aws-lambda.md)
+* [Basic Authentication](../basic-authentication.md)
+* [Cache](../cache.md)
+* [Circuit Breaker](../circuit-breaker.md)
+* [CloudEvents](../cloudevents.md)\*
+* [Custom Query Parameters Parser](../custom-query-parameters-parser.md)
+* [Data Cache](../data-cache.md)
+* [Data Logging Masking](../data-logging-masking.md)\*
+* [Dynamic Routing](../dynamic-routing.md)
+* [Generate HTTP Signature](../generate-http-signature.md)
+* [Generate JWT](../generate-jwt.md)
+* [GeoIP Filtering](../geoip-filtering.md)\*
+* [GraphQL Rate Limit](../graphql-rate-limit.md)\*
+* [Groovy](../groovy.md)
+* [HTML to JSON Transformation](../html-to-json.md)
+* [HTTP Callout](../http-callout.md)
+* [HTTP Signature](../http-signature.md)
+* [InterOPS](../interops.md)\*
+* [Interrupt](../interrupt.md)
+* [IP Filtering](../ip-filtering.md)
+* [JavaScript](../javascript.md)
+* [JSON Threat Protection](../json-threat-protection.md)
+* [JSON to JSON Transformation](../json-to-json.md)
+* [JSON Validation](../json-validation.md)
+* [JSON to XML Transformation](../json-to-xml.md)
+* [JWS Validator](../jws-validator.md)
+* [JWT Validator](../jwt-validator.md)
 * [Kafka ACL](/apim/kafka-gateway/policies/kafka-acl)\*
 * [Kafka Quota](/apim/kafka-gateway/policies/kafka-quota)\*
 * [Kafka Topic Mapping](/apim/kafka-gateway/policies/kafka-topic-mapping)\*
-* [Keyless](docs/apim/4.6/policies/keyless.md)
-* [Latency](docs/apim/4.6/policies/latency.md)
-* [Maven Archetype](docs/apim/4.6/policies/maven-archetype.md)
-* [Message Filtering](docs/apim/4.6/policies/message-filtering.md)
-* [Metrics Reporter](docs/apim/4.6/policies/metrics-reporter.md)
-* [Mock](docs/apim/4.6/policies/mock.md)
-* [mTLS](docs/apim/4.6/policies/mtls.md)
-* [OAS Validation](docs/apim/4.6/policies/oas-validation.md)\*
+* [Keyless](../keyless.md)
+* [Latency](../latency.md)
+* [Maven Archetype](../maven-archetype.md)
+* [Message Filtering](../message-filtering.md)
+* [Metrics Reporter](../metrics-reporter.md)
+* [Mock](../mock.md)
+* [mTLS](../mtls.md)
+* [OAS Validation](../oas-validation.md)\*
 * [OAuth2](../oauth2/)
-* [OpenID Connect UserInfo](docs/apim/4.6/policies/openid-connect-userinfo.md)
-* [Override HTTP Method](docs/apim/4.6/policies/override-http-method.md)
-* [Protobuf to JSON Transformation](docs/apim/4.6/policies/protobuf-to-json.md)\*
-* [Rate Limit](docs/apim/4.6/policies/rate-limit.md)
-* [Regex Threat Protection](docs/apim/4.6/policies/regex-threat-protection.md)
-* [Request Content Limit](docs/apim/4.6/policies/request-content-limit.md)
-* [Request Validation](docs/apim/4.6/policies/request-validation.md)
-* [Resource Filtering](docs/apim/4.6/policies/resource-filtering.md)
-* [REST to SOAP Transformation](docs/apim/4.6/policies/rest-to-soap.md)
-* [Retry](docs/apim/4.6/policies/retry.md)
-* [RBAC](docs/apim/4.6/policies/role-based-access-control-rbac.md)
-* [SSL Enforcement](docs/apim/4.6/policies/ssl-enforcement.md)
-* [Status Code Transformation](docs/apim/4.6/policies/status-code-transformation.md)
-* [Template](docs/apim/4.6/policies/template.md)
-* [Traffic Shadowing](docs/apim/4.6/policies/traffic-shadowing.md)
-* [Transform Headers](docs/apim/4.6/policies/transform-headers.md)
-* [Transform Query Parameters](docs/apim/4.6/policies/transform-query-parameters.md)
-* [URL Rewriting](docs/apim/4.6/policies/url-rewriting.md)
-* [WS Security Authentication](docs/apim/4.6/policies/ws-security-authentication.md)\*
-* [WS Security Sign](docs/apim/4.6/policies/ws-security-sign.md)\*
-* [XML to JSON Transformation](docs/apim/4.6/policies/xml-to-json.md)
-* [XML Threat Protection](docs/apim/4.6/policies/xml-threat-protection.md)
-* [XML Validation](docs/apim/4.6/policies/xml-validation.md)
-* [XSLT Transformation](docs/apim/4.6/policies/xslt.md)\*
+* [OpenID Connect UserInfo](../openid-connect-userinfo.md)
+* [Override HTTP Method](../override-http-method.md)
+* [Protobuf to JSON Transformation](../protobuf-to-json.md)\*
+* [Rate Limit](../rate-limit.md)
+* [Regex Threat Protection](../regex-threat-protection.md)
+* [Request Content Limit](../request-content-limit.md)
+* [Request Validation](../request-validation.md)
+* [Resource Filtering](../resource-filtering.md)
+* [REST to SOAP Transformation](../rest-to-soap.md)
+* [Retry](../retry.md)
+* [RBAC](../role-based-access-control-rbac.md)
+* [SSL Enforcement](../ssl-enforcement.md)
+* [Status Code Transformation](../status-code-transformation.md)
+* [Template](../template.md)
+* [Traffic Shadowing](../traffic-shadowing.md)
+* [Transform Headers](../transform-headers.md)
+* [Transform Query Parameters](../transform-query-parameters.md)
+* [URL Rewriting](../url-rewriting.md)
+* [WS Security Authentication](../ws-security-authentication.md)\*
+* [WS Security Sign](../ws-security-sign.md)\*
+* [XML to JSON Transformation](../xml-to-json.md)
+* [XML Threat Protection](../xml-threat-protection.md)
+* [XML Validation](../xml-validation.md)
+* [XSLT Transformation](../xslt.md)\*

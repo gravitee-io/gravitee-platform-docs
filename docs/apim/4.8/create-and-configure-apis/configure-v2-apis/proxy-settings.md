@@ -62,7 +62,7 @@ All requests rejected because of CORS issues will generate logs that you can vie
 
 ## Deployments
 
-**Deployments** is where you can choose to use [sharding tags](docs/apim/4.8/configure-and-manage-the-platform/gravitee-gateway/sharding-tags.md) sharding tags to control where your API is deployed. To configure sharding tags for your API:
+**Deployments** is where you can choose to use [sharding tags](../../configure-and-manage-the-platform/gravitee-gateway/sharding-tags.md) sharding tags to control where your API is deployed. To configure sharding tags for your API:
 
 1.  Select **Deployments** from the inner left nav
 
@@ -169,7 +169,7 @@ Key-value pairs can also be maintained using a dictionary, e.g., if this informa
 
 ## Resources
 
-Some policies support the addition of [resources](docs/apim/4.8/create-and-configure-apis/apply-policies/resources.md), which can be used for actions such as authentication and schema registry validation. After you create resources, you will be able to reference them when designing policies. Policies that support resources include:
+Some policies support the addition of [resources](../apply-policies/resources.md), which can be used for actions such as authentication and schema registry validation. After you create resources, you will be able to reference them when designing policies. Policies that support resources include:
 
 <table data-header-hidden><thead><tr><th width="242"></th><th></th></tr></thead><tbody><tr><td>Basic Authentication</td><td>Specify an LDAP Authentication Provider resource and/or an Inline Authentication Provider resource to authenticate users in memory</td></tr><tr><td>Cache</td><td>Specify a cache resource via the Cache or Cache Redis resources</td></tr><tr><td>HTTP Signature<br>Generate HTTP Signature</td><td>Specify your HTTP Authentication Provider resource</td></tr><tr><td>OAuth2</td><td>Specify a Generic OAuth2 Authorization Server resource or a Gravitee AM Authorization Server resource</td></tr><tr><td>OpenID Connect UserInfo</td><td>Specify a Keycloak Adapter resource to use Keycloak as your OpenID Connect resource</td></tr><tr><td>AVRO to JSON<br>AVRO to Protobuf<br>Protobuf to JSON</td><td>Specify your Confluent Schema Registry to retrieve serialization and deserialization schemas from a Confluent Schema registry</td></tr></tbody></table>
 

@@ -67,7 +67,7 @@ Examples:
 * Applying header or query parameter transformations
 * Applying rate limiting or quotas to avoid API flooding
 
-See [Custom Policies ](docs/apim/4.5/using-the-product/using-the-gravitee-api-management-components/general-configuration/plans-and-policies/custom-policies.md)for how to create, use, and deploy a custom policy.
+See [Custom Policies ](../../../using-the-product/using-the-gravitee-api-management-components/general-configuration/plans-and-policies/custom-policies.md)for how to create, use, and deploy a custom policy.
 
 </details>
 

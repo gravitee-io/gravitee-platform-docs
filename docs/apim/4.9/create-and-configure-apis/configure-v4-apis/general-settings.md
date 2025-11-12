@@ -36,7 +36,7 @@ The **Configuration** page shows two main areas under the **General** tab:
 {% tab title="Danger zone" %}
 This section includes access to mission-critical (and potentially dangerous) actions:
 
-* **Start/stop the API:** Deploy the API to all Gateways, or the Gateways specified using [sharding tags](docs/apim/4.9/configure-and-manage-the-platform/gravitee-gateway/sharding-tags.md)
+* **Start/stop the API:** Deploy the API to all Gateways, or the Gateways specified using [sharding tags](../../configure-and-manage-the-platform/gravitee-gateway/sharding-tags.md)
 * **Publish the API:** Publish the API to the Developer Portal
 * **Make Public:** Make the API public so that everybody can see it
 * **Deprecate:** Unpublish the API from the Developer Portal

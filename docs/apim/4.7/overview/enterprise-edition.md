@@ -26,7 +26,7 @@ EE plugins are installed from their respective repositories in GitHub. Graviteeâ
 
 For example, the Data Logging Masking policy repository is at `https://github.com/gravitee-io/gravitee-policy-data-logging-masking`.&#x20;
 
-If you have not been granted access to private EE plugin repositories as part of your EE license request process, email [contact@graviteesource.com](mailto:contact@graviteesource.com). Information on plugin deployment can be found [here](docs/apim/4.7/getting-started/plugins/deployment.md#deployment). Packs are described in more detail below.
+If you have not been granted access to private EE plugin repositories as part of your EE license request process, email [contact@graviteesource.com](mailto:contact@graviteesource.com). Information on plugin deployment can be found [here](../getting-started/plugins/deployment.md#deployment). Packs are described in more detail below.
 
 <details>
 
@@ -47,8 +47,8 @@ The Enterprise Policy pack includes policies that are typically necessary for en
 
 The Event-native pack includes capabilities that enable Gravitee to expose, secure, and govern asynchronous APIs and event brokers:
 
-* [**v4 message API entrypoints**](docs/apim/4.7/create-apis/v4-api-creation-wizard.md#step-2-entrypoints)**:** Access the Gateway and/or consume various message-based backend resources via **HTTP GET**, **HTTP POST**, **Server-sent Events**, **Webhook**, and/or **WebSocket**
-* [**v4 message API endpoints**](docs/apim/4.7/create-apis/v4-api-creation-wizard.md#introspect-messages-from-event-driven-backend-endpoints)**:**
+* [**v4 message API entrypoints**](../create-apis/v4-api-creation-wizard.md#step-2-entrypoints)**:** Access the Gateway and/or consume various message-based backend resources via **HTTP GET**, **HTTP POST**, **Server-sent Events**, **Webhook**, and/or **WebSocket**
+* [**v4 message API endpoints**](../create-apis/v4-api-creation-wizard.md#introspect-messages-from-event-driven-backend-endpoints)**:**
   * Allow the Gateway to open up a persistent connection and/or call a backend:
     * **Kafka** broker via a Kafka client
     * **MQTT** broker running on MQTT 5.x, via an MQTT client&#x20;
@@ -58,7 +58,7 @@ The Event-native pack includes capabilities that enable Gravitee to expose, secu
 * **Message Filtering policy:** Filter messages streamed to clients/subscribers based on API publisher and/or client criteria.
 * **AVRO to JSON policy:** Transform information from Avro format to JSON format.
 * **Gateway message reactor plugin:** Enable the Gravitee Gateway to intercept and introspect messages when publishing and subscribing to/from message-based systems.
-* [**Confluent Schema Registry resource**](docs/apim/4.7/policies/resources.md#confluent-schema-registry)**:** Define Confluent Schema Registry as a resource for serialization and deserialization policies.
+* [**Confluent Schema Registry resource**](../policies/resources.md#confluent-schema-registry)**:** Define Confluent Schema Registry as a resource for serialization and deserialization policies.
 
 </details>
 
@@ -79,8 +79,8 @@ The Legacy Upgrade pack comprises the following plugins and capabilities to enab
 
 The Observability pack includes capabilities to better implement enterprise-grade API monitoring and observability:
 
-* [**Datadog reporter**](docs/apim/4.7/gravitee-gateway/reporters/datadog-reporter.md#datadog-reporter): Push API metrics to your Datadog instance and dashboards.
-* [**TCP reporter**](docs/apim/4.7/gravitee-gateway/reporters/tcp-reporter.md#tcp-reporter): Report Gateway events to a TCP listening server.
+* [**Datadog reporter**](../gravitee-gateway/reporters/datadog-reporter.md#datadog-reporter): Push API metrics to your Datadog instance and dashboards.
+* [**TCP reporter**](../gravitee-gateway/reporters/tcp-reporter.md#tcp-reporter): Report Gateway events to a TCP listening server.
 
 </details>
 
@@ -100,7 +100,7 @@ Not technically a part of the Access Management product, Gravitee offers a stand
 
 ## Advanced environment management
 
-Gravitee APIM EE includes [Gravitee C](https://documentation.gravitee.io/gravitee-cloud)[loud](https://documentation.gravitee.io/gravitee-cloud), used to register multiple APIM environments and installations. This allows you to manage environment hierarchies and promote APIs across higher and lower environments.
+Gravitee APIM EE includes [Gravitee C](../../../gravitee-cloud/README.md)[loud](../../../gravitee-cloud/README.md), used to register multiple APIM environments and installations. This allows you to manage environment hierarchies and promote APIs across higher and lower environments.
 
 ## Hosting options
 

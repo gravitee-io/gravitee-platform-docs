@@ -20,7 +20,7 @@ The following sections describe how to:
 
 ### prerequisites
 
-* [Install Gravitee with `docker-compose`](docs/apim/4.6/install-and-upgrade/docker/docker-compose.md)
+* [Install Gravitee with `docker-compose`](../install-and-upgrade/docker/docker-compose.md)
 
 ### 1. Install a HashiCorp Consul server
 

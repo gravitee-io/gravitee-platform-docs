@@ -34,13 +34,13 @@ This default AuthService works for most use cases. If you need to tune how Edge 
 
 ### Authentication extension configuration
 
-Certain use cases may require some tuning of the authentication extension. Configuration of this extension is managed via environment variables. [The Ambassador container](docs/edge-stack/edge-stack-user-guide/deployment/ambassador-edge-stack-environment-variables-and-ports.md) has a full list of environment variables available for configuration, including the variables used by the authentication extension.
+Certain use cases may require some tuning of the authentication extension. Configuration of this extension is managed via environment variables. [The Ambassador container](../deployment/ambassador-edge-stack-environment-variables-and-ports.md) has a full list of environment variables available for configuration, including the variables used by the authentication extension.
 
 **Redis**
 
 The authentication extension uses Redis for caching the response from the `token endpoint` when performing OAuth.
 
-Edge Stack shares the same Redis pool for all features that use Redis. More information is available for [tuning Redis](docs/edge-stack/edge-stack-user-guide/deployment/ambassador-edge-stack-and-redis.md) if needed.
+Edge Stack shares the same Redis pool for all features that use Redis. More information is available for [tuning Redis](../deployment/ambassador-edge-stack-and-redis.md) if needed.
 
 **Timeout variables**
 

@@ -67,7 +67,7 @@ Examples:
 * Applying header or query parameter transformations
 * Applying rate limiting or quotas to avoid API flooding
 
-See [Custom Policies ](docs/apim/4.8/create-and-configure-apis/apply-policies/custom-policies.md)for how to create, use, and deploy a custom policy.
+See [Custom Policies ](../create-and-configure-apis/apply-policies/custom-policies.md)for how to create, use, and deploy a custom policy.
 
 </details>
 

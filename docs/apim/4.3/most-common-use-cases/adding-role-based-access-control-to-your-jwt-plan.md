@@ -6,7 +6,7 @@ This tutorial builds off of [Configure JWT Security with APIM](configure-jwt-sec
 
 ## Overview
 
-Gravitee API Management (APIM) has a [Role-based Access Control policy](docs/apim/4.3/reference/policy-reference/role-based-access-control-rbac.md) that can act as an additional security and access control measure. This allows fine-grained control over which applications can access which resources based on their assigned roles.
+Gravitee API Management (APIM) has a [Role-based Access Control policy](../reference/policy-reference/role-based-access-control-rbac.md) that can act as an additional security and access control measure. This allows fine-grained control over which applications can access which resources based on their assigned roles.
 
 Due to some community requests, this tutorial will serve as a short extension of the [Configure JWT Security with APIM](configure-jwt-security-with-apim.md) tutorial. This tutorial will show how to configure the Role-based Access Control (RBAC) policy on a JWT plan when using an IdP. Additionally, we will configure the policy to only be active on a sub-resource of our backend API server.
 

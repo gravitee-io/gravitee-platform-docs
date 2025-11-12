@@ -3,7 +3,7 @@
 {% hint style="warning" %}
 **Changes to Gravitee Dictionaries in Version 4.7.6**
 
-Starting from version 4.7.6, you can use dictionaries in a [Multi-tenancy](docs/apim/4.7/install-and-upgrade/multi-tenancy.md) setup. With this new capability, you can complete the following actions:
+Starting from version 4.7.6, you can use dictionaries in a [Multi-tenancy](../install-and-upgrade/multi-tenancy.md) setup. With this new capability, you can complete the following actions:
 
 * create dictionaries with the same name in different environments
 * promote APIs between environments without renaming dictionaries
@@ -38,7 +38,7 @@ Dictionaries need to be deployed to the API Gateway before you can use them. You
 {% hint style="info" %}
 **How are dictionaries used?**
 
-You can use dictionaries anywhere in APIM where [Gravitee Expression Language](docs/apim/4.7/getting-started/gravitee-expression-language.md) is supported, such as when defining policies for API flows. You can access dictionary properties with the Expression Language statement `#dictionaries`.
+You can use dictionaries anywhere in APIM where [Gravitee Expression Language](../getting-started/gravitee-expression-language.md) is supported, such as when defining policies for API flows. You can access dictionary properties with the Expression Language statement `#dictionaries`.
 {% endhint %}
 
 ## Create a new dictionary

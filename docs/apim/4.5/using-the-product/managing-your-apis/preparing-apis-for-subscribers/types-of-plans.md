@@ -16,7 +16,7 @@ A Keyless plan does not require configuration other than general plan settings a
 
 Due to not requiring a subscription and the lack of a consumer identifier token, Keyless consumers are set as `unknown application` in the API analytics section.
 
-You can configure basic authentication for Keyless plans by associating a [Basic Authentication policy](docs/apim/4.5/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/a-c/basic-authentication.md) that uses either an LDAP or inline resource.
+You can configure basic authentication for Keyless plans by associating a [Basic Authentication policy](../policy-studio/policies-for-your-apis/a-c/basic-authentication.md) that uses either an LDAP or inline resource.
 
 </details>
 

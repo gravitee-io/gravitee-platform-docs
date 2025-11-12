@@ -80,7 +80,7 @@ For more information, please refer to [the Alert Engine documentation](/ae/overv
 
 ## Advanced environment management
 
-Gravitee APIM EE includes [Gravitee Cockpit](https://documentation.gravitee.io/gravitee-cloud), which you can use to register multiple APIM environments and installations. This allows you to manage environment hierarchies and promote APIs across higher and lower environments.
+Gravitee APIM EE includes [Gravitee Cockpit](../../../../gravitee-cloud/README.md), which you can use to register multiple APIM environments and installations. This allows you to manage environment hierarchies and promote APIs across higher and lower environments.
 
 ## Hosting options
 
@@ -90,7 +90,7 @@ An investment in Gravitee EE is an investment in deployment flexibility, and, op
 * **Gravitee-managed deployments**: Gravitee hosts and manages all AM components within its own cloud environment.
 * **Hybrid deployment**: Gravitee hosts and manages some AM components within its cloud environment while you manage others within your private cloud/environment.
 
-For more information on each, please refer to our [AM Architecture documentation](docs/am/4.5/overview/am-architecture.md).
+For more information on each, please refer to our [AM Architecture documentation](../am-architecture.md).
 
 ## Support options
 

@@ -28,7 +28,7 @@ To access your API's **Info** page, click on **APIs** in the left nav, select yo
   * Owner and creation information
   * The ability to export your API definition, import a new API definition to update your API, duplicate your API, and promote your API
 * **Danger Zone:** This section includes access to mission-critical (and potentially dangerous) actions:
-  * **Start the API**: Deploy the API to all Gateways, or the Gateways specified using [Sharding tags](docs/apim/4.1/getting-started/configuration/the-gravitee-api-gateway/configure-sharding-tags-for-your-gravitee-api-gateways.md)
+  * **Start the API**: Deploy the API to all Gateways, or the Gateways specified using [Sharding tags](../../../getting-started/configuration/the-gravitee-api-gateway/configure-sharding-tags-for-your-gravitee-api-gateways.md)
   * **Publish the API**: Publish the API to the Developer Portal
   * **Make Public**: Make the API public so that everybody can see it
   * **Delete**: Delete the API

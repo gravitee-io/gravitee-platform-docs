@@ -15,7 +15,7 @@ Gravitee version 4.1 was released on September 28th, 2023. 4.1 introduced DB-les
 {% hint style="info" %}
 **Changelog vs release notes**
 
-If you want a more condensed version of what's new, please refer to the [Changelog](docs/apim/4.1/releases-and-changelog/changelog/apim-4.1.x.md). Also, if you want to learn about breaking changes or bug fixes, we are tracking those in the changelog as well.
+If you want a more condensed version of what's new, please refer to the [Changelog](../changelog/apim-4.1.x.md). Also, if you want to learn about breaking changes or bug fixes, we are tracking those in the changelog as well.
 {% endhint %}
 
 ## User feedback portal

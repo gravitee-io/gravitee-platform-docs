@@ -50,7 +50,7 @@ The **Settings** page allows you to define the following:
   * **Probabilistic:** Messages are sampled based on a specified probability value between 0.01 and 0.5.
   * **Count:** One message is sampled for every number specified, where the specified value must be greater than 10.
   * **Temporal:** Messages are sampled based on a specified time duration value that conforms to ISO-8601 format.
-* **Display conditions:** You have the ability to filter the message data based on **Request phase condition** and **Message condition**. Each of these fields supports the use of [Gravitee Expression Language](docs/apim/4.1/guides/gravitee-expression-language.md).
+* **Display conditions:** You have the ability to filter the message data based on **Request phase condition** and **Message condition**. Each of these fields supports the use of [Gravitee Expression Language](../../../guides/gravitee-expression-language.md).
 
 ### View messages
 

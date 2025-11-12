@@ -3,7 +3,7 @@
 With phone call verification, you can receive a verification code via a phone call to be used as the second factor to validate a user’s account.
 
 {% hint style="info" %}
-Phone call MFA requires a compatible [resource](docs/am/4.5/guides/resources.md).
+Phone call MFA requires a compatible [resource](../../resources.md).
 {% endhint %}
 
 If you enable a **Call** type factor for your application, the next time your users log in they will see the following screens:

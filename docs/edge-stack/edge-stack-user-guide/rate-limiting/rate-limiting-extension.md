@@ -37,7 +37,7 @@ This configures Envoy to send requests that are labeled for rate limiting to the
 
 ## Authentication extension configuration
 
-Certain use cases may require some tuning of the rate limiting extension. Configuration of this extension is managed via environment variables. [The Ambassador Container](docs/edge-stack/edge-stack-user-guide/deployment/ambassador-edge-stack-environment-variables-and-ports.md) has a full list of environment variables available for configuration. This document highlights the ones used by the rate limiting extension.
+Certain use cases may require some tuning of the rate limiting extension. Configuration of this extension is managed via environment variables. [The Ambassador Container](../deployment/ambassador-edge-stack-environment-variables-and-ports.md) has a full list of environment variables available for configuration. This document highlights the ones used by the rate limiting extension.
 
 ### Redis
 
@@ -45,7 +45,7 @@ The rate limiting extension relies heavily on redis for writing and reading coun
 
 The Ambassador Edge Stack shares the same Redis pool for all features that use Redis.
 
-See the [Redis documentation](docs/edge-stack/edge-stack-user-guide/deployment/ambassador-edge-stack-and-redis.md) for information on Redis tuning.
+See the [Redis documentation](../deployment/ambassador-edge-stack-and-redis.md) for information on Redis tuning.
 
 #### REDIS\_PERSECOND
 

@@ -89,5 +89,5 @@ The plugin identifier must be unique for the APIM Gateway to load it correctly
 {% endtabs %}
 
 {% hint style="info" %}
-See [this page](docs/apim/4.3/overview/plugins.md#deployment) to learn how to deploy your custom plugin
+See [this page](../../overview/plugins.md#deployment) to learn how to deploy your custom plugin
 {% endhint %}

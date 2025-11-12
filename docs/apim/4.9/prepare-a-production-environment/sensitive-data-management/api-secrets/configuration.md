@@ -15,7 +15,7 @@ This article explains the syntax Gravitee uses to resolve secrets in v4 APIs and
 {% hint style="info" %}
 To learn more about Gravitee [Enterprise Edition](/apim/readme/enterprise-edition) and what's included in various enterprise packages, please:
 
-* [Book a demo](https://documentation.gravitee.io/platform-overview/)
+* [Book a demo](../../../../../platform-overview/README.md)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
 
@@ -296,7 +296,7 @@ Here are more options that can be used to configure your AWS secret manager:
 
 ### **Use configuration secrets to configure API secrets**
 
-If you want to hide sensitive information in a secret manager, you must secure credentials. You can use [secrets](docs/apim/4.9/prepare-a-production-environment/sensitive-data-management/configure-secrets/reference-secrets-in-configurations.md) to hide credentials in `gravitee.yml`.
+If you want to hide sensitive information in a secret manager, you must secure credentials. You can use [secrets](../configure-secrets/reference-secrets-in-configurations.md) to hide credentials in `gravitee.yml`.
 
 Here is an example with Kubernetes configured to HashiCorp Vault:
 

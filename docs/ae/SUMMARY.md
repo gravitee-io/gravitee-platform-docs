@@ -32,7 +32,7 @@
   * [Gravitee Access Management](guides/integration-set-up/gravitee-access-management.md)
     * [Installation](guides/integration-set-up/gravitee-access-management/installation.md)
     * [Configuration](guides/integration-set-up/gravitee-access-management/configuration.md)
-  * [Third Party Integrations](https://documentation.gravitee.io/ae/overview/integrations#integrating-with-third-party-solutions)
+  * [Third Party Integrations](overview/integrations.md#integrating-with-third-party-solutions)
 
 ## Reference
 

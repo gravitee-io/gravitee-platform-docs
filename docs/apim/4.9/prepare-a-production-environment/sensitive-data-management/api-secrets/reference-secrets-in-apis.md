@@ -37,7 +37,7 @@ Arguments can be embedded in a larger string, like in the following example:
 
 ### Secret URI syntax
 
-Secret URI syntax is a subset of URL syntax that you can use to [apply secrets to configurations ](docs/apim/4.9/prepare-a-production-environment/sensitive-data-management/configure-secrets/configuration.md)(`secret://...`). Secret URI syntax allows you to specify the secret you want to resolve.
+Secret URI syntax is a subset of URL syntax that you can use to [apply secrets to configurations ](../configure-secrets/configuration.md)(`secret://...`). Secret URI syntax allows you to specify the secret you want to resolve.
 
 A URI is composed of the following components:
 

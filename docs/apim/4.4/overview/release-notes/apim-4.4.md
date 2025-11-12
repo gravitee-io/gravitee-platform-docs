@@ -62,7 +62,7 @@ Integrations are a new component in the Gravitee API Management Console. The Int
 <figure><img src="../../.gitbook/assets/Screenshot 2024-06-24 at 4.29.44 PM.png" alt=""><figcaption><p>Gravitee integrations</p></figcaption></figure>
 
 \
-Auto-discovery is quick and easy. Simply [install the Gravitee Agent](docs/apim/4.4/using-the-product/managing-your-apis-with-gravitee-api-management/federation/federation-agent.md) in your target environment, click Discover, and you’ll be met with a list of API assets that the Gravitee agent automatically discovers. Try out the new discovery functionality using the interactive tutorial below:
+Auto-discovery is quick and easy. Simply [install the Gravitee Agent](../../using-the-product/managing-your-apis-with-gravitee-api-management/federation/federation-agent.md) in your target environment, click Discover, and you’ll be met with a list of API assets that the Gravitee agent automatically discovers. Try out the new discovery functionality using the interactive tutorial below:
 
 {% @arcade/embed flowId="GhNjFwtUcQ3THZnKCsVt" url="https://app.arcade.software/share/GhNjFwtUcQ3THZnKCsVt" %}
 
@@ -94,7 +94,7 @@ For API consumers, discovering and subscribing to these APIs works the same way 
 For API Publishers, managing Federated API subscription requests works the exact same way as it does for Gravitee APIs. You’ll manage subscriptions and your API plans via the Consumers tab on your Federated API. Subscriptions can be configured to require manual validation by the API Publisher before they are forwarded to the 3rd-party provider, or they can be set to automatic. \
 
 
-For more information on how to create and publish Federated APIs with plans to the Developer Portal, please refer to the [Federated API Management documentation](docs/apim/4.4/using-the-product/managing-your-apis-with-gravitee-api-management/federation/federated-apis.md).&#x20;
+For more information on how to create and publish Federated APIs with plans to the Developer Portal, please refer to the [Federated API Management documentation](../../using-the-product/managing-your-apis-with-gravitee-api-management/federation/federated-apis.md).&#x20;
 
 {% hint style="info" %}
 **Limitation**

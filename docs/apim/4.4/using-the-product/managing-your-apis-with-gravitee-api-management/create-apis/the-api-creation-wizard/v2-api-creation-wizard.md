@@ -41,7 +41,7 @@ Define your **Backend**, which is the target backend where the request will be r
 Optionally, you can select **Advanced mode** to define **Tenants** and/or **Sharding tags** for this API. These specify the Gateways to which the API is deployed.&#x20;
 
 {% hint style="info" %}
-Refer to [Tenants](docs/apim/4.4/using-the-product/using-the-gravitee-api-management-components/general-configuration/tenants.md) and/or [Sharding tags](docs/apim/4.4/using-the-product/using-the-gravitee-api-management-components/general-configuration/sharding-tags.md) for more information.
+Refer to [Tenants](../../../using-the-gravitee-api-management-components/general-configuration/tenants.md) and/or [Sharding tags](../../../using-the-gravitee-api-management-components/general-configuration/sharding-tags.md) for more information.
 {% endhint %}
 
 <figure><img src="../../../../.gitbook/assets/Screen Shot 2023-06-07 at 1.35.16 PM.png" alt=""><figcaption><p>Define your API Gateway settings</p></figcaption></figure>
@@ -58,7 +58,7 @@ The API creation wizard allows you to create either an **API key** or **Keyless*
 
 <figure><img src="../../../../.gitbook/assets/Screen Shot 2023-06-07 at 1.43.11 PM.png" alt=""><figcaption><p>v2 API creation wizard: Plans</p></figcaption></figure>
 
-Gravitee offers additional plan features that are not configured in the API creation wizard. For more in-depth information on plans, refer to the [plans documentation](docs/apim/4.4/using-the-product/managing-your-apis-with-gravitee-api-management/api-exposure-plans-applications-and-subscriptions/plans.md).
+Gravitee offers additional plan features that are not configured in the API creation wizard. For more in-depth information on plans, refer to the [plans documentation](../../api-exposure-plans-applications-and-subscriptions/plans.md).
 
 Once you have defined your plan, click **NEXT**.
 

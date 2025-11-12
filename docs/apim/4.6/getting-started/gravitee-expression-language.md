@@ -78,12 +78,12 @@ EL allows you to reference certain values injected into the EL context as object
 {% endtab %}
 
 {% tab title="Attributes" %}
-The `attributes` object property contains attributes that are automatically created by the APIM Gateway during an API transaction or added during the execution phase through the [Assign Attributes policy](docs/apim/4.6/policies/assign-attributes.md). However, attributes fall into one of two categories based on API type:
+The `attributes` object property contains attributes that are automatically created by the APIM Gateway during an API transaction or added during the execution phase through the [Assign Attributes policy](../policies/assign-attributes.md). However, attributes fall into one of two categories based on API type:
 
 * `{#context.attributes}`: Contains attributes associated with v2 APIs or v4 Proxy APIs. A v4 Proxy API is created using the **Proxy upstream protocol** method.
 * `{#message.attributes}`: Contains attributes associated with v4 Message APIs. These APIs are created using the **Introspect messages from event-driven backend** method.
 
-See the [v4 API creation wizard](docs/apim/4.6/create-apis/v4-api-creation-wizard.md) for more details.
+See the [v4 API creation wizard](../create-apis/v4-api-creation-wizard.md) for more details.
 {% endtab %}
 
 {% tab title="Operators" %}

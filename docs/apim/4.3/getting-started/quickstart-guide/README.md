@@ -35,7 +35,7 @@ Before getting started, you'll need:
 If you are new to both web APIs and message brokers, we recommend taking a look at the [Gravitee Essentials guide](/platform-overview/gravitee-platform/gravitee-core-concepts) before continuing.
 {% endhint %}
 
-To manage your own installations, check out our [APIM install guides](../install-and-upgrade-guides/) for install options to run APIM locally or in your own cloud infrastructure. If you don't have a strong preference, [Quick Install with Docker Compose](docs/apim/4.3/getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-docker/quick-install-with-docker-compose.md) is the fastest self-managed installation for most users.
+To manage your own installations, check out our [APIM install guides](../install-and-upgrade-guides/) for install options to run APIM locally or in your own cloud infrastructure. If you don't have a strong preference, [Quick Install with Docker Compose](../install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-docker/quick-install-with-docker-compose.md) is the fastest self-managed installation for most users.
 
 {% hint style="warning" %}
 An enterprise license is required for all message broker functionality.

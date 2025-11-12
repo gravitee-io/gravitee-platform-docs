@@ -49,7 +49,7 @@ We have made the following improvements:
 
 Before this update, the primary owner of the APIs in Gravitee API Management (APIM) could transfer the ownership of the API from one user to another. You completed this action with GKO, which cause problems for users.
 
-With this update, you cannot change the primary owner of the API with GKO. If you convert a UI-managed API into a GKO-managed API by exporting the CRD, and then applying it to the same environment, the primary ownership of the API changes to the account used by the GKO. To complete this action, use a service sccount. For more information about service accounts, see [Define an APIM service account for GKO](docs/gko/4.5/guides/define-an-apim-service-account-for-gko.md).
+With this update, you cannot change the primary owner of the API with GKO. If you convert a UI-managed API into a GKO-managed API by exporting the CRD, and then applying it to the same environment, the primary ownership of the API changes to the account used by the GKO. To complete this action, use a service sccount. For more information about service accounts, see [Define an APIM service account for GKO](../../guides/define-an-apim-service-account-for-gko.md).
 
 ## Optional namespace in contextRef
 

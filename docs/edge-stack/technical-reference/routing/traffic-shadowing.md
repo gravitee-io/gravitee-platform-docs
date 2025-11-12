@@ -4,7 +4,7 @@ noIndex: true
 
 # Traffic Shadowing
 
-Traffic shadowing is a deployment pattern where production traffic is asynchronously copied to a non-production service for testing. Shadowing is a close cousin to two other commonly known deployment patterns, [canary releases](docs/edge-stack/technical-reference/ingress-and-load-balancing/canary-releases.md) and blue/green deployments. Shadowing traffic has several important benefits over blue/green and canary testing:
+Traffic shadowing is a deployment pattern where production traffic is asynchronously copied to a non-production service for testing. Shadowing is a close cousin to two other commonly known deployment patterns, [canary releases](../ingress-and-load-balancing/canary-releases.md) and blue/green deployments. Shadowing traffic has several important benefits over blue/green and canary testing:
 
 * Zero production impact. Since traffic is duplicated, any bugs in services that are processing shadow data have no impact on production.
 * Test persistent services. Since there is no production impact, shadowing provides a powerful technique to test persistent services. You can configure your test service to store data in a test database, and shadow traffic to your test service for testing. Both blue/green deployments and canary deployments require more machinery for testing.

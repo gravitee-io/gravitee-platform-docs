@@ -1,13 +1,13 @@
 # APIM 4.6
 
-In Gravitee API Management 4.6, we’re pleased to introduce the brand new Gravitee Kafka Gateway. This page provides a brief overview of the Kafka Gateway, but you can read about it in depth [here](docs/apim/4.6/kafka-gateway/overview.md).
+In Gravitee API Management 4.6, we’re pleased to introduce the brand new Gravitee Kafka Gateway. This page provides a brief overview of the Kafka Gateway, but you can read about it in depth [here](../../kafka-gateway/overview.md).
 
 In addition to the Kafka Gateway, we’re excited to release the following features:
 
 * The ability to use secrets managers in API-level configurations to extract sensitive information from APIs and retrieve the values at runtime.
 * An OpenTelemetry plugin to retrieve detailed runtime tracing data for both proxy and message APIs.
 * Error notifications and retries with exponential backoff for the Webhook entrypoint.
-* A [Status Code Transformation policy](docs/apim/4.6/policies/status-code-transformation.md) to transform status codes for proxy APIs, and the status codes for message APIs via the HTTP POST or GET entrypoint.
+* A [Status Code Transformation policy](../../policies/status-code-transformation.md) to transform status codes for proxy APIs, and the status codes for message APIs via the HTTP POST or GET entrypoint.
 * The addition of the category column in the API list.
 * A Management API endpoint to delete portal media.
 * Improvements to API Score (tech preview).
@@ -25,7 +25,7 @@ Gravitee has added the concept of a Kafka API to represent the proxy between the
 * Map topics from one name on the client side to a different name on the physical cluster.
 * Control access to resources on the cluster and ensure that only approved users can, for example, rename topics, alter partitions, or consume and produce to a topic.
 
-The Kafka Gateway is a standalone product of Gravitee and has its own documentation [here](docs/apim/4.6/kafka-gateway/overview.md). Using the Kafka Gateway requires an Enterprise Edition license with a special entry for the Kafka Gateway. To get access, contact Gravitee sales [here](https://www.gravitee.io/contact-us).
+The Kafka Gateway is a standalone product of Gravitee and has its own documentation [here](../../kafka-gateway/overview.md). Using the Kafka Gateway requires an Enterprise Edition license with a special entry for the Kafka Gateway. To get access, contact Gravitee sales [here](https://www.gravitee.io/contact-us).
 
 <figure><img src="https://lh7-qw.googleusercontent.com/docsz/AD_4nXddGaoAvEonFmveHY0rva10NDbbJgYL1avplbWQysu8rKSG0wQ3gYK1F0BX18VLU_OzPvC8rzS6WOJEc9jxj_eL8U6OCN4_5_MGguYrkzP8VpaGisU49WRerKwzBMPqkbEgcrNj?key=CqXLtJSolCHGsUVprn59ZLlK" alt=""><figcaption></figcaption></figure>
 
@@ -62,7 +62,7 @@ The Webhook entrypoint is used to push data from a messaging system like Kafka t
 We’ve made three enhancements to the Webhook entrypoint to make it even more robust and scalable:
 
 * When an error occurs during consumption of a message, the entrypoint notifies the API manager via the configured notifier (e.g., Webhook or email).
-* Subscriptions to the [push plan ](docs/apim/4.6/expose-apis/plans/push.md)associated with the Webhook entrypoint can be manually restarted via a button-click in the subscription UI of the Console.
+* Subscriptions to the [push plan ](../../expose-apis/plans/push.md)associated with the Webhook entrypoint can be manually restarted via a button-click in the subscription UI of the Console.
 * The entrypoint can retry the Webhook request a configurable number of times, with exponential backoff that can also be configured. The backoff ensures that the Webhook won’t overload the target with requests when it is in a legitimately failed state.
 
 <figure><img src="https://lh7-qw.googleusercontent.com/docsz/AD_4nXfZfKh6OW4Fdxou9cAiELSjTxhyxHX-kfeTJBZ7aqwVVEO0Z2aVrWHF-AFwS3llOo9kyN2LJNleJ_9q_i7GeBLjeyifp7QX7gdwuAEvraiT1UJyfTmgWO_2Szz0xc9JQHcO4NpZmQ?key=CqXLtJSolCHGsUVprn59ZLlK" alt=""><figcaption><p>Example configuration for retrying a Webhook subscription</p></figcaption></figure>

@@ -10,4 +10,4 @@ Click a notification's pencil icon to edit which notification events you're subs
 
 <figure><img src="../../.gitbook/assets/1 not 2.png" alt=""><figcaption></figcaption></figure>
 
-To add a notification, click **+ Add notification** and follow the notification creation process. For more information on notifications and how to configure them, see [Notifications](docs/apim/4.6/gravitee-gateway/notifications.md).
+To add a notification, click **+ Add notification** and follow the notification creation process. For more information on notifications and how to configure them, see [Notifications](../../gravitee-gateway/notifications.md).

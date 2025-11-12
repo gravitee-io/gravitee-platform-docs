@@ -32,14 +32,14 @@ helm install graviteeio-gko graviteeio/gko
 
 ## Create a ManagementContext
 
-The [`ManagementContext` ](docs/gko/4.4/overview/custom-resource-definitions/managementcontext.md)CRD is used to provide GKO with everything needed to invoke an APIM instance's management API. To fill out the CRD correctly, you'll need:
+The [`ManagementContext` ](../overview/custom-resource-definitions/managementcontext.md)CRD is used to provide GKO with everything needed to invoke an APIM instance's management API. To fill out the CRD correctly, you'll need:
 
 * the APIM management API URL
 * credentials to authenticate GKO with the management API
 
 If you're running APIM locally you can use the default admin account to authenticate (user: `admin`, password: `admin`). &#x20;
 
-Alternatively, you can head to your APIM instance and [created a dedicated service account and token](docs/gko/4.4/guides/define-an-apim-service-account-for-gko.md) for GKO to use. Make sure to copy the token value to use in the step below.
+Alternatively, you can head to your APIM instance and [created a dedicated service account and token](../guides/define-an-apim-service-account-for-gko.md) for GKO to use. Make sure to copy the token value to use in the step below.
 
 Create a file called `management-context-1.yaml` and enter the following contents:
 
@@ -81,7 +81,7 @@ Now that we've defined a way for GKO to communicate with a Gravitee API Manageme
 
 ## Create an ApiDefinition
 
-The [`ApiDefinition` ](docs/gko/4.4/overview/custom-resource-definitions/apidefinition.md)CRD is used to created Gravitee v2 APIs, and contains all the parameters of a Gravitee API such as entrypoint, endpoint, plans, policies, groups & members, and documentation pages. The CRD also lets you control whether the API is started or stopped, and whether or not it is published to the developer portal.&#x20;
+The [`ApiDefinition` ](../overview/custom-resource-definitions/apidefinition.md)CRD is used to created Gravitee v2 APIs, and contains all the parameters of a Gravitee API such as entrypoint, endpoint, plans, policies, groups & members, and documentation pages. The CRD also lets you control whether the API is started or stopped, and whether or not it is published to the developer portal.&#x20;
 
 Create a file called `echo-api.yaml` and enter the following contents:
 

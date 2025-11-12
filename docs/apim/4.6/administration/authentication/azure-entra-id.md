@@ -9,7 +9,7 @@ For now, these instructions only cover authentication, not the role mappings.
 {% endhint %}
 
 {% hint style="info" %}
-For documentation about securing your APIs with OAuth2 and Entra ID, see the documentation about the [JWT Plan](docs/apim/4.6/expose-apis/plans/jwt.md).
+For documentation about securing your APIs with OAuth2 and Entra ID, see the documentation about the [JWT Plan](../../expose-apis/plans/jwt.md).
 {% endhint %}
 
 ## Prerequisites:

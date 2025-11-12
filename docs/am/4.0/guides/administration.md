@@ -72,7 +72,7 @@ A permission is a list of actions allowed on a resource. The actions are `Create
 The following tables list the permissions by assignable type.
 
 {% hint style="info" %}
-All the permissions required to use AM API are described in the [AM V3 OpenAPI descriptor.](docs/am/4.0/reference/am-api-reference.md)
+All the permissions required to use AM API are described in the [AM V3 OpenAPI descriptor.](../reference/am-api-reference.md)
 {% endhint %}
 
 Table 1. ORGANIZATION permissions

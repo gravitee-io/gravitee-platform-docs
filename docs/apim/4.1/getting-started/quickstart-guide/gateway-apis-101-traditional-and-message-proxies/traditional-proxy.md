@@ -88,7 +88,7 @@ The majority of the remaining configuration options are standard HTTP configurat
 {% hint style="info" %}
 **SSL Options**
 
-To clarify, the SSL options shown here are for the connection between the Gateway and your backend server. Configuring a custom truststore and keystore will have no impact on client connections to the Gateway. mTLS between clients and the Gateway are [configured at the Gateway level](docs/apim/4.1/getting-started/configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file.md), not the API level.
+To clarify, the SSL options shown here are for the connection between the Gateway and your backend server. Configuring a custom truststore and keystore will have no impact on client connections to the Gateway. mTLS between clients and the Gateway are [configured at the Gateway level](../../configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file.md), not the API level.
 {% endhint %}
 
 #### Set your target URL

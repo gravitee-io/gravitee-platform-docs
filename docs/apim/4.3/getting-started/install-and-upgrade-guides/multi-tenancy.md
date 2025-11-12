@@ -32,7 +32,7 @@ The following sections describe:
 * [A typical multi-tenant setup](multi-tenancy.md#a-typical-multi-tenant-setup)
 
 {% hint style="info" %}
-For information on how to run a `standalone` (not multi-tenant) installation with APIM, refer to the [Upgrade Guide](docs/apim/4.3/getting-started/upgrading-gravitee-api-management/4.2-upgrade-guide.md#updating-cockpit-connection).
+For information on how to run a `standalone` (not multi-tenant) installation with APIM, refer to the [Upgrade Guide](../upgrading-gravitee-api-management/4.2-upgrade-guide.md#updating-cockpit-connection).
 {% endhint %}
 
 ## How to set up multi-tenancy

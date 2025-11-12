@@ -27,9 +27,9 @@ To access your API's **Info** page, click on **APIs** in the left nav, select yo
   * API background
   * Owner and creation information
   * The ability to export your API definition, import a new API definition to update your API, duplicate your API, and promote your API
-* **API Quality**: This section describes how well your API conforms to set API quality rules. For more information on the Gravitee API Quality feature, please refer to the [API Quality documentation](docs/apim/4.0/guides/api-measurement-tracking-and-analytics/using-the-api-quality-feature.md).
+* **API Quality**: This section describes how well your API conforms to set API quality rules. For more information on the Gravitee API Quality feature, please refer to the [API Quality documentation](../../api-measurement-tracking-and-analytics/using-the-api-quality-feature.md).
 * **Danger Zone:** this section includes access to mission-critical (and potentially dangerous) actions:
-  * **Start the API**: this will deploy the API to all Gateways, or the Gateways specified using [Sharding tags](docs/apim/4.0/getting-started/configuration/configure-apim-gateway/sharding-tags.md)
+  * **Start the API**: this will deploy the API to all Gateways, or the Gateways specified using [Sharding tags](../../../getting-started/configuration/configure-apim-gateway/sharding-tags.md)
   * **Publish the API**: this will publish the API to the Developer Portal
   * **Make Public**: this will make the API public so that everybody can see it
   * **Delete**: this will delete the API

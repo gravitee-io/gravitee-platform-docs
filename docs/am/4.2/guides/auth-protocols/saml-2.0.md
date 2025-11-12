@@ -7,7 +7,7 @@
 Gravitee Access Management (AM) supports the SAML protocol and can serve both as Identity Provider (IdP) and Service Provider (SP) :
 
 * [Configure AM as SAML Identity Provider](saml-2.0.md#enable-saml-2.0-identity-provider-support)
-* [Configure AM as SAML Service Provider](docs/am/4.2/guides/identity-providers/enterprise-identity-providers/saml-2.0.md)
+* [Configure AM as SAML Service Provider](../identity-providers/enterprise-identity-providers/saml-2.0.md)
 
 ## Participants
 

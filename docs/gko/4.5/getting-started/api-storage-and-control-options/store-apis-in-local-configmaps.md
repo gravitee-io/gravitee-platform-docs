@@ -7,12 +7,12 @@ As a pre-requisite, this requires the gateway to be [configured to load APIs fro
 Using this approach has certain benefits:
 
 * it removes or reduces the need for Gateways to load configuration from remote repositories. Instead, Gateways load their configuration locally.&#x20;
-* it removes the need to use a ManagementContext, and also enables the [DB-less mode](docs/gko/4.5/guides/db-less-mode.md)
+* it removes the need to use a ManagementContext, and also enables the [DB-less mode](../../guides/db-less-mode.md)
 
 On the downside however:
 
 * these APIs will only be deployed to Gateways on the local cluster. They cannot for instance be deployed to distributed gateways on different platforms by means of sharding tags.
-* Unless you're running in [DB-less mode](docs/gko/4.5/guides/db-less-mode.md), the Gateway will still need to connect to a central repository to manage other aspects of the API lifecycle, such a subscription management.
+* Unless you're running in [DB-less mode](../../guides/db-less-mode.md), the Gateway will still need to connect to a central repository to manage other aspects of the API lifecycle, such a subscription management.
 
 ## `ApiV4Definition` example
 

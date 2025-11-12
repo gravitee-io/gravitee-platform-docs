@@ -190,5 +190,5 @@ In this example, the AccessControl filter grants `read`, `write`, and `create` p
 {% hint style="info" %}
 **For more information**
 
-* The `KafkaRoute` CRD API reference is documented [here](docs/gko/4.9/reference/api-reference.md).
+* The `KafkaRoute` CRD API reference is documented [here](../../reference/api-reference.md).
 {% endhint %}

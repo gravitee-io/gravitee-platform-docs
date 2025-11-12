@@ -8,7 +8,7 @@ description: This article walks through how to configure user and group access t
 
 ## Introduction
 
-You can manage user and group access to individual APIs. This article walks through that process. If you want to learn more about user and group creation and administration, please refer to the [User Management and Permissions ](docs/apim/4.0/guides/administration/user-management-and-permissions.md)documentation.
+You can manage user and group access to individual APIs. This article walks through that process. If you want to learn more about user and group creation and administration, please refer to the [User Management and Permissions ](../../administration/user-management-and-permissions.md)documentation.
 
 ## Configure API user and group access
 
@@ -16,7 +16,7 @@ To configure user and group access for your APIs, navigate to the APIs list, and
 
 ### Add members to your API
 
-Here, you can add members to your API by using the **+ Add members icon**, as well as alter member roles. These roles come with specific permissions. For more information on roles, please refer to the [roles documentation.](docs/apim/4.0/guides/administration/user-management-and-permissions.md#roles)
+Here, you can add members to your API by using the **+ Add members icon**, as well as alter member roles. These roles come with specific permissions. For more information on roles, please refer to the [roles documentation.](../../administration/user-management-and-permissions.md#roles)
 
 <figure><img src="../../../.gitbook/assets/image (39).png" alt=""><figcaption></figcaption></figure>
 

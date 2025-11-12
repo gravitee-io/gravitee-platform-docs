@@ -22,7 +22,7 @@ The v2 Policy Studio consists of the following sections:
 
 ## Design
 
-Flows are created when policies are added to the request and/or response phases and targeted by path, HTTP method(s), or via [Gravitee's Expression Language](docs/apim/4.6/getting-started/gravitee-expression-language.md). A single API supports multiple flows, which can be set to target subscribers of an individual plan or all users of the API.
+Flows are created when policies are added to the request and/or response phases and targeted by path, HTTP method(s), or via [Gravitee's Expression Language](../getting-started/gravitee-expression-language.md). A single API supports multiple flows, which can be set to target subscribers of an individual plan or all users of the API.
 
 To create a flow and add policies:
 
@@ -108,7 +108,7 @@ To modify the flow mode:
 ## Debug mode
 
 {% hint style="warning" %}
-Debug mode is an [Enterprise Edition](docs/apim/4.6/overview/enterprise-edition.md) capability
+Debug mode is an [Enterprise Edition](../overview/enterprise-edition.md) capability
 {% endhint %}
 
 {% hint style="info" %}

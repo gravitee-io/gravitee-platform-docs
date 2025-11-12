@@ -49,7 +49,7 @@ To import your API:
        {% endhint %}
 
 
-   *   **Add OpenAPI Specification Validation:** This adds an [OpenAPI Specification Validation policy](docs/apim/4.7/policies/oas-validation.md) to the imported API.
+   *   **Add OpenAPI Specification Validation:** This adds an [OpenAPI Specification Validation policy](../policies/oas-validation.md) to the imported API.
 
        {% hint style="info" %}
        All options are initially enabled, but can be disabled by editing the policy configuration.

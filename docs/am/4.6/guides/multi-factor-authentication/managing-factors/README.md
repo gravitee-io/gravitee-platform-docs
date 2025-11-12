@@ -6,7 +6,7 @@ Gravitee Access Management (AM) supports various factors out of the box. These f
 
 Factors are created and managed on Security Domain level, and can then be reused across all of your applications within that Security Domain.\
 \
-Some factors also require a [**Resource**](docs/am/4.6/guides/resources.md).
+Some factors also require a [**Resource**](../../resources.md).
 
 ## Create a factor
 

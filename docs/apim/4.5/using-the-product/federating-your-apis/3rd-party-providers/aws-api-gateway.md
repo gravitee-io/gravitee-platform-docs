@@ -10,7 +10,7 @@ The minimum permissions required by the federation agent are described in the se
 
 You'll also need to be running Gravitee API Management version 4.4 or above, with an enterprise license.&#x20;
 
-For the federation agent to authenticate with Gravitee API Management, you'll also need an access token. Head to our dedicated guide on [how to create a service account and an access token](docs/apim/4.5/using-the-product/federating-your-apis/create-a-service-account-for-the-federation-agent.md) for the federation agent.
+For the federation agent to authenticate with Gravitee API Management, you'll also need an access token. Head to our dedicated guide on [how to create a service account and an access token](../create-a-service-account-for-the-federation-agent.md) for the federation agent.
 
 ## 1. Create an AWS API Management integration in the Gravitee APIM Console
 

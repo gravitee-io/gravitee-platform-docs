@@ -93,7 +93,7 @@ To view or add documentation to an existing federated API:
 By default, the page is published with private visibility.
 {% endhint %}
 
-Refer to [Documentation](docs/apim/4.5/using-the-product/using-the-gravitee-api-management-components/developer-portal/documentation.md) for information on how to create and manage API documentation.
+Refer to [Documentation](../using-the-gravitee-api-management-components/developer-portal/documentation.md) for information on how to create and manage API documentation.
 
 ## Publishing federated APIs to the Developer Portal
 
@@ -131,15 +131,15 @@ From here, API consumers can access their Gravitee Developer Portal and search f
 2.  Select the plan you want to subscribe to, then click **Next**&#x20;
 
     <figure><img src="../../.gitbook/assets/jonathan demo plan.png" alt=""><figcaption></figcaption></figure>
-3.  Use the **Choose an application** drop-down menu to select an application to use for the subscription, then click **Next.** If you do not yet have an application, please refer to the [Applications documentation](docs/apim/4.5/using-the-product/using-the-gravitee-api-management-components/developer-portal/creating-and-maintaining-applications-with-gravitee-developer-portal/applications.md) to create a Gravitee Application.&#x20;
+3.  Use the **Choose an application** drop-down menu to select an application to use for the subscription, then click **Next.** If you do not yet have an application, please refer to the [Applications documentation](../using-the-gravitee-api-management-components/developer-portal/creating-and-maintaining-applications-with-gravitee-developer-portal/applications.md) to create a Gravitee Application.&#x20;
 
     <figure><img src="../../.gitbook/assets/jonathan demo choose app.png" alt=""><figcaption></figcaption></figure>
 
 Depending on the subscription configuration, the application will either auto-validate or require approval.
 
 {% hint style="info" %}
-* For more information on how to create and manage applications in APIM, see [Applications](docs/apim/4.5/using-the-product/managing-your-apis/preparing-apis-for-subscribers/applications.md).
-* For more information on how to create and manage subscriptions in APIM, see [Subscriptions](docs/apim/4.5/using-the-product/managing-your-apis/preparing-apis-for-subscribers/subscriptions.md).
+* For more information on how to create and manage applications in APIM, see [Applications](../managing-your-apis/preparing-apis-for-subscribers/applications.md).
+* For more information on how to create and manage subscriptions in APIM, see [Subscriptions](../managing-your-apis/preparing-apis-for-subscribers/subscriptions.md).
 {% endhint %}
 
 ## Deleting federated APIs

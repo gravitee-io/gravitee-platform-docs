@@ -166,7 +166,7 @@ This policy allows you to override the content of a message. Message content can
 
 ### Impact of execution engine
 
-The number of scripts used for the `groovy` policy and their execution depend on which [execution engine](docs/apim/4.7/create-apis/overview/execution-engine.md#reactive-and-legacy-execution-engine-comparison) is running.
+The number of scripts used for the `groovy` policy and their execution depend on which [execution engine](../create-apis/overview/execution-engine.md#reactive-and-legacy-execution-engine-comparison) is running.
 
 {% tabs %}
 {% tab title="Legacy engine" %}

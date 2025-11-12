@@ -3,7 +3,7 @@
 {% hint style="warning" %}
 **Changes to Gravitee Dictionaries in Version 4.7.6**
 
-Starting from version 4.7.6, you can use dictionaries in a [Multi-tenancy](docs/apim/4.9/self-hosted-installation-guides/multi-tenancy.md) setup. With this new capability, you can complete the following actions:
+Starting from version 4.7.6, you can use dictionaries in a [Multi-tenancy](../../self-hosted-installation-guides/multi-tenancy.md) setup. With this new capability, you can complete the following actions:
 
 * create dictionaries with the same name in different environments
 * promote APIs between environments without renaming dictionaries

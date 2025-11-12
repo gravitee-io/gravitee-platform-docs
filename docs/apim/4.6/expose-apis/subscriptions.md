@@ -55,7 +55,7 @@ To subscribe to an API via the APIM Console:
 When creating a plan, you can enable subscription auto-validation to immediately approve subscription requests. If **Auto validate subscription** is disabled, the API publisher must approve all subscription requests.
 
 {% hint style="info" %}
-To be notified of subscription validation tasks, enable [Notifications](docs/apim/4.6/gravitee-gateway/notifications.md)
+To be notified of subscription validation tasks, enable [Notifications](../gravitee-gateway/notifications.md)
 {% endhint %}
 
 To manage subscriptions in APIM Console:

@@ -27,4 +27,4 @@ Kafka policies can be applied to these phases in policy chains of arbitrary leng
 
 Policies are scoped to different API consumers through flows. Flows are policy enforcement sequences that control where, and under what conditions, one or more policies act on an API transaction. The APIM Console includes a Gravitee Policy Studio where you can design flows to protect or transform how your Kafka APIs are consumed.&#x20;
 
-To learn how to configure flows and policies for your Kafka APIs, click [here](docs/apim/4.6/kafka-gateway/configure-kafka-apis/policies.md).
+To learn how to configure flows and policies for your Kafka APIs, click [here](../configure-kafka-apis/policies.md).

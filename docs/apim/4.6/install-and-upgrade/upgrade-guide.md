@@ -18,7 +18,7 @@ Upgrading to APIM 4.5 is deployment-specific. The 4.0 breaking changes cited bel
 
 ## EE plugins
 
-Particular plugins are only available to enterprise customers. [See Gravitee APIM Enterprise Edition](docs/apim/4.6/overview/enterprise-edition.md) for additional information.
+Particular plugins are only available to enterprise customers. [See Gravitee APIM Enterprise Edition](../overview/enterprise-edition.md) for additional information.
 
 ## Running APIM
 

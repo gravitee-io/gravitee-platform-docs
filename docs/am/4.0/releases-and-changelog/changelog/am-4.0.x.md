@@ -486,11 +486,11 @@ If you use the Community Edition, for each enterprise feature you will have a de
 
 <summary>Breaking Changes</summary>
 
-**NOTE:** To take advantage of these new features and incorporate these breaking changes, use the [migration guide](docs/am/4.0/getting-started/install-and-upgrade-guides/upgrade-guide.md).
+**NOTE:** To take advantage of these new features and incorporate these breaking changes, use the [migration guide](../../getting-started/install-and-upgrade-guides/upgrade-guide.md).
 
 **MongoDB index names**
 
-Starting from AM 4.0, the MongoDB indices are now named using the first letters of the fields that compose the index. This change will allow the automatic management of index creation on DocumentDB. This change requires the execution of a MongoDB script to delete and then recreate AM indices. See the [migration guide](docs/am/4.0/getting-started/install-and-upgrade-guides/upgrade-guide.md).
+Starting from AM 4.0, the MongoDB indices are now named using the first letters of the fields that compose the index. This change will allow the automatic management of index creation on DocumentDB. This change requires the execution of a MongoDB script to delete and then recreate AM indices. See the [migration guide](../../getting-started/install-and-upgrade-guides/upgrade-guide.md).
 
 **Enterprise Edition plugins**
 

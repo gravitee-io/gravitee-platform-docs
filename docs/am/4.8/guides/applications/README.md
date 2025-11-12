@@ -41,7 +41,7 @@ After you have created the new application, you will be redirected to the applic
 
 ### Test the application
 
-The quickest way to test your newly created application is to request an OAuth2 access token, as described in [set up your first application](docs/am/4.8/getting-started/tutorial-getting-started-with-am/set-up-your-first-application.md). If you manage to retrieve an access token, your application is all set.
+The quickest way to test your newly created application is to request an OAuth2 access token, as described in [set up your first application](../../getting-started/tutorial-getting-started-with-am/set-up-your-first-application.md). If you manage to retrieve an access token, your application is all set.
 
 ## Application identity providers
 
@@ -70,7 +70,7 @@ In order to change the priority of the providers:
 
 Identity provider selection rules also give you more control over the authentication via Gravitee's Expression Language.
 
-When coupled with [flows](docs/am/4.8/guides/flows.md) you can decide which provider will be used to authenticate your end users.
+When coupled with [flows](../flows.md) you can decide which provider will be used to authenticate your end users.
 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-application-identity-providers-selection-rule.png" alt=""><figcaption><p>Selection rule</p></figcaption></figure>
 
@@ -85,7 +85,7 @@ When applying rules on **regular** Identity Providers:
 * If the rule is empty, the provider **will be** taken into account (this is to be retro-compatible when migrating from a previous version)
 * Otherwise, AM will authenticate with the first identity provider where the rule matches.
 
-If you are not using[ identifier-first login](docs/am/4.8/guides/login/identifier-first-login-flow.md), the rule won’t be effective on Social/Enterprise providers
+If you are not using[ identifier-first login](../login/identifier-first-login-flow.md), the rule won’t be effective on Social/Enterprise providers
 
 However, if you are using identifier-first login:
 

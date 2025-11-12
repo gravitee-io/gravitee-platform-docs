@@ -32,11 +32,11 @@ To learn more about Gravitee Enterprise and what's included in various enterpris
 
 ## Configuring reporters
 
-Elasticsearch is the default reporter, but this section will show you how to configure different reporters. If you wish to use a reporter not included in the default distribution, you must first add the reporter as a plugin. Refer to the [Plugins](docs/apim/4.2/overview/plugins.md) guide to learn more.
+Elasticsearch is the default reporter, but this section will show you how to configure different reporters. If you wish to use a reporter not included in the default distribution, you must first add the reporter as a plugin. Refer to the [Plugins](../../../overview/plugins.md) guide to learn more.
 
 ### Elasticsearch reporter
 
-Configuration details for the Elasticsearch reporter are available in the [Elasticsearch Repository](docs/apim/4.2/getting-started/configuration/repositories/elasticsearch.md#elasticsearch) documentation.
+Configuration details for the Elasticsearch reporter are available in the [Elasticsearch Repository](../repositories/elasticsearch.md#elasticsearch) documentation.
 
 ### File reporter
 

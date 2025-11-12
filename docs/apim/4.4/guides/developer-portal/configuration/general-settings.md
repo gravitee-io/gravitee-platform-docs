@@ -19,7 +19,7 @@ description: >-
 5. Configure the settings described below:
 
 {% hint style="info" %}
-The general settings of the Developer Portal can be overridden with the `gravitee.yaml` file. For more information about the `gravitee.yaml` file, see the [APIM Configuration documentation.](docs/apim/4.4/using-the-product/using-the-gravitee-api-management-components/configuration.md)
+The general settings of the Developer Portal can be overridden with the `gravitee.yaml` file. For more information about the `gravitee.yaml` file, see the [APIM Configuration documentation.](../../../using-the-product/using-the-gravitee-api-management-components/configuration.md)
 {% endhint %}
 
 * **Api-key Header:** Modify the `api-key` header shown in the Developer Portal's CURL commands. This only impacts what is displayed in the Developer Portal's UI. You must modify the `gravitee.yaml` file to change how the Gateway handles the `api-key` header.

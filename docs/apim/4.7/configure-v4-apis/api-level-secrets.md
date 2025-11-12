@@ -9,7 +9,7 @@ Secret provider plugins extend the operable range of secret managers to resolve 
 This article explains the syntax used to resolve secrets in v4 APIs and configure secret managers.
 
 {% hint style="warning" %}
-To learn more about Gravitee [Enterprise Edition](docs/apim/4.7/overview/enterprise-edition.md) and what is included in various enterprise packages, please:
+To learn more about Gravitee [Enterprise Edition](../overview/enterprise-edition.md) and what is included in various enterprise packages, please:
 
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
@@ -17,7 +17,7 @@ To learn more about Gravitee [Enterprise Edition](docs/apim/4.7/overview/enterpr
 
 ## Prerequisites to enable this feature
 
-1. You must configure one of the following secret managers in your `gravitee.yml` file or using the equivalent [environment variable](docs/apim/4.7/configure-apim/environment-properties.md): Kubernetes, Amazon Secret Manager, or Hashicorp Vault. For more information about these secret managers, see [Integrations](docs/apim/4.7/getting-started/integrations.md#secret-managers-integration).
+1. You must configure one of the following secret managers in your `gravitee.yml` file or using the equivalent [environment variable](../configure-apim/environment-properties.md): Kubernetes, Amazon Secret Manager, or Hashicorp Vault. For more information about these secret managers, see [Integrations](../getting-started/integrations.md#secret-managers-integration).
 2. Reference those secrets in your API definitions with a specialized syntax.
 
 ## Configuring Gravitee to access secret managers
@@ -31,10 +31,10 @@ Secrets work in only v4 APIs.
 You can configure access to secret managers using `secret-provider` plugins.
 
 {% hint style="warning" %}
-Configuring access to plugins is not the same as [configuring access to secrets](docs/apim/4.7/configure-apim/sensitive-data-management/configuration-level-secrets.md). This section discusses the plugin configuration, which is different from the `secrets` section of the configuration.
+Configuring access to plugins is not the same as [configuring access to secrets](../configure-apim/sensitive-data-management/configuration-level-secrets.md). This section discusses the plugin configuration, which is different from the `secrets` section of the configuration.
 {% endhint %}
 
-Below are examples of setting the configuration parameters for secret providers. To configure secret provider plugins, see [Secret Provider Plugins Configuration](docs/apim/4.7/configure-apim/sensitive-data-management/secret-provider-plugins-configuration.md).
+Below are examples of setting the configuration parameters for secret providers. To configure secret provider plugins, see [Secret Provider Plugins Configuration](../configure-apim/sensitive-data-management/secret-provider-plugins-configuration.md).
 
 #### `gravitee.yml`
 
@@ -177,7 +177,7 @@ This syntax has an impact on how you reference secrets. For more information abo
 
 ## Secret reference syntax
 
-Secrets can be resolved in fields that support [Gravitee Expression Language (EL)](docs/apim/4.7/getting-started/gravitee-expression-language.md). However, not all fields that support EL allow the resolution of secrets. In general, any field supporting EL that may contain sensitive information is likely to support secrets, such as URLs, header values, passwords, and SSL/TLS settings.
+Secrets can be resolved in fields that support [Gravitee Expression Language (EL)](../getting-started/gravitee-expression-language.md). However, not all fields that support EL allow the resolution of secrets. In general, any field supporting EL that may contain sensitive information is likely to support secrets, such as URLs, header values, passwords, and SSL/TLS settings.
 
 ### General syntax
 

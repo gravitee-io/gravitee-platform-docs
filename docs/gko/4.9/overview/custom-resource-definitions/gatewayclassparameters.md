@@ -83,5 +83,5 @@ You can customize the Kubernetes Service that exposes the Gateway by adding labe
 {% hint style="info" %}
 **For more information**
 
-* The `GatewayClassParameters` CRD API reference is documented [here](docs/gko/4.9/reference/api-reference.md).
+* The `GatewayClassParameters` CRD API reference is documented [here](../../reference/api-reference.md).
 {% endhint %}

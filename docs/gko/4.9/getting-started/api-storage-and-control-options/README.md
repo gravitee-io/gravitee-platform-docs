@@ -6,4 +6,4 @@ How GKO stores and controls the APIs that it manages is configurable. GKO can be
 
 How the Gravitee Gateway loads the APIs managed by GKO is configurable. The Gateway can load API definitions and their deployment events (start/stop) from a central repository (e.g., APIM's MongoDB database), Kubernetes ConfigMaps local to the cluster, or both.
 
-In the most common setup, which is aligned with the proposed [Example Architecture](docs/gko/4.9/overview/example-architecture.md), the Gravitee Gateway loads APIs and detects deployment events from the APIM central repository, and GKO synchronizes the API definitions it manages with APIM, including deployment events.
+In the most common setup, which is aligned with the proposed [Example Architecture](../../overview/example-architecture.md), the Gravitee Gateway loads APIs and detects deployment events from the APIM central repository, and GKO synchronizes the API definitions it manages with APIM, including deployment events.

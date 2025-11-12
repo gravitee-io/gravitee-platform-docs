@@ -4,7 +4,7 @@ noIndex: true
 
 # AuthService Settings
 
-A Mapping can pass these settings along to an [AuthService](docs/edge-stack/technical-reference/plug-in-services/authentication-service.md). This is helpful to allow these specific configurations to apply only to certain Mappings and not globally.
+A Mapping can pass these settings along to an [AuthService](../plug-in-services/authentication-service.md). This is helpful to allow these specific configurations to apply only to certain Mappings and not globally.
 
 ## Bypass authentication
 

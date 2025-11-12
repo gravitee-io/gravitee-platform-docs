@@ -34,7 +34,7 @@ The access URL for each API in the Developer Portal is the default entrypoint fo
 {% hint style="info" %}
 &#x20;**Sharding Tags and Gateway Entrypoint Mappings**
 
-[Sharding Tags](docs/apim/4.0/getting-started/configuration/configure-apim-gateway/sharding-tags.md) tags are used to help manage complex distributed architectures:
+[Sharding Tags](../../../getting-started/configuration/configure-apim-gateway/sharding-tags.md) tags are used to help manage complex distributed architectures:
 
 * By assigning sharding tags to APIs and Gravitee Gateways, an API is deployed to a subset of the available Gateways.&#x20;
 * By mapping sharding tags to a Gateway’s entrypoint URL, the Developer Portal can intelligently display different entrypoints based on an API's sharding tags.

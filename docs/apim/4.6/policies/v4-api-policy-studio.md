@@ -58,7 +58,7 @@ To create a flow and add policies:
     * **Channel:** Define the path to use in conjunction with the **Operator** to determine if this flow should be applied.
     * **Entrypoints:** Select the entrypoint(s) for which the flow will be executed. If none are selected, the flow will be executed for all possible entrypoints, assuming required conditions are met.
     * **Entrypoints supported operations:** Select **Publish** and/or **Subscribe** as the operation(s) supported by the entrypoint(s). If none are selected, both will be supported.
-    * **Condition:** Use [Gravitee's Expression Language (EL)](docs/apim/4.6/getting-started/gravitee-expression-language.md) to define specific conditions that will trigger flow execution.
+    * **Condition:** Use [Gravitee's Expression Language (EL)](../getting-started/gravitee-expression-language.md) to define specific conditions that will trigger flow execution.
 7. Click **Create** in the modal, then **Save** on the **Policies** page
 8.  To add a policy, click the **+** icon to the phase where the policy should be enforced
 

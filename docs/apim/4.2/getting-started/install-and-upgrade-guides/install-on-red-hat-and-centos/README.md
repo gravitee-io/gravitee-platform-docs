@@ -3,7 +3,7 @@
 This section explains how to install Gravitee API Management (APIM) on Red Hat Enterprise Linux, CentOS Linux, or Oracle Linux using the `yum` package manager.
 
 {% hint style="warning" %}
-RPM install is not supported on distributions with old versions of RPM, such as SLES 11 and CentOS 5 — in this case, you need to [install APIM with .zip](docs/apim/4.2/getting-started/install-and-upgrade-guides/install-with-.zip.md) instead.
+RPM install is not supported on distributions with old versions of RPM, such as SLES 11 and CentOS 5 — in this case, you need to [install APIM with .zip](../install-with-.zip.md) instead.
 {% endhint %}
 
 ## Configure the package management system (`yum`)

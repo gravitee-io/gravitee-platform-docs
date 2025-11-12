@@ -42,7 +42,7 @@ This section is divided into the following:
 
 ### 1. Configure your deployment
 
-Configure the [Gravitee Helm Chart](docs/apim/4.3/getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-kubernetes/apim-helm-install-and-configuration.md). Below is the minimum set of properties that your Helm values should contain:
+Configure the [Gravitee Helm Chart](../../getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-kubernetes/apim-helm-install-and-configuration.md). Below is the minimum set of properties that your Helm values should contain:
 
 {% code title="values.yml" %}
 ```yaml
@@ -89,7 +89,7 @@ helm upgrade --install gravitee-gko \
 ```
 
 {% hint style="info" %}
-Refer to the [Helm Chart documentation](docs/apim/4.3/getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-kubernetes/architecture-overview.md) for more information.
+Refer to the [Helm Chart documentation](../../getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-kubernetes/architecture-overview.md) for more information.
 {% endhint %}
 
 ### 4. Add a test backend
@@ -314,7 +314,7 @@ Policies allow you to apply custom behaviors to requests issued to a backend ser
 
 ### 1. Create an API definition template
 
-A template is an API definition with the `gravitee.io/template` label set to `true`. To create a template that defines a [`cache` policy](docs/apim/4.3/reference/policy-reference/cache.md):
+A template is an API definition with the `gravitee.io/template` label set to `true`. To create a template that defines a [`cache` policy](../../reference/policy-reference/cache.md):
 
 1.  Configure the `ingress-cache-template.yaml` file:
 

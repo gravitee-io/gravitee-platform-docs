@@ -38,7 +38,7 @@ We are purposefully keeping this flow very simple. However, the conditions that 
 
 * **Operator and path:** Use this to trigger a flow based on the path of the API request. The condition is evaluated for every request and the flow is only triggered if it evaluates to `true`.
 * **Methods:** Select the HTTP methods this flow applies to.
-* **Expression Language Condition:** Use [Gravitee's Expression Language (EL)](docs/apim/4.4/using-the-product/managing-your-apis-with-gravitee-api-management/gravitee-expression-language.md) to provide a custom condition. The condition is evaluated for every request and the flow is only triggered if it evaluates to `true`.
+* **Expression Language Condition:** Use [Gravitee's Expression Language (EL)](../../../managing-your-apis-with-gravitee-api-management/gravitee-expression-language.md) to provide a custom condition. The condition is evaluated for every request and the flow is only triggered if it evaluates to `true`.
 
 </details>
 

@@ -6,9 +6,9 @@ noIndex: true
 
 ## The Plugin Filter Type (v3alpha1)
 
-The Plugin filter type allows you to plug in your own custom code. This code is compiled into a .so file, which you load into the Envoy Proxy container at `/etc/ambassador-plugins/${NAME}.so`. For more information about how requests are matched to `Filter` resources and the order in which `Filters` are executed, please refer to the [FilterPolicy Resource](docs/edge-stack/crd-api-references/getambassador.io-v3alpha1/filterpolicy.md) documentation.
+The Plugin filter type allows you to plug in your own custom code. This code is compiled into a .so file, which you load into the Envoy Proxy container at `/etc/ambassador-plugins/${NAME}.so`. For more information about how requests are matched to `Filter` resources and the order in which `Filters` are executed, please refer to the [FilterPolicy Resource](../filterpolicy.md) documentation.
 
-This doc is an overview of all the fields on the `Plugin Filter` Custom Resource with descriptions of the purpose, type, and default values of those fields. This page is specific to the `getambassador.io/v3alpha1` version of the `Plugin Filter` resource. For the newer `gateway.getambassador.io/v1alpha1` resource, please see the [v1alpha1 Plugin Filter api reference](docs/edge-stack/crd-api-references/gateway.getambassador.io-v1alpha1/filter/the-plugin-filter-type.md).
+This doc is an overview of all the fields on the `Plugin Filter` Custom Resource with descriptions of the purpose, type, and default values of those fields. This page is specific to the `getambassador.io/v3alpha1` version of the `Plugin Filter` resource. For the newer `gateway.getambassador.io/v1alpha1` resource, please see the [v1alpha1 Plugin Filter api reference](../../gateway.getambassador.io-v1alpha1/filter/the-plugin-filter-type.md).
 
 {% hint style="info" %}
 `v3alpha1` `Filters` can only be referenced from `v3alpha1` `FilterPolicies`.

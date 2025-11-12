@@ -14,7 +14,7 @@ You can authenticate and manage users in AM using Enterprise Active Directory or
 6. Configure the settings.
 7. Click **Create**.
 
-You can also create the identity provider with [AM API.](docs/am/4.5/reference/am-api-reference.md)
+You can also create the identity provider with [AM API.](../../../reference/am-api-reference.md)
 
 {% code overflow="wrap" %}
 ```sh

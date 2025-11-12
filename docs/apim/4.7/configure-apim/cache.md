@@ -70,4 +70,4 @@ Configuration of Cache resources cannot be managed using the `hazelcast.xml` fil
 
 ## Persistent cache
 
-APIM also supports the Gravitee [Cache Redis](docs/apim/4.7/policies/resources.md#cache-redis) resource plugin, based on [Redis](https://redis.io/documentation). This plugin is not in the default distribution, but can be [downloaded](https://download.gravitee.io/#graviteeio-apim/plugins/resources/gravitee-resource-cache-redis/) and deployed with these [instructions](docs/apim/4.7/getting-started/plugins/deployment.md#deployment).
+APIM also supports the Gravitee [Cache Redis](../policies/resources.md#cache-redis) resource plugin, based on [Redis](https://redis.io/documentation). This plugin is not in the default distribution, but can be [downloaded](https://download.gravitee.io/#graviteeio-apim/plugins/resources/gravitee-resource-cache-redis/) and deployed with these [instructions](../getting-started/plugins/deployment.md#deployment).

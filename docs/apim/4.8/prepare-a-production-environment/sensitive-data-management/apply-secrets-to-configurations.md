@@ -2,7 +2,7 @@
 
 ## Overview
 
-Gravitee offers an [integration](docs/apim/4.8/readme/integrations.md#secret-managers-integration) with secrets managers to obscure secrets in configuration files and environment variables.
+Gravitee offers an [integration](../../readme/integrations.md#secret-managers-integration) with secrets managers to obscure secrets in configuration files and environment variables.
 
 {% hint style="info" %}
 This page shows how to enable `secret-provider` plugins. Please refer to [Secret Provider Plugins Configuration](configure-secret-provider-plugins.md) to learn how configure them in depth using `gravitee.yml` or environment variables, as well as how to set up hosts, authentication, SSL, retries, etc.
@@ -27,7 +27,7 @@ secrets:
 
 ## Resolve secrets in configuration files <a href="#resolving-secrets-in-configuration-files" id="resolving-secrets-in-configuration-files"></a>
 
-Secret providers offer to resolve secrets once on startup or watch secrets for changes. See the [Integrations](docs/apim/4.8/readme/integrations.md#secret-managers-integration) section to learn about the various capabilities of those plugins.
+Secret providers offer to resolve secrets once on startup or watch secrets for changes. See the [Integrations](../../readme/integrations.md#secret-managers-integration) section to learn about the various capabilities of those plugins.
 
 To watch a secret requires support for hot reload. This use case is currently limited to TLS KeyStore, or PEM for HTTP, TCP, and Kafka servers.
 

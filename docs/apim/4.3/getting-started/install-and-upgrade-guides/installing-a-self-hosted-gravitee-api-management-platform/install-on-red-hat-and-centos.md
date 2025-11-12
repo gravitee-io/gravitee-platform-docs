@@ -401,7 +401,7 @@ sudo journalctl --unit nginx --since  "2020-01-30 12:13:14"
 For version 4.1.4 and above, you can upgrade and restart APIM to perform an `rpm` upgrade of APIM components.
 
 {% hint style="warning" %}
-Refer to the [changelog](docs/apim/4.3/overview/changelog/apim-4.3.x.md) to follow potential breaking changes.
+Refer to the [changelog](../../../overview/changelog/apim-4.3.x.md) to follow potential breaking changes.
 {% endhint %}
 
 The appropriate upgrade process depends on the type of installation. Choose to either:

@@ -35,7 +35,7 @@ The following matrix shows the compatibility between scopes and implementations:
 
 ### Data Plane
 
-**DataPlanes** are a type of plugin similar to repositories, which allow the Management API to target a backend dedicated to a Data Plane. This plugin must have the same configuration elements as the target Data Plane's repository gateway scope (a.k.a. the gateways). In addition to the backend connection elements, the Data Plane plugin requires an identifier as well as the base URL to access the Gateways associated with this Data Plane. Please refer to section [Control Plane & Data Plane](docs/am/4.8/overview/am-architecture/control-plane-and-data-plane.md) or [Configure Multiple Data Planes](docs/am/4.8/getting-started/install-and-upgrade-guides/configure-multiple-data-planes.md) for more information.
+**DataPlanes** are a type of plugin similar to repositories, which allow the Management API to target a backend dedicated to a Data Plane. This plugin must have the same configuration elements as the target Data Plane's repository gateway scope (a.k.a. the gateways). In addition to the backend connection elements, the Data Plane plugin requires an identifier as well as the base URL to access the Gateways associated with this Data Plane. Please refer to section [Control Plane & Data Plane](../../overview/am-architecture/control-plane-and-data-plane.md) or [Configure Multiple Data Planes](../install-and-upgrade-guides/configure-multiple-data-planes.md) for more information.
 
 ## MongoDB
 

@@ -100,4 +100,4 @@ The plugin identifier has to be unique to be correctly loaded by the APIM Gatewa
 
 ## Deployment, discovery, and loading
 
-Head over to [the main plugins documentation](docs/apim/4.1/overview/plugins.md#deployment) to learn how to deploy your custom plugin.
+Head over to [the main plugins documentation](../../overview/plugins.md#deployment) to learn how to deploy your custom plugin.

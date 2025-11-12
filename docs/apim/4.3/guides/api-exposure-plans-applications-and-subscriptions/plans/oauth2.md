@@ -13,7 +13,7 @@ The OAuth2 authentication type checks access token validity during request proce
 ## Configuration
 
 {% hint style="warning" %}
-To configure an OAuth2 plan, you must first create an [OAuth2 client resource](docs/apim/4.3/guides/api-configuration/resources.md) that represents your OAuth 2.0 authorization server.
+To configure an OAuth2 plan, you must first create an [OAuth2 client resource](../../api-configuration/resources.md) that represents your OAuth 2.0 authorization server.
 {% endhint %}
 
 Configuring an OAuth2 plan presents the following options:

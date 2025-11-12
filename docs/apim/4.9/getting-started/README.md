@@ -14,7 +14,7 @@ Install the OSS version of Gravitee locally with Docker.
 
 ### Cloud
 
-Gravitee Cloud is a simple and secure method of running Gravitee API Management (APIM). With this full-SaaS solution, you can count on consistent availability and cutting-edge features. For more information about Gravitee Cloud, see [Cloud.](https://documentation.gravitee.io/gravitee-cloud)&#x20;
+Gravitee Cloud is a simple and secure method of running Gravitee API Management (APIM). With this full-SaaS solution, you can count on consistent availability and cutting-edge features. For more information about Gravitee Cloud, see [Cloud.](../../../gravitee-cloud/README.md)&#x20;
 
 Here are the key benefits of Gravitee's Cloud solution:
 

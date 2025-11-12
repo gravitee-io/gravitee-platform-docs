@@ -85,6 +85,6 @@ To configure health-checks:
    * Select the **HTTP Method** that will trigger the health-check
    * Define the **Path** that will trigger the health check
    * Toggle **From root path ('/')** ON to apply the path specified at the root URL level, e.g., for the endpoint URL `www.test.com/api`, this option removes `/api` before appending the path
-   * Specify the **HTTP Headers** that will trigger a health check (supports [Gravitee Expression Language](docs/apim/4.7/getting-started/gravitee-expression-language.md))
+   * Specify the **HTTP Headers** that will trigger a health check (supports [Gravitee Expression Language](../getting-started/gravitee-expression-language.md))
    * Use Gravitee Expression Language to define an **Assertion** that specifies conditions to test for in the API response that will trigger a health-check, then click **+ Add assertion**
    * Click **Save**, which also generates a visual summary of the health-check configuration

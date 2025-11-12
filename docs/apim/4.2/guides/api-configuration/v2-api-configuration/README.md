@@ -23,7 +23,7 @@ Gravitee offers two main kinds of API configuration options for v2 APIs, each wi
 Keep reading to learn more about general concepts related to each. If you want to learn how to configure each, please refer to the relevant how-to guides:
 
 * [API documentation](documentation.md)
-* [API General Settings](docs/apim/4.2/guides/api-configuration/v4-api-configuration/general-info-settings.md)
+* [API General Settings](../v4-api-configuration/general-info-settings.md)
 * [Load-balancing, failover, and health checks](load-balancing-failover-and-health-checks.md)
 * [Configure service discovery](service-discovery.md)
 * [Configure general proxy settings](general-proxy-settings.md)

@@ -629,7 +629,7 @@ Due to technical issues during release process, 4.2.18 version should be ignored
 
 ## Gravitee Access Management 4.2 - December 21, 2023
 
-For more in-depth information on what's new, please refer to the [Gravitee AM 4.2 release notes](docs/am/4.2/releases-and-changelog/release-notes/am-4.2.md).
+For more in-depth information on what's new, please refer to the [Gravitee AM 4.2 release notes](../release-notes/am-4.2.md).
 
 <details>
 

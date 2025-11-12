@@ -5,7 +5,7 @@
 You access AM Console using the `GRAVITEEIO-AM-UI-HOST` URL created during installation.
 
 {% hint style="info" %}
-If you are running AM with [Docker Compose](docs/am/4.5/getting-started/install-and-upgrade-guides/run-in-docker/docker-compose-install.md), the `GRAVITEEIO-AM-UI-HOST` URL is `https://localhost/am/ui`.
+If you are running AM with [Docker Compose](../install-and-upgrade-guides/run-in-docker/docker-compose-install.md), the `GRAVITEEIO-AM-UI-HOST` URL is `https://localhost/am/ui`.
 {% endhint %}
 
 During the AM installation process, a default administrator account is created. You can use this account to perform all the management tasks provided by AM, such as creating applications and identity providers, registering users, and configuring security.
@@ -81,7 +81,7 @@ To access the organization settings, click on **Organization Settings** in the b
 Here you can configure several aspects of your organization such as :
 
 * AM Console access: How to log in to the console.
-* [Administrative roles](docs/am/4.5/guides/administration.md#roles-and-permissions-overview): Register new administrative users and manage their roles.
+* [Administrative roles](../../guides/administration.md#roles-and-permissions-overview): Register new administrative users and manage their roles.
 * Deployment configuration: Set up entrypoints and sharding tags for your AM gateway.
 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-organization-settings.png" alt=""><figcaption><p>Organization Settings</p></figcaption></figure>

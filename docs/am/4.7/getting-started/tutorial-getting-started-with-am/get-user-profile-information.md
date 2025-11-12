@@ -139,5 +139,5 @@ The identity provider serves default claims such as the user’s `username`, `gi
 4. Custom user attributes will be available in the UserInfo Endpoint response.
 
 {% hint style="info" %}
-You can find more information about User mapping in the [User and role mapping](docs/am/4.7/guides/identity-providers/user-and-role-mapping.md) section.
+You can find more information about User mapping in the [User and role mapping](../../guides/identity-providers/user-and-role-mapping.md) section.
 {% endhint %}

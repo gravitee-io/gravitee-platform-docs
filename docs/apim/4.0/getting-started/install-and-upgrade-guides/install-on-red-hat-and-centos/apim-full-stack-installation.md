@@ -61,7 +61,7 @@ For version 4.0.13 and above, upgrade and restart APIM to perform an `rpm` upgra
 {% endhint %}
 
 {% hint style="warning" %}
-Refer to the [changelog](docs/apim/4.0/releases-and-changelog/changelog/apim-4.0.x.md) to follow potential breaking changes.
+Refer to the [changelog](../../../releases-and-changelog/changelog/apim-4.0.x.md) to follow potential breaking changes.
 {% endhint %}
 
 ```sh

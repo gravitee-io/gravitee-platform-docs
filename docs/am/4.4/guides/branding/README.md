@@ -13,7 +13,7 @@ Extending the branding AM also enables you to leverage context variables and use
 
 ### Branding on different levels
 
-To fully tend to your application branding and user experience, AM enables you to customize forms either on [security domain level](docs/am/4.4/guides/security-domains.md) or on the [application level](docs/am/4.4/guides/applications.md). This addresses cases where some applications can be fine with relying on your overall company branding but others may be in need of a more custom branding touch.
+To fully tend to your application branding and user experience, AM enables you to customize forms either on [security domain level](../security-domains.md) or on the [application level](../applications.md). This addresses cases where some applications can be fine with relying on your overall company branding but others may be in need of a more custom branding touch.
 
 ## Theme builder
 
@@ -37,7 +37,7 @@ It is straightforward to update the brand logo and the theme color. All changes 
 Logo, favicon, and theme color are applied for all the default pages provided by AM. If you want to customize a specific page, you must select your page and switch to the HTML mode to enable and publish custom HTML templates - for example, if third-party logo URLs have been used for logo and favicon and a theme color has been selected to preview the login page.
 
 {% hint style="info" %}
-The content Security Policy (CSP) will prevent third-party URL access unless it has been set as permitted. For more information on how to allow cross-domain URL access, please see [Mitigate XSS CSF in AM environment](docs/am/4.4/getting-started/install-and-upgrade-guides/configure-a-production-ready-am-environment.md#step-7-mitigate-cross-site-scripting-xss-and-cross-site-framing) and [Mitigate XSS CSF in Helm](docs/am/4.4/getting-started/install-and-upgrade-guides/deploy-in-kubernetes.md#production-ready-configuration).
+The content Security Policy (CSP) will prevent third-party URL access unless it has been set as permitted. For more information on how to allow cross-domain URL access, please see [Mitigate XSS CSF in AM environment](../../getting-started/install-and-upgrade-guides/configure-a-production-ready-am-environment.md#step-7-mitigate-cross-site-scripting-xss-and-cross-site-framing) and [Mitigate XSS CSF in Helm](../../getting-started/install-and-upgrade-guides/deploy-in-kubernetes.md#production-ready-configuration).
 {% endhint %}
 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-branding-theme-builder-custom-preview.png" alt=""><figcaption><p>Custom logo</p></figcaption></figure>

@@ -20,7 +20,7 @@ If you chose **Webhook** as an entrypoint, you can modify the following configur
 ## Advanced Webhook plugin
 
 {% hint style="warning" %}
-**This feature requires Gravitee's** [**Enterprise Edition**](docs/apim/4.6/overview/enterprise-edition.md)**.**
+**This feature requires Gravitee's** [**Enterprise Edition**](../../overview/enterprise-edition.md)**.**
 {% endhint %}
 
 This Advanced version of the Webhook plugin adds enterprise features to the OSS version of the Webhook entrypoint, including Dead Letter Queue and secured callback. Refer to the following sections for additional details.
@@ -32,7 +32,7 @@ This Advanced version of the Webhook plugin adds enterprise features to the OSS 
 
 ### Quality of Service <a href="#user-content-quality-of-service" id="user-content-quality-of-service"></a>
 
-The Advanced version of the Webhook plugin offers improved QoS. In the Console, use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](docs/apim/4.6/configure-v4-apis/quality-of-service.md).
+The Advanced version of the Webhook plugin offers improved QoS. In the Console, use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](../quality-of-service.md).
 
 <table><thead><tr><th width="169.99999999999997">QoS</th><th width="138">Delivery</th><th>Description</th></tr></thead><tbody><tr><td>None</td><td>Unwarranted</td><td>Performance matters over delivery guarantee</td></tr><tr><td>Auto</td><td>0 or n</td><td>Performance matters over delivery guarantee</td></tr><tr><td>At-Most-Once</td><td>0 or 1</td><td>Delivery guarantee matters over performance</td></tr><tr><td>At-Least-Once</td><td>1 or n</td><td>Delivery guarantee matters over performance</td></tr></tbody></table>
 

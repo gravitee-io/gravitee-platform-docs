@@ -81,7 +81,7 @@ We recommend that Ambassador Edge Stack be configured using CRDs. The Ingress re
 Ambassador Edge Stack supports basic core functionality of the Ingress resource, as defined by the [Ingress resource](https://kubernetes.io/docs/concepts/services-networking/ingress/) itself:
 
 * Basic routing is supported, including the `route` specification and the default backend functionality. It's particularly easy to use a minimal Ingress to the Ambassador Edge Stack diagnostic UI.
-* [TLS termination](docs/edge-stack/technical-reference/tls-configuration/tls-overview.md) is supported. You can use multiple Ingress resources for SNI.
+* [TLS termination](../tls-configuration/tls-overview.md) is supported. You can use multiple Ingress resources for SNI.
 * Using the Ingress resource in concert with Ambassador Edge Stack CRDs or annotations is supported. This includes Ambassador Edge Stack annotations on the Ingress resource itself.
 
 Ambassador Edge Stack does **not** extend the basic Ingress specification with the following exceptions:

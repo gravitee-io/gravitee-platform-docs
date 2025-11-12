@@ -14,7 +14,7 @@ The Gravitee Kubernetes Operator (GKO) is a technical component designed to be d
 
 You can use the GKO to define, deploy, and publish APIs to your API Developer Portal and API Gateway via custom resource definitions (CRDs). The Gravitee Kubernetes Operator includes three CRDs: `ManagementContext`, `ApiDefinition`, and `ApiResource`, which are described in detail [here](custom-resource-definitions/).
 
-By applying the [`ApiResource`](custom-resource-definitions/apiresource-crd.md) CRD, you can create reusable [API resources](docs/apim/4.0/guides/api-configuration/resources.md) such as cache or authentication providers. These can be defined a single time and maintained in a single place for reuse in multiple APIs. Any further updates to the resource will be automatically propagated to all APIs containing a reference to that resource.
+By applying the [`ApiResource`](custom-resource-definitions/apiresource-crd.md) CRD, you can create reusable [API resources](../api-configuration/resources.md) such as cache or authentication providers. These can be defined a single time and maintained in a single place for reuse in multiple APIs. Any further updates to the resource will be automatically propagated to all APIs containing a reference to that resource.
 
 Choose from the guides below to learn how to use CRDs and synchronize your API CRDs with the APIM Management API, including how to start, stop, update, and delete your APIs.
 

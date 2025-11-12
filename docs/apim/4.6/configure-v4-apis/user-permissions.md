@@ -13,7 +13,7 @@ The sections below detail how to manage user and group access to individual APIs
 * [Transfer API ownership](user-permissions.md#transfer-api-ownership)
 
 {% hint style="info" %}
-See [User Management](docs/apim/4.6/administration/user-management.md) to learn more about user and group creation and administration.
+See [User Management](../administration/user-management.md) to learn more about user and group creation and administration.
 {% endhint %}
 
 ## Configure API user and group access
@@ -28,7 +28,7 @@ To configure user and group access for an API:
 
 ### Add members to an API
 
-Click **+ Add members** to add members to your API or alter member roles, which grant specific permissions. For more information on roles, please refer to the [roles documentation.](docs/apim/4.6/administration/user-management.md#roles)
+Click **+ Add members** to add members to your API or alter member roles, which grant specific permissions. For more information on roles, please refer to the [roles documentation.](../administration/user-management.md#roles)
 
 <figure><img src="../../../../.gitbook/assets/user permissions_add members alter roles.png" alt=""><figcaption><p>Add members and alter roles</p></figcaption></figure>
 

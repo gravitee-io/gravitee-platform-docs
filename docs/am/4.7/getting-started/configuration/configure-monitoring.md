@@ -6,7 +6,7 @@ Gravitee offers multiple ways to monitor and check the status and availability o
 
 * [Internal APIs](configure-am-gateway/internal-api.md) to monitor your AM components health.
 * External tools like [Prometheus](configure-monitoring.md#prometheus) to monitor, visualize and alert.
-* [Audit logs](docs/am/4.7/guides/audit-trail.md) to analyze your business activity.
+* [Audit logs](../../guides/audit-trail.md) to analyze your business activity.
 
 ## Prometheus
 

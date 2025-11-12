@@ -145,7 +145,7 @@ Here are the policies that you can apply to your APIs:
 {% endcontent-ref %}
 
 {% content-ref url="../../api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/mock.md" %}
-[mock.md](docs/apim/4.5/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/mock.md)
+[mock.md](../../api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/mock.md)
 {% endcontent-ref %}
 
 {% content-ref url="l-p/oas-validation.md" %}

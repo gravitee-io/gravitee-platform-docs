@@ -20,4 +20,4 @@ You create roles in a security domain.
 
 ## Use roles
 
-You can use roles to supplement an access token’s claims, for example, to limit the scope of operation of your protected services and APIs. See [custom claims](docs/am/4.5/getting-started/tutorial-getting-started-with-am/get-user-profile-information.md#custom-claims) for more information.
+You can use roles to supplement an access token’s claims, for example, to limit the scope of operation of your protected services and APIs. See [custom claims](../../getting-started/tutorial-getting-started-with-am/get-user-profile-information.md#custom-claims) for more information.

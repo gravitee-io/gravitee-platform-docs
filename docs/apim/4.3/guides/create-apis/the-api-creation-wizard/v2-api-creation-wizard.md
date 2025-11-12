@@ -41,7 +41,7 @@ Define your **Backend**, which is the target backend where the request will be r
 Optionally, you can select **Advanced mode** to define **Tenants** and/or **Sharding tags** for this API. These specify the Gateways to which the API is deployed.&#x20;
 
 {% hint style="info" %}
-Refer to [Tenants](docs/apim/4.3/getting-started/configuration/apim-gateway/tenants.md) and/or [Sharding tags](docs/apim/4.3/getting-started/configuration/apim-gateway/sharding-tags.md) for more information.
+Refer to [Tenants](../../../getting-started/configuration/apim-gateway/tenants.md) and/or [Sharding tags](../../../getting-started/configuration/apim-gateway/sharding-tags.md) for more information.
 {% endhint %}
 
 <figure><img src="../../../.gitbook/assets/Screen Shot 2023-06-07 at 1.35.16 PM.png" alt=""><figcaption><p>Define your API Gateway settings</p></figcaption></figure>

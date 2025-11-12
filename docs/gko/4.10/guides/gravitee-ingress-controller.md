@@ -89,7 +89,7 @@ helm upgrade --install gravitee-gko \
 ```
 
 {% hint style="info" %}
-Refer to the [Helm Chart documentation](docs/gko/4.10/getting-started/installation/install-with-helm.md) for more information.
+Refer to the [Helm Chart documentation](../getting-started/installation/install-with-helm.md) for more information.
 {% endhint %}
 
 ### 4. Add a test backend

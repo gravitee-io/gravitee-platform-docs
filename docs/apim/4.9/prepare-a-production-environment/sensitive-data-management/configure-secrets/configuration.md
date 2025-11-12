@@ -9,7 +9,7 @@ Secrets manager integrations are handled by `secret-provider` plugins. These plu
 {% hint style="info" %}
 To learn more about Gravitee [Enterprise Edition](/apim/readme/enterprise-edition) and what's included in various enterprise packages:
 
-* [Book a demo](https://documentation.gravitee.io/platform-overview/)
+* [Book a demo](../../../../../platform-overview/README.md)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
 

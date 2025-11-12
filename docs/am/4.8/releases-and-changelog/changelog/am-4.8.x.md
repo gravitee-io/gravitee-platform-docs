@@ -330,7 +330,7 @@ An application can now be configured to accept multiple client secrets. Each sec
 
 **FranceConnect**
 
-The [FranceConnect Identity](docs/am/4.8/guides/identity-providers/legal-identity-providers/franceconnect.md) provider is now able to support the version 2 of the FranceConnect API.
+The [FranceConnect Identity](../../guides/identity-providers/legal-identity-providers/franceconnect.md) provider is now able to support the version 2 of the FranceConnect API.
 
 **Support for PBKDF2**
 

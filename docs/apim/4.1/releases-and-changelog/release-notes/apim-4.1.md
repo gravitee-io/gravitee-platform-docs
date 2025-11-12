@@ -12,17 +12,17 @@ If you are an existing Gravitee Enterprise customer upgrading to 4.x, please mak
 
 ## Introduction
 
-Gravitee 4.1 was released on September 28th, 2023, and introduced DB-less mode, enhancements to v4 API configuration, the ability to import and duplicate v4 APIs, and improved logging capabilities. For a pared-down version of what was released, please see the [changelog for Gravitee APIM 4.x](docs/apim/4.1/releases-and-changelog/changelog/apim-4.1.x.md).
+Gravitee 4.1 was released on September 28th, 2023, and introduced DB-less mode, enhancements to v4 API configuration, the ability to import and duplicate v4 APIs, and improved logging capabilities. For a pared-down version of what was released, please see the [changelog for Gravitee APIM 4.x](../changelog/apim-4.1.x.md).
 
 ## DB-less mode
 
-DB-less mode allows a Gateway to be deployed with no dependencies, assuming only that there is an operator running in the same cluster or namespace. Although the setup does not include Elasticsearch or MongoDB, analytics can still be configured using a custom reporter such as Datadog, TCP with Logstash, etc. For more information on configuring a DB-less deployment, see [this section](docs/apim/4.1/getting-started/install-guides/install-on-kubernetes/configure-helm-chart.md#db-less-mode-minimum-configuration-example).
+DB-less mode allows a Gateway to be deployed with no dependencies, assuming only that there is an operator running in the same cluster or namespace. Although the setup does not include Elasticsearch or MongoDB, analytics can still be configured using a custom reporter such as Datadog, TCP with Logstash, etc. For more information on configuring a DB-less deployment, see [this section](../../getting-started/install-guides/install-on-kubernetes/configure-helm-chart.md#db-less-mode-minimum-configuration-example).
 
 ## v4 API configuration
 
 ### Webhook entrypoint
 
-You can enable Dead Letter Queue to define an external storage where each unsuccessfully pushed message will be stored and configure a replay strategy. A pre-existing and supported endpoint or endpoint group can be selected. This is an advanced configuration that requires having the endpoint already configured. Refer to the [configuration details](docs/apim/4.1/guides/api-configuration/v4-api-configuration/entrypoint-configuration.md#webhook) for more information.
+You can enable Dead Letter Queue to define an external storage where each unsuccessfully pushed message will be stored and configure a replay strategy. A pre-existing and supported endpoint or endpoint group can be selected. This is an advanced configuration that requires having the endpoint already configured. Refer to the [configuration details](../../guides/api-configuration/v4-api-configuration/entrypoint-configuration.md#webhook) for more information.
 
 <figure><img src="../../.gitbook/assets/configure dlq.png" alt=""><figcaption><p>Configure DLQ</p></figcaption></figure>
 
@@ -40,23 +40,23 @@ By default, an endpoint added to an endpoint group will inherit the group's conf
 
 <figure><img src="../../.gitbook/assets/default behavior toggle to inherit.png" alt=""><figcaption><p>Toggle to inherit endpoint configuration</p></figcaption></figure>
 
-For more information on endpoint enhancements, refer to [this guide](docs/apim/4.1/guides/api-configuration/v4-api-configuration/endpoint-configuration.md#endpoint-management).
+For more information on endpoint enhancements, refer to [this guide](../../guides/api-configuration/v4-api-configuration/endpoint-configuration.md#endpoint-management).
 
 ### User and group access&#x20;
 
 {% @arcade/embed flowId="cFPsuQlW9Jd8KOvrvnLM" url="https://app.arcade.software/share/cFPsuQlW9Jd8KOvrvnLM" %}
 
-You can manage user and group access to individual APIs via the Management Console. You can add members to your API and alter member roles, which come with specific permissions. You can also add groups to your API to give all members of those groups access. In addition, the owner of an API can transfer ownership to another member, user, or group by selecting a stakeholder and assigning that stakeholder a role. For more information, refer to [this guide](docs/apim/4.1/guides/api-configuration/v2-api-configuration/configure-user-and-group-access.md).
+You can manage user and group access to individual APIs via the Management Console. You can add members to your API and alter member roles, which come with specific permissions. You can also add groups to your API to give all members of those groups access. In addition, the owner of an API can transfer ownership to another member, user, or group by selecting a stakeholder and assigning that stakeholder a role. For more information, refer to [this guide](../../guides/api-configuration/v2-api-configuration/configure-user-and-group-access.md).
 
 ### Quality of Service
 
-4.1 introduces enhanced QoS support for various entrypoint, protocol, and endpoint selections. The QoS compatibility matrix can be found [here](docs/apim/4.1/guides/api-configuration/v4-api-configuration/quality-of-service.md).
+4.1 introduces enhanced QoS support for various entrypoint, protocol, and endpoint selections. The QoS compatibility matrix can be found [here](../../guides/api-configuration/v4-api-configuration/quality-of-service.md).
 
 ## Importing and duplicating v4 APIs
 
 You can now create a v4 API by uploading a JSON file containing an existing Gravitee v4 API definition. For the details of this feature, refer to the [documentation](../../guides/create-apis/import-apis/).
 
-A v4 API can now also be duplicated. Refer to [this page](docs/apim/4.1/guides/api-configuration/v4-api-configuration/api-general-settings.md) for more details.
+A v4 API can now also be duplicated. Refer to [this page](../../guides/api-configuration/v4-api-configuration/api-general-settings.md) for more details.
 
 ## Logging
 

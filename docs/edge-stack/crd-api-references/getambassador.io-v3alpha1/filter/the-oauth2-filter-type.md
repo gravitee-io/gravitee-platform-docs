@@ -8,7 +8,7 @@ noIndex: true
 
 The OAuth2 Filter type performs OAuth2 authorization against an identity provider implementing [OIDC Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html).
 
-This doc is an overview of all the fields on the `OAuth2 Filter` Custom Resource with descriptions of the purpose, type, and default values of those fields. This page is specific to the `getambassador.io/v3alpha1` version of the `OAuth2 Filter` resource. For the newer `gateway.getambassador.io/v1alpha1` resource, please see the [v1alpha1 OAuth2 Filter api reference](docs/edge-stack/crd-api-references/gateway.getambassador.io-v1alpha1/filter/the-oauth2-filter-type.md).
+This doc is an overview of all the fields on the `OAuth2 Filter` Custom Resource with descriptions of the purpose, type, and default values of those fields. This page is specific to the `getambassador.io/v3alpha1` version of the `OAuth2 Filter` resource. For the newer `gateway.getambassador.io/v1alpha1` resource, please see the [v1alpha1 OAuth2 Filter api reference](../../gateway.getambassador.io-v1alpha1/filter/the-oauth2-filter-type.md).
 
 {% hint style="info" %}
 `v3alpha1` `Filters` can only be referenced from `v3alpha1` `FilterPolicies`.

@@ -92,5 +92,5 @@ Events:
 **For more information:**
 
 * The `Group` CRD code is available on [GitHub](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/api/v1alpha1/group_types.go).
-* The `Group` CRD API reference is documented [here](docs/gko/4.8/reference/api-reference.md).
+* The `Group` CRD API reference is documented [here](../../reference/api-reference.md).
 {% endhint %}

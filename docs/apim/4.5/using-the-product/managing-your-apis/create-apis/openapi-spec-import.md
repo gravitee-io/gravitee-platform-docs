@@ -149,7 +149,7 @@ You can also choose to activate policies (below) that will be configured using t
 {% tab title="JSON Validation" %}
 For each operation, if an `application/json` request body exists, a JSON schema is computed from this body to configure a JSON Validation policy.\
 \
-For more information, see the [JSON Validation policy](docs/apim/4.5/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/i-k/json-validation.md) reference.
+For more information, see the [JSON Validation policy](../policy-studio/policies-for-your-apis/i-k/json-validation.md) reference.
 {% endtab %}
 
 {% tab title="REST to SOAP" %}
@@ -158,24 +158,24 @@ For each operation, if the definition contains specific vendor extensions, a RES
 * `x-graviteeio-soap-envelope`: Contains the SOAP envelope
 * `x-graviteeio-soap-action`: Contains the SOAP action
 
-For more information, see the [REST to SOAP policy](docs/apim/4.5/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/r-s/rest-to-soap.md) reference.
+For more information, see the [REST to SOAP policy](../policy-studio/policies-for-your-apis/r-s/rest-to-soap.md) reference.
 {% endtab %}
 
 {% tab title="Mock" %}
 For each operation, a mock policy is configured, based on the `example` field if it exists, or by generating a random value for the type of attribute to mock.\
 \
-For more information, see the [Mock policy](docs/apim/4.5/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/l-p/mock.md) reference.
+For more information, see the [Mock policy](../policy-studio/policies-for-your-apis/l-p/mock.md) reference.
 {% endtab %}
 
 {% tab title="Request Validation" %}
 For each operation, `NOT` `NULL` rules are created with query parameters and headers.\
 \
-For more information, see the [Request Validation policy](docs/apim/4.5/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/r-s/request-validation.md) reference.
+For more information, see the [Request Validation policy](../policy-studio/policies-for-your-apis/r-s/request-validation.md) reference.
 {% endtab %}
 
 {% tab title="XML Validation" %}
 For each operation, if a `application/xml` request body exists, then a XSD schema is computed from this body to configure an XML Validation policy.&#x20;
 
-For more information, see the [XML Validation policy](docs/apim/4.5/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/t-x/xml-validation.md) reference.
+For more information, see the [XML Validation policy](../policy-studio/policies-for-your-apis/t-x/xml-validation.md) reference.
 {% endtab %}
 {% endtabs %}

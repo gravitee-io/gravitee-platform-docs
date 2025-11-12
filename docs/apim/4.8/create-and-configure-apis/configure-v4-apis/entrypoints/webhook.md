@@ -49,7 +49,7 @@ When you create the webhook entrypoint, the following configuration is added to 
 
 ### Quality of Service <a href="#user-content-quality-of-service" id="user-content-quality-of-service"></a>
 
-The Advanced version of the webhook plugin offers improved QoS. In the Console, use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](docs/apim/4.8/create-and-configure-apis/configure-v4-apis/quality-of-service.md).
+The Advanced version of the webhook plugin offers improved QoS. In the Console, use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](../quality-of-service.md).
 
 <table><thead><tr><th width="169.99999999999997">QoS</th><th width="138">Delivery</th><th>Description</th></tr></thead><tbody><tr><td>None</td><td>Unwarranted</td><td>Performance matters over delivery guarantee</td></tr><tr><td>Auto</td><td>0 or n</td><td>Performance matters over delivery guarantee</td></tr><tr><td>At-Most-Once</td><td>0 or 1</td><td>Delivery guarantee matters over performance</td></tr><tr><td>At-Least-Once</td><td>1 or n</td><td>Delivery guarantee matters over performance</td></tr></tbody></table>
 

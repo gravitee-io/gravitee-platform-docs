@@ -77,7 +77,7 @@ Follow the APIM installation instructions in the [Install on Docker](../installi
 {% endtab %}
 
 {% tab title="VM" %}
-Follow the APIM installation instructions in the [Install with `.ZIP`](docs/apim/4.3/getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-with-.zip.md) guide.
+Follow the APIM installation instructions in the [Install with `.ZIP`](../installing-a-self-hosted-gravitee-api-management-platform/install-with-.zip.md) guide.
 
 {% hint style="info" %}
 **Download and mount the required plugins for the Gravitee.io Gateway:**

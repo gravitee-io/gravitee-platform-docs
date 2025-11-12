@@ -5,9 +5,9 @@
 {% hint style="warning" %}
 If you're hosting Gravitee yourself, then Federation is **deactivated by default**. To enable it, please refer to the dedicated sections in the installation guide of choice:
 
-* [Enable Federation when installing with Helm on Kubernetes](docs/apim/4.7/install-and-upgrade/kubernetes.md#federation)
-* [Enable Federation when installing with Docker Compose](docs/apim/4.7/install-and-upgrade/docker/docker-compose.md#enable-federation)
-* [Enable Federation when installing with .zip](docs/apim/4.7/install-and-upgrade/.zip.md#federation)
+* [Enable Federation when installing with Helm on Kubernetes](../../install-and-upgrade/kubernetes.md#federation)
+* [Enable Federation when installing with Docker Compose](../../install-and-upgrade/docker/docker-compose.md#enable-federation)
+* [Enable Federation when installing with .zip](../../install-and-upgrade/.zip.md#federation)
 {% endhint %}
 
 A growing number of organizations have an IT footprint that extends across multiple clouds and multiple enterprise software solutions. All of these systems contain valuable data and services that your organization can use to get ahead. As architects and platform engineers, your success will be measured against your ability to harness this complexity to the benefit of the business. This means two things:

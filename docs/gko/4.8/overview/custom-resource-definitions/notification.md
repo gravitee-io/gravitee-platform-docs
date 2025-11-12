@@ -64,5 +64,5 @@ The following are the allowed values for `apiEvents` when configuring notificati
 {% hint style="info" %}
 **For more information:**
 
-* The `Notification` CRD API reference is documented [here](docs/gko/4.8/reference/api-reference.md).
+* The `Notification` CRD API reference is documented [here](../../reference/api-reference.md).
 {% endhint %}

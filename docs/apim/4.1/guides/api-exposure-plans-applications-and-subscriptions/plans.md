@@ -54,7 +54,7 @@ The final two sections in the **General** stage are **Deployment** and **Access-
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 1.10.04 PM.png" alt=""><figcaption><p>Deployment and Access-Control settings</p></figcaption></figure>
 
-The **Deployment** section allows you to selectively deploy the plan to particular APIs using sharding tags which you can learn more about [here](docs/apim/4.1/getting-started/configuration/the-gravitee-api-gateway/configure-sharding-tags-for-your-gravitee-api-gateways.md).
+The **Deployment** section allows you to selectively deploy the plan to particular APIs using sharding tags which you can learn more about [here](../../getting-started/configuration/the-gravitee-api-gateway/configure-sharding-tags-for-your-gravitee-api-gateways.md).
 
 **Access-Control** lets you prevent specified groups from accessing this plan. You can learn more about user management and how to configure groups here.
 
@@ -111,7 +111,7 @@ The Keyless authentication type does _not_ require authentication and allows pub
 {% hint style="info" %}
 **Basic authentication and keyless plans**
 
-You can configure basic authentication for keyless plans by associating a basic authentication policy with either an LDAP or inline resource. For more details, see the [Basic Authentication policy](docs/apim/4.1/reference/policy-reference/basic-authentication.md).
+You can configure basic authentication for keyless plans by associating a basic authentication policy with either an LDAP or inline resource. For more details, see the [Basic Authentication policy](../../reference/policy-reference/basic-authentication.md).
 {% endhint %}
 
 ### API key plan
@@ -307,7 +307,7 @@ A published plan can either be deprecated or closed. Neither operation can be un
 APIM automatically routes each API request to the correct plan. The plan selection workflow parses all the published plans in the following order: JWT, OAuth2, API Key, Keyless. Each plan type has the following rules:
 
 {% hint style="warning" %}
-This workflow only applies to [v4 APIs and v2 APIs in emulation mode.](docs/apim/4.1/overview/gravitee-api-definitions-and-execution-engines/plan-selection.md#plan-selection)
+This workflow only applies to [v4 APIs and v2 APIs in emulation mode.](../../overview/gravitee-api-definitions-and-execution-engines/plan-selection.md#plan-selection)
 {% endhint %}
 
 * JWT

@@ -8,7 +8,7 @@ description: >-
 
 ## Introduction
 
-This guide will walk through how to configure your general Gravitee API Management (APIM) Gateway settings using the `gravitee.yaml` file. As detailed in the [Configuring APIM Components](docs/apim/4.4/using-the-product/using-the-gravitee-api-management-components/configuration.md#configuring-apim-components), you can override these settings by using system properties or environment variables.
+This guide will walk through how to configure your general Gravitee API Management (APIM) Gateway settings using the `gravitee.yaml` file. As detailed in the [Configuring APIM Components](../configuration.md#configuring-apim-components), you can override these settings by using system properties or environment variables.
 
 The `gravitee.yaml` file, found in `GRAVITEE_HOME/config/`, is the default way to configure APIM.
 
@@ -237,10 +237,10 @@ plugins:
   path: ${gravitee.home}/plugins
 ```
 
-Users can add plugins not included in APIM's default distribution to this directory. This includes different versions of Gravitee plugins or their own [custom plugins](docs/apim/4.4/overview/plugins-and-api-definitions-for-gravitee-api-management/plugins/custom-plugins.md).&#x20;
+Users can add plugins not included in APIM's default distribution to this directory. This includes different versions of Gravitee plugins or their own [custom plugins](../../../overview/plugins-and-api-definitions-for-gravitee-api-management/plugins/custom-plugins.md).&#x20;
 
 {% hint style="info" %}
-To understand how Gravitee handles duplicate plugins, see plugins [discovery and loading.](docs/apim/4.4/overview/plugins-and-api-definitions-for-gravitee-api-management/plugins/deploying-plugins.md#discovery-and-loading)
+To understand how Gravitee handles duplicate plugins, see plugins [discovery and loading.](../../../overview/plugins-and-api-definitions-for-gravitee-api-management/plugins/deploying-plugins.md#discovery-and-loading)
 {% endhint %}
 
 If you do not wish to modify the default directory, Gravitee also lets you specify additional folders in an array:
@@ -270,7 +270,7 @@ api:
 ```
 {% endcode %}
 
-The property `removePlugins` has been removed from the Helm chart as it is no longer necessary. See [plugin discovery and loading](docs/apim/4.4/overview/plugins-and-api-definitions-for-gravitee-api-management/plugins/deploying-plugins.md#discovery-and-loading) for more information.
+The property `removePlugins` has been removed from the Helm chart as it is no longer necessary. See [plugin discovery and loading](../../../overview/plugins-and-api-definitions-for-gravitee-api-management/plugins/deploying-plugins.md#discovery-and-loading) for more information.
 {% endtab %}
 {% endtabs %}
 

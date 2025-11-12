@@ -38,7 +38,7 @@ It is now possible to disable the creation of the default reporter and the defau
 
 ## Group mapper
 
-Identity Providers now provide a [Group Mapper](docs/am/4.5/guides/identity-providers/user-and-role-mapping.md) section. In the same way as role mapper, you know have a way to dynamically assign a user to a group based on the user profile provided by the identity provider.
+Identity Providers now provide a [Group Mapper](../../guides/identity-providers/user-and-role-mapping.md) section. In the same way as role mapper, you know have a way to dynamically assign a user to a group based on the user profile provided by the identity provider.
 
 ## Token generation
 

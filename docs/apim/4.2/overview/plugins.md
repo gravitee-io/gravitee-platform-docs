@@ -5,7 +5,7 @@
 Plugins are additional components that can be _plugged into_ Gravitee API Management (APIM) Gateway or APIM Management API. They can customize the component’s behavior to exactly fit your needs and technical constraints.
 
 {% hint style="info" %}
-For more technical information about plugins, including details of their directory structure and how to create your own, see the [Custom Plugins Guide](docs/apim/4.2/guides/developer-contributions/custom-plugins.md).
+For more technical information about plugins, including details of their directory structure and how to create your own, see the [Custom Plugins Guide](../guides/developer-contributions/custom-plugins.md).
 {% endhint %}
 
 ## Types of plugins
@@ -47,7 +47,7 @@ Examples of a policy are:
 * Applying header or query parameter transformations
 * Applying rate limiting or quotas to avoid API flooding
 
-Want to know how to create, use, and deploy a custom policy? Check out the [Custom Policies Developer Guide](docs/apim/4.2/guides/developer-contributions/custom-policies.md).
+Want to know how to create, use, and deploy a custom policy? Check out the [Custom Policies Developer Guide](../guides/developer-contributions/custom-policies.md).
 
 ### Reporters
 
@@ -64,7 +64,7 @@ _Out-of-the-box_ reporters are :
 * File Reporter
 * TCP reporter
 
-As with all plugins, you can create, use and deploy custom reporters as described in the [Custom Plugins Developer Guide](docs/apim/4.2/guides/developer-contributions/custom-plugins.md).
+As with all plugins, you can create, use and deploy custom reporters as described in the [Custom Plugins Developer Guide](../guides/developer-contributions/custom-plugins.md).
 
 ### Repositories
 
@@ -78,7 +78,7 @@ A **resource** can be added to an API for its whole lifecycle. APIM comes with t
 * OAuth2 - Gravitee Access Management
 * OAuth2 - Generic Authorization Server
 
-You can find more information in the [Resources](docs/apim/4.2/guides/api-configuration/resources.md) section of the documentation.
+You can find more information in the [Resources](../guides/api-configuration/resources.md) section of the documentation.
 
 ### Notifiers
 
@@ -102,7 +102,7 @@ A secret provider resolves secrets to avoid exposing plain text passwords and se
 
 ## Deployment
 
-Deploying a plugin is as easy as copying the plugin archive (zip) into the dedicated directory. By default, you need to deploy the archives in `${GRAVITEE_HOME/plugins}`. Refer to the [APIM Gateway Configuration Documentation](docs/apim/4.2/getting-started/configuration/the-gravitee-api-gateway/general-configuration.md#configure-the-plugins-directory) for more information on modifying the directory structure.
+Deploying a plugin is as easy as copying the plugin archive (zip) into the dedicated directory. By default, you need to deploy the archives in `${GRAVITEE_HOME/plugins}`. Refer to the [APIM Gateway Configuration Documentation](../getting-started/configuration/the-gravitee-api-gateway/general-configuration.md#configure-the-plugins-directory) for more information on modifying the directory structure.
 
 {% hint style="warning" %}
 You must restart APIM nodes when applying new or updated plugins.

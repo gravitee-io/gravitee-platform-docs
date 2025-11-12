@@ -8,7 +8,7 @@ You can use flows to extend the standard AM behavior by executing [policies](pol
 
 Each policy has access to the `Execution Context` to retrieve and set information required to execute the policy code. The `Execution Context` data is propagated for availability in future use cases. For example, custom HTML forms.
 
-The following example retrieves `Execution Context` data using the [Gravitee Expression Language](docs/am/4.9/guides/am-expression-language.md):
+The following example retrieves `Execution Context` data using the [Gravitee Expression Language](../am-expression-language.md):
 
 {% code overflow="wrap" %}
 ```

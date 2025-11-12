@@ -18,7 +18,7 @@ The AM Console Audit log page displays all events which have occurred, including
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-logs-audit.png" alt=""><figcaption><p>Audit log</p></figcaption></figure>
 
 {% hint style="info" %}
-All of this information can also be retrieved with the [AM API.](docs/am/4.4/reference/am-api-reference.md)
+All of this information can also be retrieved with the [AM API.](../reference/am-api-reference.md)
 {% endhint %}
 
 ### Event types
@@ -52,7 +52,7 @@ The following table lists the available log event types. The result of an event 
 
 ## Storage
 
-Audit events are managed (store and fetch) by plugins called [Reporters](docs/am/4.4/getting-started/configuration/configure-reporters.md).
+Audit events are managed (store and fetch) by plugins called [Reporters](../getting-started/configuration/configure-reporters.md).
 
 By default, a reporter is created for each security domain and allows you to choose where the audit logs will be stored.
 

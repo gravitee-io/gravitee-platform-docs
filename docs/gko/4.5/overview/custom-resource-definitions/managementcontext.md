@@ -34,7 +34,7 @@ A Management Context custom resource can authenticate to your Management API ins
 * using a user token
 * basic authentication with a user's personal credentials (username & password)
 
-Head to [this guide](docs/gko/4.5/guides/define-an-apim-service-account-for-gko.md) to learn how to create a dedicated service account and token for GKO.
+Head to [this guide](../../guides/define-an-apim-service-account-for-gko.md) to learn how to create a dedicated service account and token for GKO.
 
 {% hint style="info" %}
 If both credentials and a bearer token are defined in your custom resource, the bearer token will take precedence.
@@ -96,7 +96,7 @@ spec:
       password: admin
 ```
 
-The example below uses a `bearerToken` to authenticate the requests. Note that the token must have been generated for the account beforehand, as described [here](docs/gko/4.5/guides/define-an-apim-service-account-for-gko.md):
+The example below uses a `bearerToken` to authenticate the requests. Note that the token must have been generated for the account beforehand, as described [here](../../guides/define-an-apim-service-account-for-gko.md):
 
 ```yaml
 apiVersion: gravitee.io/v1alpha1
@@ -206,4 +206,4 @@ Alternatively, you can configure the [Helm Chart](../../getting-started/installa
 For more information:
 
 * The `ManagementContext` CRD code is available on [GitHub](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/api/v1alpha1/managementcontext\_types.go).
-* The `ManagementContext` CRD API reference is documented [here](docs/gko/4.5/reference/api-reference.md).
+* The `ManagementContext` CRD API reference is documented [here](../../reference/api-reference.md).

@@ -1,7 +1,7 @@
 # GKO 4.3
 
 {% hint style="info" %}
-Gravitee Kubernetes Operator (GKO) 4.3 documentation is stored within the Gravitee API Management (APIM) 4.3 documentation. For more information about GKO 4.3, see [Gravitee Kubernetes Operator](https://documentation.gravitee.io/apim/4.3/guides/gravitee-kubernetes-operator).
+Gravitee Kubernetes Operator (GKO) 4.3 documentation is stored within the Gravitee API Management (APIM) 4.3 documentation. For more information about GKO 4.3, see [Gravitee Kubernetes Operator](../../../../apim/4.3/guides/gravitee-kubernetes-operator/README.md).
 {% endhint %}
 
 GKO 4.3.7 is a tag based on GKO 0.13.1. For details of changes that came in releases from GKO 4.3.7 and earlier, please take a look at the change logs in Github.

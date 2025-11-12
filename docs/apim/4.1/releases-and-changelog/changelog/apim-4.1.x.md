@@ -897,7 +897,7 @@ description: >-
 
 ## Gravitee API Management 4.1.0 - September 28, 2023
 
-For more in-depth information on what's new, please refer to the [Gravitee APIM 4.1 release notes](docs/apim/4.1/releases-and-changelog/release-notes/apim-4.1.md).
+For more in-depth information on what's new, please refer to the [Gravitee APIM 4.1 release notes](../release-notes/apim-4.1.md).
 
 <details>
 

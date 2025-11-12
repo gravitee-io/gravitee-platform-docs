@@ -4,7 +4,7 @@ noIndex: true
 
 # TLS Termination and Enabling HTTPS
 
-TLS encryption is one of the basic requirements of having a secure system. Ambassador Edge Stack [automatically enables TLS termination/HTTPs](docs/edge-stack/technical-reference/using-custom-resources/the-host-resource.md#tls-settings), making TLS encryption easy and centralizing TLS termination for all of your services in Kubernetes.
+TLS encryption is one of the basic requirements of having a secure system. Ambassador Edge Stack [automatically enables TLS termination/HTTPs](../using-custom-resources/the-host-resource.md#tls-settings), making TLS encryption easy and centralizing TLS termination for all of your services in Kubernetes.
 
 While this automatic certificate management in Ambassador Edge Stack helps simply TLS configuration in your cluster, the Open-Source Emissary-ingress still requires you provide your own certificate to enable TLS.
 

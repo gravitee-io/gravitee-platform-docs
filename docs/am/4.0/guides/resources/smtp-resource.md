@@ -2,7 +2,7 @@
 
 SMTP is a resource you can use to send email over SMTP.
 
-Once you have created your SMTP resource, you can reference it in the [Email factor configuration.](docs/am/4.0/guides/multi-factor-authentication/factors.md#email)
+Once you have created your SMTP resource, you can reference it in the [Email factor configuration.](../multi-factor-authentication/factors.md#email)
 
 To create an SMTP resource:
 

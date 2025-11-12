@@ -60,11 +60,11 @@ Gravitee 4.3 includes numerous API documentation enhancements:
 
     <figure><img src="../../.gitbook/assets/metadata_screen.png" alt=""><figcaption><p>API metadata</p></figcaption></figure>
 
-Refer to the [API Documentation](docs/apim/4.3/guides/api-configuration/v4-api-configuration/documentation.md) section for more information.&#x20;
+Refer to the [API Documentation](../../guides/api-configuration/v4-api-configuration/documentation.md) section for more information.&#x20;
 
 ## API properties
 
-v4 API properties can be dynamically managed via the **Properties** tab of the API Management Console's **Configuration** screen**.** To learn more about properties and how to set them, see the [documentation](docs/apim/4.3/guides/policy-studio/v4-api-policy-studio.md#api-properties).
+v4 API properties can be dynamically managed via the **Properties** tab of the API Management Console's **Configuration** screen**.** To learn more about properties and how to set them, see the [documentation](../../guides/policy-studio/v4-api-policy-studio.md#api-properties).
 
 <figure><img src="../../.gitbook/assets/api properties_dynamically manage (1).png" alt=""><figcaption><p>Dynamically manage properties</p></figcaption></figure>
 
@@ -74,7 +74,7 @@ Events and audit entries are now captured at the API level for v4 APIs. These ar
 
 <figure><img src="../../.gitbook/assets/audit logs_v4 apis.png" alt=""><figcaption><p>Events and audit logs</p></figcaption></figure>
 
-See the [Audit Logs](docs/apim/4.3/guides/api-configuration/v4-api-configuration/audit-logs.md) documentation for more information.
+See the [Audit Logs](../../guides/api-configuration/v4-api-configuration/audit-logs.md) documentation for more information.
 
 ## Developer Portal&#x20;
 
@@ -90,7 +90,7 @@ If incorrect templating is applied to the Markdown page of an API, errors alert 
 
 <figure><img src="../../.gitbook/assets/incorrect templating (1).png" alt=""><figcaption><p>Example of incorrect templating</p></figcaption></figure>
 
-For more information on how to configure documentation for the Developer Portal, see [this section](docs/apim/4.3/guides/developer-portal/configuration/documentation.md).
+For more information on how to configure documentation for the Developer Portal, see [this section](../../guides/developer-portal/configuration/documentation.md).
 
 ## Endpoint configuration
 
@@ -100,7 +100,7 @@ The Management Console's Health-check feature can be used for v4 HTTP proxy APIs
 
 <figure><img src="../../.gitbook/assets/health-check config form (1).png" alt=""><figcaption><p>Health-check configuration settings for v4 HTTP proxy APIs</p></figcaption></figure>
 
-For more information, see [Health-check](docs/apim/4.3/guides/api-configuration/v4-api-configuration/endpoints/health-check.md).
+For more information, see [Health-check](../../guides/api-configuration/v4-api-configuration/endpoints/health-check.md).
 
 ### Version history
 
@@ -108,7 +108,7 @@ The Management Console's Version History feature allows you to view a v4 API's d
 
 <figure><img src="../../.gitbook/assets/deployment_version history details.png" alt=""><figcaption><p>JSON definition of an API version</p></figcaption></figure>
 
-For more information, see [Version History](docs/apim/4.3/guides/api-configuration/v4-api-configuration/version-history.md).
+For more information, see [Version History](../../guides/api-configuration/v4-api-configuration/version-history.md).
 
 ### Webhook
 
@@ -116,7 +116,7 @@ If no pre-existing and supported endpoint or endpoint group is available to use 
 
 <figure><img src="../../.gitbook/assets/DLQ_create endpoint.png" alt=""><figcaption><p>Create an endpoint to use for DLQ</p></figcaption></figure>
 
-For more information, see the [Webhook entrypoint configuration ](docs/apim/4.3/guides/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints/webhook.md)section.
+For more information, see the [Webhook entrypoint configuration ](../../guides/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints/webhook.md)section.
 
 ## Entrypoint configuration
 
@@ -124,11 +124,11 @@ For more information, see the [Webhook entrypoint configuration ](docs/apim/4.3/
 
 CORS support has been extended to v4 message and proxy APIs. For CORS to be applied, an API must contain at least one HTTP GET, HTTP POST, HTTP Proxy, or SSE entrypoint. WebSocket entrypoints do not support CORS.&#x20;
 
-To learn more, see the [v4 CORS configuration](docs/apim/4.3/guides/api-configuration/v4-api-configuration/entrypoints/cors.md) documentation.
+To learn more, see the [v4 CORS configuration](../../guides/api-configuration/v4-api-configuration/entrypoints/cors.md) documentation.
 
 ### Response templates
 
-[Response templates](docs/apim/4.3/guides/api-configuration/v4-api-configuration/entrypoints/response-templates.md) can be implemented for all v4 API HTTP entrypoints:
+[Response templates](../../guides/api-configuration/v4-api-configuration/entrypoints/response-templates.md) can be implemented for all v4 API HTTP entrypoints:
 
 * HTTP GET
 * HTTP POST
@@ -145,7 +145,7 @@ Responses can be templatized if the errors raised during the request/response ph
 
 Gravitee Expression Language can get the raw text of a path mapping to compare the path parameters to what was actually evaluated. Calling `request.pathParamsRaw()` will evaluate to the correct, expected value when used in a policy.
 
-To learn more about Gravitee EL, see [this page](docs/apim/4.3/guides/gravitee-expression-language.md).
+To learn more about Gravitee EL, see [this page](../../guides/gravitee-expression-language.md).
 
 ## Notifications
 
@@ -153,13 +153,13 @@ Portal, API, and application notifications can be configured for v4 APIs via Por
 
 <figure><img src="../../.gitbook/assets/notifications api_base.png" alt=""><figcaption><p>Notifications configuration</p></figcaption></figure>
 
-For more information, refer to the [Notifications](docs/apim/4.3/getting-started/configuration/notifications.md) documentation.
+For more information, refer to the [Notifications](../../getting-started/configuration/notifications.md) documentation.
 
 ## Policies
 
 ### AVRO <> Protobuf
 
-You can use the [`avro-protobuf` policy](docs/apim/4.3/reference/policy-reference/avro-to-protobuf.md) to apply a transformation (or mapping) on the request, and/or response, and/or message content of an API call.&#x20;
+You can use the [`avro-protobuf` policy](../../reference/policy-reference/avro-to-protobuf.md) to apply a transformation (or mapping) on the request, and/or response, and/or message content of an API call.&#x20;
 
 AVRO to Protobuf conversion:
 
@@ -175,13 +175,13 @@ Protobuf to AVRO conversion:
 
 ### GraphQL Rate Limit
 
-The [`graphql-rate-limit` policy](docs/apim/4.3/reference/policy-reference/graphql-rate-limit.md) has been added to limit the load placed on the GraphQL server so that GraphQL resources can be served reliably without overloading the system. It is a Gravitee Enterprise Edition feature and requires a [license](/platform-overview/gravitee-essentials/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing)​.
+The [`graphql-rate-limit` policy](../../reference/policy-reference/graphql-rate-limit.md) has been added to limit the load placed on the GraphQL server so that GraphQL resources can be served reliably without overloading the system. It is a Gravitee Enterprise Edition feature and requires a [license](/platform-overview/gravitee-essentials/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing)​.
 
 The Gravitee Gateway evaluates query costs by introspecting schema and analyzing the query, then applying a rate-limiting strategy based on a computed/weighted score. This protects the backend GraphQL server from having to process costly GraphQL requests.
 
 ### Protobuf <> JSON
 
-You can use the [`protobuf-json` policy](docs/apim/4.3/reference/policy-reference/protobuf-to-json.md) to apply a transformation (or mapping) on the request, and/or response, and/or message content of an API call.&#x20;
+You can use the [`protobuf-json` policy](../../reference/policy-reference/protobuf-to-json.md) to apply a transformation (or mapping) on the request, and/or response, and/or message content of an API call.&#x20;
 
 Protobuf to JSON conversion:
 
@@ -196,7 +196,7 @@ JSON to Protobuf conversion:
 
 ### Rate Limit
 
-For any [`rate-limit` policy](docs/apim/4.3/reference/policy-reference/rate-limit.md) and irrespective of plan, the user can select the option to ignore the IP address and subscription of the caller and only use a custom key for the quota. Users can then share an API's rate limit calculations across machines to enforce the limit regardless of caller IP or subscriber ID. Using a custom key, the quota will increment after each call to the API across multiple hosts.
+For any [`rate-limit` policy](../../reference/policy-reference/rate-limit.md) and irrespective of plan, the user can select the option to ignore the IP address and subscription of the caller and only use a custom key for the quota. Users can then share an API's rate limit calculations across machines to enforce the limit regardless of caller IP or subscriber ID. Using a custom key, the quota will increment after each call to the API across multiple hosts.
 
 To dynamically set the custom key, it can be defined using Gravitee Expression Language.
 
@@ -204,7 +204,7 @@ To dynamically set the custom key, it can be defined using Gravitee Expression L
 
 Instead of accessing a client certificate via API call during an active TLS session, a reverse proxy (e.g., NGINX, Apache) can pass the client certificate using a specified header. This option requires the user to specify which header contains the certificate, which is base64-encoded. The `ssl-enforcement` policy uses the base64-encoded text of the certificate to validate whether the certificate is valid.
 
-Refer to the [`ssl-enforcement` policy](docs/apim/4.3/reference/policy-reference/ssl-enforcement.md) for additional details.
+Refer to the [`ssl-enforcement` policy](../../reference/policy-reference/ssl-enforcement.md) for additional details.
 
 ## Sharding tags
 
@@ -212,7 +212,7 @@ Gravitee 4.3 allows sharding tags to be set for v4 APIs via the Management Conso
 
 <figure><img src="../../.gitbook/assets/deployment_sharding tag.png" alt=""><figcaption><p>v4 sharding tag configuration</p></figcaption></figure>
 
-To learn more about how to configure and use sharding tags, see the [documentation](docs/apim/4.3/getting-started/configuration/apim-gateway/sharding-tags.md).
+To learn more about how to configure and use sharding tags, see the [documentation](../../getting-started/configuration/apim-gateway/sharding-tags.md).
 
 ## TCP proxy support
 
@@ -220,7 +220,7 @@ Gravitee 4.3 supports a UI for TCP proxy API creation and configuration via the 
 
 <figure><img src="../../.gitbook/assets/create proxy api_step 2 http or tcp 1.png" alt=""><figcaption><p>v4 API creation wizard: HTTP or TCP as a backend entrypoint</p></figcaption></figure>
 
-To learn how to create a TCP proxy API, see the [v4 API creation wizard](docs/apim/4.3/guides/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md). To learn how to configure a TCP proxy API, see the documentation on [v4 proxy API entrypoints](docs/apim/4.3/guides/api-configuration/v4-api-configuration/entrypoints/v4-proxy-api-entrypoints.md) and [v4 proxy API endpoints](docs/apim/4.3/guides/api-configuration/v4-api-configuration/endpoints/v4-proxy-api-endpoints.md).
+To learn how to create a TCP proxy API, see the [v4 API creation wizard](../../guides/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md). To learn how to configure a TCP proxy API, see the documentation on [v4 proxy API entrypoints](../../guides/api-configuration/v4-api-configuration/entrypoints/v4-proxy-api-entrypoints.md) and [v4 proxy API endpoints](../../guides/api-configuration/v4-api-configuration/endpoints/v4-proxy-api-endpoints.md).
 
 ## TCP reporter
 

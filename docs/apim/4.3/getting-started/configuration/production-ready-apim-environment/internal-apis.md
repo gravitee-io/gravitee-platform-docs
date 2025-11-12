@@ -75,6 +75,6 @@ If you plan to keep the internal API enabled, please consider enforcing the secu
 {% hint style="info" %}
 To learn more about internal APIs, see:
 
-* [Configure the APIM Management API internal API](docs/apim/4.3/getting-started/configuration/apim-management-api/internal-api.md)
-* [Configure the APIM Gateway internal API](docs/apim/4.3/getting-started/configuration/apim-gateway/internal-api.md)
+* [Configure the APIM Management API internal API](../apim-management-api/internal-api.md)
+* [Configure the APIM Gateway internal API](../apim-gateway/internal-api.md)
 {% endhint %}

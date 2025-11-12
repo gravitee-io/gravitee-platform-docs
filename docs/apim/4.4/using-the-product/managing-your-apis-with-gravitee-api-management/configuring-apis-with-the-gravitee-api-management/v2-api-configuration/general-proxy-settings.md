@@ -67,7 +67,7 @@ All requests rejected because of CORS issues will generate logs that you can vie
 
 ## Deployments
 
-**Deployments** is where you can choose to use [sharding tags](docs/apim/4.4/using-the-product/using-the-gravitee-api-management-components/general-configuration/sharding-tags.md) sharding tags to control where your API is deployed. To configure sharding tags for your API:
+**Deployments** is where you can choose to use [sharding tags](../../../using-the-gravitee-api-management-components/general-configuration/sharding-tags.md) sharding tags to control where your API is deployed. To configure sharding tags for your API:
 
 1.  Select **Deployments** from the inner left nav&#x20;
 
@@ -83,7 +83,7 @@ Response templates are used to override the default values sent in response to c
 
 Prior to defining a response template, verify:
 
-* Which policies have been applied to the API. This can be viewed in the [API's plan](docs/apim/4.4/using-the-product/managing-your-apis-with-gravitee-api-management/api-exposure-plans-applications-and-subscriptions/plans.md).
+* Which policies have been applied to the API. This can be viewed in the [API's plan](../../api-exposure-plans-applications-and-subscriptions/plans.md).
 * Which error keys can be overridden per policy associated with your API.&#x20;
 
 Below are the policy error keys that you can override by configuring response templates:
@@ -172,7 +172,7 @@ Key-value pairs can also be maintained using a dictionary, e.g., if this informa
 
 ## Resources
 
-Some policies support the addition of [resources](docs/apim/4.4/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/resources.md), which can be used for actions such as authentication and schema registry validation. After you create resources, you will be able to reference them when designing policies. Policies that support resources include:
+Some policies support the addition of [resources](../resources.md), which can be used for actions such as authentication and schema registry validation. After you create resources, you will be able to reference them when designing policies. Policies that support resources include:
 
 <table data-header-hidden><thead><tr><th width="242"></th><th></th></tr></thead><tbody><tr><td><a href="../../policy-studio/policies-for-you-apis/a-c/basic-authentication.md">Basic Authentication</a></td><td>Specify an LDAP Authentication Provider resource and/or an Inline Authentication Provider resource to authenticate users in memory</td></tr><tr><td><a href="../../policy-studio/policies-for-you-apis/a-c/cache.md">Cache</a></td><td>Specify a cache resource via the Cache or Cache Redis resources</td></tr><tr><td><a href="../../policy-studio/policies-for-you-apis/d-h/http-signature.md">HTTP Signature</a><br><a href="../../policy-studio/policies-for-you-apis/d-h/generate-http-signature.md">Generate HTTP Signature</a></td><td>Specify your HTTP Authentication Provider resource</td></tr><tr><td><a href="../../policy-studio/policies-for-you-apis/l-p/oauth2/">OAuth2</a></td><td>Specify a Generic OAuth2 Authorization Server resource or a Gravitee AM Authorization Server resource</td></tr><tr><td><a href="../../policy-studio/policies-for-you-apis/l-p/openid-connect-userinfo.md">OpenID Connect Userinfo</a></td><td>Specify a Keycloak Adapter resource to use Keycloak as your OpenID Connect resource</td></tr><tr><td><a href="../../policy-studio/policies-for-you-apis/a-c/avro-to-json.md">AVRO to JSON</a><br><a href="../../policy-studio/policies-for-you-apis/a-c/avro-to-protobuf.md">AVRO to Protobuf</a><br><a href="../../policy-studio/policies-for-you-apis/l-p/protobuf-to-json.md">Protobuf to JSON</a></td><td>Specify your Confluent Schema Registry to retrieve serialization and deserialization schemas from a Confluent Schema registry</td></tr></tbody></table>
 

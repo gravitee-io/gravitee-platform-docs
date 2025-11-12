@@ -4,7 +4,7 @@ noIndex: true
 
 # Log Service
 
-By default, Ambassador Edge Stack puts the access logs on stdout; such that the can be read using `kubectl logs`. The format of those logs, and the local destination of them, can be configured using the [`envoy_log_` settings in the `ambassador Module`](docs/edge-stack/technical-reference/using-custom-resources/the-module-resource.md). However, the options there only allow for logging local to Ambassador Edge Stack's Pod. By configuring a `LogService`, you can configure Ambassador Edge Stack to report its access logs to a remote service, in addition to the usual `ambassador Module` configured logging.
+By default, Ambassador Edge Stack puts the access logs on stdout; such that the can be read using `kubectl logs`. The format of those logs, and the local destination of them, can be configured using the [`envoy_log_` settings in the `ambassador Module`](../using-custom-resources/the-module-resource.md). However, the options there only allow for logging local to Ambassador Edge Stack's Pod. By configuring a `LogService`, you can configure Ambassador Edge Stack to report its access logs to a remote service, in addition to the usual `ambassador Module` configured logging.
 
 The remote access log service (or ALS) must implement the `AccessLogService` gRPC interface, defined in [Envoy's `als.proto`](https://github.com/emissary-ingress/emissary/blob/master/api/envoy/service/accesslog/v3/als.proto).
 

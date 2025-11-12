@@ -46,7 +46,7 @@ reporters:
 
 Audit logs will be created in a directory tree that represents the resource hierarchy from the organization to the domain. For example, audit logs for domain `my-domain` in environment `dev` and organization `my-company` will be created in the following directory tree: `${reporters.file.directory}/my-company/dev/my-domain/audit-2021_02_11.json`
 
-For details on how to create a file reporter for a domain, see the [Audit trail](docs/am/4.9/guides/audit-trail.md) documentation.
+For details on how to create a file reporter for a domain, see the [Audit trail](../../guides/audit-trail.md) documentation.
 
 ## Kafka reporter
 

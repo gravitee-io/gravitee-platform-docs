@@ -23,7 +23,7 @@ The access URL for each API in the Developer Portal is the default entrypoint fo
 <figure><img src="../../../../../.gitbook/assets/Screenshot 2023-07-28 at 12.51.56 PM (1).png" alt=""><figcaption><p>Modify the access URL</p></figcaption></figure>
 
 {% hint style="info" %}
-[Sharding tags](docs/apim/4.7/gravitee-gateway/sharding-tags.md) are used to help manage complex distributed architectures:
+[Sharding tags](../../gravitee-gateway/sharding-tags.md) are used to help manage complex distributed architectures:
 
 * By assigning sharding tags to APIs and Gravitee Gateways, an API is deployed to a subset of the available Gateways.
 * By mapping sharding tags to a Gateway’s entrypoint URL, the Developer Portal can intelligently display different entrypoints based on an API's sharding tags.

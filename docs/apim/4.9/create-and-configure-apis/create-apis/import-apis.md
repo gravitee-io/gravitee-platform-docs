@@ -39,7 +39,7 @@ To import your API:
    *   **Create documentation page from spec.** This creates an API documentation page from the imported OpenAPI specification.
 
        \{% hint style="info" %\} This page is published automatically, but can be unpublished from the **API Documentation** page in the Console. \{% endhint %\}
-   *   **Add OpenAPI Specification Validation:** This adds an [OpenAPI Specification Validation policy](docs/apim/4.9/create-and-configure-apis/apply-policies/policy-reference/oas-validation.md) to the imported API.
+   *   **Add OpenAPI Specification Validation:** This adds an [OpenAPI Specification Validation policy](../apply-policies/policy-reference/oas-validation.md) to the imported API.
 
        \{% hint style="info" %\} All options are initially enabled, but can be disabled by editing the policy configuration. \{% endhint %\}
 9. Click **Import**

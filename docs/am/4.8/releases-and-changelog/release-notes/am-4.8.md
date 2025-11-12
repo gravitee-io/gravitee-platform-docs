@@ -16,7 +16,7 @@ By default, an application can accept up to 10 client secrets. This limit is con
 
 ## FranceConnect v2
 
-The [FranceConnect Identity](docs/am/4.8/guides/identity-providers/legal-identity-providers/franceconnect.md) provider is now able to support the version 2 of the FranceConnect API.
+The [FranceConnect Identity](../../guides/identity-providers/legal-identity-providers/franceconnect.md) provider is now able to support the version 2 of the FranceConnect API.
 
 {% include "../../.gitbook/includes/franceconnect-warning.md" %}
 

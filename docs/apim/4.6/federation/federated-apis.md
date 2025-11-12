@@ -131,15 +131,15 @@ From here, API consumers can access their Gravitee Developer Portal and search f
 2.  Select the plan you want to subscribe to, then click **Next**
 
     <figure><img src="../../../../.gitbook/assets/jonathan demo plan.png" alt=""><figcaption></figcaption></figure>
-3.  Use the **Choose an application** drop-down menu to select an application to use for the subscription, then click **Next.** If you do not yet have an application, please refer to the [Applications](docs/apim/4.6/developer-portal/create-an-application.md) documentation to create a Gravitee Application.
+3.  Use the **Choose an application** drop-down menu to select an application to use for the subscription, then click **Next.** If you do not yet have an application, please refer to the [Applications](../developer-portal/create-an-application.md) documentation to create a Gravitee Application.
 
     <figure><img src="../../../../.gitbook/assets/jonathan demo choose app.png" alt=""><figcaption></figcaption></figure>
 
 Depending on the subscription configuration, the application will either auto-validate or require approval.
 
 {% hint style="info" %}
-* For more information on how to create and manage applications in APIM, see [Applications](docs/apim/4.6/developer-portal/create-an-application.md).
-* For more information on how to create and manage subscriptions in APIM, see [Subscriptions](docs/apim/4.6/expose-apis/subscriptions.md).
+* For more information on how to create and manage applications in APIM, see [Applications](../developer-portal/create-an-application.md).
+* For more information on how to create and manage subscriptions in APIM, see [Subscriptions](../expose-apis/subscriptions.md).
 {% endhint %}
 
 ## Deleting federated APIs

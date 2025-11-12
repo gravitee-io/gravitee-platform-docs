@@ -142,7 +142,7 @@ The only supported method for targeting a specific partition is to define a key 
 
 Repeated use of the same key on each message guarantees that messages are relegated to the same partition and order is maintained. Gravitee does not support overriding this mechanism to manually set the partition.
 
-To set a key on a message, the attribute `gravitee.attribute.kafka.recordKey` can be set on the message, in an [Assign Attributes](docs/apim/4.9/create-and-configure-apis/apply-policies/policy-reference/assign-attributes.md) policy in the Publish flow.
+To set a key on a message, the attribute `gravitee.attribute.kafka.recordKey` can be set on the message, in an [Assign Attributes](../../apply-policies/policy-reference/assign-attributes.md) policy in the Publish flow.
 
 A shared producer is created by the endpoint and reused for all requests with that same configuration. The producer configuration includes the **ClientId**, **Topic**, and **Partitioning**. The client ID is generated for the producer in the format `gio-apim-producer-<first part of uuid>`, e.g., `gio-apim-producer-a0eebc99`
 
@@ -174,7 +174,7 @@ The Kafka endpoint includes the dynamic configuration feature, which you can use
 }
 ```
 
-Also, you can define specific Kafka client configurations using the [Assign Attributes](docs/apim/4.9/create-and-configure-apis/apply-policies/policy-reference/assign-attributes.md) policy in the Initial Connection-Request/Response phases. Here are examples of defining specific Kafka configurations:
+Also, you can define specific Kafka client configurations using the [Assign Attributes](../../apply-policies/policy-reference/assign-attributes.md) policy in the Initial Connection-Request/Response phases. Here are examples of defining specific Kafka configurations:
 
 * To override the consumer group, set `gravitee.attribute.kafka.groupId`. If you cannot create consumer groups in your cluster, you may need to set this attribute .
 * To override the record key, set `gravitee.attribute.kafka.recordKey`.

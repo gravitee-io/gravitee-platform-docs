@@ -30,9 +30,9 @@ When a backend agent serves the Agent Card listing its capabilities, another age
 
 Gravitee's **LLM Proxy** provides a layer of abstraction between AI agents and LLMs. It sits on top of LLM models and applies governance to enforce compliance and cost control. The following are examples of LLM capabilities:
 
-* Token-based rate limiting via Gravitee's [Prompt Token Tracking](docs/apim/4.8/create-and-configure-apis/apply-policies/policy-reference/ai-prompt-token-tracking.md) policy.
+* Token-based rate limiting via Gravitee's [Prompt Token Tracking](../create-and-configure-apis/apply-policies/policy-reference/ai-prompt-token-tracking.md) policy.
 * Routing to different LLMs.
-* Threat protection via Gravitee's [Prompt Guard Rails](docs/apim/4.8/create-and-configure-apis/apply-policies/policy-reference/ai-prompt-guard-rails.md) policy.
+* Threat protection via Gravitee's [Prompt Guard Rails](../create-and-configure-apis/apply-policies/policy-reference/ai-prompt-guard-rails.md) policy.
 * Orchestration, such as HTTP calls to obtain data to add to LLM contexts.
 
 ## Agent Catalog

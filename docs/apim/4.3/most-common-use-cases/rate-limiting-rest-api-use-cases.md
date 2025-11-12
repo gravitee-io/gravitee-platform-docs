@@ -170,9 +170,9 @@ Congratulations! You have successfully added a Spike Arrest policy that applies 
 
 ## Short cut to add select rate limiting policies
 
-Rate limiting policies can also be added during [Step 4: Security](docs/apim/4.3/guides/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md#step-4-security) of the [API creation process](docs/apim/4.3/guides/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md). Let's demonstrate this by adding three API Key plans.&#x20;
+Rate limiting policies can also be added during [Step 4: Security](../guides/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md#step-4-security) of the [API creation process](../guides/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md). Let's demonstrate this by adding three API Key plans.&#x20;
 
-1. Complete steps 1-3 of the [v4 API creation wizard](docs/apim/4.3/guides/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md)
+1. Complete steps 1-3 of the [v4 API creation wizard](../guides/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md)
 2.  At step 4, click **Add plan**&#x20;
 
     {% hint style="info" %}

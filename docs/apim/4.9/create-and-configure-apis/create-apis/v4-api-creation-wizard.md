@@ -32,7 +32,7 @@ Choose how you want to expose your backend.
 
 * [**Proxy Generic Protocol**](v4-api-creation-wizard.md#generic-proxy-entrypoints)**:** Use this method if you want to use Gravitee to proxy backend REST APIs, SOAP APIs, WebSocket Server, gRPC, or GraphQL over HTTP or TCP. You will not be able to enforce policies at the message level.
 * [**Protocol Mediation**](v4-api-creation-wizard.md#protocol-mediation-entrypoints)**:** Use this method if you want to expose backend event brokers, such as Kafka and MQTT.
-* **Kafka Protocol:** Refer to the [Kafka documentation](docs/apim/4.9/kafka-gateway/create-and-configure-kafka-apis/create-kafka-apis.md) if you want to proxy the native Kafka protocol with the Gravitee Gateway acting as a Kafka broker to Kafka clients.
+* **Kafka Protocol:** Refer to the [Kafka documentation](../../kafka-gateway/create-and-configure-kafka-apis/create-kafka-apis.md) if you want to proxy the native Kafka protocol with the Gravitee Gateway acting as a Kafka broker to Kafka clients.
 
 {% hint style="info" %}
 The Gravitee documentation adopts concise terminology to differentiate between these API types:
@@ -76,7 +76,7 @@ The configuration details for each proxy entrypoint selection are discussed belo
 {% hint style="warning" %}
 **Enterprise only**
 
-The ability to create APIs with message API entrypoints is an [Enterprise Edition](docs/apim/4.9/readme/enterprise-edition.md) capability. To learn more about Gravitee Enterprise and what's included in various enterprise packages:
+The ability to create APIs with message API entrypoints is an [Enterprise Edition](../../readme/enterprise-edition.md) capability. To learn more about Gravitee Enterprise and what's included in various enterprise packages:
 
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
@@ -105,7 +105,7 @@ Modifying the following configuration parameters is optional.
 2. Define the maximum duration, in milliseconds, to wait to retrieve the expected number of messages. The effective number of retrieved messages could be less than expected if maximum duration is reached before all messages are retrieved.
 3. Choose whether to allow sending message headers to the client in the payload.
 4. Choose whether to allow sending message metadata to the client in the payload.
-5. Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](docs/apim/4.9/create-and-configure-apis/configure-v4-apis/quality-of-service.md).
+5. Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](../configure-v4-apis/quality-of-service.md).
 
 </details>
 
@@ -117,7 +117,7 @@ Modifying the following configuration parameters is optional.
 
 1. Choose whether to add each header from incoming request to the generated message headers.
 2. Choose whether to initiate an empty message flow and give policies full access to the context whenever the POST request is made to the entrypoint.
-3. Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](docs/apim/4.9/create-and-configure-apis/configure-v4-apis/quality-of-service.md).
+3. Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](../configure-v4-apis/quality-of-service.md).
 
 </details>
 
@@ -130,7 +130,7 @@ Modifying the following configuration parameters is optional.
 1. Define the interval at which heartbeats are sent to the client. Intervals must be greater than or equal to 2000ms. Each heartbeat will be sent as an empty comment: `''`.
 2. Choose to allow or disallow sending message metadata to the client as SSE comments.
 3. Choose to allow or disallow sending message headers to the client as SSE comments.
-4. Use the drop-down menu to select a Quality of Service option. QoS compatibility is detailed [here](docs/apim/4.9/create-and-configure-apis/configure-v4-apis/quality-of-service.md).
+4. Use the drop-down menu to select a Quality of Service option. QoS compatibility is detailed [here](../configure-v4-apis/quality-of-service.md).
 
 </details>
 
@@ -152,7 +152,7 @@ Modifying the following configuration parameters is optional.
      * **Proxy port:** Enter your proxy port in the text field.
      * (Optional) **Proxy username:** Enter your proxy username in the text field.
      * (Optional) **Proxy password:** Enter your proxy password in the text field.
-7. Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](docs/apim/4.9/create-and-configure-apis/configure-v4-apis/quality-of-service.md).
+7. Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](../configure-v4-apis/quality-of-service.md).
 
 </details>
 
@@ -164,7 +164,7 @@ Modifying the following configuration parameters is optional.
 
 1. Choose to either enable or disable the publication capability. Disabling it assumes that the application will never be able to publish any message.
 2. Choose to enable or disable the subscription capability. Disabling it assumes that the application will never receive any message.
-3. Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](docs/apim/4.9/create-and-configure-apis/configure-v4-apis/quality-of-service.md).
+3. Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](../configure-v4-apis/quality-of-service.md).
 
 </details>
 
@@ -300,7 +300,7 @@ If **Use proxy for client connections** is selected, you'll need to define the f
 {% hint style="warning" %}
 **Enterprise only**
 
-The ability to create APIs with message API endpoints is an [Enterprise Edition](docs/apim/4.9/readme/enterprise-edition.md) capability. To learn more about Gravitee Enterprise and what's included in various enterprise packages:
+The ability to create APIs with message API endpoints is an [Enterprise Edition](../../readme/enterprise-edition.md) capability. To learn more about Gravitee Enterprise and what's included in various enterprise packages:
 
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
@@ -1027,7 +1027,7 @@ Choose to enable any of the following.
 
 ## Documentation
 
-See [Documentation](docs/apim/4.9/create-and-configure-apis/configure-v4-apis/documentation.md) to learn how to create documentation for a v4 API.
+See [Documentation](../configure-v4-apis/documentation.md) to learn how to create documentation for a v4 API.
 
 ## Summary
 

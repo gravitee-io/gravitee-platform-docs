@@ -6,7 +6,7 @@ noIndex: true
 
 Ambassador Edge Stack provides a highly flexible mechanism for authentication, via the `AuthService` resource. An `AuthService` configures Ambassador Edge Stack to use an external service to check authentication and authorization for incoming requests. Each incoming request is authenticated before routing to its destination.
 
-All requests are validated by the `AuthService` (unless the `Mapping` applied to the request sets `bypass_auth`). It is not possible to combine multiple `AuthServices`. While it is possible to create multiple `AuthService` resources, Ambassador Edge Stack load-balances between them in a round-robin fashion. This is useful for canarying an `AuthService` change, but is not useful for deploying multiple distinct `AuthServices`. In order to combine multiple external services (either having multiple services apply to the same request, or selecting between different services for the different requests), instead of using an `AuthService`, use an [Ambassador Edge Stack `External` `Filter`](docs/edge-stack/technical-reference/filters/using-filters-and-filterpolicies.md).
+All requests are validated by the `AuthService` (unless the `Mapping` applied to the request sets `bypass_auth`). It is not possible to combine multiple `AuthServices`. While it is possible to create multiple `AuthService` resources, Ambassador Edge Stack load-balances between them in a round-robin fashion. This is useful for canarying an `AuthService` change, but is not useful for deploying multiple distinct `AuthServices`. In order to combine multiple external services (either having multiple services apply to the same request, or selecting between different services for the different requests), instead of using an `AuthService`, use an [Ambassador Edge Stack `External` `Filter`](../filters/using-filters-and-filterpolicies.md).
 
 {% hint style="info" %}
 Because of the limitations described above, **Ambassador Edge Stack does not support `AuthService` resources, and you should instead use an `External`** **`Filter`,** which is mostly a drop-in replacement for an `AuthService`. The `External` `Filter` relies on the Ambassador Edge Stack `AuthService`. Make sure the Ambassador Edge Stack `AuthService` is deployed before configuring `External` `Filters`.
@@ -86,7 +86,7 @@ The following fields are only used if `proto` is set to `http`. They are ignored
 
 ### Canarying multiple `AuthServices`
 
-You may create multiple `AuthService` manifests to round-robin authentication requests among multiple services. **All services must use the same `path_prefix` and header definitions.** If you try to have different values, you'll see an error in the [diagnostics service](docs/edge-stack/technical-reference/using-custom-resources/the-module-resource.md#observability), telling you which value is being used.
+You may create multiple `AuthService` manifests to round-robin authentication requests among multiple services. **All services must use the same `path_prefix` and header definitions.** If you try to have different values, you'll see an error in the [diagnostics service](../using-custom-resources/the-module-resource.md#observability), telling you which value is being used.
 
 ### Configuring public `Mappings`
 

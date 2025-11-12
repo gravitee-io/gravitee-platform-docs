@@ -37,7 +37,7 @@ To activate the Account Linking feature for a particular application:
 6. Drag the Account Linking policy onto the CONNECT flow to add it.
 7. Configure the CONNECT flow with the following options:
    1. **Description:** Identify the flow step with a meaningful description.
-   2. **Condition:** Execute the flow step if this condition is met (supports [Expression Language](docs/am/4.7/guides/am-expression-language.md)).
+   2. **Condition:** Execute the flow step if this condition is met (supports [Expression Language](../am-expression-language.md)).
    3. **Exit if no account:** Toggle ON to terminate the request if no account has been found.
    4. **Exit if multiple accounts found:** Toggle ON to terminate the request if multiple accounts have been found.
    5. **User attributes to find matching results:** Define which user attributes must match to enable the linking process.
@@ -61,7 +61,7 @@ To activate the Account Linking feature for the security domain:
 5. Drag the Account Linking policy onto the CONNECT flow to add it.
 6. Configure the CONNECT flow with the following options:
    1. **Description:** Identify the flow step with a meaningful description.
-   2. **Condition:** Execute the flow step if this condition is met (supports [Expression Language](docs/am/4.7/guides/am-expression-language.md)).
+   2. **Condition:** Execute the flow step if this condition is met (supports [Expression Language](../am-expression-language.md)).
    3. **Exit if no account:** Toggle ON to terminate the request if no account has been found.
    4. **Exit if multiple accounts found:** Toggle ON to terminate the request if multiple accounts have been found.
    5. **User attributes to find matching results:** Define which user attributes must match to enable the linking process.

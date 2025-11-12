@@ -36,7 +36,7 @@ Refer to the table below for a quick comparison of Gravitee Community Edition (C
 
 ## Enterprise version of Gravitee Cloud
 
-Gravitee EE APIM enables you to register multiple APIM environments and installations using [Gravitee C](https://documentation.gravitee.io/gravitee-cloud)[loud](https://documentation.gravitee.io/gravitee-cloud) This enables you to manage environment hierarchies and promote APIs across higher and lower environments.
+Gravitee EE APIM enables you to register multiple APIM environments and installations using [Gravitee C](../../../gravitee-cloud/README.md)[loud](../../../gravitee-cloud/README.md) This enables you to manage environment hierarchies and promote APIs across higher and lower environments.
 
 ## Enterprise version of API Designer
 

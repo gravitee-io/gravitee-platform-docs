@@ -12,7 +12,7 @@ Internally, this policy replaces the default HTTP invoker with a mock invoker. T
 The `mock` policy will **not** cause the other policies to be skipped, regardless of its location in the flow.
 {% endhint %}
 
-When defining the response body content, you can use [Gravitee Expression Language (EL)](docs/apim/4.9/gravitee-expression-language.md) to provide a dynamic mock response.
+When defining the response body content, you can use [Gravitee Expression Language (EL)](../../../gravitee-expression-language.md) to provide a dynamic mock response.
 
 ## Examples
 

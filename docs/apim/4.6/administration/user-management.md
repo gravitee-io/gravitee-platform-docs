@@ -109,7 +109,7 @@ The set of permissions a role has is defined by its scope. The following tables 
 {% hint style="warning" %}
 **Enterprise only**
 
-Custom Roles is an [Enterprise Edition](docs/apim/4.6/overview/enterprise-edition.md) capability. To learn more about Gravitee Enterprise and what's included in various enterprise packages:
+Custom Roles is an [Enterprise Edition](../overview/enterprise-edition.md) capability. To learn more about Gravitee Enterprise and what's included in various enterprise packages:
 
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
