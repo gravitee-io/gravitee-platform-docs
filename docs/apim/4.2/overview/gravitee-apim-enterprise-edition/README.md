@@ -13,7 +13,7 @@ Gravitee offers open source (OSS) and enterprise versions of its API Management 
 {% hint style="info" %}
 **Other Gravitee Products**
 
-Gravitee's platform extends beyond just API Management. For information on enterprise versions of other products, please refer to our [platform overview documentation.](/platform-overview/gravitee-essentials/gravitee-offerings-ce-vs-ee)
+Gravitee's platform extends beyond just API Management. For information on enterprise versions of other products, please refer to our [platform overview documentation.](https://documentation.gravitee.io/platform-overview/gravitee-essentials/gravitee-offerings-ce-vs-ee)
 {% endhint %}
 
 ## Enterprise APIM
@@ -96,7 +96,7 @@ The Secret Manager pack includes generic, configurable, and autonomous clients t
 
 ## Advanced API monitoring
 
-Not technically a part of the Access Management product, Gravitee offers a standalone, enterprise-grade API monitoring solution called Gravitee Alert Engine (AE). AE provides APIM and AM users with efficient and flexible API platform monitoring, including advanced alerting configurations and notifications sent through preferred channels, such as email, Slack and Webhooks. Alert Engine integrates with Gravitee APIM and AM to enable advanced alerting, new dashboards, etc. For more information, please refer to [the Alert Engine documentation](/ae/overview/introduction-to-gravitee-alert-engine).
+Not technically a part of the Access Management product, Gravitee offers a standalone, enterprise-grade API monitoring solution called Gravitee Alert Engine (AE). AE provides APIM and AM users with efficient and flexible API platform monitoring, including advanced alerting configurations and notifications sent through preferred channels, such as email, Slack and Webhooks. Alert Engine integrates with Gravitee APIM and AM to enable advanced alerting, new dashboards, etc. For more information, please refer to [the Alert Engine documentation](https://documentation.gravitee.io/ae/overview/introduction-to-gravitee-alert-engine).
 
 ## Advanced environment management
 

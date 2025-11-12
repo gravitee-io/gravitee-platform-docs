@@ -60,7 +60,7 @@ Gravitee 4.2 upgrades to APIM and Cockpit implement support for [multi-tenancy](
 
 <figure><img src="https://slabstatic.com/prod/uploads/6lql0jy7/posts/images/mNhfcqTUgEOXngJNcAcdIf1o.png" alt=""><figcaption><p>Typical multitenant setup</p></figcaption></figure>
 
-Multi-tenancy is an enterprise capability that requires an APIM installation in multi-tenant mode to be connected to an [enterprise-enabled Gravitee Cockpit account](/platform-overview/gravitee-essentials/gravitee-offerings-ce-vs-ee#enterprise-version-of-gravitee-cockpit). In addition, the Access Points feature must be enabled for tenants to use dedicated URLs to access the resources of a shared installation.
+Multi-tenancy is an enterprise capability that requires an APIM installation in multi-tenant mode to be connected to an [enterprise-enabled Gravitee Cockpit account](https://documentation.gravitee.io/platform-overview/gravitee-essentials/gravitee-offerings-ce-vs-ee#enterprise-version-of-gravitee-cockpit). In addition, the Access Points feature must be enabled for tenants to use dedicated URLs to access the resources of a shared installation.
 
 Although multi-tenancy support necessitated changes to both APIM and Cockpit, customer deployments may continue to function as standalone (not multi-tenant) APIM installations. Please note that once a multi-tenant APIM is connected to Cockpit, it is not possible to disable multi-tenancy mode in APIM.
 

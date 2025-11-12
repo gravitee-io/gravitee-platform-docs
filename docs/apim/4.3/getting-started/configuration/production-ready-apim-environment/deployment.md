@@ -48,4 +48,4 @@ jetty:
       password: <keystore_secret>
 ```
 
-You can find additional details regarding HTTPS support for REST APIs in the[ Gravitee documentation](/apim/getting-started/configuration/configure-apim-management-api/internal-api#enable-https-support).
+You can find additional details regarding HTTPS support for REST APIs in the[ Gravitee documentation](https://documentation.gravitee.io/apim/getting-started/configuration/configure-apim-management-api/internal-api#enable-https-support).

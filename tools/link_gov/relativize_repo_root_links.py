@@ -1,201 +1,251 @@
 #!/usr/bin/env python3
 import argparse
+import fnmatch
 import pathlib
 import re
+import subprocess
 import sys
+from collections.abc import Iterable
 
-DOCS = pathlib.Path("docs").resolve()
+REPO = pathlib.Path(__file__).resolve().parents[2]
+DOCS = REPO / "docs"
 
-# Match normal markdown links only (skip images): [text](url ["title"])
-# Capture optional title and preserve it on rewrite.
+TOPS = {"apim", "am", "gko", "ae", "platform-overview", "gravitee-cloud"}
+DOCS_DOMAIN = "https://documentation.gravitee.io/"
+
 LINK_RE = re.compile(
-    r"(?<!\!)\[(?P<text>[^\]]+)\]\("  # [text](
-    r"(?P<url>[^)\s]+)"  #   url (no spaces)
-    r'(?P<title>\s+(?:"[^"]*"|\'[^\']*\'))?'  #   optional "title" or 'title'
-    r"\)"  # )
-)
-
-GRAVITEE_DOMAIN_PREFIX = "https://documentation.gravitee.io/"
-
-# Site-root prefixes that map 1:1 into docs/<prefix>/...
-SITE_ROOT_PREFIXES = (
-    "am/",
-    "apim/",
-    "gko/",
-    "edge-stack/",
-    "gravitee-cloud/",
-    "platform-overview/",
-    "telepresence/",
+    r"""(?x)
+    (?<!\!)                          # not an image
+    \[ (?P<text>[^\]]+) \]
+    \( (?P<url><[^>]+>|[^)\s]+)
+       (?P<tail>\s+"[^"]*"|\s+'[^']*'|\s+\([^)]+\))?
+    \)
+"""
 )
 
 
-def split_anchor(url: str) -> tuple[str, str]:
-    if "#" in url:
-        path, frag = url.split("#", 1)
-        return path, "#" + frag
-    return url, ""
+def strip_brackets(s: str) -> str:
+    return s[1:-1] if s.startswith("<") and s.endswith(">") else s
 
 
-def candidate_files_from_site_path(site_path: str):
+def split_anchor(u: str) -> tuple[str, str]:
+    if "#" in u:
+        h, f = u.split("#", 1)
+        return h, "#" + f
+    return u, ""
+
+
+def shortest_rel(from_file: pathlib.Path, to_path: pathlib.Path) -> str:
+    rel = pathlib.Path(pathlib.os.path.relpath(to_path, start=from_file.parent)).as_posix()
+    return rel[2:] if rel.startswith("./") else rel
+
+
+def product_version_from_source(src: pathlib.Path) -> tuple[str | None, str | None]:
+    try:
+        parts = src.relative_to(DOCS).parts
+    except ValueError:
+        return None, None
+    if len(parts) >= 2 and parts[0] in TOPS:
+        return parts[0], parts[1]
+    return None, None
+
+
+def looks_like_version(s: str) -> bool:
+    return bool(re.match(r"^\d+(?:\.\d+)?(?:\.x)?$", s))
+
+
+def normalize_site_path(site_path: str, pv_hint: str | None) -> str | None:
     """
-    Map a site path like 'apim/4.6/overview/release-notes/apim-4.6'
-    to possible files under docs/.
+    Accepts '/apim/4.9/foo/bar' or '/apim/foo/bar' or 'apim/4.9/foo/bar' (and https form).
+    Ensures we end with a *file stem* (no extension here); we will append .md/.mdx when resolving.
+    Injects pv_hint when version missing.
     """
-    base = DOCS / site_path.strip("/")
+    parts = [p for p in site_path.strip("/").split("/") if p]
+    if not parts or parts[0] not in TOPS:
+        return None
+    # drop 'v' in '/apim/v/4.9/...'
+    if len(parts) >= 2 and parts[1] == "v":
+        parts.pop(1)
+    # inject PV if missing
+    if len(parts) < 2 or not looks_like_version(parts[1]):
+        if pv_hint:
+            parts.insert(1, pv_hint)
+        # if we can't infer PV we still proceed; resolution will likely fail -> REVIEW
+    # the normalized path is docs/<product>/<pv>/.../<stem>  (no extension yet)
+    return "/".join(parts)
 
-    # Try exact with .md/.mdx if missing extension
+
+def candidates(norm: str) -> Iterable[pathlib.Path]:
+    """
+    Candidate resolution order:
+      <path>.md, <path>.mdx, <path>/README.md, <path>/index.md,
+      for directory aliases like '.../changelog' also try '.../changelog/README.md'
+    If the last component already has an extension, try as-is.
+    """
+    base = DOCS / norm
+    name = pathlib.Path(norm).name
+
+    # If an explicit extension was provided
+    if "." in name:
+        yield base
+
+    # Common page candidates
     yield base.with_suffix(".md")
     yield base.with_suffix(".mdx")
-
-    # Try README.md / index.md within a directory
     yield base / "README.md"
     yield base / "index.md"
 
-    # If the path already has an extension, just use it
-    if "." in base.name:
-        yield base
 
-
-def to_shortest_rel(src_path: pathlib.Path, target_path: pathlib.Path) -> str:
-    rel = pathlib.Path(pathlib.os.path.relpath(target_path, start=src_path.parent)).as_posix()
-    # Prefer no leading "./"
-    if rel.startswith("./"):
-        rel = rel[2:]
-    return rel
-
-
-def resolve_docs_url(url: str) -> pathlib.Path | None:
+def slug_search(product: str, pv: str | None, last_segment: str) -> list[pathlib.Path]:
     """
-    Resolve a 'docs/...' URL to an actual file in the repo.
-    Returns None if no matching file exists.
+    Fallback: search files whose basename contains 'last_segment' (case-insensitive)
+    under docs/<product>/<pv> (or docs/<product> if pv missing).
+    Prefer .md/.mdx files; return deterministic order.
     """
-    path_part, _ = split_anchor(url)
-    if not path_part.startswith("docs/"):
+    root = DOCS / product / (pv if pv else "")
+    if not root.exists():
+        return []
+    matches: list[pathlib.Path] = []
+    pattern = f"*{last_segment}*"
+    for p in root.rglob("*.md"):
+        if fnmatch.fnmatch(p.stem.lower(), pattern.lower()):
+            matches.append(p)
+    for p in root.rglob("*.mdx"):
+        if fnmatch.fnmatch(p.stem.lower(), pattern.lower()):
+            matches.append(p)
+    # Dedup + sort by shortest path first
+    uniq = sorted(set(matches), key=lambda p: (len(p.as_posix()), p.as_posix()))
+    return uniq
+
+
+def resolve_to_file(
+    raw_url: str, src_file: pathlib.Path, debug: bool = False
+) -> pathlib.Path | None:
+    u = strip_brackets(raw_url)
+    head, _ = split_anchor(u)
+
+    product_hint, pv_hint = product_version_from_source(src_file)
+
+    if head.startswith(DOCS_DOMAIN):
+        site_path = head[len(DOCS_DOMAIN) :]
+    elif head.startswith("/"):
+        site_path = head
+    else:
         return None
-    absolute = (pathlib.Path(path_part)).resolve()
-    return absolute if absolute.exists() else None
 
-
-def resolve_gravitee_site_url(url: str) -> pathlib.Path | None:
-    """
-    Convert a documentation.gravitee.io URL into a docs/ file if we can find one.
-    """
-    path_part, _ = split_anchor(url)
-    if not path_part.startswith(GRAVITEE_DOMAIN_PREFIX):
+    norm = normalize_site_path(site_path, pv_hint)
+    if not norm:
         return None
-    site_path = path_part[len(GRAVITEE_DOMAIN_PREFIX) :]
-    for cand in candidate_files_from_site_path(site_path):
-        if cand.exists():
-            return cand.resolve()
+
+    base = DOCS / norm  # stem (no extension)
+    # Only treat as a FILE: try .md, then .mdx
+    md = base.with_suffix(".md")
+    if md.exists():
+        return md.resolve()
+    mdx = base.with_suffix(".mdx")
+    if mdx.exists():
+        return mdx.resolve()
+
+    # If we got here, it's a miss; report for manual review.
     return None
 
 
-def resolve_site_root_url(url: str) -> pathlib.Path | None:
-    """
-    Convert a site-root path like '/apim/4.9/...' into a file under docs/.
-    """
-    path_part, _ = split_anchor(url)
-    if not path_part.startswith("/"):
-        return None
-    tail = path_part[1:]  # strip leading /
-    if not any(tail.startswith(prefix) for prefix in SITE_ROOT_PREFIXES):
-        return None
-    for cand in candidate_files_from_site_path(tail):
-        if cand.exists():
-            return cand.resolve()
-    return None
-
-
-def process_file(p: pathlib.Path, apply: bool) -> int:
+def process_file(p: pathlib.Path, apply: bool, debug: bool) -> int:
     text = p.read_text(encoding="utf-8")
-    changed = 0
-    out = []
-    last = 0
+    out, last, rewrites = [], 0, 0
 
     for m in LINK_RE.finditer(text):
-        url = m.group("url")
-        title = m.group("title") or ""  # preserve as-is, includes leading space
-        text_start, text_end = m.span()
+        url_token = m.group("url")
+        url_clean = strip_brackets(url_token)
 
-        # Skip already-short relative links (../ or ./ or plain name or in-folder)
-        if (
-            url.startswith("../")
-            or url.startswith("./")
-            or (
-                not url.startswith("docs/")
-                and not url.startswith(GRAVITEE_DOMAIN_PREFIX)
-                and not url.startswith("/")
-            )
-        ):
+        is_docs_https = url_clean.startswith(DOCS_DOMAIN)
+        is_root_top = any(url_clean.startswith(f"/{t}/") for t in TOPS)
+
+        if not (is_docs_https or is_root_top):
             continue
 
-        target_file = None
-        anchor = ""
-
-        # Case 1: repo-root style 'docs/...'
-        if url.startswith("docs/"):
-            path_part, anchor = split_anchor(url)
-            target_file = resolve_docs_url(path_part)
-
-        # Case 2: absolute site URL
-        elif url.startswith(GRAVITEE_DOMAIN_PREFIX):
-            path_part, anchor = split_anchor(url)
-            target_file = resolve_gravitee_site_url(path_part)
-
-        # Case 3: site-root path '/apim/...'
-        elif url.startswith("/"):
-            path_part, anchor = split_anchor(url)
-            target_file = resolve_site_root_url(path_part)
-
-        if target_file and target_file.exists():
-            rel = to_shortest_rel(p, target_file)
-            replacement = f"[{m.group('text')}]({rel}{anchor}{title})"
-            out.append(text[last:text_start])
-            out.append(replacement)
-            last = text_end
-            changed += 1
-
-    if changed:
+        target = resolve_to_file(url_token, p, debug=debug)
+        if target:
+            head, anchor = split_anchor(url_clean)
+            rel = shortest_rel(p, target) + anchor
+            s, e = m.span()
+            out.append(text[last:s])
+            out.append(f"[{m.group('text')}]({rel}{m.group('tail') or ''})")
+            last = e
+            rewrites += 1
+        else:
+            # No local match: if it's a root-anchored product path (/apim, /am, etc),
+            # rewrite to the absolute docs URL as a safe fallback.
+            s, e = m.span()
+            if url_clean.startswith("/") and any(url_clean.startswith(f"/{t}/") for t in TOPS):
+                head, anchor = split_anchor(url_clean)
+                abs_url = f"{DOCS_DOMAIN}{head.lstrip('/')}{anchor}"
+                out.append(text[last:s])
+                out.append(f"[{m.group('text')}]({abs_url}{m.group('tail') or ''})")
+                last = e
+                rewrites += 1
+                if debug:
+                    relpath = p.relative_to(REPO).as_posix()
+                    print(f"[ABSOLUTE] No local match; rewrote to: {abs_url}  (in {relpath})")
+            else:
+                if debug:
+                    relpath = p.relative_to(REPO).as_posix()
+                    print(f"[REVIEW] No local match for: {url_clean}  (in {relpath})")
+    if rewrites:
         out.append(text[last:])
-        new_text = "".join(out)
         if apply:
-            p.write_text(new_text, encoding="utf-8")
-    return changed
+            p.write_text("".join(out), encoding="utf-8")
+    return rewrites
+
+
+def changed_markdown_paths(rev_range: str) -> list[pathlib.Path]:
+    cmd = [
+        "git",
+        "-C",
+        str(REPO),
+        "diff",
+        "--name-only",
+        "--diff-filter=ACMR",
+        rev_range,
+        "--",
+        "*.md",
+        "*.mdx",
+    ]
+    res = subprocess.run(cmd, capture_output=True, text=True)
+    if res.returncode != 0:
+        print(res.stderr.strip(), file=sys.stderr)
+        sys.exit(1)
+    paths = []
+    for line in res.stdout.splitlines():
+        p = (REPO / line.strip()).resolve()
+        if p.name.lower() == "summary.md":
+            continue
+        if p.exists() and p.is_file():
+            paths.append(p)
+    return paths
 
 
 def main():
     ap = argparse.ArgumentParser(
-        description=(
-            "Relativize internal links to the shortest relative path. "
-            "Rewrites repo-root docs/ links, documentation.gravitee.io links, "
-            "and site-root paths (/apim, /am, /gko, /edge-stack, etc.). "
-            "Preserves optional link titles and leaves correct relatives untouched."
-        )
+        description="Relativize root-anchored Gravitee docs links to shortest relative paths."
     )
-    ap.add_argument(
-        "--apply", action="store_true", help="Write changes to files. Omit for dry run."
-    )
-    ap.add_argument(
-        "--glob", default="**/*.md,**/*.mdx", help="Comma-separated glob(s) under docs/"
-    )
+    ap.add_argument("--range", default="HEAD~1..HEAD", help="Git rev range (default: last commit)")
+    ap.add_argument("--apply", action="store_true", help="Write changes (default: dry run)")
+    ap.add_argument("--debug", action="store_true", help="Log unresolved links as [REVIEW]")
     args = ap.parse_args()
 
-    globs = [g.strip() for g in args.glob.split(",") if g.strip()]
-    total = 0
-    files = 0
+    files = changed_markdown_paths(args.range)
+    total_files = total_links = 0
+    for p in files:
+        n = process_file(p, apply=args.apply, debug=args.debug)
+        if n:
+            total_files += 1
+            total_links += n
 
-    for g in globs:
-        for p in DOCS.glob(g):
-            if not p.is_file():
-                continue
-            changed = process_file(p, apply=args.apply)
-            if changed:
-                files += 1
-                total += changed
-
-    mode = "APPLY" if args.apply else "DRY-RUN"
-    print(f"[{mode}] Updated links in {files} files; {total} link(s) rewritten.")
+    print(
+        f"[{'APPLY' if args.apply else 'DRY-RUN'}] Updated links in {total_files} files; {total_links} link(s) rewritten."
+    )
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    main()

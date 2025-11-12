@@ -14,7 +14,7 @@ This tutorial will quickly showcase how to configure Dynamic Client Registration
 
 To participate in this tutorial, you must have an [Enterprise instance of APIM](../overview/gravitee-apim-enterprise-edition/) 4.0 or later up and running.
 
-You also need to have an authentication server supporting OIDC. We will be using [Gravitee Access Management (AM)](/am/overview/readme) as our provider, but you are free to use any authentication server supporting OIDC.
+You also need to have an authentication server supporting OIDC. We will be using [Gravitee Access Management (AM)](https://documentation.gravitee.io/am/overview/readme) as our provider, but you are free to use any authentication server supporting OIDC.
 
 ## APIM Setup <a href="#apim-setup-4" id="apim-setup-4"></a>
 

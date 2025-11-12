@@ -6,14 +6,14 @@
 This feature work for only V4 APIs.
 {% endhint %}
 
-You can configure secret managers to work with your APIs. You can use secrets to hide information in any field that supports Gravitee Expression Language. For more information about Gravitee Expression Language, see [Gravitee Expression Language](https://documentation.gravitee.io/apim/gravitee-expression-language).
+You can configure secret managers to work with your APIs. You can use secrets to hide information in any field that supports Gravitee Expression Language. For more information about Gravitee Expression Language, see [Gravitee Expression Language](../../../gravitee-expression-language.md).
 
-Secret provider plugins extend the operable range of secret managers to resolve secrets on startup and in APIs. For more information about secret provider plugins, see [Integrations](/apim/readme/integrations).
+Secret provider plugins extend the operable range of secret managers to resolve secrets on startup and in APIs. For more information about secret provider plugins, see [Integrations](../../../readme/integrations.md).
 
 This article explains the syntax Gravitee uses to resolve secrets in v4 APIs and configure secret managers.
 
 {% hint style="info" %}
-To learn more about Gravitee [Enterprise Edition](/apim/readme/enterprise-edition) and what's included in various enterprise packages, please:
+To learn more about Gravitee [Enterprise Edition](../../../readme/enterprise-edition.md) and what's included in various enterprise packages, please:
 
 * [Book a demo](../../../../../platform-overview/README.md)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
@@ -29,7 +29,7 @@ To learn more about Gravitee [Enterprise Edition](/apim/readme/enterprise-editio
 
 ### Prerequisites to enable this feature <a href="#prerequisites-to-enable-this-feature" id="prerequisites-to-enable-this-feature"></a>
 
-* Configure one of the following secret managers in your `gravitee.yml` file, Helm Chart, or using the equivalent environment variable: Kubernetes, Amazon Secret Manager, or Hashicorp Vault. For more information about these secret managers, see [Integrations](/apim/readme/integrations#secret-managers-integration).
+* Configure one of the following secret managers in your `gravitee.yml` file, Helm Chart, or using the equivalent environment variable: Kubernetes, Amazon Secret Manager, or Hashicorp Vault. For more information about these secret managers, see [Integrations](../../../readme/integrations.md#secret-managers-integration).
 * Reference those secrets in your API definitions with a specialized syntax. For more information about referencing secrets in API definitions, see [reference-secrets-in-apis.md](reference-secrets-in-apis.md "mention").
 
 ## Configuration for each secret manager <a href="#per-manager-configuration" id="per-manager-configuration"></a>

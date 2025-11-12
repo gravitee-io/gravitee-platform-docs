@@ -5,7 +5,7 @@
 {% hint style="warning" %}
 If you're hosting Gravitee yourself, then Federation is **deactivated by default**. To enable it, please refer to the dedicated sections in the installation guide of choice:
 
-* [Enable Federation when installing with Kubernetes](/apim/install-and-upgrade/kubernetes#federation)
+* [Enable Federation when installing with Kubernetes](https://documentation.gravitee.io/apim/install-and-upgrade/kubernetes#federation)
 * [Enable Federation when installing with Docker Compose](../../self-hosted-installation-guides/docker/docker-compose.md#enable-federation)
 * [Enable Federation when installing with .zip](../../self-hosted-installation-guides/.zip.md#federation)
 {% endhint %}

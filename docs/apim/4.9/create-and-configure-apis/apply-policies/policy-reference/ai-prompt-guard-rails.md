@@ -23,7 +23,7 @@ Supported labels are documented in the model’s card or configuration file.
 
 The policy requires an **AI Model Text Classification Resource** to be defined at the API level. This resource serves as the classification engine for evaluating prompts' content during policy execution.
 
-For more information about creating and managing resources, go to [Resources](/apim/policies/resources)
+For more information about creating and managing resources, go to [Resources](https://documentation.gravitee.io/apim/policies/resources)
 
 After the resource is created, the policy must be configured with the corresponding name using the **AI Model Resource Name** property.
 

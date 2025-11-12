@@ -13,7 +13,7 @@ initial request path (excluding the API context path).
 
 The first rule defined in the rule list that matches the request path will trigger a redirect response with the associated status.
 
-In a rule, `path` and `location` both support [Gravitee Expression Language](/apim/getting-started/gravitee-expression-language) expressions. The `path` property\
+In a rule, `path` and `location` both support [Gravitee Expression Language](https://documentation.gravitee.io/apim/getting-started/gravitee-expression-language) expressions. The `path` property\
 supports regular expression matching, which allows capturing groups that can be reused to build the location\
 URL using expression language.
 

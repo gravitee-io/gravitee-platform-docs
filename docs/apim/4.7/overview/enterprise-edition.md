@@ -5,7 +5,7 @@
 Gravitee offers open source and enterprise versions of its API Management (APIM) distribution package. The Gravitee APIM Enterprise Edition requires a [license](../../../platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing.md). It is available as three different packages, each offering a different level of access to enterprise features and capabilities. For more information, please refer to our [pricing page](https://www.gravitee.io/pricing).
 
 {% hint style="info" %}
-Gravitee's platform extends beyond API Management. For information on enterprise versions of other products, please refer to the [platform overview](/platform-overview/gravitee-essentials/gravitee-offerings-ce-vs-ee).
+Gravitee's platform extends beyond API Management. For information on enterprise versions of other products, please refer to the [platform overview](https://documentation.gravitee.io/platform-overview/gravitee-essentials/gravitee-offerings-ce-vs-ee).
 {% endhint %}
 
 ## Enterprise features
@@ -96,7 +96,7 @@ The Secret Manager pack includes generic, configurable, and autonomous clients t
 
 ## Advanced API monitoring
 
-Not technically a part of the Access Management product, Gravitee offers a standalone, enterprise-grade API monitoring solution called Gravitee Alert Engine (AE). AE provides APIM and AM users with efficient and flexible API platform monitoring, including advanced alerting configurations and notifications sent through preferred channels such as email, Slack and Webhooks. Alert Engine integrates with Gravitee APIM and AM to enable advanced alerting, new dashboards, etc. For more information, please refer to [the Alert Engine documentation](/ae/overview/introduction-to-gravitee-alert-engine).
+Not technically a part of the Access Management product, Gravitee offers a standalone, enterprise-grade API monitoring solution called Gravitee Alert Engine (AE). AE provides APIM and AM users with efficient and flexible API platform monitoring, including advanced alerting configurations and notifications sent through preferred channels such as email, Slack and Webhooks. Alert Engine integrates with Gravitee APIM and AM to enable advanced alerting, new dashboards, etc. For more information, please refer to [the Alert Engine documentation](https://documentation.gravitee.io/ae/overview/introduction-to-gravitee-alert-engine).
 
 ## Advanced environment management
 

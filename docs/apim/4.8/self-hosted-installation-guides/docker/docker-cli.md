@@ -163,8 +163,8 @@ Federation is disabled by default for security and performance reasons. You can 
 
 To enable Federation, complete the following steps:
 
-* [Enable Federation with Docker CLI](/apim/~/changes/324/self-hosted-installation-guides/docker/docker-cli#enable-federation-with-docker-cli)
-* If you are running multiple replicas of APIM for high availability, [Set up cluster mode](/apim/~/changes/324/self-hosted-installation-guides/docker/docker-cli#set-up-cluster-mode)
+* [Enable Federation with Docker CLI](https://documentation.gravitee.io/apim/~/changes/324/self-hosted-installation-guides/docker/docker-cli#enable-federation-with-docker-cli)
+* If you are running multiple replicas of APIM for high availability, [Set up cluster mode](https://documentation.gravitee.io/apim/~/changes/324/self-hosted-installation-guides/docker/docker-cli#set-up-cluster-mode)
 
 #### Enable Federation with Docker CLI <a href="#enable-federation-with-docker-cli" id="enable-federation-with-docker-cli"></a>
 

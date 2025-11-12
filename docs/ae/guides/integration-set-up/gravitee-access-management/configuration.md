@@ -92,7 +92,7 @@ alerts:
           HIGH: 69.444445 # (250km/h)
 ```
 
-These snippets give you a glimpse of how you can finely configure your alerts. You can find more information in the [Access Management "Manage alerts" documentation](/am/guides/alerts/manage-alerts).
+These snippets give you a glimpse of how you can finely configure your alerts. You can find more information in the [Access Management "Manage alerts" documentation](https://documentation.gravitee.io/am/guides/alerts/manage-alerts).
 
 {% hint style="info" %}
 **Using the `.yaml` file**

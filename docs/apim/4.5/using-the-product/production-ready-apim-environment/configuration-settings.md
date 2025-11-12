@@ -26,7 +26,7 @@ api:
          secret: <32 byte length secret>
 ```
 
-You can find additional details about property encryption in the [Gravitee documentation](/apim/guides/policy-design/v2-api-policy-design-studio#encryption).
+You can find additional details about property encryption in the [Gravitee documentation](https://documentation.gravitee.io/apim/guides/policy-design/v2-api-policy-design-studio#encryption).
 
 ## Documentation sanitizer
 

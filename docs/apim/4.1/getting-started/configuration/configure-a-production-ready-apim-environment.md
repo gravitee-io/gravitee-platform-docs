@@ -330,7 +330,7 @@ Gravitee relies on [ReCaptcha V3](https://developers.google.com/recaptcha/docs/v
 
 #### Fail2Ban
 
-If your platform is particularly exposed to the outside world, we recommend adding additional protection against pure brute-force attacks by [setting up Fail2Ban](/apim/getting-started/configuration/configure-apim-management-api/security#fail2ban).
+If your platform is particularly exposed to the outside world, we recommend adding additional protection against pure brute-force attacks by [setting up Fail2Ban](configure-apim-management-api/security.md#fail2ban).
 
 Fail2Ban scans log files and automatically bans IPs that show malicious signs, e.g., too many password failures, seeking an opportunity for exploitation, etc.
 

@@ -9,8 +9,8 @@ This tutorial explores various use cases where rate limiting plays a critical ro
 Before proceeding with this tutorial, be sure you're familiar with the following:
 
 * **REST APIs:** Visit our [REST API Tutorial ](https://www.gravitee.io/blog/rest-api-tutorial)to review the key elements, methods, and design and architecture constraints of a RESTful architecture.
-* **Gravitee policies:** Rules or logic that the Gateway can execute during the request or response of an API call, e.g., to enhance security, ensure reliability, or enable API monetization. See our [Policy Reference](/apim/v/4.3/reference/policy-reference) documentation to learn more.
-* **Gravitee APIs:** Visit [Create APIs](/apim/v/4.3/guides/create-apis) to learn about Gravitee API creation concepts and [The API Creation Wizard](/apim/v/4.3/guides/create-apis/the-api-creation-wizard) for step-by-step guides to create APIs using the Gravitee v2 and v4 API definitions.
+* **Gravitee policies:** Rules or logic that the Gateway can execute during the request or response of an API call, e.g., to enhance security, ensure reliability, or enable API monetization. See our [Policy Reference](https://documentation.gravitee.io/apim/v/4.3/reference/policy-reference) documentation to learn more.
+* **Gravitee APIs:** Visit [Create APIs](https://documentation.gravitee.io/apim/v/4.3/guides/create-apis) to learn about Gravitee API creation concepts and [The API Creation Wizard](https://documentation.gravitee.io/apim/v/4.3/guides/create-apis/the-api-creation-wizard) for step-by-step guides to create APIs using the Gravitee v2 and v4 API definitions.
 
 ### Introduction to Gravitee rate limiting <a href="#introduction-to-gravitee-rate-limiting" id="introduction-to-gravitee-rate-limiting"></a>
 
@@ -44,7 +44,7 @@ This use case explores enabling different Quota policies for each tier and also 
 
 For each user group defined above, an individual plan should be established. This example uses the API Key plan.
 
-See the [Plans](/apim/v/4.3/guides/api-exposure-plans-applications-and-subscriptions/plans) documentation for more information.
+See the [Plans](../../../4.3/guides/api-exposure-plans-applications-and-subscriptions/plans.md) documentation for more information.
 
 To add a Quota policy to each plan of this API:
 
@@ -97,11 +97,11 @@ Add differentiated Quota policies to each plan per the instructions below.
 
 **Gold Tier plan**
 
-Follow the steps laid out in [Silver Tier plan](/apim/v/4.3/most-common-use-cases/rate-limiting-rest-api-use-cases#silver-tier-plan), but enter 1000 for the value of **Max requests (static)**.
+Follow the steps laid out in [Silver Tier plan](../../../4.3/most-common-use-cases/rate-limiting-rest-api-use-cases.md#silver-tier-plan), but enter 1000 for the value of **Max requests (static)**.
 
 **Platinum Tier plan**
 
-Follow the steps laid out in [Silver Tier plan](/apim/v/4.3/most-common-use-cases/rate-limiting-rest-api-use-cases#silver-tier-plan), but enter 20,000 for the value of **Max requests (static)**.
+Follow the steps laid out in [Silver Tier plan](../../../4.3/most-common-use-cases/rate-limiting-rest-api-use-cases.md#silver-tier-plan), but enter 20,000 for the value of **Max requests (static)**.
 
 Congratulations! You have successfully added differentiated Quota policies to each of your consumer plans.
 
@@ -173,9 +173,9 @@ Congratulations! You have successfully added a Spike Arrest policy that applies 
 
 ### Short cut to add select rate limiting policies <a href="#short-cut-to-add-select-rate-limiting-policies" id="short-cut-to-add-select-rate-limiting-policies"></a>
 
-Rate limiting policies can also be added during [Step 4: Security](/apim/v/4.3/guides/create-apis/the-api-creation-wizard/v4-api-creation-wizard#step-4-security) of the [API creation process](/apim/v/4.3/guides/create-apis/the-api-creation-wizard/v4-api-creation-wizard). Let's demonstrate this by adding three API Key plans.
+Rate limiting policies can also be added during [Step 4: Security](../../../4.3/guides/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md#step-4-security) of the [API creation process](../../../4.3/guides/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md). Let's demonstrate this by adding three API Key plans.
 
-1. Complete steps 1-3 of the [v4 API creation wizard](/apim/v/4.3/guides/create-apis/the-api-creation-wizard/v4-api-creation-wizard)
+1. Complete steps 1-3 of the [v4 API creation wizard](../../../4.3/guides/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md)
 2.  At step 4, click **Add plan**
 
     All created APIs will include a **Default Keyless (UNSECURED)** plan. You may modify or delete this plan.

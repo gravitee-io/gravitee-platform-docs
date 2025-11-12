@@ -394,7 +394,7 @@ To support management data, you can install PostgreSQL into your Kubernetes clus
 
 ### (Enterprise Edition Only) Create Secret&#x20;
 
-Before installing Gravitee APIM for [enterprise edition](/apim/readme/enterprise-edition), you need to create a Kubernetes secret for your license key.
+Before installing Gravitee APIM for [enterprise edition](../../readme/enterprise-edition.md), you need to create a Kubernetes secret for your license key.
 
 1.  Create the secret using the following command:
 
@@ -1010,5 +1010,5 @@ To validate the Gateway URL, complete the following steps:
 
 ## Next steps <a href="#next-steps" id="next-steps"></a>
 
-* Create your first API. For more information about creating your first API, see [Create & Publish Your First API](/apim/how-to-guides/create-and-publish-your-first-api).
-* Add native Kafka capabilities. For more information about adding native Kafka capabilities, see [Configure the Kafka Client & Gateway](/apim/kafka-gateway/configure-the-kafka-client-and-gateway).\
+* Create your first API. For more information about creating your first API, see [Create & Publish Your First API](https://documentation.gravitee.io/apim/how-to-guides/create-and-publish-your-first-api).
+* Add native Kafka capabilities. For more information about adding native Kafka capabilities, see [Configure the Kafka Client & Gateway](../../kafka-gateway/configure-the-kafka-client-and-gateway.md).\

@@ -15,7 +15,7 @@ Notifiers are a type of plugin used to configure a notification for a recipient.
 * Slack
 * Webhook
 
-Please refer to the [alerts documentation](/apim/getting-started/configuration/notifications#configure-alerts) to learn how to configure AE-driven alerts and notifications.
+Please refer to the [alerts documentation](https://documentation.gravitee.io/apim/getting-started/configuration/notifications#configure-alerts) to learn how to configure AE-driven alerts and notifications.
 
 This article walks through how to configure notifications via these channels as well as how to:
 

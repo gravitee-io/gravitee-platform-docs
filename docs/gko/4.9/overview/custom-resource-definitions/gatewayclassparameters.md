@@ -54,11 +54,11 @@ When enabled, you can also configure:
   - Broker Domain Pattern: Defines how broker hostnames are constructed. Defaults to `broker-{brokerId}-{apiHost}`.
   - Bootstrap Domain Pattern: Defines the hostname for Kafka bootstrap connections. Defaults to `{apiHost}`.
 
-You can find details about these configurations options in our [documentation](/apim/kafka-gateway/configure-the-kafka-gateway-and-client).
+You can find details about these configurations options in our [documentation](https://documentation.gravitee.io/apim/kafka-gateway/configure-the-kafka-gateway-and-client).
 
 #### Gravitee YAML
 
-An optional yaml field allows you to provide custom gateway configuration, giving you control over additional configuration blocks available in the gateway [settings](/apim/configure-apim/apim-components/gravitee-gateway).
+An optional yaml field allows you to provide custom gateway configuration, giving you control over additional configuration blocks available in the gateway [settings](https://documentation.gravitee.io/apim/configure-apim/apim-components/gravitee-gateway).
 
 However, this does not allow you to configure:
 

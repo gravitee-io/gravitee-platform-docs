@@ -34,7 +34,7 @@ It is recommended that the Account Primary Owner be a non-SSO user so that the C
 2.  Enter an email domain in **Set domain realm** to specify how users should be authenticated when they sign in with an email address&#x20;
 
     <figure><img src="../.gitbook/assets/sso_set domain realm.png" alt=""><figcaption><p>Set the email domain that correctly redirects users</p></figcaption></figure>
-3. Create an Oauth client in your IdP that supports the Authorization Code Flow. If you are using Gravitee Access Management, you can follow [this guide](/am/guides/applications) to configure an OAuth client application.
+3. Create an Oauth client in your IdP that supports the Authorization Code Flow. If you are using Gravitee Access Management, you can follow [this guide](https://documentation.gravitee.io/am/guides/applications) to configure an OAuth client application.
 4.  Enter the details of your Oauth client in **Set up Oauth/ OpenID Connect configuration**&#x20;
 
     <figure><img src="../.gitbook/assets/sso_set up.png" alt=""><figcaption><p>Add the details of the OAuth client configured in your IdP</p></figcaption></figure>

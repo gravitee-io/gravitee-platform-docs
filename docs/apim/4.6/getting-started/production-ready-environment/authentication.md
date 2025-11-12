@@ -13,9 +13,9 @@ This section discusses authentication as it relates to [identity providers](auth
 * [Azure AD](https://app.gitbook.com/s/BhTMKXIHEN2PB8YB6Fz5/guides/identity-providers/social-identity-providers/azure-ad)
 * [Any compliant OAuth/OIDC server](https://app.gitbook.com/s/BhTMKXIHEN2PB8YB6Fz5/guides/identity-providers/social-identity-providers/openid-connect)
 
-Alternatively, you can rely on your [LDAP server](/apim/getting-started/configuration/authentication-and-sso#ldap-authentication).
+Alternatively, you can rely on your [LDAP server](https://documentation.gravitee.io/apim/getting-started/configuration/authentication-and-sso#ldap-authentication).
 
-It is preferable to rely on an external identity provider to handle security so you can easily comply with your internal company security policy. You can configure role mapping to automatically assign a role to a given user matching particular criteria. Refer to the [Gravitee documentation](/apim/getting-started/configuration/authentication-and-sso#gravitee-access-management-authentication) for an example of role or group mapping.
+It is preferable to rely on an external identity provider to handle security so you can easily comply with your internal company security policy. You can configure role mapping to automatically assign a role to a given user matching particular criteria. Refer to the [Gravitee documentation](https://documentation.gravitee.io/apim/getting-started/configuration/authentication-and-sso#gravitee-access-management-authentication) for an example of role or group mapping.
 
 ## Developer Portal authentication
 
@@ -28,7 +28,7 @@ portal:
       enabled: true
 ```
 
-The Developer Portal configuration can be fine-tuned to satisfy your needs. Additional details are in the [Gravitee documentation](/apim/guides/developer-portal/advanced-developer-portal-configuration).
+The Developer Portal configuration can be fine-tuned to satisfy your needs. Additional details are in the [Gravitee documentation](https://documentation.gravitee.io/apim/guides/developer-portal/advanced-developer-portal-configuration).
 
 ## Users
 
@@ -147,5 +147,5 @@ You can configure various user options:
 * `user.password.policy.pattern`: By default, Gravitee includes a strong password policy taken from OWASP recommendations. We highly recommend not decreasing the complexity of the password policy if you allow user registration.
 
 {% hint style="info" %}
-You can find other information related to user management in the [Gravitee documentation](/apim/getting-started/configuration/configure-apim-management-api/user-and-management-configuration).
+You can find other information related to user management in the [Gravitee documentation](https://documentation.gravitee.io/apim/getting-started/configuration/configure-apim-management-api/user-and-management-configuration).
 {% endhint %}

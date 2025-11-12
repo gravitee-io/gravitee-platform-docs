@@ -16,7 +16,7 @@ Currently, the RBAC policy can be applied to v2 APIs and v4 proxy APIs. It canno
 
 ## Prerequisites <a href="#prerequisites-3" id="prerequisites-3"></a>
 
-To participate in this tutorial, you must have an instance of APIM 4.0 or later up and running. You can check out our [extensive installation guides](/apim//~/changes/Nu1TIz1HvhDYgoPV1Kak/getting-started/install-guides) to learn the different ways you can get started with Gravitee.
+To participate in this tutorial, you must have an instance of APIM 4.0 or later up and running. You can check out our [extensive installation guides](https://documentation.gravitee.io/apim//~/changes/Nu1TIz1HvhDYgoPV1Kak/getting-started/install-guides) to learn the different ways you can get started with Gravitee.
 
 Additionally, the following guide assumes you have already completed the [Configure JWT Security with APIM](configure-jwt-security-with-apim.md) tutorial, which is referred to here as the previous tutorial.
 
