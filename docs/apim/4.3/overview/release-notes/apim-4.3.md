@@ -175,7 +175,7 @@ Protobuf to AVRO conversion:
 
 ### GraphQL Rate Limit
 
-The [`graphql-rate-limit` policy](../../reference/policy-reference/graphql-rate-limit.md) has been added to limit the load placed on the GraphQL server so that GraphQL resources can be served reliably without overloading the system. It is a Gravitee Enterprise Edition feature and requires a [license](https://documentation.gravitee.io/platform-overview/gravitee-essentials/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing)​.
+The [`graphql-rate-limit` policy](../../reference/policy-reference/graphql-rate-limit.md) has been added to limit the load placed on the GraphQL server so that GraphQL resources can be served reliably without overloading the system. It is a Gravitee Enterprise Edition feature and requires a [license](https://documentation.gravitee.io/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing)​.
 
 The Gravitee Gateway evaluates query costs by introspecting schema and analyzing the query, then applying a rate-limiting strategy based on a computed/weighted score. This protects the backend GraphQL server from having to process costly GraphQL requests.
 

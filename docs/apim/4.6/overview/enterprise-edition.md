@@ -19,7 +19,7 @@ Refer to the sections below to learn about what's included in the Gravitee APIM 
 * [Hosting options](enterprise-edition.md#hosting-options)
 
 {% hint style="info" %}
-Gravitee's platform extends beyond API Management. For information on enterprise versions of other products, please refer to the [platform overview](https://documentation.gravitee.io/platform-overview/gravitee-essentials/gravitee-offerings-ce-vs-ee).
+Gravitee's platform extends beyond API Management. For information on enterprise versions of other products, please refer to the [platform overview](https://documentation.gravitee.io/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee).
 {% endhint %}
 
 ## Enterprise features
