@@ -10,7 +10,7 @@ description: >-
 
 A Rate Limit policy configures the number of requests allowed over a limited period of time.
 
-For any [`rate-limit` policy](/apim/4.3/reference/policy-reference/rate-limit), you can select the option to ignore the IP address and only use a custom key for the quota. You can then share an API's rate limit calculations across machines to enforce the limit, regardless of caller IP. If you use a custom key, the quota increments after each call to the API, across multiple hosts.
+For any [`rate-limit` policy](../../../../../apim/4.3/reference/policy-reference/rate-limit.md), you can select the option to ignore the IP address and only use a custom key for the quota. You can then share an API's rate limit calculations across machines to enforce the limit, regardless of caller IP. If you use a custom key, the quota increments after each call to the API, across multiple hosts.
 
 To dynamically set the custom key, you can define it using Gravitee Expression Language (EL).
 

@@ -32,7 +32,7 @@ Before getting started, you'll need:
 2. Gravitee APIM 4.0 or later up and running
 
 {% hint style="info" %}
-If you are new to both web APIs and message brokers, we recommend taking a look at the [Gravitee Essentials guide](/platform-overview/gravitee-platform/gravitee-core-concepts) before continuing.
+If you are new to both web APIs and message brokers, we recommend taking a look at the [Gravitee Essentials guide](../../../../platform-overview/gravitee-platform/gravitee-core-concepts.md) before continuing.
 {% endhint %}
 
 To manage your own installations, check out our [APIM install guides](../install-and-upgrade-guides/) for install options to run APIM locally or in your own cloud infrastructure. If you don't have a strong preference, [Quick Install with Docker Compose](../install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-docker/quick-install-with-docker-compose.md) is the fastest self-managed installation for most users.

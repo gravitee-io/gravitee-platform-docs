@@ -19,7 +19,7 @@ Alert Engine can be bolted on to your larger Gravitee platform as well as custom
   * Installation
   * Configuration
   * Using Alert Engine fir Risk-based alerting
-* [Third parties](/ae/overview/integrations#integrating-with-third-party-solutions)
+* [Third parties](../../overview/integrations.md#integrating-with-third-party-solutions)
   * Configuration
 
 Let's go!

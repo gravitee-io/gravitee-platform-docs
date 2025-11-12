@@ -2,7 +2,7 @@
 
 ## Overview
 
-Gravitee offers open source and enterprise versions of its API Management (APIM) distribution package. The Gravitee APIM Enterprise Edition requires a [license](/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing). It is available as three different packages, each offering a different level of access to enterprise features and capabilities. For more information, please refer to our [pricing page](https://www.gravitee.io/pricing).
+Gravitee offers open source and enterprise versions of its API Management (APIM) distribution package. The Gravitee APIM Enterprise Edition requires a [license](../../../platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing.md). It is available as three different packages, each offering a different level of access to enterprise features and capabilities. For more information, please refer to our [pricing page](https://www.gravitee.io/pricing).
 
 {% hint style="info" %}
 Gravitee's platform extends beyond API Management. For information on enterprise versions of other products, please refer to the [platform overview](/platform-overview/gravitee-essentials/gravitee-offerings-ce-vs-ee).

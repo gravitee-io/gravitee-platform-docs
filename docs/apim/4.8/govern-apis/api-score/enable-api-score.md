@@ -10,7 +10,7 @@ API Score is a technology preview. This feature is not recommended for productio
 This guide applies to Gravitee API Management version 4.7 and above. To enable API Score on Gravitee 4.5 or 4.6, please reach out to Gravitee support.
 {% endhint %}
 
-API Score is only available in Gravitee Cloud. If you are running a self-hosted API Management installation, it must be connected to Gravitee Cloud to enable API score. For more information about connecting your API Management instance to Gravitee Cloud, see [Register installations](/gravitee-cloud/self-hosted/register-installations).
+API Score is only available in Gravitee Cloud. If you are running a self-hosted API Management installation, it must be connected to Gravitee Cloud to enable API score. For more information about connecting your API Management instance to Gravitee Cloud, see [Register installations](../../../../gravitee-cloud/self-hosted/register-installations.md).
 
 ## Enable API Score in the Console
 
