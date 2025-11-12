@@ -10,7 +10,7 @@ description: >-
 
 Sharding tags allow you to “tag” Gateways with a keyword and deploy an API to a Gateway with a certain tag. Gateways can be tagged with one or more sharding tags. Additionally, the `!` symbol can be placed before the tag name to specify exclusion rules.
 
-To learn more about how to deploy APIs to specific Gateways based on sharding tags, refer to [Configure Deployments](../configure-v2-apis/proxy-settings.md).
+To learn more about how to deploy APIs to specific Gateways based on sharding tags, refer to [Configure Deployments](docs/apim/4.6/configure-v2-apis/proxy-settings.md).
 
 The sections below discuss:
 
@@ -139,5 +139,5 @@ To demonstrate, let's instruct Gravitee API Manager to apply the “internal tes
     <figure><img src="../../4.0/.gitbook/assets/image (48) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="success" %}
-You've just learned how to configure sharding tags for your Gravitee API Gateways. To apply sharding tags to APIs in order to control where those APIs are deployed, refer to [this documentation](../configure-v2-apis/proxy-settings.md).
+You've just learned how to configure sharding tags for your Gravitee API Gateways. To apply sharding tags to APIs in order to control where those APIs are deployed, refer to [this documentation](docs/apim/4.6/configure-v2-apis/proxy-settings.md).
 {% endhint %}

@@ -8,7 +8,7 @@ noIndex: true
 
 The `JWT Filter` performs JWT validation on a [bearer token](https://datatracker.ietf.org/doc/html/rfc6750) present in the HTTP header. If the bearer token JWT doesn't validate, or has insufficient scope, an RFC 6750-complaint error response with a `www-authenticate` header is returned. The list of acceptable signing keys is loaded from a JWK Set that is loaded over HTTP, as specified in the `Filter` configuration. Only RSA and `none` algorithms are supported.
 
-This doc is an overview of all the fields on the `JWT Filter` Custom Resource with descriptions of the purpose, type, and default values of those fields. This page is specific to the `gateway.getambassador.io/v1alpha1` version of the `JWT Filter` resource. For the older `getambassador.io/v3alpha1` resource, please see the [v3alpha1 JWT Filter api reference](../../getambassador.io-v3alpha1/filter/the-jwt-filter-type.md).
+This doc is an overview of all the fields on the `JWT Filter` Custom Resource with descriptions of the purpose, type, and default values of those fields. This page is specific to the `gateway.getambassador.io/v1alpha1` version of the `JWT Filter` resource. For the older `getambassador.io/v3alpha1` resource, please see the [v3alpha1 JWT Filter api reference](docs/edge-stack/crd-api-references/getambassador.io-v3alpha1/filter/the-jwt-filter-type.md).
 
 {% hint style="info" %}
 `v1alpha1` `Filters` can only be referenced from `v1alpha1` `FilterPolicies`.

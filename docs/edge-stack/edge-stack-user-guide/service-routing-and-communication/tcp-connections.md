@@ -16,7 +16,7 @@ Like all native Ambassador Edge Stack resources, `TCPMappings` have an `ambassad
 
 | Attribute       | Description                                                                                                                                                               | Type             | Default value                     |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | --------------------------------- |
-| `ambassador_id` | A list of `ambassador_id`s which should pay attention to this resource. See [#ambassador\_id](../deployment/advanced-deployment-configuration.md#ambassador_id "mention") | array of strings | optional; default is \["default"] |
+| `ambassador_id` | A list of `ambassador_id`s which should pay attention to this resource. See [#ambassador\_id](docs/edge-stack/edge-stack-user-guide/deployment/advanced-deployment-configuration.md#ambassador_id "mention") | array of strings | optional; default is \["default"] |
 
 ### Downstream configuration
 

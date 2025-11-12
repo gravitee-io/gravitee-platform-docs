@@ -19,14 +19,14 @@ As of Gravitee 4.0, the sharding tags feature is an Enterprise Edition capabilit
 {% hint style="info" %}
 **v4 API limitations**
 
-As of Gravitee 4.0, you cannot implement sharding tags for v4 APIs using the APIM Console. This can only be done via the [Management API](../../../reference/management-api-reference.md).&#x20;
+As of Gravitee 4.0, you cannot implement sharding tags for v4 APIs using the APIM Console. This can only be done via the [Management API](docs/apim/4.1/reference/management-api-reference.md).&#x20;
 {% endhint %}
 
 ## Introduction
 
 Sharding tags allow you to “tag” Gateways with a keyword and deploy an API to a Gateway with a certain tag. Gateways can be tagged with one or more sharding tags. Additionally, the `!` symbol can be placed before the tag name to specify exclusion rules.&#x20;
 
-To learn more about how to deploy APIs to specific Gateways based on sharding tags, refer to [Configure Deployments](../../../guides/api-configuration/v2-api-configuration/configure-cors.md#configure-deployments).
+To learn more about how to deploy APIs to specific Gateways based on sharding tags, refer to [Configure Deployments](docs/apim/4.1/guides/api-configuration/v2-api-configuration/configure-cors.md#configure-deployments).
 
 ## Tagged Gateway/API behavior
 
@@ -131,5 +131,5 @@ You can view your entrypoint mapping in the **Entrypoint mappings** section:
 <figure><img src="../../../.gitbook/assets/image (48).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="success" %}
-You've just learned how to configure sharding tags for your Gravitee API Gateways. To apply sharding tags to APIs in order to control where those APIs are deployed, refer to [this documentation](../../../guides/api-configuration/v2-api-configuration/configure-cors.md#configure-deployments).
+You've just learned how to configure sharding tags for your Gravitee API Gateways. To apply sharding tags to APIs in order to control where those APIs are deployed, refer to [this documentation](docs/apim/4.1/guides/api-configuration/v2-api-configuration/configure-cors.md#configure-deployments).
 {% endhint %}

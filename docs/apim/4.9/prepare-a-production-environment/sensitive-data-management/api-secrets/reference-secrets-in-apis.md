@@ -2,14 +2,14 @@
 
 ## Overview
 
-You can configure secret managers to work with your APIs. You can use secrets to hide information in any field that supports Gravitee Expression Language. For more information about Gravitee Expression Language, see [gravitee-expression-language.md](../../../gravitee-expression-language.md "mention").
+You can configure secret managers to work with your APIs. You can use secrets to hide information in any field that supports Gravitee Expression Language. For more information about Gravitee Expression Language, see [gravitee-expression-language.md](docs/apim/4.9/gravitee-expression-language.md "mention").
 
-Secret provider plugins extend the operable range of secret managers to resolve secrets both on startup and in APIs. For more information about secret provider plugins, see [integrations.md](../../../readme/integrations.md "mention").
+Secret provider plugins extend the operable range of secret managers to resolve secrets both on startup and in APIs. For more information about secret provider plugins, see [integrations.md](docs/apim/4.9/readme/integrations.md "mention").
 
 This article explains the syntax that you can use to resolve secrets in v4 APIs and configure secret managers.
 
 {% hint style="warning" %}
-* This feature is available in Enterprise Edition only. To learn more about Gravitee Enterprise Edition, see [enterprise-edition.md](../../../readme/enterprise-edition.md "mention").
+* This feature is available in Enterprise Edition only. To learn more about Gravitee Enterprise Edition, see [enterprise-edition.md](docs/apim/4.9/readme/enterprise-edition.md "mention").
 * Secrets work with only v4 APIs.
 {% endhint %}
 
@@ -37,7 +37,7 @@ Arguments can be embedded in a larger string, like in the following example:
 
 ### Secret URI syntax
 
-Secret URI syntax is a subset of URL syntax that you can use to [apply secrets to configurations ](../configure-secrets/configuration.md)(`secret://...`). Secret URI syntax allows you to specify the secret you want to resolve.
+Secret URI syntax is a subset of URL syntax that you can use to [apply secrets to configurations ](docs/apim/4.9/prepare-a-production-environment/sensitive-data-management/configure-secrets/configuration.md)(`secret://...`). Secret URI syntax allows you to specify the secret you want to resolve.
 
 A URI is composed of the following components:
 

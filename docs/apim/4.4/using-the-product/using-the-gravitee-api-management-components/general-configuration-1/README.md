@@ -8,7 +8,7 @@ description: >-
 
 ## Introduction
 
-This guide will walk through how to configure your general Gravitee APIM Management API settings using the `gravitee.yaml` file. As detailed in the [Configuring APIM Components](../configuration.md#configuring-apim-components), you can override these settings by using system properties or environment variables.
+This guide will walk through how to configure your general Gravitee APIM Management API settings using the `gravitee.yaml` file. As detailed in the [Configuring APIM Components](docs/apim/4.4/using-the-product/using-the-gravitee-api-management-components/configuration.md#configuring-apim-components), you can override these settings by using system properties or environment variables.
 
 The `gravitee.yaml` file, found in `GRAVITEE_HOME/config/`, is the default way to configure APIM.
 
@@ -114,7 +114,7 @@ For more information on CORS, take a look at the [CORS specification](https://ww
 
 CORS can be applied at three different levels:&#x20;
 
-1. [API](../../managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v2-api-configuration/general-proxy-settings.md#configure-cors)
+1. [API](docs/apim/4.4/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v2-api-configuration/general-proxy-settings.md#configure-cors)
 2. Environment
 3. Organization
 

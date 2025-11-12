@@ -17,7 +17,7 @@ Ambassador Edge Stack is able to perform Rate Limiting based on JWT Token claims
 * A service exposed with a Mapping and protected by a FilterPolicy
 
 {% hint style="info" %}
-We'll use Keycloak to generate tokens with unique claims. It will work in a similar manner for any claims present on a JWT token issued by any other provider. See [single-sign-on-with-keycloak.md](../authentication/single-sign-on-with-keycloak.md "mention") on using Keycloak with Ambassador Edge Stack.
+We'll use Keycloak to generate tokens with unique claims. It will work in a similar manner for any claims present on a JWT token issued by any other provider. See [single-sign-on-with-keycloak.md](docs/edge-stack/edge-stack-user-guide/authentication/single-sign-on-with-keycloak.md "mention") on using Keycloak with Ambassador Edge Stack.
 {% endhint %}
 
 Here is a YAML example that describes the setup:

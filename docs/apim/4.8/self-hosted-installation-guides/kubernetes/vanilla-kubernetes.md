@@ -12,7 +12,7 @@ Before you install the Gravitee APIM, complete the following steps:
 * Install [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl).
 * Ensure you have access to the self-hosted Kubernetes cluster where you want to install Gravitee APIM.
 * Ensure the self-hosted target environment has outbound Internet connectivity to Gravitee Cloud using HTTPS/443.
-* (optional) [License key](https://documentation.gravitee.io/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing) for Enterprise features
+* (optional) [License key](/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing) for Enterprise features
 
 {% hint style="warning" %}
 This installation guide is for only development and quick start purposes. Do not use it for production environments. For more information about best practices for production environments, contact your Technical Account Manager.
@@ -321,7 +321,7 @@ To support management data, you can install PostgreSQL into your Kubernetes clus
 
 ### (Enterprise Edition Only) Create Secret
 
-Before installing Gravitee APIM for [enterprise edition](https://documentation.gravitee.io/apim/readme/enterprise-edition), you need to create a Kubernetes secret for your license key.
+Before installing Gravitee APIM for [enterprise edition](/apim/readme/enterprise-edition), you need to create a Kubernetes secret for your license key.
 
 1.  Create the secret using the following command:
 
@@ -922,4 +922,4 @@ To validate the Gateway URL, complete the following steps:
 ## Next steps
 
 * Create your first API. For more information about creating your first API, see [create-and-publish-your-first-api](../../how-to-guides/create-and-publish-your-first-api/ "mention").
-* Add native Kafka capabilities. For more information about adding native Kafka capabilities, see [configure-the-kafka-client-and-gateway.md](../../kafka-gateway/configure-the-kafka-client-and-gateway.md "mention").
+* Add native Kafka capabilities. For more information about adding native Kafka capabilities, see [configure-the-kafka-client-and-gateway.md](docs/apim/4.8/kafka-gateway/configure-the-kafka-client-and-gateway.md "mention").

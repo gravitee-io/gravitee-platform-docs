@@ -19,13 +19,13 @@ The general settings for a Gravitee v2 API are grouped into 3 sections: [general
 {% endtab %}
 
 {% tab title="Quality" %}
-The metrics in this section describe how well your API conforms to rules set for the [API Quality ](../api-analytics/api-quality.md)feature.
+The metrics in this section describe how well your API conforms to rules set for the [API Quality ](docs/apim/4.7/api-analytics/api-quality.md)feature.
 {% endtab %}
 
 {% tab title="Danger Zone" %}
 Mission-critical (and potentially dangerous) actions:
 
-* **Start the API:** Deploy the API to all Gateways, or the Gateways specified using [sharding tags](../gravitee-gateway/sharding-tags.md)
+* **Start the API:** Deploy the API to all Gateways, or the Gateways specified using [sharding tags](docs/apim/4.7/gravitee-gateway/sharding-tags.md)
 * **Publish the API:** Publish the API to the Developer Portal
 * **Make Public:** Make the API public so that everybody can see it
 * **Deprecate this API:** Unpublish it from the Developer Portal

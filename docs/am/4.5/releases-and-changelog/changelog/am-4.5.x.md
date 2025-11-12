@@ -597,7 +597,7 @@ We improved the OAuth2 / OpenID specification more strictly regarding the usage 
 
 #### Group mapper
 
-Identity Providers now provide a [Group Mapper](../../guides/identity-providers/user-and-role-mapping.md) section.
+Identity Providers now provide a [Group Mapper](docs/am/4.5/guides/identity-providers/user-and-role-mapping.md) section.
 
 #### Cache Layer
 

@@ -237,8 +237,8 @@ Federation is disabled by default for security and performance reasons. You can 
 
 To enable Federation, complete the following steps:
 
-* [Enable Federation with Docker Compose](https://documentation.gravitee.io/apim/~/changes/324/self-hosted-installation-guides/docker/docker-compose#enable-federation-with-docker-compose)
-* If you are running multiple replicas of APIM for high availability, [Set up cluster mode](https://documentation.gravitee.io/apim/~/changes/324/self-hosted-installation-guides/docker/docker-compose#set-up-cluster-mode)
+* [Enable Federation with Docker Compose](/apim/~/changes/324/self-hosted-installation-guides/docker/docker-compose#enable-federation-with-docker-compose)
+* If you are running multiple replicas of APIM for high availability, [Set up cluster mode](/apim/~/changes/324/self-hosted-installation-guides/docker/docker-compose#set-up-cluster-mode)
 
 ### Enable Federation with Docker Compose <a href="#enable-federation-with-docker-compose" id="enable-federation-with-docker-compose"></a>
 

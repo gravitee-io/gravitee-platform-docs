@@ -10,7 +10,7 @@ description: >-
 
 {% hint style="warning" %}
 * RPM install is not supported on distributions with old versions of RPM, such as SLES 11 and CentOS 5 — in this case, you need to [install APIM with .zip](install-with-.zip.md) instead.
-* If you use Enterprise Edition of Gravitee, you need a license key. For more information about Enterprise Edition Licensing Licensing, see [Enterprise Edition Licensing.](https://documentation.gravitee.io/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing)
+* If you use Enterprise Edition of Gravitee, you need a license key. For more information about Enterprise Edition Licensing Licensing, see [Enterprise Edition Licensing.](/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing)
 {% endhint %}
 
 Amazon Linux instances use the package manager, `yum`. If you use an Amazon Linux operating system, you must configure access to Gravitee’s repository that contains the APIM components.

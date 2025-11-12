@@ -142,13 +142,13 @@ The only supported method for targeting a specific partition is to define a key 
 
 Repeated use of the same key on each message guarantees that messages are relegated to the same partition and order is maintained. Gravitee does not support overriding this mechanism to manually set the partition.
 
-To set a key on a message, the attribute `gravitee.attribute.kafka.recordKey` can be set on the message, in an [Assign Attributes](../../policies/assign-attributes.md) policy in the Publish flow.
+To set a key on a message, the attribute `gravitee.attribute.kafka.recordKey` can be set on the message, in an [Assign Attributes](docs/apim/4.6/policies/assign-attributes.md) policy in the Publish flow.
 
 A shared producer is created by the endpoint and reused for all requests with that same configuration. The producer configuration includes the **ClientId**, **Topic**, and **Partitioning**. The client ID is generated for the producer in the format `gio-apim-producer-<first part of uuid>`, e.g., `gio-apim-producer-a0eebc99`
 
 ## Dynamic configuration <a href="#user-content-dynamic-configuration" id="user-content-dynamic-configuration"></a>
 
-The Kafka endpoint includes the dynamic configuration feature, meaning that you can override specific values at runtime. You can set overrides via the following attributes being set in the [Assign Attributes](../../policies/assign-attributes.md) policy:
+The Kafka endpoint includes the dynamic configuration feature, meaning that you can override specific values at runtime. You can set overrides via the following attributes being set in the [Assign Attributes](docs/apim/4.6/policies/assign-attributes.md) policy:
 
 * To override the topic on the producer, set `gravitee.attributes.endpoint.kafka.producer.topics`.
 * To override the topic on the consumer, set `gravitee.attributes.endpoint.kafka.consumer.topics`.

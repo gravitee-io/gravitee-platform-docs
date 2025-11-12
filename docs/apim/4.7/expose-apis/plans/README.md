@@ -35,8 +35,8 @@ To create a plan:
     * **Page of General Conditions:** If you want to enforce subscribers to review a Terms of Conditions (or another similar page), then select a published [Documentation](broken-reference/) page whose terms must be accepted by the user to finalize the subscription process
     * Toggle **Auto validate subscription** ON to accept all subscriptions to a plan without the API publisher's approval
     * Toggle **Consumer must provide a comment when subscribing to the plan** ON to require an explanation for the subscription request, with the option to leave a **Custom message to display to consumer**
-    * **Sharding tags:** Selectively deploy the plan to particular API Gateways using available [sharding tags](../../gravitee-gateway/sharding-tags.md)
-    * **Groups excluded:** Prevent specified [user groups](../../administration/user-management.md) from accessing this plan
+    * **Sharding tags:** Selectively deploy the plan to particular API Gateways using available [sharding tags](docs/apim/4.7/gravitee-gateway/sharding-tags.md)
+    * **Groups excluded:** Prevent specified [user groups](docs/apim/4.7/administration/user-management.md) from accessing this plan
 7. Click **Next**
 8.  Define the security configuration details appropriate to and required by your selected security type, e.g., OAuth2. See [OAuth2](oauth2.md), [JWT](jwt.md), [API Key](api-key.md), [Keyless](keyless.md), or [Push](push.md) for more information.
 
@@ -107,7 +107,7 @@ To close a plan, click on the 'x' icon:
 APIM automatically routes each API request to the correct plan. The plan selection workflow parses all published plans in the following order: **JWT**, **OAuth2**, **API Key**, **Keyless**.
 
 {% hint style="warning" %}
-This workflow only applies to [v4 APIs and v2 APIs in emulation mode](../../create-apis/overview/execution-engine.md#v2-gateway-api-emulation-mode).
+This workflow only applies to [v4 APIs and v2 APIs in emulation mode](docs/apim/4.7/create-apis/overview/execution-engine.md#v2-gateway-api-emulation-mode).
 {% endhint %}
 
 The parsing rules for each plan type are detailed below:

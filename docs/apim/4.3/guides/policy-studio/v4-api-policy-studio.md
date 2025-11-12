@@ -58,7 +58,7 @@ To create a flow and add policies:
     * **Channel:** Define the path to use in conjunction with the **Operator** to determine if this flow should be applied.
     * **Entrypoints:** Select the entrypoint(s) for which the flow will be executed. If none are selected, the flow will be executed for all possible entrypoints, assuming required conditions are met.
     * **Entrypoints supported operations:** Select **Publish** and/or **Subscribe** as the operation(s) supported by the entrypoint(s). If none are selected, both will be supported.
-    * **Condition:** Use [Gravitee's Expression Language (EL)](../gravitee-expression-language.md) to define specific conditions that will trigger flow execution.
+    * **Condition:** Use [Gravitee's Expression Language (EL)](docs/apim/4.3/guides/gravitee-expression-language.md) to define specific conditions that will trigger flow execution.
 7. Click **Create** in the modal, then **Save** on the **Policies** page
 8.  To add a policy, click the **+** icon to the phase where the policy should be enforced
 
@@ -154,7 +154,7 @@ Key-value pairs can also be maintained using a dictionary, e.g., if this informa
 
 ## Resources
 
-Some policies support the addition of [resources](../api-configuration/resources.md), which can be used for actions such as authentication and schema registry validation. After you create resources, you will be able to reference them when designing policies. Policies that support resources include:
+Some policies support the addition of [resources](docs/apim/4.3/guides/api-configuration/resources.md), which can be used for actions such as authentication and schema registry validation. After you create resources, you will be able to reference them when designing policies. Policies that support resources include:
 
 <table data-header-hidden><thead><tr><th width="242"></th><th></th></tr></thead><tbody><tr><td><a href="../../reference/policy-reference/basic-authentication.md">Basic Authentication</a></td><td>Specify an LDAP Authentication Provider resource and/or an Inline Authentication Provider resource to authenticate users in memory</td></tr><tr><td><a href="../../reference/policy-reference/cache.md">Cache</a></td><td>Specify a cache resource via the Cache or Cache Redis resources</td></tr><tr><td><a href="../../reference/policy-reference/http-signature.md">HTTP Signature</a><br><a href="../../reference/policy-reference/generate-http-signature.md">Generate HTTP Signature</a></td><td>Specify your HTTP Authentication Provider resource</td></tr><tr><td><a href="../../reference/policy-reference/oauth2/">OAuth2</a></td><td>Specify a Generic OAuth2 Authorization Server resource or a Gravitee AM Authorization Server resource</td></tr><tr><td><a href="../../reference/policy-reference/openid-connect-userinfo.md">OpenID Connect Userinfo</a></td><td>Specify a Keycloak Adapter resource to use Keycloak as your OpenID Connect resource</td></tr><tr><td><a href="../../reference/policy-reference/avro-to-json.md">AVRO to JSON</a><br><a href="../../reference/policy-reference/avro-to-protobuf.md">AVRO to Protobuf</a><br><a href="../../reference/policy-reference/protobuf-to-json.md">Protobuf to JSON</a></td><td>Specify your Confluent Schema Registry to retrieve serialization and deserialization schemas from a Confluent Schema registry</td></tr></tbody></table>
 

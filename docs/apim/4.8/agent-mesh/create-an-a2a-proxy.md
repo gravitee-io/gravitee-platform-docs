@@ -24,7 +24,7 @@ Truly intelligent agents need access to both synchronous (request-response) and 
 
 ## Prerequisites&#x20;
 
-* You must have the Enterprise Edition of Gravitee. For more information about Gravitee Enterprise Edition, see [enterprise-edition.md](../readme/enterprise-edition.md "mention").
+* You must have the Enterprise Edition of Gravitee. For more information about Gravitee Enterprise Edition, see [enterprise-edition.md](docs/apim/4.8/readme/enterprise-edition.md "mention").
 
 ## Create an A2A proxy
 

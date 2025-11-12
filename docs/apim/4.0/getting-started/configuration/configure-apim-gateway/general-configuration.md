@@ -224,17 +224,17 @@ servers:
 
 ### Local installation
 
-You can configure the APIM Gateway [plugins](../../../overview/plugins.md) directory with `plugins.path` configuration property:
+You can configure the APIM Gateway [plugins](docs/apim/4.0/overview/plugins.md) directory with `plugins.path` configuration property:
 
 ```yaml
 plugins:
   path: ${gravitee.home}/plugins
 ```
 
-Users can add plugins not included in APIM's default distribution to this directory. This includes different versions of Gravitee plugins or their own [custom plugins](../../../guides/developer-contributions/custom-plugins.md).&#x20;
+Users can add plugins not included in APIM's default distribution to this directory. This includes different versions of Gravitee plugins or their own [custom plugins](docs/apim/4.0/guides/developer-contributions/custom-plugins.md).&#x20;
 
 {% hint style="info" %}
-To understand how Gravitee handles duplicate plugins, see plugins [discovery and loading.](../../../overview/plugins.md#discovery-and-loading)
+To understand how Gravitee handles duplicate plugins, see plugins [discovery and loading.](docs/apim/4.0/overview/plugins.md#discovery-and-loading)
 {% endhint %}
 
 If you do not wish to modify the default directory, Gravitee also lets you specify additional folders in an array:
@@ -264,7 +264,7 @@ api:
 ```
 {% endcode %}
 
-The property `removePlugins` has been removed from the Helm chart as it is no longer necessary. See [plugin discovery and loading](../../../overview/plugins.md#discovery-and-loading) for more information.
+The property `removePlugins` has been removed from the Helm chart as it is no longer necessary. See [plugin discovery and loading](docs/apim/4.0/overview/plugins.md#discovery-and-loading) for more information.
 
 ## Configure the Management repository
 
@@ -380,7 +380,7 @@ ratelimit:
     password: 'mysecretpassword'
 ```
 
-Redis Sentinel and Redis SSL configuration options are presented [here](../configure-repositories/redis.md#redis).
+Redis Sentinel and Redis SSL configuration options are presented [here](docs/apim/4.0/getting-started/configuration/configure-repositories/redis.md#redis).
 
 ## Configure reporters
 

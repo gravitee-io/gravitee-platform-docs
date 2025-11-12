@@ -23,7 +23,7 @@ Repeat these steps on each component (APIM Gateway and APIM API) where the SQL d
 {% hint style="info" %}
 **Before moving on**
 
-If you are using Docker to install and run APIM, you should place the driver in the `plugins-ext` folder and configure it by using the Docker compose file or command-line arguments. For more information, see [Further Customization](../../install-and-upgrade-guides/install-on-docker/further-customization.md) of a Docker installation.
+If you are using Docker to install and run APIM, you should place the driver in the `plugins-ext` folder and configure it by using the Docker compose file or command-line arguments. For more information, see [Further Customization](docs/apim/4.0/getting-started/install-and-upgrade-guides/install-on-docker/further-customization.md) of a Docker installation.
 {% endhint %}
 
 ## Configuration

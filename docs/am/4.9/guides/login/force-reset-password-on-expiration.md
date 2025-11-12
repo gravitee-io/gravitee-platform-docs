@@ -2,11 +2,11 @@
 
 ## Overview
 
-If a [password policy](../user-management/password-policy.md#configure-a-password-policy) is configured with an expiration period, you can enable the `Force reset password on expiration` option to prompt users to reset their password during the login phase. Enabling the option lets **email-less** users reset an expired password.
+If a [password policy](docs/am/4.9/guides/user-management/password-policy.md#configure-a-password-policy) is configured with an expiration period, you can enable the `Force reset password on expiration` option to prompt users to reset their password during the login phase. Enabling the option lets **email-less** users reset an expired password.
 
 ## Configuration
 
-The force reset password functionality can be enabled at the domain level, or for a specific application by toggling the `Force reset password on expiration` option, which can be found under the **Login** settings section. Enabling this option has no effect unless a [password policy](../user-management/password-policy.md#configure-a-password-policy) is configured with an expiration duration.
+The force reset password functionality can be enabled at the domain level, or for a specific application by toggling the `Force reset password on expiration` option, which can be found under the **Login** settings section. Enabling this option has no effect unless a [password policy](docs/am/4.9/guides/user-management/password-policy.md#configure-a-password-policy) is configured with an expiration duration.
 
 <figure><img src="../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
 

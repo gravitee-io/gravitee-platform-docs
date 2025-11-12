@@ -125,5 +125,5 @@ Events:
 **For more information:**
 
 * The `Application` CRD code is available on [GitHub](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/api/v1alpha1/application_types.go).
-* The `Application` CRD API reference is documented [here](../../reference/api-reference.md).
+* The `Application` CRD API reference is documented [here](docs/gko/4.10/reference/api-reference.md).
 {% endhint %}

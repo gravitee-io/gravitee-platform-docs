@@ -2,7 +2,7 @@
 
 ## Overview
 
-Site-wide documentation creates a direct line of communication with your developer community. Administrators can use site-wide documentation to communicate best practices, configure pages, or as a reference via [custom navigation](../configuring-and-customizing-the-gravitee-developer-portal/layout-and-theme-customization.md#custom-navigation). Published documentation is accessible from the Developer Portal's **Documentation** page:
+Site-wide documentation creates a direct line of communication with your developer community. Administrators can use site-wide documentation to communicate best practices, configure pages, or as a reference via [custom navigation](docs/apim/4.5/using-the-product/using-the-gravitee-api-management-components/developer-portal/configuring-and-customizing-the-gravitee-developer-portal/layout-and-theme-customization.md#custom-navigation). Published documentation is accessible from the Developer Portal's **Documentation** page:
 
 {% hint style="info" %}
 Site-wide documentation is separate from API documentation, which can be added to an API by an API publisher.
@@ -227,7 +227,7 @@ A `cron` expression is a string consisting of six fields (representing seconds, 
 * Fetch every second: `* * */1 * * *`
 * At 00:00 on Saturday : `0 0 0 * * SAT`
 
-If the APIM administrator configured a [maximum fetch frequency](../configuring-and-customizing-the-gravitee-developer-portal/general-settings.md), the value configured by the APIM administrator will override the frequency you specify.
+If the APIM administrator configured a [maximum fetch frequency](docs/apim/4.5/using-the-product/using-the-gravitee-api-management-components/developer-portal/configuring-and-customizing-the-gravitee-developer-portal/general-settings.md), the value configured by the APIM administrator will override the frequency you specify.
 {% endhint %}
 
 9.  Select **IMPORT** for APIM to add the files to your documentation set&#x20;
@@ -246,7 +246,7 @@ Select a page to configure the following via the header tabs:
 * **External Source:** Configure a fetcher for the page
 * **Access Control:** Fine-grained access control over your page
 * **Attached Resources:** Add additional files to your documentation page.
-  * This requires the administrator to configure **Allow Upload Images** and **Max size upload file (bytes)** in [general settings](../configuring-and-customizing-the-gravitee-developer-portal/general-settings.md).
+  * This requires the administrator to configure **Allow Upload Images** and **Max size upload file (bytes)** in [general settings](docs/apim/4.5/using-the-product/using-the-gravitee-api-management-components/developer-portal/configuring-and-customizing-the-gravitee-developer-portal/general-settings.md).
 
 <figure><img src="../../../../.gitbook/assets/documentation_page banner.png" alt=""><figcaption><p>Page management options</p></figcaption></figure>
 

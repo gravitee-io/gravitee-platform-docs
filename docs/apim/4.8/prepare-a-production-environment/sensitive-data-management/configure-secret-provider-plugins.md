@@ -4,18 +4,18 @@
 
 Secrets managers provide a secure and convenient way to encrypt, store, manage, and retrieve secrets and other sensitive data such as tokens, API keys, passwords, and certificates. Using secret managers, it's possible to enforce consistent security policies, ensure resources and digital credentials can only be accessed by authenticated and authorized users, and instantly connect systems to accomplish automated tasks.
 
-Gravitee offers an [integration](../../readme/integrations.md#secret-managers-integration) with secrets managers to obscure secrets and avoid clear text credentials stored in files or databases. Gravitee's secret managers integrations rely on the secret-provider plugin type.
+Gravitee offers an [integration](docs/apim/4.8/readme/integrations.md#secret-managers-integration) with secrets managers to obscure secrets and avoid clear text credentials stored in files or databases. Gravitee's secret managers integrations rely on the secret-provider plugin type.
 
 [Configuration-level secrets](apply-secrets-to-configurations.md) allow you to obscure secrets in `gravitee.yml`, Helm Charts, and environment variables.
 
-[API-level secrets](apply-secrets-to-apis.md) (starting from APIM 4.6) allow v4 APIs to obscure secrets in many plugins, as long as they support [Gravitee Expression Language](../../gravitee-expression-language.md).
+[API-level secrets](apply-secrets-to-apis.md) (starting from APIM 4.6) allow v4 APIs to obscure secrets in many plugins, as long as they support [Gravitee Expression Language](docs/apim/4.8/gravitee-expression-language.md).
 
 Functionally, the secrets managers integrations are handled by`secret-provider` plugins that, when deployed, configured and enabled, allow you to access those third parties to resolve secrets.
 
 This capability is available in Gravitee Gateway and API Management for both Access Management and APIM.
 
 {% hint style="warning" %}
-To learn more about Gravitee [Enterprise Edition](../../readme/enterprise-edition.md) and what's included in various enterprise packages, please:
+To learn more about Gravitee [Enterprise Edition](docs/apim/4.8/readme/enterprise-edition.md) and what's included in various enterprise packages, please:
 
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)

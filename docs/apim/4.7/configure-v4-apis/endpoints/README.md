@@ -160,7 +160,7 @@ Select from the following options.
 {% hint style="warning" %}
 **Enterprise-only**
 
-The ability to create APIs with message API endpoints is an [Enterprise Edition](../../overview/enterprise-edition.md) capability. To learn more about Gravitee Enterprise Edition and what's included in various enterprise packages:
+The ability to create APIs with message API endpoints is an [Enterprise Edition](docs/apim/4.7/overview/enterprise-edition.md) capability. To learn more about Gravitee Enterprise Edition and what's included in various enterprise packages:
 
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)

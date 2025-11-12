@@ -23,7 +23,7 @@ The normal interactive login procedure involves launching a web browser, a user 
 
 ## Telepresence
 
-When you run `telepresence login`, the CLI installs a Telepresence binary. The Telepresence enhanced free client of the [User Daemon](../architecture.md) communicates with the Ambassador Cloud to provide fremium features including the ability to create intercepts from Ambassador Cloud.
+When you run `telepresence login`, the CLI installs a Telepresence binary. The Telepresence enhanced free client of the [User Daemon](docs/telepresence/technical-reference/architecture.md) communicates with the Ambassador Cloud to provide fremium features including the ability to create intercepts from Ambassador Cloud.
 
 ## Acquiring an API key
 

@@ -1,6 +1,6 @@
 # ApiResource
 
-Resources are objects that allow you to define pointers to external resources such as authentication providers and caches that can then be referenced from an API definition's policies. Learn more about Gravitee resources in the [APIM user guide](https://documentation.gravitee.io/apim/guides/api-configuration/resources#resource-descriptions).
+Resources are objects that allow you to define pointers to external resources such as authentication providers and caches that can then be referenced from an API definition's policies. Learn more about Gravitee resources in the [APIM user guide](/apim/guides/api-configuration/resources#resource-descriptions).
 
 ## Create a reusable API resource
 

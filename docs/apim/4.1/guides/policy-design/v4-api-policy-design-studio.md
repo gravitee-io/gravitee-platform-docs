@@ -58,7 +58,7 @@ Define the following:
 * **Channel:** Define the path to use in conjunction with the **Operator** to determine if this flow should be applied.
 * **Entrypoints:** Select the entrypoint(s) for which you want the flow to be executed. If none are selected, the flow will be executed for all possible entrypoints, assuming required conditions are met. Available entrypoints are **HTTP GET**, **HTTP POST**, **Websocket**, **Server-Sent Events**, and **Webhook**.
 * **Entrypoints supported operations:** Select **Publish** and/or **Subscribe** as the operation(s) supported by the entrypoint(s). If none are selected, both will be supported.
-* **Condition:** Define specific conditions that will trigger flow execution using [Gravitee's Expression Language (EL)](../gravitee-expression-language.md).
+* **Condition:** Define specific conditions that will trigger flow execution using [Gravitee's Expression Language (EL)](docs/apim/4.1/guides/gravitee-expression-language.md).
 
 Once you've clicked **Create** to add a flow, be sure to also click **Save** in the upper right of the Policy Studio.
 
@@ -149,7 +149,7 @@ After the first call, the resultant property is added to the list of global prop
 {% hint style="info" %}
 **Dictionaries vs API properties**
 
-The list of shop IDs and URLs could also be maintained using a dictionary, e.g., in organizations where the administrator maintains this information independently of the API creation process or if the list needs to be available to multiple APIs. See [Dictionaries](../../getting-started/configuration/the-gravitee-api-gateway/configure-dictionaries.md) for more information.
+The list of shop IDs and URLs could also be maintained using a dictionary, e.g., in organizations where the administrator maintains this information independently of the API creation process or if the list needs to be available to multiple APIs. See [Dictionaries](docs/apim/4.1/getting-started/configuration/the-gravitee-api-gateway/configure-dictionaries.md) for more information.
 {% endhint %}
 
 ## Resources
@@ -165,7 +165,7 @@ Some policies support the addition of resources, which can be used for authentic
 | HTTP signature                                       | HTTP Authentication Provider                                                        |
 | Basic authentication                                 | <p>LDAP Authentication Provider<br>Inline Authentication Provider</p>               |
 
-After these resources are created, you will be able to reference them when designing policies using the **Policy Studio**. Refer to the [Resources](../api-configuration/resources.md) and [Policy Reference](./#v4) documentation for more information on resources and how they are used by policies.
+After these resources are created, you will be able to reference them when designing policies using the **Policy Studio**. Refer to the [Resources](docs/apim/4.1/guides/api-configuration/resources.md) and [Policy Reference](./#v4) documentation for more information on resources and how they are used by policies.
 
 {% hint style="info" %}
 Global resources are globally available to all flows associated with the Gateway API. However, they will not be available to other Gateway APIs.
@@ -176,7 +176,7 @@ Global resources are globally available to all flows associated with the Gateway
 ### Example 1: Dynamic routing
 
 {% hint style="info" %}
-This example applies to v4 APIs using the [**Proxy Upstream Protocol**](../create-apis/how-to/v4-api-creation-wizard.md#step-2-entrypoints) backend exposure method.
+This example applies to v4 APIs using the [**Proxy Upstream Protocol**](docs/apim/4.1/guides/create-apis/how-to/v4-api-creation-wizard.md#step-2-entrypoints) backend exposure method.
 {% endhint %}
 
 In this example, we want our Gateway API to query our shop databases to check their stock levels. We will dynamically reroute any API call containing a shop ID to its associated URL.
@@ -194,7 +194,7 @@ If the ID in the request header matches the key of one of the properties, it is 
 ### Example 2: Monetization via latency
 
 {% hint style="info" %}
-This example applies to v4 APIs using the [**Introspect Messages from Event-Driven Backend**](../create-apis/how-to/v4-api-creation-wizard.md#step-2-entrypoints) backend exposure method.
+This example applies to v4 APIs using the [**Introspect Messages from Event-Driven Backend**](docs/apim/4.1/guides/create-apis/how-to/v4-api-creation-wizard.md#step-2-entrypoints) backend exposure method.
 {% endhint %}
 
 In this example, our Gateway API sends an alert whenever inventory is added to our online store that sells limited edition designer merchandise at discount prices. Casual shoppers pay a certain amount to learn about item availability in slightly less than real-time, while our best customers pay more to access this data in true real-time.

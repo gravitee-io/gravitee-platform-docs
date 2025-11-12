@@ -114,5 +114,5 @@ The potential dependency of an `ApiDefinition` resource on a `ManagementContext`
 **For more information**
 
 * The `ApiV4Definition` and `ApiDefinition` CRDs are available on [GitHub](https://github.com/gravitee-io/gravitee-kubernetes-operator/tree/master/helm/gko/crds).
-* The `ApiV4Definition` and `ApiDefinition` CRD API references are documented [here](../../reference/api-reference.md).
+* The `ApiV4Definition` and `ApiDefinition` CRD API references are documented [here](docs/gko/4.7/reference/api-reference.md).
 {% endhint %}

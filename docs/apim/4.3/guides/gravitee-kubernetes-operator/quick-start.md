@@ -10,7 +10,7 @@ Following this quickstart guide is the fastest way to start working with the Gra
 ## Deploy the GKO
 
 {% hint style="info" %}
-For comprehensive deployment details, see the [GKO Install Guide](../../getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-kubernetes/architecture-overview.md).
+For comprehensive deployment details, see the [GKO Install Guide](docs/apim/4.3/getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-kubernetes/architecture-overview.md).
 {% endhint %}
 
 ### Prerequisites

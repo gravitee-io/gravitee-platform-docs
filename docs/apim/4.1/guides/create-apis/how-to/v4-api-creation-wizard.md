@@ -95,7 +95,7 @@ If you chose **SSE** as an entrypoint, you will be brought to a page where you c
   * **Heartbeat intervals:** Define the interval in which heartbeats are sent to the client by entering a numeric value into the **Define the interval in which heartbeats** **are sent to client** text field or by using the arrow keys. Intervals must be greater than or equal to 2000ms. Each heartbeat will be sent as an empty comment: `''`.
   * Choose to allow or disallow sending message metadata to the client as SSE comments by toggling **Allow sending messages metadata to client as SSE comments** ON or OFF.
   * Choose to allow or disallow sending message headers to the client as SSE comments by toggling **Allow sending messages headers to client as SSE comments** ON or OFF.
-* **Quality of service:** Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](../../api-configuration/v4-api-configuration/quality-of-service.md).
+* **Quality of service:** Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](docs/apim/4.1/guides/api-configuration/v4-api-configuration/quality-of-service.md).
 
 </details>
 
@@ -117,7 +117,7 @@ If you chose **Webhook** as an entrypoint, you will be brought to a page where y
       * **Proxy port:** Enter your proxy port in the text field.
       * (Optional) **Proxy username:** Enter your proxy username in the text field.
       * (Optional) **Proxy password:** Enter your proxy password in the text field.
-* **Quality of service:** Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](../../api-configuration/v4-api-configuration/quality-of-service.md).
+* **Quality of service:** Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](docs/apim/4.1/guides/api-configuration/v4-api-configuration/quality-of-service.md).
 * **Enable Dead Letter Queue:** Toggle **Dead Letter Queue** ON to define an external storage where each unsuccessfully pushed message will be stored and configure a replay strategy.
 
 **DLQ Configuration**
@@ -209,7 +209,7 @@ If you chose **WebSocket** as an entrypoint, you will be brought to a page where
 * **WebSocket configuration**
   * **Publisher configuration:** Choose to either enable or disable the publication capability by toggling **Enable the publication capability** ON or OFF. Disabling it assumes that the application will never be able to publish any message.
   * **Subscriber configuration:** Choose to enable or disable the subscription capability by toggling **Enable the subscription capability** ON or OFF. Disabling it assumes that the application will never receive any message.
-* **Quality of service:** Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](../../api-configuration/v4-api-configuration/quality-of-service.md).
+* **Quality of service:** Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](docs/apim/4.1/guides/api-configuration/v4-api-configuration/quality-of-service.md).
 
 </details>
 
@@ -222,7 +222,7 @@ If you chose **HTTP POST** as an entrypoint, you will be brought to a page where
 * **Context path:** The URL of your API. For example, if your URL is `[https://apim-master-gateway.team-apim.gravitee.dev/myAPI]`, then `[/myAPI]` is the context path.
 * **Virtual hosts:** Enabling virtual hosts requires you to define your **virtual host** and optionally enable **override access**.
 * **HTTP POST permissions:** Allow or disallow add request Headers to the generated message by toggling **Allow add request Headers to the generated message** ON or OFF.
-* **Quality of service:** Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](../../api-configuration/v4-api-configuration/quality-of-service.md).
+* **Quality of service:** Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](docs/apim/4.1/guides/api-configuration/v4-api-configuration/quality-of-service.md).
 
 </details>
 
@@ -238,7 +238,7 @@ If you chose **HTTP GET** as an entrypoint, you will be brought to a page where 
   * **Limit messages count:** Defines the maximum number of messages to retrieve via HTTP GET. The default is 500. To set a custom limit, enter a numeric value in the **Limit messages count** text field.
   * **Limit messages duration:** Defines the maximum duration, in milliseconds, to wait to retrieve the expected number of messages (See **Limit messages count**). The effective number of retrieved messages could be less than expected if maximum duration is reached before all messages are retrieved. To set a custom limit, enter a numeric value in the **Limit messages duration** text field.
   * **HTTP GET permissions:** Allow or disallow **Allow sending messages headers to client in payload** and **Allow sending messages metadata to client in payload** by toggling these actions ON or OFF.
-* **Quality of service:** Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](../../api-configuration/v4-api-configuration/quality-of-service.md).
+* **Quality of service:** Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](docs/apim/4.1/guides/api-configuration/v4-api-configuration/quality-of-service.md).
 
 </details>
 
@@ -538,7 +538,7 @@ Next in the API creation wizard is the Security step, where you will configure:
 
 ### Plan information
 
-A plan is essentially an access layer around an API that provides the API producer with a method to secure, monitor, and transparently communicate details around access. If you want to learn more about how plans function in Gravitee, please refer to the [plans documentation](../../api-exposure-plans-applications-and-subscriptions/plans.md). You will be able to choose between several different plan types:
+A plan is essentially an access layer around an API that provides the API producer with a method to secure, monitor, and transparently communicate details around access. If you want to learn more about how plans function in Gravitee, please refer to the [plans documentation](docs/apim/4.1/guides/api-exposure-plans-applications-and-subscriptions/plans.md). You will be able to choose between several different plan types:
 
 * **OAuth2**: A standard designed to allow a website or application to access resources hosted by other web apps on behalf of a user.
 * **JWT**: An open standard that defines a compact and URL-safe way to securely transmit information as a JSON object between parties.

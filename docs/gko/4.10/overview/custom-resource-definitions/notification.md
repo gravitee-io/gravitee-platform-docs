@@ -96,5 +96,5 @@ The following `apiEvents` values are allowed when configuring notifications for 
 {% hint style="info" %}
 **For more information:**
 
-* The `Notification` CRD API reference is documented [here](../../reference/api-reference.md).
+* The `Notification` CRD API reference is documented [here](docs/gko/4.10/reference/api-reference.md).
 {% endhint %}

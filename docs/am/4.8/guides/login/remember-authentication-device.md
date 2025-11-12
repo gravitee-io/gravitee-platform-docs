@@ -6,7 +6,7 @@ You can configure AM to register the device a user uses for authentication. Afte
 
 ## Configure AM to remember an authentication device
 
-1. Configure a [device identifier](../device-identifier.md).
+1. Configure a [device identifier](docs/am/4.8/guides/device-identifier.md).
 2. In AM Console, click on **Application** in the left sidebar and select your application.
 3. Click on **Settings** in the inner left sidebar, then scroll through the headers to click on **Multifactor Auth**.
 4. Toggle on **Enable Remember Device**.

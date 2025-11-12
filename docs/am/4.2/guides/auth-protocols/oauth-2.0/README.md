@@ -135,7 +135,7 @@ A refresh token is used to get a new access token, prompting the client applicat
 
 ## Endpoints
 
-As described in the [AM API specification](../../../reference/am-api-reference.md), AM provides the following OAuth 2.0 endpoints:
+As described in the [AM API specification](docs/am/4.2/reference/am-api-reference.md), AM provides the following OAuth 2.0 endpoints:
 
 ### Authorization endpoint
 

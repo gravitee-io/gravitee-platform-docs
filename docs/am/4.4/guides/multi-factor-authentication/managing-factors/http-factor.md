@@ -1,7 +1,7 @@
 # HTTP Factor
 
 {% hint style="info" %}
-HTTP MFA requires a compatible [resource](../../resources.md).
+HTTP MFA requires a compatible [resource](docs/am/4.4/guides/resources.md).
 {% endhint %}
 
 Multi-factor authentication (MFA) can take several forms such as :

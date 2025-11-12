@@ -16,10 +16,10 @@ To add a plan, click on **+ Add new plan**:
 
 Kafka APIs support OAuth2, JWT, API Key, and Keyless (public) plans. For more information on each of these plans and configuration details, please see the following:
 
-* [oauth2.md](../../expose-apis/plans/oauth2.md "mention")
-* [jwt.md](../../expose-apis/plans/jwt.md "mention")
-* [api-key.md](../../expose-apis/plans/api-key.md "mention")
-* [keyless.md](../../expose-apis/plans/keyless.md "mention")
+* [oauth2.md](docs/apim/4.7/expose-apis/plans/oauth2.md "mention")
+* [jwt.md](docs/apim/4.7/expose-apis/plans/jwt.md "mention")
+* [api-key.md](docs/apim/4.7/expose-apis/plans/api-key.md "mention")
+* [keyless.md](docs/apim/4.7/expose-apis/plans/keyless.md "mention")
 
 ### Edit a plan
 

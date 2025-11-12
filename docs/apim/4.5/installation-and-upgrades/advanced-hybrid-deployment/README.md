@@ -344,7 +344,7 @@ To verify that you deployed this architecture correctly, complete the following 
 {% endtab %}
 
 {% tab title="VM" %}
-* Install Gravitee API Management (APIM). For more information about installing Gravitee APIM, see [Install with .ZIP](../install-with-.zip.md).
+* Install Gravitee API Management (APIM). For more information about installing Gravitee APIM, see [Install with .ZIP](docs/apim/4.5/installation-and-upgrades/install-with-.zip.md).
 * Download, and then mount the following plugins for the Gravitee Gateway:
   * Redis Repository. This repository is used for the rate limits' synchronized counters. To download this repository, go to [Gravitee.io Downloads](https://download.gravitee.io/#graviteeio-apim/plugins/repositories/gravitee-apim-repository-redis).
   * TCP Reporter. This repository is used to push events to Logstash. To download this repository, go to [Gravitee.io Downloads.](https://download.gravitee.io/#graviteeio-ee/apim/plugins/reporters/gravitee-reporter-tcp/)

@@ -12,7 +12,7 @@ When an Identity Provider does not fully support the [OAuth2](oauth2.md) standar
 
 ## Configuration
 
-To configure an OAuth2 plan, you must first create an [OAuth2 client resource](../../create-and-configure-apis/apply-policies/resources.md) that represents your OAuth 2.0 authorization server.
+To configure an OAuth2 plan, you must first create an [OAuth2 client resource](docs/apim/4.8/create-and-configure-apis/apply-policies/resources.md) that represents your OAuth 2.0 authorization server.
 
 Configuring an OAuth2 plan presents the following options:
 

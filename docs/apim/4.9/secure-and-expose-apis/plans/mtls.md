@@ -26,7 +26,7 @@ When using an mTLS plan, you do not need to manually define a Gateway truststore
 
 ## Initial Gateway configuration
 
-To use an mTLS plan, you need to [enable HTTPS on your Gateway(s)](../../prepare-a-production-environment/configure-your-http-server.md#enable-https-support). &#x20;
+To use an mTLS plan, you need to [enable HTTPS on your Gateway(s)](docs/apim/4.9/prepare-a-production-environment/configure-your-http-server.md#enable-https-support). &#x20;
 
 To enable HTTPS using the `values.yaml` file, use the following configuration to secure Gateway traffic and set the TLS client authentication option:
 

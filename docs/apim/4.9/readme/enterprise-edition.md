@@ -2,10 +2,10 @@
 
 ## Overview
 
-Gravitee offers both an open source (OSS) and Enterprise Edition (EE) version of its API Management (APIM) distribution package. The Gravitee APIM Enterprise Edition requires a [license](https://documentation.gravitee.io/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing). It is available as three different packages, each offering a different level of access to enterprise features and capabilities. For more information, please refer to our [pricing page](https://www.gravitee.io/pricing).
+Gravitee offers both an open source (OSS) and Enterprise Edition (EE) version of its API Management (APIM) distribution package. The Gravitee APIM Enterprise Edition requires a [license](/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing). It is available as three different packages, each offering a different level of access to enterprise features and capabilities. For more information, please refer to our [pricing page](https://www.gravitee.io/pricing).
 
 {% hint style="info" %}
-Gravitee's platform extends beyond API Management. For information on enterprise versions of other products, please refer to the [platform overview](https://documentation.gravitee.io/platform-overview/gravitee-essentials/gravitee-offerings-ce-vs-ee).
+Gravitee's platform extends beyond API Management. For information on enterprise versions of other products, please refer to the [platform overview](/platform-overview/gravitee-essentials/gravitee-offerings-ce-vs-ee).
 {% endhint %}
 
 ## Enterprise features
@@ -105,8 +105,8 @@ The Enterprise Policy pack includes policies that are typically necessary for en
 
 The Event-native pack includes capabilities that enable Gravitee to expose, secure, and govern asynchronous APIs and event brokers:
 
-* [**v4 message API entrypoints**](../create-and-configure-apis/create-apis/v4-api-creation-wizard.md#step-2-entrypoints)**:** Access the Gateway and/or consume various message-based backend resources via **HTTP GET**, **HTTP POST**, **Server-sent Events**, **Webhook**, and/or **WebSocket**
-* [**v4 message API endpoints**](../create-and-configure-apis/create-apis/v4-api-creation-wizard.md#introspect-messages-from-event-driven-backend-endpoints)**:**
+* [**v4 message API entrypoints**](docs/apim/4.9/create-and-configure-apis/create-apis/v4-api-creation-wizard.md#step-2-entrypoints)**:** Access the Gateway and/or consume various message-based backend resources via **HTTP GET**, **HTTP POST**, **Server-sent Events**, **Webhook**, and/or **WebSocket**
+* [**v4 message API endpoints**](docs/apim/4.9/create-and-configure-apis/create-apis/v4-api-creation-wizard.md#introspect-messages-from-event-driven-backend-endpoints)**:**
   * Allow the Gateway to open up a persistent connection and/or call a backend:
     * **Kafka** broker via a Kafka client
     * **MQTT** broker running on MQTT 5.x, via an MQTT client&#x20;
@@ -116,7 +116,7 @@ The Event-native pack includes capabilities that enable Gravitee to expose, secu
 * **Message Filtering policy:** Filter messages streamed to clients/subscribers based on API publisher and/or client criteria.
 * **AVRO to JSON policy:** Transform information from Avro format to JSON format.
 * **Gateway message reactor plugin:** Enable the Gravitee Gateway to intercept and introspect messages when publishing and subscribing to/from message-based systems.
-* [**Confluent Schema Registry resource**](../create-and-configure-apis/apply-policies/resources.md#confluent-schema-registry)**:** Define Confluent Schema Registry as a resource for serialization and deserialization policies.
+* [**Confluent Schema Registry resource**](docs/apim/4.9/create-and-configure-apis/apply-policies/resources.md#confluent-schema-registry)**:** Define Confluent Schema Registry as a resource for serialization and deserialization policies.
 
 </details>
 
@@ -137,8 +137,8 @@ The Legacy Upgrade pack comprises the following plugins and capabilities to enab
 
 The Observability pack includes capabilities to better implement enterprise-grade API monitoring and observability:
 
-* [**Datadog reporter**](../analyze-and-monitor-apis/reporters/datadog-reporter.md#datadog-reporter): Push API metrics to your Datadog instance and dashboards.
-* [**TCP reporter**](../analyze-and-monitor-apis/reporters/tcp-reporter.md#tcp-reporter): Report Gateway events to a TCP listening server.
+* [**Datadog reporter**](docs/apim/4.9/analyze-and-monitor-apis/reporters/datadog-reporter.md#datadog-reporter): Push API metrics to your Datadog instance and dashboards.
+* [**TCP reporter**](docs/apim/4.9/analyze-and-monitor-apis/reporters/tcp-reporter.md#tcp-reporter): Report Gateway events to a TCP listening server.
 
 </details>
 

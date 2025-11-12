@@ -4,18 +4,18 @@
 
 Secrets managers provide a secure and convenient way to encrypt, store, manage, and retrieve secrets and other sensitive data such as tokens, API keys, passwords, and certificates. Using secret managers, it's possible to enforce consistent security policies, ensure resources and digital credentials can only be accessed by authenticated and authorized users, and instantly connect systems to accomplish automated tasks.
 
-Gravitee offers an [integration](../../getting-started/integrations.md#secret-managers-integration) with secrets managers to obscure secrets and avoid clear text credentials stored in files or databases. Gravitee's secret managers integrations rely on the secret-provider plugin type.
+Gravitee offers an [integration](docs/apim/4.7/getting-started/integrations.md#secret-managers-integration) with secrets managers to obscure secrets and avoid clear text credentials stored in files or databases. Gravitee's secret managers integrations rely on the secret-provider plugin type.
 
 [Configuration-level secrets](configuration-level-secrets.md) allow you to obscure secrets in `gravitee.yml`, Helm Charts, and environment variables.
 
-[API-level secrets](../../configure-v4-apis/api-level-secrets.md) (starting from APIM 4.6) allow v4 APIs to obscure secrets in many plugins, as long as they support [Gravitee Expression Language](../../getting-started/gravitee-expression-language.md).
+[API-level secrets](docs/apim/4.7/configure-v4-apis/api-level-secrets.md) (starting from APIM 4.6) allow v4 APIs to obscure secrets in many plugins, as long as they support [Gravitee Expression Language](docs/apim/4.7/getting-started/gravitee-expression-language.md).
 
 Functionally, the secrets managers integrations are handled by`secret-provider` plugins that, when deployed, configured and enabled, allow you to access those third parties to resolve secrets.
 
 This capability is available in Gravitee Gateway and API Management for both Access Management and APIM.
 
 {% hint style="warning" %}
-To learn more about Gravitee [Enterprise Edition](../../overview/enterprise-edition.md) and what's included in various enterprise packages, please:
+To learn more about Gravitee [Enterprise Edition](docs/apim/4.7/overview/enterprise-edition.md) and what's included in various enterprise packages, please:
 
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
@@ -25,7 +25,7 @@ To learn more about Gravitee [Enterprise Edition](../../overview/enterprise-edit
 
 As with any other plugin, a secret provider plugin must be either bundled or added to the plugin directory.
 
-You can enable `secret-provider` plugins by configuring them in `gravitee.yml`. The configurations for each secret provider plugin are discussed below. As with all other `gravitee.yaml` configurations, you can also set these as [environment variables](../environment-properties.md#using-environment-variables-in-different-installation-methods).
+You can enable `secret-provider` plugins by configuring them in `gravitee.yml`. The configurations for each secret provider plugin are discussed below. As with all other `gravitee.yaml` configurations, you can also set these as [environment variables](docs/apim/4.7/configure-apim/environment-properties.md#using-environment-variables-in-different-installation-methods).
 
 ### Use cases
 
@@ -188,7 +188,7 @@ Here are examples for configuring secrets the following:
 * gravitee.yml (all products)
 * Helm Charts (APIM)
 
-For more information about API-level secrets, see [api-level-secrets.md](../../configure-v4-apis/api-level-secrets.md "mention").
+For more information about API-level secrets, see [api-level-secrets.md](docs/apim/4.7/configure-v4-apis/api-level-secrets.md "mention").
 
 ### gravitee.yml
 

@@ -4,9 +4,9 @@
 
 You can use flows to extend AM’s standard functionality.
 
-This section walks you through using flows to enhance the information displayed in the [End user agreement](../../guides/user-management/user-consent.md) by calling a remote service before rendering the HTML page. The example in this section uses the Gravitee Echo API.
+This section walks you through using flows to enhance the information displayed in the [End user agreement](docs/am/4.8/guides/user-management/user-consent.md) by calling a remote service before rendering the HTML page. The example in this section uses the Gravitee Echo API.
 
-For more information about flows, see [Flows](../../guides/flows.md) in the User Guide.
+For more information about flows, see [Flows](docs/am/4.8/guides/flows.md) in the User Guide.
 
 {% hint style="info" %}
 AM flows are available from version 3.5 and replace extension points.

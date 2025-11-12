@@ -14,5 +14,5 @@ To find and view API documentation:
 <figure><img src="../../../.gitbook/assets/dev portal_documentation.png" alt=""><figcaption><p>Sample API documentation</p></figcaption></figure>
 
 {% hint style="info" %}
-An administrator can create documentation following the process described [here](../configuration/documentation.md).
+An administrator can create documentation following the process described [here](docs/apim/4.2/guides/developer-portal/configuration/documentation.md).
 {% endhint %}

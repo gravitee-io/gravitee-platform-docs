@@ -59,15 +59,15 @@ More information can be found in the [Hazelcast documentation](https://docs.haze
 
 ## Cache resource management
 
-API publishers can [create Cache resources](../../guides/api-configuration/resources.md#how-to-create-a-resource) to:
+API publishers can [create Cache resources](docs/apim/4.3/guides/api-configuration/resources.md#how-to-create-a-resource) to:
 
-* Cache upstream of a response with the [Cache policy](../../reference/policy-reference/cache.md)
+* Cache upstream of a response with the [Cache policy](docs/apim/4.3/reference/policy-reference/cache.md)
 * Cache access tokens with the [OAuth2 policy](../../reference/policy-reference/oauth2/)
 
-The default distribution includes the [Cache resource](../../guides/api-configuration/resources.md#cache) plugin, which stores content in-memory and is locally managed on each Gateway node of the installation.
+The default distribution includes the [Cache resource](docs/apim/4.3/guides/api-configuration/resources.md#cache) plugin, which stores content in-memory and is locally managed on each Gateway node of the installation.
 
 Configuration of Cache resources cannot be managed using the `hazelcast.xml` file. The configuration is directly defined on the Cache resource.
 
 ## Persistent cache
 
-APIM also supports the Gravitee [Redis Cache resource](../../guides/api-configuration/resources.md#cache-redis) plugin, based on [Redis](https://redis.io/documentation). This plugin is not in the default distribution, but can be [downloaded](https://download.gravitee.io/#graviteeio-apim/plugins/resources/gravitee-resource-cache-redis/) and deployed with these [instructions](../../overview/plugins.md#deployment).
+APIM also supports the Gravitee [Redis Cache resource](docs/apim/4.3/guides/api-configuration/resources.md#cache-redis) plugin, based on [Redis](https://redis.io/documentation). This plugin is not in the default distribution, but can be [downloaded](https://download.gravitee.io/#graviteeio-apim/plugins/resources/gravitee-resource-cache-redis/) and deployed with these [instructions](docs/apim/4.3/overview/plugins.md#deployment).

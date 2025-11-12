@@ -14,4 +14,4 @@ api:
          secret: <32 byte length secret>
 ```
 
-You can find additional details about property encryption in [Properties](../../../policies/v4-api-policy-studio.md#api-properties).
+You can find additional details about property encryption in [Properties](docs/apim/4.7/policies/v4-api-policy-studio.md#api-properties).

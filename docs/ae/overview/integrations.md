@@ -6,7 +6,7 @@ Gravitee Alert Engine works both within and outside the Gravitee ecosystem. Keep
 
 AE can be layered on top of:
 
-* Gravitee API Management (APIM): bolster your existing Gravitee APIM implementation with advanced API monitoring and alerting capabilities. To learn more about how Alert Engine makes APIM better, please refer to the [APIM alerting documentation](https://documentation.gravitee.io/apim/getting-started/configuration/configure-alerts-and-notifications#configure-alerts).&#x20;
+* Gravitee API Management (APIM): bolster your existing Gravitee APIM implementation with advanced API monitoring and alerting capabilities. To learn more about how Alert Engine makes APIM better, please refer to the [APIM alerting documentation](/apim/getting-started/configuration/configure-alerts-and-notifications#configure-alerts).&#x20;
 * Gravitee Access Management: bolster your API Security strategy by using AE to notify teams when API consumption becomes suspicious. This looks like alerts sent when Gravitee Access Management notices potentially risky user profiles and/or consumption patterns. To learn more, refer to the [Gravitee Access Management documentation](https://documentation.gravitee.io/am).
 
 ## Integrating with third party solutions

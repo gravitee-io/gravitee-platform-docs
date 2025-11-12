@@ -16,7 +16,7 @@ A Keyless plan does not require configuration other than general plan settings a
 
 Due to not requiring a subscription and the lack of a consumer identifier token, Keyless consumers are set as `unknown application` in the API analytics section.
 
-You can configure basic authentication for Keyless plans by associating a [Basic Authentication policy](../policy-studio/policies-for-your-apis/a-c/basic-authentication.md) that uses either an LDAP or inline resource.
+You can configure basic authentication for Keyless plans by associating a [Basic Authentication policy](docs/apim/4.5/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/a-c/basic-authentication.md) that uses either an LDAP or inline resource.
 
 </details>
 
@@ -111,7 +111,7 @@ The OAuth2 authentication type checks access token validity during request proce
 
 ## Configuration
 
-To configure an OAuth2 plan, you must first create an [OAuth2 client resource](https://documentation.gravitee.io/apim/using-the-product/managing-your-apis/resources/oauth2) that represents your OAuth 2.0 authorization server.
+To configure an OAuth2 plan, you must first create an [OAuth2 client resource](/apim/using-the-product/managing-your-apis/resources/oauth2) that represents your OAuth 2.0 authorization server.
 
 Configuring an OAuth2 plan presents the following options:
 

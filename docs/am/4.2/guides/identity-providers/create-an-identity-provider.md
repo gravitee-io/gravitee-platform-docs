@@ -47,4 +47,4 @@ AM is designed to be extended based on a pluggable module architecture. You can 
 
 ## Test an identity provider
 
-The fastest way to test your newly created identity provider is to request an OAuth2 access token, as described in [ID Token](../../getting-started/tutorial-getting-started-with-am/get-user-profile-information.md#id-token). If you successfully retrieve an access token, your identity provider is all set.
+The fastest way to test your newly created identity provider is to request an OAuth2 access token, as described in [ID Token](docs/am/4.2/getting-started/tutorial-getting-started-with-am/get-user-profile-information.md#id-token). If you successfully retrieve an access token, your identity provider is all set.

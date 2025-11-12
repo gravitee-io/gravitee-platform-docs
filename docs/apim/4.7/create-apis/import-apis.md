@@ -13,7 +13,7 @@ Additional information that applies to importing an OpenAPI specification can be
 {% hint style="warning" %}
 When you import an API with a JSON payload that has duplicate keys, APIM keeps the last key.&#x20;
 
-To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection.md](../policies/json-threat-protection.md "mention").
+To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection.md](docs/apim/4.7/policies/json-threat-protection.md "mention").
 {% endhint %}
 
 ## Import your API
@@ -49,7 +49,7 @@ To import your API:
        {% endhint %}
 
 
-   *   **Add OpenAPI Specification Validation:** This adds an [OpenAPI Specification Validation policy](../policies/oas-validation.md) to the imported API.
+   *   **Add OpenAPI Specification Validation:** This adds an [OpenAPI Specification Validation policy](docs/apim/4.7/policies/oas-validation.md) to the imported API.
 
        {% hint style="info" %}
        All options are initially enabled, but can be disabled by editing the policy configuration.

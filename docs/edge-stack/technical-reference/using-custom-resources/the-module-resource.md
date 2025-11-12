@@ -73,7 +73,7 @@ would allow 30 seconds to validate the generated Envoy configuration.
 
 By default, Ambassador Edge Stack will pass through error responses without modification, and errors generated locally will use Envoy's default response body, if any.
 
-See [custom-error-responses.md](../traffic-management/custom-error-responses.md "mention") for usage details. For example, this configuration:
+See [custom-error-responses.md](docs/edge-stack/technical-reference/traffic-management/custom-error-responses.md "mention") for usage details. For example, this configuration:
 
 ```yaml
 error_response_overrides:
@@ -279,7 +279,7 @@ Some caveats around the embedded scripts:
 * They're run on every request/response to every URL.
 * They're inlined in the Ambassador Edge Stack YAML; as such, we do not recommend using Lua scripts for long, complex logic.
 
-If you need more flexible and configurable options, Ambassador Edge Stack supports a [pluggable Filter system](../filters/using-filters-and-filterpolicies.md).
+If you need more flexible and configurable options, Ambassador Edge Stack supports a [pluggable Filter system](docs/edge-stack/technical-reference/filters/using-filters-and-filterpolicies.md).
 
 **Merge slashes**
 
@@ -368,7 +368,7 @@ A `Mapping` can override both `enable_ipv4` and `enable_ipv6`, but if either is 
 
 **Cross origin resource sharing (CORS)**
 
-* `cors` sets the default CORS configuration for all mappings in the cluster. See the CORS syntax for more information: [cross-origin-resource-sharing-cors.md](../ingress-and-load-balancing/cross-origin-resource-sharing-cors.md "mention").
+* `cors` sets the default CORS configuration for all mappings in the cluster. See the CORS syntax for more information: [cross-origin-resource-sharing-cors.md](docs/edge-stack/technical-reference/ingress-and-load-balancing/cross-origin-resource-sharing-cors.md "mention").
 
 For example:
 
@@ -509,7 +509,7 @@ If set, this specifies the timeout (in milliseconds) after which an idle connect
 
 If not set, the default idle timeout is one hour.
 
-You can override this setting with [`idle_timeout_ms` on a `Mapping`](../routing/timeouts.md).
+You can override this setting with [`idle_timeout_ms` on a `Mapping`](docs/edge-stack/technical-reference/routing/timeouts.md).
 
 **Upstream max lifetime**
 
@@ -519,7 +519,7 @@ If set, this specifies the maximum amount of time (in milliseconds) after which 
 
 If not set (or set to zero), then upstream connections may remain open for arbitrarily long.
 
-You can override this setting with [`cluster_max_connection_lifetime_ms` on a `Mapping`](../routing/timeouts.md).
+You can override this setting with [`cluster_max_connection_lifetime_ms` on a `Mapping`](docs/edge-stack/technical-reference/routing/timeouts.md).
 
 **Request timeout**
 
@@ -529,7 +529,7 @@ If set, this specifies the default end-to-end timeout for every request.
 
 If not set, the default is three seconds.
 
-You can override this setting with [`timeout_ms` on a `Mapping`](../routing/timeouts.md).
+You can override this setting with [`timeout_ms` on a `Mapping`](docs/edge-stack/technical-reference/routing/timeouts.md).
 
 **Readiness and liveness probes**
 
@@ -580,7 +580,7 @@ retry_policy:
 
 * `circuit_breakers` sets the global circuit breaking configuration defaults
 
-You can override the circuit breaker settings for individual `Mapping`s. By default, Ambassador Edge Stack does not configure any circuit breakers. For more information, see the [circuit breaking reference](../ingress-and-load-balancing/circuit-breakers.md).
+You can override the circuit breaker settings for individual `Mapping`s. By default, Ambassador Edge Stack does not configure any circuit breakers. For more information, see the [circuit breaking reference](docs/edge-stack/technical-reference/ingress-and-load-balancing/circuit-breakers.md).
 
 **Default label domain and labels**
 
@@ -599,4 +599,4 @@ load_balancer:
   policy: least_request
 ```
 
-If not set, the default is to use round-robin load balancing. For more information, see the [load balancer reference](../ingress-and-load-balancing/load-balancing.md).
+If not set, the default is to use round-robin load balancing. For more information, see the [load balancer reference](docs/edge-stack/technical-reference/ingress-and-load-balancing/load-balancing.md).

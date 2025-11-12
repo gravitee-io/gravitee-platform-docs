@@ -7,7 +7,7 @@ This guide describes how to establish a Server-Sent Events (SSE) channel connect
 ## Prerequisites
 
 {% hint style="warning" %}
-The SSE entrypoint is part of the Event-native [Enterprise Edition](../../overview/enterprise-edition.md) package. To learn more about the Enterprise Edition and get the SSE plugin, contact us at [contact@graviteesource.com](mailto:contact@graviteesource.com).
+The SSE entrypoint is part of the Event-native [Enterprise Edition](docs/apim/4.7/overview/enterprise-edition.md) package. To learn more about the Enterprise Edition and get the SSE plugin, contact us at [contact@graviteesource.com](mailto:contact@graviteesource.com).
 {% endhint %}
 
 Ensure that the SSE plugin is installed in your Gateway.

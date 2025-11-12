@@ -5,12 +5,12 @@ Gravitee Kubernetes Operator (GKO) allows API definitions and deployment events 
 Using this approach has certain benefits:
 
 * It removes or reduces the need for Gateways to load configurations from remote repositories. Instead, Gateways load their configuration locally.
-* It removes the need to use a `ManagementContext`, and also enables the [DB-less mode](../../guides/db-less-mode.md).
+* It removes the need to use a `ManagementContext`, and also enables the [DB-less mode](docs/gko/4.8/guides/db-less-mode.md).
 
 However, there are disadvantages:
 
 * These APIs will only be deployed to Gateways on the local cluster. They cannot, for instance, be deployed to distributed Gateways on different platforms via sharding tags.
-* Unless you're running in [DB-less mode](../../guides/db-less-mode.md), the Gateway will still need to connect to a central repository to manage other aspects of the API lifecycle, such as subscription management.
+* Unless you're running in [DB-less mode](docs/gko/4.8/guides/db-less-mode.md), the Gateway will still need to connect to a central repository to manage other aspects of the API lifecycle, such as subscription management.
 
 ## `ApiV4Definition` example
 

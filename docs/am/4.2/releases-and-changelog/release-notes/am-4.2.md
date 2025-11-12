@@ -19,11 +19,11 @@ Two `secret-provider` plugins are available for Gravitee Gateway, Management API
 * `kubernetes`: A Community Edition plugin that fetches secret and TLS pairs from Kubernetes.io
 * `vault`: An Enterprise Edition plugin that uses the Key/Value engine of HashiCorp Vault
 
-For more information, refer to [this page](../../getting-started/configuration/secret-providers.md).
+For more information, refer to [this page](docs/am/4.2/getting-started/configuration/secret-providers.md).
 
 ## SMS factor
 
-Gravitee 4.2 supports a new SMS resource provider based on the SFR vendor. Administrators can set up their SFR credentials to link Gravitee AM to SFR SMS service and activate the MFA SMS factor for selected applications. For more information, see [this section](../../guides/multi-factor-authentication/factors.md#sms).
+Gravitee 4.2 supports a new SMS resource provider based on the SFR vendor. Administrators can set up their SFR credentials to link Gravitee AM to SFR SMS service and activate the MFA SMS factor for selected applications. For more information, see [this section](docs/am/4.2/guides/multi-factor-authentication/factors.md#sms).
 
 ## Remember device
 
@@ -31,7 +31,7 @@ Gravitee 4.2 includes enhancements to the Remember Device feature that provides 
 
 <figure><img src="../../.gitbook/assets/skip remember device.png" alt=""><figcaption><p>AM authentication device</p></figcaption></figure>
 
-For more information on configuring an authentication device, see [this page](../../guides/login/remember-authentication-device.md).&#x20;
+For more information on configuring an authentication device, see [this page](docs/am/4.2/guides/login/remember-authentication-device.md).&#x20;
 
 ## Client secret hash
 

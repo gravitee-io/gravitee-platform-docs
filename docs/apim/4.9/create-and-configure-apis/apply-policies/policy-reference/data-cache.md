@@ -49,7 +49,7 @@ You _could_ call the token generation endpoint every time, but if you've already
 The OAuth2 resource already has a built-in caching mechanism, but this example will be relevant if there is custom logic required to modify the access token.
 {% endhint %}
 
-* To start with, add a [cache resource](../resources.md#cache) to the API (Redis or the built-in gateway cache). Then, add a new flow to the API in the policy studio.
+* To start with, add a [cache resource](docs/apim/4.9/create-and-configure-apis/apply-policies/resources.md#cache) to the API (Redis or the built-in gateway cache). Then, add a new flow to the API in the policy studio.
 * Add a Data Cache policy on the request phase to look up the token in the cache, if it exists.
 * If the token does not exist in the cache, make an [HTTP callout](http-callout.md) to the token endpoint.
 * Put the new token in the cache (editing it as necessary).

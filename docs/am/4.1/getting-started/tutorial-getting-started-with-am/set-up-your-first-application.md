@@ -2,7 +2,7 @@
 
 ## Overview
 
-This section walks you through creating your first application. For more detailed instructions, see the [Guides section.](../../guides/prologue.md)
+This section walks you through creating your first application. For more detailed instructions, see the [Guides section.](docs/am/4.1/guides/prologue.md)
 
 In this example, we will:
 
@@ -131,4 +131,4 @@ You will be redirected to the Login page where you can enter the credentials con
 
 Once logged in you will be redirected to the configured `redirect_uri` with the correct parameters regarding your OAuth2 configuration.
 
-To fine-grain tune your application, you can check in detail the [User Guide.](../../guides/prologue.md)
+To fine-grain tune your application, you can check in detail the [User Guide.](docs/am/4.1/guides/prologue.md)

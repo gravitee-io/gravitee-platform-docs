@@ -132,7 +132,7 @@ With conditional challenge, you will be able to control which users that should 
 
 If Remember device is active and the user's device is not known, the end user will be prompted to the challenge page. They will also be presented to consent to register their device for a certain period of time which they can both refuse or accept. The latter option will save the device for a certain period of time which will be remembered at the next login, and skip the challenge page. Please refer to flow chart for MFA Challenge to see how Remember device is being evaluated.
 
-Remember device also require you to configure a [Device Identifier](../device-identifier.md) on the Security Domain.
+Remember device also require you to configure a [Device Identifier](docs/am/4.4/guides/device-identifier.md) on the Security Domain.
 
 <figure><img src="../../.gitbook/assets/conf mfa 18.png" alt=""><figcaption></figcaption></figure>
 

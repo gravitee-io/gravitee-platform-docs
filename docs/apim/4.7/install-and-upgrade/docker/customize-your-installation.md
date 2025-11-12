@@ -15,7 +15,7 @@ description: This page explains how to customize your Gravitee API Management on
 
 You can download additional plugins from [the plugins download page](https://download.gravitee.io/#graviteeio-apim/plugins/).
 
-For more information about plugin deployment, see [Deployment](../../getting-started/plugins/deployment.md#deployment).
+For more information about plugin deployment, see [Deployment](docs/apim/4.7/getting-started/plugins/deployment.md#deployment).
 
 {% hint style="warning" %}
 Some plugins need to be installed on both the API Gateway and the Management API. Installation details are provided in a specific plugin’s documentation.

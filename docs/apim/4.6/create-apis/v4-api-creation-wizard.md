@@ -9,7 +9,7 @@ description: This article walks through how to use the Gravitee v4 API creation 
 {% hint style="warning" %}
 When you create an API with a JSON payload that has duplicate keys, APIM keeps the last key.
 
-To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection.md](../policies/json-threat-protection.md "mention").
+To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection.md](docs/apim/4.6/policies/json-threat-protection.md "mention").
 {% endhint %}
 
 The v4 API creation wizard makes it easy to create new Gateway APIs from scratch. To access the v4 API creation wizard:
@@ -43,7 +43,7 @@ Choose how you want to expose your backend.
 
 * [**Proxy Generic Protocol**](v4-api-creation-wizard.md#generic-proxy-entrypoints)**:** Use this method if you want to use Gravitee to proxy backend REST APIs, SOAP APIs, WebSocket Server, gRPC, or GraphQL over HTTP or TCP. You will not be able to enforce policies at the message level.
 * [**Protocol Mediation**](v4-api-creation-wizard.md#protocol-mediation-entrypoints)**:** Use this method if you want to expose backend event brokers, such as Kafka and MQTT.
-* **Kafka Protocol:** Refer to the [Kafka documentation](../kafka-gateway/create-kafka-apis.md) if you want to proxy the native Kafka protocol with the Gravitee Gateway acting as a Kafka broker to Kafka clients.
+* **Kafka Protocol:** Refer to the [Kafka documentation](docs/apim/4.6/kafka-gateway/create-kafka-apis.md) if you want to proxy the native Kafka protocol with the Gravitee Gateway acting as a Kafka broker to Kafka clients.
 
 {% hint style="info" %}
 The Gravitee documentation adopts concise terminology to differentiate between these API types:
@@ -87,7 +87,7 @@ The configuration details for each proxy entrypoint selection are discussed belo
 {% hint style="warning" %}
 **Enterprise only**
 
-The ability to create APIs with message API entrypoints is an [Enterprise Edition](../overview/enterprise-edition.md) capability. To learn more about Gravitee Enterprise and what's included in various enterprise packages:
+The ability to create APIs with message API entrypoints is an [Enterprise Edition](docs/apim/4.6/overview/enterprise-edition.md) capability. To learn more about Gravitee Enterprise and what's included in various enterprise packages:
 
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
@@ -116,7 +116,7 @@ Modifying the following configuration parameters is optional.
 2. Define the maximum duration, in milliseconds, to wait to retrieve the expected number of messages. The effective number of retrieved messages could be less than expected if maximum duration is reached before all messages are retrieved.
 3. Choose whether to allow sending message headers to the client in the payload.
 4. Choose whether to allow sending message metadata to the client in the payload.
-5. Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](../configure-v4-apis/quality-of-service.md).
+5. Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](docs/apim/4.6/configure-v4-apis/quality-of-service.md).
 
 </details>
 
@@ -128,7 +128,7 @@ Modifying the following configuration parameters is optional.
 
 1. Choose whether to add each header from incoming request to the generated message headers.
 2. Choose whether to initiate an empty message flow and give policies full access to the context whenever the POST request is made to the entrypoint.
-3. Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](../configure-v4-apis/quality-of-service.md).
+3. Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](docs/apim/4.6/configure-v4-apis/quality-of-service.md).
 
 </details>
 
@@ -141,7 +141,7 @@ Modifying the following configuration parameters is optional.
 1. Define the interval at which heartbeats are sent to the client. Intervals must be greater than or equal to 2000ms. Each heartbeat will be sent as an empty comment: `''`.
 2. Choose to allow or disallow sending message metadata to the client as SSE comments.
 3. Choose to allow or disallow sending message headers to the client as SSE comments.
-4. Use the drop-down menu to select a Quality of Service option. QoS compatibility is detailed [here](../configure-v4-apis/quality-of-service.md).
+4. Use the drop-down menu to select a Quality of Service option. QoS compatibility is detailed [here](docs/apim/4.6/configure-v4-apis/quality-of-service.md).
 
 </details>
 
@@ -163,7 +163,7 @@ Modifying the following configuration parameters is optional.
      * **Proxy port:** Enter your proxy port in the text field.
      * (Optional) **Proxy username:** Enter your proxy username in the text field.
      * (Optional) **Proxy password:** Enter your proxy password in the text field.
-7. Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](../configure-v4-apis/quality-of-service.md).
+7. Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](docs/apim/4.6/configure-v4-apis/quality-of-service.md).
 
 </details>
 
@@ -175,7 +175,7 @@ Modifying the following configuration parameters is optional.
 
 1. Choose to either enable or disable the publication capability. Disabling it assumes that the application will never be able to publish any message.
 2. Choose to enable or disable the subscription capability. Disabling it assumes that the application will never receive any message.
-3. Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](../configure-v4-apis/quality-of-service.md).
+3. Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](docs/apim/4.6/configure-v4-apis/quality-of-service.md).
 
 </details>
 
@@ -311,7 +311,7 @@ If **Use proxy for client connections** is selected, you'll need to define the f
 {% hint style="warning" %}
 **Enterprise only**
 
-The ability to create APIs with message API endpoints is an [Enterprise Edition](../overview/enterprise-edition.md) capability. To learn more about Gravitee Enterprise and what's included in various enterprise packages:
+The ability to create APIs with message API endpoints is an [Enterprise Edition](docs/apim/4.6/overview/enterprise-edition.md) capability. To learn more about Gravitee Enterprise and what's included in various enterprise packages:
 
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
@@ -554,7 +554,7 @@ You must enter a value in the **Name** field. Modifying the other configuration 
 **Configuration**
 
 * (Optional) Choose whether to propagate your API key to upstream APIs.
-* (Optional) Use the [Gravitee Expression Language](../getting-started/gravitee-expression-language.md) to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
+* (Optional) Use the [Gravitee Expression Language](docs/apim/4.6/getting-started/gravitee-expression-language.md) to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
 
 **Restrictions**
 
@@ -606,7 +606,7 @@ Only the **Signature** and **JWKS resolver** selections are required. Modifying 
    * GIVEN\_KEY
    * GATEWAY\_KEYS
    * JWKS\_URL
-3. Define your Resolver parameter. This field supports the [Gravitee Expression Language](../getting-started/gravitee-expression-language.md).
+3. Define your Resolver parameter. This field supports the [Gravitee Expression Language](docs/apim/4.6/getting-started/gravitee-expression-language.md).
 4. If your resolver is **JWKS\_URL**, set the **JWKS URL connect timeout**.
 5. If your resolver is **JWKS\_URL**, set the **JWKS URL request timeout**.
 6. Choose whether to use a system proxy.
@@ -696,7 +696,7 @@ You must enter a value in the **Name** field. Modifying the other configuration 
 
 **Configuration**
 
-(Optional) Use the [Gravitee Expression Language](../getting-started/gravitee-expression-language.md) to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
+(Optional) Use the [Gravitee Expression Language](docs/apim/4.6/getting-started/gravitee-expression-language.md) to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
 
 **Restrictions**
 
@@ -743,7 +743,7 @@ Only the **OAuth2 resource** and **Cache resource** fields are required. Modifyi
 4. Choose whether to instruct your authentication method to check required scopes in order to access the resource. If you choose to check scopes, you must define your list of required scopes using the **Required scopes** module.
 5. Choose whether strict mode is enabled or disabled. If you choose **Strict**, scopes will be checked against the exact list you provided in the **Required scopes** section.
 6. Choose whether to permit authorization headers to target endpoints.
-7. Use the [Gravitee Expression Language](../getting-started/gravitee-expression-language.md) to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
+7. Use the [Gravitee Expression Language](docs/apim/4.6/getting-started/gravitee-expression-language.md) to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
 
 **Restrictions**
 
@@ -803,7 +803,7 @@ You must enter a value in the **Name** field. Modifying the other configuration 
 **Configuration**
 
 * (Optional) Choose whether to propagate your API key to upstream APIs.
-* (Optional) Use the [Gravitee Expression Language](../getting-started/gravitee-expression-language.md) to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
+* (Optional) Use the [Gravitee Expression Language](docs/apim/4.6/getting-started/gravitee-expression-language.md) to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
 
 **Restrictions**
 
@@ -854,7 +854,7 @@ Only the **Signature** and **JWKS resolver** selections are required. Modifying 
    * GIVEN\_KEY
    * GATEWAY\_KEYS
    * JWKS\_URL
-3. Define your Resolver parameter. This field supports the [Gravitee Expression Language](../getting-started/gravitee-expression-language.md).
+3. Define your Resolver parameter. This field supports the [Gravitee Expression Language](docs/apim/4.6/getting-started/gravitee-expression-language.md).
 4. If your resolver is **JWKS\_URL**, set the **JWKS URL connect timeout**.
 5. If your resolver is **JWKS\_URL**, set the **JWKS URL request timeout**.
 6. Choose whether to use a system proxy.
@@ -939,7 +939,7 @@ You must enter a value in the **Name** field. Modifying the other configuration 
 
 **Configuration**
 
-(Optional) Use the [Gravitee Expression Language](../getting-started/gravitee-expression-language.md) to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
+(Optional) Use the [Gravitee Expression Language](docs/apim/4.6/getting-started/gravitee-expression-language.md) to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
 
 **Restrictions**
 
@@ -984,7 +984,7 @@ Only the **OAuth2 resource** and **Cache resource** fields are required. Modifyi
 4. Choose whether to instruct your authentication method to check required scopes in order to access the resource. If you choose to check scopes, you must define your list of required scopes using the **Required scopes** module.
 5. Choose whether strict mode is enabled or disabled. If you choose **Strict**, scopes will be checked against the exact list you provided in the **Required scopes** section.
 6. Choose whether to permit authorization headers to target endpoints.
-7. Use the [Gravitee Expression Language](../getting-started/gravitee-expression-language.md) to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
+7. Use the [Gravitee Expression Language](docs/apim/4.6/getting-started/gravitee-expression-language.md) to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
 
 **Restrictions**
 
@@ -1038,7 +1038,7 @@ Choose to enable any of the following.
 
 ## Documentation
 
-See [Documentation](../configure-v4-apis/documentation.md) to learn how to create documentation for a v4 API.
+See [Documentation](docs/apim/4.6/configure-v4-apis/documentation.md) to learn how to create documentation for a v4 API.
 
 ## Summary
 

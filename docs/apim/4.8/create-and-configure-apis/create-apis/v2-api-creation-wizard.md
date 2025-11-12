@@ -7,7 +7,7 @@ In Gravitee, your API definition is a JSON representation of your Gateway API. T
 {% hint style="warning" %}
 When you create an API with a JSON payload that has duplicate keys, APIM keeps the last key.
 
-To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection.md](../apply-policies/policy-reference/json-threat-protection.md "mention").
+To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection.md](docs/apim/4.8/create-and-configure-apis/apply-policies/policy-reference/json-threat-protection.md "mention").
 {% endhint %}
 
 ## Access the API creation wizard
@@ -43,7 +43,7 @@ Define your **Backend**, which is the target backend where the request will be r
 Optionally, you can select **Advanced mode** to define **Tenants** and/or **Sharding tags** for this API. These specify the Gateways to which the API is deployed.
 
 {% hint style="info" %}
-Refer to [Tenants](../../configure-and-manage-the-platform/gravitee-gateway/tenants.md) and/or [Sharding tags](../../configure-and-manage-the-platform/gravitee-gateway/sharding-tags.md) for more information.
+Refer to [Tenants](docs/apim/4.8/configure-and-manage-the-platform/gravitee-gateway/tenants.md) and/or [Sharding tags](docs/apim/4.8/configure-and-manage-the-platform/gravitee-gateway/sharding-tags.md) for more information.
 {% endhint %}
 
 <figure><img src="../../../../../.gitbook/assets/Screen Shot 2023-06-07 at 1.35.16 PM (1).png" alt=""><figcaption><p>Define your API Gateway settings</p></figcaption></figure>

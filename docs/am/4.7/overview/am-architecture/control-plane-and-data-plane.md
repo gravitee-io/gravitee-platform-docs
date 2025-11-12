@@ -11,7 +11,7 @@ The scopes provided by Access Management include:
 Most deployments use a single database to host the information for both the control plane and the data plane. However, it may be beneficial to isolate the two instances in order to distribute the load more effectively.
 
 {% hint style="warning" %}
-**Note:** Prior to version 4.7, the separation of data between the control plane and the data plane was not properly implemented, and certain entities, such as user profiles, were handled within the management scope. If you had configured dedicated databases for each scope prior to upgrading to version 4.7, please refer to the [upgrade documentation](../../getting-started/install-and-upgrade-guides/4.7-upgrade-guide.md).
+**Note:** Prior to version 4.7, the separation of data between the control plane and the data plane was not properly implemented, and certain entities, such as user profiles, were handled within the management scope. If you had configured dedicated databases for each scope prior to upgrading to version 4.7, please refer to the [upgrade documentation](docs/am/4.7/getting-started/install-and-upgrade-guides/4.7-upgrade-guide.md).
 {% endhint %}
 
 Starting from version 4.7.0, it is possible to define multiple Data Planes to distribute the load of different security domains across dedicated databases. This requires specifying the list of Data Planes in the configuration of the Access Management Management API. For each entry in the list, the connection details to the database associated with the scope gateway of the Gateway linked to the Data Plane must be included. When creating a security domain, you are asked to choose a Data Plane for assignment. Once the domain has been created, this choice cannot be modified.
@@ -20,7 +20,7 @@ Starting from version 4.7.0, it is possible to define multiple Data Planes to di
 The configuration of the Gateway service remains the same, the only requirement is to provide the Data Plane id manage by the Gateway
 {% endhint %}
 
-If you wish to deploy Access Management on a single database, simply define a single entry in the Data Planes list with the identifier "default". The configuration elements for this Data Plane must correspond to the elements of the "gateway" scope. When using a single database, all three scopes should have the same connection parameters. The connection elements in the Data Planes list follow the same structure as for the [repositories](../../getting-started/configuration/configure-repositories.md). Here is an example of the configuration for such a setup:
+If you wish to deploy Access Management on a single database, simply define a single entry in the Data Planes list with the identifier "default". The configuration elements for this Data Plane must correspond to the elements of the "gateway" scope. When using a single database, all three scopes should have the same connection parameters. The connection elements in the Data Planes list follow the same structure as for the [repositories](docs/am/4.7/getting-started/configuration/configure-repositories.md). Here is an example of the configuration for such a setup:
 
 {% tabs %}
 {% tab title="MongoDB" %}
@@ -112,7 +112,7 @@ repositories:
 
 {% tab title="RDBMS" %}
 {% hint style="warning" %}
-As for [reporitory](../../guides/identity-providers/database-identity-providers/jdbc.md) plugin, place the drivers in `$GRAVITEE_HOME/plugins/ext/dataplane-am-jdbc`
+As for [reporitory](docs/am/4.7/guides/identity-providers/database-identity-providers/jdbc.md) plugin, place the drivers in `$GRAVITEE_HOME/plugins/ext/dataplane-am-jdbc`
 {% endhint %}
 
 Management API configuration:
@@ -206,6 +206,6 @@ repositories:
 {% endtab %}
 {% endtabs %}
 
-For more details on how to configure AM with multiple DataBase or multiple Data Planes, please refer to the [Configure Multiple Data Planes](../../getting-started/install-and-upgrade-guides/configure-multiple-data-planes.md) page.
+For more details on how to configure AM with multiple DataBase or multiple Data Planes, please refer to the [Configure Multiple Data Planes](docs/am/4.7/getting-started/install-and-upgrade-guides/configure-multiple-data-planes.md) page.
 
 <figure><img src="../../.gitbook/assets/am-multi-dataplane (1).svg" alt=""><figcaption><p>Multiple DataPlane deployment</p></figcaption></figure>

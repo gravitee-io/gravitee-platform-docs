@@ -6,7 +6,7 @@ The Confluent Platform federation agent supports both enterprise and community e
 
 You'll also need to be running Gravitee API Management version 4.5 or above, with an enterprise license.
 
-For the federation agent to authenticate with Gravitee API Management, you'll also need an access token. Head to our dedicated guide on [how to create a service account and an access token](../federation-agent-service-account.md) for the federation agent.
+For the federation agent to authenticate with Gravitee API Management, you'll also need an access token. Head to our dedicated guide on [how to create a service account and an access token](docs/apim/4.8/govern-apis/federation/federation-agent-service-account.md) for the federation agent.
 
 ### Spin up a test Confluent Platform environment
 

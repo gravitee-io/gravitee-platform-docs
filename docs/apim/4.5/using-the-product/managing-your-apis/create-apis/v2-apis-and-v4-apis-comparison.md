@@ -43,7 +43,7 @@ v2 APIs and v4 APIs have some differences in functionality. The following table 
 
 ## v2 APIs and v4 APIs policies support
 
-v2 APIs and v4 APIs support only some policies. Also, you can apply v2 APIs and v4 APIs to different phases within a request or a response. For more information about the policies that the v2 APIs and the v4 APIs support and the phases that you can apply these policies to, see [policy-reference.md](../policy-studio/policy-reference.md "mention").
+v2 APIs and v4 APIs support only some policies. Also, you can apply v2 APIs and v4 APIs to different phases within a request or a response. For more information about the policies that the v2 APIs and the v4 APIs support and the phases that you can apply these policies to, see [policy-reference.md](docs/apim/4.5/using-the-product/managing-your-apis/policy-studio/policy-reference.md "mention").
 
 
 

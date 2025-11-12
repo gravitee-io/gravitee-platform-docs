@@ -6,7 +6,7 @@ noIndex: true
 
 You can directly modify your workload's YAML configuration to add the Telepresence Traffic Agent and enable it to be intercepted.
 
-When you use a Telepresence intercept for the first time on a Pod, the [Telepresence Mutating Webhook](../cluster-side-configuration.md#mutating-webhook) will automatically inject a Traffic Agent sidecar into it. There might be some situations where this approach cannot be used, such as very strict company security policies preventing it.
+When you use a Telepresence intercept for the first time on a Pod, the [Telepresence Mutating Webhook](docs/telepresence/technical-reference/cluster-side-configuration.md#mutating-webhook) will automatically inject a Traffic Agent sidecar into it. There might be some situations where this approach cannot be used, such as very strict company security policies preventing it.
 
 {% hint style="warning" %}
 Although it is possible to manually inject the Traffic Agent, it is not the recommended approach to making a workload interceptable, try the Mutating Webhook before proceeding.

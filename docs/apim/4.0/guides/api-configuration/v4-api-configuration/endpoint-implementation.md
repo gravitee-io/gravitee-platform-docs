@@ -18,7 +18,7 @@ Gravitee supports several different message brokers. This page describes the int
 
 <summary>Common to Subscribe and Publish</summary>
 
-Properties can be accessed from a Kafka cluster programmatically using [Gravitee Expression Language](../../gravitee-expression-language.md) (EL). To extract message metadata with EL, use the syntax `{#message.metadata.[]}`, e.g., `{#message.metadata.key}`. Supported attributes are `key`, `topic`, `partition`, and `offset`.
+Properties can be accessed from a Kafka cluster programmatically using [Gravitee Expression Language](docs/apim/4.0/guides/gravitee-expression-language.md) (EL). To extract message metadata with EL, use the syntax `{#message.metadata.[]}`, e.g., `{#message.metadata.key}`. Supported attributes are `key`, `topic`, `partition`, and `offset`.
 
 </details>
 

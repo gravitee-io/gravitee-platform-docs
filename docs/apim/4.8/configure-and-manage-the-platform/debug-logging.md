@@ -234,7 +234,7 @@ To also enable debug logging for this specific Java class of the Management API 
 Before you can use the Internal API to enable debug logging, you must [enable the Internal API](management-api/mapi-internal-api.md) .
 {% endhint %}
 
-The [Internal API](../prepare-a-production-environment/production-best-practices/internal-apis.md) can be used to dynamically enable debug logging without restarting the component or container. When the component or container is restarted, the runtime configuration is lost and therefore debug logging is disabled.
+The [Internal API](docs/apim/4.8/prepare-a-production-environment/production-best-practices/internal-apis.md) can be used to dynamically enable debug logging without restarting the component or container. When the component or container is restarted, the runtime configuration is lost and therefore debug logging is disabled.
 
 For example, to dynamically enable debug logging for just the `MongoTemplate` class, run the following command:
 

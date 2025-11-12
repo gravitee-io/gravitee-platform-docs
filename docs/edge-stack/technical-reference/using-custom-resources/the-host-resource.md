@@ -256,13 +256,13 @@ spec:
 
 `tlsContext` specifies a [`TLSContext`](the-host-resource.md#) to use for additional TLS information. Note that you **must** still define `tlsSecret` for TLS termination to happen. It is an error to supply both `tlsContext` and `tls`.
 
-See the TLS discussion for more details: [tls-overview.md](../tls-configuration/tls-overview.md "mention")
+See the TLS discussion for more details: [tls-overview.md](docs/edge-stack/technical-reference/tls-configuration/tls-overview.md "mention")
 
 #### `tls` allows manually providing additional configuration
 
 `tls` allows specifying most of the things a `TLSContext` can, inline in the `Host`. Note that you **must** still define `tlsSecret` for TLS termination to happen. It is an error to supply both `tlsContext` and `tls`.
 
-See the TLS discussion for more details: [tls-overview.md](../tls-configuration/tls-overview.md "mention")
+See the TLS discussion for more details: [tls-overview.md](docs/edge-stack/technical-reference/tls-configuration/tls-overview.md "mention")
 
 ### Load balancers, the `Host` resource, and `X-Forwarded-Proto`
 

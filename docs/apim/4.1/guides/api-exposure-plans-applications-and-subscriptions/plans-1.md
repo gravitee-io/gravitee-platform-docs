@@ -250,7 +250,7 @@ By default, APIM includes three membership roles:
 | **User**          | A user is a person who can access the application in read only mode and use the application to subscribe to an API.                       |
 
 {% hint style="info" %}
-Only users with the required permissions can manage application members. For more details, see the [User Management and Permissions](../administration/user-management-and-permissions.md) section of the Administration Guide.
+Only users with the required permissions can manage application members. For more details, see the [User Management and Permissions](docs/apim/4.1/guides/administration/user-management-and-permissions.md) section of the Administration Guide.
 {% endhint %}
 
 {% @arcade/embed flowId="zb22huL5KmUF9Nky2hZ7" url="https://app.arcade.software/share/zb22huL5KmUF9Nky2hZ7" %}

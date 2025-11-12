@@ -23,7 +23,7 @@ Repeat these steps for each component (APIM Gateway and APIM API) where the SQL 
 {% hint style="info" %}
 **Before moving on**
 
-If you are using Docker to install and run APIM, you should place the driver in the `plugins-ext` folder and configure it by using the Docker Compose file or command line arguments. For more information, see [Further Customization](../../getting-started/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-docker/further-customization.md) of a Docker installation.
+If you are using Docker to install and run APIM, you should place the driver in the `plugins-ext` folder and configure it by using the Docker Compose file or command line arguments. For more information, see [Further Customization](docs/apim/4.4/getting-started/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-docker/further-customization.md) of a Docker installation.
 {% endhint %}
 
 ## Configuration

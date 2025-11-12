@@ -5,7 +5,7 @@
 {% hint style="warning" %}
 When you import an API with a JSON payload that has duplicate keys, APIM keeps the last key.&#x20;
 
-To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection.md](../policy-studio/policies-for-your-apis/i-k/json-threat-protection.md "mention").
+To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection.md](docs/apim/4.5/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/i-k/json-threat-protection.md "mention").
 {% endhint %}
 
 A powerful APIM feature is the ability to import an OpenAPI specification to create an API. When you import an existing specification, you do not have to manually populate all of the required fields.&#x20;
@@ -149,7 +149,7 @@ You can also choose to activate policies (below) that will be configured using t
 {% tab title="JSON Validation" %}
 For each operation, if an `application/json` request body exists, a JSON schema is computed from this body to configure a JSON Validation policy.\
 \
-For more information, see the [JSON Validation policy](../policy-studio/policies-for-your-apis/i-k/json-validation.md) reference.
+For more information, see the [JSON Validation policy](docs/apim/4.5/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/i-k/json-validation.md) reference.
 {% endtab %}
 
 {% tab title="REST to SOAP" %}
@@ -158,24 +158,24 @@ For each operation, if the definition contains specific vendor extensions, a RES
 * `x-graviteeio-soap-envelope`: Contains the SOAP envelope
 * `x-graviteeio-soap-action`: Contains the SOAP action
 
-For more information, see the [REST to SOAP policy](../policy-studio/policies-for-your-apis/r-s/rest-to-soap.md) reference.
+For more information, see the [REST to SOAP policy](docs/apim/4.5/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/r-s/rest-to-soap.md) reference.
 {% endtab %}
 
 {% tab title="Mock" %}
 For each operation, a mock policy is configured, based on the `example` field if it exists, or by generating a random value for the type of attribute to mock.\
 \
-For more information, see the [Mock policy](../policy-studio/policies-for-your-apis/l-p/mock.md) reference.
+For more information, see the [Mock policy](docs/apim/4.5/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/l-p/mock.md) reference.
 {% endtab %}
 
 {% tab title="Request Validation" %}
 For each operation, `NOT` `NULL` rules are created with query parameters and headers.\
 \
-For more information, see the [Request Validation policy](../policy-studio/policies-for-your-apis/r-s/request-validation.md) reference.
+For more information, see the [Request Validation policy](docs/apim/4.5/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/r-s/request-validation.md) reference.
 {% endtab %}
 
 {% tab title="XML Validation" %}
 For each operation, if a `application/xml` request body exists, then a XSD schema is computed from this body to configure an XML Validation policy.&#x20;
 
-For more information, see the [XML Validation policy](../policy-studio/policies-for-your-apis/t-x/xml-validation.md) reference.
+For more information, see the [XML Validation policy](docs/apim/4.5/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/t-x/xml-validation.md) reference.
 {% endtab %}
 {% endtabs %}

@@ -3,7 +3,7 @@
 ## Overview
 
 {% hint style="warning" %}
-If you use the New Developer Portal and want to configure webhook subscriptions, follow the [configure-webhook-subscriptions.md](../new-developer-portal/configure-webhook-subscriptions.md "mention") guide.
+If you use the New Developer Portal and want to configure webhook subscriptions, follow the [configure-webhook-subscriptions.md](docs/apim/4.9/developer-portal/new-developer-portal/configure-webhook-subscriptions.md "mention") guide.
 {% endhint %}
 
 API consumers can configure their webhook subscriptions from the Developer Portal. Configuration involves adding a callback URL, choosing an application, and validating the request.

@@ -24,7 +24,7 @@ To retrieve all operational attributes,  set `+` as a value in the configuration
 Operational attributes are available for User mappers and are not added to user profile explicitly.
 {% endhint %}
 
-You can also create the identity provider with [AM API.](../../../reference/am-api-reference.md)
+You can also create the identity provider with [AM API.](docs/am/4.6/reference/am-api-reference.md)
 
 {% code overflow="wrap" %}
 ```sh

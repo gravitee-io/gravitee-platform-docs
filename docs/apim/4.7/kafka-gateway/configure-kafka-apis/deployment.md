@@ -6,7 +6,7 @@ In the **Deployment** section, you can manage sharding tags and track changes to
 
 ## Configuration
 
-From the **Configuration** header you can control where your API is deployed through the use of [sharding tags](../../gravitee-gateway/sharding-tags.md). Sharding tags are configured at the Organization level.
+From the **Configuration** header you can control where your API is deployed through the use of [sharding tags](docs/apim/4.7/gravitee-gateway/sharding-tags.md). Sharding tags are configured at the Organization level.
 
 <figure><img src="../../../4.6/.gitbook/assets/1 shard 1 (1).png" alt=""><figcaption></figcaption></figure>
 

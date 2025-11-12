@@ -12,7 +12,7 @@ For a much deeper dive on this topic that includes IdP setup and configuration, 
 
 ### Prerequisites <a href="#prerequisites-3" id="prerequisites-3"></a>
 
-To participate in this tutorial, you must have an instance of APIM 4.0 or later up and running. You can check out our [extensive installation guides](https://documentation.gravitee.io/apim/v/4.3/getting-started/install-and-upgrade-guides) to learn the different ways you can get started with Gravitee.
+To participate in this tutorial, you must have an instance of APIM 4.0 or later up and running. You can check out our [extensive installation guides](/apim/v/4.3/getting-started/install-and-upgrade-guides) to learn the different ways you can get started with Gravitee.
 
 Additionally, the following guide assumes the client application has already been configured to use a third-party IdP. Once the application has received an access token from the IdP in the form of a JWT, a properly configured APIM Gateway can validate the signature before granting the user of the application access to protected resources.
 
@@ -24,7 +24,7 @@ In the Console UI, select the Gateway API you want to secure with a JWT plan.
 
 <figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
-Alternatively, if you haven’t created a Gateway API yet, you can learn [how to create a Gateway API here](https://documentation.gravitee.io/apim/v/4.3/guides/create-apis). For now, be sure to leave the **Default Keyless (UNSECURED)** plan as we’ll be configuring the plan separately.
+Alternatively, if you haven’t created a Gateway API yet, you can learn [how to create a Gateway API here](/apim/v/4.3/guides/create-apis). For now, be sure to leave the **Default Keyless (UNSECURED)** plan as we’ll be configuring the plan separately.
 
 <figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -124,7 +124,7 @@ Before subscribing, we need to create a Gravitee application with the same `clie
 
 **Dynamic Client Registration**
 
-For the sake of this demo, we will be creating a Simple application in the Developer Portal that allows API consumers to define their own `client_id`. However, this is not secure and should not be used outside of testing. Therefore, Gravitee allows you to disable Simple applications and [use dynamic client registration (DCR) to create advanced applications](https://documentation.gravitee.io/apim/v/4.3/guides/api-exposure-plans-applications-and-subscriptions/applications#dcr-application-configuration). DCR essentially allows Gravitee to outsource the issuer and management of application credentials to a third party IdP, allowing for additional configuration options and compatibility with various OIDC features provided by the IdP.
+For the sake of this demo, we will be creating a Simple application in the Developer Portal that allows API consumers to define their own `client_id`. However, this is not secure and should not be used outside of testing. Therefore, Gravitee allows you to disable Simple applications and [use dynamic client registration (DCR) to create advanced applications](/apim/v/4.3/guides/api-exposure-plans-applications-and-subscriptions/applications#dcr-application-configuration). DCR essentially allows Gravitee to outsource the issuer and management of application credentials to a third party IdP, allowing for additional configuration options and compatibility with various OIDC features provided by the IdP.
 
 In the Developer Portal, select **Applications** in the top navigation bar and then select **+ Create an app** in the top right of the screen.
 

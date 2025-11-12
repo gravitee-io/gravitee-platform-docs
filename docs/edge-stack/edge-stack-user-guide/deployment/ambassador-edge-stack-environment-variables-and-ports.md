@@ -198,7 +198,7 @@ Allows the IP Family used by health check server to be overridden. By default, t
 
 Ambassador Edge Stack will read the mTLS certificates from `/etc/istio-certs` unless configured to use a different directory with the `AMBASSADOR_ISTIO_SECRET_DIR` environment variable and create a secret in that location named `istio-certs`.
 
-More information: [#configure-an-mtls-tlscontext](../ambassador-edge-stack-integrations/istio-integration.md#configure-an-mtls-tlscontext "mention")
+More information: [#configure-an-mtls-tlscontext](docs/edge-stack/edge-stack-user-guide/ambassador-edge-stack-integrations/istio-integration.md#configure-an-mtls-tlscontext "mention")
 
 ### `AMBASSADOR_JSON_LOGGING`
 
@@ -264,13 +264,13 @@ More information: [ambassador-edge-stack-and-apiext.md](ambassador-edge-stack-an
 
 Ambassador Edge Stack supports setting the `dd.internal.entity_id` statistics tag using the `DD_ENTITY_ID` environment variable. If this value is set, statistics will be tagged with the value of the environment variable. Otherwise, this statistics tag will be omitted (the default).
 
-More information: [#using-datadog-dogstatsd-as-the-statsd-sink](../service-monitoring/envoy-statistics-with-statsd.md#using-datadog-dogstatsd-as-the-statsd-sink "mention")
+More information: [#using-datadog-dogstatsd-as-the-statsd-sink](docs/edge-stack/edge-stack-user-guide/service-monitoring/envoy-statistics-with-statsd.md#using-datadog-dogstatsd-as-the-statsd-sink "mention")
 
 ### `DOGSTATSD`
 
 If you are a user of the [Datadog](https://docs.datadoghq.com/) monitoring system, pulling in the Envoy statistics from Ambassador Edge Stack is very easy. Because the DogStatsD protocol is slightly different than the normal StatsD protocol, in addition to setting Ambassador Edge Stack's `STATSD_ENABLED=true` environment variable, you also need to set the`DOGSTATSD=true` environment variable.
 
-More information: [#using-datadog-dogstatsd-as-the-statsd-sink](../service-monitoring/envoy-statistics-with-statsd.md#using-datadog-dogstatsd-as-the-statsd-sink "mention")
+More information: [#using-datadog-dogstatsd-as-the-statsd-sink](docs/edge-stack/edge-stack-user-guide/service-monitoring/envoy-statistics-with-statsd.md#using-datadog-dogstatsd-as-the-statsd-sink "mention")
 
 ### `SCOUT_DISABLE`
 
@@ -284,55 +284,55 @@ More information: [#ambassador-edge-stack-usage-telemetry-scout](advanced-deploy
 
 If enabled, then Ambassador Edge Stack has Envoy expose metrics information via the ubiquitous and well-tested [StatsD](https://github.com/etsy/statsd) protocol. To enable this, you will simply need to set the environment variable `STATSD_ENABLED=true` in Ambassador Edge Stack's deployment YAML
 
-More information: [envoy-statistics-with-statsd.md](../service-monitoring/envoy-statistics-with-statsd.md "mention")
+More information: [envoy-statistics-with-statsd.md](docs/edge-stack/edge-stack-user-guide/service-monitoring/envoy-statistics-with-statsd.md "mention")
 
 ### `STATSD_HOST`
 
 When this variable is set, Ambassador Edge Stack by default sends statistics to a Kubernetes service named `statsd-sink` on UDP port 8125 (the usual port of the StatsD protocol). You may instead tell Ambassador Edge Stack to send the statistics to a different StatsD server by setting the `STATSD_HOST` environment variable. This can be useful if you have an existing StatsD sink available in your cluster.
 
-More information: [envoy-statistics-with-statsd.md](../service-monitoring/envoy-statistics-with-statsd.md "mention")
+More information: [envoy-statistics-with-statsd.md](docs/edge-stack/edge-stack-user-guide/service-monitoring/envoy-statistics-with-statsd.md "mention")
 
 ### `STATSD_PORT`
 
 Allows for configuring StatsD on a port other than the default (8125)
 
-More information: [envoy-statistics-with-statsd.md](../service-monitoring/envoy-statistics-with-statsd.md "mention")
+More information: [envoy-statistics-with-statsd.md](docs/edge-stack/edge-stack-user-guide/service-monitoring/envoy-statistics-with-statsd.md "mention")
 
 ### `STATSD_FLUSH_INTERVAL`
 
 How often, in seconds, to submit statsd reports (if `STATSD_ENABLED`)
 
-More information: [envoy-statistics-with-statsd.md](../service-monitoring/envoy-statistics-with-statsd.md "mention")
+More information: [envoy-statistics-with-statsd.md](docs/edge-stack/edge-stack-user-guide/service-monitoring/envoy-statistics-with-statsd.md "mention")
 
 ### `_AMBASSADOR_ID`
 
 Used with the Ambassador Consul connector. Sets the Ambassador ID so multiple instances of this integration can run per-Cluster when there are multiple Ambassador Edge Stacks (Required if `AMBASSADOR_ID` is set in your Ambassador Edge Stack `Deployment`
 
-More information: [#environment-variables](../ambassador-edge-stack-integrations/consul-integration.md#environment-variables "mention")
+More information: [#environment-variables](docs/edge-stack/edge-stack-user-guide/ambassador-edge-stack-integrations/consul-integration.md#environment-variables "mention")
 
 ### `_AMBASSADOR_TLS_SECRET_NAME`
 
 Used with the Ambassador Consul connector. Sets the name of the Kubernetes `v1.Secret` created by this program that contains the Consul-generated TLS certificate.
 
-More information: [#environment-variables](../ambassador-edge-stack-integrations/consul-integration.md#environment-variables "mention")
+More information: [#environment-variables](docs/edge-stack/edge-stack-user-guide/ambassador-edge-stack-integrations/consul-integration.md#environment-variables "mention")
 
 ### `_AMBASSADOR_TLS_SECRET_NAMESPACE`
 
 Used with the Ambassador Consul connector. Sets the namespace of the Kubernetes `v1.Secret` created by this program.
 
-More information: [#environment-variables](../ambassador-edge-stack-integrations/consul-integration.md#environment-variables "mention")
+More information: [#environment-variables](docs/edge-stack/edge-stack-user-guide/ambassador-edge-stack-integrations/consul-integration.md#environment-variables "mention")
 
 ### `_CONSUL_HOST`
 
 Used with the Ambassador Consul connector. Sets the IP or DNS name of the target Consul HTTP API server
 
-More information: [#environment-variables](../ambassador-edge-stack-integrations/consul-integration.md#environment-variables "mention")
+More information: [#environment-variables](docs/edge-stack/edge-stack-user-guide/ambassador-edge-stack-integrations/consul-integration.md#environment-variables "mention")
 
 ### `_CONSUL_PORT`
 
 Used with the Ambassador Consul connector. Sets the port number of the target Consul HTTP API server.
 
-More information: [#environment-variables](../ambassador-edge-stack-integrations/consul-integration.md#environment-variables "mention")
+More information: [#environment-variables](docs/edge-stack/edge-stack-user-guide/ambassador-edge-stack-integrations/consul-integration.md#environment-variables "mention")
 
 ### `AMBASSADOR_DISABLE_SNAPSHOT_SERVER`
 
@@ -352,7 +352,7 @@ More information: [#aes\_ratelimit\_preview](ambassador-edge-stack-and-redis.md#
 
 Configures the default timeout in the authentication extension.
 
-More information: [#authentication-extension-configuration](../authentication/authentication-extension.md#authentication-extension-configuration "mention")
+More information: [#authentication-extension-configuration](docs/edge-stack/edge-stack-user-guide/authentication/authentication-extension.md#authentication-extension-configuration "mention")
 
 ### `REDIS_SOCKET_TYPE`
 
@@ -591,13 +591,13 @@ Only available if `AES_RATELIMIT_PREVIEW: "true`. The AES rate limit extension c
 
 Setting `LOCAL_CACHE_SIZE_IN_BYTES` to a non-zero value with enable local caching.
 
-More information: [rate-limiting-extension.md](../rate-limiting/rate-limiting-extension.md "mention")
+More information: [rate-limiting-extension.md](docs/edge-stack/edge-stack-user-guide/rate-limiting/rate-limiting-extension.md "mention")
 
 ### `NEAR_LIMIT_RATIO`
 
 Only available if `AES_RATELIMIT_PREVIEW: "true"`. Adjusts the ratio used by the `near_limit` statistic for tracking requests that are "near the limit". Defaults to `0.8` (80%) of the limit defined in the `RateLimit` rule.
 
-More information: [rate-limiting-extension.md](../rate-limiting/rate-limiting-extension.md "mention")
+More information: [rate-limiting-extension.md](docs/edge-stack/edge-stack-user-guide/rate-limiting/rate-limiting-extension.md "mention")
 
 ### `AMBASSADOR_URL`
 

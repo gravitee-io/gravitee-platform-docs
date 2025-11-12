@@ -74,7 +74,7 @@ Organization-wide CORS settings include:
 * **Max age:** How long the response from a preflight request can be cached by clients.
 
 {% hint style="info" %}
-CORS can also be configured at the API level. For more information, see the [v2 API](../configure-v2-apis/proxy-settings.md) and [v4 API ](../configure-v4-apis/cors.md)CORS documentation.
+CORS can also be configured at the API level. For more information, see the [v2 API](docs/apim/4.7/configure-v2-apis/proxy-settings.md) and [v4 API ](docs/apim/4.7/configure-v4-apis/cors.md)CORS documentation.
 {% endhint %}
 {% endtab %}
 
@@ -95,7 +95,7 @@ Organization-wide emailing settings include:
   * SSL Trust
 
 {% hint style="info" %}
-To learn more about notifications, refer to the [Notifications](../gravitee-gateway/notifications.md) documentation.
+To learn more about notifications, refer to the [Notifications](docs/apim/4.7/gravitee-gateway/notifications.md) documentation.
 {% endhint %}
 {% endtab %}
 {% endtabs %}

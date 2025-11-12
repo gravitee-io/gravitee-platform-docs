@@ -6,9 +6,9 @@ noIndex: true
 
 ## The APIKey Filter Type (v1alpha1)
 
-The `APIKey Filter` validates API Keys present in HTTP headers. The list of authorized API Keys is defined directly in a Secret. If an incoming request does not have the header specified by the `APIKey Filter` or it does not contain one of the key values configured by the `Filter` then the request is denied. For more information about how requests are matched to `Filter` resources and the order in which `Filters` are executed, please refer to the [FilterPolicy Resource](../filterpolicy.md) documentation.
+The `APIKey Filter` validates API Keys present in HTTP headers. The list of authorized API Keys is defined directly in a Secret. If an incoming request does not have the header specified by the `APIKey Filter` or it does not contain one of the key values configured by the `Filter` then the request is denied. For more information about how requests are matched to `Filter` resources and the order in which `Filters` are executed, please refer to the [FilterPolicy Resource](docs/edge-stack/crd-api-references/gateway.getambassador.io-v1alpha1/filterpolicy.md) documentation.
 
-This page is specific to the `gateway.getambassador.io/v1alpha1` version of the `APIKey Filter` resource. For the older `getambassador.io/v3alpha1` resource, please see the [v3alpha1 APIKey Filter api reference](../../getambassador.io-v3alpha1/filter/the-apikey-filter-type.md).
+This page is specific to the `gateway.getambassador.io/v1alpha1` version of the `APIKey Filter` resource. For the older `getambassador.io/v3alpha1` resource, please see the [v3alpha1 APIKey Filter api reference](docs/edge-stack/crd-api-references/getambassador.io-v3alpha1/filter/the-apikey-filter-type.md).
 
 {% hint style="info" %}
 `v1alpha1` `Filters` can only be referenced from `v1alpha1` `FilterPolicies`.

@@ -30,7 +30,7 @@ After you've configured your endpoints, you can modify or delete existing endpoi
 
 * **Modify:** To alter an existing endpoint, select the <img src="../../../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.43.13 AM.png" alt="" data-size="line"> icon, and then edit your endpoint configuration.&#x20;
 * **Delete:** To delete an existing endpoint, select the <img src="../../../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.46.30 AM.png" alt="" data-size="line">icon underneath **ACTIONS** in the **Endpoints** menu.
-* **Add:** To add a new endpoint, click **Add endpoint**. Configure the endpoint per the instructions in the [API creation documentation](../../../create-apis/the-api-creation-wizard/v4-api-creation-wizard.md).
+* **Add:** To add a new endpoint, click **Add endpoint**. Configure the endpoint per the instructions in the [API creation documentation](docs/apim/4.4/using-the-product/managing-your-apis-with-gravitee-api-management/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md).
 
 When you are done, make sure to redeploy the API for your changes to take effect.
 

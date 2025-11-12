@@ -20,7 +20,7 @@ To create an identity provider:
 If you want to register multiple users, click the **Add user** button before clicking on the **Create** button.
 {% endhint %}
 
-You can also create the identity provider with [AM API](../../../reference/am-api-reference.md).
+You can also create the identity provider with [AM API](docs/am/4.4/reference/am-api-reference.md).
 
 {% code overflow="wrap" %}
 ```sh

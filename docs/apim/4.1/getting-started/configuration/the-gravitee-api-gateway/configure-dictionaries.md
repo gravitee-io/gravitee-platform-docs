@@ -21,7 +21,7 @@ Dictionaries need to be deployed to the API Gateway before you can use them. You
 
 ### How are dictionaries used?
 
-You can use dictionaries anywhere in APIM where [Gravitee Expression Language](../../../guides/gravitee-expression-language.md) is supported, such as when defining policies for API flows. You can access dictionary properties with the Expression Language statement `#dictionaries`.
+You can use dictionaries anywhere in APIM where [Gravitee Expression Language](docs/apim/4.1/guides/gravitee-expression-language.md) is supported, such as when defining policies for API flows. You can access dictionary properties with the Expression Language statement `#dictionaries`.
 
 ## Create a new dictionary
 

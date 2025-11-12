@@ -15,7 +15,7 @@ telepresence intercept hello --port 9000
 
 ### Importing environment variables
 
-Telepresence can import the environment variables from the pod that is being intercepted, see [this doc](../environment-variables.md) for more details.
+Telepresence can import the environment variables from the pod that is being intercepted, see [this doc](docs/telepresence/technical-reference/environment-variables.md) for more details.
 
 ### Creating an intercept
 

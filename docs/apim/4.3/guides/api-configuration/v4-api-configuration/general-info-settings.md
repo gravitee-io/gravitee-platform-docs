@@ -42,7 +42,7 @@ The **Configuration** page shows two main areas under the **General** tab:
 {% tab title="Danger zone" %}
 This section includes access to mission-critical (and potentially dangerous) actions:
 
-* **Start the API:** Deploy the API to all Gateways, or the Gateways specified using [Sharding tags](../../../getting-started/configuration/apim-gateway/sharding-tags.md)
+* **Start the API:** Deploy the API to all Gateways, or the Gateways specified using [Sharding tags](docs/apim/4.3/getting-started/configuration/apim-gateway/sharding-tags.md)
 * **Publish the API:** Publish the API to the Developer Portal
 * **Make Public:** Make the API public so that everybody can see it
 * **Deprecate:** Unpublish the API from the Developer Portal

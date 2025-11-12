@@ -439,7 +439,7 @@ The Generic OpenID Identity Provider is able to support the `response_type` para
 
 #### CIBA Http Notifier
 
-The HTTP Device Notifier plugin for [CIBA](../../guides/auth-protocols/ciba.md) has been updated to accept additional headers supporting Expression Language.
+The HTTP Device Notifier plugin for [CIBA](docs/am/4.7/guides/auth-protocols/ciba.md) has been updated to accept additional headers supporting Expression Language.
 
 #### Multi Data Plane architecture
 

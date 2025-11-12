@@ -357,7 +357,7 @@ Next in the API creation wizard is the Security step, where you will configure:
 
 ### Plan information&#x20;
 
-A plan is essentially an access layer around an API that provides the API producer with a method to secure, monitor, and transparently communicate details around access. If you want to learn more about how plans function in Gravitee, please refer to the [plans documentation](../../api-exposure-plans-applications-and-subscriptions/plans.md). You will be able to choose between several different plan types:
+A plan is essentially an access layer around an API that provides the API producer with a method to secure, monitor, and transparently communicate details around access. If you want to learn more about how plans function in Gravitee, please refer to the [plans documentation](docs/apim/4.1/guides/api-exposure-plans-applications-and-subscriptions/plans.md). You will be able to choose between several different plan types:
 
 * **OAuth2**: a standard designed to allow a website or application to access resources hosted by other web apps on behalf of a user.
 * **JWT**: an open standard that defines a compact and URL-safe way to securely transmit information as a JSON object between parties.

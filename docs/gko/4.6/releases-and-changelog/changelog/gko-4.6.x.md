@@ -183,7 +183,7 @@ There is nothing new in version 4.6.12.
   The following Helm values are deprecated and marked for removal in 4.7.0.
 
   * `httpClient.insecureSkipCertVerify` is deprecated at the root level and should be configured inside the `manager` section
-  * `rbac.skipClusterRoles` is deprecated in favour of `rbac.create`. This means that starting from 4.7.0 all RBAC related resources have to be applied separately if you want to handle cluster roles separately. A guide has been published in our doc site in order to help with [RBAC customization](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/getting-started/installation/rbac-customization).
+  * `rbac.skipClusterRoles` is deprecated in favour of `rbac.create`. This means that starting from 4.7.0 all RBAC related resources have to be applied separately if you want to handle cluster roles separately. A guide has been published in our doc site in order to help with [RBAC customization](/gravitee-kubernetes-operator-gko/getting-started/installation/rbac-customization).
   * `manager.logs.json` is deprecated in favour of `manager.logs.format`.
   * `webhook.enabled` is deprecated. Starting from 4.7.0, the admission webhook will be a mandatory feature of the operator.
 

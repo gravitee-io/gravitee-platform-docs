@@ -22,7 +22,7 @@ Securing an API with OAuth2 is a multi-stage process. The following sections pro
 
 ### Configure an authorization server resource
 
-The OAuth2 policy requires a resource to access an OAuth2 Authorization Server for token introspection, which must be configured prior to adding it to the OAuth2 policy. APIM supports [Generic OAuth2 Authorization Server](https://documentation.gravitee.io/apim/reference/policy-reference/oauth2/generic-oauth2-authorization-server) and [Gravitee.io AM Authorization Server](https://documentation.gravitee.io/apim/v/4.0.0/reference/policy-reference/oauth2/gravitee.io-am-authorization-server) resources. Refer to the following pages for the configuration details of each APIM resource type:
+The OAuth2 policy requires a resource to access an OAuth2 Authorization Server for token introspection, which must be configured prior to adding it to the OAuth2 policy. APIM supports [Generic OAuth2 Authorization Server](/apim/reference/policy-reference/oauth2/generic-oauth2-authorization-server) and [Gravitee.io AM Authorization Server](/apim/v/4.0.0/reference/policy-reference/oauth2/gravitee.io-am-authorization-server) resources. Refer to the following pages for the configuration details of each APIM resource type:
 
 * [Generic OAuth2 Authorization Server](configure-generic-oauth2-authorization-server.md)
 * [Gravitee.io AM Authorization Server](configure-gravitee.io-access-management.md)
@@ -42,7 +42,7 @@ The OAuth2 policy can be configured in the Gravitee API Management Console:
 7.  In the resulting dialog box, **Select** the OAuth2 tile:
 
     <figure><img src="../../../.gitbook/assets/oauth2 policy.png" alt=""><figcaption><p>Add the OAuth2 policy to the flow</p></figcaption></figure>
-8.  Configure the OAuth2 policy per the [documentation](https://documentation.gravitee.io/apim/reference/policy-reference/oauth2):
+8.  Configure the OAuth2 policy per the [documentation](/apim/reference/policy-reference/oauth2):
 
     <figure><img src="../../../.gitbook/assets/oauth2 policy details.png" alt=""><figcaption><p>Configure the OAuth2 policy</p></figcaption></figure>
 9. Click **Add policy**.

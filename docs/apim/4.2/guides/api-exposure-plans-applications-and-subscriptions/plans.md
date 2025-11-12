@@ -54,7 +54,7 @@ The final two sections in the **General** stage are **Deployment** and **Access-
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 1.10.04 PM.png" alt=""><figcaption><p>Deployment and Access-Control settings</p></figcaption></figure>
 
-The **Deployment** section allows you to selectively deploy the plan to particular APIs using sharding tags which you can learn more about [here](../../getting-started/configuration/the-gravitee-api-gateway/sharding-tags.md).
+The **Deployment** section allows you to selectively deploy the plan to particular APIs using sharding tags which you can learn more about [here](docs/apim/4.2/getting-started/configuration/the-gravitee-api-gateway/sharding-tags.md).
 
 **Access-Control** lets you prevent specified groups from accessing this plan. You can learn more about user management and how to configure groups here.
 
@@ -111,7 +111,7 @@ The Keyless authentication type does _not_ require authentication and allows pub
 {% hint style="info" %}
 **Basic authentication and keyless plans**
 
-You can configure basic authentication for keyless plans by associating a basic authentication policy with either an LDAP or inline resource. For more details, see the [Basic Authentication policy](../../reference/policy-reference/basic-authentication.md).
+You can configure basic authentication for keyless plans by associating a basic authentication policy with either an LDAP or inline resource. For more details, see the [Basic Authentication policy](docs/apim/4.2/reference/policy-reference/basic-authentication.md).
 {% endhint %}
 
 ### API key plan

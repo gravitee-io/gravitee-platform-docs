@@ -6,7 +6,7 @@ You'll need an IBM API Connect account. The agent works with both Cloud and on-p
 
 You'll also need to be running Gravitee API Management version 4.5 or above, with an enterprise license.
 
-For the federation agent to authenticate with Gravitee API Management, you'll need an access token. Head to our dedicated guide on [how to create a service account and an access token](../federation-agent-service-account.md) for the federation agent.
+For the federation agent to authenticate with Gravitee API Management, you'll need an access token. Head to our dedicated guide on [how to create a service account and an access token](docs/apim/4.8/govern-apis/federation/federation-agent-service-account.md) for the federation agent.
 
 ## 1. Create an IBM API Connect integration in the Gravitee APIM Console
 

@@ -2,7 +2,7 @@
 
 ## How to use the Management Context (`ManagementContext`) custom resource
 
-To enable the synchronization of CRDs with a remote Management API, you need to create a Management Context custom resource that refers to an existing [organization and environment](../../administration/how-to.md).
+To enable the synchronization of CRDs with a remote Management API, you need to create a Management Context custom resource that refers to an existing [organization and environment](docs/apim/4.1/guides/administration/how-to.md).
 
 You can create multiple Management Context custom resources, each targeting a specific environment and defined in a specific organization of a Management API instance.
 

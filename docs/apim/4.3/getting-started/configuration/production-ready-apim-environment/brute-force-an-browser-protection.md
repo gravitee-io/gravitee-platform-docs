@@ -27,7 +27,7 @@ Gravitee relies on [ReCaptcha V3](https://developers.google.com/recaptcha/docs/v
 
 ### Fail2Ban
 
-If your platform is particularly exposed to the outside world, we recommend adding additional protection against pure brute-force attacks by [setting up Fail2Ban](https://documentation.gravitee.io/apim/getting-started/configuration/configure-apim-management-api/security#fail2ban).
+If your platform is particularly exposed to the outside world, we recommend adding additional protection against pure brute-force attacks by [setting up Fail2Ban](/apim/getting-started/configuration/configure-apim-management-api/security#fail2ban).
 
 Fail2Ban scans log files and automatically bans IPs that show malicious signs, e.g., too many password failures, seeking an opportunity for exploitation, etc.
 
@@ -63,4 +63,4 @@ http:
         allow-origin: 'https://gio-portal.mycompany.com'
 ```
 
-`allow-origin: '*'` should be considered a security risk because it permits all cross-origin requests. **We highly recommend fine-tuning the allow-origin setting. Refer to** the [Gravitee documentation](https://documentation.gravitee.io/apim/getting-started/configuration/configure-apim-management-api/internal-api#cors-configuration) for other useful information related to CORS.
+`allow-origin: '*'` should be considered a security risk because it permits all cross-origin requests. **We highly recommend fine-tuning the allow-origin setting. Refer to** the [Gravitee documentation](/apim/getting-started/configuration/configure-apim-management-api/internal-api#cors-configuration) for other useful information related to CORS.

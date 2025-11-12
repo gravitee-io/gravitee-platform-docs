@@ -54,7 +54,7 @@ Message-based, asynchronous APIs such as Kafka, MQTT, WebSocket, SSE, and Webhoo
 
 The legacy execution engine supports all Gravitee policies that existed prior to the 4.0 release. These policies will continue to function without any changes to configuration or execution.
 
-All policies will also support the new reactive execution engine, but not all policies can being applied at the message level. Whether a policy can be applied to v4 proxy APIs and/or v4 message APIs is detailed per policy in the [Policy Reference](../../../using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policy-reference.md) Guide.
+All policies will also support the new reactive execution engine, but not all policies can being applied at the message level. Whether a policy can be applied to v4 proxy APIs and/or v4 message APIs is detailed per policy in the [Policy Reference](docs/apim/4.4/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policy-reference.md) Guide.
 
 ## v2 Gateway API emulation mode
 

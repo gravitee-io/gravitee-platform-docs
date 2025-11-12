@@ -129,7 +129,7 @@ Before subscribing, we need to create a Gravitee application with the same `clie
 {% hint style="info" %}
 **Dynamic Client Registration**
 
-For the sake of this demo, we will be creating a Simple application in the Developer Portal that allows API consumers to define their own `client_id`. However, this is not secure and should not be used outside of testing. Therefore, Gravitee allows you to disable Simple applications and [use dynamic client registration (DCR) to create advanced applications](../guides/api-exposure-plans-applications-and-subscriptions/applications.md#dcr-application-configuration). DCR essentially allows Gravitee to outsource the issuer and management of application credentials to a third party IdP, allowing for additional configuration options and compatibility with various OIDC features provided by the IdP.
+For the sake of this demo, we will be creating a Simple application in the Developer Portal that allows API consumers to define their own `client_id`. However, this is not secure and should not be used outside of testing. Therefore, Gravitee allows you to disable Simple applications and [use dynamic client registration (DCR) to create advanced applications](docs/apim/4.3/guides/api-exposure-plans-applications-and-subscriptions/applications.md#dcr-application-configuration). DCR essentially allows Gravitee to outsource the issuer and management of application credentials to a third party IdP, allowing for additional configuration options and compatibility with various OIDC features provided by the IdP.
 {% endhint %}
 
 In the Developer Portal, select **Applications** in the top navigation bar and then select **+ Create an app** in the top right of the screen.

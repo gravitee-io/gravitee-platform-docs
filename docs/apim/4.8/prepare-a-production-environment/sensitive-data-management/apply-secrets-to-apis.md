@@ -2,14 +2,14 @@
 
 ## Overview
 
-You can configure secrets managers to work with your APIs. You can use secrets to hide information in any field that supports Gravitee Expression Language. For more information about Gravitee Expression Language, see [gravitee-expression-language.md](../../gravitee-expression-language.md "mention").
+You can configure secrets managers to work with your APIs. You can use secrets to hide information in any field that supports Gravitee Expression Language. For more information about Gravitee Expression Language, see [gravitee-expression-language.md](docs/apim/4.8/gravitee-expression-language.md "mention").
 
-Secret provider plugins extend the operable range of secret managers to resolve secrets on startup and resolve secrets in APIs. For more information about secret provider plugins, see [integrations.md](../../readme/integrations.md "mention").
+Secret provider plugins extend the operable range of secret managers to resolve secrets on startup and resolve secrets in APIs. For more information about secret provider plugins, see [integrations.md](docs/apim/4.8/readme/integrations.md "mention").
 
 This article explains the syntax used to resolve secrets in v4 APIs and configure secret managers.
 
 {% hint style="warning" %}
-To learn more about Gravitee [Enterprise Edition](../../readme/enterprise-edition.md) and what is included in various enterprise packages, please:
+To learn more about Gravitee [Enterprise Edition](docs/apim/4.8/readme/enterprise-edition.md) and what is included in various enterprise packages, please:
 
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
@@ -17,7 +17,7 @@ To learn more about Gravitee [Enterprise Edition](../../readme/enterprise-editio
 
 ## Prerequisites to enable this feature
 
-1. You must configure one of the following secret managers in your `gravitee.yml` file or using the equivalent [environment variable](./): Kubernetes, Amazon Secret Manager, or Hashicorp Vault. For more information about these secret managers, see [Integrations](../../readme/integrations.md#secret-managers-integration).
+1. You must configure one of the following secret managers in your `gravitee.yml` file or using the equivalent [environment variable](./): Kubernetes, Amazon Secret Manager, or Hashicorp Vault. For more information about these secret managers, see [Integrations](docs/apim/4.8/readme/integrations.md#secret-managers-integration).
 2. Reference those secrets in your API definitions with a specialized syntax.
 
 ## Configuring Gravitee to access secret managers
@@ -177,7 +177,7 @@ This syntax has an impact on how you reference secrets. For more information abo
 
 ## Secret reference syntax
 
-Secrets can be resolved in fields that support [Gravitee Expression Language (EL)](../../gravitee-expression-language.md). However, not all fields that support EL allow the resolution of secrets. In general, any field supporting EL that may contain sensitive information is likely to support secrets, such as URLs, header values, passwords, and SSL/TLS settings.
+Secrets can be resolved in fields that support [Gravitee Expression Language (EL)](docs/apim/4.8/gravitee-expression-language.md). However, not all fields that support EL allow the resolution of secrets. In general, any field supporting EL that may contain sensitive information is likely to support secrets, such as URLs, header values, passwords, and SSL/TLS settings.
 
 ### General syntax
 
@@ -243,7 +243,7 @@ Once a secret is resolved, whether it is found or in error, then other APIs won'
 
 Although secrets are resolved at the time of deployment, the secret reference is not evaluated immediately. You can access different context data both depending on the plugin and when the EL is evaluated.
 
-For more information on what you can access, see [gravitee-expression-language.md](../../gravitee-expression-language.md "mention").
+For more information on what you can access, see [gravitee-expression-language.md](docs/apim/4.8/gravitee-expression-language.md "mention").
 
 ### Secrets evaluated during API deployment
 

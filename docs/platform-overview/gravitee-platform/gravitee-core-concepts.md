@@ -97,7 +97,7 @@ Gravitee plugins are modules or components that add or extend functionality by p
 {% hint style="info" %}
 Browse the current collection of [Gravitee plugins](https://www.gravitee.io/plugins).
 
-Refer to the [APIM Plugins](https://documentation.gravitee.io/apim/overview/plugins) guide for more information or to the [Custom Plugins guide](https://documentation.gravitee.io/apim/guides/developer-contributions/dev-guide-plugins) for the instructions to build a plugin.
+Refer to the [APIM Plugins](/apim/overview/plugins) guide for more information or to the [Custom Plugins guide](/apim/guides/developer-contributions/dev-guide-plugins) for the instructions to build a plugin.
 {% endhint %}
 
 ## Developer Portal <a href="#api-developer-portals-api-productization-6" id="api-developer-portals-api-productization-6"></a>

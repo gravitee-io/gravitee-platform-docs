@@ -113,7 +113,7 @@ If you chose **SSE** as an entrypoint, you will be brought to a page where you c
   * **Heartbeat intervals:** Define the interval in which heartbeats are sent to the client by entering a numeric value into the **Define the interval in which heartbeats** **are sent to client** text field or by using the arrow keys. Intervals must be greater than or equal to 2000ms. Each heartbeat will be sent as an empty comment: `''`.
   * Choose to allow or disallow sending message metadata to the client as SSE comments by toggling **Allow sending messages metadata to client as SSE comments** ON or OFF.
   * Choose to allow or disallow sending message headers to the client as SSE comments by toggling **Allow sending messages headers to client as SSE comments** ON or OFF.
-* **Quality of service:** Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](../../api-configuration/v4-api-configuration/quality-of-service.md).
+* **Quality of service:** Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](docs/apim/4.5/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/quality-of-service.md).
 
 </details>
 
@@ -135,7 +135,7 @@ If you chose **Webhook** as an entrypoint, you will be brought to a page where y
       * **Proxy port:** Enter your proxy port in the text field.
       * (Optional) **Proxy username:** Enter your proxy username in the text field.
       * (Optional) **Proxy password:** Enter your proxy password in the text field.
-* **Quality of service:** Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](../../api-configuration/v4-api-configuration/quality-of-service.md).
+* **Quality of service:** Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](docs/apim/4.5/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/quality-of-service.md).
 
 </details>
 
@@ -150,7 +150,7 @@ If you chose **WebSocket** as an entrypoint, you will be brought to a page where
 * **WebSocket configuration**
   * **Publisher configuration:** Choose to either enable or disable the publication capability by toggling **Enable the publication capability** ON or OFF. Disabling it assumes that the application will never be able to publish any message.
   * **Subscriber configuration:** Choose to enable or disable the subscription capability by toggling **Enable the subscription capability** ON or OFF. Disabling it assumes that the application will never receive any message.
-* **Quality of service:** Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](../../api-configuration/v4-api-configuration/quality-of-service.md).
+* **Quality of service:** Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](docs/apim/4.5/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/quality-of-service.md).
 
 </details>
 
@@ -165,7 +165,7 @@ If you chose **HTTP POST** as an entrypoint, you will be brought to a page where
 * **HTTP POST permissions:**
   * **Allow add request Headers to the generated message:** Toggle ON to add each header from incoming request to the generated message headers.
   * **Produce Empty Message Flow When Called:** Toggle ON to initiate an empty message flow and give policies full access to the context (i.e., to construct messages with metadata, headers, etc.) whenever the POST request is made to the entrypoint.
-* **Quality of service:** Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](../../api-configuration/v4-api-configuration/quality-of-service.md).
+* **Quality of service:** Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](docs/apim/4.5/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/quality-of-service.md).
 
 </details>
 
@@ -181,7 +181,7 @@ If you chose **HTTP GET** as an entrypoint, you will be brought to a page where 
   * **Limit messages count:** Defines the maximum number of messages to retrieve via HTTP GET. The default is 500. To set a custom limit, enter a numeric value in the **Limit messages count** text field.
   * **Limit messages duration:** Defines the maximum duration, in milliseconds, to wait to retrieve the expected number of messages (See **Limit messages count**). The effective number of retrieved messages could be less than expected if maximum duration is reached before all messages are retrieved. To set a custom limit, enter a numeric value in the **Limit messages duration** text field.
   * **HTTP GET permissions:** Allow or disallow **Allow sending messages headers to client in payload** and **Allow sending messages metadata to client in payload** by toggling these actions ON or OFF.
-* **Quality of service:** Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](../../api-configuration/v4-api-configuration/quality-of-service.md).
+* **Quality of service:** Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](docs/apim/4.5/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/quality-of-service.md).
 
 </details>
 
@@ -582,7 +582,7 @@ To configure your OAuth2 plan, select OAuth2 from the **+Add plan** drop-down me
 * **Description**
 * **Characteristics**
 * **Subscription:** choose whether to auto-validate subscriptions, require a message from a consumer during subscription, and/or present a message to the consumer upon subscription.
-* **Access control:** select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../../administration/user-management-and-permissions.md#users-and-user-groups).
+* **Access control:** select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](docs/apim/4.5/using-the-product/administration/user-management-and-permissions.md#users-and-user-groups).
 
 <img src="../../../../.gitbook/assets/image (92).png" alt="" data-size="original">
 
@@ -623,7 +623,7 @@ If you chose **JWT**, you will need to specify general details, the authenticati
 * **Description**
 * **Characteristics**
 * **Subscription:** choose whether to auto-validate subscriptions, require a message from a consumer during subscription, and/or present a message to the consumer upon subscription.
-* **Access control:** select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../../administration/user-management-and-permissions.md#users-and-user-groups).
+* **Access control:** select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](docs/apim/4.5/using-the-product/administration/user-management-and-permissions.md#users-and-user-groups).
 
 Once you're done with your general details, select Next to define your JWT authentication configuration. This will require you to:
 
@@ -668,7 +668,7 @@ If you chose API key, you will define general settings, the API key authenticati
 * **Description**
 * **Characteristics**
 * **Subscription:** choose whether to auto-validate subscriptions, require a message from a consumer during subscription, and/or present a message to the consumer upon subscription.
-* **Access control:** select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../../administration/user-management-and-permissions.md#users-and-user-groups).
+* **Access control:** select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](docs/apim/4.5/using-the-product/administration/user-management-and-permissions.md#users-and-user-groups).
 
 Select Next to be taken to the **API key authentication** configuration page. Here, you need to:
 
@@ -698,7 +698,7 @@ If you chose Keyless, you will only need to define general details and restricti
 * **Description**
 * **Characteristics**
 * **Subscription:** choose whether to auto-validate subscriptions, require a message from a consumer during subscription, and/or present a message to the consumer upon subscription.
-* **Access control:** select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../../administration/user-management-and-permissions.md#users-and-user-groups).
+* **Access control:** select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](docs/apim/4.5/using-the-product/administration/user-management-and-permissions.md#users-and-user-groups).
 
 Select Next to be taken to the **Restriction** page to define any additional restrictions that you want to be associated with your plan. Your options include:
 
@@ -715,7 +715,7 @@ Select Next to be taken to the **Restriction** page to define any additional res
 
 ## Step 5: Documentation
 
-The Documentation step is supported for v4 APIs. See [this page](../../api-configuration/v4-api-configuration/documentation.md) to learn how to create documentation for a v4 API.
+The Documentation step is supported for v4 APIs. See [this page](docs/apim/4.5/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/documentation.md) to learn how to create documentation for a v4 API.
 
 ## Step 6: Summary
 

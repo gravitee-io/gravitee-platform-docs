@@ -42,13 +42,13 @@ Prompt the MFA Challenge step to the end user will defer according to the follow
 
 ### Adaptive MFA
 
-If [Adaptive MFA](../login/adaptive-multi-factor-authentication.md) is active and the input rule **DOES NOT** match, the end user will be prompted the challenge page.
+If [Adaptive MFA](docs/am/4.0/guides/login/adaptive-multi-factor-authentication.md) is active and the input rule **DOES NOT** match, the end user will be prompted the challenge page.
 
 The evaluation takes precedence on Step-Up authentication and Remember Device
 
 ### Step Up Authentication
 
-If [Step-Up Authentication](../login/step-up-authentication.md) is active and the input rule **DOES** match while the end user is fully logged in (e.g.: logged in and challenged their factor after) the end user will be prompted to the challenge page.
+If [Step-Up Authentication](docs/am/4.0/guides/login/step-up-authentication.md) is active and the input rule **DOES** match while the end user is fully logged in (e.g.: logged in and challenged their factor after) the end user will be prompted to the challenge page.
 
 The evaluation takes precedence on Remember Device
 
@@ -60,4 +60,4 @@ If [Remember device](./#remember-device) is active and the user's device is not 
 
 Intelligent Adaptive Access reinvents the way MFA is configured in AM. It allows you to configure Multi-Factor Authentication in a clearer way.
 
-You can check out what’s new in Intelligent Adaptive Access [here](../login/risk-based-mfa.md).
+You can check out what’s new in Intelligent Adaptive Access [here](docs/am/4.0/guides/login/risk-based-mfa.md).

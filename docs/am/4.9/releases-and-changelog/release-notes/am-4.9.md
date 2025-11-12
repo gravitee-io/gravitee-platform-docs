@@ -8,13 +8,13 @@ description: >-
 
 ## OpenID provider improvement
 
-The [OpenID identity provider ](../../guides/identity-providers/social-identity-providers/openid-connect.md)has been updated to support the `application/jwt` content type at the [UserInfo Endpoint](https://openid.net/specs/openid-connect-core-1_0.html#UserInfoResponse).&#x20;
+The [OpenID identity provider ](docs/am/4.9/guides/identity-providers/social-identity-providers/openid-connect.md)has been updated to support the `application/jwt` content type at the [UserInfo Endpoint](https://openid.net/specs/openid-connect-core-1_0.html#UserInfoResponse).&#x20;
 
-The system accepts only signed JWT tokens. Signature validation is handled by the [Public Key Resolver](../../guides/identity-providers/social-identity-providers/openid-connect.md#public-key-resolver) defined in the provider's configuration.
+The system accepts only signed JWT tokens. Signature validation is handled by the [Public Key Resolver](docs/am/4.9/guides/identity-providers/social-identity-providers/openid-connect.md#public-key-resolver) defined in the provider's configuration.
 
 ## Support schema with PostgreSQL backend
 
-You can now specify the [schema](https://www.postgresql.org/docs/current/ddl-schemas.html) when Access Management is configured with a PostgreSQL backend. For more information, see the [repositories](../../getting-started/configuration/configure-repositories.md#jdbc) section.
+You can now specify the [schema](https://www.postgresql.org/docs/current/ddl-schemas.html) when Access Management is configured with a PostgreSQL backend. For more information, see the [repositories](docs/am/4.9/getting-started/configuration/configure-repositories.md#jdbc) section.
 
 ## Rate Limit policy
 
@@ -22,13 +22,13 @@ Access Management now offers a Rate Limit policy that is functionally equivalent
 
 ## Audit logs
 
-A new audit log is generated for multi-factor authentication (MFA). When a user selects the "remember device" option during the MFA challenge phase, an MFA\_REMEMBER\_DEVICE audit [event](../../guides/audit-trail.md#event-types) is created.
+A new audit log is generated for multi-factor authentication (MFA). When a user selects the "remember device" option during the MFA challenge phase, an MFA\_REMEMBER\_DEVICE audit [event](docs/am/4.9/guides/audit-trail.md#event-types) is created.
 
-The improved MongoDB audit log implementation uses secondary nodes for search requests. This behavior is [configurable](../../getting-started/configuration/configure-reporters.md#mongodb-reporter) in the `gravitee.yaml` of the Management API.
+The improved MongoDB audit log implementation uses secondary nodes for search requests. This behavior is [configurable](docs/am/4.9/getting-started/configuration/configure-reporters.md#mongodb-reporter) in the `gravitee.yaml` of the Management API.
 
 ## Extension Grant improvement
 
-The [Extension Grant](../../guides/auth-protocols/oauth-2.0/extension-grants.md) plugin now supports using a JWKS\_URL to retrieve the public key that processes the `assertion` parameter.
+The [Extension Grant](docs/am/4.9/guides/auth-protocols/oauth-2.0/extension-grants.md) plugin now supports using a JWKS\_URL to retrieve the public key that processes the `assertion` parameter.
 
 ## Events Retention
 
@@ -44,4 +44,4 @@ The MongoDB index is created automatically on the Management API, at Gateway sta
 
 ## Prompt password changed when password is expired
 
-A new option is available to require users to reset their passwords after a configurable time period has elapsed since their last reset. Upon successful login, if the password has expired, users are immediately prompted to set a new password before continuing the login flow. See the [force reset password page](../../guides/login/force-reset-password-on-expiration.md) for more details.
+A new option is available to require users to reset their passwords after a configurable time period has elapsed since their last reset. Upon successful login, if the password has expired, users are immediately prompted to set a new password before continuing the login flow. See the [force reset password page](docs/am/4.9/guides/login/force-reset-password-on-expiration.md) for more details.

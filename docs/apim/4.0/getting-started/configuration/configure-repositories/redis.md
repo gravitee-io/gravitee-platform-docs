@@ -114,5 +114,5 @@ ratelimit:
 {% hint style="info" %}
 **Don't forget**
 
-If Redis Rate Limit repository is not accessible, the call to API will pass successfully. Do not forget to monitor your probe healthcheck to verify that Redis repository is healthy. You can find health endpoints in the [Internal API documentation](../configure-apim-management-api/general-configuration.md).
+If Redis Rate Limit repository is not accessible, the call to API will pass successfully. Do not forget to monitor your probe healthcheck to verify that Redis repository is healthy. You can find health endpoints in the [Internal API documentation](docs/apim/4.0/getting-started/configuration/configure-apim-management-api/general-configuration.md).
 {% endhint %}

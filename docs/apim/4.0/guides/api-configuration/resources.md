@@ -27,7 +27,7 @@ APIM includes several default resources, each of which is described in more deta
 * **LDAP Authentication Provider:** Authenticates a user in LDAP.
 
 {% hint style="warning" %}
-The **Cache Redis** plugin is not included in the default APIM distribution, but you can [download](https://download.gravitee.io/#graviteeio-apim/plugins/resources/gravitee-resource-cache-redis/) and [deploy](../../overview/plugins.md#deployment) it. For information on configuring cache in APIM, see [Configure cache](../../getting-started/configuration/configure-cache.md). For information on configuring the rate limit repository plugin for Redis, see [Redis](../../getting-started/configuration/configure-repositories/redis.md#redis).
+The **Cache Redis** plugin is not included in the default APIM distribution, but you can [download](https://download.gravitee.io/#graviteeio-apim/plugins/resources/gravitee-resource-cache-redis/) and [deploy](docs/apim/4.0/overview/plugins.md#deployment) it. For information on configuring cache in APIM, see [Configure cache](docs/apim/4.0/getting-started/configuration/configure-cache.md). For information on configuring the rate limit repository plugin for Redis, see [Redis](docs/apim/4.0/getting-started/configuration/configure-repositories/redis.md#redis).
 {% endhint %}
 
 ### OAuth2 APIM compatibility

@@ -11,10 +11,10 @@ Gravitee offers integrations with various secret managers. If you are storing se
 We provide the follow integrations:&#x20;
 
 * Kubernetes&#x20;
-* HashiCorp Vault ([Enterprise Edition](../../readme/enterprise-edition.md))
-* AWS Secrets Manager ([Enterprise Edition](../../readme/enterprise-edition.md))
+* HashiCorp Vault ([Enterprise Edition](docs/apim/4.8/readme/enterprise-edition.md))
+* AWS Secrets Manager ([Enterprise Edition](docs/apim/4.8/readme/enterprise-edition.md))
 
-For more information about secret manager integrations, see the [Integrations](../../readme/integrations.md).
+For more information about secret manager integrations, see the [Integrations](docs/apim/4.8/readme/integrations.md).
 
 When you use secret managers, you use Gravitee's `secret-provider` plugins to configure access, and then you can reference the secrets in different locations.&#x20;
 
@@ -41,13 +41,13 @@ For more information, see [Configuration-Level Secrets](apply-secrets-to-configu
 
 ### Reference a secret at the API level (v4 APIs only)
 
-You can configure Gravitee to get secrets from a secret manager, and then use secrets in a v4 API. Secrets obscure sensitive information in v4 API definitions for endpoint authentication and TLS, resources requiring passwords, sensitive headers values, and URLs that may contain sensitive data. Secrets also ensure that sensitive data is not stored in the Gravitee database. All plugins compatible with [Gravitee Expression Language](../../gravitee-expression-language.md) can use secrets.
+You can configure Gravitee to get secrets from a secret manager, and then use secrets in a v4 API. Secrets obscure sensitive information in v4 API definitions for endpoint authentication and TLS, resources requiring passwords, sensitive headers values, and URLs that may contain sensitive data. Secrets also ensure that sensitive data is not stored in the Gravitee database. All plugins compatible with [Gravitee Expression Language](docs/apim/4.8/gravitee-expression-language.md) can use secrets.
 
 See [API-Level Secrets](apply-secrets-to-apis.md) for more information.
 
 ## API encrypted properties&#x20;
 
-If you wish to protect sensitive information, you can encrypt [API properties](../../create-and-configure-apis/apply-policies/4.9-v4-api-policy-studio.md#api-properties). Both v2 and v4 APIs allow you to encrypt data in the database. This data is automatically decrypted when used by the Gateway.&#x20;
+If you wish to protect sensitive information, you can encrypt [API properties](docs/apim/4.8/create-and-configure-apis/apply-policies/4.9-v4-api-policy-studio.md#api-properties). Both v2 and v4 APIs allow you to encrypt data in the database. This data is automatically decrypted when used by the Gateway.&#x20;
 
 {% hint style="info" %}
 Although the data is encrypted, secret managers are better suited to store secrets. However, they remain a viable and secure option for many use cases.

@@ -79,7 +79,7 @@ To deploy the plugin, follow these steps:
 
 ## Configuration
 
-Policies can be added to flows that are assigned to an API or to a [plan](../api-exposure-plans-applications-and-subscriptions/plans.md). Gravitee supports configuring policies [through the Policy Studio](./) in the Management Console or interacting directly with the Management API.
+Policies can be added to flows that are assigned to an API or to a [plan](docs/apim/4.4/using-the-product/managing-your-apis-with-gravitee-api-management/api-exposure-plans-applications-and-subscriptions/plans.md). Gravitee supports configuring policies [through the Policy Studio](./) in the Management Console or interacting directly with the Management API.
 
 ## Phases
 

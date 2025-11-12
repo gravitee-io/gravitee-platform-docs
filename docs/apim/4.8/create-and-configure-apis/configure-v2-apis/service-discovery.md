@@ -10,7 +10,7 @@ This article describes how to configure service discovery using the HashiCorp Co
 
 ### Prerequisites
 
-* [Install Gravitee with `docker-compose`](../../self-hosted-installation-guides/docker/docker-compose.md)
+* [Install Gravitee with `docker-compose`](docs/apim/4.8/self-hosted-installation-guides/docker/docker-compose.md)
 
 ### 1. Install a HashiCorp Consul server
 

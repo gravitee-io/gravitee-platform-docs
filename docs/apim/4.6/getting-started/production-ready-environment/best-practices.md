@@ -69,7 +69,7 @@ Monitoring the health and performance of Gravitee APIM Gateways and Management A
 
 **Gateway Internal API Endpoints**
 
-The[ Gateway internal API](../../gravitee-gateway/internal-api.md) and [Management API Internal API](../../management-api/internal-api.md) provide a set of RESTful endpoints that enable administrators to retrieve vital information about the node status, configuration, health, and monitoring data.
+The[ Gateway internal API](docs/apim/4.6/gravitee-gateway/internal-api.md) and [Management API Internal API](docs/apim/4.6/management-api/internal-api.md) provide a set of RESTful endpoints that enable administrators to retrieve vital information about the node status, configuration, health, and monitoring data.
 
 **Mock Policy for Active Health Checks**
 
@@ -77,7 +77,7 @@ Utilizing an API with a Mock policy enables administrators to perform active hea
 
 **Prometheus Metrics**
 
-[Integration with Prometheus](../../gravitee-gateway/logging.md#expose-metrics-to-prometheus) allows administrators to expose and collect metrics related to Gravitee APIM Gateways, including Vert.x 4 metrics. By accessing the `/_node/metrics/prometheus` endpoint on the internal API, administrators can retrieve detailed metrics with customizable labels, enabling them to monitor system performance and identify trends over time.
+[Integration with Prometheus](docs/apim/4.6/gravitee-gateway/logging.md#expose-metrics-to-prometheus) allows administrators to expose and collect metrics related to Gravitee APIM Gateways, including Vert.x 4 metrics. By accessing the `/_node/metrics/prometheus` endpoint on the internal API, administrators can retrieve detailed metrics with customizable labels, enabling them to monitor system performance and identify trends over time.
 
 **OpenTracing with Jaeger**
 
@@ -102,7 +102,7 @@ Storage concerns reside at the analytics database level and depend on:
 * API rate (RPS: Requests Per Second)
 * API payload sizes
 
-To avoid generating excessive data and reducing Gateway capacity, refrain from [activating the advanced logs](../../gravitee-gateway/logging.md#modify-logging-information) on all API requests and responses.
+To avoid generating excessive data and reducing Gateway capacity, refrain from [activating the advanced logs](docs/apim/4.6/gravitee-gateway/logging.md#modify-logging-information) on all API requests and responses.
 
 For example, if you have activated the advanced logs on requests and responses with an average (requests + responses) payload size of 10kB and at 10 RPS, then retaining the logs for 6 months will require 1.5 TB of storage.
 {% endtab %}
@@ -205,22 +205,22 @@ Some good practices to establish:
 * Assign permissions to a group instead of each user individually.
 * Automatically associate a group with each new API or application to facilitate permission management.
 
-You can find detail on roles, groups, and permissions in the [Gravitee documentation](https://documentation.gravitee.io/apim/guides/administration/user-management-and-permissions).
+You can find detail on roles, groups, and permissions in the [Gravitee documentation](/apim/guides/administration/user-management-and-permissions).
 
 ## API review & quality
 
 You can **enable API review and quality** to avoid public exposure to the Developer Portal that is unexpected and lacks strong security requirements, or if you want a member of a Quality team to review API designs prior to deploying the API and making it accessible to API consumers. This can seamlessly establish a robust API strategy.
 
-You can find more information about API review and quality in the [Gravitee documentation](https://documentation.gravitee.io/apim/guides/api-measurement-tracking-and-analytics/using-the-api-quality-feature).
+You can find more information about API review and quality in the [Gravitee documentation](/apim/guides/api-measurement-tracking-and-analytics/using-the-api-quality-feature).
 
 ## API design
 
 There is no "rule of thumb" when it comes to designing and exposing your APIs, as this always depends on the business requirements. However, consider the following to avoid mistakes and open unexpected security breaches:
 
-* Enable and configure CORS at the API level. This ensures the best level of security when APIs are consumed by browser-based applications. See [details here](https://documentation.gravitee.io/apim/guides/api-configuration/v2-api-configuration/configure-cors#configure-cors).
+* Enable and configure CORS at the API level. This ensures the best level of security when APIs are consumed by browser-based applications. See [details here](/apim/guides/api-configuration/v2-api-configuration/configure-cors#configure-cors).
 * Avoid exposing an API without security (i.e., using a keyless plan) when possible. Always prefer stronger security solutions such as JWT or OAuth2.
 * Disable auto-validation of API subscriptions. Instead, manually validate each subscription to ensure that you are familiar with your API consumers.
 * Require the API consumer to enter a comment when subscribing to an API. This is a simple way to understand the motivation for a subscription and helps detect malicious attempts to access an API.
 * Regularly review subscriptions and revoke those that are no longer used.
 
-More information on how to manage API subscriptions is detailed in the [Gravitee documentation](https://documentation.gravitee.io/apim/guides/api-exposure-plans-applications-and-subscriptions/subscriptions).
+More information on how to manage API subscriptions is detailed in the [Gravitee documentation](/apim/guides/api-exposure-plans-applications-and-subscriptions/subscriptions).

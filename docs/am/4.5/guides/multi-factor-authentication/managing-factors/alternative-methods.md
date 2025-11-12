@@ -5,7 +5,7 @@
 If your users are unable to sign in to their account with their primary MFA factor, they can use an alternative verification method to recover access.
 
 {% hint style="info" %}
-To add an alternative verification method, your applications can use the [Self-service account management API.](../../user-management/self-service-account-management.md)
+To add an alternative verification method, your applications can use the [Self-service account management API.](docs/am/4.5/guides/user-management/self-service-account-management.md)
 {% endhint %}
 
 ## Sign in another way

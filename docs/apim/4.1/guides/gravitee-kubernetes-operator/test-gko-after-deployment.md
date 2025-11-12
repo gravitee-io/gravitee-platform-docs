@@ -10,9 +10,9 @@ This section describes how to test Gravitee Kubernetes Operator (GKO) functional
 
 ## Prerequisites
 
-* Ensure that the GKO has been successfully [deployed](../../getting-started/install-guides/install-on-kubernetes/install-gravitee-kubernetes-operator.md) on your Kubernetes cluster.
+* Ensure that the GKO has been successfully [deployed](docs/apim/4.1/getting-started/install-guides/install-on-kubernetes/install-gravitee-kubernetes-operator.md) on your Kubernetes cluster.
 * Ensure that `services.sync.kubernetes` is set to `true`. This property is disabled by default, but must be enabled for the Gateway to communicate with a Kubernetes Operator. How the Gateway is deployed determines how the property is configured:
-  * If your Gateway is deployed using a Helm Chart, you can enable the Kubernetes Operator option [through helm values](../../getting-started/install-guides/install-on-kubernetes/configure-helm-chart.md#gravitee-gateway).
+  * If your Gateway is deployed using a Helm Chart, you can enable the Kubernetes Operator option [through helm values](docs/apim/4.1/getting-started/install-guides/install-on-kubernetes/configure-helm-chart.md#gravitee-gateway).
   * For [other deployment strategies](../../getting-started/install-guides/) (e.g., deployment using a VM), you can update the configuration:
     * By setting an environment variable: `GRAVITEE_SERVICES_SYNC_KUBERNETES_ENABLED=true`
     * Directly in the [`gravitee.yml`](https://github.com/gravitee-io/gravitee-api-management/blob/master/gravitee-apim-gateway/gravitee-apim-gateway-standalone/gravitee-apim-gateway-standalone-distribution/src/main/resources/config/gravitee.yml#L264) file:

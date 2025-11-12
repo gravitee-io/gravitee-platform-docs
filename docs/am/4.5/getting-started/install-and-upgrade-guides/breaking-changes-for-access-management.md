@@ -95,11 +95,11 @@ If you use the environment variable to provide database settings, complete the f
 
 **MongoDB index names**
 
-The MongoDB indices are named using the first letters of the fields that compose the index. This change allows the automatic management of index creation on DocumentDB. This change requires the execution of a MongoDB script to delete, and then recreate AM indices. For more information about this change, see the [migration guide](https://documentation.gravitee.io/am/v/4.0/getting-started/install-and-upgrade-guides/upgrade-guide).
+The MongoDB indices are named using the first letters of the fields that compose the index. This change allows the automatic management of index creation on DocumentDB. This change requires the execution of a MongoDB script to delete, and then recreate AM indices. For more information about this change, see the [migration guide](/am/v/4.0/getting-started/install-and-upgrade-guides/upgrade-guide).
 
 **Enterprise Edition plugins**
 
-Some plugins are available to only Enterprise Edition and requires a license to use them. For more information about the Enterprise Edition plugins, see the [changelog](https://documentation.gravitee.io/am/v/4.0/releases-and-changelog/changelog/am-4.0.x)
+Some plugins are available to only Enterprise Edition and requires a license to use them. For more information about the Enterprise Edition plugins, see the [changelog](/am/v/4.0/releases-and-changelog/changelog/am-4.0.x)
 
 ## Breaking changes from 3.X
 

@@ -13,7 +13,7 @@ This section describes how to install the individual components from the Gravite
 * [Install APIM Console](#install-management-console)
 * [Install APIM Portal](#install-developer-portal)
 
-Alternatively, you can install the full APIM stack and dependencies as detailed on the [Install the Full APIM Stack](../install-the-full-apim-stack.md) page.
+Alternatively, you can install the full APIM stack and dependencies as detailed on the [Install the Full APIM Stack](docs/apim/4.1/getting-started/install-guides/install-on-red-hat-and-centos/install-the-full-apim-stack.md) page.
 
 ## Install APIM Gateway
 

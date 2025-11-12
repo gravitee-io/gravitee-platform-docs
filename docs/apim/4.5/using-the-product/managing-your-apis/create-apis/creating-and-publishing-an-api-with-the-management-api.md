@@ -5,7 +5,7 @@
 {% hint style="warning" %}
 When you create an API with a JSON payload that has duplicate keys, APIM keeps the last key.&#x20;
 
-To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection.md](../policy-studio/policies-for-your-apis/i-k/json-threat-protection.md "mention").
+To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection.md](docs/apim/4.5/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/i-k/json-threat-protection.md "mention").
 {% endhint %}
 
 This guide uses the v4-Proxy API definition to create an HTTP Proxy API. The principles are the same for other types of APIs.
@@ -14,7 +14,7 @@ This example uses the Gravitee Echo API to set up an HTTP proxy API. The Gravite
 
 {% hint style="info" %}
 * If the `Enable API Review` option is enabled in your API Management settings, you need to use the "Ask for a review" and "Accept a review" requests to complete the API Review process.&#x20;
-* The `Enable API Review` option ensures that someone other than the API creator reviews and approves an API before the API creator publishes the API to a Gateway or the Developer Portal. For more information about the `Enable API Review`, see [using-the-api-quality-feature.md](../api-measurement-tracking-and-analytics/using-the-api-quality-feature.md "mention").
+* The `Enable API Review` option ensures that someone other than the API creator reviews and approves an API before the API creator publishes the API to a Gateway or the Developer Portal. For more information about the `Enable API Review`, see [using-the-api-quality-feature.md](docs/apim/4.5/using-the-product/managing-your-apis/api-measurement-tracking-and-analytics/using-the-api-quality-feature.md "mention").
 {% endhint %}
 
 To create, deploy, and publish your API to the Developer Portal, you must complete the following steps:

@@ -29,7 +29,7 @@ reporters:
 This page documents the available reporters and the metrics and logs captured by each reporter, in a generic format. The configuration for each reporter and the format of the metrics in those reporting systems are covered in their own pages.
 
 {% hint style="warning" %}
-Configuration details for the Elasticsearch reporter are available in the [Elasticsearch Repository](../../prepare-a-production-environment/repositories/elasticsearch.md#elasticsearch) documentation.
+Configuration details for the Elasticsearch reporter are available in the [Elasticsearch Repository](docs/apim/4.9/prepare-a-production-environment/repositories/elasticsearch.md#elasticsearch) documentation.
 {% endhint %}
 
 ## Available Reporters
@@ -39,7 +39,7 @@ The following reporters are currently compatible with APIM:
 <table><thead><tr><th width="151">Type</th><th data-type="checkbox">Bundled in Distribution</th><th data-type="checkbox">Default</th><th data-type="checkbox">Enterprise only</th></tr></thead><tbody><tr><td>Elasticsearch</td><td>true</td><td>true</td><td>false</td></tr><tr><td>File</td><td>true</td><td>false</td><td>false</td></tr><tr><td>TCP</td><td>true</td><td>false</td><td>true</td></tr><tr><td>Datadog</td><td>false</td><td>false</td><td>true</td></tr></tbody></table>
 
 {% hint style="warning" %}
-To learn more about Gravitee [Enterprise Edition](../../readme/enterprise-edition.md) and what's included in various enterprise packages, please:
+To learn more about Gravitee [Enterprise Edition](docs/apim/4.9/readme/enterprise-edition.md) and what's included in various enterprise packages, please:
 
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)

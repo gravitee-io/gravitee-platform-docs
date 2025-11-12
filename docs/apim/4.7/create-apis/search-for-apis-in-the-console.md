@@ -2,7 +2,7 @@
 
 ## Overview
 
-The **APIs** page in the APIM Console displays all of the APIs that have been created or imported into Gravitee, along with specific columns like the API definition type, status, entrypoint path or hostname, ([sharding](../gravitee-gateway/sharding-tags.md)) tags, categories, owner, and visibility status.
+The **APIs** page in the APIM Console displays all of the APIs that have been created or imported into Gravitee, along with specific columns like the API definition type, status, entrypoint path or hostname, ([sharding](docs/apim/4.7/gravitee-gateway/sharding-tags.md)) tags, categories, owner, and visibility status.
 
 From this page you can complete the following actions:
 
@@ -40,9 +40,9 @@ Here are some examples of what you can enter into the search bar to filter the r
 * For an API that matches a given name and a given description: `name:"Butterfly*" & description:"This*"`
 * For any API that matches the name or the description: `name:"Butterfly*" description:"*REST*"`
 * For all v4 APIs: `definition_version:4.0.0`
-* For APIs that have either of the given [sharding tags](../gravitee-gateway/sharding-tags.md): `tags:china-internet tags:china`
+* For APIs that have either of the given [sharding tags](docs/apim/4.7/gravitee-gateway/sharding-tags.md): `tags:china-internet tags:china`
 * For an API name that contains one term but not another: `name:"*Allan*" NOT name:"*Test_"`
-* For any APIs that have [health checks](../configure-v4-apis/health-checks.md) configured:  `has_health_check:true`
+* For any APIs that have [health checks](docs/apim/4.7/configure-v4-apis/health-checks.md) configured:  `has_health_check:true`
 
 {% hint style="info" %}
 Gravitee uses [Apache Lucene](https://lucene.apache.org/core/2_9_4/queryparsersyntax.html) so you can create your own queries using its rich query language.

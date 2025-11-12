@@ -276,7 +276,7 @@ Monitoring the health and performance of Gravitee APIM Gateways and Management A
 
 **Gateway Internal API Endpoints**
 
-The[ Gateway internal API](../configure-and-manage-the-platform/gravitee-gateway/gateway-internal-api.md) and [Management API Internal API](../configure-and-manage-the-platform/management-api/mapi-internal-api.md) provide a set of RESTful endpoints that enable administrators to retrieve vital information about the node status, configuration, health, and monitoring data.
+The[ Gateway internal API](docs/apim/4.9/configure-and-manage-the-platform/gravitee-gateway/gateway-internal-api.md) and [Management API Internal API](docs/apim/4.9/configure-and-manage-the-platform/management-api/mapi-internal-api.md) provide a set of RESTful endpoints that enable administrators to retrieve vital information about the node status, configuration, health, and monitoring data.
 
 **Mock Policy for Active Health Checks**
 

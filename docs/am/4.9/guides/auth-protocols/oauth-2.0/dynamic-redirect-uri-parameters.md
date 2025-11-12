@@ -24,7 +24,7 @@ To use dynamic redirect URIs with query parameters, complete the following steps
 1. Navigate to the **Domain** section in the Gravitee AM Console.
 2. Go to **Application** settings.
 3. In the **Settings** tab, navigate the **Redirect URI** field.
-4. Specify the `redirect_uris` with query parameters, embedding values using Gravitee Expression Language. For more information about available EL objects and their usage, refer to [am-expression-language.md](../../am-expression-language.md "mention").
+4. Specify the `redirect_uris` with query parameters, embedding values using Gravitee Expression Language. For more information about available EL objects and their usage, refer to [am-expression-language.md](docs/am/4.9/guides/am-expression-language.md "mention").
 
 <figure><img src="../../../../4.8/.gitbook/assets/image (13) (1).png" alt=""><figcaption></figcaption></figure>
 

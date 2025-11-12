@@ -5,7 +5,7 @@
 You can bind some identity provider attributes to an AM _user profile_ with attribute mapping. Using this method, AM clients can receive additional attributes through your identity provider.
 
 {% hint style="info" %}
-We advise you to read [get user profile information](../../getting-started/tutorial-getting-started-with-am/get-user-profile-information.md) first.
+We advise you to read [get user profile information](docs/am/4.7/getting-started/tutorial-getting-started-with-am/get-user-profile-information.md) first.
 {% endhint %}
 
 User profile attributes can be retrieved either by calling the **UserInfo** endpoint or, if you specify an `openid` scope for your application, by parsing the claims in the `id_token`.
@@ -85,7 +85,7 @@ In addition, when it comes to fine-grained authorization management, it is consi
 
 The goal is to dynamically add scopes to the `access_token`, depending on the role associated with the user when authenticating.
 
-\{% hint style="info" %\} When the roles are updated via SCIM, the roles already applied via Role Mappers won’t be persisted as an assigned role. This ensures that it can be safely removed when the mapper rule does not match anymore. For more about SCIM, click [here](../auth-protocols/scim-2.0.md). \{% endhint %\}
+\{% hint style="info" %\} When the roles are updated via SCIM, the roles already applied via Role Mappers won’t be persisted as an assigned role. This ensures that it can be safely removed when the mapper rule does not match anymore. For more about SCIM, click [here](docs/am/4.7/guides/auth-protocols/scim-2.0.md). \{% endhint %\}
 
 ### Example
 

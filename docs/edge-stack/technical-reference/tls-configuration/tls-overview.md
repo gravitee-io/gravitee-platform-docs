@@ -28,14 +28,14 @@ If you set the `AMBASSADOR_FORCE_SECRET_VALIDATION` environment variable, the in
 
 ### `Host`
 
-A `Host` represents a domain in Ambassador Edge Stack and defines how the domain manages TLS. For more information on the Host resource, see [The Host CRD reference documentation](../using-custom-resources/the-host-resource.md).
+A `Host` represents a domain in Ambassador Edge Stack and defines how the domain manages TLS. For more information on the Host resource, see [The Host CRD reference documentation](docs/edge-stack/technical-reference/using-custom-resources/the-host-resource.md).
 
 **If no `Host`s are present**, Ambassador Edge Stack synthesizes a `Host` that terminates TLS using a self-signed TLS certificate, and redirects cleartext traffic to HTTPS. You will need to explicitly define `Host`s to change this behavior (for example, to use a different certificate or to route cleartext).
 
 {% hint style="info" %}
 The examples below do not define a `requestPolicy`; however, most real-world usage of Ambassador Edge Stack will require defining the `requestPolicy`.\
 \
-For more information, please refer to the [`Host` documentation](../using-custom-resources/the-host-resource.md).
+For more information, please refer to the [`Host` documentation](docs/edge-stack/technical-reference/using-custom-resources/the-host-resource.md).
 {% endhint %}
 
 #### Automatic TLS with ACME

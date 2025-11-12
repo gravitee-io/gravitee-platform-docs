@@ -4,7 +4,7 @@ noIndex: true
 
 # ExtAuth Protocol
 
-By design, the ExtAuth protocol used by the [AuthService](authentication-service.md) and by [External Filters](../filters/using-external-filters.md) is highly flexible. The authentication service is the first external service invoked on an incoming request (e.g., it runs before the rate limit filter). Because the logic of authentication is encapsulated in an external service, you can use this to support a wide variety of use cases. For example:
+By design, the ExtAuth protocol used by the [AuthService](authentication-service.md) and by [External Filters](docs/edge-stack/technical-reference/filters/using-external-filters.md) is highly flexible. The authentication service is the first external service invoked on an incoming request (e.g., it runs before the rate limit filter). Because the logic of authentication is encapsulated in an external service, you can use this to support a wide variety of use cases. For example:
 
 * Supporting traditional SSO authentication protocols, e.g., OAuth, OpenID Connect, etc.
 * Supporting HTTP basic authentication ([see a sample implementation](https://github.com/datawire/ambassador-auth-httpbasic)).

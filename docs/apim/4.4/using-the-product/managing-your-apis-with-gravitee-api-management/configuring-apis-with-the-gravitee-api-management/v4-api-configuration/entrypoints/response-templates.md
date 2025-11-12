@@ -23,7 +23,7 @@ Response template overrides are triggered by error keys, which are specific to p
 
 Prior to defining a response template, verify:
 
-* Which policies have been applied to the API. This can be viewed in the [API's plan](../../../api-exposure-plans-applications-and-subscriptions/plans.md).
+* Which policies have been applied to the API. This can be viewed in the [API's plan](docs/apim/4.4/using-the-product/managing-your-apis-with-gravitee-api-management/api-exposure-plans-applications-and-subscriptions/plans.md).
 * Which error keys can be overridden per policy associated with your API.&#x20;
 
 Below are the policy error keys that you can override by configuring response templates:

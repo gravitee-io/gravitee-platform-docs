@@ -731,10 +731,10 @@ Please do not install this version if you are using Access Management to authent
 
 ## Gravitee Access Management 4.4 - June 21, 2024
 
-For more in-depth information on what's new, please refer to the [Gravitee AM 4.4 release notes](../release-notes/am-4.4.md).
+For more in-depth information on what's new, please refer to the [Gravitee AM 4.4 release notes](docs/am/4.4/releases-and-changelog/release-notes/am-4.4.md).
 
 {% hint style="warning" %}
-The password policy at application level is deprecated for removal in AM 4.6.0. Please refer to the [release notes](../release-notes/am-4.4.md) for more details
+The password policy at application level is deprecated for removal in AM 4.6.0. Please refer to the [release notes](docs/am/4.4/releases-and-changelog/release-notes/am-4.4.md) for more details
 {% endhint %}
 
 <details>

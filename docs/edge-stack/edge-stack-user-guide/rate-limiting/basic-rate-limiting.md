@@ -126,7 +126,7 @@ There are 5 types of label specifiers in Ambassador Edge Stack:
       key: remote_address
     ```
 
-    Sets the label `remote_address=«IP address of the client»"`. The IP address of the client will be taken from the `X-Forwarded-For` header, to correctly manage situations with L7 proxies. This requires that Ambassador Edge Stack be correctly [configured to communicate](../service-routing-and-communication/configuring-ambassador-edge-stack-communications.md).
+    Sets the label `remote_address=«IP address of the client»"`. The IP address of the client will be taken from the `X-Forwarded-For` header, to correctly manage situations with L7 proxies. This requires that Ambassador Edge Stack be correctly [configured to communicate](docs/edge-stack/edge-stack-user-guide/service-routing-and-communication/configuring-ambassador-edge-stack-communications.md).
 
     The syntax of this label currently _requires_ `remote_address: {}`.
 4.  `request_headers`

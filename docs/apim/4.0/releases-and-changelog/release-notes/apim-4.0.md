@@ -12,7 +12,7 @@ If you are an existing Gravitee Enterprise customer upgrading to 4.x, please mak
 
 ## Introduction
 
-Gravitee 4.0 was released on July 20th, 2023, and introduced broadened support for asynchronous APIs, event brokers, and protocol mediation, especially as it pertains to what is surfaced in the API Management Console. For a pared-down version of what was released, please see the [changelog for Gravitee APIM 4.x](../changelog/apim-4.0.x.md). Otherwise, keep reading for a more in-depth exploration of everything that was released in APIM 4.0.
+Gravitee 4.0 was released on July 20th, 2023, and introduced broadened support for asynchronous APIs, event brokers, and protocol mediation, especially as it pertains to what is surfaced in the API Management Console. For a pared-down version of what was released, please see the [changelog for Gravitee APIM 4.x](docs/apim/4.0/releases-and-changelog/changelog/apim-4.0.x.md). Otherwise, keep reading for a more in-depth exploration of everything that was released in APIM 4.0.
 
 ## The new v4 API creation wizard
 
@@ -22,7 +22,7 @@ The new v4 API creation wizard enables you to use the Gravitee API Management Co
 
 The v4 API definition allows organizations to use Gravitee to secure, expose, and govern both their synchronous and asynchronous APIs. With the new creation wizard, you can use the Gravitee API Management Console to create APIs that expose Kafka, MQTT, RabbitMQ (if using AMQP 0-9-1 protocol), Solace, and Mock (simulated for testing purposes) backends as either REST, WebSocket, Webhook, or Server-sent events (SSE) APIs.
 
-For more information on how to use the new v4 API Creation wizard, please refer to the [v4 API Creation Wizard documentation.](../../guides/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md)
+For more information on how to use the new v4 API Creation wizard, please refer to the [v4 API Creation Wizard documentation.](docs/apim/4.0/guides/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md)
 
 ## The new v4 Policy Studio
 
@@ -30,7 +30,7 @@ We've released a brand new Policy Studio that enables you to design policy flows
 
 Policies designed using the new v4 API Policy Studio can be designed and enforced at the request, response, publish, and/or subscribe phases. They can also be enforced at the message level for use cases where message-based APIs and communication are employed.
 
-For more information on how to use the v4 Policy Studio, please refer to the [v4 Policy Studio documentation](../../guides/policy-studio/v4-api-policy-studio.md).
+For more information on how to use the v4 Policy Studio, please refer to the [v4 Policy Studio documentation](docs/apim/4.0/guides/policy-studio/v4-api-policy-studio.md).
 
 ### Existing v2 API Gravitee policies that now support v4 message APIs
 
@@ -60,9 +60,9 @@ For more information on policies, please refer to our [policy reference document
 
 We've also released two brand new policies that will support v4 message APIs:
 
-* [Cloud Events policy](../../reference/policy-reference/cloud-events.md): You can use the `cloud-events` policy to create a cloud-events `JSON` object from messages. The `datacontenttype` will be set accordingly to the message `Content-type` if any.
+* [Cloud Events policy](docs/apim/4.0/reference/policy-reference/cloud-events.md): You can use the `cloud-events` policy to create a cloud-events `JSON` object from messages. The `datacontenttype` will be set accordingly to the message `Content-type` if any.
 * Serialization and Deserialization policies:
-  * [Avro <> JSON](../../reference/policy-reference/avro-json.md): transform information between Avro and JSON format
+  * [Avro <> JSON](docs/apim/4.0/reference/policy-reference/avro-json.md): transform information between Avro and JSON format
 
 For more information on policies, please refer to our [policy reference documentation](../../reference/policy-reference/).
 
@@ -72,7 +72,7 @@ When designing policies and flows, you can now define Confluent Schema Registry 
 
 Serialization and deserialization will be validated against target schemas stored in specified schema registries. The schema ID can be obtained dynamically through a message header or attribute.
 
-For more information, please refer to our [Resources documentation](../../guides/api-configuration/resources.md).
+For more information, please refer to our [Resources documentation](docs/apim/4.0/guides/api-configuration/resources.md).
 
 ## Webhook subscription configuration in the Developer Portal
 
@@ -87,7 +87,7 @@ This will all be done while creating an application in the Gravitee Developer Po
 
 ## v2 Management API
 
-We've created a new version of the Gravitee API Management Management API (M-API). This new version of the Management API enables you to act on v4 APIs "as code" via the API. For more information on the v2 Management API, please refer to the [API reference documentation](../../reference/management-api-reference.md).
+We've created a new version of the Gravitee API Management Management API (M-API). This new version of the Management API enables you to act on v4 APIs "as code" via the API. For more information on the v2 Management API, please refer to the [API reference documentation](docs/apim/4.0/reference/management-api-reference.md).
 
 ## New Kubernetes Operator enhancements
 
@@ -103,7 +103,7 @@ For more information, please refer to our [Kubernetes Operator documentation](..
 
 Another major update to the Gravitee Kubernetes Operator is its ability to act as an ingress controller. Now, you can use Gravitee as an ingress controller as opposed to using a third-party ingress controller, such as nginx or Traffik. This will result in less complexity and maintenance across the entirety of your infrastructure.
 
-For more information please refer to our [Kubernetes Operator - Ingress Controller documentation](../../guides/gravitee-kubernetes-operator/gravitee-as-an-ingress-controller.md).
+For more information please refer to our [Kubernetes Operator - Ingress Controller documentation](docs/apim/4.0/guides/gravitee-kubernetes-operator/gravitee-as-an-ingress-controller.md).
 
 ## More new features
 

@@ -27,7 +27,7 @@ Under the **Members** tab, you can add users or groups as members of you applica
 <figure><img src="../../.gitbook/assets/00 groups added to applications 3.png" alt=""><figcaption></figcaption></figure>
 
 * Click **+ Add members** to add members to your application. You can search for users by name or email.&#x20;
-* Use the **Role** drop-down menu to select member roles, which grant specific permissions. For more information on roles, please refer to the [Roles](../../configure-and-manage-the-platform/manage-organizations-and-environments/user-management.md#roles) documentation.
+* Use the **Role** drop-down menu to select member roles, which grant specific permissions. For more information on roles, please refer to the [Roles](docs/apim/4.8/configure-and-manage-the-platform/manage-organizations-and-environments/user-management.md#roles) documentation.
 
 ### Groups
 

@@ -3,7 +3,7 @@
 This section explains how to install Gravitee API Management (APIM) on Red Hat Enterprise Linux, CentOS Linux, or Oracle Linux using the `yum` package manager.
 
 {% hint style="warning" %}
-RPM install is not supported on distributions with old versions of RPM, such as SLES 11 and CentOS 5 — in this case, you need to [install APIM with .zip](../installing-a-self-hosted-gravitee-api-management-platform/install-with-.zip.md) instead.
+RPM install is not supported on distributions with old versions of RPM, such as SLES 11 and CentOS 5 — in this case, you need to [install APIM with .zip](docs/apim/4.3/getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-with-.zip.md) instead.
 {% endhint %}
 
 ## Configure the package management system (`yum`)
@@ -58,7 +58,7 @@ You can choose to install the full APIM stack or install the components one by o
 For version 4.1.4 and above, you can upgrade and restart APIM to perform an `rpm` upgrade of APIM components.
 
 {% hint style="warning" %}
-Refer to the [changelog](../../../overview/changelog/apim-4.3.x.md) to follow potential breaking changes.
+Refer to the [changelog](docs/apim/4.3/overview/changelog/apim-4.3.x.md) to follow potential breaking changes.
 {% endhint %}
 
 The appropriate upgrade process depends on the type of installation:

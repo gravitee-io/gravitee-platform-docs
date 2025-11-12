@@ -25,4 +25,4 @@ Gravitee 4.3 captures audit logs for client authentications and MFA events so th
 * Wrong code
 * (Check for Brute Force event)
 
-To learn more, refer to the [Audit Trail](../../guides/audit-trail.md) documentation.
+To learn more, refer to the [Audit Trail](docs/am/4.3/guides/audit-trail.md) documentation.

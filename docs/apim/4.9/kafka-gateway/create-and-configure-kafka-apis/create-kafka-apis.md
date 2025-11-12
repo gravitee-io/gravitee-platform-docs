@@ -226,7 +226,7 @@ Only the **OAuth2 resource** and **Cache resource** fields are required. Modifyi
 
 ## Documentation
 
-See [Documentation](../../create-and-configure-apis/configure-v4-apis/documentation.md) to learn how to create documentation for a v4 API. You can add Markdown, OpenAPI, or AsyncAPI docs pages for v4 APIs.
+See [Documentation](docs/apim/4.9/create-and-configure-apis/configure-v4-apis/documentation.md) to learn how to create documentation for a v4 API. You can add Markdown, OpenAPI, or AsyncAPI docs pages for v4 APIs.
 
 ## Summary
 

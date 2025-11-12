@@ -18,7 +18,7 @@ To filter subscriptions, use the **API** and **API Key** search fields and/or th
 
 <figure><img src="../../../4.6/.gitbook/assets/1 app sub 2 (1).png" alt=""><figcaption></figcaption></figure>
 
-To create a new subscription, click **+ Create a subscription** and search for the API you'd like to subscribe to. Refer to the [subscription](../subscriptions.md) documentation for more information.
+To create a new subscription, click **+ Create a subscription** and search for the API you'd like to subscribe to. Refer to the [subscription](docs/apim/4.7/expose-apis/subscriptions.md) documentation for more information.
 
 ## Shared API Keys
 

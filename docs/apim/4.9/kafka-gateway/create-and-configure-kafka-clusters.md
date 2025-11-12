@@ -14,7 +14,7 @@ The Kafka UI is accessible from the APIM Console. It is the user interface from 
 Kafka Console is currently only available for self-hosted deployments and not compatible with next-gen cloud.
 {% endhint %}
 
-* You must have an Enterprise License with the apim-cluster feature. For more information about Gravitee Enterprise Edition, see [enterprise-edition.md](../readme/enterprise-edition.md "mention").
+* You must have an Enterprise License with the apim-cluster feature. For more information about Gravitee Enterprise Edition, see [enterprise-edition.md](docs/apim/4.9/readme/enterprise-edition.md "mention").
 
 ## Create a Kafka Cluster
 

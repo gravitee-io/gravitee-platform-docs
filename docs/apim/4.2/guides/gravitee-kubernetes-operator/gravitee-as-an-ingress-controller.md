@@ -30,7 +30,7 @@ The APIM components used to gather analytics and review our configuration will b
 
 ### Configure your deployment
 
-Next, use the [Gravitee Helm Chart](../../getting-started/install-and-upgrade-guides/install-on-kubernetes/apim-helm-install-and-configuration.md) to install the Gateway that will act as an Ingress runtime on your Kubernetes cluster. Below is the minimum set of properties that your Helm values should contain:
+Next, use the [Gravitee Helm Chart](docs/apim/4.2/getting-started/install-and-upgrade-guides/install-on-kubernetes/apim-helm-install-and-configuration.md) to install the Gateway that will act as an Ingress runtime on your Kubernetes cluster. Below is the minimum set of properties that your Helm values should contain:
 
 {% code title="values.yml" %}
 ```yaml
@@ -68,7 +68,7 @@ helm upgrade --install gravitee-ingress \
 
 ### Deploy the Gravitee Kubernetes Operator
 
-The Gravitee Kubernetes Operator that will act as our Ingress controller can also be installed using the Gravitee Helm Chart. You can find the operator Helm Chart documentation [here](../../getting-started/install-and-upgrade-guides/install-on-kubernetes/architecture-overview.md).
+The Gravitee Kubernetes Operator that will act as our Ingress controller can also be installed using the Gravitee Helm Chart. You can find the operator Helm Chart documentation [here](docs/apim/4.2/getting-started/install-and-upgrade-guides/install-on-kubernetes/architecture-overview.md).
 
 ```sh
 helm upgrade --install gravitee-gko \
@@ -292,7 +292,7 @@ The examples below will build on the previous example in the deployment section,
 
 A template is an API definition with the `gravitee.io/template` label set to `true`.
 
-This example below creates a template that defines a [`cache` policy](../../reference/policy-reference/cache.md):
+This example below creates a template that defines a [`cache` policy](docs/apim/4.2/reference/policy-reference/cache.md):
 
 {% code title="ingress-cache-template.yaml" %}
 ```yaml

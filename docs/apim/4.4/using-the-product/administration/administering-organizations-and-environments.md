@@ -50,7 +50,7 @@ Organization-wide CORS settings include:
 * **Max age:** How long the response from a preflight request can be cached by clients.
 
 {% hint style="info" %}
-CORS can also be configured at the API level. For more information, see the [v2 API](../managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v2-api-configuration/general-proxy-settings.md#configure-cors) and [v4 API ](../managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/entrypoints/cors.md)CORS documentation.
+CORS can also be configured at the API level. For more information, see the [v2 API](docs/apim/4.4/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v2-api-configuration/general-proxy-settings.md#configure-cors) and [v4 API ](docs/apim/4.4/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/entrypoints/cors.md)CORS documentation.
 {% endhint %}
 {% endtab %}
 
@@ -71,7 +71,7 @@ Organization-wide emailing settings include:
   * SSL Trust
 
 {% hint style="info" %}
-To learn more about notifications, refer to the [Notifications](../using-the-gravitee-api-management-components/apim-console/notifications.md) documentation.
+To learn more about notifications, refer to the [Notifications](docs/apim/4.4/using-the-product/using-the-gravitee-api-management-components/apim-console/notifications.md) documentation.
 {% endhint %}
 {% endtab %}
 {% endtabs %}

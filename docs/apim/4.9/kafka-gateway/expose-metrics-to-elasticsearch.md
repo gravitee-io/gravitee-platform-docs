@@ -19,7 +19,7 @@ Before you expose metrics to Elasticsearch, complete the following steps:
 * Elasticsearch version 8.x.
 * Define a policy to manage the lifecycle of time series data. For example: rollover, delete after X days. For more information, see [Index Lifecycle Management](https://www.elastic.co/docs/manage-data/lifecycle/index-lifecycle-management).
 * Obtain a Gravitee Enterprise license.
-* [Configure the Elasticsearch reporter](../prepare-a-production-environment/repositories/elasticsearch.md#api-gateway-configuration) for your Kafka Gateway.
+* [Configure the Elasticsearch reporter](docs/apim/4.9/prepare-a-production-environment/repositories/elasticsearch.md#api-gateway-configuration) for your Kafka Gateway.
 
 ## Enable metrics reporting for Kafka APIs
 

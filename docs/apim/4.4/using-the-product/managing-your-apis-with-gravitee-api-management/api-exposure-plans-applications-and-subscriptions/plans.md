@@ -44,13 +44,13 @@ To create a plan:
     * **Name:** Enter a name for your plan
     * **Description:** Enter a description of your plan
     * **Characteristics:** Define labels used to tag your plan
-    * **Page of General Conditions:** Select a published [Documentation](../configuring-apis-with-the-gravitee-api-management/v4-api-configuration/documentation.md) page whose terms must be accepted by the user to finalize the subscription process
+    * **Page of General Conditions:** Select a published [Documentation](docs/apim/4.4/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/documentation.md) page whose terms must be accepted by the user to finalize the subscription process
     * Toggle **Auto validate subscription** ON to accept all subscriptions to a plan without the API publisher's approval
     * Toggle **Consumer must provide a comment when subscribing to the plan** ON to require an explanation for the subscription request, with the option to leave a **Custom message to display to consumer**
-    * **Sharding tags:** Selectively deploy the plan to particular APIs using available [sharding tags](../../using-the-gravitee-api-management-components/general-configuration/sharding-tags.md)
-    * **Groups excluded:** Prevent specified [user groups](../../administration/user-management-and-permissions.md) from accessing your plan
+    * **Sharding tags:** Selectively deploy the plan to particular APIs using available [sharding tags](docs/apim/4.4/using-the-product/using-the-gravitee-api-management-components/general-configuration/sharding-tags.md)
+    * **Groups excluded:** Prevent specified [user groups](docs/apim/4.4/using-the-product/administration/user-management-and-permissions.md) from accessing your plan
 7. Click **Next**
-8.  Define the security configuration details appropriate to and required by your selected security type, e.g., OAuth2. See  [**OAuth2**,](../policy-studio/policies-for-you-apis/l-p/oauth2/) [**JWT**](../../most-common-use-cases/configure-jwt-security-with-apim.md), [**API Key**](../policy-studio/policies-for-you-apis/a-c/api-key.md), [**Keyless (public)**](../policy-studio/policies-for-you-apis/i-k/keyless.md), or [**Push plan**](plans.md#push) for more information.
+8.  Define the security configuration details appropriate to and required by your selected security type, e.g., OAuth2. See  [**OAuth2**,](../policy-studio/policies-for-you-apis/l-p/oauth2/) [**JWT**](docs/apim/4.4/using-the-product/most-common-use-cases/configure-jwt-security-with-apim.md), [**API Key**](docs/apim/4.4/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/a-c/api-key.md), [**Keyless (public)**](docs/apim/4.4/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/i-k/keyless.md), or [**Push plan**](plans.md#push) for more information.
 
     <figure><img src="../../../.gitbook/assets/plan_oauth2.png" alt=""><figcaption><p>OAuth2 configuration</p></figcaption></figure>
 9.  Select any plan restrictions:&#x20;
@@ -119,7 +119,7 @@ To close a plan, click on the 'x' icon:
 APIM automatically routes each API request to the correct plan. The plan selection workflow parses all published plans in the following order: **JWT**, **OAuth2**, **API Key**, **Keyless**.&#x20;
 
 {% hint style="warning" %}
-This workflow only applies to [v4 APIs and v2 APIs in emulation mode.](../../../overview/plugins-and-api-definitions-for-gravitee-api-management/gravitee-api-definitions-and-execution-engines/engine-comparisons.md#plan-selection)
+This workflow only applies to [v4 APIs and v2 APIs in emulation mode.](docs/apim/4.4/overview/plugins-and-api-definitions-for-gravitee-api-management/gravitee-api-definitions-and-execution-engines/engine-comparisons.md#plan-selection)
 {% endhint %}
 
 The parsing rules for each plan type are detailed below:
@@ -171,7 +171,7 @@ A Keyless plan does not require configuration other than general plan settings a
 
 Due to not requiring a subscription and the lack of a consumer identifier token, Keyless consumers are set as `unknown application` in the API analytics section.
 
-You can configure basic authentication for Keyless plans by associating a [Basic Authentication policy](../policy-studio/policies-for-you-apis/a-c/basic-authentication.md) that uses either an LDAP or inline resource.
+You can configure basic authentication for Keyless plans by associating a [Basic Authentication policy](docs/apim/4.4/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/a-c/basic-authentication.md) that uses either an LDAP or inline resource.
 
 </details>
 
@@ -268,7 +268,7 @@ The OAuth2 authentication type checks access token validity during request proce
 
 ## Configuration
 
-To configure an OAuth2 plan, you must first create an [OAuth2 client resource](../configuring-apis-with-the-gravitee-api-management/resources.md) that represents your OAuth 2.0 authorization server.
+To configure an OAuth2 plan, you must first create an [OAuth2 client resource](docs/apim/4.4/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/resources.md) that represents your OAuth 2.0 authorization server.
 
 Configuring an OAuth2 plan presents the following options:
 

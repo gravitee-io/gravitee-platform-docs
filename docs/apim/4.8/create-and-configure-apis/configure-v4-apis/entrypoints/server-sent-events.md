@@ -7,12 +7,12 @@ If you chose **SSE** as an entrypoint, you can modify the following configuratio
 1. Define the interval at which heartbeats are sent to the client. Intervals must be greater than or equal to 2000ms. Each heartbeat will be sent as an empty comment: `''`.
 2. Choose to allow or disallow sending message metadata to the client as SSE comments.
 3. Choose to allow or disallow sending message headers to the client as SSE comments.
-4. Use the drop-down menu to select a Quality of Service option. QoS compatibility is detailed [here](../quality-of-service.md).
+4. Use the drop-down menu to select a Quality of Service option. QoS compatibility is detailed [here](docs/apim/4.8/create-and-configure-apis/configure-v4-apis/quality-of-service.md).
 
 ## Advanced SSE plugin
 
 {% hint style="warning" %}
-**This feature requires Gravitee's** [**Enterprise Edition**](../../../readme/enterprise-edition.md)**.**
+**This feature requires Gravitee's** [**Enterprise Edition**](docs/apim/4.8/readme/enterprise-edition.md)**.**
 {% endhint %}
 
 This Advanced version of the SSE plugin adds enterprise features to the OSS version of the SSE entrypoint. Refer to the following sections for additional details.

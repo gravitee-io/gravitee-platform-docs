@@ -67,7 +67,7 @@ Examples:
 * Applying header or query parameter transformations
 * Applying rate limiting or quotas to avoid API flooding
 
-See [Custom Policies ](../../../using-the-product/using-the-gravitee-api-management-components/general-configuration/plans-and-policies/custom-policies.md)for how to create, use, and deploy a custom policy.
+See [Custom Policies ](docs/apim/4.4/using-the-product/using-the-gravitee-api-management-components/general-configuration/plans-and-policies/custom-policies.md)for how to create, use, and deploy a custom policy.
 
 </details>
 
@@ -110,7 +110,7 @@ A resource can be added to an API for its whole lifecycle. APIM includes three d
 * OAuth2 - Gravitee Access Management
 * OAuth2 - Generic Authorization Server
 
-See [Resources](../../../using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/resources.md) for more information.
+See [Resources](docs/apim/4.4/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/resources.md) for more information.
 
 </details>
 

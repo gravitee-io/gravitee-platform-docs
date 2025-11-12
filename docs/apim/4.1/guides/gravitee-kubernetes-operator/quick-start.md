@@ -6,7 +6,7 @@ This quick start guide is the fastest way to start working with the Gravitee Kub
 
 ## Deploy the GKO
 
-For full details on deployment, see the [GKO Install Guide](../../getting-started/install-guides/install-on-kubernetes/install-gravitee-kubernetes-operator.md).
+For full details on deployment, see the [GKO Install Guide](docs/apim/4.1/getting-started/install-guides/install-on-kubernetes/install-gravitee-kubernetes-operator.md).
 
 ### Prerequisites
 

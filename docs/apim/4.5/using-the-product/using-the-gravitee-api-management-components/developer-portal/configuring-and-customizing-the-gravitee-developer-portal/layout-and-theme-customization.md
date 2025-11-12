@@ -30,7 +30,7 @@ The access URL for each API in the Developer Portal is the default entrypoint fo
 {% hint style="info" %}
 &#x20;**Sharding Tags and Gateway Entrypoint Mappings**
 
-[Sharding Tags](../../general-configuration/sharding-tags.md) tags are used to help manage complex distributed architectures:
+[Sharding Tags](docs/apim/4.5/using-the-product/using-the-gravitee-api-management-components/general-configuration/sharding-tags.md) tags are used to help manage complex distributed architectures:
 
 * By assigning sharding tags to APIs and Gravitee Gateways, an API is deployed to a subset of the available Gateways.&#x20;
 * By mapping sharding tags to a Gateway’s entrypoint URL, the Developer Portal can intelligently display different entrypoints based on an API's sharding tags.
@@ -128,7 +128,7 @@ Administrators can customize the header and footer navigation of the Developer P
 * Link to an existing documentation page
 * Link to a category
 
-Each link is treated as a new documentation page. To learn about the features and functionality of Developer Portal documentation, see [Documentation](../publishing-and-managing-apis-with-the-gravitee-developer-portal/documentation.md).
+Each link is treated as a new documentation page. To learn about the features and functionality of Developer Portal documentation, see [Documentation](docs/apim/4.5/using-the-product/using-the-gravitee-api-management-components/developer-portal/publishing-and-managing-apis-with-the-gravitee-developer-portal/documentation.md).
 
 {% tabs %}
 {% tab title="System folders" %}
@@ -169,7 +169,7 @@ To view your new link, click **Save** and navigate to the Developer Portal:
 
 <figure><img src="../../../../.gitbook/assets/dev_portal_custom_link_example.png" alt=""><figcaption><p>Sample "Gravitee Homepage" custom link</p></figcaption></figure>
 
-Each custom link offers additional features such as translations and access control. See [Documentation](../publishing-and-managing-apis-with-the-gravitee-developer-portal/documentation.md) for more information.
+Each custom link offers additional features such as translations and access control. See [Documentation](docs/apim/4.5/using-the-product/using-the-gravitee-api-management-components/developer-portal/publishing-and-managing-apis-with-the-gravitee-developer-portal/documentation.md) for more information.
 {% endtab %}
 {% endtabs %}
 

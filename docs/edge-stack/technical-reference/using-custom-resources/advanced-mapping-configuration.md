@@ -145,7 +145,7 @@ There is a deprecated setting `use_websocket`; setting `use_websocket: true` is 
 
 For more information on the differences between dns types, see [the Envoy documentation for service discovery](https://www.envoyproxy.io/docs/envoy/latest/intro/arch_overview/upstream/service_discovery.html).
 
-> **Note:** When the [endpoint resolver](../ingress-and-load-balancing/service-discovery-and-resolvers.md#the-kubernetes-endpoint-resolver) is used in a `Mapping`, `dns_type` will be ignored in favor of the endpoint resolver's service discovery.
+> **Note:** When the [endpoint resolver](docs/edge-stack/technical-reference/ingress-and-load-balancing/service-discovery-and-resolvers.md#the-kubernetes-endpoint-resolver) is used in a `Mapping`, `dns_type` will be ignored in favor of the endpoint resolver's service discovery.
 
 ```yaml
 ---

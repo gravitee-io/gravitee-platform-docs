@@ -8,12 +8,12 @@ This feature work for only V4 APIs.
 
 You can configure secret managers to work with your APIs. You can use secrets to hide information in any field that supports Gravitee Expression Language. For more information about Gravitee Expression Language, see [Gravitee Expression Language](https://documentation.gravitee.io/apim/gravitee-expression-language).
 
-Secret provider plugins extend the operable range of secret managers to resolve secrets on startup and in APIs. For more information about secret provider plugins, see [Integrations](https://documentation.gravitee.io/apim/readme/integrations).
+Secret provider plugins extend the operable range of secret managers to resolve secrets on startup and in APIs. For more information about secret provider plugins, see [Integrations](/apim/readme/integrations).
 
 This article explains the syntax Gravitee uses to resolve secrets in v4 APIs and configure secret managers.
 
 {% hint style="info" %}
-To learn more about Gravitee [Enterprise Edition](https://documentation.gravitee.io/apim/readme/enterprise-edition) and what's included in various enterprise packages, please:
+To learn more about Gravitee [Enterprise Edition](/apim/readme/enterprise-edition) and what's included in various enterprise packages, please:
 
 * [Book a demo](https://documentation.gravitee.io/platform-overview/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
@@ -29,7 +29,7 @@ To learn more about Gravitee [Enterprise Edition](https://documentation.gravitee
 
 ### Prerequisites to enable this feature <a href="#prerequisites-to-enable-this-feature" id="prerequisites-to-enable-this-feature"></a>
 
-* Configure one of the following secret managers in your `gravitee.yml` file, Helm Chart, or using the equivalent environment variable: Kubernetes, Amazon Secret Manager, or Hashicorp Vault. For more information about these secret managers, see [Integrations](https://documentation.gravitee.io/apim/readme/integrations#secret-managers-integration).
+* Configure one of the following secret managers in your `gravitee.yml` file, Helm Chart, or using the equivalent environment variable: Kubernetes, Amazon Secret Manager, or Hashicorp Vault. For more information about these secret managers, see [Integrations](/apim/readme/integrations#secret-managers-integration).
 * Reference those secrets in your API definitions with a specialized syntax. For more information about referencing secrets in API definitions, see [reference-secrets-in-apis.md](reference-secrets-in-apis.md "mention").
 
 ## Configuration for each secret manager <a href="#per-manager-configuration" id="per-manager-configuration"></a>
@@ -38,7 +38,7 @@ A `secret provider` plugin must be either bundled or added to the plugin directo
 
 You can enable `secret-provider` plugins by configuring them in `gravitee.yml`. The configurations for each secret provider plugin are discussed in the following sections.
 
-The following examples are for `gravitee.yml`. For information about using these examples in Helm charts and with environment variables, see [reference-secrets-in-configurations.md](../configure-secrets/reference-secrets-in-configurations.md "mention").
+The following examples are for `gravitee.yml`. For information about using these examples in Helm charts and with environment variables, see [reference-secrets-in-configurations.md](docs/apim/4.9/prepare-a-production-environment/sensitive-data-management/configure-secrets/reference-secrets-in-configurations.md "mention").
 
 ### Kubernetes
 
@@ -296,7 +296,7 @@ Here are more options that can be used to configure your AWS secret manager:
 
 ### **Use configuration secrets to configure API secrets**
 
-If you want to hide sensitive information in a secret manager, you must secure credentials. You can use [secrets](../configure-secrets/reference-secrets-in-configurations.md) to hide credentials in `gravitee.yml`.
+If you want to hide sensitive information in a secret manager, you must secure credentials. You can use [secrets](docs/apim/4.9/prepare-a-production-environment/sensitive-data-management/configure-secrets/reference-secrets-in-configurations.md) to hide credentials in `gravitee.yml`.
 
 Here is an example with Kubernetes configured to HashiCorp Vault:
 

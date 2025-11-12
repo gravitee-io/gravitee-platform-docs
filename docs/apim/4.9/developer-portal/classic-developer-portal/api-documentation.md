@@ -276,4 +276,4 @@ From the **Access Control** tab:
 
 ## OpenAPI Viewer configuration
 
-When you use an OpenAPI spec as documentation, various configuration options are available. For more information on configuring the OpenAPI Viewer, see [#openapi-viewer-configuration](../../create-and-configure-apis/configure-v4-apis/documentation.md#openapi-viewer-configuration "mention").
+When you use an OpenAPI spec as documentation, various configuration options are available. For more information on configuring the OpenAPI Viewer, see [#openapi-viewer-configuration](docs/apim/4.9/create-and-configure-apis/configure-v4-apis/documentation.md#openapi-viewer-configuration "mention").

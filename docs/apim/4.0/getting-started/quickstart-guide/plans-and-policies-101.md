@@ -34,7 +34,7 @@ In APIM, all APIs require at least one plan before they can be deployed on the G
 * OAuth 2.0
 * JWT
 
-APIM intelligently routes API consumers to plans [based on specific criteria](../../guides/api-exposure-plans-applications-and-subscriptions/plans.md#plan-selection) in the API request. APIM then uses an application-based subscription model to decide whether to accept or deny an incoming API request.&#x20;
+APIM intelligently routes API consumers to plans [based on specific criteria](docs/apim/4.0/guides/api-exposure-plans-applications-and-subscriptions/plans.md#plan-selection) in the API request. APIM then uses an application-based subscription model to decide whether to accept or deny an incoming API request.&#x20;
 
 <details>
 
@@ -129,7 +129,7 @@ We are purposefully keeping this flow very simple. However, the conditions that 
 
 * **Operator and path:** Use this to trigger a flow based on the path of the API request. The condition is evaluated for every request and the flow is only triggered if it evaluates to `true`.
 * **Methods:** Select the HTTP methods this flow applies to.
-* **Expression Language Condition:** Use [Gravitee's Expression Language (EL)](../../guides/gravitee-expression-language.md) to provide a custom condition. The condition is evaluated for every request and the flow is only triggered if it evaluates to `true`.
+* **Expression Language Condition:** Use [Gravitee's Expression Language (EL)](docs/apim/4.0/guides/gravitee-expression-language.md) to provide a custom condition. The condition is evaluated for every request and the flow is only triggered if it evaluates to `true`.
 
 </details>
 

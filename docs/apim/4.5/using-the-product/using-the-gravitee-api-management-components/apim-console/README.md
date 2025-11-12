@@ -373,4 +373,4 @@ For example:
 
 The api status page is a panel in the dashboard that displays the status of all APIs.
 
-The tab is enabled by default, but depending on the number of APIs, it may take a while to load. You can disable it in your Gateway settings. [Please refer to this documentation to learn more about dashboards.](../../managing-your-apis/api-measurement-tracking-and-analytics/create-a-dashboard.md)
+The tab is enabled by default, but depending on the number of APIs, it may take a while to load. You can disable it in your Gateway settings. [Please refer to this documentation to learn more about dashboards.](docs/apim/4.5/using-the-product/managing-your-apis/api-measurement-tracking-and-analytics/create-a-dashboard.md)

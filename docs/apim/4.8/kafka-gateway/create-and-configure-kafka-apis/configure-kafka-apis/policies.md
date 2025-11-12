@@ -46,7 +46,7 @@ Policies are added to flows to enforce security, reliability, and proper data tr
 
     <figure><img src="../../../../4.6/.gitbook/assets/A 11 policy 2 (1).png" alt=""><figcaption></figcaption></figure>
 
-    Choose either the Kafka ACL or [Kafka Topic Mapping](../../../create-and-configure-apis/apply-policies/policy-reference/kafka-topic-mapping.md) policy. \\
+    Choose either the Kafka ACL or [Kafka Topic Mapping](docs/apim/4.8/create-and-configure-apis/apply-policies/policy-reference/kafka-topic-mapping.md) policy. \\
 
     <figure><img src="../../../../4.6/.gitbook/assets/A 11 policy 3 (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -57,7 +57,7 @@ Policies are added to flows to enforce security, reliability, and proper data tr
 
     <figure><img src="../../../../4.6/.gitbook/assets/A 11 policy 4 (1).png" alt=""><figcaption></figcaption></figure>
 
-    Select the [Kafka Quota](../../../create-and-configure-apis/apply-policies/policy-reference/kafka-quota.md) policy. \\
+    Select the [Kafka Quota](docs/apim/4.8/create-and-configure-apis/apply-policies/policy-reference/kafka-quota.md) policy. \\
 
     <figure><img src="../../../../4.6/.gitbook/assets/A 11 policy 5 (1).png" alt=""><figcaption></figcaption></figure>
 

@@ -104,7 +104,7 @@ The following operators are supported :
 | lt       | less than                | If the attribute value is less than the operator value, there is a match. The actual comparison is dependent on the attribute type. For string attribute types, this is a lexicographical comparison, and for DateTime types, it is a chronological comparison.                |
 | le       | less than or equal to    | If the attribute value is less than or equal to the operator value, there is a match. The actual comparison is dependent on the attribute type. For string attribute types, this is a lexicographical comparison, and for DateTime types, it is a chronological comparison.    |
 
-The following examples give guidance on how to use this feature. All the attribute names are based on the user model provided by [AM API.](../../../reference/am-api-reference.md)
+The following examples give guidance on how to use this feature. All the attribute names are based on the user model provided by [AM API.](docs/am/4.7/reference/am-api-reference.md)
 
 ```
 List disabled users

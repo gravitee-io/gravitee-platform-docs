@@ -4,7 +4,7 @@ description: Gravitee Kubernetes Operator 4.7 Release Notes.
 
 # GKO 4.7
 
-The 4.7 release of the Gravitee Kubernetes Operator brings support for two new APIM resources: [Shared Policy Groups](https://documentation.gravitee.io/apim/policies/shared-policy-groups) and [User Groups](https://documentation.gravitee.io/apim/administration/user-management#users-and-user-groups). This not only increases the scope of what can now be managed as-code from your GitOps CI/CD pipeline, it also enables a new paradigm by which common API policies can be managed centrally by the platform team, with their own lifecycle, and easily applied to the many APIs that are created by different API development teams across your organization.
+The 4.7 release of the Gravitee Kubernetes Operator brings support for two new APIM resources: [Shared Policy Groups](/apim/policies/shared-policy-groups) and [User Groups](/apim/administration/user-management#users-and-user-groups). This not only increases the scope of what can now be managed as-code from your GitOps CI/CD pipeline, it also enables a new paradigm by which common API policies can be managed centrally by the platform team, with their own lifecycle, and easily applied to the many APIs that are created by different API development teams across your organization.
 
 ## Shared Policy Groups
 

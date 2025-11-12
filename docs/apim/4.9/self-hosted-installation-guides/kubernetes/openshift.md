@@ -374,7 +374,7 @@ gateway:
       readOnly: true
 ```
 
-For more information about HTTP proxy configuration, see [proxy.md](../../configure-and-manage-the-platform/gravitee-gateway/proxy.md "mention").
+For more information about HTTP proxy configuration, see [proxy.md](docs/apim/4.9/configure-and-manage-the-platform/gravitee-gateway/proxy.md "mention").
 
 **Example**
 

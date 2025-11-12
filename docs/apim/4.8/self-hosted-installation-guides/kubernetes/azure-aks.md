@@ -12,7 +12,7 @@ Before you install the Gravitee APIM, complete the following steps:
 * Install [helm](https://helm.sh/docs/intro/install/)
 * Install [kubectl](https://kubernetes.io/docs/tasks/tools/)
 * Have a valid [Azure subscription](https://azure.microsoft.com/en-us/pricing/purchase-options/azure-account)
-* (Optional) [License key](https://documentation.gravitee.io/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing) for Enterprise features
+* (Optional) [License key](/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing) for Enterprise features
 * (Optional) Register a domain name in Azure DNS or have access to DNS management
 
 {% hint style="warning" %}
@@ -394,7 +394,7 @@ To support management data, you can install PostgreSQL into your Kubernetes clus
 
 ### (Enterprise Edition Only) Create Secret&#x20;
 
-Before installing Gravitee APIM for [enterprise edition](https://documentation.gravitee.io/apim/readme/enterprise-edition), you need to create a Kubernetes secret for your license key.
+Before installing Gravitee APIM for [enterprise edition](/apim/readme/enterprise-edition), you need to create a Kubernetes secret for your license key.
 
 1.  Create the secret using the following command:
 
@@ -1010,5 +1010,5 @@ To validate the Gateway URL, complete the following steps:
 
 ## Next steps <a href="#next-steps" id="next-steps"></a>
 
-* Create your first API. For more information about creating your first API, see [Create & Publish Your First API](https://documentation.gravitee.io/apim/how-to-guides/create-and-publish-your-first-api).
-* Add native Kafka capabilities. For more information about adding native Kafka capabilities, see [Configure the Kafka Client & Gateway](https://documentation.gravitee.io/apim/kafka-gateway/configure-the-kafka-client-and-gateway).\
+* Create your first API. For more information about creating your first API, see [Create & Publish Your First API](/apim/how-to-guides/create-and-publish-your-first-api).
+* Add native Kafka capabilities. For more information about adding native Kafka capabilities, see [Configure the Kafka Client & Gateway](/apim/kafka-gateway/configure-the-kafka-client-and-gateway).\

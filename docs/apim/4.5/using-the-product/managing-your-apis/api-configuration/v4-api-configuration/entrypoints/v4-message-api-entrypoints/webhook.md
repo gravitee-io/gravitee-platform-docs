@@ -26,7 +26,7 @@ Use the drop-down menu to select a proxy option: **No proxy**, **Use proxy confi
 
 ### **Quality of service**
 
-Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](../../quality-of-service.md).
+Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](docs/apim/4.5/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/quality-of-service.md).
 
 ### **Dead Letter Queue**
 

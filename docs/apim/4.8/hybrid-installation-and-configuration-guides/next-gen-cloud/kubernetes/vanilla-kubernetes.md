@@ -502,7 +502,7 @@ You can now create and deploy APIs to your Hybrid Gateway.
   2. From the Dashboard, navigate to the Environment where you created your Gateway.
   3. Click on **APIM Console** to open the user interface where you can create and manage your APIs.
 * Create your first API. For more information about creating your first API, see [create-and-publish-your-first-api](../../../how-to-guides/create-and-publish-your-first-api/ "mention").
-* Add native Kafka capabilities. For more information about adding native Kafka capabilities, see [configure-the-kafka-client-and-gateway.md](../../../kafka-gateway/configure-the-kafka-client-and-gateway.md "mention").
+* Add native Kafka capabilities. For more information about adding native Kafka capabilities, see [configure-the-kafka-client-and-gateway.md](docs/apim/4.8/kafka-gateway/configure-the-kafka-client-and-gateway.md "mention").
 
 {% hint style="warning" %}
 To access your Gravitee Gateway from outside of your Kubernetes cluster, you must implement a load balancer or ingress.

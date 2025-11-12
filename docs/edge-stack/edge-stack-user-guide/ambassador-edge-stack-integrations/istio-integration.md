@@ -351,7 +351,7 @@ By default, the Istio sidecar provides Prometheus metrics using `prometheus.io` 
 
 The Istio sidecar also supports [distributed tracing](https://istio.io/docs/tasks/observability/distributed-tracing/overview/) by default. To take advantage of this support, you need to:
 
-1. Install a tracing provider, for example [Zipkin](../service-monitoring/distributed-tracing-with-zipkin.md) into your cluster.
+1. Install a tracing provider, for example [Zipkin](docs/edge-stack/edge-stack-user-guide/service-monitoring/distributed-tracing-with-zipkin.md) into your cluster.
 2.  Add a `TracingService` to tell Ambassador Edge Stack to send tracing to your tracing provider, for example:
 
     ```yaml

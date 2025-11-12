@@ -5,7 +5,7 @@
 This article provides information about setting up APIM authentication in the APIM Console UI to use Microsoft Entra ID (formerly known as Azure AD) as an IDP.
 
 {% hint style="info" %}
-For documentation about securing your APIs with OAuth2 and Entra ID, see the documentation on the [JWT Plan](../../expose-apis/plans/jwt.md).
+For documentation about securing your APIs with OAuth2 and Entra ID, see the documentation on the [JWT Plan](docs/apim/4.7/expose-apis/plans/jwt.md).
 {% endhint %}
 
 ## Prerequisites

@@ -20,7 +20,7 @@ Your environment must meet the requirements below before you install any of the 
     $ java -version
     $ echo $JAVA_HOME
     ```
-* **MongoDB and Elasticsearch:** The default APIM Gateway distribution requires [MongoDB](../../configuration/repositories/mongodb.md) to poll the environment configuration and [Elasticsearch](../../configuration/repositories/elasticsearch.md) for reporting and analytics. Download [MongoDB](https://www.mongodb.com/try#production) and [Elasticsearch](https://www.elastic.co/downloads/elasticsearch).
+* **MongoDB and Elasticsearch:** The default APIM Gateway distribution requires [MongoDB](docs/apim/4.3/getting-started/configuration/repositories/mongodb.md) to poll the environment configuration and [Elasticsearch](docs/apim/4.3/getting-started/configuration/repositories/elasticsearch.md) for reporting and analytics. Download [MongoDB](https://www.mongodb.com/try#production) and [Elasticsearch](https://www.elastic.co/downloads/elasticsearch).
 *   **Download the binaries:** Download the binaries of the latest/preferred 4.x.x from the [Gravitee downloads page](https://gravitee.io/downloads/api-management). For example, to download `graviteeio-full-4.x.0.zip`:
 
     {% code overflow="wrap" %}
@@ -137,7 +137,7 @@ $ ./bin/gravitee
 By default, APIM API runs in the foreground, prints its logs to standard output (stdout), and can be stopped by pressing **Ctrl-C**.
 
 {% hint style="info" %}
-Both the Management API nodes run by default. You can configure APIM to run only one or the other, as described in the [Management API configuration](../../configuration/apim-management-api/general-configuration.md) section.
+Both the Management API nodes run by default. You can configure APIM to run only one or the other, as described in the [Management API configuration](docs/apim/4.3/getting-started/configuration/apim-management-api/general-configuration.md) section.
 {% endhint %}
 
 Once the Management API is running, you will see the log.

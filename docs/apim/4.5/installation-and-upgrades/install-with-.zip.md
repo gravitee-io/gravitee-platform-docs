@@ -99,7 +99,7 @@ $ ./bin/gravitee
 * Replace \[DESTINATION\_FOLDER] with the folder location from step 1.
 
 {% hint style="info" %}
-By default, both Management API nodes run at the same time. To configure APIM to run one node, see [General configuration](https://documentation.gravitee.io/apim/getting-started/configuration/apim-management-api/general-configuration).
+By default, both Management API nodes run at the same time. To configure APIM to run one node, see [General configuration](/apim/getting-started/configuration/apim-management-api/general-configuration).
 {% endhint %}
 
 3. To ensure that the Management API node is running correctly, send an API request using the following command:

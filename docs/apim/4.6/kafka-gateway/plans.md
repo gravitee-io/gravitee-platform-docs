@@ -4,10 +4,10 @@
 
 A **plan** provides a service and access layer on top of your API that specifies access limits, subscription validation modes, and other configurations to tailor it to an application. To expose your Kafka API to internal or external consumers, it must have at least one plan. Gravitee offers the following types of plans for Kafka APIs:
 
-* **Keyless.** For more information about the keyless plan, see [keyless.md](../expose-apis/plans/keyless.md "mention").
-* **API Key.** For more information about the API Key plan, see [api-key.md](../expose-apis/plans/api-key.md "mention").
-* **OAuth2.** For more information about the OAuth2 plan, see [oauth2.md](../expose-apis/plans/oauth2.md "mention").
-* **JWT.** For more information about the JWT plan, see [jwt.md](../expose-apis/plans/jwt.md "mention").
+* **Keyless.** For more information about the keyless plan, see [keyless.md](docs/apim/4.6/expose-apis/plans/keyless.md "mention").
+* **API Key.** For more information about the API Key plan, see [api-key.md](docs/apim/4.6/expose-apis/plans/api-key.md "mention").
+* **OAuth2.** For more information about the OAuth2 plan, see [oauth2.md](docs/apim/4.6/expose-apis/plans/oauth2.md "mention").
+* **JWT.** For more information about the JWT plan, see [jwt.md](docs/apim/4.6/expose-apis/plans/jwt.md "mention").
 
 {% hint style="info" %}
 mTLS plans are not yet supported for Kafka APIs.

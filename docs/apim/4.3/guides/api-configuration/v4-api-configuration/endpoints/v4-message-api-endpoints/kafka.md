@@ -92,7 +92,7 @@ Define the following:
 
 ### Common to subscribe and publish
 
-Properties can be accessed from a Kafka cluster programmatically using [Gravitee Expression Language](../../../../gravitee-expression-language.md) (EL). To extract message metadata with EL, use the syntax `{#message.metadata.[]}`, e.g., `{#message.metadata.key}`. Supported attributes are `key`, `topic`, `partition`, and `offset`.
+Properties can be accessed from a Kafka cluster programmatically using [Gravitee Expression Language](docs/apim/4.3/guides/gravitee-expression-language.md) (EL). To extract message metadata with EL, use the syntax `{#message.metadata.[]}`, e.g., `{#message.metadata.key}`. Supported attributes are `key`, `topic`, `partition`, and `offset`.
 
 ### Subscribe
 

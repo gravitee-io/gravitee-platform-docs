@@ -155,8 +155,8 @@ For Gravitee-hosted Gateways, the process differs from Self-hosted Gateways:
 
 Gateway tagging is handled in the Cloud UI deployment process. For API configuration in APIM, follow these specific steps from the APIM documentation:
 
-* [Create a tag in the APIM Console](https://documentation.gravitee.io/apim/configure-and-manage-the-platform/gravitee-gateway/sharding-tags#create-a-tag-in-the-apim-console)
-* [Add sharding tags to your APIs](https://documentation.gravitee.io/apim/configure-and-manage-the-platform/gravitee-gateway/sharding-tags#add-sharding-tags-to-your-apis)
+* [Create a tag in the APIM Console](/apim/configure-and-manage-the-platform/gravitee-gateway/sharding-tags#create-a-tag-in-the-apim-console)
+* [Add sharding tags to your APIs](/apim/configure-and-manage-the-platform/gravitee-gateway/sharding-tags#add-sharding-tags-to-your-apis)
 
 {% hint style="danger" %}
 **Note:** Skip any steps involving `gravitee.yml`, `values.yaml`, or environment variables. These are not applicable to Gravitee-hosted gateways.
@@ -166,7 +166,7 @@ Gateway tagging is handled in the Cloud UI deployment process. For API configura
 
 Gateway tenant configuration is handled in the Cloud UI deployment process. For API endpoint configuration in APIM:
 
-* [Configure tenants and API endpoints](https://documentation.gravitee.io/apim/configure-and-manage-the-platform/gravitee-gateway/tenants)
+* [Configure tenants and API endpoints](/apim/configure-and-manage-the-platform/gravitee-gateway/tenants)
 
 {% hint style="danger" %}
 **Note:** Skip any steps involving `gravitee.yml` configuration. Tenant tags are set through the Cloud UI for Gravitee-hosted gateways.

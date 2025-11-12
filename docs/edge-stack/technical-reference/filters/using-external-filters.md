@@ -4,9 +4,9 @@ noIndex: true
 
 # Using External Filters
 
-The `External` `Filter` calls out to an external service speaking the [`ext_authz` protocol](../plug-in-services/extauth-protocol.md), providing a highly flexible interface to plug in your own authentication, authorization, and filtering logic.
+The `External` `Filter` calls out to an external service speaking the [`ext_authz` protocol](docs/edge-stack/technical-reference/plug-in-services/extauth-protocol.md), providing a highly flexible interface to plug in your own authentication, authorization, and filtering logic.
 
-The `External` spec is identical to the [`AuthService` spec](../plug-in-services/authentication-service.md), with the following exceptions:
+The `External` spec is identical to the [`AuthService` spec](docs/edge-stack/technical-reference/plug-in-services/authentication-service.md), with the following exceptions:
 
 * In an `AuthService`, the `tls` field must be a string referring to a `TLSContext`. In an `External` `Filter`, it may only be a Boolean; referring to a `TLSContext` is not supported.
 * In an `AuthService`, the default value of the `add_linkerd_headers` field is based on the `ambassador` `Module`. In an `External` `Filter`, the default value is always `false`.

@@ -19,8 +19,8 @@ layout:
 A Gravitee API definition is a JSON representation of everything that the APIM Gateway needs to know for it to proxy, apply policies to, create plans for your APIs and their traffic. To execute Gateway APIs and policy flows, the Gateway relies on a runtime environment referred to as the execution engine.
 
 {% hint style="info" %}
-* The [v2 API Creation Wizard ](../../../using-the-product/managing-your-apis-with-gravitee-api-management/create-apis/the-api-creation-wizard/v2-api-creation-wizard.md)creates APIs compatible with the legacy execution engine. These can be augmented with flows designed in the [v2 Policy Studio](../../../using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/v2-api-policy-studio.md).
-* The [v4 API Creation Wizard](../../../using-the-product/managing-your-apis-with-gravitee-api-management/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md) creates v4 APIs compatible with the reactive execution engine. These can be augmented with flows designed in the [v4 Policy Studio](../../../using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/v4-api-policy-studio.md).
+* The [v2 API Creation Wizard ](docs/apim/4.4/using-the-product/managing-your-apis-with-gravitee-api-management/create-apis/the-api-creation-wizard/v2-api-creation-wizard.md)creates APIs compatible with the legacy execution engine. These can be augmented with flows designed in the [v2 Policy Studio](docs/apim/4.4/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/v2-api-policy-studio.md).
+* The [v4 API Creation Wizard](docs/apim/4.4/using-the-product/managing-your-apis-with-gravitee-api-management/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md) creates v4 APIs compatible with the reactive execution engine. These can be augmented with flows designed in the [v4 Policy Studio](docs/apim/4.4/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/v4-api-policy-studio.md).
 {% endhint %}
 
 {% hint style="warning" %}

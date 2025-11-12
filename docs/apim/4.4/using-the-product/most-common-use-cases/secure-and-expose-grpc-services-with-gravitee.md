@@ -57,7 +57,7 @@ Since a gRPC service is a little different from a REST service, there are some s
 Follow the steps below to expose a simple gRPC service with one API on the Gateway. This exercise creates a gRPC proxy on port 8082 of the Gateway to expose the gRPC service method `helloworld.Greeter.SayHello` running in the local container `grpcbackend-1`.
 
 1. Log in to your APIM Console
-2.  Create a new API using the [v4 API creation wizard](../managing-your-apis-with-gravitee-api-management/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md)&#x20;
+2.  Create a new API using the [v4 API creation wizard](docs/apim/4.4/using-the-product/managing-your-apis-with-gravitee-api-management/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md)&#x20;
 
     <div align="left">
 
@@ -129,7 +129,7 @@ Your gRPC service is now accessible through Gravitee and you can manage the whol
 The steps below use the virtual host feature to expose multiple gRPC services running in the same container with a single entrypoint.
 
 1. Log in to your APIM Console
-2.  Create a new API using the [v4 API creation wizard](../managing-your-apis-with-gravitee-api-management/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md)&#x20;
+2.  Create a new API using the [v4 API creation wizard](docs/apim/4.4/using-the-product/managing-your-apis-with-gravitee-api-management/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md)&#x20;
 
     <div align="left">
 
@@ -235,7 +235,7 @@ Every Gravitee API requires at least one plan, which provides a service and acce
 9.  Click on the API Key Plan, then select the **Subscriptions** tab&#x20;
 
     <figure><img src="../../.gitbook/assets/grpc subscriptions.png" alt=""><figcaption></figcaption></figure>
-10. Using an existing application, click **Create a subscription** using the API Key plan (this example uses a **Default application** , but you can [create your own](../managing-your-apis-with-gravitee-api-management/api-exposure-plans-applications-and-subscriptions/applications.md))&#x20;
+10. Using an existing application, click **Create a subscription** using the API Key plan (this example uses a **Default application** , but you can [create your own](docs/apim/4.4/using-the-product/managing-your-apis-with-gravitee-api-management/api-exposure-plans-applications-and-subscriptions/applications.md))&#x20;
 
     <figure><img src="../../.gitbook/assets/grpc default application.png" alt=""><figcaption></figcaption></figure>
 11. To retrieve the API Key, select the **Subscriptions** tab and scroll down to the bottom of the page&#x20;

@@ -6,7 +6,7 @@ AM comes with some pre-defined alerts to notify you of suspicious end-user activ
 
 To manage alerts:
 
-1. [Log in to AM Console](../../getting-started/tutorial-getting-started-with-am/login-to-am-console.md).
+1. [Log in to AM Console](docs/am/4.6/getting-started/tutorial-getting-started-with-am/login-to-am-console.md).
 2. Click **Settings > Alerts**.
 3. Switch on **Enable Alerts**.
 4. Enable the alerts you are interested in.

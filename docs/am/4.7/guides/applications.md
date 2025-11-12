@@ -41,7 +41,7 @@ After you have created the new application, you will be redirected to the applic
 
 ### Test the application
 
-The quickest way to test your newly created application is to request an OAuth2 access token, as described in [set up your first application](../getting-started/tutorial-getting-started-with-am/set-up-your-first-application.md). If you manage to retrieve an access token, your application is all set.
+The quickest way to test your newly created application is to request an OAuth2 access token, as described in [set up your first application](docs/am/4.7/getting-started/tutorial-getting-started-with-am/set-up-your-first-application.md). If you manage to retrieve an access token, your application is all set.
 
 ## Application identity providers
 

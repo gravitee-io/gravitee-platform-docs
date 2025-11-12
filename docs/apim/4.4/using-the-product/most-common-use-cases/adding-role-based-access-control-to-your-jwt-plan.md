@@ -6,7 +6,7 @@ This tutorial builds off of [Configure JWT Security with APIM](broken-reference)
 
 ## Overview
 
-Gravitee API Management (APIM) has a [Role-based Access Control policy](../managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/r-s/role-based-access-control-rbac.md) that can act as an additional security and access control measure. This allows fine-grained control over which applications can access which resources based on their assigned roles.
+Gravitee API Management (APIM) has a [Role-based Access Control policy](docs/apim/4.4/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/r-s/role-based-access-control-rbac.md) that can act as an additional security and access control measure. This allows fine-grained control over which applications can access which resources based on their assigned roles.
 
 Due to some community requests, this tutorial will serve as a short extension of the [Configure JWT Security with APIM](broken-reference) tutorial. This tutorial will show how to configure the Role-based Access Control (RBAC) policy on a JWT plan when using an IdP. Additionally, we will configure the policy to only be active on a sub-resource of our backend API server.
 
@@ -16,7 +16,7 @@ Currently, the RBAC policy can be applied to v2 APIs and v4 proxy APIs. It canno
 
 ## Prerequisites <a href="#prerequisites-3" id="prerequisites-3"></a>
 
-To participate in this tutorial, you must have an instance of APIM 4.0 or later up and running. You can check out our [extensive installation guides](https://documentation.gravitee.io/apim/\~/changes/Nu1TIz1HvhDYgoPV1Kak/getting-started/install-guides) to learn the different ways you can get started with Gravitee.
+To participate in this tutorial, you must have an instance of APIM 4.0 or later up and running. You can check out our [extensive installation guides](/apim//~/changes/Nu1TIz1HvhDYgoPV1Kak/getting-started/install-guides) to learn the different ways you can get started with Gravitee.
 
 Additionally, the following guide assumes you have already completed the [Configure JWT Security with APIM](broken-reference) tutorial, which is referred to here as the previous tutorial.
 

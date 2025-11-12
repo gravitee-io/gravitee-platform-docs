@@ -67,7 +67,7 @@ By default, the service account created for the Gateway does not have a cluster 
 * Your definitions must sit in the same namespace (e.g., `apim-example`)
 * The name of the context must match the reference in the API definition (e.g., the names of `ManagementContext` and `contextRef` above are both`apim-example-context`)
 
-Alternatively, you can configure the [Helm Chart](../../../getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-kubernetes/apim-helm-install-and-configuration.md) to use a custom role.
+Alternatively, you can configure the [Helm Chart](docs/apim/4.3/getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-kubernetes/apim-helm-install-and-configuration.md) to use a custom role.
 {% endhint %}
 
 ## Using an APIM export endpoint to create an API definition from an existing API

@@ -9,7 +9,7 @@ description: >-
 ## Overview
 
 {% hint style="warning" %}
-Multi-tenancy requires running APIM 4.2 and an [enterprise-enabled Gravitee Cockpit account](https://documentation.gravitee.io/platform-overview/gravitee-essentials/gravitee-offerings-ce-vs-ee#enterprise-version-of-gravitee-cockpit).&#x20;
+Multi-tenancy requires running APIM 4.2 and an [enterprise-enabled Gravitee Cockpit account](/platform-overview/gravitee-essentials/gravitee-offerings-ce-vs-ee#enterprise-version-of-gravitee-cockpit).&#x20;
 
 To learn more about Gravitee Enterprise and what's included in various enterprise packages, [book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/) or [check out the pricing page](https://www.gravitee.io/pricing).
 {% endhint %}
@@ -82,7 +82,7 @@ installation:
 3. Sign in to your enterprise version of Gravitee Cockpit and
    * Create one Organization
    * Create one Environment
-4.  Link your APIM installation to the Environment you created by following [these instructions](https://documentation.gravitee.io/gravitee-cloud/guides/register-installations). Your APIM installation will be identified as `MULTI-TENANT`, recognized by Cockpit as multi-tenant, and send templated Access Points to the connected Environment.
+4.  Link your APIM installation to the Environment you created by following [these instructions](/gravitee-cloud/guides/register-installations). Your APIM installation will be identified as `MULTI-TENANT`, recognized by Cockpit as multi-tenant, and send templated Access Points to the connected Environment.
 
     <figure><img src="../../.gitbook/assets/image (59).png" alt=""><figcaption><p>Installation details in Cockpit showing the installation as multi-tenant</p></figcaption></figure>
 5. Add a new Environment within the same Organization and connect it to the multi-tenant APIM installation

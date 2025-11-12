@@ -50,7 +50,7 @@ Organization-wide CORS settings include:
 * **Max age:** How long the response from a preflight request can be cached by clients.
 
 {% hint style="info" %}
-CORS can also be configured at the API level. For more information, see the [v2 API](../api-configuration/v2-api-configuration/general-proxy-settings.md#configure-cors) and [v4 API ](../api-configuration/v4-api-configuration/entrypoints/cors.md)CORS documentation.
+CORS can also be configured at the API level. For more information, see the [v2 API](docs/apim/4.3/guides/api-configuration/v2-api-configuration/general-proxy-settings.md#configure-cors) and [v4 API ](docs/apim/4.3/guides/api-configuration/v4-api-configuration/entrypoints/cors.md)CORS documentation.
 {% endhint %}
 {% endtab %}
 
@@ -71,7 +71,7 @@ Organization-wide emailing settings include:
   * SSL Trust
 
 {% hint style="info" %}
-To learn more about notifications, refer to the [Notifications](../../getting-started/configuration/notifications.md) documentation.
+To learn more about notifications, refer to the [Notifications](docs/apim/4.3/getting-started/configuration/notifications.md) documentation.
 {% endhint %}
 {% endtab %}
 {% endtabs %}
