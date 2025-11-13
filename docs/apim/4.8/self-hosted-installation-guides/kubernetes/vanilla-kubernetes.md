@@ -321,7 +321,7 @@ To support management data, you can install PostgreSQL into your Kubernetes clus
 
 ### (Enterprise Edition Only) Create Secret
 
-Before installing Gravitee APIM for [enterprise edition](https://documentation.gravitee.io/apim/readme/enterprise-edition), you need to create a Kubernetes secret for your license key.
+Before installing Gravitee APIM for [enterprise edition](../../readme/enterprise-edition.md), you need to create a Kubernetes secret for your license key.
 
 1.  Create the secret using the following command:
 
