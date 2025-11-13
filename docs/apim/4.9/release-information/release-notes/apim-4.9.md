@@ -64,14 +64,19 @@
   New Edge Stack Federation provider enables Edge Stack APIs to be discovered and governed from APIM. Once the Edge Stack integration is created, the agent can be run via Docker Compose or Helm.
 * **Kafka cluster management**\
   The APIM Console now allows users to create and manage Kafka clusters, configure cluster connection information, and manage user access and permissions.
-*   **Kafka Console**\\
+*   **Kafka Console**\
 
-    \{% hint style="warning" %\} This feature is available in private tech preview. Contact your account manager if you are interested. \{% endhint %\}
+
+    {% hint style="warning" %}
+    This feature is available in private tech preview. Contact your account manager if you are interested.&#x20;
+    {% endhint %}
 
     \
-    Introduces Gravitee Kafka Console, which integrates with APIM to provide a user interface with which to browse and manage core Kafka resources, such as topics, partitions, and consumer groups, and to produce and consume messages. Kafka Console is based on Kafbat UI and communicates with the APIM Management API through JWT-based authentication. This feature is available only for self-hosted deployments and not compatible with next-gen cloud.\* **Expose APIM as an MCP Server**\
-    The Gravitee MCP Server allows AI assistants and other MCP clients to manage APIM resources. For example, clients such as Cursor or Claude Code can list APIs, view API logs, and manage subscriptions and documentation. This feature enables natural-language workflows with permissions scoped by the service account.\* **Execution transparency analytics**\
-    Introduces execution transparency analytics that provide clear, actionable diagnostics when errors occur during API execution. This feature enables troubleshooting by exposing detailed information about the root cause of failures and warnings. Available for v4 APIs and v2 APIs running on the v4 execution engine.
+    Introduces Gravitee Kafka Console, which integrates with APIM to provide a user interface with which to browse and manage core Kafka resources, such as topics, partitions, and consumer groups, and to produce and consume messages. Kafka Console is based on Kafbat UI and communicates with the APIM Management API through JWT-based authentication. This feature is available only for self-hosted deployments and not compatible with next-gen cloud.
+* &#x20;**Expose APIM as an MCP Server**\
+  The Gravitee MCP Server allows AI assistants and other MCP clients to manage APIM resources. For example, clients such as Cursor or Claude Code can list APIs, view API logs, and manage subscriptions and documentation. This feature enables natural-language workflows with permissions scoped by the service account.
+* **Execution transparency analytics**\
+  Introduces execution transparency analytics that provide clear, actionable diagnostics when errors occur during API execution. This feature enables troubleshooting by exposing detailed information about the root cause of failures and warnings. Available for v4 APIs and v2 APIs running on the v4 execution engine.
 * **MongoDB index upgrades**\
   Introduces 11 new MongoDB indexes designed to improve query performance for large datasets.
 * **Expose Kafka analytics**\
