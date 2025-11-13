@@ -29,7 +29,7 @@ To learn more about Gravitee [Enterprise Edition](../../../readme/enterprise-edi
 
 ### Prerequisites to enable this feature <a href="#prerequisites-to-enable-this-feature" id="prerequisites-to-enable-this-feature"></a>
 
-* Configure one of the following secret managers in your `gravitee.yml` file, Helm Chart, or using the equivalent environment variable: Kubernetes, Amazon Secret Manager, or Hashicorp Vault. For more information about these secret managers, see [Integrations](https://documentation.gravitee.io/apim/readme/integrations#secret-managers-integration).
+* Configure one of the following secret managers in your `gravitee.yml` file, Helm Chart, or using the equivalent environment variable: Kubernetes, Amazon Secret Manager, or Hashicorp Vault. For more information about these secret managers, see [Integrations](../../../readme/integrations.md#secret-managers-integration).
 * Reference those secrets in your API definitions with a specialized syntax. For more information about referencing secrets in API definitions, see [reference-secrets-in-apis.md](reference-secrets-in-apis.md "mention").
 
 ## Configuration for each secret manager <a href="#per-manager-configuration" id="per-manager-configuration"></a>

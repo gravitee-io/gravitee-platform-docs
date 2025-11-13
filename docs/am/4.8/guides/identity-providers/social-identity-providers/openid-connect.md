@@ -31,7 +31,7 @@ Ensure you have the generated Client ID and Client Secret from the provider appl
 
 1. Give your identity provider a name.
 2. Enter the clientID and clientSecret of your application.
-3. Select the authentication method you want to use as defined in you provider application. To be able to use tls\_client\_auth, you have to provide the [certificates](https://documentation.gravitee.io/am/guides/certificates#certificate-for-mutual-tls-authentication) to Access Management and select this certificate into the dropdown list
+3. Select the authentication method you want to use as defined in you provider application. To be able to use tls\_client\_auth, you have to provide the [certificates](../../certificates/README.md#certificate-for-mutual-tls-authentication) to Access Management and select this certificate into the dropdown list
 4. Specify the provider endpoints to connect with. If the provider expose a discovery endpoint, you just have to specify the WellKnown endpoint, otherwise you will have to provide all the endpoints manually By default the profile is read using the user info endpoint but you can use the id\_token by enabling the option, if you do so you will have to specify the Public Key Resolver method.
 5. provide the scopes to get information you need. To be able to get user information, you should at least provide the scope `openid`
 6. Click **Create**.
@@ -53,4 +53,4 @@ Go to your provider application settings and add the **Redirect URI** provided b
 
 ### Test the connection <a href="#test-the-connection" id="test-the-connection"></a>
 
-Once you are done with the configuration, you can enable the identity provider in your [domain application](https://documentation.gravitee.io/am/guides/applications#application-identity-providers) and try to authenticate a user.
+Once you are done with the configuration, you can enable the identity provider in your [domain application](../../applications/README.md#application-identity-providers) and try to authenticate a user.
