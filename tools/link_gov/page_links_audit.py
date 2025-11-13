@@ -328,7 +328,7 @@ def _scan_page_links(pv_index: dict[str, set[str]]) -> list[Finding]:
                     continue
 
                 # External (non Gravitee docs) absolute links
-                if ABS_RE.match(url_raw) and not _is_absolute_root_docs(url_raw):
+                if ABS_RE.match(url_raw) and not _is_absolute_root_docs(url):
                     out.append(
                         Finding(
                             src.as_posix(),
@@ -344,8 +344,8 @@ def _scan_page_links(pv_index: dict[str, set[str]]) -> list[Finding]:
                     continue
 
                 # Absolute root into docs host?
-                if _is_absolute_root_docs(url_raw):
-                    split = _split_abs_root(url_raw)
+                if _is_absolute_root_docs(url):
+                    split = _split_abs_root(url)
                     if not split:
                         out.append(
                             Finding(
