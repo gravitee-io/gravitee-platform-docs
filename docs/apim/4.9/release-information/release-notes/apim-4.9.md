@@ -102,8 +102,12 @@
   Adds component-specific CSS tokens for layout and theme customization. This helps Portal administrators customize typography and UI elements consistently across the New Developer Portal.
 * **Secret renewal**\
   Users can set the `renewable` parameter to `true` to automatically renew a secret. Setting the `reloadOnChange` parameter to `true` reloads the API when there is a new secret value.
-*   **Terraform resources**
+*   **Terraform resources**\
 
-    \{% hint style="warning" %\} This feature is in tech preview. \{% endhint %\}
 
+    {% hint style="warning" %}
+    This feature is in tech preview.&#x20;
+    {% endhint %}
+
+    \
     The Gravitee Terraform provider now supports Application and Subscription resources.
