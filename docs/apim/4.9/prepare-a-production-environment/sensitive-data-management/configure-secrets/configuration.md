@@ -7,7 +7,7 @@ This section explains how to configure secret managers to reference secrets in G
 Secrets manager integrations are handled by `secret-provider` plugins. These plugins allow you to access 3rd-party secret managers to resolve secrets.
 
 {% hint style="info" %}
-To learn more about Gravitee [Enterprise Edition](https://documentation.gravitee.io/apim/readme/enterprise-edition) and what's included in various enterprise packages:
+To learn more about Gravitee [Enterprise Edition](../../../readme/enterprise-edition.md) and what's included in various enterprise packages:
 
 * [Book a demo](https://documentation.gravitee.io/platform-overview/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)

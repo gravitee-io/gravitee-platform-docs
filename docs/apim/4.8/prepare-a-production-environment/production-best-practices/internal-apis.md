@@ -2,7 +2,7 @@
 
 ## Overview
 
-APIM API and APIM Gateway include internal APIs that are enabled by default. These internal APIs permit the retrieval of monitoring and technical information pertaining to Gravitee components (more information [here](https://documentation.gravitee.io/apim/configure-and-manage-the-platform/management-api/mapi-internal-api)).
+APIM API and APIM Gateway include internal APIs that are enabled by default. These internal APIs permit the retrieval of monitoring and technical information pertaining to Gravitee components (more information [here](../../configure-and-manage-the-platform/management-api/mapi-internal-api.md)).
 
 ## Disabling internal APIs
 
