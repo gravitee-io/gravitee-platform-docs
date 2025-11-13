@@ -6,14 +6,14 @@
 This feature work for only V4 APIs.
 {% endhint %}
 
-You can configure secret managers to work with your APIs. You can use secrets to hide information in any field that supports Gravitee Expression Language. For more information about Gravitee Expression Language, see [Gravitee Expression Language](https://documentation.gravitee.io/apim/gravitee-expression-language).
+You can configure secret managers to work with your APIs. You can use secrets to hide information in any field that supports Gravitee Expression Language. For more information about Gravitee Expression Language, see [Gravitee Expression Language](../../../gravitee-expression-language.md).
 
-Secret provider plugins extend the operable range of secret managers to resolve secrets on startup and in APIs. For more information about secret provider plugins, see [Integrations](https://documentation.gravitee.io/apim/readme/integrations).
+Secret provider plugins extend the operable range of secret managers to resolve secrets on startup and in APIs. For more information about secret provider plugins, see [Integrations](../../../readme/integrations.md).
 
 This article explains the syntax Gravitee uses to resolve secrets in v4 APIs and configure secret managers.
 
 {% hint style="info" %}
-To learn more about Gravitee [Enterprise Edition](https://documentation.gravitee.io/apim/readme/enterprise-edition) and what's included in various enterprise packages, please:
+To learn more about Gravitee [Enterprise Edition](../../../readme/enterprise-edition.md) and what's included in various enterprise packages, please:
 
 * [Book a demo](https://documentation.gravitee.io/platform-overview/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
