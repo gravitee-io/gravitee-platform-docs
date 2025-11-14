@@ -653,7 +653,7 @@ services:
 {% endtab %}
 
 {% tab title="VM" %}
-[Installing Redis from redis.io](https://redis.io/docs/getting-started/installation/)
+[Installing Redis from redis.io](https://redis.io/docs/latest/get-started/)
 {% endtab %}
 {% endtabs %}
 
