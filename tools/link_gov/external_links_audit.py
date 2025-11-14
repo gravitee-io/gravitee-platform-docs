@@ -33,7 +33,7 @@ TO_EVAL_CSV = CACHE_DIR / "external_links.to_evaluate.csv"
 
 HEALTHY_CSV = CACHE_DIR / "external_links.healthy.csv"
 UNCERTAIN_CSV = CACHE_DIR / "external_links.uncertain.csv"
-
+UNCERTAIN_SUMMARY_CSV = CACHE_DIR / "external_links.uncertain_summary.csv"
 
 # ---- Typer option singletons (avoid Ruff B008 in defaults) ----
 
@@ -101,11 +101,37 @@ UNCERTAIN_OUT_OPT: Path = typer.Option(
     help="Output CSV for links that are not confidently healthy.",
 )
 
+UNCERTAIN_SUMMARY_SOURCE_OPT: Path = typer.Option(
+    UNCERTAIN_CSV,
+    "--source",
+    "-s",
+    help="Input external_links.uncertain.csv",
+)
+
+UNCERTAIN_SUMMARY_OUT_OPT: Path = typer.Option(
+    UNCERTAIN_SUMMARY_CSV,
+    "--out",
+    "-o",
+    help="Output CSV of summarized unique uncertain links.",
+)
+
 
 @dataclass
 class LinkCheckResult:
     status: int | None
     meaning: str
+
+
+@dataclass
+class UncertainSummaryEntry:
+    src: str
+    line: str
+    text: str
+    url: str
+    reason: str
+    status_meaning: str
+    http_status: str
+    count: int
 
 
 # ---------- Helpers ----------
@@ -154,6 +180,104 @@ def _summarize_counts(rows: list[dict]) -> None:
     for url, count in counter.most_common():
         typer.echo(f"{count:5d}  {url}")
     typer.echo("")  # blank line
+
+
+def _write_uncertain_summary_csv(path: Path, rows: list[UncertainSummaryEntry]) -> None:
+    """
+    Write the per-URL summary CSV for uncertain links.
+
+    Column order:
+      src, line, text, url, reason, status_meaning, http_status, count
+    """
+    path.parent.mkdir(parents=True, exist_ok=True)
+
+    fieldnames = [
+        "src",
+        "line",
+        "text",
+        "url",
+        "reason",
+        "status_meaning",
+        "http_status",
+        "count",
+    ]
+
+    with path.open("w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=fieldnames)
+        w.writeheader()
+        for r in rows:
+            w.writerow(
+                {
+                    "src": r.src,
+                    "line": r.line,
+                    "text": r.text,
+                    "url": r.url,
+                    "reason": r.reason,
+                    "status_meaning": r.status_meaning,
+                    "http_status": r.http_status,
+                    "count": r.count,
+                }
+            )
+
+
+def _summarize_uncertain_impl(source: Path, out: Path) -> None:
+    """
+    Summarize external_links.uncertain.csv into unique URL entries with counts.
+
+    - Groups by (url, reason, http_status, status_meaning)
+    - Keeps one example (src, line, text) for each unique URL
+    - Sorts by count (descending), then URL
+    """
+    if not source.exists():
+        typer.secho(f"Uncertain CSV not found, skipping summary: {source}", fg=typer.colors.YELLOW)
+        return
+
+    rows = _read_csv(source)
+    if not rows:
+        typer.secho("No rows found in uncertain CSV; skipping summary.", fg=typer.colors.YELLOW)
+        return
+
+    grouped: dict[tuple[str, str, str, str], dict[str, object]] = {}
+
+    for row in rows:
+        key = (
+            row.get("url", ""),
+            row.get("reason", ""),
+            str(row.get("http_status", "")),
+            row.get("status_meaning", ""),
+        )
+        if key not in grouped:
+            grouped[key] = {
+                "count": 0,
+                "src": row.get("src", ""),
+                "line": row.get("line", ""),
+                "text": row.get("text", ""),
+            }
+        grouped[key]["count"] = grouped[key]["count"] + 1  # explicit increment
+
+    summary_entries: list[UncertainSummaryEntry] = [
+        UncertainSummaryEntry(
+            src=str(v["src"]),
+            line=str(v["line"]),
+            text=str(v["text"]),
+            url=k[0],
+            reason=k[1],
+            status_meaning=k[3],
+            http_status=str(k[2]),
+            count=int(v["count"]),
+        )
+        for k, v in grouped.items()
+    ]
+
+    # Sort by occurrence (descending), then by URL for stability
+    summary_entries.sort(key=lambda e: (-e.count, e.url))
+
+    _write_uncertain_summary_csv(out, summary_entries)
+
+    typer.secho(
+        f"Wrote {len(summary_entries)} unique uncertain link entries → {out}",
+        fg=typer.colors.GREEN,
+    )
 
 
 # ---------- HTTP checking ----------
@@ -205,6 +329,18 @@ def _check_single_url(url: str, timeout: float) -> LinkCheckResult:
 
 
 # ---------- Commands ----------
+
+
+@app.command("summarize-uncertain")
+def summarize_uncertain(
+    source: Path = UNCERTAIN_SUMMARY_SOURCE_OPT,
+    out: Path = UNCERTAIN_SUMMARY_OUT_OPT,
+):
+    """
+    Summarize external_links.uncertain.csv into unique links with counts,
+    ordered by occurrence (descending).
+    """
+    _summarize_uncertain_impl(source, out)
 
 
 @app.command()
@@ -330,6 +466,10 @@ def check(
     )
     typer.echo(f"Healthy links:   {len(healthy_rows)} rows → {healthy_out.as_posix()}")
     typer.echo(f"Uncertain links: {len(uncertain_rows)} rows → {uncertain_out.as_posix()}")
+
+    # Also create a per-URL summary for uncertain links, for easier manual triage.
+    _summarize_uncertain_impl(uncertain_out, UNCERTAIN_SUMMARY_CSV)
+    typer.echo(f"Uncertain summary: {UNCERTAIN_SUMMARY_CSV.as_posix()}")
 
 
 if __name__ == "__main__":
