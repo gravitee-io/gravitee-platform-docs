@@ -1,5 +1,42 @@
 # APIM 4.9.x
  
+## Gravitee API Management 4.9.4 - November 14, 2025
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Management API**
+
+* Shared policy not being executed in debug mode [#10885](https://github.com/gravitee-io/issues/issues/10885)
+
+**Portal**
+
+* Documentation pages in new dev portal show misaligned content [#10947](https://github.com/gravitee-io/issues/issues/10947)
+
+**Other**
+
+* Developer portal links disappear post-upgrade to 4.9 [#10956](https://github.com/gravitee-io/issues/issues/10956)
+* AI Prompt Token Tracking Policy skipped with Non-Strict application/json Content-Type [#10964](https://github.com/gravitee-io/issues/issues/10964)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Management API**
+
+* User groups API now supports filtering by environmentId query parameter [#10788](https://github.com/gravitee-io/issues/issues/10788)
+
+**Other**
+
+* Allow Json validation policy to use a nullable field if provided in schema [#10828](https://github.com/gravitee-io/issues/issues/10828)
+* OpenTelemetry API gateway attribute values and trace linking [#10898](https://github.com/gravitee-io/issues/issues/10898)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.9.2 - October 24, 2025
 <details>
 
