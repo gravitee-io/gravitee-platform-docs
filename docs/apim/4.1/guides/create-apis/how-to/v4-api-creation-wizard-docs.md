@@ -103,7 +103,7 @@ If you choose **Webhook** as an entrypoint, you will be brought to a page where 
     * (Optional) Proxy password: enter your proxy password in the **Proxy password** text field.
 
 **SOCKS proxy**\
-[A SOCKS proxy](https://hailbytes.com/how-to-use-socks4-and-socks5-proxy-servers-for-anonymous-web-browsing/) is a type of proxy server that uses the SOCKS protocol to tunnel traffic through an intermediary server.
+A SOCKS proxy is a type of proxy server that uses the SOCKS protocol to tunnel traffic through an intermediary server.
 
 </details>
 

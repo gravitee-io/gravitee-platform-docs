@@ -31,7 +31,7 @@ In order to manage the interactions with the user devices, AM comes with a plugi
 
 ## Client Registration
 
-In order to provide a client configuration compatible with CIBA, the client has to register using the [Dynamic Client Registration](https://openid.net/specs/openid-connect-registration-1\_0.html) endpoint.
+In order to provide a client configuration compatible with CIBA, the client has to register using the [Dynamic Client Registration](https://openid.net/specs/openid-connect-registration-1_0.html) endpoint.
 
 For more information about the parameters related to CIBA, please see the [Registration and Discovery Metadata](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1\_0.html#registration) section of the specification.
 
