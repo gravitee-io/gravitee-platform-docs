@@ -6,6 +6,27 @@ description: >-
 
 # AM 4.7.x
 
+## Gravitee Access Management 4.7.21 - November 14, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Filter CLIENT_AUTHENTICATION success audit logs [#10954](https://github.com/gravitee-io/issues/issues/10954)
+
+**Management API**
+
+* Error creating identities in 4.7.X [#10940](https://github.com/gravitee-io/issues/issues/10940)
+
+
+
+
+
+</details>
+
+
 ## Gravitee Access Management 4.7.20 - November 7, 2025
 
 <details>
