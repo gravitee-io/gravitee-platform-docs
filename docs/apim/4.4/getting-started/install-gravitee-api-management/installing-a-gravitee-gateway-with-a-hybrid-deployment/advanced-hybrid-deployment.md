@@ -646,7 +646,7 @@ services:
 {% endtab %}
 
 {% tab title="VM" %}
-* To install Redis, go to[ redis.io](https://redis.io/docs/getting-started/installation/).
+* To install Redis, go to [redis.io](https://redis.io/docs/latest/get-started/).
 {% endtab %}
 {% endtabs %}
 
