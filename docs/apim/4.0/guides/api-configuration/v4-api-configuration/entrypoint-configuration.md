@@ -94,7 +94,7 @@ If you chose **Webhook** as an entrypoint, you will be brought to a page where y
       * SOCKS4
       * SOCKS5
 
-      A [**SOCKS proxy**](https://hailbytes.com/how-to-use-socks4-and-socks5-proxy-servers-for-anonymous-web-browsing/) is a type of proxy server that uses the SOCKS protocol to tunnel traffic through an intermediary server.
+      A **SOCKS proxy** is a type of proxy server that uses the SOCKS protocol to tunnel traffic through an intermediary server.
   * Choose whether to use the proxy configured at system level by toggling **Use system proxy** ON or OFF. If enabled, you will need to define:
     * Proxy host: Enter your proxy host in the **Proxy host** text field.
     * Proxy port: Enter your proxy port in the **Proxy port** text field.

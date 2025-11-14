@@ -120,7 +120,7 @@ If you chose **Webhook** as an entrypoint, you will be brought to a page where y
     * (Optional) Proxy username: enter your proxy username in the **Proxy username** text field.
     * (Optional) Proxy password: enter your proxy password in the **Proxy password** text field.
 
-A [**SOCKS proxy**](https://hailbytes.com/how-to-use-socks4-and-socks5-proxy-servers-for-anonymous-web-browsing/) is a type of proxy server that uses the SOCKS protocol to tunnel traffic through an intermediary server.
+A **SOCKS proxy** is a type of proxy server that uses the SOCKS protocol to tunnel traffic through an intermediary server.
 
 Also, when using Webhooks as an entrypoint, you can set up a dead letter queue for storing undelivered messages. When configuring DLQ with Webhook, you redirect all the messages that the Webhook rejects to another location, such as a Kafka topic. To learn more, please refer to he DLQ documentation.
 

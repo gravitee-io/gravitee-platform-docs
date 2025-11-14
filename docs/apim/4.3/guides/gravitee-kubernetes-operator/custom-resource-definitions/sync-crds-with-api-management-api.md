@@ -72,7 +72,7 @@ Alternatively, you can configure the [Helm Chart](../../../getting-started/insta
 
 ## Using an APIM export endpoint to create an API definition from an existing API
 
-The Management API feature provides an export endpoint in the [`openapi.json`](https://apim-3-20-x-api.team-apim.gravitee.dev/management/openapi.json) that allows you to export an API as an API Definition resource.
+The Management API feature provides an export endpoint in the `openapi.json` that allows you to export an API as an API Definition resource.
 
 This allows you to easily create an API Definition from a given environment by calling the endpoint and piping the result to a `kubectl` command. For example:
 
