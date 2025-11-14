@@ -8,7 +8,7 @@ After you have [set up your first application](set-up-your-first-application.md)
 For more information on OpenID Connect and OAuth2, see [Authorization in AM.](../../#authorization-in-am)
 {% endhint %}
 
-In this example, we will use the [Resource Owner Password Credentials flow](https://tools.ietf.org/html/rfc6749#section-1.3.3). You use it to obtain and verify user identities for your applications by issuing [ID Tokens](http://openid.net/specs/openid-connect-core-1\_0.html#IDToken) or calling the [UserInfo Endpoint](http://openid.net/specs/openid-connect-core-1\_0.html#UserInfo). The default flow is the [Authorization Code flow](https://tools.ietf.org/html/rfc6749#section-1.3.1) with a login page displayed to the end user.
+In this example, we will use the [Resource Owner Password Credentials flow](https://tools.ietf.org/html/rfc6749#section-1.3.3). You use it to obtain and verify user identities for your applications by issuing [ID Tokens](http://openid.net/specs/openid-connect-core-1_0.html#IDToken) or calling the [UserInfo Endpoint](http://openid.net/specs/openid-connect-core-1_0.html#UserInfo). The default flow is the [Authorization Code flow](https://tools.ietf.org/html/rfc6749#section-1.3.1) with a login page displayed to the end user.
 
 ## ID Token
 
@@ -75,7 +75,7 @@ Pragma: no-cache
 
 An ID Token can be decoded and verified using a 3rd-party JWT library that you can find on the [JWT.IO website](https://jwt.io/).
 
-ID Tokens must contain at least the following [required claims](http://openid.net/specs/openid-connect-core-1\_0.html#IDToken):
+ID Tokens must contain at least the following [required claims](http://openid.net/specs/openid-connect-core-1_0.html#IDToken):
 
 | Claim |                                                                                               |
 | ----- | --------------------------------------------------------------------------------------------- |
@@ -100,7 +100,7 @@ You can also use Gravitee API Management with the JWT Policy to verify and retri
 
 ## UserInfo Endpoint
 
-In addition to the claims in the ID Token, OpenID Connect defines a standard protected endpoint, the [UserInfo Endpoint](http://openid.net/specs/openid-connect-core-1\_0.html#UserInfo), that returns claims about the current user through the access token.
+In addition to the claims in the ID Token, OpenID Connect defines a standard protected endpoint, the [UserInfo Endpoint](http://openid.net/specs/openid-connect-core-1_0.html#UserInfo), that returns claims about the current user through the access token.
 
 {% code title="Request a token" overflow="wrap" %}
 ```sh

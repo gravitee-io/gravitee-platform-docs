@@ -124,7 +124,7 @@ For further information about OAuth2, view the [RFC page](https://tools.ietf.org
 
 OpenID Connect is an identity layer on top of the OAuth 2.0 protocol. It enables clients to verify the identity of the end user via an Authorization Server to authenticate and obtain basic profile information about the end user.
 
-For further information about OpenID Connect, view the [OpenID Connect specifications^](http://openid.net/specs/openid-connect-core-1\_0.html).
+For further information about OpenID Connect, view the [OpenID Connect specifications^](http://openid.net/specs/openid-connect-core-1_0.html).
 
 ### SAML 2.0
 
