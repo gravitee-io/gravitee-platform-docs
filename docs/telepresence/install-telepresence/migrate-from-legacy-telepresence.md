@@ -12,7 +12,7 @@ In practice, this mechanism, while simple in concept, had some challenges. Losin
 
 Telepresence 2 introduces a [new architecture](../technical-reference/architecture.md) built around "intercepts" that addresses these problems. With the new Telepresence, a sidecar proxy ("traffic agent") is injected onto the pod. The proxy then intercepts traffic intended for the Pod and routes it to the workstation/laptop. The advantage of this approach is that the service is running at all times, and no swapping is used. By using the proxy approach, we can also do personal intercepts, where rather than re-routing all traffic to the laptop/workstation, it only re-routes the traffic designated as belonging to that user, so that multiple developers can intercept the same service at the same time without disrupting normal operation or disrupting eacho.
 
-Please see the [Telepresence quick start](../) for an introduction to running intercepts and the [intercept reference doc](../technical-reference/intercepts/) for a deep dive into intercepts.
+Please see the [Telepresence quick start](../README.md) for an introduction to running intercepts and the [intercept reference doc](../technical-reference/intercepts/README.md) for a deep dive into intercepts.
 
 ## Using legacy Telepresence commands
 
