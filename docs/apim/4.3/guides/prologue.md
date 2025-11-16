@@ -17,5 +17,5 @@ The _guides_ section is here to dive into everything you need to know in order t
 Each guide will begin by detailing relevant, high-level concepts to the reader. From there, the reader can select any subpage in the sidebar to learn how to actually use the specific feature they're most interested in.
 
 {% hint style="success" %}
-Best of luck on your journey to grok APIM! If you feel we are missing any guides or find any existing guides, please let us know in the [community forum](../community-and-support/community/).
+Best of luck on your journey to grok APIM! If you feel we are missing any guides or find any existing guides, please let us know in the [community forum](../community-and-support/community/README.md).
 {% endhint %}

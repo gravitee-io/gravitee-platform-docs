@@ -59,7 +59,7 @@ v2 and v4 APIs support difference policies. The following table shows the differ
 
 ## Installation and deployment
 
-Each version of Gravitee API Management (APIM) includes a number of policies in the default distribution. [Gravitee Enterprise Edition policy plugins](../../../overview/gravitee-apim-enterprise-edition/#enterprise-plugins) are available for download [here](https://download.gravitee.io/).
+Each version of Gravitee API Management (APIM) includes a number of policies in the default distribution. [Gravitee Enterprise Edition policy plugins](../../../overview/gravitee-apim-enterprise-edition/README.md#enterprise-plugins) are available for download [here](https://download.gravitee.io/).
 
 To use a different version of the policy or add a custom policy, you can follow the deployment instructions below.
 
@@ -72,14 +72,14 @@ Please check the policy documentation to ensure the policy version you select is
 To deploy the plugin, follow these steps:
 
 1. Download the plugin archive (a `.zip` file) from [the plugins download page](https://download.gravitee.io/#graviteeio-apim/plugins/).
-2. Add the file into the Gateway and Management API `plugins` folders. The default location is ${GRAVITEE\_HOME/plugins} but this can be modified in [the `gravitee.yaml` file.](../../using-the-gravitee-api-management-components/general-configuration/#configure-the-plugins-repository) For most installations, the Gateway and Management API `plugins` folders are at `/gravitee/apim-gateway/plugins` and `/gravitee/apim-management-api/plugins`, respectively.
+2. Add the file into the Gateway and Management API `plugins` folders. The default location is ${GRAVITEE\_HOME/plugins} but this can be modified in [the `gravitee.yaml` file.](../../using-the-gravitee-api-management-components/general-configuration/README.md#configure-the-plugins-repository) For most installations, the Gateway and Management API `plugins` folders are at `/gravitee/apim-gateway/plugins` and `/gravitee/apim-management-api/plugins`, respectively.
 3. Restart your APIM nodes.
 
 </details>
 
 ## Configuration
 
-Policies can be added to flows that are assigned to an API or to a [plan](../preparing-apis-for-subscribers/plans/). Gravitee supports configuring policies [through the Policy Studio](./) in the Management Console or interacting directly with the Management API.
+Policies can be added to flows that are assigned to an API or to a [plan](../preparing-apis-for-subscribers/plans/README.md). Gravitee supports configuring policies [through the Policy Studio](README.md) in the Management Console or interacting directly with the Management API.
 
 ## Phases
 

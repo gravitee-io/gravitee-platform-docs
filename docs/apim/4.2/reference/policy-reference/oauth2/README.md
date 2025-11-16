@@ -19,11 +19,11 @@ $ curl -H "Authorization: Bearer |accessToken|" \
 
 Functional and implementation information for the `oauth2` policy is organized into the following sections:
 
-* [Examples](./#examples)
-* [Configuration](./#configuration)
-* [Compatibility Matrix](./#compatibility-matrix)
-* [Errors](./#errors)
-* [Changelogs](./#changelogs)
+* [Examples](README.md#examples)
+* [Configuration](README.md#configuration)
+* [Compatibility Matrix](README.md#compatibility-matrix)
+* [Errors](README.md#errors)
+* [Changelogs](README.md#changelogs)
 
 ## Examples
 
