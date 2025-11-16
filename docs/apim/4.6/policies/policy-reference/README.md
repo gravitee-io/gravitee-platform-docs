@@ -50,7 +50,7 @@ Policies marked with an asterisk require an Enterprise Edition license.
 * [Mock](../mock.md)
 * [mTLS](../mtls.md)
 * [OAS Validation](../oas-validation.md)\*
-* [OAuth2](../oauth2/)
+* [OAuth2](../oauth2/README.md)
 * [OpenID Connect UserInfo](../openid-connect-userinfo.md)
 * [Override HTTP Method](../override-http-method.md)
 * [Protobuf to JSON Transformation](../protobuf-to-json.md)\*

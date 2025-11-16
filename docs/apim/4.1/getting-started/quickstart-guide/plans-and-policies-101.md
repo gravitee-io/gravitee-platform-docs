@@ -7,7 +7,7 @@ description: Add layers of security and functionality to your backend resources
 {% hint style="warning" %}
 This is the second section of the Quickstart Guide.&#x20;
 
-* By this point, you should already have [created a Gateway API](gateway-apis-101-traditional-and-message-proxies/).&#x20;
+* By this point, you should already have [created a Gateway API](gateway-apis-101-traditional-and-message-proxies/README.md).&#x20;
 * Steps will be provided for both traditional proxy and message proxy Gateway APIs.
 {% endhint %}
 
@@ -89,7 +89,7 @@ The flow with the resource filtering policy does not apply to the JWT plan and A
 
 ## Add a policy
 
-Let's work through how to add a simple policy to modify the behavior of the Gateway API we created in the [first part of the Quickstart Guide](gateway-apis-101-traditional-and-message-proxies/).
+Let's work through how to add a simple policy to modify the behavior of the Gateway API we created in the [first part of the Quickstart Guide](gateway-apis-101-traditional-and-message-proxies/README.md).
 
 ### Access API
 

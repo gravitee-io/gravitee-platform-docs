@@ -93,7 +93,7 @@ For more details on trying out the GKO functionality after deployment, see [Call
 {% endhint %}
 
 {% hint style="success" %}
-Congratulations, the GKO is deployed! Visit our [GKO guide](./) to:
+Congratulations, the GKO is deployed! Visit our [GKO guide](README.md) to:
 
 * Learn how to use the GKO to define, deploy, and publish APIs to your API Portal and API Gateway
 * Manage CRDs

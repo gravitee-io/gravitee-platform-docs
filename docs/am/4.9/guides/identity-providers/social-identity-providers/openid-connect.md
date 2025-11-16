@@ -37,7 +37,7 @@ Ensure you have the generated Client ID and Client Secret from the provider appl
 6. Click **Create**.
 
 {% hint style="info" %}
-HTTP client settings apply whether or not HTTP/2 is enabled, but they may affect different request characteristics. In particular, the `HTTP Client max pool size` setting limits the number of concurrent connections, but allows a higher number of concurrent requests with multiplexed HTTP/2 connections. See also [Configure HTTP clients](../../../getting-started/configuration/configure-am-gateway/#configure-http-clients).
+HTTP client settings apply whether or not HTTP/2 is enabled, but they may affect different request characteristics. In particular, the `HTTP Client max pool size` setting limits the number of concurrent connections, but allows a higher number of concurrent requests with multiplexed HTTP/2 connections. See also [Configure HTTP clients](../../../getting-started/configuration/configure-am-gateway/README.md#configure-http-clients).
 {% endhint %}
 
 #### **Public Key Resolver**

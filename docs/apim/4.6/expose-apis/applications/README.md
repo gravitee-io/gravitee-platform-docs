@@ -11,7 +11,7 @@ To access Gravitee APIs, consumers must register an application and subscribe to
 The sections below describe how to use the APIM Console to create an application.
 
 {% hint style="info" %}
-Before a consumer can create an application, an admin must define the types of applications that API consumers are allowed to create. Refer to [this](./) documentation for more information.
+Before a consumer can create an application, an admin must define the types of applications that API consumers are allowed to create. Refer to [this](README.md) documentation for more information.
 {% endhint %}
 
 ## Create an application

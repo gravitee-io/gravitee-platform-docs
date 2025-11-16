@@ -36,7 +36,7 @@ $ docker run  \
 
 ### **Configure the container**
 
-If you want to override the default configuration and any properties included in the `gravitee.yml` file, you need to use environment variables. For more information, see the [Configuration](../configuration/) section.
+If you want to override the default configuration and any properties included in the `gravitee.yml` file, you need to use environment variables. For more information, see the [Configuration](../configuration/README.md) section.
 
 The following example changes the Hazelcast configuration file:
 

@@ -791,7 +791,7 @@ Please do not install this version if you are using Access Management to authent
 
 ## Gravitee Access Management 4.1.0 - September 28, 2023
 
-For more in-depth information on what's new, please refer to the [Gravitee AM 4.1 release notes](../release-notes/).
+For more in-depth information on what's new, please refer to the [Gravitee AM 4.1 release notes](../release-notes/README.md).
 
 <details>
 
