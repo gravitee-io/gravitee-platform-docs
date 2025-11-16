@@ -37,7 +37,7 @@ These RESTful APIs expose services to:
 * Manage users and user sessions
 * Manage the authorization flow for OAuth 2.0, OpenID Connect, UMA 2.0, and SCIM 2.0 protocols
 
-All exposed services are restricted by authentication and authorization rules. You can find more information in the [Auth Protocols](guides/auth-protocols/) section.
+All exposed services are restricted by authentication and authorization rules. You can find more information in the [Auth Protocols](guides/auth-protocols/README.md) section.
 
 ### AM Management Console
 

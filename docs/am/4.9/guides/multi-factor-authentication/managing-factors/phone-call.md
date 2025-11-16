@@ -13,7 +13,7 @@ If you enable a **Call** type factor for your application, the next time your us
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-mfa-call-challenge.png" alt=""><figcaption><p>Voice call MFA screen 2</p></figcaption></figure>
 
 {% hint style="info" %}
-You can change the look and feel of forms using [custom pages](../../branding/#custom-pages). The enrollment form must send the phone number using the `phone` parameter in E.164 notation.
+You can change the look and feel of forms using [custom pages](../../branding/README.md#custom-pages). The enrollment form must send the phone number using the `phone` parameter in E.164 notation.
 {% endhint %}
 
 #### Twilio phone factor enhancement

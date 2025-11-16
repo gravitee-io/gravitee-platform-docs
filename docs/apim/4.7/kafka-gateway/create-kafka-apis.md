@@ -2,10 +2,10 @@
 
 ## Overview
 
-Gravitee Kafka APIs apply Gravitee API Management (APIM) capabilities directly to the Kafka protocol. Kafka APIs are based on the Gravitee [v4 API definition](../create-apis/overview/#gravitee-v4-apis). A Gravitee API definition is a JSON representation of everything that the APIM Gateway needs to know for it to proxy, apply policies to, and to create plans for your Gravitee APIs and their transactions. You can create Kafka APIs through the API creation wizard UI, or via the [management API](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/ySqSVpDHfKA0fNml1fVO/).
+Gravitee Kafka APIs apply Gravitee API Management (APIM) capabilities directly to the Kafka protocol. Kafka APIs are based on the Gravitee [v4 API definition](../create-apis/overview/README.md#gravitee-v4-apis). A Gravitee API definition is a JSON representation of everything that the APIM Gateway needs to know for it to proxy, apply policies to, and to create plans for your Gravitee APIs and their transactions. You can create Kafka APIs through the API creation wizard UI, or via the [management API](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/ySqSVpDHfKA0fNml1fVO/).
 
 {% hint style="info" %}
-API consumers call or subscribe to Gateway APIs to retrieve data or functionality exposed by backend services. Gravitee defines three different types of Gateway APIs: proxy APIs, message APIs, and native APIs. These are differentiated by whether they proxy REST or event-driven APIs, and whether the Gravitee Gateway performs [protocol mediation](../create-apis/overview/#protocol-mediation) or proxies the native protocol.
+API consumers call or subscribe to Gateway APIs to retrieve data or functionality exposed by backend services. Gravitee defines three different types of Gateway APIs: proxy APIs, message APIs, and native APIs. These are differentiated by whether they proxy REST or event-driven APIs, and whether the Gravitee Gateway performs [protocol mediation](../create-apis/overview/README.md#protocol-mediation) or proxies the native protocol.
 {% endhint %}
 
 ## The creation wizard
@@ -98,7 +98,7 @@ The Gravitee plans supported by Kafka APIs are summarized below, in increasing o
 <table><thead><tr><th width="201">Plan</th><th>Description</th></tr></thead><tbody><tr><td>Keyless (public)</td><td>When configured, this plan does not add security. It is considered an "open" plan.</td></tr><tr><td>API Key</td><td>The gateway only accepts connections from clients that pass an API key corresponding to a valid subscription to the proxy in the client properties. The API key is used as the password, and the md5 hash of the API key is used as the username, as part of the SASL/SSL with SASL PLAIN authentication method.</td></tr><tr><td>JWT</td><td>The gateway only accepts connections from clients that pass a valid JWT with a client ID claim corresponding to a valid subscription to the proxy in the client properties. This is equivalent to SASL/SSL with SASL OAUTHBEARER authentication, where the JWT is used as the OAuth token.</td></tr><tr><td>OAuth2</td><td>The gateway only accepts connections from clients that pass a valid OAuth token with a client ID corresponding to a valid subscription to the proxy in the client properties. This is equivalent to SASL/SSL with SASL OAUTHBEARER authentication.</td></tr></tbody></table>
 
 {% hint style="info" %}
-To learn more about how plans function in Gravitee, refer to the [plans](../expose-apis/plans/) documentation. mTLS plans are not yet supported for Kafka APIs.
+To learn more about how plans function in Gravitee, refer to the [plans](../expose-apis/plans/README.md) documentation. mTLS plans are not yet supported for Kafka APIs.
 {% endhint %}
 
 Individual plan configurations as they pertain to Kafka APIs are described in detail below.

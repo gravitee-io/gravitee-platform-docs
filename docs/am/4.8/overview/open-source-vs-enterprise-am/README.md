@@ -90,7 +90,7 @@ An investment in Gravitee EE is an investment in deployment flexibility, and, op
 * **Gravitee-managed deployments**: Gravitee hosts and manages all AM components within its own cloud environment.
 * **Hybrid deployment**: Gravitee hosts and manages some AM components within its cloud environment while you manage others within your private cloud/environment.
 
-For more information on each, please refer to our [AM Architecture documentation](../am-architecture/).
+For more information on each, please refer to our [AM Architecture documentation](../am-architecture/README.md).
 
 ## Support options
 

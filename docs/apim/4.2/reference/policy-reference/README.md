@@ -10,7 +10,7 @@ Gravitee policies fall into several functional categories: security, transformat
 
 ## Installation and deployment
 
-Each version of Gravitee API Management (APIM) includes a number of policies in the default distribution. [Gravitee Enterprise Edition](../../overview/gravitee-apim-enterprise-edition/) policy plugins are available for download [here](https://download.gravitee.io/).
+Each version of Gravitee API Management (APIM) includes a number of policies in the default distribution. [Gravitee Enterprise Edition](../../overview/gravitee-apim-enterprise-edition/README.md) policy plugins are available for download [here](https://download.gravitee.io/).
 
 EE plugins are installed from their respective repositories in GitHub. Gravitee’s EE plugin repositories are private and their names are prefixed as `gravitee-io/gravitee-policy-<plugin-name>`. For example, the Data Logging Masking Policy repository is at `https://github.com/gravitee-io/gravitee-policy-data-logging-masking`. If you have not been granted access to private EE plugin repositories as part of your EE license request process, email [contact@graviteesource.com](mailto:contact@graviteesource.com).
 
@@ -32,13 +32,13 @@ To deploy the plugin, follow these steps:
 
 ## Configuration
 
-Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies [through the Policy Studio](../../guides/policy-studio/) in the Management Console or interacting directly with the Management API.
+Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies [through the Policy Studio](../../guides/policy-studio/README.md) in the Management Console or interacting directly with the Management API.
 
 When using the Management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the Management API, check out the [reference documentation here.](../management-api-reference.md)
 
 ## Phases
 
-Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into phases that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines/). Each policy is compatible with a subset of the available phases. Refer to an individual policy's documentation for phase support information.
+Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into phases that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines/README.md). Each policy is compatible with a subset of the available phases. Refer to an individual policy's documentation for phase support information.
 
 {% tabs %}
 {% tab title="v4 API definition" %}
@@ -62,7 +62,7 @@ v2 APIs have the following phases:
 
 ## Compatibility matrices
 
-The [changelog for each version of APIM](../../overview/changelog/) provides a list of policies included in the default distribution. The documentation for each policy includes the compatibility matrix for APIM and that particular policy.
+The [changelog for each version of APIM](../../overview/changelog/README.md) provides a list of policies included in the default distribution. The documentation for each policy includes the compatibility matrix for APIM and that particular policy.
 
 ## Related learning
 

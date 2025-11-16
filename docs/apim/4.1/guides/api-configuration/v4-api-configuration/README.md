@@ -7,7 +7,7 @@ description: This section covers concepts and how-to's for configuring v4 APIs i
 {% hint style="info" %}
 **v4 vs v2 API configuration**
 
-This section covers v4 API configuration. If you want to learn how to configure v2 APIs, please refer to the [v2 API configuration section](../v2-api-configuration/).
+This section covers v4 API configuration. If you want to learn how to configure v2 APIs, please refer to the [v2 API configuration section](../v2-api-configuration/README.md).
 {% endhint %}
 
 ## Introduction

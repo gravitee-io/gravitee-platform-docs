@@ -15,7 +15,7 @@ This tutorial relies on Ambassador Edge Stack to manage access to your Kubernete
 _Note_ This guide was designed and validated using an Azure AKS Cluster. It's possible that this procedure will work with other cloud providers, but there is a lot of variance in the Authentication mechanisms for the Kubernetes API. See the troubleshooting note at the bottom for more info.
 
 * Azure AKS Cluster [here](https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-deploy-cluster)
-* Install Ambassador Edge Stack [here](../../)
+* Install Ambassador Edge Stack [here](../../README.md)
 * Deploy Keycloak on Kubernetes [here](https://www.keycloak.org/getting-started/getting-started-kube)
 
 ## Cluster Setup

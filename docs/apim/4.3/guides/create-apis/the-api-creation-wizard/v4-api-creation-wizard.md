@@ -40,7 +40,7 @@ The Gravitee documentation adopts concise terminology to differentiate between t
 **Message API:** An API created using **Introspect messages from event-driven backend**&#x20;
 {% endhint %}
 
-What you choose will dictate the kinds of entrypoints and endpoints that you can select later on. For more in-depth information what each method supports, refer to [this documentation](../#backend-exposure-methods).
+What you choose will dictate the kinds of entrypoints and endpoints that you can select later on. For more in-depth information what each method supports, refer to [this documentation](../README.md#backend-exposure-methods).
 
 <figure><img src="../../../.gitbook/assets/v4 wizard_step 2 proxy.png" alt=""><figcaption><p>v4 API creation wizard: Select how you want your backend service exposed</p></figcaption></figure>
 
@@ -78,7 +78,7 @@ Once you select your entrypoint, additional configuration is required. The follo
 
 The ability to create APIs with message API entrypoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise and what's included in various enterprise packages:
 
-* [Refer to the EE vs OSS documentation](../../../overview/gravitee-apim-enterprise-edition/)
+* [Refer to the EE vs OSS documentation](../../../overview/gravitee-apim-enterprise-edition/README.md)
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
@@ -293,7 +293,7 @@ By default, the endpoint group will be named **Default \<endpoint type> group** 
 
 The ability to create APIs with message API endpoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise and what's included in various enterprise packages:
 
-* [Refer to the EE vs OSS documentation](../../../overview/gravitee-apim-enterprise-edition/)
+* [Refer to the EE vs OSS documentation](../../../overview/gravitee-apim-enterprise-edition/README.md)
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
@@ -539,7 +539,7 @@ Next in the API creation wizard is the Security step, where you will configure:
 A plan is essentially an access layer around an API that provides the API producer with a method to secure, monitor, and transparently communicate the details of access.&#x20;
 
 {% hint style="info" %}
-To learn more about how plans function in Gravitee, refer to the [plans documentation](../../api-exposure-plans-applications-and-subscriptions/plans/).&#x20;
+To learn more about how plans function in Gravitee, refer to the [plans documentation](../../api-exposure-plans-applications-and-subscriptions/plans/README.md).&#x20;
 {% endhint %}
 
 You will be able to choose between several different plan types:
@@ -704,5 +704,5 @@ The Documentation step is supported for v4 APIs. See [this page](../../api-confi
 The final step is to review and then create or deploy your API. Creating your API will create the API as a Gravitee artifact, but not deploy it to the Gateway. If you choose Deploy, the API will be created and deployed to the Gravitee Gateway.
 
 {% hint style="success" %}
-Once you create or deploy your API, you are done with the API creation process! We recommend learning how to further [configure](../../api-configuration/) your API, and how to design and enforce [policies](../../policy-studio/) to make your API more secure, reliable, efficient, etc.
+Once you create or deploy your API, you are done with the API creation process! We recommend learning how to further [configure](../../api-configuration/README.md) your API, and how to design and enforce [policies](../../policy-studio/README.md) to make your API more secure, reliable, efficient, etc.
 {% endhint %}
