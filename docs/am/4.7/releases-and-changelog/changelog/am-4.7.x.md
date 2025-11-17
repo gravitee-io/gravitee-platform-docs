@@ -16,6 +16,7 @@ description: >-
 
 * VertX Thread Blocked when JWKS is loaded [#10932](https://github.com/gravitee-io/issues/issues/10932)
 * Upgrade Spring Data R2DBC [#10936](https://github.com/gravitee-io/issues/issues/10936)
+* Improve Thread Management for RDBMS backend [#10938](https://github.com/gravitee-io/issues/issues/10938)
 
 **Other**
 
