@@ -1,5 +1,29 @@
 # APIM 4.9.x
  
+## Gravitee API Management 4.9.5 - November 17, 2025
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Other**
+
+* Lost api notifications after upgrade [#10924](https://github.com/gravitee-io/issues/issues/10924)
+* Missing sharding tag on plan after migration from 4.4.9 to 4.9.2 [#10959](https://github.com/gravitee-io/issues/issues/10959)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Gateway**
+
+* Redis - Unable to connect to Redis WRONGPASS invalid username-password pair or user is disabled [#10966](https://github.com/gravitee-io/issues/issues/10966)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.9.4 - November 14, 2025
 <details>
 
