@@ -298,5 +298,5 @@ sudo systemctl restart nginx
 ```
 
 {% hint style="success" %}
-Congratulations! Now that APIM is up and running, check out the [Tutorials](../../../tutorials/) for your next steps.
+Congratulations! Now that APIM is up and running, check out the Tutorials for your next steps.
 {% endhint %}

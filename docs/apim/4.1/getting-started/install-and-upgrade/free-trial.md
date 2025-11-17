@@ -19,5 +19,5 @@ After you complete registration and your enterprise trial has initialized, you w
 During the free trial period, you will have access to all of the features and capabilities of Gravitee Enterprise Edition, including advanced analytics, customizable dashboards, and integration with third-party systems. After the free trial period has ended, you can choose to upgrade to the Enterprise edition or continue using the open-source version of Gravitee.
 
 {% hint style="success" %}
-Congratulations! Now that APIM is up and running, check out the [Tutorials](../tutorials/) for your next steps.
+Congratulations! Now that APIM is up and running, check out the Tutorials for your next steps.
 {% endhint %}
