@@ -17,7 +17,7 @@ We’re pleased to meet you! Before you dive into the forum, we’d love to give
 * Be kind, be thoughtful, and follow the [Code of Conduct](http://community.gravitee.io/t/code-of-conduct/) guidelines.
 
 {% hint style="info" %}
-### **Quick links**
+#### **Quick links**
 
 [Community Support](https://community.gravitee.io/c/support/11)
 

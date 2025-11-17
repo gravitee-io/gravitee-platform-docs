@@ -36,7 +36,7 @@ kafka:
 
 * The Gateway runs multiple APIs on different **domains**. The Kafka client will connect to the API using the bootstrap server `{apiHost}.{defaultDomain}:{defaultPort}` , where `{apiHost}` is host prefix defined for each API.
 
-<figure><img src="../.gitbook/assets/image (3).png" alt="" width="555"><figcaption><p>The Kafka client routes to the correct API through the gateway using SNI routing.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1).png" alt="" width="555"><figcaption><p>The Kafka client routes to the correct API through the gateway using SNI routing.</p></figcaption></figure>
 
 * To route to the correct API, the Gateway uses [SNI routing](https://en.wikipedia.org/wiki/Server_Name_Indication), which is part of the TLS protocol. Consequently, all client connections **must** happen over TLS (with at least `security.protocol=SSL` set in the Kafka client configuration).
 * The client **must** trust the certificate provided by the Gateway. To handle the variable host in the proxy bootstrap server URL, you will likely need to request a wildcard SAN to use as the certificate presented by the Gateway.
@@ -186,7 +186,7 @@ You can use the Kafka Gateway and client to call your [Kafka API](create-kafka-a
 
 The following prerequisites must be met before you can produce and consume Kafka messages:
 
-* You must have an active subscription to a published API [plan](../expose-apis/plans/README.md) belonging to your Gravitee Kafka API.
+* You must have an active subscription to a published API [plan](../expose-apis/plans/) belonging to your Gravitee Kafka API.
 * If you are subscribing to an OAuth2 or JWT plan, your application must reference the same client ID that you use for authorization.
 
 {% hint style="info" %}

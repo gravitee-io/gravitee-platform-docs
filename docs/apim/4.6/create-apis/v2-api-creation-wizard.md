@@ -25,7 +25,7 @@ To create a v2 API in Gravitee:
 3. Click **+ Add API** in the top right corner of the UI
 4. In Create Classic API, click **Create V2 API**.
 
-<figure><img src="../.gitbook/assets/image (138) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (138).png" alt=""><figcaption></figcaption></figure>
 
 ## Step 1: General
 
@@ -66,7 +66,7 @@ The API creation wizard allows you to create either an **API key** or **Keyless*
 
 <figure><img src="../../../../.gitbook/assets/Screen Shot 2023-06-07 at 1.43.11 PM.png" alt=""><figcaption><p>v2 API creation wizard: Plans</p></figcaption></figure>
 
-Gravitee offers additional plan features that are not configured in the API creation wizard. For more in-depth information on plans, refer to the [plans ](../expose-apis/plans/README.md)documentation.
+Gravitee offers additional plan features that are not configured in the API creation wizard. For more in-depth information on plans, refer to the [plans ](../expose-apis/plans/)documentation.
 
 Once you have defined your plan, click **NEXT**.
 
