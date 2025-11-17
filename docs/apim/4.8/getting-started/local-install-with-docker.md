@@ -34,7 +34,7 @@ APIM can take up to a minute to fully initialize with Docker.&#x20;
 
 Once Docker is initialized, you can access the Console and the Developer Portal by following the following steps:&#x20;
 
-1. To open the Console, start your browser, and then go to [http://localhost:8084](http://localhost:8084).
+1. To open the Console, start your browser, and then go to `http://localhost:8084`.
    * Default username: admin
    * Default password: admin
 2. To open the Developer Portal, start your browser, and then go to [http://localhost:8085](http://localhost:8085).

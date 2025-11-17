@@ -25,7 +25,7 @@ First, you'll need to create an application in Entra ID. Here is an example of s
   * Select who can use or access the API:
   * Pick what applies to your context (use the default "Accounts in this organizational directory only (\<yourdomain> only - Single tenant) for example)
   * edit the Redirect URI to map with your API Management console URL
-    * ex: [http://localhost:8084](http://localhost:8084) for a local deployment of APIM
+    * ex: `http://localhost:8084` for a local deployment of APIM
 * Click **Register**
 * Enter you application details by clicking on it
   * copy the Application (client) ID from the Overview page . This will be used to identify your application when configuring APIM Authentication (this looks like a UUID)
