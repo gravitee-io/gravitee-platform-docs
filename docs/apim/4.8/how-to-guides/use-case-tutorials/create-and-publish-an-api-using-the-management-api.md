@@ -7,19 +7,19 @@ This guide uses the v4 proxy API definition to create an HTTP proxy API. The pri
 This example uses the Gravitee Echo API to set up an HTTP proxy API. The Gravitee Echo API returns JSON-formatted data through the following URL: [https://api.gravitee.io/echo](https://api.gravitee.io/echo)
 
 {% hint style="warning" %}
-* If the `Enable API Review` option is enabled in your API Management settings, you need to use the "Ask for a review" and "Accept a review" requests to complete the API Review process.&#x20;
+* If the `Enable API Review` option is enabled in your API Management settings, you need to use the "Ask for a review" and "Accept a review" requests to complete the API Review process.
 * The `Enable API Review` option ensures that someone other than the API creator reviews and approves an API before the API creator publishes the API to a Gateway or the Developer Portal.
 {% endhint %}
 
 {% hint style="info" %}
-Before using the Management API, be sure to check out the capabilities of the Gravitee Kubernetes Operator and Terraform Provider.  These other "as-code" solutions may be more suitable to your requirements.
+Before using the Management API, be sure to check out the capabilities of the Gravitee Kubernetes Operator and Terraform Provider. These other "as-code" solutions may be more suitable to your requirements.
 {% endhint %}
 
 To create, deploy, and publish your API to the Developer Portal, you must complete the steps outlined in this article.
 
 ## 1. Obtain a Personal Access Token
 
-To authenticate with the Management API (mAPI), you must provide a set of credentials or a Personal Access Token (PAT). &#x20;
+To authenticate with the Management API (mAPI), you must provide a set of credentials or a Personal Access Token (PAT).
 
 To generate a PAT, complete the following steps:
 
@@ -27,12 +27,10 @@ To generate a PAT, complete the following steps:
 2. In the navigation menu, click `Organization` .
 3. In the `User Management` section of the `Organization menu`, click `Users` .
 4. Click your username, and then scroll to `Tokens`.
-5.  Click `Generate a personal token`.  This (bearer) token is used in the `Authorization` header when you make requests to the Management API.\
+5.  Click `Generate a personal token`. This (bearer) token is used in the `Authorization` header when you make requests to the Management API.\\
 
-
-    <figure><img src="../../.gitbook/assets/00 firas (1).png" alt=""><figcaption></figcaption></figure>
-6.  &#x20;Set the Personal Access Token and management API base URL to environment variables by using values appropriate for your environment:\
-
+    <figure><img src="../../../4.7/.gitbook/assets/00 firas (1).png" alt=""><figcaption></figcaption></figure>
+6.  Set the Personal Access Token and management API base URL to environment variables by using values appropriate for your environment:\\
 
     ```bash
     export PERSONAL_ACCESS_TOKEN="kd2l91mL01110F..."
@@ -41,7 +39,7 @@ To generate a PAT, complete the following steps:
 
 ## 2. Create the API definition in JSON
 
-You can create the API definition manually for your API in JSON.&#x20;
+You can create the API definition manually for your API in JSON.
 
 {% hint style="info" %}
 You can also create an API definition using the following methods:
@@ -114,7 +112,7 @@ https://${MANAGEMENT_API_URL}/management/v2/organizations/DEFAULT/environments/D
 
 A successful request returns a `HTTP 201 Created` status and the full configuration of the API.
 
-2. Capture the API `id` to use in subsequent calls.&#x20;
+2. Capture the API `id` to use in subsequent calls.
 
 In future calls, you can set this `id` as an environment variable like the following example:
 
@@ -124,7 +122,7 @@ export API_ID="54593ae4-0e2e-41fe-993a-e40e2ee1fe61"
 
 ## 4. Create a plan for the API
 
-Your API must have at least one Security/Consumer plan associated with it before it can be deployed to a Gateway. For more information about Plans, see [Broken link](broken-reference "mention"). The following procedure explains how to create a `KEYLESS` plan.
+Your API must have at least one Security/Consumer plan associated with it before it can be deployed to a Gateway. For more information about Plans, see [broken-reference](broken-reference/ "mention"). The following procedure explains how to create a `KEYLESS` plan.
 
 To create a `Keyless` plan, complete the following steps:
 
@@ -138,9 +136,9 @@ curl -H "Authorization: Bearer ${PERSONAL_ACCESS_TOKEN}" \
 https://${MANAGEMENT_API_URL}/management/v2/organizations/DEFAULT/environments/DEFAULT/apis/${API_ID}/plans
 ```
 
-If your request is successful, The API call returns a `HTTP 201 Created` status and a full configuration of your new plan.&#x20;
+If your request is successful, The API call returns a `HTTP 201 Created` status and a full configuration of your new plan.
 
-2. Capture the plan `id` to use in subsequent calls.&#x20;
+2. Capture the plan `id` to use in subsequent calls.
 
 In future calls, you can set this `id` as an environment variable like the following example:
 
@@ -175,13 +173,13 @@ curl -H "Authorization: Bearer ${PERSONAL_ACCESS_TOKEN}" \
 https://${MANAGEMENT_API_URL}/management/v2/organizations/DEFAULT/environments/DEFAULT/apis/${API_ID}/_start
 ```
 
-If the API starts successfully, you receive a `HTTP 204 No Content` status. &#x20;
+If the API starts successfully, you receive a `HTTP 204 No Content` status.
 
 You can now view your API in your Gravitee API Management Console. The API has the `KEYLESS` Plan published. Also, the API is deployed to the Gateway.
 
 ## 7. (Optional) Publish the API to the Developer Portal
 
-If you  want to publish your API to the Developer Portal, you must modify its configuration. To modify the APIs configuration, complete the following steps:&#x20;
+If you want to publish your API to the Developer Portal, you must modify its configuration. To modify the APIs configuration, complete the following steps:
 
 1. From the JSON response of the Create API Request, modify the `lifecycleState` attribute to value `PUBLISHED`, and then send the result in a `PUT` request like the following example:
 
@@ -194,7 +192,7 @@ https://${MANAGEMENT_API_URL}/management/v2/organizations/DEFAULT/environments/D
 
 ```
 
-If the `PUT` request is successful, you receive a `HTTP 200 OK` status.&#x20;
+If the `PUT` request is successful, you receive a `HTTP 200 OK` status.
 
 2. Re-deploy the API configuration using the following command:
 
@@ -205,7 +203,7 @@ curl -H "Authorization: Bearer ${PERSONAL_ACCESS_TOKEN}" \
 https://${MANAGEMENT_API_URL}/management/v2/organizations/DEFAULT/environments/DEFAULT/apis/${API_ID}/deployments
 ```
 
-A  `HTTP 202 Accepted` status informs you the deployment of your API configuration to the Gateway has been started.
+A `HTTP 202 Accepted` status informs you the deployment of your API configuration to the Gateway has been started.
 
 ## Next steps
 

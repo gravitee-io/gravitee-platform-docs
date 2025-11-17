@@ -35,7 +35,7 @@ Please check the policy documentation to ensure the policy version you select is
 To deploy the plugin, follow these steps:
 
 1. Download the plugin archive (a `.zip` file) from [the plugins download page](https://download.gravitee.io/#graviteeio-apim/plugins/).
-2. Add the file into the Gateway and Management API `plugins` folders. The default location is ${GRAVITEE\_HOME/plugins} but this can be modified in [the `gravitee.yaml` file.](../../configure-and-manage-the-platform/gravitee-gateway/#configure-the-plugins-repository) For most installations, the Gateway and Management API `plugins` folders are at `/gravitee/apim-gateway/plugins` and `/gravitee/apim-management-api/plugins`, respectively.
+2. Add the file into the Gateway and Management API `plugins` folders. The default location is ${GRAVITEE\_HOME/plugins} but this can be modified in [the `gravitee.yaml` file.](../../configure-and-manage-the-platform/gravitee-gateway/README.md#configure-the-plugins-repository) For most installations, the Gateway and Management API `plugins` folders are at `/gravitee/apim-gateway/plugins` and `/gravitee/apim-management-api/plugins`, respectively.
 3. Restart your APIM nodes.
 
 </details>
@@ -44,7 +44,7 @@ To deploy the plugin, follow these steps:
 
 Policies are scoped to different API consumers through flows. Flows are a method to control where, and under what conditions, a group of policies act on an API transaction.
 
-Policies can be added to flows that are assigned to an API or to a [plan](../../secure-and-expose-apis/plans/). Gravitee supports configuring policies with the Policy Studio in the Management Console or by interacting directly with the Management API.
+Policies can be added to flows that are assigned to an API or to a [plan](../../secure-and-expose-apis/plans/README.md). Gravitee supports configuring policies with the Policy Studio in the Management Console or by interacting directly with the Management API.
 
 ## Phases
 

@@ -199,7 +199,7 @@ You can deploy this repository plugin in AM to use the most common databases, in
 * MariaDB 10.3+
 
 {% hint style="info" %}
-AM uses the JDBC and R2DBC drivers together, since AM uses [Liquibase](https://www.liquibase.org/) to manage the database schema. You need to deploy the correct JDBC and R2DBC drivers for your database in your AM instance’s `plugins/ext/repository-am-jdbc` and `plugins/ext/dataplane-am-jdbc` directories.
+AM uses the JDBC and R2DBC drivers together, since AM uses [Liquibase](https://www.liquibase.com/community) to manage the database schema. You need to deploy the correct JDBC and R2DBC drivers for your database in your AM instance’s `plugins/ext/repository-am-jdbc` and `plugins/ext/dataplane-am-jdbc` directories.
 {% endhint %}
 
 | Database             | Version tested | JDBC Driver                                                                                                                           | R2DBC Driver                                                                                                                     |
@@ -415,7 +415,7 @@ If you want to clean data by yourself, please use the field `expire_at` to know 
 
 ### Liquibase
 
-AM uses [liquibase](https://www.liquibase.org/) to manage database schemas on startup of the AM services.
+AM uses [liquibase](https://www.liquibase.com/community) to manage database schemas on startup of the AM services.
 
 If you want to disable automatic update, you’ll need to add this section to your `gravitee.yml` file.
 

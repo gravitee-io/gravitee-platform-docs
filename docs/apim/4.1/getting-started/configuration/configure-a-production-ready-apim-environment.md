@@ -15,7 +15,7 @@ This guide highlights the APIM settings that require special attention while you
 {% hint style="warning" %}
 **Configuring APIM**
 
-APIM includes many other configuration options and every environment is unique. However you configure new settings (via the `gravitee.yml` file, APIM Console, or environment and system variables) it is important to understand that one configuration type can override another. [Configure APIM Gateway](the-gravitee-api-gateway/) gives a good overview of this topic.
+APIM includes many other configuration options and every environment is unique. However you configure new settings (via the `gravitee.yml` file, APIM Console, or environment and system variables) it is important to understand that one configuration type can override another. [Configure APIM Gateway](the-gravitee-api-gateway/README.md) gives a good overview of this topic.
 {% endhint %}
 
 ## Security checklist
@@ -330,7 +330,7 @@ Gravitee relies on [ReCaptcha V3](https://developers.google.com/recaptcha/docs/v
 
 #### Fail2Ban
 
-If your platform is particularly exposed to the outside world, we recommend adding additional protection against pure brute-force attacks by [setting up Fail2Ban](https://documentation.gravitee.io/apim/getting-started/configuration/configure-apim-management-api/security#fail2ban).
+If your platform is particularly exposed to the outside world, we recommend adding additional protection against pure brute-force attacks by [setting up Fail2Ban](configure-apim-management-api/security.md#fail2ban).
 
 Fail2Ban scans log files and automatically bans IPs that show malicious signs, e.g., too many password failures, seeking an opportunity for exploitation, etc.
 

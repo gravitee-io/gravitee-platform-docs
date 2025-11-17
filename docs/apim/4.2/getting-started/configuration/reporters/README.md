@@ -6,9 +6,9 @@ Reporters are designed to record a variety of events occurring in the Gravitee A
 
 The following sections detail:
 
-* [Supported event types](./#event-types)
-* [Available reporters](./#available-reporters)
-* [Reporter configurations](./#configuring-reporters)
+* [Supported event types](README.md#event-types)
+* [Available reporters](README.md#available-reporters)
+* [Reporter configurations](README.md#configuring-reporters)
 
 ## Event types
 
@@ -25,7 +25,7 @@ The following reporters are currently compatible with APIM:
 {% hint style="warning" %}
 To learn more about Gravitee Enterprise and what's included in various enterprise packages, please:
 
-* [Refer to the EE vs OSS documentation](../../../overview/gravitee-apim-enterprise-edition/)
+* [Refer to the EE vs OSS documentation](../../../overview/gravitee-apim-enterprise-edition/README.md)
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}

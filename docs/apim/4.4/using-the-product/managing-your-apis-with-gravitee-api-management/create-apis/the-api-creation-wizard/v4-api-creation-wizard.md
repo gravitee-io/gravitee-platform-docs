@@ -40,7 +40,7 @@ The Gravitee documentation adopts concise terminology to differentiate between t
 **Message API:** An API created using **Introspect messages from event-driven backend**&#x20;
 {% endhint %}
 
-What you choose will dictate the kinds of entrypoints and endpoints that you can select later on. For more in-depth information what each method supports, refer to [this documentation](../#backend-exposure-methods).
+What you choose will dictate the kinds of entrypoints and endpoints that you can select later on. For more in-depth information what each method supports, refer to [this documentation](../README.md#backend-exposure-methods).
 
 <figure><img src="../../../../.gitbook/assets/v4 wizard_step 2 proxy.png" alt=""><figcaption><p>v4 API creation wizard: Select how you want your backend service exposed</p></figcaption></figure>
 
@@ -78,7 +78,7 @@ Once you select your entrypoint, additional configuration is required. The follo
 
 The ability to create APIs with message API entrypoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise and what's included in various enterprise packages:
 
-* [Refer to the EE vs OSS documentation](../../../../overview/gravitee-apim-enterprise-edition/)
+* [Refer to the EE vs OSS documentation](../../../../overview/gravitee-apim-enterprise-edition/README.md)
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
@@ -124,7 +124,7 @@ If you chose **Webhook** as an entrypoint, you will be brought to a page where y
 * **Proxy Options**
   * Use the drop-down menu to select a proxy option: **No proxy**, **Use proxy configured at system level**, or **Use proxy for client connections**.
     * If you chose **Use proxy for client connections**, define the following:
-      * **Proxy type:** Choose between **HTTP**, **SOCKS4** and **SOCKS5**. A [**SOCKS proxy**](https://hailbytes.com/how-to-use-socks4-and-socks5-proxy-servers-for-anonymous-web-browsing/) is a type of proxy server that uses the SOCKS protocol to tunnel traffic through an intermediary server.
+      * **Proxy type:** Choose between **HTTP**, **SOCKS4** and **SOCKS5**. A **SOCKS proxy** is a type of proxy server that uses the SOCKS protocol to tunnel traffic through an intermediary server.
       * **Proxy host:** Enter your proxy host in the text field.
       * **Proxy port:** Enter your proxy port in the text field.
       * (Optional) **Proxy username:** Enter your proxy username in the text field.
@@ -285,7 +285,7 @@ By default, the endpoint group will be named **Default \<endpoint type> group** 
 
 The ability to create APIs with message API endpoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise and what's included in various enterprise packages:
 
-* [Refer to the EE vs OSS documentation](../../../../overview/gravitee-apim-enterprise-edition/)
+* [Refer to the EE vs OSS documentation](../../../../overview/gravitee-apim-enterprise-edition/README.md)
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
@@ -716,5 +716,5 @@ The Documentation step is supported for v4 APIs. See [this page](../../configuri
 The final step is to review and then create or deploy your API. Creating your API will create the API as a Gravitee artifact, but not deploy it to the Gateway. If you choose Deploy, the API will be created and deployed to the Gravitee Gateway.
 
 {% hint style="success" %}
-Once you create or deploy your API, you are done with the API creation process! We recommend learning how to further [configure](../../configuring-apis-with-the-gravitee-api-management/) your API, and how to design and enforce [policies](../../policy-studio/) to make your API more secure, reliable, efficient, etc.
+Once you create or deploy your API, you are done with the API creation process! We recommend learning how to further [configure](../../configuring-apis-with-the-gravitee-api-management/README.md) your API, and how to design and enforce [policies](../../policy-studio/README.md) to make your API more secure, reliable, efficient, etc.
 {% endhint %}

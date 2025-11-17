@@ -8,7 +8,7 @@ The **Configuration** section allows you to manage and customize high-level sett
 
 The **General** tab displays a section for inputting general API details and a Danger Zone for executing functional and sometimes irreversible actions.
 
-<figure><img src="../../../.gitbook/assets/A 1 config general.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.6/.gitbook/assets/A 1 config general (1).png" alt=""><figcaption></figcaption></figure>
 
 {% tabs %}
 {% tab title="General details" %}
@@ -54,19 +54,19 @@ See [User Management](../../../configure-and-manage-the-platform/manage-organiza
 
 Click **+ Add members** to add members to your API or alter member roles, which grant specific permissions. For more information on roles, please refer to the [roles documentation.](../../../configure-and-manage-the-platform/manage-organizations-and-environments/user-management.md#roles)
 
-<figure><img src="../../../.gitbook/assets/user permissions_add members alter roles.png" alt=""><figcaption><p>Add members and alter roles</p></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/user permissions_add members alter roles (1).png" alt=""><figcaption><p>Add members and alter roles</p></figcaption></figure>
 
 ### Add groups to an API
 
 To give groups access to your API, click **Manage groups** and select the desired group(s) from the drop-down menu. This will give all members of that group access to your API.
 
-<figure><img src="../../../.gitbook/assets/user permissions_manage groups.png" alt=""><figcaption><p>Give groups access to your API</p></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/user permissions_manage groups (1).png" alt=""><figcaption><p>Give groups access to your API</p></figcaption></figure>
 
 ### Transfer API ownership
 
 If you are the owner of the API, you can transfer ownership to another member, user, or group. Click **Transfer ownership**, then select **API member**, **Other user**, or **Primary owner group.** Next, define the stakeholder to which you want to transfer API ownership and assign that stakeholder a role.
 
-<figure><img src="../../../.gitbook/assets/user permissions_transfer ownership.png" alt=""><figcaption><p>Transfer API ownership</p></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/user permissions_transfer ownership (1).png" alt=""><figcaption><p>Transfer API ownership</p></figcaption></figure>
 
 ## Properties
 
@@ -76,12 +76,12 @@ Properties are read-only during the Gateway's execution of an API transaction. T
 
 To configure API properties:
 
-1.  Select **Properties** from the inner left nav&#x20;
+1.  Select **Properties** from the inner left nav
 
-    <figure><img src="../../../.gitbook/assets/v2 proxy_properties.png" alt=""><figcaption><p>Add API properties</p></figcaption></figure>
+    <figure><img src="../../../../../../.gitbook/assets/v2 proxy_properties (1).png" alt=""><figcaption><p>Add API properties</p></figcaption></figure>
 2. To add hardcoded properties, either:
    * Click **Add property** and enter property definitions one at a time as a key-value pair
-   * Click **Import** and enter property definitions as a list in `<key>=<value>` format&#x20;
+   * Click **Import** and enter property definitions as a list in `<key>=<value>` format
 
 ### Encryption
 
@@ -91,7 +91,7 @@ Encrypted values can be used by API policies, but encrypted data should be used 
 
 To encrypt a hardcoded API property value:
 
-1.  Reset the default secret key in `gravitee.yml`. The secret must be 32 bytes in length.&#x20;
+1.  Reset the default secret key in `gravitee.yml`. The secret must be 32 bytes in length.
 
     ```yaml
     # Encrypt API properties using this secret:
@@ -101,17 +101,17 @@ To encrypt a hardcoded API property value:
              secret: vvLJ4Q8Khvv9tm2tIPdkGEdmgKUruAL6
      to provide the best security available.
     ```
-2.  Enable the **Encrypt** toggle when adding a property via **Add property**. Once you click **Save**, you can no longer edit, modify, or view the value.&#x20;
+2.  Enable the **Encrypt** toggle when adding a property via **Add property**. Once you click **Save**, you can no longer edit, modify, or view the value.
 
-    <div align="left"><figure><img src="../../../.gitbook/assets/api properties_add (1).png" alt="" width="375"><figcaption></figcaption></figure></div>
+    <div align="left"><figure><img src="../../../../../../.gitbook/assets/api properties_add (1).png" alt="" width="375"><figcaption></figcaption></figure></div>
 
 ### **Dynamic properties**
 
 To configure dynamic properties:
 
-1.  Click the **Manage dynamically** button and define the configuration&#x20;
+1.  Click the **Manage dynamically** button and define the configuration
 
-    <figure><img src="../../../.gitbook/assets/v2 proxy_properties dynamic.png" alt=""><figcaption><p>Configure dynamic properties</p></figcaption></figure>
+    <figure><img src="../../../../../../.gitbook/assets/v2 proxy_properties dynamic (1).png" alt=""><figcaption><p>Configure dynamic properties</p></figcaption></figure>
 
     * Toggle **Enabled** to ON
     * **Schedule:** A cron expression to schedule the health check
@@ -126,7 +126,7 @@ To configure dynamic properties:
 After the first call, the resultant property is added to the list of global properties, where its value is continuously updated according to the `cron` schedule specified.
 
 {% hint style="info" %}
-Key-value pairs can also be maintained using a dictionary, e.g., if this information is stored independently of the API creation process or applies to multiple APIs.&#x20;
+Key-value pairs can also be maintained using a dictionary, e.g., if this information is stored independently of the API creation process or applies to multiple APIs.
 {% endhint %}
 
 ## Resources
@@ -157,19 +157,18 @@ The **Notifications** tab allows you to subscribe to notifications related to a 
 2. Select **APIs**, from the left nav.
 3. Select your API.
 4. Select **Configuration** from the inner left nav.
-5.  Select the **Notifications** header.\
+5.  Select the **Notifications** header.\\
 
-
-    <figure><img src="../../../.gitbook/assets/A 1 config notifications.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../4.6/.gitbook/assets/A 1 config notifications (1).png" alt=""><figcaption></figcaption></figure>
 6. Click **+ Add notification** to create a new one.
 7. Give your notification a name and select either:
    * **Default Email Notifier:**
      * Enter a list of emails, using "," or ";" as the separator
-   * **Default Webhook Notifier:**&#x20;
+   * **Default Webhook Notifier:**
      * Enter the Webhook URL
      * Choose whether to use system proxy
 
-<figure><img src="../../../.gitbook/assets/A 1 notifications 2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.6/.gitbook/assets/A 1 notifications 2 (1).png" alt=""><figcaption></figcaption></figure>
 
 The following notifications are available to each notifier:
 
@@ -202,4 +201,4 @@ The following notifications are available to each notifier:
 
 The **Audit Logs** tab displays API-level events and audit entries, which are summarized in table format. These can be filtered by event type and date range.
 
-<figure><img src="../../../.gitbook/assets/A 1 config audit logs.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.6/.gitbook/assets/A 1 config audit logs (1).png" alt=""><figcaption></figcaption></figure>

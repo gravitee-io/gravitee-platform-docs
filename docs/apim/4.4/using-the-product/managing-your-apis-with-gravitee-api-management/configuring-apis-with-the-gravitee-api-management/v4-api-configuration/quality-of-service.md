@@ -24,7 +24,7 @@ Quality of Service is set on the entrypoints. A given QoS may or may not be supp
 
 ## Setting QoS for Gravitee v4 APIs
 
-You can set QoS levels with the `qos` object of the `entrypoints` object, as shown in the following example. See the Management API [`openapi.json`](https://apim-3-20-x-api.team-apim.gravitee.dev/management/openapi.json) for a list of possible `qos` values.
+You can set QoS levels with the `qos` object of the `entrypoints` object, as shown in the following example. See the Management API `openapi.json` for a list of possible `qos` values.
 
 ```json
 "entrypoints": [

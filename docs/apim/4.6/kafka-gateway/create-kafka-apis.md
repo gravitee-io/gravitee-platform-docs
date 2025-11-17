@@ -16,7 +16,7 @@ The API definitions for Kafka APIs can be generated using the APIM Console's API
 2. Click on **APIs** in the left nav
 3. In the Create New API , click on **Create V4 API**.
 
-<figure><img src="../.gitbook/assets/image (138).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (138) (1).png" alt=""><figcaption></figcaption></figure>
 
 The API creation wizard comprises several steps, each of which requires you to define certain sets of information:
 
@@ -33,7 +33,7 @@ Define a name, version number, and description for your API.
 
 The name and version number are required, but we also recommend giving your API a description so that it is more easily understood and managed by internal users.
 
-<figure><img src="../.gitbook/assets/v4 wizard_step 1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/v4 wizard_step 1.png" alt=""><figcaption></figcaption></figure>
 
 ## Entrypoints
 
@@ -105,7 +105,7 @@ The Gravitee plans supported by Kafka APIs are summarized below, in increasing o
 <table><thead><tr><th width="201">Plan</th><th>Description</th></tr></thead><tbody><tr><td>Keyless (public)</td><td>When configured, this plan does not add security. It is considered an "open" plan.</td></tr><tr><td>API Key</td><td>The gateway only accepts connections from clients that pass an API key corresponding to a valid subscription to the proxy in the client properties. The API key is used as the password, and the md5 hash of the API key is used as the username, as part of the SASL/SSL with SASL PLAIN authentication method.</td></tr><tr><td>JWT</td><td>The gateway only accepts connections from clients that pass a valid JWT with a client ID claim corresponding to a valid subscription to the proxy in the client properties. This is equivalent to SASL/SSL with SASL OAUTHBEARER authentication, where the JWT is used as the OAuth token.</td></tr><tr><td>OAuth2</td><td>The gateway only accepts connections from clients that pass a valid OAuth token with a client ID corresponding to a valid subscription to the proxy in the client properties. This is equivalent to SASL/SSL with SASL OAUTHBEARER authentication.</td></tr></tbody></table>
 
 {% hint style="info" %}
-To learn more about how plans function in Gravitee, refer to the [plans](../expose-apis/plans/) documentation. mTLS plans are not yet supported for Kafka APIs.
+To learn more about how plans function in Gravitee, refer to the [plans](../expose-apis/plans/README.md) documentation. mTLS plans are not yet supported for Kafka APIs.
 {% endhint %}
 
 Individual plan configurations as they pertain to Kafka APIs are described in detail below.
@@ -116,7 +116,7 @@ Individual plan configurations as they pertain to Kafka APIs are described in de
 
 Select **Keyless (public)** from the **+ Add plan** drop-down menu, then define general details and restrictions.
 
-#### General
+**General**
 
 You must enter a value in the **Name** field. Modifying the other configuration parameters is optional.
 
@@ -133,7 +133,7 @@ You must enter a value in the **Name** field. Modifying the other configuration 
 
 Select **API Key** from the **+ Add plan** drop-down menu, then define general details, configuration settings, and restrictions.
 
-#### General
+**General**
 
 You must enter a value in the **Name** field. Modifying the other configuration parameters is optional.
 
@@ -143,7 +143,7 @@ You must enter a value in the **Name** field. Modifying the other configuration 
 4. **Subscriptions:** Choose whether to auto-validate subscriptions, require a message from a consumer during subscription, and/or present a message to the consumer upon subscription.
 5. **Access control:** Select any Groups within APIM that you do not want to have access to this API.
 
-#### Configuration
+**Configuration**
 
 * (Optional) Choose whether to propagate your API key to upstream APIs.
 * (Optional) Use the [Gravitee Expression Language](../getting-started/gravitee-expression-language.md) to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
@@ -156,7 +156,7 @@ You must enter a value in the **Name** field. Modifying the other configuration 
 
 Select **JWT** from the **+ Add plan** drop-down menu, then define general details, configuration settings, and restrictions.
 
-#### General
+**General**
 
 You must enter a value in the **Name** field. Modifying the other configuration parameters is optional.
 
@@ -166,7 +166,7 @@ You must enter a value in the **Name** field. Modifying the other configuration 
 4. **Subscriptions:** Choose whether to auto-validate subscriptions, require a message from a consumer during subscription, and/or present a message to the consumer upon subscription.
 5. **Access control:** Select any Groups within APIM that you do not want to have access to this API.
 
-#### Configuration
+**Configuration**
 
 Only the **Signature** and **JWKS resolver** selections are required. Modifying the other configuration parameters is optional.
 
@@ -207,7 +207,7 @@ Only the **Signature** and **JWKS resolver** selections are required. Modifying 
 
 Select **OAuth2** from the **+ Add plan** drop-down menu, then define general details, configuration settings, and restrictions.
 
-#### General
+**General**
 
 You must enter a value in the **Name** field. Modifying the other configuration parameters is optional.
 
@@ -217,7 +217,7 @@ You must enter a value in the **Name** field. Modifying the other configuration 
 4. **Subscriptions:** Choose whether to auto-validate subscriptions, require a message from a consumer during subscription, and/or present a message to the consumer upon subscription.
 5. **Access control:** Select any Groups within APIM that you do not want to have access to this API.
 
-#### Configuration
+**Configuration**
 
 Only the **OAuth2 resource** and **Cache resource** fields are required. Modifying the other configuration parameters is optional.
 

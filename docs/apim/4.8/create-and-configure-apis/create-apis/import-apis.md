@@ -2,16 +2,16 @@
 
 ## Overview
 
-Gravitee supports importing APIs as either Gravitee API definitions or OpenAPI specifications. To import an API, the API file must be in YML, YAML, or JSON format.&#x20;
+Gravitee supports importing APIs as either Gravitee API definitions or OpenAPI specifications. To import an API, the API file must be in YML, YAML, or JSON format.
 
-Every API includes a context path, virtual host(s), or host(s). These values must be unique across all APIs in your environment. A unique custom API ID can be specified in the definition.&#x20;
+Every API includes a context path, virtual host(s), or host(s). These values must be unique across all APIs in your environment. A unique custom API ID can be specified in the definition.
 
 All items from the import bundle are imported, for example, groups, members, pages, plans, and metadata.
 
 Additional information that applies to importing an OpenAPI specification can be found [below](import-apis.md#importing-an-openapi-spec).
 
 {% hint style="warning" %}
-When you import an API with a JSON payload that has duplicate keys, APIM keeps the last key.&#x20;
+When you import an API with a JSON payload that has duplicate keys, APIM keeps the last key.
 
 To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection.md](../apply-policies/policy-reference/json-threat-protection.md "mention").
 {% endhint %}
@@ -23,39 +23,25 @@ To import your API:
 1. Log in to your API Console.
 2. Select **APIs** from the left nav.
 3. Select **+ Add API**.
-4.  In the **Create New API** tile, click **Import v4 API**.\
+4.  In the **Create New API** tile, click **Import v4 API**.\\
 
+    <figure><img src="../../../4.7/.gitbook/assets/00 import 1 (1).png" alt=""><figcaption></figcaption></figure>
 
-    <figure><img src="../../.gitbook/assets/00 import 1.png" alt=""><figcaption></figcaption></figure>
+    This loads the options for importing your API.\\
 
-    This loads the options for importing your API.\
-
-
-    <figure><img src="../../.gitbook/assets/00 import 2.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../4.7/.gitbook/assets/00 import 2 (1).png" alt=""><figcaption></figcaption></figure>
 5. Choose an **API format**. You can select either **Gravitee definition** or **OpenAPI specification**.
-6.  Choose a **File source**.&#x20;
+6.  Choose a **File source**.
 
-    {% hint style="info" %}
-    **Local file** is currently the only supported **File source**.
-    {% endhint %}
-
-
+    \{% hint style="info" %\} **Local file** is currently the only supported **File source**. \{% endhint %\}
 7. Drag and drop your API file into the **File** panel. Supported file formats are YML, YAML, and JSON.
 8. If you selected **OpenAPI specification** as the API format, you can choose to enable the following:
-   *   **Create documentation page from spec.** This creates an API documentation page from the imported OpenAPI specification.&#x20;
+   *   **Create documentation page from spec.** This creates an API documentation page from the imported OpenAPI specification.
 
-       {% hint style="info" %}
-       This page is published automatically, but can be unpublished from the **API Documentation** page in the Console.
-       {% endhint %}
-
-
+       \{% hint style="info" %\} This page is published automatically, but can be unpublished from the **API Documentation** page in the Console. \{% endhint %\}
    *   **Add OpenAPI Specification Validation:** This adds an [OpenAPI Specification Validation policy](../apply-policies/policy-reference/oas-validation.md) to the imported API.
 
-       {% hint style="info" %}
-       All options are initially enabled, but can be disabled by editing the policy configuration.
-       {% endhint %}
-
-
+       \{% hint style="info" %\} All options are initially enabled, but can be disabled by editing the policy configuration. \{% endhint %\}
 9. Click **Import**
 
 {% hint style="success" %}
@@ -72,7 +58,7 @@ Gravitee v4 native APIs, for example, Kafka APIs, are currently not supported vi
 
 #### Swagger (V2)
 
-**Example 1:** The definition below uses the `basePath` field for context-path resolution.  The value of the `basePath` field is the context-path, for example, `/v2`.
+**Example 1:** The definition below uses the `basePath` field for context-path resolution. The value of the `basePath` field is the context-path, for example, `/v2`.
 
 ```json
 {
@@ -210,7 +196,7 @@ You can also choose to activate policies (below) that will be configured using t
 {% tab title="JSON Validation" %}
 For each operation, if an `application/json` request body exists, a JSON schema is computed from this body to configure a JSON Validation policy.\
 \
-For more information, see the JSON Validation policy in the [policy reference](../apply-policies/policy-reference/).
+For more information, see the JSON Validation policy in the [policy reference](../apply-policies/policy-reference/README.md).
 {% endtab %}
 
 {% tab title="REST to SOAP" %}
@@ -219,24 +205,24 @@ For each operation, if the definition contains specific vendor extensions, a RES
 * `x-graviteeio-soap-envelope`: Contains the SOAP envelope
 * `x-graviteeio-soap-action`: Contains the SOAP action
 
-For more information, see the REST to SOAP policy in the [policy reference](../apply-policies/policy-reference/).
+For more information, see the REST to SOAP policy in the [policy reference](../apply-policies/policy-reference/README.md).
 {% endtab %}
 
 {% tab title="Mock" %}
 For each operation, a mock policy is configured, based on the `example` field if it exists, or by generating a random value for the type of attribute to mock.\
 \
-For more information, see the Mock policy in the [policy reference](../apply-policies/policy-reference/).
+For more information, see the Mock policy in the [policy reference](../apply-policies/policy-reference/README.md).
 {% endtab %}
 
 {% tab title="Request Validation" %}
 For each operation, `NOT` `NULL` rules are created with query parameters and headers.\
 \
-For more information, see the Request Validation policy in the [policy reference](../apply-policies/policy-reference/).
+For more information, see the Request Validation policy in the [policy reference](../apply-policies/policy-reference/README.md).
 {% endtab %}
 
 {% tab title="XML Validation" %}
-For each operation, if a `application/xml` request body exists, then a XSD schema is computed from this body to configure an XML Validation policy.&#x20;
+For each operation, if a `application/xml` request body exists, then a XSD schema is computed from this body to configure an XML Validation policy.
 
-For more information, see the XML Validation policy in the [policy reference](../apply-policies/policy-reference/).
+For more information, see the XML Validation policy in the [policy reference](../apply-policies/policy-reference/README.md).
 {% endtab %}
 {% endtabs %}

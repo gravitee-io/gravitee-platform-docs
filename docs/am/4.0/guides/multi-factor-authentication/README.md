@@ -54,7 +54,7 @@ The evaluation takes precedence on Remember Device
 
 ### Remember Device
 
-If [Remember device](./#remember-device) is active and the user's device is not known, the end user will be prompted to the challenge page. They will also be presented to consent to register their device for a certain period of time which they can both refuse or accept. The latter option will save the device for a certain period of time which will be remembered at the next login, and skip the challenge page.
+If [Remember device](README.md#remember-device) is active and the user's device is not known, the end user will be prompted to the challenge page. They will also be presented to consent to register their device for a certain period of time which they can both refuse or accept. The latter option will save the device for a certain period of time which will be remembered at the next login, and skip the challenge page.
 
 ## Intelligent Adaptive Access
 

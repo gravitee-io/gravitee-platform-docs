@@ -37,7 +37,7 @@ These RESTful APIs expose services to:
 * Manage users and user sessions
 * Manage the authorization flow for OAuth 2.0, OpenID Connect, UMA 2.0 and SCIM 2.0 protocols
 
-All exposed services are restricted by authentication and authorization rules. You can find more information in the [Auth Protocols](guides/auth-protocols/) section.
+All exposed services are restricted by authentication and authorization rules. You can find more information in the [Auth Protocols](guides/auth-protocols/README.md) section.
 
 ### AM Management Console
 
@@ -124,7 +124,7 @@ For further information about OAuth2, view the [RFC page](https://tools.ietf.org
 
 OpenID Connect is an identity layer on top of the OAuth 2.0 protocol. It enables clients to verify the identity of the end user by using an Authorization Server to authenticate and obtain basic profile information about the end user.
 
-For further information about OpenID Connect, view the [OpenID Connect specifications^](http://openid.net/specs/openid-connect-core-1\_0.html).
+For further information about OpenID Connect, view the [OpenID Connect specifications^](http://openid.net/specs/openid-connect-core-1_0.html).
 
 ### SAML 2.0
 

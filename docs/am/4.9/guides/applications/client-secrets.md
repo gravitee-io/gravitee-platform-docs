@@ -17,7 +17,7 @@ Gravitee AM supports enhanced client secret management, allowing for multiple se
 
 ### Managing Secrets
 
-You can manage secrets by adding, renewing, and deleting them from Application. Default limitation of client secrets for each Application is 10. You can override this in `gravitee.yml`  like the following example:
+You can manage secrets by adding, renewing, and deleting them from Application. Default limitation of client secrets for each Application is 10. You can override this in `gravitee.yml` like the following example:
 
 ```yaml
 applications:
@@ -32,18 +32,15 @@ applications:
 
 #### **Adding a new secret:**
 
-1.  Click **"+ New client secret"**.\
+1.  Click **"+ New client secret"**.\\
 
+    <figure><img src="../../../4.8/.gitbook/assets/Screenshot 2025-06-02 at 11.56.31 (1).png" alt=""><figcaption><p>New client secret</p></figcaption></figure>
+2.  Provide description of new secret.\\
 
-    <figure><img src="../../.gitbook/assets/Screenshot 2025-06-02 at 11.56.31 (1).png" alt=""><figcaption><p>New client secret</p></figcaption></figure>
-2.  Provide description of new secret.\
+    <div align="left"><figure><img src="../../../4.8/.gitbook/assets/Screenshot 2025-06-02 at 11.57.31 (1).png" alt="" width="308"><figcaption><p>New client secret description</p></figcaption></figure></div>
+3.  Copy generated secret.\\
 
-
-    <div align="left"><figure><img src="../../.gitbook/assets/Screenshot 2025-06-02 at 11.57.31 (1).png" alt="" width="308"><figcaption><p>New client secret description</p></figcaption></figure></div>
-3.  Copy generated secret.\
-
-
-    <div align="left"><figure><img src="../../.gitbook/assets/Screenshot 2025-06-02 at 11.57.49.png" alt="" width="305"><figcaption><p>New client secret - copy</p></figcaption></figure></div>
+    <div align="left"><figure><img src="../../../4.8/.gitbook/assets/Screenshot 2025-06-02 at 11.57.49 (1).png" alt="" width="305"><figcaption><p>New client secret - copy</p></figcaption></figure></div>
 4. Click OK.
 
 #### **Renewing a secret:**
@@ -51,21 +48,20 @@ applications:
 1. In the **Secrets & Certificates** tab, locate the secret to renew.
 2.  Click **renew button** next to the corresponding secret.
 
-    <figure><img src="../../.gitbook/assets/Screenshot 2025-06-02 at 12.32.24.png" alt=""><figcaption><p>Renew Client Secret</p></figcaption></figure>
+    <figure><img src="../../../4.8/.gitbook/assets/Screenshot 2025-06-02 at 12.32.24 (1).png" alt=""><figcaption><p>Renew Client Secret</p></figcaption></figure>
 3. Copy generated secret.\
-   ![](<../../.gitbook/assets/Screenshot 2025-06-02 at 12.00.01.png>)
+   ![](<../../../4.8/.gitbook/assets/Screenshot 2025-06-02 at 12.00.01 (1).png>)
 4. Click OK.
 
 #### Deleting a secret:
 
 1. In the **Secrets & Certificates** tab, locate the secret that you want to delete.
 2.  Click the **delete button** next to the corresponding secret.\
-    \
+    \\
 
-
-    <figure><img src="../../.gitbook/assets/Screenshot 2025-06-02 at 12.32.45.png" alt=""><figcaption><p>Delete Client Secret</p></figcaption></figure>
+    <figure><img src="../../../4.8/.gitbook/assets/Screenshot 2025-06-02 at 12.32.45 (1).png" alt=""><figcaption><p>Delete Client Secret</p></figcaption></figure>
 3. Confirm that you want to delete the secret by entering secret description.\
-   ![](<../../.gitbook/assets/Screenshot 2025-06-02 at 12.00.38.png>)
+   ![](<../../../4.8/.gitbook/assets/Screenshot 2025-06-02 at 12.00.38 (1).png>)
 
 {% hint style="warning" %}
 Revoked secrets are immediately invalidated and cannot be used for authentication.
@@ -78,10 +74,9 @@ Revoked secrets are immediately invalidated and cannot be used for authenticatio
 * **Purpose:** Set a default expiration duration for all client secrets within a domain to enforce regular rotation.
 * **Configuration Steps:**
   1. Navigate to the **Domain**.
-  2.  Go to **Settings**, and then **Client Secrets.**\
+  2.  Go to **Settings**, and then **Client Secrets.**\\
 
-
-      <figure><img src="../../.gitbook/assets/Screenshot 2025-06-02 at 12.06.56.png" alt=""><figcaption><p>Domain Secret Settings</p></figcaption></figure>
+      <figure><img src="../../../4.8/.gitbook/assets/Screenshot 2025-06-02 at 12.06.56 (1).png" alt=""><figcaption><p>Domain Secret Settings</p></figcaption></figure>
   3. Enable client secret expiry.
   4. Set the **Expiry Time Unit** and **Expiry Time Duration**. For example, 3 months.
   5. Save the changes.
@@ -93,12 +88,11 @@ Revoked secrets are immediately invalidated and cannot be used for authenticatio
   1. Navigate to the **Applications** section in the Gravitee AM Console.
   2. Select the desired application.
   3. Go to **Settings**, and then **Secrets & Certificates**.
-  4.  Click **Settings**.\
+  4.  Click **Settings**.\\
 
-
-      <figure><img src="../../.gitbook/assets/Screenshot 2025-06-02 at 12.28.04 (1).png" alt=""><figcaption><p>Application Secret Settings</p></figcaption></figure>
+      <figure><img src="../../../4.8/.gitbook/assets/Screenshot 2025-06-02 at 12.28.04 (1).png" alt=""><figcaption><p>Application Secret Settings</p></figcaption></figure>
   5. Toggle **Use Domain Rules**, and then and select **Expiry Time Unit** and **Expiry Time Duration**.\
-     ![](<../../.gitbook/assets/image (10).png>)
+     ![](<../../../4.8/.gitbook/assets/image (10) (1).png>)
   6. Save the changes.
 
 ### **Behavior:**
@@ -116,7 +110,7 @@ Revoked secrets are immediately invalidated and cannot be used for authenticatio
 
 Gravitee AM provides support for monitoring client secret expiration through customizable notifications, allowing proactive management of client credentials.
 
-### &#x20;Notification Events
+### Notification Events
 
 #### Notifications can be triggered automatically in the following two scenarios:
 
@@ -125,5 +119,4 @@ Gravitee AM provides support for monitoring client secret expiration through cus
 
 These notifications facilitate timely renewal of client secrets and reduce the risk of authentication failures due to expired credentials.
 
-For detailed instructions on configuring the notification mechanisms, refer to the [AM API configuration](../../getting-started/configuration/configure-am-api/#configure-notifications-on-certificates-and-client-secret-expiry) section.
-
+For detailed instructions on configuring the notification mechanisms, refer to the [AM API configuration](../../getting-started/configuration/configure-am-api/README.md#configure-notifications-on-certificates-and-client-secret-expiry) section.

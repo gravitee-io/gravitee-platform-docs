@@ -8,7 +8,7 @@ To execute your Gateway APIs and policy flows, the Gateway needs a runtime envir
 
 Since APIM 4.0, there is support for both the v2 and v4 Gravitee API definitions and v3 and v4 Gateway execution engines. You can think of these in pairs: v2 API definitions run on the v3 execution engine and v4 API definitions run on the v4 execution engine.
 
-The [Gateway execution engines compared](./#gateway-execution-engines-compared) section below does a deep dive into the difference between the two engines. In short, the v4 execution engine enables an improved execution flow for synchronous APIs and supports event-driven policy execution for asynchronous APIs. This adds features such as native support for Pub/Sub (Publish-Subscribe) design and enabling policies at the message level.
+The [Gateway execution engines compared](README.md#gateway-execution-engines-compared) section below does a deep dive into the difference between the two engines. In short, the v4 execution engine enables an improved execution flow for synchronous APIs and supports event-driven policy execution for asynchronous APIs. This adds features such as native support for Pub/Sub (Publish-Subscribe) design and enabling policies at the message level.
 
 {% hint style="warning" %}
 You can also run v2 Gateway APIs in **compatibility mode** which emulates some of the execution flow improvements of the v4 execution engine. This is detailed in the [Gateway Execution Engines Compared](gateway-execution-engines-compared.md) section below.

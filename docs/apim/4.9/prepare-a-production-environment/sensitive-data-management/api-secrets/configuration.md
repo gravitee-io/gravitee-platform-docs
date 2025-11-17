@@ -6,14 +6,14 @@
 This feature work for only V4 APIs.
 {% endhint %}
 
-You can configure secret managers to work with your APIs. You can use secrets to hide information in any field that supports Gravitee Expression Language. For more information about Gravitee Expression Language, see [Gravitee Expression Language](https://documentation.gravitee.io/apim/gravitee-expression-language).
+You can configure secret managers to work with your APIs. You can use secrets to hide information in any field that supports Gravitee Expression Language. For more information about Gravitee Expression Language, see [Gravitee Expression Language](../../../gravitee-expression-language.md).
 
-Secret provider plugins extend the operable range of secret managers to resolve secrets on startup and in APIs. For more information about secret provider plugins, see [Integrations](https://documentation.gravitee.io/apim/readme/integrations).
+Secret provider plugins extend the operable range of secret managers to resolve secrets on startup and in APIs. For more information about secret provider plugins, see [Integrations](../../../readme/integrations.md).
 
 This article explains the syntax Gravitee uses to resolve secrets in v4 APIs and configure secret managers.
 
 {% hint style="info" %}
-To learn more about Gravitee [Enterprise Edition](https://documentation.gravitee.io/apim/readme/enterprise-edition) and what's included in various enterprise packages, please:
+To learn more about Gravitee [Enterprise Edition](../../../readme/enterprise-edition.md) and what's included in various enterprise packages, please:
 
 * [Book a demo](https://documentation.gravitee.io/platform-overview/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
@@ -25,12 +25,12 @@ To learn more about Gravitee [Enterprise Edition](https://documentation.gravitee
   A secret URL cannot be set using JVM properties, for example:\
   `-Dsystem.proxy.password=secret://kubernetes/giosecrets:proxypass` **cannot be used**. JVM properties are passed directly to the platform without parsing and will not be detected by Gravitee as secret to resolve.
 * The `vault` plugin watches with polling because Vault Events is an enterprise feature.
-* The `aws` plugin does not support the `watch` feature.&#x20;
+* The `aws` plugin does not support the `watch` feature.
 
 ### Prerequisites to enable this feature <a href="#prerequisites-to-enable-this-feature" id="prerequisites-to-enable-this-feature"></a>
 
-* Configure one of the following secret managers in your `gravitee.yml` file, Helm Chart, or using the equivalent environment variable: Kubernetes, Amazon Secret Manager, or Hashicorp Vault. For more information about these secret managers, see [Integrations](https://documentation.gravitee.io/apim/readme/integrations#secret-managers-integration).
-* Reference those secrets in your API definitions with a specialized syntax. For more information about referencing secrets in API definitions, see [Broken link](broken-reference "mention").
+* Configure one of the following secret managers in your `gravitee.yml` file, Helm Chart, or using the equivalent environment variable: Kubernetes, Amazon Secret Manager, or Hashicorp Vault. For more information about these secret managers, see [Integrations](../../../readme/integrations.md#secret-managers-integration).
+* Reference those secrets in your API definitions with a specialized syntax. For more information about referencing secrets in API definitions, see [reference-secrets-in-apis.md](reference-secrets-in-apis.md "mention").
 
 ## Configuration for each secret manager <a href="#per-manager-configuration" id="per-manager-configuration"></a>
 
@@ -38,7 +38,7 @@ A `secret provider` plugin must be either bundled or added to the plugin directo
 
 You can enable `secret-provider` plugins by configuring them in `gravitee.yml`. The configurations for each secret provider plugin are discussed in the following sections.
 
-The following examples are for `gravitee.yml`. For information about to use these examples in Helm charts and with environment variables, see [Broken link](broken-reference "mention") and[Broken link](broken-reference "mention").&#x20;
+The following examples are for `gravitee.yml`. For information about using these examples in Helm charts and with environment variables, see [reference-secrets-in-configurations.md](../configure-secrets/reference-secrets-in-configurations.md "mention").
 
 ### Kubernetes
 
@@ -81,7 +81,7 @@ This plugin enables all possible option to access KV engine of Vault. It can man
 
 Here is an example configuration:
 
-With this configuration, Gravitee uses a **secured** connection, a **Vault token** to authenticate, and then **watches** secrets by polling and 2 **retry** attempt to fetch a secret.&#x20;
+With this configuration, Gravitee uses a **secured** connection, a **Vault token** to authenticate, and then **watches** secrets by polling and 2 **retry** attempt to fetch a secret.
 
 ```yaml
 secrets:
@@ -106,7 +106,7 @@ secrets:
 ```
 
 {% hint style="info" %}
-By default,  `retry` and `watch` are disabled.
+By default, `retry` and `watch` are disabled.
 {% endhint %}
 
 #### Alternative SSL configuration
@@ -149,7 +149,7 @@ secrets:
 Some of the configuration is not shown here to ensure that examples remain concise.
 {% endhint %}
 
-Each of these authentication method can be configured in Vault in a non-default path. Use `path`  under `config` to specify it. See, the following GitHub configuration for an example.
+Each of these authentication method can be configured in Vault in a non-default path. Use `path` under `config` to specify it. See, the following GitHub configuration for an example.
 
 * GitHub
 
@@ -229,8 +229,7 @@ secrets:
 ```
 
 * Kubernetes
-  *   (recommended) Here is an example with short lived tokens:\
-
+  *   (recommended) Here is an example with short lived tokens:\\
 
       ```yaml
       secrets:
@@ -244,8 +243,7 @@ secrets:
       ```
 
       * (Optional) If your pod does not make the token available in `/var/run/secrets/kubernetes.io/serviceaccount/token` , you can add `tokenFile` .
-  *   Here is an example with long-lived tokens:\
-
+  *   Here is an example with long-lived tokens:\\
 
       ```yaml
       secrets:
@@ -290,7 +288,7 @@ secrets:
 
 Here are more options that can be used to configure your AWS secret manager:
 
-* `fipsEnabled` to enable FIPS.  The default value is `false` .
+* `fipsEnabled` to enable FIPS. The default value is `false` .
 * `connectionTimeoutMs` to control connection the timeout. The default value is `5000` .
 * `endpointOverride` to use a non default AWS endpoint.
 
@@ -298,7 +296,7 @@ Here are more options that can be used to configure your AWS secret manager:
 
 ### **Use configuration secrets to configure API secrets**
 
-If you want to hide sensitive information in a secret manager, you must secure credentials. You can use [Broken link](broken-reference "mention") to hide credentials in `gravitee.yml`.
+If you want to hide sensitive information in a secret manager, you must secure credentials. You can use [secrets](../configure-secrets/reference-secrets-in-configurations.md) to hide credentials in `gravitee.yml`.
 
 Here is an example with Kubernetes configured to HashiCorp Vault:
 
@@ -347,7 +345,7 @@ Environments are referenced using their UUIDs. Hrids are not supported.
 ### **Using a secret provider plugin more than once**
 
 {% hint style="warning" %}
-This syntax has a **critical** impact on how you reference secrets. For more information about syntax references, see [Broken link](broken-reference "mention") .
+This syntax has a **critical** impact on how you reference secrets. For more information about syntax references, see [reference-secrets-in-apis.md](reference-secrets-in-apis.md "mention").
 {% endhint %}
 
 For a setup with multiple environments, it is possible to use the same secret manager with different credentials, depending on the environment. Here is an example of a configuration with multiple environments:
@@ -459,7 +457,7 @@ api:
 
 ## Renewal
 
-If a secret reference has the ?`renewable=true`  option, you can control the following actions:
+If a secret reference has the ?`renewable=true` option, you can control the following actions:
 
 * How frequently a secret's TTL is checked to trigger the renewal.
 * The default TTL is set for secrets with the ?`renewable=true` option.

@@ -99,7 +99,7 @@ For full details on trying out the GKO functionality after deployment, see [Call
 
 ## Next steps
 
-Visit our [GKO guide](./) to:
+Visit our [GKO guide](README.md) to:
 
 * Learn how to use the GKO to define, deploy, and publish APIs to your API Portal and API Gateway
 * Manage custom resource definitions (CRDs)

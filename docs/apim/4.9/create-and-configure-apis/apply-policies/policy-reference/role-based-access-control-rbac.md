@@ -1,7 +1,7 @@
 # Role-based Access Control (RBAC)
 
 {% hint style="warning" %}
-**This feature requires** [**Gravitee's Enterprise Edition**](../../../../4.6/overview/gravitee-apim-enterprise-edition/)**.**
+**This feature requires** [**Gravitee's Enterprise Edition**](../../../readme/enterprise-edition.md)**.**
 {% endhint %}
 
 ## Overview

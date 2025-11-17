@@ -11,8 +11,7 @@ description: >-
 Gravitee Next Gen Cloud supports hybrid deployments, which provides you with the flexibility to run components within your own infrastructure while Gravitee hosts and manages other components. In a hybrid setup, the platform is split into the following two planes:
 
 * **Control Plane**: Fully managed by Gravitee in the cloud, responsible for API design, publishing, configuration, analytics, and lifecycle management.
-*   **Data Plane**: Deployed and managed by you, close to your backend services, responsible for executing traffic policies, enforcing security, and routing API traffic.\
-
+*   **Data Plane**: Deployed and managed by you, close to your backend services, responsible for executing traffic policies, enforcing security, and routing API traffic.\\
 
     <figure><img src="../../../.gitbook/assets/docker-compose-overview-.png" alt=""><figcaption></figcaption></figure>
 
@@ -20,7 +19,7 @@ This guide focuses on installing the Data Plane using Docker Compose. The Data P
 \
 By the end of this guide, your Gravitee Data Plane will be up and running, ready to enforce API policies and handle traffic according to your Gravitee Cloud configuration.
 
-{% include "../../../.gitbook/includes/installation-guide-note.md" %}
+{% include "../../../../4.6/.gitbook/includes/installation-guide-note (1).md" %}
 
 ## Prerequisites
 
@@ -113,8 +112,7 @@ To confirm that your Hybrid installation is working, complete the following step
 
 ### Ensure that the Gateway is registered in Gravitee Cloud
 
-1.  Sign in to Gravitee Cloud.\
-
+1.  Sign in to Gravitee Cloud.\\
 
     <figure><img src="../../../.gitbook/assets/cloud-ssign-in-page.png" alt=""><figcaption></figcaption></figure>
 2.  From the **Dashboard**, navigate to the **Gateways** section. Your new Hybrid Gateway appears here.
@@ -143,13 +141,7 @@ If the Gateway does not appear or shows an error state, complete the following c
     No context-path matches the request URI.
     ```
 
-
-
-    {% hint style="info" %}
-    This response confirms that the Gateway has initialized, but no APIs have been deployed. Once APIs are published through the Control Plane, this message is replaced by valid responses routed through the configured context paths.
-    {% endhint %}
-
-### Stop the Gateway
+    \{% hint style="info" %\} This response confirms that the Gateway has initialized, but no APIs have been deployed. Once APIs are published through the Control Plane, this message is replaced by valid responses routed through the configured context paths. \{% endhint %\}### Stop the Gateway
 
 To shut down the Gateway, choose one of the following options.
 
@@ -166,13 +158,13 @@ To shut down the Gateway, choose one of the following options.
 
 ## View the logs
 
-*   To check the Gateway logs, use the following command:&#x20;
+*   To check the Gateway logs, use the following command:
 
     ```sh
     docker logs -f gio_apim_hybrid_gateway
     ```
 
-### Next steps&#x20;
+### Next steps
 
 * Access your API Management Console. To access your Console, complete the following steps:
   1. Log in to your [Gravitee Cloud](https://cloud.gravitee.io/).

@@ -17,8 +17,8 @@ Future efforts and innovation will focus on the v4 API definition, which enables
 
 The following sections discuss key concepts of v4 and v2 APIs. For step-by-step instructions to create APIs, see:
 
-* [API creation wizard](the-api-creation-wizard/): How to use the API creation wizard in the UI
-* [Import APIs](import-apis/): How to import APIs in Gravitee
+* [API creation wizard](the-api-creation-wizard/README.md): How to use the API creation wizard in the UI
+* [Import APIs](import-apis/README.md): How to import APIs in Gravitee
 
 ## v4 API creation concepts
 
@@ -35,7 +35,7 @@ For example, if you wanted to make a Kafka topic consumable over WebSockets, you
 
 ### Backend exposure methods
 
-When creating Gateway APIs in Gravitee, you need to define the "type" or method of exposing your backend resources: [**Proxy upstream protocol**](./#proxy-upstream-protocol) or [**Introspect messages from event-driven backend**](./#introspect-messages). The architecture that you choose impacts which entrypoints and endpoints are available:
+When creating Gateway APIs in Gravitee, you need to define the "type" or method of exposing your backend resources: [**Proxy upstream protocol**](README.md#proxy-upstream-protocol) or [**Introspect messages from event-driven backend**](README.md#introspect-messages). The architecture that you choose impacts which entrypoints and endpoints are available:
 
 {% tabs %}
 {% tab title="Proxy upstream protocol" %}

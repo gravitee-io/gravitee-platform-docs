@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Dynamic Redirect URI Parameters feature in the OAuth2 flow enhances flexibility and control over redirection behavior by letting you append dynamic parameters to the final `redirect_uri`. These parameters are resolved using [Gravitee Expression Language (EL)](https://app.gitbook.com/s/ySqSVpDHfKA0fNml1fVO/), which lets you insert custom logic and data into the redirect URL. Dynamic Redirect URI Parameters improves the adaptability and precision of user authentication flows by empowering applications to dynamically adjust redirect targets based on context, such as user-specific attributes or session data.
+The Dynamic Redirect URI Parameters feature in the OAuth2 flow enhances flexibility and control over redirection behavior by letting you append dynamic parameters to the final `redirect_uri`. These parameters are resolved using [Gravitee Expression Language (EL)](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/ySqSVpDHfKA0fNml1fVO/), which lets you insert custom logic and data into the redirect URL. Dynamic Redirect URI Parameters improves the adaptability and precision of user authentication flows by empowering applications to dynamically adjust redirect targets based on context, such as user-specific attributes or session data.
 
 ## Enable redirect URI parameters
 
@@ -36,7 +36,7 @@ To use dynamic redirect URIs with query parameters, complete the following steps
     https://callback?username={#context.attributes['user'].username}
     ```
 
-    User-specific data is dynamically included in the redirection.&#x20;
+    User-specific data is dynamically included in the redirection.
 2. Initiate the login flow using `redirect_uri=https://callback`.
 
 With this setup, `{#context.attributes['user'].username}` is evaluated and replaced with the actual username to tailor the redirection for the individual user.

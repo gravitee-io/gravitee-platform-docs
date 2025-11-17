@@ -11,7 +11,7 @@ You can configure the policy with the following options:
 <table><thead><tr><th width="183">Property</th><th>Required</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td><code>mappings</code></td><td>No</td><td>A list of mappings between the client topic and the broker topic.</td><td>Array</td><td></td></tr><tr><td><code>mappings.client</code></td><td>No</td><td>The name provided on the client side that will be mapped in something else.</td><td>String</td><td></td></tr><tr><td><code>mappings.broker</code></td><td>No</td><td>The name that will be sent on the broker side. Supports EL expressions.</td><td>String</td><td></td></tr></tbody></table>
 
 {% hint style="info" %}
-## Policy order <a href="#user-content-supported-kafka-apikeys" id="user-content-supported-kafka-apikeys"></a>
+### Policy order <a href="#user-content-supported-kafka-apikeys" id="user-content-supported-kafka-apikeys"></a>
 
 When using the Kafka Topic Mapping policy together with the Kafka ACL policy, it is important to place the Kafka ACL policy **before** the Kafka Topic Mapping policy, as shown below.
 {% endhint %}
@@ -31,7 +31,7 @@ If you have a broker-side topic called `abcdef.topic.name.internal-only.some-id`
 
 <div align="center" data-full-width="false"><figure><img src="../../.gitbook/assets/image (158).png" alt="" width="375"><figcaption><p>UI configuration of the Kafka Topic Mapping policy</p></figcaption></figure></div>
 
-Kafka clients will now be able to specify the mapped topic name (`myFriendlyTopicName`) in their connection configuration.  For example: `kafka-console-consumer.sh --bootstrap-server foo.kafka.local:9092 --consumer.config config/client.properties --topic myFriendlyTopicName`
+Kafka clients will now be able to specify the mapped topic name (`myFriendlyTopicName`) in their connection configuration. For example: `kafka-console-consumer.sh --bootstrap-server foo.kafka.local:9092 --consumer.config config/client.properties --topic myFriendlyTopicName`
 
 Below is a sample policy configuration:
 
@@ -71,11 +71,11 @@ Below is a sample policy configuration:
 
 ### Example 2: I want to simplify multiple internal-only topic names as a single external-friendly topic name (with support from an OAuth2 provider)
 
-The broker-side (internal) topic name includes a user-specific organization ID that has been added to the topic name, e.g., `internal.organization-updates.12345`.  In this example, the organization ID ("`12345`") will be included in the OAuth2 `access_token` supplied by the identity server.   &#x20;
+The broker-side (internal) topic name includes a user-specific organization ID that has been added to the topic name, e.g., `internal.organization-updates.12345`. In this example, the organization ID ("`12345`") will be included in the OAuth2 `access_token` supplied by the identity server.
 
-In the Kafka Topic Mapping policy, the broker-side topic name will be  `internal.organization-updates.{orgId}`.  The `{orgId}` is dynamically replaced at runtime by extracting a custom claim value (e.g., `rf_org`) from the user's OAuth2 `access_token` via Gravitee's Expression Language.
+In the Kafka Topic Mapping policy, the broker-side topic name will be `internal.organization-updates.{orgId}`. The `{orgId}` is dynamically replaced at runtime by extracting a custom claim value (e.g., `rf_org`) from the user's OAuth2 `access_token` via Gravitee's Expression Language.
 
-We can now keep the client-side (external) topic name simple & generic:  `organization-updates`.
+We can now keep the client-side (external) topic name simple & generic: `organization-updates`.
 
 <figure><img src="../../.gitbook/assets/image (153).png" alt=""><figcaption><p>UI configuration of the Kafka Topic Mapping policy</p></figcaption></figure>
 

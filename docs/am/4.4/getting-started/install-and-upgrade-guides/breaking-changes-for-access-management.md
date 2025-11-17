@@ -14,11 +14,11 @@ Here are the breaking changes from versions 4.X of Gravitee.
 
 **MongoDB index names**
 
-The MongoDB indices are named using the first letters of the fields that compose the index. This change allows the automatic management of index creation on DocumentDB. This change requires the execution of a MongoDB script to delete, and then recreate AM indices. For more information about this change, see the [migration guide](https://documentation.gravitee.io/am/v/4.0/getting-started/install-and-upgrade-guides/upgrade-guide).
+The MongoDB indices are named using the first letters of the fields that compose the index. This change allows the automatic management of index creation on DocumentDB. This change requires the execution of a MongoDB script to delete, and then recreate AM indices. For more information about this change, see the [migration guide](https://documentation.gravitee.io/am/4.0/getting-started/install-and-upgrade-guides/upgrade-guide).
 
 **Enterprise Edition plugins**
 
-Some plugins are available to only Enterprise Edition and requires a license to use them. For more information about the Enterprise Edition plugins, see the [changelog](https://documentation.gravitee.io/am/v/4.0/releases-and-changelog/changelog/am-4.0.x)
+Some plugins are available to only Enterprise Edition and requires a license to use them. For more information about the Enterprise Edition plugins, see the [changelog](https://documentation.gravitee.io/am/4.0/releases-and-changelog/changelog/am-4.0.x)
 
 ## Breaking changes from 3.X
 
@@ -194,7 +194,7 @@ With this update, the following are enabled to improve security:
 
 **Theme and Branding**
 
-With this update, there is a  [**theme builder**](https://docs.gravitee.io/am/current/am\_userguide\_branding\_theme\_builder.html)**,** which enables Access Management (AM) users to create unique AM templates. The theme builder has new assets that are  used by the default forms and emails of AM. All the assets provided before AM 3.19 are still served by the Gateway to render the old form templates. Those assets are deprecated and will be removed in a future version. Here is a list of deprecated assets:
+With this update, there is a  [**theme builder**](https://docs.gravitee.io/am/current/am_userguide_branding_theme_builder.html)**,** which enables Access Management (AM) users to create unique AM templates. The theme builder has new assets that are  used by the default forms and emails of AM. All the assets provided before AM 3.19 are still served by the Gateway to render the old form templates. Those assets are deprecated and will be removed in a future version. Here is a list of deprecated assets:
 
 * css/access\_confirmation.css
 * css/forgot\_password.css
@@ -364,7 +364,7 @@ If the use have consented to these, you can simply add those inputs as `hidden` 
     <input class="mdl-checkbox__input" type="hidden" th:value="on"  id="uc_ua" name="uc_ua">
 ```
 
-For more information about this change, see [Risk-based MFA](https://docs.gravitee.io/am/current/am\_userguide\_mfa\_risk\_based.html#user\_activity\_and\_consent).
+For more information about this change, see [Risk-based MFA](https://docs.gravitee.io/am/current/am_userguide_mfa_risk_based.html#user_activity_and_consent).
 
 {% hint style="info" %}
 From **3.18.6**, you can implicit user consent in **gravitee.yml** file on the gateway side. In the **consent** section of the yml file, variable **ip** and **user-agent** is introduced for collecting user consent implicitly.
@@ -386,7 +386,7 @@ With this update, the rules on external identity providers are evaluated also du
 
 **Allowed domain lists**
 
-Due to the selection rule feature added in application identity providers, domain whitelists now operate after login and not after identifier-first login. For more information about this change, see[Identifier-first Login Flow](https://docs.gravitee.io/am/current/am\_userguide\_login\_identifier\_first\_login\_flow.html)
+Due to the selection rule feature added in application identity providers, domain whitelists now operate after login and not after identifier-first login. For more information about this change, see[Identifier-first Login Flow](https://docs.gravitee.io/am/current/am_userguide_login_identifier_first_login_flow.html)
 
 **Application Identity Providers**
 
@@ -395,7 +395,7 @@ At application level, identity providers support the following actions:
 * Priority: When the end user tries to log in, the application will first try to log in with the highest priority identity provider.
 * Selection rule: When the end user tries to log in, the application will try to log in with the identity provider that matches the rule.
 
-For more information about this change, see [Application Identity Providers](https://docs.gravitee.io/am/current/am\_userguide\_client\_identity\_providers.html).
+For more information about this change, see [Application Identity Providers](https://docs.gravitee.io/am/current/am_userguide_client_identity_providers.html).
 
 Also, at management-api level, the schema changes to save the new application configuration:
 
@@ -425,7 +425,7 @@ Also, at management-api level, the schema changes to save the new application co
 }
 ```
 
-Finally, you can check the API reference. To check the APU reference, go to [Management API reference](https://docs.gravitee.io/am/current/am\_devguide\_management\_api\_documentation.html).
+Finally, you can check the API reference. To check the APU reference, go to [Management API reference](https://docs.gravitee.io/am/current/am_devguide_management_api_documentation.html).
 
 ### 3.15
 

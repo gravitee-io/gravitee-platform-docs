@@ -430,7 +430,7 @@ description: >-
 
 ## Gravitee Access Management 4.0.0 - July 20, 2023
 
-For more in-depth information on what's new, please refer to the [Gravitee AM 4.0 release notes](../release-notes/).
+For more in-depth information on what's new, please refer to the [Gravitee AM 4.0 release notes](../release-notes/README.md).
 
 <details>
 

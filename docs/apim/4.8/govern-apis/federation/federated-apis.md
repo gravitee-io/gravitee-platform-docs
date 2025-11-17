@@ -2,7 +2,7 @@
 
 ## Overview
 
-Federated APIs join proxy and message APIs as one of the three main types of v4 Gravitee APIs. Federated APIs are created based on assets discovered by integrations with 3rd-party API gateway or event broker providers.&#x20;
+Federated APIs join proxy and message APIs as one of the three main types of v4 Gravitee APIs. Federated APIs are created based on assets discovered by integrations with 3rd-party API gateway or event broker providers.
 
 {% hint style="info" %}
 **Federated API feature limitations**
@@ -22,7 +22,7 @@ After running Discovery, you'll end up with a number of new federated APIs in Gr
 If you open one, you'll be able to view that API's details, add additional documentation and metadata, and publish that API to your Gravitee Developer portal, just like you can for a native Gravitee Gateway API.
 
 {% hint style="info" %}
-When Gravitee APIs are created from integrations, 3rd-party provider API attributes are mapped into Gravitee API attributes. Which attributes are available and how they are imported depends on the provider. See the [provider documentation](3rd-party-providers/) for more information.
+When Gravitee APIs are created from integrations, 3rd-party provider API attributes are mapped into Gravitee API attributes. Which attributes are available and how they are imported depends on the provider. See the [provider documentation](3rd-party-providers/README.md) for more information.
 {% endhint %}
 
 ## Configure federated APIs
@@ -52,7 +52,7 @@ When Gravitee API plans are ingested from a 3rd-party provider, they enable subs
 
 To manage your federated API's plans and their subscriptions, go to the **Consumers** tab for your federated API.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-06-18 at 4.12.15 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Screenshot 2024-06-18 at 4.12.15 PM (1).png" alt=""><figcaption></figcaption></figure>
 
 Under the **Plans** tab, you'll see all of the plans for your API that are either in staging, published, deprecated or closed. You will only be able to alter your federated API plans as it pertains to:
 
@@ -61,7 +61,7 @@ Under the **Plans** tab, you'll see all of the plans for your API that are eithe
 * **Subscription options**: either allowing auto-validation of all subscription requests, or, enforcing API consumers to submit a request for manual approval by the API Publisher
 * Defining certain groups that can or cannot subscribe to your API via Gravitee groups
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-06-18 at 4.10.09 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Screenshot 2024-06-18 at 4.10.09 PM (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 By default, the plan state is set to published and the subscription validation policy is set to manual (subscription auto-validation is not enabled).
@@ -80,7 +80,7 @@ To view or add documentation to an existing federated API:
 3. Click on the federated API you're interested in
 4. Select **Documentation** from the inner left nav
 
-<figure><img src="../../.gitbook/assets/jonathan demo documentation.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/jonathan demo documentation (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 By default, the page is published with private visibility.
@@ -100,7 +100,7 @@ To publish an existing federated API:
 4. Select **Configuration** from the inner left nav
 5. In the **Danger Zone**, click **Publish the API**
 
-<figure><img src="../../.gitbook/assets/jonathan demo publish api.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/jonathan demo publish api (1).png" alt=""><figcaption></figcaption></figure>
 
 ### View your API in the Developer Portal
 
@@ -120,19 +120,19 @@ From here, API consumers can access their Gravitee Developer Portal and search f
 
 1.  When you've found the API that you want to subscribe to, click the **SUBSCRIBE** button
 
-    <figure><img src="../../.gitbook/assets/jonathan demo subscribe.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../../.gitbook/assets/jonathan demo subscribe (1).png" alt=""><figcaption></figcaption></figure>
 2.  Select the plan you want to subscribe to, then click **Next**
 
-    <figure><img src="../../.gitbook/assets/jonathan demo plan.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../../.gitbook/assets/jonathan demo plan (1).png" alt=""><figcaption></figcaption></figure>
 3.  Use the **Choose an application** drop-down menu to select an application to use for the subscription, then click **Next.** If you do not yet have an application, please refer to the [Applications](../../developer-portal/classic-developer-portal/create-an-application.md) documentation to create a Gravitee Application.
 
-    <figure><img src="../../.gitbook/assets/jonathan demo choose app.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../../.gitbook/assets/jonathan demo choose app (1).png" alt=""><figcaption></figcaption></figure>
 
 Depending on the subscription configuration, the application will either auto-validate or require approval.
 
 {% hint style="info" %}
 * For more information on how to create and manage applications in APIM, see [Applications](../../developer-portal/classic-developer-portal/create-an-application.md).
-* For more information on how to create and manage subscriptions in APIM, see [Subscriptions](../../secure-and-expose-apis/subscriptions/).
+* For more information on how to create and manage subscriptions in APIM, see [Subscriptions](../../secure-and-expose-apis/subscriptions/README.md).
 {% endhint %}
 
 ## Delete federated APIs
@@ -152,7 +152,7 @@ To delete a federated API:
 3. Select the **General** header tab
 4.  In the **Danger Zone** section, click **Delete**
 
-    <figure><img src="../../.gitbook/assets/delete single API.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../../.gitbook/assets/delete single API (1).png" alt=""><figcaption></figcaption></figure>
 
 To delete all of an integration's federated APIs as a group:
 
@@ -162,7 +162,7 @@ To delete all of an integration's federated APIs as a group:
 4. Select **Configuration** from the inner left nav
 5.  In the **Danger Zone** section, click **Delete APIs**
 
-    <figure><img src="../../.gitbook/assets/integration delete.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../../.gitbook/assets/integration delete (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 Federated APIs cannot be deleted if they are published. The **Delete APIs** action will delete unpublished APIs but ignore published APIs.
