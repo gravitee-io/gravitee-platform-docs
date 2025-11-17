@@ -6,7 +6,7 @@ description: This page describes how to create and configure the default APIM re
 
 ## Overview
 
-Every API Management installation includes several default resources that are commonly used in standard APIM implementations and can be configured during the API design phase. The recommended configuration method employs the [Policy Studio](../policy-studio/).
+Every API Management installation includes several default resources that are commonly used in standard APIM implementations and can be configured during the API design phase. The recommended configuration method employs the [Policy Studio](../policy-studio/README.md).
 
 The following sections summarize resource descriptions, configuration parameters, and configuration examples.
 
@@ -25,7 +25,7 @@ APIM includes several default resources, each of which is described in more deta
 * [**Keycloak Adapter**](resources.md#keycloak-adapter)**:** Introspects an access token.
 
 {% hint style="warning" %}
-The **Cache Redis** plugin is not included in the default APIM distribution, but you can [download](https://download.gravitee.io/#graviteeio-apim/plugins/resources/gravitee-resource-cache-redis/) and [deploy](../../../overview/plugins-and-api-definitions-for-gravitee-api-management/plugins/deploying-plugins.md#deployment) it. For information on configuring cache in APIM, see [Configure cache](../../../configuration/cache.md). For information on configuring the rate limit repository plugin for Redis, see [Redis](../../../configuration/repositories/#redis).
+The **Cache Redis** plugin is not included in the default APIM distribution, but you can [download](https://download.gravitee.io/#graviteeio-apim/plugins/resources/gravitee-resource-cache-redis/) and [deploy](../../../overview/plugins-and-api-definitions-for-gravitee-api-management/plugins/deploying-plugins.md#deployment) it. For information on configuring cache in APIM, see [Configure cache](../../../configuration/cache.md). For information on configuring the rate limit repository plugin for Redis, see [Redis](../../../configuration/repositories/README.md#redis).
 {% endhint %}
 
 ### OAuth2 APIM compatibility
@@ -117,7 +117,7 @@ The Cache Redis resource can operate standalone or with the Redis Sentinel monit
 
 As of Gravitee 4.0, the ability to use Confluent Schema Registry as a resource is an Enterprise Edition capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:
 
-* [Refer to the EE vs OSS documentation](../../../overview/gravitee-apim-enterprise-edition/)
+* [Refer to the EE vs OSS documentation](../../../overview/gravitee-apim-enterprise-edition/README.md)
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}

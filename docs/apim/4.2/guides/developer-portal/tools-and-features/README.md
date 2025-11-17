@@ -15,7 +15,7 @@ The homepage will open in a new browser tab:
 <figure><img src="../../../.gitbook/assets/dev portal_home.png" alt=""><figcaption><p>Sample Developer Portal homepage</p></figcaption></figure>
 
 {% hint style="info" %}
-The appearance and content of the Developer Portal are configurable by an administrator per the [Configuration](../configuration/) section.
+The appearance and content of the Developer Portal are configurable by an administrator per the [Configuration](../configuration/README.md) section.
 {% endhint %}
 
 Click on the tiles below to explore the major capabilities and functionality offered by the Developer Portal:

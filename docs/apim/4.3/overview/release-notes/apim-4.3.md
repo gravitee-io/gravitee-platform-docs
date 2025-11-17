@@ -37,7 +37,7 @@ An API description will be rendered as Markdown in the Developer Portal UI if:
 * An OpenAPI spec is imported and contains Markdown in the Description field
 * Markdown is entered for the description of an API
 
-To learn more about importing an API, see the [documentation](../../guides/create-apis/import-apis/).
+To learn more about importing an API, see the [documentation](../../guides/create-apis/import-apis/README.md).
 
 ## API documentation
 
@@ -226,4 +226,4 @@ To learn how to create a TCP proxy API, see the [v4 API creation wizard](../../g
 
 The TCP reporter can be configured to use TLS when connecting to the target so that the entire communication is TLS-encrypted end-to-end. The user can configure the reporter to use TLS either with or without client verification enabled.
 
-For more details, see the [TCP reporter documentation](../../getting-started/configuration/reporters/#tcp-reporter).
+For more details, see the [TCP reporter documentation](../../getting-started/configuration/reporters/README.md#tcp-reporter).

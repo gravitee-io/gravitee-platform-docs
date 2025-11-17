@@ -35,7 +35,7 @@ For more information on configuring an authentication device, see [this page](..
 
 ## Client secret hash
 
-Gravitee 4.2 offers the option for the client secret to store a hashed value in the AM Database. The algorithm used to hash the client secret can be specified in the `gravitee.yaml` for both [AM Management API](../../getting-started/configuration/configure-am-api/) and [AM Gateway](../../getting-started/configuration/configure-am-gateway/). Available algorithms are:
+Gravitee 4.2 offers the option for the client secret to store a hashed value in the AM Database. The algorithm used to hash the client secret can be specified in the `gravitee.yaml` for both [AM Management API](../../getting-started/configuration/configure-am-api/README.md) and [AM Gateway](../../getting-started/configuration/configure-am-gateway/README.md). Available algorithms are:
 
 * None (default)
 * SHA-256

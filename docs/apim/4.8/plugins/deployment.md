@@ -2,7 +2,7 @@
 
 ## Overview
 
-Deploying a plugin is as easy as copying the plugin archive (zip) into the dedicated directory. By default, you need to deploy the archives in `${GRAVITEE_HOME/plugins}`. Refer to [APIM Gateway Configuration ](../configure-and-manage-the-platform/gravitee-gateway/#configure-the-plugins-directory)for more information on modifying the directory structure.
+Deploying a plugin is as easy as copying the plugin archive (zip) into the dedicated directory. By default, you need to deploy the archives in `${GRAVITEE_HOME/plugins}`. Refer to [APIM Gateway Configuration ](../configure-and-manage-the-platform/gravitee-gateway/README.md#configure-the-plugins-directory)for more information on modifying the directory structure.
 
 {% hint style="warning" %}
 You must restart APIM nodes when applying new or updated plugins.
@@ -14,7 +14,7 @@ The plugins directory can be configured via either local installation or Helm.
 
 {% tabs %}
 {% tab title="Local installation" %}
-You can configure the APIM Gateway [plugins](./) directory with `plugins.path` configuration property:
+You can configure the APIM Gateway [plugins](README.md) directory with `plugins.path` configuration property:
 
 ```yaml
 plugins:

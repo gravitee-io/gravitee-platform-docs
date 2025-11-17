@@ -58,7 +58,7 @@ Where:
 
 ## Custom UI errors
 
-You can access the password policy settings in your **Sign Up** and **Register** [HTML templates](../branding/#custom-pages), making it possible to customize the error messages your end users see.
+You can access the password policy settings in your **Sign Up** and **Register** [HTML templates](../branding/README.md#custom-pages), making it possible to customize the error messages your end users see.
 
 {% code overflow="wrap" %}
 ```html

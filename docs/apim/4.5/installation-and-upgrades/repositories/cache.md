@@ -59,10 +59,10 @@ More information can be found in the [Hazelcast documentation](https://docs.haze
 
 ## Cache resource management
 
-API publishers can [create Cache resources](../../using-the-product/managing-your-apis/resources/#how-to-create-a-resource) to:
+API publishers can [create Cache resources](../../using-the-product/managing-your-apis/resources/README.md#how-to-create-a-resource) to:
 
 * Cache upstream of a response with the [Cache policy](../../using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/a-c/cache.md)
-* Cache access tokens with the [OAuth2 policy](../../using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/l-p/oauth2/)
+* Cache access tokens with the [OAuth2 policy](../../using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/l-p/oauth2/README.md)
 
 The default distribution includes the [Cache resource](../../using-the-product/managing-your-apis/resources/cache.md#cache) plugin, which stores content in-memory and is locally managed on each Gateway node of the installation.
 

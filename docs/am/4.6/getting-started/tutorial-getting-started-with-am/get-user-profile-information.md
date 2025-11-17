@@ -5,7 +5,7 @@
 After you have [set up your first application](set-up-your-first-application.md), you can retrieve user profile information with OpenID Connect.
 
 {% hint style="info" %}
-For more information on OpenID Connect and OAuth2, see [Authorization in AM.](../../#authorization-in-am)
+For more information on OpenID Connect and OAuth2, see [Authorization in AM.](../../README.md#authorization-in-am)
 {% endhint %}
 
 In this example, we will use the [Resource Owner Password Credentials flow](https://tools.ietf.org/html/rfc6749#section-1.3.3). You use it to obtain and verify user identities for your applications by issuing [ID Tokens](http://openid.net/specs/openid-connect-core-1_0.html#IDToken) or calling the [UserInfo Endpoint](http://openid.net/specs/openid-connect-core-1_0.html#UserInfo). The default flow is the [Authorization Code flow](https://tools.ietf.org/html/rfc6749#section-1.3.1) with a login page displayed to the end user.

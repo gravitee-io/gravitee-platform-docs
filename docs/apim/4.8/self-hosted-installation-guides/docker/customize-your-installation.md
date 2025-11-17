@@ -71,7 +71,7 @@ To use Redis with Docker images, complete the following steps:
 
 To download the driver, complete the following sub-steps:
 
-1. Download the correct driver for your database. For more information about downloading the correct drive, go to [Supported databases.](../../prepare-a-production-environment/repositories/#supported-databases)
+1. Download the correct driver for your database. For more information about downloading the correct drive, go to [Supported databases.](../../prepare-a-production-environment/repositories/README.md#supported-databases)
 2. Place the driver in the `plugins-ext` folder.
 
 {% hint style="info" %}

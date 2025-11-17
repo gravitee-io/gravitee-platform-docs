@@ -4,7 +4,7 @@ description: Try Gravitee's enterprise features with Gravitee Cockpit
 
 # Enterprise Trial
 
-The easiest way to get started with Gravitee is through the free enterprise trial. The trial includes access to [Gravitee Enterprise Edition (EE) features](../../overview/ee-vs-oss/) like Alert Engine, a no-code API Designer with unlimited data models, monetization capabilities, and advanced protocol mediation options.
+The easiest way to get started with Gravitee is through the free enterprise trial. The trial includes access to [Gravitee Enterprise Edition (EE) features](../../overview/ee-vs-oss/README.md) like Alert Engine, a no-code API Designer with unlimited data models, monetization capabilities, and advanced protocol mediation options.
 
 The enterprise trial can be accessed by registering with Gravitee Cockpit (GC), which is a web application for centrally managing Gravitee environments and installations.
 

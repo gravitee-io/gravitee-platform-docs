@@ -8,6 +8,7 @@ The Gravitee API Management (APIM) Management API component includes its own int
 
 Enable the API as a service in the `gravitee.yml` file and update any other required configuration:
 
+{% code title="gravitee.ym" %}
 ```yaml
 services:
   core:
@@ -20,6 +21,7 @@ services:
         users:
           admin: adminadmin
 ```
+{% endcode %}
 
 The above values are defined as follows:
 
@@ -44,67 +46,65 @@ Content-Type: application/json
         "REVISION": "132e719ef314b40f352e6399034d68a9a95e95ef"
     }
 }
-        
-</code></pre></td></tr><tr><td><code>GET /_node/health</code></td><td><p>Gets the health status of the component.</p><p>Probes can be filtered using the optional <code>probes</code> query parameter, which can handle a list of probes separated by commas (<code>,</code>). If no query param is provided, the health of all probes is returned. If the return status is 200, everything is ok; if it is 500, there is at least one error.</p><p>This endpoint can be used by a load balancer, e.g., to determine if a component instance is not in the pool.</p><p>⚠ The following probes are not displayed by default and you must explicitly use the query param to retrieve them:</p><ul><li><strong>cpu</strong></li></ul><ul><li><strong>memory</strong></li></ul><ul><li><strong>api-sync</strong></li></ul><p>These probes are considered healthy if they are under a configurable threshold (default is 80%). To configure the default, add it to your <code>gravitee.yml</code>:</p><pre><code>
+</code></pre></td></tr><tr><td><code>GET /_node/health</code></td><td><p>Gets the health status of the component.</p><p>Probes can be filtered using the optional <code>probes</code> query parameter, which can handle a list of probes separated by commas (<code>,</code>). If no query param is provided, the health of all probes is returned. If the return status is 200, everything is ok; if it is 500, there is at least one error.</p><p>This endpoint can be used by a load balancer, e.g., to determine if a component instance is not in the pool.</p><p>⚠ The following probes are not displayed by default and you must explicitly use the query param to retrieve them:</p><ul><li><strong>cpu</strong></li><li><strong>memory</strong></li><li><strong>api-sync</strong></li></ul><p>These probes are considered healthy if they are under a configurable threshold (default is 80%). To configure the default, add it to your <code>gravitee.yml</code>:</p><pre><code>
 services:
-  health:
-    threshold:
-      cpu: 80
-      memory: 80
-        
+health:
+threshold:
+cpu: 80
+memory: 80
 </code></pre></td><td><p><code>GET /_node/health</code></p><pre><code>HTTP/1.1 200 OK
 Content-Type: application/json
 {
-  "management-repository": {
-    "healthy": true
-  },
-  "gravitee-apis": {
-    "healthy": true
-  },
-  "repository-analytics": {
-    "healthy": true
-  }
+    "management-repository": {
+        "healthy": true
+    },
+    "gravitee-apis": {
+        "healthy": true
+    },
+    "repository-analytics": {
+        "healthy": true
+    }
 }
-        
 </code></pre><p><code>GET /_node/health?probes=management-repository,gravitee-apis</code></p><pre><code>HTTP/1.1 200 OK
 Content-Type: application/json
 {
-  "management-repository": {
-    "healthy": true
-  },
-  "gravitee-apis": {
-    "healthy": true
-  }
+    "management-repository": {
+        "healthy": true
+    },
+    "gravitee-apis": {
+        "healthy": true
+    }
 }
-        
 </code></pre></td></tr><tr><td><code>GET /_node/configuration</code></td><td>Gets the node configuration from the <code>gravitee.yml</code> file and/or environment variables.</td><td><pre><code>HTTP/1.1 200 OK
 Content-Type: application/json
 {
-"analytics.elasticsearch.endpoints[0]": "http://${ds.elastic.host}:${ds.elastic.port}",
-"analytics.type": "elasticsearch",
-"ds.elastic.host": "localhost",
-"ds.elastic.port": 9200,
-...
+    "analytics.elasticsearch.endpoints[0]": "http://${ds.elastic.host}:${ds.elastic.port}",
+    "analytics.type": "elasticsearch",
+    "ds.elastic.host": "localhost",
+    "ds.elastic.port": 9200,
+    ...
 }
 </code></pre></td></tr><tr><td><code>GET /_node/monitor</code></td><td>Gets monitoring information from the JVM and the server.</td><td><pre><code>HTTP/1.1 200 OK
 Content-Type: application/json
 {
-"jvm": {
-"gc": {
-"collectors": [
-{
-"collectionCount": 7,
-"collectionTime": 98,
-"name": "young"
-},
-{
-"collectionCount": 3,
-"collectionTime": 189,
-"name": "old"
-}
-]
-},
-"mem": {
-...
+    "jvm": {
+        "gc": {
+            "collectors": [
+                {
+                    "collectionCount": 7,
+                    "collectionTime": 98,
+                    "name": "young"
+                },
+                {
+                    "collectionCount": 3,
+                    "collectionTime": 189,
+                    "name": "old"
+                }
+            ]
+        },
+        "mem": {
+            ...
+        }
+    }
 }
 </code></pre></td></tr></tbody></table>

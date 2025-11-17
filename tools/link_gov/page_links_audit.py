@@ -14,7 +14,10 @@ from .utils import CACHE_DIR
 
 app = typer.Typer(
     add_completion=False,
-    help="Audit & autofix *page links* (links ending in .md) against PV SUMMARY.md.",
+    help=(
+        "Audit documentation page links (relative and absolute), write master + per-category CSVs, "
+        "and optionally apply safe autofixes to existing, resolvable page links."
+    ),
 )
 
 # --- Config ---
@@ -42,18 +45,36 @@ PAGE_EXTS = {".md", ".mdx"}
 
 # CSV output names
 MASTER_CSV = CACHE_DIR / "page_links_audit.all.csv"
-PER_REASON_PREFIX = CACHE_DIR / "page_links_audit."
+PER_CATEGORY_PREFIX = CACHE_DIR / "page_links_audit."
 
-# Reasons (single source of truth)
-REASONS = [
-    "correct_relative",
-    "relative_exists_not_in_summary",
-    "needs_reformat_absolute_in_pv",
-    "broken_relative_in_pv_not_in_summary",
-    "correct_absolute_cross_pv",
-    "broken_absolute_cross_pv",
-    "external_absolute",
-    "skipped_other_scheme",
+# Categories (single source of truth)
+CATEGORIES = [
+    # GitBook-flagged broken links (contain "broken-reference")
+    "broken_ref",
+    # PV-aware relative page links (source in docs/<product>/<version>/...)
+    "inpv_rel_exists_sum",
+    "inpv_rel_exists_nosum",
+    "inpv_rel_missing_sum",
+    "inpv_rel_missing_nosum",
+    # PV-aware absolute (/docs/...) links within same PV
+    "inpv_abs_exists_sum_reformat",
+    "inpv_abs_missing_sum",
+    "inpv_abs_missing_nosum",
+    # Cross-PV absolute (/docs/...) links
+    "xpv_abs_exists_sum",
+    "xpv_abs_exists_nosum",
+    "xpv_abs_missing_sum",
+    "xpv_abs_missing_nosum",
+    # External HTTP(S)
+    "ext_abs",
+    # Non-PV relative page links
+    "rel_nonpv_exists",
+    "rel_nonpv_missing",
+    # Non-page URL types
+    "anchor_only",
+    "mailto",
+    "tel",
+    "nonpage_link",
 ]
 
 
@@ -101,7 +122,7 @@ class Finding:
     url: str
     pv_product: str
     pv_version: str
-    reason: str
+    category: str
     normalized_target: str  # canonical repo-relative target path for fixes when applicable
 
 
@@ -307,12 +328,8 @@ def _scan_page_links(pv_index: dict[str, set[str]]) -> list[Finding]:
                 url_raw = m.group(2)
                 url = url_raw.split("#", 1)[0]  # strip fragment for all checks
 
-                # Skip anchors-only, mailto, tel
-                if (
-                    url_raw.startswith("#")
-                    or url_raw.startswith("mailto:")
-                    or url_raw.startswith("tel:")
-                ):
+                # Classify anchors-only, mailto, tel explicitly
+                if url_raw.startswith("#"):
                     out.append(
                         Finding(
                             src.as_posix(),
@@ -321,7 +338,53 @@ def _scan_page_links(pv_index: dict[str, set[str]]) -> list[Finding]:
                             url_raw,
                             pv_product,
                             pv_version,
-                            "skipped_other_scheme",
+                            "anchor_only",
+                            "",
+                        )
+                    )
+                    continue
+
+                if url_raw.startswith("mailto:"):
+                    out.append(
+                        Finding(
+                            src.as_posix(),
+                            i,
+                            text,
+                            url_raw,
+                            pv_product,
+                            pv_version,
+                            "mailto",
+                            "",
+                        )
+                    )
+                    continue
+
+                if url_raw.startswith("tel:"):
+                    out.append(
+                        Finding(
+                            src.as_posix(),
+                            i,
+                            text,
+                            url_raw,
+                            pv_product,
+                            pv_version,
+                            "tel",
+                            "",
+                        )
+                    )
+                    continue
+
+                # GitBook "broken-reference" marker: treat as its own broken category
+                if "broken-reference" in url_raw:
+                    out.append(
+                        Finding(
+                            src.as_posix(),
+                            i,
+                            text,
+                            url_raw,
+                            pv_product,
+                            pv_version,
+                            "broken_ref",
                             "",
                         )
                     )
@@ -337,7 +400,7 @@ def _scan_page_links(pv_index: dict[str, set[str]]) -> list[Finding]:
                             url_raw,
                             pv_product,
                             pv_version,
-                            "external_absolute",
+                            "ext_abs",
                             "",
                         )
                     )
@@ -355,7 +418,7 @@ def _scan_page_links(pv_index: dict[str, set[str]]) -> list[Finding]:
                                 url_raw,
                                 pv_product,
                                 pv_version,
-                                "external_absolute",
+                                "nonpage_link",
                                 "",
                             )
                         )
@@ -376,7 +439,6 @@ def _scan_page_links(pv_index: dict[str, set[str]]) -> list[Finding]:
                         # abs_product = "am", abs_version = None, abs_tail_norm = "guides/applications"
                         #
                         resolved_repo_rel = ""
-                        reason = "external_absolute"  # safe default
 
                         if cur_pv_key and cur_pv_key.startswith(abs_product + "/"):
                             # Same product; treat tail as PV-root-relative in *this* PV
@@ -399,11 +461,8 @@ def _scan_page_links(pv_index: dict[str, set[str]]) -> list[Finding]:
                                     resolved_repo_rel = c.as_posix()
                                     break
 
-                            if resolved_repo_rel:
-                                # Treat as a same-PV absolute that should be relative
-                                reason = "needs_reformat_absolute_in_pv"
-
-                        if resolved_repo_rel and reason == "needs_reformat_absolute_in_pv":
+                        if resolved_repo_rel:
+                            # Treat as a same-PV absolute that should be relative
                             out.append(
                                 Finding(
                                     src.as_posix(),
@@ -412,12 +471,12 @@ def _scan_page_links(pv_index: dict[str, set[str]]) -> list[Finding]:
                                     url_raw,
                                     pv_product,
                                     pv_version,
-                                    reason,
+                                    "inpv_abs_exists_sum_reformat",
                                     resolved_repo_rel,
                                 )
                             )
                         else:
-                            # We couldn't safely map this non-PV docs URL → leave as external_absolute
+                            # We couldn't safely map this non-PV docs URL → leave as ext_abs
                             out.append(
                                 Finding(
                                     src.as_posix(),
@@ -426,7 +485,7 @@ def _scan_page_links(pv_index: dict[str, set[str]]) -> list[Finding]:
                                     url_raw,
                                     pv_product,
                                     pv_version,
-                                    "external_absolute",
+                                    "ext_abs",
                                     "",
                                 )
                             )
@@ -470,9 +529,10 @@ def _scan_page_links(pv_index: dict[str, set[str]]) -> list[Finding]:
                     if cur_pv_key == tgt_pv_key:
                         #
                         # Same-PV absolute link:
-                        #   - should be relative
-                        #   - classify as needs_reformat_absolute_in_pv if the target is in SUMMARY
-                        #   - otherwise as broken_relative_in_pv_not_in_summary
+                        #   - if target exists → inpv_abs_exists_sum_reformat (should be made relative)
+                        #   - if target missing:
+                        #       - inpv_abs_missing_sum    (target path in SUMMARY)
+                        #       - inpv_abs_missing_nosum (target path not in SUMMARY)
                         #
                         in_summary = False
                         if cur_pv_key and cur_pv_key in pv_index:
@@ -480,11 +540,13 @@ def _scan_page_links(pv_index: dict[str, set[str]]) -> list[Finding]:
                             # Any candidate that appears in SUMMARY makes this "in_summary"
                             in_summary = any(rel in pv_set for rel in abs_candidates)
 
-                        reason = (
-                            "needs_reformat_absolute_in_pv"
-                            if in_summary
-                            else "broken_relative_in_pv_not_in_summary"
-                        )
+                        if exists:
+                            category = "inpv_abs_exists_sum_reformat"
+                        else:
+                            category = (
+                                "inpv_abs_missing_sum" if in_summary else "inpv_abs_missing_nosum"
+                            )
+
                         out.append(
                             Finding(
                                 src.as_posix(),
@@ -493,27 +555,33 @@ def _scan_page_links(pv_index: dict[str, set[str]]) -> list[Finding]:
                                 url_raw,
                                 pv_product,
                                 pv_version,
-                                reason,
+                                category,
                                 repo_rel,
                             )
                         )
                     else:
                         #
                         # Cross-PV absolute link:
-                        #   - "correct" if the target either exists on disk OR appears
-                        #     in the target PV's SUMMARY.md
-                        #   - "broken" only if it is missing from both disk and SUMMARY
+                        #   - if target exists:
+                        #       - xpv_abs_exists_sum    (target path in target PV SUMMARY)
+                        #       - xpv_abs_exists_nosum (target path not in target PV SUMMARY)
+                        #   - if target missing:
+                        #       - xpv_abs_missing_sum    (in target PV SUMMARY)
+                        #       - xpv_abs_missing_nosum (not in target PV SUMMARY)
                         #
                         in_summary_tgt = False
                         if tgt_pv_key in pv_index:
                             pv_set = pv_index[tgt_pv_key]
                             in_summary_tgt = any(rel in pv_set for rel in abs_candidates)
 
-                        reason = (
-                            "correct_absolute_cross_pv"
-                            if (exists or in_summary_tgt)
-                            else "broken_absolute_cross_pv"
-                        )
+                        if exists:
+                            category = (
+                                "xpv_abs_exists_sum" if in_summary_tgt else "xpv_abs_exists_nosum"
+                            )
+                        else:
+                            category = (
+                                "xpv_abs_missing_sum" if in_summary_tgt else "xpv_abs_missing_nosum"
+                            )
 
                         out.append(
                             Finding(
@@ -523,15 +591,16 @@ def _scan_page_links(pv_index: dict[str, set[str]]) -> list[Finding]:
                                 url_raw,
                                 pv_product,
                                 pv_version,
-                                reason,
+                                category,
                                 repo_rel,
                             )
                         )
 
                     continue  # handled absolute-root case
 
-                # Relative link: only consider page links (.md/.mdx)
-                if not any(url.lower().endswith(ext) for ext in PAGE_EXTS):
+                # ---------- Relative link handling ----------
+                # Root-relative URLs that are not under /docs/... are not treated as page links
+                if url.startswith("/") and not url.startswith("/docs/"):
                     out.append(
                         Finding(
                             src.as_posix(),
@@ -540,34 +609,82 @@ def _scan_page_links(pv_index: dict[str, set[str]]) -> list[Finding]:
                             url_raw,
                             pv_product,
                             pv_version,
-                            "skipped_other_scheme",
+                            "nonpage_link",
+                            "",
+                        )
+                    )
+                    continue
+                lower_url = url.lower()
+                is_page_like = any(lower_url.endswith(ext) for ext in PAGE_EXTS)
+                # Treat trailing '/' as a directory-style page link (README in that folder)
+                is_dir_style = not is_page_like and url.endswith("/")
+
+                # Ignore non-page links (images, downloads, etc.) that don't look like docs pages
+                if not is_page_like and not is_dir_style:
+                    out.append(
+                        Finding(
+                            src.as_posix(),
+                            i,
+                            text,
+                            url_raw,
+                            pv_product,
+                            pv_version,
+                            "nonpage_link",
                             "",
                         )
                     )
                     continue
 
+                # --- Normalize to a repo-relative base path ---
+                u_norm = url.replace("\\", "/")
+                if u_norm.startswith("docs/") or u_norm.startswith("/docs/"):
+                    # Already repo-rooted (or site-absolute pointing at repo root) → use as-is
+                    base_repo_rel = re.sub(r"/{2,}", "/", u_norm.lstrip("/"))
+                else:
+                    # Resolve e.g. "../foo/bar" against the source file
+                    base_repo_rel = _canonical_repo_path_from_relative(src, url)
+
+                # For directory-style links, treat as <dir>/README.md(.mdx), then <dir>.md(.mdx)
+                if is_dir_style:
+                    base = base_repo_rel[:-1] if base_repo_rel.endswith("/") else base_repo_rel
+                    candidates: list[str] = [
+                        f"{base}/README.md",
+                        f"{base}/README.mdx",
+                        f"{base}.md",
+                        f"{base}.mdx",
+                    ]
+                else:
+                    # Explicit .md / .mdx link
+                    candidates = [base_repo_rel]
+
+                # Choose canonical repo-relative target and check on-disk existence
+                repo_rel_target = candidates[0]
+                exists_on_disk = False
+                for candidate in candidates:
+                    if Path(candidate).exists():
+                        repo_rel_target = candidate
+                        exists_on_disk = True
+                        break
+
                 if not pv:
-                    # Relative page link outside a PV tree — skip-as-other
+                    # Non-PV source: we only care if the target file exists on disk
+                    category = "rel_nonpv_exists" if exists_on_disk else "rel_nonpv_missing"
                     out.append(
                         Finding(
-                            src.as_posix(), i, text, url_raw, "", "", "skipped_other_scheme", ""
+                            src.as_posix(),
+                            i,
+                            text,
+                            url_raw,
+                            "",
+                            "",
+                            category,
+                            repo_rel_target,
                         )
                     )
                     continue
 
                 # Compute PV key from the *source* page
                 pv_key = _pv_key_from_repo_path(src)  # e.g. "apim/4.8"
-
-                # --- Normalize target & check SUMMARY membership ---
-                # Treat repo-rooted docs paths as canonical; only resolve truly relative paths.
-                u_norm = url.replace("\\", "/")
-
-                if u_norm.startswith("docs/") or u_norm.startswith("/docs/"):
-                    # Already repo-rooted (or site-absolute pointing at repo root) → use as-is
-                    repo_rel_target = re.sub(r"/{2,}", "/", u_norm.lstrip("/"))
-                else:
-                    # Resolve e.g. "../foo/bar.md" against the source file
-                    repo_rel_target = _canonical_repo_path_from_relative(src, url)
 
                 # Convert repo-relative target to PV-root-relative for membership check
                 pv_rel = _repo_rel_to_pv_rel(repo_rel_target)
@@ -581,14 +698,16 @@ def _scan_page_links(pv_index: dict[str, set[str]]) -> list[Finding]:
                     elif pv_key in pv_index:
                         in_summary = pv_rel in pv_index[pv_key]
 
-                exists_on_disk = Path(repo_rel_target).exists()
-
-                if in_summary:
-                    reason = "correct_relative"
-                elif exists_on_disk:
-                    reason = "relative_exists_not_in_summary"
+                if exists_on_disk:
+                    if in_summary:
+                        category = "inpv_rel_exists_sum"
+                    else:
+                        category = "inpv_rel_exists_nosum"
                 else:
-                    reason = "broken_relative_in_pv_not_in_summary"
+                    if in_summary:
+                        category = "inpv_rel_missing_sum"
+                    else:
+                        category = "inpv_rel_missing_nosum"
 
                 out.append(
                     Finding(
@@ -598,7 +717,7 @@ def _scan_page_links(pv_index: dict[str, set[str]]) -> list[Finding]:
                         url_raw,
                         pv_product,
                         pv_version,
-                        reason,
+                        category,
                         repo_rel_target,
                     )
                 )
@@ -608,8 +727,8 @@ def _scan_page_links(pv_index: dict[str, set[str]]) -> list[Finding]:
 
 def _write_csvs(findings: list[Finding]) -> None:
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
-    master_rows = []
-    per_reason: dict[str, list[dict]] = {r: [] for r in REASONS}
+    master_rows: list[dict] = []
+    per_category: dict[str, list[dict]] = {c: [] for c in CATEGORIES}
 
     for f in findings:
         row = {
@@ -619,12 +738,12 @@ def _write_csvs(findings: list[Finding]) -> None:
             "url": f.url,
             "pv_product": f.pv_product,
             "pv_version": f.pv_version,
-            "reason": f.reason,
+            "category": f.category,
             "normalized_target": f.normalized_target,
         }
         master_rows.append(row)
-        if f.reason in per_reason:
-            per_reason[f.reason].append(row)
+        if f.category in per_category:
+            per_category[f.category].append(row)
 
     # master
     with MASTER_CSV.open("w", newline="", encoding="utf-8") as fo:
@@ -640,7 +759,7 @@ def _write_csvs(findings: list[Finding]) -> None:
                     "url",
                     "pv_product",
                     "pv_version",
-                    "reason",
+                    "category",
                     "normalized_target",
                 ]
             ),
@@ -649,9 +768,9 @@ def _write_csvs(findings: list[Finding]) -> None:
         for r in master_rows:
             w.writerow(r)
 
-    # per reason
-    for reason, rows in per_reason.items():
-        path = PER_REASON_PREFIX.with_name(PER_REASON_PREFIX.name + f"{reason}.csv")
+    # per category
+    for category, rows in per_category.items():
+        path = PER_CATEGORY_PREFIX.with_name(PER_CATEGORY_PREFIX.name + f"{category}.csv")
         with path.open("w", newline="", encoding="utf-8") as fo:
             w = csv.DictWriter(
                 fo,
@@ -665,7 +784,7 @@ def _write_csvs(findings: list[Finding]) -> None:
                         "url",
                         "pv_product",
                         "pv_version",
-                        "reason",
+                        "category",
                         "normalized_target",
                     ]
                 ),
@@ -677,21 +796,23 @@ def _write_csvs(findings: list[Finding]) -> None:
 
 def _print_summary(findings: list[Finding]) -> None:
     total = len(findings)
-    counts: dict[str, int] = {r: 0 for r in REASONS}
+    counts: dict[str, int] = {c: 0 for c in CATEGORIES}
     for f in findings:
-        if f.reason in counts:
-            counts[f.reason] += 1
+        if f.category in counts:
+            counts[f.category] += 1
+
     typer.secho(
-        "\nPage link audit (page links = URLs ending in .md or .mdx)\n", fg=typer.colors.BLUE
+        "\nPage link audit (page links = URLs ending in .md or .mdx)\n",
+        fg=typer.colors.BLUE,
     )
     typer.echo(f"Total links scanned: {total}")
-    for k in REASONS:
+    for k in CATEGORIES:
         typer.echo(f"  • {k}: {counts[k]}")
 
     typer.echo("\nCSV (master): " + MASTER_CSV.as_posix())
-    typer.echo("CSV (per reason):")
-    for k in REASONS:
-        p = PER_REASON_PREFIX.with_name(PER_REASON_PREFIX.name + f"{k}.csv")
+    typer.echo("CSV (per category):")
+    for k in CATEGORIES:
+        p = PER_CATEGORY_PREFIX.with_name(PER_CATEGORY_PREFIX.name + f"{k}.csv")
         typer.echo(f"  - {k}: {p.as_posix()}")
 
 
@@ -714,18 +835,20 @@ def _rel_from_src(src_file: Path, repo_rel_target: str) -> str:
 def _apply_fixes(findings: list[Finding], dry_run: bool = True) -> tuple[int, int]:
     """
     Currently only rewrites:
-      - needs_reformat_absolute_in_pv → make relative to src
-    Leaves broken_* alone (logged in CSV); we can extend later when targets are discoverable.
+      - inpv_abs_exists_sum_reformat → make relative to src
+      - inpv_rel_exists_*           → normalize relative paths
+    Leaves missing_* alone (logged in CSV); we can extend later.
     """
     files_changed = 0
     links_changed = 0
 
     by_src: dict[str, list[Finding]] = {}
     for f in findings:
-        if f.reason in {
-            "needs_reformat_absolute_in_pv",
-            "relative_exists_not_in_summary",
-            "correct_relative",  # <-- include this so every valid relative link gets shortened
+        if f.category in {
+            "inpv_abs_exists_sum_reformat",
+            "inpv_rel_exists_sum",
+            "inpv_rel_exists_nosum",  # include off-nav but existing PV-relative links
+            "rel_nonpv_exists",  # normalize existing non-PV relative links
         }:
             by_src.setdefault(f.src_file, []).append(f)
 
@@ -787,7 +910,7 @@ def index():
 
 @app.command("audit-cmd")
 def audit_cmd():
-    """Audit page links and write CSVs (master + per reason)."""
+    """Audit page links and write CSVs (master + per category)."""
     idx = _build_pv_index()
     findings = _scan_page_links(idx)
     _write_csvs(findings)
@@ -797,7 +920,12 @@ def audit_cmd():
 @app.command()
 def fix(dry_run: bool = True):
     """
-    Apply safe autofixes (currently: rewrite absolute-in-PV to relative).
+    Apply safe autofixes to page links:
+      - Rewrite same-PV absolute docs URLs (inpv_abs_exists_sum_reformat) to shortest relative paths
+      - Normalize existing PV-relative links (inpv_rel_exists_*) to shortest relative paths
+      - Normalize existing non-PV relative links (rel_nonpv_exists) to shortest relative paths
+
+    Broken / missing targets and cross-PV or external links are not modified; they are only reported in the CSVs.
     """
     # require a fresh index for safety
     idx = _build_pv_index()

@@ -18,7 +18,7 @@ In this guide, we assume that Gravitee API Management is acting as the control p
 ## Install GKO
 
 {% hint style="info" %}
-For comprehensive deployment details, see the [GKO Install Guide](installation/).
+For comprehensive deployment details, see the [GKO Install Guide](installation/README.md).
 {% endhint %}
 
 Use Helm to install GKO on your Kubernetes cluster:

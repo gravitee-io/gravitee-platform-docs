@@ -72,7 +72,7 @@ Your Redis host and port may be different.
 
 To download the driver, complete the following sub-steps:
 
-1. Download the correct driver for your database. For more information about downloading the correct drive, go to [Supported databases.](../../configure-apim/repositories/#supported-databases)
+1. Download the correct driver for your database. For more information about downloading the correct drive, go to [Supported databases.](../../configure-apim/repositories/README.md#supported-databases)
 2. Place the driver in the `plugins-ext` folder.
 
 {% hint style="info" %}

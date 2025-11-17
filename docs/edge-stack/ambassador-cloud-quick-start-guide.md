@@ -30,7 +30,7 @@ Upgrade Edge Stack to the latest version if needed: [upgrade-or-migrate-to-a-new
 ### 1. Connect your cluster to Ambassador Cloud
 
 {% hint style="info" %}
-If you followed the [Edge Stack quick start](./), you should have already completed this step.
+If you followed the [Edge Stack quick start](README.md), you should have already completed this step.
 {% endhint %}
 
 1. Log in to [Ambassador Cloud](https://app.getambassador.io/cloud/) with your preferred identity provider.

@@ -153,7 +153,7 @@ Here are the policies that you can apply to your APIs:
 {% endcontent-ref %}
 
 {% content-ref url="l-p/oauth2/" %}
-[oauth2](l-p/oauth2/)
+[oauth2](l-p/oauth2/README.md)
 {% endcontent-ref %}
 
 {% content-ref url="l-p/openid-connect-userinfo.md" %}

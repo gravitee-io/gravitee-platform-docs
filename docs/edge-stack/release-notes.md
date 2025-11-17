@@ -282,7 +282,7 @@ Upgrading to the latest release of Golang as part of our general dependency upgr
 
 #### Ambassador Edge Stack will fail to run if a valid license is not present
 
-Ambassador Edge Stack will now require a valid non-expired license to run the product. If a valid license is not present or your clusters are not connected to and showing licensed in Ambassador Cloud, then Ambassador Edge Stack will refuse to startup. If you already have an enterprise license then you do not need to do anything so long as it is properly applied and not expired. Please view the [license documentation](ambassador-edge-stack-licenses.md) page for more information on your license. If you do not have an enterprise license for Ambassador Edge Stack then you can visit [the quickstart guide](./) to get setup with a free community license by signing into Ambassador Cloud and connecting your installation.
+Ambassador Edge Stack will now require a valid non-expired license to run the product. If a valid license is not present or your clusters are not connected to and showing licensed in Ambassador Cloud, then Ambassador Edge Stack will refuse to startup. If you already have an enterprise license then you do not need to do anything so long as it is properly applied and not expired. Please view the [license documentation](ambassador-edge-stack-licenses.md) page for more information on your license. If you do not have an enterprise license for Ambassador Edge Stack then you can visit [the quickstart guide](README.md) to get setup with a free community license by signing into Ambassador Cloud and connecting your installation.
 
 #### Account for matchLabels when associating mappings with the same prefix to different Hosts
 

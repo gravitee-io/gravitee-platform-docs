@@ -8,7 +8,7 @@ In this tutorial, we'll configure Ambassador Edge Stack to initiate a trace on s
 
 ## Before you get started
 
-This tutorial assumes you have already followed Ambassador Edge Stack [Getting Started](../../) guide. If you haven't done that already, you should do that now.
+This tutorial assumes you have already followed Ambassador Edge Stack [Getting Started](../../README.md) guide. If you haven't done that already, you should do that now.
 
 After completing the Getting Started guide you will have a Kubernetes cluster running Ambassador Edge Stack and the Quote service. Let's walk through adding tracing to this setup.
 

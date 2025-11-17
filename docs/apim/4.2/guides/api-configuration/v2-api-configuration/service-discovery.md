@@ -22,7 +22,7 @@ Gravitee.io Service discovery for HashiCorp Consul allows you to bind the backen
 
 We will be using docker-compose to setup an integration between Gravitee APIM and HashiCorp Consul.
 
-Refer to this [guide](../../../getting-started/install-and-upgrade-guides/install-on-docker/) to install Gravitee with Docker Compose.
+Refer to this [guide](../../../getting-started/install-and-upgrade-guides/install-on-docker/README.md) to install Gravitee with Docker Compose.
 
 #### Install HashiCorp Consul Server
 

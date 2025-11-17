@@ -8,7 +8,7 @@ description: >-
 
 ## Introduction
 
-This guide will walk through how to configure your general Gravitee API Management (APIM) Gateway settings using the `gravitee.yaml` file. As detailed in the [Configuring APIM Components](../#configuring-apim-components), you can override these settings by using system properties or environment variables
+This guide will walk through how to configure your general Gravitee API Management (APIM) Gateway settings using the `gravitee.yaml` file. As detailed in the [Configuring APIM Components](../README.md#configuring-apim-components), you can override these settings by using system properties or environment variables
 
 ## The `gravitee.yaml` file
 
@@ -353,7 +353,7 @@ ratelimit:
     prefix: # collection prefix
 ```
 
-If you want to use a custom prefix, you need to follow the following [instructions](../repositories/#use-a-custom-prefix).
+If you want to use a custom prefix, you need to follow the following [instructions](../repositories/README.md#use-a-custom-prefix).
 
 ### **Store counters in JDBC**
 
@@ -367,7 +367,7 @@ ratelimit:
     prefix:   # collection prefix
 ```
 
-If you want to use a custom prefix, you need to follow the following [instructions](../repositories/#use-a-custom-prefix-1).
+If you want to use a custom prefix, you need to follow the following [instructions](../repositories/README.md#use-a-custom-prefix-1).
 
 ### Store counters in Redis Standalone
 

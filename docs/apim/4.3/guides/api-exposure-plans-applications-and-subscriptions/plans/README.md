@@ -18,9 +18,9 @@ Each plan must include at least one security type by which subscribers can be au
 
 The sections below describe:
 
-* [How to create a plan](./#create-a-plan)
-* [How to publish a plan](./#publish-a-plan)
-* [How plans are selected](./#plan-selection-rules)
+* [How to create a plan](README.md#create-a-plan)
+* [How to publish a plan](README.md#publish-a-plan)
+* [How plans are selected](README.md#plan-selection-rules)
 
 ## Create a plan
 

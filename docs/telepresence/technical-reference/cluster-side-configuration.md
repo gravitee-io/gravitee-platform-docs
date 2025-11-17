@@ -94,7 +94,7 @@ In this example, other applications in the cluster expect to speak TLS to your i
 
 In order to use `--mechanism=http` (or any features that imply `--mechanism=http`) you need to tell Telepresence about the TLS certificates in use.
 
-Tell Telepresence about the certificates in use by adjusting your [workload's](intercepts/#supported-workloads) Pod template to set a couple of annotations on the intercepted Pods:
+Tell Telepresence about the certificates in use by adjusting your [workload's](intercepts/README.md#supported-workloads) Pod template to set a couple of annotations on the intercepted Pods:
 
 ```diff
  spec:
@@ -329,7 +329,7 @@ You can exclude any number of variables, they just need to match the `key` of th
 
 ### Enable errors when attempting to access an intercept that has expired
 
-Telepresence supports [personal intercepts](intercepts/#personal-intercept). When this option is enabled :
+Telepresence supports [personal intercepts](intercepts/README.md#personal-intercept). When this option is enabled :
 
 * You can define a specific HTTP header, and any request matching it will be redirected to your machine.
 * If the intercept isn't active, the requests will be redirected to the real application.

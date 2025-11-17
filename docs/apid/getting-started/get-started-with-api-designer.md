@@ -8,4 +8,4 @@ Before you can use the API Designer, you must first create a [Gravitee Cloud](ht
 
 <figure><img src="../.gitbook/assets/api designer.png" alt=""><figcaption></figcaption></figure>
 
-Get started with the [API Designer Workspace](../guides/api-designer-workspace/) to create, manage, and configure your API designs.
+Get started with the [API Designer Workspace](../guides/api-designer-workspace/README.md) to create, manage, and configure your API designs.

@@ -20,7 +20,7 @@ The following sections describe how to:
 
 ### prerequisites
 
-* [Install Gravitee with `docker-compose`](../../../getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-docker/)
+* [Install Gravitee with `docker-compose`](../../../getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-docker/README.md)
 
 ### 1. Install a HashiCorp Consul server
 

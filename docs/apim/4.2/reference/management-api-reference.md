@@ -47,6 +47,6 @@ The **V2 home page** is accessible at `/management/v2/` of the Management API co
 
 ### Portal
 
-The Portal API is used to power the [Developer Portal](../guides/developer-portal/), and can be used as the backend API for a custom developer portal. Whether you’re building an external (potentially public-facing) portal or an internal developer hub, the Portal API empowers you to create a compelling and efficient platform.
+The Portal API is used to power the [Developer Portal](../guides/developer-portal/README.md), and can be used as the backend API for a custom developer portal. Whether you’re building an external (potentially public-facing) portal or an internal developer hub, the Portal API empowers you to create a compelling and efficient platform.
 
 The **Portal API specification** (YAML OAS) can be found at `/portal/openapi` of the Management API component.

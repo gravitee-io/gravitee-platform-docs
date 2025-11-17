@@ -2,7 +2,7 @@
 
 ## Overview
 
-You can choose to configure either [v4 proxy API entrypoints](./#proxy-api-entrypoints) or [v4 message API entrypoints](./#message-api-entrypoints).
+You can choose to configure either [v4 proxy API entrypoints](README.md#proxy-api-entrypoints) or [v4 message API entrypoints](README.md#message-api-entrypoints).
 
 ## Proxy API entrypoints
 

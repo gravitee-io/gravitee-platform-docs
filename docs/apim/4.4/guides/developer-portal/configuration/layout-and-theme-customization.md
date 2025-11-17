@@ -65,7 +65,7 @@ To modify the sidebar settings:
 ### Categories
 
 {% hint style="warning" %}
-Categories currently only support v2 APIs. You can learn more about the differences between v4 vs v2 [here](../../../overview/plugins-and-api-definitions-for-gravitee-api-management/gravitee-api-definitions-and-execution-engines/).
+Categories currently only support v2 APIs. You can learn more about the differences between v4 vs v2 [here](../../../overview/plugins-and-api-definitions-for-gravitee-api-management/gravitee-api-definitions-and-execution-engines/README.md).
 {% endhint %}
 
 {% hint style="info" %}

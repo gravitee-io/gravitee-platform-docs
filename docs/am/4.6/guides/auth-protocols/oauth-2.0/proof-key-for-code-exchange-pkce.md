@@ -1,6 +1,6 @@
 # Proof Key for Code Exchange (PKCE)
 
-[Proof Key for Code Exchange (PKCE)](https://datatracker.ietf.org/doc/html/rfc7636) is an extension to the [authorization code](./#authorization-code) flow to prevent interception attacks from public clients.
+[Proof Key for Code Exchange (PKCE)](https://datatracker.ietf.org/doc/html/rfc7636) is an extension to the [authorization code](README.md#authorization-code) flow to prevent interception attacks from public clients.
 
 {% hint style="info" %}
 Force PKCE for public clients who cannot securely store their client secret. PKCE must be used for single-page applications (SPA) and mobile/native applications.

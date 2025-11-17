@@ -10,7 +10,7 @@ Select from the options below to learn more about APIM and get it up and running
 
 ## Gravitee Architecture
 
-Gravitee offers three different API Management architecture schemes: [self-hosted](./#self-hosted-architecture), [hybrid](./#hybrid-architecture), and [Gravitee-managed](./#gravitee-managed-architecture).
+Gravitee offers three different API Management architecture schemes: [self-hosted](README.md#self-hosted-architecture), [hybrid](README.md#hybrid-architecture), and [Gravitee-managed](README.md#gravitee-managed-architecture).
 
 Each architecture relies on a specific set of Gravitee components. Some components are common to all architectures while others are architecture-specific. The following table compares the component types and management of self-hosted and hybrid architectures.
 

@@ -22,7 +22,7 @@ For an API consumer to create an application:
 * An admin must define the allowed types of applications that API consumers can create:
   * **Default application type:** API consumers can optionally define the `client_id` when creating a simple application.
   * **Dynamic Client Registration (DCR) for applications:** The API publisher must enable and configure DCR for the allowed application types. The client registration provider is responsible for creating the `client_id` and `client_secret` for each application that registers.
-* An API consumer must have a user account to register an application and subscribe to an API (see [Administration](../administration/))
+* An API consumer must have a user account to register an application and subscribe to an API (see [Administration](../administration/README.md))
 
 ## Default application configuration
 
@@ -51,7 +51,7 @@ user:
 ## DCR application configuration
 
 {% hint style="warning" %}
-Dynamic Client Registration is an [Enterprise Edition](../../overview/gravitee-apim-enterprise-edition/) capability
+Dynamic Client Registration is an [Enterprise Edition](../../overview/gravitee-apim-enterprise-edition/README.md) capability
 {% endhint %}
 
 The DCR protocol allows an OAuth client application to register with an OAuth server through the OpenID Connect (OIDC) client registration endpoint. Using DCR, API consumers can register applications via the Developer Portal or APIM Console. This outsources the issuer and management of application credentials to a third party, enabling additional configuration options and compatibility with IdP OIDC features.

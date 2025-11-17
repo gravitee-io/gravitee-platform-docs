@@ -17,7 +17,7 @@ In Gravitee, Gateway endpoints define the protocol and configuration settings by
 
 As of Gravitee 4.1, the ability to create APIs with message API endpoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise Edition and what's included in various enterprise packages:
 
-* [Refer to the EE vs OSS documentation](../../../overview/ee-vs-oss/)
+* [Refer to the EE vs OSS documentation](../../../overview/ee-vs-oss/README.md)
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}

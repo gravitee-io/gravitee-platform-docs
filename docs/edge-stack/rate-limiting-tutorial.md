@@ -15,7 +15,7 @@ Ambassador Edge Stack can validate incoming requests before routing them to a ba
 
 ### Before you get started
 
-This tutorial assumes you have already followed the Ambassador Edge Stack [Installation](./) and [Quickstart Tutorial](ambassador-edge-stack-tutorial.md) guides. If you haven't done that already, you should do so now.
+This tutorial assumes you have already followed the Ambassador Edge Stack [Installation](README.md) and [Quickstart Tutorial](ambassador-edge-stack-tutorial.md) guides. If you haven't done that already, you should do so now.
 
 Once completed, you'll have a Kubernetes cluster running Ambassador Edge Stack and the Quote service. Let's walk through adding rate limiting to this setup.
 

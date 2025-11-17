@@ -72,7 +72,7 @@ Your Redis host and port may be different.
 
 1. To download the driver, complete the following sub-steps:
 
-&#x20;       a. Download the correct driver for your database. For more information about downloading the correct drive,  go to [Supported databases.](../../../../configuration/repositories/#supported-databases)
+&#x20;       a. Download the correct driver for your database. For more information about downloading the correct drive,  go to [Supported databases.](../../../../configuration/repositories/README.md#supported-databases)
 
 &#x20;       b. Place the driver in the `plugins-ext` folder.&#x20;
 

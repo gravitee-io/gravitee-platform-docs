@@ -16,5 +16,5 @@ After you've created your APIs, you can further configure them using both the Gr
 
 API configuration differs slightly for v2 and v4 APIs. We have split this section into two main components to mirror this difference:
 
-* [v4 API configuration](v4-api-configuration/)
-* [v2 API configuration](v2-api-configuration/)
+* [v4 API configuration](v4-api-configuration/README.md)
+* [v2 API configuration](v2-api-configuration/README.md)

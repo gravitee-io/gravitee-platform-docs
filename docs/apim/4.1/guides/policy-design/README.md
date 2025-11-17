@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Gravitee Policy Studio allows you to design "flows," or policy enforcement sequences that protect, transform, or otherwise alter how APIs are consumed. Gravitee offers a number of preconfigured policies, some of which are available in the Community Edition while others are only available in Gravitee's Enterprise Edition. For more information on specific policies, please refer to the [Policy Reference](../../reference/policy-reference/) documentation.
+The Gravitee Policy Studio allows you to design "flows," or policy enforcement sequences that protect, transform, or otherwise alter how APIs are consumed. Gravitee offers a number of preconfigured policies, some of which are available in the Community Edition while others are only available in Gravitee's Enterprise Edition. For more information on specific policies, please refer to the [Policy Reference](../../reference/policy-reference/README.md) documentation.
 
 ### v2 Policy Studio and v4 Policy Studio
 

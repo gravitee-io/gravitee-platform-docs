@@ -32,7 +32,7 @@ The lifecycle of shared policy groups is independent from the deployment lifecyc
 
 <figure><img src="https://lh7-qw.googleusercontent.com/docsz/AD_4nXcoKhPtTopSLkMfTjumJh45pfl1YHyQaldlRED2s9yi9K--mScz9gjxLfFo8OLK_jUfFMr6wKgzcMFCIAikIuBAXr7aq2y1LvRZO6JZQKlRQ_5T2MzQyjtCFil39nezPbfQf5OdtIj09EJEuPgmd_oAf-OA?key=PrMp2J0zWBtqrsqO75zcMw" alt=""><figcaption></figcaption></figure>
 
-For more information about Shared Policy Groups, See [Shared Policy Groups](../../using-the-product/using-the-gravitee-api-management-components/general-configuration/shared-policy-groups/).
+For more information about Shared Policy Groups, See [Shared Policy Groups](../../using-the-product/using-the-gravitee-api-management-components/general-configuration/shared-policy-groups/README.md).
 
 ## mTLS Plans
 
@@ -46,7 +46,7 @@ Before this update, you could set up the Gravitee gateway to require client auth
 
 With this update, the mTLS plan enhances this authentication by using the client certificate to authorize requests to APIs using the plan.
 
-For more information about mTLS Plans, see [mTLS Plans](../../using-the-product/managing-your-apis/preparing-apis-for-subscribers/plans/mtls/).
+For more information about mTLS Plans, see [mTLS Plans](../../using-the-product/managing-your-apis/preparing-apis-for-subscribers/plans/mtls/README.md).
 
 ## Developer Portal enhancements
 
