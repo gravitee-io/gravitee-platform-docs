@@ -4,17 +4,17 @@
 
 You'll need an IBM API Connect account. The agent works with both Cloud and on-premise versions of IBM APIC. It is generally expected to work with versions 10.0.5 and above, and may also work with older versions.
 
-You'll also need to be running Gravitee API Management version 4.5 or above, with an enterprise license.&#x20;
+You'll also need to be running Gravitee API Management version 4.5 or above, with an enterprise license.
 
 For the federation agent to authenticate with Gravitee API Management, you'll need an access token. Head to our dedicated guide on [how to create a service account and an access token](../federation-agent-service-account.md) for the federation agent.
 
 ## 1. Create an IBM API Connect integration in the Gravitee APIM Console
 
-Head to the Gravitee APIM Console, open the Integrations section in the left menu, and create a new IBM API Connect integration.&#x20;
+Head to the Gravitee APIM Console, open the Integrations section in the left menu, and create a new IBM API Connect integration.
 
 Once you've created the integration, copy the integration ID that will be visible on the integration overview tab (you'll use this later):
 
-<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## 2. Configure the IBM API Connect agent
 
@@ -24,7 +24,7 @@ The Gravitee IBM API Connect federation agent will need the following configurat
 * The name of the IBM API Connect organization
 * Credentials to authenticate with IBM (client ID, client secret, and API key)
 
-To locate the IBM API Connect organization name, open the IBM API Connect console and head to Home → Settings → Overview → Name.&#x20;
+To locate the IBM API Connect organization name, open the IBM API Connect console and head to Home → Settings → Overview → Name.
 
 The IBM API Connect federation agent requires an IBM API Connect API key in order to authenticate against the IBM management API.
 
@@ -37,7 +37,7 @@ Once in the API key page, click on the **Add** button and generate a new key. If
 In this example curl request, you'll find the information you need to configure your agent:
 
 * Client Id
-* Client secret&#x20;
+* Client secret
 * Platform API URL address
 
 Copy these values, we'll use them to configure the agent.
@@ -45,8 +45,6 @@ Copy these values, we'll use them to configure the agent.
 {% hint style="info" %}
 In case of trouble here you can find links to the official IBM documentation referring to this topic depending on the version you're using: [10.0.5](https://www.ibm.com/docs/en/api-connect/10.0.5.x_lts?topic=applications-managing-platform-rest-api-keys) / [10.0.8](https://www.ibm.com/docs/en/api-connect/10.0.8?topic=applications-managing-platform-rest-api-keys) / [SaaS](https://www.ibm.com/docs/en/api-connect/saas?topic=applications-managing-platform-rest-api-keys).
 {% endhint %}
-
-
 
 ## 3. Run the IBM API Connect federation agent with Docker
 
@@ -77,14 +75,14 @@ services:
       - gravitee_integration_providers_0_configuration_platformApiUrl=${PLATFORM_API_URL}
 ```
 
-* If you are using a self-hosted instance or a cloud reserved instance, replace `cloud` with either `self-hosted` for a self-hosted instance or `cloud-reserved-instance` for a cloud reserved instance.&#x20;
+* If you are using a self-hosted instance or a cloud reserved instance, replace `cloud` with either `self-hosted` for a self-hosted instance or `cloud-reserved-instance` for a cloud reserved instance.
 
-Next, create a file named `.env` in the same directory. We'll use it to set the required Docker Compose variables. Fill the values in this file from those you obtained in [step 2](ibm-api-connect.md#id-2.-configure-the-ibm-api-connect-agent).&#x20;
+Next, create a file named `.env` in the same directory. We'll use it to set the required Docker Compose variables. Fill the values in this file from those you obtained in [step 2](ibm-api-connect.md#id-2.-configure-the-ibm-api-connect-agent).
 
 Also, add the appropriate values according to your `IBM_INSTANCE_TYPE` configuration option. The configuration option has the following options:
 
 * Cloud
-* Self hosted&#x20;
+* Self hosted
 * Cloud reserved instance
 
 #### Cloud and self hosted instances
@@ -138,7 +136,7 @@ API_KEY=[your-api-key]
 #### Cloud reserved instance
 
 {% hint style="info" %}
-You have to provide only your API key. If you provide a client id and a client secret, an error is returned.&#x20;
+You have to provide only your API key. If you provide a client id and a client secret, an error is returned.
 {% endhint %}
 
 To authenticate your IBM API Connect federation agent to a Cloud reserved instance, you must provide the following details:
@@ -208,7 +206,7 @@ services:
       - gravitee_integration_providers_0_configuration_1_catalog=${IBM_1_CATALOG:-}
 ```
 
-Also, in your `.env` file, add the following catalog parameters like the following example:&#x20;
+Also, in your `.env` file, add the following catalog parameters like the following example:
 
 ```
 ## GRAVITEE PARAMETERS ##
@@ -261,7 +259,7 @@ docker compose up -d
 
 In the Gravitee API Management console, after refreshing, you should now see the agent's status set to `Connected:`
 
-<figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
 
 If your **Agent Connection** still shows as `Disconnected`, then please inspect the agent's container logs. There you should find error logs that will help you troubleshoot.
 

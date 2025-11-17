@@ -16,7 +16,7 @@ This policy can be applied to v2 APIs and v4 HTTP proxy APIs. It cannot be appli
 When configuring the `custom-query-parameters-parser` policy, note the following:
 
 * The semicolon character (`;`) is not considered to be a separator, e.g., `http://host:port/my-api?filter=field1;field2` will be computed with the query parameter `filter: ['field1;field']`
-* Policies are executed after flow evaluation. For a condition on a flow using [EL](../../../../4.6/guides/gravitee-expression-language.md) to test query parameters, they will be extracted by the Gateway using `;` as a separator.
+* Policies are executed after flow evaluation. For a condition on a flow using [EL](../../../gravitee-expression-language.md) to test query parameters, they will be extracted by the Gateway using `;` as a separator.
 
 ### Phases
 

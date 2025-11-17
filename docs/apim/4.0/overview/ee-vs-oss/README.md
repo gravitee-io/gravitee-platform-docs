@@ -13,7 +13,7 @@ Gravitee offers open source (OSS) and enterprise versions of its API Management 
 {% hint style="info" %}
 **Other Gravitee Products**
 
-Gravitee's platform extends beyond just API Management. For information on enterprise versions of other products, please refer to our [platform overview documentation.](https://documentation.gravitee.io/platform-overview/gravitee-essentials/gravitee-offerings-ce-vs-ee)
+Gravitee's platform extends beyond just API Management. For information on enterprise versions of other products, please refer to our [platform overview documentation.](https://documentation.gravitee.io/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee)
 {% endhint %}
 
 ## Enterprise APIM
@@ -28,11 +28,11 @@ The features below are included in the default enterprise API Management distrib
 
 * **Enterprise OpenID Connect SSO:** Use OpenId Connect SSO with your API Management platform.
 * [**Debug Mode**](../../guides/policy-studio/v2-api-policy-studio.md#debug-mode)**:** Easily test and debug your policy execution and enforcement.
-* [**Audit trail**](../../guides/api-measurement-tracking-and-analytics/#the-audit-trail)**:** Audit the consumption and activity of your Gravitee APIs per event and type to monitor the behavior of your APIs and platform over time.
+* [**Audit trail**](../../guides/api-measurement-tracking-and-analytics/README.md#the-audit-trail)**:** Audit the consumption and activity of your Gravitee APIs per event and type to monitor the behavior of your APIs and platform over time.
 * [**DCR Registration**](../../guides/api-exposure-plans-applications-and-subscriptions/applications.md#dynamic-client-registration-provider): Dynamic client registration (DCR) is a protocol that allows OAuth client applications to register with an OAuth server through the OpenID Connect (OIDC) client registration endpoint.
 * [**Custom Roles**](../../guides/administration/user-management-and-permissions.md#roles)**:** Create custom user roles to fit your needs. A role is a functional group of permissions and can be defined at the organization, environment, API, and/or application levels.
 * [**Sharding Tags**](../../getting-started/configuration/configure-apim-gateway/sharding-tags.md)**:** Specify which "shard" of the Gateway an API should be deployed to. By tagging Gateways with specific keywords, you can select the tag in the API's Deployments proxy settings to determine the Gateway where the API will be deployed.
-* [**Bridge Gateway**](../../getting-started/hybrid-deployment/#bridge-gateways)**:** By default, an API Gateway must connect to a repository (mongoDB, Postgres) to retrieve the list of APIs to deploy, plans, API keys, and subscriptions. In the case of complex environments (network zones, different data centers, etc.), many teams prefer to avoid opening a connection between the database and something outside its network. The solution is to deploy a Bridge Gateway, which is a proxy for the repository (API GW > Bridge > Database). The sync will be done over HTTP instead of the database protocol.
+* [**Bridge Gateway**](../../getting-started/hybrid-deployment/README.md#bridge-gateways)**:** By default, an API Gateway must connect to a repository (mongoDB, Postgres) to retrieve the list of APIs to deploy, plans, API keys, and subscriptions. In the case of complex environments (network zones, different data centers, etc.), many teams prefer to avoid opening a connection between the database and something outside its network. The solution is to deploy a Bridge Gateway, which is a proxy for the repository (API GW > Bridge > Database). The sync will be done over HTTP instead of the database protocol.
 
 ## Enterprise plugins
 
@@ -64,8 +64,8 @@ The Legacy upgrade pack comprises the following plugins and capabilities that en
 
 The Observability pack includes capabilities to better implement enterprise-grade API monitoring and observability:
 
-* [**Datadog reporter**](../../getting-started/configuration/configure-reporters/#datadog-reporter): Push API metrics to your Datadog instance and dashboards.
-* [**TCP reporter**](../../getting-started/configuration/configure-reporters/#tcp-reporter): Report Gateway events to a TCP listening server.
+* [**Datadog reporter**](../../getting-started/configuration/configure-reporters/README.md#datadog-reporter): Push API metrics to your Datadog instance and dashboards.
+* [**TCP reporter**](../../getting-started/configuration/configure-reporters/README.md#tcp-reporter): Report Gateway events to a TCP listening server.
 
 ### Event-native pack
 
@@ -90,7 +90,7 @@ The Event-native pack includes capabilities that enable using Gravitee to expose
 
 ## Advanced API monitoring
 
-Not technically a part of the Access Management product, Gravitee offers a standalone, enterprise-grade API monitoring solution called Gravitee Alert Engine (AE). AE provides APIM and AM users with efficient and flexible API platform monitoring, including advanced alerting configurations and notifications sent through preferred channels, such as email, Slack and Webhooks. Alert Engine integrates with Gravitee APIM and AM to enable advanced alerting, new dashboards, etc. For more information, please refer to [the Alert Engine documentation](https://documentation.gravitee.io/ae/overview/introduction-to-gravitee-alert-engine).
+Not technically a part of the Access Management product, Gravitee offers a standalone, enterprise-grade API monitoring solution called Gravitee Alert Engine (AE). AE provides APIM and AM users with efficient and flexible API platform monitoring, including advanced alerting configurations and notifications sent through preferred channels, such as email, Slack and Webhooks. Alert Engine integrates with Gravitee APIM and AM to enable advanced alerting, new dashboards, etc. For more information, please refer to [the Alert Engine documentation](https://documentation.gravitee.io/alert-engine).
 
 ## Advanced environment management
 

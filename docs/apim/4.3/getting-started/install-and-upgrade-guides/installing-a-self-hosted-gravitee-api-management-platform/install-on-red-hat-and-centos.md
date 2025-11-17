@@ -50,7 +50,7 @@ Amazon Linux instances use the package manager `yum`. The steps below show how t
 Choose to either:
 
 * [Install the full APIM stack](install-on-red-hat-and-centos.md#install-the-full-apim-stack) (includes all components)
-* [Install components one-by-one](#install-components-one-by-one)
+* [Install components one-by-one](install-on-red-hat-and-centos.md#install-the-components-one-by-one)
 
 {% hint style="warning" %}
 An SELinux configuration issue can prevent Nginx from opening on ports 8084/8085. To correct this:
@@ -139,7 +139,7 @@ When all components are started, you can run a quick test by checking these URLs
 {% hint style="info" %}
 **Gravitee dependencies**
 
-Gravitee's [Installation & Upgrade Guides](../) provide information on how to install Gravitee components. For prerequisite documentation on third-party products such as [MongoDB](https://www.mongodb.com/docs/v7.0/tutorial/install-mongodb-on-red-hat/) or [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/8.11/rpm.html), please visit their respective websites.
+Gravitee's [Installation & Upgrade Guides](../README.md) provide information on how to install Gravitee components. For prerequisite documentation on third-party products such as [MongoDB](https://www.mongodb.com/docs/v7.0/tutorial/install-mongodb-on-red-hat/) or [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/8.11/rpm.html), please visit their respective websites.
 {% endhint %}
 
 <details>

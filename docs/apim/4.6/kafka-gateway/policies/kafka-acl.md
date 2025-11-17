@@ -7,7 +7,7 @@ The Kafka ACL policy is used to define [ACLs](https://kafka.apache.org/documenta
 ACLs are restrictive in that once they are applied, proxy clients must be authorized to perform the actions they are taking. If there is no ACL defined for the action taken by the user, the action is prohibited. This is the same behavior as with regular Kafka clusters, [as noted in the Kafka documentation](https://kafka.apache.org/24/documentation.html#security_authz).
 
 {% hint style="info" %}
-## Policy order <a href="#user-content-supported-kafka-apikeys" id="user-content-supported-kafka-apikeys"></a>
+### Policy order <a href="#user-content-supported-kafka-apikeys" id="user-content-supported-kafka-apikeys"></a>
 
 When using the Kafka Topic Mapping policy together with the Kafka ACL policy, it is important to place the Kafka ACL policy **before** the Kafka Topic Mapping policy, as shown below.
 {% endhint %}
@@ -24,7 +24,7 @@ To create and apply an ACL, follow the steps below. These steps configure option
    * `Match`: Resources matching the pattern (prefixed, literal, or wildcard, i.e., "\*") receive the ACL.
    * `Literal`: Resources whose name is an exact match to the specified string receive the ACL.
    * `Prefixed`: Resources whose name starts with the specified string receive the ACL.
-3. Define the **action** that the ACL permits.&#x20;
+3. Define the **action** that the ACL permits.
 
 You can add more than one ACL in the same policy. Kafka follows the rule that if there is an ACL that denies an action, it takes precedence over ACLs that allow an action. If more than one ACL applies to the client connection to the Gateway, the most restrictive ACL is applied.
 
@@ -49,7 +49,7 @@ Gravitee Expression Language (EL) can be used to define conditions on each ACL. 
 
 ### `Token` resource
 
-ACLs on the `Token` resource determine whether the user can manage [delegation tokens](https://docs.confluent.io/platform/current/security/authentication/delegation-tokens/overview.html#kafka-sasl-delegate-auth) in the cluster. When added to the policy, proxy clients are either permitted or restricted from using delegation tokens to perform clustered operations through the proxy.&#x20;
+ACLs on the `Token` resource determine whether the user can manage [delegation tokens](https://docs.confluent.io/platform/current/security/authentication/delegation-tokens/overview.html#kafka-sasl-delegate-auth) in the cluster. When added to the policy, proxy clients are either permitted or restricted from using delegation tokens to perform clustered operations through the proxy.
 
 For example, when using a clustered processing framework like [Apache Spark](https://spark.apache.org/), delegation tokens can be used to share resources across the same application without requiring the distribution of Kerberos keytabs across the cluster when mTLS is used.
 

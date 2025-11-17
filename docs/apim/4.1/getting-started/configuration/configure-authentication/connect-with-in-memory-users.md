@@ -68,7 +68,7 @@ security:
 
 ### Generate a new password
 
-If you use [bcrypt](https://en.wikipedia.org/wiki/Bcrypt) to hash passwords, you can generate new passwords with the [htpasswd](https://httpd.apache.org/docs/current/en/programs/htpasswd.html) command line, as shown in the following example (where `new_password` is your new password):
+If you use bcrypt to hash passwords, you can generate new passwords with the [htpasswd](https://httpd.apache.org/docs/current/en/programs/htpasswd.html) command line, as shown in the following example (where `new_password` is your new password):
 
 ```
 htpasswd -bnBC 10 "" new_password | tr -d ':\n'

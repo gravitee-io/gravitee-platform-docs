@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Dynamic Redirect URI Parameters feature in the OAuth2 flow enhances flexibility and control over redirection behavior by letting you append dynamic parameters to the final `redirect_uri`. These parameters are resolved using [Gravitee Expression Language (EL)](https://app.gitbook.com/s/ySqSVpDHfKA0fNml1fVO/), which lets you insert custom logic and data into the redirect URL. Dynamic Redirect URI Parameters improves the adaptability and precision of user authentication flows by empowering applications to dynamically adjust redirect targets based on context, such as user-specific attributes or session data.
+The Dynamic Redirect URI Parameters feature in the OAuth2 flow enhances flexibility and control over redirection behavior by letting you append dynamic parameters to the final `redirect_uri`. These parameters are resolved using [Gravitee Expression Language (EL)](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/ySqSVpDHfKA0fNml1fVO/), which lets you insert custom logic and data into the redirect URL. Dynamic Redirect URI Parameters improves the adaptability and precision of user authentication flows by empowering applications to dynamically adjust redirect targets based on context, such as user-specific attributes or session data.
 
 ## Enable redirect URI parameters
 
@@ -13,7 +13,7 @@ To enable Gravitee Expression Language and dynamic parameters for redirect URIs,
 3. Select **Client Registration**.
 4. Toggle **Enable/Disable EL and dynamic parameters for redirect URIs** to ON.
 
-<figure><img src="../../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.8/.gitbook/assets/image (12) (1).png" alt=""><figcaption></figcaption></figure>
 
 Once enabled, you can use EL in redirect URIs to create personalized user experiences.
 
@@ -26,7 +26,7 @@ To use dynamic redirect URIs with query parameters, complete the following steps
 3. In the **Settings** tab, navigate the **Redirect URI** field.
 4. Specify the `redirect_uris` with query parameters, embedding values using Gravitee Expression Language. For more information about available EL objects and their usage, refer to [am-expression-language.md](../../am-expression-language.md "mention").
 
-<figure><img src="../../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.8/.gitbook/assets/image (13) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Example
 
@@ -36,7 +36,7 @@ To use dynamic redirect URIs with query parameters, complete the following steps
     https://callback?username={#context.attributes['user'].username}
     ```
 
-    User-specific data is dynamically included in the redirection.&#x20;
+    User-specific data is dynamically included in the redirection.
 2. Initiate the login flow using `redirect_uri=https://callback`.
 
 With this setup, `{#context.attributes['user'].username}` is evaluated and replaced with the actual username to tailor the redirection for the individual user.

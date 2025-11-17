@@ -5,7 +5,7 @@ description: This page provides the technical details of the OAS Validation poli
 # OAS Validation
 
 {% hint style="warning" %}
-**This feature requires** **Gravitee's Enterprise Edition. For more information about Gravitee Enterpise Edition, see** [Gravitee APIM Enterprise Edition](https://documentation.gravitee.io/apim/overview/gravitee-apim-enterprise-edition).
+**This feature requires** **Gravitee's Enterprise Edition. For more information about Gravitee Enterpise Edition, see** [Gravitee APIM Enterprise Edition](../../../../../overview/gravitee-apim-enterprise-edition/README.md).
 {% endhint %}
 
 ## Overview

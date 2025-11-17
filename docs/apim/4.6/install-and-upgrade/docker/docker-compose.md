@@ -153,7 +153,7 @@ docker compose -f docker-compose-apim.yml up -d
 
 ## Enable Federation
 
-[Federation](broken-reference) is a new capability that was released with Gravitee 4.4. Federation is disabled by default and must be explicitly activated for it to work.&#x20;
+Federation is a new capability that was released with Gravitee 4.4. Federation is disabled by default and must be explicitly activated for it to work.&#x20;
 
 To enable federation, follow the first guide below to [enable federation with Docker Compose](docker-compose.md#enable-federation-with-docker-compose). If in addition you are running multiple replicas of APIM for high availability, you'll also need to ensure that [cluster mode is set up](docker-compose.md#set-up-cluster-mode).&#x20;
 

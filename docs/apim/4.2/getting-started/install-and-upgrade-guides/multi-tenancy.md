@@ -9,7 +9,7 @@ description: >-
 ## Overview
 
 {% hint style="warning" %}
-Multi-tenancy requires running APIM 4.2 and an [enterprise-enabled Gravitee Cockpit account](https://documentation.gravitee.io/platform-overview/gravitee-essentials/gravitee-offerings-ce-vs-ee#enterprise-version-of-gravitee-cockpit).&#x20;
+Multi-tenancy requires running APIM 4.2 and an [enterprise-enabled Gravitee Cockpit account](https://documentation.gravitee.io/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee#enterprise-version-of-gravitee-cockpit).&#x20;
 
 To learn more about Gravitee Enterprise and what's included in various enterprise packages, [book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/) or [check out the pricing page](https://www.gravitee.io/pricing).
 {% endhint %}
@@ -46,7 +46,7 @@ Follow the steps below to implement best practices for APIM multi-tenancy.
 Once a multi-tenant APIM is connected to Cockpit, it is not possible to disable multi-tenancy mode in APIM. We recommend first trying multi-tenancy in a Sandbox or similar installation.
 {% endhint %}
 
-1. [Install APIM](./) on your preferred infrastructure and deployment type
+1. [Install APIM](README.md) on your preferred infrastructure and deployment type
 2. Explicitly set APIM to multi-tenant mode by commenting out the multi-tenant section in the configuration. Optionally, you can specify the configuration of Access Points, which comprises the URLs that APIM components will be addressed on.&#x20;
 
 {% hint style="info" %}

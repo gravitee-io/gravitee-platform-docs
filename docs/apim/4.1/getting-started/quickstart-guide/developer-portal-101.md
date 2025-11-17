@@ -5,7 +5,7 @@ description: Securely expose your APIs to consumers in a dedicated API catalog
 # Developer Portal 101
 
 {% hint style="warning" %}
-This is the final section of the Quickstart Guide. By this point, you should already have [created a Gateway API](gateway-apis-101-traditional-and-message-proxies/) and added [plans and policies](plans-and-policies-101.md).
+This is the final section of the Quickstart Guide. By this point, you should already have [created a Gateway API](gateway-apis-101-traditional-and-message-proxies/README.md) and added [plans and policies](plans-and-policies-101.md).
 {% endhint %}
 
 ## Overview
@@ -104,7 +104,7 @@ The next step is focused on **Security**. This page may look different depending
 {% hint style="info" %}
 **Dynamic Client Registration**
 
-A **Simple** application allows an API consumer to define their own `client_id`, but this is not secure and should not be used outside of testing. Therefore, Gravitee allows you to disable **Simple** applications and [use dynamic client registration (DCR) to create advanced applications](https://documentation.gravitee.io/apim/guides/api-exposure-plans-applications-and-subscriptions/plans-1#advanced-application-configuration) with the identity provider of your choosing.&#x20;
+A **Simple** application allows an API consumer to define their own `client_id`, but this is not secure and should not be used outside of testing. Therefore, Gravitee allows you to disable **Simple** applications and [use dynamic client registration (DCR) to create advanced applications](../../guides/api-exposure-plans-applications-and-subscriptions/plans-1.md#advanced-application-configuration) with the identity provider of your choosing.&#x20;
 {% endhint %}
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-11-21 at 6.29.05 PM.png" alt=""><figcaption><p>Security step of application creation wizard</p></figcaption></figure>

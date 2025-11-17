@@ -4,17 +4,17 @@
 
 In order to Federate Azure API Management APIs into Gravitee, you'll need permission to access the Azure API Management console, or you'll at least need access to somebody who does so that they can provide you with credentials that the agent will use to authenticate against Azure APIM.
 
-You'll also need to be running Gravitee API Management version 4.5 or above, with an enterprise license.&#x20;
+You'll also need to be running Gravitee API Management version 4.5 or above, with an enterprise license.
 
 For the federation agent to authenticate with Gravitee API Management, you'll also need an access token. Head to our dedicated guide on [how to create a service account and an access token](../federation-agent-service-account.md) for the federation agent.
 
 ## 1. Create an Azure API Management integration in the Gravitee APIM Console
 
-Head to the Gravitee APIM Console, open the Integrations section in the left menu, and create a new Azure API Management integration.&#x20;
+Head to the Gravitee APIM Console, open the Integrations section in the left menu, and create a new Azure API Management integration.
 
 Once you've created the integration, copy the integration ID that will be visible on the integration overview tab, you'll use this later:
 
-<figure><img src="../../../.gitbook/assets/image (121).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/image (119) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## 2. Configure the Azure federation agent
 
@@ -28,7 +28,7 @@ The Azure APIM federation agent will need the following configuration parameters
 
 ### Point to the right Azure APIM instance
 
-The easiest way to obtain much of this information is to use the [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli).&#x20;
+The easiest way to obtain much of this information is to use the [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli).
 
 Start by login in:
 
@@ -87,7 +87,7 @@ Finally, the Gravitee Azure APIM federation agent will need to authenticate with
 
 To achieve this, you'll need to create a Service Principal for the agent in Azure, and assign it the `Contributor` role.
 
-The easiest way to set this up is to use the [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli).&#x20;
+The easiest way to set this up is to use the [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli).
 
 To make it easier to run this command, you can start by setting a couple of environment variables based on previously obtained Azure information:
 
@@ -117,7 +117,7 @@ This should produce an output similar to below, you'll need to copy the **appId*
 {% hint style="info" %}
 You can also find some of the information needed by the agent by browsing the Azure APIM console.
 
-![](<../../../.gitbook/assets/image (120).png>)
+<img src="../../../../../../.gitbook/assets/image (116) (1).png" alt="" data-size="original">
 {% endhint %}
 
 ## 3. Run the Azure federation agent with Docker
@@ -150,8 +150,6 @@ services:
       - gravitee_integration_providers_0_configuration_dev_lastName=${AZURE_DEV_LAST_NAME}
       - gravitee_integration_providers_0_configuration_subscriptionApprovalType=${SUBSCRIPTION_APPROVAL_TYPE:-ALL}
 ```
-
-
 
 Next, create a file named `.env` in the same directory. We'll use it to set the required Docker Compose variables. Fill the values in this file from those you obtained in [step 2](azure-api-management.md#id-2.-configure-the-azure-federation-agent).
 
@@ -221,7 +219,7 @@ docker compose up -d
 
 In the Gravitee API Management Console, after refreshing, you should now see the agent's status set to `Connected:`
 
-<figure><img src="../../../.gitbook/assets/image (122).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/image (120) (1).png" alt=""><figcaption></figcaption></figure>
 
 If your **Agent Connection** still shows as `Disconnected`, then please inspect the agent's container logs. There you should find error logs that will help you troubleshoot.
 

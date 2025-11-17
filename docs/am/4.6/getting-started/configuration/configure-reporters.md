@@ -38,7 +38,7 @@ For details on how to create a file reporter for a domain, see the [Audit trail]
 
 ## Kafka reporter
 
-This reporter sends all audit logs to Kafka Broker using JSON serialization.&#x20;
+This reporter sends all audit logs to Kafka Broker using JSON serialization.
 
 ### **Minimal configuration**
 
@@ -57,7 +57,7 @@ To add additional properties to the producer, add property config name and value
 
 ### **Schema Registry**
 
-Kafka reporter supports Schema registry. This configuration is optional. When the schema registry URL is not provided, then messages is sent to Kafka Broker in JSON format. When the schema registry URL is provided, then the schema of the message will be stored in Schema Registry and ID and version of the schema is attached at the beginning of the JSON message.&#x20;
+Kafka reporter supports Schema registry. This configuration is optional. When the schema registry URL is not provided, then messages is sent to Kafka Broker in JSON format. When the schema registry URL is provided, then the schema of the message will be stored in Schema Registry and ID and version of the schema is attached at the beginning of the JSON message.
 
 Currently, only JSON schema is supported.
 
@@ -72,7 +72,7 @@ Kafka reporter sends all messages to separate partitions based on domain id or o
 1. To create secured connection between Kafka Reporter and Kafka Broker, configure your Kafka broker.
 2. As described in the following Kafka documentation, add to your broker configuration JAAS configuration:
 
-* [https://kafka.apache.org/documentation/#security\_sasl\_jaasconfig](https://kafka.apache.org/documentation/#security_sasl_jaasconfig)&#x20;
+* [https://kafka.apache.org/documentation/#security\_sasl\_jaasconfig](https://kafka.apache.org/documentation/#security_sasl_jaasconfig)
 * [https://kafka.apache.org/documentation/#security\_sasl\_brokerconfig](https://kafka.apache.org/documentation/#security_sasl_brokerconfig)
 
 3. When you configure your broker correctly, add additional **Producer properties** to your Kafka Reporter:
@@ -83,13 +83,13 @@ Kafka reporter sends all messages to separate partitions based on domain id or o
 
 `sasl.jaas.config = org.apache.kafka.common.security.plain.PlainLoginModule required username="<user>" password="<user-secret>";`
 
-<figure><img src="../../.gitbook/assets/kafka-config.png" alt=""><figcaption><p>Kafka plaintext security config</p></figcaption></figure>
+<figure><img src="../../../4.5/.gitbook/assets/kafka-config (1).png" alt=""><figcaption><p>Kafka plaintext security config</p></figcaption></figure>
 
 **TLS/SSL encryption**
 
 If the Kafka broker is using SSL/TLS encryption, you must add additional steps to secure this connection.
 
-1. Place trusted truststore certificate along with AM Management installation.&#x20;
+1. Place trusted truststore certificate along with AM Management installation.
 2. Specify location and password of this trust store and change `security.protocol` in **Producer properties:**
 
 \
@@ -103,5 +103,4 @@ If the Kafka broker is using SSL/TLS encryption, you must add additional steps t
 
 `ssl.truststore.password = "secret_password"`
 
-<figure><img src="../../.gitbook/assets/kafka-ssl-config.png" alt=""><figcaption><p>Kafka TLS/SSL security config</p></figcaption></figure>
-
+<figure><img src="../../../4.5/.gitbook/assets/kafka-ssl-config (1).png" alt=""><figcaption><p>Kafka TLS/SSL security config</p></figcaption></figure>

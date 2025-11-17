@@ -40,7 +40,7 @@ The Gravitee documentation adopts concise terminology to differentiate between t
 **Message API:** An API created using **Introspect messages from event-driven backend**
 {% endhint %}
 
-What you choose will dictate the kinds of entrypoints and endpoints that you can select later on. For more in-depth information on the exact support that these two methods offer, please [refer to this documentation](../#backend-exposure-methods).
+What you choose will dictate the kinds of entrypoints and endpoints that you can select later on. For more in-depth information on the exact support that these two methods offer, please [refer to this documentation](../README.md#backend-exposure-methods).
 
 <figure><img src="../../../.gitbook/assets/Screen Shot 2023-06-08 at 8.39.02 AM.png" alt=""><figcaption><p>v4 API creation wizard: select how you want your backend service exposed</p></figcaption></figure>
 
@@ -67,7 +67,7 @@ To disable virtual hosts, select **X Disable virtual hosts**.
 
 As of Gravitee 4.0, the ability to create APIs with message API entrypoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:
 
-* [Refer to the EE vs OSS documentation](../../../overview/ee-vs-oss/)
+* [Refer to the EE vs OSS documentation](../../../overview/ee-vs-oss/README.md)
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
@@ -120,7 +120,7 @@ If you chose **Webhook** as an entrypoint, you will be brought to a page where y
     * (Optional) Proxy username: enter your proxy username in the **Proxy username** text field.
     * (Optional) Proxy password: enter your proxy password in the **Proxy password** text field.
 
-A [**SOCKS proxy**](https://hailbytes.com/how-to-use-socks4-and-socks5-proxy-servers-for-anonymous-web-browsing/) is a type of proxy server that uses the SOCKS protocol to tunnel traffic through an intermediary server.
+A **SOCKS proxy** is a type of proxy server that uses the SOCKS protocol to tunnel traffic through an intermediary server.
 
 Also, when using Webhooks as an entrypoint, you can set up a dead letter queue for storing undelivered messages. When configuring DLQ with Webhook, you redirect all the messages that the Webhook rejects to another location, such as a Kafka topic. To learn more, please refer to he DLQ documentation.
 
@@ -210,7 +210,7 @@ If you chose the HTTP Proxy option, your endpoint will be an HTTP Proxy. To conf
 
 As of Gravitee 4.0, the ability to create APIs with message API endpoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:
 
-* [Refer to the EE vs OSS documentation](../../../overview/ee-vs-oss/)
+* [Refer to the EE vs OSS documentation](../../../overview/ee-vs-oss/README.md)
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
@@ -456,7 +456,7 @@ To configure your OAuth2 plan, select OAuth2 from the **+Add plan** drop-down me
 * **Description**
 * **Characteristics**
 * **Subscription:** choose whether to auto-validate subscriptions, require a message from a consumer during subscription, and/or present a message to the consumer upon subscription.
-* **Access control:** select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../administration/#users-and-user-groups).
+* **Access control:** select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../administration/README.md#users-and-user-groups).
 
 <img src="../../../.gitbook/assets/image (37).png" alt="" data-size="original">
 
@@ -497,7 +497,7 @@ If you chose **JWT**, you will need to specify general details, the authenticati
 * **Description**
 * **Characteristics**
 * **Subscription:** choose whether to auto-validate subscriptions, require a message from a consumer during subscription, and/or present a message to the consumer upon subscription.
-* **Access control:** select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../administration/#users-and-user-groups).
+* **Access control:** select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../administration/README.md#users-and-user-groups).
 
 Once you're done with your general details, select Next to define your JWT authentication configuration. This will require you to:
 
@@ -542,7 +542,7 @@ If you chose API key, you will define general settings, the API key authenticati
 * **Description**
 * **Characteristics**
 * **Subscription:** choose whether to auto-validate subscriptions, require a message from a consumer during subscription, and/or present a message to the consumer upon subscription.
-* **Access control:** select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../administration/#users-and-user-groups).
+* **Access control:** select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../administration/README.md#users-and-user-groups).
 
 Select Next to be taken to the **API key authentication** configuration page. Here, you need to:
 
@@ -572,7 +572,7 @@ If you chose Keyless, you will only need to define general details and restricti
 * **Description**
 * **Characteristics**
 * **Subscription:** choose whether to auto-validate subscriptions, require a message from a consumer during subscription, and/or present a message to the consumer upon subscription.
-* **Access control:** select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../administration/#users-and-user-groups).
+* **Access control:** select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../administration/README.md#users-and-user-groups).
 
 Select Next to be taken to the **Restriction** page to define any additional restrictions that you want to be associated with your plan. Your options include:
 

@@ -15,7 +15,7 @@ This guide highlights the APIM settings that require special attention while you
 {% hint style="warning" %}
 **Configuring APIM**
 
-APIM includes many other configuration options and every environment is unique. However you configure new settings (via the `gravitee.yml` file, APIM Console, or environment and system variables) it is important to understand that one configuration type can override another. [Configure APIM Gateway](the-gravitee-api-gateway/) gives a good overview of this topic.
+APIM includes many other configuration options and every environment is unique. However you configure new settings (via the `gravitee.yml` file, APIM Console, or environment and system variables) it is important to understand that one configuration type can override another. [Configure APIM Gateway](the-gravitee-api-gateway/README.md) gives a good overview of this topic.
 {% endhint %}
 
 ## Security checklist
@@ -51,7 +51,7 @@ The rest of this article primarily focuses on how to implement the items in this
 
 ### Internal APIs
 
-APIM API and APIM Gateway include internal APIs that are enabled by default. These internal APIs permit the retrieval of monitoring and technical information pertaining to Gravitee components (more information [here](https://documentation.gravitee.io/apim/getting-started/configuration/configure-apim-management-api/internal-api-1)).
+APIM API and APIM Gateway include internal APIs that are enabled by default. These internal APIs permit the retrieval of monitoring and technical information pertaining to Gravitee components (more information [here](https://documentation.gravitee.io/apim/configure-and-manage-the-platform/management-api/mapi-internal-api)).
 
 #### Disabling internal APIs
 
@@ -160,7 +160,7 @@ http:
 
 The Console REST API will remain inaccessible to the outside world if you decide to make your Developer Portal reachable from outside of your company. However, Gravitee recommends that you do not expose your Console or Developer Portal publicly if there is no particular business requirement.&#x20;
 
-Refer to the [Gravitee documentation](https://documentation.gravitee.io/apim/getting-started/configuration/configure-apim-management-api/internal-api#configure-the-management-and-portal-apis) for more information about Console and Portal APIs.
+Refer to the [Gravitee documentation](https://documentation.gravitee.io/apim/configure-and-manage-the-platform/management-api/mapi-internal-api) for more information about Console and Portal APIs.
 
 #### Enable HTTPS
 
@@ -186,14 +186,14 @@ You can find additional details regarding HTTPS support for the REST APIs in the
 
 **We highly recommend using your own corporate identity provider** (must be OAuth2/OIDC-compliant) to delegate authentication to your Management Console and Portal. You have several choices:
 
-* [Gravitee Access Management](https://documentation.gravitee.io/apim/getting-started/configuration/authentication-and-sso#gravitee-access-management-authentication)
+* [Gravitee Access Management](https://documentation.gravitee.io/apim#gravitee-access-management-authentication)
 * [GitHub](https://documentation.gravitee.io/apim/getting-started/configuration/authentication-and-sso#github-authentication)
 * [Google](https://documentation.gravitee.io/apim/getting-started/configuration/authentication-and-sso#google-authentication)
 * [Any compliant OAuth/OIDC server](https://documentation.gravitee.io/apim/getting-started/configuration/authentication-and-sso#openid-connect-authentication)
 
-Alternatively, you can rely on your [LDAP server](https://documentation.gravitee.io/apim/getting-started/configuration/authentication-and-sso#ldap-authentication).
+Alternatively, you can rely on your [LDAP server](https://documentation.gravitee.io/apim#ldap-authentication).
 
-It is preferable to rely on an external identity provider to handle security so you can easily comply with your internal company security policy. You can configure role mapping to automatically assign a role to a given user matching particular criteria. Refer to the [Gravitee documentation](https://documentation.gravitee.io/apim/getting-started/configuration/authentication-and-sso#gravitee-access-management-authentication) for an example of role or group mapping.
+It is preferable to rely on an external identity provider to handle security so you can easily comply with your internal company security policy. You can configure role mapping to automatically assign a role to a given user matching particular criteria. Refer to the [Gravitee documentation](https://documentation.gravitee.io/apim#gravitee-access-management-authentication) for an example of role or group mapping.
 
 #### Developer Portal authentication
 
@@ -518,13 +518,13 @@ Some good practices to establish:
 * Assign permissions to a group instead of each user individually.
 * Automatically associate a group with each new API or application to facilitate permission management.
 
-You can find detail on roles, groups, and permissions in the [Gravitee documentation](https://documentation.gravitee.io/apim/guides/administration/user-management-and-permissions).
+You can find detail on roles, groups, and permissions in the [Gravitee documentation](../../guides/administration/user-management-and-permissions.md).
 
 #### API review & quality
 
 You can **enable API review and quality** to avoid public exposure to the Developer Portal that is unexpected and lacks strong security requirements, or if you want a member of a Quality team to review API designs prior to deploying the API and making it accessible to API consumers. This can seamlessly establish a robust API strategy.
 
-You can find more information about API review and quality in the [Gravitee documentation](https://documentation.gravitee.io/apim/guides/api-measurement-tracking-and-analytics/using-the-api-quality-feature).
+You can find more information about API review and quality in the [Gravitee documentation](../../guides/api-measurement-tracking-and-analytics/using-the-api-quality-feature.md).
 
 #### API design
 
@@ -536,4 +536,4 @@ There is no "rule of thumb" when it comes to designing and exposing your APIs, a
 * Require the API consumer to enter a comment when subscribing to an API. This is a simple way to understand the motivation for a subscription and helps detect malicious attempts to access an API.
 * Regularly review subscriptions and revoke those that are no longer used.
 
-More information on how to manage API subscriptions is detailed in the [Gravitee documentation](https://documentation.gravitee.io/apim/guides/api-exposure-plans-applications-and-subscriptions/subscriptions).
+More information on how to manage API subscriptions is detailed in the [Gravitee documentation](../../guides/api-exposure-plans-applications-and-subscriptions/subscriptions.md).

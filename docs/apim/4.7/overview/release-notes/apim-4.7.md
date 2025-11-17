@@ -77,7 +77,7 @@ With Gravitee 4.7, you can add documentation in Asciidoc format, in addition to 
 
 ## Tenant support&#x20;
 
-[Tenants](https://documentation.gravitee.io/apim/gravitee-gateway/tenants#id-9c4f) are a way to leverage Gravitee's multi-endpoint capability, i.e., the ability to specify multiple upstream systems per single API. Gravitee allows you to assign endpoints and Gateways to specific tenants to control the endpoints to which requests are proxied.
+[Tenants](../../gravitee-gateway/tenants.md#id-9c4f) are a way to leverage Gravitee's multi-endpoint capability, i.e., the ability to specify multiple upstream systems per single API. Gravitee allows you to assign endpoints and Gateways to specific tenants to control the endpoints to which requests are proxied.
 
 Previously, support for tenants was restricted to v2 APIs. With Gravitee 4.7, tenants capabilities have been extended to v4 APIs.
 

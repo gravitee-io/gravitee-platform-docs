@@ -12,7 +12,7 @@ APIs with Keyless plans do not require the API consumer to create an application
 
 ## Configure subscriptions
 
-API consumers can subscribe to APIs with published plans during the application creation process, or after the application is created, through the APIM Console or Developer Portal.&#x20;
+API consumers can subscribe to APIs with published plans during the application creation process, or after the application is created, through the APIM Console or Developer Portal.
 
 {% hint style="info" %}
 Whether an application has an associated `client_id` depends on how it was configured. To subscribe to OAuth2 or JWT plans, the application must have a `client_id`.
@@ -23,11 +23,11 @@ To subscribe to an API via the APIM Console:
 1. Log in to your APIM Console
 2. Select **Applications** from the left nav
 3. Select **Subscriptions** from the inner left nav
-4.  Click the **+ Create a subscription** button&#x20;
+4.  Click the **+ Create a subscription** button
 
-    <figure><img src="../../.gitbook/assets/subscription_create 2.png" alt=""><figcaption><p>Create a subscription</p></figcaption></figure>
-5. Search for the API you want to subscribe to. To be searchable the API consumer must have access to the API, i.e., the API must be public or the API consumer must be a member of it.&#x20;
-6.  Select the plan you would like to request a subscription to&#x20;
+    <figure><img src="../../../../../.gitbook/assets/subscription_create 2 (1).png" alt=""><figcaption><p>Create a subscription</p></figcaption></figure>
+5. Search for the API you want to subscribe to. To be searchable the API consumer must have access to the API, i.e., the API must be public or the API consumer must be a member of it.
+6.  Select the plan you would like to request a subscription to
 
-    <figure><img src="../../.gitbook/assets/subscription_create.png" alt=""><figcaption><p>Select the subscription plan</p></figcaption></figure>
+    <figure><img src="../../../../../.gitbook/assets/subscription_create (1).png" alt=""><figcaption><p>Select the subscription plan</p></figcaption></figure>
 7. Click **Create** to see the subscription details

@@ -5,7 +5,7 @@
 This page describes how to deploy, test, and secure the Gravitee Gateway as an ingress runtime and the Gravitee Kubernetes Operator (GKO) as an ingress controller. It also explains how to extend an ingress using an API definition template.
 
 * [Deploy the ingress runtime and controller](gravitee-ingress-controller.md#deploy-the-ingress-runtime-and-controller)
-* [Extend an ingress using an API definition template](#extend-an-ingress-using-an-api-definition-template)
+* [Extend an ingress using an API definition template](gravitee-ingress-controller.md#extending-an-ingress-using-an-api-definition-template)
 
 {% hint style="info" %}
 **Limitations**
