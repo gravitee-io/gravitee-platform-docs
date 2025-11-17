@@ -205,5 +205,5 @@ Alternatively, you can configure the [Helm Chart](../../getting-started/installa
 
 For more information:
 
-* The `ManagementContext` CRD code is available on [GitHub](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/api/v1alpha1/managementcontext\_types.go).
+* The `ManagementContext` CRD code is available on [GitHub](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/api/v1alpha1/managementcontext_types.go).
 * The `ManagementContext` CRD API reference is documented [here](../../reference/api-reference.md).

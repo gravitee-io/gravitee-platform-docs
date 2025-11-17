@@ -269,7 +269,7 @@ The procedure is the same as the one for the **users** table but need to be appl
 
 **Docker Images**
 
-To be compliant with [CIS\_Docker\_v1.3.1\_L1](https://www.tenable.com/audits/items/CIS_Docker_v1.3.1_L1_Docker_Linux.audit:bdcea17ac365110218526796ae3095b1) ,the docker images use the `graviteeio` user. This change means that if you use the official images and deploy them on your k8s installation, nothing changes. If you build your own Dockerfile from Gravitee images, you must provide the correct rights according to your modifications. If you deploy on `openshift`, you have to add the following configuration:
+To be compliant with CIS_Docker_v1.3.1_L1,the docker images use the `graviteeio` user. This change means that if you use the official images and deploy them on your k8s installation, nothing changes. If you build your own Dockerfile from Gravitee images, you must provide the correct rights according to your modifications. If you deploy on `openshift`, you have to add the following configuration:
 
 ```bash
 securityContext:

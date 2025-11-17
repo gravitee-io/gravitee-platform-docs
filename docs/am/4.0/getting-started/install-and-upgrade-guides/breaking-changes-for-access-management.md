@@ -42,7 +42,7 @@ To delete the duplicate users, complete the following steps :
 Complete these steps in a test environment first.
 {% endhint %}
 
-To view a migration script that can help you, go to [GitHub](https://github.com/gravitee-io/gravitee-access-management/blob/master/docs/upgrades/username\_uniqueness/username\_uniqueness.js). This script identifies duplicates and renames some of them according to the connection metadata for each profile. The mostly used profile is considered as the reference and other will be renamed with a "\_TO\_RENAME\_OR\_DELETE" suffix.
+To view a migration script that can help you, go to [GitHub](https://github.com/gravitee-io/gravitee-access-management/blob/master/docs/upgrades/username_uniqueness/username_uniqueness.js). This script identifies duplicates and renames some of them according to the connection metadata for each profile. The mostly used profile is considered as the reference and other will be renamed with a "\_TO\_RENAME\_OR\_DELETE" suffix.
 
 For safety, this script define at the beginning a boolean **dryRun** set to **true** to only display the script output and see the action that is applied in case of duplicate. To effectively process the changes, you have to define this variable to **false**.
 
@@ -154,7 +154,7 @@ The procedure is the same as the one for the **users** table but need to be appl
 
 **Docker Images**
 
-To be compliant with [CIS\_Docker\_v1.3.1\_L1](https://www.tenable.com/audits/items/CIS\_Docker\_v1.3.1\_L1\_Docker\_Linux.audit:bdcea17ac365110218526796ae3095b1) ,the docker images  use the `graviteeio` user. This change means that if you use the official images and deploy them on your k8s installation, nothing changes. If you build your own Dockerfile from Gravitee images, you must provide the correct rights according to your modifications. If you deploy on `openshift`, you have to add the following configuration:
+To be compliant with CIS_Docker_v1.3.1_L1,the docker images  use the `graviteeio` user. This change means that if you use the official images and deploy them on your k8s installation, nothing changes. If you build your own Dockerfile from Gravitee images, you must provide the correct rights according to your modifications. If you deploy on `openshift`, you have to add the following configuration:
 
 ```bash
 securityContext:
@@ -321,7 +321,7 @@ To better match the recommendation asked by Apple to use biometric devices for W
 
 If you use webauthn JavaScript scripts in your custom HTML templates, we strongly advise you to use the v2 version started from the 3.18.0 version.
 
-For more information about the recommendation from Apple, go to [WebKit Bugzilla](https://bugs.webkit.org/show\_bug.cgi?id=213595).
+For more information about the recommendation from Apple, go to [WebKit Bugzilla](https://bugs.webkit.org/show_bug.cgi?id=213595).
 
 ```bash
 WebAuthn Register
