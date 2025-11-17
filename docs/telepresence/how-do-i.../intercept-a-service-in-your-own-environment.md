@@ -6,7 +6,7 @@ noIndex: true
 
 Telepresence enables you to create intercepts to a target Kubernetes workload. Once you have created and intercept, you can code and debug your associated service locally.
 
-For a detailed walk-though on creating intercepts using our sample app, follow the [quick start guide](../).
+For a detailed walk-though on creating intercepts using our sample app, follow the [quick start guide](../README.md).
 
 ### Prerequisites
 

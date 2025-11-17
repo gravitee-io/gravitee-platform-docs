@@ -17,7 +17,7 @@ With Gravitee Cloud Self-hosted profile you can:
 * Promote APIs across higher and lower environments
 
 {% hint style="info" %}
-Want to run Gravitee in the easiest and most secure way? Maybe Gravitee Cloud is what you are looking for? Click [here](../) to read more on how to start your Gravitee Cloud journey!
+Want to run Gravitee in the easiest and most secure way? Maybe Gravitee Cloud is what you are looking for? Click [here](../README.md) to read more on how to start your Gravitee Cloud journey!
 {% endhint %}
 
 ## Gravitee Cloud self-hosted hierarchy

@@ -14,7 +14,7 @@ The plugins directory can be configured via either local installation or Helm.
 
 {% tabs %}
 {% tab title="Local installation" %}
-You can configure the APIM Gateway [plugins](./) directory with `plugins.path` configuration property:
+You can configure the APIM Gateway [plugins](README.md) directory with `plugins.path` configuration property:
 
 ```yaml
 plugins:
