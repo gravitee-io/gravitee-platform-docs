@@ -7,7 +7,7 @@ The Kafka ACL policy is used to define [ACLs](https://kafka.apache.org/documenta
 ACLs are restrictive in that once they are applied, proxy clients must be authorized to perform the actions they are taking. If there is no ACL defined for the action taken by the user, the action is prohibited. This is the same behavior as with regular Kafka clusters, [as noted in the Kafka documentation](https://kafka.apache.org/24/documentation.html#security_authz).
 
 {% hint style="info" %}
-### Policy order <a href="#user-content-supported-kafka-apikeys" id="user-content-supported-kafka-apikeys"></a>
+#### Policy order <a href="#user-content-supported-kafka-apikeys" id="user-content-supported-kafka-apikeys"></a>
 
 When using the Kafka Topic Mapping policy together with the Kafka ACL policy, it is important to place the Kafka ACL policy **before** the Kafka Topic Mapping policy, as shown below.
 {% endhint %}
