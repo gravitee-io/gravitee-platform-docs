@@ -9,14 +9,14 @@ This page explains how to transform an online SOAP service that converts the tem
 Here is the SOAP Endpoint and the SOAP Action:
 
 * SOAP Endpoint (POST): [https://www.w3schools.com/xml/tempconvert.asmx](https://www.w3schools.com/xml/tempconvert.asmx)
-* SOAP Action: [https://www.w3schools.com/xml/CelsiusToFahrenheit](https://www.w3schools.com/xml/CelsiusToFahrenheit)
+* SOAP Action: [https://www.w3schools.com/xml/tempconvert.asmx?op=CelsiusToFahrenheit](https://www.w3schools.com/xml/tempconvert.asmx?op=CelsiusToFahrenheit)
 
 Here is an example using the `curl` command to call the SOAP service:
 
 ```
 curl -L 'http://{Gravitee-APIM-Gateway-URL}/tempconvert-v4' \
      -H 'Content-Type: text/xml' \
-     -H 'SOAPAction: https://www.w3schools.com/xml/CelsiusToFahrenheit' \
+     -H 'SOAPAction: https://www.w3schools.com/xml/tempconvert.asmx?op=CelsiusToFahrenheit' \
      -d '<?xml version="1.0" encoding="utf-8"?>
 <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
   <soap:Body>
@@ -95,7 +95,7 @@ To transform the incoming JSON request to a SOAP envelope, complete these steps:
 </soap:Envelope>
 ```
 
-4. Specify the required SOAP Action. Here is an example of the SOAP Action: `https://www.w3schools.com/xml/CelsiusToFahrenheit`
+4. Specify the required SOAP Action. Here is an example of the SOAP Action: `https://www.w3schools.com/xml/tempconvert.asmx?op=CelsiusToFahrenheit`
 
 #### Verification
 
