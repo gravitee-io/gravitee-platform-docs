@@ -238,7 +238,7 @@ Filled button with an internal link:
 Filled button with an external link:
 
 {% hint style="info" %}
-* External links must be the full URL. For example, [https://example.com"](https://example.com").
+* External links must be the full URL. For example, `https://example.com`.
 * The default target is `_self` , which opens the link in the same tab. To open the link in a new tab, set `target` to `target="_blank"` .
 {% endhint %}
 
@@ -272,7 +272,7 @@ Outlined button with an internal link:
 Outlined button with an external link:
 
 {% hint style="info" %}
-* External links must be the full URL. For example, [https://example.com"](https://example.com").
+* External links must be the full URL. For example, `https://example.com`.
 * The default target is `_self` , which opens the link in the same tab. To open the link in a new tab, set `target` to `target="_blank"` .
 {% endhint %}
 
@@ -306,7 +306,7 @@ Text button with an internal link:
 Text button with an external link:
 
 {% hint style="info" %}
-* External links must be the full URL. For example, [https://example.com"](https://example.com").
+* External links must be the full URL. For example, `https://example.com`.
 * The default target is `_self` , which opens the link in the same tab. To open the link in a new tab, set `target` to `target="_blank"` .
 {% endhint %}
 

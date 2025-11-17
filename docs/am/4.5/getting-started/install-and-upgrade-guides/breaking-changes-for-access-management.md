@@ -331,7 +331,7 @@ Gateway X-Frame-Option:
 **Bundle Community Edition and Enterprise Edition**
 
 {% hint style="warning" %}
-Access Management versions from 3.17.2 to 3.17.4 haven been impacted by a regression introduced in the 3.17.2 version of AM. We strongly advise you to upgrade directly to the 3.17.5 or 3.18.4 minimum. For more details about this change, see [Upgrade to 3.18](https://docs.gravitee.io/am/current/am\_installguide\_migration.html#upgrade\_to\_3\_17\_2\_3\_17\_3\_3\_17\_4\_3\_18\_0\_3\_18\_1\_3\_18\_2\_3\_18\_3).
+Access Management versions from 3.17.2 to 3.17.4 haven been impacted by a regression introduced in the 3.17.2 version of AM. We strongly advise you to upgrade directly to the 3.17.5 or 3.18.4 minimum. For more details about this change, see [Upgrade to 3.18](https://docs.gravitee.io/am/current/am_installguide_migration.html#upgrade_to_3_17_2_3_17_3_3_17_4_3_18_0_3_18_1_3_18_2_3_18_3).
 {% endhint %}
 
 With this update, Gravitee provides a single bundle for the Access Management (AM) Community Edition (CE) and Enterprise Edition (EE). By default, this bundle or docker image provide CE features and they do not contain EE plugins. If you want to start AM EE with plugins that you paid for, you have to deploy the license key and EE plugin that you need.
@@ -454,7 +454,7 @@ From **3.18.6**, you can implicit user consent in **gravitee.yml** file on the g
 ### 3.17.2
 
 {% hint style="warning" %}
-Access Management versions from 3.17.2 to 3.17.4 haven been impacted by a regression introduced in the 3.17.2 version of AM. We strongly advise you to upgrade directly to the 3.17.5 or 3.18.4 minimum. For more details about this change, see [Upgrade to 3.18](https://docs.gravitee.io/am/current/am\_installguide\_migration.html#upgrade\_to\_3\_17\_2\_3\_17\_3\_3\_17\_4\_3\_18\_0\_3\_18\_1\_3\_18\_2\_3\_18\_3).
+Access Management versions from 3.17.2 to 3.17.4 haven been impacted by a regression introduced in the 3.17.2 version of AM. We strongly advise you to upgrade directly to the 3.17.5 or 3.18.4 minimum. For more details about this change, see [Upgrade to 3.18](https://docs.gravitee.io/am/current/am_installguide_migration.html#upgrade_to_3_17_2_3_17_3_3_17_4_3_18_0_3_18_1_3_18_2_3_18_3).
 {% endhint %}
 
 **Automatic redirection to External IDP**
