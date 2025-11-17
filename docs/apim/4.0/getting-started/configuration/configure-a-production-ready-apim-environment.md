@@ -347,7 +347,7 @@ http:
     enabled: true
 ```
 
-We strongly recommend **NEVER** disabling CSRF protection unless you are absolutely sure of what you are doing and that your users may be exposed to [Cross Site Request Forgery attacks](https://fr.wikipedia.org/wiki/Cross-site\_request\_forgery).
+We strongly recommend **NEVER** disabling CSRF protection unless you are absolutely sure of what you are doing and that your users may be exposed to [Cross Site Request Forgery attacks](https://en.wikipedia.org/wiki/Cross-site_request_forgery).
 
 #### Configure CORS
 

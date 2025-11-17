@@ -87,7 +87,7 @@ You are presented with the following options when configuring a client registrat
 
 The **General** section allows you to set a **Name** and **Description** for your client registration provider.
 
-The **Configuration** section first requires you to set an **OpenID Connect Discovery Endpoint** which is the URL where an OIDC-compatible authorization server publishes its metadata. The metadata is a JSON listing of the OpenID/OAuth endpoints, supported scopes and claims, public keys used to sign the tokens, and other details. This information can be used to construct a request to the authorization server. The field names and values are defined in the [OIDC Discovery Specification.](https://openid.net/specs/openid-connect-discovery-1\_0.html)
+The **Configuration** section first requires you to set an **OpenID Connect Discovery Endpoint** which is the URL where an OIDC-compatible authorization server publishes its metadata. The metadata is a JSON listing of the OpenID/OAuth endpoints, supported scopes and claims, public keys used to sign the tokens, and other details. This information can be used to construct a request to the authorization server. The field names and values are defined in the [OIDC Discovery Specification.](https://openid.net/specs/openid-connect-discovery-1_0.html)
 
 Once the endpoint is set, the configuration options branch in two directions based on the **Initial Access Token Provider: Client Credentials** or direct provisioning of an **Initial Access Token.** Both of these options are detailed further in the [following section](plans-1.md#dcr-initial-access-token-flows).
 

@@ -13,7 +13,7 @@ The Gravitee Kubernetes Operator provides several custom resource definitions (C
 
 The `ManagementContext` custom resource represents the configuration for a Management API. For more information:
 
-* The `ManagementContext` CRD code is available on [GitHub](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/api/v1alpha1/managementcontext\_types.go).
+* The `ManagementContext` CRD code is available on [GitHub](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/api/v1alpha1/managementcontext_types.go).
 * The `ManagementContext` CRD API reference is documented [here](../../../reference/gravitee-kubernetes-operator-api-reference.md).
 * You can learn how to use the `ManagementContext` CRD in [this section](managementcontext.md).
 
@@ -210,7 +210,7 @@ spec:
 
 The `Application` custom resource represents the configuration for an application. It is similar to a YAML representation of an application in JSON format. For more information:
 
-* The `Application` CRD code is available on [GitHub](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/api/v1alpha1/application\_types.go).
+* The `Application` CRD code is available on [GitHub](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/api/v1alpha1/application_types.go).
 * The `Application` CRD API reference is documented [here](../../../reference/gravitee-kubernetes-operator-api-reference.md).
 * You can learn how to use the `Application` resource in [this section.](application.md)
 

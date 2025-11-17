@@ -41,7 +41,7 @@ The **Configuration** section first requires you to provide an **OpenID Connect 
 {% hint style="info" %}
 **OpenID Connect Discovery Endpoint**
 
-The authorization server metadata published to this endpoint is a JSON listing of the OpenID/OAuth endpoints, supported scopes and claims, public keys used to sign the tokens, and other details. This information can be used to construct a request to the authorization server. The field names and values are defined in the [OIDC Discovery Specification.](https://openid.net/specs/openid-connect-discovery-1\_0.html)
+The authorization server metadata published to this endpoint is a JSON listing of the OpenID/OAuth endpoints, supported scopes and claims, public keys used to sign the tokens, and other details. This information can be used to construct a request to the authorization server. The field names and values are defined in the [OIDC Discovery Specification.](https://openid.net/specs/openid-connect-discovery-1_0.html)
 {% endhint %}
 
 You must also select an **Initial Access Token Provider**, and we will be using **Client Credentials**. Client credentials is an authorization grant flow that allows APIM to securely retrieve an access token from AM.
