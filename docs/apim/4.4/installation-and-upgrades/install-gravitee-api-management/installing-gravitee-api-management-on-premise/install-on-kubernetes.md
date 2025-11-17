@@ -602,7 +602,7 @@ The following tables lists the available configuration parameters for these comp
 
 ## Federation
 
-[Federation](../../../using-the-product/managing-your-apis-with-gravitee-api-management/federation/) is a new capability that was released with APIM 4.4.
+[Federation](../../../using-the-product/managing-your-apis-with-gravitee-api-management/federation/README.md) is a new capability that was released with APIM 4.4.
 
 Federation is deactivated by default in the default Helm values. To activate Federation, set enabled = `true` like the following example:
 

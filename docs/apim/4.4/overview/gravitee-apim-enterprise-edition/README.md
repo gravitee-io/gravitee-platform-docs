@@ -12,11 +12,11 @@ Gravitee offers open source and enterprise versions of its API Management (APIM)
 
 Refer to the sections below to learn about what's included in the Gravitee APIM Enterprise Edition:
 
-* [Enterprise features](./#enterprise-features)
-* [Enterprise plugins](./#enterprise-plugins)
-* [Advanced API monitoring](./#advanced-api-monitoring)
-* [Advanced environment management](./#advanced-environment-management)
-* [Hosting options](./#hosting-options)
+* [Enterprise features](README.md#enterprise-features)
+* [Enterprise plugins](README.md#enterprise-plugins)
+* [Advanced API monitoring](README.md#advanced-api-monitoring)
+* [Advanced environment management](README.md#advanced-environment-management)
+* [Hosting options](README.md#hosting-options)
 
 {% hint style="info" %}
 Gravitee's platform extends beyond API Management. For information on enterprise versions of other products, please refer to the [platform overview](https://documentation.gravitee.io/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee).

@@ -11,7 +11,8 @@ The following installation steps are common to all supported deployment methods.
 1.  Sign in to [Gravitee Cloud](https://cloud.gravitee.io/).
 
     <figure><img src="../../../4.8/.gitbook/assets/sign-in-to-gravitee-cloud (1).png" alt=""><figcaption></figcaption></figure>
-2.  From the **Dashboard**, click **Deploy Gateway**.
+2.  From the **Dashboard**, click **Deploy Gateway**.\
+
 
     <figure><img src="../../../../gravitee-cloud/.gitbook/assets/5458CF8E-7FFE-4961-9EE5-761E3A3E75CB (1).jpeg" alt=""><figcaption></figcaption></figure>
 3.  In the **Choose Gateway Deployment Method** modal, select **Hybrid Gateway**.
@@ -31,8 +32,9 @@ The following installation steps are common to all supported deployment methods.
 
     <figure><img src="../../../4.8/.gitbook/assets/deploy-your-gateway (1).png" alt=""><figcaption></figcaption></figure>
 
+    \
 
-6.  Click **Generate Installation Details** to generate your Cloud Token and License Key. Copy your Cloud Token and License Key and save them somewhere secure.&#x20;
+6.  Click **Generate Installation Details** to generate your Cloud Token and License Key. Copy your Cloud Token and License Key and save them somewhere secure.
 
     <figure><img src="../../../4.8/.gitbook/assets/generate-installation-details (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -55,7 +57,7 @@ Deployment methods that are not linked to documentation are still fully supporte
 
 ### Kubernetes
 
-* [Vanilla Kubernetes](kubernetes/vanilla-kubernetes/)
+* [Vanilla Kubernetes](kubernetes/vanilla-kubernetes/README.md)
 * [AWS EKS](kubernetes/aws-eks.md)
 * [Azure AKS](kubernetes/azure-aks.md)
 * [OpenShift](kubernetes/openshift.md)
