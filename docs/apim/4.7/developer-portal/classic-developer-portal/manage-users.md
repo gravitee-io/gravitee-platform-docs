@@ -21,7 +21,7 @@ To configure SMTP settings:
 4. Configure the **SMTP** settings are at the bottom of the page
 
 {% hint style="info" %}
-By default, the `gravitee.yml` configuration file disables email because email requires configuring an SMTP email service. You must set up email for your APIM deployment per the [SMTP configuration guide](../../configure-apim/apim-components/) to be able to modify the SMTP settings.
+By default, the `gravitee.yml` configuration file disables email because email requires configuring an SMTP email service. You must set up email for your APIM deployment per the [SMTP configuration guide](../../configure-apim/apim-components/README.md) to be able to modify the SMTP settings.
 {% endhint %}
 
 <figure><img src="../../../../../.gitbook/assets/Screenshot 2023-06-05 at 12.03.55 PM (1).png" alt=""><figcaption><p>SMTP default settings</p></figcaption></figure>

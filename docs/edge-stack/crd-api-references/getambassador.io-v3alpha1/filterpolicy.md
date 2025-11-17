@@ -6,7 +6,7 @@ noIndex: true
 
 ## The FilterPolicy Resource (v3alpha1)
 
-The `FilterPolicy` custom resource works in conjunction with the [Filter custom resource](filter/) to define how and when Ambassador Edge Stack will modify or intercept incoming requests before sending to your upstream Service. `Filters` define what actions to take on a request, while `FilterPolicies` define the matching criteria for requests such as the headers, hostname, and path, and supply references to one or more `Filters` to execute on those requests.
+The `FilterPolicy` custom resource works in conjunction with the [Filter custom resource](filter/README.md) to define how and when Ambassador Edge Stack will modify or intercept incoming requests before sending to your upstream Service. `Filters` define what actions to take on a request, while `FilterPolicies` define the matching criteria for requests such as the headers, hostname, and path, and supply references to one or more `Filters` to execute on those requests.
 
 This doc is an overview of all the fields on the `FilterPolicy` Custom Resource with descriptions of the purpose, type, and default values of those fields. This page is specific to the `getambassador.io/v3alpha1` version of the `FilterPolicy` resource. For the newer `gateway.getambassador.io/v1alpha1` resource, please see the [v1alpha1 FilterPolicy api reference](../gateway.getambassador.io-v1alpha1/filterpolicy.md).
 

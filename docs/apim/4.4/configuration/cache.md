@@ -62,7 +62,7 @@ More information can be found in the [Hazelcast documentation](https://docs.haze
 API publishers can [create Cache resources](../using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/resources.md#how-to-create-a-resource) to:
 
 * Cache upstream of a response with the [Cache policy](../using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/a-c/cache.md)
-* Cache access tokens with the [OAuth2 policy](../using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/l-p/oauth2/)
+* Cache access tokens with the [OAuth2 policy](../using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/l-p/oauth2/README.md)
 
 The default distribution includes the [Cache resource](../using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/resources.md#cache) plugin, which stores content in-memory and is locally managed on each Gateway node of the installation.
 
