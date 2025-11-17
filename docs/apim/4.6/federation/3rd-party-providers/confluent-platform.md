@@ -27,7 +27,7 @@ git checkout 7.7.1-post
 VIZ=false ./scripts/start.sh
 ```
 
-Once started (which can take a few minutes), you should be able to open the Confluent Platform web console at [http://localhost:9021](http://localhost:9021).
+Once started (which can take a few minutes), you should be able to open the Confluent Platform web console at `http://localhost:9021`.
 
 ## 1. Create a Confluent Platform integration in the Gravitee APIM Console
 

@@ -80,7 +80,7 @@ spec:
 
 The `APIDefinition` custom resource represents the configuration for a single proxied API and its versions. It is similar to a YAML representation of an API Definition in JSON format. For more information:
 
-* The `ApiDefinition` CRD code is available on [GitHub](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/api/v1alpha1/apidefinition\_types.go).
+* The `ApiDefinition` CRD code is available on [GitHub](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/api/v1alpha1/apiv4definition_types.go).
 * The `ApiDefinition` CRD API reference is documented [here](../../../reference/gravitee-kubernetes-operator-api-reference.md).
 * You can learn how to use the `ApiDefinition` resource in [this section](apidefinition-crd.md).
 
