@@ -16,13 +16,13 @@ Ensure you have set up a new AM application and have your Client ID, Client Secr
 
 Securing an API with OAuth2 is a multi-stage process. The following sections provide step-by-step instructions for configuration and verification:
 
-1. [Configure an authorization server resource](./#configure-an-authorization-server-resource)
-2. [Configure the OAuth2 policy](./#configure-the-oauth2-policy)
-3. [Verify OAuth2 security](./#verify-oauth2-security)
+1. [Configure an authorization server resource](README.md#configure-an-authorization-server-resource)
+2. [Configure the OAuth2 policy](README.md#configure-the-oauth2-policy)
+3. [Verify OAuth2 security](README.md#verify-oauth2-security)
 
 ### Configure an authorization server resource
 
-The OAuth2 policy requires a resource to access an OAuth2 Authorization Server for token introspection, which must be configured prior to adding it to the OAuth2 policy. APIM supports [Generic OAuth2 Authorization Server](https://documentation.gravitee.io/apim/reference/policy-reference/oauth2/generic-oauth2-authorization-server) and [Gravitee.io AM Authorization Server](https://documentation.gravitee.io/apim/reference/policy-reference/oauth2/gravitee.io-am-authorization-server) resources. Refer to the following pages for the configuration details of each APIM resource type:
+The OAuth2 policy requires a resource to access an OAuth2 Authorization Server for token introspection, which must be configured prior to adding it to the OAuth2 policy. APIM supports [Generic OAuth2 Authorization Server](https://documentation.gravitee.io/apim/create-and-configure-apis/apply-policies/policy-reference/oauth2/generic-oauth2-authorization-server) and [Gravitee.io AM Authorization Server](https://documentation.gravitee.io/apim/create-and-configure-apis/apply-policies/policy-reference/oauth2/gravitee.io-am-authorization-server) resources. Refer to the following pages for the configuration details of each APIM resource type:
 
 * [Generic OAuth2 Authorization Server](configure-generic-oauth2-authorization-server.md)
 * [Gravitee.io AM Authorization Server](configure-gravitee.io-access-management.md)
@@ -47,7 +47,7 @@ The OAuth2 policy can be configured in the Gravitee API Management Console:
     <figure><img src="../../../.gitbook/assets/oauth2 policy details.png" alt=""><figcaption><p>Configure the OAuth2 policy</p></figcaption></figure>
 9. Click **Add policy**.
 10. **Save** and deploy/redeploy your API.
-11. [Verify that your API is OAuth2 secured.](./#verify-oauth2-security)
+11. [Verify that your API is OAuth2 secured.](README.md#verify-oauth2-security)
 
 ### Verify OAuth2 security
 

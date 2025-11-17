@@ -21,7 +21,7 @@ To view Organization Audit log:
 1. Log in to AM Console.
 2. Click Ogranization > Audit
 
-<figure><img src="../.gitbook/assets/Organization audit log.png" alt=""><figcaption><p>Organization audit log</p></figcaption></figure>
+<figure><img src="../../4.5/.gitbook/assets/Organization audit log (1).png" alt=""><figcaption><p>Organization audit log</p></figcaption></figure>
 
 ### Domain audit logs
 
@@ -93,7 +93,7 @@ It is possible to populate all audit logs from all domains within organization t
 4. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
 5. Select "Log events from all domains in this organization"
 
-<figure><img src="../.gitbook/assets/Global repoerter.png" alt=""><figcaption><p>Global reporter configuration</p></figcaption></figure>
+<figure><img src="../../4.5/.gitbook/assets/Global repoerter (1).png" alt=""><figcaption><p>Global reporter configuration</p></figcaption></figure>
 
 This functionality is supported only for **Organization Audit Logs.**
 
@@ -302,7 +302,7 @@ To create a Kafka reporter for a domain:
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-adminguide-add-reporter.png" alt=""><figcaption><p>Audit settings</p></figcaption></figure>
 5.  Select **Kafka** as the reporter type and enter the reporter name and file name.
 
-    <figure><img src="../.gitbook/assets/kafka reporter.png" alt=""><figcaption><p>Add a Kafka reporter</p></figcaption></figure>
+    <figure><img src="../../4.5/.gitbook/assets/kafka reporter (1).png" alt=""><figcaption><p>Add a Kafka reporter</p></figcaption></figure>
 6. Provide **Name**, **Bootstrap servers**, **Topic**, **Acks.**
 
 **Schema Registry**
@@ -335,7 +335,7 @@ Kafka reporter sends all messages to separate partitions based on domain id or o
     `sasl.mechanism = PLAIN`
 4. For security reasons, when a username and a password is provided, a `sasl.jaas.config` property is created with following value: `org.apache.kafka.common.security.plain.PlainLoginModule required username="<<value_from_username_field>>" password="<<value_from_password_field>>";`
 
-<figure><img src="../.gitbook/assets/Screenshot 2024-10-31 at 12.23.54.png" alt=""><figcaption><p>SASL/PLAIN configuration</p></figcaption></figure>
+<figure><img src="../../4.6/.gitbook/assets/Screenshot 2024-10-31 at 12.23.54.png" alt=""><figcaption><p>SASL/PLAIN configuration</p></figcaption></figure>
 
 **TLS/SSL encryption**
 
@@ -354,4 +354,4 @@ If Kafka broker is using SSL/TLS encryption, you must add additional steps to se
 
 `ssl.truststore.password = "secret_password"`
 
-<figure><img src="../.gitbook/assets/Screenshot 2024-10-31 at 12.28.24.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../4.6/.gitbook/assets/Screenshot 2024-10-31 at 12.28.24.png" alt=""><figcaption></figcaption></figure>

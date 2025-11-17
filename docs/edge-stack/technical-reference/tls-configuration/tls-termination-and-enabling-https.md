@@ -22,7 +22,7 @@ This guide requires you have the following installed:
 
 ## Install Ambassador Edge Stack
 
-[Install Ambassador Edge Stack in Kubernetes](../../).
+[Install Ambassador Edge Stack in Kubernetes](../../README.md).
 
 ## Create a listener listening on the correct port and protocol
 

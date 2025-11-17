@@ -2,10 +2,10 @@
 
 ## Overview
 
-Gravitee Kafka APIs apply Gravitee API Management (APIM) capabilities directly to the Kafka protocol. Kafka APIs are based on the Gravitee [v4 API definition](../../create-and-configure-apis/gravitee-api-definitions/#gravitee-v4-apis). A Gravitee API definition is a JSON representation of everything that the APIM Gateway needs to know for it to proxy, apply policies to, and to create plans for your Gravitee APIs and their transactions. You can create Kafka APIs through the API creation wizard UI, or via the [management API](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/ySqSVpDHfKA0fNml1fVO/).
+Gravitee Kafka APIs apply Gravitee API Management (APIM) capabilities directly to the Kafka protocol. Kafka APIs are based on the Gravitee [v4 API definition](../../create-and-configure-apis/gravitee-api-definitions/README.md#gravitee-v4-apis). A Gravitee API definition is a JSON representation of everything that the APIM Gateway needs to know for it to proxy, apply policies to, and to create plans for your Gravitee APIs and their transactions. You can create Kafka APIs through the API creation wizard UI, or via the [management API](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/ySqSVpDHfKA0fNml1fVO/).
 
 {% hint style="info" %}
-API consumers call or subscribe to Gateway APIs to retrieve data or functionality exposed by backend services. Gravitee defines three different types of Gateway APIs: proxy APIs, message APIs, and native APIs. These are differentiated by whether they proxy REST or event-driven APIs, and whether the Gravitee Gateway performs [protocol mediation](../../create-and-configure-apis/gravitee-api-definitions/#protocol-mediation) or proxies the native protocol.
+API consumers call or subscribe to Gateway APIs to retrieve data or functionality exposed by backend services. Gravitee defines three different types of Gateway APIs: proxy APIs, message APIs, and native APIs. These are differentiated by whether they proxy REST or event-driven APIs, and whether the Gravitee Gateway performs [protocol mediation](../../create-and-configure-apis/gravitee-api-definitions/README.md#protocol-mediation) or proxies the native protocol.
 {% endhint %}
 
 ## The creation wizard
@@ -98,7 +98,7 @@ The Gravitee plans supported by Kafka APIs are summarized below, in increasing o
 <table><thead><tr><th width="201">Plan</th><th>Description</th></tr></thead><tbody><tr><td>Keyless (public)</td><td>When configured, this plan does not add security. It is considered an "open" plan.</td></tr><tr><td>API Key</td><td>The gateway only accepts connections from clients that pass an API key corresponding to a valid subscription to the proxy in the client properties. The API key is used as the password, and the md5 hash of the API key is used as the username, as part of the SASL/SSL with SASL PLAIN authentication method.</td></tr><tr><td>JWT</td><td>The gateway only accepts connections from clients that pass a valid JWT with a client ID claim corresponding to a valid subscription to the proxy in the client properties. This is equivalent to SASL/SSL with SASL OAUTHBEARER authentication, where the JWT is used as the OAuth token.</td></tr><tr><td>OAuth2</td><td>The gateway only accepts connections from clients that pass a valid OAuth token with a client ID corresponding to a valid subscription to the proxy in the client properties. This is equivalent to SASL/SSL with SASL OAUTHBEARER authentication.</td></tr></tbody></table>
 
 {% hint style="info" %}
-To learn more about how plans function in Gravitee, refer to the [plans](../../secure-and-expose-apis/plans/) documentation. mTLS plans are not yet supported for Kafka APIs.
+To learn more about how plans function in Gravitee, refer to the [plans](../../secure-and-expose-apis/plans/README.md) documentation. mTLS plans are not yet supported for Kafka APIs.
 {% endhint %}
 
 Individual plan configurations as they pertain to Kafka APIs are described in detail below.
@@ -139,7 +139,7 @@ You must enter a value in the **Name** field. Modifying the other configuration 
 **Configuration**
 
 * (Optional) Choose whether to propagate your API key to upstream APIs.
-* (Optional) Use the [Gravitee Expression Language](broken-reference/) to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
+* (Optional) Use the Gravitee Expression Language to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
 
 </details>
 
@@ -174,7 +174,7 @@ Only the **Signature** and **JWKS resolver** selections are required. Modifying 
    * GIVEN\_KEY
    * GATEWAY\_KEYS
    * JWKS\_URL
-3. Define your Resolver parameter. This field supports the [Gravitee Expression Language](broken-reference/).
+3. Define your Resolver parameter. This field supports the Gravitee Expression Language.
 4. If your resolver is **JWKS\_URL**, set the **JWKS URL connect timeout**.
 5. If your resolver is **JWKS\_URL**, set the **JWKS URL request timeout**.
 6. Choose whether to use a system proxy.
@@ -220,7 +220,7 @@ Only the **OAuth2 resource** and **Cache resource** fields are required. Modifyi
 4. Choose whether to instruct your authentication method to check required scopes in order to access the resource. If you choose to check scopes, you must define your list of required scopes using the **Required scopes** module.
 5. Choose whether strict mode is enabled or disabled. If you choose **Strict**, scopes will be checked against the exact list you provided in the **Required scopes** section.
 6. Choose whether to permit authorization headers to target endpoints.
-7. Use the [Gravitee Expression Language](broken-reference/) to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
+7. Use the Gravitee Expression Language to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
 
 </details>
 

@@ -2,9 +2,9 @@
 
 ## Prerequisites
 
-The Confluent Platform federation agent supports both enterprise and community editions of Confluent Platform.&#x20;
+The Confluent Platform federation agent supports both enterprise and community editions of Confluent Platform.
 
-You'll also need to be running Gravitee API Management version 4.5 or above, with an enterprise license.&#x20;
+You'll also need to be running Gravitee API Management version 4.5 or above, with an enterprise license.
 
 For the federation agent to authenticate with Gravitee API Management, you'll also need an access token. Head to our dedicated guide on [how to create a service account and an access token](../federation-agent-service-account.md) for the federation agent.
 
@@ -31,11 +31,11 @@ Once started (which can take a few minutes), you should be able to open the Conf
 
 ## 1. Create a Confluent Platform integration in the Gravitee APIM Console
 
-Head to the Gravitee APIM Console, open the Integrations section in the left menu, and create a new Confluent Platform integration.&#x20;
+Head to the Gravitee APIM Console, open the Integrations section in the left menu, and create a new Confluent Platform integration.
 
 Once you've created the integration, copy the integration ID that will be visible on the integration overview tab, you'll use this later:
 
-<figure><img src="../../../.gitbook/assets/image (42).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## 2. Configure the Confluent Platform federation agent
 
@@ -66,7 +66,7 @@ SCHEMA_REGISTRY_ENDPOINT=https://192.168.1.27:8085
 
 ### Obtain Confluent credentials for the agent
 
-The Confluent Platform federation agent needs credentials to be able to connect to the cluster and schema registry APIs.&#x20;
+The Confluent Platform federation agent needs credentials to be able to connect to the cluster and schema registry APIs.
 
 If you're using the demo project mentioned in the Prerequisites, you can simply use the default super user account, where both user and password are set to `superUser`.
 
@@ -158,6 +158,6 @@ docker compose up -d
 
 In the Gravitee API Management console, after refreshing, you should now see the agent's status set to `Connected:`
 
-<figure><img src="../../../.gitbook/assets/image (43).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 If your **Agent Connection** still shows as `Disconnected`, then please inspect the agent's container logs. There you should find error logs that will help you troubleshoot.

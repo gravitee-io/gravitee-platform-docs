@@ -6,12 +6,12 @@ This section shows the SMTP configuration used for sending email.
 
 You can configure SMTP using `gravitee.yml`, environment variables or directly in APIM Console. If SMTP is configured with `gravitee.yml` or environment variables, then that configuration will be used, even if settings exist in the database.
 
-SMTP can be applied at two different levels:&#x20;
+SMTP can be applied at two different levels:
 
 1. Environment
 2. Organization
 
-where the more specific level overrides the broader level:  Environment > Organization.
+where the more specific level overrides the broader level: Environment > Organization.
 
 Here's an example of configuring SMTP using the `gravitee.yml` file:
 
@@ -33,11 +33,11 @@ If you change the SMTP settings using the `gravitee.yml` or environment variable
 
 You can also configure SMTP at the organization level in the **Organization > Settings** section of the APIM Console:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-07-20 at 3.27.18 PM.png" alt=""><figcaption><p>Organization SMTP settings</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Screenshot 2023-07-20 at 3.27.18 PM (1).png" alt=""><figcaption><p>Organization SMTP settings</p></figcaption></figure>
 
 Or at the environment level in the **Settings > Settings** section of the APIM Console:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-07-20 at 3.30.01 PM.png" alt=""><figcaption><p>Environment SMTP settings</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Screenshot 2023-07-20 at 3.30.01 PM (1).png" alt=""><figcaption><p>Environment SMTP settings</p></figcaption></figure>
 
 ## Configure the Gmail SMTP server
 

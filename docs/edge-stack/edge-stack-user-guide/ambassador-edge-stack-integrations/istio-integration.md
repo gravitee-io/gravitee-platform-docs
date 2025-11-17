@@ -221,7 +221,7 @@ To configure a `Mapping` to use mTLS, you need to use the `tls` element of the `
 tls: istio-upstream
 ```
 
-For example, if you have installed the Quote service as described on the [Getting Started](../../) page, you will have a similar `Mapping`:
+For example, if you have installed the Quote service as described on the [Getting Started](../../README.md) page, you will have a similar `Mapping`:
 
 ```yaml
 apiVersion: getambassador.io/v3alpha1

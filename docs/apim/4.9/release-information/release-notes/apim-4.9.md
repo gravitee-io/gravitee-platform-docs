@@ -44,18 +44,18 @@
 
 * **API traffic dashboard**\
   Introduces an API traffic dashboard for v4 proxy APIs. This dashboard provides the following key metrics for users to quickly spot issues and usage patterns: total requests, min/max/average response times, and requests per second.
-* **v2 to v4 API migration** \
+* **v2 to v4 API migration**\
   The APIM Console includes a new API migration workflow that guides users through converting v2 APIs to v4 APIs. Migrated v2 APIs can be verified to be fully compatible with the v4 API definition, allowing teams to adopt the supported v4 model safely.\
   Historical analytics are not available after migration, and analytics are reset for the migrated API. Migration is reversible, but users should plan for analytics gaps until continuity is delivered in a future release.
 *   **New Developer Portal homepage customization**
 
     {% hint style="warning" %}
-    This feature is in tech preview.
+    This feature is in tech preview.&#x20;
     {% endhint %}
 
     Enables customization of the New Developer Portal homepage using standard Markdown or Gravitee Markdown (GMD). GMD is standard Markdown enriched with Gravitee Markdown components.
 * **Expression Language (EL) assistant**\
-  Introduces the Gravitee Expression Language (EL) assistant. This assistant converts prompts into expression language that can be used in any field that supports EL.&#x20;
+  Introduces the Gravitee Expression Language (EL) assistant. This assistant converts prompts into expression language that can be used in any field that supports EL.
 * **AWS multi-account Federation**\
   Introduces multi-account and multi-region support for the AWS API Gateway Federation Agent. Supports StackSets and manual IAM setups with CloudFormation/ECS, enabling enterprises to discover and manage APIs across many AWS accounts and regions from APIM.
 * **Edge Stack Federation agent**\
@@ -65,18 +65,18 @@
 *   **Kafka Console**
 
     {% hint style="warning" %}
-    This feature is available in private tech preview. Contact your account manager if you are interested.
+    This feature is available in private tech preview. Contact your account manager if you are interested.&#x20;
     {% endhint %}
 
     Introduces Gravitee Kafka Console, which integrates with APIM to provide a user interface with which to browse and manage core Kafka resources, such as topics, partitions, and consumer groups, and to produce and consume messages. Kafka Console is based on Kafbat UI and communicates with the APIM Management API through JWT-based authentication. This feature is available only for self-hosted deployments and not compatible with next-gen cloud.
-* **Expose APIM as an MCP Server**\
+* &#x20;**Expose APIM as an MCP Server**\
   The Gravitee MCP Server allows AI assistants and other MCP clients to manage APIM resources. For example, clients such as Cursor or Claude Code can list APIs, view API logs, and manage subscriptions and documentation. This feature enables natural-language workflows with permissions scoped by the service account.
 * **Execution transparency analytics**\
   Introduces execution transparency analytics that provide clear, actionable diagnostics when errors occur during API execution. This feature enables troubleshooting by exposing detailed information about the root cause of failures and warnings. Available for v4 APIs and v2 APIs running on the v4 execution engine.
 * **MongoDB index upgrades**\
   Introduces 11 new MongoDB indexes designed to improve query performance for large datasets.
-* **Expose Kafka analytics**\
-  Introduces a new Kafka analytics dashboard that displays operational metrics for Kafka APIs. These analytics are also stored in the Elasticsearch reporter as time series data. This enables real-time monitoring and analysis of Kafka API performance, message production, consumption rates, and connection patterns.&#x20;
+* **Expose Kafka analytics** \
+  Introduces a new Kafka analytics dashboard that displays operational metrics for Kafka APIs for deployments that use the Elasticsearch reporter. The metrics are stored as time‑series data, which enables real‑time monitoring and analysis of Kafka API performance, message activity, and connection patterns.
 
 ## Updated features
 
@@ -100,6 +100,8 @@
   Users can set the `renewable` parameter to `true` to automatically renew a secret. Setting the `reloadOnChange` parameter to `true` reloads the API when there is a new secret value.
 *   **Terraform resources**
 
-    \{% hint style="warning" %\} This feature is in tech preview. \{% endhint %\}
+    {% hint style="warning" %}
+    This feature is in tech preview.
+    {% endhint %}
 
     The Gravitee Terraform provider now supports Application and Subscription resources.

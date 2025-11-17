@@ -1,14 +1,14 @@
 # Rulesets and Functions
 
 {% hint style="warning" %}
-API Score is a technology preview. This feature is not recommended for production environments.&#x20;
+API Score is a technology preview. This feature is not recommended for production environments.
 {% endhint %}
 
 ## Overview
 
 API Score rulesets contain the rules that are used by API Score to rate your API. Under the hood, Gravitee uses an open source linting tool called [Spectral](https://github.com/stoplightio/spectral) to power the API Score capability.
 
-Rulesets can analyze all of the assets that make up your Gravitee APIs, including the Gravitee API definition and any attached OpenAPI or AsyncAPI pages.&#x20;
+Rulesets can analyze all of the assets that make up your Gravitee APIs, including the Gravitee API definition and any attached OpenAPI or AsyncAPI pages.
 
 Gravitee provides default rulesets out of the box for OpenAPI and AsyncAPI doc pages. If the default rulesets do not fit your use case, you can create custom rulesets. For more information about custom rulesets, see [#custom-rulesets](rulesets-and-functions.md#custom-rulesets "mention").
 
@@ -16,7 +16,7 @@ Gravitee provides default rulesets out of the box for OpenAPI and AsyncAPI doc p
 
 ### Default rulesets
 
-Spectral provides default rulesets for both OpenAPI and AsyncAPI.&#x20;
+Spectral provides default rulesets for both OpenAPI and AsyncAPI.
 
 For more information on OpenAPI default rulesets, see [OpenAPI Rules](https://docs.stoplight.io/docs/spectral/4dec24461f3af-open-api-rules). For more information on AsyncAPI default rulesets, see [AsyncAPI Rules](https://docs.stoplight.io/docs/spectral/1e63ffd0220f3-async-api-rules).
 
@@ -32,7 +32,7 @@ Custom rulesets allow you to define the rules that API Score will use to evaluat
 * **message:** The message shown to the user in case the rule fails.
 * **severity:** A weighted value that affects your API score. From least to most severe, possible values are: hint, info, warn, error.
 * **given:** The JSON Path expression that points to the part of the document that should be used for scoring.
-* **then:** This describes the functions that should be applied to evaluate the rule.&#x20;
+* **then:** This describes the functions that should be applied to evaluate the rule.
 
 {% hint style="info" %}
 For more information about Spectral's rulesets, go to [Rulesets.](https://docs.stoplight.io/docs/spectral/e5b9616d6d50c-rulesets)
@@ -40,7 +40,7 @@ For more information about Spectral's rulesets, go to [Rulesets.](https://docs.s
 
 #### Example
 
-The following custom ruleset includes a single rule for checking that the API has at least one **label**. First, the rule checks that the **labels** attribute exists using the **truthy** function provided by Spectral. Next, it uses Spectral's built-in **length** function to check that the length of the **labels** array is at least **1**.&#x20;
+The following custom ruleset includes a single rule for checking that the API has at least one **label**. First, the rule checks that the **labels** attribute exists using the **truthy** function provided by Spectral. Next, it uses Spectral's built-in **length** function to check that the length of the **labels** array is at least **1**.
 
 {% code lineNumbers="true" %}
 ```yaml
@@ -62,7 +62,7 @@ rules:
 
 ### Importing rulesets
 
-When you import a custom ruleset, you need to specify to which type of API or asset the ruleset applies. You can import the following ruleset formats:&#x20;
+When you import a custom ruleset, you need to specify to which type of API or asset the ruleset applies. You can import the following ruleset formats:
 
 * OpenAPI
 * AsyncAPI
@@ -78,22 +78,18 @@ If you import a custom OpenAPI or AsyncAPI ruleset, this ruleset overrides Spect
 
 To import custom rulesets, complete the following steps:
 
-1.  Log in to your APIM Console, then click **API Score**.\
+1.  Log in to your APIM Console, then click **API Score**.\\
 
+    <figure><img src="../../../4.7/.gitbook/assets/image (211) (1).png" alt=""><figcaption></figcaption></figure>
+2.  Click **Rulesets & Functions**.\\
 
-    <figure><img src="../../.gitbook/assets/image (248).png" alt=""><figcaption></figcaption></figure>
-2.  Click **Rulesets & Functions**.\
+    <figure><img src="../../../4.7/.gitbook/assets/image (212) (1).png" alt=""><figcaption></figcaption></figure>
+3.  Click **Import**.\\
 
+    <figure><img src="../../../4.7/.gitbook/assets/image (213) (1).png" alt=""><figcaption></figcaption></figure>
+4.  In **Asset Format**, choose the format for your ruleset. \\
 
-    <figure><img src="../../.gitbook/assets/image (249).png" alt=""><figcaption></figcaption></figure>
-3.  Click **Import**.\
-
-
-    <figure><img src="../../.gitbook/assets/image (250).png" alt=""><figcaption></figcaption></figure>
-4.  In **Asset Format**, choose the format for your ruleset. \
-
-
-    <figure><img src="../../.gitbook/assets/image (251).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../4.7/.gitbook/assets/image (214) (1).png" alt=""><figcaption></figcaption></figure>
 5. In **Ruleset Information**, type the name of your ruleset.
 6. (Optional) Type a description for your ruleset.
 7. Attach the ruleset file. You can attach a file in the following formats:
@@ -104,24 +100,21 @@ To import custom rulesets, complete the following steps:
 
 ### Editing Rulesets
 
-Once you've uploaded a ruleset, you can edit its name and description. If you want to modify the ruleset itself, you need to delete it and upload it again.&#x20;
+Once you've uploaded a ruleset, you can edit its name and description. If you want to modify the ruleset itself, you need to delete it and upload it again.
 
 To edit a ruleset:
 
-1.  Log in to your APIM Console, then click **API Score**. \
+1.  Log in to your APIM Console, then click **API Score**. \\
 
+    <figure><img src="../../../4.7/.gitbook/assets/image (215) (1).png" alt=""><figcaption></figcaption></figure>
+2.  Click **Rulesets & Functions**.\\
 
-    <figure><img src="../../.gitbook/assets/image (252).png" alt=""><figcaption></figcaption></figure>
-2.  Click **Rulesets & Functions**.\
+    <figure><img src="../../../4.7/.gitbook/assets/image (216) (1).png" alt=""><figcaption></figcaption></figure>
+3. In **Rulesets**, navigate to the ruleset that you want to edit.
+4. Click the ruleset.
+5.  Click **Edit**. You can now edit the ruleset.\\
 
-
-    <figure><img src="../../.gitbook/assets/image (253).png" alt=""><figcaption></figcaption></figure>
-3. In **Rulesets**, navigate to the ruleset that you want to edit.&#x20;
-4. Click the ruleset.&#x20;
-5.  Click **Edit**. You can now edit the ruleset.\
-
-
-    <figure><img src="../../.gitbook/assets/image (254).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../4.7/.gitbook/assets/image (217) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Functions
 
@@ -135,9 +128,9 @@ Spectral's functions can only be applied to OAS/AsyncAPI definitions. You must u
 
 Spectral provides functions that you can use to score your API. For more information about Spectral's built-in functions, go to [Core functions](https://docs.stoplight.io/docs/spectral/cb95cf0d26b83-core-functions).
 
-### Custom functions&#x20;
+### Custom functions
 
-Custom functions expand the capabilities of API Score by using your custom logic as part of the rules in your custom ruleset. A custom function is JavaScript code that takes part of your API definition, OpenAPI spec, or AsyncAPI spec as an input and determines based on its contents whether or not the rule is met. This allows you to implement virtually any rule, as arbitrarily as you'd like.&#x20;
+Custom functions expand the capabilities of API Score by using your custom logic as part of the rules in your custom ruleset. A custom function is JavaScript code that takes part of your API definition, OpenAPI spec, or AsyncAPI spec as an input and determines based on its contents whether or not the rule is met. This allows you to implement virtually any rule, as arbitrarily as you'd like.
 
 The example below shows a custom function that checks if an API's `lastUpdated` date is more recent than 1 year. If not, the rule fails and recommends that the user investigate whether or not this API is in need of maintenance.
 

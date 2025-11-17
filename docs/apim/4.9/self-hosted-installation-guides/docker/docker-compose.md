@@ -17,10 +17,9 @@ Before you install APIM, complete the following steps:
 
 ### Install Gravitee APIM <a href="#install-gravitee-apim" id="install-gravitee-apim"></a>
 
-1.  Create a directory structure in which to persist data and store plugins:\
+1.  Create a directory structure in which to persist data and store plugins:\\
 
-
-    ```bash
+    ```shellscript
     mkdir -p ./gravitee/{mongodb/data,elasticsearch/data,apim-gateway/plugins,apim-gateway/logs,apim-management-api/plugins,apim-management-api/logs,apim-management-ui/logs,apim-portal-ui/logs}
     ```
 
@@ -36,9 +35,7 @@ Before you install APIM, complete the following steps:
     * `apim-portal-ui/logs`: Developer Portal web server logs
 2.  Verify that the directory has the following structure:
 
-
-
-    ```bash
+    ```shellscript
     /gravitee
      ├── apim-gateway
      │    ├── logs
@@ -57,8 +54,6 @@ Before you install APIM, complete the following steps:
     ```
 3.  (**Enterprise Edition only**) Place your license key file in the current root directory:
 
-
-
     ```bash
     cp /path/to/your/license.key ./license.key
     ```
@@ -66,8 +61,6 @@ Before you install APIM, complete the following steps:
     Replace `/path/to/your/license.key` with the actual path to your Gravitee license file. You must name your license file `license.key` and it must be located in the same directory as your `docker-compose-apim.yml` file.
 4. In your current root directory, create a file called `docker-compose-apim.yml`.
 5.  Add the following configuration to your `docker-compose-apim.yml` file, and then save the file:
-
-
 
     ```yaml
     #
@@ -209,8 +202,6 @@ Before you install APIM, complete the following steps:
     ```
 6.  Run Docker Compose with the following command:
 
-
-
     ```bash
     docker compose -f docker-compose-apim.yml up -d
     ```
@@ -237,8 +228,8 @@ Federation is disabled by default for security and performance reasons. You can 
 
 To enable Federation, complete the following steps:
 
-* [Enable Federation with Docker Compose](https://documentation.gravitee.io/apim/~/changes/324/self-hosted-installation-guides/docker/docker-compose#enable-federation-with-docker-compose)
-* If you are running multiple replicas of APIM for high availability, [Set up cluster mode](https://documentation.gravitee.io/apim/~/changes/324/self-hosted-installation-guides/docker/docker-compose#set-up-cluster-mode)
+* [#enable-federation-with-docker-compose](docker-compose.md#enable-federation-with-docker-compose "mention")
+* If you are running multiple replicas of APIM for high availability, [#set-up-cluster-mode](docker-compose.md#set-up-cluster-mode "mention")
 
 ### Enable Federation with Docker Compose <a href="#enable-federation-with-docker-compose" id="enable-federation-with-docker-compose"></a>
 
@@ -255,8 +246,6 @@ To enable Federation, complete the following steps:
 
 1. Open your existing `docker-compose-apim.yml` file and locate the `management_api` service section.
 2.  Add the Federation environment variable `GRAVITEE_INTEGRATION_ENABLED=true` to the environment section of the Management API service. This activates the Federation endpoints in the Management API.
-
-
 
     ```yaml
     management_api:
@@ -288,8 +277,7 @@ To enable Federation, complete the following steps:
           - ./.license/license.key:/opt/graviteeio-management-api/license/license.key
           - ./.plugins:/opt/graviteeio-management-api/plugins-ext
     ```
-3.  Restart your APIM services. \
-
+3.  Restart your APIM services. \\
 
     ```bash
     docker compose -f docker-compose-apim.yml down
@@ -299,8 +287,7 @@ To enable Federation, complete the following steps:
 Docker containers read environment variables only during container startup. The running containers cannot detect the new `GRAVITEE_INTEGRATION_ENABLED` setting without a restart.
 {% endhint %}
 
-4.  Start the services with the updated Federation configuration.\
-
+4.  Start the services with the updated Federation configuration.\\
 
     ```bash
     docker compose -f docker-compose-apim.yml up -d
@@ -308,7 +295,7 @@ Docker containers read environment variables only during container startup. The 
 
 ### Configure Federation Agent <a href="#configure-federation-agent" id="configure-federation-agent"></a>
 
-1. When running federation agents in Docker alongside your APIM deployment,configure the agent to connect to your Management API. To configure the agent environment, create a `.env` file for your federation agent with the following configuration. The following configuration example is for Confluent Platform integration:&#x20;
+1. When running federation agents in Docker alongside your APIM deployment,configure the agent to connect to your Management API. To configure the agent environment, create a `.env` file for your federation agent with the following configuration. The following configuration example is for Confluent Platform integration:
 
 ```bash
 ## GRAVITEE PARAMETERS ##
@@ -348,10 +335,7 @@ LOG_LEVEL=DEBUG
 This example shows configuration for Confluent Platform integration. For Solace or AWS API Gateway integrations, the core Gravitee parameters remain the same, but additional integration-specific parameters will differ.
 {% endhint %}
 
-
-
-2.  To enable federation, add the federation agent service to your `docker-compose-apim.yml` file. You can see a sample configuration example in the complete Docker Compose file above with all available agent options. \
-
+2.  To enable federation, add the federation agent service to your `docker-compose-apim.yml` file. You can see a sample configuration example in the complete Docker Compose file above with all available agent options. \\
 
     ```yaml
     #
@@ -532,9 +516,6 @@ This example shows configuration for Confluent Platform integration. For Solace 
         networks:
           - frontend
     ```
-
-
-
 3. Make the following modifications to your `docker-compose-apim.yml` file:
 
 * Select the correct agent image for your integration type:
@@ -548,8 +529,6 @@ If APIM is running with high availability, you need to set up cluster mode. To s
 
 1.  Add the following parameter values to the root of your `gravitee.yaml` configuration file:
 
-
-
     ```bash
     GRAVITEE_CLUSTER_TYPE = hazelcast
     GRAVITEE_CLUSTER_HAZELCAST_CONFIGPATH = ${gravitee.home}/config/hazelcast-cluster.xml
@@ -557,8 +536,6 @@ If APIM is running with high availability, you need to set up cluster mode. To s
     GRAVITEE_CACHE_HAZELCAST_CONFIGPATH = ${gravitee.home}/config/hazelcast-cache.xml
     ```
 2.  Mount a volume with the `hazelcast-cluster.xml` configuration file. This configures Hazelcast to support APIM cluster mode. Here is an example `hazelcast-cluster.xml` configuration file. You may need to customize the values for `join` in the `network` section:
-
-
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -599,8 +576,6 @@ If APIM is running with high availability, you need to set up cluster mode. To s
     </hazelcast>
     ```
 3.  Mount a volume with the `hazelcast-cache.xml` configuration file. This configures the Hazelcast cluster that is used by APIM's caching system. Here is an example `hazelcast-cache.xml` configuration file. You may need to customize the values for `join` in the `network` section:
-
-
 
     ```xml
       <?xml version="1.0" encoding="UTF-8"?>

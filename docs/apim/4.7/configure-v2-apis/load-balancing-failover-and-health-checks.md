@@ -5,8 +5,8 @@
 APIM offers three main backend services for managing your APIs that are built into the Gravitee platform:
 
 * [**Load-balancing**](load-balancing-failover-and-health-checks.md#load-balancing)**:** A technique that distributes incoming traffic across multiple backend servers to optimize resource utilization, maximize throughput, minimize response time, and avoid overloading any single server.
-* [**Failover**](load-balancing-failover-and-health-checks.md#failover)**:** Ensures high availability and reliability by redirecting incoming traffic to a secondary server or backup system in the event of a primary server failure.&#x20;
-* [**Health-checks**](load-balancing-failover-and-health-checks.md#health-checks)**:** A health check is a mechanism used to monitor the availability and health of your endpoints and/or API Gateways.&#x20;
+* [**Failover**](load-balancing-failover-and-health-checks.md#failover)**:** Ensures high availability and reliability by redirecting incoming traffic to a secondary server or backup system in the event of a primary server failure.
+* [**Health-checks**](load-balancing-failover-and-health-checks.md#health-checks)**:** A health check is a mechanism used to monitor the availability and health of your endpoints and/or API Gateways.
 
 ## Load-balancing
 
@@ -42,15 +42,15 @@ To configure load-balancing:
 1. Log in to your APIM Console
 2. Select **APIs** from the left nav
 3. Select your API
-4.  From the inner left nav, select **Endpoints** under **Backend services**&#x20;
+4.  From the inner left nav, select **Endpoints** under **Backend services**
 
-    <figure><img src="../.gitbook/assets/v2 endpoint group.png" alt=""><figcaption><p>Endpoint configuration</p></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/v2 endpoint group (1).png" alt=""><figcaption><p>Endpoint configuration</p></figcaption></figure>
 5.  To confirm the load-balancing algorithm (chosen when your endpoint's group was created), click **Edit group** and select the **General** tab. Click the arrow to **Go back** to the endpoint configuration
 
-    <figure><img src="../.gitbook/assets/v2 endpoint group edit.png" alt=""><figcaption><p>Edit endpoint group</p></figcaption></figure>
-6.  Click the pencil icon for your endpoint and select the **General** tab to edit the load-balancing weight&#x20;
+    <figure><img src="../../../../.gitbook/assets/v2 endpoint group edit (1).png" alt=""><figcaption><p>Edit endpoint group</p></figcaption></figure>
+6.  Click the pencil icon for your endpoint and select the **General** tab to edit the load-balancing weight
 
-    <figure><img src="../.gitbook/assets/v2 endpoint weight.png" alt=""><figcaption><p>Configure load-balancing weight</p></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/v2 endpoint weight (1).png" alt=""><figcaption><p>Configure load-balancing weight</p></figcaption></figure>
 7. Click **Save**
 
 ### Failover
@@ -60,9 +60,9 @@ To configure failover:
 1. Log in to your APIM Console
 2. Select **APIs** from the left nav
 3. Select your API
-4.  From the inner left nav, select **Failover** under **Backend services**&#x20;
+4.  From the inner left nav, select **Failover** under **Backend services**
 
-    <figure><img src="../.gitbook/assets/v2 failover.png" alt=""><figcaption><p>Configure failover</p></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/v2 failover (1).png" alt=""><figcaption><p>Configure failover</p></figcaption></figure>
 5. Configure the following:
    * Toggle **Enable Failover** ON
    * **Max Attempts:** Define the upper limit for the number of possible Gravitee API Gateway attempts to find a suitable endpoint, according to the load-balancing algorithm, before returning an error
@@ -76,9 +76,9 @@ To configure health-checks:
 1. Log in to your APIM Console
 2. Select **APIs** from the left nav
 3. Select your API
-4.  From the inner left nav, select **Health-check** under **Backend services**&#x20;
+4.  From the inner left nav, select **Health-check** under **Backend services**
 
-    <figure><img src="../.gitbook/assets/v2 health-check.png" alt=""><figcaption><p>Configure health-checks</p></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/v2 health-check (1).png" alt=""><figcaption><p>Configure health-checks</p></figcaption></figure>
 5. Configure the following:
    * Toggle **Enable health-check** ON
    * Define the **Trigger Schedule** to establish the time interval between successive health-checks

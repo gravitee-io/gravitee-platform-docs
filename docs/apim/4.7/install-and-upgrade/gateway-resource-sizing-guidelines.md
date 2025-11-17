@@ -78,7 +78,7 @@ The Gateway is optimized to minimize memory consumption when serving requests an
 
 <summary>Analytics and logging</summary>
 
-Gravitee offers multiple methods to export analytics using [reporters](../gravitee-gateway/reporters/). Depending on throughput and the level of precision used for logging, you may need to increase the memory or disk space of your Gateway and choose the reporter best suited to handle your traffic analytics.
+Gravitee offers multiple methods to export analytics using [reporters](../gravitee-gateway/reporters/README.md). Depending on throughput and the level of precision used for logging, you may need to increase the memory or disk space of your Gateway and choose the reporter best suited to handle your traffic analytics.
 
 </details>
 

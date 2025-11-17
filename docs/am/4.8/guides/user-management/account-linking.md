@@ -5,7 +5,7 @@
 {% hint style="warning" %}
 Account Linking is a Gravitee Enterprise Edition feature that is available in the default EE distribution. To learn more about Gravitee Enterprise and what's included in various enterprise packages:
 
-* [Refer to the EE vs OSS documentation](../../overview/open-source-vs-enterprise-am/)
+* [Refer to the EE vs OSS documentation](../../overview/open-source-vs-enterprise-am/README.md)
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
@@ -44,7 +44,7 @@ To activate the Account Linking feature for a particular application:
       1. **Attribute name:** Username, email, etc.
       2. **Attribute value:** Supports Expression Language
 
-<figure><img src="../../.gitbook/assets/account linking at app level.png" alt=""><figcaption><p>Apply account linking at the application level</p></figcaption></figure>
+<figure><img src="../../../4.1/.gitbook/assets/account linking at app level (1).png" alt=""><figcaption><p>Apply account linking at the application level</p></figcaption></figure>
 
 {% hint style="success" %}
 Multiple accounts with the same attributes are now considered to represent the same user.
@@ -68,7 +68,7 @@ To activate the Account Linking feature for the security domain:
       1. **Attribute name:** Username, email, etc.
       2. **Attribute value:** Supports Expression Language
 
-<figure><img src="../../.gitbook/assets/account linking_flows.png" alt=""><figcaption><p>Apply account linking at the security domain level</p></figcaption></figure>
+<figure><img src="../../../4.1/.gitbook/assets/account linking_flows (1).png" alt=""><figcaption><p>Apply account linking at the security domain level</p></figcaption></figure>
 
 {% hint style="success" %}
 Multiple accounts with the same attributes are now considered to represent the same user.

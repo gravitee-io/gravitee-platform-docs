@@ -4,27 +4,27 @@
 
 Endpoints define the protocol and configuration settings by which the Gateway API will fetch data from, or post data to, the backend API. Kafka APIs can only have one endpoint group and one endpoint per endpoint group. The **Endpoints** section allows you to modify your Kafka endpoint group and/or Kafka endpoint.
 
-<figure><img src="../../../.gitbook/assets/A 11 endpoint.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.6/.gitbook/assets/A 11 endpoint (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Edit the endpoint group
 
-Gravitee automatically assigns the endpoint group of a Kafka API the name **Default Broker group**. To edit the endpoint group, click the **Edit** button with the pencil icon.&#x20;
+Gravitee automatically assigns the endpoint group of a Kafka API the name **Default Broker group**. To edit the endpoint group, click the **Edit** button with the pencil icon.
 
 By selecting the **General** tab, you can change the name of your Kafka endpoint group.
 
-<figure><img src="../../../.gitbook/assets/A 11 endpoint3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.6/.gitbook/assets/A 11 endpoint3 (1).png" alt=""><figcaption></figcaption></figure>
 
 By selecting the **Configuration** tab, you can edit the security settings of your Kafka endpoint group.
 
-<figure><img src="../../../.gitbook/assets/A 11 endpoint4.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.6/.gitbook/assets/A 11 endpoint4 (1).png" alt=""><figcaption></figcaption></figure>
 
 Gravitee Kafka APIs support **PLAINTEXT**, **SASL\_PLAINTEXT**, **SASL\_SSL**, or **SSL** as the security protocol. Select one of these from the drop-down menu and configure the associated settings to define your Kafka authentication flow:
 
 * **PLAINTEXT:** No further security configuration is necessary.
 * **SASL\_PLAINTEXT:** Choose NON&#x45;**,** GSSAPI, OAUTHBEARER, OAUTHBEARER\_TOKEN, PLAIN, SCRAM\_SHA-256, or SCRAM-SHA-512
   * **NONE:** No further security config necessary.
-  * **AWS\_MSK\_IAM:** Enter the JAAS login context parameters.&#x20;
-  * **GSSAPI:** Enter the JAAS login context parameters.&#x20;
+  * **AWS\_MSK\_IAM:** Enter the JAAS login context parameters.
+  * **GSSAPI:** Enter the JAAS login context parameters.
   * **OAUTHBEARER:** Enter the OAuth token URL, client ID, client secret, and scopes to request when issuing a new token.
   * **OAUTHBEARER\_TOKEN:** Provide your custom token value.
   * **PLAIN:** Enter the username and password to connect to the broker.
@@ -53,12 +53,12 @@ Gravitee Kafka APIs support **PLAINTEXT**, **SASL\_PLAINTEXT**, **SASL\_SSL**, o
 
 ## Edit the endpoint
 
-Gravitee automatically assigns your Kafka API endpoint the name **Default Broker**. To edit the endpoint, click the pencil icon under ACTIONS.&#x20;
+Gravitee automatically assigns your Kafka API endpoint the name **Default Broker**. To edit the endpoint, click the pencil icon under ACTIONS.
 
 By selecting the **General** tab, you can edit your endpoint name and the list of bootstrap servers.
 
-<figure><img src="../../../.gitbook/assets/A 11 endpoint1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.6/.gitbook/assets/A 11 endpoint1 (1).png" alt=""><figcaption></figcaption></figure>
 
 By default, the endpoint inherits its configuration settings from the endpoint group to which it belongs. By selecting the **Configuration** tab, you can choose to disable that setting change the security configuration.
 
-<figure><img src="../../../.gitbook/assets/A 11 endpoint2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.6/.gitbook/assets/A 11 endpoint2 (1).png" alt=""><figcaption></figcaption></figure>

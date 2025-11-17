@@ -129,7 +129,7 @@ To configure which information is recorded, select from the following options:
   * **Probabilistic:** Messages are sampled based on a specified probability value between 0.01 and 0.5.
   * **Count:** One message is sampled for every number specified, where the specified value must be greater than 1.
   * **Temporal:** Messages are sampled based on a specified time duration value that conforms to ISO-8601 format.
-*   **Display conditions:** You have the ability to filter the message data based on **Request phase condition** and **Message condition**. Each of these fields supports the use of [Gravitee Expression Language](broken-reference/).\\
+*   **Display conditions:** You have the ability to filter the message data based on **Request phase condition** and **Message condition**. Each of these fields supports the use of Gravitee Expression Language.\\
 
     <figure><img src="../../4.8/.gitbook/assets/image (364) (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -159,7 +159,7 @@ To configure which information is recorded, select from the following options:
 * **Logging mode:** Select from **Entrypoint** and **Endpoint** to customize which modes are logged.
 * **Logging phase:** Select from **Request** and **Response** to customize which phases are logged.
 * **Content data:** Select from **Headers** and **Payload** to customize which data is logged.
-*   **Display conditions:** You have the ability to filter data based on **Request phase condition**. This field supports the use of [Gravitee Expression Language](broken-reference/).\\
+*   **Display conditions:** You have the ability to filter data based on **Request phase condition**. This field supports the use of Gravitee Expression Language.\\
 
     <figure><img src="../../4.8/.gitbook/assets/image (365) (1).png" alt=""><figcaption></figcaption></figure>
 

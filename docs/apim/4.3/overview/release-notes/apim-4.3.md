@@ -37,7 +37,7 @@ An API description will be rendered as Markdown in the Developer Portal UI if:
 * An OpenAPI spec is imported and contains Markdown in the Description field
 * Markdown is entered for the description of an API
 
-To learn more about importing an API, see the [documentation](../../guides/create-apis/import-apis/).
+To learn more about importing an API, see the [documentation](../../guides/create-apis/import-apis/README.md).
 
 ## API documentation
 
@@ -175,7 +175,7 @@ Protobuf to AVRO conversion:
 
 ### GraphQL Rate Limit
 
-The [`graphql-rate-limit` policy](../../reference/policy-reference/graphql-rate-limit.md) has been added to limit the load placed on the GraphQL server so that GraphQL resources can be served reliably without overloading the system. It is a Gravitee Enterprise Edition feature and requires a [license](https://documentation.gravitee.io/platform-overview/gravitee-essentials/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing)​.
+The [`graphql-rate-limit` policy](../../reference/policy-reference/graphql-rate-limit.md) has been added to limit the load placed on the GraphQL server so that GraphQL resources can be served reliably without overloading the system. It is a Gravitee Enterprise Edition feature and requires a [license](https://documentation.gravitee.io/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing)​.
 
 The Gravitee Gateway evaluates query costs by introspecting schema and analyzing the query, then applying a rate-limiting strategy based on a computed/weighted score. This protects the backend GraphQL server from having to process costly GraphQL requests.
 
@@ -226,4 +226,4 @@ To learn how to create a TCP proxy API, see the [v4 API creation wizard](../../g
 
 The TCP reporter can be configured to use TLS when connecting to the target so that the entire communication is TLS-encrypted end-to-end. The user can configure the reporter to use TLS either with or without client verification enabled.
 
-For more details, see the [TCP reporter documentation](../../getting-started/configuration/reporters/#tcp-reporter).
+For more details, see the [TCP reporter documentation](../../getting-started/configuration/reporters/README.md#tcp-reporter).

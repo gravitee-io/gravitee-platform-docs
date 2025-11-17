@@ -8,13 +8,13 @@ description: >-
 
 ## Introduction
 
-Sharding tags allow you to “tag” Gateways with a keyword and deploy an API to a Gateway with a certain tag. Gateways can be tagged with one or more sharding tags. Additionally, the `!` symbol can be placed before the tag name to specify exclusion rules.&#x20;
+Sharding tags allow you to “tag” Gateways with a keyword and deploy an API to a Gateway with a certain tag. Gateways can be tagged with one or more sharding tags. Additionally, the `!` symbol can be placed before the tag name to specify exclusion rules.
 
 To learn more about how to deploy APIs to specific Gateways based on sharding tags, refer to [Configure Deployments](../configure-v2-apis/proxy-settings.md).
 
 The sections below discuss:
 
-* [Tagged Gateway/API behavior](#tagged-gatewayapi-behavior)
+* [Tagged Gateway/API behavior](sharding-tags.md#tagged-gateway-api-behavior)
 * [Configuring sharding tags for Gravitee API Gateways](sharding-tags.md#configure-sharding-tags-for-your-gravitee-api-gateways)
 * [Defining sharding tags for an organization](sharding-tags.md#define-sharding-tags-for-an-organization)
 * [Adding sharding tags to an API](sharding-tags.md#add-sharding-tags-to-an-api)
@@ -42,7 +42,7 @@ API deployment is impacted by how tags are applied to APIs and Gateways.
 
 Our discussion of sharding tag configuration assumes an architecture that includes both DMZ Gateways and internal, corporate Gateways. We want to tag these Gateways as external-only and internal-only, respectively, per the diagram below:
 
-<figure><img src="../.gitbook/assets/Example architecture (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../4.0/.gitbook/assets/Example architecture (1).png" alt=""><figcaption></figcaption></figure>
 
 Before sharding tags can be defined in the Gravitee API Management Console, the API Gateway `gravitee.yaml` file must be modified to assign a Gravitee API Gateway to a specific sharding tag:
 
@@ -68,30 +68,30 @@ Once Gateways have been tagged, these sharding tags must be defined within API M
 
 Follow the steps below to add sharding tags to your organization.
 
-1.  Log in to your API Management Console:&#x20;
+1.  Log in to your API Management Console:
 
-    <figure><img src="../.gitbook/assets/v2 sharding tags_step 1.png" alt=""><figcaption></figcaption></figure>
-2.  In the left-hand nav, select **Organization**:&#x20;
+    <figure><img src="../../../../.gitbook/assets/v2 sharding tags_step 1.png" alt=""><figcaption></figcaption></figure>
+2.  In the left-hand nav, select **Organization**:
 
-    <figure><img src="../.gitbook/assets/v2 sharding tags_step 2.png" alt=""><figcaption></figcaption></figure>
-3.  On the **Organization** page, select **Sharding tags**:&#x20;
+    <figure><img src="../../../../.gitbook/assets/v2 sharding tags_step 2.png" alt=""><figcaption></figcaption></figure>
+3.  On the **Organization** page, select **Sharding tags**:
 
-    <figure><img src="../.gitbook/assets/v2 sharding tags_step 3.png" alt=""><figcaption></figcaption></figure>
-4.  Click **+ Add a tag**:&#x20;
+    <figure><img src="../../../../.gitbook/assets/v2 sharding tags_step 3.png" alt=""><figcaption></figcaption></figure>
+4.  Click **+ Add a tag**:
 
-    <figure><img src="../.gitbook/assets/v2 sharding tags_step 4.png" alt=""><figcaption></figcaption></figure>
-5.  Create the same tags that you created in the `gravitee.yaml` file, ensuring the names are an exact match. For this example, let's first create the "internal" tag using the **Name** field:&#x20;
+    <figure><img src="../../../../.gitbook/assets/v2 sharding tags_step 4.png" alt=""><figcaption></figcaption></figure>
+5.  Create the same tags that you created in the `gravitee.yaml` file, ensuring the names are an exact match. For this example, let's first create the "internal" tag using the **Name** field:
 
-    <figure><img src="../.gitbook/assets/v2 sharding tags_step 5.png" alt=""><figcaption></figcaption></figure>
-6.  (Optional) You can choose to restrict the usage of the tag to certain groups, as defined in Gravitee user administration&#x20;
+    <figure><img src="../../../../.gitbook/assets/v2 sharding tags_step 5.png" alt=""><figcaption></figcaption></figure>
+6.  (Optional) You can choose to restrict the usage of the tag to certain groups, as defined in Gravitee user administration
 
-    <figure><img src="../.gitbook/assets/v2 sharding tags_step 6.png" alt=""><figcaption></figcaption></figure>
-7.  Click **Ok**:&#x20;
+    <figure><img src="../../../../.gitbook/assets/v2 sharding tags_step 6.png" alt=""><figcaption></figcaption></figure>
+7.  Click **Ok**:
 
-    <figure><img src="../.gitbook/assets/v2 sharding tags_step 7.png" alt=""><figcaption></figcaption></figure>
-8.  Let's add the "external" tag, following the same steps:&#x20;
+    <figure><img src="../../../../.gitbook/assets/v2 sharding tags_step 7.png" alt=""><figcaption></figcaption></figure>
+8.  Let's add the "external" tag, following the same steps:
 
-    <figure><img src="../.gitbook/assets/v2 sharding tags_step 8.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/v2 sharding tags_step 8.png" alt=""><figcaption></figcaption></figure>
 
 ## Add sharding tags to an API
 
@@ -100,43 +100,43 @@ Follow the instructions below to add a sharding tag to a v2 API or a v4 API.
 1. Log in to your API Management Console
 2. Select **APIs** from the left nav
 3. Choose the API you want to tag
-4.  Select **Deployment** from the inner left nav:&#x20;
+4.  Select **Deployment** from the inner left nav:
 
-    <figure><img src="../.gitbook/assets/deployment_sharding tag (1).png" alt=""><figcaption></figcaption></figure>
-5.  Select one or more tags from the **Sharding tags** drop-down menu, then click **Save**:&#x20;
+    <figure><img src="../../../../.gitbook/assets/deployment_sharding tag.png" alt=""><figcaption></figcaption></figure>
+5.  Select one or more tags from the **Sharding tags** drop-down menu, then click **Save**:
 
-    <figure><img src="../.gitbook/assets/deployment_sharding tag select.png" alt=""><figcaption></figcaption></figure>
-6.  Click **Deploy API** to sync your API:&#x20;
+    <figure><img src="../../../../.gitbook/assets/deployment_sharding tag select.png" alt=""><figcaption></figcaption></figure>
+6.  Click **Deploy API** to sync your API:
 
-    <figure><img src="../.gitbook/assets/deployment_sharding tag deploy.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/deployment_sharding tag deploy.png" alt=""><figcaption></figcaption></figure>
 
 ## Map entrypoints to sharding tags
 
 If you are using the Developer Portal, Gravitee also provides a way to map different entrypoint URLs to specific sharding tags. The Portal will display available entrypoints based on an API's tag(s).
 
 {% hint style="info" %}
-The following process applies to both v2 and v4 APIs.&#x20;
+The following process applies to both v2 and v4 APIs.
 {% endhint %}
 
 To demonstrate, let's instruct Gravitee API Manager to apply the “internal test” tag to all APIs tagged with this entrypoint:
 
 1. In your APIM console, select **Organization** from the left nav
 2. Select **Sharding tags** from the new left nav
-3.  Select **+ Add a mapping**:&#x20;
+3.  Select **+ Add a mapping**:
 
-    <figure><img src="../.gitbook/assets/sharding tags map_step 3.png" alt=""><figcaption></figcaption></figure>
-4.  &#x20;In the **Entrypoint url** field, enter your Entrypoint URL:&#x20;
+    <figure><img src="../../../../.gitbook/assets/sharding tags map_step 3.png" alt=""><figcaption></figcaption></figure>
+4.  In the **Entrypoint url** field, enter your Entrypoint URL:
 
-    <figure><img src="../.gitbook/assets/sharding tags map_step 4.png" alt=""><figcaption></figcaption></figure>
-5.  In the **Sharding tags** drop-down menu, select the tag that you want mapped to your entrypoint. For this example, let's choose the "internal test" tag.&#x20;
+    <figure><img src="../../../../.gitbook/assets/sharding tags map_step 4.png" alt=""><figcaption></figcaption></figure>
+5.  In the **Sharding tags** drop-down menu, select the tag that you want mapped to your entrypoint. For this example, let's choose the "internal test" tag.
 
-    <figure><img src="../.gitbook/assets/sharding tags map_step 5.png" alt=""><figcaption></figcaption></figure>
-6.  Click **Ok**:&#x20;
+    <figure><img src="../../../../.gitbook/assets/sharding tags map_step 5.png" alt=""><figcaption></figcaption></figure>
+6.  Click **Ok**:
 
-    <figure><img src="../.gitbook/assets/sharding tags map_step 6.png" alt=""><figcaption></figcaption></figure>
-7.  You can view your entrypoint mapping in the **Entrypoint mappings** section:&#x20;
+    <figure><img src="../../../../.gitbook/assets/sharding tags map_step 6.png" alt=""><figcaption></figcaption></figure>
+7.  You can view your entrypoint mapping in the **Entrypoint mappings** section:
 
-    <figure><img src="../.gitbook/assets/sharding tags map_step 7.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../4.0/.gitbook/assets/image (48) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 You've just learned how to configure sharding tags for your Gravitee API Gateways. To apply sharding tags to APIs in order to control where those APIs are deployed, refer to [this documentation](../configure-v2-apis/proxy-settings.md).

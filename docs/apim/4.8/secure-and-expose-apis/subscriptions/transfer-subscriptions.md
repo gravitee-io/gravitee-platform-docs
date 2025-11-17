@@ -8,9 +8,9 @@ API publishers can transfer active subscriptions to a new plan with the same sec
 4. Select **Consumers** from the inner left nav
 5. Click the **Subscriptions** header tab
 6. Click the pencil icon of the subscription you want to transfer
-7.  At the bottom of the **Subscription details** section, click Transfer&#x20;
+7.  At the bottom of the **Subscription details** section, click Transfer
 
-    <figure><img src="../../.gitbook/assets/subscription_transfer.png" alt=""><figcaption><p>Transfer a subscription</p></figcaption></figure>
-8.  Select the plan to transfer the subscription to, then click **Transfer**&#x20;
+    <figure><img src="../../../../../.gitbook/assets/subscription_transfer (1).png" alt=""><figcaption><p>Transfer a subscription</p></figcaption></figure>
+8.  Select the plan to transfer the subscription to, then click **Transfer**
 
-    <figure><img src="../../.gitbook/assets/subscription_transfer confirm.png" alt=""><figcaption><p>Specify and confirm subscription transfer</p></figcaption></figure>
+    <figure><img src="../../../../../.gitbook/assets/subscription_transfer confirm (1).png" alt=""><figcaption><p>Specify and confirm subscription transfer</p></figcaption></figure>

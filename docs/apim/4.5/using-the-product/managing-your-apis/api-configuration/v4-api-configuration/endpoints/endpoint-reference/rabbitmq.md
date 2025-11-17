@@ -5,7 +5,7 @@ description: This page contains the technical details of the RabbitMQ endpoint p
 # RabbitMQ
 
 {% hint style="warning" %}
-**This feature requires** [**Gravitee's Enterprise Edition**](../../../../../../overview/gravitee-apim-enterprise-edition/)**.**
+**This feature requires** [**Gravitee's Enterprise Edition**](../../../../../../overview/gravitee-apim-enterprise-edition/README.md)**.**
 {% endhint %}
 
 ## Overview

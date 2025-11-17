@@ -65,7 +65,7 @@ To modify the sidebar settings:
 ### Categories
 
 {% hint style="warning" %}
-Categories currently only support v2 APIs. You can learn more about the differences between v4 vs v2 [here](../../../overview/gravitee-api-definitions-and-execution-engines/).
+Categories currently only support v2 APIs. You can learn more about the differences between v4 vs v2 [here](../../../overview/gravitee-api-definitions-and-execution-engines/README.md).
 {% endhint %}
 
 {% hint style="info" %}
@@ -177,7 +177,7 @@ To view your new link, click **Save** and navigate to the Developer Portal:
 
 <figure><img src="../../../.gitbook/assets/dev_portal_custom_link_example.png" alt=""><figcaption><p>Sample "Gravitee Homepage" custom link</p></figcaption></figure>
 
-Each custom link offers additional features such as translations and access control. See [Documentation](broken-reference) for more information.
+Each custom link offers additional features such as translations and access control. 
 {% endtab %}
 {% endtabs %}
 

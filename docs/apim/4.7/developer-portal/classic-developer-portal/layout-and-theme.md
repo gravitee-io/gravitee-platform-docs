@@ -6,9 +6,9 @@ Administrators have the option to modify the layout and theme of the Developer P
 
 ## API Sidebar
 
-You can click on an API in the Developer Portal to access its details. Selecting the **General information** header tab will display the API's description and reviews (if any have been submitted), as well as a sidebar on the right that contains additional information.&#x20;
+You can click on an API in the Developer Portal to access its details. Selecting the **General information** header tab will display the API's description and reviews (if any have been submitted), as well as a sidebar on the right that contains additional information.
 
-<div data-full-width="false"><figure><img src="../../.gitbook/assets/Screenshot 2023-05-31 at 1.57.16 PM.png" alt=""><figcaption><p>Developer Portal API sidebar</p></figcaption></figure></div>
+<div data-full-width="false"><figure><img src="../../../../../.gitbook/assets/Screenshot 2023-05-31 at 1.57.16 PM (1).png" alt=""><figcaption><p>Developer Portal API sidebar</p></figcaption></figure></div>
 
 {% tabs %}
 {% tab title="Modify the access URL" %}
@@ -20,12 +20,12 @@ Administrators can control what is shown in the sidebar. To modify the access UR
 
 The access URL for each API in the Developer Portal is the default entrypoint followed by that API's context path.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-07-28 at 12.51.56 PM.png" alt=""><figcaption><p>Modify the access URL</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Screenshot 2023-07-28 at 12.51.56 PM (1).png" alt=""><figcaption><p>Modify the access URL</p></figcaption></figure>
 
 {% hint style="info" %}
 [Sharding tags](../../gravitee-gateway/sharding-tags.md) are used to help manage complex distributed architectures:
 
-* By assigning sharding tags to APIs and Gravitee Gateways, an API is deployed to a subset of the available Gateways.&#x20;
+* By assigning sharding tags to APIs and Gravitee Gateways, an API is deployed to a subset of the available Gateways.
 * By mapping sharding tags to a Gateway’s entrypoint URL, the Developer Portal can intelligently display different entrypoints based on an API's sharding tags.
 {% endhint %}
 {% endtab %}
@@ -33,11 +33,11 @@ The access URL for each API in the Developer Portal is the default entrypoint fo
 {% tab title="Modify sidebar settings" %}
 To modify the sidebar settings:
 
-1. Return to the Management Console's home page&#x20;
+1. Return to the Management Console's home page
 2. Select **Settings** from the left sidebar
 3. Select **API Portal Information** from the inner left sidebar to display the following options:
 
-<figure><img src="../../.gitbook/assets/dev_portal_api_display_settings.png" alt=""><figcaption><p>Developer Portal API sidebar display settings</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/dev_portal_api_display_settings (1).png" alt=""><figcaption><p>Developer Portal API sidebar display settings</p></figcaption></figure>
 
 * **Add extra information**
   * **Show tags list in the API header:** Display all API labels in the Developer Portal
@@ -45,7 +45,7 @@ To modify the sidebar settings:
 * **Configure the information list:** Display custom values in the Developer Portal. Use the **+** icon on the bottom right of the page to add new values.
 *   **API Page list options:** Display a banner at the top of each page in the API Catalog to promote a particular API. The tab automatically determines which API to promote, e.g., the **Starred** tab will feature the API that was most recently reviewed.
 
-    <figure><img src="../../.gitbook/assets/Screenshot 2023-05-31 at 2.21.47 PM.png" alt=""><figcaption><p>Developer Portal promotion banner</p></figcaption></figure>
+    <figure><img src="../../../../../.gitbook/assets/Screenshot 2023-05-31 at 2.21.47 PM (1).png" alt=""><figcaption><p>Developer Portal promotion banner</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -72,7 +72,7 @@ To enable the **Categories** tab and modify categories:
    * Toggle **Enable Category Mode** to display the **Categories** tab
    * Create new categories and/or modify or delete existing categories
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-06-01 at 1.59.06 PM.png" alt=""><figcaption><p>APIM categories settings page</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Screenshot 2023-06-01 at 1.59.06 PM (1).png" alt=""><figcaption><p>APIM categories settings page</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Apply categories" %}
@@ -83,13 +83,13 @@ To apply categories:
 3. Select **Info** from the inner left sidebar
 4. Use the **Categories** dropdown to select one or more categories to apply to the API
 
-<figure><img src="../../.gitbook/assets/api catalog_categories.png" alt=""><figcaption><p>Apply categories to a Gateway API</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/api catalog_categories (1).png" alt=""><figcaption><p>Apply categories to a Gateway API</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
 With the toggle enabled, a **Categories** tab will appear in the header of the API Catalog:
 
-<figure><img src="../../.gitbook/assets/dev_portal_categories.png" alt=""><figcaption><p>Dev Portal categories page</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/dev_portal_categories (1).png" alt=""><figcaption><p>Dev Portal categories page</p></figcaption></figure>
 
 ### Top/featured APIs
 
@@ -98,13 +98,13 @@ Administrators can also control what is displayed on the **Featured** page of th
 1. Select **Settings** from the left sidebar of the Management Console
 2. Select **Top APIs** from the inner left sidebar
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-06-01 at 2.10.58 PM.png" alt=""><figcaption><p>Top APIs settings</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Screenshot 2023-06-01 at 2.10.58 PM (1).png" alt=""><figcaption><p>Top APIs settings</p></figcaption></figure>
 
 Administrators can use the **+** icon to add new APIs, reorder APIs, and remove APIs from the list. APIs added here are displayed on both the Developer Portal's homepage and on the API catalog's **Featured** page:
 
-<figure><img src="../../.gitbook/assets/dev_portal_homepage.png" alt=""><figcaption><p>Developer Portal homepage displaying top APIs</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/dev_portal_homepage (1).png" alt=""><figcaption><p>Developer Portal homepage displaying top APIs</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-06-01 at 2.14.32 PM.png" alt=""><figcaption><p>Developer Portal Featured page in the API Catalog</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Screenshot 2023-06-01 at 2.14.32 PM (1).png" alt=""><figcaption><p>Developer Portal Featured page in the API Catalog</p></figcaption></figure>
 
 {% hint style="info" %}
 * Administrators can view all of the Gateway APIs added to the Top APIs list
@@ -119,7 +119,7 @@ Administrators can customize the header and footer navigation of the Developer P
 * Link to an existing documentation page
 * Link to a category
 
-Each link is treated as a new documentation page. To learn about the features and functionality of Developer Portal documentation, see [Documentation](broken-reference).
+Each link is treated as a new documentation page. To learn about the features and functionality of Developer Portal documentation, see [Documentation](broken-reference/).
 
 {% tabs %}
 {% tab title="System folders" %}
@@ -130,7 +130,7 @@ To access Gravitee's system folders:
 
 System folders are identified by a padlock icon:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-06-05 at 10.44.36 AM.png" alt=""><figcaption><p>Gravitee's system folders</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Screenshot 2023-06-05 at 10.44.36 AM (1).png" alt=""><figcaption><p>Gravitee's system folders</p></figcaption></figure>
 
 There are three system folders: `Header`, `TopFooter` and `Footer`. Each system folder corresponds to an area of the Developer Portal:
 
@@ -141,7 +141,7 @@ There are three system folders: `Header`, `TopFooter` and `Footer`. Each system 
 
 The`TopFooter`system folder is the only system folder that accepts nested folders, which are used to group links together. Nested folders must be published to be visible in the Developer Portal.
 
-<img src="../../.gitbook/assets/Screenshot 2023-06-05 at 11.24.49 AM.png" alt="" data-size="original">
+<img src="../../../../../.gitbook/assets/Screenshot 2023-06-05 at 11.24.49 AM (1).png" alt="" data-size="original">
 {% endhint %}
 {% endtab %}
 
@@ -154,13 +154,13 @@ To create a link:
 
 This will take you to a new page to select your link type and provide additional information about your link:
 
-<figure><img src="../../.gitbook/assets/dev_portal_create_a_link.png" alt=""><figcaption><p>Create a new Developer Portal link</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/dev_portal_create_a_link (1).png" alt=""><figcaption><p>Create a new Developer Portal link</p></figcaption></figure>
 
 To view your new link, click **Save** and navigate to the Developer Portal:
 
-<figure><img src="../../.gitbook/assets/dev_portal_custom_link_example.png" alt=""><figcaption><p>Sample "Gravitee Homepage" custom link</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/dev_portal_custom_link_example (1).png" alt=""><figcaption><p>Sample "Gravitee Homepage" custom link</p></figcaption></figure>
 
-Each custom link offers additional features such as translations and access control. See [Documentation](broken-reference) for more information.
+Each custom link offers additional features such as translations and access control.
 {% endtab %}
 {% endtabs %}
 
@@ -171,7 +171,7 @@ Administrators can change the default theme of the Developer Portal to a custom 
 1. Select **Settings** from the left sidebar of the Management Console
 2. Select **Theme** from the inner left sidebar
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-06-01 at 2.50.54 PM.png" alt=""><figcaption><p>Developer Portal theme settings</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Screenshot 2023-06-01 at 2.50.54 PM (1).png" alt=""><figcaption><p>Developer Portal theme settings</p></figcaption></figure>
 
 This page allows the administrator to customize every aspect of the Developer Portal's look and feel. Edits are shown in a live preview on the right.
 

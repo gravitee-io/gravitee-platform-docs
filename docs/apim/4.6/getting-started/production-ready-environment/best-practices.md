@@ -26,17 +26,17 @@ High availability focuses on increasing resilience and uptime. Reduction of both
 {% tab title="Eliminate SPOF" %}
 One critical aspect of ensuring system reliability is the elimination of single points of failure (SPOFs). A single point of failure refers to any component within a system that, if it fails, will cause the entire system to fail. To mitigate this risk, redundancy is introduced, allowing for continued operation even if one component fails.
 
-In the context of APIM, redundancy is achieved by deploying multiple instances of the APIM Gateway and optionally, Alert Engine.  These instances are configured to operate in either Active/Active or Active/Passive mode, depending on the specific requirements and configurations of the system.
+In the context of APIM, redundancy is achieved by deploying multiple instances of the APIM Gateway and optionally, Alert Engine. These instances are configured to operate in either Active/Active or Active/Passive mode, depending on the specific requirements and configurations of the system.
 
-#### **Active/Active Mode**
+**Active/Active Mode**
 
 In Active/Active mode, both instances of the component are actively processing requests or performing their respective functions simultaneously. This setup distributes the workload across multiple instances, thereby reducing the risk of overload on any single component. In the event of a failure in one instance, the remaining instance(s) continue to operate without interruption, ensuring continuous service availability.
 
-#### **Active/Passive Mode**
+**Active/Passive Mode**
 
 Alternatively, Active/Passive mode involves designating one instance as active while the other remains in standby mode, ready to take over operations if the active instance fails. In this setup, the passive instance remains idle until it is needed, thereby conserving resources. Automatic failover mechanisms are employed to detect failures in the active instance and seamlessly transition operations to the passive instance without causing service disruptions.
 
-<figure><img src="../../.gitbook/assets/deployments and capacity.png" alt=""><figcaption><p>Load balancer</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/deployments and capacity.png" alt=""><figcaption><p>Load balancer</p></figcaption></figure>
 
 {% hint style="info" %}
 **VM installation**
@@ -48,7 +48,7 @@ When installing on bare metal, e.g., VMs, use dedicated VMs for the Gateways and
 {% tab title="Reliable crossover" %}
 To ensure seamless and reliable traffic distribution to the Gravitee API Gateways, it is essential to implement a robust load-balancing solution (e.g., Nginx, HAproxy, F5, Traefik, Squid, Kemp, LinuxHA, etc.). By placing a reliable load balancer in front of the gateways, incoming requests can be efficiently distributed across multiple gateway instances, thereby optimizing performance and enhancing system reliability.
 
-#### **Health Checks**
+**Health Checks**
 
 Incorporating active or passive health checks into the load balancer configuration is essential for maintaining the reliability of the crossover setup. Health checks monitor the status and availability of backend gateway instances, enabling the load balancer to make informed routing decisions and dynamically adjust traffic distribution based on the health and performance of each instance.
 
@@ -73,7 +73,7 @@ The[ Gateway internal API](../../gravitee-gateway/internal-api.md) and [Manageme
 
 **Mock Policy for Active Health Checks**
 
-Utilizing an API with a [Mock policy](broken-reference) enables administrators to perform active health checks on the Gravitee APIM Gateways. By configuring mock endpoints that simulate various scenarios, such as successful requests, timeouts, or errors, administrators can verify the gateway's responsiveness and behavior under different conditions.
+Utilizing an API with a Mock policy enables administrators to perform active health checks on the Gravitee APIM Gateways. By configuring mock endpoints that simulate various scenarios, such as successful requests, timeouts, or errors, administrators can verify the gateway's responsiveness and behavior under different conditions.
 
 **Prometheus Metrics**
 
@@ -108,7 +108,7 @@ For example, if you have activated the advanced logs on requests and responses w
 {% endtab %}
 
 {% tab title="Memory" %}
-Memory consumption tends to increase with the complexity and volume of API requests.&#x20;
+Memory consumption tends to increase with the complexity and volume of API requests.
 
 APIs employing operations that require loading payloads into memory, such as encryption policies, payload transformation policies, and advanced logging functionalities, may require additional memory to accommodate the processing overhead. Similarly, high-throughput environments with a large volume of concurrent requests may necessitate increased memory allocation to ensure optimal performance and prevent resource exhaustion.
 
@@ -116,7 +116,7 @@ Administrators should carefully assess the memory requirements of their Gravitee
 {% endtab %}
 
 {% tab title="CPU" %}
-The CPU load of Gravitee APIM Gateways is directly proportional to the volume of API traffic they handle.&#x20;
+The CPU load of Gravitee APIM Gateways is directly proportional to the volume of API traffic they handle.
 
 Monitoring CPU load serves as a crucial metric for evaluating the overall load level of the Gateways and determining the need for horizontal scalability. For instance, if the CPU utilization consistently exceeds a predefined threshold, such as 75%, it indicates that the Gateways are operating near or at capacity, potentially leading to performance degradation or service disruptions under high loads.
 
@@ -128,7 +128,7 @@ By regularly monitoring CPU load levels, administrators can assess the current c
 
 The following table shows baseline hardware recommendations for a self-hosted deployment.
 
-<table><thead><tr><th width="239">Component</th><th width="156" align="center">vCPU</th><th width="165" align="center">RAM (GB)</th><th align="center">Disk (GB)</th></tr></thead><tbody><tr><td><strong>Dev Portal + REST API</strong> (Dev Portal only)</td><td align="center">1</td><td align="center">2</td><td align="center">20</td></tr><tr><td><strong>Console + REST API</strong> (Console only)</td><td align="center">1</td><td align="center">2</td><td align="center">20</td></tr><tr><td><strong>Dev Portal + Console + REST API</strong></td><td align="center">2</td><td align="center">4</td><td align="center">20</td></tr><tr><td><strong>API Gateway instance</strong><br>Production best practice (HA) is 2 nodes.</td><td align="center">0.25 - 4</td><td align="center">512 MB - 8</td><td align="center">20</td></tr><tr><td><strong>Alert Engine instance</strong><br>Production best practice (HA) is 2 nodes</td><td align="center">0.25 - 4</td><td align="center">512 MB - 8</td><td align="center">20</td></tr><tr><td><strong>Analytics DB instance (ElasticSearch)</strong><br><a href="https://www.elastic.co/guide/en/elasticsearch/reference/7.17/setup.html">Production best practice is 3 nodes</a>.<br><a href="https://www.elastic.co/guide/en/elasticsearch/guide/master/hardware.html">Official hardware recommendations</a>.</td><td align="center">1 - 8</td><td align="center"> 2 - 8 or more</td><td align="center">20 + 0.5 per million requests for default metrics</td></tr><tr><td><strong>Config DB instance</strong> (MongoDB or JDBC DB)<br><a href="https://www.mongodb.com/docs/manual/administration/production-notes">Production best practice is 3 nodes</a></td><td align="center">1</td><td align="center">2</td><td align="center">30</td></tr><tr><td><strong>Rate Limit DB instance</strong> (Redis)<br><a href="https://docs.redis.com/latest/rs/installing-upgrading/hardware-requirements/#productionenvironment">Production best practice is 3 nodes</a></td><td align="center">2</td><td align="center">4</td><td align="center">20</td></tr></tbody></table>
+<table><thead><tr><th width="239">Component</th><th width="156" align="center">vCPU</th><th width="165" align="center">RAM (GB)</th><th align="center">Disk (GB)</th></tr></thead><tbody><tr><td><strong>Dev Portal + REST API</strong> (Dev Portal only)</td><td align="center">1</td><td align="center">2</td><td align="center">20</td></tr><tr><td><strong>Console + REST API</strong> (Console only)</td><td align="center">1</td><td align="center">2</td><td align="center">20</td></tr><tr><td><strong>Dev Portal + Console + REST API</strong></td><td align="center">2</td><td align="center">4</td><td align="center">20</td></tr><tr><td><strong>API Gateway instance</strong><br>Production best practice (HA) is 2 nodes.</td><td align="center">0.25 - 4</td><td align="center">512 MB - 8</td><td align="center">20</td></tr><tr><td><strong>Alert Engine instance</strong><br>Production best practice (HA) is 2 nodes</td><td align="center">0.25 - 4</td><td align="center">512 MB - 8</td><td align="center">20</td></tr><tr><td><strong>Analytics DB instance (ElasticSearch)</strong><br><a href="https://www.elastic.co/guide/en/elasticsearch/reference/7.17/setup.html">Production best practice is 3 nodes</a>.<br><a href="https://www.elastic.co/guide/en/elasticsearch/guide/master/hardware.html">Official hardware recommendations</a>.</td><td align="center">1 - 8</td><td align="center">2 - 8 or more</td><td align="center">20 + 0.5 per million requests for default metrics</td></tr><tr><td><strong>Config DB instance</strong> (MongoDB or JDBC DB)<br><a href="https://www.mongodb.com/docs/manual/administration/production-notes">Production best practice is 3 nodes</a></td><td align="center">1</td><td align="center">2</td><td align="center">30</td></tr><tr><td><strong>Rate Limit DB instance</strong> (Redis)<br><a href="https://docs.redis.com/latest/rs/installing-upgrading/hardware-requirements/#productionenvironment">Production best practice is 3 nodes</a></td><td align="center">2</td><td align="center">4</td><td align="center">20</td></tr></tbody></table>
 
 ## Gravitee JVM Memory Sizing <a href="#gravitee-jvm-memory-sizing" id="gravitee-jvm-memory-sizing"></a>
 
@@ -138,7 +138,7 @@ You can specify the JVM memory sizing for each of the Gravitee nodes.
 {% tab title="Docker Compose" %}
 To configure JVM memory sizing with `docker compose`, complete the following steps:
 
-1. For the specific Gravitee component that you want to configure, for example, gateway, management-api, management-ui, or portal-ui, etc, add the `GIO_MIN_MEM` and `GIO_MAX_MEM` lines within the `environment` section.  Here is an example of configuring JVM of the API Gateway:
+1. For the specific Gravitee component that you want to configure, for example, gateway, management-api, management-ui, or portal-ui, etc, add the `GIO_MIN_MEM` and `GIO_MAX_MEM` lines within the `environment` section. Here is an example of configuring JVM of the API Gateway:
 
 {% code title="docker-compose.yml" %}
 ```yaml
@@ -158,11 +158,11 @@ services:
 {% endtab %}
 
 {% tab title="Kubernetes (Helm)" %}
-When deploying containers within Kubernetes, it is typical to configure the JVM and resources together.  Best practise, or _rule of thumb_, is to configure the JVM to be 75% of the defined resources.  If you define `resources.limits.memory: 1536Mi`, then `GIO_MAX_MEM` should be `1152m`.
+When deploying containers within Kubernetes, it is typical to configure the JVM and resources together. Best practise, or _rule of thumb_, is to configure the JVM to be 75% of the defined resources. If you define `resources.limits.memory: 1536Mi`, then `GIO_MAX_MEM` should be `1152m`.
 
 To configure resources and JVM memory sizing with Kubernetes `values.yaml`, complete the following steps:
 
-1. For the specific Gravitee component you want to configure, for example, gateway, management-api, management-ui, or portal-ui, etc, add the `GIO_MIN_MEM` and `GIO_MAX_MEM` lines within the components' `env` section.&#x20;
+1. For the specific Gravitee component you want to configure, for example, gateway, management-api, management-ui, or portal-ui, etc, add the `GIO_MIN_MEM` and `GIO_MAX_MEM` lines within the components' `env` section.
 
 Here is an example of configuring resources and JVM of the API Gateway:
 

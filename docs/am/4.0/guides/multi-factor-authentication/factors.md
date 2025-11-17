@@ -37,7 +37,7 @@ If you enable an OTP type factor for your application, next time your users log 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-mfa-enroll.png" alt=""><figcaption><p>OTP MFA</p></figcaption></figure>
 
 {% hint style="info" %}
-The look and feel of the MFA forms can be overridden. See [custom pages](../branding/#custom-pages) for more information.
+The look and feel of the MFA forms can be overridden. See [custom pages](../branding/README.md#custom-pages) for more information.
 {% endhint %}
 
 ## SMS
@@ -45,7 +45,7 @@ The look and feel of the MFA forms can be overridden. See [custom pages](../bran
 With SMS verification, you can receive a verification code on your mobile phone to be used as the second factor to validate a user’s account.
 
 {% hint style="info" %}
-SMS MFA requires a compatible [resource](../resources/).
+SMS MFA requires a compatible [resource](../resources/README.md).
 
 Some providers allow you to define the duration of the code sent by SMS. If possible we advise you to set a duration of 2 minutes.
 {% endhint %}
@@ -57,7 +57,7 @@ If you enable an SMS type factor for your application, next time your users log 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-mfa-sms-challenge.png" alt=""><figcaption><p>SMS MFA screen 2</p></figcaption></figure>
 
 {% hint style="info" %}
-You can change the look and feel of forms using [custom pages](../branding/#custom-pages). The enrollment form must send the phone number using the `phone` parameter in E.164 notation.
+You can change the look and feel of forms using [custom pages](../branding/README.md#custom-pages). The enrollment form must send the phone number using the `phone` parameter in E.164 notation.
 {% endhint %}
 
 ## Phone Call
@@ -65,7 +65,7 @@ You can change the look and feel of forms using [custom pages](../branding/#cust
 With Phone call verification, you can receive a verification code via a phone call to be used as the second factor to validate a user’s account.
 
 {% hint style="info" %}
-Phone call MFA requires a compatible [resource](../resources/).
+Phone call MFA requires a compatible [resource](../resources/README.md).
 {% endhint %}
 
 If you enable a **Call** type factor for your application, the next time your users log in they will see the following screens:
@@ -75,7 +75,7 @@ If you enable a **Call** type factor for your application, the next time your us
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-mfa-call-challenge.png" alt=""><figcaption><p>Voice call MFA screen 2</p></figcaption></figure>
 
 {% hint style="info" %}
-You can change the look and feel of forms using [custom pages](../branding/#custom-pages). The enrollment form must send the phone number using the `phone` parameter in E.164 notation.
+You can change the look and feel of forms using [custom pages](../branding/README.md#custom-pages). The enrollment form must send the phone number using the `phone` parameter in E.164 notation.
 {% endhint %}
 
 ## Email
@@ -83,7 +83,7 @@ You can change the look and feel of forms using [custom pages](../branding/#cust
 With Email verification, you can receive a verification code on your email address to be used as the second factor to validate a user’s account.
 
 {% hint style="info" %}
-Email MFA requires a compatible [resource](../resources/).
+Email MFA requires a compatible [resource](../resources/README.md).
 {% endhint %}
 
 Using the `email-am-factor` plugin configuration form, you can define the number of digits used to generate the verification code. The configured resource must be a [SMTP Resource](../resources/smtp-resource.md). The email template used by this plugin is defined in the design section of the domain or application.
@@ -99,13 +99,13 @@ If you enable an Email type factor for your application, next time your users lo
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-mfa-email-challenge.png" alt=""><figcaption><p>Email MFA screen 2</p></figcaption></figure>
 
 {% hint style="info" %}
-You can change the look and feel of forms using [custom pages](../branding/#custom-pages). The enrollment form must send the email address using the `email` parameter.
+You can change the look and feel of forms using [custom pages](../branding/README.md#custom-pages). The enrollment form must send the email address using the `email` parameter.
 {% endhint %}
 
 ## HTTP
 
 {% hint style="info" %}
-HTTP MFA requires a compatible [resource](../resources/).
+HTTP MFA requires a compatible [resource](../resources/README.md).
 {% endhint %}
 
 Multi-factor authentication (MFA) can take several forms such as :

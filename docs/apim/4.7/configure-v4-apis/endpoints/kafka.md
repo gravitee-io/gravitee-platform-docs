@@ -5,7 +5,7 @@
 The Kafka endpoint **mediates the protocol** between the Kafka cluster and the client that connects over HTTP. The API runtime on the gateway includes an embedded Kafka client that can produce and consume directly to and from the cluster.
 
 {% hint style="info" %}
-You can also use the [Gravitee Kafka Gateway](broken-reference) to proxy a Kafka cluster using the Kafka native protocol (over TCP).
+You can also use the Gravitee Kafka Gateway to proxy a Kafka cluster using the Kafka native protocol (over TCP).
 {% endhint %}
 
 This page discusses the [configuration](kafka.md#configuration) and [implementation](kafka.md#implementation) of the Kafka endpoint and includes a [reference](kafka.md#reference) section.
@@ -24,7 +24,7 @@ You can configure the Kafka client to act as a producer, a consumer, or both a p
 
 * **Use Producer:** the gateway's Kafka client can only produce to the configured topic. Use this option if you want to only allow publishing data to the cluster. This can be used with the HTTP POST and Websocket entrypoints.
 * **Use Consumer:** the gateway's Kafka cluster can only consume messages from the configured topic list. Use this option if you want to allow only consuming data from the cluster. This can be used with the HTTP GET, Websocket, Webhook, and SSE entrypoints.
-* **Use Producer and Consumer:** clients can both consume from topics and produce messages to topics on the cluster.&#x20;
+* **Use Producer and Consumer:** clients can both consume from topics and produce messages to topics on the cluster.
 
 ### Endpoint security settings
 
@@ -152,7 +152,7 @@ The Kafka endpoint includes the dynamic configuration feature, meaning that you 
 
 * Override any configuration parameters using an attribute (via the Assign Attribute policy). Your attribute needs to start with `gravitee.attributes.endpoint.kafka`, followed by the property you want to override.
   * To override the topic, set `gravitee.attributes.endpoint.kafka.topics`.
-  * To override the consumer group, set `gravitee.attributes.endpoint.kafka.groupId`. By default,  the consumer group is derived from the subscription information passed with the client, as discussed above. You may need to set this attribute if you cannot create consumer groups in your cluster.
+  * To override the consumer group, set `gravitee.attributes.endpoint.kafka.groupId`. By default, the consumer group is derived from the subscription information passed with the client, as discussed above. You may need to set this attribute if you cannot create consumer groups in your cluster.
   * To override the record key, set `gravitee.attributes.endpoint.kafka.recordKey.`
 * Use EL in any "String" type property. The following example shows how to use EL to populate the consumer autoOffsetReset property:
 
@@ -271,7 +271,7 @@ org.apache.kafka.common.security.plain.PlainLoginModule required username='$Conn
 
 * The value of the connection string can be found by navigating to Settings > Shared access policies in the Azure UI, and clicking on the policy to get the information for that policy. Then, select the entry entitled `Connection string-primary key`.
 
-<figure><img src="../../.gitbook/assets/image (138).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.6/.gitbook/assets/image (137) (1).png" alt=""><figcaption></figcaption></figure>
 
 * The bootstrap server name is in the format:
 

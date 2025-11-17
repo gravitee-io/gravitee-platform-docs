@@ -13,7 +13,7 @@ This example uses the Gravitee Echo API to set up an HTTP proxy API. The Gravite
 
 To create, deploy, and publish your API to the Developer Portal, you must complete the following steps:
 
-* [Obtain a Personal Access Token](#obtain-a-personal-access-token)
+* [Obtain a Personal Access Token](create-and-publish-an-api-using-the-management-api.md#obtaining-a-personal-access-token)
 * [Create the API definition in JSON](create-and-publish-an-api-using-the-management-api.md#create-the-api-definition-in-json)
 * [Create API via a mAPI call](create-and-publish-an-api-using-the-management-api.md#creating-the-api-via-a-mapi-call)
 * [Create a plan for the API](create-and-publish-an-api-using-the-management-api.md#create-a-plan-for-the-api)
@@ -127,7 +127,7 @@ export API_ID="54593ae4-0e2e-41fe-993a-e40e2ee1fe61"
 
 ## Create a plan for the API
 
-Your API must have at least one Security/Consumer [Plan](broken-reference) associated with it before it can be deployed to a Gateway. For more information about Plans, see [Broken link](broken-reference "mention"). The following procedure explains how to create a `KEYLESS` plan.
+Your API must have at least one Security/Consumer plan associated with it before it can be deployed to a Gateway. For more information about Plans, see [Broken link](broken-reference "mention"). The following procedure explains how to create a `KEYLESS` plan.
 
 To create a `Keyless` plan, complete the following steps:
 

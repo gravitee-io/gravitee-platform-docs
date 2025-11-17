@@ -45,7 +45,7 @@ The quickest way to test your newly created application is to request an OAuth2 
 
 ## Application identity providers
 
-AM allows your application to use different identity providers (IdPs). If you haven’t configured your providers yet, visit the [Identity Provider guide.](identity-providers/)
+AM allows your application to use different identity providers (IdPs). If you haven’t configured your providers yet, visit the [Identity Provider guide.](identity-providers/README.md)
 
 The application identity providers are separated into two sections:
 
@@ -145,7 +145,7 @@ curl -X POST \
 
 #### Register new RP (client)
 
-Once you obtain the access token, you can call AM Gateway through the registration endpoint. You can specify many client properties, such as `client_name`, but only the `redirect_uris` property is mandatory. See the [OpenID Connect Dynamic Client Registration](https://openid.net/specs/openid-connect-registration-1\_0.html) specification for more details.
+Once you obtain the access token, you can call AM Gateway through the registration endpoint. You can specify many client properties, such as `client_name`, but only the `redirect_uris` property is mandatory. See the [OpenID Connect Dynamic Client Registration](https://openid.net/specs/openid-connect-registration-1_0.html) specification for more details.
 
 The endpoint used to register an application is available in the OpenID discovery endpoint (e.g., `http(s)://your-am-gateway-host/your-domain/oidc/.well-known/openid-configuration`) under the `registration_endpoint` property.
 
@@ -231,7 +231,7 @@ curl -X POST \
 
 {% hint style="warning" %}
 `response_types` metadata must be set as an empty array in order to override the default value.\
-`redirect_uris` is not needed, but this metadata is required in the [specification](https://openid.net/specs/openid-connect-registration-1\_0.html), so it must be set as an empty array.\
+`redirect_uris` is not needed, but this metadata is required in the [specification](https://openid.net/specs/openid-connect-registration-1_0.html), so it must be set as an empty array.\
 **We strongly discourage you from using this flow in addition to a real user authentication flow. The recommended approach is to create multiple clients instead.**
 {% endhint %}
 

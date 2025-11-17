@@ -151,7 +151,7 @@ docker compose -f docker-compose-apim.yml up -d
 
 ## Enable Federation
 
-[Federation](../../using-the-product/federating-your-apis/) is a new capability that was released with Gravitee 4.4.
+[Federation](../../using-the-product/federating-your-apis/README.md) is a new capability that was released with Gravitee 4.4.
 
 Federation is disabled by default and must be explicitly activated for it to work.&#x20;
 

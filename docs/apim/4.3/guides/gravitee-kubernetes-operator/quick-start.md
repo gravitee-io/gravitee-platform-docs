@@ -75,7 +75,7 @@ kubectl apply -f https://raw.githubusercontent.com/gravitee-io/gravitee-kubernet
 ```
 
 {% hint style="info" %}
-See [Create an `ApiDefinition` CRD](#2-create-an-apidefinition-custom-resource) for more details.
+See [Create an `ApiDefinition` CRD](test-gko-after-deployment.md#create-an-apidefinition-custom-resource) for more details.
 {% endhint %}
 
 ### 3. Test the API by calling it through the APIM Gateway
@@ -89,11 +89,11 @@ curl -i http://localhost:9000/gateway/k8s-basic-with-ctx
 The entrypoint used for the Gateway URL is deployment-dependent. The URL in the example above is typical for a local cluster created through the local cluster installation process.
 
 {% hint style="info" %}
-For more details on trying out the GKO functionality after deployment, see [Call the API through the APIM Gateway](#3-call-the-api-through-the-apim-gateway).
+For more details on trying out the GKO functionality after deployment, see [Call the API through the APIM Gateway](test-gko-after-deployment.md#step-3-call-the-api-through-the-apim-gateway).
 {% endhint %}
 
 {% hint style="success" %}
-Congratulations, the GKO is deployed! Visit our [GKO guide](./) to:
+Congratulations, the GKO is deployed! Visit our [GKO guide](README.md) to:
 
 * Learn how to use the GKO to define, deploy, and publish APIs to your API Portal and API Gateway
 * Manage CRDs

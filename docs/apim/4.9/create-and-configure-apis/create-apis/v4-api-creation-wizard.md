@@ -515,7 +515,7 @@ Click **+ Add plan** to create additional plans. The plan types offered by Gravi
 <table><thead><tr><th width="165">Plan</th><th width="399">Description</th><th>API compatibility</th></tr></thead><tbody><tr><td>API Key</td><td>The API Gateway rejects calls from consumers that do not pass the correct API key in a request.</td><td><ul class="contains-task-list"><li><input type="checkbox" checked>HTTP proxy</li><li><input type="checkbox">TCP proxy</li><li><input type="checkbox">Message API</li></ul></td></tr><tr><td>JWT</td><td>An open standard that defines a compact and URL-safe way to securely transmit information, in the form of a JSON object, between parties.</td><td><ul class="contains-task-list"><li><input type="checkbox" checked>HTTP proxy</li><li>TCP proxy</li><li>Message API</li></ul></td></tr><tr><td>Keyless (public)</td><td>When configured, this plan does not add security. It is considered an "open" plan.</td><td><ul class="contains-task-list"><li><input type="checkbox" checked>HTTP proxy</li><li><input type="checkbox" checked>TCP proxy</li><li><input type="checkbox">Message API</li></ul></td></tr><tr><td>mTLS</td><td></td><td><ul class="contains-task-list"><li><input type="checkbox" checked>HTTP proxy</li><li>TCP proxy</li><li>Message API</li></ul></td></tr><tr><td>OAuth2</td><td>A standard designed to allow a website or application to access resources hosted by other web apps on behalf of a user.</td><td><ul class="contains-task-list"><li><input type="checkbox" checked>HTTP proxy</li><li>TCP proxy</li><li>Message API</li></ul></td></tr><tr><td>Push</td><td>Provides an access layer for the Gateway pushing data to consumers. This is used for subscribers.</td><td><ul class="contains-task-list"><li><input type="checkbox">HTTP proxy</li><li><input type="checkbox">TCP proxy</li><li><input type="checkbox" checked>Message API</li></ul></td></tr></tbody></table>
 
 {% hint style="info" %}
-To learn more about how plans function in Gravitee, refer to the [plans](../../secure-and-expose-apis/plans/) documentation.
+To learn more about how plans function in Gravitee, refer to the [plans](../../secure-and-expose-apis/plans/README.md) documentation.
 {% endhint %}
 
 Individual plan configurations as they pertain to each API type are described in detail below.
@@ -543,7 +543,7 @@ You must enter a value in the **Name** field. Modifying the other configuration 
 **Configuration**
 
 * (Optional) Choose whether to propagate your API key to upstream APIs.
-* (Optional) Use the [Gravitee Expression Language](broken-reference/) to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
+* (Optional) Use the Gravitee Expression Language to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
 
 **Restrictions**
 
@@ -595,7 +595,7 @@ Only the **Signature** and **JWKS resolver** selections are required. Modifying 
    * GIVEN\_KEY
    * GATEWAY\_KEYS
    * JWKS\_URL
-3. Define your Resolver parameter. This field supports the [Gravitee Expression Language](broken-reference/).
+3. Define your Resolver parameter. This field supports the Gravitee Expression Language.
 4. If your resolver is **JWKS\_URL**, set the **JWKS URL connect timeout**.
 5. If your resolver is **JWKS\_URL**, set the **JWKS URL request timeout**.
 6. Choose whether to use a system proxy.
@@ -685,7 +685,7 @@ You must enter a value in the **Name** field. Modifying the other configuration 
 
 **Configuration**
 
-(Optional) Use the [Gravitee Expression Language](broken-reference/) to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
+(Optional) Use the Gravitee Expression Language to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
 
 **Restrictions**
 
@@ -732,7 +732,7 @@ Only the **OAuth2 resource** and **Cache resource** fields are required. Modifyi
 4. Choose whether to instruct your authentication method to check required scopes in order to access the resource. If you choose to check scopes, you must define your list of required scopes using the **Required scopes** module.
 5. Choose whether strict mode is enabled or disabled. If you choose **Strict**, scopes will be checked against the exact list you provided in the **Required scopes** section.
 6. Choose whether to permit authorization headers to target endpoints.
-7. Use the [Gravitee Expression Language](broken-reference/) to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
+7. Use the Gravitee Expression Language to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
 
 **Restrictions**
 
@@ -792,7 +792,7 @@ You must enter a value in the **Name** field. Modifying the other configuration 
 **Configuration**
 
 * (Optional) Choose whether to propagate your API key to upstream APIs.
-* (Optional) Use the [Gravitee Expression Language](broken-reference/) to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
+* (Optional) Use the Gravitee Expression Language to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
 
 **Restrictions**
 
@@ -843,7 +843,7 @@ Only the **Signature** and **JWKS resolver** selections are required. Modifying 
    * GIVEN\_KEY
    * GATEWAY\_KEYS
    * JWKS\_URL
-3. Define your Resolver parameter. This field supports the [Gravitee Expression Language](broken-reference/).
+3. Define your Resolver parameter. This field supports the Gravitee Expression Language.
 4. If your resolver is **JWKS\_URL**, set the **JWKS URL connect timeout**.
 5. If your resolver is **JWKS\_URL**, set the **JWKS URL request timeout**.
 6. Choose whether to use a system proxy.
@@ -928,7 +928,7 @@ You must enter a value in the **Name** field. Modifying the other configuration 
 
 **Configuration**
 
-(Optional) Use the [Gravitee Expression Language](broken-reference/) to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
+(Optional) Use the Gravitee Expression Language to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
 
 **Restrictions**
 
@@ -973,7 +973,7 @@ Only the **OAuth2 resource** and **Cache resource** fields are required. Modifyi
 4. Choose whether to instruct your authentication method to check required scopes in order to access the resource. If you choose to check scopes, you must define your list of required scopes using the **Required scopes** module.
 5. Choose whether strict mode is enabled or disabled. If you choose **Strict**, scopes will be checked against the exact list you provided in the **Required scopes** section.
 6. Choose whether to permit authorization headers to target endpoints.
-7. Use the [Gravitee Expression Language](broken-reference/) to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
+7. Use the Gravitee Expression Language to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
 
 **Restrictions**
 

@@ -14,30 +14,30 @@ The `clientId` used for the resource configuration must match the `clientId` of 
 2. Click **APIs** in the left sidebar.
 3. Select the API you want to add the resource to.
 4. Click **Resources** in the inner left sidebar.
-5.  Select the **Gravitee.io AM Authorization Server** resource:&#x20;
+5.  Select the **Gravitee.io AM Authorization Server** resource:
 
-    <figure><img src="../../../.gitbook/assets/oauth2 resources gravitee.png" alt=""><figcaption></figcaption></figure>
-6.  In the CREATE RESOURCE form, enter the **Resource name** that will be used to link this resource to an OAuth 2 plan:&#x20;
+    <figure><img src="../../../../4.0/.gitbook/assets/oauth2 resources gravitee (1).png" alt=""><figcaption></figcaption></figure>
+6.  In the CREATE RESOURCE form, enter the **Resource name** that will be used to link this resource to an OAuth 2 plan:
 
-    <figure><img src="../../../.gitbook/assets/resource name (1).png" alt=""><figcaption></figcaption></figure>
-7.  Specify the base URL to reach the AM Gateway:&#x20;
+    <figure><img src="../../../../4.0/.gitbook/assets/resource name (1).png" alt=""><figcaption></figcaption></figure>
+7.  Specify the base URL to reach the AM Gateway:
 
-    <figure><img src="../../../.gitbook/assets/base url.png" alt=""><figcaption></figcaption></figure>
-8.  If you toggle **System proxy** ON, the resource will use the proxy settings defined in the APIM Gateway's `gravitee.yaml` file:&#x20;
+    <figure><img src="../../../../4.0/.gitbook/assets/base url (1).png" alt=""><figcaption></figcaption></figure>
+8.  If you toggle **System proxy** ON, the resource will use the proxy settings defined in the APIM Gateway's `gravitee.yaml` file:
 
-    <figure><img src="../../../.gitbook/assets/system proxy.png" alt=""><figcaption></figcaption></figure>
-9.  Specify the AM version you want to target. For AM v3 and v4, use "v3\_x":&#x20;
+    <figure><img src="../../../../4.0/.gitbook/assets/system proxy (1).png" alt=""><figcaption></figcaption></figure>
+9.  Specify the AM version you want to target. For AM v3 and v4, use "v3\_x":
 
-    <figure><img src="../../../.gitbook/assets/version.png" alt=""><figcaption></figcaption></figure>
-10. In the **Security domain** field, enter the HRID of the domain declared on AM:&#x20;
+    <figure><img src="../../../../4.0/.gitbook/assets/version (1).png" alt=""><figcaption></figcaption></figure>
+10. In the **Security domain** field, enter the HRID of the domain declared on AM:
 
-    <figure><img src="../../../.gitbook/assets/security domain.png" alt=""><figcaption></figcaption></figure>
-11. Specify the client credentials to authorize access to the introspect endpoint in AM. The application needs to be configured in AM using the "client\_secret\_basic" method.&#x20;
+    <figure><img src="../../../../4.0/.gitbook/assets/security domain (1).png" alt=""><figcaption></figcaption></figure>
+11. Specify the client credentials to authorize access to the introspect endpoint in AM. The application needs to be configured in AM using the "client\_secret\_basic" method.
 
-    <figure><img src="../../../.gitbook/assets/client credentials.png" alt=""><figcaption></figcaption></figure>
-12. Specify the claim that contains the user identifier (AM provides this information through the `sub` claim by default):&#x20;
+    <figure><img src="../../../../4.0/.gitbook/assets/client credentials (1).png" alt=""><figcaption></figcaption></figure>
+12. Specify the claim that contains the user identifier (AM provides this information through the `sub` claim by default):
 
-    <figure><img src="../../../.gitbook/assets/user claim 2.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../4.0/.gitbook/assets/user claim 2 (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Example
 

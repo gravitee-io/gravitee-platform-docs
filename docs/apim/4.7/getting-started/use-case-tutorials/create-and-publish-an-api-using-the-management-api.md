@@ -120,7 +120,7 @@ export API_ID="54593ae4-0e2e-41fe-993a-e40e2ee1fe61"
 
 ## 4. Create a plan for the API
 
-Your API must have at least one Security/Consumer [Plan](broken-reference) associated with it before it can be deployed to a Gateway. For more information about Plans, see [Broken link](broken-reference "mention"). The following procedure explains how to create a `KEYLESS` plan.
+Your API must have at least one Security/Consumer plan associated with it before it can be deployed to a Gateway. For more information about Plans, see [Broken link](broken-reference "mention"). The following procedure explains how to create a `KEYLESS` plan.
 
 To create a `Keyless` plan, complete the following steps:
 

@@ -34,7 +34,7 @@ We improved the OAuth2 / OpenID specification more strictly regarding the usage 
 
 ## Domain creation
 
-It is now possible to disable the creation of the default reporter and the default identity provider during domain creation. See Access Management API [configuration](../../getting-started/configuration/configure-am-api/) section for more details.
+It is now possible to disable the creation of the default reporter and the default identity provider during domain creation. See Access Management API [configuration](../../getting-started/configuration/configure-am-api/README.md) section for more details.
 
 ## Group mapper
 

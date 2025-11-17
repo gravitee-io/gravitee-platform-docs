@@ -222,7 +222,7 @@ By default, the service account created for the Gateway does not have a cluster 
 * Your definitions must sit in the same namespace (e.g., `apim-example`)
 * The name of the context must match the reference in the API definition
 
-Alternatively, you can configure the [Helm Chart](../../getting-started/installation/) to use a cluster role.
+Alternatively, you can configure the [Helm Chart](../../getting-started/installation/README.md) to use a cluster role.
 {% endhint %}
 
 {% hint style="info" %}
