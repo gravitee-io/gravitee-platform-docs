@@ -10,7 +10,7 @@ You must be familiar with the following topics:
 * Helm
 {% endhint %}
 
-{% include "../.gitbook/includes/installation-guide-note.md" %}
+{% include "../../4.6/.gitbook/includes/installation-guide-note (1).md" %}
 
 ## Target architecture
 

@@ -1,12 +1,12 @@
 # Hybrid Install with Docker
 
-{% include "../.gitbook/includes/installation-guide-note.md" %}
+{% include "../../4.6/.gitbook/includes/installation-guide-note (1).md" %}
 
 ## Architecture
 
-The hybrid installation consists of installing the data plane on your infrastructure and connecting it as shown in the following diagram:&#x20;
+The hybrid installation consists of installing the data plane on your infrastructure and connecting it as shown in the following diagram:
 
-<figure><img src="../.gitbook/assets/image (136).png" alt="Diagram showing the hybrid architecture"><figcaption><p>Hybrid architecture connections</p></figcaption></figure>
+<figure><img src="../../4.6/.gitbook/assets/image (135).png" alt="Diagram showing the hybrid architecture"><figcaption><p>Hybrid architecture connections</p></figcaption></figure>
 
 ## Configuration
 
@@ -114,7 +114,7 @@ services:
 #      - data-redis:/data
 ```
 
-This `docker-compose.yml` contains multiple services:&#x20;
+This `docker-compose.yml` contains multiple services:
 
 * Gateway(s): Each Gateway declares the component used to route traffic and applies policies (one service per Gateway).
 * The TCP reporter, Logstash: Centralizes logs from the Gateway(s), processes them, and forwards them to an S3 bucket in the control plane. These logs are then stored for persistence and can be used by Elasticsearch to enable log analytics and monitoring.
@@ -133,11 +133,11 @@ The following sections of this article assume you are using the `docker-compose.
   * For supported version of Logstash, refer to [Compatibility with Elasticsearch](logstash.md#compatibility-with-elasticsearch).
   * For the installed version of Elasticsearch on the control plane, which Logstash will interact with via an S3 bucket, please reach out to your Technical Account Manager.
 
-## **Gateway service configuration**&#x20;
+## **Gateway service configuration**
 
 As shown in the [architecture diagram](hybrid-install-with-docker.md#architecture), the Gateway(s) connect to the Bridge Gateway to allow the decoupling of the API Gateway functionality from the underlying data storage layer. Instead of directly interacting with a repository, the Gateway uses the Bridge Gateway to route requests and data through to the control plane.
 
-First, you need to upload the `license.key` file sent by your Technical Account Manager, then refer to it in the `volumes` of the Gateway services section of your `docker-compose.yml`:&#x20;
+First, you need to upload the `license.key` file sent by your Technical Account Manager, then refer to it in the `volumes` of the Gateway services section of your `docker-compose.yml`:
 
 ```yaml
     volumes:
@@ -146,7 +146,7 @@ First, you need to upload the `license.key` file sent by your Technical Account 
 
 You must update the path on the left of this command with the path where you will host the `license.key` file on your system.
 
-To link your Gateway to a specific environment defined in Gravitee Cloud, update the following values:&#x20;
+To link your Gateway to a specific environment defined in Gravitee Cloud, update the following values:
 
 ```yaml
   # --- GRAVITEE CLOUD ORGS & ENVS ---
@@ -154,7 +154,7 @@ To link your Gateway to a specific environment defined in Gravitee Cloud, update
   - gravitee_environments=myenv
 ```
 
-For example:&#x20;
+For example:
 
 ```yaml
   - gravitee_organizations=Company
@@ -165,7 +165,7 @@ For example:&#x20;
 You can connect to Gravitee Cloud with your credentials to find these values. The name of the organization and the environment will appear in the Topology menu. Alternatively, they can be provided by your Technical Account Manager.
 {% endhint %}
 
-To initiate this connection, the following credentials must be added to each of the Gateway services in your `docket-compose.yml`:&#x20;
+To initiate this connection, the following credentials must be added to each of the Gateway services in your `docket-compose.yml`:
 
 ```yaml
  # --- BRIDGE GATEWAYS ---
@@ -182,7 +182,7 @@ Please reach out to your Technical Account Manager for the Bridge Gateway creden
 
 ## **Logstash service configuration**
 
-To connect Logstash to the S3 bucket as shown in the [architecture diagram](hybrid-install-with-docker.md#architecture), you need to link the Docker Compose service to a configuration file called `logstash.conf` so it knows which S3 bucket to connect to. This link is done via the `volumes` command in the `docker-compose.yml`:&#x20;
+To connect Logstash to the S3 bucket as shown in the [architecture diagram](hybrid-install-with-docker.md#architecture), you need to link the Docker Compose service to a configuration file called `logstash.conf` so it knows which S3 bucket to connect to. This link is done via the `volumes` command in the `docker-compose.yml`:
 
 ```yaml
   volumes:
@@ -235,12 +235,12 @@ output {
 ```
 
 {% hint style="info" %}
-Please reach out to your Technical Account Manager for the S3 credentials  if you don't have them already.
+Please reach out to your Technical Account Manager for the S3 credentials if you don't have them already.
 {% endhint %}
 
 ## **Redis service configuration (optional)**
 
-To activate Redis, you need to generate a password and include it in your `docker-compose.yml`, in both the environment part of the Gateway configuration and the Redis service section:&#x20;
+To activate Redis, you need to generate a password and include it in your `docker-compose.yml`, in both the environment part of the Gateway configuration and the Redis service section:
 
 The following command generates a random and secured password using bash/sh:
 
@@ -254,13 +254,13 @@ This password then needs to be updated here:
     command: redis-server --requirepass ${REDIS_PASS:-xxx} --maxmemory 256mb --maxmemory-policy allkeys-lru
 ```
 
-and here:&#x20;
+and here:
 
 ```yaml
       - gravitee_ratelimit_redis_password=${REDIS_PASS:-xxx}
 ```
 
-## **Alert Engine configuration (optional)**&#x20;
+## **Alert Engine configuration (optional)**
 
 To configure the Alert Engine, you must provide the Alert Engine credentials in the environment part of the Gateway service in the `docker-compose.yml`:
 
@@ -277,7 +277,7 @@ Please reach out to your Technical Account Manager for the Alert Engine credenti
 
 Once the services are started, connect to the APIM Console of the environment you linked the hybrid Gateway(s) with. You should see them appear as having started in the Gateways menu.
 
-You can test if your Gateway is accessible in a specific network by opening the Gateway URL in your browser. If the test is successful, you should see the following message: &#x20;
+You can test if your Gateway is accessible in a specific network by opening the Gateway URL in your browser. If the test is successful, you should see the following message:
 
 ```
 No context-path matches the request URI.

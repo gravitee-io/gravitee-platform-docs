@@ -41,7 +41,7 @@ http:
 
 ## Client Registration
 
-In order to provide a client configuration compatible with FAPI, the client have to register using the [Dynamic Client Registration](https://openid.net/specs/openid-connect-registration-1\_0.html) endpoint.
+In order to provide a client configuration compatible with FAPI, the client have to register using the [Dynamic Client Registration](https://openid.net/specs/openid-connect-registration-1_0.html) endpoint.
 
 Here's an example of a payload for a client following the FAPI 1.0.
 

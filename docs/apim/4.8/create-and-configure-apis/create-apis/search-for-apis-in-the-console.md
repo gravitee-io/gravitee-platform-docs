@@ -11,13 +11,13 @@ From this page you can complete the following actions:
 * Browse the list of your APIs
 * View/edit an API by clicking its name or the pencil icon
 
-<figure><img src="../../.gitbook/assets/image (261).png" alt=""><figcaption><p>Example screenshot of the API menu (in the Gravitee API Management Console)</p></figcaption></figure>
+<figure><img src="../../../4.7/.gitbook/assets/image (224) (1).png" alt=""><figcaption><p>Example screenshot of the API menu (in the Gravitee API Management Console)</p></figcaption></figure>
 
 ## Search for APIs
 
 It can be challenging to browse through a long list of APIs to find a specific API. You can use the search box to filter and find your API.
 
-<figure><img src="../../.gitbook/assets/image (262).png" alt=""><figcaption><p>Search APIs</p></figcaption></figure>
+<figure><img src="../../../4.7/.gitbook/assets/image (225) (1).png" alt=""><figcaption><p>Search APIs</p></figcaption></figure>
 
 Here is the list of API fields that you can use as search filters:
 
@@ -42,7 +42,7 @@ Here are some examples of what you can enter into the search bar to filter the r
 * For all v4 APIs: `definition_version:4.0.0`
 * For APIs that have either of the given [sharding tags](../../configure-and-manage-the-platform/gravitee-gateway/sharding-tags.md): `tags:china-internet tags:china`
 * For an API name that contains one term but not another: `name:"*Allan*" NOT name:"*Test_"`
-* For any APIs that have [health checks](../configure-v4-apis/health-checks.md) configured:  `has_health_check:true`
+* For any APIs that have [health checks](../configure-v4-apis/health-checks.md) configured: `has_health_check:true`
 
 {% hint style="info" %}
 Gravitee uses [Apache Lucene](https://lucene.apache.org/core/2_9_4/queryparsersyntax.html) so you can create your own queries using its rich query language.

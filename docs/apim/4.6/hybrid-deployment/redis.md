@@ -89,7 +89,7 @@ services:
 
 ## .ZIP
 
-1. Install Redis. To install Redis, go to[ redis.io](https://redis.io/docs/getting-started/installation/).
+1. Install Redis. To install Redis, go to [redis.io](https://redis.io/docs/latest/get-started/).
 2. Configure Redis by copying the following file:
 
 {% code title="gravitee.yaml" lineNumbers="true" %}

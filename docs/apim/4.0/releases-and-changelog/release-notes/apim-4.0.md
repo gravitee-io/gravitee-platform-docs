@@ -51,10 +51,10 @@ As a part of the new Policy Studio release, we've made some existing Gravitee po
 * Transform headers policy
 
 {% hint style="info" %}
-While these policies can be used for v4 message APIS, not all of these policies support execution at the message level. For more information on the execution phase for each policy, please refer to our [Policy Reference documentation](../../reference/policy-reference/).
+While these policies can be used for v4 message APIS, not all of these policies support execution at the message level. For more information on the execution phase for each policy, please refer to our [Policy Reference documentation](../../reference/policy-reference/README.md).
 {% endhint %}
 
-For more information on policies, please refer to our [policy reference documentation](../../reference/policy-reference/).
+For more information on policies, please refer to our [policy reference documentation](../../reference/policy-reference/README.md).
 
 ### New policies for v4 message APIs
 
@@ -64,7 +64,7 @@ We've also released two brand new policies that will support v4 message APIs:
 * Serialization and Deserialization policies:
   * [Avro <> JSON](../../reference/policy-reference/avro-json.md): transform information between Avro and JSON format
 
-For more information on policies, please refer to our [policy reference documentation](../../reference/policy-reference/).
+For more information on policies, please refer to our [policy reference documentation](../../reference/policy-reference/README.md).
 
 ## Support for Schema registry as a resource
 
@@ -83,7 +83,7 @@ When in the Developer Portal, you'll be able to:
 * Configure the details of your plan in the portal, including defining a custom Webhook callback URL
 * Add basic authentication and an API key as a bearer token
 
-This will all be done while creating an application in the Gravitee Developer Portal. For more information, please refer to the [Webhook subscription management documentation](../../guides/developer-portal/tools-and-features/).
+This will all be done while creating an application in the Gravitee Developer Portal. For more information, please refer to the [Webhook subscription management documentation](../../guides/developer-portal/tools-and-features/README.md).
 
 ## v2 Management API
 
@@ -97,7 +97,7 @@ In addition to making Gravitee API Management more "event-native," we've also ma
 * You can now manage application-level CRDs through the Gravitee Kubernetes Operator. This enables you to configure a platform level configuration using a k8s declarative approach
 * The Kubernetes Operator now supports both local and global configurations. This means that you can define the ManagementContext for your CRD and control whether the API should be local or global.
 
-For more information, please refer to our [Kubernetes Operator documentation](../../guides/gravitee-kubernetes-operator/).
+For more information, please refer to our [Kubernetes Operator documentation](../../guides/gravitee-kubernetes-operator/README.md).
 
 ### Gravitee as ingress controller
 
@@ -123,7 +123,7 @@ As a part of our additional support for v4 APIs and asynchronous APIs, we've add
 
 ### Datadog reporter
 
-The Datadog reporter enables you to push API monitoring metrics and analytics into Datadog, so that you can ensure that your Datadog instance doesn't have any API monitoring blind spots. To learn more about the Datadog reporter, please refer to the [Datadog reporter documentation](../../getting-started/configuration/configure-reporters/#datadog-reporter).
+The Datadog reporter enables you to push API monitoring metrics and analytics into Datadog, so that you can ensure that your Datadog instance doesn't have any API monitoring blind spots. To learn more about the Datadog reporter, please refer to the [Datadog reporter documentation](../../getting-started/configuration/configure-reporters/README.md#datadog-reporter).
 
 ### Redis repository plugin
 

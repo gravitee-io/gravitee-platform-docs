@@ -60,7 +60,7 @@ In order to get an ID Token, the client must use an authorization code flow or i
 
 ## Dynamic client registration
 
-For an OpenID Connect Relying Party (client) to use OpenID services, it needs to first register and be known by the OpenID Provider. With dynamic client registration, RPs can self-register by providing information and obtaining, as a result, the required information (`client_id`) to use it. AM follows the [Openid Connect Dynamic Client Registration](https://openid.net/specs/openid-connect-registration-1\_0.html) specifications.
+For an OpenID Connect Relying Party (client) to use OpenID services, it needs to first register and be known by the OpenID Provider. With dynamic client registration, RPs can self-register by providing information and obtaining, as a result, the required information (`client_id`) to use it. AM follows the [Openid Connect Dynamic Client Registration](https://openid.net/specs/openid-connect-registration-1_0.html) specifications.
 
 Register URL is available through the `registration_endpoint` attribute, under the OpenID connect discovery endpoint, and used to be: `POST https://am-gateway/{domain}/oidc/register`. READ/UPDATE/DELETE can be performed with respectively GET/(PUT or PATCH)/DELETE on the `registration_client_uri` attribute retrieved from the register payload result.
 

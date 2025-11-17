@@ -1,7 +1,7 @@
 # Quick Start
 
 {% hint style="info" %}
-This quick start uses configuration examples for HashiCorp Vault and Gravitee APIM Gateway. For other secret managers and use cases, refer to [Broken link](broken-reference "mention") to view a complete reference.
+This quick start uses configuration examples for HashiCorp Vault and Gravitee APIM Gateway. For other secret managers and use cases, refer to [configuration.md](configuration.md "mention")to view a complete reference.
 {% endhint %}
 
 ## Prerequisites
@@ -51,7 +51,7 @@ After you configure your HashiCrorp Vault, you can configure your environment us
           ## other properties as listed above
     ```
 
-#### Configure access to a secret manager with environment variables&#x20;
+#### Configure access to a secret manager with environment variables
 
 *   In your `docker-compose.yml` file, add the following configuration:
 
@@ -65,17 +65,17 @@ After you configure your HashiCrorp Vault, you can configure your environment us
     ```
 
 {% hint style="info" %}
-For more information about configuring access to your secret manager, see [Broken link](broken-reference "mention").
+For more information about configuring access to your secret manager, see [configuration.md](configuration.md "mention").
 {% endhint %}
 
 ### Reference secrets in the configuration
 
 #### Example 1
 
-The following example shows how to protect your database username and password.&#x20;
+The following example shows how to protect your database username and password.
 
-* It uses a secret named `gravitee/mongo` .&#x20;
-* It uses a secret mount with two entries:&#x20;
+* It uses a secret named `gravitee/mongo` .
+* It uses a secret mount with two entries:
   * A `username` that has the value `admin`.
   * A `password` that has the value `password`.
 
@@ -85,7 +85,7 @@ vault kv put -mount=secret gravitee/mongo username=admin password=password
 
 #### Example 2
 
-The following example shows what your `gravitee.yml` contains before you use secrets:&#x20;
+The following example shows what your `gravitee.yml` contains before you use secrets:
 
 ```yaml
 ds:
@@ -112,5 +112,5 @@ ds:
 
 ## Next steps
 
-* For more information about configurations for other secret managers and a complete list of available options, see [Broken link](broken-reference "mention").
-* For more information about the the `secret://` syntax, see [Broken link](broken-reference "mention").
+* For more information about configurations for other secret managers and a complete list of available options, see [configuration.md](configuration.md "mention").
+* For more information about the the `secret://` syntax, see [reference-secrets-in-configurations.md](reference-secrets-in-configurations.md "mention").

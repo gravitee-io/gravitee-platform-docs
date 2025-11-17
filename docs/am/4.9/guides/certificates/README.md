@@ -91,7 +91,7 @@ To mark a certificate as usable for mTLS, you just have to check the "mTLS" usag
 System certificates can't be used for mTLS authentication as they are self signed certificates generated internally by Access Management.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.7/.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 ### Custom certificates
 
@@ -149,7 +149,7 @@ api:
 Like all certificates, a system certificate has a given validity period, after which tokens will not be valid anymore. The certificate rotation feature enables you to generate a new system certificate quickly and easily when the previous one is about to expire - just click the "Rotate system key" button to create a new system certificate and assign it to the applications of your domain that are currently using the previous system certificate. The applications update is done asynchronously 10 minutes after the certificate generation in order to avoid JWKS caching issues on the client side.
 
 {% hint style="info" %}
-See this [documentation page](../../getting-started/configuration/configure-am-api/) for details on how to configure notifications about certificate expiry.
+See this [documentation page](../../getting-started/configuration/configure-am-api/README.md) for details on how to configure notifications about certificate expiry.
 {% endhint %}
 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-system-certificates.png" alt=""><figcaption><p>Certificate rotation</p></figcaption></figure>

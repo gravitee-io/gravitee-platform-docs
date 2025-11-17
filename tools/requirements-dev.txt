@@ -8,3 +8,4 @@ click
 black
 ruff
 pre-commit
+requests

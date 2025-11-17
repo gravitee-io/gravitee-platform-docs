@@ -2,7 +2,7 @@
 
 ## Download and install
 
-To configure the Datadog reporter, download the reporter plugin [here](https://download.gravitee.io/#graviteeio-ee/apim/plugins/reporters/gravitee-reporter-datadog/). Once you’ve downloaded the .ZIP file, you can add it to the Gateway in the same way as [other plugins](../../getting-started/plugins/). Typically, you’ll install plugins in the `/plugins` directory of your installation. As with other reporters, the Datadog reporter plugin only needs to be installed on the Gateway, not the Management API.
+To configure the Datadog reporter, download the reporter plugin [here](https://download.gravitee.io/#graviteeio-ee/apim/plugins/reporters/gravitee-reporter-datadog/). Once you’ve downloaded the .ZIP file, you can add it to the Gateway in the same way as [other plugins](../../getting-started/plugins/README.md). Typically, you’ll install plugins in the `/plugins` directory of your installation. As with other reporters, the Datadog reporter plugin only needs to be installed on the Gateway, not the Management API.
 
 {% hint style="info" %}
 If you want to collect system metrics and logs from the Management API service, use the [Datadog agent](https://docs.datadoghq.com/agent/?tab=Linux) to tail the Management API logs, or collect them from stdout.
@@ -50,8 +50,8 @@ Gravitee has different types of reporting data, and each type maps to a differen
 | Metadata                                 | API name, user agent          | Tags               |
 | Monitoring                               | CPU, memory usage             | Metrics            |
 | EndpointStatus                           | Health check status           | Events             |
-| [Metrics](./#metrics-sent-via-reporters) | Response time, content length | Metrics            |
-| [Logs](./#log-data-sent-via-reporters)   | Request body, response body   | Log                |
+| [Metrics](README.md#metrics-sent-via-reporters) | Response time, content length | Metrics            |
+| [Logs](README.md#log-data-sent-via-reporters)   | Request body, response body   | Log                |
 
 The reporter sends metrics to Datadog with the prefix `gravitee.apim`. Metrics in Datadog appear with underscores between words, instead of the CamelCase default shown in the metrics page. For example, `proxyResponseTimeMs` appears in Datadog as `proxy_response_time_ms`.
 

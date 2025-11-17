@@ -18,16 +18,11 @@ description: >-
 * Upgrade Spring Data R2DBC [#10936](https://github.com/gravitee-io/issues/issues/10936)
 * Improve Thread Management for RDBMS backend [#10938](https://github.com/gravitee-io/issues/issues/10938)
 
-
-
-
-
 **Other**
 
 * Reduce log verbosity on MFA validation failure [#10903](https://github.com/gravitee-io/issues/issues/10903)
 
 </details>
-
 
 ## Gravitee Access Management 4.7.19 - October 30, 2025
 
@@ -39,16 +34,11 @@ description: >-
 
 * StackOverflowError when logging out [#10928](https://github.com/gravitee-io/issues/issues/10928)
 
-
-
 **Console**
 
 * Unable to delete a user when the IDP has been removed [#10915](https://github.com/gravitee-io/issues/issues/10915)
 
-
-
 </details>
-
 
 ## Gravitee Access Management 4.7.18 - October 24, 2025
 
@@ -65,12 +55,7 @@ description: >-
 
 * Domain deletion does not remove all entities [#10899](https://github.com/gravitee-io/issues/issues/10899)
 
-
-
-
-
 </details>
-
 
 ## Gravitee Access Management 4.7.17 - October 13, 2025
 
@@ -78,13 +63,9 @@ description: >-
 
 <summary>Bug fixes</summary>
 
-
-
 **Management API**
 
 * Regression in the way DataPlanes are loaded in the MAPI [#10883](https://github.com/gravitee-io/issues/issues/10883)
-
-
 
 **Other**
 
@@ -92,13 +73,11 @@ description: >-
 
 </details>
 
-
 ## Gravitee Access Management 4.7.16 - October 10, 2025
 
 {% hint style="warning" %}
 Version 4.7.16 is unstable. We recommend not installing this version.
 {% endhint %}
-
 
 <details>
 
@@ -110,9 +89,7 @@ Version 4.7.16 is unstable. We recommend not installing this version.
 
 **Management API**
 
-* Sanitize the redirect_uri to avoid empty segment when cockpit try to connect on the console [#10805](https://github.com/gravitee-io/issues/issues/10805)
-
-
+* Sanitize the redirect\_uri to avoid empty segment when cockpit try to connect on the console [#10805](https://github.com/gravitee-io/issues/issues/10805)
 
 **Other**
 
@@ -125,7 +102,6 @@ Version 4.7.16 is unstable. We recommend not installing this version.
 * Improve logging in EnrichAuthFlowPolicy [#10875](https://github.com/gravitee-io/issues/issues/10875)
 
 </details>
-
 
 ## Gravitee Access Management 4.7.15 - September 26, 2025
 
@@ -142,24 +118,13 @@ Version 4.7.16 is unstable. We recommend not installing this version.
 
 * AM Upgrader are failing with list of mongo servers [#10850](https://github.com/gravitee-io/issues/issues/10850)
 
-
-
-
-
 </details>
-
 
 ## Gravitee Access Management 4.7.14 - September 18, 2025
 
 <details>
 
 <summary>Bug fixes</summary>
-
-
-
-
-
-
 
 **Other**
 
@@ -175,8 +140,6 @@ Version 4.7.16 is unstable. We recommend not installing this version.
 * Issue AM update [#10801](https://github.com/gravitee-io/issues/issues/10801)
 
 </details>
-
-
 
 ## Gravitee Access Management 4.7.13 - August 29, 2025
 
@@ -467,19 +430,19 @@ If FingerprintJS Community edition is currently used, you can use the cookie man
 
 <summary>What's new</summary>
 
-### User management improvement
+#### User management improvement
 
 On the console interface, an administrator can now see if the password set during user creation or password reset complies with the password policy rules.
 
-### Generic OpenID provider improvement
+#### Generic OpenID provider improvement
 
 The Generic OpenID Identity Provider is able to support the `response_type` parameter. An administration can select `fragment` or `query` to match the supported `response_type` expected by the provider.
 
-### CIBA Http Notifier
+#### CIBA Http Notifier
 
 The HTTP Device Notifier plugin for [CIBA](../../guides/auth-protocols/ciba.md) has been updated to accept additional headers supporting Expression Language.
 
-### Multi Data Plane architecture
+#### Multi Data Plane architecture
 
 Access Management evolves to improve the scalability and the resiliency of the solution.
 
@@ -491,19 +454,19 @@ This version introduces the ability to assign a domain to a Data Plane. The Mana
 
 <summary>Breaking Changes</summary>
 
-### Domain Creation
+#### Domain Creation
 
 To create a Security Domain via the Management REST API, the `dataPlaneId` attribute is mandatory. Even if multi-data plane capabilities are not being utilized, this attribute must still be specified with the value set to "default".
 
-### Identity Provider
+#### Identity Provider
 
 To update an IdentityProvider via the Management REST API, the `type` attribute is mandatory.
 
-### Extension Grant
+#### Extension Grant
 
 To update an ExtensionGrant plugin via the Management REST API, the `type` attribute is mandatory.
 
-### AccountLinking Policy
+#### AccountLinking Policy
 
 The AccountLinking policy has been updated to version 2.0.0 to be compatible with AM 4.7.0.
 
@@ -511,7 +474,7 @@ The AccountLinking policy has been updated to version 2.0.0 to be compatible wit
 versions 1.x of AccountLinking policy are not compatible with AM 4.7.0
 {% endhint %}
 
-### AWS CloudHSM Plugin
+#### AWS CloudHSM Plugin
 
 The AWS CloudHSM plugin has been updated to version 2.0.0 to be compatible with AM 4.7.0.
 

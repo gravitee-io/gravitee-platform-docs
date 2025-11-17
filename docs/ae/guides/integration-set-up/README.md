@@ -10,7 +10,7 @@ description: >-
 
 Alert Engine can be bolted on to your larger Gravitee platform as well as custom third party backends. In this section, we cover:
 
-* [Gravitee Alert Engine and API Management](gravitee-api-management/)
+* [Gravitee Alert Engine and API Management](gravitee-api-management/README.md)
   * Installation
   * Configuration
   * Notifications
@@ -19,7 +19,7 @@ Alert Engine can be bolted on to your larger Gravitee platform as well as custom
   * Installation
   * Configuration
   * Using Alert Engine fir Risk-based alerting
-* [Third parties](https://documentation.gravitee.io/ae/overview/integrations#integrating-with-third-party-solutions)
+* [Third parties](https://documentation.gravitee.io/alert-engine/overview/integrations#integrating-with-third-party-solutions)
   * Configuration
 
 Let's go!

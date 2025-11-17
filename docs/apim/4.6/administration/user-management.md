@@ -25,7 +25,7 @@ The APIM Console allows you to add, see members within, and delete roles in the 
 1. Log in to your APIM Console
 2. Select **Organization** from the left nav
 3. Select **Roles** from the **User Management** section
-4. Click **+ Add a role** at your desired scope&#x20;
+4. Click **+ Add a role** at your desired scope
    * Give the role a name
    * Give the role a description (optional)
    * Enable the role as a default role for new users by toggling **Default tole** ON or OFF
@@ -56,7 +56,7 @@ The "Writer" role now appears in the API scope section.
 
 ## Permissions
 
-The set of permissions a role has is defined by its scope. The following tables list permissions per scope.&#x20;
+The set of permissions a role has is defined by its scope. The following tables list permissions per scope.
 
 {% tabs %}
 {% tab title="Organization" %}
@@ -121,47 +121,47 @@ In Gravitee, a user is the profile of an individual who uses the platform. User 
 
 {% tabs %}
 {% tab title="Create and manage users" %}
-### Create users
+#### Create users
 
 Users are created in one of two ways:
 
 * [System Administrators](user-management.md#system-administrator-flow) can create users
 * Users can self-register via a registration form
 
-#### System Administrator flow
+**System Administrator flow**
 
 To pre-register a user:
 
 1. Log in to your APIM Console
 2. Select **Organization** from the left nav
 3. Select **Users** under **User Management**
-4. Click **+ Add user**&#x20;
+4. Click **+ Add user**
 5.  Select **User type:** Choose between **User** and **Service Account**
 
     **Pre-register a user**
 
-    <figure><img src="../.gitbook/assets/create user_user type (1).png" alt=""><figcaption><p>Add a User user type</p></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/create user_user type.png" alt=""><figcaption><p>Add a User user type</p></figcaption></figure>
 
     * Enter the user's info: **First Name**, **Last Name**, **Email**
     * Using the drop-down menu, select the **Identity Provider** name. See [IdP configuration](organizations-and-environments.md#defining-organization-authentication-and-access-settings) for more details.
 
-    **Pre-register a service account:** Setting up a user as a service account enables somebody from a Gravitee servicer (e.g., partner, consultant) to subscribe to Gravitee email notifications&#x20;
+    **Pre-register a service account:** Setting up a user as a service account enables somebody from a Gravitee servicer (e.g., partner, consultant) to subscribe to Gravitee email notifications
 
-    <figure><img src="../.gitbook/assets/create user_service account.png" alt=""><figcaption><p>Add a Service Account user type</p></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/create user_service account.png" alt=""><figcaption><p>Add a Service Account user type</p></figcaption></figure>
 
     * Enter a **Service Name** for the service account
     * Enter the service account's email
 6. Click **Create**
 
-### **Manage users**
+#### **Manage users**
 
 To delete a user from your Organization, select the **Delete user** icon from the table on the **Users** page:
 
-<figure><img src="../.gitbook/assets/user_delete.png" alt=""><figcaption><p>Delete a user</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/user_delete.png" alt=""><figcaption><p>Delete a user</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Create and manage user groups" %}
-### Create user groups
+#### Create user groups
 
 To create a user group:
 
@@ -169,9 +169,9 @@ To create a user group:
 2. Select **Settings** from the left nav
 3. Under **User Management**, select **Groups**
 4. Click the plus icon at the bottom of the page
-5.  Configure the user group &#x20;
+5.  Configure the user group
 
-    <figure><img src="../.gitbook/assets/user group_create.png" alt=""><figcaption><p>Create a user group</p></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/user group_create.png" alt=""><figcaption><p>Create a user group</p></figcaption></figure>
 
     * **General:** Enter a name for the user group
     * **Roles & Members:** define the maximum number of members and choose whether or not to allow:
@@ -190,15 +190,15 @@ Once a user group is created, you will be able to:
 * Choose to associate the user group with existing APIs or Applications by selecting **Associate to existing APIs** and/or **Associate to existing applications**
 * View all members, associated APIs, and associated applications in the **Dependents** section
 
-### **Manage user groups**
+#### **Manage user groups**
 
 To manage a user group:
 
 1. Log in to your APIM Console
 2. Select **Settings** from the left nav
-3.  Under **User Management**, select **Groups**&#x20;
+3.  Under **User Management**, select **Groups**
 
-    <figure><img src="../.gitbook/assets/user group_manage.png" alt=""><figcaption><p>Manage user groups</p></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/user group_manage.png" alt=""><figcaption><p>Manage user groups</p></figcaption></figure>
 
     * **Edit a user group:** Click its hyperlink to make changes, then:
       * Reset the user group settings by selecting **RESET** under **Actions**

@@ -7,7 +7,7 @@ This section explains how to configure secret managers to reference secrets in G
 Secrets manager integrations are handled by `secret-provider` plugins. These plugins allow you to access 3rd-party secret managers to resolve secrets.
 
 {% hint style="info" %}
-To learn more about Gravitee [Enterprise Edition](https://documentation.gravitee.io/apim/readme/enterprise-edition) and what's included in various enterprise packages:
+To learn more about Gravitee [Enterprise Edition](../../../readme/enterprise-edition.md) and what's included in various enterprise packages:
 
 * [Book a demo](https://documentation.gravitee.io/platform-overview/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
@@ -29,10 +29,6 @@ Current limitations are summarized below:
 A `secret provider` plugin must be either bundled or added to the plugin directory.
 
 You can enable a `secret-provider` plugin by configuring it in `gravitee.yml`. The configurations for each secret provider plugin are discussed in the following sections.
-
-{% hint style="info" %}
-The following examples apply to `gravitee.yml`. To learn how to map these examples to Helm charts and environment variables, see [Broken link](broken-reference "mention") and[Broken link](broken-reference "mention").&#x20;
-{% endhint %}
 
 ### Kubernetes
 
@@ -97,10 +93,10 @@ secrets:
       pollIntervalSec: 30
 ```
 
-With this configuration, Gravitee authenticates using a secure connection a Vault token, watches secrets via polling, and has 2 retry attempts to fetch a secret.&#x20;
+With this configuration, Gravitee authenticates using a secure connection a Vault token, watches secrets via polling, and has 2 retry attempts to fetch a secret.
 
 {% hint style="info" %}
-By default,  `retry` and `watch` are disabled.
+By default, `retry` and `watch` are disabled.
 {% endhint %}
 
 #### Alternative SSL configuration
