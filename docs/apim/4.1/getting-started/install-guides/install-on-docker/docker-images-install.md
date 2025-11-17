@@ -174,7 +174,7 @@ APIM can take up to a minute to fully initialize with Docker. If you get an erro
 You can adapt the above instructions to suit your architecture if you need to.
 
 {% hint style="success" %}
-Congratulations! Now that APIM is up and running, check out the [Quickstart Guide](../../quickstart-guide/) for your next steps.
+Congratulations! Now that APIM is up and running, check out the [Quickstart Guide](../../quickstart-guide/README.md) for your next steps.
 {% endhint %}
 
 

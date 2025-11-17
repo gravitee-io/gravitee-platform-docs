@@ -1,6 +1,6 @@
 # Configuring reporters for Gravitee API Management
 
-Elasticsearch is the default reporter, but this section will show you how to configure different reporters. If you wish to use a reporter not included in the default distribution, you must first add the reporter as a plugin. Refer to the [Plugins](../../../../overview/plugins-and-api-definitions-for-gravitee-api-management/plugins/) guide to learn more.
+Elasticsearch is the default reporter, but this section will show you how to configure different reporters. If you wish to use a reporter not included in the default distribution, you must first add the reporter as a plugin. Refer to the [Plugins](../../../../overview/plugins-and-api-definitions-for-gravitee-api-management/plugins/README.md) guide to learn more.
 
 ## Elasticsearch reporter
 

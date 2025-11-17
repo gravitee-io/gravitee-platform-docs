@@ -14,7 +14,7 @@ The same payload can be sent to any of the Gravitee reporters to write the recor
 
 ## Expected output
 
-Each reporter writes particular payload data to files that share a common naming convention and structure, regardless of output format. JSON, CSV, and Elasticsearch formats each generate the following files, which pertain to different [Gravitee execution engines](../../../../overview/plugins-and-api-definitions-for-gravitee-api-management/gravitee-api-definitions-and-execution-engines/):
+Each reporter writes particular payload data to files that share a common naming convention and structure, regardless of output format. JSON, CSV, and Elasticsearch formats each generate the following files, which pertain to different [Gravitee execution engines](../../../../overview/plugins-and-api-definitions-for-gravitee-api-management/gravitee-api-definitions-and-execution-engines/README.md):
 
 {% tabs %}
 {% tab title="Common" %}

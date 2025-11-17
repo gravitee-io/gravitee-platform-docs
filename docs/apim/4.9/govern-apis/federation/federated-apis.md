@@ -22,7 +22,7 @@ After running Discovery, you'll end up with a number of new federated APIs in Gr
 If you open one, you'll be able to view that API's details, add additional documentation and metadata, and publish that API to your Gravitee Developer portal, just like you can for a native Gravitee Gateway API.
 
 {% hint style="info" %}
-When Gravitee APIs are created from integrations, 3rd-party provider API attributes are mapped into Gravitee API attributes. Which attributes are available and how they are imported depends on the provider. See the [provider documentation](3rd-party-providers/) for more information.
+When Gravitee APIs are created from integrations, 3rd-party provider API attributes are mapped into Gravitee API attributes. Which attributes are available and how they are imported depends on the provider. See the [provider documentation](3rd-party-providers/README.md) for more information.
 {% endhint %}
 
 ## Configure federated APIs
@@ -132,7 +132,7 @@ Depending on the subscription configuration, the application will either auto-va
 
 {% hint style="info" %}
 * For more information on how to create and manage applications in APIM, see [Applications](../../developer-portal/classic-developer-portal/create-an-application.md).
-* For more information on how to create and manage subscriptions in APIM, see [Subscriptions](../../secure-and-expose-apis/subscriptions/).
+* For more information on how to create and manage subscriptions in APIM, see [Subscriptions](../../secure-and-expose-apis/subscriptions/README.md).
 {% endhint %}
 
 ## Delete federated APIs

@@ -15,7 +15,7 @@ from .utils import CACHE_DIR
 app = typer.Typer(
     add_completion=False,
     help=(
-        "Post-process page_links_audit.external_absolute.csv:\n"
+        "Post-process page_links_audit.ext_abs.csv:\n"
         "  - extract Gravitee GitHub issue links into their own CSV\n"
         "  - group remaining links for evaluation\n"
         "  - (optionally) check external URLs and classify them as healthy / uncertain"
@@ -24,7 +24,7 @@ app = typer.Typer(
 
 # ---- Input / output paths ----
 
-SOURCE_EXTERNAL_CSV = CACHE_DIR / "page_links_audit.external_absolute.csv"
+SOURCE_EXTERNAL_CSV = CACHE_DIR / "page_links_audit.ext_abs.csv"
 
 ISSUES_PREFIX = "https://github.com/gravitee-io/issues/issues/"
 
@@ -128,7 +128,7 @@ class UncertainSummaryEntry:
     line: str
     text: str
     url: str
-    reason: str
+    category: str
     status_meaning: str
     http_status: str
     count: int
@@ -157,7 +157,7 @@ def _write_csv(path: Path, rows: list[dict]) -> None:
                 "url",
                 "pv_product",
                 "pv_version",
-                "reason",
+                "category",
                 "normalized_target",
                 "http_status",
                 "status_meaning",
@@ -187,7 +187,7 @@ def _write_uncertain_summary_csv(path: Path, rows: list[UncertainSummaryEntry]) 
     Write the per-URL summary CSV for uncertain links.
 
     Column order:
-      src, line, text, url, reason, status_meaning, http_status, count
+      src, line, text, url, category, status_meaning, http_status, count
     """
     path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -196,7 +196,7 @@ def _write_uncertain_summary_csv(path: Path, rows: list[UncertainSummaryEntry]) 
         "line",
         "text",
         "url",
-        "reason",
+        "category",
         "status_meaning",
         "http_status",
         "count",
@@ -212,7 +212,7 @@ def _write_uncertain_summary_csv(path: Path, rows: list[UncertainSummaryEntry]) 
                     "line": r.line,
                     "text": r.text,
                     "url": r.url,
-                    "reason": r.reason,
+                    "category": r.category,
                     "status_meaning": r.status_meaning,
                     "http_status": r.http_status,
                     "count": r.count,
@@ -224,7 +224,7 @@ def _summarize_uncertain_impl(source: Path, out: Path) -> None:
     """
     Summarize external_links.uncertain.csv into unique URL entries with counts.
 
-    - Groups by (url, reason, http_status, status_meaning)
+    - Groups by (url, category, http_status, status_meaning)
     - Keeps one example (src, line, text) for each unique URL
     - Sorts by count (descending), then URL
     """
@@ -242,7 +242,7 @@ def _summarize_uncertain_impl(source: Path, out: Path) -> None:
     for row in rows:
         key = (
             row.get("url", ""),
-            row.get("reason", ""),
+            row.get("category", ""),
             str(row.get("http_status", "")),
             row.get("status_meaning", ""),
         )
@@ -261,7 +261,7 @@ def _summarize_uncertain_impl(source: Path, out: Path) -> None:
             line=str(v["line"]),
             text=str(v["text"]),
             url=k[0],
-            reason=k[1],
+            category=k[1],
             status_meaning=k[3],
             http_status=str(k[2]),
             count=int(v["count"]),
@@ -350,7 +350,7 @@ def split(
     to_eval_out: Path = TO_EVAL_OUT_OPT,
 ):
     """
-    Split page_links_audit.external_absolute.csv into:
+    Split page_links_audit.ext_abs.csv into:
 
     - Gravitee issue links (…/gravitee-io/issues/issues/…) → issues_out
     - All other external links → to_eval_out
