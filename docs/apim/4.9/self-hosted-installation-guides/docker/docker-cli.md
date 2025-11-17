@@ -14,12 +14,12 @@ This installation guide is for only development and quick start purposes. Do not
 1. Create a directory structure in which to persist data and store plugins:
    1.  Create a directory structure using the following command:
 
-       ```bash
+       ```shellscript
        mkdir -p /gravitee/{mongodb/data,elasticsearch/data,apim-gateway/plugins,apim-gateway/logs,apim-management-api/plugins,apim-management-api/logs,apim-management-ui/logs,apim-portal-ui/logs}
        ```
    2.  Once you create the directory, verify that the directory has the following structure:
 
-       ```bash
+       ```shellscript
        /gravitee
         ├── apim-gateway
         │    ├── logs
@@ -39,13 +39,13 @@ This installation guide is for only development and quick start purposes. Do not
 2. (Optional) If you are installing the Enterprise Edition (EE) of Gravitee APIM, copy your license key to `/gravitee/license.key`.
 3.  Create two Docker bridge networks using the following commands:
 
-    ```bash
+    ```shellscript
     docker network create storage
     docker network create frontend
     ```
 4.  Install MongoDB using the following commands:
 
-    ```bash
+    ```shellscript
     docker pull mongo:7.0
     docker run --name gio_apim_mongodb \
       --net storage \
@@ -54,7 +54,7 @@ This installation guide is for only development and quick start purposes. Do not
     ```
 5.  Install Elasticsearch using the following commands:
 
-    ```bash
+    ```shellscript
     docker pull docker.elastic.co/elasticsearch/elasticsearch:8.16.1
 
     docker run --name gio_apim_elasticsearch \
@@ -74,7 +74,7 @@ This installation guide is for only development and quick start purposes. Do not
     ```
 6.  Install the API Gateway using the following commands. If you use the Community Edition (CE) of Gravitee APIM, remove the following line: `--volume /gravitee/license.key:/opt/graviteeio-gateway/license/license.key`.
 
-    ```bash
+    ```shellscript
     docker pull graviteeio/apim-gateway:latest
 
     docker run --publish 8082:8082 \
@@ -94,7 +94,7 @@ This installation guide is for only development and quick start purposes. Do not
     ```
 7.  Install the Management API using the following commands. If you are installing the CE of Gravitee, remove the following line: `--volume /gravitee/license.key:/opt/graviteeio-management-api/license/license.key` .
 
-    ```bash
+    ```shellscript
     docker pull graviteeio/apim-management-api:latest
 
     docker run --publish 8083:8083 \
@@ -120,7 +120,7 @@ Port 8072 is exposed for federation agent WebSocket connections. This port is re
 
 8.  Install the Console using the following commands:\\
 
-    ```bash
+    ```shellscript
     docker pull graviteeio/apim-management-ui:latest
 
     docker run --publish 8084:8080 \
@@ -132,7 +132,7 @@ Port 8072 is exposed for federation agent WebSocket connections. This port is re
     ```
 9.  Install the Developer portal using the following commands:\\
 
-    ```bash
+    ```shellscript
     docker pull graviteeio/apim-portal-ui:latest
 
     docker run --publish 8085:8080 \
@@ -163,8 +163,8 @@ Federation is disabled by default for security and performance reasons. You can 
 
 To enable Federation, complete the following steps:
 
-* [Enable Federation with Docker CLI](https://documentation.gravitee.io/apim/~/changes/324/self-hosted-installation-guides/docker/docker-cli#enable-federation-with-docker-cli)
-* If you are running multiple replicas of APIM for high availability, [Set up cluster mode](https://documentation.gravitee.io/apim/~/changes/324/self-hosted-installation-guides/docker/docker-cli#set-up-cluster-mode)
+* [#enable-federation-with-docker-cli](docker-cli.md#enable-federation-with-docker-cli "mention")
+* If you are running multiple replicas of APIM for high availability, [#set-up-cluster-mode](docker-cli.md#set-up-cluster-mode "mention")
 
 #### Enable Federation with Docker CLI <a href="#enable-federation-with-docker-cli" id="enable-federation-with-docker-cli"></a>
 
@@ -330,7 +330,7 @@ If APIM is running with high availability, you need to set up cluster mode. To s
     ```
 4.  Apply the settings using the `docker run` command:
 
-    ```bash
+    ```shellscript
     # For Management API with cluster mode:
     docker run --publish 8083:8083 \
       --publish 8072:8072 \

@@ -1,6 +1,6 @@
 # Overview
 
-Every API Management installation includes several default resources that are commonly used in standard APIM implementations and can be configured during the API design phase. The recommended configuration method employs the [Policy Studio](../policy-studio/).
+Every API Management installation includes several default resources that are commonly used in standard APIM implementations and can be configured during the API design phase. The recommended configuration method employs the [Policy Studio](../policy-studio/README.md).
 
 The following sections summarize resource descriptions, configuration parameters, and configuration examples.
 
@@ -19,5 +19,5 @@ APIM includes several default resources, each of which is described in more deta
 * [**Keycloak Adapter**](confluent-and-keycloak-resources.md#keycloak-adapter)**:** Introspects an access token.
 
 {% hint style="warning" %}
-The **Cache Redis** plugin is not included in the default APIM distribution, but you can [download](https://download.gravitee.io/#graviteeio-apim/plugins/resources/gravitee-resource-cache-redis/) and [deploy](../../../overview/plugins-and-api-definitions/plugins/deploying-plugins.md#deployment) it. For information on configuring cache in APIM, see [Configure cache](../../../installation-and-upgrades/repositories/cache.md). For information on configuring the rate limit repository plugin for Redis, see [Redis](../../../installation-and-upgrades/repositories/#redis).
+The **Cache Redis** plugin is not included in the default APIM distribution, but you can [download](https://download.gravitee.io/#graviteeio-apim/plugins/resources/gravitee-resource-cache-redis/) and [deploy](../../../overview/plugins-and-api-definitions/plugins/deploying-plugins.md#deployment) it. For information on configuring cache in APIM, see [Configure cache](../../../installation-and-upgrades/repositories/cache.md). For information on configuring the rate limit repository plugin for Redis, see [Redis](../../../installation-and-upgrades/repositories/README.md#redis).
 {% endhint %}
