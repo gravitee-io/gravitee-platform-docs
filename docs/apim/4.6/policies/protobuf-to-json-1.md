@@ -6,7 +6,7 @@ hidden: true
 # Protobuf to JSON
 
 {% hint style="warning" %}
-**This feature requires** [**Gravitee's Enterprise Edition**](../overview/gravitee-apim-enterprise-edition/)**.**
+**This feature requires** [**Gravitee's Enterprise Edition**](../overview/enterprise-edition.md)**.**
 {% endhint %}
 
 ## Overview
