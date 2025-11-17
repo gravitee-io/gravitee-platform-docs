@@ -12,6 +12,14 @@ description: >-
 
 <summary>Bug fixes</summary>
 
+**Gateway**
+
+* Improve Thread Management for RDBMS backend [#10938](https://github.com/gravitee-io/issues/issues/10938)
+
+
+
+
+
 **Other**
 
 * Reduce log verbosity on MFA validation failure [#10903](https://github.com/gravitee-io/issues/issues/10903)
