@@ -16,9 +16,9 @@ Each plan must include at least one security type by which subscribers can be au
 
 The sections below describe:
 
-* [How to create a plan](README.md#create-a-plan)
-* [Plan stages](README.md#plan-stages)
-* [Plan selection rules](README.md#plan-selection-rules)
+* [How to create a plan](./#create-a-plan)
+* [Plan stages](./#plan-stages)
+* [Plan selection rules](./#plan-selection-rules)
 
 ## Create a plan
 
@@ -38,7 +38,7 @@ To create a plan:
     * **Name:** Enter a name for your plan
     * **Description:** Enter a description of your plan
     * **Characteristics:** Define labels used to tag your plan
-    * **Page of General Conditions:** Select a published [Documentation](broken-reference/) page whose terms must be accepted by the user to finalize the subscription process
+    * **Page of General Conditions:** Select a published [Documentation](../../configure-v4-apis/documentation.md) page whose terms must be accepted by the user to finalize the subscription process
     * Toggle **Auto validate subscription** ON to accept all subscriptions to a plan without the API publisher's approval
     * Toggle **Consumer must provide a comment when subscribing to the plan** ON to require an explanation for the subscription request, with the option to leave a **Custom message to display to consumer**
     * **Sharding tags:** Selectively deploy the plan to particular APIs using available [sharding tags](../../gravitee-gateway/sharding-tags.md)
