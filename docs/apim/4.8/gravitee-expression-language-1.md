@@ -137,7 +137,7 @@ The Expression Language (EL) Assistant helps you write the EL expression needed 
 
 ### Prerequisites&#x20;
 
-* Gravitee Cloud account. To register for Gravitee Cloud, go to [Cloud](https://eu-auth.cloud.gravitee.io/cloud/register?response_type=code\&client_id=fd45d898-e621-4b12-85d8-98e621ab1237\&state=ZWVjRy5pZlpjdk1wZjFabWpPU0VPWEtzVjFDSGUzTXVSRGMzLkRIVEdrSnRC\&redirect_uri=https%3A%2F%2Feu.cloud.gravitee.io\&scope=openid+profile+email+offline_access\&code_challenge=OCLxO6DaZFROGdqhhTQq7nig9WGdFtVHttWGCdpHiPc\&code_challenge_method=S256\&nonce=ZWVjRy5pZlpjdk1wZjFabWpPU0VPWEtzVjFDSGUzTXVSRGMzLkRIVEdrSnRC\&createUser=true\&hubspotutk=640db1914414dc8d82a03c4db2c797de).
+* Gravitee Cloud account. To register for Gravitee Cloud, go to [Cloud](https://cockpit.gravitee.io/).
 * (Self-hosted and Hybrid installations only) Register your installation in Gravitee Cloud. For more information about registering your installation, see Register installations.
 * (Self-hosted and Hybrid installations only) Depending on your installation method, add the following configuration:
 

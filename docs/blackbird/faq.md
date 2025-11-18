@@ -19,8 +19,6 @@ Blackbird provides the following primary features:
 Refer to the following resources as you get started with Blackbird:
 
 * [quick-start](quick-start/ "mention") guide
-* [Ambassador YouTube channel](https://www.youtube.com/c/AmbassadorLabs)
-* [Support knowledge base](https://support.datawire.io/) (Requires a subscription to Blackbird Developer, Blackbird Platform, or Blackbird Enterprise. For more information, see [Blackbird Pricing](https://www.getambassador.io/blackbird-pricing).)
 
 ## Which features are available in the CLI?
 

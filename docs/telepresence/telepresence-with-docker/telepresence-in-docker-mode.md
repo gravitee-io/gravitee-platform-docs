@@ -61,7 +61,7 @@ We'll set up a development environment locally on your workstation. We'll then u
     \{% hint style="info" %\} If you're using Docker Desktop on Windows, you may need to [enable virtualization](https://docs.docker.com/desktop/troubleshoot-and-support/troubleshoot/topics/#virtualization) to run the container.\
     \> Make sure that ports **8080** and **8083** are free. If the Docker engine is not running, the command will fail and you will see **docker: unknown server OS** in your terminal. \{% endhint %\}
 
-    The Docker container includes a copy of the Emojivoto application that fixes the bug. Visit the [leaderboard](http://localhost:8083/leaderboard) and notice how it is different from the leaderboard in your Kubernetes cluster.
+    The Docker container includes a copy of the Emojivoto application that fixes the bug. Visit the leaderboard and notice how it is different from the leaderboard in your Kubernetes cluster.
 2.  Now, stop the container by running the following command in your terminal:
 
     ```bash
