@@ -32,7 +32,7 @@ To create a plan:
     * **Name:** Enter a name for your plan
     * **Description:** Enter a description of your plan
     * **Characteristics:** Define labels used to tag your plan
-    * **Page of General Conditions:** If you want to enforce subscribers to review a Terms of Conditions (or another similar page), then select a published [Documentation](broken-reference/) page whose terms must be accepted by the user to finalize the subscription process
+    * **Page of General Conditions:** If you want to enforce subscribers to review a Terms of Conditions (or another similar page), then select a published [Documentation](../../create-and-configure-apis/configure-v4-apis/documentation.md) page whose terms must be accepted by the user to finalize the subscription process
     * Toggle **Auto validate subscription** ON to accept all subscriptions to a plan without the API publisher's approval
     * Toggle **Consumer must provide a comment when subscribing to the plan** ON to require an explanation for the subscription request, with the option to leave a **Custom message to display to consumer**
     * **Sharding tags:** Selectively deploy the plan to particular API Gateways using available [sharding tags](../../configure-and-manage-the-platform/gravitee-gateway/sharding-tags.md)
