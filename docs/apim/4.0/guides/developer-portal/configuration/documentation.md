@@ -244,7 +244,7 @@ Select a page to configure the following via the header tabs:
 * **External Source:** Configure a fetcher for the page
 * **Access Control:** Fine-grained access control over your page
 * **Attached Resources:** Add additional files to your documentation page.
-  * This requires the administrator to configure **Allow Upload Images** and **Max size upload file (bytes)** in [general settings](broken-reference/).
+  * This requires the administrator to configure **Allow Upload Images** and **Max size upload file (bytes)** in [general settings](general-settings.md).
 
 <figure><img src="../../../../../../.gitbook/assets/documentation_page banner (1).png" alt=""><figcaption><p>Page management options</p></figcaption></figure>
 
