@@ -13,11 +13,11 @@ The next two core Gravitee API Management (APIM) concepts we will focus on are p
 
 Plans and policies are managed by the API publisher to add different layers of security and functionality to the backend resources they own.
 
-<img src="../../../../.gitbook/assets/file.excalidraw (5).svg" alt="Gateway plans and policies" class="gitbook-drawing">
+<img src="../../../../../../../.gitbook/assets/file.excalidraw (5) (1).svg" alt="Gateway plans and policies" class="gitbook-drawing">
 
 ### Plans
 
-There are many possible API access scenarios, any of which can be difficult to encode into your backend services. Plans are a powerful way to decouple the business logic from the access control of your backend services.&#x20;
+There are many possible API access scenarios, any of which can be difficult to encode into your backend services. Plans are a powerful way to decouple the business logic from the access control of your backend services.
 
 In APIM, all APIs require at least one plan before they can be deployed on the Gateway. The most important part of plan configuration is selecting the security type. APIM supports the following five security types:
 
@@ -27,7 +27,7 @@ In APIM, all APIs require at least one plan before they can be deployed on the G
 * OAuth 2.0
 * JWT
 
-APIM intelligently routes API consumers to plans [based on specific criteria](../../../managing-your-apis-with-gravitee-api-management/api-exposure-plans-applications-and-subscriptions/plans.md#plan-selection) in the API request. APIM then uses an application-based subscription model to decide whether to accept or deny an incoming API request.&#x20;
+APIM intelligently routes API consumers to plans [based on specific criteria](../../../managing-your-apis-with-gravitee-api-management/api-exposure-plans-applications-and-subscriptions/plans.md#plan-selection) in the API request. APIM then uses an application-based subscription model to decide whether to accept or deny an incoming API request.
 
 <details>
 
@@ -39,7 +39,7 @@ To access your APIs, consumers must register an application and submit a subscri
 
 API publishers can modify a subscription at any time, which includes transferring API consumers to a different plan, pausing the subscription, setting an expiration date, or permanently closing a subscription.
 
-#### **Keyless plan subscriptions**
+**Keyless plan subscriptions**
 
 Because keyless plans do not require authorization, APIs with keyless plans do not require the API consumer to create an application or submit a subscription request. Deployed APIs with a keyless plan will be publicly available on the Gateway's network.
 
@@ -64,13 +64,13 @@ Gateway APIs have the following phases:
 
 </details>
 
-Policies are scoped to different API consumers through _flows_. Flows are a method to control where, and under what conditions, a group of policies act on an API transaction.&#x20;
+Policies are scoped to different API consumers through _flows_. Flows are a method to control where, and under what conditions, a group of policies act on an API transaction.
 
 ### Example
 
-Let's say you have a backend API server architected around flight data. This data is not sensitive and you want to allow anyone to easily access it. However, because the data is supplied by verified airlines, you want to limit data modifications to specific API consumers who are explicitly granted permission.&#x20;
+Let's say you have a backend API server architected around flight data. This data is not sensitive and you want to allow anyone to easily access it. However, because the data is supplied by verified airlines, you want to limit data modifications to specific API consumers who are explicitly granted permission.
 
-This is easily achieved with APIM and does not require any changes to the backend API server.&#x20;
+This is easily achieved with APIM and does not require any changes to the backend API server.
 
 First, you could create two plans in APIM: A keyless plan and a JWT plan. The keyless plan does not require API consumers to create an application or submit a subscription request and allows API consumers on the Gateway's network to immediately begin sending requests through the available entrypoints.
 

@@ -1,24 +1,24 @@
 # Adding Role-based Access Control to your JWT Plan
 
 {% hint style="warning" %}
-This tutorial builds off of [Configure JWT Security with APIM](broken-reference), which must be completed as a prerequisite.
+This tutorial builds off of [Configure JWT Security with APIM](configure-jwt-security-with-apim.md), which must be completed as a prerequisite.
 {% endhint %}
 
 ## Overview
 
 Gravitee API Management (APIM) has a [Role-based Access Control policy](../managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/r-s/role-based-access-control-rbac.md) that can act as an additional security and access control measure. This allows fine-grained control over which applications can access which resources based on their assigned roles.
 
-Due to some community requests, this tutorial will serve as a short extension of the [Configure JWT Security with APIM](broken-reference) tutorial. This tutorial will show how to configure the Role-based Access Control (RBAC) policy on a JWT plan when using an IdP. Additionally, we will configure the policy to only be active on a sub-resource of our backend API server.
+Due to some community requests, this tutorial will serve as a short extension of the [Configure JWT Security with APIM](configure-jwt-security-with-apim.md) tutorial. This tutorial will show how to configure the Role-based Access Control (RBAC) policy on a JWT plan when using an IdP. Additionally, we will configure the policy to only be active on a sub-resource of our backend API server.
 
 {% hint style="warning" %}
-Currently, the RBAC policy can be applied to v2 APIs and v4 proxy APIs. It cannot be applied to v4 message APIs. If you’re unsure of the differences, check out [these docs](../../overview/plugins-and-api-definitions-for-gravitee-api-management/gravitee-api-definitions-and-execution-engines/README.md).
+Currently, the RBAC policy can be applied to v2 APIs and v4 proxy APIs. It cannot be applied to v4 message APIs. If you’re unsure of the differences, check out [these docs](../../overview/plugins-and-api-definitions-for-gravitee-api-management/gravitee-api-definitions-and-execution-engines/).
 {% endhint %}
 
 ## Prerequisites <a href="#prerequisites-3" id="prerequisites-3"></a>
 
-To participate in this tutorial, you must have an instance of APIM 4.0 or later up and running. You can check out our [extensive installation guides](https://documentation.gravitee.io/apim/\~/changes/Nu1TIz1HvhDYgoPV1Kak/getting-started/install-guides) to learn the different ways you can get started with Gravitee.
+To participate in this tutorial, you must have an instance of APIM 4.0 or later up and running. You can check out our [extensive installation guides](https://documentation.gravitee.io/apim/~/changes/Nu1TIz1HvhDYgoPV1Kak/getting-started/install-guides) to learn the different ways you can get started with Gravitee.
 
-Additionally, the following guide assumes you have already completed the [Configure JWT Security with APIM](broken-reference) tutorial, which is referred to here as the previous tutorial.
+Additionally, the following guide assumes you have already completed the [Configure JWT Security with APIM](configure-jwt-security-with-apim.md) tutorial, which is referred to here as the previous tutorial.
 
 ## Configure your IdP <a href="#configure-your-idp-4" id="configure-your-idp-4"></a>
 

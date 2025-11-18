@@ -24,7 +24,7 @@ This policy can be applied to v2 APIs, v4 HTTP proxy APIs, and v4 message APIs. 
 
 {% tabs %}
 {% tab title="HTTP proxy API example" %}
-### onRequest / onResponse
+#### onRequest / onResponse
 
 The following example Groovy script is executed during the OnResponse phase to change HTTP headers:
 
@@ -33,7 +33,7 @@ response.headers.remove 'X-Powered-By'
 response.headers.'X-Gravitee-Gateway-Version' = '0.14.0'
 ```
 
-### OnRequestContent / OnResponseContent
+#### OnRequestContent / OnResponseContent
 
 The following example shows you how to use the `groovy` policy to transform JSON content:
 
@@ -77,7 +77,7 @@ return JsonOutput.toJson(content)
 {% endtab %}
 
 {% tab title="Message API example" %}
-### OnMessageRequest / OnMessageResponse
+#### OnMessageRequest / OnMessageResponse
 
 The following example shows you how to use the Groovy policy to override the content of a message to change the greeting:
 
@@ -132,7 +132,7 @@ Some variables are automatically bound to the Groovy script to allow users to us
 
 <table><thead><tr><th width="164.5">Name</th><th>Description</th></tr></thead><tbody><tr><td><code>request</code></td><td>Inbound HTTP request</td></tr><tr><td><code>response</code></td><td>Outbound HTTP response</td></tr><tr><td><code>context</code></td><td><code>PolicyContext</code> used to access external components such as services and resources</td></tr><tr><td><code>result</code></td><td>Groovy script result</td></tr></tbody></table>
 
-Request or response processing can be interrupted by setting the result state to `FAILURE`. By default, it will throw a `500 - internal server error`, but you can override this behavior with the following properties:&#x20;
+Request or response processing can be interrupted by setting the result state to `FAILURE`. By default, it will throw a `500 - internal server error`, but you can override this behavior with the following properties:
 
 * `code`: An HTTP status code
 * `error`: The error message
@@ -178,7 +178,7 @@ This policy allows you to override the content of a message. Message content can
 
 ### Impact of execution engine
 
-The number of scripts used for the `groovy` policy and their execution depend on which [execution engine](../../../../../overview/plugins-and-api-definitions-for-gravitee-api-management/gravitee-api-definitions-and-execution-engines/README.md) is running.
+The number of scripts used for the `groovy` policy and their execution depend on which [execution engine](../../../../../overview/plugins-and-api-definitions-for-gravitee-api-management/gravitee-api-definitions-and-execution-engines/) is running.
 
 {% tabs %}
 {% tab title="Legacy engine" %}
