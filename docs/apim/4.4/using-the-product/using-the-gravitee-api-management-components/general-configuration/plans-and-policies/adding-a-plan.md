@@ -1,8 +1,8 @@
 # Adding a plan
 
-From the Policy Studio, go to the **Plans** page.&#x20;
+From the Policy Studio, go to the **Plans** page.
 
-<figure><img src="../../../../.gitbook/assets/Screenshot 2023-11-19 at 10.53.19 PM.png" alt=""><figcaption><p>Policy Studio</p></figcaption></figure>
+<figure><img src="../../../../../4.0/.gitbook/assets/plans_policy studio (1).png" alt=""><figcaption><p>Policy Studio</p></figcaption></figure>
 
 > * [x] Select **Plans** from the inner sidebar
 
@@ -10,7 +10,7 @@ From here, we can manage all the plans and subscriptions for this API. Currently
 
 This plan is currently in the published state. Plans can be in one of four states: staging, published, deprecated, or closed.
 
-<figure><img src="../../../../.gitbook/assets/image (27).png" alt=""><figcaption><p>Four stages of a plan</p></figcaption></figure>
+<figure><img src="../../../../../4.3/.gitbook/assets/image.png" alt=""><figcaption><p>Four stages of a plan</p></figcaption></figure>
 
 <details>
 
@@ -28,46 +28,46 @@ This plan is currently in the published state. Plans can be in one of four state
 
 Let's go ahead and add API security with an API key plan:
 
-<figure><img src="../../../../.gitbook/assets/Screenshot 2023-11-19 at 9.04.47 PM.png" alt=""><figcaption><p>API Plans page</p></figcaption></figure>
+<figure><img src="../../../../../4.0/.gitbook/assets/plans_api plans (1).png" alt=""><figcaption><p>API Plans page</p></figcaption></figure>
 
 > * [x] Select **+ Add new plan** in the top right
 > * [x] Select **API Key** from the drop-down menu
 
 This opens the **General** page of the plan creation wizard. The only required configuration is to provide the plan with a name.
 
-<figure><img src="../../../../.gitbook/assets/Screenshot 2023-11-19 at 9.07.46 PM.png" alt=""><figcaption><p>General page of plan creation wizard</p></figcaption></figure>
+<figure><img src="../../../../../4.0/.gitbook/assets/plans_wizard (1).png" alt=""><figcaption><p>General page of plan creation wizard</p></figcaption></figure>
 
 > * [x] Provide a **Name** for the plan
 > * [x] Scroll down to the bottom of the page and click **Next**
 
 The next step is to configure the security settings specific to the plan type you selected. For our API key plan, we will just keep the defaults.
 
-<figure><img src="../../../../.gitbook/assets/Screenshot 2023-11-19 at 9.09.54 PM.png" alt=""><figcaption><p>Security configuration page of plan creation wizard</p></figcaption></figure>
+<figure><img src="../../../../../4.0/.gitbook/assets/plans_security (1).png" alt=""><figcaption><p>Security configuration page of plan creation wizard</p></figcaption></figure>
 
 > * [x] Leave the defaults and click **Next**
 
 Finally, you have the option to add restriction policies directly to the plan as part of the creation process.
 
-<figure><img src="../../../../.gitbook/assets/Screenshot 2023-11-19 at 9.10.35 PM.png" alt=""><figcaption><p>Restrictions page of the plan creation wizard</p></figcaption></figure>
+<figure><img src="../../../../../4.0/.gitbook/assets/plans_restrictions (1).png" alt=""><figcaption><p>Restrictions page of the plan creation wizard</p></figcaption></figure>
 
 > * [x] Leave the defaults and click **Create**
 
 This will create the plan in the **Staging** state. To make it available to API consumers, we need to publish it.
 
-<figure><img src="../../../../.gitbook/assets/Screenshot 2023-11-19 at 9.14.55 PM.png" alt=""><figcaption><p>Publish the API key plan</p></figcaption></figure>
+<figure><img src="../../../../../4.0/.gitbook/assets/plans_publish (1).png" alt=""><figcaption><p>Publish the API key plan</p></figcaption></figure>
 
 > * [x] Select the **publish icon** to the far right of the plan
 > * [x] Select **Publish** in the modal that pops up on the screen
 
-This will change the API key plan's state from staging to published.&#x20;
+This will change the API key plan's state from staging to published.
 
 To ensure our new API key plan can't be bypassed, we need to close the keyless plan and then sync all the changes we've made to the Gateway.
 
-<figure><img src="../../../../.gitbook/assets/Screenshot 2023-11-19 at 9.24.55 PM.png" alt=""><figcaption><p>Closing the keyless plan </p></figcaption></figure>
+<figure><img src="../../../../../4.0/.gitbook/assets/plans_closing (1).png" alt=""><figcaption><p>Closing the keyless plan</p></figcaption></figure>
 
 > * [x] Select the **delete icon** to the far right of the keyless plan
 > * [x] Confirm the delete by typing in the name of the plan and then clicking **Yes, close this plan**
-> * [x] Sync these changes to the Gateway by clicking **Deploy API** in the banner&#x20;
+> * [x] Sync these changes to the Gateway by clicking **Deploy API** in the banner
 
 ## Test the plan
 
@@ -80,7 +80,7 @@ curl -X GET -i "https://<your-gateway-server>/<your-context-path>"
 {% endcode %}
 
 {% hint style="success" %}
-The request will be denied with an HTTP **`401 Unauthorized`** error response status code.&#x20;
+The request will be denied with an HTTP **`401 Unauthorized`** error response status code.
 {% endhint %}
 
 The error response confirms the keyless plan was removed and all requests are now routed to the API key plan. We will need to subscribe to the API key plan and pass the proper authorization token with each request to continue to use the API..

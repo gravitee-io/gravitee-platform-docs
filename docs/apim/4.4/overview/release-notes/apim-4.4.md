@@ -10,7 +10,7 @@ If you are an existing Gravitee Enterprise customer upgrading to 4.x, please mak
 
 In Gravitee API Management version 4.4, we’ve released the following new products and functionality:
 
-* Federated API Management, with support for publishing and governing APIs from different API Gateways and Event brokers&#x20;
+* Federated API Management, with support for publishing and governing APIs from different API Gateways and Event brokers
 * More functionality for v4 APIs
 * A new Azure Service Bus endpoint for protocol mediation APIs
 * A new Developer Portal (Tech preview)
@@ -23,8 +23,7 @@ Keep reading to learn more about each new set of functionality.
 Gravitee Federated API Management is comprised of the ability to discover, import, manage, and govern APIs from other API Gateways and Event brokers into a universal Gravitee API management and governance console and then publish those APIs as Gravitee APIs, with Gravitee subscription Plans, in a universal Gravitee Developer Portal. As of 4.4 we offer support:
 
 * AWS API Gateway
-* Solace Event Broker and Event Management\
-
+* Solace Event Broker and Event Management\\
 
 As of 4.4, we have released the following functionality related to Federated API Management:
 
@@ -39,15 +38,14 @@ As of 4.4, we have released the following functionality related to Federated API
   * Solace Event APIs
 * Universal Developer Portal support for:
   * AWS API Gateway APIs
-  * Solace Event APIs\
-
+  * Solace Event APIs\\
 
 If, at any point, you are interested in trying Gravitee Federated API Management, we recommend:
 
 * Customers reach out to their CSM or CSA directly
 * Non-customers [book a demo](https://www.gravitee.io/demo) and explore Federated API Management through a free POC with our Solutions Engineering team
 
-Keep reading to learn more.&#x20;
+Keep reading to learn more.
 
 ### Automated API and subscription discovery via Gravitee Integrations
 
@@ -59,24 +57,24 @@ Integrations are a new component in the Gravitee API Management Console. The Int
 * Auto discover and create subscription plans from those providers
 * And more
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-06-24 at 4.29.44 PM.png" alt=""><figcaption><p>Gravitee integrations</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Screenshot 2024-06-24 at 4.29.44 PM (1).png" alt=""><figcaption><p>Gravitee integrations</p></figcaption></figure>
 
 \
 Auto-discovery is quick and easy. Simply [install the Gravitee Agent](../../using-the-product/managing-your-apis-with-gravitee-api-management/federation/federation-agent.md) in your target environment, click Discover, and you’ll be met with a list of API assets that the Gravitee agent automatically discovers. Try out the new discovery functionality using the interactive tutorial below:
 
-{% @arcade/embed flowId="GhNjFwtUcQ3THZnKCsVt" url="https://app.arcade.software/share/GhNjFwtUcQ3THZnKCsVt" %}
+{% @arcade/embed url="https://app.arcade.software/share/GhNjFwtUcQ3THZnKCsVt" flowId="GhNjFwtUcQ3THZnKCsVt" %}
 
 Once the APIs are discovered, you can choose to ingest, or import, those assets into Gravitee as Gravitee Federated APIs. If you had a usage plan already configured on the third party provider, Gravitee can discover certain kinds of usage plans and import those as well. For example, as of 4.4, Gravitee can discover existing AWS API Gateway API Key usage plans and import those as matching Gravitee API Key Plans.
 
 In addition to usage plan discovery, Gravitee will also discover and import API documentation from supported third party providers.
 
 {% hint style="info" %}
-**Federated APIs are a new type of Gravitee API**&#x20;
+**Federated APIs are a new type of Gravitee API**
 
-These APIs will exist in Gravitee as API artifacts that can be managed and governed, but they will not be deployed to the Gravitee Gateway.&#x20;
+These APIs will exist in Gravitee as API artifacts that can be managed and governed, but they will not be deployed to the Gravitee Gateway.
 {% endhint %}
 
-To start using Federated API Management, refer to the [Federated API Management documentation](../../using-the-product/managing-your-apis-with-gravitee-api-management/federation/README.md).
+To start using Federated API Management, refer to the [Federated API Management documentation](../../using-the-product/managing-your-apis-with-gravitee-api-management/federation/).
 
 ### Publishing your Federated APIs to a universal Developer Portal
 
@@ -89,12 +87,11 @@ Once you have Federated APIs with Gravitee Plans discovered and ingested, you ca
 
 For API consumers, discovering and subscribing to these APIs works the same way as it always has for Gravitee APIs. To see it in action, check out the interactive tutorial below:
 
-{% @arcade/embed flowId="59UqOt0D7NIGSVkavVby" url="https://app.arcade.software/share/59UqOt0D7NIGSVkavVby" %}
+{% @arcade/embed url="https://app.arcade.software/share/59UqOt0D7NIGSVkavVby" flowId="59UqOt0D7NIGSVkavVby" %}
 
-For API Publishers, managing Federated API subscription requests works the exact same way as it does for Gravitee APIs. You’ll manage subscriptions and your API plans via the Consumers tab on your Federated API. Subscriptions can be configured to require manual validation by the API Publisher before they are forwarded to the 3rd-party provider, or they can be set to automatic. \
+For API Publishers, managing Federated API subscription requests works the exact same way as it does for Gravitee APIs. You’ll manage subscriptions and your API plans via the Consumers tab on your Federated API. Subscriptions can be configured to require manual validation by the API Publisher before they are forwarded to the 3rd-party provider, or they can be set to automatic. \\
 
-
-For more information on how to create and publish Federated APIs with plans to the Developer Portal, please refer to the [Federated API Management documentation](../../using-the-product/managing-your-apis-with-gravitee-api-management/federation/federated-apis.md).&#x20;
+For more information on how to create and publish Federated APIs with plans to the Developer Portal, please refer to the [Federated API Management documentation](../../using-the-product/managing-your-apis-with-gravitee-api-management/federation/federated-apis.md).
 
 {% hint style="info" %}
 **Limitation**
@@ -117,10 +114,10 @@ Gravitee offers two API definitions for API creation:
 {% hint style="info" %}
 **Which version should you use?**
 
-For new Gravitee users, we highly recommend using the Gravitee v4 API definition, as this API definition offers our most advanced features and will continue to do so going forward.&#x20;
+For new Gravitee users, we highly recommend using the Gravitee v4 API definition, as this API definition offers our most advanced features and will continue to do so going forward.
 {% endhint %}
 
-Since we released the v4 API definition, we have been working to ensure that our customers wouldn’t lack any of the critical functionality that they have come to expect while working with Gravitee v2 APIs.&#x20;
+Since we released the v4 API definition, we have been working to ensure that our customers wouldn’t lack any of the critical functionality that they have come to expect while working with Gravitee v2 APIs.
 
 \
 The 4.4 release brings us multiple steps closer to complete feature parity, introducing v4 API support for:
@@ -130,10 +127,9 @@ The 4.4 release brings us multiple steps closer to complete feature parity, intr
 
 As of Gravitee 4.4, you can now import API definition bundles as v4 APIs and create pages, members, groups, and other relevant resources at the time of import. This is done during the API creation phase.
 
-![](<../../.gitbook/assets/Screenshot 2024-06-24 at 5.07.21 PM.png>)\
+![](<../../../../../.gitbook/assets/Screenshot 2024-06-24 at 5.07.21 PM (1).png>)\\
 
-
-For v4 Proxy APIs, we also support importing OpenAPI specifications.&#x20;
+For v4 Proxy APIs, we also support importing OpenAPI specifications.
 
 {% hint style="info" %}
 **Limitation**
@@ -154,9 +150,7 @@ As of APIM 4.4, Gravitee offers the following analytics support for v4 APIs with
 
 Below is a table that outlines just how close we are to v2 and v4 feature parity:
 
-<table data-header-hidden><thead><tr><th width="187">Functionality</th><th width="187">Supported in v2 proxy APIs</th><th>Supported in v4 proxy APIs</th><th>Supported in v4 message APIs</th></tr></thead><tbody><tr><td><strong>Functionality</strong></td><td><strong>Supported for v2 proxy APIs</strong></td><td><strong>Supported for v4 Proxy API</strong></td><td><p><strong>Supported for v4</strong> </p><p><strong>Message API</strong></p></td></tr><tr><td>User Permissions</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Properties</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Resources</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Notifications</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Categories</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Audit Logs</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Response Templates</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>CORS</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Virtual Hosts</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Failover</td><td>✅</td><td>✅</td><td>⚠️ Depends on use case</td></tr><tr><td>Health Check</td><td>✅</td><td>✅</td><td>🚫</td></tr><tr><td>Health Check Dashboard</td><td>✅</td><td>🚫</td><td>🚫</td></tr><tr><td>Improved Policy Studio</td><td>🚫</td><td>✅</td><td>✅</td></tr><tr><td>Debug Mode</td><td>✅</td><td>🚫</td><td>🚫</td></tr><tr><td>Plans</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Subscriptions</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Messages / Broadcasts</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Documentation - Markdown</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Documentation - OAS</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Documentation - AsyncAPI</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Documentation - AsciiDoc</td><td>✅</td><td>🚫</td><td>🚫</td></tr><tr><td>Documentation - Home Page</td><td>✅</td><td>⚠️ Set via API</td><td>✅</td></tr><tr><td>Documentation - Metadata</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Documentation - Translations</td><td>✅</td><td>🚫</td><td>🚫</td></tr><tr><td>Documentation - Group Access Control</td><td>✅</td><td>🚫</td><td>🚫</td></tr><tr><td>Documentation - Role Access Control</td><td>✅</td><td>🚫</td><td>🚫</td></tr><tr><td>Documentation - Swagger vs. Redoc Control</td><td>✅</td><td>🚫</td><td>🚫</td></tr><tr><td>Documentation - Try It Configuration</td><td>✅</td><td>🚫</td><td>🚫</td></tr><tr><td>Documentation - Nested Folder Creation</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Terms &#x26; Conditions on a Plan</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Sharding Tags</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Deployment History</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Rollback</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Compare API to Previous Versions</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Analytics</td><td>✅</td><td>⚠️ WIP</td><td>⚠️ WIP</td></tr><tr><td>Custom Dashboards</td><td>✅</td><td>🚫</td><td>🚫</td></tr><tr><td>Path Mappings</td><td>✅</td><td>🚫</td><td>🚫</td></tr><tr><td>Logs</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>API Quality</td><td>✅</td><td>🚫</td><td>🚫</td></tr><tr><td>API Review</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Export API as Gravitee def (+options)</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Export API as GKO spec</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Import API from Gravitee def (+options)</td><td>✅</td><td>✅</td><td>✅</td></tr></tbody></table>
-
-
+<table data-header-hidden><thead><tr><th width="187">Functionality</th><th width="187">Supported in v2 proxy APIs</th><th>Supported in v4 proxy APIs</th><th>Supported in v4 message APIs</th></tr></thead><tbody><tr><td><strong>Functionality</strong></td><td><strong>Supported for v2 proxy APIs</strong></td><td><strong>Supported for v4 Proxy API</strong></td><td><p><strong>Supported for v4</strong></p><p><strong>Message API</strong></p></td></tr><tr><td>User Permissions</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Properties</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Resources</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Notifications</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Categories</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Audit Logs</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Response Templates</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>CORS</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Virtual Hosts</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Failover</td><td>✅</td><td>✅</td><td>⚠️ Depends on use case</td></tr><tr><td>Health Check</td><td>✅</td><td>✅</td><td>🚫</td></tr><tr><td>Health Check Dashboard</td><td>✅</td><td>🚫</td><td>🚫</td></tr><tr><td>Improved Policy Studio</td><td>🚫</td><td>✅</td><td>✅</td></tr><tr><td>Debug Mode</td><td>✅</td><td>🚫</td><td>🚫</td></tr><tr><td>Plans</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Subscriptions</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Messages / Broadcasts</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Documentation - Markdown</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Documentation - OAS</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Documentation - AsyncAPI</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Documentation - AsciiDoc</td><td>✅</td><td>🚫</td><td>🚫</td></tr><tr><td>Documentation - Home Page</td><td>✅</td><td>⚠️ Set via API</td><td>✅</td></tr><tr><td>Documentation - Metadata</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Documentation - Translations</td><td>✅</td><td>🚫</td><td>🚫</td></tr><tr><td>Documentation - Group Access Control</td><td>✅</td><td>🚫</td><td>🚫</td></tr><tr><td>Documentation - Role Access Control</td><td>✅</td><td>🚫</td><td>🚫</td></tr><tr><td>Documentation - Swagger vs. Redoc Control</td><td>✅</td><td>🚫</td><td>🚫</td></tr><tr><td>Documentation - Try It Configuration</td><td>✅</td><td>🚫</td><td>🚫</td></tr><tr><td>Documentation - Nested Folder Creation</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Terms &#x26; Conditions on a Plan</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Sharding Tags</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Deployment History</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Rollback</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Compare API to Previous Versions</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Analytics</td><td>✅</td><td>⚠️ WIP</td><td>⚠️ WIP</td></tr><tr><td>Custom Dashboards</td><td>✅</td><td>🚫</td><td>🚫</td></tr><tr><td>Path Mappings</td><td>✅</td><td>🚫</td><td>🚫</td></tr><tr><td>Logs</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>API Quality</td><td>✅</td><td>🚫</td><td>🚫</td></tr><tr><td>API Review</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Export API as Gravitee def (+options)</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Export API as GKO spec</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Import API from Gravitee def (+options)</td><td>✅</td><td>✅</td><td>✅</td></tr></tbody></table>
 
 ## The new Gravitee API Developer Portal (Tech preview) (EE only)
 
@@ -203,17 +197,15 @@ Gravitee’s protocol mediation enables teams to expose message and event-based 
 * Webhooks
 * SSE
 
+Gravitee 4.4 introduces a new backend endpoint, Azure Service Bus. Now, you can expose events and messages from Azure Service Bus via the already-existing API entrypoints.
 
-
-Gravitee 4.4 introduces a new backend endpoint, Azure Service Bus. Now, you can expose events and messages from Azure Service Bus via the already-existing API entrypoints.&#x20;
-
-<figure><img src="../../.gitbook/assets/Screenshot 2024-06-24 at 5.14.21 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Screenshot 2024-06-24 at 5.14.21 PM (1).png" alt=""><figcaption></figcaption></figure>
 
 We’ve also introduced a UI/UX improvement to the Developer Portal. As the API Publisher, you can now define the order in which your APIs are presented to your API consumers. This is all done on a per-category basis.
 
 ### Add token option to body of MAPI token exchange endpoint
 
-If you’re using JWT authorization, you can now configure the token for the MAPI token exchange endpoint in the request body in addition to the head body.&#x20;
+If you’re using JWT authorization, you can now configure the token for the MAPI token exchange endpoint in the request body in addition to the head body.
 
 ### Support for 500 responses in DLQ
 
@@ -221,7 +213,7 @@ In Gravitee, the Dead letter queue (DLQ) functionality enables you to define a q
 
 ## Wrapping up
 
-Between Federated API Management, new message broker support, and a brand new Developer Portal, Gravitee API Management 4.4 is one of the largest, most exciting releases that we’ve pushed in a while. To learn more about the new functionality, please refer to the linked documentation throughout these release notes, and, if interested in any of the tech preview functionality, please work directly with your CSM (if you’re a Gravitee customer) or [book a demo with an Engineer](https://www.gravitee.io/demo) if you are not yet a Gravitee Enterprise user.&#x20;
+Between Federated API Management, new message broker support, and a brand new Developer Portal, Gravitee API Management 4.4 is one of the largest, most exciting releases that we’ve pushed in a while. To learn more about the new functionality, please refer to the linked documentation throughout these release notes, and, if interested in any of the tech preview functionality, please work directly with your CSM (if you’re a Gravitee customer) or [book a demo with an Engineer](https://www.gravitee.io/demo) if you are not yet a Gravitee Enterprise user.
 
 \
-\
+\\

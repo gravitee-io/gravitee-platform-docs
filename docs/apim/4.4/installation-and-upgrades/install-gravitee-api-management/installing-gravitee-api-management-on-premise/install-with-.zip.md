@@ -1,10 +1,10 @@
-# Installing Gravitee API Management With .ZIP
+# Installing Gravitee API Management with .ZIP
 
-## Before you begin&#x20;
+## Before you begin
 
 Your environment must be the following requirements:
 
-* You must install at least Java17.&#x20;
+* You must install at least Java17.
 * You must install MongoDB and Elasticsearch.
 * You must download the binaries of the Gravitee 4.x.x version that you plan to use. For more information about downloading the binaries, see[ Gravitee's download page](https://www.gravitee.io/downloads).
 
@@ -27,8 +27,6 @@ $ cp -r graviteeio-full-4.x.0/graviteeio-apim-gateway-4.x.0 [DESTINATION_FOLDER]
 
 * Replace \[DESTINATION\_FOLDER] with the folder where you want to store the archive.
 
-
-
 2. From the command line, run the APIM gateway using the following commands:
 
 ```sh
@@ -38,7 +36,7 @@ $ ./bin/gravitee
 
 * Replace \[DESTINATION\_FOLDER] with the folder location from step 1.
 
-If you installed the APIM gateway correctly, you see the logs.&#x20;
+If you installed the APIM gateway correctly, you see the logs.
 
 3. To ensure that the APIM Gateway is running correctly, send a GET request using the following command:
 
@@ -50,7 +48,7 @@ If you installed the APIM Gateway correctly, the request returns the following m
 
 4.  To run the APIM gateway as a daemon, complete the following sub-steps:
 
-    a.  On the command line, specify \`-d\`, and then record the process ID in a file using the following command:
+    a. On the command line, specify \`-d\`, and then record the process ID in a file using the following command:
 
 ```sh
 ./bin/gravitee -d -p=/var/run/gio.pid
@@ -58,13 +56,13 @@ If you installed the APIM Gateway correctly, the request returns the following m
 
 You can find log messages in the `$GRAVITEE_HOME/logs/` directory.
 
-&#x20;       b. To stop the APIM Gateway, kill the process that is recorded in the `pid` file using the following command:&#x20;
+b. To stop the APIM Gateway, kill the process that is recorded in the `pid` file using the following command:
 
 ```sh
 kill `cat /var/run/gio.pid`
 ```
 
-### API Management Gateway directory structure
+#### API Management Gateway directory structure
 
 The `.zip` and `.tar.gz` packages are entirely self-contained. By default, all files and directories are contained within `$GRAVITEE_HOME`. You created this directory created when extracting the archive.
 
@@ -86,8 +84,6 @@ $ cp -r graviteeio-full-4.x.0/graviteeio-apim-rest-api-4.x.0 [DESTINATION_FOLDER
 ```
 
 * Replace \[DESTINATION\_FOLDER] with the folder where you want to store the archive.
-
-
 
 2. From the command line, run the APIM API using the following command:
 
@@ -128,7 +124,7 @@ You will receive a response similar to the following example:
 
 5.  To run the APIM gateway as a daemon, complete the following sub-steps:
 
-    a.  On the command line, specify `-d`, and then record the process ID in a file using the following command:
+    a. On the command line, specify `-d`, and then record the process ID in a file using the following command:
 
 ```sh
 ./bin/gravitee -d -p=/var/run/gio.pid
@@ -140,7 +136,7 @@ You will receive a response similar to the following example:
 kill `cat /var/run/gio.pid`
 ```
 
-### Management API directory structure
+#### Management API directory structure
 
 The `.zip` and `.tar.gz` packages are entirely self-contained. By default, all files and directories are contained within `$GRAVITEE_HOME`. You created this directory created when extracting the archive.
 
@@ -156,11 +152,11 @@ The `.zip` and `.tar.gz` packages are entirely self-contained. By default, all f
 {% endtab %}
 
 {% tab title="Management Console" %}
-### Prerequisites
+#### Prerequisites
 
 You must install the Management API. To install the Management API, switch to the Management API tab.
 
-### Installing the Management Console
+#### Installing the Management Console
 
 1. Extract the `.zip` archive using the following commands:
 
@@ -171,13 +167,11 @@ $ cp -r graviteeio-full-4.x.0/graviteeio-apim-console-ui-4.x.0 [DESTINATION_FOLD
 
 * Replace \[DESTINATION\_FOLDER] with the folder where you want to store the archive.
 
-
-
 2. You can deploy the Management Console or you can run the Management Console by completing the following sub steps:
 
-&#x20;        a. To deploy the Management Console, use any HTTP server. For example, Apache or        Nginx.
+a. To deploy the Management Console, use any HTTP server. For example, Apache or Nginx.
 
-&#x20;        b. Run the Management Console with Python using the following command:
+b. Run the Management Console with Python using the following command:
 
 ```sh
 $ cd [DESTINATION_FOLDER]/graviteeio-apim-console-ui-4.x.0
@@ -186,7 +180,7 @@ $ python3 -m http.server
 
 * Replace \[DESTINATION\_FOLDER] with the folder location from step 1.
 
-&#x20;        c. Run the Management Console with Node.js with the following request:
+c. Run the Management Console with Node.js with the following request:
 
 ```bash
 $ npm install http-server -g
@@ -198,11 +192,11 @@ $ http-server
 {% endtab %}
 
 {% tab title="Developer Portal" %}
-### Prerequisites
+#### Prerequisites
 
-You must install the Management API. To install the Management API, switch to the  Management API tab.
+You must install the Management API. To install the Management API, switch to the Management API tab.
 
-### Installing the Developer Portal
+#### Installing the Developer Portal
 
 1. Extract the `.zip` archive using the following commands:
 
@@ -213,13 +207,11 @@ $ cp -r graviteeio-full-4.1.0/graviteeio-apim-portal-ui-4.x.0 [DESTINATION_FOLDE
 
 * Replace \[DESTINATION\_FOLDER] with the folder where you want to store the archive.
 
-
-
 2. You can deploy or run the Developer Portal using the following steps:
 
-&#x20;       a.  Deploy the Developer Portal using any HTTP server. For example, Apache or Nginx.
+a. Deploy the Developer Portal using any HTTP server. For example, Apache or Nginx.
 
-&#x20;       b.  Run the Developer Portal with Node.js using the following command:
+b. Run the Developer Portal with Node.js using the following command:
 
 ```sh
 $ npm install angular-http-server -g
