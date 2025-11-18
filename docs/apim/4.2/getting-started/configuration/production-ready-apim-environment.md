@@ -10,17 +10,17 @@ description: >-
 
 The default settings created during APIM installation can be useful for testing your new instance. However, some may not be suitable for a production environment, where security is more of a consideration.
 
-This guide highlights the APIM settings that require special attention while you prepare to move to a production environment. The following high-level checklist links to the details of how and why you would enforce each list item.&#x20;
+This guide highlights the APIM settings that require special attention while you prepare to move to a production environment. The following high-level checklist links to the details of how and why you would enforce each list item.
 
 {% hint style="warning" %}
 **Configuring APIM**
 
-APIM includes many other configuration options and every environment is unique. However you configure new settings (via the `gravitee.yml` file, APIM Console, or environment and system variables) it is important to understand that one configuration type can override another. [Configure APIM Gateway](the-gravitee-api-gateway/README.md) gives a good overview of this topic.
+APIM includes many other configuration options and every environment is unique. However you configure new settings (via the `gravitee.yml` file, APIM Console, or environment and system variables) it is important to understand that one configuration type can override another. [Configure APIM Gateway](the-gravitee-api-gateway/) gives a good overview of this topic.
 {% endhint %}
 
 ## Security checklist
 
-Review and amend the following before going into production and exposing your APIs.&#x20;
+Review and amend the following before going into production and exposing your APIs.
 
 {% hint style="info" %}
 The objective is not to apply all of the recommendations, but to ensure that all configurations have been made with caution.
@@ -158,7 +158,7 @@ http:
       enabled: true
 ```
 
-The Console REST API will remain inaccessible to the outside world if you decide to make your Developer Portal reachable from outside of your company. However, Gravitee recommends that you do not expose your Console or Developer Portal publicly if there is no particular business requirement.&#x20;
+The Console REST API will remain inaccessible to the outside world if you decide to make your Developer Portal reachable from outside of your company. However, Gravitee recommends that you do not expose your Console or Developer Portal publicly if there is no particular business requirement.
 
 Refer to the [Gravitee documentation](https://documentation.gravitee.io/apim/configure-and-manage-the-platform/management-api/mapi-internal-api) for more information about Console and Portal APIs.
 
@@ -443,31 +443,25 @@ Perform the following steps in APIM Console to update the most common default se
     1. Select **Settings** in the inner sidebar.
     2. Update the **Company name.**
 
-    <figure><img src="../../.gitbook/assets/Screenshot 2023-07-11 at 3.34.14 PM.png" alt=""><figcaption><p>Portal settings</p></figcaption></figure>
+    <figure><img src="../../../../../.gitbook/assets/prod_def apim1 (1).png" alt=""><figcaption><p>Portal settings</p></figcaption></figure>
 4.  In the **Gateway** section:
 
     1. Select **API Logging**.
     2. Update the maximum logging duration for APIM API logging to avoid flooding. In this example, we have configured a logging duration of 15 minutes:
 
-    <figure><img src="../../.gitbook/assets/Screenshot 2023-07-11 at 3.42.12 PM.png" alt=""><figcaption><p>API logging settings</p></figcaption></figure>
+    <figure><img src="../../../../../.gitbook/assets/prod_def apim2 (1).png" alt=""><figcaption><p>API logging settings</p></figcaption></figure>
 5. Select **Organization** in the main sidebar:
    1.  In the **Gateway** section:
 
        1. Select **Sharding Tags**.
        2. In the **Entrypoint mappings** section of the page, update the **Entrypoint** field with your APIM API endpoint.
 
-
-
-       <figure><img src="../../.gitbook/assets/Screenshot 2023-07-11 at 3.38.19 PM.png" alt=""><figcaption><p>Save sharding tag</p></figcaption></figure>
+       <figure><img src="../../../../../.gitbook/assets/prod_def apim3 (1).png" alt=""><figcaption><p>Save sharding tag</p></figcaption></figure>
    2. Select **Settings** in the inner sidebar:
       * Update the **Title** of APIM Console to make it more appropriate to your own environment.
       * Update the **Management URL** to your APIM Console URL.
 
-<div align="right" data-full-width="true">
-
-<figure><img src="../../.gitbook/assets/Screenshot 2023-07-11 at 3.31.13 PM.png" alt="" width="563"><figcaption><p>Organization settings</p></figcaption></figure>
-
-</div>
+<div align="right" data-full-width="true"><figure><img src="../../../../../.gitbook/assets/prod_def apim4 (1).png" alt="" width="563"><figcaption><p>Organization settings</p></figcaption></figure></div>
 
 #### Portal & Console default Nginx security config
 

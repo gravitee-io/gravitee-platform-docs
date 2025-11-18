@@ -20,7 +20,7 @@ Gravitee 4.2 offers a set of `secret-provider` plugins that enable Secret Manage
 
 * Extend the operable range Secret Managers to resolve and watch secrets
 * Retrieve sensitive information (passwords, x509 pairs, etc.) from Secret Managers to ensure this information does not appear in clear text
-* Manage connections, retries, and credentials renewal when connecting to Secret Managers.&#x20;
+* Manage connections, retries, and credentials renewal when connecting to Secret Managers.
 
 Two `secret-provider` plugins are available for Gravitee Gateway, Management API, and Access Management:
 
@@ -31,7 +31,7 @@ For more information, refer to [Secret Providers](../../getting-started/configur
 
 ## API Documentation
 
-The Management Console now includes the [API Documentation](../../guides/api-configuration/v4-api-configuration/documentation.md) capability to introduce consumers to an API and provide instructions for how to use it.&#x20;
+The Management Console now includes the [API Documentation](../../guides/api-configuration/v4-api-configuration/documentation.md) capability to introduce consumers to an API and provide instructions for how to use it.
 
 Folders can be added to organize the documentation structure, and pages of Markdown content can be created in any directory. You can choose the visibility of each folder and page:
 
@@ -40,23 +40,23 @@ Folders can be added to organize the documentation structure, and pages of Markd
 
 The Documentation feature includes **Actions** associated with each folder or page entry to edit, delete, publish/unpublish, or reorder content.
 
-<figure><img src="../../.gitbook/assets/docs_editing.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/docs_editing (1).png" alt=""><figcaption></figcaption></figure>
 
 When published, documentation is accessible via the Developer Portal.
 
-<figure><img src="../../.gitbook/assets/docs_dev portal docs (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/docs_dev portal docs (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Logging
 
-[API-level logging](broken-reference) is now supported for both v4 proxy APIs and v4 message APIs. Logging options can be configured in the Management Console and include the ability to record data based on content and whether information is associated with an entrypoint, endpoint, request, and/or response.&#x20;
+[API-level logging](broken-reference/) is now supported for both v4 proxy APIs and v4 message APIs. Logging options can be configured in the Management Console and include the ability to record data based on content and whether information is associated with an entrypoint, endpoint, request, and/or response.
 
-Message-level logging also offers message sampling, which can be configured either in the Console or via `gravitee.yaml`. The `gravitee.yaml` file's `messageSampling` configuration option determines, for each message sampling method, whether it can be used, its default value, and its max value.&#x20;
+Message-level logging also offers message sampling, which can be configured either in the Console or via `gravitee.yaml`. The `gravitee.yaml` file's `messageSampling` configuration option determines, for each message sampling method, whether it can be used, its default value, and its max value.
 
 By configuring the API logging methods, a Gravitee administrator can restrict the type of message sampling in use and control the pressure it puts on the Gateway, and Gravitee can restrict the type and scale of sampling used in cloud environments.
 
 ## Multi-tenancy
 
-Gravitee 4.2 upgrades to APIM and Cockpit implement support for [multi-tenancy](../../getting-started/install-and-upgrade-guides/multi-tenancy.md). In Gravitee, a multi-tenant configuration is defined as a single APIM installation connected to multiple Cockpit Organizations and Environments, where features and data are isolated between tenants and dedicated URLs are used to access the APIM components and APIs deployed on Gravitee Gateways.&#x20;
+Gravitee 4.2 upgrades to APIM and Cockpit implement support for [multi-tenancy](../../getting-started/install-and-upgrade-guides/multi-tenancy.md). In Gravitee, a multi-tenant configuration is defined as a single APIM installation connected to multiple Cockpit Organizations and Environments, where features and data are isolated between tenants and dedicated URLs are used to access the APIM components and APIs deployed on Gravitee Gateways.
 
 <figure><img src="https://slabstatic.com/prod/uploads/6lql0jy7/posts/images/mNhfcqTUgEOXngJNcAcdIf1o.png" alt=""><figcaption><p>Typical multitenant setup</p></figcaption></figure>
 
@@ -74,7 +74,7 @@ To learn more about TCP proxy support and how to create TCP proxy APIs, refer to
 
 ### HTTP POST
 
-The HTTP POST entrypoint now supports initiating an empty message flow that gives policies full access to the context (i.e., to construct messages with metadata, headers, etc.) whenever the POST request is made to the entrypoint.&#x20;
+The HTTP POST entrypoint now supports initiating an empty message flow that gives policies full access to the context (i.e., to construct messages with metadata, headers, etc.) whenever the POST request is made to the entrypoint.
 
 For more information, see [HTTP POST in Entrypoint Configuration](../../guides/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints/http-post.md#http-post).
 
@@ -105,18 +105,18 @@ For more information, see [RabbitMQ in Endpoint Configuration](../../guides/api-
 
 #### Topics
 
-In addition to explicitly specifying a list of consumed Kafka topics that can be set in the API, the user can now set a wildcard for the consumed topics on the Kafka endpoint. The Kafka consumer automatically detects, adds, and removes topics that match the provided pattern.&#x20;
+In addition to explicitly specifying a list of consumed Kafka topics that can be set in the API, the user can now set a wildcard for the consumed topics on the Kafka endpoint. The Kafka consumer automatically detects, adds, and removes topics that match the provided pattern.
 
 When creating or configuring a v4 message API with a Kafka endpoint, the user can select either **Specify List of Topics** or **Specify Topic Expression**, then enter the information appropriate to the selection:
 
 * **Specify List of Topics:** The topic(s) from which your Gravitee Gateway client will consume messages.
-* **Specify Topic Expression:** A single Java regular expression.  to consume only messages from Kafka topics that match the expression.
+* **Specify Topic Expression:** A single Java regular expression. to consume only messages from Kafka topics that match the expression.
 
 For more information, see [Kafka in Endpoint Configuration](../../guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/kafka.md#kafka).
 
 #### SASL OAUTHBEARER
 
-To facilitate support for SASL OAUTHBEARER, the Kafka endpoint plugin includes a [login callback handler for token retrieval](https://docs.confluent.io/platform/current/kafka/authentication\_sasl/authentication\_sasl\_oauth.html#login-callback-handler-for-token-retrieval). This handler is configured using the following JAAS configuration:
+To facilitate support for SASL OAUTHBEARER, the Kafka endpoint plugin includes a [login callback handler for token retrieval](https://docs.confluent.io/platform/current/kafka/authentication_sasl/authentication_sasl_oauth.html#login-callback-handler-for-token-retrieval). This handler is configured using the following JAAS configuration:
 
 ```
 "org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginModule required access_token=\"<ACCESS_TOKEN>\";"
@@ -134,4 +134,4 @@ The `groovy` policy has been enhanced to support message-level definitions. This
 
 ## Datadog
 
-(Enterprise-only) Datadog reporter support now extends to v4 APIs. v4 API metrics and monitoring data can be exported to a Datadog instance to ensure a comprehensive observability strategy. To learn more about reporters, check out [this section](../../getting-started/configuration/reporters/README.md).
+(Enterprise-only) Datadog reporter support now extends to v4 APIs. v4 API metrics and monitoring data can be exported to a Datadog instance to ensure a comprehensive observability strategy. To learn more about reporters, check out [this section](../../getting-started/configuration/reporters/).

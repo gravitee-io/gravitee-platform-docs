@@ -7,7 +7,7 @@
 
 As of Gravitee 4.1, the ability to create APIs with message API entrypoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise Edition and what's included in various enterprise packages, please:
 
-* [Refer to the EE vs OSS documentation](../../../../../overview/gravitee-apim-enterprise-edition/README.md)
+* [Refer to the EE vs OSS documentation](../../../../../overview/gravitee-apim-enterprise-edition/)
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
@@ -26,7 +26,7 @@ To access entrypoint configuration, go to the **API** page in the Developer Port
 
 Here, you can choose to enable or disable virtual hosts. Enabling virtual hosts requires you to define your virtual host and optionally enable override access.
 
-<figure><img src="../../../../../.gitbook/assets/virtual host_on message.png" alt=""><figcaption><p>v4 message API entrypoint configuration</p></figcaption></figure>
+<figure><img src="../../../../../../../../.gitbook/assets/virtual host_on message (1).png" alt=""><figcaption><p>v4 message API entrypoint configuration</p></figcaption></figure>
 
 Next, depending on which entrypoint(s) your API utilizes, specific entrypoint configuration may differ. Click on the tiles below for the configuration details of each specific entrypoint.
 
@@ -37,5 +37,5 @@ You can also add an entrypoint to your API by clicking **Add an entrypoint.** Fr
 When you are done configuring your entrypoints, make sure to select **Save changes.**
 
 {% hint style="info" %}
-For more detailed information on Gravitee entrypoints, see the [Entrypoint Reference](../../../../../reference/entrypoint-reference/README.md) documentation.
+For more detailed information on Gravitee entrypoints, see the [Entrypoint Reference](../../../../../reference/entrypoint-reference/) documentation.
 {% endhint %}
