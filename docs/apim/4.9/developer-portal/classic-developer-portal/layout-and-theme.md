@@ -119,7 +119,7 @@ Administrators can customize the header and footer navigation of the Developer P
 * Link to an existing documentation page
 * Link to a category
 
-Each link is treated as a new documentation page. To learn about the features and functionality of Developer Portal documentation, see [Documentation](broken-reference/).
+Each link is treated as a new documentation page. To learn about the features and functionality of Developer Portal documentation, see [Documentation](../../create-and-configure-apis/configure-v4-apis/documentation.md).
 
 {% tabs %}
 {% tab title="System folders" %}
@@ -160,7 +160,7 @@ To view your new link, click **Save** and navigate to the Developer Portal:
 
 <figure><img src="../../../../../.gitbook/assets/dev_portal_custom_link_example (1).png" alt=""><figcaption><p>Sample "Gravitee Homepage" custom link</p></figcaption></figure>
 
-Each custom link offers additional features such as translations and access control. See [Documentation](broken-reference/) for more information.
+Each custom link offers additional features such as translations and access control. See [Documentation](../../create-and-configure-apis/configure-v4-apis/documentation.md) for more information.
 {% endtab %}
 {% endtabs %}
 
@@ -193,7 +193,7 @@ The top menu includes the following options:
 
 ### Basic customization
 
-<table><thead><tr><th width="157.5">Property</th><th>Use case</th></tr></thead><tbody><tr><td>Images</td><td>Show logos. Optional logo is used for the homepage and the footer. Using the default logo overrides the optional logo.</td></tr><tr><td>Homepage</td><td>Add a Homepage background image.</td></tr><tr><td>Colors</td><td>Define primary, neutral, and font colors.</td></tr><tr><td>Fonts</td><td>Choose font family and sizes. Medium sizes are used by default. For more information about Fonts, see <a data-mention href="broken-reference/">broken-reference</a></td></tr></tbody></table>
+<table><thead><tr><th width="157.5">Property</th><th>Use case</th></tr></thead><tbody><tr><td>Images</td><td>Show logos. Optional logo is used for the homepage and the footer. Using the default logo overrides the optional logo.</td></tr><tr><td>Homepage</td><td>Add a Homepage background image.</td></tr><tr><td>Colors</td><td>Define primary, neutral, and font colors.</td></tr><tr><td>Fonts</td><td>Choose font family and sizes. Medium sizes are used by default. For more information about Fonts, see <a data-mention href="layout-and-theme.md">layout-and-theme.md</a></td></tr></tbody></table>
 
 #### Fonts
 
