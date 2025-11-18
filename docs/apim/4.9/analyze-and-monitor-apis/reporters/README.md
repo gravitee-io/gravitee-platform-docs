@@ -82,7 +82,7 @@ By default, reporters generate the following data, with the camelCase format sho
 
 ## Log Data Sent via Reporters
 
-In addition to metrics, the gateway can send additional log messages about API execution to the target reporting system. The content of the logs depends on how [logging is configured](broken-reference) for the API, and whether the API is a v2 or v4 API. There are also separate log messages generated for v4 request and response phases as well as message-level logging (which uses sampling). The contents of the logs are as follows:
+In addition to metrics, the gateway can send additional log messages about API execution to the target reporting system. The content of the logs depends on how [logging is configured](../logging.md) for the API, and whether the API is a v2 or v4 API. There are also separate log messages generated for v4 request and response phases as well as message-level logging (which uses sampling). The contents of the logs are as follows:
 
 {% tabs %}
 {% tab title="v4 Logs" %}
@@ -354,7 +354,7 @@ When using e.g. the File Reporter with Elasticsearch format, here is a sample of
 The reporters are configured in the `gravitee.yml`configuration file for the **gateway**. Each reporter has its own unique configuration. Consult the documentation for each reporter for details on how to configure it. Elasticsearch is used by default.
 
 {% hint style="info" %}
-If you wish to use a reporter not included in the default distribution, you must first add the reporter as a plugin. Refer to the [Plugins](../../plugins/README.md) guide to learn more.
+If you wish to use a reporter not included in the default distribution, you must first add the reporter as a plugin. Refer to the [Plugins](../../plugins/) guide to learn more.
 {% endhint %}
 
 Each reporter has a section for configuring field exclusions and, depending on reporter type, field inclusion. Each log and metric section above has a naming convention for how it appears in field inclusion and exclusion lists, which is as follows:
