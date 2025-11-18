@@ -8,7 +8,7 @@ description: >-
 
 ## Before you begin
 
-* You must have a subscription to Gravitee Cloud. To register for a Gravitee Cloud account or to sign in to your Gravitee Cloud account, go to [Gravitee Cloud](https://eu-auth.cloud.gravitee.io/cloud/register?response_type=code\&client_id=fd45d898-e621-4b12-85d8-98e621ab1237\&state=TG15Ym11b3VBfkZFOC5yaEV5Lkp4QThYLnlxTS45R3lhYWRCVmxBemxSUWFH\&redirect_uri=https%3A%2F%2Feu.cloud.gravitee.io\&scope=openid+profile+email+offline_access\&code_challenge=AFIIIryTl43nsxq8cT-FTU9Umfp42j7jhJTeU2Y6vhE\&code_challenge_method=S256\&nonce=TG15Ym11b3VBfkZFOC5yaEV5Lkp4QThYLnlxTS45R3lhYWRCVmxBemxSUWFH\&hubspotutk=169d02e0ddc1d02ed3202bcac0869f20).
+* You must have a subscription to Gravitee Cloud. To register for a Gravitee Cloud account or to sign in to your Gravitee Cloud account, go to [Gravitee Cloud](https://cockpit.gravitee.io/).
 * You must deploy a Gravitee Hosted Gateway for at least one environment.
 * You must have access to your domain registrar to register a CNAME record.
 

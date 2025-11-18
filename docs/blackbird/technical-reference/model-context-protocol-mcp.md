@@ -102,7 +102,7 @@ Before following the example workflow, ensure you meet the following requirement
 
 * You installed the Blackbird CLI. For more information, see [#getting-started-with-the-blackbird-cli](blackbird-cli/#getting-started-with-the-blackbird-cli "mention").
 * You installed Docker and it's actively running. For more information, see [Get Docker](https://docs.docker.com/get-started/get-docker/).
-* You installed the Cursor MCP client. For more information, see Download [Cursor](https://www.cursor.com/en/downloads).
+* You installed the Cursor MCP client. For more information, see Download [Cursor](https://cursor.com/).
 
 **To host a GitHub MCP server:**
 
