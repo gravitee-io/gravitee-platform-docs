@@ -1,6 +1,6 @@
 # Release Notes
 
-This section contains an overview of the new features in Gravitee Cloud's releases. For information about the releases, see the following articles:&#x20;
+This section contains an overview of the new features in Gravitee Cloud's releases. For information about the releases, see the following articles:
 
 ## May 2025
 
@@ -8,7 +8,7 @@ This section contains an overview of the new features in Gravitee Cloud's releas
 
 <summary>15th May</summary>
 
-## Adding Environments
+### Adding Environments
 
 You can now request more environments in Gravitee Cloud to map out your specific organization. For more information about linking additional environments to your account, contact Gravitee. To learn more about how to add a new environment after it is linked, see [add-environments.md](../guides/add-environments.md "mention").
 
@@ -34,7 +34,7 @@ For more information, see the [Custom Domains](../guides/custom-domains.md) docu
 
 <summary>6th November</summary>
 
-## Cloud Hosted Gateways
+### Cloud Hosted Gateways
 
 We’re thrilled to introduce **Cloud Hosted Gateways** for Gravitee Cloud API Management! With Cloud Hosted Gateways, Gravitee takes care of the setup and maintenance for your gateway environments, allowing you to focus on managing your APIs effortlessly.
 
@@ -56,13 +56,12 @@ Deploying a Cloud Hosted Gateway takes just a few minutes. Simply navigate to yo
 
 <summary>28th September</summary>
 
-## Hybrid Gateways
+### Hybrid Gateways
 
 You can now, in a simple self-serve, manned deploy self-hosted hybrid gateways to your Gravitee Cloud API Management environments.\
 \
 Configuration will be synced securely from Cloud Gate components, and transactional analytics data will be sent from the gateway to your dedicated analytics index. So it can be viewed in detail in the API Management Control Plane Dashboard.\
 \
-Read more about the feature [here](broken-reference).
+Read more about the feature [here](https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/hybrid-installation-and-configuration-guides).
 
 </details>
-

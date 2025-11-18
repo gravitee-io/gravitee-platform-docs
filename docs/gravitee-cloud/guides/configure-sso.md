@@ -28,14 +28,14 @@ Once the end user chooses to sign in to Cockpit with SSO, they will be asked to 
 It is recommended that the Account Primary Owner be a non-SSO user so that the Cockpit Account can always be recovered. Only the Account Primary Owner can configure Single Sign On.
 {% endhint %}
 
-1.  Select **Settings** from the left sidebar, choose **Single Sign On**, and click **Configure**&#x20;
+1.  Select **Settings** from the left sidebar, choose **Single Sign On**, and click **Configure**
 
-    <figure><img src="../.gitbook/assets/sso_settings.png" alt=""><figcaption><p>Go to Settings to find Single Sign On</p></figcaption></figure>
-2.  Enter an email domain in **Set domain realm** to specify how users should be authenticated when they sign in with an email address&#x20;
+    <figure><img src="../.gitbook/assets/image (14) (1).png" alt=""><figcaption><p>Go to Settings to find Single Sign On</p></figcaption></figure>
+2.  Enter an email domain in **Set domain realm** to specify how users should be authenticated when they sign in with an email address
 
     <figure><img src="../.gitbook/assets/sso_set domain realm.png" alt=""><figcaption><p>Set the email domain that correctly redirects users</p></figcaption></figure>
 3. Create an Oauth client in your IdP that supports the Authorization Code Flow. If you are using Gravitee Access Management, you can follow [this guide](https://documentation.gravitee.io/am/guides/applications) to configure an OAuth client application.
-4.  Enter the details of your Oauth client in **Set up Oauth/ OpenID Connect configuration**&#x20;
+4.  Enter the details of your Oauth client in **Set up Oauth/ OpenID Connect configuration**
 
     <figure><img src="../.gitbook/assets/sso_set up.png" alt=""><figcaption><p>Add the details of the OAuth client configured in your IdP</p></figcaption></figure>
 5. Ensure the **OpenID**, **Profile**, and **Email** scopes are enabled in your OAuth client so that Cockpit will receive all user attributes (claims) necessary to create the user profile\
@@ -43,21 +43,20 @@ It is recommended that the Account Primary Owner be a non-SSO user so that the C
    In order to fully build the user profile in Cockpit, the claims `email`, `family_name` and `given_name` must be present in the token. This should be the case if your IdP conforms to OpenID Connect standard scope `email` and `profile`. But please verify as each IdP may behave differently
 6.  In the **User information source** section, select either of the following options to retrieve the user profile information from:
 
-    * ID Token&#x20;
-    * UserInfo Endpoint\
+    * ID Token
+    * UserInfo Endpoint\\
 
+    \{% hint style="info" %\}
 
-    {% hint style="info" %}
-    - If you use the Identity provider, Okta, you must select UserInfo Endpoint.
-    - If the firstname and lastname are set to `null` , you must select UserInfo Endpoint.
-    {% endhint %}
-7. Click **Create Redirect URI**&#x20;
+    * If you use the Identity provider, Okta, you must select UserInfo Endpoint.
+    * If the firstname and lastname are set to `null` , you must select UserInfo Endpoint. \{% endhint %\}
+7. Click **Create Redirect URI**
 
-<figure><img src="../.gitbook/assets/sso_scopes.png" alt=""><figcaption><p>Consent to enabling OpenID, Profile and Email scopes in your OAuth client</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (1).png" alt=""><figcaption><p>Consent to enabling OpenID, Profile and Email scopes in your OAuth client</p></figcaption></figure>
 
-1.  The next screen presents the generated redirect URI. This is the endpoint that your IdP will send users back from once they have successfully authenticated. Copy this value and update the redirect URI on the OAuth client in your IdP.&#x20;
+1.  The next screen presents the generated redirect URI. This is the endpoint that your IdP will send users back from once they have successfully authenticated. Copy this value and update the redirect URI on the OAuth client in your IdP.
 
-    <figure><img src="../.gitbook/assets/sso_redirect uri.png" alt=""><figcaption><p>Generated redirect URI to update your IdP OAuth client</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (10) (1).png" alt=""><figcaption><p>Generated redirect URI to update your IdP OAuth client</p></figcaption></figure>
 
 {% hint style="success" %}
 Your users can now sign in to Cockpit with SSO!
