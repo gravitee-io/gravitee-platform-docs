@@ -4,7 +4,7 @@ description: This article walks through how to use the Gravitee v4 API creation 
 
 # v4 API creation wizard
 
-{% @arcade/embed flowId="IoH5bZLjSO6ce8UbgMmc" url="https://app.arcade.software/share/IoH5bZLjSO6ce8UbgMmc" %}
+{% @arcade/embed url="https://app.arcade.software/share/IoH5bZLjSO6ce8UbgMmc" flowId="IoH5bZLjSO6ce8UbgMmc" %}
 
 ## Introduction
 
@@ -21,7 +21,7 @@ The v4 API creation wizard makes it easy to create new Gateway APIs from scratch
 
 The API details step is where you can define a name, version number, and description for your API. The name and version number are required, but we also recommend giving your API a description so that it is more easily understood and managed by internal users.
 
-<figure><img src="../../../.gitbook/assets/Screen Shot 2023-03-15 at 12.38.10 PM.png" alt=""><figcaption><p>Step 1: define your Gateway API's basic details.</p></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/Screen Shot 2023-03-15 at 12.38.10 PM (1).png" alt=""><figcaption><p>Step 1: define your Gateway API's basic details.</p></figcaption></figure>
 
 ## Step 2: Entrypoints
 
@@ -35,14 +35,14 @@ The first part of the Entrypoints step is to choose how you want to expose your 
 {% hint style="info" %}
 The Gravitee documentation adopts concise terminology to differentiate between these API types:
 
-**Proxy API:** An API created using **Proxy upstream protocol**&#x20;
+**Proxy API:** An API created using **Proxy upstream protocol**
 
-**Message API:** An API created using **Introspect messages from event-driven backend**&#x20;
+**Message API:** An API created using **Introspect messages from event-driven backend**
 {% endhint %}
 
-What you choose will dictate the kinds of entrypoints and endpoints that you can select later on. For more in-depth information on the exact support that these two methods offer, please [refer to this documentation](../README.md#backend-exposure-methods).
+What you choose will dictate the kinds of entrypoints and endpoints that you can select later on. For more in-depth information on the exact support that these two methods offer, please [refer to this documentation](../#backend-exposure-methods).
 
-<figure><img src="../../../.gitbook/assets/Screen Shot 2023-06-08 at 8.39.02 AM.png" alt=""><figcaption><p>v4 API creation wizard: select how you want your backend service exposed</p></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/Screen Shot 2023-06-08 at 8.39.02 AM (1).png" alt=""><figcaption><p>v4 API creation wizard: select how you want your backend service exposed</p></figcaption></figure>
 
 After you choose your method of exposure, select **Select my API architecture,** and you'll be taken to the entrypoint selection screen. Please read the following content to learn more about entrypoint selection and configuration, based on your selected exposure method.
 
@@ -66,7 +66,7 @@ If you chose **Proxy upstream protocol**, your entrypoint will be an HTTP proxy.
 
 As of Gravitee 4.1, the ability to create APIs with message API entrypoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages:
 
-* [Refer to the EE vs OSS documentation](../../../overview/ee-vs-oss/README.md)
+* [Refer to the EE vs OSS documentation](../../../overview/ee-vs-oss/)
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
@@ -79,7 +79,7 @@ If you chose **Introspect messages from Event-driven backend**, you are presente
 * **Webhook**: Allows you to front a chosen backend or data source with a Gateway Webhook API. This allows consumers to subscribe to the Gravitee Gateway via Webhook and then retrieve streamed data in real-time from a backend data source, via the Gateway, over the consumer's Webhook callback URL.
 * **WebSocket**: Allows you to front a chosen backend or data source with a Gateway WebSocket API. This allows a consumer to retrieve and send streamed events and messages in real-time.
 
-<figure><img src="../../../.gitbook/assets/Screen Shot 2023-06-08 at 8.44.08 AM.png" alt=""><figcaption><p>v4 API creation wizard: event-driven backend entrypoints</p></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/Screen Shot 2023-06-08 at 8.44.08 AM (1).png" alt=""><figcaption><p>v4 API creation wizard: event-driven backend entrypoints</p></figcaption></figure>
 
 Once you select your entrypoints from the entrypoints page, additional configuration is required. The following sections outline the necessary configuration per entrypoint.
 
@@ -122,7 +122,7 @@ If you chose **Webhook** as an entrypoint, you will be brought to a page where y
 
 **DLQ Configuration**
 
-As of Gravtiee APIM 4.0, you can only configure DLQs and secure callbacks for your Webhook via the API definition.&#x20;
+As of Gravtiee APIM 4.0, you can only configure DLQs and secure callbacks for your Webhook via the API definition.
 
 **1. Set up DLQ**
 
@@ -248,16 +248,13 @@ Gateway endpoints define the protocol and configuration by which the Gateway API
 
 ### HTTP proxy endpoints
 
-If you chose the HTTP proxy option, your endpoint will be an HTTP proxy.&#x20;
+If you chose the HTTP proxy option, your endpoint will be an HTTP proxy.
 
 <details>
 
 <summary>Configure HTTP proxy endpoints</summary>
 
 * **Define your target URL:** Enter your target URL in the **Target URL** text field.
-
-<!---->
-
 * **Define your HTTP options:**
   * Choose to either allow or disallow h2c clear text upgrade by toggling **Allow h2c Clear Text Upgrade** ON or OFF.
     * You'll need to select the HTTP protocol version to use. HTTP/1.1 and HTTP/2 are supported.
@@ -271,9 +268,6 @@ If you chose the HTTP proxy option, your endpoint will be an HTTP proxy.&#x20;
   * Define the number of max concurrent connections by entering a numeric value or using the arrow keys in the text field.
   * Choose to propagate client Accept-Encoding header by toggling **Propagate client Accept-Encoding header (no decompression if any)** ON or OFF.
   * Select **+ Add HTTP headers** to add headers that the Gateway should add or override before proxying the request to the backend API.
-
-<!---->
-
 * **Define your Proxy options:**
   * Choose whether to use a proxy for client connections by toggling **Use proxy** ON of OFF.
     * If enabled, you will need to select from the proxy types in the **Proxy type** drop-down: **HTTP proxy**, **SOCKS4**, or **SOCKS5**.
@@ -282,13 +276,7 @@ If you chose the HTTP proxy option, your endpoint will be an HTTP proxy.&#x20;
     * **Proxy port:** Enter your proxy port in the text field.
     * (Optional) **Proxy username:** Enter your proxy username in the text field.
     * (Optional) **Proxy password:** Enter your proxy password in the text field.
-
-<!---->
-
 * **Define your SSL options**
-
-<!---->
-
 * **Define your keystore**
 
 </details>
@@ -297,7 +285,7 @@ The endpoint configuration will determine the endpoint group’s default configu
 
 By default, the endpoint group will be named **Default \<endpoint type> group** and the endpoint will be named **Default \<endpoint type>** as shown below:
 
-<figure><img src="../../../.gitbook/assets/default proxy endpoint names.png" alt=""><figcaption><p>Default proxy API endpoint names</p></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/default proxy endpoint names (1).png" alt=""><figcaption><p>Default proxy API endpoint names</p></figcaption></figure>
 
 ### **Introspect messages from event-driven backend endpoints**
 
@@ -306,7 +294,7 @@ By default, the endpoint group will be named **Default \<endpoint type> group** 
 
 As of Gravitee 4.1, the ability to create APIs with message API endpoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages:
 
-* [Refer to the EE vs OSS documentation](../../../overview/ee-vs-oss/README.md)
+* [Refer to the EE vs OSS documentation](../../../overview/ee-vs-oss/)
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
@@ -426,7 +414,7 @@ The **Kafka** endpoint allows the Gateway to open up a persistent connection and
 
 **Recovering Kafka messages**
 
-Kafka messages are acknowledged automatically or manually by the consumer to avoid consuming messages multiple times. To read previous messages requires specifying the offset at which the Kafka consumer should start consuming records and the entrypoint must support the **at-least-one** or **at-most-one** QoS.&#x20;
+Kafka messages are acknowledged automatically or manually by the consumer to avoid consuming messages multiple times. To read previous messages requires specifying the offset at which the Kafka consumer should start consuming records and the entrypoint must support the **at-least-one** or **at-most-one** QoS.
 
 As an example using SSE as an entrypoint, first define the QoS for the entrypoint:
 
@@ -483,7 +471,7 @@ Choosing the **Solace** endpoint enables the Gravitee Gateway to create an API t
   * **Retain settings:** Whether the retain flag must be set for every published message by toggling **Retained** ON or OFF. If enabled, the broker stores the last retained message.
   * **Message expiry interval:** Defines the period of time that the broker stores the PUBLISH message for any matching subscribers that are not currently connected. When no message expiry interval is set, the broker must store the message for matching subscribers indefinitely. When the `retained=true` option is set on the PUBLISH message, this interval also defines how long a message is retained on a topic.
   * **Response topic:** Represents the topics on which the responses from the message receivers are expected.
-* **Consumer settings** (if you chose **Use Consumer** or **Use Producer and Consumer**): Define the settings that the Gravitee Gateway Solace client will rely on to consume messages from your backend Solace topic/broker.&#x20;
+* **Consumer settings** (if you chose **Use Consumer** or **Use Producer and Consumer**): Define the settings that the Gravitee Gateway Solace client will rely on to consume messages from your backend Solace topic/broker.
   * Define the **Topic** from which the Gateway Solace client will consume messages.
   * Toggle Authentication configuration ON or OFF. When OFF, no further configuration is necessary. When ON, you will need to:
     * Define the username used for authentication.
@@ -501,7 +489,7 @@ The **RabbitMQ** endpoint allows the Gateway to open up a persistent connection 
 * **Server port**: define the port that RabbitMQ is using
 * How the Gateway will interact with RabbitMQ by instructing the Gravitee Gateway to act as either a producer, a consumer, or both a producer and consumer. Choose either **Use Consumer**, **Use Producer**, or **Use Consumer and Producer** from the drop-down menu to do one of the following:
   * **Use Producer:** tells the Gateway Gateway to be prepared to produce messages and send them to RabbitMQ that you define as your endpoint
-  * **Use Consumer:** tells the Gateway to be prepared to consume messages from  RabbitMQ that you define as your endpoint
+  * **Use Consumer:** tells the Gateway to be prepared to consume messages from RabbitMQ that you define as your endpoint
   * **Use Producer and Consumer:** tell the Gateway to be able to use both **Use Producer** and **Use Consumer** settings
 * **Authentication:** define the **username** and **password** for RabbitMQ authentication
 * **Producer settings** (if you chose **Use Producer** or **Use Producer and Consumer**): define the settings that the Gravitee Gateway Kafka client will rely on for producing messages to your backend Kafka topic/broker. You will need to define:
@@ -510,9 +498,6 @@ The **RabbitMQ** endpoint allows the Gateway to open up a persistent connection 
   * Enable or disable **Durable**
   * Enable or disable **Auto Delete**
   * **Routing Key**
-
-<!---->
-
 * **Consumer settings** (if you chose **Use Consumer** or **Use Producer and Consumer**): define the settings that the Gravitee Gateway Kafka client will rely on for consuming messages from your backend Kafka topic/broker. You will need to define:
   * **Exchange name**
   * **Exchange type**
@@ -526,7 +511,7 @@ The endpoint configuration will determine the endpoint group’s default configu
 
 By default, the endpoint group will be named **Default \<endpoint type> group** and the endpoint will be named **Default \<endpoint type>** as shown below:
 
-<figure><img src="../../../.gitbook/assets/default message endpoint names.png" alt=""><figcaption><p>Default message API endpoint names</p></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/default message endpoint names (1).png" alt=""><figcaption><p>Default message API endpoint names</p></figcaption></figure>
 
 ## Step 4: Security
 
@@ -546,7 +531,7 @@ A plan is essentially an access layer around an API that provides the API produc
 * **Keyless**: Aplan that results in no added security via plan configuration. This is considered an "Open" plan.
 * **Push plan**: A plan that provides an access layer for the Gateway pushing data to consumers. This is used for subscribers.
 
-<figure><img src="../../../.gitbook/assets/Screen Shot 2023-06-01 at 12.14.02 PM.png" alt=""><figcaption><p>API creation wizard: different Security plan types</p></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/Screen Shot 2023-06-01 at 12.14.02 PM (1).png" alt=""><figcaption><p>API creation wizard: different Security plan types</p></figcaption></figure>
 
 Depending on which plan you select, the configuration will differ. Please see the expandable sections below to learn more about how to configure each of the different plans.
 
@@ -560,9 +545,9 @@ To configure your OAuth2 plan, select OAuth2 from the **+Add plan** drop-down me
 * **Description**
 * **Characteristics**
 * **Subscription:** choose whether to auto-validate subscriptions, require a message from a consumer during subscription, and/or present a message to the consumer upon subscription.
-* **Access control:** select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../administration/README.md#users-and-user-groups).
+* **Access control:** select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../administration/#users-and-user-groups).
 
-<img src="../../../.gitbook/assets/image (37).png" alt="" data-size="original">
+<img src="../../../../../../.gitbook/assets/image (92) (1).png" alt="" data-size="original">
 
 Select Next to move on to **OAuth2 authentication configuration**. Here, you'll specify:
 
@@ -574,7 +559,7 @@ Select Next to move on to **OAuth2 authentication configuration**. Here, you'll 
 * Whether to permit authorization headers to target endpoints.
 * (Optional) Define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process. You will need to use the Gravitee Expression Language. For more information on the Gravitee Expression Language, please refer to the Expression Language documentation.
 
-<img src="../../../.gitbook/assets/image (51).png" alt="" data-size="original">
+<img src="../../../../../../.gitbook/assets/image (97) (1).png" alt="" data-size="original">
 
 Select Next to define any additional restrictions for the plan. These restrictions include:
 
@@ -587,7 +572,7 @@ Select Next to define any additional restrictions for the plan. These restrictio
 * **Quota:** define a rate limit over a period of hours, days, or months. If you choose this, you will need to define the same settings that are applicable to rate limiting (see above).
 * **Resource filtering:** restricts resources based on defined whitelist/allowed and/or blacklist/disallowed settings. These will be defined by path patterns and methods.
 
-<img src="../../../.gitbook/assets/image (43).png" alt="" data-size="original">
+<img src="../../../../../../.gitbook/assets/image (98) (1).png" alt="" data-size="original">
 
 </details>
 
@@ -601,7 +586,7 @@ If you chose **JWT**, you will need to specify general details, the authenticati
 * **Description**
 * **Characteristics**
 * **Subscription:** choose whether to auto-validate subscriptions, require a message from a consumer during subscription, and/or present a message to the consumer upon subscription.
-* **Access control:** select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../administration/README.md#users-and-user-groups).
+* **Access control:** select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../administration/#users-and-user-groups).
 
 Once you're done with your general details, select Next to define your JWT authentication configuration. This will require you to:
 
@@ -635,7 +620,7 @@ Select Next to define any restrictions associated with this plan. Your options i
 * **Quota:** define a rate limit over a period of hours, days, or months. If you choose this, you will need to define the same settings that are applicable to rate limiting (see above).
 * **Resource filtering:** restricts resources based on defined whitelist/allowed and/or blacklist/disallowed settings. These will be defined by path patterns and methods.
 
-<img src="../../../.gitbook/assets/image (44).png" alt="" data-size="original">
+<img src="../../../../../../.gitbook/assets/image (98) (1).png" alt="" data-size="original">
 
 </details>
 
@@ -649,7 +634,7 @@ If you chose API key, you will define general settings, the API key authenticati
 * **Description**
 * **Characteristics**
 * **Subscription:** choose whether to auto-validate subscriptions, require a message from a consumer during subscription, and/or present a message to the consumer upon subscription.
-* **Access control:** select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../administration/README.md#users-and-user-groups).
+* **Access control:** select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../administration/#users-and-user-groups).
 
 Select Next to be taken to the **API key authentication** configuration page. Here, you need to:
 
@@ -679,7 +664,7 @@ If you chose Keyless, you will only need to define general details and restricti
 * **Description**
 * **Characteristics**
 * **Subscription:** choose whether to auto-validate subscriptions, require a message from a consumer during subscription, and/or present a message to the consumer upon subscription.
-* **Access control:** select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../administration/README.md#users-and-user-groups).
+* **Access control:** select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../administration/#users-and-user-groups).
 
 Select Next to be taken to the **Restriction** page to define any additional restrictions that you want to be associated with your plan. Your options include:
 
