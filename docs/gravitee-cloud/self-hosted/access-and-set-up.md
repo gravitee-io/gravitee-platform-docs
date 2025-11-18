@@ -6,7 +6,7 @@ description: Learn how to access and set up Gravitee Cloud
 
 ## Access Gravitee Cloud
 
-To get started with Gravitee Cloud self-hosted profile, go to [Cloud by Gravitee](https://auth.gravitee.cloud/cockpit-master/login?response\_type=code\&client\_id=fd45d898-e621-4b12-85d8-98e621ab1237\&state=TEZfS1hZWG9acVAud1pTSGh5LmFaZWpVUk1oSHpUOFRONEhHOG5QUW1aX3VP\&redirect\_uri=https%3A%2F%2Fcockpit.gravitee.io\&scope=openid+profile+email+offline\_access\&code\_challenge=kNUNywiYXzFmDIVUkx3qhBTIChnw-CGRuufjRunG64I\&code\_challenge\_method=S256\&nonce=TEZfS1hZWG9acVAud1pTSGh5LmFaZWpVUk1oSHpUOFRONEhHOG5QUW1aX3VP\&hubspotutk=0abcd47d82b3e54eb89cf80bec22d3c4), and click the **Register** button. Set up your account as Self-hosted deployment.
+To get started with Gravitee Cloud self-hosted profile, go to [Cloud by Gravitee](https://cockpit.gravitee.io/), and click the **Register** button. Set up your account as Self-hosted deployment.
 
 ## Navigating Gravitee Cloud
 
