@@ -160,7 +160,7 @@ In V3 mode, when configuring Cross-Origin Resource Sharing (CORS) to allow some 
 
 #### New V4 policy execution engine mode
 
-In V4 mode, the allowed origin is returned instead of `*` - for example, `Access-Control-Allowed-Origin:` [`https://test.gravitee.io`](https://test.gravitee.io/).
+In V4 mode, the allowed origin is returned instead of `*` - for example, `Access-Control-Allowed-Origin:` `https://test.gravitee.io`.
 
 The example below shows the new behavior:
 
