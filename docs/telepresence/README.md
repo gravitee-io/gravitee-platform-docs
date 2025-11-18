@@ -242,28 +242,28 @@ We’ve now set up a local development environment for the DataProcessingService
 To update the color:
 
 1. Open `edgey-corp-python/DataProcessingService/app.py` in your editor and change `DEFAULT_COLOR` on line 15 from `blue` to `orange`. Save the file and the python server will auto reload.
-2. Now, visit [http://verylargejavaservice:8080](http://verylargejavaservice:8080) again in your browser and refresh. You will now see the <mark style="color:orange;">**orange**</mark> elements in the application.
+2. Now, visit `http://verylargejavaservice:8080` again in your browser and refresh. You will now see the <mark style="color:orange;">**orange**</mark> elements in the application.
 {% endtab %}
 
 {% tab title="NodeJS" %}
 To update the color:
 
 1. Open `edgey-corp-nodejs/DataProcessingService/app.js` in your editor and change line 6 from `blue` to `orange`. Save the file and the Node server will auto reload.
-2. Now, visit [http://verylargejavaservice:8080](http://verylargejavaservice:8080) again in your browser. You will now see the <mark style="color:orange;">**orange**</mark> elements in the application.
+2. Now, visit `http://verylargejavaservice:8080` again in your browser. You will now see the <mark style="color:orange;">**orange**</mark> elements in the application.
 {% endtab %}
 
 {% tab title="Java" %}
 To update the color:
 
 1. Open `edgey-corp-java/DataProcessingService/src/main/resources/application.properties` in your editor and change `app.default.color` on line 2 from `blue` to `orange`. Save the file then stop and restart your Java server.
-2. Now, visit [http://verylargejavaservice:8080](http://verylargejavaservice:8080) again in your browser. You will now see the <mark style="color:orange;">**orange**</mark> elements in the application.
+2. Now, visit `http://verylargejavaservice:8080` again in your browser. You will now see the <mark style="color:orange;">**orange**</mark> elements in the application.
 {% endtab %}
 
 {% tab title="Go" %}
 To update the color:
 
 1. Open `edgey-corp-go/DataProcessingService/main.go` in your editor and change `var color string` from `blue` to `orange`. Save the file and the Go server will auto reload.
-2. Now, visit [http://verylargejavaservice:8080](http://verylargejavaservice:8080) again in your browser. You will now see the <mark style="color:orange;">**orange**</mark> elements in the application.
+2. Now, visit `http://verylargejavaservice:8080` again in your browser. You will now see the <mark style="color:orange;">**orange**</mark> elements in the application.
 {% endtab %}
 {% endtabs %}
 

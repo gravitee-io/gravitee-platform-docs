@@ -77,7 +77,7 @@ gravitee_services_tracing_jaeger_port: 14250
 
 ## Enable OpenTracing via Docker Compose
 
-To enable OpenTracing using Jaeger as a tracer, use [this `docker-compose.yml`](https://github.com/gravitee-io/gravitee-api-management/tree/master/docker/quick-setup/opentracing-jaeger).
+To enable OpenTracing using Jaeger as a tracer, use the `docker-compose.yml` found at https://github.com/gravitee-io/gravitee-api-management/tree/master/docker/quick-setup/opentracing-jaeger.
 
 With this option enabled, you can continue to call your APIs through your Gateway with the usual host: `http://localhost:8082/myapi`.
 
