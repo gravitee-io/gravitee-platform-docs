@@ -102,7 +102,7 @@ If the option `useSystemProxy` is checked, proxy information will be read from `
 
 ```
 
-### global configuration of the http client
+#### global configuration of the http client
 
 system: proxy: type: HTTP host: localhost port: 3128 username: user password: secret
 
