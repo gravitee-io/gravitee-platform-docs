@@ -3,7 +3,7 @@
 {% hint style="info" %}
 v2 vs v4 API configuration
 
-This section covers v2 API configuration. If you are looking for documentation that covers configuration for Gravitee v4 APIs, please refer to the [v4 API configuration section.](../v4-api-configuration/README.md)
+This section covers v2 API configuration. If you are looking for documentation that covers configuration for Gravitee v4 APIs, please refer to the [v4 API configuration section.](../v4-api-configuration/)
 {% endhint %}
 
 ## Introduction
@@ -35,7 +35,7 @@ In Gravitee, you can configure several API proxy settings. You can use the inter
 
 {% tabs %}
 {% tab title="Interactive UI exploration" %}
-{% @arcade/embed flowId="tn8DhyHNq83ZWp8pyqOC" url="https://app.arcade.software/share/tn8DhyHNq83ZWp8pyqOC" %}
+{% @arcade/embed url="https://app.arcade.software/share/tn8DhyHNq83ZWp8pyqOC" flowId="tn8DhyHNq83ZWp8pyqOC" %}
 {% endtab %}
 
 {% tab title="Text descriptions" %}
@@ -43,7 +43,7 @@ In the Proxy section, you can configure the following settings:
 
 * General settings
   * **Entrypoints**: define the Context Path, or the URL location of your API. So if your URL is `[https://apim-master-gateway.team-apim.gravitee.dev/myAPI]`, then `[/myAPI]` is the context path.
-  * **CORS**: CORS is a mechanism that allows restricted resources (e.g. fonts) on a web page to be requested from another domain outside the domain from which the first resource was served. For more information on CORS, refer to the [CORS specification](https://fetch.spec.whatwg.org/) and/or read the [CORS section of this article](README.md#cors).
+  * **CORS**: CORS is a mechanism that allows restricted resources (e.g. fonts) on a web page to be requested from another domain outside the domain from which the first resource was served. For more information on CORS, refer to the [CORS specification](https://fetch.spec.whatwg.org/) and/or read the [CORS section of this article](./#cors).
   * **Deployments**: choose to use sharding tags to control where your APIs are deployed.
   * **Response templates**: define your own response templates if you're looking to override default responses from the gateway.
 * Backend services (more information on each of these in the next section of this article)
@@ -59,7 +59,7 @@ Load balancing is a technique used to distribute incoming traffic across multipl
 
 {% tabs %}
 {% tab title="Interactive UI exploration" %}
-{% @arcade/embed flowId="q2cetEPiktDGaSv7t4gM" url="https://app.arcade.software/share/q2cetEPiktDGaSv7t4gM" %}
+{% @arcade/embed url="https://app.arcade.software/share/q2cetEPiktDGaSv7t4gM" flowId="q2cetEPiktDGaSv7t4gM" %}
 {% endtab %}
 
 {% tab title="Text descriptions" %}
@@ -82,7 +82,7 @@ Failover is a mechanism to ensure high availability and reliability of APIs by r
 
 {% tabs %}
 {% tab title="Interactive UI exploration" %}
-{% @arcade/embed flowId="VaRhvOcOU39TQb3PtfRd" url="https://app.arcade.software/share/VaRhvOcOU39TQb3PtfRd" %}
+{% @arcade/embed url="https://app.arcade.software/share/VaRhvOcOU39TQb3PtfRd" flowId="VaRhvOcOU39TQb3PtfRd" %}
 {% endtab %}
 
 {% tab title="Text descriptions" %}
@@ -99,7 +99,7 @@ A health check is a mechanism used to monitor the availability and health of you
 
 {% tabs %}
 {% tab title="Interactive UI exploration" %}
-{% @arcade/embed flowId="awIKYCvN2m1DusBD9W7a" url="https://app.arcade.software/share/awIKYCvN2m1DusBD9W7a" %}
+{% @arcade/embed url="https://app.arcade.software/share/awIKYCvN2m1DusBD9W7a" flowId="awIKYCvN2m1DusBD9W7a" %}
 {% endtab %}
 
 {% tab title="Text descriptions" %}
@@ -151,6 +151,6 @@ The sharding tags mechanism allows you to specify which “shard” of of your G
 \
 In the diagram below we have an example of a typical deployment an organization may use for their API Management. This scenario looks to deploy two APIs in a distributed manner, providing high availability across different regions and in different network environments.
 
-<figure><img src="../../../.gitbook/assets/Example architecture.png" alt=""><figcaption><p>Example architecture diagram to illustrate value of sharding tags.</p></figcaption></figure>
+<figure><img src="../../../../4.0/.gitbook/assets/Example architecture (1).png" alt=""><figcaption><p>Example architecture diagram to illustrate value of sharding tags.</p></figcaption></figure>
 
 If using sharding tags, you could tag these Gateways with specific keywords. Once the Gateways are tagged, you can [select that tag in an APIs Deployments proxy settings](configure-cors.md#configure-deployments). Whatever tag you select for that API will end up being the Gateway where that API is deployed.

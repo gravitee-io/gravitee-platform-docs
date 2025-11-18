@@ -20,7 +20,7 @@ After creating an application, API consumers can subscribe to APIs (with publish
 You can also subscribe to APIs during the [application creation process.](plans-1.md#create-an-application)
 {% endhint %}
 
-{% @arcade/embed flowId="GOpV3Hu4ggkF5On3jCy9" url="https://app.arcade.software/share/GOpV3Hu4ggkF5On3jCy9" %}
+{% @arcade/embed url="https://app.arcade.software/share/GOpV3Hu4ggkF5On3jCy9" flowId="GOpV3Hu4ggkF5On3jCy9" %}
 
 It is important to reiterate that API consumers can only request a subscription for APIs they have access to. This means they must either be a member of the API or the API must be made public.
 
@@ -36,13 +36,13 @@ You can enable mail or portal notifications so you can be notified when a subscr
 Portal notifications are delivered both inside of APIM's Management Console and the Developer Portal.
 {% endhint %}
 
-{% @arcade/embed flowId="nTazQcgGLNWVFwHEyerB" url="https://app.arcade.software/share/nTazQcgGLNWVFwHEyerB" %}
+{% @arcade/embed url="https://app.arcade.software/share/nTazQcgGLNWVFwHEyerB" flowId="nTazQcgGLNWVFwHEyerB" %}
 
 ### Transfer subscriptions
 
 API publishers can transfer active subscriptions to a new plan with the _same_ security type.
 
-{% @arcade/embed flowId="UVhKz3t5HsY9e74hYms9" url="https://app.arcade.software/share/UVhKz3t5HsY9e74hYms9" %}
+{% @arcade/embed url="https://app.arcade.software/share/UVhKz3t5HsY9e74hYms9" flowId="UVhKz3t5HsY9e74hYms9" %}
 
 ### Security: API key plans
 
@@ -52,4 +52,4 @@ API publishers have additional management settings for subscriptions to API key 
 * **Revoke:** immediately invalidate an existing API key. This option is reversible.
 * **Set expiration date:** set a date and time to automatically invalidate an existing API key
 
-<figure><img src="../../.gitbook/assets/api_key_subscripiton_management.png" alt=""><figcaption><p>API key plan subscription</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/api_key_subscripiton_management (1).png" alt=""><figcaption><p>API key plan subscription</p></figcaption></figure>

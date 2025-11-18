@@ -8,7 +8,7 @@ description: This article walks through how to configure v4 API entrypoints
 
 In Gravitee, Gateway entrypoints define the protocol and configuration settings by which the API consumer accesses the Gateway API. The Gateway entrypoint dictates how the backend API is exposed through the Gateway.
 
-After you've created your Gateway API and selected your entrypoint(s), you can configure them on the **API** page of the Developer Portal.  This article walks through that process for configuring both v4 Message API entrypoints and v4 Proxy API entrypoints.
+After you've created your Gateway API and selected your entrypoint(s), you can configure them on the **API** page of the Developer Portal. This article walks through that process for configuring both v4 Message API entrypoints and v4 Proxy API entrypoints.
 
 ## Configure v4 message API entrypoints
 
@@ -17,7 +17,7 @@ After you've created your Gateway API and selected your entrypoint(s), you can c
 
 As of Gravitee 4.1, the ability to create APIs with message API entrypoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise Edition and what's included in various enterprise packages, please:
 
-* [Refer to the EE vs OSS documentation](../../../overview/ee-vs-oss/README.md)
+* [Refer to the EE vs OSS documentation](../../../overview/ee-vs-oss/)
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
@@ -34,7 +34,7 @@ To access entrypoint configuration, go to the **API** page in the Developer Port
 
 Here, you can choose to enable or disable virtual hosts. Enabling virtual hosts requires you to define your virtual host and optionally enable override access.
 
-<figure><img src="../../../.gitbook/assets/virtual host_on message.png" alt=""><figcaption><p>v4 message API entrypoint configuration</p></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/virtual host_on message (1).png" alt=""><figcaption><p>v4 message API entrypoint configuration</p></figcaption></figure>
 
 Next, depending on which entrypoint(s) your API utilizes, specific entrypoint configuration may differ. Please refer to the following sections for the configuration details of each specific entrypoint.
 
@@ -193,15 +193,15 @@ When you are done configuring your entrypoints, make sure to select **Save chang
 
 ## Configure v4 Proxy API entrypoints
 
-To alter v4 Proxy API entrypoints, select your API, and then select **General** from the **Entrypoints** category in the left-hand nav.&#x20;
+To alter v4 Proxy API entrypoints, select your API, and then select **General** from the **Entrypoints** category in the left-hand nav.
 
-<figure><img src="../../../.gitbook/assets/virtual host_on (1).png" alt=""><figcaption><p>v4 proxy API entrypoint configuration</p></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/virtual host_on (1) (1).png" alt=""><figcaption><p>v4 proxy API entrypoint configuration</p></figcaption></figure>
 
-From here, you can:&#x20;
+From here, you can:
 
 * Alter existing entrypoints by changing the context path
 * Add a new entrypoint by clicking **Add context path** and then adding a new context path
-* Delete existing entrypoints by clicking the <img src="../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.51.56 AM.png" alt="" data-size="line"> icon associated with the entrypoint that you want to delete
+* Delete existing entrypoints by clicking the <img src="../../../../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.51.56 AM (1).png" alt="" data-size="line"> icon associated with the entrypoint that you want to delete
 * Choose to enable or disable virtual hosts. Enabling virtual hosts requires you to define your virtual host and optionally enable override access.
 
 When you are done, make sure to redeploy the API for your changes to take effect.

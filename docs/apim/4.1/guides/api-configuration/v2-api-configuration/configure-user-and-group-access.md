@@ -4,7 +4,7 @@ description: This article walks through how to configure user and group access t
 
 # Configure User and Group Access
 
-{% @arcade/embed flowId="T68J1lMLPo7xwHhsqucb" url="https://app.arcade.software/share/T68J1lMLPo7xwHhsqucb" %}
+{% @arcade/embed url="https://app.arcade.software/share/T68J1lMLPo7xwHhsqucb" flowId="T68J1lMLPo7xwHhsqucb" %}
 
 ## Introduction
 
@@ -18,13 +18,13 @@ To configure user and group access for your APIs, navigate to the APIs list, and
 
 Here, you can add members to your API by using the **+ Add members icon**, as well as alter member roles. These roles come with specific permissions. For more information on roles, please refer to the [roles documentation.](../../administration/user-management-and-permissions.md#roles)
 
-<figure><img src="../../../.gitbook/assets/image (39).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/image (94) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Add groups to your API
 
 To give groups access to your API, select the **Groups** tab, and select the desired group from the Groups dropdown. This will give all members of that group access to your API.
 
-<figure><img src="../../../.gitbook/assets/Add groups.png" alt=""><figcaption><p>Add groups to your API</p></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/Add groups (1).png" alt=""><figcaption><p>Add groups to your API</p></figcaption></figure>
 
 ### Transfer API ownership
 

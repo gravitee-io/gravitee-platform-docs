@@ -23,7 +23,7 @@ By default, **System Admins** (a role created by Gravitee) are the only roles th
 
 ### Roles
 
-{% @arcade/embed flowId="KyYnhU8h2uPwM46fbMdk" url="https://app.arcade.software/share/KyYnhU8h2uPwM46fbMdk" %}
+{% @arcade/embed url="https://app.arcade.software/share/KyYnhU8h2uPwM46fbMdk" flowId="KyYnhU8h2uPwM46fbMdk" %}
 
 Gravitee API Management (APIM) allows you to create custom user roles to fit your needs. A role is a functional group of permissions, and can be defined at the Organization, Environment, API, and/or Application levels.
 
@@ -114,7 +114,7 @@ To set up roles, log-in to the Gravitee API Management Console, and select Organ
 
 As of Gravitee 4.0, Custom Roles is an Enterprise Edition capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:
 
-* [Refer to the EE vs OSS documentation](../../overview/ee-vs-oss/README.md)
+* [Refer to the EE vs OSS documentation](../../overview/ee-vs-oss/)
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
@@ -151,16 +151,16 @@ To create a custom "Writer" role, follow these steps:
 3. Select **Roles** under **User Management**
 4.  At the **API** scope, select **+ Add a role**\\
 
-    <figure><img src="../../.gitbook/assets/Add an API scope role.gif" alt=""><figcaption><p>Create an API scope role</p></figcaption></figure>
+    <figure><img src="../../../../../.gitbook/assets/Add an API scope role (1).gif" alt=""><figcaption><p>Create an API scope role</p></figcaption></figure>
 5. Enter in "**Writer**" in the **Role name** text field
 6. Give the role a description, such as **"These users can create, update, read, and delete API documentation."**
 7. (Optional) If you want this to be the default role for new users, toggle **Default role** ON or OFF.
 8. Define the following permissions:\
-   **`Read`** permissions on **`DEFINITION`** and **`GATEWAY_DEFINITION`** : this allows the user to see the API in the API list\
-   **`CRUD`** permissions on **`DOCUMENTATION`**: this allows the user to write new API documentation
+   &#xNAN;**`Read`** permissions on **`DEFINITION`** and **`GATEWAY_DEFINITION`** : this allows the user to see the API in the API list\
+   &#xNAN;**`CRUD`** permissions on **`DOCUMENTATION`**: this allows the user to write new API documentation
 9.  Once you are done, select **Create.** \\
 
-    <figure><img src="../../.gitbook/assets/Writer role.gif" alt=""><figcaption><p>Define the "Writer" role permissions</p></figcaption></figure>
+    <figure><img src="../../../../../.gitbook/assets/Writer role (1).gif" alt=""><figcaption><p>Define the "Writer" role permissions</p></figcaption></figure>
 
 {% hint style="success" %}
 **Success!**
@@ -196,7 +196,7 @@ To create a user via the System administrator flow, follow these steps:
 
 To delete a user from your Organization, select the **Delete user** icon from the table on the **Users** page.
 
-<figure><img src="../../.gitbook/assets/Delete a user.png" alt=""><figcaption><p>Delete a user</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Delete a user (1).png" alt=""><figcaption><p>Delete a user</p></figcaption></figure>
 
 #### Create and manage User groups
 

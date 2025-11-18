@@ -2,7 +2,7 @@
 
 ## Overview
 
-A powerful APIM feature is the ability to import an OpenAPI specification to create an API. When you import an existing specification, you do not have to manually populate all of the required fields.&#x20;
+A powerful APIM feature is the ability to import an OpenAPI specification to create an API. When you import an existing specification, you do not have to manually populate all of the required fields.
 
 To import an API from OpenAPI:
 
@@ -16,54 +16,67 @@ To import an API from OpenAPI:
 
 ## **Context-path resolution**
 
-| Spec version                            | Definition                                                                                                                                                                                  | Example                                                                                                                                                                                                         | Context-path |
-| --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| Swagger (V2)                            | `basePath` field, if it exists.                                                                                                                                                             | <pre><code>{
-  "swagger": "2.0",
-  "info": {
-    "description": "...",
-    "version": "1.0.5",
-    "title": "Swagger Petstore"
-  },
-  "host": "petstore.swagger.io",
-  "basePath": "/v2",
-  ...
-}
-</code></pre> | /v2          |
-| If not, lowercase trimmed `info.title`. | <pre><code>{
-  "swagger": "2.0",
-  "info": {
-    "description": "...",
-    "version": "1.0.5",
-    "title": "Swagger Petstore"
-  },
-  "host": "petstore.swagger.io",
+<table><thead><tr><th>Spec version</th><th>Definition</th><th>Example</th><th>Context-path</th></tr></thead><tbody><tr><td>Swagger (V2)</td><td><code>basePath</code> field, if it exists.</td><td><pre><code>{
+</code></pre></td><td></td></tr><tr><td>"swagger": "2.0",</td><td></td><td></td><td></td></tr><tr><td>"info": {</td><td></td><td></td><td></td></tr></tbody></table>
 
-  ...
+```
+"description": "...",
+"version": "1.0.5",
+"title": "Swagger Petstore"
+```
+
+}, "host": "petstore.swagger.io", "basePath": "/v2", ... } | /v2 | | If not, lowercase trimmed `info.title`. |
+
+```
+{
+"swagger": "2.0",
+"info": {
+"description": "...",
+"version": "1.0.5",
+"title": "Swagger Petstore"
+},
+"host": "petstore.swagger.io",
+...
 }
-</code></pre> | /swaggerpetstore                                                                                                                                                                                                |              |
-| OpenAPI (V3)                            | <p>Path of the first <code>servers.url</code>, if it exists, without "/".<br></p>                                                                                                           | <pre><code>openapi: "3.0.0"
+```
+
+\| /swaggerpetstore | | | OpenAPI (V3) |
+
+Path of the first `servers.url`, if it exists, without "/".\
+
+
+|
+
+```
+openapi: "3.0.0"
 info:
-  version: 1.0.0
-  title: Swagger Petstore
-  license:
-    name: MIT
+version: 1.0.0
+title: Swagger Petstore
+license:
+name: MIT
 servers:
-  - url: http://petstore.swagger.io/v1
+
+url: http://petstore.swagger.io/v1
 paths:
 ...
-</code></pre>                                  | /v1          |
-| If not, lowercase trimmed `info.title`. | <pre><code>openapi: "3.0.0"
+```
+
+\| /v1 | | If not, lowercase trimmed `info.title`. |
+
+```
+openapi: "3.0.0"
 info:
-  version: 1.0.0
-  title: Swagger Petstore
-  license:
-    name: MIT
+version: 1.0.0
+title: Swagger Petstore
+license:
+name: MIT
 servers:
-  - url: http://petstore.swagger.io/
+url: http://petstore.swagger.io/
 paths:
-  ...
-</code></pre>              | /swaggerpetstore                                                                                                                                                                                                |              |
+...
+```
+
+\| /swaggerpetstore | |
 
 ## Vendor Extensions
 
@@ -168,7 +181,7 @@ For more information, see the [Request Validation policy](../../../reference/pol
 {% endtab %}
 
 {% tab title="XML Validation" %}
-For each operation, if a `application/xml` request body exists, then a XSD schema is computed from this body to configure an XML Validation policy.&#x20;
+For each operation, if a `application/xml` request body exists, then a XSD schema is computed from this body to configure an XML Validation policy.
 
 For more information, see the [XML Validation policy](../../../reference/policy-reference/xml-validation.md) reference.
 {% endtab %}
