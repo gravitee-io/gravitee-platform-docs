@@ -137,7 +137,7 @@ EL provides a variety of built-in functions to manipulate and transform data in 
         }
       }
       ```
-* `#xpath`: Evaluates an `xpath` on a provided object. For more information regarding XML and XPath, see [XML Support - Dealing with XML Payloads](https://docs.spring.io/spring-integration/reference/html/xml.html#xml) in the SpEL documentation.
+* `#xpath`: Evaluates an `xpath` on a provided object. For more information regarding XML and XPath, see [XML Support - Dealing with XML Payloads](https://docs.spring.io/spring-integration/reference/xml.html) in the SpEL documentation.
 * `xmlEspace`: Escapes XML content to ensure that it safe for inclusion in XML or SOAP documents, which prevents injection attacks. This function utilizes Apache Commons Text StringEscapeUtils.escapeXml10() for XML 1.0-compliant escaping.
   *   `xmlEscape example` \
 

@@ -7,7 +7,7 @@ description: Installing and configuring a hybrid API Management deployment
 ## Installing your Self-Hosted Hybrid Gateway
 
 {% hint style="danger" %}
-Make sure that the version you install is compatible with the Control-Plane SaaS version. For more information about compatibility, see [Components of Hybrid Architecture](https://documentation.gravitee.io/apim/getting-started/install-gravitee-api-management/installing-a-gravitee-gateway-with-a-hybrid-deployment#components-of-hybrid-architecture).
+Make sure that the version you install is compatible with the Control-Plane SaaS version. 
 {% endhint %}
 
 {% hint style="info" %}
@@ -125,7 +125,7 @@ services:
 ```
 {% endcode %}
 
-* Replace \<VERSION-ALIGNED-WITH-CONTROL-PLANE> with the version of the gateway that aligns with your control plane. For more information about compatibility versions, see[ Components of Hybrid Architecture](https://documentation.gravitee.io/apim/getting-started/install-gravitee-api-management/installing-a-gravitee-gateway-with-a-hybrid-deployment#components-of-hybrid-architecture).
+* Replace \<VERSION-ALIGNED-WITH-CONTROL-PLANE> with the version of the gateway that aligns with your control plane. 
 {% endtab %}
 
 {% tab title="VM" %}
@@ -201,7 +201,7 @@ services:
 ```
 {% endcode %}
 
-* Replace \<VERSION-ALIGNED-WITH-CONTROL-PLANE> with the version of the gateway that aligns with your control plane. For more information about compatibility versions, see[ Components of Hybrid Architecture](https://documentation.gravitee.io/apim/getting-started/install-gravitee-api-management/installing-a-gravitee-gateway-with-a-hybrid-deployment#components-of-hybrid-architecture).
+* Replace \<VERSION-ALIGNED-WITH-CONTROL-PLANE> with the version of the gateway that aligns with your control plane. 
 {% endtab %}
 
 {% tab title="VM" %}
@@ -268,7 +268,7 @@ services:
 ```
 {% endcode %}
 
-* Replace \<VERSION-ALIGNED-WITH-CONTROL-PLANE> with the version of the gateway that aligns with your control plane. For more information about compatibility versions, see[ Components of Hybrid Architecture](https://documentation.gravitee.io/apim/getting-started/install-gravitee-api-management/installing-a-gravitee-gateway-with-a-hybrid-deployment#components-of-hybrid-architecture).
+* Replace \<VERSION-ALIGNED-WITH-CONTROL-PLANE> with the version of the gateway that aligns with your control plane. 
 {% endtab %}
 
 {% tab title="VM" %}
@@ -328,7 +328,7 @@ services:
 ```
 {% endcode %}
 
-* Replace \<VERSION-ALIGNED-WITH-CONTROL-PLANE> with the version of the gateway that aligns with your control plane. For more information about compatibility versions, see[ Components of Hybrid Architecture](https://documentation.gravitee.io/apim/getting-started/install-gravitee-api-management/installing-a-gravitee-gateway-with-a-hybrid-deployment#components-of-hybrid-architecture).
+* Replace \<VERSION-ALIGNED-WITH-CONTROL-PLANE> with the version of the gateway that aligns with your control plane. 
 {% endtab %}
 
 {% tab title="VM" %}
@@ -490,7 +490,7 @@ services:
 ```
 {% endcode %}
 
-* Replace \<VERSION-ALIGNED-WITH-CONTROL-PLANE> with the version of the gateway that aligns with your control plane. For more information about compatibility versions, see[ Components of Hybrid Architecture](https://documentation.gravitee.io/apim/getting-started/install-gravitee-api-management/installing-a-gravitee-gateway-with-a-hybrid-deployment#components-of-hybrid-architecture).
+* Replace \<VERSION-ALIGNED-WITH-CONTROL-PLANE> with the version of the gateway that aligns with your control plane. 
 * Replace \<GIO\_LICENSE> with your license key.
 * Replace \<YOUR-COCKPIT-ENV-HRID>  with your cockpit ID.
 
