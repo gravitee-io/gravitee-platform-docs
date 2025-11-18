@@ -48,7 +48,7 @@ When published, documentation is accessible via the Developer Portal.
 
 ## Logging
 
-[API-level logging](broken-reference/) is now supported for both v4 proxy APIs and v4 message APIs. Logging options can be configured in the Management Console and include the ability to record data based on content and whether information is associated with an entrypoint, endpoint, request, and/or response.
+[API-level logging](../../getting-started/configuration/the-gravitee-api-gateway/logging.md#api-level-logging) is now supported for both v4 proxy APIs and v4 message APIs. Logging options can be configured in the Management Console and include the ability to record data based on content and whether information is associated with an entrypoint, endpoint, request, and/or response.
 
 Message-level logging also offers message sampling, which can be configured either in the Console or via `gravitee.yaml`. The `gravitee.yaml` file's `messageSampling` configuration option determines, for each message sampling method, whether it can be used, its default value, and its max value.
 
