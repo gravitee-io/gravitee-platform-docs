@@ -21,18 +21,18 @@ Let's continue with the API creation wizard to see how easily a traditional prox
 
 The next step is configuring how the Gateway will communicate with clients and backend servers. This is done through Gateway entrypoints and endpoints:
 
-* **Gateway entrypoint:** Defines the protocol and configuration settings by which the API consumer communicates with the Gateway. In other words, the Gateway entrypoint dictates how the backend API is exposed externally through the Gateway.&#x20;
+* **Gateway entrypoint:** Defines the protocol and configuration settings by which the API consumer communicates with the Gateway. In other words, the Gateway entrypoint dictates how the backend API is exposed externally through the Gateway.
 * **Gateway endpoint:** Defines the protocol and configuration settings by which the Gateway API will fetch data/functionality from, or post data to, the backend API server.
 
 <figure><img src="../../../.gitbook/assets/traditional proxy_gateway.png" alt=""><figcaption><p>Gateway entrypoints and endpoints</p></figcaption></figure>
 
-### Entrypoints&#x20;
+### Entrypoints
 
 For traditional proxies, the Gateway entrypoint will use the same protocol as your API server. This keeps entrypoint configuration very simple, as the only requirement is one or more context-paths. A context-path is the unique route of the Gateway API.
 
 There are two important items to note about the context-path:
 
-* The context-path does not include the fully qualified domain name of the Gateway.&#x20;
+* The context-path does not include the fully qualified domain name of the Gateway.
 * The context-path is stripped before the request is forwarded to the backend service.
 
 <details>
@@ -68,13 +68,13 @@ In addition to the standard HTTP configuration options, traditional proxies incl
 
 #### Target URL
 
-The first and most important option is the **Target url**. This is the root-level URL of your backend API server. Continuing our previous [entrypoint example](traditional-proxy.md#example), the target URL would be `https://backend-api-server/`. By default, all resources under this URL would be accessible through the Gateway.&#x20;
+The first and most important option is the **Target url**. This is the root-level URL of your backend API server. Continuing our previous [entrypoint example](traditional-proxy.md#example), the target URL would be `https://backend-api-server/`. By default, all resources under this URL would be accessible through the Gateway.
 
 <details>
 
 <summary>Example continued</summary>
 
-Let's imagine your backend API server, `https://backend-api-server/`, has two resources: `orders` and `customers`. After setting the Gateway API's target URL to `https://backend-api-server/`, an API consumer would send API requests to the following URLs to reach these resources through the Gateway:&#x20;
+Let's imagine your backend API server, `https://backend-api-server/`, has two resources: `orders` and `customers`. After setting the Gateway API's target URL to `https://backend-api-server/`, an API consumer would send API requests to the following URLs to reach these resources through the Gateway:
 
 * Access the `orders/1` resource at `https://apim-gateway-server/unique-path/orders/1`
 * Access the `customers/1` resource at `https://apim-gateway-server/unique-path/customers/1`
@@ -105,12 +105,12 @@ The next step is to configure your API security via plans. In APIM, a plan provi
 
 We will be focusing on plans in the next part of the Quickstart Guide. For now, leave the default keyless plan.
 
-<figure><img src="../../../.gitbook/assets/traditional proxy_security.png" alt=""><figcaption><p>Gateway API security</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/message proxy_security (1).png" alt=""><figcaption><p>Gateway API security</p></figcaption></figure>
 
 > * [x] Leave defaults and select **Validate my plans** to continue to the final step
 
 {% hint style="danger" %}
-By default, a keyless plan provides unrestricted access to your backend services.&#x20;
+By default, a keyless plan provides unrestricted access to your backend services.
 
 * If you’re deploying an API to the Gateway that proxies sensitive information, ensure it does not include a keyless plan.
 * For production Gateways, keyless plans can be disabled entirely.
@@ -120,7 +120,7 @@ By default, a keyless plan provides unrestricted access to your backend services
 
 The final step in creating an API is to review and then save your configuration. The API creation wizard presents you with two options:
 
-* **Save API:** This option will save your API, but it will not be available on the Gateway. This is useful if you'd like to complete some more advanced configuration (e.g., adding policies) before starting the API.&#x20;
+* **Save API:** This option will save your API, but it will not be available on the Gateway. This is useful if you'd like to complete some more advanced configuration (e.g., adding policies) before starting the API.
 * **Save & Deploy API:** This option will save your API and immediately start it on the Gateway.
 
 <figure><img src="../../../.gitbook/assets/traditional proxy_summary.png" alt=""><figcaption><p>Gateway API summary page</p></figcaption></figure>
@@ -131,7 +131,7 @@ The final step in creating an API is to review and then save your configuration.
 
 You will be greeted with a screen that confirms the creation of your new API and includes several shortcuts to help you start managing it.
 
-<figure><img src="../../../.gitbook/assets/traditional proxy_confirmation.png" alt=""><figcaption><p>API creation confirmation</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/message proxy_confirmation (1).png" alt=""><figcaption><p>API creation confirmation</p></figcaption></figure>
 
 > * [x] Select **Open my API in API Management** to see how to manage your API
 
@@ -165,7 +165,7 @@ Your first API is now started on the Gateway. Since we are using a keyless plan,
 * `your-context-path` should be replaced by the context-path of the Gateway API you just deployed. You can always find the context-path under **Entrypoints**.
 
 {% hint style="warning" %}
-Ensure you use the proper protocol! For example, the default local Docker installation of APIM would use `http` instead of `https`, as SSL must be manually enabled.&#x20;
+Ensure you use the proper protocol! For example, the default local Docker installation of APIM would use `http` instead of `https`, as SSL must be manually enabled.
 {% endhint %}
 
 {% code overflow="wrap" %}
@@ -184,4 +184,4 @@ Congrats! You have successfully deployed your first API to the Gateway and sent 
 
 You should now have a basic understanding of Gravitee APIM's most fundamental concept: Gateway APIs. The Quickstart Guide will build on that knowledge by diving into the real power of APIM: Plans and Policies.
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td><strong>Plans and Policies 101</strong></td><td></td><td><a href="broken-reference">Broken link</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td><strong>Plans and Policies 101</strong></td><td></td><td><a href="broken-reference/">broken-reference</a></td></tr></tbody></table>

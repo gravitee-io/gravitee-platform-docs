@@ -35,23 +35,23 @@ To configure load-balancing in Gravitee, follow these steps:
 
 2\. Load-balancing (as well other backend services) are configured per API. So, head to the **APIs menu.**
 
-![Load-balancing: select the APIs menu.](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2023-03-07/95d2995f-b5b8-482a-bdd8-8109315e9bb7/ascreenshot.jpeg?tl\_px=0,38\&br\_px=1493,878\&sharp=0.8\&width=560\&wat\_scale=50\&wat=1\&wat\_opacity=0.7\&wat\_gravity=northwest\&wat\_url=https://colony-labs-public.s3.us-east-2.amazonaws.com/images/watermarks/watermark\_default.png\&wat\_pad=39,139)
+![Load-balancing: select the APIs menu.](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2023-03-07/95d2995f-b5b8-482a-bdd8-8109315e9bb7/ascreenshot.jpeg?tl_px=0,38\&br_px=1493,878\&sharp=0.8\&width=560\&wat_scale=50\&wat=1\&wat_opacity=0.7\&wat_gravity=northwest\&wat_url=https://colony-labs-public.s3.us-east-2.amazonaws.com/images/watermarks/watermark_default.png\&wat_pad=39,139)
 
 3\. Find and select the API for which you want to configure load-balancing.
 
-![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2023-03-07/ffb6f144-5f64-474e-9aec-e636a81093d9/ascreenshot.jpeg?tl\_px=0,0\&br\_px=1493,840\&sharp=0.8\&width=560\&wat\_scale=50\&wat=1\&wat\_opacity=0.7\&wat\_gravity=northwest\&wat\_url=https://colony-labs-public.s3.us-east-2.amazonaws.com/images/watermarks/watermark\_default.png\&wat\_pad=232,128)
+![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2023-03-07/ffb6f144-5f64-474e-9aec-e636a81093d9/ascreenshot.jpeg?tl_px=0,0\&br_px=1493,840\&sharp=0.8\&width=560\&wat_scale=50\&wat=1\&wat_opacity=0.7\&wat_gravity=northwest\&wat_url=https://colony-labs-public.s3.us-east-2.amazonaws.com/images/watermarks/watermark_default.png\&wat_pad=232,128)
 
 4\. Select the **Edit API** icon.
 
-![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2023-03-07/2d11dc86-a65a-4c5d-9b1f-cf9646055f77/ascreenshot.jpeg?tl\_px=1962,146\&br\_px=3455,986\&sharp=0.8\&width=560\&wat\_scale=50\&wat=1\&wat\_opacity=0.7\&wat\_gravity=northwest\&wat\_url=https://colony-labs-public.s3.us-east-2.amazonaws.com/images/watermarks/watermark\_default.png\&wat\_pad=477,139)
+![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2023-03-07/2d11dc86-a65a-4c5d-9b1f-cf9646055f77/ascreenshot.jpeg?tl_px=1962,146\&br_px=3455,986\&sharp=0.8\&width=560\&wat_scale=50\&wat=1\&wat_opacity=0.7\&wat_gravity=northwest\&wat_url=https://colony-labs-public.s3.us-east-2.amazonaws.com/images/watermarks/watermark_default.png\&wat_pad=477,139)
 
 5\. Select **Backend services**.
 
-![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2023-03-07/a87da572-ba67-4258-9d29-3be916be39c1/ascreenshot.jpeg?tl\_px=0,628\&br\_px=1493,1468\&sharp=0.8\&width=560\&wat\_scale=50\&wat=1\&wat\_opacity=0.7\&wat\_gravity=northwest\&wat\_url=https://colony-labs-public.s3.us-east-2.amazonaws.com/images/watermarks/watermark\_default.png\&wat\_pad=247,139)
+![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2023-03-07/a87da572-ba67-4258-9d29-3be916be39c1/ascreenshot.jpeg?tl_px=0,628\&br_px=1493,1468\&sharp=0.8\&width=560\&wat_scale=50\&wat=1\&wat_opacity=0.7\&wat_gravity=northwest\&wat_url=https://colony-labs-public.s3.us-east-2.amazonaws.com/images/watermarks/watermark_default.png\&wat_pad=247,139)
 
 6\. From here, you can either configure load-balancing for existing endpoint groups or create a new endpoint group for which to configure load-balancing. For the sake of this article, we will create a new endpoint group from scratch. To do so, select **+ Add new endpoint group**.
 
-![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2023-03-07/9478f6d1-c0fe-4cb9-acef-577b03d234f8/ascreenshot.jpeg?tl\_px=1962,0\&br\_px=3455,840\&sharp=0.8\&width=560\&wat\_scale=50\&wat=1\&wat\_opacity=0.7\&wat\_gravity=northwest\&wat\_url=https://colony-labs-public.s3.us-east-2.amazonaws.com/images/watermarks/watermark\_default.png\&wat\_pad=411,132)
+![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2023-03-07/9478f6d1-c0fe-4cb9-acef-577b03d234f8/ascreenshot.jpeg?tl_px=1962,0\&br_px=3455,840\&sharp=0.8\&width=560\&wat_scale=50\&wat=1\&wat_opacity=0.7\&wat_gravity=northwest\&wat_url=https://colony-labs-public.s3.us-east-2.amazonaws.com/images/watermarks/watermark_default.png\&wat_pad=411,132)
 
 7\. You'll be taken to the **General** tab. Here, you will name your endpoint group and select the load-balancing algorithm. For the sake of this article, let's select **Round robin**.
 
@@ -59,63 +59,59 @@ To configure load-balancing in Gravitee, follow these steps:
 Please refer to the [load-balancing concepts section](load-balancing-failover-and-health-checks.md#how-to-configure-load-balancing-in-gravitee) if you need in-depth explanations of the various load-balancing algorithms that Gravitee supports.
 {% endhint %}
 
-![](https://colony-recorder.s3.amazonaws.com/files/2023-03-07/0f165e09-c3b5-43fc-b760-d34585ecd629/stack\_animation.webp)
+![](https://colony-recorder.s3.amazonaws.com/files/2023-03-07/0f165e09-c3b5-43fc-b760-d34585ecd629/stack_animation.webp)
 
 8\. Now, it's time to configure your endpoint group with any additional HTTP details that might be relevant. To do so, select **Configuration**.
 
-![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2023-03-07/2bb0a7e1-883c-4a37-9cee-ffad16f3ee17/ascreenshot.jpeg?tl\_px=751,0\&br\_px=2244,840\&sharp=0.8\&width=560\&wat\_scale=50\&wat=1\&wat\_opacity=0.7\&wat\_gravity=northwest\&wat\_url=https://colony-labs-public.s3.us-east-2.amazonaws.com/images/watermarks/watermark\_default.png\&wat\_pad=262,111)
+![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2023-03-07/2bb0a7e1-883c-4a37-9cee-ffad16f3ee17/ascreenshot.jpeg?tl_px=751,0\&br_px=2244,840\&sharp=0.8\&width=560\&wat_scale=50\&wat=1\&wat_opacity=0.7\&wat_gravity=northwest\&wat_url=https://colony-labs-public.s3.us-east-2.amazonaws.com/images/watermarks/watermark_default.png\&wat_pad=262,111)
 
 9\. Configure your HTTP details. For example, you might choose to enable **HTTP pipelining,** which will cause requests to be written to connections without waiting for previous responses to return. You can configure many other additional details, such as HTTP protocol version, Connect timeout time (in ms), idle timeout (in ms), SSL options, and more.
 
-<div align="center">
-
-<img src="https://colony-recorder.s3.amazonaws.com/files/2023-03-07/7526630f-4033-4b9d-9d41-0062e12ea856/stack_animation.webp" alt="">
-
-</div>
+<div align="center"><img src="https://colony-recorder.s3.amazonaws.com/files/2023-03-07/7526630f-4033-4b9d-9d41-0062e12ea856/stack_animation.webp" alt=""></div>
 
 10\. Optional: If you want to enable Service Discovery, select the **Service discovery** tab. Service discovery will enable external endpoints to be dynamically added or removed to or from the group. For more information on Service Discovery, please refer to our documentation on [Gravitee Service discovery](configure-service-discovery.md).
 
-![](https://colony-recorder.s3.amazonaws.com/files/2023-03-07/cf7799b5-28eb-4dff-9895-1e7a6f481edb/stack\_animation.webp)
+![](https://colony-recorder.s3.amazonaws.com/files/2023-03-07/cf7799b5-28eb-4dff-9895-1e7a6f481edb/stack_animation.webp)
 
 11\. Once you are done defining and configuring your endpoint group, select **Create**.
 
-![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2023-03-07/46fa5604-2509-48c7-ae72-7c0176a7e4ef/ascreenshot.jpeg?tl\_px=1962,556\&br\_px=3455,1396\&sharp=0.8\&width=560\&wat\_scale=50\&wat=1\&wat\_opacity=0.7\&wat\_gravity=northwest\&wat\_url=https://colony-labs-public.s3.us-east-2.amazonaws.com/images/watermarks/watermark\_default.png\&wat\_pad=417,139)
+![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2023-03-07/46fa5604-2509-48c7-ae72-7c0176a7e4ef/ascreenshot.jpeg?tl_px=1962,556\&br_px=3455,1396\&sharp=0.8\&width=560\&wat_scale=50\&wat=1\&wat_opacity=0.7\&wat_gravity=northwest\&wat_url=https://colony-labs-public.s3.us-east-2.amazonaws.com/images/watermarks/watermark_default.png\&wat_pad=417,139)
 
 12\. Now, it's time to add endpoints to your endpoint group. Once you've done this, you'll be able to configure load-balancing for your endpoint group. Let's head back to the **Endpoints** section of the **Backend Services** menu.
 
-![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2023-03-07/e338a81b-8c36-4cf1-b927-3f4b7204cea6/ascreenshot.jpeg?tl\_px=489,0\&br\_px=1982,840\&sharp=0.8\&width=560\&wat\_scale=50\&wat=1\&wat\_opacity=0.7\&wat\_gravity=northwest\&wat\_url=https://colony-labs-public.s3.us-east-2.amazonaws.com/images/watermarks/watermark\_default.png\&wat\_pad=262,78)
+![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2023-03-07/e338a81b-8c36-4cf1-b927-3f4b7204cea6/ascreenshot.jpeg?tl_px=489,0\&br_px=1982,840\&sharp=0.8\&width=560\&wat_scale=50\&wat=1\&wat_opacity=0.7\&wat_gravity=northwest\&wat_url=https://colony-labs-public.s3.us-east-2.amazonaws.com/images/watermarks/watermark_default.png\&wat_pad=262,78)
 
 13\. You'll see your endpoint group. To add endpoints to this group, **select** + Add endpoint.
 
-![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2023-03-07/323033e1-0584-474a-87f4-4f9ad075a8e8/ascreenshot.jpeg?tl\_px=1823,560\&br\_px=3316,1400\&sharp=0.8\&width=560\&wat\_scale=50\&wat=1\&wat\_opacity=0.7\&wat\_gravity=northwest\&wat\_url=https://colony-labs-public.s3.us-east-2.amazonaws.com/images/watermarks/watermark\_default.png\&wat\_pad=262,139)
+![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2023-03-07/323033e1-0584-474a-87f4-4f9ad075a8e8/ascreenshot.jpeg?tl_px=1823,560\&br_px=3316,1400\&sharp=0.8\&width=560\&wat_scale=50\&wat=1\&wat_opacity=0.7\&wat_gravity=northwest\&wat_url=https://colony-labs-public.s3.us-east-2.amazonaws.com/images/watermarks/watermark_default.png\&wat_pad=262,139)
 
 14\. In the General tab, define your endpoint name, target URL, weight (if you chose a weighted load-balancing algorithm), and your tenants.
 
-![](https://colony-recorder.s3.amazonaws.com/files/2023-03-07/accdc8c6-ee91-4bd6-a351-9c3a2656360f/stack\_animation.webp)
+![](https://colony-recorder.s3.amazonaws.com/files/2023-03-07/accdc8c6-ee91-4bd6-a351-9c3a2656360f/stack_animation.webp)
 
 15\. Optional: Select **Secondary endpoint** to define this endpoint outside the main load-balancing pool. This will make the endpoint used for load-balancing only if all the primary endpoints are marked as down by the health check.
 
-![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2023-03-07/49f626c6-5ee4-45df-a8f3-5cb76bbcb15d/ascreenshot.jpeg?tl\_px=763,1098\&br\_px=2256,1938\&sharp=0.8\&width=560\&wat\_scale=50\&wat=1\&wat\_opacity=0.7\&wat\_gravity=northwest\&wat\_url=https://colony-labs-public.s3.us-east-2.amazonaws.com/images/watermarks/watermark\_default.png\&wat\_pad=262,141)
+![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2023-03-07/49f626c6-5ee4-45df-a8f3-5cb76bbcb15d/ascreenshot.jpeg?tl_px=763,1098\&br_px=2256,1938\&sharp=0.8\&width=560\&wat_scale=50\&wat=1\&wat_opacity=0.7\&wat_gravity=northwest\&wat_url=https://colony-labs-public.s3.us-east-2.amazonaws.com/images/watermarks/watermark_default.png\&wat_pad=262,141)
 
 16\. Once you're finished specifying endpoint details in the **General** tab, it's time to configure the HTTP configuration of your endpoint.
 
-![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2023-03-07/da0973c3-44ba-4cd0-a288-e6ce86b4f185/ascreenshot.jpeg?tl\_px=849,166\&br\_px=2342,1006\&sharp=0.8\&width=560\&wat\_scale=50\&wat=1\&wat\_opacity=0.7\&wat\_gravity=northwest\&wat\_url=https://colony-labs-public.s3.us-east-2.amazonaws.com/images/watermarks/watermark\_default.png\&wat\_pad=262,139)
+![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2023-03-07/da0973c3-44ba-4cd0-a288-e6ce86b4f185/ascreenshot.jpeg?tl_px=849,166\&br_px=2342,1006\&sharp=0.8\&width=560\&wat_scale=50\&wat=1\&wat_opacity=0.7\&wat_gravity=northwest\&wat_url=https://colony-labs-public.s3.us-east-2.amazonaws.com/images/watermarks/watermark_default.png\&wat_pad=262,139)
 
 17\. By default, the endpoint will inherit configuration from the configuration that you set at the endpoint group level.
 
-<figure><img src="../../../.gitbook/assets/Configure load-balancing - Step 17.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/Configure load-balancing - Step 17 (1).jpeg" alt=""><figcaption></figcaption></figure>
 
 18\. However, if you want to set up HTTP configuration specific to that endpoint, toggle the **Inherit configuration** OFF.
 
-<figure><img src="../../../.gitbook/assets/Configure load-balancing - Step 18.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/Configure load-balancing - Step 18 (1).jpeg" alt=""><figcaption></figcaption></figure>
 
 19\. Once toggled OFF, you can specify a different HTTP configuration for this endpoint. Once you are done, select **Save**.
 
-<figure><img src="../../../.gitbook/assets/Configure load-balancing - Step 19.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/Configure load-balancing - Step 19 (1).jpeg" alt=""><figcaption></figcaption></figure>
 
 20\. For the sake of this example, let's toggle the **Inherit configuration** back ON.
 
-![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2023-03-07/fd85c6d5-7a13-4dd2-aab8-443fac87cabe/ascreenshot.jpeg?tl\_px=1962,286\&br\_px=3455,1126\&sharp=0.8\&width=560\&wat\_scale=50\&wat=1\&wat\_opacity=0.7\&wat\_gravity=northwest\&wat\_url=https://colony-labs-public.s3.us-east-2.amazonaws.com/images/watermarks/watermark\_default.png\&wat\_pad=443,139)
+![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2023-03-07/fd85c6d5-7a13-4dd2-aab8-443fac87cabe/ascreenshot.jpeg?tl_px=1962,286\&br_px=3455,1126\&sharp=0.8\&width=560\&wat_scale=50\&wat=1\&wat_opacity=0.7\&wat_gravity=northwest\&wat_url=https://colony-labs-public.s3.us-east-2.amazonaws.com/images/watermarks/watermark_default.png\&wat_pad=443,139)
 
 {% hint style="success" %}
 Congrats! Once you're done with your HTTP configuration, you can set up a health check for your endpoint. To learn more about setting up health checks, please refer to the "Health checks" section of this article.
