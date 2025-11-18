@@ -376,7 +376,7 @@ helm uninstall graviteeio-apim-gateway --namespace gravitee-apim
 
 Your Gateway appears in the Gateways section of your Gravitee Cloud Dashboard.
 
-<figure><img src="../../../.gitbook/assets/gravitee-gateway-cloud-verification (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/gravitee-gateway-cloud-verification (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 To verify that your Gateway is up and running, complete the following steps:
 
