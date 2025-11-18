@@ -5,32 +5,27 @@
 In the Developer Portal catalog, you can easily find an API based on a category it belongs to. Categories can be shown as either header tabs (default) or tiles. To change how categories are displayed:
 
 1. Log in to your APIM Console.
-2.  From the home page, click **Settings**.\
-
+2.  From the home page, click **Settings**.
 
     <figure><img src="../../.gitbook/assets/image (199).png" alt=""><figcaption></figcaption></figure>
-3.  In the **Portal** section of the settings menu, click **Settings**.\
-
+3.  In the **Portal** section of the settings menu, click **Settings**.
 
     <figure><img src="../../.gitbook/assets/image (200).png" alt=""><figcaption></figcaption></figure>
-4.  Navigate to the **New Developer Portal** section, then click **Open Settings**.\
-
+4.  Navigate to the **New Developer Portal** section, then click **Open Settings**.
 
     <figure><img src="../../.gitbook/assets/dev portal settings.png" alt=""><figcaption></figcaption></figure>
-5.  Developer Portal settings open in a new browser tab. Select **Catalog** from the menu.\
-
+5.  Developer Portal settings open in a new browser tab. Select **Catalog** from the menu.
 
     <figure><img src="../../.gitbook/assets/00 cat2.png" alt=""><figcaption></figcaption></figure>
-6.  Use the **Category View Mode** drop-down menu to select **Tabs (Default)** or **Tiles**.\
-
+6.  Use the **Category View Mode** drop-down menu to select **Tabs (Default)** or **Tiles**.
 
     <figure><img src="../../.gitbook/assets/00 select.png" alt=""><figcaption></figcaption></figure>
 
 ### Verification
 
-To verify your selection go to your Developer Portal.&#x20;
+To verify your selection go to your Developer Portal.
 
-If you have [set the new Developer Portal as your default Developer Portal](broken-reference), you can access it from the Developer Portal button in your APIM Console header. If you have not set the new Developer Portal as your default, follow the instructions to [enable the new Developer Portal](broken-reference).
+If you have [set the new Developer Portal as your default Developer Portal](configure-the-new-portal.md), you can access it from the Developer Portal button in your APIM Console header. If you have not set the new Developer Portal as your default, follow the instructions to [enable the new Developer Portal](configure-the-new-portal.md).
 
 The Developer Portal opens in a new browser tab. Select the **Catalog** header to view your categories.
 
