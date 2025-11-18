@@ -8,9 +8,9 @@ description: Installing and configuring a hybrid API Management deployment
 
 Hybrid architecture is the deployment of a Gravitee Gateway using self-hosted and cloud deployments.
 
-The Gravitee Gateway hybrid deployment uses hybrid components to provide flexibility when you define your architecture and deployment.&#x20;
+The Gravitee Gateway hybrid deployment uses hybrid components to provide flexibility when you define your architecture and deployment.
 
-This page explains how to install a Self-Hosted Data-Plane in a Hybrid deployment, which consists of a SaaS Control-Plane and a Self-Hosted Data-Plane. The control plane signifies the Bridge and the data-plane signifies the Gateway.&#x20;
+This page explains how to install a Self-Hosted Data-Plane in a Hybrid deployment, which consists of a SaaS Control-Plane and a Self-Hosted Data-Plane. The control plane signifies the Bridge and the data-plane signifies the Gateway.
 
 The Gravitee Gateway needs the following two components:
 
@@ -33,7 +33,7 @@ The Gravitee Gateway needs the following two components:
 
 * Ensure that the Bridge and Gateway versions that you use for your Hybrid deployment are compatible. For more information about Gateway and Bridge compatibility versions, see [Gateway and Bridge compatibility versions](gateway-and-bridge-compatibility-versions.md).
 
-<img src="../../.gitbook/assets/file.excalidraw (18).svg" alt="Hybrid deployment architecture" class="gitbook-drawing">
+<img src="../../../4.0/.gitbook/assets/file.excalidraw (4) (1).svg" alt="Hybrid deployment architecture" class="gitbook-drawing">
 
 <figure><img src="../../.gitbook/assets/image (134).png" alt="Diagram showing the hybrid architecture"><figcaption><p>Hybrid architecture connections</p></figcaption></figure>
 
@@ -49,7 +49,7 @@ Ensure that you add the Gravitee.io License file.
 
 {% tabs %}
 {% tab title="Kubernetes (Helm)" %}
-To install a Gravitee Gateway on Kubernetes, complete the following steps:&#x20;
+To install a Gravitee Gateway on Kubernetes, complete the following steps:
 
 {% hint style="info" %}
 You must be familiar with the following topics:
@@ -59,29 +59,29 @@ You must be familiar with the following topics:
 * Helm
 {% endhint %}
 
-## Target architecture
+### Target architecture
 
 In this example, we demonstrate how to deploy a Gravitee Gateway (APIM) in two different GCP regions. Also, we demonstrate how to deploy Gravitee APIM in the follow two different K8s clusters:
 
 * A **Management cluster** that runs the following components:
-  * &#x20;The management API
-  * &#x20;The two APIM UI components
-  * &#x20;A bridge gateway
+  * The management API
+  * The two APIM UI components
+  * A bridge gateway
 * A **Gateway cluster** that runs the APIM gateway.
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/hybrid/hybrid_deployment_k8s.png" alt=""><figcaption><p>Kubernetes hybrid deployment architecture diagram</p></figcaption></figure>
 
 In this example, the deployment consists of the following components:
 
-* MongoDB. MongoDB manages all the management data. For example,  API definitions, subscriptions, and API keys.
+* MongoDB. MongoDB manages all the management data. For example, API definitions, subscriptions, and API keys.
 * ElasticSearch. ElasticSearch is deployed in the Management cluster.
 * Redis. Redis manages the rate limits and quota counters within the Gateway cluster.
 
-## Deploying a Hybrid architecture with Helm
+### Deploying a Hybrid architecture with Helm
 
 * To deploy a Hybrid architecture with Kubernetes, go to [Gravitee's Helm charts](https://helm.gravitee.io/).
 
-### Before you begin
+#### Before you begin
 
 * Ensure the two GCP clusters exist.
 * Ensure that Helm is installed on the GCP clusters.
@@ -97,7 +97,7 @@ The following Hybrid architecture example use the following names:
 You can replace these names with the name of your clusters.
 {% endhint %}
 
-### Deploying the management cluster
+#### Deploying the management cluster
 
 1. Initialize the cluster with some prerequisites using the following commands:
 
@@ -116,9 +116,7 @@ $ helm repo add graviteeio https://helm.gravitee.io
 ```
 {% endcode %}
 
-2. Deploy the management APIM instance using the following command. The management APIM contains the follow components:&#x20;
-
-
+2. Deploy the management APIM instance using the following command. The management APIM contains the follow components:
 
 * The Management Console
 * The Developer Portal
@@ -228,7 +226,7 @@ The file shows the following elements:
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/hybrid/hybrid_deployment_ingress.png" alt=""><figcaption><p>APIM management cluster</p></figcaption></figure>
 
-### Deploy the Gateway cluster
+#### Deploy the Gateway cluster
 
 1. Initialize the cluster with some prerequisites using the following commands:
 
@@ -308,11 +306,11 @@ portal:
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/hybrid/hybrid_deployment_http.png" alt=""><figcaption><p>APIM gatewaye cluster</p></figcaption></figure>
 
-### Verification
+#### Verification
 
 To verify that you deployed this architecture correctly, complete the following steps:
 
-#### Examine the Gateway pod logs
+**Examine the Gateway pod logs**
 
 * Examine the Gateway pod logs. You should see an output like this example:
 
@@ -323,7 +321,7 @@ To verify that you deployed this architecture correctly, complete the following 
 08:27:32.888 [vert.x-eventloop-thread-1] [] INFO  i.g.r.b.client.http.WebClientFactory - Bridge Server connection successful.
 ```
 
-#### Check the Management Gateway
+**Check the Management Gateway**
 
 * Open the Management Console. You should see two gateways.
 
@@ -337,7 +335,7 @@ To verify that you deployed this architecture correctly, complete the following 
 {% endtab %}
 
 {% tab title="Docker" %}
-* Install Gravitee API Management (APIM). For more information about installing Gravitee APIM, see [Install on Docker](../install-on-docker/README.md).
+* Install Gravitee API Management (APIM). For more information about installing Gravitee APIM, see [Install on Docker](../install-on-docker/).
 * Download, and then mount the following plugins for the Gravitee Gateway:
   * Redis Repository. This repository is used for the rate limits' synchronized counters. To download this repository, go to [Gravitee.io Downloads](https://download.gravitee.io/#graviteeio-apim/plugins/repositories/gravitee-apim-repository-redis).
   * TCP Reporter. This repository is used to push events to Logstash. To download this repository, go to [Gravitee.io Downloads.](https://download.gravitee.io/#graviteeio-ee/apim/plugins/reporters/gravitee-reporter-tcp/)
@@ -1019,7 +1017,7 @@ output {
 {% endtab %}
 
 {% tab title="Docker" %}
-To install Fluentd using Docker, you must build a docker image.&#x20;
+To install Fluentd using Docker, you must build a docker image.
 
 {% code title="Dockerfile" lineNumbers="true" %}
 ```

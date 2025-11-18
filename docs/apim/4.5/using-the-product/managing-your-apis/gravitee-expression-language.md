@@ -78,7 +78,7 @@ EL allows you to reference certain values injected into the EL context as object
 {% endtab %}
 
 {% tab title="Attributes" %}
-The `attributes` object property contains attributes that are automatically created by the APIM Gateway during an API transaction or added during the execution phase through the [Assign Attributes policy](broken-reference). However, attributes fall into one of two categories based on API type:
+The `attributes` object property contains attributes that are automatically created by the APIM Gateway during an API transaction or added during the execution phase through the [Assign Attributes policy](broken-reference/). However, attributes fall into one of two categories based on API type:
 
 * `{#context.attributes}`: Contains attributes associated with v2 APIs or v4 Proxy APIs. A v4 Proxy API is created using the **Proxy upstream protocol** method.
 * `{#message.attributes}`: Contains attributes associated with v4 Message APIs. These APIs are created using the **Introspect messages from event-driven backend** method.
@@ -100,8 +100,7 @@ EL provides a variety of built-in functions to manipulate and transform data in 
 
 * String functions: `length(), substring(), replace()SO`
 * `#jsonPath`: Evaluates a `jsonPath` on a specified object. This function invokes `JsonPathUtils.evaluate(…​)`, which delegates to the [Jayway JsonPath library](https://github.com/json-path/JsonPath). The best way to learn jsonPath syntax is by using the [online evaluator](https://jsonpath.com/).
-  *   **`jsonPath` example**\
-
+  *   **`jsonPath` example**\\
 
       ```json
       {
@@ -125,8 +124,7 @@ EL provides a variety of built-in functions to manipulate and transform data in 
         }
       }
       ```
-  *   To extract the value of the `price` property for the book with `title` "The Lord of the Rings," you can use the following expression: `{#jsonPath(#request.content, "$.store.book[?(@.title=='The Lord of the Rings')].price")}`\
-
+  *   To extract the value of the `price` property for the book with `title` "The Lord of the Rings," you can use the following expression: `{#jsonPath(#request.content, "$.store.book[?(@.title=='The Lord of the Rings')].price")}`\\
 
       ```json
       {
@@ -152,8 +150,7 @@ EL provides a variety of built-in functions to manipulate and transform data in 
       ```
 * `#xpath`: Evaluates an `xpath` on a provided object. For more information regarding XML and XPath, see [XML Support - Dealing with XML Payloads](https://docs.spring.io/spring-integration/reference/xml.html) in the SpEL documentation.
 * `xmlEspace`: Escapes XML content to ensure that it safe for inclusion in XML or SOAP documents, which prevents injection attacks. This function utilizes Apache Commons Text StringEscapeUtils.escapeXml10() for XML 1.0-compliant escaping.
-  *   `xmlEscape example` \
-
+  *   `xmlEscape example` \\
 
       ```jsonp
       <soap:Envelope>
@@ -175,7 +172,7 @@ However, depending on the content-type, you can have access to specific content.
 **JSON content**
 
 {% hint style="warning" %}
-If a JSON payload that has duplicate keys, APIM keeps the last key.&#x20;
+If a JSON payload that has duplicate keys, APIM keeps the last key.
 
 To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection.md](policy-studio/policies-for-your-apis/i-k/json-threat-protection.md "mention").
 {% endhint %}
@@ -192,7 +189,7 @@ You can access specific attribute of a JSON request/response payload with `{#req
 
 **XML content**
 
-You can access specific tag of a XML request/response payload with `{#request.xmlContent.foo.bar}` , where the request body is similar to the following example:&#x20;
+You can access specific tag of a XML request/response payload with `{#request.xmlContent.foo.bar}` , where the request body is similar to the following example:
 
 ```xml
 <foo>
@@ -384,7 +381,7 @@ For example, to retrieve the value of an HTTP header where the name is based on 
 
 You can use the EL to update some aspects of policy configuration. The policy specifies if it supports EL or not by including a **Condition** section in the Policy Studio configuration.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-04-03 at 4.58.01 PM.png" alt=""><figcaption><p>Assign attributes policy supports EL conditions</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Screenshot 2023-04-03 at 4.58.01 PM (1).png" alt=""><figcaption><p>Assign attributes policy supports EL conditions</p></figcaption></figure>
 
 ## Conditions
 

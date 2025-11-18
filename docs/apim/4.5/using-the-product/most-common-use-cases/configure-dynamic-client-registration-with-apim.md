@@ -12,7 +12,7 @@ This tutorial will quickly showcase how to configure Dynamic Client Registration
 
 ## Prerequisites <a href="#prerequisites-3" id="prerequisites-3"></a>
 
-To participate in this tutorial, you must have an [Enterprise instance of APIM](../../overview/gravitee-apim-enterprise-edition/README.md) 4.0 or later up and running.
+To participate in this tutorial, you must have an [Enterprise instance of APIM](../../overview/gravitee-apim-enterprise-edition/) 4.0 or later up and running.
 
 You also need to have an authentication server supporting OIDC. We will be using [Gravitee Access Management (AM)](https://documentation.gravitee.io/am/overview/readme) as our provider, but you are free to use any authentication server supporting OIDC.
 
@@ -96,7 +96,7 @@ We need to add the `dcr_admin` scope to ensure the initial access token tied to 
 
 The `dcr_admin` scope must also be added to the scope in the APIM DCR Provider configuration page.
 
-<figure><img src="../../.gitbook/assets/image (135).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.8/.gitbook/assets/image (38) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 Alternatively, you could make the `dcr_admin` scope a default scope in the "DCR Application" of your IdP

@@ -7,9 +7,9 @@ description: This article walks through how to use the Gravitee v4 API creation 
 ## Introduction
 
 {% hint style="warning" %}
-When you create an API with a JSON payload that has duplicate keys, APIM keeps the last key.&#x20;
+When you create an API with a JSON payload that has duplicate keys, APIM keeps the last key.
 
-To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [Broken link](broken-reference "mention").
+To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [broken-reference](broken-reference/ "mention").
 {% endhint %}
 
 The v4 API creation wizard makes it easy to create new Gateway APIs from scratch. The API creation wizard comprises several steps, each of which requires you to define certain sets of information:
@@ -25,7 +25,7 @@ The v4 API creation wizard makes it easy to create new Gateway APIs from scratch
 
 The API details step is where you can define a name, version number, and description for your API. The name and version number are required, but we also recommend giving your API a description so that it is more easily understood and managed by internal users.
 
-<figure><img src="../../../../.gitbook/assets/v4 wizard_step 1.png" alt=""><figcaption><p>Step 1: Define your Gateway API's basic details.</p></figcaption></figure>
+<figure><img src="../../../../../../../.gitbook/assets/v4 wizard_step 1 (1).png" alt=""><figcaption><p>Step 1: Define your Gateway API's basic details.</p></figcaption></figure>
 
 ## Step 2: Entrypoints
 
@@ -46,9 +46,9 @@ The Gravitee documentation adopts concise terminology to differentiate between t
 **Message API:** An API created using **Introspect messages from event-driven backend**
 {% endhint %}
 
-What you choose will dictate the kinds of entrypoints and endpoints that you can select later on. For more in-depth information what each method supports, refer to [this documentation](../README.md#backend-exposure-methods).
+What you choose will dictate the kinds of entrypoints and endpoints that you can select later on. For more in-depth information what each method supports, refer to [this documentation](../#backend-exposure-methods).
 
-<figure><img src="../../../../.gitbook/assets/v4 wizard_step 2 proxy.png" alt=""><figcaption><p>v4 API creation wizard: Select how you want your backend service exposed</p></figcaption></figure>
+<figure><img src="../../../../../../../.gitbook/assets/v4 wizard_step 2 proxy (1).png" alt=""><figcaption><p>v4 API creation wizard: Select how you want your backend service exposed</p></figcaption></figure>
 
 After you choose your method of exposure, click **Select my API architecture** to view the entrypoint selection screen. The entrypoint selection and configuration for each exposure method are discussed below.
 
@@ -56,7 +56,7 @@ After you choose your method of exposure, click **Select my API architecture** t
 
 If you chose **Proxy upstream protocol**, choose either HTTP Proxy or TCP Proxy as your entrypoint.
 
-<figure><img src="../../../../.gitbook/assets/step2.png" alt=""><figcaption><p>v4 API creation wizard: HTTP or TCP as a backend entrypoint</p></figcaption></figure>
+<figure><img src="../../../../../../../.gitbook/assets/step2 (1).png" alt=""><figcaption><p>v4 API creation wizard: HTTP or TCP as a backend entrypoint</p></figcaption></figure>
 
 Once you select your entrypoint, additional configuration is required. The following sections outline the necessary configuration per entrypoint.
 
@@ -84,7 +84,7 @@ Once you select your entrypoint, additional configuration is required. The follo
 
 The ability to create APIs with message API entrypoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise and what's included in various enterprise packages:
 
-* [Refer to the EE vs OSS documentation](../../../../overview/gravitee-apim-enterprise-edition/README.md)
+* [Refer to the EE vs OSS documentation](../../../../overview/gravitee-apim-enterprise-edition/)
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
@@ -97,7 +97,7 @@ If you chose **Introspect messages from Event-driven backend**, you are presente
 * **Webhook**: Front a backend or data source with a Gateway Webhook API. This allows consumers to subscribe to the Gravitee Gateway via Webhook and then retrieve streamed data in real-time from a backend data source, via the Gateway, over the consumer's Webhook callback URL.
 * **WebSocket**: Front a backend or data source with a Gateway WebSocket API. This allows a consumer to retrieve and send streamed events and messages in real-time.
 
-<figure><img src="../../../../.gitbook/assets/v4 wizard_step 2 message entrypoints.png" alt=""><figcaption><p>v4 API creation wizard: Event-driven backend entrypoints</p></figcaption></figure>
+<figure><img src="../../../../../../../.gitbook/assets/v4 wizard_step 2 message entrypoints (1).png" alt=""><figcaption><p>v4 API creation wizard: Event-driven backend entrypoints</p></figcaption></figure>
 
 Once you select your entrypoint(s), additional configuration is required. The following sections outline the necessary configuration per entrypoint.
 
@@ -200,8 +200,7 @@ Depending on which endpoint you choose, you will need to further define certain 
 <summary>HTTP Proxy</summary>
 
 * **Define your target URL:** Enter your target URL in the **Target URL** text field.
-
-- **Define your HTTP options:**
+* **Define your HTTP options:**
   * Choose to either allow or disallow h2c clear text upgrade by toggling **Allow h2c Clear Text Upgrade** ON or OFF.
     * You'll need to select the HTTP protocol version to use. HTTP/1.1 and HTTP/2 are supported.
   * Choose to either enable or disable keep-alive by toggling **Enable keep-alive** ON or OFF.
@@ -214,7 +213,6 @@ Depending on which endpoint you choose, you will need to further define certain 
   * Define the number of max concurrent connections by entering a numeric value or using the arrow keys in the text field.
   * Choose to propagate client Accept-Encoding header by toggling **Propagate client Accept-Encoding header (no decompression if any)** ON or OFF.
   * Select **+ Add HTTP headers** to add headers that the Gateway should add or override before proxying the request to the backend API.
-
 * **Define your Proxy options:**
   * Choose whether to use a proxy for client connections by toggling **Use proxy** ON of OFF.
     * If enabled, you will need to select from the proxy types in the **Proxy type** drop-down: **HTTP proxy**, **SOCKS4**, or **SOCKS5**.
@@ -223,9 +221,7 @@ Depending on which endpoint you choose, you will need to further define certain 
     * **Proxy port:** Enter your proxy port in the text field.
     * (Optional) **Proxy username:** Enter your proxy username in the text field.
     * (Optional) **Proxy password:** Enter your proxy password in the text field.
-
-- **Define your SSL options**
-
+* **Define your SSL options**
 * **Define your keystore**
 
 </details>
@@ -282,7 +278,7 @@ The endpoint configuration will determine the endpoint group’s default configu
 
 By default, the endpoint group will be named **Default \<endpoint type> group** and the endpoint will be named **Default \<endpoint type>** as shown below:
 
-<figure><img src="../../../../.gitbook/assets/tcp_endpoints.png" alt=""><figcaption><p>Default TCP proxy API endpoint names</p></figcaption></figure>
+<figure><img src="../../../../../../../.gitbook/assets/tcp_endpoints (1).png" alt=""><figcaption><p>Default TCP proxy API endpoint names</p></figcaption></figure>
 
 ### **Introspect messages from event-driven backend endpoints**
 
@@ -291,7 +287,7 @@ By default, the endpoint group will be named **Default \<endpoint type> group** 
 
 The ability to create APIs with message API endpoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise and what's included in various enterprise packages:
 
-* [Refer to the EE vs OSS documentation](../../../../overview/gravitee-apim-enterprise-edition/README.md)
+* [Refer to the EE vs OSS documentation](../../../../overview/gravitee-apim-enterprise-edition/)
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
@@ -542,7 +538,7 @@ The endpoint configuration will determine the endpoint group’s default configu
 
 By default, the endpoint group will be named **Default \<endpoint type> group** and the endpoint will be named **Default \<endpoint type>** as shown below:
 
-<figure><img src="../../../../.gitbook/assets/v4 default endpoints message.png" alt=""><figcaption><p>Default message API endpoint names</p></figcaption></figure>
+<figure><img src="../../../../../../../.gitbook/assets/v4 default endpoints message (1).png" alt=""><figcaption><p>Default message API endpoint names</p></figcaption></figure>
 
 ## Step 4: Security
 
@@ -557,7 +553,7 @@ Next in the API creation wizard is the Security step, where you will configure:
 A plan is essentially an access layer around an API that provides the API producer with a method to secure, monitor, and transparently communicate the details of access.
 
 {% hint style="info" %}
-To learn more about how plans function in Gravitee, refer to the [plans documentation](../../preparing-apis-for-subscribers/plans/README.md).
+To learn more about how plans function in Gravitee, refer to the [plans documentation](../../preparing-apis-for-subscribers/plans/).
 {% endhint %}
 
 You will be able to choose between several different plan types:
@@ -568,7 +564,7 @@ You will be able to choose between several different plan types:
 * **Keyless**: A plan that, when configured, does not add security. This is considered an "Open" plan.
 * **Push plan**: A plan that provides an access layer for the Gateway pushing data to consumers. This is used for subscribers.
 
-<figure><img src="../../../../.gitbook/assets/v4 wizard_step 4 http.png" alt=""><figcaption><p>API creation wizard: Different Security plan types</p></figcaption></figure>
+<figure><img src="../../../../../../../.gitbook/assets/v4 wizard_step 4 http (1).png" alt=""><figcaption><p>API creation wizard: Different Security plan types</p></figcaption></figure>
 
 Configuration differs by plan. See the expandable sections below to learn more about how to configure each of the different plans.
 
@@ -584,7 +580,7 @@ To configure your OAuth2 plan, select OAuth2 from the **+Add plan** drop-down me
 * **Subscription:** choose whether to auto-validate subscriptions, require a message from a consumer during subscription, and/or present a message to the consumer upon subscription.
 * **Access control:** select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../../administration/user-management-and-permissions.md#users-and-user-groups).
 
-<img src="../../../../.gitbook/assets/image (92).png" alt="" data-size="original">
+<img src="../../../../../../../.gitbook/assets/image (92) (1).png" alt="" data-size="original">
 
 Select Next to move on to **OAuth2 authentication configuration**. Here, you'll specify:
 
@@ -596,7 +592,7 @@ Select Next to move on to **OAuth2 authentication configuration**. Here, you'll 
 * Whether to permit authorization headers to target endpoints.
 * (Optional) Define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process. You will need to use the Gravitee Expression Language. For more information on the Gravitee Expression Language, please refer to the Expression Language documentation.
 
-<img src="../../../../.gitbook/assets/image (106).png" alt="" data-size="original">
+<img src="../../../../../../../.gitbook/assets/image (97) (1).png" alt="" data-size="original">
 
 Select Next to define any additional restrictions for the plan. These restrictions include:
 
@@ -609,7 +605,7 @@ Select Next to define any additional restrictions for the plan. These restrictio
 * **Quota:** define a rate limit over a period of hours, days, or months. If you choose this, you will need to define the same settings that are applicable to rate limiting (see above).
 * **Resource filtering:** restricts resources based on defined whitelist/allowed and/or blacklist/disallowed settings. These will be defined by path patterns and methods.
 
-<img src="../../../../.gitbook/assets/image (98).png" alt="" data-size="original">
+<img src="../../../../../../../.gitbook/assets/image (98) (1).png" alt="" data-size="original">
 
 </details>
 
@@ -654,7 +650,7 @@ Select Next to define any restrictions associated with this plan. Your options i
 * **Quota:** define a rate limit over a period of hours, days, or months. If you choose this, you will need to define the same settings that are applicable to rate limiting (see above).
 * **Resource filtering:** restricts resources based on defined whitelist/allowed and/or blacklist/disallowed settings. These will be defined by path patterns and methods.
 
-<img src="../../../../.gitbook/assets/image (99).png" alt="" data-size="original">
+<img src="../../../../../../../.gitbook/assets/image (98) (1).png" alt="" data-size="original">
 
 </details>
 
@@ -722,5 +718,5 @@ The Documentation step is supported for v4 APIs. See [this page](../../api-confi
 The final step is to review and then create or deploy your API. Creating your API will create the API as a Gravitee artifact, but not deploy it to the Gateway. If you choose Deploy, the API will be created and deployed to the Gravitee Gateway.
 
 {% hint style="success" %}
-Once you create or deploy your API, you are done with the API creation process! We recommend learning how to further [configure](../../api-configuration/README.md) your API, and how to design and enforce [policies](../../policy-studio/README.md) to make your API more secure, reliable, efficient, etc.
+Once you create or deploy your API, you are done with the API creation process! We recommend learning how to further [configure](../../api-configuration/) your API, and how to design and enforce [policies](../../policy-studio/) to make your API more secure, reliable, efficient, etc.
 {% endhint %}
