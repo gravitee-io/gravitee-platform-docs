@@ -149,7 +149,7 @@ Storage concerns reside at the analytics database level and depend on:
 * API rate (RPS: Requests Per Second)
 * API payload sizes
 
-To avoid generating excessive data and reducing Gateway capacity, refrain from [activating the advanced logs](broken-reference/) on all API requests and responses.
+To avoid generating excessive data and reducing Gateway capacity, refrain from [activating the advanced logs](../analyze-and-monitor-apis/logging.md) on all API requests and responses.
 
 For example, if you have activated the advanced logs on requests and responses with an average (requests + responses) payload size of 10kB and at 10 RPS, then retaining the logs for 6 months will require 1.5 TB of storage.
 {% endtab %}
@@ -203,7 +203,7 @@ The Gateway is optimized to minimize memory consumption when serving requests an
 
 <summary>Analytics and logging</summary>
 
-Gravitee offers multiple methods to export analytics using [reporters](../analyze-and-monitor-apis/reporters/README.md). Depending on throughput and the level of precision used for logging, you may need to increase the memory or disk space of your Gateway and choose the reporter best suited to handle your traffic analytics.
+Gravitee offers multiple methods to export analytics using [reporters](../analyze-and-monitor-apis/reporters/). Depending on throughput and the level of precision used for logging, you may need to increase the memory or disk space of your Gateway and choose the reporter best suited to handle your traffic analytics.
 
 </details>
 
@@ -280,11 +280,11 @@ The[ Gateway internal API](../configure-and-manage-the-platform/gravitee-gateway
 
 **Mock Policy for Active Health Checks**
 
-Utilizing an API with a [Mock policy](broken-reference/) enables administrators to perform active health checks on the Gravitee APIM Gateways. By configuring mock endpoints that simulate various scenarios, such as successful requests, timeouts, or errors, administrators can verify the Gateway's responsiveness and behavior under different conditions.
+Utilizing an API with a [Mock policy](../create-and-configure-apis/apply-policies/policy-reference/mock.md) enables administrators to perform active health checks on the Gravitee APIM Gateways. By configuring mock endpoints that simulate various scenarios, such as successful requests, timeouts, or errors, administrators can verify the Gateway's responsiveness and behavior under different conditions.
 
 **Prometheus Metrics**
 
-[Integration with Prometheus](broken-reference/) allows administrators to expose and collect metrics related to Gravitee APIM Gateways, including Vert.x 4 metrics. By accessing the `/_node/metrics/prometheus` endpoint on the internal API, administrators can retrieve detailed metrics with customizable labels, enabling them to monitor system performance and identify trends over time.
+[Integration with Prometheus](../kafka-gateway/expose-metrics-to-prometheus.md) allows administrators to expose and collect metrics related to Gravitee APIM Gateways, including Vert.x 4 metrics. By accessing the `/_node/metrics/prometheus` endpoint on the internal API, administrators can retrieve detailed metrics with customizable labels, enabling them to monitor system performance and identify trends over time.
 
 **OpenTracing with Jaeger**
 
