@@ -12,7 +12,7 @@ When you access the Developer Portal directly from the Management Console, you a
 
 To create new user accounts you must:
 
-* Enable the **Allow User Registration** option. This option is a [general setting](broken-reference/) and enabled by default.
+* Enable the **Allow User Registration** option. This option is a [general setting](general-settings.md) and enabled by default.
 * Configure simple mail transfer protocol (SMTP) to confirm user account creation. See the sections below for detailed instructions.
 
 ### Configure SMTP
