@@ -12,7 +12,7 @@ Before you install the Apigee X federation agent, complete the following steps:
 * The account needs a minimum set of permissions for the federation agent. See [#minimum-apigee-permissions-required-by-the-agent](apigee-x.md#minimum-apigee-permissions-required-by-the-agent "mention") for the complete list.
 * Gravitee API Management version 4.4 or later, with an enterprise license. For more information about Enterprise edition, see [Enterprise Edition Licensing](https://documentation.gravitee.io/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing#license-support).
 * An access token. For more information, see [how to create a service account and an access token](../federation-agent-service-account.md).
-* A Google Cloud Platform project ID
+* A Google Cloud Platform project ID.&#x20;
 * Google Cloud Platform service account with a service account key in JSON format. For more information, see [How to create a GCP Service Account.](https://cloud.google.com/iam/docs/service-accounts-create)
 
 ## Integrate Apigee x with Grvaitee APIM
