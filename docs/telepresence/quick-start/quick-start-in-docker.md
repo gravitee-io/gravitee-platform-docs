@@ -82,7 +82,7 @@ cd .\telepresence-local-quickstart\
     Forwarding from 127.0.0.1:8080 -> 8080
     Forwarding from [::1]:8080 -> 8080
     ```
-3. Open the app in your browser by typing [http://localhost:8080/](http://localhost:8080/) into the search bar.
+3. Open the app in your browser by typing `http://localhost:8080/` into the search bar.
 
 You are connected to the VeryLargeJavaService, which talks to the DataProcessingService as an upstream dependency. The DataProcessingService in turn has a dependency on VeryLargeDatastore.
 

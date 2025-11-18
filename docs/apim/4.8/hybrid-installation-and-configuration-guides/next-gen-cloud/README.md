@@ -74,8 +74,8 @@ The Cloud Gate is deployed in each data center region of the Control Plane to en
 {% hint style="info" %}
 Your Gateway needs to connect to the Cloud Gate in the region where your Control Plane is deployed. The traffic is routed over HTTPS/443 to the following Cloud Gate URLs:\
 \
-US Cloud Gate: [https://us.cloudgate.gravitee.io/](https://us.cloudgate.gravitee.io/)\
-EU Cloud Gate: [https://eu.cloudgate.gravitee.io/](https://eu.cloudgate.gravitee.io/)
+US Cloud Gate: `https://us.cloudgate.gravitee.io/`\
+EU Cloud Gate: `https://eu.cloudgate.gravitee.io/`
 {% endhint %}
 
 Analytics are reported to a dedicated Cloud account pipeline. Data is produced to a Kafka topic, ingested in Logstash, and then stored in a dedicated Elastisearch index that is consumed by your Cloud account's API Management Control Plane.

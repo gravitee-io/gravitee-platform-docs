@@ -126,7 +126,7 @@ If your cluster is on an isolated network such that it cannot communicate with A
 
 #### Create a license
 
-1. Log in and Go to [the teams setting page in Ambassador Cloud](https://auth.datawire.io/redirects/settings/telepresence-licenses) and select _Telepresence Licenses_ for the team you want to create the license for.
+1. Log in and Go to the teams setting page in Ambassador Cloud and select _Telepresence Licenses_ for the team you want to create the license for.
 2. Generate a new license (if one doesn't already exist) by clicking _Generate New License_.
 3.  You will be prompted for your Namespace ID. Ensure your kubeconfig context is using the cluster you want to create a license for then run this command to generate the Namespace ID:
 
