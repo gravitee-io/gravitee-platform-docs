@@ -622,7 +622,7 @@ Select Next to be taken to the **Restriction** page to define any additional res
 
 ## Step 5: Documentation
 
-The Documentation step is supported for v4 APIs. See [this page](broken-reference/) to learn how to create documentation for a v4 API.
+The Documentation step is supported for v4 APIs. See [this page](../../api-configuration/v4-api-configuration/documentation.md) to learn how to create documentation for a v4 API.
 
 ## Step 6: Summary
 
