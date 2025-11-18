@@ -11,13 +11,13 @@ In the New Developer Portal catalog, you can search for an API based on an assoc
 1. Sign in to your APIM Console.
 2.  From the homepage, click **Settings**.\\
 
-    <figure><img src="../../.gitbook/assets/76D66FB4-4D8E-467D-AADE-543FC7813158_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/76D66FB4-4D8E-467D-AADE-543FC7813158_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
 3.  In the **Settings** menu, navigate to the **Portal** section, and then click **Settings**.\\
 
-    <figure><img src="../../.gitbook/assets/A19B0A93-5568-4136-AC4C-7956574C28ED.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/A19B0A93-5568-4136-AC4C-7956574C28ED (1).jpeg" alt=""><figcaption></figcaption></figure>
 4.  Navigate to the **New Developer Portal** section of the page, and then click **Open Settings** to open the settings in a new tab.\\
 
-    <figure><img src="../../.gitbook/assets/8F20A23D-0B5B-4863-B454-6AA244B820AC_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/8F20A23D-0B5B-4863-B454-6AA244B820AC_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
 5.  In the **Customization** menu, click **Catalog**.\\
 
     <figure><img src="../../.gitbook/assets/F5E90772-39F4-4EF0-9B4E-34A1D1386DD1.jpeg" alt=""><figcaption></figcaption></figure>
@@ -32,11 +32,11 @@ In the New Developer Portal catalog, you can search for an API based on an assoc
 
 Here is an example of categories as header tabs:
 
-<figure><img src="../../../4.7/.gitbook/assets/0 tabs (1).png" alt=""><figcaption><p>Tabs category view</p></figcaption></figure>
+<figure><img src="../../../4.7/.gitbook/assets/0%20tabs%20(1).png" alt=""><figcaption><p>Tabs category view</p></figcaption></figure>
 
 Here is an example of categories as tiles:
 
-<figure><img src="../../../4.7/.gitbook/assets/0 tiles (1).png" alt=""><figcaption><p>Tiles category view</p></figcaption></figure>
+<figure><img src="../../../4.7/.gitbook/assets/0%20tiles%20(1).png" alt=""><figcaption><p>Tiles category view</p></figcaption></figure>
 
 ## Fonts
 
@@ -53,7 +53,7 @@ To select fonts for the New Developer Portal, complete the following steps:
     <figure><img src="../../.gitbook/assets/8F20A23D-0B5B-4863-B454-6AA244B820AC_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
 4.  In the **Customization** menu, click **Theme**.\\
 
-    <figure><img src="../../.gitbook/assets/D15564EE-4952-4032-A48C-109585617DDC.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/D15564EE-4952-4032-A48C-109585617DDC (1).jpeg" alt=""><figcaption></figcaption></figure>
 5. Navigate to the **Font** section of the page.
 6.  From the **Font** drop-down menu, select a new font. For a list of available fonts, see [#available-fonts](layout-and-theme.md#available-fonts "mention").\\
 
