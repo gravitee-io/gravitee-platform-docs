@@ -2,7 +2,7 @@
 
 ## Overview
 
-Site-wide documentation creates a direct line of communication with your developer community. Administrators can use site-wide documentation to communicate best practices, configure pages, or as a reference via [custom navigation](broken-reference/). Published documentation is accessible from the Developer Portal's **Documentation** page:
+Site-wide documentation creates a direct line of communication with your developer community. Administrators can use site-wide documentation to communicate best practices, configure pages, or as a reference via [custom navigation](layout-and-theme-customization.md#custom-navigation). Published documentation is accessible from the Developer Portal's **Documentation** page:
 
 {% hint style="info" %}
 Site-wide documentation is separate from API documentation, which can be added to an API by an API publisher.
@@ -225,7 +225,7 @@ A `cron` expression is a string consisting of six fields (representing seconds, 
 * Fetch every second: `* * */1 * * *`
 * At 00:00 on Saturday : `0 0 0 * * SAT`
 
-If the APIM administrator configured a [maximum fetch frequency](broken-reference/), the value configured by the APIM administrator will override the frequency you specify.
+If the APIM administrator configured a [maximum fetch frequency](general-settings.md), the value configured by the APIM administrator will override the frequency you specify.
 {% endhint %}
 
 9.  Select **IMPORT** for APIM to add the files to your documentation set
