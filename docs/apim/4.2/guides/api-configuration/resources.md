@@ -6,7 +6,7 @@ description: This page describes how to create and configure the default APIM re
 
 ## Overview
 
-Every API Management installation includes several default resources that are commonly used in standard APIM implementations and can be configured during the API design phase. The recommended configuration method employs the [Policy Studio](../policy-studio/README.md).
+Every API Management installation includes several default resources that are commonly used in standard APIM implementations and can be configured during the API design phase. The recommended configuration method employs the [Policy Studio](../policy-studio/).
 
 The following sections summarize resource descriptions, configuration parameters, and configuration examples.
 
@@ -40,9 +40,9 @@ To create a resource:
 2. Click **APIs** in the left sidebar.
 3. Select the API you want to add the resource to.
 4. Click **Resources** in the inner left sidebar.
-5.  Select the resource you want to configure:&#x20;
+5.  Select the resource you want to configure:
 
-    <figure><img src="../../.gitbook/assets/create resource.png" alt=""><figcaption><p>Add a resource</p></figcaption></figure>
+    <figure><img src="../../../../../.gitbook/assets/create resource (1).png" alt=""><figcaption><p>Add a resource</p></figcaption></figure>
 6. In the CREATE RESOURCE form, configure the resource per the [Configuration options](resources.md#configuration-options) section.
 
 ## Configuration options
@@ -53,13 +53,13 @@ Each resource can be customized with a unique set of configuration options.
 
 {% tabs %}
 {% tab title="Cache" %}
-<figure><img src="../../.gitbook/assets/resource_cache.png" alt=""><figcaption><p>Create a Cache resource</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/resource_cache (1).png" alt=""><figcaption><p>Create a Cache resource</p></figcaption></figure>
 
 <table><thead><tr><th width="161">Config param</th><th width="417">Description</th><th>Default</th></tr></thead><tbody><tr><td>Cache name</td><td>Name of the cache</td><td>my-cache</td></tr><tr><td>Time to idle</td><td>Maximum number of seconds an element can exist in the cache without being accessed. When this threshold is reached, the element expires and will no longer be returned from the cache. The default value is 0, i.e., no timeToIdle (TTI) eviction takes place (infinite lifetime).</td><td>0</td></tr><tr><td>Time to live</td><td>Maximum number of seconds an element can exist in the cache, regardless of usage. When this threshold is reached, the element expires and will no longer be returned from the cache. The default value is 0, i.e., no timeToLive (TTL) eviction takes place (infinite lifetime).</td><td>0</td></tr><tr><td>Max entries on heap</td><td>Maximum number of objects to be held in local heap memory (0 = no limit)</td><td>1000</td></tr></tbody></table>
 {% endtab %}
 
 {% tab title="Cache Redis" %}
-<figure><img src="../../.gitbook/assets/resource_cache redis.png" alt=""><figcaption><p>Create a Cache Redis resource</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/resource_cache redis (1).png" alt=""><figcaption><p>Create a Cache Redis resource</p></figcaption></figure>
 
 The Cache Redis resource can operate standalone or with the Redis Sentinel monitoring solution. The majority of Cache Redis configuration options are common to both modes of operation, but several are exclusive to either standalone or Sentinel as indicated with a **bold asterisk (\*)**.
 
@@ -71,13 +71,13 @@ The Cache Redis resource can operate standalone or with the Redis Sentinel monit
 
 {% tabs %}
 {% tab title="Generic Authorization Server" %}
-<figure><img src="../../.gitbook/assets/resource_oauth2 generic.png" alt=""><figcaption><p>Create an OAuth2 Generic Authorization Server resource</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/resource_oauth2 generic (1).png" alt=""><figcaption><p>Create an OAuth2 Generic Authorization Server resource</p></figcaption></figure>
 
 <table><thead><tr><th width="190">Config param</th><th width="245">Description</th><th>Default</th></tr></thead><tbody><tr><td>Resource name</td><td>Name of the resource</td><td>-</td></tr><tr><td>Authorization server URL</td><td>URL of the authorization server</td><td>https://authorization_server</td></tr><tr><td>Token introspect endpoint</td><td>URL the resource uses to introspect an incoming access token</td><td>/oauth/check_token</td></tr><tr><td>System proxy</td><td>Toggle to use system proxy</td><td>false</td></tr><tr><td>Token introspect method</td><td>HTTP method to introspect the access token</td><td>GET</td></tr><tr><td>Client ID</td><td>Client identifier</td><td>-</td></tr><tr><td>Client secret</td><td>Client secret</td><td>-</td></tr><tr><td>Use HTTP header for client authorization</td><td>To prevent token scanning attacks, the endpoint MUST require access authorization. Gravitee uses an HTTP header for client authentication.</td><td>true</td></tr><tr><td>Authorization header</td><td>Authorization header</td><td>Authorization</td></tr><tr><td>Authorization scheme</td><td>Authorization scheme</td><td>Basic</td></tr><tr><td>Use a query parameter to supply access token</td><td>Access token is passed to the introspection endpoint using a query parameter</td><td>true</td></tr><tr><td>Token query param name</td><td>Query parameter that supplies access token</td><td>token</td></tr><tr><td>Use an HTTP header to supply access token</td><td>Access token is passed to the introspection endpoint using an HTTP header</td><td>false</td></tr><tr><td>HTTP header name</td><td>HTTP header used to supply access token</td><td>-</td></tr><tr><td>Use application/x-www-form-urlencoded form to send access token</td><td>Send access token in <strong>application/x-www-form-urlencoded</strong> form</td><td>false</td></tr><tr><td>Form param name</td><td>Form parameter name</td><td>token</td></tr><tr><td>User claim</td><td>User claim field to store end user in log analytics</td><td>sub</td></tr></tbody></table>
 {% endtab %}
 
 {% tab title="Gravitee AM Authorization Server" %}
-<figure><img src="../../.gitbook/assets/resource_oauth2 am.png" alt=""><figcaption><p>Create an OAuth2 Gravitee AM Authorization Server resource</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/resource_oauth2 am (1).png" alt=""><figcaption><p>Create an OAuth2 Gravitee AM Authorization Server resource</p></figcaption></figure>
 
 <table><thead><tr><th width="177">Config param</th><th width="414">Description</th><th>Default</th></tr></thead><tbody><tr><td>Resource name</td><td>Name of the resource</td><td>-</td></tr><tr><td>Server URL</td><td>URL of the Gravitee Access Management server</td><td>-</td></tr><tr><td>System proxy</td><td>Toggle to use system proxy</td><td>false</td></tr><tr><td>Version</td><td>Version of the Access Management server</td><td>V3_X</td></tr><tr><td>Security domain</td><td>Security domain (realm) from which the token has been generated and must be introspected</td><td>-</td></tr><tr><td>Client ID</td><td>Client identifier</td><td>-</td></tr><tr><td>Client secret</td><td>Client secret</td><td>-</td></tr><tr><td>User claim</td><td>User claim field to store end user in log analytics</td><td>sub</td></tr></tbody></table>
 {% endtab %}
@@ -87,13 +87,13 @@ The Cache Redis resource can operate standalone or with the Redis Sentinel monit
 
 {% tabs %}
 {% tab title="HTTP" %}
-<figure><img src="../../.gitbook/assets/resource_http.png" alt=""><figcaption><p>Create an HTTP Authentication Provider resource</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/resource_http (1).png" alt=""><figcaption><p>Create an HTTP Authentication Provider resource</p></figcaption></figure>
 
 <table><thead><tr><th width="174">Config param</th><th width="227">Description</th><th>Default</th></tr></thead><tbody><tr><td>Resource name</td><td>The name of the resource</td><td>-</td></tr><tr><td>HTTP method</td><td>HTTP method to invoke the endpoint</td><td>POST</td></tr><tr><td>Use system proxy</td><td>Toggle to use the system proxy configured by your administrator</td><td>false</td></tr><tr><td>URL</td><td>Server URL</td><td>-</td></tr><tr><td>Request body</td><td>The body of the HTTP request. Supports the Gravitee Expression Language.</td><td>-</td></tr><tr><td>Authentication condition</td><td>The condition to be verified to validate that the authentication is successful. Supports the Gravitee Expression Language.</td><td>{#authResponse.status == 200}</td></tr></tbody></table>
 {% endtab %}
 
 {% tab title="Inline" %}
-<figure><img src="../../.gitbook/assets/resource_inline.png" alt=""><figcaption><p>Create an Inline Authentication Provider resource</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/resource_inline (1).png" alt=""><figcaption><p>Create an Inline Authentication Provider resource</p></figcaption></figure>
 
 | Config param  | Description              | Default |
 | ------------- | ------------------------ | ------- |
@@ -102,7 +102,7 @@ The Cache Redis resource can operate standalone or with the Redis Sentinel monit
 {% endtab %}
 
 {% tab title="LDAP" %}
-<figure><img src="../../.gitbook/assets/resource_ldap.png" alt=""><figcaption><p>Create an LDAP Authentication Provider resource</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/resource_ldap (1).png" alt=""><figcaption><p>Create an LDAP Authentication Provider resource</p></figcaption></figure>
 
 <table><thead><tr><th width="205">Config param</th><th width="366">Description</th><th>Default</th></tr></thead><tbody><tr><td>Resource name</td><td>The name of the resource</td><td>-</td></tr><tr><td>LDAP URL</td><td>The URL of the LDAP server, e.g., ldap://myserver.example.com:389. For SSL access, use the LDAPs protocol and the appropriate port, e.g., ldaps://myserver.example.com:636. For failover functionality, specify multiple URLs separated by commas (,).</td><td>-</td></tr><tr><td>Use StartTLS</td><td>Toggle to use StartTLS</td><td>false</td></tr><tr><td>Base DN</td><td>The base DN. Once configured, all Distinguished Names supplied to and received from LDAP operations are relative to the specified LDAP path.</td><td>-</td></tr><tr><td>Username</td><td>The username (principal) to use when authenticating with the LDAP server. Usually the DN of an admin user (e.g., Administrator), but may differ depending on server and authentication method.</td><td>-</td></tr><tr><td>Password</td><td>The password (credentials) to authenticate with the LDAP server</td><td>-</td></tr><tr><td>User search filter</td><td>Filter by user ID</td><td>uid={0}</td></tr><tr><td>User search base</td><td>If user search base isn't supplied, the search will be performed from the root</td><td>ou=users</td></tr><tr><td>Cache - maximum number of elements</td><td>Maximum number of cache elements used to store successful authentications</td><td>100</td></tr><tr><td>Cache - time to live</td><td>Maximum time to live of cache elements used to store successful authentications</td><td>60000</td></tr><tr><td>Connect timeout</td><td>Duration of time (milliseconds) that connections will block</td><td>5000</td></tr><tr><td>Response timeout</td><td>Duration of time (milliseconds) to wait for responses</td><td>5000</td></tr><tr><td>Min pool size</td><td>Minimum pool of initialized connections</td><td>5</td></tr><tr><td>Max pool size</td><td>Maximum pool of initialized connections</td><td>15</td></tr></tbody></table>
 {% endtab %}
@@ -117,18 +117,18 @@ The Cache Redis resource can operate standalone or with the Redis Sentinel monit
 
 As of Gravitee 4.0, the ability to use Confluent Schema Registry as a resource is an Enterprise Edition capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:
 
-* [Refer to the EE vs OSS documentation](../../overview/gravitee-apim-enterprise-edition/README.md)
+* [Refer to the EE vs OSS documentation](../../overview/gravitee-apim-enterprise-edition/)
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/resource_confluent.png" alt=""><figcaption><p>Create a Confluent Schema Registry resource</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/resource_confluent (1).png" alt=""><figcaption><p>Create a Confluent Schema Registry resource</p></figcaption></figure>
 
 <table><thead><tr><th width="199">Config param</th><th width="316">Description</th><th>Default</th></tr></thead><tbody><tr><td>Resource name</td><td>Name of the resource</td><td>-</td></tr><tr><td>Registry URL</td><td>URL of the schema registry</td><td>-</td></tr><tr><td>Use proxy</td><td>Toggle to use proxy to fetch schema</td><td>false</td></tr><tr><td>Proxy type</td><td>The type of the proxy</td><td>HTTP CONNECT proxy</td></tr><tr><td>Use system proxy</td><td>Toggle to use proxy configured at system level</td><td>false</td></tr><tr><td>Proxy host</td><td>Proxy host to connect to</td><td>-</td></tr><tr><td>Proxy port</td><td>Proxy port to connect to</td><td>-</td></tr><tr><td>Proxy username</td><td>Optional proxy username</td><td>-</td></tr><tr><td>Proxy password</td><td>Optional proxy password</td><td>-</td></tr><tr><td>Authentication mode</td><td>The authentication mode used to connect to Schema Registry</td><td>Basic</td></tr><tr><td>Authentication username</td><td>Authentication username</td><td>-</td></tr><tr><td>Authentication password</td><td>Authentication password</td><td>-</td></tr><tr><td>Verify host</td><td>Toggle to enable host name verification</td><td>true</td></tr><tr><td>Trust all</td><td>Toggle to force the Gateway to trust any origin certificates. Use with caution over the Internet. The connection will be encrypted but this mode is vulnerable to 'man in the middle' attacks.</td><td>false</td></tr><tr><td>Trust store type</td><td>The type of the trust store</td><td>None</td></tr><tr><td>Key store type</td><td>The type of the key store</td><td>None</td></tr></tbody></table>
 {% endtab %}
 
 {% tab title="Keycloak Adapter" %}
-<figure><img src="../../.gitbook/assets/resource_keycloak.png" alt=""><figcaption><p>Create a Keycloak Adapter resource</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/resource_keycloak (1).png" alt=""><figcaption><p>Create a Keycloak Adapter resource</p></figcaption></figure>
 
 | Config param                  | Description                                           | Default |
 | ----------------------------- | ----------------------------------------------------- | ------- |

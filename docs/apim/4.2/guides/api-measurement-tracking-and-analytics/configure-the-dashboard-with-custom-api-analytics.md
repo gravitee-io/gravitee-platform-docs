@@ -21,7 +21,7 @@ The Gravitee "Dashboard" is an area in the UI where you'll be able to create cus
 
 To see what the Gravitee Dashboard is like, feel free to explore the UI via the interactive tutorial below:
 
-{% @arcade/embed flowId="bTYh1yLqcbJU6xaGZQZm" url="https://app.arcade.software/share/bTYh1yLqcbJU6xaGZQZm" %}
+{% @arcade/embed url="https://app.arcade.software/share/bTYh1yLqcbJU6xaGZQZm" flowId="bTYh1yLqcbJU6xaGZQZm" %}
 
 #### Add dashboards to your Analytics tab
 
@@ -33,7 +33,7 @@ You are able to control what kinds of information and charts are presented on yo
 
 To do so follow along with the interactive tutorial or follow the written steps. Both are below.
 
-{% @arcade/embed flowId="nnYHELNaqBTNKvxqrQIL" url="https://app.arcade.software/share/nnYHELNaqBTNKvxqrQIL" %}
+{% @arcade/embed url="https://app.arcade.software/share/nnYHELNaqBTNKvxqrQIL" flowId="nnYHELNaqBTNKvxqrQIL" %}
 
 To add a dashboard to your Analytics tab, follow these steps:
 
@@ -120,7 +120,7 @@ To add a dashboard to your Analytics tab, follow these steps:
 {% hint style="success" %}
 If you followed the above steps, you'll see your new dashboard and widget.
 
-<img src="../../.gitbook/assets/image (42).png" alt="" data-size="original">
+<img src="../../../../../.gitbook/assets/image (95) (1).png" alt="" data-size="original">
 {% endhint %}
 
 #### Edit existing Analytics dashboards
