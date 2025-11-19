@@ -66,7 +66,7 @@ The API creation wizard allows you to create either an **API key** or **Keyless*
 
 <figure><img src="../../../../.gitbook/assets/Screen Shot 2023-06-07 at 1.43.11 PM.png" alt=""><figcaption><p>v2 API creation wizard: Plans</p></figcaption></figure>
 
-Gravitee offers additional plan features that are not configured in the API creation wizard. For more in-depth information on plans, refer to the [plans ](../expose-apis/plans/)documentation.
+Gravitee offers additional plan features that are not configured in the API creation wizard. For more in-depth information on plans, refer to the [plans ](../expose-apis/plans/README.md)documentation.
 
 Once you have defined your plan, click **NEXT**.
 

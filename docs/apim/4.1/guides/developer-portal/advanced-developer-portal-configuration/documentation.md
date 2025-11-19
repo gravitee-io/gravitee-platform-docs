@@ -267,7 +267,7 @@ You can add translations for your pages via the **Translations** tab:
 From the **Access Control** tab:
 
 * You can mark a page as **Private** if you want to deny access to anonymous users.
-* If a page is **Private**, you can configure access lists to either require or exclude certain [roles and groups](../../administration/) by toggling the **Excluded** option.
+* If a page is **Private**, you can configure access lists to either require or exclude certain [roles and groups](../../administration/README.md) by toggling the **Excluded** option.
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/graviteeio-page-documentation-access-control.png" alt=""><figcaption><p>Documentation access control</p></figcaption></figure>
 {% endtab %}
