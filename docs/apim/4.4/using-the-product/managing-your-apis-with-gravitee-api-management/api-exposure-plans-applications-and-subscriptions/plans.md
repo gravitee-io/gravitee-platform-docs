@@ -46,7 +46,7 @@ To create a plan:
     * **Sharding tags:** Selectively deploy the plan to particular APIs using available [sharding tags](../../using-the-gravitee-api-management-components/general-configuration/sharding-tags.md)
     * **Groups excluded:** Prevent specified [user groups](../../administration/user-management-and-permissions.md) from accessing your plan
 7. Click **Next**
-8.  Define the security configuration details appropriate to and required by your selected security type, e.g., OAuth2. See [**OAuth2**,](../policy-studio/policies-for-you-apis/l-p/oauth2/) [**JWT**](../../most-common-use-cases/configure-jwt-security-with-apim.md), [**API Key**](../policy-studio/policies-for-you-apis/a-c/api-key.md), [**Keyless (public)**](../policy-studio/policies-for-you-apis/i-k/keyless.md), or [**Push plan**](plans.md#push) for more information.
+8.  Define the security configuration details appropriate to and required by your selected security type, e.g., OAuth2. See [**OAuth2**,](../policy-studio/policies-for-you-apis/l-p/oauth2/README.md) [**JWT**](../../most-common-use-cases/configure-jwt-security-with-apim.md), [**API Key**](../policy-studio/policies-for-you-apis/a-c/api-key.md), [**Keyless (public)**](../policy-studio/policies-for-you-apis/i-k/keyless.md), or [**Push plan**](plans.md#push) for more information.
 
     <figure><img src="../../../../../../.gitbook/assets/plan_oauth2 (1).png" alt=""><figcaption><p>OAuth2 configuration</p></figcaption></figure>
 9.  Select any plan restrictions:
@@ -346,7 +346,7 @@ Push plans do not apply to SSE entrypoints. Although messages are pushed from th
 
 #### Configuration
 
-Push plans have the same configuration options as [Keyless plans](./) in APIM. The bulk of the configuration for a Push plan is set by the API consumer in the Developer Portal, and the content of the configuration varies by entrypoint type.
+Push plans have the same configuration options as [Keyless plans](README.md) in APIM. The bulk of the configuration for a Push plan is set by the API consumer in the Developer Portal, and the content of the configuration varies by entrypoint type.
 
 Gravitee currently supports Push plans for Webhook entrypoints
 

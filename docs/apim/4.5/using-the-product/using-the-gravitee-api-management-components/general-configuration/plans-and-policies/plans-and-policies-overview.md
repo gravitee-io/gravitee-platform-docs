@@ -23,7 +23,7 @@ In APIM, all APIs require at least one plan before they can be deployed on the G
 * OAuth 2.0
 * JWT
 
-APIM intelligently routes API consumers to plans [based on specific criteria](../../../managing-your-apis/preparing-apis-for-subscribers/plans/#plan-selection) in the API request. APIM then uses an application-based subscription model to decide whether to accept or deny an incoming API request.
+APIM intelligently routes API consumers to plans [based on specific criteria](../../../managing-your-apis/preparing-apis-for-subscribers/plans/README.md#plan-selection) in the API request. APIM then uses an application-based subscription model to decide whether to accept or deny an incoming API request.
 
 <details>
 
