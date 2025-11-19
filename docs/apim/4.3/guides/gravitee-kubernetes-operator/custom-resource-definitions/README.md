@@ -273,4 +273,4 @@ The potential dependency of an `ApiDefinition` resource on a `ManagementContext`
 
 ## CRD samples
 
-Sample CRDs are available in the [GKO GitHub repository](https://github.com/gravitee-io/gravitee-kubernetes-operator/tree/alpha/config/crd/bases).
+Sample CRDs are available in the GKO GitHub repository.

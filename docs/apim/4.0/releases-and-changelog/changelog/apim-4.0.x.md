@@ -996,7 +996,7 @@ GRAVITEE_HTTP_SSL_TLSPROTOCOLS=TLSv1.0,TLSv1.1,TLSv1.2
 
 **Docker images**
 
-To be compliant with [CIS\_Docker\_v1.5.0\_L1](https://www.tenable.com/audits/items/CIS\_Docker\_v1.5.0\_L1\_Docker\_Linux.audit:bdcea17ac365110218526796ae3095b1), the Docker images are now using a dedicated user: `graviteeio`.
+To be compliant with CIS_Docker_v1.5.0_L1, the Docker images are now using a dedicated user: `graviteeio`.
 
 This means that if you:
 
