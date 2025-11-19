@@ -77,7 +77,7 @@ A **resource** can be added to an API for its whole lifecycle. APIM comes with t
 * OAuth2 - Gravitee Access Management
 * OAuth2 - Generic Authorization Server
 
-You can find more information in the [Resources](broken-reference/) section of the API Publisher Guide.
+You can find more information in the [Resources](../../guides/api-configuration/resources.md) documentation.
 
 ### Notifiers
 
