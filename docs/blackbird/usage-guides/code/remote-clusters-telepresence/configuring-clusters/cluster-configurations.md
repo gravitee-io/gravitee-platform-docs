@@ -149,7 +149,7 @@ licenseKey:
 blackbird cluster helm install -f license-values.yaml
 ```
 
-If you're using Helm to install the server-side components, see the chart's [README](https://github.com/telepresenceio/telepresence/tree/release/v2/charts/telepresence) to learn how to configure the image registry and license secret.
+If you're using Helm to install the server-side components, see the chart's README to learn how to configure the image registry and license secret.
 
 ## Mutating webhook configurations
 

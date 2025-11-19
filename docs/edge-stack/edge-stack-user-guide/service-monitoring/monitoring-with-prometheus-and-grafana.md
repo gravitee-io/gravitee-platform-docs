@@ -184,7 +184,7 @@ The Prometheus Operator creates a series of Kubernetes Custom Resource Definitio
 | `Prometheus`               | Creates a Prometheus instance.                                |
 | `ServiceMonitor`           | Tells Prometheus where to scrape metrics from.                |
 
-The prometheus-operator project published a full [API reference](https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/api.md) to these different CRDs.
+The prometheus-operator project published a full [API reference](https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/api-reference/api.md) to these different CRDs.
 
 ### Grafana
 
