@@ -138,7 +138,7 @@ Tenant tags are useful for routing requests to backend services in the same clou
 
 For Gravitee-hosted Gateways, the process differs from Self-hosted Gateways:
 
-* **Gateway configuration**: Use the Cloud UI as shown in the [add development tags ](./#optional-add-development-tags)section instead of configuring it in `gravitee.yml` or `values.yaml` files
+* **Gateway configuration**: Use the Cloud UI as shown in the [add development tags ](README.md#optional-add-development-tags)section instead of configuring it in `gravitee.yml` or `values.yaml` files
 * **APIM configuration**: Follow the standard APIM process below
 
 #### Configure Sharding Tags in API Management
