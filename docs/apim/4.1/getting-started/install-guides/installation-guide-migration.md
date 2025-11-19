@@ -13,12 +13,12 @@ Upgrading to APIM 4.1 is deployment-specific. The 4.0 breaking changes cited bel
 {% hint style="warning" %}
 * **If your upgrade will skip versions:** Read the version-specific upgrade notes for each intermediate version. You may be required to perform manual actions as part of the upgrade.
 * **Run scripts on the correct database:** `gravitee` is not always the default database. Run `show dbs` to return your database name.
-* **Ensure that you are aware of the breaking changes and deprecated functionality:** For more information about the breaking changes and deprecated functionality, see [Breaking changes and deprecated functionality for API Management](https://documentation.gravitee.io/apim/getting-started/upgrading-gravitee-api-management/breaking-changes-and-deprecated-functionality).
+* **Ensure that you are aware of the breaking changes and deprecated functionality:** For more information about the breaking changes and deprecated functionality, see [breaking-changes-and-deprecated-functionality-for-api-management.md](breaking-changes-and-deprecated-functionality-for-api-management.md "mention").
 {% endhint %}
 
 ## EE plugins
 
-* Starting with APIM 4.0, particular plugins are only available to enterprise customers. [See Gravitee APIM Enterprise Edition](../../overview/ee-vs-oss/README.md) for additional information.
+* Starting with APIM 4.0, particular plugins are only available to enterprise customers. [See Gravitee APIM Enterprise Edition](../../overview/ee-vs-oss/) for additional information.
 
 ## Running APIM
 
@@ -59,7 +59,7 @@ GRAVITEE_HTTP_SSL_TLSPROTOCOLS=TLSv1.0,TLSv1.1,TLSv1.2
 *   The endpoint configuration is now split into:
 
     * A shared configuration that can be used at the group level
-    * A configuration dedicated to the endpoint that can override the shared configuration.&#x20;
+    * A configuration dedicated to the endpoint that can override the shared configuration.
 
     Existing v4 APIs need to be updated and reconfigured accordingly.
 * An unused and outdated feature regarding file synchronization known as `localregistry` has been removed.
@@ -161,10 +161,10 @@ eventsCollection.find({"type": "PUBLISH_API"}).forEach((event) => {
 });
 ```
 
-## Introduction of USER_TOKEN Permission for Token Management
+## Introduction of USER\_TOKEN Permission for Token Management
 
-Starting with version 4.1.26, there is a new permission called USER_TOKEN. This permission controls which users have the ability to read, create, update, and delete user tokens.
+Starting with version 4.1.26, there is a new permission called USER\_TOKEN. This permission controls which users have the ability to read, create, update, and delete user tokens.
 
 Previously, these actions were governed by the broader 'USER' permission. As part of the migration from version 4.1.25 to 4.1.26, no breaking changes have been introduced. Users who previously had the permission to manage user tokens under the 'USER' permission will retain their access automatically.
 
-However, this new 'USER_TOKEN' permission gives administrators more granular control. They can now selectively determine which users truly need access to manage user tokens, allowing for better security and role-based management within the system.
+However, this new 'USER\_TOKEN' permission gives administrators more granular control. They can now selectively determine which users truly need access to manage user tokens, allowing for better security and role-based management within the system.
