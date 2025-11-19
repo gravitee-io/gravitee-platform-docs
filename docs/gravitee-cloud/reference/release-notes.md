@@ -46,7 +46,7 @@ We’re thrilled to introduce **Cloud Hosted Gateways** for Gravitee Cloud API M
 
 Deploying a Cloud Hosted Gateway takes just a few minutes. Simply navigate to your Gravitee Cloud Dashboard, select your environment to deploy Cloud hosted gateways for, and Gravitee will handle the rest!
 
-[Read more about deploying Cloud Hosted Gateways here](../guides/gravitee-hosted-gateways/)
+[Read more about deploying Cloud Hosted Gateways here](../guides/gravitee-hosted-gateways/README.md)
 
 </details>
 

@@ -141,7 +141,7 @@ $ curl -X GET http://localhost:8085/
 {% hint style="info" %}
 **Gravitee dependencies**
 
-Gravitee's [Installation & Upgrade Guides](../) provide information about how you install Gravitee components. For prerequisite documentation on third-party products like [MongoDB](https://www.mongodb.com/docs/v7.0/tutorial/install-mongodb-on-red-hat/) or [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/8.11/rpm.html), please visit their respective websites.
+Gravitee's [Installation & Upgrade Guides](../README.md) provide information about how you install Gravitee components. For prerequisite documentation on third-party products like [MongoDB](https://www.mongodb.com/docs/v7.0/tutorial/install-mongodb-on-red-hat/) or [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/8.11/rpm.html), please visit their respective websites.
 {% endhint %}
 
 Depending on your environment's configuration, you can install only the APIM components that you want for your environment. Here are the components that you can install individually:
