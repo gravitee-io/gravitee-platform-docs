@@ -6,11 +6,11 @@ Plans provide a service and access layer on top of your API that specifies acces
 
 <summary>Keyless</summary>
 
-### Introduction
+#### Introduction
 
 A Keyless (public) plan does not require authentication and allows public access to an API. By default, keyless plans offer no security and are most useful for quickly and easily exposing your API to external users.
 
-### Configuration
+#### Configuration
 
 A Keyless plan does not require configuration other than general plan settings and restrictions.
 
@@ -24,11 +24,11 @@ You can configure basic authentication for Keyless plans by associating a [Basic
 
 <summary>API Key</summary>
 
-### Introduction
+#### Introduction
 
 The API key authentication type enforces verification of API keys during request processing, allowing only applications with approved API keys to access an API. This plan type ensures that API keys are valid, i.e., not revoked or expired, and are approved to consume the specific resources associated with the API.
 
-### Configuration
+#### Configuration
 
 An API Key plan offers only basic security, acting more like a unique identifier than a security token.
 
@@ -37,7 +37,7 @@ An API Key plan offers only basic security, acting more like a unique identifier
 * **Propagate API Key to upstream API:** Toggle ON to ensure the request to the backend API includes the API key header sent by the API consumer. This is useful for backend APIs that already have integrated API key authentication.
 * **Additional selection rule:** Allows you to use Gravitee Expression Language (EL) to filter plans of the same type by contextual data (request headers, tokens, attributes, etc.). For example, if there are multiple API key plans, you can set different selection rules on each plan to determine which plan handles each request.
 
-### **API Key generation**
+#### **API Key generation**
 
 By default, API keys are randomly generated for each subscription, but Gravitee also offers custom API key generation and shared API key generation. Both of these settings can be enabled at the environment level:
 
@@ -47,7 +47,7 @@ By default, API keys are randomly generated for each subscription, but Gravitee 
 
     <figure><img src="../../../../../../.gitbook/assets/plan_key generation (1).png" alt=""><figcaption><p>API key generation settings</p></figcaption></figure>
 
-#### Custom API key
+**Custom API key**
 
 You can specify a custom API key for an API Key plan. This is particularly useful when you want to silently migrate to APIM and have a pre-defined API key. When prompted, you can choose to provide your custom API key or let APIM generate one for you by leaving the field empty.
 
@@ -63,7 +63,7 @@ You can provide a custom API key when:
 
     <figure><img src="../../../../../../.gitbook/assets/plan_renew api key (1).png" alt=""><figcaption><p>Renew a subscription</p></figcaption></figure>
 
-#### Shared API key
+**Shared API key**
 
 The shared API key mode allows consumers to reuse the same API key across all API subscriptions of an application. On their application's second subscription, the consumer is asked to choose between reusing their key across all subscriptions or generating one different API key for each subscription (default). This is known as the application API key type, which cannot be modified.
 
@@ -71,7 +71,7 @@ The shared API key mode allows consumers to reuse the same API key across all AP
 
 API keys can only be shared across API Key plans that belong to distinct Gateway APIs. If you attempt to subscribe to two API Key plans on the same Gateway API, no prompt will be made to choose the application API key type and the default mode will be used automatically.
 
-<img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-2-portal.png" alt="Subscribing in the Developer Portal" data-size="original"> <img src="../../../../../../.gitbook/assets/Screen Shot 2023-03-16 at 11.44.51 AM (1).png" alt="Subscribing in the APIM Console" data-size="original">
+![Subscribing in the Developer Portal](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-2-portal.png) ![Subscribing in the APIM Console](<../../../../../../.gitbook/assets/Screen Shot 2023-03-16 at 11.44.51 AM (1).png>)
 
 To select the API key type, the shared API key mode must be [enabled](subscriptions.md#api-key-plans) before creating an application. To enable this option, create a new application and subscribe to two API Key plans.
 
@@ -97,13 +97,13 @@ A shared API key may be used to call APIs that are owned by other API publishers
 
 <summary>OAuth2</summary>
 
-### Introduction
+#### Introduction
 
 OAuth 2.0 is an open standard that applications can use to provide client applications with secure, delegated access. OAuth 2.0 works over HTTPS and authorizes devices, APIs, servers, and applications via access tokens instead of credentials.
 
 The OAuth2 authentication type checks access token validity during request processing using token introspection. If the access token is valid, the request is allowed to proceed. If not, the process stops and rejects the request.
 
-### Configuration
+#### Configuration
 
 To configure an OAuth2 plan, you must first create an [OAuth2 client resource](../configuring-apis-with-the-gravitee-api-management/resources.md) that represents your OAuth 2.0 authorization server.
 
@@ -125,7 +125,7 @@ Configuring an OAuth2 plan presents the following options:
 
 Once OAuth2 configuration is complete and the plan is created and published, your API will be OAuth2-secured and subscribed consumers must call the API with an `Authorization Bearer :token:` HTTP header to access the API resources.
 
-### Subscription requirements
+#### Subscription requirements
 
 During the OAuth2 plan selection, a token introspection is completed to retrieve the `client_id` which allows searching for a subscription. Any applications wanting to subscribe to an OAuth2 plan must have an existing client with a valid `client_id` registered in the OAuth 2.0 authorization server. The `client_id` will be used to establish a connection between the OAuth 2.0 client and the APIM consumer application.
 
@@ -137,11 +137,11 @@ To mitigate performance concerns, a cache system is available to avoid completin
 
 <summary>JWT</summary>
 
-### Introduction
+#### Introduction
 
 A JSON Web Token (JWT) is an open method for representing claims securely between two parties. It is digitally signed using an HMAC shared key or RSA public/private key pair. The JWT authentication type ensures that a JWT issued by a third party is valid by verifying its signature and expiration date. Only applications with approved JWTs can access APIs associated with a JWT plan.
 
-### Configuration
+#### Configuration
 
 APIM uses client IDs to recognize applications that have subscribed to a JWT plan. The inbound JWT payload must include the `client_id` claim to establish a connection between the JWT and the APIM application subscription.
 
@@ -187,13 +187,13 @@ Once JWT configuration is complete and the plan is created and published, your A
 
 <summary>Push</summary>
 
-### Introduction
+#### Introduction
 
 A Push plan is used when an API contains an entrypoint that sends message payloads to API consumers (e.g., Webhook). This type of plan is unique in that the security configuration is defined by the API consumer, in the subscription request created in the Developer Portal. For example, when subscribing to a Webhook entrypoint, the API consumer specifies the target URL and authentication for the Gateway to use when sending messages.
 
 Push plans do not apply to SSE entrypoints. Although messages are pushed from the server, the client application initiates message consumption.
 
-### Configuration
+#### Configuration
 
 Push plans have the same configuration options as [Keyless plans](./) in APIM. The bulk of the configuration for a Push plan is set by the API consumer in the Developer Portal, and the content of the configuration varies by entrypoint type.
 
