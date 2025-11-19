@@ -14,7 +14,7 @@ Here are the breaking changes from versions 4.X of Gravitee.
 
 **MongoDB index names**
 
-The MongoDB indices are named using the first letters of the fields that compose the index. This change allows the automatic management of index creation on DocumentDB. This change requires the execution of a MongoDB script to delete, and then recreate AM indices. For more information about this change, see the [migration guide](../../../4.0/getting-started/install-and-upgrade-guides/upgrade-guide.md).
+The MongoDB indices are named using the first letters of the fields that compose the index. This change allows the automatic management of index creation on DocumentDB. This change requires the execution of a MongoDB script to delete, and then recreate AM indices. For more information about this change, see the [migration guide](https://documentation.gravitee.io/am/4.0/getting-started/install-and-upgrade-guides/upgrade-guide.md).
 
 **Enterprise Edition plugins**
 
