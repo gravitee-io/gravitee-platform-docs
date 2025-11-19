@@ -28,7 +28,7 @@ API deployment is impacted by how tags are applied to APIs and Gateways.
 
 ## Configure sharding tags for your internal and external Gateways
 
-If you have an architecture that includes both DMZ Gateways and internal corporate Gateways, you can tag these Gateways as external-only and internal-only, as shown in the following diagram:
+If you have an architecture that includes both DMZ Gateways and internal corporate Gateways, you can tag these Gateways as external-only and internal-only, as shown in this diagram:
 
 <figure><img src="../../../4.0/.gitbook/assets/Example architecture (1).png" alt=""><figcaption></figcaption></figure>
 
