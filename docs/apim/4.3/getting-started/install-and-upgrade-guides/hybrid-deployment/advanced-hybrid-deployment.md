@@ -8,7 +8,7 @@ description: A detailed guide for installing and configuring a hybrid APIM deplo
 
 This page focuses on the installation of the Self-Hosted Data-Plane, which is part of the API Management platform in a hybrid architecture (SaaS Control-Plane + Self-Hosted Data-Plane). The Control-Plane signifies the Bridge while the Data-Plane signifies the Gateway.
 
-<img src="../../../.gitbook/assets/file.excalidraw (18).svg" alt="" class="gitbook-drawing">
+<img src="../../../../4.1/.gitbook/assets/file.excalidraw (4).svg" alt="" class="gitbook-drawing">
 
 ## Hybrid architecture <a href="#saas-components" id="saas-components"></a>
 
@@ -20,7 +20,7 @@ This page focuses on the installation of the Self-Hosted Data-Plane, which is pa
 
 <table><thead><tr><th width="172.18918918918916" align="center">Component</th><th>Description</th></tr></thead><tbody><tr><td align="center">APIM Gateway</td><td>APIM Gateway is the core component of the APIM platform. You can think of it like a smart reverse proxy.<br><br>Unlike a traditional HTTP proxy, APIM Gateway has the capability to apply <a href="../../../guides/policy-studio/">policies</a> (i.e., rules or logic) to both the request and response phases of an API transaction. With these policies, you can transform, secure, monitor, etc., your APIs.</td></tr><tr><td align="center">Logstash</td><td>Collect and send local Gateway logs and metrics to the Gravitee APIM SaaS Control Plane.</td></tr><tr><td align="center">Redis</td><td>The database used locally for rate limit synchronized counters (RateLimit, Quota, Spike Arrest) and, optionally, as an external cache for the Cache policy.</td></tr></tbody></table>
 
-<img src="../../../.gitbook/assets/file.excalidraw (15).svg" alt="Hybrid architecture connections" class="gitbook-drawing">
+<img src="../../../../4.2/.gitbook/assets/file.excalidraw (15) (1).svg" alt="Hybrid architecture connections" class="gitbook-drawing">
 
 ### Gateway and Bridge compatibility versions <a href="#installation" id="installation"></a>
 
@@ -54,7 +54,7 @@ Don't forget to add the Gravitee.io License file.
 
 {% tabs %}
 {% tab title="Kubernetes (Helm)" %}
-* Follow the APIM installation instructions in the [Install on Kubernetes](../installing-a-self-hosted-gravitee-api-management-platform/install-on-kubernetes/README.md) guide.
+* Follow the APIM installation instructions in the [Install on Kubernetes](../installing-a-self-hosted-gravitee-api-management-platform/install-on-kubernetes/) guide.
 * Install **only the Gateway** and disable the other components in your `values.yaml` configuration file.
 
 {% hint style="info" %}
@@ -66,7 +66,7 @@ Don't forget to add the Gravitee.io License file.
 {% endtab %}
 
 {% tab title="Docker" %}
-Follow the APIM installation instructions in the [Install on Docker](../installing-a-self-hosted-gravitee-api-management-platform/install-on-docker/README.md) guide.
+Follow the APIM installation instructions in the [Install on Docker](../installing-a-self-hosted-gravitee-api-management-platform/install-on-docker/) guide.
 
 {% hint style="info" %}
 **Download and mount the required plugins for the Gravitee.io Gateway:**

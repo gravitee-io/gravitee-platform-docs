@@ -25,7 +25,7 @@ Historically, Gravitee customers have deployed APIs using the following:
 * **Gravitee Management Console:** Gravitee includes an easy-to-use, self-serve UI. The Console is often used as a development tool and is connected to a backend service that is part of the Gravitee web application.
 * **Gravitee Management API:** Every action in the Gravitee Management Console represents a REST API with a JSON payload that is documented using an API spec. Consequently, every UI action can be performed via REST API calls backed by JSON files. A Gravitee API definition is also a JSON file that explains endpoints, protections, etc.
 
-While the REST API method is compatible with IaC, customer feedback favors a Kubernetes-native deployment of APIs, the Gravitee APIM Gateway and the Console via [Custom Resource Definitions (CRDs)](../../../../guides/gravitee-kubernetes-operator/custom-resource-definitions/README.md). The introduction of the Gravitee Kubernetes Operator (GKO) makes this possible.
+While the REST API method is compatible with IaC, customer feedback favors a Kubernetes-native deployment of APIs, the Gravitee APIM Gateway and the Console via [Custom Resource Definitions (CRDs)](../../../../guides/gravitee-kubernetes-operator/custom-resource-definitions/). The introduction of the Gravitee Kubernetes Operator (GKO) makes this possible.
 
 ## Deployment strategies
 
@@ -45,7 +45,7 @@ By default, an APIM Gateway installed using the Helm Chart includes a limited se
 
 An overview of this architecture is described by the diagram below.
 
-<figure><img src="../../../../.gitbook/assets/k8s cluster mode.png" alt=""><figcaption><p>Default Cluster Mode architecture</p></figcaption></figure>
+<figure><img src="../../../../../../gko/4.10/.gitbook/assets/k8s cluster mode (1).png" alt=""><figcaption><p>Default Cluster Mode architecture</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Namespaced Mode" %}
@@ -55,7 +55,7 @@ To achieve this architecture, the `manager.scope.cluster` value must be set to `
 
 An overview of this architecture is described by the diagram below.
 
-<figure><img src="../../../../.gitbook/assets/k8s namespaced mode.png" alt=""><figcaption><p>Multiple operators, each listening to its own namespace</p></figcaption></figure>
+<figure><img src="../../../../../../gko/4.10/.gitbook/assets/k8s namespaced mode (1).png" alt=""><figcaption><p>Multiple operators, each listening to its own namespace</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Multi-Cluster Mode" %}
@@ -83,6 +83,6 @@ spec:
 
 An overview of this architecture is described by the diagram below.
 
-<figure><img src="../../../../.gitbook/assets/k8s multi-cluster mode.png" alt=""><figcaption><p>One operator, multiple clusters/regions</p></figcaption></figure>
+<figure><img src="../../../../../../gko/4.10/.gitbook/assets/k8s multi-cluster mode (1).png" alt=""><figcaption><p>One operator, multiple clusters/regions</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}

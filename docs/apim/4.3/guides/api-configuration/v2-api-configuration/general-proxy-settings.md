@@ -16,18 +16,16 @@ To configure the **Proxy** settings for a v2 API:
    * [CORS](general-proxy-settings.md#cors)
    * [Deployments](general-proxy-settings.md#deployments)
    * [Response templates](general-proxy-settings.md#response-templates)
-   * [Properties](general-proxy-settings.md#properties)&#x20;
+   * [Properties](general-proxy-settings.md#properties)
    * [Resources](general-proxy-settings.md#resources)
 
 ## Entrypoints
 
-To configure the API entrypoints:&#x20;
+To configure the API entrypoints:
 
-1.  Select **Entrypoints** from the inner left nav&#x20;
+1.  Select **Entrypoints** from the inner left nav
 
-    <figure><img src="../../../.gitbook/assets/v2 proxy_entrypoints.png" alt=""><figcaption><p>Configure v2 API entrypoints</p></figcaption></figure>
-
-
+    <figure><img src="../../../../../../.gitbook/assets/v2 proxy_entrypoints (1).png" alt=""><figcaption><p>Configure v2 API entrypoints</p></figcaption></figure>
 
     * Edit your **Context-path** or create a new one via **Add context-path**
     * Toggle **Enable virtual hosts** ON or OFF
@@ -37,17 +35,15 @@ To configure the API entrypoints:&#x20;
 
 CORS is a mechanism that allows resources on a web page to be requested from another domain. To configure CORS for your API:
 
-1.  Select **CORS** from the inner left nav&#x20;
+1.  Select **CORS** from the inner left nav
 
-    <figure><img src="../../../.gitbook/assets/v2 proxy_CORS.png" alt=""><figcaption><p>Configure CORS</p></figcaption></figure>
+    <figure><img src="../../../../../../.gitbook/assets/v2 proxy_CORS (1).png" alt=""><figcaption><p>Configure CORS</p></figcaption></figure>
 2.  Set the following parameters:
 
     * **Enable CORS:** Toggle to ON to enable CORS.
     * **Access-Control-Allow-Origin:** Define a URI that can access the resource. Enter \* to allow all requests, regardless of origin.
 
-    {% hint style="danger" %}
-    A value of \* is not recommended for production environments. By allowing cross-origin requests, a server may inadvertently expose sensitive information to unauthorized parties. For example, if a server includes sensitive data in a response that is accessible via CORS, an attacker could use a malicious website to extract that data.
-    {% endhint %}
+    \{% hint style="danger" %\} A value of \* is not recommended for production environments. By allowing cross-origin requests, a server may inadvertently expose sensitive information to unauthorized parties. For example, if a server includes sensitive data in a response that is accessible via CORS, an attacker could use a malicious website to extract that data. \{% endhint %\}
 
     * **Access-Control-Allow-Methods:** Select the method(s) allowed when accessing the resource, which is used in response to a preflight request: `GET`, `DELETE`, `PATCH`, `POST`, `PUT`, `OPTIONS`, `TRACE`, and/or `HEAD`.
     * **Access-Control-Allow-Headers:** Select the HTTP header(s) that can be used when making the actual request, in response to a preflight request. Typically, your request header will include `Access-Control-Request-Headers`, which relies on the CORS configuration to allow its values.
@@ -62,16 +58,16 @@ CORS is a mechanism that allows resources on a web page to be requested from ano
 
 All requests rejected because of CORS issues will generate logs that you can view in the `Analytics` section of your API logs.
 
-<img src="../../../.gitbook/assets/graviteeio-troubleshooting-cors.png" alt="" data-size="original">
+<img src="../../../../../../.gitbook/assets/graviteeio-troubleshooting-cors (1).png" alt="" data-size="original">
 {% endhint %}
 
 ## Deployments
 
 **Deployments** is where you can choose to use [sharding tags](../../../getting-started/configuration/apim-gateway/sharding-tags.md) sharding tags to control where your API is deployed. To configure sharding tags for your API:
 
-1.  Select **Deployments** from the inner left nav&#x20;
+1.  Select **Deployments** from the inner left nav
 
-    <figure><img src="../../../.gitbook/assets/v2 proxy_deployments.png" alt=""><figcaption><p>Configure sharding tags</p></figcaption></figure>
+    <figure><img src="../../../../../../.gitbook/assets/v2 proxy_deployments (1).png" alt=""><figcaption><p>Configure sharding tags</p></figcaption></figure>
 2. From the **Sharding tags** drop-down menu, choose one or more sharding tags
 3. Click **Save**
 
@@ -83,8 +79,8 @@ Response templates are used to override the default values sent in response to c
 
 Prior to defining a response template, verify:
 
-* Which policies have been applied to the API. This can be viewed in the [API's plan](../../api-exposure-plans-applications-and-subscriptions/plans/README.md).
-* Which error keys can be overridden per policy associated with your API.&#x20;
+* Which policies have been applied to the API. This can be viewed in the [API's plan](../../api-exposure-plans-applications-and-subscriptions/plans/).
+* Which error keys can be overridden per policy associated with your API.
 
 Below are the policy error keys that you can override by configuring response templates:
 
@@ -101,9 +97,9 @@ To configure a response template:
 
 1. Select **Response Templates** from the inner left nav
 2. Click on the **Add new Response Template** button
-3.  Customize the **Create a new Response Template** form&#x20;
+3.  Customize the **Create a new Response Template** form
 
-    <figure><img src="../../../.gitbook/assets/create response template.png" alt=""><figcaption><p>Configure a new response template</p></figcaption></figure>
+    <figure><img src="../../../../../../.gitbook/assets/create response template (1).png" alt=""><figcaption><p>Configure a new response template</p></figcaption></figure>
 
     * **Template key:** Choose the template key via the **Template key** drop-down.
     * **Accept header to match:** Specify the requests header that should trigger use of the response template. The default value is `*/*`. To send the template override values only for JSON or XML requests, specify `JSON` or `XML.`
@@ -119,12 +115,12 @@ Properties are read-only during the Gateway's execution of an API transaction. T
 
 To configure API properties:
 
-1.  Select **Properties** from the inner left nav&#x20;
+1.  Select **Properties** from the inner left nav
 
-    <figure><img src="../../../.gitbook/assets/v2 proxy_properties.png" alt=""><figcaption><p>Add API properties</p></figcaption></figure>
+    <figure><img src="../../../../../../.gitbook/assets/v2 proxy_properties (1).png" alt=""><figcaption><p>Add API properties</p></figcaption></figure>
 2. To add hardcoded properties, either:
    * Click **Add property** and enter property definitions one at a time as a key-value pair
-   * Click **Import** and enter property definitions as a list in `<key>=<value>` format&#x20;
+   * Click **Import** and enter property definitions as a list in `<key>=<value>` format
 
 ### Encryption
 
@@ -134,7 +130,7 @@ Encrypted values can be used by API policies, but encrypted data should be used 
 
 To encrypt a hardcoded API property value:
 
-1.  Reset the default secret key in `gravitee.yml`. The secret must be 32 bytes in length.&#x20;
+1.  Reset the default secret key in `gravitee.yml`. The secret must be 32 bytes in length.
 
     ```yaml
     # Encrypt API properties using this secret:
@@ -144,15 +140,15 @@ To encrypt a hardcoded API property value:
              secret: vvLJ4Q8Khvv9tm2tIPdkGEdmgKUruAL6
      to provide the best security available.
     ```
-2. Enable the **Encrypt** toggle when adding a property via **Add property**. Once you click **Save**, you can no longer edit, modify, or view the value. ![](<../../../.gitbook/assets/api properties\_add (1).png>)
+2. Enable the **Encrypt** toggle when adding a property via **Add property**. Once you click **Save**, you can no longer edit, modify, or view the value. ![](<../../../../../../.gitbook/assets/api properties_add (1).png>)
 
 ### **Dynamic properties**
 
 To configure dynamic properties:
 
-1.  Click the **Manage dynamically** button and define the configuration&#x20;
+1.  Click the **Manage dynamically** button and define the configuration
 
-    <figure><img src="../../../.gitbook/assets/v2 proxy_properties dynamic.png" alt=""><figcaption><p>Configure dynamic properties</p></figcaption></figure>
+    <figure><img src="../../../../../../.gitbook/assets/v2 proxy_properties dynamic (1).png" alt=""><figcaption><p>Configure dynamic properties</p></figcaption></figure>
 
     * Toggle **Enabled** to ON
     * **Schedule:** A cron expression to schedule the health check
@@ -167,7 +163,7 @@ To configure dynamic properties:
 After the first call, the resultant property is added to the list of global properties, where its value is continuously updated according to the `cron` schedule specified.
 
 {% hint style="info" %}
-Key-value pairs can also be maintained using a dictionary, e.g., if this information is stored independently of the API creation process or applies to multiple APIs.&#x20;
+Key-value pairs can also be maintained using a dictionary, e.g., if this information is stored independently of the API creation process or applies to multiple APIs.
 {% endhint %}
 
 ## Resources
