@@ -5,7 +5,7 @@ description: Securely expose your APIs to consumers in a dedicated API catalog
 # Developer Portal 101
 
 {% hint style="warning" %}
-This is the final section of the Quickstart Guide. By this point, you should already have created a Gateway API and added [plans and policies](broken-reference/).
+This is the final section of the Quickstart Guide. By this point, you should already have created a Gateway API and added plans and policies.
 {% endhint %}
 
 ## Overview
