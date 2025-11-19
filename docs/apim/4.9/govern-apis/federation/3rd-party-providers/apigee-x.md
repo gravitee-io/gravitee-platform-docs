@@ -30,10 +30,10 @@ To integrate Apigee X with Gravitee APIM, complete the following steps:
 2.  Click **Create Integration.**
 
     <figure><img src="../../../.gitbook/assets/create-integration-apigee.png" alt=""><figcaption></figcaption></figure>
-3.  Select **Apigee X,** and then click **Next**\\
+3.  Select **Apigee X,** and then click **Next.**
 
     <figure><img src="../../../.gitbook/assets/select-apigee-integration-from-integrations.png" alt=""><figcaption></figcaption></figure>
-4.  Enter the **Integration** **Name**
+4.  Enter the **Integration** **Name.**
 
     <figure><img src="../../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
 5.  (Optional) Enter a **Description** for the integration.
