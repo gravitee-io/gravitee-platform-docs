@@ -13,7 +13,7 @@ To further clarify web API structure and functionality, this section addresses:
 
 A web API is an API that is accessible over a network. Although the type of network is irrelevant, common usage of web API presumes an API that operates over the internet.
 
-The internet is the [physical infrastructure](https://theconversation.com/in-our-wi-fi-world-the-internet-still-depends-on-undersea-cables-49936) that connects the global network of computers along which information travels. Much of this information is in the form of hypermedia (e.g., web pages) and organized in a construct known as the world wide web, which is essentially an application running on the internet infrastructure. However, the world wide web, or web, is only one way to access or manage information on the internet. For example, Voice over Internet Protocol (VoIP) enables calls over the internet without interacting with the web.
+The internet is the physical infrastructure that connects the global network of computers along which information travels. Much of this information is in the form of hypermedia (e.g., web pages) and organized in a construct known as the world wide web, which is essentially an application running on the internet infrastructure. However, the world wide web, or web, is only one way to access or manage information on the internet. For example, Voice over Internet Protocol (VoIP) enables calls over the internet without interacting with the web.
 
 <figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/5/5b31e8183ce2abee47d7194607538270bde34bc3_2_690x492.png" alt=""><figcaption><p>Photo of the underwater cables connecting the internet from this <a href="https://www.weforum.org/agenda/2015/11/how-can-we-protect-the-internets-undersea-cables/">blog</a></p></figcaption></figure>
 
@@ -31,11 +31,11 @@ Protocols, data-interchange formats, API architectures, and API specifications a
 
 ## Protocols <a href="#protocols-4" id="protocols-4"></a>
 
-APIs are often categorized by their architectural style or the application layer protocol they use to communicate over the network (e.g., an HTTP API). Protocol terminology is based on the [layered networking model](https://www.quora.com/What-is-the-difference-between-HTTP-protocol-and-TCP-protocol/answer/Daniel-Miller-7?srid=nZLo), which conceptualizes communication within and between computers at different levels of abstraction and with respect to different functionality. The transport layer and the application layer contain the protocols most relevant to APIs.
+APIs are often categorized by their architectural style or the application layer protocol they use to communicate over the network (e.g., an HTTP API). Protocol terminology is based on the layered networking model, which conceptualizes communication within and between computers at different levels of abstraction and with respect to different functionality. The transport layer and the application layer contain the protocols most relevant to APIs.
 
 ### Transport layer
 
-The two most widely used transport layer protocols are the user datagram protocol (UDP) and the transmission control protocol (TCP) which both support [packet-based messaging.](https://www.cloudflare.com/learning/network-layer/what-is-a-packet/) The main differentiator is that UDP is more lightweight at the expense of error checking and does not guarantee packet integrity, delivery, or order of delivery. UDP is suitable if data loss results in minor artifacts (e.g., real-time video calls) but not for use cases that demand high accuracy (e.g., routing banking information).
+The two most widely used transport layer protocols are the user datagram protocol (UDP) and the transmission control protocol (TCP) which both support packet-based messaging. The main differentiator is that UDP is more lightweight at the expense of error checking and does not guarantee packet integrity, delivery, or order of delivery. UDP is suitable if data loss results in minor artifacts (e.g., real-time video calls) but not for use cases that demand high accuracy (e.g., routing banking information).
 
 The need for accurate and reliable data factors heavily into why many application layer protocols are built on top of TCP. TCP provides robust error checking to ensure packets are not lost, corrupted, duplicated, or delivered out of order.
 
@@ -86,7 +86,7 @@ The graphic below clarifies the structure and individual components of a web add
 A communication link between two applications requires that each endpoint is defined by a network socket, which is a combination of transport layer protocol, domain (which resolves to an IP address), and port number that uniquely and completely resolves the web address of a client request to a web server.
 
 {% hint style="info" %}
-Web browsers communicate over HTTP, which is built on top of TCP, so the transport layer protocol is assumed. However, this will be [changing with HTTP/3](https://www.cloudflare.com/learning/performance/what-is-http3/), which is built on top of UDP.
+Web browsers communicate over HTTP, which is built on top of TCP, so the transport layer protocol is assumed. However, this will be changing with HTTP/3, which is built on top of UDP.
 {% endhint %}
 
 When `google.com` is typed in a web browser, it is expanded to `https://www.google.com:443`, where `www.google.com` is the fully qualified domain name that is resolved into an IP address through [domain name system (DNS) resolution](https://serverfault.com/questions/643506/how-does-the-http-get-method-work-in-relation-to-dns-protocol/643511#643511) and 443 is the port reserved for HTTPS on every network (port 80 is reserved for HTTP). The browser’s request is directed to Google’s web server using the HTTPS application layer protocol, in particular the GET [HTTP method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods), and Google’s web server interprets the request and responds with the Google homepage.
@@ -129,7 +129,7 @@ The structure of REST APIs forms the basis of their uniform interface by requiri
 
 Another major architectural style that predates REST is the remote procedure call, or RPC. RPC-based APIs utilize several different application layer protocols such as HTTP, SOAP, and gRPC. The main differentiator between REST and RPC is that REST URLs are resource-centric (`http://foo/user/1`) while RPC URLs are action-centric (`http://foo/getUser`). A remote procedure call essentially calls a function the chosen programming language remotely, or over a network.
 
-Unlike REST, RPC architecture does not clearly designate a set of constraints. Both REST and RPC are architectural styles and real-world implementations don’t often fully align with either. This has led to implementations such as GraphQL (an architectural style, an API [query language](https://www.techopedia.com/definition/3948/query-language), and a runtime for fulfilling those queries) which proponents describe as essentially RPC, but borrowing heavily from the REST community.
+Unlike REST, RPC architecture does not clearly designate a set of constraints. Both REST and RPC are architectural styles and real-world implementations don’t often fully align with either. This has led to implementations such as GraphQL (an architectural style, an API query language, and a runtime for fulfilling those queries) which proponents describe as essentially RPC, but borrowing heavily from the REST community.
 
 {% hint style="info" %}
 [REST vs RPC](https://www.smashingmagazine.com/2016/09/understanding-rest-and-rpc-for-http-apis/) can be examined in-depth via implementation examples that highlight the strengths and weaknesses of both styles.
