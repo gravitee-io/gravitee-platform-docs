@@ -39,9 +39,9 @@ Policies marked with an asterisk require an Enterprise Edition license.
 * [JSON to XML Transformation](../json-to-xml.md)
 * [JWS Validator](../jws-validator.md)
 * [JWT Validator](../jwt-validator.md)
-* [Kafka ACL](https://documentation.gravitee.io/apim/kafka-gateway/policies/kafka-acl)\*
-* [Kafka Quota](https://documentation.gravitee.io/apim/kafka-gateway/policies/kafka-quota)\*
-* [Kafka Topic Mapping](https://documentation.gravitee.io/apim/kafka-gateway/policies/kafka-topic-mapping)\*
+* [Kafka ACL](../../kafka-gateway/configure-kafka-apis/policies/kafka-acl.md)\*
+* [Kafka Quota](../../kafka-gateway/configure-kafka-apis/policies/kafka-quota.md)\*
+* [Kafka Topic Mapping](../../kafka-gateway/configure-kafka-apis/policies/kafka-topic-mapping.md)\*
 * [Keyless](../keyless.md)
 * [Latency](../latency.md)
 * [Maven Archetype](../maven-archetype.md)
@@ -50,7 +50,7 @@ Policies marked with an asterisk require an Enterprise Edition license.
 * [Mock](../mock.md)
 * [mTLS](../mtls.md)
 * [OAS Validation](../oas-validation.md)\*
-* [OAuth2](../oauth2/README.md)
+* [OAuth2](../oauth2/)
 * [OpenID Connect UserInfo](../openid-connect-userinfo.md)
 * [Override HTTP Method](../override-http-method.md)
 * [Protobuf to JSON Transformation](../protobuf-to-json.md)\*
