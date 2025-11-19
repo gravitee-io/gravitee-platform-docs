@@ -20,8 +20,6 @@ The Gravitee Gateway needs the following two components:
 
 <img src="../../../../4.1/.gitbook/assets/file.excalidraw (4).svg" alt="Hybrid deployment architecture" class="gitbook-drawing">
 
-&#x20;
-
 <img src="../../../../../../.gitbook/assets/file.excalidraw (15) (1).svg" alt="Hybrid architecture connections" class="gitbook-drawing">
 
 ## Components of Hybrid Architecture
