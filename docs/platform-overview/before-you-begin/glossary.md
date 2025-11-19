@@ -154,7 +154,7 @@ Although often used synonymously, an event is different from a message. A messag
 
 **Fully qualified domain name (FQDN):** A domain name that specifies its exact location in the tree hierarchy of the Domain Name System (DNS).
 
-**GraphQL:** An architectural style, an API [query language](https://www.techopedia.com/definition/3948/query-language), and a runtime for fulfilling those queries.
+**GraphQL:** An architectural style, an API query language, and a runtime for fulfilling those queries.
 
 **HTTP API endpoint:** One end of a network communication channel, it consists of a URL and an HTTP method to perform an action on a resource, e.g., `GET http://foo.com/api/user/1`.
 
@@ -164,7 +164,7 @@ Although often used synonymously, an event is different from a message. A messag
 
 **HTTP API route:** The part of a URL used to access a resource and does not include fragments, e.g., `http://foo.com/api/user/1`.
 
-**Internet:** The [physically interconnected](https://theconversation.com/in-our-wi-fi-world-the-internet-still-depends-on-undersea-cables-49936) global network of computers and physical means by which information travels.
+**Internet:** The physically interconnected global network of computers and physical means by which information travels.
 
 **JSON Web Key (JWK):** A JSON object representing a cryptographic key. The members of the object represent the properties of the key, including its value.
 
