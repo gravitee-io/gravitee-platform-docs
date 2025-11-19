@@ -12,27 +12,25 @@ Before you install the Apigee X federation agent, complete the following steps:
 * The account needs a minimum set of permissions for the federation agent. See [#minimum-apigee-permissions-required-by-the-agent](apigee-x.md#minimum-apigee-permissions-required-by-the-agent "mention") for the complete list.
 * Gravitee API Management version 4.4 or later, with an enterprise license. For more information about Enterprise edition, see [Enterprise Edition Licensing](https://documentation.gravitee.io/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing#license-support).
 * An access token. For more information, see [how to create a service account and an access token](../federation-agent-service-account.md).
-* A Google Cloud Platform project ID.&#x20;
+* A Google Cloud Platform project ID.
 * Google Cloud Platform service account with a service account key in JSON format. For more information, see [How to create a GCP Service Account.](https://cloud.google.com/iam/docs/service-accounts-create)
 
-## Integrate Apigee x with Grvaitee APIM
+## Integrate Apigee x with Gravitee APIM
 
 To integrate Apigee X with Gravitee APIM, complete the following steps:
 
 1. [#create-an-apigee-x-integration-in-the-gravitee-apim-console](apigee-x.md#create-an-apigee-x-integration-in-the-gravitee-apim-console "mention")
-2. [#configure-the-apigee-x-federation-agent](apigee-x.md#configure-the-apigee-x-federation-agent "mention")
-3. [#run-the-apigee-x-federation-agent](apigee-x.md#run-the-apigee-x-federation-agent "mention")
+2. [#run-the-apigee-x-federation-agent](apigee-x.md#run-the-apigee-x-federation-agent "mention")
 
 ### Create an Apigee X integration in the Gravitee APIM Console
 
 1.  From the Dashboard, click **Integrations**
 
     <figure><img src="../../../.gitbook/assets/select-integrations-left-menu-apigee.png" alt=""><figcaption></figcaption></figure>
-2.  Click **Create Integration.**&#x20;
+2.  Click **Create Integration.**
 
     <figure><img src="../../../.gitbook/assets/create-integration-apigee.png" alt=""><figcaption></figcaption></figure>
-3.  Select **Apigee X,** and then click **Next**\
-
+3.  Select **Apigee X,** and then click **Next**\\
 
     <figure><img src="../../../.gitbook/assets/select-apigee-integration-from-integrations.png" alt=""><figcaption></figcaption></figure>
 4.  Enter the **Integration** **Name**
@@ -55,7 +53,7 @@ You can deploy the Apigee X federation agent using either of the following insta
 * [#docker-compose](apigee-x.md#docker-compose "mention")
 * [#helm](apigee-x.md#helm "mention")
 
-### Docker Compose&#x20;
+### Docker Compose
 
 {% hint style="warning" %}
 You can only choose one authentication method. Providing two authentication methods in one configuration results in an error.
@@ -157,7 +155,7 @@ This Docker Compose file supports passing the service account key either inline 
    * `[your-APIM-management-API-host]`: Your Gravitee APIM management API URL.
    * `[your-token]`: Your Gravitee APIM access token.
    * `[your-integration-id]`: The Integration ID from the Gravitee Console.
-   * `[organization-id]`: (for example, DEFAULT) Your APIM organization ID.&#x20;
+   * `[organization-id]`: (for example, DEFAULT) Your APIM organization ID.
    * `[your-project-id]`: Your Google Cloud Platform project ID.
    * `[your-dev-email]`: Developer email for the Apigee developer account.
    * `[your-dev-firstname]`: Developer's first name.
@@ -174,7 +172,7 @@ This Docker Compose file supports passing the service account key either inline 
     docker compose up -d
     ```
 
-#### Verification&#x20;
+#### Verification
 
 1. In the Gravitee API Management console, after refreshing, you should now see the agent's status set to `Connected:`
 
@@ -182,7 +180,7 @@ This Docker Compose file supports passing the service account key either inline 
 
 2. If the Agent Connection shows as `Disconnected`, inspect the agent container logs for error messages.
 
-### Helm&#x20;
+### Helm
 
 To deploy the federation agent to your Kubernetes cluster, complete the following steps:
 
@@ -203,7 +201,7 @@ Create the Helm values file based on your APIM management API's certificate setu
 * [#standard-configuration](apigee-x.md#standard-configuration "mention")
 * [#custom-certificate-configuration](apigee-x.md#custom-certificate-configuration "mention")
 
-#### **Standard configuration**&#x20;
+#### **Standard configuration**
 
 1.  This configuration uses the default Java truststore for your APIM management API certificates. Create a file named `federation-agent-apigee-values.yaml` in your working directory, and then copy the following configuration:
 
@@ -296,17 +294,17 @@ Create the Helm values file based on your APIM management API's certificate setu
                     "universe_domain": "googleapis.com"
                   }
     ```
-2. Make the following modifications to your `federation-agent-apigee-values.yaml` file:&#x20;
+2. Make the following modifications to your `federation-agent-apigee-values.yaml` file:
    * Replace `[your-cloud-token]` with your Gravitee Cloud token or remove the entire `cloud:` section if using self-hosted APIM.
    * Replace `[your-APIM-management-API-host]` with your APIM management API URL. For example, `apim.example.com` or `gravitee-apim-api.gravitee-apim.svc.cluster.local:8083` for internal Kubernetes service.
-   * Replace `[your-token]` with your service account bearer token from the [#prerequisites](apigee-x.md#prerequisites "mention")  section.
-   * Replace `[your-integration-id]` with the Integration ID.&#x20;
-   * Replace `[your-project-id]` with your GCP Project ID.&#x20;
+   * Replace `[your-token]` with your service account bearer token from the [#prerequisites](apigee-x.md#prerequisites "mention") section.
+   * Replace `[your-integration-id]` with the Integration ID.
+   * Replace `[your-project-id]` with your GCP Project ID.
    * Replace `[your-dev-email]` with the developer email for the Apigee developer account. For example: `gravitee-integration@yourcompany.com`
    * Replace `[your-dev-firstname]` with the developer's first name for the Apigee developer account. For example:`Gravitee`
    * Replace `[your-dev-lastname]` with the developer's last name for the Apigee developer account. For example, `Integration`
    * Replace `[your-dev-username]` with the developer username for the Apigee developer account. For example:, `gravitee-integration`.
-   * Replace the Service Account Key JSON placeholder with your complete GCP service account key.&#x20;
+   * Replace the Service Account Key JSON placeholder with your complete GCP service account key.
 3.  Deploy the federation agent to your Kubernetes cluster by running the following command:
 
     ```shellscript
@@ -428,21 +426,21 @@ Create the Helm values file based on your APIM management API's certificate setu
     ```
 
 {% hint style="info" %}
-If your APIM management API uses certificates that require a custom truststore, you must create the truststore and add it to Kubernetes as a secret before deploying the agent.&#x20;
+If your APIM management API uses certificates that require a custom truststore, you must create the truststore and add it to Kubernetes as a secret before deploying the agent.
 {% endhint %}
 
-2. Make the following modifications to your `federation-agent-apigee-values.yaml` file:&#x20;
+2. Make the following modifications to your `federation-agent-apigee-values.yaml` file:
 
 * Replace `[your-cloud-token]` with your Gravitee Cloud token or remove the entire `cloud:` section if using self-hosted APIM.
 * Replace `[your-APIM-management-API-host]` with your APIM management API URL. For example, `apim.example.com` or `gravitee-apim-api.gravitee-apim.svc.cluster.local:8083` for internal Kubernetes service.
-* Replace `[your-token]` with your service account bearer token from the [#prerequisites](apigee-x.md#prerequisites "mention")  section.
-* Replace `[your-integration-id]` with the Integration ID.&#x20;
-* Replace `[your-project-id]` with your GCP Project ID.&#x20;
+* Replace `[your-token]` with your service account bearer token from the [#prerequisites](apigee-x.md#prerequisites "mention") section.
+* Replace `[your-integration-id]` with the Integration ID.
+* Replace `[your-project-id]` with your GCP Project ID.
 * Replace `[your-dev-email]` with the developer email for the Apigee developer account. For example: `gravitee-integration@yourcompany.com`
 * Replace `[your-dev-firstname]` with the developer's first name for the Apigee developer account. For example:`Gravitee`
 * Replace `[your-dev-lastname]` with the developer's last name for the Apigee developer account. For example, `Integration`
 * Replace `[your-dev-username]` with the developer username for the Apigee developer account. For example:, `gravitee-integration`.
-* Replace the Service Account Key JSON placeholder with your complete GCP service account key.&#x20;
+* Replace the Service Account Key JSON placeholder with your complete GCP service account key.
 
 3.  Deploy the federation agent to your Kubernetes cluster by running the following command:
 
@@ -454,7 +452,7 @@ If your APIM management API uses certificates that require a custom truststore, 
       --create-namespace
     ```
 
-### Verification&#x20;
+### Verification
 
 1.  When the deployment is successful, verify the installation is running using the following command:
 
