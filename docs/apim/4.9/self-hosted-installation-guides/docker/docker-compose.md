@@ -613,8 +613,5 @@ If APIM is running with high availability, you need to set up cluster mode. To s
       </hazelcast>
     ```
 4. Add the following plugins to APIM:
-   * https://download.gravitee.io/plugins/node-cache/gravitee-node-cache-plugin-hazelcast/gravitee-node-cache-plugin-hazelcast-5.18.1.zip
-   * https://download.gravitee.io/plugins/node-cluster/gravitee-node-cluster-plugin-hazelcast/gravitee-node-cluster-plugin-hazelcast-5.18.1.zip
-
-[\
-](https://documentation.gravitee.io/apim/~/changes/324/self-hosted-installation-guides/docker)
+   - https://download.gravitee.io/plugins/node-cache/gravitee-node-cache-plugin-hazelcast/gravitee-node-cache-plugin-hazelcast-5.18.1.zip
+   - https://download.gravitee.io/plugins/node-cluster/gravitee-node-cluster-plugin-hazelcast/gravitee-node-cluster-plugin-hazelcast-5.18.1.zip
