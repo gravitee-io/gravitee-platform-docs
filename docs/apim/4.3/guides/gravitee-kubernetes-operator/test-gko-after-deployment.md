@@ -13,21 +13,23 @@ This section describes how to test Gravitee Kubernetes Operator (GKO) functional
 * Ensure that the GKO has been successfully [deployed](../../getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-kubernetes/architecture-overview.md) on your Kubernetes cluster.
 * Ensure that `services.sync.kubernetes` is set to `true`. This property is disabled by default, but must be enabled for the Gateway to communicate with a Kubernetes Operator. How the Gateway is deployed determines how the property is configured:
   * If your Gateway is deployed using a Helm Chart, you can enable the Kubernetes Operator option [through Helm values](../../getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-kubernetes/apim-helm-install-and-configuration.md#gravitee-gateway).
-  * For [other deployment strategies](../../getting-started/install-and-upgrade-guides/README.md) (e.g., deployment using a VM), you can update the configuration:
+  * For [other deployment strategies](../../getting-started/install-and-upgrade-guides/) (e.g., deployment using a VM), you can update the configuration:
     * By setting an environment variable: `GRAVITEE_SERVICES_SYNC_KUBERNETES_ENABLED=true`
     *   Directly in the [`gravitee.yml`](https://github.com/gravitee-io/gravitee-api-management/blob/master/gravitee-apim-gateway/gravitee-apim-gateway-standalone/gravitee-apim-gateway-standalone-distribution/src/main/resources/config/gravitee.yml#L264) file:
 
-        {% code title="gravitee.yml" %}
+        \{% code title="gravitee.yml" %\}
+
         ```yaml
         # Enable Kubernetes Synchronization
         # This sync service requires to install Gravitee Kubernetes Operator
         #    kubernetes:
         #      enabled: false
         ```
-        {% endcode %}
+
+        \{% endcode %\}
 
 {% hint style="info" %}
-See [Configure APIM Gateway](../../getting-started/configuration/apim-gateway/README.md) for more information on using environment variables in Gateway configurations.
+See [Configure APIM Gateway](../../getting-started/configuration/apim-gateway/) for more information on using environment variables in Gateway configurations.
 {% endhint %}
 
 ## 1. Create a `ManagementContext` CRD
@@ -100,7 +102,7 @@ The Console URL below is typical for a local cluster created via the local clust
 
 The new API will be listed in the **Number of APIs** section of the Console dashboard:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-07-06 at 9.19.26 PM.png" alt=""><figcaption><p>APIM Console dashboard</p></figcaption></figure>
+<figure><img src="../../../../gko/4.10/.gitbook/assets/Screenshot 2023-07-06 at 9.19.26 PM (1).png" alt=""><figcaption><p>APIM Console dashboard</p></figcaption></figure>
 
 ## 3. Call the API through the APIM Gateway
 

@@ -7,7 +7,7 @@ Gravitee Expression Language (EL) is used to query and manipulate object graphs 
 EL is an extended version of the [Spring Expression Language](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#expressions) (SpEL) that augments standard SpEL capabilities by providing additional object properties inside the expression language context. As an extension of SpEL, all capabilities detailed in the [SpEL documentation ](https://docs.spring.io/spring-framework/reference/core/expressions.html)are available in EL. However, Gravitee has implemented customizations that are detailed below.
 
 {% hint style="info" %}
-**Object properties**&#x20;
+**Object properties**
 
 Custom properties and attributes have special meanings in the Gravitee ecosystem:
 
@@ -67,7 +67,7 @@ Expressions can be used to assign lists, e.g., `{({'admin', 'writer'})}`
 
 1. The outer enclosing brackets start and end the EL expression
 2. The parentheses indicates an object is being instantiated
-3. The list comprises the inner brackets and enclosed values, e.g., `{'admin', 'writer'}`&#x20;
+3. The list comprises the inner brackets and enclosed values, e.g., `{'admin', 'writer'}`
 {% endtab %}
 
 {% tab title="Object properties" %}
@@ -104,10 +104,10 @@ EL supports various operators, such as arithmetic, logical, comparison, and tern
 EL provides a variety of built-in functions to manipulate and transform data in expressions. Examples of commonly used functions in Gravitee include:
 
 * String functions: `length(), substring(), replace()`
-* `#jsonPath`: Evaluates a `jsonPath` on a specified object. This function invokes `JsonPathUtils.evaluate(…​)`, which delegates to the [Jayway JsonPath library](https://github.com/json-path/JsonPath). The best way to learn jsonPath syntax is by using the [online evaluator](https://jsonpath.com/).&#x20;
+* `#jsonPath`: Evaluates a `jsonPath` on a specified object. This function invokes `JsonPathUtils.evaluate(…​)`, which delegates to the [Jayway JsonPath library](https://github.com/json-path/JsonPath). The best way to learn jsonPath syntax is by using the [online evaluator](https://jsonpath.com/).
 * `#xpath`: To evaluate an `xpath` on some provided object. For more information regarding XML and XPath, see [XML Support - Dealing with XML Payloads](https://docs.spring.io/spring-integration/reference/xml.html) in the SpEL documentation.
 
-#### **`jsonPath` example**
+**`jsonPath` example**
 
 As an example of how `jsonPath` can be used with EL, suppose you have a JSON payload in the request body that contains the following data:
 
@@ -148,7 +148,7 @@ Using EL, you can access information about an API transaction through custom pro
 {% tab title="Custom properties" %}
 As an API publisher, you can define [custom properties ](policy-studio/v4-api-policy-studio.md#api-properties)for your API. These properties are automatically injected into the expression language context and can be referenced during an API transaction from the `{#api.properties}` root-level object property.
 
-#### Examples
+**Examples**
 
 * Get the value of the property `my-property` defined in an API's custom properties using `{#api.properties['my-property']}`
 * Get the value of the property `my-secret` defined and encrypted in an API's custom properties using `{#api.properties['my-secret']}` to pass a secured property to your backend
@@ -163,7 +163,7 @@ When accessing an encrypted custom property, Gravitee's Gateway will automatical
 {% tab title="Endpoints" %}
 When you define endpoints for your API, you need to give them a name that is a unique identifier across all endpoints of the API. This identifier can be used to get an endpoint reference (i.e., a URI) from the `{#endpoints}` root-level object property.
 
-#### Example
+**Example**
 
 When you create an API, a default endpoint is created that corresponds to the value you set for the backend property. This endpoint can be retrieved with EL by using the following syntax: `{#endpoints['default']}`.
 {% endtab %}
@@ -198,7 +198,7 @@ The object properties you can access from the `{#request}` root-level object pro
 
 When APIM Gateway handles an incoming API request, some object properties are automatically created or added during the execution phase through the Assign Attributes policy. These object properties are known as attributes. Attributes can be accessed from the `{#context.attributes}` root-level object property.
 
-Some policies (e.g., the OAuth2 policy) register other attributes in the request context. For more information, refer to the documentation for individual policies.&#x20;
+Some policies (e.g., the OAuth2 policy) register other attributes in the request context. For more information, refer to the documentation for individual policies.
 
 Request context attributes and examples are listed below.
 
@@ -214,6 +214,7 @@ Request context attributes and examples are listed below.
 {% endtabs %}
 
 #### Important Note for v4 Emulation Engine Users
+
 When you use the v4 emulation engine, you retrieve the API Key from the request parameters or headers. You cannot reference the API directly with expressions like `{#context.attributes['api-key'] == 'api-key-value'}` because the api-key attribute is not accessible in the context as a logging filter expression.
 
 To retrieve API key from the request parameters or headers, use the following expression:
@@ -240,7 +241,7 @@ Get the client HOST from the SSL session using `{#request.ssl.clientHost}`
 
 #### Principal objects <a href="#principal_object" id="principal_object"></a>
 
-The `client` and `server` objects are of type `Principal`. A `Principal` object represents the currently authenticated user who is making the request to the API and provides access to various user attributes such as username, email address, roles, and permissions.&#x20;
+The `client` and `server` objects are of type `Principal`. A `Principal` object represents the currently authenticated user who is making the request to the API and provides access to various user attributes such as username, email address, roles, and permissions.
 
 The `Principal` object is typically used with security policies such as OAuth2, JWT, or basic authentication to enforce access control and authorization rules on incoming requests. For example, a policy can check if the current user has a specific role or permission before allowing them to access a protected resource.
 
@@ -254,16 +255,16 @@ All attributes of the `Principal`object are flattened to be accessed directly wi
 
 {% tabs %}
 {% tab title="Table" %}
-<table><thead><tr><th width="218">Object Property</th><th width="154">Description</th><th width="102">Type</th><th>Example</th></tr></thead><tbody><tr><td>attributes</td><td>Retrieves all the <code>Prinicipal</code> object's domain name attributes </td><td>key / value</td><td>"ou" → ["Test team", "Dev team"]</td></tr><tr><td>businessCategory</td><td>Business category</td><td>string</td><td>-</td></tr><tr><td>c</td><td>Country code</td><td>string</td><td>FR</td></tr><tr><td>cn</td><td>Common name</td><td>string</td><td>-</td></tr><tr><td>countryOfCitizenship</td><td>RFC 3039 CountryOfCitizenship</td><td>string</td><td>-</td></tr><tr><td>countryOfResidence</td><td>RFC 3039 CountryOfResidence</td><td>string</td><td>-</td></tr><tr><td>dateOfBirth</td><td>RFC 3039 RFC 3039 DateOfBirth</td><td>string</td><td>19830719000000Z</td></tr><tr><td>dc</td><td>Domain component</td><td>string</td><td>-</td></tr><tr><td>defined</td><td>Returns <code>true</code> if the <code>Principal</code> object is defined and contains values. Returns <code>false</code> otherwise.</td><td>boolean</td><td>-</td></tr><tr><td>description</td><td>Description</td><td>string</td><td>-</td></tr><tr><td>dmdName</td><td>RFC 2256 directory management domain</td><td>string</td><td>-</td></tr><tr><td>dn</td><td>Fully qualified domain name</td><td>string</td><td>-</td></tr><tr><td>dnQualifier</td><td>Domain name qualifier</td><td>string</td><td>-</td></tr><tr><td>e</td><td>Email address in Verisign certificates</td><td>string</td><td>-</td></tr><tr><td>emailAddress</td><td>Email address (RSA PKCS#9 extension)</td><td>string</td><td>-</td></tr><tr><td>gender</td><td>RFC 3039 Gender</td><td>string</td><td>"M", "F", "m" or "f"</td></tr><tr><td>generation</td><td>Naming attributes of type X520name</td><td>string</td><td>-</td></tr><tr><td>givenname</td><td>Naming attributes of type X520name</td><td>string</td><td>-</td></tr><tr><td>initials</td><td>Naming attributes of type X520name</td><td>string</td><td>-</td></tr><tr><td>l</td><td>Locality name</td><td>string</td><td>-</td></tr><tr><td>name</td><td>Name</td><td>string</td><td>-</td></tr><tr><td>nameAtBirth</td><td>ISIS-MTT NameAtBirth</td><td>string</td><td>-</td></tr><tr><td>o</td><td>Organization</td><td>string</td><td>-</td></tr><tr><td>organizationIdentifier</td><td>Organization identifier</td><td>string</td><td>-</td></tr><tr><td>ou</td><td>Organization unit name</td><td>string</td><td>-</td></tr><tr><td>placeOfBirth</td><td>RFC 3039 PlaceOfBirth</td><td>string</td><td>-</td></tr><tr><td>postalAddress</td><td>RFC 3039 PostalAddress</td><td>string</td><td>-</td></tr><tr><td>postalCode</td><td>Postal code</td><td>string</td><td>-</td></tr><tr><td>pseudonym</td><td>RFC 3039 Pseudonym</td><td>string</td><td>-</td></tr><tr><td>role</td><td>Role</td><td>string</td><td>-</td></tr><tr><td>serialnumber</td><td>Device serial number name</td><td>string</td><td>-</td></tr><tr><td>st</td><td>State or province name</td><td>string</td><td>-</td></tr><tr><td>street</td><td>Street</td><td>string</td><td>-</td></tr><tr><td>surname</td><td>Naming attributes of type X520name</td><td>string</td><td>-</td></tr><tr><td>t</td><td>Title</td><td>string</td><td>-</td></tr><tr><td>telephoneNumber</td><td>Telephone number</td><td>string</td><td>-</td></tr><tr><td>uid</td><td>LDAP User id</td><td>string</td><td>-</td></tr><tr><td>uniqueIdentifier</td><td>Naming attributes of type X520name</td><td>string</td><td>-</td></tr><tr><td>unstructuredAddress</td><td>Unstructured address (from PKCS#9)</td><td>string</td><td>-</td></tr></tbody></table>
+<table><thead><tr><th width="218">Object Property</th><th width="154">Description</th><th width="102">Type</th><th>Example</th></tr></thead><tbody><tr><td>attributes</td><td>Retrieves all the <code>Prinicipal</code> object's domain name attributes</td><td>key / value</td><td>"ou" → ["Test team", "Dev team"]</td></tr><tr><td>businessCategory</td><td>Business category</td><td>string</td><td>-</td></tr><tr><td>c</td><td>Country code</td><td>string</td><td>FR</td></tr><tr><td>cn</td><td>Common name</td><td>string</td><td>-</td></tr><tr><td>countryOfCitizenship</td><td>RFC 3039 CountryOfCitizenship</td><td>string</td><td>-</td></tr><tr><td>countryOfResidence</td><td>RFC 3039 CountryOfResidence</td><td>string</td><td>-</td></tr><tr><td>dateOfBirth</td><td>RFC 3039 RFC 3039 DateOfBirth</td><td>string</td><td>19830719000000Z</td></tr><tr><td>dc</td><td>Domain component</td><td>string</td><td>-</td></tr><tr><td>defined</td><td>Returns <code>true</code> if the <code>Principal</code> object is defined and contains values. Returns <code>false</code> otherwise.</td><td>boolean</td><td>-</td></tr><tr><td>description</td><td>Description</td><td>string</td><td>-</td></tr><tr><td>dmdName</td><td>RFC 2256 directory management domain</td><td>string</td><td>-</td></tr><tr><td>dn</td><td>Fully qualified domain name</td><td>string</td><td>-</td></tr><tr><td>dnQualifier</td><td>Domain name qualifier</td><td>string</td><td>-</td></tr><tr><td>e</td><td>Email address in Verisign certificates</td><td>string</td><td>-</td></tr><tr><td>emailAddress</td><td>Email address (RSA PKCS#9 extension)</td><td>string</td><td>-</td></tr><tr><td>gender</td><td>RFC 3039 Gender</td><td>string</td><td>"M", "F", "m" or "f"</td></tr><tr><td>generation</td><td>Naming attributes of type X520name</td><td>string</td><td>-</td></tr><tr><td>givenname</td><td>Naming attributes of type X520name</td><td>string</td><td>-</td></tr><tr><td>initials</td><td>Naming attributes of type X520name</td><td>string</td><td>-</td></tr><tr><td>l</td><td>Locality name</td><td>string</td><td>-</td></tr><tr><td>name</td><td>Name</td><td>string</td><td>-</td></tr><tr><td>nameAtBirth</td><td>ISIS-MTT NameAtBirth</td><td>string</td><td>-</td></tr><tr><td>o</td><td>Organization</td><td>string</td><td>-</td></tr><tr><td>organizationIdentifier</td><td>Organization identifier</td><td>string</td><td>-</td></tr><tr><td>ou</td><td>Organization unit name</td><td>string</td><td>-</td></tr><tr><td>placeOfBirth</td><td>RFC 3039 PlaceOfBirth</td><td>string</td><td>-</td></tr><tr><td>postalAddress</td><td>RFC 3039 PostalAddress</td><td>string</td><td>-</td></tr><tr><td>postalCode</td><td>Postal code</td><td>string</td><td>-</td></tr><tr><td>pseudonym</td><td>RFC 3039 Pseudonym</td><td>string</td><td>-</td></tr><tr><td>role</td><td>Role</td><td>string</td><td>-</td></tr><tr><td>serialnumber</td><td>Device serial number name</td><td>string</td><td>-</td></tr><tr><td>st</td><td>State or province name</td><td>string</td><td>-</td></tr><tr><td>street</td><td>Street</td><td>string</td><td>-</td></tr><tr><td>surname</td><td>Naming attributes of type X520name</td><td>string</td><td>-</td></tr><tr><td>t</td><td>Title</td><td>string</td><td>-</td></tr><tr><td>telephoneNumber</td><td>Telephone number</td><td>string</td><td>-</td></tr><tr><td>uid</td><td>LDAP User id</td><td>string</td><td>-</td></tr><tr><td>uniqueIdentifier</td><td>Naming attributes of type X520name</td><td>string</td><td>-</td></tr><tr><td>unstructuredAddress</td><td>Unstructured address (from PKCS#9)</td><td>string</td><td>-</td></tr></tbody></table>
 {% endtab %}
 
 {% tab title="Examples" %}
-#### Standard Object Properties
+**Standard Object Properties**
 
 * Get the client DN from the SSL session: `{#request.ssl.client.dn}`
 * Get the server organization from the SSL session: `{#request.ssl.server.o}`
 
-#### Arrays and boolean logic
+**Arrays and boolean logic**
 
 * Get all the organization units of the server from the SSL session:
   * `{#request.ssl.server.attributes['ou'][0]}`
@@ -331,11 +332,11 @@ For example, to retrieve the value of an HTTP header where the name is based on 
 
 You can use the EL to update some aspects of policy configuration. The policy specifies if it supports EL or not by including a **Condition** section in the Policy Studio configuration.
 
-<figure><img src="../.gitbook/assets/Screenshot 2023-04-03 at 4.58.01 PM.png" alt=""><figcaption><p>Assign attributes policy supports EL conditions</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/Screenshot 2023-04-03 at 4.58.01 PM (1).png" alt=""><figcaption><p>Assign attributes policy supports EL conditions</p></figcaption></figure>
 
 ## Response templates
 
-EL can use particular fields within the body configuration of a response template to access the details of an error.&#x20;
+EL can use particular fields within the body configuration of a response template to access the details of an error.
 
 * To access the request and its content: `{#request.headers['my-header'][0]}`
 * To access the error:
@@ -347,9 +348,7 @@ EL can use particular fields within the body configuration of a response templat
     * `{#parameters.region}`: The geo zone of the deployment
     * `{#parameters.error}`: Contains the error message (content is unknown)
 
-    {% hint style="info" %}
-    Parameters vary between policies. The policy generating the error(s) directly updates the `parameters` dictionary to provide dynamic error information to a response template.&#x20;
-    {% endhint %}
+    \{% hint style="info" %\} Parameters vary between policies. The policy generating the error(s) directly updates the `parameters` dictionary to provide dynamic error information to a response template. \{% endhint %\}
 
 ## Conditions
 
@@ -373,6 +372,6 @@ If debugging your expression is difficult, consider the following example for gu
 
 Assume `{#request.content.length() >= 10}` is the conditional expression on a flow. When testing, you are expecting the condition to evaluate to `false` and stop the flow from executing, but the flow continues to function unexpectedly. To check the actual output of the `#request.content.length()` expression, use the Assign Attributes policy as shown in the arcade below.
 
-{% @arcade/embed flowId="Q5mHqjjdv2gzuuVwLffu" url="https://app.arcade.software/share/Q5mHqjjdv2gzuuVwLffu" %}
+{% @arcade/embed url="https://app.arcade.software/share/Q5mHqjjdv2gzuuVwLffu" flowId="Q5mHqjjdv2gzuuVwLffu" %}
 
 [^1]: `{#request.content}` is only available for policies bound to an `on-request-content` phase.

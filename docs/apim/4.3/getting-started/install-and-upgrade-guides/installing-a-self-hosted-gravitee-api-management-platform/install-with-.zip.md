@@ -23,17 +23,15 @@ Your environment must meet the requirements below before you install any of the 
 * **MongoDB and Elasticsearch:** The default APIM Gateway distribution requires [MongoDB](../../configuration/repositories/mongodb.md) to poll the environment configuration and [Elasticsearch](../../configuration/repositories/elasticsearch.md) for reporting and analytics. Download [MongoDB](https://www.mongodb.com/try#production) and [Elasticsearch](https://www.elastic.co/downloads/elasticsearch).
 *   **Download the binaries:** Download the binaries of the latest/preferred 4.x.x from the [Gravitee downloads page](https://gravitee.io/downloads/api-management). For example, to download `graviteeio-full-4.x.0.zip`:
 
-    {% code overflow="wrap" %}
+    \{% code overflow="wrap" %\}
+
     ```sh
     curl -L https://download.gravitee.io/graviteeio-apim/distributions/graviteeio-full-4.x.0.zip -o gravitee-standalone-distribution-4.x.0.zip
     ```
-    {% endcode %}
 
+    \{% endcode %\}
 
-
-    {% hint style="info" %}
-    The archive includes the binaries for all APIM components. If you previously downloaded it to install another component, you do not need to download it again.
-    {% endhint %}
+    \{% hint style="info" %\} The archive includes the binaries for all APIM components. If you previously downloaded it to install another component, you do not need to download it again. \{% endhint %\}
 
 ## Installations
 
@@ -46,7 +44,7 @@ Install each of the following:
 
 {% tabs %}
 {% tab title="APIM Gateway" %}
-### 1. Extract the `.zip` archive
+#### 1. Extract the `.zip` archive
 
 Extract the desired directory from the archive and place it in your `DESTINATION_FOLDER`. For example, if you wanted the `graviteeio-apim-gateway-4.x.0` directory, then use the following commands:
 
@@ -55,7 +53,7 @@ $ unzip gravitee-standalone-distribution-4.x.0.zip
 $ cp -r graviteeio-full-4.x.0/graviteeio-apim-gateway-4.x.0 [DESTINATION_FOLDER]/
 ```
 
-### 2. Run APIM Gateway from the command line
+#### 2. Run APIM Gateway from the command line
 
 By default, APIM Gateway runs in the foreground, prints its logs to standard output (stdout), and can be stopped by pressing **Ctrl-C**.
 
@@ -68,7 +66,7 @@ $ ./bin/gravitee
 
 Once APIM Gateway is running, you will see the log.
 
-### 3. Check APIM Gateway is running
+#### 3. Check APIM Gateway is running
 
 You can test that APIM Gateway is running by sending an HTTP request to port `8082` on `localhost`:
 
@@ -82,7 +80,7 @@ You will receive a response similar to the following:
 No context-path matches the request URI.
 ```
 
-### 4. Run APIM Gateway as a daemon
+#### 4. Run APIM Gateway as a daemon
 
 To run APIM Gateway as a daemon, specify `-d` on the command line and record the process ID in a file using option `-p`:
 
@@ -98,7 +96,7 @@ To shut down APIM gateway, kill the process ID recorded in the `pid` file:
 kill `cat /var/run/gio.pid`
 ```
 
-### APIM Gateway directory structure
+#### APIM Gateway directory structure
 
 The `.zip` (and `.tar.gz`) package is entirely self-contained. All files and directories are, by default, contained within `$GRAVITEE_HOME`, the directory created when extracting the archive.
 
@@ -116,7 +114,7 @@ The Management API includes nodes for both of the UI components (Management Cons
 
 This section describes how to install Management API and verify the nodes are running.
 
-### 1. Extract the `.zip` archive
+#### 1. Extract the `.zip` archive
 
 Extract the desired directory from the archive and place it in your `DESTINATION_FOLDER`. For example, if you wanted the `graviteeio-apim-rest-api-4.x.0` directory, then use the following commands:
 
@@ -125,7 +123,7 @@ $ unzip gravitee-standalone-distribution-4.x.0.zip
 $ cp -r graviteeio-full-4.x.0/graviteeio-apim-rest-api-4.x.0 [DESTINATION_FOLDER]/
 ```
 
-### 2. Run Management API from the command line
+#### 2. Run Management API from the command line
 
 You start APIM API from the command line as follows:
 
@@ -142,7 +140,7 @@ Both the Management API nodes run by default. You can configure APIM to run only
 
 Once the Management API is running, you will see the log.
 
-### 3. Check Management API is running
+#### 3. Check Management API is running
 
 You can test that your Management API node is running by sending an HTTP request to port `8083` on `localhost`:
 
@@ -156,7 +154,7 @@ You will receive a response similar to the following:
 []
 ```
 
-### 4. Check Developer Portal API is running
+#### 4. Check Developer Portal API is running
 
 You can test that your Developer Portal API node is running by sending an HTTP request to port `8083` on `localhost`:
 
@@ -177,7 +175,7 @@ You will receive a response similar to the following:
 }
 ```
 
-### 5. Run Management API as a daemon
+#### 5. Run Management API as a daemon
 
 To run the Management API as a daemon, specify `-d` on the command line and record the process ID in a file using option `-p`:
 
@@ -193,7 +191,7 @@ To shut down the management API, kill the process ID recorded in the `pid` file:
 kill `cat /var/run/gio.pid`
 ```
 
-### Management API directory structure
+#### Management API directory structure
 
 The `.zip` and (`.tar.gz`) package is entirely self-contained. All files and directories are, by default, contained within `$GRAVITEE_HOME`, the directory created when extracting the archive.
 
@@ -209,11 +207,11 @@ The `.zip` and (`.tar.gz`) package is entirely self-contained. All files and dir
 {% endtab %}
 
 {% tab title="Management Console" %}
-### Prerequisites
+#### Prerequisites
 
 Before you begin, ensure the Management API is installed and running.
 
-### 1. Extract the `.zip` archive
+#### 1. Extract the `.zip` archive
 
 Extract the desired directory from the archive and place it in your `DESTINATION_FOLDER`. For example, if you wanted the `graviteeio-apim-console-ui-4.x.0` directory, then use the following commands:
 
@@ -222,20 +220,20 @@ $ unzip gravitee-standalone-distribution-4.x.0.zip
 $ cp -r graviteeio-full-4.x.0/graviteeio-apim-console-ui-4.x.0 [DESTINATION_FOLDER]/
 ```
 
-### 2. Deploy or run the Management Console
+#### 2. Deploy or run the Management Console
 
-#### Deploy
+**Deploy**
 
 The Management Console is a client-side-only AngularJS application and can be deployed on any HTTP server, such as [Apache](https://httpd.apache.org/) or [Nginx](http://nginx.org/).
 
-#### Run with Python
+**Run with Python**
 
 ```sh
 $ cd [DESTINATION_FOLDER]/graviteeio-apim-console-ui-4.x.0
 $ python3 -m http.server
 ```
 
-#### Run with Node.js
+**Run with Node.js**
 
 ```sh
 $ npm install http-server -g
@@ -245,11 +243,11 @@ $ http-server
 {% endtab %}
 
 {% tab title="Developer Portal" %}
-### Prerequisites
+#### Prerequisites
 
 Before you begin, ensure the Management API is installed and running.
 
-### 1. Extract the `.zip` archive
+#### 1. Extract the `.zip` archive
 
 Extract the desired directory from the archive and place it in your `DESTINATION_FOLDER`. For example, if you wanted the `graviteeio-apim-portal-ui-4.x.0` directory, then use the following commands:
 
@@ -258,11 +256,11 @@ $ unzip gravitee-standalone-distribution-4.x.0.zip
 $ cp -r graviteeio-full-4.1.0/graviteeio-apim-portal-ui-4.x.0 [DESTINATION_FOLDER]/
 ```
 
-### 2. Deploy or run the Developer Portal
+#### 2. Deploy or run the Developer Portal
 
 The Developer Portal is a client-side-only Angular application and can be deployed on any HTTP server like [Apache](https://httpd.apache.org/) or [Nginx](http://nginx.org/).
 
-#### Run with Node.js
+**Run with Node.js**
 
 ```sh
 $ npm install angular-http-server -g
@@ -274,15 +272,15 @@ $ angular-http-server
 
 ## Enterprise Edition licensing
 
-To install the Enterprise Edition of APIM requires a license key.&#x20;
+To install the Enterprise Edition of APIM requires a license key.
 
 {% hint style="info" %}
-For information on obtaining a license key, visit the [Gravitee pricing page](https://www.gravitee.io/pricing).&#x20;
+For information on obtaining a license key, visit the [Gravitee pricing page](https://www.gravitee.io/pricing).
 {% endhint %}
 
-Users can directly provide the base64-encoded enterprise license with the `GRAVITEE_LICENSE_KEY` environment variable.&#x20;
+Users can directly provide the base64-encoded enterprise license with the `GRAVITEE_LICENSE_KEY` environment variable.
 
-The default location of the EE license file `license.key` is the `GRAVITEE_HOME/license/license.key` directory. To override this with a different location, provide the absolute path to the license file using the  `-Dgravitee.license` property in the `gravitee.yml` file, e.g., `gravitee_license: /path/to/my/own_license.key`.
+The default location of the EE license file `license.key` is the `GRAVITEE_HOME/license/license.key` directory. To override this with a different location, provide the absolute path to the license file using the `-Dgravitee.license` property in the `gravitee.yml` file, e.g., `gravitee_license: /path/to/my/own_license.key`.
 
 To locate the `license.key`, both the `Gateway` and `Management API` components use the following search sequence:
 
