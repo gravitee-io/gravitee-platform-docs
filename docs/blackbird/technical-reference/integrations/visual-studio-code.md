@@ -4,7 +4,7 @@ noIndex: true
 
 # Visual Studio Code
 
-Blackbird integrates with Visual Studio Code (VS Code) to enhance your development workflow by providing API, mock, and deployment management capabilities in your editor. The [Hosted Dev Environment with Blackbird](https://marketplace.visualstudio.com/items?itemName=Ambassador.blackbird-plugin) extension provides a streamlined experience for managing resources, interacting with APIs, and monitoring your organization’s subscription status.
+Blackbird integrates with Visual Studio Code (VS Code) to enhance your development workflow by providing API, mock, and deployment management capabilities in your editor. The Hosted Dev Environment with Blackbird extension provides a streamlined experience for managing resources, interacting with APIs, and monitoring your organization’s subscription status.
 
 Key features include:
 
@@ -29,7 +29,7 @@ After you meet the prerequisites, use the following procedure to install the int
 
 **To install the VS Code extension:**
 
-1. Navigate to the [Hosted Dev Environment with Blackbird](https://marketplace.visualstudio.com/items?itemName=Ambassador.blackbird-plugin) in the Visual Studio Marketplace.
+1. Navigate to the Hosted Dev Environment with Blackbird in the Visual Studio Marketplace.
 2. Choose **Install**. The extension detects whether you have the Blackbird CLI installed.
 3.  If you don't have the Blackbird CLI installed, the extension will automatically install it:
 

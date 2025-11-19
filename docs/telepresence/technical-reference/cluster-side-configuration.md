@@ -208,7 +208,7 @@ You only need to do one of the two options.
 
 Users will now be able to use preview intercepts with the `--preview-url=false` flag. Even with the license key, preview URLs cannot be used without enabling direct communication with Ambassador Cloud, as Ambassador Cloud is essential to their operation.
 
-If using Helm to install the server-side components, see the chart's [README](https://github.com/telepresenceio/telepresence/tree/release/v2/charts/telepresence) to learn how to configure the image registry and license secret.
+If using Helm to install the server-side components, see the chart's README to learn how to configure the image registry and license secret.
 
 ### Mutating Webhook
 

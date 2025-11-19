@@ -10,7 +10,7 @@ noIndex: true
 
 ## Enabling the server
 
-The server is enabled by setting the `telepresenceAPI.port` to a valid port number in the [Telepresence Helm Chart](https://github.com/telepresenceio/telepresence/tree/release/v2/charts/telepresence). The values may be passed explicitly to Helm during install, or configured using the [Telepresence Config](laptop-side-configuration.md#telepresenceapi) to impact an auto-install.
+The server is enabled by setting the `telepresenceAPI.port` to a valid port number in the Telepresence Helm Chart. The values may be passed explicitly to Helm during install, or configured using the [Telepresence Config](laptop-side-configuration.md#telepresenceapi) to impact an auto-install.
 
 ## Querying the server
 

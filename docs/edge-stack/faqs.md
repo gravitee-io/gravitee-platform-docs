@@ -38,7 +38,7 @@ Yes. Thousands of organizations, large and small, run Ambassador Edge Stack in p
 
 ### What is the performance of Ambassador Edge Stack?
 
-There are many dimensions to performance. We published a benchmark of [Ambassador Edge Stack performance on Kubernetes](https://www.getambassador.io/resources/envoyproxy-performance-on-k8s). Our internal performance regressions cover many other scenarios; we expect to publish more data in the future.
+There are many dimensions to performance. We published a benchmark of Ambassador Edge Stack performance on Kubernetes. Our internal performance regressions cover many other scenarios; we expect to publish more data in the future.
 
 ### What's the difference between a service mesh (such as Istio) and Ambassador Edge Stack?
 
