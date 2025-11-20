@@ -70,7 +70,7 @@ Additional Oauth terminology:
 
 As of Gravitee 4.0, Dynamic Client Registration is an Enterprise Edition capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:
 
-* [Refer to the EE vs OSS documentation](../../overview/gravitee-apim-enterprise-edition/)
+* [Refer to the EE vs OSS documentation](../../overview/gravitee-apim-enterprise-edition/README.md)
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}

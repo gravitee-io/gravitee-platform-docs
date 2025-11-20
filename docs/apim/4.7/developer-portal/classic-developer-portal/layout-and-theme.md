@@ -119,7 +119,7 @@ Administrators can customize the header and footer navigation of the Developer P
 * Link to an existing documentation page
 * Link to a category
 
-Each link is treated as a new documentation page. To learn about the features and functionality of Developer Portal documentation, see [Documentation](broken-reference/).
+Each link is treated as a new documentation page. To learn about the features and functionality of Developer Portal documentation, see [api-documentation.md](api-documentation.md "mention").
 
 {% tabs %}
 {% tab title="System folders" %}

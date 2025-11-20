@@ -74,7 +74,7 @@ In addition to usage plan discovery, Gravitee will also discover and import API 
 These APIs will exist in Gravitee as API artifacts that can be managed and governed, but they will not be deployed to the Gravitee Gateway.
 {% endhint %}
 
-To start using Federated API Management, refer to the [Federated API Management documentation](../../using-the-product/managing-your-apis-with-gravitee-api-management/federation/).
+To start using Federated API Management, refer to the [Federated API Management documentation](../../using-the-product/managing-your-apis-with-gravitee-api-management/federation/README.md).
 
 ### Publishing your Federated APIs to a universal Developer Portal
 
