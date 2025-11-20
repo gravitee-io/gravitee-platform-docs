@@ -54,7 +54,7 @@ You can manage user and group access to individual APIs via the Management Conso
 
 ## Importing and duplicating v4 APIs
 
-You can now create a v4 API by uploading a JSON file containing an existing Gravitee v4 API definition. For the details of this feature, refer to the [documentation](../../guides/create-apis/import-apis/).
+You can now create a v4 API by uploading a JSON file containing an existing Gravitee v4 API definition. For the details of this feature, refer to the [documentation](../../guides/create-apis/import-apis/README.md).
 
 A v4 API can now also be duplicated. Refer to [this page](../../guides/api-configuration/v4-api-configuration/api-general-settings.md) for more details.
 

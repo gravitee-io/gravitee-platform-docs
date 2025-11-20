@@ -73,5 +73,5 @@ On the Deployment page, you will see a summary of your API and can choose how yo
 * **Create and deploy the API:** this creates the API in Gravitee _and_ deploys it to the Gateway. You can still access the API in the APIs list, configure the API, and design policies for the API using the v2 Policy Studio, but you will then have to redeploy that API after making changes.
 
 {% hint style="info" %}
-After you've chosen your creation method, you will have finished creating APIs using the v2 API creation wizard. From here, we recommend learning more about [API configuration](../../api-configuration/) and the Policy Studio.
+After you've chosen your creation method, you will have finished creating APIs using the v2 API creation wizard. From here, we recommend learning more about [API configuration](../../api-configuration/README.md) and the Policy Studio.
 {% endhint %}

@@ -54,7 +54,7 @@ Before you install APIM, complete the following steps:
     ```
 3.  (**Enterprise Edition only**) Place your license key file in the current root directory:
 
-    ```bash
+    ```shellscript
     cp /path/to/your/license.key ./license.key
     ```
 
@@ -277,7 +277,7 @@ To enable Federation, complete the following steps:
           - ./.license/license.key:/opt/graviteeio-management-api/license/license.key
           - ./.plugins:/opt/graviteeio-management-api/plugins-ext
     ```
-3.  Restart your APIM services. \\
+3.  Restart your APIM services.&#x20;
 
     ```bash
     docker compose -f docker-compose-apim.yml down
@@ -287,7 +287,7 @@ To enable Federation, complete the following steps:
 Docker containers read environment variables only during container startup. The running containers cannot detect the new `GRAVITEE_INTEGRATION_ENABLED` setting without a restart.
 {% endhint %}
 
-4.  Start the services with the updated Federation configuration.\\
+4.  Start the services with the updated Federation configuration.
 
     ```bash
     docker compose -f docker-compose-apim.yml up -d
@@ -335,7 +335,7 @@ LOG_LEVEL=DEBUG
 This example shows configuration for Confluent Platform integration. For Solace or AWS API Gateway integrations, the core Gravitee parameters remain the same, but additional integration-specific parameters will differ.
 {% endhint %}
 
-2.  To enable federation, add the federation agent service to your `docker-compose-apim.yml` file. You can see a sample configuration example in the complete Docker Compose file above with all available agent options. \\
+2.  To enable federation, add the federation agent service to your `docker-compose-apim.yml` file. You can see a sample configuration example in the complete Docker Compose file above with all available agent options.&#x20;
 
     ```yaml
     #
@@ -525,7 +525,7 @@ This example shows configuration for Confluent Platform integration. For Solace 
 
 ### Set up cluster mode <a href="#set-up-cluster-mode" id="set-up-cluster-mode"></a>
 
-If APIM is running with high availability, you need to set up cluster mode. To set up cluster mode, complete the following steps::
+If APIM is running with high availability, you need to set up cluster mode. To set up cluster mode, complete the following steps:
 
 1.  Add the following parameter values to the root of your `gravitee.yaml` configuration file:
 
@@ -613,8 +613,5 @@ If APIM is running with high availability, you need to set up cluster mode. To s
       </hazelcast>
     ```
 4. Add the following plugins to APIM:
-   * https://download.gravitee.io/plugins/node-cache/gravitee-node-cache-plugin-hazelcast/gravitee-node-cache-plugin-hazelcast-5.18.1.zip
-   * https://download.gravitee.io/plugins/node-cluster/gravitee-node-cluster-plugin-hazelcast/gravitee-node-cluster-plugin-hazelcast-5.18.1.zip
-
-[\
-](https://documentation.gravitee.io/apim/~/changes/324/self-hosted-installation-guides/docker)
+   * [https://download.gravitee.io/plugins/node-cache/gravitee-node-cache-plugin-hazelcast/gravitee-node-cache-plugin-hazelcast-5.18.1.zip](https://download.gravitee.io/plugins/node-cache/gravitee-node-cache-plugin-hazelcast/gravitee-node-cache-plugin-hazelcast-5.18.1.zip)
+   * [https://download.gravitee.io/plugins/node-cluster/gravitee-node-cluster-plugin-hazelcast/gravitee-node-cluster-plugin-hazelcast-5.18.1.zip](https://download.gravitee.io/plugins/node-cluster/gravitee-node-cluster-plugin-hazelcast/gravitee-node-cluster-plugin-hazelcast-5.18.1.zip)
