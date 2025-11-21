@@ -12,17 +12,17 @@ To configure user and group access, complete the following steps:
 2. Log in to your APIM Console, and then click **Applications**.
 3.  Find the application you want to configure. Use the radio buttons to select either Active or Archived applications. Next, either scroll through the paginated lists of available applications or use the search field to find the application by name.
 
-    <figure><img src="../../../4.8/.gitbook/assets/00 groups added to applications 7 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/00 groups added to applications 7 (1).png" alt=""><figcaption></figcaption></figure>
 4. Click on the application you want to configure.
 5.  Click on **User and group access** in the Application menu.
 
-    <figure><img src="../../../4.8/.gitbook/assets/00 groups added to applications 8 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/00 groups added to applications 8 (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Members
 
 Under the **Members** tab, you can add users or groups as members of you application and define their roles to manage and perform tasks and operations.
 
-<figure><img src="../../../4.8/.gitbook/assets/00 groups added to applications 3 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/00 groups added to applications 3 (1).png" alt=""><figcaption></figcaption></figure>
 
 * Click **+ Add members** to add members to your application. You can search for users by name or email.
 * Use the **Role** drop-down menu to select member roles, which grant specific permissions. For more information on roles, please refer to the [Roles](../../configure-and-manage-the-platform/manage-organizations-and-environments/user-management.md#roles) documentation.
@@ -31,7 +31,7 @@ Under the **Members** tab, you can add users or groups as members of you applica
 
 Click the **Groups** tab to see which groups have access to your application. Use the drop-down menu to change group selections.
 
-<figure><img src="../../../4.8/.gitbook/assets/00 groups added to applications 4 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/00 groups added to applications 4 (1).png" alt=""><figcaption></figcaption></figure>
 
 Selecting a group gives all members of that group access to your application.
 
@@ -41,11 +41,11 @@ Under the **Transfer ownership** tab, you can grant complete application access 
 
 Click **Application member** and use the drop-down menu to select a user who is already a member of your application.
 
-<figure><img src="../../../4.8/.gitbook/assets/00 groups added to applications 5 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/00 groups added to applications 5 (1).png" alt=""><figcaption></figcaption></figure>
 
 Click **Other user** to search for someone who is not a member of your application. You can enter either their name or email into the search field. Once you've selected a new primary owner for your application, use the drop-down to assign their role.
 
-<figure><img src="../../../4.8/.gitbook/assets/00 groups added to applications 6 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/00 groups added to applications 6 (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Enforce group ownership of applications
 
@@ -57,7 +57,7 @@ To require an application to have at least one group added to it, complete the f
 2. From the **Settings** menu, scroll down to the User Management section, and then click **Groups**.
 3.  Turn on the toggle that requires an application to have at least one group before it can be created or updated
 
-    <figure><img src="../../../4.8/.gitbook/assets/00 groups 4 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/00 groups 4 (1).png" alt=""><figcaption></figcaption></figure>
 
 By default, this setting is false. If it is set to true, group selection is required during application creation, and the Management API sends a 400 error in response to an attempt to create an application without a group.
 

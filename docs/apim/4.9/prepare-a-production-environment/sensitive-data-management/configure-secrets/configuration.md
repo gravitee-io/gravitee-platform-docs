@@ -34,20 +34,24 @@ You can enable a `secret-provider` plugin by configuring it in `gravitee.yml`. T
 
 The following example is a typical configuration for running Gravitee in Kubernetes. With this configuration, secrets are **resolved in the same namespace**.
 
+{% code title="gravitee.yml/Helm values.yml" %}
 ```yaml
 secrets:
   kubernetes:
     enabled: true
 ```
+{% endcode %}
 
 The following example shows how to add another namespace:
 
+{% code title="gravitee.yml/Helm values.yml" %}
 ```yaml
 secrets:
   kubernetes:
     enabled: true
     namespace: another-namespace
 ```
+{% endcode %}
 
 {% hint style="info" %}
 The Gravitee deployment must be configured to access the additional namespace.

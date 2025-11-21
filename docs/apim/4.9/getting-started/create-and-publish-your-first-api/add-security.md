@@ -19,25 +19,25 @@ To add security to your API, complete the following steps:
 
 1.  From the **Dashboard**, click **APIs**.
 
-    <figure><img src="../../../4.8/.gitbook/assets/FEF08D45-E65E-4131-8D16-4D1D767906F0 (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/FEF08D45-E65E-4131-8D16-4D1D767906F0 (1).jpeg" alt=""><figcaption></figcaption></figure>
 2.  Click your API.
 
-    <figure><img src="../../../4.8/.gitbook/assets/image (320) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (320) (1).png" alt=""><figcaption></figcaption></figure>
 3.  Click **Consumers**.
 
-    <figure><img src="../../../4.8/.gitbook/assets/1CEDFEB8-E635-41FE-BEFC-3B815EEB1D69 (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/1CEDFEB8-E635-41FE-BEFC-3B815EEB1D69 (1).jpeg" alt=""><figcaption></figcaption></figure>
 4.  Click **+ Add new plan**, and then click **API Key**.
 
-    <figure><img src="../../../4.8/.gitbook/assets/58672F6C-4830-4710-B006-0CFF36ECC865 (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/58672F6C-4830-4710-B006-0CFF36ECC865 (1).jpeg" alt=""><figcaption></figcaption></figure>
 5.  In the **Name** field, type a name for your API. 
 
-    <figure><img src="../../../4.8/.gitbook/assets/CC6C89DF-138E-4A61-BAF7-D681DCC651C8 (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/CC6C89DF-138E-4A61-BAF7-D681DCC651C8 (1).jpeg" alt=""><figcaption></figcaption></figure>
 6.  In the **Subscriptions section**, turn on **Auto validate subscription**.
 
-    <figure><img src="../../../4.8/.gitbook/assets/46EB2A9A-7339-4073-BE36-7EED0ECB6F95 (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/46EB2A9A-7339-4073-BE36-7EED0ECB6F95 (1).jpeg" alt=""><figcaption></figcaption></figure>
 7.  Click **Next**.
 
-    <figure><img src="../../../4.8/.gitbook/assets/E43BBC55-59A5-4CC6-B689-57D5433E1F35 (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/E43BBC55-59A5-4CC6-B689-57D5433E1F35 (1).jpeg" alt=""><figcaption></figcaption></figure>
 8.  In the API Key authentication configuration screen, click **Next**. 
 
     <figure><img src="../../.gitbook/assets/image (347).png" alt=""><figcaption></figcaption></figure>
@@ -46,13 +46,13 @@ To add security to your API, complete the following steps:
     <figure><img src="../../.gitbook/assets/image (348).png" alt=""><figcaption></figcaption></figure>
 10. In the **Consumers** screen, click the **Publish the plan** button.
 
-    <figure><img src="../../../4.8/.gitbook/assets/80812F89-F280-4D0C-A83B-EB9417385B96 (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/80812F89-F280-4D0C-A83B-EB9417385B96 (1).jpeg" alt=""><figcaption></figcaption></figure>
 11. In the Publish plan pop-up window, click **Publish.**
 
     <figure><img src="../../.gitbook/assets/image (349).png" alt=""><figcaption></figcaption></figure>
 12. Click **Deploy API**.
 
-    <figure><img src="../../../4.8/.gitbook/assets/8AB63E94-AAA6-4BDA-B648-077BB451A35C (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/8AB63E94-AAA6-4BDA-B648-077BB451A35C (1).jpeg" alt=""><figcaption></figcaption></figure>
 13. In the **Deploy your API** pop-up window, click **Deploy**.
 
     <figure><img src="../../.gitbook/assets/image (350).png" alt=""><figcaption></figcaption></figure>
@@ -71,19 +71,19 @@ WARNING: Removing a plan is irreversible
 
 1.  Navigate to the **PUBLISHED** tab of the screen.
 
-    <figure><img src="../../../4.8/.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (7) (1) (1).png" alt=""><figcaption></figcaption></figure>
 2.  For your **Default Keyless (UNSECURED)** plan, click **Close the plan** button.
 
-    <figure><img src="../../../4.8/.gitbook/assets/3627B0A7-AF24-4E4B-A22B-5AFEB7FB29A5 (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/3627B0A7-AF24-4E4B-A22B-5AFEB7FB29A5 (1).jpeg" alt=""><figcaption></figcaption></figure>
 3.  In the **Close plan** pop-up window, type Default Keyless (UNSECURED), and then click **Yes, close this plan.**
 
-    <figure><img src="../../../4.8/.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (8) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Verification
 
 The Default Keyless (UNSECURED) plan is removed from the **PUBLISHED** tab.
 
-<figure><img src="../../../4.8/.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Verification
 
@@ -95,26 +95,26 @@ To test your API Key plan, complete the following steps:
 
 1.  From the **Dashboard**, click **Applications**.
 
-    <figure><img src="../../../4.8/.gitbook/assets/22CB1B38-1964-47F6-B5B7-8B634D3D8D0B (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/22CB1B38-1964-47F6-B5B7-8B634D3D8D0B (1).jpeg" alt=""><figcaption></figcaption></figure>
 2.  In the **Applications** screen, click the **Default application**.
 
-    <figure><img src="../../../4.8/.gitbook/assets/image (10) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (10) (1) (1).png" alt=""><figcaption></figcaption></figure>
 3.  In the **Default application** configuration screen, click **Subscriptions**. 
 
-    <figure><img src="../../../4.8/.gitbook/assets/F1AD5888-A518-42D5-8C18-33BCCB583C06 (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/F1AD5888-A518-42D5-8C18-33BCCB583C06 (1).jpeg" alt=""><figcaption></figcaption></figure>
 4.  Click **+ Create a subscription**.
 
-    <figure><img src="../../../4.8/.gitbook/assets/AD60FD6C-ECAB-49A1-80B3-2C0BD89F08EA (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/AD60FD6C-ECAB-49A1-80B3-2C0BD89F08EA (1).jpeg" alt=""><figcaption></figcaption></figure>
 5. In the **Create a subscription** pop-up window, complete the following sub-steps:
    1. Type the name of the API that you created in [create-an-api.md](create-an-api.md "mention").
    2. Select your API.
    3. Click the name of the plan that you created in [#add-an-api-key-plan-to-your-api](add-security.md#add-an-api-key-plan-to-your-api "mention").
    4.  Click **Create**. 
 
-       <figure><img src="../../../4.8/.gitbook/assets/image (11) (1).png" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../../.gitbook/assets/image (11) (1) (1).png" alt=""><figcaption></figcaption></figure>
 6.  Copy your API key from the **API Keys** section of the **Subscriptions** page.
 
-    <figure><img src="../../../4.8/.gitbook/assets/0E509DC6-90E7-4154-B768-920FB55DA442 (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/0E509DC6-90E7-4154-B768-920FB55DA442 (1).jpeg" alt=""><figcaption></figcaption></figure>
 
 ### Test your API Key
 
