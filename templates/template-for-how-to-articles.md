@@ -24,17 +24,16 @@ Before you {insert a brief description of the task}, complete the following step
 
 {Optional: Provide a concise description of the purpose of the task. Only include a description if the purpose is not clear from the task name.}
 
-1.  {Write the step here. Begin the step with a base form verb.}{Optional: Explanatory text.} \
+1.  {Write the step here. Begin the step with a base form verb.}{Optional: Explanatory text.}
     {Optional: Indented screenshot that is associated with the step.}<br>
 
     <figure><img src=".gitbook/assets/02.png" alt=""><figcaption><p>Example  screenshot</p></figcaption></figure>
-2.  {Write the step here. Begin the step with a base form verb.}{Optional: Explanatory text.} \
+2.  {Write the step here. Begin the step with a base form verb.}{Optional: Explanatory text.}
     {Optional: Indented code sample. Select the programming language from the drop-down menu that appears in the upper right of the code block. Enter the filename as the code block caption.}<br>
 
     <pre data-title="filename.ext"><code><strong>// Some code
     </strong></code></pre>
 
-    \
     {Optional: The result of completing this step.}
 3. {Write the step here. Begin the step with a base form verb.}
    1.  {Ordered sub-step 1}{Optional: Indented screenshot that is associated with the sub-step.}<br>
