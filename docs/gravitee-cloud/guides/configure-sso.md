@@ -44,7 +44,7 @@ It is recommended that the Account Primary Owner be a non-SSO user so that the C
 6.  In the **User information source** section, select either of the following options to retrieve the user profile information from:
 
     * ID Token
-    * UserInfo Endpoint\\
+    * UserInfo Endpoint
 
     \{% hint style="info" %\}
 

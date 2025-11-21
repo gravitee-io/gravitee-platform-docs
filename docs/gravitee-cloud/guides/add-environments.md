@@ -10,11 +10,11 @@ Once you add an environment, you cannot delete the environment.
 
 ## Add an Environment
 
-1.  From the **Dashboard**, navigate to the **Environments** section, and then click **New Environment**.\
+1.  From the **Dashboard**, navigate to the **Environments** section, and then click **New Environment**.
 
 
     <figure><img src="../.gitbook/assets/CE7BEA5B-F918-4BAE-90C7-59A680A0BF39_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
-2.  In the **Create New Environment** pop-up window, enter the name of your environment. The Human Readable ID (HRID) is automatically generated.\
+2.  In the **Create New Environment** pop-up window, enter the name of your environment. The Human Readable ID (HRID) is automatically generated.
 
 
     {% hint style="warning" %}
@@ -37,12 +37,12 @@ Once you add an environment, you cannot delete the environment.
     {% endhint %}
 
 
-4.  Click **Create**. \
+4.  Click **Create**. 
 
 
     <figure><img src="../.gitbook/assets/00792193-3829-426C-A047-6A566735E640_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
 
-    Your environment appears in the **Environments** section of the **Dashboard**. \
+    Your environment appears in the **Environments** section of the **Dashboard**. 
 
 
     <figure><img src="../.gitbook/assets/68CC2048-1B10-44D6-A7A6-3B891AE2D911_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
@@ -50,7 +50,7 @@ Once you add an environment, you cannot delete the environment.
 ## Change the Environment section layout&#x20;
 
 *   To change the Environment section from the tile view to a list view, click the **list button**. \
-    \
+    
 
 
     <figure><img src="../.gitbook/assets/99B1FD8B-4644-4BD6-A06B-EB6BC09D44DE_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>

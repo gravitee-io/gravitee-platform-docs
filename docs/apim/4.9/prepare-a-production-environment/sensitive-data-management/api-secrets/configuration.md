@@ -229,7 +229,7 @@ secrets:
 ```
 
 * Kubernetes
-  *   (recommended) Here is an example with short lived tokens:\\
+  *   (recommended) Here is an example with short lived tokens:
 
       ```yaml
       secrets:
@@ -243,7 +243,7 @@ secrets:
       ```
 
       * (Optional) If your pod does not make the token available in `/var/run/secrets/kubernetes.io/serviceaccount/token` , you can add `tokenFile` .
-  *   Here is an example with long-lived tokens:\\
+  *   Here is an example with long-lived tokens:
 
       ```yaml
       secrets:

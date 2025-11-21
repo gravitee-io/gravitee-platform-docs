@@ -179,7 +179,7 @@ More details can be found in the library’s [README](https://github.com/aws/aws
 
 The Kafka endpoint includes the dynamic configuration feature, meaning that you can:
 
-*   Override any configuration parameters using an attribute (via the Assign Attribute policy). Your attribute needs to start with `gravitee.attributes.endpoint.kafka`, followed by the property you want to override (e.g. `gravitee.attributes.endpoint.kafka.security.sasl.saslMechanism`). To override the topics property, add an Assign Attribute policy and set the attribute `gravitee.attributes.endpoint.kafka.consumer.topics` using a request header value or a query param, for example.\
+*   Override any configuration parameters using an attribute (via the Assign Attribute policy). Your attribute needs to start with `gravitee.attributes.endpoint.kafka`, followed by the property you want to override (e.g. `gravitee.attributes.endpoint.kafka.security.sasl.saslMechanism`). To override the topics property, add an Assign Attribute policy and set the attribute `gravitee.attributes.endpoint.kafka.consumer.topics` using a request header value or a query param, for example.
 
 
     <figure><img src="../../.gitbook/assets/Assign attributes.png" alt=""><figcaption></figcaption></figure>

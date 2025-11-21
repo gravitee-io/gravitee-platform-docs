@@ -59,7 +59,7 @@ cd telepresence-local-quickstart
 git clone https://github.com/ambassadorlabs/telepresence-local-quickstart.git --recurse-submodules
 
 # Change to the repo directory
-cd .\telepresence-local-quickstart\
+cd .\telepresence-local-quickstart
 
 # Run the Windows setup script
 .\windows-setup.ps1
@@ -96,7 +96,7 @@ The first time you run a Telepresence command you will be prompted to create an 
 
 
 2.  Now we'll test that Telepresence is working properly by accessing a service running in the cluster. Telepresence has merged your local IP routing tables and DNS resolution with the clusters, so you can talk to the cluster in its DNS language and to services on their cluster IP address.\
-    Open up a browser and go to `http://verylargejavaservice.default:8080`. As you can see you've loaded up a dashboard showing the architecture of the sample app.\
+    Open up a browser and go to `http://verylargejavaservice.default:8080`. As you can see you've loaded up a dashboard showing the architecture of the sample app.
 
 
     <figure><img src=".gitbook/assets/00 tp 1.png" alt=""><figcaption></figcaption></figure>

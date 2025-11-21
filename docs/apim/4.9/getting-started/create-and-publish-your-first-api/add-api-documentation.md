@@ -12,31 +12,31 @@ This guide explains how to add documentation to your first API.
 
 ## Add API documentation
 
-1.  From the dashboard, click **APIs**.\\
+1.  From the dashboard, click **APIs**.
 
     <figure><img src="../../../4.8/.gitbook/assets/6DD0E65F-0096-4CD0-A5E4-ADFC9815CCB2 (1).jpeg" alt=""><figcaption></figcaption></figure>
-2.  Click the API that you created in [create-an-api.md](create-an-api.md "mention").\\
+2.  Click the API that you created in [create-an-api.md](create-an-api.md "mention").
 
     <figure><img src="../../../4.8/.gitbook/assets/image (326) (1).png" alt=""><figcaption></figcaption></figure>
 3.  In your API menu, click **Documentation**.\
-    \\
+    
 
     <figure><img src="../../../4.8/.gitbook/assets/7405FAE3-1497-40D0-A658-664B364E8493 (1).jpeg" alt=""><figcaption></figcaption></figure>
-4.  Click **Documentation Pages**, and then click **Add new page**.\\
+4.  Click **Documentation Pages**, and then click **Add new page**.
 
     <figure><img src="../../../4.8/.gitbook/assets/image (327) (1).png" alt=""><figcaption></figcaption></figure>
-5.  From the **Add new page** dropdown menu, click Markdown. \\
+5.  From the **Add new page** dropdown menu, click Markdown. 
 
     <figure><img src="../../../4.8/.gitbook/assets/image (328) (1).png" alt=""><figcaption></figcaption></figure>
 6. In the **Name** field, type the name of your documentation page. For example, My first page.
-7.  In the **Visibility** section, Click **Public**, and then click **Next**.\\
+7.  In the **Visibility** section, Click **Public**, and then click **Next**.
 
     <figure><img src="../../../4.8/.gitbook/assets/image (329) (1).png" alt=""><figcaption></figcaption></figure>
-8.  In the Determine source page, click **Next**.\\
+8.  In the Determine source page, click **Next**.
 
     <figure><img src="../../../4.8/.gitbook/assets/image (330) (1).png" alt=""><figcaption></figcaption></figure>
 9. In the **Page content** section, add the documentation for your API using Markdown.
-10. Click **Save and publish**.\\
+10. Click **Save and publish**.
 
     <figure><img src="../../../4.8/.gitbook/assets/image (331) (1).png" alt=""><figcaption></figcaption></figure>
 

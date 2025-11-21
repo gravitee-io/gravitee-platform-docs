@@ -66,7 +66,7 @@ If you have already installed MongoDB, you do not need to install MongoDB again.
 | ----------- | ----------- | ------- |
 | `mongo.uri` | Mongo URI   | `null`  |
 
-*   **Option 2:** Provide a `mongo.servers` raw definition with `mongo.dbname` and an authentication configuration:\\
+*   **Option 2:** Provide a `mongo.servers` raw definition with `mongo.dbname` and an authentication configuration:
 
     ```bash
     mongo:
@@ -156,7 +156,7 @@ gravitee-postgresql-0   1/1     Running    0          2m
 
 **Configure PostgreSQL**
 
-*   Modify the `values.yml` the following content to use the `username`, `password`, `URL`, and `database name` that is specific to your instance:\\
+*   Modify the `values.yml` the following content to use the `username`, `password`, `URL`, and `database name` that is specific to your instance:
 
     ```
     jdbc:
