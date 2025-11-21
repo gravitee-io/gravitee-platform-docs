@@ -526,7 +526,7 @@ When you are done, select **Create.** Then, go back to the IdP page, and toggle 
 
 When using custom a Public Key Infrastructure (PKI) for your OAuth2 authentication provider, you may have to specify the certificate authority chain of your provider in APIM. To do this, you can either:
 
-*   Export an environment variable for your current session. For example:\\
+*   Export an environment variable for your current session. For example:
 
     ```
     export JAVA_OPTS="

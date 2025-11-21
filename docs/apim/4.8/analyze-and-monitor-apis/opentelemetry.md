@@ -109,7 +109,7 @@ gateway:
 * If unset default endpoint is `http://locahost:4317`, replace \<OPENTELMETRY\_ENDPOINT> with the endpoint that you use for OpenTelemetry.
 * If your endpoint URL uses `http://` or `grpc://` , you can use this configuration for a basic default configuration.
 
-2.  (Optional) For a more advanced configuration, add the following configuration to your `values.yaml`:\\
+2.  (Optional) For a more advanced configuration, add the following configuration to your `values.yaml`:
 
     With the following configuration, you can complete the following actions with OpenTelemetry:
 

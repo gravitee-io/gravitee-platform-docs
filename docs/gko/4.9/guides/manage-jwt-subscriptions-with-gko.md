@@ -23,7 +23,7 @@ GKO-managed subscriptions only work when GKO is configured to sync APIs with a G
 
 To set up a subscription, complete the following steps.
 
-1.  Generate a public key using the following command. You can use a hardcoded public key to configure the plan. \
+1.  Generate a public key using the following command. You can use a hardcoded public key to configure the plan. 
 
 
     ```bash
@@ -32,7 +32,7 @@ To set up a subscription, complete the following steps.
     ```
 
 
-2.  Store the public key in a Secret using the following command:\
+2.  Store the public key in a Secret using the following command:
 
 
     ```
@@ -40,7 +40,7 @@ To set up a subscription, complete the following steps.
     ```
 
 
-3.  Configure the JSON Web Token (JWT) plan in the API definition. Here is an example of an API definition that is configured with a JSON Web Token plan:\
+3.  Configure the JSON Web Token (JWT) plan in the API definition. Here is an example of an API definition that is configured with a JSON Web Token plan:
 
 
     {% code lineNumbers="true" %}
@@ -93,7 +93,7 @@ To set up a subscription, complete the following steps.
     {% endcode %}
 
 
-4.  Configure the application resource based on your setup. The `client_Id` must match the client ID of the token. Here is an example of the client resource:\
+4.  Configure the application resource based on your setup. The `client_Id` must match the client ID of the token. Here is an example of the client resource:
 
 
     {% code lineNumbers="true" %}
@@ -119,7 +119,7 @@ To set up a subscription, complete the following steps.
 
     1. A valid API, using the APIs name and an optional namespace. If you do not provide a namespace, the namespace of the subscription is used.
     2. A valid plan key defined in the API.
-    3. A valid application and an optional namespace.\
+    3. A valid application and an optional namespace.
 
 
     {% hint style="info" %}
@@ -128,7 +128,7 @@ To set up a subscription, complete the following steps.
 
 
 
-    Here is an example of a subscription resource:\
+    Here is an example of a subscription resource:
 
 
     ```
@@ -145,7 +145,7 @@ To set up a subscription, complete the following steps.
     ```
 
     \
-    Here is an example of a subscription resource:\
+    Here is an example of a subscription resource:
 
 
     {% hint style="info" %}
@@ -153,7 +153,7 @@ To set up a subscription, complete the following steps.
     {% endhint %}
 
 
-6.  Apply the resource.\
+6.  Apply the resource.
 
 
     {% hint style="warning" %}
@@ -162,7 +162,7 @@ To set up a subscription, complete the following steps.
     {% endhint %}
 
     \
-    To apply the resource, use the following commands:\
+    To apply the resource, use the following commands:
 
 
     ```
@@ -174,10 +174,10 @@ To set up a subscription, complete the following steps.
     ```
 
 
-7.  Retrieve a token. Forge a token using the JWT debugger. For more information about the JWT debugger, go to [jwt.io](https://jwt.io/).\
+7.  Retrieve a token. Forge a token using the JWT debugger. For more information about the JWT debugger, go to [jwt.io](https://jwt.io/).
 
 
-    Set the algorithm to `RS256` and sign your token with the provided keys and the following claims:\
+    Set the algorithm to `RS256` and sign your token with the provided keys and the following claims:
 
 
     ```json
@@ -190,7 +190,7 @@ To set up a subscription, complete the following steps.
 
 
 
-    Alternatively, if you are following this guide on macOS or Linux, you can get a token by running this [get\_token.sh](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/examples/usecase/subscribe-to-jwt-plan/pki/get_token.sh) bash script:\
+    Alternatively, if you are following this guide on macOS or Linux, you can get a token by running this [get\_token.sh](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/examples/usecase/subscribe-to-jwt-plan/pki/get_token.sh) bash script:
 
 
     ```sh
@@ -198,7 +198,7 @@ To set up a subscription, complete the following steps.
     ```
 
 
-8.  Invoke the API. You can now call your API using the following command. Replace \<GATEWAY\_URL> with your Gateway's URL.\
+8.  Invoke the API. You can now call your API using the following command. Replace \<GATEWAY\_URL> with your Gateway's URL.
 
 
     ```
@@ -207,7 +207,7 @@ To set up a subscription, complete the following steps.
     ```
 
 
-9.  Close the subscription. Deleting the subscription resource results in the subscription being closed. This means that the client ID associated with your token will be rejected with a 401 status on subsequent calls to the Gateway.\
+9.  Close the subscription. Deleting the subscription resource results in the subscription being closed. This means that the client ID associated with your token will be rejected with a 401 status on subsequent calls to the Gateway.
 
 
     ```

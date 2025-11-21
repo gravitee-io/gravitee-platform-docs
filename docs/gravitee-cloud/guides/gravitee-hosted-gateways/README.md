@@ -40,13 +40,13 @@ You do not have to scale your Gateways. Gravitee scales your Gateways and manage
 
 When deploying a new Gateway, you can optionally set sharding tags. To add sharding tags, complete the following steps:
 
-1.  Navigate to the **Deployment Tags** section.\\
+1.  Navigate to the **Deployment Tags** section.
 
     <figure><img src="../../.gitbook/assets/deployment-tags-cloud-version.png" alt=""><figcaption></figcaption></figure>
 2.  In the **Sharding Tags IDs** field, enter one or more tags that identify this Gateway's purpose. For example, "us-east", "production", "eu-west".
 
     <figure><img src="../../.gitbook/assets/sharding-tag-ids-cloud.png" alt=""><figcaption></figcaption></figure>
-3.  In the **Tenant Tags** field, input identifiers that represent the backend services or tenants the Gateway should route to. For example, "eu-west-1".\\
+3.  In the **Tenant Tags** field, input identifiers that represent the backend services or tenants the Gateway should route to. For example, "eu-west-1".
 
     <figure><img src="../../.gitbook/assets/tenant-tag-ids-description.png" alt=""><figcaption></figcaption></figure>
 4. Click **Save**.
@@ -65,7 +65,7 @@ When deploying a new Gateway, you can optionally set sharding tags. To add shard
 
        <figure><img src="../../.gitbook/assets/deploy-gateway-2.png" alt=""><figcaption></figcaption></figure>
 3. (Optional) Add development tags. For morei nformation about adding development tags, see [#optional-add-development-tags](./#optional-add-development-tags "mention").
-4.  Click on **Save.**\\
+4.  Click on **Save.**
 
     <figure><img src="../../.gitbook/assets/click-on-save.png" alt=""><figcaption></figcaption></figure>
 
@@ -83,13 +83,13 @@ You see both Gateway configurations in the **Gravitee Hosted Gateways** section,
 
 ## Verification
 
-The Gateway or Gateways appear in the **Gateways** section of the **Dashboard**.\\
+The Gateway or Gateways appear in the **Gateways** section of the **Dashboard**.
 
 <figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 ## View the details of a Gateway
 
-*   To the view the details of a Gateway, click the Gateway name to see the Gateway details. \\
+*   To the view the details of a Gateway, click the Gateway name to see the Gateway details. 
 
     <figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
@@ -118,13 +118,13 @@ Tenant tags help route API requests to upstream services based on the Gateway's 
 
 To update Sharding tags or Tenant tags on an existing Gateway, complete the following steps:
 
-1.  Navigate to your Gravitee Cloud Dashboard, and then click the Gateway name&#x65;**.** \\
+1.  Navigate to your Gravitee Cloud Dashboard, and then click the Gateway name&#x65;**.** 
 
     <figure><img src="../../.gitbook/assets/sharding-tags-gateway.png" alt=""><figcaption></figcaption></figure>
-2.  Click the Gateway name to access Gateway settings.\\
+2.  Click the Gateway name to access Gateway settings.
 
     <figure><img src="../../.gitbook/assets/general-details.png" alt=""><figcaption></figcaption></figure>
-3.  In the **Tags Deployment Details** section, you can add new Sharding tag IDs, and Tenant tag IDs. The changes are applied without requiring Gateway restart. \\
+3.  In the **Tags Deployment Details** section, you can add new Sharding tag IDs, and Tenant tag IDs. The changes are applied without requiring Gateway restart. 
 
     <figure><img src="../../.gitbook/assets/add-more sharding-tag-ids-and-tenant-ids.png" alt=""><figcaption></figcaption></figure>
 
