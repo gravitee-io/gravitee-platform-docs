@@ -27,7 +27,7 @@ In order for you to enact rate limiting policies:
 
 Global rate limiting applies to the entire Kubernetes service mesh. This example shows how to limit the `quote` service to 3 requests per minute.
 
-1.  First, add a request label to the `request_label_group` of the `quote` service's `Mapping` resource. This example uses `backend` for the label:\
+1.  First, add a request label to the `request_label_group` of the `quote` service's `Mapping` resource. This example uses `backend` for the label:
 
 
     ```yaml
@@ -47,13 +47,13 @@ Global rate limiting applies to the entire Kubernetes service mesh. This example
     ```
 
     \
-    Apply the mapping configuration changes with `kubectl apply -f quote-backend.yaml`.\
+    Apply the mapping configuration changes with `kubectl apply -f quote-backend.yaml`.
 
 
     {% hint style="info" %}
     You need to use `v2` or later for the `apiVersion` in the `Mapping` resource. Previous versions do not support `labels`.
     {% endhint %}
-2.  Next, configure the `RateLimit` resource for the service. Create a new YAML file named `backend-ratelimit.yaml` and apply the rate limit details as follows:\
+2.  Next, configure the `RateLimit` resource for the service. Create a new YAML file named `backend-ratelimit.yaml` and apply the rate limit details as follows:
 
 
     ```yaml
@@ -79,7 +79,7 @@ Per user rate limiting enables you to apply the defined rate limit to specific I
 
 This example shows how to use the `remote_address` special value in the mapping to target specific IP addresses:
 
-1.  Add a request label to the `request_label_group` of the `quote` service's `Mapping` resource. This example uses `remote_address` for the label:\
+1.  Add a request label to the `request_label_group` of the `quote` service's `Mapping` resource. This example uses `remote_address` for the label:
 
 
     ```yaml
@@ -97,7 +97,7 @@ This example shows how to use the `remote_address` special value in the mapping 
             - remote_address:
                 key: remote_address
     ```
-2.  Update the rate limit amounts for the `RateLimit` service and enter the `remote_address` to the following pattern:\
+2.  Update the rate limit amounts for the `RateLimit` service and enter the `remote_address` to the following pattern:
 
 
     ```yaml
@@ -119,7 +119,7 @@ Another technique for rate limiting involves load shedding. With load shedding, 
 
 This example shows how to implement load per user rate limiting along with load shedding on `GET` requests. To allow per user rate limits, you need to make sure you've properly configured Ambassador Edge Stack to propagate your original client IP address. See [the-module-resource.md](../../technical-reference/using-custom-resources/the-module-resource.md "mention") for more information.
 
-1.  Add a request labels to the `request_label_group` of the `quote` service's `Mapping` resource. This example uses `remote_address` for the per user limit, and `backend_http_method`for load shedding. The load shedding uses `":method"` to identify that the `RateLimit` will use a HTTP request method in its pattern.\
+1.  Add a request labels to the `request_label_group` of the `quote` service's `Mapping` resource. This example uses `remote_address` for the per user limit, and `backend_http_method`for load shedding. The load shedding uses `":method"` to identify that the `RateLimit` will use a HTTP request method in its pattern.
 
 
     ```yaml
@@ -140,7 +140,7 @@ This example shows how to implement load per user rate limiting along with load 
                 key: backend_http_method
                 header_name: ":method"
     ```
-2.  Update the rate limit amounts for the `RateLimit` service. For the rate limit `pattern`, include the `remote_address` IP address and the `backend_http_mthod`.\
+2.  Update the rate limit amounts for the `RateLimit` service. For the rate limit `pattern`, include the `remote_address` IP address and the `backend_http_mthod`.
 
 
     ```yaml
@@ -163,7 +163,7 @@ This example shows how to implement load per user rate limiting along with load 
 
 Similar to the per user rate limiting, you can use [global rate limiting](basic-rate-limiting.md) to assign a rate limit to any unique IP addresses call to your service. Unlike the previous examples, you need to add your labels to the `Module` resource rather than the `Mapping` resource. This is because the `Module` resource applies the labels to all the requests in Ambassador Edge Stack, whereas the labels in `Mapping` only apply to the requests that use that `Mapping` resource.
 
-1.  Add a request label to the `request_label_group` of the `quote` service's `Module` resource. This example uses the `remote_address` special value.\
+1.  Add a request label to the `request_label_group` of the `quote` service's `Module` resource. This example uses the `remote_address` special value.
 
 
     ```yaml
@@ -182,7 +182,7 @@ Similar to the per user rate limiting, you can use [global rate limiting](basic-
             - remote_address:
                 key: remote_address
     ```
-2.  Update the rate limit amounts for the `RateLimit` service and enter the `remote_address` to the following pattern:\
+2.  Update the rate limit amounts for the `RateLimit` service and enter the `remote_address` to the following pattern:
 
 
     ```yaml
@@ -202,7 +202,7 @@ Similar to the per user rate limiting, you can use [global rate limiting](basic-
 
 Sometimes, you may have an API that cannot handle as much load as others in your cluster. In this case, a global rate limit may not be enough to ensure this API is not overloaded with requests from a user. To protect this API, you can create a label that tells Ambassador Edge Stack to apply a stricter limit on requests. In the example above, the global rate limit is defined in the `Module` resource. This applies the limit to all requests. In conjunction with the global limit defined in the `Module` resource, you can add more granular rate limiting to a `Mapping` resource, which will only apply to requests that use that 'Mapping'.
 
-1.  In addition to the configurations applied in the global rate limit example above, add an additional label to the `request_label_group` of the `Mapping` resource. This example uses `backend` for the label:\
+1.  In addition to the configurations applied in the global rate limit example above, add an additional label to the `request_label_group` of the `Mapping` resource. This example uses `backend` for the label:
 
 
     ```yaml
@@ -220,7 +220,7 @@ Sometimes, you may have an API that cannot handle as much load as others in your
             - generic_key:
                 value: backend
     ```
-2.  Now, the `request_label_group` contains both the `generic_key: backend` and the `remote_address` key applied from the global rate limit. This creates a separate `RateLimit` object for this route:\
+2.  Now, the `request_label_group` contains both the `generic_key: backend` and the `remote_address` key applied from the global rate limit. This creates a separate `RateLimit` object for this route:
 
 
     ```yaml

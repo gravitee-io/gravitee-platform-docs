@@ -11,15 +11,13 @@ description: >-
 Gravitee Next Gen Cloud supports hybrid deployments, which provides you with the flexibility to run components within your own infrastructure while Gravitee hosts and manages other components. In a hybrid setup, the platform is split into the following two planes:
 
 * **Control Plane**: Fully managed by Gravitee in the cloud, responsible for API design, publishing, configuration, analytics, and lifecycle management.
-*   **Data Plane**: Deployed and managed by you, close to your backend services, responsible for executing traffic policies, enforcing security, and routing API traffic.\\
+*   **Data Plane**: Deployed and managed by you, close to your backend services, responsible for executing traffic policies, enforcing security, and routing API traffic.
 
-    <figure><img src="../../../../4.8/.gitbook/assets/docker-compose-overview- (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/docker-compose-overview- (1).png" alt=""><figcaption></figcaption></figure>
 
 This guide focuses on installing the Data Plane using Docker Compose. The Data Plane includes core components like the Gateway and Redis.\
 \
 By the end of this guide, your Gravitee Data Plane will be up and running, ready to enforce API policies and handle traffic according to your Gravitee Cloud configuration.
-
-{% include "../../../../4.6/.gitbook/includes/installation-guide-note (1).md" %}
 
 ## Prerequisites
 
@@ -112,12 +110,12 @@ To confirm that your Hybrid installation is working, complete the following step
 
 ### Ensure that the Gateway is registered in Gravitee Cloud
 
-1.  Sign in to Gravitee Cloud.\\
+1.  Sign in to Gravitee Cloud.
 
-    <figure><img src="../../../../4.8/.gitbook/assets/cloud-ssign-in-page (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/cloud-ssign-in-page (1).png" alt=""><figcaption></figcaption></figure>
 2.  From the **Dashboard**, navigate to the **Gateways** section. Your new Hybrid Gateway appears here.
 
-    <figure><img src="../../../../4.8/.gitbook/assets/0023A006-6B47-468B-923B-AA823EF40368_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/0023A006-6B47-468B-923B-AA823EF40368_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
 
 If the Gateway does not appear or shows an error state, complete the following checks:
 

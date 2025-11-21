@@ -32,11 +32,11 @@ Debug mode cannot test the following policies and features:
 ## Debug policy flows
 
 1. From the **Dashboard**, select **APIs**.
-2.  Select the API to debug.\
+2.  Select the API to debug.
 
 
     <figure><img src="../../.gitbook/assets/F7FEF455-70DE-4D69-88CF-E4C1492FFCC4_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
-3.  From the **API** menu, select **Debug**.\
+3.  From the **API** menu, select **Debug**.
 
 
     <figure><img src="../../.gitbook/assets/4113783D-63E4-4EC3-BF1D-E036512CE99E.png" alt=""><figcaption></figcaption></figure>
@@ -44,11 +44,11 @@ Debug mode cannot test the following policies and features:
 5. In the **Path** field, enter the path to test.&#x20;
 6. In the **Headers** tab, enter the name and value of the key.
 7. In the **Request body** field, enter the request body.
-8.  Click **Send**. You are shown a timeline of the order of the flows and policies. \
+8.  Click **Send**. You are shown a timeline of the order of the flows and policies. 
 
 
     <figure><img src="../../.gitbook/assets/image (302).png" alt=""><figcaption></figcaption></figure>
-9.  Select a step in the timeline to compare its inputs and outputs. \
+9.  Select a step in the timeline to compare its inputs and outputs. 
 
 
     <figure><img src="../../.gitbook/assets/56CF95D5-879A-4F32-AB8C-98A640017267.jpeg" alt=""><figcaption></figcaption></figure>

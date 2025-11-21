@@ -14,7 +14,7 @@ Gravitee enables you to configure and view logs for your APIs. In this article, 
 
 {% @arcade/embed url="https://app.arcade.software/share/nifDyFJpS1oFPpGfCwqu" flowId="nifDyFJpS1oFPpGfCwqu" %}
 
-An API's logs will be visible at the level of the individual API. This is viewed under an APIs **Analytics** by selecting **Logs.**\\
+An API's logs will be visible at the level of the individual API. This is viewed under an APIs **Analytics** by selecting **Logs.**
 
 <figure><img src="../../../../../.gitbook/assets/Access API logs (1).gif" alt=""><figcaption><p>Access an API's logs</p></figcaption></figure>
 

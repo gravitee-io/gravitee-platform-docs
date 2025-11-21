@@ -33,7 +33,7 @@ Set up and configure your GKE cluster with the necessary components to support t
 
 If you do not have an existing GKE cluster, create one by following these steps:
 
-1.  Sign in to Google Cloud with this command and set up your `project id`:\\
+1.  Sign in to Google Cloud with this command and set up your `project id`:
 
     ```bash
     # Authenticate with Google Cloud
@@ -43,7 +43,7 @@ If you do not have an existing GKE cluster, create one by following these steps:
     # Replace <project-id> with your GCP project ID
     gcloud config set project <project-id>
     ```
-2.  Create the GKE Cluster with the following command:\\
+2.  Create the GKE Cluster with the following command:
 
     ```sh
     # Replace placeholders with your desired values:
@@ -66,7 +66,7 @@ If you do not have an existing GKE cluster, create one by following these steps:
       --enable-autoupgrade \
       --release-channel regular
     ```
-3.  Connect kubectl to GKE cluster with the following command:\\
+3.  Connect kubectl to GKE cluster with the following command:
 
     ```bash
     # Replace with your actual cluster name and zone
@@ -80,7 +80,7 @@ If you do not have an existing GKE cluster, create one by following these steps:
 
 GKE provides built-in ingress controller capabilities through Google Cloud Load Balancer.
 
-1.  Enable HTTP(S) Load Balancing with the following command:\\
+1.  Enable HTTP(S) Load Balancing with the following command:
 
     ```bash
     # Check if the ingress controller is available
@@ -144,14 +144,14 @@ To support caching and rate- limiting, you must install Redis into your Kubernet
     ```bash
     kubectl get secret --namespace gravitee-apim gravitee-apim-redis -o jsonpath="{.data.redis-password}" | base64 -d
     ```
-4.  To verify that your Redis deployment succeeded, check pod status using the following command:\\
+4.  To verify that your Redis deployment succeeded, check pod status using the following command:
 
     ```
     kubectl get pods -n gravitee-apim -l app.kubernetes.io/instance=gravitee-apim-redis
     ```
 
     \
-    The command generates the following output: \\
+    The command generates the following output: 
 
     ```bash
         NAME                          READY   STATUS    RESTARTS   AGE
@@ -314,7 +314,7 @@ To prepare your Gravitee `values.yaml` file for Helm, complete the following ste
    * Replace `<redis_password>` with your extracted Redis password.
    * Replace `<hosts>` with the host information you entered in the Gravitee\
      Cloud Gateway setup.
-   *   Set the `tag` field in the Gateway image section to the value displayed in the Overview section of your Gravitee Cloud Dashboard.\\
+   *   Set the `tag` field in the Gateway image section to the value displayed in the Overview section of your Gravitee Cloud Dashboard.
 
        <figure><img src="../../../.gitbook/assets/nextgen-cloud-gateway-tag.png" alt=""><figcaption></figcaption></figure>
 
@@ -377,14 +377,14 @@ To install your Gravitee Gateway with Helm, complete the following steps:
     1. Watch all containers come up.
       $ kubectl get pods --namespace=gravitee-apim -l app.kubernetes.io/instance=graviteeio-apim-gateway -w
     ```
-4.  Verify the installation by checking pod status:\\
+4.  Verify the installation by checking pod status:
 
     ```bash
     kubectl get pods --namespace=gravitee-apim -l app.kubernetes.io/instance=graviteeio-apim-gateway
     ```
 
     \
-    The command generates the following output:\\
+    The command generates the following output:
 
     ```bash
     NAME                                              READY   STATUS    RESTARTS   AGE
