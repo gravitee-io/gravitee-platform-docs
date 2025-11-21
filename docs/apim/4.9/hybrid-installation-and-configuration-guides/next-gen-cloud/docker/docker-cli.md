@@ -4,8 +4,6 @@
 
 This guide explains how to install the Data Plane using Docker CLI commands. The Data Plane includes core components like the Gateway and Redis for rate limiting.
 
-{% include "../../../../4.6/.gitbook/includes/installation-guide-note (1).md" %}
-
 ## Prerequisites
 
 * Install [Docker](https://docs.docker.com/engine/install/).

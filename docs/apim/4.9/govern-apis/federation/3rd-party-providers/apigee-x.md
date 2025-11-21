@@ -35,7 +35,7 @@ To integrate Apigee X with Gravitee APIM, complete the following steps:
     <figure><img src="../../../.gitbook/assets/select-apigee-integration-from-integrations.png" alt=""><figcaption></figcaption></figure>
 4.  Enter the **Integration** **Name.**
 
-    <figure><img src="../../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (15) (1).png" alt=""><figcaption></figcaption></figure>
 5.  (Optional) Enter a **Description** for the integration.
 
     <figure><img src="../../../.gitbook/assets/name-and-description-apigee-x.png" alt=""><figcaption></figcaption></figure>
@@ -469,7 +469,7 @@ If your APIM management API uses certificates that require a custom truststore, 
     ```
 2.  Return to the Gravitee API Management console, refresh the page, and verify that the agent's status is set to Connected:
 
-    <figure><img src="../../../.gitbook/assets/image (32).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (32) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Minimum Apigee permissions required by the agent
 
