@@ -118,7 +118,7 @@ V2 APIs display execution transparency directly in the logs without requiring ad
 1.  Navigate to your API Management Console.
 
     <figure><img src="../../4.8/.gitbook/assets/api-mangement-console (1).png" alt=""><figcaption></figcaption></figure>
-2.  Click **APIs** in the left sidebar. \\
+2.  Click **APIs** in the left sidebar. 
 
     <figure><img src="../../4.8/.gitbook/assets/apis-sidebar (1).png" alt=""><figcaption></figcaption></figure>
 3.  Select your V2 API.

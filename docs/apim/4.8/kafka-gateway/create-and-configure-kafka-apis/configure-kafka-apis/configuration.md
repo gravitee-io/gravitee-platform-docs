@@ -157,7 +157,7 @@ The **Notifications** tab allows you to subscribe to notifications related to a 
 2. Select **APIs**, from the left nav.
 3. Select your API.
 4. Select **Configuration** from the inner left nav.
-5.  Select the **Notifications** header.\\
+5.  Select the **Notifications** header.
 
     <figure><img src="../../../../4.6/.gitbook/assets/A 1 config notifications (1).png" alt=""><figcaption></figcaption></figure>
 6. Click **+ Add notification** to create a new one.

@@ -114,7 +114,7 @@ You can add custom CSS to your Developer Portal's theme with the Advanced CSS ed
     <figure><img src="../../../4.8/.gitbook/assets/877903E7-5E8E-461A-83EF-A8869EE935B2_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
 6. You can customize the CSS using either of the following options:
    * In the **Advanced CSS box**, enter your CSS code.
-   *   In the **Advanced CSS box**, enter CCS tokens. For example:\\
+   *   In the **Advanced CSS box**, enter CCS tokens. For example:
 
        ```
        html {

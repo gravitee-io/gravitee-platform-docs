@@ -82,22 +82,22 @@ If you change the CORS settings using the `gravitee.yml` or environment variable
 
 ### Configure CORS at the organization level
 
-1.  From the **Dashboard**, click **Organization**. \\
+1.  From the **Dashboard**, click **Organization**. 
 
     <figure><img src="../../../4.8/.gitbook/assets/31738772-8FFD-4BC5-B5EF-5F303E24249E_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
-2.  In the **Settings screen**, navigate to the **CORS** section.\\
+2.  In the **Settings screen**, navigate to the **CORS** section.
 
     <figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 ### Configure CORS at the environment level
 
-1.  From the **Dashboard**, click **Settings**. \\
+1.  From the **Dashboard**, click **Settings**. 
 
     <figure><img src="../../../4.8/.gitbook/assets/135B4F2E-B8C1-43A5-8D01-902F42C7816D_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
-2.  In the **Settings** menu click **Settings**. \\
+2.  In the **Settings** menu click **Settings**. 
 
     <figure><img src="../../../4.8/.gitbook/assets/7FA0E4F4-7452-47FD-B854-644ADE2EF363_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
-3.  In the **Settings** section, navigate to the **CORS** section.\\
+3.  In the **Settings** section, navigate to the **CORS** section.
 
     <figure><img src="../../../4.8/.gitbook/assets/883255A4-7111-42D3-93B7-B0CA04CED7F0_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
 

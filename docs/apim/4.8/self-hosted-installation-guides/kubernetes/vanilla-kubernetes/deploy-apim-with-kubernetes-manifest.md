@@ -41,10 +41,10 @@ You must install the following command line tools:
 
 ### Create Namespace&#x20;
 
-Create a dedicated namespace for Gravitee APIM components to maintain isolation and organization with the following configuration: \
+Create a dedicated namespace for Gravitee APIM components to maintain isolation and organization with the following configuration: 
 
 
-1.  Create the `namespace.yaml` file with the following configuration:\
+1.  Create the `namespace.yaml` file with the following configuration:
 
 
     ```yaml
@@ -55,7 +55,7 @@ Create a dedicated namespace for Gravitee APIM components to maintain isolation 
       labels:
         name: gravitee-apim
     ```
-2.  Apply the namespace configuration using the following command:\
+2.  Apply the namespace configuration using the following command:
 
 
     ```bash
@@ -69,7 +69,7 @@ Create a dedicated namespace for Gravitee APIM components to maintain isolation 
 Gravitee APIM requires a valid license key for enterprise features. Store this license as a Kubernetes Secret that will be mounted by the [Gateway](deploy-apim-with-kubernetes-manifest.md#configure-gravitee-gateway) and [Management API](deploy-apim-with-kubernetes-manifest.md#configure-management-api-and-ui) components. Create a license key with the following steps:
 
 1. Ensure you have your `license.key` file in the current directory
-2.  Create the secret using the following command:\
+2.  Create the secret using the following command:
 
 
     ```bash
@@ -77,7 +77,7 @@ Gravitee APIM requires a valid license key for enterprise features. Store this l
       --from-file=license.key=./license.key \
       -n gravitee-apim
     ```
-3.  Verify the secret was created using the following command: \
+3.  Verify the secret was created using the following command: 
 
 
     ```yaml
@@ -103,7 +103,7 @@ To install and deploy the self-host APIM in your Kubernetes cluster, complete th
 {% tab title="MongoDB" %}
 MongoDB serves as the database for API definitions, users, and configuration data. This deployment uses MongoDB 7.0 with proper resource allocation and health monitoring.
 
-1.  Create the `mongodb.yaml` file and then copy the following configuration: \
+1.  Create the `mongodb.yaml` file and then copy the following configuration: 
 
 
     ```yaml
@@ -267,14 +267,14 @@ PostgreSQL is used to store the management and configuration data for Gravitee A
 
 
 
-2. Deploy the file using the following command `kubectl apply -f postgresql.yaml` \
+2. Deploy the file using the following command `kubectl apply -f postgresql.yaml` 
 
 {% endtab %}
 
 {% tab title="Elasticsearch" %}
 Elasticsearch stores analytics data, logs, and metrics.&#x20;
 
-1.  Create the `elasticsearch.yaml`  file and copy the following configuration: \
+1.  Create the `elasticsearch.yaml`  file and copy the following configuration: 
 
 
     ```yaml
@@ -350,7 +350,7 @@ Elasticsearch stores analytics data, logs, and metrics.&#x20;
       type: ClusterIP
     ```
 
-    \
+    
 
 2. Deploy it using the following command: `kubectl apply -f elasticsearch.yaml`&#x20;
 {% endtab %}
@@ -358,7 +358,7 @@ Elasticsearch stores analytics data, logs, and metrics.&#x20;
 {% tab title="Redis" %}
 Redis provides high-performance caching and rate limiting capabilities. This lightweight deployment is optimized for API management workloads.
 
-1.  Create the `redis.yaml`  file and copy the following configuration: \
+1.  Create the `redis.yaml`  file and copy the following configuration: 
 
 
     ```yaml
@@ -436,7 +436,7 @@ Redis provides high-performance caching and rate limiting capabilities. This lig
 
 
 
-2. Apply and deploy the file using the command `kubectl apply -f redis.yaml` \
+2. Apply and deploy the file using the command `kubectl apply -f redis.yaml` 
 
 {% endtab %}
 {% endtabs %}
@@ -449,7 +449,7 @@ The following tables list the configuration, and deployment parameters for the G
 {% tab title="Gravitee Gateway" %}
 The Gateway component handles all API traffic, applying policies, transformations, and routing requests to backend services. This configuration includes integration with MongoDB for configuration sync and Elasticsearch for analytics.
 
-1.  Create the `gateway.yaml` file, and then copy the following configuration: \
+1.  Create the `gateway.yaml` file, and then copy the following configuration: 
 
 
     ```yaml
@@ -537,11 +537,11 @@ The Gateway component handles all API traffic, applying policies, transformation
       type: ClusterIP
     ```
 
-    \
+    
 
 2. Apply and deploy the configuration using the following command: `kubectl apply -f gateway.yaml`&#x20;
 
-\
+
 
 {% endtab %}
 {% endtabs %}
@@ -554,7 +554,7 @@ Configure and deploy the management API and UI with the following configurations
 {% tab title="Management API" %}
 The Management API serves as the central control plane for Gravitee APIM, handling all administrative operations, API lifecycle management, and configuration synchronization.
 
-1.  Create the `managementapi.yaml` file, and then deploy the Management API using the following configuration: \
+1.  Create the `managementapi.yaml` file, and then deploy the Management API using the following configuration: 
 
 
     ```yaml
@@ -670,7 +670,7 @@ The Management API serves as the central control plane for Gravitee APIM, handli
 {% tab title="Management UI" %}
 The Management Console provides the administrative interface to manage APIs, applications, and settings.
 
-1.  Create the `managementui.yaml` file, and then copy the following configuration: \
+1.  Create the `managementui.yaml` file, and then copy the following configuration: 
 
 
     ```yaml
@@ -746,7 +746,7 @@ The Management Console provides the administrative interface to manage APIs, app
       type: ClusterIP
     ```
 
-    \
+    
 
 2. Apply the file using the command `kubectl apply -f managementui.yaml`
 {% endtab %}
@@ -756,7 +756,7 @@ The Management Console provides the administrative interface to manage APIs, app
 
 The Developer Portal provides API consumers with documentation, testing tools, and application management capabilities.
 
-1.  Create the `portalui.yaml` file, and then deploy the Portal UI using the following configuration: \
+1.  Create the `portalui.yaml` file, and then deploy the Portal UI using the following configuration: 
 
 
     ```yaml
@@ -832,7 +832,7 @@ The Developer Portal provides API consumers with documentation, testing tools, a
       type: ClusterIP
     ```
 
-    \
+    
 
 2. Apply, and deploy the file using the command `kubectl apply -f portalui.yaml` &#x20;
 
@@ -844,7 +844,7 @@ The Ingress configuration provides a single entry point for all Gravitee APIM se
 
 Configure your ingress route using the following steps:&#x20;
 
-1.  Create the `ingress.yaml` file with the following configuration:\
+1.  Create the `ingress.yaml` file with the following configuration:
 
 
     ```yaml
@@ -973,7 +973,7 @@ Configure your ingress route using the following steps:&#x20;
 
 
 
-2.  Apply, and deploy the ingress configuration using the command: \
+2.  Apply, and deploy the ingress configuration using the command: 
 
 
     ```bash
@@ -1022,7 +1022,7 @@ kubectl create configmap gravitee-gateway-config \
   -n gravitee-apim
 ```
 
-2.  Mount the ConfigMap in your deployment:\
+2.  Mount the ConfigMap in your deployment:
 
 
     ```yaml
@@ -1049,13 +1049,13 @@ All Gravitee APIM components should be running with healthy status. A healthy po
 
 To validate your pods, complete the following steps:&#x20;
 
-1.  Check all pods in the namespace using the following command:\
+1.  Check all pods in the namespace using the following command:
 
 
     ```bash
     kubectl get pods --namespace=gravitee-apim
     ```
-2.  The output will be similar to the following:\
+2.  The output will be similar to the following:
 
 
     ```bash
@@ -1073,7 +1073,7 @@ To validate your pods, complete the following steps:&#x20;
 
 
 
-3.  Check specific components using the following command:\
+3.  Check specific components using the following command:
 
 
     ```bash
@@ -1091,13 +1091,13 @@ To validate your pods, complete the following steps:&#x20;
 
 ### Validate Services&#x20;
 
-1.  Verify all services are configured using the following command:\
+1.  Verify all services are configured using the following command:
 
 
     ```bash
     kubectl get services -n gravitee-apim
     ```
-2.  The output should show your `TYPE`, `NAME` and `PORT` :\
+2.  The output should show your `TYPE`, `NAME` and `PORT` :
 
 
     ```bash
@@ -1258,7 +1258,7 @@ spec:
   type: ClusterIP
 ```
 
-3.  Apply the Management API configuration using the following command:\
+3.  Apply the Management API configuration using the following command:
 
 
     ```bash
@@ -1271,7 +1271,7 @@ spec:
 
 The Federation Agent continuously synchronizes APIs from AWS API Gateway, Confluent, etc into Gravitee APIM, automatically creating API definitions and maintaining synchronization.
 
-1.  Create the `federation-agent.yaml` file with the following configuration:\
+1.  Create the `federation-agent.yaml` file with the following configuration:
 
 
     ```yaml
@@ -1354,7 +1354,7 @@ The Federation Agent continuously synchronizes APIs from AWS API Gateway, Conflu
 
 
 
-2.  Apply the Federation Agent deployment using the following command:\
+2.  Apply the Federation Agent deployment using the following command:
 
 
     ```bash

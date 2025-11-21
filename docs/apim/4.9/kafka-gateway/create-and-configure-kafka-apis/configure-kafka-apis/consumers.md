@@ -76,13 +76,13 @@ From here you can transfer, pause, change the end date for, or close your subscr
 
 Existing subscriptions can be managed from the **Subscriptions** header. From here you can use the filters to:
 
-*   Display subscriptions based on plan selections\\
+*   Display subscriptions based on plan selections
 
     <figure><img src="../../../../4.7/.gitbook/assets/1 sub c.png" alt=""><figcaption></figcaption></figure>
-*   Search for an application display subscriptions associated with a plan name\\
+*   Search for an application display subscriptions associated with a plan name
 
     <figure><img src="../../../../4.7/.gitbook/assets/1 sub b.png" alt=""><figcaption></figcaption></figure>
-*   Select subscription status options to display subscriptions matching that criteria\\
+*   Select subscription status options to display subscriptions matching that criteria
 
     <figure><img src="../../../../4.7/.gitbook/assets/1 sub a.png" alt=""><figcaption></figcaption></figure>
 
@@ -97,7 +97,7 @@ To configure message delivery mechanism, recipients, and content:
 1. Select **APIs** from the left sidebar of the Management Console
 2. Select the API you want to send a message about
 3. Select **Consumers** from the inner left sidebar
-4.  Select the **Broadcasts** tab \\
+4.  Select the **Broadcasts** tab 
 
     <figure><img src="../../../../4.7/.gitbook/assets/1 broadcast.png" alt=""><figcaption></figcaption></figure>
 5. Specify the following:

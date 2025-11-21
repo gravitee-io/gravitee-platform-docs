@@ -30,7 +30,7 @@ POST http(s)://AM_MANAGEMENT_API/management/auth/token HTTP/1.1
 
 curl -X POST \
   http(s)://AM_MANAGEMENT_API/management/auth/token \
-  -H 'authorization: Basic base64(admin:adminadmin)' \
+  -H 'authorization: Basic base64(admin:adminadmin)' 
 
 
   HTTP/1.1 200 OK

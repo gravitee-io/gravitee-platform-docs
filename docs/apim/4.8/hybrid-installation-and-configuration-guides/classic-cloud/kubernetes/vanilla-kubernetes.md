@@ -13,7 +13,7 @@ This installation guide is for only development and quick start purposes. Do not
 
 Redis can be used by Gravitee for both caching and rate-limiting.
 
-1.  To install Redis, use packages available from [Bitnami Helm charts](https://artifacthub.io/packages/helm/bitnami/redis).  The following example uses a standalone configuration:\
+1.  To install Redis, use packages available from [Bitnami Helm charts](https://artifacthub.io/packages/helm/bitnami/redis).  The following example uses a standalone configuration:
 
 
     ```sh
@@ -26,7 +26,7 @@ Redis can be used by Gravitee for both caching and rate-limiting.
       --set image.repository=bitnamilegacy/redis \
       --set auth.password=p@ssw0rd
     ```
-2.  Configure your Gravitee Gateway to use Redis by using the following example `values.yaml` configuration:\
+2.  Configure your Gravitee Gateway to use Redis by using the following example `values.yaml` configuration:
 
 
     {% code title="values.yaml" lineNumbers="true" %}
@@ -54,7 +54,7 @@ You can configure Logstash to send data to ElasticSearch.
 {% endhint %}
 
 1. Install Logstash. To install Logstash, go to [Official Helm charts](https://artifacthub.io/packages/helm/elastic/logstash#how-to-install-oss-version-of-logstash).
-2.  Configure the Logstash helm chart with the following values:\
+2.  Configure the Logstash helm chart with the following values:
 
 
     ```json
@@ -117,7 +117,7 @@ You can configure Logstash to send data to ElasticSearch.
     ```
 
     &#x20;
-3.  In your Gateway `values.yaml` file, configure the TCP reporter to push the analytics to Logstash using the following example:\
+3.  In your Gateway `values.yaml` file, configure the TCP reporter to push the analytics to Logstash using the following example:
 
 
     {% code title="values.yaml" lineNumbers="true" %}

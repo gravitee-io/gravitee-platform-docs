@@ -13,13 +13,13 @@ Gravitee allows you to run either the classic or new Developer Portal, depending
 To configure Gravitee to use the new Developer Portal:
 
 1. Log in to your APIM Console.
-2.  From the home page, click **Settings**.\\
+2.  From the home page, click **Settings**.
 
     <figure><img src="../../../4.7/.gitbook/assets/image (199) (1).png" alt=""><figcaption></figcaption></figure>
-3.  In the **Portal** section of the settings menu, click **Settings**.\\
+3.  In the **Portal** section of the settings menu, click **Settings**.
 
     <figure><img src="../../../4.7/.gitbook/assets/image (200) (1).png" alt=""><figcaption></figcaption></figure>
-4.  Navigate to the **New Developer Portal** section, and then turn on the **Enable the New Developer Portal** toggle.\\
+4.  Navigate to the **New Developer Portal** section, and then turn on the **Enable the New Developer Portal** toggle.
 
     <figure><img src="../../../4.7/.gitbook/assets/image (201) (1).png" alt=""><figcaption><p>New Developer Portal section</p></figcaption></figure>
 

@@ -58,7 +58,7 @@ To install the Gravitee APIM, complete the following steps:
 
 Kubernetes namespaces provide logical isolation and organization within a cluster. Creating a dedicated namespace for Gravitee APIM has the following benefits: Isolates resources, Separates APIM components from other applications and Simplifies management by grouping related services, pods, and configurations together.
 
-*   Create the namespace using the following command:\\
+*   Create the namespace using the following command:
 
     ```bash
     kubectl create namespace gravitee-apim
@@ -66,7 +66,7 @@ Kubernetes namespaces provide logical isolation and organization within a cluste
 
 #### Verification
 
-*   Ensure that you created the namespace using the following command:\\
+*   Ensure that you created the namespace using the following command:
 
     ```bash
     kubectl get namespaces
@@ -92,7 +92,7 @@ You can use PostgreSQL instead of MongoDB. For more information about installing
 
 To support API definitions and configuration, you must install MongoDB into your Kubernetes cluster. For more information about installing MongoDB, see the [official chart documentation](https://artifacthub.io/packages/helm/bitnami/mongodb)
 
-1.  Install MongoDB with Helm using the following command:\\
+1.  Install MongoDB with Helm using the following command:
 
     ```bash
     helm install gravitee-mongodb oci://registry-1.docker.io/cloudpirates/mongodb \
@@ -123,7 +123,7 @@ To support API definitions and configuration, you must install MongoDB into your
 
 To support analytics and logging, you must install Elasticsearch into your Kubernetes cluster. For more information on installing Elasticsearch, see the [official chart documentation.](https://artifacthub.io/packages/helm/elastic/elasticsearch)
 
-1.  Install Elasticsearch using the following command:\\
+1.  Install Elasticsearch using the following command:
 
     ```bash
     helm repo add elastic https://helm.elastic.co
@@ -135,7 +135,7 @@ To support analytics and logging, you must install Elasticsearch into your Kuber
       --set replicas=1 \
       --set minimumMasterNodes=1
     ```
-2.  Follow the instructions that appear in your terminal, and retrieve Elastic user's password.\\
+2.  Follow the instructions that appear in your terminal, and retrieve Elastic user's password.
 
     ```bash
     NAME: elasticsearch                                                                                                                                                                                                                                            
@@ -154,14 +154,14 @@ To support analytics and logging, you must install Elasticsearch into your Kuber
 
 #### Verification
 
-*   To verify that your Elasticsearch deployment succeeded, check pod status using the following command:\\
+*   To verify that your Elasticsearch deployment succeeded, check pod status using the following command:
 
     ```bash
     kubectl get pods --namespace=gravitee-apim -l app=elasticsearch-master -w 
     ```
 
     \
-    After a few minutes, the command generates the following output: \\
+    After a few minutes, the command generates the following output: 
 
     ```purebasic
     NAME                     READY   STATUS    RESTARTS   AGE
@@ -302,12 +302,12 @@ It may take a few minutes for the load balancer IP to be available.
 
 #### (Minikube users only) Install Ingress Controller
 
-1.  Enable the built-in ingress addon using the following command:\\
+1.  Enable the built-in ingress addon using the following command:
 
     ```bash
     minikube addons enable ingress
     ```
-2.  In a separate terminal, enable the network tunnel using the following command:\\
+2.  In a separate terminal, enable the network tunnel using the following command:
 
     \{% hint style="danger" %\} Keep the tunnel command running in a separate terminal window. The tunnel must remain active for ingress to function properly. \{% endhint %\}
 
@@ -317,14 +317,14 @@ It may take a few minutes for the load balancer IP to be available.
 
 #### Verification
 
-*   Verify the ingress controller is running using the following command:\\
+*   Verify the ingress controller is running using the following command:
 
     ```bash
     kubectl get pods -n ingress-nginx
     ```
 
     \
-    The output should show the ingress controller pod in Running status:\\
+    The output should show the ingress controller pod in Running status:
 
     ```bash
     NAME                                       READY   STATUS    RESTARTS   AGE
@@ -369,7 +369,7 @@ Ensure that you have the following sections complete:
 * [#configure-dns-resolution](./#configure-dns-resolution "mention")
 {% endhint %}
 
-1.  Create a `values.yaml` file in your working directory, and then copy the following Gravitee configuration into the file. This is the base configuration for your self-hosted APIM platform:\\
+1.  Create a `values.yaml` file in your working directory, and then copy the following Gravitee configuration into the file. This is the base configuration for your self-hosted APIM platform:
 
     ```yaml
     # MongoDB Configuration
@@ -653,7 +653,7 @@ Ensure that you have the following sections complete:
 
     1. Replace `[ELASTIC PASSWORD FROM ES INSTALLATION]` with your Elasticsearch password.
     2. If your Kubernetes cluster does not support IPV6 networking, both the UI and Portal deployments must set the `IPV4_ONLY` environment variable to `true`.
-2.  **(Enterprise Edition only)** Navigate to the following section, and then uncomment the following configuration: \\
+2.  **(Enterprise Edition only)** Navigate to the following section, and then uncomment the following configuration: 
 
     ```yaml
      # License volume configuration for Management API (uncomment for enterprise edition)
@@ -756,14 +756,14 @@ To verify that your Gravitee APIM platform is up and running, complete the follo
 
 A healthy deployment displays the pods with the Running status, `1/1` ready containers, and zero or minimal restart counts.
 
-*   To validate the pods, query the pods status using the following command:\\
+*   To validate the pods, query the pods status using the following command:
 
     ```bash
     kubectl get pods --namespace=gravitee-apim
     ```
 
     \
-    The output shows all Gravitee components ready and running:\\
+    The output shows all Gravitee components ready and running:
 
     ```bash
     NAME                                    READY   STATUS    RESTARTS   AGE
@@ -777,14 +777,14 @@ A healthy deployment displays the pods with the Running status, `1/1` ready cont
 
 ### Validate the Services
 
-1.  Verify that all services are properly configured using the following command:\\
+1.  Verify that all services are properly configured using the following command:
 
     ```bash
     kubectl get services -n gravitee-apim
     ```
 
     \
-    The output shows all required services:\\
+    The output shows all required services:
 
     ```bash
     NAME                              TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)
@@ -799,28 +799,28 @@ A healthy deployment displays the pods with the Running status, `1/1` ready cont
 
 ### Validate the Gateway logs
 
-*   Validate the Gateway logs using the following command:\\
+*   Validate the Gateway logs using the following command:
 
     ```bash
     kubectl get pods -n gravitee-apim | grep gateway
     ```
 
     \
-    The output shows the Gateway ready and running:\\
+    The output shows the Gateway ready and running:
 
     <pre class="language-bash"><code class="lang-bash"><strong>gravitee-apim-gateway-xxx-xxx        1/1     Running   0          5m
     </strong></code></pre>
 
 ### Validate Ingress
 
-*   Verify ingress is working using the following command:\\
+*   Verify ingress is working using the following command:
 
     ```bash
     kubectl get ingress -n gravitee-apim
     ```
 
     \
-    The output shows the hosts and address:\\
+    The output shows the hosts and address:
 
     ```bash
     NAME                           CLASS   HOSTS            ADDRESS     PORTS   AGE
@@ -844,14 +844,14 @@ The Gateway URL is determined by the ingress configuration in your `values.yaml`
 
 To validate the Gateway URL, complete the following steps:
 
-1.  Verify the Gateway endpoint directly using the following command:\\
+1.  Verify the Gateway endpoint directly using the following command:
 
     ```bash
     curl http://api.localhost/
     ```
 
     \
-    The output should show the following message, which confirms that no API is deployed yet for this URL.\\
+    The output should show the following message, which confirms that no API is deployed yet for this URL.
 
     ```bash
     No context-path matches the request URI.
@@ -864,14 +864,14 @@ To validate the Gateway URL, complete the following steps:
     ```bash
     kubectl port-forward svc/gravitee-apim-gateway 8082:82 -n gravitee-apim
     ```
-2.  Verify the Gateway URL using the following command:\\
+2.  Verify the Gateway URL using the following command:
 
     ```bash
     curl http://localhost:8082/
     ```
 
     \
-    The output shows the following message, which confirms that no API is deployed yet for this URL:\\
+    The output shows the following message, which confirms that no API is deployed yet for this URL:
 
     ```bash
     No context-path matches the request URI.
