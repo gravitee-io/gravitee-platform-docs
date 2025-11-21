@@ -6,6 +6,49 @@ description: >-
 
 # APIM 4.6.x
  
+## Gravitee API Management 4.6.25 - November 21, 2025
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Management API**
+
+* Valid OpenAPI are being rejected at import for v4 APIs [#10975](https://github.com/gravitee-io/issues/issues/10975)
+
+**Console**
+
+* Applications Graph analytics issue [#10837](https://github.com/gravitee-io/issues/issues/10837)
+
+**Portal**
+
+* Documentation pages in new dev portal show misaligned content [#10947](https://github.com/gravitee-io/issues/issues/10947)
+
+**Other**
+
+* Cannot use access_token in SASL JAAS config for OAUTHBEARER mechanism [#10927](https://github.com/gravitee-io/issues/issues/10927)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Gateway**
+
+* Redis - Unable to connect to Redis WRONGPASS invalid username-password pair or user is disabled [#10966](https://github.com/gravitee-io/issues/issues/10966)
+
+**Management API**
+
+* User groups API now supports filtering by environmentId query parameter [#10788](https://github.com/gravitee-io/issues/issues/10788)
+
+**Other**
+
+* OpenTelemetry API gateway attribute values and trace linking [#10898](https://github.com/gravitee-io/issues/issues/10898)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.6.24 - November 7, 2025
 <details>
 
