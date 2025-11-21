@@ -2,7 +2,7 @@
 
 ## Introduction
 
-When a condition is validated many times in a very short period, there is a risk of flooding users with notifications. To mitigate this, Alert Engine includes the concept of _dampening_.
+When a condition is validated many times in a very short period, there is a risk of flooding users with notifications. To mitigate this, Alert Engine includes the concept of `dampening`.
 
 When defining a condition for a given rule, it is mandatory to associate a dampening algorithm.
 

@@ -16,6 +16,6 @@ This is an example of what it looks like when the recovery codes are generated d
 
 The image below shows the option when an application is configured with an active recovery code factor:
 
-\\
+
 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-mfa-recovery-code-option.png" alt=""><figcaption><p>Recovery code option</p></figcaption></figure>

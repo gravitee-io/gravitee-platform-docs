@@ -41,14 +41,14 @@ Gravitee AM is composed of three main components: the AM Gateway, the AM Managem
 The concepts below are central to using AM.
 
 *   **Organization**\
-    An organization is internal data space that is provisioned by AM to hold all the resources that handle user authentication.\
+    An organization is internal data space that is provisioned by AM to hold all the resources that handle user authentication.
 
 
     {% hint style="info" %}
     The Community Edition version of AM comes with a single default organization&#x20;
     {% endhint %}
 *   **Environment**\
-    An environment is a logical workspace in which administrative users can manage security domains.\
+    An environment is a logical workspace in which administrative users can manage security domains.
 
 
     {% hint style="info" %}
@@ -93,21 +93,21 @@ AM acts as an identity provider broker and is based on the OAuth2 / OpenID Conne
 * **OAuth2**\
   OAuth2 is an authorization framework that allows applications acting on behalf of the end user to obtain limited access to HTTP services. [OAuth 2 RFC](https://tools.ietf.org/html/rfc6749) defines two endpoints:
   * The **authorization endpoint** used to interact with the resource owner and obtain an authorization grant via user-agent redirection.
-  *   The **token endpoint** used by the client to obtain an access token by presenting its authorization grant.\
+  *   The **token endpoint** used by the client to obtain an access token by presenting its authorization grant.
 
 
       {% hint style="info" %}
       For further information about OAuth2, view the [RFC page](https://tools.ietf.org/html/rfc6749).
       {% endhint %}
 *   **OpenID Connect**\
-    OpenID Connect is an identity layer on top of the OAuth 2.0 protocol. It enables clients to verify the identity of the end user via an Authorization Server to authenticate and obtain basic profile information about the end user.\
+    OpenID Connect is an identity layer on top of the OAuth 2.0 protocol. It enables clients to verify the identity of the end user via an Authorization Server to authenticate and obtain basic profile information about the end user.
 
 
     {% hint style="info" %}
     For further information about OpenID Connect, view the [OpenID Connect specifications](http://openid.net/specs/openid-connect-core-1_0.html).&#x20;
     {% endhint %}
 *   **SAML 2.0**\
-    The Security Assertion Markup Language (SAML) protocol is an open-standard, XML-based framework for the authentication and authorization of users. Gravitee AM can act as SAML IdP for applications, as well as federate with SAML-based identity providers for protocol mediation.\
+    The Security Assertion Markup Language (SAML) protocol is an open-standard, XML-based framework for the authentication and authorization of users. Gravitee AM can act as SAML IdP for applications, as well as federate with SAML-based identity providers for protocol mediation.
 
 
     {% hint style="info" %}

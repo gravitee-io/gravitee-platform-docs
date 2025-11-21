@@ -88,14 +88,17 @@ curl -X PUT -d '{ "ID": "whattimeisit_1", "Name": "whattimeisit", "Address": "ap
 
 The Consul web UI should display a new service named `whattimeisit`:
 
-<figure><img src="../../../../../.gitbook/assets/service-discovery-consul-services (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/service-discovery-consul-services (1).png" alt=""><figcaption></figcaption></figure>
 
 You can also verify that your service is successfully registered in Consul by interacting with Consul Agent API.
 
 1. Run the command below:
 
-{% code overflow="wrap" %}
+\{% code overflow="wrap" %\}
+
 ````
+
+`
 ```json
 {
   "whattimeisit_1": {
@@ -116,6 +119,9 @@ You can also verify that your service is successfully registered in Consul by in
     "Datacenter": "dc1"
   }
 }
-```
 ````
-{% endcode %}
+
+```
+
+</div>
+```

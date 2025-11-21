@@ -143,14 +143,14 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
     ```bash
     kubectl get secret --namespace gravitee-apim gravitee-apim-redis -o jsonpath="{.data.redis-password}" | base64 -d
     ```
-4.  To verify that your Redis deployment succeeded, check pod status using the following command:\\
+4.  To verify that your Redis deployment succeeded, check pod status using the following command:
 
     ```
     kubectl get pods -n gravitee-apim -l app.kubernetes.io/instance=gravitee-apim-redis
     ```
 
     \
-    The command generates the following output: \\
+    The command generates the following output: 
 
     ```bash
         NAME                          READY   STATUS    RESTARTS   AGE
@@ -310,9 +310,9 @@ To prepare your Gravitee `values.yaml` file for Helm, complete the following ste
    * Replace `<redis_password>` with your extracted Redis password.
    * Replace `<hosts>` with the host information you entered in the Gravitee\
      Cloud Gateway setup.
-   *   Set the `tag` field in the Gateway image section to the value displayed in the Overview section of your Gravitee Cloud Dashboard.\\
+   *   Set the `tag` field in the Gateway image section to the value displayed in the Overview section of your Gravitee Cloud Dashboard.
 
-       <figure><img src="../../../../4.8/.gitbook/assets/nextgen-cloud-gateway-tag (1).png" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../../../.gitbook/assets/nextgen-cloud-gateway-tag (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 The `tag` field specifies the version of your Gravitee Gateway. Your Gateway version must match your Gravitee Cloud Control Plane version to ensure compatibility between your hybrid Gateway and the Cloud Management platform.
@@ -373,14 +373,14 @@ To install your Gravitee Gateway with Helm, complete the following steps:
     1. Watch all containers come up.
       $ kubectl get pods --namespace=gravitee-apim -l app.kubernetes.io/instance=graviteeio-apim-gateway -w
     ```
-4.  Verify the installation by checking pod status:\\
+4.  Verify the installation by checking pod status:
 
     ```bash
     kubectl get pods --namespace=gravitee-apim -l app.kubernetes.io/instance=graviteeio-apim-gateway
     ```
 
     \
-    The command generates the following output:\\
+    The command generates the following output:
 
     ```bash
     NAME                                              READY   STATUS    RESTARTS   AGE
@@ -399,7 +399,7 @@ helm uninstall graviteeio-apim-gateway --namespace gravitee-apim
 
 Your Gateway appears in the Gateways section of your Gravitee Cloud Dashboard.
 
-<figure><img src="../../../../4.8/.gitbook/assets/gravitee-gateway-cloud-verification (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/gravitee-gateway-cloud-verification (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 To verify that your Gateway is up and running, complete the following steps:
 

@@ -22,7 +22,7 @@ Giving the ExtAuth service the ability to control the response allows many diffe
 
 * The ExtAuth service can simply return an error page with an HTTP 401 response.
 * The ExtAuth service can choose to include a `WWW-Authenticate` header in the 401 response, to ask the client to perform HTTP Basic Auth.
-*   The ExtAuth service can issue a 301 `Redirect` to divert the client into an OAuth or OIDC authentication sequence. The control flow of this is shown below. \
+*   The ExtAuth service can issue a 301 `Redirect` to divert the client into an OAuth or OIDC authentication sequence. The control flow of this is shown below. 
 
 
     <figure><img src="../../.gitbook/assets/00 aes 19.png" alt=""><figcaption></figcaption></figure>

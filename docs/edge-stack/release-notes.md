@@ -196,7 +196,7 @@ Multiple Golang and Python dependencies have been updated to ensure Ambassador E
 
 #### Shipped Helm chart v8.10.0
 
-\- Update default image to Ambassador Edge Stack v3.10.0.\\
+\- Update default image to Ambassador Edge Stack v3.10.0.
 
 ### Version 3.9.3 (December 14, 2023) <a href="#id-3.9.3" id="id-3.9.3"></a>
 
@@ -256,7 +256,7 @@ APIExt would previously allow for TLS 1.0 connections. We have updated it to now
 
 #### Shipped Helm chart v8.9.0
 
-\- Update default image to Ambassador Edge Stack v3.9.0.\\
+\- Update default image to Ambassador Edge Stack v3.9.0.
 
 #### Ensure APIExt server is available before starting Edge Stack
 
@@ -308,7 +308,7 @@ This upgrades Ambassador Edge Stack to be built on Envoy v1.26.4 which includes 
 
 #### Shipped Helm chart v8.7.2
 
-\- Update default image to Ambassador Edge Stack v3.7.2.\\
+\- Update default image to Ambassador Edge Stack v3.7.2.
 
 ### Version 3.7.1 (July 13, 2023) <a href="#id-3.7.1" id="id-3.7.1"></a>
 

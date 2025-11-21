@@ -34,14 +34,14 @@ For documentation about securing your APIs with OAuth2 and Entra ID, see the doc
    3. Enter a Description.
    4. Specify the Expires value.
    5. Click **Add**.
-   6.  Copy the Value (not the Secret ID). This is used by APIM to authenticate with Entra ID when checking the tokens and authentication of users logging into Gravitee.\\
+   6.  Copy the Value (not the Secret ID). This is used by APIM to authenticate with Entra ID when checking the tokens and authentication of users logging into Gravitee.
 
        <figure><img src="https://slabstatic.com/prod/uploads/6lql0jy7/posts/images/preload/lu-VXbcFoZUJOcnAbiVAmOb9.png" alt=""><figcaption></figcaption></figure>
-4.  Configure the **API permissions** to allow Gravitee to read the user **email**, **openid**, and **profile** details.\\
+4.  Configure the **API permissions** to allow Gravitee to read the user **email**, **openid**, and **profile** details.
 
     \{% hint style="info" %\} The `profile` scope is a permission request that grants access to a wider range of user profile information, including the `given_name` and `family_name` claims. \{% endhint %\}
 
-    <figure><img src="../../../../4.7/.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (2) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 You can now add a new Identity Provider to Gravitee APIM.
@@ -51,7 +51,7 @@ You can now add a new Identity Provider to Gravitee APIM.
 
 ### Obtain the URLs for the Gravitee Identity Provider
 
-1.  Retrieve your endpoint configuration within Entra ID. To retrieve your endpoint configuration, go to the **App Registrations** page, and then click the **Endpoints** menu item. You should see a complete list of available **Endpoints**.\\
+1.  Retrieve your endpoint configuration within Entra ID. To retrieve your endpoint configuration, go to the **App Registrations** page, and then click the **Endpoints** menu item. You should see a complete list of available **Endpoints**.
 
     <figure><img src="https://slabstatic.com/prod/uploads/6lql0jy7/posts/images/preload/4_VGG-R9ILX5w7ombyNvQnZb.png" alt=""><figcaption></figcaption></figure>
 
@@ -77,7 +77,7 @@ You can now add a new Identity Provider to Gravitee APIM.
    2. (Optional) Type a description for your Identity Provider.
    3. Enable the **Allow portal authentication to use this identity provider** option.
    4. Enable the **A public email is required to be able to authenticate** option.
-7.  In the **Group and role mappings** sub-section, select the **Computed during each user authentication** option.\\
+7.  In the **Group and role mappings** sub-section, select the **Computed during each user authentication** option.
 
     <figure><img src="https://slabstatic.com/prod/uploads/6lql0jy7/posts/images/preload/pYGrG6-7PMAv7pETkO5KSLGb.png" alt=""><figcaption></figcaption></figure>
 
@@ -118,7 +118,7 @@ The Identity Provider setup is now complete. You can follow the remaining steps 
 To avoid the use of a previous token or misconfiguration, reset the cache of your browser.
 {% endhint %}
 
-1.  Sign in to your Gravitee APIM Console. You should now see Microsoft ID as an option.\\
+1.  Sign in to your Gravitee APIM Console. You should now see Microsoft ID as an option.
 
     <figure><img src="https://slabstatic.com/prod/uploads/6lql0jy7/posts/images/preload/oiNtu7QGGkPPEHhmKSlppWFI.png" alt=""><figcaption></figcaption></figure>
 2. Click the button, and then follow the steps to sign in. Once you sign in, you have default (USER) access.

@@ -10,12 +10,12 @@ To configure user and group access, complete the following steps:
 
 1. [create-an-application.md](create-an-application.md "mention").
 2. Log in to your APIM Console, and then click **Applications**.
-3.  Find the application you want to configure. Use the radio buttons to select either Active or Archived applications. Next, either scroll through the paginated lists of available applications or use the search field to find the application by name.\
+3.  Find the application you want to configure. Use the radio buttons to select either Active or Archived applications. Next, either scroll through the paginated lists of available applications or use the search field to find the application by name.
 
 
     <figure><img src="../../.gitbook/assets/00 groups added to applications 7.png" alt=""><figcaption></figcaption></figure>
 4. Click on the application you want to configure.
-5.  Click on **User and group access** in the Application menu.\
+5.  Click on **User and group access** in the Application menu.
 
 
     <figure><img src="../../.gitbook/assets/00 groups added to applications 8.png" alt=""><figcaption></figcaption></figure>
@@ -57,7 +57,7 @@ To require an application to have at least one group added to it, complete the f
 
 1. Log in to your APIM Console, and then click **Settings**.
 2. From the **Settings** menu, scroll down to the User Management section, and then click **Groups**.
-3.  Turn on the toggle that requires an application to have at least one group before it can be created or updated\
+3.  Turn on the toggle that requires an application to have at least one group before it can be created or updated
 
 
     <figure><img src="../../.gitbook/assets/00 groups 4.png" alt=""><figcaption></figcaption></figure>

@@ -16,7 +16,7 @@ In AM, CORS configuration at the Security Domain level is important for scenario
 
 ## Access CORS in the AM Console
 
-1.  Sign in to your AM Console. The Access Management dashboard appears after login.\\
+1.  Sign in to your AM Console. The Access Management dashboard appears after login.
 
     <figure><img src="../../../4.8/.gitbook/assets/access-management-dashboard (1).png" alt=""><figcaption></figcaption></figure>
 2.  From the Dashboard, Click **Settings.**

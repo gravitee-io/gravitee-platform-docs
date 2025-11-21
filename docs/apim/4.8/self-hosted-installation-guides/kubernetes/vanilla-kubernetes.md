@@ -25,7 +25,7 @@ This self-hosted APIM deployment includes several components that work together 
 * Management API: Handles API configuration, policies, and administrative operations
 * Gateway: Processes API requests, applies policies, and routes traffic to backend services
 * Management Console UI: Web interface for API administrators to configure and monitor APIs
-* Developer Portal UI: Self-service portal for developers to discover and consume APIs\\
+* Developer Portal UI: Self-service portal for developers to discover and consume APIs
 
 The Gravitee APIM platform requires several external dependencies and services to provide complete functionality:
 
@@ -94,7 +94,7 @@ To support API definitions and configuration, you must install MongoDB into your
       --set resources.requests.memory=512Mi \
       --set resources.requests.cpu=250m
     ```
-2.  Extract the MongoDB hostname from the command output, and then save it for future use. The following sample output lists `gravitee-mongodb.gravitee-apim.svc.cluster.local` as the MongoDB hostname: \\
+2.  Extract the MongoDB hostname from the command output, and then save it for future use. The following sample output lists `gravitee-mongodb.gravitee-apim.svc.cluster.local` as the MongoDB hostname: 
 
     ```bash
     NAME: gravitee-mongodb
@@ -123,14 +123,14 @@ To support API definitions and configuration, you must install MongoDB into your
 
 #### Verification
 
-1.  To verify that your MongoDB deployment succeeded, check pod status using the following command:\\
+1.  To verify that your MongoDB deployment succeeded, check pod status using the following command:
 
     ```bash
     kubectl get pods -n gravitee-apim -l app.kubernetes.io/instance=gravitee-mongodb
     ```
 
     \
-    The command generates the following output: \\
+    The command generates the following output: 
 
     ```bash
     NAME                  READY   STATUS    RESTARTS   AGE
@@ -141,7 +141,7 @@ To support API definitions and configuration, you must install MongoDB into your
 
 To support analytics and logging, you must install Elasticsearch into your Kubernetes cluster. For more information on installing Elasticsearch, see the [official chart documentation.](https://artifacthub.io/packages/helm/bitnami/elasticsearch)
 
-1.  Install Elasticsearch with Helm using the following command:\\
+1.  Install Elasticsearch with Helm using the following command:
 
     ```bash
     helm install gravitee-elasticsearch oci://registry-1.docker.io/bitnamicharts/elasticsearch \
@@ -158,7 +158,7 @@ To support analytics and logging, you must install Elasticsearch into your Kuber
       --set master.resources.requests.memory=1536Mi \
       --set master.resources.requests.cpu=500m
     ```
-2.  Extract the Elasticsearch hostname from the command output and save it for future use. The following sample output lists `http://gravitee-elasticsearch.gravitee-apim.svc.cluster.local:9200`as the Elasticsearch hostname:\\
+2.  Extract the Elasticsearch hostname from the command output and save it for future use. The following sample output lists `http://gravitee-elasticsearch.gravitee-apim.svc.cluster.local:9200`as the Elasticsearch hostname:
 
     ```bash
     Pulled: registry-1.docker.io/bitnamicharts/elasticsearch:19.13.14
@@ -187,21 +187,21 @@ To support analytics and logging, you must install Elasticsearch into your Kuber
 
 #### Verification
 
-1.  To verify that your Elasticsearch deployment succeeded, check pod status using the following command:\\
+1.  To verify that your Elasticsearch deployment succeeded, check pod status using the following command:
 
     ```bash
     kubectl get pods -n gravitee-apim -l app.kubernetes.io/instance=gravitee-elasticsearch
     ```
 
     \
-    The command generates the following output:\\
+    The command generates the following output:
 
     ```bash
     NAME                              READY   STATUS    RESTARTS   AGE
     gravitee-elasticsearch-master-0   1/1     Running   0          2m
     ```
 
-    \\
+    
 
 ### (Optional) Install Redis
 
@@ -245,14 +245,14 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
 
 #### Verification
 
-1.  To verify that your Redis deployment succeeded, check pod status using the following command:\\
+1.  To verify that your Redis deployment succeeded, check pod status using the following command:
 
     ```bash
     kubectl get pods -n gravitee-apim -l app.kubernetes.io/instance=gravitee-redis
     ```
 
     \
-    The command generates the following output: \\
+    The command generates the following output: 
 
     ```bash
     NAME                      READY   STATUS    RESTARTS   AGE
@@ -263,7 +263,7 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
 
 To support management data, you can install PostgreSQL into your Kubernetes cluster. For more information on installing PostgreSQL, see the [official chart documentation.](https://artifacthub.io/packages/helm/bitnami/postgresql)
 
-1.  Install PostgreSQL with Helm using the following command:\\
+1.  Install PostgreSQL with Helm using the following command:
 
     ```bash
     helm install gravitee-postgresql oci://registry-1.docker.io/bitnamicharts/postgresql \
@@ -374,7 +374,7 @@ For local development with custom hostnames, you must add DNS entries to your sy
 
 #### Verification
 
-1.  Verify the DNS entries were added using the following command:\\
+1.  Verify the DNS entries were added using the following command:
 
     ```bash
     cat /etc/hosts | tail -5
@@ -382,7 +382,7 @@ For local development with custom hostnames, you must add DNS entries to your sy
 
     \
     \
-    The output should show the three localhost entries:\\
+    The output should show the three localhost entries:
 
     ```bash
     127.0.0.1 apim.localhost
@@ -397,7 +397,7 @@ For local development with custom hostnames, you must add DNS entries to your sy
     ```bash
     minikube addons enable ingress
     ```
-2.  Verify the ingress controller is running using the following command:\\
+2.  Verify the ingress controller is running using the following command:
 
     ```bash
     kubectl get pods -n ingress-nginx
@@ -423,7 +423,7 @@ Keep the tunnel command running in a separate terminal window. The tunnel must r
 
 > Ensure you have completed the[ ingress controller setup, DNS configuration, and (for Minikube) tunnel configuration from the previous sections](vanilla-kubernetes.md#install-ingress-controller) before proceeding.
 
-1.  Create a `values.yaml` file in your working directory and copy the following Gravitee configuration into it. This is the base configuration for your self-hosted APIM platform:\\
+1.  Create a `values.yaml` file in your working directory and copy the following Gravitee configuration into it. This is the base configuration for your self-hosted APIM platform:
 
     ```yaml
     # MongoDB Configuration
