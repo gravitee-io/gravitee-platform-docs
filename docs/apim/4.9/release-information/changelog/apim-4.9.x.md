@@ -1,5 +1,34 @@
 # APIM 4.9.x
  
+## Gravitee API Management 4.9.6 - November 21, 2025
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Management API**
+
+* DCR Provider: Trust Store Persistence Failure on PostgreSQL [#10925](https://github.com/gravitee-io/issues/issues/10925)
+* Valid OpenAPI are being rejected at import for v4 APIs [#10975](https://github.com/gravitee-io/issues/issues/10975)
+* Audit 4.9.3 menu not working [#10981](https://github.com/gravitee-io/issues/issues/10981)
+
+**Console**
+
+* Applications Graph analytics issue [#10837](https://github.com/gravitee-io/issues/issues/10837)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Other**
+
+* Performance Optimisation for API Configuration Validation [#10989](https://github.com/gravitee-io/issues/issues/10989)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.9.5 - November 17, 2025
 <details>
 
