@@ -42,7 +42,7 @@
 
 * Allow Json validation policy to use a nullable field if provided in schema [#10828](https://github.com/gravitee-io/issues/issues/10828)
 * OpenTelemetry API gateway attribute values and trace linking [#10898](https://github.com/gravitee-io/issues/issues/10898)
-* Performance Optimisation for API Configuration Validation [#10989](https://github.com/gravitee-io/issues/issues/10989)
+* Performance Optimization for API Configuration Validation [#10989](https://github.com/gravitee-io/issues/issues/10989)
 
 </details>
 
