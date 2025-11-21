@@ -29,7 +29,7 @@ To generate a PAT, complete the following steps:
 4. Click your username, and then scroll to `Tokens`.
 5.  Click `Generate a personal token`. This (bearer) token is used in the `Authorization` header when you make requests to the Management API.
 
-    <figure><img src="../../../4.7/.gitbook/assets/00 firas (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/00 firas (1).png" alt=""><figcaption></figcaption></figure>
 6.  Set the Personal Access Token and management API base URL to environment variables by using values appropriate for your environment:
 
     ```bash
@@ -122,7 +122,7 @@ export API_ID="54593ae4-0e2e-41fe-993a-e40e2ee1fe61"
 
 ## 4. Create a plan for the API
 
-Your API must have at least one Security/Consumer [Plan](../../secure-and-expose-apis/plans/README.md) associated with it before it can be deployed to a Gateway. For more information about Plans, see [broken-reference](broken-reference/ "mention"). The following procedure explains how to create a `KEYLESS` plan.
+Your API must have at least one Security/Consumer [Plan](../../secure-and-expose-apis/plans/) associated with it before it can be deployed to a Gateway. For more information about Plans, see [broken-reference](broken-reference/ "mention"). The following procedure explains how to create a `KEYLESS` plan.
 
 To create a `Keyless` plan, complete the following steps:
 

@@ -6,6 +6,31 @@ description: >-
 
 # AM 4.6.x
 
+## Gravitee Access Management 4.6.27 - November 21, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* JSON Logging for AM Token Endpoint [#10943](https://github.com/gravitee-io/issues/issues/10943)
+* Filter CLIENT_AUTHENTICATION success audit logs [#10954](https://github.com/gravitee-io/issues/issues/10954)
+* translate email from name [#10958](https://github.com/gravitee-io/issues/issues/10958)
+
+**Management API**
+
+* Error creating identities in 4.7.X [#10940](https://github.com/gravitee-io/issues/issues/10940)
+
+
+
+**Other**
+
+* STS Client is not closed in HSM implementation [#10977](https://github.com/gravitee-io/issues/issues/10977)
+
+</details>
+
+
 ## Gravitee Access Management 4.6.26 - November 7, 2025
 
 <details>

@@ -13,14 +13,14 @@ To create a homepage:
 1. Click **Create New Page**.
 2.  Select the format of the page content. You can choose between Markdown, an OpenAPI definition, or an AsyncAPI definition. The next steps in the page creation process are identical regardless of which format you choose.
 
-    <figure><img src="../../../../4.7/.gitbook/assets/1 docs 1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../4.7/.gitbook/assets/1%20docs%201.png" alt=""><figcaption></figcaption></figure>
 3.  Choose whether to set your page visibility to **Public** or **Private**.
 
     <figure><img src="../../../../4.7/.gitbook/assets/01.png" alt=""><figcaption></figcaption></figure>
 
     If you select **Private**, you have the option to choose which groups can view your page. You can also exclude the selected groups, in which case the groups that are not selected will be able to view your page. If you do not select any groups, all groups will be able to view your page. 
 
-    <figure><img src="../../../../4.7/.gitbook/assets/10 1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../4.7/.gitbook/assets/10%201.png" alt=""><figcaption></figcaption></figure>
 4.  Choose how to create the content. You can fill in the content yourself, import a file, or link to an external source.
 
     <figure><img src="../../../../4.7/.gitbook/assets/02.png" alt=""><figcaption></figcaption></figure>
@@ -29,13 +29,13 @@ To create a homepage:
 
     *   If you choose to fill in the content yourself, you'll need to write the content in Markdown, provide an OpenAPI definition, or provide an AsyncAPI definition.
 
-        <figure><img src="../../../../4.7/.gitbook/assets/1 fill.png" alt=""><figcaption></figcaption></figure>
+        <figure><img src="../../../../4.7/.gitbook/assets/1%20fill.png" alt=""><figcaption></figcaption></figure>
     *   If you choose to import content from a file in your local directory, you'll need to import a Markdown or text file if you chose the Markdown format, or import a JSON or YAML file if you chose either the OpenAPI or AsyncAPI format.
 
-        <figure><img src="../../../../4.7/.gitbook/assets/1 import.png" alt=""><figcaption></figcaption></figure>
+        <figure><img src="../../../../4.7/.gitbook/assets/1%20import.png" alt=""><figcaption></figcaption></figure>
     *   If you choose to link to an external source, you'll be presented with the same set of options, regardless of format.
 
-        <figure><img src="../../../../4.7/.gitbook/assets/1 link.png" alt=""><figcaption></figcaption></figure>
+        <figure><img src="../../../../4.7/.gitbook/assets/1%20link.png" alt=""><figcaption></figcaption></figure>
 5.  After you've provided your page content, click **Save** to generate an unpublished page, or **Save and publish** to publish the page to the Developer Portal.
 
     <figure><img src="../../../../4.7/.gitbook/assets/04.png" alt=""><figcaption></figcaption></figure>
@@ -76,11 +76,11 @@ The ACTIONS of a documentation page include arrows. If more than one page or fol
 
 Dynamic API documentation pages can be created by adding metadata. To view and filter metadata, select the **Metadata** header.
 
-<figure><img src="../../../../4.7/.gitbook/assets/1 meta.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.7/.gitbook/assets/1%20meta.png" alt=""><figcaption></figcaption></figure>
 
 To create metadata for your documentation, click **+** **Add API Metadata**:
 
-<div align="left"><figure><img src="../../../../../../.gitbook/assets/metadata_add (1).png" alt="" width="375"><figcaption><p>Add API metadata</p></figcaption></figure></div>
+<div align="left"><figure><img src="../../../.gitbook/assets/metadata_add (1).png" alt="" width="375"><figcaption><p>Add API metadata</p></figcaption></figure></div>
 
 Enter a name and value for the metadata, and select a metadata format from the drop-down menu. Available options are **string**, **numeric**, **boolean**, **date**, **mail**, or **url**.
 
