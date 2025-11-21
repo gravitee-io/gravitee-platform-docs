@@ -5,7 +5,7 @@ description: Securely expose your APIs to consumers in a dedicated API catalog
 # Developer Portal 101
 
 {% hint style="warning" %}
-This is the final section of the Quickstart Guide. By this point, you should already have created a Gateway API and added [plans and policies](broken-reference).
+This is the final section of the Quickstart Guide. By this point, you should already have created a Gateway API and added plans and policies.
 {% endhint %}
 
 ## Overview
@@ -22,13 +22,13 @@ API consumers can easily discover and explore APIs, read documentation, test API
 
 ## Publish your API
 
-Before heading over to the Developer Portal, we need to make sure our Gateway API will be visible to consumers.&#x20;
+Before heading over to the Developer Portal, we need to make sure our Gateway API will be visible to consumers.
 
 ### Access API
 
 First, we need to open the API in the APIM Console. You may already have it open from the previous part of the Quickstart Guide. If not, head back over to the **APIs** homescreen and select the API you created.
 
-<figure><img src="../../.gitbook/assets/DP_homescreen.png" alt=""><figcaption><p>APIs homescreen</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/DP_homescreen (1).png" alt=""><figcaption><p>APIs homescreen</p></figcaption></figure>
 
 > * [x] Select **APIs** in the sidebar
 > * [x] Select the API you created in Gateway APIs 101
@@ -91,7 +91,7 @@ Now that we have access to the Developer Portal, we can take on the role of an A
 
 #### General step
 
-This will open the application creation wizard. The **General** step is focused on providing application metadata.&#x20;
+This will open the application creation wizard. The **General** step is focused on providing application metadata.
 
 <figure><img src="../../.gitbook/assets/DP_general.png" alt=""><figcaption><p>General step of application creation wizard</p></figcaption></figure>
 
@@ -99,12 +99,12 @@ This will open the application creation wizard. The **General** step is focused 
 
 #### Security step
 
-The next step is focused on **Security**. This page may look different depending on your **Client Registration** settings, which are configured in the APIM console. However, everyone should have the option to create a **Simple** application.&#x20;
+The next step is focused on **Security**. This page may look different depending on your **Client Registration** settings, which are configured in the APIM console. However, everyone should have the option to create a **Simple** application.
 
 {% hint style="info" %}
 **Dynamic Client Registration**
 
-A **Simple** application allows an API consumer to define their own `client_id`, but this is not secure and should not be used outside of testing. Therefore, Gravitee allows you to disable **Simple** applications and [use dynamic client registration (DCR) to create advanced applications](https://documentation.gravitee.io/apim/guides/api-exposure-plans-applications-and-subscriptions/plans-1#advanced-application-configuration) with the identity provider of your choosing.&#x20;
+A **Simple** application allows an API consumer to define their own `client_id`, but this is not secure and should not be used outside of testing. Therefore, Gravitee allows you to disable **Simple** applications and [use dynamic client registration (DCR) to create advanced applications](https://documentation.gravitee.io/apim/guides/api-exposure-plans-applications-and-subscriptions/plans-1#advanced-application-configuration) with the identity provider of your choosing.
 {% endhint %}
 
 <figure><img src="../../.gitbook/assets/DP_security.png" alt=""><figcaption><p>Security step of application creation wizard</p></figcaption></figure>
@@ -171,7 +171,7 @@ At the bottom of the screen, you will see the API key that has been randomly gen
 
 For now, simply copy that API key to your clipboard.
 
-<figure><img src="../../.gitbook/assets/DP_management.png" alt=""><figcaption><p>Subscription management </p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/DP_management.png" alt=""><figcaption><p>Subscription management</p></figcaption></figure>
 
 > * [x] Select the **Copy to clipboard** icon next to the API key
 

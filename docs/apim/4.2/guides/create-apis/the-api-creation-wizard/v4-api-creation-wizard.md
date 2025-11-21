@@ -19,7 +19,7 @@ The v4 API creation wizard makes it easy to create new Gateway APIs from scratch
 
 The API details step is where you can define a name, version number, and description for your API. The name and version number are required, but we also recommend giving your API a description so that it is more easily understood and managed by internal users.
 
-<figure><img src="../../../.gitbook/assets/Screen Shot 2023-03-15 at 12.38.10 PM.png" alt=""><figcaption><p>Step 1: define your Gateway API's basic details.</p></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/Screen Shot 2023-03-15 at 12.38.10 PM (1).png" alt=""><figcaption><p>Step 1: define your Gateway API's basic details.</p></figcaption></figure>
 
 ## Step 2: Entrypoints
 
@@ -33,14 +33,14 @@ The first part of the Entrypoints step is to choose how you want to expose your 
 {% hint style="info" %}
 The Gravitee documentation adopts concise terminology to differentiate between these API types:
 
-**Proxy API:** An API created using **Proxy upstream protocol**&#x20;
+**Proxy API:** An API created using **Proxy upstream protocol**
 
-**Message API:** An API created using **Introspect messages from event-driven backend**&#x20;
+**Message API:** An API created using **Introspect messages from event-driven backend**
 {% endhint %}
 
-What you choose will dictate the kinds of entrypoints and endpoints that you can select later on. For more in-depth information what each method supports,  refer to [this documentation](../README.md#backend-exposure-methods).
+What you choose will dictate the kinds of entrypoints and endpoints that you can select later on. For more in-depth information what each method supports, refer to [this documentation](../README.md#backend-exposure-methods).
 
-<figure><img src="../../../.gitbook/assets/Screen Shot 2023-06-08 at 8.39.02 AM.png" alt=""><figcaption><p>v4 API creation wizard: select how you want your backend service exposed</p></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/Screen Shot 2023-06-08 at 8.39.02 AM (1).png" alt=""><figcaption><p>v4 API creation wizard: select how you want your backend service exposed</p></figcaption></figure>
 
 After you choose your method of exposure, click **Select my API architecture** to view the entrypoint selection screen. The entrypoint selection and configuration for each exposure method are discussed below.
 
@@ -77,7 +77,7 @@ If you chose **Introspect messages from Event-driven backend**, you are presente
 * **Webhook**: Front a backend or data source with a Gateway Webhook API. This allows consumers to subscribe to the Gravitee Gateway via Webhook and then retrieve streamed data in real-time from a backend data source, via the Gateway, over the consumer's Webhook callback URL.
 * **WebSocket**: Front a backend or data source with a Gateway WebSocket API. This allows a consumer to retrieve and send streamed events and messages in real-time.
 
-<figure><img src="../../../.gitbook/assets/Screen Shot 2023-06-08 at 8.44.08 AM.png" alt=""><figcaption><p>v4 API creation wizard: event-driven backend entrypoints</p></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/Screen Shot 2023-06-08 at 8.44.08 AM (1).png" alt=""><figcaption><p>v4 API creation wizard: event-driven backend entrypoints</p></figcaption></figure>
 
 Once you select your entrypoint(s), additional configuration is required. The following sections outline the necessary configuration per entrypoint.
 
@@ -172,16 +172,13 @@ Gateway endpoints define the protocol and configuration by which the Gateway API
 
 ### HTTP proxy endpoints
 
-If you chose the HTTP proxy option, your endpoint will be an HTTP proxy.&#x20;
+If you chose the HTTP proxy option, your endpoint will be an HTTP proxy.
 
 <details>
 
 <summary>Configure HTTP proxy endpoints</summary>
 
 * **Define your target URL:** Enter your target URL in the **Target URL** text field.
-
-<!---->
-
 * **Define your HTTP options:**
   * Choose to either allow or disallow h2c clear text upgrade by toggling **Allow h2c Clear Text Upgrade** ON or OFF.
     * You'll need to select the HTTP protocol version to use. HTTP/1.1 and HTTP/2 are supported.
@@ -195,9 +192,6 @@ If you chose the HTTP proxy option, your endpoint will be an HTTP proxy.&#x20;
   * Define the number of max concurrent connections by entering a numeric value or using the arrow keys in the text field.
   * Choose to propagate client Accept-Encoding header by toggling **Propagate client Accept-Encoding header (no decompression if any)** ON or OFF.
   * Select **+ Add HTTP headers** to add headers that the Gateway should add or override before proxying the request to the backend API.
-
-<!---->
-
 * **Define your Proxy options:**
   * Choose whether to use a proxy for client connections by toggling **Use proxy** ON of OFF.
     * If enabled, you will need to select from the proxy types in the **Proxy type** drop-down: **HTTP proxy**, **SOCKS4**, or **SOCKS5**.
@@ -206,13 +200,7 @@ If you chose the HTTP proxy option, your endpoint will be an HTTP proxy.&#x20;
     * **Proxy port:** Enter your proxy port in the text field.
     * (Optional) **Proxy username:** Enter your proxy username in the text field.
     * (Optional) **Proxy password:** Enter your proxy password in the text field.
-
-<!---->
-
 * **Define your SSL options**
-
-<!---->
-
 * **Define your keystore**
 
 </details>
@@ -221,7 +209,7 @@ The endpoint configuration will determine the endpoint group’s default configu
 
 By default, the endpoint group will be named **Default \<endpoint type> group** and the endpoint will be named **Default \<endpoint type>** as shown below:
 
-<figure><img src="../../../.gitbook/assets/default proxy endpoint names.png" alt=""><figcaption><p>Default proxy API endpoint names</p></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/default proxy endpoint names (1).png" alt=""><figcaption><p>Default proxy API endpoint names</p></figcaption></figure>
 
 ### **Introspect messages from event-driven backend endpoints**
 
@@ -359,7 +347,7 @@ The **Kafka** endpoint allows the Gateway to open up a persistent connection and
 
 **Recovering Kafka messages**
 
-Kafka messages are acknowledged automatically or manually by the consumer to avoid consuming messages multiple times. To read previous messages requires specifying the offset at which the Kafka consumer should start consuming records and the entrypoint must support the **at-least-one** or **at-most-one** QoS.&#x20;
+Kafka messages are acknowledged automatically or manually by the consumer to avoid consuming messages multiple times. To read previous messages requires specifying the offset at which the Kafka consumer should start consuming records and the entrypoint must support the **at-least-one** or **at-most-one** QoS.
 
 As an example using SSE as an entrypoint, first define the QoS for the entrypoint:
 
@@ -416,7 +404,7 @@ Choosing the **Solace** endpoint enables the Gravitee Gateway to create an API t
   * **Retain settings:** Whether the retain flag must be set for every published message by toggling **Retained** ON or OFF. If enabled, the broker stores the last retained message.
   * **Message expiry interval:** Defines the period of time that the broker stores the PUBLISH message for any matching subscribers that are not currently connected. When no message expiry interval is set, the broker must store the message for matching subscribers indefinitely. When the `retained=true` option is set on the PUBLISH message, this interval also defines how long a message is retained on a topic.
   * **Response topic:** Represents the topics on which the responses from the message receivers are expected.
-* **Consumer settings** (if you chose **Use Consumer** or **Use Producer and Consumer**): Define the settings that the Gravitee Gateway Solace client will rely on to consume messages from your backend Solace topic/broker.&#x20;
+* **Consumer settings** (if you chose **Use Consumer** or **Use Producer and Consumer**): Define the settings that the Gravitee Gateway Solace client will rely on to consume messages from your backend Solace topic/broker.
   * Define the **Topic** from which the Gateway Solace client will consume messages.
   * Toggle Authentication configuration ON or OFF. When OFF, no further configuration is necessary. When ON, you will need to:
     * Define the username used for authentication.
@@ -435,7 +423,7 @@ The **RabbitMQ** endpoint allows the Gateway to open up a persistent connection 
 * **Virtual host:** Define the virtual host to use
 * How the Gateway will interact with RabbitMQ by instructing the Gravitee Gateway to act as either a producer, a consumer, or both a producer and consumer. Choose either **Use Consumer**, **Use Producer**, or **Use Consumer and Producer** from the drop-down menu to do one of the following:
   * **Use Producer:** Tells the Gateway Gateway to be prepared to produce messages and send them to RabbitMQ that you define as your endpoint
-  * **Use Consumer:** Tells the Gateway to be prepared to consume messages from  RabbitMQ that you define as your endpoint
+  * **Use Consumer:** Tells the Gateway to be prepared to consume messages from RabbitMQ that you define as your endpoint
   * **Use Producer and Consumer:** Tells the Gateway to be able to use both **Use Producer** and **Use Consumer** settings
 * **Authentication:** Define the **username** and **password** for RabbitMQ authentication
 * **SSL Options:**
@@ -461,7 +449,7 @@ The endpoint configuration will determine the endpoint group’s default configu
 
 By default, the endpoint group will be named **Default \<endpoint type> group** and the endpoint will be named **Default \<endpoint type>** as shown below:
 
-<figure><img src="../../../.gitbook/assets/default message endpoint names.png" alt=""><figcaption><p>Default message API endpoint names</p></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/default message endpoint names (1).png" alt=""><figcaption><p>Default message API endpoint names</p></figcaption></figure>
 
 ## Step 4: Security
 
@@ -473,10 +461,10 @@ Next in the API creation wizard is the Security step, where you will configure:
 
 ### Plan information
 
-A plan is essentially an access layer around an API that provides the API producer with a method to secure, monitor, and transparently communicate the details of access.&#x20;
+A plan is essentially an access layer around an API that provides the API producer with a method to secure, monitor, and transparently communicate the details of access.
 
 {% hint style="info" %}
-To learn more about how plans function in Gravitee, refer to the [plans documentation](../../api-exposure-plans-applications-and-subscriptions/plans.md).&#x20;
+To learn more about how plans function in Gravitee, refer to the [plans documentation](../../api-exposure-plans-applications-and-subscriptions/plans.md).
 {% endhint %}
 
 You will be able to choose between several different plan types:
@@ -487,7 +475,7 @@ You will be able to choose between several different plan types:
 * **Keyless**: A plan that, when configured, does not add security. This is considered an "Open" plan.
 * **Push plan**: A plan that provides an access layer for the Gateway pushing data to consumers. This is used for subscribers.
 
-<figure><img src="../../../.gitbook/assets/Screen Shot 2023-06-01 at 12.14.02 PM.png" alt=""><figcaption><p>API creation wizard: different Security plan types</p></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/Screen Shot 2023-06-01 at 12.14.02 PM (1).png" alt=""><figcaption><p>API creation wizard: different Security plan types</p></figcaption></figure>
 
 Configuration differs by plan. See the expandable sections below to learn more about how to configure each of the different plans.
 
@@ -503,7 +491,7 @@ To configure your OAuth2 plan, select OAuth2 from the **+Add plan** drop-down me
 * **Subscription:** choose whether to auto-validate subscriptions, require a message from a consumer during subscription, and/or present a message to the consumer upon subscription.
 * **Access control:** select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../administration/README.md#users-and-user-groups).
 
-<img src="../../../.gitbook/assets/image (39).png" alt="" data-size="original">
+<img src="../../../../../../.gitbook/assets/image (92) (1).png" alt="" data-size="original">
 
 Select Next to move on to **OAuth2 authentication configuration**. Here, you'll specify:
 
@@ -515,7 +503,7 @@ Select Next to move on to **OAuth2 authentication configuration**. Here, you'll 
 * Whether to permit authorization headers to target endpoints.
 * (Optional) Define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process. You will need to use the Gravitee Expression Language. For more information on the Gravitee Expression Language, please refer to the Expression Language documentation.
 
-<img src="../../../.gitbook/assets/image (53).png" alt="" data-size="original">
+<img src="../../../../../../.gitbook/assets/image (97) (1).png" alt="" data-size="original">
 
 Select Next to define any additional restrictions for the plan. These restrictions include:
 
@@ -528,7 +516,7 @@ Select Next to define any additional restrictions for the plan. These restrictio
 * **Quota:** define a rate limit over a period of hours, days, or months. If you choose this, you will need to define the same settings that are applicable to rate limiting (see above).
 * **Resource filtering:** restricts resources based on defined whitelist/allowed and/or blacklist/disallowed settings. These will be defined by path patterns and methods.
 
-<img src="../../../.gitbook/assets/image (45).png" alt="" data-size="original">
+<img src="../../../../../../.gitbook/assets/image (98) (1).png" alt="" data-size="original">
 
 </details>
 
@@ -573,7 +561,7 @@ Select Next to define any restrictions associated with this plan. Your options i
 * **Quota:** define a rate limit over a period of hours, days, or months. If you choose this, you will need to define the same settings that are applicable to rate limiting (see above).
 * **Resource filtering:** restricts resources based on defined whitelist/allowed and/or blacklist/disallowed settings. These will be defined by path patterns and methods.
 
-<img src="../../../.gitbook/assets/image (46).png" alt="" data-size="original">
+<img src="../../../../../../.gitbook/assets/image (98) (1).png" alt="" data-size="original">
 
 </details>
 
@@ -634,7 +622,7 @@ Select Next to be taken to the **Restriction** page to define any additional res
 
 ## Step 5: Documentation
 
-The Documentation step is supported for v4 APIs. See [this page](broken-reference) to learn how to create documentation for a v4 API.
+The Documentation step is supported for v4 APIs. See [this page](../../api-configuration/v4-api-configuration/documentation.md) to learn how to create documentation for a v4 API.
 
 ## Step 6: Summary
 

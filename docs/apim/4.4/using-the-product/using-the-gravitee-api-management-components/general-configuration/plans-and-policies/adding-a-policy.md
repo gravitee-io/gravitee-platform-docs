@@ -4,16 +4,16 @@
 
 First, we need to open the API in the APIM Console. You may already have it open from the previous part of the Quickstart Guide. If not, simply head back over to the **APIs** homescreen and select the API you created.
 
-<figure><img src="../../../../.gitbook/assets/Screenshot 2023-11-19 at 8.25.21 PM.png" alt=""><figcaption><p>APIs homescreen</p></figcaption></figure>
+<figure><img src="../../../../../4.0/.gitbook/assets/DP_homescreen (1).png" alt=""><figcaption><p>APIs homescreen</p></figcaption></figure>
 
 > * [x] Select **APIs** in the sidebar
 > * [x] Select the API you created in Gateway APIs 101
 
 ### Policy Studio
 
-Once you're back to your API's **General Info** page, go to the **Policy Studio**.&#x20;
+Once you're back to your API's **General Info** page, go to the **Policy Studio**.
 
-<figure><img src="../../../../.gitbook/assets/Screenshot 2023-11-19 at 8.55.51 PM.png" alt=""><figcaption><p>API General Info page</p></figcaption></figure>
+<figure><img src="../../../../../4.0/.gitbook/assets/plans_general info (1).png" alt=""><figcaption><p>API General Info page</p></figcaption></figure>
 
 > * [x] Select **Policy Studio** from the inner sidebar
 
@@ -21,11 +21,11 @@ Once you're back to your API's **General Info** page, go to the **Policy Studio*
 
 The Policy Studio is a powerful interface for visually designing flows and applying policies to APIs. Remember, flows are a way to group policies and set conditions that determine which API requests trigger the flow.
 
-One way to condition a flow is by plan. Every plan that is added to an API can have its own set of flows.&#x20;
+One way to condition a flow is by plan. Every plan that is added to an API can have its own set of flows.
 
 You should see your **Default Keyless (UNSECURED)** plan on the left side of the Policy Studio. Additionally, you should see **Common flows**. Let's add a flow to **Common flows** to ensure our policy applies to all consumers of our API, regardless of the plan they are subscribed to.
 
-<figure><img src="../../../../.gitbook/assets/Screenshot 2023-11-19 at 10.15.20 PM.png" alt=""><figcaption><p>Adding a flow under Common flows</p></figcaption></figure>
+<figure><img src="../../../../../4.0/.gitbook/assets/plans_flow (1).png" alt=""><figcaption><p>Adding a flow under Common flows</p></figcaption></figure>
 
 > * [x] Select the **+ icon** to the right of **Common flows**
 > * [x] Provide a name for the flow and select **Create**
@@ -34,7 +34,7 @@ You should see your **Default Keyless (UNSECURED)** plan on the left side of the
 
 <summary>Flow conditions</summary>
 
-We are purposefully keeping this flow very simple. However, the conditions that trigger a flow can be fine-tuned beyond assigning the flow to a plan:&#x20;
+We are purposefully keeping this flow very simple. However, the conditions that trigger a flow can be fine-tuned beyond assigning the flow to a plan:
 
 * **Operator and path:** Use this to trigger a flow based on the path of the API request. The condition is evaluated for every request and the flow is only triggered if it evaluates to `true`.
 * **Methods:** Select the HTTP methods this flow applies to.
@@ -52,7 +52,7 @@ Creating a flow opens up the flow editor. This screen will look different based 
 
 The only phases available to traditional proxy APIs are request and response. We will be adding a policy to the response phase.
 
-<img src="../../../../.gitbook/assets/Screenshot 2023-11-19 at 10.28.53 PM.png" alt="Add policy to the response phase of traditional proxy API" data-size="original">
+<img src="../../../../../4.0/.gitbook/assets/plans_add policy (1).png" alt="Add policy to the response phase of traditional proxy API" data-size="original">
 
 * [x] Select the **+ icon** in the **Response phase**
 
@@ -64,7 +64,7 @@ The only phases available to traditional proxy APIs are request and response. We
 
 The phases available to message proxy APIs are request, response, publish, and subscribe. The publish and subscribe phases allow the policy to be applied at the message level. We will be adding the policy to the subscribe phase.
 
-<img src="../../../../.gitbook/assets/Screenshot 2023-11-19 at 10.29.28 PM (1).png" alt="Add policy to the subscribe phase of a message proxy API" data-size="original">
+<img src="../../../../../4.0/.gitbook/assets/plans_add policy subscribe (1).png" alt="Add policy to the subscribe phase of a message proxy API" data-size="original">
 
 * [x] Select the **Event messages** tab in the flow editor
 * [x] Select the **+ icon** in the **Subscribe phase**
@@ -77,15 +77,15 @@ The next steps are the same for both traditional and message proxy APIs.
 
 The previous actions will open up the policy selector. We are going to add an Assign Content policy that allows us to modify the content of the payload before it reaches the API consumer.
 
-<figure><img src="../../../../.gitbook/assets/Screenshot 2023-11-19 at 10.35.55 PM.png" alt=""><figcaption><p>Add an Assign Content policy</p></figcaption></figure>
+<figure><img src="../../../../../4.0/.gitbook/assets/plans_assign content (1).png" alt=""><figcaption><p>Add an Assign Content policy</p></figcaption></figure>
 
 > * [x] Click Select under the **Assign content** policy
 
-Every policy allows you to provide a **Description** and a **Trigger condition**. Trigger conditions for policies are just like trigger conditions for flows, except these allow you to set independent conditions for each policy.&#x20;
+Every policy allows you to provide a **Description** and a **Trigger condition**. Trigger conditions for policies are just like trigger conditions for flows, except these allow you to set independent conditions for each policy.
 
 Additionally, every policy has configuration settings specific to it. For the Assign Content policy, we can override the payload of the response or individual message by supplying a string in the **Body content** input box.
 
-<figure><img src="../../../../.gitbook/assets/Screenshot 2023-11-19 at 10.42.39 PM.png" alt=""><figcaption><p>Configure the Assign Content policy</p></figcaption></figure>
+<figure><img src="../../../../../4.0/.gitbook/assets/plans_configure assign content (1).png" alt=""><figcaption><p>Configure the Assign Content policy</p></figcaption></figure>
 
 > * [x] Type a string in the **Body content** input box
 > * [x] Select **Add policy** to add it the flow
@@ -95,11 +95,11 @@ You should now see the Assign Content policy added to the correct phase of the f
 
 #### Redeploy an API
 
-After saving, you'll notice a banner appears at the top of the Console that says **This API is out of sync**. This means the changes you made in the Console are saved but have not yet been propagated to the Gateway.&#x20;
+After saving, you'll notice a banner appears at the top of the Console that says **This API is out of sync**. This means the changes you made in the Console are saved but have not yet been propagated to the Gateway.
 
-To ensure these changes are synced to the Gateway, the API must be redeployed.&#x20;
+To ensure these changes are synced to the Gateway, the API must be redeployed.
 
-<figure><img src="../../../../.gitbook/assets/Screenshot 2023-11-19 at 10.50.29 PM.png" alt=""><figcaption><p>Redeploy an API</p></figcaption></figure>
+<figure><img src="../../../../../4.0/.gitbook/assets/plans_redeploying (1).png" alt=""><figcaption><p>Redeploy an API</p></figcaption></figure>
 
 > * [x] Select **Deploy API** in the top right
 > * [x] Select **Deploy** in the modal that pops up on the screen

@@ -22,7 +22,7 @@ This article walks through how to configure each of the above.
 
 To configure Entrypoints, follow the below interactive tutorial, or, follow the numbered steps below.
 
-{% @arcade/embed flowId="4353kgHZvdMRtEEL5xy9" url="https://app.arcade.software/share/4353kgHZvdMRtEEL5xy9" %}
+{% @arcade/embed url="https://app.arcade.software/share/4353kgHZvdMRtEEL5xy9" flowId="4353kgHZvdMRtEEL5xy9" %}
 
 If you prefer to use a written list of steps, follow these steps:
 
@@ -121,7 +121,7 @@ You've configured your CORS settings for your API. When you are done, select **S
 
 All requests rejected because of CORS issues will generate logs that you can view in the `Analytics` section of your API logs.
 
-<img src="../../../.gitbook/assets/graviteeio-troubleshooting-cors.png" alt="" data-size="original">
+<img src="../../../../../../.gitbook/assets/graviteeio-troubleshooting-cors (1).png" alt="" data-size="original">
 {% endhint %}
 
 ### Configure Deployments
@@ -130,7 +130,7 @@ The **Deployments** tab is where you can choose to use sharding tags to control 
 
 To choose sharding tags, follow the below interactive tutorial, or, follow the steps below.
 
-{% @arcade/embed flowId="d6TOgaGsnGu4ycqJ4PUr" url="https://app.arcade.software/share/d6TOgaGsnGu4ycqJ4PUr" %}
+{% @arcade/embed url="https://app.arcade.software/share/d6TOgaGsnGu4ycqJ4PUr" flowId="d6TOgaGsnGu4ycqJ4PUr" %}
 
 Log in to the API Management Console. Select the **APIs** menu.
 
@@ -166,7 +166,7 @@ Select Save. You will have successfully configured your API deployment settings 
 
 ### Configure Response Templates
 
-{% @arcade/embed flowId="5v4I7T6RoqgUFaQpk7gL" url="https://app.arcade.software/share/5v4I7T6RoqgUFaQpk7gL" %}
+{% @arcade/embed url="https://app.arcade.software/share/5v4I7T6RoqgUFaQpk7gL" flowId="5v4I7T6RoqgUFaQpk7gL" %}
 
 You can use response templates to override the default values sent in response to consumer calls to an API. Response template overrides are triggered by error keys, which are specific to policies. Each response template defines the new values to be returned for one or more status codes when the template is triggered. Because Response templates are dependent on policies, you will need to know the following before attempting to define Response templates:
 
@@ -227,7 +227,7 @@ To configure Response templates, follow these few steps:
    * One or more HTTP headers to include in the response
    * A response template body
 
-<figure><img src="../../../.gitbook/assets/Response templates.gif" alt=""><figcaption><p>Configure Response templates</p></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/Response templates (1).gif" alt=""><figcaption><p>Configure Response templates</p></figcaption></figure>
 
 {% hint style="success" %}
 **Success!**

@@ -16,7 +16,7 @@ The v2 Policy Studio consists of the following sections:
 
 ## Design
 
-Flows are created when policies are added to the request and/or response phases and targeted by path, HTTP method(s), or via [Gravitee's Expression Language](broken-reference/). A single API supports multiple flows, which can be set to target subscribers of an individual plan or all users of the API.
+Flows are created when policies are added to the request and/or response phases and targeted by path, HTTP method(s), or via [Gravitee's Expression Language](../../gravitee-expression-language.md). A single API supports multiple flows, which can be set to target subscribers of an individual plan or all users of the API.
 
 To create a flow and add policies:
 
@@ -27,7 +27,7 @@ To create a flow and add policies:
 5. Select the **Design** tab
 6.  In the **Flows** section, select the **+** icon, then configure the flow:
 
-    <figure><img src="../../../../../.gitbook/assets/v2 design (1).png" alt=""><figcaption><p>Configure a flow</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/v2 design (1).png" alt=""><figcaption><p>Configure a flow</p></figcaption></figure>
 
     * **Name:** Give your flow a descriptive name. Otherwise, a name will be automatically generated using the path and methods.
     * **Operator path:** For the provided **Path**, apply this flow to requests with a path that **Equals** or **Starts with** the same path.
@@ -97,4 +97,4 @@ To modify the flow mode:
 5. Select the **Configuration** tab
 6.  Change the **Flow Mode** to either **DEFAULT** or **BEST\_MATCH** using the drop-down menu
 
-    <figure><img src="../../../../../.gitbook/assets/v2 PS configuration (1).png" alt=""><figcaption><p>Configure Flow Mode</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/v2 PS configuration (1).png" alt=""><figcaption><p>Configure Flow Mode</p></figcaption></figure>

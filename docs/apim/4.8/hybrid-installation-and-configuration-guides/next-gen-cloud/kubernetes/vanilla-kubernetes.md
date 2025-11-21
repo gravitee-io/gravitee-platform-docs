@@ -203,7 +203,7 @@ To prepare your Gravitee `values.yaml` file for Helm, complete the following ste
    * Replace `<license_key>` with your License Key.
    * Replace `<redis_hostname>` with your extracted Redis hostname.
    * Replace `<redis_password>` with your extracted Redis password.
-   *   Set the `tag` field in the `image` section to the value displayed in the Overview section of your Gravitee Cloud Dashboard. \\
+   *   Set the `tag` field in the `image` section to the value displayed in the Overview section of your Gravitee Cloud Dashboard. 
 
        <figure><img src="../../../.gitbook/assets/gateway-cloud-version.png" alt=""><figcaption></figcaption></figure>
 
@@ -376,7 +376,7 @@ helm uninstall graviteeio-apim-gateway --namespace gravitee-apim
 
 Your Gateway appears in the Gateways section of your Gravitee Cloud Dashboard.
 
-<figure><img src="../../../.gitbook/assets/gravitee-gateway-cloud-verification (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/gravitee-gateway-cloud-verification (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 To verify that your Gateway is up and running, complete the following steps:
 

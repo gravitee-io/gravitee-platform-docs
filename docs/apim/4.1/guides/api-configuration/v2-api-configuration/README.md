@@ -35,7 +35,7 @@ In Gravitee, you can configure several API proxy settings. You can use the inter
 
 {% tabs %}
 {% tab title="Interactive UI exploration" %}
-{% @arcade/embed flowId="tn8DhyHNq83ZWp8pyqOC" url="https://app.arcade.software/share/tn8DhyHNq83ZWp8pyqOC" %}
+{% @arcade/embed url="https://app.arcade.software/share/tn8DhyHNq83ZWp8pyqOC" flowId="tn8DhyHNq83ZWp8pyqOC" %}
 {% endtab %}
 
 {% tab title="Text descriptions" %}
@@ -59,7 +59,7 @@ Load balancing is a technique used to distribute incoming traffic across multipl
 
 {% tabs %}
 {% tab title="Interactive UI exploration" %}
-{% @arcade/embed flowId="q2cetEPiktDGaSv7t4gM" url="https://app.arcade.software/share/q2cetEPiktDGaSv7t4gM" %}
+{% @arcade/embed url="https://app.arcade.software/share/q2cetEPiktDGaSv7t4gM" flowId="q2cetEPiktDGaSv7t4gM" %}
 {% endtab %}
 
 {% tab title="Text descriptions" %}
@@ -82,7 +82,7 @@ Failover is a mechanism to ensure high availability and reliability of APIs by r
 
 {% tabs %}
 {% tab title="Interactive UI exploration" %}
-{% @arcade/embed flowId="VaRhvOcOU39TQb3PtfRd" url="https://app.arcade.software/share/VaRhvOcOU39TQb3PtfRd" %}
+{% @arcade/embed url="https://app.arcade.software/share/VaRhvOcOU39TQb3PtfRd" flowId="VaRhvOcOU39TQb3PtfRd" %}
 {% endtab %}
 
 {% tab title="Text descriptions" %}
@@ -99,7 +99,7 @@ A health check is a mechanism used to monitor the availability and health of you
 
 {% tabs %}
 {% tab title="Interactive UI exploration" %}
-{% @arcade/embed flowId="awIKYCvN2m1DusBD9W7a" url="https://app.arcade.software/share/awIKYCvN2m1DusBD9W7a" %}
+{% @arcade/embed url="https://app.arcade.software/share/awIKYCvN2m1DusBD9W7a" flowId="awIKYCvN2m1DusBD9W7a" %}
 {% endtab %}
 
 {% tab title="Text descriptions" %}
@@ -151,6 +151,6 @@ The sharding tags mechanism allows you to specify which “shard” of of your G
 \
 In the diagram below we have an example of a typical deployment an organization may use for their API Management. This scenario looks to deploy two APIs in a distributed manner, providing high availability across different regions and in different network environments.
 
-<figure><img src="../../../.gitbook/assets/Example architecture.png" alt=""><figcaption><p>Example architecture diagram to illustrate value of sharding tags.</p></figcaption></figure>
+<figure><img src="../../../../4.0/.gitbook/assets/Example architecture (1).png" alt=""><figcaption><p>Example architecture diagram to illustrate value of sharding tags.</p></figcaption></figure>
 
 If using sharding tags, you could tag these Gateways with specific keywords. Once the Gateways are tagged, you can [select that tag in an APIs Deployments proxy settings](configure-cors.md#configure-deployments). Whatever tag you select for that API will end up being the Gateway where that API is deployed.

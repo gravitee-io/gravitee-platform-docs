@@ -22,7 +22,7 @@ The v2 Policy Studio consists of the following sections:
 
 ## Design
 
-Flows are created when policies are added to the request and/or response phases and targeted by path, HTTP method(s), or via [Gravitee's Expression Language](../gravitee-expression-language.md). A single API supports multiple flows, which can be set to target subscribers of an individual plan or all users of the API.&#x20;
+Flows are created when policies are added to the request and/or response phases and targeted by path, HTTP method(s), or via [Gravitee's Expression Language](../gravitee-expression-language.md). A single API supports multiple flows, which can be set to target subscribers of an individual plan or all users of the API.
 
 To create a flow and add policies:
 
@@ -31,9 +31,9 @@ To create a flow and add policies:
 3. Select the API for which to design a flow
 4. Select **Policy Studio** from the inner left nav
 5. Select the **Design** tab
-6.  In the **Flows** section, select the **+** icon, then configure the flow:&#x20;
+6.  In the **Flows** section, select the **+** icon, then configure the flow:
 
-    <figure><img src="../../../.gitbook/assets/v2 design.png" alt=""><figcaption><p>Configure a flow</p></figcaption></figure>
+    <figure><img src="../../../../../../.gitbook/assets/v2 design (1).png" alt=""><figcaption><p>Configure a flow</p></figcaption></figure>
 
     * **Name:** Give your flow a descriptive name. Otherwise, a name will be automatically generated using the path and methods.
     * **Operator path:** For the provided **Path**, apply this flow to requests with a path that **Equals** or **Starts with** the same path.
@@ -42,11 +42,11 @@ To create a flow and add policies:
     * **Conditions:** Define specific conditions that will trigger flow execution using Gravitee's Expression Language (EL).
 7. To add a policy to the flow, drag-and-drop the policy that you want to enforce onto either the request or response phase
 8. To configure the policy, select it and use the menu beneath the flow map
-9. Select the **checkmark icon**, then click **Save** in the pop-up window&#x20;
+9. Select the **checkmark icon**, then click **Save** in the pop-up window
 10. Redeploy your API to the Gateway for the changes to take effect
 
 {% hint style="info" %}
-* A policy added to the request phase will be enforced by the Gateway at the time of the request, before a client is given access to the API.&#x20;
+* A policy added to the request phase will be enforced by the Gateway at the time of the request, before a client is given access to the API.
 * If a policy is added to the response phase, the Gateway will enforce the policy after the request is allowed, but before the response is returned to the client.
 {% endhint %}
 
@@ -100,10 +100,10 @@ To modify the flow mode:
 2. Selecting **APIs** from the left nav
 3. Select the API for which to design a flow
 4. Select **Policy Studio** from the inner left nav
-5. Select the **Configuration** tab&#x20;
-6.  Change the **Flow Mode** to either **DEFAULT** or **BEST\_MATCH** using the drop-down menu&#x20;
+5. Select the **Configuration** tab
+6.  Change the **Flow Mode** to either **DEFAULT** or **BEST\_MATCH** using the drop-down menu
 
-    <figure><img src="../../../.gitbook/assets/v2 PS configuration.png" alt=""><figcaption><p>Configure Flow Mode</p></figcaption></figure>
+    <figure><img src="../../../../../../.gitbook/assets/v2 PS configuration (1).png" alt=""><figcaption><p>Configure Flow Mode</p></figcaption></figure>
 
 ## Debug mode
 
@@ -132,17 +132,13 @@ To debug your flows:
 2. Selecting **APIs** from the left nav
 3. Select the API for which to design a flow
 4. Select **Policy Studio** from the inner left nav
-5.  Select the **Debug** tab&#x20;
+5.  Select the **Debug** tab
 
-    <div align="left">
-
-    <figure><img src="../../../.gitbook/assets/v2 debug.png" alt="" width="188"><figcaption><p>Configure Debug</p></figcaption></figure>
-
-    </div>
+    <div align="left"><figure><img src="../../../../../../.gitbook/assets/v2 debug (1).png" alt="" width="188"><figcaption><p>Configure Debug</p></figcaption></figure></div>
 6. Define the HTTP method, path, headers, and request bodies for the debug request
-7.  Select **Send** to prompt Gravitee to initiate a test request and present you with a timeline showing the order of your flows and policies&#x20;
+7.  Select **Send** to prompt Gravitee to initiate a test request and present you with a timeline showing the order of your flows and policies
 
-    <figure><img src="../../../.gitbook/assets/Debug mode timeline (1).png" alt=""><figcaption><p>Debug mode timeline</p></figcaption></figure>
+    <figure><img src="../../../../../../.gitbook/assets/Debug mode timeline (1).png" alt=""><figcaption><p>Debug mode timeline</p></figcaption></figure>
 
 <details>
 
@@ -171,8 +167,6 @@ The inspector relies on 3 colors to indicate the nature of changes:
 The order in which the policies appear in the timeline reflects the exact order in which they were executed by the Gateway at runtime. This order may differ from the order in which policies were placed during the design phase due to a performance optimization applied on the policy chain at runtime.
 
 The Gateway executes policies interacting with the HTTP header part of the request (onRequest, onResponse) before policies interacting with the body part of the request (onRequestContent, onResponseContent). A policy may appear twice in the timeline if it interacts with both the header and body of the request.
-
-
 
 To navigate the timeline:
 

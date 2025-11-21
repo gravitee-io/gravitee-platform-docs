@@ -368,12 +368,12 @@ This example demonstrates a complete workflow for using MCP servers to integrate
     ```shell
     # Deploy GitHub integration server
     blackbird mcp run github \
-      -- GITHUB_TOKEN=your_token \
+      -- GITHUB_TOKEN=your_token 
 
     # Deploy Slack integration server
     blackbird mcp run slack \
       -- SLACK_BOT_TOKEN=your_token \
-      -- SLACK_CHANNEL=general \
+      -- SLACK_CHANNEL=general 
 
     # Wait for the deployments to complete...
     # Deployments successful! Your MCP servers are running.

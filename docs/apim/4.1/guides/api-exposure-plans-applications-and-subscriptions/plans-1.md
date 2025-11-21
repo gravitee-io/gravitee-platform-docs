@@ -21,7 +21,7 @@ There are two requirements to allow API consumers to create applications:
 * **Native**
 * **Backend-to-Backend**
 
-<figure><img src="../../.gitbook/assets/client_registration_settings.png" alt=""><figcaption><p>Client Registration settings</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/client_registration_settings (1).png" alt=""><figcaption><p>Client Registration settings</p></figcaption></figure>
 
 2. API consumers must have a user account to register an application and subscribe to an API which you can learn how to enable in Administration.
 
@@ -79,11 +79,11 @@ As of Gravitee 4.0, Dynamic Client Registration is an Enterprise Edition capabil
 
 Once dynamic client registration has been [enabled in the **Client Registration** settings,](plans-1.md#prerequisites) you need to add a **Provider** at the bottom of the **Client Registration** page. We will be using Gravitee Access Management (AM) for our provider, but you are free to use any authentication server supporting OIDC.
 
-<figure><img src="../../.gitbook/assets/add_dcr_provider.png" alt=""><figcaption><p>Add a client registration provider</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/add_dcr_provider (1).png" alt=""><figcaption><p>Add a client registration provider</p></figcaption></figure>
 
 You are presented with the following options when configuring a client registration provider:
 
-<figure><img src="../../.gitbook/assets/client_registration_provider.png" alt=""><figcaption><p>Configure a client registration provider</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/client_registration_provider (1).png" alt=""><figcaption><p>Configure a client registration provider</p></figcaption></figure>
 
 The **General** section allows you to set a **Name** and **Description** for your client registration provider.
 
@@ -101,7 +101,7 @@ For OAuth 2.0 plans, these credentials will be used whenever a resource owner au
 
 #### Client credentials
 
-<figure><img src="../../.gitbook/assets/client_credentials_token_provider.png" alt=""><figcaption><p>Client credentials token provider</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/client_credentials_token_provider (1).png" alt=""><figcaption><p>Client credentials token provider</p></figcaption></figure>
 
 Client credential is an authorization grant flow detailed further in the [next section](plans-1.md#client-credentials-1) and is the first of the two options for retrieving an initial access token.
 
@@ -116,7 +116,7 @@ The client credential flow offers two additional configuration settings:
 
 #### Direct provisioning
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-03-23 at 12.02.08 PM.png" alt=""><figcaption><p>Directly provide initial access token</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Screenshot 2023-03-23 at 12.02.08 PM (1).png" alt=""><figcaption><p>Directly provide initial access token</p></figcaption></figure>
 
 Direct provisioning is a much simpler and less secure way to provide the initial access token. Administrators can directly add the initial access token as shown in the image above.
 
@@ -220,7 +220,7 @@ A refresh token is used to get a new access token, prompting the client applicat
 
 With all the preparation work complete, API consumers can now create an application through either the Management Console or the Developer Portal. We will work through the Management Console as we have a separate guide dedicated to the Developer Portal.
 
-{% @arcade/embed flowId="K4c4gw3qU4Mrmsm74Q0E" url="https://app.arcade.software/share/K4c4gw3qU4Mrmsm74Q0E" %}
+{% @arcade/embed url="https://app.arcade.software/share/K4c4gw3qU4Mrmsm74Q0E" flowId="K4c4gw3qU4Mrmsm74Q0E" %}
 
 {% hint style="info" %}
 **Default application**
@@ -243,23 +243,23 @@ When a new application is created, only the application’s creator, the _primar
 
 By default, APIM includes three membership roles:
 
-| Role              | Description                                                                                                                               |
-| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| Role              | Description                                                                                                                                |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | **Primary owner** | When an application is created, the primary owner is the creator of the application. Primary owner can do all possible actions for an API. |
-| **Owner**         | Owner is a lightest version of the primary owner role. Owner can do all possible actions except delete the application.                   |
-| **User**          | A user is a person who can access the application in read only mode and use the application to subscribe to an API.                       |
+| **Owner**         | Owner is a lightest version of the primary owner role. Owner can do all possible actions except delete the application.                    |
+| **User**          | A user is a person who can access the application in read only mode and use the application to subscribe to an API.                        |
 
 {% hint style="info" %}
 Only users with the required permissions can manage application members. For more details, see the [User Management and Permissions](../administration/user-management-and-permissions.md) section of the Administration Guide.
 {% endhint %}
 
-{% @arcade/embed flowId="zb22huL5KmUF9Nky2hZ7" url="https://app.arcade.software/share/zb22huL5KmUF9Nky2hZ7" %}
+{% @arcade/embed url="https://app.arcade.software/share/zb22huL5KmUF9Nky2hZ7" flowId="zb22huL5KmUF9Nky2hZ7" %}
 
 ### Delete and restore applications
 
 You can delete any application you are the primary owner of at the bottom of the **Global Settings** page.
 
-<figure><img src="../../.gitbook/assets/delete_application.png" alt=""><figcaption><p>Delete an application</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/delete_application (1).png" alt=""><figcaption><p>Delete an application</p></figcaption></figure>
 
 When a user deletes an application, it is in `ARCHIVED` status.
 

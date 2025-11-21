@@ -39,29 +39,29 @@ Policies are added to flows to enforce security, reliability, and proper data tr
 
 1. Click the **+** next to a plan's name to create a flow for that individual plan, or next to **Common** to create a Common flow.
 2. Give your flow a name.
-3.  Click **Create**.\\
+3.  Click **Create**.
 
     <figure><img src="../../../../4.6/.gitbook/assets/A 11 policy 0 (1).png" alt=""><figcaption></figcaption></figure>
-4.  In the Flow details panel, select the **Global** header to add a policy to the **Interact** phase of the Kafka API transaction.\\
+4.  In the Flow details panel, select the **Global** header to add a policy to the **Interact** phase of the Kafka API transaction.
 
     <figure><img src="../../../../4.6/.gitbook/assets/A 11 policy 2 (1).png" alt=""><figcaption></figcaption></figure>
 
-    Choose either the Kafka ACL or [Kafka Topic Mapping](../../../create-and-configure-apis/apply-policies/policy-reference/kafka-topic-mapping.md) policy. \\
+    Choose either the Kafka ACL or [Kafka Topic Mapping](../../../create-and-configure-apis/apply-policies/policy-reference/kafka-topic-mapping.md) policy. 
 
     <figure><img src="../../../../4.6/.gitbook/assets/A 11 policy 3 (1).png" alt=""><figcaption></figcaption></figure>
 
-    Fill out the policy configuration details and click **Add policy**.\\
+    Fill out the policy configuration details and click **Add policy**.
 
     <figure><img src="../../../../4.6/.gitbook/assets/AAA policy (1).png" alt=""><figcaption></figcaption></figure>
-5.  In the Flow details panel, select the **Event messages** header to add a policy to the **Publish** and/or **Subscribe** phase of the Kafka API transaction.\\
+5.  In the Flow details panel, select the **Event messages** header to add a policy to the **Publish** and/or **Subscribe** phase of the Kafka API transaction.
 
     <figure><img src="../../../../4.6/.gitbook/assets/A 11 policy 4 (1).png" alt=""><figcaption></figcaption></figure>
 
-    Select the [Kafka Quota](../../../create-and-configure-apis/apply-policies/policy-reference/kafka-quota.md) policy. \\
+    Select the [Kafka Quota](../../../create-and-configure-apis/apply-policies/policy-reference/kafka-quota.md) policy. 
 
     <figure><img src="../../../../4.6/.gitbook/assets/A 11 policy 5 (1).png" alt=""><figcaption></figcaption></figure>
 
-    Fill out the policy configuration details and click **Add policy**.\\
+    Fill out the policy configuration details and click **Add policy**.
 
     <figure><img src="../../../../4.6/.gitbook/assets/AAB policy (1).png" alt=""><figcaption></figcaption></figure>
 6. Click **Save** and redeploy your API for changes to take effect.

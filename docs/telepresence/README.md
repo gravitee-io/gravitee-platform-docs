@@ -59,7 +59,7 @@ cd telepresence-local-quickstart
 git clone https://github.com/ambassadorlabs/telepresence-local-quickstart.git --recurse-submodules
 
 # Change to the repo directory
-cd .\telepresence-local-quickstart\
+cd .\telepresence-local-quickstart
 
 # Run the Windows setup script
 .\windows-setup.ps1
@@ -96,7 +96,7 @@ The first time you run a Telepresence command you will be prompted to create an 
 
 
 2.  Now we'll test that Telepresence is working properly by accessing a service running in the cluster. Telepresence has merged your local IP routing tables and DNS resolution with the clusters, so you can talk to the cluster in its DNS language and to services on their cluster IP address.\
-    Open up a browser and go to [http://verylargejavaservice.default:8080](http://verylargejavaservice.default:8080). As you can see you've loaded up a dashboard showing the architecture of the sample app.\
+    Open up a browser and go to `http://verylargejavaservice.default:8080`. As you can see you've loaded up a dashboard showing the architecture of the sample app.
 
 
     <figure><img src=".gitbook/assets/00 tp 1.png" alt=""><figcaption></figcaption></figure>
@@ -242,28 +242,28 @@ We’ve now set up a local development environment for the DataProcessingService
 To update the color:
 
 1. Open `edgey-corp-python/DataProcessingService/app.py` in your editor and change `DEFAULT_COLOR` on line 15 from `blue` to `orange`. Save the file and the python server will auto reload.
-2. Now, visit [http://verylargejavaservice:8080](http://verylargejavaservice:8080) again in your browser and refresh. You will now see the <mark style="color:orange;">**orange**</mark> elements in the application.
+2. Now, visit `http://verylargejavaservice:8080` again in your browser and refresh. You will now see the <mark style="color:orange;">**orange**</mark> elements in the application.
 {% endtab %}
 
 {% tab title="NodeJS" %}
 To update the color:
 
 1. Open `edgey-corp-nodejs/DataProcessingService/app.js` in your editor and change line 6 from `blue` to `orange`. Save the file and the Node server will auto reload.
-2. Now, visit [http://verylargejavaservice:8080](http://verylargejavaservice:8080) again in your browser. You will now see the <mark style="color:orange;">**orange**</mark> elements in the application.
+2. Now, visit `http://verylargejavaservice:8080` again in your browser. You will now see the <mark style="color:orange;">**orange**</mark> elements in the application.
 {% endtab %}
 
 {% tab title="Java" %}
 To update the color:
 
 1. Open `edgey-corp-java/DataProcessingService/src/main/resources/application.properties` in your editor and change `app.default.color` on line 2 from `blue` to `orange`. Save the file then stop and restart your Java server.
-2. Now, visit [http://verylargejavaservice:8080](http://verylargejavaservice:8080) again in your browser. You will now see the <mark style="color:orange;">**orange**</mark> elements in the application.
+2. Now, visit `http://verylargejavaservice:8080` again in your browser. You will now see the <mark style="color:orange;">**orange**</mark> elements in the application.
 {% endtab %}
 
 {% tab title="Go" %}
 To update the color:
 
 1. Open `edgey-corp-go/DataProcessingService/main.go` in your editor and change `var color string` from `blue` to `orange`. Save the file and the Go server will auto reload.
-2. Now, visit [http://verylargejavaservice:8080](http://verylargejavaservice:8080) again in your browser. You will now see the <mark style="color:orange;">**orange**</mark> elements in the application.
+2. Now, visit `http://verylargejavaservice:8080` again in your browser. You will now see the <mark style="color:orange;">**orange**</mark> elements in the application.
 {% endtab %}
 {% endtabs %}
 

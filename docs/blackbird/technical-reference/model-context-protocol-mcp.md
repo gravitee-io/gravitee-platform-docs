@@ -81,7 +81,7 @@ You can use the Visual Studio Code (VS Code) integration to host a third-party M
 
 **To host an MCP server using VS Code:**
 
-1. Make sure the [Hosted Dev Environment with Blackbird](https://marketplace.visualstudio.com/items?itemName=Ambassador.blackbird-plugin) extension is running in VS Code.
+1. Make sure the Hosted Dev Environment with Blackbird extension is running in VS Code.
 2. In the side bar under Blackbird, expand **MCP Catalog** to view available servers.
 3. Hover over the server you want to deploy and select the **Run** icon to launch it.
 4. The input box prompts you for each required parameter. Provide the requested parameters.
@@ -102,7 +102,7 @@ Before following the example workflow, ensure you meet the following requirement
 
 * You installed the Blackbird CLI. For more information, see [#getting-started-with-the-blackbird-cli](blackbird-cli/#getting-started-with-the-blackbird-cli "mention").
 * You installed Docker and it's actively running. For more information, see [Get Docker](https://docs.docker.com/get-started/get-docker/).
-* You installed the Cursor MCP client. For more information, see Download [Cursor](https://www.cursor.com/en/downloads).
+* You installed the Cursor MCP client. For more information, see Download [Cursor](https://cursor.com/).
 
 **To host a GitHub MCP server:**
 

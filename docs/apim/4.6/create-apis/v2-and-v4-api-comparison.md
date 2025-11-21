@@ -67,4 +67,4 @@ When creating Gravitee APIs, keep in mind that v2 APIs and v4 APIs have some dif
 
 ## Policy support
 
-v2 APIs and v4 APIs support subsets of Gravitee policies. Supported policies are applied to one or more phases of the API transaction. For more information, see [Policies](broken-reference).
+v2 APIs and v4 APIs support subsets of Gravitee policies. Supported policies are applied to one or more phases of the API transaction. For more information, see [Broken link](broken-reference "mention").

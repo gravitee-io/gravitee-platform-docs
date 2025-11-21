@@ -21,7 +21,7 @@ For now, we just need to focus on the Gateway and the Console UI. The Gateway ac
 
 The first Gravitee concept you need to understand is Gateway APIs. As the name suggests, Gateway APIs are APIs deployed to the Gateway and are what your API consumers will call or subscribe to in order to retrieve data, functionality, etc., from your backend services or resources. Your backend services are essentially the data source or functionality that you want to expose to your consumers through the Gateway.
 
-<img src="../../../../.gitbook/assets/file.excalidraw (4).svg" alt="" class="gitbook-drawing">
+<img src="../../../../../../../.gitbook/assets/file.excalidraw (4) (1).svg" alt="" class="gitbook-drawing">
 
 {% hint style="warning" %}
 In this Quickstart Guide, the terms _Gateway API_ and _API_ are often used synonymously. However, when referring to an API server used as a backend service or resource, we use the term _backend API_.
@@ -40,7 +40,7 @@ APIM allows you to abstract your backend resource as an API regardless of proxy 
 
 Gateway API creation is broken into five steps, which we will explain briefly here:
 
-1. **API details:** Provide a name, description, and version for your API.&#x20;
+1. **API details:** Provide a name, description, and version for your API.
 2. **Gateway entrypoints:** Define the protocol(s) and configuration settings by which the API consumer accesses the API. The Gateway entrypoint dictates how the backend API is exposed through the Gateway.
 3. **Gateway endpoints:** Define the protocol(s) and configuration settings by which the Gateway will fetch data/functionality from, and/or post data to, the backend resource.
 4. **Security:** Configure a layer of access control through plans. Plans enable the API publisher to secure, monitor, and transparently communicate access details.

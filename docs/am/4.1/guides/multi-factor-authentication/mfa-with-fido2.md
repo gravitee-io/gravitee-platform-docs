@@ -49,6 +49,6 @@ The following diagram shows how enrollment occurs for the scenarios mentioned in
 
 The following diagram shows only the challenge step. For simplicity, the diagram assumes the user has already enrolled to a FIDO2 factor plugin.
 
-\\
+
 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-mfa-fido2-challenge-flow.png" alt=""><figcaption><p>Challenge diagram</p></figcaption></figure>

@@ -3,12 +3,12 @@
 ## Overview
 
 {% hint style="warning" %}
-When you import an API with a JSON payload that has duplicate keys, APIM keeps the last key.&#x20;
+When you import an API with a JSON payload that has duplicate keys, APIM keeps the last key.
 
 To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection.md](../policy-studio/policies-for-your-apis/i-k/json-threat-protection.md "mention").
 {% endhint %}
 
-A powerful APIM feature is the ability to import an OpenAPI specification to create an API. When you import an existing specification, you do not have to manually populate all of the required fields.&#x20;
+A powerful APIM feature is the ability to import an OpenAPI specification to create an API. When you import an existing specification, you do not have to manually populate all of the required fields.
 
 * [Import an API](openapi-spec-import.md#import-an-api)
 * [Context-path resolution](openapi-spec-import.md#context-path-resolution)
@@ -18,12 +18,12 @@ A powerful APIM feature is the ability to import an OpenAPI specification to cre
 
 To import an API from OpenAPI:
 
-*   If the OpenAPI specification is a file, select **IMPORT FILE** and browse your file system&#x20;
+*   If the OpenAPI specification is a file, select **IMPORT FILE** and browse your file system
 
-    <figure><img src="../../../.gitbook/assets/graviteeio-import-openapi-file.png" alt=""><figcaption></figcaption></figure>
-*   If the OpenAPI specification is a link, select **IMPORT FROM LINK**, choose **Swagger / OpenAPI**, and enter the definition URL&#x20;
+    <figure><img src="../../../../../../.gitbook/assets/graviteeio-import-openapi-file (1).png" alt=""><figcaption></figcaption></figure>
+*   If the OpenAPI specification is a link, select **IMPORT FROM LINK**, choose **Swagger / OpenAPI**, and enter the definition URL
 
-    <figure><img src="../../../.gitbook/assets/graviteeio-import-openapi-link.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../../../.gitbook/assets/graviteeio-import-openapi-link (1).png" alt=""><figcaption></figcaption></figure>
 
 ## **Context-path resolution**
 
@@ -46,29 +46,29 @@ To import an API from OpenAPI:
     "title": "Swagger Petstore"
   },
   "host": "petstore.swagger.io",
-
-  ...
+...
 }
 </code></pre></td><td>/swaggerpetstore</td><td></td></tr><tr><td>OpenAPI (V3)</td><td>Path of the first <code>servers.url</code>, if it exists, without "/".<br></td><td><pre><code>openapi: "3.0.0"
 info:
-  version: 1.0.0
-  title: Swagger Petstore
-  license:
-    name: MIT
+version: 1.0.0
+title: Swagger Petstore
+license:
+name: MIT
 servers:
-  - url: http://petstore.swagger.io/v1
+
+url: http://petstore.swagger.io/v1
 paths:
 ...
 </code></pre></td><td>/v1</td></tr><tr><td>If not, lowercase trimmed <code>info.title</code>.</td><td><pre><code>openapi: "3.0.0"
 info:
-  version: 1.0.0
-  title: Swagger Petstore
-  license:
-    name: MIT
+version: 1.0.0
+title: Swagger Petstore
+license:
+name: MIT
 servers:
-  - url: http://petstore.swagger.io/
+url: http://petstore.swagger.io/
 paths:
-  ...
+...
 </code></pre></td><td>/swaggerpetstore</td><td></td></tr></tbody></table>
 
 ## Vendor Extensions
@@ -174,7 +174,7 @@ For more information, see the [Request Validation policy](../policy-studio/polic
 {% endtab %}
 
 {% tab title="XML Validation" %}
-For each operation, if a `application/xml` request body exists, then a XSD schema is computed from this body to configure an XML Validation policy.&#x20;
+For each operation, if a `application/xml` request body exists, then a XSD schema is computed from this body to configure an XML Validation policy.
 
 For more information, see the [XML Validation policy](../policy-studio/policies-for-your-apis/t-x/xml-validation.md) reference.
 {% endtab %}

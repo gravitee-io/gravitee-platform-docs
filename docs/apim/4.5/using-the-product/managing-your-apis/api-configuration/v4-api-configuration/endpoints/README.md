@@ -26,10 +26,10 @@ Click on the tiles below to learn how to configure and implement v4 proxy API en
 
 After you've configured your endpoints, you can modify or delete existing endpoints, or add new ones:
 
-<figure><img src="../../../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.41.53 AM.png" alt=""><figcaption><p>Edit single endpoints</p></figcaption></figure>
+<figure><img src="../../../../../../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.41.53 AM (1).png" alt=""><figcaption><p>Edit single endpoints</p></figcaption></figure>
 
-* **Modify:** To alter an existing endpoint, select the <img src="../../../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.43.13 AM.png" alt="" data-size="line"> icon, and then edit your endpoint configuration.&#x20;
-* **Delete:** To delete an existing endpoint, select the <img src="../../../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.46.30 AM.png" alt="" data-size="line">icon underneath **ACTIONS** in the **Endpoints** menu.
+* **Modify:** To alter an existing endpoint, select the <img src="../../../../../../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.43.13 AM (1).png" alt="" data-size="line"> icon, and then edit your endpoint configuration.
+* **Delete:** To delete an existing endpoint, select the <img src="../../../../../../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.46.30 AM (1).png" alt="" data-size="line">icon underneath **ACTIONS** in the **Endpoints** menu.
 * **Add:** To add a new endpoint, click **Add endpoint**. Configure the endpoint per the instructions in the [API creation documentation](../../../create-apis/the-api-creation-wizard/v4-api-creation-wizard.md).
 
 When you are done, make sure to redeploy the API for your changes to take effect.
@@ -38,7 +38,7 @@ When you are done, make sure to redeploy the API for your changes to take effect
 
 After you've configured your endpoints, you can modify or delete existing endpoint groups, or add new ones:
 
-<figure><img src="../../../../../.gitbook/assets/endpoint groups v4 message api backend.png" alt=""><figcaption><p>Edit endpoint groups</p></figcaption></figure>
+<figure><img src="../../../../../../../../.gitbook/assets/endpoint groups v4 message api backend (1).png" alt=""><figcaption><p>Edit endpoint groups</p></figcaption></figure>
 
 * **Modify:** To modify an endpoint group, click **Edit** to the right of the group name.
 * **Delete:** To delete an endpoint group, click **Delete** to the right of the group name&#x65;**.** You will be prompted to confirm deletion of the endpoint group. If only one endpoint group exists, you will not have the option to delete it.
@@ -52,11 +52,11 @@ When you are done, make sure to redeploy the API for your changes to take effect
 
 Within an endpoint group, clicking `Add Endpoint` toggles `Inherit configuration from the endpoint group` to ON by default:
 
-<figure><img src="../../../../../.gitbook/assets/default behavior toggle to inherit.png" alt=""><figcaption><p>Toggle to inherit endpoint configuration</p></figcaption></figure>
+<figure><img src="../../../../../../../../.gitbook/assets/default behavior toggle to inherit (1).png" alt=""><figcaption><p>Toggle to inherit endpoint configuration</p></figcaption></figure>
 
 If an endpoint is added to the endpoint group, it will inherit the group's configuration by default. This allows an API publisher to quickly add new endpoints with the same settings and behavior as other endpoints in the group.
 
-If `Inherit configuration from the endpoint group` is toggled OFF, changes can be made to the new endpoint's configuration. When these changes are saved, the configuration is updated.&#x20;
+If `Inherit configuration from the endpoint group` is toggled OFF, changes can be made to the new endpoint's configuration. When these changes are saved, the configuration is updated.
 
 If `Inherit configuration from the endpoint group` remains OFF, the updated values will persist. Subsequent updates to the group’s default configuration will not override this endpoint's configuration once it has been modified to no longer inherit from the group.
 
@@ -66,4 +66,4 @@ If `Inherit configuration from the endpoint group` remains OFF, the updated valu
 * If the configuration of an endpoint group is updated, all the endpoints with `Inherit configuration from the endpoint group` enabled will be similarly updated and remain static.
 * By default, the API will use the first endpoint group listed. This is indicated by the **Default** badge next to the group name. You can click the up/down arrow keys to reorder the endpoint groups and assign a different default:
 
-<figure><img src="../../../../../.gitbook/assets/default endpoint group (1).png" alt=""><figcaption><p>Default endpoint group</p></figcaption></figure>
+<figure><img src="../../../../../../../../.gitbook/assets/default endpoint group (1) (1).png" alt=""><figcaption><p>Default endpoint group</p></figcaption></figure>

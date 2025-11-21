@@ -14,7 +14,7 @@ This page explains how to transform an online SOAP service that converts the tem
 
 Here is the SOAP Endpoint and the SOAP Action:
 
-* SOAP Endpoint (POST):  [https://www.w3schools.com/xml/tempconvert.asmx](https://www.w3schools.com/xml/tempconvert.asmx)
+* SOAP Endpoint (POST): [https://www.w3schools.com/xml/tempconvert.asmx](https://www.w3schools.com/xml/tempconvert.asmx)
 * SOAP Action: [https://www.w3schools.com/xml/tempconvert.asmx?op=CelsiusToFahrenheit](https://www.w3schools.com/xml/tempconvert.asmx?op=CelsiusToFahrenheit)
 
 Here is an example using the `curl` command to call the SOAP service:
@@ -58,21 +58,21 @@ When you complete this payload/message transformation task, you can use Gravitee
 
 `{ “celsius” : <integer> }`
 
-2. &#x20;Define the JSON response. Here is an example of the JSON response:
+2. Define the JSON response. Here is an example of the JSON response:
 
 `{ “result” : <integer> }`
 
 ## Creating a new Common Flow
 
-Within your API's Policy Studio, create a new Common flow. This flow must have a condition that it is triggered if the request is of only 'JSON' type.  A Common flow is not tied to any individual plan. Under the correct conditions, the common flow is triggered regardless if you have secured your API with a keyless plan or JWT/OAuth.
+Within your API's Policy Studio, create a new Common flow. This flow must have a condition that it is triggered if the request is of only 'JSON' type. A Common flow is not tied to any individual plan. Under the correct conditions, the common flow is triggered regardless if you have secured your API with a keyless plan or JWT/OAuth.
 
-To create a Common flow, complete the following steps:&#x20;
+To create a Common flow, complete the following steps:
 
-1. Within your API's Policy Studio, navigate to **Common flows**, and then click the plus button.![](<../../.gitbook/assets/image (61).png>)
+1. Within your API's Policy Studio, navigate to **Common flows**, and then click the plus button.![](<../../../../../.gitbook/assets/image (52) (1).png>)
 2. Name the flow. For example,JSON Request?
-3. &#x20;Specify the required condition. For example,  `{#request.headers['Content-Type'][0] == 'application/json'}`.
+3. Specify the required condition. For example, `{#request.headers['Content-Type'][0] == 'application/json'}`.
 
-<figure><img src="../../.gitbook/assets/image (62).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (53) (1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 ## Transforming the payload
 
@@ -83,7 +83,7 @@ When you create the JSON-specific flow, you transform your payload. To transform
 
 ### **Transforming the request payload**
 
-The backend service is only SOAP. You must transform the incoming JSON request to a SOAP envelope. You can use the “REST to SOAP Transformer” policy to pull in any JSON attributes from the request payload into the SOAP envelope.&#x20;
+The backend service is only SOAP. You must transform the incoming JSON request to a SOAP envelope. You can use the “REST to SOAP Transformer” policy to pull in any JSON attributes from the request payload into the SOAP envelope.
 
 To transform the incoming JSON request to a SOAP envelope, complete these steps:
 
@@ -129,12 +129,12 @@ curl -L 'http://localhost:8082/tempconvert-v4' \
 
 ### Transforming the payload response
 
-You must transform the SOAP response into a JSON response, and then extract just the single \<CelsiusToFahrenheitResult> value from the SOAP envelope.  In the “Response phase”, you can use the “XML to JSON” policy and the “JSON to JSON Transformation” policy to complete the transformation.&#x20;
+You must transform the SOAP response into a JSON response, and then extract just the single \<CelsiusToFahrenheitResult> value from the SOAP envelope. In the “Response phase”, you can use the “XML to JSON” policy and the “JSON to JSON Transformation” policy to complete the transformation.
 
 To transform the SOAP response into a JSON response, complete the following steps:
 
 1. Add the “XML to JSON” policy.
-2. Add the “JSON to JSON Transformation” policy, and define the JOLT specification for the transformation.  Here is an example: of the JOLT specification:
+2. Add the “JSON to JSON Transformation” policy, and define the JOLT specification for the transformation. Here is an example: of the JOLT specification:
 
 ```json
 [
@@ -171,9 +171,9 @@ curl -L 'http://localhost:8082/tempconvert-v4' \
 
 You must ensure that the incoming JSON request actually matches our defined payload. To validate the incoming JSON payload, complete the following steps:
 
-1. In the "Request" phase and before you add the “REST to SOAP Transformer” policy, click on the “+” button to add a new policy. &#x20;
+1. In the "Request" phase and before you add the “REST to SOAP Transformer” policy, click on the “+” button to add a new policy.
 2. Select the “JSON Validation” policy.
-3. (Optional) Specify a custom error message. Here is an example HTTP  error message:  `Bad message.  You must provide the celsius key/value in JSON.  Example: { "celsius" : 20 }`
+3. (Optional) Specify a custom error message. Here is an example HTTP error message: `Bad message. You must provide the celsius key/value in JSON. Example: { "celsius" : 20 }`
 4. Specify the JSON Schema that you want all incoming requests to comply to. Here is an example JSON schema:
 
 ```

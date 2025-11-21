@@ -6,19 +6,19 @@ noIndex: true
 
 With Auth0 as your IdP, you will need to create an `Application` to handle authentication requests from Ambassador Edge Stack.
 
-1.  Navigate to Applications and Select "CREATE APPLICATION"\
+1.  Navigate to Applications and Select "CREATE APPLICATION"
 
 
     <figure><img src="../../.gitbook/assets/00 aes 9.png" alt=""><figcaption></figcaption></figure>
-2.  In the pop-up window, give the application a name and create a "Machine to Machine App"\
+2.  In the pop-up window, give the application a name and create a "Machine to Machine App"
 
 
     <figure><img src="../../.gitbook/assets/00 aes 10.png" alt=""><figcaption></figcaption></figure>
-3.  Select the Auth0 Management API. Grant any scope values you may require. (You may grant none.) The API is required so that an `audience` can be specified which will result in a JWT being returned rather than opaque token. A custom API can also be used.\
+3.  Select the Auth0 Management API. Grant any scope values you may require. (You may grant none.) The API is required so that an `audience` can be specified which will result in a JWT being returned rather than opaque token. A custom API can also be used.
 
 
     <figure><img src="../../.gitbook/assets/00 aes 11.png" alt=""><figcaption></figcaption></figure>
-4.  In your newly created application, click on the Settings tab, add the Domain and Callback URLs for your service and ensure the "Token Endpoint Authentication Method" is set to `Post`. The default YAML installation of Ambassador Edge Stack uses `/.ambassador/oauth2/redirection-endpoint` for the URL, so the values should be the domain name that points to Ambassador Edge Stack, e.g., `example.com/.ambassador/oauth2/redirection-endpoint` and `example.com`.\
+4.  In your newly created application, click on the Settings tab, add the Domain and Callback URLs for your service and ensure the "Token Endpoint Authentication Method" is set to `Post`. The default YAML installation of Ambassador Edge Stack uses `/.ambassador/oauth2/redirection-endpoint` for the URL, so the values should be the domain name that points to Ambassador Edge Stack, e.g., `example.com/.ambassador/oauth2/redirection-endpoint` and `example.com`.
 
 
     <figure><img src="../../.gitbook/assets/00 aes 12.png" alt=""><figcaption></figcaption></figure>

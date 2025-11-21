@@ -26,7 +26,7 @@ Historically, the GKO only supported v2 APIs. Now, v4 APIs are also supported.
 {% hint style="info" %}
 **Dedicated CRDs**
 
-v2 and v4 APIs will each have a dedicated CRD. \
+v2 and v4 APIs will each have a dedicated CRD. 
 
 {% endhint %}
 
@@ -36,7 +36,7 @@ As of Gravitee 4.4, you can use the GKO for the following kinds of v4 API config
 * **API documentation**: create and upload API documentation for your v4 APIs&#x20;
 * **Categories**: define categories for your APIs, so that your API consumers can better sort through and discover the APIs that they need
 
-You can also now export an existing V4 API in Gravitee API Management as a GKO custom resource definition (CRD) so that you can start using the GKO to manage any APIs that you may have already created using Gravitee. This is great for teams that might want to start in the Management console GUI and then move towards a more GitOps-oriented approach, which is where the GKO really shines.\
+You can also now export an existing V4 API in Gravitee API Management as a GKO custom resource definition (CRD) so that you can start using the GKO to manage any APIs that you may have already created using Gravitee. This is great for teams that might want to start in the Management console GUI and then move towards a more GitOps-oriented approach, which is where the GKO really shines.
 
 
 The GKO user documentation has also undergone a major rework to improve quality and coverage, and it now occupies its own space at the root of the Gravitee user documentation alongside its siblings like APIM and AM.

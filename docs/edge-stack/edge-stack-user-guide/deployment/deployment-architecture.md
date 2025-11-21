@@ -16,7 +16,7 @@ In an on-premise data center, Ambassador Edge Stack is deployed on the Kubernete
 
 ## Hybrid data center
 
-Many data centers include services that are running outside of Kubernetes on virtual machines. For Ambassador Edge Stack to route to services both inside and outside of Kubernetes, it needs the real-time network location of all services. This problem is known as "[service discovery](https://www.datawire.io/guide/traffic/service-discovery-microservices/)" and Ambassador Edge Stack supports using [Consul](https://www.consul.io). Services in your data center register themselves with Consul, and Ambassador Edge Stack uses Consul-supplied data to dynamically route requests to available services.
+Many data centers include services that are running outside of Kubernetes on virtual machines. For Ambassador Edge Stack to route to services both inside and outside of Kubernetes, it needs the real-time network location of all services. This problem is known as "service discovery" and Ambassador Edge Stack supports using [Consul](https://www.consul.io). Services in your data center register themselves with Consul, and Ambassador Edge Stack uses Consul-supplied data to dynamically route requests to available services.
 
 ## Hybrid on-premise data center
 

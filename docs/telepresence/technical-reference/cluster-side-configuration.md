@@ -126,7 +126,7 @@ If your cluster is on an isolated network such that it cannot communicate with A
 
 #### Create a license
 
-1. Log in and Go to [the teams setting page in Ambassador Cloud](https://auth.datawire.io/redirects/settings/telepresence-licenses) and select _Telepresence Licenses_ for the team you want to create the license for.
+1. Log in and Go to the teams setting page in Ambassador Cloud and select _Telepresence Licenses_ for the team you want to create the license for.
 2. Generate a new license (if one doesn't already exist) by clicking _Generate New License_.
 3.  You will be prompted for your Namespace ID. Ensure your kubeconfig context is using the cluster you want to create a license for then run this command to generate the Namespace ID:
 
@@ -208,7 +208,7 @@ You only need to do one of the two options.
 
 Users will now be able to use preview intercepts with the `--preview-url=false` flag. Even with the license key, preview URLs cannot be used without enabling direct communication with Ambassador Cloud, as Ambassador Cloud is essential to their operation.
 
-If using Helm to install the server-side components, see the chart's [README](https://github.com/telepresenceio/telepresence/tree/release/v2/charts/telepresence) to learn how to configure the image registry and license secret.
+If using Helm to install the server-side components, see the chart's README to learn how to configure the image registry and license secret.
 
 ### Mutating Webhook
 

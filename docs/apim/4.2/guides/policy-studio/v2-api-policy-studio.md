@@ -28,7 +28,7 @@ Flows can be added to existing v2 APIs, which are accessed by selecting **APIs**
 
 You're now in the **Design** section of the Policy Studio. Here, you can create flows by adding policies to the request and/or response phases and target them by path, HTTP method(s), or via [Gravitee's Expression Language](../gravitee-expression-language.md). You can create multiple flows, each with different policies and applied to different parts of an API. Flows can also be associated with specific plans or exist at the API-level as shown below:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-06-09 at 2.10.06 PM.png" alt=""><figcaption><p>v2 Policy Studio example</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Screenshot 2023-06-09 at 2.10.06 PM (1).png" alt=""><figcaption><p>v2 Policy Studio example</p></figcaption></figure>
 
 The sample Gateway API shown above has three plans: Keyless Plan, Premium API Key Plan, and Premium JWT Plan. Flows can be set to target subscribers of any of these three plans, or they can target all users of the API when placed under the **Flows** section, e.g., the Assign Metrics Flow.
 
@@ -38,7 +38,7 @@ As an example, let's create a flow that targets all users of the API.
 
 First, find the **Flows** section and select the **+** icon to create a flow. Before adding policies to the flow, you'll need to configure the flow using the **Flow Configuration** module with the options shown below.
 
-<figure><img src="../../.gitbook/assets/v2_flow_config.png" alt=""><figcaption><p>Sample flow configuration</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/v2_flow_config (1).png" alt=""><figcaption><p>Sample flow configuration</p></figcaption></figure>
 
 * **Name:** Give your flow a descriptive name. If you don't, a name will be automatically generated using the path and methods.
 * **Operator path:** For the provided **Path**, apply this flow to requests with a path that **Equals** or **Starts with** the same path.
@@ -52,11 +52,11 @@ To add a policy to the flow, drag-and-drop the policy that you want to enforce o
 
 Once you've added your policy, you can edit that policy by selecting the policy and using the configuration menu below the flow map. After you configure the policy, select the **checkmark icon**, and then **Save** in the pop-up to save the policy settings.
 
-<figure><img src="../../.gitbook/assets/v2_policy_config.png" alt=""><figcaption><p>Configure a policy</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/v2_policy_config (1).png" alt=""><figcaption><p>Configure a policy</p></figcaption></figure>
 
 Whenever you edit a flow, like when you configure a policy, you'll need to redeploy your API to the Gateway for the changes to take effect. You'll see a bar appear at the top of the flow designer that says **API out of sync, deploy your API.** Select the hyperlinked **deploy your API** text, and you'll be met with a modal that asks you to provide a label to define and describe your deployment. When you are done, select **OK** to deploy/redeploy your API with the new flow and policy.
 
-<figure><img src="../../.gitbook/assets/redeploy_api.png" alt=""><figcaption><p>Redeploy API after configuring flow</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/redeploy_api (1).png" alt=""><figcaption><p>Redeploy API after configuring flow</p></figcaption></figure>
 
 #### Example: Add a Rate Limit policy
 
@@ -97,7 +97,7 @@ If the request is `/test/55`, the resulting flow will be `/test/:id`. If the req
 
 To modify the flow mode, select the **Configuration** tab and change the **Flow Mode** to either **DEFAULT** or **BEST\_MATCH** using the **Flow Mode** drop-down.
 
-<figure><img src="../../.gitbook/assets/Configure flow mode.png" alt=""><figcaption><p>v2 Policy Studio: Configure flow mode</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Configure flow mode (1).png" alt=""><figcaption><p>v2 Policy Studio: Configure flow mode</p></figcaption></figure>
 
 ## API properties
 
@@ -105,7 +105,7 @@ Properties allow you to define key-value pairs at the Gateway API level. These p
 
 API properties are set and configured in the **Properties** tab. You can specify properties one by one, or toggle from **Simple** to **Expert** mode and paste property definitions into an editor in the format `<key>=<value>`.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-06-12 at 7.11.41 AM.png" alt=""><figcaption><p>API properties expert format</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/v2 properties (1).png" alt=""><figcaption><p>API properties expert format</p></figcaption></figure>
 
 ### Encryption
 
@@ -132,13 +132,13 @@ api:
 The secret must be **32 bytes in length.**
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-06-12 at 7.45.12 AM.png" alt=""><figcaption><p>Encrypted API property</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/v2 encrypted property (1).png" alt=""><figcaption><p>Encrypted API property</p></figcaption></figure>
 
 ### **Dynamic properties**
 
 You can also configure dynamic properties by clicking **CONFIGURE DYNAMIC PROPERTIES**. Dynamic properties are fetched from a remote server on a regular schedule and subsequently updated according to the details you specify.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-06-12 at 7.15.36 AM.png" alt=""><figcaption><p>Dynamic properties configuration screen</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/v2 dynamic properties (1).png" alt=""><figcaption><p>Dynamic properties configuration screen</p></figcaption></figure>
 
 To configure dynamic properties:
 
@@ -161,7 +161,7 @@ In this example, we want our Gateway API to query our shop databases to check th
 
 The first step is to define a list of properties for the shops, with each unique shop ID as the key and the URL of the shop as the value.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-06-12 at 7.20.12 AM.png" alt=""><figcaption><p>Add API properties</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/v2 dynamic properties example 1 (1).png" alt=""><figcaption><p>Add API properties</p></figcaption></figure>
 
 We then configure a dynamic routing policy for the API with a routing rule which builds a new URL dynamically through property matching. The URL is created with a `#properties` statement which matches properties returned by querying the request header containing the shop ID.
 
@@ -187,7 +187,7 @@ Some policies support the addition of resources, which can be used for actions s
 * **HTTP signature policies**: Specify your HTTP Authentication Provider resource
 * **Basic authentication:** Specify an LDAP Authentication Provider resource and/or an Inline Authentication Provider resource to authenticate users in memory
 
-<figure><img src="../../.gitbook/assets/Confluent schema registry.png" alt=""><figcaption><p>Resources: Confluent Schema Registry</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Confluent schema registry (1).png" alt=""><figcaption><p>Resources: Confluent Schema Registry</p></figcaption></figure>
 
 After you create these resources, you will be able to reference them when designing policies in the **Design** tab.
 
@@ -239,7 +239,7 @@ To debug your flows:
 
 Gravitee will initiate a test request, and then you will be presented with a timeline that shows the order of your flows and policies.
 
-<figure><img src="../../.gitbook/assets/Debug mode timeline.png" alt=""><figcaption><p>Debug mode timeline</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Debug mode timeline (1).png" alt=""><figcaption><p>Debug mode timeline</p></figcaption></figure>
 
 ### Understanding different indicators for policies
 

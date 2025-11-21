@@ -9,7 +9,7 @@ description: >-
 ## Introduction
 
 {% hint style="warning" %}
-When you create an API with a JSON payload that has duplicate keys, APIM keeps the last key.&#x20;
+When you create an API with a JSON payload that has duplicate keys, APIM keeps the last key.
 
 To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection.md](../../policy-studio/policies-for-your-apis/i-k/json-threat-protection.md "mention").
 {% endhint %}
@@ -18,7 +18,7 @@ In Gravitee, your API definition is a JSON representation of your Gateway API. T
 
 ## Access the API creation wizard
 
-To create a v2 API in Gravitee:&#x20;
+To create a v2 API in Gravitee:
 
 1. Log in to your APIM Console
 2. Select **APIs** tab from the left nav
@@ -44,13 +44,13 @@ Optionally, you can select the **Advanced mode** hyperlink in the top right corn
 
 Define your **Backend**, which is the target backend where the request will be received.
 
-Optionally, you can select **Advanced mode** to define **Tenants** and/or **Sharding tags** for this API. These specify the Gateways to which the API is deployed.&#x20;
+Optionally, you can select **Advanced mode** to define **Tenants** and/or **Sharding tags** for this API. These specify the Gateways to which the API is deployed.
 
 {% hint style="info" %}
 Refer to [Tenants](../../../using-the-gravitee-api-management-components/general-configuration/tenants.md) and/or [Sharding tags](../../../using-the-gravitee-api-management-components/general-configuration/sharding-tags.md) for more information.
 {% endhint %}
 
-<figure><img src="../../../../.gitbook/assets/Screen Shot 2023-06-07 at 1.35.16 PM.png" alt=""><figcaption><p>Define your API Gateway settings</p></figcaption></figure>
+<figure><img src="../../../../../../../.gitbook/assets/Screen Shot 2023-06-07 at 1.35.16 PM (1).png" alt=""><figcaption><p>Define your API Gateway settings</p></figcaption></figure>
 
 ## Step 3: Plan
 
@@ -62,7 +62,7 @@ The API creation wizard allows you to create either an **API key** or **Keyless*
 * A **quota**: Sets the maximum number of API requests that may occur during the specified number of hours, days, weeks, or months
 * **Resource filtering**: Allows you to filter resources based on whitelists and blacklists
 
-<figure><img src="../../../../.gitbook/assets/Screen Shot 2023-06-07 at 1.43.11 PM.png" alt=""><figcaption><p>v2 API creation wizard: Plans</p></figcaption></figure>
+<figure><img src="../../../../../../../.gitbook/assets/Screen Shot 2023-06-07 at 1.43.11 PM (1).png" alt=""><figcaption><p>v2 API creation wizard: Plans</p></figcaption></figure>
 
 Gravitee offers additional plan features that are not configured in the API creation wizard. For more in-depth information on plans, refer to the [plans documentation](../../preparing-apis-for-subscribers/plans/README.md).
 
@@ -72,7 +72,7 @@ Once you have defined your plan, click **NEXT**.
 
 On the **Documentation** page you can upload your API's documentation as a file. Creating documentation is optional.
 
-<figure><img src="../../../../.gitbook/assets/Screen Shot 2023-06-07 at 1.43.58 PM.png" alt=""><figcaption><p>v2 API creation wizard: Documentation</p></figcaption></figure>
+<figure><img src="../../../../../../../.gitbook/assets/Screen Shot 2023-06-07 at 1.43.58 PM (1).png" alt=""><figcaption><p>v2 API creation wizard: Documentation</p></figcaption></figure>
 
 ## Step 5: Deployment
 

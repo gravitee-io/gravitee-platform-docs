@@ -34,7 +34,8 @@ To use `docker-compose` to set up an integration between Gravitee APIM and Hashi
 
 1.  Edit the `docker-compose.yml` used to install Gravitee and declare an additional service for the Consul server. The example below declares a read-only volume to mount the directory containing Consul configuration files.
 
-    {% code overflow="wrap" %}
+    \{% code overflow="wrap" %\}
+
     ```bash
     consul-server:
         image: hashicorp/consul:1.15.4
@@ -50,10 +51,12 @@ To use `docker-compose` to set up an integration between Gravitee APIM and Hashi
         networks:
          - storage
     ```
-    {% endcode %}
+
+    \{% endcode %\}
 2.  Consul containers load their configuration from `/consul/config/` at startup. Use the `server.json` below to initialize the Consul server:
 
-    {% code overflow="wrap" %}
+    \{% code overflow="wrap" %\}
+
     ```bash
     {
       "node_name": "consul-server",
@@ -68,7 +71,8 @@ To use `docker-compose` to set up an integration between Gravitee APIM and Hashi
       }
     }
     ```
-    {% endcode %}
+
+    \{% endcode %\}
 
     * `server=true` indicates that this Consul agent should run in server mode
     * Consul’s web UI is enabled by setting the `enabled` sub-key of the `ui_config` attribute to `true`
@@ -98,20 +102,23 @@ curl -X PUT -d '{ "ID": "whattimeisit_1", "Name": "whattimeisit", "Address": "ap
 
 The Consul web UI should display a new service named `whattimeisit`:
 
-<figure><img src="../../../../.gitbook/assets/service-discovery-consul-services.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../../../.gitbook/assets/service-discovery-consul-services (1).png" alt=""><figcaption></figcaption></figure>
 
-You can also verify that your service is successfully registered in Consul by interacting with Consul Agent API.&#x20;
+You can also verify that your service is successfully registered in Consul by interacting with Consul Agent API.
 
 1.  Run the command below:
 
-    {% code overflow="wrap" %}
+    \{% code overflow="wrap" %\}
+
     ```bash
     curl "http://localhost:8500/v1/agent/services"
     ```
-    {% endcode %}
+
+    \{% endcode %\}
 2.  Verify the following response is returned:
 
-    {% code overflow="wrap" %}
+    \{% code overflow="wrap" %\}
+
     ```json
     {
       "whattimeisit_1": {
@@ -133,7 +140,8 @@ You can also verify that your service is successfully registered in Consul by in
       }
     }
     ```
-    {% endcode %}
+
+    \{% endcode %\}
 
 To test that incoming requests on the APIM Gateway are dynamically routed to different service instances, register another instance for service `whattimeisit` that serves another client with `gravitee_path` set to `/echo`:
 
@@ -172,16 +180,16 @@ To enable HashiCorp Consul service discovery in your APIM Console:
 1. Log in to your APIM Console
 2. Select **APIs** from the left nav
 3. Select your API
-4.  Select **Endpoints** from the **Backend services** section of the inner left nav&#x20;
+4.  Select **Endpoints** from the **Backend services** section of the inner left nav
 
-    <figure><img src="../../../../.gitbook/assets/v2 service discovery_endpoints.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../../../../.gitbook/assets/v2 service discovery_endpoints (1).png" alt=""><figcaption></figcaption></figure>
 5. Click **Edit group**
 6. Click on the **Service discovery** tab
-7.  Toggle **Enabled service discovery** ON, then configure the following:&#x20;
+7.  Toggle **Enabled service discovery** ON, then configure the following:
 
-    <figure><img src="../../../../.gitbook/assets/v2 service discovery_configure.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../../../../.gitbook/assets/v2 service discovery_configure (1).png" alt=""><figcaption></figcaption></figure>
 
-    * **Type:** Select **Consul.io Service Discovery** from the drop-down menu&#x20;
+    * **Type:** Select **Consul.io Service Discovery** from the drop-down menu
     * **Service:** Enter the name of the service registered in Consul, e.g., "whattimeisit"
     * **DC:** Enter the Consul data center name. This is an optional part of the Fully Qualified Domain Name (FQDN). Refer to [this documentation](https://developer.hashicorp.com/consul/docs/architecture) for more details.
     * **ACL:** Provide the ACL token if you’ve secured the access to Consul. For more information on how to setup ACLs, refer to [this ACL tutorial](https://developer.hashicorp.com/consul/tutorials/security/access-control-setup-production).
@@ -193,25 +201,25 @@ To enable HashiCorp Consul service discovery in your APIM Console:
 9. Redeploy your API
 
 {% hint style="info" %}
-The endpoints dynamically discovered through Consul are not displayed in the APIM Console and do not replace endpoints that were previously configured. The Gateway will continue to use pre-existing endpoints in addition to those discovered via Consul.&#x20;
+The endpoints dynamically discovered through Consul are not displayed in the APIM Console and do not replace endpoints that were previously configured. The Gateway will continue to use pre-existing endpoints in addition to those discovered via Consul.
 {% endhint %}
 
 ## Secondary endpoints
 
-APIM requires that at least one endpoint is defined in the Console, but this endpoint can be declared as secondary. Secondary endpoints are not included in the load-balancer pool and are only selected to handle requests if Consul is no longer responding.&#x20;
+APIM requires that at least one endpoint is defined in the Console, but this endpoint can be declared as secondary. Secondary endpoints are not included in the load-balancer pool and are only selected to handle requests if Consul is no longer responding.
 
 To declare an endpoint as secondary:
 
 1. Log in to your APIM Console
 2. Select **APIs** from the left nav
 3. Select your API
-4.  Select **Endpoints** from the **Backend services** section of the inner left nav&#x20;
+4.  Select **Endpoints** from the **Backend services** section of the inner left nav
 
-    <figure><img src="../../../../.gitbook/assets/v2 service discovery_endpoints.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../../../../.gitbook/assets/v2 service discovery_endpoints (1).png" alt=""><figcaption></figcaption></figure>
 5. Click the pencil icon next to the endpoint you want to make secondary
 6.  Under the **General** tab, click the box next to **Secondary endpoint**
 
-    <figure><img src="../../../../.gitbook/assets/v2 service discovery_secondary endpoint.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../../../../.gitbook/assets/v2 service discovery_secondary endpoint (1).png" alt=""><figcaption></figcaption></figure>
 7. Click **Save**
 
 ## **Verification**
@@ -222,12 +230,14 @@ To confirm service discovery:
 
 1.  Check the API Gateway’s logs to verify that your service has been successfully found by HashiCorp Consul:
 
-    {% code overflow="wrap" %}
+    \{% code overflow="wrap" %\}
+
     ```bash
     INFO  i.g.a.p.a.s.c.ConsulServiceDiscoveryService - Starting service discovery service for api my-api.
     INFO  i.g.g.r.c.v.e.DefaultEndpointManager - Start endpoint [consul#whattimeisit_1] for group [default-group]
     ```
-    {% endcode %}
+
+    \{% endcode %\}
 2. Try to call your API to ensure incoming API requests are routed to the appropriate backend service.
 
 ### Observe traffic routing
@@ -246,5 +256,5 @@ To observe how APIM dynamically routes traffic based on Consul’s Service Catal
 
 Consider enabling health-checks for your API to view the status of all endpoints, including the endpoints managed by HashiCorp Consul. For more information on how to enable Gravitee health-checks, refer to [this documentation](load-balancing-failover-and-health-checks.md#configure-gravitee-health-checks).
 
-<img src="../../../../.gitbook/assets/enable health check to monitor backend endpoints managed by Hashicorp Consul.png" alt="" data-size="original">
+<img src="../../../../../../images/apim/3.x/api-publisher-guide/service-discovery/service-discovery-consul-healthcheck (1).png" alt="" data-size="original">
 {% endhint %}

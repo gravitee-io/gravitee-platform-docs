@@ -40,52 +40,48 @@ Since APIM 4.4.27, RPM packages are signed with GPG. To verify the packages, use
 2. Refresh the local cache using the following command:
 
 {% code overflow="wrap" %}
-````
-```sh
-sudo yum -q makecache -y --disablerepo='*' --enablerepo='graviteeio'
 ```
-````
+```
 {% endcode %}
+
+\`\`\`\` \`\`\`sh sudo yum -q makecache -y --disablerepo='\*' --enablerepo='graviteeio' \`\`\` \`\`\`\` \{% endcode %\}
 
 ## Installing Gravitee’s API Management
 
 There are two methods that you can use to install Gravitee’s API Management (APIM):
 
-* Quick install. You install all the prerequisites that you need to run Gravitee’s APIM and the full APIM stack.&#x20;
+* Quick install. You install all the prerequisites that you need to run Gravitee’s APIM and the full APIM stack.
 * Manual install. You control the installation of the prerequisites that you need to run APIM. Also, you control the installation of the individual components of the APIM stack
 
-{% hint style="warning" %}
-An SELinux configuration issue can prevent Nginx from opening on ports 8084/8085. To correct this:
+\{% hint style="warning" %\} An SELinux configuration issue can prevent Nginx from opening on ports 8084/8085. To correct this:
 
 1. Validate that the port is not listed here:
 
-{% code overflow="wrap" %}
+\{% code overflow="wrap" %\}
+
 ````
 ```sh
 # semanage port -l | grep http_port_t
 http_port_t                    tcp      80, 81, 443, 488, 8008, 8009, 8443, 9000
 ```
 ````
-{% endcode %}
+
+\{% endcode %\}
 
 2.  Add the port to bind to, e.g., 8084:
 
-    ```sh
-    # semanage port -a -t http_port_t  -p tcp 8084
-    ```
-3. Validate that the port is listed:
+    \`
+
+\`\`sh # semanage port -a -t http\_port\_t -p tcp 8084 \`\`\` 3. Validate that the port is listed:
 
 {% code overflow="wrap" %}
-````
-```sh
-# semanage port -l | grep http_port_t
-http_port_t                    tcp      8084, 80, 81, 443, 488, 8008, 8009, 8443, 9000
 ```
-````
+```
 {% endcode %}
 
-4. Restart Nginx
-{% endhint %}
+\`\`\`\` \`\`\`sh # semanage port -l | grep http\_port\_t http\_port\_t tcp 8084, 80, 81, 443, 488, 8008, 8009, 8443, 9000 \`\`\` \`\`\`\` \{% endcode %\}
+
+4. Restart Nginx \{% endhint %\}
 
 ### Install the full APIM stack
 
@@ -93,16 +89,17 @@ http_port_t                    tcp      8084, 80, 81, 443, 488, 8008, 8009, 8443
 
 <summary>Installing Gravitee API Management on Linux with Quick install</summary>
 
-#### Prerequisites
+**Prerequisites**
 
 Before you install the full APIM stack, you must complete the following configuration.
 
 1. Install Nginx using the following commands:
 
-```bash
-sudo yum install epel-release
-sudo yum install nginx
-```
+\`
+
+\`\`bash sudo yum install epel-release sudo yum install nginx
+
+````
 
 2. You can install Gravitee’s APIM stack with dependencies or without dependencies. To install Gravitee’s APIM with dependencies or without dependencies complete the following steps:
 
@@ -110,7 +107,7 @@ sudo yum install nginx
 
 ```bash
 sudo yum install graviteeio-apim-4x
-```
+````
 
 * To install Gravitee’s APIM stack with dependencies, use the following command:
 
@@ -126,7 +123,7 @@ sudo systemctl start graviteeio-apim-gateway graviteeio-apim-rest-api
 sudo systemctl restart nginx
 ```
 
-#### Verification
+**Verification**
 
 To verify that you installed Gravitee’s APIM correctly, send four API calls using the following commands:
 
@@ -147,7 +144,7 @@ $ curl -X GET http://localhost:8085/
 Gravitee's [Installation & Upgrade Guides](../README.md) provide information about how you install Gravitee components. For prerequisite documentation on third-party products like [MongoDB](https://www.mongodb.com/docs/v7.0/tutorial/install-mongodb-on-red-hat/) or [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/8.11/rpm.html), please visit their respective websites.
 {% endhint %}
 
-Depending on your environment's configuration, you can install only the APIM components that you want for your environment. Here are the components that you can install individually:&#x20;
+Depending on your environment's configuration, you can install only the APIM components that you want for your environment. Here are the components that you can install individually:
 
 <details>
 
@@ -179,11 +176,11 @@ sudo systemctl stop graviteeio-apim-gateway
 
 <summary>Install Management API</summary>
 
-#### Prerequisites
+**Prerequisites**
 
 The following steps assume you have configured your package management system as described in [Configure the package management system (yum).](install-on-red-hat-and-centos.md#configure-the-package-management-system-yum)
 
-#### Install the Management API package
+**Install the Management API package**
 
 To install the last stable version of the management API, run the following command:
 
@@ -191,7 +188,7 @@ To install the last stable version of the management API, run the following comm
 sudo yum install -y graviteeio-apim-rest-api-4x
 ```
 
-#### Run the management API
+**Run the management API**
 
 These steps assume that you are using the default settings.
 
@@ -211,7 +208,7 @@ $ sudo systemctl stop graviteeio-apim-rest-api
 
 These commands provide no feedback as to whether the Management API started successfully. This information is written to the log files located in `/opt/graviteeio/apim/rest-api/logs/`.
 
-#### View the logs
+**View the logs**
 
 When `systemd` logging is enabled, the logging information is available using the `journalctl` commands.
 
@@ -239,7 +236,7 @@ sudo journalctl --unit graviteeio-apim-rest-api --since  "2020-01-30 12:13:14"
 
 <summary>Install Management Console</summary>
 
-#### Prerequisites
+**Prerequisites**
 
 Before you install the Management Console, you must complete the following configuration.
 
@@ -252,7 +249,7 @@ $ sudo yum install epel-release
 $ sudo yum install nginx
 ```
 
-#### Install the Management Console package
+**Install the Management Console package**
 
 To install the last stable version of the Management Console, run the following command:
 
@@ -260,7 +257,7 @@ To install the last stable version of the Management Console, run the following 
 $ sudo yum install -y graviteeio-apim-management-ui-4x
 ```
 
-#### Run the Management Console
+**Run the Management Console**
 
 The Management Console is based on Nginx.
 
@@ -278,7 +275,7 @@ $ sudo systemctl start nginx
 $ sudo systemctl stop nginx
 ```
 
-#### View the logs
+**View the logs**
 
 When `systemd` logging is enabled, the logging information is available using the `journalctl` commands.
 
@@ -306,7 +303,7 @@ sudo journalctl --unit nginx --since  "2020-01-30 12:13:14"
 
 <summary>Install Developer Portal</summary>
 
-#### Prerequisites
+**Prerequisites**
 
 Before you install the Developer Portal, you must complete the following configuration.
 
@@ -319,7 +316,7 @@ $ sudo yum install epel-release
 $ sudo yum install nginx
 ```
 
-#### Install the Developer Portal package
+**Install the Developer Portal package**
 
 To install the last stable version of The Developer Portal , run the following command:
 
@@ -327,7 +324,7 @@ To install the last stable version of The Developer Portal , run the following c
 sudo yum install -y graviteeio-apim-portal-ui-4x
 ```
 
-#### Run the Developer Portal
+**Run the Developer Portal**
 
 The Developer Portal is based on Nginx.
 
@@ -345,7 +342,7 @@ $ sudo systemctl start nginx
 $ sudo systemctl stop nginx
 ```
 
-#### View the logs
+**View the logs**
 
 When `systemd` logging is enabled, the logging information is available using the `journalctl` commands.
 

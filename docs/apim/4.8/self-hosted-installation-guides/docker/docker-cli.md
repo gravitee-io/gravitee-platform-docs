@@ -118,7 +118,7 @@ This installation guide is for only development and quick start purposes. Do not
 Port 8072 is exposed for federation agent WebSocket connections. This port is required if you plan to use Federation features with agents.
 {% endhint %}
 
-8.  Install the Console using the following commands:\\
+8.  Install the Console using the following commands:
 
     ```bash
     docker pull graviteeio/apim-management-ui:latest
@@ -130,7 +130,7 @@ Port 8072 is exposed for federation agent WebSocket connections. This port is re
       --env MGMT_API_URL=http://localhost:8083/management/organizations/DEFAULT/environments/DEFAULT/ \
       --detach graviteeio/apim-management-ui:latest
     ```
-9.  Install the Developer portal using the following commands:\\
+9.  Install the Developer portal using the following commands:
 
     ```bash
     docker pull graviteeio/apim-portal-ui:latest

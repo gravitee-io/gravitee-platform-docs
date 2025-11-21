@@ -10,11 +10,11 @@ To expose your API to internal or external consumers, it must have at least one 
 
 Plans are always created by the API publisher. You can create plans in the Management Console as part of the [API creation process](../create-apis/README.md). You can also create them later with the **Portal > Plans** function as shown below.
 
-{% @arcade/embed flowId="L3b4AWtxtYkNE89ZiR2Y" url="https://app.arcade.software/share/L3b4AWtxtYkNE89ZiR2Y" %}
+{% @arcade/embed url="https://app.arcade.software/share/L3b4AWtxtYkNE89ZiR2Y" flowId="L3b4AWtxtYkNE89ZiR2Y" %}
 
 Creating a plan begins by navigating to your API, selecting **Plans** in the sidebar, and then selecting **Add new plan** in the top right of the page.
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 1.36.23 PM.png" alt=""><figcaption><p>Create a new plan</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Screen Shot 2023-03-15 at 1.36.23 PM (1).png" alt=""><figcaption><p>Create a new plan</p></figcaption></figure>
 
 This will take you to the plan creation wizard.
 
@@ -24,7 +24,7 @@ Creating a plan is broken down into three main stages:
 2. **Secure**
 3. **Restrictions**
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 1.37.47 PM.png" alt=""><figcaption><p>Plan creation wizard</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Screen Shot 2023-03-15 at 1.37.47 PM (1).png" alt=""><figcaption><p>Plan creation wizard</p></figcaption></figure>
 
 ### General
 
@@ -32,19 +32,19 @@ In the **General** stage, you enter basic details about your plan. The only requ
 
 The initial section lets you set a name, description, and characteristics for your plan. Characteristics are optional labels you can use to tag your plan.
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 12.49.56 PM.png" alt=""><figcaption><p>First step in plan creation</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Screen Shot 2023-03-15 at 12.49.56 PM (1).png" alt=""><figcaption><p>First step in plan creation</p></figcaption></figure>
 
 The next section in the **General** stage is **Conditions.** Here you can optionally select a page containing the general conditions for use of your plan. If included, these conditions must be accepted by the user to finalize the subscription process. To associate general conditions of use with a plan, you need to specify a markdown page where these conditions are specified.
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 12.55.52 PM.png" alt=""><figcaption><p>Selecting general conditions for your plan</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Screen Shot 2023-03-15 at 12.55.52 PM (1).png" alt=""><figcaption><p>Selecting general conditions for your plan</p></figcaption></figure>
 
 To create a general conditions plan, navigate to the **Documentation** page and select the plus icon in the bottom right. You must create a markdown page and publish it to use as the general conditions page of your plan.
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 12.57.42 PM.png" alt=""><figcaption><p>Creating general conditions for a plan</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Screen Shot 2023-03-15 at 12.57.42 PM (1).png" alt=""><figcaption><p>Creating general conditions for a plan</p></figcaption></figure>
 
 The **Subscriptions** section lets you configure basic settings around a subscription for plans requiring authentication.
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 1.07.37 PM.png" alt=""><figcaption><p>Basic subscription setting</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Screen Shot 2023-03-15 at 1.07.37 PM (1).png" alt=""><figcaption><p>Basic subscription setting</p></figcaption></figure>
 
 Toggling **Auto validate subscription** means you will accept any and all subscriptions to a plan without the API publisher's review. These subscriptions can be modified at any time.
 
@@ -52,7 +52,7 @@ You can require all subscription requests from API consumers to include a commen
 
 The final two sections in the **General** stage are **Deployment** and **Access-Control**.
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 1.10.04 PM.png" alt=""><figcaption><p>Deployment and Access-Control settings</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Screen Shot 2023-03-15 at 1.10.04 PM (1).png" alt=""><figcaption><p>Deployment and Access-Control settings</p></figcaption></figure>
 
 The **Deployment** section allows you to selectively deploy the plan to particular APIs using sharding tags which you can learn more about [here](../../getting-started/configuration/the-gravitee-api-gateway/sharding-tags.md).
 
@@ -62,7 +62,7 @@ The **Deployment** section allows you to selectively deploy the plan to particul
 
 During the **Secure** stage of plan creation, the API publisher selects one of five authentication types to secure their API. You can learn more about how to configure plan security in the [following section](plans.md#configure-plan-security).
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 1.49.42 PM.png" alt=""><figcaption><p>Select authentication type</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Screen Shot 2023-03-15 at 1.49.42 PM (1).png" alt=""><figcaption><p>Select authentication type</p></figcaption></figure>
 
 * **Keyless (public):** does _not_ require authentication and allows public access to the API. By default, keyless plans offer no security and are most useful for quickly and easily exposing your API to external users and getting their feedback.
 * **API Key:** only allows apps with approved API keys to access your API. This plan type ensures that API keys are valid, are not revoked or expired, and are approved to consume the specific resources associated with your API.
@@ -78,7 +78,7 @@ Push plans do _not_ apply to Server Sent Event entrypoints. Even though messages
 
 Restrictions are just policies to regulate access to your APIs. Like any policy, restrictions can also be applied to a plan through the design studio. You can learn more about configuring these particular policies here.
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 1.52.54 PM.png" alt=""><figcaption><p>Configure restrictions</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Screen Shot 2023-03-15 at 1.52.54 PM (1).png" alt=""><figcaption><p>Configure restrictions</p></figcaption></figure>
 
 * **Rate Limiting:** limit how many HTTP requests an application can make in a specified period of seconds or minutes. This policy is meant to help avoid unmanageable spikes in traffic.
 * **Quota:** specifies the number of requests allowed to call an API backend during a specified time interval. The policy is generally used to tier access to APIs based on subscription level.
@@ -106,7 +106,7 @@ There are some additional considerations when using a plan with JWT or OAuth 2.0
 
 The Keyless authentication type does _not_ require authentication and allows public access to the API. By default, keyless plans offer no security and are most useful for quickly and easily exposing your API to external users and getting their feedback. Due to not requiring a subscription and a lack of a consumer identifier token, keyless consumers are set as `unknown application` in the API analytics section.
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 1.39.10 PM.png" alt=""><figcaption><p>Keyless authentication type</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Screen Shot 2023-03-15 at 1.39.10 PM (1).png" alt=""><figcaption><p>Keyless authentication type</p></figcaption></figure>
 
 {% hint style="info" %}
 **Basic authentication and keyless plans**
@@ -125,11 +125,11 @@ When configuring API key authentication, there are two main options:
 * **Propagate API key to upstream API:** toggling this setting on ensures the request to the backend API includes the API key header sent by the API consumer. This is setting is useful for backend APIs that already have integrated API key authentication.
 * **Additional selection rule:** this setting allows you to use Gravitee Expression Language (EL) to filter by contextual data (request headers, tokens, attributes, etc.) for plans of the same type. For example, if you have two API key plans, you can set different selection rules on each plan to determine which plan handles each request.
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 3.22.29 PM.png" alt=""><figcaption><p>API key plan configuration</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Screen Shot 2023-03-15 at 3.22.29 PM (1).png" alt=""><figcaption><p>API key plan configuration</p></figcaption></figure>
 
 Typically, API keys are randomly generated for each subscription. However, Gravitee provides two other options for API key generation: custom API key and shared API key. Both of these settings can be enabled at the environment level by selecting **Settings** in the main sidebar and then selecting **Settings** again under the **Portal** group in the nested sidebar.
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 3.49.04 PM.png" alt=""><figcaption><p>API key generation settings</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Screen Shot 2023-03-15 at 3.49.04 PM (1).png" alt=""><figcaption><p>API key generation settings</p></figcaption></figure>
 
 #### Custom API key
 
@@ -141,15 +141,15 @@ You can provide a custom API key when:
 
 * Creating a subscription
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 3.54.21 PM.png" alt=""><figcaption><p>Manually creating a subscription</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Screen Shot 2023-03-15 at 3.54.21 PM (1).png" alt=""><figcaption><p>Manually creating a subscription</p></figcaption></figure>
 
 * Accepting a subscription
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 3.57.18 PM.png" alt=""><figcaption><p>Accepting a subscription</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Screen Shot 2023-03-15 at 3.57.18 PM (1).png" alt=""><figcaption><p>Accepting a subscription</p></figcaption></figure>
 
 * Renewing a subscription
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 3.58.35 PM.png" alt=""><figcaption><p>Renewing a subscription</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Screen Shot 2023-03-15 at 3.58.35 PM (1).png" alt=""><figcaption><p>Renewing a subscription</p></figcaption></figure>
 
 #### Shared API key
 
@@ -165,7 +165,7 @@ With this mode enabled, consumers will be asked on their application's second su
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-2-portal.png" alt=""><figcaption><p>Subscribing in the Developer Portal</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2023-03-16 at 11.44.51 AM.png" alt=""><figcaption><p>Subscribing in the management UI</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Screen Shot 2023-03-16 at 11.44.51 AM (1).png" alt=""><figcaption><p>Subscribing in the management UI</p></figcaption></figure>
 
 This choice is _permanent_ for that application and consumers will not be able to switch between application API key types after the initial decision.
 
@@ -209,7 +209,7 @@ Client IDs are used to recognize applications that have subscribed to either a J
 
 Configuring a JWT plan presents the following options:
 
-<figure><img src="../../.gitbook/assets/JWT plan configuration.png" alt=""><figcaption><p>JWT plan configuration</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/JWT plan configuration (1).png" alt=""><figcaption><p>JWT plan configuration</p></figcaption></figure>
 
 * **Signature:** select the algorithm used to hash and encrypt your JWT
 * **JSON Web Key Set (JWKS) resolver:** to validate the signature of the JWT, the Gateway needs to use the associated authorization server's JSON web key (JWK) which is often stored inside a JSON web key set (JWKS). Gravitee has three methods for providing the JWK:
@@ -248,7 +248,7 @@ To configure an OAuth 2.0 plan for an API, you need to first create an OAuth 2.0
 
 Configuring an OAuth 2.0 plan presents the following options:
 
-<figure><img src="../../.gitbook/assets/OAuth plan configuration.png" alt=""><figcaption><p>Configuring OAuth 2.0 plan</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/OAuth plan configuration (1).png" alt=""><figcaption><p>Configuring OAuth 2.0 plan</p></figcaption></figure>
 
 * **OAuth2 resource:** specify the name of the OAuth2 resource to use as the authorization server
 * **Cache resource:** optionally specify the name of the cache resource to store responses from the authorization server
@@ -294,11 +294,11 @@ After creating a plan, it's initially in the first of the four stages of a plan:
 Deprecating plans allow consumers of the API time to migrate without breaking their application while also ensuring new users do not subscribe to the deprecated plan.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-03-21 at 3.44.11 PM.png" alt=""><figcaption><p>Stages of a plan in the UI</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Screenshot 2023-03-21 at 3.44.11 PM (1).png" alt=""><figcaption><p>Stages of a plan in the UI</p></figcaption></figure>
 
 Publishing a plan is as simple as clicking the **Publish Plan** button, confirming your desire to publish the plan with the modal that appears on your screen, and deploying your API again to synchronize the change.
 
-{% @arcade/embed flowId="vOBfQE9VInuyA1g7b4kF" url="https://app.arcade.software/share/vOBfQE9VInuyA1g7b4kF" %}
+{% @arcade/embed url="https://app.arcade.software/share/vOBfQE9VInuyA1g7b4kF" flowId="vOBfQE9VInuyA1g7b4kF" %}
 
 A published plan can either be deprecated or closed. Neither operation can be undone.
 

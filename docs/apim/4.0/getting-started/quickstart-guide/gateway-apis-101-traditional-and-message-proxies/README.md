@@ -40,7 +40,7 @@ APIM allows you to abstract your backend resource as an API regardless of proxy 
 
 Gateway API creation is broken into five steps, which we will explain briefly here:
 
-1. **API details:** Provide a name, description, and version for your API.&#x20;
+1. **API details:** Provide a name, description, and version for your API.
 2. **Gateway entrypoints:** Define the protocol(s) and configuration settings by which the API consumer accesses the API. The Gateway entrypoint dictates how the backend API is exposed through the Gateway.
 3. **Gateway endpoints:** Define the protocol(s) and configuration settings by which the Gateway will fetch data/functionality from, and/or post data to, the backend resource.
 4. **Security:** Configure a layer of access control through plans. Plans enable the API publisher to secure, monitor, and transparently communicate access details.
@@ -58,12 +58,12 @@ To get started, you need to access your **APIs** homescreen. This screen display
 
 Assuming you have the proper permissions, you can access and modify the configurations of existing APIs, or, in our case, create new APIs.
 
-<figure><img src="../../../.gitbook/assets/apis_homescreen (2).png" alt=""><figcaption><p>APIs homscreen</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/apis_homescreen (1).png" alt=""><figcaption><p>APIs homscreen</p></figcaption></figure>
 
 > * [x] Select **APIs** in the sidebar of the Console UI
 > * [x] Next, select **+ Add API** in the top right to create a new API
 
-You will be greeted with several options to create an API. We will be creating a v4 API with the creation wizard.&#x20;
+You will be greeted with several options to create an API. We will be creating a v4 API with the creation wizard.
 
 <figure><img src="../../../.gitbook/assets/options.png" alt=""><figcaption><p>Options to create a new Gateway API</p></figcaption></figure>
 
@@ -97,4 +97,4 @@ In the Console UI, choose which type of proxy you'd like to create based on the 
 
 Based on your selection in the Console, continue with the applicable guide:
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><p><strong>Traditional Proxy (Proxy Upstream Protocol)</strong></p><p></p><p>Gateway APIs 101 | Proxy backend API servers</p></td><td><a href="broken-reference">Broken link</a></td></tr><tr><td><p><strong>Message Proxy (Introspect Messages From Event-Driven Backend)</strong></p><p></p><p>Gateway APIs 101 | Proxy event/message brokers</p></td><td><a href="broken-reference">Broken link</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><p><strong>Traditional Proxy (Proxy Upstream Protocol)</strong></p><p>Gateway APIs 101 | Proxy backend API servers</p></td><td><a href="broken-reference/">broken-reference</a></td></tr><tr><td><p><strong>Message Proxy (Introspect Messages From Event-Driven Backend)</strong></p><p>Gateway APIs 101 | Proxy event/message brokers</p></td><td><a href="broken-reference/">broken-reference</a></td></tr></tbody></table>

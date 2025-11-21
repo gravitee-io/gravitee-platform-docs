@@ -137,13 +137,13 @@ The Expression Language (EL) Assistant helps you write the EL expression needed 
 
 ### Prerequisites&#x20;
 
-* Gravitee Cloud account. To register for Gravitee Cloud, go to [Cloud](https://eu-auth.cloud.gravitee.io/cloud/register?response_type=code\&client_id=fd45d898-e621-4b12-85d8-98e621ab1237\&state=ZWVjRy5pZlpjdk1wZjFabWpPU0VPWEtzVjFDSGUzTXVSRGMzLkRIVEdrSnRC\&redirect_uri=https%3A%2F%2Feu.cloud.gravitee.io\&scope=openid+profile+email+offline_access\&code_challenge=OCLxO6DaZFROGdqhhTQq7nig9WGdFtVHttWGCdpHiPc\&code_challenge_method=S256\&nonce=ZWVjRy5pZlpjdk1wZjFabWpPU0VPWEtzVjFDSGUzTXVSRGMzLkRIVEdrSnRC\&createUser=true\&hubspotutk=640db1914414dc8d82a03c4db2c797de).
+* Gravitee Cloud account. To register for Gravitee Cloud, go to [Cloud](https://cockpit.gravitee.io/).
 * (Self-hosted and Hybrid installations only) Register your installation in Gravitee Cloud. For more information about registering your installation, see Register installations.
 * (Self-hosted and Hybrid installations only) Depending on your installation method, add the following configuration:
 
 {% tabs %}
 {% tab title="gravitee.yaml" %}
--   Add the following configuration to the root level of your `gravitee.yaml` file:\
+-   Add the following configuration to the root level of your `gravitee.yaml` file:
 
 
     ```yaml
@@ -162,7 +162,7 @@ gravitee_newtai_elgen_enabled=true
 {% endtab %}
 
 {% tab title="values.yaml" %}
-*   Add the following configuration to your `values.yaml` file:\
+*   Add the following configuration to your `values.yaml` file:
 
 
     ```yaml
@@ -179,16 +179,16 @@ gravitee_newtai_elgen_enabled=true
 Any field that supports Expression Language, supports the AI assistant.&#x20;
 {% endhint %}
 
-1.  In the field that supports expression language, click the **{EL}** icon.\
+1.  In the field that supports expression language, click the **{EL}** icon.
 
 
     <figure><img src=".gitbook/assets/304A887B-9FD1-4011-961A-7DB7D91D3478_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 2. In the **EL Assistant** pop-up window, type the prompt for the Expression Language that you want the AI assistant to generate. For example, only run this policy if the header equals test.
-3.  Click **Ask Newt AI**. The AI assistant generates the Expression Language.\
+3.  Click **Ask Newt AI**. The AI assistant generates the Expression Language.
 
 
     <figure><img src=".gitbook/assets/DBE0A0C1-3171-4CA4-A586-A503EBD2B0BD_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
-4.  (Optional) Provide feedback about the answer. To provide feedback, click either the **thumbs u**p or the **thumbs down**.\
+4.  (Optional) Provide feedback about the answer. To provide feedback, click either the **thumbs u**p or the **thumbs down**.
 
 
     <figure><img src=".gitbook/assets/6D6E46F0-AECF-41F9-BE38-53C6EC0EDA38_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>

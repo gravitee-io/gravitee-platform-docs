@@ -12,11 +12,11 @@ Gravitee enables you to configure and view logs for your APIs. In this article, 
 
 ## Configure logging at the API and Gateway levels
 
-{% @arcade/embed flowId="nifDyFJpS1oFPpGfCwqu" url="https://app.arcade.software/share/nifDyFJpS1oFPpGfCwqu" %}
+{% @arcade/embed url="https://app.arcade.software/share/nifDyFJpS1oFPpGfCwqu" flowId="nifDyFJpS1oFPpGfCwqu" %}
 
-An API's logs will be visible at the level of the individual API. This is viewed under an APIs **Analytics** by selecting **Logs.**\\
+An API's logs will be visible at the level of the individual API. This is viewed under an APIs **Analytics** by selecting **Logs.**
 
-<figure><img src="../../.gitbook/assets/Access API logs.gif" alt=""><figcaption><p>Access an API's logs</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/Access API logs (1).gif" alt=""><figcaption><p>Access an API's logs</p></figcaption></figure>
 
 If logging isn't enabled for your API, you will need to enable it manually. You can enable logging at the both the Gateway and the API levels.
 

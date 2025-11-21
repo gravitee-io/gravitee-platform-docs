@@ -2,7 +2,7 @@
 
 ## Overview
 
-A powerful APIM feature is the ability to import an OpenAPI specification to create an API. When you import an existing specification, you do not have to manually populate all of the required fields.&#x20;
+A powerful APIM feature is the ability to import an OpenAPI specification to create an API. When you import an existing specification, you do not have to manually populate all of the required fields.
 
 To import an API from OpenAPI:
 
@@ -35,29 +35,29 @@ To import an API from OpenAPI:
     "title": "Swagger Petstore"
   },
   "host": "petstore.swagger.io",
-
-  ...
+...
 }
 </code></pre></td><td>/swaggerpetstore</td><td></td></tr><tr><td>OpenAPI (V3)</td><td>Path of the first <code>servers.url</code>, if it exists, without "/".<br></td><td><pre><code>openapi: "3.0.0"
 info:
-  version: 1.0.0
-  title: Swagger Petstore
-  license:
-    name: MIT
+version: 1.0.0
+title: Swagger Petstore
+license:
+name: MIT
 servers:
-  - url: http://petstore.swagger.io/v1
+
+url: http://petstore.swagger.io/v1
 paths:
 ...
 </code></pre></td><td>/v1</td></tr><tr><td>If not, lowercase trimmed <code>info.title</code>.</td><td><pre><code>openapi: "3.0.0"
 info:
-  version: 1.0.0
-  title: Swagger Petstore
-  license:
-    name: MIT
+version: 1.0.0
+title: Swagger Petstore
+license:
+name: MIT
 servers:
-  - url: http://petstore.swagger.io/
+url: http://petstore.swagger.io/
 paths:
-  ...
+...
 </code></pre></td><td>/swaggerpetstore</td><td></td></tr></tbody></table>
 
 ## Vendor Extensions
@@ -163,7 +163,7 @@ For more information, see the [Request Validation policy](../../../reference/pol
 {% endtab %}
 
 {% tab title="XML Validation" %}
-For each operation, if a `application/xml` request body exists, then a XSD schema is computed from this body to configure an XML Validation policy.&#x20;
+For each operation, if a `application/xml` request body exists, then a XSD schema is computed from this body to configure an XML Validation policy.
 
 For more information, see the [XML Validation policy](../../../reference/policy-reference/xml-validation.md) reference.
 {% endtab %}

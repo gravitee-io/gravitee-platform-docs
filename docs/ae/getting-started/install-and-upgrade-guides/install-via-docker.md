@@ -18,7 +18,7 @@ You can find the complete set of AE images [on Docker Hub](https://hub.docker.co
 
 | Image name                                                             | Version | Base                                                             |
 | ---------------------------------------------------------------------- | ------- | ---------------------------------------------------------------- |
-| [graviteeio/ae-engine](https://hub.docker.com/r/graviteeio/ae-engine/) | latest  | [openjdk:11-jre-slim-buster](https://hub.docker.com/\_/openjdk/) |
+| [graviteeio/ae-engine](https://hub.docker.com/r/graviteeio/ae-engine/) | latest  | [openjdk:11-jre-slim-buster](https://hub.docker.com/_/openjdk/) |
 
 ### graviteeio/ae-engine
 

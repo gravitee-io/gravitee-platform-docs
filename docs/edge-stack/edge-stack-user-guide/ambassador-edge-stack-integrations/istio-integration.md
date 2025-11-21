@@ -154,7 +154,7 @@ After configuring Ambassador Edge Stack for Istio integration, the Istio mTLS ce
 
 * Both the `istio-proxy` sidecar and Ambassador Edge Stack mount the `istio-certs` volume at `/etc/istio-certs`.
 * The `istio-proxy` sidecar saves the mTLS certificates into `/etc/istio-certs` (per the `OUTPUT_CERTS` environment variable).
-*   Ambassador Edge Stack reads the mTLS certificates from `/etc/istio-certs` (per the `AMBASSADOR_ISTIO_SECRET_DIR` environment variable) and creates a Secret named `istio-certs`.\
+*   Ambassador Edge Stack reads the mTLS certificates from `/etc/istio-certs` (per the `AMBASSADOR_ISTIO_SECRET_DIR` environment variable) and creates a Secret named `istio-certs`.
 
 
     {% hint style="warning" %}

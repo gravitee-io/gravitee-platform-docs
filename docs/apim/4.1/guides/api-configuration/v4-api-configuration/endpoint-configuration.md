@@ -30,7 +30,7 @@ v4 message APIs currently support the following endpoints:
 * **Solace**: Enables the Gravitee API Gateway to establish a persistent connection with Solace as a backend resource or target.
 * **Mock**: Enables the Gateway to simulate responses from a server for testing API implementations.
 
-To access endpoint configuration, go to the **API** page in the Management Console and select your API. Then, under **Endpoints**, select **Backend services.**&#x20;
+To access endpoint configuration, go to the **API** page in the Management Console and select your API. Then, under **Endpoints**, select **Backend services.**
 
 Endpoint configuration may differ depending on which endpoint(s) your API utilizes. The configuration details of each specific endpoint are discussed below.
 
@@ -44,7 +44,7 @@ The **Kafka** endpoint allows the Gateway to open up a persistent connection to 
   * **Use Producer:** Tells the Gateway Kafka client to be prepared to produce messages and send them to the Kafka broker that you define as your endpoint.
   * **Use Consumer:** Tells the Gateway Kafka client to be prepared to consume messages from the Kafka broker that you define as your endpoint.
   * **Use Producer and Consumer:** Tells the Gateway Kafka client to both **Use Producer** and **Use Consumer**.
-* **Bootstrap servers:** Define the comma-separated list of host/port pairs used to establish the initial connection to the Kafka cluster. The list only pertains to the initial hosts used to discover the full set of servers. The client will make use of all backend servers irrespective of which servers the list designates for bootstrapping.&#x20;
+* **Bootstrap servers:** Define the comma-separated list of host/port pairs used to establish the initial connection to the Kafka cluster. The list only pertains to the initial hosts used to discover the full set of servers. The client will make use of all backend servers irrespective of which servers the list designates for bootstrapping.
 *   **Initial security settings:** Define your Kafka-specific authentication flow (you will define additional Gravitee Gateway-specific security settings later). Gravitee supports PLAINTEXT, SASL\_PLAINTEXT, SASL\_SSL, and SSL protocols. Depending on which you choose, you will need to define:
 
     **PLAINTEXT:** No further security configuration is necessary.
@@ -140,7 +140,7 @@ Choosing the **Solace** endpoint enables the Gravitee Gateway to create an API t
   * **Retain settings:** Whether the retain flag must be set for every published message by toggling **Retained** ON or OFF. If enabled, the broker stores the last retained message.
   * **Message expiry interval:** Defines the period of time that the broker stores the PUBLISH message for any matching subscribers that are not currently connected. When no message expiry interval is set, the broker must store the message for matching subscribers indefinitely. When the `retained=true` option is set on the PUBLISH message, this interval also defines how long a message is retained on a topic.
   * **Response topic:** Represents the topics on which the responses from the message receivers are expected.
-* **Consumer settings** (if you chose **Use Consumer** or **Use Producer and Consumer**): Define the settings that the Gravitee Gateway Solace client will rely on to consume messages from your backend Solace topic/broker.&#x20;
+* **Consumer settings** (if you chose **Use Consumer** or **Use Producer and Consumer**): Define the settings that the Gravitee Gateway Solace client will rely on to consume messages from your backend Solace topic/broker.
   * Define the **Topic** from which the Gateway Solace client will consume messages.
   * Toggle Authentication configuration ON or OFF. When OFF, no further configuration is necessary. When ON, you will need to:
     * Define the username used for authentication.
@@ -197,9 +197,6 @@ To access endpoint configuration, go to the **API** page in the Management Conso
 <summary>HTTP proxy</summary>
 
 * **Define your target URL:** Enter your target URL in the **Target URL** text field.
-
-<!---->
-
 * **Define your HTTP options:**
   * Choose to either allow or disallow h2c clear text upgrade by toggling **Allow h2c Clear Text Upgrade** ON or OFF.
     * You'll need to select the HTTP protocol version to use. HTTP/1.1 and HTTP/2 are supported.
@@ -213,9 +210,6 @@ To access endpoint configuration, go to the **API** page in the Management Conso
   * Define the number of max concurrent connections by entering a numeric value or using the arrow keys in the text field.
   * Choose to propagate client Accept-Encoding header by toggling **Propagate client Accept-Encoding header (no decompression if any)** ON or OFF.
   * Select **+ Add HTTP headers** to add headers that the Gateway should add or override before proxying the request to the backend API.
-
-<!---->
-
 * **Define your Proxy options:**
   * Choose whether to use a proxy for client connections by toggling **Use proxy** ON of OFF.
     * If enabled, you will need to select from the proxy types in the **Proxy type** drop-down: **HTTP proxy**, **SOCKS4**, or **SOCKS5**.
@@ -224,13 +218,7 @@ To access endpoint configuration, go to the **API** page in the Management Conso
     * **Proxy port:** Enter your proxy port in the text field.
     * (Optional) **Proxy username:** Enter your proxy username in the text field.
     * (Optional) **Proxy password:** Enter your proxy password in the text field.
-
-<!---->
-
 * **Define your SSL options**
-
-<!---->
-
 * **Define your keystore**
 
 </details>
@@ -241,10 +229,10 @@ To access endpoint configuration, go to the **API** page in the Management Conso
 
 After you've configured your endpoints, you can modify or delete existing endpoints, or add new ones:
 
-<figure><img src="../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.41.53 AM.png" alt=""><figcaption><p>Edit single endpoints</p></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.41.53 AM (1).png" alt=""><figcaption><p>Edit single endpoints</p></figcaption></figure>
 
-* **Modify:** To alter an existing endpoint, select the <img src="../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.43.13 AM.png" alt="" data-size="line"> icon, and then edit your endpoint configuration.&#x20;
-* **Delete:** To delete an existing endpoint, select the <img src="../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.46.30 AM.png" alt="" data-size="line">icon underneath **ACTIONS** in the **Endpoints** menu.
+* **Modify:** To alter an existing endpoint, select the <img src="../../../../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.43.13 AM (1).png" alt="" data-size="line"> icon, and then edit your endpoint configuration.
+* **Delete:** To delete an existing endpoint, select the <img src="../../../../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.46.30 AM (1).png" alt="" data-size="line">icon underneath **ACTIONS** in the **Endpoints** menu.
 * **Add:** To add a new endpoint, click **Add endpoint**. Configure the endpoint per the instructions in the [API creation documentation](../../create-apis/how-to/v4-api-creation-wizard.md).
 
 When you are done, make sure to redeploy the API for your changes to take effect.
@@ -253,10 +241,10 @@ When you are done, make sure to redeploy the API for your changes to take effect
 
 After you've configured your endpoints, you can modify or delete existing endpoint groups, or add new ones:
 
-<figure><img src="../../../.gitbook/assets/endpoint groups v4 message api backend.png" alt=""><figcaption><p>Edit endpoint groups</p></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/endpoint groups v4 message api backend (1).png" alt=""><figcaption><p>Edit endpoint groups</p></figcaption></figure>
 
 * **Modify:** To modify an endpoint group, click **Edit** to the right of the group name.
-* **Delete:** To delete an endpoint group, click **Delete** to the right of the group name**.** You will be prompted to confirm deletion of the endpoint group. If only one endpoint group exists, you will not have the option to delete it.
+* **Delete:** To delete an endpoint group, click **Delete** to the right of the group name\*\*.\*\* You will be prompted to confirm deletion of the endpoint group. If only one endpoint group exists, you will not have the option to delete it.
 * **Add:** To add a new endpoint group, click **Add endpoint group** at the bottom of the page and configure the group's default values. Only one type of endpoint group can be created at a time. By default, the new endpoint group will contain an endpoint that automatically inherits the group's default configuration.
 
 When you are done, make sure to redeploy the API for your changes to take effect.
@@ -267,11 +255,11 @@ When you are done, make sure to redeploy the API for your changes to take effect
 
 Within an endpoint group, clicking `Add Endpoint` toggles `Inherit configuration from the endpoint group` to ON by default:
 
-<figure><img src="../../../.gitbook/assets/default behavior toggle to inherit.png" alt=""><figcaption><p>Toggle to inherit endpoint configuration</p></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/default behavior toggle to inherit (1).png" alt=""><figcaption><p>Toggle to inherit endpoint configuration</p></figcaption></figure>
 
 If an endpoint is added to the endpoint group, it will inherit the group's configuration by default. This allows an API publisher to quickly add new endpoints with the same settings and behavior as other endpoints in the group.
 
-If `Inherit configuration from the endpoint group` is toggled OFF, changes can be made to the new endpoint's configuration. When these changes are saved, the configuration is updated.&#x20;
+If `Inherit configuration from the endpoint group` is toggled OFF, changes can be made to the new endpoint's configuration. When these changes are saved, the configuration is updated.
 
 If `Inherit configuration from the endpoint group` remains OFF, the updated values will persist. Subsequent updates to the group’s default configuration will not override this endpoint's configuration once it has been modified to no longer inherit from the group.
 
@@ -281,4 +269,4 @@ If `Inherit configuration from the endpoint group` remains OFF, the updated valu
 * If the configuration of an endpoint group is updated, all the endpoints with `Inherit configuration from the endpoint group` enabled will be similarly updated and remain static.
 * By default, the API will use the first endpoint group listed. This is indicated by the **Default** badge next to the group name. You can click the up/down arrow keys to reorder the endpoint groups and assign a different default:
 
-<figure><img src="../../../.gitbook/assets/default endpoint group (1).png" alt=""><figcaption><p>Default endpoint group</p></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/default endpoint group (1) (1).png" alt=""><figcaption><p>Default endpoint group</p></figcaption></figure>

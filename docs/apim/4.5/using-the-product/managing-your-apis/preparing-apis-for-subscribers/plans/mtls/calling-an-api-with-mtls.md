@@ -17,7 +17,7 @@ $ curl –-cert  <client.cer> --key <client.key> https://my-gateway.com/mtls-api
 
 Also, this requires that your client trusts the certificate sent by the gateway.
 
-\
+
 
 
 [^1]: 

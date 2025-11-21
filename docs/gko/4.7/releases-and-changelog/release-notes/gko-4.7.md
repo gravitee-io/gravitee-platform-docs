@@ -108,7 +108,7 @@ The shared policy group has its own lifecycle, so you can update a shared policy
 
 ## Environment-level User Groups
 
-As part of Gravitee’s role-based access control system (RBAC), users that have access to your API management control plane can be put into groups in order to simplify the way you define which users can access which APIs or applications in the control plane. \
+As part of Gravitee’s role-based access control system (RBAC), users that have access to your API management control plane can be put into groups in order to simplify the way you define which users can access which APIs or applications in the control plane. 
 
 
 Because an API definition can reference a group directly, we've have requests from users that want to also be able to manage the groups themselves declaratively using the Gravitee Kubernetes Operator.&#x20;

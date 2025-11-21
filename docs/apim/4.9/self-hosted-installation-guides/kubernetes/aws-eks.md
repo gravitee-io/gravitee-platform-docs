@@ -484,7 +484,7 @@ To support analytics and logging, you must install Elasticsearch into your Kuber
 
 #### Verification
 
-1.  To verify that your Elasticsearch deployment succeeded, check pod status using the following command:\
+1.  To verify that your Elasticsearch deployment succeeded, check pod status using the following command:
 
 
     ```bash
@@ -492,7 +492,7 @@ To support analytics and logging, you must install Elasticsearch into your Kuber
     ```
 
     \
-    The command generates the following output:\
+    The command generates the following output:
 
 
     ```bash
@@ -500,7 +500,7 @@ To support analytics and logging, you must install Elasticsearch into your Kuber
     elasticsearch-master-0   1/1     Running   0          55m
     ```
 
-    \
+    
 
 
 ### (Optional) Install Redis
@@ -518,7 +518,7 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
 
 #### Verification
 
-1.  To verify that your Redis deployment succeeded, check pod status using the following command:\
+1.  To verify that your Redis deployment succeeded, check pod status using the following command:
 
 
     ```bash
@@ -537,7 +537,7 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
 
 To support management data, you can install PostgreSQL into your Kubernetes cluster. For more information on installing PostgreSQL, see the [official chart documentation.](https://artifacthub.io/packages/helm/bitnami/postgresql)&#x20;
 
-1.  Install PostgreSQL with Helm using the following command:\
+1.  Install PostgreSQL with Helm using the following command:
 
 
     ```bash
@@ -597,7 +597,7 @@ Before installing Gravitee APIM for [enterprise edition](../../readme/enterprise
 
 ### Prepare the `values.yaml` for Helm&#x20;
 
-1.  Create a `values.yaml` file in your working directory and copy the following Gravitee configuration into it. This is the base configuration for your self-hosted APIM platform:\
+1.  Create a `values.yaml` file in your working directory and copy the following Gravitee configuration into it. This is the base configuration for your self-hosted APIM platform:
 
 
     ```yaml
@@ -1057,7 +1057,7 @@ A healthy deployment displays all pods with the `Running` status, `1/1` ready co
 
 To validate the pods, complete the following steps:&#x20;
 
-1.  Use the following command to query the pod status:\
+1.  Use the following command to query the pod status:
 
 
     ```bash
@@ -1080,7 +1080,7 @@ gravitee-redis-master-0                 1/1     Running   0          23m
 
 ### Validate the Services  <a href="#validate-the-pods" id="validate-the-pods"></a>
 
-1.  To verify service configuration, run the following command:\
+1.  To verify service configuration, run the following command:
 
 
     ```bash
@@ -1088,7 +1088,7 @@ gravitee-redis-master-0                 1/1     Running   0          23m
     ```
 
 
-2.  Verify that all services are properly configured. The output should show all required services:\
+2.  Verify that all services are properly configured. The output should show all required services:
 
 
     ```bash
@@ -1103,14 +1103,14 @@ gravitee-redis-master-0                 1/1     Running   0          23m
     gravitee-redis-master             ClusterIP   10.x.x.x        <none>        6379/TCP
     ```
 
-    \
+    
 
 
 ### Validate the Gateway logs&#x20;
 
 To validate the Gateway logs, complete the following steps:
 
-1.  List the Gateway pod using the following command:\
+1.  List the Gateway pod using the following command:
 
 
     ```bash
@@ -1119,7 +1119,7 @@ To validate the Gateway logs, complete the following steps:
 
 
 
-2.  Verify that the Gateway is running properly. The output should show the Gateway ready and running:\
+2.  Verify that the Gateway is running properly. The output should show the Gateway ready and running:
 
 
     ```bash
@@ -1127,7 +1127,7 @@ To validate the Gateway logs, complete the following steps:
     ```
 
 
-3.  View the Gateway logs using the following command: \
+3.  View the Gateway logs using the following command: 
 
 
     ```bash
@@ -1138,7 +1138,7 @@ To validate the Gateway logs, complete the following steps:
 
 ### Validate Ingress&#x20;
 
-1.  Verify ingress is working with the following command:\
+1.  Verify ingress is working with the following command:
 
 
     ```bash
@@ -1147,7 +1147,7 @@ To validate the Gateway logs, complete the following steps:
 
 
 
-2.  The output should show the hosts and ALB addresses: \
+2.  The output should show the hosts and ALB addresses: 
 
 
     ```bash

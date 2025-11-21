@@ -142,7 +142,7 @@ manager:
 
 Use the following steps to verify that you disabled templating:&#x20;
 
-1.  If a resource contains a templating placeholder check it is not replaced: \
+1.  If a resource contains a templating placeholder check it is not replaced: 
 
 
     ```bash

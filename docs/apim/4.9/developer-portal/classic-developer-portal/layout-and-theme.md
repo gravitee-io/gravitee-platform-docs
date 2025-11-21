@@ -8,7 +8,7 @@ Administrators have the option to modify the layout and theme of the Developer P
 
 You can click on an API in the Developer Portal to access its details. Selecting the **General information** header tab will display the API's description and reviews (if any have been submitted), as well as a sidebar on the right that contains additional information.
 
-<div data-full-width="false"><figure><img src="../../../../../.gitbook/assets/Screenshot 2023-05-31 at 1.57.16 PM (1).png" alt=""><figcaption><p>Developer Portal API sidebar</p></figcaption></figure></div>
+<div data-full-width="false"><figure><img src="../../.gitbook/assets/Screenshot 2023-05-31 at 1.57.16 PM (1).png" alt=""><figcaption><p>Developer Portal API sidebar</p></figcaption></figure></div>
 
 {% tabs %}
 {% tab title="Modify the access URL" %}
@@ -20,7 +20,7 @@ Administrators can control what is shown in the sidebar. To modify the access UR
 
 The access URL for each API in the Developer Portal is the default entrypoint followed by that API's context path.
 
-<figure><img src="../../../../../.gitbook/assets/Screenshot 2023-07-28 at 12.51.56 PM (1).png" alt=""><figcaption><p>Modify the access URL</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-07-28 at 12.51.56 PM (1).png" alt=""><figcaption><p>Modify the access URL</p></figcaption></figure>
 
 {% hint style="info" %}
 [Sharding tags](../../configure-and-manage-the-platform/gravitee-gateway/sharding-tags.md) are used to help manage complex distributed architectures:
@@ -37,7 +37,7 @@ To modify the sidebar settings:
 2. Select **Settings** from the left sidebar
 3. Select **API Portal Information** from the inner left sidebar to display the following options:
 
-<figure><img src="../../../../../.gitbook/assets/dev_portal_api_display_settings (1).png" alt=""><figcaption><p>Developer Portal API sidebar display settings</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/dev_portal_api_display_settings (1).png" alt=""><figcaption><p>Developer Portal API sidebar display settings</p></figcaption></figure>
 
 * **Add extra information**
   * **Show tags list in the API header:** Display all API labels in the Developer Portal
@@ -45,7 +45,7 @@ To modify the sidebar settings:
 * **Configure the information list:** Display custom values in the Developer Portal. Use the **+** icon on the bottom right of the page to add new values.
 *   **API Page list options:** Display a banner at the top of each page in the API Catalog to promote a particular API. The tab automatically determines which API to promote, e.g., the **Starred** tab will feature the API that was most recently reviewed.
 
-    <figure><img src="../../../../../.gitbook/assets/Screenshot 2023-05-31 at 2.21.47 PM (1).png" alt=""><figcaption><p>Developer Portal promotion banner</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/Screenshot 2023-05-31 at 2.21.47 PM (1).png" alt=""><figcaption><p>Developer Portal promotion banner</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -72,7 +72,7 @@ To enable the **Categories** tab and modify categories:
    * Toggle **Enable Category Mode** to display the **Categories** tab
    * Create new categories and/or modify or delete existing categories
 
-<figure><img src="../../../../../.gitbook/assets/Screenshot 2023-06-01 at 1.59.06 PM (1).png" alt=""><figcaption><p>APIM categories settings page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-06-01 at 1.59.06 PM (1).png" alt=""><figcaption><p>APIM categories settings page</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Apply categories" %}
@@ -83,13 +83,13 @@ To apply categories:
 3. Select **Info** from the inner left sidebar
 4. Use the **Categories** dropdown to select one or more categories to apply to the API
 
-<figure><img src="../../../../../.gitbook/assets/api catalog_categories (1).png" alt=""><figcaption><p>Apply categories to a Gateway API</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/api catalog_categories (1).png" alt=""><figcaption><p>Apply categories to a Gateway API</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
 With the toggle enabled, a **Categories** tab will appear in the header of the API Catalog:
 
-<figure><img src="../../../../../.gitbook/assets/dev_portal_categories (1).png" alt=""><figcaption><p>Dev Portal categories page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/dev_portal_categories (1).png" alt=""><figcaption><p>Dev Portal categories page</p></figcaption></figure>
 
 ### Top/featured APIs
 
@@ -98,13 +98,13 @@ Administrators can also control what is displayed on the **Featured** page of th
 1. Select **Settings** from the left sidebar of the Management Console
 2. Select **Top APIs** from the inner left sidebar
 
-<figure><img src="../../../../../.gitbook/assets/Screenshot 2023-06-01 at 2.10.58 PM (1).png" alt=""><figcaption><p>Top APIs settings</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-06-01 at 2.10.58 PM (1).png" alt=""><figcaption><p>Top APIs settings</p></figcaption></figure>
 
 Administrators can use the **+** icon to add new APIs, reorder APIs, and remove APIs from the list. APIs added here are displayed on both the Developer Portal's homepage and on the API catalog's **Featured** page:
 
-<figure><img src="../../../../../.gitbook/assets/dev_portal_homepage (1).png" alt=""><figcaption><p>Developer Portal homepage displaying top APIs</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/dev_portal_homepage (1).png" alt=""><figcaption><p>Developer Portal homepage displaying top APIs</p></figcaption></figure>
 
-<figure><img src="../../../../../.gitbook/assets/Screenshot 2023-06-01 at 2.14.32 PM (1).png" alt=""><figcaption><p>Developer Portal Featured page in the API Catalog</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-06-01 at 2.14.32 PM (1).png" alt=""><figcaption><p>Developer Portal Featured page in the API Catalog</p></figcaption></figure>
 
 {% hint style="info" %}
 * Administrators can view all of the Gateway APIs added to the Top APIs list
@@ -119,7 +119,7 @@ Administrators can customize the header and footer navigation of the Developer P
 * Link to an existing documentation page
 * Link to a category
 
-Each link is treated as a new documentation page. To learn about the features and functionality of Developer Portal documentation, see [Documentation](broken-reference/).
+Each link is treated as a new documentation page. To learn about the features and functionality of Developer Portal documentation, see [Documentation](../../create-and-configure-apis/configure-v4-apis/documentation.md).
 
 {% tabs %}
 {% tab title="System folders" %}
@@ -130,7 +130,7 @@ To access Gravitee's system folders:
 
 System folders are identified by a padlock icon:
 
-<figure><img src="../../../../../.gitbook/assets/Screenshot 2023-06-05 at 10.44.36 AM (1).png" alt=""><figcaption><p>Gravitee's system folders</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-06-05 at 10.44.36 AM (1).png" alt=""><figcaption><p>Gravitee's system folders</p></figcaption></figure>
 
 There are three system folders: `Header`, `TopFooter` and `Footer`. Each system folder corresponds to an area of the Developer Portal:
 
@@ -141,7 +141,7 @@ There are three system folders: `Header`, `TopFooter` and `Footer`. Each system 
 
 The`TopFooter`system folder is the only system folder that accepts nested folders, which are used to group links together. Nested folders must be published to be visible in the Developer Portal.
 
-<img src="../../../../../.gitbook/assets/Screenshot 2023-06-05 at 11.24.49 AM (1).png" alt="" data-size="original">
+<img src="../../.gitbook/assets/Screenshot 2023-06-05 at 11.24.49 AM (1).png" alt="" data-size="original">
 {% endhint %}
 {% endtab %}
 
@@ -154,13 +154,13 @@ To create a link:
 
 This will take you to a new page to select your link type and provide additional information about your link:
 
-<figure><img src="../../../../../.gitbook/assets/dev_portal_create_a_link (1).png" alt=""><figcaption><p>Create a new Developer Portal link</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/dev_portal_create_a_link (1).png" alt=""><figcaption><p>Create a new Developer Portal link</p></figcaption></figure>
 
 To view your new link, click **Save** and navigate to the Developer Portal:
 
-<figure><img src="../../../../../.gitbook/assets/dev_portal_custom_link_example (1).png" alt=""><figcaption><p>Sample "Gravitee Homepage" custom link</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/dev_portal_custom_link_example (1).png" alt=""><figcaption><p>Sample "Gravitee Homepage" custom link</p></figcaption></figure>
 
-Each custom link offers additional features such as translations and access control. See [Documentation](broken-reference/) for more information.
+Each custom link offers additional features such as translations and access control. See [Documentation](../../create-and-configure-apis/configure-v4-apis/documentation.md) for more information.
 {% endtab %}
 {% endtabs %}
 
@@ -171,7 +171,7 @@ Administrators can change the default theme of the Developer Portal to a custom 
 1. Select **Settings** from the left sidebar of the Management Console
 2. Select **Theme** from the inner left sidebar
 
-<figure><img src="../../../../../.gitbook/assets/Screenshot 2023-06-01 at 2.50.54 PM (1).png" alt=""><figcaption><p>Developer Portal theme settings</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-06-01 at 2.50.54 PM (1).png" alt=""><figcaption><p>Developer Portal theme settings</p></figcaption></figure>
 
 This page allows the administrator to customize every aspect of the Developer Portal's look and feel. Edits are shown in a live preview on the right.
 
@@ -193,21 +193,21 @@ The top menu includes the following options:
 
 ### Basic customization
 
-<table><thead><tr><th width="157.5">Property</th><th>Use case</th></tr></thead><tbody><tr><td>Images</td><td>Show logos. Optional logo is used for the homepage and the footer. Using the default logo overrides the optional logo.</td></tr><tr><td>Homepage</td><td>Add a Homepage background image.</td></tr><tr><td>Colors</td><td>Define primary, neutral, and font colors.</td></tr><tr><td>Fonts</td><td>Choose font family and sizes. Medium sizes are used by default. For more information about Fonts, see <a data-mention href="broken-reference/">broken-reference</a></td></tr></tbody></table>
+<table><thead><tr><th width="157.5">Property</th><th>Use case</th></tr></thead><tbody><tr><td>Images</td><td>Show logos. Optional logo is used for the homepage and the footer. Using the default logo overrides the optional logo.</td></tr><tr><td>Homepage</td><td>Add a Homepage background image.</td></tr><tr><td>Colors</td><td>Define primary, neutral, and font colors.</td></tr><tr><td>Fonts</td><td>Choose font family and sizes. Medium sizes are used by default. For more information about Fonts, see <a data-mention href="layout-and-theme.md">layout-and-theme.md</a></td></tr></tbody></table>
 
 #### Fonts
 
 To change the font for your Developer Portal, complete the following steps:
 
-1.  From the dashboard, click **Settings**.\\
+1.  From the dashboard, click **Settings**.
 
-    <figure><img src="../../../4.8/.gitbook/assets/76D66FB4-4D8E-467D-AADE-543FC7813158_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
-2.  In the Settings menu, navigate to the Portal section, and then click **Theme**. \\
+    <figure><img src="../../.gitbook/assets/76D66FB4-4D8E-467D-AADE-543FC7813158_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+2.  In the Settings menu, navigate to the Portal section, and then click **Theme**. 
 
-    <figure><img src="../../../4.8/.gitbook/assets/6F371DAF-0579-4E18-9F96-A50558F86954_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
-3.  In the Theme menu, click **Fonts**.\\
+    <figure><img src="../../.gitbook/assets/6F371DAF-0579-4E18-9F96-A50558F86954_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+3.  In the Theme menu, click **Fonts**.
 
-    <figure><img src="../../../4.8/.gitbook/assets/CC1CE981-BDBD-47C2-A33D-49E0F03C5F4A (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/CC1CE981-BDBD-47C2-A33D-49E0F03C5F4A (1).jpeg" alt=""><figcaption></figcaption></figure>
 4. Navigate to the **Family** field, and then click the down arrow.
 5. From the Fonts drop-down menu, select the font that you want to apply to your Developer Portal. For a full list of the fonts available for your Developer Portal, see [#available-fonts](layout-and-theme.md#available-fonts "mention")
 

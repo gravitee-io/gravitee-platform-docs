@@ -15,7 +15,7 @@ Ambassador Edge Stack is built from the start to support _self-service_ deployme
 
 ## Flexible canary deployments
 
-Canary deployments are an essential component of cloud-native development workflows. In a canary deployment, a small percentage of production traffic is routed to a new version of a service to test it under real-world conditions. Ambassador Edge Stack allows developers to easily control and manage the amount of traffic routed to a given service through annotations. [This tutorial](https://www.datawire.io/faster/canary-workflow/) covers a complete canary workflow using the Ambassador Edge Stack.
+Canary deployments are an essential component of cloud-native development workflows. In a canary deployment, a small percentage of production traffic is routed to a new version of a service to test it under real-world conditions. Ambassador Edge Stack allows developers to easily control and manage the amount of traffic routed to a given service through annotations. 
 
 ## Kubernetes-native architecture
 

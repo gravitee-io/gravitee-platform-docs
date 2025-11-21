@@ -19,12 +19,12 @@ As of Gravitee 4.0, the sharding tags feature is an Enterprise Edition capabilit
 {% hint style="info" %}
 **v4 API limitations**
 
-As of Gravitee 4.0, you cannot implement sharding tags for v4 APIs using the APIM Console. This can only be done via the [Management API](../../../reference/management-api-reference.md).&#x20;
+As of Gravitee 4.0, you cannot implement sharding tags for v4 APIs using the APIM Console. This can only be done via the [Management API](../../../reference/management-api-reference.md).
 {% endhint %}
 
 ## Introduction
 
-Sharding tags allow you to “tag” Gateways with a keyword and deploy an API to a Gateway with a certain tag. Gateways can be tagged with one or more sharding tags. Additionally, the `!` symbol can be placed before the tag name to specify exclusion rules.&#x20;
+Sharding tags allow you to “tag” Gateways with a keyword and deploy an API to a Gateway with a certain tag. Gateways can be tagged with one or more sharding tags. Additionally, the `!` symbol can be placed before the tag name to specify exclusion rules.
 
 To learn more about how to deploy APIs to specific Gateways based on sharding tags, refer to [Configure Deployments](../../../guides/api-configuration/v2-api-configuration/configure-general-proxy-settings.md#configure-deployments).
 
@@ -50,7 +50,7 @@ API deployment is impacted by how tags are applied to APIs and Gateways.
 
 Our discussion of sharding tag configuration assumes an architecture that includes both DMZ Gateways and internal, corporate Gateways. We want to tag these Gateways as external-only and internal-only, respectively, per the diagram below:
 
-<figure><img src="../../../.gitbook/assets/Example architecture (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Example architecture.png" alt=""><figcaption></figcaption></figure>
 
 Before sharding tags can be defined in the Gravitee API Management Console, the API Gateway `gravitee.yaml` file must be modified to assign a Gravitee API Gateway to a specific sharding tag:
 
@@ -110,11 +110,11 @@ If you are using the Developer Portal, Gravitee also provides a way to map diffe
 
 To demonstrate, let's instruct Gravitee API Manager to apply the “internal test” tag to all APIs tagged with this entrypoint:
 
-1. &#x20;Select **+ Add a mapping**.
+1. Select **+ Add a mapping**.
 
 ![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/8c0374a0-999f-43f2-bccb-61c507a001c8/1.5/84.548611111111/49.819401444788?0)
 
-2. &#x20;In the **Entrypoint url** field, enter your Entrypoint URL:
+2. In the **Entrypoint url** field, enter your Entrypoint URL:
 
 ![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/397a968c-5ae8-4d85-9b4c-5f534a0d9132/2/50/49.980650154799?0)
 

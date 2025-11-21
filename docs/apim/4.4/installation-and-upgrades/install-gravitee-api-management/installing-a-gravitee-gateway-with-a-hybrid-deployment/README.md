@@ -4,9 +4,9 @@
 
 Hybrid architecture is the deployment of a Gravitee Gateway using self-hosted and cloud deployments.
 
-The Gravitee Gateway hybrid deployment uses hybrid components to provide flexibility when you define your architecture and deployment.&#x20;
+The Gravitee Gateway hybrid deployment uses hybrid components to provide flexibility when you define your architecture and deployment.
 
-This page explains how to install a Self-Hosted Data-Plane in a Hybrid deployment, which consists of a SaaS Control-Plane and a Self-Hosted Data-Plane. The control plane signifies the Bridge and the data-plane signifies the Gateway.&#x20;
+This page explains how to install a Self-Hosted Data-Plane in a Hybrid deployment, which consists of a SaaS Control-Plane and a Self-Hosted Data-Plane. The control plane signifies the Bridge and the data-plane signifies the Gateway.
 
 The Gravitee Gateway needs the following two components:
 
@@ -18,16 +18,18 @@ The Gravitee Gateway needs the following two components:
 * Ensure that you understand the various components of a Hybrid deployment. For more information about the components of a Hybrid architecture, see [Components of Hybrid architecture](README.md#components-of-hybrid-architecture).
 * Ensure that the Bridge and Gateway versions that you use for your Hybrid deployment are compatible. For more information about Gateway and Bridge compatibility versions, see [Gateway and Bridge compatibility versions](gateway-and-bridge-compatibility-versions.md).
 
-<img src="../../../.gitbook/assets/file.excalidraw (18).svg" alt="Hybrid deployment architecture" class="gitbook-drawing">
+<img src="../../../../4.1/.gitbook/assets/file.excalidraw (4).svg" alt="Hybrid deployment architecture" class="gitbook-drawing">
 
-<img src="../../../.gitbook/assets/file.excalidraw (15).svg" alt="Hybrid architecture connections" class="gitbook-drawing">
+&#x20;
+
+<img src="../../../../../../.gitbook/assets/file.excalidraw (15) (1).svg" alt="Hybrid architecture connections" class="gitbook-drawing">
 
 ## Components of Hybrid Architecture
 
 The components of a Hybrid architecture are divided into two parts:
 
 * [SaaS Control-Plane components](README.md#saas-components)
-* [Self-hosted Data-Plan components ](README.md#on-prem-private-cloud-components)
+* [Self-hosted Data-Plan components](README.md#on-prem-private-cloud-components)
 
 ### SaaS Control-Plane components <a href="#saas-components" id="saas-components"></a>
 
@@ -41,4 +43,4 @@ The components of a Hybrid architecture are divided into two parts:
 
 You can install a Gravitee Gateway using the following Hybrid deployment methods:
 
-<table data-card-size="large" data-view="cards"><thead><tr><th data-type="content-ref"></th><th></th></tr></thead><tbody><tr><td><a href="../../../getting-started/install-gravitee-api-management/installing-a-gravitee-gateway-with-a-hybrid-deployment/advanced-hybrid-deployment.md">advanced-hybrid-deployment.md</a></td><td>With this method, you install a Gravitee Gateway on your own infrastructure that connects to a control plane hosted in the Gravitee Cloud environment</td></tr><tr><td><a href="hybrid-deployment-on-kubernetes.md">hybrid-deployment-on-kubernetes.md</a></td><td>With this method, you install a Gravitee Gateway and cloud deployments using Kubernetes Helm charts to create your API Management platform.            </td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th data-type="content-ref"></th><th></th></tr></thead><tbody><tr><td><a href="../../../getting-started/install-gravitee-api-management/installing-a-gravitee-gateway-with-a-hybrid-deployment/advanced-hybrid-deployment.md">advanced-hybrid-deployment.md</a></td><td>With this method, you install a Gravitee Gateway on your own infrastructure that connects to a control plane hosted in the Gravitee Cloud environment</td></tr><tr><td><a href="hybrid-deployment-on-kubernetes.md">hybrid-deployment-on-kubernetes.md</a></td><td>With this method, you install a Gravitee Gateway and cloud deployments using Kubernetes Helm charts to create your API Management platform.</td></tr></tbody></table>

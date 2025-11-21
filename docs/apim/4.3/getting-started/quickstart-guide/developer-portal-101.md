@@ -22,13 +22,13 @@ API consumers can easily discover and explore APIs, read documentation, test API
 
 ## Publish your API
 
-Before heading over to the Developer Portal, we need to make sure our Gateway API will be visible to consumers.&#x20;
+Before heading over to the Developer Portal, we need to make sure our Gateway API will be visible to consumers.
 
 ### Access API
 
 First, we need to open the API in the APIM Console. You may already have it open from the previous part of the Quickstart Guide. If not, head back over to the **APIs** homescreen and select the API you created.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-19 at 8.25.21 PM.png" alt=""><figcaption><p>APIs homescreen</p></figcaption></figure>
+<figure><img src="../../../4.0/.gitbook/assets/DP_homescreen (1).png" alt=""><figcaption><p>APIs homescreen</p></figcaption></figure>
 
 > * [x] Select **APIs** in the sidebar
 > * [x] Select the API you created in Gateway APIs 101
@@ -40,7 +40,7 @@ This will take you straight to your API's **General Info** page. In the **Danger
 * **Publish/Unpublish the API:** This is a toggle that controls the visibility of the API in the Developer Portal. Unless the API is also public, it is only visible to members of the API, which is controlled through **User and group access** in the inner sidebar.
 * **Make Public/Private:** This is a toggle that makes the API visible to anyone with access to the Developer Portal. Note, this toggle only has an impact if the API is published.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-19 at 11.20.32 PM.png" alt=""><figcaption><p>API Danger Zone</p></figcaption></figure>
+<figure><img src="../../../4.0/.gitbook/assets/DP_danger zone (1).png" alt=""><figcaption><p>API Danger Zone</p></figcaption></figure>
 
 > * [x] Click **Publish the API**, then **Publish** in the modal to add the API to the Developer Portal
 > * [x] Click **Make Public**, then **Make Public** again in the modal, to make the API visible to all API consumers
@@ -61,7 +61,7 @@ The Developer Portal host of self-managed installations can easily be modified. 
 
 Your Developer Portal URL will depend on your deployment, so please reference the respective installation docs. For example, with the default Docker installation, you can access the Developer Portal at `http://localhost:8085` in your browser.
 
-<img src="../../.gitbook/assets/Screenshot 2023-11-21 at 1.15.16 PM.png" alt="Update Developer Portal settings in the Console" data-size="original">
+<img src="../../../4.0/.gitbook/assets/self-managed dev portal link (1).png" alt="Update Developer Portal settings in the Console" data-size="original">
 
 * [x] Click **Settings** in the sidebar
 * [x] Click **Settings** in the inner sidebar
@@ -70,13 +70,13 @@ Your Developer Portal URL will depend on your deployment, so please reference th
 
 </details>
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-21 at 1.11.23 PM.png" alt=""><figcaption><p>Access Developer Portal from APIM Console</p></figcaption></figure>
+<figure><img src="../../../4.0/.gitbook/assets/DP_console (1).png" alt=""><figcaption><p>Access Developer Portal from APIM Console</p></figcaption></figure>
 
 > * [x] Select the **Developer Portal** link in the top left of your Console's nav bar
 
 This will bring you to the homescreen of the Developer Portal.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-21 at 1.19.27 PM.png" alt=""><figcaption><p>Your default Developer Portal</p></figcaption></figure>
+<figure><img src="../../../4.0/.gitbook/assets/DP_default (1).png" alt=""><figcaption><p>Your default Developer Portal</p></figcaption></figure>
 
 From here, you can immediately begin searching for APIs using the Developer Portal's full-context[^1] search. However, you will not be able to subscribe to any APIs until you create an application.
 
@@ -84,30 +84,30 @@ From here, you can immediately begin searching for APIs using the Developer Port
 
 Now that we have access to the Developer Portal, we can take on the role of an API consumer. The next step is to create an application that is used to register and agree to plans.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-21 at 6.06.07 PM.png" alt=""><figcaption><p>Developer Portal Applications page</p></figcaption></figure>
+<figure><img src="../../../4.0/.gitbook/assets/DP_app page (1).png" alt=""><figcaption><p>Developer Portal Applications page</p></figcaption></figure>
 
 > * [x] Select **Applications** in the top nav bar
 > * [x] Select **+ Create an App** in the subnav bar
 
 #### General step
 
-This will open the application creation wizard. The **General** step is focused on providing application metadata.&#x20;
+This will open the application creation wizard. The **General** step is focused on providing application metadata.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-21 at 6.18.07 PM.png" alt=""><figcaption><p>General step of application creation wizard</p></figcaption></figure>
+<figure><img src="../../../4.0/.gitbook/assets/DP_general (1).png" alt=""><figcaption><p>General step of application creation wizard</p></figcaption></figure>
 
 > * [x] Provide a name and description, then click **Next**
 
 #### Security step
 
-The next step is focused on **Security**. This page may look different depending on your **Client Registration** settings, which are configured in the APIM console. However, everyone should have the option to create a **Simple** application.&#x20;
+The next step is focused on **Security**. This page may look different depending on your **Client Registration** settings, which are configured in the APIM console. However, everyone should have the option to create a **Simple** application.
 
 {% hint style="info" %}
 **Dynamic Client Registration**
 
-A **Simple** application allows an API consumer to define their own `client_id`, but this is not secure and should not be used outside of testing. Therefore, Gravitee allows you to disable **Simple** applications and use [dynamic client registration (DCR)](../../guides/api-exposure-plans-applications-and-subscriptions/applications.md#dcr-application-configuration) to create advanced applications with the identity provider of your choosing.&#x20;
+A **Simple** application allows an API consumer to define their own `client_id`, but this is not secure and should not be used outside of testing. Therefore, Gravitee allows you to disable **Simple** applications and use [dynamic client registration (DCR)](../../guides/api-exposure-plans-applications-and-subscriptions/applications.md#dcr-application-configuration) to create advanced applications with the identity provider of your choosing.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-21 at 6.29.05 PM.png" alt=""><figcaption><p>Security step of application creation wizard</p></figcaption></figure>
+<figure><img src="../../../4.0/.gitbook/assets/DP_security (1).png" alt=""><figcaption><p>Security step of application creation wizard</p></figcaption></figure>
 
 > * [x] Select a **Simple** application, then click **Next**
 
@@ -117,7 +117,7 @@ The **Subscription** step allows you to send API subscription requests as you ar
 
 Once we finish creating the app, the request will be sent for review and approval by the API publisher.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-21 at 6.33.09 PM.png" alt=""><figcaption><p>Subscription step of application creation wizard</p></figcaption></figure>
+<figure><img src="../../../4.0/.gitbook/assets/DP_subscription (1).png" alt=""><figcaption><p>Subscription step of application creation wizard</p></figcaption></figure>
 
 > * [x] Search for the API you published and select it
 > * [x] Select **Subscribe** under the API Key Plan, then click **Next**
@@ -126,7 +126,7 @@ Once we finish creating the app, the request will be sent for review and approva
 
 Finally, we just need to complete the **Validation** step. Review your application details and subscription request. If everything looks good, go ahead and create your app!
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-21 at 6.36.14 PM.png" alt=""><figcaption><p>Validation step of application creation wizard</p></figcaption></figure>
+<figure><img src="../../../4.0/.gitbook/assets/DP_validation (1).png" alt=""><figcaption><p>Validation step of application creation wizard</p></figcaption></figure>
 
 > * [x] Click **Create the App**
 
@@ -136,14 +136,14 @@ You should receive confirmation that your app was successfully created. Feel fre
 
 It's time to resume our previous role as an API publisher. Let's return to the APIM Console to manage the subscription request we just submitted. It should have come through as a new **Task**.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-21 at 7.34.03 PM.png" alt=""><figcaption><p>View your tasks in the Console</p></figcaption></figure>
+<figure><img src="../../../4.0/.gitbook/assets/DP_view (1).png" alt=""><figcaption><p>View your tasks in the Console</p></figcaption></figure>
 
 > * [x] Select your profile in the top right
 > * [x] Select **Task** from the drop-down menu
 
 This will bring you to a list of all your current tasks, which should consist of a subscription request from the application to your API you just created.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-21 at 7.35.20 PM.png" alt=""><figcaption><p>A list of your tasks in the Console</p></figcaption></figure>
+<figure><img src="../../../4.0/.gitbook/assets/DP_list (1).png" alt=""><figcaption><p>A list of your tasks in the Console</p></figcaption></figure>
 
 > * [x] Click Validate under the subscription request
 
@@ -155,7 +155,7 @@ This was essentially a shortcut to our API's subscription screen. You can always
 
 Here, you can see all the metadata (e.g., user, application, plan, etc.) for the request and decide on an action. Once you validate, you will have additional options for managing the subscription.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-21 at 7.41.45 PM.png" alt=""><figcaption><p>Subscription validation screen</p></figcaption></figure>
+<figure><img src="../../../4.0/.gitbook/assets/DP_sub val (1).png" alt=""><figcaption><p>Subscription validation screen</p></figcaption></figure>
 
 > * [x] Click **Validate subscription**
 > * [x] Leave the defaults and click **Validate** in the modal
@@ -171,7 +171,7 @@ At the bottom of the screen, you will see the API key that has been randomly gen
 
 For now, simply copy that API key to your clipboard.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-21 at 7.47.19 PM.png" alt=""><figcaption><p>Subscription management </p></figcaption></figure>
+<figure><img src="../../../4.0/.gitbook/assets/DP_management (1).png" alt=""><figcaption><p>Subscription management</p></figcaption></figure>
 
 > * [x] Select the **Copy to clipboard** icon next to the API key
 
@@ -192,7 +192,7 @@ curl -X GET -i "https://<your-gateway-server>/<your-context-path>" -H "X-Gravite
 {% hint style="success" %}
 You should receive a **`200 OK`** success status response code, along with the custom payload you configured in the previous section using the Assign Content policy.
 
-Congrats! You have successfully completed the Quickstart Guide! Head on over to our [What's Next](whats-next.md) section if you're looking for suggestions for learning about more advanced Gravitee topics.&#x20;
+Congrats! You have successfully completed the Quickstart Guide! Head on over to our [What's Next](whats-next.md) section if you're looking for suggestions for learning about more advanced Gravitee topics.
 {% endhint %}
 
 [^1]: Full-context meaning it searches through the definition and metadata of all published APIs that you have access to

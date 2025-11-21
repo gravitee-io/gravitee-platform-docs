@@ -165,27 +165,27 @@ Before you can connect to the Gravitee portal using Keycloak, you need to create
 
 1.  Log-in to Keycloak and create a new client.
 
-    <figure><img src="../../../.gitbook/assets/keycloak_create_client.png" alt=""><figcaption><p>Add a Gravitee client in Keycloak</p></figcaption></figure>
+    <figure><img src="../../../../../../.gitbook/assets/keycloak_create_client (1).png" alt=""><figcaption><p>Add a Gravitee client in Keycloak</p></figcaption></figure>
 2.  Enter in your client details for Gravitee. The `Valid Redirect URIs` value must exactly match the domain which is hosting APIM Portal.
 
-    <figure><img src="../../../.gitbook/assets/keycloak_configure_client.png" alt=""><figcaption><p>Enter Gravitee client details in Keycloak</p></figcaption></figure>
-3.  Once you're done and create the client, retrieve the client credentials that you will need to give to Gravitee.&#x20;
+    <figure><img src="../../../../../../.gitbook/assets/keycloak_configure_client (1).png" alt=""><figcaption><p>Enter Gravitee client details in Keycloak</p></figcaption></figure>
+3.  Once you're done and create the client, retrieve the client credentials that you will need to give to Gravitee.
 
-    <figure><img src="../../../.gitbook/assets/keycloak_client_credentials.png" alt=""><figcaption><p>Keycloak client credentials that will need to be given to Gravitee</p></figcaption></figure>
+    <figure><img src="../../../../../../.gitbook/assets/keycloak_client_credentials (1).png" alt=""><figcaption><p>Keycloak client credentials that will need to be given to Gravitee</p></figcaption></figure>
 
 ### Create and configure Keycloak Client scope
 
 1. In your realm, go to the `Client scopes` page.
 2.  Set a special gravitee-client-groups [Scope](https://oauth.net/2/scope/) that will contain users' roles.
 
-    ![Keycloak console - Create scope](https://docs.gravitee.io/images/apim/3.x/installation/authentication/keycloak\_mng-01-client\_scopes-roles\_add\_client\_scope.png)
+    ![Keycloak console - Create scope](https://docs.gravitee.io/images/apim/3.x/installation/authentication/keycloak_mng-01-client_scopes-roles_add_client_scope.png)
 3.  In the new client scope, set a mapper with Claim name "groups".
 
-    ![Keycloak console - Add mapper to scope](https://docs.gravitee.io/images/apim/3.x/installation/authentication/keycloak\_mng-02-client\_scopes-mapper.png)
+    ![Keycloak console - Add mapper to scope](https://docs.gravitee.io/images/apim/3.x/installation/authentication/keycloak_mng-02-client_scopes-mapper.png)
 4. In your realm, go to the `Client` page, and select your Client.
 5.  Add the new configured scope in the `Client Scopes` tab.
 
-    ![Keycloak console - Add scope to client](https://docs.gravitee.io/images/apim/3.x/installation/authentication/keycloak\_mng-03-client-add\_scope.png)
+    ![Keycloak console - Add scope to client](https://docs.gravitee.io/images/apim/3.x/installation/authentication/keycloak_mng-03-client-add_scope.png)
 
 ### Create Keycloak Client roles
 
@@ -194,9 +194,9 @@ Optionally, you can configure Keycloak client roles. These roles can be defined 
 1.  In your client, create roles by organization, as needed.
 
     <figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/authentication/keycloak_mng-04-client-add_roles.png" alt=""><figcaption><p>Add roles in Keycloak</p></figcaption></figure>
-2.  To configure Keycloak users with appropriate roles, select **Role Mappings** and define roles as is appropriate.&#x20;
+2.  To configure Keycloak users with appropriate roles, select **Role Mappings** and define roles as is appropriate.
 
-    <figure><img src="../../../.gitbook/assets/keycloak_mng-roles-05-users-add_user_client_roles.png" alt=""><figcaption><p>Define role mappings</p></figcaption></figure>
+    <figure><img src="../../../../../../.gitbook/assets/keycloak_mng-roles-05-users-add_user_client_roles (1).png" alt=""><figcaption><p>Define role mappings</p></figcaption></figure>
 
 Gravitee role mapping uses Spring Expression Language ([SpEL](https://docs.spring.io/spring-framework/docs/3.0.x/reference/expressions.html)) for writing conditions. The only available object in context is #profile set from [userInfoEndpoint](https://www.oauth.com/oauth2-servers/signing-in-with-google/verifying-the-user-info/). For example:
 
@@ -215,7 +215,7 @@ security:
 
 ### Configure Keycloak authentication in Gravitee
 
-You can configure Keycloak settings in Gravitee either via the Gravitee APIM UI or the `gravitee.yaml` file. Either way, the configuration is stored in the database, meaning that APIM starts using your new configuration as soon as you select **Save** (if configuring in APIM Console) or restart the APIM API (if configuring in the configuration file).&#x20;
+You can configure Keycloak settings in Gravitee either via the Gravitee APIM UI or the `gravitee.yaml` file. Either way, the configuration is stored in the database, meaning that APIM starts using your new configuration as soon as you select **Save** (if configuring in APIM Console) or restart the APIM API (if configuring in the configuration file).
 
 See the tabs below for how to configure Keycloak authentication via the APIM UI and the `gravitee.yaml` file.
 

@@ -14,18 +14,18 @@ Gravitee API Management 4.5 improves the management of sync and async APIs acros
 * More customization options for the new Developer Portal
 * Three new federation agents, such that we now support discovery & ingestion of APIs and event streams from AWS API Gateway, Azure API Management, Apigee X, IBM API Connect , Solace, and Confluent Platform
 * Federation discovery process improvements
-* New API Score feature preview, for automated governance&#x20;
+* New API Score feature preview, for automated governance
 
 ## Shared Policy Groups
 
 Shared Policy Groups let you define a collection of policies in a central location and use them across multiple APIs. This makes it easier to implement similar policies across multiple APIs without introducing the risk of human error through repeated manual input. It also improves governance, by enabling you to ensure that all APIs implement certain policies that are critical to your organization.
 
-<figure><img src="../../.gitbook/assets/image (131).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (131) (1).png" alt=""><figcaption></figcaption></figure>
 
 For example, you can use this feature to:
 
-* Define a standard set of policies to shape traffic&#x20;
-* Enforce security standards&#x20;
+* Define a standard set of policies to shape traffic
+* Enforce security standards
 * Transform messages
 
 The lifecycle of shared policy groups is independent from the deployment lifecycle of the APIs that they are used in. If you update the shared policy group, and then deploy it to the gateway, all APIs will pick up the changes without requiring a restart of the APIs.
@@ -40,9 +40,7 @@ The new mTLS plan relies on mutual TLS to authenticate a consuming application w
 
 <figure><img src="https://lh7-qw.googleusercontent.com/docsz/AD_4nXeUxuu-YcJTVfs8X0SHdpewdTF9CKwd15g8rG6i2pE9ebl6glHbHQhEPImNxfl6GWeu5EjEEpDiorQSXiKc9AnR9p83n39Ds3Rgc1Wr8f3tXydneG9UhTsdey-hPRjG8efAJkZATw6Gz1uFN6W4oTId_BsT?key=PrMp2J0zWBtqrsqO75zcMw" alt=""><figcaption></figcaption></figure>
 
-
-
-Before this update, you could set up the Gravitee gateway to require client authentication for all incoming requests, and then use the gateway truststore to verify that only authorized clients are allowed to connect to the Gateway.&#x20;
+Before this update, you could set up the Gravitee gateway to require client authentication for all incoming requests, and then use the gateway truststore to verify that only authorized clients are allowed to connect to the Gateway.
 
 With this update, the mTLS plan enhances this authentication by using the client certificate to authorize requests to APIs using the plan.
 
@@ -69,7 +67,7 @@ With this update, we have added the following features:
 
 ## v4 API Documentation enhancements
 
-Gravitee  continues to bring the latest version of its API functionality to full parity and provides enhancements along the way. With this update, we have added the ability to fetch a page from a remote source like GitHub, GitLab, or a remote URL on a configured cadence.&#x20;
+Gravitee continues to bring the latest version of its API functionality to full parity and provides enhancements along the way. With this update, we have added the ability to fetch a page from a remote source like GitHub, GitLab, or a remote URL on a configured cadence.
 
 <figure><img src="https://lh7-qw.googleusercontent.com/docsz/AD_4nXdQ9ratbE1eK71AiL_86Z1nIcaZNT7iNtbu6Q-x4fpw9xwJTRW9p_emI3SFz8_gGjqlLpkC7OTb3eQWjcacwHOUD5ppxhz3SKu_CVlDKdKrCysq7pKkfP-LNXEKDtmuBpxsKhE3PAa5L0uZGz8q8yJhY6O5?key=PrMp2J0zWBtqrsqO75zcMw" alt=""><figcaption></figcaption></figure>
 
@@ -85,9 +83,9 @@ You can use the OAS Validation policy to validate a request to an API or the res
 
 ## Azure, IBM, and Confluent federation providers
 
-Federation enables the creation of a unified catalog and developer portal for APIs and event streams from any 3rd-party platform.&#x20;
+Federation enables the creation of a unified catalog and developer portal for APIs and event streams from any 3rd-party platform.
 
-<figure><img src="../../.gitbook/assets/image (132).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (132) (1).png" alt=""><figcaption></figcaption></figure>
 
 With 4.5, we’re excited to announce that federation is now generally available and includes multiple enhancements:
 
@@ -102,9 +100,9 @@ API Score is a new automated governance feature that will provide a quality scor
 
 <figure><img src="https://lh7-qw.googleusercontent.com/docsz/AD_4nXdLcbQjWdXWbsq2Dz0LfM9rFj0l52jR1ij1Ealve34-sSzgE76PU9Dj_doD_MzAxNGM6s2aP-6pbgJrzFLXZ1Fod44TyUUT02Yq4xnXLC5k9ynrrhugRGLek-y9YnwvQwnRDIy23N9Z1Y8IqEr1Qr41cNRm?key=jMTPU2NFoSjiJjsY4xlu6w" alt=""><figcaption></figcaption></figure>
 
-You can specify your own custom rules that will be used to evaluate the OAS and AsyncAPI specifications attached to your APIs in Gravitee.&#x20;
+You can specify your own custom rules that will be used to evaluate the OAS and AsyncAPI specifications attached to your APIs in Gravitee.
 
-Because this feature is a technical preview, we asked that you reach out to the Gravitee team in order to activate it on your environment.&#x20;
+Because this feature is a technical preview, we asked that you reach out to the Gravitee team in order to activate it on your environment.
 
 {% hint style="info" %}
 API Score is a new service that requires a Gravitee Cloud account and an APIM instance that is connected to Gravitee Cloud.
@@ -171,10 +169,9 @@ With APIM 4.5, we’ve continued to reduce the delta between our functionality o
 
 ## Wrapping Up
 
-We’re extremely proud of this release at Gravitee and we look forward to hearing your feedback! Don’t hesitate to contact us with any questions or feedback.&#x20;
-
-\
+We’re extremely proud of this release at Gravitee and we look forward to hearing your feedback! Don’t hesitate to contact us with any questions or feedback.
 
 
+
 \
-\
+\\
