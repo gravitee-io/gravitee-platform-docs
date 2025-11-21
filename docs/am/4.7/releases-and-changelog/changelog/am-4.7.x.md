@@ -6,6 +6,30 @@ description: >-
 
 # AM 4.7.x
 
+## Gravitee Access Management 4.7.22 - November 21, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* translate email from name [#10958](https://github.com/gravitee-io/issues/issues/10958)
+* Vertx eventLoop ThreadBlocked when HSM plugin is used [#10969](https://github.com/gravitee-io/issues/issues/10969)
+
+
+
+
+
+**Other**
+
+* Update docker-compose to be able to run without changes [#10972](https://github.com/gravitee-io/issues/issues/10972)
+* UI broken for Endpoints when user assigned role to application [#10976](https://github.com/gravitee-io/issues/issues/10976)
+* STS Client is not closed in HSM implementation [#10977](https://github.com/gravitee-io/issues/issues/10977)
+
+</details>
+
+
 ## Gravitee Access Management 4.7.21 - November 14, 2025
 
 <details>
