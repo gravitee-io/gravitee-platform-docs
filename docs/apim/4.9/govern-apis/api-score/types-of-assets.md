@@ -1,7 +1,7 @@
 # Types of Assets
 
 {% hint style="warning" %}
-API Score is a technology preview. This feature is not recommended for production environments.&#x20;
+API Score is a technology preview. This feature is not recommended for production environments.
 {% endhint %}
 
 ## Overview
@@ -16,78 +16,32 @@ API score works by analyzing different parts of your APIs and checking them agai
 * Gravitee federated API definitions
 * Gravitee v2 API definitions
 
-All of the "API definition" asset types are essentially the same as what you get if you export an API from the Gravitee API Management Console. They contain all of your API's settings, such as name, version, labels, categories, plans, policies, etc.&#x20;
+All of the "API definition" asset types are essentially the same as what you get if you export an API from the Gravitee API Management Console. They contain all of your API's settings, such as name, version, labels, categories, plans, policies, etc.
 
-To assist you in writing rulesets, the sections below include examples of how to obtain copies of assets.&#x20;
+To assist you in writing rulesets, the sections below include examples of how to obtain copies of assets.
 
-## Export a Gravitee API definition&#x20;
+## Export a Gravitee API definition
 
 To export a Gravitee API definition, follow these steps:
 
 1. Log in to your APIM Console, then click **APIs**.
-2. Click the API that you want to export.&#x20;
+2. Click the API that you want to export.
 3. In the **General** or **Configuration** tab, click **Export**.
-4. (Optional) Select the information that you want to export. You can choose the following information to export: Groups, Members, Pages, Plans, and Metadata.&#x20;
+4. (Optional) Select the information that you want to export. You can choose the following information to export: Groups, Members, Pages, Plans, and Metadata.
 5. Click **Export**.
 
-Below is a partial example of an exported API definition for a v4 proxy API. All of the attributes you see here can be used in your API Score custom rulesets.&#x20;
+Below is a partial example of an exported API definition for a v4 proxy API. All of the attributes you see here can be used in your API Score custom rulesets.
 
 {% code lineNumbers="true" %}
-````json
-{
-  "export": {
-    "date": "2025-02-27T14:11:38.684449698Z",
-    "apimVersion": "4.7.0-SNAPSHOT"
-  },
-  "api": {
-    "definitionVersion": "V4",
-    "type": "PROXY",
-    "listeners": [
-      {
-        "type": "HTTP",
-        "paths": [
-          {
-            "path": "/0205-javascript/",
-            "overrideAccess": false
-          }
-        ],
-        "entrypoints": [
-          {
-            "type": "http-proxy",
-            "qos": "AUTO",
-            "configuration": {}
-          }
-        ]
-      }
-    ],
-    "endpointGroups": [
-      {
-        "name": "Default HTTP proxy group",
-        "type": "http-proxy",
-        "loadBalancer": {
-          "type": "ROUND_ROBIN"
-        },
-        "sharedConfiguration": "{\"proxy\":{\"useSystemProxy\":false,\"enabled\":false},\"http\":{\"keepAliveTimeout\":30000,\"keepAlive\":true,\"followRedirects\":false,\"readTimeout\":10000,\"idleTimeout\":60000,\"connectTimeout\":3000,\"useCompression\":true,\"maxConcurrentConnections\":20,\"version\":\"HTTP_1_1\",\"pipelining\":false},\"ssl\":{\"keyStore\":{\"type\":\"\"},\"hostnameVerifier\":true,\"trustStore\":{\"type\":\"\"},\"trustAll\":false}}",
-        "endpoints": [
-          {
-            "name": "Default HTTP proxy",
-            "type": "http-proxy",
-            "weight": 1,
-            "inheritConfiguration": true,
-            "configuration": {
-              "target": "https://api.gravitee.io/whattimeisit"
-            },
-            "sharedConfigurationOverride": "{}",
-            "services": {},
-            "secondary": false
-          }
 ```
-````
+```
 {% endcode %}
 
-## Federated API definition&#x20;
+\`\`\`\`json { "export": { "date": "2025-02-27T14:11:38.684449698Z", "apimVersion": "4.7.0-SNAPSHOT" }, "api": { "definitionVersion": "V4", "type": "PROXY", "listeners": \[ { "type": "HTTP", "paths": \[ { "path": "/0205-javascript/", "overrideAccess": false } ], "entrypoints": \[ { "type": "http-proxy", "qos": "AUTO", "configuration": {} } ] } ], "endpointGroups": \[ { "name": "Default HTTP proxy group", "type": "http-proxy", "loadBalancer": { "type": "ROUND\_ROBIN" }, "sharedConfiguration": "{\\"proxy\\":{\\"useSystemProxy\\":false,\\"enabled\\":false},\\"http\\":{\\"keepAliveTimeout\\":30000,\\"keepAlive\\":true,\\"followRedirects\\":false,\\"readTimeout\\":10000,\\"idleTimeout\\":60000,\\"connectTimeout\\":3000,\\"useCompression\\":true,\\"maxConcurrentConnections\\":20,\\"version\\":\\"HTTP\_1\_1\\",\\"pipelining\\":false},\\"ssl\\":{\\"keyStore\\":{\\"type\\":\\"\\"},\\"hostnameVerifier\\":true,\\"trustStore\\":{\\"type\\":\\"\\"},\\"trustAll\\":false\}}", "endpoints": \[ { "name": "Default HTTP proxy", "type": "http-proxy", "weight": 1, "inheritConfiguration": true, "configuration": { "target": "https://api.gravitee.io/whattimeisit" }, "sharedConfigurationOverride": "{}", "services": {}, "secondary": false } \`\`\` \`\`\`\` \{% endcode %\}
 
-Federated APIs ingested from 3rd-party providers like AWS, Apigee, Azure, IBM, Mulesoft, Solace, and Confluent, cannot currently be exported from the user interface.&#x20;
+## Federated API definition
+
+Federated APIs ingested from 3rd-party providers like AWS, Apigee, Azure, IBM, Mulesoft, Solace, and Confluent, cannot currently be exported from the user interface.
 
 To help you write rulesets against this asset type, you can modify the example below. This example shows the structure of a federated API definition.
 

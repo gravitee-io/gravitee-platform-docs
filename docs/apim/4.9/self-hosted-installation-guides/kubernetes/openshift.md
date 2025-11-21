@@ -1,7 +1,5 @@
 # OpenShift
 
-{% include "../../../4.6/.gitbook/includes/installation-guide-note (1).md" %}
-
 ## Prerequisites
 
 * Gravitee API Management (APIM) Helm chart is compatible with OpenShift versions 3.10 and later.

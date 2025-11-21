@@ -14,8 +14,8 @@ To access the version history:
 4. Select **Deployment** from the inner left nav
 5. Click on the **Version History** header
 
-<figure><img src="../../../../../.gitbook/assets/deployment_version history (1).png" alt=""><figcaption><p>View the API version history</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/deployment_version history (1).png" alt=""><figcaption><p>View the API version history</p></figcaption></figure>
 
 To view the JSON definition of a specific API version, click the eye icon under the **Action** header to **Show version**:
 
-<figure><img src="../../../../../.gitbook/assets/deployment_version history details (1).png" alt=""><figcaption><p>JSON API definition</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/deployment_version history details (1).png" alt=""><figcaption><p>JSON API definition</p></figcaption></figure>

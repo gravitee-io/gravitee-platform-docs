@@ -587,7 +587,7 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
    * Replace `<hosts>` with the host information you entered in the Gravitee Cloud Gateway setup.
    *   Set the `tag` field in the Gateway image section to the value displayed in the Overview section of your Gravitee Cloud Dashboard. \\
 
-       <figure><img src="../../../.gitbook/assets/image (339) (1).png" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../../../.gitbook/assets/image (339) (2).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 The `tag` field specifies the version of your Gravitee Gateway. Your Gateway version must match your Gravitee Cloud Control Plane version to ensure compatibility between your hybrid Gateway and the Cloud Management platform.
@@ -674,7 +674,7 @@ helm uninstall graviteeio-apim-gateway --namespace gravitee-apim
 
 Your Gateway appears in the Gateways section of your [Gravitee Cloud](https://cloud.gravitee.io/) Dashboard.
 
-<figure><img src="../../../../4.8/.gitbook/assets/image (318) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (318) (1).png" alt=""><figcaption></figcaption></figure>
 
 To verify that your Gateway is up and running, complete the following steps:
 

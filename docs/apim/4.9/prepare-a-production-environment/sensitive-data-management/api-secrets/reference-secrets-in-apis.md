@@ -15,11 +15,11 @@ This article explains the syntax that you can use to resolve secrets in v4 APIs 
 
 ## Reference a secret with specialized syntax
 
-Secrets can be resolved in fields that support [Gravitee Expression Language (EL)](README.md). Only some fields that support EL allow the resolution of secrets. In general, any field supporting EL that may contain sensitive information support secrets, such as URLs, header values, passwords, and SSL/TLS settings.
+Secrets can be resolved in fields that support [Gravitee Expression Language (EL)](./). Only some fields that support EL allow the resolution of secrets. In general, any field supporting EL that may contain sensitive information support secrets, such as URLs, header values, passwords, and SSL/TLS settings.
 
 ### General syntax
 
-`{#secrets.get('``<path to secret>``')}`
+`{#secrets.get('<path to secret>')}`
 
 Arguments can have the following formats:
 
@@ -33,7 +33,7 @@ Arguments can have the following formats:
 
 Arguments can be embedded in a larger string, like in the following example:
 
-`"My password is {#secrets.get('``<path to secret>``')} and should remain a secret"`
+`"My password is {#secrets.get('<path to secret>')} and should remain a secret"`
 
 ### Secret URI syntax
 
@@ -78,11 +78,11 @@ You can specific the secret using an EL. Here some example uses cases:
 
 Here is an example with a Dynamic URI:
 
-`{#secrets.get('``#expression_to_get_the_secret_path``')}`
+`{#secrets.get('#expression_to_get_the_secret_path')}`
 
 Here is an example with query parameters:
 
-`{#secrets.get('``#expression_to_get_the_secret_path``?`<mark style="color:orange;">`query_paramter`</mark>`')}`
+`{#secrets.get('#expression_to_get_the_secret_path?`<mark style="color:orange;">`query_paramter`</mark>`')}`
 
 ## Secret resolution and evaluation
 
@@ -122,7 +122,7 @@ The following are plugins that evaluate EL strictly at runtime when the API is c
 
 When the key is an EL, those plugins can access: dictionaries, API properties, attributes, content, request/subscribe data, and response/publish data. Here is an example:
 
-`{#secrets.get('/`<mark style="color:red;">`kubernetes`</mark>`/`<mark style="color:green;">`apis-tokens`</mark>`',`<mark style="color:yellow;">`#request.headers['PartnerId']`</mark>`')}`
+`{#secrets.get('/`<mark style="color:red;">`kubernetes`</mark>`/`<mark style="color:green;">`apis-tokens`</mark>`',`<mark style="color:yellow;">`#request.headers['PartnerId']`</mark>`)}`
 
 {% hint style="warning" %}
 If the secret cannot be resolved and retry is activated, the API is deployed, but executing the policy or endpoint fails until retry resolves the secret.
@@ -312,7 +312,7 @@ The definition does not contain a clear text secret. This definition is saved, a
 
 Here is an example of how to reference a secret when you configure a Redis Cache resource:
 
-<figure><img src="../../../../4.7/.gitbook/assets/image (143).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.7/.gitbook/assets/image%20(143).png" alt=""><figcaption></figcaption></figure>
 
 ### Native Kafka endpoint API example
 
@@ -381,4 +381,4 @@ The definition does not contain a clear text secret. This definition is saved as
 
 Here is an example of how to reference a secret during a SASL configuration:
 
-<figure><img src="../../../../4.7/.gitbook/assets/Screenshot 2025-01-23 at 13.54.01.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.7/.gitbook/assets/Screenshot%202025-01-23%20at%2013.54.01.png" alt=""><figcaption></figcaption></figure>
