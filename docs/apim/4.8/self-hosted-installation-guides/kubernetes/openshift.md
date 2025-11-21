@@ -68,7 +68,7 @@ If you have already installed MongoDB, you do not need to install MongoDB again.
 | ----------- | ----------- | ------- |
 | `mongo.uri` | Mongo URI   | `null`  |
 
-*   **Option 2:** Provide a `mongo.servers` raw definition with `mongo.dbname` and an authentication configuration:\\
+*   **Option 2:** Provide a `mongo.servers` raw definition with `mongo.dbname` and an authentication configuration:
 
     ```bash
     mongo:
@@ -161,7 +161,7 @@ postgres-apim-postgresql-0                1/1     Running      0           98s
 
 **Configure PostgreSQL**
 
-*   Modify the `values.yml` the following content to use the `username`, `password`, `URL`, and `database name` that is specific to your instance:\\
+*   Modify the `values.yml` the following content to use the `username`, `password`, `URL`, and `database name` that is specific to your instance:
 
     ```
     jdbc:
@@ -311,7 +311,7 @@ The process for configuring the Gravitee components on OpenShift is the same pro
 When you configure your `values.yml` file for OpenShift deployment, you must complete the following actions:
 
 * Use the full host domain instead of paths for all components.
-*   Override the security context to let OpenShift automatically define the `user-id` and `group-id` you use to run the containers. Here is an example of security context that has been overridden:\\
+*   Override the security context to let OpenShift automatically define the `user-id` and `group-id` you use to run the containers. Here is an example of security context that has been overridden:
 
     \{% hint style="warning" %\}
 
@@ -329,7 +329,7 @@ When you configure your `values.yml` file for OpenShift deployment, you must com
           seccompProfile:
             type: RuntimeDefault
     ```
-*   For OpenShift to automatically create Routes from the Ingress, define the `ingressClassName` as `none`. Here is an example of an `ingressClassName` defined as `none`:\\
+*   For OpenShift to automatically create Routes from the Ingress, define the `ingressClassName` as `none`. Here is an example of an `ingressClassName` defined as `none`:
 
     ```yaml
      api:

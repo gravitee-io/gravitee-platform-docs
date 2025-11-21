@@ -70,7 +70,7 @@ In Gravitee APIM 4.4, we introduced secret managers to obscure sensitive informa
 
 With Gravitee 4.7, you can add documentation in Asciidoc format, in addition to the previously-supported OpenAPI, AsyncAPI, and Markdown formats.
 
-\
+
 
 
 <figure><img src="https://lh7-qw.googleusercontent.com/docsz/AD_4nXfEhczS30H76u2oPk0WeSpz04vw2uJ8qBV267euCY4uSzZ2oHXfiBgbJggjCJJmgn1HKruN5Dc9V6YLZoYrals0k27zlchqtjjuUmVPKNKEKCOCHKEskD5vyCW4yH3pw5Gvoyq0Lg?key=vUeNGTqhmI_vGeq3U0sGHTvz" alt=""><figcaption></figcaption></figure>

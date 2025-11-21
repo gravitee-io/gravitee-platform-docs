@@ -171,7 +171,7 @@ With APIM 4.5, we’ve continued to reduce the delta between our functionality o
 
 We’re extremely proud of this release at Gravitee and we look forward to hearing your feedback! Don’t hesitate to contact us with any questions or feedback.
 
-\\
+
 
 \
 \\

@@ -296,7 +296,7 @@ api:
 {% endcode %}
 
 * Kubernetes
-  *   (recommended) Here is an example with short lived tokens:\\
+  *   (recommended) Here is an example with short lived tokens:
 
       <pre class="language-yaml" data-title="gravitee.yml/Helm values.yml"><code class="lang-yaml">api:
         secrets:
@@ -312,7 +312,7 @@ api:
                     role: vault-role
       </code></pre>
 
-      * (Optional) If your pod does not make the token available in `/var/run/secrets/kubernetes.io/serviceaccount/token` , you can add `tokenFile`&#x20;
+      * (Optional) If your pod does not make the token available in `/var/run/secrets/kubernetes.io/serviceaccount/token` , you can add `tokenFile` .
   *   Here is an example with long-lived tokens:
 
       <pre class="language-yaml" data-title="gravitee.yml/Helm values.yml"><code class="lang-yaml">api:

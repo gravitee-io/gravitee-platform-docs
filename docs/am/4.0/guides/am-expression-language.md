@@ -124,7 +124,7 @@ Claim : `uuid`
 
 Claim Value: `{#context.attributes['authFlow']['authflow-attribute']}`
 
-\
+
 
 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-el-token.png" alt=""><figcaption><p>Application tokens</p></figcaption></figure>

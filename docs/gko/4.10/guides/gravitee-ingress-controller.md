@@ -96,7 +96,7 @@ Refer to the [Helm Chart documentation](../getting-started/installation/install-
 
 To test the installation:
 
-1.  Deploy [`go-httpbin`](https://github.com/mccutchen/go-httpbin) as a backend service routed through your ingress resource. The minimum resources required to initialize the backend service are defined below:\
+1.  Deploy [`go-httpbin`](https://github.com/mccutchen/go-httpbin) as a backend service routed through your ingress resource. The minimum resources required to initialize the backend service are defined below:
 
 
     {% code title="httpbin.yaml" %}
@@ -145,7 +145,7 @@ To test the installation:
     {% endcode %}
 
 
-2.  Apply the resources on your cluster:\
+2.  Apply the resources on your cluster:
 
 
     ```sh
@@ -160,7 +160,7 @@ Once the `httpbin` service is created, it can be used as a reference in one or m
 
 The example below shows the rules for routing traffic to your backend service. The GKO ingress controller interprets the ingress resource and publishes a new API on the Gravitee Gateway. The Gateway acts as a runtime ingress, handling traffic and forwarding it to your backend service.
 
-1.  Configure `httpbin-ingress.yaml`:\
+1.  Configure `httpbin-ingress.yaml`:
 
 
     {% code title="httpbin-ingress.yaml" %}
@@ -188,7 +188,7 @@ The example below shows the rules for routing traffic to your backend service. T
     {% endcode %}
 
 
-2.  Apply the ingress on your cluster:\
+2.  Apply the ingress on your cluster:
 
 
     ```sh
@@ -207,7 +207,7 @@ curl -i https://graviteeio.example.com/httpbin/hostname
 
 To secure the connection between your client and the Gateway, you must modify the Gateway `ConfigMap`:
 
-1.  As a prerequisite, create a keystore and add it to the cluster:\
+1.  As a prerequisite, create a keystore and add it to the cluster:
 
 
     ```sh
@@ -222,7 +222,7 @@ To secure the connection between your client and the Gateway, you must modify th
     {% endhint %}
 
 
-2.  Add your keystore to your target namespace, for example., the default namespace:\
+2.  Add your keystore to your target namespace, for example., the default namespace:
 
 
     ```sh
@@ -231,7 +231,7 @@ To secure the connection between your client and the Gateway, you must modify th
     ```
 
 
-3.  To configure the Gateway to use the keystore and enable HTTPS, open the ConfigMap that includes the Gateway configuration and add the following to the `HTTP` or the `listeners.https` section of the `gravitee.yaml` file:\
+3.  To configure the Gateway to use the keystore and enable HTTPS, open the ConfigMap that includes the Gateway configuration and add the following to the `HTTP` or the `listeners.https` section of the `gravitee.yaml` file:
 
 
     ```yaml
@@ -258,7 +258,7 @@ To secure the connection between your client and the Gateway, you must modify th
 
 There are two ways that the GKO can modify your keystore:
 
-*   Add the following label to your exiting Gateway `ConfigMap`:\
+*   Add the following label to your exiting Gateway `ConfigMap`:
 
 
     ```bash
@@ -266,7 +266,7 @@ There are two ways that the GKO can modify your keystore:
     ```
 
 
-*   Create a new Secret and provide the name of the Gateway keystore and its password:\
+*   Create a new Secret and provide the name of the Gateway keystore and its password:
 
 
     ```sh
@@ -277,7 +277,7 @@ There are two ways that the GKO can modify your keystore:
     ```
 
     \
-    Then label the Secret:\
+    Then label the Secret:
 
 
     ```
@@ -341,7 +341,7 @@ Policies let you apply custom behaviors to requests issued to a backend service.
 
 A template is an API definition with the `gravitee.io/template` label set to `true`. To create a template that defines a `cache` policy:
 
-1.  Configure the `ingress-cache-template.yaml` file:\
+1.  Configure the `ingress-cache-template.yaml` file:
 
 
     {% code title="ingress-cache-template.yaml" %}
@@ -396,7 +396,7 @@ A template is an API definition with the `gravitee.io/template` label set to `tr
     {% endcode %}
 
 
-2.  Apply this template:\
+2.  Apply this template:
 
 
     ```sh
@@ -407,7 +407,7 @@ A template is an API definition with the `gravitee.io/template` label set to `tr
 
 To apply the template policies to requests issued to the `httpbin` ingress:
 
-1.  Add the required label by annotating the ingress. Use the `gravitee.io/template` as the key and the API definition template name as the value.\
+1.  Add the required label by annotating the ingress. Use the `gravitee.io/template` as the key and the API definition template name as the value.
 
 
     {% hint style="info" %}
@@ -442,7 +442,7 @@ To apply the template policies to requests issued to the `httpbin` ingress:
     {% endcode %}
 
 
-2.  Apply this change:\
+2.  Apply this change:
 
 
     ````
@@ -455,7 +455,7 @@ To apply the template policies to requests issued to the `httpbin` ingress:
 
 To test that the `cache` policy is enforced on the `httpbin` ingress:
 
-1.  Request the `/headers` endpoint of `httpbin` and pass a timestamp as a header:\
+1.  Request the `/headers` endpoint of `httpbin` and pass a timestamp as a header:
 
 
     ```sh
@@ -463,7 +463,7 @@ To test that the `cache` policy is enforced on the `httpbin` ingress:
     ```
 
 
-2.  Resend the request to return the same value for the `X-Date` header until the 10-minute window of the `cache` policy has elapsed:\
+2.  Resend the request to return the same value for the `X-Date` header until the 10-minute window of the `cache` policy has elapsed:
 
 
     ```sh

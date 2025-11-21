@@ -22,7 +22,7 @@ Some plugins need to be installed on both the API Gateway and the Management API
 {% tab title="Use Redis with docker-compose" %}
 To use Redis with `docker compose`, complete the following steps:
 
-1.  In the `$services.gateway.environment` section of the Docker Compose file, add the following lines of code:\
+1.  In the `$services.gateway.environment` section of the Docker Compose file, add the following lines of code:
 
 
     ```yaml
@@ -42,7 +42,7 @@ To use Redis with `docker compose`, complete the following steps:
 {% tab title="Use Redis with Docker images" %}
 To use Redis with Docker images, complete the following steps:
 
-1.  In the command that you use to start the API Gateway, add the following environment variables:\
+1.  In the command that you use to start the API Gateway, add the following environment variables:
 
 
     ```bash
@@ -87,7 +87,7 @@ To use the JDBC driver, complete the following sub-steps based on if you install
 {% tab title="Use JDBC with docker-compose" %}
 To use JDBC with `docker-compose`, complete the following steps:
 
-1.  In the `$services.gateway.environment` section, add the following lines of code:\
+1.  In the `$services.gateway.environment` section, add the following lines of code:
 
 
     ```yaml
@@ -108,7 +108,7 @@ To use JDBC with `docker-compose`, complete the following steps:
 {% tab title="Use JDBC with Docker images" %}
 To use JDBC with Docker images, complete the following steps:
 
-1.  In the command that you use to start the Gateway, add the following environment variables:\
+1.  In the command that you use to start the Gateway, add the following environment variables:
 
 
     ```bash

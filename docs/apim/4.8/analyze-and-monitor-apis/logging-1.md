@@ -25,10 +25,10 @@ These settings can be overridden by logging settings that are applied at the ind
 
 ### Configure logging
 
-1.  From the **Dashboard**, click **Settings**. \\
+1.  From the **Dashboard**, click **Settings**. 
 
     <figure><img src="../.gitbook/assets/CFB0E2FD-AF9C-4175-80FF-C1F227860D8A_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
-2.  In the **Settings** menu, click **API Logging**.\\
+2.  In the **Settings** menu, click **API Logging**.
 
     <figure><img src="../.gitbook/assets/0AA53CCF-8D03-400B-8BB2-A3081C3FDCFD_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 
@@ -47,7 +47,7 @@ The default value is 90000 ms. This value logs minimal call information. A value
 When enabled, the following options track who accessed specific data from the audit view:
 
 * Enable audit on API Logging consultation
-*   Generate API Logging audit events (API\_LOGGING\_ENABLED, API\_LOGGING\_DISABLED, API\_LOGGING\_UPDATED)\\
+*   Generate API Logging audit events (API\_LOGGING\_ENABLED, API\_LOGGING\_DISABLED, API\_LOGGING\_UPDATED)
 
     <figure><img src="../.gitbook/assets/image (361).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
@@ -79,13 +79,13 @@ The following sections describe the logging capabilities for v4 APIs.
 
 Comprehensive connection logs allow you to analyze the usage of your v4 message APIs or v4 proxy APIs. To view the runtime logs associated with calls to your API:
 
-1.  From the **Dashboard**, click **APIs**.\\
+1.  From the **Dashboard**, click **APIs**.
 
     <figure><img src="../.gitbook/assets/DB2B50A2-4291-41F4-8BE4-87694C0FCDDC.jpeg" alt=""><figcaption></figcaption></figure>
-2.  Select your API that you want to view the logs for.\\
+2.  Select your API that you want to view the logs for.
 
     <figure><img src="../.gitbook/assets/EF1F9221-58FE-470A-8192-7A9468FEF998_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
-3.  From the menu, click **Logs.**\\
+3.  From the menu, click **Logs.**
 
     <figure><img src="../.gitbook/assets/67DC788E-B000-4F17-8547-2D34EE35FB89_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 
@@ -100,7 +100,7 @@ You can filter API logs by the following information:
 * Period. This is the time period that you want to view logs for.
 * Entrypoints. This the Entrypoint that the user used to interact with the API.
 * HTTP methods. This is the method the user used to interact with the API.
-*   Plan. This is the plan that the user used to interact with the API.\\
+*   Plan. This is the plan that the user used to interact with the API.
 
     <figure><img src="../.gitbook/assets/image (363).png" alt=""><figcaption></figcaption></figure>
 
@@ -108,16 +108,16 @@ You can filter API logs by the following information:
 
 You can modify logging information can be modified by configuring the options under the **Settings** tab. To view and modify the logging options:
 
-1.  From the **Dashboard**, click **APIs**.\\
+1.  From the **Dashboard**, click **APIs**.
 
     <figure><img src="../.gitbook/assets/DB2B50A2-4291-41F4-8BE4-87694C0FCDDC.jpeg" alt=""><figcaption></figcaption></figure>
-2.  Select your API that you want to modify the logs for.\\
+2.  Select your API that you want to modify the logs for.
 
     <figure><img src="../.gitbook/assets/EF1F9221-58FE-470A-8192-7A9468FEF998_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
-3.  From the menu, click **Logs.**\\
+3.  From the menu, click **Logs.**
 
     <figure><img src="../.gitbook/assets/67DC788E-B000-4F17-8547-2D34EE35FB89_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
-4.  Click **Configure Reporting**.\\
+4.  Click **Configure Reporting**.
 
     <figure><img src="../.gitbook/assets/4BE464F6-77A8-4B28-AFDB-EC8790CA8E94_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 
@@ -134,7 +134,7 @@ To configure which information is recorded, select from the following options:
   * **Probabilistic:** Messages are sampled based on a specified probability value between 0.01 and 0.5.
   * **Count:** One message is sampled for every number specified, where the specified value must be greater than 1.
   * **Temporal:** Messages are sampled based on a specified time duration value that conforms to ISO-8601 format.
-*   **Display conditions:** You have the ability to filter the message data based on **Request phase condition** and **Message condition**. Each of these fields supports the use of [Gravitee Expression Language](../gravitee-expression-language.md).\\
+*   **Display conditions:** You have the ability to filter the message data based on **Request phase condition** and **Message condition**. Each of these fields supports the use of [Gravitee Expression Language](../gravitee-expression-language.md).
 
     <figure><img src="../.gitbook/assets/image (364).png" alt=""><figcaption></figcaption></figure>
 
@@ -164,7 +164,7 @@ To configure which information is recorded, select from the following options:
 * **Logging mode:** Select from **Entrypoint** and **Endpoint** to customize which modes are logged.
 * **Logging phase:** Select from **Request** and **Response** to customize which phases are logged.
 * **Content data:** Select from **Headers** and **Payload** to customize which data is logged.
-*   **Display conditions:** You have the ability to filter data based on **Request phase condition**. This field supports the use of [Gravitee Expression Language](../gravitee-expression-language.md).\\
+*   **Display conditions:** You have the ability to filter data based on **Request phase condition**. This field supports the use of [Gravitee Expression Language](../gravitee-expression-language.md).
 
     <figure><img src="../.gitbook/assets/image (365).png" alt=""><figcaption></figcaption></figure>
 
@@ -174,16 +174,16 @@ To configure which information is recorded, select from the following options:
 
 To view the details of any entry in the list of runtime logs:
 
-1.  From the **Dashboard**, click **APIs**. \\
+1.  From the **Dashboard**, click **APIs**. 
 
     <figure><img src="../.gitbook/assets/7142A579-577C-48F7-BF1F-35F6229DBB88_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 2.  Select the API that you want to view the runtime logs for.
 
     <figure><img src="../.gitbook/assets/image (366).png" alt=""><figcaption></figcaption></figure>
-3.  Click **Logs**. You are shown a list of API logs.\\
+3.  Click **Logs**. You are shown a list of API logs.
 
     <figure><img src="../.gitbook/assets/image (367).png" alt=""><figcaption></figcaption></figure>
-4.  Click **the eye symbol** next to the log that you want to view the details of.\\
+4.  Click **the eye symbol** next to the log that you want to view the details of.
 
     <figure><img src="../.gitbook/assets/321F6892-812F-4DAA-AEE6-0CA0C44BEFF4_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 
@@ -233,7 +233,7 @@ In the request section, you see the information about the following topics:
   * URI
 * **Headers**. This section lists all the headers that user or the backend sends in the request.
 * **Body**
-  *   Shows the body sent in the request.\\
+  *   Shows the body sent in the request.
 
       <figure><img src="../.gitbook/assets/image (369).png" alt=""><figcaption></figcaption></figure>
 
@@ -245,7 +245,7 @@ In the request section, you see the information about the following topics:
   * Status
 * **Headers**. This section lists all the headers that is sent by the user or the backend in the response phase.
 * Body
-  *   Shows the body returned in the response\\
+  *   Shows the body returned in the response
 
       <figure><img src="../.gitbook/assets/2421DA4C-35BB-4DAD-A6FA-642B70A17486_4_5005_c.jpeg" alt=""><figcaption></figcaption></figure>
 

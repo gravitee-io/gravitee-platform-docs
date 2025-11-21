@@ -23,7 +23,7 @@ Keep reading to learn more about each new set of functionality.
 Gravitee Federated API Management is comprised of the ability to discover, import, manage, and govern APIs from other API Gateways and Event brokers into a universal Gravitee API management and governance console and then publish those APIs as Gravitee APIs, with Gravitee subscription Plans, in a universal Gravitee Developer Portal. As of 4.4 we offer support:
 
 * AWS API Gateway
-* Solace Event Broker and Event Management\\
+* Solace Event Broker and Event Management
 
 As of 4.4, we have released the following functionality related to Federated API Management:
 
@@ -38,7 +38,7 @@ As of 4.4, we have released the following functionality related to Federated API
   * Solace Event APIs
 * Universal Developer Portal support for:
   * AWS API Gateway APIs
-  * Solace Event APIs\\
+  * Solace Event APIs
 
 If, at any point, you are interested in trying Gravitee Federated API Management, we recommend:
 
@@ -89,7 +89,7 @@ For API consumers, discovering and subscribing to these APIs works the same way 
 
 {% @arcade/embed url="https://app.arcade.software/share/59UqOt0D7NIGSVkavVby" flowId="59UqOt0D7NIGSVkavVby" %}
 
-For API Publishers, managing Federated API subscription requests works the exact same way as it does for Gravitee APIs. You’ll manage subscriptions and your API plans via the Consumers tab on your Federated API. Subscriptions can be configured to require manual validation by the API Publisher before they are forwarded to the 3rd-party provider, or they can be set to automatic. \\
+For API Publishers, managing Federated API subscription requests works the exact same way as it does for Gravitee APIs. You’ll manage subscriptions and your API plans via the Consumers tab on your Federated API. Subscriptions can be configured to require manual validation by the API Publisher before they are forwarded to the 3rd-party provider, or they can be set to automatic. 
 
 For more information on how to create and publish Federated APIs with plans to the Developer Portal, please refer to the [Federated API Management documentation](../../using-the-product/managing-your-apis-with-gravitee-api-management/federation/federated-apis.md).
 
@@ -127,7 +127,7 @@ The 4.4 release brings us multiple steps closer to complete feature parity, intr
 
 As of Gravitee 4.4, you can now import API definition bundles as v4 APIs and create pages, members, groups, and other relevant resources at the time of import. This is done during the API creation phase.
 
-![](<../../../../../.gitbook/assets/Screenshot 2024-06-24 at 5.07.21 PM (1).png>)\\
+![](<../../../../../.gitbook/assets/Screenshot 2024-06-24 at 5.07.21 PM (1).png>)
 
 For v4 Proxy APIs, we also support importing OpenAPI specifications.
 
