@@ -99,7 +99,7 @@ eksctl create iamserviceaccount \
 
 ## Create Default Storage Class
 
-1.  Create an optimized storage class and apply the storage class using `kubectl apply -f storageclass.yaml` \\
+1.  Create an optimized storage class and apply the storage class using `kubectl apply -f storageclass.yaml` 
 
     ```yaml
     apiVersion: storage.k8s.io/v1
@@ -122,7 +122,7 @@ Without a default storage class, Kubernetes cannot dynamically provision persist
 
 ## Install AWS Load Balancer Controller
 
-1.  Create the IAM Policy file named `iam_policy.json` by copying and pasting the following JSON content:\\
+1.  Create the IAM Policy file named `iam_policy.json` by copying and pasting the following JSON content:
 
     ```json
     {
@@ -436,7 +436,7 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
 
 ### Prepare `values.yaml` for Helm
 
-1.  Copy the following Gravitee `values.yaml` file. This is the base configuration for your new hybrid Gateway.\\
+1.  Copy the following Gravitee `values.yaml` file. This is the base configuration for your new hybrid Gateway.
 
     ```yaml
     #This is the license key provided in your Gravitee Cloud account 
@@ -585,7 +585,7 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
    * Replace `<redis_hostname>` with your extracted Redis hostname.
    * Replace `<redis_password>` with your extracted Redis password.
    * Replace `<hosts>` with the host information you entered in the Gravitee Cloud Gateway setup.
-   *   Set the `tag` field in the Gateway image section to the value displayed in the Overview section of your Gravitee Cloud Dashboard. \\
+   *   Set the `tag` field in the Gateway image section to the value displayed in the Overview section of your Gravitee Cloud Dashboard. 
 
        <figure><img src="../../../.gitbook/assets/image (339) (2).png" alt=""><figcaption></figcaption></figure>
 

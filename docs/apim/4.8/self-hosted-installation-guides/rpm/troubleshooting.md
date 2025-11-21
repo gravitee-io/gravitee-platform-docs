@@ -8,7 +8,7 @@
 
 Sometimes, an SELinux configuration issue can prevent Nginx from opening on ports 8084 and 8085. To correct this issue, complete the following steps:
 
-1.  Validate that the port is not in the list of managed HTTP ports by running `semanage port -l`.  You should get the following output:\
+1.  Validate that the port is not in the list of managed HTTP ports by running `semanage port -l`.  You should get the following output:
 
 
     ```sh
@@ -16,14 +16,14 @@ Sometimes, an SELinux configuration issue can prevent Nginx from opening on port
     http_port_t                tcp      80, 81, 443, 488, 8008, 8009, 8443, 9000
     ```
 
-2)  Add the port for Nginx to bind to, for example, 8084, using the following command:\
+2)  Add the port for Nginx to bind to, for example, 8084, using the following command:
 
 
     ```sh
     $ semanage port -a -t http_port_t  -p tcp 8084
     ```
 
-3.  Validate that the port is listed using the following command:\
+3.  Validate that the port is listed using the following command:
 
 
     {% code overflow="wrap" %}

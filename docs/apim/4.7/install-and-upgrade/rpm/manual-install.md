@@ -138,7 +138,7 @@ The above commands to install and start Nginx will now run using this repository
 
 To install Java 21, use either of the following commands depending on your operating system:
 
-*   If you are running Gravitee APIM on an Amazon Linux, enable the repository that contains Java using the following command:\
+*   If you are running Gravitee APIM on an Amazon Linux, enable the repository that contains Java using the following command:
 
 
     ```sh
@@ -147,7 +147,7 @@ To install Java 21, use either of the following commands depending on your opera
 
 
 
--   If you are running APIM on any other operating system, install Java using the following the command:\
+-   If you are running APIM on any other operating system, install Java using the following the command:
 
 
     ```sh

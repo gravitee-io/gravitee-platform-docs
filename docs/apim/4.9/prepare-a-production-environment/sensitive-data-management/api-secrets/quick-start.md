@@ -191,7 +191,7 @@ If you export your API, you see the Authorization header as part of the definiti
 
 ### Create a secret in HashiCorp Vault
 
-*   Create a secret with name `gravitee/apikeys` using `secret` with one entry: `echo` containing the value `123456789` .\\
+*   Create a secret with name `gravitee/apikeys` using `secret` with one entry: `echo` containing the value `123456789` .
 
     ```bash
     vault kv put -mount=secret gravitee/apikeys echo=123456789

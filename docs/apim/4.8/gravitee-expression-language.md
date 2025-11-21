@@ -87,7 +87,7 @@ EL provides a variety of built-in functions to manipulate and transform data in 
 
 * String functions: `length(), substring(), replace()SO`
 * `#jsonPath`: Evaluates a `jsonPath` on a specified object. This function invokes `JsonPathUtils.evaluate(…​)`, which delegates to the [Jayway JsonPath library](https://github.com/json-path/JsonPath). The best way to learn jsonPath syntax is by using the [online evaluator](https://jsonpath.com/).
-  *   **`jsonPath` example**\
+  *   **`jsonPath` example**
 
 
       ```json
@@ -112,7 +112,7 @@ EL provides a variety of built-in functions to manipulate and transform data in 
         }
       }
       ```
-  *   To extract the value of the `price` property for the book with `title` "The Lord of the Rings," you can use the following expression: `{#jsonPath(#request.content, "$.store.book[?(@.title=='The Lord of the Rings')].price")}`\
+  *   To extract the value of the `price` property for the book with `title` "The Lord of the Rings," you can use the following expression: `{#jsonPath(#request.content, "$.store.book[?(@.title=='The Lord of the Rings')].price")}`
 
 
       ```json
@@ -139,7 +139,7 @@ EL provides a variety of built-in functions to manipulate and transform data in 
       ```
 * `#xpath`: Evaluates an `xpath` on a provided object. For more information regarding XML and XPath, see [XML Support - Dealing with XML Payloads](https://docs.spring.io/spring-integration/reference/xml.html) in the SpEL documentation.
 * `xmlEspace`: Escapes XML content to ensure that it safe for inclusion in XML or SOAP documents, which prevents injection attacks. This function utilizes Apache Commons Text StringEscapeUtils.escapeXml10() for XML 1.0-compliant escaping.
-  *   `xmlEscape example` \
+  *   `xmlEscape example` 
 
 
       ```jsonp

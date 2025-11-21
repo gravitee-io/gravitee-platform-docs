@@ -17,7 +17,7 @@ Before you install APIM, complete the following steps:
 
 ### Install Gravitee APIM <a href="#install-gravitee-apim" id="install-gravitee-apim"></a>
 
-1.  Create a directory structure in which to persist data and store plugins:\\
+1.  Create a directory structure in which to persist data and store plugins:
 
     ```shellscript
     mkdir -p ./gravitee/{mongodb/data,elasticsearch/data,apim-gateway/plugins,apim-gateway/logs,apim-management-api/plugins,apim-management-api/logs,apim-management-ui/logs,apim-portal-ui/logs}

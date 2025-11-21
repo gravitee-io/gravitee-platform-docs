@@ -172,7 +172,7 @@ The Expression Language (EL) Assistant helps you write the EL expression needed 
 
 {% tabs %}
 {% tab title="gravitee.yaml" %}
--   Add the following configuration to the root level of your `gravitee.yaml` file:\\
+-   Add the following configuration to the root level of your `gravitee.yaml` file:
 
     ```yaml
     newtai:
@@ -190,7 +190,7 @@ gravitee_newtai_elgen_enabled=true
 {% endtab %}
 
 {% tab title="values.yaml" %}
-*   Add the following configuration to your `values.yaml` file:\\
+*   Add the following configuration to your `values.yaml` file:
 
     ```yaml
     newtai:
@@ -206,14 +206,14 @@ gravitee_newtai_elgen_enabled=true
 Any field that supports Expression Language, supports the AI assistant.
 {% endhint %}
 
-1.  In the field that supports expression language, click the **{EL}** icon.\\
+1.  In the field that supports expression language, click the **{EL}** icon.
 
     <figure><img src=".gitbook/assets/304A887B-9FD1-4011-961A-7DB7D91D3478_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
 2. In the **EL Assistant** pop-up window, type the prompt for the Expression Language that you want the AI assistant to generate. For example, only run this policy if the header equals test.
-3.  Click **Ask Newt AI**. The AI assistant generates the Expression Language.\\
+3.  Click **Ask Newt AI**. The AI assistant generates the Expression Language.
 
     <figure><img src=".gitbook/assets/DBE0A0C1-3171-4CA4-A586-A503EBD2B0BD_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
-4.  (Optional) Provide feedback about the answer. To provide feedback, click either the **thumbs u**p or the **thumbs down**.\\
+4.  (Optional) Provide feedback about the answer. To provide feedback, click either the **thumbs u**p or the **thumbs down**.
 
     <figure><img src=".gitbook/assets/6D6E46F0-AECF-41F9-BE38-53C6EC0EDA38_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
 

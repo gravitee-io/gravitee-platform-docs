@@ -10,7 +10,7 @@ High-level API Score statistics are shown on the **API Score** page. To get to y
 
 1. Ensure that API Score is enabled. For more information about enabling API Score, see [Enable API Score](enable-api-score.md).
 2. Log in to your APIM Console.
-3.  In the menu, click **API Score**. \\
+3.  In the menu, click **API Score**. 
 
     <figure><img src="../../../4.7/.gitbook/assets/image (207) (1).png" alt=""><figcaption></figcaption></figure>
 

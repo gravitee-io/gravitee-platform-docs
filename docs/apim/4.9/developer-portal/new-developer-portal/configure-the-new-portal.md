@@ -12,26 +12,26 @@ For self-hosted installations and hybrid deployments of Gravitee, you can set th
 
 ## Enable the New Developer Portal
 
-1.  From the **Dashboard**, click **Settings**. \
+1.  From the **Dashboard**, click **Settings**. 
 
 
     <figure><img src="../../.gitbook/assets/image (436).png" alt=""><figcaption></figcaption></figure>
-2.  In the **Portal** section of the **Settings** menu, click **Settings**.\
+2.  In the **Portal** section of the **Settings** menu, click **Settings**.
 
 
     <figure><img src="../../.gitbook/assets/image (438).png" alt=""><figcaption></figcaption></figure>
-3.  Navigate to the **New Developer Portal** section, and then turn on the **Enable the New Developer Portal** toggle.\
+3.  Navigate to the **New Developer Portal** section, and then turn on the **Enable the New Developer Portal** toggle.
 
 
     <figure><img src="../../.gitbook/assets/image (440).png" alt=""><figcaption></figcaption></figure>
-4.  In the **You have unsaved changes** pop-up window, click **Save**.\
+4.  In the **You have unsaved changes** pop-up window, click **Save**.
 
 
     <figure><img src="../../.gitbook/assets/image (441).png" alt=""><figcaption></figcaption></figure>
 
 ### Verification
 
-*   Click the **Open Website** button. The New Developer Portal opens in a new tab. \
+*   Click the **Open Website** button. The New Developer Portal opens in a new tab. 
 
 
     <figure><img src="../../.gitbook/assets/image (442).png" alt=""><figcaption></figcaption></figure>
@@ -78,7 +78,7 @@ Here is an example of the environmental variables set in a `docker-compose-apim.
       - frontend 
 ```
 
-2.  Restart APIM using the following commands:\
+2.  Restart APIM using the following commands:
 
 
     ```bash
@@ -88,7 +88,7 @@ Here is an example of the environmental variables set in a `docker-compose-apim.
 {% endtab %}
 
 {% tab title="Kubernetes" %}
-1.  In your `values.yml` file, navigate to the `portal` section, and then set `defaultPortal` to `"next"`:\
+1.  In your `values.yml` file, navigate to the `portal` section, and then set `defaultPortal` to `"next"`:
 
 
     ```yaml
@@ -107,7 +107,7 @@ Here is an example of the environmental variables set in a `docker-compose-apim.
         nginx.ingress.kubernetes.io/cors-allow-methods: "GET, POST, PUT, DELETE, OPTIONS"
         nginx.ingress.kubernetes.io/cors-allow-headers: "Authorization, Content-Type, X-Requested-With, Accept, Origin"
     ```
-2.  Restart APIM using the following commands:\
+2.  Restart APIM using the following commands:
 
 
     ```bash
@@ -124,7 +124,7 @@ Here is an example of the environmental variables set in a `docker-compose-apim.
 
 ### Verification&#x20;
 
-*   In the APIM Console, click **Developer Portal**. The New Developer Portal opens in a new tab.\
+*   In the APIM Console, click **Developer Portal**. The New Developer Portal opens in a new tab.
 
 
     <figure><img src="../../.gitbook/assets/image (443).png" alt=""><figcaption></figcaption></figure>
