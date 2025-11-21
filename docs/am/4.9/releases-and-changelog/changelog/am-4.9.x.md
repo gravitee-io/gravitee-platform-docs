@@ -6,6 +6,33 @@ description: >-
 
 # AM 4.9.x
 
+## Gravitee Access Management 4.9.4 - November 21, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* JSON Logging for AM Token Endpoint [#10943](https://github.com/gravitee-io/issues/issues/10943)
+* Filter CLIENT_AUTHENTICATION success audit logs [#10954](https://github.com/gravitee-io/issues/issues/10954)
+* translate email from name [#10958](https://github.com/gravitee-io/issues/issues/10958)
+* Vertx eventLoop ThreadBlocked when HSM plugin is used [#10969](https://github.com/gravitee-io/issues/issues/10969)
+
+**Management API**
+
+* Error creating identities in 4.7.X [#10940](https://github.com/gravitee-io/issues/issues/10940)
+
+**Other**
+
+* Vertx eventLoop ThreadBlocked with ExtensionGrant [#10968](https://github.com/gravitee-io/issues/issues/10968)
+* Update docker-compose to be able to run without changes [#10972](https://github.com/gravitee-io/issues/issues/10972)
+* UI broken for Endpoints when user assigned role to application [#10976](https://github.com/gravitee-io/issues/issues/10976)
+* STS Client is not closed in HSM implementation [#10977](https://github.com/gravitee-io/issues/issues/10977)
+* Unable to update Virtual host [#10979](https://github.com/gravitee-io/issues/issues/10979)
+
+</details>
+
 ## Gravitee Access Management 4.9.3 - November 7, 2025
 
 <details>
