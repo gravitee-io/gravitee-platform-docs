@@ -20,7 +20,7 @@ From this page, you can complete the following actions:
     * Access
     * Sharding Tags
     * Categories
-    * Owner \\
+    * Owner 
 
     <figure><img src="../../.gitbook/assets/3AE562B9-9783-444B-8E6A-698E54BC78C8_4_5005_c (1).jpeg" alt=""><figcaption></figcaption></figure>
 
@@ -49,7 +49,7 @@ You can filter APIs with the drop-down menus on the **APIs** screen. Here is a l
 * **Sharding Tags.** These are the sharding tags that you set for your environment. For more information about sharding tags, see [sharding-tags.md](../../configure-and-manage-the-platform/gravitee-gateway/sharding-tags.md "mention").
 * **Categories.** These are the categories that you create in your Developer Portal's catalog. For more information about categories, see [#categories](../../developer-portal/classic-developer-portal/layout-and-theme.md#categories "mention").
 * **Portal Status.** This maps to whether or not your API is published in your Developer Portal.
-*   **Portal Visibility.** This maps to if your API is set to public or private in your Developer Portal.\\
+*   **Portal Visibility.** This maps to if your API is set to public or private in your Developer Portal.
 
     <figure><img src="../../.gitbook/assets/25C6D5D9-187B-46B6-BDEA-9402B5B8B9B4_1_201_a (1) (1).jpeg" alt=""><figcaption></figcaption></figure>
 
@@ -57,10 +57,10 @@ You can filter APIs with the drop-down menus on the **APIs** screen. Here is a l
 
 You can hide or reveal columns to show the API details that you want to see. To change the columns on the **APIs** screen, complete the following steps:
 
-1.  From the **APIs** screen, click the **plus (+)**.\\
+1.  From the **APIs** screen, click the **plus (+)**.
 
     <figure><img src="../../.gitbook/assets/DC25467C-F821-4CD6-96D8-087711201B17_4_5005_c (1).jpeg" alt=""><figcaption></figcaption></figure>
 2. From the drop-down menu, select which columns you want to hide or reveal.
-3.  Click **Apply**. The selection is saved in your browser storage. \\
+3.  Click **Apply**. The selection is saved in your browser storage. 
 
     <figure><img src="../../.gitbook/assets/A78E227F-82D4-4792-8367-BA5F7F68790D_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>

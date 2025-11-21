@@ -55,7 +55,7 @@ cd telepresence-local-quickstart
 git clone https://github.com/ambassadorlabs/telepresence-local-quickstart.git --recurse-submodules
 
 # Change to the repo directory
-cd .\telepresence-local-quickstart\
+cd .\telepresence-local-quickstart
 
 # Run the Windows setup script
 .\windows-setup.ps1

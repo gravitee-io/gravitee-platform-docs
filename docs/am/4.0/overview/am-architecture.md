@@ -8,7 +8,7 @@ This page provides details on Gravitee Access Management's (AM) architecture. Be
 
 ## AM Gateway
 
-AM Gateway is the core component of the AM platform. It acts as a trust broker with your identity providers and provides an authentication and authorization flow for your users.\
+AM Gateway is the core component of the AM platform. It acts as a trust broker with your identity providers and provides an authentication and authorization flow for your users.
 
 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-overview-components-gateway.png" alt=""><figcaption><p>AM - Internal Gateway</p></figcaption></figure>

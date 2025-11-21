@@ -42,7 +42,7 @@ To import an API from OpenAPI:
 
 \| /swaggerpetstore | | | OpenAPI (V3) |
 
-Path of the first `servers.url`, if it exists, without "/".\
+Path of the first `servers.url`, if it exists, without "/".
 
 
 |

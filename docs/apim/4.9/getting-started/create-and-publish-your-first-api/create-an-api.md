@@ -6,31 +6,31 @@ This guide explains how to create an API with the Gravitee APIM console.
 
 ## Create an API
 
-1.  From the Dashboard, click **APIs**.\\
+1.  From the Dashboard, click **APIs**.
 
     <figure><img src="../../.gitbook/assets/0C327947-9B22-4326-A689-3EDB37DED7A1 (1).jpeg" alt=""><figcaption></figcaption></figure>
-2.  Click **+ Add API**.\\
+2.  Click **+ Add API**.
 
     <figure><img src="../../.gitbook/assets/28D18F13-E1B9-4FD2-9A3F-48B07C2C4A31 (1).jpeg" alt=""><figcaption></figcaption></figure>
-3.  Click **Create V4 API**.\\
+3.  Click **Create V4 API**.
 
     <figure><img src="../../.gitbook/assets/4841C54B-740F-454B-A6FE-0319A8CC46FD (1).jpeg" alt=""><figcaption></figcaption></figure>
-4.  Enter your API's name and version number, and then click **Validate my API details**. For example, My first API and version 1.\\
+4.  Enter your API's name and version number, and then click **Validate my API details**. For example, My first API and version 1.
 
     <figure><img src="../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
-5.  Select **HTTP Proxy**, and then click **Select my entrypoints**\\
+5.  Select **HTTP Proxy**, and then click **Select my entrypoints**
 
     <figure><img src="../../.gitbook/assets/image (14) (1).png" alt=""><figcaption></figcaption></figure>
-6.  Set a unique **Context-path , and** then click **Validate my entrypoints**. For example, /myfirstapi.\\
+6.  Set a unique **Context-path , and** then click **Validate my entrypoints**. For example, /myfirstapi.
 
     <figure><img src="../../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
-7.  In the **Configure your API endpoints access** screen, set the target URL , and then click **Validate my endpoints**. For example, https://jsonplaceholder.typicode.com\\
+7.  In the **Configure your API endpoints access** screen, set the target URL , and then click **Validate my endpoints**. For example, https://jsonplaceholder.typicode.com
 
     <figure><img src="../../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
-8.  Click **Validate my plans**. By default, Gravitee adds a **Default keyless plan (UNSECURED)** to your API.\\
+8.  Click **Validate my plans**. By default, Gravitee adds a **Default keyless plan (UNSECURED)** to your API.
 
     <figure><img src="../../.gitbook/assets/image (22).png" alt=""><figcaption></figcaption></figure>
-9.  Click **Save & Deploy API**.\\
+9.  Click **Save & Deploy API**.
 
     <figure><img src="../../.gitbook/assets/F1F03EEB-D24D-4303-A197-39EB859ACC3D_1_105_c (1).jpeg" alt=""><figcaption></figcaption></figure>
 

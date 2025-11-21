@@ -51,7 +51,7 @@
 
 *   We have introduced new Docker images based on Debian instead of Alpine. For 4.8 release, the usual tag (`4.8`, `4.8.0`, `4`) will remain the Alpine based images, and the Debian based images can be found with `-debian` suffix: `4-debian`, `4.8-debian` and `4.8.0-debian` .
 
-    ⚠️ Debian based images are required to use the new Guard Rails policy introduced in APIM 4.8.\
+    ⚠️ Debian based images are required to use the new Guard Rails policy introduced in APIM 4.8.
 
 
     {% hint style="warning" %}
@@ -73,7 +73,7 @@
   * Allows for more granular control over API routing and message handling.
   * Supports routing based on host, path, or a combination of both.
   * Enables seamless integration with Kafka clusters for efficient message processing.
-*   **Expose metrics to Prometheus:** From APIM 4.8, you can expose metrics for your Kafka Gateway to Prometheus. Here is a list of metrics that you can view for your Kafka Gateway:\
+*   **Expose metrics to Prometheus:** From APIM 4.8, you can expose metrics for your Kafka Gateway to Prometheus. Here is a list of metrics that you can view for your Kafka Gateway:
 
 
     | Metric                                            | What it measures                                                      |

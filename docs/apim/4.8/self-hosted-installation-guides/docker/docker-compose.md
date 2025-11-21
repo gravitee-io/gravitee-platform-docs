@@ -17,7 +17,7 @@ Before you install APIM, complete the following steps:
 
 ### Install Gravitee APIM <a href="#install-gravitee-apim" id="install-gravitee-apim"></a>
 
-1.  Create a directory structure in which to persist data and store plugins:\\
+1.  Create a directory structure in which to persist data and store plugins:
 
     ```bash
     mkdir -p ./gravitee/{mongodb/data,elasticsearch/data,apim-gateway/plugins,apim-gateway/logs,apim-management-api/plugins,apim-management-api/logs,apim-management-ui/logs,apim-portal-ui/logs}
@@ -277,7 +277,7 @@ To enable Federation, complete the following steps:
           - ./.license/license.key:/opt/graviteeio-management-api/license/license.key
           - ./.plugins:/opt/graviteeio-management-api/plugins-ext
     ```
-3.  Restart your APIM services. \\
+3.  Restart your APIM services. 
 
     ```bash
     docker compose -f docker-compose-apim.yml down
@@ -287,7 +287,7 @@ To enable Federation, complete the following steps:
 Docker containers read environment variables only during container startup. The running containers cannot detect the new `GRAVITEE_INTEGRATION_ENABLED` setting without a restart.
 {% endhint %}
 
-4.  Start the services with the updated Federation configuration.\\
+4.  Start the services with the updated Federation configuration.
 
     ```bash
     docker compose -f docker-compose-apim.yml up -d
@@ -335,7 +335,7 @@ LOG_LEVEL=DEBUG
 This example shows configuration for Confluent Platform integration. For Solace or AWS API Gateway integrations, the core Gravitee parameters remain the same, but additional integration-specific parameters will differ.
 {% endhint %}
 
-2.  To enable federation, add the federation agent service to your `docker-compose-apim.yml` file. You can see a sample configuration example in the complete Docker Compose file above with all available agent options. \\
+2.  To enable federation, add the federation agent service to your `docker-compose-apim.yml` file. You can see a sample configuration example in the complete Docker Compose file above with all available agent options. 
 
     ```yaml
     #
