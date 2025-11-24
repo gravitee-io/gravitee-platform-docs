@@ -1,3 +1,7 @@
+---
+description: Configuration guide for plugin support.
+---
+
 # Plugin support
 
 ## Plugins that support secrets

@@ -1,3 +1,7 @@
+---
+description: An overview about cors configuration.
+---
+
 # CORS Configuration
 
 ## Overview

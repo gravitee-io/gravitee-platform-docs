@@ -1,3 +1,7 @@
+---
+description: Guide on applying policies related to policy reference.
+---
+
 # Policy Reference
 
 The following policies can be applied to Gravitee APIs.
@@ -56,7 +60,7 @@ Policies marked with an asterisk require an Enterprise Edition license.
 * [Mock](mock.md)
 * [mTLS](mtls.md)
 * [OAS Validation](oas-validation.md)\*
-* [OAuth2](oauth2/README.md)
+* [OAuth2](oauth2/)
 * [OpenID Connect UserInfo](openid-connect-userinfo.md)
 * [Override HTTP Method](override-http-method.md)
 * [Protobuf to JSON Transformation](protobuf-to-json.md)\*

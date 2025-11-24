@@ -1,3 +1,7 @@
+---
+description: An overview about self-hosted installation guides.
+---
+
 # Self-Hosted Installation Guides
 
 ## Overview
@@ -43,7 +47,7 @@ The following diagrams illustrate the component management and design of a self-
 
 <figure><img src="../.gitbook/assets/image (30).png" alt=""><figcaption></figcaption></figure>
 
-Self-hosted component management means that the customer hosts and manages both the Control Plane(s) and Data Plane(s). &#x20;
+Self-hosted component management means that the customer hosts and manages both the Control Plane(s) and Data Plane(s).
 
 To support a multi-environment configuration, the self-hosted Control Plane must be connected to Gravitee Cloud.
 

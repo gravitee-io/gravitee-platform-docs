@@ -1,3 +1,7 @@
+---
+description: An overview about enable api score.
+---
+
 # Enable API Score
 
 {% hint style="warning" %}

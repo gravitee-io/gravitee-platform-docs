@@ -1,3 +1,7 @@
+---
+description: An overview about rulesets and functions.
+---
+
 # Rulesets and Functions
 
 {% hint style="warning" %}
@@ -80,16 +84,16 @@ To import custom rulesets, complete the following steps:
 
 1.  Log in to your APIM Console, then click **API Score**.
 
-    <figure><img src="../../../4.7/.gitbook/assets/image (211) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../4.7/.gitbook/assets/image%20(211)%20(1).png" alt=""><figcaption></figcaption></figure>
 2.  Click **Rulesets & Functions**.
 
-    <figure><img src="../../../4.7/.gitbook/assets/image (212) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../4.7/.gitbook/assets/image%20(212)%20(1).png" alt=""><figcaption></figcaption></figure>
 3.  Click **Import**.
 
-    <figure><img src="../../../4.7/.gitbook/assets/image (213) (1).png" alt=""><figcaption></figcaption></figure>
-4.  In **Asset Format**, choose the format for your ruleset. 
+    <figure><img src="../../../4.7/.gitbook/assets/image%20(213)%20(1).png" alt=""><figcaption></figcaption></figure>
+4.  In **Asset Format**, choose the format for your ruleset.
 
-    <figure><img src="../../../4.7/.gitbook/assets/image (214) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../4.7/.gitbook/assets/image%20(214)%20(1).png" alt=""><figcaption></figcaption></figure>
 5. In **Ruleset Information**, type the name of your ruleset.
 6. (Optional) Type a description for your ruleset.
 7. Attach the ruleset file. You can attach a file in the following formats:
@@ -104,17 +108,17 @@ Once you've uploaded a ruleset, you can edit its name and description. If you wa
 
 To edit a ruleset:
 
-1.  Log in to your APIM Console, then click **API Score**. 
+1.  Log in to your APIM Console, then click **API Score**.
 
-    <figure><img src="../../../4.7/.gitbook/assets/image (215) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../4.7/.gitbook/assets/image%20(215)%20(1).png" alt=""><figcaption></figcaption></figure>
 2.  Click **Rulesets & Functions**.
 
-    <figure><img src="../../../4.7/.gitbook/assets/image (216) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../4.7/.gitbook/assets/image%20(216)%20(1).png" alt=""><figcaption></figcaption></figure>
 3. In **Rulesets**, navigate to the ruleset that you want to edit.
 4. Click the ruleset.
 5.  Click **Edit**. You can now edit the ruleset.
 
-    <figure><img src="../../../4.7/.gitbook/assets/image (217) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../4.7/.gitbook/assets/image%20(217)%20(1).png" alt=""><figcaption></figcaption></figure>
 
 ## Functions
 

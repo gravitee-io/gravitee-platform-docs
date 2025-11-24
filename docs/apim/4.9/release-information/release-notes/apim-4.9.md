@@ -1,3 +1,7 @@
+---
+description: Documentation about apim 4.9 in the context of APIs.
+---
+
 # APIM 4.9
 
 ## Release Date: October 16, 2025
@@ -49,9 +53,7 @@
   Historical analytics are not available after migration, and analytics are reset for the migrated API. Migration is reversible, but users should plan for analytics gaps until continuity is delivered in a future release.
 *   **New Developer Portal homepage customization**
 
-    {% hint style="warning" %}
-    This feature is in tech preview.&#x20;
-    {% endhint %}
+    \{% hint style="warning" %\} This feature is in tech preview. \{% endhint %\}
 
     Enables customization of the New Developer Portal homepage using standard Markdown or Gravitee Markdown (GMD). GMD is standard Markdown enriched with Gravitee Markdown components.
 * **Expression Language (EL) assistant**\
@@ -64,18 +66,16 @@
   The APIM Console now allows users to create and manage Kafka clusters, configure cluster connection information, and manage user access and permissions.
 *   **Kafka Console**
 
-    {% hint style="warning" %}
-    This feature is available in private tech preview. Contact your account manager if you are interested.&#x20;
-    {% endhint %}
+    \{% hint style="warning" %\} This feature is available in private tech preview. Contact your account manager if you are interested. \{% endhint %\}
 
     Introduces Gravitee Kafka Console, which integrates with APIM to provide a user interface with which to browse and manage core Kafka resources, such as topics, partitions, and consumer groups, and to produce and consume messages. Kafka Console is based on Kafbat UI and communicates with the APIM Management API through JWT-based authentication. This feature is available only for self-hosted deployments and not compatible with next-gen cloud.
-* &#x20;**Expose APIM as an MCP Server**\
+* **Expose APIM as an MCP Server**\
   The Gravitee MCP Server allows AI assistants and other MCP clients to manage APIM resources. For example, clients such as Cursor or Claude Code can list APIs, view API logs, and manage subscriptions and documentation. This feature enables natural-language workflows with permissions scoped by the service account.
 * **Execution transparency analytics**\
   Introduces execution transparency analytics that provide clear, actionable diagnostics when errors occur during API execution. This feature enables troubleshooting by exposing detailed information about the root cause of failures and warnings. Available for v4 APIs and v2 APIs running on the v4 execution engine.
 * **MongoDB index upgrades**\
   Introduces 11 new MongoDB indexes designed to improve query performance for large datasets.
-* **Expose Kafka analytics** \
+* **Expose Kafka analytics**\
   Introduces a new Kafka analytics dashboard that displays operational metrics for Kafka APIs for deployments that use the Elasticsearch reporter. The metrics are stored as time‑series data, which enables real‑time monitoring and analysis of Kafka API performance, message activity, and connection patterns.
 
 ## Updated features
@@ -100,8 +100,6 @@
   Users can set the `renewable` parameter to `true` to automatically renew a secret. Setting the `reloadOnChange` parameter to `true` reloads the API when there is a new secret value.
 *   **Terraform resources**
 
-    {% hint style="warning" %}
-    This feature is in tech preview.
-    {% endhint %}
+    \{% hint style="warning" %\} This feature is in tech preview. \{% endhint %\}
 
     The Gravitee Terraform provider now supports Application and Subscription resources.

@@ -1,3 +1,7 @@
+---
+description: Configuration guide for apim 4.4.+ & hybrid gateways.
+---
+
 # APIM 4.4.+ & Hybrid Gateways
 
 Starting with APIM 4.4.0, gateways need to explicitly disable certificate checks. The default "trust all" value was `true` it is now `false` for management of type "http".

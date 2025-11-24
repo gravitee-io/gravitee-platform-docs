@@ -1,3 +1,7 @@
+---
+description: Documentation about federation agent service account in the context of APIs.
+---
+
 # Federation Agent Service Account
 
 The best way to provide credentials for the federation agent to connect to your APIM installation is to create a service account in the Gravitee API Management console dedicated to the agent.

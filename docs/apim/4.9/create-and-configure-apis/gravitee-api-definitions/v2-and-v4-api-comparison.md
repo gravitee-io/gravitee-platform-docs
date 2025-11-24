@@ -1,33 +1,37 @@
+---
+description: An overview about v2 and v4 api comparison.
+---
+
 # v2 and v4 API Comparison
 
 ## Overview
 
-When creating Gravitee APIs, keep in mind that there are differences in how v2 APIs and v4 APIs function and what they support.&#x20;
+When creating Gravitee APIs, keep in mind that there are differences in how v2 APIs and v4 APIs function and what they support.
 
 ## Differences in importing v2 and v4 APIs
 
-When you import Gravitee APIs, there are differences between how v2 APIs and v4 APIs handle path parameters. The following table summarizes the differences in the path parameter handling between v2 and v4 APIs:&#x20;
+When you import Gravitee APIs, there are differences between how v2 APIs and v4 APIs handle path parameters. The following table summarizes the differences in the path parameter handling between v2 and v4 APIs:
 
-| Feature              | v2                                                | v4                                     |
-| -------------------- | ------------------------------------------------- | -------------------------------------- |
-| Parameter extraction | Only in the flow where you define the parameter.  | When you begin to process the request. |
-| Parameter sharing    | Restricted to a single flow.                      | Available across all flows.            |
-| Performance          | Requires multiple extractions.                    | Extracted once.                        |
-| Validation           | No strict rules.                                  | Prevents conflicts before deployment.  |
-| Use in APIs          | Hard to manage across multiple flows.             | Standardized and optimized.            |
+| Feature              | v2                                               | v4                                     |
+| -------------------- | ------------------------------------------------ | -------------------------------------- |
+| Parameter extraction | Only in the flow where you define the parameter. | When you begin to process the request. |
+| Parameter sharing    | Restricted to a single flow.                     | Available across all flows.            |
+| Performance          | Requires multiple extractions.                   | Extracted once.                        |
+| Validation           | No strict rules.                                 | Prevents conflicts before deployment.  |
+| Use in APIs          | Hard to manage across multiple flows.            | Standardized and optimized.            |
 
 ### Example of the path parameters allowed for v4 APIs
 
 Here are examples of path parameters that are allowed for v4 APIs and that are not allowed for v4 APIs:
 
-#### Allowed&#x20;
+#### Allowed
 
 ```yaml
 GET /products/:productId/items/:itemId
 GET /products/:productId/items/details
 ```
 
-#### Not allowed&#x20;
+#### Not allowed
 
 ```yaml
 GET /products/:id/items/:itemId
@@ -93,4 +97,4 @@ GET /products/:productId/items/:id
 
 ## Policy support
 
-v2 APIs and v4 APIs support subsets of Gravitee policies. Supported policies are applied to one or more phases of the API transaction. For more information, see [Policies](README.md).
+v2 APIs and v4 APIs support subsets of Gravitee policies. Supported policies are applied to one or more phases of the API transaction. For more information, see [Policies](./).

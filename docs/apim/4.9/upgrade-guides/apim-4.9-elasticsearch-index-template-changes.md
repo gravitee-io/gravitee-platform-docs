@@ -1,3 +1,7 @@
+---
+description: An overview about apim 4.9 elasticsearch index template changes.
+---
+
 # APIM 4.9 Elasticsearch Index Template Changes
 
 ## Overview
@@ -5,11 +9,11 @@
 APIM 4.9 enables new analytics capabilities via the following Elasticsearch index templates:
 
 * [v2 and v4 API analytics templates](apim-4.9-elasticsearch-index-template-changes.md#template-changes-for-v2-and-v4-apis) now contain enhanced error component tracking and warning metrics for REST API analytics.
-* [Kafka metrics templates](apim-4.9-elasticsearch-index-template-changes.md#elasticsearch-index-templates-for-kafka-metrics) are new time-series templates for event-driven API metrics.&#x20;
+* [Kafka metrics templates](apim-4.9-elasticsearch-index-template-changes.md#elasticsearch-index-templates-for-kafka-metrics) are new time-series templates for event-driven API metrics.
 
 ## **Template updates for v2 and v4 APIs**
 
-Elasticsearch index template mappings have been updated to support execution transparency analytics. These changes apply to both v2 API metrics and v4 API metrics for Elasticsearch 7.x and 8.x.&#x20;
+Elasticsearch index template mappings have been updated to support execution transparency analytics. These changes apply to both v2 API metrics and v4 API metrics for Elasticsearch 7.x and 8.x.
 
 {% hint style="warning" %}
 If you are using the Elasticsearch reporter, APIM automatically performs these template updates during the upgrade. If you manage templates independently, apply these updates manually before upgrading.
@@ -57,7 +61,7 @@ For the Elasticsearch 7.x v2 Request Template, use the following field mappings:
   }
 ```
 
-### Elasticsearch 7.x v4 Metrics Template&#x20;
+### Elasticsearch 7.x v4 Metrics Template
 
 For the Elasticsearch 7.x v4 Metrics Template, use the following field mappings:
 
@@ -92,7 +96,7 @@ For the Elasticsearch 7.x v4 Metrics Template, use the following field mappings:
   }
 ```
 
-### Elasticsearch 8.x v2 Request Template&#x20;
+### Elasticsearch 8.x v2 Request Template
 
 For the Elasticsearch 8.x v2 Request Template, use the following field mappings:
 
@@ -127,7 +131,7 @@ For the Elasticsearch 8.x v2 Request Template, use the following field mappings:
   }
 ```
 
-### Elasticsearch 8.x v4 Metrics Template&#x20;
+### Elasticsearch 8.x v4 Metrics Template
 
 For the Elasticsearch 8.x v4 Metrics Template, use the following field mappings:
 
@@ -162,7 +166,7 @@ For the Elasticsearch 8.x v4 Metrics Template, use the following field mappings:
   }
 ```
 
-### Field Description&#x20;
+### Field Description
 
 The following fields are added to the templates:
 
@@ -171,7 +175,7 @@ The following fields are added to the templates:
 * `error-component-type`: Component type that caused the error.
 * `error-component-name`: Specific component instance that caused the error.
 
-**Warnings field** \
+**Warnings field**\
 The warnings field is a nested array structure for capturing multiple warnings per request.
 
 * `warnings.key`: Warning identifier.
@@ -183,7 +187,7 @@ The warnings field is a nested array structure for capturing multiple warnings p
 
 Elasticsearch index templates have been introduced to store Kafka Gateway metrics. These templates define the structure and settings to use for time series data.
 
-### Elasticsearch 7.x template&#x20;
+### Elasticsearch 7.x template
 
 For Elasticsearch 7.x, use the following index template:
 

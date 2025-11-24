@@ -1,3 +1,7 @@
+---
+description: An overview about data logging masking.
+---
+
 # Data Logging Masking
 
 {% hint style="warning" %}

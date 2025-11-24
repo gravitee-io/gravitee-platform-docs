@@ -1,3 +1,7 @@
+---
+description: Configuration guide for status code transformation.
+---
+
 # Status Code Transformation
 
 ### Phase <a href="#user-content-phase" id="user-content-phase"></a>

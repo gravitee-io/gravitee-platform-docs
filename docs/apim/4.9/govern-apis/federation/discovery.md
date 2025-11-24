@@ -1,8 +1,12 @@
+---
+description: An overview about discovery.
+---
+
 # Discovery
 
 ## Overview
 
-The process of an integration connecting to the management API of a 3rd-party provider to discover its assets is known as discovery. Assets that can be discovered by an integration are:&#x20;
+The process of an integration connecting to the management API of a 3rd-party provider to discover its assets is known as discovery. Assets that can be discovered by an integration are:
 
 * **APIs:** REST API proxies running on 3rd-party API gateways. The integration can potentially discover their OAS definitions.
 * **Event streams:** e.g., Kafka or Solace topics and their schemas. The integration can potentially discover their AsyncAPI definitions.
@@ -10,7 +14,7 @@ The process of an integration connecting to the management API of a 3rd-party pr
 
 ## Scope of discovery
 
-The scope of assets discovered by an integration depends on several factors. For example, instead of an integration automatically discovering every API that belongs to the entire underlying account, discovery is scoped to a subset of the APIs owned by that organization.&#x20;
+The scope of assets discovered by an integration depends on several factors. For example, instead of an integration automatically discovering every API that belongs to the entire underlying account, discovery is scoped to a subset of the APIs owned by that organization.
 
 Limiting factors include:
 
@@ -20,7 +24,7 @@ Limiting factors include:
 
 ## Discovery execution
 
-Discovery must be executed to initially import APIs, then subsequently if the scope of discovery has changed or new 3rd-party APIs are discoverable.&#x20;
+Discovery must be executed to initially import APIs, then subsequently if the scope of discovery has changed or new 3rd-party APIs are discoverable.
 
 {% hint style="warning" %}
 To execute the discovery process, the user must have at least the READ permission on integrations and the CREATE permission on APIs.
@@ -28,7 +32,7 @@ To execute the discovery process, the user must have at least the READ permissio
 
 1. Log in to your APIM Console
 2. Select **Integrations** from the left nav
-3. Click on the integration you're interested in&#x20;
+3. Click on the integration you're interested in
 4. Select **Overview** from the inner left nav
 5. Ensure the agent status is **Connected**
 6. Click the **Discover** button
@@ -37,5 +41,5 @@ To execute the discovery process, the user must have at least the READ permissio
 Impact on existing APIs
 
 * Discovery provides the option to add new APIs to a collection, if new APIs are discovered on the 3rd-party provider
-* Discovery provides the option to update existing APIs that were previously discovered. In this case, changes to attributes made in Gravitee will be overwritten by conflicting attributes coming from the 3rd-party.&#x20;
+* Discovery provides the option to update existing APIs that were previously discovered. In this case, changes to attributes made in Gravitee will be overwritten by conflicting attributes coming from the 3rd-party.
 {% endhint %}

@@ -1,3 +1,7 @@
+---
+description: An overview about dashboards.
+---
+
 # Dashboards
 
 ## Overview <a href="#the-dashboard" id="the-dashboard"></a>

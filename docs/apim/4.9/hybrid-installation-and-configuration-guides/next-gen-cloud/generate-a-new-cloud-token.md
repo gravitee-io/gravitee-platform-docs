@@ -1,3 +1,7 @@
+---
+description: An overview about generate a new cloud token.
+---
+
 # Generate a New Cloud Token
 
 ## Overview

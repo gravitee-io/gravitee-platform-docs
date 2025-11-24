@@ -1,3 +1,7 @@
+---
+description: An overview about kafka topic mapping.
+---
+
 # Kafka Topic Mapping
 
 ## Overview <a href="#user-content-description" id="user-content-description"></a>
@@ -31,7 +35,7 @@ Kafka clients will now be able to specify the mapped topic name (`processed-orde
 {% tab title="Using the APIM Console" %}
 This shows how to implement the example above using the APIM Console:
 
-<figure><img src="../../../../4.7/.gitbook/assets/00 1 (1).png" alt=""><figcaption><p>Kafka Topic Mapping policy configuration UI</p></figcaption></figure>
+<figure><img src="../../../../4.7/.gitbook/assets/00%201%20(1).png" alt=""><figcaption><p>Kafka Topic Mapping policy configuration UI</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="v4 API definition" %}
@@ -102,7 +106,7 @@ You can use the Kafka Topic Mapping policy to create a new topic mapping with a 
 {% tab title="Using the APIM Console" %}
 This shows how to implement the example above using the APIM Console:
 
-<figure><img src="../../../../4.7/.gitbook/assets/image (158).png" alt=""><figcaption><p>Kafka Topic Mapping policy configuration UI</p></figcaption></figure>
+<figure><img src="../../../../4.7/.gitbook/assets/image%20(158).png" alt=""><figcaption><p>Kafka Topic Mapping policy configuration UI</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="v4 API definition" %}
@@ -154,7 +158,7 @@ With this configuration, admin users see logs mapped to `internal.system.logs` a
 {% tab title="Using the APIM Console" %}
 This shows how to implement the example above using the APIM Console:
 
-<figure><img src="../../../../4.7/.gitbook/assets/00 2 (1).png" alt=""><figcaption><p>Kafka Topic Mapping policy configuration UI</p></figcaption></figure>
+<figure><img src="../../../../4.7/.gitbook/assets/00%202%20(1).png" alt=""><figcaption><p>Kafka Topic Mapping policy configuration UI</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="v4 API definition" %}
@@ -211,15 +215,15 @@ This shows how to implement the example above using the APIM Console.
 
 Kafka Topic Mapping configuration:
 
-<figure><img src="../../../../4.7/.gitbook/assets/00 3 (1).png" alt=""><figcaption><p>Kafka Topic Mapping policy configuration UI</p></figcaption></figure>
+<figure><img src="../../../../4.7/.gitbook/assets/00%203%20(1).png" alt=""><figcaption><p>Kafka Topic Mapping policy configuration UI</p></figcaption></figure>
 
 Kafka ACL configuration:
 
-<figure><img src="../../../../4.7/.gitbook/assets/00 5 (1).png" alt=""><figcaption><p>Kafka ACL policy configuration UI</p></figcaption></figure>
+<figure><img src="../../../../4.7/.gitbook/assets/00%205%20(1).png" alt=""><figcaption><p>Kafka ACL policy configuration UI</p></figcaption></figure>
 
 Here is how the policies should be ordered in the policy chain:
 
-<figure><img src="../../../../4.7/.gitbook/assets/00 ta (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.7/.gitbook/assets/00%20ta%20(1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="v4 API definition" %}
@@ -286,15 +290,15 @@ This shows how to implement the example above using the APIM Console.
 
 ACL configuration:
 
-<figure><img src="../../../../4.7/.gitbook/assets/00 6 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.7/.gitbook/assets/00%206%20(1).png" alt=""><figcaption></figcaption></figure>
 
 Topic mapping configuration:
 
-<figure><img src="../../../../4.7/.gitbook/assets/00 4 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.7/.gitbook/assets/00%204%20(1).png" alt=""><figcaption></figcaption></figure>
 
 Here is how the policies should be ordered in the policy chain:
 
-<figure><img src="../../../../4.7/.gitbook/assets/00 at (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.7/.gitbook/assets/00%20at%20(1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="v4 API definition" %}

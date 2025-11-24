@@ -1,3 +1,7 @@
+---
+description: An overview about opentelemetry.
+---
+
 # OpenTelemetry
 
 {% hint style="warning" %}

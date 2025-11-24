@@ -1,3 +1,7 @@
+---
+description: An overview about push.
+---
+
 # Push
 
 ## Overview
@@ -12,7 +16,7 @@ Push plans have the same configuration options as [Keyless](keyless.md) plans in
 
 Gravitee currently supports Push plans for Webhook entrypoints.
 
-### Key Push plan fields&#x20;
+### Key Push plan fields
 
 Before you approve a webhook subscription, verify the following field values:
 
@@ -24,7 +28,7 @@ Before you approve a webhook subscription, verify the following field values:
 
 ### Retry strategy
 
-The Gateway automatically retries technical failures occurring between the Gateway and the backend. For example, DNS errors or network transitional issues.&#x20;
+The Gateway automatically retries technical failures occurring between the Gateway and the backend. For example, DNS errors or network transitional issues.
 
 Prior to Gravitee 4.8, the Gateway performed 5 retries at 3s intervals. After 5 retries, the subscription's status was set to FAILURE.
 

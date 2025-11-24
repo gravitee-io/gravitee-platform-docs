@@ -1,3 +1,7 @@
+---
+description: An overview about configuration.
+---
+
 # Configuration
 
 ## Overview
@@ -38,7 +42,7 @@ A `secret provider` plugin must be either bundled or added to the plugin directo
 
 You can enable `secret-provider` plugins by configuring them in `gravitee.yml`. The configurations for each secret provider plugin are discussed in the following sections.
 
-The following examples are for both `gravitee.yml` and Helm `values.yml`.&#x20;
+The following examples are for both `gravitee.yml` and Helm `values.yml`.
 
 ### Kubernetes
 
@@ -381,7 +385,7 @@ Here are more options that can be used to configure your AWS secret manager:
 
 ### **Use 'configuration-level secrets' for 'API-level secrets configuration'**
 
-If you want to hide sensitive information in a secret manager, you must secure credentials. When configuring your secret provider credentials, you can use  [configuration-level secrets](../configure-secrets/reference-secrets-in-configurations.md) to hide these credentials in `gravitee.yml`.
+If you want to hide sensitive information in a secret manager, you must secure credentials. When configuring your secret provider credentials, you can use [configuration-level secrets](../configure-secrets/reference-secrets-in-configurations.md) to hide these credentials in `gravitee.yml`.
 
 Here is an example with Kubernetes configured to HashiCorp Vault:
 
