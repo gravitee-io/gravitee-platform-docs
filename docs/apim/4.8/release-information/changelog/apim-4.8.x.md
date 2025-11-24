@@ -18,6 +18,7 @@ description: Documentation about apim 4.8.x in the context of APIs.
 **Console**
 
 * Applications Graph analytics issue [#10837](https://github.com/gravitee-io/issues/issues/10837)
+* Export was exposing unwanted `hrid` field in CRD export [#10937](https://github.com/gravitee-io/issues/issues/10937)
 
 **Portal**
 
