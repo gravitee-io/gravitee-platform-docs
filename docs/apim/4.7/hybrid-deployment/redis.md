@@ -1,3 +1,7 @@
+---
+description: An overview about redis.
+---
+
 # Redis
 
 ## Overview
@@ -10,7 +14,7 @@ This installation guide is for only development and quick start purposes. Do not
 
 ## Kubernetes
 
-1.  To install Redis, use packages available from [Bitnami Helm charts](https://artifacthub.io/packages/helm/bitnami/redis).  The following example uses a standalone configuration:
+1.  To install Redis, use packages available from [Bitnami Helm charts](https://artifacthub.io/packages/helm/bitnami/redis). The following example uses a standalone configuration:
 
     ```sh
     helm repo add bitnami https://charts.bitnami.com/bitnami

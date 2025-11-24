@@ -1,10 +1,14 @@
+---
+description: An overview about entrypoints.
+---
+
 # Entrypoints
 
 ## Overview
 
 Entrypoints define the protocol and configuration settings by which the API consumer accesses the Gateway API. The **Entrypoints** section allows you to modify the host name of your Kafka API entrypoint.
 
-<figure><img src="../../../4.6/.gitbook/assets/A 11 entrypoint (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.6/.gitbook/assets/A%2011%20entrypoint%20(1).png" alt=""><figcaption></figcaption></figure>
 
 Change the host name by modifying and saving the value of **Host prefix**. The host name must meet the following requirements:
 

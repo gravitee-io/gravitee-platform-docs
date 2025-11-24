@@ -1,4 +1,5 @@
 ---
+description: Configuration and setup guide for ---.
 hidden: true
 ---
 

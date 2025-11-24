@@ -1,3 +1,7 @@
+---
+description: An overview about general settings.
+---
+
 # General Settings
 
 ## Overview

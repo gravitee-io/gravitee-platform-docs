@@ -1,4 +1,5 @@
 ---
+description: An overview about ---.
 hidden: true
 ---
 
@@ -8,7 +9,7 @@ hidden: true
 
 You can use the `ip-filtering` policy to control access to your API by filtering IP addresses. You can allow or deny a specific IP address or range of IP addresses with [CIDR](https://tools.ietf.org/html/rfc1519).
 
-You can toggle the `Use custom IP address (support EL)` option to filter forwarded IPs using a custom header.&#x20;
+You can toggle the `Use custom IP address (support EL)` option to filter forwarded IPs using a custom header.
 
 <figure><img src="../.gitbook/assets/00 ip.png" alt=""><figcaption></figcaption></figure>
 

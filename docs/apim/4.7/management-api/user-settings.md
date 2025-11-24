@@ -1,3 +1,7 @@
+---
+description: Configuration and setup guide for user settings.
+---
+
 # User Settings
 
 You can configure various user options:

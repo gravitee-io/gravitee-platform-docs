@@ -1,3 +1,7 @@
+---
+description: An overview about reporters.
+---
+
 # Reporters
 
 ## Overview
@@ -354,7 +358,7 @@ When using e.g. the File Reporter with Elasticsearch format, here is a sample of
 The reporters are configured in the `gravitee.yml`configuration file for the **gateway**. Each reporter has its own unique configuration. Consult the documentation for each reporter for details on how to configure it. Elasticsearch is used by default.
 
 {% hint style="info" %}
-If you wish to use a reporter not included in the default distribution, you must first add the reporter as a plugin. Refer to the [Plugins](../../getting-started/plugins/README.md) guide to learn more.
+If you wish to use a reporter not included in the default distribution, you must first add the reporter as a plugin. Refer to the [Plugins](../../getting-started/plugins/) guide to learn more.
 {% endhint %}
 
 Each reporter has a section for configuring field exclusions and, depending on reporter type, field inclusion. Each log and metric section above has a naming convention for how it appears in field inclusion and exclusion lists, which is as follows:
