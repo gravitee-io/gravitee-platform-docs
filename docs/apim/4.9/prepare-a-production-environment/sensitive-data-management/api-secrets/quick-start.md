@@ -94,27 +94,27 @@ For more information about configuring access to your secret manager, see [confi
 
 Create an API with a fake sensitive that you secure after we make sure everything works as expected.
 
-1.  From the **Dashboard**, click **APIs**.&#x20;
+1.  From the **Dashboard**, click **APIs**.
 
     <figure><img src="../../../.gitbook/assets/0A0FB129-4ED1-4145-BCFF-41395B132328.jpeg" alt=""><figcaption></figcaption></figure>
 2.  Click **+ Add API**.
 
     <figure><img src="../../../.gitbook/assets/F7B8591E-F959-4162-9E2C-F44370805678.jpeg" alt=""><figcaption></figcaption></figure>
-3.  In the **Choose API creation method** screen, click **Create V4 API**.&#x20;
+3.  In the **Choose API creation method** screen, click **Create V4 API**.
 
     <figure><img src="../../../.gitbook/assets/07BE9B4D-3AAD-4317-94D9-E820FD40B5AD.jpeg" alt=""><figcaption></figcaption></figure>
 4. In the **API name** field, type a name for the API. For example, test-api.
 5. In the **Version number** field, type a version. For example, 1.1.
-6.  Click **Validate my details**.&#x20;
+6.  Click **Validate my details**.
 
     <figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
-7.  Select **HTTP Proxy**, and then click **Select my entrypoints**.&#x20;
+7.  Select **HTTP Proxy**, and then click **Select my entrypoints**.
 
-    <figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 8. In the **context-path** field, type a context path. For example, `/test/secrets/echo` .
-9.  Click **Validate my entrypoints**.&#x20;
+9.  Click **Validate my entrypoints**.
 
-    <figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 10. In the **Configure your API endpoints access**, complete the following sub-steps:
     1.  In the **Target url** field, set the target URL to `https://api.gravitee.io/echo` .
 
@@ -125,7 +125,7 @@ Create an API with a fake sensitive that you secure after we make sure everythin
         * VALUE: `ApiKey 123456789`
 
         <figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
-11. Click **Validate my endpoints**.&#x20;
+11. Click **Validate my endpoints**.
 
     <figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 12. Click V**alidate my plans**.
@@ -199,13 +199,13 @@ If you export your API, you see the Authorization header as part of the definiti
 
 ### Reference secrets in an API
 
-1.  In your API configuration screen, click **Endpoints**.&#x20;
+1.  In your API configuration screen, click **Endpoints**.
 
     <figure><img src="../../../.gitbook/assets/E6F61D2D-CFC9-446E-820F-649F4FEF3F97.jpeg" alt=""><figcaption></figcaption></figure>
-2.  Click **Edit**.&#x20;
+2.  Click **Edit**.
 
     <figure><img src="../../../.gitbook/assets/5DF13AD2-0BEC-4D40-9D2E-33BFED89E109.jpeg" alt=""><figcaption></figcaption></figure>
-3.  Click the **Configuration** tab, and then navigate to **HTTP Headers**.&#x20;
+3.  Click the **Configuration** tab, and then navigate to **HTTP Headers**.
 
     <figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
 4. In the **VALUE** field, replace `ApiKey 123465798` with `ApiKey{#secrets.get('/vault/secret/gravitee/apikeys:username')}` .

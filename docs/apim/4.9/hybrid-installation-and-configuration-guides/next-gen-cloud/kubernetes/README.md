@@ -2,8 +2,6 @@
 
 ## Deployment Methods
 
-{% include "../../../../4.8/.gitbook/includes/hybrid-installation-support (1).md" %}
-
 * [vanilla-kubernetes](vanilla-kubernetes/ "mention")
 * [AWS EKS](aws-eks.md)
 * [azure-aks.md](azure-aks.md "mention")

@@ -4,7 +4,7 @@
 
 The general settings for a Gravitee v2 API are grouped into 3 sections: [general information](general-settings.md#general-information), [Quality](general-settings.md#quality), and [Danger Zone](general-settings.md#danger-zone).
 
-<figure><img src="../../.gitbook/assets/v2 general settings (1).png" alt=""><figcaption><p>v2 API general settings</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>v2 API general settings</p></figcaption></figure>
 
 {% tabs %}
 {% tab title="General information" %}

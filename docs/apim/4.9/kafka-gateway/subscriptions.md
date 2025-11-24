@@ -19,13 +19,13 @@ API consumers can subscribe to APIs with published plans during the application 
   1. Log in to your APIM Console
   2. Select **Applications** from the left nav
   3. Select **Subscriptions** from the inner left nav
-  4.  Click the **+ Create a subscription** button 
+  4.  Click the **+ Create a subscription** button
 
-      <figure><img src="../.gitbook/assets/subscription_create 2 (1).png" alt=""><figcaption><p><br>Create a subscription</p></figcaption></figure>
+      <figure><img src="broken-reference" alt=""><figcaption><p><br>Create a subscription</p></figcaption></figure>
   5. Search for the API you want to subscribe to. To be searchable the API consumer must have access to the API, i.e., the API must be public or the API consumer must be a member of it.
-  6.  Select the plan you would like to request a subscription to 
+  6.  Select the plan you would like to request a subscription to
 
-      <figure><img src="../.gitbook/assets/subscription_create (1).png" alt=""><figcaption><p>Select the subscription plan</p></figcaption></figure>
+      <figure><img src="broken-reference" alt=""><figcaption><p>Select the subscription plan</p></figcaption></figure>
   7. Click **Create** to see the subscription details
 
 ## Manage subscriptions
@@ -47,7 +47,7 @@ To manage subscriptions in APIM Console:
 7. Validate or reject the subscription
    *   If validating, fill out the **Validate your subscription** form, then click **Validate**
 
-       <figure><img src="../.gitbook/assets/subscription_validate 2 (1).png" alt=""><figcaption><p>Validate the subscription</p></figcaption></figure>
+       <figure><img src="broken-reference" alt=""><figcaption><p>Validate the subscription</p></figcaption></figure>
 
 ### API Key plans
 
@@ -55,10 +55,10 @@ Subscriptions to API Key plans include additional security management settings:
 
 *   **Renew:** Generate a new API key or provide a custom API key. The existing API key will be automatically invalidated after two hours.
 
-    <figure><img src="../.gitbook/assets/subscription_api key renew (1).png" alt=""><figcaption><p>Renew an API key</p></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption><p>Renew an API key</p></figcaption></figure>
 *   **Revoke:** Immediately invalidate an existing API key. This option is reversible.
 
-    <figure><img src="../.gitbook/assets/subscription_api key revoke (1).png" alt=""><figcaption><p>Revoke an API key</p></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption><p>Revoke an API key</p></figcaption></figure>
 *   **Expire:** Set a date/time to automatically invalidate an existing API key
 
-    <figure><img src="../.gitbook/assets/subscription_api key expire (1).png" alt=""><figcaption><p>Expire an API key</p></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption><p>Expire an API key</p></figcaption></figure>

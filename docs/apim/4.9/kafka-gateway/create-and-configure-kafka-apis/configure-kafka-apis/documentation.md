@@ -18,7 +18,7 @@ To create a homepage:
 
     <figure><img src="../../../../4.7/.gitbook/assets/01.png" alt=""><figcaption></figcaption></figure>
 
-    If you select **Private**, you have the option to choose which groups can view your page. You can also exclude the selected groups, in which case the groups that are not selected will be able to view your page. If you do not select any groups, all groups will be able to view your page. 
+    If you select **Private**, you have the option to choose which groups can view your page. You can also exclude the selected groups, in which case the groups that are not selected will be able to view your page. If you do not select any groups, all groups will be able to view your page.
 
     <figure><img src="../../../../4.7/.gitbook/assets/10%201.png" alt=""><figcaption></figcaption></figure>
 4.  Choose how to create the content. You can fill in the content yourself, import a file, or link to an external source.
@@ -80,7 +80,7 @@ Dynamic API documentation pages can be created by adding metadata. To view and f
 
 To create metadata for your documentation, click **+** **Add API Metadata**:
 
-<div align="left"><figure><img src="../../../.gitbook/assets/metadata_add (1).png" alt="" width="375"><figcaption><p>Add API metadata</p></figcaption></figure></div>
+<div align="left"><figure><img src="broken-reference" alt="" width="375"><figcaption><p>Add API metadata</p></figcaption></figure></div>
 
 Enter a name and value for the metadata, and select a metadata format from the drop-down menu. Available options are **string**, **numeric**, **boolean**, **date**, **mail**, or **url**.
 
