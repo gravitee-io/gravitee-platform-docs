@@ -14,7 +14,7 @@ As specify in the [Control Plane & Data Plane](../../overview/am-architecture/co
 
 This deployment will include a Management API with a database for the Control Plane (CP) and two Gateways, each dedicated to a Data Plane (DataPlane\_1 & DataPlane\_2). The security domains associated with DataPlane\_1 handled only by the Gateway assigned to that data plane, and the same applies for the domains associated with DataPlane\_2. Each DataPlane has its own data cluster to isolate workloads and prevent a global service disruption if one of the databases becomes unavailable. In this deployment, if the Control Plane becomes inaccessible, the Gateways are still able to authenticate users because the necessary runtime information is now carried by the Data Plane. Similarly, if the data cluster of DataPlane\_1 is not accessible, only the Gateways of that data plane are impacted.
 
-<figure><img src="../../../4.7/.gitbook/assets/am-multi-dataplane (1) (1).svg" alt=""><figcaption><p>Multi Data Plane deployment</p></figcaption></figure>
+<figure><img src="../../../4.7/.gitbook/assets/am-multi-dataplane (1).svg" alt=""><figcaption><p>Multi Data Plane deployment</p></figcaption></figure>
 
 ## Configure the Management API
 

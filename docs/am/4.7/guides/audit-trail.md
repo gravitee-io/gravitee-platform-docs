@@ -335,7 +335,7 @@ Kafka reporter sends all messages to separate partitions based on domain id or o
     `sasl.mechanism = PLAIN`
 4. For security reasons, when a username and a password is provided, a `sasl.jaas.config` property is created with following value: `org.apache.kafka.common.security.plain.PlainLoginModule required username="<<value_from_username_field>>" password="<<value_from_password_field>>";`
 
-<figure><img src="../../4.6/.gitbook/assets/Screenshot 2024-10-31 at 12.23.54 (1).png" alt=""><figcaption><p>SASL/PLAIN configuration</p></figcaption></figure>
+<figure><img src="../../4.6/.gitbook/assets/Screenshot 2024-10-31 at 12.23.54.png" alt=""><figcaption><p>SASL/PLAIN configuration</p></figcaption></figure>
 
 **TLS/SSL encryption**
 
@@ -354,4 +354,4 @@ If Kafka broker is using SSL/TLS encryption, you must add additional steps to se
 
 `ssl.truststore.password = "secret_password"`
 
-<figure><img src="../../4.6/.gitbook/assets/Screenshot 2024-10-31 at 12.28.24 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../4.6/.gitbook/assets/Screenshot 2024-10-31 at 12.28.24.png" alt=""><figcaption></figcaption></figure>
