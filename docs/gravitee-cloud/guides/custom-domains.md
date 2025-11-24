@@ -46,7 +46,7 @@ Depending on Google CA load, the issue of the certificate may take some time. Yo
 
 Once both CNAME and SSL certificate has been verified, you may now make API requests using the new custom domain. The Access URL shown in Developer Portal will also be the configured custom domain.
 
-<figure><img src="../.gitbook/assets/image (42) (1).png" alt=""><figcaption><p>Gravitee Hosted Gateway details page. Note that the Gateway URL is the custom domain configured.</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Gravitee Hosted Gateway details page. Note that the Gateway URL is the custom domain configured.</p></figcaption></figure>
 
 {% hint style="info" %}
 The Gravitee provided Gateway URL still works. This URL acts as a backup in case your custom domain has issues. The URL ensures that the service is still available on Gravitee side.
@@ -66,7 +66,7 @@ If you wish to delete or update your custom domain, complete the following steps
 
 2. In the **Are you sure that you want to proceed?** pop-up window, type the custom domain.
 
-<figure><img src="../.gitbook/assets/image (44) (1).png" alt=""><figcaption><p>Resetting custom domain for Gravitee Hosted Gateway.</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Resetting custom domain for Gravitee Hosted Gateway.</p></figcaption></figure>
 
 2. Click **Reset Custom Domain**.
 3. (Optional) If you do not plan to use the custom domain again, remove the CNAME record from your domain registrar.

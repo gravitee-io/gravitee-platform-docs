@@ -1,3 +1,7 @@
+---
+description: Overview of Promote APIs.
+---
+
 # Promote APIs
 
 ## Overview
@@ -46,7 +50,7 @@ The following example shows how to promote an API from environment `DEV` to envi
 {% hint style="info" %}
 If a promotion request for your API already exists on an environment, you cannot make another request on the same target environment until the promotion is either rejected or accepted.
 
-![Target environments list](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/promote-apis/graviteeio-promote-api-promote-2-bis.png)
+<img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/promote-apis/graviteeio-promote-api-promote-2-bis.png" alt="Target environments list" data-size="original">
 {% endhint %}
 
 3. Choose the environment on which to promote the API, then click **PROMOTE**:

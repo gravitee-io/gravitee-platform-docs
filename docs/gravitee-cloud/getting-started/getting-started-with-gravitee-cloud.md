@@ -1,3 +1,7 @@
+---
+description: Getting started with Gravitee Cloud.
+---
+
 # Getting started with Gravitee Cloud
 
 To get started with Gravitee Cloud, complete the following steps
@@ -17,4 +21,3 @@ Step 4 - Click on _"Get Going"_
 You are then directed to the Gravitee Cloud Dashboard where you can discover your options in Gravitee Cloud UI or go straight into API Management Control Plane by accessing APIM Console or Dev Portal.
 
 <figure><img src="../.gitbook/assets/image (26).png" alt=""><figcaption><p>Gravitee Cloud dashboard with a trial running.</p></figcaption></figure>
-

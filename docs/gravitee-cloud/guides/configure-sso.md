@@ -1,3 +1,7 @@
+---
+description: Configuration guide for Configure Single Sign On.
+---
+
 # Configure Single Sign On
 
 ## Introduction
