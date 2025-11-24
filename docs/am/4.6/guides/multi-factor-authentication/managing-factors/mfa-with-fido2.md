@@ -1,3 +1,7 @@
+---
+description: Overview of FIDO2.
+---
+
 # MFA with FIDO2
 
 ## Overview

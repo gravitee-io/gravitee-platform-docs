@@ -1,3 +1,7 @@
+---
+description: API and reference documentation for AM API.
+---
+
 # AM API
 
 ## Configuration overview
@@ -296,7 +300,7 @@ plugins:
 
 ### Configure the Management repository
 
-Management repository is used to store global configuration such as APIs, applications, apikeys, etc. This is the default configuration using MongoDB (single server).&#x20;
+Management repository is used to store global configuration such as APIs, applications, apikeys, etc. This is the default configuration using MongoDB (single server).
 
 {% code overflow="wrap" %}
 ```yaml
@@ -362,7 +366,7 @@ A domain creation comes with default plugins instantiation. To provide the defau
 
 * the technical details of the default certificate
 * if a default reporter need to be created
-* if a default identity provider need to be created, if so what should be the password encoding&#x20;
+* if a default identity provider need to be created, if so what should be the password encoding
 
 ```yaml
 domains:
@@ -403,7 +407,7 @@ As of AM 4.2.0, the client secret can be hashed when stored into the database. F
 * BCrypt
 * PBKDF2
 
-To specify which hash algorithm is in used, update the `applications` section of `gravitee.yml`:&#x20;
+To specify which hash algorithm is in used, update the `applications` section of `gravitee.yml`:
 
 ```yaml
 applications:

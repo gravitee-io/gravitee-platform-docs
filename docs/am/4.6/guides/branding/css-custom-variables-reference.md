@@ -1,3 +1,7 @@
+---
+description: API and reference documentation for CSS Custom Variables Reference.
+---
+
 # CSS Custom Variables Reference
 
 | Property Name                       | Default Value                      |
