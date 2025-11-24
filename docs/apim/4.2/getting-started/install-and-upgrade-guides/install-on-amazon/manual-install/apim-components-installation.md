@@ -1,3 +1,7 @@
+---
+description: Tutorial on APIM Components Installation.
+---
+
 # APIM Components Installation
 
 This page describes how to install the individual components of the Gravitee API Management (APIM) stack.
@@ -219,5 +223,5 @@ The Developer Portal package does not provide its own service. It provides:
 {% endhint %}
 
 {% hint style="success" %}
-Congratulations! Now that APIM is up and running, check out the [Tutorials](README.md) for your next steps.
+Congratulations! Now that APIM is up and running, check out the [Tutorials](./) for your next steps.
 {% endhint %}

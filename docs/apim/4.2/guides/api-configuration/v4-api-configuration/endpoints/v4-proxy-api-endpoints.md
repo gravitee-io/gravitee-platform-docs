@@ -1,3 +1,7 @@
+---
+description: Configuration guide for v4 Proxy API Endpoints.
+---
+
 # v4 Proxy API Endpoints
 
 ## Configuration
@@ -5,7 +9,7 @@
 To configure v4 proxy API endpoints:
 
 1. Select **APIs** from the left nav
-2. Select your API&#x20;
+2. Select your API
 3. Select **Backend services** from the Endpoints section of the inner left nav
 
 Refer to the following sections for step-by-step configuration details.

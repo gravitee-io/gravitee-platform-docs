@@ -1,3 +1,7 @@
+---
+description: Tutorial on Application.
+---
+
 # Application
 
 ## How to use the Application (`Application`) custom resource

@@ -1,27 +1,17 @@
 ---
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
+description: An overview about Gravitee API Definitions and Execution Engines.
 ---
 
 # Gravitee API Definitions and Execution Engines
 
 ## Overview
 
-A Gravitee API definition is very similar to an API specification (e.g., OpenAPI, AsyncAPI) except it is a specification for your Gravitee API Management (APIM) Gateway_._ It’s a JSON representation of everything that the APIM Gateway needs to know for it to proxy, apply policies to, create plans for, etc., your APIs and their traffic.
+A Gravitee API definition is very similar to an API specification (e.g., OpenAPI, AsyncAPI) except it is a specification for your Gravitee API Management (APIM) Gateway\_.\_ It’s a JSON representation of everything that the APIM Gateway needs to know for it to proxy, apply policies to, create plans for, etc., your APIs and their traffic.
 
 To execute your Gateway APIs and policy flows, the Gateway needs a runtime environment, or engine. This is generally referred to as the execution engine. As of APIM 4.0, there is support for both the v2 and v4 Gravitee API definitions, where v2 API definitions run on the legacy execution engine and v4 API definitions run on the reactive execution engine.
 
 {% hint style="warning" %}
-You can run v2 Gateway APIs in [emulation mode](reactive-execution-engine.md#v2-gateway-api-emulation-mode), which emulates some of the execution flow improvements of the reactive execution engine.&#x20;
+You can run v2 Gateway APIs in [emulation mode](reactive-execution-engine.md#v2-gateway-api-emulation-mode), which emulates some of the execution flow improvements of the reactive execution engine.
 {% endhint %}
 
 The [v2 API Creation Wizard ](../../guides/create-apis/the-api-creation-wizard/v2-api-creation-wizard.md)creates v2 Gateway APIs compatible with the legacy execution engine that can be augmented with flows designed in the [v2 Policy Studio](../../guides/policy-studio/v2-api-policy-studio.md). The [v4 API Creation Wizard](../../guides/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md) creates v4 APIs compatible with the reactive execution engine that can be augmented with flows designed in the [v4 Policy Studio](../../guides/policy-studio/v4-api-policy-studio.md).
@@ -32,14 +22,14 @@ This guide is a deep dive into the differences between the new reactive executio
 
 The following comparisons can be made between the reactive and legacy execution engines:
 
-* [Policy execution](README.md#policy-execution)
-* [Plan selection](README.md#plan-selection)
-* [Flow](README.md#flow)
-* [Logging](README.md#logging)
-* [Expression Language](README.md#expression-language)
-* [Bad requests](README.md#bad-requests)
-* [Origin validation](README.md#origin-validation)
-* [Timeout management](README.md#timeout-management)
+* [Policy execution](./#policy-execution)
+* [Plan selection](./#plan-selection)
+* [Flow](./#flow)
+* [Logging](./#logging)
+* [Expression Language](./#expression-language)
+* [Bad requests](./#bad-requests)
+* [Origin validation](./#origin-validation)
+* [Timeout management](./#timeout-management)
 
 ### Policy execution
 
@@ -340,7 +330,7 @@ The timeout value is calculated from the following two properties:
 {% hint style="info" %}
 **Timeout configuration**
 
-The reactive execution engine interprets timeout values less than or equal to `0` as "no timeout" (same as the legacy engine).&#x20;
+The reactive execution engine interprets timeout values less than or equal to `0` as "no timeout" (same as the legacy engine).
 
 If you configure the timeout with a positive value, then it will act normally.
 
@@ -353,12 +343,8 @@ If no configuration is provided, a default configuration is set to default to 30
 
 The example below shows timelines indicating when a timeout should occur depending on the duration of the API flow and the response platform flows:
 
-* We assume that there is no timeout defined for the backend in the API’s endpoint configuration.&#x20;
+* We assume that there is no timeout defined for the backend in the API’s endpoint configuration.
   * In real life, those timeout values should be shorter than `http.requestTimeout` and should interrupt the flow at the invoker level.
 * We are using `http.requestTimeout=2000ms` and `http.requestTimeoutGraceDelay=30ms`.
 
-<div align="center">
-
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/event-native/event-native-api-management-timeout.png" alt="" width="563"><figcaption><p>Reactive engine timeout management</p></figcaption></figure>
-
-</div>
+<div align="center"><figure><img src="https://docs.gravitee.io/images/apim/3.x/event-native/event-native-api-management-timeout.png" alt="" width="563"><figcaption><p>Reactive engine timeout management</p></figcaption></figure></div>
