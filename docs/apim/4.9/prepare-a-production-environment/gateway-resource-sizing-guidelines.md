@@ -1,3 +1,7 @@
+---
+description: An overview about gateway resource sizing.
+---
+
 # Gateway Resource Sizing
 
 ## Overview

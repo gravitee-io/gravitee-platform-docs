@@ -1,3 +1,7 @@
+---
+description: An overview about metrics reporter.
+---
+
 # Metrics Reporter
 
 ## Overview

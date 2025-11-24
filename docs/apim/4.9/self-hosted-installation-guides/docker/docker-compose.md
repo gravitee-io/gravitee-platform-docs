@@ -1,3 +1,7 @@
+---
+description: An overview about docker compose.
+---
+
 # Docker Compose
 
 ### Overview <a href="#overview" id="overview"></a>
@@ -277,7 +281,7 @@ To enable Federation, complete the following steps:
           - ./.license/license.key:/opt/graviteeio-management-api/license/license.key
           - ./.plugins:/opt/graviteeio-management-api/plugins-ext
     ```
-3.  Restart your APIM services.&#x20;
+3.  Restart your APIM services.
 
     ```bash
     docker compose -f docker-compose-apim.yml down
@@ -335,7 +339,7 @@ LOG_LEVEL=DEBUG
 This example shows configuration for Confluent Platform integration. For Solace or AWS API Gateway integrations, the core Gravitee parameters remain the same, but additional integration-specific parameters will differ.
 {% endhint %}
 
-2.  To enable federation, add the federation agent service to your `docker-compose-apim.yml` file. You can see a sample configuration example in the complete Docker Compose file above with all available agent options.&#x20;
+2.  To enable federation, add the federation agent service to your `docker-compose-apim.yml` file. You can see a sample configuration example in the complete Docker Compose file above with all available agent options.
 
     ```yaml
     #

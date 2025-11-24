@@ -1,3 +1,7 @@
+---
+description: Documentation about layout and theme in the context of APIs.
+---
+
 # Layout and Theme
 
 {% hint style="warning" %}

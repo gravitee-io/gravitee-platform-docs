@@ -1,3 +1,7 @@
+---
+description: An overview about configure jwt security.
+---
+
 # Configure JWT Security
 
 ## Overview <a href="#overview" id="overview"></a>

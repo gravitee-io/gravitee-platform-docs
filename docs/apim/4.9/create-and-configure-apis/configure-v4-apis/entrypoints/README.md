@@ -1,3 +1,7 @@
+---
+description: An overview about entrypoints.
+---
+
 # Entrypoints
 
 ## Overview

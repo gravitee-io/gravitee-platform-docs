@@ -1,3 +1,7 @@
+---
+description: An overview about audit logs.
+---
+
 # Audit Logs
 
 ## Overview
@@ -14,6 +18,6 @@ To view and filter v4 API audit logs:
 4. Click **Configuration** in the inner left nav
 5. Select **Audit Logs** from the tab headers
 
-<figure><img src="../../../4.7/.gitbook/assets/A 1 config audit logs.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.7/.gitbook/assets/A%201%20config%20audit%20logs.png" alt=""><figcaption></figcaption></figure>
 
 This page captures API-level events and audit entries, which can be filtered by event type and date range.

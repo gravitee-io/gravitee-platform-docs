@@ -1,3 +1,7 @@
+---
+description: An overview about rate limit.
+---
+
 # Rate Limit
 
 ## Overview
@@ -24,7 +28,7 @@ This policy can be applied to v2 APIs, v4 HTTP proxy APIs, and v4 message APIs. 
 
 {% tabs %}
 {% tab title="V2 API definition" %}
-This snippet of a V2 API definition includes a flow that chains all three rate limit policies.&#x20;
+This snippet of a V2 API definition includes a flow that chains all three rate limit policies.
 
 ```json
 {

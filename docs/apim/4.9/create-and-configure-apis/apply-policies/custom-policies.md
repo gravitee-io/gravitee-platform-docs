@@ -1,3 +1,7 @@
+---
+description: An overview about custom policies.
+---
+
 # Custom Policies
 
 ## Overview
@@ -10,7 +14,7 @@ Policies are rules or logic that can be executed by the API Gateway. A policy ac
 Ensure [OSS repositories](http://central.sonatype.org/pages/ossrh-guide.html) are activated in your [Maven settings](https://maven.apache.org/settings.html)
 {% endhint %}
 
-To demonstrate how to develop a policy, the following example creates the FooHeaderCheck policy to validate if requests contain the `X-Foo` header.&#x20;
+To demonstrate how to develop a policy, the following example creates the FooHeaderCheck policy to validate if requests contain the `X-Foo` header.
 
 {% hint style="info" %}
 The `gravitee-policy-maven-archetype` automatically adds "Policy" to the policy name you specify
@@ -131,7 +135,7 @@ public void onRequest(Request request, Response response, PolicyChain policyChai
 ```
 
 {% hint style="info" %}
-The `PolicyChain` must always be called with `PolicyChain#doNext()` or `PolicyChain#failWith()` to properly terminate `onRequest` processing&#x20;
+The `PolicyChain` must always be called with `PolicyChain#doNext()` or `PolicyChain#failWith()` to properly terminate `onRequest` processing
 {% endhint %}
 {% endtab %}
 
@@ -176,7 +180,7 @@ private static boolean isASuccessfulResponse(Response response) {
 ```
 
 {% hint style="info" %}
-The `PolicyChain` must always be called with `PolicyChain#doNext()` or `PolicyChain#failWith()` to properly terminate `onResponse` processing&#x20;
+The `PolicyChain` must always be called with `PolicyChain#doNext()` or `PolicyChain#failWith()` to properly terminate `onResponse` processing
 {% endhint %}
 {% endtab %}
 

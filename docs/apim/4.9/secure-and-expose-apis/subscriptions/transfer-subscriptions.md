@@ -1,3 +1,7 @@
+---
+description: Documentation about transfer subscriptions in the context of APIs.
+---
+
 # Transfer Subscriptions
 
 API publishers can transfer active subscriptions to a new plan with the same security type:

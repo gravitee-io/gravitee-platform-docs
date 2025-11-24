@@ -1,3 +1,7 @@
+---
+description: An overview about create and configure kafka clusters.
+---
+
 # Create and Configure Kafka Clusters
 
 ## Overview

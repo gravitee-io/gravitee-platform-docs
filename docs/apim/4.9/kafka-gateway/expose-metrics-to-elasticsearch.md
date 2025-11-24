@@ -1,8 +1,12 @@
+---
+description: An overview about expose metrics to elasticsearch.
+---
+
 # Expose Metrics to Elasticsearch
 
 ## Overview
 
-This guide explains how to configure the Elasticsearch reporter to collect and store runtime metrics from your Gravitee Kafka Gateway.&#x20;
+This guide explains how to configure the Elasticsearch reporter to collect and store runtime metrics from your Gravitee Kafka Gateway.
 
 The reporter collects metrics from Kafka API operations and stores them in Elasticsearch as time-series data. This enables real-time monitoring and historical analysis by letting you do the following:
 
@@ -43,7 +47,7 @@ To enable metrics reporting in the APIM Console, complete the following steps:
 3.  Select your API
 
     <figure><img src="../.gitbook/assets/select-v4-kafka-gateway-api.png" alt=""><figcaption></figcaption></figure>
-4.  Click on **Deployment**&#x20;
+4.  Click on **Deployment**
 
     <figure><img src="../.gitbook/assets/select-deployment.png" alt=""><figcaption></figcaption></figure>
 5.  Select **Reporter Settings**
@@ -77,7 +81,7 @@ All metrics include the following dimensions for filtering and grouping data:
 | `app-id`     | Application ID (authenticated requests) | `app-12345`                            |
 | `topic`      | Kafka topic name                        | `my-topic`                             |
 
-### **Connection metrics**&#x20;
+### **Connection metrics**
 
 The following connection metrics (gauges) track the current number of active connections. These metrics provide real-time visibility into client connectivity.
 
@@ -99,7 +103,7 @@ The following message counters track message volume across all operations. These
 
 ### Data volume metrics
 
-The following data volume counters track data throughput in bytes. These metrics accumulate over time and measure the total amounts of data processed.&#x20;
+The following data volume counters track data throughput in bytes. These metrics accumulate over time and measure the total amounts of data processed.
 
 | Metric                               | Description                                 |
 | ------------------------------------ | ------------------------------------------- |

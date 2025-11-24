@@ -1,3 +1,7 @@
+---
+description: Configuration guide for ws security sign.
+---
+
 # WS Security Sign
 
 ## Phases <a href="#user-content-phases" id="user-content-phases"></a>

@@ -1,3 +1,7 @@
+---
+description: An overview about applications.
+---
+
 # Applications
 
 ## Overview

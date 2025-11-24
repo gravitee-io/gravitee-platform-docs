@@ -1,3 +1,7 @@
+---
+description: Documentation about docker cli in the context of APIs.
+---
+
 # Docker CLI
 
 ### Prerequisites <a href="#prerequisites" id="prerequisites"></a>

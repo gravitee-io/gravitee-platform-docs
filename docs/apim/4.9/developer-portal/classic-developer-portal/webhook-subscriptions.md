@@ -1,3 +1,7 @@
+---
+description: An overview about webhook subscriptions.
+---
+
 # Webhook Subscriptions
 
 ## Overview

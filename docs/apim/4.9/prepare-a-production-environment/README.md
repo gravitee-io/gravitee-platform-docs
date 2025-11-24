@@ -1,3 +1,7 @@
+---
+description: Configuration guide for prepare a production environment.
+---
+
 # Prepare a Production Environment
 
 To prepare a production-ready environment, follow the guidance in the following articles:

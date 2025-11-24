@@ -1,3 +1,7 @@
+---
+description: An overview about customize the homepage.
+---
+
 # Customize the homepage
 
 ## Overview

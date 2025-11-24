@@ -1,3 +1,7 @@
+---
+description: An overview about dynamic routing.
+---
+
 # Dynamic Routing
 
 ## Overview

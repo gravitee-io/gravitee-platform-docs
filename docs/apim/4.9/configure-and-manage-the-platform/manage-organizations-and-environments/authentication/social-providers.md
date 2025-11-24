@@ -1,3 +1,7 @@
+---
+description: Documentation about social providers in the context of APIs.
+---
+
 # Social Providers
 
 ## GitHub authentication

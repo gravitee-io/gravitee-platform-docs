@@ -1,8 +1,12 @@
+---
+description: Configuration guide for create & configure kafka apis.
+---
+
 # Create & Configure Kafka APIs
 
 ## Create a Kafka API
 
-To create a Kafka API, see the following article:&#x20;
+To create a Kafka API, see the following article:
 
 <table data-view="cards"><thead><tr><th></th></tr></thead><tbody><tr><td><a href="create-kafka-apis.md">Create Kafka APIs</a></td></tr><tr><td><a href="configure-kafka-apis/">Configure Kafka APIs</a></td></tr></tbody></table>
 

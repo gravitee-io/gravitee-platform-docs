@@ -1,3 +1,7 @@
+---
+description: An overview about agent mesh.
+---
+
 # Agent Mesh
 
 ## Overview
@@ -8,7 +12,7 @@ Gravitee offers centralized and unified control of AI agents, even if they are r
 
 ## Agent Gateway
 
-The Agent Gateway includes the Gravitee A2A Proxy and Gravitee LLM Proxy.&#x20;
+The Agent Gateway includes the Gravitee A2A Proxy and Gravitee LLM Proxy.
 
 ### A2A Proxy
 
@@ -37,20 +41,20 @@ Gravitee's **LLM Proxy** provides a layer of abstraction between AI agents and L
 
 ## Agent Catalog
 
-The **Agent Catalog** is a centralized catalog of all the AI agents built across your organization. If an agent is compliant with the A2A protocol, Gravitee can discover its A2A agent card and add it to your APIM Console's Agent Catalog.&#x20;
+The **Agent Catalog** is a centralized catalog of all the AI agents built across your organization. If an agent is compliant with the A2A protocol, Gravitee can discover its A2A agent card and add it to your APIM Console's Agent Catalog.
 
 The Agent Catalog is used for agent discovery, governance, analytics, and cost optimization. You can browse the catalog to find information on agents, such as who owns an agent, where it runs, and what it does.
 
 ## Agent Tool Server
 
-The Agent Tool Server integrates with the Developer Portal to discover, explore, and subscribe to Model Context Protocol (MCP) servers. MCP lets AI agents access their capabilities by connecting them to tools, APIs, and resources.&#x20;
+The Agent Tool Server integrates with the Developer Portal to discover, explore, and subscribe to Model Context Protocol (MCP) servers. MCP lets AI agents access their capabilities by connecting them to tools, APIs, and resources.
 
-Gravitee can convert any v4 proxy API running on the Gravitee Gateway into an MCP server for easy consumption by AI agents. This includes v4 proxy APIs from 3rd-party gateways and brokers. With MCP enabled, v4 proxy APIs can communicate using a single, standardized interface.&#x20;
+Gravitee can convert any v4 proxy API running on the Gravitee Gateway into an MCP server for easy consumption by AI agents. This includes v4 proxy APIs from 3rd-party gateways and brokers. With MCP enabled, v4 proxy APIs can communicate using a single, standardized interface.
 
 AI agents use MCP to discover and invoke an API's available methods. MCP servers enable AI integration by exposing different capabilities.
 
 * **Tools:** Specific functions that language models can control and implement on external systems. Tools are APIs, which Gravitee can discover, secure, and monitor.
-* **Resources:** Data sources that can be accessed by language models.&#x20;
+* **Resources:** Data sources that can be accessed by language models.
 * **Prompts:** User-defined templates that guide how language models use tools and resources.
 
 To expose MCP to consuming AI agents, an MCP entrypoint is added to an existing v4 proxy API. Next, the MCP entrypoint is enabled, and the API's OpenAPI definition is used to generate the MCP server. Each operation in the OpenAPI spec is converted into an MCP tool definition that an agent can understand. MCP servers use SSE to push messages and events to agents in real-time over a persistent HTTP connection.

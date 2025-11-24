@@ -1,10 +1,14 @@
+---
+description: An overview about aws eks.
+---
+
 # AWS EKS
 
 {% hint style="warning" %}
 This installation guide is for only development and quick start purposes. Do not use it for production environments. For more information about best practices for production environments, contact your Technical Account Manager.
 {% endhint %}
 
-## Overview&#x20;
+## Overview
 
 This guide explains how to deploy a complete self-hosted Gravitee APIM platform on Amazon Elastic Kubernetes Service (EKS) using Helm charts.
 
@@ -14,13 +18,13 @@ Before you install the Gravitee APIM, complete the following steps:
 
 * Install [AWS CLI](https://aws.amazon.com/cli/) and configure it with your credentials
 * Install [eksctl](https://eksctl.io/) for EKS cluster management
-* Install [helm](https://helm.sh/docs/intro/install/)&#x20;
+* Install [helm](https://helm.sh/docs/intro/install/)
 * Install [kubectl](https://kubernetes.io/docs/tasks/tools/)
 * Have a [valid AWS account](https://signin.aws.amazon.com/signup?request_type=register)
 * (Optional) License key for Enterprise features
 * (Optional) Register a domain name in Route53 or have access to DNS management
 
-## Components Overview&#x20;
+## Components Overview
 
 This self-hosted APIM deployment includes several components that work together to provide a complete API management platform:
 
@@ -37,13 +41,13 @@ To prepare your EKS cluster for Gravitee APIM deployment, configure the followin
 2. [#create-default-storage-class](aws-eks.md#create-default-storage-class "mention")
 3. [#install-aws-load-balancer-controller](aws-eks.md#install-aws-load-balancer-controller "mention")
 
-### Install EBS CSI Driver&#x20;
+### Install EBS CSI Driver
 
 {% hint style="info" %}
-The EBS CSI driver is required for persistent volumes.&#x20;
+The EBS CSI driver is required for persistent volumes.
 {% endhint %}
 
-1.  Install the EBS driver with the following  `kubectl` command:
+1.  Install the EBS driver with the following `kubectl` command:
 
     ```bash
     kubectl apply -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-1.35"
@@ -68,7 +72,7 @@ eksctl create iamserviceaccount \
     kubectl rollout restart deployment ebs-csi-controller -n kube-system
     ```
 
-#### Verification&#x20;
+#### Verification
 
 To verify that your EBS CSI driver installation succeeded, check pod status using the following command:
 
@@ -114,7 +118,7 @@ Without a default storage class, Kubernetes cannot dynamically provision persist
     kubectl apply -f storageclass.yaml
     ```
 
-#### Verification&#x20;
+#### Verification
 
 To verify that your storage class was created successfully, use the following command:
 
@@ -330,7 +334,7 @@ gp3 (default)   ebs.csi.aws.com        Delete          Immediate           true 
         --policy-document file://iam_policy.json \
         --region <region>
     ```
-3.  Create IAM Service Account using the following command:&#x20;
+3.  Create IAM Service Account using the following command:
 
     ```bash
     # Replace these values:
@@ -368,7 +372,7 @@ gp3 (default)   ebs.csi.aws.com        Delete          Immediate           true 
       --set region=<region>
     ```
 
-#### Verification&#x20;
+#### Verification
 
 Verify the installation using the following command:
 
@@ -399,14 +403,14 @@ To install the Gravitee APIM, complete the following steps:
 7. [#prepare-the-values.yaml-for-helm](aws-eks.md#prepare-the-values.yaml-for-helm "mention")
 8. [#install-using-helm](aws-eks.md#install-using-helm "mention")
 
-### Create Namespace&#x20;
+### Create Namespace
 
 Kubernetes namespaces provide logical isolation and organization within a cluster. Creating a dedicated namespace for Gravitee APIM:
 
 * Isolates resources: Separates APIM components from other applications
 * Simplifies management: Groups related services, pods, and configurations together
 
-Create the namespace using the following command:&#x20;
+Create the namespace using the following command:
 
 ```bash
 kubectl create namespace gravitee-apim
@@ -420,7 +424,7 @@ This guide requires MongoDB and Elasticsearch to be installed for the complete A
 
 To support API definitions and configuration, you must install MongoDB into your Kubernetes cluster. For more information about installing MongoDB, see the [official chart documentation](https://artifacthub.io/packages/helm/bitnami/mongodb)
 
-1.  Install MongoDB with Helm using the following command:&#x20;
+1.  Install MongoDB with Helm using the following command:
 
     ```bash
     helm install gravitee-mongodb oci://registry-1.docker.io/cloudpirates/mongodb \
@@ -440,18 +444,16 @@ To support API definitions and configuration, you must install MongoDB into your
     ```
 
     \
-    The command generates the following output:&#x20;
+    The command generates the following output:
 
     ```bash
     NAME                  READY   STATUS    RESTARTS   AGE
     gravitee-mongodb-0    1/1     Running   0          2m
     ```
 
+### Install Elasticsearch
 
-
-### Install Elasticsearch&#x20;
-
-To support analytics and logging, you must install Elasticsearch into your Kubernetes cluster. For more information on installing Elasticsearch, see the [official chart documentation.](https://artifacthub.io/packages/helm/bitnami/elasticsearch)&#x20;
+To support analytics and logging, you must install Elasticsearch into your Kubernetes cluster. For more information on installing Elasticsearch, see the [official chart documentation.](https://artifacthub.io/packages/helm/bitnami/elasticsearch)
 
 1.  Install Elasticsearch with Helm using the following command:
 
@@ -486,7 +488,6 @@ To support analytics and logging, you must install Elasticsearch into your Kuber
 
 1.  To verify that your Elasticsearch deployment succeeded, check pod status using the following command:
 
-
     ```bash
     kubectl get pods -n gravitee-apim -l app.kubernetes.io/instance=gravitee-elasticsearch
     ```
@@ -494,20 +495,16 @@ To support analytics and logging, you must install Elasticsearch into your Kuber
     \
     The command generates the following output:
 
-
     ```bash
     NAME                     READY   STATUS    RESTARTS   AGE
     elasticsearch-master-0   1/1     Running   0          55m
     ```
 
-    
-
-
 ### (Optional) Install Redis
 
-To support caching and rate-limiting, you must install Redis into your Kubernetes cluster. For more information about installing Redis, see the [official chart documentation. ](https://artifacthub.io/packages/helm/bitnami/redis)
+To support caching and rate-limiting, you must install Redis into your Kubernetes cluster. For more information about installing Redis, see the [official chart documentation.](https://artifacthub.io/packages/helm/bitnami/redis)
 
-1.  Install Redis with Helm using the following command: &#x20;
+1.  Install Redis with Helm using the following command:
 
     ```bash
     helm install gravitee-redis oci://registry-1.docker.io/cloudpirates/redis \
@@ -520,25 +517,23 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
 
 1.  To verify that your Redis deployment succeeded, check pod status using the following command:
 
-
     ```bash
     kubectl get pods -n gravitee-apim -l app.kubernetes.io/instance=gravitee-redis
     ```
 
     \
-    The command generates the following output:&#x20;
+    The command generates the following output:
 
     ```bash
     NAME                      READY   STATUS    RESTARTS   AGE
     gravitee-redis-master-0   1/1     Running   0          2m
     ```
 
-### (Optional) Install PostgreSQL&#x20;
+### (Optional) Install PostgreSQL
 
-To support management data, you can install PostgreSQL into your Kubernetes cluster. For more information on installing PostgreSQL, see the [official chart documentation.](https://artifacthub.io/packages/helm/bitnami/postgresql)&#x20;
+To support management data, you can install PostgreSQL into your Kubernetes cluster. For more information on installing PostgreSQL, see the [official chart documentation.](https://artifacthub.io/packages/helm/bitnami/postgresql)
 
 1.  Install PostgreSQL with Helm using the following command:
-
 
     ```bash
     helm install gravitee-postgresql oci://registry-1.docker.io/cloudpirates/postgres \
@@ -552,15 +547,13 @@ To support management data, you can install PostgreSQL into your Kubernetes clus
       --set resources.requests.cpu=250m
     ```
 
-#### Verification&#x20;
+#### Verification
 
 1.  To verify that your PostgreSQL deployment succeeded, retrieve the password using the following command:
 
     ```bash
     kubectl -n gravitee-apim get secret gravitee-postgresql -o jsonpath="{.data.postgres-password}" | base64 -d
     ```
-
-
 2.  Check pod status using the following command:
 
     ```bash
@@ -568,16 +561,14 @@ To support management data, you can install PostgreSQL into your Kubernetes clus
     ```
 
     \
-    The command generates the following output:&#x20;
+    The command generates the following output:
 
     ```bash
     NAME                    READY   STATUS    RESTARTS   AGE
     gravitee-postgresql-0   1/1     Running   0          2m
     ```
 
-
-
-### (Enterprise Edition Only) Create Secret&#x20;
+### (Enterprise Edition Only) Create Secret
 
 Before installing Gravitee APIM for [enterprise edition](../../readme/enterprise-edition.md), you need to create a Kubernetes secret for your license key.
 
@@ -595,10 +586,9 @@ Before installing Gravitee APIM for [enterprise edition](../../readme/enterprise
 * If you don't have a license key, you can still proceed with community features.
 {% endhint %}
 
-### Prepare the `values.yaml` for Helm&#x20;
+### Prepare the `values.yaml` for Helm
 
 1.  Create a `values.yaml` file in your working directory and copy the following Gravitee configuration into it. This is the base configuration for your self-hosted APIM platform:
-
 
     ```yaml
     # MongoDB Configuration
@@ -932,7 +922,7 @@ a. Replace `[ELASTIC PASSWORD FROM ES INSTALLATION]` with your Elasticsearch pas
 
 b. If your Kubernetes cluster does not support IPV6 networking, both the UI and Portal deployments must set the `IPV4_ONLY` environment variable to `true`.
 
-2. **(Enterprise Edition only)** Navigate to the following section, and then uncomment the following configuration:&#x20;
+2. **(Enterprise Edition only)** Navigate to the following section, and then uncomment the following configuration:
 
 ```yaml
  # License volume configuration for Management API (uncomment for enterprise edition)
@@ -986,7 +976,7 @@ b. If your Kubernetes cluster does not support IPV6 networking, both the UI and 
 
 </details>
 
-### Install using Helm&#x20;
+### Install using Helm
 
 To install your Gravitee APIM with Helm, complete the following steps:
 
@@ -1010,7 +1000,7 @@ To install your Gravitee APIM with Helm, complete the following steps:
       --timeout 10m
     ```
 
-#### Verification&#x20;
+#### Verification
 
 Verify the installation was successful. The command output should be similar to the following:
 
@@ -1022,13 +1012,13 @@ STATUS: deployed
 REVISION: 1
 ```
 
-To uninstall Gravitee APIM, use the following command:&#x20;
+To uninstall Gravitee APIM, use the following command:
 
 ```bash
 helm uninstall gravitee-apim --namespace gravitee-apim
 ```
 
-## Verification&#x20;
+## Verification
 
 To verify that your Gravitee APIM platform is up and running on EKS, complete the following steps:
 
@@ -1043,22 +1033,21 @@ To verify that your Gravitee APIM platform is up and running on EKS, complete th
 
 Access the Gravitee APIM web interface using the following steps:
 
-#### Management Console&#x20;
+#### Management Console
 
-Open your browser and navigate to: `https://console.yourdomain.com/console`  The interface allows you to configure APIs, policies, and monitor your API platform.&#x20;
+Open your browser and navigate to: `https://console.yourdomain.com/console` The interface allows you to configure APIs, policies, and monitor your API platform.
 
-#### Developer Portal&#x20;
+#### Developer Portal
 
-Open your browser and navigate to: `https://portal.yourdomain.com/`  The self-service portal allows developers to discover and consume APIs.&#x20;
+Open your browser and navigate to: `https://portal.yourdomain.com/` The self-service portal allows developers to discover and consume APIs.
 
-### Validate the Pods&#x20;
+### Validate the Pods
 
 A healthy deployment displays all pods with the `Running` status, `1/1` ready containers, and zero or minimal restart counts.
 
-To validate the pods, complete the following steps:&#x20;
+To validate the pods, complete the following steps:
 
 1.  Use the following command to query the pod status:
-
 
     ```bash
     kubectl get pods --namespace=gravitee-apim
@@ -1078,18 +1067,14 @@ gravitee-postgresql-0                   1/1     Running   0          23m
 gravitee-redis-master-0                 1/1     Running   0          23m
 ```
 
-### Validate the Services  <a href="#validate-the-pods" id="validate-the-pods"></a>
+### Validate the Services <a href="#validate-the-pods" id="validate-the-pods"></a>
 
 1.  To verify service configuration, run the following command:
-
 
     ```bash
     kubectl get services -n gravitee-apim
     ```
-
-
 2.  Verify that all services are properly configured. The output should show all required services:
-
 
     ```bash
     NAME                              TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)
@@ -1103,52 +1088,34 @@ gravitee-redis-master-0                 1/1     Running   0          23m
     gravitee-redis-master             ClusterIP   10.x.x.x        <none>        6379/TCP
     ```
 
-    
-
-
-### Validate the Gateway logs&#x20;
+### Validate the Gateway logs
 
 To validate the Gateway logs, complete the following steps:
 
 1.  List the Gateway pod using the following command:
 
-
     ```bash
     kubectl get pods -n gravitee-apim | grep gateway
     ```
-
-
-
 2.  Verify that the Gateway is running properly. The output should show the Gateway ready and running:
-
 
     ```bash
     gravitee-apim-gateway-xxxxxxxxxx  1/1     Running   0          23m
     ```
-
-
-3.  View the Gateway logs using the following command: 
-
+3.  View the Gateway logs using the following command:
 
     ```bash
     kubectl logs -f gravitee-apim-gateway-xxxxxxxxxxxx -n gravitee-apim
     ```
 
-
-
-### Validate Ingress&#x20;
+### Validate Ingress
 
 1.  Verify ingress is working with the following command:
-
 
     ```bash
     kubectl get ingress -n gravitee-apim
     ```
-
-
-
-2.  The output should show the hosts and ALB addresses: 
-
+2.  The output should show the hosts and ALB addresses:
 
     ```bash
     NAME                           CLASS   HOSTS                      ADDRESS                                                                  PORTS     AGE
@@ -1159,18 +1126,16 @@ To validate the Gateway logs, complete the following steps:
     gravitee-apim-ui               alb     console.yourdomain.com     k8s-gravitee-gravitee-m3n4o5p6-3456789012.region.elb.amazonaws.com      80, 443   1h
     ```
 
-
-
-### Validate the Gateway URL&#x20;
+### Validate the Gateway URL
 
 Validate your Gateway URL using the following steps:
 
-1. [Validate Gateway URL using Ingress ](aws-eks.md#validate-gateway-url-using-ingress)
+1. [Validate Gateway URL using Ingress](aws-eks.md#validate-gateway-url-using-ingress)
 2. [Validate Gateway URL using Port Forwarding](aws-eks.md#validate-gateway-url-using-port-forwarding)
 
 The Gateway URL is determined by the ingress configuration in your `values.yaml` file and AWS Route53 DNS settings pointing to the ALB endpoints.
 
-#### Validate Gateway URL using Ingress&#x20;
+#### Validate Gateway URL using Ingress
 
 To validate the Gateway URL, complete the following steps:
 
@@ -1194,14 +1159,14 @@ To validate the Gateway URL, complete the following steps:
     No context-path matches the request URI.
     ```
 
-#### Validate Gateway URL using Port Forwarding&#x20;
+#### Validate Gateway URL using Port Forwarding
 
-1.  Set up port forwarding for the Gateway using the following command:&#x20;
+1.  Set up port forwarding for the Gateway using the following command:
 
     ```bash
     kubectl port-forward svc/gravitee-apim-gateway 8082:82 -n gravitee-apim
     ```
-2.  Verify via port forwarding using the following command:&#x20;
+2.  Verify via port forwarding using the following command:
 
     ```bash
     curl http://localhost:8082/
@@ -1216,4 +1181,3 @@ To validate the Gateway URL, complete the following steps:
 
 * Create your first API. For more information about creating your first API, see [Create & Publish Your First API](https://documentation.gravitee.io/apim/how-to-guides/create-and-publish-your-first-api).
 * Add native Kafka capabilities. For more information about adding native Kafka capabilities, see [Configure the Kafka Client & Gateway](../../kafka-gateway/configure-the-kafka-client-and-gateway.md).
-

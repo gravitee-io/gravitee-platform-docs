@@ -1,3 +1,7 @@
+---
+description: An overview about set up an ai agent (a2a) proxy.
+---
+
 # Set Up an AI Agent (A2A) Proxy
 
 {% hint style="warning" %}

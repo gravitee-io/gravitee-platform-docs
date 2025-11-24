@@ -1,3 +1,7 @@
+---
+description: An overview about alerts.
+---
+
 # Alerts
 
 {% hint style="info" %}

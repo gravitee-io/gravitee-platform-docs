@@ -1,3 +1,7 @@
+---
+description: Documentation about manage subscriptions in the context of APIs.
+---
+
 # Manage Subscriptions
 
 ## Subscription management
