@@ -1,3 +1,7 @@
+---
+description: Overview of Gravitee Access Management.
+---
+
 # Introduction to Gravitee Access Management (AM)
 
 Gravitee Access Management (AM) is a flexible, lightweight, and easy-to-use open source Identity and Access Management (IAM) solution. It offers a centralized authentication and authorization service to deliver secure access to your applications and APIs from any device.
@@ -37,7 +41,7 @@ These RESTful APIs expose services to:
 * Manage users and user sessions
 * Manage the authorization flow for OAuth 2.0, OpenID Connect, UMA 2.0, and SCIM 2.0 protocols
 
-All exposed services are restricted by authentication and authorization rules. You can find more information in the [Auth Protocols](guides/auth-protocols/README.md) section.
+All exposed services are restricted by authentication and authorization rules. You can find more information in the [Auth Protocols](guides/auth-protocols/) section.
 
 ### AM Management Console
 
