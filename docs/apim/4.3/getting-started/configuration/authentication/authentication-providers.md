@@ -1,3 +1,7 @@
+---
+description: An overview about Authentication Providers.
+---
+
 # Authentication Providers
 
 ## Overview

@@ -1,3 +1,7 @@
+---
+description: Configuration guide for APIM Developer Portal.
+---
+
 # APIM Developer Portal
 
 ## Configuration file

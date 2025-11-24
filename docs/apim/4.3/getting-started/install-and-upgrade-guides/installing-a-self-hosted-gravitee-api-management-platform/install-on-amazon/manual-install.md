@@ -1,4 +1,10 @@
-# Manual install
+---
+description: >-
+  Setup and installation guide for Installing Gravitee APIM on an Amazon
+  instance with Manual Install.
+---
+
+# Installing Gravitee APIM on an Amazon instance with Manual Install
 
 ## Introduction
 
@@ -51,11 +57,13 @@ Amazon Linux instances use the package manager `yum`. To use `yum` to set up acc
     ```
 3.  Refresh the local cache:
 
-    {% code overflow="wrap" %}
+    \{% code overflow="wrap" %\}
+
     ```sh
     sudo yum -q makecache -y --disablerepo='*' --enablerepo='graviteeio'
     ```
-    {% endcode %}
+
+    \{% endcode %\}
 
 </details>
 

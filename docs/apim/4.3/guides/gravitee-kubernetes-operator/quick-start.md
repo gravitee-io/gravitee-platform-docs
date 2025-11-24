@@ -1,3 +1,7 @@
+---
+description: An overview about Quickstart Guide.
+---
+
 # Quickstart Guide
 
 ## Overview
@@ -16,7 +20,7 @@ For comprehensive deployment details, see the [GKO Install Guide](../../getting-
 ### Prerequisites
 
 * A running APIM-ready cluster
-* User access to the cluster you want to deploy to&#x20;
+* User access to the cluster you want to deploy to
 * Defined the target cluster as your current/active Kubernetes context
 
 ### Deploy the GKO on your cluster
@@ -93,7 +97,7 @@ For more details on trying out the GKO functionality after deployment, see [Call
 {% endhint %}
 
 {% hint style="success" %}
-Congratulations, the GKO is deployed! Visit our [GKO guide](README.md) to:
+Congratulations, the GKO is deployed! Visit our [GKO guide](./) to:
 
 * Learn how to use the GKO to define, deploy, and publish APIs to your API Portal and API Gateway
 * Manage CRDs

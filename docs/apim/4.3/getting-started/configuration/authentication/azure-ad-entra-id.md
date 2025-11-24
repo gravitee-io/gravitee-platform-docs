@@ -1,3 +1,7 @@
+---
+description: An overview about Azure AD / Entra ID.
+---
+
 # Azure AD / Entra ID
 
 ## Introduction
