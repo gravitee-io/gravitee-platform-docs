@@ -1,3 +1,7 @@
+---
+description: Getting started with Quickstart Guide.
+---
+
 # Quickstart Guide
 
 ## Overview
@@ -22,7 +26,7 @@ In this guide, we assume that Gravitee API Management is acting as the control p
 ## Install GKO
 
 {% hint style="info" %}
-For comprehensive deployment details, see the [GKO Install Guide](installation/README.md).
+For comprehensive deployment details, see the [GKO Install Guide](installation/).
 {% endhint %}
 
 Use Helm to install GKO on your Kubernetes cluster:
@@ -152,7 +156,7 @@ Congratulations, you did it!
 
 To continue learning, there are many other example GKO resources available here: [https://github.com/gravitee-io/gravitee-kubernetes-operator/tree/master/examples](https://github.com/gravitee-io/gravitee-kubernetes-operator/tree/master/examples)
 
-Try creating some of these example APIs (v2 and v4), resources (authentication providers, caches, ...), and applications.&#x20;
+Try creating some of these example APIs (v2 and v4), resources (authentication providers, caches, ...), and applications.
 
 {% hint style="warning" %}
 Remember to add the following `ManagementContext` reference to the API definition and application YAML files so that GKO knows which APIM installation to sync the APIs with:

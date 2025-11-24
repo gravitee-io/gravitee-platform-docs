@@ -1,3 +1,7 @@
+---
+description: Overview of Compatibility.
+---
+
 # Compatibility and Limitations
 
 ## Overview
@@ -29,7 +33,7 @@ Gravitee is committed to providing a transparent and predictable process for fea
 
 ## Known limitations and future direction
 
-Below are examples of resources that are not managed by GKO.&#x20;
+Below are examples of resources that are not managed by GKO.
 
 {% hint style="info" %}
 GKO management is planned for several of the following examples. Please contact us to discuss expanding GKO's scope in one of these areas.

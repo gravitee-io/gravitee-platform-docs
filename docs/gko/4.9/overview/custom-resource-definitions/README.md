@@ -1,4 +1,10 @@
+---
+description: Overview of Custom Resource Definitions.
+---
+
 # Custom Resource Definitions
+
+## Custom Resource Definitions
 
 The Gravitee Kubernetes Operator (GKO) comes with several custom resource definitions (CRDs):
 
@@ -25,21 +31,23 @@ The `Application` custom resource represents the configuration for an applicatio
 
 Finally, the purpose of the `ManagementContext` is to provide a connection from GKO to your Gravitee API Management installation. GKO uses this connection to synchronize the resources it manages (APIs, applications, ...) with the Gravitee Console, Developer Portal, and Gateway.
 
-#  Custom Resource Definition (CRD) Status
+## Custom Resource Definition (CRD) Status
+
 When you deploy Custom Resources (CRDs) with the Gravitee Kubernetes Operator (GKO), the `status` field is populated with the latest information about the resource's state within the cluster. The 4.9 version of GKO introduces enhancements to the CRD status fields, providing clearer insights, streamlined troubleshooting, and improved support for GitOps workflows.
 
 These enhancements include more structured, descriptive status information that aligns with best practices and offers consistent conventions across CRDs. This enables tighter integration with tools like ArgoCD and simplifies operational management for platform teams.
 
-
 Prerequisites
-- Gravitee Kubernetes Operator version 4.9.0 or above
-- A Kubernetes cluster with the GKO installed. For more information about installing GKO, see [https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/getting-started/quickstart-guide](Quick Start Guide)
-- Access to view CRDs with `kubectl get` commands
 
-## Viewing CRD Status
+* Gravitee Kubernetes Operator version 4.9.0 or above
+* A Kubernetes cluster with the GKO installed. For more information about installing GKO, see \[https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/getting-started/quickstart-guide]\(Quick Start Guide)
+* Access to view CRDs with `kubectl get` commands
+
+### Viewing CRD Status
+
 1. Get a list of deployed V4 APIs using the following command:
 
-```bash 
+```bash
 kubectl get apiv4definitions.gravitee.io
 ```
 
@@ -76,8 +84,8 @@ status:
   processingStatus: Completed
   state: STARTED
 ```
-The `conditions` array captures key lifecycle states and potential issues, while top-level fields like `state` and `environmentId` provide an operational summary.
 
+The `conditions` array captures key lifecycle states and potential issues, while top-level fields like `state` and `environmentId` provide an operational summary.
 
 Also, the Application's status is organized with the following fields:
 
@@ -106,8 +114,11 @@ status:
   organizationId: DEFAULT
   processingStatus: Completed
 ```
-## Possible CRD conditions
+
+### Possible CRD conditions
+
 When a Custom Resource Definition (CRD) is successfully applied without issues, your CRD's status section displays conditions like the following example:
+
 ```yaml
 status:
   conditions:
@@ -126,6 +137,7 @@ status:
 ```
 
 If GKO encounters issues resolving resources referenced within your CRD such as ManagementContext, Secrets, Groups, andAPIs, the conditions reflect a failure like the following example:
+
 ```yaml
 status:
   conditions:
@@ -144,12 +156,13 @@ status:
 ```
 
 Common Causes of Unaccepted CRDs
-- ResolveRefError (Unresolved References): GKO is unable to resolve references within your CRD, such as Management Contexts, Shared Policy Groups, or APIs.
-- IllegalStateError: It indicates that there is inconsistency in the CRD. For example in the case of a V2 API CRD, you set local=true, but you didn't specify a Management Context.
-- CompileTemplateError: This error might happen when our template engine can't compile the CRD (due to invalid characters or other reasons)
-- ControlPlaneError: Errors occurring during runtime, such as invalid values or misconfigurations passed when importing your API into APIM.
 
-## Leveraging Status with GitOps
+* ResolveRefError (Unresolved References): GKO is unable to resolve references within your CRD, such as Management Contexts, Shared Policy Groups, or APIs.
+* IllegalStateError: It indicates that there is inconsistency in the CRD. For example in the case of a V2 API CRD, you set local=true, but you didn't specify a Management Context.
+* CompileTemplateError: This error might happen when our template engine can't compile the CRD (due to invalid characters or other reasons)
+* ControlPlaneError: Errors occurring during runtime, such as invalid values or misconfigurations passed when importing your API into APIM.
+
+### Leveraging Status with GitOps
 
 The improved structured status output allows for tighter integration with GitOps tools that watch Kubernetes events.
 
@@ -158,11 +171,10 @@ For example, when using ArgoCD:
 1. Define an ArgoCD Application that monitors the GKO namespace.
 2. ArgoCD detects any drifts between the desired state (Git repo) and the current status fields.
 3. Based on the CRD status messages, ArgoCD takes the appropriate actions:
-    - Apply resources if creation failed (`*Accepted` condition false)
-    - Set the resource as "Degraded" if operations failed (`*ResolvedRefs` false)
-    - Trigger notifications based on configured events
+   * Apply resources if creation failed (`*Accepted` condition false)
+   * Set the resource as "Degraded" if operations failed (`*ResolvedRefs` false)
+   * Trigger notifications based on configured events
 
 The standardized schema lets you create cleaner, more automated GitOps workflows around the full API lifecycle on Kubernetes.
-
 
 The following sections explain each CRD

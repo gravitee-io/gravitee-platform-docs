@@ -1,3 +1,7 @@
+---
+description: Overview of Templating.
+---
+
 # Templating
 
 ## Overview
@@ -138,14 +142,13 @@ manager:
     enabled: false
 ```
 
-### Verification&#x20;
+### Verification
 
-Use the following steps to verify that you disabled templating:&#x20;
+Use the following steps to verify that you disabled templating:
 
-1.  If a resource contains a templating placeholder check it is not replaced: 
-
+1.  If a resource contains a templating placeholder check it is not replaced:
 
     ```bash
     kubectl get apiv4definitions myapi -o yaml
     ```
-2. Check the logs for errors. You should see no errors in the logs after the resource have been applied.&#x20;
+2. Check the logs for errors. You should see no errors in the logs after the resource have been applied.

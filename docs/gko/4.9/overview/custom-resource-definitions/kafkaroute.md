@@ -1,4 +1,8 @@
-# Gateway API - KafkaRoute (Experimental)
+---
+description: Overview of KafkaRoute.
+---
+
+# KafkaRoute
 
 {% hint style="warning" %}
 KafkaRoute and ACLFilter support is experimental and subject to change in future releases as our implementation of the Gateway API evolves.
@@ -146,6 +150,10 @@ Applying these resources creates all the components needed for the Gateway to ac
 The KafkaRoute resource includes an ACL Filter that lets you define fine-grained ACLs (Access Control Lists) on Kafka cluster resources proxied by the Gateway. You can specify permissions for topics, clusters, consumer groups, and transactional IDs.
 
 {% code lineNumbers="true" %}
+```
+```
+{% endcode %}
+
 ```yaml
 apiVersion: gravitee.io/v1alpha1
 kind: KafkaRoute

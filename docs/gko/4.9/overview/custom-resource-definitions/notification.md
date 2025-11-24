@@ -1,3 +1,7 @@
+---
+description: Overview of Notification.
+---
+
 # Notification
 
 The Notification resource lets you configure event-based notifications within Gravitee and targets the Gravitee Console UI. Notifications are triggered by API-related events, and then sent to specific users or groups based on the configuration.
@@ -10,7 +14,7 @@ This CRD lets you define automated notifications that are triggered when specifi
 
 ### Notify a group of users
 
-Groups created from a Group Custom Resource can be referenced using the `groups` property of the Notification Custom Resource. Starting with 4.9.0, groups created through the APIM Console can also be referenced using the `groups` property of the Notification Custom Resource.&#x20;
+Groups created from a Group Custom Resource can be referenced using the `groups` property of the Notification Custom Resource. Starting with 4.9.0, groups created through the APIM Console can also be referenced using the `groups` property of the Notification Custom Resource.
 
 In the following example, `groupRefs` defines a reference to a [Group](group.md) Custom Resource in the same namespace. Both the group developers and the members of the `product` group managed through the APIM Console are notified when either the `API_STARTED` or `API_STOPPED` event occurs.
 
