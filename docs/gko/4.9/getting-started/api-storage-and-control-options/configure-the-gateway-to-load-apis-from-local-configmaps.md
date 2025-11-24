@@ -1,3 +1,7 @@
+---
+description: Configuration guide for ConfigMaps.
+---
+
 # Configure the Gateway to load APIs from local ConfigMaps
 
 The Gravitee Gateway can load API definitions from two places:
