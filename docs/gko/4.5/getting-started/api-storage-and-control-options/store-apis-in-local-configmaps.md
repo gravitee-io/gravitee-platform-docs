@@ -1,3 +1,7 @@
+---
+description: Overview of Store APIs.
+---
+
 # Store APIs in local configMaps
 
 Gravitee Kubernetes Operator (GKO) provides the option to provide API definitions and deployment events to the Gateway through Kubernetes ConfigMaps that are local to the cluster on which the Gateway is running.
@@ -6,7 +10,7 @@ As a pre-requisite, this requires the gateway to be [configured to load APIs fro
 
 Using this approach has certain benefits:
 
-* it removes or reduces the need for Gateways to load configuration from remote repositories. Instead, Gateways load their configuration locally.&#x20;
+* it removes or reduces the need for Gateways to load configuration from remote repositories. Instead, Gateways load their configuration locally.
 * it removes the need to use a ManagementContext, and also enables the [DB-less mode](../../guides/db-less-mode.md)
 
 On the downside however:
@@ -40,9 +44,9 @@ spec:
             target: https://api.gravitee.io/echo
 ```
 
-The **definitionContext.syncFrom** attribute is set to `KUBERNETES` (which is the default value) to indicate that the API will be deployed only in the cluster where the custom resource is applied, and stored in a local ConfigMap.&#x20;
+The **definitionContext.syncFrom** attribute is set to `KUBERNETES` (which is the default value) to indicate that the API will be deployed only in the cluster where the custom resource is applied, and stored in a local ConfigMap.
 
-Run the following command to verify that the API ConfigMap has been created in the  cluster:
+Run the following command to verify that the API ConfigMap has been created in the cluster:
 
 ```sh
 kubectl get configmaps -n gravitee
@@ -77,9 +81,9 @@ spec:
   local: true
 ```
 
-The `local` field is optional and is set to `true` by default to indicate that the API will be deployed only in the cluster where the custom resource is applied.&#x20;
+The `local` field is optional and is set to `true` by default to indicate that the API will be deployed only in the cluster where the custom resource is applied.
 
-Run the following command to verify that the API ConfigMap has been created in the  cluster:
+Run the following command to verify that the API ConfigMap has been created in the cluster:
 
 ```sh
 kubectl get configmaps -n gravitee

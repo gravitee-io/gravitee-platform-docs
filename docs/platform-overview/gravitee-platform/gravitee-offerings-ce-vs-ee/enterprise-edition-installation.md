@@ -1,3 +1,7 @@
+---
+description: Overview of the Enterprise Edition
+---
+
 # Enterprise Edition Installation
 
 ## API Management (APIM) and Access Management (AM)

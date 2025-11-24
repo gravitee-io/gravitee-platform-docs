@@ -1,4 +1,5 @@
 ---
+description: Overview of Circuit Breakers.
 noIndex: true
 ---
 

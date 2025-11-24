@@ -1,4 +1,5 @@
 ---
+description: Overview of The Host Resource.
 noIndex: true
 ---
 
@@ -254,7 +255,7 @@ spec:
 
 #### `tlsContext` links to a `TLSContext` for additional configuration
 
-`tlsContext` specifies a [`TLSContext`](the-host-resource.md#) to use for additional TLS information. Note that you **must** still define `tlsSecret` for TLS termination to happen. It is an error to supply both `tlsContext` and `tls`.
+`tlsContext` specifies a [`TLSContext`](the-host-resource.md) to use for additional TLS information. Note that you **must** still define `tlsSecret` for TLS termination to happen. It is an error to supply both `tlsContext` and `tls`.
 
 See the TLS discussion for more details: [tls-overview.md](../tls-configuration/tls-overview.md "mention")
 

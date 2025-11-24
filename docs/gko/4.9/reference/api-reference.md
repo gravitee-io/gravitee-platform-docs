@@ -1,3 +1,7 @@
+---
+description: API and reference documentation for API Reference.
+---
+
 # API Reference
 
 The Gravitee Kubernetes Operator (GKO) API reference documentation can be found [in the GKO Github repository](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/4.9.x/docs/api/reference.md).

@@ -1,4 +1,5 @@
 ---
+description: Overview of Tracing Service.
 noIndex: true
 ---
 
@@ -61,7 +62,7 @@ The `TracingService` currently supports the following drivers:
 * `opentelemetry`
 
 {% hint style="warning" %}
-In Envoy 1.24, support for the `LightStep` driver was removed. As of Ambassador Edge Stack 3.4.0, the `TracingService` no longer supports the `lightstep` tracing driver. If you are currently using the native Lightstep tracing driver, please refer to [distributed-tracing-with-opentelemetry-and-lightstep.md](../../edge-stack-user-guide/service-monitoring/distributed-tracing-with-opentelemetry-and-lightstep.md "mention")&#x20;
+In Envoy 1.24, support for the `LightStep` driver was removed. As of Ambassador Edge Stack 3.4.0, the `TracingService` no longer supports the `lightstep` tracing driver. If you are currently using the native Lightstep tracing driver, please refer to [distributed-tracing-with-opentelemetry-and-lightstep.md](../../edge-stack-user-guide/service-monitoring/distributed-tracing-with-opentelemetry-and-lightstep.md "mention")
 {% endhint %}
 
 {% hint style="info" %}

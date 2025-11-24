@@ -1,4 +1,5 @@
 ---
+description: Overview of Ambassador Edge Stack.
 noIndex: true
 ---
 
@@ -29,7 +30,6 @@ Global rate limiting applies to the entire Kubernetes service mesh. This example
 
 1.  First, add a request label to the `request_label_group` of the `quote` service's `Mapping` resource. This example uses `backend` for the label:
 
-
     ```yaml
     apiVersion: getambassador.io/v3alpha1
     kind: Mapping
@@ -49,12 +49,7 @@ Global rate limiting applies to the entire Kubernetes service mesh. This example
     \
     Apply the mapping configuration changes with `kubectl apply -f quote-backend.yaml`.
 
-
-    {% hint style="info" %}
-    You need to use `v2` or later for the `apiVersion` in the `Mapping` resource. Previous versions do not support `labels`.
-    {% endhint %}
-2.  Next, configure the `RateLimit` resource for the service. Create a new YAML file named `backend-ratelimit.yaml` and apply the rate limit details as follows:
-
+    \{% hint style="info" %\} You need to use `v2` or later for the `apiVersion` in the `Mapping` resource. Previous versions do not support `labels`. \{% endhint %\}2. Next, configure the `RateLimit` resource for the service. Create a new YAML file named `backend-ratelimit.yaml` and apply the rate limit details as follows:
 
     ```yaml
     apiVersion: getambassador.io/v3alpha1
@@ -71,7 +66,7 @@ Global rate limiting applies to the entire Kubernetes service mesh. This example
 
     \
     In the code above, the `generic_key` is a hard-coded value that is used when you add a single string label to a request.
-3. Deploy the rate limit with `kubectl apply -f backend-ratelimit.yaml`.
+2. Deploy the rate limit with `kubectl apply -f backend-ratelimit.yaml`.
 
 ## Per user rate limiting
 
@@ -80,7 +75,6 @@ Per user rate limiting enables you to apply the defined rate limit to specific I
 This example shows how to use the `remote_address` special value in the mapping to target specific IP addresses:
 
 1.  Add a request label to the `request_label_group` of the `quote` service's `Mapping` resource. This example uses `remote_address` for the label:
-
 
     ```yaml
     apiVersion: getambassador.io/v3alpha1
@@ -98,7 +92,6 @@ This example shows how to use the `remote_address` special value in the mapping 
                 key: remote_address
     ```
 2.  Update the rate limit amounts for the `RateLimit` service and enter the `remote_address` to the following pattern:
-
 
     ```yaml
     apiVersion: getambassador.io/v3alpha1
@@ -121,7 +114,6 @@ This example shows how to implement load per user rate limiting along with load 
 
 1.  Add a request labels to the `request_label_group` of the `quote` service's `Mapping` resource. This example uses `remote_address` for the per user limit, and `backend_http_method`for load shedding. The load shedding uses `":method"` to identify that the `RateLimit` will use a HTTP request method in its pattern.
 
-
     ```yaml
     apiVersion: getambassador.io/v3alpha1
     kind: Mapping
@@ -141,7 +133,6 @@ This example shows how to implement load per user rate limiting along with load 
                 header_name: ":method"
     ```
 2.  Update the rate limit amounts for the `RateLimit` service. For the rate limit `pattern`, include the `remote_address` IP address and the `backend_http_mthod`.
-
 
     ```yaml
     apiVersion: getambassador.io/v3alpha1
@@ -165,7 +156,6 @@ Similar to the per user rate limiting, you can use [global rate limiting](basic-
 
 1.  Add a request label to the `request_label_group` of the `quote` service's `Module` resource. This example uses the `remote_address` special value.
 
-
     ```yaml
     ---
     apiVersion: getambassador.io/v3alpha1
@@ -183,7 +173,6 @@ Similar to the per user rate limiting, you can use [global rate limiting](basic-
                 key: remote_address
     ```
 2.  Update the rate limit amounts for the `RateLimit` service and enter the `remote_address` to the following pattern:
-
 
     ```yaml
     apiVersion: getambassador.io/v3alpha1
@@ -204,7 +193,6 @@ Sometimes, you may have an API that cannot handle as much load as others in your
 
 1.  In addition to the configurations applied in the global rate limit example above, add an additional label to the `request_label_group` of the `Mapping` resource. This example uses `backend` for the label:
 
-
     ```yaml
     apiVersion: getambassador.io/v3alpha1
     kind: Mapping
@@ -221,7 +209,6 @@ Sometimes, you may have an API that cannot handle as much load as others in your
                 value: backend
     ```
 2.  Now, the `request_label_group` contains both the `generic_key: backend` and the `remote_address` key applied from the global rate limit. This creates a separate `RateLimit` object for this route:
-
 
     ```yaml
     apiVersion: getambassador.io/v3alpha1

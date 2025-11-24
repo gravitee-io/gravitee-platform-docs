@@ -46,6 +46,7 @@
 '44': e
 '45': s
 '46': .
+description: Overview of GKO.
 ---
 
 # GKO 4.9

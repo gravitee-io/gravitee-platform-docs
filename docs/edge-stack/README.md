@@ -1,4 +1,5 @@
 ---
+description: Getting started with Ambassador Edge Stack.
 noIndex: true
 ---
 
@@ -14,7 +15,7 @@ We recommend saving your license as a variable using the `export LICENSE_KEY="yo
 
 ### Applying the JWT to your environment
 
-After you obtain your JWT, apply it to your environment either manually or using Helm. If you're using the Helm installation option, we recommend applying the JWT during installation. For more information, see [Install using Helm](README.md#install-using-helm).
+After you obtain your JWT, apply it to your environment either manually or using Helm. If you're using the Helm installation option, we recommend applying the JWT during installation. For more information, see [Install using Helm](./#install-using-helm).
 
 #### Apply the JWT manually
 

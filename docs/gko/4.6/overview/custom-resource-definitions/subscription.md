@@ -1,14 +1,16 @@
+---
+description: Overview of Subscription.
+---
+
 # Subscription
 
 The `Subscription` custom resource definition (CRD) is the GKO equivalent of the Gravitee subscriptions that can be managed in the API Management Console.
 
-In Gravitee, a subscription is what allows a consumer to obtain access to an API. With a valid subscription, a consumer's application can obtain the credentials to consume the underlying API plan. The credentials used depend on the type of the plan, and the Gravitee Gateway verifies that the credentials match a valid subscription.&#x20;
+In Gravitee, a subscription is what allows a consumer to obtain access to an API. With a valid subscription, a consumer's application can obtain the credentials to consume the underlying API plan. The credentials used depend on the type of the plan, and the Gravitee Gateway verifies that the credentials match a valid subscription.
 
 GKO supports three of the four Gravitee subscription types: JWT, OAuth, and mTLS. API Key subscriptions are not currently supported by GKO, but will be added in a future release.
 
 For GKO to be able to create a subscription, the corresponding application and API must also be managed by GKO using the dedicated CRDs.
-
-
 
 {% hint style="info" %}
 GKO-managed subscriptions only work when GKO is configured to sync APIs with a Gravitee API management control plane (i.e. local=false for v2 APIs, or syncFrom=MANAGEMENT for v4 APIs). See [api-storage-and-control-options](../../getting-started/api-storage-and-control-options/ "mention") for more information about these configuration options.

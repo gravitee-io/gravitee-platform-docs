@@ -1,3 +1,7 @@
+---
+description: Overview of Store APIs.
+---
+
 # Store APIs in local ConfigMaps
 
 Gravitee Kubernetes Operator (GKO) allows API definitions and deployment events to reach the Gateway via Kubernetes ConfigMaps that are local to the cluster on which the Gateway is running. As a prerequisite, the Gateway must be [configured to load APIs from local ConfigMaps](configure-the-gateway-to-load-apis-from-local-configmaps.md).

@@ -1,4 +1,5 @@
 ---
+description: Configuration guide for Advanced Mapping Configuration.
 noIndex: true
 ---
 

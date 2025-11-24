@@ -1,4 +1,5 @@
 ---
+description: Overview of Connection Routing.
 noIndex: true
 ---
 
@@ -36,7 +37,7 @@ The Telepresence DNS resolver often changes its configuration. Telepresence will
 
 ### Subnets
 
-The Telepresence `traffic-manager` service is responsible for discovering the cluster's service subnet and all subnets used by the pods. In order to do this, it needs permission to create a dummy service in its own namespace, and the ability to list, get, and watch nodes and pods.&#x20;
+The Telepresence `traffic-manager` service is responsible for discovering the cluster's service subnet and all subnets used by the pods. In order to do this, it needs permission to create a dummy service in its own namespace, and the ability to list, get, and watch nodes and pods.
 
 {% hint style="info" %}
 The error message from an attempt to create a service in a bad subnet contains the service subnet. The trick of creating a dummy service is currently the only way to get Kubernetes to expose that subnet.

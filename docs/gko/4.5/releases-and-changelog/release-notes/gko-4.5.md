@@ -1,3 +1,7 @@
+---
+description: Overview of GKO.
+---
+
 # GKO 4.5
 
 ## Gravitee Kubernetes Operator 4.5 release notes
@@ -5,7 +9,7 @@
 With the release of Gravitee 4.5, we have pushed some important updates to the Gravitee Kubernetes Operator (GKO):
 
 * New admission webhook that provides immediate feedback about syntactic or semantic problems in Gravitee resources before they are reconciled.
-* For more complete functionality, simplicity, and consistency, we have updated the Application CRD, which includes breaking changes.&#x20;
+* For more complete functionality, simplicity, and consistency, we have updated the Application CRD, which includes breaking changes.
 * Updates to how primary owners are handled by GKO.
 * In the contextRef attribute that references a ManagementContext from a Gravitee resource, Namespace becomes optional.
 * Improved compatibility with ArgoCD & FluxCD
@@ -18,7 +22,7 @@ GKO 4.5 must be used with APIM 4.5.
 
 We have improved the developer experience for GKO users. With this update, GKO provides more detailed feedback about configuration issues in your APIs, and it provides that feedback earlier in the process.
 
-We have implemented many other checks to all five supported CRDs that either cause the operation to fail or simply warn you of potential issues. You receive this feedback directly from kubectl, or in the logs of your CI/CD tool.&#x20;
+We have implemented many other checks to all five supported CRDs that either cause the operation to fail or simply warn you of potential issues. You receive this feedback directly from kubectl, or in the logs of your CI/CD tool.
 
 Here are some other examples of validation checks that GKO perform with this update:
 
@@ -36,7 +40,7 @@ To complete these validation checks, we have implemented an admission webhook fo
 
 With this update, GKO's Application CRD is ready for widespread adoption.
 
-We have made changes, which include breaking changes, to future proof this CRD for the next set of GKO improvements, including the upcoming addition of a Subscription CRD.&#x20;
+We have made changes, which include breaking changes, to future proof this CRD for the next set of GKO improvements, including the upcoming addition of a Subscription CRD.
 
 We have made the following improvements:
 
@@ -69,7 +73,7 @@ spec:
   ...
 ```
 
-With this update, this namespace reference is optional, and the namespace used in the current context Kubernetes is  used by the operator. Here is an example:
+With this update, this namespace reference is optional, and the namespace used in the current context Kubernetes is used by the operator. Here is an example:
 
 ```yaml
 apiVersion: gravitee.io/v1alpha1

@@ -1,4 +1,5 @@
 ---
+description: Configuration guide for Configure.
 noIndex: true
 ---
 

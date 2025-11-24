@@ -1,3 +1,7 @@
+---
+description: Introduction to the Web APIs
+---
+
 # Web APIs
 
 To further clarify web API structure and functionality, this section addresses:
@@ -69,15 +73,7 @@ To summarize, APIs depend on many protocols. The ideal protocol stack, just like
 
 Modern web browsers are applications that communicate over the HTTP/HTTPS protocol (HTTPS is HTTP with encryption and verification) but often truncate the visible website address to omit the protocol and subdomain. This is evidenced by visiting a site such as [Google](https://google.com/) and double-clicking the URL.
 
-<div>
-
-<figure><img src="../../.gitbook/assets/google_shortened.png" alt=""><figcaption><p>Shortened URL</p></figcaption></figure>
-
- 
-
-<figure><img src="../../.gitbook/assets/google_expanded.png" alt=""><figcaption><p>Expanded URL</p></figcaption></figure>
-
-</div>
+<div><figure><img src="../../.gitbook/assets/google_shortened.png" alt=""><figcaption><p>Shortened URL</p></figcaption></figure> <figure><img src="../../.gitbook/assets/google_expanded.png" alt=""><figcaption><p>Expanded URL</p></figcaption></figure></div>
 
 The graphic below clarifies the structure and individual components of a web address, which concatenate to form the broader uniform resource locator (URL), uniform resource identifier (URI), and uniform resource name (URN).
 

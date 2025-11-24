@@ -1,4 +1,5 @@
 ---
+description: Overview of Cells.
 hidden: true
 noIndex: true
 ---
@@ -22,19 +23,19 @@ The new Cell is automatically favorited and is not connected to anything else.
 
 ### Rename a Cell
 
-1. In the Cells Page locate the Cell you want to rename and click  menu.
+1. In the Cells Page locate the Cell you want to rename and click menu.
 2. Select the **Rename Cell** option.
 3. The Cell box is sown on the screen with a field to name the Cell. Enter a name for the Cell and click **Rename**.
 
 ### Delete a Cell
 
-1. Locate the Cell you want to delete and click in the  menu (to delete a Cell is a prerequisite to not have any `cluster:namespace` added to it, if that's not the case you will need to remove all the `cluster:namespace` from the Cell).
+1. Locate the Cell you want to delete and click in the menu (to delete a Cell is a prerequisite to not have any `cluster:namespace` added to it, if that's not the case you will need to remove all the `cluster:namespace` from the Cell).
 2. Select the **Delete Cell** option.
 
 ### Associate a Cluster:namespace to a Cell
 
 1. Create a new Cell or locate the Cell you wish to use.
-2. If the Cell is empty, click on the  icon that is showing you the number of namespaces (it should show `0`), and select the `Move an existing cluster:namespace to this cell` option.
+2. If the Cell is empty, click on the icon that is showing you the number of namespaces (it should show `0`), and select the `Move an existing cluster:namespace to this cell` option.
 3. Now, from the list, select the `cluster:namespace` where is running your application.
 
 A `cluster:namespace` can be associated to a single Cell, if you associate a `cluster:namespace` that is already associated to other Cell, it will be removed from the previous Cell.
@@ -42,14 +43,14 @@ A `cluster:namespace` can be associated to a single Cell, if you associate a `cl
 ### Move an existing Cluster:namespace to a Cell
 
 1. Select the Cell where you want to add an existing `cluster:namespace`.
-2. Click on the  icon that is showing you the number of namespaces, it will open a list of the current namespaces in the Cell and at the bottom click on the `Move cluster:namespace to this cell` option.
+2. Click on the icon that is showing you the number of namespaces, it will open a list of the current namespaces in the Cell and at the bottom click on the `Move cluster:namespace to this cell` option.
 3. It will show a list of the `cluster:namespaces` that are already reported, select and click on the `cluster:namespace` that you want in this Cell.
 
 ### Remove a Cluster:namespace from a Cell
 
 1. Locate the Cell that contains the `cluster:namespace` that you want to remove.
-2. Click on the  icon that is showing you the number of namespaces, it will open a list of the current namespaces in the Cell.
-3. Click on the  icon from the `cluster:namespace` that you want to remove and then select the destination Cell.
+2. Click on the icon that is showing you the number of namespaces, it will open a list of the current namespaces in the Cell.
+3. Click on the icon from the `cluster:namespace` that you want to remove and then select the destination Cell.
 
 ### Model your service lifecycle using cells
 

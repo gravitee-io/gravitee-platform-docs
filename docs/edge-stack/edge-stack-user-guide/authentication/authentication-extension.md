@@ -1,4 +1,5 @@
 ---
+description: Overview of Authentication Extension.
 noIndex: true
 ---
 

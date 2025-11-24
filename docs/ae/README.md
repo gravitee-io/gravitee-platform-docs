@@ -1,3 +1,7 @@
+---
+description: Overview of Gravitee Alert Engine.
+---
+
 # Introduction to Gravitee Alert Engine
 
 An API Monitoring solution is a tool or system designed to monitor and analyze the performance and availability of APIs in real-time. This solution helps to ensure that APIs, the critical intermediaries that allow different software applications to communicate and interact, are functioning correctly and efficiently. It checks factors like response time, uptime, error rates, and other essential metrics. If an API fails, is running slow, or returns errors, the monitoring solution can send alerts to the development team so that they can resolve the issue promptly.

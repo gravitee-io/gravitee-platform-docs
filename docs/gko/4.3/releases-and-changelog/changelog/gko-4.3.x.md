@@ -1,13 +1,18 @@
+---
+description: Overview of GKO.
+---
+
 # GKO 4.3.x
 
 ## Gravitee Kubernetes Operator 4.3.27 - March 28, 2025
-    
+
 <details>
+
 <summary>Security</summary>
 
-  * update module github.com/golang-jwt/jwt/v5 to v5.2.2 [#10452](https://github.com/gravitee-io/issues/issues/10452)
-</details>
+* update module github.com/golang-jwt/jwt/v5 to v5.2.2 [#10452](https://github.com/gravitee-io/issues/issues/10452)
 
+</details>
 
 ## Gravitee Kubernetes Operator 4.3.26 - March 17, 2025
 
@@ -15,13 +20,11 @@ There is nothing new in version 4.3.26.
 
 > This version was generated to keep the kubernetes operator in sync with other gravitee products.
 
-
 ## Gravitee Kubernetes Operator 4.3.25 - March 6, 2025
 
 There is nothing new in version 4.3.25.
 
 > This version was generated to keep the kubernetes operator in sync with other gravitee products.
-
 
 ## Gravitee Kubernetes Operator 4.3.24 - February 17, 2025
 
@@ -29,20 +32,17 @@ There is nothing new in version 4.3.24.
 
 > This version was generated to keep the kubernetes operator in sync with other gravitee products.
 
-
 ## Gravitee Kubernetes Operator 4.3.23 - February 5, 2025
 
 There is nothing new in version 4.3.23.
 
 > This version was generated to keep the kubernetes operator in sync with other gravitee products.
 
-
 ## Gravitee Kubernetes Operator 4.3.22 - January 27, 2025
 
 There is nothing new in version 4.3.22.
 
 > This version was generated to keep the kubernetes operator in sync with other gravitee products.
-
 
 ## Gravitee Kubernetes Operator 4.3.16 - October 28, 2024
 

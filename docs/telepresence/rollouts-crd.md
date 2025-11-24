@@ -1,4 +1,5 @@
 ---
+description: Overview of Rollouts CRD.
 hidden: true
 noIndex: true
 ---

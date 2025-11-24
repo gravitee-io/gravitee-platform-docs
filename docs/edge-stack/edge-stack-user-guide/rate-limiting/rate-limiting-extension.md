@@ -1,4 +1,5 @@
 ---
+description: Overview of Rate Limiting Extension.
 noIndex: true
 ---
 

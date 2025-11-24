@@ -1,3 +1,7 @@
+---
+description: Getting started with Quickstart.
+---
+
 # Quickstart guide
 
 ## Overview
@@ -8,7 +12,7 @@ Following this quickstart guide is the fastest way to start working with the Gra
 * [Create a Management Context](quickstart-guide.md#create-a-managementcontext)
 * [Create an API Definition and invoke the API](quickstart-guide.md#create-an-apidefinition)
 
-In this guide, we assume that Gravitee API Management is acting as the control plane for the Gravitee gateway. The gateway loads it's APIs from APIM's repository (e.g. MongoDB, or via a Bridge Gateway in a hybrid setup). GKO acts as a way to define and manage API's "as-code" rather than using the GUI. GKO synchronises all of its actions, such as creating APIs and managing their lifecycle, directly with Gravitee API management through the management API.&#x20;
+In this guide, we assume that Gravitee API Management is acting as the control plane for the Gravitee gateway. The gateway loads it's APIs from APIM's repository (e.g. MongoDB, or via a Bridge Gateway in a hybrid setup). GKO acts as a way to define and manage API's "as-code" rather than using the GUI. GKO synchronises all of its actions, such as creating APIs and managing their lifecycle, directly with Gravitee API management through the management API.
 
 ### Prerequisites
 
@@ -18,7 +22,7 @@ In this guide, we assume that Gravitee API Management is acting as the control p
 ## Install GKO
 
 {% hint style="info" %}
-For comprehensive deployment details, see the [GKO Install Guide](installation/README.md).
+For comprehensive deployment details, see the [GKO Install Guide](installation/).
 {% endhint %}
 
 Use Helm to install GKO on your Kubernetes cluster:
@@ -37,7 +41,7 @@ The [`ManagementContext` ](../overview/custom-resource-definitions/managementcon
 * the APIM management API URL
 * credentials to authenticate GKO with the management API
 
-If you're running APIM locally you can use the default admin account to authenticate (user: `admin`, password: `admin`). &#x20;
+If you're running APIM locally you can use the default admin account to authenticate (user: `admin`, password: `admin`).
 
 Alternatively, you can head to your APIM instance and [created a dedicated service account and token](../guides/define-an-apim-service-account-for-gko.md) for GKO to use. Make sure to copy the token value to use in the step below.
 
@@ -77,11 +81,11 @@ If the operation is successful, this line will appear in the CLI output:
 managementcontext.gravitee.io/management-context-1 created
 ```
 
-Now that we've defined a way for GKO to communicate with a Gravitee API Management instance, we can create our first GKO-managed API.&#x20;
+Now that we've defined a way for GKO to communicate with a Gravitee API Management instance, we can create our first GKO-managed API.
 
 ## Create an ApiDefinition
 
-The [`ApiDefinition` ](../overview/custom-resource-definitions/apidefinition.md)CRD is used to created Gravitee v2 APIs, and contains all the parameters of a Gravitee API such as entrypoint, endpoint, plans, policies, groups & members, and documentation pages. The CRD also lets you control whether the API is started or stopped, and whether or not it is published to the developer portal.&#x20;
+The [`ApiDefinition` ](../overview/custom-resource-definitions/apidefinition.md)CRD is used to created Gravitee v2 APIs, and contains all the parameters of a Gravitee API such as entrypoint, endpoint, plans, policies, groups & members, and documentation pages. The CRD also lets you control whether the API is started or stopped, and whether or not it is published to the developer portal.
 
 Create a file called `echo-api.yaml` and enter the following contents:
 
