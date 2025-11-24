@@ -1,3 +1,7 @@
+---
+description: Overview of Secure Your APIs.
+---
+
 # Secure Your APIs
 
 ## Overview
@@ -16,9 +20,9 @@ Ensure you have set up a new AM application and have your Client ID, Client Secr
 
 Securing an API with OAuth2 is a multi-stage process. The following sections provide step-by-step instructions for configuration and verification:
 
-1. [Configure an authorization server resource](README.md#configure-an-authorization-server-resource)
-2. [Configure the OAuth2 policy](README.md#configure-the-oauth2-policy)
-3. [Verify OAuth2 security](README.md#verify-oauth2-security)
+1. [Configure an authorization server resource](./#configure-an-authorization-server-resource)
+2. [Configure the OAuth2 policy](./#configure-the-oauth2-policy)
+3. [Verify OAuth2 security](./#verify-oauth2-security)
 
 ### Configure an authorization server resource
 
@@ -36,18 +40,18 @@ The OAuth2 policy can be configured in the Gravitee API Management Console:
 3. Select the API you want to secure.
 4. Click **Policy Studio** in the inner left sidebar.
 5. Select the flow you want to secure.
-6.  Under the Initial connection tab, click the `+` icon of the **Request phase**. The OAuth2 policy can be applied to [v2 APIs and v4 proxy APIs.](README.md) It cannot be applied at the message level.&#x20;
+6.  Under the Initial connection tab, click the `+` icon of the **Request phase**. The OAuth2 policy can be applied to [v2 APIs and v4 proxy APIs.](./) It cannot be applied at the message level.
 
-    <figure><img src="../../../.gitbook/assets/oauth2 add to flow.png" alt=""><figcaption><p>Add a policy to Request phase flow</p></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption><p>Add a policy to Request phase flow</p></figcaption></figure>
 7.  In the resulting dialog box, **Select** the OAuth2 tile:
 
-    <figure><img src="../../../.gitbook/assets/oauth2 policy.png" alt=""><figcaption><p>Add the OAuth2 policy to the flow</p></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption><p>Add the OAuth2 policy to the flow</p></figcaption></figure>
 8.  Configure the OAuth2 policy per the [documentation](https://documentation.gravitee.io/apim/reference/policy-reference/oauth2):
 
-    <figure><img src="../../../.gitbook/assets/oauth2 policy details.png" alt=""><figcaption><p>Configure the OAuth2 policy</p></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption><p>Configure the OAuth2 policy</p></figcaption></figure>
 9. Click **Add policy**.
 10. **Save** and deploy/redeploy your API.
-11. [Verify that your API is OAuth2 secured.](README.md#verify-oauth2-security)
+11. [Verify that your API is OAuth2 secured.](./#verify-oauth2-security)
 
 ### Verify OAuth2 security
 
@@ -121,38 +125,8 @@ You can use the access token obtained in the previous section to make API calls.
 2. Provide your access token and get your secured API data.
 
 {% code overflow="wrap" %}
-````
-```sh
-curl -X GET http://GRAVITEEIO-APIM-GATEWAY-HOST/echo -H 'Authorization: Bearer :access_token'
 ```
-````
-{% endcode %}
 
-{% hint style="info" %}
-See the APIM OAuth2 Policy for more information about how to supply the access token while making the API call.
-{% endhint %}
-
-If it is working correctly, you will see the data from the selected API operation:
-
-{% code overflow="wrap" %}
-```sh
-{
-    "headers": {
-        "Host": "api.gravitee.io",
-        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36",
-        "Accept": "*/*",
-        "Accept-Encoding": "gzip, deflate, br",
-        "Accept-Language": "fr-FR,fr;q=0.8,en-US;q=0.6,en;q=0.4",
-        "Authorization": "Bearer b7d0afc4-c96d-40d4-90af-c4c96d20d4c7",
-        "Cache-Control": "no-cache",
-        "Postman-Token": "14a75ef7-6df4-9290-e2b0-467a4be1eb6b",
-        "X-Forwarded-For": "90.110.233.212",
-        "X-Forwarded-Host": "api.gravitee.io",
-        "X-Forwarded-Proto": "https",
-        "X-Forwarded-Server": "734bb5636800",
-        "X-Gravitee-Transaction-Id": "16b4c23c-c992-46c6-b4c2-3cc992a6c6db",
-        "X-Traefik-Reqid": "2855484"
-    }
-}
+</div>
 ```
 {% endcode %}
