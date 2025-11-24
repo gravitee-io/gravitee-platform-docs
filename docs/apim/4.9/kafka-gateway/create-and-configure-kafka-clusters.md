@@ -20,17 +20,17 @@ Kafka Console is currently only available for self-hosted deployments and not co
 
 1.  From the Dashboard, click **Kafka Cluster**.
 
-    <figure><img src="../.gitbook/assets/83D2B577-1393-4048-8E93-56DB9E8CFB8E_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 2.  Click **+ Add cluster**.
 
-    <figure><img src="../.gitbook/assets/902A4021-EA90-4AB6-84B4-C0F9E995F54E_1_201_a (1) (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 3. In the **Create a new cluster** pop-up window, complete the following sub-steps:
    1. In the **Cluster name** field, enter a name for your cluster.
    2. (Optional) In the description field, enter a description for your cluster.
    3. In the **Bootstrap Servers** field, enter the bootstrap servers for your cluster.
    4.  Click **Create**. You are brought to the cluster's configuration screen.
 
-       <figure><img src="../.gitbook/assets/F7727719-AE67-4E84-A45B-478A4D66E2F5_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+       <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 
 ## Configure your Kafka cluster
 
@@ -59,7 +59,7 @@ Once you delete a cluster, this action cannot be undone.
 2. In the **Delete Cluster** pop-up window, enter the name of the Kafka cluster.
 3.  Click **Yes, delete it.**
 
-    <figure><img src="../.gitbook/assets/42CDC273-4677-4127-A6DF-FBB3B7F53842_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 
 ### Configuration
 
@@ -71,7 +71,7 @@ In the **Configuration** tab, you can configure the following elements of the cl
   * SASL\_SSL
   *   SSL
 
-      <figure><img src="../.gitbook/assets/9FAEF4B2-47B4-4D19-B2D2-D063ED96CAED_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+      <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 
 ### User permissions
 
@@ -89,7 +89,7 @@ To add a group to your Kafka cluster, complete the following steps:
 2. In the **Manage groups** pop-up window, click the **Groups** drop-down menu, and then select the group or groups that you want to add to your cluster.
 3.  Click **Save**.
 
-    <figure><img src="../.gitbook/assets/00 kafkaUI 1 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 
 #### Transfer ownership
 
@@ -107,7 +107,7 @@ Once you transfer ownership of a cluster, this action cannot be undone.
 4. Use the **New role for current Primary Owner** drop-down menu to select either **User** or **Owner** as the new cluster role for the current primary owner.
 5.  Click **Transfer**.
 
-    <figure><img src="../.gitbook/assets/00 kafkaUI 2 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 
 #### Add members
 
@@ -117,4 +117,4 @@ To add members to your Kafka cluster, complete the following steps:
 2. In the **Select users** pop-up window, search for users by name or email. You can add multiple users at a time.
 3.  Click **Select**.
 
-    <figure><img src="../.gitbook/assets/00 kafkaUI 4 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>

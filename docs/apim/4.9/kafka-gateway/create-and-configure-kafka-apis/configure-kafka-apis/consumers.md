@@ -25,13 +25,13 @@ Kafka APIs support OAuth2, JWT, API Key, and Keyless (public) plans. For more in
 
 To edit a plan, click on the pencil icon:
 
-<figure><img src="../../../.gitbook/assets/plan_edit (1).png" alt=""><figcaption><p>Edit a plan</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Edit a plan</p></figcaption></figure>
 
 ### Publish a plan
 
 To publish a plan, click on the icon of a cloud with an arrow:
 
-<figure><img src="../../../.gitbook/assets/plan_publish (1).png" alt=""><figcaption><p>Publish a plan</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Publish a plan</p></figcaption></figure>
 
 Once a plan has been published, it must be redeployed.
 
@@ -39,13 +39,13 @@ Once a plan has been published, it must be redeployed.
 
 To deprecate a plan, click on the icon of a cloud with an 'x':
 
-<figure><img src="../../../.gitbook/assets/plan_deprecate (1).png" alt=""><figcaption><p>Deprecate a plan</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Deprecate a plan</p></figcaption></figure>
 
 ### Close a plan
 
 To close a plan, click on the 'x' icon:
 
-<figure><img src="../../../.gitbook/assets/plan_close (1).png" alt=""><figcaption><p>Close a plan</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Close a plan</p></figcaption></figure>
 
 ## Subscriptions
 
@@ -97,7 +97,7 @@ To configure message delivery mechanism, recipients, and content:
 1. Select **APIs** from the left sidebar of the Management Console
 2. Select the API you want to send a message about
 3. Select **Consumers** from the inner left sidebar
-4.  Select the **Broadcasts** tab 
+4.  Select the **Broadcasts** tab
 
     <figure><img src="../../../../4.7/.gitbook/assets/1%20broadcast.png" alt=""><figcaption></figcaption></figure>
 5. Specify the following:

@@ -4,8 +4,6 @@
 
 Gravitee APIM can be installed using the following technology stacks and deployment methods.
 
-{% include "../../../4.8/.gitbook/includes/hybrid-installation-support (1).md" %}
-
 ### Docker
 
 * [docker-compose.md](docker/docker-compose.md "mention")
