@@ -1,3 +1,7 @@
+---
+description: Installation guide for Set Up Your First Application.
+---
+
 # Set Up Your First Application
 
 ## Overview

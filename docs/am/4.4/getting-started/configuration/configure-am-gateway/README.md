@@ -1,3 +1,7 @@
+---
+description: Overview of AM Gateway.
+---
+
 # AM Gateway
 
 ## Overview
@@ -335,7 +339,7 @@ As of AM 4.2.0, the client secret can be hashed when stored into the database. F
 * BCrypt
 * PBKDF2
 
-To specify which hash algorithm is in used, update the `applications` section of `gravitee.yml`:&#x20;
+To specify which hash algorithm is in used, update the `applications` section of `gravitee.yml`:
 
 ```yaml
 applications:
@@ -375,7 +379,7 @@ The PBKDF2 algorithm accepts three properties:
 
 * **rounds**: The number of iterations (default: 600000)
 * **salt**: The length in bits of the salt value (default: 16)
-* **algorithm**: PBKDF2 with the specified pseudo-random function (default: PBKDF2WithHmacSHA256**)**
+* **algorithm**: PBKDF2 with the specified pseudo-random function (default: PBKDF2WithHmacSHA256\*\*)\*\*
 
 The default values are those recommended by OWASP.
 

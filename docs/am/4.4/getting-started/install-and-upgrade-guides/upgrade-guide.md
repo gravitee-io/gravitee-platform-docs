@@ -1,4 +1,8 @@
-# 4.4 Upgrade Guide
+---
+description: Upgrade and migration guide for Upgrade Guide.
+---
+
+# 4.3 Upgrade Guide
 
 {% hint style="warning" %}
 **If your upgrade will skip versions:** Read the version-specific upgrade notes for each intermediate version. You may be required to perform manual actions as part of the upgrade.
@@ -12,5 +16,4 @@ Upgrading to AM 4.4 is deployment-specific. If you are upgrading from AM 3.x, th
 
 ## Password Policy
 
-In this new version, the "password policy" feature evolved to allow the definition of multiple policy at domain level and apply those policies on identity provider. During the Management API startup, an upgrader will be executed automatically to adapt the data structure. 
-
+In this new version, the "password policy" feature evolved to allow the definition of multiple policy at domain level and apply those policies on identity provider. During the Management API startup, an upgrader will be executed automatically to adapt the data structure.
