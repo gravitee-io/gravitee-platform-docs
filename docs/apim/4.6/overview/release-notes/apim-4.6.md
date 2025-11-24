@@ -1,3 +1,7 @@
+---
+description: An overview about apim 4.6.
+---
+
 # APIM 4.6
 
 In Gravitee API Management 4.6, we’re pleased to introduce the brand new Gravitee Kafka Gateway. This page provides a brief overview of the Kafka Gateway, but you can read about it in depth [here](../../kafka-gateway/overview.md).
@@ -57,7 +61,7 @@ OpenTelemetry works for proxy or message APIs and can provide a simple or verbos
 
 ### Error Notifications and Retries for Webhooks
 
-The Webhook entrypoint is used to push data from a messaging system like Kafka to an HTTP target. It can be used purely as a data ingestion and transformation mechanism, as a push-based notification system for events, or as a mechanism to off-load pressure from a REST backend to a messaging system.&#x20;
+The Webhook entrypoint is used to push data from a messaging system like Kafka to an HTTP target. It can be used purely as a data ingestion and transformation mechanism, as a push-based notification system for events, or as a mechanism to off-load pressure from a REST backend to a messaging system.
 
 We’ve made three enhancements to the Webhook entrypoint to make it even more robust and scalable:
 

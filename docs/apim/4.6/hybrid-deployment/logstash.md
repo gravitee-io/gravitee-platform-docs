@@ -1,3 +1,7 @@
+---
+description: Configuration guide for logstash.
+---
+
 # Logstash
 
 ## Compatibility with Elasticsearch
@@ -28,7 +32,7 @@ gateway:
 
 ## Docker
 
-1. Install Logstash. To install Logstash, copy the following file:&#x20;
+1. Install Logstash. To install Logstash, copy the following file:
 
 {% code title="docker-compose.yaml" lineNumbers="true" %}
 ```yaml

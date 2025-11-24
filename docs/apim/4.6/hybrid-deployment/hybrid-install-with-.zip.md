@@ -1,3 +1,7 @@
+---
+description: Setup and installation guide for hybrid install with .zip.
+---
+
 # Hybrid Install with .ZIP
 
 {% include "../.gitbook/includes/installation-guide-note.md" %}

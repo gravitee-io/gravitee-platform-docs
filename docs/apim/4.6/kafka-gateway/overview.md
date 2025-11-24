@@ -1,8 +1,12 @@
+---
+description: An overview about overview.
+---
+
 # Overview
 
 The Gravitee Kafka Gateway applies Gravitee's API management capabilities directly to native Kafka to address security, cost, and scalability issues that exist in traditional Kafka deployments. Specifically, the Kafka Gateway gives you the ability to:
 
-* Apply [policies](policies/README.md) on Kafka topics at runtime
+* Apply [policies](policies/) on Kafka topics at runtime
 * [Document](configure-kafka-apis/documentation.md) how clients can connect to Kafka, and publish that information to the Developer Portal
 * Manage [subscriptions](subscriptions.md) to Kafka topics via the Developer Portal in a self-service manner
 

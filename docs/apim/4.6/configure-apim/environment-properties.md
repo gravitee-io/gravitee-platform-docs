@@ -1,3 +1,7 @@
+---
+description: An overview about environment properties.
+---
+
 # Environment Properties
 
 ## Overview
@@ -8,7 +12,7 @@ Gravitee's configuration is controlled via the `gravitee.yml` file located in th
 
 {% tabs %}
 {% tab title="Linux Server" %}
-If you are installing Gravitee APIM on a regular Linux server, the gateway will use environment variables accessible to the JVM to override the configuration in `gravitee.yml`. You name the variables in **uppercase**, with an **underscore** to represent the position in the hierarchy in the `gravitee.yml` file, prefixed with `GRAVITEE`.&#x20;
+If you are installing Gravitee APIM on a regular Linux server, the gateway will use environment variables accessible to the JVM to override the configuration in `gravitee.yml`. You name the variables in **uppercase**, with an **underscore** to represent the position in the hierarchy in the `gravitee.yml` file, prefixed with `GRAVITEE`.
 
 For example, the variable in `gravitee.yml` referred to as:
 

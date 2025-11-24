@@ -1,3 +1,7 @@
+---
+description: An overview about kafka.
+---
+
 # Kafka
 
 ## Overview
@@ -24,7 +28,7 @@ You can configure the Kafka client to act as a producer, a consumer, or both a p
 
 * **Use Producer:** the gateway's Kafka client can only produce to the configured topic. Use this option if you want to only allow publishing data to the cluster. This can be used with the HTTP POST and Websocket entrypoints.
 * **Use Consumer:** the gateway's Kafka cluster can only consume messages from the configured topic list. Use this option if you want to allow only consuming data from the cluster. This can be used with the HTTP GET, Websocket, Webhook, and SSE entrypoints.
-* **Use Producer and Consumer:** clients can both consume from topics and produce messages to topics on the cluster.&#x20;
+* **Use Producer and Consumer:** clients can both consume from topics and produce messages to topics on the cluster.
 
 ### Endpoint security settings
 
@@ -152,7 +156,7 @@ The Kafka endpoint includes the dynamic configuration feature, meaning that you 
 
 * To override the topic on the producer, set `gravitee.attributes.endpoint.kafka.producer.topics`.
 * To override the topic on the consumer, set `gravitee.attributes.endpoint.kafka.consumer.topics`.
-* To override the consumer group, set `gravitee.attribute.endpoint.kafka.groupId`. By default,  the consumer group is derived from the subscription information passed with the client, as discussed above. You may need to set this attribute if you cannot create consumer groups in your cluster.
+* To override the consumer group, set `gravitee.attribute.endpoint.kafka.groupId`. By default, the consumer group is derived from the subscription information passed with the client, as discussed above. You may need to set this attribute if you cannot create consumer groups in your cluster.
 * To override the record key, set `gravitee.attribute.endpoint.kafka.recordKey` .
 
 {% hint style="info" %}

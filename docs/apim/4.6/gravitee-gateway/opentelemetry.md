@@ -1,3 +1,7 @@
+---
+description: An overview about opentelemetry.
+---
+
 # OpenTelemetry
 
 ## Overview
@@ -6,18 +10,18 @@
 OpenTelemetry replaces OpenTracing. For more information about OpenTracing, see [OpenTracing](https://app.gitbook.com/s/i9IyjWJmsUdoilz8Mqms/using-the-product/using-the-gravitee-api-management-components/general-configuration/opentracing "mention").
 {% endhint %}
 
-Gravitee's OpenTelemetry solution allows you to trace every request handled by the API Management (APIM) Gateway. A request refers to the input object as defined by OpenTelemetry, which can be an HTTP request or other objects like a message or Kafka record. The OpenTelemetry framework supports standardized observability, meaning that you can export your Gravitee traces to any telemetry tool. For example, Jaegar.&#x20;
+Gravitee's OpenTelemetry solution allows you to trace every request handled by the API Management (APIM) Gateway. A request refers to the input object as defined by OpenTelemetry, which can be an HTTP request or other objects like a message or Kafka record. The OpenTelemetry framework supports standardized observability, meaning that you can export your Gravitee traces to any telemetry tool. For example, Jaegar.
 
 With OpenTelemetry, tracers are created for specific services. A global tracer is created for a Gateway-level service and follows the same lifecycle as the Gateway. At a more granular level, a tracer can be created when a API is deployed. An API-level tracer follows the same lifecycle as the API and will be stopped/removed when the API is undeployed.
 
 Verbose tracing is supported for v4 APIs and can be enabled for individual APIs. The **Verbose** option uses technical tracing to generate additional request execution details. These additional details increase the number of spans per trace and generates a pre-processor-transaction trace.
 
-To use OpenTelemetry, you must enable OpenTelemetry on your Gateway, and optionally for APIs that you have deployed. When OpenTelemetry is enabled at the API level, OpenTelemetry data is generated.&#x20;
+To use OpenTelemetry, you must enable OpenTelemetry on your Gateway, and optionally for APIs that you have deployed. When OpenTelemetry is enabled at the API level, OpenTelemetry data is generated.
 
 ## Enabling OpenTelemetry for your Gateway
 
 {% hint style="warning" %}
-If you currently use the Jaeger plugin, you must update your configuration to target your OpenTelemetry endpoint.&#x20;
+If you currently use the Jaeger plugin, you must update your configuration to target your OpenTelemetry endpoint.
 
 `services.tracing.otel` is deprecated. You must use the following configurations.
 {% endhint %}
@@ -34,7 +38,7 @@ services:
       endpoint: <OPENTELEMETRY_ENDPOINT>
 ```
 
-* If unset default endpoint is `http://locahost:4317`, replace \<OPENTELMETRY\_ENDPOINT> with the endpoint that you use for OpenTelemetry.&#x20;
+* If unset default endpoint is `http://locahost:4317`, replace \<OPENTELMETRY\_ENDPOINT> with the endpoint that you use for OpenTelemetry.
 * If your endpoint URL uses `http://` or `grpc://` , you can use this configuration for a basic default configuration.
 
 ### Advanced configuration
@@ -106,11 +110,10 @@ gateway:
         endpoint: <OPENTELEMETRY_ENDPOINT>
 ```
 
-* If unset default endpoint is `http://locahost:4317`, replace \<OPENTELMETRY\_ENDPOINT> with the endpoint that you use for OpenTelemetry.&#x20;
+* If unset default endpoint is `http://locahost:4317`, replace \<OPENTELMETRY\_ENDPOINT> with the endpoint that you use for OpenTelemetry.
 * If your endpoint URL uses `http://` or `grpc://` , you can use this configuration for a basic default configuration.
 
 2.  (Optional) For a more advanced configuration, add the following configuration to your `values.yaml`:
-
 
     With the following configuration, you can complete the following actions with OpenTelemetry:
 
@@ -174,10 +177,10 @@ To enable OpenTelemetry for an API, you must have OpenTelemetry enabled on your 
 
 1. Log in to your APIM Console.
 2. Select **APIs** from the left nav.
-3. Select a deployed API.&#x20;
+3. Select a deployed API.
 4. From the inner left nav, select **API Traffic**.
 5. On the **API Traffic** screen, click the **Settings** header.
-6. Scroll down to the **OpenTelemetry** section and toggle **Enabled** to ON.&#x20;
+6. Scroll down to the **OpenTelemetry** section and toggle **Enabled** to ON.
 7. (Optional) Toggle **Verbose** to ON to enable technical tracing.
 
 <figure><img src="../.gitbook/assets/1 otel 1.png" alt=""><figcaption></figcaption></figure>

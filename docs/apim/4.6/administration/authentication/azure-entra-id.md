@@ -1,3 +1,7 @@
+---
+description: Tutorial on azure entra id.
+---
+
 # Azure Entra ID
 
 ## Introduction

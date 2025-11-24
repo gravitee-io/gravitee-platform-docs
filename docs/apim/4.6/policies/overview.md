@@ -1,14 +1,18 @@
+---
+description: An overview about overview.
+---
+
 # Overview
 
-Gravitee policies are customizable rules or logic the Gateway executes during an API transaction. A policy modifies the behavior of the request or response handled by the APIM Gateway and ensures that a given business rule is fulfilled during request/response processing.&#x20;
+Gravitee policies are customizable rules or logic the Gateway executes during an API transaction. A policy modifies the behavior of the request or response handled by the APIM Gateway and ensures that a given business rule is fulfilled during request/response processing.
 
-Policies generally fall into the categories of security, transformation, restrictions, performance, routing, or monitoring & testing. Although the implementation details of each policy are unique, they share a common installation and deployment, and they are compatible with subsets of request/response phases.&#x20;
+Policies generally fall into the categories of security, transformation, restrictions, performance, routing, or monitoring & testing. Although the implementation details of each policy are unique, they share a common installation and deployment, and they are compatible with subsets of request/response phases.
 
-The Gravitee Policy Studio allows you to design flows, which are policy enforcement sequences that protect or transform how APIs are consumed. Gravitee offers a number of preconfigured policies, some of which are available in the Community Edition, while others are only available in Gravitee's Enterprise Edition.&#x20;
+The Gravitee Policy Studio allows you to design flows, which are policy enforcement sequences that protect or transform how APIs are consumed. Gravitee offers a number of preconfigured policies, some of which are available in the Community Edition, while others are only available in Gravitee's Enterprise Edition.
 
 ## v2 APIs and v4 APIs policy support
 
-Policy support differs based on API definition and type. The following matrix shows which policies are supported by v2 proxy, v4 proxy, and v4 message APIs.&#x20;
+Policy support differs based on API definition and type. The following matrix shows which policies are supported by v2 proxy, v4 proxy, and v4 message APIs.
 
 {% hint style="info" %}
 Policies cannot currently be applied to v4 TCP proxy APIs
@@ -42,7 +46,7 @@ To deploy the plugin, follow these steps:
 
 Policies are scoped to different API consumers through flows. Flows are a method to control where, and under what conditions, a group of policies act on an API transaction.
 
-Policies can be added to flows that are assigned to an API or to a [plan](../expose-apis/plans/README.md). Gravitee supports configuring policies with the Policy Studio in the Management Console or by interacting directly with the Management API.
+Policies can be added to flows that are assigned to an API or to a [plan](../expose-apis/plans/). Gravitee supports configuring policies with the Policy Studio in the Management Console or by interacting directly with the Management API.
 
 ## Phases
 

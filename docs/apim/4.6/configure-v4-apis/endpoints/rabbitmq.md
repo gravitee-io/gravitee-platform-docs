@@ -1,3 +1,7 @@
+---
+description: An overview about rabbitmq.
+---
+
 # RabbitMQ
 
 ## Overview
@@ -27,7 +31,7 @@ You can tell the Gravitee Gateway's RabbitMQ client to act as a producer, a cons
 You will define more Gravitee Gateway-specific security settings later on, but this is where you define your RabbitMQ-specific authentication flow. Gravitee supports SSL authentication.
 
 1. Define the **username** and **password** for RabbitMQ authentication.
-2. Choose whether to enable host name verification.&#x20;
+2. Choose whether to enable host name verification.
 3.  Use the drop-down menu to configure a truststore type
 
     * **None**
@@ -50,9 +54,9 @@ You will define more Gravitee Gateway-specific security settings later on, but t
 
 ### 4. Role settings
 
-If you chose **Use Producer** or **Use Producer and Consumer**, you must define the settings that the Gravitee Gateway RabbitMQ client will rely on for producing messages to your backend RabbitMQ topic/broker.&#x20;
+If you chose **Use Producer** or **Use Producer and Consumer**, you must define the settings that the Gravitee Gateway RabbitMQ client will rely on for producing messages to your backend RabbitMQ topic/broker.
 
-If you chose **Use Consumer** or **Use Producer and Consumer**, you must define the settings that the Gravitee Gateway RabbitMQ client will rely on for consuming messages from your backend RabbitMQ topic/broker.&#x20;
+If you chose **Use Consumer** or **Use Producer and Consumer**, you must define the settings that the Gravitee Gateway RabbitMQ client will rely on for consuming messages from your backend RabbitMQ topic/broker.
 
 {% tabs %}
 {% tab title="Producer" %}
@@ -112,14 +116,14 @@ In order to route the proper messages to the queue, a routing key from the API c
 {% tab title="QoS" %}
 **None:** Applies a strategy with high throughput, low latency, no durability, and no reliability.
 
-* The broker disregards a message as soon as it sends it to the consumer.&#x20;
-* Only use this mode if downstream subscribers can consume messages at a rate exceeding the flow of inbound messages. Otherwise, messages will accumulate in the JVM process memory, leading to out-of-memory errors.&#x20;
+* The broker disregards a message as soon as it sends it to the consumer.
+* Only use this mode if downstream subscribers can consume messages at a rate exceeding the flow of inbound messages. Otherwise, messages will accumulate in the JVM process memory, leading to out-of-memory errors.
 * This mode uses auto-ack when registering the RabbitMQ Consumer.
 
 **Auto:** Applies a strategy that balances performance and quality.
 
 * When the entrypoint supports manual ack, the strategy will use it. Otherwise, it will use auto-ack from the RabbitMQ Reactor library.
-* Messages are acknowledged upon arrival in the `Flux#doOnNext` callback to promote a message flow that downstream subscribers can manage.&#x20;
+* Messages are acknowledged upon arrival in the `Flux#doOnNext` callback to promote a message flow that downstream subscribers can manage.
 * This mode does not use auto-ack when registering the RabbitMQ Consumer. Instead, `consumeAutoAck` means messages are automatically acknowledged by the library in one the Flux hooks.
 {% endtab %}
 {% endtabs %}
