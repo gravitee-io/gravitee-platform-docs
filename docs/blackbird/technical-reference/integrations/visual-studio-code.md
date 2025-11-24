@@ -1,4 +1,5 @@
 ---
+description: Overview of Visual Studio Code.
 noIndex: true
 ---
 

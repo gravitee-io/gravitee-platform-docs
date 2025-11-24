@@ -1,4 +1,5 @@
 ---
+description: Overview of Support.
 noIndex: true
 ---
 
@@ -8,7 +9,7 @@ We understand that building and managing APIs can be complex, and our team is re
 
 ## For paying customers
 
-As a paying customer, you have access to our dedicated support team. 
+As a paying customer, you have access to our dedicated support team.
 
 ## For free trial customers
 
