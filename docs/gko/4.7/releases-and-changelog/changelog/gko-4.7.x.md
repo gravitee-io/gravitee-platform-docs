@@ -1,3 +1,7 @@
+---
+description: Overview of GKO.
+---
+
 # GKO 4.7.x
 
 ## Gravitee Kubernetes Operator 4.7.18 - November 14, 2025
@@ -6,13 +10,11 @@ There is nothing new in version 4.7.18.
 
 > This version was generated to keep the kubernetes operator in sync with other gravitee products.
 
-
 ## Gravitee Kubernetes Operator 4.7.17 - October 28, 2025
 
 There is nothing new in version 4.7.17.
 
 > This version was generated to keep the kubernetes operator in sync with other gravitee products.
-
 
 ## Gravitee Kubernetes Operator 4.7.16 - October 15, 2025
 
@@ -20,44 +22,44 @@ There is nothing new in version 4.7.16.
 
 > This version was generated to keep the kubernetes operator in sync with other gravitee products.
 
-
 ## Gravitee Kubernetes Operator 4.7.15 - September 29, 2025
-    
+
 <details>
+
 <summary>Bug fixes</summary>
 
-  **GKO**
+**GKO**
 
-  * Can't delete SharedPolicyGroup [#10827](https://github.com/gravitee-io/issues/issues/10827)
-  * Finalizer of a secret un-referenced by a context don't get removed  on update [#10707](https://github.com/gravitee-io/issues/issues/10707)
+* Can't delete SharedPolicyGroup [#10827](https://github.com/gravitee-io/issues/issues/10827)
+* Finalizer of a secret un-referenced by a context don't get removed on update [#10707](https://github.com/gravitee-io/issues/issues/10707)
 
 </details>
-
 
 <details>
+
 <summary>Improvements</summary>
 
-  **GKO**
+**GKO**
 
-  * Add proxy support for HTTP client [#10830](https://github.com/gravitee-io/issues/issues/10830)
+* Add proxy support for HTTP client [#10830](https://github.com/gravitee-io/issues/issues/10830)
 
 </details>
-
 
 ## Gravitee Kubernetes Operator 4.7.13 - September 2, 2025
 
 There is nothing new in version 4.7.13.
 
 > This version was generated to keep the kubernetes operator in sync with other gravitee products.
-> 
+
 ## Gravitee Kubernetes Operator 4.7.12 - August 22, 2025
-    
+
 <details>
+
 <summary>Bug fixes</summary>
 
-  * GKO-created applications can be deleted through the portal UI [#10651](https://github.com/gravitee-io/issues/issues/10651)
-</details>
+* GKO-created applications can be deleted through the portal UI [#10651](https://github.com/gravitee-io/issues/issues/10651)
 
+</details>
 
 ## Gravitee Kubernetes Operator 4.7.11 - August 4, 2025
 
@@ -65,22 +67,21 @@ There is nothing new in version 4.7.11.
 
 > This version was generated to keep the kubernetes operator in sync with other gravitee products.
 
-
 ## Gravitee Kubernetes Operator 4.7.10 - July 22, 2025
 
 There is nothing new in version 4.7.10.
 
 > This version was generated to keep the kubernetes operator in sync with other gravitee products.
 
-
 ## Gravitee Kubernetes Operator 4.7.9 - July 15, 2025
-    
+
 <details>
+
 <summary>Bug fixes</summary>
 
-  * Promotion between multiple clusters fails because of plan IDs duplication [#10641](https://github.com/gravitee-io/issues/issues/10641)
-</details>
+* Promotion between multiple clusters fails because of plan IDs duplication [#10641](https://github.com/gravitee-io/issues/issues/10641)
 
+</details>
 
 4.7.9-alpha was not created in Jira. Assuming no changelog should be generated.
 
