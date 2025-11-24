@@ -1,3 +1,7 @@
+---
+description: Overview of Legal Identity Providers.
+---
+
 # Legal Identity Providers
 
 AM includes the following legal and governmental identity providers.
