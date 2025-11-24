@@ -1,3 +1,7 @@
+---
+description: Introduction to API Fundamentals
+---
+
 # API Fundamentals
 
 The API fundamentals section summarizes key terminology and functionality prerequisite to taking full advantage of the Gravitee platform. The following guides offer high-level overviews with which to build a robust conceptual framework surrounding Gravitee's core focus: web APIs.
