@@ -1,3 +1,7 @@
+---
+description: Overview of Salesforce.
+---
+
 # Salesforce
 
 ## Overview
@@ -14,7 +18,7 @@ To connect your application to Salesforce, you will:
 
 ## Register a new application in Salesforce
 
-1. Log in to your [Salesforce account](https://www.salesforce.com/) and create a Connected App, as described in the [Salesforce documentation](https://help.salesforce.com/articleView?id=connected\_app\_create.htm\&type=0).
+1. Log in to your [Salesforce account](https://www.salesforce.com/) and create a Connected App, as described in the [Salesforce documentation](https://help.salesforce.com/articleView?id=connected_app_create.htm\&type=0).
 2. Give your application a **name**, an **API name** and a **contact email**.
 3. Click **Enable OAuth Settings**.
 4. Enter `http(s)://AM_GW_HOST/YOUR_DOMAIN/login/callback` for the **callback url**.
