@@ -15,7 +15,7 @@ description: >-
 **Gateway**
 
 * JSON Logging for AM Token Endpoint [#10943](https://github.com/gravitee-io/issues/issues/10943)
-* Filter CLIENT_AUTHENTICATION success audit logs [#10954](https://github.com/gravitee-io/issues/issues/10954)
+* Filter CLIENT\_AUTHENTICATION success audit logs [#10954](https://github.com/gravitee-io/issues/issues/10954)
 * translate email from name [#10958](https://github.com/gravitee-io/issues/issues/10958)
 * Vertx eventLoop ThreadBlocked when HSM plugin is used [#10969](https://github.com/gravitee-io/issues/issues/10969)
 
@@ -100,21 +100,21 @@ description: >-
 
 <summary>What's new</summary>
 
-### OpenID provider improvement
+#### OpenID provider improvement
 
 The [OpenID identity provider ](../../guides/identity-providers/social-identity-providers/openid-connect.md)has been updated to support the `application/jwt` content type at the [UserInfo Endpoint](https://openid.net/specs/openid-connect-core-1_0.html#UserInfoResponse).
 
 The system accepts only signed JWT tokens. Signature validation is handled by the [Public Key Resolver](../../guides/identity-providers/social-identity-providers/openid-connect.md#public-key-resolver) defined in the provider's configuration.
 
-### Support schema with PostgreSQL backend
+#### Support schema with PostgreSQL backend
 
 You can now specify the [schema](https://www.postgresql.org/docs/current/ddl-schemas.html) when Access Management is configured with a PostgreSQL backend. For more information, see the [repositories](../../getting-started/configuration/configure-repositories.md#jdbc) section.
 
-### Rate Limit policy
+#### Rate Limit policy
 
 Access Management now offers a Rate Limit policy that is functionally identical to the Rate Limit policy in API Management. You can use Gravitee Expression Language to enforce a limit per client ID.
 
-### Audit logs
+#### Audit logs
 
 A new audit log is generated for multi-factor authentication (MFA). When a user selects the "remember device" option during the MFA challenge phase, an MFA\_REMEMBER\_DEVICE audit [event](../../guides/audit-trail.md#event-types) is created.
 
@@ -122,15 +122,15 @@ The improved MongoDB audit log implementation now uses secondary nodes for searc
 
 The [File Reporter](../../getting-started/configuration/configure-reporters.md#file-reporter) implementation now provides a retention duration for files. This retention time can be configured at the platform level using the `gravitee.yml` file, or directly in the UI per reporter instance.
 
-### Extension Grant improvement
+#### Extension Grant improvement
 
 The [Extension Grant](../../guides/auth-protocols/oauth-2.0/extension-grants.md) plugin now supports using a JWKS\_URL to retrieve the public key that processes the `assertion` parameter.
 
-### Events Retention
+#### Events Retention
 
 Access Management version 4.9 implements a 90-day retention policy on the events table. To achieve this, a TTL (Time-to-Live) index is created for installations that use a MongoDB backend. For installations that use an RDBMS backend, a purge service runs daily, at 11:00 PM by default.
 
-### Prompt password changed when password is expired
+#### Prompt password changed when password is expired
 
 A new option is available to require users to reset their passwords after a configurable time period has elapsed since their last reset. Upon successful login, if the password has expired, users are immediately prompted to set a new password before continuing the login flow. See the [force reset password page](../../guides/login/force-reset-password-on-expiration.md) for more details.
 
@@ -140,7 +140,7 @@ A new option is available to require users to reset their passwords after a conf
 
 <summary>Breaking Changes</summary>
 
-#### MongoDB search for user profile
+**MongoDB search for user profile**
 
 Starting with AM versions 4.5.20, 4.6.14, 4.7.8, and 4.8.1, GitHub issue [10573](https://github.com/gravitee-io/issues/issues/10573) was implemented to mitigate performance problems with user search requests on MongoDB. This was achieved by introducing a new option to disable case-insensitive regex search when the SCIM operators `sw`, `ew` or `co` are used.
 
@@ -158,7 +158,7 @@ Alternatively, you can specify this option as an environment variable:
 gravitee_legacy_mongodb_regexCaseInsensitive=true
 ```
 
-#### Resource HTTP Factor
+**Resource HTTP Factor**
 
 The version 4.0 of the resource plugin [gravitee-am-resource-http-factor](https://download.gravitee.io/#graviteeio-ee/am/plugins/resources/gravitee-am-resource-http-factor/) has been released. This version requires AM 4.9.0 or later. The version 3.0 of the resource http factor plugin remains compatible with AM 4.9.0.
 

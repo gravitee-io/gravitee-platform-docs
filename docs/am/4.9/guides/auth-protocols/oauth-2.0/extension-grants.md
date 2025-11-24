@@ -1,3 +1,7 @@
+---
+description: Overview of Extension Grants.
+---
+
 # Extension Grants
 
 ## Overview

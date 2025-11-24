@@ -1,3 +1,7 @@
+---
+description: Overview of AM Expression Language.
+---
+
 # AM Expression Language
 
 ## Overview
@@ -112,7 +116,7 @@ After the CalloutHttpPolicy execution, this attribute is made available with the
 
 ## How to add token claims using external data
 
-For some use cases, the `access_token` or `id_token` must contain claims coming from external data sources. To include these claims, the Login flow must contain the following:&#x20;
+For some use cases, the `access_token` or `id_token` must contain claims coming from external data sources. To include these claims, the Login flow must contain the following:
 
 * The Callout HTTP Policy to request the Data to an external service
 * The Enrich Authentication Flow Policy to preserve the data until token generation
