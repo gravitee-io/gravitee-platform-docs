@@ -1,3 +1,7 @@
+---
+description: Overview of GKO.
+---
+
 # GKO 4.5.x
 
 ## Gravitee Kubernetes Operator 4.5.28 - October 15, 2025
@@ -6,32 +10,33 @@ There is nothing new in version 4.5.28.
 
 > This version was generated to keep the kubernetes operator in sync with other gravitee products.
 
-
 ## Gravitee Kubernetes Operator 4.5.27 - September 29, 2025
-    
+
 <details>
+
 <summary>Bug fixes</summary>
 
-  **GKO**
+**GKO**
 
-  * Finalizer of a secret un-referenced by a context don't get removed  on update [#10707](https://github.com/gravitee-io/issues/issues/10707)
+* Finalizer of a secret un-referenced by a context don't get removed on update [#10707](https://github.com/gravitee-io/issues/issues/10707)
 
 </details>
-
 
 ## Gravitee Kubernetes Operator 4.5.25 - September 2, 2025
 
 There is nothing new in version 4.5.25.
 
 > This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
 ## Gravitee Kubernetes Operator 4.5.24 - August 22, 2025
-    
+
 <details>
+
 <summary>Bug fixes</summary>
 
-  * GKO-created applications can be deleted through the portal UI [#10651](https://github.com/gravitee-io/issues/issues/10651)
-</details>
+* GKO-created applications can be deleted through the portal UI [#10651](https://github.com/gravitee-io/issues/issues/10651)
 
+</details>
 
 ## Gravitee Kubernetes Operator 4.5.23 - August 4, 2025
 
@@ -39,22 +44,21 @@ There is nothing new in version 4.5.23.
 
 > This version was generated to keep the kubernetes operator in sync with other gravitee products.
 
-
 ## Gravitee Kubernetes Operator 4.5.22 - July 21, 2025
 
 There is nothing new in version 4.5.22.
 
 > This version was generated to keep the kubernetes operator in sync with other gravitee products.
 
-
 ## Gravitee Kubernetes Operator 4.5.21 - July 15, 2025
-    
+
 <details>
+
 <summary>Bug fixes</summary>
 
-  * Promotion between multiple clusters fails because of plan IDs duplication [#10641](https://github.com/gravitee-io/issues/issues/10641)
-</details>
+* Promotion between multiple clusters fails because of plan IDs duplication [#10641](https://github.com/gravitee-io/issues/issues/10641)
 
+</details>
 
 ## Gravitee Kubernetes Operator 4.5.20 - June 24, 2025
 
@@ -62,15 +66,15 @@ There is nothing new in version 4.5.20.
 
 > This version was generated to keep the kubernetes operator in sync with other gravitee products.
 
-
 ## Gravitee Kubernetes Operator 4.5.19 - June 16, 2025
-    
+
 <details>
+
 <summary>Improvements</summary>
 
-  * Allow to specify custom annotations and labels on manager deployment / pod [#10613](https://github.com/gravitee-io/issues/issues/10613)
-</details>
+* Allow to specify custom annotations and labels on manager deployment / pod [#10613](https://github.com/gravitee-io/issues/issues/10613)
 
+</details>
 
 ## Gravitee Kubernetes Operator 4.5.18 - June 5, 2025
 
@@ -78,67 +82,73 @@ There is nothing new in version 4.5.18.
 
 > This version was generated to keep the kubernetes operator in sync with other gravitee products.
 
-
 ## Gravitee Kubernetes Operator 4.5.17 - May 14, 2025
-    
+
 <details>
+
 <summary>Bug fixes</summary>
 
-  * Management Context Could not be resolved in Webhook when GKO deployed on multiple namespaces [#10562](https://github.com/gravitee-io/issues/issues/10562)
-</details>
+* Management Context Could not be resolved in Webhook when GKO deployed on multiple namespaces [#10562](https://github.com/gravitee-io/issues/issues/10562)
 
+</details>
 
 ## Gravitee Kubernetes Operator 4.5.16 - May 6, 2025
-    
+
 <details>
+
 <summary>Bug fixes</summary>
 
-  * mAPI throws an exception when an Application is created using GKO with empty pictureUrl [#10531](https://github.com/gravitee-io/issues/issues/10531)
-</details>
+* mAPI throws an exception when an Application is created using GKO with empty pictureUrl [#10531](https://github.com/gravitee-io/issues/issues/10531)
 
+</details>
 
 ## Gravitee Kubernetes Operator 4.5.15 - April 28, 2025
-    
+
 <details>
+
 <summary>Bug fixes</summary>
 
-  * Installing several operators in multiple namespaces is not possible due to webhook conflict [#10499](https://github.com/gravitee-io/issues/issues/10499)
-</details>
+* Installing several operators in multiple namespaces is not possible due to webhook conflict [#10499](https://github.com/gravitee-io/issues/issues/10499)
 
+</details>
 
 ## Gravitee Kubernetes Operator 4.5.14 - April 14, 2025
-    
+
 <details>
+
 <summary>Bug fixes</summary>
 
-  * v4 APIs created via GKO not displayed in assigned Category [#10448](https://github.com/gravitee-io/issues/issues/10448)
-</details>
+* v4 APIs created via GKO not displayed in assigned Category [#10448](https://github.com/gravitee-io/issues/issues/10448)
 
+</details>
 
 ## Gravitee Kubernetes Operator 4.5.13 - April 8, 2025
-    
+
 <details>
+
 <summary>Improvements</summary>
 
-  * Allow to set `hostNetwork` flag in manager deployment [#10478](https://github.com/gravitee-io/issues/issues/10478)
-</details>
+* Allow to set `hostNetwork` flag in manager deployment [#10478](https://github.com/gravitee-io/issues/issues/10478)
 
+</details>
 
 ## Gravitee Kubernetes Operator 4.5.12 - March 28, 2025
-    
+
 <details>
+
 <summary>Bug fixes</summary>
 
-  * Severe error when deploying Native v4 API [#10406](https://github.com/gravitee-io/issues/issues/10406)
-</details>
+* Severe error when deploying Native v4 API [#10406](https://github.com/gravitee-io/issues/issues/10406)
 
+</details>
 
 <details>
+
 <summary>Security</summary>
 
-  * update module github.com/golang-jwt/jwt/v5 to v5.2.2 [#10452](https://github.com/gravitee-io/issues/issues/10452)
-</details>
+* update module github.com/golang-jwt/jwt/v5 to v5.2.2 [#10452](https://github.com/gravitee-io/issues/issues/10452)
 
+</details>
 
 ## Gravitee Kubernetes Operator 4.5.11 - March 17, 2025
 
@@ -146,71 +156,77 @@ There is nothing new in version 4.5.11.
 
 > This version was generated to keep the kubernetes operator in sync with other gravitee products.
 
-
 ## Gravitee Kubernetes Operator 4.5.10 - March 6, 2025
-    
+
 <details>
+
 <summary>Bug fixes</summary>
 
-  * V4 API deletion happens without waiting for the plan to be deleted [#10376](https://github.com/gravitee-io/issues/issues/10376)
-  * Remove releaseTimestamp annotation from manager deployment [#10358](https://github.com/gravitee-io/issues/issues/10358)
-</details>
+* V4 API deletion happens without waiting for the plan to be deleted [#10376](https://github.com/gravitee-io/issues/issues/10376)
+* Remove releaseTimestamp annotation from manager deployment [#10358](https://github.com/gravitee-io/issues/issues/10358)
 
+</details>
 
 ## Gravitee Kubernetes Operator 4.5.9 - February 17, 2025
-    
+
 <details>
+
 <summary>Bug fixes</summary>
 
-  * API v2 local flag is true by default when the API reference states it is false [#10339](https://github.com/gravitee-io/issues/issues/10339)
-  * GKO v4 API CRD is missing the analytics tracing attribute [#10322](https://github.com/gravitee-io/issues/issues/10322)
-  * Operator is reconciling every secrets on startup [#10284](https://github.com/gravitee-io/issues/issues/10284)
+* API v2 local flag is true by default when the API reference states it is false [#10339](https://github.com/gravitee-io/issues/issues/10339)
+* GKO v4 API CRD is missing the analytics tracing attribute [#10322](https://github.com/gravitee-io/issues/issues/10322)
+* Operator is reconciling every secrets on startup [#10284](https://github.com/gravitee-io/issues/issues/10284)
+
 </details>
 
-
 <details>
+
 <summary>Improvements</summary>
 
-  * Allow to disable ingress controller in helm values [#10327](https://github.com/gravitee-io/issues/issues/10327)
-  * Make the operator able to run in cluster mode but only monitor a set of namespaces listed in helm values [#10297](https://github.com/gravitee-io/issues/issues/10297)
-</details>
+* Allow to disable ingress controller in helm values [#10327](https://github.com/gravitee-io/issues/issues/10327)
+* Make the operator able to run in cluster mode but only monitor a set of namespaces listed in helm values [#10297](https://github.com/gravitee-io/issues/issues/10297)
 
+</details>
 
 <details>
+
 <summary>Security</summary>
 
-  * Narrow down verbs allowed for the manager role regarding custom resources [#10328](https://github.com/gravitee-io/issues/issues/10328)
-</details>
+* Narrow down verbs allowed for the manager role regarding custom resources [#10328](https://github.com/gravitee-io/issues/issues/10328)
 
+</details>
 
 ## Gravitee Kubernetes Operator 4.5.8 - February 5, 2025
-    
+
 <details>
+
 <summary>Bug fixes</summary>
 
-  * Management context secret resolution fails when API is in another namespace [#10315](https://github.com/gravitee-io/issues/issues/10315)
-  * GKO Helm chart causes Argo CD reconciliation loop [#10306](https://github.com/gravitee-io/issues/issues/10306)
-  * API v2 CRD export generates bad format for headers [#10288](https://github.com/gravitee-io/issues/issues/10288)
-</details>
+* Management context secret resolution fails when API is in another namespace [#10315](https://github.com/gravitee-io/issues/issues/10315)
+* GKO Helm chart causes Argo CD reconciliation loop [#10306](https://github.com/gravitee-io/issues/issues/10306)
+* API v2 CRD export generates bad format for headers [#10288](https://github.com/gravitee-io/issues/issues/10288)
 
+</details>
 
 ## Gravitee Kubernetes Operator 4.5.7 - January 27, 2025
-    
+
 <details>
+
 <summary>Bug fixes</summary>
 
-  * RBAC creation is inconsistent for admission webhook when scope is not cluster [#10294](https://github.com/gravitee-io/issues/issues/10294)
-  * Re-deploying an exported API CRD fails due to unknown metadata field [#10282](https://github.com/gravitee-io/issues/issues/10282)
-  * Documentation page not visible if parent field doesn't match folder name [#10281](https://github.com/gravitee-io/issues/issues/10281)
-</details>
+* RBAC creation is inconsistent for admission webhook when scope is not cluster [#10294](https://github.com/gravitee-io/issues/issues/10294)
+* Re-deploying an exported API CRD fails due to unknown metadata field [#10282](https://github.com/gravitee-io/issues/issues/10282)
+* Documentation page not visible if parent field doesn't match folder name [#10281](https://github.com/gravitee-io/issues/issues/10281)
 
+</details>
 
 <details>
+
 <summary>Security</summary>
 
-  * Webhook cluster role access should be narrowed down to resource names we use [#10296](https://github.com/gravitee-io/issues/issues/10296)
-</details>
+* Webhook cluster role access should be narrowed down to resource names we use [#10296](https://github.com/gravitee-io/issues/issues/10296)
 
+</details>
 
 ## Gravitee Kubernetes Operator 4.5.6 - January 17, 2025
 
