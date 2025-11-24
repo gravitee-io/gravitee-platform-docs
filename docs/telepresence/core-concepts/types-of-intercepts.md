@@ -1,4 +1,5 @@
 ---
+description: Overview of Intercepts.
 noIndex: true
 ---
 
@@ -24,11 +25,7 @@ This is the normal operation of your cluster without Telepresence.
     telepresence intercept SERVICENAME --http-header=all
     ```
 
-
-
-    {% hint style="info" %}
-    Make sure your current kubectl context points to the target cluster. If your service is running in a different namespace than your current active context, use or change the `--namespace` flag.
-    {% endhint %}
+    \{% hint style="info" %\} Make sure your current kubectl context points to the target cluster. If your service is running in a different namespace than your current active context, use or change the `--namespace` flag. \{% endhint %\}
 2.  Using the intercept: Send requests to your service:
 
     All requests will be sent to the version of your service that is running in the local development environment.
@@ -55,23 +52,16 @@ Each developer can intercept the Orders service for their requests only, while s
 
     We're using `Personal-Intercept=126a72c7-be8b-4329-af64-768e207a184b` as the header for the sake of the example, but you can use any `key=value` pair you want, or `--http-header=auto` to have it choose something automatically.
 
-    {% hint style="info" %}
-    Make sure your current kubect context points to the target cluster. If your service is running in a different namespace than your current active context, use or change the `--namespace` flag.
-    {% endhint %}
+    \{% hint style="info" %\} Make sure your current kubect context points to the target cluster. If your service is running in a different namespace than your current active context, use or change the `--namespace` flag. \{% endhint %\}
 2.  Using the intercept: Send requests to your service by passing the HTTP header:
 
     ```http
     Personal-Intercept: 126a72c7-be8b-4329-af64-768e207a184b
     ```
 
+    \{% hint style="info" %\} Need a browser extension to modify or remove an HTTP-request-headers?
 
-
-    {% hint style="info" %}
-    Need a browser extension to modify or remove an HTTP-request-headers?
-
-    [Chrome](https://chrome.google.com/webstore/detail/modheader/idgpnmonknjnojddfkpgkljpfnnfcklj) | [Firefox](https://addons.mozilla.org/firefox/addon/modify-header-value/)
-    {% endhint %}
-3.  Using the intercept: Send requests to your service without the HTTP header:
+    [Chrome](https://chrome.google.com/webstore/detail/modheader/idgpnmonknjnojddfkpgkljpfnnfcklj) | [Firefox](https://addons.mozilla.org/firefox/addon/modify-header-value/) \{% endhint %\}3. Using the intercept: Send requests to your service without the HTTP header:
 
     Requests without the header will be sent to the version of your service that is running in the cluster. This enables you to share the cluster with a team!
 
