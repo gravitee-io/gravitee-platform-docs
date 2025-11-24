@@ -34,6 +34,10 @@
 
 <summary>Bug Fixes</summary>
 
+**Console**
+
+* Export was exposing unwanted `hrid` field in CRD export [#10937](https://github.com/gravitee-io/issues/issues/10937)
+
 **Other**
 
 * Lost api notifications after upgrade [#10924](https://github.com/gravitee-io/issues/issues/10924)
