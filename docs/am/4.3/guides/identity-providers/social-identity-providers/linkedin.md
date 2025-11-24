@@ -1,3 +1,7 @@
+---
+description: Overview of LinkedIn.
+---
+
 # LinkedIn
 
 ## Overview

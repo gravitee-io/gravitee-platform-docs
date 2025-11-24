@@ -1,3 +1,7 @@
+---
+description: API and reference documentation for Language Default Properties Reference.
+---
+
 # Language Default Properties Reference
 
 ## Email templates
