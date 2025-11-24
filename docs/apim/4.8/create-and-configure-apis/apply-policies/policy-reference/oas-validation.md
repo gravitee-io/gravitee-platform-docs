@@ -1,3 +1,7 @@
+---
+description: An overview about oas validation.
+---
+
 # OAS Validation
 
 {% hint style="warning" %}

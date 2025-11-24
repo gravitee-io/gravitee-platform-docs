@@ -1,3 +1,7 @@
+---
+description: An overview about quick start guide.
+---
+
 # Quick Start Guide
 
 ## Overview

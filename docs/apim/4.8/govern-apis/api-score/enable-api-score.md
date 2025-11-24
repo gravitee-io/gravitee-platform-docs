@@ -1,3 +1,7 @@
+---
+description: An overview about enable api score.
+---
+
 # Enable API Score
 
 {% hint style="warning" %}
@@ -18,10 +22,10 @@ API Score is a technology preview feature, meaning you must to opt-in to use it.
 
 1.  From the home page, click **Settings**.
 
-    <figure><img src="../../../4.7/.gitbook/assets/image (218) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 2.  In the **Portal** section, click **API Quality**.
 
-    <figure><img src="../../../4.7/.gitbook/assets/image (220) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../4.7/.gitbook/assets/image%20(220)%20(1).png" alt=""><figcaption></figcaption></figure>
 3.  In the **API Score** section, turn on **Enable API Score**.
 
-    <figure><img src="../../../4.7/.gitbook/assets/image (221) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../4.7/.gitbook/assets/image%20(221)%20(1).png" alt=""><figcaption></figcaption></figure>

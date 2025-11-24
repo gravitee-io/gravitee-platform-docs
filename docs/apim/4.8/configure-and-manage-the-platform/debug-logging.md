@@ -1,18 +1,22 @@
+---
+description: An overview about debug logging.
+---
+
 # Debug Logging
 
 ## Overview
 
 {% hint style="danger" %}
-&#x20;Debug logging can reduce performance. To avoid issues with performance, enable debug logging for only specific troubleshooting purposes.
+Debug logging can reduce performance. To avoid issues with performance, enable debug logging for only specific troubleshooting purposes.
 {% endhint %}
 
-Gravitee supports standard Java logging for each Gravitee component and debug logging for specific Java classes. For example:&#x20;
+Gravitee supports standard Java logging for each Gravitee component and debug logging for specific Java classes. For example:
 
 ```
 com.graviteesource.secretprovider.microsoft.keyvault.client.MicrosoftKeyVaultClientImpl
 ```
 
-You can enable debug logging using the internal `logback.xml` file or the [Gravitee Helm chart](https://github.com/gravitee-io/gravitee-api-management/blob/master/helm/values.yaml) `values.yml` file.  After you had made your changes, you must start the specific Gravitee components.  Or, you can temporarily enable debug logging using the [#internal-api](debug-logging.md#internal-api "mention") without restarting the component or container. When you restart the component or container, the runtime configuration is lost and debug logging is disabled. You can enable component-based debug logging and java-class debug logging.
+You can enable debug logging using the internal `logback.xml` file or the [Gravitee Helm chart](https://github.com/gravitee-io/gravitee-api-management/blob/master/helm/values.yaml) `values.yml` file. After you had made your changes, you must start the specific Gravitee components. Or, you can temporarily enable debug logging using the [#internal-api](debug-logging.md#internal-api "mention") without restarting the component or container. When you restart the component or container, the runtime configuration is lost and debug logging is disabled. You can enable component-based debug logging and java-class debug logging.
 
 Component-based debug logging means that you enable debug logging for the following individual Gravitee components that make up the APIM platform:
 

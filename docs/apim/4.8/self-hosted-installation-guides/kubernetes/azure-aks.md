@@ -1,6 +1,10 @@
+---
+description: An overview about azure aks.
+---
+
 # Azure AKS
 
-## Overview&#x20;
+## Overview
 
 This guide explains how to deploy a complete self-hosted Gravitee APIM platform on Azure Kubernetes Service (AKS) using Helm charts.
 
@@ -49,12 +53,11 @@ helm install ingress-nginx ingress-nginx/ingress-nginx \
   --set controller.admissionWebhooks.enabled=false
 ```
 
-#### Verification&#x20;
+#### Verification
 
 Complete the following steps to verify the NGINX Ingress Controller installation:
 
 *   Verify the service is running using the following command:
-
 
     ```bash
     kubectl get service -n ingress-nginx ingress-nginx-controller
@@ -63,16 +66,11 @@ Complete the following steps to verify the NGINX Ingress Controller installation
     \
     The output shows the Ingress Nginx controller with the Cluster IP, and External IP address:
 
-
     ```bash
     NAME                       TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)                      AGE
     ingress-nginx-controller   LoadBalancer   10.0.x.x      20.x.x.x       80:30080/TCP,443:30443/TCP   2m
     ```
-
-
-
 *   Verify the NGINX ingress controller pods are running using the following command:
-
 
     ```bash
     kubectl get pods -n ingress-nginx
@@ -80,7 +78,6 @@ Complete the following steps to verify the NGINX Ingress Controller installation
 
     \
     The output shows the Ingress Nginx controller pod in running status:
-
 
     ```bash
     NAME                                        READY   STATUS    RESTARTS   AGE
@@ -100,7 +97,7 @@ To install the Gravitee APIM, complete the following steps:
 7. [#prepare-the-values.yamlfor-helm](azure-aks.md#prepare-the-values.yamlfor-helm "mention")
 8. [#install-using-helm](azure-aks.md#install-using-helm "mention")
 
-### Create Namespace&#x20;
+### Create Namespace
 
 Kubernetes namespaces provide logical isolation and organization within a cluster. Creating a dedicated namespace for Gravitee APIM:
 
@@ -123,7 +120,6 @@ To support API definitions and configuration, you must install MongoDB into your
 
 1.  Install MongoDB with Helm using the following command:
 
-
     ```bash
     helm install gravitee-mongodb oci://registry-1.docker.io/bitnamicharts/mongodb \
       --version 14.12.3 \
@@ -141,10 +137,7 @@ To support API definitions and configuration, you must install MongoDB into your
       --set resources.requests.memory=512Mi \
       --set resources.requests.cpu=250m
     ```
-
-
 2.  Extract the MongoDB hostname from the command output, and then save it for future use. The following sample output lists `gravitee-mongodb.gravitee-apim.svc.cluster.local` as the MongoDB hostname:
-
 
     ```bash
     NAME: gravitee-mongodb
@@ -171,12 +164,9 @@ To support API definitions and configuration, you must install MongoDB into your
 
     ```
 
-
-
-#### Verification&#x20;
+#### Verification
 
 *   To verify that your MongoDB deployment succeeded, check pod status using the following command:
-
 
     ```bash
     kubectl get pods -n gravitee-apim -l app.kubernetes.io/instance=gravitee-mongodb
@@ -186,18 +176,16 @@ To support API definitions and configuration, you must install MongoDB into your
     \
     The command generates the following output:
 
-
     ```bash
     NAME                  READY   STATUS    RESTARTS   AGE
     gravitee-mongodb-0    1/1     Running   0          2m
     ```
 
-### Install Elasticsearch&#x20;
+### Install Elasticsearch
 
-To support analytics and logging, you must install Elasticsearch into your Kubernetes cluster. For more information on installing Elasticsearch, see the [official chart documentation.](https://artifacthub.io/packages/helm/bitnami/elasticsearch)&#x20;
+To support analytics and logging, you must install Elasticsearch into your Kubernetes cluster. For more information on installing Elasticsearch, see the [official chart documentation.](https://artifacthub.io/packages/helm/bitnami/elasticsearch)
 
 1.  Install Elasticsearch with Helm using the following command:
-
 
     ```bash
       helm install gravitee-elasticsearch elastic/elasticsearch \
@@ -214,7 +202,6 @@ To support analytics and logging, you must install Elasticsearch into your Kuber
           --set clusterHealthCheckParams="wait_for_status=yellow&timeout=1s"
     ```
 2.  Extract the Elasticsearch hostname from the command output and save it for future use. The following sample output lists `http://gravitee-elasticsearch.gravitee-apim.svc.cluster.local:9200` as the Elasticsearch hostname:
-
 
     ```bash
     Pulled: registry-1.docker.io/bitnamicharts/elasticsearch:19.13.14
@@ -245,7 +232,6 @@ To support analytics and logging, you must install Elasticsearch into your Kuber
 
 *   To verify that your Elasticsearch deployment succeeded, check pod status using the following command:
 
-
     ```bash
     kubectl get pods -n gravitee-apim -l app.kubernetes.io/instance=gravitee-elasticsearch
     ```
@@ -254,7 +240,6 @@ To support analytics and logging, you must install Elasticsearch into your Kuber
     \
     The command generates the following output:
 
-
     ```bash
     NAME                              READY   STATUS    RESTARTS   AGE
     gravitee-elasticsearch-master-0   1/1     Running   0          2m
@@ -262,9 +247,9 @@ To support analytics and logging, you must install Elasticsearch into your Kuber
 
 ### (Optional) Install Redis
 
-To support caching and rate-limiting, you must install Redis into your Kubernetes cluster. For more information about installing Redis, see the [official chart documentation. ](https://artifacthub.io/packages/helm/bitnami/redis)
+To support caching and rate-limiting, you must install Redis into your Kubernetes cluster. For more information about installing Redis, see the [official chart documentation.](https://artifacthub.io/packages/helm/bitnami/redis)
 
-1.  Install Redis with Helm using the following command: &#x20;
+1.  Install Redis with Helm using the following command:
 
     ```bash
       helm install gravitee-redis oci://registry-1.docker.io/bitnamicharts/redis \
@@ -307,27 +292,24 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
 
 *   To verify that your Redis deployment succeeded, check pod status using the following command:
 
-
     ```bash
     kubectl get pods -n gravitee-apim -l app.kubernetes.io/instance=gravitee-redis
     ```
 
     \
     \
-    The command generates the following output: 
-
+    The command generates the following output:
 
     ```bash
     NAME                      READY   STATUS    RESTARTS   AGE
     gravitee-redis-master-0   1/1     Running   0          2m
     ```
 
-### (Optional) Install PostgreSQL&#x20;
+### (Optional) Install PostgreSQL
 
-To support management data, you can install PostgreSQL into your Kubernetes cluster. For more information on installing PostgreSQL, see the [official chart documentation.](https://artifacthub.io/packages/helm/bitnami/postgresql)&#x20;
+To support management data, you can install PostgreSQL into your Kubernetes cluster. For more information on installing PostgreSQL, see the [official chart documentation.](https://artifacthub.io/packages/helm/bitnami/postgresql)
 
 1.  Install PostgreSQL with Helm using the following command:
-
 
     ```bash
       helm install gravitee-postgresql oci://registry-1.docker.io/bitnamicharts/postgresql \
@@ -345,9 +327,7 @@ To support management data, you can install PostgreSQL into your Kubernetes clus
         --set primary.resources.requests.memory=512Mi \
         --set primary.resources.requests.cpu=250m
     ```
-
-
-2.  Extract the PostgreSQL hostname from the command output and save it for future use. The following sample output lists `gravitee-postgresql.gravitee-apim.svc.cluster.local`  as the PostgreSQL hostname:
+2.  Extract the PostgreSQL hostname from the command output and save it for future use. The following sample output lists `gravitee-postgresql.gravitee-apim.svc.cluster.local` as the PostgreSQL hostname:
 
     ```bash
     NAME: gravitee-postgresql
@@ -367,15 +347,13 @@ To support management data, you can install PostgreSQL into your Kubernetes clus
         export POSTGRES_PASSWORD=$(kubectl get secret --namespace gravitee-apim gravitee-postgresql -o jsonpath="{.data.postgres-password}" | base64 -d)
     ```
 
-#### Verification&#x20;
+#### Verification
 
 1.  To verify that your PostgreSQL deployment succeeded, retrieve the password using the following command:
 
     ```bash
     kubectl get secret --namespace gravitee-apim gravitee-postgresql -o jsonpath="{.data.postgres-password}" | base64 -d
     ```
-
-
 2.  Check pod status using the following command:
 
     ```bash
@@ -383,16 +361,14 @@ To support management data, you can install PostgreSQL into your Kubernetes clus
     ```
 
     \
-    The command generates the following output:&#x20;
+    The command generates the following output:
 
     ```bash
     NAME                    READY   STATUS    RESTARTS   AGE
     gravitee-postgresql-0   1/1     Running   0          2m
     ```
 
-
-
-### (Enterprise Edition Only) Create Secret&#x20;
+### (Enterprise Edition Only) Create Secret
 
 Before installing Gravitee APIM for [enterprise edition](../../readme/enterprise-edition.md), you need to create a Kubernetes secret for your license key.
 
@@ -410,10 +386,9 @@ Before installing Gravitee APIM for [enterprise edition](../../readme/enterprise
 * If you don't have a license key, you can still proceed with community features.
 {% endhint %}
 
-### Prepare the `values.yaml` for Helm&#x20;
+### Prepare the `values.yaml` for Helm
 
 1.  Create a `values.yaml` file in your working directory and copy the following Gravitee configuration into it. This is the base configuration for your self-hosted APIM platform:
-
 
     ```yaml
     # MongoDB Configuration
@@ -739,16 +714,13 @@ Before installing Gravitee APIM for [enterprise edition](../../readme/enterprise
         targetAverageUtilization: 70
         targetMemoryAverageUtilization: 80
     ```
-
-
-
 2. Save your Gravitee `values.yaml` file in your working directory.
 
 <details>
 
 <summary>Explanations of key predefined <code>values.yaml</code> parameter settings</summary>
 
-#### **Service Configuration**
+**Service Configuration**
 
 The self-hosted setup uses `ClusterIP` services with **NGINX ingress controllers** for external access:
 
@@ -757,14 +729,14 @@ The self-hosted setup uses `ClusterIP` services with **NGINX ingress controllers
 * **Domain-based routing**: Uses separate domains for Gateway, Management API, Console UI, and Portal UI
 * **HTTPS enforcement**: All traffic can be redirected to HTTPS with SSL certificates from **Azure Key Vault** or **cert-manager**
 
-#### **Resource Allocation**
+**Resource Allocation**
 
 The configured resource limits ensure optimal performance while preventing resource exhaustion:
 
 * **Management API/Gateway**: 1-2Gi memory, 500m-1 CPU (handles API processing, gateway routing, and management operations)
 * **UI Components (Console/Portal)**: 256-512Mi memory, 100-250m CPU (lightweight frontend serving)
 
-#### **Ingress Strategy**
+**Ingress Strategy**
 
 The ingress configuration enables external access with **NGINX-specific features**:
 
@@ -774,7 +746,7 @@ The ingress configuration enables external access with **NGINX-specific features
 * **SSL/TLS**: TLS secrets (api-tls-secret, gateway-tls-secret, etc.) for HTTPS termination
 * **NGINX annotations**: Proxy settings, timeouts, body size limits, and rewrite rules
 
-#### **Autoscaling Configuration**
+**Autoscaling Configuration**
 
 Horizontal Pod Autoscaling is enabled for all components to handle variable load with **Azure metrics**:
 
@@ -782,7 +754,7 @@ Horizontal Pod Autoscaling is enabled for all components to handle variable load
 * **UI Components**: Scales 1-3 replicas based on 70% CPU and 80% memory utilization
 * **Dynamic scaling**: Automatically adjusts pod count based on actual resource consumption via **Azure Monitor metrics**
 
-#### **Security Configuration**
+**Security Configuration**
 
 Multiple security layers protect the deployment:
 
@@ -791,9 +763,7 @@ Multiple security layers protect the deployment:
 
 </details>
 
-
-
-### Install using Helm&#x20;
+### Install using Helm
 
 To install your Gravitee APIM with Helm, complete the following steps:
 
@@ -815,7 +785,7 @@ To install your Gravitee APIM with Helm, complete the following steps:
       -f ./values.yaml
     ```
 
-#### Verification&#x20;
+#### Verification
 
 Verify the installation was successful. The command output should be similar to the following:
 
@@ -827,13 +797,13 @@ STATUS: deployed
 REVISION: 1
 ```
 
-To uninstall Gravitee APIM, use the following command:&#x20;
+To uninstall Gravitee APIM, use the following command:
 
 ```bash
 helm uninstall gravitee-apim --namespace gravitee-apim
 ```
 
-## Verification&#x20;
+## Verification
 
 To verify that your Gravitee APIM platform is up and running on AKS, complete the following steps:
 
@@ -848,19 +818,19 @@ To verify that your Gravitee APIM platform is up and running on AKS, complete th
 
 Access the Gravitee APIM web interface using the following steps:
 
-#### Management Console&#x20;
+#### Management Console
 
-Open your browser and navigate to: `https://console.yourdomain.com/console`  The interface allows you to configure APIs, policies, and monitor your API platform.&#x20;
+Open your browser and navigate to: `https://console.yourdomain.com/console` The interface allows you to configure APIs, policies, and monitor your API platform.
 
-#### Developer Portal&#x20;
+#### Developer Portal
 
-Open your browser and navigate to: `https://portal.yourdomain.com/`  The self-service portal allows developers to discover and consume APIs.&#x20;
+Open your browser and navigate to: `https://portal.yourdomain.com/` The self-service portal allows developers to discover and consume APIs.
 
-### Validate the Pods&#x20;
+### Validate the Pods
 
 A healthy deployment displays all pods with the `Running` status, `1/1` ready containers, and zero or minimal restart counts.
 
-To validate the pods, complete the following steps:&#x20;
+To validate the pods, complete the following steps:
 
 1.  Use the following command to query the pod status:
 
@@ -881,18 +851,14 @@ gravitee-postgresql-0                   1/1     Running   0          23m
 gravitee-redis-master-0                 1/1     Running   0          23m
 ```
 
-### Validate the Services  <a href="#validate-the-pods" id="validate-the-pods"></a>
+### Validate the Services <a href="#validate-the-pods" id="validate-the-pods"></a>
 
 1.  To verify service configuration, run the following command:
-
 
     ```bash
     kubectl get services -n gravitee-apim
     ```
-
-
 2.  Verify that all services are properly configured. The output should show all required services:
-
 
     ```bash
     NAME                              TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)
@@ -907,46 +873,34 @@ gravitee-redis-master-0                 1/1     Running   0          23m
 
     ```
 
-### Validate the Gateway logs&#x20;
+### Validate the Gateway logs
 
 To validate the Gateway logs, complete the following steps:
 
 1.  List the Gateway pod using the following command:
 
-
     ```bash
     kubectl get pods -n gravitee-apim | grep gateway
     ```
-
-
-
 2.  Verify that the Gateway is running properly. The output should show the Gateway ready and running:
-
 
     ```bash
     gravitee-apim-gateway-xxxxxxxxxx  1/1     Running   0          23m
     ```
-
-
-3.  View the Gateway logs using the following command: 
-
+3.  View the Gateway logs using the following command:
 
     ```bash
     kubectl logs -f gravitee-apim-gateway-xxxxxxxxxxxx -n gravitee-apim
     ```
 
-
-
-### Validate Ingress&#x20;
+### Validate Ingress
 
 1.  Verify ingress is working with the following command:
-
 
     ```bash
     kubectl get ingress -n gravitee-apim
     ```
-2.  The output should show the hosts and Azure Load Balancer IP addresses: 
-
+2.  The output should show the hosts and Azure Load Balancer IP addresses:
 
     ```bash
     NAME                              CLASS   HOSTS                    ADDRESS          PORTS     AGE
@@ -957,16 +911,16 @@ To validate the Gateway logs, complete the following steps:
     gravitee-apim-portal              nginx   portal.yourdomain.com    20.x.x.x         80, 443   23m
     ```
 
-### Validate the Gateway URL&#x20;
+### Validate the Gateway URL
 
 Validate your Gateway URL using the following steps:
 
-1. [Validate Gateway URL using Ingress ](azure-aks.md#validate-gateway-url-using-ingress)
+1. [Validate Gateway URL using Ingress](azure-aks.md#validate-gateway-url-using-ingress)
 2. [Validate Gateway URL using Port Forwarding](azure-aks.md#validate-gateway-url-using-port-forwarding)
 
 The Gateway URL is determined by the ingress configuration in your `values.yaml` file and Azure DNS settings pointing to the Azure Load Balancer IP addresses.
 
-#### Validate Gateway URL using Ingress&#x20;
+#### Validate Gateway URL using Ingress
 
 To validate the Gateway URL, complete the following steps:
 
@@ -990,14 +944,14 @@ To validate the Gateway URL, complete the following steps:
     No context-path matches the request URI.
     ```
 
-#### Validate Gateway URL using Port Forwarding&#x20;
+#### Validate Gateway URL using Port Forwarding
 
-1.  Set up port forwarding for the Gateway using the following command:&#x20;
+1.  Set up port forwarding for the Gateway using the following command:
 
     ```bash
     kubectl port-forward svc/gravitee-apim-gateway 8082:82 -n gravitee-apim
     ```
-2.  Verify via port forwarding using the following command:&#x20;
+2.  Verify via port forwarding using the following command:
 
     ```bash
     curl http://localhost:8082/
@@ -1010,5 +964,5 @@ To validate the Gateway URL, complete the following steps:
 
 ## Next steps <a href="#next-steps" id="next-steps"></a>
 
-* Create your first API. For more information about creating your first API, see [Create & Publish Your First API](../../how-to-guides/create-and-publish-your-first-api/README.md).
+* Create your first API. For more information about creating your first API, see [Create & Publish Your First API](../../how-to-guides/create-and-publish-your-first-api/).
 * Add native Kafka capabilities. For more information about adding native Kafka capabilities, see [Configure the Kafka Client & Gateway](../../kafka-gateway/configure-the-kafka-client-and-gateway.md).

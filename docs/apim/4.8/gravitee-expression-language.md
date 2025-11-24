@@ -1,3 +1,7 @@
+---
+description: An overview about gravitee expression language.
+---
+
 # Gravitee Expression Language
 
 ## Overview
@@ -89,7 +93,6 @@ EL provides a variety of built-in functions to manipulate and transform data in 
 * `#jsonPath`: Evaluates a `jsonPath` on a specified object. This function invokes `JsonPathUtils.evaluate(…​)`, which delegates to the [Jayway JsonPath library](https://github.com/json-path/JsonPath). The best way to learn jsonPath syntax is by using the [online evaluator](https://jsonpath.com/).
   *   **`jsonPath` example**
 
-
       ```json
       {
         "store": {
@@ -113,7 +116,6 @@ EL provides a variety of built-in functions to manipulate and transform data in 
       }
       ```
   *   To extract the value of the `price` property for the book with `title` "The Lord of the Rings," you can use the following expression: `{#jsonPath(#request.content, "$.store.book[?(@.title=='The Lord of the Rings')].price")}`
-
 
       ```json
       {
@@ -139,8 +141,7 @@ EL provides a variety of built-in functions to manipulate and transform data in 
       ```
 * `#xpath`: Evaluates an `xpath` on a provided object. For more information regarding XML and XPath, see [XML Support - Dealing with XML Payloads](https://docs.spring.io/spring-integration/reference/xml.html) in the SpEL documentation.
 * `xmlEspace`: Escapes XML content to ensure that it safe for inclusion in XML or SOAP documents, which prevents injection attacks. This function utilizes Apache Commons Text StringEscapeUtils.escapeXml10() for XML 1.0-compliant escaping.
-  *   `xmlEscape example` 
-
+  *   `xmlEscape example`
 
       ```jsonp
       <soap:Envelope>
@@ -162,7 +163,7 @@ However, depending on the content-type, you can have access to specific content.
 **JSON content**
 
 {% hint style="warning" %}
-If a JSON payload that has duplicate keys, APIM keeps the last key.&#x20;
+If a JSON payload that has duplicate keys, APIM keeps the last key.
 
 To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection.md](create-and-configure-apis/apply-policies/policy-reference/json-threat-protection.md "mention").
 {% endhint %}
@@ -179,7 +180,7 @@ You can access specific attribute of a JSON request/response payload with `{#req
 
 **XML content**
 
-You can access specific tag of a XML request/response payload with `{#request.xmlContent.foo.bar}` , where the request body is similar to the following example:&#x20;
+You can access specific tag of a XML request/response payload with `{#request.xmlContent.foo.bar}` , where the request body is similar to the following example:
 
 ```xml
 <foo>
@@ -378,7 +379,7 @@ Refer to the following links for examples of how to use Gravitee Expression Lang
 {% tabs %}
 {% tab title="Reactive engine improvements" %}
 {% hint style="warning" %}
-If a JSON payload has duplicate keys, APIM keeps the last key.&#x20;
+If a JSON payload has duplicate keys, APIM keeps the last key.
 
 To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection.md](create-and-configure-apis/apply-policies/policy-reference/json-threat-protection.md "mention").
 {% endhint %}

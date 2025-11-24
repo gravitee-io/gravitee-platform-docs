@@ -1,3 +1,7 @@
+---
+description: An overview about openshift.
+---
+
 # OpenShift
 
 ## Overview
@@ -20,7 +24,7 @@ Before you install a Hybrid Gateway, complete the following steps:
 To deploy APIM with OpenShift, you must be running **OpenShift version 3.10 or later**. This is required because the Gravitee Helm Chart only supports Ingress standard objects. It does not support the specific OpenShift Routes.
 {% endhint %}
 
-When deploying APIM within OpenShift, you must:&#x20;
+When deploying APIM within OpenShift, you must:
 
 * Use the full host domain instead of paths for all components. Ingress paths are not sufficiently supported by OpenShift.
 * Override the security context to let OpenShift automatically define the `user-id` and `group-id` with which to run containers.

@@ -1,10 +1,12 @@
+---
+description: An overview about docker cli.
+---
+
 # Docker CLI
 
 ## Overview
 
 This guide explains how to install the Data Plane using Docker CLI commands. The Data Plane includes core components like the Gateway and Redis for rate limiting.
-
-{% include "../../../../4.6/.gitbook/includes/installation-guide-note (1).md" %}
 
 ## Prerequisites
 
@@ -21,7 +23,7 @@ To enable API rate-limiting, configure your Gateway to use a rate-limiting repos
     ```sh
     docker network create gravitee-network
     ```
-2.  Run the command below to start Redis. 
+2.  Run the command below to start Redis.
 
     ```sh
     docker run -d \
@@ -56,7 +58,7 @@ To enable API rate-limiting, configure your Gateway to use a rate-limiting repos
     * Set `redis_password` environment variable: `export redis_password=your_redis_password` or replace `${redis_password}` with your actual Redis password.
     *   Replace `<CONTROL_PLANE_VERSION>` with the version that matches your Gravitee Cloud Control Plane. For example. 4.8.2.
 
-        <figure><img src="../../../.gitbook/assets/image (324) (1).png" alt=""><figcaption></figcaption></figure>
+        <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 
 ## Verification
 
@@ -78,7 +80,7 @@ To confirm that your Hybrid installation is working, complete the following step
     ```
 
     \
-    The command generates the following output. 
+    The command generates the following output.
 
     ```sh
     CONTAINER ID   IMAGE                         COMMAND                  CREATED             STATUS             PORTS                    NAMES
@@ -147,7 +149,7 @@ This response confirms that the Gateway has initialized, but no APIs have been d
     ```
 
     \
-    The command generates the following output: 
+    The command generates the following output:
 
     ```bash
     [gio-apim-hybrid-gateway] INFO  i.g.p.c.internal.PluginRegistryImpl - Loading plugins from /opt/graviteeio-gateway/plugins

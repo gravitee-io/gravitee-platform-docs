@@ -1,3 +1,7 @@
+---
+description: An overview about create and publish an api using the management api.
+---
+
 # Create and Publish an API Using the Management API
 
 ## Overview
@@ -29,7 +33,7 @@ To generate a PAT, complete the following steps:
 4. Click your username, and then scroll to `Tokens`.
 5.  Click `Generate a personal token`. This (bearer) token is used in the `Authorization` header when you make requests to the Management API.
 
-    <figure><img src="../../../4.7/.gitbook/assets/00 firas (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 6.  Set the Personal Access Token and management API base URL to environment variables by using values appropriate for your environment:
 
     ```bash

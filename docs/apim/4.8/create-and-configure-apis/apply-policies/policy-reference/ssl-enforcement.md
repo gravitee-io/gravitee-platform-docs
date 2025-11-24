@@ -1,3 +1,7 @@
+---
+description: An overview about ssl enforcement.
+---
+
 # SSL Enforcement
 
 {% hint style="warning" %}
