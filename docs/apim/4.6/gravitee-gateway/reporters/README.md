@@ -1,3 +1,7 @@
+---
+description: An overview about reporters.
+---
+
 # Reporters
 
 ## Overview
@@ -31,7 +35,7 @@ By default, reporters generate the following data, with the camelCase format sho
 
 {% tabs %}
 {% tab title="v4 Metrics" %}
-<table><thead><tr><th width="349">Metric Name</th><th>Purpose</th></tr></thead><tbody><tr><td>requestId</td><td>Unique identifier Universally Unique Identifier (UUID) identifying the request</td></tr><tr><td>transactionId</td><td>Used to track end-to-end transactions spanning across multiple HTTP requests. The Gateway configuration allows defining an expected correlation ID header passed by a client request. If this header is set, the content of this field will be set to the value of the header. If no correlation header has been passed, the content of this field will be the same as the content of the request ID. This value will be propagated to the upstream service using the correlation header defined in the configuration (the default header is <code>X-Gravitee-Transaction-Id</code>).</td></tr><tr><td>apiId</td><td>ID of the API</td></tr><tr><td>apiName</td><td>Name of the API at the time of the request</td></tr><tr><td>apiType</td><td>Type of the API (message, proxy)</td></tr><tr><td>planId</td><td>ID of the plan</td></tr><tr><td>applicationId</td><td>The application ID; for a keyless plan, this value is "1"</td></tr><tr><td>subscriptionId</td><td>The subscription ID; for a keyless plan, this value will be the same as the value of the remote address field</td></tr><tr><td>clientIdentifier</td><td>Unique identifier for the client</td></tr><tr><td>tenant</td><td>ID of the tenant evaluated for the API (see <a href="../tenants.md">tenants</a>)</td></tr><tr><td>zone</td><td>Text field set in gravitee.yml to indicate additional information about the gateway instance the API is running on</td></tr><tr><td>httpMethod</td><td>HTTP verb used in the client connection</td></tr><tr><td>localAddress</td><td>The address used as a destination when the incoming request was issued by the client</td></tr><tr><td>remoteAddress</td><td>The remote address used as a source when the incoming request was issued by the client</td></tr><tr><td>host</td><td>The content of the <code>Host</code> header, passed when the incoming request was issued by the client</td></tr><tr><td>uri</td><td>The URI used by the client to perform its request (this includes the context path of the request and query parameters)</td></tr><tr><td>pathInfo</td><td>The path used to perform the client request (starting from the context path of the API)</td></tr><tr><td>mappedPath</td><td>If a path mapping has been defined to group requests in your analytics, this is the value of your mapping.</td></tr><tr><td>userAgent</td><td>The content of the <code>User-Agent</code> header, passed by the client when the incoming request was issued</td></tr><tr><td>requestContentLength</td><td>The size of the body, in bytes, of the incoming request issued by the Gateway client</td></tr><tr><td>requestEnded</td><td>Boolean  to indicate if the request has completed; request may be ongoing if the connection is over Websocket or SSE</td></tr><tr><td>entrypointId</td><td>ID of the entrypoint used in the API connection</td></tr><tr><td>endpoint</td><td>The URL used by the proxy to forward the request to the upstream service</td></tr><tr><td>endpointResponseTimeMs</td><td>The time (ms) it takes the upstream service to respond to the Gateway proxy</td></tr><tr><td>responseContentLength</td><td>The size of the body, in bytes, of the response received by the Gateway client</td></tr><tr><td>gatewayResponseTimeMs</td><td>The time (ms) it takes the Gateway to respond to the client (this includes the roundtrip between the Gateway and the upstream service)</td></tr><tr><td>gatewayLatencyMs</td><td>The overhead added by the Gateway when forwarding the request upstream and the response back to the client</td></tr><tr><td>user</td><td>The authenticated user, if any type of security was used when processing the request</td></tr><tr><td>securityType</td><td>The security type, if security was used when processing the request (can be either API_KEY, OAUTH2 or JWT)</td></tr><tr><td>securityToken</td><td>The security token, if any type of security was used when processing the request</td></tr><tr><td>errorMessage</td><td>A more detailed explanation of the error associated with the error key (if any)</td></tr><tr><td>errorKey</td><td>If the policy chain was interrupted by an error, this key identifies the error type</td></tr></tbody></table>
+<table><thead><tr><th width="349">Metric Name</th><th>Purpose</th></tr></thead><tbody><tr><td>requestId</td><td>Unique identifier Universally Unique Identifier (UUID) identifying the request</td></tr><tr><td>transactionId</td><td>Used to track end-to-end transactions spanning across multiple HTTP requests. The Gateway configuration allows defining an expected correlation ID header passed by a client request. If this header is set, the content of this field will be set to the value of the header. If no correlation header has been passed, the content of this field will be the same as the content of the request ID. This value will be propagated to the upstream service using the correlation header defined in the configuration (the default header is <code>X-Gravitee-Transaction-Id</code>).</td></tr><tr><td>apiId</td><td>ID of the API</td></tr><tr><td>apiName</td><td>Name of the API at the time of the request</td></tr><tr><td>apiType</td><td>Type of the API (message, proxy)</td></tr><tr><td>planId</td><td>ID of the plan</td></tr><tr><td>applicationId</td><td>The application ID; for a keyless plan, this value is "1"</td></tr><tr><td>subscriptionId</td><td>The subscription ID; for a keyless plan, this value will be the same as the value of the remote address field</td></tr><tr><td>clientIdentifier</td><td>Unique identifier for the client</td></tr><tr><td>tenant</td><td>ID of the tenant evaluated for the API (see <a href="../tenants.md">tenants</a>)</td></tr><tr><td>zone</td><td>Text field set in gravitee.yml to indicate additional information about the gateway instance the API is running on</td></tr><tr><td>httpMethod</td><td>HTTP verb used in the client connection</td></tr><tr><td>localAddress</td><td>The address used as a destination when the incoming request was issued by the client</td></tr><tr><td>remoteAddress</td><td>The remote address used as a source when the incoming request was issued by the client</td></tr><tr><td>host</td><td>The content of the <code>Host</code> header, passed when the incoming request was issued by the client</td></tr><tr><td>uri</td><td>The URI used by the client to perform its request (this includes the context path of the request and query parameters)</td></tr><tr><td>pathInfo</td><td>The path used to perform the client request (starting from the context path of the API)</td></tr><tr><td>mappedPath</td><td>If a path mapping has been defined to group requests in your analytics, this is the value of your mapping.</td></tr><tr><td>userAgent</td><td>The content of the <code>User-Agent</code> header, passed by the client when the incoming request was issued</td></tr><tr><td>requestContentLength</td><td>The size of the body, in bytes, of the incoming request issued by the Gateway client</td></tr><tr><td>requestEnded</td><td>Boolean to indicate if the request has completed; request may be ongoing if the connection is over Websocket or SSE</td></tr><tr><td>entrypointId</td><td>ID of the entrypoint used in the API connection</td></tr><tr><td>endpoint</td><td>The URL used by the proxy to forward the request to the upstream service</td></tr><tr><td>endpointResponseTimeMs</td><td>The time (ms) it takes the upstream service to respond to the Gateway proxy</td></tr><tr><td>responseContentLength</td><td>The size of the body, in bytes, of the response received by the Gateway client</td></tr><tr><td>gatewayResponseTimeMs</td><td>The time (ms) it takes the Gateway to respond to the client (this includes the roundtrip between the Gateway and the upstream service)</td></tr><tr><td>gatewayLatencyMs</td><td>The overhead added by the Gateway when forwarding the request upstream and the response back to the client</td></tr><tr><td>user</td><td>The authenticated user, if any type of security was used when processing the request</td></tr><tr><td>securityType</td><td>The security type, if security was used when processing the request (can be either API_KEY, OAUTH2 or JWT)</td></tr><tr><td>securityToken</td><td>The security token, if any type of security was used when processing the request</td></tr><tr><td>errorMessage</td><td>A more detailed explanation of the error associated with the error key (if any)</td></tr><tr><td>errorKey</td><td>If the policy chain was interrupted by an error, this key identifies the error type</td></tr></tbody></table>
 {% endtab %}
 
 {% tab title="v4 Message Metrics" %}
@@ -66,32 +70,32 @@ In addition to metrics, the gateway can send additional log messages about API e
 
 {% tabs %}
 {% tab title="v4 Logs" %}
-| Log Identifier     | Purpose                                                                                                              |
-| ------------------ | -------------------------------------------------------------------------------------------------------------------- |
-| apiId              | ID of the API                                                                                                        |
-| apiName            | Name of the API at the time of the request                                                                           |
-| clientIdentifier   | Unique identifier for the client                                                                                     |
-| endpointRequest    | Map of the request body, method, and URI sent by the client                                                          |
-| endpointResponse   | Map of the request body and status returned by the client                                                            |
-| entrypointRequest  | Map of the body, method, and URI sent by the gateway to the backend                                                  |
-| entrypointResponse | Map of the body and status returned by the gateway from the backend                                                  |
-| requestEnded       | Boolean  to indicate if the request has completed; request may be ongoing if the connection is over Websocket or SSE |
-| requestId          | Unique identifier Universally Unique Identifier (UUID) identifying the request                                       |
+| Log Identifier     | Purpose                                                                                                             |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------- |
+| apiId              | ID of the API                                                                                                       |
+| apiName            | Name of the API at the time of the request                                                                          |
+| clientIdentifier   | Unique identifier for the client                                                                                    |
+| endpointRequest    | Map of the request body, method, and URI sent by the client                                                         |
+| endpointResponse   | Map of the request body and status returned by the client                                                           |
+| entrypointRequest  | Map of the body, method, and URI sent by the gateway to the backend                                                 |
+| entrypointResponse | Map of the body and status returned by the gateway from the backend                                                 |
+| requestEnded       | Boolean to indicate if the request has completed; request may be ongoing if the connection is over Websocket or SSE |
+| requestId          | Unique identifier Universally Unique Identifier (UUID) identifying the request                                      |
 {% endtab %}
 
 {% tab title="v4 Message Logs" %}
-| Log Identifier  | Purpose                                                                                  |
-| --------------- | ---------------------------------------------------------------------------------------- |
-| apiId           | ID of the API                                                                            |
-| apiName         | Name of the API at the time of the request                                               |
-|client Identifier | Unique identifier for the client                                                         |
-| connectorId     | ID of the connector from which the message originated (e.g. Mock, SSE, Webhook, Kafka)   |
-| connectorType   | Type of connector from which the message originated, either endpoint or entrypoint       |
-| correlationId   | Internal and unique ID to identify the Gravitee message                                  |
-| messageId       | Unique identifier for the message                                                        |
-| messagePayload  | Contents of the message; you can disable message payload logging in the logging settings |
-| operation       | AsyncAPI operation, either subscribe or publish                                          |
-| requestId       | ID of the request                                                                        |
+| Log Identifier    | Purpose                                                                                  |
+| ----------------- | ---------------------------------------------------------------------------------------- |
+| apiId             | ID of the API                                                                            |
+| apiName           | Name of the API at the time of the request                                               |
+| client Identifier | Unique identifier for the client                                                         |
+| connectorId       | ID of the connector from which the message originated (e.g. Mock, SSE, Webhook, Kafka)   |
+| connectorType     | Type of connector from which the message originated, either endpoint or entrypoint       |
+| correlationId     | Internal and unique ID to identify the Gravitee message                                  |
+| messageId         | Unique identifier for the message                                                        |
+| messagePayload    | Contents of the message; you can disable message payload logging in the logging settings |
+| operation         | AsyncAPI operation, either subscribe or publish                                          |
+| requestId         | ID of the request                                                                        |
 {% endtab %}
 
 {% tab title="v2 Logs" %}
@@ -116,7 +120,7 @@ The metrics are generated in the various formats stated above depending on the r
 
 {% tabs %}
 {% tab title="JSON" %}
-When using e.g. the File Reporter with JSON format, here is a sample of the contents of `metrics.json`:&#x20;
+When using e.g. the File Reporter with JSON format, here is a sample of the contents of `metrics.json`:
 
 {% code title="Reactive engine" %}
 ```json
@@ -184,7 +188,7 @@ When using e.g. the File Reporter with JSON format, here is a sample of the cont
 {% endtab %}
 
 {% tab title="CSV" %}
-When using e.g. the File Reporter with CSV format, here is a sample of the contents of `metrics.csv`:&#x20;
+When using e.g. the File Reporter with CSV format, here is a sample of the contents of `metrics.csv`:
 
 {% code title="Reactive engine" %}
 ```csv
@@ -256,7 +260,7 @@ When using e.g. the File Reporter with CSV format, here is a sample of the conte
 {% endtab %}
 
 {% tab title="Elasticsearch" %}
-When using e.g. the File Reporter with Elasticsearch format, here is a sample of the contents of `metrics.json`:&#x20;
+When using e.g. the File Reporter with Elasticsearch format, here is a sample of the contents of `metrics.json`:
 
 {% code title="Reactive engine" %}
 ```json
@@ -334,7 +338,7 @@ When using e.g. the File Reporter with Elasticsearch format, here is a sample of
 The reporters are configured in the `gravitee.yml`configuration file for the **gateway**. Each reporter has its own unique configuration. Consult the documentation for each reporter for details on how to configure it. Elasticsearch is used by default.
 
 {% hint style="info" %}
-If you wish to use a reporter not included in the default distribution, you must first add the reporter as a plugin. Refer to the [Plugins](../../getting-started/plugins/README.md) guide to learn more.
+If you wish to use a reporter not included in the default distribution, you must first add the reporter as a plugin. Refer to the [Plugins](../../getting-started/plugins/) guide to learn more.
 {% endhint %}
 
 Each reporter has a section for configuring field exclusions and, depending on reporter type, field inclusion. Each log and metric section above has a naming convention for how it appears in field inclusion and exclusion lists, which is as follows:

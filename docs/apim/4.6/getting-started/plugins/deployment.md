@@ -1,3 +1,7 @@
+---
+description: An overview about deployment.
+---
+
 # Deployment
 
 ## Overview
@@ -14,7 +18,7 @@ Plugin discovery and loading occurs regardless of APIM license type. If a plugin
 
 ### Phase 1: Discover plugins
 
-When APIM starts, all plugin zip files are read from the list of plugin directories set in the `gravitee.yaml` configuration file.&#x20;
+When APIM starts, all plugin zip files are read from the list of plugin directories set in the `gravitee.yaml` configuration file.
 
 {% hint style="info" %}
 This operation is completed asynchronously for performance benefits.
@@ -30,7 +34,7 @@ This mechanism simplifies plugin management by eliminating the need to manually 
 
 ### Phase 2: Load plugins
 
-After APIM finishes traversing the plugin directories, the plugins are loaded.&#x20;
+After APIM finishes traversing the plugin directories, the plugins are loaded.
 
 Plugins are immediately initialized by a specialized handler. If an error occurs while unpacking a plugin zip file, the faulty plugin is ignored. An error will be reported in the logs and the loading of the remaining plugins will resume.
 
@@ -47,6 +51,6 @@ The rest of the plugins are loaded in no particular order, except if they have d
 
 For example, if `plugin1 (type:cluster)` depends on `plugin2 (type:cache)` which depends on `plugin3(type:alert)`, then the plugins are loaded in the following order:
 
-* `plugin3` (because plugin 2 depends on it,  even if it is #4 in the type priority list)
+* `plugin3` (because plugin 2 depends on it, even if it is #4 in the type priority list)
 * `plugin2` (because plugin 1 depends on it, even if it is #2 in the type priority list)
 * `plugin1`

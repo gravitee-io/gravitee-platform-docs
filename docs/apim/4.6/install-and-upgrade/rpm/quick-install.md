@@ -1,3 +1,7 @@
+---
+description: Setup and installation guide for quick install.
+---
+
 # Quick install
 
 {% hint style="warning" %}
