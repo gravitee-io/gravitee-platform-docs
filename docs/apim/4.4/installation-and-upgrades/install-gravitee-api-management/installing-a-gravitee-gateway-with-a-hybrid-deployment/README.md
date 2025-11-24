@@ -1,3 +1,7 @@
+---
+description: Tutorial on Installing a Gravitee Gateway with a Hybrid Deployment.
+---
+
 # Installing a Gravitee Gateway with a Hybrid Deployment
 
 ## Introduction to Hybrid Deployments
@@ -15,21 +19,19 @@ The Gravitee Gateway needs the following two components:
 
 ### Before you begin
 
-* Ensure that you understand the various components of a Hybrid deployment. For more information about the components of a Hybrid architecture, see [Components of Hybrid architecture](README.md#components-of-hybrid-architecture).
+* Ensure that you understand the various components of a Hybrid deployment. For more information about the components of a Hybrid architecture, see [Components of Hybrid architecture](./#components-of-hybrid-architecture).
 * Ensure that the Bridge and Gateway versions that you use for your Hybrid deployment are compatible. For more information about Gateway and Bridge compatibility versions, see [Gateway and Bridge compatibility versions](gateway-and-bridge-compatibility-versions.md).
 
-<img src="../../../../4.1/.gitbook/assets/file.excalidraw (4).svg" alt="Hybrid deployment architecture" class="gitbook-drawing">
+<img src="broken-reference" alt="Hybrid deployment architecture" class="gitbook-drawing">
 
-&#x20;
-
-<img src="../../../../../../.gitbook/assets/file.excalidraw (15) (1).svg" alt="Hybrid architecture connections" class="gitbook-drawing">
+<img src="broken-reference" alt="Hybrid architecture connections" class="gitbook-drawing">
 
 ## Components of Hybrid Architecture
 
 The components of a Hybrid architecture are divided into two parts:
 
-* [SaaS Control-Plane components](README.md#saas-components)
-* [Self-hosted Data-Plan components](README.md#on-prem-private-cloud-components)
+* [SaaS Control-Plane components](./#saas-components)
+* [Self-hosted Data-Plan components](./#on-prem-private-cloud-components)
 
 ### SaaS Control-Plane components <a href="#saas-components" id="saas-components"></a>
 

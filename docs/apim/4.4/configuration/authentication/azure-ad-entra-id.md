@@ -1,4 +1,8 @@
-# Azure AD / Entra ID
+---
+description: An overview about Configuring authentication with Azure AD / Entra ID.
+---
+
+# Configuring authentication with Azure AD / Entra ID
 
 ## Introduction
 

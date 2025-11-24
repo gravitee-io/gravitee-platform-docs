@@ -1,4 +1,10 @@
-# APIM Developer Portal
+---
+description: >-
+  Configuration guide for Configuring the Gravitee API Management Developer
+  Portal.
+---
+
+# Configuring the Gravitee API Management Developer Portal
 
 ## Configuration file
 
