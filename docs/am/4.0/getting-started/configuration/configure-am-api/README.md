@@ -1,3 +1,7 @@
+---
+description: Configuration guide for Configuration overview.
+---
+
 # Configure AM API
 
 ## Configuration overview
@@ -294,7 +298,7 @@ plugins:
 
 ### Configure the Management repository
 
-Management repository is used to store global configuration such as APIs, applications, apikeys, etc. This is the default configuration using MongoDB (single server).&#x20;
+Management repository is used to store global configuration such as APIs, applications, apikeys, etc. This is the default configuration using MongoDB (single server).
 
 {% code overflow="wrap" %}
 ```yaml

@@ -1,3 +1,7 @@
+---
+description: Configuration guide for Challenge.
+---
+
 # Reset MFA
 
 ## Overview
@@ -10,8 +14,6 @@ If users lose their mobile device or can’t use their authenticator application
 2. Click **Settings > Users**.
 3. Select the user and click the **Multi-Factor Authentication** tab.
 4.  Select the MFA factor you want to remove and click the remove icon ![remove icon](https://docs.gravitee.io/images/icons/remove-icon.png).
-
-
 
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-mfa-factor-reset.png" alt=""><figcaption><p>MFA factors</p></figcaption></figure>
 

@@ -1,3 +1,7 @@
+---
+description: Step‑by‑step tutorial for Enterprise Active Directory.
+---
+
 # Active Directory/LDAP
 
 ## Overview
@@ -35,8 +39,6 @@ curl -H "Authorization: Bearer :accessToken" \
 You can test your Active Directory/LDAP connection via your web applications created in AM.
 
 1.  In AM Console, click **Applications** and select your Active Directory/LDAP identity provider.
-
-
 
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-social-idp-list.png" alt=""><figcaption><p>Application IdP</p></figcaption></figure>
 2.  Call the Login page (i.e. `/oauth/authorize` endpoint) and try to sign in with the username/password form.

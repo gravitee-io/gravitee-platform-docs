@@ -1,3 +1,7 @@
+---
+description: Step‑by‑step tutorial for MongoDB.
+---
+
 # MongoDB
 
 ## Overview
@@ -19,8 +23,6 @@ You can authenticate users in AM using your own MongoDB database.
 You can test your database connection using a web application created in AM.
 
 1.  In AM Console, click **Applications** and select your MongoDB identity provider.
-
-
 
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-social-idp-list.png" alt=""><figcaption><p>Select MongoDB IdP</p></figcaption></figure>
 2.  Call the Login page (i.e `/oauth/authorize` endpoint) and try to sign in with the username/password form.

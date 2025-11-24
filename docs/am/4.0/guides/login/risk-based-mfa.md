@@ -1,3 +1,7 @@
+---
+description: Configuration guide for Gravitee Access Management.
+---
+
 # Risk-based MFA
 
 ### Overview

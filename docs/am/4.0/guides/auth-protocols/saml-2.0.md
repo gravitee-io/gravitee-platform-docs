@@ -1,3 +1,7 @@
+---
+description: Overview of The Security Assertion Markup Language.
+---
+
 # SAML 2.0
 
 ## Overview
