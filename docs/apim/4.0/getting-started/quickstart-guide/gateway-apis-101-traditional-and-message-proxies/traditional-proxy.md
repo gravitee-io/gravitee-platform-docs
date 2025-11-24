@@ -105,7 +105,7 @@ The next step is to configure your API security via plans. In APIM, a plan provi
 
 We will be focusing on plans in the next part of the Quickstart Guide. For now, leave the default keyless plan.
 
-<figure><img src="../../../.gitbook/assets/message proxy_security (1).png" alt=""><figcaption><p>Gateway API security</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Gateway API security</p></figcaption></figure>
 
 > * [x] Leave defaults and select **Validate my plans** to continue to the final step
 
@@ -131,7 +131,7 @@ The final step in creating an API is to review and then save your configuration.
 
 You will be greeted with a screen that confirms the creation of your new API and includes several shortcuts to help you start managing it.
 
-<figure><img src="../../../.gitbook/assets/message proxy_confirmation (1).png" alt=""><figcaption><p>API creation confirmation</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>API creation confirmation</p></figcaption></figure>
 
 > * [x] Select **Open my API in API Management** to see how to manage your API
 

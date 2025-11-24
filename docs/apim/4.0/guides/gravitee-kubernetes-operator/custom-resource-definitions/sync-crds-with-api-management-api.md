@@ -1,3 +1,7 @@
+---
+description: Tutorial on Sync CRDs with API Management API.
+---
+
 # Sync CRDs with API Management API
 
 ## How to synchronize your API CRDs with an existing Management API

@@ -1,3 +1,7 @@
+---
+description: Guide to installing With .ZIP.
+---
+
 # Install With .ZIP
 
 Installing Gravitee API Management (APIM) from `.zip` files is a straightforward process that can be completed in a few simple steps. This method is particularly useful if you have limited internet connectivity, need customization or control over versioning, or work in non-standard server environments.
@@ -270,20 +274,20 @@ $ angular-http-server
 ```
 
 {% hint style="success" %}
-Congratulations! Now that APIM is up and running, check out the [Quickstart Guide](../quickstart-guide/README.md) for your next steps.
+Congratulations! Now that APIM is up and running, check out the [Quickstart Guide](../quickstart-guide/) for your next steps.
 {% endhint %}
 
 ## Enterprise Edition licensing
 
-To install the Enterprise Edition of APIM requires a license key.&#x20;
+To install the Enterprise Edition of APIM requires a license key.
 
 {% hint style="info" %}
-For information on obtaining a license key, visit the [Gravitee pricing page](https://www.gravitee.io/pricing).&#x20;
+For information on obtaining a license key, visit the [Gravitee pricing page](https://www.gravitee.io/pricing).
 {% endhint %}
 
-Users can directly provide the base64-encoded enterprise license with the `GRAVITEE_LICENSE_KEY` environment variable.&#x20;
+Users can directly provide the base64-encoded enterprise license with the `GRAVITEE_LICENSE_KEY` environment variable.
 
-The default location of the EE license file `license.key` is the `GRAVITEE_HOME/license/license.key` directory. To override this with a different location, provide the absolute path to the license file using the  `-Dgravitee.license` property in the `gravitee.yml` file, e.g., `gravitee_license: /path/to/my/own_license.key`.
+The default location of the EE license file `license.key` is the `GRAVITEE_HOME/license/license.key` directory. To override this with a different location, provide the absolute path to the license file using the `-Dgravitee.license` property in the `gravitee.yml` file, e.g., `gravitee_license: /path/to/my/own_license.key`.
 
 To locate the `license.key`, both the `Gateway` and `Management API` components use the following search sequence:
 

@@ -1,3 +1,7 @@
+---
+description: An overview about OpenAPI Spec Import.
+---
+
 # OpenAPI Spec Import
 
 ## Overview
@@ -44,7 +48,6 @@ title: Swagger Petstore
 license:
 name: MIT
 servers:
-
 url: http://petstore.swagger.io/v1
 paths:
 ...

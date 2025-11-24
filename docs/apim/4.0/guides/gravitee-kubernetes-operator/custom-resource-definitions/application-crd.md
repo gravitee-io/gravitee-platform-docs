@@ -1,3 +1,7 @@
+---
+description: Tutorial on Application CRD.
+---
+
 # Application CRD
 
 ## How to use the Application (`Application`) custom resource
