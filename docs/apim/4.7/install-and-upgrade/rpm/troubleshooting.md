@@ -1,6 +1,8 @@
+---
+description: Configuration and setup guide for troubleshooting.
+---
+
 # Troubleshooting
-
-
 
 <details>
 
@@ -8,7 +10,7 @@
 
 Sometimes, an SELinux configuration issue can prevent Nginx from opening on ports 8084 and 8085. To correct this issue, complete the following steps:
 
-1. Validate that the port is not in the list of managed HTTP ports by running `semanage port -l`.  You should get the following output:
+1. Validate that the port is not in the list of managed HTTP ports by running `semanage port -l`. You should get the following output:
 
 ```sh
 $ semanage port -l | grep http_port_t
@@ -39,7 +41,7 @@ http_port_t                tcp      8084, 80, 81, 443, 488, 8008, 8009, 8443, 90
 
 <summary>Ports 8082 to 8085 port do not open with a firewall enabled</summary>
 
-If you have a firewall enabled on your Operating System (OS), you must open the APIM port through the firewall.&#x20;
+If you have a firewall enabled on your Operating System (OS), you must open the APIM port through the firewall.
 
 To open ports 8082 to 8085 through the firewall, use the following command:
 

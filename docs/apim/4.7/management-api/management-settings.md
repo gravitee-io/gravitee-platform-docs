@@ -1,3 +1,7 @@
+---
+description: Configuration and setup guide for management settings.
+---
+
 # Management Settings
 
 ## Management configuration

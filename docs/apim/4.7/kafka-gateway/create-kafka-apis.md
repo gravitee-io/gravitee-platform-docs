@@ -1,11 +1,15 @@
+---
+description: An overview about create kafka apis.
+---
+
 # Create Kafka APIs
 
 ## Overview
 
-Gravitee Kafka APIs apply Gravitee API Management (APIM) capabilities directly to the Kafka protocol. Kafka APIs are based on the Gravitee [v4 API definition](../create-apis/overview/README.md#gravitee-v4-apis). A Gravitee API definition is a JSON representation of everything that the APIM Gateway needs to know for it to proxy, apply policies to, and to create plans for your Gravitee APIs and their transactions. You can create Kafka APIs through the API creation wizard UI, or via the [management API](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/ySqSVpDHfKA0fNml1fVO/).
+Gravitee Kafka APIs apply Gravitee API Management (APIM) capabilities directly to the Kafka protocol. Kafka APIs are based on the Gravitee [v4 API definition](../create-apis/overview/#gravitee-v4-apis). A Gravitee API definition is a JSON representation of everything that the APIM Gateway needs to know for it to proxy, apply policies to, and to create plans for your Gravitee APIs and their transactions. You can create Kafka APIs through the API creation wizard UI, or via the [management API](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/ySqSVpDHfKA0fNml1fVO/).
 
 {% hint style="info" %}
-API consumers call or subscribe to Gateway APIs to retrieve data or functionality exposed by backend services. Gravitee defines three different types of Gateway APIs: proxy APIs, message APIs, and native APIs. These are differentiated by whether they proxy REST or event-driven APIs, and whether the Gravitee Gateway performs [protocol mediation](../create-apis/overview/README.md#protocol-mediation) or proxies the native protocol.
+API consumers call or subscribe to Gateway APIs to retrieve data or functionality exposed by backend services. Gravitee defines three different types of Gateway APIs: proxy APIs, message APIs, and native APIs. These are differentiated by whether they proxy REST or event-driven APIs, and whether the Gravitee Gateway performs [protocol mediation](../create-apis/overview/#protocol-mediation) or proxies the native protocol.
 {% endhint %}
 
 ## The creation wizard
@@ -16,7 +20,7 @@ The API definitions for Kafka APIs can be generated using the APIM Console's API
 2. Click on **APIs** in the left nav
 3. In the Create New API , click on **Create V4 API**.
 
-<figure><img src="../../4.6/.gitbook/assets/image (138) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../4.6/.gitbook/assets/image%20(138)%20(1).png" alt=""><figcaption></figcaption></figure>
 
 The API creation wizard comprises several steps, each of which requires you to define certain sets of information.
 
@@ -26,7 +30,7 @@ Define a name, version number, and description for your API.
 
 The name and version number are required, but we also recommend giving your API a description so that it is more easily understood and managed by internal users.
 
-<figure><img src="../../../../.gitbook/assets/v4 wizard_step 1 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 
 ## Entrypoints
 
@@ -34,17 +38,17 @@ When choosing how you want to expose your backend, you will be presented with th
 
 Select Kafka Protocol to create a Kafka API. Kafka APIs proxy the native Kafka protocol, with the Gravitee Gateway acting as a Kafka broker to Kafka clients.
 
-<figure><img src="../../4.6/.gitbook/assets/A1 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../4.6/.gitbook/assets/A1%20(1).png" alt=""><figcaption></figcaption></figure>
 
 The only field to configure for the Kafka API entrypoint is the **Host prefix**, for which you should enter the host name. If the default hostname is set, you only need to enter the prefix. This is used to uniquely identify your API server on the gateway.
 
-<figure><img src="../../4.6/.gitbook/assets/A2 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../4.6/.gitbook/assets/A2%20(1).png" alt=""><figcaption></figcaption></figure>
 
 ## Endpoints
 
 The Kafka endpoint configuration is the Kafka cluster being proxied by your API. Configure the bootstrap server list and security protocol to talk to the cluster.
 
-<figure><img src="../../4.6/.gitbook/assets/A3 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../4.6/.gitbook/assets/A3%20(1).png" alt=""><figcaption></figcaption></figure>
 
 Of the following configuration settings, only entering a host/port pair is required. Modifying any other configuration parameters is optional.
 
@@ -85,7 +89,7 @@ Of the following configuration settings, only entering a host/port pair is requi
 
 Define a plan to secure, monitor, and transparently communicate information on how to access your Kafka API. The plan types presented are the same as the plan types used for regular HTTP APIs in Gravitee, but map to a Kafka authentication equivalent.
 
-<figure><img src="../../4.6/.gitbook/assets/A4 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../4.6/.gitbook/assets/A4%20(1).png" alt=""><figcaption></figcaption></figure>
 
 Gravitee automatically assigns each API a Default Keyless plan, which grants public access. Click **+ Add plan** to create additional plans.
 
@@ -98,7 +102,7 @@ The Gravitee plans supported by Kafka APIs are summarized below, in increasing o
 <table><thead><tr><th width="201">Plan</th><th>Description</th></tr></thead><tbody><tr><td>Keyless (public)</td><td>When configured, this plan does not add security. It is considered an "open" plan.</td></tr><tr><td>API Key</td><td>The gateway only accepts connections from clients that pass an API key corresponding to a valid subscription to the proxy in the client properties. The API key is used as the password, and the md5 hash of the API key is used as the username, as part of the SASL/SSL with SASL PLAIN authentication method.</td></tr><tr><td>JWT</td><td>The gateway only accepts connections from clients that pass a valid JWT with a client ID claim corresponding to a valid subscription to the proxy in the client properties. This is equivalent to SASL/SSL with SASL OAUTHBEARER authentication, where the JWT is used as the OAuth token.</td></tr><tr><td>OAuth2</td><td>The gateway only accepts connections from clients that pass a valid OAuth token with a client ID corresponding to a valid subscription to the proxy in the client properties. This is equivalent to SASL/SSL with SASL OAUTHBEARER authentication.</td></tr></tbody></table>
 
 {% hint style="info" %}
-To learn more about how plans function in Gravitee, refer to the [plans](../expose-apis/plans/README.md) documentation. mTLS plans are not yet supported for Kafka APIs.
+To learn more about how plans function in Gravitee, refer to the [plans](../expose-apis/plans/) documentation. mTLS plans are not yet supported for Kafka APIs.
 {% endhint %}
 
 Individual plan configurations as they pertain to Kafka APIs are described in detail below.

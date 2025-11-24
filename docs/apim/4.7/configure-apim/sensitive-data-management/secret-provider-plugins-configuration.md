@@ -1,3 +1,7 @@
+---
+description: An overview about secret provider plugins configuration.
+---
+
 # Secret Provider Plugins Configuration
 
 ## Overview

@@ -1,3 +1,7 @@
+---
+description: An overview about shared policy groups.
+---
+
 # Shared Policy Groups
 
 {% hint style="warning" %}

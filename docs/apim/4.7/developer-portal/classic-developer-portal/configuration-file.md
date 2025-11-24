@@ -1,3 +1,7 @@
+---
+description: Configuration and setup guide for configuration file.
+---
+
 # Configuration File
 
 ## Default configuration

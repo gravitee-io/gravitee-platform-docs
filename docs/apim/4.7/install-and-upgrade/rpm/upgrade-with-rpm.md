@@ -1,3 +1,7 @@
+---
+description: An overview about upgrade with rpm.
+---
+
 # Upgrade with RPM
 
 ## Overview
