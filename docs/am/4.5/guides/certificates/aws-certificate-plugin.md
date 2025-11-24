@@ -1,3 +1,7 @@
+---
+description: Overview of AWS Certificate.
+---
+
 # AWS Certificate plugin
 
 ## Overview
@@ -19,13 +23,13 @@ This secret will have to contains the following entries:
 * **storepass**: the passphrase for the certificate store
 * **keypass**: the passphrase for the private key
 * **alias**: the alias name of the certificate
-* **certificate**: the certificate using PCKS12 store format&#x20;
+* **certificate**: the certificate using PCKS12 store format
 
 ## Create a new certificate with AM Console <a href="#create-a-new-certificate-with-am-console" id="create-a-new-certificate-with-am-console"></a>
 
 1. Log in to AM Console.
 2. Click **Settings > Certificates**.
-3. Click the plus icon ![plus icon](https://documentation.gravitee.io/\~gitbook/image?url=https%3A%2F%2Fdocs.gravitee.io%2Fimages%2Ficons%2Fplus-icon.png\&width=300\&dpr=4\&quality=100\&sign=d153b85e\&sv=1).
+3. Click the plus icon ![plus icon](https://documentation.gravitee.io/~gitbook/image?url=https%3A%2F%2Fdocs.gravitee.io%2Fimages%2Ficons%2Fplus-icon.png\&width=300\&dpr=4\&quality=100\&sign=d153b85e\&sv=1).
 4. Choose the AWS certificate type and click **Next**.
 5. Give your certificate a name, then enter the details of AWS settings to retrieve the secret.
    1. secret name
