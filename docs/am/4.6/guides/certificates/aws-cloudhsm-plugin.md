@@ -1,3 +1,7 @@
+---
+description: Overview of AWS CloudHSM.
+---
+
 # AWS CloudHSM plugin
 
 ## Overview
@@ -28,7 +32,7 @@ The Cloud HSM plugin is available on [dowload.gravitee.io](https://download.grav
 {% hint style="warning" %}
 In addition to the plugin, you need a CloudHSM JCE Provider, which is not licensed under Apache. You must install the [JCE Provider](https://docs.aws.amazon.com/cloudhsm/latest/userguide/java-library-install_5.html) that embeds a native library specific to your processor architecture to get the correct JAR file.
 
-For example, for a Linux host using x86\_64 processor architecture, download the `apt` or `rpm` file and install it. In the `/opt/cloudhsm/java/` directory, you will find a JAR file named `cloudhsm-jce-<version>.jar`.&#x20;
+For example, for a Linux host using x86\_64 processor architecture, download the `apt` or `rpm` file and install it. In the `/opt/cloudhsm/java/` directory, you will find a JAR file named `cloudhsm-jce-<version>.jar`.
 
 This JAR file needs to be deployed in the `plugins/ext/aws-hsm-am-certificate` directory of both your Management API and Gateway instances.
 {% endhint %}
@@ -42,7 +46,7 @@ The graviteeio/am Helm Chart offers a mechanism to deploy additional plugins and
 * Define an initContainer to copy the CloudHSM JCE jar file into the extra volume
 
 {% hint style="info" %}
-The method by which the init container retrieves the CloudHSM plugin will depend on your dependency management strategy. You can either use a custom Docker image that includes the CloudHSM JCE installation or expose the JAR file via an HTTP server, allowing it to be downloaded using a `curl` or `wget` command.&#x20;
+The method by which the init container retrieves the CloudHSM plugin will depend on your dependency management strategy. You can either use a custom Docker image that includes the CloudHSM JCE installation or expose the JAR file via an HTTP server, allowing it to be downloaded using a `curl` or `wget` command.
 
 In the example below, we are using an Ubuntu Docker image with the AWS installation, ensuring that the JAR file is already available in the init container under the path `/tmp/cloudhsm-jce.jar`.
 {% endhint %}
