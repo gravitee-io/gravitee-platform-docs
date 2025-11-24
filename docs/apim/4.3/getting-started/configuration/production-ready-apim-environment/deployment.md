@@ -1,3 +1,7 @@
+---
+description: Configuration guide for Deployment.
+---
+
 # Deployment
 
 ## Console and Portal APIs
@@ -28,7 +32,7 @@ http:
       enabled: true
 ```
 
-The Console REST API will remain inaccessible to the outside world if you decide to make your Developer Portal reachable from outside of your company. However, Gravitee recommends that you do not expose your Console or Developer Portal publicly if there is no particular business requirement.&#x20;
+The Console REST API will remain inaccessible to the outside world if you decide to make your Developer Portal reachable from outside of your company. However, Gravitee recommends that you do not expose your Console or Developer Portal publicly if there is no particular business requirement.
 
 Refer to the [Gravitee documentation](../apim-management-api/internal-api.md) for more information about Console and Portal APIs.
 

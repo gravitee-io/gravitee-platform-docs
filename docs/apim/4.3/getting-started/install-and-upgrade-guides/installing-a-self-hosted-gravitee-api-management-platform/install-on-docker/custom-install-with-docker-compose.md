@@ -1,3 +1,7 @@
+---
+description: An overview about Custom Install Gravitee API Management with Docker Compose.
+---
+
 # Custom Install Gravitee API Management with Docker Compose
 
 ## Overview
@@ -15,14 +19,17 @@ This page describes how to install and run APIM Community Edition or APIM Enterp
 
 1.  Use the following command to create a directory structure in which to persist data, store plugins, and save a copy of the Docker Compose file:
 
-    {% code overflow="wrap" %}
+    \{% code overflow="wrap" %\}
+
     ```bash
     mkdir -p ./gravitee/{mongodb/data,elasticsearch/data,apim-gateway/plugins,apim-gateway/logs,apim-management-api/plugins,apim-management-api/logs,apim-management-ui/logs,apim-portal-ui/logs}
     ```
-    {% endcode %}
+
+    \{% endcode %\}
 2.  Verify the directory has the following structure:
 
-    {% code overflow="wrap" %}
+    \{% code overflow="wrap" %\}
+
     ```bash
     /gravitee
      ├── docker-compose-apim.yaml
@@ -41,15 +48,18 @@ This page describes how to install and run APIM Community Edition or APIM Enterp
      └── mongodb
          └── data
     ```
-    {% endcode %}
+
+    \{% endcode %\}
 3. Enter the `/gravitee` directory
 4.  Download the `docker-compose.yml` file as `docker-compose-apim.yml`:
 
-    {% code overflow="wrap" %}
+    \{% code overflow="wrap" %\}
+
     ```bash
     curl -L https://bit.ly/docker-apim-4x -o docker-compose-apim.yml
     ```
-    {% endcode %}
+
+    \{% endcode %\}
 
 ### 2. Edit `docker-compose-apim.yml`
 
@@ -58,48 +68,58 @@ Edit `docker-compose-apim.yml` so the installation uses the `/gravitee` filesyst
 1. Open `docker-compose-apim.yml` in a text editor.
 2.  Remove the following lines:
 
-    {% code overflow="wrap" %}
+    \{% code overflow="wrap" %\}
+
     ```bash
     volumes:
       data-elasticsearch:
       data-mongo:
     ```
-    {% endcode %}
+
+    \{% endcode %\}
 3.  Change `$services.mongodb.volumes` to:
 
-    {% code overflow="wrap" %}
+    \{% code overflow="wrap" %\}
+
     ```bash
     volumes:
       - ./mongodb/data:/data/db
     # Access the MongoDB container logs with: docker logs gio_apim_mongodb
     ```
-    {% endcode %}
+
+    \{% endcode %\}
 4.  Change `$services.elasticsearch.volumes` to:
 
-    {% code overflow="wrap" %}
+    \{% code overflow="wrap" %\}
+
     ```bash
     volumes:
       - ./elasticsearch/data:/var/lib/elasticsearch/data
     # Access the Elasticsearch container logs with: docker logs gio_apim_elasticsearch
     ```
-    {% endcode %}
+
+    \{% endcode %\}
 5.  Change `$services.gateway.volumes` to:
 
-    {% code overflow="wrap" %}
+    \{% code overflow="wrap" %\}
+
     ```bash
     volumes:
       - ./apim-gateway/logs:/opt/graviteeio-gateway/logs
       - ./apim-gateway/plugins:/opt/graviteeio-gateway/plugins-ext
     ```
-    {% endcode %}
+
+    \{% endcode %\}
 6.  Add the following lines to `$services.gateway.environment`:
 
-    {% code overflow="wrap" %}
+    \{% code overflow="wrap" %\}
+
     ```bash
     - gravitee_plugins_path_0=/opt/graviteeio-gateway/plugins
     - gravitee_plugins_path_1=/opt/graviteeio-gateway/plugins-ext
     ```
-    {% endcode %}
+
+    \{% endcode %\}
 7. Remove `$services.management_api.links`
 8.  Change `$services.management_api.volumes` to:
 
@@ -110,12 +130,14 @@ Edit `docker-compose-apim.yml` so the installation uses the `/gravitee` filesyst
     ```
 9.  Add the following lines to `$services.management_api.environment`:
 
-    {% code overflow="wrap" %}
+    \{% code overflow="wrap" %\}
+
     ```bash
     - gravitee_plugins_path_0=/opt/graviteeio-management-api/plugins
     - gravitee_plugins_path_1=/opt/graviteeio-management-api/plugins-ext
     ```
-    {% endcode %}
+
+    \{% endcode %\}
 10. Change `$services.management_ui.volumes` to:
 
     ```bash
@@ -167,5 +189,5 @@ APIM can take up to a minute to fully initialize with Docker. If you get an erro
 {% endhint %}
 
 {% hint style="success" %}
-Congratulations! Now that APIM is up and running, check out the [Quickstart Guide](../../../quickstart-guide/README.md) for your next steps.
+Congratulations! Now that APIM is up and running, check out the [Quickstart Guide](../../../quickstart-guide/) for your next steps.
 {% endhint %}

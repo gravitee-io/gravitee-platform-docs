@@ -33,7 +33,7 @@ To create a flow and add policies:
 5. Select the **Design** tab
 6.  In the **Flows** section, select the **+** icon, then configure the flow:
 
-    <figure><img src="../../../../../.gitbook/assets/v2 design (1).png" alt=""><figcaption><p>Configure a flow</p></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption><p>Configure a flow</p></figcaption></figure>
 
     * **Name:** Give your flow a descriptive name. Otherwise, a name will be automatically generated using the path and methods.
     * **Operator path:** For the provided **Path**, apply this flow to requests with a path that **Equals** or **Starts with** the same path.
@@ -103,12 +103,12 @@ To modify the flow mode:
 5. Select the **Configuration** tab
 6.  Change the **Flow Mode** to either **DEFAULT** or **BEST\_MATCH** using the drop-down menu
 
-    <figure><img src="../../../../../.gitbook/assets/v2 PS configuration (1).png" alt=""><figcaption><p>Configure Flow Mode</p></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption><p>Configure Flow Mode</p></figcaption></figure>
 
 ## Debug mode
 
 {% hint style="warning" %}
-Debug mode is an [Enterprise Edition](../../overview/gravitee-apim-enterprise-edition/README.md) capability
+Debug mode is an [Enterprise Edition](../../overview/gravitee-apim-enterprise-edition/) capability
 {% endhint %}
 
 {% hint style="info" %}
@@ -134,11 +134,11 @@ To debug your flows:
 4. Select **Policy Studio** from the inner left nav
 5.  Select the **Debug** tab
 
-    <div align="left"><figure><img src="../../../../../.gitbook/assets/v2 debug (1).png" alt="" width="188"><figcaption><p>Configure Debug</p></figcaption></figure></div>
+    <div align="left"><figure><img src="broken-reference" alt="" width="188"><figcaption><p>Configure Debug</p></figcaption></figure></div>
 6. Define the HTTP method, path, headers, and request bodies for the debug request
 7.  Select **Send** to prompt Gravitee to initiate a test request and present you with a timeline showing the order of your flows and policies
 
-    <figure><img src="../../../../../.gitbook/assets/Debug mode timeline (1).png" alt=""><figcaption><p>Debug mode timeline</p></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption><p>Debug mode timeline</p></figcaption></figure>
 
 <details>
 

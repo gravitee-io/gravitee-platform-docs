@@ -1,3 +1,7 @@
+---
+description: An overview about JSON Definition.
+---
+
 # JSON Definition
 
 ## Overview
@@ -34,9 +38,7 @@ To create a new API from an API definition, use [`POST /api/import`](https://gra
 
 *   In the API definition, set the `crossId` that will identify your API (and related entities) across environments. You can assign any string to this `crossId`.
 
-    {% hint style="info" %}
-    An error will be raised if there is already an existing API in the target environment with the same `crossId`.
-    {% endhint %}
+    \{% hint style="info" %\} An error will be raised if there is already an existing API in the target environment with the same `crossId`. \{% endhint %\}
 * Do not include a technical ID in your API definition. The server will automatically generate an ID for the newly created API. Even if you provide a technical ID, it will not be used.
 
 ### Updating an existing API from an API definition
@@ -45,9 +47,7 @@ To update an existing API from an API definition, use [`PUT /api/import`](https:
 
 *   Including the technical ID in the URL is not mandatory. The `crossId` in your API definition will be used to find the target API. This allows you to use the same URL to update your API across all environments.
 
-    {% hint style="info" %}
-    Alternatively, you can use the URL containing the API technical ID: [`PUT /api/{api.id}/import`](https://gravitee-io-labs.github.io/mapi-v1-docs/#tag/apis/put/organizations/{orgId}/environments/{envId}/apis/{api}/import). An error will be raised if the `crossId` of your definition matches another API in the target environment.
-    {% endhint %}
+    \{% hint style="info" %\} Alternatively, you can use the URL containing the API technical ID: [`PUT /api/{api.id}/import`](https://gravitee-io-labs.github.io/mapi-v1-docs/#tag/apis/put/organizations/{orgId}/environments/{envId}/apis/{api}/import). An error will be raised if the `crossId` of your definition matches another API in the target environment. \{% endhint %\}
 
 ### API content behavior
 

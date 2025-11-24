@@ -1,3 +1,7 @@
+---
+description: Configuration guide for Plans.
+---
+
 # Plans
 
 ## Introduction
@@ -8,15 +12,15 @@ To expose your API to internal or external consumers, it must have at least one 
 * Premium access with public resources and access limits for your partners
 * Unlimited access to your internal enterprise applications
 
-<div align="center"><figure><img src="../../../../../../.gitbook/assets/plan-diagram (1).png" alt="" width="375"><figcaption><p>High-level plan diagram</p></figcaption></figure></div>
+<div align="center"><figure><img src="broken-reference" alt="" width="375"><figcaption><p>High-level plan diagram</p></figcaption></figure></div>
 
 Each plan must include at least one security type by which subscribers can be authenticated. A security type is a policy integrated directly into a plan. Once a plan is created, the security type can not be changed. However, you can add additional security at the API or plan level with policies.
 
 The sections below describe:
 
-* [How to create a plan](README.md#create-a-plan)
-* [How to publish a plan](README.md#publish-a-plan)
-* [How plans are selected](README.md#plan-selection-rules)
+* [How to create a plan](./#create-a-plan)
+* [How to publish a plan](./#publish-a-plan)
+* [How plans are selected](./#plan-selection-rules)
 
 ## Create a plan
 
@@ -28,10 +32,10 @@ To create a plan:
 4. Select **Consumers** from the inner left nav
 5.  Under the **Plans** header tab, click **+ Add new plan** and select your plan security type:
 
-    <figure><img src="../../../../../../.gitbook/assets/plan_select security type (1).png" alt=""><figcaption><p>Add a new plan</p></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption><p>Add a new plan</p></figcaption></figure>
 6.  Configure the general plan settings:
 
-    <figure><img src="../../../../../../.gitbook/assets/plan_general (1).png" alt=""><figcaption><p>Configure general plan settings</p></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption><p>Configure general plan settings</p></figcaption></figure>
 
     * **Name:** Enter a name for your plan
     * **Description:** Enter a description of your plan
@@ -44,10 +48,10 @@ To create a plan:
 7. Click **Next**
 8.  Define the security configuration details appropriate to and required by your selected security type, e.g., OAuth2. See [**OAuth2**](oauth2.md), [**JWT**](jwt.md), [**API Key**](api-key.md), [**Keyless (public)**](keyless.md), or [**Push plan**](push.md) for more information.
 
-    <figure><img src="../../../../../../.gitbook/assets/plan_oauth2 (1).png" alt=""><figcaption><p>OAuth2 configuration</p></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption><p>OAuth2 configuration</p></figcaption></figure>
 9.  Select any plan restrictions:
 
-    <figure><img src="../../../../../../.gitbook/assets/plan_restrictions (1).png" alt=""><figcaption><p>Select plan restrictions</p></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption><p>Select plan restrictions</p></figcaption></figure>
 
     * **Rate limiting:** Intended to help avoid unmanageable spikes in traffic by limiting the number of requests an application can make in a given time period.
     * **Quota:** Limits the number of requests an application can make in a given time period. Generally used to tier access to APIs based on subscription level.
@@ -82,13 +86,13 @@ Depending on the stage it's in, a plan can be edited, published, deprecated, or 
 {% tab title="Edit" %}
 To edit a plan, click on the pencil icon:
 
-<figure><img src="../../../../../../.gitbook/assets/plan_edit (1).png" alt=""><figcaption><p>Edit a plan</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Edit a plan</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Publish" %}
 To publish a plan, click on the icon of a cloud with an arrow:
 
-<figure><img src="../../../../../../.gitbook/assets/plan_publish (1).png" alt=""><figcaption><p>Publish a plan</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Publish a plan</p></figcaption></figure>
 
 Once a plan has been published, it must be redeployed.
 {% endtab %}
@@ -96,13 +100,13 @@ Once a plan has been published, it must be redeployed.
 {% tab title="Deprecate" %}
 To deprecate a plan, click on the icon of a cloud with an 'x':
 
-<figure><img src="../../../../../../.gitbook/assets/plan_deprecate (1).png" alt=""><figcaption><p>Deprecate a plan</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Deprecate a plan</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Close" %}
 To close a plan, click on the 'x' icon:
 
-<figure><img src="../../../../../../.gitbook/assets/plan_close (1).png" alt=""><figcaption><p>Close a plan</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Close a plan</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 

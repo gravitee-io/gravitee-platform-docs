@@ -1,8 +1,14 @@
+---
+description: >-
+  An overview about Installing Gravitee API Management with Docker Images
+  Install.
+---
+
 # Installing Gravitee API Management with Docker Images Install
 
 ## Overview
 
-This page describes how to install and run APIM Community Edition or APIM Enterprise Edition in Docker containers on `localhost` using the `docker` command and a specified filesystem for persistence and plugins.&#x20;
+This page describes how to install and run APIM Community Edition or APIM Enterprise Edition in Docker containers on `localhost` using the `docker` command and a specified filesystem for persistence and plugins.
 
 ## Prerequisites
 
@@ -13,14 +19,17 @@ This page describes how to install and run APIM Community Edition or APIM Enterp
 
 1.  Use the following command to create a directory structure in which to persist data and store plugins:
 
-    {% code overflow="wrap" %}
+    \{% code overflow="wrap" %\}
+
     ```bash
     mkdir -p /gravitee/{mongodb/data,elasticsearch/data,apim-gateway/plugins,apim-gateway/logs,apim-management-api/plugins,apim-management-api/logs,apim-management-ui/logs,apim-portal-ui/logs}
     ```
-    {% endcode %}
+
+    \{% endcode %\}
 2.  Verify the directory has the following structure:
 
-    {% code overflow="wrap" %}
+    \{% code overflow="wrap" %\}
+
     ```bash
     /gravitee
      ├── apim-gateway
@@ -38,19 +47,23 @@ This page describes how to install and run APIM Community Edition or APIM Enterp
      └── mongodb
          └── data
     ```
-    {% endcode %}
+
+    \{% endcode %\}
 3. If you are installing the Enterprise Edition, copy your license key to `/gravitee/license.key`
 4.  Create two Docker bridge networks using the following commands:
 
-    {% code overflow="wrap" %}
+    \{% code overflow="wrap" %\}
+
     ```bash
     $ docker network create storage
     $ docker network create frontend
     ```
-    {% endcode %}
+
+    \{% endcode %\}
 5.  Install MongoDB using the following commands. Note that MongoDB is on the `storage` network and uses `/gravitee/mongodb` for persistent storage.
 
-    {% code overflow="wrap" %}
+    \{% code overflow="wrap" %\}
+
     ```bash
     $ docker pull mongo:6
     $ docker run --name gio_apim_mongodb \
@@ -58,10 +71,12 @@ This page describes how to install and run APIM Community Edition or APIM Enterp
       --volume /gravitee/mongodb/data:/data/db \
       --detach mongo:6
     ```
-    {% endcode %}
+
+    \{% endcode %\}
 6.  Install Elasticsearch using the following commands. Note that Elasticsearch is on the `storage` network and uses `/gravitee/elasticsearch` for persistent storage.
 
-    {% code overflow="wrap" %}
+    \{% code overflow="wrap" %\}
+
     ```bash
     $ docker pull docker.elastic.co/elasticsearch/elasticsearch:8.8.1
     $ docker run --name gio_apim_elasticsearch \
@@ -78,8 +93,9 @@ This page describes how to install and run APIM Community Edition or APIM Enterp
       --volume /gravitee/elasticsearch/data:/var/lib/elasticsearch/data \
       --detach docker.elastic.co/elasticsearch/elasticsearch:8.8.1
     ```
-    {% endcode %}
-7.  Install the API Gateway using the following commands.&#x20;
+
+    \{% endcode %\}
+7.  Install the API Gateway using the following commands.
 
     *   If you are installing the Community Edition, remove the following line:
 
@@ -105,7 +121,7 @@ This page describes how to install and run APIM Community Edition or APIM Enterp
       --detach graviteeio/apim-gateway:4.0
     $ docker network connect frontend gio_apim_gateway
     ```
-8.  Install the Management API using the following commands.&#x20;
+8.  Install the Management API using the following commands.
 
     *   If you are installing the Community Edition, remove the following line:
 
@@ -130,7 +146,7 @@ This page describes how to install and run APIM Community Edition or APIM Enterp
       --detach graviteeio/apim-management-api:4.0
     $ docker network connect frontend gio_apim_management_api
     ```
-9.  Install the Console using the following commands. Note that the Console is on the `frontend` network and it uses `/gravitee/apim-management-ui` for persistent storage.&#x20;
+9.  Install the Console using the following commands. Note that the Console is on the `frontend` network and it uses `/gravitee/apim-management-ui` for persistent storage.
 
     ```bash
     $ docker pull graviteeio/apim-management-ui:4.0
@@ -166,5 +182,5 @@ APIM can take up to a minute to fully initialize with Docker. If you get an erro
 {% endhint %}
 
 {% hint style="success" %}
-Congratulations! Now that APIM is up and running, check out the [Quickstart Guide](../../../quickstart-guide/README.md) for your next steps.
+Congratulations! Now that APIM is up and running, check out the [Quickstart Guide](../../../quickstart-guide/) for your next steps.
 {% endhint %}
