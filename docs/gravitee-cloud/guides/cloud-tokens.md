@@ -1,3 +1,7 @@
+---
+description: Overview of Cloud Tokens.
+---
+
 # Cloud Tokens
 
 ## Introduction
@@ -19,13 +23,13 @@ To create a Cloud Token, complete the following steps:
 2.  Select **Settings > Cloud tokens** from the menu, and then click **Generate Cloud Token**.
 
     <figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
-3.  Give your Cloud Token a meaningful name, select the token type and environment, and then click **Confirm**.&#x20;
+3.  Give your Cloud Token a meaningful name, select the token type and environment, and then click **Confirm**.
 
     <figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
-4.  Save your Cloud Token. You cannot access it once you close the dialog  box.&#x20;
+4.  Save your Cloud Token. You cannot access it once you close the dialog box.
 
     <figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
-5.  Verify that your Cloud Token is listed in the table.&#x20;
+5.  Verify that your Cloud Token is listed in the table.
 
     <figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
