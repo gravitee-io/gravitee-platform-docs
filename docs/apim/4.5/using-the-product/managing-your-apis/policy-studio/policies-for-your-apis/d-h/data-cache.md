@@ -1,3 +1,7 @@
+---
+description: Configuration and usage guide for data cache.
+---
+
 # Data Cache
 
 ### Phases <a href="#user-content-phases" id="user-content-phases"></a>

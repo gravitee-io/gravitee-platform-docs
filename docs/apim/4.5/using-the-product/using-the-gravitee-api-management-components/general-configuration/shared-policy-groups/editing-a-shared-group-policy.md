@@ -1,8 +1,12 @@
+---
+description: Documentation on policies and controls for editing a shared group policy.
+---
+
 # Editing a shared group policy
 
-You can edit the shared policy group, complete the following steps:&#x20;
+You can edit the shared policy group, complete the following steps:
 
-1. Navigate to the policy chain.&#x20;
+1. Navigate to the policy chain.
 2. On the **shared policy group tile**, click the three vertical dots.
 3. From here, you can complete the following actions:
 

@@ -33,7 +33,7 @@ The Gravitee Gateway needs the following two components:
 
 * Ensure that the Bridge and Gateway versions that you use for your Hybrid deployment are compatible. For more information about Gateway and Bridge compatibility versions, see [Gateway and Bridge compatibility versions](gateway-and-bridge-compatibility-versions.md).
 
-<img src="../../../4.0/.gitbook/assets/file.excalidraw (4) (1).svg" alt="Hybrid deployment architecture" class="gitbook-drawing">
+![Hybrid deployment architecture](../../../4.0/.gitbook/assets/file.excalidraw%20\(4\)%20\(1\).svg)
 
 <figure><img src="../../.gitbook/assets/image (134).png" alt="Diagram showing the hybrid architecture"><figcaption><p>Hybrid architecture connections</p></figcaption></figure>
 
@@ -59,7 +59,7 @@ You must be familiar with the following topics:
 * Helm
 {% endhint %}
 
-### Target architecture
+#### Target architecture
 
 In this example, we demonstrate how to deploy a Gravitee Gateway (APIM) in two different GCP regions. Also, we demonstrate how to deploy Gravitee APIM in the follow two different K8s clusters:
 
@@ -77,11 +77,11 @@ In this example, the deployment consists of the following components:
 * ElasticSearch. ElasticSearch is deployed in the Management cluster.
 * Redis. Redis manages the rate limits and quota counters within the Gateway cluster.
 
-### Deploying a Hybrid architecture with Helm
+#### Deploying a Hybrid architecture with Helm
 
 * To deploy a Hybrid architecture with Kubernetes, go to [Gravitee's Helm charts](https://helm.gravitee.io/).
 
-#### Before you begin
+**Before you begin**
 
 * Ensure the two GCP clusters exist.
 * Ensure that Helm is installed on the GCP clusters.
@@ -97,7 +97,7 @@ The following Hybrid architecture example use the following names:
 You can replace these names with the name of your clusters.
 {% endhint %}
 
-#### Deploying the management cluster
+**Deploying the management cluster**
 
 1. Initialize the cluster with some prerequisites using the following commands:
 
@@ -226,7 +226,7 @@ The file shows the following elements:
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/hybrid/hybrid_deployment_ingress.png" alt=""><figcaption><p>APIM management cluster</p></figcaption></figure>
 
-#### Deploy the Gateway cluster
+**Deploy the Gateway cluster**
 
 1. Initialize the cluster with some prerequisites using the following commands:
 
@@ -306,7 +306,7 @@ portal:
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/hybrid/hybrid_deployment_http.png" alt=""><figcaption><p>APIM gatewaye cluster</p></figcaption></figure>
 
-#### Verification
+**Verification**
 
 To verify that you deployed this architecture correctly, complete the following steps:
 
@@ -335,7 +335,7 @@ To verify that you deployed this architecture correctly, complete the following 
 {% endtab %}
 
 {% tab title="Docker" %}
-* Install Gravitee API Management (APIM). For more information about installing Gravitee APIM, see [Install on Docker](../install-on-docker/README.md).
+* Install Gravitee API Management (APIM). For more information about installing Gravitee APIM, see [Install on Docker](../install-on-docker/).
 * Download, and then mount the following plugins for the Gravitee Gateway:
   * Redis Repository. This repository is used for the rate limits' synchronized counters. To download this repository, go to [Gravitee.io Downloads](https://download.gravitee.io/#graviteeio-apim/plugins/repositories/gravitee-apim-repository-redis).
   * TCP Reporter. This repository is used to push events to Logstash. To download this repository, go to [Gravitee.io Downloads.](https://download.gravitee.io/#graviteeio-ee/apim/plugins/reporters/gravitee-reporter-tcp/)

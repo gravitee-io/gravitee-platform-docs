@@ -1,3 +1,7 @@
+---
+description: An overview about plans and policies overview.
+---
+
 # Plans and Policies overview
 
 ## Overview
@@ -9,7 +13,7 @@ The next two core Gravitee API Management (APIM) concepts we will focus on are p
 
 Plans and policies are managed by the API publisher to add different layers of security and functionality to the backend resources they own.
 
-<img src="../../../../../../../.gitbook/assets/file.excalidraw (5) (1).svg" alt="Gateway plans and policies" class="gitbook-drawing">
+<img src="broken-reference" alt="Gateway plans and policies" class="gitbook-drawing">
 
 ### Plans
 
@@ -23,7 +27,7 @@ In APIM, all APIs require at least one plan before they can be deployed on the G
 * OAuth 2.0
 * JWT
 
-APIM intelligently routes API consumers to plans [based on specific criteria](../../../managing-your-apis/preparing-apis-for-subscribers/plans/README.md#plan-selection) in the API request. APIM then uses an application-based subscription model to decide whether to accept or deny an incoming API request.
+APIM intelligently routes API consumers to plans [based on specific criteria](../../../managing-your-apis/preparing-apis-for-subscribers/plans/#plan-selection) in the API request. APIM then uses an application-based subscription model to decide whether to accept or deny an incoming API request.
 
 <details>
 

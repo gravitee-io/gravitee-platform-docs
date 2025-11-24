@@ -1,3 +1,7 @@
+---
+description: Conceptual explanation of gateway and bridge compatibility versions.
+---
+
 # Gateway and Bridge compatibility versions
 
 The Gateway version that you use for your Hybrid deployment and the Bridge version that you use for your Hybrid deployment must be compatible. The control plane signifies the Bridge and the data-plane signifies the Gateway.

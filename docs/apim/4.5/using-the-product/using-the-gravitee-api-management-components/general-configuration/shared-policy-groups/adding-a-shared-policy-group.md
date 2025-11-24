@@ -1,3 +1,7 @@
+---
+description: Documentation on policies and controls for adding a shared policy group.
+---
+
 # Adding a shared policy group
 
 ## Before you begin
@@ -6,7 +10,7 @@
 
 ## Procedure
 
-1. To add a policy flow, click **the plus button**. You see the that are applicable to the phase.&#x20;
+1. To add a policy flow, click **the plus button**. You see the that are applicable to the phase.
 2. (Optional) To filter the result for Shared policy groups, click **Shared Policy Group**.
 
 {% hint style="info" %}
@@ -24,4 +28,4 @@ The trigger condition works the same as for a regular policy. But when the trigg
 
 <figure><img src="https://lh7-qw.googleusercontent.com/docsz/AD_4nXdBSOmAx2_odvERZdo9W0byoOS_o9Clx_dsaJa_pWGZWHrirXdt9KXPo8sdcvOn2huz_9IalLRCPjpRA_8yge669fWn8CPGX0zPXFt9QfqkSsh7n4U1LxqxtyhkeL82MUtRHlHVJnvCvk7D2fZ7CaIis15d?key=PrMp2J0zWBtqrsqO75zcMw" alt="Policy for Request phase  screen with a shared policy group selected"><figcaption><p>Policies for Request phase screen with a shared policy group selected</p></figcaption></figure>
 
-5. Click **Add policy**.&#x20;
+5. Click **Add policy**.

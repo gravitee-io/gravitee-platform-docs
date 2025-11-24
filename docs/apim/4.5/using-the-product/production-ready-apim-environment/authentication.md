@@ -1,3 +1,9 @@
+---
+description: >-
+  An overview about configuring authentication for a production-ready
+  environment.
+---
+
 # Configuring authentication for a production-ready environment
 
 ## Overview
@@ -28,7 +34,7 @@ portal:
       enabled: true
 ```
 
-The Developer Portal configuration can be fine-tuned to satisfy your needs. Additional details are in the [Gravitee documentation](../using-the-gravitee-api-management-components/developer-portal/configuring-and-customizing-the-gravitee-developer-portal/README.md).
+The Developer Portal configuration can be fine-tuned to satisfy your needs. Additional details are in the [Gravitee documentation](../using-the-gravitee-api-management-components/developer-portal/configuring-and-customizing-the-gravitee-developer-portal/).
 
 ## Users
 
