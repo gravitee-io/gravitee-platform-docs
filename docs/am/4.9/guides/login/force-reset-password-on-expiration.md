@@ -1,3 +1,7 @@
+---
+description: Overview of Force Reset Password.
+---
+
 # Force Reset Password on Expiration
 
 ## Overview
