@@ -89,13 +89,13 @@ The flow with the resource filtering policy does not apply to the JWT plan and A
 
 ## Add a policy
 
-Let's work through how to add a simple policy to modify the behavior of the Gateway API we created in the [first part of the Quickstart Guide](README.md).
+Let's work through how to add a simple policy to modify the behavior of the Gateway API we created in the [first part of the Quickstart Guide](./).
 
 ### Access API
 
 First, we need to open the API in the APIM Console. You may already have it open from the previous part of the Quickstart Guide. If not, simply head back over to the **APIs** homescreen and select the API you created.
 
-<figure><img src="../../.gitbook/assets/DP_homescreen (1).png" alt=""><figcaption><p>APIs homescreen</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>APIs homescreen</p></figcaption></figure>
 
 > * [x] Select **APIs** in the sidebar
 > * [x] Select the API you created in Gateway APIs 101
@@ -215,7 +215,7 @@ From here, we can manage all the plans and subscriptions for this API. Currently
 
 This plan is currently in the published state. Plans can be in one of four states: staging, published, deprecated, or closed.
 
-<figure><img src="../../../4.2/.gitbook/assets/image.png" alt=""><figcaption><p>Four stages of a plan</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Four stages of a plan</p></figcaption></figure>
 
 <details>
 

@@ -1,3 +1,7 @@
+---
+description: An overview about Internal API.
+---
+
 # Internal API
 
 ## Overview

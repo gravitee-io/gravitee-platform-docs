@@ -5,7 +5,7 @@ description: Manage and expose your backend resources with Gravitee
 # Gateway APIs 101 - Traditional & Message Proxies
 
 {% hint style="warning" %}
-Before beginning this guide, you should already have the Gravitee API Management Console up and running. [Start here](README.md) if you need help!
+Before beginning this guide, you should already have the Gravitee API Management Console up and running. [Start here](./) if you need help!
 {% endhint %}
 
 ## Overview
@@ -58,7 +58,7 @@ To get started, you need to access your **APIs** homescreen. This screen display
 
 Assuming you have the proper permissions, you can access and modify the configurations of existing APIs, or, in our case, create new APIs.
 
-<figure><img src="../../../.gitbook/assets/apis_homescreen (1).png" alt=""><figcaption><p>APIs homscreen</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>APIs homscreen</p></figcaption></figure>
 
 > * [x] Select **APIs** in the sidebar of the Console UI
 > * [x] Next, select **+ Add API** in the top right to create a new API
@@ -80,7 +80,7 @@ API details is the first step of the API creation wizard. Provide a name, versio
 
 ### Proxy selection: Choose your path
 
-This step is where you decide between the [traditional proxy and message proxy](README.md#traditional-and-message-proxies):
+This step is where you decide between the [traditional proxy and message proxy](./#traditional-and-message-proxies):
 
 * **Traditional proxy:** Select **Proxy Upstream Protocol** to configure the Gateway API to proxy backend API servers
 * **Message proxy**: Select **Introspect Messages From Event-Driven Backend** to configure the Gateway API to proxy event/message brokers

@@ -17,7 +17,7 @@ After you've created your Gateway API and selected your entrypoint(s), you can c
 
 As of Gravitee 4.0, the ability to create APIs with message API entrypoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise Edition and what's included in various enterprise packages, please:
 
-* [Refer to the EE vs OSS documentation](../../../overview/ee-vs-oss/README.md)
+* [Refer to the EE vs OSS documentation](../../../overview/ee-vs-oss/)
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
@@ -79,7 +79,7 @@ If you chose **WebSocket** as an entrypoint, you will be brought to a page where
 
 <summary>Webhooks</summary>
 
-#### Basic Configuration
+**Basic Configuration**
 
 If you chose **Webhook** as an entrypoint, you will be brought to a page where you can configure:
 
@@ -101,7 +101,7 @@ If you chose **Webhook** as an entrypoint, you will be brought to a page where y
     * (Optional) Proxy username: Enter your proxy username in the **Proxy username** text field.
     * (Optional) Proxy password: Enter your proxy password in the **Proxy password** text field.
 
-#### Additional configuration
+**Additional configuration**
 
 When using Webhooks as an entrypoint, you can secure callbacks and set up dead letter queues to store undelivered messages. When configuring DLQ with Webhook, you redirect all the messages that the Webhook rejects to another location, such as a Kafka topic.
 
@@ -204,12 +204,12 @@ When you are done configuring your entrypoints, make sure to select **Save chang
 
 To alter v4 Proxy API entrypoints, select your API, and then select **General** from the **Entrypoints** category in the left-hand nav.
 
-<figure><img src="../../../../../../.gitbook/assets/2023-07-18_10-50-48 (1).png" alt=""><figcaption><p>v4 proxy API entrypoint configuration</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>v4 proxy API entrypoint configuration</p></figcaption></figure>
 
 From here, you can:
 
 * Alter existing entrypoints by changing the context path
 * Add a new entrypoint by clicking **Add context path** and then adding a new context path
-* Delete existing entrypoints by clicking the <img src="../../../../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.51.56 AM (1).png" alt="" data-size="line"> icon associated with the entrypoint that you want to delete
+* Delete existing entrypoints by clicking the <img src="broken-reference" alt="" data-size="line"> icon associated with the entrypoint that you want to delete
 
 When you are done, make sure to redeploy the API for your changes to take effect.

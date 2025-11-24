@@ -1,3 +1,7 @@
+---
+description: Setup and installation guide for Quick install.
+---
+
 # Quick install
 
 This is the fastest way to get Gravitee API Management (APIM) up and running on an Amazon instance. It installs all prerequisites and the full APIM stack at the same time.
@@ -52,5 +56,5 @@ You should see that there are processes listening on those ports.
 If the installation was successful, then the first API call returns: **No context-path matches the request URI.** The final two API calls should return a JSON payload in the response.
 
 {% hint style="success" %}
-Congratulations! Now that APIM is up and running, check out the [Tutorials](README.md) for your next steps.
+Congratulations! Now that APIM is up and running, check out the [Tutorials](./) for your next steps.
 {% endhint %}
