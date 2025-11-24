@@ -1,3 +1,7 @@
+---
+description: Configuration guide for Configure Reporters.
+---
+
 # Configure Reporters
 
 ## Overview
