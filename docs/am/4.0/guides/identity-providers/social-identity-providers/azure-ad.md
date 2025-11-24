@@ -1,8 +1,12 @@
+---
+description: Installation guide for Azure Active Directory.
+---
+
 # Azure AD
 
 ## Overview
 
-You can authenticate users with Azure Active Directory. Before you begin, you need to sign up for an [Azure account](https://azure.microsoft.com/en-us/free/?ref=microsoft.com\&utm\_source=microsoft.com\&utm\_medium=docs\&utm\_campaign=visualstudio) and [Set up a tenant](https://azure.microsoft.com/en-us/free/?ref=microsoft.com\&utm\_source=microsoft.com\&utm\_medium=docs\&utm\_campaign=visualstudio).
+You can authenticate users with Azure Active Directory. Before you begin, you need to sign up for an [Azure account](https://azure.microsoft.com/en-us/free/?ref=microsoft.com\&utm_source=microsoft.com\&utm_medium=docs\&utm_campaign=visualstudio) and [Set up a tenant](https://azure.microsoft.com/en-us/free/?ref=microsoft.com\&utm_source=microsoft.com\&utm_medium=docs\&utm_campaign=visualstudio).
 
 ## Steps
 
@@ -50,11 +54,7 @@ Ensure you have the generated Client ID and Client Secret from the Azure AD appl
 6. Enter your Azure application ID and Client Secret.
 7.  Click **Create**.
 
-
-
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-social-idp-azure-ad.png" alt=""><figcaption><p>Create Azure AD IdP</p></figcaption></figure>
-
-
 
 {% hint style="info" %}
 On the right of the screen under **1. Configure the Redirect URI**, copy the value of the URL. You will need to update it in your Azure AD application settings.
@@ -70,8 +70,6 @@ On the right of the screen under **1. Configure the Redirect URI**, copy the val
 You can test the Azure AD connection using a web application created in AM.
 
 1.  i.e.In AM Console, click **Applications** and select your social identity provider.
-
-
 
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-social-idp-list.png" alt=""><figcaption><p>Select Azure AD IdP</p></figcaption></figure>
 2.  Call the Login Page (i.e. `/oauth/authorize` endpoint). If the connection is working you will see the **Sign in with …​** button.

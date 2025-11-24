@@ -1,3 +1,7 @@
+---
+description: Configuration guide for WebAuthn.
+---
+
 # MFA with FIDO2
 
 ## Overview
@@ -15,8 +19,6 @@ Creating a FIDO2 factor is straightforward as the plugin uses **WebAuthn** confi
 1. Select **Security > Multifactor Auth**.
 2. Select the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
 3.  Select **FIDO2 Factor** and click **Next**. Here is a screenshot of the plugin you should see:
-
-
 
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-mfa-fido2.png" alt=""><figcaption><p>FIDO2 factor plugin</p></figcaption></figure>
 4. Provide a suitable name.
@@ -50,8 +52,5 @@ The following diagram shows how enrollment occurs for the scenarios mentioned in
 ## Challenge step
 
 The following diagram shows only the challenge step. For simplicity, the diagram assumes the user has already enrolled to a FIDO2 factor plugin.
-
-
-
 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-mfa-fido2-challenge-flow.png" alt=""><figcaption><p>Challenge diagram</p></figcaption></figure>

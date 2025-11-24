@@ -1,3 +1,7 @@
+---
+description: Overview of W3C Web Authentication.
+---
+
 # Passwordless (W3C Webauthn)
 
 ## Overview
@@ -18,8 +22,6 @@ This is the first AM version with WebAuthn support and Relying Party (RP) confor
 2. Click **Applications** and select your application.
 3.  In the **Settings** tab, click **Login** and toggle on the **Passwordless** option.
 
-
-
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-passwordless.png" alt=""><figcaption><p>Activate passwordless login</p></figcaption></figure>
 
 ## Manage root certificates
@@ -30,8 +32,6 @@ WebAuthn relies on certificates to authenticate the device. These certificates c
 2. Select your **Security Domain**.
 3. Click **Settings**, then click **WebAuthn** in the **Security** section.
 4.  In the **Certificates** section, select the certificate details.
-
-
 
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-passwordless-certificates.png" alt=""><figcaption><p>Root certificate</p></figcaption></figure>
 
@@ -70,7 +70,7 @@ By clicking on the link, users are redirected to the "Passwordless Login Page", 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-passwordless-login-username-page.png" alt=""><figcaption><p>Passworldess login page</p></figcaption></figure>
 
 {% hint style="info" %}
-The look and feel of the Passwordless forms can be overridden. See [custom pages](../branding/README.md#custom-pages) for more information.
+The look and feel of the Passwordless forms can be overridden. See [custom pages](../branding/#custom-pages) for more information.
 {% endhint %}
 
 ## Managing WebAuthn

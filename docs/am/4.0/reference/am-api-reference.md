@@ -1,9 +1,13 @@
+---
+description: Overview of The OpenAPI.
+---
+
 # AM API Reference
 
 ## Overview
 
 {% hint style="info" %}
-The OpenAPI specs for other versions of AM are available in the documentation for that version.&#x20;
+The OpenAPI specs for other versions of AM are available in the documentation for that version.
 {% endhint %}
 
 The AM API exposes a complete Restful API accessible to anyone wanting to script some part of the administration.

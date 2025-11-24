@@ -1,3 +1,7 @@
+---
+description: Overview of Adaptive.
+---
+
 # Adaptive Multi-factor Authentication
 
 ## Overview

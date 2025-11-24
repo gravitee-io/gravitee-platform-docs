@@ -1,3 +1,9 @@
+---
+description: >-
+  Overview of The recovery code factor generates a set of recovery codes that
+  the user can use to authenticate in case the other options are not available.
+---
+
 # Recovery Codes
 
 The **recovery code** factor generates a set of recovery codes that the user can use to authenticate in case the other options are not available. The recovery codes are generated and shown only once to the user during the enrollment or login process. It is thus advisable to download and keep the recovery codes in a safe place.
@@ -15,8 +21,5 @@ This is an example of what it looks like when the recovery codes are generated d
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-mfa-recovery-code-sample.png" alt=""><figcaption><p>Recovery codes example</p></figcaption></figure>
 
 The image below shows the option when an application is configured with an active recovery code factor:
-
-
-
 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-mfa-recovery-code-option.png" alt=""><figcaption><p>Recovery code option</p></figcaption></figure>
