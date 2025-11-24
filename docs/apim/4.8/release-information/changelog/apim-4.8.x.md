@@ -1,6 +1,11 @@
+---
+description: Documentation about apim 4.8.x in the context of APIs.
+---
+
 # APIM 4.8.x
- 
+
 ## Gravitee API Management 4.8.13 - November 21, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -21,7 +26,7 @@
 
 **Other**
 
-* Cannot use access_token in SASL JAAS config for OAUTHBEARER mechanism [#10927](https://github.com/gravitee-io/issues/issues/10927)
+* Cannot use access\_token in SASL JAAS config for OAUTHBEARER mechanism [#10927](https://github.com/gravitee-io/issues/issues/10927)
 * AI Prompt Token Tracking Policy skipped with Non-Strict application/json Content-Type [#10964](https://github.com/gravitee-io/issues/issues/10964)
 
 </details>
@@ -46,9 +51,8 @@
 
 </details>
 
-
- 
 ## Gravitee API Management 4.8.12 - November 7, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -89,9 +93,8 @@
 
 </details>
 
-
- 
 ## Gravitee API Management 4.8.11 - October 24, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -130,9 +133,8 @@
 
 </details>
 
-
- 
 ## Gravitee API Management 4.8.10 - October 17, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -161,9 +163,8 @@
 
 </details>
 
-
- 
 ## Gravitee API Management 4.8.9 - October 10, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -199,9 +200,8 @@
 
 </details>
 
-
- 
 ## Gravitee API Management 4.8.8 - September 26, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -254,13 +254,11 @@
 
 </details>
 
-
-
 ## Gravitee API Management 4.8.7 - September 12, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
-
 
 **Gateway**
 
@@ -288,15 +286,18 @@
 
 </details>
 
- 
 ## Gravitee API Management 4.8.6 - September 1, 2025
+
 <details>
+
 <summary>Security</summary>
 
 * Harden authorization controls for the automation API [#10771](https://github.com/gravitee-io/issues/issues/10771)
+
 </details>
- 
+
 ## Gravitee API Management 4.8.5 - August 29, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -320,15 +321,14 @@
 
 **Other**
 
-* Kafka ACLs not properly refreshed during fetch  [#10735](https://github.com/gravitee-io/issues/issues/10735)
+* Kafka ACLs not properly refreshed during fetch [#10735](https://github.com/gravitee-io/issues/issues/10735)
 * Kafka ACL - optimize ActionFilter instantiation [#10745](https://github.com/gravitee-io/issues/issues/10745)
 * Kafka Gateway - ACL Policy Issue for Virtual Topics [#10754](https://github.com/gravitee-io/issues/issues/10754)
 
 </details>
 
-
- 
 ## Gravitee API Management 4.8.4 - August 14, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -363,9 +363,8 @@
 * \[MCP Entrypoint] POST operation through the MCP server gives a 500 / timeout. [#10720](https://github.com/gravitee-io/issues/issues/10720)
 * UI Bug: Management Console application logs headers are truncated/squished with long values [#10721](https://github.com/gravitee-io/issues/issues/10721)
 * OOM error in gateway when management repository becomes unresponsive causes worker thread starvation and analytics reporter blockage [#10723](https://github.com/gravitee-io/issues/issues/10723)
-* A2A Proxy does not support Strands AI SDK  [#10743](https://github.com/gravitee-io/issues/issues/10743)
+* A2A Proxy does not support Strands AI SDK [#10743](https://github.com/gravitee-io/issues/issues/10743)
 * Gravitee gateway sending thousands of requests per second [#10732](https://github.com/gravitee-io/issues/issues/10732)
-
 
 </details>
 
@@ -380,9 +379,8 @@
 
 </details>
 
-
- 
 ## Gravitee API Management 4.8.3 - August 1, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -400,16 +398,16 @@
 
 **Console**
 
-* The error key CLIENT_ABORTED_DURING_RESPONSE_ERROR is not present in the console UI. [#10683](https://github.com/gravitee-io/issues/issues/10683)
+* The error key CLIENT\_ABORTED\_DURING\_RESPONSE\_ERROR is not present in the console UI. [#10683](https://github.com/gravitee-io/issues/issues/10683)
 
 **Portal**
 
-*  Portal Try it Out feature taking a long time to load [#10595](https://github.com/gravitee-io/issues/issues/10595)
-* Openapi contracts with binary examples can not be read by the dev portal  [#10639](https://github.com/gravitee-io/issues/issues/10639)
+* Portal Try it Out feature taking a long time to load [#10595](https://github.com/gravitee-io/issues/issues/10595)
+* Openapi contracts with binary examples can not be read by the dev portal [#10639](https://github.com/gravitee-io/issues/issues/10639)
 
 **Other**
 
-* JDBC Error in Gravitee when querying large number of applications using IN clause  [#10496](https://github.com/gravitee-io/issues/issues/10496)
+* JDBC Error in Gravitee when querying large number of applications using IN clause [#10496](https://github.com/gravitee-io/issues/issues/10496)
 * Console : Image Not Fitting Avatar Due to Aspect Ratio [#10649](https://github.com/gravitee-io/issues/issues/10649)
 * Unable to modify set/replace/append headers in the UI for the Transform Headers policy [#10655](https://github.com/gravitee-io/issues/issues/10655)
 * Unable to access Logs details [#10695](https://github.com/gravitee-io/issues/issues/10695)
@@ -426,9 +424,8 @@
 
 </details>
 
-
- 
 ## Gravitee API Management 4.8.2 - July 18, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -454,8 +451,6 @@
 * \[Kafka Offloading Policy] Large Payloads Support [#10674](https://github.com/gravitee-io/issues/issues/10674)
 
 </details>
-
-
 
 ## Gravitee API Management 4.8.1 - July 7, 2025
 

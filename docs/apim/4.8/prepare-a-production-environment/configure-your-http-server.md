@@ -1,3 +1,7 @@
+---
+description: Configuration guide for configure your http server.
+---
+
 # Configure your HTTP Server
 
 ## `gravitee.yaml` configuration

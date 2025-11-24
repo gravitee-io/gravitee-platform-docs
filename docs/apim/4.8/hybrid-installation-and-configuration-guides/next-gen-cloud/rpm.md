@@ -1,3 +1,7 @@
+---
+description: An overview about rpm.
+---
+
 # RPM
 
 ## Overview
@@ -49,14 +53,14 @@ Before you install a Hybrid Gateway, complete the following steps:
          key: <YOUR-LICENSE-KEY>
        ```
 
-       * Replace `<YOUR-CLOUD-TOKEN>` with your Cloud Token.&#x20;
+       * Replace `<YOUR-CLOUD-TOKEN>` with your Cloud Token.
        * Replace `<YOUR-LICENSE-KEY>` with your License Key.
-3.  Start the Gateway using the following command:&#x20;
+3.  Start the Gateway using the following command:
 
     ```bash
     sudo systemctl start graviteeio-apim-gateway
     ```
-4.  (Optional) To enable the service on boot, use the following command:&#x20;
+4.  (Optional) To enable the service on boot, use the following command:
 
     ```bash
     sudo systemctl enable graviteeio-apim-gateway
@@ -66,7 +70,7 @@ Before you install a Hybrid Gateway, complete the following steps:
 
 To verify that the installation was successful, complete the following steps:
 
-1.  &#x20;Open the logs for the installation using the following command:
+1.  Open the logs for the installation using the following command:
 
     ```bash
     sudo tail -f /opt/graviteeio-apim-gateway/logs/gravitee.log

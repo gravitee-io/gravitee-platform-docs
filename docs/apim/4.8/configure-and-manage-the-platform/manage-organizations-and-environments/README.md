@@ -1,3 +1,7 @@
+---
+description: An overview about manage organizations & environments.
+---
+
 # Manage Organizations & Environments
 
 ## Overview
@@ -38,7 +42,7 @@ To access your Organization settings:
 2. Select **Organization** from the left nav
 3.  Select **Settings** under **Console**
 
-    <figure><img src="../../../../../.gitbook/assets/organization settings (1).png" alt=""><figcaption><p>Organization settings</p></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption><p>Organization settings</p></figcaption></figure>
 4. View or define the settings for your Organization, described below
 
 {% tabs %}
@@ -102,7 +106,7 @@ To learn more about notifications, refer to the [Notifications](../gravitee-gate
 
 ### Platform access
 
-As a part of Organization administration, Gravitee offers multiple ways to manage and control access to the Gravitee platform via identity provider configuration and login/registration settings. See the [Authentication](authentication/README.md) documentation for details.
+As a part of Organization administration, Gravitee offers multiple ways to manage and control access to the Gravitee platform via identity provider configuration and login/registration settings. See the [Authentication](authentication/) documentation for details.
 
 {% hint style="warning" %}
 This should _not_ be confused with [Gravitee Access Management](https://documentation.gravitee.io/am), which is a full-featured Identity and Access Management solution used to control access to applications and APIs.

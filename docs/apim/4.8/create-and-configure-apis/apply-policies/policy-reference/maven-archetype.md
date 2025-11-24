@@ -1,3 +1,7 @@
+---
+description: Guide explaining policies for maven archetype.
+---
+
 # Maven Archetype
 
 ## Get started <a href="#user-content-get-started" id="user-content-get-started"></a>

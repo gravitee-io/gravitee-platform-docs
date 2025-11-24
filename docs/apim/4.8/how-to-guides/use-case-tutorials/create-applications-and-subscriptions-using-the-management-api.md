@@ -1,3 +1,9 @@
+---
+description: >-
+  An overview about create applications and subscriptions using the management
+  api.
+---
+
 # Create Applications and Subscriptions Using the Management API
 
 ## Overview
@@ -19,7 +25,7 @@ This guide uses the Management API (mAPI) v2 to manage v4 HTTP proxy APIs and su
 
 ## Change the API's security
 
-A Gravitee API must be associated with at least one consumer plan before it can be deployed to a Gateway.&#x20;
+A Gravitee API must be associated with at least one consumer plan before it can be deployed to a Gateway.
 
 Complete the following steps to create an API Key plan and deprecate the existing Keyless plan.
 
@@ -89,7 +95,7 @@ If your request is successful, the mAPI endpoint returns an `HTTP 201 Created` s
 
 <summary>Example response</summary>
 
-If the plan is published successfully, an `HTTP 200 OK` status is returned.&#x20;
+If the plan is published successfully, an `HTTP 200 OK` status is returned.
 
 ```json
 {
@@ -136,7 +142,7 @@ If the plan is published successfully, an `HTTP 200 OK` status is returned.&#x20
 
 <summary>Example response</summary>
 
-If your request is successful, an `HTTP 201 Created` status is returned.  In the example response below, the Keyless Plan `id` is `581ef289-35b6-4bb2-9ef2-8935b64bb2a6`.
+If your request is successful, an `HTTP 201 Created` status is returned. In the example response below, the Keyless Plan `id` is `581ef289-35b6-4bb2-9ef2-8935b64bb2a6`.
 
 ```json
 {
@@ -215,15 +221,9 @@ You can opt to use an existing application instead of creating a new one.
          -d '{"name":"My Application 1","description":"An example application to record subscriptions to APIs"}'
     ```
 
+    \{% hint style="info" %\} To create an application, you must use the mAPI v1. \{% endhint %\}
 
-
-    {% hint style="info" %}
-    To create an application, you must use the mAPI v1.
-    {% endhint %}
-
-<details>
-
-<summary>Example response</summary>
+Example response
 
 If the application is created successfully, an `HTTP 201 Created` status is returned.
 
@@ -245,8 +245,6 @@ If the application is created successfully, an `HTTP 201 Created` status is retu
   }
 }  
 ```
-
-</details>
 
 2.  Capture the application `id` from the response. You can set this application `id` as an environment variable for use in subsequent calls. For example:
 

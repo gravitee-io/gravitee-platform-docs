@@ -1,3 +1,7 @@
+---
+description: An overview about graphql rate limit.
+---
+
 # GraphQL Rate Limit
 
 {% hint style="warning" %}

@@ -1,3 +1,7 @@
+---
+description: Setup guide for local install with docker.
+---
+
 # Local Install with Docker
 
 ### Prerequisites
@@ -13,26 +17,26 @@
     curl -L https://bit.ly/docker-apim-4x -o docker-compose-apim.yml
     ```
 2. (**Enterprise Edition only**) Add you license key by completing the follow sub-steps:
-   1. &#x20;In a text editor, open `docker-compose-apim.yml.`
-   2. Navigate to `$services.management_api.volumes`.&#x20;
+   1. In a text editor, open `docker-compose-apim.yml.`
+   2. Navigate to `$services.management_api.volumes`.
    3.  On a new line, add the path to the license key. This addition ensures that the Management API can access the licensing key.
 
        ```bash
        - ./gravitee/license.key:/opt/graviteeio-management-api/license/license.key
        ```
-3.  Start the components using the following command:&#x20;
+3.  Start the components using the following command:
 
     ```bash
     docker compose -f docker-compose-apim.yml up -d
     ```
 
 {% hint style="info" %}
-APIM can take up to a minute to fully initialize with Docker.&#x20;
+APIM can take up to a minute to fully initialize with Docker.
 {% endhint %}
 
 ### **Verification**
 
-Once Docker is initialized, you can access the Console and the Developer Portal by following the following steps:&#x20;
+Once Docker is initialized, you can access the Console and the Developer Portal by following the following steps:
 
 1. To open the Console, start your browser, and then go to `http://localhost:8084`.
    * Default username: admin

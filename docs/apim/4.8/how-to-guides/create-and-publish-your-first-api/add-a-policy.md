@@ -1,3 +1,7 @@
+---
+description: An overview about add a policy.
+---
+
 # Add a Policy
 
 ## Overview
@@ -16,9 +20,8 @@ This guide explains how to add the **Rate Limit** policy to your API.
     <figure><img src="../../.gitbook/assets/D2F7C967-F0C7-4992-984D-0684E5BE02C4.jpeg" alt=""><figcaption></figcaption></figure>
 2.  Click your API that you created in [create-an-api.md](create-an-api.md "mention").
 
-
     <figure><img src="../../.gitbook/assets/image (321).png" alt=""><figcaption></figcaption></figure>
-3.  Click **Policies**. 
+3.  Click **Policies**.
 
     <figure><img src="../../.gitbook/assets/241E3A83-3746-47BA-9361-76312CA849E5.jpeg" alt=""><figcaption></figcaption></figure>
 4.  In the **Request phase**, click the **+** icon.
@@ -36,10 +39,10 @@ This guide explains how to add the **Rate Limit** policy to your API.
 8.  Click **Add policy**.
 
     <figure><img src="../../.gitbook/assets/73534139-73DB-4AD0-9B8A-69B7FDC9A7F4.jpeg" alt=""><figcaption></figcaption></figure>
-9.  In the **Policies** screen, click **Save**. 
+9.  In the **Policies** screen, click **Save**.
 
     <figure><img src="../../.gitbook/assets/D36930DA-6E96-4B2E-8D0C-9AE36C4CFD1F.jpeg" alt=""><figcaption></figcaption></figure>
-10. Click **Deploy API**. 
+10. Click **Deploy API**.
 
     <figure><img src="../../.gitbook/assets/1E2DDE15-217B-45E8-A1E6-20A12282B0E8.jpeg" alt=""><figcaption></figcaption></figure>
 11. In the **Deploy your API** pop-up window, click **Deploy**.

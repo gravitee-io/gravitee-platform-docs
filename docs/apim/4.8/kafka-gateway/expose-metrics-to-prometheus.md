@@ -1,3 +1,7 @@
+---
+description: An overview about expose metrics to prometheus.
+---
+
 # Expose metrics to Prometheus
 
 ## Overview
@@ -12,15 +16,15 @@ This guide explains how to expose the Gravitee Gateway's internal API metrics to
 
 ## Expose metrics to Prometheus
 
-To expose the metrics for your Kafka Gateway, complete the following steps:&#x20;
+To expose the metrics for your Kafka Gateway, complete the following steps:
 
 1. [#enable-prometheus](expose-metrics-to-prometheus.md#enable-prometheus "mention")
 2. [#produce-or-consume-a-kafka-message](expose-metrics-to-prometheus.md#produce-or-consume-a-kafka-message "mention")
 3. [#scrape-the-internal-api-for-metrics](expose-metrics-to-prometheus.md#scrape-the-internal-api-for-metrics "mention")
 
-### Enable Prometheus&#x20;
+### Enable Prometheus
 
-Prometheus support is activated and exposed using the internal API.&#x20;
+Prometheus support is activated and exposed using the internal API.
 
 * To enable Prometheus, add the following configuration to your `gravitee.yml` file:
 
@@ -33,7 +37,7 @@ services:
 ```
 
 {% hint style="info" %}
-* By default, the internal component API is bound to `localhost`, so the internal API can only be invoked in `localhost`. To widely expose the API, set the `services.core.http.host` property to the correct network interface.&#x20;
+* By default, the internal component API is bound to `localhost`, so the internal API can only be invoked in `localhost`. To widely expose the API, set the `services.core.http.host` property to the correct network interface.
 * If you run the application in a Docker container, set the IP address to `0.0.0.0`.
 {% endhint %}
 
@@ -57,7 +61,7 @@ scrape_configs:
 ```
 
 {% hint style="info" %}
-By default,  the UI is exposed at `http://localhost:9090/graph`.
+By default, the UI is exposed at `http://localhost:9090/graph`.
 {% endhint %}
 
 ### Verification
@@ -98,7 +102,7 @@ kafka_upstream_produce_topic_records_total{application="gio-apim-gateway",instan
 
 ## Full list of metrics for your Kafka Gateway
 
-Here is a full list of metrics for your Kafka Gateway that are viewable with Prometheus:&#x20;
+Here is a full list of metrics for your Kafka Gateway that are viewable with Prometheus:
 
 | Metric                                            | What it measures                                                      |
 | ------------------------------------------------- | --------------------------------------------------------------------- |

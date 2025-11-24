@@ -1,14 +1,18 @@
+---
+description: An overview about link to a hybrid gateway.
+---
+
 # Link to a Hybrid Gateway
 
-## Overview&#x20;
+## Overview
 
-This guide explains how to link your new Cloud token to an existing hybrid Gateway.&#x20;
+This guide explains how to link your new Cloud token to an existing hybrid Gateway.
 
 ## Prerequisites
 
-* A hybrid deployment.&#x20;
-* A Cloud token.&#x20;
-* A license key.&#x20;
+* A hybrid deployment.
+* A Cloud token.
+* A license key.
 
 For more information about acquiring these prerequisites, see [#prepare-your-installation](./#prepare-your-installation "mention").
 
@@ -77,7 +81,7 @@ To verify that your hybrid Gateway is functional, complete the following steps:
     ```
     curl http://{your_gateway_url}/
     ```
-*   Confirm that you receive the following response:&#x20;
+*   Confirm that you receive the following response:
 
     ```
     No context-path matches the request URI.

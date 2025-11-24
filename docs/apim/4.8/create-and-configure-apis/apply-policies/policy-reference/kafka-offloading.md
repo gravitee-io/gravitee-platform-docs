@@ -1,3 +1,7 @@
+---
+description: An overview about kafka offloading.
+---
+
 # Kafka Offloading
 
 ## Overview

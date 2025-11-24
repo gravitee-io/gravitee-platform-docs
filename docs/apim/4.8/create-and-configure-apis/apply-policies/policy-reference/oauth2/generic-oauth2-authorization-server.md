@@ -1,3 +1,7 @@
+---
+description: An overview about generic oauth2 authorization server.
+---
+
 # Generic OAuth2 Authorization Server
 
 ## Overview

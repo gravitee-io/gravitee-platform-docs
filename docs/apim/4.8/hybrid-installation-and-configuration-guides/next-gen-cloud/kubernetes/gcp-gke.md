@@ -1,4 +1,5 @@
 ---
+description: An overview about ---.
 hidden: true
 noIndex: true
 ---
@@ -151,7 +152,7 @@ To support caching and rate- limiting, you must install Redis into your Kubernet
     ```
 
     \
-    The command generates the following output: 
+    The command generates the following output:
 
     ```bash
         NAME                          READY   STATUS    RESTARTS   AGE
@@ -403,7 +404,7 @@ helm uninstall graviteeio-apim-gateway --namespace gravitee-apim
 
 Your Gateway appears in the Gateways section of your Gravitee Cloud Dashboard.
 
-<figure><img src="../../../.gitbook/assets/gravitee-gateway-cloud-verification (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 
 To verify that your Gateway is up and running, complete the following steps:
 
