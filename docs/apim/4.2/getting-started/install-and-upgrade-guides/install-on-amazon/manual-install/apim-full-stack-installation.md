@@ -1,3 +1,7 @@
+---
+description: Tutorial on APIM Full Stack Installation.
+---
+
 # APIM Full Stack Installation
 
 This page describes how to install the full APIM stack and its dependencies at once.
@@ -78,5 +82,5 @@ $ curl -X GET http://localhost:8083/portal/environments/DEFAULT/apis
 If the installation was successful, then the first API call returns: **No context-path matches the request URI.** The final two API calls should return a JSON payload in the response.
 
 {% hint style="success" %}
-Congratulations! Now that APIM is up and running, check out the [Quickstart Guide](../../../quickstart-guide/README.md) for your next steps.
+Congratulations! Now that APIM is up and running, check out the [Quickstart Guide](../../../quickstart-guide/) for your next steps.
 {% endhint %}
