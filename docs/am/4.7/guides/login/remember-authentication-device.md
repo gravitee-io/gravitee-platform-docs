@@ -1,3 +1,7 @@
+---
+description: Overview of Remember Authentication Device.
+---
+
 # Remember Authentication Device
 
 ## Overview
@@ -14,4 +18,4 @@ You can configure AM to register the device a user uses for authentication. Afte
 6. Enter the details of the device identifier and the amount of time you want to remember the device (2 hours by default).
 7. Click **SAVE**.
 
-<figure><img src="../../../4.3/.gitbook/assets/skip remember device.png" alt=""><figcaption><p>AM authentication device</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>AM authentication device</p></figcaption></figure>

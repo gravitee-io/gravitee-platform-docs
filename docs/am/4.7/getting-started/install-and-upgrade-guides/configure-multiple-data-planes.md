@@ -1,3 +1,7 @@
+---
+description: Configuration guide for Configure Multiple Data Planes.
+---
+
 # Configure Multiple Data Planes
 
 ## Overview
@@ -10,19 +14,17 @@ The scopes provided by Access Management include:
 * **OAuth 2.0**: Access tokens and OAuth 2.0 authorization codes, etc.
 * **Gateway**: Data managed by the Access Management runtime (the Gateway) such as user profiles, scope approval, webauthn credentials, etc. This scope as the OAuth2 scope are managed by the Data Plane
 
-As specify in the [Control Plane & Data Plane](../../overview/am-architecture/control-plane-and-data-plane.md) page prior to version 4.7, the separation of data between the control plane and the data plane was not properly implemented, and certain entities, such as user profiles, were handled within the management scope. In addition to enhancing the distribution of data between the control plane and the data plane, you can now have multiple data planes for a single control plane. In this section, we set up a deployment in a new environment with two data planes.&#x20;
+As specify in the [Control Plane & Data Plane](../../overview/am-architecture/control-plane-and-data-plane.md) page prior to version 4.7, the separation of data between the control plane and the data plane was not properly implemented, and certain entities, such as user profiles, were handled within the management scope. In addition to enhancing the distribution of data between the control plane and the data plane, you can now have multiple data planes for a single control plane. In this section, we set up a deployment in a new environment with two data planes.
 
-This deployment will include a Management API with a database for the Control Plane (CP) and two Gateways, each dedicated to a Data Plane (DataPlane\_1 & DataPlane\_2). The security domains associated with DataPlane\_1  handled only by the Gateway assigned to that data plane, and the same applies for the domains associated with DataPlane\_2. Each DataPlane has its own data cluster to isolate workloads and prevent a global service disruption if one of the databases becomes unavailable. In this deployment, if the Control Plane becomes inaccessible, the Gateways are still able to authenticate users because the necessary runtime information is now carried by the Data Plane. Similarly, if the data cluster of DataPlane\_1 is not accessible, only the Gateways of that data plane are impacted.
+This deployment will include a Management API with a database for the Control Plane (CP) and two Gateways, each dedicated to a Data Plane (DataPlane\_1 & DataPlane\_2). The security domains associated with DataPlane\_1 handled only by the Gateway assigned to that data plane, and the same applies for the domains associated with DataPlane\_2. Each DataPlane has its own data cluster to isolate workloads and prevent a global service disruption if one of the databases becomes unavailable. In this deployment, if the Control Plane becomes inaccessible, the Gateways are still able to authenticate users because the necessary runtime information is now carried by the Data Plane. Similarly, if the data cluster of DataPlane\_1 is not accessible, only the Gateways of that data plane are impacted.
 
-&#x20;
-
-<figure><img src="../../.gitbook/assets/am-multi-dataplane (1).svg" alt=""><figcaption><p>Multi Data Plane deployment</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Multi Data Plane deployment</p></figcaption></figure>
 
 ## Configure the Management API
 
 The Management API service now depends solely on the `management` repository scope. It is still necessary to specify the `gateway` and `oauth2` scopes for technical reasons, but eventually, these declarations will be removed. As a result, the settings for these three scopes can be identical. The Management API will access data from the DataPlane through a new DataPlane-type plugin. This plugin must have a data plane identifier, along with the connection parameters for the data backend, which is also known as the DataPlane.
 
-First, let's configure the repositories:&#x20;
+First, let's configure the repositories:
 
 ```yaml
 repositories:
@@ -190,6 +192,3 @@ gateway:
 {% hint style="success" %}
 It is worth noting that the gateways also have an upgrade mechanism in the same way as for the Management API.
 {% endhint %}
-
-
-
