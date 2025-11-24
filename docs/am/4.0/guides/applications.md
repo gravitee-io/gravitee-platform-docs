@@ -1,3 +1,7 @@
+---
+description: Overview of APIs.
+---
+
 # Applications
 
 ## Overview
@@ -45,7 +49,7 @@ The quickest way to test your newly created application is to request an OAuth2 
 
 ## Application identity providers
 
-AM allows your application to use different identity providers (IdPs). If you haven’t configured your providers yet, visit the [Identity Provider guide.](identity-providers/README.md)
+AM allows your application to use different identity providers (IdPs). If you haven’t configured your providers yet, visit the [Identity Provider guide.](identity-providers/)
 
 The application identity providers are separated into two sections:
 

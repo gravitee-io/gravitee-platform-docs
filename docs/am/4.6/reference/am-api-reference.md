@@ -1,3 +1,7 @@
+---
+description: API and reference documentation for API Reference.
+---
+
 # API Reference
 
 ## Overview
@@ -9,7 +13,7 @@ You can access the OpenAPI specification using the following links:
 * 4.6 — [OpenAPI spec](https://raw.githubusercontent.com/gravitee-io/gravitee-access-management/4.6.x/docs/mapi/openapi.yaml)
 * 4.5 — [OpenAPI spec](https://raw.githubusercontent.com/gravitee-io/gravitee-access-management/4.5.x/docs/mapi/openapi.yaml)
 * 4.4 — [OpenAPI spec](https://raw.githubusercontent.com/gravitee-io/gravitee-access-management/4.4.x/docs/mapi/openapi.yaml)
-* 4.3 — [OpenAPI spec](https://raw.githubusercontent.com/gravitee-io/gravitee-access-management/4.3.x/docs/mapi/openapi.yaml)&#x20;
+* 4.3 — [OpenAPI spec](https://raw.githubusercontent.com/gravitee-io/gravitee-access-management/4.3.x/docs/mapi/openapi.yaml)
 * 4.2 — [OpenAPI spec](https://raw.githubusercontent.com/gravitee-io/gravitee-docs/master/am/current/management-api/4.2/openapi.yaml)
 * 4.1 — [OpenAPI spec](https://raw.githubusercontent.com/gravitee-io/gravitee-docs/master/am/current/management-api/4.1/openapi.yaml)
 * 4.0 — [OpenAPI spec](https://raw.githubusercontent.com/gravitee-io/gravitee-docs/master/am/current/management-api/4.0/swagger.json)

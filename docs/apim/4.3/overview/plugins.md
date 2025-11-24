@@ -1,3 +1,7 @@
+---
+description: An overview about Plugins.
+---
+
 # Plugins
 
 ## Overview
@@ -59,11 +63,11 @@ A notifier is used to send notifications. The notifiers offered by Gravitee are:
 
 <summary>Policy</summary>
 
-A policy modifies the behavior of the request or response handled by the Gateway. It can be considered a proxy controller, guaranteeing that a given business rule is fulfilled during request/response processing. Policies can be chained by a request or response policy chain using a logical order.&#x20;
+A policy modifies the behavior of the request or response handled by the Gateway. It can be considered a proxy controller, guaranteeing that a given business rule is fulfilled during request/response processing. Policies can be chained by a request or response policy chain using a logical order.
 
 Examples:
 
-* Authorization using an API key&#x20;
+* Authorization using an API key
 * Applying header or query parameter transformations
 * Applying rate limiting or quotas to avoid API flooding
 
@@ -96,7 +100,7 @@ You can create, use and deploy custom reporters as described in the [Custom Plug
 
 <summary>Repository</summary>
 
-A repository is a pluggable storage component for API configuration, policy configuration, analytics, etc. See the [Repositories](../getting-started/configuration/repositories/README.md) documentation for more information.
+A repository is a pluggable storage component for API configuration, policy configuration, analytics, etc. See the [Repositories](../getting-started/configuration/repositories/) documentation for more information.
 
 </details>
 
@@ -118,7 +122,7 @@ See [Resources](../guides/api-configuration/resources.md) for more information.
 
 <summary>Secret provider</summary>
 
-A secret provider resolves secrets to avoid exposing plain text passwords and secrets keys in the `gravitee.yml` file. For example, users can store their MongoDB password in a secret manager like HashiCorp Vault and then resolve it when the platform starts.&#x20;
+A secret provider resolves secrets to avoid exposing plain text passwords and secrets keys in the `gravitee.yml` file. For example, users can store their MongoDB password in a secret manager like HashiCorp Vault and then resolve it when the platform starts.
 
 </details>
 
@@ -136,7 +140,7 @@ Plugin discovery and loading occurs regardless of APIM license type. If a plugin
 
 ### Phase 1: Discover plugins
 
-When APIM starts, all plugin zip files are read from the list of plugin directories set in the `gravitee.yaml` configuration file.&#x20;
+When APIM starts, all plugin zip files are read from the list of plugin directories set in the `gravitee.yaml` configuration file.
 
 {% hint style="info" %}
 This operation is completed asynchronously for performance benefits.
@@ -148,7 +152,7 @@ Plugin override circumvents the need to remove plugins to use a newer version, w
 
 ### Phase 2: Load plugins
 
-After APIM finishes traversing the plugin directories, the plugins are loaded.&#x20;
+After APIM finishes traversing the plugin directories, the plugins are loaded.
 
 Plugins are immediately initialized by a specialized handler. If an error occurs while unpacking a plugin zip file, the faulty plugin is ignored. An error will be reported in the logs and the loading of the remaining plugins will resume.
 
@@ -165,6 +169,6 @@ The rest of the plugins are loaded in no particular order, except if they have d
 
 For example, if `plugin1 (type:cluster)` depends on `plugin2 (type:cache)` which depends on `plugin3(type:alert)`, then the plugins are loaded in the following order:
 
-* `plugin3` (because plugin 2 depends on it,  even if it is #4 in the type priority list)
+* `plugin3` (because plugin 2 depends on it, even if it is #4 in the type priority list)
 * `plugin2` (because plugin 1 depends on it, even if it is #2 in the type priority list)
 * `plugin1`

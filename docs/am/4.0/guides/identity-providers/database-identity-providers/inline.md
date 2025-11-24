@@ -1,3 +1,7 @@
+---
+description: Configuration guide for Inline.
+---
+
 # Inline
 
 ## Overview
@@ -50,8 +54,6 @@ If you decide to switch from `bcrypt` to none, you must update all password fiel
 You can test your database connection using a web application created in AM.
 
 1.  In AM Console, click **Applications** and select your inline identity provider.
-
-
 
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-social-idp-list.png" alt=""><figcaption><p>Select Inline IdP</p></figcaption></figure>
 2.  Call the Login page (i.e `/oauth/authorize` endpoint) and try to sign in with the username/password form.

@@ -1,3 +1,7 @@
+---
+description: An overview about kafka topic mapping.
+---
+
 # Kafka Topic Mapping
 
 ## Overview <a href="#user-content-description" id="user-content-description"></a>
@@ -102,7 +106,7 @@ You can use the Kafka Topic Mapping policy to create a new topic mapping with a 
 {% tab title="Using the APIM Console" %}
 This shows how to implement the example above using the APIM Console:
 
-<figure><img src="../../../../4.6/.gitbook/assets/image (153) (1).png" alt=""><figcaption><p>Kafka Topic Mapping policy configuration UI</p></figcaption></figure>
+<figure><img src="../../../../4.6/.gitbook/assets/image%20(153)%20(1).png" alt=""><figcaption><p>Kafka Topic Mapping policy configuration UI</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="v4 API definition" %}

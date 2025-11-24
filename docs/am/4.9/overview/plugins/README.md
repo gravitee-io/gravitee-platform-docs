@@ -1,3 +1,7 @@
+---
+description: Overview of Plugins.
+---
+
 # Plugins
 
 ## Overview
@@ -10,12 +14,12 @@ The table below lists the different types of plugins you can use with AM alongsi
 
 | Type                                        | Components                            | Examples                   |
 | ------------------------------------------- | ------------------------------------- | -------------------------- |
-| [Identity Providers](README.md#identity-providers) | Management API / Gateway              | LDAP, Database, Social, …​ |
-| [Policies](README.md#policies)                     | Management API / Gateway              | Callout                    |
-| [Reporters](README.md#reporters)                   | Management API / Gateway              | MongoDB                    |
-| [Repositories](README.md#repositories)             | Management API / Gateway              | MongoDB                    |
-| [Alerts](README.md#alerts)                         | Management API / Gateway              | Vertx                      |
-| [Secret Providers](README.md#secret-providers)     | <p>APIM API<br>APIM Gateway<br>AM</p> | Kubernetes, HC Vault       |
+| [Identity Providers](./#identity-providers) | Management API / Gateway              | LDAP, Database, Social, …​ |
+| [Policies](./#policies)                     | Management API / Gateway              | Callout                    |
+| [Reporters](./#reporters)                   | Management API / Gateway              | MongoDB                    |
+| [Repositories](./#repositories)             | Management API / Gateway              | MongoDB                    |
+| [Alerts](./#alerts)                         | Management API / Gateway              | Vertx                      |
+| [Secret Providers](./#secret-providers)     | <p>APIM API<br>APIM Gateway<br>AM</p> | Kubernetes, HC Vault       |
 
 ### Identity providers
 
@@ -28,7 +32,7 @@ An **identity provider** brokers trust with external user providers to authentic
 
 ### Policies
 
-A **policy** modifies the behavior of a request or response handled by AM Gateway. It can be chained by a request policy chain or a response policy chain using a logical order.&#x20;
+A **policy** modifies the behavior of a request or response handled by AM Gateway. It can be chained by a request policy chain or a response policy chain using a logical order.
 
 Extension points use policies to guarantee a given business rule is fulfilled during request processing. An example of using a policy is to call all external web services during Login Flow (HTTP Callout policy).
 
@@ -51,4 +55,4 @@ An **alert** allows AM to send triggers or events to the Alert Engine which can 
 
 ### Secret providers
 
-A **secret provider** resolves secrets to avoid exposing plain text passwords and secrets keys in the `gravitee.yml` file. For example, users can store their MongoDB password in a secret manager like HashiCorp Vault and then resolve it when the platform starts.&#x20;
+A **secret provider** resolves secrets to avoid exposing plain text passwords and secrets keys in the `gravitee.yml` file. For example, users can store their MongoDB password in a secret manager like HashiCorp Vault and then resolve it when the platform starts.

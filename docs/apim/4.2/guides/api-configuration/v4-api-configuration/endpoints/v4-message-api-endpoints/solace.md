@@ -1,3 +1,7 @@
+---
+description: An overview about Solace.
+---
+
 # Solace
 
 ## Overview
@@ -29,7 +33,7 @@ You will define more Gravitee Gateway-specific security settings later on, but t
 
 If you chose **Use Producer** or **Use Producer and Consumer**, you must define the settings that the Gravitee Gateway Solace client will rely on for producing messages to your backend Solace topic/broker.
 
-If you chose **Use Consumer** or **Use Producer and Consumer**, you must define the settings that the Gravitee Gateway Solace client will rely on to consume messages from your backend Solace topic/broker.&#x20;
+If you chose **Use Consumer** or **Use Producer and Consumer**, you must define the settings that the Gravitee Gateway Solace client will rely on to consume messages from your backend Solace topic/broker.
 
 {% tabs %}
 {% tab title="Producer" %}

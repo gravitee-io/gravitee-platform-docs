@@ -1,3 +1,7 @@
+---
+description: An overview about configure the kafka client & gateway.
+---
+
 # Configure the Kafka Client & Gateway
 
 ## Overview

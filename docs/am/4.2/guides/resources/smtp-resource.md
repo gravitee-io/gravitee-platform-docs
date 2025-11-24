@@ -1,3 +1,7 @@
+---
+description: Overview of SMTP Resource.
+---
+
 # SMTP Resource
 
 SMTP is a resource you can use to send email over SMTP.

@@ -1,3 +1,7 @@
+---
+description: Configuration guide for configure webhook subscriptions.
+---
+
 # Configure Webhook Subscriptions
 
 {% hint style="warning" %}

@@ -1,3 +1,7 @@
+---
+description: An overview about proxy settings.
+---
+
 # Proxy Settings
 
 ## Overview

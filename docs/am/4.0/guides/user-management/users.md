@@ -1,3 +1,7 @@
+---
+description: Configuration guide for Manage users.
+---
+
 # Users
 
 ## Manage users
@@ -6,8 +10,6 @@
 
 1. Log in to AM Console.
 2.  Search for users by clicking **Settings > Users** and entering the username in the search field.
-
-
 
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-um-search-users.png" alt=""><figcaption><p>Search for users</p></figcaption></figure>
 
@@ -170,8 +172,6 @@ You create users in a security domain.
 4. Give your user a **First name**, a **Last name**, an **Email** and a **Username** and click **SAVE**.
 5. (Optional) You can also add/modify specific attributes relating to the user. This user metadata will be available in the user’s profile.
 6.  You will be redirected to the created user’s page.
-
-
 
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-um-create-user.png" alt=""><figcaption><p>New user creation page</p></figcaption></figure>
 

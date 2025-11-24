@@ -1,3 +1,7 @@
+---
+description: An overview about core concepts.
+---
+
 # Core Concepts
 
 ## Overview
@@ -54,7 +58,7 @@ Certain properties are case-sensitive and cannot use uppercase characters. We re
 
 <summary>Environment variable override examples</summary>
 
-#### Example 1
+**Example 1**
 
 To override this property:
 
@@ -71,7 +75,7 @@ gravitee_management_mongodb_dbname=myDatabase
 gravitee.management.mongodb.dbname=myDatabase
 ```
 
-#### Example 2
+**Example 2**
 
 Some properties are arrays:
 

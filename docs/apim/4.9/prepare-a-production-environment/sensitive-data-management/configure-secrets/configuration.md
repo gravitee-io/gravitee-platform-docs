@@ -1,3 +1,7 @@
+---
+description: An overview about configuration.
+---
+
 # Configuration
 
 ## Overview

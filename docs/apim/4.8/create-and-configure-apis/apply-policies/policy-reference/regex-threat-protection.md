@@ -1,3 +1,7 @@
+---
+description: An overview about regex threat protection.
+---
+
 # Regex Threat Protection
 
 {% hint style="warning" %}

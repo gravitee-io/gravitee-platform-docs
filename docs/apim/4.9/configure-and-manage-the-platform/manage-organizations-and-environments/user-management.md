@@ -1,3 +1,7 @@
+---
+description: An overview about user management.
+---
+
 # User Management
 
 ## Overview

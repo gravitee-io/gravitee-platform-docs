@@ -1,3 +1,7 @@
+---
+description: Configuration guide for quick start.
+---
+
 # Quick Start
 
 {% hint style="info" %}

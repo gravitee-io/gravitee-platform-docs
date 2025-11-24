@@ -1,3 +1,7 @@
+---
+description: An overview about mapi internal api.
+---
+
 # MAPI Internal API
 
 ## Overview

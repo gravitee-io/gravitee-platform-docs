@@ -1,3 +1,7 @@
+---
+description: Overview of Kerberos.
+---
+
 # Kerberos
 
 ## Overview
@@ -39,8 +43,6 @@ You can also configure an LDAP server to fetch additional information on the cur
 You can test your Kerberos connection using a web application created in AM.
 
 1.  In AM Console, click **Applications** and select your Kerberos connector in the **Identity Providers** tab.
-
-
 
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-social-idp-list.png" alt=""><figcaption><p>Select Kerberos IdP</p></figcaption></figure>
 

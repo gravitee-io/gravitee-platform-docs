@@ -1,3 +1,7 @@
+---
+description: An overview about subscription requests.
+---
+
 # Subscription Requests
 
 ## Overview

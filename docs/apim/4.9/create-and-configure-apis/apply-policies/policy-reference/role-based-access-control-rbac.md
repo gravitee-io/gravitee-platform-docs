@@ -1,3 +1,7 @@
+---
+description: An overview about role-based access control (rbac).
+---
+
 # Role-based Access Control (RBAC)
 
 {% hint style="warning" %}

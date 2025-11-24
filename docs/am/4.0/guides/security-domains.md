@@ -1,3 +1,7 @@
+---
+description: Overview of URLs.
+---
+
 # Security Domains
 
 ## Overview
@@ -13,13 +17,9 @@ The first task of setting up new authorization and authentication in AM is to cr
 1. Log in to AM Console.
 2.  From the user menu at the top right, click **Create domain**.
 
-
-
     <figure><img src="https://docs.gravitee.io/images/am/current/quickstart-create-domain.png" alt=""><figcaption><p>Create a domain</p></figcaption></figure>
 3. Give your security domain a **Name** and a **Description** and click **CREATE**.
 4.  Select **click here** link on the banner to enable the domain.
-
-
 
     <figure><img src="https://docs.gravitee.io/images/am/current/quickstart-enable-domain.png" alt=""><figcaption><p>Domain banner</p></figcaption></figure>
 

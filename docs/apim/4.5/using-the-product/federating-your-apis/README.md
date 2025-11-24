@@ -1,3 +1,7 @@
+---
+description: Configuration and usage guide for federating your apis.
+---
+
 # Federating your APIs
 
 ## Why federation
@@ -13,7 +17,7 @@ If you're hosting Gravitee yourself, then Federation is **deactivated by default
 A growing number of organizations have an IT footprint that extends across multiple clouds and multiple enterprise software solutions. All of these systems contain valuable data and services that your organization can use to get ahead. As architects and platform engineers, your success will be measured against your ability to harness this complexity to the benefit of the business. This means two things:
 
 1. **Governance**: maintaining up-to-date knowledge and control of the solutions used in the organization, ensuring they meet the organization’s standards in terms of security, quality, and consistency.
-2. **Developer experience**: ensuring that developers inside and outside the organization can easily discover, consume, build upon, and even configure these systems.&#x20;
+2. **Developer experience**: ensuring that developers inside and outside the organization can easily discover, consume, build upon, and even configure these systems.
 
 It just so happens that the systems you need to govern and productize for your developers often take the form of APIs deployed on different enterprise products, whether they’re REST APIs running on Gravitee, AWS API Gateway, and IBM API Connect, or event streams running on message-based systems like Kafka or Solace.
 
@@ -43,14 +47,10 @@ Whether your API is running on IBM API Connect, Solace, or anything in between, 
 
 The screenshot below shows the vanilla Gravitee Developer Portal that includes an API from AWS. Hitting the “Subscribe” button will allow any developer to easily obtain an API key to directly consume the underlying AWS API.
 
-By integrating concepts like API Products and Plans from 3rd-party platforms, Gravitee can expose these concepts to your developers who will be able to request subscriptions for their applications to consume these APIs. Gravitee acts as a middleman, allowing you, the admin team, to accept or reject subscription requests before they are forwarded to the 3rd-party platform.&#x20;
+By integrating concepts like API Products and Plans from 3rd-party platforms, Gravitee can expose these concepts to your developers who will be able to request subscriptions for their applications to consume these APIs. Gravitee acts as a middleman, allowing you, the admin team, to accept or reject subscription requests before they are forwarded to the 3rd-party platform.
 
 JWT, OAuth, and API key subscriptions can be configured according to your needs, including integrations with external authorization servers to perform token generation and validation.
 
+For more information about Federating your APIs, see the following articles:
 
-
-For more information about Federating your APIs, see the following articles:&#x20;
-
-
-
-<table data-view="cards"><thead><tr><th data-type="content-ref"></th><th></th><th></th></tr></thead><tbody><tr><td><a href="broken-reference">Broken link</a></td><td></td><td></td></tr><tr><td><a href="integrations.md">integrations.md</a></td><td></td><td></td></tr><tr><td><a href="discovery.md">discovery.md</a></td><td></td><td></td></tr><tr><td><a href="federated-apis.md">federated-apis.md</a></td><td></td><td></td></tr><tr><td><a href="create-a-service-account-for-the-federation-agent.md">create-a-service-account-for-the-federation-agent.md</a></td><td></td><td></td></tr><tr><td><a href="3rd-party-providers/">3rd-party-providers</a></td><td></td><td></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th data-type="content-ref"></th><th></th><th></th></tr></thead><tbody><tr><td><a href="broken-reference/">broken-reference</a></td><td></td><td></td></tr><tr><td><a href="integrations.md">integrations.md</a></td><td></td><td></td></tr><tr><td><a href="discovery.md">discovery.md</a></td><td></td><td></td></tr><tr><td><a href="federated-apis.md">federated-apis.md</a></td><td></td><td></td></tr><tr><td><a href="create-a-service-account-for-the-federation-agent.md">create-a-service-account-for-the-federation-agent.md</a></td><td></td><td></td></tr><tr><td><a href="3rd-party-providers/">3rd-party-providers</a></td><td></td><td></td></tr></tbody></table>

@@ -1,3 +1,7 @@
+---
+description: Tutorial on Introduction to Gravitee API Management (APIM).
+---
+
 # Introduction to Gravitee API Management (APIM)
 
 An API management solution allows an organization to securely and reliably expose its APIs to partners and developers, both internal and external, and offers numerous benefits and advantages. By unlocking the potential of data and services while facilitating the transformation to OpenAPI, an API management solution empowers a company to extend its digital platform, forge new communication channels, and attract new customers.

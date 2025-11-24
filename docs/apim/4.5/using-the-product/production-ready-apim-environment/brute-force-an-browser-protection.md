@@ -1,4 +1,8 @@
-# Brute-force an Browser Protection
+---
+description: An overview about configuring brute-force and browser protection.
+---
+
+# Configuring Brute-force and Browser Protection
 
 ## Overview
 

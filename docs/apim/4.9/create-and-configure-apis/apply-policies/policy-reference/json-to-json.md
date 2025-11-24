@@ -1,3 +1,7 @@
+---
+description: An overview about json to json.
+---
+
 # JSON to JSON
 
 ## Overview
@@ -228,35 +232,31 @@ As a more complex use case, you may want to trim down the response payload by on
     }
   } ]
 }
-
 </code></pre></td><td><pre class="language-json"><code class="lang-json">[
-  {
-    "operation": "shift",
-    "spec": {
-      "item": {
-        "name": "accountHolder",
-        "accountDetails": {
-          "items": {
-            "*": {
-              "balance": "accountDetails[&#x26;1].balance",
-              "account": {
-                "id": "accountDetails[&#x26;2].account.id",
-                "name": "accountDetails[&#x26;2].account.name",
-                "metadata": "accountDetails[&#x26;2].account.metadata"
-              }
-            }
-          }
-        }
-      }
-    }
-  }
+{
+"operation": "shift",
+"spec": {
+"item": {
+"name": "accountHolder",
+"accountDetails": {
+"items": {
+"*": {
+"balance": "accountDetails[&#x26;1].balance",
+"account": {
+"id": "accountDetails[&#x26;2].account.id",
+"name": "accountDetails[&#x26;2].account.name",
+"metadata": "accountDetails[&#x26;2].account.metadata"
+}
+}
+}
+}
+}
+}
+}
 ]
-
 </code></pre></td></tr></tbody></table>
 
 ## Examples
-
-
 
 {% hint style="warning" %}
 This policy can be applied to v2 APIs, v4 HTTP proxy APIs, and v4 Message APIs. It cannot be applied to v4 TCP proxy APIs.

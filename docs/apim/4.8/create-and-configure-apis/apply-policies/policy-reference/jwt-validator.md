@@ -1,3 +1,7 @@
+---
+description: An overview about jwt validator.
+---
+
 # JWT Validator
 
 ## Overview
@@ -7,7 +11,7 @@ You can use the `jwt` policy to validate the token signature and expiration date
 Some authorization servers use OAuth2 protocol to provide access tokens. These access token can be in JWS/JWT format. For the RFC standards, see:
 
 * JWS (JSON Web Signature) standard RFC: [https://tools.ietf.org/html/rfc7515](https://tools.ietf.org/html/rfc7515)
-* JWT (JSON Web Token) standard RFC: [https://tools.ietf.org/html/rfc7519 ](https://tools.ietf.org/html/rfc7519)
+* JWT (JSON Web Token) standard RFC: [https://tools.ietf.org/html/rfc7519](https://tools.ietf.org/html/rfc7519)
 
 A JWT is composed of three parts: a header, a payload and a signature. You can see some examples here: [http://jwt.io](https://www.jwt.io/).
 
@@ -150,8 +154,6 @@ policy:
 | <p>Token Type Validation<br><code>tokenTypValidation</code></p>                    | object                                 |           |             | <p>Define the token type to validate<br>See "Token Type Validation" section.</p>                                                                                                                                        |
 | <p>Use system proxy<br><code>useSystemProxy</code></p>                             | boolean                                |           |             | Use system proxy (make sense only when resolver is set to JWKS\_URL)                                                                                                                                                    |
 | <p>User claim<br><code>userClaim</code></p>                                        | string                                 |           | `sub`       | Claim where the user can be extracted                                                                                                                                                                                   |
-
-
 
 **Confirmation Method Validation (Object)**
 

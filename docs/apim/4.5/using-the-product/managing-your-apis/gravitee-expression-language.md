@@ -1,3 +1,7 @@
+---
+description: An overview about gravitee expression language.
+---
+
 # Gravitee Expression Language
 
 ## Overview
@@ -150,7 +154,7 @@ EL provides a variety of built-in functions to manipulate and transform data in 
       ```
 * `#xpath`: Evaluates an `xpath` on a provided object. For more information regarding XML and XPath, see [XML Support - Dealing with XML Payloads](https://docs.spring.io/spring-integration/reference/xml.html) in the SpEL documentation.
 * `xmlEspace`: Escapes XML content to ensure that it safe for inclusion in XML or SOAP documents, which prevents injection attacks. This function utilizes Apache Commons Text StringEscapeUtils.escapeXml10() for XML 1.0-compliant escaping.
-  *   `xmlEscape example` 
+  *   `xmlEscape example`
 
       ```jsonp
       <soap:Envelope>
@@ -381,7 +385,7 @@ For example, to retrieve the value of an HTTP header where the name is based on 
 
 You can use the EL to update some aspects of policy configuration. The policy specifies if it supports EL or not by including a **Condition** section in the Policy Studio configuration.
 
-<figure><img src="../../../../../.gitbook/assets/Screenshot 2023-04-03 at 4.58.01 PM (1).png" alt=""><figcaption><p>Assign attributes policy supports EL conditions</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-04-03 at 4.58.01 PM (1).png" alt=""><figcaption><p>Assign attributes policy supports EL conditions</p></figcaption></figure>
 
 ## Conditions
 

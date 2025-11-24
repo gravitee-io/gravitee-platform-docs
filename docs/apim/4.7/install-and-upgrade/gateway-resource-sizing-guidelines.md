@@ -1,3 +1,7 @@
+---
+description: An overview about gateway resource sizing guidelines.
+---
+
 # Gateway Resource Sizing Guidelines
 
 ## Overview
@@ -48,7 +52,7 @@ For more information on high availability best practices, see [High availability
 
 ## Performance considerations
 
-To optimize the performance and cost-effectiveness of your APIM Gateway, consider the following factors when sizing your infrastructure:&#x20;
+To optimize the performance and cost-effectiveness of your APIM Gateway, consider the following factors when sizing your infrastructure:
 
 <details>
 
@@ -62,7 +66,7 @@ Deployed APIs are maintained in memory. Increasing the number of deployed APIs c
 
 <summary>The number of plugins on an API</summary>
 
-The more plugins you add to your APIs, the more demand you place on your Gateway, which could negatively impact latency. Some plugins, such as `generate-http-signature`, are particularly CPU intensive. Others, when badly configured or handling large payloads, can require excessive memory or CPU.&#x20;
+The more plugins you add to your APIs, the more demand you place on your Gateway, which could negatively impact latency. Some plugins, such as `generate-http-signature`, are particularly CPU intensive. Others, when badly configured or handling large payloads, can require excessive memory or CPU.
 
 </details>
 
@@ -78,7 +82,7 @@ The Gateway is optimized to minimize memory consumption when serving requests an
 
 <summary>Analytics and logging</summary>
 
-Gravitee offers multiple methods to export analytics using [reporters](../gravitee-gateway/reporters/README.md). Depending on throughput and the level of precision used for logging, you may need to increase the memory or disk space of your Gateway and choose the reporter best suited to handle your traffic analytics.
+Gravitee offers multiple methods to export analytics using [reporters](../gravitee-gateway/reporters/). Depending on throughput and the level of precision used for logging, you may need to increase the memory or disk space of your Gateway and choose the reporter best suited to handle your traffic analytics.
 
 </details>
 

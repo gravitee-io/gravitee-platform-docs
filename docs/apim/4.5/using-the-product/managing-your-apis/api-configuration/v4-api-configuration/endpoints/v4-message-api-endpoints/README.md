@@ -1,3 +1,7 @@
+---
+description: An overview about v4 message api endpoints.
+---
+
 # v4 Message API Endpoints
 
 ## Overview
@@ -7,7 +11,7 @@
 
 The ability to create APIs with message API endpoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise Edition and what's included in various enterprise packages:
 
-* [Refer to the EE vs OSS documentation](../../../../../../overview/gravitee-apim-enterprise-edition/README.md)
+* [Refer to the EE vs OSS documentation](../../../../../../overview/gravitee-apim-enterprise-edition/)
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
@@ -26,7 +30,7 @@ v4 message APIs currently support the following endpoints:
 To access endpoint configuration:
 
 1. Select **APIs** from the left nav
-2. Select your API&#x20;
+2. Select your API
 3. Select **Endpoints** from the inner left nav
 
 The integrations Gravitee uses to enable Kafka, MQTT, RabbitMQ, and Solace endpoints for v4 API definitions rely on the following terminology and functionality:

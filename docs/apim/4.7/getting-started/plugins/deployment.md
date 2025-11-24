@@ -1,3 +1,7 @@
+---
+description: An overview about deployment.
+---
+
 # Deployment
 
 ## Overview
@@ -14,17 +18,17 @@ The plugins directory can be configured via either local installation or Helm.
 
 {% tabs %}
 {% tab title="Local installation" %}
-You can configure the APIM Gateway [plugins](README.md) directory with `plugins.path` configuration property:
+You can configure the APIM Gateway [plugins](./) directory with `plugins.path` configuration property:
 
 ```yaml
 plugins:
   path: ${gravitee.home}/plugins
 ```
 
-Users can add plugins not included in APIM's default distribution to this directory. This includes different versions of Gravitee plugins or their own [custom plugins](customization.md).&#x20;
+Users can add plugins not included in APIM's default distribution to this directory. This includes different versions of Gravitee plugins or their own [custom plugins](customization.md).
 
 {% hint style="info" %}
-To understand how Gravitee handles duplicate plugins, see plugins [discovery and loading.](#discovery-and-loading)
+To understand how Gravitee handles duplicate plugins, see plugins [discovery and loading.](deployment.md#discovery-and-loading)
 {% endhint %}
 
 If you do not wish to modify the default directory, Gravitee also lets you specify additional folders in an array:
@@ -54,7 +58,7 @@ api:
 ```
 {% endcode %}
 
-The property `removePlugins` has been removed from the Helm chart as it is no longer necessary. See [plugin discovery and loading](#discovery-and-loading) for more information.
+The property `removePlugins` has been removed from the Helm chart as it is no longer necessary. See [plugin discovery and loading](deployment.md#discovery-and-loading) for more information.
 {% endtab %}
 {% endtabs %}
 
@@ -64,7 +68,7 @@ Plugin discovery and loading occurs regardless of APIM license type. If a plugin
 
 ### Phase 1: Discover plugins
 
-When APIM starts, all plugin zip files are read from the list of plugin directories set in the `gravitee.yaml` configuration file.&#x20;
+When APIM starts, all plugin zip files are read from the list of plugin directories set in the `gravitee.yaml` configuration file.
 
 {% hint style="info" %}
 This operation is completed asynchronously for performance benefits.
@@ -78,7 +82,7 @@ This mechanism simplifies plugin management by eliminating the need to manually 
 
 ### Phase 2: Load plugins
 
-After APIM finishes traversing the plugin directories, the plugins are loaded.&#x20;
+After APIM finishes traversing the plugin directories, the plugins are loaded.
 
 Plugins are immediately initialized by a specialized handler. If an error occurs while unpacking a plugin zip file, the faulty plugin is ignored. An error will be reported in the logs and the loading of the remaining plugins will resume.
 
@@ -95,6 +99,6 @@ The rest of the plugins are loaded in no particular order, except if they have d
 
 For example, if `plugin1 (type:cluster)` depends on `plugin2 (type:cache)` which depends on `plugin3(type:alert)`, then the plugins are loaded in the following order:
 
-* `plugin3` (because plugin 2 depends on it,  even if it is #4 in the type priority list)
+* `plugin3` (because plugin 2 depends on it, even if it is #4 in the type priority list)
 * `plugin2` (because plugin 1 depends on it, even if it is #2 in the type priority list)
 * `plugin1`

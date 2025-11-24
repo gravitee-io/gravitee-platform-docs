@@ -1,6 +1,11 @@
+---
+description: Documentation about apim 4.9.x in the context of APIs.
+---
+
 # APIM 4.9.x
- 
+
 ## Gravitee API Management 4.9.6 - November 21, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -27,12 +32,15 @@
 
 </details>
 
-
- 
 ## Gravitee API Management 4.9.5 - November 17, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
+
+**Console**
+
+* Export was exposing unwanted `hrid` field in CRD export [#10937](https://github.com/gravitee-io/issues/issues/10937)
 
 **Other**
 
@@ -51,8 +59,6 @@
 
 </details>
 
-
- 
 ## Gravitee API Management 4.9.4 - November 14, 2025
 
 <details>

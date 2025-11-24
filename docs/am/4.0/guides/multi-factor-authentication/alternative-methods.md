@@ -1,3 +1,7 @@
+---
+description: Overview of MFA.
+---
+
 # Alternative Methods
 
 ## Overview
@@ -22,5 +26,5 @@ To add an alternative verification method, your applications can use the [Self-s
 4. Continue with the MFA verification process.
 
 {% hint style="info" %}
-You can change the look and feel of forms using [custom pages](../branding/README.md#custom-pages).&#x20;
+You can change the look and feel of forms using [custom pages](../branding/#custom-pages).
 {% endhint %}

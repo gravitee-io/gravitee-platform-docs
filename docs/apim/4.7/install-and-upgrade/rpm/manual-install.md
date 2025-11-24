@@ -1,3 +1,7 @@
+---
+description: Setup instructions and guidance for manual install.
+---
+
 # Manual install
 
 {% hint style="warning" %}
@@ -140,21 +144,14 @@ To install Java 21, use either of the following commands depending on your opera
 
 *   If you are running Gravitee APIM on an Amazon Linux, enable the repository that contains Java using the following command:
 
-
     ```sh
     sudo amazon-linux-extras enable java-openjdk21
     ```
-
-
-
--   If you are running APIM on any other operating system, install Java using the following the command:
-
+*   If you are running APIM on any other operating system, install Java using the following the command:
 
     ```sh
     sudo yum install java-21-openjdk -y
     ```
-
-
 
 **Verification**
 

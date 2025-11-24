@@ -1,3 +1,7 @@
+---
+description: Overview of SCIM.
+---
+
 # SCIM 2.0
 
 [The System for Cross-domain Identity Management (SCIM)](https://datatracker.ietf.org/doc/html/rfc7644) 2.0 is a standard for automating the exchange of user identity information between identity domains, or IT systems.
@@ -34,7 +38,7 @@ In the SCIM request, the `lastPasswordReset` attribute is expected to be a Strin
 As it is specific information,you must use the following Gravitee schema extension `"urn:ietf:params:scim:schemas:extension:custom:2.0:User"` . Here is an example:\
 \
 "urn:ietf:params:scim:schemas:extension:custom:2.0:User": {\
-&#x20;  "lastPasswordReset": "2024-10-27T04:56:22Z" \
+"lastPasswordReset": "2024-10-27T04:56:22Z"\
 }
 {% endhint %}
 

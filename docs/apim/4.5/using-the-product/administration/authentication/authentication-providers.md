@@ -1,4 +1,8 @@
-# Authentication Providers
+---
+description: An overview about configuring authentication with authentication providers.
+---
+
+# Configuring authentication with authentication providers
 
 ## Overview
 

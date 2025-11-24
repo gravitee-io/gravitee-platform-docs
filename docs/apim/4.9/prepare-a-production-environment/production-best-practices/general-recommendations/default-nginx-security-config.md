@@ -1,3 +1,7 @@
+---
+description: Guide on applying policies related to default nginx security config.
+---
+
 # Default Nginx Security Config
 
 The APIM Console uses this default config:

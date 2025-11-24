@@ -1,3 +1,7 @@
+---
+description: An overview about Importing an OpenAPI Specification to the Gravitee Gateway.
+---
+
 # Importing an OpenAPI Specification to the Gravitee Gateway
 
 ## Overview
@@ -14,10 +18,10 @@ To import an API from OpenAPI:
 
 *   If the OpenAPI specification is a file, select **IMPORT FILE** and browse your file system
 
-    <figure><img src="../../../../../../.gitbook/assets/graviteeio-import-openapi-file (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/graviteeio-import-openapi-file (1).png" alt=""><figcaption></figcaption></figure>
 *   If the OpenAPI specification is a link, select **IMPORT FROM LINK**, choose **Swagger / OpenAPI**, and enter the definition URL
 
-    <figure><img src="../../../../../../.gitbook/assets/graviteeio-import-openapi-link (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/graviteeio-import-openapi-link (1).png" alt=""><figcaption></figcaption></figure>
 
 ## **Context-path resolution**
 
@@ -48,7 +52,6 @@ To import an API from OpenAPI:
 \| /swaggerpetstore | | | OpenAPI (V3) |
 
 Path of the first `servers.url`, if it exists, without "/".
-
 
 |
 

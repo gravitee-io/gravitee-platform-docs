@@ -1,10 +1,12 @@
+---
+description: An overview about docker compose.
+---
+
 # Docker Compose
 
 ## Overview
 
 When you install Gravitee API Management (APIM) with Docker Compose, you can install custom plugins and control the location of the persistent data.
-
-{% include "../../../4.6/.gitbook/includes/installation-guide-note (1).md" %}
 
 ## Prerequisites
 

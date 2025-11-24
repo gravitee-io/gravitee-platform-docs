@@ -1,3 +1,7 @@
+---
+description: Configuration guide for HTTP Reverse Proxy.
+---
+
 # HTTP Reverse Proxy
 
 ## APIM configuration

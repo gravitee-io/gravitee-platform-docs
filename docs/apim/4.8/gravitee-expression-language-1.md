@@ -1,9 +1,10 @@
 ---
+description: An overview about Gravitee Expression Language
 hidden: true
 noIndex: true
 ---
 
-# 4.9 Gravitee Expression Language
+# 4.9: Gravitee Expression Language
 
 ## Overview
 
@@ -129,13 +130,13 @@ To extract the value of the `price` property for the book with `title` "The Lord
 
 ## Expression Language Assistant
 
-### Overview&#x20;
+### Overview
 
-The Expression Language (EL) Assistant helps you write the EL expression needed for the field. You provide the Assistant with the prompt for the EL that you want, and then the assistant returns the corresponding EL for the prompt.&#x20;
+The Expression Language (EL) Assistant helps you write the EL expression needed for the field. You provide the Assistant with the prompt for the EL that you want, and then the assistant returns the corresponding EL for the prompt.
 
 <figure><img src=".gitbook/assets/anim.gif" alt=""><figcaption></figcaption></figure>
 
-### Prerequisites&#x20;
+### Prerequisites
 
 * Gravitee Cloud account. To register for Gravitee Cloud, go to [Cloud](https://cockpit.gravitee.io/).
 * (Self-hosted and Hybrid installations only) Register your installation in Gravitee Cloud. For more information about registering your installation, see Register installations.
@@ -144,7 +145,6 @@ The Expression Language (EL) Assistant helps you write the EL expression needed 
 {% tabs %}
 {% tab title="gravitee.yaml" %}
 -   Add the following configuration to the root level of your `gravitee.yaml` file:
-
 
     ```yaml
     newtai:
@@ -164,7 +164,6 @@ gravitee_newtai_elgen_enabled=true
 {% tab title="values.yaml" %}
 *   Add the following configuration to your `values.yaml` file:
 
-
     ```yaml
     newtai:
       elgen:
@@ -176,20 +175,17 @@ gravitee_newtai_elgen_enabled=true
 ### Generate Expression Language with the EL assistant
 
 {% hint style="info" %}
-Any field that supports Expression Language, supports the AI assistant.&#x20;
+Any field that supports Expression Language, supports the AI assistant.
 {% endhint %}
 
 1.  In the field that supports expression language, click the **{EL}** icon.
-
 
     <figure><img src=".gitbook/assets/304A887B-9FD1-4011-961A-7DB7D91D3478_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 2. In the **EL Assistant** pop-up window, type the prompt for the Expression Language that you want the AI assistant to generate. For example, only run this policy if the header equals test.
 3.  Click **Ask Newt AI**. The AI assistant generates the Expression Language.
 
-
     <figure><img src=".gitbook/assets/DBE0A0C1-3171-4CA4-A586-A503EBD2B0BD_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 4.  (Optional) Provide feedback about the answer. To provide feedback, click either the **thumbs u**p or the **thumbs down**.
-
 
     <figure><img src=".gitbook/assets/6D6E46F0-AECF-41F9-BE38-53C6EC0EDA38_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 
@@ -199,23 +195,23 @@ The following use cases provide you with an understanding of how to use the EL A
 
 #### Add a condition to a policy flow
 
-To add a condition to a policy flow to only run the policy flow when header equals true, type the following prompt in the EL Assistant pop-up window: Only run this policy flow if the header equals test.&#x20;
+To add a condition to a policy flow to only run the policy flow when header equals true, type the following prompt in the EL Assistant pop-up window: Only run this policy flow if the header equals test.
 
-The EL  Assistant returns the following Expression language to use in your policy flow:
+The EL Assistant returns the following Expression language to use in your policy flow:
 
 `{#request.headers['Test_Endpoints_header'][0] == 'test'}`
 
-#### Targeting an endpoint&#x20;
+#### Targeting an endpoint
 
-To add a Target url for your endpoint that targets `https://jsonplaceholder.typicode.com/` , type the following prompt in the EL Assistant pop-up window: The target URL must target the following URL: https://jsonplaceholder.typicode.com/.&#x20;
+To add a Target url for your endpoint that targets `https://jsonplaceholder.typicode.com/` , type the following prompt in the EL Assistant pop-up window: The target URL must target the following URL: https://jsonplaceholder.typicode.com/.
 
-The EL assistant returns the following response:&#x20;
+The EL assistant returns the following response:
 
 `{#context.attributes['https://jsonplaceholder.typicode.com']}`
 
 #### Add an assertion for API Health checks
 
-To add an assertion that only checks the HTTP response, 200, type the following prompt in the  EL Assistant pop-up window: Check only the status of the following HTTP response that equals 200
+To add an assertion that only checks the HTTP response, 200, type the following prompt in the EL Assistant pop-up window: Check only the status of the following HTTP response that equals 200
 
 The EL Assistant returns the following response:
 

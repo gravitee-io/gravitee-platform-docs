@@ -1,3 +1,7 @@
+---
+description: An overview about sharding tags.
+---
+
 # Sharding Tags
 
 ## Overview

@@ -1,3 +1,7 @@
+---
+description: An overview about docker compose.
+---
+
 # Docker Compose
 
 ### Overview <a href="#overview" id="overview"></a>
@@ -277,7 +281,7 @@ To enable Federation, complete the following steps:
           - ./.license/license.key:/opt/graviteeio-management-api/license/license.key
           - ./.plugins:/opt/graviteeio-management-api/plugins-ext
     ```
-3.  Restart your APIM services. 
+3.  Restart your APIM services.
 
     ```bash
     docker compose -f docker-compose-apim.yml down
@@ -335,7 +339,7 @@ LOG_LEVEL=DEBUG
 This example shows configuration for Confluent Platform integration. For Solace or AWS API Gateway integrations, the core Gravitee parameters remain the same, but additional integration-specific parameters will differ.
 {% endhint %}
 
-2.  To enable federation, add the federation agent service to your `docker-compose-apim.yml` file. You can see a sample configuration example in the complete Docker Compose file above with all available agent options. 
+2.  To enable federation, add the federation agent service to your `docker-compose-apim.yml` file. You can see a sample configuration example in the complete Docker Compose file above with all available agent options.
 
     ```yaml
     #
@@ -616,5 +620,4 @@ If APIM is running with high availability, you need to set up cluster mode. To s
    * https://download.gravitee.io/plugins/node-cache/gravitee-node-cache-plugin-hazelcast/gravitee-node-cache-plugin-hazelcast-5.18.1.zip
    * https://download.gravitee.io/plugins/node-cluster/gravitee-node-cluster-plugin-hazelcast/gravitee-node-cluster-plugin-hazelcast-5.18.1.zip
 
-[\
-](https://documentation.gravitee.io/apim/~/changes/324/self-hosted-installation-guides/docker)
+[<br>](https://documentation.gravitee.io/apim/~/changes/324/self-hosted-installation-guides/docker)

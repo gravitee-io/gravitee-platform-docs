@@ -1,3 +1,7 @@
+---
+description: Documentation about create apis in the context of APIs.
+---
+
 # Create APIs
 
 With Gravitee API Management, you can create or import v2 APIs and v4 APIs. For more information about creating and importing v2 and v4 APIs, see the following articles:

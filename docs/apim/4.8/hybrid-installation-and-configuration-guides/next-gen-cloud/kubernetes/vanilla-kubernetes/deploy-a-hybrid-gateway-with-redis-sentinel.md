@@ -1,4 +1,5 @@
 ---
+description: An overview about ---.
 hidden: true
 noIndex: true
 ---
@@ -7,7 +8,7 @@ noIndex: true
 
 ## Overview
 
-This guide explains how to install a Hybrid Gateway, deploy  custom plugins and connect it to Gravitee Next-Gen Cloud using Redis Sentinel.&#x20;
+This guide explains how to install a Hybrid Gateway, deploy custom plugins and connect it to Gravitee Next-Gen Cloud using Redis Sentinel.
 
 ## Prerequisites
 
@@ -20,7 +21,7 @@ This guide explains how to install a Hybrid Gateway, deploy  custom plugins and 
 
 ## Deploy Redis with Sentinel
 
-Before installing the Gravitee Hybrid Gateway, a Redis instance with Sentinel for high availability must be running in your Kubernetes cluster. This setup ensures that the gateway's rate-limiting capabilities remain functional even if the primary Redis node fails.&#x20;
+Before installing the Gravitee Hybrid Gateway, a Redis instance with Sentinel for high availability must be running in your Kubernetes cluster. This setup ensures that the gateway's rate-limiting capabilities remain functional even if the primary Redis node fails.
 
 The following manifest will create a Redis master, three Sentinel replicas to monitor it, and the necessary service for the gateway to discover the Sentinels.
 
@@ -139,19 +140,17 @@ spec:
     targetPort: 26379
 ```
 
-Make the following modifications to the `yaml` file:&#x20;
+Make the following modifications to the `yaml` file:
 
-* Replace all instances of `<redis_password>` (shown as `myredispassword` in the file) with a secure password for your Redis instance.&#x20;
+* Replace all instances of `<redis_password>` (shown as `myredispassword` in the file) with a secure password for your Redis instance.
 * Replace all instances of `<redis_master_name>` (shown as `mymaster` in the file) with the desired name for your Redis master group.
 * Apply this configuration to your cluster using `kubectl apply -f <filename>.yaml`.
 
-
-
-## Configure the Gravitee Hybrid Gateway&#x20;
+## Configure the Gravitee Hybrid Gateway
 
 This `values.yaml` file configures the Gravitee Hybrid Gateway Helm chart. It is used to connect to the Redis Sentinel service for rate limiting and to download custom plugins from an internal S3 bucket, which is used for environments without internet access.
 
-To configure the Gravitee hybrid gateway with custom plugins we support, copy and paste the following configuration:&#x20;
+To configure the Gravitee hybrid gateway with custom plugins we support, copy and paste the following configuration:
 
 ```yaml
 #This is the license key provided in your Gravitee Cloud account
@@ -261,7 +260,7 @@ gateway:
 * `gateway.additionalPlugins`: This list contains URLs pointing to your internally-hosted plugin zip files. The gateway will download and install these plugins upon starting. Ensure the gateway pods have network access to these URLs.
 {% endhint %}
 
-Make the following modifications to your `values.yaml` file:&#x20;
+Make the following modifications to your `values.yaml` file:
 
 * Replace `LICENSE KEY` with your Gravitee License Key.
 * Replace `CLOUD TOKEN` with the token generated for your hybrid gateway in the Gravitee Cloud UI.
@@ -269,4 +268,3 @@ Make the following modifications to your `values.yaml` file:&#x20;
 * Replace the entire list under `gateway.additionalPlugins` with the actual URLs of your custom plugins hosted on your internal S3 bucket.
 * Replace `"myredispassword"` under `gateway.ratelimit.redis.password` with the same `<redis_password>` you set in the Redis manifest.
 * Replace `"mymaster"` under `gateway.ratelimit.redis.sentinel.master` with the same `<redis_master_name>` you set in the Redis manifest.
-

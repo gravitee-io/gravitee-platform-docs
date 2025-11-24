@@ -1,3 +1,7 @@
+---
+description: Documentation about application logs in the context of APIs.
+---
+
 # Application Logs
 
 {% hint style="warning" %}

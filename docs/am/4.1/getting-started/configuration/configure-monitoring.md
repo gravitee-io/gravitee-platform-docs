@@ -1,3 +1,7 @@
+---
+description: Configuration guide for Configure Monitoring.
+---
+
 # Configure Monitoring
 
 ## Overview

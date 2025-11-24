@@ -1,3 +1,7 @@
+---
+description: An overview about Sync CRDs with API Management API.
+---
+
 # Sync CRDs with API Management API
 
 ## Overview

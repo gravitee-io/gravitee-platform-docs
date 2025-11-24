@@ -1,3 +1,7 @@
+---
+description: Configuration guide for v4 Proxy API Endpoints.
+---
+
 # v4 Proxy API Endpoints
 
 ## Configuration
@@ -9,7 +13,7 @@ To configure v4 proxy API endpoints:
 3. Select **Endpoints** from the inner left nav
 4. Click the pencil icon of the endpoint you want to edit:
 
-<figure><img src="../../../../../../../../.gitbook/assets/edit HTTP endpoint (1).png" alt=""><figcaption><p>Configure the Default HTTP proxy endpoint in the Default HTTP proxy group</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Configure the Default HTTP proxy endpoint in the Default HTTP proxy group</p></figcaption></figure>
 
 You can also create additional endpoints in the existing group or in new endpoint groups. Refer to the following sections for step-by-step configuration details per proxy type.
 
@@ -17,29 +21,29 @@ You can also create additional endpoints in the existing group or in new endpoin
 
 Edit the endpoint's settings under the **General** and **Configuration** tabs.
 
-<figure><img src="../../../../../../../../.gitbook/assets/edit HTTP endpoint settings (1).png" alt=""><figcaption><p>Define the endpoint's General and Configuration settings</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Define the endpoint's General and Configuration settings</p></figcaption></figure>
 
 {% tabs %}
 {% tab title="General" %}
-#### 1. Define your endpoint name
+**1. Define your endpoint name**
 
 Enter your endpoint name in the **Endpoint name** text field.
 
-#### 2. Define your target URL
+**2. Define your target URL**
 
 Enter your target URL in the **Target URL** text field.
 
-#### 3. Configure the load balancer
+**3. Configure the load balancer**
 
 Use the arrow keys to select a value for the weight.
 {% endtab %}
 
 {% tab title="Configuration" %}
-#### 1. Inherit configuration from the endpoint group
+**1. Inherit configuration from the endpoint group**
 
 Toggle to ON for the endpoint to inherit its configuration settings from the endpoint group to which it belongs.
 
-#### **2. Security configuration**
+**2. Security configuration**
 
 1. Select the HTTP protocol version to use. HTTP/1.1 and HTTP/2 are supported.
 2. Choose to either enable or disable keep-alive by toggling **Enable keep-alive** ON or OFF.
@@ -52,7 +56,7 @@ Toggle to ON for the endpoint to inherit its configuration settings from the end
 7. Define the number of max concurrent connections by entering a numeric value or using the arrow keys in the text field.
 8. Enter the **KEY** and **VALUE** of HTTP headers that should be added or overridden by the Gateway before proxying the request to the backend API.
 
-#### **3. Proxy options**
+**3. Proxy options**
 
 Select from the following options.
 
@@ -60,7 +64,7 @@ Select from the following options.
 * **Use proxy configured at system level**
 * **Use proxy for client connections:** Enter the proxy type (SOCKS4 or SOCKS5), the proxy host and port to connect to, and the proxy username and password (both optional).
 
-#### 4. SSL options
+**4. SSL options**
 
 1. **Verify Host:** Toggle to enable host name verification
 2. **Trust all:** Toggle ON for the Gateway to trust any origin certificates. Use with caution over the Internet. The connection will be encrypted, but this mode is vulnerable to "man in the middle" attacks.
@@ -87,31 +91,31 @@ Select from the following options.
 
 Edit the endpoint's settings under the **General** and **Configuration** tabs.
 
-<figure><img src="../../../../../../../../.gitbook/assets/tcp_endpoints config (1).png" alt=""><figcaption><p>Define the endpoint's General and Configuration settings</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Define the endpoint's General and Configuration settings</p></figcaption></figure>
 
 {% tabs %}
 {% tab title="General" %}
-#### 1. Define your endpoint name
+**1. Define your endpoint name**
 
 Enter your endpoint name in the **Endpoint name** text field.
 
-#### 2. Target server
+**2. Target server**
 
 1. **Host :** Enter the name or IP of the backend host to connect to
 2. **Port:** Enter the number of the backend port
 3. **Is target secured:** Toggle to enable SSL to connect to target
 
-#### 3. Configure the load balancer
+**3. Configure the load balancer**
 
 Use the arrow keys to select a value for the weight.
 {% endtab %}
 
 {% tab title="Configuration" %}
-#### 1. Inherit configuration from the endpoint group
+**1. Inherit configuration from the endpoint group**
 
 Toggle to ON for the endpoint to inherit its configuration settings from the endpoint group to which it belongs.
 
-#### 2. SSL options
+**2. SSL options**
 
 1. **Verify Host:** Toggle to enable host name verification
 2. **Trust all:** Toggle ON for the Gateway to trust any origin certificates. Use with caution over the Internet. The connection will be encrypted, but this mode is vulnerable to "man in the middle" attacks.
@@ -132,7 +136,7 @@ Toggle to ON for the endpoint to inherit its configuration settings from the end
    * **PEM with path:** Enter the paths to the certificate and private key files
    * **PEM with content:** Enter the certificate and private key
 
-#### 3. TCP client options
+**3. TCP client options**
 
 1. **Connection timeout:** Enter the timeout in ms to connect to the target
 2. **Reconnect attempts:** Enter the number of times to try connecting to the target. 0 means no retry.
@@ -141,7 +145,7 @@ Toggle to ON for the endpoint to inherit its configuration settings from the end
 5. **Read idle timeout (ms):** The connection will timeout and be closed if no data is received within the timeout period.
 6. **Write idle timeout (ms):** The connection will timeout and be closed if no data is sent within the timeout period.
 
-#### 4. Proxy options
+**4. Proxy options**
 
 Select from the following options.
 

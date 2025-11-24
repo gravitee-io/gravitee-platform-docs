@@ -1,3 +1,7 @@
+---
+description: An overview about jwt.
+---
+
 # JWT
 
 ## Overview
@@ -16,7 +20,7 @@ APIM uses client IDs to recognize applications that have subscribed to a JWT pla
 
 A JWT plan presents the following configuration options:
 
-<figure><img src="../../../../../.gitbook/assets/plan_jwt configure (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 
 * **Signature:** Select the algorithm used to hash and encrypt your JWT
 * **JWKS resolver:** Select a method to retrieve the JSON Web Key (JWK), which is often stored inside a JSON Web Key Set (JWKS) and required by the Gateway to validate the signature of the JWT:

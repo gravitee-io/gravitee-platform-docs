@@ -8,7 +8,7 @@ description: The administrator's guide to the Developer Portal
 
 The Developer Portal is configured from **Settings** in the Management Console:
 
-<figure><img src="../../../../../../.gitbook/assets/dev_portal_settings (1).png" alt=""><figcaption><p>Developer portal settings</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Developer portal settings</p></figcaption></figure>
 
 Developer Portal configuration parameters fall into into the following categories:
 

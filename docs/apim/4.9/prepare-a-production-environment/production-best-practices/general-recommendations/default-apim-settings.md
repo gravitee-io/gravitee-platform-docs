@@ -1,3 +1,7 @@
+---
+description: Configuration guide for default apim settings.
+---
+
 # Default APIM Settings
 
 Perform the following steps in APIM Console to update the most common default settings.

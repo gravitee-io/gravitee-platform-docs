@@ -1,3 +1,7 @@
+---
+description: An overview about delete a hybrid gateway.
+---
+
 # Delete a Hybrid Gateway
 
 ## Overview

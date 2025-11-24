@@ -1,3 +1,7 @@
+---
+description: An overview about Entrypoint Reference.
+---
+
 # Entrypoint Reference
 
 ## Overview

@@ -1,3 +1,7 @@
+---
+description: An overview about installing with manual install.
+---
+
 # Installing with manual install
 
 ## Before you begin

@@ -1,3 +1,7 @@
+---
+description: An overview about enterprise edition.
+---
+
 # Enterprise Edition
 
 ## Overview
@@ -18,7 +22,7 @@ The features below are included in the default enterprise APIM distribution.
 
 ## Enterprise plugins
 
-Gravitee Enterprise Edition plugins are not included in the default EE APIM distribution. They are available à la carte and can be downloaded from [https://download.gravitee.io/#graviteeio-ee/apim/plugins/](https://download.gravitee.io/#graviteeio-ee/apim/plugins/).&#x20;
+Gravitee Enterprise Edition plugins are not included in the default EE APIM distribution. They are available à la carte and can be downloaded from [https://download.gravitee.io/#graviteeio-ee/apim/plugins/](https://download.gravitee.io/#graviteeio-ee/apim/plugins/).
 
 Gravitee offers several different types of plugins. Here are the EE plugins available for download, organized by type:
 
@@ -47,9 +51,9 @@ Gravitee offers several different types of plugins. Here are the EE plugins avai
 * [Assign Metrics](https://download.gravitee.io/#graviteeio-ee/apim/plugins/policies/gravitee-policy-assign-metrics/): Pushes extra metrics in addition to the natively provided request metrics.
 * [Cloud Events](https://download.gravitee.io/#graviteeio-ee/apim/plugins/policies/gravitee-policy-cloud-events/): Creates a cloud-events JSON object from messages.
 * [Data Cache](https://download.gravitee.io/#graviteeio-ee/apim/plugins/policies/gravitee-policy-data-cache/): Lets you get, set, and expire arbitrary key-value pairs in a cache resource.
-* [Data Logging Masking](https://download.gravitee.io/#graviteeio-ee/apim/plugins/policies/gravitee-policy-data-logging-masking/): Lets you configure rules to conceal sensitive data.&#x20;
+* [Data Logging Masking](https://download.gravitee.io/#graviteeio-ee/apim/plugins/policies/gravitee-policy-data-logging-masking/): Lets you configure rules to conceal sensitive data.
 * [GeoIP Filtering](https://download.gravitee.io/#graviteeio-ee/apim/plugins/policies/gravitee-policy-geoip-filtering/): Lets you control access to your API by filtering IP addresses. You can allow IPs by country or distance.
-* [Kafka ACL](https://download.gravitee.io/#graviteeio-ee/apim/plugins/policies/gravitee-policy-kafka-acl/): Lets you define [ACLs](https://kafka.apache.org/documentation/#security_authz) on cluster resources that are proxied by the Gateway.&#x20;
+* [Kafka ACL](https://download.gravitee.io/#graviteeio-ee/apim/plugins/policies/gravitee-policy-kafka-acl/): Lets you define [ACLs](https://kafka.apache.org/documentation/#security_authz) on cluster resources that are proxied by the Gateway.
 * [Kafka Offloading](https://download.gravitee.io/#graviteeio-ee/apim/plugins/policies/gravitee-policy-kafka-offloading/): Lets you configure how Kafka message content is offloaded to storage. You have the option to activate message offloading based on the content size of the message.
 * [Kafka Quota](https://download.gravitee.io/#graviteeio-ee/apim/plugins/policies/gravitee-policy-kafka-quota/): Enforces quotas on Kafka messages. It lets you limit the amount of data that can be produced or consumed by a Kafka client.
 * [Kafka Topic Mapping](https://download.gravitee.io/#graviteeio-ee/apim/plugins/policies/gravitee-policy-kafka-topic-mapping/): Lets you map one topic to another so that the Kafka client can use a topic name that is different from the topic name used in the Kafka broker.
@@ -63,7 +67,7 @@ Gravitee offers several different types of plugins. Here are the EE plugins avai
 ### Reactors
 
 * [Message](https://download.gravitee.io/#graviteeio-ee/apim/plugins/reactors/gravitee-reactor-message/): Externalizes all event-native Gateway capabilities related to messages.
-* [Native Kafka](https://download.gravitee.io/#graviteeio-ee/apim/plugins/reactors/gravitee-reactor-native-kafka/): Externalizes all Kafka Gateway capabilities to handle APIs dealing with the native Kafka protocol.&#x20;
+* [Native Kafka](https://download.gravitee.io/#graviteeio-ee/apim/plugins/reactors/gravitee-reactor-native-kafka/): Externalizes all Kafka Gateway capabilities to handle APIs dealing with the native Kafka protocol.
 
 ### Reporters
 
@@ -80,7 +84,7 @@ Gravitee offers several different types of plugins. Here are the EE plugins avai
 
 * [Schema Registry Confluent](https://download.gravitee.io/#graviteeio-ee/apim/plugins/resources/gravitee-resource-schema-registry-confluent/): Lets you retrieve serialization/deserialization schema from a Confluent schema registry.
 
-For more information on plugins and how to deploy them, see [plugins](../plugins/ "mention").&#x20;
+For more information on plugins and how to deploy them, see [plugins](../plugins/ "mention").
 
 ### Enterprise plugin packs
 
@@ -109,7 +113,7 @@ The Event-native pack includes capabilities that enable Gravitee to expose, secu
 * [**v4 message API endpoints**](../create-and-configure-apis/create-apis/v4-api-creation-wizard.md#introspect-messages-from-event-driven-backend-endpoints)**:**
   * Allow the Gateway to open up a persistent connection and/or call a backend:
     * **Kafka** broker via a Kafka client
-    * **MQTT** broker running on MQTT 5.x, via an MQTT client&#x20;
+    * **MQTT** broker running on MQTT 5.x, via an MQTT client
     * **RabbitMQ** broker running on AMQP 0-9-1
   * Allow the Gateway to expose **Solace** resources and event APIs via your Gravitee entrypoint(s)
 * **CloudEvents policy**: Transform ingoing and outgoing data using the CloudEvents spec.

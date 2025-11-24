@@ -1,3 +1,7 @@
+---
+description: An overview about types of assets.
+---
+
 # Types of Assets
 
 {% hint style="warning" %}

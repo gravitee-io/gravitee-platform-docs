@@ -1,3 +1,7 @@
+---
+description: An overview about Plugins.
+---
+
 # Plugins
 
 ## Overview
@@ -18,7 +22,7 @@ The table below lists the different types of plugins you can use with APIM, the 
 | Fetchers                                                       | APIM API                              | HTTP, GIT                                   |
 | [Policies](plugins.md#policies)                                | <p>APIM API<br>APIM Gateway</p>       | API Key, Rate-limiting, Cache               |
 | [Reporters](plugins.md#reporters)                              | APIM Gateway                          | Elasticsearch, Accesslog                    |
-| [Repositories](../getting-started/configuration/repositories/README.md) | <p>APIM API<br>APIM Gateway</p>       | MongoDB, Redis, Elasticsearch               |
+| [Repositories](../getting-started/configuration/repositories/) | <p>APIM API<br>APIM Gateway</p>       | MongoDB, Redis, Elasticsearch               |
 | [Resources](plugins.md#resources)                              | <p>APIM API<br>APIM Gateway</p>       | Oauth2, Cache, LDAP                         |
 | Services                                                       | <p>APIM API<br>APIM Gateway</p>       | Sync, local-registry, health-check, monitor |
 | [Notifiers](plugins.md#notifiers)                              | Alert Engine                          | Email, Slack, Webhook                       |
@@ -43,7 +47,7 @@ A **policy** modifies the behavior of the request or response handled by APIM Ga
 
 Examples of a policy are:
 
-* Authorization using an API key&#x20;
+* Authorization using an API key
 * Applying header or query parameter transformations
 * Applying rate limiting or quotas to avoid API flooding
 
@@ -68,7 +72,7 @@ As with all plugins, you can create, use and deploy custom reporters as describe
 
 ### Repositories
 
-A **repository** is a pluggable storage component for API configuration, policy configuration, analytics and so on. You can find more information in the [Repositories](../getting-started/configuration/repositories/README.md) section of the Configuration Guide.
+A **repository** is a pluggable storage component for API configuration, policy configuration, analytics and so on. You can find more information in the [Repositories](../getting-started/configuration/repositories/) section of the Configuration Guide.
 
 ### Resources
 
@@ -98,7 +102,7 @@ A connector is used to "Add" support for specific protocols, API styles, event b
 
 ### Secret providers
 
-A secret provider resolves secrets to avoid exposing plain text passwords and secrets keys in the `gravitee.yml` file. For example, users can store their MongoDB password in a secret manager like HashiCorp Vault and then resolve it when the platform starts.&#x20;
+A secret provider resolves secrets to avoid exposing plain text passwords and secrets keys in the `gravitee.yml` file. For example, users can store their MongoDB password in a secret manager like HashiCorp Vault and then resolve it when the platform starts.
 
 ## Deployment
 
@@ -114,7 +118,7 @@ Plugin discovery and loading is completed regardless of the APIM license you are
 
 ### Phase 1: Discover plugins
 
-When APIM starts, all plugin zip files are read from the list of plugin directories set in the `gravitee.yaml` configuration file.&#x20;
+When APIM starts, all plugin zip files are read from the list of plugin directories set in the `gravitee.yaml` configuration file.
 
 {% hint style="info" %}
 Note, that this operation is completed asynchronously for performance benefits.
@@ -126,7 +130,7 @@ Plugin override circumvents the need to remove plugins to use a newer version wh
 
 ### Phase 2: Load plugins
 
-After APIM finishes traversing the plugin directories, the plugins are loaded.&#x20;
+After APIM finishes traversing the plugin directories, the plugins are loaded.
 
 Plugins are immediately initialized by a specialized handler. If an error occurs while unpacking a plugin zip file, then the faulty plugin is ignored. An error will be reported in the logs and the loading of the remaining plugins will resume.
 
@@ -143,6 +147,6 @@ The rest of the plugins are loaded in no particular order, except if they have d
 
 For example, if `plugin1 (type:cluster)` depends on `plugin2 (type:cache)` which depends on `plugin3(type:alert)`, then the following will occur:
 
-* `plugin3` (because plugin 2 depends on it,  even if this one is #4 in the type priority list)
+* `plugin3` (because plugin 2 depends on it, even if this one is #4 in the type priority list)
 * `plugin2` (because plugin 1 depends on it, even if this one is #2 in the type priority list)
 * `plugin1`

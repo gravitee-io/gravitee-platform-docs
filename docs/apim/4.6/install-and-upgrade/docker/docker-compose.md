@@ -1,3 +1,7 @@
+---
+description: Setup and installation guide for docker compose.
+---
+
 # Docker Compose
 
 When you install Gravitee API Management (APIM) with Docker Compose, you can install custom plugins and control the location of the persistent data.
@@ -9,11 +13,12 @@ When you install Gravitee API Management (APIM) with Docker Compose, you can ins
 * You must install Docker. For more information about installing Docker, go to [Install Docker Engine](https://docs.docker.com/engine/install/).
 * If you are deploying the Enterprise Edition of Gravitee, ensure that you have your license key. For more information about license keys, see [Gravitee Platform Pricing](https://www.gravitee.io/pricing).
 
-## Installing Gravitee APIM&#x20;
+## Installing Gravitee APIM
 
 1.  Create the directory structure, and then download the `docker compose` file. Once you create the directory, verify that the directory has the following structure:
 
-    {% code overflow="wrap" %}
+    \{% code overflow="wrap" %\}
+
     ```bash
     /gravitee
      ├── apim-gateway
@@ -31,8 +36,9 @@ When you install Gravitee API Management (APIM) with Docker Compose, you can ins
      └── mongodb
          └── data
     ```
-    {% endcode %}
-2.  &#x20;To ensure that the `docker-compose-apim.yml` uses the `/gravitee`directory structure, follow the following sub-steps:
+
+    \{% endcode %\}
+2.  To ensure that the `docker-compose-apim.yml` uses the `/gravitee`directory structure, follow the following sub-steps:
 
     a. in a text editor, open `docker-compose-apim.yml`
 
@@ -46,7 +52,7 @@ volumes:
 ```
 {% endcode %}
 
-&#x20;       c. Change `$services.mongodb.volumes` to the following code:
+c. Change `$services.mongodb.volumes` to the following code:
 
 {% code overflow="wrap" %}
 ```bash
@@ -56,7 +62,7 @@ volumes:
 ```
 {% endcode %}
 
-&#x20;        d. Change `$services.gateway.volumes` to the following code:
+d. Change `$services.gateway.volumes` to the following code:
 
 {% code overflow="wrap" %}
 ```bash
@@ -66,7 +72,7 @@ volumes:
 ```
 {% endcode %}
 
-&#x20;      e. Navigate to `$services.gateway.volumes`, and then add the following lines of code:
+e. Navigate to `$services.gateway.volumes`, and then add the following lines of code:
 
 {% code overflow="wrap" %}
 ```yaml
@@ -76,7 +82,7 @@ volumes:
 ```
 {% endcode %}
 
-&#x20;      f. Add the following environment variables:
+f. Add the following environment variables:
 
 ```yaml
 environment:
@@ -84,9 +90,9 @@ environment:
             - gravitee_plugins_path_1=/opt/graviteeio-gateway/plugins-ext
 ```
 
-&#x20;    h. Remove `$services.management_api.links`.
+h. Remove `$services.management_api.links`.
 
-&#x20;    i. Change `$services.management_ui.volumes` to the following lines of code:
+i. Change `$services.management_ui.volumes` to the following lines of code:
 
 ```bash
 volumes:
@@ -94,7 +100,7 @@ volumes:
   - ./apim-management-api/plugins:/opt/graviteeio-management-api/plugins-ext
 ```
 
-&#x20;   j.  Add the following lines to `$services.management_api.environment`:
+j. Add the following lines to `$services.management_api.environment`:
 
 {% code overflow="wrap" %}
 ```bash
@@ -103,14 +109,14 @@ volumes:
 ```
 {% endcode %}
 
-&#x20;   k. Change `$services.management_ui.volumes`to the following lines of code:
+k. Change `$services.management_ui.volumes`to the following lines of code:
 
 ```bash
 volumes:
   - ./apim-management-ui/logs:/var/log/nginx
 ```
 
-&#x20;   l. Change `$services.portal_ui.volumes` to the following lines of code:
+l. Change `$services.portal_ui.volumes` to the following lines of code:
 
 ```bash
 volumes:
@@ -119,17 +125,17 @@ volumes:
 
 3. (Optional) If you are using the Enterprise Edition (EE) of Gravitee APIM, add your license key by following the following steps:
 
-&#x20;       a. Copy your license key to `/gravitee/license.key.`
+a. Copy your license key to `/gravitee/license.key.`
 
-&#x20;       b. In a text editor, open the `docker-compose-apim.yml` file.
+b. In a text editor, open the `docker-compose-apim.yml` file.
 
-&#x20;       c. Navigate to `$services.gateway.volumes`, and then add the following line of code:
+c. Navigate to `$services.gateway.volumes`, and then add the following line of code:
 
 ```bash
 - ./license.key:/opt/graviteeio-gateway/license/license.key
 ```
 
-&#x20;      d. Navigate to `$services.management_api.volumes`, and then add the following line of code:
+d. Navigate to `$services.management_api.volumes`, and then add the following line of code:
 
 ```bash
 - ./license.key:/opt/graviteeio-management-api/license/license.key
@@ -153,9 +159,9 @@ docker compose -f docker-compose-apim.yml up -d
 
 ## Enable Federation
 
-Federation is a new capability that was released with Gravitee 4.4. Federation is disabled by default and must be explicitly activated for it to work.&#x20;
+Federation is a new capability that was released with Gravitee 4.4. Federation is disabled by default and must be explicitly activated for it to work.
 
-To enable federation, follow the first guide below to [enable federation with Docker Compose](docker-compose.md#enable-federation-with-docker-compose). If in addition you are running multiple replicas of APIM for high availability, you'll also need to ensure that [cluster mode is set up](docker-compose.md#set-up-cluster-mode).&#x20;
+To enable federation, follow the first guide below to [enable federation with Docker Compose](docker-compose.md#enable-federation-with-docker-compose). If in addition you are running multiple replicas of APIM for high availability, you'll also need to ensure that [cluster mode is set up](docker-compose.md#set-up-cluster-mode).
 
 ### Enable Federation with Docker Compose
 
@@ -228,7 +234,7 @@ An example hazelcast.xml configuration file will be included in the distribution
 
 You will also need to add two new plugins to APIM that aren’t included by default:
 
-* [https://download.gravitee.io/plugins/node-cache/gravitee-node-cache-plugin-hazelcast/gravitee-node-cache-plugin-hazelcast-5.18.1.zip ](https://download.gravitee.io/plugins/node-cache/gravitee-node-cache-plugin-hazelcast/gravitee-node-cache-plugin-hazelcast-5.18.1.zip)
+* [https://download.gravitee.io/plugins/node-cache/gravitee-node-cache-plugin-hazelcast/gravitee-node-cache-plugin-hazelcast-5.18.1.zip](https://download.gravitee.io/plugins/node-cache/gravitee-node-cache-plugin-hazelcast/gravitee-node-cache-plugin-hazelcast-5.18.1.zip)
 * [https://download.gravitee.io/plugins/node-cluster/gravitee-node-cluster-plugin-hazelcast/gravitee-node-cluster-plugin-hazelcast-5.18.1.zip](https://download.gravitee.io/plugins/node-cluster/gravitee-node-cluster-plugin-hazelcast/gravitee-node-cluster-plugin-hazelcast-5.18.1.zip)
 
-\
+\\

@@ -1,4 +1,5 @@
 ---
+description: An overview about ---.
 hidden: true
 ---
 
@@ -45,7 +46,7 @@ The name of the cache key is dynamic. For example, if you want to have a key in 
 
 ## Example - Caching OAuth Token <a href="#user-content-phases" id="user-content-phases"></a>
 
-Suppose you want to proxy an endpoint that requires an OAuth token, with a different token per client and custom transformation required on the token. So for each client connection to the API, you'll need to get an access token and pass as it in the Authorization header to the upstream endpoint.&#x20;
+Suppose you want to proxy an endpoint that requires an OAuth token, with a different token per client and custom transformation required on the token. So for each client connection to the API, you'll need to get an access token and pass as it in the Authorization header to the upstream endpoint.
 
 You _could_ call the token generation endpoint every time, but if you've already obtained a token for the caller, and the token is still valid, it will be better from a performance point of view to use the same token from the previous request.
 
@@ -78,8 +79,6 @@ Then the HTTP Callout policy has a trigger condition representing the attribute.
 Lastly, if the first policy resulted in a cache miss, put the token from the HTTP callout policy in the cache:
 
 <figure><img src="../.gitbook/assets/image (148).png" alt=""><figcaption></figcaption></figure>
-
-
 {% endtab %}
 
 {% tab title="API Definition" %}

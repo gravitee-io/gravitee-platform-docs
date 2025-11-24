@@ -1,4 +1,5 @@
 ---
+description: An overview about ---.
 hidden: true
 ---
 
@@ -28,7 +29,7 @@ This policy can be applied to v2 APIs and v4 HTTP proxy APIs. It cannot be appli
 
 {% tabs %}
 {% tab title="V2 API definition" %}
-This snippet of a V2 API definition includes a flow that chains all three rate limit policies.&#x20;
+This snippet of a V2 API definition includes a flow that chains all three rate limit policies.
 
 ```json
 {

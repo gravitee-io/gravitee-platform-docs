@@ -1,3 +1,7 @@
+---
+description: Overview of Factors.
+---
+
 # Factors
 
 ## Overview
@@ -12,11 +16,7 @@ To create a new MFA Factor, visit your Security Domain **Settings > Multifactor 
 2. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
 3.  Select the factor type and click **Next**.
 
-    <div align="center">
-
-    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-mfa-factor-types.png" alt=""><figcaption><p>Add new MFA factor</p></figcaption></figure>
-
-    </div>
+    <div align="center"><figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-mfa-factor-types.png" alt=""><figcaption><p>Add new MFA factor</p></figcaption></figure></div>
 4. Enter the factor details and click **Create**.
 5. Click **Applications** and select your application.
 6. Click the **Settings** tab, then click **Multifactor Auth**.
@@ -33,14 +33,14 @@ If you enable an OTP type factor for your application, next time your users log 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-mfa-enroll.png" alt=""><figcaption><p>OTP MFA</p></figcaption></figure>
 
 {% hint style="info" %}
-The look and feel of the MFA forms can be overridden. See [custom pages](../branding/README.md#custom-pages) for more information.
+The look and feel of the MFA forms can be overridden. See [custom pages](../branding/#custom-pages) for more information.
 {% endhint %}
 
 ## SMS
 
 With SMS verification, you can receive a verification code on your mobile phone to be used as the second factor to validate a user’s account.
 
-SMS MFA requires a compatible [resource](../resources/README.md). Some providers allow you to define the duration of the code sent by SMS. If possible, we advise setting a duration of 2 minutes.
+SMS MFA requires a compatible [resource](../resources/). Some providers allow you to define the duration of the code sent by SMS. If possible, we advise setting a duration of 2 minutes.
 
 {% hint style="info" %}
 Gravitee 4.2 supports a new SMS resource provider based on the SFR vendor. Administrators can set up their SFR credentials to link Gravitee AM to SFR SMS service and activate the MFA SMS factor for selected applications.
@@ -53,7 +53,7 @@ If you enable an SMS type factor for your application, next time your users log 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-mfa-sms-challenge.png" alt=""><figcaption><p>SMS MFA screen 2</p></figcaption></figure>
 
 {% hint style="info" %}
-You can change the look and feel of forms using [custom pages](../branding/README.md#custom-pages). The enrollment form must send the phone number using the `phone` parameter in E.164 notation.
+You can change the look and feel of forms using [custom pages](../branding/#custom-pages). The enrollment form must send the phone number using the `phone` parameter in E.164 notation.
 {% endhint %}
 
 ## Phone call
@@ -61,7 +61,7 @@ You can change the look and feel of forms using [custom pages](../branding/READM
 With phone call verification, you can receive a verification code via a phone call to be used as the second factor to validate a user’s account.
 
 {% hint style="info" %}
-Phone call MFA requires a compatible [resource](../resources/README.md).
+Phone call MFA requires a compatible [resource](../resources/).
 {% endhint %}
 
 If you enable a **Call** type factor for your application, the next time your users log in they will see the following screens:
@@ -71,7 +71,7 @@ If you enable a **Call** type factor for your application, the next time your us
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-mfa-call-challenge.png" alt=""><figcaption><p>Voice call MFA screen 2</p></figcaption></figure>
 
 {% hint style="info" %}
-You can change the look and feel of forms using [custom pages](../branding/README.md#custom-pages). The enrollment form must send the phone number using the `phone` parameter in E.164 notation.
+You can change the look and feel of forms using [custom pages](../branding/#custom-pages). The enrollment form must send the phone number using the `phone` parameter in E.164 notation.
 {% endhint %}
 
 ### Twilio phone factor enhancement
@@ -85,7 +85,7 @@ To implement this service, the enrollment screen for a Twilio phone factor offer
 With Email verification, you can receive a verification code on your email address to be used as the second factor to validate a user’s account.
 
 {% hint style="info" %}
-Email MFA requires a compatible [resource](../resources/README.md).
+Email MFA requires a compatible [resource](../resources/).
 {% endhint %}
 
 Using the `email-am-factor` plugin configuration form, you can define the number of digits used to generate the verification code. The configured resource must be a [SMTP Resource](../resources/smtp-resource.md). The email template used by this plugin is defined in the design section of the domain or application.
@@ -101,13 +101,13 @@ If you enable an Email type factor for your application, next time your users lo
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-mfa-email-challenge.png" alt=""><figcaption><p>Email MFA screen 2</p></figcaption></figure>
 
 {% hint style="info" %}
-You can change the look and feel of forms using [custom pages](../branding/README.md#custom-pages). The enrollment form must send the email address using the `email` parameter.
+You can change the look and feel of forms using [custom pages](../branding/#custom-pages). The enrollment form must send the email address using the `email` parameter.
 {% endhint %}
 
 ## HTTP
 
 {% hint style="info" %}
-HTTP MFA requires a compatible [resource](../resources/README.md).
+HTTP MFA requires a compatible [resource](../resources/).
 {% endhint %}
 
 Multi-factor authentication (MFA) can take several forms such as :

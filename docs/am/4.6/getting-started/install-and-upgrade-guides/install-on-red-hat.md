@@ -1,3 +1,7 @@
+---
+description: Installation guide for Install.
+---
+
 # Install on Red Hat
 
 ## Overview

@@ -1,3 +1,7 @@
+---
+description: Documentation on policies and controls for shared policy groups.
+---
+
 # Shared policy groups
 
 With shared policy groups, you can define a collection of policies in a central location and use them across multiple APIs. For more information about Shared policy groups, see the following articles:

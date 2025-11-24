@@ -1,3 +1,7 @@
+---
+description: An overview about debug mode.
+---
+
 # Debug Mode
 
 {% hint style="warning" %}

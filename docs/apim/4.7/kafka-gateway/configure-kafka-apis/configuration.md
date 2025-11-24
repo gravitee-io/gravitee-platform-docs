@@ -1,3 +1,7 @@
+---
+description: An overview about configuration.
+---
+
 # Configuration
 
 ## Overview
@@ -8,7 +12,7 @@ The **Configuration** section allows you to manage and customize high-level sett
 
 The **General** tab displays a section for inputting general API details and a Danger Zone for executing functional and sometimes irreversible actions.
 
-<figure><img src="../../../4.6/.gitbook/assets/A 1 config general (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.6/.gitbook/assets/A%201%20config%20general%20(1).png" alt=""><figcaption></figcaption></figure>
 
 {% tabs %}
 {% tab title="General details" %}
@@ -54,19 +58,19 @@ See [User Management](../../administration/user-management.md) to learn more abo
 
 Click **+ Add members** to add members to your API or alter member roles, which grant specific permissions. For more information on roles, please refer to the [roles documentation.](../../administration/user-management.md#roles)
 
-<figure><img src="../../../../../.gitbook/assets/user permissions_add members alter roles (1).png" alt=""><figcaption><p>Add members and alter roles</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Add members and alter roles</p></figcaption></figure>
 
 ### Add groups to an API
 
 To give groups access to your API, click **Manage groups** and select the desired group(s) from the drop-down menu. This will give all members of that group access to your API.
 
-<figure><img src="../../../../../.gitbook/assets/user permissions_manage groups (1).png" alt=""><figcaption><p>Give groups access to your API</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Give groups access to your API</p></figcaption></figure>
 
 ### Transfer API ownership
 
 If you are the owner of the API, you can transfer ownership to another member, user, or group. Click **Transfer ownership**, then select **API member**, **Other user**, or **Primary owner group.** Next, define the stakeholder to which you want to transfer API ownership and assign that stakeholder a role.
 
-<figure><img src="../../../../../.gitbook/assets/user permissions_transfer ownership (1).png" alt=""><figcaption><p>Transfer API ownership</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Transfer API ownership</p></figcaption></figure>
 
 ## Properties
 
@@ -78,7 +82,7 @@ To configure API properties:
 
 1.  Select **Properties** from the inner left nav
 
-    <figure><img src="../../../../../.gitbook/assets/v2 proxy_properties (1).png" alt=""><figcaption><p>Add API properties</p></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption><p>Add API properties</p></figcaption></figure>
 2. To add hardcoded properties, either:
    * Click **Add property** and enter property definitions one at a time as a key-value pair
    * Click **Import** and enter property definitions as a list in `<key>=<value>` format
@@ -103,7 +107,7 @@ To encrypt a hardcoded API property value:
     ```
 2.  Enable the **Encrypt** toggle when adding a property via **Add property**. Once you click **Save**, you can no longer edit, modify, or view the value.
 
-    <div align="left"><figure><img src="../../../../../.gitbook/assets/api properties_add (1).png" alt="" width="375"><figcaption></figcaption></figure></div>
+    <div align="left"><figure><img src="broken-reference" alt="" width="375"><figcaption></figcaption></figure></div>
 
 ### **Dynamic properties**
 
@@ -111,7 +115,7 @@ To configure dynamic properties:
 
 1.  Click the **Manage dynamically** button and define the configuration
 
-    <figure><img src="../../../../../.gitbook/assets/v2 proxy_properties dynamic (1).png" alt=""><figcaption><p>Configure dynamic properties</p></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption><p>Configure dynamic properties</p></figcaption></figure>
 
     * Toggle **Enabled** to ON
     * **Schedule:** A cron expression to schedule the health check
@@ -159,7 +163,7 @@ The **Notifications** tab allows you to subscribe to notifications related to a 
 4. Select **Configuration** from the inner left nav.
 5.  Select the **Notifications** header.
 
-    <figure><img src="../../../4.6/.gitbook/assets/A 1 config notifications (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../4.6/.gitbook/assets/A%201%20config%20notifications%20(1).png" alt=""><figcaption></figcaption></figure>
 6. Click **+ Add notification** to create a new one.
 7. Give your notification a name and select either:
    * **Default Email Notifier:**
@@ -168,7 +172,7 @@ The **Notifications** tab allows you to subscribe to notifications related to a 
      * Enter the Webhook URL
      * Choose whether to use system proxy
 
-<figure><img src="../../../4.6/.gitbook/assets/A 1 notifications 2 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.6/.gitbook/assets/A%201%20notifications%202%20(1).png" alt=""><figcaption></figcaption></figure>
 
 The following notifications are available to each notifier:
 
@@ -201,4 +205,4 @@ The following notifications are available to each notifier:
 
 The **Audit Logs** tab displays API-level events and audit entries, which are summarized in table format. These can be filtered by event type and date range.
 
-<figure><img src="../../../4.6/.gitbook/assets/A 1 config audit logs (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.6/.gitbook/assets/A%201%20config%20audit%20logs%20(1).png" alt=""><figcaption></figcaption></figure>

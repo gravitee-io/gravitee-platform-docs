@@ -1,3 +1,7 @@
+---
+description: Step‑by‑step tutorial for OpenID Connect.
+---
+
 # Certificates
 
 ## Overview
@@ -39,8 +43,6 @@ Default keys are RS256 (SHA256withRSA). For RS512 keys, add the following option
 5. Give your certificate a name, then enter the details of the keystore file.
 6.  Click **Create**.
 
-
-
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-create-certificate.png" alt=""><figcaption><p>Create new certificate</p></figcaption></figure>
 
 ### Create a new certificate with AM API
@@ -69,8 +71,6 @@ You can use public keys to verify a token payload’s integrity. To obtain the p
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-quickstart-profile-public-key.png" alt=""><figcaption><p>Certificates list</p></figcaption></figure>
 3.  You can copy/paste the public key to use with third-party libraries to verify your tokens.
 
-
-
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-public-key.png" alt=""><figcaption><p>Certificate public key</p></figcaption></figure>
 
 {% hint style="info" %}
@@ -82,8 +82,6 @@ Gravitee API Management (APIM) comes with a JWT Policy to verify and decode toke
 1. In AM Console, click **Applications**.
 2. In the **Settings** tab, click **Certificates**.
 3.  Choose your certificate and click **SAVE**.
-
-
 
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-certificate-app.png" alt=""><figcaption><p>Apply certificate to application</p></figcaption></figure>
 
@@ -143,7 +141,7 @@ api:
 Like all certificates, a system certificate has a given validity period, after which tokens will not be valid anymore. The certificate rotation feature enables you to generate a new system certificate quickly and easily when the previous one is about to expire - just click the "Rotate system key" button to create a new system certificate and assign it to the applications of your domain that are currently using the previous system certificate. The applications update is done asynchronously 10 minutes after the certificate generation in order to avoid JWKS caching issues on the client side.
 
 {% hint style="info" %}
-See this [documentation page](../getting-started/configuration/configure-am-api/README.md) for details on how to configure notifications about certificate expiry.
+See this [documentation page](../getting-started/configuration/configure-am-api/) for details on how to configure notifications about certificate expiry.
 {% endhint %}
 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-system-certificates.png" alt=""><figcaption><p>Certificate rotation</p></figcaption></figure>

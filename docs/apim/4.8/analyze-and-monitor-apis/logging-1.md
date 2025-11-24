@@ -1,4 +1,5 @@
 ---
+description: An overview about ---.
 hidden: true
 noIndex: true
 ---
@@ -25,7 +26,7 @@ These settings can be overridden by logging settings that are applied at the ind
 
 ### Configure logging
 
-1.  From the **Dashboard**, click **Settings**. 
+1.  From the **Dashboard**, click **Settings**.
 
     <figure><img src="../.gitbook/assets/CFB0E2FD-AF9C-4175-80FF-C1F227860D8A_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 2.  In the **Settings** menu, click **API Logging**.
@@ -174,7 +175,7 @@ To configure which information is recorded, select from the following options:
 
 To view the details of any entry in the list of runtime logs:
 
-1.  From the **Dashboard**, click **APIs**. 
+1.  From the **Dashboard**, click **APIs**.
 
     <figure><img src="../.gitbook/assets/7142A579-577C-48F7-BF1F-35F6229DBB88_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 2.  Select the API that you want to view the runtime logs for.
@@ -189,11 +190,11 @@ To view the details of any entry in the list of runtime logs:
 
 \{% tabs %\} \{% tab title="v4 message APIs" %\} Under the **Connection Logs** tab, logs for the entry are grouped by **Entrypoint Request**, **Endpoint Request**, **Entrypoint Response**, and **Endpoint Response**:
 
-<figure><img src="../../../../.gitbook/assets/connection details_CROP (1).png" alt=""><figcaption><p>View log details</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>View log details</p></figcaption></figure>
 
 Under the **Messages** header, entrypoint and endpoint message details are grouped by date code:
 
-<figure><img src="../../../../.gitbook/assets/message details_CROP (1).png" alt=""><figcaption><p>View message details</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>View message details</p></figcaption></figure>
 
 Each message record includes placeholder tabs for raw content, headers, and metadata. If the corresponding data was recorded, it will appear under the tab. If no data was recorded, the field will be empty. \{% endtab %\}
 

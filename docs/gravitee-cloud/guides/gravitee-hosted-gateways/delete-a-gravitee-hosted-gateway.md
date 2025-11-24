@@ -1,3 +1,7 @@
+---
+description: Overview of Gravitee Hosted Gateway.
+---
+
 # Delete a Gravitee Hosted Gateway
 
 {% hint style="danger" %}
@@ -10,14 +14,12 @@ To delete a Hosted Gateway, complete the following steps:
 
 1.  Navigate to your Gravitee Cloud Dashboard, and then click the Gateway name you want to delete.
 
-
     <figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 2.  Navigate to the **Danger Zone** section.
 
     <figure><img src="../../.gitbook/assets/delete-hosted-gateway-danger-zone.png" alt=""><figcaption></figcaption></figure>
-3. Click **Delete.**&#x20;
+3. Click **Delete.**
 4.  In the Delete Gateway pop-up window, type the exact Gateway name in the confirm field. The Gateway name is displayed for reference.
-
 
     <figure><img src="../../.gitbook/assets/delete-confirmation-pop-up.png" alt=""><figcaption></figcaption></figure>
 5. Click **Yes, delete it** to delete the Gateway permanently.

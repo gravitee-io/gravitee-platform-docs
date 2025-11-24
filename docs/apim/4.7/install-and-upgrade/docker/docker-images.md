@@ -1,11 +1,13 @@
+---
+description: Setup instructions and guidance for docker images.
+---
+
 # Docker Images
 
 ## Prerequisites
 
 * You must install Docker. For more information about installing Docker, go to [Install Docker Engine](https://docs.docker.com/engine/install/).
 * If you are using the Enterprise Edition (EE) of Gravitee, ensure that you have a licensing key. If you do not know your licensing key, see the [Gravitee Platform Pricing](https://www.gravitee.io/pricing).
-
-{% include "../../../4.6/.gitbook/includes/installation-guide-note (1).md" %}
 
 ## Install Gravitee APIM
 

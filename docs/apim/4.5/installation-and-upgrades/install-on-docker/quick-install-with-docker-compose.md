@@ -1,4 +1,8 @@
-# Quick Install Gravitee API Management with Docker Compose
+---
+description: Setup and installation guide for quick install.
+---
+
+# Quick Install
 
 {% hint style="warning" %}
 You cannot install Gravitee API Management (APIM) with custom plugins using this installation method. To install custom plugins, see [Custom Install with Docker Compose](custom-install-with-docker-compose.md).
@@ -20,22 +24,22 @@ You cannot install Gravitee API Management (APIM) with custom plugins using this
 
     a. In a text editor, open `docker-compose-apim.yml.`
 
-&#x20;       b. Navigate to `$services.management_api.volumes`.
+b. Navigate to `$services.management_api.volumes`.
 
-&#x20;       c. On a new line, add the path to the license key. This addition ensures that the Gateway can access the licensing key.
+c. On a new line, add the path to the license key. This addition ensures that the Gateway can access the licensing key.
 
 ```bash
  - /gravitee/license.key:/opt/graviteeio-gateway/license/license.key
 ```
 
-3. Download, and then start the components using the following command:&#x20;
+3. Download, and then start the components using the following command:
 
 ```bash
 docker compose -f docker-compose-apim.yml up -d
 ```
 
 {% hint style="info" %}
-APIM can take up to a minute to fully initialize with Docker.&#x20;
+APIM can take up to a minute to fully initialize with Docker.
 {% endhint %}
 
 4.  Once Docker is initialized, You can access the Console and the Developer Portal by following the following steps:

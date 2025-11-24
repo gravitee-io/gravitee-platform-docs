@@ -1,3 +1,7 @@
+---
+description: Setup and installation guide for manual install.
+---
+
 # Manual install
 
 ## Before you begin

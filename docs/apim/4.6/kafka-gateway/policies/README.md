@@ -1,8 +1,12 @@
+---
+description: Guide on policies and management for policies.
+---
+
 # Policies
 
 ## Introduction
 
-Gravitee policies are customizable rules or logic the Gateway executes during an API transaction. They modify the behavior of the request or response handled by the APIM Gateway to fulfill business rules during request/response processing. Policies are used to secure APIs, transform data, route traffic, restrict access, customize performance, or monitor transactions.&#x20;
+Gravitee policies are customizable rules or logic the Gateway executes during an API transaction. They modify the behavior of the request or response handled by the APIM Gateway to fulfill business rules during request/response processing. Policies are used to secure APIs, transform data, route traffic, restrict access, customize performance, or monitor transactions.
 
 Gravitee supports the following Kafka policies, which can be applied to Kafka APIs.
 
@@ -12,8 +16,8 @@ Gravitee supports the following Kafka policies, which can be applied to Kafka AP
 
 The request and response of a Kafka API transaction are broken up into the following phases:
 
-* **Connect:** Policies are executed after plan selection and authentication on the Gateway, but before the client connects to the upstream broker.&#x20;
-* **Interact:** Policies with a global scope (e.g., topic mapping) are executed on all interactions between the client and the Gateway.&#x20;
+* **Connect:** Policies are executed after plan selection and authentication on the Gateway, but before the client connects to the upstream broker.
+* **Interact:** Policies with a global scope (e.g., topic mapping) are executed on all interactions between the client and the Gateway.
 * **Publish:** Specific policies acting at the message level are applied to each produced record.
 * **Subscribe:** Specific policies acting at the message level are applied to each fetched record.
 
@@ -25,6 +29,6 @@ Kafka policies can be applied to these phases in policy chains of arbitrary leng
 
 ## Configuration
 
-Policies are scoped to different API consumers through flows. Flows are policy enforcement sequences that control where, and under what conditions, one or more policies act on an API transaction. The APIM Console includes a Gravitee Policy Studio where you can design flows to protect or transform how your Kafka APIs are consumed.&#x20;
+Policies are scoped to different API consumers through flows. Flows are policy enforcement sequences that control where, and under what conditions, one or more policies act on an API transaction. The APIM Console includes a Gravitee Policy Studio where you can design flows to protect or transform how your Kafka APIs are consumed.
 
 To learn how to configure flows and policies for your Kafka APIs, click [here](../configure-kafka-apis/policies.md).

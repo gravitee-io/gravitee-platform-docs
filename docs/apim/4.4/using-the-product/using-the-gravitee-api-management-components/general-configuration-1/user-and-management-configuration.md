@@ -1,4 +1,10 @@
-# User and Management Configuration
+---
+description: >-
+  Configuration guide for Configuring the User settings and Management settings
+  for the Gravitee API Management API.
+---
+
+# Configuring the User settings and Management settings for the Gravitee API Management API
 
 ## Introduction
 

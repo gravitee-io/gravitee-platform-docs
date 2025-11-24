@@ -1,3 +1,7 @@
+---
+description: An overview about gravitee resources.
+---
+
 # Gravitee Resources
 
 ## Overview
@@ -16,7 +20,7 @@ Terraform uses your configuration files to track the state of your infrastructur
 
 ## Gravitee resources
 
-The Gravitee Terraform provider supports the following Gravitee resource types:&#x20;
+The Gravitee Terraform provider supports the following Gravitee resource types:
 
 * v4 HTTP proxy API
 * v4 message API
@@ -25,7 +29,7 @@ The Gravitee Terraform provider supports the following Gravitee resource types:&
 * Application
 * Subscription
 
-Terraform can create, update, or delete these resources as part of its workflow.&#x20;
+Terraform can create, update, or delete these resources as part of its workflow.
 
 {% hint style="info" %}
 Guides and examples can be found in the [Gravitee "apim" Terraform Registry documentation](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs).
@@ -36,7 +40,7 @@ Guides and examples can be found in the [Gravitee "apim" Terraform Registry docu
 The following known limitations apply to the 0.2.x version of the Gravitee Terraform provider:
 
 * APIs created using Terraform are shown in the Console with the 'Kubernetes' icon because they are read only.
-* When you run `terraform plan` for APIs, several differences exist between state and remote. These do not impact runtime and will be fixed in upcoming patches.&#x20;
+* When you run `terraform plan` for APIs, several differences exist between state and remote. These do not impact runtime and will be fixed in upcoming patches.
   * Pages appear as changed, but they are unordered.
   * State stores the dynamic properties service configuration as an encoded JSON string instead of plain JSON.
   * The encrypted properties payload is marked as changed because encrypted values replace unencrypted values.

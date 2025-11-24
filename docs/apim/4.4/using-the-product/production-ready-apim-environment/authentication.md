@@ -1,4 +1,10 @@
-# Authentication
+---
+description: >-
+  An overview about Configuring authentication for a production-ready
+  environment.
+---
+
+# Configuring authentication for a production-ready environment
 
 ## Overview
 

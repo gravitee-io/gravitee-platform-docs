@@ -1,3 +1,7 @@
+---
+description: Overview of AWS Certificate.
+---
+
 # AWS Certificate plugin
 
 ## Overview
@@ -19,7 +23,7 @@ This secret will have to contains the following entries:
 * **storepass**: the passphrase for the certificate store
 * **keypass**: the passphrase for the private key
 * **alias**: the alias name of the certificate
-* **certificate**: the certificate using PCKS12 store format&#x20;
+* **certificate**: the certificate using PCKS12 store format
 
 ## Create a new certificate with AM Console <a href="#create-a-new-certificate-with-am-console" id="create-a-new-certificate-with-am-console"></a>
 

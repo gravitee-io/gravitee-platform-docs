@@ -1,8 +1,12 @@
+---
+description: Setup instructions and guidance for fluentd.
+---
+
 # Fluentd
 
 ## Kubernetes
 
-1. Install Fluentd. To install Fluentd,  go to either of the following sites:
+1. Install Fluentd. To install Fluentd, go to either of the following sites:
 
 * [Official Helm charts](https://artifacthub.io/packages/helm/fluent/fluentd)
 

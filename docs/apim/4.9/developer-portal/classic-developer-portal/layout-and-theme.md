@@ -1,3 +1,7 @@
+---
+description: An overview about layout and theme.
+---
+
 # Layout and Theme
 
 ## Overview

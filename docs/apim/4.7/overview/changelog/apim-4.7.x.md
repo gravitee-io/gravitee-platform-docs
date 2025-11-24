@@ -1,6 +1,11 @@
+---
+description: API documentation explaining apim 4.7.x.
+---
+
 # APIM 4.7.x
- 
+
 ## Gravitee API Management 4.7.19 - November 21, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -20,7 +25,7 @@
 
 **Other**
 
-* Cannot use access_token in SASL JAAS config for OAUTHBEARER mechanism [#10927](https://github.com/gravitee-io/issues/issues/10927)
+* Cannot use access\_token in SASL JAAS config for OAUTHBEARER mechanism [#10927](https://github.com/gravitee-io/issues/issues/10927)
 
 </details>
 
@@ -43,9 +48,8 @@
 
 </details>
 
-
- 
 ## Gravitee API Management 4.7.18 - November 7, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -85,9 +89,8 @@
 
 </details>
 
-
- 
 ## Gravitee API Management 4.7.17 - October 24, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -130,9 +133,8 @@
 
 </details>
 
-
- 
 ## Gravitee API Management 4.7.16 - October 10, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -167,9 +169,8 @@
 
 </details>
 
-
- 
 ## Gravitee API Management 4.7.15 - September 26, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -221,9 +222,8 @@
 
 </details>
 
-
-
 ## Gravitee API Management 4.7.14 - September 12, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -245,8 +245,8 @@
 
 </details>
 
-
 ## Gravitee API Management 4.7.13 - August 29, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -270,9 +270,8 @@
 
 </details>
 
-
- 
 ## Gravitee API Management 4.7.12 - August 15, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -320,9 +319,8 @@
 
 </details>
 
-
- 
 ## Gravitee API Management 4.7.11 - August 1, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -340,23 +338,22 @@
 
 **Console**
 
-* The error key CLIENT_ABORTED_DURING_RESPONSE_ERROR is not present in the console UI. [#10683](https://github.com/gravitee-io/issues/issues/10683)
+* The error key CLIENT\_ABORTED\_DURING\_RESPONSE\_ERROR is not present in the console UI. [#10683](https://github.com/gravitee-io/issues/issues/10683)
 
 **Portal**
 
-*  Portal Try it Out feature taking a long time to load [#10595](https://github.com/gravitee-io/issues/issues/10595)
-* Openapi contracts with binary examples can not be read by the dev portal  [#10639](https://github.com/gravitee-io/issues/issues/10639)
+* Portal Try it Out feature taking a long time to load [#10595](https://github.com/gravitee-io/issues/issues/10595)
+* Openapi contracts with binary examples can not be read by the dev portal [#10639](https://github.com/gravitee-io/issues/issues/10639)
 
 **Other**
 
-* JDBC Error in Gravitee when querying large number of applications using IN clause  [#10496](https://github.com/gravitee-io/issues/issues/10496)
+* JDBC Error in Gravitee when querying large number of applications using IN clause [#10496](https://github.com/gravitee-io/issues/issues/10496)
 * Console : Image Not Fitting Avatar Due to Aspect Ratio [#10649](https://github.com/gravitee-io/issues/issues/10649)
 
 </details>
 
-
- 
 ## Gravitee API Management 4.7.10 - July 18, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -381,9 +378,8 @@
 
 </details>
 
-
- 
 ## Gravitee API Management 4.7.9 - July 4, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -412,8 +408,8 @@
 
 * Unable to add a group to an existing user using console [#10378](https://github.com/gravitee-io/issues/issues/10378)
 * Console : Categories Page doesn't show updated image for any category [#10523](https://github.com/gravitee-io/issues/issues/10523)
-* Primary owner Group should not be removed from an API  [#10580](https://github.com/gravitee-io/issues/issues/10580)
-* Custom policy depending on gravitee-resource-oauth2-provider-generic  [#10620](https://github.com/gravitee-io/issues/issues/10620)
+* Primary owner Group should not be removed from an API [#10580](https://github.com/gravitee-io/issues/issues/10580)
+* Custom policy depending on gravitee-resource-oauth2-provider-generic [#10620](https://github.com/gravitee-io/issues/issues/10620)
 
 </details>
 
@@ -427,11 +423,9 @@
 
 **Other**
 
-* Increase character limit of condition field in flow_selectors table [#10560](https://github.com/gravitee-io/issues/issues/10560)
+* Increase character limit of condition field in flow\_selectors table [#10560](https://github.com/gravitee-io/issues/issues/10560)
 
 </details>
-
-
 
 ## Gravitee API Management 4.7.8 - June 20, 2025
 

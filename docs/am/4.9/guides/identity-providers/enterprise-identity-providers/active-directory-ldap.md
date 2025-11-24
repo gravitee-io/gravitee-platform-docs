@@ -1,3 +1,7 @@
+---
+description: Overview of Active Directory.
+---
+
 # Active Directory/LDAP
 
 ## Overview
@@ -17,7 +21,7 @@ You can authenticate and manage users in AM using Enterprise Active Directory or
 {% hint style="info" %}
 Since AM 4.6, the LDAP identity provider can access the operational attributes by configuring the "User Return Attribute" field.
 
-To retrieve all operational attributes,  set `+` as a value in the configuration form. To retrieve only the attributes you are interested in, add the names you are expecting separated by a comma. For example, `createTimestamp`,`modifyTimestamp`.
+To retrieve all operational attributes, set `+` as a value in the configuration form. To retrieve only the attributes you are interested in, add the names you are expecting separated by a comma. For example, `createTimestamp`,`modifyTimestamp`.
 {% endhint %}
 
 {% hint style="warning" %}

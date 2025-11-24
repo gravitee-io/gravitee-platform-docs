@@ -1,3 +1,7 @@
+---
+description: Installation guide for Set Up Your First Application.
+---
+
 # Set Up Your First Application
 
 ## Overview
@@ -86,21 +90,11 @@ In this example, we will create an In-memory identity provider with an inline us
 4. Give your identity provider a **Name** and enter the user details, then click **Create**.
 
 {% code overflow="wrap" %}
-````
-```sh
-curl -H "Authorization: Bearer :accessToken" \
-     -H "Content-Type:application/json;charset=UTF-8" \
-     -X POST \
-     -d '{
-           "external": false,
-           "type": "inline-am-idp",
-           "configuration": "{\"users\":[{\"firstname\":\"John\",\"lastname\":\"Doe\",\"username\":\"johndoe\",\"password\":\"johndoepassword\"}]}",
-           "name": "Inline IdP"
-         }' \
-     http://GRAVITEEIO-AM-MGT-API-HOST/management/organizations/DEFAULT/environments/DEFAULT/domains/:securityDomainPath/identities
 ```
-````
+```
 {% endcode %}
+
+\`\`\`\` \`\`\`sh curl -H "Authorization: Bearer :accessToken" \ -H "Content-Type:application/json;charset=UTF-8" \ -X POST \ -d '{ "external": false, "type": "inline-am-idp", "configuration": "{\\"users\\":\[{\\"firstname\\":\\"John\\",\\"lastname\\":\\"Doe\\",\\"username\\":\\"johndoe\\",\\"password\\":\\"johndoepassword\\"}]}", "name": "Inline IdP" }' \ http://GRAVITEEIO-AM-MGT-API-HOST/management/organizations/DEFAULT/environments/DEFAULT/domains/:securityDomainPath/identities \`\`\` \`\`\`\` \{% endcode %\}
 
 ```
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-quickstart-create-idp.png" alt=""><figcaption><p>Configure your IdP</p></figcaption></figure>

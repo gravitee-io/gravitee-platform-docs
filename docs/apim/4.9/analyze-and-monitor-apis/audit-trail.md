@@ -1,3 +1,7 @@
+---
+description: An overview about audit trail.
+---
+
 # Audit Trail
 
 {% hint style="warning" %}

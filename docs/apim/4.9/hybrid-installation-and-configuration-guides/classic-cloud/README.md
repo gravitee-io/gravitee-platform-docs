@@ -1,3 +1,7 @@
+---
+description: Documentation about classic cloud in the context of APIs.
+---
+
 # Classic Cloud
 
 ## Deployment methods

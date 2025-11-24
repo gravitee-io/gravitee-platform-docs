@@ -1,3 +1,7 @@
+---
+description: Overview of The Central Authentication Service.
+---
+
 # CAS
 
 ## Overview
@@ -52,8 +56,6 @@ Make a note of the URL in **1. Configure the Redirect URI** to the right of the 
 You can test your CAS connection using a web application created in AM.
 
 1.  In AM Console, click **Applications > App > Identity Providers** and select your CAS connector.
-
-
 
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-social-idp-list.png" alt=""><figcaption><p>Select CAS IdP</p></figcaption></figure>
 2.  Call the Login page (the `/oauth/authorize` endpoint). If the connection is working you will see a **Sign in with CAS** button.

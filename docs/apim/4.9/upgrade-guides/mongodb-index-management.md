@@ -1,9 +1,13 @@
+---
+description: Documentation about mongodb index management in the context of APIs.
+---
+
 # MongoDB Index Management
 
-The following MongoDB indexes are designed to improve query performance for large datasets. Create these indexes manually before upgrading to avoid extended Management API startup times.&#x20;
+The following MongoDB indexes are designed to improve query performance for large datasets. Create these indexes manually before upgrading to avoid extended Management API startup times.
 
 {% hint style="warning" %}
-Four new indexes are created on the `events` collection. For databases with event collections of 100GB+, index creation can take **10-20 minutes or longer** per index.&#x20;
+Four new indexes are created on the `events` collection. For databases with event collections of 100GB+, index creation can take **10-20 minutes or longer** per index.
 {% endhint %}
 
 | Collection             | Index Name                | Keys                                                                                                               | Type     | Purpose                                       |

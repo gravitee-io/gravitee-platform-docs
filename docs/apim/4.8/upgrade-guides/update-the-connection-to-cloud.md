@@ -1,3 +1,7 @@
+---
+description: An overview about update the connection to cloud.
+---
+
 # Update the Connection to Cloud
 
 ## Overview

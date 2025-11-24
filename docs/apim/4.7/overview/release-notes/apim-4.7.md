@@ -1,3 +1,7 @@
+---
+description: An overview about apim 4.7.
+---
+
 # APIM 4.7
 
 ## Overview
@@ -8,7 +12,7 @@ In Gravitee 4.7, we have released the following improvements and enhancements:
 * Updates to the Kafka Gateway and the new Developer Portal.
 * Enhancements to webhook subscriptions.
 * Enhancements to the Datadog reporter.
-* Added support for adding documentation to your APIs in Asciidoc format.&#x20;
+* Added support for adding documentation to your APIs in Asciidoc format.
 * The addition of secret manager support for the Solace endpoint.
 * The addition of secret manager support for the LDAP resource.
 * Tenant support is extended to v4 APIs.
@@ -32,7 +36,7 @@ In APIM 4.7, the Kafka Gateway feature set includes:
 
 * Support for complex expressions in the API policy.
 * Better support for connecting to Confluent Cloud over OAuth2.
-* Better support for using the ACL policy and the topic mapping policy in the same flow.&#x20;
+* Better support for using the ACL policy and the topic mapping policy in the same flow.
 
 ## Updates to the new Developer Portal
 
@@ -60,9 +64,9 @@ In Gravitee 4.7, we've released a new version of the Datadog reporter with the f
 
 ## Secret Support
 
-In Gravitee APIM 4.4, we introduced secret managers to obscure sensitive information in the Gravitee Gateway configuration file. In Gravitee APIM 4.6, we extended this capability to API-Level configuration. In Gravitee 4.7, we have extended this capability again to the following endpoints and resources:&#x20;
+In Gravitee APIM 4.4, we introduced secret managers to obscure sensitive information in the Gravitee Gateway configuration file. In Gravitee APIM 4.6, we extended this capability to API-Level configuration. In Gravitee 4.7, we have extended this capability again to the following endpoints and resources:
 
-* Solace endpoint&#x20;
+* Solace endpoint
 * RabbitMQ endpoint
 * The LDAP resource
 
@@ -70,12 +74,9 @@ In Gravitee APIM 4.4, we introduced secret managers to obscure sensitive informa
 
 With Gravitee 4.7, you can add documentation in Asciidoc format, in addition to the previously-supported OpenAPI, AsyncAPI, and Markdown formats.
 
-
-
-
 <figure><img src="https://lh7-qw.googleusercontent.com/docsz/AD_4nXfEhczS30H76u2oPk0WeSpz04vw2uJ8qBV267euCY4uSzZ2oHXfiBgbJggjCJJmgn1HKruN5Dc9V6YLZoYrals0k27zlchqtjjuUmVPKNKEKCOCHKEskD5vyCW4yH3pw5Gvoyq0Lg?key=vUeNGTqhmI_vGeq3U0sGHTvz" alt=""><figcaption></figcaption></figure>
 
-## Tenant support&#x20;
+## Tenant support
 
 [Tenants](../../gravitee-gateway/tenants.md#id-9c4f) are a way to leverage Gravitee's multi-endpoint capability, i.e., the ability to specify multiple upstream systems per single API. Gravitee allows you to assign endpoints and Gateways to specific tenants to control the endpoints to which requests are proxied.
 
@@ -117,7 +118,7 @@ The AWS Lambda policy can now be applied to v2 APIs, v4 HTTP proxy APIs, and v4 
 
 You can now specify an expression pattern on the Group, Topic, or Transactional ID resources to create a dynamic ACL that can match complicated conditions. To set the ACL to match an expression pattern, you can use wildcards.
 
-## Updates to the APIM v2-v4 Comparison Matrix&#x20;
+## Updates to the APIM v2-v4 Comparison Matrix
 
 | Functionality                                                     | Supported in v2 proxy APIs | Supported for v4 proxy APIs | Supported for v4 message APIs |
 | ----------------------------------------------------------------- | -------------------------- | --------------------------- | ----------------------------- |

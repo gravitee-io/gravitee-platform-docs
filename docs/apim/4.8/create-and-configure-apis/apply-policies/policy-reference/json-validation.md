@@ -1,3 +1,7 @@
+---
+description: An overview about json validation.
+---
+
 # JSON Validation
 
 ## Overview

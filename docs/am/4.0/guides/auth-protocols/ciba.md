@@ -1,3 +1,7 @@
+---
+description: Overview of The Client-Initiated Backchannel Authentication Flow.
+---
+
 # CIBA
 
 ## Overview

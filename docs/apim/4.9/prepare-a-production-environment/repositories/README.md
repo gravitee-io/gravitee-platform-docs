@@ -1,3 +1,7 @@
+---
+description: An overview about repositories.
+---
+
 # Repositories
 
 ## Overview
@@ -108,7 +112,7 @@ ratelimit:
     prefix: # collection prefix
 ```
 
-If you want to use a custom prefix, you need to follow the following [instructions](README.md#use-a-custom-prefix).
+If you want to use a custom prefix, you need to follow the following [instructions](./#use-a-custom-prefix).
 {% endtab %}
 
 {% tab title="JDBC" %}
@@ -124,7 +128,7 @@ ratelimit:
     prefix:   # collection prefix
 ```
 
-If you want to use a custom prefix, you need to follow these [instructions](README.md#use-a-custom-prefix-1).
+If you want to use a custom prefix, you need to follow these [instructions](./#use-a-custom-prefix-1).
 {% endtab %}
 
 {% tab title="Redis Standalone" %}
@@ -147,7 +151,7 @@ Redis Sentinel and Redis SSL configuration options are presented [here](redis.md
 
 The following matrix shows scope and storage compatibility.
 
-<table><thead><tr><th width="270">Scope</th><th width="115" data-type="checkbox">MongoDB</th><th data-type="checkbox">Redis</th><th width="143" data-type="checkbox">ElasticSearch</th><th data-type="checkbox">JDBC</th></tr></thead><tbody><tr><td><strong>Management</strong> <br>All the APIM management data such as API definitions, users, applications, and plans</td><td>true</td><td>false</td><td>false</td><td>true</td></tr><tr><td><strong>Rate Limit</strong><br>Rate limiting data</td><td>true</td><td>true</td><td>false</td><td>true</td></tr><tr><td><strong>Analytics</strong> <br>Analytics data</td><td>false</td><td>false</td><td>true</td><td>false</td></tr><tr><td><strong>Distributed Sync</strong> <br>Responsible for storing the sync state for a cluster</td><td>false</td><td>true</td><td>false</td><td>false</td></tr></tbody></table>
+<table><thead><tr><th width="270">Scope</th><th width="115" data-type="checkbox">MongoDB</th><th data-type="checkbox">Redis</th><th width="143" data-type="checkbox">ElasticSearch</th><th data-type="checkbox">JDBC</th></tr></thead><tbody><tr><td><strong>Management</strong><br>All the APIM management data such as API definitions, users, applications, and plans</td><td>true</td><td>false</td><td>false</td><td>true</td></tr><tr><td><strong>Rate Limit</strong><br>Rate limiting data</td><td>true</td><td>true</td><td>false</td><td>true</td></tr><tr><td><strong>Analytics</strong><br>Analytics data</td><td>false</td><td>false</td><td>true</td><td>false</td></tr><tr><td><strong>Distributed Sync</strong><br>Responsible for storing the sync state for a cluster</td><td>false</td><td>true</td><td>false</td><td>false</td></tr></tbody></table>
 
 Please choose from the options below to learn how to configure these repositories.
 
