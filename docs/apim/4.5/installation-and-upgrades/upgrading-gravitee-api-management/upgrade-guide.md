@@ -1,3 +1,7 @@
+---
+description: An overview about upgrade guide.
+---
+
 # Upgrade Guide
 
 {% hint style="danger" %}
@@ -28,25 +32,24 @@ Some plugins are available to only customers with the Enterprise Edition of Grav
 * By default, TLS 1.0 and TLS 1.1 protocols are disabled. You can enable these protocols with the proper TCP SSL configuration of the Gateway:
 
 {% code overflow="wrap" %}
-````yaml
-```yaml
-http:
-  ssl:
-    tlsProtocols: TLSv1.0, TLSv1.1, TLSv1.2
 ```
-````
+```
 {% endcode %}
 
-```yaml
-&#x20;or using environment variables:
+\`\`\`\`yaml \`\`\`yaml http: ssl: tlsProtocols: TLSv1.0, TLSv1.1, TLSv1.2 \`\`\` \`\`\`\` \{% endcode %\}
 
-```
+\`
 
-{% code overflow="wrap" %}
+\`\`yaml or using environment variables:
+
+`````
+
+<div data-gb-custom-block data-tag="code" data-overflow='wrap'></div>
 ````bash
 ```bash
 GRAVITEE_HTTP_SSL_TLSPROTOCOLS=TLSv1.0,TLSv1.1,TLSv1.2
-```
+`````
+
 ````
 {% endcode %}
 
@@ -71,7 +74,9 @@ GRAVITEE_HTTP_SSL_TLSPROTOCOLS=TLSv1.0,TLSv1.1,TLSv1.2
 Existing v4 APIs need to be updated and reconfigured accordingly.
 {% endhint %}
 
-* The file synchronization feature known as `localregistry` has been removed.
+* The file synchronization feature known as `
+
+localregistry` has been removed.
 * Subscriptions with `type: SUBSCRIPTION` have been renamed to `type: PUSH`. By default, Plans have a new field called `mode` that is set to `STANDARD`. For all Push plans, you must set this field to `PUSH`.
   * A [mongo script](https://github.com/gravitee-io/gravitee-api-management/tree/master/gravitee-apim-repository/gravitee-apim-repository-mongodb/src/main/resources/scripts/4.0.0) is available to migrate the data in MongoDB.
 * Jupiter mode has been replaced with the v4 emulation engine. This replacement has the following implications:
@@ -144,9 +149,11 @@ APIM installations connected to Cloud require changes to the Management API's `g
 
 ### APIM 4.2 with Cloud connected
 
-{% hint style="warning" %}
+<div data-gb-custom-block data-tag="hint" data-style='warning'>
+
 The user must edit the Management API's `gravitee.yaml`.
-{% endhint %}
+
+</div>
 
 If an APIM installation connected to Cloud is upgraded to 4.2, the user must make the following changes to the Management API's `gravitee.yaml` file for the installation to function as `standalone`:
 
@@ -171,9 +178,11 @@ installation:
 
 ### APIM 4.2+ and multiple Consoles/Portals in a connected Cloud
 
-{% hint style="warning" %}
+<div data-gb-custom-block data-tag="hint" data-style='warning'>
+
 The user must edit the Management API's `gravitee.yaml`.
-{% endhint %}
+
+</div>
 
 If an APIM installation with multiple Consoles and Portals set up in a connected Cloud is upgraded to 4.2, the user must make the following changes to the Management API's `gravitee.yaml` file for the installation to function as `standalone`:
 
@@ -247,3 +256,4 @@ GRAVITEE_MANAGEMENT_HTTP_SSL_TRUSTALL="true"
 You may have noticed the "trust all" configuration parameter was formerly named `trustall`, it is now named `trustAll` for consistency. To avoid a breaking change here both names work, but the former has been deprecated.
 
 ***
+````

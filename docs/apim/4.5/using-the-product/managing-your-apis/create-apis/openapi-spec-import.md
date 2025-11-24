@@ -1,3 +1,7 @@
+---
+description: An overview about importing an openapi specification.
+---
+
 # Importing an OpenAPI Specification
 
 ## Overview
@@ -20,10 +24,10 @@ To import an API from OpenAPI:
 
 *   If the OpenAPI specification is a file, select **IMPORT FILE** and browse your file system
 
-    <figure><img src="../../../../../../.gitbook/assets/graviteeio-import-openapi-file (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 *   If the OpenAPI specification is a link, select **IMPORT FROM LINK**, choose **Swagger / OpenAPI**, and enter the definition URL
 
-    <figure><img src="../../../../../../.gitbook/assets/graviteeio-import-openapi-link (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 
 ## **Context-path resolution**
 
@@ -55,7 +59,6 @@ title: Swagger Petstore
 license:
 name: MIT
 servers:
-
 url: http://petstore.swagger.io/v1
 paths:
 ...

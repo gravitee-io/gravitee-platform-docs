@@ -1,3 +1,7 @@
+---
+description: Documentation on policies and controls for l-p.
+---
+
 # L-P
 
 Here are the policies that fall between L and O:

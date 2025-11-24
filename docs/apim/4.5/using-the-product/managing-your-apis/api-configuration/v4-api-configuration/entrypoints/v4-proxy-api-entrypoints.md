@@ -1,3 +1,7 @@
+---
+description: Configuration and usage guide for configuring v4 proxy api entrypoints.
+---
+
 # Configuring v4 Proxy API Entrypoints
 
 ## Configuration
@@ -14,7 +18,7 @@ Refer to the following sections for step-by-step configuration details per proxy
 
 Edit the entrypoint's settings under the **Entrypoints** tab.
 
-<figure><img src="../../../../../../../../.gitbook/assets/edit HTTP entrypoint (1).png" alt=""><figcaption><p>v4 HTTP proxy API entrypoint configuration</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>v4 HTTP proxy API entrypoint configuration</p></figcaption></figure>
 
 You have the option to:
 
@@ -28,7 +32,7 @@ Redeploy the API for your changes to take effect.
 
 Edit the entrypoint's settings under the **Entrypoints** tab.
 
-<figure><img src="../../../../../../../../.gitbook/assets/tcp_entrypoints (1).png" alt=""><figcaption><p>v4 TCP proxy API entrypoint configuration</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>v4 TCP proxy API entrypoint configuration</p></figcaption></figure>
 
 You have the option to:
 

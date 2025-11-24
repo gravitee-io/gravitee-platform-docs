@@ -1,14 +1,18 @@
+---
+description: Configuration and usage guide for cache.
+---
+
 # Cache
 
 {% tabs %}
 {% tab title="Cache" %}
-<figure><img src="../../../../../../.gitbook/assets/resource_cache (1).png" alt=""><figcaption><p>Create a Cache resource</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Create a Cache resource</p></figcaption></figure>
 
 <table><thead><tr><th width="161">Config param</th><th width="417">Description</th><th>Default</th></tr></thead><tbody><tr><td>Cache name</td><td>Name of the cache</td><td>my-cache</td></tr><tr><td>Time to idle</td><td>Maximum number of seconds an element can exist in the cache without being accessed. When this threshold is reached, the element expires and will no longer be returned from the cache. The default value is 0, i.e., no timeToIdle (TTI) eviction takes place (infinite lifetime).</td><td>0</td></tr><tr><td>Time to live</td><td>Maximum number of seconds an element can exist in the cache, regardless of usage. When this threshold is reached, the element expires and will no longer be returned from the cache. The default value is 0, i.e., no timeToLive (TTL) eviction takes place (infinite lifetime).</td><td>0</td></tr><tr><td>Max entries on heap</td><td>Maximum number of objects to be held in local heap memory (0 = no limit)</td><td>1000</td></tr></tbody></table>
 {% endtab %}
 
 {% tab title="Cache Redis" %}
-<figure><img src="../../../../../../.gitbook/assets/resource_cache redis (1).png" alt=""><figcaption><p>Create a Cache Redis resource</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Create a Cache Redis resource</p></figcaption></figure>
 
 The Cache Redis resource can operate standalone or with the Redis Sentinel monitoring solution. The majority of Cache Redis configuration options are common to both modes of operation, but several are exclusive to either standalone or Sentinel as indicated with a **bold asterisk (\*)**.
 
