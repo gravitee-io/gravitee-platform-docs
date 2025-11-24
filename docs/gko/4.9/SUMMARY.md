@@ -65,7 +65,7 @@
 <!-- end_release_notes_summary -->
 * [Changelog](releases-and-changelog/changelog/README.md)
 <!-- start_changelogs_summary -->
-* [GKO 4.9.x](gko-4.9.x.md)
+* [GKO 4.9.x](releases-and-changelog/changelog/gko-4.9.x.md)
 * [GKO 4.8.x](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/4.8/releases-and-changelog/changelog/gko-4.8.x)
 <!-- end_changelogs_summary -->
 
