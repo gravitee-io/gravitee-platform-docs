@@ -1,3 +1,7 @@
+---
+description: Guide on policies and governance for I-K.
+---
+
 # I-K
 
 Here are the policies that fall between I and K:

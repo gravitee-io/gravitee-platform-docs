@@ -1,4 +1,10 @@
-# Engine Comparisons
+---
+description: >-
+  An overview about Reactive Executive Engine and Legacy Execution Engine
+  Comparison.
+---
+
+# Reactive Executive Engine and Legacy Execution Engine Comparison
 
 ## Overview
 
@@ -310,7 +316,7 @@ The timeout value is calculated from the following two properties:
 {% hint style="info" %}
 **Timeout configuration**
 
-The reactive execution engine interprets timeout values less than or equal to `0` as "no timeout" (same as the legacy engine).&#x20;
+The reactive execution engine interprets timeout values less than or equal to `0` as "no timeout" (same as the legacy engine).
 
 If you configure the timeout with a positive value, then it will act normally.
 
@@ -326,8 +332,4 @@ The example below shows timelines indicating when a timeout should occur dependi
 * There is no timeout defined for the backend in the API’s endpoint configuration (real timeout values should be shorter than `http.requestTimeout` and should interrupt the flow at the invoker level)
 * `http.requestTimeout=2000ms` and `http.requestTimeoutGraceDelay=30ms`
 
-<div align="left">
-
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/event-native/event-native-api-management-timeout.png" alt="" width="375"><figcaption><p>Reactive engine timeout management</p></figcaption></figure>
-
-</div>
+<div align="left"><figure><img src="https://docs.gravitee.io/images/apim/3.x/event-native/event-native-api-management-timeout.png" alt="" width="375"><figcaption><p>Reactive engine timeout management</p></figcaption></figure></div>

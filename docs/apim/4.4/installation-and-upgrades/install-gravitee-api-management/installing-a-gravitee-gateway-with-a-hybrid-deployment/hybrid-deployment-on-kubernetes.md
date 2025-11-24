@@ -1,3 +1,9 @@
+---
+description: >-
+  Tutorial on Installing a Gravitee Gateway with a Hybrid Deployment on
+  Kubernetes.
+---
+
 # Installing a Gravitee Gateway with a Hybrid Deployment on Kubernetes
 
 This section describes how to install a Gravitee Gateway with a hybrid deployment using Kubernetes Helm charts.
@@ -15,16 +21,16 @@ You must be familiar with the following topics:
 In this example, we demonstrate how to deploy a Gravitee Gateway (APIM) in two different GCP regions. Also, we demonstrate how to deploy Gravitee APIM in the follow two different K8s clusters:
 
 * A **Management cluster** that runs the following components:
-  * &#x20;The management API
-  * &#x20;The two APIM UI components
-  * &#x20;A bridge gateway
+  * The management API
+  * The two APIM UI components
+  * A bridge gateway
 * A **Gateway cluster** that runs the APIM gateway
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/hybrid/hybrid_deployment_k8s.png" alt=""><figcaption><p>Kubernetes hybrid deployment architecture diagram</p></figcaption></figure>
 
 In this example, the deployment consists of the following components:
 
-* MongoDB. MongoDB manages all the management data. For example,  API definitions, subscriptions, and API keys.
+* MongoDB. MongoDB manages all the management data. For example, API definitions, subscriptions, and API keys.
 * ElasticSearch. ElasticSearch is deployed in the Management cluster.
 * Redis. Redis manages the rate limits and quota counters within the Gateway cluster.
 
@@ -67,7 +73,7 @@ $ helm repo add graviteeio https://helm.gravitee.io
 ```
 {% endcode %}
 
-2. Deploy the management APIM instance using the following command. The management APIM contains the follow components:&#x20;
+2. Deploy the management APIM instance using the following command. The management APIM contains the follow components:
 
 * The Management Console
 * The Developer Portal

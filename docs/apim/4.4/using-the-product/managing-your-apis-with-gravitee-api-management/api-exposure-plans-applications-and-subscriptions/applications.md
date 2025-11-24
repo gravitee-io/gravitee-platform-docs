@@ -22,7 +22,7 @@ For an API consumer to create an application:
 * An admin must define the allowed types of applications that API consumers can create:
   * **Default application type:** API consumers can optionally define the `client_id` when creating a simple application.
   * **Dynamic Client Registration (DCR) for applications:** The API publisher must enable and configure DCR for the allowed application types. The client registration provider is responsible for creating the `client_id` and `client_secret` for each application that registers.
-* An API consumer must have a user account to register an application and subscribe to an API (see [Administration](../../administration/README.md))
+* An API consumer must have a user account to register an application and subscribe to an API (see [Administration](../../administration/))
 
 ## Default application configuration
 
@@ -32,7 +32,7 @@ The default simple application enables an API consumer to define the `client_id`
 2. Select **Settings** from the left nav
 3.  Select **Client Registration** from the inner left nav
 
-    <figure><img src="../../../../../../.gitbook/assets/client registration (1).png" alt=""><figcaption><p>Client Registration</p></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption><p>Client Registration</p></figcaption></figure>
 4. Under **Default application type**, toggle **Simple** ON
 
 {% hint style="info" %}
@@ -51,7 +51,7 @@ user:
 ## DCR application configuration
 
 {% hint style="warning" %}
-Dynamic Client Registration is an [Enterprise Edition](../../../overview/gravitee-apim-enterprise-edition/README.md) capability
+Dynamic Client Registration is an [Enterprise Edition](../../../overview/gravitee-apim-enterprise-edition/) capability
 {% endhint %}
 
 The DCR protocol allows an OAuth client application to register with an OAuth server through the OpenID Connect (OIDC) client registration endpoint. Using DCR, API consumers can register applications via the Developer Portal or APIM Console. This outsources the issuer and management of application credentials to a third party, enabling additional configuration options and compatibility with IdP OIDC features.
@@ -66,14 +66,14 @@ DCR is an OAuth flow. Review relevant OAuth terminology below.
 
 <summary>OAuth terminology</summary>
 
-#### OAuth 2.0 roles
+**OAuth 2.0 roles**
 
 * **Authorization server:** Issues access tokens to the client after authenticating the resource owner and obtaining authorization. Can be the resource server.
 * **Client:** An application making protected resource requests on behalf of the resource owner and with the resource owner’s authorization. The term client does not imply any particular implementation characteristics (i.e., whether the application executes on a server, a desktop, or another device).
 * **Resource owner**: An entity enabled to grant access to a protected resource. When the resource owner is a person, it is referred to as an end user.
 * **Resource server:** Hosts the protected resources. Capable of accepting and responding to protected resource requests using access tokens. Can be the authorization server.
 
-#### Additional terminology
+**Additional terminology**
 
 * **Access Token:** Used by the client to communicate with the resource server
 * **Authorization Code:** Short-lived code sent to the client from the authorization server. The client sends the authorization code and client secret back to the authorization server to receive an access token.
@@ -103,7 +103,7 @@ To enable DCR:
 2. Select **Settings** from the left nav
 3.  Select **Client Registration** from the inner left nav
 
-    <figure><img src="../../../../../../.gitbook/assets/client registration (1).png" alt=""><figcaption><p>Client Registration</p></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption><p>Client Registration</p></figcaption></figure>
 4. Toggle **Enable Dynamic Client Registration** ON
 
 ### Add a DCR provider
@@ -114,7 +114,7 @@ Any authentication server supporting OIDC can be used as a DCR provider. This gu
 
 At the bottom of the **Client Registration** page, click **+ Add a provider** and configure the following:
 
-<figure><img src="../../../../../../.gitbook/assets/client registration provider (1).png" alt=""><figcaption><p>Add a client registration provider</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Add a client registration provider</p></figcaption></figure>
 
 * Set a **Name** and **Description** for the provider
 *   **OpenID Connect Discovery Endpoint:** Enter the URL where an OIDC-compatible authorization server publishes its metadata
@@ -248,7 +248,7 @@ To delete an application, the primary owner must:
 4. Select **Global Settings** from the inner left nav
 5.  In the **Danger Zone**, click **Delete**
 
-    <figure><img src="../../../../../../.gitbook/assets/delete application (1).png" alt=""><figcaption><p>Delete an application</p></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption><p>Delete an application</p></figcaption></figure>
 
 * A deleted application has a status of `ARCHIVED`, meaning:
   * The link to the primary owner of the application is deleted.

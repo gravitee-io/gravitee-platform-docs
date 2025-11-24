@@ -1,3 +1,9 @@
+---
+description: >-
+  Setup and installation guide for Custom Install Gravitee API Management with
+  Docker Compose.
+---
+
 # Custom Install Gravitee API Management with Docker Compose
 
 When you install Gravitee API Management (APIM) with Docker Compose, you can install custom plugins and control the location of the persistent data.
@@ -7,11 +13,12 @@ When you install Gravitee API Management (APIM) with Docker Compose, you can ins
 * You must install Docker. For more information about installing Docker, go to [Install Docker Engine](https://docs.docker.com/engine/install/).
 * If you are deploying the Enterprise Edition of Gravitee, ensure that you have your license key. For more information about license keys, see [Gravitee Platform Pricing](https://www.gravitee.io/pricing).
 
-## Installing Gravitee APIM&#x20;
+## Installing Gravitee APIM
 
 1.  Create the directory structure, and then download the `docker compose` file. Once you create the directory, verify that the directory has the following structure:
 
-    {% code overflow="wrap" %}
+    \{% code overflow="wrap" %\}
+
     ```bash
     /gravitee
      ├── apim-gateway
@@ -29,12 +36,13 @@ When you install Gravitee API Management (APIM) with Docker Compose, you can ins
      └── mongodb
          └── data
     ```
-    {% endcode %}
-2. &#x20;To ensure that the `docker-compose-apim.yml` uses the `/gravitee`directory structure, follow the following sub-steps:
 
-&#x20;        a. In a text editor, open `docker-compose-apim.yml`
+    \{% endcode %\}
+2. To ensure that the `docker-compose-apim.yml` uses the `/gravitee`directory structure, follow the following sub-steps:
 
-&#x20;        b. Remove the following lines of code:
+a. In a text editor, open `docker-compose-apim.yml`
+
+b. Remove the following lines of code:
 
 {% code overflow="wrap" %}
 ```bash
@@ -44,7 +52,7 @@ volumes:
 ```
 {% endcode %}
 
-&#x20;        c. Change `$services.mongodb.volumes` to the following code:
+c. Change `$services.mongodb.volumes` to the following code:
 
 {% code overflow="wrap" %}
 ```bash
@@ -54,7 +62,7 @@ volumes:
 ```
 {% endcode %}
 
-&#x20;        d. Change `$services.gateway.volumes` to the following code:
+d. Change `$services.gateway.volumes` to the following code:
 
 {% code overflow="wrap" %}
 ```bash
@@ -64,7 +72,7 @@ volumes:
 ```
 {% endcode %}
 
-&#x20;      e. Navigate to `$services.gateway.environment`, and then add the following lines of code:
+e. Navigate to `$services.gateway.environment`, and then add the following lines of code:
 
 {% code overflow="wrap" %}
 ```bash
@@ -74,9 +82,9 @@ volumes:
 ```
 {% endcode %}
 
-&#x20;     f. Remove `$services.management_api.links`.
+f. Remove `$services.management_api.links`.
 
-&#x20;    g. Change `$services.management_ui.volumes` to the following lines of code:
+g. Change `$services.management_ui.volumes` to the following lines of code:
 
 ```bash
 volumes:
@@ -84,7 +92,7 @@ volumes:
   - ./apim-management-api/plugins:/opt/graviteeio-management-api/plugins-ext
 ```
 
-&#x20;   h.  Add the following lines to `$services.management_api.environment`:
+h. Add the following lines to `$services.management_api.environment`:
 
 {% code overflow="wrap" %}
 ```bash
@@ -93,14 +101,14 @@ volumes:
 ```
 {% endcode %}
 
-&#x20;   i. Change `$services.management_ui.volumes`to the following lines of code:
+i. Change `$services.management_ui.volumes`to the following lines of code:
 
 ```bash
 volumes:
   - ./apim-management-ui/logs:/var/log/nginx
 ```
 
-&#x20;   j. Change `$services.portal_ui.volumes` to the following lines of code:
+j. Change `$services.portal_ui.volumes` to the following lines of code:
 
 ```bash
 volumes:
@@ -109,17 +117,17 @@ volumes:
 
 3. (Optional) If you are using the Enterprise Edition (EE) of Gravitee APIM, add your license key by following the following steps:
 
-&#x20;       a. Copy your license key to `/gravitee/license.key.`
+a. Copy your license key to `/gravitee/license.key.`
 
-&#x20;       b. In a text editor, open the `docker-compose-apim.yml` file.
+b. In a text editor, open the `docker-compose-apim.yml` file.
 
-&#x20;       c. Navigate to `$services.gateway.volumes`, and then add the following line of code:
+c. Navigate to `$services.gateway.volumes`, and then add the following line of code:
 
 ```bash
 - ./license.key:/opt/graviteeio-gateway/license/license.key
 ```
 
-&#x20;      d. Navigate to `$services.management_api.volumes`, and then add the following line of code:
+d. Navigate to `$services.management_api.volumes`, and then add the following line of code:
 
 ```bash
 - ./license.key:/opt/graviteeio-management-api/license/license.key
@@ -137,19 +145,19 @@ docker compose -f docker-compose-apim.yml up -d
 * To open the Developer Portal, go to `http://localhost:8085.`
 
 {% hint style="info" %}
-* The default username for the Console and the Developer Portal is admin.
-* The default password for the Developer Portal is admin.
+- The default username for the Console and the Developer Portal is admin.
+- The default password for the Developer Portal is admin.
 {% endhint %}
 
 ## Enable Federation
 
-[Federation](../../../../using-the-product/managing-your-apis-with-gravitee-api-management/federation/README.md) is a new capability that was released with Gravitee 4.4.
+[Federation](../../../../using-the-product/managing-your-apis-with-gravitee-api-management/federation/) is a new capability that was released with Gravitee 4.4.
 
-Federation is disabled by default and must be explicitly activated for it to work.&#x20;
+Federation is disabled by default and must be explicitly activated for it to work.
 
-To enable federation, follow the first guide below to [enable federation with Docker Compose](custom-install-with-docker-compose.md#enable-federation-with-docker-compose).&#x20;
+To enable federation, follow the first guide below to [enable federation with Docker Compose](custom-install-with-docker-compose.md#enable-federation-with-docker-compose).
 
-If in addition you are running multiple replicas of APIM for high availability, you'll also need to ensure that [cluster mode is set up](custom-install-with-docker-compose.md#set-up-cluster-mode).&#x20;
+If in addition you are running multiple replicas of APIM for high availability, you'll also need to ensure that [cluster mode is set up](custom-install-with-docker-compose.md#set-up-cluster-mode).
 
 ### Enable Federation with Docker Compose
 
@@ -222,7 +230,7 @@ An example hazelcast.xml configuration file will be included in the distribution
 
 You will also need to add two new plugins to APIM that aren’t included by default:
 
-* [https://download.gravitee.io/plugins/node-cache/gravitee-node-cache-plugin-hazelcast/gravitee-node-cache-plugin-hazelcast-5.18.1.zip ](https://download.gravitee.io/plugins/node-cache/gravitee-node-cache-plugin-hazelcast/gravitee-node-cache-plugin-hazelcast-5.18.1.zip)
+* [https://download.gravitee.io/plugins/node-cache/gravitee-node-cache-plugin-hazelcast/gravitee-node-cache-plugin-hazelcast-5.18.1.zip](https://download.gravitee.io/plugins/node-cache/gravitee-node-cache-plugin-hazelcast/gravitee-node-cache-plugin-hazelcast-5.18.1.zip)
 * [https://download.gravitee.io/plugins/node-cluster/gravitee-node-cluster-plugin-hazelcast/gravitee-node-cluster-plugin-hazelcast-5.18.1.zip](https://download.gravitee.io/plugins/node-cluster/gravitee-node-cluster-plugin-hazelcast/gravitee-node-cluster-plugin-hazelcast-5.18.1.zip)
 
-\
+\\
