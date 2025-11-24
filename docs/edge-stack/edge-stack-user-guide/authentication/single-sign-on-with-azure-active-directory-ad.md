@@ -1,4 +1,5 @@
 ---
+description: Overview of Azure Active Directory.
 noIndex: true
 ---
 

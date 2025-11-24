@@ -1,4 +1,5 @@
 ---
+description: Overview of Active Health Checking.
 noIndex: true
 ---
 

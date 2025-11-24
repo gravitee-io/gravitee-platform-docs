@@ -1,4 +1,5 @@
 ---
+description: Overview of Client Certificate Validation.
 noIndex: true
 ---
 
@@ -12,7 +13,7 @@ To support this, Ambassador Edge Stack can be configured to use a provided CA ce
 
 * [openssl](https://www.openssl.org/source/) For creating client certificates
 * [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
-* [Ambassador Edge Stack](../../README.md)
+* [Ambassador Edge Stack](../../)
 * [cURL](https://curl.haxx.se/download.html)
 
 ## Configuration
