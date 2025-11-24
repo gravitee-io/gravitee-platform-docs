@@ -1,8 +1,12 @@
+---
+description: Overview of SharedPolicyGroup.
+---
+
 # SharedPolicyGroup
 
 The SharedPolicyGroup custom resource definition allows you to create a Shared Policy Group in a given APIM environment. Shared policy groups created with this Custom Resource Definition (CRD) can be later on referenced inside ApiV4Definition CRDs using the SharedPolicyGroup metadata name and an optional namespace.
 
-## Create a `SharedPolicyGroup`&#x20;
+## Create a `SharedPolicyGroup`
 
 SharedPolicyGroups are only relevant for a given APIM environment, and so a `SharedPolicyGroup`resource must reference an existing management context object.\
 The following example shows a simple SharedPolicyGroup custom resource definition:
@@ -80,8 +84,8 @@ Events are added to the resource as part of each action performed by the operato
 kubectl describe -n gravitee sharedpolicygroups.gravitee.io developers
 ```
 
-Here is an example output for the command:&#x20;
+Here is an example output for the command:
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 
 For more information about the `SharedPolicyGroup` CRD, go to [Gravitee's GitHub repository.](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/api/v1alpha1/sharedpolicygroups_types.go)
