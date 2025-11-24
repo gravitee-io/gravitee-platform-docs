@@ -1,4 +1,5 @@
 ---
+description: Overview of Ship.
 hidden: true
 noIndex: true
 ---

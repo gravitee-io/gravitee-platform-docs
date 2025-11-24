@@ -1,4 +1,5 @@
 ---
+description: Overview of Context Propagation.
 noIndex: true
 ---
 
@@ -20,7 +21,7 @@ An application like Datadog or New Relic will use agents running on services thr
 
 ## What are intercepts and preview URLs?
 
-[Intercepts](../technical-reference/intercepts/README.md) and [preview URLs](../how-do-i.../share-public-previews-with-preview-urls.md) are functions of Telepresence that enable easy local development from a remote Kubernetes cluster and offer a preview environment for sharing and real-time collaboration.
+[Intercepts](../technical-reference/intercepts/) and [preview URLs](../how-do-i.../share-public-previews-with-preview-urls.md) are functions of Telepresence that enable easy local development from a remote Kubernetes cluster and offer a preview environment for sharing and real-time collaboration.
 
 Telepresence uses custom HTTP headers and header propagation to identify which traffic to intercept both for plain personal intercepts and for personal intercepts with preview URLs; these techniques are more commonly used for distributed tracing, so what they are being used for is a little unorthodox, but the mechanisms for their use are already widely deployed because of the prevalence of tracing. The headers facilitate the smart routing of requests either to live services in the cluster or services running locally on a developer’s machine. The intercepted traffic can be further limited by using path based routing.
 

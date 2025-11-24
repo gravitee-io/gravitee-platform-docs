@@ -1,4 +1,5 @@
 ---
+description: Getting started with Quick Start.
 noIndex: true
 ---
 
@@ -112,7 +113,7 @@ Next, we’ll create an intercept. An intercept is a rule that tells Telepresenc
 2. Go to the frontend service again in your browser and refresh (if you closed the `port-forward` from step 3, you will have to re-start it). You will now see the <mark style="color:blue;">**blue**</mark> elements in the app.
 
 {% hint style="success" %}
-The frontend’s request to DataProcessingService is being **intercepted and rerouted** to the server on your laptop!&#x20;
+The frontend’s request to DataProcessingService is being **intercepted and rerouted** to the server on your laptop!
 {% endhint %}
 
 {% hint style="info" %}
