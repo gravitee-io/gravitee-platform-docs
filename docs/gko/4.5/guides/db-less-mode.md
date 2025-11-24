@@ -1,3 +1,7 @@
+---
+description: Overview of DB.
+---
+
 # DB-less mode
 
 DB-less mode allows a Gateway to be deployed with no dependencies, assuming only that there is an operator running in the same cluster or namespace. Although the setup does not include Elasticsearch or MongoDB, analytics can still be configured using a custom reporter such as Datadog, TCP with Logstash, etc.

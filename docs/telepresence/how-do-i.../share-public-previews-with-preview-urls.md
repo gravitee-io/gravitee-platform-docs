@@ -1,4 +1,5 @@
 ---
+description: Overview of Share.
 noIndex: true
 ---
 
@@ -45,12 +46,9 @@ Preview URLs are protected behind authentication through Ambassador Cloud, and, 
     * **JetBrains IDE (IntelliJ, WebStorm, PyCharm, GoLand, etc.):** use the [EnvFile plugin](https://plugins.jetbrains.com/plugin/7861-envfile).
 6.  Go to the Preview URL generated from the intercept. Traffic is now intercepted from your preview URL without impacting other traffic from your Ingress.
 
-    {% hint style="info" %}
-    **Didn't work?** It might be because you have services in between your ingress controller and the service you are intercepting that do not propagate the `x-telepresence-intercept-id` HTTP Header. Read more on [context propagation](../core-concepts/context-propagation.md).
-    {% endhint %}
-7. Make a request on the URL you would usually query for that environment. Don't route a request to your laptop.\
-   Normal traffic coming into the cluster through the Ingress (i.e. not coming from the preview URL) routes to services in the cluster like normal.
-8.  Share with a teammate.
+    \{% hint style="info" %\} **Didn't work?** It might be because you have services in between your ingress controller and the service you are intercepting that do not propagate the `x-telepresence-intercept-id` HTTP Header. Read more on [context propagation](../core-concepts/context-propagation.md). \{% endhint %\}7. Make a request on the URL you would usually query for that environment. Don't route a request to your laptop.\
+    Normal traffic coming into the cluster through the Ingress (i.e. not coming from the preview URL) routes to services in the cluster like normal.
+7.  Share with a teammate.
 
     You can collaborate with teammates by sending your preview URL to them. Once your teammate logs in, they must select the same identity provider and org as you are using. This authorizes their access to the preview URL. When they visit the preview URL, they see the intercepted service running on your laptop. You can now collaborate with a teammate to debug the service on the shared intercept URL without impacting the production environment.
 

@@ -1,4 +1,5 @@
 ---
+description: Overview of The Mapping Resource.
 noIndex: true
 ---
 
@@ -9,7 +10,7 @@ noIndex: true
 Ambassador Edge Stack is designed around a [declarative, self-service management model](../../core-concepts/the-ambassador-operating-model-gitops-and-continuous-delivery.md). The core resource used to support application development teams who need to manage the edge with Ambassador Edge Stack is the `Mapping` resource.
 
 {% hint style="warning" %}
-Remember that `Listener` and `Host` resources are  required for a functioning Ambassador Edge Stack installation that can route traffic!\
+Remember that `Listener` and `Host` resources are required for a functioning Ambassador Edge Stack installation that can route traffic!\
 Learn more about `Listener`: [the-listener-resource.md](the-listener-resource.md "mention")\
 Learn more about `Host`: [the-host-resource.md](the-host-resource.md "mention")
 {% endhint %}

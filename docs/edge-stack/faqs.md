@@ -1,4 +1,5 @@
 ---
+description: Frequently asked questions about FAQs.
 noIndex: true
 ---
 

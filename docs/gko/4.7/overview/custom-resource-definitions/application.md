@@ -1,3 +1,7 @@
+---
+description: Overview of Application.
+---
+
 # Application
 
 The `Application` custom resource represents the configuration for a Gravitee application. To access Gravitee APIs, consumers must register an application and subscribe to a published API plan. Applications act on behalf of the user to request tokens, provide user identity information, and consume APIs.

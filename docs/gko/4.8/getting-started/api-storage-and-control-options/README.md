@@ -1,3 +1,7 @@
+---
+description: API and reference documentation for Control Options.
+---
+
 # API Storage and Control Options
 
 ## Overview

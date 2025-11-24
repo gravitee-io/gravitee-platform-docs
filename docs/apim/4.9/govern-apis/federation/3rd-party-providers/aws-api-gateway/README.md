@@ -27,14 +27,13 @@ To integrate AWS API Gateway with Gravitee APIM, complete the following steps:
 
 ### Create an AWS API Management integration in the Gravitee APIM Console
 
-1.  From the Dashboard, click **Integrations.**
+1.  From the Dashboard, click **Integrations.**<br>
 
     <figure><img src="../../../../.gitbook/assets/image (56).png" alt=""><figcaption></figcaption></figure>
-2.  Click **Create Integration.**
+2.  Click **Create Integration.**<br>
 
     <figure><img src="../../../../.gitbook/assets/image (57).png" alt=""><figcaption></figcaption></figure>
-3.  Select **AWS API Gateway**, and then click **Next.**\
-    &#x20;
+3.  Select **AWS API Gateway**, and then click **Next.**
 
     <figure><img src="../../../../.gitbook/assets/select-aws-api-gateway.png" alt=""><figcaption></figcaption></figure>
 4.  Type the **Integration Name.**
@@ -140,15 +139,9 @@ You can deploy the AWS API Gateway federation agent using either of the followin
 
 #### Verification&#x20;
 
-1. In the Gravitee API Management console, after refreshing, you should now see the agent's status set to `Connected:`  \
-   \
-   \
-   \
-   \
-   <br>
+1.  In the Gravitee API Management console, after refreshing, you should now see the agent's status set to `Connected`.<br>
 
-<figure><img src="../../../../.gitbook/assets/aws-api-gateway-integration (1).png" alt=""><figcaption></figcaption></figure>
-
+    <figure><img src="../../../../.gitbook/assets/image (68).png" alt=""><figcaption></figcaption></figure>
 2. (Optional) If the Agent Connection shows as `Disconnected`, inspect the agent container logs for error messages.&#x20;
 
 ### Helm  <a href="#helm" id="helm"></a>

@@ -1,3 +1,7 @@
+---
+description: Overview of GKO
+---
+
 # Introduction
 
 ## Overview
@@ -9,6 +13,4 @@ GKO allows APIs and other resources to be managed "as-code", unlocking the possi
 GKO is designed to be used in combination with the Gravitee API Management Console, Developer Portal, and Gateway. APIs and Applications are examples of resources that GKO can manage and synchronize with the rest of the Gravitee platform.
 
 Resources that are managed by GKO can be synchronized with the API Management control plane but will be displayed as read-only. This is to enforce the fact that the source of truth for these resources is coming from the Operator, and not from the GUI.&#x20;
-
-{% include ".gitbook/includes/for-optimal-performance-and....md" %}
 

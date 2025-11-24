@@ -1,4 +1,5 @@
 ---
+description: API and reference documentation for The Metrics Endpoint.
 noIndex: true
 ---
 

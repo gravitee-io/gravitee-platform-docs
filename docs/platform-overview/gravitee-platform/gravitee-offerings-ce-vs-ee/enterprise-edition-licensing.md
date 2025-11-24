@@ -1,3 +1,7 @@
+---
+description: Overview of the Enterprise Edition Licensing
+---
+
 # Enterprise Edition Licensing
 
 {% hint style="warning" %}

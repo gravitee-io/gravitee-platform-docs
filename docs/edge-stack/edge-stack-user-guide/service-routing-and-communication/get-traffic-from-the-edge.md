@@ -1,4 +1,5 @@
 ---
+description: Overview of Get Traffic.
 noIndex: true
 ---
 
@@ -9,7 +10,7 @@ The core Ambassador Edge Stack resource used to manage cluster ingress is the `M
 **A `Mapping` resource routes a URL path (or prefix) to a service (either a Kubernetes service or other web service).**
 
 {% hint style="warning" %}
-Remember that `Listener` and `Host` resources are  required for a functioning Ambassador Edge Stack installation that can route traffic!\
+Remember that `Listener` and `Host` resources are required for a functioning Ambassador Edge Stack installation that can route traffic!\
 Learn more about `Listener`: [the-listener-resource.md](../../technical-reference/using-custom-resources/the-listener-resource.md "mention")\
 Learn more about `Host`: [the-host-resource.md](../../technical-reference/using-custom-resources/the-host-resource.md "mention")
 {% endhint %}
@@ -221,11 +222,11 @@ If two different developers try to map `/myservice/` to something, this can lead
 
 **Unless specified, mapping attributes cannot be applied to any other resource type.**
 
-### &#x20;What's next?
+### What's next?
 
 There are many options for advanced mapping configurations, with features like automatic retries, timeouts, rate limiting, redirects, and more. See the following for more information.
 
-* [advanced-mapping-configuration.md](../../technical-reference/using-custom-resources/advanced-mapping-configuration.md "mention")&#x20;
+* [advanced-mapping-configuration.md](../../technical-reference/using-custom-resources/advanced-mapping-configuration.md "mention")
 * [automatic-retries.md](../../technical-reference/ingress-and-load-balancing/automatic-retries.md "mention")
 * [timeouts.md](../../technical-reference/routing/timeouts.md "mention")
 * [basic-rate-limiting.md](../rate-limiting/basic-rate-limiting.md "mention")

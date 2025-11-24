@@ -1,3 +1,7 @@
+---
+description: Overview of Developer Portal.
+---
+
 # Publish APIs to the Developer Portal
 
 Whether APIs managed by GKO are published to the Gravitee Developer Portal is controlled by an attribute called `lifecycle_state` that is common to both `ApiV4Definition` and `ApiDefinition` CRDs.

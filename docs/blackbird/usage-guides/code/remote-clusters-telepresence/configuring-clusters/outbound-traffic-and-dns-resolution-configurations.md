@@ -1,4 +1,5 @@
 ---
+description: Overview of DNS Resolution Configurations.
 noIndex: true
 ---
 

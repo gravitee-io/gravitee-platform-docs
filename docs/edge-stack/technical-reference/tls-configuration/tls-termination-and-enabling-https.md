@@ -1,4 +1,5 @@
 ---
+description: Overview of TLS Termination.
 noIndex: true
 ---
 
@@ -22,7 +23,7 @@ This guide requires you have the following installed:
 
 ## Install Ambassador Edge Stack
 
-[Install Ambassador Edge Stack in Kubernetes](../../README.md).
+[Install Ambassador Edge Stack in Kubernetes](../../).
 
 ## Create a listener listening on the correct port and protocol
 

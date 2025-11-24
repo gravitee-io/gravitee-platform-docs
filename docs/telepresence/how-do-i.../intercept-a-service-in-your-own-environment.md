@@ -1,4 +1,5 @@
 ---
+description: Overview of Intercept.
 noIndex: true
 ---
 
@@ -6,7 +7,7 @@ noIndex: true
 
 Telepresence enables you to create intercepts to a target Kubernetes workload. Once you have created and intercept, you can code and debug your associated service locally.
 
-For a detailed walk-though on creating intercepts using our sample app, follow the [quick start guide](../README.md).
+For a detailed walk-though on creating intercepts using our sample app, follow the [quick start guide](../).
 
 ### Prerequisites
 
@@ -29,11 +30,7 @@ With Telepresence, you can create [global intercepts](../core-concepts/types-of-
 
     ```
 
-
-
-    {% hint style="success" %}
-    The 401 response is expected.
-    {% endhint %}
+    \{% hint style="success" %\} The 401 response is expected. \{% endhint %\}
 
     You now have access to your remote Kubernetes API server as if you were on the same network. You can now use any local tools to connect to any service in the cluster.
 2.  Enter `telepresence list` and make sure the service you want to intercept is listed. For example:

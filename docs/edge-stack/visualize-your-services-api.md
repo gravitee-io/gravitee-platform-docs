@@ -1,4 +1,5 @@
 ---
+description: API and reference documentation for Visualize.
 hidden: true
 noIndex: true
 ---
@@ -40,6 +41,6 @@ EOF
 3. Click on the API tab to access the rendered OpenAPI documentation.
 4. You can also see all your API documentation by clicking on the **Dev Portal** button in the side bar, documented [here](ambassador-cloud-developer-portal-overview.md).
 
-### &#x20;What's next?
+### What's next?
 
 You've published your service documentation on Ambassador Cloud to enable collaboration with other teams and members of your organization, but you can extend your services AmbassadorMapping with [other Developer Portal docs options](technical-reference/api/developer-portal.md), and **Service Catalog annotations!** See the full list of service annotations [here](annotations-overview.md).

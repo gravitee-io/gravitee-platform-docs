@@ -1,4 +1,5 @@
 ---
+description: Overview of Telepresence.
 noIndex: true
 ---
 
@@ -74,8 +75,6 @@ In this section of the quickstart, you ran the Emojivoto application locally. In
 
 1. Download your demo cluster config file. This file contains the credentials you need to access your demo cluster.
 2. Export the file's location to KUBECONFIG by running this command in your terminal:
-
-
 
 \`\`\`\` \`\`\`bash export KUBECONFIG=/path/to/kubeconfig.yaml \`\`\` \`\`\`\` \{% endtab %\}
 

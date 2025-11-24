@@ -1,4 +1,5 @@
 ---
+description: Overview of Docker Compose.
 noIndex: true
 ---
 

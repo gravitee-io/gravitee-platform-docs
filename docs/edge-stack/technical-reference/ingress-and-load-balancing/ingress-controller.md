@@ -1,4 +1,5 @@
 ---
+description: Overview of Ingress Controller.
 noIndex: true
 ---
 
@@ -8,7 +9,7 @@ An Ingress resource is a popular way to expose Kubernetes services to the Intern
 
 ### When and how to use the Ingress resource
 
-If you're new to Ambassador Edge Stack and to Kubernetes, we'd recommend you start with our [quickstart](../../README.md) instead of this Ingress guide. If you're a power user and need to integrate with other software that leverages the Ingress resource, read on. The Ingress specification is very basic and does not support many of the features of Ambassador Edge Stack, so you'll be using both the Ingress resource and Ambassador Edge Stack's Mapping resource to manage your Kubernetes services.
+If you're new to Ambassador Edge Stack and to Kubernetes, we'd recommend you start with our [quickstart](../../) instead of this Ingress guide. If you're a power user and need to integrate with other software that leverages the Ingress resource, read on. The Ingress specification is very basic and does not support many of the features of Ambassador Edge Stack, so you'll be using both the Ingress resource and Ambassador Edge Stack's Mapping resource to manage your Kubernetes services.
 
 #### What is required to use the Ingress resource?
 
@@ -18,9 +19,7 @@ If you're new to Ambassador Edge Stack and to Kubernetes, we'd recommend you sta
     * Starting in Kubernetes 1.14, the Ingress was added to the new `networking.k8s.io` API.
     * Kubernetes 1.18 introduced the IngressClass resource to the existing `networking.k8s.io/v1beta1` API.
 
-    {% hint style="info" %}
-    If you are using 1.14 and above, it is recommended to use `apiVersion: networking.k8s.io/v1beta1` when defining an Ingress. Since both are still supported in all 1.14+ versions of Kubernetes, this document will use `extensions/v1beta1` for compatibility reasons. If you are using 1.18 and above, sample usage of the IngressClass resource and `pathType` field are [available on our blog](https://www.gravitee.io/blog/kubernetes-ingress-controllers-nodeport-load-balancers).
-    {% endhint %}
+    \{% hint style="info" %\} If you are using 1.14 and above, it is recommended to use `apiVersion: networking.k8s.io/v1beta1` when defining an Ingress. Since both are still supported in all 1.14+ versions of Kubernetes, this document will use `extensions/v1beta1` for compatibility reasons. If you are using 1.18 and above, sample usage of the IngressClass resource and `pathType` field are [available on our blog](https://www.gravitee.io/blog/kubernetes-ingress-controllers-nodeport-load-balancers). \{% endhint %\}
 * You will need RBAC permissions to create Ingress resources in either the `extensions` `apiGroup` (present in all supported versions of Kubernetes) or the `networking.k8s.io` `apiGroup` (introduced in Kubernetes 1.14).
 *   Ambassador Edge Stack will need RBAC permissions to get, list, watch, and update Ingress resources.
 
@@ -35,12 +34,7 @@ If you're new to Ambassador Edge Stack and to Kubernetes, we'd recommend you sta
       verbs: ['update']
     ```
 
-
-
-    {% hint style="info" %}
-    This is included by default in all Ambassador Edge Stack installations.
-    {% endhint %}
-*   You must create your Ingress resource with the correct `ingress.class`.
+    \{% hint style="info" %\} This is included by default in all Ambassador Edge Stack installations. \{% endhint %\}\* You must create your Ingress resource with the correct `ingress.class`.
 
     Ambassador Edge Stack will automatically read Ingress resources with the annotation `kubernetes.io/ingress.class: ambassador`.
 *   You may need to set your Ingress resource's `ambassador-id`.

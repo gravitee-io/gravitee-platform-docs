@@ -1,4 +1,5 @@
 ---
+description: Overview of Golden Paths.
 noIndex: true
 ---
 

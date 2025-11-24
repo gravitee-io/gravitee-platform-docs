@@ -1,4 +1,5 @@
 ---
+description: Overview of The Module Resource.
 noIndex: true
 ---
 

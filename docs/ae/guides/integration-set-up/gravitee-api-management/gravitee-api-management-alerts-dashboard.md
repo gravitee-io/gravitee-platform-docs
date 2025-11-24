@@ -1,3 +1,7 @@
+---
+description: API and reference documentation for Gravitee API Management Alerts Dashboard.
+---
+
 # Gravitee API Management Alerts Dashboard
 
 ## Viewing alerts data in Gravitee API Management

@@ -1,4 +1,5 @@
 ---
+description: Overview of WebSocket Connections.
 noIndex: true
 ---
 

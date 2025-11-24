@@ -1,3 +1,7 @@
+---
+description: Overview of GKO.
+---
+
 # Introduction
 
 ## Overview
