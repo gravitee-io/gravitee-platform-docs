@@ -29,10 +29,10 @@ To integrate AWS API Gateway with Gravitee APIM, complete the following steps:
 
 1.  From the Dashboard, click **Integrations.**
 
-    <figure><img src="../../../../.gitbook/assets/image (56).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 2.  Click **Create Integration.**
 
-    <figure><img src="../../../../.gitbook/assets/image (57).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 3.  Select **AWS API Gateway**, and then click **Next.**\
     &#x20;
 
@@ -140,7 +140,7 @@ You can deploy the AWS API Gateway federation agent using either of the followin
 
 #### Verification&#x20;
 
-1. In the Gravitee API Management console, after refreshing, you should now see the agent's status set to `Connected:`  \
+1. In the Gravitee API Management console, after refreshing, you should now see the agent's status set to `Connected`    \
    \
    \
    \
