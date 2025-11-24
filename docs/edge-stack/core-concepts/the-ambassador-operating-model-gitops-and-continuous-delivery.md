@@ -1,4 +1,5 @@
 ---
+description: Overview of The Ambassador Operating Model.
 noIndex: true
 ---
 

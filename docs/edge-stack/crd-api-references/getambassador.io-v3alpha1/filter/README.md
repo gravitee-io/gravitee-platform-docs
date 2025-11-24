@@ -1,4 +1,5 @@
 ---
+description: Overview of Filter.
 noIndex: true
 ---
 
@@ -8,10 +9,10 @@ noIndex: true
 
 The `Filter` custom resource works in conjunction with the [FilterPolicy custom resource](../filterpolicy.md) to define how and when Ambassador Edge Stack will modify or intercept incoming requests before sending them to your upstream Service. `Filters` define what actions to take on a request, while `FilterPolicies` define the matching criteria for requests, such as the headers, hostname, and path, and supply references to one or more `Filters` to execute against those requests. Filters are largely used to add built-in authentication and security, but Ambassador Edge Stack also supports developing custom filters to add your own processing and logic.
 
-This doc is an overview of all the fields on the `Filter` Custom Resource with descriptions of the purpose, type, and default values of those fields. This page is specific to the `getambassador.io/v3alpha1` version of the `Filter` resource. For the newer `gateway.getambassador.io/v1alpha1` resource, please see the [v1alpha1 Filter api reference](../../gateway.getambassador.io-v1alpha1/filter/README.md).
+This doc is an overview of all the fields on the `Filter` Custom Resource with descriptions of the purpose, type, and default values of those fields. This page is specific to the `getambassador.io/v3alpha1` version of the `Filter` resource. For the newer `gateway.getambassador.io/v1alpha1` resource, please see the [v1alpha1 Filter api reference](../../gateway.getambassador.io-v1alpha1/filter/).
 
 {% hint style="info" %}
-Filtering actions of all types in Ambassador Edge Stack are only ever executed on incoming requests and not on responses from your upstream Services.&#x20;
+Filtering actions of all types in Ambassador Edge Stack are only ever executed on incoming requests and not on responses from your upstream Services.
 {% endhint %}
 
 {% hint style="info" %}

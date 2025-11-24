@@ -1,4 +1,5 @@
 ---
+description: Getting started with Ambassador Cloud Quick Start Guide.
 hidden: true
 noIndex: true
 ---
@@ -30,7 +31,7 @@ Upgrade Edge Stack to the latest version if needed: [upgrade-or-migrate-to-a-new
 ### 1. Connect your cluster to Ambassador Cloud
 
 {% hint style="info" %}
-If you followed the [Edge Stack quick start](README.md), you should have already completed this step.
+If you followed the [Edge Stack quick start](./), you should have already completed this step.
 {% endhint %}
 
 1. Log in to [Ambassador Cloud](https://app.getambassador.io/cloud/) with your preferred identity provider.
@@ -123,6 +124,6 @@ Open the YAML config file of one of your services. If you applied our `quote` se
 **Fantastic!** You should see the Git repo metadata change for your service in the catalog! Now any of your teammates can quickly find the repo for the service.
 {% endhint %}
 
-### &#x20;What's next?
+### What's next?
 
 You've updated the owner and repo URL, but Service Catalog supports many more annotations! See the full list here: [annotations-overview.md](annotations-overview.md "mention").

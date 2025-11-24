@@ -1,4 +1,5 @@
 ---
+description: Overview of Gzip Compression.
 noIndex: true
 ---
 

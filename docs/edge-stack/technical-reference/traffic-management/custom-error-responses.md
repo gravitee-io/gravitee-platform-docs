@@ -1,4 +1,5 @@
 ---
+description: Troubleshooting guide for Custom Error Responses.
 noIndex: true
 ---
 

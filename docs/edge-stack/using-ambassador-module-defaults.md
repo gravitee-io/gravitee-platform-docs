@@ -1,4 +1,5 @@
 ---
+description: Step-by-step tutorial for Using Ambassador Module Defaults.
 hidden: true
 noIndex: true
 ---

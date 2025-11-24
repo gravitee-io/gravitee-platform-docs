@@ -1,4 +1,5 @@
 ---
+description: Overview of The JWT Filter Type.
 noIndex: true
 ---
 
@@ -125,11 +126,11 @@ Any headers listed will override (not append to) the original request header wit
 
 **Appears On**: [JWTFilter](the-jwt-filter-type.md#jwtfilter) Allows setting a custom Response to the downstream client when an invalid JWT is received.
 
-| **Field**      | **Type**                                                         | **Description**                                                                                                                                                                                                                                                                                          |
-| -------------- | ---------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Field**      | **Type**                                                         | **Description**                                                                                                                                                                                                                                                                                           |
+| -------------- | ---------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `realm`        | `string`                                                         | Indicates the scope of protection or the application that is checking the token. By default, this is set to the fully qualified name of the `JWT Filter` as `"{name}.{namespace}"` to identify which filter rejected the error. This can be overridden to provide more relevant information to end-users. |
-| `bodyTemplate` | `string` (GoLang Template)                                       | Golang `text/template` string that will be evaluated and used to build the format returned.                                                                                                                                                                                                              |
-| `headers`      | \[][AddHeaderTemplate](the-jwt-filter-type.md#addheadertemplate) | Allows providing additional http response headers for the error response. The current maximum is 16 headers, which aligns with the Gateway-API and modified headers on HTTPRoutes.                                                                                                                       |
+| `bodyTemplate` | `string` (GoLang Template)                                       | Golang `text/template` string that will be evaluated and used to build the format returned.                                                                                                                                                                                                               |
+| `headers`      | \[][AddHeaderTemplate](the-jwt-filter-type.md#addheadertemplate) | Allows providing additional http response headers for the error response. The current maximum is 16 headers, which aligns with the Gateway-API and modified headers on HTTPRoutes.                                                                                                                        |
 
 `bodyTemplate` specifies body of the error response returned to the downstream client; specified as a [Go text/template string](https://pkg.go.dev/text/template), with the following data made available to it:
 

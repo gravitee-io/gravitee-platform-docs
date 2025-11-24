@@ -1,4 +1,5 @@
 ---
+description: Overview of The Plugin Filter Type.
 noIndex: true
 ---
 

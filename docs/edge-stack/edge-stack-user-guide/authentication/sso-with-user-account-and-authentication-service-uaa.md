@@ -1,4 +1,5 @@
 ---
+description: Overview of Authentication Service.
 noIndex: true
 ---
 

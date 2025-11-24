@@ -1,4 +1,5 @@
 ---
+description: Overview of The Envoy Filter Type.
 noIndex: true
 ---
 

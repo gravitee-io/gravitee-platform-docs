@@ -1,4 +1,5 @@
 ---
+description: Upgrade and migration guide for Newer Version.
 noIndex: true
 ---
 
@@ -10,7 +11,7 @@ noIndex: true
 Read the instructions below before making any changes to your cluster!
 {% endhint %}
 
-There are currently multiple paths for upgrading Ambassador Edge Stack, depending on what version you're currently running, what you want to be running, and whether you installed Ambassador Edge Stack using [Helm or YAML](../README.md).
+There are currently multiple paths for upgrading Ambassador Edge Stack, depending on what version you're currently running, what you want to be running, and whether you installed Ambassador Edge Stack using [Helm or YAML](../).
 
 (To check out if you installed Ambassador Edge Stack using Helm, run `helm list --all-namespaces` and see if Ambassador Edge Stack is listed. If so, you installed using Helm.)
 

@@ -1,4 +1,5 @@
 ---
+description: Concepts and architecture for Ambassador Edge Stack Architecture.
 noIndex: true
 ---
 

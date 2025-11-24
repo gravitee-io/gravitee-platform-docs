@@ -1,4 +1,5 @@
 ---
+description: Overview of Origin Resource Sharing.
 noIndex: true
 ---
 
