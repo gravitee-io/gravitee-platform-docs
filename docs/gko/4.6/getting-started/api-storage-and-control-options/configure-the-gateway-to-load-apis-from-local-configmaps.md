@@ -1,3 +1,7 @@
+---
+description: Configuration guide for ConfigMaps.
+---
+
 # Configure the Gateway to load APIs from local ConfigMaps
 
 The Gravitee Gateway can load API definitions from two places:
@@ -16,15 +20,15 @@ To load APIs from local ConfigMaps, ensure that the Gateway's configuration sets
   * By setting an environment variable: `GRAVITEE_SERVICES_SYNC_KUBERNETES_ENABLED=true`
   *   Directly in the [`gravitee.yml`](https://github.com/gravitee-io/gravitee-api-management/blob/master/gravitee-apim-gateway/gravitee-apim-gateway-standalone/gravitee-apim-gateway-standalone-distribution/src/main/resources/config/gravitee.yml#L264) file:
 
-      {% code title="gravitee.yml" %}
+      \{% code title="gravitee.yml" %\}
+
       ```yaml
       # Enable Kubernetes Synchronization
       # This sync service requires to install Gravitee Kubernetes Operator
       #    kubernetes:
       #      enabled: false
       ```
-      {% endcode %}
 
-The Gateway can be configured to load APIs both from a central repository and local ConfigMaps. This means that some API definitions can come from the APIM Console, and others from the Gravitee Kubernetes Operator.
+      \{% endcode %\}The Gateway can be configured to load APIs both from a central repository and local ConfigMaps. This means that some API definitions can come from the APIM Console, and others from the Gravitee Kubernetes Operator.
 
 For the operator to create APIs as local ConfigMaps, the `ApiV4Definition` and `ApiDefinition` resources need to be configured accordingly, as described [on this page](store-apis-in-local-configmaps.md).
