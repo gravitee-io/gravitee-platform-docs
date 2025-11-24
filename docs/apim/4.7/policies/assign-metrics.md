@@ -1,4 +1,5 @@
 ---
+description: Information about ---.
 hidden: true
 ---
 

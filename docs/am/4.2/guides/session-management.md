@@ -1,3 +1,7 @@
+---
+description: Overview of Session Management.
+---
+
 # Session Management
 
 ## Overview
@@ -7,12 +11,12 @@ When a user is signing in, AM stores the fact that the user is authenticated for
 This mechanism avoids the need for the user to re-authenticate every time they want to perform some actions. The same principle applies to your application or when you use an external identity provider such as Facebook, Twitter, etc.
 
 {% hint style="info" %}
-By default, the session lasts 30 minutes. You can change this value via the Gateway's `gravitee.yml` file (see the [configuration section](../getting-started/configuration/configure-am-gateway/README.md)).
+By default, the session lasts 30 minutes. You can change this value via the Gateway's `gravitee.yml` file (see the [configuration section](../getting-started/configuration/configure-am-gateway/)).
 {% endhint %}
 
 ## Session cookie option
 
-The session cookie option allows the end user to consent to a "remember me" feature by enabling the corresponding checkbox. With this option selected, the user is not logged out of an application after a period of idling.&#x20;
+The session cookie option allows the end user to consent to a "remember me" feature by enabling the corresponding checkbox. With this option selected, the user is not logged out of an application after a period of idling.
 
 The "remember me" feature implements the following:
 
@@ -30,7 +34,7 @@ There are three-session layers you need to consider when you want to sign-out yo
 To automatically authenticate your user across applications (SSO), your applications must share the same identity provider.
 {% endhint %}
 
-3. **Identity Provider session**: If your application is configured to use a [social identity provider](identity-providers/social-identity-providers/README.md) to authenticate a user, the identity provider will create a session in addition to the AM one. When users attempt to sign in with any of these providers and they are already signed into the provider, they will not be prompted again to sign in.
+3. **Identity Provider session**: If your application is configured to use a [social identity provider](identity-providers/social-identity-providers/) to authenticate a user, the identity provider will create a session in addition to the AM one. When users attempt to sign in with any of these providers and they are already signed into the provider, they will not be prompted again to sign in.
 
 ### Invalidate session
 

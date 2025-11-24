@@ -1,3 +1,7 @@
+---
+description: An overview about plugins.
+---
+
 # Plugins
 
 ## Overview
@@ -59,11 +63,11 @@ A notifier is used to send notifications. The notifiers offered by Gravitee are:
 
 <summary>Policy</summary>
 
-A policy modifies the behavior of the request or response handled by the Gateway. It can be considered a proxy controller, guaranteeing that a given business rule is fulfilled during request/response processing. Policies can be chained by a request or response policy chain using a logical order.&#x20;
+A policy modifies the behavior of the request or response handled by the Gateway. It can be considered a proxy controller, guaranteeing that a given business rule is fulfilled during request/response processing. Policies can be chained by a request or response policy chain using a logical order.
 
 Examples:
 
-* Authorization using an API key&#x20;
+* Authorization using an API key
 * Applying header or query parameter transformations
 * Applying rate limiting or quotas to avoid API flooding
 
@@ -116,6 +120,6 @@ A resource can be added to an API for its whole lifecycle. APIM includes three d
 
 <summary>Secret provider</summary>
 
-A secret provider resolves secrets to avoid exposing plain text passwords and secrets keys in the `gravitee.yml` file or in V4 APIs. For example, users can store their MongoDB password in a secret manager like HashiCorp Vault and then resolve it when the platform starts. As well, user my want to secure a password in resource plugin, or a sensitive header in an API definition.&#x20;
+A secret provider resolves secrets to avoid exposing plain text passwords and secrets keys in the `gravitee.yml` file or in V4 APIs. For example, users can store their MongoDB password in a secret manager like HashiCorp Vault and then resolve it when the platform starts. As well, user my want to secure a password in resource plugin, or a sensitive header in an API definition.
 
 </details>

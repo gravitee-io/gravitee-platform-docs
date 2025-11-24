@@ -1,3 +1,7 @@
+---
+description: An overview about Viewing API Documentation with Gravitee Developer Portal.
+---
+
 # Viewing API Documentation with Gravitee Developer Portal
 
 ## Overview
@@ -11,7 +15,7 @@ To find and view API documentation:
 1. Click on **Documentation** in the Developer Portal header
 2. Click on an entry in the left panel to view the documentation for that API
 
-<figure><img src="../../../../../../.gitbook/assets/dev portal_documentation (1).png" alt=""><figcaption><p>Sample API documentation</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Sample API documentation</p></figcaption></figure>
 
 {% hint style="info" %}
 An administrator can create documentation following the process described [here](../configuration/documentation.md).

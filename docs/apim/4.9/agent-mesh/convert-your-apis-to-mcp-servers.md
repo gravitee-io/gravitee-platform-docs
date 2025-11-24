@@ -1,3 +1,7 @@
+---
+description: An overview about expose your apis as ai-ready tools with mcp.
+---
+
 # Expose Your APIs as AI-Ready Tools with MCP
 
 {% hint style="warning" %}

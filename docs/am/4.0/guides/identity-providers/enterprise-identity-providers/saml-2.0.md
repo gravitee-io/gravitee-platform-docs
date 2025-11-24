@@ -1,3 +1,7 @@
+---
+description: Overview of Security Assertion Markup Language.
+---
+
 # SAML 2.0
 
 ## Overview
@@ -66,5 +70,5 @@ SAML responses can be very large. If you see an error message in the Gateway log
 
 update the `http.maxFormAttributeSize` value in the `gravitee.yml` config file (set it to `-1` for infinite).
 
-[Learn more about updating the Gateway configuration file](../../../getting-started/configuration/configure-am-gateway/README.md)
+[Learn more about updating the Gateway configuration file](../../../getting-started/configuration/configure-am-gateway/)
 {% endhint %}

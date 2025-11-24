@@ -1,3 +1,7 @@
+---
+description: An overview about logstash.
+---
+
 # Logstash
 
 ## Overview
@@ -135,7 +139,7 @@ queue.type: persisted
 queue.max_bytes: 512mb
 ```
 
-2. To install Logstash, copy the following file or append it to your current docker-compose manifest:&#x20;
+2. To install Logstash, copy the following file or append it to your current docker-compose manifest:
 
 {% code title="docker-compose.yaml" lineNumbers="true" %}
 ```yaml

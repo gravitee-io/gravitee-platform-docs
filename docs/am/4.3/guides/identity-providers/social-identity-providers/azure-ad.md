@@ -1,8 +1,12 @@
+---
+description: Overview of Azure AD.
+---
+
 # Azure AD
 
 ## Overview
 
-You can authenticate users with Azure Active Directory. Before you begin, you need to sign up for an [Azure account](https://azure.microsoft.com/en-us/free/?ref=microsoft.com\&utm\_source=microsoft.com\&utm\_medium=docs\&utm\_campaign=visualstudio) and [Set up a tenant](https://azure.microsoft.com/en-us/free/?ref=microsoft.com\&utm\_source=microsoft.com\&utm\_medium=docs\&utm\_campaign=visualstudio).
+You can authenticate users with Azure Active Directory. Before you begin, you need to sign up for an [Azure account](https://azure.microsoft.com/en-us/free/?ref=microsoft.com\&utm_source=microsoft.com\&utm_medium=docs\&utm_campaign=visualstudio) and [Set up a tenant](https://azure.microsoft.com/en-us/free/?ref=microsoft.com\&utm_source=microsoft.com\&utm_medium=docs\&utm_campaign=visualstudio).
 
 ## Steps
 

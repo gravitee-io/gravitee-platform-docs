@@ -1,8 +1,12 @@
+---
+description: An overview about global settings.
+---
+
 # Global Settings
 
 ## Overview
 
-An application's **Global settings** include general application details and a Danger Zone for executing functional and sometimes irreversible actions.&#x20;
+An application's **Global settings** include general application details and a Danger Zone for executing functional and sometimes irreversible actions.
 
 ## Configure global settings
 
@@ -12,11 +16,9 @@ To configure global settings, complete the following steps:
 2. Log in to your APIM Console, and then click **Applications**.
 3.  Find the application you want to configure. Use the radio buttons to select either Active or Archived applications. Next, either scroll through the paginated lists of available applications or use the search field to find the application by name.
 
-
     <figure><img src="../../.gitbook/assets/00 groups added to applications 7.png" alt=""><figcaption></figcaption></figure>
 4. Click on the application you want to configure.
 5.  Click on **Global settings** in the Application menu.
-
 
     <figure><img src="../../.gitbook/assets/00 groups added to applications 1.png" alt=""><figcaption></figcaption></figure>
 
@@ -42,8 +44,7 @@ To delete an application, the primary owner must:
 2. Select **Applications** from the left nav
 3. Select your application
 4. Select **Global Settings** from the inner left nav
-5.  In the **Danger Zone**, click **Delete** 
-
+5.  In the **Danger Zone**, click **Delete**
 
     <figure><img src="../../.gitbook/assets/00 groups added to applications 2.png" alt=""><figcaption></figcaption></figure>
 

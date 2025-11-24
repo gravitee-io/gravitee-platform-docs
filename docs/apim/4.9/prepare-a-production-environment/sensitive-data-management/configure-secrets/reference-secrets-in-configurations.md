@@ -1,3 +1,7 @@
+---
+description: An overview about reference secrets in configurations.
+---
+
 # Reference Secrets in Configurations
 
 ## Overview
@@ -5,13 +9,13 @@
 Gravitee offers an [integration](../../../readme/integrations.md#secret-managers-integration) with secrets managers to obscure secrets in configuration files and environment variables. This page shows how to enable `secret-provider` plugins.
 
 {% hint style="info" %}
-Please refer to [Secret Provider Plugins Configuration](README.md) to learn how configure them in depth using `gravitee.yml` or environment variables, as well as how to set up hosts, authentication, SSL, retries, and other configurations.
+Please refer to [Secret Provider Plugins Configuration](./) to learn how configure them in depth using `gravitee.yml` or environment variables, as well as how to set up hosts, authentication, SSL, retries, and other configurations.
 {% endhint %}
 
-## Prerequisites  <a href="#resolving-secrets-in-configuration-files" id="resolving-secrets-in-configuration-files"></a>
+## Prerequisites <a href="#resolving-secrets-in-configuration-files" id="resolving-secrets-in-configuration-files"></a>
 
 * Required secret provider plugins are either bundled or have been added.
-* Complete the steps in [Broken link](broken-reference "mention").
+* Complete the steps in [broken-reference](broken-reference/ "mention").
 
 ## Resolve secrets in configuration files <a href="#resolving-secrets-in-configuration-files" id="resolving-secrets-in-configuration-files"></a>
 

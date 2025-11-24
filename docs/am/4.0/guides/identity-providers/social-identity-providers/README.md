@@ -1,3 +1,10 @@
+---
+description: >-
+  Overview of Gravitee Access Management AM provides the most common social
+  networks out of the box including Google Facebook Twitter GitHub LinkedIn and
+  Azure AD.
+---
+
 # Social Identity Providers
 
 Gravitee Access Management (AM) provides the most common social networks out of the box, including Google, Facebook, Twitter, GitHub, LinkedIn and Azure AD.

@@ -1,3 +1,7 @@
+---
+description: Overview of Step-up.
+---
+
 # Step-up Authentication
 
 ## Overview
@@ -27,8 +31,6 @@ Step-up authentication is often used in the following scenarios:
   3. Click **Settings > Multifactor Auth**.
   4. Select your MFA factor and set the **Step up authentication** rule.
   5.  Click **SAVE**.
-
-
 
       <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-mfa-step-up.png" alt=""><figcaption><p>Application settings</p></figcaption></figure>
 

@@ -1,8 +1,12 @@
+---
+description: An overview about entrypoints.
+---
+
 # Entrypoints
 
 ## Overview
 
-Entrypoints define the protocol and configuration settings by which the API consumer accesses the Gateway API. The **Entrypoints** section allows you to modify the host name of your Kafka API entrypoint.&#x20;
+Entrypoints define the protocol and configuration settings by which the API consumer accesses the Gateway API. The **Entrypoints** section allows you to modify the host name of your Kafka API entrypoint.
 
 <figure><img src="../../.gitbook/assets/A 11 entrypoint.png" alt=""><figcaption></figcaption></figure>
 

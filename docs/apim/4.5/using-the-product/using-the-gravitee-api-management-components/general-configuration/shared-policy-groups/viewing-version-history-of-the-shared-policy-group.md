@@ -1,3 +1,9 @@
+---
+description: >-
+  Documentation on policies and controls for viewing version history of the
+  shared policy group.
+---
+
 # Viewing version history of the shared policy group
 
 * To view the version history of a shared policy group, click **Version History**.
@@ -20,7 +26,6 @@ You can compare the versions using any of the following methods:
 
 ## Restoring a previous version
 
-To restore a previous version, complete the following steps:&#x20;
+To restore a previous version, complete the following steps:
 
-* In the **version details** window, click **Restore version**. This action creates a pending version that you must deploy.&#x20;
-
+* In the **version details** window, click **Restore version**. This action creates a pending version that you must deploy.

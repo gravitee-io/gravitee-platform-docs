@@ -1,3 +1,7 @@
+---
+description: An overview about openid connect userinfo.
+---
+
 # OpenID Connect UserInfo
 
 ## Overview

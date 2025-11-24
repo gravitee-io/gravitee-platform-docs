@@ -1,3 +1,7 @@
+---
+description: Tutorial on confluent platform.
+---
+
 # Confluent Platform
 
 ## Prerequisites

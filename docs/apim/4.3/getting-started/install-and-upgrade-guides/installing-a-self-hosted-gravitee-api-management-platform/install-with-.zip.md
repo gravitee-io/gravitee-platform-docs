@@ -1,3 +1,7 @@
+---
+description: Tutorial on Installing Gravitee API Management with .ZIP.
+---
+
 # Installing Gravitee API Management with .ZIP
 
 ## Introduction
@@ -44,7 +48,7 @@ Install each of the following:
 
 {% tabs %}
 {% tab title="APIM Gateway" %}
-#### 1. Extract the `.zip` archive
+**1. Extract the `.zip` archive**
 
 Extract the desired directory from the archive and place it in your `DESTINATION_FOLDER`. For example, if you wanted the `graviteeio-apim-gateway-4.x.0` directory, then use the following commands:
 
@@ -53,7 +57,7 @@ $ unzip gravitee-standalone-distribution-4.x.0.zip
 $ cp -r graviteeio-full-4.x.0/graviteeio-apim-gateway-4.x.0 [DESTINATION_FOLDER]/
 ```
 
-#### 2. Run APIM Gateway from the command line
+**2. Run APIM Gateway from the command line**
 
 By default, APIM Gateway runs in the foreground, prints its logs to standard output (stdout), and can be stopped by pressing **Ctrl-C**.
 
@@ -66,7 +70,7 @@ $ ./bin/gravitee
 
 Once APIM Gateway is running, you will see the log.
 
-#### 3. Check APIM Gateway is running
+**3. Check APIM Gateway is running**
 
 You can test that APIM Gateway is running by sending an HTTP request to port `8082` on `localhost`:
 
@@ -80,7 +84,7 @@ You will receive a response similar to the following:
 No context-path matches the request URI.
 ```
 
-#### 4. Run APIM Gateway as a daemon
+**4. Run APIM Gateway as a daemon**
 
 To run APIM Gateway as a daemon, specify `-d` on the command line and record the process ID in a file using option `-p`:
 
@@ -96,7 +100,7 @@ To shut down APIM gateway, kill the process ID recorded in the `pid` file:
 kill `cat /var/run/gio.pid`
 ```
 
-#### APIM Gateway directory structure
+**APIM Gateway directory structure**
 
 The `.zip` (and `.tar.gz`) package is entirely self-contained. All files and directories are, by default, contained within `$GRAVITEE_HOME`, the directory created when extracting the archive.
 
@@ -114,7 +118,7 @@ The Management API includes nodes for both of the UI components (Management Cons
 
 This section describes how to install Management API and verify the nodes are running.
 
-#### 1. Extract the `.zip` archive
+**1. Extract the `.zip` archive**
 
 Extract the desired directory from the archive and place it in your `DESTINATION_FOLDER`. For example, if you wanted the `graviteeio-apim-rest-api-4.x.0` directory, then use the following commands:
 
@@ -123,7 +127,7 @@ $ unzip gravitee-standalone-distribution-4.x.0.zip
 $ cp -r graviteeio-full-4.x.0/graviteeio-apim-rest-api-4.x.0 [DESTINATION_FOLDER]/
 ```
 
-#### 2. Run Management API from the command line
+**2. Run Management API from the command line**
 
 You start APIM API from the command line as follows:
 
@@ -140,7 +144,7 @@ Both the Management API nodes run by default. You can configure APIM to run only
 
 Once the Management API is running, you will see the log.
 
-#### 3. Check Management API is running
+**3. Check Management API is running**
 
 You can test that your Management API node is running by sending an HTTP request to port `8083` on `localhost`:
 
@@ -154,7 +158,7 @@ You will receive a response similar to the following:
 []
 ```
 
-#### 4. Check Developer Portal API is running
+**4. Check Developer Portal API is running**
 
 You can test that your Developer Portal API node is running by sending an HTTP request to port `8083` on `localhost`:
 
@@ -175,7 +179,7 @@ You will receive a response similar to the following:
 }
 ```
 
-#### 5. Run Management API as a daemon
+**5. Run Management API as a daemon**
 
 To run the Management API as a daemon, specify `-d` on the command line and record the process ID in a file using option `-p`:
 
@@ -191,7 +195,7 @@ To shut down the management API, kill the process ID recorded in the `pid` file:
 kill `cat /var/run/gio.pid`
 ```
 
-#### Management API directory structure
+**Management API directory structure**
 
 The `.zip` and (`.tar.gz`) package is entirely self-contained. All files and directories are, by default, contained within `$GRAVITEE_HOME`, the directory created when extracting the archive.
 
@@ -207,11 +211,11 @@ The `.zip` and (`.tar.gz`) package is entirely self-contained. All files and dir
 {% endtab %}
 
 {% tab title="Management Console" %}
-#### Prerequisites
+**Prerequisites**
 
 Before you begin, ensure the Management API is installed and running.
 
-#### 1. Extract the `.zip` archive
+**1. Extract the `.zip` archive**
 
 Extract the desired directory from the archive and place it in your `DESTINATION_FOLDER`. For example, if you wanted the `graviteeio-apim-console-ui-4.x.0` directory, then use the following commands:
 
@@ -220,7 +224,7 @@ $ unzip gravitee-standalone-distribution-4.x.0.zip
 $ cp -r graviteeio-full-4.x.0/graviteeio-apim-console-ui-4.x.0 [DESTINATION_FOLDER]/
 ```
 
-#### 2. Deploy or run the Management Console
+**2. Deploy or run the Management Console**
 
 **Deploy**
 
@@ -243,11 +247,11 @@ $ http-server
 {% endtab %}
 
 {% tab title="Developer Portal" %}
-#### Prerequisites
+**Prerequisites**
 
 Before you begin, ensure the Management API is installed and running.
 
-#### 1. Extract the `.zip` archive
+**1. Extract the `.zip` archive**
 
 Extract the desired directory from the archive and place it in your `DESTINATION_FOLDER`. For example, if you wanted the `graviteeio-apim-portal-ui-4.x.0` directory, then use the following commands:
 
@@ -256,7 +260,7 @@ $ unzip gravitee-standalone-distribution-4.x.0.zip
 $ cp -r graviteeio-full-4.1.0/graviteeio-apim-portal-ui-4.x.0 [DESTINATION_FOLDER]/
 ```
 
-#### 2. Deploy or run the Developer Portal
+**2. Deploy or run the Developer Portal**
 
 The Developer Portal is a client-side-only Angular application and can be deployed on any HTTP server like [Apache](https://httpd.apache.org/) or [Nginx](http://nginx.org/).
 

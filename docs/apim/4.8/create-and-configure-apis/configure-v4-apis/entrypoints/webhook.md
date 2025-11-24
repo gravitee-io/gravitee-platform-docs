@@ -1,8 +1,12 @@
+---
+description: Configuration guide for webhook.
+---
+
 # Webhook
 
 ## Entrypoint identifier <a href="#user-content-plugin-identifier" id="user-content-plugin-identifier"></a>
 
-To use the plugin, declare the  `webhook` identifier while configuring your API entrypoint.
+To use the plugin, declare the `webhook` identifier while configuring your API entrypoint.
 
 ## Entrypoint Configuration
 
@@ -10,9 +14,9 @@ If you chose **Webhook** as an entrypoint, you can modify the following configur
 
 1. Choose whether to interrupt message consumption if the request to the callback URL ends with a 5xx error.
 2. Choose whether to interrupt message consumption if the request to the callback URL ends with an exception.
-3. Define the maximum time, in milliseconds, to connect to the webhook.&#x20;
+3. Define the maximum time, in milliseconds, to connect to the webhook.
 4. Define the maximum time, in milliseconds, allotted for the webhook to complete the request (including response).
-5. Define the maximum time, in milliseconds, a connection will stay in the pool without being used. Once this time has elapsed, the unused connection will be closed, freeing the associated resources.&#x20;
+5. Define the maximum time, in milliseconds, a connection will stay in the pool without being used. Once this time has elapsed, the unused connection will be closed, freeing the associated resources.
 6. Use the drop-down menu to select a proxy option: **No proxy**, **Use proxy configured at system level**, or **Use proxy for client connections**.
    * If you chose **Use proxy for client connections**, define the following:
      * **Proxy type:** Choose between HTTP, SOCKS4 and SOCKS5.
@@ -72,7 +76,7 @@ The underlying HTTP client that performs the calls to the webhook URL can be tun
 
 Dead Letter Queue (DLQ) is the ability to push undelivered messages to an external storage. When configuring DLQ with webhook, you can redirect all messages rejected by the Webhook to another location, such as a Kafka topic.
 
-By default, without DLQ, any error returned by the webhook will stop message consumption.&#x20;
+By default, without DLQ, any error returned by the webhook will stop message consumption.
 
 * **To configure DLQ in the Console:** toggle **Dead Letter Queue** ON to define an external storage where each unsuccessfully pushed message will be stored and configure a replay strategy. Use the drop-down menu to select a pre-existing and supported endpoint or endpoint group to use for the DLQ.
 *   **To enable DLQ via the API definition:** declare another endpoint that will be used to configure the DLQ object in the webhook entrypoint definition:

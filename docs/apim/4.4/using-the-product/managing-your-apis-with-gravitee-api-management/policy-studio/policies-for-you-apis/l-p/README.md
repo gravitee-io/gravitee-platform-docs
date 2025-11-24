@@ -1,3 +1,7 @@
+---
+description: Guide on policies and governance for L-P.
+---
+
 # L-P
 
 Here are the policies that fall between L and O:

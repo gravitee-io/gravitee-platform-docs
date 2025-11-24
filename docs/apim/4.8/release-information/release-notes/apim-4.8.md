@@ -1,3 +1,7 @@
+---
+description: Documentation about apim 4.8 in the context of APIs.
+---
+
 # APIM 4.8
 
 ## Release Date: 2025/06/20
@@ -7,7 +11,7 @@
 * **Agent Mesh:** Introduced Gravitee Agent Mesh, which has the following features:
   * Agent Catalog. A centralized catalog of all the AI agents built across your organization.
   * LLM Proxy. The LLM Proxy sits on top of LLM models models to provide a layer of abstraction between AI agents and LLMs.
-  * A2A Proxy. A v4 Message API that communicates using the Agent-to-Agent (A2A) protocol, which allows you to apply API management principles to the interactions between AI agents.&#x20;
+  * A2A Proxy. A v4 Message API that communicates using the Agent-to-Agent (A2A) protocol, which allows you to apply API management principles to the interactions between AI agents.
   * Agent Tool Server. You can convert v4 proxy APIs to MCP Tools and expose them.
 * **AccessPoint for the Kafka Gateway:** Introduced support for AccessPoint in the Kafka Gateway, enabling multi-tenant routing based on API definition listener's host and routing mode.
 * **Ability to expose metrics for the Kafka Gateway to Prometheus:** Introduced the ability to expose metrics for your Kafka Gateway with Prometheus.
@@ -18,7 +22,7 @@
 * **Support for the Classic Developer Portal reduced:** Gravitee continues to implement fixes for the Classic Developer Portal; but there are no new features planned for the Classic Developer Portal.
 * **Deprecated APIM Standalone components:** The APIM standalone components that were available to download from [Gravitee.io downloads - apim/components](https://download.gravitee.io/#graviteeio-apim/components/) are no longer available or supported. You can use the full distribution .ZIP file instead. To download the full distribution .ZIP file, go to [Gravitee.io downloads - apim/distributions](https://download.gravitee.io/#graviteeio-apim/distributions/).
 * **Removal of v1 APIs:** Starting from 4.9, v1 APIs are not supported by APIM. User must migrate the v1 APIs to either v2 or v4 APIs.
-* **Lucene update 10:** Lucene has been upgraded to 10. Before starting the Management API (mAPI), you must clean the `/data` directory in your `GRAVITEE_HOME` containing Lucene working files. Otherwise, the mAPI does not start. When mAPI restarts, it re-indexes.&#x20;
+* **Lucene update 10:** Lucene has been upgraded to 10. Before starting the Management API (mAPI), you must clean the `/data` directory in your `GRAVITEE_HOME` containing Lucene working files. Otherwise, the mAPI does not start. When mAPI restarts, it re-indexes.
 * **Custom plugin development:** If a plugin is referencing `io.gravitee.gateway.reactor.ReactableApi`, it needs to be recompiled with APIM 4.8 dependencies because `ReactableApi` it is now an interface rather than an abstract class. Without recompilation, the plugin throws a `java.lang.IncompatibleClassChangeError` .
 
 ## Product
@@ -30,7 +34,7 @@
 * Introduced Gravitee's new Agent Mesh, which has the following features:
   * Agent Catalog. A centralized catalog of all the AI agents built across your organization.
   * LLM Proxy. The LLM Proxy sits on top of LLM models models to provide a layer of abstraction between AI agents and LLMs.
-  * A2A Proxy. A v4 Message API that communicates using the Agent-to-Agent (A2A) protocol, which allows you to apply API management principles to the interactions between AI agents.&#x20;
+  * A2A Proxy. A v4 Message API that communicates using the Agent-to-Agent (A2A) protocol, which allows you to apply API management principles to the interactions between AI agents.
   * Agent Tool Server. You can convert v4 proxy APIs to MCP Tools and expose them.
 
 #### AI policies
@@ -43,7 +47,7 @@
 
 * Added two new policies for your Native API:
   * Transform Key policy. This policy adds a custom Kafka message key to your messages so that you can customize partitioning and perform general actions. For example, ordering the transactions.
-  * Offloading policy. This Policy lets you configure the delegation of Kafka message content to storage.&#x20;
+  * Offloading policy. This Policy lets you configure the delegation of Kafka message content to storage.
 
 ### Updates
 
@@ -53,14 +57,8 @@
 
     ⚠️ Debian based images are required to use the new Guard Rails policy introduced in APIM 4.8.
 
-
-    {% hint style="warning" %}
-    Debian based images are required to use the new Guard Rails policy introduced in APIM 4.8.
-    {% endhint %}
-
-#### Debug mode is now compatible with V4 Proxy APIs
-
-* Before APIM 4.8, Debug mode worked only with V2 APIs. Starting with 4.8, Debug mode now works with V2 APIs and V4 Proxy APIs. For more information about how to use Debug mode, see [Broken link](broken-reference "mention").
+    \{% hint style="warning" %\} Debian based images are required to use the new Guard Rails policy introduced in APIM 4.8. \{% endhint %\}#### Debug mode is now compatible with V4 Proxy APIs
+* Before APIM 4.8, Debug mode worked only with V2 APIs. Starting with 4.8, Debug mode now works with V2 APIs and V4 Proxy APIs. For more information about how to use Debug mode, see [broken-reference](broken-reference/ "mention").
 
 #### Webhook Improvements
 
@@ -74,7 +72,6 @@
   * Supports routing based on host, path, or a combination of both.
   * Enables seamless integration with Kafka clusters for efficient message processing.
 *   **Expose metrics to Prometheus:** From APIM 4.8, you can expose metrics for your Kafka Gateway to Prometheus. Here is a list of metrics that you can view for your Kafka Gateway:
-
 
     | Metric                                            | What it measures                                                      |
     | ------------------------------------------------- | --------------------------------------------------------------------- |
@@ -98,7 +95,7 @@
 * **Spike Arrest:** The Spike arrest policy is now compatible with V4 Message APIs.
 * **Assign Attributes:** the assign attributes policy is now compatible with Native Kafka APIs.
 * **Transform header:** the Transform header policy is now compatible with Native Kafka APIs.
-* **Transform Protobuf <> JSON:** the Transform Protobuf <> JSON policy is now compatible with Native Kafka APIs.&#x20;
+* **Transform Protobuf <> JSON:** the Transform Protobuf <> JSON policy is now compatible with Native Kafka APIs.
 
 #### Developer Portal
 
@@ -113,21 +110,21 @@
   * `services.audit.cron` when the task should be scheduled in [Spring cron format](https://spring.io/blog/2020/11/10/new-in-spring-5-3-improved-cron-expressions)
   * `services.audit.retention.days` retention duration in days
 * Events are cleaned based on number of events by APIs. The clean is enabled by default and configured to keep the last 5 events of a specific type. This can be configured in `gravitee.yaml` with
-  * &#x20;`services.events.enabled` enable/disable this task
+  * `services.events.enabled` enable/disable this task
   * `services.events.cron` when the task should be scheduled in [Spring cron format](https://spring.io/blog/2020/11/10/new-in-spring-5-3-improved-cron-expressions)
   * `services.events.keep` number of events kept by API
-  * &#x20;`services.events.timeToLive` max duration of the task in minutes
+  * `services.events.timeToLive` max duration of the task in minutes
 
 #### API Management Console
 
-* **Improved analytics page:** Improved the API analytics page within the API Management Console. This update provides the following benefits:&#x20;
+* **Improved analytics page:** Improved the API analytics page within the API Management Console. This update provides the following benefits:
   * Provides detailed insights into API usage, performance, and consumer behavior.
   * Includes advanced visualizations and filtering capabilities.
   * Supports data-driven decision-making for API lifecycle management.
 
 ### Fixes
 
-* Resolved an issue where custom API keys were not applied correctly when creating subscriptions API plans.&#x20;
+* Resolved an issue where custom API keys were not applied correctly when creating subscriptions API plans.
 * Fixed a bug where APIs were not properly undeployed and disabled during updates.
 * Addressed an error that occurred when attempting to extract the context path for Native APIs.
 * Resolved an issue where updating a plan with an excluded group that does not exist would not throw a bad request exception.

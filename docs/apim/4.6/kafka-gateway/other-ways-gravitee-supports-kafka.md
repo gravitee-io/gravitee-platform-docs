@@ -1,3 +1,7 @@
+---
+description: An overview about other ways gravitee supports kafka.
+---
+
 # Other ways Gravitee supports Kafka
 
 ## Overview
@@ -18,7 +22,7 @@ In contrast, the Kafka Gateway implements the Kafka protocol, where clients to t
 
 Gravitee Federation is a capability that enables the creation of API catalogs that span across multiple API management platforms such as Apigee, Azure, and AWS, and event brokers like Kafka and Solace. Unified catalogs improve API governance by:
 
-* Centralizing assets and tooling&#x20;
+* Centralizing assets and tooling
 * Providing API consumers with one location to discover and access APIs
 
 Subscription management and the functionality within the Developer Portal are very similar between federated Kafka APIs and Kafka-native proxy APIs, and both API types can expose Kafka topics in the portal. However, APIs running on the Kafka Gateway can also apply policies and add extra features.

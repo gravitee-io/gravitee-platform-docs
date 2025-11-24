@@ -1,9 +1,13 @@
+---
+description: Tutorial on APIM Components Installation.
+---
+
 # APIM Components Installation
 
 {% hint style="info" %}
 **Gravitee dependencies**
 
-Gravitee's [Installation & Upgrade Guides](../README.md) provide information on how to install Gravitee components. For prerequisite documentation on third-party products such as [MongoDB](https://www.mongodb.com/docs/v7.0/tutorial/install-mongodb-on-red-hat/) or [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/8.11/rpm.html), please visit their respective websites.
+Gravitee's [Installation & Upgrade Guides](../) provide information on how to install Gravitee components. For prerequisite documentation on third-party products such as [MongoDB](https://www.mongodb.com/docs/v7.0/tutorial/install-mongodb-on-red-hat/) or [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/8.11/rpm.html), please visit their respective websites.
 {% endhint %}
 
 This section describes how to install the individual components from the Gravitee API Management (APIM) stack.
@@ -19,7 +23,7 @@ Alternatively, you can install the full APIM stack and dependencies as detailed 
 
 ### Prerequisites
 
-The following steps assume you have configured your package management system as described in [Configure the package management system (yum).](README.md#configure-the-package-management-system-yum)
+The following steps assume you have configured your package management system as described in [Configure the package management system (yum).](./#configure-the-package-management-system-yum)
 
 ### Install the APIM Gateway package
 
@@ -86,7 +90,7 @@ sudo systemctl restart graviteeio-apim-gateway
 
 ### Prerequisites
 
-The following steps assume you have configured your package management system as described in [Configure the package management system (yum).](README.md#configure-the-package-management-system-yum)
+The following steps assume you have configured your package management system as described in [Configure the package management system (yum).](./#configure-the-package-management-system-yum)
 
 ### Install the Management API package
 
@@ -155,7 +159,7 @@ sudo systemctl restart graviteeio-apim-rest-api
 
 Before you install the Management Console, you must complete the following configuration.
 
-1. Ensure you have configured your package management system, as described in [Configure the package management system (yum).](README.md#configure-the-package-management-system-yum)
+1. Ensure you have configured your package management system, as described in [Configure the package management system (yum).](./#configure-the-package-management-system-yum)
 2. [Install and run the Management API.](apim-components-installation.md#install-management-api)
 3. Install Nginx by running the following commands:
 
@@ -229,7 +233,7 @@ sudo systemctl restart nginx
 
 Before you install the Developer Portal, you must complete the following configuration.
 
-1. Ensure you have configured your package management system, as described in [Configure the package management system (yum).](README.md#configure-the-package-management-system-yum)
+1. Ensure you have configured your package management system, as described in [Configure the package management system (yum).](./#configure-the-package-management-system-yum)
 2. [Install and run the Management API.](apim-components-installation.md#install-management-api)
 3. Install Nginx by running the following commands:
 
@@ -298,5 +302,5 @@ sudo systemctl restart nginx
 ```
 
 {% hint style="success" %}
-Congratulations! Now that APIM is up and running, check out the [Quickstart Guide](../../quickstart-guide/README.md) for your next steps.
+Congratulations! Now that APIM is up and running, check out the [Quickstart Guide](../../quickstart-guide/) for your next steps.
 {% endhint %}

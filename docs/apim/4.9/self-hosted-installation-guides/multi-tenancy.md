@@ -1,3 +1,7 @@
+---
+description: An overview about multi-tenancy.
+---
+
 # Multi-tenancy
 
 {% hint style="warning" %}

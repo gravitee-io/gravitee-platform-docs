@@ -1,3 +1,7 @@
+---
+description: An overview about ws security authentication.
+---
+
 # WS Security Authentication
 
 {% hint style="warning" %}

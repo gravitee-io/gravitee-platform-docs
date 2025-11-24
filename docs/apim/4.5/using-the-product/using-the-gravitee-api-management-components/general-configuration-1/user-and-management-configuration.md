@@ -1,4 +1,10 @@
-# User and Management Configuration
+---
+description: >-
+  Configuration and usage guide for configuring the user and management
+  settings.
+---
+
+# Configuring the User and Management settings
 
 ## Introduction
 

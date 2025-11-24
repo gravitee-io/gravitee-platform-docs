@@ -1,3 +1,7 @@
+---
+description: An overview about upgrade with rpm.
+---
+
 # Upgrade with RPM
 
 ## Overview
@@ -21,10 +25,10 @@ To upgrade your RPM installation, choose the upgrade process depending on your i
 
 The following configuration files will be overwritten during the RPM upgrade process. You must back them up before proceeding:
 
-* `gravitee.yml`  or your single configuration file if everything is consolidated
+* `gravitee.yml` or your single configuration file if everything is consolidated
 * `constants.json`
-* `config.json`  for the Developer Portal
-* `conf.d`  NGINX configuration directory
+* `config.json` for the Developer Portal
+* `conf.d` NGINX configuration directory
 
 {% hint style="danger" %}
 Failure to backup these files will result in loss of your custom configurations.

@@ -1,3 +1,7 @@
+---
+description: Tutorial on kafka topic mapping.
+---
+
 # Kafka Topic Mapping
 
 ## Description <a href="#user-content-description" id="user-content-description"></a>
@@ -11,7 +15,7 @@ You can configure the policy with the following options:
 <table><thead><tr><th width="183">Property</th><th>Required</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td><code>mappings</code></td><td>No</td><td>A list of mappings between the client topic and the broker topic.</td><td>Array</td><td></td></tr><tr><td><code>mappings.client</code></td><td>No</td><td>The name provided on the client side that will be mapped in something else.</td><td>String</td><td></td></tr><tr><td><code>mappings.broker</code></td><td>No</td><td>The name that will be sent on the broker side. Supports EL expressions.</td><td>String</td><td></td></tr></tbody></table>
 
 {% hint style="info" %}
-#### Policy order <a href="#user-content-supported-kafka-apikeys" id="user-content-supported-kafka-apikeys"></a>
+**Policy order**
 
 When using the Kafka Topic Mapping policy together with the Kafka ACL policy, it is important to place the Kafka ACL policy **before** the Kafka Topic Mapping policy, as shown below.
 {% endhint %}

@@ -1,3 +1,7 @@
+---
+description: Tutorial on hybrid install with kubernetes.
+---
+
 # Hybrid Install with Kubernetes
 
 {% include "../.gitbook/includes/installation-guide-note.md" %}

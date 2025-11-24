@@ -1,3 +1,7 @@
+---
+description: Documentation about layout and theme in the context of APIs.
+---
+
 # Layout and Theme
 
 {% hint style="warning" %}
@@ -11,13 +15,13 @@ In the New Developer Portal catalog, you can search for an API based on an assoc
 1. Sign in to your APIM Console.
 2.  From the homepage, click **Settings**.
 
-    <figure><img src="../../.gitbook/assets/76D66FB4-4D8E-467D-AADE-543FC7813158_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 3.  In the **Settings** menu, navigate to the **Portal** section, and then click **Settings**.
 
-    <figure><img src="../../.gitbook/assets/A19B0A93-5568-4136-AC4C-7956574C28ED (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 4.  Navigate to the **New Developer Portal** section of the page, and then click **Open Settings** to open the settings in a new tab.
 
-    <figure><img src="../../.gitbook/assets/8F20A23D-0B5B-4863-B454-6AA244B820AC_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 5.  In the **Customization** menu, click **Catalog**.
 
     <figure><img src="../../.gitbook/assets/F5E90772-39F4-4EF0-9B4E-34A1D1386DD1.jpeg" alt=""><figcaption></figcaption></figure>
@@ -42,18 +46,18 @@ Here is an example of categories as tiles:
 
 To select fonts for the New Developer Portal, complete the following steps:
 
-1.  From the Console homepage, click **Settings**. 
+1.  From the Console homepage, click **Settings**.
 
-    <figure><img src="../../.gitbook/assets/76D66FB4-4D8E-467D-AADE-543FC7813158_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 2.  From the **Settings** menu, click **Settings.**
 
-    <figure><img src="../../.gitbook/assets/A19B0A93-5568-4136-AC4C-7956574C28ED (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 3.  Navigate to the **New Developer Portal** section, and then click **Open Settings** to open the settings in a new tab.
 
-    <figure><img src="../../.gitbook/assets/8F20A23D-0B5B-4863-B454-6AA244B820AC_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 4.  In the **Customization** menu, click **Theme**.
 
-    <figure><img src="../../.gitbook/assets/D15564EE-4952-4032-A48C-109585617DDC (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 5. Navigate to the **Font** section of the page.
 6.  From the **Font** drop-down menu, select a new font. For a list of available fonts, see [#available-fonts](layout-and-theme.md#available-fonts "mention").
 
@@ -99,16 +103,16 @@ You can add custom CSS to your Developer Portal's theme with the CSS editor. To 
 
 1.  From the homepage, click **Settings**.
 
-    <figure><img src="../../.gitbook/assets/76D66FB4-4D8E-467D-AADE-543FC7813158_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 2.  In the **Settings** menu, navigate to the **Portal** section, and then click **Settings**.
 
-    <figure><img src="../../.gitbook/assets/A19B0A93-5568-4136-AC4C-7956574C28ED (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 3.  Navigate to the **New Developer Portal** section, and then click **Open Settings** to open the settings in a new tab.
 
-    <figure><img src="../../.gitbook/assets/8F20A23D-0B5B-4863-B454-6AA244B820AC_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 4.  In the **Customization** menu, click **Theme**.
 
-    <figure><img src="../../.gitbook/assets/D15564EE-4952-4032-A48C-109585617DDC (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 5.  Navigate to **CSS Editor** and then click the down arrow.
 
     <figure><img src="../../.gitbook/assets/AAE22928-0FC0-4429-9C6E-77C2FFDC76A2.jpeg" alt=""><figcaption></figcaption></figure>
@@ -124,8 +128,7 @@ You can add custom CSS to your Developer Portal's theme with the CSS editor. To 
 
        \{% hint style="info" %\} For a full list of the available CSS tokens that you can use to customize your New Developer Portal, see [#available-css-tokens](layout-and-theme.md#available-css-tokens "mention") \{% endhint %\}### Verification
 
-*   In the header navigation bar, click **Open Website**. Your New Developer Portal shows your custom CSS updates.\
-    
+*   In the header navigation bar, click **Open Website**. Your New Developer Portal shows your custom CSS updates.\\
 
     <figure><img src="../../.gitbook/assets/E1F22B44-D7C3-4DED-9E37-72BEB05714A1.jpeg" alt=""><figcaption></figcaption></figure>
 

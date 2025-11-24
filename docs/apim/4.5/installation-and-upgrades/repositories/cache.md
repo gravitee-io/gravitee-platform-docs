@@ -1,3 +1,7 @@
+---
+description: An overview about configuring caching.
+---
+
 # Configuring caching
 
 ## Overview
@@ -5,7 +9,7 @@
 Caching is used in API management to store responses from upstream systems in order to improve response time performance to clients and reduce network overhead of talking to the upstream system unnecessarily. Within Gravitee, caching can be defined in a few different ways:
 
 * **Standalone Cache Manager:** The default method for caching data locally in memory. The cache will not be distributed and will always remain local to the node running the gateway.
-* **Hazelcast Cache Manager:** This method of caching relies on Hazelcast to provide the cache. This plugin be added to the distribution and enabled by setting `cache.type` to `hazelcast`. The cache can be either local (in-memory) or distributed (Hazelcast IMap).&#x20;
+* **Hazelcast Cache Manager:** This method of caching relies on Hazelcast to provide the cache. This plugin be added to the distribution and enabled by setting `cache.type` to `hazelcast`. The cache can be either local (in-memory) or distributed (Hazelcast IMap).
 
 ## Hazelcast Configuration
 
@@ -59,10 +63,10 @@ More information can be found in the [Hazelcast documentation](https://docs.haze
 
 ## Cache resource management
 
-API publishers can [create Cache resources](../../using-the-product/managing-your-apis/resources/README.md#how-to-create-a-resource) to:
+API publishers can [create Cache resources](../../using-the-product/managing-your-apis/resources/#how-to-create-a-resource) to:
 
 * Cache upstream of a response with the [Cache policy](../../using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/a-c/cache.md)
-* Cache access tokens with the [OAuth2 policy](../../using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/l-p/oauth2/README.md)
+* Cache access tokens with the [OAuth2 policy](../../using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/l-p/oauth2/)
 
 The default distribution includes the [Cache resource](../../using-the-product/managing-your-apis/resources/cache.md#cache) plugin, which stores content in-memory and is locally managed on each Gateway node of the installation.
 

@@ -1,3 +1,7 @@
+---
+description: An overview about other ways gravitee supports kafka.
+---
+
 # Other ways Gravitee supports Kafka
 
 ## Overview

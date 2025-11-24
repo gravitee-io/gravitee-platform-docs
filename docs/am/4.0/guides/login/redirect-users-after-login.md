@@ -1,3 +1,9 @@
+---
+description: >-
+  API and reference documentation for Login flows are always triggered by
+  calling standard endpoints from protocols such as OAuth 2.
+---
+
 # Redirect Users After Login
 
 Login flows are always triggered by calling standard endpoints from protocols such as OAuth 2.0/OpenID Connect or SAML 2.0.

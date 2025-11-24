@@ -1,3 +1,7 @@
+---
+description: An overview about version history.
+---
+
 # Version History
 
 ## Overview

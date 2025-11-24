@@ -1,3 +1,7 @@
+---
+description: An overview about smtp configuration.
+---
+
 # SMTP Configuration
 
 ## Overview

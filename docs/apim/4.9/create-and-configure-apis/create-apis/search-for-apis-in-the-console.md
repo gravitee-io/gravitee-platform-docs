@@ -1,3 +1,7 @@
+---
+description: An overview about search for apis in the console.
+---
+
 # Search for APIs in the Console
 
 ## Overview

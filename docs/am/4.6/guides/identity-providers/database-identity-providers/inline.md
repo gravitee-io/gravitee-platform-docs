@@ -1,3 +1,7 @@
+---
+description: Overview of Inline.
+---
+
 # Inline
 
 ## Overview

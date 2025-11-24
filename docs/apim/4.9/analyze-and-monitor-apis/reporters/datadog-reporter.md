@@ -1,3 +1,7 @@
+---
+description: Configuration guide for datadog reporter.
+---
+
 # Datadog Reporter
 
 ## Download and install

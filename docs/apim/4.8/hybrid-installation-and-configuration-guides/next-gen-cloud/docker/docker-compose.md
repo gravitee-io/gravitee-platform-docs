@@ -19,8 +19,6 @@ This guide focuses on installing the Data Plane using Docker Compose. The Data P
 \
 By the end of this guide, your Gravitee Data Plane will be up and running, ready to enforce API policies and handle traffic according to your Gravitee Cloud configuration.
 
-{% include "../../../../4.6/.gitbook/includes/installation-guide-note (1).md" %}
-
 ## Prerequisites
 
 Before you deploy the Data Plane with Docker Compose, complete the following steps:

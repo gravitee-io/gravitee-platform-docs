@@ -1,3 +1,7 @@
+---
+description: Overview of Add Custom Claims.
+---
+
 # Add Custom Claims to Tokens
 
 ## Overview
@@ -35,7 +39,7 @@ To retrieve claims from the User Profile, use the following Gravitee Expression 
 `{#context.attributes['user']['username']}` for the `username` attribute.
 
 {% hint style="info" %}
-In the token the custom claims accept any kind of value types, it may a String, a numeric or even an Object or an Array. For example, if your user profile contains an address attribute which is an object, there is no issue to provide this object as value for a claim.&#x20;
+In the token the custom claims accept any kind of value types, it may a String, a numeric or even an Object or an Array. For example, if your user profile contains an address attribute which is an object, there is no issue to provide this object as value for a claim.
 {% endhint %}
 
 To convert a list of elements from a String to a Array, you can use Expression Language to manipulate the String value. As an example, if a string contains a list of values separated by a coma, the conversion could be:

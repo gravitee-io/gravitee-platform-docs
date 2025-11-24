@@ -1,3 +1,7 @@
+---
+description: An overview about assign content.
+---
+
 # Assign Content
 
 ## Overview
@@ -24,7 +28,7 @@ A typical usage would be to simply overwrite the original request payload with s
 }
 ```
 
-<figure><img src="../../../../4.6/.gitbook/assets/image (177) (1).png" alt="" width="375"><figcaption><p>Assign Content policy configuration UI</p></figcaption></figure>
+<figure><img src="../../../../4.6/.gitbook/assets/image%20(177)%20(1).png" alt="" width="375"><figcaption><p>Assign Content policy configuration UI</p></figcaption></figure>
 
 ### Replace original payload with dynamic values
 
@@ -189,7 +193,7 @@ Let's walk through the above Freemarker code, line by line:
 
 **Line 7:** Output all key/value pairs to the final response.
 
-<figure><img src="../../../../4.6/.gitbook/assets/image (176) (1).png" alt=""><figcaption><p>Assign Content policy configuration UI</p></figcaption></figure>
+<figure><img src="../../../../4.6/.gitbook/assets/image%20(176)%20(1).png" alt=""><figcaption><p>Assign Content policy configuration UI</p></figcaption></figure>
 
 {% code title="Final response payload (sent onto client):" %}
 ```json

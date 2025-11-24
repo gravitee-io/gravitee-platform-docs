@@ -1,3 +1,7 @@
+---
+description: Upgrade and migration guide for Upgrade Guide.
+---
+
 # 4.2 Upgrade Guide
 
 {% hint style="warning" %}

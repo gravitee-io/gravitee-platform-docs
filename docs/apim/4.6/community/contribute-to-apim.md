@@ -1,3 +1,7 @@
+---
+description: An overview about contribute to apim.
+---
+
 # Contribute to APIM
 
 ## Overview
@@ -71,17 +75,19 @@ Run `./gravitee` from the `${GRAVITEE_HOME}/bin` directory. `${GRAVITEE_HOME}` r
 {% endtab %}
 
 {% tab title="IntelliJ configuration" %}
-By default, the project includes the configuration `Gateway - MongoDB` to run the Gateway.
+By default, the project includes the configuration \`Gateway - MongoDB\` to run the Gateway.
 
 1. Use classpath of module: `gravitee-apim-gateway-standalone-container`
 2. Main class: `io.gravitee.gateway.standalone.GatewayContainer`
-3.  In the VM options, change the path to point to your project:&#x20;
+3.  In the VM options, change the path to point to your project:
 
-    {% code overflow="wrap" %}
+    \{% code overflow="wrap" %\}
+
     ```bash
     -Dgravitee.home="/home/user/dev/gravitee-api-management/gravitee-apim-gateway/gravitee-apim-gateway-standalone/gravitee-apim-gateway-standalone-distribution/target/distribution"
     ```
-    {% endcode %}
+
+    \{% endcode %\}
 {% endtab %}
 {% endtabs %}
 
@@ -93,17 +99,19 @@ Run `./gravitee` from the `${GRAVITEE_HOME}/bin` directory. `${GRAVITEE_HOME}` r
 {% endtab %}
 
 {% tab title="IntelliJ configuration" %}
-By default, the project includes the configuration `Rest API - MongoDB` to run the Rest API.
+By default, the project includes the configuration \`Rest API - MongoDB\` to run the Rest API.
 
 1. Use classpath of module: `gravitee-apim-rest-api-standalone-container`
 2. Main class: `io.gravitee.rest.api.standalone.GraviteeApisContainer`.
-3.  In the VM options, change the path to point to your project:&#x20;
+3.  In the VM options, change the path to point to your project:
 
-    {% code overflow="wrap" %}
+    \{% code overflow="wrap" %\}
+
     ```bash
     -Dgravitee.home="/home/user/dev/gravitee-api-management/gravitee-apim-rest-api/gravitee-apim-rest-api-standalone/gravitee-apim-rest-api-standalone-distribution/target/distribution"
     ```
-    {% endcode %}
+
+    \{% endcode %\}
 {% endtab %}
 {% endtabs %}
 

@@ -1,3 +1,7 @@
+---
+description: API documentation explaining application logs.
+---
+
 # Application Logs
 
 As an API subscriber, you can view paginated logs for all of the APIs your application has subscribed to. The list of logs displays the name, timestamp, HTTP method, and response status of each API.

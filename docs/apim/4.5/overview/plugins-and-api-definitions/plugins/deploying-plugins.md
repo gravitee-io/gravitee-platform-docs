@@ -1,8 +1,12 @@
+---
+description: Configuration and usage guide for deploying plugins.
+---
+
 # Deploying plugins
 
 ## Deployment
 
-Deploying a plugin is as easy as copying the plugin archive (zip) into the dedicated directory. By default, you need to deploy the archives in `${GRAVITEE_HOME/plugins}`. Refer to [APIM Gateway Configuration ](../../../using-the-product/using-the-gravitee-api-management-components/general-configuration/README.md#configure-the-plugins-directory)for more information on modifying the directory structure.
+Deploying a plugin is as easy as copying the plugin archive (zip) into the dedicated directory. By default, you need to deploy the archives in `${GRAVITEE_HOME/plugins}`. Refer to [APIM Gateway Configuration ](../../../using-the-product/using-the-gravitee-api-management-components/general-configuration/#configure-the-plugins-directory)for more information on modifying the directory structure.
 
 {% hint style="warning" %}
 You must restart APIM nodes when applying new or updated plugins.
@@ -14,7 +18,7 @@ Plugin discovery and loading occurs regardless of APIM license type. If a plugin
 
 ### Phase 1: Discover plugins
 
-When APIM starts, all plugin zip files are read from the list of plugin directories set in the `gravitee.yaml` configuration file.&#x20;
+When APIM starts, all plugin zip files are read from the list of plugin directories set in the `gravitee.yaml` configuration file.
 
 {% hint style="info" %}
 This operation is completed asynchronously for performance benefits.
@@ -26,7 +30,7 @@ Plugin override circumvents the need to remove plugins to use a newer version, w
 
 ### Phase 2: Load plugins
 
-After APIM finishes traversing the plugin directories, the plugins are loaded.&#x20;
+After APIM finishes traversing the plugin directories, the plugins are loaded.
 
 Plugins are immediately initialized by a specialized handler. If an error occurs while unpacking a plugin zip file, the faulty plugin is ignored. An error will be reported in the logs and the loading of the remaining plugins will resume.
 
@@ -43,6 +47,6 @@ The rest of the plugins are loaded in no particular order, except if they have d
 
 For example, if `plugin1 (type:cluster)` depends on `plugin2 (type:cache)` which depends on `plugin3(type:alert)`, then the plugins are loaded in the following order:
 
-* `plugin3` (because plugin 2 depends on it,  even if it is #4 in the type priority list)
+* `plugin3` (because plugin 2 depends on it, even if it is #4 in the type priority list)
 * `plugin2` (because plugin 1 depends on it, even if it is #2 in the type priority list)
 * `plugin1`

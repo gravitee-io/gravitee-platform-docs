@@ -1,3 +1,10 @@
+---
+description: >-
+  Overview of To lower authentication friction from third parties which can t
+  maintain a session with Gravitee Access Management AM the use of the OpenID
+  Connect ID Token let you request new tokens in a silent manner.
+---
+
 # Silent Reauthentication
 
 To lower authentication friction from third parties which can’t maintain a session with Gravitee Access Management (AM), the use of the OpenID Connect ID Token let you request new tokens in a silent manner.

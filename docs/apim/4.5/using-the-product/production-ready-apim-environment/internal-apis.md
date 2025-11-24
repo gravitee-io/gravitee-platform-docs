@@ -1,3 +1,7 @@
+---
+description: An overview about configuring internal apis.
+---
+
 # Configuring Internal APIs
 
 ## Overview

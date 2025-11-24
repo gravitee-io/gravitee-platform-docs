@@ -1,3 +1,7 @@
+---
+description: An overview about reference secrets in apis.
+---
+
 # Reference Secrets in APIs
 
 ## Overview

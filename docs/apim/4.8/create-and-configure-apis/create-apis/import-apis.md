@@ -1,3 +1,7 @@
+---
+description: An overview about import apis.
+---
+
 # Import APIs
 
 ## Overview
@@ -25,11 +29,11 @@ To import your API:
 3. Select **+ Add API**.
 4.  In the **Create New API** tile, click **Import v4 API**.
 
-    <figure><img src="../../../4.7/.gitbook/assets/00 import 1 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../4.7/.gitbook/assets/00%20import%201%20(1).png" alt=""><figcaption></figcaption></figure>
 
     This loads the options for importing your API.
 
-    <figure><img src="../../../4.7/.gitbook/assets/00 import 2 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../4.7/.gitbook/assets/00%20import%202%20(1).png" alt=""><figcaption></figcaption></figure>
 5. Choose an **API format**. You can select either **Gravitee definition** or **OpenAPI specification**.
 6.  Choose a **File source**.
 
@@ -196,7 +200,7 @@ You can also choose to activate policies (below) that will be configured using t
 {% tab title="JSON Validation" %}
 For each operation, if an `application/json` request body exists, a JSON schema is computed from this body to configure a JSON Validation policy.\
 \
-For more information, see the JSON Validation policy in the [policy reference](../apply-policies/policy-reference/README.md).
+For more information, see the JSON Validation policy in the [policy reference](../apply-policies/policy-reference/).
 {% endtab %}
 
 {% tab title="REST to SOAP" %}
@@ -205,24 +209,24 @@ For each operation, if the definition contains specific vendor extensions, a RES
 * `x-graviteeio-soap-envelope`: Contains the SOAP envelope
 * `x-graviteeio-soap-action`: Contains the SOAP action
 
-For more information, see the REST to SOAP policy in the [policy reference](../apply-policies/policy-reference/README.md).
+For more information, see the REST to SOAP policy in the [policy reference](../apply-policies/policy-reference/).
 {% endtab %}
 
 {% tab title="Mock" %}
 For each operation, a mock policy is configured, based on the `example` field if it exists, or by generating a random value for the type of attribute to mock.\
 \
-For more information, see the Mock policy in the [policy reference](../apply-policies/policy-reference/README.md).
+For more information, see the Mock policy in the [policy reference](../apply-policies/policy-reference/).
 {% endtab %}
 
 {% tab title="Request Validation" %}
 For each operation, `NOT` `NULL` rules are created with query parameters and headers.\
 \
-For more information, see the Request Validation policy in the [policy reference](../apply-policies/policy-reference/README.md).
+For more information, see the Request Validation policy in the [policy reference](../apply-policies/policy-reference/).
 {% endtab %}
 
 {% tab title="XML Validation" %}
 For each operation, if a `application/xml` request body exists, then a XSD schema is computed from this body to configure an XML Validation policy.
 
-For more information, see the XML Validation policy in the [policy reference](../apply-policies/policy-reference/README.md).
+For more information, see the XML Validation policy in the [policy reference](../apply-policies/policy-reference/).
 {% endtab %}
 {% endtabs %}

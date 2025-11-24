@@ -1,3 +1,7 @@
+---
+description: An overview about kafka acl.
+---
+
 # Kafka ACL
 
 ## Overview
@@ -27,7 +31,7 @@ You can add more than one ACL in the same policy.
 Kafka follows the rule that if there is an ACL that denies an action, it takes precedence over ACLs that allow an action. If more than one ACL applies to the client connection to the Gateway, the most restrictive ACL is applied.
 {% endhint %}
 
-<figure><img src="../../../../4.6/.gitbook/assets/image (154) (1).png" alt=""><figcaption><p>Kafka ACL Policy UI</p></figcaption></figure>
+<figure><img src="../../../../4.6/.gitbook/assets/image%20(154)%20(1).png" alt=""><figcaption><p>Kafka ACL Policy UI</p></figcaption></figure>
 
 ## Examples
 
@@ -76,15 +80,15 @@ This shows how to implement the example above using the APIM Console.
 
 Kafka Topic Mapping configuration:
 
-<figure><img src="../../../../4.7/.gitbook/assets/00 3 (1).png" alt=""><figcaption><p>Kafka Topic Mapping policy configuration UI</p></figcaption></figure>
+<figure><img src="../../../../4.7/.gitbook/assets/00%203%20(1).png" alt=""><figcaption><p>Kafka Topic Mapping policy configuration UI</p></figcaption></figure>
 
 Kafka ACL configuration:
 
-<figure><img src="../../../../4.7/.gitbook/assets/00 5 (1).png" alt=""><figcaption><p>Kafka ACL policy configuration UI</p></figcaption></figure>
+<figure><img src="../../../../4.7/.gitbook/assets/00%205%20(1).png" alt=""><figcaption><p>Kafka ACL policy configuration UI</p></figcaption></figure>
 
 Here is how the policies should be ordered in the policy chain:
 
-<figure><img src="../../../../4.7/.gitbook/assets/00 ta (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.7/.gitbook/assets/00%20ta%20(1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="v4 API definition" %}
@@ -151,15 +155,15 @@ This shows how to implement the example above using the APIM Console.
 
 ACL configuration:
 
-<figure><img src="../../../../4.7/.gitbook/assets/00 6 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.7/.gitbook/assets/00%206%20(1).png" alt=""><figcaption></figcaption></figure>
 
 Topic mapping configuration:
 
-<figure><img src="../../../../4.7/.gitbook/assets/00 4 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.7/.gitbook/assets/00%204%20(1).png" alt=""><figcaption></figcaption></figure>
 
 Here is how the policies should be ordered in the policy chain:
 
-<figure><img src="../../../../4.7/.gitbook/assets/00 at (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.7/.gitbook/assets/00%20at%20(1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="v4 API definition" %}

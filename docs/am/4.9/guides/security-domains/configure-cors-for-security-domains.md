@@ -1,3 +1,7 @@
+---
+description: Configuration guide for Security Domains.
+---
+
 # Configure CORS for Security Domains
 
 ## Overview

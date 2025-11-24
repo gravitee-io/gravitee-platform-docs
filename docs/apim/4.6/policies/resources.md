@@ -1,3 +1,7 @@
+---
+description: An overview about resources.
+---
+
 # Resources
 
 ## Overview
@@ -25,11 +29,9 @@ To create a resource:
 4. Click **Configuration** in the inner left sidebar.
 5.  Click the **Resources** header.
 
-
     <figure><img src="../.gitbook/assets/A 1 config resources.png" alt=""><figcaption></figcaption></figure>
 6. Click **+ Add resource**.
-7.  Use the search field or scroll to select the resource you'd like to configure. 
-
+7.  Use the search field or scroll to select the resource you'd like to configure.
 
     <figure><img src="../.gitbook/assets/A 1 resources 2.png" alt=""><figcaption></figcaption></figure>
 8. Set the parameters in the resultant form. Configuration varies by resource type.

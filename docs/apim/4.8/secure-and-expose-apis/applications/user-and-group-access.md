@@ -1,3 +1,7 @@
+---
+description: An overview about user and group access.
+---
+
 # User and Group Access
 
 ## Overview
@@ -12,11 +16,9 @@ To configure user and group access, complete the following steps:
 2. Log in to your APIM Console, and then click **Applications**.
 3.  Find the application you want to configure. Use the radio buttons to select either Active or Archived applications. Next, either scroll through the paginated lists of available applications or use the search field to find the application by name.
 
-
     <figure><img src="../../.gitbook/assets/00 groups added to applications 7.png" alt=""><figcaption></figcaption></figure>
 4. Click on the application you want to configure.
 5.  Click on **User and group access** in the Application menu.
-
 
     <figure><img src="../../.gitbook/assets/00 groups added to applications 8.png" alt=""><figcaption></figcaption></figure>
 
@@ -26,12 +28,12 @@ Under the **Members** tab, you can add users or groups as members of you applica
 
 <figure><img src="../../.gitbook/assets/00 groups added to applications 3.png" alt=""><figcaption></figcaption></figure>
 
-* Click **+ Add members** to add members to your application. You can search for users by name or email.&#x20;
+* Click **+ Add members** to add members to your application. You can search for users by name or email.
 * Use the **Role** drop-down menu to select member roles, which grant specific permissions. For more information on roles, please refer to the [Roles](../../configure-and-manage-the-platform/manage-organizations-and-environments/user-management.md#roles) documentation.
 
 ### Groups
 
-Click the **Groups** tab to see which groups have access to your application. Use the drop-down menu to change group selections.&#x20;
+Click the **Groups** tab to see which groups have access to your application. Use the drop-down menu to change group selections.
 
 <figure><img src="../../.gitbook/assets/00 groups added to applications 4.png" alt=""><figcaption></figcaption></figure>
 
@@ -39,9 +41,9 @@ Selecting a group gives all members of that group access to your application.
 
 ### Transfer ownership
 
-Under the **Transfer ownership** tab, you can grant complete application access to an application member or other user.&#x20;
+Under the **Transfer ownership** tab, you can grant complete application access to an application member or other user.
 
-Click **Application member** and use the drop-down menu to select a user who is already a member of your application.&#x20;
+Click **Application member** and use the drop-down menu to select a user who is already a member of your application.
 
 <figure><img src="../../.gitbook/assets/00 groups added to applications 5.png" alt=""><figcaption></figcaption></figure>
 
@@ -58,7 +60,6 @@ To require an application to have at least one group added to it, complete the f
 1. Log in to your APIM Console, and then click **Settings**.
 2. From the **Settings** menu, scroll down to the User Management section, and then click **Groups**.
 3.  Turn on the toggle that requires an application to have at least one group before it can be created or updated
-
 
     <figure><img src="../../.gitbook/assets/00 groups 4.png" alt=""><figcaption></figcaption></figure>
 

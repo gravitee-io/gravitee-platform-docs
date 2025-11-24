@@ -1,3 +1,7 @@
+---
+description: An overview about vanilla kubernetes.
+---
+
 # Vanilla Kubernetes
 
 ## Overview
@@ -94,7 +98,7 @@ To support API definitions and configuration, you must install MongoDB into your
       --set resources.requests.memory=512Mi \
       --set resources.requests.cpu=250m
     ```
-2.  Extract the MongoDB hostname from the command output, and then save it for future use. The following sample output lists `gravitee-mongodb.gravitee-apim.svc.cluster.local` as the MongoDB hostname: 
+2.  Extract the MongoDB hostname from the command output, and then save it for future use. The following sample output lists `gravitee-mongodb.gravitee-apim.svc.cluster.local` as the MongoDB hostname:
 
     ```bash
     NAME: gravitee-mongodb
@@ -130,7 +134,7 @@ To support API definitions and configuration, you must install MongoDB into your
     ```
 
     \
-    The command generates the following output: 
+    The command generates the following output:
 
     ```bash
     NAME                  READY   STATUS    RESTARTS   AGE
@@ -201,8 +205,6 @@ To support analytics and logging, you must install Elasticsearch into your Kuber
     gravitee-elasticsearch-master-0   1/1     Running   0          2m
     ```
 
-    
-
 ### (Optional) Install Redis
 
 To support caching and rate-limiting, you must install Redis into your Kubernetes cluster. For more information about installing Redis, see the [official chart documentation.](https://artifacthub.io/packages/helm/bitnami/redis)
@@ -252,7 +254,7 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
     ```
 
     \
-    The command generates the following output: 
+    The command generates the following output:
 
     ```bash
     NAME                      READY   STATUS    RESTARTS   AGE

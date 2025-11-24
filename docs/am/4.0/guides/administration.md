@@ -1,3 +1,7 @@
+---
+description: Installation guide for Organizations and environment.
+---
+
 # Administration
 
 ## Organizations and environment
@@ -233,8 +237,6 @@ Let’s imagine we want to create a reviewer role, which allows a user to check 
    * Name : `REVIEWER_APPLICATION`
    *   Description : `Read-only role`
 
-
-
        <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-adminguide-new-role.png" alt=""><figcaption><p>Creating a new role</p></figcaption></figure>
 2. Click **CREATE**.
 
@@ -274,8 +276,6 @@ In the example below, we will create a `FOO Team` group where you can put all me
 4. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
 5.  Enter the details of the group.
 
-
-
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-adminguide-new-group.png" alt=""><figcaption><p>Group details</p></figcaption></figure>
 6. Click **CREATE**.
 
@@ -284,8 +284,6 @@ In the example below, we will create a `FOO Team` group where you can put all me
 1. Click the settings icon ![settings icon](https://docs.gravitee.io/images/icons/settings-icon.png) next to the `FOO Team` group.
 2. Click the **Members** tab.
 3.  Add a user by clicking **+ Add members**.
-
-
 
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-adminguide-new-group-members.png" alt=""><figcaption><p>Add members to group</p></figcaption></figure>
 

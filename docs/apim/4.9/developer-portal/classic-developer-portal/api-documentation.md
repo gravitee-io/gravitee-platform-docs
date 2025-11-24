@@ -1,3 +1,7 @@
+---
+description: Configuration guide for api documentation.
+---
+
 # API Documentation
 
 ## Site-wide documentation

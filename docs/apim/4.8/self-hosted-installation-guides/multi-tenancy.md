@@ -1,3 +1,7 @@
+---
+description: An overview about multi-tenancy.
+---
+
 # Multi-tenancy
 
 {% hint style="warning" %}
@@ -21,7 +25,7 @@ The isolation scheme of data and features between the logical hierarchical struc
 This page discusses how to deploy APIM and Cloud together in multi-tenant mode.
 
 {% hint style="info" %}
-For information on how to run a `standalone` (not multi-tenant) installation with APIM, refer to the [Upgrade Guide](../upgrade-guides/README.md)
+For information on how to run a `standalone` (not multi-tenant) installation with APIM, refer to the [Upgrade Guide](../upgrade-guides/)
 {% endhint %}
 
 ## How to set up multi-tenancy
@@ -97,9 +101,9 @@ All APIs that have been created prior to 4.4 will still be in virtual host mode.
 
 * Once a multi-tenant APIM installation is connected to Cloud, custom Access Points can be defined at both the Organization and Environment levels using Cloud. These values will override the values originally sent from the APIM installation, as shown below.
 
-<figure><img src="../../4.2/.gitbook/assets/image (57) (1).png" alt=""><figcaption><p>Access Points configuration for Organization-related APIM nodes, found in Organization settings in Cloud</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Access Points configuration for Organization-related APIM nodes, found in Organization settings in Cloud</p></figcaption></figure>
 
-<figure><img src="../../4.2/.gitbook/assets/image (55) (1).png" alt=""><figcaption><p>Access Points configuration for Environment-related APIM nodes, found in Environment settings in Cloud</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Access Points configuration for Environment-related APIM nodes, found in Environment settings in Cloud</p></figcaption></figure>
 
 ### Using custom Access Points
 

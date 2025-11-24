@@ -1,3 +1,7 @@
+---
+description: Overview of Password Policy.
+---
+
 # Password Policy
 
 > A key concern when using passwords for authentication is password strength. A "strong" password policy makes it difficult or even improbable for one to guess the password through either manual or automated means.
@@ -24,9 +28,9 @@ You can set the following password characteristics:
 * **Minimum & Maximum length**: length of the passwords that should be enforced by the application.
 * **Numbers**: must include at least one number.
 * **Expiry Duration**: the expiration duration (in days) of a password.
-* **Special characters**: must include at least one special character. Here are the supported special characters: &#x20;
-  * ! \~< > . , ; : \_ = ? / \* + - # " ' & § \` £ € % ° ( ) | \[ ] $ ^ @ ]&#x20;
-  * &#x20;a-z and A-Z characters with an accent. For example, Ü.&#x20;
+* **Special characters**: must include at least one special character. Here are the supported special characters:
+  * ! \~< > . , ; : \_ = ? / \* + - # " ' & § \` £ € % ° ( ) | \[ ] $ ^ @ ]
+  * a-z and A-Z characters with an accent. For example, Ü.
 * **Mixed case**: must include lowercase and uppercase letters.
 * **Exclude common passwords**: will exclude common passwords from a dictionary.
 * **Exclude user profile information from passwords**: will exclude user profile information from use in passwords (case insensitive).
@@ -58,7 +62,7 @@ Where:
 
 ## Custom UI errors
 
-You can access the password policy settings in your **Sign Up** and **Register** [HTML templates](../branding/README.md#custom-pages), making it possible to customize the error messages your end users see.
+You can access the password policy settings in your **Sign Up** and **Register** [HTML templates](../branding/#custom-pages), making it possible to customize the error messages your end users see.
 
 {% code overflow="wrap" %}
 ```html

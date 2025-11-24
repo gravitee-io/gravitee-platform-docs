@@ -1,3 +1,7 @@
+---
+description: Documentation on policies and controls for policy reference.
+---
+
 # Policy reference
 
 Here are the policies that you can apply to your APIs:
@@ -47,8 +51,6 @@ Here are the policies that you can apply to your APIs:
 {% content-ref url="a-c/cloud-events.md" %}
 [cloud-events.md](a-c/cloud-events.md)
 {% endcontent-ref %}
-
-
 {% endtab %}
 
 {% tab title="D-H" %}
@@ -87,8 +89,6 @@ Here are the policies that you can apply to your APIs:
 {% content-ref url="d-h/http-signature.md" %}
 [http-signature.md](d-h/http-signature.md)
 {% endcontent-ref %}
-
-
 {% endtab %}
 
 {% tab title="I-K" %}
@@ -131,8 +131,6 @@ Here are the policies that you can apply to your APIs:
 {% content-ref url="i-k/keyless.md" %}
 [keyless.md](i-k/keyless.md)
 {% endcontent-ref %}
-
-
 {% endtab %}
 
 {% tab title="L-P" %}
@@ -153,7 +151,7 @@ Here are the policies that you can apply to your APIs:
 {% endcontent-ref %}
 
 {% content-ref url="l-p/oauth2/" %}
-[oauth2](l-p/oauth2/README.md)
+[oauth2](l-p/oauth2/)
 {% endcontent-ref %}
 
 {% content-ref url="l-p/openid-connect-userinfo.md" %}
@@ -167,8 +165,6 @@ Here are the policies that you can apply to your APIs:
 {% content-ref url="l-p/protobuf-to-json.md" %}
 [protobuf-to-json.md](l-p/protobuf-to-json.md)
 {% endcontent-ref %}
-
-
 {% endtab %}
 
 {% tab title="R-S" %}
@@ -207,8 +203,6 @@ Here are the policies that you can apply to your APIs:
 {% content-ref url="r-s/ssl-enforcement.md" %}
 [ssl-enforcement.md](r-s/ssl-enforcement.md)
 {% endcontent-ref %}
-
-
 {% endtab %}
 
 {% tab title="T-X" %}
@@ -239,7 +233,5 @@ Here are the policies that you can apply to your APIs:
 {% content-ref url="t-x/xslt.md" %}
 [xslt.md](t-x/xslt.md)
 {% endcontent-ref %}
-
-
 {% endtab %}
 {% endtabs %}

@@ -1,3 +1,7 @@
+---
+description: An overview about upgrade guide.
+---
+
 # Upgrade Guide
 
 {% hint style="danger" %}
@@ -24,37 +28,39 @@ Particular plugins are only available to enterprise customers. [See Gravitee API
 
 * Depending on your version of APIM, you must run the following versions of Java:
   * For versions 4.6 and before, APIM requires at least Java17.
-  * For version for 4.7 and later, APIM requires at least Java21.&#x20;
+  * For version for 4.7 and later, APIM requires at least Java21.
 * There are no longer enterprise tags (i.e., suffixed by `-ee`).
 * Cluster managers are available as plugins. Hazelcast Cluster Manager has been removed from the default distribution.
 * TLS 1.0 and TLS 1.1 protocols are disabled by default. You can enable these protocols with the proper TCP SSL configuration of the Gateway:
 
 {% code overflow="wrap" %}
-````
-```yaml
-http:
-  ssl:
-    tlsProtocols: TLSv1.0, TLSv1.1, TLSv1.2
 ```
-````
+```
 {% endcode %}
 
-```
-&#x20;or using environment variables:
+\`\`\`\` \`\`\`yaml http: ssl: tlsProtocols: TLSv1.0, TLSv1.1, TLSv1.2 \`\`\` \`\`\`\` \{% endcode %\}
+
+\`
+
+\`\` or using environment variables:
 
 ```
 
-{% code overflow="wrap" %}
-````
+<div data-gb-custom-block data-tag="code" data-overflow='wrap'></div>
+```
+
 ```bash
 GRAVITEE_HTTP_SSL_TLSPROTOCOLS=TLSv1.0,TLSv1.1,TLSv1.2
 ```
+
 ````
 {% endcode %}
 
 ## **Monitoring APIM**
 
-* The name of the sync probe has been changed from `api-sync` to `sync-process` to make the completion of all sync processes explicit.
+* The name of the sync probe has been changed from `
+
+api-sync` to `sync-process` to make the completion of all sync processes explicit.
 * The content of the sync handler has changed slightly to align with new concepts:
   * `initialDone`: `true` if the first initial synchronization is done
   * `counter`: The number of iterations
@@ -144,9 +150,11 @@ APIM installations connected to Cloud require changes to the Management API's `g
 
 ### APIM 4.2 with Cloud connected
 
-{% hint style="warning" %}
+<div data-gb-custom-block data-tag="hint" data-style='warning'>
+
 The user must edit the Management API's `gravitee.yaml`.
-{% endhint %}
+
+</div>
 
 If an APIM installation connected to Cloud is upgraded to 4.2, the user must make the following changes to the Management API's `gravitee.yaml` file for the installation to function as `standalone`:
 
@@ -171,9 +179,11 @@ installation:
 
 ### APIM 4.2+ and multiple Consoles/Portals in a connected Cloud
 
-{% hint style="warning" %}
+<div data-gb-custom-block data-tag="hint" data-style='warning'>
+
 The user must edit the Management API's `gravitee.yaml`.
-{% endhint %}
+
+</div>
 
 If an APIM installation with multiple Consoles and/or Portals set up in a connected Cloud is upgraded to 4.2, the user must make the following changes to the Management API's `gravitee.yaml` file for the installation to function as `standalone`:
 
@@ -240,6 +250,9 @@ Or you can use an environment variable:
 GRAVITEE_MANAGEMENT_HTTP_SSL_TRUSTALL="true"
 ```
 
-{% hint style="warning" %}
+<div data-gb-custom-block data-tag="hint" data-style='warning'>
+
 The "trust all" configuration parameter was formerly named `trustall`, it is now named `trustAll` for consistency. To avoid a breaking change both names work, but the former has been deprecated.
-{% endhint %}
+
+</div>
+````

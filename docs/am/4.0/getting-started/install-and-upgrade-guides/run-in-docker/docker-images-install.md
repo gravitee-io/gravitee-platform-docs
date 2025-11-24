@@ -1,3 +1,7 @@
+---
+description: Step‑by‑step tutorial for Prerequisites.
+---
+
 # Docker Images Install
 
 This section explains how to run AM images in Docker. These procedures are intended for users who are already familiar with Docker.
@@ -14,11 +18,11 @@ You can find the complete set of AM images on [Docker Hub](https://hub.docker.co
 You can also find all the [Docker files on GitHub](https://github.com/gravitee-io/graviteeio-access-management/tree/master/docker/). Starting from the version 3.18.0, Gravitee will provide a single bundle for AM Community and Enterprise Edition (EE).
 {% endhint %}
 
-| Image name                                                                             | Source                                                                                                                     | Version | Base                                                                                                    |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | ------- | ------------------------------------------------------------------------------------------------------- |
-| [graviteeio/am-gateway](https://hub.docker.com/r/graviteeio/am-gateway/)               | [images/am-gateway](https://github.com/gravitee-io/graviteeio-access-management/tree/master/docker/gateway/)               | latest  | [eclipse-temurin:17-jre-alpine](https://hub.docker.com/_/eclipse-temurin?tab=tags&name=17-jre-alpine) |
-| [graviteeio/am-management-api](https://hub.docker.com/r/graviteeio/am-management-api/) | [images/am-management-api](https://github.com/gravitee-io/graviteeio-access-management/tree/master/docker/management-api/) | latest  | [eclipse-temurin:17-jre-alpine](https://hub.docker.com/_/eclipse-temurin?tab=tags&name=17-jre-alpine) |
-| [graviteeio/am-management-ui](https://hub.docker.com/r/graviteeio/am-management-ui/)   | [images/am-webui](https://github.com/gravitee-io/graviteeio-access-management/tree/master/docker/management-ui/)           | latest  | [nginx:1.21-alpine](https://hub.docker.com/_/nginx?tab=tags&name=1.21-alpine)                         |
+| Image name                                                                             | Source                                                                                                                     | Version | Base                                                                                                   |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | ------- | ------------------------------------------------------------------------------------------------------ |
+| [graviteeio/am-gateway](https://hub.docker.com/r/graviteeio/am-gateway/)               | [images/am-gateway](https://github.com/gravitee-io/graviteeio-access-management/tree/master/docker/gateway/)               | latest  | [eclipse-temurin:17-jre-alpine](https://hub.docker.com/_/eclipse-temurin?tab=tags\&name=17-jre-alpine) |
+| [graviteeio/am-management-api](https://hub.docker.com/r/graviteeio/am-management-api/) | [images/am-management-api](https://github.com/gravitee-io/graviteeio-access-management/tree/master/docker/management-api/) | latest  | [eclipse-temurin:17-jre-alpine](https://hub.docker.com/_/eclipse-temurin?tab=tags\&name=17-jre-alpine) |
+| [graviteeio/am-management-ui](https://hub.docker.com/r/graviteeio/am-management-ui/)   | [images/am-webui](https://github.com/gravitee-io/graviteeio-access-management/tree/master/docker/management-ui/)           | latest  | [nginx:1.21-alpine](https://hub.docker.com/_/nginx?tab=tags\&name=1.21-alpine)                         |
 
 ### graviteeio/am-gateway
 
@@ -38,7 +42,7 @@ docker run  \
 
 #### **Configure the container**
 
-If you want to override the default configuration for MongoDB and any other properties included in the `gravitee.yml` file, you need to use environment variables. For more information, see the [AM Gateway configuration section.](../../configuration/configure-am-gateway/README.md)
+If you want to override the default configuration for MongoDB and any other properties included in the `gravitee.yml` file, you need to use environment variables. For more information, see the [AM Gateway configuration section.](../../configuration/configure-am-gateway/)
 
 The following example changes the MongoDB connection:
 
@@ -53,7 +57,7 @@ docker run  \
 
 #### **Configure EE feature**
 
-If you want to start AM EE distribution, you will have to deploy a license key and install the [EE plugins](https://download.gravitee.io/#graviteeio-ee/am/plugins/) attached to your license key.&#x20;
+If you want to start AM EE distribution, you will have to deploy a license key and install the [EE plugins](https://download.gravitee.io/#graviteeio-ee/am/plugins/) attached to your license key.
 
 The following example show how to provide a license key to the container and additional plugins:
 
@@ -86,7 +90,7 @@ docker run \
 
 #### **Configure the container**
 
-If you want to override the default configuration for MongoDB and any other properties included in the `gravitee.yml` file, you need to use environment variables. For more information, see the [AM API configuration section.](../../configuration/configure-am-api/README.md)
+If you want to override the default configuration for MongoDB and any other properties included in the `gravitee.yml` file, you need to use environment variables. For more information, see the [AM API configuration section.](../../configuration/configure-am-api/)
 
 The following example changes the MongoDB connection:
 
@@ -101,7 +105,7 @@ docker run \
 
 #### **Configure EE feature**
 
-If you want to start AM EE distribution, you will have to deploy a license key and install the [EE plugins](https://download.gravitee.io/#graviteeio-ee/am/plugins/) attached to your license key.&#x20;
+If you want to start AM EE distribution, you will have to deploy a license key and install the [EE plugins](https://download.gravitee.io/#graviteeio-ee/am/plugins/) attached to your license key.
 
 The following example shows how to provide a license key to the container and additional plugins:
 

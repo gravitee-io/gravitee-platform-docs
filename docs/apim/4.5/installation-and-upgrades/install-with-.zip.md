@@ -1,3 +1,7 @@
+---
+description: Setup and installation guide for .zip.
+---
+
 # .ZIP
 
 ## Before you begin
@@ -62,7 +66,7 @@ b. To stop the APIM Gateway, kill the process that is recorded in the `pid` file
 kill `cat /var/run/gio.pid`
 ```
 
-#### API Management Gateway directory structure
+**API Management Gateway directory structure**
 
 The `.zip` and `.tar.gz` packages are entirely self-contained. By default, all files and directories are contained within `$GRAVITEE_HOME`. You created this directory created when extracting the archive.
 
@@ -136,7 +140,7 @@ You will receive a response similar to the following example:
 kill `cat /var/run/gio.pid`
 ```
 
-#### Management API directory structure
+**Management API directory structure**
 
 The `.zip` and `.tar.gz` packages are entirely self-contained. By default, all files and directories are contained within `$GRAVITEE_HOME`. You created this directory created when extracting the archive.
 
@@ -152,11 +156,11 @@ The `.zip` and `.tar.gz` packages are entirely self-contained. By default, all f
 {% endtab %}
 
 {% tab title="Management Console" %}
-#### Prerequisites
+**Prerequisites**
 
 You must install the Management API. To install the Management API, switch to the Management API tab.
 
-#### Installing the Management Console
+**Installing the Management Console**
 
 1. Extract the `.zip` archive using the following commands:
 
@@ -192,11 +196,11 @@ $ http-server
 {% endtab %}
 
 {% tab title="Developer Portal" %}
-#### Prerequisites
+**Prerequisites**
 
 You must install the Management API. To install the Management API, switch to the Management API tab.
 
-#### Installing the Developer Portal
+**Installing the Developer Portal**
 
 1. Extract the `.zip` archive using the following commands:
 

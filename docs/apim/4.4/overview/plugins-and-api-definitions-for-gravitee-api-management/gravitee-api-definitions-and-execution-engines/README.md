@@ -1,15 +1,5 @@
 ---
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
+description: An overview about Gravitee API Definitions and Execution Engines.
 ---
 
 # Gravitee API Definitions and Execution Engines
@@ -24,7 +14,7 @@ A Gravitee API definition is a JSON representation of everything that the APIM G
 {% endhint %}
 
 {% hint style="warning" %}
-v2 Gateway APIs can run in [emulation mode](reactive-execution-engine.md#v2-gateway-api-emulation-mode) to take advantage of certain execution flow improvements of the reactive engine.&#x20;
+v2 Gateway APIs can run in [emulation mode](reactive-execution-engine.md#v2-gateway-api-emulation-mode) to take advantage of certain execution flow improvements of the reactive engine.
 {% endhint %}
 
 The following sections summarize differences between the reactive and legacy execution engines and provides guidance for managing changes in system behavior when switching to the reactive engine or enabling compatibility mode with a v2 API.

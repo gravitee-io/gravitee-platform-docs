@@ -1,3 +1,7 @@
+---
+description: An overview about enterprise edition.
+---
+
 # Enterprise Edition
 
 ## Overview
@@ -18,13 +22,13 @@ The features below are included in the default enterprise APIM distribution.
 
 ## Enterprise plugins
 
-The following packs consist of Gravitee Enterprise Edition plugins. These are not included in the default distribution and must be manually downloaded [here](https://download.gravitee.io/).&#x20;
+The following packs consist of Gravitee Enterprise Edition plugins. These are not included in the default distribution and must be manually downloaded [here](https://download.gravitee.io/).
 
-EE plugins are installed from their respective repositories in GitHub. Gravitee’s EE plugin repositories are private and their names are prefixed as:&#x20;
+EE plugins are installed from their respective repositories in GitHub. Gravitee’s EE plugin repositories are private and their names are prefixed as:
 
 `gravitee-io/gravitee-policy-<plugin-name>`
 
-For example, the Data Logging Masking policy repository is at `https://github.com/gravitee-io/gravitee-policy-data-logging-masking`.&#x20;
+For example, the Data Logging Masking policy repository is at `https://github.com/gravitee-io/gravitee-policy-data-logging-masking`.
 
 If you have not been granted access to private EE plugin repositories as part of your EE license request process, email [contact@graviteesource.com](mailto:contact@graviteesource.com). Information on plugin deployment can be found [here](../getting-started/plugins/deployment.md#deployment). Packs are described in more detail below.
 
@@ -51,7 +55,7 @@ The Event-native pack includes capabilities that enable Gravitee to expose, secu
 * [**v4 message API endpoints**](../create-apis/v4-api-creation-wizard.md#introspect-messages-from-event-driven-backend-endpoints)**:**
   * Allow the Gateway to open up a persistent connection and/or call a backend:
     * **Kafka** broker via a Kafka client
-    * **MQTT** broker running on MQTT 5.x, via an MQTT client&#x20;
+    * **MQTT** broker running on MQTT 5.x, via an MQTT client
     * **RabbitMQ** broker running on AMQP 0-9-1
   * Allow the Gateway to expose **Solace** resources and event APIs via your Gravitee entrypoint(s)
 * **CloudEvents policy**: Transform ingoing and outgoing data using the CloudEvents spec.

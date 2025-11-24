@@ -1,3 +1,7 @@
+---
+description: Overview of AM Expression Language.
+---
+
 # AM Expression Language
 
 ## Overview
@@ -123,7 +127,5 @@ In the tokens tab of the application OAuth 2.0 settings `domains > mydomain > ap
 Claim : `uuid`
 
 Claim Value: `{#context.attributes['authFlow']['authflow-attribute']}`
-
-
 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-el-token.png" alt=""><figcaption><p>Application tokens</p></figcaption></figure>

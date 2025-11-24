@@ -1,3 +1,9 @@
+---
+description: >-
+  Setup and installation guide for Installing Gravitee API Management with
+  Docker Images Install.
+---
+
 # Installing Gravitee API Management with Docker Images Install
 
 ## Before you begin
@@ -9,7 +15,7 @@
 
 1. Use the following command to create a directory structure in which to persist data and store plugins:
 
-&#x20;       a.  Create a directory structure using the following command:
+a. Create a directory structure using the following command:
 
 {% code overflow="wrap" %}
 ```bash
@@ -17,7 +23,7 @@ mkdir -p /gravitee/{mongodb/data,elasticsearch/data,apim-gateway/plugins,apim-ga
 ```
 {% endcode %}
 
-&#x20;      b.  Once you create the directory, verify that the directory has the following structure:
+b. Once you create the directory, verify that the directory has the following structure:
 
 {% code overflow="wrap" %}
 ```bash
@@ -42,15 +48,18 @@ mkdir -p /gravitee/{mongodb/data,elasticsearch/data,apim-gateway/plugins,apim-ga
 2. (Optional) If you are installing the Enterprise Edition (EE) of Gravitee APIM, copy your license key to `/gravitee/license.key.`
 3.  Create two Docker bridge networks using the following commands:
 
-    {% code overflow="wrap" %}
+    \{% code overflow="wrap" %\}
+
     ```bash
     $ docker network create storage
     $ docker network create frontend
     ```
-    {% endcode %}
+
+    \{% endcode %\}
 4.  Install MongoDB using the following commands:
 
-    {% code overflow="wrap" %}
+    \{% code overflow="wrap" %\}
+
     ```bash
     $ docker pull mongo:6
     $ docker run --name gio_apim_mongodb \
@@ -58,7 +67,8 @@ mkdir -p /gravitee/{mongodb/data,elasticsearch/data,apim-gateway/plugins,apim-ga
       --volume /gravitee/mongodb/data:/data/db \
       --detach mongo:6
     ```
-    {% endcode %}
+
+    \{% endcode %\}
 
 {% hint style="info" %}
 MongoDB is on the `storage`network and uses /gravitee/mongodb for persistent storage.
@@ -89,7 +99,7 @@ $ docker run --name gio_apim_elasticsearch \
 Elasticsearch is on the`storage`network and uses /gravitee/elasticsearch for persistent storage.
 {% endhint %}
 
-6. Install the API Gateway using the following commands. If you use the Community Edition (CE) of Gravitee APIM, remove the following line:  `--volume /gravitee/license.key:/opt/graviteeio-gateway/license/license.key \`.
+6. Install the API Gateway using the following commands. If you use the Community Edition (CE) of Gravitee APIM, remove the following line: `--volume /gravitee/license.key:/opt/graviteeio-gateway/license/license.key \`.
 
 ```bash
 $ docker pull graviteeio/apim-gateway:4.0
@@ -172,6 +182,6 @@ The Developer Portal is on the `frontend` network and uses `/gravitee/apim-porta
 * To open the Developer Portal, go to `http://localhost:8085.`
 
 {% hint style="info" %}
-* The default username for the Console and the Developer Portal is admin.
-* The default password for the Developer Portal is admin.
+- The default username for the Console and the Developer Portal is admin.
+- The default password for the Developer Portal is admin.
 {% endhint %}

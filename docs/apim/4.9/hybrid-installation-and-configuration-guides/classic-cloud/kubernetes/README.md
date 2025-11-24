@@ -1,3 +1,7 @@
+---
+description: Information about kubernetes.
+---
+
 # Kubernetes
 
 ## Deployment methods

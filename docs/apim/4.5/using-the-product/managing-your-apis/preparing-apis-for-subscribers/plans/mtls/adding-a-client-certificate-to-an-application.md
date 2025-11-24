@@ -1,3 +1,9 @@
+---
+description: >-
+  Configuration and usage guide for adding a client certificate to an
+  application.
+---
+
 # Adding a Client Certificate to an Application
 
 To subscribe to an mTLS plan, the client must add a certificate to their application. To add a certification to an application, complete the following steps:

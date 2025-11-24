@@ -1,3 +1,7 @@
+---
+description: Tutorial on Secret Providers.
+---
+
 # Secret Providers
 
 ## Introduction
@@ -10,7 +14,7 @@ A future release will enable secret providers to obscure API endpoint credential
 
 Secret managers provide a secure and convenient way to encrypt, store, manage, and retrieve secrets and other sensitive data such as tokens, API keys, passwords, certificates, etc. Using secret managers, it's possible to enforce consistent security policies, ensure resources and digital credentials can only be accessed by authenticated and authorized users, and instantly connect systems to accomplish automated tasks.
 
-While a secret manager refers to any third party software that is able to store and manage secrets securely, secret providers refer to a category of Gravitee plugin. Secret provider plugins can gain access to secret managers via credentials and a secured connection to provide secrets to Gravitee configurations.&#x20;
+While a secret manager refers to any third party software that is able to store and manage secrets securely, secret providers refer to a category of Gravitee plugin. Secret provider plugins can gain access to secret managers via credentials and a secured connection to provide secrets to Gravitee configurations.
 
 {% hint style="info" %}
 The legacy method of fetching configurations from Kubernetes ConfigMaps or Secrets using the syntax `kubernetes://...` remains available, but is discouraged and will be deprecated over future releases. Instead, secret providers retrieve sensitive information (passwords, x509 pairs, etc.) from secret managers (Kubernetes, HC Vault...) to ensure this information does not appear in clear text.
@@ -28,7 +32,7 @@ Secret providers are generic, configurable, and autonomous clients that manage c
 {% hint style="warning" %}
 To learn more about Gravitee Enterprise and what's included in various enterprise packages, please:
 
-* [Refer to the EE vs OSS documentation](../../overview/gravitee-apim-enterprise-edition/README.md)
+* [Refer to the EE vs OSS documentation](../../overview/gravitee-apim-enterprise-edition/)
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
@@ -39,7 +43,7 @@ The following table shows which features have been implemented for each of these
 
 ## Configuring access to secret managers
 
-To configure access to secret managers, you can use `gravitee.yml`, environment variables, or JVM properties.&#x20;
+To configure access to secret managers, you can use `gravitee.yml`, environment variables, or JVM properties.
 
 The following shows a `gravitee.yml` configuration, where plugins can run in parallel when enabled:
 
@@ -52,13 +56,13 @@ secrets:
     enabled: true
 ```
 
-Alternatively, a `secret-provider` plugin can be enabled and configured by setting environment variables, e.g.,  `GRAVITEE_SECRETS_KUBERNETES_ENABLED=true`.
+Alternatively, a `secret-provider` plugin can be enabled and configured by setting environment variables, e.g., `GRAVITEE_SECRETS_KUBERNETES_ENABLED=true`.
 
 Configuration details are discussed below:
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-* No default assumptions are made regarding the location of `kubeConfigFile`. The absence of this file assumes that Gravitee is deployed in Kubernetes and the configuration is in-cluster.&#x20;
+* No default assumptions are made regarding the location of `kubeConfigFile`. The absence of this file assumes that Gravitee is deployed in Kubernetes and the configuration is in-cluster.
 * Namespace can be overridden in URLs via `?namespace=<name>`. If no namespace is provided, the namespace is assumed to be that of the cluster in which the platform is deployed. To fetch from the default namespace, it must be set explicitly, unless Gravitee is deployed in that namespace.
 
 ```yaml
@@ -140,7 +144,7 @@ This section covers the syntax for resolving secrets, how secrets are resolved f
 
 ### Syntax
 
-A consistent URL-like syntax can be used to specify the location of the secret (single value or pairs):&#x20;
+A consistent URL-like syntax can be used to specify the location of the secret (single value or pairs):
 
 **`secret://`**`<plugin id>/<secret path or name>[:<data key>][?option=value1&option=value2]`
 
@@ -200,14 +204,14 @@ http:
       secret: secret://kubernetes/gravitee-tls
 ```
 
-When the secret is fetched, both the `certificate` and `private_key` must be read. Gravitee points to the whole secret instead of specifying a `data key` because the names of the keys are unknown.&#x20;
+When the secret is fetched, both the `certificate` and `private_key` must be read. Gravitee points to the whole secret instead of specifying a `data key` because the names of the keys are unknown.
 
 The default mapping of the `kubernetes` plugin matches the "tls" secret type:
 
 * `certificate` → `tls.crt`
 * `private_key` → `tls.key`
 
-By default, the data keys for other secret managers are assumed to be "certificate" and "private\_key." However, users may want to follow other naming conventions or store several cert/key pairs in a single secret. For example, in Kubernetes, users may store TLS secrets in "generic" secrets.&#x20;
+By default, the data keys for other secret managers are assumed to be "certificate" and "private\_key." However, users may want to follow other naming conventions or store several cert/key pairs in a single secret. For example, in Kubernetes, users may store TLS secrets in "generic" secrets.
 
 To extract the certificate and private key and create a keystore to secure Gravitee in a way that works with any secret manager, we use the query parameter `keymap`. For example:
 
@@ -263,4 +267,4 @@ Current limitations are summarized below:
 
 * Only the `http.ssl.keystore.secret` x.509 pairs (whether format is PEM or KeyStore) can be watched and therefore hot-reloaded.
 * Only system environment variables and `gravitee.yml` properties can be resolved into secrets. A secret URL cannot be set via JVM properties, e.g., `-Dsystem.proxy.password=secret://kubernetes/giosecrets:proxypass` cannot be used. The parameters are passed directly to the platform without parsing and will not be detected by a `secret provider` plugin.
-* The `vault` plugin watches via polling because Vault events is an unstable feature.&#x20;
+* The `vault` plugin watches via polling because Vault events is an unstable feature.

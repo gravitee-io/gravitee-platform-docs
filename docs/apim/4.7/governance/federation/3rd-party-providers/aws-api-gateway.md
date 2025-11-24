@@ -1,3 +1,7 @@
+---
+description: An overview about aws api gateway.
+---
+
 # AWS API Gateway
 
 ## Overview
@@ -20,7 +24,7 @@ Head to the Gravitee APIM Console, open the Integrations section in the left men
 
 Once you've created the integration, copy the integration ID that will be visible on the integration overview tab, you'll use this later:
 
-<figure><img src="../../../../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 
 ## 2. Configure the AWS APIM federation agent
 
@@ -109,7 +113,7 @@ docker compose up -d
 
 In the Gravitee API Management console, after refreshing, you should now see the agent's status set to `Connected:`
 
-<figure><img src="../../../../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 
 If your **Agent Connection** still shows as `Disconnected`, then please inspect the agent's container logs. There you should find error logs that will help you troubleshoot.
 

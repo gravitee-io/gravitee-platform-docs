@@ -1,3 +1,7 @@
+---
+description: An overview about Plugins overview.
+---
+
 # Plugins overview
 
 ## Overview
@@ -59,11 +63,11 @@ A notifier is used to send notifications. The notifiers offered by Gravitee are:
 
 <summary>Policy</summary>
 
-A policy modifies the behavior of the request or response handled by the Gateway. It can be considered a proxy controller, guaranteeing that a given business rule is fulfilled during request/response processing. Policies can be chained by a request or response policy chain using a logical order.&#x20;
+A policy modifies the behavior of the request or response handled by the Gateway. It can be considered a proxy controller, guaranteeing that a given business rule is fulfilled during request/response processing. Policies can be chained by a request or response policy chain using a logical order.
 
 Examples:
 
-* Authorization using an API key&#x20;
+* Authorization using an API key
 * Applying header or query parameter transformations
 * Applying rate limiting or quotas to avoid API flooding
 
@@ -96,7 +100,7 @@ You can create, use and deploy custom reporters as described in the [Custom Plug
 
 <summary>Repository</summary>
 
-A repository is a pluggable storage component for API configuration, policy configuration, analytics, etc. See the [Repositories](../../../configuration/repositories/README.md) documentation for more information.
+A repository is a pluggable storage component for API configuration, policy configuration, analytics, etc. See the [Repositories](../../../configuration/repositories/) documentation for more information.
 
 </details>
 
@@ -118,6 +122,6 @@ See [Resources](../../../using-the-product/managing-your-apis-with-gravitee-api-
 
 <summary>Secret provider</summary>
 
-A secret provider resolves secrets to avoid exposing plain text passwords and secrets keys in the `gravitee.yml` file. For example, users can store their MongoDB password in a secret manager like HashiCorp Vault and then resolve it when the platform starts.&#x20;
+A secret provider resolves secrets to avoid exposing plain text passwords and secrets keys in the `gravitee.yml` file. For example, users can store their MongoDB password in a secret manager like HashiCorp Vault and then resolve it when the platform starts.
 
 </details>

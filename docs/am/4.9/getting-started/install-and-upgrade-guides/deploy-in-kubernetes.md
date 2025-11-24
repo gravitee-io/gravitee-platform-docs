@@ -1,3 +1,7 @@
+---
+description: Deployment guide for Kubernetes.
+---
+
 # Deploy in Kubernetes
 
 ## Overview

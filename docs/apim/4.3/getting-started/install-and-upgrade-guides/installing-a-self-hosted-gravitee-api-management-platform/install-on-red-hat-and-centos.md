@@ -1,3 +1,7 @@
+---
+description: Tutorial on Installing Gravitee API Management using RPM Packages.
+---
+
 # Installing Gravitee API Management using RPM Packages
 
 ## Introduction
@@ -91,7 +95,7 @@ An SELinux configuration issue can prevent Nginx from opening on ports 8084/8085
 
 <summary>Install the full APIM stack</summary>
 
-#### Prerequisites
+**Prerequisites**
 
 Before you install the full APIM stack, you must complete the following configuration.
 
@@ -103,7 +107,7 @@ Before you install the full APIM stack, you must complete the following configur
     sudo yum install nginx
     ```
 
-#### Install the APIM stack without dependencies
+**Install the APIM stack without dependencies**
 
 To install the APIM package only, run the following command:
 
@@ -111,7 +115,7 @@ To install the APIM package only, run the following command:
 sudo yum install graviteeio-apim-4x
 ```
 
-#### Install the APIM stack with dependencies
+**Install the APIM stack with dependencies**
 
 The following command installs both the APIM package and third-party repositories:
 
@@ -119,7 +123,7 @@ The following command installs both the APIM package and third-party repositorie
 curl -L https://bit.ly/install-apim-4x | bash
 ```
 
-#### Run APIM with `systemd`
+**Run APIM with `systemd`**
 
 To start up the APIM components, run the following commands:
 
@@ -129,7 +133,7 @@ sudo systemctl start graviteeio-apim-gateway graviteeio-apim-rest-api
 sudo systemctl restart nginx
 ```
 
-#### Check the APIM components are running
+**Check the APIM components are running**
 
 When all components are started, you can run a quick test by checking these URLs:
 
@@ -145,18 +149,18 @@ When all components are started, you can run a quick test by checking these URLs
 {% hint style="info" %}
 **Gravitee dependencies**
 
-Gravitee's [Installation & Upgrade Guides](../README.md) provide information on how to install Gravitee components. For prerequisite documentation on third-party products such as [MongoDB](https://www.mongodb.com/docs/v7.0/tutorial/install-mongodb-on-red-hat/) or [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/8.11/rpm.html), please visit their respective websites.
+Gravitee's [Installation & Upgrade Guides](../) provide information on how to install Gravitee components. For prerequisite documentation on third-party products such as [MongoDB](https://www.mongodb.com/docs/v7.0/tutorial/install-mongodb-on-red-hat/) or [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/8.11/rpm.html), please visit their respective websites.
 {% endhint %}
 
 <details>
 
 <summary>Install APIM Gateway</summary>
 
-#### Prerequisites
+**Prerequisites**
 
 The following steps assume you have configured your package management system as described in [Configure the package management system (yum).](install-on-red-hat-and-centos.md#configure-the-package-management-system-yum)
 
-#### Install the APIM Gateway package
+**Install the APIM Gateway package**
 
 To install the last stable version of the Gravitee API Management (APIM) Gateway, run the following command:
 
@@ -164,7 +168,7 @@ To install the last stable version of the Gravitee API Management (APIM) Gateway
 sudo yum install -y graviteeio-apim-gateway-4x
 ```
 
-#### Run APIM Gateway
+**Run APIM Gateway**
 
 These steps assume that you are using the default settings.
 
@@ -184,7 +188,7 @@ sudo systemctl stop graviteeio-apim-gateway
 
 These commands provide no feedback as to whether APIM Gateway started successfully. This information is written to the log files located in `/opt/graviteeio/apim/gateway/logs/`.
 
-#### View the logs
+**View the logs**
 
 When `systemd` logging is enabled, the logging information is available using the `journalctl` commands.
 
@@ -212,11 +216,11 @@ sudo journalctl --unit graviteeio-apim-gateway --since  "2020-01-30 12:13:14"
 
 <summary>Install Management API</summary>
 
-#### Prerequisites
+**Prerequisites**
 
 The following steps assume you have configured your package management system as described in [Configure the package management system (yum).](install-on-red-hat-and-centos.md#configure-the-package-management-system-yum)
 
-#### Install the Management API package
+**Install the Management API package**
 
 To install the last stable version of the management API, run the following command:
 
@@ -224,7 +228,7 @@ To install the last stable version of the management API, run the following comm
 sudo yum install -y graviteeio-apim-rest-api-4x
 ```
 
-#### Run the management API
+**Run the management API**
 
 These steps assume that you are using the default settings.
 
@@ -244,7 +248,7 @@ $ sudo systemctl stop graviteeio-apim-rest-api
 
 These commands provide no feedback as to whether the Management API started successfully. This information is written to the log files located in `/opt/graviteeio/apim/rest-api/logs/`.
 
-#### View the logs
+**View the logs**
 
 When `systemd` logging is enabled, the logging information is available using the `journalctl` commands.
 
@@ -272,7 +276,7 @@ sudo journalctl --unit graviteeio-apim-rest-api --since  "2020-01-30 12:13:14"
 
 <summary>Install Management Console</summary>
 
-#### Prerequisites
+**Prerequisites**
 
 Before you install the Management Console, you must complete the following configuration.
 
@@ -285,7 +289,7 @@ $ sudo yum install epel-release
 $ sudo yum install nginx
 ```
 
-#### Install the Management Console package
+**Install the Management Console package**
 
 To install the last stable version of the Management Console, run the following command:
 
@@ -293,7 +297,7 @@ To install the last stable version of the Management Console, run the following 
 $ sudo yum install -y graviteeio-apim-management-ui-4x
 ```
 
-#### Run the Management Console
+**Run the Management Console**
 
 The Management Console is based on Nginx.
 
@@ -311,7 +315,7 @@ $ sudo systemctl start nginx
 $ sudo systemctl stop nginx
 ```
 
-#### View the logs
+**View the logs**
 
 When `systemd` logging is enabled, the logging information is available using the `journalctl` commands.
 
@@ -339,7 +343,7 @@ sudo journalctl --unit nginx --since  "2020-01-30 12:13:14"
 
 <summary>Install Developer Portal</summary>
 
-#### Prerequisites
+**Prerequisites**
 
 Before you install the Developer Portal, you must complete the following configuration.
 
@@ -352,7 +356,7 @@ $ sudo yum install epel-release
 $ sudo yum install nginx
 ```
 
-#### Install the Developer Portal package
+**Install the Developer Portal package**
 
 To install the last stable version of The Developer Portal , run the following command:
 
@@ -360,7 +364,7 @@ To install the last stable version of The Developer Portal , run the following c
 sudo yum install -y graviteeio-apim-portal-ui-4x
 ```
 
-#### Run the Developer Portal
+**Run the Developer Portal**
 
 The Developer Portal is based on Nginx.
 
@@ -378,7 +382,7 @@ $ sudo systemctl start nginx
 $ sudo systemctl stop nginx
 ```
 
-#### View the logs
+**View the logs**
 
 When `systemd` logging is enabled, the logging information is available using the `journalctl` commands.
 

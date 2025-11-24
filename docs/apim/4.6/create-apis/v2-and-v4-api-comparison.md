@@ -1,3 +1,7 @@
+---
+description: An overview about v2 and v4 api comparison.
+---
+
 # v2 and v4 API Comparison
 
 ## Overview
@@ -67,4 +71,4 @@ When creating Gravitee APIs, keep in mind that v2 APIs and v4 APIs have some dif
 
 ## Policy support
 
-v2 APIs and v4 APIs support subsets of Gravitee policies. Supported policies are applied to one or more phases of the API transaction. For more information, see [Broken link](broken-reference "mention").
+v2 APIs and v4 APIs support subsets of Gravitee policies. Supported policies are applied to one or more phases of the API transaction. For more information, see [broken-reference](broken-reference/ "mention").

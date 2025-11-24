@@ -1,3 +1,7 @@
+---
+description: An overview about vanilla kubernetes.
+---
+
 # Vanilla Kubernetes
 
 {% hint style="warning" %}
@@ -161,7 +165,7 @@ To support analytics and logging, you must install Elasticsearch into your Kuber
     ```
 
     \
-    After a few minutes, the command generates the following output: 
+    After a few minutes, the command generates the following output:
 
     ```purebasic
     NAME                     READY   STATUS    RESTARTS   AGE
@@ -653,7 +657,7 @@ Ensure that you have the following sections complete:
 
     1. Replace `[ELASTIC PASSWORD FROM ES INSTALLATION]` with your Elasticsearch password.
     2. If your Kubernetes cluster does not support IPV6 networking, both the UI and Portal deployments must set the `IPV4_ONLY` environment variable to `true`.
-2.  **(Enterprise Edition only)** Navigate to the following section, and then uncomment the following configuration: 
+2.  **(Enterprise Edition only)** Navigate to the following section, and then uncomment the following configuration:
 
     ```yaml
      # License volume configuration for Management API (uncomment for enterprise edition)
@@ -879,5 +883,5 @@ To validate the Gateway URL, complete the following steps:
 
 ## Next steps
 
-* Create your first API. For more information about creating your first API, see [create-and-publish-your-first-api](../../../getting-started/create-and-publish-your-first-api/ "mention").
+* Create your first API. For more information about creating your first API, see [create-and-publish-your-first-api](../../../how-to-guides/create-and-publish-your-first-api/ "mention").
 * Add native Kafka capabilities. For more information about adding native Kafka capabilities, see [configure-the-kafka-client-and-gateway.md](../../../kafka-gateway/configure-the-kafka-client-and-gateway.md "mention").

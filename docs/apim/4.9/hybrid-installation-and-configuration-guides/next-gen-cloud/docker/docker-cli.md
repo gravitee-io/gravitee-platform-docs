@@ -1,3 +1,7 @@
+---
+description: An overview about docker cli.
+---
+
 # Docker CLI
 
 ## Overview
@@ -19,7 +23,7 @@ To enable API rate-limiting, configure your Gateway to use a rate-limiting repos
     ```sh
     docker network create gravitee-network
     ```
-2.  Run the command below to start Redis. 
+2.  Run the command below to start Redis.
 
     ```sh
     docker run -d \
@@ -76,7 +80,7 @@ To confirm that your Hybrid installation is working, complete the following step
     ```
 
     \
-    The command generates the following output. 
+    The command generates the following output.
 
     ```sh
     CONTAINER ID   IMAGE                         COMMAND                  CREATED             STATUS             PORTS                    NAMES
@@ -145,7 +149,7 @@ This response confirms that the Gateway has initialized, but no APIs have been d
     ```
 
     \
-    The command generates the following output: 
+    The command generates the following output:
 
     ```bash
     [gio-apim-hybrid-gateway] INFO  i.g.p.c.internal.PluginRegistryImpl - Loading plugins from /opt/graviteeio-gateway/plugins
@@ -206,5 +210,5 @@ To shut down the Gateway, choose one of the following options.
   1. Log in to your [Gravitee Cloud](https://cloud.gravitee.io/).
   2. From the Dashboard, navigate to the Environment where you created your Gateway.
   3. Click on **APIM Console** to open the user interface where you can create and manage your APIs.
-* Create your first API. For more information about creating your first API, see [create-and-publish-your-first-api](../../../getting-started/create-and-publish-your-first-api/ "mention").
+* Create your first API. For more information about creating your first API, see [create-and-publish-your-first-api](../../../how-to-guides/create-and-publish-your-first-api/ "mention").
 * Add native Kafka capabilities. For more information about adding native Kafka capabilities, see [configure-the-kafka-client-and-gateway.md](../../../kafka-gateway/configure-the-kafka-client-and-gateway.md "mention").

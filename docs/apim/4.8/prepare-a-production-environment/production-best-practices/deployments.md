@@ -1,10 +1,14 @@
+---
+description: Configuration guide for deployments.
+---
+
 # Deployments
 
 ## Console and Portal APIs
 
 Gravitee APIM Management API lets you simultaneously expose the APIM Console and Developer Portal REST APIs. This speeds up configuration for new users discovering the platform.
 
-If the Console and Developer Portal are not intended for the same category of users, we recommend that you deploy them on separate APIM instances, where the Console API is only enabled for instances dedicated to the Console and the Developer Portal API is only enabled for instances dedicated to the Developer Portal.&#x20;
+If the Console and Developer Portal are not intended for the same category of users, we recommend that you deploy them on separate APIM instances, where the Console API is only enabled for instances dedicated to the Console and the Developer Portal API is only enabled for instances dedicated to the Developer Portal.
 
 In the `gravitee.yaml` file of instances dedicated to the Management Console:
 
@@ -37,7 +41,7 @@ http:
 With this configuration, the Console REST API remains publicly inaccessible even if you decide to expose your Developer Portal.
 
 {% hint style="info" %}
-For security, do not publicly expose either your Console or Developer Portal unless there is a compelling business requirement.&#x20;
+For security, do not publicly expose either your Console or Developer Portal unless there is a compelling business requirement.
 {% endhint %}
 
 ## Enable HTTPS
@@ -67,7 +71,7 @@ Whenever possible, you should disable logging for APIs in a production environme
 To enable logging in your production environment, complete the following steps:
 
 1. In your `gravitee.yml` file, navigate to the `reporters` section.
-2. Set the `max_size` to `256KB`. The default value is `-1`, which indicates no limit.&#x20;
+2. Set the `max_size` to `256KB`. The default value is `-1`, which indicates no limit.
 
 Here is an example configuration:
 
@@ -89,9 +93,9 @@ Gravitee's LogGuard feature prevents the Gateway from experiencing an out-of-mem
 To enable LogGuard, you must complete the following steps:
 
 * Enable the health probes in the `health` section of your `gravitee.yaml` file. LogGuard relies on the `gc-pressure` probe.
-* Enable the `memory_pressure_guard` in the `reporters` section of your `gravitee.yaml` file.&#x20;
+* Enable the `memory_pressure_guard` in the `reporters` section of your `gravitee.yaml` file.
 
-The GC pressure probe measures the percentage of CPU time used by the GC. To dynamically disable memory-consuming features, the probe output is sampled at a frequency defined by the `delay` parameter of the `health` configuration, and then compared to the pressure threshold specified by the `gcPressureThreshold` parameter.&#x20;
+The GC pressure probe measures the percentage of CPU time used by the GC. To dynamically disable memory-consuming features, the probe output is sampled at a frequency defined by the `delay` parameter of the `health` configuration, and then compared to the pressure threshold specified by the `gcPressureThreshold` parameter.
 
 The following example configures the GC pressure probe:
 

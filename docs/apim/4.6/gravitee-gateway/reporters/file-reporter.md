@@ -1,3 +1,7 @@
+---
+description: Configuration guide for file reporter.
+---
+
 # File Reporter
 
 ## Configuration
@@ -38,4 +42,3 @@ reporters:
       exclude:
         - "*"
 ```
-

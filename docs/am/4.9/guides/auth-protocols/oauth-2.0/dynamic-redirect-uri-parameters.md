@@ -1,3 +1,7 @@
+---
+description: Overview of Dynamic Redirect URI Parameters.
+---
+
 # Dynamic Redirect URI Parameters
 
 ## Overview

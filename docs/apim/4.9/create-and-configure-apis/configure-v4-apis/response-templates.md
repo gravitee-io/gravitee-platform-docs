@@ -1,3 +1,7 @@
+---
+description: An overview about response templates.
+---
+
 # Response Templates
 
 ## Overview

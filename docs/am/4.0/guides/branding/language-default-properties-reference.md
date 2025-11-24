@@ -1,3 +1,7 @@
+---
+description: Troubleshooting guide for Email templates.
+---
+
 # Language Default Properties Reference
 
 ## Email templates

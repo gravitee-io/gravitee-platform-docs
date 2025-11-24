@@ -1,3 +1,7 @@
+---
+description: Overview of Control Plane.
+---
+
 # Control Plane & Data Plane
 
 Gravitee provides the flexibility to choose the type of database for each specific use case, referred to as the "scope," to distribute the load and reduce pressure on a single storage point.

@@ -1,3 +1,7 @@
+---
+description: Overview of Open Banking.
+---
+
 # Open Banking
 
 ## Overview

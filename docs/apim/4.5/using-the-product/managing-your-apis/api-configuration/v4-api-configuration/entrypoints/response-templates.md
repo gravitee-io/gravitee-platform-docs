@@ -1,3 +1,7 @@
+---
+description: An overview about response templates.
+---
+
 # Response Templates
 
 ## Overview
@@ -23,7 +27,7 @@ Response template overrides are triggered by error keys, which are specific to p
 
 Prior to defining a response template, verify:
 
-* Which policies have been applied to the API. This can be viewed in the [API's plan](../../../preparing-apis-for-subscribers/plans/README.md).
+* Which policies have been applied to the API. This can be viewed in the [API's plan](../../../preparing-apis-for-subscribers/plans/).
 * Which error keys can be overridden per policy associated with your API.
 
 Below are the policy error keys that you can override by configuring response templates:
@@ -47,7 +51,7 @@ To configure a response template:
 6. Click on the **Add new Response Template** button
 7.  Customize the **Create a new Response Template** form
 
-    <figure><img src="../../../../../../../../.gitbook/assets/create response template (1).png" alt=""><figcaption><p>Configure a new response template</p></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption><p>Configure a new response template</p></figcaption></figure>
 
     * **Template key:** Choose the template key via the **Template key** drop-down.
     * **Accept header to match:** Specify the requests header that should trigger use of the response template. The default value is `*/*`. To send the template override values only for JSON or XML requests, specify `JSON` or `XML.`

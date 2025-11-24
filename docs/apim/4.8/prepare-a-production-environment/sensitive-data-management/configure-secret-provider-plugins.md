@@ -1,3 +1,7 @@
+---
+description: An overview about configure secret provider plugins.
+---
+
 # Configure Secret Provider Plugins
 
 ## Overview
@@ -25,7 +29,7 @@ To learn more about Gravitee [Enterprise Edition](../../readme/enterprise-editio
 
 As with any other plugin, a secret provider plugin must be either bundled or added to the plugin directory.
 
-You can enable `secret-provider` plugins by configuring them in `gravitee.yml`. The configurations for each secret provider plugin are discussed below. As with all other `gravitee.yaml` configurations, you can also set these as [environment variables](README.md).
+You can enable `secret-provider` plugins by configuring them in `gravitee.yml`. The configurations for each secret provider plugin are discussed below. As with all other `gravitee.yaml` configurations, you can also set these as [environment variables](./).
 
 ### Use cases
 

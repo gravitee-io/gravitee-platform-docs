@@ -1,3 +1,7 @@
+---
+description: Configuration guide for authentication.
+---
+
 # Authentication
 
 ## Identity providers

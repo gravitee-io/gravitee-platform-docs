@@ -1,3 +1,7 @@
+---
+description: Overview of Access Tokens.
+---
+
 # Add Custom Claims to Tokens
 
 ## Overview
@@ -11,8 +15,6 @@ You can add custom claims to your Access Tokens or ID Tokens.
 3. In the **Settings** tab, click **OAuth 2.0 / OIDC**.
 4. Scroll down to the **Custom claims** section.
 5.  Configure details of the custom claim and click **SAVE**.
-
-
 
     You can now request your tokens to retrieve your custom claims.
 
@@ -39,4 +41,4 @@ To retrieve claims from the User Profile, use the following Gravitee Expression 
 \- or -
 
 \
-`{#context.attributes['user']['username']}` for the `username` attribute.\
+`{#context.attributes['user']['username']}` for the `username` attribute.\\

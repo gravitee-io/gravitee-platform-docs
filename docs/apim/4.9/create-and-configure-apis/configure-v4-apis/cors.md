@@ -1,3 +1,7 @@
+---
+description: An overview about cors.
+---
+
 # CORS
 
 {% hint style="warning" %}

@@ -1,3 +1,7 @@
+---
+description: An overview about Quick Install Gravitee API Management with Docker Compose.
+---
+
 # Quick Install Gravitee API Management with Docker Compose
 
 ## Overview
@@ -27,7 +31,7 @@ This installation method does not allow for custom plugins. To add custom plugin
        ```bash
         - /gravitee/license.key:/opt/graviteeio-gateway/license/license.key
        ```
-   3.  &#x20;Add the following line under `$services.management_api.volumes` , where `/gravitee/license.key` is the full path to the license key. This ensures that the Management API can access the license key.
+   3.  Add the following line under `$services.management_api.volumes` , where `/gravitee/license.key` is the full path to the license key. This ensures that the Management API can access the license key.
 
        ```bash
         - /gravitee/license.key:/opt/graviteeio-management-api/license/license.key
@@ -51,5 +55,5 @@ APIM can take up to a minute to fully initialize with Docker. If you get an erro
 {% endhint %}
 
 {% hint style="success" %}
-Congratulations! Now that APIM is up and running, check out the [Quickstart Guide](../../../quickstart-guide/README.md) for your next steps.
+Congratulations! Now that APIM is up and running, check out the [Quickstart Guide](../../../quickstart-guide/) for your next steps.
 {% endhint %}

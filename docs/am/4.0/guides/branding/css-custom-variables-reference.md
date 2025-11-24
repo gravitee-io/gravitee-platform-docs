@@ -1,3 +1,7 @@
+---
+description: Troubleshooting guide for Property Name - Default Value.
+---
+
 # CSS Custom Variables Reference
 
 | Property Name                       | Default Value                      |

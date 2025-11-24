@@ -1,3 +1,7 @@
+---
+description: An overview about service discovery.
+---
+
 # Service Discovery
 
 ## Overview

@@ -1,3 +1,7 @@
+---
+description: Overview of Bot Detection.
+---
+
 # Bot Detection
 
 ## Overview

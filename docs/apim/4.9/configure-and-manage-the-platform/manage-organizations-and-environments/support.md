@@ -1,3 +1,7 @@
+---
+description: An overview about support.
+---
+
 # Support
 
 {% hint style="warning" %}

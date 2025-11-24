@@ -1,3 +1,7 @@
+---
+description: Configuration guide for dictionaries.
+---
+
 # Dictionaries
 
 {% hint style="warning" %}

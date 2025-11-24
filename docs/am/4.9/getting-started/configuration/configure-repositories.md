@@ -1,3 +1,7 @@
+---
+description: Overview of Repositories.
+---
+
 # Repositories & DataPlane
 
 ## Overview
@@ -334,7 +338,7 @@ dataPlanes:
 {% endtabs %}
 
 {% hint style="success" %}
-#### Starting with AM 4.9.0, the `schema` setting is available for the PostgreSQL backend. A schema is a named collection of database objects, comparable to a namespace. For more information about schemas, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/ddl-schemas.html).
+**Starting with AM 4.9.0, the `schema` setting is available for the PostgreSQL backend. A schema is a named collection of database objects, comparable to a namespace. For more information about schemas, see the** [**PostgreSQL documentation**](https://www.postgresql.org/docs/current/ddl-schemas.html)**.**
 {% endhint %}
 
 #### Secured Connections

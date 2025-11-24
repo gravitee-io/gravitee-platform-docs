@@ -1,3 +1,7 @@
+---
+description: An overview about Kafka.
+---
+
 # Kafka
 
 ## Overview
@@ -18,7 +22,7 @@ You can tell the Gravitee Gateway's Kafka client to act as a producer, a consume
 
 ### **2. Bootstrap servers**
 
-You must define a comma-separated list of host/port pairs to use for establishing the initial connection to the Kafka cluster. This list only pertains to the initial hosts used to discover the full set of servers. The client will make use of all servers irrespective of which servers the list designates for bootstrapping.&#x20;
+You must define a comma-separated list of host/port pairs to use for establishing the initial connection to the Kafka cluster. This list only pertains to the initial hosts used to discover the full set of servers. The client will make use of all servers irrespective of which servers the list designates for bootstrapping.
 
 ### 3. Initial security settings
 
@@ -61,7 +65,7 @@ Define whichever of the following are relevant to your configuration.
 
 ### 4. Role settings
 
-If you chose **Use Producer** or **Use Producer and Consumer**, you need to define the settings that the Gravitee Gateway Kafka client will rely on for producing messages to your backend Kafka topic/broker.&#x20;
+If you chose **Use Producer** or **Use Producer and Consumer**, you need to define the settings that the Gravitee Gateway Kafka client will rely on for producing messages to your backend Kafka topic/broker.
 
 If you chose **Use Consumer** or **Use Producer and Consumer**, you need to define the settings that the Gravitee Gateway Kafka client will rely on for consuming messages from your backend Kafka topic/broker.
 
@@ -116,9 +120,9 @@ The `auto-offset-reset` of the API is managed at the endpoint level and cannot b
 {% endtab %}
 
 {% tab title="Offset selection" %}
-By default, the consumer that is created will either resume from where it left off or use the `auto-offset-reset` configuration to position itself at the beginning or end of the topic.&#x20;
+By default, the consumer that is created will either resume from where it left off or use the `auto-offset-reset` configuration to position itself at the beginning or end of the topic.
 
-Offsets are determined by partitions, resulting in numerous possible mappings. To mitigate the inherent complexity of offset selection, Gravitee has introduced a mechanism to target a specific position on a Kafka topic.&#x20;
+Offsets are determined by partitions, resulting in numerous possible mappings. To mitigate the inherent complexity of offset selection, Gravitee has introduced a mechanism to target a specific position on a Kafka topic.
 
 Given a compatible entrypoint (SSE, HTTP GET), and by using At-Most-Once or At-Least-Once QoS, it is possible to specify a last event ID. The format is encoded by default and follows the pattern:
 
@@ -144,9 +148,9 @@ A topic is retrieved from the API configuration and can be overridden, either on
 {% endtab %}
 
 {% tab title="Partitioning" %}
-The only supported method for targeting a specific partition is to define a key and rely on the built-in partitioning mechanism. Kafka's default partitioner strategy uses the key to compute the associated partition: `hash(key) % nm of partition`.&#x20;
+The only supported method for targeting a specific partition is to define a key and rely on the built-in partitioning mechanism. Kafka's default partitioner strategy uses the key to compute the associated partition: `hash(key) % nm of partition`.
 
-Repeated use of the same key on each message guarantees that messages are relegated to the same partition and order is maintained. Gravitee doesn't support overriding this mechanism to manually set the partition.&#x20;
+Repeated use of the same key on each message guarantees that messages are relegated to the same partition and order is maintained. Gravitee doesn't support overriding this mechanism to manually set the partition.
 
 To set a key on a message, the attribute `gravitee.attribute.kafka.recordKey` must be added to the message.
 {% endtab %}

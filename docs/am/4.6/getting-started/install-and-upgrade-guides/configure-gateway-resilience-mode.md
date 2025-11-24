@@ -1,3 +1,7 @@
+---
+description: Configuration guide for Configure Gateway Resilience Mode.
+---
+
 # Configure Gateway Resilience Mode
 
 ## Overview
@@ -17,7 +21,7 @@ The **Data Plane** is the runtime part of Access Management where configuration 
 To ensure that the AM can still perform its key responsibilities when the the gateway cannot communicate with the control plane, there is a **resilience mode**. This mode comes with some drawbacks of non functioning features that require connection to the control plane.
 
 {% hint style="info" %}
-Resilience mode is the first step in the evolution of Access Management architecture  to providing a clean separation between the Control plane and the Data plane. The resilience mode has been introduce to reduce the gateway interactions with the control plan without major architecture changes.
+Resilience mode is the first step in the evolution of Access Management architecture to providing a clean separation between the Control plane and the Data plane. The resilience mode has been introduce to reduce the gateway interactions with the control plan without major architecture changes.
 {% endhint %}
 
 ## Limitations
@@ -26,8 +30,8 @@ As the gateway relies on the control plane for many capabilities, in relisience 
 
 * If identity providers are not backed by the Control Plan (social providers, LDAP, ...) login works.
 * WebAuhtn will not be usable as the credentials are currently under the `management` repository scope.
-* Audits sent to the default reporter will be lost. To fix this issue, alternative reporters can be configured. For example, Kafka reporter.&#x20;
-* If tokens are generated for an end user, introspection will work without Control Plan access only if the user profile remains in the User cache. If the user is missing from the cache, instrospect will reject the token.&#x20;
+* Audits sent to the default reporter will be lost. To fix this issue, alternative reporters can be configured. For example, Kafka reporter.
+* If tokens are generated for an end user, introspection will work without Control Plan access only if the user profile remains in the User cache. If the user is missing from the cache, instrospect will reject the token.
 * Tokens delivered when Control Plan is down may not be possible to revoke.
 * Refresh token works as far as the user is present into the cache. If the cache does not contain the user profile, refreshing the token fails.
 * Groups and roles statically assigned to a user may not be retrieved for the user. Tokens are generated without those information. To fix this issue, dynamic group mapping has been introduced.
@@ -37,7 +41,7 @@ As the gateway relies on the control plane for many capabilities, in relisience 
 * **User registration** does not work
 * SCIM does not work
 * Usage of Extension Grant flow does not work
-* Without connection to Control Plane/Database, the Gateway does not start&#x20;
+* Without connection to Control Plane/Database, the Gateway does not start
 
 {% hint style="warning" %}
 Resilience mode is available only for domains created starting from the version 4.5.0. Domains created in previous version ignore this mode.
@@ -45,7 +49,7 @@ Resilience mode is available only for domains created starting from the version 
 
 ## Configuring the resilience mode
 
-The resilience mode requires configuration on the Gateway gravitee.yaml.&#x20;
+The resilience mode requires configuration on the Gateway gravitee.yaml.
 
 * Configure the gateway and oauth2 scopes to target a database different from the one used for the management scope
 

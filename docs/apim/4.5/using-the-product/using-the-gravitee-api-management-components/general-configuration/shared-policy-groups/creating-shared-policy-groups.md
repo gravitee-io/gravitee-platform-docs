@@ -1,10 +1,14 @@
+---
+description: Configuration and usage guide for creating shared policy groups.
+---
+
 # Creating shared policy groups
 
 1. Navigate to the shared policy groups by completing the following sub-steps:
 
-&#x20;       a.  Navigate to **Settings**, and then click **Gateway**.
+a. Navigate to **Settings**, and then click **Gateway**.
 
-&#x20;       b.  Click **Shared Policy Group**.
+b. Click **Shared Policy Group**.
 
 2. Click **Add Shared Policy Group**.
 3. Depending on the chain that you want execute on, select either **proxy APIs** or **message APIs**.

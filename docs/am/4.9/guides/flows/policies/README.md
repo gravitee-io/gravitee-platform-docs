@@ -1,3 +1,7 @@
+---
+description: Overview of Policies.
+---
+
 # Policies
 
 ## Overview
@@ -5,7 +9,7 @@
 Policies in Access Management (AM) define specific actions or validations to be executed at various stages in the authentication and user management process. Each policy serves a distinct function, from security checks to user experience improvements.
 
 {% hint style="warning" %}
-Policies labeled as (EE) are only available in the [Enterprise Edition (EE)](../../../overview/open-source-vs-enterprise-am/README.md) of Gravitee.&#x20;
+Policies labeled as (EE) are only available in the [Enterprise Edition (EE)](../../../overview/open-source-vs-enterprise-am/) of Gravitee.
 {% endhint %}
 
 ## Policy list

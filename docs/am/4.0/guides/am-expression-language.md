@@ -1,3 +1,7 @@
+---
+description: Configuration guide for The AM Expression Language.
+---
+
 # AM Expression Language
 
 ## Overview
@@ -41,14 +45,14 @@ It is sometimes useful to access the request information through the EL. As an e
 
 You can access the client/app properties using this EL `{#context.attributes['client']}`. This expression will return a ClientProperties object with the following attributes:
 
-| Attribute  | Description                                                     | Syntax                                                              |
-| ---------- | --------------------------------------------------------------- | ------------------------------------------------------------------- |
-| id         | Client/App Internal identifier                                  | {#context.attributes\['client']\['id']}                             |
-| domain     | Domain Internal identifier on which the application is attached | {#context.attributes\['client']\['domain']}                         |
-| clientId   | The client\_id of the application                               | {#context.attributes\['client']\['clientId']}                       |
-| clientName | The name of the application                                     | {#context.attributes\['client']\['clientName']}                     |
-| name       | The name of the application (Same as clientName)                | {#context.attributes\['client']\['name']}                           |
-| metadata   | Map of Metadata associated to the application                   |  {#context.attributes\['client']\['metadata']\['my-metadata-name']} |
+| Attribute  | Description                                                     | Syntax                                                             |
+| ---------- | --------------------------------------------------------------- | ------------------------------------------------------------------ |
+| id         | Client/App Internal identifier                                  | {#context.attributes\['client']\['id']}                            |
+| domain     | Domain Internal identifier on which the application is attached | {#context.attributes\['client']\['domain']}                        |
+| clientId   | The client\_id of the application                               | {#context.attributes\['client']\['clientId']}                      |
+| clientName | The name of the application                                     | {#context.attributes\['client']\['clientName']}                    |
+| name       | The name of the application (Same as clientName)                | {#context.attributes\['client']\['name']}                          |
+| metadata   | Map of Metadata associated to the application                   | {#context.attributes\['client']\['metadata']\['my-metadata-name']} |
 
 ### **User Profile information**
 
@@ -123,8 +127,5 @@ In the tokens tab of the application OAuth 2.0 settings `domains > mydomain > ap
 Claim : `uuid`
 
 Claim Value: `{#context.attributes['authFlow']['authflow-attribute']}`
-
-
-
 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-el-token.png" alt=""><figcaption><p>Application tokens</p></figcaption></figure>

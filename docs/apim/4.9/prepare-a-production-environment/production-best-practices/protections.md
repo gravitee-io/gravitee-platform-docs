@@ -1,8 +1,12 @@
+---
+description: Tutorial on protections.
+---
+
 # Protections
 
 ## Brute-force protection
 
-A brute-force attack is the submission of a high volume of authentication requests consisting of password permutations. Even with OAuth 2.0 enabled, you can leave behind a login form for in-memory or local users. Some tools can help you to prevent malicious actions by banning IPs. This section explains how to secure the APIM UI components (Management and Portal) and APIM APIs against brute-force attacks.&#x20;
+A brute-force attack is the submission of a high volume of authentication requests consisting of password permutations. Even with OAuth 2.0 enabled, you can leave behind a login form for in-memory or local users. Some tools can help you to prevent malicious actions by banning IPs. This section explains how to secure the APIM UI components (Management and Portal) and APIM APIs against brute-force attacks.
 
 ### ReCaptcha
 
@@ -24,7 +28,7 @@ Gravitee relies on [ReCaptcha V3](https://developers.google.com/recaptcha/docs/v
 
 If your platform is particularly exposed to the outside world, we recommend adding additional protection against pure brute-force attacks by setting up Fail2Ban. For instructions on installing Fail2Ban, see the [Fail2Ban website](https://www.fail2ban.org).
 
-Fail2Ban scans log files and automatically bans IPs that show malicious signs, e.g., too many password failures, seeking an opportunity for exploitation, etc.&#x20;
+Fail2Ban scans log files and automatically bans IPs that show malicious signs, e.g., too many password failures, seeking an opportunity for exploitation, etc.
 
 #### **Configuration**
 

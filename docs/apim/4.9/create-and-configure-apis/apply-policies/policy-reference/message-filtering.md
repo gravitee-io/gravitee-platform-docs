@@ -1,3 +1,7 @@
+---
+description: An overview about message filtering.
+---
+
 # Message Filtering
 
 {% hint style="warning" %}
