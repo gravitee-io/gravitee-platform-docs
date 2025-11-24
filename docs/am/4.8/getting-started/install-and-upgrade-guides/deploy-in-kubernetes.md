@@ -1,3 +1,7 @@
+---
+description: Deployment guide for Kubernetes.
+---
+
 # Deploy in Kubernetes
 
 ## Overview
@@ -528,7 +532,8 @@ AM can rely on different backends to prersist data. By default AM comes with Mon
 
 If you are using a managed MongoDB like MongoDB Atlas, you can simply define the mongo uri.
 
-{% code title="MongoDB Altas" overflow="wrap" %}
+\{% code title="MongoDB Altas" overflow="wrap" %\}
+
 ```yaml
 mongo:
   uri: mongodb+srv://<username>:<password>@<instance>.mongodb.net/<dbname>?retryWrites=true&w=majority&connectTimeoutMS=10000&maxIdleTimeMS=30000
@@ -539,15 +544,15 @@ management:
 oauth2:
   type: mongodb
 ```
-{% endcode %}
+
+\{% endcode %\}
 
 If you want to deploy a MongoDB ReplicaSet using the Helm Chart dependency, you simply have to enable it. The **dbhost** has to be defined using the name of the helm installation (in this example **am**) followed by **-mongodb-replicaset**.
 
-{% hint style="danger" %}
-This is not recommended for production environments.
-{% endhint %}
+\{% hint style="danger" %\} This is not recommended for production environments. \{% endhint %\}
 
-{% code title="MongoDB ReplicaSet" %}
+\{% code title="MongoDB ReplicaSet" %\}
+
 ```yaml
 mongodb-replicaset:
   enabled: true
@@ -558,11 +563,13 @@ mongo:
   dbhost: am-mongodb-replicaset
   dbname: gravitee-am
 ```
-{% endcode %}
+
+\{% endcode %\}
 
 ### RDBMS: Postgres
 
-{% code title="PostgreSQL configuration" overflow="wrap" %}
+\{% code title="PostgreSQL configuration" overflow="wrap" %\}
+
 ```yaml
 jdbc:
   driver: postgresql
@@ -593,11 +600,13 @@ oauth2:
 gateway:
   type: jdbc
 ```
-{% endcode %}
+
+\{% endcode %\}
 
 ### RDBMS: MySQL
 
-{% code title="MySQL configuration" overflow="wrap" %}
+\{% code title="MySQL configuration" overflow="wrap" %\}
+
 ```yaml
 jdbc:
   driver: mysql
@@ -628,11 +637,13 @@ oauth2:
 gateway:
   type: jdbc
 ```
-{% endcode %}
+
+\{% endcode %\}
 
 ### RDBMS: MariaDB
 
-{% code title="MariaDB configuration" overflow="wrap" %}
+\{% code title="MariaDB configuration" overflow="wrap" %\}
+
 ```sh
 jdbc:
   driver: mariadb
@@ -663,11 +674,13 @@ oauth2:
 gateway:
   type: jdbc
 ```
-{% endcode %}
+
+\{% endcode %\}
 
 ### RDBMS: SQLServer
 
-{% code title="SQLServer configuration" overflow="wrap" %}
+\{% code title="SQLServer configuration" overflow="wrap" %\}
+
 ```sh
 jdbc:
   driver: sqlserver
@@ -698,7 +711,8 @@ oauth2:
 gateway:
   type: jdbc
 ```
-{% endcode %}
+
+\{% endcode %\}
 
 ## Install AM Enterprise Edition
 
@@ -738,27 +752,32 @@ In this section, you will find an example `values.yaml` file based on the [**Con
 
 If not used, the recommendation is to disable the internal APIs on the AM API and AM Gateway components. This can be done by defining environment variables for both components.
 
-{% code title="Disable AM API internal APIs" %}
+\{% code title="Disable AM API internal APIs" %\}
+
 ```yaml
 api:
   env:
     - name: gravitee_services_core_http_enabled
       value: "false"
 ```
-{% endcode %}
 
-{% code title="Disable AM Gateway internal APIs" %}
+\{% endcode %\}
+
+\{% code title="Disable AM Gateway internal APIs" %\}
+
 ```yaml
 gateway:
   env:
     - name: gravitee_services_core_http_enabled
       value: "false"
 ```
-{% endcode %}
+
+\{% endcode %\}
 
 The AM Gateway provides a readiness probe that takes into account the number of domains synced at startup. If you want to use this probe, then you shouldn’t disable the internal APIs. Instead, we use the following configuration on the gateway:
 
-{% code title="AM Gateway readiness probe" %}
+\{% code title="AM Gateway readiness probe" %\}
+
 ```yaml
 gateway:
   services:
@@ -768,7 +787,8 @@ gateway:
   readinessProbe:
     domainSync: true
 ```
-{% endcode %}
+
+\{% endcode %\}
 
 ### Update the default users
 
