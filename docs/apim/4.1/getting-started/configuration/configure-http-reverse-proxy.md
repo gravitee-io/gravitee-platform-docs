@@ -1,3 +1,7 @@
+---
+description: Guide to configuring HTTP Reverse Proxy.
+---
+
 # Configure HTTP Reverse Proxy
 
 Here is a simple example of APIM components configuration with docker-compose.

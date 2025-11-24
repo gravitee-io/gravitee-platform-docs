@@ -28,7 +28,7 @@ Exposing an API to a consumer requires at least one plan, but can support as man
 * Premium access with public resources and access limits for your partners.
 * Unlimited access to your internal enterprise applications.
 
-<figure><img src="../../../../../.gitbook/assets/plan-diagram (1).png" alt=""><figcaption><p>High-level plan diagram</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>High-level plan diagram</p></figcaption></figure>
 
 After creating a plan, it's initially in the first of the four stages of a plan: staging, published, deprecated, and closed.
 

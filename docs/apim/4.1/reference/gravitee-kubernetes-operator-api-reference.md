@@ -1,3 +1,7 @@
+---
+description: An overview about Gravitee Kubernetes Operator API Reference.
+---
+
 # Gravitee Kubernetes Operator API Reference
 
 ## Overview
