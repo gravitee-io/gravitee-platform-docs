@@ -1,3 +1,7 @@
+---
+description: Overview of API categorization
+---
+
 # Categorizing Web APIs
 
 Web APIs are generally categorized as synchronous or asynchronous and stateless or stateful. These concepts are often subject to cross-pollination (e.g. all stateless APIs are synchronous) when, in actuality, they are entirely independent. Their respective details and relationships are further explored below in [synchronous vs asynchronous](categorizing-web-apis.md#synchronous-vs-asynchronous-9) and [stateful vs stateless web APIs](categorizing-web-apis.md#stateful-vs-stateless-web-apis-13).

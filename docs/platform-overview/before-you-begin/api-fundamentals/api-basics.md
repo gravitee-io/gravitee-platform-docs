@@ -1,3 +1,7 @@
+---
+description: Introduction to the basics of API
+---
+
 # API Basics
 
 An application programming interface, or API, is a set of publicly exposed specifications that define the logic of how to integrate with a particular piece of software. These conventions establish a contract and provide the structure that allows computer programs or applications to communicate.
