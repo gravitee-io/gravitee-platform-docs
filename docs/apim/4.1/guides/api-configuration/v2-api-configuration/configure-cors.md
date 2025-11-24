@@ -121,7 +121,7 @@ You've configured your CORS settings for your API. When you are done, select **S
 
 All requests rejected because of CORS issues will generate logs that you can view in the `Analytics` section of your API logs.
 
-<img src="../../../../../../.gitbook/assets/graviteeio-troubleshooting-cors (1).png" alt="" data-size="original">
+<img src="broken-reference" alt="" data-size="original">
 {% endhint %}
 
 ### Configure Deployments
@@ -227,7 +227,7 @@ To configure Response templates, follow these few steps:
    * One or more HTTP headers to include in the response
    * A response template body
 
-<figure><img src="../../../../../../.gitbook/assets/Response templates (1).gif" alt=""><figcaption><p>Configure Response templates</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Configure Response templates</p></figcaption></figure>
 
 {% hint style="success" %}
 **Success!**

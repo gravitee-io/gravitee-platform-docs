@@ -1,3 +1,7 @@
+---
+description: Guide to configuring Cache.
+---
+
 # Configure Cache
 
 ## Overview
@@ -5,7 +9,7 @@
 Caches are used to store different types of data in Gravitee API Management (APIM). The following Cache Managers are available as plugins:
 
 * **Standalone Cache Manager:** The default plugin. The cache will not be distributed and will always remain local to the node (in-memory).
-* **Hazelcast Cache Manager:** Must be added to the distribution and enabled by setting `cache.type` to `hazelcast`. The cache can be either local (in-memory) or distributed (Hazelcast IMap).&#x20;
+* **Hazelcast Cache Manager:** Must be added to the distribution and enabled by setting `cache.type` to `hazelcast`. The cache can be either local (in-memory) or distributed (Hazelcast IMap).
 
 The following is an example of the Hazelcast implementation:
 
@@ -60,7 +64,7 @@ More information can be found in the [Hazelcast documentation](https://docs.haze
 API publishers can [create Cache resources](../../guides/api-configuration/resources.md#how-to-create-a-resource) to:
 
 * Cache upstream of a response with the [Cache policy](../../reference/policy-reference/cache.md)
-* Cache access tokens with the [OAuth2 policy](../../reference/policy-reference/oauth2/README.md)
+* Cache access tokens with the [OAuth2 policy](../../reference/policy-reference/oauth2/)
 
 The default distribution includes the [Cache resource](../../guides/api-configuration/resources.md#cache) plugin, which stores content in-memory and is locally managed on each Gateway node of the installation.
 
