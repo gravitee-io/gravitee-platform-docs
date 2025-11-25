@@ -27,9 +27,9 @@ The following sections provide a high-level overview of Gravitee architecture, c
 
 The architecture diagrams below offer a high-level conceptualization of the Gravitee ecosystem. The first diagram shows the interactions between and within Gravitee API Management (APIM) and Gravitee Access Management (AM). The second diagram illustrates the function of the Alert Engine (AE).
 
-<figure><img src="../.gitbook/assets/AM-APIM-Architecture (4).png" alt=""><figcaption><p>APIM and AM architecture overview</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/AM-APIM-Architecture.png" alt=""><figcaption><p>APIM and AM architecture overview</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/AE-Architecture (1).png" alt=""><figcaption><p>AE architecture overview</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/AE-Architecture.png" alt=""><figcaption><p>AE architecture overview</p></figcaption></figure>
 
 * API publishers make requests to the Management API either programmatically or from the Management Console.
 * The Management API focuses on creating and deploying APIs to the Gateway, which determines how requests are proxied from clients to backend APIs and how backend APIs are exposed in the Developer Portal for access by API consumers.

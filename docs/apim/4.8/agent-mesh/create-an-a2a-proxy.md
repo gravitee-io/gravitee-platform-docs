@@ -34,7 +34,7 @@ Truly intelligent agents need access to both synchronous (request-response) and 
 
 1.  From the **Dashboard**, click **APIs.**
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/3AFC7359-4334-44DE-A2AA-3732BE173718_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 2.  Click **+Add API**.
 
     <figure><img src="../.gitbook/assets/4C33F7FA-43E1-43DB-86E4-3322A25B012A_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>

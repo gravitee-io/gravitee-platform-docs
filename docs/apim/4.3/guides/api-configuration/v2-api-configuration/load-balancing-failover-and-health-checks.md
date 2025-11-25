@@ -50,13 +50,13 @@ To configure load-balancing:
 3. Select your API
 4.  From the inner left nav, select **Endpoints** under **Backend services**
 
-    <figure><img src="broken-reference" alt=""><figcaption><p>Endpoint configuration</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/v2 endpoint group.png" alt=""><figcaption><p>Endpoint configuration</p></figcaption></figure>
 5.  To confirm the load-balancing algorithm (chosen when your endpoint's group was created), click **Edit group** and select the **General** tab. Click the arrow to **Go back** to the endpoint configuration
 
-    <figure><img src="broken-reference" alt=""><figcaption><p>Edit endpoint group</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/v2 endpoint group edit.png" alt=""><figcaption><p>Edit endpoint group</p></figcaption></figure>
 6.  Click the pencil icon for your endpoint and select the **General** tab to edit the load-balancing weight
 
-    <figure><img src="broken-reference" alt=""><figcaption><p>Configure load-balancing weight</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/v2 endpoint weight.png" alt=""><figcaption><p>Configure load-balancing weight</p></figcaption></figure>
 7. Click **Save**
 
 ### Failover
@@ -68,7 +68,7 @@ To configure failover:
 3. Select your API
 4.  From the inner left nav, select **Failover** under **Backend services**
 
-    <figure><img src="broken-reference" alt=""><figcaption><p>Configure failover</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/v2 failover.png" alt=""><figcaption><p>Configure failover</p></figcaption></figure>
 5. Configure the following:
    * Toggle **Enable Failover** ON
    * **Max Attempts:** Define the upper limit for the number of possible Gravitee API Gateway attempts to find a suitable endpoint, according to the load-balancing algorithm, before returning an error
@@ -84,7 +84,7 @@ To configure health-checks:
 3. Select your API
 4.  From the inner left nav, select **Health-check** under **Backend services**
 
-    <figure><img src="broken-reference" alt=""><figcaption><p>Configure health-checks</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/v2 health-check.png" alt=""><figcaption><p>Configure health-checks</p></figcaption></figure>
 5. Configure the following:
    * Toggle **Enable health-check** ON
    * Define the **Trigger Schedule** to establish the time interval between successive health-checks
