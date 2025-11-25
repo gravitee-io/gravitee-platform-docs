@@ -45,7 +45,7 @@ By default, an APIM Gateway installed using the Helm Chart includes a limited se
 
 An overview of this architecture is described by the diagram below.
 
-<figure><img src="../../../../.gitbook/assets/k8s cluster mode.png" alt=""><figcaption><p>Default Cluster Mode architecture</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Default Cluster Mode architecture</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Namespaced Mode" %}
@@ -55,7 +55,7 @@ To achieve this architecture, the `manager.scope.cluster` value must be set to `
 
 An overview of this architecture is described by the diagram below.
 
-<figure><img src="../../../../.gitbook/assets/k8s namespaced mode.png" alt=""><figcaption><p>Multiple operators, each listening to its own namespace</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Multiple operators, each listening to its own namespace</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Multi-Cluster Mode" %}
@@ -83,6 +83,6 @@ spec:
 
 An overview of this architecture is described by the diagram below.
 
-<figure><img src="../../../../.gitbook/assets/k8s multi-cluster mode.png" alt=""><figcaption><p>One operator, multiple clusters/regions</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>One operator, multiple clusters/regions</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}

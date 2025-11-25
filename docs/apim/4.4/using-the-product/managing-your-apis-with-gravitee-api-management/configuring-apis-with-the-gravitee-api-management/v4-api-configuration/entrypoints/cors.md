@@ -21,11 +21,11 @@ To configure CORS for an API, follow the steps below.
 3. Select the API for which you want to configure CORS
 4.  Select the **Edit API** icon
 
-    <figure><img src="../../../../../.gitbook/assets/CORS_edit API.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 5. Select **Entrypoints** from the inner left nav
 6.  Select the **Cors** tab
 
-    <figure><img src="../../../../../.gitbook/assets/CORS_tab.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 7.  Set the following parameters:
 
     * **Enable CORS:** Toggle to ON to enable CORS.

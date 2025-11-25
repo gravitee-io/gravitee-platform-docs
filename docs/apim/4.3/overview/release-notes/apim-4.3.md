@@ -48,17 +48,17 @@ Gravitee 4.3 includes numerous API documentation enhancements:
 * To automate the process of creating OpenAPI or AsyncAPI docs pages for v4 APIs, you can make a Management API endpoint REST call to create a docs page from an OpenAPI or AsyncAPI spec.
 *   Markdown, OpenAPI, and AsyncAPI files can be uploaded as v4 API documentation pages via the Console.
 
-    <figure><img src="../../.gitbook/assets/docs_content 1.png" alt=""><figcaption><p>Upload a Markdown file as a documentation page</p></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption><p>Upload a Markdown file as a documentation page</p></figcaption></figure>
 
-    <figure><img src="../../.gitbook/assets/docs_markdown content.png" alt=""><figcaption><p>Uploaded Markdown content</p></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption><p>Uploaded Markdown content</p></figcaption></figure>
 *   Like user-created content, imported content can be edited via the Markdown editor, and by enabling **Toggle preview**, you can view the content you enter and the rendered page side-by-side.
 
-    <figure><img src="../../.gitbook/assets/edit imported content 1.png" alt=""><figcaption><p>Use the editor to modify imported content</p></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption><p>Use the editor to modify imported content</p></figcaption></figure>
 * Page referencing allows documentation pages to be reused and easily exported between environments. Within an API's documentation, you can link to one page from another via special syntax.
 * In addition to making API documentation available via the Developer Portal, you can send messages to parties interested in your API to advertise updates, warn of upcoming changes, etc. Message delivery mechanism, recipients, and content can be configured in the APIM Console.
 *   Dynamic v4 API documentation pages can be created by adding metadata keys and values.
 
-    <figure><img src="../../.gitbook/assets/metadata_screen.png" alt=""><figcaption><p>API metadata</p></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption><p>API metadata</p></figcaption></figure>
 
 Refer to the [API Documentation](../../guides/api-configuration/v4-api-configuration/documentation.md) section for more information.
 
@@ -66,13 +66,13 @@ Refer to the [API Documentation](../../guides/api-configuration/v4-api-configura
 
 v4 API properties can be dynamically managed via the **Properties** tab of the API Management Console's **Configuration** screen\*\*.\*\* To learn more about properties and how to set them, see the [documentation](../../guides/policy-studio/v4-api-policy-studio.md#api-properties).
 
-<figure><img src="../../.gitbook/assets/api properties_dynamically manage.png" alt=""><figcaption><p>Dynamically manage properties</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Dynamically manage properties</p></figcaption></figure>
 
 ## Audit logs
 
 Events and audit entries are now captured at the API level for v4 APIs. These are listed in table format and can be filtered by event type and date range.
 
-<figure><img src="../../.gitbook/assets/audit logs_v4 apis.png" alt=""><figcaption><p>Events and audit logs</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Events and audit logs</p></figcaption></figure>
 
 See the [Audit Logs](../../guides/api-configuration/v4-api-configuration/audit-logs.md) documentation for more information.
 
@@ -82,13 +82,13 @@ See the [Audit Logs](../../guides/api-configuration/v4-api-configuration/audit-l
 
 Markdown support has been extended to the **Description** field in the API Catalog. The rendered Markdown will appear in the Developer Portal.
 
-<figure><img src="../../.gitbook/assets/catalog description.png" alt=""><figcaption><p>Using Markdown for the Description in the Catalog</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Using Markdown for the Description in the Catalog</p></figcaption></figure>
 
 ### Documentation
 
 If incorrect templating is applied to the Markdown page of an API, errors alert the user that the page will not be formatted as intended when published to the Developer Portal.
 
-<figure><img src="../../.gitbook/assets/incorrect templating.png" alt=""><figcaption><p>Example of incorrect templating</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Example of incorrect templating</p></figcaption></figure>
 
 For more information on how to configure documentation for the Developer Portal, see [this section](../../guides/developer-portal/configuration/documentation.md).
 
@@ -98,7 +98,7 @@ For more information on how to configure documentation for the Developer Portal,
 
 The Management Console's Health-check feature can be used for v4 HTTP proxy APIs to monitor the availability and health of your endpoints and/or your API Gateways.
 
-<figure><img src="../../.gitbook/assets/health-check config form.png" alt=""><figcaption><p>Health-check configuration settings for v4 HTTP proxy APIs</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Health-check configuration settings for v4 HTTP proxy APIs</p></figcaption></figure>
 
 For more information, see [Health-check](../../guides/api-configuration/v4-api-configuration/endpoints/health-check.md).
 
@@ -106,7 +106,7 @@ For more information, see [Health-check](../../guides/api-configuration/v4-api-c
 
 The Management Console's Version History feature allows you to view a v4 API's deployment history and the JSON definition of each API version.
 
-<figure><img src="../../.gitbook/assets/deployment_version history details.png" alt=""><figcaption><p>JSON definition of an API version</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>JSON definition of an API version</p></figcaption></figure>
 
 For more information, see [Version History](../../guides/api-configuration/v4-api-configuration/version-history.md).
 
@@ -114,7 +114,7 @@ For more information, see [Version History](../../guides/api-configuration/v4-ap
 
 If no pre-existing and supported endpoint or endpoint group is available to use for the DLQ, you can create one by clicking **Create new endpoint**:
 
-<figure><img src="../../.gitbook/assets/DLQ_create endpoint.png" alt=""><figcaption><p>Create an endpoint to use for DLQ</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Create an endpoint to use for DLQ</p></figcaption></figure>
 
 For more information, see the [Webhook entrypoint configuration ](../../guides/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints/webhook.md)section.
 
@@ -139,7 +139,7 @@ To learn more, see the [v4 CORS configuration](../../guides/api-configuration/v4
 
 Responses can be templatized if the errors raised during the request/response phase(s) are associated with a policy whose policy keys can be overridden. Multiple templates can be created for one API, for multiple policies and/or multiple error keys sent by the same policy. Multiple template definitions can be created for the same error key in a single template, for different content types or status codes.
 
-<figure><img src="../../.gitbook/assets/create response template.png" alt=""><figcaption><p>Create a response template</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Create a response template</p></figcaption></figure>
 
 ## Gravitee Expression Language
 
@@ -151,7 +151,7 @@ To learn more about Gravitee EL, see [this page](../../guides/gravitee-expressio
 
 Portal, API, and application notifications can be configured for v4 APIs via Portal, Email, and/or Webhook notifiers. For each notification type, default notifications can be edited and new notifications can be added.
 
-<figure><img src="../../.gitbook/assets/notifications api_base.png" alt=""><figcaption><p>Notifications configuration</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Notifications configuration</p></figcaption></figure>
 
 For more information, refer to the [Notifications](../../getting-started/configuration/notifications.md) documentation.
 
@@ -210,7 +210,7 @@ Refer to the [`ssl-enforcement` policy](../../reference/policy-reference/ssl-enf
 
 Gravitee 4.3 allows sharding tags to be set for v4 APIs via the Management Console. Sharding tags are added to an organization and mapped to entrypoints from the **Organization** menu option. Sharding tags are defined in an API on the **Deployment** page.
 
-<figure><img src="../../.gitbook/assets/deployment_sharding tag.png" alt=""><figcaption><p>v4 sharding tag configuration</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>v4 sharding tag configuration</p></figcaption></figure>
 
 To learn more about how to configure and use sharding tags, see the [documentation](../../getting-started/configuration/apim-gateway/sharding-tags.md).
 
@@ -218,7 +218,7 @@ To learn more about how to configure and use sharding tags, see the [documentati
 
 Gravitee 4.3 supports a UI for TCP proxy API creation and configuration via the APIM Console.
 
-<figure><img src="../../.gitbook/assets/create proxy api_step 2 http or tcp 1.png" alt=""><figcaption><p>v4 API creation wizard: HTTP or TCP as a backend entrypoint</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>v4 API creation wizard: HTTP or TCP as a backend entrypoint</p></figcaption></figure>
 
 To learn how to create a TCP proxy API, see the [v4 API creation wizard](../../guides/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md). To learn how to configure a TCP proxy API, see the documentation on [v4 proxy API entrypoints](../../guides/api-configuration/v4-api-configuration/entrypoints/v4-proxy-api-entrypoints.md) and [v4 proxy API endpoints](../../guides/api-configuration/v4-api-configuration/endpoints/v4-proxy-api-endpoints.md).
 

@@ -97,23 +97,23 @@ Runtime Logs provide detailed error information for individual API requests. To 
 
 1.  Navigate to your API Management Console.
 
-    <figure><img src="../.gitbook/assets/api-mangement-console (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 2.  Click **APIs** in the left sidebar.
 
-    <figure><img src="../.gitbook/assets/apis-sidebar (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 3.  Select your API.
 
-    <figure><img src="../.gitbook/assets/select-your-api (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 4. Select **Logs** to view detailed request information including: Timestamp, Method, Status, URI, Application, Response time.
 
-<figure><img src="../.gitbook/assets/view-logs-v4 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 
 5.  Click on the **Timestamp** or Log details of any log entry.
 
-    <figure><img src="../.gitbook/assets/timestamp-log-details (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 6.  The Log Overview section displays complete diagnostic information including:Complete Request Details, Header Details, Response Information, Gateway status, Error Message, Error Key, Component Name, Component Type.
 
-    <figure><img src="../.gitbook/assets/v4-execution-transparency-analytics-logs (4) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 
 ### View Execution Transparency Analytics in V2 APIs
 
@@ -121,25 +121,25 @@ V2 APIs display execution transparency directly in the logs without requiring ad
 
 1.  Navigate to your API Management Console.
 
-    <figure><img src="../.gitbook/assets/api-mangement-console (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 2.  Click **APIs** in the left sidebar.
 
-    <figure><img src="../.gitbook/assets/apis-sidebar (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 3.  Select your V2 API.
 
-    <figure><img src="../.gitbook/assets/select-v2-api (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 4.  Click **Logs** in the left sidebar.
 
-    <figure><img src="../.gitbook/assets/click-logs-v2 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 5.  The logs list displays the following for each request: Errors, Warnings, Date, Status, Application, Plan, Method, Path.
 
-    <figure><img src="../.gitbook/assets/view-logs-v2-api (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 6.  Click on a specific Date.
 
-    <figure><img src="../.gitbook/assets/click-on-a-specific-date (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 7.  The log details appear, showing all warnings and errors associated with the request.
 
-    <figure><img src="../.gitbook/assets/log-details-request-errors-v2 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 
 ### **View Execution Transparency Analytics in Dashboard Console**
 
@@ -147,16 +147,16 @@ You can view execution transparency logs from the global analytics page in your 
 
 1.  Navigate to your API Management Console home page.
 
-    <figure><img src="../.gitbook/assets/apim-management-console (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 2.  Click **Analytics** in the left sidebar.
 
-    <figure><img src="../.gitbook/assets/global-analytics (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 3.  Click **Logs** to view the list of log entries.
 
-    <figure><img src="../.gitbook/assets/click-global-logs (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 4.  Click on a specific log entry to view error details, warn information with complete request and response information.
 
-    <figure><img src="../.gitbook/assets/failure-details (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 
 ### Common Error Scenarios
 

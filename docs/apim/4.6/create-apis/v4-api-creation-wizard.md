@@ -35,7 +35,7 @@ Define a name, version number, and description for your API.
 
 The name and version number are required, but we also recommend giving your API a description so that it is more easily understood and managed by internal users.
 
-<figure><img src="../.gitbook/assets/v4 wizard_step 1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/v4 wizard_step 1.png" alt=""><figcaption></figcaption></figure>
 
 ## Entrypoints
 
@@ -97,7 +97,7 @@ Gravitee supports several different types of entrypoints that cater to different
 
 <table><thead><tr><th width="198">Entrypoint</th><th>Description</th></tr></thead><tbody><tr><td><a href="v4-api-creation-wizard.md#http-get">HTTP GET</a></td><td>Front a backend or data source with a Gateway REST API that supports the HTTP GET request.</td></tr><tr><td><a href="v4-api-creation-wizard.md#http-post">HTTP POST</a></td><td>Front a backend or data source with a Gateway REST API that supports the HTTP POST request.</td></tr><tr><td><a href="v4-api-creation-wizard.md#server-sent-events">Server-sent events</a></td><td>Front a backend or data source with a Gateway SSE API for unidirectional communication between server and client.</td></tr><tr><td><a href="v4-api-creation-wizard.md#webhook">Webhook</a></td><td>Front a backend or data source with a Gateway Webhook API. This allows consumers to subscribe to the Gravitee Gateway via Webhook and then retrieve streamed data in real-time from a backend data source, via the Gateway, over the consumer's Webhook callback URL.</td></tr><tr><td><a href="v4-api-creation-wizard.md#websocket">WebSocket</a></td><td>Front a backend or data source with a Gateway WebSocket API. This allows a consumer to retrieve and send streamed events and messages in real-time.</td></tr></tbody></table>
 
-<figure><img src="../.gitbook/assets/v4 wizard_step 2 message entrypoints.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/v4 wizard_step 2 message entrypoints.png" alt=""><figcaption></figcaption></figure>
 
 Once you select your entrypoint(s), configure the fields common to all entrypoints:
 

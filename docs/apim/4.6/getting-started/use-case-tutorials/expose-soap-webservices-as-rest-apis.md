@@ -72,7 +72,7 @@ To create a Common flow, complete the following steps:
 2. Name the flow. For example,JSON Request?
 3. Specify the required condition. For example, `{#request.headers['Content-Type'][0] == 'application/json'}`.
 
-<figure><img src="../../.gitbook/assets/image (53).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (53).png" alt="" width="375"><figcaption></figcaption></figure>
 
 ## Transforming the payload
 

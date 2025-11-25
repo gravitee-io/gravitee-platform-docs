@@ -8,4 +8,4 @@ In a multi-environment deployment, a single GKO can be deployed and can publish 
 
 The following diagram illustrates the multi-environment deployment architectural approach:
 
-<figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption><p>Multi-environment deployment architecture</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Multi-environment deployment architecture</p></figcaption></figure>

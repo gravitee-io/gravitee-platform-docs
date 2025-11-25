@@ -133,7 +133,7 @@ To create a custom "Writer" role, follow these steps:
 3. Select **Roles** under **User Management**
 4.  At the **API** scope, select **+ Add a role**
 
-    <figure><img src="../../.gitbook/assets/Add an API scope role.gif" alt=""><figcaption><p>Create an API scope role</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/Add an API scope role (1).gif" alt=""><figcaption><p>Create an API scope role</p></figcaption></figure>
 5. Enter in "**Writer**" in the **Role name** text field
 6. Give the role a description, such as **"These users can create, update, read, and delete API documentation."**
 7. (Optional) If you want this to be the default role for new users, toggle **Default role** ON or OFF.
@@ -142,7 +142,7 @@ To create a custom "Writer" role, follow these steps:
    \&#xNAN;**`CRUD`** permissions on **`DOCUMENTATION`**: this allows the user to write new API documentation
 9.  Once you are done, select **Create.**
 
-    <figure><img src="../../.gitbook/assets/Writer role.gif" alt=""><figcaption><p>Define the "Writer" role permissions</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/Writer role (1).gif" alt=""><figcaption><p>Define the "Writer" role permissions</p></figcaption></figure>
 
 {% hint style="success" %}
 **Success!**
@@ -178,7 +178,7 @@ To create a user via the System administrator flow, follow these steps:
 
 To delete a user from your Organization, select the **Delete user** icon from the table on the **Users** page.
 
-<figure><img src="../../.gitbook/assets/Delete a user.png" alt=""><figcaption><p>Delete a user</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Delete a user (1).png" alt=""><figcaption><p>Delete a user</p></figcaption></figure>
 
 #### Create and manage User groups
 

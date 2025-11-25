@@ -16,7 +16,7 @@ By default, an APIM Gateway installed using the Helm Chart includes a limited se
 
 An overview of this architecture is described by the diagram below.
 
-<figure><img src="../../.gitbook/assets/k8s cluster mode.png" alt=""><figcaption><p>Default Cluster Mode architecture</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Default Cluster Mode architecture</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Namespaced Mode" %}
@@ -28,6 +28,6 @@ To ensure the webhook configuration used by each namespaced operator is unique a
 
 An overview of this architecture is described by the diagram below.
 
-<figure><img src="../../.gitbook/assets/k8s namespaced mode.png" alt=""><figcaption><p>Multiple operators, each listening to its own namespace</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Multiple operators, each listening to its own namespace</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}

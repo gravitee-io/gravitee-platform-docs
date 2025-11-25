@@ -18,7 +18,7 @@ The MFA Challenge policy is an [Enterprise Edition](../../overview/open-source-v
 
 For example, consider an end user who wants to reset their password. After clicking on the RESET PASSWORD email link, the user must complete the form on the MFA Challenge page before their password can be changed.
 
-<figure><img src="../../.gitbook/assets/mfa challenge policy.png" alt=""><figcaption><p>Password reset triggers MFA Challenge</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Password reset triggers MFA Challenge</p></figcaption></figure>
 
 ## MFA Rate Limit
 
