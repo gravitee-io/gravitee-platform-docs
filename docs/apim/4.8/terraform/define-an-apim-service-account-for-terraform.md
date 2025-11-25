@@ -47,7 +47,7 @@ To create a Terraform service account, complete the following steps:
     <figure><img src="../.gitbook/assets/06 (1).png" alt=""><figcaption></figcaption></figure>
 9.  Give your token a name, and then click **Generate**.
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/07 (1) (1).png" alt=""><figcaption></figcaption></figure>
 10. Copy your token and store it securely. You won’t be able to see it again.
 
 {% hint style="success" %}

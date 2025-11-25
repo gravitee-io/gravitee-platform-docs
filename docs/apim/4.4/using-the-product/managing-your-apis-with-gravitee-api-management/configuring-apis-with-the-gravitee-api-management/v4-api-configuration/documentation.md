@@ -31,7 +31,7 @@ To add documentation to an API:
 4. Select the **Pages** header tab
 5. Click on **Add new page** or **Add new folder** to start structuring your documentation content
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Add pages and/or folders to your API documentation</p></figcaption></figure>
+<figure><img src="../../../../../../../.gitbook/assets/documentation_nothing added 1 (1).png" alt=""><figcaption><p>Add pages and/or folders to your API documentation</p></figcaption></figure>
 
 ### Add folders
 
@@ -44,7 +44,7 @@ Folders allow you to organize your documentation by grouping pages. To configure
      * **Public:** This is the default visibility. The contents of the folder can be viewed in the Developer Portal by anonymous users.
      * **Private:** Users must be authenticated to view the contents of the folder in the Developer Portal
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Add a folder</p></figcaption></figure>
+<figure><img src="../../../../../../../.gitbook/assets/docs_add folder 1 (1).png" alt=""><figcaption><p>Add a folder</p></figcaption></figure>
 
 Once you click **Add folder**, the folder will appear at the top-level **Home** directory in **Documentation**. The directory will show the folder's status, visibility, the time the folder was last updated, and a badge indicating that the entry is a folder.
 
@@ -52,7 +52,7 @@ Once you click **Add folder**, the folder will appear at the top-level **Home** 
 A folder will be **Hidden**, or not visible in the Developer Portal, until it contains published pages.
 {% endhint %}
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../../../.gitbook/assets/docs_folder added 1 (1).png" alt=""><figcaption></figcaption></figure>
 
 **Documentation** supports a nested structure. Once you've added a folder to the **Home** directory, you can click into it to create additional folders or pages.
 
@@ -71,13 +71,13 @@ After selecting the page type, name the page and select whether the page is **Pu
   * **Public:** This is the default visibility. The page can be viewed in the Developer Portal by anonymous users.
   * **Private:** Users must be authenticated to view the page in the Developer Portal
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Markdown page configuration</p></figcaption></figure>
+<figure><img src="../../../../../../../.gitbook/assets/docs_add page 1 (1).png" alt=""><figcaption><p>Markdown page configuration</p></figcaption></figure>
 
 #### Step 2: Add content
 
 Choose how you want to add content: **Fill in the content myself** or **Import from file**
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Choose how to add content to a Markdown page</p></figcaption></figure>
+<figure><img src="../../../../../../../.gitbook/assets/docs_add content (1).png" alt=""><figcaption><p>Choose how to add content to a Markdown page</p></figcaption></figure>
 
 {% tabs %}
 {% tab title="Fill in the content myself" %}
@@ -93,7 +93,7 @@ To automate the process of creating OpenAPI or AsyncAPI docs pages for v4 APIs, 
 
 **Toggle preview** enables a side-by-side view of the content you enter and the rendered page.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Add content to a Markdown page</p></figcaption></figure>
+<figure><img src="../../../../../../../.gitbook/assets/docs_page content 1 (1).png" alt=""><figcaption><p>Add content to a Markdown page</p></figcaption></figure>
 
 **Templating with API properties**
 
@@ -155,23 +155,23 @@ The available API properties are listed in the following table:
 {% tab title="Import from file" %}
 Upload a Markdown, OpenAPI, or AsyncAPI file as a documentation page. Only one file can be uploaded at a time.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Import a Markdown file</p></figcaption></figure>
+<figure><img src="../../../../../../../.gitbook/assets/docs_content 1 (1).png" alt=""><figcaption><p>Import a Markdown file</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
 You have the option to save the page with or without publishing it to the Developer Portal. Once the content is saved, the page can be viewed from whichever directory it was added to. The directory will show the page's status, visibility, the time the page was last updated, a badge indicating that the entry is a page, and a badge indicating the page type.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Test page added to test folder</p></figcaption></figure>
+<figure><img src="../../../../../../../.gitbook/assets/docs_nested 1 (1).png" alt=""><figcaption><p>Test page added to test folder</p></figcaption></figure>
 
 ## Add metadata
 
 Dynamic v4 API documentation pages can be created by adding metadata. To view metadata keys and values for v4 API documentation, select the **Metadata** header.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>View API metadata</p></figcaption></figure>
+<figure><img src="../../../../../../../.gitbook/assets/metadata_screen (1).png" alt=""><figcaption><p>View API metadata</p></figcaption></figure>
 
 To view metadata keys and values for v4 API documentation, click **Add API Metadata** and specify the following:
 
-<div align="left"><figure><img src="broken-reference" alt="" width="375"><figcaption><p>Add API metadata</p></figcaption></figure></div>
+<div align="left"><figure><img src="../../../../../../../.gitbook/assets/metadata_add (1).png" alt="" width="375"><figcaption><p>Add API metadata</p></figcaption></figure></div>
 
 * **Name:** Enter a name for the metadata
 * **Format:** Select a metadata format from the drop-down menu. Available options are **string**, **numeric**, **boolean**, **date**, **mail**, or **url**.
@@ -183,7 +183,7 @@ Changes to metadata values are reflected on the portal.
 
 To edit or delete folders or pages, or to change the documentation structure, select the **Pages** header and use the icons in the **Actions** section of an entry. All edits are immediately shown in the Developer Portal.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Select from Actions to edit a page</p></figcaption></figure>
+<figure><img src="../../../../../../../.gitbook/assets/docs_editing 1 (1).png" alt=""><figcaption><p>Select from Actions to edit a page</p></figcaption></figure>
 
 **Edit folders:** To edit a folder's name or visibility, click on the pencil icon in the folder's entry, change the name and/or visibility, then click **Save**. The changes made to a folder's visibility will impact who can see it in the Developer Portal.
 
@@ -224,10 +224,10 @@ To view the documentation in the Developer Portal:
 
 1.  Click **Open API in Developer Portal**
 
-    <figure><img src="broken-reference" alt=""><figcaption><p>Open API in Developer Portal</p></figcaption></figure>
+    <figure><img src="../../../../../../../.gitbook/assets/docs_open api 1 (1).png" alt=""><figcaption><p>Open API in Developer Portal</p></figcaption></figure>
 2.  Click on **Documentation** in the header options
 
-    <figure><img src="broken-reference" alt=""><figcaption><p>API documentation</p></figcaption></figure>
+    <figure><img src="../../../../../../../.gitbook/assets/docs_dev portal docs 1 (1).png" alt=""><figcaption><p>API documentation</p></figcaption></figure>
 
 ## Send messages
 
@@ -240,7 +240,7 @@ To configure message delivery mechanism, recipients, and content:
 3. Select **Consumers** from the inner left sidebar
 4.  Select the **Broadcasts** tab
 
-    <figure><img src="broken-reference" alt=""><figcaption><p>Configure messages</p></figcaption></figure>
+    <figure><img src="../../../../../../../.gitbook/assets/configure messages (1).png" alt=""><figcaption><p>Configure messages</p></figcaption></figure>
 5. Specify the following:
    * **Channel:** Choose to send your message via **Email**, **Portal notifications**, or **POST HTTP message**
    * **Recipients:** From the drop-down menu, select message recipients based on member role and scope

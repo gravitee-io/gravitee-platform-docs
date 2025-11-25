@@ -12,7 +12,7 @@ Only v2 APIs support the API Quality feature
 
 The general settings for a Gravitee v2 API are grouped into 3 sections: [general information](general-info-settings.md#general-information), [Quality](general-info-settings.md#quality), and [Danger Zone](general-info-settings.md#danger-zone).
 
-<figure><img src="broken-reference" alt=""><figcaption><p>v2 API general settings</p></figcaption></figure>
+<figure><img src="../../../../../../../.gitbook/assets/v2 general settings (1).png" alt=""><figcaption><p>v2 API general settings</p></figcaption></figure>
 
 {% tabs %}
 {% tab title="General information" %}

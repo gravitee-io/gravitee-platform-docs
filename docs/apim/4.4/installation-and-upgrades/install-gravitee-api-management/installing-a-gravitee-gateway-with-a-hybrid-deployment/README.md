@@ -22,9 +22,9 @@ The Gravitee Gateway needs the following two components:
 * Ensure that you understand the various components of a Hybrid deployment. For more information about the components of a Hybrid architecture, see [Components of Hybrid architecture](./#components-of-hybrid-architecture).
 * Ensure that the Bridge and Gateway versions that you use for your Hybrid deployment are compatible. For more information about Gateway and Bridge compatibility versions, see [Gateway and Bridge compatibility versions](gateway-and-bridge-compatibility-versions.md).
 
-<img src="broken-reference" alt="Hybrid deployment architecture" class="gitbook-drawing">
+<img src="../../../../4.1/.gitbook/assets/file.excalidraw (4).svg" alt="Hybrid deployment architecture" class="gitbook-drawing">
 
-<img src="broken-reference" alt="Hybrid architecture connections" class="gitbook-drawing">
+<img src="../../../../../../.gitbook/assets/file.excalidraw (15) (1).svg" alt="Hybrid architecture connections" class="gitbook-drawing">
 
 ## Components of Hybrid Architecture
 

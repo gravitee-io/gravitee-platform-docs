@@ -20,7 +20,7 @@ The next two core Gravitee API Management (APIM) concepts we will focus on are p
 
 Plans and policies are managed by the API publisher to add different layers of security and functionality to the backend resources they own.
 
-<img src="broken-reference" alt="Gateway plans and policies" class="gitbook-drawing">
+<img src="../../../../../.gitbook/assets/file.excalidraw (5) (1).svg" alt="Gateway plans and policies" class="gitbook-drawing">
 
 ### Plans
 
@@ -95,7 +95,7 @@ Let's work through how to add a simple policy to modify the behavior of the Gate
 
 First, we need to open the API in the APIM Console. You may already have it open from the previous part of the Quickstart Guide. If not, simply head back over to the **APIs** homescreen and select the API you created.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>APIs homescreen</p></figcaption></figure>
+<figure><img src="../../../4.0/.gitbook/assets/DP_homescreen (1).png" alt=""><figcaption><p>APIs homescreen</p></figcaption></figure>
 
 > * [x] Select **APIs** in the sidebar
 > * [x] Select the API you created in Gateway APIs 101
@@ -104,7 +104,7 @@ First, we need to open the API in the APIM Console. You may already have it open
 
 Once you're back to your API's **General Info** page, go to the **Policy Studio**.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>API General Info page</p></figcaption></figure>
+<figure><img src="../../../4.0/.gitbook/assets/plans_general info (1).png" alt=""><figcaption><p>API General Info page</p></figcaption></figure>
 
 > * [x] Select **Policy Studio** from the inner sidebar
 
@@ -116,7 +116,7 @@ One way to condition a flow is by plan. Every plan that is added to an API can h
 
 You should see your **Default Keyless (UNSECURED)** plan on the left side of the Policy Studio. Additionally, you should see **Common flows**. Let's add a flow to **Common flows** to ensure our policy applies to all consumers of our API, regardless of the plan they are subscribed to.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Adding a flow under Common flows</p></figcaption></figure>
+<figure><img src="../../../4.0/.gitbook/assets/plans_flow (1).png" alt=""><figcaption><p>Adding a flow under Common flows</p></figcaption></figure>
 
 > * [x] Select the **+ icon** to the right of **Common flows**
 > * [x] Provide a name for the flow and select **Create**
@@ -143,7 +143,7 @@ Creating a flow opens up the flow editor. This screen will look different based 
 
 The only phases available to traditional proxy APIs are request and response. We will be adding a policy to the response phase.
 
-<img src="broken-reference" alt="Add policy to the response phase of traditional proxy API" data-size="original">
+<img src="../../../4.0/.gitbook/assets/plans_add policy (1).png" alt="Add policy to the response phase of traditional proxy API" data-size="original">
 
 * [x] Select the **+ icon** in the **Response phase**
 
@@ -155,7 +155,7 @@ The only phases available to traditional proxy APIs are request and response. We
 
 The phases available to message proxy APIs are request, response, publish, and subscribe. The publish and subscribe phases allow the policy to be applied at the message level. We will be adding the policy to the subscribe phase.
 
-<img src="broken-reference" alt="Add policy to the subscribe phase of a message proxy API" data-size="original">
+<img src="../../../4.0/.gitbook/assets/plans_add policy subscribe (1).png" alt="Add policy to the subscribe phase of a message proxy API" data-size="original">
 
 * [x] Select the **Event messages** tab in the flow editor
 * [x] Select the **+ icon** in the **Subscribe phase**
@@ -168,7 +168,7 @@ The next steps are the same for both traditional and message proxy APIs.
 
 The previous actions will open up the policy selector. We are going to add an Assign Content policy that allows us to modify the content of the payload before it reaches the API consumer.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Add an Assign Content policy</p></figcaption></figure>
+<figure><img src="../../../4.0/.gitbook/assets/plans_assign content (1).png" alt=""><figcaption><p>Add an Assign Content policy</p></figcaption></figure>
 
 > * [x] Click Select under the **Assign content** policy
 
@@ -176,7 +176,7 @@ Every policy allows you to provide a **Description** and a **Trigger condition**
 
 Additionally, every policy has configuration settings specific to it. For the Assign Content policy, we can override the payload of the response or individual message by supplying a string in the **Body content** input box.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Configure the Assign Content policy</p></figcaption></figure>
+<figure><img src="../../../4.0/.gitbook/assets/plans_configure assign content (1).png" alt=""><figcaption><p>Configure the Assign Content policy</p></figcaption></figure>
 
 > * [x] Type a string in the **Body content** input box
 > * [x] Select **Add policy** to add it the flow
@@ -190,7 +190,7 @@ After saving, you'll notice a banner appears at the top of the Console that says
 
 To ensure these changes are synced to the Gateway, the API must be redeployed.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Redeploy an API</p></figcaption></figure>
+<figure><img src="../../../4.0/.gitbook/assets/plans_redeploying (1).png" alt=""><figcaption><p>Redeploy an API</p></figcaption></figure>
 
 > * [x] Select **Deploy API** in the top right
 > * [x] Select **Deploy** in the modal that pops up on the screen
@@ -219,7 +219,7 @@ Now let's see how we can manage the plans for this API.
 
 From the Policy Studio, go to the **Plans** page.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Policy Studio</p></figcaption></figure>
+<figure><img src="../../../4.0/.gitbook/assets/plans_policy studio (1).png" alt=""><figcaption><p>Policy Studio</p></figcaption></figure>
 
 > * [x] Select **Plans** from the inner sidebar
 
@@ -227,7 +227,7 @@ From here, we can manage all the plans and subscriptions for this API. Currently
 
 This plan is currently in the published state. Plans can be in one of four states: staging, published, deprecated, or closed.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Four stages of a plan</p></figcaption></figure>
+<figure><img src="../../../4.2/.gitbook/assets/image (1).png" alt=""><figcaption><p>Four stages of a plan</p></figcaption></figure>
 
 <details>
 
@@ -245,33 +245,33 @@ This plan is currently in the published state. Plans can be in one of four state
 
 Let's go ahead and add API security with an API key plan:
 
-<figure><img src="broken-reference" alt=""><figcaption><p>API Plans page</p></figcaption></figure>
+<figure><img src="../../../4.0/.gitbook/assets/plans_api plans (1).png" alt=""><figcaption><p>API Plans page</p></figcaption></figure>
 
 > * [x] Select **+ Add new plan** in the top right
 > * [x] Select **API Key** from the drop-down menu
 
 This opens the **General** page of the plan creation wizard. The only required configuration is to provide the plan with a name.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>General page of plan creation wizard</p></figcaption></figure>
+<figure><img src="../../../4.0/.gitbook/assets/plans_wizard (1).png" alt=""><figcaption><p>General page of plan creation wizard</p></figcaption></figure>
 
 > * [x] Provide a **Name** for the plan
 > * [x] Scroll down to the bottom of the page and click **Next**
 
 The next step is to configure the security settings specific to the plan type you selected. For our API key plan, we will just keep the defaults.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Security configuration page of plan creation wizard</p></figcaption></figure>
+<figure><img src="../../../4.0/.gitbook/assets/plans_security (1).png" alt=""><figcaption><p>Security configuration page of plan creation wizard</p></figcaption></figure>
 
 > * [x] Leave the defaults and click **Next**
 
 Finally, you have the option to add restriction policies directly to the plan as part of the creation process.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Restrictions page of the plan creation wizard</p></figcaption></figure>
+<figure><img src="../../../4.0/.gitbook/assets/plans_restrictions (1).png" alt=""><figcaption><p>Restrictions page of the plan creation wizard</p></figcaption></figure>
 
 > * [x] Leave the defaults and click **Create**
 
 This will create the plan in the **Staging** state. To make it available to API consumers, we need to publish it.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Publish the API key plan</p></figcaption></figure>
+<figure><img src="../../../4.0/.gitbook/assets/plans_publish (1).png" alt=""><figcaption><p>Publish the API key plan</p></figcaption></figure>
 
 > * [x] Select the **publish icon** to the far right of the plan
 > * [x] Select **Publish** in the modal that pops up on the screen
@@ -280,7 +280,7 @@ This will change the API key plan's state from staging to published.
 
 To ensure our new API key plan can't be bypassed, we need to close the keyless plan and then sync all the changes we've made to the Gateway.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Closing the keyless plan</p></figcaption></figure>
+<figure><img src="../../../4.0/.gitbook/assets/plans_closing (1).png" alt=""><figcaption><p>Closing the keyless plan</p></figcaption></figure>
 
 > * [x] Select the **delete icon** to the far right of the keyless plan
 > * [x] Confirm the delete by typing in the name of the plan and then clicking **Yes, close this plan**

@@ -45,7 +45,7 @@ By default, an APIM Gateway installed using the Helm Chart includes a limited se
 
 An overview of this architecture is described by the diagram below.
 
-<img src="broken-reference" alt="Default Cluster Mode architecture" class="gitbook-drawing">
+<img src="../../../../../../.gitbook/assets/file.excalidraw (1) (1).svg" alt="Default Cluster Mode architecture" class="gitbook-drawing">
 {% endtab %}
 
 {% tab title="Namespaced Mode" %}
@@ -55,7 +55,7 @@ To achieve this architecture, the `manager.scope.cluster` value must be set to `
 
 An overview of this architecture is described by the diagram below.
 
-<img src="broken-reference" alt="Multiple operators, each listening to its own namespace" class="gitbook-drawing">
+<img src="../../../../../../.gitbook/assets/file.excalidraw (13) (1).svg" alt="Multiple operators, each listening to its own namespace" class="gitbook-drawing">
 {% endtab %}
 
 {% tab title="Multi-Cluster Mode" %}
@@ -83,6 +83,6 @@ spec:
 
 An overview of this architecture is described by the diagram below.
 
-<img src="broken-reference" alt="One operator, multiple clusters/regions" class="gitbook-drawing">
+<img src="../../../../../../.gitbook/assets/file.excalidraw (6).svg" alt="One operator, multiple clusters/regions" class="gitbook-drawing">
 {% endtab %}
 {% endtabs %}

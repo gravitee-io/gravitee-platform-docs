@@ -40,11 +40,11 @@ Folders can be added to organize the documentation structure, and pages of Markd
 
 The Documentation feature includes **Actions** associated with each folder or page entry to edit, delete, publish/unpublish, or reorder content.
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/docs_editing (1).png" alt=""><figcaption></figcaption></figure>
 
 When published, documentation is accessible via the Developer Portal.
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/docs_dev portal docs (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Logging
 

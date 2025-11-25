@@ -16,11 +16,11 @@ To configure global settings, complete the following steps:
 2. Log in to your APIM Console, and then click **Applications**.
 3.  Find the application you want to configure. Use the radio buttons to select either Active or Archived applications. Next, either scroll through the paginated lists of available applications or use the search field to find the application by name.
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/00 groups added to applications 7 (1).png" alt=""><figcaption></figcaption></figure>
 4. Click on the application you want to configure.
 5.  Click on **Global settings** in the Application menu.
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/00 groups added to applications 1 (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 Some general details are common to all applications, and others vary by application type.
@@ -46,7 +46,7 @@ To delete an application, the primary owner must:
 4. Select **Global Settings** from the inner left nav
 5.  In the **Danger Zone**, click **Delete**
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/00 groups added to applications 2 (1).png" alt=""><figcaption></figcaption></figure>
 
 * A deleted application has a status of `ARCHIVED`, meaning:
   * The link to the primary owner of the application is deleted.

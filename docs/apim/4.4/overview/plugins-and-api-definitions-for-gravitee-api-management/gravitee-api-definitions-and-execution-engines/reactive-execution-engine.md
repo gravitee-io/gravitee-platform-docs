@@ -64,7 +64,7 @@ By default, emulation mode is not enabled for v2 APIs because it may cause unexp
 
 v2 Gateway APIs can be run in emulation mode:
 
-<figure><img src="broken-reference" alt=""><figcaption><p>v2 API emulation mode</p></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/Screenshot 2023-07-19 at 4.45.21 PM (1).png" alt=""><figcaption><p>v2 API emulation mode</p></figcaption></figure>
 
 Enabling this option allows v2 Gateway APIs to access the improvements built into the reactive execution engine. The functional benefits provided by the reactive engine are detailed in subsequent sections.
 

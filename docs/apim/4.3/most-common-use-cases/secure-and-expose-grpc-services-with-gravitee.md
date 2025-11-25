@@ -44,13 +44,13 @@ You can adapt the following instructions to use your own gRPC services and setup
     \{% endcode %\}
 4.  Verify the containers initialize and run
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/docker containers (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Modify the network
 
 In this exercise, we will use a virtual host and dynamic routing to configure our API in Gravitee. To make that work, we need to modify the network configuration by adding the following lines to the `/etc/hosts` file:
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/grpc networking (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Examples
 
@@ -65,33 +65,33 @@ Follow the steps below to expose a simple gRPC service with one API on the Gatew
 1. Log in to your APIM Console
 2.  Create a new API using the [v4 API creation wizard](../guides/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md)
 
-    <div align="left"><figure><img src="broken-reference" alt="" width="375"><figcaption></figcaption></figure></div>
+    <div align="left"><figure><img src="../../../../.gitbook/assets/grpc wizard (1).png" alt="" width="375"><figcaption></figcaption></figure></div>
 3.  Enter the name, version, and description of your API (e.g., **HelloService gRPC** / **1.0** / **Simple gRPC proxy service**)
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/grpc proxy details (1).png" alt=""><figcaption></figcaption></figure>
 4.  Select **Proxy Upstream Protocol**
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/grpc proxy select (1).png" alt=""><figcaption></figcaption></figure>
 5.  Enter the context-path **/helloworld.Greeter** (do not enable virtual hosts for this API)
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/grpc context path (1).png" alt=""><figcaption></figcaption></figure>
 6.  Configure your API endpoint:
 
     * Set the **Target URL** to `grpc://grpc-backend1:8888/helloworld.Greeter`
     * Set the **Security Configuration** option to **HTTP 2**
     * Leave all other settings as default
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/grpc endpoint (1).png" alt=""><figcaption></figcaption></figure>
 7.  Configure and validate a **KEY\_LESS** security plan
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/grpc keyless (1).png" alt=""><figcaption></figcaption></figure>
 8. Check that all values are correct in the summary, then deploy your API
 9.  Verify that your API **HelloService gRPC** is accessible from the **APIs** menu of the APIM Console
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/grpc apis (1).png" alt=""><figcaption></figcaption></figure>
 10. Click on your API and confirm it has started, e.g., by checking the Danger Zone section for the **Stop the API** action
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/grpc started (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 Click **Publish the API** to publish **HelloService gRPC** in the Developer Portal that is also available in this Docker installation. See the [Developer Portal](../guides/developer-portal/) documentation for more information on capabilities and benefits.
@@ -137,33 +137,33 @@ The steps below use the virtual host feature to expose multiple gRPC services ru
 1. Log in to your APIM Console
 2.  Create a new API using the [v4 API creation wizard](../guides/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md)
 
-    <div align="left"><figure><img src="broken-reference" alt="" width="375"><figcaption></figcaption></figure></div>
+    <div align="left"><figure><img src="../../../../.gitbook/assets/grpc wizard (1).png" alt="" width="375"><figcaption></figcaption></figure></div>
 3.  Enter the name, version, and description of your API (e.g., **gRPC Proxy** / **1.0** / **Simple gRPC proxy service**)
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/grpc proxy details 2 (1).png" alt=""><figcaption></figcaption></figure>
 4.  Select **Proxy Upstream Protocol**
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/grpc proxy select (1).png" alt=""><figcaption></figcaption></figure>
 5.  Configure your API entrypoints to use virtual hosts and set the **Virtual host** to `grpc.gravitee.io` (same as the entry in the `/etc/hosts` file), then click **Validate my entrypoints**
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/grpc entrypoints (1).png" alt=""><figcaption></figcaption></figure>
 6.  Configure your API endpoint:
 
     * Set the **Target URL** to `grpc://grpc-backend1:8888`
     * Set the **Security Configuration** option to **HTTP 2**
     * Leave all other settings as default
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/grpc endpoint 2 (1).png" alt=""><figcaption></figcaption></figure>
 7.  Configure and validate a **KEY\_LESS** security plan
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/grpc keyless (1).png" alt=""><figcaption></figcaption></figure>
 8. Check that all values are correct in the summary, then deploy your API
 9.  Verify that your API **gRPC Proxy** is accessible from the **APIs** menu of the APIM Console
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/grpc apis list (1).png" alt=""><figcaption></figcaption></figure>
 10. Click on your API and confirm it has started, e.g., by checking the Danger Zone section for the **Stop the API** action
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/grpc api running (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Step 2: Test gRPC Proxy
 
@@ -230,27 +230,27 @@ Every Gravitee API requires at least one plan, which provides a service and acce
 2. Click on **Consumers** in the inner left nav
 3.  Under the **Plans** tab, click **Add new plan** and choose **API Key**
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/grpc add plan 2 (1).png" alt=""><figcaption></figcaption></figure>
 4. Name your plan, e.g., “API Key Plan”
 5.  Toggle the **Auto Validate subscription** option ON (you can leave this OFF to add an extra step of manual validation for each subscription)
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/grpc plan validate (1).png" alt=""><figcaption></figcaption></figure>
 6. Click through additional configuration pages, leaving the default settings, then click **Create**
 7.  Under the **Plans** header tab, go to the **Staging** tab and click the publish icon to promote the API Key plan to the **PUBLISHED** Stage
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/grpc plan publish (1).png" alt=""><figcaption></figcaption></figure>
 8.  Verify that the API Key plan appears under the **PUBLISHED** tab
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/grpc published (1).png" alt=""><figcaption></figcaption></figure>
 9.  Click on the API Key Plan, then select the **Subscriptions** tab
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/grpc subscriptions (1).png" alt=""><figcaption></figcaption></figure>
 10. Using an existing application, click **Create a subscription** using the API Key plan (this example uses a **Default application** , but you can [create your own](../guides/api-exposure-plans-applications-and-subscriptions/applications.md))
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/grpc default application (1).png" alt=""><figcaption></figcaption></figure>
 11. To retrieve the API Key, select the **Subscriptions** tab and scroll down to the bottom of the page
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/grpc subscription details (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Step 2: Test your Proxy gRPC with an API Key
 
@@ -305,7 +305,7 @@ Every Gravitee API requires at least one plan, which provides a service and acce
     1. Under the **Plans** header tab, select the **PUBLISHED** tab
     2. Click on the **X** icon to close a plan
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/grpc close plans (1).png" alt=""><figcaption></figcaption></figure>
 8. Confirm that if you try to connect to the gRPC proxy service without an API Key, the Gateway will block the call:
    1.  Run the following command:
 
