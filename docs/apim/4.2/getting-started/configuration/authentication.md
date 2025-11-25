@@ -558,13 +558,13 @@ Before you can connect to the Gravitee portal using Keycloak, you need to create
 Valid Redirect URIs\` value must exactly match the domain which is hosting APIM Portal.
 
 ```
-<figure><img src="../../.gitbook/assets/keycloak_configure_client.png" alt=""><figcaption><p>Enter Gravitee client details in Keycloak</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/keycloak_configure_client.png" alt=""><figcaption><p>Enter Gravitee client details in Keycloak</p></figcaption></figure>
 ```
 
 3\. Once you're done and create the client, retrieve the client credentials that you will need to give to Gravitee.
 
 ```
-<figure><img src="../../.gitbook/assets/keycloak_client_credentials.png" alt=""><figcaption><p>Keycloak client credentials that will need to be given to Gravitee</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/keycloak_client_credentials.png" alt=""><figcaption><p>Keycloak client credentials that will need to be given to Gravitee</p></figcaption></figure>
 ```
 
 **Create and configure Keycloak Client scope**

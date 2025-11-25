@@ -162,11 +162,11 @@ Portal and email notifiers can be configured for most notifications. To customiz
 
 <div>
 
-<figure><img src="../../../../../.gitbook/assets/override_default_off.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/override_default_off.png" alt=""><figcaption></figcaption></figure>
 
  
 
-<figure><img src="../../../../../.gitbook/assets/override_default_on.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/override_default_on.png" alt=""><figcaption></figcaption></figure>
 
 </div>
 The available attributes are summarized below. Use the [Apache Freemarker template engine](https://freemarker.apache.org/) to add specific information to templates, e.g., ${user.name} or ${api.metadata\['foo-bar']}.
