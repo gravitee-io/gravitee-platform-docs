@@ -25,7 +25,7 @@ To view Organization Audit log:
 1. Log in to AM Console.
 2. Click Ogranization > Audit
 
-<figure><img src="../.gitbook/assets/Organization audit log (1).png" alt=""><figcaption><p>Organization audit log</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Organization audit log.png" alt=""><figcaption><p>Organization audit log</p></figcaption></figure>
 
 ### Domain audit logs
 
@@ -97,7 +97,7 @@ It is possible to populate all audit logs from all domains within organization t
 4. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
 5. Select "Log events from all domains in this organization"
 
-<figure><img src="../.gitbook/assets/Global repoerter (1).png" alt=""><figcaption><p>Global reporter configuration</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Global repoerter.png" alt=""><figcaption><p>Global reporter configuration</p></figcaption></figure>
 
 This functionality is supported only for **Organization Audit Logs.**
 
@@ -306,7 +306,7 @@ To create a Kafka reporter for a domain:
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-adminguide-add-reporter.png" alt=""><figcaption><p>Audit settings</p></figcaption></figure>
 5.  Select **Kafka** as the reporter type and enter the reporter name and file name.
 
-    <figure><img src="../.gitbook/assets/kafka reporter (1).png" alt=""><figcaption><p>Add a Kafka reporter</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/kafka reporter.png" alt=""><figcaption><p>Add a Kafka reporter</p></figcaption></figure>
 6. Provide **Name**, **Bootstrap servers**, **Topic**, **Acks.**
 
 **Schema Registry**

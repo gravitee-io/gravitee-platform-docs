@@ -122,7 +122,7 @@ In order to connect Google and Gravitee APIM, you'll need to create a Google OAu
     <figure><img src="../../.gitbook/assets/google_create_client.png" alt=""><figcaption><p>Create your OAuth client ID</p></figcaption></figure>
 4.  Enter in your client details. These will be your Gravitee APIM details. The **Authorized redirect URIs** value _must match_ the domain hosting your Gravitee APIM Portal.
 
-    <figure><img src="../../.gitbook/assets/google_fill_client_form (1).png" alt=""><figcaption><p>Enter in your Gravitee details when creating a Client ID</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/google_fill_client_form.png" alt=""><figcaption><p>Enter in your Gravitee details when creating a Client ID</p></figcaption></figure>
 5. Select **Create**.
 6.  Retrieve the new **Client ID** and **Client secret**.
 

@@ -12,7 +12,7 @@ After you have configured your chosen Identity Provider(s) in Gravitee API Manag
 
 After adding your Identity Provider, two new items will appear within your Identity Provider configuration; **Groups Mapping** and **Roles Mapping** (as shown below).
 
-<figure><img src="../../.gitbook/assets/image%20(4)%20(1).png" alt=""><figcaption><p>Identity Provider Groups and Roles Mapping configuration</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1).png" alt=""><figcaption><p>Identity Provider Groups and Roles Mapping configuration</p></figcaption></figure>
 
 **Groups Mapping** - used for mapping users into groups that can then be assigned to APIs to control their interaction with your API through the API Management console, as well as control visibility of APIs and Documentation pages within the Developer Portal.
 

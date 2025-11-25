@@ -12,7 +12,7 @@ To expose your API to internal or external consumers, it must have at least one 
 * Premium access with public resources and access limits for your partners
 * Unlimited access to your internal enterprise applications
 
-<div align="center"><figure><img src="../../../.gitbook/assets/plan-diagram (1).png" alt="" width="375"><figcaption><p>High-level plan diagram</p></figcaption></figure></div>
+<div align="center"><figure><img src="../../../.gitbook/assets/plan-diagram.png" alt="" width="375"><figcaption><p>High-level plan diagram</p></figcaption></figure></div>
 
 Each plan must include at least one security type by which subscribers can be authenticated. A security type is a policy integrated directly into a plan. Once a plan is created, the security type can not be changed. However, you can add additional security at the API or plan level with policies.
 
@@ -36,10 +36,10 @@ To create a plan:
 4. Select **Consumers** from the inner left nav
 5.  Under the **Plans** header tab, click **+ Add new plan** and select your plan security type:
 
-    <figure><img src="../../../.gitbook/assets/plan_select security type (1).png" alt=""><figcaption><p>Add a new plan</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/plan_select security type.png" alt=""><figcaption><p>Add a new plan</p></figcaption></figure>
 6.  Configure the general plan settings:
 
-    <figure><img src="../../../.gitbook/assets/plan_general (1).png" alt=""><figcaption><p>Configure general plan settings</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/plan_general.png" alt=""><figcaption><p>Configure general plan settings</p></figcaption></figure>
 
     * **Name:** Enter a name for your plan
     * **Description:** Enter a description of your plan
@@ -52,10 +52,10 @@ To create a plan:
 7. Click **Next**
 8.  Define the security configuration details appropriate to and required by your selected security type, e.g., OAuth2. See [**OAuth2**,](../policy-studio/policies-for-you-apis/l-p/oauth2/) [**JWT**](../../most-common-use-cases/configure-jwt-security-with-apim.md), [**API Key**](../policy-studio/policies-for-you-apis/a-c/api-key.md), [**Keyless (public)**](../policy-studio/policies-for-you-apis/i-k/keyless.md), or [**Push plan**](plans.md#push) for more information.
 
-    <figure><img src="../../../.gitbook/assets/plan_oauth2 (1).png" alt=""><figcaption><p>OAuth2 configuration</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/plan_oauth2.png" alt=""><figcaption><p>OAuth2 configuration</p></figcaption></figure>
 9.  Select any plan restrictions:
 
-    <figure><img src="../../../.gitbook/assets/plan_restrictions (1).png" alt=""><figcaption><p>Select plan restrictions</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/plan_restrictions.png" alt=""><figcaption><p>Select plan restrictions</p></figcaption></figure>
 
     * **Rate limiting:** Intended to help avoid unmanageable spikes in traffic by limiting the number of requests an application can make in a given time period.
     * **Quota:** Limits the number of requests an application can make in a given time period. Generally used to tier access to APIs based on subscription level.
@@ -90,13 +90,13 @@ Depending on the stage it's in, a plan can be edited, published, deprecated, or 
 {% tab title="Edit" %}
 To edit a plan, click on the pencil icon:
 
-<figure><img src="../../../.gitbook/assets/plan_edit (1).png" alt=""><figcaption><p>Edit a plan</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/plan_edit.png" alt=""><figcaption><p>Edit a plan</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Publish" %}
 To publish a plan, click on the icon of a cloud with an arrow:
 
-<figure><img src="../../../.gitbook/assets/plan_publish (1).png" alt=""><figcaption><p>Publish a plan</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/plan_publish.png" alt=""><figcaption><p>Publish a plan</p></figcaption></figure>
 
 Once a plan has been published, it must be redeployed.
 {% endtab %}
@@ -104,13 +104,13 @@ Once a plan has been published, it must be redeployed.
 {% tab title="Deprecate" %}
 To deprecate a plan, click on the icon of a cloud with an 'x':
 
-<figure><img src="../../../.gitbook/assets/plan_deprecate (1).png" alt=""><figcaption><p>Deprecate a plan</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/plan_deprecate.png" alt=""><figcaption><p>Deprecate a plan</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Close" %}
 To close a plan, click on the 'x' icon:
 
-<figure><img src="../../../.gitbook/assets/plan_close (1).png" alt=""><figcaption><p>Close a plan</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/plan_close.png" alt=""><figcaption><p>Close a plan</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -187,7 +187,7 @@ The API key authentication type enforces verification of API keys during request
 
 An API Key plan offers only basic security, acting more like a unique identifier than a security token.
 
-<img src="../../../.gitbook/assets/plan_api key (1).png" alt="API Key configuration" data-size="original">
+<img src="../../../.gitbook/assets/plan_api key.png" alt="API Key configuration" data-size="original">
 
 * **Propagate API Key to upstream API:** Toggle ON to ensure the request to the backend API includes the API key header sent by the API consumer. This is useful for backend APIs that already have integrated API key authentication.
 * **Additional selection rule:** Allows you to use Gravitee Expression Language (EL) to filter plans of the same type by contextual data (request headers, tokens, attributes, etc.). For example, if there are multiple API key plans, you can set different selection rules on each plan to determine which plan handles each request.
@@ -200,7 +200,7 @@ By default, API keys are randomly generated for each subscription, but Gravitee 
 2. Select Settings from the left nav
 3.  Select Settings from the inner left nav:
 
-    <figure><img src="../../../.gitbook/assets/plan_key generation (1).png" alt=""><figcaption><p>API key generation settings</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/plan_key generation.png" alt=""><figcaption><p>API key generation settings</p></figcaption></figure>
 
 **Custom API key**
 
@@ -212,11 +212,11 @@ You can provide a custom API key when:
 
 *   Creating a subscription
 
-    <figure><img src="../../../.gitbook/assets/plan_create subscription (1).png" alt=""><figcaption><p>Manually create a subscription</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/plan_create subscription.png" alt=""><figcaption><p>Manually create a subscription</p></figcaption></figure>
 * Accepting a subscription
 *   Renewing a subscription
 
-    <figure><img src="../../../.gitbook/assets/plan_renew api key (1).png" alt=""><figcaption><p>Renew a subscription</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/plan_renew api key.png" alt=""><figcaption><p>Renew a subscription</p></figcaption></figure>
 
 **Shared API key**
 
@@ -239,12 +239,12 @@ A shared API key may be used to call APIs that are owned by other API publishers
 * Shared API keys cannot be edited from an API publisher's subscriptions
 *   API publishers can read shared API keys, but cannot renew or revoke them
 
-    <figure><img src="../../../.gitbook/assets/shared-api-key-3 (1).png" alt=""><figcaption><p>Shared API key administration limitations</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/shared-api-key-3.png" alt=""><figcaption><p>Shared API key administration limitations</p></figcaption></figure>
 *   Shared API keys can only be renewed/revoked by the application owner, from the subscription view of their APIM Console or Developer Portal
 
-    <figure><img src="../../../.gitbook/assets/shared-api-key-4 (1).png" alt=""><figcaption><p>Manage shared API keys in APIM Console</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/shared-api-key-4.png" alt=""><figcaption><p>Manage shared API keys in APIM Console</p></figcaption></figure>
 
-    <figure><img src="../../../.gitbook/assets/shared-api-key-4-portal (1).png" alt=""><figcaption><p>Manage shared API keys in the Developer Portal</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/shared-api-key-4-portal.png" alt=""><figcaption><p>Manage shared API keys in the Developer Portal</p></figcaption></figure>
 
 </details>
 
@@ -264,7 +264,7 @@ To configure an OAuth2 plan, you must first create an [OAuth2 client resource](.
 
 Configuring an OAuth2 plan presents the following options:
 
-<img src="../../../.gitbook/assets/plan_oauth2 configuration (1).png" alt="OAuth2 plan configuration" data-size="original">
+<img src="../../../.gitbook/assets/plan_oauth2 configuration.png" alt="OAuth2 plan configuration" data-size="original">
 
 * **OAuth2 resource:** Enter the name of the OAuth2 resource to use as the authorization server
 * **Cache resource:** Optionally enter the name of the cache resource to store responses from the authorization server
@@ -302,7 +302,7 @@ APIM uses client IDs to recognize applications that have subscribed to a JWT pla
 
 A JWT plan presents the following configuration options:
 
-<img src="../../../.gitbook/assets/plan_jwt configure (1).png" alt="JWT plan configuration" data-size="original">
+<img src="../../../.gitbook/assets/plan_jwt configure.png" alt="JWT plan configuration" data-size="original">
 
 * **Signature:** Select the algorithm used to hash and encrypt your JWT
 * **JWKS resolver:** Select a method to retrieve the JSON Web Key (JWK), which is often stored inside a JSON Web Key Set (JWKS) and required by the Gateway to validate the signature of the JWT:

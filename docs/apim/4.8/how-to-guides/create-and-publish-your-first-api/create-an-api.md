@@ -24,16 +24,16 @@ This guide explains how to create an API with the Gravitee APIM console.
     <figure><img src="../../.gitbook/assets/image%20(13)%20(1).png" alt=""><figcaption></figcaption></figure>
 5.  Select **HTTP Proxy**, and then click **Select my entrypoints**
 
-    <figure><img src="../../.gitbook/assets/image (14) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
 6.  Set a unique **Context-path , and** then click **Validate my entrypoints**. For example, /myfirstapi.
 
     <figure><img src="../../.gitbook/assets/image%20(17)%20(1).png" alt=""><figcaption></figcaption></figure>
 7.  In the **Configure your API endpoints access** screen, set the target URL , and then click **Validate my endpoints**. For example, https://jsonplaceholder.typicode.com
 
-    <figure><img src="../../.gitbook/assets/image (23) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
 8.  Click **Validate my plans**. By default, Gravitee adds a **Default keyless plan (UNSECURED)** to your API.
 
-    <figure><img src="../../.gitbook/assets/image (22) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (22).png" alt=""><figcaption></figcaption></figure>
 9.  Click **Save & Deploy API**.
 
     <figure><img src="../../.gitbook/assets/F1F03EEB-D24D-4303-A197-39EB859ACC3D_1_105_c.jpeg" alt=""><figcaption></figcaption></figure>

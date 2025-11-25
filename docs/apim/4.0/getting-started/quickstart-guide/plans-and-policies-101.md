@@ -95,7 +95,7 @@ Let's work through how to add a simple policy to modify the behavior of the Gate
 
 First, we need to open the API in the APIM Console. You may already have it open from the previous part of the Quickstart Guide. If not, simply head back over to the **APIs** homescreen and select the API you created.
 
-<figure><img src="../../.gitbook/assets/DP_homescreen (1).png" alt=""><figcaption><p>APIs homescreen</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/DP_homescreen.png" alt=""><figcaption><p>APIs homescreen</p></figcaption></figure>
 
 > * [x] Select **APIs** in the sidebar
 > * [x] Select the API you created in Gateway APIs 101

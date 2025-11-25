@@ -34,13 +34,13 @@ The only mandatory value in `config.json` file is `baseURL`, which describes the
 
 The default theme of the Developer Portal can be customized in the APIM Console via **Settings > Theme**:
 
-<figure><img src="../../.gitbook/assets/settings_theme (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/settings_theme.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 To use the live preview on the right, the Portal settings must be configured with a Portal URL. Whenever a setting is changed, the change is reflected in the live preview.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/portal_url (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/portal_url.png" alt=""><figcaption></figcaption></figure>
 
 ### Top menu
 

@@ -23,7 +23,7 @@ To access the health-check feature:
 5. Click on the **Health-check** header
 6.  Customize the **Health-check** configuration settings
 
-    <figure><img src="../.gitbook/assets/health-check config form (1).png" alt=""><figcaption><p>Health-check configuration settings for v4 HTTP proxy APIs</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/health-check config form.png" alt=""><figcaption><p>Health-check configuration settings for v4 HTTP proxy APIs</p></figcaption></figure>
 
     * **Inherit configuration:** Choose whether to inherit the health-check service configuration from the endpoint group.
     * Toggle **Enabled** to ON to enable the health-check service, which requires that the API has been deployed.

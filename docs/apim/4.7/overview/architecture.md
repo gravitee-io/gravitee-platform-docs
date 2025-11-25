@@ -44,7 +44,7 @@ The following diagrams illustrate the component management, design, and self-hos
 
 ### Hybrid component management
 
-<img src="../.gitbook/assets/file.excalidraw (7) (1).svg" alt="" class="gitbook-drawing">
+<img src="../.gitbook/assets/file.excalidraw (7).svg" alt="" class="gitbook-drawing">
 
 ### Hybrid architecture diagram
 
@@ -52,7 +52,7 @@ The following diagrams illustrate the component management, design, and self-hos
 
 ### Self-hosted-to-SaaS connections
 
-<img src="../.gitbook/assets/file.excalidraw (6) (1).svg" alt="Hybrid: SaaS to self-hosted connections" class="gitbook-drawing">
+<img src="../.gitbook/assets/file.excalidraw (6).svg" alt="Hybrid: SaaS to self-hosted connections" class="gitbook-drawing">
 
 ## Gravitee-managed architecture
 
