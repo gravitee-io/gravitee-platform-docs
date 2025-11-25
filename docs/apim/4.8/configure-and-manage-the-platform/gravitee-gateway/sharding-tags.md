@@ -34,7 +34,7 @@ API deployment is impacted by how tags are applied to APIs and Gateways.
 
 If you have an architecture that includes both DMZ Gateways and internal corporate Gateways, you can tag these Gateways as external-only and internal-only, as shown in the following diagram:
 
-<figure><img src="../../../4.0/.gitbook/assets/Example architecture (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Example architecture (1).png" alt=""><figcaption></figcaption></figure>
 
 Before sharding tags can be defined in your APIM Console, you must define the configuration to assign a tag to a Gateway. For example:
 
@@ -204,7 +204,7 @@ For example, to configure Gravitee API Manager to apply the “internal test” 
 1) From the **Sharding tags** drop-down menu, select the sharding tags that you want to map to the entrypoint.
 2)  In the **Entrypoint url** field, enter your entrypoint URL.
 
-    <figure><img src="../../../4.9/.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (9) (1)-1.png" alt=""><figcaption></figcaption></figure>
 3) Click **Ok.**
 {% endtab %}
 
@@ -212,7 +212,7 @@ For example, to configure Gravitee API Manager to apply the “internal test” 
 1. From the **Sharding tags** drop-down menu, select the sharding tags that you want to map to this entrypoint.
 2.  In the **Default TCP port** field, type the number of your TCP port.
 
-    <figure><img src="../../../4.9/.gitbook/assets/image (10) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (10) (1)-1.png" alt=""><figcaption></figcaption></figure>
 3. Click **Ok**.
 {% endtab %}
 
@@ -221,7 +221,7 @@ For example, to configure Gravitee API Manager to apply the “internal test” 
 2. In the **Default Kafka domain** field, type your Default Kafka domain.
 3.  In the **Default Kafka port** field, type your default Kafka port.
 
-    <figure><img src="../../../4.9/.gitbook/assets/image (11) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (11) (1)-1.png" alt=""><figcaption></figcaption></figure>
 4. Click **Ok**.
 {% endtab %}
 {% endtabs %}

@@ -32,7 +32,7 @@ The default simple application enables an API consumer to define the `client_id`
 2. Select **Settings** from the left nav
 3.  Select **Client Registration** from the inner left nav
 
-    <figure><img src="../../../../../../.gitbook/assets/client registration (1).png" alt=""><figcaption><p>Client Registration</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/client registration (1).png" alt=""><figcaption><p>Client Registration</p></figcaption></figure>
 4. Under **Default application type**, toggle **Simple** ON
 
 {% hint style="info" %}
@@ -103,7 +103,7 @@ To enable DCR:
 2. Select **Settings** from the left nav
 3.  Select **Client Registration** from the inner left nav
 
-    <figure><img src="../../../../../../.gitbook/assets/client registration (1).png" alt=""><figcaption><p>Client Registration</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/client registration (1).png" alt=""><figcaption><p>Client Registration</p></figcaption></figure>
 4. Toggle **Enable Dynamic Client Registration** ON
 
 ### Add a DCR provider
@@ -114,7 +114,7 @@ Any authentication server supporting OIDC can be used as a DCR provider. This gu
 
 At the bottom of the **Client Registration** page, click **+ Add a provider** and configure the following:
 
-<figure><img src="../../../../../../.gitbook/assets/client registration provider (1).png" alt=""><figcaption><p>Add a client registration provider</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/client registration provider (1).png" alt=""><figcaption><p>Add a client registration provider</p></figcaption></figure>
 
 * Set a **Name** and **Description** for the provider
 *   **OpenID Connect Discovery Endpoint:** Enter the URL where an OIDC-compatible authorization server publishes its metadata
@@ -248,7 +248,7 @@ To delete an application, the primary owner must:
 4. Select **Global Settings** from the inner left nav
 5.  In the **Danger Zone**, click **Delete**
 
-    <figure><img src="../../../../../../.gitbook/assets/delete application (1).png" alt=""><figcaption><p>Delete an application</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/delete application (1).png" alt=""><figcaption><p>Delete an application</p></figcaption></figure>
 
 * A deleted application has a status of `ARCHIVED`, meaning:
   * The link to the primary owner of the application is deleted.

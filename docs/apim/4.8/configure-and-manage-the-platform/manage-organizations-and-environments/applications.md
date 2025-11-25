@@ -243,7 +243,7 @@ To delete an application, the primary owner must:
 4. Select **Global Settings** from the inner left nav
 5.  In the **Danger Zone**, click **Delete**
 
-    <figure><img src="../../../../../.gitbook/assets/delete application (1).png" alt=""><figcaption><p>Delete an application</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/delete application (1).png" alt=""><figcaption><p>Delete an application</p></figcaption></figure>
 
 * A deleted application has a status of `ARCHIVED`, meaning:
   * The link to the primary owner of the application is deleted.

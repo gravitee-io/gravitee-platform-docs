@@ -122,4 +122,4 @@ Defining groups in AM helps you to assign roles more efficiently for the domain 
 
 The goal of the Group Mapper is to dynamically add groups to the user profile based on the user information when authenticating.
 
-<figure><img src="../../../4.5/.gitbook/assets/image (2).png" alt=""><figcaption><p>Assign ADMIN group to all user profile with memberOf equals administrators</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption><p>Assign ADMIN group to all user profile with memberOf equals administrators</p></figcaption></figure>

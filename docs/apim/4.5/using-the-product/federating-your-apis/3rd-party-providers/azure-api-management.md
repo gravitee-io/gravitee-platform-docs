@@ -20,7 +20,7 @@ Head to the Gravitee APIM Console, open the Integrations section in the left men
 
 Once you've created the integration, copy the integration ID that will be visible on the integration overview tab, you'll use this later:
 
-<figure><img src="../../../../../../.gitbook/assets/image (119) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (119) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## 2. Configure the Azure federation agent
 
@@ -123,7 +123,7 @@ This should produce an output similar to below, you'll need to copy the **appId*
 {% hint style="info" %}
 You can also find some of the information needed by the agent by browsing the Azure APIM console.
 
-<img src="../../../../../../.gitbook/assets/image (116) (1).png" alt="" data-size="original">
+<img src="../../../.gitbook/assets/image (116) (1).png" alt="" data-size="original">
 {% endhint %}
 
 ## 3. Run the Azure federation agent with Docker
@@ -216,6 +216,6 @@ docker compose up -d
 
 In the Gravitee API Management console, after refreshing, you should now see the agent's status set to `Connected:`
 
-<figure><img src="../../../../../../.gitbook/assets/image (120) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (120) (1).png" alt=""><figcaption></figcaption></figure>
 
 If your **Agent Connection** still shows as `Disconnected`, then please inspect the agent's container logs. There you should find error logs that will help you troubleshoot.

@@ -22,7 +22,7 @@ Portal notifications relate to the platform and include the following:
 
 To subscribe to Portal notifications, go to **APIM Console > Settings > Notifications**:
 
-<figure><img src="../../../../../.gitbook/assets/portal_notifications.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/portal_notifications.png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="API" %}
@@ -38,7 +38,7 @@ To subscribe to notifications related to a specific API:
 4. Select **Configuration** from the inner left nav
 5. Select the **Notifications** header
 
-<figure><img src="../../../4.6/.gitbook/assets/A%201%20config%20notifications.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/A%201%20config%20notifications.png" alt=""><figcaption></figcaption></figure>
 
 From here, you can either edit an existing notification or click **+ Add notification** to create a new one.
 {% endtab %}
@@ -59,11 +59,11 @@ Application notifications relate to a specific application and include the follo
 
 To subscribe to notifications related to a specific application, go to **APIM Console >** **Applications**, select the application, and click **Notification settings**.
 
-<figure><img src="../../../4.6/.gitbook/assets/1 not 1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/1 not 1.png" alt=""><figcaption></figcaption></figure>
 
 Click a notification's pencil icon to edit which notification events you're subscribed to.
 
-<figure><img src="../../../4.6/.gitbook/assets/1 not 2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/1 not 2.png" alt=""><figcaption></figcaption></figure>
 
 To add a notification, click **+ Add notification** and follow the notification creation process. For more information on notifications and how to configure them, see [Notifications](notifications.md).
 {% endtab %}

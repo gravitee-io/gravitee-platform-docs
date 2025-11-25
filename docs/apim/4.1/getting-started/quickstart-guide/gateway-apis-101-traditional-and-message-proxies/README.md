@@ -21,7 +21,7 @@ For now, we just need to focus on the Gateway and the Console UI. The Gateway ac
 
 The first Gravitee concept you need to understand is Gateway APIs. As the name suggests, Gateway APIs are APIs deployed to the Gateway and are what your API consumers will call or subscribe to in order to retrieve data, functionality, etc., from your backend services or resources. Your backend services are essentially the data source or functionality that you want to expose to your consumers through the Gateway.
 
-<img src="../../../../../../.gitbook/assets/file.excalidraw (4) (1).svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (4) (1)-1.svg" alt="" class="gitbook-drawing">
 
 {% hint style="warning" %}
 In this Quickstart Guide, the terms _Gateway API_ and _API_ are often used synonymously. However, when referring to an API server used as a backend service or resource, we use the term _backend API_.
@@ -58,14 +58,14 @@ To get started, you need to access your **APIs** homescreen. This screen display
 
 Assuming you have the proper permissions, you can access and modify the configurations of existing APIs, or, in our case, create new APIs.
 
-<figure><img src="../../../../4.0/.gitbook/assets/apis_homescreen (1).png" alt=""><figcaption><p>APIs homscreen</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/apis_homescreen (1).png" alt=""><figcaption><p>APIs homscreen</p></figcaption></figure>
 
 > * [x] Select **APIs** in the sidebar of the Console UI
 > * [x] Next, select **+ Add API** in the top right to create a new API
 
 You will be greeted with several options to create an API. We will be creating a v4 API with the creation wizard.
 
-<figure><img src="../../../../4.0/.gitbook/assets/options (1).png" alt=""><figcaption><p>Options to create a new Gateway API</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/options (1).png" alt=""><figcaption><p>Options to create a new Gateway API</p></figcaption></figure>
 
 > * [x] Select the green **Create =>** button shown next to **Create a V4 API from scratch**
 
@@ -73,7 +73,7 @@ You will be greeted with several options to create an API. We will be creating a
 
 API details is the first step of the API creation wizard. Provide a name, version, and (optionally) a description for your API. This is the metadata for your API.
 
-<figure><img src="../../../../4.0/.gitbook/assets/api_details (1).png" alt=""><figcaption><p>Fill in API details</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/api_details (1).png" alt=""><figcaption><p>Fill in API details</p></figcaption></figure>
 
 > * [x] Provide a name, version, and (optionally) a description for your API
 > * [x] Select **Validate my API details** to move on to the next step
@@ -91,7 +91,7 @@ Message proxies require an enterprise license. If you don't have one, you can [s
 
 In the Console UI, choose which type of proxy you'd like to create based on the backend resource you're most interested in exposing. If you don't have a preference, we recommend trying a traditional proxy first, as it is easier to conceptualize.
 
-<figure><img src="../../../../4.0/.gitbook/assets/traditional or message (1).png" alt=""><figcaption><p>Traditional or message proxy selection</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/traditional or message (1).png" alt=""><figcaption><p>Traditional or message proxy selection</p></figcaption></figure>
 
 > * [x] Choose **Proxy Upstream Protocol** or **Introspect Messages from Event-Driven Backend**
 

@@ -84,7 +84,7 @@ installation:
    * Create one Environment
 4.  Link your APIM installation to the Environment you created by following [these instructions](https://documentation.gravitee.io/gravitee-cloud/guides/register-installations). Your APIM installation will be identified as `MULTI-TENANT`, recognized by Cockpit as multi-tenant, and send templated Access Points to the connected Environment.
 
-    <figure><img src="../../../4.3/.gitbook/assets/image%20(58).png" alt=""><figcaption><p>Installation details in Cockpit showing the installation as multi-tenant</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image%20(58).png" alt=""><figcaption><p>Installation details in Cockpit showing the installation as multi-tenant</p></figcaption></figure>
 5. Add a new Environment within the same Organization and connect it to the multi-tenant APIM installation
 
 {% hint style="success" %}

@@ -30,7 +30,7 @@ To access your entrypoint configuration, go to the **API** page in the Console, 
 
 At the top right of the page, you can choose to enable or disable virtual hosts. Enabling virtual hosts requires you to define your virtual host and optionally enable override access.
 
-<figure><img src="../../../../../../../../.gitbook/assets/configure v4 message entrypoints (1).png" alt=""><figcaption><p>v4 message API entrypoint configuration</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/configure v4 message entrypoints (1).png" alt=""><figcaption><p>v4 message API entrypoint configuration</p></figcaption></figure>
 
 Next, depending on which entrypoint(s) your API utilizes, specific entrypoint configuration may differ. Click on the tiles below for the configuration details of each specific entrypoint.
 

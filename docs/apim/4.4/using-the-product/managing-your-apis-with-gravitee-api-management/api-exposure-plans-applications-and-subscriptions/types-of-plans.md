@@ -36,7 +36,7 @@ The API key authentication type enforces verification of API keys during request
 
 An API Key plan offers only basic security, acting more like a unique identifier than a security token.
 
-<img src="../../../../../../.gitbook/assets/plan_api key (1).png" alt="API Key configuration" data-size="original">
+<img src="../../../.gitbook/assets/plan_api key (1).png" alt="API Key configuration" data-size="original">
 
 * **Propagate API Key to upstream API:** Toggle ON to ensure the request to the backend API includes the API key header sent by the API consumer. This is useful for backend APIs that already have integrated API key authentication.
 * **Additional selection rule:** Allows you to use Gravitee Expression Language (EL) to filter plans of the same type by contextual data (request headers, tokens, attributes, etc.). For example, if there are multiple API key plans, you can set different selection rules on each plan to determine which plan handles each request.
@@ -49,7 +49,7 @@ By default, API keys are randomly generated for each subscription, but Gravitee 
 2. Select Settings from the left nav
 3.  Select Settings from the inner left nav:
 
-    <figure><img src="../../../../../../.gitbook/assets/plan_key generation (1).png" alt=""><figcaption><p>API key generation settings</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/plan_key generation (1).png" alt=""><figcaption><p>API key generation settings</p></figcaption></figure>
 
 **Custom API key**
 
@@ -61,11 +61,11 @@ You can provide a custom API key when:
 
 *   Creating a subscription
 
-    <figure><img src="../../../../../../.gitbook/assets/plan_create subscription (1).png" alt=""><figcaption><p>Manually create a subscription</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/plan_create subscription (1).png" alt=""><figcaption><p>Manually create a subscription</p></figcaption></figure>
 * Accepting a subscription
 *   Renewing a subscription
 
-    <figure><img src="../../../../../../.gitbook/assets/plan_renew api key (1).png" alt=""><figcaption><p>Renew a subscription</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/plan_renew api key (1).png" alt=""><figcaption><p>Renew a subscription</p></figcaption></figure>
 
 **Shared API key**
 
@@ -88,12 +88,12 @@ A shared API key may be used to call APIs that are owned by other API publishers
 * Shared API keys cannot be edited from an API publisher's subscriptions
 *   API publishers can read shared API keys, but cannot renew or revoke them
 
-    <figure><img src="../../../../../../.gitbook/assets/shared-api-key-3 (1).png" alt=""><figcaption><p>Shared API key administration limitations</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/shared-api-key-3 (1).png" alt=""><figcaption><p>Shared API key administration limitations</p></figcaption></figure>
 *   Shared API keys can only be renewed/revoked by the application owner, from the subscription view of their APIM Console or Developer Portal
 
-    <figure><img src="../../../../../../.gitbook/assets/shared-api-key-4 (1).png" alt=""><figcaption><p>Manage shared API keys in APIM Console</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/shared-api-key-4 (1).png" alt=""><figcaption><p>Manage shared API keys in APIM Console</p></figcaption></figure>
 
-    <figure><img src="../../../../../../.gitbook/assets/shared-api-key-4-portal (1).png" alt=""><figcaption><p>Manage shared API keys in the Developer Portal</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/shared-api-key-4-portal (1).png" alt=""><figcaption><p>Manage shared API keys in the Developer Portal</p></figcaption></figure>
 
 </details>
 
@@ -113,7 +113,7 @@ To configure an OAuth2 plan, you must first create an [OAuth2 client resource](.
 
 Configuring an OAuth2 plan presents the following options:
 
-<img src="../../../../../../.gitbook/assets/plan_oauth2 configuration (1).png" alt="OAuth2 plan configuration" data-size="original">
+<img src="../../../.gitbook/assets/plan_oauth2 configuration (1).png" alt="OAuth2 plan configuration" data-size="original">
 
 * **OAuth2 resource:** Enter the name of the OAuth2 resource to use as the authorization server
 * **Cache resource:** Optionally enter the name of the cache resource to store responses from the authorization server
@@ -151,7 +151,7 @@ APIM uses client IDs to recognize applications that have subscribed to a JWT pla
 
 A JWT plan presents the following configuration options:
 
-<img src="../../../../../../.gitbook/assets/plan_jwt configure (1).png" alt="JWT plan configuration" data-size="original">
+<img src="../../../.gitbook/assets/plan_jwt configure (1).png" alt="JWT plan configuration" data-size="original">
 
 * **Signature:** Select the algorithm used to hash and encrypt your JWT
 * **JWKS resolver:** Select a method to retrieve the JSON Web Key (JWK), which is often stored inside a JSON Web Key Set (JWKS) and required by the Gateway to validate the signature of the JWT:

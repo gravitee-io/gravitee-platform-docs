@@ -44,7 +44,7 @@ applications:
     <div align="left"><figure><img src="../../.gitbook/assets/Screenshot 2025-06-02 at 11.57.31 (1).png" alt="" width="308"><figcaption><p>New client secret description</p></figcaption></figure></div>
 3.  Copy generated secret.
 
-    <div align="left"><figure><img src="../../../4.8/.gitbook/assets/Screenshot 2025-06-02 at 11.57.49.png" alt="" width="305"><figcaption><p>New client secret - copy</p></figcaption></figure></div>
+    <div align="left"><figure><img src="../../.gitbook/assets/Screenshot 2025-06-02 at 11.57.49.png" alt="" width="305"><figcaption><p>New client secret - copy</p></figcaption></figure></div>
 4. Click OK.
 
 #### **Renewing a secret:**
@@ -52,9 +52,9 @@ applications:
 1. In the **Secrets & Certificates** tab, locate the secret to renew.
 2.  Click **renew button** next to the corresponding secret.
 
-    <figure><img src="../../../4.8/.gitbook/assets/Screenshot 2025-06-02 at 12.32.24.png" alt=""><figcaption><p>Renew Client Secret</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/Screenshot 2025-06-02 at 12.32.24.png" alt=""><figcaption><p>Renew Client Secret</p></figcaption></figure>
 3. Copy generated secret.\
-   ![](../../../4.8/.gitbook/assets/Screenshot%202025-06-02%20at%2012.00.01%20\(1\).png)
+   ![](<../../.gitbook/assets/Screenshot 2025-06-02 at 12.00.01.png>)
 4. Click OK.
 
 #### Deleting a secret:
@@ -62,9 +62,9 @@ applications:
 1. In the **Secrets & Certificates** tab, locate the secret that you want to delete.
 2.  Click the **delete button** next to the corresponding secret.\\
 
-    <figure><img src="../../../4.8/.gitbook/assets/Screenshot 2025-06-02 at 12.32.45.png" alt=""><figcaption><p>Delete Client Secret</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/Screenshot 2025-06-02 at 12.32.45.png" alt=""><figcaption><p>Delete Client Secret</p></figcaption></figure>
 3. Confirm that you want to delete the secret by entering secret description.\
-   ![](../../../4.8/.gitbook/assets/Screenshot%202025-06-02%20at%2012.00.38%20\(1\).png)
+   ![](<../../.gitbook/assets/Screenshot 2025-06-02 at 12.00.38.png>)
 
 {% hint style="warning" %}
 Revoked secrets are immediately invalidated and cannot be used for authentication.
@@ -79,7 +79,7 @@ Revoked secrets are immediately invalidated and cannot be used for authenticatio
   1. Navigate to the **Domain**.
   2.  Go to **Settings**, and then **Client Secrets.**
 
-      <figure><img src="../../../4.8/.gitbook/assets/Screenshot 2025-06-02 at 12.06.56.png" alt=""><figcaption><p>Domain Secret Settings</p></figcaption></figure>
+      <figure><img src="../../.gitbook/assets/Screenshot 2025-06-02 at 12.06.56.png" alt=""><figcaption><p>Domain Secret Settings</p></figcaption></figure>
   3. Enable client secret expiry.
   4. Set the **Expiry Time Unit** and **Expiry Time Duration**. For example, 3 months.
   5. Save the changes.
@@ -95,7 +95,7 @@ Revoked secrets are immediately invalidated and cannot be used for authenticatio
 
       <figure><img src="../../.gitbook/assets/Screenshot 2025-06-02 at 12.28.04 (1).png" alt=""><figcaption><p>Application Secret Settings</p></figcaption></figure>
   5. Toggle **Use Domain Rules**, and then and select **Expiry Time Unit** and **Expiry Time Duration**.\
-     ![](<../../../4.8/.gitbook/assets/image (10).png>)
+     ![](<../../.gitbook/assets/image (10).png>)
   6. Save the changes.
 
 ### **Behavior:**

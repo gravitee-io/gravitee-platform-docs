@@ -16,7 +16,7 @@ From the **Plans** tab, you can add, edit, publish, deprecate, or close a plan.
 
 To add a plan, click on **+ Add new plan**:
 
-<figure><img src="../../../../4.6/.gitbook/assets/A%20plan%20(1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/A%20plan%20(1).png" alt=""><figcaption></figcaption></figure>
 
 Kafka APIs support OAuth2, JWT, API Key, and Keyless (public) plans. For more information on each of these plans and configuration details, please see the following:
 
@@ -29,13 +29,13 @@ Kafka APIs support OAuth2, JWT, API Key, and Keyless (public) plans. For more in
 
 To edit a plan, click on the pencil icon:
 
-<figure><img src="../../../../../../.gitbook/assets/plan_edit (1).png" alt=""><figcaption><p>Edit a plan</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/plan_edit (1).png" alt=""><figcaption><p>Edit a plan</p></figcaption></figure>
 
 ### Publish a plan
 
 To publish a plan, click on the icon of a cloud with an arrow:
 
-<figure><img src="../../../../../../.gitbook/assets/plan_publish (1).png" alt=""><figcaption><p>Publish a plan</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/plan_publish (1).png" alt=""><figcaption><p>Publish a plan</p></figcaption></figure>
 
 Once a plan has been published, it must be redeployed.
 
@@ -43,19 +43,19 @@ Once a plan has been published, it must be redeployed.
 
 To deprecate a plan, click on the icon of a cloud with an 'x':
 
-<figure><img src="../../../../../../.gitbook/assets/plan_deprecate (1).png" alt=""><figcaption><p>Deprecate a plan</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/plan_deprecate (1).png" alt=""><figcaption><p>Deprecate a plan</p></figcaption></figure>
 
 ### Close a plan
 
 To close a plan, click on the 'x' icon:
 
-<figure><img src="../../../../../../.gitbook/assets/plan_close (1).png" alt=""><figcaption><p>Close a plan</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/plan_close (1).png" alt=""><figcaption><p>Close a plan</p></figcaption></figure>
 
 ## Subscriptions
 
 Select the **Subscriptions** tab to manage your subscriptions. From here you can create, modify, or filter subscriptions. You can also export a subscription as a CSV.
 
-<figure><img src="../../../../4.6/.gitbook/assets/1%20sub%201%20(1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/1%20sub%201%20(1).png" alt=""><figcaption></figcaption></figure>
 
 ### Create a subscription
 
@@ -63,11 +63,11 @@ To create a subscription, you need to have at least one published plan whose typ
 
 To create a new subscription, click the **+ Create a subscription** button. Select the application you want to use and the plan you want to subscribe to. The example below shows this for a subscription to an API Key plan.
 
-<figure><img src="../../../../4.6/.gitbook/assets/1%20sub%20create%201%20(1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/1%20sub%20create%201%20(1).png" alt=""><figcaption></figcaption></figure>
 
 You'll be taken to a screen that displays your subscription details.
 
-<figure><img src="../../../../4.6/.gitbook/assets/1%20sub%20details%20(1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/1%20sub%20details%20(1).png" alt=""><figcaption></figcaption></figure>
 
 From here you can transfer, pause, change the end date for, or close your subscription:
 
@@ -82,13 +82,13 @@ Existing subscriptions can be managed from the **Subscriptions** header. From he
 
 *   Display subscriptions based on plan selections
 
-    <figure><img src="../../../../4.6/.gitbook/assets/1%20sub%20c%20(1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/1%20sub%20c%20(1).png" alt=""><figcaption></figcaption></figure>
 *   Search for an application display subscriptions associated with a plan name
 
-    <figure><img src="../../../../4.6/.gitbook/assets/1%20sub%20b%20(1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/1%20sub%20b%20(1).png" alt=""><figcaption></figcaption></figure>
 *   Select subscription status options to display subscriptions matching that criteria
 
-    <figure><img src="../../../../4.6/.gitbook/assets/1%20sub%20a%20(1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/1%20sub%20a%20(1).png" alt=""><figcaption></figcaption></figure>
 
 If you click **Export as CSV**, all the subscriptions matching your filter selections will be exported in CSV format to the text editor of your choice.
 
@@ -103,7 +103,7 @@ To configure message delivery mechanism, recipients, and content:
 3. Select **Consumers** from the inner left sidebar
 4.  Select the **Broadcasts** tab
 
-    <figure><img src="../../../../4.6/.gitbook/assets/1%20broadcast%20(1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/1%20broadcast%20(1).png" alt=""><figcaption></figcaption></figure>
 5. Specify the following:
    * **Channel:** Choose to send your message via **Email**, **Portal notifications**, or **POST HTTP message**
    * **Recipients:** From the drop-down menu, select message recipients based on member role and scope

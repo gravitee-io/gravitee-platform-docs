@@ -22,16 +22,16 @@ To import documentation:
 6. To import documentation files, choose either of the following options:
    *   Click on **Import multiple files**
 
-       <figure><img src="../../../../../../../.gitbook/assets/v2 docs_import multiple files (1).png" alt=""><figcaption><p>Import multiple files</p></figcaption></figure>
+       <figure><img src="../../../../.gitbook/assets/v2 docs_import multiple files (1).png" alt=""><figcaption><p>Import multiple files</p></figcaption></figure>
 
        * Toggle **Publish all imported pages** ON or OFF
        * To **Select your source**, choose from: Bitbucket, git, GitHub, GitLab, or a URL
        * Fill in the information appropriate to and required by your selection
        * Click **IMPORT**
    * Import individual files while creating new API documentation:
-     *   Under the **Pages** tab, click the <img src="../../../../../../../.gitbook/assets/Screen Shot 2023-06-08 at 3.06.53 PM (1).png" alt="" data-size="line"> icon
+     *   Under the **Pages** tab, click the <img src="../../../../.gitbook/assets/Screen Shot 2023-06-08 at 3.06.53 PM (1).png" alt="" data-size="line"> icon
 
-         <figure><img src="../../../../../../../.gitbook/assets/v2 docs_create (1).png" alt=""><figcaption><p>Import via page creation</p></figcaption></figure>
+         <figure><img src="../../../../.gitbook/assets/v2 docs_create (1).png" alt=""><figcaption><p>Import via page creation</p></figcaption></figure>
      * Select one of the following options:
        * ASCIIDOC
        * ASYNCAPI
@@ -46,7 +46,7 @@ To import documentation:
 2. From the left nav, select **APIs**
 3. Select the API that you want to add documentation to.
 4. From the inner left nav, select **Documentation**.
-5. Under the **Pages** tab, select the <img src="../../../../../../../.gitbook/assets/Screen Shot 2023-06-08 at 3.06.53 PM (1).png" alt="" data-size="line"> icon.
+5. Under the **Pages** tab, select the <img src="../../../../.gitbook/assets/Screen Shot 2023-06-08 at 3.06.53 PM (1).png" alt="" data-size="line"> icon.
 6. Select your preferred format.
 7. Create and configure your documentation:
    1. Give your documentation a name
@@ -71,6 +71,6 @@ To add metadata:
 5. Select the **Metadata** tab
 6.  Click on **+ Add API Metadata**
 
-    <figure><img src="../../../../../../../.gitbook/assets/v2 docs_metadata (1).png" alt=""><figcaption><p>Add API metadata</p></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/v2 docs_metadata (1).png" alt=""><figcaption><p>Add API metadata</p></figcaption></figure>
 7. Choose a name for your API, select the format (string, numeric, boolean, date, mail, url), and define the value
 8. Click **Save**

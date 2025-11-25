@@ -222,9 +222,9 @@ To access endpoint configuration, go to the **API** page in the Management Conso
 
 ### Alter and delete existing endpoints
 
-To alter an existing endpoint, select the <img src="../../../../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.43.13 AM (1).png" alt="" data-size="line"> icon, and then edit your endpoint configuration. You can find more information on v4 Proxy API configuration in the [API creation documentation](../../create-apis/the-api-creation-wizard/v4-api-creation-wizard.md#entrypoint-options-for-the-proxy-upstream-protocol-method).
+To alter an existing endpoint, select the <img src="../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.43.13 AM (1).png" alt="" data-size="line"> icon, and then edit your endpoint configuration. You can find more information on v4 Proxy API configuration in the [API creation documentation](../../create-apis/the-api-creation-wizard/v4-api-creation-wizard.md#entrypoint-options-for-the-proxy-upstream-protocol-method).
 
-To delete an existing endpoint, select the <img src="../../../../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.46.30 AM (1).png" alt="" data-size="line">icon underneath **ACTIONS** in the **Endpoints** menu.
+To delete an existing endpoint, select the <img src="../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.46.30 AM (1).png" alt="" data-size="line">icon underneath **ACTIONS** in the **Endpoints** menu.
 
 ### Create new endpoints
 
