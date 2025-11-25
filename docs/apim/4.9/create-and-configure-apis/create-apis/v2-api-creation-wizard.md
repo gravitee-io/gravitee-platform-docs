@@ -23,7 +23,7 @@ To create a v2 API in Gravitee:
 3. Click **+ Add API** in the top right corner of the UI
 4. In Create Classic API, click **Create V2 API**.
 
-<figure><img src="../../.gitbook/assets/image%20(139).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.7/.gitbook/assets/image%20(139).png" alt=""><figcaption></figcaption></figure>
 
 ## Step 1: General
 
@@ -50,7 +50,7 @@ Optionally, you can select **Advanced mode** to define **Tenants** and/or **Shar
 Refer to [Tenants](../../configure-and-manage-the-platform/gravitee-gateway/tenants.md) and/or [Sharding tags](../../configure-and-manage-the-platform/gravitee-gateway/sharding-tags.md) for more information.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2023-06-07 at 1.35.16 PM (1).png" alt=""><figcaption><p>Define your API Gateway settings</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Define your API Gateway settings</p></figcaption></figure>
 
 ## Step 3: Plan
 
@@ -62,7 +62,7 @@ The API creation wizard allows you to create either an **API key** or **Keyless*
 * A **quota**: Sets the maximum number of API requests that may occur during the specified number of hours, days, weeks, or months
 * **Resource filtering**: Allows you to filter resources based on whitelists and blacklists
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2023-06-07 at 1.43.11 PM (1).png" alt=""><figcaption><p>v2 API creation wizard: Plans</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>v2 API creation wizard: Plans</p></figcaption></figure>
 
 Gravitee offers additional plan features that are not configured in the API creation wizard. For more in-depth information on plans, refer to the [plans ](../../secure-and-expose-apis/plans/)documentation.
 
@@ -72,7 +72,7 @@ Once you have defined your plan, click **NEXT**.
 
 On the **Documentation** page you can upload your API's documentation as a file. Creating documentation is optional.
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2023-06-07 at 1.43.58 PM (1).png" alt=""><figcaption><p>v2 API creation wizard: Documentation</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>v2 API creation wizard: Documentation</p></figcaption></figure>
 
 ## Step 5: Deployment
 

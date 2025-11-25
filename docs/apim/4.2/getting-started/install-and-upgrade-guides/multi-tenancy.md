@@ -84,7 +84,7 @@ installation:
    * Create one Environment
 4.  Link your APIM installation to the Environment you created by following [these instructions](https://documentation.gravitee.io/gravitee-cloud/guides/register-installations). Your APIM installation will be identified as `MULTI-TENANT`, recognized by Cockpit as multi-tenant, and send templated Access Points to the connected Environment.
 
-    <figure><img src="../../.gitbook/assets/image%20(58).png" alt=""><figcaption><p>Installation details in Cockpit showing the installation as multi-tenant</p></figcaption></figure>
+    <figure><img src="../../../4.3/.gitbook/assets/image%20(58).png" alt=""><figcaption><p>Installation details in Cockpit showing the installation as multi-tenant</p></figcaption></figure>
 5. Add a new Environment within the same Organization and connect it to the multi-tenant APIM installation
 
 {% hint style="success" %}
@@ -100,9 +100,9 @@ The Access Points feature allows different tenants to use dedicated URLs to acce
   * For example, when an API is created, its entrypoint will be set to virtual host mode and the host option will be limited to what the Access Points define. This allows users sharing an installation to have APIs with the same path deployed on the same set of logical Gateways.
 * Once a multi-tenant APIM installation is connected to Cockpit, custom Access Points can be defined at both the Organization and Environment levels using Cockpit. These values will override the values originally sent from the APIM installation, as shown below.
 
-<figure><img src="../../.gitbook/assets/image (57).png" alt=""><figcaption><p>Access Points configuration for Organization-related APIM nodes, found in Organization settings in Cockpit</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Access Points configuration for Organization-related APIM nodes, found in Organization settings in Cockpit</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (55).png" alt=""><figcaption><p>Access Points configuration for Environment-related APIM nodes, found in Environment settings in Cockpit</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Access Points configuration for Environment-related APIM nodes, found in Environment settings in Cockpit</p></figcaption></figure>
 
 ### Using custom Access Points
 

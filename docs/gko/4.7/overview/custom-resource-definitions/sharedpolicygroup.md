@@ -86,6 +86,6 @@ kubectl describe -n gravitee sharedpolicygroups.gravitee.io developers
 
 Here is an example output for the command:
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 
 For more information about the `SharedPolicyGroup` CRD, go to [Gravitee's GitHub repository.](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/api/v1alpha1/sharedpolicygroups_types.go)

@@ -88,7 +88,7 @@ If you change the CORS settings using the `gravitee.yml` or environment variable
 
 1.  From the **Dashboard**, click **Organization**.
 
-    <figure><img src="../../.gitbook/assets/31738772-8FFD-4BC5-B5EF-5F303E24249E_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 2.  In the **Settings screen**, navigate to the **CORS** section.
 
     <figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
@@ -97,13 +97,13 @@ If you change the CORS settings using the `gravitee.yml` or environment variable
 
 1.  From the **Dashboard**, click **Settings**.
 
-    <figure><img src="../../.gitbook/assets/135B4F2E-B8C1-43A5-8D01-902F42C7816D_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 2.  In the **Settings** menu click **Settings**.
 
-    <figure><img src="../../.gitbook/assets/7FA0E4F4-7452-47FD-B854-644ADE2EF363_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 3.  In the **Settings** section, navigate to the **CORS** section.
 
-    <figure><img src="../../.gitbook/assets/883255A4-7111-42D3-93B7-B0CA04CED7F0_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 
 ### Configure CORS settings
 
@@ -111,7 +111,7 @@ If you change the CORS settings using the `gravitee.yml` or environment variable
 
 The `Allow-Origin` setting specifies which origins are permitted to access the resources. An origin consists of three components: the scheme, domain, and the port. All three components must match for requests to be considered same-origin.
 
-<figure><img src="../../.gitbook/assets/B63D7FEF-5B6F-4D0A-9E8E-23B8C95D7B6B (1).jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 
 The following examples demonstrate common `Allow-Origin` configurations:
 
@@ -147,13 +147,13 @@ Configuration details for `Allow Headers` include the following :
 
 The `Exposed-Headers` setting defines which response headers can be used in cross-origin requests.
 
-<figure><img src="../../.gitbook/assets/A91098D9-C8AE-47E9-B87E-3875C35C69A7 (1).jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 
 ### Max Age (Seconds)
 
 The `Max age` setting controls how long pre-flight request results are cached.
 
-<figure><img src="../../.gitbook/assets/10E6B5B1-9DF0-4CDE-A4C1-28038AFF833C (1).jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 
 The following configuration details apply to `Max age`:
 

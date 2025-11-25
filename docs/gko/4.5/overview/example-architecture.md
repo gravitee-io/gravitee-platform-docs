@@ -15,7 +15,7 @@ The purpose of this platform as a whole is:
 
 Below is an illustration of one such platform:
 
-<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
 
 In the approach illustrated above, GKO is used to enable GitOps-style API management by storing API definitions and other resources in version control, and using tools like ArgoCD to continuously synchronize the state of what is running on the cluster with the state of APIs in version control.
 

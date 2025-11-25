@@ -30,7 +30,7 @@ Once you add an environment, you cannot delete the environment.
 
     \{% hint style="warning" %\} The Human Readable ID is used to build public API URLs for services hosted by Gravitee, and it is part of the end-user facing URLs. \{% endhint %\}4. Click **Create**.
 
-    <figure><img src="../.gitbook/assets/00792193-3829-426C-A047-6A566735E640_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/00792193-3829-426C-A047-6A566735E640_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
 
     Your environment appears in the **Environments** section of the **Dashboard**.
 

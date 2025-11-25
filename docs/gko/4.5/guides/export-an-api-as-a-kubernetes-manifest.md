@@ -17,11 +17,11 @@ Export can be done through the UI, or using the management API (which is very pr
 
 In the Gravitee API Management console, head to the overview of any v2 or v4 API and hit the export button to view the available export options.
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption><p>The Export button</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption><p>The Export button</p></figcaption></figure>
 
 In the modal that opens, select the **CRD API Definition** tab and click the **Export** button.
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 You will then be prompted to save your API definition yaml Kubernetes manifest to disk.
 

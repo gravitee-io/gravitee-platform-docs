@@ -10,7 +10,7 @@ You can use the `ip-filtering` policy to control access to your API by filtering
 
 You can toggle the `Use custom IP address (support EL)` option to filter forwarded IPs using a custom header.
 
-<figure><img src="../../../.gitbook/assets/00%20ip%20(1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.7/.gitbook/assets/00%20ip%20(1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 You can use any header sent with the request if you are using a different header than `X-Forwarded-For` to represent the source IP.

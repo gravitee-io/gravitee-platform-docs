@@ -21,14 +21,14 @@ With the Kafka Offloading policy, you can configure how Kafka message content is
     * Provide the **Azure connection string**.
     * Specify the **container name**.
 
-    <figure><img src="../../../.gitbook/assets/image (263) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 2.  In the Policy Studio, configure the policy with the following information:
 
     * Select the **"Event Messages"** tab for your API.
     * Add the policy **twice**: once in the **Publish** phase and once in the **Subscribe** phase.
     * Link the policy to the configured **Azure Storage Resource**.
 
-    <figure><img src="../../../.gitbook/assets/image (264) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 3. Deploy and Start the API. With the default configuration, the offloading policy completes the following actions:
    * **Offload** each published message to Azure Blob Storage.
    * **Retrieve** the message from Azure Blob Storage when subscribing.

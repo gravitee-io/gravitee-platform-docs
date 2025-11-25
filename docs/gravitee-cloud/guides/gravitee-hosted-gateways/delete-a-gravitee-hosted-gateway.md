@@ -28,6 +28,6 @@ To delete a Hosted Gateway, complete the following steps:
 
 Upon successful deletion, a green confirmation pop-up window will display, indicating that the Gateway was successfully deleted.
 
-<figure><img src="../../.gitbook/assets/gateway-deletion-green-pop-up.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gateway-deletion-green-pop-up (1).png" alt=""><figcaption></figcaption></figure>
 
 The Gateway is immediately removed from your environment and will no longer appear in the Gateways section of your Dashboard.

@@ -38,10 +38,10 @@ applications:
 
 1.  Click **"+ New client secret"**.
 
-    <figure><img src="../../.gitbook/assets/Screenshot 2025-06-02 at 11.56.31.png" alt=""><figcaption><p>New client secret</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/Screenshot 2025-06-02 at 11.56.31 (1).png" alt=""><figcaption><p>New client secret</p></figcaption></figure>
 2.  Provide description of new secret.
 
-    <div align="left"><figure><img src="../../.gitbook/assets/Screenshot 2025-06-02 at 11.57.31.png" alt="" width="308"><figcaption><p>New client secret description</p></figcaption></figure></div>
+    <div align="left"><figure><img src="../../.gitbook/assets/Screenshot 2025-06-02 at 11.57.31 (1).png" alt="" width="308"><figcaption><p>New client secret description</p></figcaption></figure></div>
 3.  Copy generated secret.
 
     <div align="left"><figure><img src="../../.gitbook/assets/Screenshot 2025-06-02 at 11.57.49.png" alt="" width="305"><figcaption><p>New client secret - copy</p></figcaption></figure></div>
@@ -97,7 +97,7 @@ Revoked secrets are immediately invalidated and cannot be used for authenticatio
   3. Go to **Settings**, and then **Secrets & Certificates**.
   4.  Click **Settings**.
 
-      <figure><img src="../../.gitbook/assets/Screenshot 2025-06-02 at 12.28.04.png" alt=""><figcaption><p>Application Secret Settings</p></figcaption></figure>
+      <figure><img src="../../.gitbook/assets/Screenshot 2025-06-02 at 12.28.04 (1).png" alt=""><figcaption><p>Application Secret Settings</p></figcaption></figure>
   5. Toggle **Use Domain Rules**, and then and select **Expiry Time Unit** and **Expiry Time Duration**.\
      ![](<../../.gitbook/assets/image (10).png>)
   6. Save the changes.

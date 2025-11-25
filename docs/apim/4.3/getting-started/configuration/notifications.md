@@ -24,7 +24,7 @@ Portal notifications relate to the platform and include the following:
 
 To subscribe to Portal notifications, go to **APIM Console > Settings > Notifications**:
 
-<figure><img src="../../.gitbook/assets/portal_notifications.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="API" %}
@@ -34,7 +34,7 @@ API notifications relate to a specific API and include the following:
 
 To subscribe to notifications related to a specific API, go to **APIM Console > APIs**, select the API, and click **Notifications**:
 
-<figure><img src="../../.gitbook/assets/api_notifications.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Application" %}
@@ -53,7 +53,7 @@ Application notifications relate to a specific application and include the follo
 
 To subscribe to notifications related to a specific application, go to **APIM Console >** **Applications**, select the application, and click **Notifications**:
 
-<figure><img src="../../.gitbook/assets/application_notifications.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -65,19 +65,11 @@ The Portal notifier is the default notifier and sends messages to users logged i
 
 They can be displayed by clicking the bell icon in the header menu of APIM Console:
 
-<div align="left">
-
-<figure><img src="../../.gitbook/assets/console_notification_link.png" alt="" width="375"><figcaption></figcaption></figure>
-
-</div>
+<div align="left"><figure><img src="broken-reference" alt="" width="375"><figcaption></figcaption></figure></div>
 
 In the Developer Portal, notifications are displayed in a page accessible from the user menu:
 
-<div align="left">
-
-<figure><img src="../../.gitbook/assets/portal_notification_link.png" alt="" width="188"><figcaption></figcaption></figure>
-
-</div>
+<div align="left"><figure><img src="broken-reference" alt="" width="188"><figcaption></figcaption></figure></div>
 
 The templates of Portal notifications can be customized in **Settings**. For more information, see [Templates](notifications.md#templates).
 {% endtab %}
@@ -93,7 +85,7 @@ Email notifiers send an email to a specific list of email addresses. To create a
 A default email notifier is created for every API. All notifications are preselected and email is sent to the primary owner.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/Configure notifications.gif" alt=""><figcaption></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 
 The [templates](notifications.md#templates) of email notifications can be customized in **Settings.**
 {% endtab %}
@@ -158,27 +150,19 @@ templates:
 
 These templates can be overridden in **APIM Console > Organization > Notifications > Templates**:
 
-<figure><img src="../../.gitbook/assets/template_notifications.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 
 Email templates that are sent for specific actions and not related to a notification can be customized. Typically, these emails are intended for specific users.
 
 The `header.html` file that is included by default in all email templates can also be customized.
 
-<figure><img src="../../.gitbook/assets/templates_to_include.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 
 #### Customize a template
 
 Portal and email notifiers can be configured for most notifications. To customize a template, toggle the switch **Override default template** and update the title and/or content.
 
-<div>
-
-<figure><img src="../../.gitbook/assets/override_default_off.png" alt=""><figcaption></figcaption></figure>
-
- 
-
-<figure><img src="../../.gitbook/assets/override_default_on.png" alt=""><figcaption></figcaption></figure>
-
-</div>
+<div><figure><img src="broken-reference" alt=""><figcaption></figcaption></figure> <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure></div>
 
 The available attributes are summarized below. Use the [Apache Freemarker template engine](https://freemarker.apache.org/) to add specific information to templates, e.g., ${user.name} or ${api.metadata\['foo-bar']}.
 
@@ -217,7 +201,7 @@ The following documentation is only relevant if you have Gravitee Alert Engine e
 
 When configuring platform settings, you can also set up alerting conditions for the Gateway. To configure alerts, select **Alerts** from the left nav of your APIM console. If you already have alerts configured, you'll see the configured alerts. If not, you'll see a blank alerts menu and a **+** icon.
 
-<figure><img src="../../.gitbook/assets/Alerts menu.png" alt=""><figcaption><p>Alerts</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Alerts</p></figcaption></figure>
 
 Select the **+** icon to create your first alert. On the **Create a new alert** page, configure the following:
 
@@ -228,7 +212,7 @@ Select the **+** icon to create your first alert. On the **Create a new alert** 
 
 By default, alerts will show up in your **Dashboard** under the **Alerts** tab and on the **Alerts** page.
 
-<figure><img src="../../.gitbook/assets/Alert areas.gif" alt=""><figcaption><p>You can see alerts in the Alerts tab and the Alerts page.</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>You can see alerts in the Alerts tab and the Alerts page.</p></figcaption></figure>
 
 In addition to viewing alerts in these locations, you can configure notifications that are attached to these alerts. This is done on the **Create a new alert** page under the **Notifications** tab. On this page, you can:
 
@@ -255,7 +239,7 @@ For email notifications, you can define the following:
 * SSL key store
 * SSL key store password
 
-<figure><img src="../../.gitbook/assets/Email alert notifications.png" alt=""><figcaption><p>Email notifications for email alerting</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Email notifications for email alerting</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Slack" %}
@@ -266,7 +250,7 @@ If you choose Slack as your notification channel, you can define the following:
 * Whether or not to use the system proxy
 * The content of the Slack message
 
-<figure><img src="../../.gitbook/assets/Slack notifications.png" alt=""><figcaption><p>Slack notifications for API alerting</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Slack notifications for API alerting</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="System email" %}
@@ -277,7 +261,7 @@ If you choose System email, you will need to define:
 * The subject of the email
 * The body content of the email
 
-<figure><img src="../../.gitbook/assets/System email notifications.png" alt=""><figcaption><p>System email notifications</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>System email notifications</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Webhook" %}
@@ -289,7 +273,7 @@ If you want to choose Webhook as your notification channel, you will need to def
 * **Request body**: the content in the request body
 * Whether or not to use the **system proxy** to call the webhook
 
-<figure><img src="../../.gitbook/assets/Webhook notifications.png" alt=""><figcaption><p>Webhook notifications</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Webhook notifications</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 

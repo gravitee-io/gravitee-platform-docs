@@ -171,13 +171,13 @@ Before you can connect to the Gravitee portal using Keycloak, you need to create
 
 1.  Log-in to Keycloak and create a new client.
 
-    <figure><img src="../../.gitbook/assets/keycloak_create_client.png" alt=""><figcaption><p>Add a Gravitee client in Keycloak</p></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption><p>Add a Gravitee client in Keycloak</p></figcaption></figure>
 2.  Enter in your client details for Gravitee. The `Valid Redirect URIs` value must exactly match the domain which is hosting APIM Portal.
 
-    <figure><img src="../../.gitbook/assets/keycloak_configure_client.png" alt=""><figcaption><p>Enter Gravitee client details in Keycloak</p></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption><p>Enter Gravitee client details in Keycloak</p></figcaption></figure>
 3.  Once you're done and create the client, retrieve the client credentials that you will need to give to Gravitee.
 
-    <figure><img src="../../.gitbook/assets/keycloak_client_credentials.png" alt=""><figcaption><p>Keycloak client credentials that will need to be given to Gravitee</p></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption><p>Keycloak client credentials that will need to be given to Gravitee</p></figcaption></figure>
 
 ### Create and configure Keycloak Client scope
 
@@ -202,7 +202,7 @@ Optionally, you can configure Keycloak client roles. These roles can be defined 
     <figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/authentication/keycloak_mng-04-client-add_roles.png" alt=""><figcaption><p>Add roles in Keycloak</p></figcaption></figure>
 2.  To configure Keycloak users with appropriate roles, select **Role Mappings** and define roles as is appropriate.
 
-    <figure><img src="../../.gitbook/assets/keycloak_mng-roles-05-users-add_user_client_roles.png" alt=""><figcaption><p>Define role mappings</p></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption><p>Define role mappings</p></figcaption></figure>
 
 Gravitee role mapping uses Spring Expression Language ([SpEL](https://docs.spring.io/spring-framework/docs/3.0.x/reference/expressions.html)) for writing conditions. The only available object in context is #profile set from [userInfoEndpoint](https://www.oauth.com/oauth2-servers/signing-in-with-google/verifying-the-user-info/). For example:
 

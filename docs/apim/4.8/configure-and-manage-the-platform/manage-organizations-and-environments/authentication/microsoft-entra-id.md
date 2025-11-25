@@ -45,7 +45,7 @@ For documentation about securing your APIs with OAuth2 and Entra ID, see the doc
 
     \{% hint style="info" %\} The `profile` scope is a permission request that grants access to a wider range of user profile information, including the `given_name` and `family_name` claims. \{% endhint %\}
 
-    <figure><img src="../../../.gitbook/assets/image (2) (1)-2.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 You can now add a new Identity Provider to Gravitee APIM.

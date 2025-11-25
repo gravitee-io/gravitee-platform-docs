@@ -16,7 +16,7 @@ The requirements to achieve this are that:
 
 An example of the architecture enabled by these settings is illustrated by the diagram below.
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption><p>One operator, multiple clusters/regions</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>One operator, multiple clusters/regions</p></figcaption></figure>
 
 Next are some detailed examples that illustrate what API definition resources should look like in order to support this deployment style.
 

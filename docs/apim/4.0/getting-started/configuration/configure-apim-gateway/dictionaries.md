@@ -17,7 +17,7 @@ Dictionary properties are based on key-value pairs. You can create two types of 
 
 Dictionaries need to be deployed to the API Gateway before you can use them. You can see the date and time the dictionary was last deployed in the dictionary list:
 
-<figure><img src="../../../.gitbook/assets/image (46).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 
 ### How are dictionaries used?
 
@@ -27,20 +27,20 @@ You can use dictionaries anywhere in APIM where [Gravitee Expression Language](.
 
 To create a bew dictionary, select **Settings** in the left-hand nav. Then, select **Dictionaries.**
 
-<figure><img src="../../../.gitbook/assets/2023-06-28_10-17-24 (1) (1).gif" alt=""><figcaption><p>Access dictionary settings</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Access dictionary settings</p></figcaption></figure>
 
-Then, select the <img src="../../../.gitbook/assets/Screen Shot 2023-06-28 at 10.18.10 AM.png" alt="" data-size="line">icon. You'll be brought to the **Create a new dictionary** page. Here, you'll need to define the **Name, Description,** and **Type.** You'll have two options for **Dictionary type:**
+Then, select the <img src="broken-reference" alt="" data-size="line">icon. You'll be brought to the **Create a new dictionary** page. Here, you'll need to define the **Name, Description,** and **Type.** You'll have two options for **Dictionary type:**
 
 * **Manual**: these dictionaries are made up of static properties defined manually at dictionary creation time
 * **Dynamic**: these dictionaries are made up of properties that are updated continually, based on a schedule and source URL defined at dictionary creation time
 
 ### Create a manual dictionary
 
-To create a manual dictionary, choose **Manual** as the **Type**, and then select **Create.** You'll then be brought to a page where you can define the static properties for your dictionary. To create properties, select the <img src="../../../.gitbook/assets/Screen Shot 2023-06-28 at 10.22.56 AM.png" alt="" data-size="line">icon.
+To create a manual dictionary, choose **Manual** as the **Type**, and then select **Create.** You'll then be brought to a page where you can define the static properties for your dictionary. To create properties, select the <img src="broken-reference" alt="" data-size="line">icon.
 
 Then, just give your properties a name and a value.
 
-<figure><img src="../../../.gitbook/assets/Screen Shot 2023-06-28 at 10.24.08 AM.png" alt=""><figcaption><p>Add properties to your dictionary</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Add properties to your dictionary</p></figcaption></figure>
 
 When you're done, select Add, and then **Save Properties** when you are done defining your key-value pairs. To then start and deploy your dictionary, select **Deploy.**
 
@@ -52,7 +52,7 @@ To create a manual dictionary, choose **Dynamic** as the **Type**. **Trigger** a
 
 The Trigger defines the schedule for which dynamic properties will be created. Define the **Interval** and the **Time Unit** (seconds, minutes, hours).
 
-<figure><img src="../../../.gitbook/assets/Screen Shot 2023-06-28 at 10.28.44 AM.png" alt=""><figcaption><p>Define your trigger</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Define your trigger</p></figcaption></figure>
 
 #### Define your Provider settings
 

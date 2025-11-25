@@ -36,7 +36,7 @@ In Active/Active mode, both instances of the component are actively processing r
 
 Alternatively, Active/Passive mode involves designating one instance as active while the other remains in standby mode, ready to take over operations if the active instance fails. In this setup, the passive instance remains idle until it is needed, thereby conserving resources. Automatic failover mechanisms are employed to detect failures in the active instance and seamlessly transition operations to the passive instance without causing service disruptions.
 
-<figure><img src="../../.gitbook/assets/deployments and capacity.png" alt=""><figcaption><p>Load balancer</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Load balancer</p></figcaption></figure>
 
 {% hint style="info" %}
 **VM installation**
