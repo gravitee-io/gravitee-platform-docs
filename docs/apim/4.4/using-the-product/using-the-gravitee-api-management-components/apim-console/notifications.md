@@ -164,11 +164,11 @@ Portal and email notifiers can be configured for most notifications. To customiz
 
 <div>
 
-<figure><img src="../../../../../.gitbook/assets/override_default_off.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/override_default_off.png" alt=""><figcaption></figcaption></figure>
 
  
 
-<figure><img src="../../../../../.gitbook/assets/override_default_on.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/override_default_on.png" alt=""><figcaption></figcaption></figure>
 
 </div>
 
@@ -209,7 +209,7 @@ The following documentation is only relevant if you have Gravitee Alert Engine e
 
 When configuring platform settings, you can also set up alerting conditions for the Gateway. To configure alerts, select **Alerts** from the left nav of your APIM console. If you already have alerts configured, you'll see the configured alerts. If not, you'll see a blank alerts menu and a **+** icon.
 
-<figure><img src="../../../../../.gitbook/assets/Alerts menu.png" alt=""><figcaption><p>Alerts</p></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/Alerts menu.png" alt=""><figcaption><p>Alerts</p></figcaption></figure>
 
 Select the **+** icon to create your first alert. On the **Create a new alert** page, configure the following:
 
@@ -220,7 +220,7 @@ Select the **+** icon to create your first alert. On the **Create a new alert** 
 
 By default, alerts will show up in your **Dashboard** under the **Alerts** tab and on the **Alerts** page.
 
-<figure><img src="../../../../../.gitbook/assets/Alert areas.gif" alt=""><figcaption><p>You can see alerts in the Alerts tab and the Alerts page.</p></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/Alert areas.gif" alt=""><figcaption><p>You can see alerts in the Alerts tab and the Alerts page.</p></figcaption></figure>
 
 In addition to viewing alerts in these locations, you can configure notifications that are attached to these alerts. This is done on the **Create a new alert** page under the **Notifications** tab. On this page, you can:
 
@@ -247,7 +247,7 @@ For email notifications, you can define the following:
 * SSL key store
 * SSL key store password
 
-<figure><img src="../../../../../.gitbook/assets/Email alert notifications.png" alt=""><figcaption><p>Email notifications for email alerting</p></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/Email alert notifications.png" alt=""><figcaption><p>Email notifications for email alerting</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Slack" %}
@@ -258,7 +258,7 @@ If you choose Slack as your notification channel, you can define the following:
 * Whether or not to use the system proxy
 * The content of the Slack message
 
-<figure><img src="../../../../../.gitbook/assets/Slack notifications.png" alt=""><figcaption><p>Slack notifications for API alerting</p></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/Slack notifications.png" alt=""><figcaption><p>Slack notifications for API alerting</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="System email" %}
@@ -269,7 +269,7 @@ If you choose System email, you will need to define:
 * The subject of the email
 * The body content of the email
 
-<figure><img src="../../../../../.gitbook/assets/System email notifications.png" alt=""><figcaption><p>System email notifications</p></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/System email notifications.png" alt=""><figcaption><p>System email notifications</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Webhook" %}
@@ -281,7 +281,7 @@ If you want to choose Webhook as your notification channel, you will need to def
 * **Request body**: the content in the request body
 * Whether or not to use the **system proxy** to call the webhook
 
-<figure><img src="../../../../../.gitbook/assets/Webhook notifications.png" alt=""><figcaption><p>Webhook notifications</p></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/Webhook notifications.png" alt=""><figcaption><p>Webhook notifications</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
