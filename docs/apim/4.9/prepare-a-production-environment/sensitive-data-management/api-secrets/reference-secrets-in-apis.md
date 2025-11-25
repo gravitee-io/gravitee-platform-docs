@@ -316,7 +316,7 @@ The definition does not contain a clear text secret. This definition is saved, a
 
 Here is an example of how to reference a secret when you configure a Redis Cache resource:
 
-<figure><img src="../../../../4.7/.gitbook/assets/image%20(143).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image%20(143).png" alt=""><figcaption></figcaption></figure>
 
 ### Native Kafka endpoint API example
 
@@ -385,4 +385,4 @@ The definition does not contain a clear text secret. This definition is saved as
 
 Here is an example of how to reference a secret during a SASL configuration:
 
-<figure><img src="../../../../4.7/.gitbook/assets/Screenshot%202025-01-23%20at%2013.54.01.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot%202025-01-23%20at%2013.54.01.png" alt=""><figcaption></figcaption></figure>

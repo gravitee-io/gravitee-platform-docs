@@ -31,7 +31,7 @@ Kafka policies can be applied to these phases in policy chains of arbitrary leng
 
 The **Policies** section takes you to the Gravitee Policy Studio.
 
-<figure><img src="../../../../4.6/.gitbook/assets/A%2011%20policy%201%20(1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/A%2011%20policy%201%20(1).png" alt=""><figcaption></figcaption></figure>
 
 You can use the Policy Studio to create and manage flows. Flows are policy enforcement sequences that protect or transform how APIs are consumed. They control where, and under what conditions, one or more policies act on an API transaction.
 
@@ -45,27 +45,27 @@ Policies are added to flows to enforce security, reliability, and proper data tr
 2. Give your flow a name.
 3.  Click **Create**.
 
-    <figure><img src="../../../../4.6/.gitbook/assets/A%2011%20policy%200%20(1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/A%2011%20policy%200%20(1).png" alt=""><figcaption></figcaption></figure>
 4.  In the Flow details panel, select the **Global** header to add a policy to the **Interact** phase of the Kafka API transaction.
 
-    <figure><img src="../../../../4.6/.gitbook/assets/A%2011%20policy%202%20(1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/A%2011%20policy%202%20(1).png" alt=""><figcaption></figcaption></figure>
 
     Choose either the Kafka ACL or [Kafka Topic Mapping](kafka-topic-mapping.md) policy.
 
-    <figure><img src="../../../../4.6/.gitbook/assets/A%2011%20policy%203%20(1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/A%2011%20policy%203%20(1).png" alt=""><figcaption></figcaption></figure>
 
     Fill out the policy configuration details and click **Add policy**.
 
-    <figure><img src="../../../../4.6/.gitbook/assets/AAA%20policy%20(1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/AAA%20policy%20(1).png" alt=""><figcaption></figcaption></figure>
 5.  In the Flow details panel, select the **Event messages** header to add a policy to the **Publish** and/or **Subscribe** phase of the Kafka API transaction.
 
-    <figure><img src="../../../../4.6/.gitbook/assets/A%2011%20policy%204%20(1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/A%2011%20policy%204%20(1).png" alt=""><figcaption></figcaption></figure>
 
     Select the [Kafka Quota](kafka-quota.md) policy.
 
-    <figure><img src="../../../../4.6/.gitbook/assets/A%2011%20policy%205%20(1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/A%2011%20policy%205%20(1).png" alt=""><figcaption></figcaption></figure>
 
     Fill out the policy configuration details and click **Add policy**.
 
-    <figure><img src="../../../../4.6/.gitbook/assets/AAB%20policy%20(1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/AAB%20policy%20(1).png" alt=""><figcaption></figcaption></figure>
 6. Click **Save** and redeploy your API for changes to take effect.

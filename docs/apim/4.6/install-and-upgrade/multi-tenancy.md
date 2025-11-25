@@ -106,9 +106,9 @@ All APIs that have been created prior to 4.4 will still be in virtual host mode.
 
 * Once a multi-tenant APIM installation is connected to Cloud, custom Access Points can be defined at both the Organization and Environment levels using Cloud. These values will override the values originally sent from the APIM installation, as shown below.
 
-<figure><img src="../../4.2/.gitbook/assets/image (57) (1).png" alt=""><figcaption><p>Access Points configuration for Organization-related APIM nodes, found in Organization settings in Cloud</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (57).png" alt=""><figcaption><p>Access Points configuration for Organization-related APIM nodes, found in Organization settings in Cloud</p></figcaption></figure>
 
-<figure><img src="../../4.2/.gitbook/assets/image (55) (1).png" alt=""><figcaption><p>Access Points configuration for Environment-related APIM nodes, found in Environment settings in Cloud</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (55).png" alt=""><figcaption><p>Access Points configuration for Environment-related APIM nodes, found in Environment settings in Cloud</p></figcaption></figure>
 
 ### Using custom Access Points
 

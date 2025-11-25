@@ -44,28 +44,28 @@ To add security to your API, complete the following steps:
     <figure><img src="../../.gitbook/assets/E43BBC55-59A5-4CC6-B689-57D5433E1F35.jpeg" alt=""><figcaption></figcaption></figure>
 8.  In the API Key authentication configuration screen, click **Next**.
 
-    <figure><img src="../../../4.9/.gitbook/assets/image%20(347)%20(1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image%20(347)%20(1).png" alt=""><figcaption></figcaption></figure>
 9.  Click **Create**.
 
-    <figure><img src="../../../4.9/.gitbook/assets/image%20(348)%20(1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image%20(348)%20(1).png" alt=""><figcaption></figcaption></figure>
 10. In the **Consumers** screen, click the **Publish the plan** button.
 
     <figure><img src="../../.gitbook/assets/80812F89-F280-4D0C-A83B-EB9417385B96.jpeg" alt=""><figcaption></figcaption></figure>
 11. In the Publish plan pop-up window, click **Publish.**
 
-    <figure><img src="../../../4.9/.gitbook/assets/image%20(349)%20(1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image%20(349)%20(1).png" alt=""><figcaption></figcaption></figure>
 12. Click **Deploy API**.
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/8AB63E94-AAA6-4BDA-B648-077BB451A35C.jpeg" alt=""><figcaption></figcaption></figure>
 13. In the **Deploy your API** pop-up window, click **Deploy**.
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (350) (1)-1.png" alt=""><figcaption></figcaption></figure>
 
 #### Verification
 
 The new plan appears in the **PUBLISHED** tab of the **Consumers** screen.
 
-<figure><img src="../../../4.9/.gitbook/assets/image%20(351)%20(1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image%20(351)%20(1).png" alt=""><figcaption></figcaption></figure>
 
 ### Remove the Keyless plan from your API
 
@@ -108,7 +108,7 @@ To test your API Key plan, complete the following steps:
     <figure><img src="../../.gitbook/assets/F1AD5888-A518-42D5-8C18-33BCCB583C06.jpeg" alt=""><figcaption></figcaption></figure>
 4.  Click **+ Create a subscription**.
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/AD60FD6C-ECAB-49A1-80B3-2C0BD89F08EA.jpeg" alt=""><figcaption></figcaption></figure>
 5. In the **Create a subscription** pop-up window, complete the following sub-steps:
    1. Type the name of the API that you created in [create-an-api.md](create-an-api.md "mention").
    2. Select your API.

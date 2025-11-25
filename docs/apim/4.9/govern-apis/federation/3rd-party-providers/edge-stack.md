@@ -36,10 +36,10 @@ To install Edge stack agent, you must complete the following steps:
 
 1.  From the APIM console, click **Integrations**.
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/6F54CA44-3D24-4B1F-BC85-D02023B39481 (1).jpeg" alt=""><figcaption></figcaption></figure>
 2.  Click **Create Integration**.
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/85E11164-ADD0-4235-8743-4987417C8312 (1).jpeg" alt=""><figcaption></figcaption></figure>
 3.  Click **Edge Stack**, and then click **Next**.
 
     <figure><img src="../../../.gitbook/assets/image (375).png" alt=""><figcaption></figcaption></figure>
@@ -47,13 +47,13 @@ To install Edge stack agent, you must complete the following steps:
 5. (Optional) Type a description for the integration.
 6.  Click **Create** **Integration**.
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Verification
 
 The Edge stack integration appears in the **Integrations** screen.
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/7243EB9F-3D83-44B4-9CBA-B35981D57DCD_4_5005_c (1).jpeg" alt=""><figcaption></figcaption></figure>
 
 ### Configure and run the Edge Stack agent
 
@@ -196,4 +196,4 @@ You can run the Edge Stack using either of the following methods:
 
 In the **Integrations** screen of the APIM Console, the agent status shows **Connected**.
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/7E1EE616-C0AB-488E-BECC-1CE7B116FCE9_4_5005_c (1).jpeg" alt=""><figcaption></figcaption></figure>
