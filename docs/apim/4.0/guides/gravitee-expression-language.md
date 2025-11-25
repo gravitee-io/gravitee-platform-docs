@@ -316,7 +316,7 @@ For example, to retrieve the value of an HTTP header where the name is based on 
 
 You can use the EL to update some aspects of policy configuration. The policy specifies if it supports EL or not by including a **Condition** section in the Policy Studio configuration.
 
-<figure><img src="../.gitbook/assets/Screenshot 2023-04-03 at 4.58.01 PM.png" alt=""><figcaption><p>Assign attributes policy supports EL conditions</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Assign attributes policy supports EL conditions</p></figcaption></figure>
 
 ## Conditions
 

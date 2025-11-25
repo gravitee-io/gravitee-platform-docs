@@ -58,7 +58,7 @@ To get started, you need to access your **APIs** homescreen. This screen display
 
 Assuming you have the proper permissions, you can access and modify the configurations of existing APIs, or, in our case, create new APIs.
 
-<figure><img src="../../../.gitbook/assets/apis_homescreen.png" alt=""><figcaption><p>APIs homscreen</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>APIs homscreen</p></figcaption></figure>
 
 > * [x] Select **APIs** in the sidebar of the Console UI
 > * [x] Next, select **+ Add API** in the top right to create a new API

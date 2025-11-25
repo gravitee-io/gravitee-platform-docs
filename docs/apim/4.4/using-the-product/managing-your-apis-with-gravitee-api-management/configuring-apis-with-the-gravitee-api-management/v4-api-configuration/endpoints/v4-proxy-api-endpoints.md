@@ -13,7 +13,7 @@ To configure v4 proxy API endpoints:
 3. Select **Endpoints** from the inner left nav
 4. Click the pencil icon of the endpoint you want to edit:
 
-<figure><img src="../../../../../.gitbook/assets/edit HTTP endpoint.png" alt=""><figcaption><p>Configure the Default HTTP proxy endpoint in the Default HTTP proxy group</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Configure the Default HTTP proxy endpoint in the Default HTTP proxy group</p></figcaption></figure>
 
 You can also create additional endpoints in the existing group or in new endpoint groups. Refer to the following sections for step-by-step configuration details per proxy type.
 
@@ -21,7 +21,7 @@ You can also create additional endpoints in the existing group or in new endpoin
 
 Edit the endpoint's settings under the **General** and **Configuration** tabs.
 
-<figure><img src="../../../../../.gitbook/assets/edit HTTP endpoint settings.png" alt=""><figcaption><p>Define the endpoint's General and Configuration settings</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Define the endpoint's General and Configuration settings</p></figcaption></figure>
 
 {% tabs %}
 {% tab title="General" %}
@@ -91,7 +91,7 @@ Select from the following options.
 
 Edit the endpoint's settings under the **General** and **Configuration** tabs.
 
-<figure><img src="../../../../../.gitbook/assets/tcp_endpoints config.png" alt=""><figcaption><p>Define the endpoint's General and Configuration settings</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Define the endpoint's General and Configuration settings</p></figcaption></figure>
 
 {% tabs %}
 {% tab title="General" %}

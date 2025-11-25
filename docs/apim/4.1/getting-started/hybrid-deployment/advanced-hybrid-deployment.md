@@ -18,7 +18,7 @@ This page focuses on the installation of the Self-Hosted Data-Plane, which is pa
 
 <table><thead><tr><th width="133" align="center">Component</th><th>Description</th></tr></thead><tbody><tr><td align="center">APIM Gateway</td><td>APIM Gateway is the core component of the APIM platform. You can think of it like a smart reverse proxy.<br><br>Unlike a traditional HTTP proxy, APIM Gateway has the capability to apply <a href="../../guides/policy-design/">policies</a> (i.e., rules or logic) to both the request and response phases of an API transaction. With these policies, you can transform, secure, monitor, etc., your APIs.</td></tr><tr><td align="center">Logstash</td><td>Collect and send local Gateway logs and metrics to the Gravitee APIM SaaS Control Plane.</td></tr><tr><td align="center">Redis</td><td>The database used locally for rate limit synchronized counters (RateLimit, Quota, Spike Arrest) and, optionally, as an external cache for the Cache policy.</td></tr></tbody></table>
 
-<img src="../../.gitbook/assets/file.excalidraw (4) (1)-2.svg" alt="Hybrid architecture connections" class="gitbook-drawing">
+<img src="broken-reference" alt="Hybrid architecture connections" class="gitbook-drawing">
 
 ## Self-Hosted Hybrid Gateway <a href="#installation" id="installation"></a>
 

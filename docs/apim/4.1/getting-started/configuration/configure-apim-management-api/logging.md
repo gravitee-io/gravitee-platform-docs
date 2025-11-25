@@ -25,11 +25,11 @@ Comprehensive connection logs allow you to analyze the usage of your v4 message 
 
 Logs will be displayed under the Runtime Logs tab in reverse chronological order:
 
-<figure><img src="../../../.gitbook/assets/runtime logs chron order.png" alt=""><figcaption><p>History of up-to-date runtime logs</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>History of up-to-date runtime logs</p></figcaption></figure>
 
 The record of logs will be paginated, with no limit to the number of pages. If logging is disabled, existing logs will still be displayed, but a banner will indicate that the record is not current:
 
-<figure><img src="../../../.gitbook/assets/runtime logs not current.png" alt=""><figcaption><p>History of existing runtime logs</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>History of existing runtime logs</p></figcaption></figure>
 
 ### Modify logging information
 
@@ -39,7 +39,7 @@ Select logging options judiciously to optimize the value of recorded data agains
 
 To record additional data, modify the **Runtime Logs** settings under the **Settings** tab:
 
-<figure><img src="../../../.gitbook/assets/runtime logs settings.png" alt=""><figcaption><p>Runtime logs settings</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Runtime logs settings</p></figcaption></figure>
 
 The **Settings** page allows you to define the following:
 
@@ -56,7 +56,7 @@ The **Settings** page allows you to define the following:
 
 To view the details of any entry in the list of runtime logs, click on **View messages**:
 
-<figure><img src="../../../.gitbook/assets/runtime logs view messages.png" alt=""><figcaption><p>View messages for log details</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>View messages for log details</p></figcaption></figure>
 
 The messages captured by the runtime log will be grouped by correlation ID and listed in reverse chronological order. They will also be paginated, with a button at the bottom of the page to load additional messages.
 
