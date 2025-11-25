@@ -1,5 +1,17 @@
 # GKO 4.9.x
 
+## Gravitee Kubernetes Operator 4.9.7 - November 25, 2025
+    
+<details>
+<summary>Bug fixes</summary>
+
+  **GKO**
+
+  * Error while trying to deploy 4.9.x on openshift 4.18.25 [#10997](https://github.com/gravitee-io/issues/issues/10997)
+
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.9.6 - November 25, 2025
 
 There is nothing new in version 4.9.6.
