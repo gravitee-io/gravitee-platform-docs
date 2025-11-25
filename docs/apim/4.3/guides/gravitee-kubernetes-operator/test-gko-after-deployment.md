@@ -106,7 +106,7 @@ The Console URL below is typical for a local cluster created via the local clust
 
 The new API will be listed in the **Number of APIs** section of the Console dashboard:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-07-06 at 9.19.26 PM.png" alt=""><figcaption><p>APIM Console dashboard</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>APIM Console dashboard</p></figcaption></figure>
 
 ## 3. Call the API through the APIM Gateway
 

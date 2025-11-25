@@ -10,7 +10,7 @@ description: Configuration guide for hybrid install with docker.
 
 The hybrid installation consists of installing the data plane on your infrastructure and connecting it as shown in the following diagram:
 
-<figure><img src="../.gitbook/assets/image%20(135).png" alt="Diagram showing the hybrid architecture"><figcaption><p>Hybrid architecture connections</p></figcaption></figure>
+<figure><img src="../../4.5/.gitbook/assets/image%20(134)%20(1).png" alt="Diagram showing the hybrid architecture"><figcaption><p>Hybrid architecture connections</p></figcaption></figure>
 
 ## Configuration
 

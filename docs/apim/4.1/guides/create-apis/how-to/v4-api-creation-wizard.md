@@ -21,7 +21,7 @@ The v4 API creation wizard makes it easy to create new Gateway APIs from scratch
 
 The API details step is where you can define a name, version number, and description for your API. The name and version number are required, but we also recommend giving your API a description so that it is more easily understood and managed by internal users.
 
-<figure><img src="../../../.gitbook/assets/Screen Shot 2023-03-15 at 12.38.10 PM.png" alt=""><figcaption><p>Step 1: define your Gateway API's basic details.</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Step 1: define your Gateway API's basic details.</p></figcaption></figure>
 
 ## Step 2: Entrypoints
 
@@ -42,7 +42,7 @@ The Gravitee documentation adopts concise terminology to differentiate between t
 
 What you choose will dictate the kinds of entrypoints and endpoints that you can select later on. For more in-depth information on the exact support that these two methods offer, please [refer to this documentation](../#backend-exposure-methods).
 
-<figure><img src="../../../.gitbook/assets/Screen Shot 2023-06-08 at 8.39.02 AM.png" alt=""><figcaption><p>v4 API creation wizard: select how you want your backend service exposed</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>v4 API creation wizard: select how you want your backend service exposed</p></figcaption></figure>
 
 After you choose your method of exposure, select **Select my API architecture,** and you'll be taken to the entrypoint selection screen. Please read the following content to learn more about entrypoint selection and configuration, based on your selected exposure method.
 
@@ -79,7 +79,7 @@ If you chose **Introspect messages from Event-driven backend**, you are presente
 * **Webhook**: Allows you to front a chosen backend or data source with a Gateway Webhook API. This allows consumers to subscribe to the Gravitee Gateway via Webhook and then retrieve streamed data in real-time from a backend data source, via the Gateway, over the consumer's Webhook callback URL.
 * **WebSocket**: Allows you to front a chosen backend or data source with a Gateway WebSocket API. This allows a consumer to retrieve and send streamed events and messages in real-time.
 
-<figure><img src="../../../.gitbook/assets/Screen Shot 2023-06-08 at 8.44.08 AM.png" alt=""><figcaption><p>v4 API creation wizard: event-driven backend entrypoints</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>v4 API creation wizard: event-driven backend entrypoints</p></figcaption></figure>
 
 Once you select your entrypoints from the entrypoints page, additional configuration is required. The following sections outline the necessary configuration per entrypoint.
 
@@ -285,7 +285,7 @@ The endpoint configuration will determine the endpoint group’s default configu
 
 By default, the endpoint group will be named **Default \<endpoint type> group** and the endpoint will be named **Default \<endpoint type>** as shown below:
 
-<figure><img src="../../../.gitbook/assets/default proxy endpoint names.png" alt=""><figcaption><p>Default proxy API endpoint names</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Default proxy API endpoint names</p></figcaption></figure>
 
 ### **Introspect messages from event-driven backend endpoints**
 
@@ -511,7 +511,7 @@ The endpoint configuration will determine the endpoint group’s default configu
 
 By default, the endpoint group will be named **Default \<endpoint type> group** and the endpoint will be named **Default \<endpoint type>** as shown below:
 
-<figure><img src="../../../.gitbook/assets/default message endpoint names.png" alt=""><figcaption><p>Default message API endpoint names</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>Default message API endpoint names</p></figcaption></figure>
 
 ## Step 4: Security
 
@@ -531,7 +531,7 @@ A plan is essentially an access layer around an API that provides the API produc
 * **Keyless**: Aplan that results in no added security via plan configuration. This is considered an "Open" plan.
 * **Push plan**: A plan that provides an access layer for the Gateway pushing data to consumers. This is used for subscribers.
 
-<figure><img src="../../../.gitbook/assets/Screen Shot 2023-06-01 at 12.14.02 PM.png" alt=""><figcaption><p>API creation wizard: different Security plan types</p></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption><p>API creation wizard: different Security plan types</p></figcaption></figure>
 
 Depending on which plan you select, the configuration will differ. Please see the expandable sections below to learn more about how to configure each of the different plans.
 
@@ -547,7 +547,7 @@ To configure your OAuth2 plan, select OAuth2 from the **+Add plan** drop-down me
 * **Subscription:** choose whether to auto-validate subscriptions, require a message from a consumer during subscription, and/or present a message to the consumer upon subscription.
 * **Access control:** select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../administration/#users-and-user-groups).
 
-<img src="../../../.gitbook/assets/image (92).png" alt="" data-size="original">
+<img src="broken-reference" alt="" data-size="original">
 
 Select Next to move on to **OAuth2 authentication configuration**. Here, you'll specify:
 
@@ -559,7 +559,7 @@ Select Next to move on to **OAuth2 authentication configuration**. Here, you'll 
 * Whether to permit authorization headers to target endpoints.
 * (Optional) Define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process. You will need to use the Gravitee Expression Language. For more information on the Gravitee Expression Language, please refer to the Expression Language documentation.
 
-<img src="../../../.gitbook/assets/image (97).png" alt="" data-size="original">
+<img src="broken-reference" alt="" data-size="original">
 
 Select Next to define any additional restrictions for the plan. These restrictions include:
 
@@ -572,7 +572,7 @@ Select Next to define any additional restrictions for the plan. These restrictio
 * **Quota:** define a rate limit over a period of hours, days, or months. If you choose this, you will need to define the same settings that are applicable to rate limiting (see above).
 * **Resource filtering:** restricts resources based on defined whitelist/allowed and/or blacklist/disallowed settings. These will be defined by path patterns and methods.
 
-<img src="../../../.gitbook/assets/image (98).png" alt="" data-size="original">
+<img src="broken-reference" alt="" data-size="original">
 
 </details>
 
@@ -620,7 +620,7 @@ Select Next to define any restrictions associated with this plan. Your options i
 * **Quota:** define a rate limit over a period of hours, days, or months. If you choose this, you will need to define the same settings that are applicable to rate limiting (see above).
 * **Resource filtering:** restricts resources based on defined whitelist/allowed and/or blacklist/disallowed settings. These will be defined by path patterns and methods.
 
-<img src="../../../.gitbook/assets/image (98).png" alt="" data-size="original">
+<img src="broken-reference" alt="" data-size="original">
 
 </details>
 

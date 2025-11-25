@@ -31,7 +31,7 @@ To create a flow and add policies:
 5. Select the **Design** tab
 6.  In the **Flows** section, select the **+** icon, then configure the flow:
 
-    <figure><img src="../../.gitbook/assets/v2 design (1).png" alt=""><figcaption><p>Configure a flow</p></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption><p>Configure a flow</p></figcaption></figure>
 
     * **Name:** Give your flow a descriptive name. Otherwise, a name will be automatically generated using the path and methods.
     * **Operator path:** For the provided **Path**, apply this flow to requests with a path that **Equals** or **Starts with** the same path.
@@ -101,4 +101,4 @@ To modify the flow mode:
 5. Select the **Configuration** tab
 6.  Change the **Flow Mode** to either **DEFAULT** or **BEST\_MATCH** using the drop-down menu
 
-    <figure><img src="../../.gitbook/assets/v2 PS configuration (1).png" alt=""><figcaption><p>Configure Flow Mode</p></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption><p>Configure Flow Mode</p></figcaption></figure>

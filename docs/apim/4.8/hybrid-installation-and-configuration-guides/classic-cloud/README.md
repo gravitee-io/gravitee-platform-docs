@@ -56,6 +56,6 @@ The following table lists the Bridge versions supported by each Gateway version.
 
 ## Architecture
 
-<figure><img src="../../.gitbook/assets/image%20(27)%20(1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.9/.gitbook/assets/image%20(27)%20(1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image%20(28)%20(1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.9/.gitbook/assets/image%20(28)%20(1).png" alt=""><figcaption></figcaption></figure>

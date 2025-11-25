@@ -45,7 +45,7 @@ This feature is in tech preview.
 8. In the **Add a comment** field, enter a message to explain why you want to subscribe to the API.
 9.  Click **Subscribe**.
 
-    <figure><img src="../../.gitbook/assets/11C5B4EE-F95D-4A58-A9FC-51BD9FF03EC1.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 
 ## Verification
 
