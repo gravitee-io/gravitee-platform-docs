@@ -88,7 +88,7 @@ Dynamic API documentation pages can be created by adding metadata. To view and f
 
 To create metadata for your documentation, click **+** **Add API Metadata**:
 
-<div align="left"><figure><img src="../../../../../.gitbook/assets/metadata_add.png" alt="" width="375"><figcaption><p>Add API metadata</p></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/metadata_add.png" alt="" width="375"><figcaption><p>Add API metadata</p></figcaption></figure></div>
 
 Enter a name and value for the metadata, and select a metadata format from the drop-down menu. Available options are **string**, **numeric**, **boolean**, **date**, **mail**, or **url**.
 

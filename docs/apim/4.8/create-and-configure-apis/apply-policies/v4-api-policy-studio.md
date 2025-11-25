@@ -46,10 +46,10 @@ To create a flow and add policies:
 4. Select **Policies** from the inner left nav
 5.  Click the **+** icon for a plan or **Common flows** to create a flow
 
-    <figure><img src="../../../../../.gitbook/assets/flow_add flow (1).png" alt=""><figcaption><p>Create a flow</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/flow_add flow (1).png" alt=""><figcaption><p>Create a flow</p></figcaption></figure>
 6.  Configure the flow using the **Create a new flow** module with the options shown below
 
-    <figure><img src="../../../../../.gitbook/assets/flow_configure flow (1).png" alt=""><figcaption><p>Configure a new flow</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/flow_configure flow (1).png" alt=""><figcaption><p>Configure a new flow</p></figcaption></figure>
 
     * **Flow name:** Give your flow a descriptive name. Otherwise, a name will be automatically generated using the channel and operation.
     * **Operator:** Apply this flow to requests with a path that **Equals** or **Starts with** the specified **Channel**.
@@ -60,7 +60,7 @@ To create a flow and add policies:
 7. Click **Create** in the modal, then **Save** on the **Policies** page
 8.  To add a policy, click the **+** icon to the phase where the policy should be enforced
 
-    <figure><img src="../../../../../.gitbook/assets/flow_add policy (1).png" alt=""><figcaption><p>Add a policy</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/flow_add policy (1).png" alt=""><figcaption><p>Add a policy</p></figcaption></figure>
 
     * Select the **Initial connection** tab to add policies to the Request and/or Response phase(s)
     * Select the **Event messages** tab to add policies to the Publish and/or Subscribe phase(s)
@@ -68,7 +68,7 @@ To create a flow and add policies:
 10. In the policy configuration modal, enter the information appropriate to and required by the policy
 11. Click **Add policy**. The policy will appear in the flow diagram of the phase it was added to.
 
-    <figure><img src="../../../../../.gitbook/assets/flow_policy in flow (1).png" alt=""><figcaption><p>Policy added to flow</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/flow_policy in flow (1).png" alt=""><figcaption><p>Policy added to flow</p></figcaption></figure>
 12. Click **Save** on the **Policies** page, then redeploy your API to the Gateway for the changes to take effect
 
 {% hint style="info" %}
@@ -79,7 +79,7 @@ To edit a policy, click on the three vertical dots on its icon in the flow diagr
 
 To configure the flow mode, click the gear icon in the **Flows** panel to open the **Flow execution** module
 
-<figure><img src="../../../../../.gitbook/assets/flow_execution (1).png" alt=""><figcaption><p>Configure flow mode</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/flow_execution (1).png" alt=""><figcaption><p>Configure flow mode</p></figcaption></figure>
 
 * **Default flow mode:** Use the drop-down menu to select **Default** or **Best Match**
 * **Fail on flow mismatch:** Enable to generate an error when there is no match between the request **Channel** and any defined flow
@@ -96,7 +96,7 @@ To configure API properties:
 4. Select **Configuration** from the inner left nav
 5.  Select the **Properties** tab
 
-    <figure><img src="../../../../../.gitbook/assets/api properties_tab (1).png" alt=""><figcaption><p>Add API properties</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/api properties_tab (1).png" alt=""><figcaption><p>Add API properties</p></figcaption></figure>
 6. To add hardcoded properties, either:
    * Click **Add property** and enter property definitions one at a time as a key-value pair
    * Click **Import** and enter property definitions as a list in `<key>=<value>` format
@@ -121,7 +121,7 @@ To encrypt a hardcoded API property value:
     ```
 2.  Enable the **Encrypt** toggle when adding a property via **Add property**. Once you click **Save**, you can no longer edit, modify, or view the value.
 
-    <div align="left"><figure><img src="../../../../../.gitbook/assets/api properties_add (1).png" alt="" width="375"><figcaption></figcaption></figure></div>
+    <div align="left"><figure><img src="../../.gitbook/assets/api properties_add (1).png" alt="" width="375"><figcaption></figcaption></figure></div>
 
 ### **Dynamic properties**
 
@@ -134,7 +134,7 @@ To configure dynamic properties:
 5. Select the **Properties** tab
 6.  Click the **Manage dynamically** button and define the configuration
 
-    <figure><img src="../../../../../.gitbook/assets/api properties_dynamically manage (1).png" alt=""><figcaption><p>Configure dynamic properties</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/api properties_dynamically manage (1).png" alt=""><figcaption><p>Configure dynamic properties</p></figcaption></figure>
 
     * Toggle **Enabled** to ON
     * **Schedule:** A cron expression to schedule the health check
@@ -172,10 +172,10 @@ Configure a v4 proxy API to query the stock levels of shop databases, then dynam
 
 1.  Define a list of properties for the shops, where `<key>` is the unique shop ID and `<value>` is the shop URL
 
-    <figure><img src="../../../../../.gitbook/assets/example1_properties list (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/example1_properties list (1).png" alt=""><figcaption></figcaption></figure>
 2.  Configure a dynamic routing policy that builds new URLs dynamically through property matching via the `#api.properties` statement:
 
-    <div align="left"><figure><img src="../../../../../.gitbook/assets/example1_properties rule (1).png" alt="" width="375"><figcaption></figcaption></figure></div>
+    <div align="left"><figure><img src="../../.gitbook/assets/example1_properties rule (1).png" alt="" width="375"><figcaption></figcaption></figure></div>
 
 If the ID in the request header matches the key of one of the properties, it is replaced with the URL. The dynamic routing policy then reroutes the API call to the URL.
 
@@ -189,14 +189,14 @@ To monetize data delivery, consider a v4 message API that sends an alert wheneve
 
 1.  Add a keyless flow to the Default Keyless Plan
 
-    <figure><img src="../../../../../.gitbook/assets/example2_keyless flow (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/example2_keyless flow (1).png" alt=""><figcaption></figcaption></figure>
 2.  Apply a latency policy to the Default Keyless Plan
 
-    <div align="left"><figure><img src="../../../../../.gitbook/assets/example2_latency (1).png" alt="" width="375"><figcaption></figcaption></figure></div>
+    <div align="left"><figure><img src="../../.gitbook/assets/example2_latency (1).png" alt="" width="375"><figcaption></figcaption></figure></div>
 3. Select **Consumers** from the inner left nav
 4.  Under the **Plans** tab, click **+ Add new plan**
 
-    <figure><img src="../../../../../.gitbook/assets/example2_add plan (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/example2_add plan (1).png" alt=""><figcaption></figcaption></figure>
 5. Select **API Key** from the drop-down menu and configure an API Key plan
 
 Tier 2 customers can use our API for free, but new merchandise alerts are delayed by 30 minutes. Tier 1 customers who purchase the API Key plan are given unlimited access to real-time data.

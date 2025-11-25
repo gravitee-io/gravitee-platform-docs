@@ -41,7 +41,7 @@ You can create multiple policies for a single flow, each with a different config
 
 The sample Gateway API shown below has three plans: Keyless, API Key, and JWT. Flows can be set to target subscribers of any of these three plans, like the "sample API Key flow", or they can target all users of the API, such as the "sample HTTP Get flow" and "sample Websocket flow".
 
-<figure><img src="../../../../../.gitbook/assets/policy studio_flow (1).png" alt=""><figcaption><p>Sample v4 Policy Studio</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/policy studio_flow (1)-1.png" alt=""><figcaption><p>Sample v4 Policy Studio</p></figcaption></figure>
 
 ### Create a flow
 
@@ -49,7 +49,7 @@ As an example, let's create a flow that targets all users of the API.
 
 First, click the **+** icon on the **Common flows** button to create a flow. Before adding policies to the flow, you'll need to configure the flow using the **Create a new flow** module with the options shown below.
 
-<figure><img src="../../../../../.gitbook/assets/create a new flow (1).png" alt=""><figcaption><p><strong>Create a new flow</strong> module</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/create a new flow (1).png" alt=""><figcaption><p><strong>Create a new flow</strong> module</p></figcaption></figure>
 
 Define the following:
 
@@ -68,13 +68,13 @@ Policies are added to flows to enforce security, reliability, and proper data tr
 
 To add a policy to a flow, click the **+** icon in the phase where you want the policy enforced. The module that appears is pre-populated with only the selections that are valid and/or supported based on the entrypoints and endpoints chosen for the flow. For example, below are the possible policies to configure for the **Request phase** of the "sample HTTP Get flow" shown above:
 
-<figure><img src="../../../../../.gitbook/assets/sample add policy (1).png" alt=""><figcaption><p>Sample policy selection</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/sample add policy (1).png" alt=""><figcaption><p>Sample policy selection</p></figcaption></figure>
 
 Clicking on one of the available policies will open a configuration module. After you have made the selections and filled in the information appropriate to and required by your policy, click **Add policy**. The policy will appear in the flow diagram of the phase it was added to.
 
 For example, adding a **Latency** policy to the **Request phase** of the "sample HTTP Get flow" also adds **Latency** policy elements to the corresponding flow diagram.
 
-<figure><img src="../../../../../.gitbook/assets/latency policy (1).png" alt=""><figcaption><p>Sample policy applied</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/latency policy (1).png" alt=""><figcaption><p>Sample policy applied</p></figcaption></figure>
 
 Once you've clicked **Add policy** to add a policy, be sure to also click **Save** in the upper right of the Policy Studio. To edit a policy, click on the three vertical dots on its icon in the flow diagram.
 
@@ -86,7 +86,7 @@ Gravitee offers two flow modes: **Default** and **Best Match**. The **Default** 
 
 To select the flow mode, click the gear icon in the **Flows** panel to open the **Flow execution** module, then use the drop-down menu. You can also toggle **Fail on flow mismatch** to ON to generate an error when there is no match between the request **Channel** and any defined flow.
 
-<figure><img src="../../../../../.gitbook/assets/flow modes (1).png" alt=""><figcaption><p>v4 Policy Studio: Configure flow mode</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/flow modes (1).png" alt=""><figcaption><p>v4 Policy Studio: Configure flow mode</p></figcaption></figure>
 
 ## API properties
 
@@ -94,7 +94,7 @@ Properties are key-value pairs you can define at the Gateway API level to implem
 
 To configure API properties, select **Properties** from the inner left nav. To hardcode properties, either specify properties one at a time or toggle from **Simple** to **Expert** mode and enter property definitions in `<key>=<value>` format.
 
-<figure><img src="../../../../../.gitbook/assets/policy studio_properties expert (1).png" alt=""><figcaption><p>API properties expert mode</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/policy studio_properties expert (1).png" alt=""><figcaption><p>API properties expert mode</p></figcaption></figure>
 
 ### Encryption
 
@@ -121,7 +121,7 @@ To encrypt an API property, enable the adjacent **Encrypted** toggle. The proper
 Encrypted values can be used by API policies, but encrypted data should be used with care. **APIM Gateway will automatically decrypt these values**.
 {% endhint %}
 
-<figure><img src="../../../../../.gitbook/assets/policy studio_encryption (1).png" alt=""><figcaption><p>Encrypted API property</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/policy studio_encryption (1).png" alt=""><figcaption><p>Encrypted API property</p></figcaption></figure>
 
 ### **Dynamic properties**
 
@@ -129,7 +129,7 @@ In addition to hardcoded properties, Gravitee supports dynamic properties. The d
 
 To access the dynamic properties module, select **Properties** from the inner left nav and click **CONFIGURE DYNAMIC PROPERTIES**.
 
-<figure><img src="../../../../../.gitbook/assets/policy studio_dynamic properties (1).png" alt=""><figcaption><p>Configure dynamic properties</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/policy studio_dynamic properties (1).png" alt=""><figcaption><p>Configure dynamic properties</p></figcaption></figure>
 
 To configure dynamic properties:
 
@@ -183,11 +183,11 @@ In this example, we want our Gateway API to query our shop databases to check th
 
 The first step is to define a list of properties for the shops. For each property, enter a unique shop ID for the key and the URL of the shop for the value.
 
-<figure><img src="../../../../../.gitbook/assets/example1_properties (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/example1_properties (1).png" alt=""><figcaption></figcaption></figure>
 
 We then configure a dynamic routing policy for the API via a routing rule that builds a new URL dynamically through property matching. The URL is created with a `#api.properties` statement that matches properties returned by querying the request header that contains the shop ID.
 
-<figure><img src="../../../../../.gitbook/assets/example1_dynamic routing (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/example1_dynamic routing (1).png" alt=""><figcaption></figcaption></figure>
 
 If the ID in the request header matches the key of one of the properties, it is replaced with the URL. The dynamic routing policy then reroutes the API call to the URL.
 
@@ -201,10 +201,10 @@ In this example, our Gateway API sends an alert whenever inventory is added to o
 
 To monetize data delivery, we can use the Keyless and API Key plans introduced [above](v4-api-policy-design-studio.md#design). First, we add a "sample Keyless flow" to our Keyless plan.
 
-<figure><img src="../../../../../.gitbook/assets/sample keyless flow (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/sample keyless flow (1).png" alt=""><figcaption></figcaption></figure>
 
 Next, we apply a latency policy to our Keyless plan.
 
-<figure><img src="../../../../../.gitbook/assets/sample keyless policy (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/sample keyless policy (1).png" alt=""><figcaption></figcaption></figure>
 
 Customers can use our API for free, but new merchandise alerts are delayed by 30 minutes. However, customers who purchase our API Key plan are given unlimited access to real-time data.

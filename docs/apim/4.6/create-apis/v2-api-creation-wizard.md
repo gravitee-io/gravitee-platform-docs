@@ -52,7 +52,7 @@ Optionally, you can select **Advanced mode** to define **Tenants** and/or **Shar
 Refer to [Tenants](../gravitee-gateway/tenants.md) and/or [Sharding tags](../gravitee-gateway/sharding-tags.md) for more information.
 {% endhint %}
 
-<figure><img src="../../../../.gitbook/assets/Screen Shot 2023-06-07 at 1.35.16 PM.png" alt=""><figcaption><p>Define your API Gateway settings</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screen Shot 2023-06-07 at 1.35.16 PM.png" alt=""><figcaption><p>Define your API Gateway settings</p></figcaption></figure>
 
 ## Step 3: Plan
 
@@ -64,7 +64,7 @@ The API creation wizard allows you to create either an **API key** or **Keyless*
 * A **quota**: Sets the maximum number of API requests that may occur during the specified number of hours, days, weeks, or months
 * **Resource filtering**: Allows you to filter resources based on whitelists and blacklists
 
-<figure><img src="../../../../.gitbook/assets/Screen Shot 2023-06-07 at 1.43.11 PM.png" alt=""><figcaption><p>v2 API creation wizard: Plans</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screen Shot 2023-06-07 at 1.43.11 PM.png" alt=""><figcaption><p>v2 API creation wizard: Plans</p></figcaption></figure>
 
 Gravitee offers additional plan features that are not configured in the API creation wizard. For more in-depth information on plans, refer to the [plans ](../expose-apis/plans/README.md)documentation.
 
@@ -74,7 +74,7 @@ Once you have defined your plan, click **NEXT**.
 
 On the **Documentation** page you can upload your API's documentation as a file. Creating documentation is optional.
 
-<figure><img src="../../../../.gitbook/assets/Screen Shot 2023-06-07 at 1.43.58 PM.png" alt=""><figcaption><p>v2 API creation wizard: Documentation</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screen Shot 2023-06-07 at 1.43.58 PM.png" alt=""><figcaption><p>v2 API creation wizard: Documentation</p></figcaption></figure>
 
 ## Step 5: Deployment
 

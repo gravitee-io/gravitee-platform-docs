@@ -94,13 +94,13 @@ Publish your plan by selecting the publish icon on your plan as shown below.
 
 At this point, it is likely you have both a Keyless and a JWT plan published. Please delete any Keyless plans to ensure the JWT plan can not be bypassed. Select the **X** icon and then follow the prompts in the modal to delete the Keyless plan as shown below:
 
-<figure><img src="../../../../../.gitbook/assets/image (18) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (18) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Redeploying your API <a href="#redeploying-your-api-7" id="redeploying-your-api-7"></a>
 
 As you make modifications to your Gateway API in the Console UI, you will see an orange banner appear that states your API is out of sync. This is because changes you make in the Console UI are not actually synced to the Gateway until you manually redeploy it. Once ready, select **Deploy API** in the banner and then **Deploy** in the subsequent modal to sync your latest changes to the Gravitee Gateway.
 
-<figure><img src="../../../../../.gitbook/assets/image (19) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (19) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Subscribe to the JWT Plan <a href="#subscribe-to-the-jwt-plan-8" id="subscribe-to-the-jwt-plan-8"></a>
 
@@ -110,7 +110,7 @@ APIM uses the subscription to decide whether to accept or deny an incoming reque
 
 First, ensure your API is visible in the developer portal by selecting **General** in the Console UI sidebar and scrolling down to the bottom. In the **Danger Zone**, the API must be published which grants visibility to all members of your API (members are managed under User and group access). Additionally, you can make your API public which makes it visible to anybody who has access to your Developer Portal.
 
-<figure><img src="../../../../../.gitbook/assets/image (20) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (20) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Access Developer Portal <a href="#access-developer-portal-10" id="access-developer-portal-10"></a>
 
@@ -120,7 +120,7 @@ With that completed, let’s head to the Developer Portal by selecting the Devel
 
 If you do not see a link in your deployment of APIM, please reference the respective installation docs to see how it’s deployed. For example, with default docker installation, you can access the Developer Portal at `localhost:8085` in your browser.
 
-<figure><img src="../../../../../.gitbook/assets/image (21) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (21) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Create an Application <a href="#create-an-application-11" id="create-an-application-11"></a>
 
@@ -132,15 +132,15 @@ For the sake of this demo, we will be creating a Simple application in the Devel
 
 In the Developer Portal, select **Applications** in the top navigation bar and then select **+ Create an app** in the top right of the screen.
 
-<figure><img src="../../../../../.gitbook/assets/image (22) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (22) (1).png" alt=""><figcaption></figcaption></figure>
 
 Provide a name and description then select **Next**. On the security screen, select a Simple application and provide a `client_id` that matches the `client_id` of your IdP’s application. For example, in Okta, you can find your `client_id` right next to the name of your application.
 
-<figure><img src="../../../../../.gitbook/assets/image (23) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (23) (1).png" alt=""><figcaption></figcaption></figure>
 
 After providing the `client_id`, select **Next**.
 
-<figure><img src="../../../../../.gitbook/assets/image (24) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (24) (1).png" alt=""><figcaption></figcaption></figure>
 
 On the **Subscription** page, you can directly search for your Gateway API and see the available plans. Search for your API, select **Subscribe**, and then select **Next**.
 

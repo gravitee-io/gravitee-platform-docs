@@ -20,10 +20,10 @@ You can create and list a subject that is related to an application or API. A su
 {% tab title="Using APIM Console" %}
 1.  Click the user icon on the right of the Management Console header, then click **Support**
 
-    <figure><img src="../../../../../.gitbook/assets/support_console menu (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/support_console menu (1).png" alt=""><figcaption></figcaption></figure>
 2.  Use the drop-down menus and text fields to enter the ticket details
 
-    <figure><img src="../../../../../.gitbook/assets/support_console ticket (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/support_console ticket (1).png" alt=""><figcaption></figcaption></figure>
 3. Choose whether to receive a copy of the email, then click **CREATE**
 {% endtab %}
 
@@ -37,7 +37,7 @@ You can send a message from either the [user menu](support.md#from-the-user-menu
     <figure><img src="../../.gitbook/assets/support_portal menu (1).png" alt=""><figcaption></figcaption></figure>
 2.  Use the drop-down menus and text fields to enter the ticket details
 
-    <figure><img src="../../../../../.gitbook/assets/support_portal ticket (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/support_portal ticket (1).png" alt=""><figcaption></figcaption></figure>
 3. Choose whether to receive a copy of the email, then click **SEND YOUR REQUEST**
 
 **From the API menu**
@@ -49,7 +49,7 @@ You can send a message from the current API.
     <figure><img src="../../.gitbook/assets/support_api menu (1).png" alt=""><figcaption></figcaption></figure>
 2.  Use the drop-down menu and text fields to enter the ticket details
 
-    <figure><img src="../../../../../.gitbook/assets/support_api ticket (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/support_api ticket (1).png" alt=""><figcaption></figcaption></figure>
 3. Choose whether to receive a copy of the email, then click **SEND YOUR REQUEST**
 {% endtab %}
 {% endtabs %}
@@ -60,13 +60,13 @@ You can send a message from the current API.
 {% tab title="Using APIM Console" %}
 1.  Click the user icon on the right of the Management Console header, then click **Support**
 
-    <figure><img src="../../../../../.gitbook/assets/support_console menu (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/support_console menu (1).png" alt=""><figcaption></figcaption></figure>
 2.  From the ticket creation page, click **See ticket history**
 
-    <figure><img src="../../../../../.gitbook/assets/see tix history (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/see tix history (1).png" alt=""><figcaption></figcaption></figure>
 3.  Any tickets you have created will appear as entries in the list. To view the details of a ticket, click the eye icon.
 
-    <figure><img src="../../../../../.gitbook/assets/back to tix history (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/back to tix history (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Using the Developer Portal" %}
@@ -85,7 +85,7 @@ You can view your tickets from the current API.
 
 1.  From the API header menu, click the **Tickets** tab
 
-    <figure><img src="../../../../../.gitbook/assets/support_tix from api (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/support_tix from api (1).png" alt=""><figcaption></figcaption></figure>
 2. Click a ticket entry in the list to view the ticket details and any messages
 {% endtab %}
 {% endtabs %}

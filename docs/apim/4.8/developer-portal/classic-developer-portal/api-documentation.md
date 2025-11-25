@@ -12,7 +12,7 @@ Administrators can use site-wide documentation to communicate best practices, co
 Site-wide documentation is separate from API documentation, which can be added to an API by an API publisher.
 {% endhint %}
 
-<figure><img src="../../../../../.gitbook/assets/Screenshot 2023-06-05 at 10.24.20 AM (1).png" alt=""><figcaption><p>Developer Portal documentation page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-06-05 at 10.24.20 AM (1).png" alt=""><figcaption><p>Developer Portal documentation page</p></figcaption></figure>
 
 ## Create documentation
 
@@ -21,14 +21,14 @@ To create documentation:
 1. Select **Settings** from the left sidebar of the Management Console
 2.  Select **Documentation** from the inner left sidebar
 
-    <figure><img src="../../../../../.gitbook/assets/documentation_settings (1).png" alt=""><figcaption><p>Documentation settings page</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/documentation_settings (1).png" alt=""><figcaption><p>Documentation settings page</p></figcaption></figure>
 3.  Select the **+** icon on the bottom right to display the options below.
 
-    <figure><img src="../../../../../.gitbook/assets/documentation_options (1).png" alt=""><figcaption><p>Create new documentation options</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/documentation_options (1).png" alt=""><figcaption><p>Create new documentation options</p></figcaption></figure>
 
 *   **Folder:** Generate a folder to organize your documentation. Optionally generate [translations](api-documentation.md#translations) of the folder by selecting **Translate Folder**.
 
-    <figure><img src="../../../../../.gitbook/assets/documenation_folder (1).png" alt=""><figcaption><p>Sample documentation folder</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/documenation_folder (1).png" alt=""><figcaption><p>Sample documentation folder</p></figcaption></figure>
 * **Markdown Template:** Create templates reusable for site-wide and API Markdown documentation.
 * **Markdown:** Use the Markdown syntax for the documentation page.
 * **AsciiDoc:** Use the Asciidoc syntax for the documentation page.
@@ -37,12 +37,12 @@ To create documentation:
 
 Each documentation type provides similar configuration options and a compatible text editor.
 
-<figure><img src="../../../../../.gitbook/assets/new_docs_page (1).png" alt=""><figcaption><p>Create a documentation page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/new_docs_page (1).png" alt=""><figcaption><p>Create a documentation page</p></figcaption></figure>
 
 * **Name:** Provide a title for your documentation page.
 *   **Set as homepage:** Use the documentation page as the homepage of the Developer Portal. If multiple documentation pages are set as the homepage, the page most recently set will be selected.
 
-    <figure><img src="../../../../../.gitbook/assets/documentation_homepage (1).png" alt=""><figcaption><p>Custom homepage example</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/documentation_homepage (1).png" alt=""><figcaption><p>Custom homepage example</p></figcaption></figure>
 * **Publish this page:** Make the page available in the Developer Portal.
 * **Make private:** Make the page private to you and the users you explicitly allow using [access control](api-documentation.md#access-control).
 
@@ -142,14 +142,14 @@ This method allows you to import your documentation from external sources. APIM 
 * **WWW:** Fetch your documentation from the web
 * **Bitbucket:** Fetch your documentation from a Bitbucket repository
 
-<figure><img src="../../../../../.gitbook/assets/documentation_external source (1).png" alt=""><figcaption><p>Documentation fetcher configuration</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/documentation_external source (1).png" alt=""><figcaption><p>Documentation fetcher configuration</p></figcaption></figure>
 
 The documentation is fetched and stored locally in APIM in the following three scenarios:
 
 * Once, after you finish configuring your fetcher
 *   Any time you select **Fetch All** on the **Documentation** page
 
-    <figure><img src="../../../../../.gitbook/assets/documentation_fetch all (1).png" alt=""><figcaption><p>Update all documentation from external sources</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/documentation_fetch all (1).png" alt=""><figcaption><p>Update all documentation from external sources</p></figcaption></figure>
 * At regular intervals when auto-fetch is configured
 {% endtab %}
 {% endtabs %}
@@ -203,10 +203,10 @@ Follow the steps below to configure a fetcher to import multiple files:
 
 1.  From the **Documentation** page, select **Import multiple files**
 
-    <figure><img src="../../../../../.gitbook/assets/Screenshot 2023-06-07 at 4.04.23 PM (1).png" alt=""><figcaption><p>Import multiple documentation files</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/Screenshot 2023-06-07 at 4.04.23 PM (1).png" alt=""><figcaption><p>Import multiple documentation files</p></figcaption></figure>
 2.  To publish the pages on import, select **Publish all imported pages**
 
-    <figure><img src="../../../../../.gitbook/assets/import-multiple-files (1).png" alt=""><figcaption><p>Option to publish all imported files</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/import-multiple-files (1).png" alt=""><figcaption><p>Option to publish all imported files</p></figcaption></figure>
 3. Select the **GitHub** or **GitLab** fetcher
 4.  Specify the details of the external source, such as the URL of the external API, the name of the repository, and the branch. The fields vary slightly depending on the fetcher.
 
@@ -229,7 +229,7 @@ If the APIM administrator configured a maximum fetch frequency, the value config
 
 9.  Select **IMPORT** for APIM to add the files to your documentation set
 
-    <figure><img src="../../../../../.gitbook/assets/import-multiple-files-result (1).png" alt=""><figcaption><p>Import technical folder documentation with fetcher</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/import-multiple-files-result (1).png" alt=""><figcaption><p>Import technical folder documentation with fetcher</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -245,7 +245,7 @@ Select a page to configure the following via the header tabs:
 * **Attached Resources:** Add additional files to your documentation page.
   * This requires the administrator to configure **Allow Upload Images** and **Max size upload file (bytes)** in [settings](portal-settings.md).
 
-<figure><img src="../../../../../.gitbook/assets/documentation_page banner (1).png" alt=""><figcaption><p>Page management options</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/documentation_page banner (1).png" alt=""><figcaption><p>Page management options</p></figcaption></figure>
 
 **Page**, **Translations** and **Access Control** are described in greater detail below.
 
@@ -253,7 +253,7 @@ Select a page to configure the following via the header tabs:
 {% tab title="Page" %}
 If incorrect templating is applied to the Markdown page of an API, errors are generated to alert the user that the page will not be formatted as intended when published to the Developer Portal.
 
-<figure><img src="../../../../../.gitbook/assets/incorrect templating (1).png" alt=""><figcaption><p>Example of incorrect templating</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/incorrect templating (1).png" alt=""><figcaption><p>Example of incorrect templating</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Translations" %}

@@ -215,7 +215,7 @@ From here, we can manage all the plans and subscriptions for this API. Currently
 
 This plan is currently in the published state. Plans can be in one of four states: staging, published, deprecated, or closed.
 
-<figure><img src="../../../4.2/.gitbook/assets/image.png" alt=""><figcaption><p>Four stages of a plan</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image-1.png" alt=""><figcaption><p>Four stages of a plan</p></figcaption></figure>
 
 <details>
 
