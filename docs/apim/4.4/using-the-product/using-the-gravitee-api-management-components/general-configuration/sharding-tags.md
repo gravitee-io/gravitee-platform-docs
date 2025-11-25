@@ -70,28 +70,28 @@ Follow the steps below to add sharding tags to your organization.
 
 1.  Log in to your API Management Console:
 
-    <figure><img src="../../../.gitbook/assets/v2 sharding tags_step 1 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/v2 sharding tags_step 1.png" alt=""><figcaption></figcaption></figure>
 2.  In the left-hand nav, select **Organization**:
 
-    <figure><img src="../../../.gitbook/assets/v2 sharding tags_step 2 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/v2 sharding tags_step 2.png" alt=""><figcaption></figcaption></figure>
 3.  On the **Organization** page, select **Sharding tags**:
 
-    <figure><img src="../../../.gitbook/assets/v2 sharding tags_step 3 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/v2 sharding tags_step 3.png" alt=""><figcaption></figcaption></figure>
 4.  Click **+ Add a tag**:
 
-    <figure><img src="../../../.gitbook/assets/v2 sharding tags_step 4 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/v2 sharding tags_step 4.png" alt=""><figcaption></figcaption></figure>
 5.  Create the same tags that you created in the `gravitee.yaml` file, ensuring the names are an exact match. For this example, let's first create the "internal" tag using the **Name** field:
 
-    <figure><img src="../../../.gitbook/assets/v2 sharding tags_step 5 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/v2 sharding tags_step 5.png" alt=""><figcaption></figcaption></figure>
 6.  (Optional) You can choose to restrict the usage of the tag to certain groups, as defined in Gravitee user administration. We'll skip this.
 
-    <figure><img src="../../../.gitbook/assets/v2 sharding tags_step 6 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/v2 sharding tags_step 6.png" alt=""><figcaption></figcaption></figure>
 7.  Click **Ok**:
 
-    <figure><img src="../../../.gitbook/assets/v2 sharding tags_step 7 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/v2 sharding tags_step 7.png" alt=""><figcaption></figcaption></figure>
 8.  Let's add the "external" tag, following the same steps:
 
-    <figure><img src="../../../.gitbook/assets/v2 sharding tags_step 8 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/v2 sharding tags_step 8.png" alt=""><figcaption></figcaption></figure>
 
 ## Add sharding tags to an API
 
@@ -102,13 +102,13 @@ Follow the instructions below to add a sharding tag to a v2 API or a v4 API.
 3. Choose the API you want to tag
 4.  Select **Deployment** from the inner left nav:
 
-    <figure><img src="../../../.gitbook/assets/deployment_sharding tag (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/deployment_sharding tag.png" alt=""><figcaption></figcaption></figure>
 5.  Select one or more tags from the **Sharding tags** drop-down menu, then click **Save**:
 
-    <figure><img src="../../../.gitbook/assets/deployment_sharding tag select (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/deployment_sharding tag select.png" alt=""><figcaption></figcaption></figure>
 6.  Click **Deploy API** to sync your API:
 
-    <figure><img src="../../../.gitbook/assets/deployment_sharding tag deploy (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/deployment_sharding tag deploy.png" alt=""><figcaption></figcaption></figure>
 
 ## Map entrypoints to sharding tags
 
@@ -124,16 +124,16 @@ To demonstrate, let's instruct Gravitee API Manager to apply the “internal tes
 2. Select **Sharding tags** from the new left nav
 3.  Select **+ Add a mapping**:
 
-    <figure><img src="../../../.gitbook/assets/sharding tags map_step 3 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/sharding tags map_step 3.png" alt=""><figcaption></figcaption></figure>
 4.  In the **Entrypoint url** field, enter your Entrypoint URL:
 
-    <figure><img src="../../../.gitbook/assets/sharding tags map_step 4 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/sharding tags map_step 4.png" alt=""><figcaption></figcaption></figure>
 5.  In the **Sharding tags** drop-down menu, select the tag that you want mapped to your entrypoint. For this example, let's choose the "internal test" tag.
 
-    <figure><img src="../../../.gitbook/assets/sharding tags map_step 5 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/sharding tags map_step 5.png" alt=""><figcaption></figcaption></figure>
 6.  Click **Ok**:
 
-    <figure><img src="../../../.gitbook/assets/sharding tags map_step 6 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/sharding tags map_step 6.png" alt=""><figcaption></figcaption></figure>
 7.  You can view your entrypoint mapping in the **Entrypoint mappings** section:
 
     <figure><img src="../../../.gitbook/assets/image (50).png" alt=""><figcaption></figcaption></figure>

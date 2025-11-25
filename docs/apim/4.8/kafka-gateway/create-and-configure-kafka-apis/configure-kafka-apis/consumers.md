@@ -29,13 +29,13 @@ Kafka APIs support OAuth2, JWT, API Key, and Keyless (public) plans. For more in
 
 To edit a plan, click on the pencil icon:
 
-<figure><img src="../../../.gitbook/assets/plan_edit (1).png" alt=""><figcaption><p>Edit a plan</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/plan_edit.png" alt=""><figcaption><p>Edit a plan</p></figcaption></figure>
 
 ### Publish a plan
 
 To publish a plan, click on the icon of a cloud with an arrow:
 
-<figure><img src="../../../.gitbook/assets/plan_publish (1).png" alt=""><figcaption><p>Publish a plan</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/plan_publish.png" alt=""><figcaption><p>Publish a plan</p></figcaption></figure>
 
 Once a plan has been published, it must be redeployed.
 
@@ -43,13 +43,13 @@ Once a plan has been published, it must be redeployed.
 
 To deprecate a plan, click on the icon of a cloud with an 'x':
 
-<figure><img src="../../../.gitbook/assets/plan_deprecate (1).png" alt=""><figcaption><p>Deprecate a plan</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/plan_deprecate.png" alt=""><figcaption><p>Deprecate a plan</p></figcaption></figure>
 
 ### Close a plan
 
 To close a plan, click on the 'x' icon:
 
-<figure><img src="../../../.gitbook/assets/plan_close (1).png" alt=""><figcaption><p>Close a plan</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/plan_close.png" alt=""><figcaption><p>Close a plan</p></figcaption></figure>
 
 ## Subscriptions
 

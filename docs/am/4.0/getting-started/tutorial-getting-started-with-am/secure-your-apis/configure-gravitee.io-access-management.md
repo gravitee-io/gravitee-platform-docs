@@ -23,7 +23,7 @@ The `clientId` used for the resource configuration must match the `clientId` of 
     <figure><img src="../../../.gitbook/assets/oauth2 resources gravitee.png" alt=""><figcaption></figcaption></figure>
 6.  In the CREATE RESOURCE form, enter the **Resource name** that will be used to link this resource to an OAuth 2 plan:
 
-    <figure><img src="../../../.gitbook/assets/resource name (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/resource name.png" alt=""><figcaption></figcaption></figure>
 7.  Specify the base URL to reach the AM Gateway:
 
     <figure><img src="../../../.gitbook/assets/base url.png" alt=""><figcaption></figcaption></figure>

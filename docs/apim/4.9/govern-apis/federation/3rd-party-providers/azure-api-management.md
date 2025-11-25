@@ -43,7 +43,7 @@ To integrate Azure API Management with Gravitee APIM, complete the following ste
     <figure><img src="../../../.gitbook/assets/enter-integration-name.png" alt=""><figcaption></figcaption></figure>
 5.  (Optional) Type a **Description** for the integration.
 
-    <figure><img src="../../../.gitbook/assets/enter-integration-name (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/enter-integration-name.png" alt=""><figcaption></figcaption></figure>
 6.  Click **Create Integration**.
 
     <figure><img src="../../../.gitbook/assets/create-integration-azure-api.png" alt=""><figcaption></figcaption></figure>
@@ -266,7 +266,7 @@ You can deploy the Apigee X federation agent using either of the following insta
 
 1.  In the Gravitee API Management console, after refreshing, you should now see the agent's status set to `Connected`.
 
-    <figure><img src="../../../.gitbook/assets/azure-api-integration-id (2).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/azure-api-integration-id.png" alt=""><figcaption></figcaption></figure>
 2. If the Agent Connection shows as **Disconnected**, inspect the agent container logs for error messages.&#x20;
 
 ### Helm&#x20;

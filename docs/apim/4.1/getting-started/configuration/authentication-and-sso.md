@@ -154,7 +154,7 @@ You can configure Gravitee AM as your Gravitee APIM authentication provider via 
 {% tab title="Use the gravitee.yaml file" %}
 Before configuring the `gravitee.yaml` file, you'll need to access the Gravitee AM client's credentials for authentication configuration. For example:
 
-<figure><img src="../../.gitbook/assets/AM client info (1).png" alt=""><figcaption><p>Gravitee AM client credentials</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/AM client info.png" alt=""><figcaption><p>Gravitee AM client credentials</p></figcaption></figure>
 
 From here, you can configure the gravitee.yaml file using those credentials:
 
@@ -195,7 +195,7 @@ security:
 {% tab title="Use the Gravitee API Management Console" %}
 Before configuring authentication via the Gravitee APIM UI, you'll need to access the Gravitee AM client's credentials for authentication configuration. For example:
 
-<figure><img src="../../.gitbook/assets/AM client info (1).png" alt=""><figcaption><p>Gravitee AM client credentials</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/AM client info.png" alt=""><figcaption><p>Gravitee AM client credentials</p></figcaption></figure>
 
 From here, you'll need to log-in to your Gravitee API Management Console and select Organization from the left-hand nav. Then, select **Authentication** underneath **Console.** From here, you will be brought to the **Authentication** page. Here, you can:
 
@@ -260,10 +260,10 @@ Before you can set up GitHub as an authentication provider for Gravitee APIM, yo
 2. Select **OAuth Apps**
 3.  Select **Register an application**
 
-    <figure><img src="../../.gitbook/assets/github_register_new_app (1).png" alt=""><figcaption><p>Register an application in GitHub</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/github_register_new_app.png" alt=""><figcaption><p>Register an application in GitHub</p></figcaption></figure>
 4.  Enter in your Gravitee details in the **Register a new OAuth application** section. Please note that the Authorization callback URL must match the domain hosting Gravitee APIM. When you're done, select **Register application**.
 
-    <figure><img src="../../.gitbook/assets/github_fill_app_form (1).png" alt=""><figcaption><p>Register Gravitee details in GitHub</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/github_fill_app_form.png" alt=""><figcaption><p>Register Gravitee details in GitHub</p></figcaption></figure>
 
 #### Retrieve your OAuth2 credentials
 
@@ -274,7 +274,7 @@ After you've registered Gravitee, you'll need to retrieve the GitHub OAUth2 cred
 
 From here, you should be able to see your Client ID and Client secret.
 
-<figure><img src="../../.gitbook/assets/github_oauth_credentials (1).png" alt=""><figcaption><p>GitHub Oauth credentials</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/github_oauth_credentials.png" alt=""><figcaption><p>GitHub Oauth credentials</p></figcaption></figure>
 
 ### Configure GitHub authentication in Gravitee
 
@@ -345,18 +345,18 @@ In order to connect Google and Gravitee APIM, you'll need to create a Google OAu
 
 1.  First, create a Google project with access to the Google+ API. [Do this here](https://console.developers.google.com/).
 
-    <figure><img src="../../.gitbook/assets/google_enable_google+_api (1).png" alt=""><figcaption><p>Create a Google project with access to the Google + API</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/google_enable_google+_api.png" alt=""><figcaption><p>Create a Google project with access to the Google + API</p></figcaption></figure>
 2. Now, it's time to create a client. Access [https://console.developers.google.com/](https://console.developers.google.com/), and access your project **Credentials.** Select **Create.**
 3.  Select OAuth client ID from the **Create credentials** drop-down.
 
-    <figure><img src="../../.gitbook/assets/google_create_client (1).png" alt=""><figcaption><p>Create your OAuth client ID</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/google_create_client.png" alt=""><figcaption><p>Create your OAuth client ID</p></figcaption></figure>
 4.  Enter in your client details. These will be your Gravitee APIM details. The **Authorized redirect URIs** value _must match_ the domain hosting your Gravitee APIM Portal.
 
-    <figure><img src="../../.gitbook/assets/google_fill_client_form (1).png" alt=""><figcaption><p>Enter in your Gravitee details when creating a Client ID</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/google_fill_client_form.png" alt=""><figcaption><p>Enter in your Gravitee details when creating a Client ID</p></figcaption></figure>
 5. Select **Create**.
 6.  Retrieve the new **Client ID** and **Client secret**.
 
-    <figure><img src="../../.gitbook/assets/google_client_credentials (1).png" alt=""><figcaption><p>Google Client ID and Client secret.</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/google_client_credentials.png" alt=""><figcaption><p>Google Client ID and Client secret.</p></figcaption></figure>
 
 ### Configure Gravitee APIM and Google connection
 
@@ -552,7 +552,7 @@ Before you can connect to the Gravitee portal using Keycloak, you need to create
 
 1.  Log-in to Keycloak and create a new client.
 
-    <figure><img src="../../.gitbook/assets/keycloak_create_client (1).png" alt=""><figcaption><p>Add a Gravitee client in Keycloak</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/keycloak_create_client.png" alt=""><figcaption><p>Add a Gravitee client in Keycloak</p></figcaption></figure>
 2. Enter in your client details for Gravitee. The \`
 
 Valid Redirect URIs\` value must exactly match the domain which is hosting APIM Portal.

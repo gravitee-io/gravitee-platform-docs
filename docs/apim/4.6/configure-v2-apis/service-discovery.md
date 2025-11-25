@@ -256,5 +256,5 @@ To observe how APIM dynamically routes traffic based on Consul’s Service Catal
 
 Consider enabling health-checks for your API to view the status of all endpoints, including the endpoints managed by HashiCorp Consul. For more information on how to enable Gravitee health-checks, refer to [this documentation](load-balancing-failover-and-health-checks.md).
 
-<img src="../.gitbook/assets/service-discovery-consul-healthcheck (1).png" alt="" data-size="original">
+<img src="../.gitbook/assets/service-discovery-consul-healthcheck.png" alt="" data-size="original">
 {% endhint %}

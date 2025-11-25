@@ -20,7 +20,7 @@ Before a consumer can create an application, an admin must define the types of a
 2. Select **Applications** from the left nav
 3.  Click **+ Add Application**
 
-    <figure><img src="../.gitbook/assets/1 app 1 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/1 app 1.png" alt=""><figcaption></figcaption></figure>
 4. Enter a name for your application and give it a description. These fields require values.
 5. Enter a domain for your application.
 6.  Select an application type:
@@ -61,6 +61,6 @@ Before a consumer can create an application, an admin must define the types of a
 
 Once you've created your application, the inner left nav separates the application management and configuration into several categories:
 
-<figure><img src="../.gitbook/assets/1 app 2 1 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/1 app 2 1.png" alt=""><figcaption></figcaption></figure>
 
 To learn how to manage your application and its parameters, see the full [Applications](../secure-and-expose-apis/applications/README.md) documentation.

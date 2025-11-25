@@ -22,7 +22,7 @@ You can configure Gravitee AM as your Gravitee APIM authentication provider via 
 {% tab title="Use the gravitee.yaml file" %}
 Before configuring the `gravitee.yaml` file, you'll need to access the Gravitee AM client's credentials for authentication configuration. For example:
 
-<figure><img src="../../.gitbook/assets/AM client info (1).png" alt=""><figcaption><p>Gravitee AM client credentials</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/AM client info.png" alt=""><figcaption><p>Gravitee AM client credentials</p></figcaption></figure>
 
 From here, you can configure the `gravitee.yaml` file using those credentials:
 
@@ -63,7 +63,7 @@ security:
 {% tab title="Use the Gravitee API Management Console" %}
 Before configuring authentication via the Gravitee APIM UI, you'll need to access the Gravitee AM client's credentials for authentication configuration. For example:
 
-<figure><img src="../../.gitbook/assets/AM client info (1).png" alt=""><figcaption><p>Gravitee AM client credentials</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/AM client info.png" alt=""><figcaption><p>Gravitee AM client credentials</p></figcaption></figure>
 
 Next, log in to your Gravitee API Management Console and select Organization from the left hand nav. Then, select **Authentication** underneath **Console.** You will be brought to the **Authentication** page where you can:
 

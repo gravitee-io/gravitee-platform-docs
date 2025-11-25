@@ -64,7 +64,7 @@ As of version 4.0 of APIM, emulation mode is **enabled** by default for v2 APIs.
 
 A v2 Gateway API can run in **emulation** **mode**. This means that v2 APIs are run on the reactive engine. Enabling this option allows v2 Gateway APIs to access the improvements built into the reactive execution engine. The functional benefits provided by the reactive engine are detailed in subsequent sections.
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2023-07-19 at 4.45.21 PM (1).png" alt=""><figcaption><p>v2 API emulation mode</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-07-19 at 4.45.21 PM.png" alt=""><figcaption><p>v2 API emulation mode</p></figcaption></figure>
 
 {% hint style="warning" %}
 Some v4 Gateway API features are dependent on the API definition, not the execution engine. Therefore, v2 APIs in emulation mode will **not** receive the following benefits:

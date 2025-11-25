@@ -23,7 +23,7 @@ Click on the tabs below to learn more.
 {% tab title="HTTP Factor" %}
 The HTTP Factor resource uses HTTP requests to send and verify a generated, one time code. It supports Gravitee Expression Language (EL) to configure the resource properties.
 
-<figure><img src="../.gitbook/assets/resource_http 2 (1).png" alt="" width="563"><figcaption><p>Configure an HTTP Factor resource</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/resource_http 2.png" alt="" width="563"><figcaption><p>Configure an HTTP Factor resource</p></figcaption></figure>
 
 To configure an HTTP Factor resource, you must specify:
 
@@ -55,7 +55,7 @@ To configure an HTTP Factor resource, you must specify:
 {% tab title="Infobip 2FA" %}
 The Infobip 2FA resource is used to generate PINs, or passcodes, that can be delivered by SMS, voice, or email.
 
-<figure><img src="../.gitbook/assets/resource_infobip 2 (1).png" alt="" width="563"><figcaption><p>Configure an Infobip 2FA resource</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/resource_infobip 2.png" alt="" width="563"><figcaption><p>Configure an Infobip 2FA resource</p></figcaption></figure>
 
 To configure an Infobip 2FA resource, you must specify:
 
@@ -70,7 +70,7 @@ To configure an Infobip 2FA resource, you must specify:
 {% tab title="SMTP" %}
 SMTP is a resource you can use to send email over SMTP. Once you have created your SMTP resource, you can reference it in the [email factor configuration](multi-factor-authentication/managing-factors/email.md).
 
-<figure><img src="../.gitbook/assets/resource_smtp 2 (1).png" alt="" width="563"><figcaption><p>Configure an SMTP resource</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/resource_smtp 2.png" alt="" width="563"><figcaption><p>Configure an SMTP resource</p></figcaption></figure>
 
 To configure an SMTP resource, you must specify:
 
@@ -88,7 +88,7 @@ To configure an SMTP resource, you must specify:
 {% tab title="Twilio Verify" %}
 The Twilio Verify resource configures a Twilio account to use the `Twilio Verify` service for Multi-factor Authentication. Once you have created your Twilio resource, you can reference it in SMS factor configuration.
 
-<figure><img src="../.gitbook/assets/resource_twilio verify 2 (1).png" alt="" width="563"><figcaption><p>Configure a Twilio Verify resource</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/resource_twilio verify 2.png" alt="" width="563"><figcaption><p>Configure a Twilio Verify resource</p></figcaption></figure>
 
 To configure a Twilio Verify resource, you must specify:
 
@@ -107,13 +107,13 @@ To configure a Twilio Verify resource, you must specify:
 3. From the Resources section of the inner left nav, select **Services**
 4.  Click the plus icon at the bottom of the page
 
-    <div align="left"><figure><img src="../.gitbook/assets/resource_add (1).png" alt="" width="563"><figcaption><p>Add a resource</p></figcaption></figure></div>
+    <div align="left"><figure><img src="../.gitbook/assets/resource_add.png" alt="" width="563"><figcaption><p>Add a resource</p></figcaption></figure></div>
 5.  Select the resource type and click **Next**
 
-    <div align="left"><figure><img src="../.gitbook/assets/resource_select (1).png" alt="" width="563"><figcaption><p>Create a new HTTP Factor resource</p></figcaption></figure></div>
+    <div align="left"><figure><img src="../.gitbook/assets/resource_select.png" alt="" width="563"><figcaption><p>Create a new HTTP Factor resource</p></figcaption></figure></div>
 6.  Enter the resource configuration values (see [Resource Types](resources.md#resource-types)) and click **Create**
 
-    <div align="left"><figure><img src="../.gitbook/assets/resource_configure (1).png" alt="" width="563"><figcaption><p>Configuration for an HTTP Factor resource</p></figcaption></figure></div>
+    <div align="left"><figure><img src="../.gitbook/assets/resource_configure.png" alt="" width="563"><figcaption><p>Configuration for an HTTP Factor resource</p></figcaption></figure></div>
 7.  Your resource is now available for use in AM
 
-    <div align="left"><figure><img src="../.gitbook/assets/resource_available (1).png" alt="" width="563"><figcaption><p>The newly-created resource is now available</p></figcaption></figure></div>
+    <div align="left"><figure><img src="../.gitbook/assets/resource_available.png" alt="" width="563"><figcaption><p>The newly-created resource is now available</p></figcaption></figure></div>

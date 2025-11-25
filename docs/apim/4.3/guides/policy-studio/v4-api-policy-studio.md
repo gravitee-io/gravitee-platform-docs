@@ -48,10 +48,10 @@ To create a flow and add policies:
 4. Select **Policies** from the inner left nav
 5.  Click the **+** icon for a plan or **Common flows** to create a flow
 
-    <figure><img src="../../.gitbook/assets/flow_add flow (1).png" alt=""><figcaption><p>Create a flow</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/flow_add flow.png" alt=""><figcaption><p>Create a flow</p></figcaption></figure>
 6.  Configure the flow using the **Create a new flow** module with the options shown below
 
-    <figure><img src="../../.gitbook/assets/flow_configure flow (1).png" alt=""><figcaption><p>Configure a new flow</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/flow_configure flow.png" alt=""><figcaption><p>Configure a new flow</p></figcaption></figure>
 
     * **Flow name:** Give your flow a descriptive name. Otherwise, a name will be automatically generated using the channel and operation.
     * **Operator:** Apply this flow to requests with a path that **Equals** or **Starts with** the specified **Channel**.
@@ -62,7 +62,7 @@ To create a flow and add policies:
 7. Click **Create** in the modal, then **Save** on the **Policies** page
 8.  To add a policy, click the **+** icon to the phase where the policy should be enforced
 
-    <figure><img src="../../.gitbook/assets/flow_add policy (1).png" alt=""><figcaption><p>Add a policy</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/flow_add policy.png" alt=""><figcaption><p>Add a policy</p></figcaption></figure>
 
     * Select the **Initial connection** tab to add policies to the Request and/or Response phase(s)
     * Select the **Event messages** tab to add policies to the Publish and/or Subscribe phase(s)
@@ -70,7 +70,7 @@ To create a flow and add policies:
 10. In the policy configuration modal, enter the information appropriate to and required by the policy
 11. Click **Add policy**. The policy will appear in the flow diagram of the phase it was added to.
 
-    <figure><img src="../../.gitbook/assets/flow_policy in flow (1).png" alt=""><figcaption><p>Policy added to flow</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/flow_policy in flow.png" alt=""><figcaption><p>Policy added to flow</p></figcaption></figure>
 12. Click **Save** on the **Policies** page, then redeploy your API to the Gateway for the changes to take effect
 
 {% hint style="info" %}
@@ -81,7 +81,7 @@ To edit a policy, click on the three vertical dots on its icon in the flow diagr
 
 To configure the flow mode, click the gear icon in the **Flows** panel to open the **Flow execution** module
 
-<figure><img src="../../.gitbook/assets/flow_execution (1).png" alt=""><figcaption><p>Configure flow mode</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/flow_execution.png" alt=""><figcaption><p>Configure flow mode</p></figcaption></figure>
 
 * **Default flow mode:** Use the drop-down menu to select **Default** or **Best Match**
 * **Fail on flow mismatch:** Enable to generate an error when there is no match between the request **Channel** and any defined flow
@@ -98,7 +98,7 @@ To configure API properties:
 4. Select **Configuration** from the inner left nav
 5.  Select the **Properties** tab
 
-    <figure><img src="../../.gitbook/assets/api properties_tab (1).png" alt=""><figcaption><p>Add API properties</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/api properties_tab.png" alt=""><figcaption><p>Add API properties</p></figcaption></figure>
 6. To add hardcoded properties, either:
    * Click **Add property** and enter property definitions one at a time as a key-value pair
    * Click **Import** and enter property definitions as a list in `<key>=<value>` format
@@ -134,7 +134,7 @@ To configure dynamic properties:
 5. Select the **Properties** tab
 6.  Click the **Manage dynamically** button and define the configuration
 
-    <figure><img src="../../.gitbook/assets/api properties_dynamically manage (1).png" alt=""><figcaption><p>Configure dynamic properties</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/api properties_dynamically manage.png" alt=""><figcaption><p>Configure dynamic properties</p></figcaption></figure>
 
     * Toggle **Enabled** to ON
     * **Schedule:** A cron expression to schedule the health check

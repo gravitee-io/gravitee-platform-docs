@@ -67,12 +67,12 @@ Add differentiated Quota policies to each plan per the instructions below.
 1. Select the **+** icon next to the API Key (SILVER) plan
 2. Modify the flow name, operator, path, methods, and conditions as desired (leaving name and path blank will apply default values)
 
-<figure><img src="../../.gitbook/assets/haley 2 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/haley 2.png" alt=""><figcaption></figcaption></figure>
 
 3. Click **Create**
 4. Select the **+** icon within the request phase section. This lets us use the Quota policy to limit the number of requests Silver Tier members can make to the API per mont&#x68;_._
 
-<figure><img src="../../.gitbook/assets/haley 3 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/haley 3.png" alt=""><figcaption></figcaption></figure>
 
 5. Use the search bar or scroll to navigate to the **Quota** policy, then click **Select**.
 

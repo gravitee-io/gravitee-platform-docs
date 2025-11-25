@@ -24,7 +24,7 @@ Follow the steps below to create and manage Account Tokens:
 
 1.  Go to **Settings > Account Tokens**.
 
-    <figure><img src="../.gitbook/assets/image (8) (2).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
 2.  Click **Generate token**, give your Account Token a meaningful name, then click **Generate**.
 
     <figure><img src="../.gitbook/assets/account token_generate.png" alt=""><figcaption></figcaption></figure>

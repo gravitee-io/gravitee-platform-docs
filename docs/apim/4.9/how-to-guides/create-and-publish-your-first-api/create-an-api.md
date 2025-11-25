@@ -24,7 +24,7 @@ This guide explains how to create an API with the Gravitee APIM console.
     <figure><img src="../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
 5.  Select **HTTP Proxy**, and then click **Select my entrypoints**
 
-    <figure><img src="../../../4.9/.gitbook/assets/image (14) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (14) (1).png" alt=""><figcaption></figcaption></figure>
 6.  Set a unique **Context-path , and** then click **Validate my entrypoints**. For example, /myfirstapi.
 
     <figure><img src="../../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>

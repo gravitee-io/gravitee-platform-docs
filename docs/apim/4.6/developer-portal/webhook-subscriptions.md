@@ -40,4 +40,4 @@ Before you can define and configure your Webhook subscription, you'll need to fi
     <figure><img src="../.gitbook/assets/webhook_choose application.png" alt=""><figcaption><p>Choose the subscriber application</p></figcaption></figure>
 7.  Select **Next** to validate your subscription request
 
-    <figure><img src="../.gitbook/assets/webhook_validate (1).png" alt=""><figcaption><p>Submit to validate your Webhook subscription</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/webhook_validate.png" alt=""><figcaption><p>Submit to validate your Webhook subscription</p></figcaption></figure>

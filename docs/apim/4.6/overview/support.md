@@ -34,7 +34,7 @@ You can send a message from either the [user menu](support.md#from-the-user-menu
 
 1.  Click the user name on the right of the Developer Portal header, then click **Contact**
 
-    <figure><img src="../.gitbook/assets/support_portal menu (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/support_portal menu.png" alt=""><figcaption></figcaption></figure>
 2.  Use the drop-down menus and text fields to enter the ticket details
 
     <figure><img src="../.gitbook/assets/support_portal ticket.png" alt=""><figcaption></figcaption></figure>
@@ -46,7 +46,7 @@ You can send a message from the current API.
 
 1.  From the API header menu, click the **Contact** tab
 
-    <figure><img src="../.gitbook/assets/support_api menu (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/support_api menu.png" alt=""><figcaption></figcaption></figure>
 2.  Use the drop-down menu and text fields to enter the ticket details
 
     <figure><img src="../.gitbook/assets/support_api ticket.png" alt=""><figcaption></figcaption></figure>
@@ -76,7 +76,7 @@ You can send a message from either the [user menu](support.md#from-the-user-menu
 
 1.  Click the user name on the right of the Developer Portal header, then click **Tickets**
 
-    <figure><img src="../.gitbook/assets/support_tix in portal (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/support_tix in portal.png" alt=""><figcaption></figcaption></figure>
 2. Click a ticket entry in the list to view the ticket details and any messages
 
 **From the API menu**
