@@ -22,7 +22,7 @@ Portal notifications relate to the platform and include the following:
 
 To subscribe to Portal notifications, go to **APIM Console > Settings > Notifications**:
 
-<figure><img src="../../../../../.gitbook/assets/portal_notifications.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="API" %}
