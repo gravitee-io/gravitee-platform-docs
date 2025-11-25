@@ -212,4 +212,4 @@ repositories:
 
 For more details on how to configure AM with multiple DataBase or multiple Data Planes, please refer to the [Configure Multiple Data Planes](../../getting-started/install-and-upgrade-guides/configure-multiple-data-planes.md) page.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Multiple DataPlane deployment</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/am-multi-dataplane (1).svg" alt=""><figcaption><p>Multiple DataPlane deployment</p></figcaption></figure>

@@ -18,7 +18,7 @@ Some factors also require a [**Resource**](../../resources.md).
 2. Click the plus icon.
 3.  Select the factor type and click **Next.**
 
-    <figure><img src="broken-reference" alt=""><figcaption><p>Setting up Multifactor Auth from you Security Domain settings.</p></figcaption></figure>
+    <figure><img src="../../../../4.3/.gitbook/assets/john cr 1 (1).png" alt=""><figcaption><p>Setting up Multifactor Auth from you Security Domain settings.</p></figcaption></figure>
 4. Enter the factor details and click **Create**.
 
 You now have a factor that can be enabled on Application level!
