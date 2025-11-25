@@ -8,7 +8,7 @@ description: Documentation about manage subscriptions in the context of APIs.
 
 To find an application's subscriptions, log in to your APIM Console, and then select **Applications** from the menu.
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/00 sub 1 (1).png" alt=""><figcaption></figcaption></figure>
 
 Select the application you're looking for, and then select **Subscriptions** from the menu.
 
@@ -45,7 +45,7 @@ To manage subscriptions in APIM Console:
 7. Validate or reject the subscription
    *   If validating, fill out the **Validate your subscription** form, then click **Validate**
 
-       <figure><img src="broken-reference" alt=""><figcaption><p>Validate the subscription</p></figcaption></figure>
+       <figure><img src="../../.gitbook/assets/subscription_validate 2 (1).png" alt=""><figcaption><p>Validate the subscription</p></figcaption></figure>
 
 ## Shared API Keys
 
@@ -61,10 +61,10 @@ Subscriptions to API Key plans include additional security management settings:
 
 *   **Renew:** Generate a new API key or provide a custom API key. The existing API key will be automatically invalidated after two hours.
 
-    <figure><img src="broken-reference" alt=""><figcaption><p>Renew an API key</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/subscription_api key renew (1).png" alt=""><figcaption><p>Renew an API key</p></figcaption></figure>
 *   **Revoke:** Immediately invalidate an existing API key. This option is reversible.
 
-    <figure><img src="broken-reference" alt=""><figcaption><p>Revoke an API key</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/subscription_api key revoke (1).png" alt=""><figcaption><p>Revoke an API key</p></figcaption></figure>
 *   **Expire:** Set a date/time to automatically invalidate an existing API key
 
-    <figure><img src="broken-reference" alt=""><figcaption><p>Expire an API key</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/subscription_api key expire (1).png" alt=""><figcaption><p>Expire an API key</p></figcaption></figure>

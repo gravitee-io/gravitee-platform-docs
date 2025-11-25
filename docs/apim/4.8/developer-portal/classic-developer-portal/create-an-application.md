@@ -12,7 +12,7 @@ Unless the API has a keyless plan, a consumer must register an application and s
 
 1.  In the Developer Portal, click on **Applications** in the header
 
-    <figure><img src="broken-reference" alt=""><figcaption><p>Create an app</p></figcaption></figure>
+    <figure><img src="../../../../../.gitbook/assets/applications_home (1).png" alt=""><figcaption><p>Create an app</p></figcaption></figure>
 2.  On the **General** page, specify:
 
     * **Application name:** Give your application a name (required)
@@ -20,7 +20,7 @@ Unless the API has a keyless plan, a consumer must register an application and s
     * **Domain used by the application:** Enter the domain to be used by the application or keep the pre-filled default
     * (Optional) **Application Image:** Select an image for your application
 
-    <figure><img src="broken-reference" alt=""><figcaption><p>General application configuration</p></figcaption></figure>
+    <figure><img src="../../../../../.gitbook/assets/applications_general (1).png" alt=""><figcaption><p>General application configuration</p></figcaption></figure>
 3. Select the appropriate tile to configure security for the type of _software application_ you're registering your application for. Each application type requires you to set certain parameters.
 
 {% tabs %}
@@ -32,7 +32,7 @@ Parameters:
 * **Type:** Enter the type of application (mobile, web, etc.).
 * **Client ID:** Enter the client ID of the application. This field is required to subscribe to certain API plans (OAuth2, JWT).
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Configure a Simple application</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/applications_security simple (1).png" alt=""><figcaption><p>Configure a Simple application</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="SPA" %}
@@ -43,12 +43,12 @@ Parameters:
 * Toggle **Authorization Code** and **Implicit** to enable the types of rights authorized for the client. For security, define only the types you need.
 * Use the **+** icon to add **Redirect URIs** where the authorization server will send OAuth responses.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Configure a SPA application</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/applications_security spa check (1).png" alt=""><figcaption><p>Configure a SPA application</p></figcaption></figure>
 
 {% hint style="info" %}
 Until you add a **Redirect URI**, a red "x" will appear in lieu of the green checkmark above **Security**:
 
-<img src="broken-reference" alt="" data-size="original">
+<img src="../../../../../.gitbook/assets/applications_security spa x (1).png" alt="" data-size="original">
 {% endhint %}
 {% endtab %}
 
@@ -60,7 +60,7 @@ Parameters:
 * Toggle **Authorization Code**, **Refresh Token**, and **Implicit (Hybrid)** to enable the types of rights authorized for the client. For security, define only the types you need.
 * Use the **+** icon to add **Redirect URIs** where the authorization server will send OAuth responses.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Configure a Web application</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/applications_security web (1).png" alt=""><figcaption><p>Configure a Web application</p></figcaption></figure>
 
 {% hint style="info" %}
 Once you add a **Redirect URI**, a green checkmark will appear in lieu of the red "x" above **Security.**
@@ -75,7 +75,7 @@ Parameters:
 * Toggle **Authorization Code**, **Refresh Token**, **Resource Owner Password**, and **Implicit (Hybrid)** to enable the types of rights authorized for the client. For security, define only the types you need.
 * Use the **+** icon to add **Redirect URIs** where the authorization server will send OAuth responses.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Configure a Native application</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/applications_security native (1).png" alt=""><figcaption><p>Configure a Native application</p></figcaption></figure>
 
 {% hint style="info" %}
 Once you add a **Redirect URI**, a green checkmark will appear in lieu of the red "x" above **Security.**
@@ -89,16 +89,16 @@ Parameters:
 
 * Toggle **Client Credentials** to enable the types of rights authorized for the client. For security, define only the types you need.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Configure a Backend to backend application</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/applications_security b2b (1).png" alt=""><figcaption><p>Configure a Backend to backend application</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
 4.  Use the search field to find an API for your application, then subscribe to it. Optionally, you can leave a comment for the API owner.
 
-    <figure><img src="broken-reference" alt=""><figcaption><p>Subscribe to an API</p></figcaption></figure>
+    <figure><img src="../../../../../.gitbook/assets/applications_subscribe (1).png" alt=""><figcaption><p>Subscribe to an API</p></figcaption></figure>
 5.  Review the information you entered, then click **CREATE THE APP**:
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../../.gitbook/assets/applications_validate (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 You have successfully created an application!
@@ -110,35 +110,35 @@ Once you've created an application, you can click on it and use the header optio
 
 *   **General information:** View and/or modify the application's configuration.
 
-    <figure><img src="broken-reference" alt=""><figcaption><p>General information</p></figcaption></figure>
+    <figure><img src="../../../../../.gitbook/assets/application_edit (1).png" alt=""><figcaption><p>General information</p></figcaption></figure>
 *   **Metadata:** Enter a **Name** and **Value** and use the **Format** selector to define metadata for your application. Use the **ADD** and **UPDATE** buttons to modify your entries.
 
-    <figure><img src="broken-reference" alt=""><figcaption><p>Metadata</p></figcaption></figure>
+    <figure><img src="../../../../../.gitbook/assets/application_metadata (1).png" alt=""><figcaption><p>Metadata</p></figcaption></figure>
 *   **Subscriptions:** View the APIs your application is subscribed to. Use the **API** drop-down menu to choose a particular API and the **status** drop-down menu to list all APIs with the selected status.
 
-    <figure><img src="broken-reference" alt=""><figcaption><p>Subscriptions</p></figcaption></figure>
+    <figure><img src="../../../../../.gitbook/assets/application_subscription info (1).png" alt=""><figcaption><p>Subscriptions</p></figcaption></figure>
 * **Members:** View and edit member information:
   *   **MEMBERS LIST:** View the names and roles of current application members.
 
-      <figure><img src="broken-reference" alt=""><figcaption><p>Members list</p></figcaption></figure>
+      <figure><img src="../../../../../.gitbook/assets/application_members list (1).png" alt=""><figcaption><p>Members list</p></figcaption></figure>
   *   **ADD A MEMBER:** Use the search field to add a member to the application and assign that member a role.
 
-      <figure><img src="broken-reference" alt=""><figcaption><p>Add a member</p></figcaption></figure>
+      <figure><img src="../../../../../.gitbook/assets/application_add a member (1).png" alt=""><figcaption><p>Add a member</p></figcaption></figure>
   *   **TRANSFER OWNERSHIP:** Transfer ownership of the application to another user and select a different role for the current primary owner.
 
-      <figure><img src="broken-reference" alt=""><figcaption><p>Transfer ownership</p></figcaption></figure>
+      <figure><img src="../../../../../.gitbook/assets/application_transfer ownership (1).png" alt=""><figcaption><p>Transfer ownership</p></figcaption></figure>
   *   **INHERITED MEMBERS:** View the names and roles of members inherited from other groups.
 
-      <figure><img src="broken-reference" alt=""><figcaption><p>Inherited members</p></figcaption></figure>
+      <figure><img src="../../../../../.gitbook/assets/application_inherited members (1).png" alt=""><figcaption><p>Inherited members</p></figcaption></figure>
 *   **Analytics:** Use the available filters to refine the application logs. Scroll down to view other metrics related to the application (top paths, top APIs, response times, etc.).
 
-    <figure><img src="broken-reference" alt=""><figcaption><p>Analytics</p></figcaption></figure>
+    <figure><img src="../../../../../.gitbook/assets/application_analytics (1).png" alt=""><figcaption><p>Analytics</p></figcaption></figure>
 *   **Logs:** Use the available filters to view and optionally export refined application analytics. Scroll down to view the logs.
 
-    <figure><img src="broken-reference" alt=""><figcaption><p>Logs</p></figcaption></figure>
+    <figure><img src="../../../../../.gitbook/assets/application_logs (1).png" alt=""><figcaption><p>Logs</p></figcaption></figure>
 *   **Notifications:** Specify which of your application's subscription events you would like to be notified of.
 
-    <figure><img src="broken-reference" alt=""><figcaption><p>Notifications</p></figcaption></figure>
+    <figure><img src="../../../../../.gitbook/assets/application_alerts (1).png" alt=""><figcaption><p>Notifications</p></figcaption></figure>
 *   **Alerts:** Use the fields and drop-down menus to define an alert. After you **ADD AN ALERT**, it will appear in the **ALERTS LIST**. Application members will be notified via email.
 
-    <figure><img src="broken-reference" alt=""><figcaption><p>Alerts</p></figcaption></figure>
+    <figure><img src="../../../../../.gitbook/assets/application alerts (1).png" alt=""><figcaption><p>Alerts</p></figcaption></figure>

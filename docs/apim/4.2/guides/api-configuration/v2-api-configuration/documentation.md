@@ -35,7 +35,7 @@ Then, select Documentation under the Portal section. You'll have two main ways t
 
 ## Create API documentation
 
-To create API documentation, select the <img src="broken-reference" alt="" data-size="line"> icon. Then, select your preferred format, and create the documentation. Choose your preferred documentation format.
+To create API documentation, select the <img src="../../../../../../.gitbook/assets/Screen Shot 2023-06-08 at 3.06.53 PM (1).png" alt="" data-size="line"> icon. Then, select your preferred format, and create the documentation. Choose your preferred documentation format.
 
 After you choose your format, you'll need to:
 
@@ -53,4 +53,4 @@ Once you've either written or imported your API documentation, select **Save.**
 
 ## Add API metadata
 
-If you want to add metadata to your API, select the **Metadata** tab. Then, select <img src="broken-reference" alt="" data-size="line">. From here, you just need to choose a name for your API, select the format (string, numeric, boolean, date, mail, url), and define the value. Then, select **Save.**
+If you want to add metadata to your API, select the **Metadata** tab. Then, select <img src="../../../../../../.gitbook/assets/Screen Shot 2023-06-08 at 3.14.20 PM (1).png" alt="" data-size="line">. From here, you just need to choose a name for your API, select the format (string, numeric, boolean, date, mail, url), and define the value. Then, select **Save.**

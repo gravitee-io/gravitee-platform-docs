@@ -26,7 +26,7 @@ The default simple application enables an API consumer to define the `client_id`
 3. Select **Client Registration** from the inner left nav
 4. Under **Default application type**, toggle **Simple** ON
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/0 app (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 To expedite API consumption, a default application is automatically created for every new user (not including admins). This can be disabled in the `gravitee.yml` file as shown below:
@@ -99,7 +99,7 @@ To enable DCR, complete the following steps:
 3. Select **Client Registration** from the inner left nav
 4. Toggle **Enable Dynamic Client Registration** ON
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/0 app1 (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Add a DCR provider
 
@@ -109,7 +109,7 @@ Any authentication server supporting OIDC can be used as a DCR provider. This gu
 
 At the bottom of the **Client Registration** page, click **+ Add a provider** and configure the following:
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/0 app3 (1).png" alt=""><figcaption></figcaption></figure>
 
 * Set a **Name** and **Description** for the provider
 *   **OpenID Connect Discovery Endpoint:** Enter the URL where an OIDC-compatible authorization server publishes its metadata
@@ -302,7 +302,7 @@ To delete an application, the primary owner must:
 4. Select **Global Settings** from the inner left nav
 5.  In the **Danger Zone**, click **Delete**
 
-    <figure><img src="broken-reference" alt=""><figcaption><p>Delete an application</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/delete application (1).png" alt=""><figcaption><p>Delete an application</p></figcaption></figure>
 
 * A deleted application has a status of `ARCHIVED`, meaning:
   * The link to the primary owner of the application is deleted.

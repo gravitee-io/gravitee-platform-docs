@@ -24,7 +24,7 @@ Head to the Gravitee APIM Console, open the Integrations section in the left men
 
 Once you've created the integration, copy the integration ID that will be visible on the integration overview tab, you'll use this later:
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/image (121) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## 2. Configure the Apigee X federation agent
 
@@ -38,7 +38,7 @@ The Apigee X federation agent will need the following configuration parameters i
 
 To find the ID of the Google Cloud project you want to work with, you can head to the GCP console and open the Project drop down in the header bar. In there, you should be able to find your desired project's ID:
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/image (122) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Create a GCP service account key for the agent
 
@@ -46,7 +46,7 @@ To generate a Service Account Key you need to create a service account first. Pl
 
 Once your service account is created, enter the GCP IAM application and choose the _Service Accounts_ tab from the menu bar on the left side. Then select your service account and click on the _Keys_ tab → _Add key_ button → _Create new key_ button _→ Key type: JSON →_ Save the key on your compute&#x72;_._
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/Screenshot 2024-10-09 at 17.52.53 (1).png" alt=""><figcaption></figcaption></figure>
 
 In step 3, we'll show you how to configure your agent's Docker Compose file. There are two ways in which you can pass the service account key as a parameter in Docker Compose.
 
@@ -157,7 +157,7 @@ docker compose up -d
 
 In the Gravitee API Management console, after refreshing, you should now see the agent's status set to `Connected:`
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../../.gitbook/assets/Screenshot 2024-10-09 at 17.41.58 (1).png" alt=""><figcaption></figcaption></figure>
 
 If your **Agent Connection** still shows as `Disconnected`, then please inspect the agent's container logs. There you should find error logs that will help you troubleshoot.
 
