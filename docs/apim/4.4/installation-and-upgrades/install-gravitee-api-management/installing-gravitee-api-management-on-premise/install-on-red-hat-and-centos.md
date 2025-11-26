@@ -19,19 +19,19 @@ To establish access to Gravitee’s repository using `yum`, complete the followi
 
 1.  Create a file called `/etc/yum.repos.d/graviteeio.repo` using the following command:
 
-    ```sh
-    sudo tee -a /etc/yum.repos.d/graviteeio.repo <<EOF
-    [graviteeio]
-    name=graviteeio
-    gpgcheck=1
-    repo_gpgcheck=1
-    enabled=1
-    gpgkey=https://packagecloud.io/graviteeio/rpms/gpgkey,https://packagecloud.io/graviteeio/rpms/gpgkey/graviteeio-rpms-319791EF7A93C060.pub.gpg
-    sslverify=1
-    sslcacert=/etc/pki/tls/certs/ca-bundle.crt
-    metadata_expire=300
-    EOF
-    ```
+```sh
+sudo tee -a /etc/yum.repos.d/graviteeio.repo <<EOF
+[graviteeio]
+name=graviteeio
+gpgcheck=1
+repo_gpgcheck=1
+enabled=1
+gpgkey=https://packagecloud.io/graviteeio/rpms/gpgkey,https://packagecloud.io/graviteeio/rpms/gpgkey/graviteeio-rpms-319791EF7A93C060.pub.gpg
+sslverify=1
+sslcacert=/etc/pki/tls/certs/ca-bundle.crt
+metadata_expire=300
+EOF
+```
 
 {% hint style="info" %}
 Since APIM 4.4.27, RPM packages are signed with GPG. To verify the packages, use the `gpgcheck=1` configuration.
@@ -40,11 +40,10 @@ Since APIM 4.4.27, RPM packages are signed with GPG. To verify the packages, use
 2. Refresh the local cache using the following command:
 
 {% code overflow="wrap" %}
-```
+```sh
+sudo yum -q makecache -y --disablerepo='\*' --enablerepo='graviteeio'
 ```
 {% endcode %}
-
-\`\`\`\` \`\`\`sh sudo yum -q makecache -y --disablerepo='\*' --enablerepo='graviteeio' \`\`\` \`\`\`\` \{% endcode %\}
 
 ## Installing Gravitee’s API Management
 
