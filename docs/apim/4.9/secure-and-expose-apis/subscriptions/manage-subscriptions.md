@@ -24,7 +24,7 @@ To filter subscriptions, use the **API** and **API Key** search fields and/or th
 
 <figure><img src="../../.gitbook/assets/1%20app%20sub%202.png" alt=""><figcaption></figcaption></figure>
 
-To create a new subscription, click **+ Create a subscription** and search for the API you'd like to subscribe to. Refer to the [subscription](./) documentation for more information.
+To create a new subscription, click **+ Create a subscription** and search for the API you'd like to subscribe to. Refer to the [subscription](README.md) documentation for more information.
 
 ## Subscription validation
 

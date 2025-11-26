@@ -20,13 +20,13 @@ YAML (`yml`) format is sensitive to indentation. Ensure you include the correct 
 
 With the `gravitee.yaml` file, you can configure the following:
 
-* [HTTP Server](./#configure-http-server)
-* [Management and Portal APIs](./#configure-the-management-and-portal-apis)
-* [CORS](./#cors-configuration)
-* [Management repository](./#configure-the-management-repository)
-* [Analytics repository](./#configure-the-analytics-repository)
-* [SMTP](./#smtp-configuration)
-* [Default `gravitee.yaml` file](./#default-gravitee.yaml-config-file)
+* [HTTP Server](README.md#configure-http-server)
+* [Management and Portal APIs](README.md#configure-the-management-and-portal-apis)
+* [CORS](README.md#cors-configuration)
+* [Management repository](README.md#configure-the-management-repository)
+* [Analytics repository](README.md#configure-the-analytics-repository)
+* [SMTP](README.md#smtp-configuration)
+* [Default `gravitee.yaml` file](README.md#default-gravitee.yaml-config-file)
 
 ## Configure HTTP server
 

@@ -68,7 +68,7 @@ In certain cases, Telepresence might not have been able to communicate back with
 
 **Why is my intercept associated with an "Unreported" cluster?**
 
-Intercepts tagged with "Unreported" clusters simply mean Ambassador Cloud was unable to associate a service instance with a known detailed service from an Edge Stack or API Gateway cluster. [Connecting your cluster to the Service Catalog](./) will properly match your services from multiple data sources.
+Intercepts tagged with "Unreported" clusters simply mean Ambassador Cloud was unable to associate a service instance with a known detailed service from an Edge Stack or API Gateway cluster. [Connecting your cluster to the Service Catalog](README.md) will properly match your services from multiple data sources.
 
 **Will Telepresence be able to intercept workloads running on a private cluster or cluster running within a virtual private cloud (VPC)?**
 

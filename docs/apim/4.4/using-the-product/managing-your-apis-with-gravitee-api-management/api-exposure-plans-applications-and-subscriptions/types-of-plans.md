@@ -201,7 +201,7 @@ Push plans do not apply to SSE entrypoints. Although messages are pushed from th
 
 **Configuration**
 
-Push plans have the same configuration options as [Keyless plans](./) in APIM. The bulk of the configuration for a Push plan is set by the API consumer in the Developer Portal, and the content of the configuration varies by entrypoint type.
+Push plans have the same configuration options as [Keyless plans](README.md) in APIM. The bulk of the configuration for a Push plan is set by the API consumer in the Developer Portal, and the content of the configuration varies by entrypoint type.
 
 Gravitee currently supports Push plans for Webhook entrypoints
 

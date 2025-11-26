@@ -100,7 +100,7 @@ You can create, use and deploy custom reporters as described in the [Custom Plug
 
 <summary>Repository</summary>
 
-A repository is a pluggable storage component for API configuration, policy configuration, analytics, etc. See the [Repositories](../../../configuration/repositories/) documentation for more information.
+A repository is a pluggable storage component for API configuration, policy configuration, analytics, etc. See the [Repositories](../../../configuration/repositories/README.md) documentation for more information.
 
 </details>
 

@@ -11,5 +11,5 @@ If you enable an OTP type factor for your application, next time your users log 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-mfa-enroll.png" alt=""><figcaption><p>OTP MFA</p></figcaption></figure>
 
 {% hint style="info" %}
-The look and feel of the MFA forms can be overridden. See [custom pages](../../branding/#custom-pages) for more information.
+The look and feel of the MFA forms can be overridden. See [custom pages](../../branding/README.md#custom-pages) for more information.
 {% endhint %}

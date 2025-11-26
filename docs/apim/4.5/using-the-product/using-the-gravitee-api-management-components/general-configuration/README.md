@@ -18,15 +18,15 @@ YAML (`yml`) format is sensitive to indentation. Ensure you include the correct 
 
 With the `gravitee.yaml` file, you can configure the following:
 
-* [HTTP Server](./#configure-your-http-server)
-* [Plugins repository](./#configure-the-plugins-directory)
-* [Management repository](./#configure-the-management-repository)
-* [Rate Limit repository](./#configure-the-rate-limit-repository)
-* [Reporters](./#configure-reporters)
-* [Services](./#configure-services)
-* [Sharding tags](./#configure-sharding-tags)
-* [Organizations and environments](./#configure-organizations-and-environments)
-* [Transaction ID and request ID headers](./#configure-transaction-id-and-request-id-headers)
+* [HTTP Server](README.md#configure-your-http-server)
+* [Plugins repository](README.md#configure-the-plugins-directory)
+* [Management repository](README.md#configure-the-management-repository)
+* [Rate Limit repository](README.md#configure-the-rate-limit-repository)
+* [Reporters](README.md#configure-reporters)
+* [Services](README.md#configure-services)
+* [Sharding tags](README.md#configure-sharding-tags)
+* [Organizations and environments](README.md#configure-organizations-and-environments)
+* [Transaction ID and request ID headers](README.md#configure-transaction-id-and-request-id-headers)
 
 ## Configure your HTTP Server
 
@@ -57,11 +57,11 @@ http:
 
 This section discusses how to enable support for:
 
-* [HTTPS](./#enable-https-support)
-* [HTTP/2](./#enable-http-2-support)
-* [WebSocket](./#enable-websocket-support)
-* [Certificate-based client authentication](./#enable-certificate-based-client-authentication)
-* [Multi-server](./#multi-server-support)
+* [HTTPS](README.md#enable-https-support)
+* [HTTP/2](README.md#enable-http-2-support)
+* [WebSocket](README.md#enable-websocket-support)
+* [Certificate-based client authentication](README.md#enable-certificate-based-client-authentication)
+* [Multi-server](README.md#multi-server-support)
 
 ### **Enable HTTPS support**
 
@@ -363,7 +363,7 @@ ratelimit:
     prefix: # collection prefix
 ```
 
-If you want to use a custom prefix, you need to follow the following [instructions](../../../installation-and-upgrades/repositories/#use-a-custom-prefix).
+If you want to use a custom prefix, you need to follow the following [instructions](../../../installation-and-upgrades/repositories/README.md#use-a-custom-prefix).
 {% endtab %}
 
 {% tab title="JDBC" %}
@@ -379,7 +379,7 @@ ratelimit:
     prefix:   # collection prefix
 ```
 
-If you want to use a custom prefix, you need to follow the following [instructions](../../../installation-and-upgrades/repositories/#use-a-custom-prefix-1).
+If you want to use a custom prefix, you need to follow the following [instructions](../../../installation-and-upgrades/repositories/README.md#use-a-custom-prefix-1).
 {% endtab %}
 
 {% tab title="Redis Standalone" %}
@@ -394,7 +394,7 @@ ratelimit:
     password: 'mysecretpassword'
 ```
 
-Redis Sentinel and Redis SSL configuration options are presented [here](../../../installation-and-upgrades/repositories/#redis).
+Redis Sentinel and Redis SSL configuration options are presented [here](../../../installation-and-upgrades/repositories/README.md#redis).
 {% endtab %}
 {% endtabs %}
 

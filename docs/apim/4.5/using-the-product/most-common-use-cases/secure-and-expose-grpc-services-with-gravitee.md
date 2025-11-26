@@ -94,7 +94,7 @@ Follow the steps below to expose a simple gRPC service with one API on the Gatew
     <figure><img src="../../.gitbook/assets/grpc started.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
-Click **Publish the API** to publish **HelloService gRPC** in the Developer Portal that is also available in this Docker installation. See the [Developer Portal](../using-the-gravitee-api-management-components/developer-portal/) documentation for more information on capabilities and benefits.
+Click **Publish the API** to publish **HelloService gRPC** in the Developer Portal that is also available in this Docker installation. See the [Developer Portal](../using-the-gravitee-api-management-components/developer-portal/README.md) documentation for more information on capabilities and benefits.
 {% endhint %}
 
 #### Step 2: Test HelloService gRPC (no virtual host)

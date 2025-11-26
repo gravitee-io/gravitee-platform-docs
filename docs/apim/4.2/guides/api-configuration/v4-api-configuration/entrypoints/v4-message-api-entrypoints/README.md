@@ -11,7 +11,7 @@ description: An overview about v4 Message API Entrypoints.
 
 As of Gravitee 4.1, the ability to create APIs with message API entrypoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise Edition and what's included in various enterprise packages, please:
 
-* [Refer to the EE vs OSS documentation](../../../../../overview/gravitee-apim-enterprise-edition/)
+* [Refer to the EE vs OSS documentation](../../../../../overview/gravitee-apim-enterprise-edition/README.md)
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
@@ -41,5 +41,5 @@ You can also add an entrypoint to your API by clicking **Add an entrypoint.** Fr
 When you are done configuring your entrypoints, make sure to select **Save changes.**
 
 {% hint style="info" %}
-For more detailed information on Gravitee entrypoints, see the [Entrypoint Reference](../../../../../reference/entrypoint-reference/) documentation.
+For more detailed information on Gravitee entrypoints, see the [Entrypoint Reference](../../../../../reference/entrypoint-reference/README.md) documentation.
 {% endhint %}

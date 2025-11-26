@@ -122,4 +122,4 @@ Gravitee AM provides support for monitoring client secret expiration through cus
 
 These notifications facilitate timely renewal of client secrets and reduce the risk of authentication failures due to expired credentials.
 
-For detailed instructions on configuring the notification mechanisms, refer to the [AM API configuration](../../getting-started/configuration/configure-am-api/#configure-notifications-on-certificates-and-client-secret-expiry) section.
+For detailed instructions on configuring the notification mechanisms, refer to the [AM API configuration](../../getting-started/configuration/configure-am-api/README.md#configure-notifications-on-certificates-and-client-secret-expiry) section.

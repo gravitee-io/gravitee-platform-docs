@@ -56,5 +56,5 @@ You should see that there are processes listening on those ports.
 If the installation was successful, then the first API call returns: **No context-path matches the request URI.** The final two API calls should return a JSON payload in the response.
 
 {% hint style="success" %}
-Congratulations! Now that APIM is up and running, check out the [Tutorials](./) for your next steps.
+Congratulations! Now that APIM is up and running, check out the [Tutorials](README.md) for your next steps.
 {% endhint %}
