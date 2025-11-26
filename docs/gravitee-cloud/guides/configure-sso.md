@@ -50,10 +50,12 @@ It is recommended that the Account Primary Owner be a non-SSO user so that the C
     * ID Token
     * UserInfo Endpoint
 
-    {% hint style="info" %}
-
-    * If you use the Identity provider, Okta, you must select UserInfo Endpoint.
-    * If the firstname and lastname are set to `null` , you must select UserInfo Endpoint. {% endhint %}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <ul>
+      <li>If you use the Identity provider, Okta, you must select UserInfo Endpoint.</li>
+      <li>If the firstname and lastname are set to <code>null</code> , you must select UserInfo Endpoint.</li>
+      </ul>
+    </div>
 7. Click **Create Redirect URI**
 
 <figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption><p>Consent to enabling OpenID, Profile and Email scopes in your OAuth client</p></figcaption></figure>
