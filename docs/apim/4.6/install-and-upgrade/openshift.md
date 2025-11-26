@@ -9,7 +9,7 @@ description: An overview about openshift.
 * Gravitee API Management (APIM) Helm chart is compatible with OpenShift versions 3.10 and later.
 * You must install the following command line tools:
   * [Kubectl or OC](https://docs.openshift.com/container-platform/4.9/cli_reference/openshift_cli/getting-started-cli.html#cli-installing-cli_cli-developer-commands)
-  * [Helm](https://docs.openshift.com/container-platform/4.10/applications/working_with_helm_charts/installing-helm.html)
+  * [Helm](https://docs.redhat.com/en/documentation/openshift_container_platform/4.10/html/building_applications/working-with-helm-charts#installing-helm)
 
 {% include "../.gitbook/includes/installation-guide-note.md" %}
 
