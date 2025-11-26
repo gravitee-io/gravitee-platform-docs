@@ -155,6 +155,6 @@ The sharding tags mechanism allows you to specify which “shard” of of your G
 \
 In the diagram below we have an example of a typical deployment an organization may use for their API Management. This scenario looks to deploy two APIs in a distributed manner, providing high availability across different regions and in different network environments.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Example architecture diagram to illustrate value of sharding tags.</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Example architecture.png" alt=""><figcaption><p>Example architecture diagram to illustrate value of sharding tags.</p></figcaption></figure>
 
 If using sharding tags, you could tag these Gateways with specific keywords. Once the Gateways are tagged, you can [select that tag in an APIs Deployments proxy settings](configure-general-proxy-settings.md#configure-deployments). Whatever tag you select for that API will end up being the Gateway where that API is deployed.

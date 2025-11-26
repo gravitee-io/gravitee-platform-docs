@@ -30,7 +30,7 @@ In this guide, you’ll learn how to publish and expose your API operations thro
 
 1.  From the **Dashboard**, click **APIs**.
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/3AFC7359-4334-44DE-A2AA-3732BE173718_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 2.  Find the API that you want to convert into an MCP Server.
 
     <figure><img src="../.gitbook/assets/EFADEF2D-0D48-41A3-9668-C4C2A6F806DA_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>

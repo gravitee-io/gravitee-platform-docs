@@ -29,11 +29,11 @@ To import your API:
 3. Select **+ Add API**.
 4.  In the **Create New API** tile, click **Import v4 API**.
 
-    <figure><img src="../../../4.7/.gitbook/assets/00%20import%201%20(1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/00%20import%201%20(1).png" alt=""><figcaption></figcaption></figure>
 
     This loads the options for importing your API.
 
-    <figure><img src="../../../4.7/.gitbook/assets/00%20import%202%20(1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/00%20import%202%20(1).png" alt=""><figcaption></figcaption></figure>
 5. Choose an **API format**. You can select either **Gravitee definition** or **OpenAPI specification**.
 6.  Choose a **File source**.
 

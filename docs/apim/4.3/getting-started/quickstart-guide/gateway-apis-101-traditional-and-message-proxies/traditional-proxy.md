@@ -8,11 +8,11 @@ description: Use Gravitee to proxy your backend API servers
 
 A traditional proxy is the classic API Gateway use case. The Gateway will connect with the client and the backend service using the same protocol.
 
-<img src="broken-reference" alt="Traditional proxy example" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (2).svg" alt="Traditional proxy example" class="gitbook-drawing">
 
 Let's continue with the API creation wizard to see how easily a traditional proxy can be created with Gravitee.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Creating a traditional proxy</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/traditional proxy.png" alt=""><figcaption><p>Creating a traditional proxy</p></figcaption></figure>
 
 > * [x] Select **Proxy Upstream Protocol**
 > * [x] Click **Select my API Architecture** to continue
@@ -24,7 +24,7 @@ The next step is configuring how the Gateway will communicate with clients and b
 * **Gateway entrypoint:** Provides the means for the API consumer to interact with the Gateway API.
 * **Gateway endpoint:** Defines the protocol and configuration settings by which the Gateway API will fetch data/functionality from, or post data to, the backend API server.
 
-<img src="broken-reference" alt="Gateway entrypoints and endpoints" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (3).svg" alt="Gateway entrypoints and endpoints" class="gitbook-drawing">
 
 ### Entrypoints
 
@@ -57,7 +57,7 @@ GET https://backend-api-server/orders
 
 </details>
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Provide a context-path</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/traditional proxy_context path.png" alt=""><figcaption><p>Provide a context-path</p></figcaption></figure>
 
 > * [x] Provide a context-path
 > * [x] Select **Validate my entrypoints** to move on to endpoints configuration
@@ -83,7 +83,7 @@ Let's imagine your backend API server, `https://backend-api-server/`, has two re
 
 For this guide, you are using `https://api.gravitee.io/echo` as your Target URL, and therefore, your backend service. This is a very simple public API server that, as the name suggests, echoes back some basic information about your API request, like the headers and the size of the request body. Feel free to test out the endpoint directly in your terminal or your browser.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Endpoint configuration</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/traditional proxy_endpoint config.png" alt=""><figcaption><p>Endpoint configuration</p></figcaption></figure>
 
 > * [x] Input `https://api.gravitee.io/echo` as your **Target url**
 
@@ -97,7 +97,7 @@ The majority of the remaining configuration options are standard HTTP configurat
 To clarify, the SSL options shown here are for the connection between the Gateway and your backend server. Configuring a custom truststore and keystore will have no impact on client connections to the Gateway. mTLS between clients and the Gateway are [configured at the Gateway level](../../configuration/apim-gateway/general-configuration.md), not the API level.
 {% endhint %}
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Finish endpoints configuration</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/traditional proxy_finish config.png" alt=""><figcaption><p>Finish endpoints configuration</p></figcaption></figure>
 
 > * [x] Scroll all the way down and select **Validate my endpoints** to continue to security
 
@@ -107,7 +107,7 @@ The next step is to configure your API security via plans. In APIM, a plan provi
 
 We will be focusing on plans in the next part of the Quickstart Guide. For now, leave the default keyless plan.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Gateway API security</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/message proxy_security.png" alt=""><figcaption><p>Gateway API security</p></figcaption></figure>
 
 > * [x] Leave defaults and select **Validate my plans** to continue to the final step
 
@@ -125,7 +125,7 @@ The final step in creating an API is to review and then save your configuration.
 * **Save API:** This option will save your API, but it will not be available on the Gateway. This is useful if you'd like to complete some more advanced configuration (e.g., adding policies) before starting the API.
 * **Save & Deploy API:** This option will save your API and immediately start it on the Gateway.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Gateway API summary page</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/traditional proxy_summary.png" alt=""><figcaption><p>Gateway API summary page</p></figcaption></figure>
 
 > * [x] Select **Save & Deploy API** so we can begin testing immediately
 
@@ -133,7 +133,7 @@ The final step in creating an API is to review and then save your configuration.
 
 You will be greeted with a screen that confirms the creation of your new API and includes several shortcuts to help you start managing it.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>API creation confirmation</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/message proxy_confirmation.png" alt=""><figcaption><p>API creation confirmation</p></figcaption></figure>
 
 > * [x] Select **Open my API in API Management** to see how to manage your API
 
@@ -157,7 +157,7 @@ Below is a short summary of the different actions, each of which alters the stat
 
 From this page, you can manage every aspect of your Gateway API by selecting different tabs from the inner sidebar. We'll be diving into some of these options later in the Quickstart Guide.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>API General Info page</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/traditional proxy_general.png" alt=""><figcaption><p>API General Info page</p></figcaption></figure>
 
 ## Test your API
 

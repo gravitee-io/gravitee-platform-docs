@@ -14,7 +14,7 @@ Once you configure your chosen identity provider(s) in API Management, you can a
 
 After you add your identity provider, two new items appear within your identity provider configuration: **Groups Mapping** and **Roles Mapping**.
 
-<figure><img src="../../../../4.7/.gitbook/assets/image%20(4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image%20(4).png" alt=""><figcaption></figcaption></figure>
 
 **Groups Mapping** maps users into groups. Groups can be assigned to APIs. You can use the APIM Console to control the interactions between groups and the APIs to which they are assigned. The visibility of APIs and API documentation pages can be controlled at the group level using the Developer Portal.
 
@@ -99,7 +99,7 @@ Gravitee uses Gravitee Expression Language in the **Condition** to evaluate the 
 
 In the following example, Gravitee checks if the value of "my\_API\_Group" in the UserInfo endpoint's response payload contains "Petstore-Group." If true, the user is added to the "Petstore-Group."
 
-<figure><img src="../../../../4.7/.gitbook/assets/image%20(155).png" alt=""><figcaption><p>Group Mapping configuration</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image%20(155).png" alt=""><figcaption><p>Group Mapping configuration</p></figcaption></figure>
 
 ### Roles Mapping
 
@@ -107,7 +107,7 @@ The procedure for mapping a role is similar to adding a user to a group, but the
 
 In the example below, the condition evaluates the `roles` custom claim, or JSON key, in the JSON returned by the IdP’s UserInfo endpoint. If the `roles` array contains `FULL_ADMIN`, Gravitee will actions the role mapping.
 
-<figure><img src="../../../../4.7/.gitbook/assets/image%20(157).png" alt=""><figcaption><p>Role Mapping configuration</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image%20(157).png" alt=""><figcaption><p>Role Mapping configuration</p></figcaption></figure>
 
 ## Expression Language objects
 

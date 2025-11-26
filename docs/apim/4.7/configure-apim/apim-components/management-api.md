@@ -155,11 +155,11 @@ If you change the CORS settings using the `gravitee.yml` or environment variable
 
 You can also configure CORS at the organization level in the **Organization > Settings** section of the APIM Console:
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Organization CORS settings</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-06-30 at 2.35.47 PM.png" alt=""><figcaption><p>Organization CORS settings</p></figcaption></figure>
 
 Or at the environment level in the **Settings > Settings** section of the APIM Console:
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Environment CORS settings</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-07-20 at 3.20.53 PM.png" alt=""><figcaption><p>Environment CORS settings</p></figcaption></figure>
 
 ## Configure the Management repository
 
@@ -278,11 +278,11 @@ If you change the SMTP settings using the `gravitee.yml` or environment variable
 
 You can also configure SMTP at the organization level in the **Organization > Settings** section of the APIM Console:
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Organization SMTP settings</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-07-20 at 3.27.18 PM.png" alt=""><figcaption><p>Organization SMTP settings</p></figcaption></figure>
 
 Or at the environment level in the **Settings > Settings** section of the APIM Console:
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Environment SMTP settings</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-07-20 at 3.30.01 PM.png" alt=""><figcaption><p>Environment SMTP settings</p></figcaption></figure>
 
 ### Configure the Gmail SMTP server
 
