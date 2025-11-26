@@ -40,7 +40,7 @@ kafka:
 
 * The Gateway runs multiple APIs on different **domains**. The Kafka client will connect to the API using the bootstrap server `{apiHost}.{defaultDomain}:{defaultPort}` , where `{apiHost}` is host prefix defined for each API.
 
-<figure><img src="broken-reference" alt="" width="555"><figcaption><p>The Kafka client routes to the correct API through the gateway using SNI routing.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3).png" alt="" width="555"><figcaption><p>The Kafka client routes to the correct API through the gateway using SNI routing.</p></figcaption></figure>
 
 * To route to the correct API, the Gateway uses [SNI routing](https://en.wikipedia.org/wiki/Server_Name_Indication), which is part of the TLS protocol. Consequently, all client connections **must** happen over TLS (with at least `security.protocol=SSL` set in the Kafka client configuration).
 * The client **must** trust the certificate provided by the Gateway. To handle the variable host in the proxy bootstrap server URL, you will likely need to request a wildcard SAN to use as the certificate presented by the Gateway.
@@ -80,11 +80,11 @@ Then, for two APIs, the client will connect to, e.g., `my-bootstrap-api1.mycompa
 
 After the Kafka client connects to the API, the Gateway (acting as the bootstrap server) returns the list of brokers in the upstream cluster.
 
-<figure><img src="../../4.7/.gitbook/assets/image%20(151)%20(1).png" alt="" width="563"><figcaption><p>The proxy obtains the list of brokers from the upstream cluster.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image%20(151)%20(1).png" alt="" width="563"><figcaption><p>The proxy obtains the list of brokers from the upstream cluster.</p></figcaption></figure>
 
 To properly provide the client with the list of brokers and the associated metadata about topics and partitions on those brokers, the Gateway creates a one-to-one mapping between the brokers in the upstream cluster and the brokers seen by the client.
 
-<figure><img src="../../4.7/.gitbook/assets/image%20(153)%20(1).png" alt="" width="563"><figcaption><p>The gateway returns the list of brokers back to the client, rewritten to use the gateway hostname.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image%20(153)%20(1)-1.png" alt="" width="563"><figcaption><p>The gateway returns the list of brokers back to the client, rewritten to use the gateway hostname.</p></figcaption></figure>
 
 The mapping combines the `brokerPrefix`, `brokerSeparator`, and `defaultDomain` variables, along with the API host prefix. The Kafka client must be able to route to `{brokerPrefix}-{brokerId}-{apiHost}.{defaultDomain}`, for as many brokers as there are in the Kafka cluster. Again, a wildcard DNS entry is the preferred way to do this.
 

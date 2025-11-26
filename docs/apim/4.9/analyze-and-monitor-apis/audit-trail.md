@@ -24,4 +24,4 @@ To use the Audit Trail feature:
 3. Select values for the **Event**, **Type**, and **Enter a date range** filters
 4. Click on the eye icon to view patch information
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Gravitee Audit Trail</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/audit trail (1).png" alt=""><figcaption><p>Gravitee Audit Trail</p></figcaption></figure>

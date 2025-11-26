@@ -383,7 +383,7 @@ On the **General** screen, define:
 * **Subscription** options: choose whether to auto-validate subscriptions, require a message from consumers during subscription, and/or to present a message to the consumer upon subscription
 * **Access control**: here, select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../administration/README.md#users-and-user-groups).
 
-<img src="../../../.gitbook/assets/image (3).png" alt="" data-size="original">
+<img src="../../../.gitbook/assets/image.png" alt="" data-size="original">
 
 
 

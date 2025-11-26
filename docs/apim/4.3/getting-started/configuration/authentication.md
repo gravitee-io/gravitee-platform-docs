@@ -260,7 +260,7 @@ Before you can set up GitHub as an authentication provider for Gravitee APIM, yo
 2. Select **OAuth Apps**
 3.  Select **Register an application**
 
-    <figure><img src="../../.gitbook/assets/github_register_new_app (1).png" alt=""><figcaption><p>Register an application in GitHub</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/github_register_new_app.png" alt=""><figcaption><p>Register an application in GitHub</p></figcaption></figure>
 4.  Enter in your Gravitee details in the **Register a new OAuth application** section. Please note that the Authorization callback URL must match the domain hosting Gravitee APIM. When you're done, select **Register application.**
 
     <figure><img src="../../.gitbook/assets/github_fill_app_form.png" alt=""><figcaption><p>Register Gravitee details in GitHub</p></figcaption></figure>

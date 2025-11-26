@@ -46,7 +46,7 @@ The following diagrams illustrate the component management, design, and self-hos
 
 ### Hybrid component management <a href="#components" id="components"></a>
 
-<img src="broken-reference" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.excalidraw (6) (1).svg" alt="" class="gitbook-drawing">
 
 ### Hybrid architecture diagram <a href="#architecture-diagram" id="architecture-diagram"></a>
 

@@ -14,11 +14,11 @@ API consumers can easily discover and explore APIs, read documentation, test API
 
 Enterprise trial users should be able to immediately access the Developer Portal from the APIM Console by selecting the **Developer Portal** link in the top left of the Console's nav bar.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Access Developer Portal from APIM Console</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/DP_console.png" alt=""><figcaption><p>Access Developer Portal from APIM Console</p></figcaption></figure>
 
 This will bring you to the home screen of the Developer Portal.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Your default Developer Portal</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/DP_default.png" alt=""><figcaption><p>Your default Developer Portal</p></figcaption></figure>
 
 From here, you can begin searching for APIs using the Developer Portal's full-context[^1] search. However, you will not be able to subscribe to any APIs until you create an application.
 
@@ -28,7 +28,7 @@ The Developer Portal host of self-managed installations can easily be modified. 
 
 Your Developer Portal URL will depend on your deployment, so please reference the respective installation docs. For example, with the default Docker installation, you can access the Developer Portal at `http://localhost:8085` in your browser.
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/self-managed dev portal link.png" alt=""><figcaption></figcaption></figure>
 
 1. Click **Settings** in the left nav
 2. Click **Settings** in the inner left nav
