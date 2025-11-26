@@ -21,7 +21,9 @@ Deleting a hybrid Gateway is a way to maintain control and security within your 
     <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 4.  In the **Delete Hybrid Gateway** pop-up window, type the name of the Gateway.
 
-    {% hint style="warning" %} Deleting a gateway is permanent! {% endhint %}
+    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning">
+      <p>Deleting a gateway is permanent!</p>
+    </div>
 
     <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 
