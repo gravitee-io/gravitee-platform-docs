@@ -121,7 +121,7 @@ To encrypt a hardcoded API property value:
              secret: vvLJ4Q8Khvv9tm2tIPdkGEdmgKUruAL6
      to provide the best security available.
     ```
-2. Enable the **Encrypt** toggle when adding a property via **Add property**. Once you click **Save**, you can no longer edit, modify, or view the value. ![](<../../../../../../.gitbook/assets/api properties_add (1)
+2. Enable the **Encrypt** toggle when adding a property via **Add property**. Once you click **Save**, you can no longer edit, modify, or view the value. ![](../../../.gitbook/assets/api properties_add (1).png)
 
 ### **Dynamic properties**
 
@@ -170,8 +170,8 @@ Global resources are available to all flows associated with the Gateway API, but
 
 Configure a v4 proxy API to query the stock levels of shop databases, then dynamically reroute any API call containing a shop ID to its associated URL:
 
-1. Define a list of properties for the shops, where `<key>` is the unique shop ID and `<value>` is the shop URL ![](<../../../../../../.gitbook/assets/example1_properties list (1)
-2. Configure a dynamic routing policy that builds new URLs dynamically through property matching via the `#api.properties` statement: ![](<../../../../../../.gitbook/assets/example1_properties rule (1)
+1. Define a list of properties for the shops, where `<key>` is the unique shop ID and `<value>` is the shop URL ![](../../../.gitbook/assets/example1_properties list.png)
+2. Configure a dynamic routing policy that builds new URLs dynamically through property matching via the `#api.properties` statement: ![](../../../.gitbook/assets/example1_properties rule.png)
 
 If the ID in the request header matches the key of one of the properties, it is replaced with the URL. The dynamic routing policy then reroutes the API call to the URL.
 
@@ -183,10 +183,10 @@ If the ID in the request header matches the key of one of the properties, it is 
 
 To monetize data delivery, consider a v4 message API that sends an alert whenever inventory is added to an online store. Tier 1 customers pay for item availability alerts in true real-time, while Tier 2 customers are notified for free, but in less than real-time.
 
-1. Add a keyless flow to the Default Keyless Plan ![](<../../../../../../.gitbook/assets/example2_keyless flow (1)
-2. Apply a latency policy to the Default Keyless Plan ![](<../../../../../../.gitbook/assets/example2_latency (1)
+1. Add a keyless flow to the Default Keyless Plan ![](../../../.gitbook/assets/example2_keyless flow.png)
+2. Apply a latency policy to the Default Keyless Plan ![](../../../.gitbook/assets/example2_latency.png)
 3. Select **Consumers** from the inner left nav
-4. Under the **Plans** tab, click **+ Add new plan** ![](<../../../../../../.gitbook/assets/example2_add plan (1)
+4. Under the **Plans** tab, click **+ Add new plan** ![](../../../.gitbook/assets/example2_add plan.png)
 5. Select **API Key** from the drop-down menu and configure an API Key plan
 
 Tier 2 customers can use our API for free, but new merchandise alerts are delayed by 30 minutes. Tier 1 customers who purchase the API Key plan are given unlimited access to real-time data.
