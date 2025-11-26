@@ -76,5 +76,5 @@ As an administrator, you can click on an entry for user details and to apply adm
 {% hint style="info" %}
 **Detailed user administration**
 
-For additional information on user management, including roles, groups, and permissions, see the [Administration guide.](../../../using-the-product/administration/#introduction)
+For additional information on user management, including roles, groups, and permissions, see the [Administration guide.](../../../using-the-product/administration/README.md#introduction)
 {% endhint %}

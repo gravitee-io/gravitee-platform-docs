@@ -5,7 +5,7 @@ description: Configuration guide for v2 API Configuration.
 # v2 API Configuration
 
 {% hint style="info" %}
-Refer to the [v4 API Configuration](../v4-api-configuration/) for information on configuring APIs created using the Gravitee v4 definition.
+Refer to the [v4 API Configuration](../v4-api-configuration/README.md) for information on configuring APIs created using the Gravitee v4 definition.
 {% endhint %}
 
 Choose from the following to learn about the different configuration options available to v2 APIs.

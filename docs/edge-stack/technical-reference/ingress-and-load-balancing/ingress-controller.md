@@ -9,7 +9,7 @@ An Ingress resource is a popular way to expose Kubernetes services to the Intern
 
 ### When and how to use the Ingress resource
 
-If you're new to Ambassador Edge Stack and to Kubernetes, we'd recommend you start with our [quickstart](../../) instead of this Ingress guide. If you're a power user and need to integrate with other software that leverages the Ingress resource, read on. The Ingress specification is very basic and does not support many of the features of Ambassador Edge Stack, so you'll be using both the Ingress resource and Ambassador Edge Stack's Mapping resource to manage your Kubernetes services.
+If you're new to Ambassador Edge Stack and to Kubernetes, we'd recommend you start with our [quickstart](../../README.md) instead of this Ingress guide. If you're a power user and need to integrate with other software that leverages the Ingress resource, read on. The Ingress specification is very basic and does not support many of the features of Ambassador Edge Stack, so you'll be using both the Ingress resource and Ambassador Edge Stack's Mapping resource to manage your Kubernetes services.
 
 #### What is required to use the Ingress resource?
 

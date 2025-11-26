@@ -100,7 +100,7 @@ You can create, use and deploy custom reporters as described in the [Custom Plug
 
 <summary>Repository</summary>
 
-A repository is a pluggable storage component for API configuration, policy configuration, analytics, etc. See the [Repositories](../../../installation-and-upgrades/repositories/) documentation for more information.
+A repository is a pluggable storage component for API configuration, policy configuration, analytics, etc. See the [Repositories](../../../installation-and-upgrades/repositories/README.md) documentation for more information.
 
 </details>
 
@@ -114,7 +114,7 @@ A resource can be added to an API for its whole lifecycle. APIM includes three d
 * OAuth2 - Gravitee Access Management
 * OAuth2 - Generic Authorization Server
 
-See [Resources](../../../using-the-product/managing-your-apis/resources/) for more information.
+See [Resources](../../../using-the-product/managing-your-apis/resources/README.md) for more information.
 
 </details>
 

@@ -13,8 +13,8 @@ This tutorial explores various use cases where rate limiting plays a critical ro
 Before proceeding with this tutorial, be sure you're familiar with the following:
 
 * **REST APIs:** Visit our [REST API Tutorial ](https://www.gravitee.io/blog/rest-api-tutorial)to review the key elements, methods, and design and architecture constraints of a RESTful architecture.
-* **Gravitee policies:** Rules or logic that the Gateway can execute during the request or response of an API call, e.g., to enhance security, ensure reliability, or enable API monetization. See our [Policy Reference](../reference/policy-reference/) documentation to learn more.
-* **Gravitee APIs:** Visit [Create APIs](../guides/create-apis/) to learn about Gravitee API creation concepts and [The API Creation Wizard](../guides/create-apis/the-api-creation-wizard/) for step-by-step guides to create APIs using the Gravitee v2 and v4 API definitions.
+* **Gravitee policies:** Rules or logic that the Gateway can execute during the request or response of an API call, e.g., to enhance security, ensure reliability, or enable API monetization. See our [Policy Reference](../reference/policy-reference/README.md) documentation to learn more.
+* **Gravitee APIs:** Visit [Create APIs](../guides/create-apis/README.md) to learn about Gravitee API creation concepts and [The API Creation Wizard](../guides/create-apis/the-api-creation-wizard/README.md) for step-by-step guides to create APIs using the Gravitee v2 and v4 API definitions.
 
 ## Introduction to Gravitee rate limiting
 
@@ -49,7 +49,7 @@ This use case explores enabling different Quota policies for each tier and also 
 For each user group defined above, an individual plan should be established. This example uses the API Key plan.
 
 {% hint style="info" %}
-See the [Plans](../guides/api-exposure-plans-applications-and-subscriptions/plans/) documentation for more information.
+See the [Plans](../guides/api-exposure-plans-applications-and-subscriptions/plans/README.md) documentation for more information.
 {% endhint %}
 
 To add a Quota policy to each plan of this API:

@@ -10,7 +10,7 @@ Before you install the Confluent Platform federation agent, complete the followi
 
 * Access to a Confluent Platform instance. &#x20;
 * Verify Gravitee API Management version 4.5 or later, with an enterprise license. For more information about Enterprise edition, see [Enterprise Edition Licensing](https://documentation.gravitee.io/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing#license-support).
-* An access token. For more information, see [how to create a service account and an access token.](https://documentation.gravitee.io/apim/govern-apis/federation/federation-agent-service-account)
+* An access token. For more information, see [how to create a service account and an access token.](../federation-agent-service-account.md)
 * Identify your Confluent Platform cluster API endpoint and schema registry endpoint.
 * Obtain Confluent Platform credentials, including username and password.
 * (Optional) For testing, spin up a local Confluent Platform demo environment. For instructions, see [Confluent Platform demo project](https://github.com/confluentinc/cp-demo), and [how to deploy the Confluent Platform demo environment. ](https://docs.confluent.io/platform/current/tutorials/cp-demo/on-prem.html#docker)

@@ -25,7 +25,7 @@ The isolation scheme of data and features between the logical hierarchical struc
 This page discusses how to deploy APIM and Cloud together in multi-tenant mode.
 
 {% hint style="info" %}
-For information on how to run a `standalone` (not multi-tenant) installation with APIM, refer to the [Upgrade Guide](../upgrade-guides/)
+For information on how to run a `standalone` (not multi-tenant) installation with APIM, refer to the [Upgrade Guide](../upgrade-guides/README.md)
 {% endhint %}
 
 ## How to set up multi-tenancy

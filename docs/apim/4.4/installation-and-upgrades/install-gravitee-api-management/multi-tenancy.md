@@ -30,7 +30,7 @@ The following sections describe:
 * [A typical multi-tenant setup](multi-tenancy.md#a-typical-multi-tenant-setup)
 
 {% hint style="info" %}
-For information on how to run a `standalone` (not multi-tenant) installation with APIM, refer to the [Upgrade Guide](./).
+For information on how to run a `standalone` (not multi-tenant) installation with APIM, refer to the [Upgrade Guide](README.md).
 {% endhint %}
 
 ## How to set up multi-tenancy
@@ -50,7 +50,7 @@ Follow the steps below to implement best practices for APIM multi-tenancy.
 Once a multi-tenant APIM is connected to Cloud, it is not possible to disable multi-tenancy mode in APIM. We recommend first trying multi-tenancy in a Sandbox or similar installation.
 {% endhint %}
 
-1. [Install APIM](./) on your preferred infrastructure and deployment type
+1. [Install APIM](README.md) on your preferred infrastructure and deployment type
 2.  Explicitly set APIM to multi-tenant mode by commenting out the multi-tenant section in the configuration. Optionally, you can specify the configuration of Access Points, which comprises the URLs that APIM components will be addressed on.
 
     <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">

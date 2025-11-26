@@ -16,7 +16,7 @@ For a much deeper dive on this topic that includes IdP setup and configuration, 
 
 ## Prerequisites <a href="#prerequisites-3" id="prerequisites-3"></a>
 
-To participate in this tutorial, you must have an instance of APIM 4.0 or later up and running. You can check out our [extensive installation guides](../getting-started/install-and-upgrade-guides/) to learn the different ways you can get started with Gravitee.
+To participate in this tutorial, you must have an instance of APIM 4.0 or later up and running. You can check out our [extensive installation guides](../getting-started/install-and-upgrade-guides/README.md) to learn the different ways you can get started with Gravitee.
 
 Additionally, the following guide assumes the client application has already been configured to use a third-party IdP. Once the application has received an access token from the IdP in the form of a JWT, a properly configured APIM Gateway can validate the signature before granting the user of the application access to protected resources.
 
@@ -28,7 +28,7 @@ In the Console UI, select the Gateway API you want to secure with a JWT plan.
 
 <figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/f/f84821f421fb5f2346248159d729b08b33009191_2_690x306.png" alt=""><figcaption></figcaption></figure>
 
-Alternatively, if you haven’t created a Gateway API yet, you can learn [how to create a Gateway API here](../guides/create-apis/). For now, be sure to leave the **Default Keyless (UNSECURED)** plan as we’ll be configuring the plan separately.
+Alternatively, if you haven’t created a Gateway API yet, you can learn [how to create a Gateway API here](../guides/create-apis/README.md). For now, be sure to leave the **Default Keyless (UNSECURED)** plan as we’ll be configuring the plan separately.
 
 <figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/c/c34e5bef0770b919f285de2a37b897a8118fba56_2_690x306.png" alt=""><figcaption></figcaption></figure>
 

@@ -6,7 +6,7 @@ description: An overview about Gravitee Kubernetes Operator Development Environm
 
 ## Overview <a href="#user-content-initialize-your-environment" id="user-content-initialize-your-environment"></a>
 
-The Gravitee Kubernetes Operator (GKO) can define, deploy, and publish APIs to your API Developer Portal and API Gateway with custom resource definitions (CRDs). This guide is focused on how to set up your development environment. You can learn more about the functionality of the GKO in [this guide.](../gravitee-kubernetes-operator/)
+The Gravitee Kubernetes Operator (GKO) can define, deploy, and publish APIs to your API Developer Portal and API Gateway with custom resource definitions (CRDs). This guide is focused on how to set up your development environment. You can learn more about the functionality of the GKO in [this guide.](../gravitee-kubernetes-operator/README.md)
 
 ## Initialize your environment <a href="#user-content-initialize-your-environment" id="user-content-initialize-your-environment"></a>
 

@@ -9,7 +9,7 @@ description: >-
 This section describes how to install an APIM hybrid deployment using Kubernetes Helm charts.
 
 {% hint style="info" %}
-We assume familiarity with Google Cloud Platform (GCP), Kubernetes (K8s), and Helm. We also recommend that you read the [Introduction to APIM hybrid deployment](./) first.
+We assume familiarity with Google Cloud Platform (GCP), Kubernetes (K8s), and Helm. We also recommend that you read the [Introduction to APIM hybrid deployment](README.md) first.
 {% endhint %}
 
 ## Target architecture
@@ -28,7 +28,7 @@ In this schema, we can see that:
 * Redis is used to manage rate limits and quota counters within the Gateway cluster
 
 {% hint style="info" %}
-Before you continue, keep in mind that the bridge Gateway (the red box in the left-hand region of the schema) is simply an APIM Gateway instance with additional capabilities. This is essential to understanding how we are deploying the bridge. For more information, see the introduction to [Hybrid Deployment](./).
+Before you continue, keep in mind that the bridge Gateway (the red box in the left-hand region of the schema) is simply an APIM Gateway instance with additional capabilities. This is essential to understanding how we are deploying the bridge. For more information, see the introduction to [Hybrid Deployment](README.md).
 {% endhint %}
 
 ## Deploying with Helm
@@ -254,5 +254,5 @@ We can now open up Management Console and see our two gateways running:
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/hybrid/hybrid_deployment_gateways.png" alt=""><figcaption><p>Hybrid K8 deployment</p></figcaption></figure>
 
 {% hint style="success" %}
-Congratulations! Now that APIM is up and running, check out the [Quickstart Guide](../../quickstart-guide/) for your next steps.
+Congratulations! Now that APIM is up and running, check out the [Quickstart Guide](../../quickstart-guide/README.md) for your next steps.
 {% endhint %}

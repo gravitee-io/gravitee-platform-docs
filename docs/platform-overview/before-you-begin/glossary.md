@@ -40,9 +40,9 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 
 ## Gravitee terminology
 
-[**Community Edition:**](../gravitee-platform/gravitee-offerings-ce-vs-ee/) An API management platform comprising Gravitee’s open-source offerings and the free versions of Gravitee-managed enterprise products.
+[**Community Edition:**](../gravitee-platform/gravitee-offerings-ce-vs-ee/README.md) An API management platform comprising Gravitee’s open-source offerings and the free versions of Gravitee-managed enterprise products.
 
-[**Enterprise Edition:**](../gravitee-platform/gravitee-offerings-ce-vs-ee/) The enhanced version of Gravitee's open-source and event-native API management platform. Feature sets targeting commercial end users include Alert Engine, a no-code API Designer with unlimited data models, monetization capabilities, and advanced protocol mediation options.
+[**Enterprise Edition:**](../gravitee-platform/gravitee-offerings-ce-vs-ee/README.md) The enhanced version of Gravitee's open-source and event-native API management platform. Feature sets targeting commercial end users include Alert Engine, a no-code API Designer with unlimited data models, monetization capabilities, and advanced protocol mediation options.
 
 **application:** The mechanism by which an API consumer registers and agrees to a Gravitee Plan that uses authentication. This allows the API producer more granular control over access to their secured API.
 

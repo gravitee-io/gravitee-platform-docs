@@ -8,10 +8,10 @@ description: An overview about Custom Resource Definitions.
 
 The Gravitee Kubernetes Operator provides several custom resource definitions (CRDs):
 
-* [`ManagementContext`](./#managementcontext)
-* [`ApiDefinition`](./#apidefinition)
-* [`ApiResource`](./#apiresource)
-* [`Application`](./#application)
+* [`ManagementContext`](README.md#managementcontext)
+* [`ApiDefinition`](README.md#apidefinition)
+* [`ApiResource`](README.md#apiresource)
+* [`Application`](README.md#application)
 
 ## `ManagementContext`
 

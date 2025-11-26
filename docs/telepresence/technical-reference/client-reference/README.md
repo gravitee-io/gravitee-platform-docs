@@ -5,7 +5,7 @@ noIndex: true
 
 # Client Reference
 
-The [Telepresence CLI client](../../) is used to connect Telepresence to your cluster, start and stop intercepts, and create preview URLs. All commands are run in the form of `telepresence <command>`.
+The [Telepresence CLI client](../../README.md) is used to connect Telepresence to your cluster, start and stop intercepts, and create preview URLs. All commands are run in the form of `telepresence <command>`.
 
 ## Commands
 

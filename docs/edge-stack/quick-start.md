@@ -18,7 +18,7 @@ Service Catalog aggregates the Kubernetes annotations on your services into a si
 
 Service Catalog requires **Edge Stack version 1.12 or greater** or **Emissary-ingress 1.13 or greater** to be installed in your cluster.
 
-**Install** Edge Stack [from here](./) if needed.
+**Install** Edge Stack [from here](README.md) if needed.
 
 If you already have Edge Stack or Emissary-ingress installed, **check your version** by running this command (adjust your namespace if necessary):
 
@@ -31,7 +31,7 @@ kubectl get deploy -A -l app.kubernetes.io/name=edge-stack -o jsonpath='{.items[
 ### 1. Connect your cluster to Ambassador Cloud
 
 {% hint style="info" %}
-If you followed the [Edge Stack quick start](./), you should have already completed this step.
+If you followed the [Edge Stack quick start](README.md), you should have already completed this step.
 {% endhint %}
 
 1. Log in to [Ambassador Cloud](https://app.getambassador.io/cloud/) with your preferred identity provider.
