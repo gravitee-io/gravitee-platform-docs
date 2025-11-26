@@ -49,7 +49,7 @@ The quickest way to test your newly created application is to request an OAuth2 
 
 ## Application identity providers
 
-AM allows your application to use different identity providers (IdPs). If you haven’t configured your providers yet, visit the [Identity Provider guide.](../identity-providers/)
+AM allows your application to use different identity providers (IdPs). If you haven’t configured your providers yet, visit the [Identity Provider guide.](../identity-providers/README.md)
 
 The application identity providers are separated into two sections:
 
@@ -74,7 +74,7 @@ In order to change the priority of the providers:
 
 Identity provider selection rules also give you more control over the authentication via Gravitee's Expression Language.
 
-When coupled with [flows](../flows/) you can decide which provider will be used to authenticate your end users.
+When coupled with [flows](../flows/README.md) you can decide which provider will be used to authenticate your end users.
 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-application-identity-providers-selection-rule.png" alt=""><figcaption><p>Selection rule</p></figcaption></figure>
 

@@ -356,4 +356,4 @@ The _Dev Portal_ can also obtain some default configuration from environment var
 
 ### Visualize your API documentation in the cloud
 
-If you haven't already done so, you may want to [connect your cluster to Ambassador Cloud](../../). Connected clusters will automatically report your `Mapping`s' OpenAPI documents, allowing you to host and visualize all of your services API documentation on a shared, secure and authenticated platform.
+If you haven't already done so, you may want to [connect your cluster to Ambassador Cloud](../../README.md). Connected clusters will automatically report your `Mapping`s' OpenAPI documents, allowing you to host and visualize all of your services API documentation on a shared, secure and authenticated platform.

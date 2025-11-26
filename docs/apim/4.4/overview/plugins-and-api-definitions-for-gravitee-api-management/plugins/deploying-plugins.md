@@ -6,7 +6,7 @@ description: Configuration guide for Deploying plugins.
 
 ## Deployment
 
-Deploying a plugin is as easy as copying the plugin archive (zip) into the dedicated directory. By default, you need to deploy the archives in `${GRAVITEE_HOME/plugins}`. Refer to [APIM Gateway Configuration ](../../../using-the-product/using-the-gravitee-api-management-components/general-configuration/#configure-the-plugins-directory)for more information on modifying the directory structure.
+Deploying a plugin is as easy as copying the plugin archive (zip) into the dedicated directory. By default, you need to deploy the archives in `${GRAVITEE_HOME/plugins}`. Refer to [APIM Gateway Configuration ](../../../using-the-product/using-the-gravitee-api-management-components/general-configuration/README.md#configure-the-plugins-directory)for more information on modifying the directory structure.
 
 {% hint style="warning" %}
 You must restart APIM nodes when applying new or updated plugins.

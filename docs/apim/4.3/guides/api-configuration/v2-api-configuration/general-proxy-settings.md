@@ -81,7 +81,7 @@ Response templates are used to override the default values sent in response to c
 
 Prior to defining a response template, verify:
 
-* Which policies have been applied to the API. This can be viewed in the [API's plan](../../api-exposure-plans-applications-and-subscriptions/plans/).
+* Which policies have been applied to the API. This can be viewed in the [API's plan](../../api-exposure-plans-applications-and-subscriptions/plans/README.md).
 * Which error keys can be overridden per policy associated with your API.
 
 Below are the policy error keys that you can override by configuring response templates:

@@ -14,7 +14,7 @@ Before you install the IBM API Connect federation agent, complete the following 
 
 * Access to an IBM API Connect account: Cloud or on-premise, version 10.0.5.
 * Verify you have Gravitee API Management version 4.5 or later, with an enterprise license. For more information about Enterprise edition, see[ Enterprise Edition Licensing.](https://documentation.gravitee.io/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing#license-support) &#x20;
-* Create an access token. For more information, [see how to create a service account and an access token.](https://documentation.gravitee.io/apim/govern-apis/federation/federation-agent-service-account)&#x20;
+* Create an access token. For more information, [see how to create a service account and an access token.](../federation-agent-service-account.md)&#x20;
 * Obtain your IBM API Connect platform URL, and your IBM API Connect organization name.
 * Obtain your IBM API Connect credentials: Client ID, Client Secret, and API Key. The requirements vary by instance type.  For more information about the credentials required for your instance type, [see defining connection credentials](https://www.ibm.com/docs/fi/explorer-for-zos/3.2.0?topic=connections-defining-connection-credentials)&#x20;
 

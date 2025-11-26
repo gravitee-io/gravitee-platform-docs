@@ -8,7 +8,7 @@ To expose your API to internal or external consumers, it must have at least one 
 
 ## Create a plan
 
-Plans are always created by the API publisher. You can create plans in the Management Console as part of the [API creation process](../create-apis/). You can also create them later with the **Portal > Plans** function as shown below.
+Plans are always created by the API publisher. You can create plans in the Management Console as part of the [API creation process](../create-apis/README.md). You can also create them later with the **Portal > Plans** function as shown below.
 
 {% @arcade/embed url="https://app.arcade.software/share/L3b4AWtxtYkNE89ZiR2Y" flowId="L3b4AWtxtYkNE89ZiR2Y" %}
 
@@ -97,7 +97,7 @@ The most important part of plan configuration is security. APIM supports the fol
 {% hint style="info" %}
 **Policies vs authentication types**
 
-Authentication types are simply policies integrated directly into a plan. Once a plan is created, the authentication type can not be changed. However, you can always add additional security at the API or plan level with policies in the design studio by following the steps to add policies to a flow in the [Policy Studio](../policy-design/).
+Authentication types are simply policies integrated directly into a plan. Once a plan is created, the authentication type can not be changed. However, you can always add additional security at the API or plan level with policies in the design studio by following the steps to add policies to a flow in the [Policy Studio](../policy-design/README.md).
 
 There are some additional considerations when using a plan with JWT or OAuth 2.0 security. For example, if we create a JWT plan, the Gateway API won’t be accessible unless the JWT token is linked to a subscription. Therefore, for the request to succeed, the API consumer must subscribe to the API and embed the _client\_id_ in the JWT token when using a JWT plan as opposed to a JWT policy.
 {% endhint %}

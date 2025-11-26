@@ -186,7 +186,7 @@ You can use the Kafka Gateway and client to call your [Kafka API](create-and-con
 
 The following prerequisites must be met before you can produce and consume Kafka messages:
 
-* You must have an active subscription to a published API [plan](../secure-and-expose-apis/plans/) belonging to your Gravitee Kafka API.
+* You must have an active subscription to a published API [plan](../secure-and-expose-apis/plans/README.md) belonging to your Gravitee Kafka API.
 * If you are subscribing to an OAuth2 or JWT plan, your application must reference the same client ID that you use for authorization.
 
 {% hint style="info" %}

@@ -12,7 +12,7 @@ AWS API Gateway is AWS's built-in API management solution and is commonly used t
 
 In order to Federate AWS API Management APIs into Gravitee, you'll need permission to access the AWS API Management console, or you'll at least need access to somebody who does so that they can provide you with credentials that the agent will use to authenticate against AWS.
 
-The minimum permissions required by the federation agent are described in the section called [Minimum AWS permissions required by the agent](./#minimum-aws-permissions-required-by-the-agent).
+The minimum permissions required by the federation agent are described in the section called [Minimum AWS permissions required by the agent](README.md#minimum-aws-permissions-required-by-the-agent).
 
 You'll also need to be running Gravitee API Management version 4.4 or above, with an enterprise license.
 
@@ -64,7 +64,7 @@ services:
       # - gravitee_cloud_token=${GRAVITEE_CLOUD_TOKEN}
 ```
 
-Next, create a file named `.env` in the same directory. We'll use it to set the required Docker Compose variables. Fill the values in this file from those you obtained in [step 2](./#id-2.-configure-the-azure-federation-agent).
+Next, create a file named `.env` in the same directory. We'll use it to set the required Docker Compose variables. Fill the values in this file from those you obtained in [step 2](README.md#id-2.-configure-the-azure-federation-agent).
 
 ```bash
 ## GRAVITEE PARAMETERS ##

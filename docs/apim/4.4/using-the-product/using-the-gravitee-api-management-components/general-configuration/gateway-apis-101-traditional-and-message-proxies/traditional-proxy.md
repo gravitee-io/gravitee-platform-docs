@@ -94,7 +94,7 @@ The majority of the remaining configuration options are standard HTTP configurat
 {% hint style="info" %}
 **SSL Options**
 
-To clarify, the SSL options shown here are for the connection between the Gateway and your backend server. Configuring a custom truststore and keystore will have no impact on client connections to the Gateway. mTLS between clients and the Gateway are [configured at the Gateway level](../), not the API level.
+To clarify, the SSL options shown here are for the connection between the Gateway and your backend server. Configuring a custom truststore and keystore will have no impact on client connections to the Gateway. mTLS between clients and the Gateway are [configured at the Gateway level](../README.md), not the API level.
 {% endhint %}
 
 <figure><img src="../../../../.gitbook/assets/traditional proxy_finish config.png" alt=""><figcaption><p>Finish endpoints configuration</p></figcaption></figure>

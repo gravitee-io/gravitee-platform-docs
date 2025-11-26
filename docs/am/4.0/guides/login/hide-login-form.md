@@ -21,7 +21,7 @@ If you have multiple Identity Providers configured for the application Gravitee 
 To enable Hide Login Form:
 
 1. Log in to AM Console.
-2. Make sure you have [configured at least one Identity Provider](../identity-providers/) for the application.
+2. Make sure you have [configured at least one Identity Provider](../identity-providers/README.md) for the application.
 3. Go to **Settings > Login** or **Application > "Your app" > Settings > Login**.
 4. Switch on **Hide login form** and click **SAVE**.
 
