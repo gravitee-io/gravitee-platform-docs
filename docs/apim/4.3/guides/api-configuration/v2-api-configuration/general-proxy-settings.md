@@ -140,7 +140,7 @@ To encrypt a hardcoded API property value:
              secret: vvLJ4Q8Khvv9tm2tIPdkGEdmgKUruAL6
      to provide the best security available.
     ```
-2. Enable the **Encrypt** toggle when adding a property via **Add property**. Once you click **Save**, you can no longer edit, modify, or view the value. ![](<../../../../../../.gitbook/assets/api properties_add (1)
+2. Enable the **Encrypt** toggle when adding a property via **Add property**. Once you click **Save**, you can no longer edit, modify, or view the value. ![](../../../.gitbook/assets/api properties_add (1).png)
 
 ### **Dynamic properties**
 
