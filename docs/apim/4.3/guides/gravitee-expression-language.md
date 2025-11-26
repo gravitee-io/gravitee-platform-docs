@@ -352,7 +352,7 @@ EL can use particular fields within the body configuration of a response templat
     * `{#parameters.region}`: The geo zone of the deployment
     * `{#parameters.error}`: Contains the error message (content is unknown)
 
-    \{% hint style="info" %\} Parameters vary between policies. The policy generating the error(s) directly updates the `parameters` dictionary to provide dynamic error information to a response template. \{% endhint %\}
+    {% hint style="info" %} Parameters vary between policies. The policy generating the error(s) directly updates the `parameters` dictionary to provide dynamic error information to a response template. {% endhint %}
 
 ## Conditions
 

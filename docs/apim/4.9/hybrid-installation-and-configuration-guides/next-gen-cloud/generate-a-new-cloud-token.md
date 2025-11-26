@@ -30,7 +30,7 @@ When you revoke a Cloud token, you terminate the link between the Cloud and your
     <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 7.  In the **Copy your Cloud Token** pop-up window, click **Copy and Close**.
 
-    \{% hint style="warning" %\} Store your Cloud token somewhere secure. \{% endhint %\}
+    {% hint style="warning" %} Store your Cloud token somewhere secure. {% endhint %}
 
     <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 

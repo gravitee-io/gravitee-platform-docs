@@ -26,7 +26,7 @@ The following installation steps are common to all supported deployment methods.
     <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 5.  In **URLs & Domains**, enter the names of the HTTP domains through which you can access your Hybrid Gateway. By default, all URLs enforce HTTPS.
 
-    \{% hint style="info" %\} You must configure these HTTP domains/hostnames in your load balancer or ingress where you run the Gateway \{% endhint %\}
+    {% hint style="info" %} You must configure these HTTP domains/hostnames in your load balancer or ingress where you run the Gateway {% endhint %}
 
     <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 6.  Click **Generate Installation Details** to generate your Cloud Token and License Key. Copy your Cloud Token and License Key and save them somewhere secure.

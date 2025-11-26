@@ -139,7 +139,7 @@ If the Gateway does not appear or shows an error state, complete the following c
     No context-path matches the request URI.
     ```
 
-    \{% hint style="info" %\} This response confirms that the Gateway has initialized, but no APIs have been deployed. Once APIs are published through the Control Plane, this message is replaced by valid responses routed through the configured context paths. \{% endhint %\}### Stop the Gateway
+    {% hint style="info" %} This response confirms that the Gateway has initialized, but no APIs have been deployed. Once APIs are published through the Control Plane, this message is replaced by valid responses routed through the configured context paths. {% endhint %}### Stop the Gateway
 
 To shut down the Gateway, choose one of the following options.
 

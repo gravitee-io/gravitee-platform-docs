@@ -210,7 +210,7 @@ To secure the connection between your client and the Gateway, you must modify th
     -keystore gw-keystore.jks -dname "CN=example.com"
     ```
 
-    \{% hint style="info" %\} Currently, Gravitee only supports the JKS keystore. \{% endhint %\}
+    {% hint style="info" %} Currently, Gravitee only supports the JKS keystore. {% endhint %}
 2.  Add your keystore to your target namespace, e.g., the default namespace used below:
 
     ```sh
@@ -230,7 +230,7 @@ To secure the connection between your client and the Gateway, you must modify th
          sni: true
     ```
 
-    \{% hint style="info" %\} You must also add this label to your Gateway `ConfigMap` to tell the controller where your Gateway configuration is located. \{% endhint %\}
+    {% hint style="info" %} You must also add this label to your Gateway `ConfigMap` to tell the controller where your Gateway configuration is located. {% endhint %}
 4. Restart the Gateway for the changes to take effect.
 
 #### Modify keystore
@@ -378,7 +378,7 @@ To apply the template policies to requests issued to the `httpbin` ingress:
 
 1.  Add the required label by annotating the ingress, using the `gravitee.io/template` as the key and the API definition template name as the value:
 
-    \{% hint style="info" %\} The template must exist in the same Kubernetes namespace as the ingress. \{% endhint %\}
+    {% hint style="info" %} The template must exist in the same Kubernetes namespace as the ingress. {% endhint %}
 
     \{% code title="httpbin-ingress.yaml" %\}
 

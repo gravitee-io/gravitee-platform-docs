@@ -35,7 +35,7 @@ Your environment must meet the requirements below before you install any of the 
 
     \{% endcode %\}
 
-    \{% hint style="info" %\} The archive includes the binaries for all APIM components. If you previously downloaded it to install another component, you do not need to download it again. \{% endhint %\}
+    {% hint style="info" %} The archive includes the binaries for all APIM components. If you previously downloaded it to install another component, you do not need to download it again. {% endhint %}
 
 ## Installations
 

@@ -111,7 +111,7 @@ To view or add documentation to an existing federated API:
 
     <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 
-    \{% hint style="info" %\} By default, the page is published with private visibility. \{% endhint %\}
+    {% hint style="info" %} By default, the page is published with private visibility. {% endhint %}
 5. Refer to [Documentation](../../../guides/developer-portal/tools-and-features/documentation.md) for information on how to create and manage API documentation
 
 ## Publishing federated APIs to the Developer Portal
