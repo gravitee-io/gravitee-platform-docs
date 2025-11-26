@@ -61,7 +61,7 @@ An SELinux configuration issue can prevent Nginx from opening on ports 8084/8085
 {% code overflow="wrap" %}
 ```sh
 # semanage port -l | grep http_port_t
-http_port_t                    tcp      80, 81, 443, 488, 8008, 8009, 8443, 9000
+http_port_t        tcp      80, 81, 443, 488, 8008, 8009, 8443, 9000
 ```
 {% endcode %}
 
@@ -78,7 +78,7 @@ http_port_t                    tcp      80, 81, 443, 488, 8008, 8009, 8443, 9000
 {% code overflow="wrap" %}
 ```sh
 # semanage port -l | grep http_port_t
-http_port_t                    tcp      8084, 80, 81, 443, 488, 8008, 8009, 8443, 9000
+http_port_t        tcp      8084, 80, 81, 443, 488, 8008, 8009, 8443, 9000
 ```
 {% endcode %}
 
@@ -97,10 +97,8 @@ Before you install the full APIM stack, you must complete the following configur
 
 1. Install Nginx using the following commands:
 
-\`
-
-\`\`bash sudo yum install epel-release sudo yum install nginx
-
+```bash
+sudo yum install epel-release sudo yum install nginx
 ```
 
 2. You can install Gravitee’s APIM stack with dependencies or without dependencies. To install Gravitee’s APIM with dependencies or without dependencies complete the following steps:
@@ -135,6 +133,8 @@ $ curl -X GET http://localhost:8083/management/organizations/DEFAULT/console
 $ curl -X GET http://localhost:8083/portal/environments/DEFAULT/apis
 $ curl -X GET http://localhost:8085/
 ```
+
+</details>
 
 ### Installing Gravitee's API Management components on Linux using Manual install
 
