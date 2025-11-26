@@ -99,15 +99,15 @@ Please refer to the [load-balancing concepts section](load-balancing-failover-an
 
 17\. By default, the endpoint will inherit configuration from the configuration that you set at the endpoint group level.
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Configure load-balancing - Step 17.jpeg" alt=""><figcaption></figcaption></figure>
 
 18\. However, if you want to set up HTTP configuration specific to that endpoint, toggle the **Inherit configuration** OFF.
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Configure load-balancing - Step 18.jpeg" alt=""><figcaption></figcaption></figure>
 
 19\. Once toggled OFF, you can specify a different HTTP configuration for this endpoint. Once you are done, select **Save**.
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Configure load-balancing - Step 19.jpeg" alt=""><figcaption></figcaption></figure>
 
 20\. For the sake of this example, let's toggle the **Inherit configuration** back ON.
 

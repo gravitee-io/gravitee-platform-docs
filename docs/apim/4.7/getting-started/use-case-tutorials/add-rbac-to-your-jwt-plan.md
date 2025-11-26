@@ -32,7 +32,7 @@ Gravitee Access Management and third-party IdPs provide a number of ways to add 
 
 The next step is to add the necessary policies to the Gateway API you configured in the previous tutorial. In the Console UI, open the API you created previously, and select **Policy Studio** in the inner sidebar.
 
-<figure><img src="../../../4.6/.gitbook/assets/Screenshot%202023-11-20%20at%2011.39.43%20PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot%202023-11-20%20at%2011.39.43%20PM.png" alt=""><figcaption></figcaption></figure>
 
 The Policy Studio provides a graphical interface to design and configure flows. Flows define the processing logic and order of policies applied to an API transaction and can be applied at the platform, API, and plan levels. We will use the Policy Studio to apply flows at the plan level.
 
@@ -40,7 +40,7 @@ Add a flow by selecting the + icon next to the JWT plan. Here you have a number 
 
 Provide a name and select **Save**.
 
-<figure><img src="../../../4.6/.gitbook/assets/Screenshot%202023-11-20%20at%2011.49.45%20PM.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot%202023-11-20%20at%2011.49.45%20PM.jpg" alt=""><figcaption></figcaption></figure>
 
 The RBAC policy expects the roles to be in the `gravitee.attribute.user.roles` attribute, where attributes are a kind of variable scoped to the current API transaction. In an OAuth2 plan, OAuth token scopes are automatically added to the `gravitee.attribute.user.roles` attribute. However, in a JWT plan, this must be done manually by using Gravitee’s Expression Language (EL) and the Assign Attributes policy.
 
@@ -52,7 +52,7 @@ This will bring up the configuration options for the Assign Attributes policy. S
 
 The EL expression is `{#context.attributes['jwt.claims']['permissions']}` , which accesses the `permissions` claim from all the JWT’s claims stored in the `jwt.claims` context attribute. Add the expression as the value of the attribute, and then select **Add policy**.
 
-<figure><img src="../../../4.6/.gitbook/assets/Screenshot%202023-11-20%20at%2011.55.36%20PM.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot%202023-11-20%20at%2011.55.36%20PM.jpg" alt=""><figcaption></figcaption></figure>
 
 With this set, we can move on to the final step.
 
@@ -62,6 +62,6 @@ Similar to before, Select the **+ icon** after the Assign Attributes policy in t
 
 From here, you simply need to add the roles required to access the API endpoint that you specified in the flow configuration. In our example, that endpoint is `GET https://your-gateway-host/your-api-context-path/sub-resource` and the required roles are `admin` and `user`.
 
-<figure><img src="../../../4.6/.gitbook/assets/Screenshot%202023-11-20%20at%2011.58.26%20PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot%202023-11-20%20at%2011.58.26%20PM.png" alt=""><figcaption></figcaption></figure>
 
 After you’ve added the roles, select **Save** in the top right, and redeploy your API. All `GET` requests to the `/sub-resource` route will now have this flow applied that checks the JWT for configured roles.

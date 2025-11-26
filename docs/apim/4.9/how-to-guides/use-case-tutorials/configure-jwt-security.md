@@ -26,11 +26,11 @@ The first step is to create a Gateway API. A Gateway API is simply an API deploy
 
 In the Console UI, select the Gateway API you want to secure with a JWT plan.
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 For now, be sure to leave the **Default Keyless (UNSECURED)** plan as we’ll be configuring the plan separately.
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 Save and deploy the API when you’re finished.
 
@@ -51,25 +51,25 @@ All Gateway APIs require at least one published plan to deploy the API to the Ga
 
 In the APIM Console UI, open the Gateway API you want to secure with a JWT plan. You should see a screen similar to the following:
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 In the sidebar, select **Plans**, and then select **+Add new plan** in the top right of the screen. In the drop-down that appears, select **JWT**.
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 Provide your plan a name, and then scroll down and toggle on **Auto validate subscription** so we don’t have to manually validate subscription requests later in the tutorial. Scroll down and select **Next**.
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 On the security page, select the **Signature** that your IdP uses to encrypt your access tokens.
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Next, you need to tell the Gravitee Gateway where it can retrieve the JSON web key set (JWKS) to validate the signature with a public key. Typically, in a production setup, you want to use JWKS URL as it is more secure and eliminates the need to update the resolver when you rotate keys.
 
 A JWKS URL must be provided by your IdP of choice. Copy the endpoint and return to APIM’s Console UI. Under **JWKS resolver**, select **JWKS\_URL** and then paste the endpoint in the **JWKS\_URL** input box.
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Scroll down and also toggle on **Extract JWT Claims**. This essentially makes all the claims associated with the token available through Gravitee’s Expression Language (EL). This is useful for configuring additional policies such as Role-based Access Control.
 
@@ -77,7 +77,7 @@ For this quick tutorial, everything else can be left as default. Scroll to the b
 
 We won’t be adding any restrictions to the consumption of this API so simply select **Create** on the Restrictions page.
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 After creating a plan, it’s initially in the first of the four stages of a plan: staging, published, deprecated, and closed.
 
@@ -86,21 +86,21 @@ After creating a plan, it’s initially in the first of the four stages of a pla
 * **Deprecated**: You can deprecate a plan so that it won’t be available on the APIM Developer Portal and API Consumers won’t be able to subscribe to it. Existing subscriptions remain, so it doesn’t impact your existing API consumers.
 * **Closed**: Once a plan is closed, all associated subscriptions are closed too. This cannot be undone. API consumers subscribed to this plan won’t be able to use your API.
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (8) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 Publish your plan by selecting the publish icon on your plan as shown below.
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (1) (3).png" alt=""><figcaption></figcaption></figure>
 
 At this point, it is likely you have both a Keyless and a JWT plan published. Please delete any Keyless plans to ensure the JWT plan can not be bypassed. Select the **X** icon and then follow the prompts in the modal to delete the Keyless plan as shown below:
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (18) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Redeploying your API <a href="#redeploying-your-api-7" id="redeploying-your-api-7"></a>
 
 As you make modifications to your Gateway API in the Console UI, you will see an orange banner appear that states your API is out of sync. This is because changes you make in the Console UI are not actually synced to the Gateway until you manually redeploy it. Once ready, select **Deploy API** in the banner and then **Deploy** in the subsequent modal to sync your latest changes to the Gravitee Gateway.
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (19) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Subscribe to the JWT Plan <a href="#subscribe-to-the-jwt-plan-8" id="subscribe-to-the-jwt-plan-8"></a>
 
@@ -110,7 +110,7 @@ APIM uses the subscription to decide whether to accept or deny an incoming reque
 
 First, ensure your API is visible in the developer portal by selecting **General** in the Console UI sidebar and scrolling down to the bottom. In the **Danger Zone**, the API must be published which grants visibility to all members of your API (members are managed under User and group access). Additionally, you can make your API public which makes it visible to anybody who has access to your Developer Portal.
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (20) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Access Developer Portal <a href="#access-developer-portal-10" id="access-developer-portal-10"></a>
 
@@ -118,7 +118,7 @@ With that completed, let’s head to the Developer Portal by selecting the Devel
 
 If you do not see a link in your deployment of APIM, please reference the respective installation docs to see how it’s deployed. For example, with default docker installation, you can access the Developer Portal at `localhost:8085` in your browser.
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (21) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Create an Application <a href="#create-an-application-11" id="create-an-application-11"></a>
 
@@ -130,23 +130,23 @@ For the sake of this demo, we will be creating a Simple application in the Devel
 
 In the Developer Portal, select **Applications** in the top navigation bar and then select **+ Create an app** in the top right of the screen.
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (22) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Provide a name and description then select **Next**. On the security screen, select a Simple application and provide a `client_id` that matches the `client_id` of your IdP’s application. For example, in Okta, you can find your `client_id` right next to the name of your application.
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (23) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 After providing the `client_id`, select **Next**.
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (24) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 On the **Subscription** page, you can directly search for your Gateway API and see the available plans. Search for your API, select **Subscribe**, and then select **Next**.
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (63) (1).png" alt=""><figcaption></figcaption></figure>
 
 Finally, you can see an overview of your new Gravitee application. After careful review, select **Create the App** to create your application.
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (64) (1).png" alt=""><figcaption></figcaption></figure>
 
 Bravo! Since your JWT plan has auto-validation enabled, your application is now approved to send requests through Gravitee’s Gateway to access the protected resources. To test, include the `Authorization: Bearer <your_jwt_token_here>` HTTP header with your request to the Gateway:
 
