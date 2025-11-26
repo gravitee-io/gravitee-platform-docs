@@ -91,7 +91,7 @@ In this tutorial, you deploy the application in Kubernetes. However, this applic
     ```
 
     <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
-      <p>**Note:** If you changed the name of your <code>datacenter</code> in the Consul install values, make sure to change it in the resolver above to match the name of your datacenter.</p>
+      <p><strong>Note:</strong> If you changed the name of your <code>datacenter</code> in the Consul install values, make sure to change it in the resolver above to match the name of your datacenter.</p>
       <p>If you changed the name of the helm install from <code>hashicorp</code> to another value, make sure to update the value of the <code>address</code> field in your resolver to match it.</p>
       <p>If you are having trouble figuring out what your <code>address</code> field should be, it follow this format: <code>http://{consul_server_pod}.{consul_server_service}.{namespace}.svc.cluster.local:{consul_port}</code>. The default Consul port should be <code>8500</code> unless you changed it.</p>
     </div>
