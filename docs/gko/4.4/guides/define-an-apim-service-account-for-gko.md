@@ -14,7 +14,7 @@ The service account email is optional.
 
 Next, ensure that this service account has the ADMIN role on the organization, and the API\_PUBLISHER role on the desired environment. This will provide GKO with the minimum set of required permissions in order to be able to manage APIs, applications, and other required assets in APIM.
 
-<figure><img src="../.gitbook/assets/image%20(15).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
 
 The screenshot below shows the environment-level permissions included in the API\_PUBLISHER role.
 
