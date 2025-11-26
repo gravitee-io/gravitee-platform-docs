@@ -58,28 +58,28 @@ An SELinux configuration issue can prevent Nginx from opening on ports 8084/8085
 
 1. Validate that the port is not listed here:
 
-{% code overflow="wrap" syntax="sh" %}
-
+{% code overflow="wrap" %}
+```sh
 # semanage port -l | grep http_port_t
 http_port_t                    tcp      80, 81, 443, 488, 8008, 8009, 8443, 9000
-
+```
 {% endcode %}
 
 2.  Add the port to bind to, e.g., 8084:
 
-{% code overflow="wrap" syntax="sh" %}
-
+{% code overflow="wrap" %}
+```sh
 # semanage port -a -t http_port_t -p tcp 8084
-
+```
 {% endcode %}
 
 3. Validate that the port is listed:
 
-{% code overflow="wrap" syntax="sh" %}
-
+{% code overflow="wrap" %}
+```sh
 # semanage port -l | grep http_port_t
 http_port_t                    tcp      8084, 80, 81, 443, 488, 8008, 8009, 8443, 9000
-
+```
 {% endcode %}
 
 4. Restart Nginx
