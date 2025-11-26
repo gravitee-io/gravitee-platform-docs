@@ -233,7 +233,7 @@ To secure the connection between your client and the Gateway, you must modify th
     ```
 
     <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
-      <p>You must also add this label to your Gateway `ConfigMap` to tell the controller where your Gateway configuration is located.</p>
+      <p>You must also add this label to your Gateway <code>ConfigMap</code> to tell the controller where your Gateway configuration is located.</p>
     </div>
 4. Restart the Gateway for the changes to take effect.
 

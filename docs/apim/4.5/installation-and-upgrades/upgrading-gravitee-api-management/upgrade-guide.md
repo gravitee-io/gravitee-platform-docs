@@ -151,7 +151,7 @@ APIM installations connected to Cloud require changes to the Management API's `g
 
 <div data-gb-custom-block data-tag="hint" data-style='warning'>
 
-The user must edit the Management API's `gravitee.yaml`.
+The user must edit the Management API's <code>gravitee.yaml</code>.
 
 </div>
 
@@ -180,7 +180,7 @@ installation:
 
 <div data-gb-custom-block data-tag="hint" data-style='warning'>
 
-The user must edit the Management API's `gravitee.yaml`.
+The user must edit the Management API's <code>gravitee.yaml</code>.
 
 </div>
 
