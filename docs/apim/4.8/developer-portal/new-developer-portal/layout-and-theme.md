@@ -126,7 +126,10 @@ You can add custom CSS to your Developer Portal's theme with the CSS editor. To 
        }
        ```
 
-       {% hint style="info" %} For a full list of the available CSS tokens that you can use to customize your New Developer Portal, see [#available-css-tokens](layout-and-theme.md#available-css-tokens "mention") {% endhint %}### Verification
+       <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+         <p>For a full list of the available CSS tokens that you can use to customize your New Developer Portal, see <a href="layout-and-theme.md#available-css-tokens" title="mention">#available-css-tokens</a></p>
+       </div>
+### Verification
 
 *   In the header navigation bar, click **Open Website**. Your New Developer Portal shows your custom CSS updates.\\
 
