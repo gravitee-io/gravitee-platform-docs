@@ -55,7 +55,9 @@ Once a multi-tenant APIM is connected to Cockpit, it is not possible to disable 
 1. [Install APIM](README.md) on your preferred infrastructure and deployment type
 2.  Explicitly set APIM to multi-tenant mode by commenting out the multi-tenant section in the configuration. Optionally, you can specify the configuration of Access Points, which comprises the URLs that APIM components will be addressed on.
 
-    {% hint style="info" %} Cockpit is able to interpret a variabilized Access Point structure based on Account, Organization, and Environment Human Readable IDs. Cockpit will interpret non-variabilized instructions literally, which may result in multiple Environment components receiving the same Access Point configuration. {% endhint %}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p>Cockpit is able to interpret a variabilized Access Point structure based on Account, Organization, and Environment Human Readable IDs. Cockpit will interpret non-variabilized instructions literally, which may result in multiple Environment components receiving the same Access Point configuration.</p>
+    </div>
 
     ```yaml
     installation:
