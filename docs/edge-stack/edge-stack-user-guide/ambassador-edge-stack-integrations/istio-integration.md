@@ -157,7 +157,9 @@ After configuring Ambassador Edge Stack for Istio integration, the Istio mTLS ce
 * The `istio-proxy` sidecar saves the mTLS certificates into `/etc/istio-certs` (per the `OUTPUT_CERTS` environment variable).
 *   Ambassador Edge Stack reads the mTLS certificates from `/etc/istio-certs` (per the `AMBASSADOR_ISTIO_SECRET_DIR` environment variable) and creates a Secret named `istio-certs`.
 
-    {% hint style="warning" %} At present, the Secret name `istio-certs` cannot be changed. {% endhint %}
+    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning">
+      <p>At present, the Secret name <code>istio-certs</code> cannot be changed.</p>
+    </div>
 
 To make use of the `istio-certs` Secret, create a `TLSContext` referencing it:
 
