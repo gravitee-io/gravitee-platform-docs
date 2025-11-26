@@ -37,15 +37,21 @@ To import your API:
 5. Choose an **API format**. You can select either **Gravitee definition** or **OpenAPI specification**.
 6.  Choose a **File source**.
 
-    {% hint style="info" %} **Local file** is currently the only supported **File source**. {% endhint %}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p><strong>Local file</strong> is currently the only supported <strong>File source</strong>.</p>
+    </div>
 7. Drag and drop your API file into the **File** panel. Supported file formats are YML, YAML, and JSON.
 8. If you selected **OpenAPI specification** as the API format, you can choose to enable the following:
    *   **Create documentation page from spec.** This creates an API documentation page from the imported OpenAPI specification.
 
-       {% hint style="info" %} This page is published automatically, but can be unpublished from the **API Documentation** page in the Console. {% endhint %}
+       <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+         <p>This page is published automatically, but can be unpublished from the <strong>API Documentation</strong> page in the Console.</p>
+       </div>
    *   **Add OpenAPI Specification Validation:** This adds an [OpenAPI Specification Validation policy](../policies/oas-validation.md) to the imported API.
 
-       {% hint style="info" %} All options are initially enabled, but can be disabled by editing the policy configuration. {% endhint %}
+       <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+         <p>All options are initially enabled, but can be disabled by editing the policy configuration.</p>
+       </div>
 9. Click **Import**
 
 {% hint style="success" %}
