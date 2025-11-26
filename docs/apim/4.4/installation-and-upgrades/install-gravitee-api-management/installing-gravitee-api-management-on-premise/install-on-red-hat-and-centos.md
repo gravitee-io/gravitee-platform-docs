@@ -53,38 +53,37 @@ There are two methods that you can use to install Gravitee’s API Management (A
 * Quick install. You install all the prerequisites that you need to run Gravitee’s APIM and the full APIM stack.
 * Manual install. You control the installation of the prerequisites that you need to run APIM. Also, you control the installation of the individual components of the APIM stack
 
-\{% hint style="warning" %\} An SELinux configuration issue can prevent Nginx from opening on ports 8084/8085. To correct this:
+{% hint style="warning" %}
+An SELinux configuration issue can prevent Nginx from opening on ports 8084/8085. To correct this:
 
 1. Validate that the port is not listed here:
 
-\{% code overflow="wrap" %\}
+{% code overflow="wrap" syntax="sh" %}
 
-````
-```sh
 # semanage port -l | grep http_port_t
 http_port_t                    tcp      80, 81, 443, 488, 8008, 8009, 8443, 9000
-```
-````
 
-\{% endcode %\}
+{% endcode %}
 
 2.  Add the port to bind to, e.g., 8084:
 
-    \`
+{% code overflow="wrap" syntax="sh" %}
 
-\`\`sh # semanage port -a -t http\_port\_t -p tcp 8084 \`\`\` 3. Validate that the port is listed:
+# semanage port -a -t http_port_t -p tcp 8084
 
-\{% code overflow="wrap" %\} \`
+{% endcode %}
 
-\`\`
+3. Validate that the port is listed:
 
-```
+{% code overflow="wrap" syntax="sh" %}
 
-</div>
+# semanage port -l | grep http_port_t
+http_port_t                    tcp      8084, 80, 81, 443, 488, 8008, 8009, 8443, 9000
 
-\`\`\`\` \`\`\`sh # semanage port -l | grep http\_port\_t http\_port\_t tcp 8084, 80, 81, 443, 488, 8008, 8009, 8443, 9000 \`\`\` \`\`\`\` {% endcode %}
+{% endcode %}
 
-4. Restart Nginx {% endhint %}
+4. Restart Nginx
+{% endhint %}
 
 ### Install the full APIM stack
 
@@ -139,9 +138,11 @@ $ curl -X GET http://localhost:8085/
 
 ### Installing Gravitee's API Management components on Linux using Manual install
 
-\{% hint style="info" %\} **Gravitee dependencies**
+{% hint style="info" %}
+**Gravitee dependencies**
 
-Gravitee's [Installation & Upgrade Guides](../) provide information about how you install Gravitee components. For prerequisite documentation on third-party products like [MongoDB](https://www.mongodb.com/docs/v7.0/tutorial/install-mongodb-on-red-hat/) or [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/8.11/rpm.html), please visit their respective websites. \{% endhint %\}
+Gravitee's [Installation & Upgrade Guides](../) provide information about how you install Gravitee components. For prerequisite documentation on third-party products like [MongoDB](https://www.mongodb.com/docs/v7.0/tutorial/install-mongodb-on-red-hat/) or [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/8.11/rpm.html), please visit their respective websites.
+{% endhint %}
 
 Depending on your environment's configuration, you can install only the APIM components that you want for your environment. Here are the components that you can install individually:
 
