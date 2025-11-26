@@ -221,7 +221,7 @@ You can opt to use an existing application instead of creating a new one.
          -d '{"name":"My Application 1","description":"An example application to record subscriptions to APIs"}'
     ```
 
-    \{% hint style="info" %\} To create an application, you must use the mAPI v1. \{% endhint %\}
+    {% hint style="info" %} To create an application, you must use the mAPI v1. {% endhint %}
 
 Example response
 

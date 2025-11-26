@@ -49,7 +49,7 @@ Global rate limiting applies to the entire Kubernetes service mesh. This example
     \
     Apply the mapping configuration changes with `kubectl apply -f quote-backend.yaml`.
 
-    \{% hint style="info" %\} You need to use `v2` or later for the `apiVersion` in the `Mapping` resource. Previous versions do not support `labels`. \{% endhint %\}2. Next, configure the `RateLimit` resource for the service. Create a new YAML file named `backend-ratelimit.yaml` and apply the rate limit details as follows:
+    {% hint style="info" %} You need to use `v2` or later for the `apiVersion` in the `Mapping` resource. Previous versions do not support `labels`. {% endhint %}2. Next, configure the `RateLimit` resource for the service. Create a new YAML file named `backend-ratelimit.yaml` and apply the rate limit details as follows:
 
     ```yaml
     apiVersion: getambassador.io/v3alpha1

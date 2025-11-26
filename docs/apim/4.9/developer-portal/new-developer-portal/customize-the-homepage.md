@@ -158,7 +158,7 @@ To edit the homepage, complete the following steps:
 
 1.  In the Markdown editor, enter your Markdown or GMD to customize the homepage.For more information about the GMD components that you can enter to customize the homepage, see [#gravitee-markdown-components](customize-the-homepage.md#gravitee-markdown-components "mention").
 
-    \{% hint style="info" %\} To view the GMD components in the Markdown editor, press option and the space bar at the same time, and then type the component the name of the component that you want to use. For example, Grid. \{% endhint %\}
+    {% hint style="info" %} To view the GMD components in the Markdown editor, press option and the space bar at the same time, and then type the component the name of the component that you want to use. For example, Grid. {% endhint %}
 
     <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 2.  Click **Save**.

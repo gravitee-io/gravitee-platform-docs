@@ -235,7 +235,7 @@ It may take a few minutes for the load balancer IP to be available.
     ```
 2.  In a separate terminal, enable the network tunnel using the following command:
 
-    \{% hint style="danger" %\} Keep the tunnel command running in a separate terminal window. The tunnel must remain active for ingress to function properly. \{% endhint %\}
+    {% hint style="danger" %} Keep the tunnel command running in a separate terminal window. The tunnel must remain active for ingress to function properly. {% endhint %}
 
     ```bash
     sudo minikube tunnel

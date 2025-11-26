@@ -43,7 +43,7 @@ This Quick Start guide will walk you through creating your first intercept in th
 
     <figure><img src="../.gitbook/assets/00 tp 27.png" alt=""><figcaption></figcaption></figure>
 
-    \{% hint style="info" %\} For more information on Intercept Specifications see the docs [here](../technical-reference/intercepts/configure-intercept-using-specifications.md). \{% endhint %\}## Test your code
+    {% hint style="info" %} For more information on Intercept Specifications see the docs [here](../technical-reference/intercepts/configure-intercept-using-specifications.md). {% endhint %}## Test your code
 
 Now you can make your code changes in your preferred IDE. When you're finished, build a new container with your code changes and restart your intercept.
 

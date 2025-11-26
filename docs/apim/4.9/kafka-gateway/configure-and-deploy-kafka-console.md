@@ -75,7 +75,7 @@ To deploy the Kafka Console using Docker Compose, complete the following steps.
         - KAFKA_GRAVITEE_MANAGEMENTAPIORGADMINPASSWORD=admin
     ```
 
-    \{% hint style="info" %\} You can authenticate the Kafka Console to the mAPI using either of the following options. The authenticating user must have Organization Admin privileges.
+    {% hint style="info" %} You can authenticate the Kafka Console to the mAPI using either of the following options. The authenticating user must have Organization Admin privileges.
 
     *   Basic Authentication (shown above):
 
@@ -89,7 +89,7 @@ To deploy the Kafka Console using Docker Compose, complete the following steps.
         - KAFKA_GRAVITEE_MANAGEMENTAPIORGADMINTOKEN=your_personal_access_token
         ```
 
-    \{% endhint %\}
+    {% endhint %}
 4.  Ensure your `docker-compose.yml` configures the following dedicated network for Kafka Console communication:
 
     ```yaml
@@ -414,7 +414,7 @@ There is a bug in `4.9.0-alpha.3` that requires adding the JWT secret to both th
           token: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
     ```
 
-    \{% hint style="info" %\} Instead of using a Personal Access Token, you can use basic authentication like in the following example:
+    {% hint style="info" %} Instead of using a Personal Access Token, you can use basic authentication like in the following example:
 
     ```yaml
     kafkaConsole:
@@ -425,7 +425,7 @@ There is a bug in `4.9.0-alpha.3` that requires adding the JWT secret to both th
           password: your_password
     ```
 
-    \{% endhint %\}2. (Optional) Specify your custom `organization` and `environment` IDs to override the default Kafka Console connections to the `DEFAULT` organization and `DEFAULT` environment:
+    {% endhint %}2. (Optional) Specify your custom `organization` and `environment` IDs to override the default Kafka Console connections to the `DEFAULT` organization and `DEFAULT` environment:
 
     ```yaml
     kafkaConsole:

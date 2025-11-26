@@ -32,7 +32,7 @@ Identify the endpoint from which you are going to consume messages. For testing 
     <figure><img src="../../.gitbook/assets/ably 1.png" alt=""><figcaption></figcaption></figure>
 5.  In the **New API Key** modal, configure your API Key.
 
-    \{% hint style="info" %\} You must select at least 1 capability to create an API Key. Naming your key and selecting resource restrictions, revocable tokens options, or additional capabilities are optional. \{% endhint %\}
+    {% hint style="info" %} You must select at least 1 capability to create an API Key. Naming your key and selecting resource restrictions, revocable tokens options, or additional capabilities are optional. {% endhint %}
 
     <figure><img src="../../.gitbook/assets/ably 3.png" alt=""><figcaption></figcaption></figure>
 6. Click **Create key**.
@@ -52,7 +52,7 @@ Identify the endpoint from which you are going to consume messages. For testing 
     <figure><img src="../../.gitbook/assets/image (166).png" alt=""><figcaption></figcaption></figure>
 3.  In the **Create New API** section, click **Create V4 API.**
 
-    \{% hint style="info" %\} v2 APIs are also compliant with SSE. \{% endhint %\}
+    {% hint style="info" %} v2 APIs are also compliant with SSE. {% endhint %}
 
     <figure><img src="../../.gitbook/assets/image (167).png" alt=""><figcaption></figcaption></figure>
 4.  Enter your API's name and version number, then click **Validate my API details**.
@@ -66,7 +66,7 @@ Identify the endpoint from which you are going to consume messages. For testing 
     <figure><img src="../../.gitbook/assets/image (170).png" alt=""><figcaption></figcaption></figure>
 7.  Set a unique **Context-path**, for example, `/sseconsumer`, then click **Validate my entrypoints**.
 
-    \{% hint style="info" %\} To avoid potential communication issues, do not use characters separated by multiple forward slashes "/" for your context-path. \{% endhint %\}
+    {% hint style="info" %} To avoid potential communication issues, do not use characters separated by multiple forward slashes "/" for your context-path. {% endhint %}
 
     <figure><img src="../../.gitbook/assets/ably path.png" alt=""><figcaption></figcaption></figure>
 

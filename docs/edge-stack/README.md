@@ -134,7 +134,7 @@ Ambassador Edge Stack uses Kubernetes Custom Resource Definitions (CRDs) to decl
     kubectl apply -f https://app.getambassador.io/yaml/v2-docs/3.9.1/quickstart/qotm.yaml
     ```
 
-    \{% hint style="info" %\} The service and deployment are created in your default namespace. You can use `kubectl get services,deployments quote` to see their status. \{% endhint %\}3. Apply the following YAML to your target cluster to tell Ambassador Edge Stack to route all inbound traffic to the `/backend/` path to the `quote` service.
+    {% hint style="info" %} The service and deployment are created in your default namespace. You can use `kubectl get services,deployments quote` to see their status. {% endhint %}3. Apply the following YAML to your target cluster to tell Ambassador Edge Stack to route all inbound traffic to the `/backend/` path to the `quote` service.
 
     ```sh
     kubectl apply -f - <<EOF

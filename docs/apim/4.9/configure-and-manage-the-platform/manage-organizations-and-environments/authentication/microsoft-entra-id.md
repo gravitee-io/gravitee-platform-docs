@@ -43,7 +43,7 @@ For documentation about securing your APIs with OAuth2 and Entra ID, see the doc
        <figure><img src="https://slabstatic.com/prod/uploads/6lql0jy7/posts/images/preload/lu-VXbcFoZUJOcnAbiVAmOb9.png" alt=""><figcaption></figcaption></figure>
 4.  Configure the **API permissions** to allow Gravitee to read the user **email**, **openid**, and **profile** details.
 
-    \{% hint style="info" %\} The `profile` scope is a permission request that grants access to a wider range of user profile information, including the `given_name` and `family_name` claims. \{% endhint %\}
+    {% hint style="info" %} The `profile` scope is a permission request that grants access to a wider range of user profile information, including the `given_name` and `family_name` claims. {% endhint %}
 
     <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
 
@@ -92,7 +92,7 @@ You can now add a new Identity Provider to Gravitee APIM.
 1. In the **Client Id** field, enter your Microsoft Application Registration Client ID.
 2.  In the **Client Secret** field, enter your Client Secret.
 
-    \{% hint style="info" %\} You can include your Tenant ID in your Endpoint URLs. To include your Tenant ID, replace `common` with your Tenant ID. \{% endhint %\}
+    {% hint style="info" %} You can include your Tenant ID in your Endpoint URLs. To include your Tenant ID, replace `common` with your Tenant ID. {% endhint %}
 3. In the **Token Endpoint** field, enter the following endpoint: [`https://login.microsoftonline.com/common/oauth2/token`](https://login.microsoftonline.com/common/oauth2/token).
 4. For the **Token Introspect Endpoint**, leave this field blank. Microsoft Entra ID does not provide an Introspective endpoint.
 5. In the **Authorization Endpoint** field, enter the following endpoint: [`https://login.microsoftonline.com/common/oauth2/authorize`](https://login.microsoftonline.com/common/oauth2/authorize).
@@ -109,7 +109,7 @@ You can now add a new Identity Provider to Gravitee APIM.
 4. In the **Email** field, enter `upn`, or, if the email permission/scope has been configured, enter `email`.
 5.  In the **Picture** field, enter `picture`. This may cause a warning in the logs because Microsoft ID does not provide this claim.
 
-    \{% hint style="info" %\} If you specify an invalid value, such as a claim that does not exist in the supplied token, Microsoft ID fails and does not provide you with any error message. \{% endhint %\}
+    {% hint style="info" %} If you specify an invalid value, such as a claim that does not exist in the supplied token, Microsoft ID fails and does not provide you with any error message. {% endhint %}
 6. Click on **Create.**
 
 {% hint style="success" %}

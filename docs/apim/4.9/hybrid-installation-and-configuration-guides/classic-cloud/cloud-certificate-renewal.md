@@ -24,7 +24,7 @@ To create an account token and then call the API, follow the steps below.
     <figure><img src="../../../4.7/.gitbook/assets/00%20cert%20generate%20(1).png" alt=""><figcaption></figcaption></figure>
 3.  Give your token a name, and then click **Generate**. Save both your account token and the URL from the **Example** section.
 
-    \{% hint style="info" %\} In the image below, the URL is `https://eu.cloud.gravitee.io/management/accounts/7b6f41d3-7118-41e9-af41-d3711801e973`. The environment is `eu.cloud.gravitee.io` and the account ID is `7b6f41d3-7118-41e9-af41-d3711801e973`. \{% endhint %\}
+    {% hint style="info" %} In the image below, the URL is `https://eu.cloud.gravitee.io/management/accounts/7b6f41d3-7118-41e9-af41-d3711801e973`. The environment is `eu.cloud.gravitee.io` and the account ID is `7b6f41d3-7118-41e9-af41-d3711801e973`. {% endhint %}
 
     <figure><img src="../../../4.7/.gitbook/assets/00%20cert%20token%20(1).png" alt=""><figcaption></figcaption></figure>
 
