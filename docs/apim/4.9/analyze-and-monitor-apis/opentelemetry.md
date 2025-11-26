@@ -80,7 +80,7 @@ To enable OpenTelemetry, complete the following steps:
          #     password: password
 
     ```
-- Replace `<OPENTELEMETRY_ENDPOINT>` with the endpoint that you use for your OpenTelemetry collector. The default endpoint is [http://localhost:4317](http://localhost:4317).&#x20;
+- Replace `<OPENTELEMETRY_ENDPOINT>` with the endpoint that you use for your OpenTelemetry collector. The default endpoint is `http://localhost:4317`.&#x20;
 {% endtab %}
 
 {% tab title="values.yaml" %}
@@ -130,7 +130,7 @@ To enable OpenTelemetry, complete the following steps:
                 path: /path/to/certs.p12
                 password: password
     ```
-* Replace `<OPENTELEMETRY_ENDPOINT>` with the endpoint that you use for the your OpenTelemetry collector. The default endpoint is [http://localhost:4317](http://localhost:4317).
+* Replace `<OPENTELEMETRY_ENDPOINT>` with the endpoint that you use for the your OpenTelemetry collector. The default endpoint is `http://localhost:4317`.
 {% endtab %}
 
 {% tab title="Environment variables" %}
