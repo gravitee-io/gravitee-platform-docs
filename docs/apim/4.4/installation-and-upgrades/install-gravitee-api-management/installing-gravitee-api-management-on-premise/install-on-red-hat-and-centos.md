@@ -19,19 +19,19 @@ To establish access to Gravitee’s repository using `yum`, complete the followi
 
 1.  Create a file called `/etc/yum.repos.d/graviteeio.repo` using the following command:
 
-    ```sh
-    sudo tee -a /etc/yum.repos.d/graviteeio.repo <<EOF
-    [graviteeio]
-    name=graviteeio
-    gpgcheck=1
-    repo_gpgcheck=1
-    enabled=1
-    gpgkey=https://packagecloud.io/graviteeio/rpms/gpgkey,https://packagecloud.io/graviteeio/rpms/gpgkey/graviteeio-rpms-319791EF7A93C060.pub.gpg
-    sslverify=1
-    sslcacert=/etc/pki/tls/certs/ca-bundle.crt
-    metadata_expire=300
-    EOF
-    ```
+```sh
+sudo tee -a /etc/yum.repos.d/graviteeio.repo <<EOF
+[graviteeio]
+name=graviteeio
+gpgcheck=1
+repo_gpgcheck=1
+enabled=1
+gpgkey=https://packagecloud.io/graviteeio/rpms/gpgkey,https://packagecloud.io/graviteeio/rpms/gpgkey/graviteeio-rpms-319791EF7A93C060.pub.gpg
+sslverify=1
+sslcacert=/etc/pki/tls/certs/ca-bundle.crt
+metadata_expire=300
+EOF
+```
 
 {% hint style="info" %}
 Since APIM 4.4.27, RPM packages are signed with GPG. To verify the packages, use the `gpgcheck=1` configuration.
@@ -40,11 +40,10 @@ Since APIM 4.4.27, RPM packages are signed with GPG. To verify the packages, use
 2. Refresh the local cache using the following command:
 
 {% code overflow="wrap" %}
-```
+```sh
+sudo yum -q makecache -y --disablerepo='\*' --enablerepo='graviteeio'
 ```
 {% endcode %}
-
-\`\`\`\` \`\`\`sh sudo yum -q makecache -y --disablerepo='\*' --enablerepo='graviteeio' \`\`\` \`\`\`\` \{% endcode %\}
 
 ## Installing Gravitee’s API Management
 
@@ -53,38 +52,37 @@ There are two methods that you can use to install Gravitee’s API Management (A
 * Quick install. You install all the prerequisites that you need to run Gravitee’s APIM and the full APIM stack.
 * Manual install. You control the installation of the prerequisites that you need to run APIM. Also, you control the installation of the individual components of the APIM stack
 
-\{% hint style="warning" %\} An SELinux configuration issue can prevent Nginx from opening on ports 8084/8085. To correct this:
+{% hint style="warning" %}
+An SELinux configuration issue can prevent Nginx from opening on ports 8084/8085. To correct this:
 
 1. Validate that the port is not listed here:
 
-\{% code overflow="wrap" %\}
-
-````
+{% code overflow="wrap" %}
 ```sh
 # semanage port -l | grep http_port_t
-http_port_t                    tcp      80, 81, 443, 488, 8008, 8009, 8443, 9000
+http_port_t        tcp      80, 81, 443, 488, 8008, 8009, 8443, 9000
 ```
-````
-
-\{% endcode %\}
+{% endcode %}
 
 2.  Add the port to bind to, e.g., 8084:
 
-    \`
-
-\`\`sh # semanage port -a -t http\_port\_t -p tcp 8084 \`\`\` 3. Validate that the port is listed:
-
-\{% code overflow="wrap" %\} \`
-
-\`\`
-
+{% code overflow="wrap" %}
+```sh
+# semanage port -a -t http_port_t -p tcp 8084
 ```
+{% endcode %}
 
-</div>
+3. Validate that the port is listed:
 
-\`\`\`\` \`\`\`sh # semanage port -l | grep http\_port\_t http\_port\_t tcp 8084, 80, 81, 443, 488, 8008, 8009, 8443, 9000 \`\`\` \`\`\`\` {% endcode %}
+{% code overflow="wrap" %}
+```sh
+# semanage port -l | grep http_port_t
+http_port_t        tcp      8084, 80, 81, 443, 488, 8008, 8009, 8443, 9000
+```
+{% endcode %}
 
-4. Restart Nginx {% endhint %}
+4. Restart Nginx
+{% endhint %}
 
 ### Install the full APIM stack
 
@@ -98,10 +96,8 @@ Before you install the full APIM stack, you must complete the following configur
 
 1. Install Nginx using the following commands:
 
-\`
-
-\`\`bash sudo yum install epel-release sudo yum install nginx
-
+```bash
+sudo yum install epel-release sudo yum install nginx
 ```
 
 2. You can install Gravitee’s APIM stack with dependencies or without dependencies. To install Gravitee’s APIM with dependencies or without dependencies complete the following steps:
@@ -137,11 +133,15 @@ $ curl -X GET http://localhost:8083/portal/environments/DEFAULT/apis
 $ curl -X GET http://localhost:8085/
 ```
 
+</details>
+
 ### Installing Gravitee's API Management components on Linux using Manual install
 
-\{% hint style="info" %\} **Gravitee dependencies**
+{% hint style="info" %}
+**Gravitee dependencies**
 
-Gravitee's [Installation & Upgrade Guides](../) provide information about how you install Gravitee components. For prerequisite documentation on third-party products like [MongoDB](https://www.mongodb.com/docs/v7.0/tutorial/install-mongodb-on-red-hat/) or [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/8.11/rpm.html), please visit their respective websites. \{% endhint %\}
+Gravitee's [Installation & Upgrade Guides](../) provide information about how you install Gravitee components. For prerequisite documentation on third-party products like [MongoDB](https://www.mongodb.com/docs/v7.0/tutorial/install-mongodb-on-red-hat/) or [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/8.11/rpm.html), please visit their respective websites.
+{% endhint %}
 
 Depending on your environment's configuration, you can install only the APIM components that you want for your environment. Here are the components that you can install individually:
 
