@@ -49,7 +49,10 @@ To test OpenTracing in Docker:
 
     \{% endcode %\}
 
-    \{% hint style="info" %\} Running this Docker command will also provide access to the JaegerUI, which can be reached on its default port: `http://localhost:16686` \{% endhint %\}2. Confirm Jaeger has been enabled and is running by checking Docker
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p>Running this Docker command will also provide access to the JaegerUI, which can be reached on its default port: <code>http://localhost:16686</code></p>
+    </div>
+2. Confirm Jaeger has been enabled and is running by checking Docker
 2. Install the .ZIP file for the Jaeger tracer plugin:
    1. Since the Jaeger tracer is not bundled by default, [click here](https://download.gravitee.io/#graviteeio-apim/plugins/tracers/gravitee-tracer-jaeger/) to download it
    2. Add the plugin for the Gravitee Jaeger tracer .ZIP file to the configuration of your APIM Gateway instance

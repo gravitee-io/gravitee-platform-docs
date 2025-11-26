@@ -54,4 +54,6 @@ Provision and start an Amazon instance with the following minimum specifications
     $ curl -X GET http://localhost:8083/portal/environments/DEFAULT/apis
     ```
 
-    \{% hint style="info" %\} If the installation was successful, then the first API call returns: **No context-path matches the request URI.** The final two API calls should return a JSON payload in the response. \{% endhint %\}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p>If the installation was successful, then the first API call returns: <strong>No context-path matches the request URI.</strong> The final two API calls should return a JSON payload in the response.</p>
+    </div>

@@ -152,7 +152,7 @@ APIM installations connected to Cloud require changes to the Management API's `g
 
 <div data-gb-custom-block data-tag="hint" data-style='warning'>
 
-The user must edit the Management API's `gravitee.yaml`.
+The user must edit the Management API's <code>gravitee.yaml</code>.
 
 </div>
 
@@ -181,7 +181,7 @@ installation:
 
 <div data-gb-custom-block data-tag="hint" data-style='warning'>
 
-The user must edit the Management API's `gravitee.yaml`.
+The user must edit the Management API's <code>gravitee.yaml</code>.
 
 </div>
 
@@ -252,7 +252,7 @@ GRAVITEE_MANAGEMENT_HTTP_SSL_TRUSTALL="true"
 
 <div data-gb-custom-block data-tag="hint" data-style='warning'>
 
-The "trust all" configuration parameter was formerly named `trustall`, it is now named `trustAll` for consistency. To avoid a breaking change both names work, but the former has been deprecated.
+The "trust all" configuration parameter was formerly named <code>trustall</code>, it is now named <code>trustAll</code> for consistency. To avoid a breaking change both names work, but the former has been deprecated.
 
 </div>
 ````

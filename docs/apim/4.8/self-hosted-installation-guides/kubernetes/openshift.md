@@ -315,9 +315,9 @@ When you configure your `values.yml` file for OpenShift deployment, you must com
 * Use the full host domain instead of paths for all components.
 *   Override the security context to let OpenShift automatically define the `user-id` and `group-id` you use to run the containers. Here is an example of security context that has been overridden:
 
-    \{% hint style="warning" %\}
-
-    * Currently only UID randomization is supported. We do not support random GID. \{% endhint %\}
+    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning">
+      <p>Currently only UID randomization is supported. We do not support random GID.</p>
+    </div>
 
     ```yaml
     api:  

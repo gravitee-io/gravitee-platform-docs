@@ -9,10 +9,15 @@ Rate limiting in Ambassador Edge Stack is composed of two parts:
 
 *   The \[`RateLimitService`] resource tells Ambassador Edge Stack what external service to use for rate limiting.
 
-    \{% hint style="info" %\} If Ambassador Edge Stack cannot contact the rate limit service, it will allow the request to be processed as if there were no rate limit service configuration. \{% endhint %\}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p>If Ambassador Edge Stack cannot contact the rate limit service, it will allow the request to be processed as if there were no rate limit service configuration.</p>
+    </div>
 *   _Labels_ that get attached to requests. A label is basic metadata that is used by the `RateLimitService` to decide which limits to apply to the request.
 
-    \{% hint style="info" %\} These `labels` require `Mapping` resources with `apiVersion` `getambassador.io/v2` or newer — if you're updating an old installation, check the `apiVersion`! \{% endhint %\}Labels are grouped according to _domain_ and _group_:
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p>These <code>labels</code> require <code>Mapping</code> resources with <code>apiVersion</code> <code>getambassador.io/v2</code> or newer — if you're updating an old installation, check the <code>apiVersion</code>!</p>
+    </div>
+Labels are grouped according to _domain_ and _group_:
 
 ```yaml
 labels:

@@ -34,7 +34,9 @@ The Gravitee APIM platform requires several external dependencies and services t
 
 *   Required dependencies and services:
 
-    \{% hint style="danger" %\} The minimum installation of APIM requires MongoDB and Elasticsearch. \{% endhint %\}
+    <div data-gb-custom-block data-tag="hint" data-style="danger" class="hint hint-danger">
+      <p>The minimum installation of APIM requires MongoDB and Elasticsearch.</p>
+    </div>
 
     * MongoDB: Stores API definitions, configurations, and rate limiting data.
     * Elasticsearch: Provides analytics, logging, and search capabilities for API metrics.
@@ -313,7 +315,9 @@ It may take a few minutes for the load balancer IP to be available.
     ```
 2.  In a separate terminal, enable the network tunnel using the following command:
 
-    \{% hint style="danger" %\} Keep the tunnel command running in a separate terminal window. The tunnel must remain active for ingress to function properly. \{% endhint %\}
+    <div data-gb-custom-block data-tag="hint" data-style="danger" class="hint hint-danger">
+      <p>Keep the tunnel command running in a separate terminal window. The tunnel must remain active for ingress to function properly.</p>
+    </div>
 
     ```bash
     sudo minikube tunnel

@@ -25,7 +25,9 @@ The following configuration is an example configuring Ambassador Edge Stack - Ex
 
 1.  Create a YAML file named `externaldns-config.yaml`, and copy the following configuration into it:
 
-    \{% hint style="info" %\} Ensure that the `apiGroups` include `"getambassador.io"` following `"networking.k8s.io"`, and that the `resources` include `"hosts"` after `"ingresses"`. \{% endhint %\}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p>Ensure that the <code>apiGroups</code> include <code>"getambassador.io"</code> following <code>"networking.k8s.io"</code>, and that the <code>resources</code> include <code>"hosts"</code> after <code>"ingresses"</code>.</p>
+    </div>
 
     ```yaml
     ---

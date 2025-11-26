@@ -119,7 +119,9 @@ At the bottom of the **Client Registration** page, click **+ Add a provider** an
 * Set a **Name** and **Description** for the provider
 *   **OpenID Connect Discovery Endpoint:** Enter the URL where an OIDC-compatible authorization server publishes its metadata
 
-    \{% hint style="info" %\} Metadata is a JSON listing of the OpenID/OAuth endpoints, supported scopes and claims, public keys used to sign the tokens, etc., which can be used to construct a request to the authorization server). Metadata field names and values are defined in the [OIDC Discovery Specification.](https://openid.net/specs/openid-connect-discovery-1_0.html) \{% endhint %\}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p>Metadata is a JSON listing of the OpenID/OAuth endpoints, supported scopes and claims, public keys used to sign the tokens, etc., which can be used to construct a request to the authorization server). Metadata field names and values are defined in the <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">OIDC Discovery Specification.</a></p>
+    </div>
 * Use the **Initial Access Token Provider** drop-down menu to select the [initial access token flow](applications.md#initial-access-token-flows):
   * **Initial Access Token:** For direct provisioning, enter the **Initial Access Token** in the corresponding field
   * Provide the following **Client Credentials**:

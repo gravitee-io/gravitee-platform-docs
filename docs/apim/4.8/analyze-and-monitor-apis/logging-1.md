@@ -158,7 +158,7 @@ Sampling methods for v4 message APIs can also be configured in the `gravitee.yml
 
 \`\`\`\`yaml \`\`\` logging: messageSampling: probabilistic: default: 0.01 limit: 0.5 count: default: 100 limit: 10000 temporal: default: PT1S limit: PT1S \`\`\` \`\`\`\` \{% endcode %\} \{% endtab %\}
 
-\{% tab title="v4 proxy APIs" %\} \{% hint style="info" %\} Select logging options judiciously to optimize the value of recorded data against the potential for impact to API performance. \{% endhint %\}
+\{% tab title="v4 proxy APIs" %\} {% hint style="info" %} Select logging options judiciously to optimize the value of recorded data against the potential for impact to API performance. {% endhint %}
 
 To configure which information is recorded, select from the following options:
 

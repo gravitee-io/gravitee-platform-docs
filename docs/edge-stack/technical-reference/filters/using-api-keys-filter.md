@@ -46,7 +46,9 @@ See the [API Key Filter API reference](../../crd-api-references/getambassador.io
     EOF
     ```
 
-    \{% hint style="info" %\} If you want to create more APIKeys, you can continue to add them to your secret. The keys (`key-1` in the example) used in the Secret do not matter, so you can name them whatever helps you keep track of the associated API Keys. \{% endhint %\}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p>If you want to create more APIKeys, you can continue to add them to your secret. The keys (<code>key-1</code> in the example) used in the Secret do not matter, so you can name them whatever helps you keep track of the associated API Keys.</p>
+    </div>
 4.  Create a [FilterPolicy resource](../../crd-api-references/getambassador.io-v3alpha1/filterpolicy.md) to use the `Filter` created above
 
     ```yaml
@@ -83,7 +85,9 @@ See the [API Key Filter API reference](../../crd-api-references/getambassador.io
       {"message":"API key not found","requestId":"","statusCode":403}
     ```
 
-    \{% hint style="info" %\} The request was denied because the header was not found, but it will also be denied if you send the correct header with an invalid API Key. \{% endhint %\}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p>The request was denied because the header was not found, but it will also be denied if you send the correct header with an invalid API Key.</p>
+    </div>
 6.  Send a request with the APIKey header and value.
 
     ```console
@@ -104,4 +108,6 @@ See the [API Key Filter API reference](../../crd-api-references/getambassador.io
       }
     ```
 
-    \{% hint style="success" %\} Success! Your requests are now validated against an APIKey Filter and will be denied if they do not supply a valid API key! \{% endhint %\}
+    <div data-gb-custom-block data-tag="hint" data-style="success" class="hint hint-success">
+      <p>Success! Your requests are now validated against an APIKey Filter and will be denied if they do not supply a valid API key!</p>
+    </div>

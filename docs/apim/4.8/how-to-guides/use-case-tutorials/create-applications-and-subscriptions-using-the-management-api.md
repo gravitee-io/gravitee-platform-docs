@@ -221,7 +221,9 @@ You can opt to use an existing application instead of creating a new one.
          -d '{"name":"My Application 1","description":"An example application to record subscriptions to APIs"}'
     ```
 
-    \{% hint style="info" %\} To create an application, you must use the mAPI v1. \{% endhint %\}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p>To create an application, you must use the mAPI v1.</p>
+    </div>
 
 Example response
 

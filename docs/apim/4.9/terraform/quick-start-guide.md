@@ -53,11 +53,13 @@ To install the Gravitee Terraform provider, complete the following steps:
     }
     ```
 
-    \{% hint style="info" %\}
-
-    * The `bearer_auth` of Gravitee Cloud users contains the Gravitee Cloud Token
-    * `organization_id` and `environment_id` are set from token claims
-    * URL syntax follows `https://eu.cloudgate.gravitee.io/apim/automation` (e.g., for Europe) \{% endhint %\}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <ul>
+      <li>The <code>bearer_auth</code> of Gravitee Cloud users contains the Gravitee Cloud Token</li>
+      <li><code>organization_id</code> and <code>environment_id</code> are set from token claims</li>
+      <li>URL syntax follows <code>https://eu.cloudgate.gravitee.io/apim/automation</code> (e.g., for Europe)</li>
+      </ul>
+    </div>
 3.  To start Terraform, run the following command:
 
     ```bash

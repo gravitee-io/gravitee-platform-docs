@@ -75,21 +75,20 @@ To deploy the Kafka Console using Docker Compose, complete the following steps.
         - KAFKA_GRAVITEE_MANAGEMENTAPIORGADMINPASSWORD=admin
     ```
 
-    \{% hint style="info" %\} You can authenticate the Kafka Console to the mAPI using either of the following options. The authenticating user must have Organization Admin privileges.
-
-    *   Basic Authentication (shown above):
-
-        ```yaml
-        - KAFKA_GRAVITEE_MANAGEMENTAPIORGADMINUSERNAME=admin
-        - KAFKA_GRAVITEE_MANAGEMENTAPIORGADMINPASSWORD=admin
-        ```
-    *   Personal Access Token:
-
-        ```yaml
-        - KAFKA_GRAVITEE_MANAGEMENTAPIORGADMINTOKEN=your_personal_access_token
-        ```
-
-    \{% endhint %\}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p>You can authenticate the Kafka Console to the mAPI using either of the following options. The authenticating user must have Organization Admin privileges.</p>
+      <ul>
+        <li>
+          <p><strong>Basic Authentication (shown above):</strong></p>
+          <pre class="language-yaml"><code class="lang-yaml">- KAFKA_GRAVITEE_MANAGEMENTAPIORGADMINUSERNAME=admin
+- KAFKA_GRAVITEE_MANAGEMENTAPIORGADMINPASSWORD=admin</code></pre>
+        </li>
+        <li>
+          <p><strong>Personal Access Token:</strong></p>
+          <pre class="language-yaml"><code class="lang-yaml">KAFKA_GRAVITEE_MANAGEMENTAPIORGADMINTOKEN=your_personal_access_token</code></pre>
+        </li>
+      </ul>
+    </div>
 4.  Ensure your `docker-compose.yml` configures the following dedicated network for Kafka Console communication:
 
     ```yaml
@@ -414,18 +413,17 @@ There is a bug in `4.9.0-alpha.3` that requires adding the JWT secret to both th
           token: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
     ```
 
-    \{% hint style="info" %\} Instead of using a Personal Access Token, you can use basic authentication like in the following example:
-
-    ```yaml
-    kafkaConsole:
-      # ... other configuration ...
-      apim:
-        security:
-          username: admin
-          password: your_password
-    ```
-
-    \{% endhint %\}2. (Optional) Specify your custom `organization` and `environment` IDs to override the default Kafka Console connections to the `DEFAULT` organization and `DEFAULT` environment:
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p>Instead of using a Personal Access Token, you can use basic authentication like in the following example:</p>
+      <pre class="language-yaml"><code class="lang-yaml">kafkaConsole:
+  # ... other configuration ...
+  apim:
+    security:
+      username: admin
+      password: your_password
+</code></pre>
+    </div>
+2. (Optional) Specify your custom `organization` and `environment` IDs to override the default Kafka Console connections to the `DEFAULT` organization and `DEFAULT` environment:
 
     ```yaml
     kafkaConsole:
