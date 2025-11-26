@@ -68,7 +68,9 @@ Within your API's Policy Studio, create a new Common flow. This flow must have a
 
 To create a Common flow, complete the following steps:
 
-1. Within your API's Policy Studio, navigate to **Common flows**, and then click the plus button.![](../../.gitbook/assets/image (52).png)
+1. Within your API's Policy Studio, navigate to **Common flows**, and then click the plus button.
+
+   <figure><img src="../../.gitbook/assets/image (52).png" alt=""><figcaption></figcaption></figure>
 2. Name the flow. For example,JSON Request?
 3. Specify the required condition. For example, `{#request.headers['Content-Type'][0] == 'application/json'}`.
 
