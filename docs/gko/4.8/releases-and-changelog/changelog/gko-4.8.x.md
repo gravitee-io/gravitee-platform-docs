@@ -4,18 +4,6 @@ description: Overview of GKO.
 
 # GKO 4.8.x
 
-## Gravitee Kubernetes Operator 4.8.13 - November 25, 2025
-    
-<details>
-<summary>Bug fixes</summary>
-
-  **APIM**
-
-  * K8s Operator does not reconcile already existing APIv4Definitions [#10937](https://github.com/gravitee-io/issues/issues/10937)
-
-</details>
-
-
 ## Gravitee Kubernetes Operator 4.8.12 - November 14, 2025
 
 There is nothing new in version 4.8.12.
