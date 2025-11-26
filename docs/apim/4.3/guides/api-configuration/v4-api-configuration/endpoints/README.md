@@ -10,9 +10,9 @@ description: >-
 
 In Gravitee, Gateway endpoints define the protocol and configuration settings by which the Gateway API will fetch data from, or post data to, the backend API. After you've created your Gateway API and selected your endpoint(s), you can configure them in the API Management Console. The following sections:
 
-* [Link to endpoint configuration and implementation](./#configuration-and-implementation)
-* [Describe endpoint management](./#endpoint-management)
-* [Describe endpoint default behavior](./#default-behavior)
+* [Link to endpoint configuration and implementation](README.md#configuration-and-implementation)
+* [Describe endpoint management](README.md#endpoint-management)
+* [Describe endpoint default behavior](README.md#default-behavior)
 
 ## Configuration and implementation
 

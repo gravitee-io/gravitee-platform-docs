@@ -108,7 +108,7 @@ To modify the flow mode:
 ## Debug mode
 
 {% hint style="warning" %}
-Debug mode is an [Enterprise Edition](../../../overview/gravitee-apim-enterprise-edition/) capability
+Debug mode is an [Enterprise Edition](../../../overview/gravitee-apim-enterprise-edition/README.md) capability
 {% endhint %}
 
 {% hint style="info" %}

@@ -11,7 +11,7 @@ All intercepts contribute to the DNS resolver, even those that do not use the `-
 
 No namespaces are used by the DNS resolver (not even `default`) when no intercepts are active, which means that no service is available by `<svc-name>` only. Without an active intercept, the namespace qualified DNS name must be used (in the form `<svc-name>.<namespace>`).
 
-See this demonstrated below, using the [quick start's](../) sample app services.
+See this demonstrated below, using the [quick start's](../README.md) sample app services.
 
 No intercepts are currently running, we'll connect to the cluster and list the services that can be intercepted.
 

@@ -46,7 +46,7 @@ To deploy the plugin, follow these steps:
 
 Policies are scoped to different API consumers through flows. Flows are a method to control where, and under what conditions, a group of policies act on an API transaction.
 
-Policies can be added to flows that are assigned to an API or to a [plan](../expose-apis/plans/). Gravitee supports configuring policies with the Policy Studio in the Management Console or by interacting directly with the Management API.
+Policies can be added to flows that are assigned to an API or to a [plan](../expose-apis/plans/README.md). Gravitee supports configuring policies with the Policy Studio in the Management Console or by interacting directly with the Management API.
 
 ## Phases
 

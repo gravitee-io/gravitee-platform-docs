@@ -137,7 +137,7 @@ export API_ID="54593ae4-0e2e-41fe-993a-e40e2ee1fe61"
 
 ## Create a plan for the API
 
-Your API must have at least one Security/Consumer [Plan](../../using-the-gravitee-api-management-components/general-configuration/plans-and-policies/) associated with it before it can be deployed to a Gateway. For more information about Plans, see [plans-and-policies](../../using-the-gravitee-api-management-components/general-configuration/plans-and-policies/ "mention"). The following procedure explains how to create a `KEYLESS` plan.
+Your API must have at least one Security/Consumer [Plan](../../using-the-gravitee-api-management-components/general-configuration/plans-and-policies/README.md) associated with it before it can be deployed to a Gateway. For more information about Plans, see [plans-and-policies](../../using-the-gravitee-api-management-components/general-configuration/plans-and-policies/ "mention"). The following procedure explains how to create a `KEYLESS` plan.
 
 To create a `Keyless` plan, complete the following steps:
 

@@ -27,7 +27,7 @@ Response template overrides are triggered by error keys, which are specific to p
 
 Prior to defining a response template, verify:
 
-* Which policies have been applied to the API. This can be viewed in the [API's plan](../../../preparing-apis-for-subscribers/plans/).
+* Which policies have been applied to the API. This can be viewed in the [API's plan](../../../preparing-apis-for-subscribers/plans/README.md).
 * Which error keys can be overridden per policy associated with your API.
 
 Below are the policy error keys that you can override by configuring response templates:

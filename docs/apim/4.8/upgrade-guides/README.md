@@ -4,7 +4,7 @@ description: Documentation about upgrade guides in the context of APIs.
 
 # Upgrade Guides
 
-Gravitee includes [Release Notes](../release-information/release-notes/) and [Changelogs](../release-information/changelog/) for each release to keep you apprised of features and fixes and to help you navigate version upgrades. When upgrading your version of APIM, consider the following guidelines.
+Gravitee includes [Release Notes](../release-information/release-notes/README.md) and [Changelogs](../release-information/changelog/README.md) for each release to keep you apprised of features and fixes and to help you navigate version upgrades. When upgrading your version of APIM, consider the following guidelines.
 
 * **Upgrading APIM is deployment-specific:** The [4.0 breaking changes](../release-information/breaking-changes-and-deprecations.md#id-4.0-breaking-changes) must be noted and/or adopted for a successful upgrade.
 * **Ensure that you are aware of the breaking changes and deprecated functionality:** For more information about the breaking changes and deprecated functionality, see [Breaking Changes and Deprecations](../release-information/breaking-changes-and-deprecations.md).

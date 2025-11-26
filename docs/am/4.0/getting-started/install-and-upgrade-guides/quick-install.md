@@ -26,7 +26,7 @@ curl -sSL https://raw.githubusercontent.com/gravitee-io/graviteeio-access-manage
 ```
 {% endcode %}
 
-For more information, see [Run in Docker.](run-in-docker/)
+For more information, see [Run in Docker.](run-in-docker/README.md)
 
 ## Install with Kubernetes
 

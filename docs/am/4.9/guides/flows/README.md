@@ -6,7 +6,7 @@ description: Overview of Flows.
 
 ## Overview
 
-You can use flows to extend the standard AM behavior by executing [policies](policies/) during the `OnRequest` step of selected stages. Flows can be configured at the security domain level or application level.
+You can use flows to extend the standard AM behavior by executing [policies](policies/README.md) during the `OnRequest` step of selected stages. Flows can be configured at the security domain level or application level.
 
 ## Execution context
 
@@ -63,8 +63,8 @@ The Pre step allows you to fetch more information before displaying the Login Id
 
 The following attributes are available while processing the policy chain:
 
-* [**Request**](./#request): current HTTP Request
-* [**Client**](./#client): the application
+* [**Request**](README.md#request): current HTTP Request
+* [**Client**](README.md#client): the application
 
 **Post Login Identifier**
 
@@ -72,9 +72,9 @@ Post End-User Login Identifier happens after the user has given his identity to 
 
 The following attributes are available while processing the policy chain :
 
-* [**Request**](./#request): current HTTP Request
-* [**Client**](./#client): the application
-* [**User**](./#user): the End-User identity
+* [**Request**](README.md#request): current HTTP Request
+* [**Client**](README.md#client): the application
+* [**User**](README.md#user): the End-User identity
 
 </details>
 
@@ -90,8 +90,8 @@ The Pre step allows you to fetch more information before displaying the Login HT
 
 The following attributes are available while processing the policy chain:
 
-* [**Request**](./#request): current HTTP Request
-* [**Client**](./#client)**:** the application
+* [**Request**](README.md#request): current HTTP Request
+* [**Client**](README.md#client)**:** the application
 
 **Post Login**
 
@@ -99,9 +99,9 @@ Post End-User Login happens after the user has given his consent to the processi
 
 The following attributes are available while processing the policy chain :
 
-* [**Request**](./#request)**:** current HTTP Request
-* [**Client**](./#client)**:** the application
-* [**User**](./#user)**:** the End-User
+* [**Request**](README.md#request)**:** current HTTP Request
+* [**Client**](README.md#client)**:** the application
+* [**User**](README.md#user)**:** the End-User
 
 </details>
 
@@ -117,9 +117,9 @@ The **Pre Connect** step is executed before linking the authenticated user from 
 
 Available attributes while processing the policy chain:
 
-* [**Request:**](./#request) current HTTP Request
-* [**Client:**](./#client) the application
-* [**User:**](./#user) the authenticated user provided by the external IdP
+* [**Request:**](README.md#request) current HTTP Request
+* [**Client:**](README.md#client) the application
+* [**User:**](README.md#user) the authenticated user provided by the external IdP
 
 **Post Connect**
 
@@ -127,9 +127,9 @@ The **Post Connect** step is executed **after** the user from the IdP has been l
 
 Available attributes while processing the policy chain:
 
-* [**Request:**](./#request) current HTTP Request
-* [**Client:**](./#client) the application
-* [**User:**](../user-management/users/) the connected user
+* [**Request:**](README.md#request) current HTTP Request
+* [**Client:**](README.md#client) the application
+* [**User:**](../user-management/users/README.md) the connected user
 
 </details>
 
@@ -145,10 +145,10 @@ Pre End-User Consent allows you to fetch more information or validate incoming d
 
 The following attributes are available while processing the policy chain:
 
-* [**Request**](./#request): current HTTP Request
-* [**Client**](./#client): the application
-* [**User**](./#user): the End-User
-* [**Authorization Request**](./#oauth-2.0-authorization-request): OAuth 2.0 Authorization Request
+* [**Request**](README.md#request): current HTTP Request
+* [**Client**](README.md#client): the application
+* [**User**](README.md#user): the End-User
+* [**Authorization Request**](README.md#oauth-2.0-authorization-request): OAuth 2.0 Authorization Request
 
 **Post End-User Consent**
 
@@ -156,10 +156,10 @@ Post End-User Consent happens after the user has given his consent to the proces
 
 The following attributes are available while processing the policy chain:
 
-* [**Request**](./#request): current HTTP Request
-* [**Client**](./#client): the application
-* [**User**](./#user): the End-User
-* [**Authorization Request**](./#oauth-2.0-authorization-request): OAuth 2.0 Authorization Request
+* [**Request**](README.md#request): current HTTP Request
+* [**Client**](README.md#client): the application
+* [**User**](README.md#user): the End-User
+* [**Authorization Request**](README.md#oauth-2.0-authorization-request): OAuth 2.0 Authorization Request
 
 </details>
 
@@ -175,8 +175,8 @@ Pre End-User Registration step is executed before displaying the User Consent HT
 
 The following attributes are available while processing the policy chain:
 
-* [**Request**](./#request): current HTTP Request
-* [**Client**](./#client): the application
+* [**Request**](README.md#request): current HTTP Request
+* [**Client**](README.md#client): the application
 
 **Post End-User Registration**
 
@@ -184,9 +184,9 @@ Post End-User Registration step is executed once the user submit the registratio
 
 The following attributes are available while processing the policy chain :
 
-* [**Request**](./#request): current HTTP Request
-* [**Client**](./#client): the application
-* [**User**](./#user): the End-User
+* [**Request**](README.md#request): current HTTP Request
+* [**Client**](README.md#client): the application
+* [**User**](README.md#user): the End-User
 
 </details>
 
@@ -202,9 +202,9 @@ The Pre Reset Password step is executed before displaying the Reset Password HTM
 
 Available attributes while processing the policy chain:
 
-* [**Request**](./#request)**:** current HTTP Request
-* [**Client:**](./#client) the application
-* [**User:**](./#user) the End-User
+* [**Request**](README.md#request)**:** current HTTP Request
+* [**Client:**](README.md#client) the application
+* [**User:**](README.md#user) the End-User
 
 **Post Reset Password**
 
@@ -212,9 +212,9 @@ The Post Reset Password step is executed after the user submits a new password a
 
 Available attributes while processing the policy chain:
 
-* [**Request:**](./#request) current HTTP Request
-* [**Client:**](./#client) the application
-* [**User:**](./#user) the End-User
+* [**Request:**](README.md#request) current HTTP Request
+* [**Client:**](README.md#client) the application
+* [**User:**](README.md#user) the End-User
 
 </details>
 
@@ -230,9 +230,9 @@ The Pre Registration Confirmation step is executed before displaying the Registr
 
 Available attributes while processing the policy chain:
 
-* [**Request**](./#request)**:** current HTTP Request
-* [**Client**](./#client)**:** the application
-* [**User:**](./#user) the End-User
+* [**Request**](README.md#request)**:** current HTTP Request
+* [**Client**](README.md#client)**:** the application
+* [**User:**](README.md#user) the End-User
 
 **Post Registration Confirmation**
 
@@ -240,9 +240,9 @@ The Post Registration Confirmation step is executed after the user confirms thei
 
 Available attributes while processing the policy chain:
 
-* [**Request**](./#request)**:** current HTTP Request
-* [**Client**](./#client)**:** the application
-* [**User**](./#user)**:** the End-User
+* [**Request**](README.md#request)**:** current HTTP Request
+* [**Client**](README.md#client)**:** the application
+* [**User**](README.md#user)**:** the End-User
 
 </details>
 
@@ -258,10 +258,10 @@ The Pre Token step is executed before generating the access token.
 
 Available attributes while processing the policy chain:
 
-* [**Request:**](./#request) current HTTP Request
-* [**Client**](./#client)**:** the application
-* [**Authorization Request**](./#oauth-2.0-authorization-request)**:** OAuth 2.0 Authorization Request
-* [**User**](./#user)**:** (if authenticated) the End-User
+* [**Request:**](README.md#request) current HTTP Request
+* [**Client**](README.md#client)**:** the application
+* [**Authorization Request**](README.md#oauth-2.0-authorization-request)**:** OAuth 2.0 Authorization Request
+* [**User**](README.md#user)**:** (if authenticated) the End-User
 
 **Post Token**
 
@@ -269,10 +269,10 @@ The Post Token step is executed after the token is generated and before it is re
 
 Available attributes while processing the policy chain:
 
-* [**Request**](./#request)**:** current HTTP Request
-* [**Client**](./#client)**:** the application
-* [**Authorization Request**](./#oauth-2.0-authorization-request)**:** OAuth 2.0 Authorization Request
-* [**User**](./#user)**:** (if authenticated) the End-User
+* [**Request**](README.md#request)**:** current HTTP Request
+* [**Client**](README.md#client)**:** the application
+* [**Authorization Request**](README.md#oauth-2.0-authorization-request)**:** OAuth 2.0 Authorization Request
+* [**User**](README.md#user)**:** (if authenticated) the End-User
 
 </details>
 
@@ -288,9 +288,9 @@ The Pre WebAuthN Register step is executed before displaying the WebAuthN regist
 
 Available attributes while processing the policy chain:
 
-* [**Request**](./#request)**:** current HTTP Request
-* [**Client**](./#client)**:** the application
-* [**User**](./#user)**:** the authenticated user
+* [**Request**](README.md#request)**:** current HTTP Request
+* [**Client**](README.md#client)**:** the application
+* [**User**](README.md#user)**:** the authenticated user
 
 **Post WebAuthN Register**
 
@@ -298,9 +298,9 @@ The Post WebAuthN Register step is executed after the user completes registratio
 
 Available attributes while processing the policy chain:
 
-* [**Request**](./#request)**:** current HTTP Request
-* [**Client**](./#client)**:** the application
-* [**User**](./#user)**:** the authenticated user
+* [**Request**](README.md#request)**:** current HTTP Request
+* [**Client**](README.md#client)**:** the application
+* [**User**](README.md#user)**:** the authenticated user
 
 </details>
 
@@ -316,9 +316,9 @@ The Pre MFA Challenge step is executed before the MFA Challenge HTML page is dis
 
 The following attributes are available while processing the policy chain:
 
-* [**Request**](./#request): current HTTP Request
-* [**Client**](./#client): the application
-* [**User**](./#user): authenticated user
+* [**Request**](README.md#request): current HTTP Request
+* [**Client**](README.md#client): the application
+* [**User**](README.md#user): authenticated user
 
 **Post MFA Challenge**
 
@@ -326,9 +326,9 @@ The Post MFA Challenge step is executed after the user successfully submits a va
 
 The following attributes are available while processing the policy chain:
 
-* [**Request**](./#request): current HTTP Request
-* [**Client**](./#client): the application
-* [**User**](./#user): authenticated user
+* [**Request**](README.md#request): current HTTP Request
+* [**Client**](README.md#client): the application
+* [**User**](README.md#user): authenticated user
 
 </details>
 
@@ -344,9 +344,9 @@ The Pre MFA Enrollment step is executed before the MFA enrollment page is displa
 
 The following attributes are available while processing the policy chain:
 
-* [**Request**](./#request): current HTTP Request
-* [**Client**](./#client): the application
-* [**User**](./#user): authenticated user
+* [**Request**](README.md#request): current HTTP Request
+* [**Client**](README.md#client): the application
+* [**User**](README.md#user): authenticated user
 
 **Post MFA Enrollment**
 
@@ -354,9 +354,9 @@ The Post MFA Enrollment step is executed after the user completes the selection 
 
 The following attributes are available while processing the policy chain:
 
-* [**Request**](./#request): current HTTP Request
-* [**Client**](./#client): the application
-* [**User**](./#user): authenticated user
+* [**Request**](README.md#request): current HTTP Request
+* [**Client**](README.md#client): the application
+* [**User**](README.md#user): authenticated user
 
 </details>
 

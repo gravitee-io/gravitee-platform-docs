@@ -6,7 +6,7 @@ description: Tutorial on gravitee gateway.
 
 ## Introduction
 
-This guide will walk through how to configure your general Gravitee API Management (APIM) Gateway settings using the `gravitee.yaml` file. As described in [APIM Components](./#configuring-apim-components), you can override these settings by using system properties or environment variables.
+This guide will walk through how to configure your general Gravitee API Management (APIM) Gateway settings using the `gravitee.yaml` file. As described in [APIM Components](README.md#configuring-apim-components), you can override these settings by using system properties or environment variables.
 
 The `gravitee.yaml` file, found in `GRAVITEE_HOME/config/`, is the default way to configure APIM.
 
@@ -228,7 +228,7 @@ The plugins directory can be configured via either local installation or Helm.
 
 {% tabs %}
 {% tab title="Local installation" %}
-You can configure the APIM Gateway [plugins](../../getting-started/plugins/) directory with `plugins.path` configuration property:
+You can configure the APIM Gateway [plugins](../../getting-started/plugins/README.md) directory with `plugins.path` configuration property:
 
 ```yaml
 plugins:
@@ -363,7 +363,7 @@ ratelimit:
     prefix: # collection prefix
 ```
 
-If you want to use a custom prefix, you need to follow the following [instructions](../repositories/#use-a-custom-prefix).
+If you want to use a custom prefix, you need to follow the following [instructions](../repositories/README.md#use-a-custom-prefix).
 {% endtab %}
 
 {% tab title="JDBC" %}
@@ -379,7 +379,7 @@ ratelimit:
     prefix:   # collection prefix
 ```
 
-If you want to use a custom prefix, you need to follow these [instructions](../repositories/#use-a-custom-prefix-1).
+If you want to use a custom prefix, you need to follow these [instructions](../repositories/README.md#use-a-custom-prefix-1).
 {% endtab %}
 
 {% tab title="Redis Standalone" %}

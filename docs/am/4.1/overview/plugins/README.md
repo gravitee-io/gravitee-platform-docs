@@ -14,11 +14,11 @@ The table below lists the different types of plugins you can use with AM, with t
 
 | Type                                        | Components               | Examples                   |
 | ------------------------------------------- | ------------------------ | -------------------------- |
-| [Identity Providers](./#identity-providers) | Management API/ Gateway  | LDAP, Database, Social, …​ |
-| [Policies](./#policies)                     | Management API / Gateway | Callout                    |
-| [Reporters](./#reporters)                   | Management API / Gateway | MongoDB                    |
-| [Repositories](./#repositories)             | Management API / Gateway | MongoDB                    |
-| [Alerts](./#alerts)                         | Management API / Gateway | Vertx                      |
+| [Identity Providers](README.md#identity-providers) | Management API/ Gateway  | LDAP, Database, Social, …​ |
+| [Policies](README.md#policies)                     | Management API / Gateway | Callout                    |
+| [Reporters](README.md#reporters)                   | Management API / Gateway | MongoDB                    |
+| [Repositories](README.md#repositories)             | Management API / Gateway | MongoDB                    |
+| [Alerts](README.md#alerts)                         | Management API / Gateway | Vertx                      |
 
 ### Identity providers
 

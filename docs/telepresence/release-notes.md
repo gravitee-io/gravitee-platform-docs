@@ -38,7 +38,7 @@ You can now use `--env-syntax` to allow control over the syntax of the file crea
 
 #### Added Argo Rollouts support for workloads
 
-You can now opt-in for support for workloads using Argo Rollouts. The behavior is controlled by the `workloads.argoRollouts.enabled` Helm chart value. We recommend setting the following annotation to avoid creating unwanted versions: `telepresence.getambassador.io/inject-traffic-agent: enabled` to avoid creation of unwanted revisions. For more information, see [Enable Argo Rollouts](technical-reference/intercepts/#enable-argorollouts).
+You can now opt-in for support for workloads using Argo Rollouts. The behavior is controlled by the `workloads.argoRollouts.enabled` Helm chart value. We recommend setting the following annotation to avoid creating unwanted versions: `telepresence.getambassador.io/inject-traffic-agent: enabled` to avoid creation of unwanted revisions. For more information, see [Enable Argo Rollouts](technical-reference/intercepts/README.md#enable-argorollouts).
 
 #### Added --create-namespace flag to the telepresence helm install command
 
