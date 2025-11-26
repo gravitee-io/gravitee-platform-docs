@@ -549,7 +549,7 @@ oauth2:
 
 If you want to deploy a MongoDB ReplicaSet using the Helm Chart dependency, you simply have to enable it. The **dbhost** has to be defined using the name of the helm installation (in this example **am**) followed by **-mongodb-replicaset**.
 
-\{% hint style="danger" %\} This is not recommended for production environments. \{% endhint %\}
+{% hint style="danger" %} This is not recommended for production environments. {% endhint %}
 
 \{% code title="MongoDB ReplicaSet" %\}
 
