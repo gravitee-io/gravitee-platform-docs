@@ -122,9 +122,9 @@ To set up a subscription, complete the following steps.
     3. A valid application and an optional namespace.
 
 
-    {% hint style="info" %}
-    If your API reference points to a v2 API, you must add the `kind` property with the `ApiDefinition` value to your API reference.
-    {% endhint %}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p>If your API reference points to a v2 API, you must add the <code>kind</code> property with the <code>ApiDefinition</code> value to your API reference.</p>
+    </div>
 
 
 
@@ -148,18 +148,20 @@ To set up a subscription, complete the following steps.
     Here is an example of a subscription resource:
 
 
-    {% hint style="info" %}
-    If your API reference points to a v2 API, you must add the `kind` property with the `ApiDefinition` value to your API reference.
-    {% endhint %}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p>If your API reference points to a v2 API, you must add the <code>kind</code> property with the <code>ApiDefinition</code> value to your API reference.</p>
+    </div>
 
 
 6.  Apply the resource.
 
 
-    {% hint style="warning" %}
-    * Only resources with a management context reference are supported.
-    * The management context must be configured for your setup. To configure the management context, use the Management API URL and credentials.
-    {% endhint %}
+    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning">
+      <ul>
+        <li>Only resources with a management context reference are supported.</li>
+        <li>The management context must be configured for your setup. To configure the management context, use the Management API URL and credentials.</li>
+      </ul>
+    </div>
 
     \
     To apply the resource, use the following commands:
