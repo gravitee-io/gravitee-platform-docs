@@ -42,7 +42,9 @@ The remote cluster is running the Emojivoto application, which consists of four 
 
 1.  Go to the and vote for some emojis.
 
-    {% hint style="info" %} If the link to the remote demo cluster doesn't work, make sure you don't have an **ad blocker** preventing it from opening. {% endhint %}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p>If the link to the remote demo cluster doesn't work, make sure you don't have an <strong>ad blocker</strong> preventing it from opening.</p>
+    </div>
 2. Now, click on the 🍩 emoji. You'll see that a bug is present, and voting 🍩 doesn't work. We're going to use Telepresence shortly to fix this bug, as everyone should be able to vote for 🍩!
 
 {% hint style="success" %}
@@ -59,8 +61,10 @@ We'll set up a development environment locally on your workstation. We'll then u
     docker run -d --name ambassador-demo --pull always -p 8083:8083 -p 8080:8080 --rm -it datawire/demoemojivoto
     ```
 
-    {% hint style="info" %} If you're using Docker Desktop on Windows, you may need to [enable virtualization](https://docs.docker.com/desktop/troubleshoot-and-support/troubleshoot/topics/#virtualization) to run the container.\
-    \> Make sure that ports **8080** and **8083** are free. If the Docker engine is not running, the command will fail and you will see **docker: unknown server OS** in your terminal. {% endhint %}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p>If you're using Docker Desktop on Windows, you may need to <a href="https://docs.docker.com/desktop/troubleshoot-and-support/troubleshoot/topics/#virtualization">enable virtualization</a> to run the container.</p>
+      <blockquote><p>Make sure that ports <strong>8080</strong> and <strong>8083</strong> are free. If the Docker engine is not running, the command will fail and you will see <strong>docker: unknown server OS</strong> in your terminal.</p></blockquote>
+    </div>
 
     The Docker container includes a copy of the Emojivoto application that fixes the bug. Visit the leaderboard and notice how it is different from the leaderboard in your Kubernetes cluster.
 2.  Now, stop the container by running the following command in your terminal:
@@ -128,7 +132,9 @@ You can simply add the docker flag to any Telepresence command, and it will star
       Intercept Spec: Not running
     ```
 
-    {% hint style="info" %} **macOS users:** If you receive an error when running Telepresence that the developer cannot be verified, open **System Preferences → Security & Privacy → General**. Click **Open Anyway** at the bottom to bypass the security block. Then retry the `telepresence status` command. {% endhint %}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p><strong>macOS users:</strong> If you receive an error when running Telepresence that the developer cannot be verified, open <strong>System Preferences → Security & Privacy → General</strong>. Click <strong>Open Anyway</strong> at the bottom to bypass the security block. Then retry the <code>telepresence status</code> command.</p>
+    </div>
 2.  Log in to Ambassador Cloud:
 
     ```
@@ -182,7 +188,10 @@ Start your intercept handler (interceptor) by targeting the daemon container --n
     Layer 5 Hostname       : edge-stack.ambassador
     ```
 
-    {% hint style="info" %} Learn more about [intercepts](../technical-reference/intercepts/configure-intercept-using-cli.md) and how to use them. {% endhint %}### 7. Make a personal intercept
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p>Learn more about <a href="../technical-reference/intercepts/configure-intercept-using-cli.md">intercepts</a> and how to use them.</p>
+    </div>
+### 7. Make a personal intercept
 
 Personal intercepts allow you to be selective and intercept only some of the traffic to a service while not interfering with the rest of the traffic. This allows you to share a cluster with others on your team without interfering with their work.
 
