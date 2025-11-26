@@ -123,6 +123,6 @@ k create secret generic http-github-fetcher --from-literal=pat=<YOUR-TOKEN>
 
 When you create this API, it will dynamically load the README.md Markdown file from the referenced GitHub repository and add it to your API as a page. You can use the Gravitee API Management Console to make sure it was created successfully. You should see both the contents of the page (first screenshot) and the configuration of the doc fetcher (second screenshot):
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
