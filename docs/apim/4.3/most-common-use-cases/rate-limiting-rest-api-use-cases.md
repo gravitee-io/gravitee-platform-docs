@@ -60,8 +60,10 @@ To add a Quota policy to each plan of this API:
 
     <figure><img src="../.gitbook/assets/haley 1.png" alt=""><figcaption></figcaption></figure>
 
-    \{% hint style="info" %\} **Flows vs. policies**\
-    Flows are a collection of policies. Flows can be specified for each individual plan, e.g., API Key (SILVER), API Key (GOLD), and API Key (PLATINUM). Alternatively, a common flow can be applied to all plans within the specific API\_.\_ \{% endhint %\}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p><strong>Flows vs. policies</strong></p>
+      <p>Flows are a collection of policies. Flows can be specified for each individual plan, e.g., API Key (SILVER), API Key (GOLD), and API Key (PLATINUM). Alternatively, a common flow can be applied to all plans within the specific API.</p>
+    </div>
 
 ### Step 2: Add a Quota policy for each user group
 
@@ -125,7 +127,9 @@ To ensure all API consumers, regardless of their plan, do not overwhelm the API,
 
     <figure><img src="../.gitbook/assets/haley 12.png" alt=""><figcaption></figcaption></figure>
 
-    \{% hint style="info" %\} The Rate Limit time period is shorter than the Quota time period. \{% endhint %\}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p>The Rate Limit time period is shorter than the Quota time period.</p>
+    </div>
 7. Click **Add policy**
 8.  On the **Policies** page, click **Save**
 
@@ -175,7 +179,9 @@ Rate limiting policies can also be added during [Step 4: Security](../guides/cre
 1. Complete steps 1-3 of the [v4 API creation wizard](../guides/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md)
 2.  At step 4, click **Add plan**
 
-    \{% hint style="info" %\} All created APIs will include a **Default Keyless (UNSECURED)** plan. You may modify or delete this plan. \{% endhint %\}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p>All created APIs will include a <strong>Default Keyless (UNSECURED)</strong> plan. You may modify or delete this plan.</p>
+    </div>
 
     <figure><img src="../.gitbook/assets/haley 18.png" alt=""><figcaption></figcaption></figure>
 3. Click **API Key**
@@ -187,12 +193,17 @@ Rate limiting policies can also be added during [Step 4: Security](../guides/cre
     <figure><img src="../.gitbook/assets/haley 20.png" alt=""><figcaption></figcaption></figure>
 6.  Click **Next** to add Quota and/or Rate Limit policies
 
-    \{% hint style="info" %\} The Spike Arrest policy cannot be added during the API creation process. \{% endhint %\}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p>The Spike Arrest policy cannot be added during the API creation process.</p>
+    </div>
 
     <figure><img src="../.gitbook/assets/haley 21.png" alt=""><figcaption></figcaption></figure>
 7.  Toggle Rate Limiting and/or Quota ON to configure rate limiting policies for the plan
 
-    \{% hint style="info" %\} Rate limiting policies added during the API creation process will applied to the request phase. \{% endhint %\}8. Configure the plan:
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p>Rate limiting policies added during the API creation process will applied to the request phase.</p>
+    </div>
+8. Configure the plan:
 
     <figure><img src="../.gitbook/assets/haley 22.png" alt=""><figcaption></figcaption></figure>
 

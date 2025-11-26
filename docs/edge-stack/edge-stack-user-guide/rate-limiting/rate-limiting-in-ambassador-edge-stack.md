@@ -49,7 +49,10 @@ Global rate limiting applies to the entire Kubernetes service mesh. This example
     \
     Apply the mapping configuration changes with `kubectl apply -f quote-backend.yaml`.
 
-    \{% hint style="info" %\} You need to use `v2` or later for the `apiVersion` in the `Mapping` resource. Previous versions do not support `labels`. \{% endhint %\}2. Next, configure the `RateLimit` resource for the service. Create a new YAML file named `backend-ratelimit.yaml` and apply the rate limit details as follows:
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p>You need to use <code>v2</code> or later for the <code>apiVersion</code> in the <code>Mapping</code> resource. Previous versions do not support <code>labels</code>.</p>
+    </div>
+2. Next, configure the `RateLimit` resource for the service. Create a new YAML file named `backend-ratelimit.yaml` and apply the rate limit details as follows:
 
     ```yaml
     apiVersion: getambassador.io/v3alpha1
@@ -66,7 +69,7 @@ Global rate limiting applies to the entire Kubernetes service mesh. This example
 
     \
     In the code above, the `generic_key` is a hard-coded value that is used when you add a single string label to a request.
-2. Deploy the rate limit with `kubectl apply -f backend-ratelimit.yaml`.
+3. Deploy the rate limit with `kubectl apply -f backend-ratelimit.yaml`.
 
 ## Per user rate limiting
 

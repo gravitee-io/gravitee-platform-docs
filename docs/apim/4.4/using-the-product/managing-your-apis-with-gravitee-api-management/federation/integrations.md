@@ -76,7 +76,9 @@ To view or edit an integration:
 
     <figure><img src="../../../.gitbook/assets/integration_edit 3.png" alt=""><figcaption></figcaption></figure>
 
-    \{% hint style="info" %\} Integration status provides the user with critical information, such as if the integration is active and can reach the agent, if the agent is running and can reach the provider, and if the agent is receiving errors. \{% endhint %\}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p>Integration status provides the user with critical information, such as if the integration is active and can reach the agent, if the agent is running and can reach the provider, and if the agent is receiving errors.</p>
+    </div>
 
 ### Delete an integration
 
@@ -94,4 +96,6 @@ To delete an integration:
 
     <figure><img src="../../../.gitbook/assets/integration delete.png" alt=""><figcaption></figcaption></figure>
 
-    \{% hint style="info" %\} If **Delete Integration** is grayed out, you must first click **Delete APIs** to delete the federated APIs associated with the integration. \{% endhint %\}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p>If <strong>Delete Integration</strong> is grayed out, you must first click <strong>Delete APIs</strong> to delete the federated APIs associated with the integration.</p>
+    </div>
