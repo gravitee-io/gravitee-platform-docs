@@ -4,13 +4,6 @@ description: Overview of GKO.
 
 # GKO 4.7.x
 
-## Gravitee Kubernetes Operator 4.7.19 - November 25, 2025
-
-There is nothing new in version 4.7.19.
-
-> This version was generated to keep the kubernetes operator in sync with other gravitee products.
-
-
 ## Gravitee Kubernetes Operator 4.7.18 - November 14, 2025
 
 There is nothing new in version 4.7.18.
