@@ -131,7 +131,7 @@ The 4.4 release brings us multiple steps closer to complete feature parity, intr
 
 As of Gravitee 4.4, you can now import API definition bundles as v4 APIs and create pages, members, groups, and other relevant resources at the time of import. This is done during the API creation phase.
 
-![](<../../.gitbook/assets/Screenshot 2024-06-24 at 5.07.21 PM (1).png>)
+<figure><img src="../../.gitbook/assets/Screenshot 2024-06-24 at 5.07.21 PM (1).png" alt=""><figcaption></figcaption></figure>
 
 For v4 Proxy APIs, we also support importing OpenAPI specifications.
 
