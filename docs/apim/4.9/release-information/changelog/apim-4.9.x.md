@@ -4,6 +4,22 @@ description: Documentation about apim 4.9.x in the context of APIs.
 
 # APIM 4.9.x
 
+## Gravitee API Management 4.9.7 - November 25, 2025
+
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Management API**
+
+* After deleting a federated API, the API count is not updating [#10980](https://github.com/gravitee-io/issues/issues/10980)
+
+**Other**
+
+* Intermittent 503s on OAuth2 Introspection due to Stale Connection Reuse [#10984](https://github.com/gravitee-io/issues/issues/10984)
+
+</details>
+
 ## Gravitee API Management 4.9.6 - November 21, 2025
 
 <details>
