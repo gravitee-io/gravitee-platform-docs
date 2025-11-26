@@ -28,7 +28,7 @@ To create a Cloud Token, complete the following steps:
     <figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 4.  Save your Cloud Token. You cannot access it once you close the dialog box.
 
-    <figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 5.  Verify that your Cloud Token is listed in the table.
 
     <figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
