@@ -190,11 +190,11 @@ To view the details of any entry in the list of runtime logs:
 
 \{% tabs %\} \{% tab title="v4 message APIs" %\} Under the **Connection Logs** tab, logs for the entry are grouped by **Entrypoint Request**, **Endpoint Request**, **Entrypoint Response**, and **Endpoint Response**:
 
-<figure><img src="broken-reference" alt=""><figcaption><p>View log details</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/connection details_CROP.png" alt=""><figcaption><p>View log details</p></figcaption></figure>
 
 Under the **Messages** header, entrypoint and endpoint message details are grouped by date code:
 
-<figure><img src="broken-reference" alt=""><figcaption><p>View message details</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/message details_CROP.png" alt=""><figcaption><p>View message details</p></figcaption></figure>
 
 Each message record includes placeholder tabs for raw content, headers, and metadata. If the corresponding data was recorded, it will appear under the tab. If no data was recorded, the field will be empty. \{% endtab %\}
 

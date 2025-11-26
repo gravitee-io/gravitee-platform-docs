@@ -52,4 +52,4 @@ API publishers have additional management settings for subscriptions to API key 
 * **Revoke:** immediately invalidate an existing API key. This option is reversible.
 * **Set expiration date:** set a date and time to automatically invalidate an existing API key
 
-<figure><img src="broken-reference" alt=""><figcaption><p>API key plan subscription</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/api_key_subscripiton_management.png" alt=""><figcaption><p>API key plan subscription</p></figcaption></figure>
