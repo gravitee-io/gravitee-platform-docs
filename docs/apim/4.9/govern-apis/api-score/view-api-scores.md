@@ -14,9 +14,7 @@ High-level API Score statistics are shown on the **API Score** page. To get to y
 
 1. Ensure that API Score is enabled. For more information about enabling API Score, see [Enable API Score](enable-api-score.md).
 2. Log in to your APIM Console.
-3.  In the menu, click **API Score**.
-
-    <figure><img src="../../.gitbook/assets/image%20(207)%20(1).png" alt=""><figcaption></figcaption></figure>
+3. In the menu, click **API Score**.
 
 The **Overview** and **APIs** sections of the **API Score** page provide you with high-level metrics to understand the quality of your APIs. These metrics are:
 
@@ -28,21 +26,13 @@ The **Overview** and **APIs** sections of the **API Score** page provide you wit
 
 The **Overview** section shows these metrics across all of your APIs.
 
-<figure><img src="../../.gitbook/assets/image%20(205)%20(1).png" alt=""><figcaption></figcaption></figure>
-
 The **APIs** section contains a list of your APIs to show these metrics for each API individually.
-
-<figure><img src="../../.gitbook/assets/image%20(206)%20(1).png" alt=""><figcaption><p>Example API score dashboard</p></figcaption></figure>
 
 ## Individual API Score details
 
 To view the API Score details for a specific API, click on the API in the **APIs** section of your API Score dashboard.
 
-<figure><img src="../../.gitbook/assets/00%20api%201%20(1).png" alt=""><figcaption></figcaption></figure>
-
 This brings you to a page that shows the details of API metrics.
-
-<figure><img src="../../.gitbook/assets/00%20api%202%20(1).png" alt=""><figcaption></figcaption></figure>
 
 ### Filter API Score issues
 

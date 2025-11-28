@@ -4,7 +4,7 @@ description: An overview about azure api management.
 
 # Azure API Management
 
-## Overview&#x20;
+## Overview
 
 Azure API Management is Azure's built-in API management solution that you can use to expose services running in the Azure cloud to the public internet
 
@@ -12,7 +12,7 @@ Azure API Management is Azure's built-in API management solution that you can us
 
 Before you install the Azure API Management federation agent, complete the following steps:
 
-* Access to an Azure API Management account with permissions to access the Azure API Management console.&#x20;
+* Access to an Azure API Management account with permissions to access the Azure API Management console.
 * Gravitee API Management version 4.5 or later, with an enterprise license. For more information about Enterprise edition, see [Enterprise Edition Licensing.](https://documentation.gravitee.io/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing#license-support)
 * Install and configure Azure CLI. For more information, see [Install the Azure CLI.](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
 * An access token. For more information, see [how to create a service account and an access token.](../federation-agent-service-account.md)
@@ -31,10 +31,10 @@ To integrate Azure API Management with Gravitee APIM, complete the following ste
 
 1.  From the Dashboard, click **Integrations**
 
-    <figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
 2.  Click **Create Integration.**
 
-    <figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 3.  Select **Azure API Management**, and then click **Next**.<br>
 
     <figure><img src="../../../.gitbook/assets/click-next-azure-federation.png" alt=""><figcaption></figcaption></figure>
@@ -75,7 +75,7 @@ The Azure API Management federation agent requires the following configuration p
     ```
 
     \
-    Here is an exmaple output:&#x20;
+    Here is an exmaple output:
 
     ```bash
     Name           SubscriptionId                        TenantId
@@ -114,7 +114,7 @@ The Azure API Management federation agent requires the following configuration p
 
 #### **Create Azure Service Principal**
 
-The agent requires a Service Principal with Contributor role for authentication.&#x20;
+The agent requires a Service Principal with Contributor role for authentication.
 
 1.  Set environment variables:
 
@@ -151,7 +151,7 @@ You can deploy the Apigee X federation agent using either of the following insta
 * [#docker-compose](azure-api-management.md#docker-compose "mention")
 * [#helm](azure-api-management.md#helm "mention")
 
-### Docker Compose&#x20;
+### Docker Compose
 
 1.  Copy the following configuration, and then save it to your Docker Compose file:<br>
 
@@ -241,7 +241,7 @@ You can deploy the Apigee X federation agent using either of the following insta
    * `[your-APIM-management-API-host]`: Your Gravitee APIM management API URL.
    * `[your-token]`: Your Gravitee APIM access token.
    * `[your-integration-id]`: The Integration ID from the Gravitee Console.
-   * `[organization-id]`: Your APIM organisation ID. For example, DEFAULT.&#x20;
+   * `[organization-id]`: Your APIM organisation ID. For example, DEFAULT.
    * `[your-tenant-id]`: Your Azure APIM tenant ID.
    * `[your-subscription-id]`: Your Azure APIM subscription ID.
    * `[your-resource-group]`: Your Azure APIM resource group name.
@@ -262,18 +262,18 @@ You can deploy the Apigee X federation agent using either of the following insta
     docker compose up -d
     ```
 
-#### Verification&#x20;
+#### Verification
 
 1.  In the Gravitee API Management console, after refreshing, you should now see the agent's status set to `Connected`.
 
     <figure><img src="../../../.gitbook/assets/azure-api-integration-id.png" alt=""><figcaption></figcaption></figure>
-2. If the Agent Connection shows as **Disconnected**, inspect the agent container logs for error messages.&#x20;
+2. If the Agent Connection shows as **Disconnected**, inspect the agent container logs for error messages.
 
-### Helm&#x20;
+### Helm
 
 To deploy the federation agent to your Kubernetes cluster, complete the following steps:
 
-#### Update your Helm Chart&#x20;
+#### Update your Helm Chart
 
 Add the Gravitee Helm repository and update it to ensure you have access to the latest charts:
 
@@ -283,14 +283,14 @@ helm repo add gravitee https://helm.gravitee.io
 helm repo update
 ```
 
-#### Configure the Federation Agent Helm Values&#x20;
+#### Configure the Federation Agent Helm Values
 
-Create the Helm values file based on your APIM management API's certificate setup. You can use the standard configuration or custom certificate configuration:&#x20;
+Create the Helm values file based on your APIM management API's certificate setup. You can use the standard configuration or custom certificate configuration:
 
 * [#standard-configuration](azure-api-management.md#standard-configuration "mention")
 * [#custom-certificate-configuration](azure-api-management.md#custom-certificate-configuration "mention")
 
-#### Standard configuration&#x20;
+#### Standard configuration
 
 1.  This configuration uses the default Java truststore for your APIM management API certificates. Create a file named `federation-agent-azure-values.yaml` in your working directory, and then copy the following configuration:
 
@@ -400,7 +400,7 @@ Create the Helm values file based on your APIM management API's certificate setu
       --create-namespace
     ```
 
-#### Custom certificate configuration&#x20;
+#### Custom certificate configuration
 
 1.  This configuration includes custom truststore volume mounts for certificates from private certificate authorities or self-signed certificates. Create a file named `federation-agent-azure-values.yaml`, and then copy the following configuration:
 
@@ -531,7 +531,7 @@ If your APIM management API uses certificates that require a custom truststore, 
       --create-namespace
     ```
 
-#### Verification&#x20;
+#### Verification
 
 1.  When the deployment is successful, verify the installation is running using the following command:
 
