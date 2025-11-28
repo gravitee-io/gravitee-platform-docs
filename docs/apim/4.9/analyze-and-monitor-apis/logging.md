@@ -16,7 +16,7 @@ This guide explains the following topics regarding logging:
 
 ## Gateway-level logging
 
-This section describes the Gateway logging capabilities that are applied to all v4 Gateway APIs by default.
+This section describes the Gateway logging capabilities that are applied to all V4 Gateway APIs by default.
 
 {% hint style="info" %}
 These settings can be overridden by logging settings that are applied at the individual API level.
@@ -78,7 +78,7 @@ The following sections describe the logging capabilities for v4 APIs.
 
 Comprehensive connection logs allow you to analyze the usage of your v4 message APIs or v4 proxy APIs. To view the runtime logs associated with calls to your API:
 
-1.  From the **Dashboard**, click **APIs**.
+1.  From the **Dashboard**, click **APIs**.<br>
 
     <figure><img src="../.gitbook/assets/DB2B50A2-4291-41F4-8BE4-87694C0FCDDC (1).jpeg" alt=""><figcaption></figcaption></figure>
 2.  Select your API that you want to view the logs for.
@@ -120,6 +120,8 @@ You can modify logging information can be modified by configuring the options un
 
     <figure><img src="../.gitbook/assets/4BE464F6-77A8-4B28-AFDB-EC8790CA8E94_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
 
+{% tabs %}
+{% tab title="V4 message APIs" %}
 {% hint style="info" %}
 Select logging options judiciously to optimize the value of recorded data against the potential for impact to API performance. Sampling is used to avoid excessive resource consumption and is only relevant to v4 message APIs.
 {% endhint %}
@@ -133,7 +135,7 @@ To configure which information is recorded, select from the following options:
   * **Probabilistic:** Messages are sampled based on a specified probability value between 0.01 and 0.5.
   * **Count:** One message is sampled for every number specified, where the specified value must be greater than 1.
   * **Temporal:** Messages are sampled based on a specified time duration value that conforms to ISO-8601 format.
-*   **Display conditions:** You have the ability to filter the message data based on **Request phase condition** and **Message condition**. Each of these fields supports the use of Gravitee Expression Language.
+*   **Display conditions:** You have the ability to filter the message data based on **Request phase condition** and **Message condition**. Each of these fields supports the use of [Gravitee Expression Language](../gravitee-expression-language.md).
 
     <figure><img src="../.gitbook/assets/image (364) (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -150,24 +152,38 @@ Sampling methods for v4 message APIs can also be configured in the `gravitee.yml
 * **Temporal:** Must be a `string` in ISO 8601 format
 
 {% code title="gravitee.yaml" %}
-```
+```yaml
+logging: 
+   messageSampling: 
+      probabilistic: 
+         default: 0.01 
+         limit: 0.5 
+      count: 
+         default: 100 
+         limit: 10000 
+      temporal: 
+         default: PT1S 
+         limit: PT1S
 ```
 {% endcode %}
 
-\`\`\`\`yaml \`\`\` logging: messageSampling: probabilistic: default: 0.01 limit: 0.5 count: default: 100 limit: 10000 temporal: default: PT1S limit: PT1S \`\`\` \`\`\`\` \{% endcode %\} \{% endtab %\}
 
-\{% tab title="v4 proxy APIs" %\} {% hint style="info" %} Select logging options judiciously to optimize the value of recorded data against the potential for impact to API performance. {% endhint %}
+{% endtab %}
 
-To configure which information is recorded, select from the following options:
+{% tab title="V4 proxy APIs" %}
+{% hint style="info" %}
+Select logging options judiciously to optimize the value of recorded data against the potential for impact to API performance.
+{% endhint %}
 
+* To configure which information is recorded, select from the following options:
 * **Logging mode:** Select from **Entrypoint** and **Endpoint** to customize which modes are logged.
 * **Logging phase:** Select from **Request** and **Response** to customize which phases are logged.
 * **Content data:** Select from **Headers** and **Payload** to customize which data is logged.
-*   **Display conditions:** You have the ability to filter data based on **Request phase condition**. This field supports the use of Gravitee Expression Language.
+*   **Display conditions:** You have the ability to filter data based on **Request phase condition**. This field supports the use of [Gravitee Expression Language](../gravitee-expression-language.md).
 
     <figure><img src="../.gitbook/assets/image (365) (1).png" alt=""><figcaption></figcaption></figure>
-
-\{% endtab %\} \{% endtabs %\}
+{% endtab %}
+{% endtabs %}
 
 ### View messages
 
@@ -186,7 +202,9 @@ To view the details of any entry in the list of runtime logs:
 
     <figure><img src="../.gitbook/assets/321F6892-812F-4DAA-AEE6-0CA0C44BEFF4_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
 
-\{% tabs %\} \{% tab title="v4 message APIs" %\} Under the **Connection Logs** tab, logs for the entry are grouped by **Entrypoint Request**, **Endpoint Request**, **Entrypoint Response**, and **Endpoint Response**:
+{% tabs %}
+{% tab title="V4 message APIs" %}
+Under the **Connection Logs** tab, logs for the entry are grouped by **Entrypoint Request**, **Endpoint Request**, **Entrypoint Response**, and **Endpoint Response**:
 
 <figure><img src="../.gitbook/assets/connection details_CROP (1).png" alt=""><figcaption><p>View log details</p></figcaption></figure>
 
@@ -194,9 +212,15 @@ Under the **Messages** header, entrypoint and endpoint message details are group
 
 <figure><img src="../.gitbook/assets/message details_CROP (1).png" alt=""><figcaption><p>View message details</p></figcaption></figure>
 
-Each message record includes placeholder tabs for raw content, headers, and metadata. If the corresponding data was recorded, it will appear under the tab. If no data was recorded, the field will be empty. \{% endtab %\}
+Each message record includes placeholder tabs for raw content, headers, and metadata. If the corresponding data was recorded, it will appear under the tab. If no data was recorded, the field will be empty.&#x20;
 
-\{% tab title="v4 proxy APIs" %\} In the logs screen, you see the following information about your API logs:
+
+{% endtab %}
+
+{% tab title="V4 proxy APIs" %}
+In the logs screen, you see the following information about your API logs:
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 #### Overview
 
@@ -247,8 +271,8 @@ In the request section, you see the information about the following topics:
   *   Shows the body returned in the response
 
       <figure><img src="../.gitbook/assets/2421DA4C-35BB-4DAD-A6FA-642B70A17486_4_5005_c (1).jpeg" alt=""><figcaption></figcaption></figure>
-
-\{% endtab %\} \{% endtabs %\}
+{% endtab %}
+{% endtabs %}
 
 ## Expose metrics to Prometheus
 
@@ -256,10 +280,9 @@ The following sections detail the configurations necessary to expose metrics to 
 
 ### Enable the metrics service
 
-Prometheus support is activated and exposed using the component’s internal API. The metrics service can be enabled in the \`
+Prometheus support is activated and exposed using the component’s internal API. The metrics service can be enabled in the `gravitee.yml` configuration file:
 
-gravitee.yml\` configuration file:
-
+{% code title="gravitee.yml" %}
 ```yaml
 services:
   metrics:
@@ -267,6 +290,7 @@ services:
     prometheus:
       enabled: true
 ```
+{% endcode %}
 
 {% hint style="info" %}
 * By default, the internal component API is bound to `localhost` only and must not be invoked outside `localhost`. To widely expose the API, you may need to set the `services.core.http.host` property to the correct network interface.

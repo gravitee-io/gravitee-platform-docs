@@ -18,8 +18,6 @@ Head to the Gravitee APIM Console, open the Integrations section in the left men
 
 Once you have created the integration, copy the integration ID. The integration ID is visible on the integration overview tab. You will use this ID later.
 
-<figure><img src="../../../.gitbook/assets/image%20(222)%20(1).png" alt=""><figcaption></figcaption></figure>
-
 ## 2. Configure the Mulesoft agent
 
 The Gravitee Mulesoft federation agent needs the following configuration parameters to connect to your Mulesoft Anypoint account:
@@ -123,8 +121,6 @@ docker compose up -d
 ```
 
 In the Gravitee API Management console, after refreshing, you should now see the agent's status set to `Connected:`
-
-<figure><img src="../../../.gitbook/assets/image%20(223)%20(1).png" alt=""><figcaption></figcaption></figure>
 
 If your **Agent Connection** still shows as `Disconnected`, then please inspect the agent's container logs. There you should find error logs that will help you troubleshoot.
 

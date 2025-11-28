@@ -4,19 +4,19 @@ description: An overview about ibm api connect.
 
 # IBM API Connect
 
-## Overview&#x20;
+## Overview
 
 IBM API Connect is IBM's API management solution. The agent works with both Cloud and on-premise versions of IBM API Connect (APIC).
 
-## Prerequisites&#x20;
+## Prerequisites
 
 Before you install the IBM API Connect federation agent, complete the following steps:
 
 * Access to an IBM API Connect account: Cloud or on-premise, version 10.0.5.
-* Verify you have Gravitee API Management version 4.5 or later, with an enterprise license. For more information about Enterprise edition, see[ Enterprise Edition Licensing.](https://documentation.gravitee.io/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing#license-support) &#x20;
-* Create an access token. For more information, [see how to create a service account and an access token.](../federation-agent-service-account.md)&#x20;
+* Verify you have Gravitee API Management version 4.5 or later, with an enterprise license. For more information about Enterprise edition, see[ Enterprise Edition Licensing.](https://documentation.gravitee.io/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing#license-support)
+* Create an access token. For more information, [see how to create a service account and an access token.](../federation-agent-service-account.md)
 * Obtain your IBM API Connect platform URL, and your IBM API Connect organization name.
-* Obtain your IBM API Connect credentials: Client ID, Client Secret, and API Key. The requirements vary by instance type.  For more information about the credentials required for your instance type, [see defining connection credentials](https://www.ibm.com/docs/fi/explorer-for-zos/3.2.0?topic=connections-defining-connection-credentials)&#x20;
+* Obtain your IBM API Connect credentials: Client ID, Client Secret, and API Key. The requirements vary by instance type. For more information about the credentials required for your instance type, [see defining connection credentials](https://www.ibm.com/docs/fi/explorer-for-zos/3.2.0?topic=connections-defining-connection-credentials)
 
 {% hint style="info" %}
 For more information, see IBM API connect documentation based on the versions you are using: [10.0.5](https://www.ibm.com/docs/en/api-connect/10.0.5.x_lts?topic=applications-managing-platform-rest-api-keys) / [10.0.8](https://www.ibm.com/docs/en/api-connect/10.0.8?topic=applications-managing-platform-rest-api-keys) / [SaaS](https://www.ibm.com/docs/en/api-connect/saas?topic=applications-managing-platform-rest-api-keys).
@@ -33,10 +33,10 @@ To integrate IBM API Connect with Gravitee APIM, complete the following steps:
 
 1.  From the Dashboard, click **Integrations**.<br>
 
-    <figure><img src="../../../.gitbook/assets/image (73).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (56) (1).png" alt=""><figcaption></figcaption></figure>
 2.  Click **Create Integration**.
 
-    <figure><img src="../../../.gitbook/assets/image (74).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (57) (1).png" alt=""><figcaption></figcaption></figure>
 3.  Select **IBM API Connect**, and then click **Next**.<br>
 
     <figure><img src="../../../.gitbook/assets/click-next-on-integrations-workflow (1).png" alt=""><figcaption></figcaption></figure>
@@ -60,7 +60,7 @@ You can deploy the IBM API Connect federation agent using either of the followin
 * [#docker-compose](ibm-api-connect.md#docker-compose "mention")
 * [#helm](ibm-api-connect.md#helm "mention")
 
-### Docker Compose&#x20;
+### Docker Compose
 
 1.  Copy the following configuration, and then save it to your Docker Compose file:
 
@@ -187,7 +187,7 @@ API_KEY=[your-api-key]
    * `[your-APIM-management-API-host]`: Your Gravitee APIM management API URL.
    * `[your-token]`: Your Gravitee APIM access token.
    * `[your-integration-id]`: The Integration ID from the Gravitee Console.
-   * `[organization-id]`: Your APIM organization ID. For example: DEFAULT&#x20;
+   * `[organization-id]`: Your APIM organization ID. For example: DEFAULT
    * `[your-platform-api-url]`: Your IBM API Connect platform URL.
    * `[your-organization-name]`: Your IBM API Connect organization name.
    * `[your-client-id]`: Your IBM client ID (required for Cloud and Self-hosted instances only).
@@ -240,14 +240,14 @@ API_KEY=[your-api-key]
     IBM_1_CATALOG=[your-second-catalog]
     ```
 
-### Verification&#x20;
+### Verification
 
 1.  In the Gravitee API Management console, after refreshing, you should now see the agent's status set to **Connected**.
 
     <figure><img src="../../../.gitbook/assets/ibm-connect-integraiton-id.png" alt=""><figcaption></figcaption></figure>
 2. (Optional) If the Agent Connection shows as **Disconnected**, inspect the agent container logs for error messages.
 
-### Helm&#x20;
+### Helm
 
 To deploy the federation agent to your Kubernetes cluster, complete the following steps:
 
@@ -269,7 +269,7 @@ Create the Helm values file based on your APIM management API's certificate setu
 * [#default-configuration-cloud-reserved-instance](ibm-api-connect.md#default-configuration-cloud-reserved-instance "mention")
 * [#custom-certificate-configuration](ibm-api-connect.md#custom-certificate-configuration "mention")
 
-#### Default configuration: cloud and self-hosted instances&#x20;
+#### Default configuration: cloud and self-hosted instances
 
 1.  This configuration uses the default Java truststore for your APIM management API certificates. Create a file named `federation-agent-ibm-values.yaml` in your working directory, and then copy the following configuration:
 
@@ -589,7 +589,7 @@ Create the Helm values file based on your APIM management API's certificate setu
       --create-namespace
     ```
 
-### Verification&#x20;
+### Verification
 
 1.  When the deployment is successful, verify the installation is running using the following command:
 
@@ -604,8 +604,6 @@ Create the Helm values file based on your APIM management API's certificate setu
     NAME                                    READY   STATUS    RESTARTS   AGE
     federation-agent-ibm-xxxxx-yyyyy        1/1     Running   0          30s
     ```
-
-
 2.  Return to the Gravitee API Management console, refresh the page, and verify that the agent's status is set to **Connected**.
 
     <figure><img src="../../../.gitbook/assets/image (72).png" alt=""><figcaption></figcaption></figure>

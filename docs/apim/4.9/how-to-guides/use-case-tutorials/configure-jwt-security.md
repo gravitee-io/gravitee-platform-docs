@@ -30,7 +30,7 @@ In the Console UI, select the Gateway API you want to secure with a JWT plan.
 
 For now, be sure to leave the **Default Keyless (UNSECURED)** plan as we’ll be configuring the plan separately.
 
-<figure><img src="../../.gitbook/assets/image (9) (1) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 Save and deploy the API when you’re finished.
 
@@ -59,7 +59,7 @@ In the sidebar, select **Plans**, and then select **+Add new plan** in the top r
 
 Provide your plan a name, and then scroll down and toggle on **Auto validate subscription** so we don’t have to manually validate subscription requests later in the tutorial. Scroll down and select **Next**.
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 On the security page, select the **Signature** that your IdP uses to encrypt your access tokens.
 
@@ -77,7 +77,7 @@ For this quick tutorial, everything else can be left as default. Scroll to the b
 
 We won’t be adding any restrictions to the consumption of this API so simply select **Create** on the Restrictions page.
 
-<figure><img src="../../.gitbook/assets/image (7) (1) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 After creating a plan, it’s initially in the first of the four stages of a plan: staging, published, deprecated, and closed.
 
@@ -86,11 +86,11 @@ After creating a plan, it’s initially in the first of the four stages of a pla
 * **Deprecated**: You can deprecate a plan so that it won’t be available on the APIM Developer Portal and API Consumers won’t be able to subscribe to it. Existing subscriptions remain, so it doesn’t impact your existing API consumers.
 * **Closed**: Once a plan is closed, all associated subscriptions are closed too. This cannot be undone. API consumers subscribed to this plan won’t be able to use your API.
 
-<figure><img src="../../.gitbook/assets/image (8) (1) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (8) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 Publish your plan by selecting the publish icon on your plan as shown below.
 
-<figure><img src="../../.gitbook/assets/image (9) (1) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 At this point, it is likely you have both a Keyless and a JWT plan published. Please delete any Keyless plans to ensure the JWT plan can not be bypassed. Select the **X** icon and then follow the prompts in the modal to delete the Keyless plan as shown below:
 
@@ -130,15 +130,15 @@ For the sake of this demo, we will be creating a Simple application in the Devel
 
 In the Developer Portal, select **Applications** in the top navigation bar and then select **+ Create an app** in the top right of the screen.
 
-<figure><img src="../../.gitbook/assets/image (22) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (22) (1).png" alt=""><figcaption></figcaption></figure>
 
 Provide a name and description then select **Next**. On the security screen, select a Simple application and provide a `client_id` that matches the `client_id` of your IdP’s application. For example, in Okta, you can find your `client_id` right next to the name of your application.
 
-<figure><img src="../../.gitbook/assets/image (23) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (23) (1).png" alt=""><figcaption></figcaption></figure>
 
 After providing the `client_id`, select **Next**.
 
-<figure><img src="../../.gitbook/assets/image (24) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (24) (1).png" alt=""><figcaption></figcaption></figure>
 
 On the **Subscription** page, you can directly search for your Gateway API and see the available plans. Search for your API, select **Subscribe**, and then select **Next**.
 
