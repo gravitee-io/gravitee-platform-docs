@@ -138,13 +138,13 @@ This page lists the available AM plugins and provides compatibility matrices wit
 | -------------- | ---------- |
 | 1.x+           | 4.0+       |
 
-[gravitee-gateway-services-ratelimit](https://download.gravitee.io/#graviteeio-apim/plugins/services/gravitee-gateway-services-ratelimit/)
+#### [gravitee-gateway-services-ratelimit](https://download.gravitee.io/#graviteeio-apim/plugins/services/gravitee-gateway-services-ratelimit/)
 
 | Plugin Version | AM Version |
 | -------------- | ---------- |
 | 2.x            | 4.9+       |
 
-[gravitee-policy-ratelimit](https://download.gravitee.io/#graviteeio-apim/plugins/policies/gravitee-policy-ratelimit/)
+#### [gravitee-policy-ratelimit](https://download.gravitee.io/#graviteeio-apim/plugins/policies/gravitee-policy-ratelimit/)
 
 | Plugin Version | AM Version |
 | -------------- | ---------- |
@@ -182,7 +182,7 @@ This page lists the available AM plugins and provides compatibility matrices wit
 
 ### Certificates
 
-[**gravitee-am-certificate-hsm-aws**](https://download.gravitee.io/#graviteeio-ee/plugins/certificates/gravitee-am-certificate-hsm-aws/)
+#### [gravitee-am-certificate-hsm-aws](https://download.gravitee.io/#graviteeio-ee/plugins/certificates/gravitee-am-certificate-hsm-aws/)
 
 | Plugin Version | AM Version |
 | -------------- | ---------- |
