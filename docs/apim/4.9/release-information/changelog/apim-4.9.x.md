@@ -11,7 +11,7 @@ description: Documentation about apim 4.9.x in the context of APIs.
 
 **Management API**
 
-*  After deleting a federated, API count is not updating [#10980](https://github.com/gravitee-io/issues/issues/10980)
+* After deleting a federated, API count is not updating [#10980](https://github.com/gravitee-io/issues/issues/10980)
 
 **Other**
 
