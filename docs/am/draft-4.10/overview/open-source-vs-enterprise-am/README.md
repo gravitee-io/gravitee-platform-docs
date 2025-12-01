@@ -70,6 +70,12 @@ The Secret Manager pack enables clients that manage connections, retries, and cr
 
 * HashiCorp Vault
 
+### Authorization Engine pack
+
+The Authorization Engine pack enables authorization features for MCP Servers:
+* OpenFGA
+* AuthZen 
+
 ## Advanced API monitoring <a href="#advanced-api-monitoring" id="advanced-api-monitoring"></a>
 
 Not technically a part of the Access Management product, Gravitee offers a standalone, enterprise-grade API monitoring solution called Gravitee Alert Engine (AE).&#x20;
