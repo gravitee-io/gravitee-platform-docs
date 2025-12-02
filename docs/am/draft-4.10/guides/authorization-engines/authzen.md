@@ -5,7 +5,7 @@
 {% endhint %}
 
 {% hint style="warning" %}
-The plugin is only available in the [Enterprise Edition (EE)](../../overview/open-source-vs-enterprise-am/) of Gravitee.
+The plugin is only available in the [Enterprise Edition (EE)](../../overview/open-source-vs-enterprise-am/README.md) of Gravitee.
 {% endhint %}
 
 ## Overview

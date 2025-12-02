@@ -14,7 +14,7 @@ Before you install the Mulesoft Anypoint federation agent, complete the followin
 
 * Obtain access to Mulesoft Anypoint Platform with permissions to manage and create Connected Apps. For more information, see [how to assign permissions and access management. ](https://docs.mulesoft.com/access-management/creating-connected-apps-dev#before-you-begin)
 * Install Gravitee API Management version 4.5 or later, with an enterprise license. For more information about the Enterprise edition, see[ Enterprise Edition Licensing](https://documentation.gravitee.io/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing#license-support).
-* Create an access token. For more information about creating service accounts and access tokens, see [how to create a service account and an access token](https://documentation.gravitee.io/apim/govern-apis/federation/federation-agent-service-account).
+* Create an access token. For more information about creating service accounts and access tokens, see [how to create a service account and an access token](../federation-agent-service-account.md).
 * Generate Mulesoft Connected App Client ID and Client Secret, and then obtain Mulesoft Root Organization ID. For more information, see [how to create a connected App.](https://docs.mulesoft.com/access-management/creating-connected-apps-dev)
 
 ## Integrate Mulesoft Anypoint with Gravitee APIM
