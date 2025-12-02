@@ -18,4 +18,4 @@ As described in the Introduction to Gravitee Access Management (AM), AM is split
 * AM Management API
 * AM Management Console
 
-The guides in this section provide the details of how you can setup, configure, and upgrade your AM environment.&#x20;
+The guides in this section provide the details of how you can setup, configure, and upgrade your AM environment.

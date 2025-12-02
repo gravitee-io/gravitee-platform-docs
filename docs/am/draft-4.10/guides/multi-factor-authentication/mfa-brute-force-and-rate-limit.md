@@ -2,7 +2,7 @@
 
 ## Overview
 
-Gravitee Access Management (AM) enhances MFA security further by introducing  MFA Rate Limit, and Brute Force Detection. This new functionality is designed to make the multi-factor authentication process more resilient to bad actor attacks. The new features enable you to:
+Gravitee Access Management (AM) enhances MFA security further by introducing MFA Rate Limit, and Brute Force Detection. This new functionality is designed to make the multi-factor authentication process more resilient to bad actor attacks. The new features enable you to:
 
 * Specify the maximum number of MFA challenges the application can request to obtain SMS or Email verification code.
 * Enforce the maximum attempts of MFA code verification.

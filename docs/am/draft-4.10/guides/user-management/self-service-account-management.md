@@ -14,7 +14,7 @@ AM self-service account management allows users to manage their accounts with th
 By default, these actions are possible only during the login process, but in order to provide a **My Account** space for your end-users, AM includes a REST API to perform all these requests.
 {% endhint %}
 
-&#x20;To access the online API reference, go to [the API reference](https://raw.githubusercontent.com/gravitee-io/gravitee-access-management/4.5.x/docs/self-service-account-api-descriptor.yml).
+To access the online API reference, go to [the API reference](https://raw.githubusercontent.com/gravitee-io/gravitee-access-management/4.5.x/docs/self-service-account-api-descriptor.yml).
 
 ## Configure the self-service account management
 

@@ -13,7 +13,7 @@ Gravitee Access Management (AM) includes various device identifier mechanisms. D
 
 ## Device Identifier plugins
 
-### Cookie&#x20;
+### Cookie
 
 Cookie device identifiers do not require additional configuration. To set up a device identifier, you are only required to create the configuration and enable the [remember device feature](login/remember-authentication-device.md).
 

@@ -2,7 +2,7 @@
 
 ## Overview
 
-In addition to configuring MFA on application level, you may also use MFA policies in flow.&#x20;
+In addition to configuring MFA on application level, you may also use MFA policies in flow.
 
 ## MFA Challenge policy
 

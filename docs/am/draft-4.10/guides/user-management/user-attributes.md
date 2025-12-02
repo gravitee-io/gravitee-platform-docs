@@ -4,7 +4,7 @@ User profiles in Access Management mainly contains of two sections: general deta
 \
 General details are attributes mandatory for each profile, such as username, name, email, password. Mainly the information you see at the top section if you visit the users profile.\
 \
-The additional information section is more flexible, and you can choose to enrich each user profile with custom keys and values that can be used to make decisions in login flow, such as MFA, or be a holder of permissions such as group information or write roles.&#x20;
+The additional information section is more flexible, and you can choose to enrich each user profile with custom keys and values that can be used to make decisions in login flow, such as MFA, or be a holder of permissions such as group information or write roles.
 
 ### Make email optional
 
