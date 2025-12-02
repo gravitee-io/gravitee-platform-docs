@@ -107,6 +107,8 @@ The procedure for mapping a role is similar to adding a user to a group, but the
 
 In the example below, the condition evaluates the `roles` custom claim, or JSON key, in the JSON returned by the IdP’s UserInfo endpoint. If the `roles` array contains `FULL_ADMIN`, Gravitee will actions the role mapping.
 
+<figure><img src="../../../.gitbook/assets/image (157).png" alt=""><figcaption><p>Role Mapping configuration</p></figcaption></figure>
+
 ## Expression Language objects
 
 The conditions defined in role and group mappings use Gravitee Expression Language and typically parse a JSON object. The following objects are available:
