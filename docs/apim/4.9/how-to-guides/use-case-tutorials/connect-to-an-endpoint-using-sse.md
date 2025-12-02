@@ -49,21 +49,21 @@ Identify the endpoint from which you are going to consume messages. For testing 
 1. Log in to your Gravitee APIM Console.
 2. Select **APIs** from the nav and click **+ Add API**.
 
-    <figure><img src="../../.gitbook/assets/image (174).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (166).png" alt=""><figcaption></figcaption></figure>
 3.  In the **Create New API** section, click **Create V4 API.**
 
     <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>v2 APIs are also compliant with SSE.</p></div>
 
-    <figure><img src="../../.gitbook/assets/image (175).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (167).png" alt=""><figcaption></figcaption></figure>
 4.  Enter your API's name and version number, then click **Validate my API details**.
 
     <figure><img src="../../.gitbook/assets/1 sse.png" alt=""><figcaption></figcaption></figure>
 5.  Select **Proxy Generic Protocol** and click **Select my API architecture**.
 
-    <figure><img src="../../.gitbook/assets/image (177).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (169).png" alt=""><figcaption></figcaption></figure>
 6. Select **HTTP Proxy** and click **Select my entrypoints**.
 
-    <figure><img src="../../.gitbook/assets/image (178).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (170).png" alt=""><figcaption></figcaption></figure>
 7.  Set a unique **Context-path**, for example, `/sseconsumer`, then click **Validate my entrypoints**.
 
     <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>To avoid potential communication issues, do not use characters separated by multiple forward slashes "/" for your context-path.</p></div>
@@ -124,7 +124,7 @@ Now you have all the information you need to configure Postman to call your API.
     <figure><img src="../../.gitbook/assets/ably 4.png" alt=""><figcaption></figcaption></figure>
 6.  Where it says **Enter a channel name**, enter the name of the channel you used in Postman as the value for the key-value pair, e.g., `ssechannel`.
 
-    <figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/channel.png" alt=""><figcaption></figcaption></figure>
 7.  Enter a message in the **Message data** field for your channel.
 
     <figure><img src="../../.gitbook/assets/ably ch2.png" alt=""><figcaption></figcaption></figure>
