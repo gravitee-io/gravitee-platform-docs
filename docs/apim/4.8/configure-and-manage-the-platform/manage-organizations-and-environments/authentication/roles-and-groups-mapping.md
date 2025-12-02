@@ -99,7 +99,7 @@ Gravitee uses Gravitee Expression Language in the **Condition** to evaluate the 
 
 In the following example, Gravitee checks if the value of "my\_API\_Group" in the UserInfo endpoint's response payload contains "Petstore-Group." If true, the user is added to the "Petstore-Group."
 
-<figure><img src="../../../.gitbook/assets/image%20(150)%20(1).png" alt=""><figcaption><p>Group Mapping configuration</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (150).png" alt=""><figcaption><p>Group Mapping configuration</p></figcaption></figure>
 
 ### Roles Mapping
 
@@ -107,4 +107,4 @@ The procedure for mapping a role is similar to adding a user to a group, but the
 
 In the example below, the condition evaluates the `roles` custom claim, or JSON key, in the JSON returned by the IdP’s UserInfo endpoint. If the `roles` array contains `FULL_ADMIN`, Gravitee will actions the role mapping.
 
-<figure><img src="../../../.gitbook/assets/image%20(152)%20(1).png" alt=""><figcaption><p>Role Mapping configuration</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (152).png" alt=""><figcaption><p>Role Mapping configuration</p></figcaption></figure>

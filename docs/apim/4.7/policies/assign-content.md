@@ -29,7 +29,7 @@ A typical usage would be to simply overwrite the original request payload with s
 }
 ```
 
-<figure><img src="../.gitbook/assets/image%20(177)%20(1).png" alt="" width="375"><figcaption><p>Assign Content policy configuration UI</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (177) (1).png" alt="" width="375"><figcaption><p>Assign Content policy configuration UI</p></figcaption></figure>
 
 ### Replace original payload with dynamic values
 

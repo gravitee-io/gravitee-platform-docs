@@ -28,11 +28,11 @@ The following diagrams illustrate the component management, design, and virtual 
 
 ### Self-hosted component management <a href="#components" id="components"></a>
 
-![](../../../4.0/.gitbook/assets/file.excalidraw%20\(7\)%20\(1\).svg)
+![](../../.gitbook/assets/file.excalidraw%20(7)%20(1).svg)
 
 ### Self-hosted architecture diagram <a href="#architecture-diagram" id="architecture-diagram"></a>
 
-![Self-hosted architecture](../../../4.0/.gitbook/assets/file.excalidraw%20\(6\)%20\(1\).svg)
+![Self-hosted architecture](../../.gitbook/assets/file.excalidraw%20(6)%20(1).svg)
 
 ### Self-hosted VM installation: LAN + DMZ deployment <a href="#install-on-vms-lan-dmz-deployment" id="install-on-vms-lan-dmz-deployment"></a>
 
@@ -50,11 +50,11 @@ The following diagrams illustrate the component management, design, and self-hos
 
 ### Hybrid architecture diagram <a href="#architecture-diagram" id="architecture-diagram"></a>
 
-![](../../../4.0/.gitbook/assets/file.excalidraw%20\(4\)%20\(1\).svg)
+![](../../.gitbook/assets/file.excalidraw%20(4)%20(1).svg)
 
 ### Self-hosted-to-SaaS connections <a href="#self-hosted-to-saas-connections" id="self-hosted-to-saas-connections"></a>
 
-![Hybrid: SaaS to self-hosted connections](../../../4.3/.gitbook/assets/file.excalidraw%20\(15\).svg)
+![Hybrid: SaaS to self-hosted connections](../../.gitbook/assets/file.excalidraw%20(15).svg)
 
 ## Gravitee-managed architecture
 
