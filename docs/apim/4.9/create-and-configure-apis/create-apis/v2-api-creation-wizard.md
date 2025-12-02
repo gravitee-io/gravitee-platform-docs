@@ -23,6 +23,8 @@ To create a v2 API in Gravitee:
 3. Click **+ Add API** in the top right corner of the UI
 4. In Create Classic API, click **Create V2 API**.
 
+<figure><img src="../../.gitbook/assets/image (139).png" alt=""><figcaption></figcaption></figure>
+
 ## Step 1: General
 
 The first step is to define your API's general details. Give your API a:

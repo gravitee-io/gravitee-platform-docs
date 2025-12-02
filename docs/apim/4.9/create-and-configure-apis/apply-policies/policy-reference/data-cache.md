@@ -76,6 +76,8 @@ Then the HTTP Callout policy has a trigger condition representing the attribute.
 <figure><img src="../../../.gitbook/assets/image (148).png" alt=""><figcaption></figcaption></figure>
 
 Lastly, if the first policy resulted in a cache miss, put the token from the HTTP callout policy in the cache:
+
+<figure><img src="../../../.gitbook/assets/image (149).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="API Definition" %}

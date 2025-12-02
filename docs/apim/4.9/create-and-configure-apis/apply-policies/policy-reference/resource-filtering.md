@@ -35,6 +35,8 @@ If the authenticated client (i.e.: the access token) does not have the custom cl
 
 However, if the client's access token includes a custom claim `scope`, and it contains `getInventory`, then the Resource Filtering is NOT applied, and the client is allowed access to any specific endpoint path (within this API).
 
+<figure><img src="../../../.gitbook/assets/image (179) (1).png" alt=""><figcaption><p>Screenshot of the Resource Filtering policy - if the authenticated user doesn't have the required scope, then blacklist all endpoint paths</p></figcaption></figure>
+
 ## Examples
 
 {% hint style="warning" %}
