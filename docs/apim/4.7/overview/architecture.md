@@ -26,15 +26,15 @@ The following diagrams illustrate the component management, design, and virtual 
 
 ## Self-hosted component management
 
-![](../../4.0/.gitbook/assets/file.excalidraw%20\(7\)%20\(1\).svg)
+![](../.gitbook/assets/file.excalidraw%20(7)%20(1).svg)
 
 ### Self-hosted architecture diagram
 
-![Self-hosted architecture](../../4.0/.gitbook/assets/file.excalidraw%20\(6\)%20\(1\).svg)
+![Self-hosted architecture](../.gitbook/assets/file.excalidraw%20(6)%20(1).svg)
 
 ### Self-hosted VM installation: LAN + DMZ deployment
 
-![Self-hosted architecture LAN + DMZ](../../4.0/.gitbook/assets/file.excalidraw%20\(5\)%20\(1\).svg)
+![Self-hosted architecture LAN + DMZ](../.gitbook/assets/file.excalidraw%20(5)%20(1).svg)
 
 ## Hybrid architecture
 
@@ -48,7 +48,7 @@ The following diagrams illustrate the component management, design, and self-hos
 
 ### Hybrid architecture diagram
 
-![](../../4.0/.gitbook/assets/file.excalidraw%20\(4\)%20\(1\).svg)
+![](../.gitbook/assets/file.excalidraw%20(4)%20(1).svg)
 
 ### Self-hosted-to-SaaS connections
 
