@@ -24,4 +24,8 @@ API Score is a technology preview feature, meaning you must to opt-in to use it.
 
     <figure><img src="../../.gitbook/assets/image (218) (1).png" alt=""><figcaption></figcaption></figure>
 2. In the **Portal** section, click **API Quality**.
+   
+    <figure><img src="../../.gitbook/assets/image (220).png" alt=""><figcaption></figcaption></figure>
 3. In the **API Score** section, turn on **Enable API Score**.
+
+    <figure><img src="../../.gitbook/assets/image (221).png" alt=""><figcaption></figcaption></figure>

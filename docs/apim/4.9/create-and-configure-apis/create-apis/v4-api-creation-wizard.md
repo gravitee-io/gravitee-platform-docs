@@ -18,6 +18,8 @@ The v4 API creation wizard makes it easy to create new Gateway APIs from scratch
 2. Click on **APIs** in the left nav
 3. In the Create New API , click on **Create V4 API**.
 
+<figure><img src="../../.gitbook/assets/image (138).png" alt=""><figcaption></figcaption></figure>
+
 The API creation wizard comprises several steps, each of which requires you to define certain sets of information.
 
 ## API details

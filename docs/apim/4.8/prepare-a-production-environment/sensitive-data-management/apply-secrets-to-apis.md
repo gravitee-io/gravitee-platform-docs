@@ -325,7 +325,7 @@ You can see here that the definition does not contain a clear text secret. This 
 
 Here is an example of referencing a secret when you configure a Redis Cache resource:
 
-<figure><img src="../../.gitbook/assets/image%20(142)%20(1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (142).png" alt=""><figcaption></figcaption></figure>
 
 ### Native Kafka endpoint API example
 

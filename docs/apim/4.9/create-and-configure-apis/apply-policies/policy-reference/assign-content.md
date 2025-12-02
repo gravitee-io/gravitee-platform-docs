@@ -28,6 +28,8 @@ A typical usage would be to simply overwrite the original request payload with s
 }
 ```
 
+<figure><img src="../../../.gitbook/assets/image (177).png" alt="" width="375"><figcaption><p>Assign Content policy configuration UI</p></figcaption></figure>
+
 ### Replace original payload with dynamic values
 
 You can use the Assign Content policy to inject a request header, context attribute, or a dictionary value into the request payload:
@@ -190,6 +192,8 @@ Let's walk through the above Freemarker code, line by line:
 **Line 6:** Get all items within this unique `runwayItem` object and loop through each of them, using `key` as the index/iterator.
 
 **Line 7:** Output all key/value pairs to the final response.
+
+<figure><img src="../../../.gitbook/assets/image (185).png" alt=""><figcaption><p>Assign Content policy configuration UI</p></figcaption></figure>
 
 {% code title="Final response payload (sent onto client):" %}
 ```json
