@@ -76,11 +76,11 @@ Then, for two APIs, the client will connect to, e.g., `my-bootstrap-api1.mycompa
 
 After the Kafka client connects to the API, the Gateway (acting as the bootstrap server) returns the list of brokers in the upstream cluster.
 
-<figure><img src="../.gitbook/assets/image%20(151)%20(1).png" alt="" width="563"><figcaption><p>The proxy obtains the list of brokers from the upstream cluster.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (151).png" alt="" width="563"><figcaption><p>The proxy obtains the list of brokers from the upstream cluster.</p></figcaption></figure>
 
 To properly provide the client with the list of brokers and the associated metadata about topics and partitions on those brokers, the Gateway creates a one-to-one mapping between the brokers in the upstream cluster and the brokers seen by the client.
 
-<figure><img src="../.gitbook/assets/image%20(153)%20(1).png" alt="" width="563"><figcaption><p>The gateway returns the list of brokers back to the client, rewritten to use the gateway hostname.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (153) (1).png" alt="" width="563"><figcaption><p>The gateway returns the list of brokers back to the client, rewritten to use the gateway hostname.</p></figcaption></figure>
 
 The mapping combines the `brokerPrefix`, `brokerSeparator`, and `defaultDomain` variables, along with the API host prefix. The Kafka client must be able to route to `{brokerPrefix}-{brokerId}-{apiHost}.{defaultDomain}`, for as many brokers as there are in the Kafka cluster. Again, a wildcard DNS entry is the preferred way to do this.
 
@@ -153,11 +153,11 @@ To configure the APIM Console to use the Kafka domain and port values for your O
 3. Select **Entrypoints & Sharding Tags** from the left nav.
 4.  In the **Entrypoint Configuration** section, confirm that the **Default Kafka domain** and **Default Kafka port** values match those of your Kafka API.\\
 
-    <figure><img src="../.gitbook/assets/00%20kafka%20(1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/00 kafka (1).png" alt=""><figcaption></figcaption></figure>
 
     This value is then displayed on the entrypoint page of your APIs.
 
-    <figure><img src="../.gitbook/assets/00%20kafka%201%20(1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/00 kafka 1 (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Configure the Kafka client
 
@@ -209,10 +209,10 @@ The following example provides a template for how to produce and consume message
 3. After selecting your API, click on the **My Subscriptions** tab.
 4.  Copy the script in the **Review Kafka Properties** section and paste it into your `connect.properties` file.
 
-    <div align="left"><figure><img src="../.gitbook/assets/1%20pc%202%20(1).png" alt="" width="563"><figcaption></figcaption></figure></div>
+    <div align="left"><figure><img src="../.gitbook/assets/1 pc 2 (1).png" alt="" width="563"><figcaption></figcaption></figure></div>
 5.  Copy either the produce or consume commands from the **Calling the API** section.
 
-    <div align="left"><figure><img src="../.gitbook/assets/00%20kafka%202%20(1).png" alt="" width="563"><figcaption></figcaption></figure></div>
+    <div align="left"><figure><img src="../.gitbook/assets/00 kafka 2 (1).png" alt="" width="563"><figcaption></figcaption></figure></div>
 6. In a terminal, change your working directory to the top-level folder of your Kafka download.
 7. Paste and execute the commands you copied to produce or consume messages.
 
