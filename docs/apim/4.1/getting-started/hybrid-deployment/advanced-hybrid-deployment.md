@@ -8,7 +8,7 @@ description: A detailed guide for installing and configuring a hybrid APIM deplo
 
 This page focuses on the installation of the Self-Hosted Data-Plane, which is part of the API Management platform in a hybrid architecture (SaaS Control-Plane + Self-Hosted Data-Plane).
 
-![](../../../4.0/.gitbook/assets/file.excalidraw%20\(4\)%20\(1\).svg)
+![](../../.gitbook/assets/file.excalidraw%20(4)%20(1).svg)
 
 ### SaaS Control-Plane components <a href="#saas-components" id="saas-components"></a>
 
