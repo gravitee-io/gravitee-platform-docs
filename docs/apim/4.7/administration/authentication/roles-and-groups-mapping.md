@@ -73,7 +73,7 @@ Create a new Group Mapping and specify the name of the Group (that you've alread
 
 The Condition (using the Gravitee Expression Language) is how Gravitee evaluates the specific data in the access\_token. In the example below, Gravitee will walk the profile (access\_token) to the "my\_API\_Group" key, and check if its value contains "Petstore-Group". If true, then the user is added into the "Petstore-Group".
 
-<figure><img src="../../.gitbook/assets/image%20(150)%20(1).png" alt=""><figcaption><p>Group Mapping configuration</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (150).png" alt=""><figcaption><p>Group Mapping configuration</p></figcaption></figure>
 
 #### Role Mapping
 
@@ -81,4 +81,4 @@ This can be performed in almost the same way as adding the user into a group. Bu
 
 In the example screenshot below, this Condition is evaluating the `roles` custom claim (or JSON key) from the access\_token. If the `roles` array contains `FULL_ADMIN`, then Gravitee will action this role mapping.
 
-<figure><img src="../../.gitbook/assets/image%20(152)%20(1).png" alt=""><figcaption><p>Role Mapping configuration</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (152) (1).png" alt=""><figcaption><p>Role Mapping configuration</p></figcaption></figure>
