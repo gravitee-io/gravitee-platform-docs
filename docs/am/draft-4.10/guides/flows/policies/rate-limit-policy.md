@@ -15,12 +15,12 @@ For any [`rate-limit` policy](https://documentation.gravitee.io/apim/4.3/referen
 To dynamically set the custom key, you can define it using Gravitee Expression Language (EL).
 
 {% hint style="warning" %}
-An arbitrary custom key can be incorrectly defined via Gravitee EL, and then potentially bypass the constraints of this mechanism to impact the quota of a different user. Users must assess this risk when  using custom keys.
+An arbitrary custom key can be incorrectly defined via Gravitee EL, and then potentially bypass the constraints of this mechanism to impact the quota of a different user. Users must assess this risk when using custom keys.
 {% endhint %}
 
 ### Repository Configuration
 
-You can configure the rate limit repository to store the rate limit data in MongoDB, Postgres, or Redis (recommended).&#x20;
+You can configure the rate limit repository to store the rate limit data in MongoDB, Postgres, or Redis (recommended).
 
 You can define the rate limit data store either in your `gravitee.yml` file or via environment variables.
 

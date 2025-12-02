@@ -17,7 +17,7 @@ Gravitee AM supports enhanced client secret management, allowing for multiple se
 
 ### Managing Secrets
 
-You can manage secrets by adding, renewing, and deleting them from Application. Default limitation of client secrets for each Application is 10. You can override this in `gravitee.yml`  like the following example:
+You can manage secrets by adding, renewing, and deleting them from Application. Default limitation of client secrets for each Application is 10. You can override this in `gravitee.yml` like the following example:
 
 ```yaml
 applications:
@@ -110,7 +110,7 @@ Revoked secrets are immediately invalidated and cannot be used for authenticatio
 
 Gravitee AM provides support for monitoring client secret expiration through customizable notifications, allowing proactive management of client credentials.
 
-### &#x20;Notification Events
+### Notification Events
 
 #### Notifications can be triggered automatically in the following two scenarios:
 
@@ -120,4 +120,3 @@ Gravitee AM provides support for monitoring client secret expiration through cus
 These notifications facilitate timely renewal of client secrets and reduce the risk of authentication failures due to expired credentials.
 
 For detailed instructions on configuring the notification mechanisms, refer to the [AM API configuration](../../getting-started/configuration/configure-am-api/#configure-notifications-on-certificates-and-client-secret-expiry) section.
-

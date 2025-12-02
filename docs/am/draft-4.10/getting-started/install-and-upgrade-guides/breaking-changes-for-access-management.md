@@ -24,7 +24,7 @@ legacy:
     regexCaseInsensitive: true
 ```
 
-Alternatively, you can specify this option as an environment variable:&#x20;
+Alternatively, you can specify this option as an environment variable:
 
 ```
 gravitee_legacy_mongodb_regexCaseInsensitive=true
@@ -32,7 +32,7 @@ gravitee_legacy_mongodb_regexCaseInsensitive=true
 
 #### Resource HTTP Factor
 
-The version 4.0 of the resource plugin [gravitee-am-resource-http-factor](https://download.gravitee.io/#graviteeio-ee/am/plugins/resources/gravitee-am-resource-http-factor/) has been released. This version requires AM 4.9.0 or later. The version 3.0 of the resource http factor plugin remains compatible with AM 4.9.0.&#x20;
+The version 4.0 of the resource plugin [gravitee-am-resource-http-factor](https://download.gravitee.io/#graviteeio-ee/am/plugins/resources/gravitee-am-resource-http-factor/) has been released. This version requires AM 4.9.0 or later. The version 3.0 of the resource http factor plugin remains compatible with AM 4.9.0.
 
 ### 4.7.0
 
@@ -42,11 +42,11 @@ To create a Security Domain via the Management REST API, the `dataPlaneId` attri
 
 **Identity Provider**
 
-To update an IdentityProvider with the Management REST API, the `type` attribute is mandatory.&#x20;
+To update an IdentityProvider with the Management REST API, the `type` attribute is mandatory.
 
 **Extension Grant**
 
-To update an ExtensionGrant plugin via the Management REST API, the `type` attribute is mandatory.&#x20;
+To update an ExtensionGrant plugin via the Management REST API, the `type` attribute is mandatory.
 
 **AccountLinking Policy**
 

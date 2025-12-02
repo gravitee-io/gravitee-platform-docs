@@ -44,14 +44,10 @@ The concepts below are central to using AM.
     An organization is internal data space that is provisioned by AM to hold all the resources that handle user authentication.<br>
 
     <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>The Community Edition version of AM comes with a single default organization</p></div>
-
-
 *   **Environment**\
     An environment is a logical workspace in which administrative users can manage security domains.<br>
 
     <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>The Community Edition version of AM comes with a single default environment</p></div>
-
-
 * **Security domain**\
   A security domain:
   * Gives you access to all the AM resources, such as applications, users, and identity providers
@@ -95,14 +91,10 @@ AM acts as an identity provider broker and is based on the OAuth2 / OpenID Conne
     * The **token endpoint** used by the client to obtain an access token by presenting its authorization grant.<br>
 
     <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>For further information about OAuth2, view the <a href="https://tools.ietf.org/html/rfc6749">RFC page</a>.</p></div>
-
-
 *   **OpenID Connect**\
     OpenID Connect is an identity layer on top of the OAuth 2.0 protocol. It enables clients to verify the identity of the end user via an Authorization Server to authenticate and obtain basic profile information about the end user.<br>
 
     <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>For further information about OpenID Connect, view the <a href="http://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect specifications</a>.</p></div>
-
-
 *   **SAML 2.0**\
     The Security Assertion Markup Language (SAML) protocol is an open-standard, XML-based framework for the authentication and authorization of users. Gravitee AM can act as SAML IdP for applications, as well as federate with SAML-based identity providers for protocol mediation.<br>
 

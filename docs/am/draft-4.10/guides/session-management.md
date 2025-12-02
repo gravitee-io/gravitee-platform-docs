@@ -12,7 +12,7 @@ By default, the session lasts 30 minutes. You can change this value via the Gate
 
 ## Session cookie option
 
-The session cookie option allows the end user to consent to a "remember me" feature by enabling the corresponding checkbox. With this option selected, the user is not logged out of an application after a period of idling.&#x20;
+The session cookie option allows the end user to consent to a "remember me" feature by enabling the corresponding checkbox. With this option selected, the user is not logged out of an application after a period of idling.
 
 The "remember me" feature implements the following:
 

@@ -8,7 +8,7 @@ description: >-
 
 ## OpenID provider improvement
 
-The [OpenID identity provider ](../../guides/identity-providers/social-identity-providers/openid-connect.md)has been updated to support the `application/jwt` content type at the [UserInfo Endpoint](https://openid.net/specs/openid-connect-core-1_0.html#UserInfoResponse).&#x20;
+The [OpenID identity provider ](../../guides/identity-providers/social-identity-providers/openid-connect.md)has been updated to support the `application/jwt` content type at the [UserInfo Endpoint](https://openid.net/specs/openid-connect-core-1_0.html#UserInfoResponse).
 
 The system accepts only signed JWT tokens. Signature validation is handled by the [Public Key Resolver](../../guides/identity-providers/social-identity-providers/openid-connect.md#public-key-resolver) defined in the provider's configuration.
 
@@ -36,7 +36,7 @@ The update requests received by the Management API are communicated to the Gatew
 
 If a Gateway restarts, it reads its configuration directly from the database, and then queries the events table for any changes that occurred. With this architecture, events records don't need to be retained indefinitely.
 
-Access Management version 4.9 implements a 90-day retention policy on the events table. To achieve this, a TTL (Time-to-Live) index is created for installations that use a MongoDB backend. For installations that use an RDBMS backend, a purge service runs daily, at 11:00 PM by default.&#x20;
+Access Management version 4.9 implements a 90-day retention policy on the events table. To achieve this, a TTL (Time-to-Live) index is created for installations that use a MongoDB backend. For installations that use an RDBMS backend, a purge service runs daily, at 11:00 PM by default.
 
 {% hint style="info" %}
 The MongoDB index is created automatically on the Management API, at Gateway startup.

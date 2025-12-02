@@ -28,7 +28,7 @@ An **identity provider** brokers trust with external user providers to authentic
 
 ### Policies
 
-A **policy** modifies the behavior of a request or response handled by AM Gateway. It can be chained by a request policy chain or a response policy chain using a logical order.&#x20;
+A **policy** modifies the behavior of a request or response handled by AM Gateway. It can be chained by a request policy chain or a response policy chain using a logical order.
 
 Extension points use policies to guarantee a given business rule is fulfilled during request processing. An example of using a policy is to call all external web services during Login Flow (HTTP Callout policy).
 
@@ -51,4 +51,4 @@ An **alert** allows AM to send triggers or events to the Alert Engine which can 
 
 ### Secret providers
 
-A **secret provider** resolves secrets to avoid exposing plain text passwords and secrets keys in the `gravitee.yml` file. For example, users can store their MongoDB password in a secret manager like HashiCorp Vault and then resolve it when the platform starts.&#x20;
+A **secret provider** resolves secrets to avoid exposing plain text passwords and secrets keys in the `gravitee.yml` file. For example, users can store their MongoDB password in a secret manager like HashiCorp Vault and then resolve it when the platform starts.
