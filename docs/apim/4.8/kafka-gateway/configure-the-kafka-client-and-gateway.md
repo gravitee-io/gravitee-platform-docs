@@ -153,11 +153,11 @@ To configure the APIM Console to use the Kafka domain and port values for your O
 3. Select **Entrypoints & Sharding Tags** from the left nav.
 4.  In the **Entrypoint Configuration** section, confirm that the **Default Kafka domain** and **Default Kafka port** values match those of your Kafka API.\\
 
-    <figure><img src="../.gitbook/assets/00 kafka (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/00 kafka.png" alt=""><figcaption></figcaption></figure>
 
     This value is then displayed on the entrypoint page of your APIs.
 
-    <figure><img src="../.gitbook/assets/00 kafka 1 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/00 kafka 1.png" alt=""><figcaption></figcaption></figure>
 
 ## Configure the Kafka client
 
@@ -209,10 +209,10 @@ The following example provides a template for how to produce and consume message
 3. After selecting your API, click on the **My Subscriptions** tab.
 4.  Copy the script in the **Review Kafka Properties** section and paste it into your `connect.properties` file.
 
-    <div align="left"><figure><img src="../.gitbook/assets/1 pc 2 (1).png" alt="" width="563"><figcaption></figcaption></figure></div>
+    <div align="left"><figure><img src="../.gitbook/assets/1 pc 2.png" alt="" width="563"><figcaption></figcaption></figure></div>
 5.  Copy either the produce or consume commands from the **Calling the API** section.
 
-    <div align="left"><figure><img src="../.gitbook/assets/00 kafka 2 (1).png" alt="" width="563"><figcaption></figcaption></figure></div>
+    <div align="left"><figure><img src="../.gitbook/assets/00 kafka 2.png" alt="" width="563"><figcaption></figcaption></figure></div>
 6. In a terminal, change your working directory to the top-level folder of your Kafka download.
 7. Paste and execute the commands you copied to produce or consume messages.
 
