@@ -60,7 +60,7 @@ To remediate this risk, there is a concept of a Default factor. This factor will
 
 Default factor is managed by choosing the factor with a radio button.
 
-<figure><img src="../../.gitbook/assets/conf mfa 8.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/conf mfa 7 (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Section 2 - MFA enrollment
 
