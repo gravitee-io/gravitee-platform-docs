@@ -76,7 +76,7 @@ Then, for two APIs, the client will connect to, e.g., `my-bootstrap-api1.mycompa
 
 After the Kafka client connects to the API, the Gateway (acting as the bootstrap server) returns the list of brokers in the upstream cluster.
 
-<figure><img src="../.gitbook/assets/image (151) (1).png" alt="" width="563"><figcaption><p>The proxy obtains the list of brokers from the upstream cluster.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (151).png" alt="" width="563"><figcaption><p>The proxy obtains the list of brokers from the upstream cluster.</p></figcaption></figure>
 
 To properly provide the client with the list of brokers and the associated metadata about topics and partitions on those brokers, the Gateway creates a one-to-one mapping between the brokers in the upstream cluster and the brokers seen by the client.
 
