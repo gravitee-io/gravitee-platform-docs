@@ -36,11 +36,11 @@ In the New Developer Portal catalog, you can search for an API based on an assoc
 
 Here is an example of categories as header tabs:
 
-<figure><img src="../../.gitbook/assets/0%20tabs%20(1).png" alt=""><figcaption><p>Tabs category view</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/0 tabs.png" alt=""><figcaption><p>Tabs category view</p></figcaption></figure>
 
 Here is an example of categories as tiles:
 
-<figure><img src="../../.gitbook/assets/0%20tiles%20(1).png" alt=""><figcaption><p>Tiles category view</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/0 tiles.png" alt=""><figcaption><p>Tiles category view</p></figcaption></figure>
 
 ## Fonts
 
