@@ -31,7 +31,7 @@ You can add more than one ACL in the same policy.
 Kafka follows the rule that if there is an ACL that denies an action, it takes precedence over ACLs that allow an action. If more than one ACL applies to the client connection to the Gateway, the most restrictive ACL is applied.
 {% endhint %}
 
-<figure><img src="../../../.gitbook/assets/image%20(154)%20(1).png" alt=""><figcaption><p>Kafka ACL Policy UI</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (154).png" alt=""><figcaption><p>Kafka ACL Policy UI</p></figcaption></figure>
 
 ## Examples
 
