@@ -8,34 +8,34 @@ description: An overview about solace.
 
 Solace is an advanced event broker that enables an event mesh architecture. Solace Event Portal acts as an API portal for events, and Gravitee's Solace federation agent integrates with this platform to manage Event APIs.
 
-## Prerequisites&#x20;
+## Prerequisites
 
 Before you install the Solace federation agent, complete the following steps:
 
-* Obtain access to a Solace PubSub+ Cloud account. For more information, see [creating a Solace event portal to manage Event API. ](https://api.solace.dev/cloud/reference/apim-getting-started)
+* Obtain access to a Solace PubSub+ Cloud account. For more information, see [creating a Solace event portal to manage Event API.](https://api.solace.dev/cloud/reference/apim-getting-started)
 * Install Gravitee API Management version 4.4 or later, with an enterprise license. For more information about Enterprise edition, see[ Enterprise Edition Licensing.](https://documentation.gravitee.io/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing#license-support)
 * Create an access token. For more information, see [how to create a service account and an access token.](../federation-agent-service-account.md)
 * Generate Solace API token with appropriate permissions. See [#minimum-solace-permissions-required-by-the-agent](solace.md#minimum-solace-permissions-required-by-the-agent "mention")
 
-## Integrate Solace with Gravitee APIM&#x20;
+## Integrate Solace with Gravitee APIM
 
 To integrate Solace with Gravitee APIM, complete the following steps:
 
 1. [#create-a-solace-integration-in-the-grvaitee-apim-console](solace.md#create-a-solace-integration-in-the-grvaitee-apim-console "mention")
 2. [#run-the-solace-federation-agent](solace.md#run-the-solace-federation-agent "mention")
 
-### Create a Solace integration in the Grvaitee APIM Console&#x20;
+### Create a Solace integration in the Grvaitee APIM Console
 
 1.  From the Dashboard, click **Integrations.**
 
-    <figure><img src="../../../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (16) (1).png" alt=""><figcaption></figcaption></figure>
 2.  Click **Create Integration**.
 
-    <figure><img src="../../../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (18) (2).png" alt=""><figcaption></figcaption></figure>
 3.  Select **Solace**, and then click **Next**.
 
     <figure><img src="../../../.gitbook/assets/select-solace-and-click-next.png" alt=""><figcaption></figcaption></figure>
-4.  Type the **Integration Name.**&#x20;
+4.  Type the **Integration Name.**
 
     <figure><img src="../../../.gitbook/assets/solace-integration-name-and-description.png" alt=""><figcaption></figcaption></figure>
 5.  (Optional) Type the **Description** for the integration.
@@ -48,8 +48,6 @@ To integrate Solace with Gravitee APIM, complete the following steps:
 
     <figure><img src="../../../.gitbook/assets/copy-solace-integraiton-id.png" alt=""><figcaption></figcaption></figure>
 
-
-
 ### Run the Solace federation agent
 
 You can deploy the Solace federation agent using either of the following installation methods:
@@ -57,7 +55,7 @@ You can deploy the Solace federation agent using either of the following install
 * [#docker-compose](solace.md#docker-compose "mention")
 * [#helm](solace.md#helm "mention")
 
-### Docker Compose&#x20;
+### Docker Compose
 
 1.  Copy the following configuration, and then save it to your Docker Compose file:
 
@@ -111,8 +109,6 @@ You can deploy the Solace federation agent using either of the following install
     # Optional: Filter for one or more Solace application domains
     SOLACE_APPLICATION_0_DOMAIN=[your-application-domain]
     ```
-
-
 3. Replace the following placeholder values with your own configuration:
    * `[your-APIM-management-API-host]`: Your Gravitee APIM management API URL.
    * `[your-token]`: Your Gravitee APIM access token.
@@ -131,18 +127,18 @@ You can deploy the Solace federation agent using either of the following install
     docker compose up -d
     ```
 
-#### Verification&#x20;
+#### Verification
 
 1.  In the Gravitee API Management console, after refreshing, you should now see the agent's status set to **Connected**.
 
     <figure><img src="../../../.gitbook/assets/copy-solace-integraiton-id (1).png" alt=""><figcaption></figcaption></figure>
 2. (Optional) If the Agent Connection shows as `Disconnected`, inspect the agent container logs for error messages.
 
-### Helm&#x20;
+### Helm
 
 To deploy the federation agent to your Kubernetes cluster, complete the following steps:
 
-#### Update your Helm Chart&#x20;
+#### Update your Helm Chart
 
 * Add the Gravitee Helm repository and update it to ensure you have access to the latest charts:
 
@@ -152,11 +148,11 @@ helm repo add gravitee https://helm.gravitee.io
 helm repo update
 ```
 
-#### Configure the Federation Agent Helm values&#x20;
+#### Configure the Federation Agent Helm values
 
 Create the Helm values file based on your APIM management API's certificate setup. You can use the default configuration or custom certificate configuration.
 
-#### Default configuration&#x20;
+#### Default configuration
 
 1.  This configuration uses the default Java truststore for your APIM management API certificates. Create a file named `federation-agent-solace-values.yaml` in your working directory, and then copy the following configuration:<br>
 
@@ -234,16 +230,13 @@ Create the Helm values file based on your APIM management API's certificate setu
                 appDomains:
                   - [your-application-domain]
     ```
-
-
-
 2. Make the following modifications to your `federation-agent-solace-values.yaml` file:
    * Replace `[your-cloud-token]` with your Gravitee Cloud token or remove the entire `cloud:` section if using self-hosted APIM.
    * Replace `[your-APIM-management-API-host]` with your APIM management API URL. For example, `apim.example.com` or `gravitee-apim-api.gravitee-apim.svc.cluster.local:8083` for internal Kubernetes service.
    * Replace `[your-token]` with your service account bearer token.
    * Replace `[your-integration-id]` with the Integration ID.
    * Replace `[your-solace-token]` with your Solace API token.
-   * (For filtering only) Replace `[your-application-domain]` with your Solace application domain.&#x20;
+   * (For filtering only) Replace `[your-application-domain]` with your Solace application domain.
 3.  Deploy the federation agent to your Kubernetes cluster by running the following command:
 
     ```shellscript
@@ -254,7 +247,7 @@ Create the Helm values file based on your APIM management API's certificate setu
       --create-namespace
     ```
 
-#### Custom certificate configuration&#x20;
+#### Custom certificate configuration
 
 1.  This configuration includes custom truststore volume mounts for certificates from private certificate authorities or self-signed certificates. Create a file named `federation-agent-solace-values.yaml`, and then copy the following configuration:
 
@@ -359,7 +352,7 @@ If your APIM management API uses certificates that require a custom truststore, 
    * Replace `[your-token]` with your service account bearer token.
    * Replace `[your-integration-id]` with the Integration ID.
    * Replace `[your-solace-token]` with your Solace API token.
-   * (optional, for filtering) Replace `[your-application-domain]` with your Solace application domain.&#x20;
+   * (optional, for filtering) Replace `[your-application-domain]` with your Solace application domain.
 3.  Deploy the federation agent to your Kubernetes cluster by running the following command:
 
     ```shellscript
@@ -370,7 +363,7 @@ If your APIM management API uses certificates that require a custom truststore, 
       --create-namespace
     ```
 
-### Verification&#x20;
+### Verification
 
 1.  When the deployment is successful, verify the installation is running using the following command:<br>
 
@@ -378,16 +371,12 @@ If your APIM management API uses certificates that require a custom truststore, 
     kubectl get pods -n gravitee-apim -l app.kubernetes.io/name=federation-agent
     ```
 
-
-
     The output should show the federation agent ready and running:
 
     ```bash
     NAME                                     READY   STATUS    RESTARTS   AGE
     federation-agent-solace-xxxxx-yyyyy      1/1     Running   0          30s
     ```
-
-
 2.  Return to the Gravitee API Management console, refresh the page, and verify that the agent's status is set to **Connected**.<br>
 
     <figure><img src="../../../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>

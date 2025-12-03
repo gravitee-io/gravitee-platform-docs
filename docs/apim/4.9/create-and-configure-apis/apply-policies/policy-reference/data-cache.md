@@ -73,7 +73,7 @@ The configuration for the first data cache policy is:
 
 Then the HTTP Callout policy has a trigger condition representing the attribute. The return value is put in a context variable called `access-token`:
 
-<figure><img src="../../../.gitbook/assets/image (147).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (147) (1).png" alt=""><figcaption></figcaption></figure>
 
 Lastly, if the first policy resulted in a cache miss, put the token from the HTTP callout policy in the cache:
 
