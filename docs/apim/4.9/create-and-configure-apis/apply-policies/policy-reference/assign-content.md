@@ -193,7 +193,7 @@ Let's walk through the above Freemarker code, line by line:
 
 **Line 7:** Output all key/value pairs to the final response.
 
-<figure><img src="../../../.gitbook/assets/image (177) (1).png" alt=""><figcaption><p>Assign Content policy configuration UI</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image%20(185).png" alt=""><figcaption><p>Assign Content policy configuration UI</p></figcaption></figure>
 
 {% code title="Final response payload (sent onto client):" %}
 ```json
