@@ -5,6 +5,16 @@ noIndex: true
 
 # Release Notes
 
+### Version 3.12.10 (December 3, 2025) <a href="#id-3.12.10" id="id-3.12.10"></a>
+
+#### Upgrade Golang to 1.24.10
+
+Ambassador Edge Stack now uses Golang version 1.24.10. This update resolves various security fixes including CVE-2025-47912 and CVE-2025-58186
+
+#### Upgrade various dependencies
+
+Various dependencies were upgraded, in particular ACME packages were upgraded to resolve various security fixes.&#x20;
+
 ### Version 3.12.9 (October 17, 2025) <a href="#id-3.12.9" id="id-3.12.9"></a>
 
 #### Upgrade Coraza to 3.3.3
@@ -283,7 +293,7 @@ Upgrading to the latest release of Golang as part of our general dependency upgr
 
 #### Ambassador Edge Stack will fail to run if a valid license is not present
 
-Ambassador Edge Stack will now require a valid non-expired license to run the product. If a valid license is not present or your clusters are not connected to and showing licensed in Ambassador Cloud, then Ambassador Edge Stack will refuse to startup. If you already have an enterprise license then you do not need to do anything so long as it is properly applied and not expired. Please view the [license documentation](ambassador-edge-stack-licenses.md) page for more information on your license. If you do not have an enterprise license for Ambassador Edge Stack then you can visit [the quickstart guide](README.md) to get setup with a free community license by signing into Ambassador Cloud and connecting your installation.
+Ambassador Edge Stack will now require a valid non-expired license to run the product. If a valid license is not present or your clusters are not connected to and showing licensed in Ambassador Cloud, then Ambassador Edge Stack will refuse to startup. If you already have an enterprise license then you do not need to do anything so long as it is properly applied and not expired. Please view the [license documentation](ambassador-edge-stack-licenses.md) page for more information on your license. If you do not have an enterprise license for Ambassador Edge Stack then you can visit [the quickstart guide](./) to get setup with a free community license by signing into Ambassador Cloud and connecting your installation.
 
 #### Account for matchLabels when associating mappings with the same prefix to different Hosts
 
