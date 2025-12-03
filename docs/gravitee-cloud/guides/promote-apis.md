@@ -17,7 +17,7 @@ The following sections describe how to promote an API from one environment to an
 {% endhint %}
 
 {% hint style="info" %}
-For a quick introduction on how to create an API in APIM, see [Create APIs](https://documentation.gravitee.io/apim/guides/create-apis).
+For a quick introduction on how to create an API in APIM, see [Create APIs](https://documentation.gravitee.io/apim/create-and-configure-apis/create-apis).
 {% endhint %}
 
 ## How to promote an API
