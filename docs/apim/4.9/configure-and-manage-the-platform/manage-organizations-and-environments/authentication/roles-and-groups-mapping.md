@@ -14,7 +14,7 @@ Once you configure your chosen identity provider(s) in API Management, you can a
 
 After you add your identity provider, two new items appear within your identity provider configuration: **Groups Mapping** and **Roles Mapping**.
 
-<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image%20(4).png" alt=""><figcaption></figcaption></figure>
 
 **Groups Mapping** maps users into groups. Groups can be assigned to APIs. You can use the APIM Console to control the interactions between groups and the APIs to which they are assigned. The visibility of APIs and API documentation pages can be controlled at the group level using the Developer Portal.
 
