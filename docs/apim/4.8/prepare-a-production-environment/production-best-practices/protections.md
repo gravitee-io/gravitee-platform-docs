@@ -142,4 +142,4 @@ http:
         allow-origin: 'https://gio-portal.mycompany.com'
 ```
 
-`allow-origin: '*'` should be considered a security risk because it permits all cross-origin requests. **We highly recommend fine-tuning the allow-origin setting. Refer to** the [Gravitee documentation](https://documentation.gravitee.io/apim/getting-started/configuration/configure-apim-management-api/internal-api#cors-configuration) for other useful information related to CORS.
+`allow-origin: '*'` should be considered a security risk because it permits all cross-origin requests. **We highly recommend fine-tuning the allow-origin setting. Refer to** the [Gravitee documentation](../../create-and-configure-apis/configure-v2-apis/proxy-settings.md) for other useful information related to CORS.
