@@ -35,7 +35,7 @@ To promote an API requires:
 
 ### Request promotion for an API
 
-To request a promotion, you need to have API `DEFINITION` [permissions](https://documentation.gravitee.io/apim/guides/administration/user-management-and-permissions#api-permissions). Promotion requests are logged in the [Audit trail](https://documentation.gravitee.io/apim/guides/api-measurement-tracking-and-analytics#the-audit-trail).
+To request a promotion, you need to have API `DEFINITION` [permissions](https://documentation.gravitee.io/apim/configure-and-manage-the-platform/manage-organizations-and-environments/user-management#permissions). Promotion requests are logged in the [Audit trail](https://documentation.gravitee.io/apim/guides/api-measurement-tracking-and-analytics#the-audit-trail).
 
 The following example shows how to promote an API from environment `DEV` to environment `QA`. These steps must be performed with an API Publisher on the `DEV` environment.
 
@@ -60,7 +60,7 @@ If a promotion request for your API already exists on an environment, you cannot
 
 ### Accept or reject a promotion
 
-To accept or reject a promotion, you need to have environment `API` [permissions](https://documentation.gravitee.io/apim/guides/administration/user-management-and-permissions#environment-permissions).
+To accept or reject a promotion, you need to have environment `API` [permissions](https://documentation.gravitee.io/apim/configure-and-manage-the-platform/manage-organizations-and-environments/user-management#permissions).
 
 To continue with our example, a user of the `QA` environment will see the promotion request in the **Tasks** section. Follow the steps below to accept or reject the promotion.
 

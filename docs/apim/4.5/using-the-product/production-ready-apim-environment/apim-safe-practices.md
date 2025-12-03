@@ -23,7 +23,7 @@ Some good practices to establish:
 * Assign permissions to a group instead of each user individually.
 * Automatically associate a group with each new API or application to facilitate permission management.
 
-You can find detail on roles, groups, and permissions in the [Gravitee documentation](https://documentation.gravitee.io/apim/guides/administration/user-management-and-permissions).
+You can find detail on roles, groups, and permissions in the [Gravitee documentation](../administration/user-management-and-permissions.md).
 
 ## API review & quality
 
