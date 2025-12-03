@@ -1,5 +1,23 @@
 # GitBook Blocks
 
+[Text link syntax](https://www.google.com)
+
+Anchor heading link:
+
+[#h1-heading](gitbook-blocks.md#h1-heading "mention")
+
+Anchor tab link:
+
+[#javascript](gitbook-blocks.md#javascript "mention")
+
+Anchor expandable link:
+
+[#expandable](gitbook-blocks.md#expandable "mention")
+
+Cross-page link in same space, with anchor:
+
+[#background-example](template-for-concept-articles.md#background-example "mention")
+
 H1 heading:
 
 ## H1 heading
@@ -198,35 +216,34 @@ Examples of indentation:
 
 *   Some text<br>
 
-    <figure><img src=".gitbook/assets/02.png" alt=""><figcaption><p>Example  screenshot</p></figcaption></figure>
+    <figure><img src=".gitbook/assets/02.png" alt=""><figcaption><p>Example screenshot</p></figcaption></figure>
 *   Some text<br>
 
     <pre data-title="filename.ext"><code><strong>// Some code
     </strong></code></pre>
+
     Some text
 * Here are steps to complete
   1.  Step 1<br>
 
-      <figure><img src=".gitbook/assets/02.png" alt=""><figcaption><p>Example  screenshot</p></figcaption></figure>
+      <figure><img src=".gitbook/assets/02.png" alt=""><figcaption><p>Example screenshot</p></figcaption></figure>
   2. Step 2
 * Some text
   *   Some bullet<br>
 
       <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>{Optional: Indented admonition.}</p></div>
-
-
   * Some bullet
 
 OpenAPI spec:
 
 {% openapi-operation spec="mapi-v1-file" path="/auth/cockpit" method="get" %}
-[OpenAPI mapi-v1-file](https://4401d86825a13bf607936cc3a9f3897a.r2.cloudflarestorage.com/gitbook-x-prod-openapi/raw/dfe98bd3e124bf2dfe64e9f4a08af46943f7c95f2e8da7ef449c70e6e01dcbbd.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=dce48141f43c0191a2ad043a6888781c%2F20251203%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20251203T185646Z&X-Amz-Expires=172800&X-Amz-Signature=311ad4d36636b82636d0b017649ed50f35c0e483087ce316d571275a643dc3f3&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
+[OpenAPI mapi-v1-file](https://4401d86825a13bf607936cc3a9f3897a.r2.cloudflarestorage.com/gitbook-x-prod-openapi/raw/dfe98bd3e124bf2dfe64e9f4a08af46943f7c95f2e8da7ef449c70e6e01dcbbd.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=dce48141f43c0191a2ad043a6888781c%2F20251203%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20251203T190703Z&X-Amz-Expires=172800&X-Amz-Signature=5a12e851169bddc4523f6bbe809501cb5ab8fb570d34d0810384618369e8c985&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
 {% endopenapi-operation %}
 
 {% openapi-operation spec="mapi-v1-file" path="/auth/external" method="get" %}
-[OpenAPI mapi-v1-file](https://4401d86825a13bf607936cc3a9f3897a.r2.cloudflarestorage.com/gitbook-x-prod-openapi/raw/dfe98bd3e124bf2dfe64e9f4a08af46943f7c95f2e8da7ef449c70e6e01dcbbd.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=dce48141f43c0191a2ad043a6888781c%2F20251203%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20251203T185646Z&X-Amz-Expires=172800&X-Amz-Signature=311ad4d36636b82636d0b017649ed50f35c0e483087ce316d571275a643dc3f3&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
+[OpenAPI mapi-v1-file](https://4401d86825a13bf607936cc3a9f3897a.r2.cloudflarestorage.com/gitbook-x-prod-openapi/raw/dfe98bd3e124bf2dfe64e9f4a08af46943f7c95f2e8da7ef449c70e6e01dcbbd.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=dce48141f43c0191a2ad043a6888781c%2F20251203%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20251203T190703Z&X-Amz-Expires=172800&X-Amz-Signature=5a12e851169bddc4523f6bbe809501cb5ab8fb570d34d0810384618369e8c985&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
 {% endopenapi-operation %}
 
 {% openapi-operation spec="mapi-v1-file" path="/organizations/{orgId}" method="get" %}
-[OpenAPI mapi-v1-file](https://4401d86825a13bf607936cc3a9f3897a.r2.cloudflarestorage.com/gitbook-x-prod-openapi/raw/dfe98bd3e124bf2dfe64e9f4a08af46943f7c95f2e8da7ef449c70e6e01dcbbd.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=dce48141f43c0191a2ad043a6888781c%2F20251203%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20251203T185646Z&X-Amz-Expires=172800&X-Amz-Signature=311ad4d36636b82636d0b017649ed50f35c0e483087ce316d571275a643dc3f3&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
+[OpenAPI mapi-v1-file](https://4401d86825a13bf607936cc3a9f3897a.r2.cloudflarestorage.com/gitbook-x-prod-openapi/raw/dfe98bd3e124bf2dfe64e9f4a08af46943f7c95f2e8da7ef449c70e6e01dcbbd.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=dce48141f43c0191a2ad043a6888781c%2F20251203%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20251203T190703Z&X-Amz-Expires=172800&X-Amz-Signature=5a12e851169bddc4523f6bbe809501cb5ab8fb570d34d0810384618369e8c985&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
 {% endopenapi-operation %}
