@@ -35,7 +35,7 @@ To integrate Azure API Management with Gravitee APIM, complete the following ste
 2.  Click **Create Integration.**
 
     <figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
-3.  Select **Azure API Management**, and then click **Next**.<br>
+3.  Select **Azure API Management**, and then click **Next**.
 
     <figure><img src="../../../.gitbook/assets/click-next-azure-federation.png" alt=""><figcaption></figcaption></figure>
 4.  Type the **Integration Name**.
