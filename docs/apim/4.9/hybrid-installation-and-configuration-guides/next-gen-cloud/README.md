@@ -90,7 +90,7 @@ All communication between the hybrid Gateway and the Cloud Gate endpoints uses T
 
 <figure><img src="../../.gitbook/assets/image (29) (1) (1).png" alt=""><figcaption><p>Overview of a Gravitee Cloud deployment in Azure with a hybrid gateway connecting to the Gravitee Cloud API Management Control Plane using the Cloud Gate and Cloud Tokens.</p></figcaption></figure>
 
-### Cloud Gate Endpoints
+### Cloud Gate endpoints
 
 Here are two key endpoints that your Gateway interacts with:
 
@@ -110,7 +110,7 @@ The Cloud Token contains the following information:
 
 The Cloud Token is used to establish a secure and authenticated connection with the appropriate Cloud Gate endpoint.
 
-### Connection Flow
+### Connection flow
 
 1. **Generate a Cloud Token.** Before connecting your Gateway, obtain a Cloud Token from your Cloud Control Plane.
 2. **Copy your Cloud license.** To start up and read your APIs, mount your license on the Gateway.
