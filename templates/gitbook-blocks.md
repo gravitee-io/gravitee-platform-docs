@@ -203,8 +203,6 @@ Examples of indentation:
 
     <pre data-title="filename.ext"><code><strong>// Some code
     </strong></code></pre>
-
-    \
     Some text
 * Here are steps to complete
   1.  Step 1<br>
