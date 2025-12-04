@@ -63,7 +63,7 @@ Let’s imagine a client application wants to retrieve the `telephoneNumber` att
     {
         "uid": "johndoe",
         "given_name": "John",
-        "family_name": "Doe"
+        "family_name": "Doe",
         "telephone_number: "202-555-0105"
     }
     ```
