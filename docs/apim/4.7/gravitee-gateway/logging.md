@@ -120,7 +120,8 @@ Sampling methods for v4 message APIs can also be configured in the `gravitee.yml
 * **Temporal:** Must be a `string` in ISO 8601 format
 
 {% code title="gravitee.yaml" %}
-```yaml
+````yaml
+```
 logging:
   messageSampling:
     probabilistic:
@@ -133,6 +134,7 @@ logging:
       default: PT1S
       limit: PT1S
 ```
+````
 {% endcode %}
 {% endtab %}
 
