@@ -66,7 +66,7 @@ Pragma: no-cache
 {
     "uid": "johndoe",
     "given_name": "John",
-    "family_name": "Doe"
+    "family_name": "Doe",
     "telephone_number: "202-555-0105"
 }
 ```
