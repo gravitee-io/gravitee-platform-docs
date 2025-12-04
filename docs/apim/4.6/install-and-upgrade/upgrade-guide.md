@@ -32,25 +32,24 @@ Particular plugins are only available to enterprise customers. [See Gravitee API
 * TLS 1.0 and TLS 1.1 protocols are disabled by default. You can enable these protocols with the proper TCP SSL configuration of the Gateway:
 
 {% code overflow="wrap" %}
+````
+```yaml
+http:
+  ssl:
+    tlsProtocols: TLSv1.0, TLSv1.1, TLSv1.2
 ```
-```
+````
 {% endcode %}
 
-\`\`\`\` \`\`\`yaml http: ssl: tlsProtocols: TLSv1.0, TLSv1.1, TLSv1.2 \`\`\` \`\`\`\` \{% endcode %\}
-
-\`
-
-\`\` or using environment variables:
-
+```
+ or using environment variables:
 ```
 
-<div data-gb-custom-block data-tag="code" data-overflow='wrap'></div>
-```
-
+{% code overflow="wrap" %}
+````
 ```bash
 GRAVITEE_HTTP_SSL_TLSPROTOCOLS=TLSv1.0,TLSv1.1,TLSv1.2
 ```
-
 ````
 {% endcode %}
 
@@ -148,11 +147,9 @@ APIM installations connected to Cloud require changes to the Management API's `g
 
 ### APIM 4.2 with Cloud connected
 
-<div data-gb-custom-block data-tag="hint" data-style='warning'>
-
-The user must edit the Management API's <code>gravitee.yaml</code>.
-
-</div>
+{% hint style="warning" %}
+The user must edit the Management API's `gravitee.yaml`.
+{% endhint %}
 
 If an APIM installation connected to Cloud is upgraded to 4.2, the user must make the following changes to the Management API's `gravitee.yaml` file for the installation to function as `standalone`:
 
@@ -248,9 +245,6 @@ Or you can use an environment variable:
 GRAVITEE_MANAGEMENT_HTTP_SSL_TRUSTALL="true"
 ```
 
-<div data-gb-custom-block data-tag="hint" data-style='warning'>
-
+{% hint style="warning" %}
 The "trust all" configuration parameter was formerly named <code>trustall</code>, it is now named <code>trustAll</code> for consistency. To avoid a breaking change both names work, but the former has been deprecated.
-
-</div>
-````
+{% endhint %}

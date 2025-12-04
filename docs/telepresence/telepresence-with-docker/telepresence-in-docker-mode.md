@@ -42,9 +42,9 @@ The remote cluster is running the Emojivoto application, which consists of four 
 
 1.  Go to the and vote for some emojis.
 
-    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
-      <p>If the link to the remote demo cluster doesn't work, make sure you don't have an <strong>ad blocker</strong> preventing it from opening.</p>
-    </div>
+    {% hint style="info" %}
+    If the link to the remote demo cluster doesn't work, make sure you don't have an **ad blocker** preventing it from opening.
+    {% endhint %}
 2. Now, click on the 🍩 emoji. You'll see that a bug is present, and voting 🍩 doesn't work. We're going to use Telepresence shortly to fix this bug, as everyone should be able to vote for 🍩!
 
 {% hint style="success" %}
@@ -61,10 +61,10 @@ We'll set up a development environment locally on your workstation. We'll then u
     docker run -d --name ambassador-demo --pull always -p 8083:8083 -p 8080:8080 --rm -it datawire/demoemojivoto
     ```
 
-    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
-      <p>If you're using Docker Desktop on Windows, you may need to <a href="https://docs.docker.com/desktop/troubleshoot-and-support/troubleshoot/topics/#virtualization">enable virtualization</a> to run the container.</p>
-      <blockquote><p>Make sure that ports <strong>8080</strong> and <strong>8083</strong> are free. If the Docker engine is not running, the command will fail and you will see <strong>docker: unknown server OS</strong> in your terminal.</p></blockquote>
-    </div>
+    {% hint style="info" %}
+    If you're using Docker Desktop on Windows, you may need to [enable virtualization](https://docs.docker.com/desktop/troubleshoot-and-support/troubleshoot/topics/#virtualization) to run the container.
+    \> Make sure that ports **8080** and **8083** are free. If the Docker engine is not running, the command will fail and you will see **docker: unknown server OS** in your terminal.
+    {% endhint %}
 
     The Docker container includes a copy of the Emojivoto application that fixes the bug. Visit the leaderboard and notice how it is different from the leaderboard in your Kubernetes cluster.
 2.  Now, stop the container by running the following command in your terminal:
@@ -80,27 +80,31 @@ In this section of the quickstart, you ran the Emojivoto application locally. In
 1. Download your demo cluster config file. This file contains the credentials you need to access your demo cluster.
 2. Export the file's location to KUBECONFIG by running this command in your terminal:
 
-\`\`\`\` \`\`\`bash export KUBECONFIG=/path/to/kubeconfig.yaml \`\`\` \`\`\`\` \{% endtab %\}
-
-\{% tab title="macOS" %\}
-
+{% tabs %}
+{% tab title="GNU/Linux" %}
 ````
 ```bash
 export KUBECONFIG=/path/to/kubeconfig.yaml
 ```
 ````
+{% endtab %\}
 
-\{% endtab %\}
+{% tab title="macOS" %}
+````
+```bash
+export KUBECONFIG=/path/to/kubeconfig.yaml
+```
+````
+{% endtab %}
 
-\{% tab title="Windows" %\}
-
+{% tab title="Windows" %}
 ````
 ```bash
 SET KUBECONFIG=/path/to/kubeconfig.yaml
 ```
 ````
-
-\{% endtab %\} \{% endtabs %\}
+{% endtab %} 
+{% endtabs %}
 
 You should now be able to run `kubectl` commands against your demo cluster.
 

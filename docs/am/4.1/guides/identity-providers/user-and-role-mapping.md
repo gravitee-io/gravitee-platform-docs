@@ -47,29 +47,26 @@ Let’s imagine a client application wants to retrieve the `telephoneNumber` att
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-idp-user-mappers-phoneno.png" alt=""><figcaption><p>LDAP user mappers</p></figcaption></figure>
 5. Get the User Profile information via the UserInfo Endpoint and you will see that the new user attribute is present.
 
-{% code overflow="wrap" %}
-```
-```
-{% endcode %}
+    {% code overflow="wrap" %}
+    ```sh
+    curl -X GET http://GRAVITEEIO-AM-GATEWAY-HOST/:securityDomainPath/oidc/userinfo -H 'Authorization: Bearer :accessToken'
+    ```
+    {% endcode %}
 
-\`\`\`\` \`\`\`sh curl -X GET http://GRAVITEEIO-AM-GATEWAY-HOST/:securityDomainPath/oidc/userinfo -H 'Authorization: Bearer :accessToken' \`\`\` \`\`\`\` \{% endcode %\}
+    If it is working correctly, you will see something like this:
 
-````
-If it is working correctly, you will see something like this:
-
-```sh
-HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Cache-Control: no-cache, no-store, max-age=0, must-revalidate
-Pragma: no-cache
-{
-    "uid": "johndoe",
-    "given_name": "John",
-    "family_name": "Doe"
-    "telephone_number: "202-555-0105"
-}
-```
-````
+    ```sh
+    HTTP/1.1 200 OK
+    Content-Type: application/json;charset=UTF-8
+    Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+    Pragma: no-cache
+    {
+        "uid": "johndoe",
+        "given_name": "John",
+        "family_name": "Doe"
+        "telephone_number: "202-555-0105"
+    }
+    ```
 
 The same principle applies to any identity provider.
 

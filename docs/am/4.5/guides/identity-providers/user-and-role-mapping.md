@@ -48,11 +48,12 @@ Let’s imagine a client application wants to retrieve the `telephoneNumber` att
 5. Get the User Profile information via the UserInfo Endpoint and you will see that the new user attribute is present.
 
 {% code overflow="wrap" %}
+````
+```sh
+curl -X GET http://GRAVITEEIO-AM-GATEWAY-HOST/:securityDomainPath/oidc/userinfo -H 'Authorization: Bearer :accessToken'
 ```
-```
+````
 {% endcode %}
-
-\`\`\`\` \`\`\`sh curl -X GET http://GRAVITEEIO-AM-GATEWAY-HOST/:securityDomainPath/oidc/userinfo -H 'Authorization: Bearer :accessToken' \`\`\` \`\`\`\` \{% endcode %\}
 
 ````
 If it is working correctly, you will see something like this:
