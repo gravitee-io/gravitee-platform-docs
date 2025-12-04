@@ -32,24 +32,24 @@ Some plugins are available to only customers with the Enterprise Edition of Grav
 * By default, TLS 1.0 and TLS 1.1 protocols are disabled. You can enable these protocols with the proper TCP SSL configuration of the Gateway:
 
 {% code overflow="wrap" %}
+````yaml
+```yaml
+http:
+  ssl:
+    tlsProtocols: TLSv1.0, TLSv1.1, TLSv1.2
 ```
-```
+````
 {% endcode %}
 
-\`\`\`\`yaml \`\`\`yaml http: ssl: tlsProtocols: TLSv1.0, TLSv1.1, TLSv1.2 \`\`\` \`\`\`\` \{% endcode %\}
+```yaml
+ or using environment variables:
+```
 
-\`
-
-\`\`yaml or using environment variables:
-
-`````
-
-<div data-gb-custom-block data-tag="code" data-overflow='wrap'></div>
+{% code overflow="wrap" %}
 ````bash
 ```bash
 GRAVITEE_HTTP_SSL_TLSPROTOCOLS=TLSv1.0,TLSv1.1,TLSv1.2
-`````
-
+```
 ````
 {% endcode %}
 
@@ -149,11 +149,9 @@ APIM installations connected to Cloud require changes to the Management API's `g
 
 ### APIM 4.2 with Cloud connected
 
-<div data-gb-custom-block data-tag="hint" data-style='warning'>
-
+{% hint style="warning" %}
 The user must edit the Management API's <code>gravitee.yaml</code>.
-
-</div>
+{% endhint %}
 
 If an APIM installation connected to Cloud is upgraded to 4.2, the user must make the following changes to the Management API's `gravitee.yaml` file for the installation to function as `standalone`:
 
@@ -256,4 +254,3 @@ GRAVITEE_MANAGEMENT_HTTP_SSL_TRUSTALL="true"
 You may have noticed the "trust all" configuration parameter was formerly named `trustall`, it is now named `trustAll` for consistency. To avoid a breaking change here both names work, but the former has been deprecated.
 
 ***
-````

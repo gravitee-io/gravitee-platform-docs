@@ -94,6 +94,8 @@ Logging information can be modified by configuring the options under the **Setti
 4. Click on **API Traffic** in the inner left sidebar
 5. Click on the **Settings** tab
 
+{% tabs %}
+{% tab title="v4 message APIs" %}
 {% hint style="info" %}
 Select logging options judiciously to optimize the value of recorded data against the potential for impact to API performance. Sampling is used to avoid excessive resource consumption and is only relevant to v4 message APIs.
 {% endhint %}
@@ -124,13 +126,28 @@ Sampling methods for v4 message APIs can also be configured in the `gravitee.yml
 * **Temporal:** Must be a `string` in ISO 8601 format
 
 {% code title="gravitee.yaml" %}
+````yaml
 ```
+logging:
+  messageSampling:
+    probabilistic:
+      default: 0.01
+      limit: 0.5
+    count:
+      default: 100
+      limit: 10000
+    temporal:
+      default: PT1S
+      limit: PT1S 
 ```
+````
 {% endcode %}
+{% endtab %}
 
-\`\`\`\`yaml \`\`\` logging: messageSampling: probabilistic: default: 0.01 limit: 0.5 count: default: 100 limit: 10000 temporal: default: PT1S limit: PT1S \`\`\` \`\`\`\` \{% endcode %\} \{% endtab %\}
-
-\{% tab title="v4 proxy APIs" %\} {% hint style="info" %} Select logging options judiciously to optimize the value of recorded data against the potential for impact to API performance. {% endhint %}
+{% tab title="v4 proxy APIs" %}
+{% hint style="info" %}
+Select logging options judiciously to optimize the value of recorded data against the potential for impact to API performance.
+{% endhint %}
 
 To configure which information is recorded, select from the following options:
 
@@ -140,8 +157,8 @@ To configure which information is recorded, select from the following options:
 * **Display conditions:** You have the ability to filter data based on **Request phase condition**. This field supports the use of [Gravitee Expression Language](../../managing-your-apis/gravitee-expression-language.md).
 
 <figure><img src="../../../.gitbook/assets/proxy API settings_CROP.png" alt=""><figcaption><p>Runtime logs settings</p></figcaption></figure>
-
-\{% endtab %\} \{% endtabs %\}
+{% endtab %}
+{% endtabs %}
 
 ### View messages
 
@@ -154,7 +171,9 @@ To view the details of any entry in the list of runtime logs:
 5. Click on the **Runtime Logs** tab
 6. Click on **View details** for a particular entry
 
-\{% tabs %\} \{% tab title="v4 message APIs" %\} Under the **Connection Logs** tab, logs for the entry are grouped by **Entrypoint Request**, **Endpoint Request**, **Entrypoint Response**, and **Endpoint Response**:
+{% tabs %}
+{% tab title="v4 message APIs" %}
+Under the **Connection Logs** tab, logs for the entry are grouped by **Entrypoint Request**, **Endpoint Request**, **Entrypoint Response**, and **Endpoint Response**:
 
 <figure><img src="../../../.gitbook/assets/connection details_CROP.png" alt=""><figcaption><p>View log details</p></figcaption></figure>
 
@@ -162,13 +181,15 @@ Under the **Messages** header, entrypoint and endpoint message details are group
 
 <figure><img src="../../../.gitbook/assets/message details_CROP.png" alt=""><figcaption><p>View message details</p></figcaption></figure>
 
-Each message record includes placeholder tabs for raw content, headers, and metadata. If the corresponding data was recorded, it will appear under the tab. If no data was recorded, the field will be empty. \{% endtab %\}
+Each message record includes placeholder tabs for raw content, headers, and metadata. If the corresponding data was recorded, it will appear under the tab. If no data was recorded, the field will be empty. 
+{% endtab %}
 
-\{% tab title="v4 proxy APIs" %\} Under **Details**, logs for the entry are grouped by **Entrypoint Request**, **Endpoint Request**, **Entrypoint Response**, and **Endpoint Response**, with **Headers** and **Payload** as the content:
+{% tab title="v4 proxy APIs" %}
+Under **Details**, logs for the entry are grouped by **Entrypoint Request**, **Endpoint Request**, **Entrypoint Response**, and **Endpoint Response**, with **Headers** and **Payload** as the content:
 
 <figure><img src="../../../.gitbook/assets/proxy logs_CROP.png" alt=""><figcaption><p>View log details</p></figcaption></figure>
-
-\{% endtab %\} \{% endtabs %\}
+{% endtab %}
+{% endtabs %}
 
 ## Expose metrics to Prometheus
 
@@ -176,9 +197,7 @@ The following sections detail the configurations necessary to expose metrics to 
 
 ### Enable the metrics service
 
-Prometheus support is activated and exposed using the component’s internal API. The metrics service can be enabled in the \`
-
-gravitee.yml\` configuration file:
+Prometheus support is activated and exposed using the component’s internal API. The metrics service can be enabled in the `gravitee.yml` configuration file:
 
 ```yaml
 services:

@@ -120,13 +120,26 @@ Sampling methods for v4 message APIs can also be configured in the `gravitee.yml
 * **Temporal:** Must be a `string` in ISO 8601 format
 
 {% code title="gravitee.yaml" %}
-```
+```yaml
+logging:
+  messageSampling:
+    probabilistic:
+      default: 0.01
+      limit: 0.5
+    count:
+      default: 100
+      limit: 10000
+    temporal:
+      default: PT1S
+      limit: PT1S
 ```
 {% endcode %}
+{% endtab %}
 
-\`\`\`\`yaml \`\`\` logging: messageSampling: probabilistic: default: 0.01 limit: 0.5 count: default: 100 limit: 10000 temporal: default: PT1S limit: PT1S \`\`\` \`\`\`\` \{% endcode %\} \{% endtab %\}
-
-\{% tab title="v4 proxy APIs" %\} {% hint style="info" %} Select logging options judiciously to optimize the value of recorded data against the potential for impact to API performance. {% endhint %}
+{% tab title="v4 proxy APIs" %} 
+{% hint style="info" %} 
+Select logging options judiciously to optimize the value of recorded data against the potential for impact to API performance. 
+{% endhint %}
 
 To configure which information is recorded, select from the following options:
 
@@ -137,7 +150,8 @@ To configure which information is recorded, select from the following options:
 
 <figure><img src="../.gitbook/assets/proxy API settings_CROP.png" alt=""><figcaption><p>Runtime logs settings</p></figcaption></figure>
 
-\{% endtab %\} \{% endtabs %\}
+{% endtab %}
+{% endtabs %}
 
 ### View messages
 
@@ -160,11 +174,13 @@ Under the **Messages** header, entrypoint and endpoint message details are group
 
 Each message record includes placeholder tabs for raw content, headers, and metadata. If the corresponding data was recorded, it will appear under the tab. If no data was recorded, the field will be empty. \{% endtab %\}
 
-\{% tab title="v4 proxy APIs" %\} Under **Details**, logs for the entry are grouped by **Entrypoint Request**, **Endpoint Request**, **Entrypoint Response**, and **Endpoint Response**, with **Headers** and **Payload** as the content:
+{% tab title="v4 proxy APIs" %}
+Under **Details**, logs for the entry are grouped by **Entrypoint Request**, **Endpoint Request**, **Entrypoint Response**, and **Endpoint Response**, with **Headers** and **Payload** as the content:
 
 <figure><img src="../.gitbook/assets/proxy logs_CROP.png" alt=""><figcaption><p>View log details</p></figcaption></figure>
 
-\{% endtab %\} \{% endtabs %\}
+{% endtab %} 
+{% endtabs %}
 
 ## Expose metrics to Prometheus
 
