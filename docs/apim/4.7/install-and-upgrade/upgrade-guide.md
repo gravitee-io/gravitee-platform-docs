@@ -43,9 +43,7 @@ http:
 ````
 {% endcode %}
 
-```
  or using environment variables:
-```
 
 {% code overflow="wrap" %}
 ````
