@@ -32,25 +32,19 @@ Some plugins are available to only customers with the Enterprise Edition of Grav
 * By default, TLS 1.0 and TLS 1.1 protocols are disabled. You can enable these protocols with the proper TCP SSL configuration of the Gateway:
 
 {% code overflow="wrap" %}
-````yaml
 ```yaml
 http:
   ssl:
     tlsProtocols: TLSv1.0, TLSv1.1, TLSv1.2
 ```
-````
 {% endcode %}
 
-```yaml
  or using environment variables:
-```
 
 {% code overflow="wrap" %}
-````bash
 ```bash
 GRAVITEE_HTTP_SSL_TLSPROTOCOLS=TLSv1.0,TLSv1.1,TLSv1.2
 ```
-````
 {% endcode %}
 
 ## **Monitoring APIM**

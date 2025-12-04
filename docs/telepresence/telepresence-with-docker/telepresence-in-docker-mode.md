@@ -87,7 +87,7 @@ In this section of the quickstart, you ran the Emojivoto application locally. In
 export KUBECONFIG=/path/to/kubeconfig.yaml
 ```
 ````
-{% endtab %\}
+{% endtab %}
 
 {% tab title="macOS" %}
 ````

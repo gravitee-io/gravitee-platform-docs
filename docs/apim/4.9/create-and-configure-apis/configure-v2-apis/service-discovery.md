@@ -69,12 +69,10 @@ consul-server:
 ````
 {% endcode %}
 
-```
 * `server=true` indicates that this Consul agent should run in server mode
 * Consul’s web UI is enabled by setting the `enabled` sub-key of the `ui_config` attribute to `true`
 * Once Consul server’s container is running, Consul’s web UI is accessible at port `8500`
 * The `addresses` field specifies the address that the agent will listen on for communication from other Consul members. By default, this is `0.0.0.0`, meaning Consul will bind to all addresses on the local machine and will advertise the private IPv4 address to the rest of the cluster.
-```
 
 ### 2. Register a service with HashiCorp Consul
 
@@ -129,3 +127,4 @@ You can also verify that your service is successfully registered in Consul by in
 }
 ```
 ````
+{% endcode %}
