@@ -32,18 +32,18 @@ To use `docker-compose` to set up an integration between Gravitee APIM and Hashi
 ````
 ```bash
 consul-server:
-    image: hashicorp/consul:1.15.4
-    container_name: consul-server
-    restart: always
-    volumes:
-     - ./consul/server.json:/consul/config/server.json:ro
-    ports:
-     - "8500:8500"
-     - "8600:8600/tcp"
-     - "8600:8600/udp"
-    command: "agent"
-    networks:
-     - storage
+  image: hashicorp/consul:1.15.4
+  container_name: consul-server
+  restart: always
+  volumes:
+    - ./consul/server.json:/consul/config/server.json:ro
+  ports:
+    - "8500:8500"
+    - "8600:8600/tcp"
+    - "8600:8600/udp"
+  command: "agent"
+  networks:
+    - storage
 ```
 ````
 {% endcode %}

@@ -67,7 +67,7 @@ consul-server:
 }
 ```
 ````
-{% endcode %\}
+{% endcode %}
 
 * `server=true` indicates that this Consul agent should run in server mode
 * Consul’s web UI is enabled by setting the `enabled` sub-key of the `ui_config` attribute to `true`
