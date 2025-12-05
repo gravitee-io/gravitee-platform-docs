@@ -6,6 +6,53 @@ description: >-
 
 # APIM 4.6.x
  
+## Gravitee API Management 4.6.26 - December 5, 2025
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* v2 API with SSE Endpoint not receiving connection close event from client [#10766](https://github.com/gravitee-io/issues/issues/10766)
+* Disabled OAuth2 resource has no effect - APIM OAuth2 plans continue allowing access [#10831](https://github.com/gravitee-io/issues/issues/10831)
+
+**Management API**
+
+* IDP role mapping computed each authentication cannot replace admin-set roles for IDP users [#10497](https://github.com/gravitee-io/issues/issues/10497)
+* V4 APIs created via import always set the importing user as the primary owner [#10854](https://github.com/gravitee-io/issues/issues/10854)
+* API out of sync using dynamic properties [#10917](https://github.com/gravitee-io/issues/issues/10917)
+* Make API list search case insensitive [#10970](https://github.com/gravitee-io/issues/issues/10970)
+* Redoc set as default is not working [#10988](https://github.com/gravitee-io/issues/issues/10988)
+* Missing endpoint-request-uri in V4 API logs [#11004](https://github.com/gravitee-io/issues/issues/11004)
+
+**Console**
+
+* For a user, it should not be possible to change its group API role to something else than PO, if the group is a PO of at least one API. [#10685](https://github.com/gravitee-io/issues/issues/10685)
+* V4 APIs created via import always set the importing user as the primary owner [#10854](https://github.com/gravitee-io/issues/issues/10854)
+
+**Other**
+
+* Cache-redis plugin 4.0.2 JDBC issue [#11013](https://github.com/gravitee-io/issues/issues/11013)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Console**
+
+* V4 API log attribute order inconsistency [#10995](https://github.com/gravitee-io/issues/issues/10995)
+
+**Other**
+
+* Handle X-Forwarded-Prefix and X-Original-Forwarded-Host headers to properly build links for portal  [#10993](https://github.com/gravitee-io/issues/issues/10993)
+* Client aborted during response missing in error transparency execution logs [#11006](https://github.com/gravitee-io/issues/issues/11006)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.6.25 - November 21, 2025
 <details>
 
