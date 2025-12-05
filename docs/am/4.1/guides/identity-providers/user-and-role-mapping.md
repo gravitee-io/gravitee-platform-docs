@@ -45,13 +45,10 @@ Let’s imagine a client application wants to retrieve the `telephoneNumber` att
 4.  Map your LDAP (raw) attribute `telephoneNumber` to a new user attribute named `telephone_number`.
 
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-idp-user-mappers-phoneno.png" alt=""><figcaption><p>LDAP user mappers</p></figcaption></figure>
-5. Get the User Profile information via the UserInfo Endpoint and you will see that the new user attribute is present.
+5.  Get the User Profile information via the UserInfo Endpoint and you will see that the new user attribute is present.
 
-    {% code overflow="wrap" %}
-    ```sh
-    curl -X GET http://GRAVITEEIO-AM-GATEWAY-HOST/:securityDomainPath/oidc/userinfo -H 'Authorization: Bearer :accessToken'
-    ```
-    {% endcode %}
+    <pre class="language-sh" data-overflow="wrap"><code class="lang-sh">curl -X GET http://GRAVITEEIO-AM-GATEWAY-HOST/:securityDomainPath/oidc/userinfo -H 'Authorization: Bearer :accessToken'
+    </code></pre>
 
     If it is working correctly, you will see something like this:
 
