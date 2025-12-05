@@ -23,7 +23,7 @@ Before you install the Gravitee APIM, complete the following steps:
 * Install [helm](https://helm.sh/docs/intro/install/).
 * Install [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl).
 * Ensure you have access to the self-hosted Kubernetes cluster where you want to install Gravitee APIM.
-* **(Enterprise Edition only)** Obtain a license key. For more information about obtaining a license key, see [Enterprise Edition Licensing.](https://app.gitbook.com/u/QpTUPUh6LGTm8Aa50q04W8lgVDY2)
+* **(Enterprise Edition only)** Obtain a license key. For more information about obtaining a license key, see [Enterprise Edition Licensing.](../readme/enterprise-edition.md)
 
 ## Components Overview
 
@@ -49,7 +49,7 @@ To install the Gravitee APIM, complete the following steps:
 4. [#enterprise-edition-only-create-secret](vanilla-kubernetes.md#enterprise-edition-only-create-secret "mention")
 5. [#install-ingress-controller](vanilla-kubernetes.md#install-ingress-controller "mention")
 6. [#configure-dns-resolution](vanilla-kubernetes.md#configure-dns-resolution "mention")
-7. [#prepare-values.yaml-for-helm](vanilla-kubernetes.md#prepare-values.yaml-for-helm "mention")
+7. [#prepare-the-values.yaml-for-helm](vanilla-kubernetes.md#prepare-the-values.yaml-for-helm "mention")
 8. [#install-with-helm](vanilla-kubernetes.md#install-with-helm "mention")
 
 ### Create Namespace
@@ -235,9 +235,7 @@ It may take a few minutes for the load balancer IP to be available.
     ```
 2.  In a separate terminal, enable the network tunnel using the following command:
 
-    <div data-gb-custom-block data-tag="hint" data-style="danger" class="hint hint-danger">
-      <p>Keep the tunnel command running in a separate terminal window. The tunnel must remain active for ingress to function properly.</p>
-    </div>
+    <div data-gb-custom-block data-tag="hint" data-style="danger" class="hint hint-danger"><p>Keep the tunnel command running in a separate terminal window. The tunnel must remain active for ingress to function properly.</p></div>
 
     ```bash
     sudo minikube tunnel
