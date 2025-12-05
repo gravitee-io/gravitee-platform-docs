@@ -55,7 +55,7 @@ To install the Gravitee APIM, complete the following steps:
 6. [#enterprise-edition-only-create-secret](./#enterprise-edition-only-create-secret "mention")
 7. [#install-ingress-controller](./#install-ingress-controller "mention")
 8. [#configure-dns-resolution](./#configure-dns-resolution "mention")
-9. [#prepare-values.yaml-for-helm](./#prepare-values.yaml-for-helm "mention")
+9. [#prepare-the-values.yaml-for-helm](./#prepare-the-values.yaml-for-helm "mention")
 10. [#install-with-helm](./#install-with-helm "mention")
 
 ### Create Namespace
