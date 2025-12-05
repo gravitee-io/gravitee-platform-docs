@@ -37,11 +37,56 @@ To export a Gravitee API definition, follow these steps:
 Below is a partial example of an exported API definition for a v4 proxy API. All of the attributes you see here can be used in your API Score custom rulesets.
 
 {% code lineNumbers="true" %}
-```
+```json
+{
+  "export": {
+    "date": "2025-02-27T14:11:38.684449698Z",
+    "apimVersion": "4.7.0-SNAPSHOT"
+  },
+  "api": {
+    "definitionVersion": "V4",
+    "type": "PROXY",
+    "listeners": [
+      {
+        "type": "HTTP",
+        "paths": [
+          {
+            "path": "/0205-javascript/",
+            "overrideAccess": false
+          }
+        ],
+        "entrypoints": [
+          {
+            "type": "http-proxy",
+            "qos": "AUTO",
+            "configuration": {}
+          }
+        ]
+      }
+    ],
+    "endpointGroups": [
+      {
+        "name": "Default HTTP proxy group",
+        "type": "http-proxy",
+        "loadBalancer": {
+          "type": "ROUND_ROBIN"
+        },
+        "sharedConfiguration": "{\"proxy\":{\"useSystemProxy\":false,\"enabled\":false},\"http\":{\"keepAliveTimeout\":30000,\"keepAlive\":true,\"followRedirects\":false,\"readTimeout\":10000,\"idleTimeout\":60000,\"connectTimeout\":3000,\"useCompression\":true,\"maxConcurrentConnections\":20,\"version\":\"HTTP_1_1\",\"pipelining\":false},\"ssl\":{\"keyStore\":{\"type\":\"\"},\"hostnameVerifier\":true,\"trustStore\":{\"type\":\"\"},\"trustAll\":false}}",
+        "endpoints": [
+          {
+            "name": "Default HTTP proxy",
+            "type": "http-proxy",
+            "weight": 1,
+            "inheritConfiguration": true,
+            "configuration": {
+              "target": "https://api.gravitee.io/whattimeisit"
+            },
+            "sharedConfigurationOverride": "{}",
+            "services": {},
+            "secondary": false
+          }
 ```
 {% endcode %}
-
-\`\`\`\`json { "export": { "date": "2025-02-27T14:11:38.684449698Z", "apimVersion": "4.7.0-SNAPSHOT" }, "api": { "definitionVersion": "V4", "type": "PROXY", "listeners": \[ { "type": "HTTP", "paths": \[ { "path": "/0205-javascript/", "overrideAccess": false } ], "entrypoints": \[ { "type": "http-proxy", "qos": "AUTO", "configuration": {} } ] } ], "endpointGroups": \[ { "name": "Default HTTP proxy group", "type": "http-proxy", "loadBalancer": { "type": "ROUND\_ROBIN" }, "sharedConfiguration": "{\\"proxy\\":{\\"useSystemProxy\\":false,\\"enabled\\":false},\\"http\\":{\\"keepAliveTimeout\\":30000,\\"keepAlive\\":true,\\"followRedirects\\":false,\\"readTimeout\\":10000,\\"idleTimeout\\":60000,\\"connectTimeout\\":3000,\\"useCompression\\":true,\\"maxConcurrentConnections\\":20,\\"version\\":\\"HTTP\_1\_1\\",\\"pipelining\\":false},\\"ssl\\":{\\"keyStore\\":{\\"type\\":\\"\\"},\\"hostnameVerifier\\":true,\\"trustStore\\":{\\"type\\":\\"\\"},\\"trustAll\\":false\}}", "endpoints": \[ { "name": "Default HTTP proxy", "type": "http-proxy", "weight": 1, "inheritConfiguration": true, "configuration": { "target": "https://api.gravitee.io/whattimeisit" }, "sharedConfigurationOverride": "{}", "services": {}, "secondary": false } \`\`\` \`\`\`\` \{% endcode %\}
 
 ## Federated API definition
 
@@ -49,7 +94,7 @@ Federated APIs ingested from 3rd-party providers like AWS, Apigee, Azure, IBM, M
 
 To help you write rulesets against this asset type, you can modify the example below. This example shows the structure of a federated API definition.
 
-````yaml
+```yaml
   "api" : {
     "id" : "b9211075-e090-342f-b8db-9944872934ff",
     "name" : "Shipping logistics SA",
@@ -99,4 +144,3 @@ To help you write rulesets against this asset type, you can modify the example b
       "viewer" : "Swagger"
     }
 ```
-````
