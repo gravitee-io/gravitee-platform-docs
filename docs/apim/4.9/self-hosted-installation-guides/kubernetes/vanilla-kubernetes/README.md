@@ -19,7 +19,7 @@ Before you install the Gravitee APIM, complete the following steps:
 * Install [helm](https://helm.sh/docs/intro/install/).
 * Install [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl).
 * Ensure you have access to the self-hosted Kubernetes cluster where you want to install Gravitee APIM.
-* **(Enterprise Edition only)** Obtain a license key. For more information about obtaining a license key, see [Enterprise Edition Licensing.](https://app.gitbook.com/u/QpTUPUh6LGTm8Aa50q04W8lgVDY2)
+* **(Enterprise Edition only)** Obtain a license key. For more information about obtaining a license key, see [Enterprise Edition Licensing.](../../../readme/enterprise-edition.md)
 
 ## Components Overview
 
@@ -34,9 +34,7 @@ The Gravitee APIM platform requires several external dependencies and services t
 
 *   Required dependencies and services:
 
-    <div data-gb-custom-block data-tag="hint" data-style="danger" class="hint hint-danger">
-      <p>The minimum installation of APIM requires MongoDB and Elasticsearch.</p>
-    </div>
+    <div data-gb-custom-block data-tag="hint" data-style="danger" class="hint hint-danger"><p>The minimum installation of APIM requires MongoDB and Elasticsearch.</p></div>
 
     * MongoDB: Stores API definitions, configurations, and rate limiting data.
     * Elasticsearch: Provides analytics, logging, and search capabilities for API metrics.
@@ -315,9 +313,7 @@ It may take a few minutes for the load balancer IP to be available.
     ```
 2.  In a separate terminal, enable the network tunnel using the following command:
 
-    <div data-gb-custom-block data-tag="hint" data-style="danger" class="hint hint-danger">
-      <p>Keep the tunnel command running in a separate terminal window. The tunnel must remain active for ingress to function properly.</p>
-    </div>
+    <div data-gb-custom-block data-tag="hint" data-style="danger" class="hint hint-danger"><p>Keep the tunnel command running in a separate terminal window. The tunnel must remain active for ingress to function properly.</p></div>
 
     ```bash
     sudo minikube tunnel
