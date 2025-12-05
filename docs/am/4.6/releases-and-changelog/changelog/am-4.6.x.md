@@ -6,6 +6,27 @@ description: >-
 
 # AM 4.6.x
 
+## Gravitee Access Management 4.6.28 - December 5, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+**Management API**
+
+* WebAuthn - credentials are not removed when a user is deleted [#10990](https://github.com/gravitee-io/issues/issues/10990)
+
+
+
+**Other**
+
+* Allow implicit authentication on CloudHSM plugin [#10996](https://github.com/gravitee-io/issues/issues/10996)
+
+</details>
+
+
 ## Gravitee Access Management 4.6.27 - November 21, 2025
 
 <details>
