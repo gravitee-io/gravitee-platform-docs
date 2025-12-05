@@ -1,0 +1,1 @@
+Temporary folder to store test runs of Peer Review GPT. Contents include original drafts + GPT results.
