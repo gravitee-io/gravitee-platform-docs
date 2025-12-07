@@ -6,6 +6,33 @@ description: >-
 
 # AM 4.8.x
 
+## Gravitee Access Management 4.8.15 - December 5, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* MFA RateLimit doesn't work when MFA Challenge policy is define at domain level [#10998](https://github.com/gravitee-io/issues/issues/10998)
+
+**Management API**
+
+* WebAuthn - credentials are not removed when a user is deleted [#10990](https://github.com/gravitee-io/issues/issues/10990)
+
+
+
+**Other**
+
+* The default helm chart currently does not reflect our suggested {{maxAcquireTime}} and {{maxCreateConnectionTime}} values. [#10983](https://github.com/gravitee-io/issues/issues/10983)
+* Implement retry on HSM sign/verify [#10992](https://github.com/gravitee-io/issues/issues/10992)
+* Allow implicit authentication on CloudHSM plugin [#10996](https://github.com/gravitee-io/issues/issues/10996)
+* Session clean up on Registration & resetPassword confirmation [#10999](https://github.com/gravitee-io/issues/issues/10999)
+* Email notification fails for Certificate expiry [#11007](https://github.com/gravitee-io/issues/issues/11007)
+
+</details>
+
+
 ## Gravitee Access Management 4.8.14 - November 21, 2025
 
 <details>
