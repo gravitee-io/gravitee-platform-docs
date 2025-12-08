@@ -9,3 +9,6 @@
 * [Configure authentication with SSO: Suggestions](configure-authentication-with-sso.suggestions.md)
 * [Configure authentication with SSO: Changelog](configure-authentication-with-sso.change-log.md)
 * [Enforce user authentication](enforce-user-authentication.md)
+* [Enforce user authentication: Reviewed](enforce-user-authentication.peer-reviewed.md)
+* [Enforce user authentication: Suggestions](enforce-user-authentication.suggestions.md)
+* [Enforce user authentication: Changelog](enforce-user-authentication.change-log.md)
