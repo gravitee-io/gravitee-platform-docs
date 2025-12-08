@@ -18,7 +18,7 @@ Now, its very important that the user takes control over the password so the tem
 \
 For this purpose, you can now set a flag on the user profile that control if the users should be forced to update their password upon next login. So when provisioning users to Access Management, you simply set this flag to true and the user will be asked to update their password the first time they user their temporary password.
 
-<figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption><p>A user profile where Force Password Reset is set to true. This means that the user will be asked to update their password on the next login.</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption><p>A user profile where Force Password Reset is set to true. This means that the user will be asked to update their password on the next login.</p></figcaption></figure>
 
 ### Send registration email to user and let user set pass
 

@@ -1,0 +1,16 @@
+- Capitalized the article title to enforce Title Case (“Configure Authentication with SSO”).
+- Converted the stand-alone “Overview” text into an H2 heading and added a brief overview sentence that expands single sign-on (SSO).
+- Normalized the “Prerequisites” heading and removed the HTML entity from the original heading.
+- Rewrote the first prerequisite bullet for clarity, corrected “installating” to “installing,” and clarified the APIM installation wording.
+- Expanded “Gravitee API Management (APIM)” on first use to follow abbreviation rules.
+- Removed the double space in “Gravitee APIM is version 4.10 or later.”
+- Normalized capitalization from “id” to “ID” in organization and environment replacement bullets in both Docker and Helm examples.
+- Rephrased Docker step 2 to “Configure SSO-only login” and clarified that local login is disabled when this option is used.
+- Rephrased Helm step 2 to “Configure SSO-only login” and clarified that local login is disabled when this option is used.
+- Fixed duplicated wording in Docker step 3 and clarified the reference to the set of commands.
+- Trimmed the trailing space from the Helm tab title so it reads `{% tab title="Helm" %}`.
+- Removed the HTML entity from the “Activate an identity provider in the APIM Console” heading.
+- Removed trailing `<br>` tags from APIM Console list items to align with GitBook formatting conventions.
+- Rephrased APIM Console step 4 to remove duplicated wording and to clearly mark the action as optional for SSO-only login.
+- Normalized casing in the verification sentence (“Login screen” → “login screen”).
+- Added an `<!-- UNCERTAIN -->` annotation after the Helm environment configuration block to flag the potential mismatch between SSO-only behavior and `gravitee_portal_authentication_locallogin_enabled` being set to `"true"`.
