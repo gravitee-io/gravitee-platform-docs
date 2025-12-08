@@ -1,5 +1,26 @@
 # GKO 4.9.x
 
+## Gravitee Kubernetes Operator 4.9.8 - December 8, 2025
+
+<details>
+<summary>Bug fixes</summary>
+
+**GKO**
+
+* Applying gateway-api gateway class parameters leads to controller panic
+
+**APIM**
+
+* V4 & JSON exports incorrectly embed HTTP-fetcher page content [#10985](https://github.com/gravitee-io/issues/issues/10985)
+
+</details>
+
+## Gravitee Kubernetes Operator 4.9.7 - November 25, 2025
+
+There is nothing new in version 4.9.7.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
 ## Gravitee Kubernetes Operator 4.9.6 - November 25, 2025
 
 There is nothing new in version 4.9.6.
