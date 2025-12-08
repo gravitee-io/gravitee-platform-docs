@@ -1,0 +1,4 @@
+- Consider replacing the placeholder “Broken link” references with working links or updated destinations once they are known.
+- You may want to clarify whether forcing authentication applies to all pages of the New Developer Portal, including any public landing pages, to set expectations for readers.
+- Consider adding a short note that explains how enabling forced authentication affects existing unauthenticated sessions (for example, whether users are logged out immediately or only on their next request), if this behavior is relevant and documented elsewhere.
+- Optionally, you could add a brief reminder or link to any prerequisite steps for enabling or configuring the New Developer Portal itself, so readers can easily confirm that the feature is available in their environment.
