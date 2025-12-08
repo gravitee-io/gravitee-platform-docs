@@ -397,8 +397,6 @@ Ensure that you have the following sections complete:
     #     maxPoolSize: 10
     #     registerMbeans: true
 
-
-
     # Elasticsearch Configuration
     es:
       enabled: true
@@ -569,10 +567,6 @@ Ensure that you have the following sections complete:
         tag: latest
         pullPolicy: Always
 
-      env:
-        - name: MGMT_API_URL
-          value: "http://apim.localhost/management/organizations/DEFAULT/environments/DEFAULT/"
-
       service:
         type: ClusterIP
         externalPort: 8002
@@ -604,10 +598,6 @@ Ensure that you have the following sections complete:
         repository: graviteeio/apim-portal-ui
         tag: latest
         pullPolicy: Always
-
-      env:
-        - name: PORTAL_API_URL
-          value: "http://apim.localhost/portal/environments/DEFAULT"
 
       service:
         type: ClusterIP
