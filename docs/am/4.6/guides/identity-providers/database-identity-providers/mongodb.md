@@ -71,6 +71,10 @@ DATASOURCES_MONGODB_1_SETTINGS_PORT=27017
 {% endtab %}
 {% endtabs %}
 
+Once the `datasources` section is configured on the gravitee.yaml and the Management API has been restarted to take it into account, then `Data source ID` field will become editable to select a configuration.
+
+<figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+
 ### Connection Precedence
 
 The order in which Access Management decides which connection configuration to use is as follows:
