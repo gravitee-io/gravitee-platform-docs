@@ -29,16 +29,28 @@ To use `docker-compose` to set up an integration between Gravitee APIM and Hashi
 1. Edit the `docker-compose.yml` used to install Gravitee and declare an additional service for the Consul server. The example below declares a read-only volume to mount the directory containing Consul configuration files.
 
 {% code overflow="wrap" %}
+````
+```bash
+consul-server: 
+  image: hashicorp/consul:1.15.4 
+  container\_name: consul-server 
+  restart: always 
+  volumes: 
+    - ./consul/server.json:/consul/config/server.json:ro 
+  ports: 
+    - "8500:8500" 
+    - "8600:8600/tcp" 
+    - "8600:8600/udp" 
+  command: "agent" 
+  networks: 
+    - storage
 ```
-```
+````
 {% endcode %}
-
-\`\`\`\` \`\`\`bash consul-server: image: hashicorp/consul:1.15.4 container\_name: consul-server restart: always volumes: - ./consul/server.json:/consul/config/server.json:ro ports: - "8500:8500" - "8600:8600/tcp" - "8600:8600/udp" command: "agent" networks: - storage \`\`\` \`\`\`\` \{% endcode %\}
 
 2. Consul containers load their configuration from `/consul/config/` at startup. Use the `server.json` below to initialize the Consul server:
 
-\{% code overflow="wrap" %\}
-
+{% code overflow="wrap" %}
 ````
 ```bash
 {
@@ -55,19 +67,12 @@ To use `docker-compose` to set up an integration between Gravitee APIM and Hashi
 }
 ```
 ````
-
-\{% endcode %\}
-
-\`
-
-\`\`
+{% endcode %}
 
 * `server=true` indicates that this Consul agent should run in server mode
 * Consul’s web UI is enabled by setting the `enabled` sub-key of the `ui_config` attribute to `true`
 * Once Consul server’s container is running, Consul’s web UI is accessible at port `8500`
 * The `addresses` field specifies the address that the agent will listen on for communication from other Consul members. By default, this is `0.0.0.0`, meaning Consul will bind to all addresses on the local machine and will advertise the private IPv4 address to the rest of the cluster.
-
-````
 
 ### 2. Register a service with HashiCorp Consul
 
@@ -88,7 +93,7 @@ The following cURL command registers a service in Consul with additional attribu
 
 ```shell
 curl -X PUT -d '{ "ID": "whattimeisit_1", "Name": "whattimeisit", "Address": "api.gravitee.io", "Meta": {"gravitee_path":"/whattimeisit", "gravitee_ssl":"true" }, "Port": 443}' http://localhost:8500/v1/agent/service/register
-````
+```
 
 The Consul web UI should display a new service named `whattimeisit`:
 
@@ -98,11 +103,8 @@ You can also verify that your service is successfully registered in Consul by in
 
 1. Run the command below:
 
-\{% code overflow="wrap" %\}
-
+{% code overflow="wrap" %}
 ````
-
-`
 ```json
 {
   "whattimeisit_1": {
@@ -123,9 +125,6 @@ You can also verify that your service is successfully registered in Consul by in
     "Datacenter": "dc1"
   }
 }
+```
 ````
-
-```
-
-</div>
-```
+{% endcode %}
