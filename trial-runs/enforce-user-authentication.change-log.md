@@ -1,0 +1,9 @@
+- Capitalized the article title to use Title Case.
+- Removed HTML entity markers (`&#x20;`) from headings and body text where present.
+- Rewrote the first prerequisite bullet for grammatical clarity while preserving meaning.
+- Corrected a double space in the phrase `Gravitee APIM  is` to `Gravitee APIM is`.
+- Added the missing space before `or` in the final prerequisite bullet link list.
+- Reworded the introductory sentence under “Configure enforcing user authentication” for clarity.
+- Updated the Helm deployment step text from “Deploy our installation” to “Deploy your installation”.
+- Fixed punctuation in APIM Console configuration step 2 by removing the stray period before `click`.
+- Corrected the typo “Log out of you New Developer Portal” to “Log out of your New Developer Portal” and normalized the bullet spacing.
