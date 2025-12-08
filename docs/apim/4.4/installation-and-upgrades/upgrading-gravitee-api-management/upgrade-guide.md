@@ -32,33 +32,24 @@ Particular plugins are only available to enterprise customers. [See Gravitee API
 * TLS 1.0 and TLS 1.1 protocols are disabled by default. You can enable these protocols with the proper TCP SSL configuration of the Gateway:
 
 {% code overflow="wrap" %}
-```
+```yaml
+http:
+  ssl:
+    tlsProtocols: TLSv1.0, TLSv1.1, TLSv1.2
 ```
 {% endcode %}
 
-\`\`\`\` \`\`\`yaml http: ssl: tlsProtocols: TLSv1.0, TLSv1.1, TLSv1.2 \`\`\` \`\`\`\` \{% endcode %\}
+ or using environment variables:
 
-\`
-
-\`\` or using environment variables:
-
-```
-
-<div data-gb-custom-block data-tag="code" data-overflow='wrap'></div>
-```
-
+{% code overflow="wrap" %}
 ```bash
 GRAVITEE_HTTP_SSL_TLSPROTOCOLS=TLSv1.0,TLSv1.1,TLSv1.2
 ```
-
-````
 {% endcode %}
 
 ## **Monitoring APIM**
 
-* The name of the sync probe has been changed from `
-
-api-sync` to `sync-process` to make the completion of all sync processes explicit.
+* The name of the sync probe has been changed from `api-sync` to `sync-process` to make the completion of all sync processes explicit.
 * The content of the sync handler has changed slightly to align with new concepts:
   * `initialDone`: `true` if the first initial synchronization is done
   * `counter`: The number of iterations
@@ -148,11 +139,9 @@ APIM installations connected to Cloud require changes to the Management API's `g
 
 ### APIM 4.2 with Cloud connected
 
-<div data-gb-custom-block data-tag="hint" data-style='warning'>
-
+{% hint style="warning" %}
 The user must edit the Management API's <code>gravitee.yaml</code>.
-
-</div>
+{% endhint %}
 
 If an APIM installation connected to Cloud is upgraded to 4.2, the user must make the following changes to the Management API's `gravitee.yaml` file for the installation to function as `standalone`:
 
@@ -177,11 +166,9 @@ installation:
 
 ### APIM 4.2+ and multiple Consoles/Portals in a connected Cloud
 
-<div data-gb-custom-block data-tag="hint" data-style='warning'>
-
+{% hint style="warning" %}
 The user must edit the Management API's <code>gravitee.yaml</code>.
-
-</div>
+{% endhint %}
 
 If an APIM installation with multiple Consoles and/or Portals set up in a connected Cloud is upgraded to 4.2, the user must make the following changes to the Management API's `gravitee.yaml` file for the installation to function as `standalone`:
 
@@ -263,4 +250,3 @@ Starting with version 4.4.11, there is a new permission called USER_TOKEN. This 
 Previously, these actions were governed by the broader 'USER' permission. As part of the migration from version 4.1.25 to 4.1.26, no breaking changes have been introduced. Users who previously had the permission to manage user tokens under the 'USER' permission will retain their access automatically.
 
 However, this new 'USER_TOKEN' permission gives administrators more granular control. They can now selectively determine which users truly need access to manage user tokens, allowing for better security and role-based management within the system.
-````
