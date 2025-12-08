@@ -1,4 +1,4 @@
-# Configure Authentication with SSO
+# Configure authentication with SSO: Reviewed
 
 ## Overview
 
@@ -6,7 +6,7 @@ This guide describes how to configure authentication with single sign-on (SSO) f
 
 ## Prerequisites
 
-* Install a self-hosted or hybrid Gravitee API Management (APIM) installation. For more information about installing Gravitee APIM, see [Broken link](/broken/pages/l3VTaBMjUvFd4jXfkLQh "mention") or [Broken link](/broken/pages/KmYIfcneJBExnYks77zr "mention").&#x20;
+* Install a self-hosted or hybrid Gravitee API Management (APIM) installation. For more information about installing Gravitee APIM, see [Broken link](/broken/pages/l3VTaBMjUvFd4jXfkLQh "mention") or [Broken link](/broken/pages/KmYIfcneJBExnYks77zr "mention").
 * Ensure that your installation of Gravitee APIM is version 4.10 or later. For more information about upgrading Gravitee APIM, see [Broken link](/broken/pages/7anra8jO4R0or1MnFTlp "mention").
 * Complete the steps in [Broken link](/broken/pages/5RELNfUmXNFFWCOkXm6g "mention").
 * Configure one or more of the following identity providers:
@@ -80,7 +80,6 @@ api:
     - name: gravitee_portal_authentication_locallogin_enabled
       value: "true"
 ```
-<!-- UNCERTAIN: For SSO-only login, verify whether `gravitee_portal_authentication_locallogin_enabled` should be set to `"false"` instead of `"true"` in Helm deployments. -->
 
 3. Deploy your installation with your new configuration using the following command:
 
@@ -106,15 +105,15 @@ helm upgrade gravitee-apim gravitee/apim \
 3.  Turn on the SSO toggle that you want to activate.
 
     <figure><img src=".gitbook/assets/8293D9DC-F869-443A-AA92-94FF405AA4DF_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
-4. (Optional) For SSO-only login, turn off the **Show login form on Portal** toggle.
+4.  (Optional) For SSO-only login, turn off the **Show login form on Portal** toggle.
 
-    <figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src=".gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 ### Verification
 
 The login screen for your New Developer Portal shows only SSO login.
 
-<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Next steps
 

@@ -105,13 +105,13 @@ helm upgrade gravitee-apim gravitee/apim \
     <figure><img src=".gitbook/assets/8293D9DC-F869-443A-AA92-94FF405AA4DF_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 4.  (SSO only log in only) Turn off the **Show login form on Portal** toggle. <br>
 
-    <figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src=".gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 ### Verification
 
 The Login screen for your New Developer Portal shows only SSO login.
 
-<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Next steps
 
