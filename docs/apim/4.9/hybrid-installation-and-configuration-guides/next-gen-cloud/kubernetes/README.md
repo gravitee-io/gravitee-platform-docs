@@ -9,8 +9,8 @@ description: An overview about kubernetes.
 * [vanilla-kubernetes](vanilla-kubernetes/ "mention")
 * [AWS EKS](aws-eks.md)
 * [azure-aks.md](azure-aks.md "mention")
+* [Openshift](openshift.md)
 * GCP GKE
-* [broken-reference](broken-reference/ "mention")
 
 ## Overview
 
