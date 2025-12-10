@@ -6,6 +6,26 @@ description: >-
 
 # AM 4.9.x
 
+## Gravitee Access Management 4.9.6 - December 10, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* Specify application on User preRegistration using SCIM [#11003](https://github.com/gravitee-io/issues/issues/11003)
+* Fix docker image size [#11016](https://github.com/gravitee-io/issues/issues/11016)
+
+</details>
+
+
 ## Gravitee Access Management 4.9.5 - December 5, 2025
 
 <details>
