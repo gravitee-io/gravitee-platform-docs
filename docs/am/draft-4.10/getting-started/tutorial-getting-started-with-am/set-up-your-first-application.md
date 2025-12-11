@@ -25,15 +25,12 @@ You only need to create a new security domain for an application when you do not
 2.  From the user menu at the top right, click **Create domain**.
 
     <figure><img src="https://docs.gravitee.io/images/am/current/quickstart-create-domain.png" alt=""><figcaption><p>Create a security domain</p></figcaption></figure>
-3. Give your security domain a **Name** and a **Description** and click **CREATE**.
+3.  Give your security domain a **Name** and a **Description** and click **CREATE**.
 
-<figure><img src="https://docs.gravitee.io/images/am/current/quickstart-create-domain2.png" alt=""><figcaption><p>Define your security domain</p></figcaption></figure>
+    <figure><img src="https://docs.gravitee.io/images/am/current/quickstart-create-domain2.png" alt=""><figcaption><p>Define your security domain</p></figcaption></figure>
+4.  Select the **click here** link on the banner to enable the domain.
 
-4\. Select the \*\*click here\*\* link on the banner to enable the domain.
-
-```
-<figure><img src="https://docs.gravitee.io/images/am/current/quickstart-enable-domain.png" alt=""><figcaption><p>Banner to enable domain</p></figcaption></figure>
-```
+    <figure><img src="https://docs.gravitee.io/images/am/current/quickstart-enable-domain.png" alt=""><figcaption><p>Banner to enable domain</p></figcaption></figure>
 
 ### Create a domain with AM API
 
@@ -105,7 +102,8 @@ In this example, we will create an In-memory identity provider with an inline us
 
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-quickstart-create-idp.png" alt=""><figcaption><p>Configure your IdP</p></figcaption></figure>
 
-5.  Click **Applications** and select your web application. 6. In the **Identity Providers** tab, select **Inline identity provider** and click **SAVE**.
+5. Click **Applications** and select your web application. 
+6.  In the **Identity Providers** tab, select **Inline identity provider** and click **SAVE**.
 
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-quickstart-client-idp.png" alt=""><figcaption><p>Select IdP for application</p></figcaption></figure>
 
