@@ -68,11 +68,18 @@ Perform the following steps on the AM API component:
 2. In the `jwt` section, update the `cookie-secure` value:
 
 {% code title="gravitee.yml" overflow="wrap" %}
-```
+```yaml
+# JWT used to generate signed token for management security mechanism (Bearer Token) and to verify emails
+jwt:
+  secret: s3cR3t4grAv1t3310AMS1g1ingDftK3y # jwt secret used to sign JWT tokens (HMAC algorithm)
+  #kid: default-gravitee-AM-key # kid (key ID) Header Parameter is a hint indicating which key was used to secure the JWT
+  #expire-after: 604800 # the end of validity of the token in seconds (default 604800 = a week)
+  #issuer: https://gravitee.am # the principal that issued the JWT (default https://gravitee.am)
+  #cookie-path: / # cookie context path (default /)
+  #cookie-domain: .gravitee.io # cookie domain (default "")
+  #cookie-secure: true # cookie secure flag (default false)
 ```
 {% endcode %}
-
-\`\`\`\` \`\`\`yaml # JWT used to generate signed token for management security mechanism (Bearer Token) and to verify emails jwt: secret: s3cR3t4grAv1t3310AMS1g1ingDftK3y # jwt secret used to sign JWT tokens (HMAC algorithm) #kid: default-gravitee-AM-key # kid (key ID) Header Parameter is a hint indicating which key was used to secure the JWT #expire-after: 604800 # the end of validity of the token in seconds (default 604800 = a week) #issuer: https://gravitee.am # the principal that issued the JWT (default https://gravitee.am) #cookie-path: / # cookie context path (default /) #cookie-domain: .gravitee.io # cookie domain (default "") #cookie-secure: true # cookie secure flag (default false) \`\`\` \`\`\`\` \{% endcode %\}
 
 Perform the following steps on the AM Gateway component:
 
