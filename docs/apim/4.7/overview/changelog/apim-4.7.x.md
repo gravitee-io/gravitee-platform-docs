@@ -4,6 +4,27 @@ description: API documentation explaining apim 4.7.x.
 
 # APIM 4.7.x
  
+## Gravitee API Management 4.7.21 - December 10, 2025
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Revert - disabled resource has no effect \[10831] [#11019](https://github.com/gravitee-io/issues/issues/11019)
+
+**Management API**
+
+* Silent failure when changing email to one already in use [#11017](https://github.com/gravitee-io/issues/issues/11017)
+
+**Console**
+
+* Silent failure when changing email to one already in use [#11017](https://github.com/gravitee-io/issues/issues/11017)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.7.20 - December 5, 2025
 <details>
 
