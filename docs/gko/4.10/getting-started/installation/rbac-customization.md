@@ -69,7 +69,7 @@ manager:
         
 rbac:
   create: true # set to false if you don't want GKO to automatically create/configure RBAC
-````
+```
 
 ### Cluster Scope
 

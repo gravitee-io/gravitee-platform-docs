@@ -26,7 +26,6 @@ Perform the following steps on both the AM API component and the AM Gateway comp
 2. In the `services:` section, set the `http:` `enabled` value to `false`:
 
 {% code title="gravitee.yml" %}
-````
 ```yaml
 # Security section is used to defined organization users available on AM bootstrap
 security:
@@ -57,7 +56,6 @@ security:
           password: $2a$10$NG5WLbspq8V1yJDzUKfUK.oum94qL/Ne3B5fQCgekw/Y4aOEaoFZq
           role: ORGANIZATION_OWNER
 ```
-````
 {% endcode %}
 
 ## Step 6: Enable Secure Cookies
@@ -70,7 +68,6 @@ Perform the following steps on the AM API component:
 2. In the `jwt` section, update the `cookie-secure` value:
 
 {% code title="gravitee.yml" overflow="wrap" %}
-````
 ```yaml
 # JWT used to generate signed token for management security mechanism (Bearer Token) and to verify emails
 jwt:
@@ -82,7 +79,6 @@ jwt:
   #cookie-domain: .gravitee.io # cookie domain (default "")
   #cookie-secure: true # cookie secure flag (default false)
 ```
-````
 {% endcode %}
 
 Perform the following steps on the AM Gateway component:
@@ -91,7 +87,6 @@ Perform the following steps on the AM Gateway component:
 2. In the `http.cookie` section, update the `secure` value:
 
 {% code title="gravitee.yml" overflow="wrap" %}
-````
 ```yaml
 #http
 ##  cookie:
@@ -101,10 +96,9 @@ Perform the following steps on the AM Gateway component:
 #      name: session-name
 #      timeout: 1800000 # (in milliseconds)
 ```
-````
 {% endcode %}
 
-3\. You can also consider updating the \`sameSite\` to \[Strict]\(https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie#syntax) and adapt the session timeout:
+3. You can also consider updating the `sameSite` to [Strict](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie#syntax) and adapt the session timeout:
 
 ## Step 7: Mitigate Cross-Site Scripting (XSS) and Cross Site Framing
 
