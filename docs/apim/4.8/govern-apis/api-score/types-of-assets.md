@@ -49,7 +49,7 @@ Federated APIs ingested from 3rd-party providers like AWS, Apigee, Azure, IBM, M
 
 To help you write rulesets against this asset type, you can modify the example below. This example shows the structure of a federated API definition.
 
-````yaml
+```yaml
   "api" : {
     "id" : "b9211075-e090-342f-b8db-9944872934ff",
     "name" : "Shipping logistics SA",
@@ -99,4 +99,3 @@ To help you write rulesets against this asset type, you can modify the example b
       "viewer" : "Swagger"
     }
 ```
-````

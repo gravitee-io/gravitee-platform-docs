@@ -29,7 +29,6 @@ To use `docker-compose` to set up an integration between Gravitee APIM and Hashi
 1. Edit the `docker-compose.yml` used to install Gravitee and declare an additional service for the Consul server. The example below declares a read-only volume to mount the directory containing Consul configuration files.
 
 {% code overflow="wrap" %}
-````
 ```bash
 consul-server:
   image: hashicorp/consul:1.15.4
@@ -45,13 +44,11 @@ consul-server:
   networks:
     - storage
 ```
-````
 {% endcode %}
 
 2. Consul containers load their configuration from `/consul/config/` at startup. Use the `server.json` below to initialize the Consul server:
 
 {% code overflow="wrap" %}
-````
 ```bash
 {
   "node_name": "consul-server",
@@ -66,7 +63,6 @@ consul-server:
   }
 }
 ```
-````
 {% endcode %}
 
 * `server=true` indicates that this Consul agent should run in server mode
@@ -104,7 +100,6 @@ You can also verify that your service is successfully registered in Consul by in
 1. Run the command below:
 
 {% code overflow="wrap" %}
-````
 ```json
 {
   "whattimeisit_1": {
@@ -126,5 +121,4 @@ You can also verify that your service is successfully registered in Consul by in
   }
 }
 ```
-````
 {% endcode %}
