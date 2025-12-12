@@ -66,7 +66,7 @@ By clicking on the link, users are redirected to the "Passwordless Login Page", 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-passwordless-login-username-page.png" alt=""><figcaption><p>Passworldess login page</p></figcaption></figure>
 
 {% hint style="info" %}
-The look and feel of the Passwordless forms can be overridden. See [custom pages](../branding/README.md#custom-pages) for more information.
+The look and feel of the Passwordless forms can be overridden. See [custom pages](../branding/#custom-pages) for more information.
 {% endhint %}
 
 ## Managing WebAuthn

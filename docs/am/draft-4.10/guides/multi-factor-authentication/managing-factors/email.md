@@ -19,5 +19,5 @@ If you enable an Email type factor for your application, next time your users lo
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-mfa-email-challenge.png" alt=""><figcaption><p>Email MFA screen 2</p></figcaption></figure>
 
 {% hint style="info" %}
-You can change the look and feel of forms using [custom pages](../../branding/README.md#custom-pages). The enrollment form must send the email address using the `email` parameter.
+You can change the look and feel of forms using [custom pages](../../branding/#custom-pages). The enrollment form must send the email address using the `email` parameter.
 {% endhint %}
