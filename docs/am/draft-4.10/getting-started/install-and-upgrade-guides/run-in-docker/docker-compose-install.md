@@ -3,7 +3,7 @@
 This section explains how to run AM images in Docker. It is intended for users who are already familiar with Docker.
 
 {% hint style="info" %}
-If you want to change the default configuration for any of the component images, see the relevant component section in the [AM Configuration Guide.](../../configuration/README.md)
+If you want to change the default configuration for any of the component images, see the relevant component section in the [AM Configuration Guide.](../../configuration/)
 {% endhint %}
 
 ## Prerequisites
