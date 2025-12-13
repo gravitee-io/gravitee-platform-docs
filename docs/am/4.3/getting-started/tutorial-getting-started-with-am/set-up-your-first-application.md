@@ -87,24 +87,29 @@ In this example, we will create an In-memory identity provider with an inline us
 3.  Choose **Inline** and click **Next**.
 
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-quickstart-idp-type.png" alt=""><figcaption><p>IdP selection</p></figcaption></figure>
-4. Give your identity provider a **Name** and enter the user details, then click **Create**.
+4.  Give your identity provider a **Name** and enter the user details, then click **Create**.
 
 {% code overflow="wrap" %}
-```
+```sh
+curl -H "Authorization: Bearer :accessToken" \
+     -H "Content-Type:application/json;charset=UTF-8" \
+     -X POST \
+     -d '{
+           "external": false,
+           "type": "inline-am-idp",
+           "configuration": "{\"users\":[{\"firstname\":\"John\",\"lastname\":\"Doe\",\"username\":\"johndoe\",\"password\":\"johndoepassword\"}]}",
+           "name": "Inline IdP"
+         }' \
+     http://GRAVITEEIO-AM-MGT-API-HOST/management/organizations/DEFAULT/environments/DEFAULT/domains/:securityDomainPath/identities
 ```
 {% endcode %}
 
-\`\`\`\` \`\`\`sh curl -H "Authorization: Bearer :accessToken" \ -H "Content-Type:application/json;charset=UTF-8" \ -X POST \ -d '{ "external": false, "type": "inline-am-idp", "configuration": "{\\"users\\":\[{\\"firstname\\":\\"John\\",\\"lastname\\":\\"Doe\\",\\"username\\":\\"johndoe\\",\\"password\\":\\"johndoepassword\\"}]}", "name": "Inline IdP" }' \ http://GRAVITEEIO-AM-MGT-API-HOST/management/organizations/DEFAULT/environments/DEFAULT/domains/:securityDomainPath/identities \`\`\` \`\`\`\` \{% endcode %\}
-
-```
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-quickstart-create-idp.png" alt=""><figcaption><p>Configure your IdP</p></figcaption></figure>
-```
 
-5\. Click **Applications** and select your web application. 6. In the **Identity Providers** tab, select **Inline identity provider** and click **SAVE**.
+5. Click **Applications** and select your web application.
+6.  In the **Identity Providers** tab, select **Inline identity provider** and click **SAVE**.
 
-```
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-quickstart-client-idp.png" alt=""><figcaption><p>Select IdP for application</p></figcaption></figure>
-```
+    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-quickstart-client-idp.png" alt=""><figcaption><p>Select IdP for application</p></figcaption></figure>
 
 ## Test your identity provider with OAuth2
 

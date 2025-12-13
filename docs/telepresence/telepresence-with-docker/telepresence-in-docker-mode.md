@@ -82,27 +82,21 @@ In this section of the quickstart, you ran the Emojivoto application locally. In
 
 {% tabs %}
 {% tab title="GNU/Linux" %}
-````
 ```bash
 export KUBECONFIG=/path/to/kubeconfig.yaml
 ```
-````
 {% endtab %}
 
 {% tab title="macOS" %}
-````
 ```bash
 export KUBECONFIG=/path/to/kubeconfig.yaml
 ```
-````
 {% endtab %}
 
 {% tab title="Windows" %}
-````
 ```bash
 SET KUBECONFIG=/path/to/kubeconfig.yaml
 ```
-````
 {% endtab %} 
 {% endtabs %}
 

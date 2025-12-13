@@ -34,23 +34,19 @@ Particular plugins are only available to enterprise customers. [See Gravitee API
 * TLS 1.0 and TLS 1.1 protocols are disabled by default. You can enable these protocols with the proper TCP SSL configuration of the Gateway:
 
 {% code overflow="wrap" %}
-````
 ```yaml
 http:
   ssl:
     tlsProtocols: TLSv1.0, TLSv1.1, TLSv1.2
 ```
-````
 {% endcode %}
 
  or using environment variables:
 
 {% code overflow="wrap" %}
-````
 ```bash
 GRAVITEE_HTTP_SSL_TLSPROTOCOLS=TLSv1.0,TLSv1.1,TLSv1.2
 ```
-````
 {% endcode %}
 
 ## **Monitoring APIM**
@@ -216,7 +212,7 @@ You **need to** update `gravitee.yml` or your Helm's `values.yaml` if your confi
 * You were using a secured connection between Hybrid Gateway and Bridge Server (Gateway or Management API)
 * You were using the default value (unset param)
 * You were using a non-public CA to sign your certificate
-* Your \`gateway.http.management.ssl configuration do not use a trust store to accept the server certificate.
+* Your `gateway.http.management.ssl` configuration do not use a trust store to accept the server certificate.
 
 The can explicitly disable certificate checks in the `gravitee.yaml`:
 

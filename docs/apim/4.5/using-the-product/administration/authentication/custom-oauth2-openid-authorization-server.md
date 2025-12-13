@@ -140,8 +140,7 @@ When using custom a Public Key Infrastructure (PKI) for your OAuth2 authenticati
     ```
 *   Add an environment variable to your Docker Compose file to ensure that this configuration persists across settings. For example:
 
-    ````yaml
-    ```
+    ```yaml
     local_managementapi:
         extends:
           file: common.yml
@@ -159,7 +158,6 @@ When using custom a Public Key Infrastructure (PKI) for your OAuth2 authenticati
           - gravitee_management_mongodb_uri=mongodb://demo-mongodb:27017/gravitee?serverSelectionTimeoutMS=5000&connectTimeoutMS=5000&socketTimeoutMS=5000
           - gravitee_analytics_elasticsearch_endpoints_0=http://demo-elasticsearch:9200
     ```
-    ````
 
 ## Keycloak authentication
 

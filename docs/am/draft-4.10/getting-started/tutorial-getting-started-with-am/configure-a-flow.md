@@ -35,7 +35,6 @@ In this example, we will retrieve the username from the execution context `{#con
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-quickstart-policies.png" alt=""><figcaption><p>Policy Studio</p></figcaption></figure>
 
 {% code overflow="wrap" %}
-````
 ```sh
 curl -H "Authorization: Bearer :accessToken" \
      -H "Content-Type:application/json;charset=UTF-8" \
@@ -94,7 +93,6 @@ curl -H "Authorization: Bearer :accessToken" \
 ]'
      http://GRAVITEEIO-AM-MGT-API-HOST/management/organizations/DEFAULT/environments/DEFAULT/domains/domain/flows
 ```
-````
 {% endcode %}
 
 ### Display the End User consent page
@@ -104,7 +102,6 @@ curl -H "Authorization: Bearer :accessToken" \
 3. Toggle on the **Enable custom oauth2 user consent form** button and add the following content:
 
 {% code overflow="wrap" %}
-````
 ```html
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
@@ -143,7 +140,6 @@ curl -H "Authorization: Bearer :accessToken" \
 </body>
 </html>
 ```
-````
 {% endcode %}
 
 {% hint style="info" %}
@@ -157,7 +153,6 @@ Notice the `<p th:text="'Hi ' + ${#ctx.getVariable('X-Custom-Variable')} + ' !'"
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-quickstart-policies-consent-page.png" alt=""><figcaption><p>Custom consent page</p></figcaption></figure>
 
 {% code overflow="wrap" %}
-````
 ```sh
 curl -H "Authorization: Bearer :accessToken" \
      -H "Content-Type:application/json;charset=UTF-8" \
@@ -169,5 +164,4 @@ curl -H "Authorization: Bearer :accessToken" \
         }'
       http://GRAVITEEIO-AM-MGT-API-HOST/management/organizations/DEFAULT/environments/DEFAULT/domains/:domainId/forms
 ```
-````
 {% endcode %}

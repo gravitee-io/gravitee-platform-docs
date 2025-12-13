@@ -102,9 +102,7 @@ To test the installation:
 
 1.  Deploy [`go-httpbin`](https://github.com/mccutchen/go-httpbin) as a backend service routed through your ingress resource. The minimum resources required to initialize the backend service are defined below:
 
-    \{% code title="httpbin.yaml" %\}
-
-    ````
+    {% code title="httpbin.yaml" %}
     ```yaml
     apiVersion: apps/v1
     kind: Deployment
@@ -145,9 +143,7 @@ To test the installation:
       selector:
         type: httpbin
     ```
-    ````
-
-    \{% endcode %\}
+    {% endcode %}
 2.  Apply the resources on your cluster:
 
     ```sh
@@ -164,9 +160,7 @@ The example below shows the rules for routing traffic to your backend service. T
 
 1.  Configure `httpbin-ingress.yaml`:
 
-    \{% code title="httpbin-ingress.yaml" %\}
-
-    ````yaml
+    {% code title="httpbin-ingress.yaml" %}
     ```yaml
     apiVersion: networking.k8s.io/v1
     kind: Ingress
@@ -186,9 +180,7 @@ The example below shows the rules for routing traffic to your backend service. T
                     port:
                       number: 8000
     ```
-    ````
-
-    \{% endcode %\}
+    {% endcode %}
 2.  Apply the ingress on your cluster:
 
     ```sh
@@ -325,9 +317,7 @@ A template is an API definition with the `gravitee.io/template` label set to `tr
 
 1.  Configure the `ingress-cache-template.yaml` file:
 
-    \{% code title="ingress-cache-template.yaml" %\}
-
-    ````
+    {% code title="ingress-cache-template.yaml" %}
     ```yaml
     apiVersion: "gravitee.io/v1alpha1"
     kind: "ApiDefinition"
@@ -374,9 +364,7 @@ A template is an API definition with the `gravitee.io/template` label set to `tr
       gravitee: "2.0.0"
       flow_mode: "DEFAULT"
     ```
-    ````
-
-    \{% endcode %\}
+    {% endcode %}
 2.  Apply this template:
 
     ```sh
@@ -393,9 +381,7 @@ To apply the template policies to requests issued to the `httpbin` ingress:
       <p>The template must exist in the same Kubernetes namespace as the ingress.</p>
     </div>
 
-    \{% code title="httpbin-ingress.yaml" %\}
-
-    ````
+    {% code title="httpbin-ingress.yaml" %}
     ```yaml
     apiVersion: networking.k8s.io/v1
     kind: Ingress
@@ -416,15 +402,12 @@ To apply the template policies to requests issued to the `httpbin` ingress:
                     port:
                       number: 8000
     ```
-    ````
+    {% endcode %}
+2. Apply this change:
 
-    \{% endcode %\}2. Apply this change:
-
-    ````
     ```sh
     kubectl apply -f httpbin-ingress.yaml
     ```
-    ````
 
 ### 3. Test your ingress
 

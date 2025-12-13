@@ -102,7 +102,7 @@ To test the installation:
 
 1.  Deploy [`go-httpbin`](https://github.com/mccutchen/go-httpbin) as a backend service routed through your ingress resource. The minimum resources required to initialize the backend service are defined below:
 
-    ````yaml
+    ```yaml
     apiVersion: apps/v1
     kind: Deployment
     metadata:
@@ -142,9 +142,6 @@ To test the installation:
       selector:
         type: httpbin
     ```
-    ````
-
-    \{% endcode %\}
 2.  Apply the resources on your cluster:
 
     ```sh
