@@ -34,13 +34,13 @@ An authorization grant is a flow used by the client to obtain an access token.
 
 The specification defines four grant types:
 
-* [Authorization code](README.md#authorization-code)
-* [Implicit](README.md#implicit)
-* [Resource owner password credentials](README.md#resource-owner-password-credentials)
-* [Client credentials](README.md#client-credentials)
+* [Authorization code](./#authorization-code)
+* [Implicit](./#implicit)
+* [Resource owner password credentials](./#resource-owner-password-credentials)
+* [Client credentials](./#client-credentials)
 
 {% hint style="info" %}
-OAuth 2.0 also supports the use of [refresh tokens](README.md#refresh-token) to obtain new access tokens.
+OAuth 2.0 also supports the use of [refresh tokens](./#refresh-token) to obtain new access tokens.
 
 AM provides a mechanism for defining additional types. See [extension grants](extension-grants.md) for more information.
 
@@ -71,7 +71,7 @@ The authorization code is used by applications to obtain a temporary code after 
 ### Implicit
 
 {% hint style="warning" %}
-The OAuth standard now discourages the use of an implicit grant to request access tokens from Javascript applications. You should consider using the [Authorization code ](README.md#authorization-code)grant with a PKCE extension for all your applications.
+The OAuth standard now discourages the use of an implicit grant to request access tokens from Javascript applications. You should consider using the [Authorization code ](./#authorization-code)grant with a PKCE extension for all your applications.
 {% endhint %}
 
 The implicit grant is a simplified authorization code flow. Instead of getting a temporary code first, you can retrieve an access token directly from web browser redirection.
