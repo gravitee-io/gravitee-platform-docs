@@ -38,7 +38,7 @@ docker run  \
 
 #### **Configure the container**
 
-If you want to override the default configuration for MongoDB and any other properties included in the `gravitee.yml` file, you need to use environment variables. For more information, see the [AM Gateway configuration section.](../../configuration/configure-am-gateway/README.md)
+If you want to override the default configuration for MongoDB and any other properties included in the `gravitee.yml` file, you need to use environment variables. For more information, see the [AM Gateway configuration section.](../../configuration/configure-am-gateway/)
 
 The following example changes the MongoDB connection:
 
@@ -86,7 +86,7 @@ docker run \
 
 #### **Configure the container**
 
-If you want to override the default configuration for MongoDB and any other properties included in the `gravitee.yml` file, you need to use environment variables. For more information, see the [AM API configuration section.](../../configuration/configure-am-api/README.md)
+If you want to override the default configuration for MongoDB and any other properties included in the `gravitee.yml` file, you need to use environment variables. For more information, see the [AM API configuration section.](../../configuration/configure-am-api/)
 
 The following example changes the MongoDB connection:
 

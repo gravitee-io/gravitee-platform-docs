@@ -10,12 +10,12 @@ The table below lists the different types of plugins you can use with AM alongsi
 
 | Type                                        | Components                            | Examples                   |
 | ------------------------------------------- | ------------------------------------- | -------------------------- |
-| [Identity Providers](README.md#identity-providers) | Management API / Gateway              | LDAP, Database, Social, …​ |
-| [Policies](README.md#policies)                     | Management API / Gateway              | Callout                    |
-| [Reporters](README.md#reporters)                   | Management API / Gateway              | MongoDB                    |
-| [Repositories](README.md#repositories)             | Management API / Gateway              | MongoDB                    |
-| [Alerts](README.md#alerts)                         | Management API / Gateway              | Vertx                      |
-| [Secret Providers](README.md#secret-providers)     | <p>APIM API<br>APIM Gateway<br>AM</p> | Kubernetes, HC Vault       |
+| [Identity Providers](./#identity-providers) | Management API / Gateway              | LDAP, Database, Social, …​ |
+| [Policies](./#policies)                     | Management API / Gateway              | Callout                    |
+| [Reporters](./#reporters)                   | Management API / Gateway              | MongoDB                    |
+| [Repositories](./#repositories)             | Management API / Gateway              | MongoDB                    |
+| [Alerts](./#alerts)                         | Management API / Gateway              | Vertx                      |
+| [Secret Providers](./#secret-providers)     | <p>APIM API<br>APIM Gateway<br>AM</p> | Kubernetes, HC Vault       |
 
 ### Identity providers
 

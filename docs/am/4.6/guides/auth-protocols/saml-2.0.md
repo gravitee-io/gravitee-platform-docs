@@ -62,6 +62,10 @@ Be sure to have your SAML 2.0 IdP protocol plugin and your license key installed
 If you choose to not use a certificate, the SAML Response assertion will not be signed.
 {% endhint %}
 
+{% hint style="warning" %}
+SAML cannot currently be configured at the Organization level.
+{% endhint %}
+
 ### Test the connection
 
 To connect your applications to the AM SAML 2.0 IdP, you need at least the following information:
