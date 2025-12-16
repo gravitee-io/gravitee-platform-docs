@@ -12,3 +12,7 @@
 * [Enforce user authentication: Reviewed](enforce-user-authentication.peer-reviewed.md)
 * [Enforce user authentication: Suggestions](enforce-user-authentication.suggestions.md)
 * [Enforce user authentication: Changelog](enforce-user-authentication.change-log.md)
+* [sample c](sample-c.md)
+* [sample c: Reviewed](sample-c.peer-reviewed.md)
+* [sample c: Suggestions](sample-c.suggestions.md)
+* [sample c: Changelog](sample-c.change-log.md)
