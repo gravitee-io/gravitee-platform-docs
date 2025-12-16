@@ -152,13 +152,26 @@ Sampling methods for v4 message APIs can also be configured in the `gravitee.yml
 * **Temporal:** Must be a `string` in ISO 8601 format
 
 {% code title="gravitee.yaml" %}
-```
+```yaml
+logging:
+  messageSampling:
+    probabilistic:
+      default: 0.01
+      limit: 0.5
+    count:
+      default: 100
+      limit: 10000
+    temporal:
+      default: PT1S
+      limit: PT1S 
 ```
 {% endcode %}
+{% endtab %}
 
-\`\`\`\`yaml \`\`\` logging: messageSampling: probabilistic: default: 0.01 limit: 0.5 count: default: 100 limit: 10000 temporal: default: PT1S limit: PT1S \`\`\` \`\`\`\` \{% endcode %\} \{% endtab %\}
-
-\{% tab title="v4 proxy APIs" %\} \{% hint style="info" %\} Select logging options judiciously to optimize the value of recorded data against the potential for impact to API performance. \{% endhint %\}
+{% tab title="v4 proxy APIs" %}
+{% hint style="info" %}
+Select logging options judiciously to optimize the value of recorded data against the potential for impact to API performance.
+{% endhint %}
 
 To configure which information is recorded, select from the following options:
 
@@ -169,7 +182,8 @@ To configure which information is recorded, select from the following options:
 
     <figure><img src="../.gitbook/assets/image (365).png" alt=""><figcaption></figcaption></figure>
 
-\{% endtab %\} \{% endtabs %\}
+{% endtab %}
+{% endtabs %}
 
 ### View messages
 
@@ -188,17 +202,20 @@ To view the details of any entry in the list of runtime logs:
 
     <figure><img src="../.gitbook/assets/321F6892-812F-4DAA-AEE6-0CA0C44BEFF4_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 
-\{% tabs %\} \{% tab title="v4 message APIs" %\} Under the **Connection Logs** tab, logs for the entry are grouped by **Entrypoint Request**, **Endpoint Request**, **Entrypoint Response**, and **Endpoint Response**:
+{% tabs %}
+{% tab title="v4 message APIs" %}
+Under the **Connection Logs** tab, logs for the entry are grouped by **Entrypoint Request**, **Endpoint Request**, **Entrypoint Response**, and **Endpoint Response**:
 
-<figure><img src="broken-reference" alt=""><figcaption><p>View log details</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/connection details_CROP.png" alt=""><figcaption><p>View log details</p></figcaption></figure>
 
 Under the **Messages** header, entrypoint and endpoint message details are grouped by date code:
 
-<figure><img src="broken-reference" alt=""><figcaption><p>View message details</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/message details_CROP.png" alt=""><figcaption><p>View message details</p></figcaption></figure>
 
-Each message record includes placeholder tabs for raw content, headers, and metadata. If the corresponding data was recorded, it will appear under the tab. If no data was recorded, the field will be empty. \{% endtab %\}
+Each message record includes placeholder tabs for raw content, headers, and metadata. If the corresponding data was recorded, it will appear under the tab. If no data was recorded, the field will be empty.
+{% endtab %}
 
-\{% tab title="v4 proxy APIs" %\} In the logs screen, you see the following information about your API logs:
+{% tab title="v4 proxy APIs" %} In the logs screen, you see the following information about your API logs:
 
 #### Overview
 
@@ -250,7 +267,8 @@ In the request section, you see the information about the following topics:
 
       <figure><img src="../.gitbook/assets/2421DA4C-35BB-4DAD-A6FA-642B70A17486_4_5005_c.jpeg" alt=""><figcaption></figcaption></figure>
 
-\{% endtab %\} \{% endtabs %\}
+{% endtab %}
+{% endtabs %}
 
 ## Expose metrics to Prometheus
 

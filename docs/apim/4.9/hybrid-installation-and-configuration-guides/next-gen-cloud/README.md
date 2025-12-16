@@ -14,24 +14,26 @@ The following installation steps are common to all supported deployment methods.
 
 1.  Sign in to [Gravitee Cloud](https://cloud.gravitee.io/).
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/sign-in-to-gravitee-cloud (1).png" alt=""><figcaption></figcaption></figure>
 2.  From the **Dashboard**, click **Deploy Gateway**.
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/5458CF8E-7FFE-4961-9EE5-761E3A3E75CB (1).jpeg" alt=""><figcaption></figcaption></figure>
 3.  In the **Choose Gateway Deployment Method** modal, select **Hybrid Gateway**.
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/select-hybrid-gateway (1).png" alt=""><figcaption></figcaption></figure>
 4.  On the **Deploy Hybrid Gateway** screen, select the Environment to which you'd like to deploy the Gateway. For example, **Development**.
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/select-environment (1).png" alt=""><figcaption></figcaption></figure>
 5.  In **URLs & Domains**, enter the names of the HTTP domains through which you can access your Hybrid Gateway. By default, all URLs enforce HTTPS.
 
-    \{% hint style="info" %\} You must configure these HTTP domains/hostnames in your load balancer or ingress where you run the Gateway \{% endhint %\}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p>You must configure these HTTP domains/hostnames in your load balancer or ingress where you run the Gateway</p>
+    </div>
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/deploy-your-gateway (1).png" alt=""><figcaption></figcaption></figure>
 6.  Click **Generate Installation Details** to generate your Cloud Token and License Key. Copy your Cloud Token and License Key and save them somewhere secure.
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/generate-installation-details (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 Your have prepared your installation for deployment.
@@ -52,7 +54,7 @@ Deployment methods that are not linked to documentation are still fully supporte
 
 ### Kubernetes
 
-* [Vanilla Kubernetes](kubernetes/vanilla-kubernetes/)
+* [Vanilla Kubernetes](kubernetes/vanilla-kubernetes/README.md)
 * [AWS EKS](kubernetes/aws-eks.md)
 * [Azure AKS](kubernetes/azure-aks.md)
 * [OpenShift](kubernetes/openshift.md)
@@ -86,9 +88,9 @@ Analytics are reported to a dedicated Cloud account pipeline. Data is produced t
 
 All communication between the hybrid Gateway and the Cloud Gate endpoints uses TLS encryption.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Overview of a Gravitee Cloud deployment in Azure with a hybrid gateway connecting to the Gravitee Cloud API Management Control Plane using the Cloud Gate and Cloud Tokens.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (29) (1) (1).png" alt=""><figcaption><p>Overview of a Gravitee Cloud deployment in Azure with a hybrid gateway connecting to the Gravitee Cloud API Management Control Plane using the Cloud Gate and Cloud Tokens.</p></figcaption></figure>
 
-### Cloud Gate Endpoints
+### Cloud Gate endpoints
 
 Here are two key endpoints that your Gateway interacts with:
 
@@ -108,7 +110,7 @@ The Cloud Token contains the following information:
 
 The Cloud Token is used to establish a secure and authenticated connection with the appropriate Cloud Gate endpoint.
 
-### Connection Flow
+### Connection flow
 
 1. **Generate a Cloud Token.** Before connecting your Gateway, obtain a Cloud Token from your Cloud Control Plane.
 2. **Copy your Cloud license.** To start up and read your APIs, mount your license on the Gateway.

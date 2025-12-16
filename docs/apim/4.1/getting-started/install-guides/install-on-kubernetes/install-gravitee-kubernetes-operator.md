@@ -25,7 +25,7 @@ Historically, Gravitee customers have deployed APIs using the following:
 * **Gravitee Management Console:** Gravitee includes an easy-to-use, self-serve UI. The Console is often used as a development tool and is connected to a backend service that is part of the Gravitee web application.
 * **Gravitee Management API:** Every action in the Gravitee Management Console represents a REST API with a JSON payload that is documented using an API spec. Consequently, every UI action can be performed via REST API calls backed by JSON files. A Gravitee API definition is also a JSON file that explains endpoints, protections, etc.
 
-While the REST API method is compatible with IaC, customer feedback favors a Kubernetes-native deployment of APIs, the Gravitee APIM Gateway and the Console via [Custom Resource Definitions (CRDs)](../../../guides/gravitee-kubernetes-operator/custom-resource-definitions/). The introduction of the Gravitee Kubernetes Operator (GKO) makes this possible.
+While the REST API method is compatible with IaC, customer feedback favors a Kubernetes-native deployment of APIs, the Gravitee APIM Gateway and the Console via [Custom Resource Definitions (CRDs)](../../../guides/gravitee-kubernetes-operator/custom-resource-definitions/README.md). The introduction of the Gravitee Kubernetes Operator (GKO) makes this possible.
 
 ## Deployment strategies
 
@@ -55,7 +55,7 @@ To achieve this architecture, the `manager.scope.cluster` value must be set to `
 
 An overview of this architecture is described by the diagram below.
 
-<img src="broken-reference" alt="Multiple operators, each listening to its own namespace" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (13).svg" alt="Multiple operators, each listening to its own namespace" class="gitbook-drawing">
 {% endtab %}
 
 {% tab title="Multi-Cluster Mode" %}

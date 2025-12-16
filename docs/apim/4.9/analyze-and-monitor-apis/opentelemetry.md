@@ -10,7 +10,7 @@ OpenTelemetry replaces OpenTracing. For more information about OpenTracing, see 
 
 ## Overview
 
-With Gravitee's OpenTelemetry feature, you can trace every request handled by the API Management (APIM) Gateway in self-hosted installations and hybrid deployments. A request refers to the input object as defined by OpenTelemetry, which can be an HTTP request or other objects like a message or Kafka record.&#x20;
+With Gravitee's OpenTelemetry feature, you can trace every request handled by the API Management (APIM) Gateway in self-hosted installations and hybrid deployments. A request refers to the input object as defined by OpenTelemetry, which can be an HTTP request or other objects like a message or Kafka record.
 
 The OpenTelemetry framework supports standardized observability, which means that you can export your Gravitee traces to any telemetry tool. For example, Jaeger.
 
@@ -26,8 +26,8 @@ To enable OpenTelemetry, complete the following steps:
 ## Enable OpenTelemetry for your Gateway
 
 {% hint style="warning" %}
-* If you currently use the Jaeger plugin, you must update your configuration to target your OpenTelemetry endpoint.&#x20;
-* `services.tracing.otel` is deprecated.&#x20;
+* If you currently use the Jaeger plugin, you must update your configuration to target your OpenTelemetry endpoint.
+* `services.tracing.otel` is deprecated.
 {% endhint %}
 
 * To enable OpenTelemetry for your Gateway, follow the steps for your installation type:
@@ -80,7 +80,7 @@ To enable OpenTelemetry, complete the following steps:
          #     password: password
 
     ```
-- Replace `<OPENTELEMETRY_ENDPOINT>` with the endpoint that you use for your OpenTelemetry collector. The default endpoint is [http://localhost:4317](http://localhost:4317).&#x20;
+- Replace `<OPENTELEMETRY_ENDPOINT>` with the endpoint that you use for your OpenTelemetry collector. The default endpoint is `http://localhost:4317`.
 {% endtab %}
 
 {% tab title="values.yaml" %}
@@ -130,7 +130,7 @@ To enable OpenTelemetry, complete the following steps:
                 path: /path/to/certs.p12
                 password: password
     ```
-* Replace `<OPENTELEMETRY_ENDPOINT>` with the endpoint that you use for the your OpenTelemetry collector. The default endpoint is [http://localhost:4317](http://localhost:4317).
+* Replace `<OPENTELEMETRY_ENDPOINT>` with the endpoint that you use for the your OpenTelemetry collector. The default endpoint is `http://localhost:4317`.
 {% endtab %}
 
 {% tab title="Environment variables" %}
@@ -142,7 +142,7 @@ To enable OpenTelemetry, complete the following steps:
 {% endtab %}
 {% endtabs %}
 
-For more information about OpenTelemetry configurations, go to [Gravitee's Gravitee Node OpenTelemetry GitHub README](https://github.com/gravitee-io/gravitee-node/tree/master/gravitee-node-opentelemetry).&#x20;
+For more information about OpenTelemetry configurations, go to [Gravitee's Gravitee Node OpenTelemetry GitHub README](https://github.com/gravitee-io/gravitee-node/tree/master/gravitee-node-opentelemetry).
 
 ### Verification
 
@@ -161,28 +161,24 @@ For more information about OpenTelemetry configurations, go to [Gravitee's Gravi
 To enable OpenTelemetry for an API, you must have OpenTelemetry enabled on your Gateway. For more information about enabling OpenTelemetry for your Gateway, see [#enable-opentelemetry-for-your-gateway](opentelemetry.md#enable-opentelemetry-for-your-gateway "mention").
 {% endhint %}
 
-1.  From the **Dashboard**, click **APIs**. <br>
+1.  From the **Dashboard**, click **APIs**.<br>
 
     <figure><img src="../.gitbook/assets/image (59).png" alt=""><figcaption></figcaption></figure>
-2.  From the **APIs** screen, select the API that you to enable OpenTelemetry for. <br>
+2.  From the **APIs** screen, select the API that you to enable OpenTelemetry for.<br>
 
     <figure><img src="../.gitbook/assets/image (60).png" alt=""><figcaption></figcaption></figure>
-3.  From your **API** menu, click **Deployment**. <br>
+3.  From your **API** menu, click **Deployment**.<br>
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (55) (1) (1).png" alt=""><figcaption></figcaption></figure>
 4.  From the **Deployment** screen, click **Reporter Settings**.<br>
 
     <figure><img src="../.gitbook/assets/image (58) (1).png" alt=""><figcaption></figcaption></figure>
-
-
 5.  Navigate to the **OpenTelemetry** section, and then turn on the **Enabled** toggle.<br>
 
     <figure><img src="../.gitbook/assets/image (65).png" alt=""><figcaption></figcaption></figure>
 6.  (Optional) Turn on the **Verbose** toggle.<br>
 
-    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>If you enable verbose, the number of spans for each trace increases, which might impact performance. </p></div>
-
-
+    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>If you enable verbose, the number of spans for each trace increases, which might impact performance.</p></div>
 
     <figure><img src="../.gitbook/assets/image (66).png" alt=""><figcaption></figcaption></figure>
 7.  In the **You have unsaved changes** pop-up window, click **Save**.<br>

@@ -45,31 +45,25 @@ Let’s imagine a client application wants to retrieve the `telephoneNumber` att
 4.  Map your LDAP (raw) attribute `telephoneNumber` to a new user attribute named `telephone_number`.
 
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-idp-user-mappers-phoneno.png" alt=""><figcaption><p>LDAP user mappers</p></figcaption></figure>
-5. Get the User Profile information via the UserInfo Endpoint and you will see that the new user attribute is present.
+5.  Get the User Profile information via the UserInfo Endpoint and you will see that the new user attribute is present.
 
-{% code overflow="wrap" %}
-```
-```
-{% endcode %}
+    <pre class="language-sh" data-overflow="wrap"><code class="lang-sh">curl -X GET http://GRAVITEEIO-AM-GATEWAY-HOST/:securityDomainPath/oidc/userinfo -H 'Authorization: Bearer :accessToken'
+    </code></pre>
 
-\`\`\`\` \`\`\`sh curl -X GET http://GRAVITEEIO-AM-GATEWAY-HOST/:securityDomainPath/oidc/userinfo -H 'Authorization: Bearer :accessToken' \`\`\` \`\`\`\` \{% endcode %\}
+    If it is working correctly, you will see something like this:
 
-````
-If it is working correctly, you will see something like this:
-
-```sh
-HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Cache-Control: no-cache, no-store, max-age=0, must-revalidate
-Pragma: no-cache
-{
-    "uid": "johndoe",
-    "given_name": "John",
-    "family_name": "Doe"
-    "telephone_number: "202-555-0105"
-}
-```
-````
+    ```sh
+    HTTP/1.1 200 OK
+    Content-Type: application/json;charset=UTF-8
+    Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+    Pragma: no-cache
+    {
+        "uid": "johndoe",
+        "given_name": "John",
+        "family_name": "Doe",
+        "telephone_number: "202-555-0105"
+    }
+    ```
 
 The same principle applies to any identity provider.
 
@@ -89,7 +83,7 @@ In addition, when it comes to fine-grained authorization management, it is consi
 
 The goal is to dynamically add scopes to the `access_token`, depending on the role associated with the user when authenticating.
 
-\{% hint style="info" %\} When the roles are updated via SCIM, the roles already applied via Role Mappers won’t be persisted as an assigned role. This ensures that it can be safely removed when the mapper rule does not match anymore. For more about SCIM, click [here](../auth-protocols/scim-2.0.md). \{% endhint %\}
+{% hint style="info" %} When the roles are updated via SCIM, the roles already applied via Role Mappers won’t be persisted as an assigned role. This ensures that it can be safely removed when the mapper rule does not match anymore. For more about SCIM, click [here](../auth-protocols/scim-2.0.md). {% endhint %}
 
 ### Example
 

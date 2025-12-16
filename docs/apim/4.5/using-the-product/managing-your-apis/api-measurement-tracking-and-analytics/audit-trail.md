@@ -7,7 +7,7 @@ description: An overview about audit trail.
 {% hint style="warning" %}
 The Audit Trail is an Enterprise Edition capability. To learn more about Gravitee EE and what's included in various enterprise packages, please:
 
-* [Refer to the EE vs OSS documentation](../../../overview/gravitee-apim-enterprise-edition/)
+* [Refer to the EE vs OSS documentation](../../../overview/gravitee-apim-enterprise-edition/README.md)
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
@@ -25,4 +25,4 @@ To use the Audit Trail feature:
 3. Select values for the **Event**, **Type**, and **Enter a date range** filters
 4. Click on the eye icon to view patch information
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Gravitee Audit Trail</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/audit trail.png" alt=""><figcaption><p>Gravitee Audit Trail</p></figcaption></figure>

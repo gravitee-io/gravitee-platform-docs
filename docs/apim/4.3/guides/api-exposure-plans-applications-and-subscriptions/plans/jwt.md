@@ -14,7 +14,7 @@ APIM uses client IDs to recognize applications that have subscribed to a JWT pla
 
 A JWT plan presents the following configuration options:
 
-<figure><img src="broken-reference" alt=""><figcaption><p>JWT plan configuration</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/plan_jwt configure.png" alt=""><figcaption><p>JWT plan configuration</p></figcaption></figure>
 
 * **Signature:** Select the algorithm used to hash and encrypt your JWT
 * **JWKS resolver:** Select a method to retrieve the JSON Web Key (JWK), which is often stored inside a JSON Web Key Set (JWKS) and required by the Gateway to validate the signature of the JWT:
@@ -49,4 +49,7 @@ A JWT plan presents the following configuration options:
 
     <figure><img src="../../../.gitbook/assets/jwt selection rule.png" alt=""><figcaption></figcaption></figure>
 
-    \{% hint style="info" %\} Plan selection and evaluation of the selection rule use the EL syntax `#context.attributes['jwt'].claims['iss']` per the example above. However, when the policy is executed, the field is placed directly in the attributes map with the key. The correct EL syntax to access JWT fields changes to `#context.attributes['jwt.claims']['iss']`. \{% endhint %\}Once JWT configuration is complete and the plan is created and published, your API will be JWT-secured and subscribed consumers must call the API with an `Authorization: Bearer your-JWT` HTTP header.
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p>Plan selection and evaluation of the selection rule use the EL syntax <code>#context.attributes['jwt'].claims['iss']</code> per the example above. However, when the policy is executed, the field is placed directly in the attributes map with the key. The correct EL syntax to access JWT fields changes to <code>#context.attributes['jwt.claims']['iss']</code>.</p>
+    </div>
+Once JWT configuration is complete and the plan is created and published, your API will be JWT-secured and subscribed consumers must call the API with an `Authorization: Bearer your-JWT` HTTP header.

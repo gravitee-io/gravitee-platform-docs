@@ -105,9 +105,9 @@ To set up a subscription, complete the following steps.
     2. A valid plan key defined in the API.
     3. A valid application and an optional namespace.
 
-    {% hint style="warning" %}
-    If your API reference points to a v2 API, you must add the `kind` property with the `ApiDefinition` value to your API reference.
-    {% endhint %}
+    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning">
+      <p>If your API reference points to a v2 API, you must add the <code>kind</code> property with the <code>ApiDefinition</code> value to your API reference.</p>
+    </div>
 
     Here is an example of a subscription resource:
 
@@ -125,10 +125,12 @@ To set up a subscription, complete the following steps.
     ```
 6.  Apply the resource.
 
-    {% hint style="danger" %}
-    * Only resources with a management context reference are supported.
-    * The management context must be configured for your setup. To configure the management context, use the Management API URL and credentials.
-    {% endhint %}
+    <div data-gb-custom-block data-tag="hint" data-style="danger" class="hint hint-danger">
+      <ul>
+        <li>Only resources with a management context reference are supported.</li>
+        <li>The management context must be configured for your setup. To configure the management context, use the Management API URL and credentials.</li>
+      </ul>
+    </div>
 
     \
     To apply the resource, use the following commands:

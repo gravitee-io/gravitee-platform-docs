@@ -102,10 +102,7 @@ To test the installation:
 
 1.  Deploy [`go-httpbin`](https://github.com/mccutchen/go-httpbin) as a backend service routed through your ingress resource. The minimum resources required to initialize the backend service are defined below:
 
-    \{% code title="httpbin.yaml" %\}
-
-    ````
-    ```yaml
+    ````yaml
     apiVersion: apps/v1
     kind: Deployment
     metadata:
@@ -164,9 +161,6 @@ The example below shows the rules for routing traffic to your backend service. T
 
 1.  Configure `httpbin-ingress.yaml`:
 
-    \{% code title="httpbin-ingress.yaml" %\}
-
-    ````yaml
     ```yaml
     apiVersion: networking.k8s.io/v1
     kind: Ingress
@@ -186,9 +180,6 @@ The example below shows the rules for routing traffic to your backend service. T
                     port:
                       number: 8000
     ```
-    ````
-
-    \{% endcode %\}
 2.  Apply the ingress on your cluster:
 
     ```sh
@@ -214,7 +205,7 @@ To secure the connection between your client and the Gateway, you must modify th
     -keystore gw-keystore.jks -dname "CN=example.com"
     ```
 
-    \{% hint style="info" %\} Currently, Gravitee only supports the JKS keystore. \{% endhint %\}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>Currently, Gravitee only supports the JKS keystore.</p></div>
 2.  Add your keystore to your target namespace, for example., the default namespace:
 
     ```sh
@@ -234,7 +225,7 @@ To secure the connection between your client and the Gateway, you must modify th
          sni: true
     ```
 
-    \{% hint style="info" %\} You must also add this label to your Gateway `ConfigMap` to tell the controller where your Gateway configuration is located. \{% endhint %\}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>You must also add this label to your Gateway <code>ConfigMap</code> to tell the controller where your Gateway configuration is located.</p></div>
 4. Restart the Gateway for the changes to take effect.
 
 #### Modify the keystore
@@ -321,9 +312,6 @@ A template is an API definition with the `gravitee.io/template` label set to `tr
 
 1.  Configure the `ingress-cache-template.yaml` file:
 
-    \{% code title="ingress-cache-template.yaml" %\}
-
-    ````
     ```yaml
     apiVersion: "gravitee.io/v1alpha1"
     kind: "ApiDefinition"
@@ -370,9 +358,6 @@ A template is an API definition with the `gravitee.io/template` label set to `tr
       gravitee: "2.0.0"
       flow_mode: "DEFAULT"
     ```
-    ````
-
-    \{% endcode %\}
 2.  Apply this template:
 
     ```sh
@@ -385,11 +370,8 @@ To apply the template policies to requests issued to the `httpbin` ingress:
 
 1.  Add the required label by annotating the ingress. Use the `gravitee.io/template` as the key and the API definition template name as the value.
 
-    \{% hint style="info" %\} The template must exist in the same Kubernetes namespace as the ingress. \{% endhint %\}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>The template must exist in the same Kubernetes namespace as the ingress.</p></div>
 
-    \{% code title="httpbin-ingress.yaml" %\}
-
-    ````
     ```yaml
     apiVersion: networking.k8s.io/v1
     kind: Ingress
@@ -410,15 +392,13 @@ To apply the template policies to requests issued to the `httpbin` ingress:
                     port:
                       number: 8000
     ```
-    ````
 
-    \{% endcode %\}2. Apply this change:
+    \
+    2\. Apply this change using the following command:
 
-    ````
     ```sh
     kubectl apply -f httpbin-ingress.yaml
     ```
-    ````
 
 ### 3. Test your ingress
 

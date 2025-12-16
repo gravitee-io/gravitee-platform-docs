@@ -13,7 +13,7 @@ Gravitee Next Gen Cloud supports hybrid deployments, which provides you with the
 * **Control Plane**: Fully managed by Gravitee in the cloud, responsible for API design, publishing, configuration, analytics, and lifecycle management.
 *   **Data Plane**: Deployed and managed by you, close to your backend services, responsible for executing traffic policies, enforcing security, and routing API traffic.
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/docker-compose-overview- (1).png" alt=""><figcaption></figcaption></figure>
 
 This guide focuses on installing the Data Plane using Docker Compose. The Data Plane includes core components like the Gateway and Redis.\
 \
@@ -112,10 +112,10 @@ To confirm that your Hybrid installation is working, complete the following step
 
 1.  Sign in to Gravitee Cloud.
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/cloud-ssign-in-page (1).png" alt=""><figcaption></figcaption></figure>
 2.  From the **Dashboard**, navigate to the **Gateways** section. Your new Hybrid Gateway appears here.
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/0023A006-6B47-468B-923B-AA823EF40368_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
 
 If the Gateway does not appear or shows an error state, complete the following checks:
 
@@ -139,7 +139,10 @@ If the Gateway does not appear or shows an error state, complete the following c
     No context-path matches the request URI.
     ```
 
-    \{% hint style="info" %\} This response confirms that the Gateway has initialized, but no APIs have been deployed. Once APIs are published through the Control Plane, this message is replaced by valid responses routed through the configured context paths. \{% endhint %\}### Stop the Gateway
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p>This response confirms that the Gateway has initialized, but no APIs have been deployed. Once APIs are published through the Control Plane, this message is replaced by valid responses routed through the configured context paths.</p>
+    </div>
+### Stop the Gateway
 
 To shut down the Gateway, choose one of the following options.
 

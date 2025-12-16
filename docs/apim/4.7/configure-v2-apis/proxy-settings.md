@@ -25,7 +25,7 @@ To configure the API entrypoints:
 
 1.  Select **Entrypoints** from the inner left nav
 
-    <figure><img src="broken-reference" alt=""><figcaption><p>Configure v2 API entrypoints</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/v2 proxy_entrypoints.png" alt=""><figcaption><p>Configure v2 API entrypoints</p></figcaption></figure>
 
     * Edit your **Context-path** or create a new one via **Add context-path**
     * Toggle **Enable virtual hosts** ON or OFF
@@ -37,13 +37,15 @@ CORS is a mechanism that allows resources on a web page to be requested from ano
 
 1.  Select **CORS** from the inner left nav
 
-    <figure><img src="broken-reference" alt=""><figcaption><p>Configure CORS</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/v2 proxy_CORS.png" alt=""><figcaption><p>Configure CORS</p></figcaption></figure>
 2.  Set the following parameters:
 
     * **Enable CORS:** Toggle to ON to enable CORS.
     * **Access-Control-Allow-Origin:** Define a URI that can access the resource. Enter \* to allow all requests, regardless of origin.
 
-    \{% hint style="danger" %\} A value of \* is not recommended for production environments. By allowing cross-origin requests, a server may inadvertently expose sensitive information to unauthorized parties. For example, if a server includes sensitive data in a response that is accessible via CORS, an attacker could use a malicious website to extract that data. \{% endhint %\}
+    <div data-gb-custom-block data-tag="hint" data-style="danger" class="hint hint-danger">
+      <p>A value of * is not recommended for production environments. By allowing cross-origin requests, a server may inadvertently expose sensitive information to unauthorized parties. For example, if a server includes sensitive data in a response that is accessible via CORS, an attacker could use a malicious website to extract that data.</p>
+    </div>
 
 ```
 * **Access-Control-Allow-Methods:** Select the method(s) allowed when accessing the resource, which is used in response to a preflight request: `GET`, `DELETE`, `PATCH`, `POST`, `PUT`, `OPTIONS`, `TRACE`, and/or `HEAD`.
@@ -61,7 +63,7 @@ CORS is a mechanism that allows resources on a web page to be requested from ano
 
 All requests rejected because of CORS issues will generate logs that you can view in the `Analytics` section of your API logs.
 
-<img src="broken-reference" alt="" data-size="original">
+<img src="../.gitbook/assets/graviteeio-troubleshooting-cors.png" alt="" data-size="original">
 {% endhint %}
 
 ## Deployments
@@ -70,7 +72,7 @@ All requests rejected because of CORS issues will generate logs that you can vie
 
 1.  Select **Deployments** from the inner left nav
 
-    <figure><img src="broken-reference" alt=""><figcaption><p>Configure sharding tags</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/v2 proxy_deployments.png" alt=""><figcaption><p>Configure sharding tags</p></figcaption></figure>
 2. From the **Sharding tags** drop-down menu, choose one or more sharding tags
 3. Click **Save**
 
@@ -102,7 +104,7 @@ To configure a response template:
 2. Click on the **Add new Response Template** button
 3.  Customize the **Create a new Response Template** form
 
-    <figure><img src="broken-reference" alt=""><figcaption><p>Configure a new response template</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/create response template.png" alt=""><figcaption><p>Configure a new response template</p></figcaption></figure>
 
     * **Template key:** Choose the template key via the **Template key** drop-down.
     * **Accept header to match:** Specify the requests header that should trigger use of the response template. The default value is `*/*`. To send the template override values only for JSON or XML requests, specify `JSON` or `XML.`
@@ -120,7 +122,7 @@ To configure API properties:
 
 1.  Select **Properties** from the inner left nav
 
-    <figure><img src="broken-reference" alt=""><figcaption><p>Add API properties</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/v2 proxy_properties.png" alt=""><figcaption><p>Add API properties</p></figcaption></figure>
 2. To add hardcoded properties, either:
    * Click **Add property** and enter property definitions one at a time as a key-value pair
    * Click **Import** and enter property definitions as a list in `<key>=<value>` format
@@ -145,7 +147,7 @@ To encrypt a hardcoded API property value:
     ```
 2.  Enable the **Encrypt** toggle when adding a property via **Add property**. Once you click **Save**, you can no longer edit, modify, or view the value.
 
-    <div align="left"><figure><img src="broken-reference" alt="" width="375"><figcaption></figcaption></figure></div>
+    <div align="left"><figure><img src="../.gitbook/assets/api properties_add.png" alt="" width="375"><figcaption></figcaption></figure></div>
 
 ### **Dynamic properties**
 
@@ -153,7 +155,7 @@ To configure dynamic properties:
 
 1.  Click the **Manage dynamically** button and define the configuration
 
-    <figure><img src="broken-reference" alt=""><figcaption><p>Configure dynamic properties</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/v2 proxy_properties dynamic.png" alt=""><figcaption><p>Configure dynamic properties</p></figcaption></figure>
 
     * Toggle **Enabled** to ON
     * **Schedule:** A cron expression to schedule the health check

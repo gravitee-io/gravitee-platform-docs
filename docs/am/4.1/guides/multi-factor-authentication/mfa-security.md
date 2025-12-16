@@ -14,11 +14,11 @@ Gravitee Access Management (AM) enhances MFA security further by introducing thr
 
 ## MFA Challenge policy
 
-The MFA Challenge policy is an [Enterprise Edition](../../overview/open-source-vs-enterprise-am/) policy plugin. It allows a security domain or application owner to apply an MFA step during password reset or account unlock, etc., to enforce security and ensure that the user account has not been compromised. You can specify which MFA Factor will be used to do the challenge step.
+The MFA Challenge policy is an [Enterprise Edition](../../overview/open-source-vs-enterprise-am/README.md) policy plugin. It allows a security domain or application owner to apply an MFA step during password reset or account unlock, etc., to enforce security and ensure that the user account has not been compromised. You can specify which MFA Factor will be used to do the challenge step.
 
 For example, consider an end user who wants to reset their password. After clicking on the RESET PASSWORD email link, the user must complete the form on the MFA Challenge page before their password can be changed.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Password reset triggers MFA Challenge</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/mfa challenge policy.png" alt=""><figcaption><p>Password reset triggers MFA Challenge</p></figcaption></figure>
 
 ## MFA Rate Limit
 

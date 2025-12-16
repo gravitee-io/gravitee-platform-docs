@@ -53,7 +53,9 @@ Once a multi-tenant APIM is connected to Cloud, it is not possible to disable mu
 1. Install APIM on your preferred infrastructure and deployment type
 2.  Explicitly set APIM to multi-tenant mode by commenting out the multi-tenant section in the configuration. Optionally, you can specify the configuration of Access Points, which comprises the URLs that APIM components will be addressed on.
 
-    \{% hint style="info" %\} Cloud is able to interpret a variabilized Access Point structure based on Account, Organization, and Environment Human Readable IDs. Cloud will interpret non-variabilized instructions literally, which may result in multiple Environment components receiving the same Access Point configuration. \{% endhint %\}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p>Cloud is able to interpret a variabilized Access Point structure based on Account, Organization, and Environment Human Readable IDs. Cloud will interpret non-variabilized instructions literally, which may result in multiple Environment components receiving the same Access Point configuration.</p>
+    </div>
 
     ```yaml
     installation:
@@ -106,9 +108,9 @@ All APIs that have been created prior to 4.4 will still be in virtual host mode.
 
 * Once a multi-tenant APIM installation is connected to Cloud, custom Access Points can be defined at both the Organization and Environment levels using Cloud. These values will override the values originally sent from the APIM installation, as shown below.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Access Points configuration for Organization-related APIM nodes, found in Organization settings in Cloud</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (57).png" alt=""><figcaption><p>Access Points configuration for Organization-related APIM nodes, found in Organization settings in Cloud</p></figcaption></figure>
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Access Points configuration for Environment-related APIM nodes, found in Environment settings in Cloud</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (55).png" alt=""><figcaption><p>Access Points configuration for Environment-related APIM nodes, found in Environment settings in Cloud</p></figcaption></figure>
 
 ### Using custom Access Points
 

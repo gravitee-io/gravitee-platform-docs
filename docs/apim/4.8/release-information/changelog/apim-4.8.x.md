@@ -3,6 +3,41 @@ description: Documentation about apim 4.8.x in the context of APIs.
 ---
 
 # APIM 4.8.x
+ 
+## Gravitee API Management 4.8.16 - December 10, 2025
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Incorrect HTTP request metrics for V4 APIs [#10994](https://github.com/gravitee-io/issues/issues/10994)
+* Revert - disabled resource has no effect \[10831] [#11019](https://github.com/gravitee-io/issues/issues/11019)
+
+**Management API**
+
+* Silent failure when changing email to one already in use [#11017](https://github.com/gravitee-io/issues/issues/11017)
+
+**Console**
+
+* Silent failure when changing email to one already in use [#11017](https://github.com/gravitee-io/issues/issues/11017)
+
+</details>
+
+
+
+## Gravitee API Management 4.8.14 - November 25, 2025
+
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Other**
+
+* Lost api notifications after upgrade [#10924](https://github.com/gravitee-io/issues/issues/10924)
+* Intermittent 503s on OAuth2 Introspection due to Stale Connection Reuse [#10984](https://github.com/gravitee-io/issues/issues/10984)
+
+</details>
 
 ## Gravitee API Management 4.8.13 - November 21, 2025
 

@@ -22,7 +22,7 @@ Portal notifications relate to the platform and include the following:
 
 To subscribe to Portal notifications, go to **APIM Console > Settings > Notifications**:
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/portal_notifications.png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="API" %}
@@ -59,7 +59,7 @@ Application notifications relate to a specific application and include the follo
 
 To subscribe to notifications related to a specific application, go to **APIM Console >** **Applications**, select the application, and click **Notifications**:
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/application_notifications.png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -71,11 +71,11 @@ The Portal notifier is the default notifier and sends messages to users logged i
 
 They can be displayed by clicking the bell icon in the header menu of APIM Console:
 
-<div align="left"><figure><img src="broken-reference" alt="" width="375"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../.gitbook/assets/console_notification_link.png" alt="" width="375"><figcaption></figcaption></figure></div>
 
 In the Developer Portal, notifications are displayed in a page accessible from the user menu:
 
-<div align="left"><figure><img src="broken-reference" alt="" width="188"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../.gitbook/assets/portal_notification_link.png" alt="" width="188"><figcaption></figcaption></figure></div>
 
 The templates of Portal notifications can be customized in **Settings**. For more information, see [Templates](notifications.md#templates).
 {% endtab %}
@@ -91,7 +91,7 @@ Email notifiers send an email to a specific list of email addresses. To create a
 A default email notifier is created for every API. All notifications are preselected and email is sent to the primary owner.
 {% endhint %}
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Configure notifications.gif" alt=""><figcaption></figcaption></figure>
 
 The [templates](notifications.md#templates) of email notifications can be customized in **Settings.**
 {% endtab %}
@@ -156,19 +156,19 @@ templates:
 
 These templates can be overridden in **APIM Console > Organization > Notifications > Templates**:
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/template_notifications.png" alt=""><figcaption></figcaption></figure>
 
 Email templates that are sent for specific actions and not related to a notification can be customized. Typically, these emails are intended for specific users.
 
 The `header.html` file that is included by default in all email templates can also be customized.
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/templates_to_include.png" alt=""><figcaption></figcaption></figure>
 
 #### Customize a template
 
 Portal and email notifiers can be configured for most notifications. To customize a template, toggle the switch **Override default template** and update the title and/or content.
 
-<div><figure><img src="broken-reference" alt=""><figcaption></figcaption></figure> <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure></div>
+<div><figure><img src="../.gitbook/assets/override_default_off.png" alt=""><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/override_default_on.png" alt=""><figcaption></figcaption></figure></div>
 
 The available attributes are summarized below. Use the [Apache Freemarker template engine](https://freemarker.apache.org/) to add specific information to templates, e.g., ${user.name} or ${api.metadata\['foo-bar']}.
 

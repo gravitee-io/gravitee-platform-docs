@@ -209,7 +209,9 @@ To prepare your Gravitee `values.yaml` file for Helm, complete the following ste
 
        <figure><img src="../../../.gitbook/assets/gateway-cloud-version.png" alt=""><figcaption></figcaption></figure>
 
-       \{% hint style="info" %\} The `tag` field specifies the version of your Gravitee Gateway. Your Gateway version must match your Gravitee Cloud Control Plane version to ensure compatibility between your hybrid Gateway and the Cloud Management platform. \{% endhint %\}
+       <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+         <p>The <code>tag</code> field specifies the version of your Gravitee Gateway. Your Gateway version must match your Gravitee Cloud Control Plane version to ensure compatibility between your hybrid Gateway and the Cloud Management platform.</p>
+       </div>
 3. Save your Gravitee `values.yaml` file in your working directory.
 
 <details>
@@ -378,7 +380,7 @@ helm uninstall graviteeio-apim-gateway --namespace gravitee-apim
 
 Your Gateway appears in the Gateways section of your Gravitee Cloud Dashboard.
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/gravitee-gateway-cloud-verification (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 To verify that your Gateway is up and running, complete the following steps:
 

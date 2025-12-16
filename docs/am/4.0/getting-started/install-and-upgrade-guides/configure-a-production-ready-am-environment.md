@@ -8,13 +8,13 @@ description: Installation and configuration guide for During Gravitee Access Man
 
 During Gravitee Access Management (AM) installation, some default settings are created. While these default settings can be useful for testing your new installation, some of them may not be suitable for a production environment, where security is more of a consideration.
 
-This how-to gives some tips on important settings to check in AM when preparing to move to a production environment. AM includes many other configuration options and every environment is unique. We recommend you also read the [Configuration Guide](../configuration/) to determine if you have completed all the configuration you need before you deploy AM in production.
+This how-to gives some tips on important settings to check in AM when preparing to move to a production environment. AM includes many other configuration options and every environment is unique. We recommend you also read the [Configuration Guide](../configuration/README.md) to determine if you have completed all the configuration you need before you deploy AM in production.
 
 {% hint style="info" %}
 You can also read the [OAuth 2.0 best practices](../../guides/auth-protocols/oauth-2.0/best-practices.md) for more details about configuring your AM environment.
 {% endhint %}
 
-You can configure AM settings in various ways — the `gravitee.yml` file, the AM Console settings, and environment and system variables. When you configure new settings, it is important to understand that one configuration type can override another. [Configure AM API](../configuration/configure-am-api/) gives a good overview of this topic.
+You can configure AM settings in various ways — the `gravitee.yml` file, the AM Console settings, and environment and system variables. When you configure new settings, it is important to understand that one configuration type can override another. [Configure AM API](../configuration/configure-am-api/README.md) gives a good overview of this topic.
 
 ## Step 1: Disable the internal APIs
 
@@ -70,19 +70,27 @@ Perform the following steps on the AM API component:
 2. In the `jwt` section, update the `cookie-secure` value:
 
 {% code title="gravitee.yml" overflow="wrap" %}
+````
+```yaml
+# JWT used to generate signed token for management security mechanism (Bearer Token) and to verify emails
+jwt:
+  secret: s3cR3t4grAv1t3310AMS1g1ingDftK3y # jwt secret used to sign JWT tokens (HMAC algorithm)
+  #kid: default-gravitee-AM-key # kid (key ID) Header Parameter is a hint indicating which key was used to secure the JWT
+  #expire-after: 604800 # the end of validity of the token in seconds (default 604800 = a week)
+  #issuer: https://gravitee.am # the principal that issued the JWT (default https://gravitee.am)
+  #cookie-path: / # cookie context path (default /)
+  #cookie-domain: .gravitee.io # cookie domain (default "")
+  #cookie-secure: true # cookie secure flag (default false)
 ```
-```
+````
 {% endcode %}
-
-\`\`\`\` \`\`\`yaml # JWT used to generate signed token for management security mechanism (Bearer Token) and to verify emails jwt: secret: s3cR3t4grAv1t3310AMS1g1ingDftK3y # jwt secret used to sign JWT tokens (HMAC algorithm) #kid: default-gravitee-AM-key # kid (key ID) Header Parameter is a hint indicating which key was used to secure the JWT #expire-after: 604800 # the end of validity of the token in seconds (default 604800 = a week) #issuer: https://gravitee.am # the principal that issued the JWT (default https://gravitee.am) #cookie-path: / # cookie context path (default /) #cookie-domain: .gravitee.io # cookie domain (default "") #cookie-secure: true # cookie secure flag (default false) \`\`\` \`\`\`\` \{% endcode %\}
 
 Perform the following steps on the AM Gateway component:
 
 1. Open your `gravitee.yml` file.
 2. In the `http.cookie` section, update the `secure` value:
 
-\{% code title="gravitee.yml" overflow="wrap" %\}
-
+{% code title="gravitee.yml" overflow="wrap" %}
 ````
 ```yaml
 #http
@@ -94,8 +102,7 @@ Perform the following steps on the AM Gateway component:
 #      timeout: 1800000 # (in milliseconds)
 ```
 ````
-
-\{% endcode %\}
+{% endcode %}
 
 3\. You can also consider updating the \`sameSite\` to \[Strict]\(https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie#syntax) and adapt the session timeout:
 

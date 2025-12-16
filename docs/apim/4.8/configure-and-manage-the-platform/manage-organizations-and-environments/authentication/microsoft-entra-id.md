@@ -43,9 +43,11 @@ For documentation about securing your APIs with OAuth2 and Entra ID, see the doc
        <figure><img src="https://slabstatic.com/prod/uploads/6lql0jy7/posts/images/preload/lu-VXbcFoZUJOcnAbiVAmOb9.png" alt=""><figcaption></figcaption></figure>
 4.  Configure the **API permissions** to allow Gravitee to read the user **email**, **openid**, and **profile** details.
 
-    \{% hint style="info" %\} The `profile` scope is a permission request that grants access to a wider range of user profile information, including the `given_name` and `family_name` claims. \{% endhint %\}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p>The <code>profile</code> scope is a permission request that grants access to a wider range of user profile information, including the <code>given_name</code> and <code>family_name</code> claims.</p>
+    </div>
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (2) (1)-2.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 You can now add a new Identity Provider to Gravitee APIM.
@@ -92,7 +94,9 @@ You can now add a new Identity Provider to Gravitee APIM.
 1. In the **Client Id** field, enter your Microsoft Application Registration Client ID.
 2.  In the **Client Secret** field, enter your Client Secret.
 
-    \{% hint style="info" %\} You can include your Tenant ID in your Endpoint URLs. To include your Tenant ID, replace `common` with your Tenant ID. \{% endhint %\}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p>You can include your Tenant ID in your Endpoint URLs. To include your Tenant ID, replace <code>common</code> with your Tenant ID.</p>
+    </div>
 3. In the **Token Endpoint** field, enter the following endpoint: [`https://login.microsoftonline.com/common/oauth2/token`](https://login.microsoftonline.com/common/oauth2/token).
 4. For the **Token Introspect Endpoint**, leave this field blank. Microsoft Entra ID does not provide an Introspective endpoint.
 5. In the **Authorization Endpoint** field, enter the following endpoint: [`https://login.microsoftonline.com/common/oauth2/authorize`](https://login.microsoftonline.com/common/oauth2/authorize).
@@ -109,7 +113,9 @@ You can now add a new Identity Provider to Gravitee APIM.
 4. In the **Email** field, enter `upn`, or, if the email permission/scope has been configured, enter `email`.
 5.  In the **Picture** field, enter `picture`. This may cause a warning in the logs because Microsoft ID does not provide this claim.
 
-    \{% hint style="info" %\} If you specify an invalid value, such as a claim that does not exist in the supplied token, Microsoft ID fails and does not provide you with any error message. \{% endhint %\}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p>If you specify an invalid value, such as a claim that does not exist in the supplied token, Microsoft ID fails and does not provide you with any error message.</p>
+    </div>
 6. Click on **Create.**
 
 {% hint style="success" %}

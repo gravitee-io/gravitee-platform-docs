@@ -5,6 +5,16 @@ noIndex: true
 
 # Release Notes
 
+### Version 3.12.10 (December 3, 2025) <a href="#id-3.12.10" id="id-3.12.10"></a>
+
+#### Upgrade Golang to 1.24.10
+
+Ambassador Edge Stack now uses Golang version 1.24.10. This update resolves various security fixes including CVE-2025-47912 and CVE-2025-58186
+
+#### Upgrade various dependencies
+
+Various dependencies were upgraded, in particular ACME packages were upgraded to resolve various security fixes.&#x20;
+
 ### Version 3.12.9 (October 17, 2025) <a href="#id-3.12.9" id="id-3.12.9"></a>
 
 #### Upgrade Coraza to 3.3.3

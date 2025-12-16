@@ -40,11 +40,11 @@ Folders can be added to organize the documentation structure, and pages of Markd
 
 The Documentation feature includes **Actions** associated with each folder or page entry to edit, delete, publish/unpublish, or reorder content.
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/docs_editing.png" alt=""><figcaption></figcaption></figure>
 
 When published, documentation is accessible via the Developer Portal.
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/docs_dev portal docs.png" alt=""><figcaption></figcaption></figure>
 
 ## Logging
 
@@ -134,4 +134,4 @@ The `groovy` policy has been enhanced to support message-level definitions. This
 
 ## Datadog
 
-(Enterprise-only) Datadog reporter support now extends to v4 APIs. v4 API metrics and monitoring data can be exported to a Datadog instance to ensure a comprehensive observability strategy. To learn more about reporters, check out [this section](../../getting-started/configuration/reporters/).
+(Enterprise-only) Datadog reporter support now extends to v4 APIs. v4 API metrics and monitoring data can be exported to a Datadog instance to ensure a comprehensive observability strategy. To learn more about reporters, check out [this section](../../getting-started/configuration/reporters/README.md).

@@ -15,7 +15,7 @@ This guide highlights the APIM settings that require special attention while you
 {% hint style="warning" %}
 **Configuring APIM**
 
-APIM includes many other configuration options and every environment is unique. However you configure new settings (via the `gravitee.yml` file, APIM Console, or environment and system variables) it is important to understand that one configuration type can override another. [Configure APIM Gateway](the-gravitee-api-gateway/) gives a good overview of this topic.
+APIM includes many other configuration options and every environment is unique. However you configure new settings (via the `gravitee.yml` file, APIM Console, or environment and system variables) it is important to understand that one configuration type can override another. [Configure APIM Gateway](the-gravitee-api-gateway/README.md) gives a good overview of this topic.
 {% endhint %}
 
 ## Security checklist
@@ -374,7 +374,7 @@ http:
         allow-origin: 'https://gio-portal.mycompany.com'
 ```
 
-`allow-origin: '*'` should be considered a security risk because it permits all cross-origin requests. **We highly recommend fine-tuning the allow-origin setting. Refer to** the [Gravitee documentation](https://documentation.gravitee.io/apim/getting-started/configuration/configure-apim-management-api/internal-api#cors-configuration) for other useful information related to CORS.
+`allow-origin: '*'` should be considered a security risk because it permits all cross-origin requests. **We highly recommend fine-tuning the allow-origin setting. Refer to** the [Gravitee documentation](../../guides/api-configuration/v2-api-configuration/general-proxy-settings.md) for other useful information related to CORS.
 
 ### Other configuration settings
 
@@ -443,25 +443,25 @@ Perform the following steps in APIM Console to update the most common default se
     1. Select **Settings** in the inner sidebar.
     2. Update the **Company name.**
 
-    <figure><img src="broken-reference" alt=""><figcaption><p>Portal settings</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/prod_def apim1.png" alt=""><figcaption><p>Portal settings</p></figcaption></figure>
 4.  In the **Gateway** section:
 
     1. Select **API Logging**.
     2. Update the maximum logging duration for APIM API logging to avoid flooding. In this example, we have configured a logging duration of 15 minutes:
 
-    <figure><img src="broken-reference" alt=""><figcaption><p>API logging settings</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/prod_def apim2.png" alt=""><figcaption><p>API logging settings</p></figcaption></figure>
 5. Select **Organization** in the main sidebar:
    1.  In the **Gateway** section:
 
        1. Select **Sharding Tags**.
        2. In the **Entrypoint mappings** section of the page, update the **Entrypoint** field with your APIM API endpoint.
 
-       <figure><img src="broken-reference" alt=""><figcaption><p>Save sharding tag</p></figcaption></figure>
+       <figure><img src="../../.gitbook/assets/prod_def apim3.png" alt=""><figcaption><p>Save sharding tag</p></figcaption></figure>
    2. Select **Settings** in the inner sidebar:
       * Update the **Title** of APIM Console to make it more appropriate to your own environment.
       * Update the **Management URL** to your APIM Console URL.
 
-<div align="right" data-full-width="true"><figure><img src="broken-reference" alt="" width="563"><figcaption><p>Organization settings</p></figcaption></figure></div>
+<div align="right" data-full-width="true"><figure><img src="../../.gitbook/assets/prod_def apim4.png" alt="" width="563"><figcaption><p>Organization settings</p></figcaption></figure></div>
 
 #### Portal & Console default Nginx security config
 

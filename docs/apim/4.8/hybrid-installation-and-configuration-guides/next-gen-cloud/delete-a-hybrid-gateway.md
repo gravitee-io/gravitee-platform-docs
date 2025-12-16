@@ -21,7 +21,9 @@ Deleting a hybrid Gateway is a way to maintain control and security within your 
     <figure><img src="../../.gitbook/assets/D3015E55-B5A1-4A0F-9019-40F12F227506_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 4.  In the **Delete Hybrid Gateway** pop-up window, type the name of the Gateway.
 
-    \{% hint style="warning" %\} Deleting a gateway is permanent! \{% endhint %\}
+    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning">
+      <p>Deleting a gateway is permanent!</p>
+    </div>
 
     <figure><img src="../../.gitbook/assets/855489F0-7197-46F9-9878-78EDEDD0BF9D_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 
@@ -31,7 +33,7 @@ Deleting a hybrid Gateway is a way to maintain control and security within your 
 
 When you delete a hybrid Gateway, you receive the following message: "Gateway has been deleted."
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (372).png" alt=""><figcaption></figcaption></figure>
 
 ## Next steps
 

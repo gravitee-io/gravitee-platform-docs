@@ -18,7 +18,7 @@ The v4 API creation wizard makes it easy to create new Gateway APIs from scratch
 2. Click on **APIs** in the left nav
 3. In the Create New API , click on **Create V4 API**.
 
-<figure><img src="../../../4.6/.gitbook/assets/image%20(138)%20(1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (138).png" alt=""><figcaption></figcaption></figure>
 
 The API creation wizard comprises several steps, each of which requires you to define certain sets of information.
 
@@ -28,7 +28,7 @@ Define a name, version number, and description for your API.
 
 The name and version number are required, but we also recommend giving your API a description so that it is more easily understood and managed by internal users.
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/v4 wizard_step 1.png" alt=""><figcaption></figcaption></figure>
 
 ## Entrypoints
 
@@ -48,13 +48,13 @@ The Gravitee documentation adopts concise terminology to differentiate between t
 **Message API:** An API created using **Protocol Mediation**
 {% endhint %}
 
-<figure><img src="../../../4.6/.gitbook/assets/v4%20step%202%20(1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/v4%20step%202%20(1).png" alt=""><figcaption></figcaption></figure>
 
 ### Generic proxy entrypoints
 
 If you chose **Proxy Generic Protocol**, select either HTTP Proxy or TCP Proxy as your entrypoint.
 
-<figure><img src="../../../4.6/.gitbook/assets/v4%203%20(1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/v4%203%20(1).png" alt=""><figcaption></figcaption></figure>
 
 The configuration details for each proxy entrypoint selection are discussed below.
 
@@ -90,7 +90,7 @@ Gravitee supports several different types of entrypoints that cater to different
 
 <table><thead><tr><th width="198">Entrypoint</th><th>Description</th></tr></thead><tbody><tr><td><a href="v4-api-creation-wizard.md#http-get">HTTP GET</a></td><td>Front a backend or data source with a Gateway REST API that supports the HTTP GET request.</td></tr><tr><td><a href="v4-api-creation-wizard.md#http-post">HTTP POST</a></td><td>Front a backend or data source with a Gateway REST API that supports the HTTP POST request.</td></tr><tr><td><a href="v4-api-creation-wizard.md#server-sent-events">Server-sent events</a></td><td>Front a backend or data source with a Gateway SSE API for unidirectional communication between server and client.</td></tr><tr><td><a href="v4-api-creation-wizard.md#webhook">Webhook</a></td><td>Front a backend or data source with a Gateway Webhook API. This allows consumers to subscribe to the Gravitee Gateway via Webhook and then retrieve streamed data in real-time from a backend data source, via the Gateway, over the consumer's Webhook callback URL.</td></tr><tr><td><a href="v4-api-creation-wizard.md#websocket">WebSocket</a></td><td>Front a backend or data source with a Gateway WebSocket API. This allows a consumer to retrieve and send streamed events and messages in real-time.</td></tr></tbody></table>
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/v4 wizard_step 2 message entrypoints.png" alt=""><figcaption></figcaption></figure>
 
 Once you select your entrypoint(s), configure the fields common to all entrypoints:
 
@@ -314,7 +314,7 @@ Gravitee supports several different types of endpoints that cater to different p
 
 <table><thead><tr><th width="245">Endpoint</th><th>Description</th></tr></thead><tbody><tr><td><a href="v4-api-creation-wizard.md#azure-service-bus">Azure Service Bus</a></td><td>Publish and subscribe to events in Azure Service Bus using web-friendly protocols such as HTTP or WebSocket. The Gateway mediates the protocol between the client and the backend.</td></tr><tr><td><a href="v4-api-creation-wizard.md#kafka">Kafka</a></td><td>The Gateway opens up a persistent connection and/or sets up a Kafka client to call a backend Kafka broker.</td></tr><tr><td><a href="v4-api-creation-wizard.md#mock">Mock</a></td><td>The Gateway mocks a backend service to emulate the behavior of a typical HTTP server and test processes.</td></tr><tr><td><a href="v4-api-creation-wizard.md#mqtt-5.x">MQTT 5.x</a></td><td>The Gateway opens up a persistent connection and/or sets up an MQTT client to call a backend MQTT broker. The broker must run on MQTT 5.x.</td></tr><tr><td><a href="v4-api-creation-wizard.md#rabbitmq">RabbitMQ</a></td><td>The Gateway opens up a persistent connection and/or calls a backend RabbitMQ resource. The resource must communicate using the AMQP 0-9-1 protocol.</td></tr><tr><td><a href="v4-api-creation-wizard.md#solace">Solace</a></td><td>The Gateway creates an API that exposes Solace resources and event APIs via your chosen entrypoint(s).</td></tr></tbody></table>
 
-<figure><img src="../../../4.6/.gitbook/assets/a%20v4%2000%20(1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/a%20v4%2000%20(1).png" alt=""><figcaption></figcaption></figure>
 
 Protocol mediation endpoint configurations are described in detail below.
 
@@ -506,7 +506,7 @@ Entering a URL and VPN name is required. Modifying any other configuration param
 
 Define a plan to secure, monitor, and transparently communicate information on how to access your API. This includes the configuration of authorization resources, such as Gravitee AM or another OAuth2 resource, and access limitations, such as rate limiting and quotas.
 
-<figure><img src="../../../4.6/.gitbook/assets/a%20v4%201%20(1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/a%20v4%201%20(1).png" alt=""><figcaption></figcaption></figure>
 
 Gravitee automatically assigns each API a Default Keyless plan, which grants public access.
 
@@ -519,7 +519,7 @@ Click **+ Add plan** to create additional plans. The plan types offered by Gravi
 <table><thead><tr><th width="165">Plan</th><th width="399">Description</th><th>API compatibility</th></tr></thead><tbody><tr><td>API Key</td><td>The API Gateway rejects calls from consumers that do not pass the correct API key in a request.</td><td><ul class="contains-task-list"><li><input type="checkbox" checked>HTTP proxy</li><li><input type="checkbox">TCP proxy</li><li><input type="checkbox">Message API</li></ul></td></tr><tr><td>JWT</td><td>An open standard that defines a compact and URL-safe way to securely transmit information, in the form of a JSON object, between parties.</td><td><ul class="contains-task-list"><li><input type="checkbox" checked>HTTP proxy</li><li>TCP proxy</li><li>Message API</li></ul></td></tr><tr><td>Keyless (public)</td><td>When configured, this plan does not add security. It is considered an "open" plan.</td><td><ul class="contains-task-list"><li><input type="checkbox" checked>HTTP proxy</li><li><input type="checkbox" checked>TCP proxy</li><li><input type="checkbox">Message API</li></ul></td></tr><tr><td>mTLS</td><td></td><td><ul class="contains-task-list"><li><input type="checkbox" checked>HTTP proxy</li><li>TCP proxy</li><li>Message API</li></ul></td></tr><tr><td>OAuth2</td><td>A standard designed to allow a website or application to access resources hosted by other web apps on behalf of a user.</td><td><ul class="contains-task-list"><li><input type="checkbox" checked>HTTP proxy</li><li>TCP proxy</li><li>Message API</li></ul></td></tr><tr><td>Push</td><td>Provides an access layer for the Gateway pushing data to consumers. This is used for subscribers.</td><td><ul class="contains-task-list"><li><input type="checkbox">HTTP proxy</li><li><input type="checkbox">TCP proxy</li><li><input type="checkbox" checked>Message API</li></ul></td></tr></tbody></table>
 
 {% hint style="info" %}
-To learn more about how plans function in Gravitee, refer to the [plans](../../secure-and-expose-apis/plans/) documentation.
+To learn more about how plans function in Gravitee, refer to the [plans](../../secure-and-expose-apis/plans/README.md) documentation.
 {% endhint %}
 
 Individual plan configurations as they pertain to each API type are described in detail below.

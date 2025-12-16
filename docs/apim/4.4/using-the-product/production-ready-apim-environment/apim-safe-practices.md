@@ -23,7 +23,7 @@ Some good practices to establish:
 * Assign permissions to a group instead of each user individually.
 * Automatically associate a group with each new API or application to facilitate permission management.
 
-You can find detail on roles, groups, and permissions in the [Gravitee documentation](https://documentation.gravitee.io/apim/guides/administration/user-management-and-permissions).
+You can find detail on roles, groups, and permissions in the [Gravitee documentation](../administration/user-management-and-permissions.md).
 
 ## API review & quality
 
@@ -41,4 +41,4 @@ There is no "rule of thumb" when it comes to designing and exposing your APIs, a
 * Require the API consumer to enter a comment when subscribing to an API. This is a simple way to understand the motivation for a subscription and helps detect malicious attempts to access an API.
 * Regularly review subscriptions and revoke those that are no longer used.
 
-More information on how to manage API subscriptions is detailed in the [Gravitee documentation](https://documentation.gravitee.io/apim/guides/api-exposure-plans-applications-and-subscriptions/subscriptions).
+More information on how to manage API subscriptions is detailed in the [Gravitee documentation](../managing-your-apis-with-gravitee-api-management/api-exposure-plans-applications-and-subscriptions/subscriptions.md).

@@ -207,7 +207,7 @@ The Gateway is optimized to minimize memory consumption when serving requests an
 
 <summary>Analytics and logging</summary>
 
-Gravitee offers multiple methods to export analytics using [reporters](../analyze-and-monitor-apis/reporters/). Depending on throughput and the level of precision used for logging, you may need to increase the memory or disk space of your Gateway and choose the reporter best suited to handle your traffic analytics.
+Gravitee offers multiple methods to export analytics using [reporters](../analyze-and-monitor-apis/reporters/README.md). Depending on throughput and the level of precision used for logging, you may need to increase the memory or disk space of your Gateway and choose the reporter best suited to handle your traffic analytics.
 
 </details>
 
@@ -247,7 +247,7 @@ In Active/Active mode, both instances of the component are actively processing r
 
 Alternatively, Active/Passive mode involves designating one instance as active while the other remains in standby mode, ready to take over operations if the active instance fails. In this setup, the passive instance remains idle until it is needed, thereby conserving resources. Automatic failover mechanisms are employed to detect failures in the active instance and seamlessly transition operations to the passive instance without causing service disruptions.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Load balancer</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/deployments and capacity.png" alt=""><figcaption><p>Load balancer</p></figcaption></figure>
 
 {% hint style="info" %}
 **VM installation**

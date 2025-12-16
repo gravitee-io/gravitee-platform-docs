@@ -25,17 +25,19 @@ To configure CORS for an API, follow the steps below.
 3. Select the API for which you want to configure CORS
 4.  Select the **Edit API** icon
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/CORS_edit API.png" alt=""><figcaption></figcaption></figure>
 5. Select **Entrypoints** from the inner left nav
 6.  Select the **Cors** tab
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/CORS_tab.png" alt=""><figcaption></figcaption></figure>
 7.  Set the following parameters:
 
     * **Enable CORS:** Toggle to ON to enable CORS.
     * **Access-Control-Allow-Origin:** Define a URI that can access the resource. Enter \* to allow all requests, regardless of origin.
 
-    \{% hint style="danger" %\} A value of \* is not recommended for production environments. By allowing cross-origin requests, a server may inadvertently expose sensitive information to unauthorized parties. For example, if a server includes sensitive data in a response that is accessible via CORS, an attacker could use a malicious website to extract that data. \{% endhint %\}
+    <div data-gb-custom-block data-tag="hint" data-style="danger" class="hint hint-danger">
+      <p>A value of * is not recommended for production environments. By allowing cross-origin requests, a server may inadvertently expose sensitive information to unauthorized parties. For example, if a server includes sensitive data in a response that is accessible via CORS, an attacker could use a malicious website to extract that data.</p>
+    </div>
 
     * **Access-Control-Allow-Methods:** Select the method(s) allowed when accessing the resource, which is used in response to a preflight request: `GET`, `DELETE`, `PATCH`, `POST`, `PUT`, `OPTIONS`, `TRACE`, and/or `HEAD`.
     * **Access-Control-Allow-Headers:** Select the HTTP header(s) that can be used when making the actual request, in response to a preflight request. Typically, your request header will include `Access-Control-Request-Headers`, which relies on the CORS configuration to allow its values.

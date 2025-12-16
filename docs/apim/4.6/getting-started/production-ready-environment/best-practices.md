@@ -36,7 +36,7 @@ In Active/Active mode, both instances of the component are actively processing r
 
 Alternatively, Active/Passive mode involves designating one instance as active while the other remains in standby mode, ready to take over operations if the active instance fails. In this setup, the passive instance remains idle until it is needed, thereby conserving resources. Automatic failover mechanisms are employed to detect failures in the active instance and seamlessly transition operations to the passive instance without causing service disruptions.
 
-<figure><img src="../../../../../.gitbook/assets/deployments and capacity.png" alt=""><figcaption><p>Load balancer</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/deployments and capacity.png" alt=""><figcaption><p>Load balancer</p></figcaption></figure>
 
 {% hint style="info" %}
 **VM installation**
@@ -205,7 +205,7 @@ Some good practices to establish:
 * Assign permissions to a group instead of each user individually.
 * Automatically associate a group with each new API or application to facilitate permission management.
 
-You can find detail on roles, groups, and permissions in the [Gravitee documentation](https://documentation.gravitee.io/apim/guides/administration/user-management-and-permissions).
+You can find detail on roles, groups, and permissions in the [Gravitee documentation](../../administration/user-management.md).
 
 ## API review & quality
 
@@ -223,4 +223,4 @@ There is no "rule of thumb" when it comes to designing and exposing your APIs, a
 * Require the API consumer to enter a comment when subscribing to an API. This is a simple way to understand the motivation for a subscription and helps detect malicious attempts to access an API.
 * Regularly review subscriptions and revoke those that are no longer used.
 
-More information on how to manage API subscriptions is detailed in the [Gravitee documentation](https://documentation.gravitee.io/apim/guides/api-exposure-plans-applications-and-subscriptions/subscriptions).
+More information on how to manage API subscriptions is detailed in the [Gravitee documentation](../../expose-apis/subscriptions.md).

@@ -19,7 +19,7 @@ This article explains the syntax that you can use to resolve secrets in v4 APIs 
 
 ## Reference a secret with specialized syntax
 
-Secrets can be resolved in fields that support [Gravitee Expression Language (EL)](./). Only some fields that support EL allow the resolution of secrets. In general, any field supporting EL that may contain sensitive information support secrets, such as URLs, header values, passwords, and SSL/TLS settings.
+Secrets can be resolved in fields that support [Gravitee Expression Language (EL)](README.md). Only some fields that support EL allow the resolution of secrets. In general, any field supporting EL that may contain sensitive information support secrets, such as URLs, header values, passwords, and SSL/TLS settings.
 
 ### General syntax
 
@@ -316,7 +316,7 @@ The definition does not contain a clear text secret. This definition is saved, a
 
 Here is an example of how to reference a secret when you configure a Redis Cache resource:
 
-<figure><img src="../../../../4.7/.gitbook/assets/image%20(143).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (142).png" alt=""><figcaption></figcaption></figure>
 
 ### Native Kafka endpoint API example
 
@@ -385,4 +385,4 @@ The definition does not contain a clear text secret. This definition is saved as
 
 Here is an example of how to reference a secret during a SASL configuration:
 
-<figure><img src="../../../../4.7/.gitbook/assets/Screenshot%202025-01-23%20at%2013.54.01.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2025-01-23 at 13.54.01.png" alt=""><figcaption></figcaption></figure>

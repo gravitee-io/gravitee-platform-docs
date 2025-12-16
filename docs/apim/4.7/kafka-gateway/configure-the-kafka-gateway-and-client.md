@@ -36,7 +36,7 @@ kafka:
 
 * The Gateway runs multiple APIs on different **domains**. The Kafka client will connect to the API using the bootstrap server `{apiHost}.{defaultDomain}:{defaultPort}` , where `{apiHost}` is host prefix defined for each API.
 
-<figure><img src="broken-reference" alt="" width="555"><figcaption><p>The Kafka client routes to the correct API through the gateway using SNI routing.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1)-2.png" alt="" width="555"><figcaption><p>The Kafka client routes to the correct API through the gateway using SNI routing.</p></figcaption></figure>
 
 * To route to the correct API, the Gateway uses [SNI routing](https://en.wikipedia.org/wiki/Server_Name_Indication), which is part of the TLS protocol. Consequently, all client connections **must** happen over TLS (with at least `security.protocol=SSL` set in the Kafka client configuration).
 * The client **must** trust the certificate provided by the Gateway. To handle the variable host in the proxy bootstrap server URL, you will likely need to request a wildcard SAN to use as the certificate presented by the Gateway.
@@ -153,11 +153,11 @@ To configure the APIM Console to use the Kafka domain and port values for your O
 3. Select **Entrypoints & Sharding Tags** from the left nav.
 4.  In the **Entrypoint Configuration** section, confirm that the **Default Kafka domain** and **Default Kafka port** values match those of your Kafka API.\\
 
-    <figure><img src="../../4.6/.gitbook/assets/00%20kafka%20(1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/00%20kafka%20(1).png" alt=""><figcaption></figcaption></figure>
 
     This value is then displayed on the entrypoint page of your APIs.
 
-    <figure><img src="../../4.6/.gitbook/assets/00%20kafka%201%20(1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/00%20kafka%201%20(1).png" alt=""><figcaption></figcaption></figure>
 
 ## Configure the Kafka client
 
@@ -186,7 +186,7 @@ You can use the Kafka Gateway and client to call your [Kafka API](create-kafka-a
 
 The following prerequisites must be met before you can produce and consume Kafka messages:
 
-* You must have an active subscription to a published API [plan](../expose-apis/plans/) belonging to your Gravitee Kafka API.
+* You must have an active subscription to a published API [plan](../expose-apis/plans/README.md) belonging to your Gravitee Kafka API.
 * If you are subscribing to an OAuth2 or JWT plan, your application must reference the same client ID that you use for authorization.
 
 {% hint style="info" %}
@@ -209,10 +209,10 @@ The following example provides a template for how to produce and consume message
 3. After selecting your API, click on the **My Subscriptions** tab.
 4.  Copy the script in the **Review Kafka Properties** section and paste it into your `connect.properties` file.
 
-    <div align="left"><figure><img src="../../4.6/.gitbook/assets/1%20pc%202%20(1).png" alt="" width="563"><figcaption></figcaption></figure></div>
+    <div align="left"><figure><img src="../.gitbook/assets/1%20pc%202%20(1).png" alt="" width="563"><figcaption></figcaption></figure></div>
 5.  Copy either the produce or consume commands from the **Calling the API** section.
 
-    <div align="left"><figure><img src="../../4.6/.gitbook/assets/00%20kafka%202%20(1).png" alt="" width="563"><figcaption></figcaption></figure></div>
+    <div align="left"><figure><img src="../.gitbook/assets/00%20kafka%202%20(1).png" alt="" width="563"><figcaption></figcaption></figure></div>
 6. In a terminal, change your working directory to the top-level folder of your Kafka download.
 7. Paste and execute the commands you copied to produce or consume messages.
 

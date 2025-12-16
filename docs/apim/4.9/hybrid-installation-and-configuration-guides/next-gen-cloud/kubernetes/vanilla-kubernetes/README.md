@@ -207,9 +207,11 @@ To prepare your Gravitee `values.yaml` file for Helm, complete the following ste
    * Replace `<redis_password>` with your extracted Redis password.
    *   Set the `tag` field in the `image` section to the value displayed in the Overview section of your Gravitee Cloud Dashboard.
 
-       <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../../../../.gitbook/assets/gateway-cloud-version (1).png" alt=""><figcaption></figcaption></figure>
 
-       \{% hint style="info" %\} The `tag` field specifies the version of your Gravitee Gateway. Your Gateway version must match your Gravitee Cloud Control Plane version to ensure compatibility between your hybrid Gateway and the Cloud Management platform. \{% endhint %\}
+       <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+         <p>The <code>tag</code> field specifies the version of your Gravitee Gateway. Your Gateway version must match your Gravitee Cloud Control Plane version to ensure compatibility between your hybrid Gateway and the Cloud Management platform.</p>
+       </div>
 3. Save your Gravitee `values.yaml` file in your working directory.
 
 <details>
@@ -232,7 +234,7 @@ The `RollingUpdate` strategy with `maxUnavailable` set to 0 ensures zero-downtim
 
 ### Ingress Configuration with Custom Domain and Kubernetes Secrets
 
-To configure Ingress and TLS rules, Copy the following `values.yaml` file to deploy the gateway and expose it via an Ingress controller. Fill in the required [placeholders](./#prepare-values.yaml-for-helm) like your license key and domain. To enable HTTPS, uncomment and configure the optional TLS section.
+To configure Ingress and TLS rules, Copy the following `values.yaml` file to deploy the gateway and expose it via an Ingress controller. Fill in the required [placeholders](README.md#prepare-values.yaml-for-helm) like your license key and domain. To enable HTTPS, uncomment and configure the optional TLS section.
 
 ```yaml
 # Hybrid Gateway values.yaml with Ingress and Optional TLS
@@ -378,7 +380,7 @@ helm uninstall graviteeio-apim-gateway --namespace gravitee-apim
 
 Your Gateway appears in the Gateways section of your Gravitee Cloud Dashboard.
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/gravitee-gateway-cloud-verification (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 To verify that your Gateway is up and running, complete the following steps:
 

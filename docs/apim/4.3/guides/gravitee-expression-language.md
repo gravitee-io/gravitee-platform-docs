@@ -336,7 +336,7 @@ For example, to retrieve the value of an HTTP header where the name is based on 
 
 You can use the EL to update some aspects of policy configuration. The policy specifies if it supports EL or not by including a **Condition** section in the Policy Studio configuration.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Assign attributes policy supports EL conditions</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2023-04-03 at 4.58.01 PM.png" alt=""><figcaption><p>Assign attributes policy supports EL conditions</p></figcaption></figure>
 
 ## Response templates
 
@@ -352,7 +352,9 @@ EL can use particular fields within the body configuration of a response templat
     * `{#parameters.region}`: The geo zone of the deployment
     * `{#parameters.error}`: Contains the error message (content is unknown)
 
-    \{% hint style="info" %\} Parameters vary between policies. The policy generating the error(s) directly updates the `parameters` dictionary to provide dynamic error information to a response template. \{% endhint %\}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p>Parameters vary between policies. The policy generating the error(s) directly updates the <code>parameters</code> dictionary to provide dynamic error information to a response template.</p>
+    </div>
 
 ## Conditions
 

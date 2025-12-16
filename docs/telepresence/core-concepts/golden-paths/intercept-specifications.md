@@ -21,7 +21,7 @@ Lets look at an example:
 
 I have a service `quote` running in the `default` namespace I want to intercept to test changes I've made before opening a Pull Request.
 
-I can use the Intercept Specification below to tell Telepresence to Intercept the quote service with a [Personal Intercept](../../technical-reference/intercepts/#personal-intercept), in the default namespace of my cluster `test-cluster`. I also want to start the Intercept Handler, as a Docker container, with the provided image.
+I can use the Intercept Specification below to tell Telepresence to Intercept the quote service with a [Personal Intercept](../../technical-reference/intercepts/README.md#personal-intercept), in the default namespace of my cluster `test-cluster`. I also want to start the Intercept Handler, as a Docker container, with the provided image.
 
 ```yaml
 ---

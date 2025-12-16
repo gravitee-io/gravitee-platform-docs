@@ -39,7 +39,7 @@ In this step you will define your Backend, which is the target backend where the
 
 Optionally, you can select Advanced mode to define Tenants and/or Sharding tags for this API. These define the Gateways to which the API is deployed. For more information, please refer to the [Tenants](../../../getting-started/configuration/configure-apim-gateway/tenants.md) and/or [Sharding tags](../../../getting-started/configuration/configure-apim-gateway/sharding-tags.md) documentation.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Define your APIs Gateway settings</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screen Shot 2023-06-07 at 1.35.16 PM.png" alt=""><figcaption><p>Define your APIs Gateway settings</p></figcaption></figure>
 
 ## Step 3: Plan
 
@@ -51,7 +51,7 @@ The API creation wizard allows you to create either an **API key** or **Keyless*
 * A **quota**: this sets the maximum number of API requests that may occur during the specified number of hours, days, weeks, or months.
 * **Resource filtering**: this allows you to filter resources based on whitelists and blacklists.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>v2 API creation wizard: plans</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screen Shot 2023-06-07 at 1.43.11 PM.png" alt=""><figcaption><p>v2 API creation wizard: plans</p></figcaption></figure>
 
 Gravitee offers additional plan features, but these are not configured in the API creation wizard. For more in-depth information on plans, please refer to the [plans documentation](../../api-exposure-plans-applications-and-subscriptions/plans.md).
 
@@ -65,7 +65,7 @@ Currently, only the v2 API definition allows you to upload API documentation as 
 
 On the Documentation page, you can either upload your API's documentation as a file or select Skip to continue without uploading API documentation.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>v2 API creation wizard: documentation</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screen Shot 2023-06-07 at 1.43.58 PM.png" alt=""><figcaption><p>v2 API creation wizard: documentation</p></figcaption></figure>
 
 ## Step 5: Deployment
 
@@ -75,5 +75,5 @@ On the Deployment page, you will see a summary of your API and can choose how yo
 * **Create and deploy the API:** this creates the API in Gravitee _and_ deploys it to the Gateway. You can still access the API in the APIs list, configure the API, and design policies for the API using the v2 Policy Studio, but you will then have to redeploy that API after making changes.
 
 {% hint style="info" %}
-After you've chosen your creation method, you will have finished creating APIs using the v2 API creation wizard. From here, we recommend learning more about [API configuration](../../api-configuration/) and the Policy Studio.
+After you've chosen your creation method, you will have finished creating APIs using the v2 API creation wizard. From here, we recommend learning more about [API configuration](../../api-configuration/README.md) and the Policy Studio.
 {% endhint %}

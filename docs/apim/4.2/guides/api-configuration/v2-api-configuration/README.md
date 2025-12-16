@@ -7,7 +7,7 @@ description: An overview about v2 API Configuration.
 {% hint style="info" %}
 v2 vs v4 API configuration
 
-This section covers v2 API configuration. If you are looking for documentation that covers configuration for Gravitee v4 APIs, please refer to the [v4 API configuration section.](../v4-api-configuration/)
+This section covers v2 API configuration. If you are looking for documentation that covers configuration for Gravitee v4 APIs, please refer to the [v4 API configuration section.](../v4-api-configuration/README.md)
 {% endhint %}
 
 ## Introduction
@@ -47,7 +47,7 @@ In the Proxy section, you can configure the following settings:
 
 * General settings
   * **Entrypoints**: define the Context Path, or the URL location of your API. So if your URL is `[https://apim-master-gateway.team-apim.gravitee.dev/myAPI]`, then `[/myAPI]` is the context path.
-  * **CORS**: CORS is a mechanism that allows restricted resources (e.g. fonts) on a web page to be requested from another domain outside the domain from which the first resource was served. For more information on CORS, refer to the [CORS specification](https://fetch.spec.whatwg.org/) and/or read the [CORS section of this article](./#cors).
+  * **CORS**: CORS is a mechanism that allows restricted resources (e.g. fonts) on a web page to be requested from another domain outside the domain from which the first resource was served. For more information on CORS, refer to the [CORS specification](https://fetch.spec.whatwg.org/) and/or read the [CORS section of this article](README.md#cors).
   * **Deployments**: choose to use sharding tags to control where your APIs are deployed.
   * **Response templates**: define your own response templates if you're looking to override default responses from the gateway.
 * Backend services (more information on each of these in the next section of this article)
@@ -155,6 +155,6 @@ The sharding tags mechanism allows you to specify which “shard” of of your G
 \
 In the diagram below we have an example of a typical deployment an organization may use for their API Management. This scenario looks to deploy two APIs in a distributed manner, providing high availability across different regions and in different network environments.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Example architecture diagram to illustrate value of sharding tags.</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Example architecture.png" alt=""><figcaption><p>Example architecture diagram to illustrate value of sharding tags.</p></figcaption></figure>
 
 If using sharding tags, you could tag these Gateways with specific keywords. Once the Gateways are tagged, you can [select that tag in an APIs Deployments proxy settings](general-proxy-settings.md#configure-deployments). Whatever tag you select for that API will end up being the Gateway where that API is deployed.

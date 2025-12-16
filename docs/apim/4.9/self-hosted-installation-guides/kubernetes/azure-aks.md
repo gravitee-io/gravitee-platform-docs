@@ -524,12 +524,6 @@ Before installing Gravitee APIM for [enterprise edition](../../readme/enterprise
         tag: latest
         pullPolicy: Always
 
-      env:
-        - name: MGMT_API_URL
-          value: "http://api.yourdomain.com/management/organizations/DEFAULT/environments/DEFAULT/"
-          # For HTTPS/Production, change to:
-          # value: "https://api.yourdomain.com/management/organizations/DEFAULT/environments/DEFAULT/"
-
       service:
         type: ClusterIP
         externalPort: 8002
@@ -576,12 +570,6 @@ Before installing Gravitee APIM for [enterprise edition](../../readme/enterprise
         repository: graviteeio/apim-portal-ui
         tag: latest
         pullPolicy: Always
-
-      env:
-        - name: PORTAL_API_URL
-          value: "http://api.yourdomain.com/portal/environments/DEFAULT"
-          # For HTTPS/Production, change to:
-          # value: "https://api.yourdomain.com/portal/environments/DEFAULT"
 
       service:
         type: ClusterIP
@@ -905,5 +893,5 @@ To validate the Gateway URL, complete the following steps:
 
 ## Next steps <a href="#next-steps" id="next-steps"></a>
 
-* Create your first API. For more information about creating your first API, see [Create & Publish Your First API](https://documentation.gravitee.io/apim/how-to-guides/create-and-publish-your-first-api).
+* Create your first API. For more information about creating your first API, see [Create & Publish Your First API](../../how-to-guides/create-and-publish-your-first-api/).
 * Add native Kafka capabilities. For more information about adding native Kafka capabilities, see [Configure the Kafka Client & Gateway](../../kafka-gateway/configure-the-kafka-client-and-gateway.md).

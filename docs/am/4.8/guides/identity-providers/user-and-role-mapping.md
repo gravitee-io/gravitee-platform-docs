@@ -48,11 +48,12 @@ Let’s imagine a client application wants to retrieve the `telephoneNumber` att
 5. Get the User Profile information via the UserInfo Endpoint and you will see that the new user attribute is present.
 
 {% code overflow="wrap" %}
+````
+```sh
+curl -X GET http://GRAVITEEIO-AM-GATEWAY-HOST/:securityDomainPath/oidc/userinfo -H 'Authorization: Bearer :accessToken' 
 ```
-```
+````
 {% endcode %}
-
-\`\`\`\` \`\`\`sh curl -X GET http://GRAVITEEIO-AM-GATEWAY-HOST/:securityDomainPath/oidc/userinfo -H 'Authorization: Bearer :accessToken' \`\`\` \`\`\`\` \{% endcode %\}
 
 ````
 If it is working correctly, you will see something like this:
@@ -65,7 +66,7 @@ Pragma: no-cache
 {
     "uid": "johndoe",
     "given_name": "John",
-    "family_name": "Doe"
+    "family_name": "Doe",
     "telephone_number: "202-555-0105"
 }
 ```
@@ -89,7 +90,7 @@ In addition, when it comes to fine-grained authorization management, it is consi
 
 The goal is to dynamically add scopes to the `access_token`, depending on the role associated with the user when authenticating.
 
-\{% hint style="info" %\} When the roles are updated via SCIM, the roles already applied via Role Mappers won’t be persisted as an assigned role. This ensures that it can be safely removed when the mapper rule does not match anymore. For more about SCIM, click [here](../auth-protocols/scim-2.0.md). \{% endhint %\}
+{% hint style="info" %} When the roles are updated via SCIM, the roles already applied via Role Mappers won’t be persisted as an assigned role. This ensures that it can be safely removed when the mapper rule does not match anymore. For more about SCIM, click [here](../auth-protocols/scim-2.0.md). {% endhint %}
 
 ### Example
 
@@ -122,4 +123,4 @@ Defining groups in AM helps you to assign roles more efficiently for the domain 
 
 The goal of the Group Mapper is to dynamically add groups to the user profile based on the user information when authenticating.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Assign ADMIN group to all user profile with memberOf equals administrators</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption><p>Assign ADMIN group to all user profile with memberOf equals administrators</p></figcaption></figure>

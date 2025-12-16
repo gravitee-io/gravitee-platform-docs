@@ -29,10 +29,10 @@ To integrate AWS API Gateway with Gravitee APIM, complete the following steps:
 
 1.  From the Dashboard, click **Integrations.**<br>
 
-    <figure><img src="../../../../.gitbook/assets/image (56).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/image (16) (1).png" alt=""><figcaption></figcaption></figure>
 2.  Click **Create Integration.**<br>
 
-    <figure><img src="../../../../.gitbook/assets/image (57).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/image (18) (2).png" alt=""><figcaption></figcaption></figure>
 3.  Select **AWS API Gateway**, and then click **Next.**
 
     <figure><img src="../../../../.gitbook/assets/select-aws-api-gateway.png" alt=""><figcaption></figcaption></figure>
@@ -56,7 +56,7 @@ You can deploy the AWS API Gateway federation agent using either of the followin
 * [#docker-compose](./#docker-compose "mention")
 * [#helm](./#helm "mention")
 
-### Docker Compose&#x20;
+### Docker Compose
 
 1.  Copy the following configuration, and then save it to your Docker Compose file:
 
@@ -78,8 +78,6 @@ You can deploy the AWS API Gateway federation agent using either of the followin
           # If you are using Gravitee NextGen Cloud, then you need to also include a Cloud Token for Federation Agent
           # - gravitee_cloud_token=${GRAVITEE_CLOUD_TOKEN}
     ```
-
-
 2.  Create a file named `.env` in the same directory as your Docker Compose file, and then add the following environment variables:
 
     ```shellscript
@@ -116,8 +114,6 @@ You can deploy the AWS API Gateway federation agent using either of the followin
     # Discover APIs without usage plan (default: false)
     # ACCEPT_API_WITHOUT_USAGE_PLAN=true
     ```
-
-
 3. Replace the following placeholder values with your own configuration:
    * `[your-APIM-management-API-host]`: Your Gravitee APIM management API URL.
    * `[your-token]`: Your Gravitee APIM access token.
@@ -137,14 +133,14 @@ You can deploy the AWS API Gateway federation agent using either of the followin
     docker compose up -d
     ```
 
-#### Verification&#x20;
+#### Verification
 
 1.  In the Gravitee API Management console, after refreshing, you should now see the agent's status set to `Connected`.<br>
 
-    <figure><img src="../../../../.gitbook/assets/image (68).png" alt=""><figcaption></figcaption></figure>
-2. (Optional) If the Agent Connection shows as `Disconnected`, inspect the agent container logs for error messages.&#x20;
+    <figure><img src="../../../../.gitbook/assets/image (55) (2).png" alt=""><figcaption></figcaption></figure>
+2. (Optional) If the Agent Connection shows as `Disconnected`, inspect the agent container logs for error messages.
 
-### Helm  <a href="#helm" id="helm"></a>
+### Helm <a href="#helm" id="helm"></a>
 
 To deploy the federation agent to your Kubernetes cluster, complete the following steps:
 
@@ -158,16 +154,16 @@ helm repo add gravitee https://helm.gravitee.io
 helm repo update
 ```
 
-#### Configure the Federation Agent  Helm Values&#x20;
+#### Configure the Federation Agent Helm Values
 
-Create the Helm values file based on your APIM management API's certificate setup. You can use the standard configuration or custom certificate configuration:&#x20;
+Create the Helm values file based on your APIM management API's certificate setup. You can use the standard configuration or custom certificate configuration:
 
 * [#standard-configuration](./#standard-configuration "mention")
 * [#custom-certificate-configuration](./#custom-certificate-configuration "mention")
 
-#### Standard configuration&#x20;
+#### Standard configuration
 
-1.  This configuration uses the default Java truststore for your APIM management API certificates. Create a file named `federation-agent-aws-values.yaml`  in your working directory, and then copy the following configuration:
+1.  This configuration uses the default Java truststore for your APIM management API certificates. Create a file named `federation-agent-aws-values.yaml` in your working directory, and then copy the following configuration:
 
     ```yaml
     # =========================
@@ -263,7 +259,7 @@ Create the Helm values file based on your APIM management API's certificate setu
       --create-namespace
     ```
 
-#### Custom certificate configuration&#x20;
+#### Custom certificate configuration
 
 1.  This configuration includes custom truststore volume mounts for certificates from private certificate authorities or self-signed certificates. Create a file named `federation-agent-aws-values.yaml`, and then copy the following configuration:
 
@@ -380,7 +376,7 @@ If your APIM management API uses certificates that require a custom truststore, 
       --create-namespace
     ```
 
-### Verification&#x20;
+### Verification
 
 1.  When the deployment is successful, verify the installation is running using the following command:
 
@@ -397,7 +393,7 @@ If your APIM management API uses certificates that require a custom truststore, 
     ```
 2.  Return to the Gravitee API Management console, refresh the page, and verify that the agent's status is set to Connected:
 
-    <figure><img src="../../../../.gitbook/assets/image (55).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/image (55) (2).png" alt=""><figcaption></figcaption></figure>
 
 ## Minimum AWS permissions required by the agent
 

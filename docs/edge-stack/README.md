@@ -51,13 +51,13 @@ Use the following procedure to install Ambassador Edge Stack manually.
 1.  Apply Kubernetes Custom Resource Definitions (CRDs) and wait for the deployment.
 
     ```shell
-    kubectl apply -f https://app.getambassador.io/yaml/edge-stack/3.12.9/aes-crds.yaml && \
+    kubectl apply -f https://app.getambassador.io/yaml/edge-stack/3.12.10/aes-crds.yaml && \
     kubectl wait --timeout=90s --for=condition=available deployment emissary-apiext -n emissary-system
     ```
 2.  Install the components and wait for Ambassador Edge Stack.
 
     ```shell
-    kubectl apply -f https://app.getambassador.io/yaml/edge-stack/3.12.9/aes.yaml && \
+    kubectl apply -f https://app.getambassador.io/yaml/edge-stack/3.12.10/aes.yaml && \
     kubectl -n ambassador wait --for condition=available --timeout=90s deploy -l product=aes
     ```
 
@@ -80,7 +80,7 @@ Use the following procedure to install Ambassador Edge Stack using Helm.
 
     ```shell
     kubectl create namespace ambassador && \
-    kubectl apply -f https://app.getambassador.io/yaml/edge-stack/3.12.9/aes-crds.yaml
+    kubectl apply -f https://app.getambassador.io/yaml/edge-stack/3.12.10/aes-crds.yaml
     ```
 
     ```shell
@@ -134,7 +134,8 @@ Ambassador Edge Stack uses Kubernetes Custom Resource Definitions (CRDs) to decl
     kubectl apply -f https://app.getambassador.io/yaml/v2-docs/3.9.1/quickstart/qotm.yaml
     ```
 
-    \{% hint style="info" %\} The service and deployment are created in your default namespace. You can use `kubectl get services,deployments quote` to see their status. \{% endhint %\}3. Apply the following YAML to your target cluster to tell Ambassador Edge Stack to route all inbound traffic to the `/backend/` path to the `quote` service.
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>The service and deployment are created in your default namespace. You can use <code>kubectl get services,deployments quote</code> to see their status.</p></div>
+3.  Apply the following YAML to your target cluster to tell Ambassador Edge Stack to route all inbound traffic to the `/backend/` path to the `quote` service.
 
     ```sh
     kubectl apply -f - <<EOF
@@ -151,13 +152,13 @@ Ambassador Edge Stack uses Kubernetes Custom Resource Definitions (CRDs) to decl
         path: "/.ambassador-internal/openapi-docs"
     EOF
     ```
-3.  Store the Ambassador Edge Stack load balancer IP address using a local environment variable. You'll use this variable to test access to your service.
+4.  Store the Ambassador Edge Stack load balancer IP address using a local environment variable. You'll use this variable to test access to your service.
 
     ```sh
     export LB_ENDPOINT=$(kubectl -n ambassador get svc  edge-stack \
       -o "go-template={{range .status.loadBalancer.ingress}}{{or .ip .hostname}}{{end}}")
     ```
-4.  Test the configuration by accessing the service through the Ambassador Edge Stack load balancer.
+5.  Test the configuration by accessing the service through the Ambassador Edge Stack load balancer.
 
     ```
     $ curl -Lki https://$LB_ENDPOINT/backend/

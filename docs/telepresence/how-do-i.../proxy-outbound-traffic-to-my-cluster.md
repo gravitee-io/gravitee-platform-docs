@@ -8,7 +8,7 @@ noIndex: true
 While preview URLs are a powerful feature, Telepresence offers other options for proxying traffic between your laptop and the cluster. This section describes how to proxy outbound traffic and control outbound connectivity to your cluster.
 
 {% hint style="info" %}
-This guide assumes that you have the [quick start](../) sample web app running in your cluster to test accessing the `web-app` service. You can substitute this service for any other service you are running.
+This guide assumes that you have the [quick start](../README.md) sample web app running in your cluster to test accessing the `web-app` service. You can substitute this service for any other service you are running.
 {% endhint %}
 
 ### Proxying outbound traffic
@@ -78,7 +78,7 @@ If you terminate the client with `telepresence quit` and try to access the servi
 ```
 
 {% hint style="info" %}
-When using Telepresence in this way, you need to access services with the namespace qualified DNS name (`<service name>.<namespace>`) before you start an intercept. After you start an intercept, only `<service name>` is required. Read more about these differences in the [DNS resolution reference guide](../).
+When using Telepresence in this way, you need to access services with the namespace qualified DNS name (`<service name>.<namespace>`) before you start an intercept. After you start an intercept, only `<service name>` is required. Read more about these differences in the [DNS resolution reference guide](../README.md).
 {% endhint %}
 
 ### Controlling outbound connectivity

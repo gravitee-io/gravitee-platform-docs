@@ -41,11 +41,10 @@ The following command line tools must be installed:
     ```
 2.  Install the chart from the Helm repo specifying the desired release, e.g., `graviteeio-apim4x` in the example below. The chart can be installed into either the default namespace or a dedicated namespace.
 
-    {% hint style="warning" %}
-    **Dedicated namespace**
-
-    To prevent potential issues, it is best practice to create a separate namespace for your installation and avoid using the default Kubernetes namespace. This is not mandatory, but the installation command below follows this recommendation.
-    {% endhint %}
+    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning">
+      <p><strong>Dedicated namespace</strong></p>
+      <p>To prevent potential issues, it is best practice to create a separate namespace for your installation and avoid using the default Kubernetes namespace. This is not mandatory, but the installation command below follows this recommendation.</p>
+    </div>
 
     *   **Dedicated namespace:** To install the Helm Chart using a dedicated namespace (e.g., `gravitee-apim`), run the following command:
 
@@ -60,19 +59,13 @@ The following command line tools must be installed:
         helm install graviteeio-apim4x graviteeio/apim
         ```
 
-    {% hint style="info" %}
-    **Installation tips**
-
-    Specify each parameter using `helm install` and the `--set key=value[,key=value]`.
-
-    Alternatively, provide a YAML file that specifies the values for the parameters when installing the chart. For example:
-
-    ```sh
-    helm install my-release -f values.yaml gravitee
-    ```
-
-    By default, APIM uses the values in the `values.yml` config file during installation. These can be modified via the parameters in the [configuration](apim-helm-install-and-configuration.md) tables.
-    {% endhint %}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p><strong>Installation tips</strong></p>
+      <p>Specify each parameter using <code>helm install</code> and the <code>--set key=value[,key=value]</code>.</p>
+      <p>Alternatively, provide a YAML file that specifies the values for the parameters when installing the chart. For example:</p>
+      <pre><code class="language-sh">helm install my-release -f values.yaml gravitee</code></pre>
+      <p>By default, APIM uses the values in the <code>values.yml</code> config file during installation. These can be modified via the parameters in the <a href="apim-helm-install-and-configuration.md">configuration</a> tables.</p>
+    </div>
 3.  (Optional) Alternatively, you can package this chart directory into a chart archive:
 
     ```sh
@@ -100,9 +93,9 @@ Application settings must be defined as follows:
 
 *   Secret settings: `secrets://kubernetes/mysecret:key?namespace=ns`, with the kube plugin enabled via `secrets.kubernetes.enabled=true`
 
-    {% hint style="warning" %}
-    The above syntax applies to Gravitee versions 4.2 and later
-    {% endhint %}
+    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning">
+      <p>The above syntax applies to Gravitee versions 4.2 and later</p>
+    </div>
 * ConfigMap settings: `kubernetes://<namespace>/configmaps/<my-configmap-name>/<my-configmap-key>`
 
 For example, the MongoDB URI initialized from the `mongo` Secret deployed in the `default` namespace is defined as:

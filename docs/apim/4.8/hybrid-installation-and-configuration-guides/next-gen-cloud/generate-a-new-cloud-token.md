@@ -18,7 +18,7 @@ When you revoke a Cloud token, you terminate the link between the Cloud and your
     <figure><img src="../../.gitbook/assets/64DFB5D8-427B-4FD2-8013-2206631FEDE2_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 3.  In the **Hybrid Gateway Details** screen, navigate to the **Cloud Tokens** section.
 
-    <figure><img src="../../.gitbook/assets/D25FD656-4D9B-426A-8B3E-7CB63E826C47_1_201_a (2).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/D25FD656-4D9B-426A-8B3E-7CB63E826C47_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 4.  Click the **bin** icon.
 
     <figure><img src="../../.gitbook/assets/C0E81F31-A36F-4047-8660-BE4B0A72C1B9_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
@@ -30,7 +30,9 @@ When you revoke a Cloud token, you terminate the link between the Cloud and your
     <figure><img src="../../.gitbook/assets/093ECA13-2ABE-4A8A-998D-6F6D2E0E5DF9_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 7.  In the **Copy your Cloud Token** pop-up window, click **Copy and Close**.
 
-    \{% hint style="warning" %\} Store your Cloud token somewhere secure. \{% endhint %\}
+    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning">
+      <p>Store your Cloud token somewhere secure.</p>
+    </div>
 
     <figure><img src="../../.gitbook/assets/18A6E6CD-1BA0-466F-B858-BAB94225DA7E_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 

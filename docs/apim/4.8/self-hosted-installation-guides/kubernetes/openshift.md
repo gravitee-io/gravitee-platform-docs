@@ -9,7 +9,7 @@ description: Configuration guide for openshift.
 * Gravitee API Management (APIM) Helm chart is compatible with OpenShift versions 3.10 and later.
 * Install the following command line tools:
   * [Kubectl or OC](https://docs.openshift.com/container-platform/4.9/cli_reference/openshift_cli/getting-started-cli.html#cli-installing-cli_cli-developer-commands)
-  * [Helm](https://docs.openshift.com/container-platform/4.10/applications/working_with_helm_charts/installing-helm.html)
+  * [Helm](https://docs.redhat.com/en/documentation/openshift_container_platform/4.10/html/building_applications/working-with-helm-charts#installing-helm)
 
 ## Procedure
 
@@ -315,9 +315,9 @@ When you configure your `values.yml` file for OpenShift deployment, you must com
 * Use the full host domain instead of paths for all components.
 *   Override the security context to let OpenShift automatically define the `user-id` and `group-id` you use to run the containers. Here is an example of security context that has been overridden:
 
-    \{% hint style="warning" %\}
-
-    * Currently only UID randomization is supported. We do not support random GID. \{% endhint %\}
+    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning">
+      <p>Currently only UID randomization is supported. We do not support random GID.</p>
+    </div>
 
     ```yaml
     api:  

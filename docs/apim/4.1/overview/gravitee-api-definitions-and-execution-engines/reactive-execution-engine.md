@@ -54,7 +54,7 @@ Message-based, asynchronous APIs such as Kafka, MQTT, WebSocket, SSE, and Webhoo
 
 The legacy execution engine supports all Gravitee policies that existed prior to the 4.0 release. These policies will continue to function without any changes to configuration or execution.
 
-All policies will also support the new reactive execution engine, but not all policies can being applied at the message level. Whether a policy can be applied to v4 proxy APIs and/or v4 message APIs is detailed per policy in the [Policy Reference](../../reference/policy-reference/) Guide.
+All policies will also support the new reactive execution engine, but not all policies can being applied at the message level. Whether a policy can be applied to v4 proxy APIs and/or v4 message APIs is detailed per policy in the [Policy Reference](../../reference/policy-reference/README.md) Guide.
 
 ## v2 Gateway API emulation mode
 
@@ -64,7 +64,7 @@ By default, emulation mode is not enabled for v2 APIs because it may cause unexp
 
 v2 Gateway APIs can be run in emulation mode:
 
-<figure><img src="broken-reference" alt=""><figcaption><p>v2 API emulation mode</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-07-19 at 4.45.21 PM.png" alt=""><figcaption><p>v2 API emulation mode</p></figcaption></figure>
 
 Enabling this option allows v2 Gateway APIs to access the improvements built into the reactive execution engine. The functional benefits provided by the reactive engine are detailed in subsequent sections.
 

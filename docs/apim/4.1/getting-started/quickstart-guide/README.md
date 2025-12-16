@@ -34,7 +34,7 @@ Before getting started, you'll need:
 1. Basic familiarity with web APIs and/or message brokers
 2. Gravitee APIM 4.0 or later up and running
 
-To manage your own installations, check out our [APIM install guides](../install-guides/) for install options to run APIM locally or in your own cloud infrastructure. If you don't have a strong preference, [Quick Install with Docker Compose](../install-guides/install-on-docker/quick-install-with-docker-compose.md) is the fastest self-managed installation for most users.
+To manage your own installations, check out our [APIM install guides](../install-guides/README.md) for install options to run APIM locally or in your own cloud infrastructure. If you don't have a strong preference, [Quick Install with Docker Compose](../install-guides/install-on-docker/quick-install-with-docker-compose.md) is the fastest self-managed installation for most users.
 
 {% hint style="warning" %}
 An enterprise license is required for all message broker functionality.
@@ -48,13 +48,13 @@ How you access the APIM Console in a self-managed installation depends on your i
 
 For the default local Docker installation, navigate to `http://localhost:8084` in your browser, and you will be greeted with the following screen:
 
-<figure><img src="broken-reference" alt=""><figcaption><p>APIM Console login screen</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/apim_login.png" alt=""><figcaption><p>APIM Console login screen</p></figcaption></figure>
 
 > * [x] Navigate to `http://localhost:8084` in your browser
 
 For a new installation, the default login is `admin` for both **Username** and **Password**. Logging in will take you to your APIM Console homescreen, which should look similar to this:
 
-<figure><img src="broken-reference" alt=""><figcaption><p>APIM Console Dashboard</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/apim_dashboard.png" alt=""><figcaption><p>APIM Console Dashboard</p></figcaption></figure>
 
 > * [x] Log in to the APIM Console using `admin` for both **Username** and **Password**
 

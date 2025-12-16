@@ -25,10 +25,10 @@ To configure SMTP settings:
 4. Configure the **SMTP** settings are at the bottom of the page
 
 {% hint style="info" %}
-By default, the `gravitee.yml` configuration file disables email because email requires configuring an SMTP email service. You must set up email for your APIM deployment per the [SMTP configuration guide](../../configure-apim/apim-components/) to be able to modify the SMTP settings.
+By default, the `gravitee.yml` configuration file disables email because email requires configuring an SMTP email service. You must set up email for your APIM deployment per the [SMTP configuration guide](../../configure-apim/apim-components/README.md) to be able to modify the SMTP settings.
 {% endhint %}
 
-<figure><img src="broken-reference" alt=""><figcaption><p>SMTP default settings</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-06-05 at 12.03.55 PM.png" alt=""><figcaption><p>SMTP default settings</p></figcaption></figure>
 
 ### Create a user
 
@@ -38,7 +38,7 @@ After configuring SMTP, you can create a new user in the Developer Portal:
 2. In the new incognito window, select **Sign up** at the bottom of the modal
 3. Provide the required information and click the **Sign Up** button
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Developer portal sign up page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-06-05 at 12.14.03 PM.png" alt=""><figcaption><p>Developer portal sign up page</p></figcaption></figure>
 
 You will receive a registration confirmation at the email address you provided.
 
@@ -71,4 +71,4 @@ All users can be viewed in the Management Console by anyone with administrator p
 
 As an administrator, you can click on an entry for user details and to apply administrative policies. Additionally, admins can pre-register users by clicking the **Add user** button on the top right of the page.
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Management Console user overview</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (93).png" alt=""><figcaption><p>Management Console user overview</p></figcaption></figure>

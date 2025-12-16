@@ -1,0 +1,5 @@
+- Confirm whether Gravitee APIM version 4.10 is the minimum required version for this SSO configuration, and update the prerequisite if the requirement changes.
+- Validate the intended value of `gravitee_portal_authentication_locallogin_enabled` for SSO-only login in Helm deployments; once confirmed, update the value and remove the `<!-- UNCERTAIN -->` annotation from the article.
+- Consider clarifying whether these steps apply exclusively to the New Developer Portal and, if relevant, add a brief note about behavior in the Classic Developer Portal.
+- Once the broken links are resolved, replace the generic “Broken link” labels with descriptive link texts that identify each referenced guide or installation method.
+- In the “Next steps” section, consider adding a short description of what the linked follow-up guide covers to make the navigation more self-explanatory.

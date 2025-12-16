@@ -27,7 +27,9 @@ If you already have Consul installed in your cluster, then go ahead and skip to 
     * [Amazon Elastic Kubernetes Service (EKS)](https://learn.hashicorp.com/tutorials/consul/kubernetes-eks-aws?utm_source=consul.io\&utm_medium=docs)
     * [Google Kubernetes Engine (GKE)](https://learn.hashicorp.com/tutorials/consul/kubernetes-gke-google?utm_source=consul.io\&utm_medium=docs)
 
-    \{% hint style="info" %\} If you did not find your Kubernetes platform above, check the [Consul documentation here](https://www.consul.io/docs/k8s) to see if there are specific setup instructions for your platform. \{% endhint %\}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p>If you did not find your Kubernetes platform above, check the <a href="https://www.consul.io/docs/k8s">Consul documentation here</a> to see if there are specific setup instructions for your platform.</p>
+    </div>
 2.  Add the Hashicorp repository for installing Consul with Helm. If you do not have Helm installed, you can find an [installation guide here](https://helm.sh/docs/intro/install/).
 
     ```shell
@@ -54,7 +56,9 @@ If you already have Consul installed in your cluster, then go ahead and skip to 
       enabled: true
     ```
 
-    \{% hint style="info" %\} Note: you are free to change the value of the `datacenter` field in the install values. This is the the name of your Consul Datacenter. \{% endhint %\}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p>Note: you are free to change the value of the <code>datacenter</code> field in the install values. This is the the name of your Consul Datacenter.</p>
+    </div>
 4.  Install Consul with Helm using the `consul-values.yaml` values file you just created.
 
     ```shell
@@ -86,11 +90,11 @@ In this tutorial, you deploy the application in Kubernetes. However, this applic
     EOF
     ```
 
-    \{% hint style="info" %\} **Note:** If you changed the name of your `datacenter` in the Consul install values, make sure to change it in the resolver above to match the name of your datacenter.
-
-    If you changed the name of the helm install from `hashicorp` to another value, make sure to update the value of the `address` field in your resolver to match it.
-
-    If you are having trouble figuring out what your `address` field should be, it follow this format: `http://{consul_server_pod}.{consul_server_service}.{namespace}.svc.cluster.local:{consul_port}`. The default Consul port should be `8500` unless you changed it. \{% endhint %\}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p><strong>Note:</strong> If you changed the name of your <code>datacenter</code> in the Consul install values, make sure to change it in the resolver above to match the name of your datacenter.</p>
+      <p>If you changed the name of the helm install from <code>hashicorp</code> to another value, make sure to update the value of the <code>address</code> field in your resolver to match it.</p>
+      <p>If you are having trouble figuring out what your <code>address</code> field should be, it follow this format: <code>http://{consul_server_pod}.{consul_server_service}.{namespace}.svc.cluster.local:{consul_port}</code>. The default Consul port should be <code>8500</code> unless you changed it.</p>
+    </div>
 
     This tells Ambassador Edge Stack that Consul is a service discovery endpoint.
 
@@ -150,13 +154,17 @@ In this tutorial, you deploy the application in Kubernetes. However, this applic
     EOF
     ```
 
-    \{% hint style="info" %\} The `SERVICE_NAME` environment variable in the `quote-consul` `Deployment` specifies the service name for Consul. The default value is set to "quote-consul", so you only need to include it if you want to change the service name. \{% endhint %\}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p>The <code>SERVICE_NAME</code> environment variable in the <code>quote-consul</code> <code>Deployment</code> specifies the service name for Consul. The default value is set to "quote-consul", so you only need to include it if you want to change the service name.</p>
+    </div>
 
     The Quote application contains code to automatically register itself with Consul, using the `CONSUL_IP` and `POD_IP` environment variables specified within the `quote-consul` container spec.
 
     When you apply this manifest, it registers the `Pod` in the `quote-consul` `Deployment` as a Consul service with the name `quote-consul` and the IP address of the `Pod`.
 
-    \{% hint style="info" %\} The `"consul.hashicorp.com/connect-inject": "false"` annotation tells Consul that for this `Deployment` you do not want to use the sidecar proxy that is part of Consul's Connect feature. Without Consul's sidecar, the service needs to include code to make a request to Consul to register the service. The manifest includes the environment variables `CONSUL_IP`, `POD_IP`, and `SERVICE_NAME` to provide the Quote service with enough information to build that request and send it to Consul. To see how this code works, see our [our Git repo for the Quote service](https://github.com/datawire/quote). \{% endhint %\}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p>The <code>"consul.hashicorp.com/connect-inject": "false"</code> annotation tells Consul that for this <code>Deployment</code> you do not want to use the sidecar proxy that is part of Consul's Connect feature. Without Consul's sidecar, the service needs to include code to make a request to Consul to register the service. The manifest includes the environment variables <code>CONSUL_IP</code>, <code>POD_IP</code>, and <code>SERVICE_NAME</code> to provide the Quote service with enough information to build that request and send it to Consul. To see how this code works, see our <a href="https://github.com/datawire/quote">our Git repo for the Quote service</a>.</p>
+    </div>
 3.  Verify the `quote-consul` `Deployment`'s `Pod` has been registered with Consul. You can verify this by accessing the Consul UI.
 
     First use `kubectl port-forward` to make the UI available on your local workstation:
@@ -169,7 +177,9 @@ In this tutorial, you deploy the application in Kubernetes. However, this applic
 
     After you have verified that you see the `quote-consul` service in your web browser, you may kill the port-forward.
 
-    \{% hint style="info" %\} Port forwarding not working for you? Make sure the service name matches your Consul UI service by checking `kubectl get svc -A` \{% endhint %\}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p>Port forwarding not working for you? Make sure the service name matches your Consul UI service by checking <code>kubectl get svc -A</code></p>
+    </div>
 4.  Configure Ambassador Edge Stack to make use of this `quote-consul` service. Use `kubectl` to apply the following manifest:
 
     ```shell
@@ -292,7 +302,9 @@ The following steps assume you've already set up Consul for service discovery, a
     EOF
     ```
 
-    \{% hint style="info" %\} Note: Annotations are used to attach metadata to Kubernetes objects. You can use annotations to link external information to objects, working in a similar, yet different, fashion to labels. For more information on annotations, refer to the [Annotating Kubernetes Services for Humans](https://kubernetes.io/blog/2021/04/20/annotating-k8s-for-humans/) article, or get started with annotations in your own cluster with the [ambassador-cloud-quick-start-guide.md](../../ambassador-cloud-quick-start-guide.md "mention"). \{% endhint %\}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p>Note: Annotations are used to attach metadata to Kubernetes objects. You can use annotations to link external information to objects, working in a similar, yet different, fashion to labels. For more information on annotations, refer to the <a href="https://kubernetes.io/blog/2021/04/20/annotating-k8s-for-humans/">Annotating Kubernetes Services for Humans</a> article, or get started with annotations in your own cluster with the <a href="../../ambassador-cloud-quick-start-guide.md" title="mention">ambassador-cloud-quick-start-guide.md</a>.</p>
+    </div>
 
     This deploys a demo application `Deployment` called `quote-connect` (different than the `quote-consul` `Deployment` in the previous section) with the Consul Connect sidecar proxy. The Connect sidecar registers the application with Consul, requires TLS to access the application, and exposes other [Consul Service Segmentation](https://www.consul.io/docs/connect) features.
 

@@ -20,7 +20,7 @@ The following sections describe how to:
 
 ### prerequisites
 
-* [Install Gravitee with `docker-compose`](../../../getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-docker/)
+* [Install Gravitee with `docker-compose`](../../../getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-docker/README.md)
 
 ### 1. Install a HashiCorp Consul server
 
@@ -102,7 +102,7 @@ curl -X PUT -d '{ "ID": "whattimeisit_1", "Name": "whattimeisit", "Address": "ap
 
 The Consul web UI should display a new service named `whattimeisit`:
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/service-discovery-consul-services.png" alt=""><figcaption></figcaption></figure>
 
 You can also verify that your service is successfully registered in Consul by interacting with Consul Agent API.
 
@@ -182,12 +182,12 @@ To enable HashiCorp Consul service discovery in your APIM Console:
 3. Select your API
 4.  Select **Endpoints** from the **Backend services** section of the inner left nav
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/v2 service discovery_endpoints.png" alt=""><figcaption></figcaption></figure>
 5. Click **Edit group**
 6. Click on the **Service discovery** tab
 7.  Toggle **Enabled service discovery** ON, then configure the following:
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/v2 service discovery_configure.png" alt=""><figcaption></figcaption></figure>
 
     * **Type:** Select **Consul.io Service Discovery** from the drop-down menu
     * **Service:** Enter the name of the service registered in Consul, e.g., "whattimeisit"
@@ -215,11 +215,11 @@ To declare an endpoint as secondary:
 3. Select your API
 4.  Select **Endpoints** from the **Backend services** section of the inner left nav
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/v2 service discovery_endpoints.png" alt=""><figcaption></figcaption></figure>
 5. Click the pencil icon next to the endpoint you want to make secondary
 6.  Under the **General** tab, click the box next to **Secondary endpoint**
 
-    <figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/v2 service discovery_secondary endpoint.png" alt=""><figcaption></figcaption></figure>
 7. Click **Save**
 
 ## **Verification**
@@ -256,5 +256,5 @@ To observe how APIM dynamically routes traffic based on Consul’s Service Catal
 
 Consider enabling health-checks for your API to view the status of all endpoints, including the endpoints managed by HashiCorp Consul. For more information on how to enable Gravitee health-checks, refer to [this documentation](load-balancing-failover-and-health-checks.md#configure-gravitee-health-checks).
 
-<img src="broken-reference" alt="" data-size="original">
+<img src="../../../.gitbook/assets/service-discovery-consul-healthcheck.png" alt="" data-size="original">
 {% endhint %}

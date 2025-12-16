@@ -21,7 +21,7 @@ To learn more about Gravitee [Enterprise Edition](../../readme/enterprise-editio
 
 ## Prerequisites to enable this feature
 
-1. You must configure one of the following secret managers in your `gravitee.yml` file or using the equivalent [environment variable](./): Kubernetes, Amazon Secret Manager, or Hashicorp Vault. For more information about these secret managers, see [Integrations](../../readme/integrations.md#secret-managers-integration).
+1. You must configure one of the following secret managers in your `gravitee.yml` file or using the equivalent [environment variable](README.md): Kubernetes, Amazon Secret Manager, or Hashicorp Vault. For more information about these secret managers, see [Integrations](../../readme/integrations.md#secret-managers-integration).
 2. Reference those secrets in your API definitions with a specialized syntax.
 
 ## Configuring Gravitee to access secret managers
@@ -325,7 +325,7 @@ You can see here that the definition does not contain a clear text secret. This 
 
 Here is an example of referencing a secret when you configure a Redis Cache resource:
 
-<figure><img src="../../../4.6/.gitbook/assets/image%20(142)%20(1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (142).png" alt=""><figcaption></figcaption></figure>
 
 ### Native Kafka endpoint API example
 
@@ -394,7 +394,7 @@ You can see here that the definition does not contain a clear text secret. This 
 
 Here is an example of referencing a secret during a SASL configuration:
 
-<figure><img src="../../../4.6/.gitbook/assets/Screenshot%202025-01-23%20at%2013.54.01%20(1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot%202025-01-23%20at%2013.54.01%20(1).png" alt=""><figcaption></figcaption></figure>
 
 ### Hiding secret provider plugin
 

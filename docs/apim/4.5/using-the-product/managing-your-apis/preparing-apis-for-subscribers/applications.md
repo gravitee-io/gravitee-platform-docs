@@ -22,7 +22,7 @@ For an API consumer to create an application:
 * An admin must define the allowed types of applications that API consumers can create:
   * **Default application type:** API consumers can optionally define the `client_id` when creating a simple application.
   * **Dynamic Client Registration (DCR) for applications:** The API publisher must enable and configure DCR for the allowed application types. The client registration provider is responsible for creating the `client_id` and `client_secret` for each application that registers.
-* An API consumer must have a user account to register an application and subscribe to an API (see [Administration](../../administration/))
+* An API consumer must have a user account to register an application and subscribe to an API (see [Administration](../../administration/README.md))
 
 ## Default application configuration
 
@@ -32,7 +32,7 @@ The default simple application enables an API consumer to define the `client_id`
 2. Select **Settings** from the left nav
 3.  Select **Client Registration** from the inner left nav
 
-    <figure><img src="broken-reference" alt=""><figcaption><p>Client Registration</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/client registration.png" alt=""><figcaption><p>Client Registration</p></figcaption></figure>
 4. Under **Default application type**, toggle **Simple** ON
 
 {% hint style="info" %}
@@ -51,7 +51,7 @@ user:
 ## DCR application configuration
 
 {% hint style="warning" %}
-Dynamic Client Registration is an [Enterprise Edition](../../../overview/gravitee-apim-enterprise-edition/) capability
+Dynamic Client Registration is an [Enterprise Edition](../../../overview/gravitee-apim-enterprise-edition/README.md) capability
 {% endhint %}
 
 The DCR protocol allows an OAuth client application to register with an OAuth server through the OpenID Connect (OIDC) client registration endpoint. Using DCR, API consumers can register applications via the Developer Portal or APIM Console. This outsources the issuer and management of application credentials to a third party, enabling additional configuration options and compatibility with IdP OIDC features.
@@ -103,7 +103,7 @@ To enable DCR:
 2. Select **Settings** from the left nav
 3.  Select **Client Registration** from the inner left nav
 
-    <figure><img src="broken-reference" alt=""><figcaption><p>Client Registration</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/client registration.png" alt=""><figcaption><p>Client Registration</p></figcaption></figure>
 4. Toggle **Enable Dynamic Client Registration** ON
 
 ### Add a DCR provider
@@ -114,12 +114,14 @@ Any authentication server supporting OIDC can be used as a DCR provider. This gu
 
 At the bottom of the **Client Registration** page, click **+ Add a provider** and configure the following:
 
-<figure><img src="broken-reference" alt=""><figcaption><p>Add a client registration provider</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/client registration provider.png" alt=""><figcaption><p>Add a client registration provider</p></figcaption></figure>
 
 * Set a **Name** and **Description** for the provider
 *   **OpenID Connect Discovery Endpoint:** Enter the URL where an OIDC-compatible authorization server publishes its metadata
 
-    \{% hint style="info" %\} Metadata is a JSON listing of the OpenID/OAuth endpoints, supported scopes and claims, public keys used to sign the tokens, etc., which can be used to construct a request to the authorization server). Metadata field names and values are defined in the [OIDC Discovery Specification.](https://openid.net/specs/openid-connect-discovery-1_0.html) \{% endhint %\}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p>Metadata is a JSON listing of the OpenID/OAuth endpoints, supported scopes and claims, public keys used to sign the tokens, etc., which can be used to construct a request to the authorization server). Metadata field names and values are defined in the <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">OIDC Discovery Specification.</a></p>
+    </div>
 * Use the **Initial Access Token Provider** drop-down menu to select how the [initial access token flow](applications.md#initial-access-token-flows):
   * **Initial Access Token:** For direct provisioning, enter the **Initial Access Token** in the corresponding field
   * Provide the following **Client Credentials**:
@@ -248,7 +250,7 @@ To delete an application, the primary owner must:
 4. Select **Global Settings** from the inner left nav
 5.  In the **Danger Zone**, click **Delete**
 
-    <figure><img src="broken-reference" alt=""><figcaption><p>Delete an application</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/delete application.png" alt=""><figcaption><p>Delete an application</p></figcaption></figure>
 
 * A deleted application has a status of `ARCHIVED`, meaning:
   * The link to the primary owner of the application is deleted.

@@ -19,7 +19,7 @@ Before you install the Gravitee APIM, complete the following steps:
 * Install [helm](https://helm.sh/docs/intro/install/).
 * Install [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl).
 * Ensure you have access to the self-hosted Kubernetes cluster where you want to install Gravitee APIM.
-* **(Enterprise Edition only)** Obtain a license key. For more information about obtaining a license key, see [Enterprise Edition Licensing.](https://app.gitbook.com/u/QpTUPUh6LGTm8Aa50q04W8lgVDY2)
+* **(Enterprise Edition only)** Obtain a license key. For more information about obtaining a license key, see [Enterprise Edition Licensing.](../../../readme/enterprise-edition.md)
 
 ## Components Overview
 
@@ -34,7 +34,7 @@ The Gravitee APIM platform requires several external dependencies and services t
 
 *   Required dependencies and services:
 
-    \{% hint style="danger" %\} The minimum installation of APIM requires MongoDB and Elasticsearch. \{% endhint %\}
+    <div data-gb-custom-block data-tag="hint" data-style="danger" class="hint hint-danger"><p>The minimum installation of APIM requires MongoDB and Elasticsearch.</p></div>
 
     * MongoDB: Stores API definitions, configurations, and rate limiting data.
     * Elasticsearch: Provides analytics, logging, and search capabilities for API metrics.
@@ -55,7 +55,7 @@ To install the Gravitee APIM, complete the following steps:
 6. [#enterprise-edition-only-create-secret](./#enterprise-edition-only-create-secret "mention")
 7. [#install-ingress-controller](./#install-ingress-controller "mention")
 8. [#configure-dns-resolution](./#configure-dns-resolution "mention")
-9. [#prepare-values.yaml-for-helm](./#prepare-values.yaml-for-helm "mention")
+9. [#prepare-the-values.yaml-for-helm](./#prepare-the-values.yaml-for-helm "mention")
 10. [#install-with-helm](./#install-with-helm "mention")
 
 ### Create Namespace
@@ -313,7 +313,7 @@ It may take a few minutes for the load balancer IP to be available.
     ```
 2.  In a separate terminal, enable the network tunnel using the following command:
 
-    \{% hint style="danger" %\} Keep the tunnel command running in a separate terminal window. The tunnel must remain active for ingress to function properly. \{% endhint %\}
+    <div data-gb-custom-block data-tag="hint" data-style="danger" class="hint hint-danger"><p>Keep the tunnel command running in a separate terminal window. The tunnel must remain active for ingress to function properly.</p></div>
 
     ```bash
     sudo minikube tunnel
@@ -396,8 +396,6 @@ Ensure that you have the following sections complete:
     #     minIdle: 10
     #     maxPoolSize: 10
     #     registerMbeans: true
-
-
 
     # Elasticsearch Configuration
     es:
@@ -569,10 +567,6 @@ Ensure that you have the following sections complete:
         tag: latest
         pullPolicy: Always
 
-      env:
-        - name: MGMT_API_URL
-          value: "http://apim.localhost/management/organizations/DEFAULT/environments/DEFAULT/"
-
       service:
         type: ClusterIP
         externalPort: 8002
@@ -604,10 +598,6 @@ Ensure that you have the following sections complete:
         repository: graviteeio/apim-portal-ui
         tag: latest
         pullPolicy: Always
-
-      env:
-        - name: PORTAL_API_URL
-          value: "http://apim.localhost/portal/environments/DEFAULT"
 
       service:
         type: ClusterIP

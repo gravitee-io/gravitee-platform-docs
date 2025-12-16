@@ -33,7 +33,7 @@ The Gravitee Gateway needs the following two components:
 
 * Ensure that the Bridge and Gateway versions that you use for your Hybrid deployment are compatible. For more information about Gateway and Bridge compatibility versions, see [Gateway and Bridge compatibility versions](gateway-and-bridge-compatibility-versions.md).
 
-![Hybrid deployment architecture](../../../4.0/.gitbook/assets/file.excalidraw%20\(4\)%20\(1\).svg)
+![Hybrid deployment architecture](../../.gitbook/assets/file.excalidraw%20(4)%20(1).svg)
 
 <figure><img src="../../.gitbook/assets/image (134).png" alt="Diagram showing the hybrid architecture"><figcaption><p>Hybrid architecture connections</p></figcaption></figure>
 
@@ -335,7 +335,7 @@ To verify that you deployed this architecture correctly, complete the following 
 {% endtab %}
 
 {% tab title="Docker" %}
-* Install Gravitee API Management (APIM). For more information about installing Gravitee APIM, see [Install on Docker](../install-on-docker/).
+* Install Gravitee API Management (APIM). For more information about installing Gravitee APIM, see [Install on Docker](../install-on-docker/README.md).
 * Download, and then mount the following plugins for the Gravitee Gateway:
   * Redis Repository. This repository is used for the rate limits' synchronized counters. To download this repository, go to [Gravitee.io Downloads](https://download.gravitee.io/#graviteeio-apim/plugins/repositories/gravitee-apim-repository-redis).
   * TCP Reporter. This repository is used to push events to Logstash. To download this repository, go to [Gravitee.io Downloads.](https://download.gravitee.io/#graviteeio-ee/apim/plugins/reporters/gravitee-reporter-tcp/)

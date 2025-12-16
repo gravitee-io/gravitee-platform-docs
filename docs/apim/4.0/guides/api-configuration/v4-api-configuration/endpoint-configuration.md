@@ -17,7 +17,7 @@ After you've created your Gateway API and selected your endpoint(s), you can con
 
 As of Gravitee 4.0, the ability to create APIs with message API endpoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise Edition and what's included in various enterprise packages, please:
 
-* [Refer to the EE vs OSS documentation](../../../overview/ee-vs-oss/)
+* [Refer to the EE vs OSS documentation](../../../overview/ee-vs-oss/README.md)
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
@@ -222,9 +222,9 @@ To access endpoint configuration, go to the **API** page in the Management Conso
 
 ### Alter and delete existing endpoints
 
-To alter an existing endpoint, select the <img src="broken-reference" alt="" data-size="line"> icon, and then edit your endpoint configuration. You can find more information on v4 Proxy API configuration in the [API creation documentation](../../create-apis/the-api-creation-wizard/v4-api-creation-wizard.md#entrypoint-options-for-the-proxy-upstream-protocol-method).
+To alter an existing endpoint, select the <img src="../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.43.13 AM.png" alt="" data-size="line"> icon, and then edit your endpoint configuration. You can find more information on v4 Proxy API configuration in the [API creation documentation](../../create-apis/the-api-creation-wizard/v4-api-creation-wizard.md#entrypoint-options-for-the-proxy-upstream-protocol-method).
 
-To delete an existing endpoint, select the <img src="broken-reference" alt="" data-size="line">icon underneath **ACTIONS** in the **Endpoints** menu.
+To delete an existing endpoint, select the <img src="../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.46.30 AM.png" alt="" data-size="line">icon underneath **ACTIONS** in the **Endpoints** menu.
 
 ### Create new endpoints
 

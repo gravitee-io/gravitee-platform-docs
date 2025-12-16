@@ -26,7 +26,7 @@ The default simple application enables an API consumer to define the `client_id`
 3. Select **Client Registration** from the inner left nav
 4. Under **Default application type**, toggle **Simple** ON
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/0 app (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 To expedite API consumption, a default application is automatically created for every new user (not including admins). This can be disabled in the `gravitee.yml` file as shown below:
@@ -99,7 +99,7 @@ To enable DCR, complete the following steps:
 3. Select **Client Registration** from the inner left nav
 4. Toggle **Enable Dynamic Client Registration** ON
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/0 app1 (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Add a DCR provider
 
@@ -109,12 +109,14 @@ Any authentication server supporting OIDC can be used as a DCR provider. This gu
 
 At the bottom of the **Client Registration** page, click **+ Add a provider** and configure the following:
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/0 app3 (1).png" alt=""><figcaption></figcaption></figure>
 
 * Set a **Name** and **Description** for the provider
 *   **OpenID Connect Discovery Endpoint:** Enter the URL where an OIDC-compatible authorization server publishes its metadata
 
-    \{% hint style="info" %\} Metadata is a JSON listing of the OpenID/OAuth endpoints, supported scopes and claims, public keys used to sign the tokens, etc., which can be used to construct a request to the authorization server). Metadata field names and values are defined in the [OIDC Discovery Specification.](https://openid.net/specs/openid-connect-discovery-1_0.html) \{% endhint %\}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p>Metadata is a JSON listing of the OpenID/OAuth endpoints, supported scopes and claims, public keys used to sign the tokens, etc., which can be used to construct a request to the authorization server). Metadata field names and values are defined in the <a href="https://openid.net/specs/openid-connect-discovery-1_0.html">OIDC Discovery Specification.</a></p>
+    </div>
 * Use the **Initial Access Token Provider** drop-down menu to select the [initial access token flow](applications.md#initial-access-token-flows):
   * **Initial Access Token:** For direct provisioning, enter the **Initial Access Token** in the corresponding field
   * Provide the following **Client Credentials**:
@@ -302,7 +304,7 @@ To delete an application, the primary owner must:
 4. Select **Global Settings** from the inner left nav
 5.  In the **Danger Zone**, click **Delete**
 
-    <figure><img src="broken-reference" alt=""><figcaption><p>Delete an application</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/delete application (1).png" alt=""><figcaption><p>Delete an application</p></figcaption></figure>
 
 * A deleted application has a status of `ARCHIVED`, meaning:
   * The link to the primary owner of the application is deleted.
