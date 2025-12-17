@@ -6,41 +6,44 @@ Since it is a standard, SCIM ensures interoperability and user data consistency 
 
 SCIM protocol endpoints are exposed by the AM Gateway following the [OpenAPI specification](https://raw.githubusercontent.com/gravitee-io/gravitee-access-management/4.6.x/docs/scim-api-descriptor.yml).
 
-## Protocol
+## Protocol Overview
 
-SCIM is a standard that defines schema and protocols for identity management.
-
-It relies on REST APIs with endpoints exposing CRUD (Create, Read, Update, Delete) functionality for users and groups as well as search, discovery, and bulk features.
+SCIM defines schemas and protocols for identity management.\
+It relies on REST APIs that provide the following capabilities:\
+&#x9;•	CRUD operations for Users and Groups\
+&#x9;•	Search and filtering capabilities\
+&#x9;•	Bulk APIs (with limitations)
 
 {% hint style="warning" %}
-Groups are currently not manageable using Bulk operations.
+Bulk operations for Groups are not currently supported.
 {% endhint %}
 
 ## Custom attributes
 
-Gravitee AM supports a custom System for Cross-Domain Identity Management (SCIM) `User` extension. With this extension, you can define extended attributes for your users.
+Gravitee Access Management supports a custom **System for Cross-Domain Identity Management (SCIM)** User extension, enabling you to define additional user attributes beyond the standard SCIM specification.
 
-{% hint style="info" %}
-Custom attributes are stored in the `additionalInformation` map of the user.
-{% endhint %}
+The extension is identified by the following schema URI:
 
-The custom `User` extension is identified using the following schema URI: `urn:ietf:params:scim:schemas:extension:custom:2.0:User`
+```
+urn:ietf:params:scim:schemas:extension:custom:2.0:User
+```
 
-{% hint style="info" %}
-For users migrations from an alternative OIDC provider to Access Management, you can define the `lastPasswordReset` attribute. This attribute ensures that a password policy with password expiry requests a password reset according to the value provided during the migration. This attribute is accepted only during user creation.
+You can send **any** attributes inside this extension. However, Gravitee Access Management gives **special behavior** only to a specific subset of attributes as described in the following table. All other attributes are simply stored as-is in `additionalInformation` and can be used, for example, in templates or policies.
 
-In the SCIM request, the `lastPasswordReset` attribute is expected to be a String using ISO-8601 representation to be aligned with other date attributes defined by the SCIM specification.
+### Attributes With Special Behaviour
 
-As it is specific information,you must use the following Gravitee schema extension `"urn:ietf:params:scim:schemas:extension:custom:2.0:User"` . Here is an example:\
-\
-"urn:ietf:params:scim:schemas:extension:custom:2.0:User": {\
-"lastPasswordReset": "2024-10-27T04:56:22Z"\
-}
+<table><thead><tr><th width="181.421875">Attribute</th><th width="116.84765625">Type</th><th>Effect on user</th><th>Validation / Notes</th></tr></thead><tbody><tr><td><strong>lastPasswordReset</strong></td><td>String (ISO-8601)</td><td>Sets the user’s <code>lastPasswordReset</code> date, which is used by password expiry policies. This is useful when migrating from an alternative OIDC provider.</td><td>Only evaluated during user creation. Must be a valid ISO-8601 timestamp, and The timestamp cannot be in the future. If parsing fails or the value is in the future, the request is rejected. Example date: <code>2025-12-11T21:37:00Z</code></td></tr><tr><td><strong>preRegistration</strong></td><td>Boolean</td><td>When <code>true</code>, marks the user as pre-registered and clears the password so the user receives an email to set their password.</td><td>Must be a boolean. If the value is not a boolean, the request is rejected. After processing, this field is removed from <code>additionalInformation</code>.</td></tr><tr><td><strong>forceResetPassword</strong></td><td>Boolean</td><td>When <code>true</code>, sets <code>forceResetPassword</code> on the user so they must change their password after their next successful login.</td><td>Must be a boolean. If the value is not a boolean, the request is rejected. After processing, this field is removed from <code>additionalInformation</code>.</td></tr><tr><td><strong>client</strong></td><td>String (client ID or client UID)</td><td>Assigns the user to a specific OAuth client during creation by setting the user’s <code>client</code> property. When used with <code>preRegistration: true</code>, it also controls which email template is used for the registration email.</td><td>Must be a string. If the value is not a string, the request is rejected. After processing, this field is removed from <code>additionalInformation</code>.</td></tr></tbody></table>
 
-You can also define two boolean parameters: `preRegistration` and `forceResetPassword`.\
-When `preRegistration` is set to `true`, the user receives an email prompting them to confirm their profile and set a password.\
-When `forceResetPassword` is set to `true`, the user is required to reset their password following their next successful login.
-{% endhint %}
+### Other Custom Attributes
+
+Any other attributes are handled by Gravitee Access Management in the following ways:
+
+* **not interpreted** by Gravitee Access Management logic
+* stored as-is in `user.additionalInformation`.
+
+You can still use these custom attributes in templates andpolicies. But they do not trigger any built-in behavior. &#x20;
+
+### Example
 
 The following non-normative example shows how to create, update, and patch users by using the custom `User` extension in JSON format.
 
@@ -139,7 +142,9 @@ curl -L -X POST 'https://AM_GATEWAY/{domain}/scim/Users'
   ],
   "urn:ietf:params:scim:schemas:extension:custom:2.0:User": {
       "customClaim": "customValue",
-      "customClaim2": "customValue2
+      "customClaim2": "customValue2",
+      "client": "client-id",
+      "preRegistration": true
   }
 }
 ```
