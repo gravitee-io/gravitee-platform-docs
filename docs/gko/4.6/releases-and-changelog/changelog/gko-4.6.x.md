@@ -4,6 +4,17 @@ description: Overview of GKO.
 
 # GKO 4.6.x
 
+## Gravitee Kubernetes Operator 4.6.26 - December 8, 2025
+
+<details>
+<summary>Bug fixes</summary>
+
+  **APIM**
+
+  * V4 & JSON exports incorrectly embed HTTP-fetcher page content [#10985](https://github.com/gravitee-io/issues/issues/10985)
+
+</details>
+
 ## Gravitee Kubernetes Operator 4.6.25 - November 25, 2025
 
 There is nothing new in version 4.6.25.
