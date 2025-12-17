@@ -114,6 +114,7 @@
   * [Hide Login Form](guides/login/hide-login-form.md)
   * [Redirect Users After Login](guides/login/redirect-users-after-login.md)
   * [Force Reset Password on Expiration](guides/login/force-reset-password-on-expiration.md)
+  * [Certificate Based Authentication](guides/login/certificate-based-authentication.md)
 * [Multi-factor Authentication](guides/multi-factor-authentication/README.md)
   * [Managing Factors](guides/multi-factor-authentication/managing-factors/README.md)
     * [Email](guides/multi-factor-authentication/managing-factors/email.md)
