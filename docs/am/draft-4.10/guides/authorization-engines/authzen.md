@@ -1,11 +1,9 @@
 # AuthZen
 
 {% hint style="danger" %}
-**Preview Feature:** The AuthZen Gateway Handler is currently in preview. Features and APIs may change in future releases. **This functionality is not production-ready and should be used with caution.**
-{% endhint %}
-
-{% hint style="warning" %}
-The plugin is only available in the [Enterprise Edition (EE)](../../overview/open-source-vs-enterprise-am/README.md) of Gravitee.
+**Preview Feature:** The OpenFGA Authorization Engine is currently in technical preview. Note that features and APIs may change in future releases. **This functionality is not production-ready, but do contact Gravitee to get access and discover the feature.**\
+\
+**To get access, reach out to your Gravitee customer contact, or** [**book a demo**](https://www.gravitee.io/demo)**.**
 {% endhint %}
 
 ## Overview
@@ -29,6 +27,15 @@ The AuthZen Gateway Handler does the following:
 * Gravitee Access Management 4.10.0+.
 * Valid Gravitee Enterprise license with `enterprise-authorization-engine` pack.
 * A configured Authorization Engine plugin instance. For example, OpenFGA.
+
+## Authorization
+
+The AuthZEN evaluation endpoint **requires authentication**.
+
+Requests **must** use **HTTP Basic Authentication** with credentials belonging to one of the following:
+
+* **OAuth client** registered in the domain
+* **MCP Server** registered in the domain
 
 ## Request format
 
@@ -88,7 +95,7 @@ The evaluation endpoint returns a JSON object containing the following:
 
 | Header          | Description                                        |
 | --------------- | -------------------------------------------------- |
-| `Authorization` | Bearer token used to authenticate the request.     |
+| `Authorization` | Basic `base64(clientId:clientSecret)`              |
 | `X-Request-ID`  | (Optional) Request identifier for logging/tracing. |
 | `Content-Type`  | Must be `application/json`.                        |
 
