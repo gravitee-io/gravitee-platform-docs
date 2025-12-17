@@ -1,4 +1,4 @@
-# Reporters
+# 4.10 Reporters
 
 ## Overview
 
@@ -66,6 +66,16 @@ The following table shows the properties that Kafka reporter requires:
 ### **Additional properties**
 
 To add additional properties to the producer, add property config name and value to the Producers properties section. For more information about supported properties, go to [Kafka](https://kafka.apache.org/documentation/#producerconfigs).
+
+### Events Filtering
+
+To control audit traffic and reduce event noise, you can use the Kafka reporter to selectively propagate specific event types with the "events to report" list. You can configure this option at both the domain and organization levels.
+
+{% hint style="info" %}
+Use the search box to quickly locate and select specific event types.
+{% endhint %}
+
+<figure><img src="../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
 
 ### **Schema Registry**
 

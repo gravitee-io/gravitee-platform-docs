@@ -34,7 +34,7 @@
     * [Internal API](getting-started/configuration/configure-am-api/internal-api.md)
   * [AM Console](getting-started/configuration/configure-am-console.md)
   * [Repositories & DataPlane](getting-started/configuration/configure-repositories.md)
-  * [Reporters](getting-started/configuration/configure-reporters.md)
+  * [4.10 Reporters](getting-started/configuration/configure-reporters.md)
   * [Monitoring](getting-started/configuration/configure-monitoring.md)
   * [Secret Providers](getting-started/configuration/secret-providers.md)
   * [Domain Secrets](getting-started/configuration/domain-secrets/README.md)
