@@ -1,7 +1,3 @@
----
-description: Configuration guide for Configure Single Sign On.
----
-
 # Configure Single Sign On
 
 ## Introduction
@@ -32,30 +28,11 @@ Once the end user chooses to sign in to Cockpit with SSO, they will be asked to 
 It is recommended that the Account Primary Owner be a non-SSO user so that the Cockpit Account can always be recovered. Only the Account Primary Owner can configure Single Sign On.
 {% endhint %}
 
-1.  Select **Settings** from the left sidebar, choose **Single Sign On**, and click **Configure**
+{% hint style="info" %}
+* If you use the Identity provider, **Okta**, you must select **UserInfo Endpoint**.
+* If the `firstname` and `lastname` are set to `null` , you must select UserInfo Endpoint.&#x20;
+{% endhint %}
 
-    <figure><img src="../.gitbook/assets/image (14).png" alt=""><figcaption><p>Go to Settings to find Single Sign On</p></figcaption></figure>
-2.  Enter an email domain in **Set domain realm** to specify how users should be authenticated when they sign in with an email address
-
-    <figure><img src="../.gitbook/assets/sso_set domain realm.png" alt=""><figcaption><p>Set the email domain that correctly redirects users</p></figcaption></figure>
-3. Create an Oauth client in your IdP that supports the Authorization Code Flow. If you are using Gravitee Access Management, you can follow [this guide](https://documentation.gravitee.io/am/guides/applications) to configure an OAuth client application.
-4.  Enter the details of your Oauth client in **Set up Oauth/ OpenID Connect configuration**
-
-    <figure><img src="../.gitbook/assets/sso_set up.png" alt=""><figcaption><p>Add the details of the OAuth client configured in your IdP</p></figcaption></figure>
-5. Ensure the **OpenID**, **Profile**, and **Email** scopes are enabled in your OAuth client so that Cockpit will receive all user attributes (claims) necessary to create the user profile\
-   \
-   In order to fully build the user profile in Cockpit, the claims `email`, `family_name` and `given_name` must be present in the token. This should be the case if your IdP conforms to OpenID Connect standard scope `email` and `profile`. But please verify as each IdP may behave differently
-6.  In the **User information source** section, select either of the following options to retrieve the user profile information from:
-
-    * ID Token
-    * UserInfo Endpoint
-
-    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
-      <ul>
-      <li>If you use the Identity provider, Okta, you must select UserInfo Endpoint.</li>
-      <li>If the firstname and lastname are set to <code>null</code> , you must select UserInfo Endpoint.</li>
-      </ul>
-    </div>
 7. Click **Create Redirect URI**
 
 <figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption><p>Consent to enabling OpenID, Profile and Email scopes in your OAuth client</p></figcaption></figure>
