@@ -135,11 +135,15 @@ A refresh token is used to get a new access token, prompting the client applicat
 
 ## Endpoints
 
-As described in the [AM API specification](../../../reference/am-api-reference.md), AM provides the following OAuth 2.0 endpoints:
+The endpoints are the same as the endpoints described in the [AM API specification](../../../reference/am-api-reference.md). AM provides the following OAuth 2.0 endpoints for the AM Gateway:
 
 ### Authorization endpoint
 
 The [authorization endpoint](https://tools.ietf.org/html/rfc6749#section-3.1) is used to interact with the resource owner and obtain an authorization grant. The authorization server must first verify the identity of the resource owner.
+
+{% hint style="info" %}
+This endpoint supports [resource indicators](https://tools.ietf.org/html/rfc8707#section-2.1) for clients to signal where protected resources intend to be used. This is limited to the [MCP](../../mcp-servers/) use case where the `resource` parameter must be a single, absolute URI.
+{% endhint %}
 
 Authorization endpoint URL: `https://am-gateway/{domain}/oauth/authorize`
 
@@ -147,11 +151,19 @@ Authorization endpoint URL: `https://am-gateway/{domain}/oauth/authorize`
 
 The [token endpoint](https://tools.ietf.org/html/rfc6749#section-3.2) is used by the client to obtain an access token by presenting its authorization grant or refresh token.
 
+{% hint style="info" %}
+This endpoint supports [resource indicators](https://tools.ietf.org/html/rfc8707#section-2.2) for clients to signal where protected resources intend to be used. This is limited to the [MCP](../../mcp-servers/) use case where the `resource` parameter must be a single, absolute URI.
+{% endhint %}
+
 Token endpoint URL: `https://am-gateway/{domain}/oauth/token`
 
 ### Introspection endpoint
 
 The [introspection endpoint](https://tools.ietf.org/html/rfc7662#section-2) takes a parameter representing an OAuth 2.0 token and returns a JSON \[RFC7159] document containing meta-information about the token, including whether it is currently active.
+
+{% hint style="info" %}
+When a token has audience claims relating to an [MCP Server](../../mcp-servers/), by default, introspection is restricted to the authorizing client for that MCP Server.
+{% endhint %}
 
 Introspection endpoint URL: `https://am-gateway/{domain}/oauth/introspect`
 
