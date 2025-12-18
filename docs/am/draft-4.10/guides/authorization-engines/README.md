@@ -1,7 +1,9 @@
 # Authorization Engines
 
 {% hint style="danger" %}
-**Preview Feature:** Authorization Engines are currently in preview. Features and APIs may change in future releases. **This functionality is not production-ready and should be used with caution.**
+**Preview Feature:** The OpenFGA Authorization Engine is currently in technical preview. Note that features and APIs may change in future releases. **This functionality is not production-ready, but do contact Gravitee to get access and discover the feature.**\
+\
+**To get access, reach out to your Gravitee customer contact, or** [**book a demo**](https://www.gravitee.io/demo)**.**
 {% endhint %}
 
 ## Overview

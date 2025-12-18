@@ -1,11 +1,9 @@
 # OpenFGA
 
 {% hint style="danger" %}
-**Preview Feature:** The OpenFGA Authorization Engine is currently in preview. Features and APIs may change in future releases. **This functionality is not production-ready and should be used with caution.**
-{% endhint %}
-
-{% hint style="warning" %}
-The plugin is only available in the [Enterprise Edition (EE)](../../overview/open-source-vs-enterprise-am/README.md) of Gravitee.
+**Preview Feature:** The OpenFGA Authorization Engine is currently in technical preview. Note that features and APIs may change in future releases. **This functionality is not production-ready, but do contact Gravitee to get access and discover the feature.**\
+\
+**To get access, reach out to your Gravitee customer contact, or** [**book a demo**](https://www.gravitee.io/demo)**.**
 {% endhint %}
 
 ## Overview
