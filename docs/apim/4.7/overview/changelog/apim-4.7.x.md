@@ -12,7 +12,7 @@ description: API documentation explaining apim 4.7.x.
 **Gateway**
 
 * 504 Gateway Timeout logs show server as Null [#10295](https://github.com/gravitee-io/issues/issues/10295)
-* V4 WebSocket backend fails when sec-websocket-protocol header is provide [#10987](https://github.com/gravitee-io/issues/issues/10987)
+* V4 WebSocket backend fails when sec-websocket-protocol header is provided [#10987](https://github.com/gravitee-io/issues/issues/10987)
 
 **Management API**
 
@@ -27,7 +27,7 @@ description: API documentation explaining apim 4.7.x.
 
 **Portal**
 
-* Developer portal is impossible to use with a lot of applications. [#10784](https://github.com/gravitee-io/issues/issues/10784)
+* Developer portal is impossible to use with a lot of applications [#10784](https://github.com/gravitee-io/issues/issues/10784)
 
 **Other**
 
