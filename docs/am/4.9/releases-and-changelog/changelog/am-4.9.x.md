@@ -6,6 +6,30 @@ description: >-
 
 # AM 4.9.x
 
+## Gravitee Access Management 4.9.7 - December 19, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* Apply jemalloc to dockerfile for Gateway/MAPI (4.7+) [#10991](https://github.com/gravitee-io/issues/issues/10991)
+* Audit logs output incorrect JSON [#11000](https://github.com/gravitee-io/issues/issues/11000)
+* Introduce setting to avoid fallback on HMAC [#11018](https://github.com/gravitee-io/issues/issues/11018)
+* The default am gateway helm chart does not include mappings for custom purge settings. [#11024](https://github.com/gravitee-io/issues/issues/11024)
+* Enhance logging in gateway consent failure handler [#11025](https://github.com/gravitee-io/issues/issues/11025)
+* MFA challenge is always presented when session is expired and Remember Me cookie bypasses login [#11029](https://github.com/gravitee-io/issues/issues/11029)
+
+</details>
+
+
 ## Gravitee Access Management 4.9.6 - December 10, 2025
 
 <details>
