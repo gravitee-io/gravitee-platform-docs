@@ -537,30 +537,28 @@ When using custom a Public Key Infrastructure (PKI) for your OAuth2 authenticati
       -Djavax.net.ssl.trustStore=/opt/graviteeio-management-api/security/truststore.jks
       -Djavax.net.ssl.trustStorePassword=<MYPWD>"
     ```
-* Add an environment variable to your Docker compose file to ensure that this configuration persists across settings. For example:
+*   Add an environment variable to your Docker compose file to ensure that this configuration persists across settings. For example:
 
-{% code overflow="wrap" lineNumbers="true" %}
-````
-```
-local_managementapi:
-    extends:
-      file: common.yml
-      service: managementapi
-    ports:
-      - "8005:8083"
-    volumes:
-      - ./conf/ssl/truststore.jks:/opt/graviteeio-management-api/security/truststore.jks:ro
-      - ./logs/management-api:/home/gravitee/logs
-    links:
-      - "local_mongodb:demo-mongodb"
-      - "local_elasticsearch:demo-elasticsearch"
-    environment:
-      - JAVA_OPTS=-Djavax.net.ssl.trustStore=/opt/graviteeio-management-api/security/truststore.jks -Djavax.net.ssl.trustStorePassword=<MYPWD>
-      - gravitee_management_mongodb_uri=mongodb://demo-mongodb:27017/gravitee?serverSelectionTimeoutMS=5000&connectTimeoutMS=5000&socketTimeoutMS=5000
-      - gravitee_analytics_elasticsearch_endpoints_0=http://demo-elasticsearch:9200
-```
-````
-{% endcode %}
+    {% code overflow="wrap" lineNumbers="true" %}
+    ```
+    local_managementapi:
+        extends:
+          file: common.yml
+          service: managementapi
+        ports:
+          - "8005:8083"
+        volumes:
+          - ./conf/ssl/truststore.jks:/opt/graviteeio-management-api/security/truststore.jks:ro
+          - ./logs/management-api:/home/gravitee/logs
+        links:
+          - "local_mongodb:demo-mongodb"
+          - "local_elasticsearch:demo-elasticsearch"
+        environment:
+          - JAVA_OPTS=-Djavax.net.ssl.trustStore=/opt/graviteeio-management-api/security/truststore.jks -Djavax.net.ssl.trustStorePassword=<MYPWD>
+          - gravitee_management_mongodb_uri=mongodb://demo-mongodb:27017/gravitee?serverSelectionTimeoutMS=5000&connectTimeoutMS=5000&socketTimeoutMS=5000
+          - gravitee_analytics_elasticsearch_endpoints_0=http://demo-elasticsearch:9200
+    ```
+    {% endcode %}
 
 ## Keycloak authentication
 
@@ -666,8 +664,6 @@ security:
             - "ENVIRONMENT:<ENVIRONMENT_ID>:API_CONSUMER" #applied to environment whose id is <ENVIRONMENT_ID>
 ```
 {% endcode %}
-
-\\
 {% endtab %}
 
 {% tab title="APIM UI" %}

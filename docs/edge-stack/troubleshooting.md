@@ -95,13 +95,11 @@ Envoy logging is concerned with the actions Envoy is taking for incoming request
 
 It is possible to enable Envoy logging at boot, but for the most part, it's safer to enable it at runtime, right before sending a request that is known to have problems. To enable Envoy debug logging, use `kubectl exec` to get a shell on the Ambassador Edge Stack pod, then:
 
-````
 ```
 curl -XPOST http://localhost:8001/logging?level=trace && \
 sleep 10 && \
 curl -XPOST http://localhost:8001/logging?level=warning
 ```
-````
 
 This will turn on Envoy debug logging for ten seconds, then turn it off again.
 
@@ -130,7 +128,6 @@ To view the logs from Ambassador Edge Stack:
 
 The terminal will print something similar to the following:
 
-````
 ```
 $ kubectl logs -n ambassador edge-stack-85c4cf67b-4pfj2
 2018-10-10 12:26:50 kubewatch 0.40.0 INFO: generating config with gencount 1 (0 changes)
@@ -146,7 +143,6 @@ warnings.warn(msg, UserWarning)
 2018-10-10 12:26:54 diagd 0.40.0 [P42TMainThread] INFO: Starting periodic updates
 [2018-10-10 12:27:01.977][21][info][main] source/server/drain_manager_impl.cc:63] shutting down parent after drain
 ```
-````
 
 Note that many deployments will have multiple logs, and the logs are independent for each Pod.
 

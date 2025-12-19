@@ -533,30 +533,28 @@ When using custom a Public Key Infrastructure (PKI) for your OAuth2 authenticati
       -Djavax.net.ssl.trustStore=/opt/graviteeio-management-api/security/truststore.jks
       -Djavax.net.ssl.trustStorePassword=<MYPWD>"
     ```
-* Add an environment variable to your Docker compose file to ensure that this configuration persists across settings. For example:
+*   Add an environment variable to your Docker compose file to ensure that this configuration persists across settings. For example:
 
-{% code overflow="wrap" lineNumbers="true" %}
-````
-```
-local_managementapi:
-    extends:
-      file: common.yml
-      service: managementapi
-    ports:
-      - "8005:8083"
-    volumes:
-      - ./conf/ssl/truststore.jks:/opt/graviteeio-management-api/security/truststore.jks:ro
-      - ./logs/management-api:/home/gravitee/logs
-    links:
-      - "local_mongodb:demo-mongodb"
-      - "local_elasticsearch:demo-elasticsearch"
-    environment:
-      - JAVA_OPTS=-Djavax.net.ssl.trustStore=/opt/graviteeio-management-api/security/truststore.jks -Djavax.net.ssl.trustStorePassword=<MYPWD>
-      - gravitee_management_mongodb_uri=mongodb://demo-mongodb:27017/gravitee?serverSelectionTimeoutMS=5000&connectTimeoutMS=5000&socketTimeoutMS=5000
-      - gravitee_analytics_elasticsearch_endpoints_0=http://demo-elasticsearch:9200
-```
-````
-{% endcode %}
+    {% code overflow="wrap" lineNumbers="true" %}
+    ```
+    local_managementapi:
+        extends:
+          file: common.yml
+          service: managementapi
+        ports:
+          - "8005:8083"
+        volumes:
+          - ./conf/ssl/truststore.jks:/opt/graviteeio-management-api/security/truststore.jks:ro
+          - ./logs/management-api:/home/gravitee/logs
+        links:
+          - "local_mongodb:demo-mongodb"
+          - "local_elasticsearch:demo-elasticsearch"
+        environment:
+          - JAVA_OPTS=-Djavax.net.ssl.trustStore=/opt/graviteeio-management-api/security/truststore.jks -Djavax.net.ssl.trustStorePassword=<MYPWD>
+          - gravitee_management_mongodb_uri=mongodb://demo-mongodb:27017/gravitee?serverSelectionTimeoutMS=5000&connectTimeoutMS=5000&socketTimeoutMS=5000
+          - gravitee_analytics_elasticsearch_endpoints_0=http://demo-elasticsearch:9200
+    ```
+    {% endcode %}
 
 ### Keycloak authentication
 
@@ -569,19 +567,12 @@ Before you can connect to the Gravitee portal using Keycloak, you need to create
 1.  Log-in to Keycloak and create a new client.
 
     <figure><img src="../../.gitbook/assets/keycloak_create_client.png" alt=""><figcaption><p>Add a Gravitee client in Keycloak</p></figcaption></figure>
-2. Enter in your client details for Gravitee. The \`
+2.  Enter in your client details for Gravitee. The `Valid Redirect URIs` value must exactly match the domain which is hosting APIM Portal.
 
-Valid Redirect URIs\` value must exactly match the domain which is hosting APIM Portal.
+  <figure><img src="../../.gitbook/assets/keycloak_configure_client.png" alt=""><figcaption><p>Enter Gravitee client details in Keycloak</p></figcaption></figure>
+3.  Once you're done and create the client, retrieve the client credentials that you will need to give to Gravitee.
 
-```
-<figure><img src="../../.gitbook/assets/keycloak_configure_client.png" alt=""><figcaption><p>Enter Gravitee client details in Keycloak</p></figcaption></figure>
-```
-
-3\. Once you're done and create the client, retrieve the client credentials that you will need to give to Gravitee.
-
-```
-<figure><img src="../../.gitbook/assets/keycloak_client_credentials.png" alt=""><figcaption><p>Keycloak client credentials that will need to be given to Gravitee</p></figcaption></figure>
-```
+  <figure><img src="../../.gitbook/assets/keycloak_client_credentials.png" alt=""><figcaption><p>Keycloak client credentials that will need to be given to Gravitee</p></figcaption></figure>
 
 **Create and configure Keycloak Client scope**
 
