@@ -6,6 +6,37 @@ description: >-
 
 # APIM 4.6.x
  
+## Gravitee API Management 4.6.28 - December 19, 2025
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* V4 WebSocket backend fails when sec-websocket-protocol header is provided [#10987](https://github.com/gravitee-io/issues/issues/10987)
+
+**Management API**
+
+* Duplicate user entries appearing randomly in search results [#10744](https://github.com/gravitee-io/issues/issues/10744)
+* Portal notification configuration upgrade failure after APIM upgrade [#11030](https://github.com/gravitee-io/issues/issues/11030)
+
+**Console**
+
+* Management UIs logout URL missing id_token_hint [#10399](https://github.com/gravitee-io/issues/issues/10399)
+* Headers in logs for V4 messages APIs not loading correctly in UI [#11027](https://github.com/gravitee-io/issues/issues/11027)
+
+**Portal**
+
+* Developer portal is impossible to use with a lot of applications [#10784](https://github.com/gravitee-io/issues/issues/10784)
+
+**Other**
+
+* Shared Policy Group data cache lost on API redeploy [#10797](https://github.com/gravitee-io/issues/issues/10797)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.6.27 - December 10, 2025
 <details>
 
