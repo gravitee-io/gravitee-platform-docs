@@ -4,6 +4,50 @@ description: Documentation about apim 4.9.x in the context of APIs.
 
 # APIM 4.9.x
  
+## Gravitee API Management 4.9.10 - December 19, 2025
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* 504 Gateway Timeout logs show server as Null [#10295](https://github.com/gravitee-io/issues/issues/10295)
+* V4 WebSocket backend fails when sec-websocket-protocol header is provided [#10987](https://github.com/gravitee-io/issues/issues/10987)
+
+**Management API**
+
+* Duplicate user entries appearing randomly in search results [#10744](https://github.com/gravitee-io/issues/issues/10744)
+* Portal notification configuration upgrade failure after APIM upgrade [#11030](https://github.com/gravitee-io/issues/issues/11030)
+
+**Console**
+
+* Management UIs logout URL missing id_token_hint [#10399](https://github.com/gravitee-io/issues/issues/10399)
+* Group Roles not shown until page refresh when added to a user [#11026](https://github.com/gravitee-io/issues/issues/11026)
+* Headers in logs for V4 messages APIs not loading correctly in UI [#11027](https://github.com/gravitee-io/issues/issues/11027)
+
+**Portal**
+
+* Developer portal is impossible to use with a lot of applications [#10784](https://github.com/gravitee-io/issues/issues/10784)
+
+**Other**
+
+* Shared Policy Group data cache lost on API redeploy [#10797](https://github.com/gravitee-io/issues/issues/10797)
+* Healthcheck on api migrated to V4 does not work [#10982](https://github.com/gravitee-io/issues/issues/10982)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Other**
+
+* Improve “no subscription” error message formatting & masking for error transparency flow [#11032](https://github.com/gravitee-io/issues/issues/11032)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.9.9 - December 10, 2025
 <details>
 
