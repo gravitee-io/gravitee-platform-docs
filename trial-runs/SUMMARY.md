@@ -18,3 +18,4 @@
 * [sample c: Changelog](sample-c.change-log.md)
 * [4.10 Release Notes Draft](APIM_4.10_Release_Notes.md)
 * [4.10 Release Notes Draft 2](APIM_4.10_Release_Notes2.md)
+* [MCP docs](mcp-docs.md)
