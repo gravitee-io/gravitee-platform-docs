@@ -13,7 +13,7 @@ description: >-
 
 **Gateway**
 
-* V4 WebSocket backend fails when sec-websocket-protocol header is provide [#10987](https://github.com/gravitee-io/issues/issues/10987)
+* V4 WebSocket backend fails when sec-websocket-protocol header is provided [#10987](https://github.com/gravitee-io/issues/issues/10987)
 
 **Management API**
 
@@ -27,7 +27,7 @@ description: >-
 
 **Portal**
 
-* Developer portal is impossible to use with a lot of applications. [#10784](https://github.com/gravitee-io/issues/issues/10784)
+* Developer portal is impossible to use with a lot of applications [#10784](https://github.com/gravitee-io/issues/issues/10784)
 
 **Other**
 
