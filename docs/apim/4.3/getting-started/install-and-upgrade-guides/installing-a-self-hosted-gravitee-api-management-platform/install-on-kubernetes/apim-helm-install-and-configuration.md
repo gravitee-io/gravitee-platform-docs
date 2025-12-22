@@ -48,11 +48,10 @@ The following command line tools must be installed:
 
     *   **Dedicated namespace:** To install the Helm Chart using a dedicated namespace (e.g., `gravitee-apim`), run the following command:
 
-        {% code overflow="wrap" %}
         ```sh
         helm install graviteeio-apim4x graviteeio/apim --create-namespace --namespace gravitee-apim
         ```
-        {% endcode %}
+
     *   **Default namespace:** To install the Helm Chart using the default namespace (not recommended), run the following command:
 
         ```sh
