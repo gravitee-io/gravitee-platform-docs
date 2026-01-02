@@ -6,6 +6,27 @@ description: >-
 
 # AM 4.9.x
 
+## Gravitee Access Management 4.9.8 - January 2, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* AuthenticationFlow: missing transactionId [#11033](https://github.com/gravitee-io/issues/issues/11033)
+* LDAP provider role mapping no longer working [#11038](https://github.com/gravitee-io/issues/issues/11038)
+* Unable to add multiple virtual hosts in Gravitee AM [#11048](https://github.com/gravitee-io/issues/issues/11048)
+
+</details>
+
+
 ## Gravitee Access Management 4.9.7 - December 19, 2025
 
 <details>
