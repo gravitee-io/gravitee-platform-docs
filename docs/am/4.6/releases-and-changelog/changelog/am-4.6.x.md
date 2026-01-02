@@ -6,6 +6,26 @@ description: >-
 
 # AM 4.6.x
 
+## Gravitee Access Management 4.6.30 - January 2, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* AuthenticationFlow: missing transactionId [#11033](https://github.com/gravitee-io/issues/issues/11033)
+* Unable to add multiple virtual hosts in Gravitee AM [#11048](https://github.com/gravitee-io/issues/issues/11048)
+
+</details>
+
+
 ## Gravitee Access Management 4.6.29 - December 19, 2025
 
 <details>
