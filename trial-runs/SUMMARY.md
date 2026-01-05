@@ -6,6 +6,7 @@
     * [MCP APIs.pdf.writer output](writer-gpt/mcp-apis/mcp-apis.pdf.writer-output.md)
   * [Webhook Logs](writer-gpt/webhook-logs/README.md)
     * [webhook logs.writer output](writer-gpt/webhook-logs/webhook-logs.writer-output.md)
+    * [webhook logs.writer notes](writer-gpt/webhook-logs/webhook-logs.writer-notes.md)
 * [Peer Review GPT](peer-review-gpt/README.md)
   * [Beta Testing](peer-review-gpt/beta-testing/README.md)
     * [sample c](peer-review-gpt/beta-testing/sample-c.md)
@@ -30,4 +31,3 @@
 * [Release Notes](release-notes/README.md)
   * [4.10 Release Notes Draft](release-notes/apim_4.10_release_notes.md)
   * [4.10 Release Notes Draft 2](release-notes/apim_4.10_release_notes2.md)
-* [webhook logs.writer notes](webhook-logs.writer-notes.md)
