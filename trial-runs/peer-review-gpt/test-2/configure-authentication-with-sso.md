@@ -96,22 +96,22 @@ helm upgrade gravitee-apim gravitee/apim \
 
 1.  From the **Dashboard**, click **Settings**. <br>
 
-    <figure><img src=".gitbook/assets/FBF81839-15D7-4CC9-8ABC-BE5C51A3260A_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/FBF81839-15D7-4CC9-8ABC-BE5C51A3260A_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 2.  From the **Settings** menu, navigate to the **Portal** section, and then click **Authentication**.<br>
 
-    <figure><img src=".gitbook/assets/211D2526-0572-46F5-881A-0C4012D772AD_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/211D2526-0572-46F5-881A-0C4012D772AD_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 3.  Turn on the SSO toggle that you want to activate.<br>
 
-    <figure><img src=".gitbook/assets/8293D9DC-F869-443A-AA92-94FF405AA4DF_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/8293D9DC-F869-443A-AA92-94FF405AA4DF_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 4.  (SSO only log in only) Turn off the **Show login form on Portal** toggle. <br>
 
-    <figure><img src=".gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 ### Verification
 
 The Login screen for your New Developer Portal shows only SSO login.
 
-<figure><img src=".gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Next steps
 

@@ -63,16 +63,16 @@ To configure enforcing user authentication, complete the following steps:&#x20;
 
 1.  From the **Dashboard**, click **Settings**.<br>
 
-    <figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 2.  In the **Settings** menu, navigate to the **Portal** section, and then. click **Authentication**. <br>
 
-    <figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 3.  Turn on the **Force authentication to access portal**.<br>
 
-    <figure><img src=".gitbook/assets/C59621FB-6019-478F-BEB5-65646363CD72_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/C59621FB-6019-478F-BEB5-65646363CD72_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 
 ## Verification&#x20;
 
 *   Log out of you New Developer Portal, and then try to access a page on your New Developer Portal. You are redirected to the login screen. <br>
 
-    <figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
