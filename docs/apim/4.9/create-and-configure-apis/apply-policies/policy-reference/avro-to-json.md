@@ -1,5 +1,9 @@
 ---
 description: Configuration guide for avro to json.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/avro-to-json
 ---
 
 # Avro to JSON

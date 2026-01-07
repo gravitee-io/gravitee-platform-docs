@@ -1,5 +1,9 @@
 ---
 description: Documentation about federation agent service account in the context of APIs.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/govern-apis/federation/federation-agent-service-account
 ---
 
 # Federation Agent Service Account
@@ -22,7 +26,7 @@ Alternatively, you can give the agent the API\_PUBLISHER role at environment lev
 
 The screenshot below shows the environment-level permissions included in the API\_PUBLISHER role by default:
 
-<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
 
 From the newly created service account, scroll to the **Tokens** section at the bottom of the page and create a new token:
 

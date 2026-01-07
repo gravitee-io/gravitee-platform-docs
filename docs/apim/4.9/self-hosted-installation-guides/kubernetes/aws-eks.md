@@ -1,5 +1,9 @@
 ---
 description: An overview about aws eks.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/self-hosted-installation-guides/kubernetes/aws-eks
 ---
 
 # AWS EKS
@@ -1172,5 +1176,5 @@ To validate the Gateway URL, complete the following steps:
 
 ## Next steps <a href="#next-steps" id="next-steps"></a>
 
-* Create your first API. For more information about creating your first API, see [Create & Publish Your First API](../../how-to-guides/create-and-publish-your-first-api/).
+* Create your first API. For more information about creating your first API, see [Create & Publish Your First API](../../getting-started/create-and-publish-your-first-api/).
 * Add native Kafka capabilities. For more information about adding native Kafka capabilities, see [Configure the Kafka Client & Gateway](../../kafka-gateway/configure-the-kafka-client-and-gateway.md).

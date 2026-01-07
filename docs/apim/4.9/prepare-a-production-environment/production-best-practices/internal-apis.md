@@ -1,5 +1,9 @@
 ---
 description: An overview about internal apis.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/prepare-a-production-environment/production-best-practices/internal-apis
 ---
 
 # Internal APIs

@@ -1,5 +1,9 @@
 ---
 description: An overview about gravitee access management.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/configure-and-manage-the-platform/manage-organizations-and-environments/authentication/gravitee-access-management
 ---
 
 # Gravitee Access Management

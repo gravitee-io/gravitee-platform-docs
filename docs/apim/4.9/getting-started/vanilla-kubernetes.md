@@ -1,5 +1,9 @@
 ---
 description: An overview about fully self-hosted installation with  vanilla kubernetes.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/getting-started/vanilla-kubernetes
 ---
 
 # Fully self-hosted installation with Vanilla Kubernetes
@@ -659,4 +663,4 @@ REVISION: 1
 
 ## Next steps
 
-* Create your first API. For more information about creating your first API, see [create-and-publish-your-first-api](../how-to-guides/create-and-publish-your-first-api/ "mention").
+* Create your first API. For more information about creating your first API, see [create-and-publish-your-first-api](create-and-publish-your-first-api/ "mention").

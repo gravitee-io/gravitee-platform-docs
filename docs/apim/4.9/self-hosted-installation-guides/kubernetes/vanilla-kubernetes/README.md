@@ -1,5 +1,9 @@
 ---
 description: An overview about vanilla kubernetes.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/self-hosted-installation-guides/kubernetes/vanilla-kubernetes
 ---
 
 # Vanilla Kubernetes
@@ -873,5 +877,5 @@ To validate the Gateway URL, complete the following steps:
 
 ## Next steps
 
-* Create your first API. For more information about creating your first API, see [create-and-publish-your-first-api](../../../how-to-guides/create-and-publish-your-first-api/ "mention").
+* Create your first API. For more information about creating your first API, see [create-and-publish-your-first-api](../../../getting-started/create-and-publish-your-first-api/ "mention").
 * Add native Kafka capabilities. For more information about adding native Kafka capabilities, see [configure-the-kafka-client-and-gateway.md](../../../kafka-gateway/configure-the-kafka-client-and-gateway.md "mention").

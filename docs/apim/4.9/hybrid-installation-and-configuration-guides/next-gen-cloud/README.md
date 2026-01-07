@@ -1,5 +1,9 @@
 ---
 description: An overview about next-gen cloud.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/hybrid-installation-and-configuration-guides/next-gen-cloud
 ---
 
 # Next-Gen Cloud
@@ -26,9 +30,7 @@ The following installation steps are common to all supported deployment methods.
     <figure><img src="../../.gitbook/assets/select-environment (1).png" alt=""><figcaption></figcaption></figure>
 5.  In **URLs & Domains**, enter the names of the HTTP domains through which you can access your Hybrid Gateway. By default, all URLs enforce HTTPS.
 
-    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
-      <p>You must configure these HTTP domains/hostnames in your load balancer or ingress where you run the Gateway</p>
-    </div>
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>You must configure these HTTP domains/hostnames in your load balancer or ingress where you run the Gateway</p></div>
 
     <figure><img src="../../.gitbook/assets/deploy-your-gateway (1).png" alt=""><figcaption></figcaption></figure>
 6.  Click **Generate Installation Details** to generate your Cloud Token and License Key. Copy your Cloud Token and License Key and save them somewhere secure.
@@ -54,7 +56,7 @@ Deployment methods that are not linked to documentation are still fully supporte
 
 ### Kubernetes
 
-* [Vanilla Kubernetes](kubernetes/vanilla-kubernetes/README.md)
+* [Vanilla Kubernetes](kubernetes/vanilla-kubernetes/)
 * [AWS EKS](kubernetes/aws-eks.md)
 * [Azure AKS](kubernetes/azure-aks.md)
 * [OpenShift](kubernetes/openshift.md)

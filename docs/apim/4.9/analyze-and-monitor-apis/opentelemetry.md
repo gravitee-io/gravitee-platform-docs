@@ -1,5 +1,9 @@
 ---
 description: An overview about opentelemetry.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/analyze-and-monitor-apis/opentelemetry
 ---
 
 # OpenTelemetry
@@ -163,27 +167,27 @@ To enable OpenTelemetry for an API, you must have OpenTelemetry enabled on your 
 
 1.  From the **Dashboard**, click **APIs**.<br>
 
-    <figure><img src="../.gitbook/assets/image (59).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (50).png" alt=""><figcaption></figcaption></figure>
 2.  From the **APIs** screen, select the API that you to enable OpenTelemetry for.<br>
 
-    <figure><img src="../.gitbook/assets/image (60).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (51).png" alt=""><figcaption></figcaption></figure>
 3.  From your **API** menu, click **Deployment**.<br>
 
     <figure><img src="../.gitbook/assets/image (55) (1) (1).png" alt=""><figcaption></figcaption></figure>
 4.  From the **Deployment** screen, click **Reporter Settings**.<br>
 
-    <figure><img src="../.gitbook/assets/image (58) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (49).png" alt=""><figcaption></figcaption></figure>
 5.  Navigate to the **OpenTelemetry** section, and then turn on the **Enabled** toggle.<br>
 
-    <figure><img src="../.gitbook/assets/image (65).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (52).png" alt=""><figcaption></figcaption></figure>
 6.  (Optional) Turn on the **Verbose** toggle.<br>
 
     <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>If you enable verbose, the number of spans for each trace increases, which might impact performance.</p></div>
 
-    <figure><img src="../.gitbook/assets/image (66).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (53).png" alt=""><figcaption></figcaption></figure>
 7.  In the **You have unsaved changes** pop-up window, click **Save**.<br>
 
-    <figure><img src="../.gitbook/assets/image (67).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (54).png" alt=""><figcaption></figcaption></figure>
 
 ### Verification
 

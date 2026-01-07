@@ -1,5 +1,9 @@
 ---
 description: An overview about expose metrics to prometheus.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/kafka-gateway/expose-metrics-to-prometheus
 ---
 
 # Expose Metrics to Prometheus

@@ -1,5 +1,9 @@
 ---
 description: Configuration guide for plugin support.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/prepare-a-production-environment/sensitive-data-management/plugin-support
 ---
 
 # Plugin support

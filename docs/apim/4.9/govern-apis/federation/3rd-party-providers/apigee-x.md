@@ -1,5 +1,9 @@
 ---
 description: An overview about apigee x.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/govern-apis/federation/3rd-party-providers/apigee-x
 ---
 
 # Apigee X
@@ -39,7 +43,7 @@ To integrate Apigee X with Gravitee APIM, complete the following steps:
     <figure><img src="../../../.gitbook/assets/select-apigee-integration-from-integrations.png" alt=""><figcaption></figcaption></figure>
 4.  Enter the **Integration** **Name.**
 
-    <figure><img src="../../../.gitbook/assets/image (41).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (66).png" alt=""><figcaption></figcaption></figure>
 5.  (Optional) Enter a **Description** for the integration.
 
     <figure><img src="../../../.gitbook/assets/name-and-description-apigee-x.png" alt=""><figcaption></figcaption></figure>
@@ -473,7 +477,7 @@ If your APIM management API uses certificates that require a custom truststore, 
     ```
 2.  Return to the Gravitee API Management console, refresh the page, and verify that the agent's status is set to Connected:<br>
 
-    <figure><img src="../../../.gitbook/assets/image (42).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (67).png" alt=""><figcaption></figcaption></figure>
 
 ## Minimum Apigee permissions required by the agent
 

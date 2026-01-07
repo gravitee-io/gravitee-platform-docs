@@ -1,5 +1,9 @@
 ---
 description: Configuration guide for hybrid installation & configuration guides.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/hybrid-installation-and-configuration-guides
 ---
 
 # Hybrid Installation & Configuration Guides
@@ -121,11 +125,11 @@ The following diagrams illustrate the component management, design, and self-hos
 
 ### Hybrid component management
 
-<figure><img src="../.gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
 
 ### Hybrid architecture diagram
 
-<figure><img src="../.gitbook/assets/image (25).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
 
 In a typical hybrid architecture, the customer manages the Data Plane and Gravitee manages the Control Plane.
 

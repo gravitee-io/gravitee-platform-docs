@@ -1,5 +1,9 @@
 ---
 description: Tutorial on classic developer portal.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/developer-portal/classic-developer-portal
 ---
 
 # Classic Developer Portal

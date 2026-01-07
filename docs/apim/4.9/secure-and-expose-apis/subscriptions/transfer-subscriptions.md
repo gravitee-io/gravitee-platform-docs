@@ -1,5 +1,9 @@
 ---
 description: Documentation about transfer subscriptions in the context of APIs.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/secure-and-expose-apis/subscriptions/transfer-subscriptions
 ---
 
 # Transfer Subscriptions

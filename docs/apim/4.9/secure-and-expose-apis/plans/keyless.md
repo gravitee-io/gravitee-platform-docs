@@ -1,5 +1,9 @@
 ---
 description: An overview about keyless.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/secure-and-expose-apis/plans/keyless
 ---
 
 # Keyless
@@ -14,4 +18,4 @@ A Keyless plan does not require configuration other than general plan settings a
 
 Due to not requiring a subscription and the lack of a consumer identifier token, Keyless consumers are set as `unknown application` in the API analytics section.
 
-You can configure basic authentication for Keyless plans by associating a Basic Authentication policy (see the [policy reference](../../create-and-configure-apis/apply-policies/policy-reference/README.md)) that uses either an LDAP or inline resource.
+You can configure basic authentication for Keyless plans by associating a Basic Authentication policy (see the [policy reference](../../create-and-configure-apis/apply-policies/policy-reference/)) that uses either an LDAP or inline resource.

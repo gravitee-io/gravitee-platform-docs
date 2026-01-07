@@ -1,5 +1,9 @@
 ---
 description: Documentation about classic cloud in the context of APIs.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/hybrid-installation-and-configuration-guides/classic-cloud
 ---
 
 # Classic Cloud
@@ -56,6 +60,6 @@ The following table lists the Bridge versions supported by each Gateway version.
 
 ## Architecture
 
-<figure><img src="../../.gitbook/assets/image (27).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (25).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (28).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (26).png" alt=""><figcaption></figcaption></figure>

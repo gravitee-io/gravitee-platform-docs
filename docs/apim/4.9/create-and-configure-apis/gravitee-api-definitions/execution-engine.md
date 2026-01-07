@@ -1,5 +1,9 @@
 ---
 description: An overview about execution engine.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/gravitee-api-definitions/execution-engine
 ---
 
 # Execution Engine
@@ -58,7 +62,7 @@ Message-based, asynchronous APIs such as Kafka, MQTT, WebSocket, SSE, and Webhoo
 
 The legacy execution engine supports all Gravitee policies that existed prior to the 4.0 release. These policies will continue to function without any changes to configuration or execution.
 
-All policies will also support the new reactive execution engine, but not all policies can being applied at the message level. Whether a policy can be applied to v4 proxy APIs and/or v4 message APIs is detailed per policy in the [Policies](README.md) section.
+All policies will also support the new reactive execution engine, but not all policies can being applied at the message level. Whether a policy can be applied to v4 proxy APIs and/or v4 message APIs is detailed per policy in the [Policies](./) section.
 
 ## v2 Gateway API emulation mode
 

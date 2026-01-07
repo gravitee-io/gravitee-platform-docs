@@ -1,5 +1,9 @@
 ---
 description: An overview about reference secrets in configurations.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/prepare-a-production-environment/sensitive-data-management/configure-secrets/reference-secrets-in-configurations
 ---
 
 # Reference Secrets in Configurations

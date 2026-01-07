@@ -1,5 +1,9 @@
 ---
 description: An overview about resource filtering.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/resource-filtering
 ---
 
 # Resource Filtering

@@ -1,5 +1,9 @@
 ---
 description: Configuration guide for configure v2 apis.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/configure-v2-apis
 ---
 
 # Configure v2 APIs

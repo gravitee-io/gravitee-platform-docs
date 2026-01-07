@@ -1,5 +1,9 @@
 ---
 description: Configuration guide for template.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/template
 ---
 
 # Template

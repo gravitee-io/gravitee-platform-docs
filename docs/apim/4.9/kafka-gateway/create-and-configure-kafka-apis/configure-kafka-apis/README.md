@@ -1,5 +1,9 @@
 ---
 description: An overview about configure kafka apis.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis
 ---
 
 # Configure Kafka APIs
@@ -16,7 +20,7 @@ To configure Kafka APIs:
 
 The inner left nav separates API configuration settings into several categories:
 
-<figure><img src="../../../.gitbook/assets/A%201%20config%20general%20copy.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/A 1 config general copy.png" alt=""><figcaption></figcaption></figure>
 
 The screen for each category selection includes a row of headers from which you can manage your API and its parameters, behavior, and access details. Click on the cards below to learn more about each configuration category.
 

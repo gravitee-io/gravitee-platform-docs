@@ -1,5 +1,9 @@
 ---
 description: An overview about update the connection to cloud.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/upgrade-guides/update-the-connection-to-cloud
 ---
 
 # Update the Connection to Cloud
