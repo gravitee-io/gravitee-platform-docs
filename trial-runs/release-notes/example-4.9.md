@@ -23,6 +23,25 @@
 
 * Prior to APIM version 4.9.0, users had to override the `runAsGroup` securityContext to set the GID to 1000. With APIM 4.9.0, users must set the `runAsGroup` securityContext to `null` to let OpenShift select the root group.
 
+*   
+    Adds drop-down filters on the APIs screen for type, status, sharding tags, categories, Portal status, and Portal visibility. This lets users quickly narrow large API inventories without crafting Lucene queries.
+
+    <figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+    ```yaml
+    api:
+      federation:
+        ingress:
+          enabled: true
+          path: /integration-controller(/.*)?
+          pathType: Prefix
+          hosts:
+            - apim.example.com
+          annotations:
+            kubernetes.io/ingress.class: nginx
+            nginx.ingress.kubernetes.io/proxy-read-timeout: 3600   
+    ```
+
 #### C**ustomization on Federation ingress**
 
 * If the `integration-controller` ingress uses the same host as the `management` ingress, it no longer inherits the annotation of the `management` ingress. With APIM 4.9.0, you must configure the `integration-controller` ingress with the following values:\
@@ -105,7 +124,7 @@ api:
 * **API list column visibility**\
   Introduces column visibility controls on the APIs screen with choices saved in browser storage. Users can tailor the list view to show only the details they care about and persist those preferences. The following details can be displayed: name, type, status, access, quality, sharding tags, categories, owner, Portal status, and Portal visibility.
 *   **API list filters**\
-    Adds drop-down filters on the APIs screen for type, status, sharding tags, categories, Portal status, and Portal visibility. This lets users quickly narrow large API inventories without crafting Lucene queries.
+*   Adds drop-down filters on the APIs screen for type, status, sharding tags, categories, Portal status, and Portal visibility. 
 
     <figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 * **Policy Studio search and navigation**\
