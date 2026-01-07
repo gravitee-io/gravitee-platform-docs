@@ -188,3 +188,11 @@ This page lists the available AM plugins and provides compatibility matrices wit
 | -------------- | ---------- |
 | 1.x            | 4.6+       |
 | 2.x            | 4.7+       |
+
+### Authenticators
+
+[**gravitee-am-authenticator-cba**](https://download.gravitee.io/#graviteeio-ee/am/plugins/authenticator/cba/gravitee-am-authenticator-cba/)
+
+| Plugin Version | AM Version |
+| -------------- | ---------- |
+| 1.x            | 4.10+      |

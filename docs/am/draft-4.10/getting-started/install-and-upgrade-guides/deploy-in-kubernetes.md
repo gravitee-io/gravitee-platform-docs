@@ -741,8 +741,8 @@ jdbc:
     maxSize: 10
     maxIdleTime: 30000
     maxLifeTime: 30000
-    maxAcquireTime: 0
-    maxCreateConnectionTime: 0
+    maxAcquireTime: 5000
+    maxCreateConnectionTime: 3000
 
 management:
   type: jdbc
