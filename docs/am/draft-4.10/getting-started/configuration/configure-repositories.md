@@ -287,12 +287,12 @@ repositories:
       username:                   # username
       password:                   # password
       acquireRetry:               # Number of retries if the first connection acquiry attempt fails (default: 1)
-      initialSize:                # Initial pool size (default: 10)
-      maxSize:                    # Maximum pool size (default: 10)
+      initialSize:                # Initial pool size (default: 1)
+      maxSize:                    # Maximum pool size (default: 50)
       maxIdleTime:                # Maximum idle time of the connection in the pool in millis (default: 1800000)
-      maxLifeTime:                # Maximum life time of the connection in the pool in millis (default: 0)
-      maxAcquireTime:             # Maximum time to acquire connection from pool in millis (default: 0)
-      maxCreateConnectionTime:    # Maximum time to create a new connection in millis (default: 0)
+      maxLifeTime:                # Maximum life time of the connection in the pool in millis (default: -1)
+      maxAcquireTime:             # Maximum time to acquire connection from pool in millis (default: 5000)
+      maxCreateConnectionTime:    # Maximum time to create a new connection in millis (default: 3000)
       validationQuery:            # Query that will be executed to validate that a connection to the database is still alive.
       sslEnabled:                 # Enable SSL/TLS
       sslMode:                    # SSL Requirements
