@@ -23,10 +23,9 @@
 
 * Prior to APIM version 4.9.0, users had to override the `runAsGroup` securityContext to set the GID to 1000. With APIM 4.9.0, users must set the `runAsGroup` securityContext to `null` to let OpenShift select the root group.
 
-#### Customization on Federation ingress**
+#### Customization on Federation ingress
 
-*   
-    If the `integration-controller` ingress uses the same host as the `management` ingress, it no longer inherits the annotation of the `management` ingress. With APIM 4.9.0, you must configure the `integration-controller` ingress with the following values:
+*   If the `integration-controller` ingress uses the same host as the `management` ingress, it no longer inherits the annotation of the `management` ingress. With APIM 4.9.0, you must configure the `integration-controller` ingress with the following values:
 
     ```yaml
     api:
@@ -55,13 +54,11 @@
 #### v2 to v4 API migration
 
 * The APIM Console includes a new API migration workflow that guides users through converting v2 APIs to v4 APIs. Migrated v2 APIs can be verified to be fully compatible with the v4 API definition, allowing teams to adopt the supported v4 model safely.
-
 * Historical analytics are not available after migration, and analytics are reset for the migrated API. Migration is reversible, but users should plan for analytics gaps until continuity is delivered in a future release.
 
 #### New Developer Portal homepage customization
 
-*   
-    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>This feature is in tech preview.</p></div>
+*   <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>This feature is in tech preview.</p></div>
 
     Enables customization of the New Developer Portal homepage using standard Markdown or Gravitee Markdown (GMD). GMD is standard Markdown enriched with Gravitee Markdown components.
 
@@ -83,8 +80,7 @@
 
 #### Kafka Console
 
-*   
-    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>This feature is available in private tech preview. Contact your account manager if you are interested.</p></div>
+*   <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>This feature is available in private tech preview. Contact your account manager if you are interested.</p></div>
 
     Introduces Gravitee Kafka Console, which integrates with APIM to provide a user interface with which to browse and manage core Kafka resources, such as topics, partitions, and consumer groups, and to produce and consume messages. Kafka Console is based on Kafbat UI and communicates with the APIM Management API through JWT-based authentication. This feature is available only for self-hosted deployments and not compatible with next-gen cloud.
 
@@ -124,8 +120,7 @@
 
 #### API list filters
 
-*   
-    Adds drop-down filters on the APIs screen for type, status, sharding tags, categories, Portal status, and Portal visibility.
+*   Adds drop-down filters on the APIs screen for type, status, sharding tags, categories, Portal status, and Portal visibility.
 
     <figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
@@ -143,7 +138,6 @@
 
 #### Terraform resources
 
-*   
-    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>This feature is in tech preview.</p></div>
+*   <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>This feature is in tech preview.</p></div>
 
     The Gravitee Terraform provider now supports Application and Subscription resources.
