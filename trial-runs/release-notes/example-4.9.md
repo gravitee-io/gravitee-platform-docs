@@ -58,9 +58,11 @@
 
 #### New Developer Portal homepage customization
 
-*   <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>This feature is in tech preview.</p></div>
+{% hint style="warning" %}
+This feature is in tech preview.
+{% endhint %}
 
-    Enables customization of the New Developer Portal homepage using standard Markdown or Gravitee Markdown (GMD). GMD is standard Markdown enriched with Gravitee Markdown components.
+* Enables customization of the New Developer Portal homepage using standard Markdown or Gravitee Markdown (GMD). GMD is standard Markdown enriched with Gravitee Markdown components.
 
 #### Expression Language (EL) assistant
 
@@ -80,9 +82,11 @@
 
 #### Kafka Console
 
-*   <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>This feature is available in private tech preview. Contact your account manager if you are interested.</p></div>
+{% hint style="warning" %}
+This feature is available in private tech preview. Contact your account manager if you are interested.
+{% endhint %}
 
-    Introduces Gravitee Kafka Console, which integrates with APIM to provide a user interface with which to browse and manage core Kafka resources, such as topics, partitions, and consumer groups, and to produce and consume messages. Kafka Console is based on Kafbat UI and communicates with the APIM Management API through JWT-based authentication. This feature is available only for self-hosted deployments and not compatible with next-gen cloud.
+* Introduces Gravitee Kafka Console, which integrates with APIM to provide a user interface with which to browse and manage core Kafka resources, such as topics, partitions, and consumer groups, and to produce and consume messages. Kafka Console is based on Kafbat UI and communicates with the APIM Management API through JWT-based authentication. This feature is available only for self-hosted deployments and not compatible with next-gen cloud.
 
 #### Expose APIM as an MCP Server
 
@@ -138,6 +142,8 @@
 
 #### Terraform resources
 
-*   <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>This feature is in tech preview.</p></div>
+{% hint style="warning" %}
+This feature is in tech preview.
+{% endhint %}
 
-    The Gravitee Terraform provider now supports Application and Subscription resources.
+* The Gravitee Terraform provider now supports Application and Subscription resources.
