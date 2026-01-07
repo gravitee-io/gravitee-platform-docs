@@ -1,5 +1,9 @@
 ---
 description: An overview about resources.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/resources
 ---
 
 # Resources
@@ -18,11 +22,11 @@ To create a resource:
 4. Click **Configuration** in the inner left sidebar.
 5.  Click the **Resources** header.
 
-    <figure><img src="../../.gitbook/assets/A%201%20config%20resources.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/A 1 config resources.png" alt=""><figcaption></figcaption></figure>
 6. Click **+ Add resource**.
 7.  Use the search field or scroll to select the resource you'd like to configure.
 
-    <figure><img src="../../.gitbook/assets/A%201%20resources%202.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/A 1 resources 2.png" alt=""><figcaption></figcaption></figure>
 8. Set the parameters in the resultant form. Configuration varies by resource type.
 
 ## Resource types

@@ -1,5 +1,8 @@
 ---
 description: Learn how to consume secured APIs
+metaLinks:
+  alternates:
+    - https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/kafka-gateway/applications
 ---
 
 # Applications
@@ -11,7 +14,7 @@ To access Gravitee APIs, consumers must register an application and subscribe to
 The sections below describe how to use the APIM Console to create an application.
 
 {% hint style="info" %}
-Before a consumer can create an application, an admin must define the types of applications that API consumers are allowed to create. Refer to [this](../secure-and-expose-apis/applications/README.md) documentation for more information.
+Before a consumer can create an application, an admin must define the types of applications that API consumers are allowed to create. Refer to [this](../secure-and-expose-apis/applications/) documentation for more information.
 {% endhint %}
 
 ## Create an application
@@ -63,4 +66,4 @@ Once you've created your application, the inner left nav separates the applicati
 
 <figure><img src="../.gitbook/assets/1 app 2 1.png" alt=""><figcaption></figcaption></figure>
 
-To learn how to manage your application and its parameters, see the full [Applications](../secure-and-expose-apis/applications/README.md) documentation.
+To learn how to manage your application and its parameters, see the full [Applications](../secure-and-expose-apis/applications/) documentation.

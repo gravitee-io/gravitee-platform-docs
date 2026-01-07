@@ -1,5 +1,9 @@
 ---
 description: Documentation about apim 4.9 in the context of APIs.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/release-information/release-notes/apim-4.9
 ---
 
 # APIM 4.9
@@ -53,9 +57,7 @@ description: Documentation about apim 4.9 in the context of APIs.
   Historical analytics are not available after migration, and analytics are reset for the migrated API. Migration is reversible, but users should plan for analytics gaps until continuity is delivered in a future release.
 *   **New Developer Portal homepage customization**
 
-    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning">
-      <p>This feature is in tech preview.</p>
-    </div>
+    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>This feature is in tech preview.</p></div>
 
     Enables customization of the New Developer Portal homepage using standard Markdown or Gravitee Markdown (GMD). GMD is standard Markdown enriched with Gravitee Markdown components.
 * **Expression Language (EL) assistant**\
@@ -68,9 +70,7 @@ description: Documentation about apim 4.9 in the context of APIs.
   The APIM Console now allows users to create and manage Kafka clusters, configure cluster connection information, and manage user access and permissions.
 *   **Kafka Console**
 
-    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning">
-      <p>This feature is available in private tech preview. Contact your account manager if you are interested.</p>
-    </div>
+    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>This feature is available in private tech preview. Contact your account manager if you are interested.</p></div>
 
     Introduces Gravitee Kafka Console, which integrates with APIM to provide a user interface with which to browse and manage core Kafka resources, such as topics, partitions, and consumer groups, and to produce and consume messages. Kafka Console is based on Kafbat UI and communicates with the APIM Management API through JWT-based authentication. This feature is available only for self-hosted deployments and not compatible with next-gen cloud.
 * **Expose APIM as an MCP Server**\
@@ -95,7 +95,7 @@ description: Documentation about apim 4.9 in the context of APIs.
 *   **API list filters**\
     Adds drop-down filters on the APIs screen for type, status, sharding tags, categories, Portal status, and Portal visibility. This lets users quickly narrow large API inventories without crafting Lucene queries.
 
-    <figure><img src="../../.gitbook/assets/image (435).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (43).png" alt=""><figcaption></figcaption></figure>
 * **Policy Studio search and navigation**\
   Adds navigation and search tips to the v4 Policy Studio, explaining how plans and flows are labeled and how the single search box filters by plan name, flow name, or path. It also shows how to search the policy selector by name/description, making it faster to find and manage flows and policies in complex APIs.
 * **Developer Portal CSS tokens**\
@@ -104,8 +104,6 @@ description: Documentation about apim 4.9 in the context of APIs.
   Users can set the `renewable` parameter to `true` to automatically renew a secret. Setting the `reloadOnChange` parameter to `true` reloads the API when there is a new secret value.
 *   **Terraform resources**
 
-    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning">
-      <p>This feature is in tech preview.</p>
-    </div>
+    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>This feature is in tech preview.</p></div>
 
     The Gravitee Terraform provider now supports Application and Subscription resources.

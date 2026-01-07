@@ -1,5 +1,9 @@
 ---
 description: An overview about debug logging.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/configure-and-manage-the-platform/debug-logging
 ---
 
 # Debug Logging

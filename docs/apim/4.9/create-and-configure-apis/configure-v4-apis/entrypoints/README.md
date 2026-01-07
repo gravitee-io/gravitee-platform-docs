@@ -1,12 +1,16 @@
 ---
 description: An overview about entrypoints.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/configure-v4-apis/entrypoints
 ---
 
 # Entrypoints
 
 ## Overview
 
-You can choose to configure either [v4 proxy API entrypoints](README.md#proxy-api-entrypoints) or [v4 message API entrypoints](README.md#message-api-entrypoints).
+You can choose to configure either [v4 proxy API entrypoints](./#proxy-api-entrypoints) or [v4 message API entrypoints](./#message-api-entrypoints).
 
 ## Proxy API entrypoints
 

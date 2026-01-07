@@ -1,5 +1,8 @@
 ---
 description: An overview about management api reference.
+metaLinks:
+  alternates:
+    - https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/management-api-reference
 ---
 
 # Management API Reference

@@ -1,5 +1,9 @@
 ---
 description: An overview about vanilla kubernetes.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/hybrid-installation-and-configuration-guides/next-gen-cloud/kubernetes/vanilla-kubernetes
 ---
 
 # Vanilla Kubernetes
@@ -209,9 +213,7 @@ To prepare your Gravitee `values.yaml` file for Helm, complete the following ste
 
        <figure><img src="../../../../.gitbook/assets/gateway-cloud-version (1).png" alt=""><figcaption></figcaption></figure>
 
-       <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
-         <p>The <code>tag</code> field specifies the version of your Gravitee Gateway. Your Gateway version must match your Gravitee Cloud Control Plane version to ensure compatibility between your hybrid Gateway and the Cloud Management platform.</p>
-       </div>
+       <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>The <code>tag</code> field specifies the version of your Gravitee Gateway. Your Gateway version must match your Gravitee Cloud Control Plane version to ensure compatibility between your hybrid Gateway and the Cloud Management platform.</p></div>
 3. Save your Gravitee `values.yaml` file in your working directory.
 
 <details>
@@ -234,7 +236,7 @@ The `RollingUpdate` strategy with `maxUnavailable` set to 0 ensures zero-downtim
 
 ### Ingress Configuration with Custom Domain and Kubernetes Secrets
 
-To configure Ingress and TLS rules, Copy the following `values.yaml` file to deploy the gateway and expose it via an Ingress controller. Fill in the required [placeholders](README.md#prepare-values.yaml-for-helm) like your license key and domain. To enable HTTPS, uncomment and configure the optional TLS section.
+To configure Ingress and TLS rules, Copy the following `values.yaml` file to deploy the gateway and expose it via an Ingress controller. Fill in the required [placeholders](./#prepare-values.yaml-for-helm) like your license key and domain. To enable HTTPS, uncomment and configure the optional TLS section.
 
 ```yaml
 # Hybrid Gateway values.yaml with Ingress and Optional TLS
@@ -505,7 +507,7 @@ You can now create and deploy APIs to your Hybrid Gateway.
   1. Log in to your [Gravitee Cloud](https://cloud.gravitee.io/).
   2. From the Dashboard, navigate to the Environment where you created your Gateway.
   3. Click on **APIM Console** to open the user interface where you can create and manage your APIs.
-* Create your first API. For more information about creating your first API, see [create-and-publish-your-first-api](../../../../how-to-guides/create-and-publish-your-first-api/ "mention").
+* Create your first API. For more information about creating your first API, see [create-and-publish-your-first-api](../../../../getting-started/create-and-publish-your-first-api/ "mention").
 * Add native Kafka capabilities. For more information about adding native Kafka capabilities, see [configure-the-kafka-client-and-gateway.md](../../../../kafka-gateway/configure-the-kafka-client-and-gateway.md "mention").
 
 {% hint style="warning" %}

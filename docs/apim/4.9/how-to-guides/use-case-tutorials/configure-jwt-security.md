@@ -1,5 +1,9 @@
 ---
 description: An overview about configure jwt security.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/how-to-guides/use-case-tutorials/configure-jwt-security
 ---
 
 # Configure JWT Security
@@ -26,7 +30,7 @@ The first step is to create a Gateway API. A Gateway API is simply an API deploy
 
 In the Console UI, select the Gateway API you want to secure with a JWT plan.
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (45).png" alt=""><figcaption></figcaption></figure>
 
 For now, be sure to leave the **Default Keyless (UNSECURED)** plan as we’ll be configuring the plan separately.
 
@@ -51,11 +55,11 @@ All Gateway APIs require at least one published plan to deploy the API to the Ga
 
 In the APIM Console UI, open the Gateway API you want to secure with a JWT plan. You should see a screen similar to the following:
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 
 In the sidebar, select **Plans**, and then select **+Add new plan** in the top right of the screen. In the drop-down that appears, select **JWT**.
 
-<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
 
 Provide your plan a name, and then scroll down and toggle on **Auto validate subscription** so we don’t have to manually validate subscription requests later in the tutorial. Scroll down and select **Next**.
 

@@ -1,5 +1,9 @@
 ---
 description: An overview about notifications.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/configure-and-manage-the-platform/gravitee-gateway/notifications
 ---
 
 # Notifications
@@ -38,7 +42,7 @@ To subscribe to notifications related to a specific API:
 4. Select **Configuration** from the inner left nav
 5. Select the **Notifications** header
 
-<figure><img src="../../.gitbook/assets/A%201%20config%20notifications.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/A 1 config notifications.png" alt=""><figcaption></figcaption></figure>
 
 From here, you can either edit an existing notification or click **+ Add notification** to create a new one.
 {% endtab %}

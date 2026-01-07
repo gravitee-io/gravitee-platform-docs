@@ -1,5 +1,9 @@
 ---
 description: An overview about deploy a kafka gateway with gravitee cloud.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/kafka-gateway/deploy-a-kafka-gateway-with-gravitee-cloud
 ---
 
 # Deploy a Kafka Gateway with Gravitee Cloud

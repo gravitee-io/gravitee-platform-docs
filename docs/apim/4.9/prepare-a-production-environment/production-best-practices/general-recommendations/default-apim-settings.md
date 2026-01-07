@@ -1,5 +1,9 @@
 ---
 description: Configuration guide for default apim settings.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/prepare-a-production-environment/production-best-practices/general-recommendations/default-apim-settings
 ---
 
 # Default APIM Settings

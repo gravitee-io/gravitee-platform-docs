@@ -1,5 +1,8 @@
 ---
 description: Tutorial on getting started.
+metaLinks:
+  alternates:
+    - https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/getting-started
 ---
 
 # Getting Started

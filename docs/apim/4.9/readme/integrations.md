@@ -1,5 +1,8 @@
 ---
 description: An overview about integrations.
+metaLinks:
+  alternates:
+    - https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/readme/integrations
 ---
 
 # Integrations

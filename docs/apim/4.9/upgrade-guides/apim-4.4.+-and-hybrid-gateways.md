@@ -1,5 +1,9 @@
 ---
 description: Configuration guide for apim 4.4.+ & hybrid gateways.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/upgrade-guides/apim-4.4.+-and-hybrid-gateways
 ---
 
 # APIM 4.4.+ & Hybrid Gateways

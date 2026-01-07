@@ -1,5 +1,9 @@
 ---
 description: Configuration guide for configure your http server.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/prepare-a-production-environment/configure-your-http-server
 ---
 
 # Configure your HTTP Server

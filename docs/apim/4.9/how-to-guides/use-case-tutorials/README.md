@@ -1,5 +1,9 @@
 ---
 description: Tutorial on use case tutorials.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/how-to-guides/use-case-tutorials
 ---
 
 # Use Case Tutorials

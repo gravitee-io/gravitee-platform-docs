@@ -1,5 +1,8 @@
 ---
 description: Tutorial on how-to guides.
+metaLinks:
+  alternates:
+    - https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/how-to-guides
 ---
 
 # How-To Guides
@@ -10,7 +13,7 @@ Gravitee offers how-to guides of varying complexity to address both beginning an
 
 The following guides explain how to create, secure, govern, publish, and document your API.
 
-<table data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Create an API</td><td><a href="create-and-publish-your-first-api/create-an-api.md">create-an-api.md</a></td></tr><tr><td>Add security</td><td><a href="create-and-publish-your-first-api/add-security.md">add-security.md</a></td></tr><tr><td>Add a Policy</td><td><a href="create-and-publish-your-first-api/add-a-policy.md">add-a-policy.md</a></td></tr><tr><td>Publish your API</td><td><a href="create-and-publish-your-first-api/publish-your-api.md">publish-your-api.md</a></td></tr><tr><td>Add API Documentation</td><td><a href="create-and-publish-your-first-api/add-api-documentation.md">add-api-documentation.md</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Create an API</td><td><a href="../getting-started/create-and-publish-your-first-api/create-an-api.md">create-an-api.md</a></td></tr><tr><td>Add security</td><td><a href="../getting-started/create-and-publish-your-first-api/add-security.md">add-security.md</a></td></tr><tr><td>Add a Policy</td><td><a href="../getting-started/create-and-publish-your-first-api/add-a-policy.md">add-a-policy.md</a></td></tr><tr><td>Publish your API</td><td><a href="../getting-started/create-and-publish-your-first-api/publish-your-api.md">publish-your-api.md</a></td></tr><tr><td>Add API Documentation</td><td><a href="../getting-started/create-and-publish-your-first-api/add-api-documentation.md">add-api-documentation.md</a></td></tr></tbody></table>
 
 ## Use Case Tutorials
 

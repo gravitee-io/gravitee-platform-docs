@@ -1,5 +1,9 @@
 ---
 description: An overview about self-hosted installation guides.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/self-hosted-installation-guides
 ---
 
 # Self-Hosted Installation Guides
@@ -45,7 +49,7 @@ The following diagrams illustrate the component management and design of a self-
 
 ### Self-hosted component management
 
-<figure><img src="../.gitbook/assets/image (30).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (27).png" alt=""><figcaption></figcaption></figure>
 
 Self-hosted component management means that the customer hosts and manages both the Control Plane(s) and Data Plane(s).
 
@@ -53,7 +57,7 @@ To support a multi-environment configuration, the self-hosted Control Plane must
 
 ### Self-hosted architecture diagram
 
-<figure><img src="../.gitbook/assets/image (31).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (28).png" alt=""><figcaption></figcaption></figure>
 
 In a typical self-hosted architecture, the customer manages both the Data Plane and the Control Plane. The Management Control Plane consists of API Management (mAPI), and, optionally, Gravitee Alert Engine and Gravitee Access Management.
 

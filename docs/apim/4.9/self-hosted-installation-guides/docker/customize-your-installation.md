@@ -1,5 +1,9 @@
 ---
 description: This page explains how to customize your Gravitee API Management on Docker
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/self-hosted-installation-guides/docker/customize-your-installation
 ---
 
 # Customize your Installation
@@ -24,18 +28,13 @@ To use Redis with `docker compose`, complete the following steps:
 
 1.  In the `$services.gateway.environment` section of the Docker Compose file, add the following lines of code:
 
-
     ```yaml
           - gravitee_ratelimit_type=redis
           - gravitee_ratelimit_redis_host=gravitee-redis
           - gravitee_ratelimit_redis_port=6379
     ```
 
-
-
-    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
-      <p>Your Redis host and port may be different</p>
-    </div>
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>Your Redis host and port may be different</p></div>
 2. Remove the following line of code: `gravitee_ratelimit_mongodb_uri`.
 {% endtab %}
 
@@ -44,18 +43,13 @@ To use Redis with Docker images, complete the following steps:
 
 1.  In the command that you use to start the API Gateway, add the following environment variables:
 
-
     ```bash
       --env gravitee_ratelimit_type=redis \
       --env gravitee_ratelimit_redis_host=gravitee-redis \
       --env gravitee_ratelimit_redis_port=6379 \
     ```
 
-
-
-    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
-      <p>Your Redis host and port may be different.</p>
-    </div>
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>Your Redis host and port may be different.</p></div>
 2. Remove the following line of code: `gravitee_ratelimit_mongodb_uri`.
 {% endtab %}
 {% endtabs %}
@@ -71,15 +65,10 @@ To use Redis with Docker images, complete the following steps:
 
 To download the driver, complete the following sub-steps:
 
-1. Download the correct driver for your database. For more information about downloading the correct drive, go to [Supported databases.](../../prepare-a-production-environment/repositories/README.md#supported-databases)
-2. Place the driver in the `plugins-ext` folder.
+1. Download the correct driver for your database. For more information about downloading the correct drive, go to [Supported databases.](../../prepare-a-production-environment/repositories/#supported-databases)
+2.  Place the driver in the `plugins-ext` folder.
 
-    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
-      <ul>
-        <li>For the API Gateway, the <code>plugin-ext</code> folder is located at <code>/gravitee/apim-gateway/plugins</code>.</li>
-        <li>For the Management API, the <code>plugin-ext</code>folder is located at the <code>/gravitee/apim-management-api/plugins</code>.</li>
-      </ul>
-    </div>
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><ul><li>For the API Gateway, the <code>plugin-ext</code> folder is located at <code>/gravitee/apim-gateway/plugins</code>.</li><li>For the Management API, the <code>plugin-ext</code>folder is located at the <code>/gravitee/apim-management-api/plugins</code>.</li></ul></div>
 
 ### 2. Use JDBC
 
@@ -91,21 +80,12 @@ To use JDBC with `docker-compose`, complete the following steps:
 
 1.  In the `$services.gateway.environment` section, add the following lines of code:
 
-
     ```yaml
      - gravitee_management_type=jdbc
      - gravitee_management_jdbc_url=jdbc:mysql://gravitee-mysql:3306/gravitee?useSSL=false&user=mysql_users&password=mysql_password
     ```
 
-
-
-    <div data-gb-custom-block data-tag="hint" data-style="danger" class="hint hint-danger">
-      <ul>
-        <li>Ensure that your <code>gravitee_management_jdbc_url</code> is appropriate for your environment.</li>
-        <li>Use <code>useSSL=false</code> with caution in production.</li>
-        <li>Your host, port, username, and password may be different.</li>
-      </ul>
-    </div>
+    <div data-gb-custom-block data-tag="hint" data-style="danger" class="hint hint-danger"><ul><li>Ensure that your <code>gravitee_management_jdbc_url</code> is appropriate for your environment.</li><li>Use <code>useSSL=false</code> with caution in production.</li><li>Your host, port, username, and password may be different.</li></ul></div>
 2. Remove the following line of code: `gravitee_management_mongodb_uri`.
 {% endtab %}
 
@@ -114,21 +94,12 @@ To use JDBC with Docker images, complete the following steps:
 
 1.  In the command that you use to start the Gateway, add the following environment variables:
 
-
     ```bash
     --env gravitee_management_type=jdbc \
       --env gravitee_management_jdbc_url=jdbc:mysql://gravitee-mysql:3306/gravitee?useSSL=false&user=mysql_users&password=mysql_password \
     ```
 
-
-
-    <div data-gb-custom-block data-tag="hint" data-style="danger" class="hint hint-danger">
-      <ul>
-        <li>Ensure that your<code>gravitee_management_jdbc_url</code> is appropriate for your environment.</li>
-        <li>Use <code>useSSL=false</code> with caution in production.</li>
-        <li>Your host, port, username, and password may be different.</li>
-      </ul>
-    </div>
+    <div data-gb-custom-block data-tag="hint" data-style="danger" class="hint hint-danger"><ul><li>Ensure that your<code>gravitee_management_jdbc_url</code> is appropriate for your environment.</li><li>Use <code>useSSL=false</code> with caution in production.</li><li>Your host, port, username, and password may be different.</li></ul></div>
 2. Remove the following line of code: `gravitee_management_mongodb_uri`.
 {% endtab %}
 {% endtabs %}

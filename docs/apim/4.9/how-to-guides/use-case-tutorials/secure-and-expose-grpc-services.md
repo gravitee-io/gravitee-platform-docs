@@ -1,5 +1,9 @@
 ---
 description: An overview about secure and expose grpc services.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/how-to-guides/use-case-tutorials/secure-and-expose-grpc-services
 ---
 
 # Secure and Expose gRPC Services

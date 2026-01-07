@@ -1,12 +1,16 @@
 ---
 description: An overview about management api.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/configure-and-manage-the-platform/management-api
 ---
 
 # Management API
 
 ## Overview
 
-You can configure your general Gravitee APIM Management API settings using the `gravitee.yaml` file. As detailed in [APIM Components](README.md), you can override these settings by using system properties or environment variables.
+You can configure your general Gravitee APIM Management API settings using the `gravitee.yaml` file. As detailed in [APIM Components](./), you can override these settings by using system properties or environment variables.
 
 The `gravitee.yaml` file, found in `GRAVITEE_HOME/config/`, is the default way to configure APIM.
 

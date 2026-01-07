@@ -1,5 +1,9 @@
 ---
 description: An overview about create an application.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/secure-and-expose-apis/applications/create-an-application
 ---
 
 # Create an Application

@@ -1,5 +1,9 @@
 ---
 description: An overview about enable api score.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/govern-apis/api-score/enable-api-score
 ---
 
 # Enable API Score
@@ -23,9 +27,9 @@ API Score is a technology preview feature, meaning you must to opt-in to use it.
 1.  From the home page, click **Settings**.
 
     <figure><img src="../../.gitbook/assets/image (218) (1).png" alt=""><figcaption></figcaption></figure>
-2. In the **Portal** section, click **API Quality**.
-   
+2.  In the **Portal** section, click **API Quality**.
+
     <figure><img src="../../.gitbook/assets/image (220).png" alt=""><figcaption></figcaption></figure>
-3. In the **API Score** section, turn on **Enable API Score**.
+3.  In the **API Score** section, turn on **Enable API Score**.
 
     <figure><img src="../../.gitbook/assets/image (221).png" alt=""><figcaption></figcaption></figure>

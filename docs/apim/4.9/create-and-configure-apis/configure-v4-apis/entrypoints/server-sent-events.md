@@ -1,5 +1,9 @@
 ---
 description: Configuration guide for server-sent events.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/configure-v4-apis/entrypoints/server-sent-events
 ---
 
 # Server-Sent Events

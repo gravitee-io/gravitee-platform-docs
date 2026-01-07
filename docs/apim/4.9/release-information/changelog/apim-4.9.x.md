@@ -1,10 +1,15 @@
 ---
 description: Documentation about apim 4.9.x in the context of APIs.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/release-information/changelog/apim-4.9.x
 ---
 
 # APIM 4.9.x
- 
+
 ## Gravitee API Management 4.9.10 - December 19, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -21,7 +26,7 @@ description: Documentation about apim 4.9.x in the context of APIs.
 
 **Console**
 
-* Management UIs logout URL missing id_token_hint [#10399](https://github.com/gravitee-io/issues/issues/10399)
+* Management UIs logout URL missing id\_token\_hint [#10399](https://github.com/gravitee-io/issues/issues/10399)
 * Group Roles not shown until page refresh when added to a user [#11026](https://github.com/gravitee-io/issues/issues/11026)
 * Headers in logs for V4 messages APIs not loading correctly in UI [#11027](https://github.com/gravitee-io/issues/issues/11027)
 
@@ -46,9 +51,8 @@ description: Documentation about apim 4.9.x in the context of APIs.
 
 </details>
 
-
- 
 ## Gravitee API Management 4.9.9 - December 10, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -68,9 +72,8 @@ description: Documentation about apim 4.9.x in the context of APIs.
 
 </details>
 
-
- 
 ## Gravitee API Management 4.9.8 - December 5, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -110,13 +113,11 @@ description: Documentation about apim 4.9.x in the context of APIs.
 
 **Other**
 
-* Handle X-Forwarded-Prefix and X-Original-Forwarded-Host headers to properly build links for portal  [#10993](https://github.com/gravitee-io/issues/issues/10993)
+* Handle X-Forwarded-Prefix and X-Original-Forwarded-Host headers to properly build links for portal [#10993](https://github.com/gravitee-io/issues/issues/10993)
 * JWT policy missing in error transparency execution logs [#11005](https://github.com/gravitee-io/issues/issues/11005)
 * Client aborted during response missing in error transparency execution logs [#11006](https://github.com/gravitee-io/issues/issues/11006)
 
 </details>
-
-
 
 ## Gravitee API Management 4.9.7 - November 25, 2025
 

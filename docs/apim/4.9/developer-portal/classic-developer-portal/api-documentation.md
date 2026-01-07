@@ -1,5 +1,9 @@
 ---
 description: Configuration guide for api documentation.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/developer-portal/classic-developer-portal/api-documentation
 ---
 
 # API Documentation

@@ -1,5 +1,8 @@
 ---
 description: Documentation about developer portal in the context of APIs.
+metaLinks:
+  alternates:
+    - https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/developer-portal
 ---
 
 # Developer Portal
@@ -18,11 +21,11 @@ The **Gravitee Developer Portal** is a user-friendly web application designed to
 
 Gravitee offers the following two implementations of the Developer Portal:
 
-### [Classic Developer Portal](classic-developer-portal/README.md) (Stable & Fully Featured)
+### [Classic Developer Portal](classic-developer-portal/) (Stable & Fully Featured)
 
 The **Classic Developer Portal** (recommended) is Gravitee’s mature and most feature-rich Portal offering. It provides a robust, stable experience for organizations looking to deliver a production-ready API catalog or marketplace.
 
-### [New Developer Portal](new-developer-portal/README.md) (Tech Preview – Modern UX)
+### [New Developer Portal](new-developer-portal/) (Tech Preview – Modern UX)
 
 The **New Developer Portal**, introduced as a Tech Preview in APIM 4.4 (Enterprise Edition only), is Gravitee’s next-generation Portal that focuses on an updated user experience and modern UI components. It is designed to deliver a visually engaging, intuitive, and faster developer experience.
 

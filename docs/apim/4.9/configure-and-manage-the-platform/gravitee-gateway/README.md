@@ -1,5 +1,9 @@
 ---
 description: An overview about gravitee gateway.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/configure-and-manage-the-platform/gravitee-gateway
 ---
 
 # Gravitee Gateway

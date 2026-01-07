@@ -1,5 +1,9 @@
 ---
 description: An overview about cors configuration.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/configure-and-manage-the-platform/manage-organizations-and-environments/cors-configuration
 ---
 
 # CORS Configuration
@@ -91,7 +95,7 @@ If you change the CORS settings using the `gravitee.yml` or environment variable
     <figure><img src="../../.gitbook/assets/31738772-8FFD-4BC5-B5EF-5F303E24249E_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
 2.  In the **Settings screen**, navigate to the **CORS** section.
 
-    <figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 
 ### Configure CORS at the environment level
 

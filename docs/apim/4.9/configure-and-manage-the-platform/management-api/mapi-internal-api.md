@@ -1,5 +1,9 @@
 ---
 description: An overview about mapi internal api.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/configure-and-manage-the-platform/management-api/mapi-internal-api
 ---
 
 # MAPI Internal API

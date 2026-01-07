@@ -1,5 +1,9 @@
 ---
 description: An overview about v4 api policy studio.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/v4-api-policy-studio
 ---
 
 # v4 API Policy Studio

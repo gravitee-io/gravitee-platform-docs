@@ -1,5 +1,9 @@
 ---
 description: An overview about docker cli.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/hybrid-installation-and-configuration-guides/next-gen-cloud/docker/docker-cli
 ---
 
 # Docker CLI
@@ -58,7 +62,7 @@ To enable API rate-limiting, configure your Gateway to use a rate-limiting repos
     * Set `redis_password` environment variable: `export redis_password=your_redis_password` or replace `${redis_password}` with your actual Redis password.
     *   Replace `<CONTROL_PLANE_VERSION>` with the version that matches your Gravitee Cloud Control Plane. For example. 4.8.2.
 
-        <figure><img src="../../../.gitbook/assets/image (340).png" alt=""><figcaption></figcaption></figure>
+        <figure><img src="../../../.gitbook/assets/image (29).png" alt=""><figcaption></figcaption></figure>
 
 ## Verification
 
@@ -210,5 +214,5 @@ To shut down the Gateway, choose one of the following options.
   1. Log in to your [Gravitee Cloud](https://cloud.gravitee.io/).
   2. From the Dashboard, navigate to the Environment where you created your Gateway.
   3. Click on **APIM Console** to open the user interface where you can create and manage your APIs.
-* Create your first API. For more information about creating your first API, see [create-and-publish-your-first-api](../../../how-to-guides/create-and-publish-your-first-api/ "mention").
+* Create your first API. For more information about creating your first API, see [create-and-publish-your-first-api](../../../getting-started/create-and-publish-your-first-api/ "mention").
 * Add native Kafka capabilities. For more information about adding native Kafka capabilities, see [configure-the-kafka-client-and-gateway.md](../../../kafka-gateway/configure-the-kafka-client-and-gateway.md "mention").

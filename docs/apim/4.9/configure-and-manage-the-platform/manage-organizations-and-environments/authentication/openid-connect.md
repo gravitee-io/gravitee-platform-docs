@@ -1,5 +1,9 @@
 ---
 description: An overview about openid connect.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/configure-and-manage-the-platform/manage-organizations-and-environments/authentication/openid-connect
 ---
 
 # OpenID Connect
@@ -315,4 +319,4 @@ The steps to set up Okta as an OpenID Connect authentication provider are simila
 
 ## Next Steps
 
-Now that you have configured your OIDC Authentication Provider, you can add [Roles and Groups Mappings](README.md) to automatically map new users to Gravitee-specific roles and groups.
+Now that you have configured your OIDC Authentication Provider, you can add [Roles and Groups Mappings](./) to automatically map new users to Gravitee-specific roles and groups.

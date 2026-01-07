@@ -1,3 +1,10 @@
+---
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/govern-apis/federation/3rd-party-providers/confluent-platform
+---
+
 # Confluent Platform
 
 ## Overview
@@ -39,10 +46,10 @@ To integrate Confluent Platform with Gravitee APIM, complete the following steps
     <figure><img src="../../../.gitbook/assets/enter-confluent-name-and-description.png" alt=""><figcaption></figcaption></figure>
 5.  (Optional) Type the **Description** for the integration.<br>
 
-    <figure><img src="../../../.gitbook/assets/enter-confluent-name-and-description (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/enter-confluent-name-and-description (2).png" alt=""><figcaption></figcaption></figure>
 6.  Click **Create Integration**.
 
-    <figure><img src="../../../.gitbook/assets/enter-confluent-name-and-description (2).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/enter-confluent-name-and-description (1).png" alt=""><figcaption></figcaption></figure>
 7.  From the Integration overview tab, copy the **Integration ID**. You need this ID for the agent configuration.
 
     <figure><img src="../../../.gitbook/assets/confluent-integration-id (1).png" alt=""><figcaption></figcaption></figure>
@@ -462,4 +469,4 @@ If your APIM management API uses certificates that require a custom truststore, 
     ```
 2.  Return to the Gravitee API Management console, refresh the page, and verify that the agent's status is set to **Connected**.
 
-    <figure><img src="../../../.gitbook/assets/image (71).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (55).png" alt=""><figcaption></figcaption></figure>

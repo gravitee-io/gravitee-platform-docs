@@ -1,5 +1,9 @@
 ---
 description: An overview about dashboards.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/analyze-and-monitor-apis/dashboards
 ---
 
 # Dashboards

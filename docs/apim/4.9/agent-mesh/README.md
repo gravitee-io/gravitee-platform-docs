@@ -1,5 +1,8 @@
 ---
 description: An overview about agent mesh.
+metaLinks:
+  alternates:
+    - https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/agent-mesh
 ---
 
 # Agent Mesh

@@ -1,5 +1,9 @@
 ---
 description: An overview about customize the homepage.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/developer-portal/new-developer-portal/customize-the-homepage
 ---
 
 # Customize the homepage
@@ -158,9 +162,7 @@ To edit the homepage, complete the following steps:
 
 1.  In the Markdown editor, enter your Markdown or GMD to customize the homepage.For more information about the GMD components that you can enter to customize the homepage, see [#gravitee-markdown-components](customize-the-homepage.md#gravitee-markdown-components "mention").
 
-    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
-      <p>To view the GMD components in the Markdown editor, press option and the space bar at the same time, and then type the component the name of the component that you want to use. For example, Grid.</p>
-    </div>
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>To view the GMD components in the Markdown editor, press option and the space bar at the same time, and then type the component the name of the component that you want to use. For example, Grid.</p></div>
 
     <figure><img src="../../.gitbook/assets/FF5F9BA4-70DA-4E07-B90A-7E321A6260B6_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
 2.  Click **Save**.

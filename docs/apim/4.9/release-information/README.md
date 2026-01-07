@@ -1,5 +1,8 @@
 ---
 description: Information about release information.
+metaLinks:
+  alternates:
+    - https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/release-information
 ---
 
 # Release Information

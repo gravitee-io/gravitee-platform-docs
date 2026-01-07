@@ -1,5 +1,8 @@
 ---
 description: Documentation about analyze & monitor apis in the context of APIs.
+metaLinks:
+  alternates:
+    - https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/analyze-and-monitor-apis
 ---
 
 # Analyze & Monitor APIs

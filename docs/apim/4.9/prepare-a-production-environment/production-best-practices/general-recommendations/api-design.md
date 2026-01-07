@@ -1,5 +1,9 @@
 ---
 description: Tutorial on api design.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/prepare-a-production-environment/production-best-practices/general-recommendations/api-design
 ---
 
 # API Design
@@ -12,4 +16,4 @@ There is no "rule of thumb" when it comes to designing and exposing your APIs, a
 * Require the API consumer to enter a comment when subscribing to an API. This is a simple way to understand the motivation for a subscription and helps detect malicious attempts to access an API.
 * Regularly review subscriptions and revoke those that are no longer used.
 
-More information on how to manage API subscriptions is detailed in the [Subscriptions](../../../secure-and-expose-apis/subscriptions/README.md) documentation.
+More information on how to manage API subscriptions is detailed in the [Subscriptions](../../../secure-and-expose-apis/subscriptions/) documentation.
