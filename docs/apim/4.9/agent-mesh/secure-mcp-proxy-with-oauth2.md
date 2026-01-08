@@ -190,7 +190,7 @@ Complete the following steps to enable user registration:
 Now that you have configured AM, you need to add an OAuth2 resource in APIM. This resource establishes the connection between APIM and your OAuth2 provider (AM), enabling the Gateway to do the following:
 
 * Verify and secure connections from MCP clients
-* Allow the MCP Server to discover the API's security requirements through the WWW-Authenticate header
+* Allow the MCP Client to discover the API's security requirements through the WWW-Authenticate header
 
 For more information on protected resource metadata discovery, see the [MCP specification](https://modelcontextprotocol.io/specification/draft/basic/authorization#protected-resource-metadata-discovery-requirements).
 
