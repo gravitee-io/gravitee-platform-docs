@@ -1,8 +1,5 @@
 ---
 description: An overview about elasticsearch.
-metaLinks:
-  alternates:
-    - elasticsearch.md
 ---
 
 # ElasticSearch
@@ -18,11 +15,6 @@ Gravitee no longer supports the native ES client. Previous connectors provided b
 {% endhint %}
 
 ## Supported databases
-
-| Database      | Version tested  |
-| ------------- | --------------- |
-| ElasticSearch | 7.17.x / 8.16.x |
-| OpenSearch    | 1.x / 2.x       |
 
 ## Configuration
 
@@ -172,5 +164,6 @@ Here’s an example configuration for APIM Gateway:
         monitor: hot_delete_monitor # ILM policy for the gravitee-monitor-* indexes
         request: hot_delete_request # ILM policy for the gravitee-request-* indexes
         log: hot_delete_log # ILM policy for the gravitee-log-* indexes
+        event_metrics: hot_delete_event_metrics # ILM policy for the gravitee-event-metrics-* indexes
     index_mode: ilm         # "daily" indexes, suffixed with date. Or "ilm" managed indexes, without date
 ```
