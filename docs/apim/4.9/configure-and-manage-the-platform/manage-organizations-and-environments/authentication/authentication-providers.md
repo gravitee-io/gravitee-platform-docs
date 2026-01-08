@@ -1,8 +1,5 @@
 ---
 description: An overview about authentication providers.
-metaLinks:
-  alternates:
-    - authentication-providers.md
 ---
 
 # Authentication Providers
@@ -32,7 +29,7 @@ security:
       # - bcrypt : passwords are hashed with bcrypt (supports only $2a$ algorithm)
       # - none : passwords are not hashed/encrypted
       # default value is bcrypt
-      password-encoding-algo: bcrypt
+      pasasword-encoding-algo: bcrypt
       users:
         - user:
           username: user

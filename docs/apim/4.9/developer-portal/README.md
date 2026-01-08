@@ -1,8 +1,5 @@
 ---
 description: Documentation about developer portal in the context of APIs.
-metaLinks:
-  alternates:
-    - ./
 ---
 
 # Developer Portal
