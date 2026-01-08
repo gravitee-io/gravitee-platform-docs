@@ -1,8 +1,5 @@
 ---
 description: An overview about configure kafka apis.
-metaLinks:
-  alternates:
-    - ./
 ---
 
 # Configure Kafka APIs
@@ -17,9 +14,9 @@ To configure Kafka APIs:
 2. Click on **APIs** in the left nav
 3. Select your API
 
-The inner left nav separates API configuration settings into several categories:
+The inner left nav separates API configuration settings into several categories:<br>
 
-<figure><img src="../../../.gitbook/assets/A 1 config general copy.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/inner-left-nav-categories.png" alt=""><figcaption></figcaption></figure>
 
 The screen for each category selection includes a row of headers from which you can manage your API and its parameters, behavior, and access details. Click on the cards below to learn more about each configuration category.
 

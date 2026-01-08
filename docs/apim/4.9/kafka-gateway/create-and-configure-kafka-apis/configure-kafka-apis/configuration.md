@@ -1,8 +1,5 @@
 ---
 description: An overview about configuration.
-metaLinks:
-  alternates:
-    - configuration.md
 ---
 
 # Configuration
@@ -15,7 +12,7 @@ The **Configuration** section allows you to manage and customize high-level sett
 
 The **General** tab displays a section for inputting general API details and a Danger Zone for executing functional and sometimes irreversible actions.
 
-<figure><img src="../../../.gitbook/assets/A 1 config general.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/general-configuration.png" alt=""><figcaption></figcaption></figure>
 
 {% tabs %}
 {% tab title="General details" %}
@@ -67,13 +64,13 @@ Click **+ Add members** to add members to your API or alter member roles, which 
 
 To give groups access to your API, click **Manage groups** and select the desired group(s) from the drop-down menu. This will give all members of that group access to your API.
 
-<figure><img src="../../../.gitbook/assets/user permissions_manage groups (1).png" alt=""><figcaption><p>Give groups access to your API</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/manage-group-api.png" alt=""><figcaption></figcaption></figure>
 
 ### Transfer API ownership
 
 If you are the owner of the API, you can transfer ownership to another member, user, or group. Click **Transfer ownership**, then select **API member**, **Other user**, or **Primary owner group.** Next, define the stakeholder to which you want to transfer API ownership and assign that stakeholder a role.
 
-<figure><img src="../../../.gitbook/assets/user permissions_transfer ownership (1).png" alt=""><figcaption><p>Transfer API ownership</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/transfer-ownership.png" alt=""><figcaption></figcaption></figure>
 
 ## Properties
 
@@ -83,9 +80,9 @@ Properties are read-only during the Gateway's execution of an API transaction. T
 
 To configure API properties:
 
-1.  Select **Properties** from the inner left nav
+1.  Select **Properties** from the inner left nav<br>
 
-    <figure><img src="../../../.gitbook/assets/v2 proxy_properties (1).png" alt=""><figcaption><p>Add API properties</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/select-properties.png" alt=""><figcaption></figcaption></figure>
 2. To add hardcoded properties, either:
    * Click **Add property** and enter property definitions one at a time as a key-value pair
    * Click **Import** and enter property definitions as a list in `<key>=<value>` format
@@ -164,18 +161,18 @@ The **Notifications** tab allows you to subscribe to notifications related to a 
 2. Select **APIs**, from the left nav.
 3. Select your API.
 4. Select **Configuration** from the inner left nav.
-5.  Select the **Notifications** header.
+5.  Select the **Notifications** header.<br>
 
-    <figure><img src="../../../.gitbook/assets/A 1 config notifications.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/notification-header.png" alt=""><figcaption></figcaption></figure>
 6. Click **+ Add notification** to create a new one.
 7. Give your notification a name and select either:
    * **Default Email Notifier:**
      * Enter a list of emails, using "," or ";" as the separator
    * **Default Webhook Notifier:**
      * Enter the Webhook URL
-     * Choose whether to use system proxy
+     *   Choose whether to use system proxy<br>
 
-<figure><img src="../../../.gitbook/assets/A 1 notifications 2.png" alt=""><figcaption></figcaption></figure>
+         <figure><img src="../../../.gitbook/assets/sample-notifier.png" alt=""><figcaption></figcaption></figure>
 
 The following notifications are available to each notifier:
 
@@ -206,6 +203,6 @@ The following notifications are available to each notifier:
 
 ## Audit Logs
 
-The **Audit Logs** tab displays API-level events and audit entries, which are summarized in table format. These can be filtered by event type and date range.
+The **Audit Logs** tab displays API-level events and audit entries, which are summarized in table format. These can be filtered by event type and date range.<br>
 
-<figure><img src="../../../.gitbook/assets/A 1 config audit logs.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/kafka-audit-logs.png" alt=""><figcaption></figcaption></figure>
