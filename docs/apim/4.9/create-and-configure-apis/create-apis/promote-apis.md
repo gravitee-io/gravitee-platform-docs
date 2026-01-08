@@ -7,7 +7,6 @@ The following sections describe how to promote an API from one environment to an
 {% hint style="warning" %}
 **Limitations**
 
-* APIs can only be promoted to environments belonging to the same organization.
 * **One process at a time:** Only one promotion request can be active for an API on an environment. The request must be accepted or rejected before initiating another promotion.
 * **Same organization only:** APIs can only be promoted between environments in the same organization.
 {% endhint %}
