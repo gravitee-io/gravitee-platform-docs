@@ -15,6 +15,16 @@ Here are the breaking changes for versions 4.X of Gravitee and versions 3.X of G
 
 Here are the breaking changes from versions 4.X of Gravitee.
 
+#### 4.10.0
+
+**Kafka Native APIs Analytics**
+
+Elasticsearch indices used by Kafka Native APIs have been modified for better compatibility with OpenSearch and better accuracy.
+
+You might have to do a roll-over of your `gravitee-event-metrics` index.
+
+Previous indexed document is deleted. However, they are no longer be taken into account in Gravitee Dashboards.
+
 #### 4.9.0
 
 **Update to OpenShift compatibility**
