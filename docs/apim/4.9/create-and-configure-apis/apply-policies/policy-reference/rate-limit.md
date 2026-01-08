@@ -1,8 +1,5 @@
 ---
 description: An overview about rate limit.
-metaLinks:
-  alternates:
-    - rate-limit.md
 ---
 
 # Rate Limit
@@ -270,21 +267,15 @@ You can configure the `rate-limit` policies with the following options:
 
 The Quota policy configures the number of requests allowed over a large period of time (from hours to months). This policy does not prevent request spikes.
 
-<table><thead><tr><th width="172">Property</th><th data-type="checkbox">Required</th><th width="310">Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>key</td><td>false</td><td>Key to identify a consumer to apply the quota against. Leave it empty to apply the default behavior (plan/subscription pair). Supports Expression Language.</td><td>String</td><td>null</td></tr><tr><td>limit</td><td>false</td><td>Static limit on the number of requests that can be sent (this limit is used if the value > 0).</td><td>integer</td><td>0</td></tr><tr><td>dynamicLimit</td><td>false</td><td>Dynamic limit on the number of requests that can be sent (this limit is used if static limit = 0). The dynamic value is based on Expression Language expressions.</td><td>string</td><td>null</td></tr><tr><td>periodTime</td><td>true</td><td>Time duration</td><td>Integer</td><td>1</td></tr><tr><td>periodTimeUnit</td><td>true</td><td>Time unit (<code>HOURS</code>, <code>DAYS</code>, <code>WEEKS</code>, <code>MONTHS</code>)</td><td>String</td><td>MONTHS</td></tr></tbody></table>
-
 #### Rate Limit
 
 The Rate Limit policy configures the number of requests allowed over a limited period of time (from seconds to minutes). This policy does not prevent request spikes.
-
-<table><thead><tr><th width="178">Property</th><th data-type="checkbox">Required</th><th width="320">Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>key</td><td>false</td><td>Key to identify a consumer to apply rate-limiting against. Leave it empty to use the default behavior (plan/subscription pair). Supports Expression Language.</td><td>String</td><td>null</td></tr><tr><td>limit</td><td>false</td><td>Static limit on the number of requests that can be sent (this limit is used if the value > 0).</td><td>integer</td><td>0</td></tr><tr><td>dynamicLimit</td><td>false</td><td>Dynamic limit on the number of requests that can be sent (this limit is used if static limit = 0). The dynamic value is based on Expression Language expressions.</td><td>string</td><td>null</td></tr><tr><td>periodTime</td><td>true</td><td>Time duration</td><td>Integer</td><td>1</td></tr><tr><td>periodTimeUnit</td><td>true</td><td>Time unit ("SECONDS", "MINUTES" )</td><td>String</td><td>SECONDS</td></tr></tbody></table>
 
 #### Spike Arrest
 
 The Spike Arrest policy configures the number of requests allow over a limited period of time (from seconds to minutes). This policy prevents request spikes by throttling incoming requests. For example, a Spike Arrest policy configured to 2000 requests/second will limit the execution of simultaneous requests to 200 requests per 100ms.
 
 By default, the Spike Arrest policy is applied to a plan, not a consumer. To apply a spike arrest to a consumer, you need to use the `key` attribute, which supports Expression Language.
-
-<table><thead><tr><th width="180">Property</th><th data-type="checkbox">Required</th><th width="334">Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>key</td><td>false</td><td>Key to identify a consumer to apply spike arresting against. Leave it empty to use the default behavior. Supports Expression Language (example: <code>{#request.headers['x-consumer-id']}</code>).</td><td>String</td><td>null</td></tr><tr><td>limit</td><td>false</td><td>Static limit on the number of requests that can be sent (this limit is used if the value > 0).</td><td>integer</td><td>0</td></tr><tr><td>dynamicLimit</td><td>false</td><td>Dynamic limit on the number of requests that can be sent (this limit is used if static limit = 0). The dynamic value is based on Expression Language expressions.</td><td>string</td><td>null</td></tr><tr><td>periodTime</td><td>true</td><td>Time duration</td><td>Integer</td><td>1</td></tr><tr><td>periodTimeUnit</td><td>true</td><td>Time unit (<code>SECONDS</code>, <code>MINUTES</code>)</td><td>String</td><td>SECONDS</td></tr></tbody></table>
 
 ## Compatibility matrix
 

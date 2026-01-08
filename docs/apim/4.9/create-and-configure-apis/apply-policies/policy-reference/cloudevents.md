@@ -1,8 +1,5 @@
 ---
 description: Configuration guide for cloudevents.
-metaLinks:
-  alternates:
-    - cloudevents.md
 ---
 
 # CloudEvents
