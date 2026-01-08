@@ -256,6 +256,8 @@
     * [Enable the New Developer Portal](developer-portal/new-developer-portal/configure-the-new-portal.md)
     * [Layout and Theme](developer-portal/new-developer-portal/layout-and-theme.md)
     * [Customize the homepage](developer-portal/new-developer-portal/customize-the-homepage.md)
+    * [Customize the navigation](developer-portal/new-developer-portal/customize-the-navigation.md)
+    * [Gravitee Markdown components](developer-portal/new-developer-portal/gravitee-markdown-components.md)
     * [Application Logs](developer-portal/new-developer-portal/application-logs.md)
     * [Configure Webhook Subscriptions](developer-portal/new-developer-portal/configure-webhook-subscriptions.md)
   * [Classic Developer Portal](developer-portal/classic-developer-portal/README.md)
