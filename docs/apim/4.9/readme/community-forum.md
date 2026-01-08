@@ -2,7 +2,7 @@
 description: An overview about community forum.
 metaLinks:
   alternates:
-    - https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/readme/community-forum
+    - community-forum.md
 ---
 
 # Community Forum

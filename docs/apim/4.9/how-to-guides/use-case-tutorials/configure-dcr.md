@@ -2,8 +2,7 @@
 description: An overview about configure dcr.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/how-to-guides/use-case-tutorials/configure-dcr
+    - configure-dcr.md
 ---
 
 # Configure DCR

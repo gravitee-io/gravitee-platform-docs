@@ -2,8 +2,7 @@
 description: An overview about shared policy groups.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/shared-policy-groups
+    - shared-policy-groups.md
 ---
 
 # Shared Policy Groups

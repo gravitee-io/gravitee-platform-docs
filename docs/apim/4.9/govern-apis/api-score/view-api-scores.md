@@ -2,8 +2,7 @@
 description: An overview about view api scores.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/govern-apis/api-score/view-api-scores
+    - view-api-scores.md
 ---
 
 # View API Scores

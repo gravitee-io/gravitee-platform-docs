@@ -2,8 +2,7 @@
 description: Documentation about layout and theme in the context of APIs.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/developer-portal/new-developer-portal/layout-and-theme
+    - layout-and-theme.md
 ---
 
 # Layout and Theme

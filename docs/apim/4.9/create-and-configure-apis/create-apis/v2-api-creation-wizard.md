@@ -2,8 +2,7 @@
 description: An overview about v2 api creation wizard.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/create-apis/v2-api-creation-wizard
+    - v2-api-creation-wizard.md
 ---
 
 # v2 API Creation Wizard

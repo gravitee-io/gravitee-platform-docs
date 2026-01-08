@@ -2,8 +2,7 @@
 description: An overview about gravitee expression language.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/gravitee-expression-language
+    - gravitee-expression-language.md
 ---
 
 # Gravitee Expression Language

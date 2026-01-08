@@ -2,8 +2,7 @@
 description: Tutorial on api design.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/prepare-a-production-environment/production-best-practices/general-recommendations/api-design
+    - api-design.md
 ---
 
 # API Design

@@ -2,8 +2,7 @@
 description: An overview about assign metrics.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/assign-metrics
+    - assign-metrics.md
 ---
 
 # Assign Metrics

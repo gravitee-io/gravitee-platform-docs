@@ -2,8 +2,7 @@
 description: An overview about graphql rate limit.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/graphql-rate-limit
+    - graphql-rate-limit.md
 ---
 
 # GraphQL Rate Limit

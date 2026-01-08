@@ -2,8 +2,7 @@
 description: An overview about expose your apis as ai-ready tools with mcp.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/agent-mesh/convert-your-apis-to-mcp-servers
+    - convert-your-apis-to-mcp-servers.md
 ---
 
 # Expose Your APIs as AI-Ready Tools with MCP

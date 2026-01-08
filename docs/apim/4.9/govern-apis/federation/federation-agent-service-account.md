@@ -2,8 +2,7 @@
 description: Documentation about federation agent service account in the context of APIs.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/govern-apis/federation/federation-agent-service-account
+    - federation-agent-service-account.md
 ---
 
 # Federation Agent Service Account

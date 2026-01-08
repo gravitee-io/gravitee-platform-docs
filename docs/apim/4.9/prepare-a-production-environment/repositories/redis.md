@@ -2,8 +2,7 @@
 description: An overview about redis.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/prepare-a-production-environment/repositories/redis
+    - redis.md
 ---
 
 # Redis

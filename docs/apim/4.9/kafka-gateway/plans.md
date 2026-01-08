@@ -2,7 +2,7 @@
 description: An overview about plans.
 metaLinks:
   alternates:
-    - https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/kafka-gateway/plans
+    - plans.md
 ---
 
 # Plans

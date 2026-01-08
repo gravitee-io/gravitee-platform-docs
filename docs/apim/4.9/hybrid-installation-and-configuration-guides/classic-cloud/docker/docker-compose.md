@@ -2,8 +2,7 @@
 description: Configuration guide for docker compose.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/hybrid-installation-and-configuration-guides/classic-cloud/docker/docker-compose
+    - docker-compose.md
 ---
 
 # Docker Compose

@@ -2,8 +2,7 @@
 description: An overview about custom policies.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/custom-policies
+    - custom-policies.md
 ---
 
 # Custom Policies

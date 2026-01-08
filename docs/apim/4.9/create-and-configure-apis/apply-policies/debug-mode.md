@@ -2,8 +2,7 @@
 description: An overview about debug mode.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/debug-mode
+    - debug-mode.md
 ---
 
 # Debug Mode

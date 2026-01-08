@@ -2,8 +2,7 @@
 description: An overview about microsoft entra id.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/configure-and-manage-the-platform/manage-organizations-and-environments/authentication/microsoft-entra-id
+    - microsoft-entra-id.md
 ---
 
 # Microsoft Entra ID

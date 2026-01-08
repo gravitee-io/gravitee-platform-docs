@@ -2,8 +2,7 @@
 description: An overview about add api documentation.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/getting-started/create-and-publish-your-first-api/add-api-documentation
+    - add-api-documentation.md
 ---
 
 # Add API Documentation

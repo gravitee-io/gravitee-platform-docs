@@ -4,8 +4,7 @@ description: >-
   api.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/how-to-guides/use-case-tutorials/create-applications-and-subscriptions-using-the-management-api
+    - create-applications-and-subscriptions-using-the-management-api.md
 ---
 
 # Create Applications and Subscriptions Using the Management API

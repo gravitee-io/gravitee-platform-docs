@@ -2,8 +2,7 @@
 description: An overview about url rewriting.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/url-rewriting
+    - url-rewriting.md
 ---
 
 # URL Rewriting

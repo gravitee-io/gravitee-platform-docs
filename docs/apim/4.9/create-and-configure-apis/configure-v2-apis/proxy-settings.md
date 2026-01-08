@@ -2,8 +2,7 @@
 description: An overview about proxy settings.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/configure-v2-apis/proxy-settings
+    - proxy-settings.md
 ---
 
 # Proxy Settings

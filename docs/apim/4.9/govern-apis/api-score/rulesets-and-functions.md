@@ -2,8 +2,7 @@
 description: An overview about rulesets and functions.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/govern-apis/api-score/rulesets-and-functions
+    - rulesets-and-functions.md
 ---
 
 # Rulesets and Functions

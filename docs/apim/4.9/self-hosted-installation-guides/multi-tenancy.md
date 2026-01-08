@@ -2,8 +2,7 @@
 description: An overview about multi-tenancy.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/self-hosted-installation-guides/multi-tenancy
+    - multi-tenancy.md
 ---
 
 # Multi-tenancy

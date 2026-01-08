@@ -2,8 +2,7 @@
 description: An overview about generate http signature.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/generate-http-signature
+    - generate-http-signature.md
 ---
 
 # Generate HTTP Signature

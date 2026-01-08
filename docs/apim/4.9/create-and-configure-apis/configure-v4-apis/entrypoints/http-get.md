@@ -2,8 +2,7 @@
 description: Configuration guide for http get.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/configure-v4-apis/entrypoints/http-get
+    - http-get.md
 ---
 
 # HTTP GET

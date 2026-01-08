@@ -2,8 +2,7 @@
 description: An overview about traffic shadowing.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/traffic-shadowing
+    - traffic-shadowing.md
 ---
 
 # Traffic Shadowing

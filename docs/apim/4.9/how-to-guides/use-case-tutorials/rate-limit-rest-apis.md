@@ -2,8 +2,7 @@
 description: An overview about rate limit rest apis.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/how-to-guides/use-case-tutorials/rate-limit-rest-apis
+    - rate-limit-rest-apis.md
 ---
 
 # Rate Limit REST APIs

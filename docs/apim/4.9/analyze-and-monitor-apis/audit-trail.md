@@ -2,8 +2,7 @@
 description: An overview about audit trail.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/analyze-and-monitor-apis/audit-trail
+    - audit-trail.md
 ---
 
 # Audit Trail

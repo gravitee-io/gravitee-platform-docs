@@ -2,8 +2,7 @@
 description: An overview about configuration.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/prepare-a-production-environment/sensitive-data-management/api-secrets/configuration
+    - configuration.md
 ---
 
 # Configuration

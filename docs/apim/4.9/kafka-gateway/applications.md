@@ -2,7 +2,7 @@
 description: Learn how to consume secured APIs
 metaLinks:
   alternates:
-    - https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/kafka-gateway/applications
+    - applications.md
 ---
 
 # Applications

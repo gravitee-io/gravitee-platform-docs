@@ -2,8 +2,7 @@
 description: An overview about api quality.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/analyze-and-monitor-apis/api-quality
+    - api-quality.md
 ---
 
 # API Quality

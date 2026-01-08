@@ -2,8 +2,7 @@
 description: An overview about opentelemetry.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/analyze-and-monitor-apis/opentelemetry
+    - opentelemetry.md
 ---
 
 # OpenTelemetry

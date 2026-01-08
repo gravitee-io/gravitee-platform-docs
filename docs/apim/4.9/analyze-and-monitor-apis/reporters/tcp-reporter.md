@@ -2,8 +2,7 @@
 description: Configuration guide for tcp reporter.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/analyze-and-monitor-apis/reporters/tcp-reporter
+    - tcp-reporter.md
 ---
 
 # TCP Reporter

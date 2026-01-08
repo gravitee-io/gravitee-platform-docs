@@ -2,8 +2,7 @@
 description: An overview about rest to soap.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/rest-to-soap
+    - rest-to-soap.md
 ---
 
 # REST to SOAP

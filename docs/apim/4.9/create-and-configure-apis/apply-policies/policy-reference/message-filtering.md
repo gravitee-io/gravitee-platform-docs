@@ -2,8 +2,7 @@
 description: An overview about message filtering.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/message-filtering
+    - message-filtering.md
 ---
 
 # Message Filtering

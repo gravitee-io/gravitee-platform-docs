@@ -2,8 +2,7 @@
 description: An overview about reference secrets in apis.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/prepare-a-production-environment/sensitive-data-management/api-secrets/reference-secrets-in-apis
+    - reference-secrets-in-apis.md
 ---
 
 # Reference Secrets in APIs

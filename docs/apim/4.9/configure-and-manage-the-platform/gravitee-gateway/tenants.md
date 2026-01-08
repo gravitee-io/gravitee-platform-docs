@@ -2,8 +2,7 @@
 description: An overview about tenants.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/configure-and-manage-the-platform/gravitee-gateway/tenants
+    - tenants.md
 ---
 
 # Tenants

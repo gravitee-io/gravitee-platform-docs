@@ -2,8 +2,7 @@
 description: An overview about gravitee.io am authorization server.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/oauth2/gravitee.io-am-authorization-server
+    - gravitee.io-am-authorization-server.md
 ---
 
 # Gravitee.io AM Authorization Server

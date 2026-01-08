@@ -2,7 +2,7 @@
 description: An overview about deployment.
 metaLinks:
   alternates:
-    - https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/plugins/deployment
+    - deployment.md
 ---
 
 # Deployment

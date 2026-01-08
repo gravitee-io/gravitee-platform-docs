@@ -2,8 +2,7 @@
 description: An overview about transform query parameters.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/transform-query-parameters
+    - transform-query-parameters.md
 ---
 
 # Transform Query Parameters

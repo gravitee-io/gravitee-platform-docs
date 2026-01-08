@@ -2,8 +2,7 @@
 description: An overview about execution transparency analytics.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/analyze-and-monitor-apis/execution-transparency-analytics
+    - execution-transparency-analytics.md
 ---
 
 # Execution Transparency Analytics

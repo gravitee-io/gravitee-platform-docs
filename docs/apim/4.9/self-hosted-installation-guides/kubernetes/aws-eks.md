@@ -2,8 +2,7 @@
 description: An overview about aws eks.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/self-hosted-installation-guides/kubernetes/aws-eks
+    - aws-eks.md
 ---
 
 # AWS EKS

@@ -2,8 +2,7 @@
 description: Configuration guide for sensitive data management.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/prepare-a-production-environment/sensitive-data-management
+    - ./
 ---
 
 # Sensitive Data Management

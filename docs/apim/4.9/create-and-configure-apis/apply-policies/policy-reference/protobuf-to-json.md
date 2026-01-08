@@ -2,8 +2,7 @@
 description: An overview about protobuf to json.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/protobuf-to-json
+    - protobuf-to-json.md
 ---
 
 # Protobuf to JSON

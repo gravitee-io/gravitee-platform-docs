@@ -2,8 +2,7 @@
 description: Configuration guide for openshift.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/self-hosted-installation-guides/kubernetes/openshift
+    - openshift.md
 ---
 
 # OpenShift

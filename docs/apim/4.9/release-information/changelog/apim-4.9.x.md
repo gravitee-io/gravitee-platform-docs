@@ -2,8 +2,7 @@
 description: Documentation about apim 4.9.x in the context of APIs.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/release-information/changelog/apim-4.9.x
+    - apim-4.9.x.md
 ---
 
 # APIM 4.9.x

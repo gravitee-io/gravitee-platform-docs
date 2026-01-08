@@ -4,8 +4,7 @@ hidden: true
 noIndex: true
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/getting-started/hybrid-install-with-docker
+    - hybrid-install-with-docker.md
 ---
 
 # Hybrid Install with Docker

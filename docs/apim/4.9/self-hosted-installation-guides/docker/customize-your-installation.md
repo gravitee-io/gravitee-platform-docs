@@ -2,8 +2,7 @@
 description: This page explains how to customize your Gravitee API Management on Docker
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/self-hosted-installation-guides/docker/customize-your-installation
+    - customize-your-installation.md
 ---
 
 # Customize your Installation

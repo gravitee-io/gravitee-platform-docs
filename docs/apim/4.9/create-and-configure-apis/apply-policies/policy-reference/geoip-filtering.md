@@ -2,8 +2,7 @@
 description: Configuration guide for geoip filtering.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/geoip-filtering
+    - geoip-filtering.md
 ---
 
 # GeoIP Filtering

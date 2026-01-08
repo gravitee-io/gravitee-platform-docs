@@ -2,8 +2,7 @@
 description: An overview about consumers.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/consumers
+    - consumers.md
 ---
 
 # Consumers

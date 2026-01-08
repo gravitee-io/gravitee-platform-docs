@@ -2,8 +2,7 @@
 description: An overview about kafka offloading.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/kafka-offloading
+    - kafka-offloading.md
 ---
 
 # Kafka Offloading

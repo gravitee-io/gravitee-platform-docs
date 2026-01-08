@@ -2,8 +2,7 @@
 description: An overview about configure and deploy kafka console.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/kafka-gateway/configure-and-deploy-kafka-console
+    - configure-and-deploy-kafka-console.md
 ---
 
 # Configure and Deploy Kafka Console

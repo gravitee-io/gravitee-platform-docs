@@ -2,8 +2,7 @@
 description: An overview about import apis.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/create-apis/import-apis
+    - import-apis.md
 ---
 
 # Import APIs

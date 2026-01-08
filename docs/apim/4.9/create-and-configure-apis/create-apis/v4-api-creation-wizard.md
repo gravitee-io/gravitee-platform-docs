@@ -2,8 +2,7 @@
 description: An overview about v4 api creation wizard.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/create-apis/v4-api-creation-wizard
+    - v4-api-creation-wizard.md
 ---
 
 # v4 API Creation Wizard

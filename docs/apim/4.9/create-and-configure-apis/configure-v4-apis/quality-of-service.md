@@ -2,8 +2,7 @@
 description: An overview about quality of service.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/configure-v4-apis/quality-of-service
+    - quality-of-service.md
 ---
 
 # Quality of Service

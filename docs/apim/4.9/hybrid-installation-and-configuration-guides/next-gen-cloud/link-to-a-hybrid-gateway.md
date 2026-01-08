@@ -2,8 +2,7 @@
 description: An overview about link to a hybrid gateway.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/hybrid-installation-and-configuration-guides/next-gen-cloud/link-to-a-hybrid-gateway
+    - link-to-a-hybrid-gateway.md
 ---
 
 # Link to a Hybrid Gateway

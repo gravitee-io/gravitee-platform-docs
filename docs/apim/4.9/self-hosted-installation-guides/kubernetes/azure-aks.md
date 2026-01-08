@@ -2,8 +2,7 @@
 description: An overview about azure aks.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/self-hosted-installation-guides/kubernetes/azure-aks
+    - azure-aks.md
 ---
 
 # Azure AKS

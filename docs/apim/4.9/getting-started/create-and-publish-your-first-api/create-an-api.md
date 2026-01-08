@@ -2,8 +2,7 @@
 description: An overview about create an api.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/getting-started/create-and-publish-your-first-api/create-an-api
+    - create-an-api.md
 ---
 
 # Create an API

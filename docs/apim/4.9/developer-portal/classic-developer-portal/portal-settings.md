@@ -4,8 +4,7 @@ description: >-
   Developer Portal
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/developer-portal/classic-developer-portal/portal-settings
+    - portal-settings.md
 ---
 
 # Portal Settings

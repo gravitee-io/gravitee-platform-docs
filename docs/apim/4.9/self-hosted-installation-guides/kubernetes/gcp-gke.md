@@ -4,8 +4,7 @@ hidden: true
 noIndex: true
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/self-hosted-installation-guides/kubernetes/gcp-gke
+    - gcp-gke.md
 ---
 
 # GCP GKE

@@ -2,8 +2,7 @@
 description: An overview about delete a hybrid gateway.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/hybrid-installation-and-configuration-guides/next-gen-cloud/delete-a-hybrid-gateway
+    - delete-a-hybrid-gateway.md
 ---
 
 # Delete a Hybrid Gateway

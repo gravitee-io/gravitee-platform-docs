@@ -2,8 +2,7 @@
 description: An overview about federated apis.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/govern-apis/federation/federated-apis
+    - federated-apis.md
 ---
 
 # Federated APIs

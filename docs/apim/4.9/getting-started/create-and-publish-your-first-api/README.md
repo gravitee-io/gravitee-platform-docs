@@ -2,8 +2,7 @@
 description: Guide on applying policies related to create & publish your first api.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/getting-started/create-and-publish-your-first-api
+    - ./
 ---
 
 # Create & Publish Your First API

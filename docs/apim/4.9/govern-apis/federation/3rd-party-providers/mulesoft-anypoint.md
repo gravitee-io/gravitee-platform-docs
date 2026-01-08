@@ -2,8 +2,7 @@
 description: An overview about mulesoft anypoint.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/govern-apis/federation/3rd-party-providers/mulesoft-anypoint
+    - mulesoft-anypoint.md
 ---
 
 # Mulesoft Anypoint

@@ -4,8 +4,7 @@ description: >-
   of your production environment
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/prepare-a-production-environment/production-best-practices
+    - ./
 ---
 
 # Production Best Practices

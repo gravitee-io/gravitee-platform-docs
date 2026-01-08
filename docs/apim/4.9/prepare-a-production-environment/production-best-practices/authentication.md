@@ -2,8 +2,7 @@
 description: Configuration guide for authentication.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/prepare-a-production-environment/production-best-practices/authentication
+    - authentication.md
 ---
 
 # Authentication

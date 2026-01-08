@@ -2,8 +2,7 @@
 description: Configuration guide for configure v4 apis.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/configure-v4-apis
+    - ./
 ---
 
 # Configure v4 APIs

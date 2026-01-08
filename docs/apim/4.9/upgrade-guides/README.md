@@ -2,7 +2,7 @@
 description: Documentation about upgrade guides in the context of APIs.
 metaLinks:
   alternates:
-    - https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/upgrade-guides
+    - ./
 ---
 
 # Upgrade Guides

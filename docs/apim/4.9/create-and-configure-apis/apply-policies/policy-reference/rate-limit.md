@@ -2,8 +2,7 @@
 description: An overview about rate limit.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/rate-limit
+    - rate-limit.md
 ---
 
 # Rate Limit

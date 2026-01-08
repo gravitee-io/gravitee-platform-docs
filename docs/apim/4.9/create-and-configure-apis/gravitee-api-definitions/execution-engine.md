@@ -2,8 +2,7 @@
 description: An overview about execution engine.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/gravitee-api-definitions/execution-engine
+    - execution-engine.md
 ---
 
 # Execution Engine

@@ -2,8 +2,7 @@
 description: Documentation about mongodb index management in the context of APIs.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/upgrade-guides/mongodb-index-management
+    - mongodb-index-management.md
 ---
 
 # MongoDB Index Management

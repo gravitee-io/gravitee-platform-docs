@@ -2,8 +2,7 @@
 description: An overview about expose soap webservices as rest apis.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/how-to-guides/use-case-tutorials/expose-soap-webservices-as-rest-apis
+    - expose-soap-webservices-as-rest-apis.md
 ---
 
 # Expose SOAP Webservices as REST APIs

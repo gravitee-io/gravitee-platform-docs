@@ -2,8 +2,7 @@
 description: Configuration guide for hybrid installation & configuration guides.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/hybrid-installation-and-configuration-guides
+    - ./
 ---
 
 # Hybrid Installation & Configuration Guides
