@@ -1,6 +1,6 @@
 # APIM 4.10
 
-## Release Date:
+## Release Date: January 8, 2025
 
 ## Highlights
 
