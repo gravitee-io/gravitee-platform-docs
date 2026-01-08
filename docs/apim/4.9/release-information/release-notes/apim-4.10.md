@@ -22,7 +22,7 @@
 
 * In APIM 4.10.0, Elasticsearch indices used by Kafka Native APIs have been modified for better compatibility with OpenSearch and better accuracy.
 * You might have to do a roll-over of your `gravitee-event-metrics` index.
-* Previous indexed document is be deleted. However they are no longer be taken into account in Gravitee Dashboards.
+* Previous indexed document is deleted. However they are no longer be taken into account in Gravitee Dashboards.
 
 ## New Features
 
