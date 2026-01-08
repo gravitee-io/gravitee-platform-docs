@@ -1,8 +1,5 @@
 ---
 description: An overview about opentelemetry.
-metaLinks:
-  alternates:
-    - opentelemetry.md
 ---
 
 # OpenTelemetry
@@ -17,14 +14,23 @@ With Gravitee's OpenTelemetry feature, you can trace every request handled by th
 
 The OpenTelemetry framework supports standardized observability, which means that you can export your Gravitee traces to any telemetry tool. For example, Jaeger.
 
-With OpenTelemetry, tracers are created for specific services. By default, A global tracer is created for a Gateway-level service and follows the same lifecycle as the Gateway. Optionally, you can create a tracer when an API is deployed. An API-level tracer follows the same lifecycle as the API and stops when you undeploy an API.
+With OpenTelemetry, tracers are created for specific services. By default, a global tracer is created for a Gateway-level service and follows the same lifecycle as the Gateway. For v2 APIs, this global tracer is used when you enable OpenTelemetry in the Gateway configuration. Optionally, you can create a tracer when a v4 API is deployed. An API-level tracer follows the same lifecycle as the API and stops when you undeploy an API.
 
-You can enable verbose tracing for v4 APIs. The Verbose option uses technical tracing to generate additional request execution details. These additional details increase the number of spans per trace and generates a pre-processor-transaction trace.
+You can enable verbose tracing for v4 APIs. Verbose mode adds detailed execution events to each policy span, capturing headers and context attributes before and after policy execution.
 
 To enable OpenTelemetry, complete the following steps:
 
 1. [#enable-opentelemetry-for-your-gateway](opentelemetry.md#enable-opentelemetry-for-your-gateway "mention")
 2. [#enable-opentelemetry-for-an-api](opentelemetry.md#enable-opentelemetry-for-an-api "mention")
+
+## Naming Conventions&#x20;
+
+Gravitee follows OpenTelemetry naming conventions:
+
+* Standard attributes are prefixed with `gravitee.`.
+* Custom attributes remain unchanged without a prefix or alteration. For example, attributes added via the Assign Attributes policy.&#x20;
+* Headers are prefixed with `http.request.` or `http.response.` based on the execution phase.
+* Gravitee-specific headers contain `X-Gravitee` in their names.&#x20;
 
 ## Enable OpenTelemetry for your Gateway
 
@@ -33,11 +39,11 @@ To enable OpenTelemetry, complete the following steps:
 * `services.tracing.otel` is deprecated.
 {% endhint %}
 
-* To enable OpenTelemetry for your Gateway, follow the steps for your installation type:
+To enable OpenTelemetry for your Gateway, follow the steps for your installation type:
 
 {% tabs %}
 {% tab title="gravitee.yml" %}
--   To enable OpenTelemetry, add the following configuration to your `gravitee.yml` file:<br>
+*   To enable OpenTelemetry, add the following configuration to your `gravitee.yml` file:
 
     ```yaml
     services:
@@ -83,11 +89,11 @@ To enable OpenTelemetry, complete the following steps:
          #     password: password
 
     ```
-- Replace `<OPENTELEMETRY_ENDPOINT>` with the endpoint that you use for your OpenTelemetry collector. The default endpoint is `http://localhost:4317`.
+* Replace `<OPENTELEMETRY_ENDPOINT>` with the endpoint that you use for your OpenTelemetry collector. The default endpoint is `http://localhost:4317`.
 {% endtab %}
 
 {% tab title="values.yaml" %}
-*   To enable OpenTelemetry, add the following configuration to your `values.yaml` file:<br>
+*   To enable OpenTelemetry, add the following configuration to your `values.yaml` file:
 
     ```yaml
     gateway:
@@ -137,7 +143,7 @@ To enable OpenTelemetry, complete the following steps:
 {% endtab %}
 
 {% tab title="Environment variables" %}
-*   To enable enable OpenTelemetry, add the following environment variable to your `.env` file:<br>
+*   To enable enable OpenTelemetry, add the following environment variable to your `.env` file:
 
     ```bash
     GRAVITEE_SERVICES_OPENTELEMETRY_ENABLED=true
@@ -145,13 +151,13 @@ To enable OpenTelemetry, complete the following steps:
 {% endtab %}
 {% endtabs %}
 
-For more information about OpenTelemetry configurations, go to [Gravitee's Gravitee Node OpenTelemetry GitHub README](https://github.com/gravitee-io/gravitee-node/tree/master/gravitee-node-opentelemetry).
+For more information about OpenTelemetry configurations, go to the [Gravitee Node OpenTelemetry GitHub README](https://github.com/gravitee-io/gravitee-node/tree/master/gravitee-node-opentelemetry).
 
 ### Verification
 
 *   To verify that you are sending traces to your OpenTelemetry collector, use the following command:<br>
 
-    ```
+    ```bash
     curl -i http://localhost:8082/my-api/endpoint
     ```
 
@@ -161,58 +167,74 @@ For more information about OpenTelemetry configurations, go to [Gravitee's Gravi
 ## Enable OpenTelemetry for an API
 
 {% hint style="warning" %}
-To enable OpenTelemetry for an API, you must have OpenTelemetry enabled on your Gateway. For more information about enabling OpenTelemetry for your Gateway, see [#enable-opentelemetry-for-your-gateway](opentelemetry.md#enable-opentelemetry-for-your-gateway "mention").
+To enable OpenTelemetry for an API, you must have OpenTelemetry enabled on your Gateway. For more information, see [#enable-opentelemetry-for-your-gateway](opentelemetry.md#enable-opentelemetry-for-your-gateway "mention").
 {% endhint %}
 
-1.  From the **Dashboard**, click **APIs**.<br>
+## Tracing modes&#x20;
 
-    <figure><img src="../.gitbook/assets/image (50).png" alt=""><figcaption></figcaption></figure>
-2.  From the **APIs** screen, select the API that you to enable OpenTelemetry for.<br>
+Gravitee APIM offers two levels of tracing to capture API request execution data.
 
-    <figure><img src="../.gitbook/assets/image (51).png" alt=""><figcaption></figcaption></figure>
-3.  From your **API** menu, click **Deployment**.<br>
+### (Always active) Standard tracing&#x20;
 
-    <figure><img src="../.gitbook/assets/image (55) (1) (1).png" alt=""><figcaption></figcaption></figure>
-4.  From the **Deployment** screen, click **Reporter Settings**.<br>
+Standard tracing is enabled by default. It captures request and response flow, policy execution timing, backend invocation spans, error tracking, and conditional policy trigger recording.
 
-    <figure><img src="../.gitbook/assets/image (49).png" alt=""><figcaption></figcaption></figure>
-5.  Navigate to the **OpenTelemetry** section, and then turn on the **Enabled** toggle.<br>
+### (Optional) Verbose mode&#x20;
 
-    <figure><img src="../.gitbook/assets/image (52).png" alt=""><figcaption></figcaption></figure>
-6.  (Optional) Turn on the **Verbose** toggle.<br>
+Verbose mode adds detailed execution events to each policy span. It captures the complete state before and after policy execution through span events that include headers and context attributes.
 
-    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>If you enable verbose, the number of spans for each trace increases, which might impact performance.</p></div>
+#### **What verbose mode captures**
 
-    <figure><img src="../.gitbook/assets/image (53).png" alt=""><figcaption></figcaption></figure>
-7.  In the **You have unsaved changes** pop-up window, click **Save**.<br>
+Verbose mode records the following execution data:
 
-    <figure><img src="../.gitbook/assets/image (54).png" alt=""><figcaption></figcaption></figure>
+* Detailed header captures (request & response).
+* Context attribute snapshots.
+* Pre and post policy execution events.
+* Complete state visibility before and after each policy.
+
+#### **When to enable verbose mode:**&#x20;
+
+Enable verbose mode for the following scenarios:
+
+* To debug policy transformations.
+* To troubleshoot header manipulation.
+* To view context attributes before and after policy execution.&#x20;
+* For deep request/response analysis.
+* When compliance requires detailed audit trails.
+
+#### **Performance considerations:**&#x20;
+
+Verbose mode affects resource usage in the following ways:
+
+* Increases trace size significantly (10-50x) by including additional span event data.
+* Uses a higher network bandwidth to reach the OpenTelemetry collector.
+* Requires additional storage in the observability backend.
+* Results in minimal performance impact (< 1ms per policy).
 
 ### Verification
 
-*   To verify that you are sending traces to your OpenTelemetry collector, call the API using the following command:<br>
+*   To verify that you are sending traces to your OpenTelemetry collector, call the API using the following command:
 
-    ```
+    ```bash
     curl -i "http://<GATEWAY_HOST>:<GATEWAY_PORT>/<CONTEXT_PATH>/"
     ```
 
-    * Replace `<GATEWAY_HOST>` with your Gateway host. For example, `localhost` .
-    * Replace `<GATEWAY_PORT>` with the port for your Gateway. For example, `8084` .
-    * Replace `<CONTEXT_PATH>` with the context path for your API. For example, `test` .
+    * Replace `<GATEWAY_HOST>` with your Gateway host. For example, `localhost`.
+    * Replace `<GATEWAY_PORT>` with the port for your Gateway. For example, `8084`.
+    * Replace `<CONTEXT_PATH>` with the context path for your API. For example, `test`.
 
-The trace for the API appears in your OpenTelemetry collector.
+    The trace for the API appears in your OpenTelemetry collector.
 
 ## OpenTelemetry API trace details
 
 You can use OpenTelemetry traces to view the following API transaction details:
 
 * Plan type used. For example, Keyless and API Key.
-* `api_Id` .
-* Webhook `subscription_Id` .
+* `api_Id`.
+* Webhook `subscription_Id`.
 * Webhook URL.
 * Number of messages. This number is based on the defined sampling value.
-* Type of server used. For example, Mock and Kafka.
-* Policies being executed,
+* Type of server used. For example, Mock or Kafka.
+* Policies that are executed.
 * `message_Id` . For example, the ID of each message in a Kafka topic.
-* If you call an API with invalid auth, you can see a trace with a warning and logs with details about the errors.
-* For a POST or GET request, you see the following information: `request_body_size`, `request_content_length`, `context-path`, `host.name` and `http_status_code`
+* If you call an API with invalid authentication, you can see a trace with a warning and logs with details about the errors.
+* For a POST or GET request, you see the following information: `request_body_size`, `request_content_length`, `context-path`, `host.name` and `http_status_code`.
