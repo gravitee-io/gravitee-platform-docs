@@ -129,12 +129,12 @@ GET /products/:productId/items/:id
 | API-level response status pie chart       | ✅             | ✅             | ✅               |
 | API-level hits by HTTP status over time   | ✅             | ✅             | 🚫              |
 | API-level average response time over time | ✅             | ✅             | 🚫              |
-| API-level hits by application over time   | ✅             | 🚫            | 🚫              |
-| API-level top applications                | ✅             | 🚫            | 🚫              |
-| API-level top plans                       | ✅             | 🚫            | 🚫              |
-| API-level top paths                       | ✅             | 🚫            | 🚫              |
-| API-level top slow applications           | ✅             | 🚫            | 🚫              |
-| API-level hits by host                    | ✅             | 🚫            | 🚫              |
+| API-level hits by application over time   | ✅             | ✅             | 🚫              |
+| API-level top applications                | ✅             | ✅             | 🚫              |
+| API-level top plans                       | ✅             | ✅             | 🚫              |
+| API-level top paths                       | ✅             | ✅             | 🚫              |
+| API-level top slow applications           | ✅             | ✅             | 🚫              |
+| API-level hits by host                    | ✅             | ✅             | 🚫              |
 
 ### **Application-level Analytics**
 
