@@ -1,8 +1,5 @@
 ---
 description: An overview about enable the new developer portal.
-metaLinks:
-  alternates:
-    - configure-the-new-portal.md
 ---
 
 # Enable the New Developer Portal
