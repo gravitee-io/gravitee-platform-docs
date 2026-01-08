@@ -1,11 +1,10 @@
 ---
 description: An overview about agent mesh.
-metaLinks:
-  alternates:
-    - ./
 ---
 
 # Agent Mesh
+
+<table data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Set up an AI Agent (A2A) Proxy</td><td><a href="create-an-a2a-proxy.md">create-an-a2a-proxy.md</a></td></tr><tr><td>Discover and Catalog AI Agents (A2A)</td><td><a href="add-agents-to-your-agent-catalog.md">add-agents-to-your-agent-catalog.md</a></td></tr><tr><td>Convert REST APIs to an MCP Server</td><td><a href="convert-your-apis-to-mcp-servers.md">convert-your-apis-to-mcp-servers.md</a></td></tr><tr><td>LLM Proxy</td><td><a href="llm-proxy/">llm-proxy</a></td></tr></tbody></table>
 
 ## Overview
 
@@ -37,9 +36,9 @@ When a backend agent serves the Agent Card listing its capabilities, another age
 
 Gravitee's **LLM Proxy** provides a layer of abstraction between AI agents and LLMs. It sits on top of LLM models and applies governance to enforce compliance and cost control. The following are examples of LLM capabilities:
 
-* Token-based rate limiting via Gravitee's [Prompt Token Tracking](../create-and-configure-apis/apply-policies/policy-reference/ai-prompt-token-tracking.md) policy.
+* Token-based rate limiting using Gravitee's Prompt Token Tracking policy. for more information about the Prompt Token Tracking policy, see [ai-prompt-token-tracking.md](../create-and-configure-apis/apply-policies/policy-reference/ai-prompt-token-tracking.md "mention").
 * Routing to different LLMs.
-* Threat protection via Gravitee's [Prompt Guard Rails](../create-and-configure-apis/apply-policies/policy-reference/ai-prompt-guard-rails.md) policy.
+* Threat protection using Gravitee's Prompt Guard Rails policy. For more information about the Prompt Guard Rails policy, see [ai-prompt-guard-rails.md](../create-and-configure-apis/apply-policies/policy-reference/ai-prompt-guard-rails.md "mention").
 * Orchestration, such as HTTP calls to obtain data to add to LLM contexts.
 
 ## Agent Catalog
