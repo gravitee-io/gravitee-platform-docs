@@ -397,7 +397,7 @@
 * [Release Information](release-information/README.md)
   * [Release Notes](release-information/release-notes/README.md)
     * [APIM 4.10](release-information/release-notes/apim-4.10.md)
-    * [APIM 4.9](release-information/release-notes/apim-4.9.md)
+    * [APIM 4.9](https://documentation.gravitee.io/apim/release-information/release-notes/apim-4.9)
     * [APIM 4.8](https://documentation.gravitee.io/apim/4.8/release-information/release-notes/apim-4.8)
     * [APIM 4.7](https://documentation.gravitee.io/apim/4.7/overview/release-notes/apim-4.7)
     * [APIM 4.6](https://documentation.gravitee.io/apim/overview/release-notes/apim-4.6)
