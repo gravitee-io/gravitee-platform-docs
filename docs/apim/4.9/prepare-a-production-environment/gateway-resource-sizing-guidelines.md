@@ -156,7 +156,7 @@ Storage concerns reside at the analytics database level and depend on:
 * API rate (RPS: Requests Per Second)
 * API payload sizes
 
-To avoid generating excessive data and reducing Gateway capacity, refrain from [activating the advanced logs](../analyze-and-monitor-apis/logging.md) on all API requests and responses.
+To avoid generating excessive data and reducing Gateway capacity, refrain from [activating the advanced logs](../analyze-and-monitor-apis/logging/) on all API requests and responses.
 
 For example, if you have activated the advanced logs on requests and responses with an average (requests + responses) payload size of 10kB and at 10 RPS, then retaining the logs for 6 months will require 1.5 TB of storage.
 {% endtab %}

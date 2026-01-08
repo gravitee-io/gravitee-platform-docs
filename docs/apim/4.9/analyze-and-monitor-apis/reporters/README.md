@@ -89,7 +89,7 @@ By default, reporters generate the following data, with the camelCase format sho
 
 ## Log Data Sent via Reporters
 
-In addition to metrics, the gateway can send additional log messages about API execution to the target reporting system. The content of the logs depends on how [logging is configured](../logging.md) for the API, and whether the API is a v2 or v4 API. There are also separate log messages generated for v4 request and response phases as well as message-level logging (which uses sampling). The contents of the logs are as follows:
+In addition to metrics, the gateway can send additional log messages about API execution to the target reporting system. The content of the logs depends on how [logging is configured](../logging/) for the API, and whether the API is a v2 or v4 API. There are also separate log messages generated for v4 request and response phases as well as message-level logging (which uses sampling). The contents of the logs are as follows:
 
 {% tabs %}
 {% tab title="v4 Logs" %}

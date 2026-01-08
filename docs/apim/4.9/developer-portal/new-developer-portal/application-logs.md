@@ -29,5 +29,5 @@ The Developer Portal opens in a new browser tab. To view the logs for an API:
     <figure><img src="../../.gitbook/assets/00 log.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="warning" %}
-The API publisher determines which information is logged for a given API. To configure what information is logged and visible to an API subscriber, see [Modify logging information](../../analyze-and-monitor-apis/logging.md).
+The API publisher determines which information is logged for a given API. To configure what information is logged and visible to an API subscriber, see [Modify logging information](../../analyze-and-monitor-apis/logging/).
 {% endhint %}
