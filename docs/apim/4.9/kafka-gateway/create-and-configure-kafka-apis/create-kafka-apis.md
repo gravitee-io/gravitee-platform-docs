@@ -1,8 +1,5 @@
 ---
 description: An overview about create kafka apis.
-metaLinks:
-  alternates:
-    - create-kafka-apis.md
 ---
 
 # Create Kafka APIs
@@ -33,40 +30,43 @@ Define a name, version number, and description for your API.
 
 The name and version number are required, but we also recommend giving your API a description so that it is more easily understood and managed by internal users.
 
-<figure><img src="../../.gitbook/assets/v4 wizard_step 1 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/api-details-name.png" alt=""><figcaption></figcaption></figure>
 
 ## Entrypoints
 
 When choosing how you want to expose your backend, you will be presented with three options: Proxy Generic Protocol, Protocol Mediation, and Kafka Protocol.
 
-Select Kafka Protocol to create a Kafka API. Kafka APIs proxy the native Kafka protocol, with the Gravitee Gateway acting as a Kafka broker to Kafka clients.
+Select Kafka Protocol to create a Kafka API. Kafka APIs proxy the native Kafka protocol, with the Gravitee Gateway acting as a Kafka broker to Kafka clients.<br>
 
-<figure><img src="../../.gitbook/assets/A1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/select-kafka-protocol.png" alt=""><figcaption></figcaption></figure>
 
 The only field to configure for the Kafka API entrypoint is the **Host prefix**, for which you should enter the host name. If the default hostname is set, you only need to enter the prefix. This is used to uniquely identify your API server on the gateway.
 
-<figure><img src="../../.gitbook/assets/A2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/kafka-host-prefix.png" alt=""><figcaption></figcaption></figure>
 
 ## Endpoints
 
 The Kafka endpoint configuration is the Kafka cluster being proxied by your API. Configure the bootstrap server list and security protocol to talk to the cluster.
 
-<figure><img src="../../.gitbook/assets/A3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/endpoint-create-kafka.png" alt=""><figcaption></figcaption></figure>
 
 Of the following configuration settings, only entering a host/port pair is required. Modifying any other configuration parameters is optional.
 
 1. Define the comma-separated list of host/port pairs to use for establishing the initial connection to the Kafka cluster.
 2. Select **PLAINTEXT**, **SASL\_PLAINTEXT**, **SASL\_SSL**, or **SSL** from the drop-down menu to define your Kafka-specific authentication flow:
    * **PLAINTEXT:** No further security config necessary.
-   * **SASL\_PLAINTEXT:** Choose NON&#x45;**,** GSSAPI, OAUTHBEARER, OAUTHBEARER\_TOKEN, PLAIN, SCRAM\_SHA-256, or SCRAM-SHA-512
-     * **NONE:** No further security config necessary.
+   * **SASL\_PLAINTEXT:** Choose NONE, GSSAPI, OAUTHBEARER, OAUTHBEARER\_TOKEN, PLAIN, SCRAM-SHA-256, SCRAM-SHA-512, or DELEGATE\_TO\_BROKER
+     * **NONE:** No additional security configuration required.
      * **AWS\_MSK\_IAM:** Enter the JAAS login context parameters.
      * **GSSAPI:** Enter the JAAS login context parameters.
      * **OAUTHBEARER:** Enter the OAuth token URL, client ID, client secret, and scopes to request when issuing a new token.
      * **OAUTHBEARER\_TOKEN:** Provide your custom token value.
      * **PLAIN:** Enter the username and password to connect to the broker.
-     * **SCRAM\_SHA256:** Enter the username and password to connect to the broker.
-     * **SCRAM\_SHA512:** Enter the username and password to connect to the broker.
+     * **SCRAM-SHA-256:** Enter the username and password to connect to the broker.
+     * **SCRAM-SHA-512:** Enter the username and password to connect to the broker.
+     *   **DELEGATE\_TO\_BROKER:** No additional security configuration required.
+
+         <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>When using <code>DELEGATE_TO_BROKER</code>, the supported mechanisms available to the client are <code>PLAIN</code> and <code>AWS_IAM_MSK</code>. The <code>AWS_MSK_IAM</code> mechanism requires you to host the Kafka Gateway on AWS. Otherwise, authentication fails.</p></div>
    *   **SSL:** Choose whether to enable host name verification, then use the drop-down menu to configure a truststore type
 
        * **None**
@@ -86,13 +86,13 @@ Of the following configuration settings, only entering a host/port pair is requi
        * **PKCS#12 / PFX with path:** Enter the keystore password, the key's alias, the key password, and the keystore file path.
        * **PEM with content:** Enter the certificate and private key.
        * **PEM with path:** Enter the certificate path and private key path.
-   * **SASL\_SSL:** Configure for both **SASL\_PLAINTEXT** and **SSL**.
+   * **SASL\_SSL:** Configure both SASL authentication and SSL encryption, choose a **SASL** mechanism from the options listed under **SASL\_PLAINTEXT**, and then configure **SSL** settings as described in the **SSL** section.
 
 ## Security
 
 Define a plan to secure, monitor, and transparently communicate information on how to access your Kafka API. The plan types presented are the same as the plan types used for regular HTTP APIs in Gravitee, but map to a Kafka authentication equivalent.
 
-<figure><img src="../../.gitbook/assets/A4.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/create-kafka-apis-security.png" alt=""><figcaption></figcaption></figure>
 
 Gravitee automatically assigns each API a Default Keyless plan, which grants public access. Click **+ Add plan** to create additional plans.
 
