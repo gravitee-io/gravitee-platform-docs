@@ -33,3 +33,5 @@
   * [Release Notes Template](release-notes/release-notes-template.md)
   * [4.10 Release Notes Draft](release-notes/apim_4.10_release_notes.md)
   * [4.10 Release Notes Draft 2](release-notes/apim_4.10_release_notes2.md)
+  * [DRAFT: 4.10 ReleaseNotes](release-notes/draft-4.10-releasenotes.md)
+* [ReleaseNotes](releasenotes.md)
