@@ -89,15 +89,13 @@ The evaluation endpoint returns a JSON object containing the following:
 
 </details>
 
+## Authorization
+
+Authzen endpoint supports client basic authorization.&#x20;
+
 ## Headers
 
 ### Request headers
-
-| Header          | Description                                        |
-| --------------- | -------------------------------------------------- |
-| `Authorization` | Basic `base64(clientId:clientSecret)`              |
-| `X-Request-ID`  | (Optional) Request identifier for logging/tracing. |
-| `Content-Type`  | Must be `application/json`.                        |
 
 ### Response headers
 
