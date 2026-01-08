@@ -1,8 +1,5 @@
 ---
 description: Documentation about layout and theme in the context of APIs.
-metaLinks:
-  alternates:
-    - layout-and-theme.md
 ---
 
 # Layout and Theme
