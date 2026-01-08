@@ -2,8 +2,7 @@
 description: An overview about keyless.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/keyless
+    - keyless.md
 ---
 
 # Keyless

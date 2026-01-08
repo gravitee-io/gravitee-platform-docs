@@ -2,8 +2,7 @@
 description: An overview about self-hosted installation guides.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/self-hosted-installation-guides
+    - ./
 ---
 
 # Self-Hosted Installation Guides

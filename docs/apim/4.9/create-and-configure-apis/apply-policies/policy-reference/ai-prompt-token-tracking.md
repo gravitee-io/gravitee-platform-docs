@@ -2,8 +2,7 @@
 description: An overview about ai - prompt token tracking.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/ai-prompt-token-tracking
+    - ai-prompt-token-tracking.md
 ---
 
 # AI - Prompt Token Tracking

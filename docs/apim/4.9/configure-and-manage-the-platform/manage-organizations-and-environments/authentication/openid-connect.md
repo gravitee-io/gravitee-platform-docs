@@ -2,8 +2,7 @@
 description: An overview about openid connect.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/configure-and-manage-the-platform/manage-organizations-and-environments/authentication/openid-connect
+    - openid-connect.md
 ---
 
 # OpenID Connect

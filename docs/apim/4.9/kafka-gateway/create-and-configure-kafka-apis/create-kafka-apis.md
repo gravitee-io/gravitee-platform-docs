@@ -2,8 +2,7 @@
 description: An overview about create kafka apis.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/kafka-gateway/create-and-configure-kafka-apis/create-kafka-apis
+    - create-kafka-apis.md
 ---
 
 # Create Kafka APIs

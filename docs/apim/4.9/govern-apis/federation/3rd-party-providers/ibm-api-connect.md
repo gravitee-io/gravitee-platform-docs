@@ -2,8 +2,7 @@
 description: An overview about ibm api connect.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/govern-apis/federation/3rd-party-providers/ibm-api-connect
+    - ibm-api-connect.md
 ---
 
 # IBM API Connect

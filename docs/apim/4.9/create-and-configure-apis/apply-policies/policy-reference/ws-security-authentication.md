@@ -2,8 +2,7 @@
 description: An overview about ws security authentication.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/ws-security-authentication
+    - ws-security-authentication.md
 ---
 
 # WS Security Authentication

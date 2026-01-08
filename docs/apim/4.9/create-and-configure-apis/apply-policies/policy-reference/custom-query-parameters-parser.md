@@ -2,8 +2,7 @@
 description: An overview about custom query parameters parser.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/custom-query-parameters-parser
+    - custom-query-parameters-parser.md
 ---
 
 # Custom Query Parameters Parser

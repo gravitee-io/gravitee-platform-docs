@@ -2,8 +2,7 @@
 description: An overview about role-based access control (rbac).
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/role-based-access-control-rbac
+    - role-based-access-control-rbac.md
 ---
 
 # Role-based Access Control (RBAC)

@@ -2,8 +2,7 @@
 description: Documentation about notifiers in the context of APIs.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/prepare-a-production-environment/production-best-practices/general-recommendations/notifiers
+    - notifiers.md
 ---
 
 # Notifiers

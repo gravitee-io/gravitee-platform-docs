@@ -2,8 +2,7 @@
 description: An overview about user and group access.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/secure-and-expose-apis/applications/user-and-group-access
+    - user-and-group-access.md
 ---
 
 # User and Group Access

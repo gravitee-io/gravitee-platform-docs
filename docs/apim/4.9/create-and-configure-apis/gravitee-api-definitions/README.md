@@ -2,8 +2,7 @@
 description: An overview about gravitee api definitions.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/gravitee-api-definitions
+    - ./
 ---
 
 # Gravitee API Definitions

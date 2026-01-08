@@ -2,8 +2,7 @@
 description: An overview about apim 4.9 elasticsearch index template changes.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/upgrade-guides/apim-4.9-elasticsearch-index-template-changes
+    - apim-4.9-elasticsearch-index-template-changes.md
 ---
 
 # APIM 4.9 Elasticsearch Index Template Changes

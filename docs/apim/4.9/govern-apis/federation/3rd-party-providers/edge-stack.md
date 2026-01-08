@@ -2,8 +2,7 @@
 description: An overview about edge stack.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/govern-apis/federation/3rd-party-providers/edge-stack
+    - edge-stack.md
 ---
 
 # Edge Stack

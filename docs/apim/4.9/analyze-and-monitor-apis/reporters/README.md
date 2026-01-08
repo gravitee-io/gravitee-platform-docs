@@ -2,8 +2,7 @@
 description: An overview about reporters.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/analyze-and-monitor-apis/reporters
+    - ./
 ---
 
 # Reporters

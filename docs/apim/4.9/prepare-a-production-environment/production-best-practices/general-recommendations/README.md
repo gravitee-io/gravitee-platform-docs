@@ -2,8 +2,7 @@
 description: Information about general recommendations.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/prepare-a-production-environment/production-best-practices/general-recommendations
+    - ./
 ---
 
 # General Recommendations

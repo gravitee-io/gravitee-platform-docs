@@ -2,8 +2,7 @@
 description: An overview about health-checks.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/configure-v4-apis/health-checks
+    - health-checks.md
 ---
 
 # Health-checks

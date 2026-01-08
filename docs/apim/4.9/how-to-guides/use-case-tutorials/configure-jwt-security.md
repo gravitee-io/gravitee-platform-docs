@@ -2,8 +2,7 @@
 description: An overview about configure jwt security.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/how-to-guides/use-case-tutorials/configure-jwt-security
+    - configure-jwt-security.md
 ---
 
 # Configure JWT Security

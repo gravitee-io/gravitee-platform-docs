@@ -2,8 +2,7 @@
 description: An overview about add security.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/getting-started/create-and-publish-your-first-api/add-security
+    - add-security.md
 ---
 
 # Add Security

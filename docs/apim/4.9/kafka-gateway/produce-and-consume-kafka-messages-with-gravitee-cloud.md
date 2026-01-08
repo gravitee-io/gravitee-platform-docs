@@ -2,8 +2,7 @@
 description: An overview about produce and consume kafka messages with gravitee cloud.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/kafka-gateway/produce-and-consume-kafka-messages-with-gravitee-cloud
+    - produce-and-consume-kafka-messages-with-gravitee-cloud.md
 ---
 
 # Produce and Consume Kafka Messages with Gravitee Cloud

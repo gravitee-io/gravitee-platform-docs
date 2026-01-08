@@ -2,8 +2,7 @@
 description: An overview about endpoints.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/endpoints
+    - endpoints.md
 ---
 
 # Endpoints

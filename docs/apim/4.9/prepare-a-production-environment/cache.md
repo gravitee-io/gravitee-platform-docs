@@ -2,8 +2,7 @@
 description: An overview about cache.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/prepare-a-production-environment/cache
+    - cache.md
 ---
 
 # Cache

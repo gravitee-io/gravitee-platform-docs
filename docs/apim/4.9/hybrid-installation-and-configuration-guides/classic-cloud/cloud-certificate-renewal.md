@@ -2,8 +2,7 @@
 description: An overview about cloud certificate renewal.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/hybrid-installation-and-configuration-guides/classic-cloud/cloud-certificate-renewal
+    - cloud-certificate-renewal.md
 ---
 
 # Cloud Certificate Renewal

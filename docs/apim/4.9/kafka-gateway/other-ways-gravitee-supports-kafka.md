@@ -2,8 +2,7 @@
 description: An overview about other ways gravitee supports kafka.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/kafka-gateway/other-ways-gravitee-supports-kafka
+    - other-ways-gravitee-supports-kafka.md
 ---
 
 # Other Ways Gravitee Supports Kafka

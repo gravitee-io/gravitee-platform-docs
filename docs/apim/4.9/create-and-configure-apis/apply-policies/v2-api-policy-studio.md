@@ -2,8 +2,7 @@
 description: An overview about v2 api policy studio.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/v2-api-policy-studio
+    - v2-api-policy-studio.md
 ---
 
 # v2 API Policy Studio

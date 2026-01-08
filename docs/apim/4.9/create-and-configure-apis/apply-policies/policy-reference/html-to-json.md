@@ -2,8 +2,7 @@
 description: An overview about html to json.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/html-to-json
+    - html-to-json.md
 ---
 
 # HTML to JSON

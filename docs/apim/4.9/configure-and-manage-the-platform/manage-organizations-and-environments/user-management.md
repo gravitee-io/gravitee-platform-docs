@@ -2,8 +2,7 @@
 description: An overview about user management.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/configure-and-manage-the-platform/manage-organizations-and-environments/user-management
+    - user-management.md
 ---
 
 # User Management

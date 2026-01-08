@@ -2,8 +2,7 @@
 description: Configuration guide for datadog reporter.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/analyze-and-monitor-apis/reporters/datadog-reporter
+    - datadog-reporter.md
 ---
 
 # Datadog Reporter

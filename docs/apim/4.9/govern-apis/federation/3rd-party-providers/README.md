@@ -2,8 +2,7 @@
 description: An overview about 3rd-party providers.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/govern-apis/federation/3rd-party-providers
+    - ./
 ---
 
 # 3rd-Party Providers

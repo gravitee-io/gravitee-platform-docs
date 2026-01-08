@@ -2,8 +2,7 @@
 description: An overview about solace.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/govern-apis/federation/3rd-party-providers/solace
+    - solace.md
 ---
 
 # Solace

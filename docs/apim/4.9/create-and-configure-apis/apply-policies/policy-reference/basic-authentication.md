@@ -2,8 +2,7 @@
 description: An overview about basic authentication.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/basic-authentication
+    - basic-authentication.md
 ---
 
 # Basic Authentication

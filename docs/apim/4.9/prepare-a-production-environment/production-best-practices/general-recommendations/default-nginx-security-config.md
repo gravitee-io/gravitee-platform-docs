@@ -2,8 +2,7 @@
 description: Guide on applying policies related to default nginx security config.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/prepare-a-production-environment/production-best-practices/general-recommendations/default-nginx-security-config
+    - default-nginx-security-config.md
 ---
 
 # Default Nginx Security Config

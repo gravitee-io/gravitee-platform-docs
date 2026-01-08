@@ -2,8 +2,7 @@
 description: An overview about add a policy.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/getting-started/create-and-publish-your-first-api/add-a-policy
+    - add-a-policy.md
 ---
 
 # Add a Policy

@@ -2,8 +2,7 @@
 description: An overview about azure api management.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/govern-apis/federation/3rd-party-providers/azure-api-management
+    - azure-api-management.md
 ---
 
 # Azure API Management

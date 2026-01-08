@@ -4,8 +4,7 @@ description: >-
   of APIs.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/getting-started/local-install-with-docker
+    - local-install-with-docker.md
 ---
 
 # Fully self-hosted installation with Docker

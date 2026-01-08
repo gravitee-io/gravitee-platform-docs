@@ -2,8 +2,7 @@
 description: An overview about fully self-hosted installation with  vanilla kubernetes.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/getting-started/vanilla-kubernetes
+    - vanilla-kubernetes.md
 ---
 
 # Fully self-hosted installation with Vanilla Kubernetes

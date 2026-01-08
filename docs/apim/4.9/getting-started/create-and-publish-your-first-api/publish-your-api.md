@@ -2,8 +2,7 @@
 description: An overview about publish your api.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/getting-started/create-and-publish-your-first-api/publish-your-api
+    - publish-your-api.md
 ---
 
 # Publish your API

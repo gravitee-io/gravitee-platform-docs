@@ -2,8 +2,7 @@
 description: An overview about enable api score.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/govern-apis/api-score/enable-api-score
+    - enable-api-score.md
 ---
 
 # Enable API Score

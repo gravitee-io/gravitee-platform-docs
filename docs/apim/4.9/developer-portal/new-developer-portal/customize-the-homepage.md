@@ -2,8 +2,7 @@
 description: An overview about customize the homepage.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/developer-portal/new-developer-portal/customize-the-homepage
+    - customize-the-homepage.md
 ---
 
 # Customize the homepage

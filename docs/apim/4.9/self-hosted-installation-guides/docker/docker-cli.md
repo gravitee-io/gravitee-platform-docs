@@ -2,8 +2,7 @@
 description: Documentation about docker cli in the context of APIs.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/self-hosted-installation-guides/docker/docker-cli
+    - docker-cli.md
 ---
 
 # Docker CLI

@@ -2,8 +2,7 @@
 description: An overview about discover and catalog ai agents (a2a).
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/agent-mesh/add-agents-to-your-agent-catalog
+    - add-agents-to-your-agent-catalog.md
 ---
 
 # Discover and Catalog AI Agents (A2A)

@@ -2,7 +2,7 @@
 description: An overview about plugins.
 metaLinks:
   alternates:
-    - https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/plugins
+    - ./
 ---
 
 # Plugins

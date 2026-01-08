@@ -2,7 +2,7 @@
 description: Configuration guide for federation.
 metaLinks:
   alternates:
-    - https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/govern-apis/federation
+    - ./
 ---
 
 # Federation

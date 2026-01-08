@@ -2,8 +2,7 @@
 description: An overview about service discovery.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/configure-v2-apis/service-discovery
+    - service-discovery.md
 ---
 
 # Service Discovery

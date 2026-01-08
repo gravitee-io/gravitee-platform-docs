@@ -2,8 +2,7 @@
 description: An overview about json to xml.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/json-to-xml
+    - json-to-xml.md
 ---
 
 # JSON to XML

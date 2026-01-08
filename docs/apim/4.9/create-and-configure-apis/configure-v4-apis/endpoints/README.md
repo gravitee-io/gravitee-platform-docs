@@ -2,8 +2,7 @@
 description: An overview about endpoints.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/configure-v4-apis/endpoints
+    - ./
 ---
 
 # Endpoints

@@ -2,8 +2,7 @@
 description: An overview about v2 and v4 api comparison.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/gravitee-api-definitions/v2-and-v4-api-comparison
+    - v2-and-v4-api-comparison.md
 ---
 
 # v2 and v4 API Comparison

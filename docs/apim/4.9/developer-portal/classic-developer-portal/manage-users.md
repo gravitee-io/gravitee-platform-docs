@@ -2,8 +2,7 @@
 description: An overview about manage users.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/developer-portal/classic-developer-portal/manage-users
+    - manage-users.md
 ---
 
 # Manage Users

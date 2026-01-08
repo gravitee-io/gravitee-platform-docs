@@ -2,8 +2,7 @@
 description: Tutorial on configure secrets.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/prepare-a-production-environment/sensitive-data-management/configure-secrets
+    - ./
 ---
 
 # Configure Secrets

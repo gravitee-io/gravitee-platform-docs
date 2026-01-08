@@ -2,7 +2,7 @@
 description: An overview about subscriptions.
 metaLinks:
   alternates:
-    - https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/kafka-gateway/subscriptions
+    - subscriptions.md
 ---
 
 # Subscriptions

@@ -2,8 +2,7 @@
 description: This article describes how to create documentation for v2 APIs
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/configure-v2-apis/documentation
+    - documentation.md
 ---
 
 # Documentation

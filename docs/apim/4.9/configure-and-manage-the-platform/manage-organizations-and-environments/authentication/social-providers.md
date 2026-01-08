@@ -2,8 +2,7 @@
 description: Documentation about social providers in the context of APIs.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/configure-and-manage-the-platform/manage-organizations-and-environments/authentication/social-providers
+    - social-providers.md
 ---
 
 # Social Providers

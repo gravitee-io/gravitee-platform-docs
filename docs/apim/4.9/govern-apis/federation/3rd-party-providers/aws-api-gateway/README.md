@@ -2,8 +2,7 @@
 description: An overview about aws api gateway.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/govern-apis/federation/3rd-party-providers/aws-api-gateway
+    - ./
 ---
 
 # AWS API Gateway

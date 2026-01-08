@@ -2,8 +2,7 @@
 description: Documentation about application logs in the context of APIs.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/developer-portal/new-developer-portal/application-logs
+    - application-logs.md
 ---
 
 # Application Logs

@@ -2,8 +2,7 @@
 description: An overview about kafka topic mapping.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/kafka-topic-mapping
+    - kafka-topic-mapping.md
 ---
 
 # Kafka Topic Mapping

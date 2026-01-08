@@ -2,7 +2,7 @@
 description: Configuration guide for kafka gateway.
 metaLinks:
   alternates:
-    - https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/kafka-gateway
+    - ./
 ---
 
 # Kafka Gateway

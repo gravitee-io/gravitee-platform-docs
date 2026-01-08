@@ -2,8 +2,7 @@
 description: An overview about roles and groups mapping.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/configure-and-manage-the-platform/manage-organizations-and-environments/authentication/roles-and-groups-mapping
+    - roles-and-groups-mapping.md
 ---
 
 # Roles and Groups Mapping

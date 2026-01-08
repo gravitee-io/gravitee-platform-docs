@@ -2,8 +2,7 @@
 description: An overview about generate a new cloud token.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/hybrid-installation-and-configuration-guides/next-gen-cloud/generate-a-new-cloud-token
+    - generate-a-new-cloud-token.md
 ---
 
 # Generate a New Cloud Token

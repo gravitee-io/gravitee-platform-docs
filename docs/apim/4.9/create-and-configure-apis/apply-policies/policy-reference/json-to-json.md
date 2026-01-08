@@ -2,8 +2,7 @@
 description: An overview about json to json.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/json-to-json
+    - json-to-json.md
 ---
 
 # JSON to JSON

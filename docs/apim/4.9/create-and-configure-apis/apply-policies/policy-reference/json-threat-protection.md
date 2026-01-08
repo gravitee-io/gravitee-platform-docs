@@ -2,8 +2,7 @@
 description: An overview about json threat protection.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/json-threat-protection
+    - json-threat-protection.md
 ---
 
 # JSON Threat Protection

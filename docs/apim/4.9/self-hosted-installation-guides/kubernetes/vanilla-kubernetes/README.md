@@ -2,8 +2,7 @@
 description: An overview about vanilla kubernetes.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/self-hosted-installation-guides/kubernetes/vanilla-kubernetes
+    - ./
 ---
 
 # Vanilla Kubernetes

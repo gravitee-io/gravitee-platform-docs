@@ -2,8 +2,7 @@
 description: An overview about layout and theme.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/developer-portal/classic-developer-portal/layout-and-theme
+    - layout-and-theme.md
 ---
 
 # Layout and Theme

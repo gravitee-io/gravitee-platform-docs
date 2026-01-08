@@ -2,8 +2,7 @@
 description: Information about breaking changes and deprecations.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/release-information/breaking-changes-and-deprecations
+    - breaking-changes-and-deprecations.md
 ---
 
 # Breaking Changes and Deprecations

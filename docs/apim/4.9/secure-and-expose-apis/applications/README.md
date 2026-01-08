@@ -2,8 +2,7 @@
 description: Tutorial on applications.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/secure-and-expose-apis/applications
+    - ./
 ---
 
 # Applications

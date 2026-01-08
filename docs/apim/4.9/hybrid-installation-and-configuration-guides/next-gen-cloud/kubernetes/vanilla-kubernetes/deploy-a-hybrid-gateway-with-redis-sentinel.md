@@ -4,8 +4,7 @@ hidden: true
 noIndex: true
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/hybrid-installation-and-configuration-guides/next-gen-cloud/kubernetes/vanilla-kubernetes/deploy-a-hybrid-gateway-with-redis-sentinel
+    - deploy-a-hybrid-gateway-with-redis-sentinel.md
 ---
 
 # Deploy a Hybrid Gateway with Redis Sentinel

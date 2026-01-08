@@ -2,8 +2,7 @@
 description: An overview about api key.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/secure-and-expose-apis/plans/api-key
+    - api-key.md
 ---
 
 # API Key

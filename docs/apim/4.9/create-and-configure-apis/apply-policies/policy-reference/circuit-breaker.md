@@ -2,8 +2,7 @@
 description: An overview about circuit breaker.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/circuit-breaker
+    - circuit-breaker.md
 ---
 
 # Circuit Breaker

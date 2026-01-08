@@ -2,8 +2,7 @@
 description: An overview about create and publish an api using the management api.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/how-to-guides/use-case-tutorials/create-and-publish-an-api-using-the-management-api
+    - create-and-publish-an-api-using-the-management-api.md
 ---
 
 # Create and Publish an API Using the Management API

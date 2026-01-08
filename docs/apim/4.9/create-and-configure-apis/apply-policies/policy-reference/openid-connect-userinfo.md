@@ -2,8 +2,7 @@
 description: An overview about openid connect userinfo.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/openid-connect-userinfo
+    - openid-connect-userinfo.md
 ---
 
 # OpenID Connect UserInfo

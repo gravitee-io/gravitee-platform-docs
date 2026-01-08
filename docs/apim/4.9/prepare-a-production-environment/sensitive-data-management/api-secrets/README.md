@@ -2,8 +2,7 @@
 description: Configuration guide for api secrets.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/prepare-a-production-environment/sensitive-data-management/api-secrets
+    - ./
 ---
 
 # API Secrets

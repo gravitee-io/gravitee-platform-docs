@@ -2,8 +2,7 @@
 description: An overview about generic oauth2 authorization server.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/oauth2/generic-oauth2-authorization-server
+    - generic-oauth2-authorization-server.md
 ---
 
 # Generic OAuth2 Authorization Server

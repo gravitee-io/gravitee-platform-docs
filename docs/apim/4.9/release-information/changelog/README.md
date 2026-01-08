@@ -2,8 +2,7 @@
 description: An overview about changelog.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/release-information/changelog
+    - ./
 ---
 
 # Changelog

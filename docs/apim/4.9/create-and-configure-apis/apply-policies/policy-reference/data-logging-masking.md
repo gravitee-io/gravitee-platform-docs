@@ -2,8 +2,7 @@
 description: An overview about data logging masking.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/data-logging-masking
+    - data-logging-masking.md
 ---
 
 # Data Logging Masking

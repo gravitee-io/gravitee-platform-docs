@@ -2,8 +2,7 @@
 description: An overview about connect to an endpoint using sse.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/how-to-guides/use-case-tutorials/connect-to-an-endpoint-using-sse
+    - connect-to-an-endpoint-using-sse.md
 ---
 
 # Connect to an Endpoint Using SSE

@@ -2,8 +2,7 @@
 description: An overview about configure the kafka client & gateway.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/kafka-gateway/configure-the-kafka-client-and-gateway
+    - configure-the-kafka-client-and-gateway.md
 ---
 
 # Configure the Kafka Client & Gateway

@@ -2,8 +2,7 @@
 description: An overview about authentication providers.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/configure-and-manage-the-platform/manage-organizations-and-environments/authentication/authentication-providers
+    - authentication-providers.md
 ---
 
 # Authentication Providers

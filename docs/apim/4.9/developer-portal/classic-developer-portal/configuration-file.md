@@ -2,8 +2,7 @@
 description: Configuration guide for configuration file.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/developer-portal/classic-developer-portal/configuration-file
+    - configuration-file.md
 ---
 
 # Configuration File

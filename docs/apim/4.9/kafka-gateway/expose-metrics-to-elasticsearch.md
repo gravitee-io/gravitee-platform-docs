@@ -2,8 +2,7 @@
 description: An overview about expose metrics to elasticsearch.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/kafka-gateway/expose-metrics-to-elasticsearch
+    - expose-metrics-to-elasticsearch.md
 ---
 
 # Expose Metrics to Elasticsearch

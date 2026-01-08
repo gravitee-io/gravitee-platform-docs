@@ -2,8 +2,7 @@
 description: An overview about kafka quota.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/kafka-quota
+    - kafka-quota.md
 ---
 
 # Kafka Quota

@@ -2,8 +2,7 @@
 description: An overview about resources.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/resources
+    - resources.md
 ---
 
 # Resources

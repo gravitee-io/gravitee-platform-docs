@@ -2,8 +2,7 @@
 description: An overview about mqtt5.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/configure-v4-apis/endpoints/mqtt5
+    - mqtt5.md
 ---
 
 # MQTT5

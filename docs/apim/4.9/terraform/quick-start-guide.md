@@ -2,7 +2,7 @@
 description: An overview about quick start guide.
 metaLinks:
   alternates:
-    - https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/terraform/quick-start-guide
+    - quick-start-guide.md
 ---
 
 # Quick Start Guide

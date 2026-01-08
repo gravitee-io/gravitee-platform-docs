@@ -2,8 +2,7 @@
 description: An overview about enable the new developer portal.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/developer-portal/new-developer-portal/configure-the-new-portal
+    - configure-the-new-portal.md
 ---
 
 # Enable the New Developer Portal
@@ -22,7 +21,7 @@ For self-hosted installations and hybrid deployments of Gravitee, you can set th
 
 1.  From the **Dashboard**, click **Settings**.
 
-    <figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 2.  In the **Portal** section of the **Settings** menu, click **Settings**.
 
     <figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>

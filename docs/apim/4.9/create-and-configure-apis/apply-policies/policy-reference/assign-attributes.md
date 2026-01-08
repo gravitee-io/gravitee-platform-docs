@@ -2,8 +2,7 @@
 description: An overview about assign attributes.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/assign-attributes
+    - assign-attributes.md
 ---
 
 # Assign Attributes

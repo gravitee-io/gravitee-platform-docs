@@ -2,8 +2,7 @@
 description: An overview about gateway resource sizing.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/prepare-a-production-environment/gateway-resource-sizing-guidelines
+    - gateway-resource-sizing-guidelines.md
 ---
 
 # Gateway Resource Sizing

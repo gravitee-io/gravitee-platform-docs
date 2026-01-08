@@ -2,8 +2,7 @@
 description: Configuration guide for status code transformation.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/status-code-transformation
+    - status-code-transformation.md
 ---
 
 # Status Code Transformation

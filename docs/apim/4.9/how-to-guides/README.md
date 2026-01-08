@@ -2,7 +2,7 @@
 description: Tutorial on how-to guides.
 metaLinks:
   alternates:
-    - https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/how-to-guides
+    - ./
 ---
 
 # How-To Guides

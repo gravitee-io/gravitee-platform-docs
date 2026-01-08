@@ -2,8 +2,7 @@
 description: An overview about avro to protobuf.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/avro-to-protobuf
+    - avro-to-protobuf.md
 ---
 
 # Avro to Protobuf

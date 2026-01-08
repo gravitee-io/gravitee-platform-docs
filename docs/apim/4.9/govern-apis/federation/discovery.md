@@ -2,8 +2,7 @@
 description: An overview about discovery.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/govern-apis/federation/discovery
+    - discovery.md
 ---
 
 # Discovery

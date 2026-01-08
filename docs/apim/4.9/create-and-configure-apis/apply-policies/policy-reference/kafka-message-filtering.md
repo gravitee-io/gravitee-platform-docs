@@ -2,8 +2,7 @@
 description: An overview about kafka message filtering.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/kafka-message-filtering
+    - kafka-message-filtering.md
 ---
 
 # Kafka Message Filtering

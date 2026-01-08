@@ -2,8 +2,7 @@
 description: An overview about webhook subscriptions.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/developer-portal/classic-developer-portal/webhook-subscriptions
+    - webhook-subscriptions.md
 ---
 
 # Webhook Subscriptions

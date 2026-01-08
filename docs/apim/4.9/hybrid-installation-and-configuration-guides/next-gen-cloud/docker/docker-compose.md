@@ -4,8 +4,7 @@ description: >-
   Plane includes core components like the Gateway and Redis.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/hybrid-installation-and-configuration-guides/next-gen-cloud/docker/docker-compose
+    - docker-compose.md
 ---
 
 # Docker Compose

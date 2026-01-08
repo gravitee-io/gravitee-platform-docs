@@ -2,8 +2,7 @@
 description: Configuration guide for file reporter.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/analyze-and-monitor-apis/reporters/file-reporter
+    - file-reporter.md
 ---
 
 # File Reporter

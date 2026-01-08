@@ -2,8 +2,7 @@
 description: An overview about regex threat protection.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/regex-threat-protection
+    - regex-threat-protection.md
 ---
 
 # Regex Threat Protection

@@ -2,8 +2,7 @@
 description: An overview about assign content.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/assign-content
+    - assign-content.md
 ---
 
 # Assign Content

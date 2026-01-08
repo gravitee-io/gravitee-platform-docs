@@ -2,8 +2,7 @@
 description: Configuration guide for quick start.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/prepare-a-production-environment/sensitive-data-management/configure-secrets/quick-start
+    - quick-start.md
 ---
 
 # Quick Start

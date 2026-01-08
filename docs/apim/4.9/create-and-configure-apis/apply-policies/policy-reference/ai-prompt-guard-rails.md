@@ -2,8 +2,7 @@
 description: An overview about ai - prompt guard rails.
 metaLinks:
   alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/ai-prompt-guard-rails
+    - ai-prompt-guard-rails.md
 ---
 
 # AI - Prompt Guard Rails
