@@ -1,8 +1,5 @@
 ---
 description: Configuration guide for api documentation.
-metaLinks:
-  alternates:
-    - api-documentation.md
 ---
 
 # API Documentation

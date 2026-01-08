@@ -1,8 +1,5 @@
 ---
 description: Tutorial on classic developer portal.
-metaLinks:
-  alternates:
-    - ./
 ---
 
 # Classic Developer Portal

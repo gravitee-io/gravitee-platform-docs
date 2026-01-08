@@ -1,8 +1,5 @@
 ---
 description: Tutorial on new developer portal.
-metaLinks:
-  alternates:
-    - ./
 ---
 
 # New Developer Portal

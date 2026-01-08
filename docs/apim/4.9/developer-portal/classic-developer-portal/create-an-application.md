@@ -1,8 +1,5 @@
 ---
 description: An overview about create an application.
-metaLinks:
-  alternates:
-    - create-an-application.md
 ---
 
 # Create an Application
