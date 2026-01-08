@@ -1,8 +1,5 @@
 ---
 description: An overview about v4 api creation wizard.
-metaLinks:
-  alternates:
-    - v4-api-creation-wizard.md
 ---
 
 # v4 API Creation Wizard

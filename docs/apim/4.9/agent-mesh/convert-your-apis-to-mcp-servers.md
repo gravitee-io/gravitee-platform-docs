@@ -1,11 +1,8 @@
 ---
 description: An overview about expose your apis as ai-ready tools with mcp.
-metaLinks:
-  alternates:
-    - convert-your-apis-to-mcp-servers.md
 ---
 
-# Expose Your APIs as AI-Ready Tools with MCP
+# Convert REST APIS to an MCP Server
 
 {% hint style="warning" %}
 This feature only works with v4 proxy APIs.
