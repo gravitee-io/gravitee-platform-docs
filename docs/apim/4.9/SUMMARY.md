@@ -323,6 +323,7 @@
     * [Add the Token Rate Limit policy to your LLM proxy](agent-mesh/llm-proxy/add-the-token-rate-limit-policy-to-your-llm-proxy.md)
     * [Add the Guard Rails policy to your LLM proxy](agent-mesh/llm-proxy/add-the-guard-rails-policy-to-your-llm-proxy.md)
     * [Consume your LLM proxy with the OpenAI Python SDK](agent-mesh/llm-proxy/consume-your-llm-proxy-with-the-openai-python-sdk.md)
+  * [Secure MCP Proxy with OAuth2](agent-mesh/secure-mcp-proxy-with-oauth2.md)
 * [Terraform](terraform/README.md)
   * [Quick Start Guide](terraform/quick-start-guide.md)
   * [Define an APIM service account for Terraform](terraform/define-an-apim-service-account-for-terraform.md)
