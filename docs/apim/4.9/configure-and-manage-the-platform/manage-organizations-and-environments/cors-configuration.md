@@ -126,7 +126,7 @@ The following examples demonstrate common `Allow-Origin` configurations:
 
 The `Allow-Methods` setting specifies which HTTP methods are allowed when accessing the resource.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 Configuration details for `Allow Methods` include the following:
 
@@ -137,7 +137,7 @@ Configuration details for `Allow Methods` include the following:
 
 The `Allow-Headers` setting defines which headers can be used in cross-origin requests.
 
-<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 Configuration details for `Allow Headers` include the following :
 

@@ -1,13 +1,10 @@
 ---
 description: An overview about fully self-hosted installation with  vanilla kubernetes.
-metaLinks:
-  alternates:
-    - vanilla-kubernetes.md
 ---
 
 # Fully self-hosted installation with Vanilla Kubernetes
 
-{% hint style="warning" %}
+{% hint style="info" %}
 **This installation guide is for only development and quick start purposes. Do not use it for production environments. For more information about best practices for production environments, contact your Technical Account Manager.**
 {% endhint %}
 
