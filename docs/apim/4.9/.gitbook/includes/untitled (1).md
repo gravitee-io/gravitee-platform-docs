@@ -2,4 +2,4 @@
 title: Untitled
 ---
 
-<figure><img src="../assets/image (38).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/image (38) (1).png" alt=""><figcaption></figcaption></figure>
