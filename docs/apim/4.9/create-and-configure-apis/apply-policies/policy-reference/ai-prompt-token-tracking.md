@@ -1,8 +1,5 @@
 ---
 description: An overview about ai - prompt token tracking.
-metaLinks:
-  alternates:
-    - ai-prompt-token-tracking.md
 ---
 
 # AI - Prompt Token Tracking

@@ -164,6 +164,7 @@
       * [Test](create-and-configure-apis/apply-policies/policy-reference/test.md)
       * [AI - Prompt Guard Rails](create-and-configure-apis/apply-policies/policy-reference/ai-prompt-guard-rails.md)
       * [AI - Prompt Token Tracking](create-and-configure-apis/apply-policies/policy-reference/ai-prompt-token-tracking.md)
+      * [AI - Token Rate Limit](create-and-configure-apis/apply-policies/policy-reference/ai-token-rate-limit.md)
       * [API Key](create-and-configure-apis/apply-policies/policy-reference/api-key.md)
       * [Assign Attributes](create-and-configure-apis/apply-policies/policy-reference/assign-attributes.md)
       * [Assign Content](create-and-configure-apis/apply-policies/policy-reference/assign-content.md)
