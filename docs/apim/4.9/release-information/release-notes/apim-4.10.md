@@ -26,16 +26,16 @@
 
 ## New Features
 
-#### **AI Token Rate Limit policy**
-
-* APIM 4.10 introduces an AI Token Rate Limit policy for LLM proxy APIs that caps total inbound and outbound tokens per time window; enforcement is one-request delayed and supports blocking, pass-through, or asynchronous modes with subscription/plan or custom keys.
-
 #### **LLM Proxy**
 
 * APIM 4.10 introduces an LLM Proxy that exposes an OpenAI-compatible interface and adapts requests to supported providers such as OpenAI, Gemini, and Bedrock, enabling subscriptions, policies, analytics, and token-aware usage statistics for LLM traffic.
 * APIM 4.10 supports the following LLM providers: Bedrock, Gemini, OpenAI API, and OpenAI compatible LLM. Each provider has different capabilities: Bedrock does not support streaming and has stricter embeddings constraints, while Gemini supports streaming array embeddings, and tool calling; unsupported OpenAI options, for example tool calling or multimodal inputs, may be ignored or rejected with explicit errors.
 * The Prompt Guard Rails policy can evaluate prompts with an AI text-classification model to block content such as profanity, sexually explicit language, harmful intent, and jailbreak/prompt-injection attempts, but require ONNX runtime support and a Debian-based Gateway image (Alpine images are not compatible).
 * With the Toke Rate Limit policy, you can configure your LLM proxy to limit the number of total inbound tokens and the number of total outbound tokens allowed over a limited period of time in minutes and seconds.&#x20;
+
+#### **AI Token Rate Limit policy**
+
+* APIM 4.10 introduces an AI Token Rate Limit policy for LLM proxy APIs that caps total inbound and outbound tokens per time window; enforcement is one-request delayed and supports blocking, pass-through, or asynchronous modes with subscription/plan or custom keys.
 
 #### **Gateway cluster sync with Redis**
 
@@ -84,17 +84,27 @@ The New Developer Portal is in tech preview.
   * **Average latency**.
   * **Average response time of the Gateway**.&#x20;
 
+#### **MCP ACL policy**
+
+* Adds an MCP ACL policy to control access to MCP tools and resources for MCP Proxy APIs.
+
+#### **HTTP Callout policy for Kafka APIs**
+
+* HTTP Callout policy now supports Kafka Native APIs in publish and subscribe phases for per-message external calls.
+
+#### **Assign Content policy for Kafka APIs**
+
+* Assign Content policy now supports Kafka Native APIs in publish and subscribe phases for message transformation.
+
+#### **Native Kafka latency metrics**
+
+* Kafka Gateway exposes native latency metrics for publish/subscribe analytics.
+
 ## Updated features
 
 #### **Elasticsearch and OpenSearch support**
 
 * APIM's Elasticsearch connector now supports Elasticsearch 9.2.x and OpenSearch 3.x for analytics and reporting without requiring a different repository type.
-
-#### **Policy updates for Lambda and rate limits**
-
-* The AWS Lambda policy now supports asynchronous invocation for proxy and message API requests, returning a standard response without waiting for Lambda execution to complete.
-* AWS Lambda policy credentials (access key and secret key) can be retrieved from a secret provider such as Vault using Gravitee Expression Language instead of being stored directly in policy configuration.
-* Quota, Rate Limit, and Spike Arrest policies support a dynamic period duration (dynamicPeriodTime) that is resolved at runtime (including via a secret provider); it is used when the static periodTime is omitted or set to 0.
 
 #### **Kafka broker delegation authentication**
 
@@ -107,3 +117,18 @@ The New Developer Portal is in tech preview.
 #### **OpenTelemetry tracing verbosity**
 
 * OpenTelemetry tracing is documented as always-on standard tracing plus an optional verbose mode that adds detailed per-policy span events (including headers and context attributes), increasing trace volume and potential performance overhead.
+
+#### **Policy updates for Lambda and rate limits**
+
+* The AWS Lambda policy now supports asynchronous invocation for proxy and message API requests, returning a standard response without waiting for Lambda execution to complete.
+* AWS Lambda policy credentials (access key and secret key) can be retrieved from a secret provider such as Vault using Gravitee Expression Language instead of being stored directly in policy configuration.
+* Quota, Rate Limit, and Spike Arrest policies support a dynamic period duration (dynamicPeriodTime) that is resolved at runtime (including via a secret provider); it is used when the static periodTime is omitted or set to 0.
+
+#### **Datadog source tag**
+
+* Adds a Gravitee source tag to Datadog telemetry for easier filtering and attribution.
+
+#### **GKO HTTP client custom CA**
+
+* GKO HTTP client configuration now supports custom truststores for outbound TLS.
+
