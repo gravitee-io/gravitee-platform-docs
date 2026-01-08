@@ -1,37 +1,8 @@
 ---
 description: Configuration guide for dictionaries.
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/configure-and-manage-the-platform/gravitee-gateway/dictionaries
 ---
 
 # Dictionaries
-
-{% hint style="warning" %}
-**Changes to Gravitee Dictionaries in Version 4.7.6**
-
-Starting from version 4.7.6, you can use dictionaries in a [Multi-tenancy](../../self-hosted-installation-guides/multi-tenancy.md) setup. With this new capability, you can complete the following actions:
-
-* create dictionaries with the same name in different environments
-* promote APIs between environments without renaming dictionaries
-* recreate or update a dictionary in a new environment independently
-
-**Enabling Multi-tenant Dictionary Support**
-
-Before you enable multi-tenant mode for dictionaries, complete the following steps to prevent disruptions:
-
-1. Verify that no dictionaries are shared across environments. Ensure each environment already contains its own copy of every required dictionary.
-2. Recreate any missing dictionaries. If an environment does not have a required dictionary - create it first, otherwise once multi-tenant support is enabled that dictionary is not found and the API fails.
-
-Once each environment has its complete set of dictionaries enable multi-tenant mode by updating your configuration in the gateway:
-
-```yaml
-dictionaries:
-  multi-tenant:
-    enabled: true
-```
-{% endhint %}
 
 ## Overview
 
