@@ -66,13 +66,13 @@ Provide your plan a name, and then scroll down and toggle on **Auto validate sub
 
 On the security page, select the **Signature** that your IdP uses to encrypt your access tokens.
 
-<figure><img src="../../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Next, you need to tell the Gravitee Gateway where it can retrieve the JSON web key set (JWKS) to validate the signature with a public key. Typically, in a production setup, you want to use JWKS URL as it is more secure and eliminates the need to update the resolver when you rotate keys.
 
 A JWKS URL must be provided by your IdP of choice. Copy the endpoint and return to APIM’s Console UI. Under **JWKS resolver**, select **JWKS\_URL** and then paste the endpoint in the **JWKS\_URL** input box.
 
-<figure><img src="../../.gitbook/assets/image (6) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Scroll down and also toggle on **Extract JWT Claims**. This essentially makes all the claims associated with the token available through Gravitee’s Expression Language (EL). This is useful for configuring additional policies such as Role-based Access Control.
 

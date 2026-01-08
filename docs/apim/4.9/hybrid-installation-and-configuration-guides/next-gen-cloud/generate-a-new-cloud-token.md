@@ -15,7 +15,7 @@ When you revoke a Cloud token, you terminate the link between the Cloud and your
 
 1.  Sign in to [Gravitee Cloud](https://cloud.gravitee.io/).
 
-    <figure><img src="../../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (4) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 2.  Navigate to the **Gateways** section, and then click the Gateway for which you want to generate a new Cloud token.
 
     <figure><img src="../../.gitbook/assets/64DFB5D8-427B-4FD2-8013-2206631FEDE2_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>

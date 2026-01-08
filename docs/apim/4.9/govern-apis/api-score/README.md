@@ -42,7 +42,7 @@ Your API's score is calculated using the following formula:&#x20;
 
 Your API's score is projected onto a function that has the following shape:&#x20;
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (44).png" alt=""><figcaption></figcaption></figure>
 
 For example, if your API has 1 error, 0 warnings, 2 infos, and 1 hint, the score is calculated as follows:
 

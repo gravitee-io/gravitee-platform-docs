@@ -50,7 +50,7 @@ To install Edge stack agent, you must complete the following steps:
 5. (Optional) Type a description for the integration.
 6.  Click **Create** **Integration**.
 
-    <figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (2) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 #### Verification
 

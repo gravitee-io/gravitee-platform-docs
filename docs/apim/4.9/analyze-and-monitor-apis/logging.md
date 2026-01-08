@@ -219,7 +219,7 @@ Each message record includes placeholder tabs for raw content, headers, and meta
 {% tab title="V4 proxy APIs" %}
 In the logs screen, you see the following information about your API logs:
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **Overview**
 
