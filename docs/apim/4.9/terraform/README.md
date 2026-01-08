@@ -1,8 +1,5 @@
 ---
 description: Configuration guide for terraform.
-metaLinks:
-  alternates:
-    - ./
 ---
 
 # Terraform
