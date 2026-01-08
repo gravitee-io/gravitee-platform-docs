@@ -1,8 +1,5 @@
 ---
 description: Configuration guide for authentication.
-metaLinks:
-  alternates:
-    - authentication.md
 ---
 
 # Authentication
@@ -21,17 +18,6 @@ Alternatively, you can rely on your [LDAP server](https://documentation.gravitee
 It is preferable to rely on an external identity provider to handle security so you can easily comply with your internal company security policy. You can configure role mapping to automatically assign a role to a given user matching particular criteria. Refer to the [Gravitee documentation](https://documentation.gravitee.io/apim#gravitee-access-management-authentication) for an example of role or group mapping.
 
 ## Developer Portal authentication
-
-If there are no strong business requirements, **we highly recommend forcing user authentication to access the Developer Portal**. This limits service exposure to authenticated users only:
-
-```yaml
-portal:
-  authentication:
-    forceLogin:
-      enabled: true
-```
-
-The Developer Portal configuration can be fine-tuned to satisfy your needs. Additional details are in the [Gravitee documentation](https://documentation.gravitee.io/apim/guides/developer-portal/advanced-developer-portal-configuration).
 
 ## Users
 
