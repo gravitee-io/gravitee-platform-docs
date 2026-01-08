@@ -1,8 +1,5 @@
 ---
 description: Guide on applying policies related to introduction.
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/
 ---
 
 # Introduction
