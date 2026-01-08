@@ -15,6 +15,7 @@ Policies marked with an asterisk require an Enterprise Edition license.
 
 * [AI - Prompt Guard Rails](ai-prompt-guard-rails.md)\*
 * [AI - Prompt Token Tracking](ai-prompt-token-tracking.md)\*
+* [AI - Token Rate Limit](ai-token-rate-limit.md)
 * [API Key](api-key.md)
 * [Assign Attributes](assign-attributes.md)
 * [Assign Content](assign-content.md)
