@@ -12,7 +12,6 @@
     * [Expose MCP Servers](writer-agent/mcp-apis/expose-mcp-servers.md)
     * [MCP ACL Policy](writer-agent/mcp-apis/mcp-acl-policy.md)
     * [Secure MCP Server with AM](writer-agent/mcp-apis/secure-mcp-server-with-am.md)
-    * [Page 1](writer-agent/mcp-apis/page-1.md)
   * [Webhook Logs](writer-agent/webhook-logs/README.md)
     * [Page 2](writer-agent/webhook-logs/page-2.md)
 * [Peer Review GPT](peer-review-gpt/README.md)
