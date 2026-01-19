@@ -6,6 +6,26 @@ description: >-
 
 # AM 4.6.x
 
+## Gravitee Access Management 4.6.31 - January 19, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* Unable to sign in when username contains Capital [#11015](https://github.com/gravitee-io/issues/issues/11015)
+* Create Index on ScopeApproval [#11020](https://github.com/gravitee-io/issues/issues/11020)
+
+</details>
+
+
 ## Gravitee Access Management 4.6.30 - January 2, 2026
 
 <details>
