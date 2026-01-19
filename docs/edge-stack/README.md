@@ -51,13 +51,13 @@ Use the following procedure to install Ambassador Edge Stack manually.
 1.  Apply Kubernetes Custom Resource Definitions (CRDs) and wait for the deployment.
 
     ```shell
-    kubectl apply -f https://app.getambassador.io/yaml/edge-stack/3.12.10/aes-crds.yaml && \
+    kubectl apply -f https://app.getambassador.io/yaml/edge-stack/3.12.11/aes-crds.yaml && \
     kubectl wait --timeout=90s --for=condition=available deployment emissary-apiext -n emissary-system
     ```
 2.  Install the components and wait for Ambassador Edge Stack.
 
     ```shell
-    kubectl apply -f https://app.getambassador.io/yaml/edge-stack/3.12.10/aes.yaml && \
+    kubectl apply -f https://app.getambassador.io/yaml/edge-stack/3.12.11/aes.yaml && \
     kubectl -n ambassador wait --for condition=available --timeout=90s deploy -l product=aes
     ```
 
@@ -80,7 +80,7 @@ Use the following procedure to install Ambassador Edge Stack using Helm.
 
     ```shell
     kubectl create namespace ambassador && \
-    kubectl apply -f https://app.getambassador.io/yaml/edge-stack/3.12.10/aes-crds.yaml
+    kubectl apply -f https://app.getambassador.io/yaml/edge-stack/3.12.11/aes-crds.yaml
     ```
 
     ```shell
