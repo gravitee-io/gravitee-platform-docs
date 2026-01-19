@@ -6,6 +6,30 @@ description: >-
 
 # AM 4.8.x
 
+## Gravitee Access Management 4.8.19 - January 19, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Retrieve clientID from context for AccountFactorsEndpointHandler::sendChallenge [#11023](https://github.com/gravitee-io/issues/issues/11023)
+
+
+
+
+
+**Other**
+
+* [Helm] Dataplane volume are missing for JDBC backend [#11008](https://github.com/gravitee-io/issues/issues/11008)
+* Unable to sign in when username contains Capital [#11015](https://github.com/gravitee-io/issues/issues/11015)
+* Create Index on ScopeApproval [#11020](https://github.com/gravitee-io/issues/issues/11020)
+* ErrorDescription encoded in the errorHash [#11054](https://github.com/gravitee-io/issues/issues/11054)
+
+</details>
+
+
 ## Gravitee Access Management 4.8.18 - January 2, 2026
 
 <details>
