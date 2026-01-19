@@ -16,6 +16,10 @@ metaLinks:
 
 * Save changes button does not appear on policy studio when jwt policy is dropped [#11011](https://github.com/gravitee-io/issues/issues/11011)
 
+**Other**
+
+* User is unable to use guard rails policy with debug mode [#11070](https://github.com/gravitee-io/issues/issues/11070)
+
 </details>
 
 
