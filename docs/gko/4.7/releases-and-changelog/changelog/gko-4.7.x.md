@@ -6,9 +6,14 @@ description: Overview of GKO.
 
 ## Gravitee Kubernetes Operator 4.7.23 - January 20, 2026
 
-There is nothing new in version 4.7.23.
+<details>
+<summary>Bug fixes</summary>
 
-> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+  **GKO**
+
+  * Fix manager configuration issue when enabling ingress controller
+
+</details>
 
 
 ## Gravitee Kubernetes Operator 4.7.22 - December 19, 2025
