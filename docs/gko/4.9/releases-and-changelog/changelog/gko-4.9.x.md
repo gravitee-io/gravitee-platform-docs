@@ -5,7 +5,7 @@
 <details>
 <summary>Bug fixes</summary>
 
-  **Others**
+  **GKO**
 
   * CORS ⁠allow_methods Wildcard (⁠*) Incorrectly Stored as Literal "STAR" in Automation API [#11037](https://github.com/gravitee-io/issues/issues/11037)
 
