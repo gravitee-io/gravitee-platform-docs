@@ -12,7 +12,7 @@ hidden: true
 **Other**
 
 * User is unable to use guard rails policy with debug mode [#11070](https://github.com/gravitee-io/issues/issues/11070)
-* Gateway doesn't supports older kafka versions [#11071](https://github.com/gravitee-io/issues/issues/11071)
+* Gateway doesn't support older kafka versions [#11071](https://github.com/gravitee-io/issues/issues/11071)
 
 </details>
 
