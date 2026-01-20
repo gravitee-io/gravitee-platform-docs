@@ -1,5 +1,17 @@
 # GKO 4.9.x
 
+## Gravitee Kubernetes Operator 4.9.11 - January 20, 2026
+    
+<details>
+<summary>Bug fixes</summary>
+
+  **Others**
+
+  * CORS ⁠allow_methods Wildcard (⁠*) Incorrectly Stored as Literal "STAR" in Automation API [#11037](https://github.com/gravitee-io/issues/issues/11037)
+
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.9.10 - December 19, 2025
 
 There is nothing new in version 4.9.10.
