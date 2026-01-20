@@ -187,3 +187,34 @@ You can use the following convention to set the max size: `{positive integer}[un
 * No unit = `MB`&#x20;
 
 For example: `4MB` equivalent of  `4M` or  `4096KB`.
+
+## Available metrics&#x20;
+
+This section lists and describes available metrics specific to API Management.
+
+There are three types of metrics:
+
+* **Counter**: reports a count over a specified property of an application
+* **Gauge**: only reports data when observed
+* **Timer**: measure latencies or frequency of events in the system
+
+### Gateway metrics
+
+| Metric                                       | Type    | Description                                                              |
+| -------------------------------------------- | ------- | ------------------------------------------------------------------------ |
+| http\_server\_active\_connections            | Gauge   | Number of opened connections to the HTTP Server                          |
+| http\_server\_requests\_total                | Counter | Number of processed requests                                             |
+| http\_server\_active\_requests               | Gauge   | Number of requests being processed                                       |
+| http\_server\_request\_bytes\_max            | Gauge   | Size of requests in bytes                                                |
+| http\_server\_request\_bytes\_sum            | Counter | Total sum of observations for http\_server\_request\_bytes\_max          |
+| http\_server\_request\_bytes\_count          | Counter | Number of observations for http\_server\_request\_bytes\_max             |
+| httpserverresponsebytesmax                   | Gauge   | Size of responses in bytes                                               |
+| http\_server\_response\_bytes\_max           | Counter | Total sum of observations for http\_server\_response\_bytes\_max         |
+| http\_server\_response\_bytes\_count         | Counter | Number of observations for http\_server\_response\_bytes\_max            |
+| http\_server\_response\_times\_econds\_max   | Gauge   | Response processing time                                                 |
+| http\_server\_response\_time\_seconds\_max   | Counter | Total sum of observations for http\_server\_response\_time\_seconds\_max |
+| http\_server\_response\_time\_seconds\_count | Counter | Number of observations for http\_server\_response\_time\_seconds\_max    |
+
+{% hint style="info" %}
+In addition to these metrics, JVM metrics about GC, Heap, and Threads are available and prefixed by `jvm_`.
+{% endhint %}
