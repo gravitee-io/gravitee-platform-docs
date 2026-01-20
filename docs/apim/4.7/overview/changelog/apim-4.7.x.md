@@ -4,6 +4,19 @@ description: API documentation explaining apim 4.7.x.
 
 # APIM 4.7.x
  
+## Gravitee API Management 4.7.23 - January 19, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Console**
+
+* Save changes button does not appear on policy studio when jwt policy is dropped [#11011](https://github.com/gravitee-io/issues/issues/11011)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.7.22 - December 19, 2025
 <details>
 
