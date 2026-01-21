@@ -114,5 +114,3 @@ The following table lists the properties available in every alert triggered by a
 | `node.probe.management-repository.message` | If `node.probe.management-repository` is false, contains the error message                                   | ${notification.properties\['node.probe.management-repository.message']}            |
 | `node.probe.management-api`                | Health of a dedicated probe, values: `true` or `false`                                                       | ${notification.properties\['node.probe.management-api']?string('yes','no')}        |
 | `node.probe.management-api.message`        | If `node.probe.management-api` is false, contains the error message                                          | ${notification.properties\['node.probe.management-api.message']}                   |
-
-\\
