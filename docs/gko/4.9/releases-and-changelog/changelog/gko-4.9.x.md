@@ -5,9 +5,15 @@
 <details>
 <summary>Bug fixes</summary>
 
+  **Automation API**
+
+  * CORS `⁠allowMethods` Wildcard (⁠*) Incorrectly Stored as Literal "STAR" in Automation API [#11037](https://github.com/gravitee-io/issues/issues/11037)
+
   **GKO**
 
-  * CORS ⁠allow_methods Wildcard (⁠*) Incorrectly Stored as Literal "STAR" in Automation API [#11037](https://github.com/gravitee-io/issues/issues/11037)
+  * Fix manager configuration issue when enabling ingress controller
+
+</details>
 
 </details>
 
