@@ -138,7 +138,7 @@ Provide a name and description then select **Next**. On the security screen, sel
 
 After providing the `client_id`, select **Next**.
 
-<figure><img src="../../.gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (24) (1).png" alt=""><figcaption></figcaption></figure>
 
 On the **Subscription** page, you can directly search for your Gateway API and see the available plans. Search for your API, select **Subscribe**, and then select **Next**.
 

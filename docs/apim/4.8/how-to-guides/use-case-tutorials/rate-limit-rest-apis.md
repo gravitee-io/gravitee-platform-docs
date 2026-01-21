@@ -13,7 +13,7 @@ This tutorial explores various use cases where rate limiting plays a critical ro
 Before proceeding with this tutorial, be sure you're familiar with the following:
 
 * **REST APIs:** Review the key elements, methods, and design and architecture constraints of a RESTful architecture.
-* **Gravitee** [**policies**](../../create-and-configure-apis/apply-policies/policy-reference/README.md)**:** Rules or logic that the Gateway can execute during the request or response of an API call, e.g., to enhance security, ensure reliability, or enable API monetization.
+* **Gravitee** [**policies**](../../create-and-configure-apis/apply-policies/policy-reference/)**:** Rules or logic that the Gateway can execute during the request or response of an API call, e.g., to enhance security, ensure reliability, or enable API monetization.
 * **Gravitee APIs:** Refer to our API creation wizards for step-by-step guides to create APIs using the Gravitee [v2](../../create-and-configure-apis/create-apis/v2-api-creation-wizard.md) and [v4](../../create-and-configure-apis/create-apis/v4-api-creation-wizard.md) API definitions.
 
 ## Introduction to Gravitee rate limiting <a href="#introduction-to-gravitee-rate-limiting" id="introduction-to-gravitee-rate-limiting"></a>
@@ -56,7 +56,7 @@ To add a Quota policy to each plan of this API:
 
     **Flows vs. policies** Flows are a collection of policies. Flows can be specified for each individual plan, e.g., API Key (SILVER), API Key (GOLD), and API Key (PLATINUM). Alternatively, a common flow can be applied to all plans within the specific AP&#x49;_._
 
-<figure><img src="../../.gitbook/assets/image (25).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (25) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Step 2: Add a Quota policy for each user group <a href="#step-2-add-a-quota-policy-for-each-user-group" id="step-2-add-a-quota-policy-for-each-user-group"></a>
 
@@ -80,11 +80,11 @@ Add differentiated Quota policies to each plan per the instructions below.
 
 6. Toggle **Add response headers** ON and click **Save**.
 
-<figure><img src="../../.gitbook/assets/image (30).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (30) (1).png" alt=""><figcaption></figcaption></figure>
 
 7. Enter values for **Max requests (static)**_,_ **Time duration**, and **Time unit**, e.g., 100 requests per 1 month
 
-<figure><img src="../../.gitbook/assets/image (31).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (31) (1).png" alt=""><figcaption></figcaption></figure>
 
 8. Click **Add policy**
 9. On the **Policies** page, click **Save**

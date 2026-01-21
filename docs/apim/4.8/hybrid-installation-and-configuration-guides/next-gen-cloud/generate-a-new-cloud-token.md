@@ -12,7 +12,7 @@ When you revoke a Cloud token, you terminate the link between the Cloud and your
 
 1.  Sign in to [Gravitee Cloud](https://cloud.gravitee.io/).
 
-    <figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 2.  Navigate to the **Gateways** section, and then click the Gateway for which you want to generate a new Cloud token.
 
     <figure><img src="../../.gitbook/assets/64DFB5D8-427B-4FD2-8013-2206631FEDE2_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
@@ -30,9 +30,7 @@ When you revoke a Cloud token, you terminate the link between the Cloud and your
     <figure><img src="../../.gitbook/assets/093ECA13-2ABE-4A8A-998D-6F6D2E0E5DF9_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 7.  In the **Copy your Cloud Token** pop-up window, click **Copy and Close**.
 
-    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning">
-      <p>Store your Cloud token somewhere secure.</p>
-    </div>
+    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>Store your Cloud token somewhere secure.</p></div>
 
     <figure><img src="../../.gitbook/assets/18A6E6CD-1BA0-466F-B858-BAB94225DA7E_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 

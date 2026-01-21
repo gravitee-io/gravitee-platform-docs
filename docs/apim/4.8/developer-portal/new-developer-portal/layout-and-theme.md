@@ -36,11 +36,11 @@ In the New Developer Portal catalog, you can search for an API based on an assoc
 
 Here is an example of categories as header tabs:
 
-<figure><img src="../../.gitbook/assets/0 tabs.png" alt=""><figcaption><p>Tabs category view</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/0 tabs (1).png" alt=""><figcaption><p>Tabs category view</p></figcaption></figure>
 
 Here is an example of categories as tiles:
 
-<figure><img src="../../.gitbook/assets/0 tiles.png" alt=""><figcaption><p>Tiles category view</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/0 tiles (1).png" alt=""><figcaption><p>Tiles category view</p></figcaption></figure>
 
 ## Fonts
 
@@ -126,9 +126,8 @@ You can add custom CSS to your Developer Portal's theme with the CSS editor. To 
        }
        ```
 
-       <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
-         <p>For a full list of the available CSS tokens that you can use to customize your New Developer Portal, see <a href="layout-and-theme.md#available-css-tokens" title="mention">#available-css-tokens</a></p>
-       </div>
+       <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>For a full list of the available CSS tokens that you can use to customize your New Developer Portal, see <a data-mention href="layout-and-theme.md#available-css-tokens">#available-css-tokens</a></p></div>
+
 ### Verification
 
 *   In the header navigation bar, click **Open Website**. Your New Developer Portal shows your custom CSS updates.\\
