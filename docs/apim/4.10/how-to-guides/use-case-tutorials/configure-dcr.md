@@ -95,9 +95,9 @@ We need to add the `dcr_admin` scope to ensure the initial access token tied to 
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.53.32 AM (1).png" alt=""><figcaption></figcaption></figure>
 
-The `dcr_admin` scope must also be added to the scope in the APIM DCR Provider configuration page.
+The `dcr_admin` scope must also be added to the scope in the APIM DCR Provider configuration page.<br>
 
-<figure><img src="../../.gitbook/assets/image (38) (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (187).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 Alternatively, you could make the `dcr_admin` scope a default scope in the "DCR Application" of your IdP
