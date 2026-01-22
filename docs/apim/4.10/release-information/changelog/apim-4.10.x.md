@@ -1,10 +1,7 @@
----
-hidden: true
----
-
 # APIM 4.10.x
- 
+
 ## Gravitee API Management 4.10.2 - January 22, 2026
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -19,7 +16,7 @@ hidden: true
 
 **Portal**
 
-* \[PORTAL] Filtering Problem  [#11028](https://github.com/gravitee-io/issues/issues/11028)
+* \[PORTAL] Filtering Problem [#11028](https://github.com/gravitee-io/issues/issues/11028)
 
 **Other**
 
@@ -33,17 +30,16 @@ hidden: true
 
 **Gateway**
 
-* JAVA_OPTS displays password parameters in gateway logs [#11073](https://github.com/gravitee-io/issues/issues/11073)
+* JAVA\_OPTS displays password parameters in gateway logs [#11073](https://github.com/gravitee-io/issues/issues/11073)
 
 **Management API**
 
-* JAVA_OPTS displays password parameters in gateway logs [#11073](https://github.com/gravitee-io/issues/issues/11073)
+* JAVA\_OPTS displays password parameters in gateway logs [#11073](https://github.com/gravitee-io/issues/issues/11073)
 
 </details>
 
-
- 
 ## Gravitee API Management 4.10.1 - January 19, 2026
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -54,6 +50,3 @@ hidden: true
 * Gateway doesn't support older kafka versions [#11071](https://github.com/gravitee-io/issues/issues/11071)
 
 </details>
-
-
-
