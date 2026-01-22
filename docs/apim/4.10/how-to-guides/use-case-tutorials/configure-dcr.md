@@ -146,5 +146,3 @@ We can ignore the **Subscription** page and just click **Next** again. Finally, 
 Well done! If you return to AM and select **Applications** in the sidebar, you should see the brand new application you just created in the Developer Portal:
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 11.20.02 AM (1).png" alt=""><figcaption></figcaption></figure>
-
-nn
