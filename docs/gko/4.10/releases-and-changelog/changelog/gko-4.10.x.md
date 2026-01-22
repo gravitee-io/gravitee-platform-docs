@@ -4,5 +4,5 @@
 
 This version does not introduce any new features or bug fixes.
 
-> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+> This version was generated to keep the Kubernetes Operator in sync with other Gravitee products.
 
