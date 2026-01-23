@@ -12,6 +12,7 @@
     * [Expose MCP Servers](writer-agent/mcp-apis/expose-mcp-servers.md)
     * [MCP ACL Policy](writer-agent/mcp-apis/mcp-acl-policy.md)
     * [Secure MCP Server with AM](writer-agent/mcp-apis/secure-mcp-server-with-am.md)
+    * [MCP APIS](writer-agent/mcp-apis/MCP_APIs.md.output.md)
   * [Webhook Logs](writer-agent/webhook-logs/README.md)
     * [Webhook Logs](writer-agent/webhook-logs/webhook-logs.writer-output.md)
     * [Page 2](writer-agent/webhook-logs/page-2.md)
