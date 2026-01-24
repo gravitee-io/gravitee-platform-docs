@@ -64,3 +64,4 @@
       * [mcp\_apis.writer notes](smart-agent/screenshots/mcp-apis/mcp_apis.writer-notes.md)
 * [webhook logs.writer notes](webhook-logs.writer-notes.md)
 * [webhook logs.writer output](webhook-logs.writer-output.md)
+* [pics test](portable-test-results/webhook-logs.writer-output.md)
