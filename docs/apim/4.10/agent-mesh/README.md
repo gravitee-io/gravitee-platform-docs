@@ -1,14 +1,14 @@
 ---
-description: An overview about agent mesh.
+description: An overview about AI Agent Management.
 ---
 
-# Agent Mesh
+# AI Agent Management
 
 <table data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Set up an AI Agent (A2A) Proxy</td><td><a href="create-an-a2a-proxy.md">create-an-a2a-proxy.md</a></td></tr><tr><td>Discover and Catalog AI Agents (A2A)</td><td><a href="add-agents-to-your-agent-catalog.md">add-agents-to-your-agent-catalog.md</a></td></tr><tr><td>Convert REST APIs to an MCP Server</td><td><a href="convert-your-apis-to-mcp-servers.md">convert-your-apis-to-mcp-servers.md</a></td></tr><tr><td>LLM Proxy</td><td><a href="llm-proxy/">llm-proxy</a></td></tr></tbody></table>
 
 ## Overview
 
-Gravitee Agent Mesh is a suite of features that enable, govern, and protect AI use cases. Agent Mesh collectively refers to the Gravitee Agent Gateway, Gravitee Agent Catalog, and Gravitee Agent Tool Server.
+Gravitee AI Agent Management is a suite of features that enable, govern, and protect AI use cases. AI Agent Management collectively refers to the Gravitee Agent Gateway, Gravitee Agent Catalog, and Gravitee Agent Tool Server.
 
 Gravitee offers centralized and unified control of AI agents, even if they are running on multiple platforms. These agents can use Agent-to-Agent (A2A) protocol to interact with one another, and Model Context Protocol (MCP) to access both synchronous and asynchronous APIs. All agent communications are subject to the access control and security measures provided by the Gravitee Gateway.
 
