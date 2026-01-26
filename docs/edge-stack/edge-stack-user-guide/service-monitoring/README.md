@@ -1,6 +1,0 @@
----
-noIndex: true
----
-
-# Service Monitoring
-

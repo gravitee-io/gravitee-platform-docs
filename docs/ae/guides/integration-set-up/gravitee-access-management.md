@@ -1,2 +1,0 @@
-# Gravitee Access Management
-

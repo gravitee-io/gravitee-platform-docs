@@ -1,6 +1,0 @@
----
-noIndex: true
----
-
-# EnvoyFilters
-

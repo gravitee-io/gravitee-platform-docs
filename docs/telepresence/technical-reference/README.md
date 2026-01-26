@@ -1,6 +1,0 @@
----
-noIndex: true
----
-
-# Technical Reference
-
