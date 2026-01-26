@@ -1,5 +1,7 @@
+# configure-dcr.writer-output.md
+
 ---
-description: An overview about configure dcr.
+description: Configure Dynamic Client Registration (DCR) with APIM and Gravitee Access Management (AM).
 metaLinks:
   alternates:
     - >-
@@ -10,142 +12,235 @@ metaLinks:
 
 ## Overview
 
-This tutorial will quickly showcase how to configure Dynamic Client Registration (DCR) with APIM and Gravitee Access Management (AM).
+This guide explains how to configure Dynamic Client Registration (DCR) with APIM and Gravitee Access Management (AM).
 
-[DCR](https://www.rfc-editor.org/rfc/rfc7591) is a protocol that allows OAuth client applications to register with an OAuth server through the OpenID Connect (OIDC) client registration endpoint. DCR allows API consumers to register applications with an OAuth server from Gravitee’s Developer Portal or Management Console. This outsources the issuer and management of application credentials to a third party, allowing for additional configuration options and compatibility with various OIDC features provided by the identity provider.
+[DCR](https://www.rfc-editor.org/rfc/rfc7591) is a protocol that allows OAuth client applications to register with an OAuth server through the OpenID Connect (OIDC) client registration endpoint. DCR allows API consumers to register applications with an OAuth server from Gravitee's Developer Portal or Management Console. This outsources the issuer and management of application credentials to a third party, allowing for additional configuration options and compatibility with various OIDC features provided by the identity provider.
 
-## Prerequisites <a href="#prerequisites-3" id="prerequisites-3"></a>
+## Prerequisites
 
-To participate in this tutorial, you must have an Enterprise instance of APIM 4.0 or later up and running.
+Before you configure DCR, ensure you have:
 
-You also need to have an authentication server supporting OIDC. We will be using Gravitee Access Management (AM) as our provider, but you are free to use any authentication server supporting OIDC.
+* An Enterprise instance of APIM 4.0 or later up and running
+* An authentication server supporting OIDC (this guide uses Gravitee Access Management)
 
-## APIM Setup <a href="#apim-setup-4" id="apim-setup-4"></a>
+## Configure DCR in APIM
 
-To start, let’s see what we need to configure inside of APIM.
+### Enable DCR
 
-### 1. Enable DCR <a href="#enable-dcr-5" id="enable-dcr-5"></a>
+1. Navigate to **Settings > Client Registration** in the Console UI.
+2. Under **Allowed application types**, disable **Simple** apps and enable all other "advanced" application types.
 
-The first step is to enable DCR for your instance of APIM. To do this, go to **Settings > Client Registration** in the Console UI. Under **Allowed application types**, you want to disable **Simple** apps and enable all the other “advanced” application types.
+    {% hint style="info" %}
+    Simple applications are not secure as they allow API consumers to define their own `client_id`. Advanced applications only allow the client registration provider to create the `client_id` and `client_secret` for each application that registers. For advanced applications to function, DCR must be enabled and configured.
+    {% endhint %}
 
-Simple applications are not secure as they allow API consumers to define their own `client_id`. However, advanced applications only allow the client registration provider to create the `client_id` and `client_secret` for each application that registers. Therefore, for advanced applications to function, DCR must be enabled and configured.
+3. Under **Client registration providers (DCR)**, toggle on **Enable client registration providers (DCR) for applications**.
 
-Under **Client registration providers (DCR)**, toggle on **Enable client registration providers (DCR) for applications**.
+    <figure><img src="../../.gitbook/assets/apim-dcr-step-01.jpg" alt="Client registration settings showing DCR enabled"><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 9.29.06 AM (1).jpg" alt=""><figcaption></figcaption></figure>
+### Configure AM as DCR provider
 
-### 2. Configure AM as DCR provider <a href="#configure-am-as-dcr-provider-6" id="configure-am-as-dcr-provider-6"></a>
+1. Select **+ Add a provider** to begin the configuration process.
+2. Provide a **Name** and **Description** for the provider.
 
-With DCR enabled, we now need to configure AM (or any auth server supporting OIDC). Select **+ Add a provider** to begin the configuration process. Provide a **Name** and **Description**:
+    <figure><img src="../../.gitbook/assets/apim-dcr-step-02.png" alt="Add provider form with name and description fields"><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 9.48.56 AM (1).png" alt=""><figcaption></figcaption></figure>
+3. In the **Configuration** section, provide an **OpenID Connect Discovery Endpoint**, which is the URL where an OIDC-compatible authorization server publishes its metadata.
 
-The **Configuration** section first requires you to provide an **OpenID Connect Discovery Endpoint** which is the URL where an OIDC-compatible authorization server publishes its metadata.
+    {% hint style="info" %}
+    **OpenID Connect Discovery Endpoint**
 
-{% hint style="info" %}
-**OpenID Connect Discovery Endpoint**
+    The authorization server metadata published to this endpoint is a JSON listing of the OpenID/OAuth endpoints, supported scopes and claims, public keys used to sign the tokens, and other details. This information can be used to construct a request to the authorization server. The field names and values are defined in the [OIDC Discovery Specification](https://openid.net/specs/openid-connect-discovery-1_0.html).
+    {% endhint %}
 
-The authorization server metadata published to this endpoint is a JSON listing of the OpenID/OAuth endpoints, supported scopes and claims, public keys used to sign the tokens, and other details. This information can be used to construct a request to the authorization server. The field names and values are defined in the [OIDC Discovery Specification.](https://openid.net/specs/openid-connect-discovery-1_0.html)
+4. Select **Client Credentials** as the **Initial Access Token Provider**. Client credentials is an authorization grant flow that allows APIM to securely retrieve an access token from AM.
+
+Leave this page open and proceed to configure AM.
+
+## Configure AM
+
+### Set security domain
+
+1. Select your user in the top right and then either select an existing domain or **+ Create domain**.
+
+    <figure><img src="../../.gitbook/assets/apim-dcr-step-03.png" alt="AM domain selection dropdown"><figcaption></figcaption></figure>
+
+2. Select **Settings** in the sidebar, scroll down to the **Openid** section, and select **Client Registration**.
+3. Toggle on the **Enable/Disable Dynamic Client Registration** setting.
+
+    <figure><img src="../../.gitbook/assets/apim-dcr-step-04.jpg" alt="AM client registration settings with DCR enabled"><figcaption></figcaption></figure>
+
+### Create AM Client Registration Provider Application
+
+1. Select **Applications** in the sidebar and then select the **+ icon** in the bottom right.
+
+    <figure><img src="../../.gitbook/assets/apim-dcr-step-05.png" alt="AM application creation wizard showing application types"><figcaption></figcaption></figure>
+
+2. Select **Backend to Backend** and then **Next**.
+3. Provide a **Name** and **Description** for your app, leave everything else as default, and click **Create**.
+
+    <figure><img src="../../.gitbook/assets/apim-dcr-step-06.png" alt="AM application creation form with name and description fields"><figcaption></figcaption></figure>
+
+### Retrieve OpenID endpoint and client credentials
+
+1. Select **Endpoints** from the inner sidebar and scroll down to the **OpenID Configuration endpoint**.
+
+    <figure><img src="../../.gitbook/assets/apim-dcr-step-07.png" alt="AM endpoints page showing OpenID configuration endpoint"><figcaption></figcaption></figure>
+
+2. Copy the endpoint and paste it into APIM under **OpenID Connect Discovery Endpoint**.
+
+    <figure><img src="../../.gitbook/assets/apim-dcr-step-08.png" alt="APIM DCR provider configuration with OpenID endpoint field"><figcaption></figcaption></figure>
+
+### Enable scopes and retrieve client credentials
+
+1. In AM, select **Settings** in the inner sidebar.
+2. Select the **OAuth 2.0 / OIDC** tab and then select the **Scopes** tab on the lower navigation menu.
+
+    <figure><img src="../../.gitbook/assets/apim-dcr-step-09.png" alt="AM OAuth scopes configuration page"><figcaption></figcaption></figure>
+
+3. Select **+ Add Scopes**, search for **dcr_admin**, select the **Client_registration_admin** scope, and click **Add**.
+4. Click **Save**.
+
+    <figure><img src="../../.gitbook/assets/apim-dcr-step-10.png" alt="AM add scopes dialog with dcr_admin scope selected"><figcaption></figcaption></figure>
+
+5. In APIM, add the `dcr_admin` scope to the DCR Provider configuration page.
+
+    <figure><img src="../../.gitbook/assets/apim-dcr-step-11.png" alt="APIM DCR provider configuration with dcr_admin scope field"><figcaption></figcaption></figure>
+
+    {% hint style="info" %}
+    Alternatively, you can make the `dcr_admin` scope a default scope in the "DCR Application" of your IdP.
+    {% endhint %}
+
+6. In AM, click the **General** tab to return to the homepage of your AM application.
+
+    <figure><img src="../../.gitbook/assets/apim-dcr-step-12.png" alt="AM application general settings showing client ID and secret"><figcaption></figcaption></figure>
+
+7. Copy the **Client ID** and **Client Secret** and paste them in the respective inputs inside the APIM client registration provider configuration page.
+8. Scroll down and click **Create**.
+
+    <figure><img src="../../.gitbook/assets/apim-dcr-step-13.png" alt="APIM DCR provider configuration with client credentials fields"><figcaption></figcaption></figure>
+
+You have now configured a DCR provider and are ready to create advanced applications inside of APIM.
+
+<figure><img src="../../.gitbook/assets/apim-dcr-step-14.png" alt="APIM client registration providers list showing configured provider"><figcaption></figcaption></figure>
+
+## Create an advanced APIM app in the Developer Portal
+
+1. Access the Developer Portal by selecting it from the top menu bar.
+
+    <figure><img src="../../.gitbook/assets/apim-dcr-step-15.png" alt="APIM top navigation showing Developer Portal link"><figcaption></figcaption></figure>
+
+    {% hint style="info" %}
+    **Accessing the Developer Portal**
+
+    In the default Docker installation, you won't see this link. By default, the Developer Portal is running at `localhost:8085`. You can add this link by providing the URL of the Developer Portal under **Settings > Settings > Scroll to Portal Section > Portal URL**. Make sure you scroll to the bottom and click **Save** after adding the URL.
+    {% endhint %}
+
+2. Select **Application** in the top nav and then select **+ Create an App**.
+
+    <figure><img src="../../.gitbook/assets/apim-dcr-step-16.png" alt="Developer Portal applications page with create app button"><figcaption></figcaption></figure>
+
+3. Provide a **Name** and **Description**, then select **Next**.
+4. Select **Backend to Backend** then select **Next**.
+
+    <figure><img src="../../.gitbook/assets/apim-dcr-step-17.png" alt="Developer Portal application creation wizard showing application type selection"><figcaption></figcaption></figure>
+
+5. Click **Next** on the **Subscription** page.
+6. Confirm your API details and select **Create The App**.
+
+    <figure><img src="../../.gitbook/assets/apim-dcr-step-18.png" alt="Developer Portal application creation confirmation page"><figcaption></figcaption></figure>
+
+If you return to AM and select **Applications** in the sidebar, you should see the brand new application you just created in the Developer Portal.
+
+<figure><img src="../../.gitbook/assets/apim-dcr-step-19.png" alt="AM applications list showing newly created application"><figcaption></figcaption></figure>
+
+## Expose an MCP server with OAuth2 authentication
+
+This section explains how to secure an unsecured MCP server using Gravitee APIM and an OAuth2 plan with Gravitee Access Management.
+
+{% hint style="warning" %}
+If the MCP server itself is already secured, this configuration will not work.
 {% endhint %}
 
-You must also select an **Initial Access Token Provider**, and we will be using **Client Credentials**. Client credentials is an authorization grant flow that allows APIM to securely retrieve an access token from AM.
+### Prerequisites
 
-Leave this page open and open up AM to see how to retrieve the discovery endpoint and credentials.
+Before you expose an MCP server with OAuth2 authentication, ensure you have:
 
-## AM Setup <a href="#am-setup-7" id="am-setup-7"></a>
+* An AM domain and the rights to configure it
+* An MCP client (for example, VS Code) that properly supports the MCP protocol with this type of authentication
 
-### 1. Set security domain
+### Prepare the API proxy in APIM
 
-The first step is to create or select the security domain that you want to use in AM. The security domain acts as the container to group related applications and configuration settings. Select your user in the top right and then either select an existing domain or **+ Create domain**.
+1. In APIM, create a new API and name it "API MCP Proxy".
+2. Create a simple Keyless plan.
+3. Deploy the API and test that it works correctly to proxy the MCP server without authentication.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.32.02 AM (1).png" alt=""><figcaption></figcaption></figure>
+### Configure the MCP server in AM
 
-Once you have a domain, select **Settings** in the sidebar, scroll down to the **Openid** section, and select **Client Registration**. Toggle on the **Enable/Disable Dynamic Client Registration** setting.
+1. In AM, access the desired domain and create an entity "MCP Servers" (or the equivalent of "MCP server resource").
+2. Fill in a name for this resource.
+3. Add the APIM API endpoint in the **MCP Resource Identifier** field.
+4. Let AM generate a ClientID and a Client Secret, or provide your own. Keep these credentials as they will be needed later.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.33.29 AM (1).jpg" alt=""><figcaption></figcaption></figure>
+### Configure DCR in AM (recommended)
 
-### 2. Create AM Client Registration Provider Application <a href="#create-am-client-registration-provider-application-8" id="create-am-client-registration-provider-application-8"></a>
+To avoid manually creating an Application in AM and specifying its Client ID in the MCP client (for example, VS Code), enable DCR.
 
-Now we just need to create an application in AM. This application is essentially what we use in APIM as the client registration provider.
+1. In AM, navigate to **Settings > Client Registration**.
+2. Enable DCR.
 
-To create an app in AM, select **Applications** in the sidebar and then select the **+ icon** in the bottom right. This will open up the following application creation wizard:
+    If DCR is enabled, the MCP client (for example, VS Code) should automatically create the application in AM and also register the ClientID / Client Secret.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.39.11 AM (1).png" alt=""><figcaption></figcaption></figure>
+    If DCR is not enabled, you will need to manually create an Application in AM for the MCP client and correctly configure the redirect URLs according to it. You will also need to configure the MCP client with the ClientID/Client Secret.
 
-Select **Backend to Backend** and then **Next**. Finally, provide a **Name** and **Description** for your app, leave everything else as default, and click **Create**.
+### Enable user registration in AM (optional)
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.40.39 AM (1).png" alt=""><figcaption></figcaption></figure>
+For this guide, it is recommended to enable client user registration (sign up).
 
-### 3. Retrieve OpenID Endpoint and Client Credentials <a href="#retrieve-openid-endpoint-and-client-credentials-9" id="retrieve-openid-endpoint-and-client-credentials-9"></a>
+1. In AM, navigate to **Settings > Login > User Registration**.
+2. Enable the registration option.
 
-Next, we need to retrieve the OpenId configuration endpoint and the client credentials. To retrieve the endpoint, select **Endpoints** from the inner sidebar and scroll down to the **OpenID Configuration endpoint**.
+### Finalize configuration in APIM
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.46.20 AM (1).png" alt=""><figcaption></figcaption></figure>
+1. In your API MCP Proxy in APIM, add a resource of type **Gravitee.io AM Authorization Server**.
+2. Configure it by linking it to your AM instance and using the ClientID and Client Secret previously created in AM for the "API MCP Proxy" resource.
+3. Save.
+4. Add an OAuth2 plan in APIM using the AM resource that was just added.
+5. Delete the Keyless plan.
+6. Redeploy the API.
 
-Copy the endpoint and paste it into APIM under **OpenID Connect Discovery Endpoint**.
-
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.45.08 AM (1).png" alt=""><figcaption></figcaption></figure>
-
-### 4. Enable scopes and retrieve client credentials
-
-Lastly, we need to enable the proper scopes for the app and retrieve the client credentials. Back in AM, select **Settings** in the inner sidebar. Next, select the **OAuth 2.0 / OIDC** tab and then select the **Scopes** tab on the lower navigation menu.
-
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.50.26 AM (1).png" alt=""><figcaption></figcaption></figure>
-
-We need to add the `dcr_admin` scope to ensure the initial access token tied to this application has the proper permissions to create new applications. Select **+ Add Scopes**, search for **dcr\_admin**, select the **Client\_registration\_admin** scope that pops up, and click **Add**. After adding the scope, make sure you click **Save**.
-
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.53.32 AM (1).png" alt=""><figcaption></figcaption></figure>
-
-The `dcr_admin` scope must also be added to the scope in the APIM DCR Provider configuration page.
-
-<figure><img src="../../.gitbook/assets/image (38) (3).png" alt=""><figcaption></figcaption></figure>
+The MCP client, upon connection, should now use the OAuth2 server configured in APIM. You will be redirected to the AM login page, where you can use an existing AM user or create one (if the registration option was enabled). Once successfully logged in via AM, a redirection is performed to the MCP client. The MCP client retrieves the ClientID and Client Secret in the background, and creates a token to use the MCP API, now secured in APIM.
 
 {% hint style="info" %}
-Alternatively, you could make the `dcr_admin` scope a default scope in the "DCR Application" of your IdP
+**VS Code note**
+
+If you are using VS Code and want to delete the ClientIDs registered by dynamic registration, use the command palette:
+
+`Cmd+Shift+P` (or `Ctrl+Shift+P` on Windows/Linux)
+
+Search for and use the action: `>Authentication: Remove Dynamic Authentication Providers`
 {% endhint %}
 
-To obtain the client credentials, simply click the **General** tab to return to the homepage of your AM application.
-
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.53.48 AM (1).png" alt=""><figcaption></figcaption></figure>
-
-Copy the **Client ID** and **Client Secret** and paste them in the respective inputs inside the APIM client registration provider configuration page. Scroll down and click **Create**.
-
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.55.35 AM (1).png" alt=""><figcaption></figcaption></figure>
-
-Congrats! You have now configured a DCR provider and are ready to create advanced applications inside of APIM.
-
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.58.26 AM (1).png" alt=""><figcaption></figcaption></figure>
-
-## Create an Advanced APIM App in the Developer Portal <a href="#create-an-advanced-apim-app-in-the-developer-portal-10" id="create-an-advanced-apim-app-in-the-developer-portal-10"></a>
-
-To create the app, let’s head over to the Developer Portal since this is where your API consumers will generally be creating apps. The Developer Portal is essentially an API catalog and marketplace for API consumers.
-
-To access the Developer Portal, select it from the top menu bar:
-
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 11.01.30 AM (1).png" alt=""><figcaption></figcaption></figure>
-
-{% hint style="info" %}
-**Accessing the Developer Portal**
-
-In the default docker installation, you won’t see this link. By default, the Developer Portal is running at `localhost:8085`. You can add this link by providing the URL of the Developer Portal under **Settings > Settings > Scroll to Portal Section > Portal URL**. Make sure you scroll to the bottom and click **Save** after adding the URL.
-{% endhint %}
-
-Inside the Developer Portal, select Application in the top nav and then select **+ Create an App**.
-
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 11.05.21 AM (1).png" alt=""><figcaption></figcaption></figure>
-
-Inside the application creation wizard, provide a **Name** and **Description**, then select **Next**.
-
-Let’s create a Backend to Backend application so we don’t have to worry about a Redirect URI. Select **Backend to Backend** then select **Next**.
-
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 11.07.23 AM (1).png" alt=""><figcaption></figcaption></figure>
-
-We can ignore the **Subscription** page and just click **Next** again. Finally, confirm your API details and select **Create The App**.
-
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 11.18.39 AM (1).png" alt=""><figcaption></figcaption></figure>
-
-Well done! If you return to AM and select **Applications** in the sidebar, you should see the brand new application you just created in the Developer Portal:
-
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 11.20.02 AM (1).png" alt=""><figcaption></figcaption></figure>
-
-nn
+<!-- ASSETS USED (copy/rename exactly):
+- screenshots/Screenshot 2023-11-14 at 9.29.06 AM (1).jpg -> trial-runs/.gitbook/assets/apim-dcr-step-01.jpg | alt: "Client registration settings showing DCR enabled"
+- screenshots/Screenshot 2023-11-14 at 9.48.56 AM (1).png -> trial-runs/.gitbook/assets/apim-dcr-step-02.png | alt: "Add provider form with name and description fields"
+- screenshots/Screenshot 2023-11-14 at 10.32.02 AM (1).png -> trial-runs/.gitbook/assets/apim-dcr-step-03.png | alt: "AM domain selection dropdown"
+- screenshots/Screenshot 2023-11-14 at 10.33.29 AM (1).jpg -> trial-runs/.gitbook/assets/apim-dcr-step-04.jpg | alt: "AM client registration settings with DCR enabled"
+- screenshots/Screenshot 2023-11-14 at 10.39.11 AM (1).png -> trial-runs/.gitbook/assets/apim-dcr-step-05.png | alt: "AM application creation wizard showing application types"
+- screenshots/Screenshot 2023-11-14 at 10.40.39 AM (1).png -> trial-runs/.gitbook/assets/apim-dcr-step-06.png | alt: "AM application creation form with name and description fields"
+- screenshots/Screenshot 2023-11-14 at 10.46.20 AM (1).png -> trial-runs/.gitbook/assets/apim-dcr-step-07.png | alt: "AM endpoints page showing OpenID configuration endpoint"
+- screenshots/Screenshot 2023-11-14 at 10.45.08 AM (1).png -> trial-runs/.gitbook/assets/apim-dcr-step-08.png | alt: "APIM DCR provider configuration with OpenID endpoint field"
+- screenshots/Screenshot 2023-11-14 at 10.50.26 AM (1).png -> trial-runs/.gitbook/assets/apim-dcr-step-09.png | alt: "AM OAuth scopes configuration page"
+- screenshots/Screenshot 2023-11-14 at 10.53.32 AM (1).png -> trial-runs/.gitbook/assets/apim-dcr-step-10.png | alt: "AM add scopes dialog with dcr_admin scope selected"
+- screenshots/image (38) (3).png -> trial-runs/.gitbook/assets/apim-dcr-step-11.png | alt: "APIM DCR provider configuration with dcr_admin scope field"
+- screenshots/Screenshot 2023-11-14 at 10.53.48 AM (1).png -> trial-runs/.gitbook/assets/apim-dcr-step-12.png | alt: "AM application general settings showing client ID and secret"
+- screenshots/Screenshot 2023-11-14 at 10.55.35 AM (1).png -> trial-runs/.gitbook/assets/apim-dcr-step-13.png | alt: "APIM DCR provider configuration with client credentials fields"
+- screenshots/Screenshot 2023-11-14 at 10.58.26 AM (1).png -> trial-runs/.gitbook/assets/apim-dcr-step-14.png | alt: "APIM client registration providers list showing configured provider"
+- screenshots/Screenshot 2023-11-14 at 11.01.30 AM (1).png -> trial-runs/.gitbook/assets/apim-dcr-step-15.png | alt: "APIM top navigation showing Developer Portal link"
+- screenshots/Screenshot 2023-11-14 at 11.05.21 AM (1).png -> trial-runs/.gitbook/assets/apim-dcr-step-16.png | alt: "Developer Portal applications page with create app button"
+- screenshots/Screenshot 2023-11-14 at 11.07.23 AM (1).png -> trial-runs/.gitbook/assets/apim-dcr-step-17.png | alt: "Developer Portal application creation wizard showing application type selection"
+- screenshots/Screenshot 2023-11-14 at 11.18.39 AM (1).png -> trial-runs/.gitbook/assets/apim-dcr-step-18.png | alt: "Developer Portal application creation confirmation page"
+- screenshots/Screenshot 2023-11-14 at 11.20.02 AM (1).png -> trial-runs/.gitbook/assets/apim-dcr-step-19.png | alt: "AM applications list showing newly created application"
+- screenshots/new-mcp-server-form.png -> trial-runs/.gitbook/assets/apim-dcr-step-20.png | alt: "New MCP server form showing server settings fields"
+- screenshots/gravitee-hold-nothing-back-banner.png -> trial-runs/.gitbook/assets/apim-dcr-step-21.png | alt: "Gravitee Hold Nothing Back banner"
+-->
