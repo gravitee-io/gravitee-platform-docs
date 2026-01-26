@@ -320,7 +320,7 @@
     * [Expose Metrics to Prometheus](analyze-and-monitor-apis/logging/expose-metrics-to-prometheus.md)
   * [OpenTelemetry](analyze-and-monitor-apis/opentelemetry.md)
   * [Execution Transparency Analytics](analyze-and-monitor-apis/execution-transparency-analytics.md)
-* [Agent Mesh](agent-mesh/README.md)
+* [AI Agent Management](ai-agent-management/README.md)
   * [Set Up an AI Agent (A2A) Proxy](agent-mesh/create-an-a2a-proxy.md)
   * [Discover and Catalog AI Agents (A2A)](agent-mesh/add-agents-to-your-agent-catalog.md)
   * [Convert REST APIS to an MCP Server](agent-mesh/convert-your-apis-to-mcp-servers.md)
