@@ -4,6 +4,8 @@
 
 This guide explains how to create and configure an MCP (Model Context Protocol) server in Gravitee Access Management. MCP servers enable AI agents and LLMs to discover and interact with your APIs as tools, providing a standardized way to expose backend functionality to conversational agents.
 
+By exposing your APIs as MCP servers through Gravitee, you maintain governance, observability, and security over interactions between AI agents and your backend services.
+
 ## Prerequisites
 
 Before you create an MCP server, ensure you have:
@@ -41,6 +43,8 @@ After creating the MCP server, you can define which tools (API operations) the s
 
 1. In the **Tools Configuration** section, click **Add tool**.
 
+    ![Tools Configuration section with Add tool button](.gitbook/assets/apim-mcp-server-step-02.png)
+
 2. Configure each tool by specifying:
 
     * The API operations to expose
@@ -71,10 +75,12 @@ To verify your MCP server configuration:
 After creating your MCP server, you can:
 
 * [Secure the MCP server with OAuth2](secure-mcp-server.md)
-* [Control access to MCP tools](control-mcp-access.md)
-* [Proxy an existing MCP server through Gravitee](proxy-mcp-server.md)
+* [Control access to MCP tools using ACL policies](control-mcp-access.md)
+* [Proxy an existing MCP server through Gravitee APIM](proxy-mcp-server.md)
 * Configure MCP clients to connect to your server
+* Monitor MCP server usage through APIM analytics
 
 <!-- ASSETS USED (copy/rename exactly):
 - screenshots/mcp-server-form.png -> trial-runs/.gitbook/assets/apim-mcp-server-step-01.png | alt: "New MCP server form showing server settings fields"
+- screenshots/mcp-tools-config.png -> trial-runs/.gitbook/assets/apim-mcp-server-step-02.png | alt: "Tools Configuration section with Add tool button"
 -->
