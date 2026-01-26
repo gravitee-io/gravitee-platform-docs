@@ -6,6 +6,16 @@ structure:
 
 redirects:
  administration/applications: configure-and-manage-the-platform/manage-organizations-and-environments/applications.md
+ agent-mesh: ai-agent-management/README.md
+ agent-mesh/add-agents-to-your-agent-catalog: ai-agent-management/add-agents-to-your-agent-catalog.md
+ agent-mesh/convert-your-apis-to-mcp-servers: ai-agent-management/convert-your-apis-to-mcp-servers.md
+ agent-mesh/create-an-a2a-proxy: ai-agent-management/create-an-a2a-proxy.md
+ agent-mesh/llm-proxy: ai-agent-management/llm-proxy/README.md
+ agent-mesh/llm-proxy/add-the-guard-rails-policy-to-your-llm-proxy: ai-agent-management/llm-proxy/add-the-guard-rails-policy-to-your-llm-proxy.md
+ agent-mesh/llm-proxy/add-the-token-rate-limit-policy-to-your-llm-proxy: ai-agent-management/llm-proxy/add-the-token-rate-limit-policy-to-your-llm-proxy.md
+ agent-mesh/llm-proxy/consume-your-llm-proxy-with-the-openai-python-sdk: ai-agent-management/llm-proxy/consume-your-llm-proxy-with-the-openai-python-sdk.md
+ agent-mesh/llm-proxy/proxy-your-llms: ai-agent-management/llm-proxy/proxy-your-llms.md
+ agent-mesh/secure-mcp-proxy-with-oauth2: ai-agent-management/secure-mcp-proxy-with-oauth2.md
  administration/authentication: configure-and-manage-the-platform/manage-organizations-and-environments/authentication/README.md
  administration/authentication/authentication-providers: configure-and-manage-the-platform/manage-organizations-and-environments/authentication/authentication-providers.md
  administration/authentication/azure-entra-id: configure-and-manage-the-platform/manage-organizations-and-environments/authentication/microsoft-entra-id.md
