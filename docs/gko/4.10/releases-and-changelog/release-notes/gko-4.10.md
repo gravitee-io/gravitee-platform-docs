@@ -31,4 +31,4 @@ This milestone, first achieved in version 4.8.5, recognizes our commitment to pr
 
 ### What This Means for You
 
-**Gravitee Kubernetes Operator 4.10** delivers partial conformance for Gateway - HTTP features, enabling you to leverage the Gateway API standard for managing your API infrastructure. While the current implementation focuses on core Gateway and HTTPRoute functionality with Kubernetes Core v1 services, we're working on expanding support for additional matching rules across routes and alternative service types in upcoming releases.
+**Gravitee Kubernetes Operator 4.10** delivers partial conformance for Gateway and HTTPRoute resources, enabling you to leverage the Gateway API standard for managing your API infrastructure. While the current implementation focuses on core Gateway and HTTPRoute functionality with Kubernetes Core v1 services, we're working on expanding support for additional matching rules across routes and alternative service types in upcoming releases.
