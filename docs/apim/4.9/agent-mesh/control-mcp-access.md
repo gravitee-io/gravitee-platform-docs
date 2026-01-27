@@ -2,94 +2,95 @@
 
 ## Overview
 
-This guide explains how to control access to MCP (Model Context Protocol) server capabilities using the MCP ACL (Access Control List) policy in Gravitee APIM. The ACL policy allows you to define granular permissions for tools, resources, and prompts exposed by an MCP server.
+This guide explains how to control access to MCP (Model Context Protocol) servers and tools in Gravitee Access Management. Access control allows you to define which consumers can discover and use specific MCP tools, ensuring secure and compliant agent-to-tool interactions.
+
+MCP tool access control operates at two levels:
+- **Server-level access**: Controls which consumers can connect to an MCP server
+- **Tool-level access**: Controls which specific tools within an MCP server a consumer can invoke
 
 ## Prerequisites
 
-Before you configure MCP access control, ensure you have:
+Before you configure MCP access control, complete the following steps:
 
-* An MCP API configured in Gravitee APIM
-* The MCP ACL policy available in your Gravitee installation
+- Configure at least one MCP server in Access Management
+- Define one or more applications or consumers that will access MCP tools
+- Understand your organization's security and compliance requirements for AI tool usage
 
-## Understand default behavior
+## Configure MCP server settings
 
-When you add the MCP ACL policy to an API without specifying any rules, the system adopts a restrictive "Deny All" approach by default.
+1. Navigate to **Access Management** in the Gravitee Console.
 
-1. Add the MCP ACL policy to your MCP API.
-2. Save the API configuration.
-3. Deploy the API.
+    ![Access Management navigation](.gitbook/assets/apim-mcp-access-step-01.png)
 
-After deployment, all server functionalities will be inaccessible. An MCP client will be able to connect to the server via the Gateway, but the lists of tools, resources, and prompts will appear empty.
+2. Select **MCP Servers** from the left navigation menu.
 
-## Authorize tool listing only
+3. Click on an existing MCP server or create a new one by clicking **New MCP server**.
 
-To allow a client to see available tools without being able to execute them:
+    ![New MCP server form](.gitbook/assets/apim-mcp-access-step-02.png)
 
-1. Navigate to your MCP API in the Gravitee Console.
-2. Add an ACL rule in the MCP ACL policy configuration.
-3. Select the **Tools** feature option.
-4. Check the **tools/list** box.
-5. Leave the **Name Pattern Type** field set to **ANY** (default value).
-6. Save the policy configuration.
-7. Deploy the API.
+4. Complete the **MCP Server Settings** section:
+   - **Domain**: Enter the security domain for the MCP server (for example, `/agentic`)
+   - **Name**: Enter a descriptive name for the MCP server
+   - **MCP Resource Identifier**: Enter the canonical resource identifier (for example, `https://banking.example.com`)
+   - **Description**: Enter an optional description of the MCP server's purpose
 
-After deployment, an MCP client will be able to list available tools, but any attempt to call (execute) them will be rejected.
+5. Click **Save** to create or update the MCP server configuration.
 
-## Authorize a specific tool
+## Define tool access control
 
-To restrict access and execution to a single specific tool (for example, `get_weather`):
+Tool access control determines which consumers can use specific tools provided by an MCP server. This prevents unauthorized or unintended tool usage by AI agents.
 
-1. Navigate to your MCP API in the Gravitee Console.
-2. Add or modify an ACL in the MCP ACL policy configuration.
-3. In the **Tools** feature option:
-    * Check both **tools/list** and **tools/call**.
-    * In the **Name Pattern Type** field, select **Literal**.
-    * In the **Name Pattern** field, enter the exact name of the tool (for example, `get_weather`).
-4. Save the policy configuration.
-5. Deploy the API.
+1. Navigate to the **Tools Configuration** section of your MCP server.
 
-After deployment, only the specified tool is visible to the MCP client and can be called. All other tools remain hidden and inaccessible.
+2. Click **Add tool** to define a new tool or select an existing tool to modify its access settings.
 
-## Add conditional access rules
+3. Configure the tool's access control settings:
+   - Define which applications or consumer groups can invoke this tool
+   - Set usage quotas or rate limits specific to this tool
+   - Specify any additional security constraints
 
-Each ACL rule includes a **Trigger Condition** field. This field allows you to add conditional logic to determine if the rule should be applied or ignored. This is useful for applying context-based security policies.
+4. Click **Save** to apply the tool access control configuration.
 
-The **Trigger Condition** field expects a Gravitee EL (Expression Language) expression. You can condition access to certain tools based on a specific property (claim) present in the user's token or a request attribute.
+{% hint style="info" %}
+Tool-level access control works in conjunction with server-level access. A consumer must have both server access and tool-specific permissions to successfully invoke a tool.
+{% endhint %}
 
-## Test your configuration locally
+## Configure authorization
 
-To validate your ACL configurations without impacting a production environment, you can use the official example MCP server named "Everything." This server exposes a large number of functionalities, making it ideal for testing filters.
+MCP servers in Gravitee support RFC 9728 for OAuth 2.0 authorization. This ensures that MCP clients can securely authenticate on behalf of end users.
 
-### Install the test server
+1. Navigate to the **Authorization** section of your MCP server configuration.
 
-1. Install the "Everything" MCP server using npm:
+2. Enable OAuth 2.0 authorization by toggling the **Enable Authorization** switch.
 
-    ```bash
-    npx @modelcontextprotocol/server-everything streamableHttp
-    ```
+3. Configure the OAuth 2.0 settings:
+   - **Authorization Endpoint**: The URL where users will be redirected to authenticate
+   - **Token Endpoint**: The URL where access tokens will be obtained
+   - **Scopes**: Define the OAuth scopes required for tool access
 
-    The server will start in HTTP mode (streamable).
+4. Click **Save** to apply the authorization configuration.
 
-### Configure your API
+When an MCP client attempts to use a tool without a valid OAuth token, it will receive a 401 error response with information about where to redirect the user for authentication. After successful authentication, the client can pass the obtained token on subsequent calls.
 
-1. Navigate to your Gravitee API configuration.
-2. Configure the API endpoint to point to the local URL of the test server:
+## Verification
 
-    ```
-    http://localhost:3001/mcp
-    ```
+To verify that MCP access control is working correctly:
 
-3. Save the API configuration.
-4. Deploy the API.
+1. Attempt to connect to the MCP server using an authorized consumer application.
+2. Verify that the consumer can discover only the tools for which it has been granted access.
+3. Attempt to invoke a tool using an unauthorized consumer and confirm that access is denied.
+4. Review the MCP analytics dashboard to monitor tool usage and access patterns.
 
-### Validate your policy
+## Next steps
 
-Test your ACL policy using an MCP client. The "Everything" server exposes many tools by default, allowing you to verify that your policy correctly filters visible and callable tools according to your rules.
+After configuring MCP access control, consider the following additional steps:
 
-<!-- NEED CLARIFICATION: The source material mentions "resources" and "prompts" as MCP server capabilities that can be controlled via ACL, but does not provide configuration details for these features. Only tools are documented. -->
-
-<!-- NEED CLARIFICATION: The source material references a "Gravitee-generated MCP tool server" but does not explain what this is or how it differs from proxying an existing MCP server. -->
+- Set up monitoring and alerts for unauthorized access attempts
+- Review and update tool access permissions regularly based on usage patterns
+- Configure rate limiting and quotas to prevent excessive tool consumption
+- Integrate with Gravitee Access Management for centralized agent identity management
 
 <!-- ASSETS USED (copy/rename exactly):
-- screenshot-01.png -> trial-runs/.gitbook/assets/apim-mcp-acl-step-01.png | alt: "New MCP server form showing domain, name, resource identifier, and description fields"
+- screenshot1.png -> .gitbook/assets/apim-mcp-access-step-01.png | alt: "Access Management navigation showing MCP Servers menu option"
+- screenshot2.png -> .gitbook/assets/apim-mcp-access-step-02.png | alt: "New MCP server form with server settings fields"
 -->

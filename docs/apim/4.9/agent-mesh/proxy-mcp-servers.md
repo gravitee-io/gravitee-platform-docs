@@ -2,268 +2,213 @@
 
 ## Overview
 
-This guide explains how to use Gravitee API Management (APIM) to proxy Model Context Protocol (MCP) servers. MCP is a protocol that enables AI agents to interact with external tools and data sources. By proxying MCP servers through Gravitee, you can add governance, observability, and access control to your MCP infrastructure.
-
-Gravitee supports three primary MCP proxy scenarios:
-
-* **Exposing an unsecured MCP server**: Add a layer of control and monitoring to an open MCP server
-* **Exposing a secured MCP server**: Proxy MCP servers that implement OAuth-based authentication
-* **Securing an unsecured MCP server**: Use Gravitee Access Management (AM) to add OAuth2 authentication to an open MCP server
+This guide explains how to use Gravitee APIM to proxy Model Context Protocol (MCP) servers. MCP is a protocol that enables AI agents to interact with tools, resources, and prompts. By proxying MCP servers through Gravitee, you can add governance, observability, and access control to MCP-based agent workflows.
 
 ## Prerequisites
 
 Before you proxy an MCP server, ensure you have:
 
-* Gravitee APIM 4.9 or later installed and running
-* Access to the APIM Console with permissions to create and deploy APIs
-* An MCP server endpoint (either local or remote)
-* For OAuth scenarios: Gravitee Access Management (AM) configured with appropriate domain access
+* A Gravitee APIM instance (version 4.9 or later)
+* Access to an MCP server (either your own or a test server)
+* An MCP client that supports the MCP protocol (for example, VS Code with the Copilot extension, Claude Desktop, or Cursor)
 
-## Expose an unsecured MCP server
+## Proxy an unsecured MCP server
 
-This scenario demonstrates how to proxy an existing MCP server that does not require authentication. Gravitee adds governance, observability, and control without modifying the backend server.
+This section explains how to publish an existing MCP server that does not require authentication. The goal is to add governance, observability, and control through APIM, even if the backend is open.
 
-### Create the MCP proxy API
+### Create the API
 
-1. In the APIM Console, navigate to **APIs** and click **+ Add API**.
-
-2. Select **V4 API** as the API type.
-
-3. Configure the general settings:
-    * Enter a name for your API (for example, "MCP Proxy")
-    * Enter a version number
-    * Select **AI Gateway** as the architecture type
-
-4. Configure the proxy settings:
-    * Select **MCP Proxy** as the proxy type
-    * Define the entrypoint path (for example, `/mcp-proxy`)
-
-5. Configure the backend endpoint:
-    * Enter the URL of your target MCP server
-    * For a local test server: `http://localhost:3001/mcp`
-
-6. Configure security:
-    * Select **Keyless** as the plan type for this example
-
-7. Click **Create** to finalize the API configuration.
-
-8. Deploy the API by clicking **Deploy** in the API details page.
+1. Create a new API and start the V4 API creation process.
+2. Enter your API name and version in the general configuration.
+3. Select **AI Gateway** as the architecture choice.
+4. Choose the **MCP Proxy** option as the proxy type.
+5. Define the entrypoint access path (for example, `/mcp-proxy`).
+6. Enter the URL of your target MCP server as the backend endpoint.
+7. For this example, proceed with a Keyless plan for security.
+8. Validate the creation and deploy the API.
 
 ### Monitor MCP traffic
 
-After deploying your API, you can monitor MCP server interactions:
+After deploying the API, you can monitor MCP server usage:
 
-* **Request logs**: Navigate to **APIs > [Your API] > Logs** to view detailed request and response data between MCP clients and the server
-* **Traffic analytics**: Navigate to **APIs > [Your API] > Analytics** to view MCP server usage metrics, frequently used methods and tools, and error rates
+* In the APIM logs screen, track exchanges between the MCP server and the MCP client.
+* In the API Traffic screen, a dashboard visualizes MCP server usage, the methods and main tools used, and any errors encountered by the server.
 
-### Test with a local MCP server
+### Test with the example MCP server
 
-If you don't have an MCP server available, you can test using the official MCP example server:
+If you don't have an MCP server yet, you can simulate a local environment with the official example server.
 
-1. Install and start the example server:
+1. Start the example server from the [MCP servers repository](https://github.com/modelcontextprotocol/servers/tree/main/src/everything):
 
     ```bash
     npx @modelcontextprotocol/server-everything streamableHttp
     ```
 
-    The server starts on port 3001 by default.
+    The server will usually start on port 3001.
 
-2. Configure your Gravitee API endpoint to use `http://localhost:3001/mcp`.
+2. Configure Gravitee to use the following URL as the backend endpoint: `http://localhost:3001/mcp`
 
-3. Deploy the API and test the connection using an MCP client.
+{% hint style="info" %}
+An internal Gravitee testing tool is available for APIM development purposes. This tool is not intended for public documentation and may be removed at any time.
+{% endhint %}
 
-<!-- NEED CLARIFICATION: The source mentions an internal Gravitee tool URL (https://apim-tools-mcp-server.team-apim.gravitee.dev/mcp) that should NOT be included in public documentation. Should this be documented in internal-only materials? -->
+## Proxy a secured MCP server
 
-## Expose a secured MCP server
-
-Proxying a secured MCP server requires both the backend server and the client to implement the MCP specification's OAuth authentication flow as defined in RFC 9728.
+Proxying a secured MCP server requires the backend server and the client to strictly adhere to the MCP specification for OAuth authentication.
 
 ### MCP authentication flow
 
-The MCP authentication flow works as follows:
+For the connection to work through the proxy, the following mechanism must occur:
 
-1. **Initial challenge**: The MCP server rejects unauthenticated requests with a `401 Unauthorized` response.
-
-2. **Authentication discovery**: The `401` response includes a `WWW-Authenticate` header containing `resource_metadata` that points to an OAuth metadata endpoint (for example, `http://mcpserver.com/.well-known/oauth-protected-resource`).
-
-3. **Metadata retrieval**: The MCP client calls the metadata endpoint to discover the authorization server details.
-
-4. **Token acquisition**: The client authenticates with the authorization server and obtains an access token.
-
-5. **Authenticated request**: The client retries the original request with the access token.
+1. **Initial challenge**: The MCP server must reject the unauthenticated request with a `401 Unauthorized` status code.
+2. **WWW-Authenticate header**: The `401` response must contain a specific header including `resource_metadata`. For example, a URL pointing to a metadata resource, such as `http://mcpserver.com/.well-known/oauth-protected-resource`.
+3. **Auth discovery**: The client (the AI agent) then calls this `.well-known/oauth-protected-resource` URL to obtain information about the authentication server to use.
+4. **Token retrieval**: The client authenticates and retrieves a token to retry its initial request.
 
 {% hint style="warning" %}
-If either the MCP client or server does not implement this authentication flow correctly, the Gravitee proxy cannot relay authentication natively. Both components must strictly adhere to the MCP specification.
+If the client (the AI tool) or the server does not respect this negotiation flow specific to the MCP spec, the API Proxy will not be able to relay the authentication natively.
 {% endhint %}
 
-### Test with GitHub Copilot API
+### Compatibility and testing
 
-As of this writing, support for MCP OAuth authentication is still being adopted across the ecosystem. To test this flow:
+As of today, support for this authentication specification is still being adopted.
 
-* **Test server**: Use the GitHub Copilot API at `https://api.githubcopilot.com/mcp/`
-* **Compatible client**: Use Visual Studio Code with the Copilot extension, which correctly implements the MCP authentication specification
+* **Recommended test server**: You can test this flow with the GitHub Copilot API: `https://api.githubcopilot.com/mcp/`
+* **Compatible client**: Currently, VS Code (via the Copilot extension) is one of the only major clients correctly implementing this part of the MCP specification.
 
-## Control access to MCP tools
+## Control access to MCP server features
 
-Gravitee provides an Access Control List (ACL) policy that restricts access to MCP server features such as tools, resources, and prompts.
+This section explains how to control access to MCP server functionalities using an Access Control List (ACL) policy within Gravitee.
+
+On a Gravitee MCP Proxy API, you can add an ACL policy via the Policy Studio. This policy restricts access to MCP features such as the list of tools, resources, and prompts.
 
 ### Default behavior (implicit deny)
 
-When you add the ACL policy without configuring any rules, the system adopts a "deny all" approach:
+If you add the ACL policy without specifying any rules, the system adopts a restrictive "Deny All" approach by default.
 
-1. Navigate to **APIs > [Your API] > Policy Studio**.
+1. Add the policy to an MCP API, save, and deploy.
 
-2. Add the **MCP ACL** policy to your API flow.
+**Result**: All server functionalities will be inaccessible. An MCP client will be able to connect to the server via the Gateway, but the lists of tools, resources, and prompts will appear empty.
 
-3. Save and deploy the API.
+### Authorize only tool listing
 
-**Result**: All MCP server functionality becomes inaccessible. MCP clients can connect to the server through the Gateway, but the lists of tools, resources, and prompts appear empty.
+To allow a client to see available tools without being able to execute them:
 
-### Allow tool listing only
+1. Add a rule (ACL) in the policy configuration.
+2. Select the **Tools** feature option.
+3. Check the **tools/list** box.
+4. Leave the **Name Pattern Type** field on **ANY** (default value).
+5. Save and deploy the API.
 
-To allow clients to view available tools without executing them:
+**Result**: If you configure an MCP client, it will only be able to list available tools, but any attempt to call (execute) them will be rejected.
 
-1. In the ACL policy configuration, add a new rule.
+### Authorize the call and listing of a specific tool
 
-2. Configure the rule:
-    * Select **Tools** as the feature type
-    * Check the **tools/list** checkbox
-    * Leave **Name Pattern Type** set to **ANY**
+To restrict access and execution to a single specific tool (for example, `get_weather`):
 
-3. Save and deploy the API.
+1. Add or modify an ACL in the policy configuration.
+2. In the **Tools** feature option:
+    * Check **tools/list** AND **tools/call**.
+    * In the **Name Pattern Type** field, select **Literal**.
+    * In the **Name Pattern** field, enter the exact name of the tool (for example: `get_weather`).
+3. Save and deploy.
 
-**Result**: MCP clients can list available tools but cannot execute them. Any attempt to call a tool is rejected.
+**Result**: From now on, only this specific tool is visible to the MCP client and can be called. All other tools remain hidden and inaccessible.
 
-### Allow specific tool access
+### Advanced configuration: execution conditions
 
-To restrict access to a single tool (for example, `get_weather`):
+Each ACL rule has a **Trigger Condition** field. This field allows you to add conditional logic to determine if the rule should be applied or ignored. This is particularly useful for applying context-based security policies.
 
-1. In the ACL policy configuration, add or modify a rule.
+**Usage example**: You can condition access to certain tools based on a specific property (claim) present in the user's token or a request attribute.
 
-2. Configure the rule:
-    * Select **Tools** as the feature type
-    * Check both **tools/list** and **tools/call**
-    * Set **Name Pattern Type** to **Literal**
-    * Enter the exact tool name in **Name Pattern** (for example, `get_weather`)
+{% hint style="info" %}
+The field generally expects a Gravitee EL (Expression Language) expression.
+{% endhint %}
 
-3. Save and deploy the API.
+### Test ACL configurations locally
 
-**Result**: Only the specified tool is visible to MCP clients and can be executed. All other tools remain hidden and inaccessible.
+To validate your ACL configurations without impacting a production environment, you can use the official example MCP server named "Everything." This server exposes a large number of functionalities, making it ideal for testing filters.
 
-### Configure conditional access
+The source code is available in the [MCP servers repository](https://github.com/modelcontextprotocol/servers/tree/main/src/everything).
 
-Each ACL rule includes a **Trigger Condition** field that accepts Gravitee Expression Language (EL) expressions. Use this field to apply context-based security policies.
-
-**Example use case**: Condition tool access based on a claim in the user's token or a request attribute.
-
-### Test ACL policies locally
-
-To validate ACL configurations without affecting production, use the official MCP "Everything" example server, which exposes numerous tools ideal for testing filters.
-
-1. Install and start the server:
+1. Launch the server in HTTP mode (streamable):
 
     ```bash
     npx @modelcontextprotocol/server-everything streamableHttp
     ```
 
-2. Configure your Gravitee API endpoint to use `http://localhost:3001/mcp`.
+2. Once the local server is launched, return to your Gravitee API configuration.
+3. Configure the API Endpoint to point to the local URL of the created server: `http://localhost:3001/mcp`
+4. Save and redeploy the API.
 
-3. Save and deploy the API.
-
-4. Test your ACL policy by connecting an MCP client and verifying that only the configured tools are visible and callable.
+**Validation**: You can now test your ACL policy. As the "Everything" server exposes many tools by default, you will be able to effectively verify if your policy correctly filters visible and callable tools according to your rules.
 
 ## Secure an MCP server with Gravitee
 
-This scenario demonstrates how to add OAuth2 authentication to an unsecured MCP server using Gravitee APIM and Gravitee Access Management (AM).
+This section explains how to secure an unsecured MCP server using Gravitee APIM and an OAuth2 plan with Gravitee Access Management (AM).
 
-{% hint style="warning" %}
-This configuration only works if the MCP server itself does not already implement authentication. If the backend server is secured, use the "Expose a secured MCP server" scenario instead.
+{% hint style="danger" %}
+If the MCP server itself is already secured, this configuration will not work.
 {% endhint %}
 
 ### Prerequisites
 
-Before you begin, ensure you have:
+Before you secure an MCP server with Gravitee, ensure you have:
 
-* A configured AM domain with appropriate permissions
-* An MCP client (for example, Visual Studio Code) that supports MCP OAuth authentication
+* An AM domain and the rights to configure it
+* An MCP client (for example, VS Code) that properly supports the MCP protocol with this type of authentication
 
-### Create the MCP proxy API
+### Prepare the API proxy in APIM
 
-1. In the APIM Console, create a new V4 API named "MCP Proxy".
-
-2. Configure the API with:
-    * Architecture type: **AI Gateway**
-    * Proxy type: **MCP Proxy**
-    * Backend endpoint: Your MCP server URL
-
-3. Create a **Keyless** plan.
-
-4. Deploy the API and verify that it successfully proxies the MCP server without authentication.
+1. In APIM, create a new API and name it "API MCP Proxy".
+2. Start by creating a simple Keyless plan.
+3. Once the API is created and deployed, test that it works correctly to proxy the MCP server without authentication.
 
 ### Configure the MCP server in AM
 
-1. In AM, navigate to your domain and create a new **MCP Server** resource.
+1. In AM, access the desired domain and create an entity "MCP Servers" (or the equivalent of "MCP server resource").
+2. Fill in a name for this resource.
+3. Add the APIM API endpoint in the **MCP Resource Identifier** field.
+4. Let AM generate a ClientID and a Client Secret, or provide your own. Keep these credentials as they will be needed later.
 
-2. Configure the MCP server:
-    * Enter a name for the resource
-    * In **MCP Resource Identifier**, enter your APIM API endpoint URL
-    * Generate or provide a Client ID and Client Secret
-    * Save the credentials for later use
+### Configure DCR (Dynamic Client Registration) in AM
 
-### Enable Dynamic Client Registration (recommended)
+To avoid manually creating an Application in AM and specifying its Client ID in the MCP client (for example, VS Code), it is recommended to enable DCR.
 
-Dynamic Client Registration (DCR) allows MCP clients to automatically register with AM without manual application creation.
-
-1. In AM, navigate to **Settings > Client Registration**.
-
+1. In AM, go to **Settings > Client Registration**.
 2. Enable DCR.
 
-**Result**:
-* **If DCR is enabled**: The MCP client automatically creates an application in AM and registers the Client ID and Client Secret
-* **If DCR is not enabled**: You must manually create an application in AM for the MCP client and configure redirect URLs. You must also configure the MCP client with the Client ID and Client Secret.
+**If DCR is enabled**: The MCP client (for example, VS Code) should automatically create the application in AM and also register the ClientID / Client Secret.
 
-### Enable user registration (optional)
+**If DCR is not enabled**: You will need to manually create an Application in AM for the MCP client and correctly configure the redirect URLs according to it. You will also need to configure the MCP client with the ClientID/Client Secret.
 
-To allow users to create accounts during the authentication flow:
+### Activate user registration in AM (optional)
 
-1. In AM, navigate to **Settings > Login > User Registration**.
+For this guide, it is recommended to enable client user registration (sign up).
 
+1. In AM, go to **Settings > Login > User Registration**.
 2. Enable the registration option.
 
-### Configure OAuth2 in APIM
+### Finalize configuration in APIM
 
-1. In your MCP Proxy API, navigate to **Resources**.
-
-2. Add a new resource of type **Gravitee.io AM Authorization Server**.
-
-3. Configure the resource:
-    * Link it to your AM instance
-    * Enter the Client ID and Client Secret from the MCP Server resource created in AM
-
-4. Save the resource.
-
-5. Navigate to **Plans** and add a new **OAuth2** plan using the AM resource.
-
-6. Delete the Keyless plan.
-
-7. Deploy the API.
+1. In your API MCP Proxy in APIM, add a resource of type **Gravitee.io AM Authorization Server**.
+2. Configure it by linking it to your AM instance and using the ClientID and Client Secret previously created in AM for the "API MCP Proxy" resource.
+3. Save.
+4. Add an OAuth2 plan in APIM using the AM resource that was just added.
+5. Delete the Keyless plan.
+6. Redeploy the API.
 
 ### Verify the configuration
 
-When an MCP client connects to the API:
+The MCP client, upon connection, should now use the OAuth2 server configured in APIM.
 
-1. The client is redirected to the AM login page.
+1. You will be redirected to the AM login page, where you can use an existing AM user or create one (if the registration option was enabled).
+2. Once successfully logged in via AM, a redirection is performed to the MCP client.
+3. The MCP client retrieves the ClientID and Client Secret in the background, and creates a token to use the MCP API, now secured in APIM.
 
-2. The user logs in with an existing AM account or creates a new account (if registration is enabled).
+{% hint style="info" %}
+**VS Code note**: If you are using VS Code and want to delete the ClientIDs registered by dynamic registration, use the command palette:
 
-3. After successful authentication, AM redirects back to the MCP client.
-
-4. The MCP client retrieves the Client ID and Client Secret and creates a token to access the secured MCP API.
-
-### Remove dynamic authentication providers in Visual Studio Code
-
-If you're using Visual Studio Code and need to remove dynamically registered Client IDs:
-
-1. Open the Command Palette (`Cmd+Shift+P` on macOS or `Ctrl+Shift+P` on Windows/Linux).
-
-2. Search for and select **Authentication: Remove Dynamic Authentication Providers**.
+* `Cmd+Shift+P` (or `Ctrl+Shift+P` on Windows/Linux)
+* Search for and use the action: `>Authentication: Remove Dynamic Authentication Providers`
+{% endhint %}
