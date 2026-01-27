@@ -1,63 +1,61 @@
----
-description: An overview about agent mesh.
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/agent-mesh
----
-
-# Agent Mesh
+# MCP and AI Gateway Capabilities in Gravitee
 
 ## Overview
 
-Gravitee Agent Mesh is a suite of features that enable, govern, and protect AI use cases. Agent Mesh collectively refers to the Gravitee Agent Gateway, Gravitee Agent Catalog, and Gravitee Agent Tool Server.
+This article provides strategic context and a high-level introduction to Gravitee's Agent Mesh initiative, explaining why Model Context Protocol (MCP) and Large Language Model (LLM) gateway capabilities matter and what problems they solve.
 
-Gravitee offers centralized and unified control of AI agents, even if they are running on multiple platforms. These agents can use Agent-to-Agent (A2A) protocol to interact with one another, and Model Context Protocol (MCP) to access both synchronous and asynchronous APIs. All agent communications are subject to the access control and security measures provided by the Gravitee Gateway.
+## Problem statement
 
-## Agent Gateway
+Traditional API management platforms were not built for LLM and agent traffic. They assume static APIs, human-driven traffic, and simple request/response patterns. As organizations integrate LLMs into products, deploy internal agent tooling, and explore autonomous workflows, they face growing challenges:
 
-The Agent Gateway includes the Gravitee A2A Proxy and Gravitee LLM Proxy.
+* **No visibility or control over LLM usage or cost:** Organizations lack insight into how LLMs are being consumed and what costs are being incurred.
+* **No consistent security or quotas for LLM and agent traffic:** There is no standardized way to apply security policies or usage quotas to AI-driven traffic.
+* **Fragmentation across tools, providers, and protocols:** Different tool ecosystems, model providers, and communication protocols create operational complexity.
 
-### A2A Proxy
+As AI becomes a first-class development primitive, API management must evolve to support it natively.
 
-The Agent-to-Agent (A2A) protocol enables dynamic and multimodal peer-to-peer communication between AI agents. By using A2A, agents can collaborate, delegate, and manage shared tasks.
+## Vision
 
-An **A2A proxy** is a Gravitee v4 message API that communicates using A2A, where a client agent creates and transmits tasks that a remote agent processes to provide information or perform actions.
+Agent Mesh is Gravitee's initiative to bring AI-native capabilities to the platform. The goal is to make Gravitee the default gateway for:
 
-A2A supports the following types of interactions:
+* Routing and controlling LLM traffic
+* Managing agent interactions with tools
+* Tracking usage and enforcing policies on cost, safety, and access
 
-* Request/Response, with the option for stateful, long-running tasks
-* Server-Sent Events (SSE) streaming for real-time or incremental updates
-* Push notifications for extended tasks that render persistent connections impractical
+This is not just about AI integrations. It is about rethinking API management for a world where agents are API consumers and LLMs are programmable interfaces.
 
-An A2A proxy lets you apply API management principles to the interactions between AI agents. With an A2A proxy, you can add security, policies, plans, and observability to the calls agents make to one another.
+## Why now
 
-When a backend agent serves the Agent Card listing its capabilities, another agent can discover it and send a task request to the A2A proxy. The Gravitee Gateway receives the task request, authenticates it, applies policies, and then forwards it to the backend agent. When the backend agent completes the task, the Gateway sends the response back to the caller.
+Several factors make this the right time to invest in AI-native API management:
 
-### LLM Proxy
+* **AI usage is exploding in production applications:** Governance and cost control are lagging behind adoption.
+* **Enterprises are building internal agent architectures:** Organizations lack standards for discovery, authorization, and usage management.
+* **Protocols like MCP are emerging:** These protocols require platform-level support to gain traction.
 
-Gravitee's **LLM Proxy** provides a layer of abstraction between AI agents and LLMs. It sits on top of LLM models and applies governance to enforce compliance and cost control. The following are examples of LLM capabilities:
+Gravitee has an opportunity to lead by making API gateways work for AI-native development.
 
-* Token-based rate limiting via Gravitee's [Prompt Token Tracking](../create-and-configure-apis/apply-policies/policy-reference/ai-prompt-token-tracking.md) policy.
-* Routing to different LLMs.
-* Threat protection via Gravitee's [Prompt Guard Rails](../create-and-configure-apis/apply-policies/policy-reference/ai-prompt-guard-rails.md) policy.
-* Orchestration, such as HTTP calls to obtain data to add to LLM contexts.
+## 4.10 focus areas
 
-## Agent Catalog
+Agent Mesh 4.10 focuses on two areas:
 
-The **Agent Catalog** is a centralized catalog of all the AI agents built across your organization. If an agent is compliant with the A2A protocol, Gravitee can discover its A2A agent card and add it to your APIM Console's Agent Catalog.
+### LLM Gateway
 
-The Agent Catalog is used for agent discovery, governance, analytics, and cost optimization. You can browse the catalog to find information on agents, such as who owns an agent, where it runs, and what it does.
+The LLM Gateway enables organizations to govern LLM traffic like any other API, with visibility, routing, caching, and policy enforcement. Key capabilities include:
 
-## Agent Tool Server
+* **Normalize interactions across providers:** Abstract away the specifics of LLM provider APIs from consumers.
+* **Enable safe, cost-aware, and composable LLM usage:** Apply policies for token rate limiting, prompt caching, and guardrails.
 
-The Agent Tool Server integrates with the Developer Portal to discover, explore, and subscribe to Model Context Protocol (MCP) servers. MCP lets AI agents access their capabilities by connecting them to tools, APIs, and resources.
+### MCP integration
 
-Gravitee can convert any v4 proxy API running on the Gravitee Gateway into an MCP server for easy consumption by AI agents. This includes v4 proxy APIs from 3rd-party gateways and brokers. With MCP enabled, v4 proxy APIs can communicate using a single, standardized interface.
+MCP integration provides a gateway and control point for tool-based agent workflows. Key capabilities include:
 
-AI agents use MCP to discover and invoke an API's available methods. MCP servers enable AI integration by exposing different capabilities.
+* **Discovery, authorization, and usage tracking:** Enable agents to discover and consume tools through a centralized gateway.
+* **Agent-to-agent and agent-to-tool interactions:** Support both A2A protocol and MCP for flexible agent communication patterns.
 
-* **Tools:** Specific functions that language models can control and implement on external systems. Tools are APIs, which Gravitee can discover, secure, and monitor.
-* **Resources:** Data sources that can be accessed by language models.
-* **Prompts:** User-defined templates that guide how language models use tools and resources.
+## Success criteria
 
-To expose MCP to consuming AI agents, an MCP entrypoint is added to an existing v4 proxy API. Next, the MCP entrypoint is enabled, and the API's OpenAPI definition is used to generate the MCP server. Each operation in the OpenAPI spec is converted into an MCP tool definition that an agent can understand. MCP servers use SSE to push messages and events to agents in real-time over a persistent HTTP connection.
+Success for Agent Mesh will be measured by the following outcomes:
+
+* Customers route LLM and agent traffic through Gravitee by default
+* AI usage is visible, governable, and cost-controlled
+* Gravitee becomes the platform of choice for building secure, scalable, AI-native architectures
