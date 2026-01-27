@@ -46,6 +46,7 @@ The following table lists the Gateway versions supported by each Bridge version.
 | 4.7.x          | 4.4.x to 4.7.x             |
 | 4.8.x          | 4.5.x to 4.8.x             |
 | 4.9x           | 4.6.x to 4.9.x             |
+| 4.10.x         | 4.7.x to 4.10.x            |
 
 The following table lists the Bridge versions supported by each Gateway version.
 
@@ -53,9 +54,10 @@ The following table lists the Bridge versions supported by each Gateway version.
 | --------------- | ------------------------- |
 | 4.5.x           | 4.5.x to 4.8.x            |
 | 4.6.x           | 4.6.x to 4.9.x            |
-| 4.7.x           | 4.7.x to 4.9.x            |
-| 4.8.x           | 4.8.x to 4.9.x            |
-| 4.9.x           | 4.9.x                     |
+| 4.7.x           | 4.7.x to 4.10.x           |
+| 4.8.x           | 4.8.x to 4.10.x           |
+| 4.9.x           | 4.9.x to 4.10.x           |
+| 4.10.x          | 4.10.x                    |
 
 ## Architecture
 
