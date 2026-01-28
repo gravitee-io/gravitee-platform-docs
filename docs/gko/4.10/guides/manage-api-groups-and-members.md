@@ -27,6 +27,8 @@ The syntax is the same for `ApiV4Definition`, `ApiDefinition`, and `Application`
 
 Generally speaking, if a group or member referenced from an API or application does not exist in APIM, that group or member is simply ignored and not added to the resource in APIM.
 
+If a role is omitted or cannot be found (e.g., due to a typo), the member will be assigned the default role for that specific scope (API or Application). If no default role is defined in the organization settings for that scope, the system will return an error.
+
 {% hint style="info" %}
 For APIs managed by GKO, you will not be able to add or modify groups or members manually from the API Management Console.
 {% endhint %}
