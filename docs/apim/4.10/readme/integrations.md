@@ -64,6 +64,6 @@ The following table shows which features have been implemented for each of these
 
 See the following page to know how to use this integration:
 
-* [broken-reference](../../4.9/readme/broken-reference/ "mention")
-* [broken-reference](../../4.9/readme/broken-reference/ "mention")
-* [broken-reference](../../4.9/readme/broken-reference/ "mention")
+* [Kubernetes Secret Provider](https://documentation.gravitee.io/apim/prepare-a-production-environment/sensitive-data-management/api-secrets/configuration#kubernetes)&#x20;
+* [HashiCorp Vault](https://documentation.gravitee.io/apim/prepare-a-production-environment/sensitive-data-management/api-secrets/configuration#hashicorp-vault)
+* [AWS Secret Manager](https://documentation.gravitee.io/apim/prepare-a-production-environment/sensitive-data-management/api-secrets/configuration#aws-secret-manager)
