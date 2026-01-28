@@ -9,7 +9,7 @@ metaLinks:
 
 ## Overview
 
-The tables below summarize major integrations that Gravitee API Management (APIM) offers with other enterprise tooling.
+The tables below summarise the major integrations that Gravitee API Management (APIM) offers with other enterprise tools.
 
 ## Event brokers
 
@@ -58,12 +58,13 @@ Gravitee can be used for custom Salesforce integration use cases because Salesfo
 | HashiCorp Vault    | An Enterprise Edition plugin that uses the Key/Value engine of HashiCorp Vault  | Kubernetes secret provider plugin |
 | AWS Secret Manager | An Enterprise Edition plugin that uses AWS Secret Manager                       | Kubernetes secret provider plugin |
 
-The following table shows which features have been implemented for each of these integration:
+The following table shows which features have been implemented for each of these integrations:
 
 <table><thead><tr><th width="173">Feature</th><th>Kubernetes</th><th>HashiCorp Vault</th><th>AWS Secret Manager</th></tr></thead><tbody><tr><td>Resolve a secret</td><td>Yes</td><td>Yes</td><td>Yes</td></tr><tr><td>Watch a secret</td><td>Yes</td><td>Yes (via polling)</td><td>No</td></tr><tr><td>Secret format</td><td>All K8s types (TLS, generic, etc.)</td><td><p>Key/Value engine v1 or v2</p><p>(no mixing)</p></td><td>Key/value as in AWS UI</td></tr><tr><td>TLS</td><td>Yes</td><td>Yes, but not with PKI engine</td><td>Yes, but no renewal</td></tr><tr><td>Client</td><td>in-house</td><td>Lean and community- based</td><td>AWS-SDK based</td></tr><tr><td>Zip size</td><td>11KB</td><td>161KB</td><td>8.9MB<br>(not included in base image)</td></tr></tbody></table>
 
 See the following page to know how to use this integration:
 
-* [Kubernetes Secret Provider](https://documentation.gravitee.io/apim/prepare-a-production-environment/sensitive-data-management/api-secrets/configuration#kubernetes)&#x20;
-* [HashiCorp Vault](https://documentation.gravitee.io/apim/prepare-a-production-environment/sensitive-data-management/api-secrets/configuration#hashicorp-vault)
-* [AWS Secret Manager](https://documentation.gravitee.io/apim/prepare-a-production-environment/sensitive-data-management/api-secrets/configuration#aws-secret-manager)
+* [Configure Secrets](https://documentation.gravitee.io/apim/4.9/prepare-a-production-environment/sensitive-data-management/configure-secrets)
+* [API Secrets](https://documentation.gravitee.io/apim/4.9/prepare-a-production-environment/sensitive-data-management/api-secrets)
+* [Plugin support](https://documentation.gravitee.io/apim/4.9/prepare-a-production-environment/sensitive-data-management/plugin-support)
+
