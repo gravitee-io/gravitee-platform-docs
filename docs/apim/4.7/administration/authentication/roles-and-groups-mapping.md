@@ -32,7 +32,7 @@ Ultimately, defining groups helps you to assign roles more efficiently for the u
 Users are assigned to Groups. Groups are added to an API, and then configured with a specific Role.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/image%20(149)%20(1).png" alt=""><figcaption><p>APIM Console - adding group(s) to the User Permissions page of an API.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (149) (1).png" alt=""><figcaption><p>APIM Console - adding group(s) to the User Permissions page of an API.</p></figcaption></figure>
 
 ### Creating a Group and Role Mapping
 
@@ -81,4 +81,4 @@ This can be performed in almost the same way as adding the user into a group. Bu
 
 In the example screenshot below, this Condition is evaluating the `roles` custom claim (or JSON key) from the access\_token. If the `roles` array contains `FULL_ADMIN`, then Gravitee will action this role mapping.
 
-<figure><img src="../../.gitbook/assets/image (152) (1).png" alt=""><figcaption><p>Role Mapping configuration</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (157) (1).png" alt=""><figcaption><p>Role Mapping configuration</p></figcaption></figure>
