@@ -6,6 +6,30 @@ description: >-
 
 # AM 4.10.x
 
+## Gravitee Access Management 4.10.1 - January 29, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* ErrorDescription encoded in the errorHash [#11054](https://github.com/gravitee-io/issues/issues/11054)
+* DCR: Cannot Renew Client Secret [#11058](https://github.com/gravitee-io/issues/issues/11058)
+* Issue with Consent Persistence after initial denial [#11066](https://github.com/gravitee-io/issues/issues/11066)
+* OIDC IdP: Add support for response_mode=form_post (Azure AD long redirect issue) [#11075](https://github.com/gravitee-io/issues/issues/11075)
+* OpenID - id_token flow - Cannot invoke String.indexOf%28String because "s" is null [#11079](https://github.com/gravitee-io/issues/issues/11079)
+* Clean authFlowVer in the session [#11081](https://github.com/gravitee-io/issues/issues/11081)
+
+</details>
+
+
 #### Gravitee Access Management 4.10 - Jan 8, 2026 <a href="#gravitee-access-management-4.8" id="gravitee-access-management-4.8"></a>
 
 <details>
