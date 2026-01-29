@@ -6,6 +6,29 @@ description: >-
 
 # AM 4.7.x
 
+## Gravitee Access Management 4.7.28 - January 29, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* Issue with Consent Persistence after initial denial [#11066](https://github.com/gravitee-io/issues/issues/11066)
+* OIDC IdP: Add support for response_mode=form_post (Azure AD long redirect issue) [#11075](https://github.com/gravitee-io/issues/issues/11075)
+* OpenID - id_token flow - Cannot invoke String.indexOf%28String because "s" is null [#11079](https://github.com/gravitee-io/issues/issues/11079)
+* Clean authFlowVer in the session [#11081](https://github.com/gravitee-io/issues/issues/11081)
+* Add gravitee.yml placeholders and helm chart mappings for legacy purge settings [#11090](https://github.com/gravitee-io/issues/issues/11090)
+
+</details>
+
+
 ## Gravitee Access Management 4.7.27 - January 19, 2026
 
 <details>
