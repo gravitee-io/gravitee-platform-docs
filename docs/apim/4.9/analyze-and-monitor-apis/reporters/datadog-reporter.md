@@ -77,6 +77,18 @@ Authentication is required for the Gateway to send reporting data to Datadog. Gr
 You can obscure the value of this API key by using [configuration-level secrets](../../prepare-a-production-environment/sensitive-data-management/configure-secrets/) in `gravitee.yml`.
 {% endhint %}
 
+## Compatibility with APIM
+
+| Plugin version | APIM version     | JDK version |
+| -------------- | ---------------- | ----------- |
+| 7.0            | 4.10.x and later | 21          |
+| 6.0            | 4.9.x and later  | 21          |
+| 5.0            | 4.8.x and later  | 17          |
+| 4.1            | 4.7.x and later  | 17          |
+| 4.x            | 4.5.x and later  | 17          |
+| 3.x            | 4.5.x and later  | 17          |
+| 2.x            | 4.0.x to 4.4.x   | 17          |
+
 ## Data type mapping
 
 Gravitee has different types of reporting data, and each type maps to a different resource type in Datadog. The mapping is as follows:
