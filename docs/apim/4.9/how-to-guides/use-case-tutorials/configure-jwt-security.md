@@ -32,7 +32,7 @@ In the Console UI, select the Gateway API you want to secure with a JWT plan.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2026-01-29 at 13.50.09 (1).png" alt=""><figcaption></figcaption></figure>
 
-For now, be sure to leave the **Default Keyless (UNSECURED)** plan as we’ll be configuring the plan separately.<br>
+For now, be sure to leave the **Default Keyless (UNSECURED)** plan as we’ll be configuring the plan separately.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2026-01-29 at 14.02.15.png" alt=""><figcaption></figcaption></figure>
 
@@ -53,13 +53,13 @@ All Gateway APIs require at least one published plan to deploy the API to the Ga
 
 ### Create and Publish a JWT Plan <a href="#create-and-publish-a-jwt-plan-6" id="create-and-publish-a-jwt-plan-6"></a>
 
-In the APIM Console UI, open the Gateway API you want to secure with a JWT plan. You should see a screen similar to the following:
+In the APIM Console UI, open the Gateway API you want to secure with a JWT plan. You should see a screen similar to the following:<br>
 
-<figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
-In the sidebar, select **Plans**, and then select **+Add new plan** in the top right of the screen. In the drop-down that appears, select **JWT**.
+In the sidebar, select **Plans**, and then select **+Add new plan** in the top right of the screen. In the drop-down that appears, select **JWT**.<br>
 
-<figure><img src="../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 Provide your plan a name, and then scroll down and toggle on **Auto validate subscription** so we don’t have to manually validate subscription requests later in the tutorial. Scroll down and select **Next**.
 
@@ -132,13 +132,13 @@ Before subscribing, we need to create a Gravitee application with the same `clie
 
 For the sake of this demo, we will be creating a Simple application in the Developer Portal that allows API consumers to define their own `client_id`. However, this is not secure and should not be used outside of testing. Therefore, Gravitee allows you to disable Simple applications and use dynamic client registration (DCR) to create advanced applications. DCR essentially allows Gravitee to outsource the issuer and management of application credentials to a third party IdP, allowing for additional configuration options and compatibility with various OIDC features provided by the IdP.
 
-In the Developer Portal, select **Applications** in the top navigation bar and then select **+ Create an app** in the top right of the screen.
+In the Developer Portal, select **Applications** in the top navigation bar and then select **+ Create an app** in the top right of the screen.<br>
 
-<figure><img src="../../.gitbook/assets/image (22) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
-Provide a name and description then select **Next**. On the security screen, select a Simple application and provide a `client_id` that matches the `client_id` of your IdP’s application. For example, in Okta, you can find your `client_id` right next to the name of your application.
+Provide a name and description then select **Next**. On the security screen, select a Simple application and provide a `client_id` that matches the `client_id` of your IdP’s application. For example, in Okta, you can find your `client_id` right next to the name of your application.<br>
 
-<figure><img src="../../.gitbook/assets/image (23) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 After providing the `client_id`, select **Next**.
 
