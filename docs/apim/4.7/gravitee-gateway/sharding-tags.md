@@ -179,7 +179,7 @@ For example, to tell Gravitee API Manager to apply the “internal test” tag t
 1. From the **Sharding tags** drop-down menu, select the sharding tags that you want to map to this entrypoint.
 2.  In the **Default TCP port** field, type the number of your TCP port.
 
-    <div align="left"><figure><img src="../.gitbook/assets/image%20(39)%20(1).png" alt="" width="375"><figcaption></figcaption></figure></div>
+    <div align="left"><figure><img src="../.gitbook/assets/image (39) (1).png" alt="" width="375"><figcaption></figcaption></figure></div>
 3. Click **Ok**.
 {% endtab %}
 
@@ -188,7 +188,7 @@ For example, to tell Gravitee API Manager to apply the “internal test” tag t
 2. In the **Default Kafka domain** field, type your Default Kafka domain.
 3.  In the **Default Kafka port** field, type your default Kafka port.
 
-    <div align="left"><figure><img src="../.gitbook/assets/image%20(40)%20(1).png" alt="" width="375"><figcaption></figcaption></figure></div>
+    <div align="left"><figure><img src="../.gitbook/assets/image (40) (1).png" alt="" width="375"><figcaption></figcaption></figure></div>
 4. Click **Ok**.
 {% endtab %}
 {% endtabs %}

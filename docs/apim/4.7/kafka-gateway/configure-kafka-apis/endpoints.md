@@ -8,7 +8,7 @@ description: An overview about endpoints.
 
 Endpoints define the protocol and configuration settings by which the Gateway API will fetch data from, or post data to, the backend API. Kafka APIs can only have one endpoint group and one endpoint per endpoint group. The **Endpoints** section allows you to modify your Kafka endpoint group and/or Kafka endpoint.
 
-<figure><img src="../../.gitbook/assets/A%2011%20endpoint%20(1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/A 11 endpoint (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Edit the endpoint group
 
@@ -16,11 +16,11 @@ Gravitee automatically assigns the endpoint group of a Kafka API the name **Defa
 
 By selecting the **General** tab, you can change the name of your Kafka endpoint group.
 
-<figure><img src="../../.gitbook/assets/A%2011%20endpoint3%20(1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/A 11 endpoint3 (1).png" alt=""><figcaption></figcaption></figure>
 
 By selecting the **Configuration** tab, you can edit the security settings of your Kafka endpoint group.
 
-<figure><img src="../../.gitbook/assets/A%2011%20endpoint4%20(1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/A 11 endpoint4 (1).png" alt=""><figcaption></figcaption></figure>
 
 Gravitee Kafka APIs support **PLAINTEXT**, **SASL\_PLAINTEXT**, **SASL\_SSL**, or **SSL** as the security protocol. Select one of these from the drop-down menu and configure the associated settings to define your Kafka authentication flow:
 
@@ -61,8 +61,8 @@ Gravitee automatically assigns your Kafka API endpoint the name **Default Broker
 
 By selecting the **General** tab, you can edit your endpoint name and the list of bootstrap servers.
 
-<figure><img src="../../.gitbook/assets/A%2011%20endpoint1%20(1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/A 11 endpoint1 (1).png" alt=""><figcaption></figcaption></figure>
 
 By default, the endpoint inherits its configuration settings from the endpoint group to which it belongs. By selecting the **Configuration** tab, you can choose to disable that setting change the security configuration.
 
-<figure><img src="../../.gitbook/assets/A%2011%20endpoint2%20(1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/A 11 endpoint2 (1).png" alt=""><figcaption></figcaption></figure>
