@@ -30,11 +30,11 @@ The first step is to create a Gateway API. A Gateway API is simply an API deploy
 
 In the Console UI, select the Gateway API you want to secure with a JWT plan.
 
-<figure><img src="../../.gitbook/assets/image (45).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-01-29 at 13.50.09 (1).png" alt=""><figcaption></figcaption></figure>
 
-For now, be sure to leave the **Default Keyless (UNSECURED)** plan as we’ll be configuring the plan separately.
+For now, be sure to leave the **Default Keyless (UNSECURED)** plan as we’ll be configuring the plan separately.<br>
 
-<figure><img src="../../.gitbook/assets/image (9) (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2026-01-29 at 14.02.15.png" alt=""><figcaption></figcaption></figure>
 
 Save and deploy the API when you’re finished.
 
@@ -142,7 +142,7 @@ Provide a name and description then select **Next**. On the security screen, sel
 
 After providing the `client_id`, select **Next**.
 
-<figure><img src="../../.gitbook/assets/image (24) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (70).png" alt=""><figcaption></figcaption></figure>
 
 On the **Subscription** page, you can directly search for your Gateway API and see the available plans. Search for your API, select **Subscribe**, and then select **Next**.
 
