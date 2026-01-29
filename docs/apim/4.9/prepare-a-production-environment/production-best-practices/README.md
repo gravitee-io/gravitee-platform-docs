@@ -2,17 +2,21 @@
 description: >-
   These configuration settings and recommendations are critical to the security
   of your production environment
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/prepare-a-production-environment/production-best-practices
 ---
 
 # Production Best Practices
 
 ## Overview
 
-The default settings created during APIM installation can be useful for testing your new instance. However, some may not be suitable for a production environment, where security is more of a consideration. This guide highlights the APIM settings that require special attention when migrating to a production environment.&#x20;
+The default settings created during APIM installation can be useful for testing your new instance. However, some may not be suitable for a production environment, where security is more of a consideration. This guide highlights the APIM settings that require special attention when migrating to a production environment.
 
 ## Security checklist
 
-The following high-level checklist links to the details of how and why you would enforce each list item.&#x20;
+The following high-level checklist links to the details of how and why you would enforce each list item.
 
 {% hint style="info" %}
 The objective is not to apply all of the recommendations, but to ensure that all configurations have been made with caution.

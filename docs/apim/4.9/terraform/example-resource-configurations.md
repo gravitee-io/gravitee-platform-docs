@@ -1,5 +1,9 @@
 ---
 description: An overview about gravitee resources.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/terraform/example-resource-configurations
 ---
 
 # Gravitee Resources

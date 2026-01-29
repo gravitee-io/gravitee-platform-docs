@@ -1,5 +1,9 @@
 ---
 description: Configuration guide for settings.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/configure-and-manage-the-platform/management-api/settings
 ---
 
 # Settings

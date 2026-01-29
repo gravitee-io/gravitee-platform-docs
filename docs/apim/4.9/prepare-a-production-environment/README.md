@@ -1,5 +1,9 @@
 ---
 description: Configuration guide for prepare a production environment.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/prepare-a-production-environment
 ---
 
 # Prepare a Production Environment

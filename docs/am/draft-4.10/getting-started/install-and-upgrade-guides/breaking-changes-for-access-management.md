@@ -10,6 +10,45 @@ description: >-
 
 Here are the breaking changes from versions 4.X of Gravitee.
 
+### 4.10.0
+
+#### Optimized Audit Logging for Client Authentication
+
+To improve Gateway performance and reduce log storage overhead, The record of client events in the audit logs such as token requests and introspection have been optimized.
+
+* **Conditional Logging:** From 4.10, successful client authentication attempts are filtered out of the audit logs by default.
+* **Security Focus:** Failed authentication attempts continue to be logged in full, ensuring that potential unauthorized access or configuration issues remain visible to administrators.
+* **(Optional) Full Traceability:** If your compliance requirements necessitate logging every successful authentication, the previous behavior can be restored through configuration.
+
+**Configuration Update**
+
+To enable audit logs again for successful client authentications, update the following property in your `gravitee.yaml`:
+
+```yaml
+reporters:
+  audits:
+    clientAuthentication:
+      success:
+        enabled: true        
+```
+
+#### **Enhanced Introspection with Audience (aud) Support**
+
+The OAuth2 Introspective endpoint has been updated to include the `aud` (audience) claim in its response. This enhancement allows Resource Servers such as the new MCP Servers to verify that a token was specifically intended for them. This update strengthens the security of the token validation process.
+
+**Compatibility Toggle**
+
+While this change improves security, we recognize it may impact existing deployments that do not expect the `aud` claim in the introspection response ([Issue #3111](https://github.com/gravitee-io/issues/issues/3111)). To ensure a smooth transition, we have included a configuration toggle to disable this behavior if necessary.
+
+To remove the `aud` claim from the introspection response, update your `gravitee.yaml` with the following configuration:
+
+```yaml
+handlers:
+  oauth2:
+    introspect:
+      allowAudience: false
+```
+
 ### 4.9.0
 
 #### MongoDB search on User profiles

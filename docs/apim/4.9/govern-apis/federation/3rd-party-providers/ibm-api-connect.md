@@ -1,5 +1,9 @@
 ---
 description: An overview about ibm api connect.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/govern-apis/federation/3rd-party-providers/ibm-api-connect
 ---
 
 # IBM API Connect
@@ -606,7 +610,7 @@ Create the Helm values file based on your APIM management API's certificate setu
     ```
 2.  Return to the Gravitee API Management console, refresh the page, and verify that the agent's status is set to **Connected**.
 
-    <figure><img src="../../../.gitbook/assets/image (72).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (56).png" alt=""><figcaption></figcaption></figure>
 
 ## Limitations
 

@@ -1,5 +1,9 @@
 ---
 description: An overview about edge stack.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/govern-apis/federation/3rd-party-providers/edge-stack
 ---
 
 # Edge Stack
@@ -42,7 +46,7 @@ To install Edge stack agent, you must complete the following steps:
     <figure><img src="../../../.gitbook/assets/85E11164-ADD0-4235-8743-4987417C8312 (1).jpeg" alt=""><figcaption></figcaption></figure>
 3.  Click **Edge Stack**, and then click **Next**.
 
-    <figure><img src="../../../.gitbook/assets/image (375).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (36).png" alt=""><figcaption></figcaption></figure>
 4. In the **Create Integration** screen, type the name of the integration.
 5. (Optional) Type a description for the integration.
 6.  Click **Create** **Integration**.

@@ -12,8 +12,6 @@ This page describes how to install APIM on any Kubernetes environment using the 
 For more information about Helm charts, go to [Helm Docs](https://helm.sh/docs/topics/chart_repository/).
 {% endhint %}
 
-{% include "../../4.6/.gitbook/includes/installation-guide-note (1).md" %}
-
 The APIM Helm chart deploys the following components:
 
 * APIM Management API

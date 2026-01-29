@@ -1,5 +1,9 @@
 ---
 description: An overview about set up an ai agent (a2a) proxy.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/agent-mesh/create-an-a2a-proxy
 ---
 
 # Set Up an AI Agent (A2A) Proxy

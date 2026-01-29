@@ -1,5 +1,9 @@
 ---
 description: An overview about search for apis in the console.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/create-apis/search-for-apis-in-the-console
 ---
 
 # Search for APIs in the Console

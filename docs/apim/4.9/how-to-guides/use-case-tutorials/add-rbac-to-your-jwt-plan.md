@@ -1,5 +1,9 @@
 ---
 description: An overview about add rbac to your jwt plan.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/how-to-guides/use-case-tutorials/add-rbac-to-your-jwt-plan
 ---
 
 # Add RBAC to your JWT Plan

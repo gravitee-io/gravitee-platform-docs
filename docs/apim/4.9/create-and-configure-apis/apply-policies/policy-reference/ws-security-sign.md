@@ -1,5 +1,9 @@
 ---
 description: Configuration guide for ws security sign.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/ws-security-sign
 ---
 
 # WS Security Sign

@@ -1,5 +1,9 @@
 ---
 description: Tutorial on new developer portal.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/developer-portal/new-developer-portal
 ---
 
 # New Developer Portal

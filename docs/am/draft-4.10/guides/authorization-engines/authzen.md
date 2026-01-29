@@ -89,6 +89,10 @@ The evaluation endpoint returns a JSON object containing the following:
 
 </details>
 
+## Authorization
+
+AuthZen endpoint supports client basic authorization.&#x20;
+
 ## Headers
 
 ### Request headers

@@ -1,5 +1,9 @@
 ---
 description: An overview about subscription requests.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/secure-and-expose-apis/subscriptions/subscription-requests
 ---
 
 # Subscription Requests

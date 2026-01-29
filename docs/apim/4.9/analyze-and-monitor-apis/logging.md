@@ -1,5 +1,9 @@
 ---
 description: An overview about logging.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/analyze-and-monitor-apis/logging
 ---
 
 # Logging
@@ -139,7 +143,7 @@ To configure which information is recorded, select from the following options:
 
     <figure><img src="../.gitbook/assets/image (364) (1).png" alt=""><figcaption></figcaption></figure>
 
-#### Configure sampling methods with `gravitee.yml`
+**Configure sampling methods with `gravitee.yml`**
 
 {% hint style="info" %}
 If a setting is configured in `gravitee.yml`, the corresponding field is disabled in the Management Console.
@@ -166,8 +170,6 @@ logging:
          limit: PT1S
 ```
 {% endcode %}
-
-
 {% endtab %}
 
 {% tab title="V4 proxy APIs" %}
@@ -212,9 +214,7 @@ Under the **Messages** header, entrypoint and endpoint message details are group
 
 <figure><img src="../.gitbook/assets/message details_CROP (1).png" alt=""><figcaption><p>View message details</p></figcaption></figure>
 
-Each message record includes placeholder tabs for raw content, headers, and metadata. If the corresponding data was recorded, it will appear under the tab. If no data was recorded, the field will be empty.&#x20;
-
-
+Each message record includes placeholder tabs for raw content, headers, and metadata. If the corresponding data was recorded, it will appear under the tab. If no data was recorded, the field will be empty.
 {% endtab %}
 
 {% tab title="V4 proxy APIs" %}
@@ -222,13 +222,13 @@ In the logs screen, you see the following information about your API logs:
 
 <figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
-#### Overview
+**Overview**
 
 The overview section provides information about the Request and Response phase of the API.
 
 <figure><img src="../.gitbook/assets/image (368) (1).png" alt=""><figcaption></figcaption></figure>
 
-#### More details
+**More details**
 
 The more detail drop-down menu shows information about the following topics:
 
@@ -240,7 +240,7 @@ The more detail drop-down menu shows information about the following topics:
 
 <figure><img src="../.gitbook/assets/E28EB0D9-6405-4876-8730-BFA28645A4D5_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
 
-#### Details
+**Details**
 
 The details menu shows the information about the following topics:
 

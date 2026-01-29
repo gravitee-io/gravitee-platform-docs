@@ -6,7 +6,7 @@ description: Information about metadata.
 
 Select the **Metadata** section to view and filter application metadata. To create metadata for your application, click **+** **Add Application Metadata**.
 
-<figure><img src="../../.gitbook/assets/1%20meta%201%20(1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/1 meta 1 (1).png" alt=""><figcaption></figcaption></figure>
 
 Enter a name and value for the metadata, and select a metadata format from the drop-down menu. Available options are **string**, **numeric**, **boolean**, **date**, **mail**, or **url**.
 

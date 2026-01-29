@@ -1,5 +1,9 @@
 ---
 description: An overview about configuration.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/configuration
 ---
 
 # Configuration
@@ -12,7 +16,7 @@ The **Configuration** section allows you to manage and customize high-level sett
 
 The **General** tab displays a section for inputting general API details and a Danger Zone for executing functional and sometimes irreversible actions.
 
-<figure><img src="../../../.gitbook/assets/A%201%20config%20general.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/A 1 config general.png" alt=""><figcaption></figcaption></figure>
 
 {% tabs %}
 {% tab title="General details" %}
@@ -163,7 +167,7 @@ The **Notifications** tab allows you to subscribe to notifications related to a 
 4. Select **Configuration** from the inner left nav.
 5.  Select the **Notifications** header.
 
-    <figure><img src="../../../.gitbook/assets/A%201%20config%20notifications.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/A 1 config notifications.png" alt=""><figcaption></figcaption></figure>
 6. Click **+ Add notification** to create a new one.
 7. Give your notification a name and select either:
    * **Default Email Notifier:**
@@ -172,7 +176,7 @@ The **Notifications** tab allows you to subscribe to notifications related to a 
      * Enter the Webhook URL
      * Choose whether to use system proxy
 
-<figure><img src="../../../.gitbook/assets/A%201%20notifications%202.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/A 1 notifications 2.png" alt=""><figcaption></figcaption></figure>
 
 The following notifications are available to each notifier:
 
@@ -205,4 +209,4 @@ The following notifications are available to each notifier:
 
 The **Audit Logs** tab displays API-level events and audit entries, which are summarized in table format. These can be filtered by event type and date range.
 
-<figure><img src="../../../.gitbook/assets/A%201%20config%20audit%20logs.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/A 1 config audit logs.png" alt=""><figcaption></figcaption></figure>

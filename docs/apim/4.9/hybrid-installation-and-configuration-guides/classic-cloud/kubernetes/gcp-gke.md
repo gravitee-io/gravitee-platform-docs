@@ -1,5 +1,9 @@
 ---
 description: Tutorial on gcp gke.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/hybrid-installation-and-configuration-guides/classic-cloud/kubernetes/gcp-gke
 ---
 
 # GCP GKE

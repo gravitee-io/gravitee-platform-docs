@@ -1,5 +1,9 @@
 ---
 description: An overview about define an apim service account for terraform.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/terraform/define-an-apim-service-account-for-terraform
 ---
 
 # Define an APIM service account for Terraform

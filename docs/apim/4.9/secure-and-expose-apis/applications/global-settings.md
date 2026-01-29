@@ -1,5 +1,9 @@
 ---
 description: An overview about global settings.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/secure-and-expose-apis/applications/global-settings
 ---
 
 # Global Settings

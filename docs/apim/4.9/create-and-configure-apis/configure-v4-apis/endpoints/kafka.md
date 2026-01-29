@@ -1,5 +1,9 @@
 ---
 description: An overview about kafka.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/configure-v4-apis/endpoints/kafka
 ---
 
 # Kafka
@@ -9,7 +13,7 @@ description: An overview about kafka.
 The Kafka endpoint **mediates the protocol** between the Kafka cluster and the client that connects over HTTP. The API runtime on the gateway includes an embedded Kafka client that can produce and consume directly to and from the cluster.
 
 {% hint style="info" %}
-You can also use the [Gravitee Kafka Gateway](../../../kafka-gateway/README.md) to proxy a Kafka cluster using the Kafka native protocol (over TCP).
+You can also use the [Gravitee Kafka Gateway](../../../kafka-gateway/) to proxy a Kafka cluster using the Kafka native protocol (over TCP).
 {% endhint %}
 
 This page discusses the [configuration](kafka.md#configuration) and [implementation](kafka.md#implementation) of the Kafka endpoint and includes a [reference](kafka.md#reference) section.
@@ -279,7 +283,7 @@ org.apache.kafka.common.security.plain.PlainLoginModule required username='$Conn
 
 * The value of the connection string can be found by navigating to Settings > Shared access policies in the Azure UI, and clicking on the policy to get the information for that policy. Then, select the entry entitled `Connection string-primary key`.
 
-<figure><img src="../../../.gitbook/assets/image%20(138).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (138).png" alt=""><figcaption></figcaption></figure>
 
 * The bootstrap server name is in the format:
 

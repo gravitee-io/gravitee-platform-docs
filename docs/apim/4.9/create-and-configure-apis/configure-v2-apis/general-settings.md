@@ -1,5 +1,9 @@
 ---
 description: An overview about general settings.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/configure-v2-apis/general-settings
 ---
 
 # General Settings

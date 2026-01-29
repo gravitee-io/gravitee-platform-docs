@@ -1,5 +1,9 @@
 ---
 description: An overview about upgrade with rpm.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/upgrade-guides/upgrade-with-rpm
 ---
 
 # Upgrade with RPM

@@ -2,6 +2,10 @@
 description: >-
   This section describes how to configure the high-level settings of the
   Developer Portal
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/developer-portal/classic-developer-portal/portal-settings
 ---
 
 # Portal Settings

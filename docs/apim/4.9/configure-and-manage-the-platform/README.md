@@ -1,5 +1,9 @@
 ---
 description: Tutorial on configure & manage the platform.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/configure-and-manage-the-platform
 ---
 
 # Configure & Manage the Platform

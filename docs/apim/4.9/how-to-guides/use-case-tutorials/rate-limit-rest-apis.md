@@ -1,5 +1,9 @@
 ---
 description: An overview about rate limit rest apis.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/how-to-guides/use-case-tutorials/rate-limit-rest-apis
 ---
 
 # Rate Limit REST APIs
@@ -13,7 +17,7 @@ This tutorial explores various use cases where rate limiting plays a critical ro
 Before proceeding with this tutorial, be sure you're familiar with the following:
 
 * **REST APIs:** Review the key elements, methods, and design and architecture constraints of a RESTful architecture.
-* **Gravitee** [**policies**](../../create-and-configure-apis/apply-policies/policy-reference/README.md)**:** Rules or logic that the Gateway can execute during the request or response of an API call, e.g., to enhance security, ensure reliability, or enable API monetization.
+* **Gravitee** [**policies**](../../create-and-configure-apis/apply-policies/policy-reference/)**:** Rules or logic that the Gateway can execute during the request or response of an API call, e.g., to enhance security, ensure reliability, or enable API monetization.
 * **Gravitee APIs:** Refer to our API creation wizards for step-by-step guides to create APIs using the Gravitee [v2](../../create-and-configure-apis/create-apis/v2-api-creation-wizard.md) and [v4](../../create-and-configure-apis/create-apis/v4-api-creation-wizard.md) API definitions.
 
 ## Introduction to Gravitee rate limiting <a href="#introduction-to-gravitee-rate-limiting" id="introduction-to-gravitee-rate-limiting"></a>
@@ -89,11 +93,11 @@ Add differentiated Quota policies to each plan per the instructions below.
 8. Click **Add policy**
 9. On the **Policies** page, click **Save**
 
-<figure><img src="../../.gitbook/assets/image (32) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (32) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 10. Click **Deploy API** to redeploy the API and have the changes take effect
 
-<figure><img src="../../.gitbook/assets/image (33) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (33) (2).png" alt=""><figcaption></figcaption></figure>
 
 #### **Gold Tier plan**
 
@@ -112,22 +116,22 @@ To ensure all API consumers, regardless of their plan, do not overwhelm the API,
 1. Select the **+** icon next to **Common flows**
 2. Modify the flow name, operator, path, methods, and conditions as desired (leaving name and path blank will apply default values)
 
-<figure><img src="../../.gitbook/assets/image (34) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (34) (2).png" alt=""><figcaption></figcaption></figure>
 
 3. Click **Create**
 4. Select the **+** icon within the request phase section. This lets us use the Rate Limit policy to limit the number of requests any API consumer can make to the API within a short period of time.
 
-<figure><img src="../../.gitbook/assets/image (35) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (35) (2).png" alt=""><figcaption></figcaption></figure>
 
 5. Use the search bar or scroll to navigate to the **Rate Limit** policy, then click **Select**
 
-<figure><img src="../../.gitbook/assets/image (36) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (36) (2).png" alt=""><figcaption></figcaption></figure>
 
 6.  Enter values for **Max requests (static)**_,_ **Time duration**, and **Time unit**, e.g., 5 requests per 1 second
 
     The Rate Limit time period is shorter than the Quota time period.
 
-<figure><img src="../../.gitbook/assets/image (37) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (37) (2).png" alt=""><figcaption></figcaption></figure>
 
 7. Click **Add policy**
 8. On the **Policies** page, click **Save**
@@ -136,7 +140,7 @@ To ensure all API consumers, regardless of their plan, do not overwhelm the API,
 
 9. Click **Deploy API** to redeploy the API and have the changes take effect
 
-<figure><img src="../../.gitbook/assets/image (33) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (33) (2).png" alt=""><figcaption></figcaption></figure>
 
 ### **Step 4: Add Spike Arrest policy via Common flows** <a href="#step-4-add-spike-arrest-policy-via-common-flows" id="step-4-add-spike-arrest-policy-via-common-flows"></a>
 
@@ -145,7 +149,7 @@ Now, let's mitigate traffic spikes and maintain quality of service for all consu
 1. Select the **+** icon next to **Common flows**
 2. Modify the flow name, operator, path, methods, and conditions as desired (leaving name and path blank will apply default values)
 
-<figure><img src="../../.gitbook/assets/image (34) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (34) (2).png" alt=""><figcaption></figcaption></figure>
 
 3. Click **Create**
 4. Select the **+** icon within the request phase section to use the Spike Arrest policy to limit sudden spikes in traffic. Configured as a **Common flow**, the Spike Arrest policy applies to all API consumers.
@@ -176,7 +180,7 @@ Rate limiting policies can also be added during the API creation process. Let's 
 1. Complete the steps of the API creation wizard until it gets to the part about plans
 2. In the plans section, click **Add plan**. All created APIs will include a **Default Keyless (UNSECURED)** plan. You may modify or delete this plan.
 
-<figure><img src="../../.gitbook/assets/image (45) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (45) (2).png" alt=""><figcaption></figcaption></figure>
 
 3. Click **API Key**
 4. Enter a plan **Name**, **Description** (optional), and modify **Subscriptions** and **Access-Control** (optional)
@@ -185,13 +189,13 @@ Rate limiting policies can also be added during the API creation process. Let's 
 
 5. Click **Next**, then optionally propagate the API Key to upstream API or add a selectional rule
 
-<figure><img src="../../.gitbook/assets/image (47) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (47) (2).png" alt=""><figcaption></figcaption></figure>
 
 6. Click **Next** to add Quota and/or Rate Limit policies
 
 The Spike Arrest policy cannot be added during the API creation process.
 
-<figure><img src="../../.gitbook/assets/image (48) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (48) (2).png" alt=""><figcaption></figcaption></figure>
 
 7. Toggle Rate Limiting and/or Quota ON to configure rate limiting policies for the plan
 
@@ -202,9 +206,9 @@ Rate limiting policies added during the API creation process will applied to the
 * Enter a **Key** to specify the consumer group against which the policy will be applied (leave blank to use the default plan/subscription pair)
 * Enter values for **Max requests (static)**, **Time duration**, and **Time unit** intended for that consumer group
 
-<figure><img src="../../.gitbook/assets/image (49) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (49) (2).png" alt=""><figcaption></figcaption></figure>
 
 9. Click **Add plan**
 10. Add additional plans or select **Validate my plans** to continue with the API creation process
 
-<figure><img src="../../.gitbook/assets/image (50) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (50) (2).png" alt=""><figcaption></figcaption></figure>

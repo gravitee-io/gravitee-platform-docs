@@ -1,5 +1,9 @@
 ---
 description: An overview about reference secrets in apis.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/prepare-a-production-environment/sensitive-data-management/api-secrets/reference-secrets-in-apis
 ---
 
 # Reference Secrets in APIs
@@ -19,7 +23,7 @@ This article explains the syntax that you can use to resolve secrets in v4 APIs 
 
 ## Reference a secret with specialized syntax
 
-Secrets can be resolved in fields that support [Gravitee Expression Language (EL)](README.md). Only some fields that support EL allow the resolution of secrets. In general, any field supporting EL that may contain sensitive information support secrets, such as URLs, header values, passwords, and SSL/TLS settings.
+Secrets can be resolved in fields that support [Gravitee Expression Language (EL)](./). Only some fields that support EL allow the resolution of secrets. In general, any field supporting EL that may contain sensitive information support secrets, such as URLs, header values, passwords, and SSL/TLS settings.
 
 ### General syntax
 

@@ -6,7 +6,7 @@ description: This article walks through the basics of alerts and how to set up c
 
 ## Introduction
 
-Gravitee Alert Engine works by sending alerts to defined systems per a set of given conditions. This article walks through how alerts are structured and how to define conditions to control alerting.
+Gravitee Alert Engine sends alerts to defined systems per a set of given conditions. This article explains how alerts are structured and how to define conditions to control alerting.
 
 ## The anatomy of an alert
 
@@ -119,7 +119,7 @@ Available functions: `COUNT`, `AVG`, `MIN`, `MAX`, `P50`, `P90`, `P95`, `P99`
 
 ### Rate
 
-Used to calculate the rate for property value in comparison to a given condition and compare it to a threshold. Note that this kind of condition requires a time-frame window to aggregate property values.
+Used to calculate the rate for a property value in comparison to a given condition and compare it to a threshold. Note that this kind of condition requires a time-frame window to aggregate property values.
 
 Available operators: `LT`, `LTE`, `GTE`, `GT`
 
@@ -135,7 +135,7 @@ Available operators: `LT`, `LTE`, `GTE`, `GT`
 
 ### Comparison
 
-Used to compare a number property value to an other number property value (`property1 < property2`).
+Used to compare a number property value to another number property value (`property1 < property2`).
 
 Available operators: `LT`, `LTE`, `GTE`, `GT`
 

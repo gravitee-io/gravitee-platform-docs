@@ -1,5 +1,8 @@
 ---
 description: An overview about integrations.
+metaLinks:
+  alternates:
+    - https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/readme/integrations
 ---
 
 # Integrations
@@ -59,8 +62,8 @@ The following table shows which features have been implemented for each of these
 
 <table><thead><tr><th width="173">Feature</th><th>Kubernetes</th><th>HashiCorp Vault</th><th>AWS Secret Manager</th></tr></thead><tbody><tr><td>Resolve a secret</td><td>Yes</td><td>Yes</td><td>Yes</td></tr><tr><td>Watch a secret</td><td>Yes</td><td>Yes (via polling)</td><td>No</td></tr><tr><td>Secret format</td><td>All K8s types (TLS, generic, etc.)</td><td><p>Key/Value engine v1 or v2</p><p>(no mixing)</p></td><td>Key/value as in AWS UI</td></tr><tr><td>TLS</td><td>Yes</td><td>Yes, but not with PKI engine</td><td>Yes, but no renewal</td></tr><tr><td>Client</td><td>in-house</td><td>Lean and community- based</td><td>AWS-SDK based</td></tr><tr><td>Zip size</td><td>11KB</td><td>161KB</td><td>8.9MB<br>(not included in base image)</td></tr></tbody></table>
 
-See the following page to know how to use this integration:
+For more information about Secret Managers, see the following articles:
 
-* [broken-reference](broken-reference/ "mention")
-* [broken-reference](broken-reference/ "mention")
-* [broken-reference](broken-reference/ "mention")
+* [configure-secrets](../prepare-a-production-environment/sensitive-data-management/configure-secrets/ "mention")
+* [api-secrets](../prepare-a-production-environment/sensitive-data-management/api-secrets/ "mention")
+* [plugin-support.md](../prepare-a-production-environment/sensitive-data-management/plugin-support.md "mention")

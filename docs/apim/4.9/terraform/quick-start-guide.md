@@ -1,5 +1,8 @@
 ---
 description: An overview about quick start guide.
+metaLinks:
+  alternates:
+    - https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/terraform/quick-start-guide
 ---
 
 # Quick Start Guide
@@ -53,13 +56,7 @@ To install the Gravitee Terraform provider, complete the following steps:
     }
     ```
 
-    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
-      <ul>
-      <li>The <code>bearer_auth</code> of Gravitee Cloud users contains the Gravitee Cloud Token</li>
-      <li><code>organization_id</code> and <code>environment_id</code> are set from token claims</li>
-      <li>URL syntax follows <code>https://eu.cloudgate.gravitee.io/apim/automation</code> (e.g., for Europe)</li>
-      </ul>
-    </div>
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><ul><li>The <code>bearer_auth</code> of Gravitee Cloud users contains the Gravitee Cloud Token</li><li><code>organization_id</code> and <code>environment_id</code> are set from token claims</li><li>URL syntax follows <code>https://eu.cloudgate.gravitee.io/apim/automation</code> (e.g., for Europe)</li></ul></div>
 3.  To start Terraform, run the following command:
 
     ```bash

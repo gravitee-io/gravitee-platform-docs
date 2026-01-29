@@ -1,5 +1,9 @@
 ---
 description: An overview about apim console.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/configure-and-manage-the-platform/manage-organizations-and-environments/apim-console
 ---
 
 # APIM Console

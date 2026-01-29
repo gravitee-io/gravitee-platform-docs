@@ -1,5 +1,9 @@
 ---
 description: An overview about message filtering.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/message-filtering
 ---
 
 # Message Filtering
@@ -93,7 +97,7 @@ This filters out messages that do not meet the specified criteria, such as the "
 
 Since the message could contain either the `$.account` or `$.contact` payloads, you must first check for `null` values to avoid referencing an attribute that may not exist. Then you can evaluate your desired filter or condition(s).
 
-<figure><img src="../../../.gitbook/assets/image (379).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (37).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
