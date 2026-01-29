@@ -17,14 +17,14 @@ To create a homepage:
 1. Click **Create New Page**.
 2.  Select the format of the page content. You can choose between Markdown, an OpenAPI definition, or an AsyncAPI definition. The next steps in the page creation process are identical regardless of which format you choose.
 
-    <figure><img src="../../../.gitbook/assets/1%20docs%201%20(1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/1 docs 1 (1).png" alt=""><figcaption></figcaption></figure>
 3.  Choose whether to set your page visibility to **Public** or **Private**.
 
     <figure><img src="../../../.gitbook/assets/01 (1).png" alt=""><figcaption></figcaption></figure>
 
     If you select **Private**, you have the option to choose which groups can view your page. You can also exclude the selected groups, in which case the groups that are not selected will be able to view your page. If you do not select any groups, all groups will be able to view your page.
 
-    <figure><img src="../../../.gitbook/assets/10%201%20(1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/10 1 (1).png" alt=""><figcaption></figcaption></figure>
 4.  Choose how to create the content. You can fill in the content yourself, import a file, or link to an external source.
 
     <figure><img src="../../../.gitbook/assets/02 (1).png" alt=""><figcaption></figcaption></figure>
@@ -33,16 +33,16 @@ To create a homepage:
 
     *   If you choose to fill in the content yourself, you'll need to write the content in Markdown, provide an OpenAPI definition, or provide an AsyncAPI definition.
 
-        <figure><img src="../../../.gitbook/assets/1%20fill%20(1).png" alt=""><figcaption></figcaption></figure>
+        <figure><img src="../../../.gitbook/assets/1 fill (1).png" alt=""><figcaption></figcaption></figure>
     *   If you choose to import content from a file in your local directory, you'll need to import a Markdown or text file if you chose the Markdown format, or import a JSON or YAML file if you chose either the OpenAPI or AsyncAPI format.
 
-        <figure><img src="../../../.gitbook/assets/1%20import%20(1).png" alt=""><figcaption></figcaption></figure>
+        <figure><img src="../../../.gitbook/assets/1 import (1).png" alt=""><figcaption></figcaption></figure>
     *   If you choose to link to an external source, you'll be presented with the same set of options, regardless of format.
 
-        <figure><img src="../../../.gitbook/assets/1%20link%20(1).png" alt=""><figcaption></figcaption></figure>
+        <figure><img src="../../../.gitbook/assets/1 link (1).png" alt=""><figcaption></figcaption></figure>
 5.  After you've provided your page content, click **Save** to generate an unpublished page, or **Save and publish** to publish the page to the Developer Portal.
 
-    <figure><img src="../../../.gitbook/assets/04%20(1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/04 (1).png" alt=""><figcaption></figcaption></figure>
 
     Your page will appear with its name, publication status, and visibility, as well as the time it was last updated. Under ACTIONS, you can click the pencil icon to edit your page, the cloud to publish/unpublish it, and the trash can to delete it.
 
@@ -52,7 +52,7 @@ Instead of creating a new homepage, you can choose one from your existing docume
 Once you select an existing page as your homepage, it will be removed from your documentation pages. This action is irreversible.
 {% endhint %}
 
-<figure><img src="../../../.gitbook/assets/12%20(1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/12 (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Documentation Pages
 
@@ -64,11 +64,11 @@ The process for creating a documentation page is identical to that for creating 
 
 In addition, **Documentation Pages** supports the creation of folders. To create a folder, click **Add new folder**.
 
-<figure><img src="../../../.gitbook/assets/09%20(1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/09 (1).png" alt=""><figcaption></figcaption></figure>
 
 When prompted, give your folder a name and select either **Public** or **Private** visibility. A folder will be hidden, or not visible in the Developer Portal, until it contains published pages.
 
-<figure><img src="../../../.gitbook/assets/18%20(1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/18 (1).png" alt=""><figcaption></figcaption></figure>
 
 **Documentation Pages** supports a nested structure. Once you've added a folder, you can click into it to create additional folders or pages.
 
@@ -80,7 +80,7 @@ The ACTIONS of a documentation page include arrows. If more than one page or fol
 
 Dynamic API documentation pages can be created by adding metadata. To view and filter metadata, select the **Metadata** header.
 
-<figure><img src="../../../.gitbook/assets/1%20meta%20(1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/1 meta (1).png" alt=""><figcaption></figcaption></figure>
 
 To create metadata for your documentation, click **+** **Add API Metadata**:
 
