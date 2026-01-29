@@ -1,5 +1,8 @@
 ---
 description: An overview about enterprise edition.
+metaLinks:
+  alternates:
+    - https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/readme/enterprise-edition
 ---
 
 # Enterprise Edition

@@ -1,5 +1,9 @@
 ---
 description: An overview about create and publish an api using the management api.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/how-to-guides/use-case-tutorials/create-and-publish-an-api-using-the-management-api
 ---
 
 # Create and Publish an API Using the Management API
@@ -126,7 +130,7 @@ export API_ID="54593ae4-0e2e-41fe-993a-e40e2ee1fe61"
 
 ## 4. Create a plan for the API
 
-Your API must have at least one Security/Consumer [Plan](../../secure-and-expose-apis/plans/README.md) associated with it before it can be deployed to a Gateway. For more information about Plans, see [broken-reference](broken-reference/ "mention"). The following procedure explains how to create a `KEYLESS` plan.
+Your API must have at least one Security/Consumer [Plan](../../secure-and-expose-apis/plans/) associated with it before it can be deployed to a Gateway. For more information about Plans, see [broken-reference](broken-reference/ "mention"). The following procedure explains how to create a `KEYLESS` plan.
 
 To create a `Keyless` plan, complete the following steps:
 

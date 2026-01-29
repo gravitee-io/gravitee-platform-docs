@@ -1,5 +1,9 @@
 ---
 description: An overview about solace.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/govern-apis/federation/3rd-party-providers/solace
 ---
 
 # Solace
@@ -40,7 +44,7 @@ To integrate Solace with Gravitee APIM, complete the following steps:
     <figure><img src="../../../.gitbook/assets/solace-integration-name-and-description.png" alt=""><figcaption></figcaption></figure>
 5.  (Optional) Type the **Description** for the integration.
 
-    <figure><img src="../../../.gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (61).png" alt=""><figcaption></figcaption></figure>
 6.  Click **Create Integration**.
 
     <figure><img src="../../../.gitbook/assets/click-create-integration-solace.png" alt=""><figcaption></figcaption></figure>
@@ -379,7 +383,7 @@ If your APIM management API uses certificates that require a custom truststore, 
     ```
 2.  Return to the Gravitee API Management console, refresh the page, and verify that the agent's status is set to **Connected**.<br>
 
-    <figure><img src="../../../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (60).png" alt=""><figcaption></figcaption></figure>
 
 ## Minimum Solace permissions required by the agent
 

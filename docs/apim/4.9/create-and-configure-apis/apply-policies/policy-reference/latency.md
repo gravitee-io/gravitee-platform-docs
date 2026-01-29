@@ -1,5 +1,9 @@
 ---
 description: An overview about latency.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/latency
 ---
 
 # Latency

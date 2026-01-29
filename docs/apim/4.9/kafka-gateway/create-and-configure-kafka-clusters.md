@@ -1,5 +1,9 @@
 ---
 description: An overview about create and configure kafka clusters.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/kafka-gateway/create-and-configure-kafka-clusters
 ---
 
 # Create and Configure Kafka Clusters

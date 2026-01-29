@@ -1,5 +1,9 @@
 ---
 description: An overview about types of assets.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/govern-apis/api-score/types-of-assets
 ---
 
 # Types of Assets

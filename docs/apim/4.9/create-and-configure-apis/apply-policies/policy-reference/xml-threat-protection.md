@@ -1,5 +1,9 @@
 ---
 description: An overview about xml threat protection.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/apply-policies/policy-reference/xml-threat-protection
 ---
 
 # XML Threat Protection

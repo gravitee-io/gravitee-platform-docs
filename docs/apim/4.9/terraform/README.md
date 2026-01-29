@@ -1,5 +1,8 @@
 ---
 description: Configuration guide for terraform.
+metaLinks:
+  alternates:
+    - https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/terraform
 ---
 
 # Terraform

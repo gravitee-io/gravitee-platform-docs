@@ -1,5 +1,9 @@
 ---
 description: An overview about docker compose.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/self-hosted-installation-guides/docker/docker-compose
 ---
 
 # Docker Compose

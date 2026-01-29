@@ -1,5 +1,8 @@
 ---
 description: An overview about dashboards.
+metaLinks:
+  alternates:
+    - /broken/spaces/bGmDEarvnV52XdcOiV8o/pages/VzWZiY6KRkqyHZjWmeVT
 ---
 
 # Dashboards

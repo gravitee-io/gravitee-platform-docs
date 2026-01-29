@@ -1,5 +1,9 @@
 ---
 description: An overview about release notes.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/release-information/release-notes
 ---
 
 # Release Notes

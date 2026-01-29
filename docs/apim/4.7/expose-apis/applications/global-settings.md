@@ -8,7 +8,7 @@ description: An overview about global settings.
 
 The **Global settings** section displays general application details and includes a Danger Zone for executing functional and sometimes irreversible actions.
 
-<figure><img src="../../.gitbook/assets/1%20global%201%20(1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/1 global 1 (1).png" alt=""><figcaption></figcaption></figure>
 
 Some general details are common to all applications, and others vary by application type.
 

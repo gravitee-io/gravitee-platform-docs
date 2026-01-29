@@ -1,5 +1,9 @@
 ---
 description: An overview about multi-tenancy.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/self-hosted-installation-guides/multi-tenancy
 ---
 
 # Multi-tenancy
@@ -25,7 +29,7 @@ The isolation scheme of data and features between the logical hierarchical struc
 This page discusses how to deploy APIM and Cloud together in multi-tenant mode.
 
 {% hint style="info" %}
-For information on how to run a `standalone` (not multi-tenant) installation with APIM, refer to the [Upgrade Guide](../upgrade-guides/README.md)
+For information on how to run a `standalone` (not multi-tenant) installation with APIM, refer to the [Upgrade Guide](../upgrade-guides/)
 {% endhint %}
 
 ## How to set up multi-tenancy

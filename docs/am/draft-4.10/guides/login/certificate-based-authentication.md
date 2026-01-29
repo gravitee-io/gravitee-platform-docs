@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Certificate-Based Authentication (CBA) feature extends our Access Management platform with a strong, cryptographically backed method of verifying user identity. Instead of relying on passwords or one-time codes, the user presents a client certificate stored in their browser or operating system, similar in spirit to WebAuthN but based on X.509 certificates. During authentication, the platform validates the certificate’s metadata against the records stored for the user, checks expiration, and uses it as a secure proof of identity. This mechanism provides a seamless, phishing-resistant, and high-assurance login experience for users operating on managed devices or within enterprise security policies.
+The Certificate-Based Authentication (CBA) feature extends our Access Management platform with a strong, cryptographically backed method of verifying user identity. Instead of relying on WebAuthN or one-time codes, the user presents a client certificate stored in their browser or operating system, similar in spirit to WebAuthN but based on X.509 certificates. During authentication, the platform validates the certificate’s metadata against the records stored for the user, checks expiration, and uses it as a secure proof of identity. This mechanism provides a seamless, phishing-resistant, and high-assurance login experience for users operating on managed devices or within enterprise security policies.
 
 The CBA authentication flow relies on mTLS to present the client certificate to the Access Management system. Because this step occurs **before** HTTP request resolution, the final setup requires two distinct entry points. The following configurations are supported:
 

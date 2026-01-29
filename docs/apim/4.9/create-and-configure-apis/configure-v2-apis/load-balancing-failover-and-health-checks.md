@@ -1,5 +1,9 @@
 ---
 description: An overview about load-balancing, failover, & health-checks.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/configure-v2-apis/load-balancing-failover-and-health-checks
 ---
 
 # Load-balancing, Failover, & Health-checks

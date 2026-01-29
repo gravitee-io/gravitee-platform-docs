@@ -2,6 +2,10 @@
 description: >-
   Documentation about fully self-hosted installation with docker in the context
   of APIs.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/getting-started/local-install-with-docker
 ---
 
 # Fully self-hosted installation with Docker
@@ -49,4 +53,4 @@ APIM can take up to a minute to fully initialize with Docker.
 
 ## Next steps
 
-* Create your first API. For more information about creating your first API, see [create-and-publish-your-first-api](../how-to-guides/create-and-publish-your-first-api/ "mention").
+* Create your first API. For more information about creating your first API, see [create-and-publish-your-first-api](create-and-publish-your-first-api/ "mention").

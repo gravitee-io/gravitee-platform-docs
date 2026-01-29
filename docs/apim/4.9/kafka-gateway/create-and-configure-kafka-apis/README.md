@@ -1,5 +1,9 @@
 ---
 description: Configuration guide for create & configure kafka apis.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/kafka-gateway/create-and-configure-kafka-apis
 ---
 
 # Create & Configure Kafka APIs

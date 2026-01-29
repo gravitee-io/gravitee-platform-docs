@@ -1,5 +1,9 @@
 ---
 description: Configuration guide for troubleshooting.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/self-hosted-installation-guides/rpm/troubleshooting
 ---
 
 # Troubleshooting

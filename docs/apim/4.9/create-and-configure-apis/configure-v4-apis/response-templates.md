@@ -1,5 +1,9 @@
 ---
 description: An overview about response templates.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/configure-v4-apis/response-templates
 ---
 
 # Response Templates

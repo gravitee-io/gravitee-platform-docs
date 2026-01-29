@@ -1,5 +1,9 @@
 ---
 description: An overview about gravitee api definitions.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/gravitee-api-definitions
 ---
 
 # Gravitee API Definitions
@@ -40,7 +44,7 @@ An example of protocol mediation is a Kafka topic that is consumable over HTTP G
 
 ### Backend exposure methods
 
-When creating Gateway APIs in Gravitee, you need to define the "type" or method of exposing your backend resources: [**Proxy upstream protocol**](README.md#proxy-upstream-protocol) or [**Introspect messages from event-driven backend**](README.md#introspect-messages). The architecture that you choose impacts which entrypoints and endpoints are available:
+When creating Gateway APIs in Gravitee, you need to define the "type" or method of exposing your backend resources: [**Proxy upstream protocol**](./#proxy-upstream-protocol) or [**Introspect messages from event-driven backend**](./#introspect-messages). The architecture that you choose impacts which entrypoints and endpoints are available:
 
 {% tabs %}
 {% tab title="Proxy upstream protocol" %}

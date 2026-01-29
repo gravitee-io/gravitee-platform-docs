@@ -1,5 +1,9 @@
 ---
 description: An overview about repositories.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/prepare-a-production-environment/repositories
 ---
 
 # Repositories
@@ -112,7 +116,7 @@ ratelimit:
     prefix: # collection prefix
 ```
 
-If you want to use a custom prefix, you need to follow the following [instructions](README.md#use-a-custom-prefix).
+If you want to use a custom prefix, you need to follow the following [instructions](./#use-a-custom-prefix).
 {% endtab %}
 
 {% tab title="JDBC" %}
@@ -128,7 +132,7 @@ ratelimit:
     prefix:   # collection prefix
 ```
 
-If you want to use a custom prefix, you need to follow these [instructions](README.md#use-a-custom-prefix-1).
+If you want to use a custom prefix, you need to follow these [instructions](./#use-a-custom-prefix-1).
 {% endtab %}
 
 {% tab title="Redis Standalone" %}

@@ -1,5 +1,9 @@
 ---
 description: Documentation about layout and theme in the context of APIs.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/developer-portal/new-developer-portal/layout-and-theme
 ---
 
 # Layout and Theme

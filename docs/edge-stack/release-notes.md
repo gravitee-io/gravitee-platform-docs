@@ -5,6 +5,20 @@ noIndex: true
 
 # Release Notes
 
+### Version 3.12.11 (January 9, 2026) <a href="#id-3.12.11" id="id-3.12.11"></a>
+
+#### Added additional Mapping validation
+
+Added condition support to the Mapping CRD to track readiness state and validation errors. The new `conditions` field in `MappingStatus` provides standardized feedback about Mapping health, including reasons like `Ready` and `InvalidPathPrefix`
+
+#### Upgrade Golang to 1.24.11
+
+Ambassador Edge Stack now uses Golang version 1.24.11. This update resolves various security fixes, including CVE-2025-61727
+
+#### Upgrade Alpine to 3.22
+
+Upgraded base image to alpine-3.22 as part of continued investment in keeping dependencies updated.
+
 ### Version 3.12.10 (December 3, 2025) <a href="#id-3.12.10" id="id-3.12.10"></a>
 
 #### Upgrade Golang to 1.24.10

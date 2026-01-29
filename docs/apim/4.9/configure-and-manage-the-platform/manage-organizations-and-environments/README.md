@@ -1,5 +1,9 @@
 ---
 description: An overview about manage organizations & environments.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/configure-and-manage-the-platform/manage-organizations-and-environments
 ---
 
 # Manage Organizations & Environments
@@ -106,7 +110,7 @@ To learn more about notifications, refer to the [Notifications](../gravitee-gate
 
 ### Platform access
 
-As a part of Organization administration, Gravitee offers multiple ways to manage and control access to the Gravitee platform via identity provider configuration and login/registration settings. See the [Authentication](authentication/README.md) documentation for details.
+As a part of Organization administration, Gravitee offers multiple ways to manage and control access to the Gravitee platform via identity provider configuration and login/registration settings. See the [Authentication](authentication/) documentation for details.
 
 {% hint style="warning" %}
 This should _not_ be confused with [Gravitee Access Management](https://documentation.gravitee.io/am), which is a full-featured Identity and Access Management solution used to control access to applications and APIs.

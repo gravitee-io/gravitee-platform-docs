@@ -1,5 +1,9 @@
 ---
 description: An overview about connect to an endpoint using sse.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/how-to-guides/use-case-tutorials/connect-to-an-endpoint-using-sse
 ---
 
 # Connect to an Endpoint Using SSE
@@ -47,7 +51,7 @@ Identify the endpoint from which you are going to consume messages. For testing 
 ## Create an HTTP proxy API
 
 1. Log in to your Gravitee APIM Console.
-2. Select **APIs** from the nav and click **+ Add API**.
+2.  Select **APIs** from the nav and click **+ Add API**.
 
     <figure><img src="../../.gitbook/assets/image (166).png" alt=""><figcaption></figcaption></figure>
 3.  In the **Create New API** section, click **Create V4 API.**
@@ -61,7 +65,7 @@ Identify the endpoint from which you are going to consume messages. For testing 
 5.  Select **Proxy Generic Protocol** and click **Select my API architecture**.
 
     <figure><img src="../../.gitbook/assets/image (169).png" alt=""><figcaption></figcaption></figure>
-6. Select **HTTP Proxy** and click **Select my entrypoints**.
+6.  Select **HTTP Proxy** and click **Select my entrypoints**.
 
     <figure><img src="../../.gitbook/assets/image (170).png" alt=""><figcaption></figcaption></figure>
 7.  Set a unique **Context-path**, for example, `/sseconsumer`, then click **Validate my entrypoints**.

@@ -2,6 +2,10 @@
 description: >-
   An overview about create applications and subscriptions using the management
   api.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/how-to-guides/use-case-tutorials/create-applications-and-subscriptions-using-the-management-api
 ---
 
 # Create Applications and Subscriptions Using the Management API
@@ -221,9 +225,7 @@ You can opt to use an existing application instead of creating a new one.
          -d '{"name":"My Application 1","description":"An example application to record subscriptions to APIs"}'
     ```
 
-    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
-      <p>To create an application, you must use the mAPI v1.</p>
-    </div>
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>To create an application, you must use the mAPI v1.</p></div>
 
 Example response
 

@@ -4,6 +4,18 @@ description: Overview of GKO.
 
 # GKO 4.8.x
 
+## Gravitee Kubernetes Operator 4.8.18 - January 20, 2026
+
+<details>
+<summary>Bug fixes</summary>
+
+  **GKO**
+
+  * Fix manager configuration issue when enabling ingress controller
+
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.8.17 - December 19, 2025
 
 There is nothing new in version 4.8.17.

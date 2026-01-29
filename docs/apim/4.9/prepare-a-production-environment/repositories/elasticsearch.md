@@ -1,5 +1,9 @@
 ---
 description: An overview about elasticsearch.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/prepare-a-production-environment/repositories/elasticsearch
 ---
 
 # ElasticSearch
@@ -14,12 +18,19 @@ The ElasticSearch (ES) connector is based on the HTTP API exposed by ES instance
 Gravitee no longer supports the native ES client. Previous connectors provided by Gravitee are no longer supported.
 {% endhint %}
 
-## Supported databases
+## Supported databases&#x20;
 
-| Database      | Version tested  |
-| ------------- | --------------- |
-| ElasticSearch | 7.17.x / 8.16.x |
-| OpenSearch    | 1.x / 2.x       |
+| Database      | Version tested          |
+| ------------- | ----------------------- |
+| ElasticSearch | 7.17.x / 8.16.x / 9.2.x |
+| OpenSearch    | 1.x / 2.x / 3.x         |
+
+## Prerequisites
+
+The following prerequisites are required for OpenSearch or Elasticsearch integration with Gravitee API Management:
+
+* **Required node roles:** The cluster must have nodes with `master`, `data`, and `ingest` roles. At least one node must have the `ingest` role enabled.
+* **Ingest pipelines:** By default, Gravitee configures ingest pipelines (`geoip`, `user_agent`) that are applied during bulk indexing operations.&#x20;
 
 ## Configuration
 

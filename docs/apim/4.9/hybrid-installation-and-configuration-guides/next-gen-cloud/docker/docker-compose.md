@@ -2,6 +2,10 @@
 description: >-
   This guide focuses on installing the Data Plane using Docker Compose. The Data
   Plane includes core components like the Gateway and Redis.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/hybrid-installation-and-configuration-guides/next-gen-cloud/docker/docker-compose
 ---
 
 # Docker Compose
@@ -139,9 +143,8 @@ If the Gateway does not appear or shows an error state, complete the following c
     No context-path matches the request URI.
     ```
 
-    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
-      <p>This response confirms that the Gateway has initialized, but no APIs have been deployed. Once APIs are published through the Control Plane, this message is replaced by valid responses routed through the configured context paths.</p>
-    </div>
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>This response confirms that the Gateway has initialized, but no APIs have been deployed. Once APIs are published through the Control Plane, this message is replaced by valid responses routed through the configured context paths.</p></div>
+
 ### Stop the Gateway
 
 To shut down the Gateway, choose one of the following options.
@@ -171,5 +174,5 @@ To shut down the Gateway, choose one of the following options.
   1. Log in to your [Gravitee Cloud](https://cloud.gravitee.io/).
   2. From the Dashboard, navigate to the Environment where you created your Gateway.
   3. Click on **APIM Console** to open the user interface where you can create and manage your APIs.
-* Create your first API. For more information about creating your first API, see [create-and-publish-your-first-api](../../../how-to-guides/create-and-publish-your-first-api/ "mention")
+* Create your first API. For more information about creating your first API, see [create-and-publish-your-first-api](../../../getting-started/create-and-publish-your-first-api/ "mention")
 * Add native Kafka capabilities. For more information about adding native Kafka capabilities, see [configure-the-kafka-client-and-gateway.md](../../../kafka-gateway/configure-the-kafka-client-and-gateway.md "mention")

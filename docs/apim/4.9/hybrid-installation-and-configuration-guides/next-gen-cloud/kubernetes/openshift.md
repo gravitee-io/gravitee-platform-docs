@@ -1,5 +1,9 @@
 ---
 description: An overview about openshift.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/hybrid-installation-and-configuration-guides/next-gen-cloud/kubernetes/openshift
 ---
 
 # OpenShift

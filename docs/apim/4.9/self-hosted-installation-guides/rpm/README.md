@@ -1,5 +1,9 @@
 ---
 description: An overview about rpm.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/self-hosted-installation-guides/rpm
 ---
 
 # RPM

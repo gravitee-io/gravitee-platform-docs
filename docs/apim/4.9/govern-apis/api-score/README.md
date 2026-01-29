@@ -1,5 +1,8 @@
 ---
 description: An overview about api score.
+metaLinks:
+  alternates:
+    - https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/govern-apis/api-score
 ---
 
 # API Score

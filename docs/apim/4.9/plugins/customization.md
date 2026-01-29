@@ -1,5 +1,8 @@
 ---
 description: An overview about customization.
+metaLinks:
+  alternates:
+    - https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/plugins/customization
 ---
 
 # Customization

@@ -89,6 +89,13 @@ Use these parameters to configure the deployment, and the ways in which the oper
 | `manager.scope.cluster`                     | Use `false` to listen only in the release namespace.                                         | `true`                           |
 | `manager.metrics.enabled`                   | If true, a metrics server will be created so that metrics can be scraped using Prometheus.   | `true`                           |
 | `manager.probe.port`                        | The port the readiness and liveness probes will listen to.                                   | `8081`                           |
+| `manager.httpClient.timeoutSeconds`         | The timeout (in seconds) used when issuing requests to the Management API.                    | `5`                              |
+| `manager.httpClient.proxy.enabled`          | If true, GKO will use your proxy when making any external call                               | `false`                          |
+| `manager.httpClient.proxy.useSystemProxy`   | If true, GKO will use `HTTP_PROXY`, `HTTPS_PROXY`, and `NO_PROXY` environment variables (or lowercase versions).| `false`            |
+| `manager.httpClient.proxy.url`              | The proxy URL, e.g., `http://localhost:8080` or `socks5://localhost:1080`.                           | `""`                             |
+| `manager.httpClient.proxy.username`         | The proxy username if authentication is needed                                               | `""`                             |
+| `manager.httpClient.proxy.password`         | The proxy password if authentication is needed                                               | `""`                             |
+| `manager.httpClient.trustStore.path`        | Path to a custom trust store file (PEM format). Not needed if certificates are in `/etc/ssl/certs`. | `""` |
 | `manager.httpClient.insecureSkipCertVerify` | If true, the manager HTTP client will not verify the certificate used by the Management API. | `false`                          |
 | `manager.templating.enabled`                | If false resources containing markers `[[...]]` will not be evaluated.                       | `true`                           |
 {% endtab %}
