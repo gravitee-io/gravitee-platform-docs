@@ -104,15 +104,6 @@ To connect GKO to Gravitee NextGen Cloud, you'll need:
 
 #### Obtain a Cloud Token
 
-Follow these steps to generate your Cloud Token:
-
-1. Sign in to [Gravitee Cloud](https://cloud.gravitee.io/)
-2. Navigate to the **Gateways** section
-3. Click the Gateway you want to connect
-4. In the **Hybrid Gateway Details** screen, go to the **Cloud Tokens** section
-5. Click **Generate Cloud Token**
-6. Copy and store your token securely
-
 For detailed instructions, see: [Generate a Cloud Token](https://documentation.gravitee.io/apim/4.10/hybrid-installation-and-configuration-guides/next-gen-cloud/generate-a-new-cloud-token)
 
 #### Configuration
