@@ -8,16 +8,8 @@ description: Overview of Promote APIs.
 
 The following sections describe how to promote an API from one environment to another. This feature requires that your installation is linked to Gravitee Cloud.
 
-{% hint style="warning" %}
-**Promotion limitations**
-
-* APIs can only be promoted to environments belonging to the same organization
-* API promotion does not work with v4 APIs
-* API promotion does not work with multi-tenant mode
-{% endhint %}
-
 {% hint style="info" %}
-For a quick introduction on how to create an API in APIM, see [Create APIs](https://documentation.gravitee.io/apim/create-and-configure-apis/create-apis).
+For detailed information on API promotion, including supported features, limitations, and step-by-step instructions, see  [APIM API Promotion](https://documentation.gravitee.io/apim/create-and-configure-apis/create-apis/promote-apis)
 {% endhint %}
 
 ## How to promote an API
@@ -74,3 +66,7 @@ To continue with our example, a user of the `QA` environment will see the promot
 * Accepting the promotion will:
   * Create or update the API (depending on if it has already been promoted)
   * Remove the task
+
+{% hint style="info" %}
+For a quick introduction on how to create an API in APIM, see [Create APIs](https://documentation.gravitee.io/apim/create-and-configure-apis/create-apis).
+{% endhint %}
