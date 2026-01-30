@@ -4,6 +4,28 @@ description: Overview of GKO.
 
 # GKO 4.7.x
 
+## Gravitee Kubernetes Operator 4.7.24 - January 30, 2026
+    
+<details>
+<summary>Bug fixes</summary>
+
+  **GKO**
+
+  * Importing a v4 can throw a NoSuchElementException when no default role is associated to a scope [#11098](https://github.com/gravitee-io/issues/issues/11098)
+
+</details>
+
+
+<details>
+<summary>Improvements</summary>
+
+  **GKO**
+
+  * Support deprecated state for v4 APIS [#11068](https://github.com/gravitee-io/issues/issues/11068)
+
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.7.23 - January 20, 2026
 
 <details>
