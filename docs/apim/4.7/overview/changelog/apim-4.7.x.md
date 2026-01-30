@@ -4,6 +4,46 @@ description: API documentation explaining apim 4.7.x.
 
 # APIM 4.7.x
  
+## Gravitee API Management 4.7.24 - January 30, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Double / when in the called url when using Service discovery plugin [#11076](https://github.com/gravitee-io/issues/issues/11076)
+
+**Management API**
+
+* Prevent multiple primary owners through ownership transfer [#11102](https://github.com/gravitee-io/issues/issues/11102)
+
+**Portal**
+
+* \[PORTAL] Filtering Problem  [#11028](https://github.com/gravitee-io/issues/issues/11028)
+
+**Other**
+
+* SSL enforcement policy issue [#11009](https://github.com/gravitee-io/issues/issues/11009)
+* Group Management follow-up (still broken in some places) [#11042](https://github.com/gravitee-io/issues/issues/11042)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Gateway**
+
+* JAVA_OPTS displays password parameters in gateway logs [#11073](https://github.com/gravitee-io/issues/issues/11073)
+
+**Management API**
+
+* JAVA_OPTS displays password parameters in gateway logs [#11073](https://github.com/gravitee-io/issues/issues/11073)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.7.23 - January 19, 2026
 <details>
 
