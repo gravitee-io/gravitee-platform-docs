@@ -6,6 +6,25 @@ description: >-
 
 # AM 4.6.x
 
+## Gravitee Access Management 4.6.32 - January 30, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* Add gravitee.yml placeholders and helm chart mappings for legacy purge settings [#11090](https://github.com/gravitee-io/issues/issues/11090)
+
+</details>
+
+
 ## Gravitee Access Management 4.6.31 - January 19, 2026
 
 <details>

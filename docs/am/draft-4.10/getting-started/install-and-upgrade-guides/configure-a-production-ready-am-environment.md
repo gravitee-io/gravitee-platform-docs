@@ -122,7 +122,7 @@ security:
 
 3. Update the default administrator password:
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt="Admin password"><figcaption><p>Admin password</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (18).png" alt="Admin password"><figcaption><p>Admin password</p></figcaption></figure>
 
 ### Step 3: Update the JWT secret
 
