@@ -115,7 +115,7 @@ Create an API with a fake sensitive that you secure after we make sure everythin
 5. In the **Version number** field, type a version. For example, 1.1.
 6.  Click **Validate my details**.
 
-    <figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 7.  Select **HTTP Proxy**, and then click **Select my entrypoints**.
 
     <figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
