@@ -52,7 +52,9 @@ Ensure you have the generated Client ID and Client Secret from the Azure AD appl
 4. Give your identity provider a name.
 5. Enter the Azure Tenant ID of your application.
 6. Enter your Azure application ID and Client Secret.
-7.  Click **Create**.
+7. Specify any required OAuth access using Scopes (`openid`, `email`, and `profile` scopes are always requested by Gravitee AM and do not need to be added here explicitly).
+8. Select the OpenID response mode for your provider, or leave this as `default`. This is the method your provider uses to return authorization parameters. The `form_post` mode is particularly useful when the returned authorization parameters make the redirect URL too long for use in query parameters.
+9.  Click **Create**.
 
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-social-idp-azure-ad.png" alt=""><figcaption><p>Create Azure AD IdP</p></figcaption></figure>
 
@@ -61,7 +63,7 @@ On the right of the screen under **1. Configure the Redirect URI**, copy the val
 {% endhint %}
 
 {% hint style="info" %}
-HTTP client settings apply whether or not HTTP/2 is enabled, but they may affect different request characteristics. In particular, the `HTTP Client max pool size` setting limits the number of concurrent connections, but allows a higher number of concurrent requests with multiplexed HTTP/2 connections. See also [Configure HTTP clients](../../../getting-started/configuration/configure-am-gateway/README.md#configure-http-clients).
+HTTP client settings apply whether or not HTTP/2 is enabled, but they may affect different request characteristics. In particular, the `HTTP Client max pool size` setting limits the number of concurrent connections, but allows a higher number of concurrent requests with multiplexed HTTP/2 connections. See also [Configure HTTP clients](../../../getting-started/configuration/configure-am-gateway/#configure-http-clients).
 {% endhint %}
 
 ## Set up the connection
