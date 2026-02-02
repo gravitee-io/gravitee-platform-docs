@@ -6,6 +6,25 @@ description: >-
 
 # AM 4.8.x
 
+## Gravitee Access Management 4.8.21 - February 2, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* Send email asynchronously on PreRegistration  [#11106](https://github.com/gravitee-io/issues/issues/11106)
+
+</details>
+
+
 ## Gravitee Access Management 4.8.20 - January 29, 2026
 
 <details>
