@@ -27,8 +27,12 @@ The steps to install the GKO on an existing Kubernetes cluster are described bel
 2.  Install the chart with the release name `graviteeio-gko`:
 
     ```bash
-    helm install graviteeio-gko graviteeio/gko
+    helm install graviteeio-gko graviteeio/gko --skip-crds
     ```
+
+{% hint style="info" %}
+The `--skip-crds` flag ensures that CRD installation is controlled by the operator's Helm values rather than Helm itself. This prevents conflicts on platforms like OpenShift where Gateway API CRDs may already be installed.
+{% endhint %}
 
 ## Upgrading the Operator <a href="#upgrading-the-operator" id="upgrading-the-operator"></a>
 
@@ -36,7 +40,7 @@ The following commands assume that the repository has been aliased as `graviteei
 
 ```bash
 $ helm repo update graviteeio
-$ helm upgrade --install graviteeio-gko graviteeio/gko
+$ helm upgrade --install graviteeio-gko graviteeio/gko --skip-crds
 ```
 
 ## Configuration parameters <a href="#configuration-parameters" id="configuration-parameters"></a>
@@ -47,6 +51,7 @@ The Gravitee Kubernetes Operator Helm Chart supports the configuration of the fo
 * [RBAC Proxy](install-with-helm.md#rbac-proxy)
 * [Controller Manager](install-with-helm.md#controller-manager)
 * [Ingress](install-with-helm.md#ingress)
+* [Gateway API](install-with-helm.md#gateway-api)
 
 {% tabs %}
 {% tab title="RBAC" %}
@@ -108,6 +113,32 @@ When storing templates in ConfigMaps, the ConfigMap should contain a `content` k
 ```yaml
 content: '{ "message": "Not Found" }'
 contentType: application/json
+```
+{% endtab %}
+
+{% tab title="Gateway API" %}
+Use these parameters to configure the Gateway API controller. The Gateway API controller allows GKO to manage Kubernetes Gateway API resources.
+
+{% hint style="warning" %}
+**Important:** The Gateway API controller requires cluster-scoped installation. When enabling the Gateway API controller, you **must** set `manager.scope.cluster=true` and cannot define specific namespaces. This is because the GatewayClass resource is cluster-scoped.
+{% endhint %}
+
+| Name                          | Description                                                                                      | Value   |
+| ----------------------------- | ------------------------------------------------------------------------------------------------ | ------- |
+| `gatewayAPI.controller.enabled` | Enables the Gateway API controller. Requires `manager.scope.cluster=true`.                      | `false` |
+
+**Example configuration:**
+
+```yaml
+gatewayAPI:
+  controller:
+    enabled: true
+manager:
+  scope:
+    # Required when the Gateway API controller is enabled
+    cluster: true
+    # Cannot define namespaces with the Gateway API controller enabled
+    namespaces: []
 ```
 {% endtab %}
 {% endtabs %}

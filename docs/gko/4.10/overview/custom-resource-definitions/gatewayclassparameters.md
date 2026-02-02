@@ -9,6 +9,26 @@ GatewayClassParameters support is experimental and subject to change in future r
 
 The GatewayClassParameters custom resource is the Gravitee.io extension point that allows you to configure our implementation of the [Kubernetes Gateway API](https://gateway-api.sigs.k8s.io/). It defines a set of configuration options to control how Gravitee Gateways are deployed and behave when managed via the Gateway API, including licensing, Kafka support, and Kubernetes-specific deployment settings.
 
+## Prerequisites
+
+Before using GatewayClassParameters and the Gateway API controller, ensure the following:
+
+{% hint style="warning" %}
+**Cluster scope required:** The Gateway API controller requires cluster-scoped installation because the GatewayClass resource is cluster-scoped. You must configure the operator with:
+
+```yaml
+gatewayAPI:
+  controller:
+    enabled: true
+manager:
+  scope:
+    cluster: true
+    namespaces: []
+```
+
+You cannot define specific namespaces (`manager.scope.namespaces`) when the Gateway API controller is enabled.
+{% endhint %}
+
 ## Example
 
 {% code lineNumbers="true" %}
