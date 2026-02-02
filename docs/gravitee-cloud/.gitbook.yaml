@@ -7,4 +7,4 @@ root: ./
 redirects:
   # guides/hybrid/install-on-docker: guides/hybrid.md
   # guides/hybrid/install-on-kubernetes: guides/hybrid.md
-  guides/hybrid: apim/hybrid-installation-and-configuration-guides/next-gen-cloud/README.md
+  guides/hybrid: https://documentation.gravitee.io/apim/hybrid-installation-and-configuration-guides/next-gen-cloud
