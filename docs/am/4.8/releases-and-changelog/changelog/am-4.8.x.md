@@ -21,6 +21,7 @@ description: >-
 **Other**
 
 * Send email asynchronously on PreRegistration  [#11106](https://github.com/gravitee-io/issues/issues/11106)
+* introduced bulkMaxConcurrency settings from SCIM bulk request  [#11100](https://github.com/gravitee-io/issues/issues/11100)
 
 </details>
 
