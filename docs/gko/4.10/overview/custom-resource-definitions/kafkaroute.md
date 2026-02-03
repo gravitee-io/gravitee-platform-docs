@@ -1,10 +1,24 @@
-# Gateway API - KafkaRoute (Experimental)
+# KafkaRoute
 
 {% hint style="warning" %}
 KafkaRoute and ACLFilter support is experimental and subject to change in future releases as our implementation of the Gateway API evolves.
 {% endhint %}
 
 The Gateway API controller is disabled in the Kubernetes Operator by default. To enable it, set the Helm value `gatewayAPI.controller.enabled` to `true` when installing or upgrading with Helm.
+
+{% hint style="warning" %}
+**Cluster scope required:** You cannot use GKO as a Gateway API controller without setting `manager.scope.cluster=true`. This is because the GatewayClass resource is cluster-scoped. When enabling the Gateway API controller, you must also ensure `manager.scope.namespaces` is empty (`[]`).
+
+```yaml
+gatewayAPI:
+  controller:
+    enabled: true
+manager:
+  scope:
+    cluster: true
+    namespaces: []
+```
+{% endhint %}
 
 ## Overview
 
@@ -146,6 +160,10 @@ Applying these resources creates all the components needed for the Gateway to ac
 The KafkaRoute resource includes an ACL Filter that lets you define fine-grained ACLs (Access Control Lists) on Kafka cluster resources proxied by the Gateway. You can specify permissions for topics, clusters, consumer groups, and transactional IDs.
 
 {% code lineNumbers="true" %}
+```
+```
+{% endcode %}
+
 ```yaml
 apiVersion: gravitee.io/v1alpha1
 kind: KafkaRoute
