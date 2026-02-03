@@ -27,8 +27,17 @@ The steps to install the GKO on an existing Kubernetes cluster are described bel
 2.  Install the chart with the release name `graviteeio-gko`:
 
     ```bash
-    helm install graviteeio-gko graviteeio/gko
+    helm install graviteeio-gko graviteeio/gko --skip-crds
     ```
+
+{% hint style="info" %}
+We recommend always using the `--skip-crds` flag when installing GKO with Helm. This ensures CRD installation is controlled by the operator's Helm values rather than Helm itself. Use the following configuration values to manage CRD installation:
+
+* `manager.applyCRDs=(true|false)` : Controls whether the operator applies its own CRDs
+* `gatewayAPI.controller.enabled=(true|false)`: Enables the Gateway API controller
+{% endhint %}
+
+When the Gateway API controller is enabled, the operator automatically installs the Gateway API CRDs that match its implementation. For the latest supported Gateway API version and feature set, see the [Kubernetes Gateway API implementations page](https://gateway-api.sigs.k8s.io/implementations/#gravitee-kubernetes-operator).
 
 ## Upgrading the Operator <a href="#upgrading-the-operator" id="upgrading-the-operator"></a>
 
@@ -36,7 +45,8 @@ The following commands assume that the repository has been aliased as `graviteei
 
 ```bash
 $ helm repo update graviteeio
-$ helm upgrade --install graviteeio-gko graviteeio/gko
+
+$ helm upgrade --install graviteeio-gko graviteeio/gko --skip-crds
 ```
 
 ## Configuration parameters <a href="#configuration-parameters" id="configuration-parameters"></a>
@@ -47,12 +57,13 @@ The Gravitee Kubernetes Operator Helm Chart supports the configuration of the fo
 * [RBAC Proxy](install-with-helm.md#rbac-proxy)
 * [Controller Manager](install-with-helm.md#controller-manager)
 * [Ingress](install-with-helm.md#ingress)
+* [Gateway API](install-with-helm.md#gateway-api)
 
 {% tabs %}
 {% tab title="RBAC" %}
 Required RBAC resources are created by default for all components involved in the release.
 
-<table><thead><tr><th width="272">Name</th><th width="233">Description</th><th>Value</th></tr></thead><tbody><tr><td><code>serviceAccount.create</code></td><td>Specifies if a service account should be created for the manager pod.</td><td><code>true</code></td></tr><tr><td><code>serviceAccount.name</code></td><td><a data-footnote-ref href="#user-content-fn-1">Specifies the service account name to use. </a>If the operator is deployed in multiple namespaces by setting <code>scope.cluster</code> to <code>false</code>, a different service account name must be used for each installation.</td><td><code>gko-controller-manager</code></td></tr><tr><td><code>rbac.create</code></td><td>Specifies if RBAC resources should be created.</td><td><code>true</code></td></tr><tr><td><code>rbac.skipClusterRoles</code></td><td>Specifies if cluster roles should be created when RBAC resources are created. You may need to disable templating for the manager to read secrets and ConfigMaps in other namespaces.</td><td><code>false</code></td></tr><tr><td><code>manager.scope.namespaces</code></td><td>Specify a list of namespaces that GKO is going to watch for CRDs in the following form: <code>["ns1", "ns2", "ns3"]</code>. With this parameter,  GKO does not need ClusterRole-Binding and has access to resources in only these specific namespaces. If you provide this list, ensure that <code>manager.scope.cluster=true</code></td><td><code>[]</code></td></tr></tbody></table>
+<table><thead><tr><th width="272">Name</th><th width="233">Description</th><th>Value</th></tr></thead><tbody><tr><td><code>serviceAccount.create</code></td><td>Specifies if a service account should be created for the manager pod.</td><td><code>true</code></td></tr><tr><td><code>serviceAccount.name</code></td><td><a data-footnote-ref href="#user-content-fn-1">Specifies the service account name to use. </a>If the operator is deployed in multiple namespaces by setting <code>scope.cluster</code> to <code>false</code>, a different service account name must be used for each installation.</td><td><code>gko-controller-manager</code></td></tr><tr><td><code>rbac.create</code></td><td>Specifies if RBAC resources should be created.</td><td><code>true</code></td></tr><tr><td><code>rbac.skipClusterRoles</code></td><td>Specifies if cluster roles should be created when RBAC resources are created. You may need to disable templating for the manager to read secrets and ConfigMaps in other namespaces.</td><td><code>false</code></td></tr><tr><td><code>manager.scope.namespaces</code></td><td>Specify a list of namespaces that GKO is going to watch for CRDs in the following form: <code>["ns1", "ns2", "ns3"]</code>. With this parameter, GKO does not need ClusterRole-Binding and has access to resources in only these specific namespaces. If you provide this list, ensure that <code>manager.scope.cluster=true</code></td><td><code>[]</code></td></tr></tbody></table>
 {% endtab %}
 
 {% tab title="RBAC Proxy" %}
@@ -72,30 +83,28 @@ If this is disabled, the Prometheus metrics endpoint will be exposed with no acc
 {% tab title="Controller Manager" %}
 Use these parameters to configure the deployment, and the ways in which the operator will interact with APIM and custom resources in your cluster.
 
-| Name                                        | Description                                                                                  | Value                            |
-| ------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------- |
-| `manager.image.repository`                  | Specifies the Docker registry and image name to use.                                         | `graviteeio/kubernetes-operator` |
-| `manager.image.tag`                         | Specifies the Docker image tag to use.                                                       | `latest`                         |
-| `manager.log.json`                          | If true, the manager logs are written in JSON format.                                        | `true`                           |
-| `manager.configMap.name`                    | The name of the ConfigMap used to set the manager config from these values.                  | `gko-config`                     |
-| `manager.resources.limits.cpu`              | The CPU resource limits for the GKO Manager container.                                       | `500m`                           |
-| `manager.resources.limits.memory`           | The memory resources limits for the GKO Manager container.                                   | `128Mi`                          |
-| `manager.resources.requests.cpu`            | The requested CPU for the GKO Manager container.                                             | `5m`                             |
-| `manager.resources.requests.memory`         | The requested memory for the GKO Manager container.                                          | `64Mi`                           |
-| `manager.scope.cluster`                     | Use `false` to listen only in the release namespace.                                         | `true`                           |
-| `manager.metrics.enabled`                   | If true, a metrics server will be created so that metrics can be scraped using Prometheus.   | `true`                           |
-| `manager.probe.port`                        | The port the readiness and liveness probes will listen to.                                   | `8081`                           |
-| `manager.httpClient.insecureSkipCertVerify` | If true, the manager HTTP client will not verify the certificate used by the Management API. | `false`                          |
-| `manager.httpClient.timeoutSeconds`         | The timeout (in seconds) used when issuing requests to the Management API.                    | `5`                              |
-| `manager.httpClient.proxy.enabled`          | If true, GKO will use your proxy when making any external call                               | `false`                          |
-| `manager.httpClient.proxy.useSystemProxy`   | If true, GKO will use `HTTP_PROXY`, `HTTPS_PROXY`, and `NO_PROXY` environment variables (or lowercase versions).| `false`            |
-| `manager.httpClient.proxy.url`              | The proxy URL, e.g., `http://localhost:8080` or `socks5://localhost:1080`.                           | `""`                             |
-| `manager.httpClient.proxy.username`         | The proxy username if authentication is needed                                               | `""`                             |
-| `manager.httpClient.proxy.password`         | The proxy password if authentication is needed                                               | `""`                             |
-| `manager.httpClient.trustStore.path`        | Path to a custom trust store file (PEM format). Not needed if certificates are in `/etc/ssl/certs`. | `""` |
-| `manager.templating.enabled`                | If false resources containing markers `[[...]]` will not be evaluated.                       | `true`                           |
-
-
+| Name                                        | Description                                                                                                      | Value                            |
+| ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | -------------------------------- |
+| `manager.image.repository`                  | Specifies the Docker registry and image name to use.                                                             | `graviteeio/kubernetes-operator` |
+| `manager.image.tag`                         | Specifies the Docker image tag to use.                                                                           | `latest`                         |
+| `manager.log.json`                          | If true, the manager logs are written in JSON format.                                                            | `true`                           |
+| `manager.configMap.name`                    | The name of the ConfigMap used to set the manager config from these values.                                      | `gko-config`                     |
+| `manager.resources.limits.cpu`              | The CPU resource limits for the GKO Manager container.                                                           | `500m`                           |
+| `manager.resources.limits.memory`           | The memory resources limits for the GKO Manager container.                                                       | `128Mi`                          |
+| `manager.resources.requests.cpu`            | The requested CPU for the GKO Manager container.                                                                 | `5m`                             |
+| `manager.resources.requests.memory`         | The requested memory for the GKO Manager container.                                                              | `64Mi`                           |
+| `manager.scope.cluster`                     | Use `false` to listen only in the release namespace.                                                             | `true`                           |
+| `manager.metrics.enabled`                   | If true, a metrics server will be created so that metrics can be scraped using Prometheus.                       | `true`                           |
+| `manager.probe.port`                        | The port the readiness and liveness probes will listen to.                                                       | `8081`                           |
+| `manager.httpClient.insecureSkipCertVerify` | If true, the manager HTTP client will not verify the certificate used by the Management API.                     | `false`                          |
+| `manager.httpClient.timeoutSeconds`         | The timeout (in seconds) used when issuing requests to the Management API.                                       | `5`                              |
+| `manager.httpClient.proxy.enabled`          | If true, GKO will use your proxy when making any external call                                                   | `false`                          |
+| `manager.httpClient.proxy.useSystemProxy`   | If true, GKO will use `HTTP_PROXY`, `HTTPS_PROXY`, and `NO_PROXY` environment variables (or lowercase versions). | `false`                          |
+| `manager.httpClient.proxy.url`              | The proxy URL, e.g., `http://localhost:8080` or `socks5://localhost:1080`.                                       | `""`                             |
+| `manager.httpClient.proxy.username`         | The proxy username if authentication is needed                                                                   | `""`                             |
+| `manager.httpClient.proxy.password`         | The proxy password if authentication is needed                                                                   | `""`                             |
+| `manager.httpClient.trustStore.path`        | Path to a custom trust store file (PEM format). Not needed if certificates are in `/etc/ssl/certs`.              | `""`                             |
+| `manager.templating.enabled`                | If false resources containing markers `[[...]]` will not be evaluated.                                           | `true`                           |
 {% endtab %}
 
 {% tab title="Ingress" %}
@@ -110,6 +119,30 @@ content: '{ "message": "Not Found" }'
 contentType: application/json
 ```
 {% endtab %}
+
+{% tab title="Gateway API" %}
+Use these parameters to configure the Gateway API controller. The Gateway API controller allows GKO to manage Kubernetes Gateway API resources.
+
+The Gateway API controller requires cluster-scoped installation. When enabling the Gateway API controller, you must set `manager.scope.cluster=true` and cannot define specific namespaces. This is because the GatewayClass resource is cluster-scoped.
+
+<table><thead><tr><th width="237.80078125">Name</th><th width="287.828125">Description</th><th>Value</th></tr></thead><tbody><tr><td><code>gatewayAPI.controller.enabled</code></td><td>Enables the Gateway API controller. Requires <code>manager.scope.cluster=true</code>.</td><td><code>false</code></td></tr></tbody></table>
+
+For example:
+
+```yaml
+gatewayAPI:
+  controller:
+    enabled: true
+manager:
+  scope:
+    # Required when the Gateway API controller is enabled
+    cluster: true
+    # Cannot define namespaces with the Gateway API controller enabled
+    namespaces: []
+```
+{% endtab %}
 {% endtabs %}
+
+
 
 [^1]: I forgot to add a precision here. Something like: "If you are deploying the operator in several namespaces ny setting \`scope.cluster\` to \`false\`, a different service account name \*must\* be used on each installation.

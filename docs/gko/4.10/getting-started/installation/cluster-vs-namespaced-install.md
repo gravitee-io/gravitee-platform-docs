@@ -8,6 +8,8 @@ By default, the Gravitee Kubernetes Operator is set up to listen to the custom r
 
 In this mode, a single operator must be installed in the cluster to handle resources, regardless of the namespaces they have been created in. For each resource created in a specific namespace, the operator creates a ConfigMap in the same namespace that contains an API definition that is synced with an APIM Gateway.
 
+**Gateway API requirement:** If you want to use GKO as a Gateway API controller, cluster mode is **required**. This is because the `GatewayClass` resource is cluster-scoped. You cannot use namespaced mode with the Gateway API controller enabled.
+
 By default, an APIM Gateway installed using the Helm Chart includes a limited set of permissions, and the Gateway is only able to access ConfigMaps created in its own namespace. However, giving a Gateway the cluster role allows it to access ConfigMaps created by the operator at the cluster level.
 
 An overview of this architecture is described by the diagram below.
