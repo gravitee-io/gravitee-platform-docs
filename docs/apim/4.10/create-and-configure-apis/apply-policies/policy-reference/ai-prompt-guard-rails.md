@@ -17,7 +17,7 @@ Depending on configuration, when a prompt is flagged:
 * **Allowed but flagged** – the request proceeds but is logged for monitoring
 
 {% hint style="info" %}
-You may face an error when using this policy using the Gravitee's docker image. This is due to the fact that the default image are based on Alpine Linux, which does not support the ONNX Runtime. To resolve this issue you need to use the Gravitee's docker image based on Debian, which is available at graviteeio/apim-gateway:4.8.0-debian.
+You may face an error when using this policy using the Gravitee's docker image. This is due to the fact that the default image are based on Alpine Linux, which does not support the ONNX Runtime. To resolve this issue you need to use the Gravitee's docker image based on Debian, which is available at graviteeio/apim-gateway:4.10.0-debian.
 {% endhint %}
 
 ## Content Checks

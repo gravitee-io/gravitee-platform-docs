@@ -5,7 +5,7 @@
 With the AI - Token Rate Limit policy, you can configure the number of total inbound tokens and outbound tokens allowed over a limited period of time in minutes and seconds.
 
 {% hint style="info" %}
-You might receive an error when you use this policy using the Gravitee's docker image. This happens because the default images are based on Alpine Linux, which does not support the ONNX Runtime. To resolve this issue, you must use the Gravitee's docker image based on Debian. To download the correct image, use `graviteeio/apim-gateway:4.8.0-debian`.
+You might receive an error when you use this policy using the Gravitee's docker image. This happens because the default images are based on Alpine Linux, which does not support the ONNX Runtime. To resolve this issue, you must use the Gravitee's docker image based on Debian. To download the correct image, use `graviteeio/apim-gateway:4.10.0-debian`.
 {% endhint %}
 
 ## Prerequisites&#x20;
