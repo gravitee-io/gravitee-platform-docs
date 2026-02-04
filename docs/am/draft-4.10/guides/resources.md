@@ -12,6 +12,8 @@ Gravitee AM currently supports the following resources:
 * Infobip 2FA
 * SMTP
 * Twilio Verify
+* SFR DMC API
+* Orange Contact everyone
 
 Click on the tabs below to learn more.
 
@@ -93,6 +95,43 @@ To configure a Twilio Verify resource, you must specify:
 * **Account ID:** Enter your Twilio account ID
 * **Authentication Token:** Enter the authentication token linked to your account
 * **Use system proxy:** Toggle ON or OFF
+{% endtab %}
+
+{% tab title="SFR DMC API" %}
+The SFR DMC API resource is a SMS provider that you can use to send verifications codes to users during the multi-factor authentication process.
+
+<figure><img src="../.gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
+
+To configure an SRF resource, you must specify:
+
+* **Resource name:** Create a resource name.
+* **Service Host:** Enter the DMC Service URL.
+* **Service ID:** Enter the Verification Service ID.
+* **Server Password:** Enter the DMC Service Password.
+* **Space ID:** Enter the DMC Space ID.
+* (Optional) **OADC:** Enter the OADC value for the SMS channel.
+* (Optional) **HTTP Client connect timeout:** Enter the timeout duration for the HTTP client in milliseconds. The default value is `1000ms`.
+* (Optional) **HTTP Client idle timeout:** Enter the timeout duration for the HTTP client idle timeout in milliseconds. The default value is `1000ms`.
+* (Optional) **HTTP Client max pool size:** Enter the maximum number that the pool of connections can grow to. The default value is `200`.
+{% endtab %}
+
+{% tab title="Orange Contact everyone" %}
+The Orange Contact everyone resource is a SMS provider that you can use to send verifications codes to users during the multi-factor authentication process.
+
+<figure><img src="../.gitbook/assets/image (21).png" alt=""><figcaption></figcaption></figure>
+
+To configure an Orange Contact everyone resource, you must specify:
+
+* **Resource name:** Create a resource name.
+* **Username:** Enter the username for your Orange application.&#x20;
+* **Password:** Enter the Password for your Orange application.&#x20;
+* **Token endpoint:** Enter the endpoint that is used to request an access token for the application. For example, `https://[SERVER_URL]/api/v1.2/oauth/token`.
+* **Diffusion requests Endpoint:** Enter the endpoint that is used to send a message to the user. For example: `https://[SERVER_URL]/api/v1.2/groups/[id-group]/diffusion-requests`.
+* (Optional) **HTTP Client connect timeout:** Enter the timeout duration for the HTTP client in milliseconds. The default value is 1000ms.
+* (Optional) **HTTP Client idle timeout:** Enter the timeout duration for the HTTP client idle timeout in milliseconds. The default value is 1000ms.
+* (Optional) **HTTP Client max pool size:** Enter the maximum number that the pool of connections can grow to. The default value is 200.
+* **Encoding:** From the **Encoding** drop-down menu, select either `GSM7` or `USC2`.
+* **(Optional) Sender:** Enter the name of the sender.
 {% endtab %}
 {% endtabs %}
 
