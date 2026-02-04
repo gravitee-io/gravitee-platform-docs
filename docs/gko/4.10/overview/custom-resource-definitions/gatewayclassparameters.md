@@ -46,7 +46,7 @@ spec:
         spec:
           containers:
           - name: gateway
-            image: graviteeio/apim-gateway:4.8.0
+            image: graviteeio/apim-gateway:4.10.0
 ```
 {% endcode %}
 
