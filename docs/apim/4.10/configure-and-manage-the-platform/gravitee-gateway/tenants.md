@@ -7,7 +7,7 @@ metaLinks:
 
 # Tenants
 
-## Overview
+Overview
 
 Tenants are a way to leverage Gravitee's multi-endpoint capability, which is the ability to specify multiple upstream systems per single API. Gravitee allows you to assign endpoints and Gateways to specific tenants to control the endpoints to which requests are proxied.
 
@@ -17,22 +17,27 @@ Endpoint deployment is impacted by how tags are applied to API endpoints and Gat
 
 ### Rules
 
-* Tagged Gateway instances will never deploy APIs to tagless API endpoints.
-* Tagless Gateway instances will deploy APIs to every API endpoint, regardless of how the API endpoints are tagged.
-* A Gateway tagged with a specific tenant will only deploy APIs to API endpoints that have been tagged with that tenant.
-* If neither a Gateway nor an API endpoint are tagged with tenants, the Gateway will deploy the API to the API endpoint.
+* A Gateway that is not configured with a tenant deploys all API endpoints, regardless of whether the endpoint has a tenant.
+* An API endpoint that is not configured with a tenant is deployed to all Gateways, regardless of whether the Gateway is configured with a tenant.
+* A Gateway configured with the tenant `foo` deploys all API endpoints that include `foo` in their tenant list.
 
 ## Configuring Tenants <a href="#id-9c4f" id="id-9c4f"></a>
 
 To explain tenant usage and behavior, we will build off of our example use case for [sharding tags](sharding-tags.md#configure-sharding-tags-for-your-gravitee-api-gateways). A single API can be deployed to many different Gateways and endpoints, but by using sharding tags you can specify the target Gateway(s), and by using tenants you can specify the target endpoint(s).
 
-Similar to sharding tags, tenant configuration is a two-step process. You must “tag” a Gateway to identify in which region it has been deployed. To demonstrate, we will add the following configuration to each Gateway’s `gravitee.yaml` file, which tags all USA-deployed Gateways with “usa" and all EU-deployed Gateways with "eu":
+Similar to sharding tags, tenant configuration is a two-step process. You must “tag” a Gateway to identify in which region it has been deployed. To demonstrate, we will add the following configuration to each Gateway's `gravitee.yaml` file, where all USA-deployed Gateways are tagged with "usa" and all EU-deployed Gateways are tagged with "eu"
 
 ```yaml
 # Multi-tenant configuration
 # Allow only a single-value
-USA Region: tenant: ‘usa’
-EU Region: tenant: ‘eu’
+
+# USA Region:
+tenant: 'usa'
+
+# ...or...
+
+# EU Region:
+tenant: 'eu'
 ```
 
 Once the Gateway has been configured, the tenant definition must be added via the API Management Console:
