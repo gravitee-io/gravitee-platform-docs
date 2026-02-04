@@ -124,6 +124,11 @@ Before you install APIM, complete the following steps:
             soft: -1
             hard: -1
           nofile: 65536
+        healthcheck:
+          test: [ "CMD", "curl", "-f", "<http://localhost:9200/_cluster/health?wait_for_status=yellow&timeout=5s>" ]
+          interval: 5s
+          timeout: 3s
+          retries: 10
         networks:
           - storage
 
