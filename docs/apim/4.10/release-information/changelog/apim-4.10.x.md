@@ -1,5 +1,36 @@
 # APIM 4.10.x
  
+## Gravitee API Management 4.10.4 - February 4, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Error when request of vendor comes with X-Forwarded Header [#11097](https://github.com/gravitee-io/issues/issues/11097)
+
+**Management API**
+
+* Re: Unable to view log of API unless Instance READ permission is added to API Publisher [#11051](https://github.com/gravitee-io/issues/issues/11051)
+* API promotion issue [#11117](https://github.com/gravitee-io/issues/issues/11117)
+
+**Console**
+
+* Re: Unable to view log of API unless Instance READ permission is added to API Publisher [#11051](https://github.com/gravitee-io/issues/issues/11051)
+
+**Portal**
+
+* Portal-Next: Unable to confirm user account [#11111](https://github.com/gravitee-io/issues/issues/11111)
+
+**Other**
+
+* \[Kafka Gateway] Azure Service Bus fails with higher ApiVersions [#11109](https://github.com/gravitee-io/issues/issues/11109)
+* \[Kafka Gateway] Bad ApiVersions when gateway doesn't supports the min version of an api key [#11118](https://github.com/gravitee-io/issues/issues/11118)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.10.3 - January 30, 2026
 <details>
 
