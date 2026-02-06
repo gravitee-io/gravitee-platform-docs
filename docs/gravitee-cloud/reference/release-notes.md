@@ -1,5 +1,5 @@
 ---
-description: Release notes for Release Notes.
+description: Release notes for Gravitee Cloud.
 ---
 
 # Release Notes
