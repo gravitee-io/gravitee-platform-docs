@@ -4,9 +4,9 @@
 
 Following this quickstart guide or the video tutorial is the fastest way to start working with the Gravitee Kubernetes Operator (GKO). These resources describe how to complete the following actions:
 
-* Install GKO
-* Create a Management Context
-* Create an API Definition and invoke the API
+* [#install-gko](quickstart-guide.md#install-gko "mention")
+* [#create-a-managementcontext](quickstart-guide.md#create-a-managementcontext "mention")
+* [#create-an-apidefinition](quickstart-guide.md#create-an-apidefinition "mention")
 
 In this guide, we assume that Gravitee API Management is acting as the control plane for the Gravitee Gateway. The Gateway loads its APIs from APIM's repository (e.g., MongoDB, or via a Bridge Gateway in a hybrid setup). GKO lets you define and manage API's "as-code" rather than using the GUI. Additionally, GKO synchronizes all of its actions, such as creating APIs and managing their lifecycle, directly with Gravitee API Management through the Management API.
 
@@ -34,7 +34,7 @@ helm install graviteeio-gko graviteeio/gko
 ```
 {% endcode %}
 
-### Create a `ManagementContext`
+## Create a `ManagementContext`
 
 The `ManagementContext` CRD is used to provide GKO with everything needed to invoke an APIM instance's Management API.
 
@@ -182,11 +182,11 @@ There are a few things worth mentioning about the above resource:
 * This API definition references the `ManagementContext` we just created. This tells GKO to sync this API definition with the APIM installation referenced in the `ManagementContext`.
 * The API definition specifies that the API should be created in a `STARTED` state (i.e., deployed), and `PUBLISHED` on the Developer Portal.
 * The backend **target** for this API is a mock service hosted by Gravitee that echoes back information about the incoming call.
-* **local** is set to false, meaning the Gateway will load this API through the usual central database (as opposed to a local configMap).
+* **local** is set to false, meaning the Gateway will load this API through the usual central database (as opposed to a local [configMap](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/getting-started/api-storage-and-control-options/configure-the-gateway-to-load-apis-from-local-configmaps)).
 
 Create the resource with the following command:
 
-```
+```bash
 kubectl apply -f echo-api.yaml
 ```
 
