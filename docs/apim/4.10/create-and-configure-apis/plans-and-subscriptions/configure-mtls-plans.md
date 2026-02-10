@@ -1,0 +1,1 @@
+<!-- GAP: This section was rejected due to lack of source grounding (hallucination detected). -->
