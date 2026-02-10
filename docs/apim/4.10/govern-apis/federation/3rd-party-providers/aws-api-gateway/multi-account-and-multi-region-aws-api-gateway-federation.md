@@ -2,7 +2,7 @@
 description: An overview about multi-account and multi-region aws api gateway federation.
 metaLinks:
   alternates:
-    - 4.9-multi-account-and-multi-region-aws-api-gateway-federation.md
+    - multi-account-and-multi-region-aws-api-gateway-federation.md
 ---
 
 # Multi-Account and Multi-Region AWS API Gateway Federation
@@ -47,8 +47,8 @@ Before configuring multi-account support, complete the following steps:
 
 You can configure multi-account support using either of two methods:
 
-* [#cloudformation-stacksets-deployment](4.9-multi-account-and-multi-region-aws-api-gateway-federation.md#cloudformation-stacksets-deployment "mention"): Automated deployment across accounts.
-* [#manual-iam-configuration](4.9-multi-account-and-multi-region-aws-api-gateway-federation.md#manual-iam-configuration "mention"): Create roles and policies manually.
+* [#cloudformation-stacksets-deployment](multi-account-and-multi-region-aws-api-gateway-federation.md#cloudformation-stacksets-deployment "mention"): Automated deployment across accounts.
+* [#manual-iam-configuration](multi-account-and-multi-region-aws-api-gateway-federation.md#manual-iam-configuration "mention"): Create roles and policies manually.
 
 ### CloudFormation StackSets Deployment
 
@@ -68,9 +68,9 @@ Enable the following features in the AWS Console:
 
 You can configure your Stacksets deployment by completing the following steps:
 
-1. [#create-stackset-administration-role](4.9-multi-account-and-multi-region-aws-api-gateway-federation.md#create-stackset-administration-role "mention")
-2. [#deploy-roles-to-target-accounts-using-stackset](4.9-multi-account-and-multi-region-aws-api-gateway-federation.md#deploy-roles-to-target-accounts-using-stackset "mention")
-3. [#deploy-federation-agent](4.9-multi-account-and-multi-region-aws-api-gateway-federation.md#deploy-federation-agent "mention")
+1. [#create-stackset-administration-role](multi-account-and-multi-region-aws-api-gateway-federation.md#create-stackset-administration-role "mention")
+2. [#deploy-roles-to-target-accounts-using-stackset](multi-account-and-multi-region-aws-api-gateway-federation.md#deploy-roles-to-target-accounts-using-stackset "mention")
+3. [#deploy-federation-agent](multi-account-and-multi-region-aws-api-gateway-federation.md#deploy-federation-agent "mention")
 
 #### Create Stackset Administration Role
 
@@ -554,9 +554,9 @@ Your agent is now successfully deployed and discovering APIs across accounts.
 
 If you prefer to configure IAM roles manually instead of using StackSets, follow these steps to set up cross-account access.
 
-1. [#create-discovery-role-in-each-target-account](4.9-multi-account-and-multi-region-aws-api-gateway-federation.md#create-discovery-role-in-each-target-account "mention")
-2. [#configure-agent-iam-role-in-management-account](4.9-multi-account-and-multi-region-aws-api-gateway-federation.md#configure-agent-iam-role-in-management-account "mention")
-3. [#verify-cross-account-access](4.9-multi-account-and-multi-region-aws-api-gateway-federation.md#verify-cross-account-access "mention")
+1. [#create-discovery-role-in-each-target-account](multi-account-and-multi-region-aws-api-gateway-federation.md#create-discovery-role-in-each-target-account "mention")
+2. [#configure-agent-iam-role-in-management-account](multi-account-and-multi-region-aws-api-gateway-federation.md#configure-agent-iam-role-in-management-account "mention")
+3. [#verify-cross-account-access](multi-account-and-multi-region-aws-api-gateway-federation.md#verify-cross-account-access "mention")
 
 #### Create discovery role in each target account
 
