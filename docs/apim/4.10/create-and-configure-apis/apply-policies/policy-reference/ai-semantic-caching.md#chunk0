@@ -1,0 +1,29 @@
+---
+description: Configure AI Semantic Caching to store and retrieve vector-based cache entries for AI-powered API responses
+---
+
+# AI Semantic Caching
+
+## Configuration options
+
+The AI Semantic Caching policy requires configuration of an embedding model resource and a vector store resource. All parameters support Gravitee Expression Language (EL) for dynamic values.
+
+### Policy-level configuration
+
+| Name<br>`json name` | Type<br>`constraint` | Mandatory | Default | Description |
+|:--------------------|:---------------------|:---------:|:--------|:------------|
+| Embedding model resource<br>`modelName` | string | ✅ | | The AI text embedding model resource used to generate vector representations of request content. |
+| Vector store resource<br>`vectorStoreName` | string | ✅ | | The vector store resource used to store and retrieve cached vectors. |
+| Prompt expression<br>`promptExpression` | string | | `{#request.content}` | Expression to extract content from the request for embedding generation. Supports JSONPath for structured data extraction. |
+| Cache condition<br>`cacheCondition` | string | | `{#response.status >= 200 && #response.status < 300}` | Expression evaluated during the response phase to determine if the response should be cached. |
+| Parameters<br>`parameters` | array | | `[{"key": "retrieval_context_key", "value": "{#context.attributes['api']}_{#context.attributes['plan']}_{#context.attributes['user-id']}", "encode": true}]` | Metadata parameters attached to cached vectors for filtering and scoping. See Parameters section below. |
+
+### Parameters (Array)
+
+Each parameter entry defines metadata attached to cached vectors. This metadata is used to filter vector store queries and scope cache entries.
+
+| Name<br>`json name` | Type<br>`constraint` | Mandatory | Default | Description |
+|:--------------------|:---------------------|:---------:|:--------|:------------|
+| Parameter name<br>`key` | string | | | The metadata key used for filtering vector store queries. |
+| Parameter value<br>`value` | string | | | The metadata value, evaluated using EL. Common values include `{#context.attributes['api']}`, `{#context.attributes['plan']}`, or `{#context.attributes['user-id']}`. |
+| Encode value<br>`encode` | boolean | | `false` | When `true`, hashes the parameter value using MurmurHash3 (Base64 encoded) to protect sensitive information. |

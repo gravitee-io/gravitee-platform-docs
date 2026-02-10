@@ -1,0 +1,158 @@
+---
+description: Learn how to configure the AI Semantic Caching policy to reduce latency and costs by caching semantically similar AI requests
+---
+
+# AI Semantic Caching
+
+## Overview
+
+{% hint style="warning" %}
+**Enterprise only**
+
+As of Gravitee 4.5, the AI Semantic Caching policy is an Enterprise Edition capability. To learn more about Gravitee Enterprise Edition and what's included in various enterprise packages, please:
+
+* [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
+* [Check out the pricing page](https://www.gravitee.io/pricing)
+{% endhint %}
+
+## Functional and implementation information
+
+The AI Semantic Caching policy reduces latency and costs by caching responses to semantically similar AI requests. Instead of exact string matching, this policy uses vector embeddings to identify requests with similar meaning, even when phrased differently.
+
+### How it works
+
+1. **Request processing**: The policy extracts the prompt from the incoming request using the configured `promptExpression`.
+2. **Embedding generation**: The prompt is converted to a vector embedding using the configured AI model resource.
+3. **Similarity search**: The policy queries the vector store for cached responses with similar embeddings (based on the `similarityThreshold`).
+4. **Cache hit**: If a similar cached response is found, it's returned immediately without calling the backend.
+5. **Cache miss**: If no similar response exists, the request proceeds to the backend, and the response is cached for future requests (if the `cacheCondition` is met).
+
+### Key benefits
+
+* **Cost reduction**: Minimize API calls to expensive LLM providers
+* **Latency improvement**: Return cached responses instantly for semantically similar queries
+* **Flexible matching**: Configure similarity thresholds to balance cache hit rate and response accuracy
+* **Metadata filtering**: Scope caches by API, plan, user, or custom context attributes
+
+## Compatibility matrix
+
+The following is the compatibility matrix for APIM and the AI Semantic Caching policy:
+
+<table><thead><tr><th width="258">Plugin Version</th><th width="156">Supported APIM versions</th></tr></thead><tbody><tr><td>1.x</td><td>4.5.x to latest</td></tr></tbody></table>
+
+## Configuration
+
+### Phases
+
+The phases checked below are supported by the AI Semantic Caching policy:
+
+<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="198.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>false</td><td>onRequest</td><td>false</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>true</td></tr><tr><td>onResponseContent</td><td>true</td><td>onMessageResponse</td><td>true</td></tr></tbody></table>
+
+### Options
+
+The AI Semantic Caching policy can be configured with the following options:
+
+<table><thead><tr><th width="200">Property</th><th width="120" data-type="checkbox">Required</th><th width="250">Description</th><th width="150">Type</th><th>Default</th></tr></thead><tbody><tr><td>modelName</td><td>true</td><td>Name of the AI model resource to use for generating embeddings</td><td>string</td><td>N/A</td></tr><tr><td>vectorStoreName</td><td>true</td><td>Name of the vector store resource to use for caching</td><td>string</td><td>N/A</td></tr><tr><td>promptExpression</td><td>true</td><td>Expression Language (EL) expression to extract the prompt from the request. Supports JSONPath for complex payload extraction.</td><td>string</td><td>N/A</td></tr><tr><td>similarityThreshold</td><td>false</td><td>Minimum similarity score (0.0 to 1.0) required for a cache hit. Higher values require closer semantic matches.</td><td>number</td><td>0.95</td></tr><tr><td>cacheCondition</td><td>false</td><td>Expression Language (EL) condition that must evaluate to true for the response to be cached. Commonly used to cache only successful responses.</td><td>string</td><td>Empty (always cache)</td></tr><tr><td>parameters</td><td>false</td><td>List of metadata key-value pairs used to scope the cache. Supports context attributes and optional encoding.</td><td>array</td><td>Empty array</td></tr></tbody></table>
+
+#### Parameters array structure
+
+Each parameter object in the `parameters` array has the following properties:
+
+<table><thead><tr><th width="150">Property</th><th width="120" data-type="checkbox">Required</th><th width="300">Description</th><th width="120">Type</th><th>Default</th></tr></thead><tbody><tr><td>key</td><td>true</td><td>Metadata key name used for cache scoping</td><td>string</td><td>N/A</td></tr><tr><td>value</td><td>true</td><td>Expression Language (EL) expression to extract the metadata value. Commonly uses context attributes.</td><td>string</td><td>N/A</td></tr><tr><td>encode</td><td>false</td><td>Whether to hash the value using MurmurHash3 before storing. Useful for sensitive data like user IDs.</td><td>boolean</td><td>false</td></tr></tbody></table>
+
+## Examples
+
+The following examples demonstrate how to configure the AI Semantic Caching policy for different use cases.
+
+### LLM proxy with JSONPath extraction
+
+This example caches OpenAI-compatible chat completions by extracting only the last message content from the request payload. The `promptExpression` uses JSONPath to isolate the relevant text for semantic comparison.
+
+```json
+{
+  "name": "AI Semantic Caching",
+  "enabled": true,
+  "policy": "ai-semantic-caching",
+  "configuration": {
+    "modelName": "ai-model-text-embedding-resource",
+    "vectorStoreName": "vector-store-redis-resource",
+    "promptExpression": "{#jsonPath(#request.content, '$.messages[-1:].content')}",
+    "cacheCondition": "{#response.status >= 200 && #response.status < 300}",
+    "parameters": [
+      {
+        "key": "retrieval_context_key",
+        "value": "{#context.attributes['api']}",
+        "encode": true
+      }
+    ]
+  }
+}
+```
+
+**Key configuration details:**
+- `promptExpression`: Extracts the content of the last message in the chat history
+- `cacheCondition`: Caches only successful responses (2xx status codes)
+- `parameters`: Uses the API ID as metadata for cache scoping, with encoding enabled for privacy
+
+### Custom cache condition
+
+This example demonstrates a stricter cache condition that stores only responses with a 200 status code.
+
+```json
+{
+  "name": "AI Semantic Caching",
+  "enabled": true,
+  "policy": "ai-semantic-caching",
+  "configuration": {
+    "modelName": "ai-model-text-embedding-resource",
+    "vectorStoreName": "vector-store-redis-resource",
+    "promptExpression": "{#request.content}",
+    "cacheCondition": "{#response.status == 200}",
+    "parameters": []
+  }
+}
+```
+
+**Key configuration details:**
+- `promptExpression`: Uses the entire request body for semantic comparison
+- `cacheCondition`: Caches only responses with exactly 200 status code
+- `parameters`: No metadata filtering applied
+
+### Multi-parameter metadata filtering
+
+This example shows how to scope the cache using multiple metadata parameters for fine-grained control.
+
+```json
+{
+  "name": "AI Semantic Caching",
+  "enabled": true,
+  "policy": "ai-semantic-caching",
+  "configuration": {
+    "modelName": "ai-model-text-embedding-resource",
+    "vectorStoreName": "vector-store-redis-resource",
+    "promptExpression": "{#request.content}",
+    "cacheCondition": "{#response.status >= 200 && #response.status < 300}",
+    "parameters": [
+      {
+        "key": "api_id",
+        "value": "{#context.attributes['api']}",
+        "encode": false
+      },
+      {
+        "key": "plan_id",
+        "value": "{#context.attributes['plan']}",
+        "encode": false
+      },
+      {
+        "key": "user_id",
+        "value": "{#context.attributes['user-id']}",
+        "encode": true
+      }
+    ]
+  }
+}
+```
+
+**Key configuration details:**
+- `parameters`: Combines API, plan, and user context for cache isolation
+- `encode`: Set to `true` for the user ID to hash sensitive information using MurmurHash3
