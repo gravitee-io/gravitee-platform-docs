@@ -1,72 +1,108 @@
----
-description: An overview about plans.
-metaLinks:
-  alternates:
-    - plans.md
----
+## Configure mTLS Plans and Subscriptions in APIM
 
-# Plans
+mTLS plans for native Kafka APIs work the same way as for HTTP/Message APIs. You can create an mTLS plan, publish it, and associate client certificates with subscriptions to authenticate Kafka clients.
 
-## Overview
+### Create an mTLS Plan
 
-A **plan** provides a service and access layer on top of your API that specifies access limits, subscription validation modes, and other configurations to tailor it to an application. To expose your Kafka API to internal or external consumers, it must have at least one plan. Gravitee offers the following types of plans for Kafka APIs:
-
-* **Keyless.** For more information about the keyless plan, see [keyless.md](../secure-and-expose-apis/plans/keyless.md "mention").
-* **API Key.** For more information about the API Key plan, see [api-key.md](../secure-and-expose-apis/plans/api-key.md "mention").
-* **OAuth2.** For more information about the OAuth2 plan, see [oauth2.md](../secure-and-expose-apis/plans/oauth2.md "mention").
-* **JWT.** For more information about the JWT plan, see [jwt.md](../secure-and-expose-apis/plans/jwt.md "mention").
-
-{% hint style="info" %}
-mTLS plans are not yet supported for Kafka APIs.
-{% endhint %}
-
-For Kafka APIs, these plans correspond directly to Kafka authentication methods:
-
-<table><thead><tr><th width="201">Plan</th><th>Corresponding Kafka Authentication</th></tr></thead><tbody><tr><td>Keyless (public)</td><td>PLAINTEXT</td></tr><tr><td>API Key</td><td>The API key is used as the password, and the md5 hash of the API key is used as the username, as part of the SASL/SSL with SASL PLAIN authentication method.</td></tr><tr><td>JWT</td><td>Equivalent to SASL/SSL with SASL OAUTHBEARER authentication, where the JWT is used as the OAuth token.</td></tr><tr><td>OAuth2</td><td>Equivalent to SASL/SSL with SASL OAUTHBEARER authentication.</td></tr></tbody></table>
-
-To authenticate users, each plan must include at least one security type. A security type is a policy that is integrated directly into a plan. Once a plan is created, the security type cannot be changed. Also, your Kafka APIs cannot have conflicting authentication. For example, If your Kafka API has the Keyless plan, you must have Keyless authentication. However, you can use policies to add additional security at the API or plan level.
+1. Navigate to your Kafka API in APIM Console.
+2. Select **Plans** from the API menu.
+3. Click **Add new plan**.
+4. Configure the plan:
+    - **Name**: Enter a descriptive name for the mTLS plan.
+    - **Security type**: Select **mTLS**.
+5. Configure additional plan settings as needed (rate limits, quotas, etc.).
+6. Click **Save**.
+7. Publish the plan by clicking **Publish** in the plan list.
 
 {% hint style="warning" %}
-You cannot have multiple published plans with conflicting authentication. For example, you cannot have a Keyless plan and a JWT plan for a Kafka API. However, you can have multiple plans with authentication for a Kafka API. For example, OAuth and JWT.
+Kafka APIs can't have Keyless, mTLS, and authentication plans (OAuth2, JWT, API Key) published simultaneously. You must choose one security approach per API.
 {% endhint %}
 
-## Plan stages
+### Create an Application with a Client Certificate
 
-A plan can exist in one of four stages:
+Before subscribing to an mTLS plan, you must create an application that contains the client certificate.
 
-* STAGING. This is the draft mode of a plan, where it can be configured but won’t be accessible to users.
-* PUBLISHED. API consumers can view a published plan on the Developer Portal. Once subscribed, they can use it to consume the API. A published plan can still be edited.
-* DEPRECATED. A deprecated plan won’t be available on the Developer Portal and API consumers won’t be able to subscribe to it. This cannot be undone. Existing subscriptions are not impacted, giving current API consumers time to migrate without breaking their application.
-* CLOSED. Once a plan is closed, all associated subscriptions are closed. API consumers subscribed to this plan won’t be able to use the API. This cannot be undone.
+1. Navigate to **Applications** in APIM Console.
+2. Click **Add application**.
+3. Enter the application details (name, description, etc.).
+4. Click **Create**.
+5. Open the application and navigate to **Subscriptions**.
+6. In the **Client Certificate** section, upload the PEM-formatted client certificate that the Kafka client will use.
+7. Click **Save**.
 
-Depending on the stage it's in, a plan can be edited, published, deprecated, or closed. See [this](create-and-configure-kafka-apis/configure-kafka-apis/consumers.md#plans) documentation for specific instructions.
+### Subscribe to the mTLS Plan
 
-### Edit a plan
+1. From the application, click **Subscribe to API**.
+2. Select your Kafka API.
+3. Select the mTLS plan you created.
+4. Click **Subscribe**.
+5. Wait for the subscription to be approved (if manual validation is required).
 
-To edit a plan, click on the pencil icon:
+Once the subscription is active, the Gateway will authenticate Kafka clients using the certificate associated with the subscription. Metrics and analytics will correctly attribute traffic to the subscription, application, and plan.
 
-<figure><img src="../.gitbook/assets/plan_edit (1).png" alt=""><figcaption><p>Edit a plan</p></figcaption></figure>
+### Runtime Behavior
 
-### Publish a plan
+When a Kafka client connects:
 
-To publish a plan, click on the icon of a cloud with an arrow:
+1. The client initiates a TLS connection and presents its client certificate.
+2. The Gateway validates the certificate against known subscription certificates.
+3. If the certificate matches a subscription, the connection is authorized.
+4. The Gateway populates the execution context with plan, application, and subscription information.
+5. Metrics reflect the resolved subscription instead of showing ANONYMOUS.
 
-<figure><img src="../.gitbook/assets/plan_publish (1).png" alt=""><figcaption><p>Publish a plan</p></figcaption></figure>
+## Configure mTLS Plans and Subscriptions in APIM
 
-Once a plan has been published, it must be redeployed.
+mTLS plans for native Kafka APIs work the same way as for HTTP/Message APIs. You can create an mTLS plan, publish it, and associate client certificates with subscriptions to authenticate Kafka clients.
 
-### Deprecate a plan
+### Create an mTLS Plan
 
-To deprecate a plan, click on the icon of a cloud with an 'x':
+1. Navigate to your Kafka API in APIM Console.
+2. Select **Plans** from the API menu.
+3. Click **Add new plan**.
+4. Configure the plan:
+    - **Name**: Enter a descriptive name for the mTLS plan.
+    - **Security type**: Select **mTLS**.
+5. Configure additional plan settings as needed (rate limits, quotas, etc.).
+6. Click **Save**.
+7. Publish the plan by clicking **Publish** in the plan list.
 
-<figure><img src="../.gitbook/assets/plan_deprecate (1).png" alt=""><figcaption><p>Deprecate a plan</p></figcaption></figure>
+{% hint style="warning" %}
+Kafka APIs can't have Keyless, mTLS, and authentication plans (OAuth2, JWT, API Key) published simultaneously. You must choose one security approach per API.
+{% endhint %}
 
-### Close a plan
+### Create an Application with a Client Certificate
 
-To close a plan, click on the 'x' icon:
+Before subscribing to an mTLS plan, you must create an application that contains the client certificate.
 
-<figure><img src="../.gitbook/assets/plan_close (1).png" alt=""><figcaption><p>Close a plan</p></figcaption></figure>
+1. Navigate to **Applications** in APIM Console.
+2. Click **Add application**.
+3. Enter the application details (name, description, etc.).
+4. Click **Create**.
+5. Open the application and navigate to **Subscriptions**.
+6. Click **Add certificate**.
+7. Upload the client certificate in PEM format.
+8. Click **Save**.
 
-## Plan selection rules
+The client certificate is used by APIM to identify the application during the Kafka connection.
 
-Unlike with HTTP APIs, there is only ever one set of policies per plan. Once the plan is defined, you can add one set of policies on that plan, but you can only remove it or edit it. The plan is selected based on the credential defined by the client in their connection properties.
+### Subscribe to the mTLS Plan
+
+1. From the application, click **Subscribe to API**.
+2. Select the Kafka API with the published mTLS plan.
+3. Select the mTLS plan from the available plans.
+4. Click **Subscribe**.
+5. Wait for the subscription to be approved (if manual validation is required).
+
+Once the subscription is active, the Gateway validates the client certificate against the subscription during connection. Metrics and analytics reflect the resolved subscription, application, and plan.
+
+### Runtime Behavior
+
+When a Kafka client connects:
+
+1. The client initiates a TLS connection and presents its client certificate.
+2. The Gateway validates the certificate against known subscription certificates.
+3. If the certificate matches a subscription, the connection is authorized.
+4. The Gateway populates the context with plan, application, and subscription information.
+5. Metrics and analytics capture the correct subscription dimensions.
+
+If the certificate doesn't match any subscription, the Gateway rejects the connection.
