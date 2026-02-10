@@ -121,13 +121,13 @@ The parsing rules for each plan type are detailed below:
 
 {% tabs %}
 {% tab title="JWT" %}
-* Retrieve JWT from the `Authorization` header or query parameters
+* Retrieve JWT from the `Authorization` header or query parameters (query parameter: `access_token`)
 * Ignore an empty `Authorization` header or any type other than Bearer
 * An empty Bearer token is considered invalid
 {% endtab %}
 
 {% tab title="OAuth2" %}
-* Retrieve OAuth2 from the `Authorization` header or query parameters
+* Retrieve OAuth2 from the `Authorization` header or query parameters (query parameter: `access_token`)
 * Ignore an empty `Authorization` header or any type other than Bearer
 * An empty Bearer token is considered invalid
 {% endtab %}
