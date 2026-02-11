@@ -4,13 +4,10 @@ metaLinks:
   alternates:
     - configure-the-kafka-client-and-gateway.md
 ---
-
 # Configure the Kafka Client & Gateway
-
 ## Overview
 
 Before you can use Gravitee to proxy in a Kafka cluster, you need to configure the Gravitee Kafka Gateway and a Kafka client.
-
 ## Configure the Kafka Gateway
 
 {% hint style="info" %}
@@ -161,7 +158,39 @@ To configure the APIM Console to use the Kafka domain and port values for your O
     This value is then displayed on the entrypoint page of your APIs.
 
     <figure><img src="../.gitbook/assets/00 kafka 1.png" alt=""><figcaption></figcaption></figure>
+## Configure Gateway for mTLS (gravitee.yml)
 
+The mTLS configuration is defined in the `kafka.ssl` section of `gravitee.yml`.
+
+```yaml
+kafka:
+  ssl:
+    # Gateway keystore
+    # Contains the Gateway private key and certificate
+    keystore:
+      type: jks                      # jks | pkcs12 | pem
+      path: /path/to/server.keystore.jks
+      password: gravitee
+
+    # Gateway truststore
+    # Contains the CAs that signed client certificates
+    truststore:
+      type: jks                      # jks | pkcs12 | pem
+      path: /path/to/server.truststore.jks
+      password: gravitee
+
+    # Client authentication mode
+    clientAuth: required             # required | request | none
+```
+
+### Important notes
+
+- `clientAuth: required` is mandatory to enforce mTLS.
+- The Gateway will reject any client connection without a valid certificate.
+- The Gateway keystore contains the Gateway private key and certificate.
+- The Gateway truststore contains the CAs that signed client certificates.
+
+After configuring mTLS settings, the next step is to set up your Kafka client.
 ## Configure the Kafka client
 
 To use the Kafka Gateway, you use a regular Kafka client. There are many implementations of the Kafka client, and you can use any client that supports the full Kafka protocol.
@@ -181,6 +210,94 @@ The client is now ready to use, but to produce and consume messages you must cre
 At this point, you can begin creating and deploying APIs to the Gravitee Kafka Gateway.
 {% endhint %}
 
+## Configure Kafka Client for mTLS
+
+mTLS (mutual TLS) for native Kafka APIs works the same way as for HTTP/Message APIs. Both the client and the Gateway must present valid certificates to establish a connection.
+
+### Prerequisites
+
+Before configuring mTLS:
+
+- The Kafka Gateway must be configured with a keystore, truststore, and `clientAuth` enabled (see [Gateway Configuration](configure-the-kafka-client-and-gateway.md#gateway-configuration-gravitee.yml)).
+- The Kafka client must have a keystore containing its private key and certificate.
+- The Kafka client must have a truststore containing the CA that signed the Gateway certificate.
+- An mTLS plan must be published on the Kafka API.
+- An application must be created with a client certificate.
+- A subscription must exist between the application and the mTLS plan.
+
+### Gateway Configuration (gravitee.yml)
+
+The mTLS configuration is defined in the `kafka.ssl` section of `gravitee.yml`:
+
+```yaml
+kafka:
+  ssl:
+    # Gateway keystore
+    # Contains the Gateway private key and certificate
+    keystore:
+      type: jks                      # jks | pkcs12 | pem
+      path: /path/to/server.keystore.jks
+      password: gravitee
+
+    # Gateway truststore
+    # Contains the CAs that signed client certificates
+    truststore:
+      type: jks                      # jks | pkcs12 | pem
+      path: /path/to/server.truststore.jks
+      password: gravitee
+
+    # Client authentication mode
+    clientAuth: required             # required | request | none
+```
+
+{% hint style="warning" %}
+`clientAuth: required` is mandatory to enforce mTLS. The Gateway will reject any client connection without a valid certificate.
+{% endhint %}
+
+### Kafka Client Configuration
+
+The Kafka client must be configured to use SSL with a client keystore:
+
+```properties
+security.protocol=SSL
+
+ssl.truststore.location=/path/to/client.truststore.jks
+ssl.truststore.password=gravitee
+ssl.truststore.type=JKS
+
+ssl.keystore.location=/path/to/client.keystore.jks
+ssl.keystore.password=gravitee
+ssl.keystore.type=JKS
+```
+
+### Plan Restrictions
+
+{% hint style="warning" %}
+Kafka APIs cannot have Keyless, mTLS, and authentication (OAuth2, JWT, API Key) plans published together.
+{% endhint %}
+
+Kafka APIs cannot expose simultaneously:
+
+- A Keyless plan
+- An mTLS plan
+- An authentication plan (OAuth2, JWT, API Key)
+
+### Subscription Flow
+
+The subscription flow for mTLS plans on Kafka APIs is the same as for HTTP mTLS plans:
+
+1. Create an application that contains a client certificate.
+2. Subscribe the application to the mTLS plan on the Kafka API.
+3. The client certificate is used by APIM to identify the application during the Kafka connection.
+
+### Runtime Flow
+
+When a client connects to the Kafka API:
+
+1. The client initiates a TLS connection with its client certificate.
+2. The Gateway validates the certificate against known subscription certificates.
+3. On match: the connection is authorized, and the context is populated with plan/app/subscription information.
+4. Metrics and analytics reflect the resolved subscription.
 ## Produce and consume messages
 
 You can use the Kafka Gateway and client to call your [Kafka API](create-and-configure-kafka-apis/create-kafka-apis.md) and, as a primary use case, produce or consume messages. You can also proxy requests to create and manage topics, update partitions, and manage consumer groups.
@@ -218,7 +335,6 @@ The following example provides a template for how to produce and consume message
     <div align="left"><figure><img src="../.gitbook/assets/00 kafka 2.png" alt="" width="563"><figcaption></figcaption></figure></div>
 6. In a terminal, change your working directory to the top-level folder of your Kafka download.
 7. Paste and execute the commands you copied to produce or consume messages.
-
 ## Appendix: Full Gateway Configuration
 
 Here is a reference for the full server configuration of the Kafka Gateway.

@@ -4,7 +4,6 @@ metaLinks:
   alternates:
     - ./
 ---
-
 # Kafka Gateway
 
 The Gravitee Kafka Gateway applies Gravitee's API management capabilities directly to native Kafka to address the security, cost, and scalability issues that exist in traditional Kafka deployments.
@@ -20,3 +19,23 @@ You can expose multiple Kafka topics within a single Kafka API, and expose multi
 To learn more about the Kafka Gateway, see the following articles:
 
 <table data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Configure the Kafka Client &#x26; gateway</td><td><a href="configure-the-kafka-client-and-gateway.md">configure-the-kafka-client-and-gateway.md</a></td></tr><tr><td>Create &#x26; Configure Kafka APIs</td><td><a href="create-and-configure-kafka-apis/">create-and-configure-kafka-apis</a></td></tr><tr><td>Plans</td><td><a href="plans.md">plans.md</a></td></tr><tr><td>Applications</td><td><a href="applications.md">applications.md</a></td></tr><tr><td>Subscriptions</td><td><a href="subscriptions.md">subscriptions.md</a></td></tr><tr><td>Other ways Gravitee supports Kafka</td><td><a href="other-ways-gravitee-supports-kafka.md">other-ways-gravitee-supports-kafka.md</a></td></tr></tbody></table>
+
+
+## Impacts and Benefits
+
+### Impacts
+
+Implementing mTLS for native Kafka APIs introduces the following operational changes:
+
+- **Stricter SSL configuration**: Both the Gateway and Kafka clients require additional SSL/mTLS configuration with keystores and truststores.
+- **Mandatory client certificate management**: Applications must provide and maintain valid client certificates for authentication.
+- **Limited plan combination options**: Kafka APIs can't simultaneously expose Keyless, mTLS, and authentication plans (OAuth2, JWT, API Key).
+
+### Benefits
+
+mTLS for native Kafka APIs provides:
+
+- **Strong authentication of Kafka clients**: The Gateway verifies client identities using certificates, eliminating anonymous connections.
+- **Improved security for Kafka traffic**: Mutual TLS authentication adds an additional security layer on top of standard TLS.
+- **Accurate metrics and analytics**: Subscription resolution enables proper attribution of metrics to applications, plans, and subscriptions instead of showing ANONYMOUS.
+- **Alignment with existing APIM mTLS mechanisms**: The implementation follows the same patterns as HTTP/Message APIs, ensuring consistency across API types.

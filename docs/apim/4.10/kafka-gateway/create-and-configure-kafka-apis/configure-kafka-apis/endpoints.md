@@ -1,15 +1,12 @@
 ---
 description: An overview about endpoints.
 ---
-
 # Endpoints
-
 ## Overview
 
 Endpoints define the protocol and configuration settings the Gateway API uses to fetch data from or post data to the backend API. Kafka APIs can have one endpoint group with a single endpoint. The **Endpoints** section lets you modify your Kafka endpoint group and Kafka endpoint.
 
 <figure><img src="../../../.gitbook/assets/sample-kafka-api-endpoint.png" alt=""><figcaption></figcaption></figure>
-
 ## Security protocols&#x20;
 
 Gravitee Kafka APIs support **PLAINTEXT**, **SASL\_PLAINTEXT**, **SASL\_SSL**, or **SSL** as the security protocol to connect to the Kafka cluster.
@@ -23,6 +20,30 @@ In addition to [Kafka's](https://kafka.apache.org/documentation/#security_overvi
 *   **DELEGATE\_TO\_BROKER**: Authentication is delegated to the Kafka broker.
 
     <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>When using <code>DELEGATE_TO_BROKER</code>, the supported mechanisms available to the client are <code>PLAIN</code> and <code>AWS_IAM_MSK</code>. The <code>AWS_MSK_IAM</code> mechanism requires you to host the Kafka Gateway on AWS. Otherwise, authentication fails.</p></div>
+
+
+## Technical Prerequisites
+
+For mTLS to work correctly, both the Kafka Gateway and Kafka clients must be configured with the required SSL files and settings.
+
+### Gateway Requirements
+
+The Kafka Gateway must be configured with:
+
+- **Keystore**: Contains the Gateway private key and certificate
+- **Truststore**: Contains the Certificate Authorities (CAs) that signed client certificates
+- **Client authentication**: Must be enabled
+
+### Client Requirements
+
+The Kafka client must be configured with:
+
+- **Keystore**: Contains the client private key and certificate
+- **Truststore**: Contains the CA that signed the Gateway certificate
+
+<!-- GAP: The source mentions "clientAuth enabled" for Gateway but does not specify the exact configuration parameter name or whether it's a boolean flag, enum value, or other type. The source also does not specify whether these files must be in specific formats (JKS, PKCS12, PEM) at the prerequisite stage, though later sections show format options. -->
+
+After configuring client requirements, you can customize the endpoint group settings.
 
 ## Edit the endpoint group
 
@@ -61,7 +82,6 @@ Gravitee assigns each Kafka API endpoint group the default name **Default Broker
   * **PEM with content:** Enter binary content as base64 and the truststore password.
   * **PEM with path:** Enter the truststore file path and password and the keystore type.
 * **SASL\_SSL:** Configure both SASL authentication and SSL encryption, choose a **SASL** mechanism from the options listed under **SASL\_PLAINTEXT**, and then configure **SSL** settings as described in the **SSL** section.
-
 ## Edit the endpoint
 
 Gravitee automatically assigns your Kafka API endpoint the name **Default Broker**.&#x20;
