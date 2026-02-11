@@ -130,6 +130,7 @@ The parsing rules for each plan type are detailed below:
 * Retrieve OAuth2 from the `Authorization` header or query parameters (query parameter: `access_token`)
 * Ignore an empty `Authorization` header or any type other than Bearer
 * An empty Bearer token is considered invalid
+* When multiple OAuth2 plans are configured, the Gateway calls the introspection endpoint on **all** configured OAuth2 resources before evaluating selection rules. For more information, see [OAuth2 plan introspection behavior.](https://documentation.gravitee.io/apim/secure-and-expose-apis/plans/oauth2#introspection-behaviour-with-multiple-oauth2-plans)
 {% endtab %}
 
 {% tab title="API Key" %}
