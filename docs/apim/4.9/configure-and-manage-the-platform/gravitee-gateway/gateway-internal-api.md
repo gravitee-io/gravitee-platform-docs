@@ -39,7 +39,7 @@ The above values are defined as follows:
 
 ## Endpoints
 
-<table data-full-width="true"><thead><tr><th width="201">Operation</th><th width="320.3333333333333">Description</th><th>Example</th></tr></thead><tbody><tr><td><pre data-overflow="wrap"><code>GET /_node
+<table data-full-width="true"><thead><tr><th width="182.8671875">Operation</th><th width="275.4309895833333">Description</th><th width="270.0807291666667">Example</th></tr></thead><tbody><tr><td><pre data-overflow="wrap"><code>GET /_node
 </code></pre></td><td>Gets generic node information.</td><td><pre data-overflow="wrap"><code>HTTP/1.1 200 OK
 Content-Type: application/json
 {
