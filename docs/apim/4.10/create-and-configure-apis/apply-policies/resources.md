@@ -19,16 +19,12 @@ To create a resource:
 2. Click **APIs** in the left sidebar.
 3. Select the API you want to add the resource to.
 4. Click **Configuration** in the inner left sidebar.
-5.  Click the **Resources** header.
-
-    <figure><img src="../../.gitbook/assets/A 1 config resources.png" alt=""><figcaption></figcaption></figure>
+5. Click the **Resources** header.
 6. Click **+ Add resource**.
-7.  Use the search field or scroll to select the resource you'd like to configure.
-
-    <figure><img src="../../.gitbook/assets/A 1 resources 2.png" alt=""><figcaption></figcaption></figure>
+7. Use the search field or scroll to select the resource you'd like to configure.
 8. Set the parameters in the resultant form. Configuration varies by resource type.
 
-## Resource types
+### Resource types
 
 APIM includes several default resources, each of which is described in more detail below.
 
@@ -54,12 +50,12 @@ The Cache resource maintains a cache linked to the API lifecycle, i.e., the cach
 ```
 {% endcode %}
 
-### Cache Redis
+#### Cache Redis
 
-The Cache Redis resource is the same as [Cache](resources.md#cache), but the current implementation is based on Redis. The Cache Redis resource can be configured standalone or as part of the Redis Sentinel monitoring solution. The majority of Cache Redis configuration options are common to both modes of operation, but several are exclusive to either standalone or Sentinel as indicated with a **bold asterisk (\*)**.
+The Cache Redis resource is the same as Cache, but the current implementation is based on Redis. The Cache Redis resource can be configured standalone or as part of the Redis Sentinel monitoring solution. The majority of Cache Redis configuration options are common to both modes of operation, but several are exclusive to either standalone or Sentinel as indicated with a **bold asterisk (\*)**.
 
 {% hint style="warning" %}
-The **Cache Redis** plugin is not included in the default APIM distribution, but you can [download](https://download.gravitee.io/#graviteeio-apim/plugins/resources/gravitee-resource-cache-redis/) and [deploy](../../plugins/deployment.md#deployment) it. For information on configuring cache in APIM, see [Configure cache](../../prepare-a-production-environment/cache.md). For information on configuring the rate limit repository plugin for Redis, see [Redis](../../prepare-a-production-environment/repositories/redis.md#redis).
+The **Cache Redis** plugin is not included in the default APIM distribution, but you can [download](https://download.gravitee.io/#graviteeio-apim/plugins/resources/gravitee-resource-cache-redis/) and deploy it. For information on configuring cache in APIM, see Configure cache. For information on configuring the rate limit repository plugin for Redis, see Redis.
 {% endhint %}
 
 <table><thead><tr><th width="167">Config param</th><th width="304">Description</th><th>Default</th><th>EL support</th><th>Secret support</th></tr></thead><tbody><tr><td>name</td><td>Name of the cache</td><td>my-redis-cache</td><td>Yes</td><td>No</td></tr><tr><td>releaseCache</td><td><p>Enabled: The resource will release the cache when the API is stopped</p><p>Disabled: The cache must be managed manually on the Redis server</p></td><td>false</td><td>No</td><td>No</td></tr><tr><td>maxTotal</td><td>Maximum number of connections supported by the pool</td><td>8</td><td>No</td><td>No</td></tr><tr><td>password</td><td>The password for the instance</td><td>-</td><td>Yes</td><td>yes</td></tr><tr><td>timeToLiveSeconds</td><td>Maximum number of seconds an element can exist in the cache, regardless of usage. When this threshold is reached, the element expires and will no longer be returned from the cache. The default value is 0, i.e., no timeToLive (TTL) eviction takes place (infinite lifetime).</td><td>0</td><td>No</td><td>No</td></tr><tr><td>Timeout</td><td>Specifies the connection timeout and the read/write timeout</td><td>2000</td><td>No</td><td>No</td></tr><tr><td>useSsl</td><td>Toggle to use SSL connections</td><td>true</td><td>No</td><td>No</td></tr><tr><td>Use standalone mode</td><td>Toggle to use standalone mode</td><td>true</td><td></td><td></td></tr><tr><td>Host</td><td>The host of the instance<br><strong>*Standalone config only</strong></td><td>localhost</td><td>Yes</td><td>No</td></tr><tr><td>Port</td><td>The port of the instance<br><strong>*Standalone config only</strong></td><td>6379</td><td>No</td><td>No</td></tr><tr><td>sentielMode</td><td>Sentinel provides high availability for Redis. In practical terms this means that using Sentinel you can create a Redis deployment that resists without human intervention certain kinds of failures.</td><td>false</td><td>No</td><td>No</td></tr><tr><td>Master</td><td>Sentinel master ID<br><strong>*Sentinel config only</strong></td><td>sentinel-master</td><td>No</td><td>No</td></tr><tr><td>Sentinel password</td><td>Sentinel password<br><strong>*Sentinel config only</strong></td><td>-</td><td>Yes</td><td>Yes</td></tr><tr><td>Sentinel nodes</td><td>Array of sentinel nodes<br><strong>*Sentinel config only</strong></td><td>-</td><td>No</td><td>No</td></tr></tbody></table>
@@ -126,7 +122,7 @@ The **Cache Redis** plugin is not included in the default APIM distribution, but
 ```
 {% endcode %}
 
-### OAuth2 Gravitee AM Authorization Server
+#### OAuth2 Gravitee AM Authorization Server
 
 The OAuth2 Gravitee AM Authorization Server resource introspects an access token generated by a Gravitee AM instance.
 
@@ -146,7 +142,7 @@ The OAuth2 Gravitee AM Authorization Server resource introspects an access token
 ```
 {% endcode %}
 
-### OAuth2 Generic Authorization Server
+#### OAuth2 Generic Authorization Server
 
 The OAuth2 Generic Authorization Server resource introspects an access token generated by a generic OAuth2 authorization server. This resource provides a configuration for how token introspection is applied to accommodate common authorization servers.
 
@@ -171,22 +167,22 @@ The OAuth2 Generic Authorization Server resource introspects an access token gen
 ```
 {% endcode %}
 
-### Confluent Schema Registry
+#### Confluent Schema Registry
 
 The Confluent Schema Registry resource fetches serialization/deserialization data from a Confluent schema registry.
 
 {% hint style="warning" %}
 **Enterprise only**
 
-As of Gravitee 4.0, the ability to use Confluent Schema Registry as a resource is an [Enterprise Edition](../../readme/enterprise-edition.md) capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:
+As of Gravitee 4.0, the ability to use Confluent Schema Registry as a resource is an Enterprise Edition capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:
 
-* [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
+* [Book a demo](https://www.gravitee.io/demo)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
 
 <table><thead><tr><th width="199">Config param</th><th width="316">Description</th><th>Default</th></tr></thead><tbody><tr><td>Resource name</td><td>Name of the resource</td><td>-</td></tr><tr><td>Registry URL</td><td>URL of the schema registry</td><td>-</td></tr><tr><td>Use proxy</td><td>Toggle to use proxy to fetch schema</td><td>false</td></tr><tr><td>Proxy type</td><td>The type of the proxy</td><td>HTTP CONNECT proxy</td></tr><tr><td>Use system proxy</td><td>Toggle to use proxy configured at system level</td><td>false</td></tr><tr><td>Proxy host</td><td>Proxy host to connect to</td><td>-</td></tr><tr><td>Proxy port</td><td>Proxy port to connect to</td><td>-</td></tr><tr><td>Proxy username</td><td>Optional proxy username</td><td>-</td></tr><tr><td>Proxy password</td><td>Optional proxy password</td><td>-</td></tr><tr><td>Authentication mode</td><td>The authentication mode used to connect to Schema Registry</td><td>Basic</td></tr><tr><td>Authentication username</td><td>Authentication username</td><td>-</td></tr><tr><td>Authentication password</td><td>Authentication password</td><td>-</td></tr><tr><td>Verify host</td><td>Toggle to enable host name verification</td><td>true</td></tr><tr><td>Trust all</td><td>Toggle to force the Gateway to trust any origin certificates. Use with caution over the Internet. The connection will be encrypted but this mode is vulnerable to 'man in the middle' attacks.</td><td>false</td></tr><tr><td>Trust store type</td><td>The type of the trust store</td><td>None</td></tr><tr><td>Key store type</td><td>The type of the key store</td><td>None</td></tr></tbody></table>
 
-### Keycloak Adapter
+#### Keycloak Adapter
 
 The Keycloak Adapter resource introspects an access token.
 
@@ -199,19 +195,19 @@ The Keycloak Adapter resource introspects an access token.
 | Verify host                   | Verify certificate on SSL connection to Keycloak host | false   |
 | Trust all                     | Trust all certificates, including self-signed         | true    |
 
-### Content Provider Inline Resource
+#### Content Provider Inline Resource
 
 The Content Provider Inline Resource is used to store an inline text and provide it to compatible policies.
 
 <table><thead><tr><th width="167">Config param</th><th width="304">Description</th><th>Default</th></tr></thead><tbody><tr><td>Resource name</td><td>The name of the resource</td><td>-</td></tr><tr><td>Content</td><td>The content to provide</td><td></td></tr><tr><td>Attributes</td><td>List of attributes as key value pairs</td><td></td></tr></tbody></table>
 
-### HTTP Authentication Provider
+#### HTTP Authentication Provider
 
 The HTTP Authentication Provider resource validates user credentials against an HTTP server.
 
 <table><thead><tr><th width="174">Config param</th><th width="227">Description</th><th>Default</th></tr></thead><tbody><tr><td>Resource name</td><td>The name of the resource</td><td>-</td></tr><tr><td>HTTP method</td><td>HTTP method to invoke the endpoint</td><td>POST</td></tr><tr><td>Use system proxy</td><td>Toggle to use the system proxy configured by your administrator</td><td>false</td></tr><tr><td>URL</td><td>Server URL</td><td>-</td></tr><tr><td>Request body</td><td>The body of the HTTP request. Supports the Gravitee Expression Language.</td><td>-</td></tr><tr><td>Authentication condition</td><td>The condition to be verified to validate that the authentication is successful. Supports the Gravitee Expression Language.</td><td>{#authResponse.status == 200}</td></tr></tbody></table>
 
-### Inline Authentication Provider
+#### Inline Authentication Provider
 
 The Inline Authentication Provider resource authenticates a user in memory.
 
@@ -222,13 +218,13 @@ The Inline Authentication Provider resource authenticates a user in memory.
 | clientId       | Yes      | The client identifier.                                                                      | string |         |
 | clientSecret   | Yes      | The client secret                                                                           | string |         |
 
-### LDAP Authentication Provider
+#### LDAP Authentication Provider
 
 The LDAP Authentication Provider resource authenticates a user in LDAP.
 
-#### Configuration
+**Configuration**
 
-The following table shows the available configurations for the LDAP Authentication provider, including if the resource supports Secrets. For more information about Secrets, see [broken-reference](../../../4.9/create-and-configure-apis/apply-policies/broken-reference/ "mention").
+The following table shows the available configurations for the LDAP Authentication provider, including if the resource supports Secrets. For more information about Secrets, see [API Secrets.](https://documentation.gravitee.io/apim/prepare-a-production-environment/sensitive-data-management/api-secrets)
 
 | Property              | Required | Description                                                                                                                                                    | Type             | Default                         | Supports EL | Supports Secrets |
 | --------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------------------------------- | ----------- | ---------------- |
@@ -246,3 +242,34 @@ The following table shows the available configurations for the LDAP Authenticati
 | responseTimeout       | No       | Duration of time in milliseconds to wait for responses                                                                                                         | positive integer | 5000                            | No          | No               |
 | minPoolSize           | No       | Minimum pool of connections to be initialized                                                                                                                  | positive integer | 5                               | No          | No               |
 | maxPoolSize           | No       | Maximum pool of connections can grow to                                                                                                                        | positive integer | 15                              | No          | No               |
+
+### AI resources
+
+The following resources support AI-powered policies and features in APIM. They provide model inference and vector storage capabilities used by policies such as AI Prompt Guardrails.
+
+#### AI Model Text Classification
+
+The AI Model Text Classification resource loads an AI-powered text classification model that evaluates text content against a set of classification labels. It is used by the AI Prompt Guard Rails policy to detect inappropriate or malicious content in user prompts, such as profanity, toxicity, harmful intent, and jailbreak prompt injections.
+
+The model runs locally on the Gateway using the ONNX Runtime. The first request to an API using this resource will take longer than usual as the model is loaded into memory at that time. Subsequent requests are processed faster.
+
+{% hint style="info" %}
+You may encounter an error when using this resource with Gravitee's default Docker image. This is because the default images are based on Alpine Linux, which does not support the ONNX Runtime. To resolve this issue, use the Gravitee Docker image based on Debian, available at `graviteeio/apim-gateway:<version>-debian`.
+{% endhint %}
+
+<table><thead><tr><th width="167">Config param</th><th width="384.3046875">Description</th><th>Default</th></tr></thead><tbody><tr><td>Model</td><td>The AI model to use for text classification. Supported models include <code>minuva/MiniLMv2-toxic-jigsaw-onnx</code>, <code>gravitee-io/Llama-Prompt-Guard-2-22M-onnx</code>, and <code>gravitee-io/Llama-Prompt-Guard-2-86M-onnx</code>. For a full list of supported models and their labels, see the <a href="https://github.com/gravitee-io/gravitee-resource-ai-model-text-classification">plugin repository</a>.</td><td>-</td></tr></tbody></table>
+
+{% code title="Example" %}
+```json
+{
+    "name": "ai-model-text-classification-resource",
+    "type": "ai-model-text-classification",
+    "enabled": true,
+    "configuration": {
+        "model": {
+            "type": "MINILMV2_TOXIC_JIGSAW_MODEL"
+        }
+    }
+}
+```
+{% endcode %}
