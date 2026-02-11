@@ -201,8 +201,6 @@ To prepare your Gravitee `values.yaml` file for Helm, complete the following ste
     ratelimit:
         type: redis
     ```
-
-    \{% endcode %\}
 2. Make the following modifications to your `values.yaml` file:
    * Replace `<cloud_token>` with your Cloud Token.
    * Replace `<license_key>` with your License Key.
