@@ -193,9 +193,9 @@ Multiple OAuth2 plans can lead to the selection of the wrong plan.
 {% tab title="Reactive engine improvements" %}
 When using the reactive execution engine, the OAuth2 plan is _not_ selected if the incoming request does not match a subscription.
 
-During OAuth2 plan selection, a token introspection is completed to retrieve the `client_id`, which allows searching for a subscription.
+During OAuth2 plan selection, a token introspection is completed to retrieve the `client_id`, which allows searching for a subscription. When multiple OAuth2 plans are configured, the Gateway calls the introspection endpoint on **all** configured OAuth2 resources before evaluating selection rules. Selection rules can reference introspection response data (for example, `client_id`, `scope`, or `username` from `oauth.payload`), so introspection runs first to populate that data.
 
-If there are performance concerns, a cache system is available to avoid completing the same token introspection multiple times. Where possible, it is recommended to use selection rules if there are multiple OAuth2 plans to avoid any unnecessary token introspection.
+If there are performance concerns, a cache system is available to avoid completing the same token introspection multiple times. Recommended: Use selection rules if there are multiple OAuth2 plans to reduce unnecessary processing after introspection. For more details, see [OAuth2 plan introspection behavior.](https://documentation.gravitee.io/apim/secure-and-expose-apis/plans/oauth2#introspection-behaviour-with-multiple-oauth2-plans)
 {% endtab %}
 {% endtabs %}
 

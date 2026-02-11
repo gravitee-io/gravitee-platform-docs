@@ -44,3 +44,17 @@ Once OAuth2 configuration is complete and the plan is created and published, you
 During the OAuth2 plan selection, a token introspection is completed to retrieve the `client_id` which allows searching for a subscription. Any applications wanting to subscribe to an OAuth2 plan must have an existing client with a valid `client_id` registered in the OAuth 2.0 authorization server. The `client_id` will be used to establish a connection between the OAuth 2.0 client and the APIM consumer application.
 
 To mitigate performance concerns, a cache system is available to avoid completing the same token introspection multiple times. If there are multiple OAuth2 plans, it is recommended to use selection rules to avoid any unnecessary token introspection.
+
+## Introspection behaviour with multiple OAuth2 plans
+
+When an API has multiple OAuth2 plans, each backed by a different OAuth2 resource (authorization server), the Gateway processes requests as follows:
+
+1. The Gateway receives a request with a Bearer token.
+2. The Gateway calls the introspection endpoint on **every** configured OAuth2 resource, regardless of selection rules.
+3. After all introspection responses are received, the Gateway evaluates selection rules (which can reference `#context.attributes['oauth.payload']` data populated by introspection).
+4. The matching plan is selected based on the selection rule evaluation.
+
+{% hint style="warning" %}
+Selection rules do not prevent introspection calls to non-matching authorization servers. This is by design: selection rules can reference introspection response data (`client_id`, `scope`, `username`, and other fields from `oauth.payload`), so introspection runs first to populate that data.
+{% endhint %}
+
