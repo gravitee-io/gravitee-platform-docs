@@ -10,6 +10,18 @@ This section contains an overview of the new features in Gravitee Cloud's releas
 
 <details>
 
+<summary>11th February </summary>
+
+**Deploy a SaaS Gateway in Amazon Web Services (AWS) ap-southeast-2**
+
+You can now deploy a SaaS Gateway in Amazon Web Services (AWS) in APAC, `ap-southeast-2`.&#x20;
+
+For more information about Gateway providers and the available regions for each provider, see [geography-and-provider-support.md](geography-and-provider-support.md "mention").
+
+</details>
+
+<details>
+
 <summary>5th February </summary>
 
 **GCP Private Network**
