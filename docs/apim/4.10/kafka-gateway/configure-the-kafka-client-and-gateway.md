@@ -1,16 +1,87 @@
----
+The mTLS configuration is defined in the `kafka.ssl` section of `gravitee.yml`.
+
+
+The keystore contains the Gateway's private key and certificate. Configure it as follows:
+
+```yaml
+kafka:
+  ssl:
+    keystore:
+      type: jks                      # jks | pkcs12 | pem
+      path: /path/to/server.keystore.jks
+      password: gravitee
+```
+
+**Supported keystore types:**
+- `jks` — Java KeyStore
+- `pkcs12` — PKCS#12 format
+- `pem` — PEM-encoded certificate and key
+
+
+The truststore contains the certificate authorities (CAs) that signed client certificates. Configure it as follows:
+
+```yaml
+kafka:
+  ssl:
+    truststore:
+      type: jks                      # jks | pkcs12 | pem
+      path: /path/to/server.truststore.jks
+      password: gravitee
+```
+
+**Supported truststore types:**
+- `jks` — Java KeyStore
+- `pkcs12` — PKCS#12 format
+- `pem` — PEM-encoded CA certificates
+
+
+The `clientAuth` setting controls whether the Gateway requires client certificates. Set it to `required` to enforce mTLS:
+
+```yaml
+kafka:
+  ssl:
+    clientAuth: required             # required | request | none
+```
+
+**Client authentication modes:**
+- `required` — Gateway rejects any client connection without a valid certificate
+- `request` — Gateway requests a client certificate but does not require it
+- `none` — Gateway does not request or require a client certificate
+
+{% hint style="warning" %}
+To enforce mTLS, you must set `clientAuth: required`. The Gateway will reject any client connection without a valid certificate when this mode is enabled.
+{% endhint %}
+
+
+```yaml
+kafka:
+  ssl:
+    # Gateway keystore
+    # Contains the Gateway private key and certificate
+    keystore:
+      type: jks                      # jks | pkcs12 | pem
+      path: /path/to/server.keystore.jks
+      password: gravitee
+
+    # Gateway truststore
+    # Contains the CAs that signed client certificates
+    truststore:
+      type: jks                      # jks | pkcs12 | pem
+      path: /path/to/server.truststore.jks
+      password: gravitee
+
+    # Client authentication mode
+    clientAuth: required             # required | request | none
+```
 description: An overview about configure the kafka client & gateway.
 metaLinks:
   alternates:
     - configure-the-kafka-client-and-gateway.md
 ---
-
 # Configure the Kafka Client & Gateway
-
 ## Overview
 
 Before you can use Gravitee to proxy in a Kafka cluster, you need to configure the Gravitee Kafka Gateway and a Kafka client.
-
 ## Configure the Kafka Gateway
 
 {% hint style="info" %}
@@ -161,7 +232,6 @@ To configure the APIM Console to use the Kafka domain and port values for your O
     This value is then displayed on the entrypoint page of your APIs.
 
     <figure><img src="../.gitbook/assets/00 kafka 1.png" alt=""><figcaption></figcaption></figure>
-
 ## Configure the Kafka client
 
 To use the Kafka Gateway, you use a regular Kafka client. There are many implementations of the Kafka client, and you can use any client that supports the full Kafka protocol.
@@ -180,7 +250,6 @@ The client is now ready to use, but to produce and consume messages you must cre
 {% hint style="info" %}
 At this point, you can begin creating and deploying APIs to the Gravitee Kafka Gateway.
 {% endhint %}
-
 ## Produce and consume messages
 
 You can use the Kafka Gateway and client to call your [Kafka API](create-and-configure-kafka-apis/create-kafka-apis.md) and, as a primary use case, produce or consume messages. You can also proxy requests to create and manage topics, update partitions, and manage consumer groups.
@@ -218,7 +287,6 @@ The following example provides a template for how to produce and consume message
     <div align="left"><figure><img src="../.gitbook/assets/00 kafka 2.png" alt="" width="563"><figcaption></figcaption></figure></div>
 6. In a terminal, change your working directory to the top-level folder of your Kafka download.
 7. Paste and execute the commands you copied to produce or consume messages.
-
 ## Appendix: Full Gateway Configuration
 
 Here is a reference for the full server configuration of the Kafka Gateway.
