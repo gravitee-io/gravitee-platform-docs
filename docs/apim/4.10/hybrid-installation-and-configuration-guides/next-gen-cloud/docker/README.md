@@ -10,4 +10,4 @@ metaLinks:
 ## Deployment Methods
 
 * [docker-compose.md](docker-compose.md "mention")
-* [docker-cli.md](../../../self-hosted-installation-guides/docker/docker-cli.md "mention")
+* [Docker CLI](https://documentation.gravitee.io/apim/hybrid-installation-and-configuration-guides/next-gen-cloud/docker/docker-cli)
