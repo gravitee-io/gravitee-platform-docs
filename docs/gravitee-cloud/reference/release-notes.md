@@ -28,6 +28,8 @@ For more information about Gateway providers and the available regions for each 
 
 You can now create a private network for SaaS Gateways deployed in the Google Cloud Platform (GCP). This service lets you connect to upstream services without exposing traffic to the public internet.
 
+For more information about Gateway providers and the available regions for each provider, see [geography-and-provider-support.md](geography-and-provider-support.md "mention").
+
 </details>
 
 ## December 2025
