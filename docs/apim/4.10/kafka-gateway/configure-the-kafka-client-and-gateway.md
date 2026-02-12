@@ -1,16 +1,56 @@
----
+To enable mutual TLS (mTLS) authentication on the Gravitee Kafka Gateway, configure the `kafka.ssl` section in `gravitee.yml`. This configuration allows the Gateway to verify Kafka client identities using certificates.
+
+
+The following parameters must be defined in the `kafka.ssl` section:
+
+```yaml
+kafka:
+  ssl:
+    # Gateway keystore
+    # Contains the Gateway private key and certificate
+    keystore:
+      type: jks                      # jks | pkcs12 | pem
+      path: /path/to/server.keystore.jks
+      password: gravitee
+
+    # Gateway truststore
+    # Contains the CAs that signed client certificates
+    truststore:
+      type: jks                      # jks | pkcs12 | pem
+      path: /path/to/server.truststore.jks
+      password: gravitee
+
+    # Client authentication mode
+    clientAuth: required             # required | request | none
+```
+
+**Keystore configuration**
+
+- `type`: Format of the keystore file. Supported types: `jks`, `pkcs12`, `pem`.
+- `path`: Absolute path to the keystore file containing the Gateway's private key and certificate.
+- `password`: Password used to access the keystore.
+
+**Truststore configuration**
+
+- `type`: Format of the truststore file. Supported types: `jks`, `pkcs12`, `pem`.
+- `path`: Absolute path to the truststore file containing the certificate authorities (CAs) that signed client certificates.
+- `password`: Password used to access the truststore.
+
+**Client authentication mode**
+
+- `clientAuth`: Controls whether the Gateway requires client certificates. Must be set to `required` to enforce mTLS.
+
+
+To enforce mTLS, set `clientAuth` to `required`. When `clientAuth` is set to `required`, the Gateway rejects any client connection that doesn't present a valid certificate signed by a CA in the truststore.
 description: An overview about configure the kafka client & gateway.
 metaLinks:
   alternates:
     - configure-the-kafka-client-and-gateway.md
 ---
-
 # Configure the Kafka Client & Gateway
-
 ## Overview
 
 Before you can use Gravitee to proxy in a Kafka cluster, you need to configure the Gravitee Kafka Gateway and a Kafka client.
-
 ## Configure the Kafka Gateway
 
 {% hint style="info" %}
@@ -161,7 +201,6 @@ To configure the APIM Console to use the Kafka domain and port values for your O
     This value is then displayed on the entrypoint page of your APIs.
 
     <figure><img src="../.gitbook/assets/00 kafka 1.png" alt=""><figcaption></figcaption></figure>
-
 ## Configure the Kafka client
 
 To use the Kafka Gateway, you use a regular Kafka client. There are many implementations of the Kafka client, and you can use any client that supports the full Kafka protocol.
@@ -180,7 +219,6 @@ The client is now ready to use, but to produce and consume messages you must cre
 {% hint style="info" %}
 At this point, you can begin creating and deploying APIs to the Gravitee Kafka Gateway.
 {% endhint %}
-
 ## Produce and consume messages
 
 You can use the Kafka Gateway and client to call your [Kafka API](create-and-configure-kafka-apis/create-kafka-apis.md) and, as a primary use case, produce or consume messages. You can also proxy requests to create and manage topics, update partitions, and manage consumer groups.
@@ -218,7 +256,6 @@ The following example provides a template for how to produce and consume message
     <div align="left"><figure><img src="../.gitbook/assets/00 kafka 2.png" alt="" width="563"><figcaption></figcaption></figure></div>
 6. In a terminal, change your working directory to the top-level folder of your Kafka download.
 7. Paste and execute the commands you copied to produce or consume messages.
-
 ## Appendix: Full Gateway Configuration
 
 Here is a reference for the full server configuration of the Kafka Gateway.
