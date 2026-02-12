@@ -41,7 +41,26 @@ services:
   # Endpoint healthcheck service.
   healthcheck:
     threads: 3 # Threads core size used to check endpoint availability
+    jitterInMs: 900 # Random offset (0-5000 ms) applied per API to prevent health checks from firing simultaneously
 ```
+
+### Health-check jitter
+
+When many APIs have health checks enabled, all checks can fire at the same cron boundary. This thundering herd of simultaneous outbound requests can temporarily increase API response times.
+
+The `jitterInMs` property adds a deterministic, per-API scheduling offset to spread health check executions over time. Each API and endpoint combination receives a fixed offset within the `[0, jitterInMs]` window, so checks no longer cluster on the same instant.
+
+| Property                          | Description                                                                                                  | Default | Required |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------ | ------- | -------- |
+| `services.healthcheck.jitterInMs` | Maximum random scheduling offset in milliseconds applied per API health check. Set to `0` to disable jitter. | `900`   | No       |
+
+The accepted range is `0` to `5000`. If a value outside this range is configured, the gateway logs a warning and falls back to the default of `900`.
+
+This setting applies to both v2 and v4 proxy API health checks.
+
+{% hint style="info" %}
+For Helm-based deployments, configure this value with `gateway.services.healthcheck.jitterInMs` in your `values.yaml`.
+{% endhint %}
 
 You can configure APIM API to start only the Management or Portal API. You can also change the API endpoints from their default values of `/management` and `/portal`.
 
