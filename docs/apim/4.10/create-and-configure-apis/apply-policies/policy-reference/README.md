@@ -13,6 +13,7 @@ The following policies can be applied to Gravitee APIs.
 Policies marked with an asterisk require an Enterprise Edition license.
 {% endhint %}
 
+* [AI - MCP ACL](ai-mcp-acl.md)\*
 * [AI - Prompt Guard Rails](ai-prompt-guard-rails.md)\*
 * [AI - Prompt Token Tracking](ai-prompt-token-tracking.md)\*
 * [AI - Token Rate Limit](ai-token-rate-limit.md)
