@@ -57,9 +57,9 @@ To add a Quota policy to each plan of this API:
 2. Select the API to which you are applying policies
 3.  Select **Policies** from the inner left nav
 
-    **Flows vs. policies** Flows are a collection of policies. Flows can be specified for each individual plan, e.g., API Key (SILVER), API Key (GOLD), and API Key (PLATINUM). Alternatively, a common flow can be applied to all plans within the specific AP&#x49;_._
+    **Flows vs. policies** Flows are a collection of policies. Flows can be specified for each individual plan, e.g., API Key (SILVER), API Key (GOLD), and API Key (PLATINUM). Alternatively, a common flow can be applied to all plans within the specific AP&#x49;_._<br>
 
-<figure><img src="../../.gitbook/assets/image (25) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (194).png" alt=""><figcaption></figcaption></figure>
 
 ### Step 2: Add a Quota policy for each user group <a href="#step-2-add-a-quota-policy-for-each-user-group" id="step-2-add-a-quota-policy-for-each-user-group"></a>
 
@@ -81,22 +81,19 @@ Add differentiated Quota policies to each plan per the instructions below.
 
 <figure><img src="../../.gitbook/assets/image (29) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
-6. Toggle **Add response headers** ON and click **Save**.
+6.  Toggle **Add response headers** ON and click **Save**.<br>
 
-<figure><img src="../../.gitbook/assets/image (30) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (195).png" alt=""><figcaption></figcaption></figure>
+7.  Enter values for **Max requests (static)**_,_ **Time duration**, and **Time unit**, e.g., 100 requests per 1 month<br>
 
-7. Enter values for **Max requests (static)**_,_ **Time duration**, and **Time unit**, e.g., 100 requests per 1 month
-
-<figure><img src="../../.gitbook/assets/image (31) (1).png" alt=""><figcaption></figcaption></figure>
-
+    <figure><img src="../../.gitbook/assets/image (196).png" alt=""><figcaption></figcaption></figure>
 8. Click **Add policy**
-9. On the **Policies** page, click **Save**
+9.  On the **Policies** page, click **Save**<br>
 
-<figure><img src="../../.gitbook/assets/image (32) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (197).png" alt=""><figcaption></figcaption></figure>
+10. Click **Deploy API** to redeploy the API and have the changes take effect<br>
 
-10. Click **Deploy API** to redeploy the API and have the changes take effect
-
-<figure><img src="../../.gitbook/assets/image (33) (2) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (198).png" alt=""><figcaption></figcaption></figure>
 
 #### **Gold Tier plan**
 
@@ -113,43 +110,38 @@ Congratulations! You have successfully added differentiated Quota policies to ea
 To ensure all API consumers, regardless of their plan, do not overwhelm the API, let's add a rate limiting policy to all user groups via **Common flows**.
 
 1. Select the **+** icon next to **Common flows**
-2. Modify the flow name, operator, path, methods, and conditions as desired (leaving name and path blank will apply default values)
+2.  Modify the flow name, operator, path, methods, and conditions as desired (leaving name and path blank will apply default values)<br>
 
-<figure><img src="../../.gitbook/assets/image (34) (2) (1).png" alt=""><figcaption></figcaption></figure>
-
+    <figure><img src="../../.gitbook/assets/image (199).png" alt=""><figcaption></figcaption></figure>
 3. Click **Create**
-4. Select the **+** icon within the request phase section. This lets us use the Rate Limit policy to limit the number of requests any API consumer can make to the API within a short period of time.
+4.  Select the **+** icon within the request phase section. This lets us use the Rate Limit policy to limit the number of requests any API consumer can make to the API within a short period of time.<br>
 
-<figure><img src="../../.gitbook/assets/image (35) (2) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (200).png" alt=""><figcaption></figcaption></figure>
+5.  Use the search bar or scroll to navigate to the **Rate Limit** policy, then click **Select**<br>
 
-5. Use the search bar or scroll to navigate to the **Rate Limit** policy, then click **Select**
-
-<figure><img src="../../.gitbook/assets/image (36) (2) (1).png" alt=""><figcaption></figcaption></figure>
-
+    <figure><img src="../../.gitbook/assets/image (201).png" alt=""><figcaption></figcaption></figure>
 6.  Enter values for **Max requests (static)**_,_ **Time duration**, and **Time unit**, e.g., 5 requests per 1 second
 
-    The Rate Limit time period is shorter than the Quota time period.
+    The Rate Limit time period is shorter than the Quota time period.<br>
 
-<figure><img src="../../.gitbook/assets/image (37) (2) (1).png" alt=""><figcaption></figcaption></figure>
-
+    <figure><img src="../../.gitbook/assets/image (202).png" alt=""><figcaption></figcaption></figure>
 7. Click **Add policy**
 8. On the **Policies** page, click **Save**
 
 <figure><img src="../../.gitbook/assets/image (38) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
-9. Click **Deploy API** to redeploy the API and have the changes take effect
+9.  Click **Deploy API** to redeploy the API and have the changes take effect<br>
 
-<figure><img src="../../.gitbook/assets/image (33) (2) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (203).png" alt=""><figcaption></figcaption></figure>
 
 ### **Step 4: Add Spike Arrest policy via Common flows** <a href="#step-4-add-spike-arrest-policy-via-common-flows" id="step-4-add-spike-arrest-policy-via-common-flows"></a>
 
 Now, let's mitigate traffic spikes and maintain quality of service for all consumers by adding a Spike Arrest policy to **Common flows**.
 
 1. Select the **+** icon next to **Common flows**
-2. Modify the flow name, operator, path, methods, and conditions as desired (leaving name and path blank will apply default values)
+2.  Modify the flow name, operator, path, methods, and conditions as desired (leaving name and path blank will apply default values)<br>
 
-<figure><img src="../../.gitbook/assets/image (34) (2) (1).png" alt=""><figcaption></figcaption></figure>
-
+    <figure><img src="../../.gitbook/assets/image (204).png" alt=""><figcaption></figcaption></figure>
 3. Click **Create**
 4. Select the **+** icon within the request phase section to use the Spike Arrest policy to limit sudden spikes in traffic. Configured as a **Common flow**, the Spike Arrest policy applies to all API consumers.
 
@@ -182,10 +174,9 @@ Rate limiting policies can also be added during the API creation process. Let's 
 <figure><img src="../../.gitbook/assets/image (45) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 3. Click **API Key**
-4. Enter a plan **Name**, **Description** (optional), and modify **Subscriptions** and **Access-Control** (optional)
+4.  Enter a plan **Name**, **Description** (optional), and modify **Subscriptions** and **Access-Control** (optional)<br>
 
-<figure><img src="../../.gitbook/assets/image (147) (1).png" alt=""><figcaption></figcaption></figure>
-
+    <figure><img src="../../.gitbook/assets/image (208).png" alt=""><figcaption></figcaption></figure>
 5. Click **Next**, then optionally propagate the API Key to upstream API or add a selectional rule
 
 <figure><img src="../../.gitbook/assets/image (47) (2) (1).png" alt=""><figcaption></figcaption></figure>
