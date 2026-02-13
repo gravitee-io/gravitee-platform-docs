@@ -9,9 +9,9 @@ Gravitee provides various options to perform this task, but this guide focuses o
 The high-level steps are:
 
 1. [Create your API](aggregating-multiple-responses.md#create-your-api)
-2. [Test #1](aggregating-multiple-responses.md#test-1): Verify that you receive a response from the API
+2. [Test #1](aggregating-multiple-responses.md#test-1) :Verify that you receive a response from the API
 3. [Add the HTTP Callout and Assign Content policies](aggregating-multiple-responses.md#add-the-http-callout-and-assign-content-policies)
-4. [Test #2](aggregating-multiple-responses.md#test-2): Verify that you receive an aggregated response formed from multiple backend responses
+4. [Test #2](aggregating-multiple-responses.md#test-2) :Verify that you receive an aggregated response formed from multiple backend responses
 
 ## Prerequisites&#x20;
 
