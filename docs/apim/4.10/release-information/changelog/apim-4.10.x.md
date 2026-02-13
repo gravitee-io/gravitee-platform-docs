@@ -1,5 +1,51 @@
 # APIM 4.10.x
  
+## Gravitee API Management 4.10.5 - February 13, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* \[Protocol Mediation] subscription is not available in EL during PUBLISH and SUBSCRIBE phase [#11101](https://github.com/gravitee-io/issues/issues/11101)
+* Error 503 and Thread Blocked from weighted_round_robin  [#11132](https://github.com/gravitee-io/issues/issues/11132)
+* Debug Mode does not work with OAuth Plan on v4 APIs [#11142](https://github.com/gravitee-io/issues/issues/11142)
+* Gateway - Secrets with long content  [#11144](https://github.com/gravitee-io/issues/issues/11144)
+* LLM Proxy API with Gemini: function_response.response must be a JSON object but non-object values are sent as-is [#11147](https://github.com/gravitee-io/issues/issues/11147)
+* LLM Proxy seems to add a fixed 30 seconds to the response time [#11160](https://github.com/gravitee-io/issues/issues/11160)
+
+**Management API**
+
+* Multiple PRIMARY_OWNERs after "Transfer Ownership" [#11045](https://github.com/gravitee-io/issues/issues/11045)
+* Http Client Common Configuration Regression [#11159](https://github.com/gravitee-io/issues/issues/11159)
+
+**Console**
+
+* Missing license banner incorrectly show with a license containing only "agent-mesh" pack [#11127](https://github.com/gravitee-io/issues/issues/11127)
+* Permission Denied on IPV4_ONLY=true [#11130](https://github.com/gravitee-io/issues/issues/11130)
+
+**Portal**
+
+* Portal-Next: Portal Navigation Items returning 401 for anon user [#11139](https://github.com/gravitee-io/issues/issues/11139)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Gateway**
+
+* Request response times spike when health checks are performed [#11141](https://github.com/gravitee-io/issues/issues/11141)
+
+**Other**
+
+* \[gravitee-policy-callout-http] Allow to evaluate variables as Object [#11137](https://github.com/gravitee-io/issues/issues/11137)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.10.4 - February 4, 2026
 <details>
 
