@@ -78,7 +78,7 @@ WARNING: Removing a plan is irreversible
 
 1.  Navigate to the **PUBLISHED** tab of the screen.
 
-    <figure><img src="../../.gitbook/assets/image (14) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (14) (1) (1).png" alt=""><figcaption></figcaption></figure>
 2.  For your **Default Keyless (UNSECURED)** plan, click **Close the plan** button.
 
     <figure><img src="../../.gitbook/assets/3627B0A7-AF24-4E4B-A22B-5AFEB7FB29A5.jpeg" alt=""><figcaption></figcaption></figure>

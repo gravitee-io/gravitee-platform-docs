@@ -21,19 +21,19 @@ For self-hosted installations and hybrid deployments of Gravitee, you can set th
     <figure><img src="../../.gitbook/assets/image (45).png" alt=""><figcaption></figcaption></figure>
 2.  In the **Portal** section of the **Settings** menu, click **Settings**.
 
-    <figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
 3.  Navigate to the **New Developer Portal** section, and then turn on the **Enable the New Developer Portal** toggle.
 
     <figure><img src="../../.gitbook/assets/image (57).png" alt=""><figcaption></figcaption></figure>
 4.  In the **You have unsaved changes** pop-up window, click **Save**.
 
-    <figure><img src="../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (11) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Verification
 
 *   Click the **Open Website** button. The New Developer Portal opens in a new tab.
 
-    <figure><img src="../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (12) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Set the New Developer Portal as default
 
@@ -122,7 +122,7 @@ Here is an example of the environmental variables set in a `docker-compose-apim.
 
 *   In the APIM Console, click **Developer Portal**. The New Developer Portal opens in a new tab.
 
-    <figure><img src="../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (13) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Next Steps
 
