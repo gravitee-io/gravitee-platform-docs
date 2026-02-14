@@ -216,6 +216,20 @@ Gravitee offers multiple methods to export analytics using [reporters](../analyz
 
 <details>
 
+<summary>AI Semantic Caching for LLM APIs</summary>
+
+When using the [AI Semantic Caching policy](../create-and-configure-apis/apply-policies/policy-reference/ai-semantic-caching-policy.md) with LLM Proxy APIs, caching behavior differs from traditional HTTP caching. AI Semantic Caching uses similarity-based matching of request content (via vector embeddings) rather than exact-match key lookups. This approach enables intelligent cache hits for semantically similar prompts, reducing latency and backend load for LLM APIs. However, it requires additional resources:
+
+* **Vector Store**: A configured vector store resource (e.g., Redis) to store and retrieve embeddings
+* **Embedding Model**: An AI text embedding model resource to generate vector representations
+* **Memory**: Additional memory allocation for vector operations and similarity calculations
+
+Consider these factors when sizing Gateways that handle LLM traffic with semantic caching enabled.
+
+</details>
+
+<details>
+
 <summary>Rate limit and quota</summary>
 
 Rate limit, quota, and spike arrest are patterns that are commonly applied to control API consumption. By default, Gravitee applies rate limiting in strict mode, where defined quotas are strictly respected across all load-balanced Gateways. For high throughput, we recommend using Redis, but keep in mind that some amount of CPU is required to call Redis for each API request where rate limiting is enabled.

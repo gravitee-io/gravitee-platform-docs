@@ -15,6 +15,12 @@ The Data Cache policy allows you to get, set, and expire arbitrary key-value pai
 * Maintain state in the gateway to track the number of tokens passed to an upstream LLM proxied by the API.
 * Restrict the number of ongoing connections to an endpoint in order to protect a legacy backend from overload.
 
+## Used By
+
+The Data Cache policy is used by the following policies and resources:
+
+* **AI Semantic Caching Policy**: Stores and retrieves cached responses with vector embeddings and metadata filters using a vector store resource.
+
 ## Basic Usage
 
 * First, you create a [cache resource](https://github.com/gravitee-io/gravitee-platform-docs/blob/6f69d3d43334c5f35db35e34f1d23832790b9725/docs/apim/4.6/policies/resources.md) for the policy to use.

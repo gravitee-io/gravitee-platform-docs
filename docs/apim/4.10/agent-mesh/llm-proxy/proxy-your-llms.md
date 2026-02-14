@@ -85,3 +85,9 @@ The response lists all of the models that you can call with that API:
 
 * [add-the-token-rate-limit-policy-to-your-llm-proxy.md](add-the-token-rate-limit-policy-to-your-llm-proxy.md "mention")
 * [add-the-guard-rails-policy-to-your-llm-proxy.md](add-the-guard-rails-policy-to-your-llm-proxy.md "mention")
+
+{% hint style="info" %}
+**Optional: Enable AI Semantic Caching for cost optimization**
+
+Consider adding the AI Semantic Caching policy to reduce LLM costs by caching semantically similar requests. This can significantly decrease the number of calls to your LLM provider. For configuration details, see [ai-semantic-caching-policy.md](../../reference/policy-reference/ai-semantic-caching-policy.md "mention").
+{% endhint %}

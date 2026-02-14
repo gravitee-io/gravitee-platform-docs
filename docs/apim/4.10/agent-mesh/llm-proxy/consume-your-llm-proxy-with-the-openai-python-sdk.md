@@ -6,6 +6,8 @@ This guide explains how to consume an LLM proxy with the OpenAI Python SDK.&#x20
 
 If you use the OpenAI SDK, you must update the client initialization to include a default header with the API Key.
 
+To optimize performance and reduce costs when proxying LLMs, consider using the AI Semantic Caching policy. This policy caches responses based on semantic similarity of requests, reducing latency and LLM API costs. For more information, see [ai-semantic-caching-policy.md](../policies/ai-semantic-caching-policy.md "mention").
+
 ## Prerequisites
 
 * Access to one of the following LLM providers: OpenAI API, Gemini, or Bedrock, and an OpenAI-compatible LLM.

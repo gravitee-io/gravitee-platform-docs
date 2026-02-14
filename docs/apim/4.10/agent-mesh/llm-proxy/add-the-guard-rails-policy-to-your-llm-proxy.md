@@ -15,6 +15,12 @@ You might receive an error when you use this policy using the Gravitee's docker 
 * An Enterprise License. For more information about obtaining an Enterprise license, see [enterprise-edition.md](../../readme/enterprise-edition.md "mention").
 * Complete the steps in [proxy-your-llms.md](proxy-your-llms.md "mention").
 
+## Used by
+
+The AI Text Embedding Model Resource is used by the following policies:
+
+* **AI Semantic Caching Policy**: Uses this resource to generate vector embeddings for request content to enable semantic caching based on similarity.
+
 ## Add Guard Rails policy to your LLM proxy
 
 To add the Guard Rails policy to your LLM proxy, complete the following steps:&#x20;
