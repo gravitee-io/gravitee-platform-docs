@@ -182,7 +182,7 @@ To configure dynamic properties:
     * **URL:** The target from which to fetch dynamic properties
     * **Request Headers:** The HTTP headers to add to the request fetching properties
     * **Request body:** The HTTP body content to add to the request fetching properties
-    * (Optional) **Transformation (JOLT specification):** If the HTTP service doesn’t return the expected output, edit the JOLT transformation accordingly
+    * (Optional) **Transformation (JOLT specification):** If the HTTP service doesn't return the expected output, edit the JOLT transformation accordingly
     * Toggle **Use system proxy** ON to use the system proxy configured in your APIM installation
 7. Click **Save**
 
@@ -196,7 +196,7 @@ Key-value pairs can also be maintained using a dictionary, e.g., if this informa
 
 Some policies support the addition of [resources](resources.md), which can be used for actions such as authentication and schema registry validation. After you create resources, you will be able to reference them when designing policies. Policies that support resources include:
 
-<table data-header-hidden><thead><tr><th width="242"></th><th></th></tr></thead><tbody><tr><td>Basic Authentication</td><td>Specify an LDAP Authentication Provider resource and/or an Inline Authentication Provider resource to authenticate users in memory</td></tr><tr><td>Cache</td><td>Specify a cache resource via the Cache or Cache Redis resources</td></tr><tr><td>HTTP Signature<br>Generate HTTP Signature</td><td>Specify your HTTP Authentication Provider resource</td></tr><tr><td>OAuth2</td><td>Specify a Generic OAuth2 Authorization Server resource or a Gravitee AM Authorization Server resource</td></tr><tr><td>OpenID Connect UserInfo</td><td>Specify a Keycloak Adapter resource to use Keycloak as your OpenID Connect resource</td></tr><tr><td>AVRO to JSON<br>AVRO to Protobuf<br>Protobuf to JSON</td><td>Specify your Confluent Schema Registry to retrieve serialization and deserialization schemas from a Confluent Schema registry</td></tr></tbody></table>
+<table data-header-hidden><thead><tr><th width="242"></th><th></th></tr></thead><tbody><tr><td>AI Semantic Caching</td><td>Specify an embedding model resource and a vector store resource to cache LLM responses based on semantic similarity. Available only for LLM_PROXY API types.</td></tr><tr><td>Basic Authentication</td><td>Specify an LDAP Authentication Provider resource and/or an Inline Authentication Provider resource to authenticate users in memory</td></tr><tr><td>Cache</td><td>Specify a cache resource via the Cache or Cache Redis resources</td></tr><tr><td>HTTP Signature<br>Generate HTTP Signature</td><td>Specify your HTTP Authentication Provider resource</td></tr><tr><td>OAuth2</td><td>Specify a Generic OAuth2 Authorization Server resource or a Gravitee AM Authorization Server resource</td></tr><tr><td>OpenID Connect UserInfo</td><td>Specify a Keycloak Adapter resource to use Keycloak as your OpenID Connect resource</td></tr><tr><td>AVRO to JSON<br>AVRO to Protobuf<br>Protobuf to JSON</td><td>Specify your Confluent Schema Registry to retrieve serialization and deserialization schemas from a Confluent Schema registry</td></tr></tbody></table>
 
 {% hint style="info" %}
 Global resources are available to all flows associated with the Gateway API, but are not available to other Gateway APIs.

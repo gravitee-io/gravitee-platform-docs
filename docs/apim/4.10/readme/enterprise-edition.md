@@ -21,7 +21,7 @@ Gravitee's platform extends beyond API Management. For information on enterprise
 The features below are included in the default enterprise APIM distribution.
 {% endhint %}
 
-<table><thead><tr><th width="214">Feature</th><th>Description</th></tr></thead><tbody><tr><td><strong>Audit Trail</strong></td><td>Audit the consumption and activity of your Gravitee APIs per event and type to monitor the behavior of your APIs and platform</td></tr><tr><td><strong>Bridge Gateway</strong></td><td>Deploy a Bridge Gateway, which is a proxy for a repository, to avoid opening a connection between a database and something outside its network. The sync occurs over HTTP instead of the database protocol.</td></tr><tr><td><strong>Custom roles</strong></td><td>Create custom user roles to fit your needs. A role is a functional group of permissions and can be defined at the organization, environment, API, and/or application level.</td></tr><tr><td><strong>DCR</strong></td><td>The dynamic client registration (DCR) protocol allows OAuth client applications to register with an OAuth server through the OpenID Connect (OIDC) client registration endpoint</td></tr><tr><td><strong>Debug mode</strong></td><td>Easily test and debug your policy execution and enforcement</td></tr><tr><td><strong>Enterprise OpenID Connect SSO</strong></td><td>Use OpenId Connect SSO with your API Management platform</td></tr><tr><td><strong>Sharding tags</strong></td><td>Specify which "shard" of the Gateway an API should be deployed to. By tagging Gateways with specific keywords, you can select a tag in the API's proxy settings to control where the API will be deployed.</td></tr></tbody></table>
+<table><thead><tr><th width="214">Feature</th><th>Description</th></tr></thead><tbody><tr><td><strong>Audit Trail</strong></td><td>Audit the consumption and activity of your Gravitee APIs per event and type to monitor the behavior of your APIs and platform</td></tr><tr><td><strong>Bridge Gateway</strong></td><td>Deploy a Bridge Gateway, which is a proxy for a repository, to avoid opening a connection between a database and something outside its network. The sync occurs over HTTP instead of the database protocol.</td></tr><tr><td><strong>Custom roles</strong></td><td>Create custom user roles to fit your needs. A role is a functional group of permissions and can be defined at the organization, environment, API, and/or application level.</td></tr><tr><td><strong>DCR</strong></td><td>The dynamic client registration (DCR) protocol allows OAuth client applications to register with an OAuth server through the OpenID Connect (OIDC) client registration endpoint</td></tr><tr><td><strong>Debug mode</strong></td><td>Easily test and debug your policy execution and enforcement</td></tr><tr><td><strong>Enterprise OpenID Connect SSO</strong></td><td>Use OpenId Connect SSO with your API Management platform</td></tr><tr><td><strong>mTLS for native Kafka APIs</strong></td><td>Secure native Kafka APIs using mutual TLS authentication</td></tr><tr><td><strong>Sharding tags</strong></td><td>Specify which "shard" of the Gateway an API should be deployed to. By tagging Gateways with specific keywords, you can select a tag in the API's proxy settings to control where the API will be deployed.</td></tr></tbody></table>
 
 ## Enterprise plugins
 
@@ -31,7 +31,7 @@ Gravitee offers several different types of plugins. Here are the EE plugins avai
 
 ### Endpoints
 
-* [Agent to Agent](https://download.gravitee.io/#graviteeio-ee/apim/plugins/endpoints/gravitee-endpoint-agent-to-agent/): Supports Google’s Agent-to-Agent (A2A) protocol. To simplify communication, it uses SSE, HTTP GET, or HTTP POST methods in compliance with evolving A2A specifications.
+* [Agent to Agent](https://download.gravitee.io/#graviteeio-ee/apim/plugins/endpoints/gravitee-endpoint-agent-to-agent/): Supports Google's Agent-to-Agent (A2A) protocol. To simplify communication, it uses SSE, HTTP GET, or HTTP POST methods in compliance with evolving A2A specifications.
 * [Azure Service Bus](https://download.gravitee.io/#graviteeio-ee/apim/plugins/endpoints/gravitee-endpoint-azure-service-bus/): Uses HTTP and WebSocket to publish and subscribe to events in Azure Service Bus. The Gateway mediates the protocol between the client and the backend.
 * [Kafka](https://download.gravitee.io/#graviteeio-ee/apim/plugins/endpoints/gravitee-endpoint-kafka/): Uses HTTP and WebSocket to publish and subscribe to events in Kafka. The Gateway mediates the protocol between the client and the backend.
 * [MQTT5](https://download.gravitee.io/#graviteeio-ee/apim/plugins/endpoints/gravitee-endpoint-mqtt5/): Lets you subscribe or publish messages to a MQTT 5.x broker such as HiveMQ or Mosquitto.
@@ -41,7 +41,7 @@ Gravitee offers several different types of plugins. Here are the EE plugins avai
 
 ### Entrypoints
 
-* [Agent to Agent](https://download.gravitee.io/#graviteeio-ee/apim/plugins/entrypoints/gravitee-entrypoint-agent-to-agent/): Supports Google’s Agent-to-Agent (A2A) protocol. To simplify communication, it uses SSE, HTTP GET, or HTTP POST methods in compliance with evolving A2A specifications.
+* [Agent to Agent](https://download.gravitee.io/#graviteeio-ee/apim/plugins/entrypoints/gravitee-entrypoint-agent-to-agent/): Supports Google's Agent-to-Agent (A2A) protocol. To simplify communication, it uses SSE, HTTP GET, or HTTP POST methods in compliance with evolving A2A specifications.
 * [HTTP GET](https://download.gravitee.io/#graviteeio-ee/apim/plugins/entrypoints/gravitee-entrypoint-http-get/): Fronts a backend or data source with a Gateway REST API that supports the HTTP GET request.
 * [HTTP POST](https://download.gravitee.io/#graviteeio-ee/apim/plugins/entrypoints/gravitee-entrypoint-http-post/): Fronts a backend or data source with a Gateway REST API that supports the HTTP POST request.
 * [Native Kafka](https://download.gravitee.io/#graviteeio-ee/apim/plugins/entrypoints/gravitee-entrypoint-native-kafka/): Lets you subscribe or publish messages to a Kafka broker using the native Kafka protocol.
@@ -51,6 +51,7 @@ Gravitee offers several different types of plugins. Here are the EE plugins avai
 
 ### Policies
 
+* [AI Semantic Caching](https://download.gravitee.io/#graviteeio-ee/apim/plugins/policies/gravitee-policy-ai-semantic-caching/): Semantic caching for LLM APIs using vector embeddings and similarity search.
 * [Assign Metrics](https://download.gravitee.io/#graviteeio-ee/apim/plugins/policies/gravitee-policy-assign-metrics/): Pushes extra metrics in addition to the natively provided request metrics.
 * [Cloud Events](https://download.gravitee.io/#graviteeio-ee/apim/plugins/policies/gravitee-policy-cloud-events/): Creates a cloud-events JSON object from messages.
 * [Data Cache](https://download.gravitee.io/#graviteeio-ee/apim/plugins/policies/gravitee-policy-data-cache/): Lets you get, set, and expire arbitrary key-value pairs in a cache resource.
@@ -155,7 +156,7 @@ The Observability pack includes capabilities to better implement enterprise-grad
 
 The Secret Manager pack includes generic, configurable, and autonomous clients that manage connections, retries, and credentials renewal when connecting to Secret Managers:
 
-* **HashiCorp Vault**: Use the Key/Value engine of HC Vault to to avoid exposing plain text passwords and secrets keys.
+* **HashiCorp Vault**: Use the Key/Value engine of HC Vault to to avoid exposing plain text passwords and secret keys.
 
 </details>
 
