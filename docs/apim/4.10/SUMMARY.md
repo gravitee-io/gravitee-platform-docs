@@ -249,6 +249,7 @@
       * [XML Threat Protection](create-and-configure-apis/apply-policies/policy-reference/xml-threat-protection.md)
       * [XML Validation](create-and-configure-apis/apply-policies/policy-reference/xml-validation.md)
       * [XSLT](create-and-configure-apis/apply-policies/policy-reference/xslt.md)
+      * [AI - Semantic Caching](create-and-configure-apis/apply-policies/policy-reference/ai-semantic-caching.md)
 * [Secure & Expose APIs](secure-and-expose-apis/README.md)
   * [Plans](secure-and-expose-apis/plans/README.md)
     * [Keyless](secure-and-expose-apis/plans/keyless.md)

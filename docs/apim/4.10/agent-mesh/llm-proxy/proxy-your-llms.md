@@ -81,6 +81,19 @@ The response lists all of the models that you can call with that API:
 {"object":"list","data":[{"id":"llmtest:gpt-5-mini","object":"model","owned_by":"llmtest"}]}% 
 ```
 
+## Recommended policies for LLM proxy APIs
+
+### AI Semantic Caching
+
+The AI Semantic Caching policy reduces latency and costs for similar LLM requests by reusing cached responses based on vector similarity. When a request arrives, the policy generates a vector embedding of the request content and searches for similar cached vectors. If a match is found above the configured similarity threshold, the cached response is returned instead of calling the LLM provider.
+
+This policy is particularly useful for:
+- Reducing API costs by avoiding redundant LLM calls
+- Improving response times for frequently asked questions
+- Handling semantically similar requests that may use different wording
+
+For more information, see <a data-mention href="../../reference/policy-reference/ai-semantic-caching-policy.md">ai-semantic-caching-policy.md</a>.
+
 ## Next steps
 
 * [add-the-token-rate-limit-policy-to-your-llm-proxy.md](add-the-token-rate-limit-policy-to-your-llm-proxy.md "mention")

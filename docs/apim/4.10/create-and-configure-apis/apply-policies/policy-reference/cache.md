@@ -93,6 +93,24 @@ You can configure the `cache` policy with the following options:
 
 <table><thead><tr><th width="267">Property</th><th data-type="checkbox">Required</th><th width="273">Description</th><th width="140">Type</th><th>Default</th></tr></thead><tbody><tr><td>cacheName</td><td>true</td><td>The cache resource used to store the element</td><td>string</td><td></td></tr><tr><td>key</td><td>false</td><td>The key used to store the element (supports EL)</td><td>string</td><td></td></tr><tr><td>timeToLiveSeconds</td><td>true</td><td>Time to live of the element put in cache (default is 10 minutes)</td><td>integer</td><td>600</td></tr><tr><td>methods</td><td>true</td><td>Select which method you want to cache</td><td>array of strings</td><td>[GET, OPTIONS, HEAD]</td></tr><tr><td>responseCondition</td><td>false</td><td>Add an extra condition (with Expression Language) based on the response to activate cache. For example use <code>{#upstreamResponse.status == 200}</code> to only cache 200 responses status. By default, all 2xx are cached.</td><td>string</td><td></td></tr><tr><td>useResponseCacheHeaders</td><td>false</td><td>Time to live based on 'Cache-Control' and / or 'Expires' headers from backend response</td><td>boolean</td><td>false</td></tr><tr><td>scope</td><td>true</td><td>Cached response can be set for a single consumer (application) or for all applications.<br><strong>WARNING:</strong> Please be aware that by using an "API" scope, data will be shared between all consumers!</td><td>API / APPLICATION</td><td>APPLICATION</td></tr></tbody></table>
 
+## Related Policies
+
+### AI Semantic Caching vs Data Cache
+
+Use the appropriate caching policy based on your API type and caching requirements:
+
+| Policy | Use Case | How It Works | Best For |
+|--------|----------|--------------|----------|
+| **Data Cache** (this policy) | Exact key-based caching for traditional APIs | Caches responses using exact key matches (e.g., query parameters, headers). Returns cached response only when the key matches exactly. | REST APIs, SOAP APIs, any API where requests with identical parameters should return identical responses |
+| **AI Semantic Caching** | Semantic similarity caching for LLM APIs | Uses vector embeddings to match semantically similar requests. Returns cached response when request meaning is similar, even if wording differs. | LLM Proxy APIs, AI/ML endpoints, conversational APIs where similar questions should return similar answers |
+
+**Example scenarios:**
+
+- **Use Data Cache**: A product API where `GET /products?id=123` should always return the same product details
+- **Use AI Semantic Caching**: An LLM API where "What's the weather?" and "Tell me about today's weather" should return the same cached response
+
+For more information about AI Semantic Caching, see [ai-semantic-caching-policy.md](ai-semantic-caching-policy.md).
+
 ## Compatibility matrix
 
 The following is the compatibility matrix for APIM and the `cache` policy:
