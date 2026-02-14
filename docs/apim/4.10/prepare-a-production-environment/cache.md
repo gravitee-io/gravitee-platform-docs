@@ -78,3 +78,30 @@ Configuration of Cache resources cannot be managed using the `hazelcast.xml` fil
 ## Persistent cache
 
 APIM also supports the Gravitee [Cache Redis](../create-and-configure-apis/apply-policies/resources.md#cache-redis) resource plugin, based on [Redis](https://redis.io/documentation). This plugin is not in the default distribution, but can be [downloaded](https://download.gravitee.io/#graviteeio-apim/plugins/resources/gravitee-resource-cache-redis/) and deployed with these [instructions](../plugins/deployment.md#deployment).
+
+
+## Vector Store Resource
+
+The Vector Store Resource is required for AI Semantic Caching functionality. The `gravitee-resource-ai-vector-store-redis` plugin provides Redis-based vector storage and retrieval capabilities for semantic caching operations.
+
+{% hint style="warning" %}
+The Vector Store Resource must be configured at the API or platform level before adding the AI Semantic Caching policy to a flow.
+{% endhint %}
+
+### Functionality
+
+The Vector Store Resource:
+* Stores and retrieves vectors with associated metadata
+* Supports similarity search operations for semantic matching
+* Requires similarity threshold configuration to determine cache hits
+
+### Configuration
+
+Configure the Vector Store Resource with:
+* Connection details for your Redis instance
+* Appropriate similarity thresholds to balance cache hit rate versus accuracy
+* Metadata filtering options for scoping queries
+
+The resource is referenced by name in the AI Semantic Caching policy configuration (e.g., `vector-store-redis-resource`).
+
+<!-- GAP: Detailed configuration parameters and setup instructions for gravitee-resource-ai-vector-store-redis are not provided in source materials. -->

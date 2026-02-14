@@ -229,12 +229,12 @@ The following table shows the available configurations for the LDAP Authenticati
 | Property              | Required | Description                                                                                                                                                    | Type             | Default                         | Supports EL | Supports Secrets |
 | --------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------------------------------- | ----------- | ---------------- |
 | contextSourceUrl      | Yes      | URL to the LDAP server instance                                                                                                                                | string           | ldap://myserver.example.com:389 | Yes         | Yes              |
-| contextSourceBase     | Yes      | The source base used to authenticate to the LDAP server and query for users when validating user’s credentials                                                 | string           | N/A                             | Yes         | Yes              |
+| contextSourceBase     | Yes      | The source base used to authenticate to the LDAP server and query for users when validating user's credentials                                                 | string           | N/A                             | Yes         | Yes              |
 | contextSourceUsername | Yes      | Username credential used to connect to the LDAP server                                                                                                         | string           | N/A                             | Yes         | Yes              |
 | contextSourcePassword | Yes      | Password credential used to connect to the LDAP server                                                                                                         | string           | N/A                             | Yes         | Yes              |
 | useStartTLS           | No       | Should the API gateway use SSL to connect to the LDAP server                                                                                                   | boolean          | false                           | No          | No               |
 | userSearchFilter      | Yes      | LDAP Filter to select the relevant attribute to check the username                                                                                             | string           | uid={0}                         | Yes         | No               |
-| userSearchBase        | No       | Search base within `contextSourceBase` used to search into the correct OU when validating user’s credentials.                                                  | string           | ou=users                        | Yes         | No               |
+| userSearchBase        | No       | Search base within `contextSourceBase` used to search into the correct OU when validating user's credentials.                                                  | string           | ou=users                        | Yes         | No               |
 | cacheMaxElements      | Yes      | Maximum number of elements within the cache used to store successful authentications. 0 means no cache.                                                        | positive integer | 100                             | No          | No               |
 | cacheTimeToLive       | Yes      | Maximum time to live (in milliseconds) of the elements from the cache used to store successful authentications.                                                | positive integer | 6000 (min 1000)                 | No          | No               |
 | attributes            | Yes      | User LDAP attributes to put in the request context. Attributes can then be read from any other policy supporting EL i.e. `gravitee.attribute.user.{attribute}` | array of string  | \[\*]\(all)                     | No          | No               |
@@ -269,6 +269,32 @@ You may encounter an error when using this resource with Gravitee's default Dock
         "model": {
             "type": "MINILMV2_TOXIC_JIGSAW_MODEL"
         }
+    }
+}
+```
+{% endcode %}
+
+
+#### AI Text Embedding Model
+
+The AI Text Embedding Model resource loads an AI-powered text embedding model that transforms text content into vector representations. It is used by the [AI Semantic Caching](../policies/ai-semantic-caching.md) policy to generate vector embeddings from request content for semantic similarity matching and cache retrieval.
+
+The model runs locally on the Gateway using the ONNX Runtime. The first request to an API using this resource will take longer than usual as the model is loaded into memory at that time. Subsequent requests are processed faster.
+
+{% hint style="info" %}
+You may encounter an error when using this resource with Gravitee's default Docker image. This is because the default images are based on Alpine Linux, which does not support the ONNX Runtime. To resolve this issue, use the Gravitee Docker image based on Debian, available at `graviteeio/apim-gateway:<version>-debian`.
+{% endhint %}
+
+<table><thead><tr><th width="167">Config param</th><th width="384.3046875">Description</th><th>Default</th></tr></thead><tbody><tr><td>modelName</td><td>The name of the AI embedding model to use. This parameter is required.</td><td>-</td></tr></tbody></table>
+
+{% code title="Example" %}
+```json
+{
+    "name": "ai-text-embedding-model-resource",
+    "type": "ai-model-text-embedding",
+    "enabled": true,
+    "configuration": {
+        "modelName": "sentence-transformers/all-MiniLM-L6-v2"
     }
 }
 ```
