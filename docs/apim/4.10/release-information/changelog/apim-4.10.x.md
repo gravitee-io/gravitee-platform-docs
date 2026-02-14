@@ -1,4 +1,17 @@
 # APIM 4.10.x
+
+## Gravitee API Management 4.10.6 - February 14, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Other**
+
+* Automatic cleanup failure in commands table due to missing expired_at values [#11136](https://github.com/gravitee-io/issues/issues/11136)
+  * Once this version applied, you should consider removing commands with null `expiredAt` attribute.  
+</details>
+
+
  
 ## Gravitee API Management 4.10.5 - February 13, 2026
 <details>
