@@ -17,6 +17,24 @@ The Kafka Gateway natively supports the Kafka protocol and is treated like a tra
 
 You can expose multiple Kafka topics within a single Kafka API, and expose multiple Kafka APIs through the Gravitee Kafka Gateway. Using the Kafka Gateway, data is processed in real time, and virtual topics and partitions enable scalable, cost-effective deployments.
 
+## Kafka Client SSL Configuration
+
+When connecting to the Kafka Gateway with SSL/TLS or mTLS, configure your Kafka client with the following properties:
+
+| Property | Description |
+|----------|-------------|
+| `security.protocol` | Set to `SSL` to enable SSL/TLS communication |
+| `ssl.truststore.location` | Path to the truststore file containing CA certificates |
+| `ssl.truststore.password` | Password for the truststore |
+| `ssl.truststore.type` | Truststore format (e.g., `JKS`, `PKCS12`) |
+| `ssl.keystore.location` | Path to the keystore file containing client certificates (required for mTLS) |
+| `ssl.keystore.password` | Password for the keystore (required for mTLS) |
+| `ssl.keystore.type` | Keystore format (e.g., `JKS`, `PKCS12`) (required for mTLS) |
+
+For detailed configuration instructions, see [Configure the Kafka Client & Gateway](configure-the-kafka-client-and-gateway.md).
+
+## Learn More
+
 To learn more about the Kafka Gateway, see the following articles:
 
 <table data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Configure the Kafka Client &#x26; gateway</td><td><a href="configure-the-kafka-client-and-gateway.md">configure-the-kafka-client-and-gateway.md</a></td></tr><tr><td>Create &#x26; Configure Kafka APIs</td><td><a href="create-and-configure-kafka-apis/">create-and-configure-kafka-apis</a></td></tr><tr><td>Plans</td><td><a href="plans.md">plans.md</a></td></tr><tr><td>Applications</td><td><a href="applications.md">applications.md</a></td></tr><tr><td>Subscriptions</td><td><a href="subscriptions.md">subscriptions.md</a></td></tr><tr><td>Other ways Gravitee supports Kafka</td><td><a href="other-ways-gravitee-supports-kafka.md">other-ways-gravitee-supports-kafka.md</a></td></tr></tbody></table>

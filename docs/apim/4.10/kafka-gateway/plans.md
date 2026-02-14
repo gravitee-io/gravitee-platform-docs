@@ -70,3 +70,27 @@ To close a plan, click on the 'x' icon:
 ## Plan selection rules
 
 Unlike with HTTP APIs, there is only ever one set of policies per plan. Once the plan is defined, you can add one set of policies on that plan, but you can only remove it or edit it. The plan is selected based on the credential defined by the client in their connection properties.
+
+### Managing mTLS Plans and Subscriptions
+
+Once SSL/mTLS configuration is complete on the Gateway, add an mTLS plan to the Kafka API. The process is the same as for a classic V4 API.
+
+#### Publishing the mTLS Plan
+
+After creating the mTLS plan, publish it to make it available for subscriptions. Once published, the plan must be redeployed.
+
+{% hint style="warning" %}
+**Important restriction**: Kafka APIs cannot have Keyless, mTLS, and authentication (OAuth2, JWT, API Key) plans published together. A Kafka API cannot expose simultaneously:
+- A Keyless plan
+- An mTLS plan
+- An authentication plan (OAuth2, JWT, API Key)
+{% endhint %}
+
+#### Creating a Subscription
+
+To subscribe to the mTLS plan:
+
+1. Create an application that contains a client certificate.
+2. Create a subscription to the Kafka API using the mTLS plan.
+
+The client certificate is used by APIM to identify the application during the Kafka connection. The behavior is identical to classic V4 APIs using mTLS.

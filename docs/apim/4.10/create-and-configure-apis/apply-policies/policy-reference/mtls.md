@@ -19,6 +19,12 @@ You can use the `mtls` policy to verify a client certificate exists as part of t
 
 This policy does not ensure that certificates are valid, since it is done directly by the server.
 
+{% hint style="info" %}
+**Native Kafka APIs**
+
+mTLS behavior for native Kafka APIs works the same way as for classic V4 APIs.
+{% endhint %}
+
 ### Compatibility with APIM <a href="#user-content-compatibility-with-apim" id="user-content-compatibility-with-apim"></a>
 
 | Plugin version | APIM version  |

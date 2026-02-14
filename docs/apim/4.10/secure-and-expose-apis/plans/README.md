@@ -45,7 +45,7 @@ To create a plan:
     * **Sharding tags:** Selectively deploy the plan to particular API Gateways using available [sharding tags](../../configure-and-manage-the-platform/gravitee-gateway/sharding-tags.md)
     * **Groups excluded:** Prevent specified [user groups](../../configure-and-manage-the-platform/manage-organizations-and-environments/user-management.md) from accessing this plan
 7. Click **Next**
-8.  Define the security configuration details appropriate to and required by your selected security type, e.g., OAuth2. See [OAuth2](oauth2.md), [JWT](jwt.md), [API Key](api-key.md), [Keyless](keyless.md), or [Push](push.md) for more information.
+8.  Define the security configuration details appropriate to and required by your selected security type, e.g., OAuth2. See [OAuth2](oauth2.md), [JWT](jwt.md), [API Key](api-key.md), [Keyless](keyless.md), [Push](push.md), or [mTLS](mtls.md) for more information.
 
     <figure><img src="../../.gitbook/assets/plan_oauth2 (1).png" alt=""><figcaption><p>OAuth2 configuration</p></figcaption></figure>
 9.  Select any plan restrictions:
@@ -57,13 +57,19 @@ To create a plan:
     * **Resource Filtering:** Limits access to API resources according to whitelist and/or blacklist rules.
 10. Click **Create**
 
+{% hint style="info" %}
+**Native Kafka API plan restrictions**
+
+For native Kafka APIs, mTLS plans work the same way as for classic v4 APIs. However, Kafka APIs cannot have Keyless, mTLS, and authentication plans (OAuth2, JWT, API Key) published together.
+{% endhint %}
+
 ## Plan stages
 
 A plan can exist in one of four stages: **STAGING**, **PUBLISHED**, **DEPRECATED**, and **CLOSED**:
 
 {% tabs %}
 {% tab title="STAGING" %}
-This is the draft mode of a plan, where it can be configured but won’t be accessible to users.
+This is the draft mode of a plan, where it can be configured but won't be accessible to users.
 {% endtab %}
 
 {% tab title="PUBLISHED" %}
@@ -71,11 +77,11 @@ API consumers can view a published plan on the Developer Portal. Once subscribed
 {% endtab %}
 
 {% tab title="DEPRECATED" %}
-A deprecated plan won’t be available on the Developer Portal and API consumers won’t be able to subscribe to it. This cannot be undone. Existing subscriptions are not impacted, giving current API consumers time to migrate without breaking their application.
+A deprecated plan won't be available on the Developer Portal and API consumers won't be able to subscribe to it. This cannot be undone. Existing subscriptions are not impacted, giving current API consumers subscribed time to migrate without breaking their application.
 {% endtab %}
 
 {% tab title="CLOSED" %}
-Once a plan is closed, all associated subscriptions are closed. API consumers subscribed to this plan won’t be able to use the API. This cannot be undone.
+Once a plan is closed, all associated subscriptions are closed. API consumers subscribed to this plan won't be able to use the API. This cannot be undone.
 {% endtab %}
 {% endtabs %}
 

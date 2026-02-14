@@ -29,6 +29,10 @@ To filter subscriptions, use the **API** and **API Key** search fields and/or th
 
 To create a new subscription, click **+ Create a subscription** and search for the API you'd like to subscribe to. Refer to the [subscription](./) documentation for more information.
 
+{% hint style="info" %}
+**Kafka APIs with mTLS plans:** When creating a subscription to a Kafka API using an mTLS plan, the application must contain a client certificate. The client certificate is used by APIM to identify the application during the Kafka connection.
+{% endhint %}
+
 ## Subscription validation
 
 When creating a plan, you can enable subscription auto-validation to immediately approve subscription requests. If **Auto validate subscription** is disabled, the API publisher must approve all subscription requests.
