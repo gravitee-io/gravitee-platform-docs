@@ -4,6 +4,42 @@ description: Documentation about apim 4.8.x in the context of APIs.
 
 # APIM 4.8.x
  
+## Gravitee API Management 4.8.20 - February 13, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* \[Protocol Mediation] subscription is not available in EL during PUBLISH and SUBSCRIBE phase [#11101](https://github.com/gravitee-io/issues/issues/11101)
+* Error 503 and Thread Blocked from weighted_round_robin  [#11132](https://github.com/gravitee-io/issues/issues/11132)
+
+**Management API**
+
+* Multiple PRIMARY_OWNERs after "Transfer Ownership" [#11045](https://github.com/gravitee-io/issues/issues/11045)
+
+**Other**
+
+* \[Kafka Gateway] Bad ApiVersions when gateway doesn't supports the min version of an api key [#11118](https://github.com/gravitee-io/issues/issues/11118)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Gateway**
+
+* Request response times spike when health checks are performed [#11141](https://github.com/gravitee-io/issues/issues/11141)
+
+**Other**
+
+* \[gravitee-policy-callout-http] Allow to evaluate variables as Object [#11137](https://github.com/gravitee-io/issues/issues/11137)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.8.19 - January 30, 2026
 <details>
 
