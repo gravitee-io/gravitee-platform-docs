@@ -222,6 +222,16 @@ _Provide a custom sensitivity threshold for inappropriate prompts_
 
 ```
 
+## Related Policies
+
+The AI - Prompt Guard Rails policy focuses on **input validation** by evaluating user prompts for inappropriate or malicious content before they reach the backend.
+
+For **response caching** in LLM Proxy APIs, consider using the [AI Semantic Caching](ai-semantic-caching-policy.md) policy. AI Semantic Caching stores and retrieves responses based on semantic similarity of requests, reducing latency and computation costs for similar prompts.
+
+These policies are complementary:
+- **AI - Prompt Guard Rails**: Validates and filters incoming prompts
+- **AI Semantic Caching**: Caches responses for semantically similar requests
+
 ## Changelog
 
 #### 1.0.0-alpha.1 (2025-06-18)

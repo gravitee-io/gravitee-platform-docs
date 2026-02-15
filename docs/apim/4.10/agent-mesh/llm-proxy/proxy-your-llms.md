@@ -85,3 +85,11 @@ The response lists all of the models that you can call with that API:
 
 * [add-the-token-rate-limit-policy-to-your-llm-proxy.md](add-the-token-rate-limit-policy-to-your-llm-proxy.md "mention")
 * [add-the-guard-rails-policy-to-your-llm-proxy.md](add-the-guard-rails-policy-to-your-llm-proxy.md "mention")
+
+## Related features
+
+### AI Semantic Caching
+
+LLM Proxy APIs support semantic caching to reduce latency and costs by caching semantically similar requests. The AI Semantic Caching policy uses vector embeddings to identify and reuse responses for similar prompts, even when the exact wording differs.
+
+For more information, see [ai-semantic-caching-policy.md](../../reference/policy-reference/ai-semantic-caching-policy.md "mention").
