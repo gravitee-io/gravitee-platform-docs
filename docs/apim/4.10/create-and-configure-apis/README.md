@@ -44,3 +44,8 @@ To learn more about how to configure v2 APIs, see the following articles:
 To learn more about applying policies to your APIs, see the following articles:
 
 <table data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>v4 API Policy Studio</td><td><a href="apply-policies/v4-api-policy-studio.md">v4-api-policy-studio.md</a></td></tr><tr><td>v2 API Policy Studio</td><td><a href="apply-policies/v2-api-policy-studio.md">v2-api-policy-studio.md</a></td></tr><tr><td>Shared Policy Groups</td><td><a href="apply-policies/shared-policy-groups.md">shared-policy-groups.md</a></td></tr><tr><td>Resources</td><td><a href="apply-policies/resources.md">resources.md</a></td></tr><tr><td>Custom Policies</td><td><a href="apply-policies/custom-policies.md">custom-policies.md</a></td></tr><tr><td>Policy Reference</td><td><a href="apply-policies/policy-reference/">policy-reference</a></td></tr></tbody></table>
+
+<!-- NEED CLARIFICATION: The GLOBAL_IMPACT describes adding 'AI Semantic Caching' to an alphabetical policy index, but the EXISTING_DOC does not contain an alphabetical policy index. The document contains a card-based navigation structure linking to policy-related pages. Please clarify:
+1. Should a new alphabetical policy index section be created in this document?
+2. Should the AI Semantic Caching policy be added to the policy-reference/ subdirectory instead?
+3. Is there a different document that contains the alphabetical policy index that should be updated? -->

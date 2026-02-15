@@ -80,3 +80,22 @@ v2 APIs have the following phases:
 ## Resources
 
 Every API Management installation includes several default resources that are commonly used in standard APIM implementations and can be configured during the API design phase. The recommended configuration method employs the Policy Studio.
+
+## JSONPath expressions in policy configuration
+
+Some policies support JSONPath expressions to extract specific data from request or response payloads. This is particularly useful when working with structured data formats like JSON.
+
+### Example: AI Semantic Caching policy
+
+The AI Semantic Caching policy uses JSONPath to extract relevant content from LLM chat completion requests. For example, to extract only the last message content from a chat completion payload:
+
+```
+{#jsonPath(#request.content, '$.messages[-1:].content')}
+```
+
+This pattern:
+- Uses `#jsonPath()` to evaluate a JSONPath expression
+- Accesses `#request.content` as the source
+- Extracts the `content` field from the last message in the `messages` array using `$.messages[-1:].content`
+
+This approach ensures that only the relevant user prompt is used for semantic similarity matching, rather than the entire request payload.

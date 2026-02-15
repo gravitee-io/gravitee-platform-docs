@@ -81,6 +81,14 @@ The response lists all of the models that you can call with that API:
 {"object":"list","data":[{"id":"llmtest:gpt-5-mini","object":"model","owned_by":"llmtest"}]}% 
 ```
 
+## Compatible policies
+
+The LLM proxy supports the following policies:
+
+* **Token Rate Limit**: Control API consumption based on LLM token usage. See [add-the-token-rate-limit-policy-to-your-llm-proxy.md](add-the-token-rate-limit-policy-to-your-llm-proxy.md "mention").
+* **Guard Rails**: Apply content filtering and safety controls to LLM requests and responses. See [add-the-guard-rails-policy-to-your-llm-proxy.md](add-the-guard-rails-policy-to-your-llm-proxy.md "mention").
+* **AI Semantic Caching**: Cache LLM responses based on semantic similarity of requests, reducing latency and computation costs by reusing responses for similar prompts.
+
 ## Next steps
 
 * [add-the-token-rate-limit-policy-to-your-llm-proxy.md](add-the-token-rate-limit-policy-to-your-llm-proxy.md "mention")

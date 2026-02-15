@@ -223,6 +223,19 @@ request:
 {% endtab %}
 {% endtabs %}
 
+## Related Policies
+
+The Data Cache policy performs **exact key matching** for cache lookups and is optimized for high-performance scenarios where precise key-based retrieval is required.
+
+For AI/LLM use cases requiring **semantic similarity matching**, see:
+
+* [AI Semantic Caching](ai-semantic-caching-policy.md) - Uses vector embeddings to match semantically similar requests, even when exact wording differs. Best suited for LLM proxy APIs where request content varies but intent remains similar.
+
+### When to Use Each Policy
+
+* **Data Cache**: Use when you need exact key matching, high-performance lookups, or caching non-semantic data (e.g., authentication tokens, rate limit counters, session state).
+* **AI Semantic Caching**: Use when working with LLM APIs where requests may be semantically similar but textually different, and you want to reuse responses based on meaning rather than exact matches.
+
 ## Technical Reference <a href="#user-content-phases" id="user-content-phases"></a>
 
 ### Phases <a href="#user-content-phases" id="user-content-phases"></a>

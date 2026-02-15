@@ -21,6 +21,22 @@ Consumers can bypass the cache by adding a `cache=BY_PASS` query parameter or by
 If no cache resource is defined for the policy, or it is not well configured, the API will not be deployed. The resource name is specified in the policy configuration `cacheName`.
 {% endhint %}
 
+## Related policies
+
+The Cache policy uses exact key matching to determine cache hits. For AI and LLM use cases where semantically similar requests should return cached responses even if the request text differs, consider the [AI Semantic Caching](ai-semantic-caching.md) policy.
+
+### Conceptual comparison
+
+| Feature | Cache Policy | AI Semantic Caching Policy |
+|---------|--------------|----------------------------|
+| Matching method | Exact key matching | Vector similarity matching |
+| Use case | Deterministic APIs with identical requests | LLM/AI APIs with semantically equivalent requests |
+| Cache key | Static or expression-based string | Vector embedding of request content |
+| Backend dependency | Cache resource (Redis, in-memory) | AI text embedding model + vector store resource |
+| API type support | v2 HTTP proxy APIs | v4 LLM proxy APIs |
+
+Both policies reduce backend load and improve response times, but AI Semantic Caching is designed specifically for scenarios where different phrasings of the same question should retrieve the same cached response.
+
 ## Examples
 
 {% hint style="warning" %}
@@ -43,7 +59,7 @@ Key based on the `api-key` of the consumer:
 "key": "{#request.headers['X-Gravitee-Api-Key']}"
 ```
 
-Key based on an API’s property and a query parameter:
+Key based on an API's property and a query parameter:
 
 ```json
 "key": "{#properties['siteID']}-{#request.params['productId']}"
@@ -69,7 +85,7 @@ Sample policy configuration:
 ```
 {% endcode %}
 
-#### Gateway configuration (gravitee.yml)
+### Gateway configuration (gravitee.yml)
 
 ```yaml
   policy:

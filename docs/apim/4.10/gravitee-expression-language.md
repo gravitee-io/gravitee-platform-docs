@@ -163,6 +163,124 @@ You can access specific tag of a XML request/response payload with `{#request.xm
 {% endtab %}
 {% endtabs %}
 
+## JSONPath in policy configuration
+
+JSONPath expressions can be used within policy configurations to extract specific data from structured payloads. This is particularly useful when working with complex JSON structures, such as LLM chat completion messages.
+
+### Use case: AI Semantic Caching policy
+
+The AI Semantic Caching policy uses JSONPath to extract relevant content from incoming requests before generating vector embeddings. When caching LLM chat completions, you typically want to cache based on the user's prompt rather than the entire conversation history.
+
+**Example: Extract the last message content**
+
+For an OpenAI-compatible chat completion request with the following structure:
+
+```json
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a helpful assistant."
+    },
+    {
+      "role": "user",
+      "content": "What is the capital of France?"
+    }
+  ]
+}
+```
+
+Use the following JSONPath expression to extract only the last message content:
+
+```
+{#jsonPath(#request.content, '$.messages[-1:].content')}
+```
+
+This expression:
+* Targets the `messages` array
+* Selects the last element using `[-1:]`
+* Extracts the `content` property
+
+**Policy configuration example**
+
+The AI Semantic Caching policy demonstrates advanced EL usage through its configuration options. The policy supports three primary EL-enabled fields:
+
+#### Cache condition expression
+
+The `cacheCondition` field determines whether a response should be cached. The default expression is:
+
+```
+{#response.status >= 200 && #response.status < 300}
+```
+
+This expression evaluates the HTTP response status to cache only successful responses (2xx status codes). You can customize this condition to implement more complex caching logic based on response properties.
+
+When configuring cache conditions, avoid caching error responses or non-deterministic results. This ensures only successful responses are cached, preventing error propagation and maintaining cache quality.
+
+#### Prompt expression
+
+The `promptExpression` field extracts the content to be vectorized for semantic matching. The default expression is:
+
+```
+{#request.content}
+```
+
+For structured payloads like LLM chat completions, you can use JSONPath to extract specific content:
+
+```
+{#jsonPath(#request.content, '$.messages[-1:].content')}
+```
+
+This expression extracts only the last message content from an OpenAI-compatible chat completion request, improving semantic matching accuracy by ensuring that only the relevant content is used for semantic matching. This approach improves cache hit rates and reduces token usage.
+
+#### Metadata parameter expressions
+
+The `parameters` array allows you to attach metadata to cached vectors using EL expressions in the `value` field. These metadata parameters enable scoped caching and filtering. Common patterns include:
+
+* Scope cache per API: `{#context.attributes['api']}`
+* Scope cache per plan: `{#context.attributes['plan']}`
+* Scope cache per user: `{#context.attributes['user-id']}`
+
+You can combine multiple attributes to create composite cache keys:
+
+```
+{#context.attributes['api']}_{#context.attributes['plan']}_{#context.attributes['user-id']}
+```
+
+When handling sensitive information like user identifiers, set `encode: true` to hash the value using MurmurHash3 (Base64 encoded):
+
+```json
+{
+  "key": "user_context",
+  "value": "{#context.attributes['user-id']}",
+  "encode": true
+}
+```
+
+**Complete configuration example**
+
+```json
+{
+  "name": "AI Semantic Caching",
+  "policy": "ai-semantic-caching",
+  "configuration": {
+    "modelName": "ai-model-text-embedding-resource",
+    "vectorStoreName": "vector-store-redis-resource",
+    "promptExpression": "{#jsonPath(#request.content, '$.messages[-1:].content')}",
+    "cacheCondition": "{#response.status >= 200 && #response.status < 300}",
+    "parameters": [
+      {
+        "key": "retrieval_context_key",
+        "value": "{#context.attributes['api']}",
+        "encode": true
+      }
+    ]
+  }
+}
+```
+
+For more information about the AI Semantic Caching policy configuration, see <a data-mention href="ai-semantic-caching-policy.md">ai-semantic-caching-policy.md</a>.
+
 ## Expression Language Assistant
 
 ### Overview
@@ -299,7 +417,29 @@ The object properties you can access from the `{#request}` root-level object pro
 
 {% tabs %}
 {% tab title="Table" %}
-<table><thead><tr><th width="172">Object Property</th><th width="157">Description</th><th width="134">Type</th><th>Example</th></tr></thead><tbody><tr><td><a data-footnote-ref href="#user-content-fn-1">content</a></td><td>Body content</td><td>string</td><td>-</td></tr><tr><td>contextPath</td><td>Context path</td><td>string</td><td>/v2/</td></tr><tr><td>headers</td><td>Headers</td><td>key / value</td><td>X-Custom → myvalue</td></tr><tr><td>host</td><td>The host of the request. This is preferable to using the Host header of the request because HTTP2 requests do not provide this header.</td><td>string</td><td>gravitee.example.com</td></tr><tr><td>id</td><td>Identifier</td><td>string</td><td>12345678-90ab-cdef-1234-567890ab</td></tr><tr><td>localAddress</td><td>Local address</td><td>string</td><td>0:0:0:0:0:0:0:1</td></tr><tr><td>method</td><td>HTTP method</td><td>string</td><td>GET</td></tr><tr><td>params</td><td>Query parameters</td><td>key / value</td><td>order → 100</td></tr><tr><td>path</td><td>Path</td><td>string</td><td>/v2/store/MyStore</td></tr><tr><td>pathInfo</td><td>Path info</td><td>string</td><td>/store/MyStore</td></tr><tr><td>pathInfos</td><td>Path info parts</td><td>array of strings</td><td>[,store,MyStore]</td></tr><tr><td>pathParams</td><td>Path parameters</td><td>key / value</td><td>storeId → MyStore (<em>see Warning for details</em>)</td></tr><tr><td>pathParamsRaw</td><td>Path parameters</td><td>string</td><td>/something/:id/**</td></tr><tr><td>paths</td><td>Path parts</td><td>array of strings</td><td>[,v2,store,MyStore]</td></tr><tr><td>remoteAddress</td><td>Remote address</td><td>string</td><td>0:0:0:0:0:0:0:1</td></tr><tr><td>scheme</td><td>The scheme of the request (either <code>http</code> or <code>https</code>)</td><td>string</td><td>http</td></tr><tr><td>host</td><td></td><td>string</td><td></td></tr><tr><td>ssl</td><td>SSL session information</td><td>SSL object</td><td>-</td></tr><tr><td>timestamp</td><td>Timestamp</td><td>long</td><td>1602781000267</td></tr><tr><td>transactionId</td><td>Transaction identifier</td><td>string</td><td>cd123456-7890-abcd-ef12-34567890</td></tr><tr><td>uri</td><td>URI</td><td>string</td><td>/v2/store/MyStore?order=100</td></tr><tr><td>version</td><td>HTTP version</td><td>string</td><td>HTTP_1_1</td></tr></tbody></table>
+| Object Property | Description | Type | Example |
+| --- | --- | --- | --- |
+| content | Body content | string | - |
+| contextPath | Context path | string | /v2/ |
+| headers | Headers | key / value | X-Custom → myvalue |
+| host | The host of the request. This is preferable to using the Host header of the request because HTTP2 requests do not provide this header. | string | gravitee.example.com |
+| id | Identifier | string | 12345678-90ab-cdef-1234-567890ab |
+| localAddress | Local address | string | 0:0:0:0:0:0:0:1 |
+| method | HTTP method | string | GET |
+| params | Query parameters | key / value | order → 100 |
+| path | Path | string | /v2/store/MyStore |
+| pathInfo | Path info | string | /store/MyStore |
+| pathInfos | Path info parts | array of strings | [,store,MyStore] |
+| pathParams | Path parameters | key / value | storeId → MyStore (*see Warning for details*) |
+| pathParamsRaw | Path parameters | string | /something/:id/\*\* |
+| paths | Path parts | array of strings | [,v2,store,MyStore] |
+| remoteAddress | Remote address | string | 0:0:0:0:0:0:0:1 |
+| scheme | The scheme of the request (either `http` or `https`) | string | http |
+| ssl | SSL session information | SSL object | - |
+| timestamp | Timestamp | long | 1602781000267 |
+| transactionId | Transaction identifier | string | cd123456-7890-abcd-ef12-34567890 |
+| uri | URI | string | /v2/store/MyStore?order=100 |
+| version | HTTP version | string | HTTP_1_1 |
 {% endtab %}
 
 {% tab title="Examples" %}
@@ -307,6 +447,10 @@ The object properties you can access from the `{#request}` root-level object pro
 * Get the second part of the request path using `{#request.paths[1]}`
 {% endtab %}
 {% endtabs %}
+
+{% hint style="info" %}
+`{#request.content}` is only available for policies bound to an `on-request-content` phase.
+{% endhint %}
 
 ### Request context attributes
 
@@ -318,7 +462,15 @@ Request context attributes and examples are listed below.
 
 {% tabs %}
 {% tab title="Table" %}
-<table><thead><tr><th width="170">Object Property</th><th width="190">Description</th><th width="104">Type</th><th>Nullable</th></tr></thead><tbody><tr><td>api</td><td>Called API</td><td>string</td><td>-</td></tr><tr><td>api-key</td><td>The API key used (for an API Key plan)</td><td>string</td><td>X (for no API Key plan)</td></tr><tr><td>application</td><td>The authenticated application making incoming HTTP requests</td><td>string</td><td>X (for Keyless plan)</td></tr><tr><td>context-path</td><td>Context path</td><td>string</td><td>-</td></tr><tr><td>plan</td><td>Plan used to manage incoming HTTP requests</td><td>string</td><td>-</td></tr><tr><td>resolved-path</td><td>The path defined in policies</td><td>string</td><td>-</td></tr><tr><td>user-id</td><td><p>The user identifier of an incoming HTTP request:</p><p>* The subscription ID for an API Key plan</p><p>* The remote IP for a Keyless plan</p></td><td>string</td><td>-</td></tr></tbody></table>
+| Object Property | Description | Type | Nullable |
+| --- | --- | --- | --- |
+| api | Called API | string | - |
+| api-key | The API key used (for an API Key plan) | string | X (for no API Key plan) |
+| application | The authenticated application making incoming HTTP requests | string | X (for Keyless plan) |
+| context-path | Context path | string | - |
+| plan | Plan used to manage incoming HTTP requests | string | - |
+| resolved-path | The path defined in policies | string | - |
+| user-id | The user identifier of an incoming HTTP request:<br>* The subscription ID for an API Key plan<br>* The remote IP for a Keyless plan | string | - |
 {% endtab %}
 
 {% tab title="Examples" %}
@@ -333,7 +485,12 @@ The object properties you can access in the `ssl` session object from the `{#req
 
 {% tabs %}
 {% tab title="Table" %}
-<table><thead><tr><th width="172">Object Property</th><th width="177">Description</th><th width="169">Type</th><th>Example</th></tr></thead><tbody><tr><td>clientHost</td><td>Host name of the client</td><td>string</td><td>client.domain.com</td></tr><tr><td>clientPort</td><td>Port number of the client</td><td>long</td><td>443</td></tr><tr><td>client</td><td>Client information</td><td>Principal object</td><td>-</td></tr><tr><td>server</td><td>Server information</td><td>Principal object</td><td>-</td></tr></tbody></table>
+| Object Property | Description | Type | Example |
+| --- | --- | --- | --- |
+| clientHost | Host name of the client | string | client.domain.com |
+| clientPort | Port number of the client | long | 443 |
+| client | Client information | Principal object | - |
+| server | Server information | Principal object | - |
 {% endtab %}
 
 {% tab title="Example" %}
@@ -357,7 +514,47 @@ All attributes of the `Principal`object are flattened to be accessed directly wi
 
 {% tabs %}
 {% tab title="Table" %}
-<table><thead><tr><th width="218">Object Property</th><th width="154">Description</th><th width="102">Type</th><th>Example</th></tr></thead><tbody><tr><td>attributes</td><td>Retrieves all the <code>Principal</code> object's domain name attributes</td><td>key / value</td><td>"ou" → ["Test team", "Dev team"]</td></tr><tr><td>businessCategory</td><td>Business category</td><td>string</td><td>-</td></tr><tr><td>c</td><td>Country code</td><td>string</td><td>FR</td></tr><tr><td>cn</td><td>Common name</td><td>string</td><td>-</td></tr><tr><td>countryOfCitizenship</td><td>RFC 3039 CountryOfCitizenship</td><td>string</td><td>-</td></tr><tr><td>countryOfResidence</td><td>RFC 3039 CountryOfResidence</td><td>string</td><td>-</td></tr><tr><td>dateOfBirth</td><td>RFC 3039 RFC 3039 DateOfBirth</td><td>string</td><td>19830719000000Z</td></tr><tr><td>dc</td><td>Domain component</td><td>string</td><td>-</td></tr><tr><td>defined</td><td>Returns <code>true</code> if the <code>Principal</code> object is defined and contains values. Returns <code>false</code> otherwise.</td><td>boolean</td><td>-</td></tr><tr><td>description</td><td>Description</td><td>string</td><td>-</td></tr><tr><td>dmdName</td><td>RFC 2256 directory management domain</td><td>string</td><td>-</td></tr><tr><td>dn</td><td>Fully qualified domain name</td><td>string</td><td>-</td></tr><tr><td>dnQualifier</td><td>Domain name qualifier</td><td>string</td><td>-</td></tr><tr><td>e</td><td>Email address in Verisign certificates</td><td>string</td><td>-</td></tr><tr><td>emailAddress</td><td>Email address (RSA PKCS#9 extension)</td><td>string</td><td>-</td></tr><tr><td>gender</td><td>RFC 3039 Gender</td><td>string</td><td>"M", "F", "m" or "f"</td></tr><tr><td>generation</td><td>Naming attributes of type X520name</td><td>string</td><td>-</td></tr><tr><td>givenname</td><td>Naming attributes of type X520name</td><td>string</td><td>-</td></tr><tr><td>initials</td><td>Naming attributes of type X520name</td><td>string</td><td>-</td></tr><tr><td>l</td><td>Locality name</td><td>string</td><td>-</td></tr><tr><td>name</td><td>Name</td><td>string</td><td>-</td></tr><tr><td>nameAtBirth</td><td>ISIS-MTT NameAtBirth</td><td>string</td><td>-</td></tr><tr><td>o</td><td>Organization</td><td>string</td><td>-</td></tr><tr><td>organizationIdentifier</td><td>Organization identifier</td><td>string</td><td>-</td></tr><tr><td>ou</td><td>Organization unit name</td><td>string</td><td>-</td></tr><tr><td>placeOfBirth</td><td>RFC 3039 PlaceOfBirth</td><td>string</td><td>-</td></tr><tr><td>postalAddress</td><td>RFC 3039 PostalAddress</td><td>string</td><td>-</td></tr><tr><td>postalCode</td><td>Postal code</td><td>string</td><td>-</td></tr><tr><td>pseudonym</td><td>RFC 3039 Pseudonym</td><td>string</td><td>-</td></tr><tr><td>role</td><td>Role</td><td>string</td><td>-</td></tr><tr><td>serialnumber</td><td>Device serial number name</td><td>string</td><td>-</td></tr><tr><td>st</td><td>State or province name</td><td>string</td><td>-</td></tr><tr><td>street</td><td>Street</td><td>string</td><td>-</td></tr><tr><td>surname</td><td>Naming attributes of type X520name</td><td>string</td><td>-</td></tr><tr><td>t</td><td>Title</td><td>string</td><td>-</td></tr><tr><td>telephoneNumber</td><td>Telephone number</td><td>string</td><td>-</td></tr><tr><td>uid</td><td>LDAP User id</td><td>string</td><td>-</td></tr><tr><td>uniqueIdentifier</td><td>Naming attributes of type X520name</td><td>string</td><td>-</td></tr><tr><td>unstructuredAddress</td><td>Unstructured address (from PKCS#9)</td><td>string</td><td>-</td></tr></tbody></table>
+| Object Property | Description | Type | Example |
+| --- | --- | --- | --- |
+| attributes | Retrieves all the `Principal` object's domain name attributes | key / value | "ou" → ["Test team", "Dev team"] |
+| businessCategory | Business category | string | - |
+| c | Country code | string | FR |
+| cn | Common name | string | - |
+| countryOfCitizenship | RFC 3039 CountryOfCitizenship | string | - |
+| countryOfResidence | RFC 3039 CountryOfResidence | string | - |
+| dateOfBirth | RFC 3039 RFC 3039 DateOfBirth | string | 19830719000000Z |
+| dc | Domain component | string | - |
+| defined | Returns `true` if the `Principal` object is defined and contains values. Returns `false` otherwise. | boolean | - |
+| description | Description | string | - |
+| dmdName | RFC 2256 directory management domain | string | - |
+| dn | Fully qualified domain name | string | - |
+| dnQualifier | Domain name qualifier | string | - |
+| e | Email address in Verisign certificates | string | - |
+| emailAddress | Email address (RSA PKCS#9 extension) | string | - |
+| gender | RFC 3039 Gender | string | "M", "F", "m" or "f" |
+| generation | Naming attributes of type X520name | string | - |
+| givenname | Naming attributes of type X520name | string | - |
+| initials | Naming attributes of type X520name | string | - |
+| l | Locality name | string | - |
+| name | Name | string | - |
+| nameAtBirth | ISIS-MTT NameAtBirth | string | - |
+| o | Organization | string | - |
+| organizationIdentifier | Organization identifier | string | - |
+| ou | Organization unit name | string | - |
+| placeOfBirth | RFC 3039 PlaceOfBirth | string | - |
+| postalAddress | RFC 3039 PostalAddress | string | - |
+| postalCode | Postal code | string | - |
+| pseudonym | RFC 3039 Pseudonym | string | - |
+| role | Role | string | - |
+| serialnumber | Device serial number name | string | - |
+| st | State or province name | string | - |
+| street | Street | string | - |
+| surname | Naming attributes of type X520name | string | - |
+| t | Title | string | - |
+| telephoneNumber | Telephone number | string | - |
+| uid | LDAP User id | string | - |
+| uniqueIdentifier | Naming attributes of type X520name | string | - |
+| unstructuredAddress | Unstructured address (from PKCS#9) | string | - |
 {% endtab %}
 
 {% tab title="Examples" %}
@@ -383,7 +580,11 @@ The object properties you can access for API responses from the `{#response}` ro
 
 {% tabs %}
 {% tab title="Table" %}
-<table><thead><tr><th width="172">Object Property</th><th>Description</th><th width="125">Type</th><th>Example</th></tr></thead><tbody><tr><td>content</td><td>Body content</td><td>string</td><td>-</td></tr><tr><td>headers</td><td>Headers</td><td>key / value</td><td>X-Custom → myvalue</td></tr><tr><td>status</td><td>Status of the HTTP response</td><td>int</td><td>200</td></tr></tbody></table>
+| Object Property | Description | Type | Example |
+| --- | --- | --- | --- |
+| content | Body content | string | - |
+| headers | Headers | key / value | X-Custom → myvalue |
+| status | Status of the HTTP response | int | 200 |
 {% endtab %}
 
 {% tab title="Example" %}
@@ -401,7 +602,16 @@ The EL used for a message does not change based on phase. EL is executed on the 
 
 {% tabs %}
 {% tab title="Table" %}
-<table><thead><tr><th width="172">Object Property</th><th>Description</th><th width="125">Type</th><th>Example</th></tr></thead><tbody><tr><td>attributeNames</td><td>The names of the attributes</td><td>list / array</td><td>-</td></tr><tr><td>attributes</td><td>Attributes attached to the message</td><td>key / value</td><td>-</td></tr><tr><td>content</td><td>Content of the message</td><td>string</td><td>-</td></tr><tr><td>contentLength</td><td>Size of the content</td><td>integer</td><td>-</td></tr><tr><td>error</td><td>Flag regarding the error state of the message</td><td>boolean</td><td>-</td></tr><tr><td>headers</td><td>Headers attached to the message</td><td>key / value</td><td>-</td></tr><tr><td>id</td><td>ID of the message</td><td>string</td><td>-</td></tr><tr><td>metadata</td><td>Metadata attached to the message</td><td>key / value</td><td>-</td></tr></tbody></table>
+| Object Property | Description | Type | Example |
+| --- | --- | --- | --- |
+| attributeNames | The names of the attributes | list / array | - |
+| attributes | Attributes attached to the message | key / value | - |
+| content | Content of the message | string | - |
+| contentLength | Size of the content | integer | - |
+| error | Flag regarding the error state of the message | boolean | - |
+| headers | Headers attached to the message | key / value | - |
+| id | ID of the message | string | - |
+| metadata | Metadata attached to the message | key / value | - |
 {% endtab %}
 
 {% tab title="Examples" %}
@@ -416,12 +626,16 @@ A node is a component that represents an instance of the Gravitee Gateway. Each 
 
 {% tabs %}
 {% tab title="Table" %}
-<table><thead><tr><th width="179">Object Property</th><th width="153">Description</th><th width="94">Type</th><th>Example</th></tr></thead><tbody><tr><td>id</td><td>Node ID</td><td>string</td><td>975de338-90ff-41ab-9de3-3890ff41ab62</td></tr><tr><td>shardingTags</td><td>Node sharding tag</td><td>array of string</td><td>[internal,external]</td></tr><tr><td>tenant</td><td>Node tenant</td><td>string</td><td>Europe</td></tr><tr><td>version</td><td>Node version</td><td>string</td><td>3.14.0</td></tr><tr><td>zone</td><td>Zone the node is grouped in</td><td>string</td><td>europe-west-2</td></tr></tbody></table>
+| Object Property | Description | Type | Example |
+| --- | --- | --- | --- |
+| id | Node ID | string | 975de338-90ff-41ab-9de3-3890ff41ab62 |
+| shardingTags | Node sharding tag | array of string | [internal,external] |
+| tenant | Node tenant | string | Europe |
+| version | Node version | string | 3.14.0 |
+| zone | Zone the node is grouped in | string | europe-west-2 |
 {% endtab %}
 
 {% tab title="Example" %}
 Get the version of a node : `{#node.version}`
 {% endtab %}
 {% endtabs %}
-
-[^1]: `{#request.content}` is only available for policies bound to an `on-request-content` phase.

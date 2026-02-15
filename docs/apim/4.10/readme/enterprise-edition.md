@@ -31,7 +31,7 @@ Gravitee offers several different types of plugins. Here are the EE plugins avai
 
 ### Endpoints
 
-* [Agent to Agent](https://download.gravitee.io/#graviteeio-ee/apim/plugins/endpoints/gravitee-endpoint-agent-to-agent/): Supports Google’s Agent-to-Agent (A2A) protocol. To simplify communication, it uses SSE, HTTP GET, or HTTP POST methods in compliance with evolving A2A specifications.
+* [Agent to Agent](https://download.gravitee.io/#graviteeio-ee/apim/plugins/endpoints/gravitee-endpoint-agent-to-agent/): Supports Google's Agent-to-Agent (A2A) protocol. To simplify communication, it uses SSE, HTTP GET, or HTTP POST methods in compliance with evolving A2A specifications.
 * [Azure Service Bus](https://download.gravitee.io/#graviteeio-ee/apim/plugins/endpoints/gravitee-endpoint-azure-service-bus/): Uses HTTP and WebSocket to publish and subscribe to events in Azure Service Bus. The Gateway mediates the protocol between the client and the backend.
 * [Kafka](https://download.gravitee.io/#graviteeio-ee/apim/plugins/endpoints/gravitee-endpoint-kafka/): Uses HTTP and WebSocket to publish and subscribe to events in Kafka. The Gateway mediates the protocol between the client and the backend.
 * [MQTT5](https://download.gravitee.io/#graviteeio-ee/apim/plugins/endpoints/gravitee-endpoint-mqtt5/): Lets you subscribe or publish messages to a MQTT 5.x broker such as HiveMQ or Mosquitto.
@@ -41,7 +41,7 @@ Gravitee offers several different types of plugins. Here are the EE plugins avai
 
 ### Entrypoints
 
-* [Agent to Agent](https://download.gravitee.io/#graviteeio-ee/apim/plugins/entrypoints/gravitee-entrypoint-agent-to-agent/): Supports Google’s Agent-to-Agent (A2A) protocol. To simplify communication, it uses SSE, HTTP GET, or HTTP POST methods in compliance with evolving A2A specifications.
+* [Agent to Agent](https://download.gravitee.io/#graviteeio-ee/apim/plugins/entrypoints/gravitee-entrypoint-agent-to-agent/): Supports Google's Agent-to-Agent (A2A) protocol. To simplify communication, it uses SSE, HTTP GET, or HTTP POST methods in compliance with evolving A2A specifications.
 * [HTTP GET](https://download.gravitee.io/#graviteeio-ee/apim/plugins/entrypoints/gravitee-entrypoint-http-get/): Fronts a backend or data source with a Gateway REST API that supports the HTTP GET request.
 * [HTTP POST](https://download.gravitee.io/#graviteeio-ee/apim/plugins/entrypoints/gravitee-entrypoint-http-post/): Fronts a backend or data source with a Gateway REST API that supports the HTTP POST request.
 * [Native Kafka](https://download.gravitee.io/#graviteeio-ee/apim/plugins/entrypoints/gravitee-entrypoint-native-kafka/): Lets you subscribe or publish messages to a Kafka broker using the native Kafka protocol.
@@ -66,6 +66,10 @@ Gravitee offers several different types of plugins. Here are the EE plugins avai
 * [Transform Protobuf to JSON](https://download.gravitee.io/#graviteeio-ee/apim/plugins/policies/gravitee-policy-transform-protobuf-json/): Applies a Protobuf to JSON transformation, or mapping, on the request, response, and/or message content.
 * [WS Security Authentication](https://download.gravitee.io/#graviteeio-ee/apim/plugins/policies/gravitee-policy-wssecurity-authentication/): Lets you manage the security of SOAP API calls.
 * [XSLT](https://download.gravitee.io/#graviteeio-ee/apim/plugins/policies/gravitee-policy-xslt/): Applies an XSL transformation to an incoming XML request body, or to the response body if your backend is exposing XML content.
+
+{% hint style="info" %}
+**AI Semantic Caching policy**: The AI Semantic Caching policy is currently under evaluation for licensing tier assignment. This policy requires the AI Model Text Embedding Resource and a Vector Store Resource. It is compatible with LLM Proxy APIs only and requires APIM version 4.11.x or above with Java 21+. Licensing status (Enterprise Edition vs Community Edition) requires explicit confirmation before inclusion in the Enterprise Policy table.
+{% endhint %}
 
 ### Reactors
 
@@ -155,7 +159,7 @@ The Observability pack includes capabilities to better implement enterprise-grad
 
 The Secret Manager pack includes generic, configurable, and autonomous clients that manage connections, retries, and credentials renewal when connecting to Secret Managers:
 
-* **HashiCorp Vault**: Use the Key/Value engine of HC Vault to to avoid exposing plain text passwords and secrets keys.
+* **HashiCorp Vault**: Use the Key/Value engine of HC Vault to to avoid exposing plain text passwords and secret keys.
 
 </details>
 

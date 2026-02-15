@@ -16,6 +16,7 @@ Policies marked with an asterisk require an Enterprise Edition license.
 * [AI - MCP ACL](ai-mcp-acl.md)\*
 * [AI - Prompt Guard Rails](ai-prompt-guard-rails.md)\*
 * [AI - Prompt Token Tracking](ai-prompt-token-tracking.md)\*
+* [AI - Semantic Caching](ai-semantic-caching.md)\*
 * [AI - Token Rate Limit](ai-token-rate-limit.md)
 * [API Key](api-key.md)
 * [Assign Attributes](assign-attributes.md)
@@ -90,3 +91,47 @@ Policies marked with an asterisk require an Enterprise Edition license.
 * [XML Threat Protection](xml-threat-protection.md)
 * [XML Validation](xml-validation.md)
 * [XSLT Transformation](xslt.md)\*
+
+## AI Semantic Caching
+
+The AI Semantic Caching policy enables semantic caching of responses based on request content similarity using vector embeddings. This policy is designed for LLM Proxy APIs and requires an AI Model Text Embedding Resource and a Vector Store Resource configured at either the API or platform level.
+
+### Compatibility
+
+* **API type:** LLM Proxy
+* **Available:** APIM 4.11.x+
+* **Plugin version:** 1.x requires Java 21+
+
+### Prerequisites
+
+* AI Model Text Embedding Resource (configured at API or platform level)
+* Vector Store Resource (configured at API or platform level)
+
+### How it works
+
+The policy operates in two phases:
+
+1. **Request phase:** Extracts content from the request, generates a vector embedding, and searches the vector store for similar cached vectors. If a match is found based on the similarity threshold, the cached response is returned. Otherwise, the request is forwarded to the backend.
+2. **Response phase:** Evaluates the cache condition to determine if the response should be cached. If cacheable, the response is stored with the vector and metadata in the vector store.
+
+### Configuration options
+
+* **`promptExpression`:** Expression to extract content for vectorization. Default: `{#request.content}`
+* **`cacheCondition`:** Condition to determine if the response should be cached. Default: `{#response.status >= 200 && #response.status < 300}`
+* **`parameters`:** Metadata attached to cached vectors for filtering (e.g., per API, per user, per plan). Use `encode: true` to hash sensitive values.
+
+### Best practices
+
+* Use JSONPath for complex payloads to extract only relevant content.
+* Set appropriate cache conditions to avoid caching errors or non-deterministic responses.
+* Use encoded parameters for sensitive data like user IDs.
+* Configure vector store similarity thresholds to balance cache hit rate vs accuracy.
+
+### Limitations
+
+* Quality of semantic matching depends on the embedding model and vector store configuration.
+* Not suitable for APIs with highly dynamic or personalized responses.
+
+### Future improvements
+
+* Integration with AI Summarization to improve cache hit rate by using prompt summaries as the vector basis instead of full prompts.
