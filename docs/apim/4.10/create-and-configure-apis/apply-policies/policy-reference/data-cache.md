@@ -15,6 +15,21 @@ The Data Cache policy allows you to get, set, and expire arbitrary key-value pai
 * Maintain state in the gateway to track the number of tokens passed to an upstream LLM proxied by the API.
 * Restrict the number of ongoing connections to an endpoint in order to protect a legacy backend from overload.
 
+### Data Cache vs Semantic Caching
+
+The Data Cache policy uses **exact key matching** to retrieve cached values. This is suitable for traditional caching scenarios where the cache key is deterministic (e.g., API keys, user IDs, authentication tokens).
+
+For AI and LLM workloads, consider using the [AI Semantic Caching](ai-semantic-caching-policy.md) policy instead. Semantic caching uses **vector embeddings** to match requests based on semantic similarity rather than exact key matches. This allows you to cache responses for similar prompts or queries, even when the exact wording differs.
+
+**Key differences:**
+
+| Feature | Data Cache | AI Semantic Caching |
+| --- | --- | --- |
+| Matching strategy | Exact key match | Semantic similarity using vector embeddings |
+| Use case | Deterministic keys (tokens, IDs) | AI/LLM prompts and queries |
+| Cache lookup | Hash-based | Vector similarity search |
+| Dependencies | Cache resource only | Embedding model + vector store resources |
+
 ## Basic Usage
 
 * First, you create a [cache resource](https://github.com/gravitee-io/gravitee-platform-docs/blob/6f69d3d43334c5f35db35e34f1d23832790b9725/docs/apim/4.6/policies/resources.md) for the policy to use.

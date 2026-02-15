@@ -305,6 +305,7 @@ The object properties you can access from the `{#request}` root-level object pro
 {% tab title="Examples" %}
 * Get the value of the `Content-Type` header for an incoming HTTP request using `{#request.headers['content-type']}`
 * Get the second part of the request path using `{#request.paths[1]}`
+* Extract the last user message from an LLM chat completion request body using `{#jsonPath(#request.content, '$.messages[-1:].content')}`
 {% endtab %}
 {% endtabs %}
 

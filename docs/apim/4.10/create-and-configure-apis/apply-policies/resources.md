@@ -273,3 +273,15 @@ You may encounter an error when using this resource with Gravitee's default Dock
 }
 ```
 {% endcode %}
+
+#### AI Text Embedding Model
+
+The AI Text Embedding Model resource generates vector representations of text content using an embedding model. It transforms text into numerical vectors that capture semantic meaning, enabling similarity-based operations such as semantic caching and content matching.
+
+This resource is used by the AI Semantic Caching policy to generate vector embeddings of request content for semantic matching against previously cached vectors. The model runs locally on the Gateway using the ONNX Runtime. The first request to an API using this resource will take longer than usual as the model is loaded into memory at that time. Subsequent requests are processed faster.
+
+{% hint style="info" %}
+You may encounter an error when using this resource with Gravitee's default Docker image. This is because the default images are based on Alpine Linux, which does not support the ONNX Runtime. To resolve this issue, use the Gravitee Docker image based on Debian, available at `graviteeio/apim-gateway:<version>-debian`.
+{% endhint %}
+
+<table><thead><tr><th width="167">Config param</th><th width="384.3046875">Description</th><th>Default</th></tr></thead><tbody><tr><td>Model</td><td>The AI embedding model to use for generating vector representations of text. Supported models include various ONNX-compatible text embedding models. For a full list of supported models, see the plugin repository.</td><td>-</td></tr></tbody></table>

@@ -16,6 +16,7 @@ Policies marked with an asterisk require an Enterprise Edition license.
 * [AI - MCP ACL](ai-mcp-acl.md)\*
 * [AI - Prompt Guard Rails](ai-prompt-guard-rails.md)\*
 * [AI - Prompt Token Tracking](ai-prompt-token-tracking.md)\*
+* [AI - Semantic Caching](ai-semantic-caching.md)\*
 * [AI - Token Rate Limit](ai-token-rate-limit.md)
 * [API Key](api-key.md)
 * [Assign Attributes](assign-attributes.md)
@@ -25,7 +26,7 @@ Policies marked with an asterisk require an Enterprise Edition license.
 * [AVRO to Protobuf Transformation](avro-to-protobuf.md)\*
 * [AWS Lambda](aws-lambda.md)
 * [Basic Authentication](basic-authentication.md)
-* [Cache](cache.md)
+* [Cache](../../../prepare-a-production-environment/cache.md)
 * [Circuit Breaker](circuit-breaker.md)
 * [CloudEvents](cloudevents.md)\*
 * [Custom Query Parameters Parser](custom-query-parameters-parser.md)
@@ -62,8 +63,8 @@ Policies marked with an asterisk require an Enterprise Edition license.
 * [Maven Archetype](maven-archetype.md)
 * [Message Filtering](message-filtering.md)
 * [Metrics Reporter](metrics-reporter.md)
-* [Mock](mock.md)
-* [mTLS](mtls.md)
+* [Mock](../../configure-v4-apis/endpoints/mock.md)
+* [mTLS](../../../secure-and-expose-apis/plans/mtls.md)
 * [OAS Validation](oas-validation.md)\*
 * [OAuth2](oauth2/)
 * [OpenID Connect UserInfo](openid-connect-userinfo.md)

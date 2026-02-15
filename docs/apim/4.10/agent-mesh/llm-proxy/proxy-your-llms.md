@@ -4,7 +4,7 @@
 
 The LLM proxy exposes an OpenAI compatible API to the consumer, which you can easily plug in any OpenAI-compatible client. On the backend, the LLM proxy automatically maps and adapts requests to different LLM providers.
 
-This allows you to leverage the Gravitee ecosystem with your LLMs. You can apply our policies, manage subscriptions and track analytics, but you also have new features tailored to LLMs such as statistics and rate limiting based on LLM tokens.
+This allows you to leverage the Gravitee ecosystem with your LLMs. You can apply our policies, manage subscriptions and track analytics, but you also have new features tailored to LLMs such as statistics and rate limiting based on LLM tokens. Key capabilities include semantic caching through the AI Semantic Caching policy, which reduces latency and costs for similar LLM requests by reusing cached responses based on vector similarity.
 
 This guide explains how to set up your LLM in Gravitee.
 

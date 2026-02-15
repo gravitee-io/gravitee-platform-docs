@@ -328,3 +328,50 @@ Warning generated if multiple content parts exist
 * Multi-content responses may generate warnings
 * Check execution context for warning messages
 * Indicates potential data loss in transformation
+
+### AI Semantic Caching
+
+The AI Semantic Caching policy is a key capability for LLM Proxy APIs. It reduces latency and costs for similar LLM requests by reusing cached responses based on vector similarity.
+
+#### How it works
+
+The policy uses vector embeddings to match similar requests and return cached responses:
+
+1. **Request phase**: The policy extracts content from the incoming request (e.g., using JSONPath to isolate the last message in a chat completion), generates a vector embedding using a configured text embedding model, and searches the vector store for similar cached vectors.
+2. **Cache hit**: If a similar vector is found (based on the vector store's similarity threshold), the cached response is returned immediately.
+3. **Cache miss**: If no match is found, the request is forwarded to the LLM backend.
+4. **Response phase**: After receiving the backend response, the policy evaluates a cache condition (e.g., `{#response.status >= 200 && #response.status < 300}`) to determine if the response should be cached. If cacheable, the response is stored in the vector store alongside its vector embedding and metadata.
+
+#### Prerequisites
+
+Before using this policy, configure the following Gravitee resources at the API or platform level:
+
+- **AI Text Embedding Model Resource**: Provides vector embeddings (e.g., `gravitee-resource-ai-model-text-embedding`)
+- **Vector Store Resource**: Stores and retrieves vectors (e.g., `gravitee-resource-ai-vector-store-redis`)
+
+#### Example: OpenAI-compatible chat completions
+
+The following example demonstrates semantic caching for OpenAI-compatible chat completions. The policy extracts the last message content using JSONPath and caches successful responses:
+
+```json
+{
+  "name": "AI Semantic Caching",
+  "enabled": true,
+  "policy": "ai-semantic-caching",
+  "configuration": {
+    "modelName": "ai-model-text-embedding-resource",
+    "vectorStoreName": "vector-store-redis-resource",
+    "promptExpression": "{#jsonPath(#request.content, '$.messages[-1:].content')}",
+    "cacheCondition": "{#response.status >= 200 && #response.status < 300}",
+    "parameters": [
+      {
+        "key": "retrieval_context_key",
+        "value": "{#context.attributes['api']}",
+        "encode": true
+      }
+    ]
+  }
+}
+```
+
+For complete configuration details and additional examples, see the [AI Semantic Caching policy reference](../../reference/policy-reference/ai-semantic-caching.md).
