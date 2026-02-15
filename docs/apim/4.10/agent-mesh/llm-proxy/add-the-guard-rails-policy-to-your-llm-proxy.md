@@ -14,6 +14,9 @@ You might receive an error when you use this policy using the Gravitee's docker 
 * A fully Self-Hosted Installation of APIM or a Hybrid Installation of APIM. For more information about installing APIM, see [self-hosted-installation-guides](../../self-hosted-installation-guides/ "mention") and [hybrid-installation-and-configuration-guides](../../hybrid-installation-and-configuration-guides/ "mention").
 * An Enterprise License. For more information about obtaining an Enterprise license, see [enterprise-edition.md](../../readme/enterprise-edition.md "mention").
 * Complete the steps in [proxy-your-llms.md](proxy-your-llms.md "mention").
+* **AI Text Embedding Model Resource**: Required for AI Semantic Caching policy. For more information, see the AI Text Embedding Model Resource documentation.
+
+<!-- NEED CLARIFICATION: AI Text Embedding Model Resource documentation link not provided. If this resource documentation does not exist, this represents a MISSING DOCUMENTATION GAP that must be addressed. -->
 
 ## Add Guard Rails policy to your LLM proxy
 

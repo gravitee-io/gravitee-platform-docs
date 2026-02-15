@@ -6,6 +6,12 @@ The LLM proxy exposes an OpenAI compatible API to the consumer, which you can ea
 
 This allows you to leverage the Gravitee ecosystem with your LLMs. You can apply our policies, manage subscriptions and track analytics, but you also have new features tailored to LLMs such as statistics and rate limiting based on LLM tokens.
 
+{% hint style="info" %}
+**Semantic Caching for LLM Proxy APIs**
+
+LLM proxy APIs support intelligent response caching based on semantic similarity rather than exact request matching. The AI Semantic Caching policy uses vector embeddings to identify similar requests and return cached responses, reducing latency and computation costs. For more information, see [ai-semantic-caching-policy.md](../../reference/policy-reference/ai-semantic-caching-policy.md "mention").
+{% endhint %}
+
 This guide explains how to set up your LLM in Gravitee.
 
 ## Prerequisites
@@ -26,6 +32,12 @@ This guide explains how to set up your LLM in Gravitee.
     <figure><img src="../../.gitbook/assets/DC8D3A06-3F1D-4D2B-8BC0-04F4C05592AB_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 
 ### Create an LLM proxy API
+
+{% hint style="info" %}
+**Optional: Enable semantic caching**
+
+For production deployments, consider enabling the AI Semantic Caching policy to reduce costs and latency. This policy caches responses based on semantic similarity rather than exact request matching. For configuration details, see [ai-semantic-caching-policy.md](../../reference/policy-reference/ai-semantic-caching-policy.md "mention").
+{% endhint %}
 
 1.  Click **Create V4 API**. <br>
 

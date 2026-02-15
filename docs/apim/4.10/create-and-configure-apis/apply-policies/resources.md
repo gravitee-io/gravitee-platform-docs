@@ -273,3 +273,70 @@ You may encounter an error when using this resource with Gravitee's default Dock
 }
 ```
 {% endcode %}
+
+#### Vector Store Redis
+
+The Vector Store Redis resource provides vector storage and retrieval capabilities for AI-powered policies such as AI Semantic Caching. It stores vector embeddings with associated metadata and enables similarity-based searches with configurable thresholds and metadata filtering.
+
+The resource connects to a Redis instance configured with vector search capabilities (Redis Stack or Redis Enterprise with RediSearch module). It supports both standalone and Sentinel deployment modes.
+
+<table><thead><tr><th width="167">Config param</th><th width="304">Description</th><th>Default</th></tr></thead><tbody><tr><td>Resource name</td><td>Name of the resource</td><td>-</td></tr><tr><td>Index name</td><td>Name of the Redis vector index to use for storage and retrieval</td><td>-</td></tr><tr><td>Similarity threshold</td><td>Minimum similarity score (0.0 to 1.0) required for a vector match. Higher values require closer matches.</td><td>0.8</td></tr><tr><td>Use standalone mode</td><td>Toggle to use standalone Redis mode</td><td>true</td></tr><tr><td>Host</td><td>Redis server host (standalone mode only)</td><td>localhost</td></tr><tr><td>Port</td><td>Redis server port (standalone mode only)</td><td>6379</td></tr><tr><td>Password</td><td>Redis authentication password</td><td>-</td></tr><tr><td>Use SSL</td><td>Toggle to enable SSL/TLS connections</td><td>false</td></tr><tr><td>Timeout</td><td>Connection and operation timeout in milliseconds</td><td>2000</td></tr><tr><td>Max total connections</td><td>Maximum number of connections in the connection pool</td><td>8</td></tr><tr><td>Sentinel mode</td><td>Toggle to use Redis Sentinel for high availability (Sentinel mode only)</td><td>false</td></tr><tr><td>Master ID</td><td>Sentinel master identifier (Sentinel mode only)</td><td>-</td></tr><tr><td>Sentinel password</td><td>Sentinel authentication password (Sentinel mode only)</td><td>-</td></tr><tr><td>Sentinel nodes</td><td>Array of Sentinel node configurations with host and port (Sentinel mode only)</td><td>-</td></tr></tbody></table>
+
+{% code title="Standalone example" %}
+```json
+{
+    "name": "vector-store-redis-resource",
+    "type": "vector-store-redis",
+    "enabled": true,
+    "configuration": {
+        "indexName": "semantic-cache-index",
+        "similarityThreshold": 0.85,
+        "standalone": {
+            "host": "localhost",
+            "port": 6379
+        },
+        "password": "secret",
+        "useSsl": true,
+        "timeout": 2000,
+        "maxTotal": 8
+    }
+}
+```
+{% endcode %}
+
+{% code title="Sentinel example" %}
+```json
+{
+    "name": "vector-store-redis-resource",
+    "type": "vector-store-redis",
+    "enabled": true,
+    "configuration": {
+        "indexName": "semantic-cache-index",
+        "similarityThreshold": 0.85,
+        "sentinelMode": true,
+        "sentinel": {
+            "masterId": "sentinel-master",
+            "password": "sentinel-secret",
+            "nodes": [
+                {
+                    "host": "localhost",
+                    "port": 26379
+                },
+                {
+                    "host": "localhost",
+                    "port": 26380
+                },
+                {
+                    "host": "localhost",
+                    "port": 26381
+                }
+            ]
+        },
+        "password": "secret",
+        "useSsl": true,
+        "timeout": 2000,
+        "maxTotal": 8
+    }
+}
+```
+{% endcode %}
