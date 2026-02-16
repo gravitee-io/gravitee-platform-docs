@@ -19,14 +19,17 @@ Gravitee supports the following Kafka policies, which can be applied to Kafka AP
 
 The request and response of a Kafka API transaction are broken up into the following phases:
 
-* **Connect:** Policies are executed after plan selection and authentication on the Gateway, but before the client connects to the upstream broker.
+* **Client Connect:** Policies are executed after plan selection and authentication on the Gateway, but before the client connects to the upstream broker.
+* **Endpoint Connect:** Policies are executed after the client connects to the Gateway, but before the Gateway connects to the upstream broker.
 * **Interact:** Policies with a global scope (e.g., topic mapping) are executed on all interactions between the client and the Gateway.
 * **Publish:** Specific policies acting at the message level are applied to each produced record.
 * **Subscribe:** Specific policies acting at the message level are applied to each fetched record.
 
 Which Kafka policies can be applied to each phase is summarized below:
 
-<table><thead><tr><th>Policy</th><th data-type="checkbox">Connect</th><th data-type="checkbox">Interact</th><th data-type="checkbox">Publish</th><th data-type="checkbox">Subscribe</th></tr></thead><tbody><tr><td>Kafka ACL</td><td>false</td><td>true</td><td>false</td><td>false</td></tr><tr><td>Kafka Message Filtering</td><td>false</td><td>false</td><td>false</td><td>true</td></tr><tr><td>Kafka Offloading</td><td>false</td><td>false</td><td>true</td><td>true</td></tr><tr><td>Kafka Quota</td><td>false</td><td>false</td><td>true</td><td>true</td></tr><tr><td>Kafka Topic Mapping</td><td>false</td><td>true</td><td>false</td><td>false</td></tr><tr><td>Kafka Transform Key</td><td>false</td><td>false</td><td>true</td><td>true</td></tr></tbody></table>
+<table><thead><tr><th>Policy</th><th data-type="checkbox">Client Connect</th><th data-type="checkbox">Endpoint Connect</th><th data-type="checkbox">Interact</th><th data-type="checkbox">Publish</th><th data-type="checkbox">Subscribe</th></tr></thead><tbody><tr><td>Kafka ACL</td><td>false</td><td>false</td><td>true</td><td>false</td><td>false</td></tr><tr><td>Kafka Message Filtering</td><td>false</td><td>false</td><td>false</td><td>false</td><td>true</td></tr><tr><td>Kafka Offloading</td><td>false</td><td>false</td><td>false</td><td>true</td><td>true</td></tr><tr><td>Kafka Quota</td><td>false</td><td>false</td><td>false</td><td>true</td><td>true</td></tr><tr><td>Kafka Topic Mapping</td><td>false</td><td>false</td><td>true</td><td>false</td><td>false</td></tr><tr><td>Kafka Transform Key</td><td>false</td><td>false</td><td>false</td><td>true</td><td>true</td></tr></tbody></table>
+
+<!-- GAP: The table above shows Client Connect and Endpoint Connect phases with all policies marked as "false". The source draft does not specify which policies (if any) can be applied to these new phases. This must be clarified with engineering or the Jira ticket. -->
 
 Kafka policies can be applied to these phases in policy chains of arbitrary length.
 

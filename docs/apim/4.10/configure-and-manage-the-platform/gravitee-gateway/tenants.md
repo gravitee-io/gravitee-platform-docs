@@ -63,3 +63,31 @@ Similarly, Gateways GWE1, GWE2, GWE3, GWE4 will apply the following logic when s
 * If a tenant configuration is “eu,” a request to Customer API is proxied to `https://eu.customer-api.com`
 * If a tenant configuration is “usa,” a request to Backend API is proxied to `https://usa.backend-api.com`
 {% endhint %}
+
+### Tenant-based endpoint selection
+
+When a Gateway has a tenant configured, it selects the first valid endpoint from the first Endpoint Group. An endpoint is considered valid if it meets one of the following criteria:
+
+* The endpoint has no tenant configuration (shared endpoint)
+* The endpoint has a tenant configuration that exactly matches the tenant configured on the Gateway
+
+#### Selection rules
+
+The Gateway applies the following logic when selecting an endpoint:
+
+1. **Gateway without tenant**: Selects the first endpoint from the first Endpoint Group, regardless of tenant configuration.
+2. **Gateway with tenant**: Selects the first valid endpoint from the first Endpoint Group where:
+   * The endpoint has no tenant configuration, **or**
+   * The endpoint's tenant list includes the Gateway's configured tenant
+
+Endpoints whose tenant configuration does not match the Gateway's tenant are ignored. If no valid endpoint is found after tenant filtering, the Gateway returns a `503 No endpoint available` error.
+
+{% hint style="info" %}
+Only the first Endpoint Group is considered for selection. Future releases may introduce additional configuration options (e.g., Dynamic Routing Policy) to enable selection from other endpoint groups.
+{% endhint %}
+
+#### Priority order
+
+Endpoints are evaluated in the order they appear within the Endpoint Group. The first valid endpoint is selected and used for all requests routed through that Gateway.
+
+<!-- GAP: No information provided about how endpoint order is configured or modified in the Console UI -->

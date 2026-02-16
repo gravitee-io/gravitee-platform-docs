@@ -75,3 +75,93 @@ Gravitee automatically assigns your Kafka API endpoint the name **Default Broker
 3.  By default, endpoints inherit configuration settings from their endpoint group. To override these settings, select the **Configuration** tab and configure custom security settings.
 
     <figure><img src="../../../.gitbook/assets/ovveride-endpoints-configuration.png" alt=""><figcaption></figcaption></figure>
+
+### Endpoint groups and multiple endpoints
+
+A Kafka Native API can be configured with multiple Endpoint Groups and multiple Endpoints per group. Endpoint Groups organize and prioritize endpoints. The gateway selects the first endpoint from the first Endpoint Group, or the first valid endpoint if tenant-based selection is configured.
+
+#### Multiple endpoints per group
+
+You can add, remove, rename, and reorder endpoints within a native endpoint group for a Kafka API. Endpoints are evaluated in the order they appear within each group. The first valid endpoint is selected at runtime.
+
+#### Tenant-based endpoint selection
+
+Tenants enable zone-aware or region-specific routing. Each endpoint can be associated with one or more tenants, or left untagged to serve as a shared fallback endpoint.
+
+**Gateway without tenant configured**
+
+The gateway selects the first endpoint from the first Endpoint Group. No tenant-based filtering is applied.
+
+**Gateway with tenant configured**
+
+The gateway selects the first valid endpoint from the first Endpoint Group according to the following criteria:
+
+- An endpoint is valid if it has no tenant configuration (usable by all gateways), or
+- An endpoint is valid if its tenant configuration matches the tenant configured on the gateway.
+
+Endpoints whose tenant does not match the gateway are ignored. If no valid endpoint remains after filtering, the API does not run on that gateway.
+
+#### Endpoint priority and selection order
+
+Only the first Endpoint Group is considered for selection. Endpoints are evaluated in the order they appear within the group. The first valid endpoint is selected.
+
+<!-- GAP: Dynamic routing policy or other future configuration options that allow selection of alternate endpoint groups are not yet documented. -->
+
+#### Switching endpoints
+
+Changing the active endpoint (by reordering or explicit action) triggers a deployment. The gateway gracefully closes existing connections for the affected API, and Kafka clients reconnect to the newly selected endpoint. Kafka clients handle reconnection; the gateway does not perform automatic failover or health checks.
+
+<!-- GAP: Specific UI controls for "Set Active" action or drag-and-drop reordering are not described in the source. -->
+
+#### Limitations
+
+- No automatic failover or health checks.
+- No load balancing (weights or round-robin) across endpoints.
+- Cross-cluster data alignment, offset migration, and topic replication are customer-owned responsibilities.
+
+<!-- GAP: Detailed UI screenshots and step-by-step instructions for configuring multiple endpoints and tenants are not provided in the source. -->
+
+### Tenant assignment
+
+Kafka endpoints support tenant-based routing. A Kafka endpoint can have no tenant configuration (generic endpoint) or be associated with one or more specific tenants.
+
+Tenants are configurable in the organization settings and work similarly to tenants used for classic APIs in APIM. When a gateway is configured with a tenant identifier, it activates only the Kafka endpoints whose tenant list is empty or contains the configured tenant. Endpoints with mismatched tenants are ignored.
+
+If no endpoint remains after tenant filtering, the gateway responds with a `503 – No endpoint available` error.
+
+For more information about configuring multiple Kafka endpoints and tenant-based selection, see [Kafka multi-endpoint configuration](../../../kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/kafka-multi-endpoint-configuration.md).
+
+<!-- GAP: Link target "kafka-multi-endpoint-configuration.md" must be created or verified -->
+
+### Multi-endpoint and tenant-based selection
+
+Kafka APIs support multiple endpoints within a single endpoint group and tenant-based endpoint selection. The gateway automatically determines which endpoint to use based on defined rules.
+
+For detailed configuration instructions, see [Kafka Multi-Endpoint Configuration](link-to-kafka-multi-endpoint-configuration-guide).
+
+#### Key capabilities
+
+- **Multiple endpoints per group**: Configure multiple Kafka endpoints within a single endpoint group to support scenarios such as disaster recovery, regional routing, or planned migrations.
+- **Tenant-based selection**: Associate endpoints with specific tenants so that gateways automatically route traffic to the appropriate backend cluster based on their configured tenant.
+- **Deterministic routing**: The gateway selects endpoints according to a defined priority order: tenant match, then first endpoint in the group.
+
+#### Endpoint selection rules
+
+The gateway applies the following logic when selecting an endpoint:
+
+**Gateway without tenant configured**:
+- Selects the first endpoint in the first endpoint group.
+- No tenant-based filtering is applied.
+
+**Gateway with tenant configured**:
+- Selects the first valid endpoint from the first endpoint group.
+- An endpoint is valid if:
+  - It has no tenant configuration (available to all gateways), or
+  - Its tenant configuration matches the gateway's configured tenant.
+- Endpoints whose tenant does not match the gateway's tenant are ignored.
+
+#### Switching endpoints
+
+Publishers can manually switch the active endpoint by reordering endpoints within the group or using the "Set Active" action. Deploying this change gracefully closes existing connections, allowing Kafka clients to reconnect to the newly selected endpoint.
+
+<!-- GAP: Link destination for "Kafka Multi-Endpoint Configuration" guide not provided in source -->

@@ -27,6 +27,11 @@ Perform the following steps in APIM Console to update the most common default se
       2.  In the **Entrypoint mappings** section of the page, update the **Entrypoint** field with your APIM API endpoint.
 
           <figure><img src="../../../.gitbook/assets/prod_def apim3 (1).png" alt=""><figcaption><p>Save sharding tag</p></figcaption></figure>
+      3. Select **General**.
+      4.  (Optional) In the **Tenant** field, configure a tenant for this gateway. This setting affects Kafka endpoint selection at runtime:
+          
+          * If no tenant is configured, the gateway selects the first endpoint from the first endpoint group.
+          * If a tenant is configured, the gateway selects the first valid endpoint from the first endpoint group that either has no tenant configuration or matches the configured tenant exactly.
    2. Select **Settings** in the inner sidebar:
       * Update the **Title** of APIM Console to make it more appropriate to your own environment.
       *   Update the **Management URL** to your APIM Console URL.

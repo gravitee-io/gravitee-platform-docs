@@ -25,5 +25,6 @@ To explore the API documentation, select any of the following endpoint categorie
   * Configure applications, dictionaries, sharding tags, users, and other entities
 * [**/management/v2 subcomponent documentation**](https://gravitee-io-labs.github.io/mapi-v2-docs-openapi-apis/)**:** provides the specification for `management/v2` endpoints. Use this component to complete the following actions:
   * Manage V4 and Federated APIs
+  * Configure endpoint groups and tenant-based endpoint selection for Kafka Native APIs
   * Configure multi-tenant aspects of APIM such as licenses, plugins, and OEM customization
 * [**/portal component documentation**](https://gravitee-io-labs.github.io/mapi-v2-docs-openapi-portal/)**:** productize APIs and manage applications and subscriptions

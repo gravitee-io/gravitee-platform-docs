@@ -24,6 +24,31 @@ To configure v4 proxy API endpoints:
 
 You can also create additional endpoints in the existing group or in new endpoint groups. Refer to the following sections for step-by-step configuration details per proxy type.
 
+### Endpoint groups and tenant configuration
+
+APIs can be configured with multiple endpoint groups, each containing one or more endpoints. Endpoint groups are primarily used to organize and prioritize endpoints.
+
+Endpoints can be associated with one or more specific tenants, or left untagged to function as generic endpoints available to all gateways. Tenants are configurable in the organization settings and work similarly to tenants used for classic APIs in APIM.
+
+#### Endpoint selection
+
+The Gateway automatically selects the appropriate endpoint at runtime based on the following rules:
+
+* **Gateway without tenant configured**: The Gateway selects the first endpoint from the first endpoint group. No tenant-based filtering is applied.
+* **Gateway with tenant configured**: The Gateway selects the first valid endpoint from the first endpoint group. An endpoint is considered valid if:
+  * It has no tenant configuration (usable by all gateways), or
+  * Its tenant configuration exactly matches the tenant configured on the Gateway
+
+Endpoints whose tenant does not match the Gateway are ignored, and the API will not run on that Gateway.
+
+#### Priority order
+
+* Only the first endpoint group is considered. Future configurations (such as Dynamic Routing Policy) may allow selection of other endpoint groups.
+* Endpoints are evaluated in order within each group.
+* The first valid endpoint is selected.
+
+<!-- GAP: Screenshots showing the updated endpoint management page with endpoint groups and tenant configuration fields are required to illustrate these changes. -->
+
 ### HTTP proxy APIs
 
 Edit the endpoint's settings under the **General** and **Configuration** tabs.
@@ -181,7 +206,7 @@ v4 message APIs currently support the following endpoints:
 * **Solace**: Enables the Gravitee API Gateway to establish a persistent connection with Solace as a backend resource or target.
 * **Mock**: Enables the Gateway to simulate responses from a server for testing API implementations.
 
-### Configuration and Implementation
+### Configuration and implementation
 
 To access endpoint configuration:
 
