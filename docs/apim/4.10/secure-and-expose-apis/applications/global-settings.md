@@ -29,6 +29,18 @@ To configure global settings, complete the following steps:
 Some general details are common to all applications, and others vary by application type.
 {% endhint %}
 
+### Add a client certificate
+
+Applications can include a client certificate for use with mTLS plans. When subscribing to a Kafka API with an mTLS plan, APIM uses the client certificate to identify the application during the Kafka connection.
+
+To add a client certificate to an application:
+
+1. In the **Global settings** section, locate the **Client Certificate** field.
+2. Upload or paste the client certificate.
+3. Save the application settings.
+
+For more information on configuring mTLS for Kafka APIs, see [Plans](../../kafka-gateway/plans.md).
+
 ## Application management
 
 Initially, only the application’s creator can view and manage the application. By default, APIM includes three membership roles:

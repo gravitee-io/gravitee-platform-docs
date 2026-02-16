@@ -21,7 +21,7 @@ Gravitee's platform extends beyond API Management. For information on enterprise
 The features below are included in the default enterprise APIM distribution.
 {% endhint %}
 
-<table><thead><tr><th width="214">Feature</th><th>Description</th></tr></thead><tbody><tr><td><strong>Audit Trail</strong></td><td>Audit the consumption and activity of your Gravitee APIs per event and type to monitor the behavior of your APIs and platform</td></tr><tr><td><strong>Bridge Gateway</strong></td><td>Deploy a Bridge Gateway, which is a proxy for a repository, to avoid opening a connection between a database and something outside its network. The sync occurs over HTTP instead of the database protocol.</td></tr><tr><td><strong>Custom roles</strong></td><td>Create custom user roles to fit your needs. A role is a functional group of permissions and can be defined at the organization, environment, API, and/or application level.</td></tr><tr><td><strong>DCR</strong></td><td>The dynamic client registration (DCR) protocol allows OAuth client applications to register with an OAuth server through the OpenID Connect (OIDC) client registration endpoint</td></tr><tr><td><strong>Debug mode</strong></td><td>Easily test and debug your policy execution and enforcement</td></tr><tr><td><strong>Enterprise OpenID Connect SSO</strong></td><td>Use OpenId Connect SSO with your API Management platform</td></tr><tr><td><strong>Sharding tags</strong></td><td>Specify which "shard" of the Gateway an API should be deployed to. By tagging Gateways with specific keywords, you can select a tag in the API's proxy settings to control where the API will be deployed.</td></tr></tbody></table>
+<table><thead><tr><th width="214">Feature</th><th>Description</th></tr></thead><tbody><tr><td><strong>Audit Trail</strong></td><td>Audit the consumption and activity of your Gravitee APIs per event and type to monitor the behavior of your APIs and platform</td></tr><tr><td><strong>Bridge Gateway</strong></td><td>Deploy a Bridge Gateway, which is a proxy for a repository, to avoid opening a connection between a database and something outside its network. The sync occurs over HTTP instead of the database protocol.</td></tr><tr><td><strong>Custom roles</strong></td><td>Create custom user roles to fit your needs. A role is a functional group of permissions and can be defined at the organization, environment, API, and/or application level.</td></tr><tr><td><strong>DCR</strong></td><td>The dynamic client registration (DCR) protocol allows OAuth client applications to register with an OAuth server through the OpenID Connect (OIDC) client registration endpoint</td></tr><tr><td><strong>Debug mode</strong></td><td>Easily test and debug your policy execution and enforcement</td></tr><tr><td><strong>Enterprise OpenID Connect SSO</strong></td><td>Use OpenId Connect SSO with your API Management platform</td></tr><tr><td><strong>mTLS for Native Kafka APIs</strong></td><td>Enable mutual TLS authentication for native Kafka APIs to strengthen security by verifying Kafka client identities using certificates. For configuration details, see <a href="../kafka-gateway/configure-the-kafka-client-and-gateway.md">Configure the Kafka Client and Gateway</a>.</td></tr><tr><td><strong>Sharding tags</strong></td><td>Specify which "shard" of the Gateway an API should be deployed to. By tagging Gateways with specific keywords, you can select a tag in the API's proxy settings to control where the API will be deployed.</td></tr></tbody></table>
 
 ## Enterprise plugins
 
@@ -112,8 +112,8 @@ The Enterprise Policy pack includes policies that are typically necessary for en
 
 The Event-native pack includes capabilities that enable Gravitee to expose, secure, and govern asynchronous APIs and event brokers:
 
-* [**v4 message API entrypoints**](../create-and-configure-apis/create-apis/v4-api-creation-wizard.md#step-2-entrypoints)**:** Access the Gateway and/or consume various message-based backend resources via **HTTP GET**, **HTTP POST**, **Server-sent Events**, **Webhook**, and/or **WebSocket**
-* [**v4 message API endpoints**](../create-and-configure-apis/create-apis/v4-api-creation-wizard.md#introspect-messages-from-event-driven-backend-endpoints)**:**
+* [**v4 message API entrypoints**](../create-and-configure-apis/create-apis/v4-api-creation-wizard.md)**:** Access the Gateway and/or consume various message-based backend resources via **HTTP GET**, **HTTP POST**, **Server-sent Events**, **Webhook**, and/or **WebSocket**
+* [**v4 message API endpoints**](../create-and-configure-apis/create-apis/v4-api-creation-wizard.md)**:**
   * Allow the Gateway to open up a persistent connection and/or call a backend:
     * **Kafka** broker via a Kafka client
     * **MQTT** broker running on MQTT 5.x, via an MQTT client
@@ -123,7 +123,7 @@ The Event-native pack includes capabilities that enable Gravitee to expose, secu
 * **Message Filtering policy:** Filter messages streamed to clients/subscribers based on API publisher and/or client criteria.
 * **AVRO to JSON policy:** Transform information from Avro format to JSON format.
 * **Gateway message reactor plugin:** Enable the Gravitee Gateway to intercept and introspect messages when publishing and subscribing to/from message-based systems.
-* [**Confluent Schema Registry resource**](../create-and-configure-apis/apply-policies/resources.md#confluent-schema-registry)**:** Define Confluent Schema Registry as a resource for serialization and deserialization policies.
+* [**Confluent Schema Registry resource**](../create-and-configure-apis/apply-policies/resources.md)**:** Define Confluent Schema Registry as a resource for serialization and deserialization policies.
 
 </details>
 
@@ -144,8 +144,8 @@ The Legacy Upgrade pack comprises the following plugins and capabilities to enab
 
 The Observability pack includes capabilities to better implement enterprise-grade API monitoring and observability:
 
-* [**Datadog reporter**](../analyze-and-monitor-apis/reporters/datadog-reporter.md#datadog-reporter): Push API metrics to your Datadog instance and dashboards.
-* [**TCP reporter**](../analyze-and-monitor-apis/reporters/tcp-reporter.md#tcp-reporter): Report Gateway events to a TCP listening server.
+* [**Datadog reporter**](../analyze-and-monitor-apis/reporters/datadog-reporter.md): Push API metrics to your Datadog instance and dashboards.
+* [**TCP reporter**](../analyze-and-monitor-apis/reporters/tcp-reporter.md): Report Gateway events to a TCP listening server.
 
 </details>
 
@@ -174,3 +174,108 @@ Gravitee EE gives you deployment flexibility. Optionally, you can offload costs 
 * **Self-hosted deployments**: Install and host APIM within your own private cloud/environment.
 * **Gravitee-managed deployments**: Gravitee hosts and manages all APIM components within its own cloud environment.
 * **Hybrid deployments**: Gravitee hosts and manages some APIM components within its cloud environment while you manage others within your private cloud/environment.
+
+### Impact
+
+If this feature is Enterprise Edition only, add "mTLS for Native Kafka APIs" to the Enterprise Features list or table.
+
+<!-- GAP: Draft does not specify if this is EE-only -->
+
+### mTLS for Native Kafka APIs
+
+Enable mutual TLS authentication for native Kafka APIs to strengthen security by verifying Kafka client identities using certificates.
+
+mTLS for native Kafka APIs works the same way as for HTTP/Message APIs. It adds mutual TLS authentication on top of the TLS already required for native Kafka APIs. Both the client and the Gateway must present valid certificates. The Kafka client must prove its identity using a client certificate.
+
+#### Technical Prerequisites
+
+For mTLS to work correctly:
+
+* The Kafka Gateway must be configured with:
+  * A keystore (Gateway private key + certificate)
+  * A truststore (CAs that signed client certificates)
+  * `clientAuth` enabled
+* The Kafka client must be configured with:
+  * A keystore (client private key + certificate)
+  * A truststore (CA that signed the Gateway certificate)
+
+#### Gateway Configuration
+
+The mTLS configuration is defined in the `kafka.ssl` section of `gravitee.yml`:
+
+```yaml
+kafka:
+  ssl:
+    # Gateway keystore
+    # Contains the Gateway private key and certificate
+    keystore:
+      type: jks                      # jks | pkcs12 | pem
+      path: /path/to/server.keystore.jks
+      password: gravitee
+    
+    # Gateway truststore
+    # Contains the CAs that signed client certificates
+    truststore:
+      type: jks                      # jks | pkcs12 | pem
+      path: /path/to/server.truststore.jks
+      password: gravitee
+    
+    # Client authentication mode
+    clientAuth: required             # required | request | none
+```
+
+`clientAuth: required` is mandatory to enforce mTLS. The Gateway will reject any client connection without a valid certificate.
+
+#### Kafka Client Configuration
+
+The Kafka client must be configured to use SSL with a client keystore:
+
+```properties
+
+security.protocol=SSL
+
+ssl.truststore.location=/path/to/client.truststore.jks
+ssl.truststore.password=gravitee
+ssl.truststore.type=JKS
+
+ssl.keystore.location=/path/to/client.keystore.jks
+ssl.keystore.password=gravitee
+ssl.keystore.type=JKS
+```
+
+#### mTLS Plan
+
+Once the SSL/mTLS configuration is complete:
+
+1. Add an mTLS plan to the Kafka API (same as for a v4 HTTP/Message API).
+2. Publish the plan.
+
+{% hint style="warning" %}
+Kafka APIs cannot have Keyless, mTLS, and authentication (OAuth2, JWT, API Key) plans published together.
+{% endhint %}
+
+#### Subscription
+
+After publishing the plan:
+
+1. Create an application that contains a client certificate.
+2. Create a subscription to the Kafka API using the mTLS plan.
+
+The client certificate is used by APIM to identify the application during the Kafka connection. The behavior is identical to v4 HTTP/Message APIs using mTLS.
+
+#### Subscription Flow
+
+Same as HTTP/Message mTLS plans:
+
+1. Application subscribes to mTLS plan on a Kafka API.
+2. Application provides PEM client certificate.
+3. Certificate associated with subscription.
+
+#### Runtime Flow
+
+1. Client initiates TLS connection with client certificate.
+2. Gateway validates certificate against known subscription certificates.
+3. On match: connection authorized, context populated with plan/app/subscription.
+4. Metrics and analytics reflect the resolved subscription.
+
+<!-- GAP: Draft does not specify whether mTLS for Kafka is Enterprise-only or available in Community Edition. If EE-only, add to Enterprise Features table under Security or Kafka Gateway section. -->
