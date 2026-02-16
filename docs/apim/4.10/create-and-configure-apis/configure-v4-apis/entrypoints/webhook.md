@@ -67,8 +67,9 @@ The Advanced version of the webhook plugin offers improved QoS. In the Console, 
 | 1.x            | 3.21.x       |
 | 2.x            | 4.0 to 4.3   |
 | 3.x            | 4.4 and 4.5  |
-| 4.x            | 4.6 to 4..8  |
+| 4.x            | 4.6 to 4.8   |
 | 5.x            | 4.9.x        |
+| 6.x            | 4.10.x       |
 
 #### HTTP options <a href="#user-content-http-options" id="user-content-http-options"></a>
 
