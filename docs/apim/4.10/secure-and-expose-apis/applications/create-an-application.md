@@ -30,32 +30,32 @@ Before a consumer can create an application, an admin must define the types of a
 
     * Enter a value for the type.
     * Enter the client ID. This is required to subscribe to certain API plans (OAuth2, JWT).
-    * Enter the client certificate for PEM. This is required to subscribe to certain mTLS plans.
+    * Enter the client certificate for PEM. This is required to subscribe to mTLS plans for classic APIs and Kafka APIs.
 
     **SPA**
 
     * (Required) Select the allowed grant types you require for security. Available selections are **Authorization Code** and **Implicit**.
     * (Required) Enter the URIs to which the authorization server will send OAuth responses.
     * Enter additional client metadata as key-value pairs.
-    * Enter the client certificate for PEM. This is required to subscribe to certain mTLS plans.
+    * Enter the client certificate for PEM. This is required to subscribe to mTLS plans for classic APIs and Kafka APIs.
 
     **Web**
 
     * (Required) Select the allowed grant types you require for security. **Authorization Code** is mandatory. **Refresh Token** and **Implicit (Hybrid)** are optional.
     * (Required) Enter the URIs to which the authorization server will send OAuth responses.
     * Enter additional client metadata as key-value pairs.
-    * Enter the client certificate for PEM. This is required to subscribe to certain mTLS plans.
+    * Enter the client certificate for PEM. This is required to subscribe to mTLS plans for classic APIs and Kafka APIs.
 
     **Native**
 
     * (Required) Select the allowed grant types you require for security. **Authorization Code** is mandatory. **Refresh Token**, **Resource Owner Password**, and **Implicit (Hybrid)** are optional.
     * (Required) Enter the URIs to which the authorization server will send OAuth responses.
     * Enter additional client metadata as key-value pairs.
-    * Enter the client certificate for PEM. This is required to subscribe to certain mTLS plans.
+    * Enter the client certificate for PEM. This is required to subscribe to mTLS plans for classic APIs and Kafka APIs.
 
     **Backend to backend**
 
     * (Required) Select the allowed grant types you require for security. **Client Credentials** is required and the only option.
     * Enter additional client metadata as key-value pairs.
-    * Enter the client certificate for PEM. This is required to subscribe to certain mTLS plans.
+    * Enter the client certificate for PEM. This is required to subscribe to mTLS plans for classic APIs and Kafka APIs.
 7. Click **Create**.
