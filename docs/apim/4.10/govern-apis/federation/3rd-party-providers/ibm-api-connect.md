@@ -75,12 +75,13 @@ You can deploy the IBM API Connect federation agent using either of the followin
         image: ${APIM_REGISTRY:-graviteeio}/federation-agent-ibm-api-connect:${AGENT_VERSION:-latest}
         restart: always
         environment:
+          # Classic or self-hosted APIM: Configure WS endpoints
           - gravitee_integration_connector_ws_endpoints_0=${WS_ENDPOINTS}
           - gravitee_integration_connector_ws_headers_0_name=Authorization
           - gravitee_integration_connector_ws_headers_0_value=bearer ${WS_AUTH_TOKEN}
-          - gravitee_integration_providers_0_integrationId=${INTEGRATION_ID}
-          # If you are using Gravitee NextGen Cloud, then you need to also include a Cloud Token for Federation Agent
+          # NextGen Cloud APIM: Replace the three WS endpoint lines above with the following line
           # - gravitee_cloud_token=${GRAVITEE_CLOUD_TOKEN}
+          - gravitee_integration_providers_0_integrationId=${INTEGRATION_ID}
           - gravitee_integration_providers_0_type=ibm-api-connect
           # authentication
           - gravitee_integration_providers_0_configuration_apiKey=${API_KEY}
@@ -90,7 +91,6 @@ You can deploy the IBM API Connect federation agent using either of the followin
           # targeting
           - gravitee_integration_providers_0_configuration_organizationName=${ORGANIZATION_NAME}
           - gravitee_integration_providers_0_configuration_platformApiUrl=${PLATFORM_API_URL}
-
     ```
 2. Create a file named `.env` in the same directory as your Docker Compose file. The configuration varies by IBM instance type:
 
@@ -153,6 +153,7 @@ Cloud reserved instances require only an API key. Do not include Client ID or Cl
 ```dotenv
 ## GRAVITEE PARAMETERS ##
 
+# Classic or self-hosted APIM: Configure WS endpoints
 # Gravitee APIM management API URL, typically suffixed with the path /integration-controller
 WS_ENDPOINTS=https://[your-APIM-management-API-host]/integration-controller
 
@@ -165,7 +166,8 @@ INTEGRATION_ID=[your-integration-id]
 # APIM organization ID, example: DEFAULT
 WS_ORG_ID=[organization-id]
 
-# If you are using Gravitee Next-Gen Cloud, then you also need to include a Cloud Token for Federation Agent (https://documentation.gravitee.io/apim/hybrid-installation-and-configuration-guides/next-gen-cloud#cloud-token)
+# NextGen Cloud APIM: Uncomment the following line and remove WS_ENDPOINTS, WS_AUTH_TOKEN, and WS_ORG_ID above
+# For more information, see https://documentation.gravitee.io/apim/hybrid-installation-and-configuration-guides/next-gen-cloud#cloud-token
 # GRAVITEE_CLOUD_TOKEN=[your-cloud-token-for-federation-agent]
 
 # Optionally specify a specific version of the agent, default will be latest
@@ -180,9 +182,13 @@ PLATFORM_API_URL=[your-platform-api-url]
 ORGANIZATION_NAME=[your-organization-name]
 
 # IBM Instance Type
-IBM_INSTANCE_TYPE=cloud-reserved-instance
+# Use "cloud" for IBM Cloud instances
+# Use "self-hosted" for IBM self-hosted instances
+IBM_INSTANCE_TYPE=cloud
 
-# IBM credentials (API key only for Cloud Reserved)
+# IBM credentials (required for Cloud and Self-hosted)
+CLIENT_ID=[your-client-id]
+CLIENT_SECRET=[your-client-secret]
 API_KEY=[your-api-key]
 ```
 
@@ -219,9 +225,12 @@ API_KEY=[your-api-key]
         image: ${APIM_REGISTRY:-graviteeio}/federation-agent-ibm-api-connect:${AGENT_VERSION:-latest}
         restart: always
         environment:
+          # Classic or self-hosted APIM: Configure WS endpoints
           - gravitee_integration_connector_ws_endpoints_0=${WS_ENDPOINTS}
           - gravitee_integration_connector_ws_headers_0_name=Authorization
           - gravitee_integration_connector_ws_headers_0_value=bearer ${WS_AUTH_TOKEN}
+          # NextGen Cloud APIM: Replace the three WS endpoint lines above with the following line
+          # - gravitee_cloud_token=${GRAVITEE_CLOUD_TOKEN}
           - gravitee_integration_providers_0_integrationId=${INTEGRATION_ID}
           - gravitee_integration_providers_0_type=ibm-api-connect
           # authentication

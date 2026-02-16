@@ -89,9 +89,12 @@ This Docker Compose file supports passing the service account key either inline 
         volumes:
           - ${SERVICE_ACCOUNT_KEY_PATH:-/dev/null}:/opt/graviteeio-integration-agent/config/key/key.json
         environment:
+          # Classic or self-hosted APIM: Configure WS endpoints
           - gravitee_integration_connector_ws_endpoints_0=${WS_ENDPOINTS}
           - gravitee_integration_connector_ws_headers_0_name=Authorization
           - gravitee_integration_connector_ws_headers_0_value=bearer ${WS_AUTH_TOKEN}
+          # NextGen Cloud APIM: Replace the three WS endpoint lines above with the following line
+          # - gravitee_cloud_token=${GRAVITEE_CLOUD_TOKEN}
           - gravitee_integration_providers_0_integrationId=${INTEGRATION_ID}
           - gravitee_integration_providers_0_configuration_gcpProjectId=${GCP_PROJECT_ID}
           - gravitee_integration_providers_0_configuration_developerEmail=${APIGEE_DEV_EMAIL}
@@ -100,14 +103,13 @@ This Docker Compose file supports passing the service account key either inline 
           - gravitee_integration_providers_0_configuration_developerUsername=${APIGEE_DEV_USERNAME}
           - gravitee_integration_providers_0_configuration_serviceAccountKeyInline=${SERVICE_ACCOUNT_KEY_INLINE}
           - gravitee_integration_providers_0_type=apigee
-          # If you are using Gravitee NextGen Cloud, then you need to also include a Cloud Token for Federation Agent
-          # - gravitee_cloud_token=${GRAVITEE_CLOUD_TOKEN}
     ```
 2.  Create a file named `.env` in the same directory as your Docker Compose file, and then add the following environment variables:
 
     ```dotenv
     ## GRAVITEE PARAMETERS ##
 
+    # Classic or self-hosted APIM: Configure WS endpoints
     # Gravitee APIM management API URL, typically suffixed with the path /integration-controller
     WS_ENDPOINTS=https://[your-APIM-management-API-host]/integration-controller
 
@@ -120,7 +122,8 @@ This Docker Compose file supports passing the service account key either inline 
     # APIM organization ID, example: DEFAULT
     WS_ORG_ID=[organization-id]
 
-    # If you are using Gravitee Next-Gen Cloud, then you also need to include a Cloud Token for Federation Agent (https://documentation.gravitee.io/apim/hybrid-installation-and-configuration-guides/next-gen-cloud#cloud-token)
+    # NextGen Cloud APIM: Uncomment the following line and remove WS_ENDPOINTS, WS_AUTH_TOKEN, and WS_ORG_ID above
+    # For more information, see https://documentation.gravitee.io/apim/hybrid-installation-and-configuration-guides/next-gen-cloud#cloud-token
     # GRAVITEE_CLOUD_TOKEN=[your-cloud-token-for-federation-agent]
 
     # Optionally specify a specific version of the agent, default will be latest
@@ -134,8 +137,8 @@ This Docker Compose file supports passing the service account key either inline 
     # Apigee developer information
     # This Apigee developer will be the owner of applications
     # created by Gravitee in Apigee for managing subscriptions
-    # Gravitee will reuse a matching account, or create it 
-    # if it doesn't exist. 
+    # Gravitee will reuse a matching account, or create it
+    # if it doesn't exist.
     # The provided email may receive notifications from Apigee
     APIGEE_DEV_EMAIL=[your-dev-email]
     APIGEE_DEV_FIRST_NAME=[your-dev-firstname]
@@ -144,19 +147,7 @@ This Docker Compose file supports passing the service account key either inline 
 
     # Service account key - select either PATH or INLINE
     # SERVICE_ACCOUNT_KEY_PATH=[service-account-key-path]
-    SERVICE_ACCOUNT_KEY_INLINE='{
-      "type": "service_account",
-      "project_id": "your-prject-id",
-      "private_key_id": "your-private-key-id",
-      "private_key": "-----BEGIN PRIVATE KEY-----\n1234==\n-----END PRIVATE KEY-----\n",
-      "client_email": "abcd",
-      "client_id": "your-client-id",
-      "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-      "token_uri": "https://oauth2.googleapis.com/token",
-      "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-      "client_x509_cert_url": "abcd",
-      "universe_domain": "googleapis.com"
-    }'
+    SERVICE_ACCOUNT_KEY_INLINE='{"type":"service_account","project_id":"your-prject-id","private_key_id":"your-private-key-id","private_key":"-----BEGIN PRIVATE KEY-----\n1234==\n-----END PRIVATE KEY-----\n","client_email":"abcd","client_id":"your-client-id","auth_uri":"https://accounts.google.com/o/oauth2/auth","token_uri":"https://oauth2.googleapis.com/token","auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs","client_x509_cert_url":"abcd","universe_domain":"googleapis.com"}'
     ```
 3. Replace the following placeholder values with your own configuration:
    * `[your-APIM-management-API-host]`: Your Gravitee APIM management API URL.

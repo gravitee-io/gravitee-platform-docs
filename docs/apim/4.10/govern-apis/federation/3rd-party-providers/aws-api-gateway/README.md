@@ -69,23 +69,25 @@ You can deploy the AWS API Gateway federation agent using either of the followin
         image: graviteeio/federation-agent-aws-api-gateway:${AGENT_VERSION:-latest}
         restart: always
         environment:
+          # Classic or self-hosted APIM: Configure WS endpoints
           - gravitee_integration_connector_ws_endpoints_0=${WS_ENDPOINTS}
           - gravitee_integration_connector_ws_headers_0_name=Authorization
           - gravitee_integration_connector_ws_headers_0_value=bearer ${WS_AUTH_TOKEN}
+          # NextGen Cloud APIM: Replace the three WS endpoint lines above with the following line
+          # - gravitee_cloud_token=${GRAVITEE_CLOUD_TOKEN}
           - gravitee_integration_providers_0_type=aws-api-gateway
           - gravitee_integration_providers_0_integrationId=${INTEGRATION_ID}
           - gravitee_integration_providers_0_configuration_accessKeyId=${AWS_ACCESS_KEY_ID}
           - gravitee_integration_providers_0_configuration_secretAccessKey=${AWS_SECRET_ACCESS_KEY}
           - gravitee_integration_providers_0_configuration_region=${AWS_REGION}
           - gravitee_integration_providers_0_configuration_acceptApiWithoutUsagePlan=${ACCEPT_API_WITHOUT_USAGE_PLAN:-false}
-          # If you are using Gravitee NextGen Cloud, then you need to also include a Cloud Token for Federation Agent
-          # - gravitee_cloud_token=${GRAVITEE_CLOUD_TOKEN}
     ```
 2.  Create a file named `.env` in the same directory as your Docker Compose file, and then add the following environment variables:
 
     ```shellscript
     ## GRAVITEE PARAMETERS ##
 
+    # Classic or self-hosted APIM: Configure WS endpoints
     # Gravitee APIM management API URL, typically suffixed with the path /integration-controller
     WS_ENDPOINTS=https://[your-APIM-management-API-host]/integration-controller
 
@@ -98,7 +100,8 @@ You can deploy the AWS API Gateway federation agent using either of the followin
     # APIM organization ID, example: DEFAULT
     WS_ORG_ID=[organization-id]
 
-    # If you are using Gravitee Next-Gen Cloud, then you also need to include a Cloud Token for Federation Agent (https://documentation.gravitee.io/apim/hybrid-installation-and-configuration-guides/next-gen-cloud#cloud-token)
+    # NextGen Cloud APIM: Uncomment the following line and remove WS_ENDPOINTS, WS_AUTH_TOKEN, and WS_ORG_ID above
+    # For more information, see https://documentation.gravitee.io/apim/hybrid-installation-and-configuration-guides/next-gen-cloud#cloud-token
     # GRAVITEE_CLOUD_TOKEN=[your-cloud-token-for-federation-agent]
 
     # Optionally specify a specific version of the agent, default will be latest
