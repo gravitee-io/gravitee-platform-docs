@@ -185,7 +185,7 @@ Rate limiting policies can also be added during the API creation process. Let's 
 
 5. Click **Next**, then optionally propagate the API Key to upstream API or add a selectional rule
 
-<figure><img src="../../.gitbook/assets/image (47).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (47) (1).png" alt=""><figcaption></figcaption></figure>
 
 6. Click **Next** to add Quota and/or Rate Limit policies
 
