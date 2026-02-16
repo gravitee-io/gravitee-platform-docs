@@ -37,6 +37,15 @@ When creating a plan, you can enable subscription auto-validation to immediately
 To be notified of subscription validation tasks, enable [Notifications](../../configure-and-manage-the-platform/gravitee-gateway/notifications.md)
 {% endhint %}
 
+{% hint style="warning" %}
+**Kafka API Plan Restrictions**
+
+Kafka APIs cannot have Keyless, mTLS, and authentication plans (OAuth2, JWT, API Key) published together. You cannot expose simultaneously:
+- A Keyless plan
+- An mTLS plan
+- An authentication plan (OAuth2, JWT, API Key)
+{% endhint %}
+
 To manage subscriptions in APIM Console:
 
 1. Log in to your APIM Console

@@ -117,6 +117,12 @@ APIM automatically routes each API request to the correct plan. The plan selecti
 This workflow only applies to [v4 APIs and v2 APIs in emulation mode](../../create-and-configure-apis/gravitee-api-definitions/execution-engine.md#v2-gateway-api-emulation-mode).
 {% endhint %}
 
+{% hint style="info" %}
+**Kafka API plan restrictions**
+
+For native Kafka APIs, you cannot publish Keyless, mTLS, and authentication plans (OAuth2, JWT, API Key) together. mTLS plans for Kafka APIs work identically to classic v4 APIs.
+{% endhint %}
+
 The parsing rules for each plan type are detailed below:
 
 {% tabs %}

@@ -273,3 +273,109 @@ kafka:
     
   
 ```
+
+### Configuring mTLS for the Kafka Gateway and Clients
+
+mTLS (mutual TLS) adds an additional security layer on top of the TLS already required for native Kafka APIs. With mTLS enabled, both the Kafka client and the Gravitee Kafka Gateway must present valid certificates to establish a connection.
+
+#### Technical Prerequisites
+
+For mTLS to work correctly:
+
+**The Kafka Gateway must be configured with:**
+- A keystore (Gateway private key + certificate)
+- A truststore (CAs that signed client certificates)
+- `clientAuth` enabled
+
+**The Kafka client must be configured with:**
+- A keystore (client private key + certificate)
+- A truststore (CA that signed the Gateway certificate)
+
+#### Gateway Configuration (gravitee.yml)
+
+The mTLS configuration is defined in the `kafka.ssl` section of `gravitee.yml`.
+
+```yaml
+kafka:
+  ssl:
+    # Gateway keystore
+    # Contains the Gateway private key and certificate
+    keystore:
+      type: jks                      # jks | pkcs12 | pem
+      path: /path/to/server.keystore.jks
+      password: gravitee
+
+    # Gateway truststore
+    # Contains the CAs that signed client certificates
+    truststore:
+      type: jks                      # jks | pkcs12 | pem
+      path: /path/to/server.truststore.jks
+      password: gravitee
+
+    # Client authentication mode
+    clientAuth: required             # required | request | none
+```
+
+{% hint style="warning" %}
+`clientAuth: required` is mandatory to enforce mTLS. The Gateway will reject any client connection without a valid certificate.
+{% endhint %}
+
+#### Kafka Client Configuration
+
+The Kafka client must be configured to use SSL with a client keystore.
+
+```properties
+
+security.protocol=SSL
+
+
+
+ssl.truststore.location=/path/to/client.truststore.jks
+ssl.truststore.password=gravitee
+ssl.truststore.type=JKS
+
+
+
+ssl.keystore.location=/path/to/client.keystore.jks
+ssl.keystore.password=gravitee
+ssl.keystore.type=JKS
+```
+
+<!-- GAP: Required SSL Files section - no content provided in source draft -->
+
+#### APIM Configuration
+
+##### mTLS Plan
+
+Once the SSL/mTLS configuration is complete:
+
+1. Add an mTLS plan to the Kafka API (same as for a classic V4 API).
+2. Publish the plan.
+
+{% hint style="warning" %}
+Kafka APIs cannot have Keyless, mTLS, and authentication (OAuth2, JWT, API Key) plans published together. Kafka APIs cannot expose simultaneously:
+- A Keyless plan
+- An mTLS plan
+- An authentication plan (OAuth2, JWT, API Key)
+{% endhint %}
+
+##### Subscription
+
+After publishing the plan:
+
+1. Create an application that contains a client certificate.
+2. Create a subscription to the Kafka API using the mTLS plan.
+
+The client certificate is used by APIM to identify the application during the Kafka connection. The behavior is identical to classic V4 APIs using mTLS.
+
+#### Impacts and Benefits
+
+**Impacts:**
+- Stricter SSL configuration
+- Mandatory client certificate management
+- Limited plan combination options
+
+**Benefits:**
+- Strong authentication of Kafka clients
+- Improved security for Kafka traffic
+- Alignment with existing APIM mTLS mechanisms

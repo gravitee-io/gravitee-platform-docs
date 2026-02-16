@@ -69,6 +69,10 @@ Define whichever of the following are relevant to your configuration.
 * **JKS with key:** Define the **SSL keystore private key** by defining the **Key** and the **Key password** and the **SSL keystore password** for the keystore file.
 * **PKCS12 with location:** Define the **location of your keystore file** and the **SSL keystore password** for the keystore file.
 * **PKCS12 with key:** Define the **SSL keystore private key** by defining the **Key** and the **Key password** and the **SSL keystore password** for the keystore file.
+
+**Client Authentication**
+
+* **Client authentication mode:** Define whether client certificate authentication is required. Options are `required`, `request`, or `none`. Set to `required` to enforce mTLS.
 {% endtab %}
 {% endtabs %}
 
@@ -433,3 +437,46 @@ The following is an example of how to consume messages:
 ```
 {% endtab %}
 {% endtabs %}
+
+### Kafka Client SSL Configuration for mTLS
+
+When using an mTLS plan with native Kafka APIs, the Kafka client must be configured with SSL properties to establish a secure connection with the Gateway. The client must present a valid certificate to authenticate itself.
+
+#### Required SSL Properties
+
+Configure the following properties in your Kafka client:
+
+```properties
+
+security.protocol=SSL
+
+
+
+ssl.truststore.location=/path/to/client.truststore.jks
+ssl.truststore.password=gravitee
+ssl.truststore.type=JKS
+
+
+
+ssl.keystore.location=/path/to/client.keystore.jks
+ssl.keystore.password=gravitee
+ssl.keystore.type=JKS
+```
+
+#### Property Descriptions
+
+<table><thead><tr><th width="250">Property</th><th>Description</th></tr></thead><tbody><tr><td>security.protocol</td><td>Must be set to <code>SSL</code> to enable SSL/TLS encryption and mTLS authentication.</td></tr><tr><td>ssl.truststore.location</td><td>Path to the truststore file containing the CA certificate that signed the Gateway certificate.</td></tr><tr><td>ssl.truststore.password</td><td>Password for the truststore file.</td></tr><tr><td>ssl.truststore.type</td><td>Truststore format. Supported values: <code>JKS</code>, <code>PKCS12</code>, <code>PEM</code>.</td></tr><tr><td>ssl.keystore.location</td><td>Path to the keystore file containing the client private key and certificate.</td></tr><tr><td>ssl.keystore.password</td><td>Password for the keystore file.</td></tr><tr><td>ssl.keystore.type</td><td>Keystore format. Supported values: <code>JKS</code>, <code>PKCS12</code>, <code>PEM</code>.</td></tr></tbody></table>
+
+{% hint style="info" %}
+The client certificate in the keystore must match the certificate provided during subscription to the mTLS plan in APIM.
+{% endhint %}
+
+#### Gateway SSL Configuration
+
+The Gateway must also be configured with SSL properties in `gravitee.yml` to support mTLS. The Gateway configuration includes:
+
+* **Keystore:** Contains the Gateway private key and certificate
+* **Truststore:** Contains the CAs that signed client certificates
+* **Client authentication mode:** Must be set to `required` to enforce mTLS
+
+Refer to the [Gateway configuration documentation](kafka.md#gateway-configuration-gravitee.yml) for complete SSL setup instructions.
