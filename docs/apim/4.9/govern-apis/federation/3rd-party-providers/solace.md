@@ -44,7 +44,7 @@ To integrate Solace with Gravitee APIM, complete the following steps:
     <figure><img src="../../../.gitbook/assets/solace-integration-name-and-description.png" alt=""><figcaption></figcaption></figure>
 5.  (Optional) Type the **Description** for the integration.
 
-    <figure><img src="../../../.gitbook/assets/image (61).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (61) (1).png" alt=""><figcaption></figcaption></figure>
 6.  Click **Create Integration**.
 
     <figure><img src="../../../.gitbook/assets/click-create-integration-solace.png" alt=""><figcaption></figcaption></figure>
@@ -63,27 +63,30 @@ You can deploy the Solace federation agent using either of the following install
 
 1.  Copy the following configuration, and then save it to your Docker Compose file:
 
-    <pre class="language-yaml"><code class="lang-yaml"><strong>services:
-    </strong>  integration-agent:
+    ```yaml
+    services:
+      integration-agent:
         image: graviteeio/federation-agent-solace:${AGENT_VERSION:-latest}
         restart: always
         environment:
+          # Classic or self-hosted APIM: Configure WS endpoints
           - gravitee_integration_connector_ws_endpoints_0=${WS_ENDPOINTS}
           - gravitee_integration_connector_ws_headers_0_name=Authorization
           - gravitee_integration_connector_ws_headers_0_value=bearer ${WS_AUTH_TOKEN}
+          # NextGen Cloud APIM: Replace the three WS endpoint lines above with the following line
+          # - gravitee_cloud_token=${GRAVITEE_CLOUD_TOKEN}
           - gravitee_integration_providers_0_integrationId=${INTEGRATION_ID}
           - gravitee_integration_providers_0_type=solace
           - gravitee_integration_providers_0_configuration_authToken=${SOLACE_AUTH_TOKEN}
           - gravitee_integration_providers_0_configuration_url=${SOLACE_ENDPOINT:-https://apim-production-api.solace.cloud/api/v2/apim}
           - gravitee_integration_providers_0_configuration_0_appDomains=${SOLACE_APPLICATION_0_DOMAIN:-}
-          # If you are using Gravitee NextGen Cloud, then you need to also include a Cloud Token for Federation Agent
-          # - gravitee_cloud_token=${GRAVITEE_CLOUD_TOKEN}
-    </code></pre>
+    ```
 2.  Create a file named `.env` in the same directory as your Docker Compose file, and then add the following environment variables:
 
     ```dotenv
     ## GRAVITEE PARAMETERS ##
 
+    # Classic or self-hosted APIM: Configure WS endpoints
     # Gravitee APIM management API URL, typically suffixed with the path /integration-controller
     WS_ENDPOINTS=https://[your-APIM-management-API-host]/integration-controller
 
@@ -96,7 +99,8 @@ You can deploy the Solace federation agent using either of the following install
     # APIM organization ID, example: DEFAULT
     WS_ORG_ID=[organization-id]
 
-    # If you are using Gravitee Next-Gen Cloud, then you also need to include a Cloud Token for Federation Agent (https://documentation.gravitee.io/apim/hybrid-installation-and-configuration-guides/next-gen-cloud#cloud-token)
+    # NextGen Cloud APIM: Uncomment the following line and remove WS_ENDPOINTS, WS_AUTH_TOKEN, and WS_ORG_ID above
+    # For more information, see https://documentation.gravitee.io/apim/hybrid-installation-and-configuration-guides/next-gen-cloud#cloud-token
     # GRAVITEE_CLOUD_TOKEN=[your-cloud-token-for-federation-agent]
 
     # Optionally specify a specific version of the agent, default will be latest
@@ -383,7 +387,7 @@ If your APIM management API uses certificates that require a custom truststore, 
     ```
 2.  Return to the Gravitee API Management console, refresh the page, and verify that the agent's status is set to **Connected**.<br>
 
-    <figure><img src="../../../.gitbook/assets/image (60).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (51).png" alt=""><figcaption></figcaption></figure>
 
 ## Minimum Solace permissions required by the agent
 
