@@ -4,6 +4,29 @@ description: Overview of GKO.
 
 # GKO 4.7.x
 
+## Gravitee Kubernetes Operator 4.7.25 - February 16, 2026
+    
+<details>
+<summary>Bug fixes</summary>
+
+  **GKO**
+
+  * Gateway class parameters annotations are not applied to gateway service [#11114](https://github.com/gravitee-io/issues/issues/11114)
+  * CRD export contains null fields and extra properties after GKO deployment [#11031](https://github.com/gravitee-io/issues/issues/11031)
+
+</details>
+
+
+<details>
+<summary>Improvements</summary>
+
+  **GKO**
+
+  * Add archived state to v4 API [#11124](https://github.com/gravitee-io/issues/issues/11124)
+
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.7.24 - January 30, 2026
     
 <details>
