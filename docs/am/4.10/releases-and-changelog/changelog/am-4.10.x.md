@@ -6,6 +6,36 @@ description: >-
 
 # AM 4.10.x
 
+## Gravitee Access Management 4.10.2 - February 16, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Improve Introspect throughput in 4.10 [#11108](https://github.com/gravitee-io/issues/issues/11108)
+* Manage backpressure on email service for SCIM Bulk [#11138](https://github.com/gravitee-io/issues/issues/11138)
+* JWKS endpoint cannot validate older tokens [#11157](https://github.com/gravitee-io/issues/issues/11157)
+
+**Management API**
+
+* Fixed 0 value for page field in User's search response [#11125](https://github.com/gravitee-io/issues/issues/11125)
+
+**Console**
+
+* Event name values in the audit log filter are truncated [#11146](https://github.com/gravitee-io/issues/issues/11146)
+
+**Other**
+
+* Docker - SMTP - Basic Auth - Env vars in uppercase stopping emails being sent [#11089](https://github.com/gravitee-io/issues/issues/11089)
+* SCIM Bulk: use concatMapEager with configurable maxConcurrency [#11100](https://github.com/gravitee-io/issues/issues/11100)
+* Send email asynchronously on PreRegistration  [#11106](https://github.com/gravitee-io/issues/issues/11106)
+* OpenFGA - Improve ALLOWED icon for tuples  [#11110](https://github.com/gravitee-io/issues/issues/11110)
+
+</details>
+
+
 ## Gravitee Access Management 4.10.1 - January 29, 2026
 
 <details>
