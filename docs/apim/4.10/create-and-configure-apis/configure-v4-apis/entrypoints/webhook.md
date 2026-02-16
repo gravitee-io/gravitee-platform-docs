@@ -105,7 +105,7 @@ Once configured and deployed, any message rejected by the webhook with a 4xx err
 
 #### Secured callbacks
 
-Security information can be provided when creating the subscription. Currently, we support:
+When you create a subscription, you can provide security information. These are the security types that are supported:&#x20;
 
 * Basic
 * Token (JWT)
