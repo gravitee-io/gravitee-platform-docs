@@ -17,6 +17,25 @@ You can also use the [Gravitee Kafka Gateway](../../../kafka-gateway/) to proxy 
 
 This page discusses the [configuration](kafka.md#configuration) and [implementation](kafka.md#implementation) of the Kafka endpoint and includes a [reference](kafka.md#reference) section.
 
+## Related Guides
+
+<table data-view="cards">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>mTLS for Native Kafka APIs</strong></td>
+      <td>Learn how to configure mutual TLS authentication for native Kafka APIs in the Kafka Gateway.</td>
+      <td><a data-mention href="../../../kafka-gateway/mtls-for-native-kafka-apis.md">mTLS for Native Kafka APIs</a></td>
+    </tr>
+  </tbody>
+</table>
+
 ## Configuration
 
 For the API to connect to the Kafka cluster, it is required to configure a bootstrap server list and, when consuming, a list of topics. You can [override the default configuration](kafka.md#user-content-dynamic-configuration) for the topics at runtime.

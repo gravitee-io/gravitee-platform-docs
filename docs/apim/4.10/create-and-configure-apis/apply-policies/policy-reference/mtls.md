@@ -19,6 +19,12 @@ You can use the `mtls` policy to verify a client certificate exists as part of t
 
 This policy does not ensure that certificates are valid, since it is done directly by the server.
 
+{% hint style="info" %}
+**mTLS for Kafka APIs**
+
+mTLS plans are supported for Kafka APIs in addition to classic V4 HTTP APIs. The behavior is identical to classic V4 APIs: the Gateway verifies client certificates, and applications must be created with a valid client certificate to subscribe to the mTLS plan.
+{% endhint %}
+
 ### Compatibility with APIM <a href="#user-content-compatibility-with-apim" id="user-content-compatibility-with-apim"></a>
 
 | Plugin version | APIM version  |

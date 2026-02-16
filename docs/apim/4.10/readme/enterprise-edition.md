@@ -21,7 +21,7 @@ Gravitee's platform extends beyond API Management. For information on enterprise
 The features below are included in the default enterprise APIM distribution.
 {% endhint %}
 
-<table><thead><tr><th width="214">Feature</th><th>Description</th></tr></thead><tbody><tr><td><strong>Audit Trail</strong></td><td>Audit the consumption and activity of your Gravitee APIs per event and type to monitor the behavior of your APIs and platform</td></tr><tr><td><strong>Bridge Gateway</strong></td><td>Deploy a Bridge Gateway, which is a proxy for a repository, to avoid opening a connection between a database and something outside its network. The sync occurs over HTTP instead of the database protocol.</td></tr><tr><td><strong>Custom roles</strong></td><td>Create custom user roles to fit your needs. A role is a functional group of permissions and can be defined at the organization, environment, API, and/or application level.</td></tr><tr><td><strong>DCR</strong></td><td>The dynamic client registration (DCR) protocol allows OAuth client applications to register with an OAuth server through the OpenID Connect (OIDC) client registration endpoint</td></tr><tr><td><strong>Debug mode</strong></td><td>Easily test and debug your policy execution and enforcement</td></tr><tr><td><strong>Enterprise OpenID Connect SSO</strong></td><td>Use OpenId Connect SSO with your API Management platform</td></tr><tr><td><strong>Sharding tags</strong></td><td>Specify which "shard" of the Gateway an API should be deployed to. By tagging Gateways with specific keywords, you can select a tag in the API's proxy settings to control where the API will be deployed.</td></tr></tbody></table>
+<table><thead><tr><th width="214">Feature</th><th>Description</th></tr></thead><tbody><tr><td><strong>Audit Trail</strong></td><td>Audit the consumption and activity of your Gravitee APIs per event and type to monitor the behavior of your APIs and platform</td></tr><tr><td><strong>Bridge Gateway</strong></td><td>Deploy a Bridge Gateway, which is a proxy for a repository, to avoid opening a connection between a database and something outside its network. The sync occurs over HTTP instead of the database protocol.</td></tr><tr><td><strong>Custom roles</strong></td><td>Create custom user roles to fit your needs. A role is a functional group of permissions and can be defined at the organization, environment, API, and/or application level.</td></tr><tr><td><strong>DCR</strong></td><td>The dynamic client registration (DCR) protocol allows OAuth client applications to register with an OAuth server through the OpenID Connect (OIDC) client registration endpoint</td></tr><tr><td><strong>Debug mode</strong></td><td>Easily test and debug your policy execution and enforcement</td></tr><tr><td><strong>Enterprise OpenID Connect SSO</strong></td><td>Use OpenId Connect SSO with your API Management platform</td></tr><tr><td><strong>mTLS authentication for Native Kafka APIs</strong></td><td>Strengthen security by requiring both the Gateway and Kafka clients to present valid certificates for mutual TLS authentication</td></tr><tr><td><strong>Sharding tags</strong></td><td>Specify which "shard" of the Gateway an API should be deployed to. By tagging Gateways with specific keywords, you can select a tag in the API's proxy settings to control where the API will be deployed.</td></tr></tbody></table>
 
 ## Enterprise plugins
 
@@ -51,6 +51,7 @@ Gravitee offers several different types of plugins. Here are the EE plugins avai
 
 ### Policies
 
+* [AI Semantic Caching](https://download.gravitee.io/#graviteeio-ee/apim/plugins/policies/gravitee-policy-ai-semantic-caching/): Enables semantic caching of LLM responses using vector embeddings and similarity matching, reducing latency and computation costs for similar requests.
 * [Assign Metrics](https://download.gravitee.io/#graviteeio-ee/apim/plugins/policies/gravitee-policy-assign-metrics/): Pushes extra metrics in addition to the natively provided request metrics.
 * [Cloud Events](https://download.gravitee.io/#graviteeio-ee/apim/plugins/policies/gravitee-policy-cloud-events/): Creates a cloud-events JSON object from messages.
 * [Data Cache](https://download.gravitee.io/#graviteeio-ee/apim/plugins/policies/gravitee-policy-data-cache/): Lets you get, set, and expire arbitrary key-value pairs in a cache resource.
@@ -174,3 +175,116 @@ Gravitee EE gives you deployment flexibility. Optionally, you can offload costs 
 * **Self-hosted deployments**: Install and host APIM within your own private cloud/environment.
 * **Gravitee-managed deployments**: Gravitee hosts and manages all APIM components within its own cloud environment.
 * **Hybrid deployments**: Gravitee hosts and manages some APIM components within its cloud environment while you manage others within your private cloud/environment.
+
+### mTLS authentication for Native Kafka APIs
+
+mTLS (mutual TLS) authentication for Native Kafka APIs strengthens security by requiring both the Gateway and Kafka clients to present valid certificates. This allows the Gateway to verify client identities using certificates.
+
+#### How mTLS works
+
+mTLS for Native Kafka APIs works the same way as for classic APIs:
+
+- **TLS only**: The client verifies the Gateway identity.
+- **TLS + mTLS**: Both the client and the Gateway must present valid certificates. The Kafka client must prove its identity using a client certificate.
+
+mTLS is an additional security layer on top of the TLS already required for Native Kafka APIs.
+
+#### Prerequisites
+
+For mTLS to work correctly:
+
+- The Kafka Gateway must be configured with:
+  - A keystore (Gateway private key + certificate)
+  - A truststore (CAs that signed client certificates)
+  - `clientAuth` enabled
+- The Kafka client must be configured with:
+  - A keystore (client private key + certificate)
+  - A truststore (CA that signed the Gateway certificate)
+
+#### Gateway configuration
+
+The mTLS configuration is defined in the `kafka.ssl` section of `gravitee.yml`:
+
+```yaml
+kafka:
+  ssl:
+    # Gateway keystore
+    # Contains the Gateway private key and certificate
+    keystore:
+      type: jks                      # jks | pkcs12 | pem
+      path: /path/to/server.keystore.jks
+      password: gravitee
+    
+    # Gateway truststore
+    # Contains the CAs that signed client certificates
+    truststore:
+      type: jks                      # jks | pkcs12 | pem
+      path: /path/to/server.truststore.jks
+      password: gravitee
+    
+    # Client authentication mode
+    clientAuth: required             # required | request | none
+```
+
+{% hint style="warning" %}
+`clientAuth: required` is mandatory to enforce mTLS. The Gateway will reject any client connection without a valid certificate.
+{% endhint %}
+
+#### Kafka client configuration
+
+The Kafka client must be configured to use SSL with a client keystore:
+
+```properties
+
+security.protocol=SSL
+
+
+
+ssl.truststore.location=/path/to/client.truststore.jks
+ssl.truststore.password=gravitee
+ssl.truststore.type=JKS
+
+
+
+ssl.keystore.location=/path/to/client.keystore.jks
+ssl.keystore.password=gravitee
+ssl.keystore.type=JKS
+```
+
+#### APIM configuration
+
+##### mTLS plan
+
+Once the SSL/mTLS configuration is complete:
+
+1. Add an mTLS plan to the Kafka API (same as for a classic v4 API).
+2. Publish the plan.
+
+{% hint style="warning" %}
+Kafka APIs cannot have Keyless, mTLS, and authentication (OAuth2, JWT, API Key) plans published together.
+{% endhint %}
+
+##### Subscription
+
+After publishing the plan:
+
+1. Create an application that contains a client certificate.
+2. Create a subscription to the Kafka API using the mTLS plan.
+
+The client certificate is used by APIM to identify the application during the Kafka connection. The behavior is identical to classic v4 APIs using mTLS.
+
+#### Impacts and benefits
+
+**Impacts:**
+
+- Stricter SSL configuration
+- Mandatory client certificate management
+- Limited plan combination options
+
+**Benefits:**
+
+- Strong authentication of Kafka clients
+- Improved security for Kafka traffic
+- Alignment with existing APIM mTLS mechanisms
+
+<!-- GAP: Draft does not specify if mTLS for Kafka is Enterprise-only or available in Community Edition. If Enterprise-only, add 'mTLS authentication for Native Kafka APIs' to the Enterprise features list. If Community, no update needed. -->

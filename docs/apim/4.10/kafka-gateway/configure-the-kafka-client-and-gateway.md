@@ -273,3 +273,89 @@ kafka:
     
   
 ```
+
+### mTLS Configuration
+
+The mTLS configuration is defined in the `kafka.ssl` section of `gravitee.yml`. This section includes keystore, truststore, and client authentication settings.
+
+```yaml
+kafka:
+  ssl:
+    # Gateway keystore
+    # Contains the Gateway private key and certificate
+    keystore:
+      type: jks                      # jks | pkcs12 | pem
+      path: /path/to/server.keystore.jks
+      password: gravitee
+
+    # Gateway truststore
+    # Contains the CAs that signed client certificates
+    truststore:
+      type: jks                      # jks | pkcs12 | pem
+      path: /path/to/server.truststore.jks
+      password: gravitee
+
+    # Client authentication mode
+    clientAuth: required             # required | request | none
+```
+
+#### Configuration Parameters
+
+**keystore**
+
+Contains the Gateway private key and certificate.
+
+- `type`: Keystore format. Supported values: `jks`, `pkcs12`, `pem`
+- `path`: File path to the keystore
+- `password`: Keystore password
+
+**truststore**
+
+Contains the certificate authorities that signed client certificates.
+
+- `type`: Truststore format. Supported values: `jks`, `pkcs12`, `pem`
+- `path`: File path to the truststore
+- `password`: Truststore password
+
+**clientAuth**
+
+Controls client certificate authentication behavior. Supported values:
+
+- `required`: Client certificate is mandatory. The Gateway rejects connections without a valid certificate.
+- `request`: Client certificate is requested but not required.
+- `none`: Client certificate authentication is disabled.
+
+{% hint style="warning" %}
+Set `clientAuth: required` to enforce mTLS. The Gateway will reject any client connection without a valid certificate.
+{% endhint %}
+
+### Kafka Client Configuration
+
+Configure the Kafka client to use SSL with a client keystore.
+
+```properties
+
+security.protocol=SSL
+
+
+
+ssl.truststore.location=/path/to/client.truststore.jks
+ssl.truststore.password=gravitee
+ssl.truststore.type=JKS
+
+
+
+ssl.keystore.location=/path/to/client.keystore.jks
+ssl.keystore.password=gravitee
+ssl.keystore.type=JKS
+```
+
+### Plan Restrictions
+
+Kafka APIs cannot have Keyless, mTLS, and authentication plans (OAuth2, JWT, API Key) published together.
+
+Kafka APIs cannot expose simultaneously:
+
+- A Keyless plan
+- An mTLS plan
+- An authentication plan (OAuth2, JWT, API Key)
