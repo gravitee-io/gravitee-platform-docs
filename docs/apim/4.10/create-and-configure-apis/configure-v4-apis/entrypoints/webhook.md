@@ -102,3 +102,11 @@ By default, without DLQ, any error returned by the webhook will stop message con
     * Should be based on a broker capable of persisting messages, e.g., Kafka
 
 Once configured and deployed, any message rejected by the webhook with a 4xx error response will be automatically sent to the DLQ endpoint and message consumption will resume.
+
+#### Secured callbacks
+
+Security information can be provided when creating the subscription. Currently, we support:
+
+* Basic
+* Token (JWT)
+* OAuth2
