@@ -1,6 +1,22 @@
 # GKO 4.10.x
 
 
+## Gravitee Kubernetes Operator 4.10.5 - February 16, 2026
+
+<details>
+<summary>Improvements</summary>
+
+  **GKO**
+
+  * Add archived state to v4 API [#11124](https://github.com/gravitee-io/issues/issues/11124)
+  * Allow to configure autoscaling when deploying gateway-api gateways [#11120](https://github.com/gravitee-io/issues/issues/11120)
+
+  **APIM**
+
+  * Add break glass mode for automation APIs [#11099](https://github.com/gravitee-io/issues/issues/11099)
+
+</details>
+
 ## Gravitee Kubernetes Operator 4.10.4 - February 10, 2026
 
 <details>
