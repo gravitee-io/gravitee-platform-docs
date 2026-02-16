@@ -54,7 +54,7 @@ To learn more about Gravitee [Enterprise Edition](../../readme/enterprise-editio
 
 ## Metrics Sent via Reporters
 
-By default, reporters generate the following data, with the camelCase format shown generically. Each reporter type converts the naming convention from camelCase to the format required by that system. The metrics are different between Gravitee v2 and v4 APIs, and v4 metrics are further broken down by request-level metrics and message-level metrics.
+By default, reporters generate the following data, with the camelCase format shown generically. Each reporter type converts the naming convention from camelCase to the format required by that system. The metrics are different between Gravitee v2 and v4 APIs, and v4 metrics are further broken down by request-level metrics and message-level metrics. v4 APIs that use LLM-Proxy or MCP-Proxy endpoints report additional metrics specific to those API types.
 
 {% tabs %}
 {% tab title="v4 Metrics" %}
@@ -86,6 +86,46 @@ By default, reporters generate the following data, with the camelCase format sho
 <table><thead><tr><th width="349">Metric Name</th><th>Purpose</th></tr></thead><tbody><tr><td>timestamp</td><td>The timestamp of the transaction in milliseconds</td></tr><tr><td>proxyResponseTimeMs</td><td>The time (ms) it takes the Gateway to respond to the client (this includes the roundtrip between the Gateway and the upstream service)</td></tr><tr><td>proxyLatencyMs</td><td>The overhead added by the Gateway when forwarding the request upstream and the response back to the client</td></tr><tr><td>apiResponseTimeMs</td><td>The time (ms) it takes the upstream service to respond to the Gateway proxy</td></tr><tr><td>requestId</td><td>Unique identifier Universally Unique Identifier (UUID) identifying the request</td></tr><tr><td>api</td><td>ID of the API</td></tr><tr><td>apiName</td><td>Name of the API at the time of the request</td></tr><tr><td>application</td><td>The application ID; for a keyless plan, this value is "1"</td></tr><tr><td>transactionId</td><td>Used to track end-to-end transactions spanning across multiple HTTP requests. The Gateway configuration allows defining an expected correlation ID header passed by a client request. If this header is set, the content of this field will be set to the value of the header. If no correlation header has been passed, the content of this field will be the same as the content of the request ID. This value will be propagated to the upstream service using the correlation header defined in the configuration (the default header is <code>X-Gravitee-Transaction-Id</code>).</td></tr><tr><td>clientIdentifier</td><td>Unique identifier for the client</td></tr><tr><td>tenant</td><td>ID of the tenant evaluated for the API (see <a href="../../configure-and-manage-the-platform/gravitee-gateway/tenants.md">tenants</a>)</td></tr><tr><td>message</td><td>A detailed explanation of the error associated with the error key (if any)</td></tr><tr><td>plan</td><td>ID of the plan</td></tr><tr><td>localAddress</td><td>The address used as a destination when the incoming request was issued by the client</td></tr><tr><td>remoteAddress</td><td>The remote address used as a source when the incoming request was issued by the client</td></tr><tr><td>httpMethod</td><td>HTTP verb used in the client connection</td></tr><tr><td>host</td><td>The content of the <code>Host</code> header, passed when the incoming request was issued by the client</td></tr><tr><td>uri</td><td>The URI used by the client to perform its request (this includes the context path of the request and query parameters)</td></tr><tr><td>requestContentLength</td><td>The size of the body, in bytes, of the response received by the Gateway client</td></tr><tr><td>responseContentLength</td><td>The size of the body, in bytes, of the response received by the Gateway client</td></tr><tr><td>status</td><td>HTTP response status code integer</td></tr><tr><td>endpoint</td><td>The URL used by the proxy to forward the request to the upstream service</td></tr><tr><td>path</td><td>The path used to perform the client request (starting from the context path of the API)</td></tr><tr><td>mappedPath</td><td>If a path mapping has been defined to group requests in your analytics, this is the value of your mapping.</td></tr><tr><td>userAgent</td><td>The content of the <code>User-Agent</code> header, passed by the client when the incoming request was issued</td></tr><tr><td>user</td><td>The authenticated user, if any type of security was used when processing the request</td></tr><tr><td>securityType</td><td>The security type, if security was used when processing the request (can be either API_KEY, OAUTH2 or JWT)</td></tr><tr><td>securityToken</td><td>The security token, if any type of security was used when processing the request</td></tr><tr><td>errorKey</td><td>If the policy chain was interrupted by an error, this key identifies the error type</td></tr><tr><td>subscription</td><td>The subscription ID; for a keyless plan, this value will be the same as the value of the remote address field</td></tr><tr><td>zone</td><td>Text field set in gravitee.yml to indicate additional information about the gateway instance the API is running on</td></tr></tbody></table>
 {% endtab %}
 {% endtabs %}
+
+When a v4 API uses an LLM-Proxy endpoint, the following additional metrics are reported alongside the standard v4 metrics. These metrics are stored under `additional-metrics` and use typed prefixes (`keyword_`, `long_`, `double_`) to indicate the field type in the reporting system.
+
+| Metric Name                      | Type    | Purpose                                                                                      |
+| -------------------------------- | ------- | -------------------------------------------------------------------------------------------- |
+| `keyword_llm-proxy_provider`     | keyword | The endpoint group name (provider) used for the request (for example, `openai`, `anthropic`) |
+| `keyword_llm-proxy_model`        | keyword | The model name used for the request (for example, `gpt-4`, `claude-3`)                       |
+| `long_llm-proxy_tokens-sent`     | long    | Number of input tokens sent to the LLM                                                       |
+| `long_llm-proxy_tokens-received` | long    | Number of output tokens received from the LLM                                                |
+| `double_llm-proxy_sent-cost`     | double  | Cost of input tokens, based on model pricing configuration                                   |
+| `double_llm-proxy_received-cost` | double  | Cost of output tokens, based on model pricing configuration                                  |
+
+{% hint style="info" %}
+The Gateway also computes two derived metrics for analytics dashboards: **total token count** (`tokens-sent + tokens-received`) and **total token cost** (`sent-cost + received-cost`). These are calculated at query time and do not appear as separate reported fields.
+{% endhint %}
+
+When a v4 API uses an MCP-Proxy endpoint, the following additional metrics are reported alongside the standard v4 metrics. These metrics are stored under `additional-metrics` and use typed prefixes (`keyword_`, `long_`) to indicate the field type in the reporting system.
+
+| Metric Name                          | Type    | Purpose                                                                                                       |
+| ------------------------------------ | ------- | ------------------------------------------------------------------------------------------------------------- |
+| `long_mcp-proxy_response-error-code` | long    | Numeric MCP error code returned by the backend. Typically follows JSON-RPC 2.0 error codes (see table below). |
+| `keyword_mcp-proxy_method`           | keyword | Static keyword indicating the MCP method invoked by the request                                               |
+| `keyword_mcp-proxy_tools/call`       | keyword | The name of the tool called via the `tools/call` method                                                       |
+| `keyword_mcp-proxy_resources/read`   | keyword | The URI of the resource read via the `resources/read` method                                                  |
+| `keyword_mcp-proxy_prompts/get`      | keyword | The name of the prompt retrieved via the `prompts/get` method                                                 |
+
+The `keyword_mcp-proxy_{method}` metrics are dynamic: each distinct MCP method produces its own keyword field reporting the specific name or URI used.
+
+**MCP error codes**
+
+The `long_mcp-proxy_response-error-code` field uses standard JSON-RPC 2.0 error codes:
+
+| Error Code | Meaning            |
+| ---------- | ------------------ |
+| -32700     | Parse error        |
+| -32600     | Invalid request    |
+| -32601     | Method not found   |
+| -32602     | Invalid params     |
+| -32603     | Internal error     |
+| -32002     | Resource not found |
 
 ## Log Data Sent via Reporters
 
