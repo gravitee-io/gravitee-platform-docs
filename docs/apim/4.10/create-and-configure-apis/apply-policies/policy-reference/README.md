@@ -16,6 +16,7 @@ Policies marked with an asterisk require an Enterprise Edition license.
 * [AI - MCP ACL](ai-mcp-acl.md)\*
 * [AI - Prompt Guard Rails](ai-prompt-guard-rails.md)\*
 * [AI - Prompt Token Tracking](ai-prompt-token-tracking.md)\*
+* [AI - Semantic Caching](ai-semantic-caching.md)\*
 * [AI - Token Rate Limit](ai-token-rate-limit.md)
 * [API Key](api-key.md)
 * [Assign Attributes](assign-attributes.md)
@@ -90,3 +91,5 @@ Policies marked with an asterisk require an Enterprise Edition license.
 * [XML Threat Protection](xml-threat-protection.md)
 * [XML Validation](xml-validation.md)
 * [XSLT Transformation](xslt.md)\*
+
+<!-- NEED CLARIFICATION: Confirm if AI Semantic Caching is Enterprise Edition-only. Changelog entry 'prepare policy for EE' suggests EE licensing. If confirmed, the asterisk marker has been added above. -->

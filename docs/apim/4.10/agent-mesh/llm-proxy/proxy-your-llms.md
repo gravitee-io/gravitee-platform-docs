@@ -85,3 +85,9 @@ The response lists all of the models that you can call with that API:
 
 * [add-the-token-rate-limit-policy-to-your-llm-proxy.md](add-the-token-rate-limit-policy-to-your-llm-proxy.md "mention")
 * [add-the-guard-rails-policy-to-your-llm-proxy.md](add-the-guard-rails-policy-to-your-llm-proxy.md "mention")
+
+## Compatible policies
+
+The following policies are compatible with the LLM Proxy API type:
+
+* [AI Semantic Caching](../../create-and-configure-apis/apply-policies/policy-reference/ai-semantic-caching.md)

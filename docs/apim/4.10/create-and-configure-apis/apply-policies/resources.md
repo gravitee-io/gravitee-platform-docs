@@ -277,3 +277,26 @@ You may encounter an error when using this resource with Gravitee's default Dock
 }
 ```
 {% endcode %}
+
+#### AI Text Embedding Model
+
+The AI Text Embedding Model resource generates vector representations (embeddings) of text content. These embeddings are used by policies such as AI Semantic Caching to enable semantic similarity matching. The resource transforms text into high-dimensional vectors that capture semantic meaning, allowing the system to identify similar content even when the exact wording differs.
+
+This resource is required by the AI Semantic Caching policy to generate vector representations of requests for cache lookup and storage.
+
+<table><thead><tr><th width="167">Config param</th><th width="384.3046875">Description</th><th>Default</th></tr></thead><tbody><tr><td>Model</td><td>The AI text embedding model to use for generating vector representations. The model processes text input and produces numerical vectors that represent the semantic content.</td><td>-</td></tr></tbody></table>
+
+{% code title="Example" %}
+```json
+{
+    "name": "ai-model-text-embedding-resource",
+    "type": "ai-model-text-embedding",
+    "enabled": true,
+    "configuration": {
+        "model": {
+            "type": "TEXT_EMBEDDING_MODEL"
+        }
+    }
+}
+```
+{% endcode %}
