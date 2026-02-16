@@ -46,7 +46,7 @@ To install Edge stack agent, you must complete the following steps:
     <figure><img src="../../../.gitbook/assets/85E11164-ADD0-4235-8743-4987417C8312 (1).jpeg" alt=""><figcaption></figcaption></figure>
 3.  Click **Edge Stack**, and then click **Next**.
 
-    <figure><img src="../../../.gitbook/assets/image (36).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (36) (1).png" alt=""><figcaption></figcaption></figure>
 4. In the **Create Integration** screen, type the name of the integration.
 5. (Optional) Type a description for the integration.
 6.  Click **Create** **Integration**.
@@ -70,7 +70,7 @@ You can run the Edge Stack using either of the following methods:
 
 *   In your `docker-compose.yml` file, navigate to the `services` section, and then add the following configuration:
 
-    ```sh
+    ```yaml
     services:
       integration-agent:
         image: ${APIM_REGISTRY:-graviteeio}/federation-agent-edge-stack:${AGENT_VERSION:-latest}
@@ -78,17 +78,17 @@ You can run the Edge Stack using either of the following methods:
         volumes:
           - ${KUBECONFIG_PATH}:/opt/graviteeio-federation-agent/.kube/config
         environment:
+          # Classic or self-hosted APIM: Configure WS endpoints
           - gravitee_integration_connector_ws_endpoints_0=${WS_ENDPOINTS}
           - gravitee_integration_connector_ws_headers_0_name=Authorization
           - gravitee_integration_connector_ws_headers_0_value=bearer ${WS_AUTH_TOKEN}
+          # NextGen Cloud APIM: Replace the three WS endpoint lines above with the following line
+          # - gravitee_cloud_token=${GRAVITEE_CLOUD_TOKEN}
           - gravitee_integration_providers_0_integrationId=${INTEGRATION_ID}
           - gravitee_integration_providers_0_configuration_namespace=${NAMESPACE}
           - gravitee_integration_providers_0_configuration_isEmissary=${IS_EMISSARY}
           - gravitee_integration_providers_0_type=edge-stack
           - KUBECONFIG=/opt/graviteeio-federation-agent/.kube/config
-          # If you are using Gravitee Next-Gen Cloud, then you need to also include a Cloud Token for Federation Agent
-          # - gravitee_cloud_token=${GRAVITEE_CLOUD_TOKEN}
-
     ```
 
 2.  In your `.env` file, add the following variables:
@@ -96,6 +96,7 @@ You can run the Edge Stack using either of the following methods:
     ```bash
     ## GRAVITEE PARAMETERS ##
 
+    # Classic or self-hosted APIM: Configure WS endpoints
     # Gravitee APIM management API URL, typically suffixed with the path /integration-controller
     WS_ENDPOINTS=https://<your-APIM-management-API-host/integration-controller>
 
@@ -105,7 +106,8 @@ You can run the Edge Stack using either of the following methods:
     # ID of the APIM integration you created for this agent
     INTEGRATION_ID=<your-integration-id>
 
-    # If you are using Gravitee Next-Gen Cloud, then you also need to include a Cloud Token for Federation Agent (https://documentation.gravitee.io/apim/hybrid-installation-and-configuration-guides/next-gen-cloud#cloud-token)
+    # NextGen Cloud APIM: Uncomment the following line and remove WS_ENDPOINTS, WS_AUTH_TOKEN, and WS_ORG_ID above
+    # For more information, see https://documentation.gravitee.io/apim/hybrid-installation-and-configuration-guides/next-gen-cloud#cloud-token
     # GRAVITEE_CLOUD_TOKEN=[your-cloud-token-for-federation-agent]
 
     # Optionally specify a specific version of the agent, default will be latest
@@ -116,13 +118,12 @@ You can run the Edge Stack using either of the following methods:
     # Kubernetes namespace with the APIs you want to discover
     NAMESPACE=<kubernetes namespace>
 
-    # If you are using the agent to discover APIs for Emissary, set this to true.  Otherwise set it to false.
+    # If you are using the agent to discover APIs for Emissary, set this to true. Otherwise set it to false.
     IS_EMISSARY=<true | false>
 
-    # The absolute path to the kubeconfig file with the necessary permissions to be used to connect to the 
+    # The absolute path to the kubeconfig file with the necessary permissions to be used to connect to the
     # Kubernetes API
     KUBECONFIG_PATH=<path to kubeconfig file>
-
     ```
 
 * Replace `<your-APIM-management-API-host/integration-controller>` with the Gravitee APIM URL.
