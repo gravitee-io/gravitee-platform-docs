@@ -251,7 +251,11 @@ The following resources support AI-powered policies and features in APIM. They p
 
 The AI Model Text Classification resource loads an AI-powered text classification model that evaluates text content against a set of classification labels. It is used by the AI Prompt Guard Rails policy to detect inappropriate or malicious content in user prompts, such as profanity, toxicity, harmful intent, and jailbreak prompt injections.
 
-The model runs locally on the Gateway using the ONNX Runtime. The first request to an API using this resource will take longer than usual as the model is loaded into memory at that time. Subsequent requests are processed faster.
+{% hint style="info" %}
+When multiple APIs use the same **AI Model Text Classification Resource**, the gateway will only load it once into memory. So if you have 50 APIs, each with the same resource, then the gateway only loads that model once.
+{% endhint %}
+
+The model runs locally on the Gateway using the ONNX Runtime. The first request to this API resource will take longer than usual because the model is loaded into memory at that time. Subsequent requests are processed faster.
 
 {% hint style="info" %}
 You may encounter an error when using this resource with Gravitee's default Docker image. This is because the default images are based on Alpine Linux, which does not support the ONNX Runtime. To resolve this issue, use the Gravitee Docker image based on Debian, available at `graviteeio/apim-gateway:<version>-debian`.
