@@ -1,0 +1,14 @@
+extends: substitution
+message: "Consider using '%s' instead of '%s'."
+ignorecase: false
+level: warning
+scope: raw
+action:
+  name: replace
+swap:
+  (?:[Gg])ravitee\.io: Gravitee
+  (?:[Aa])PI [Gg]ateway: API Gateway
+  (?:[Dd])eveloper [Pp]ortal: Developer Portal
+  (?:[Mm])anagement [Cc]onsole: Management Console
+  (?:[Aa])ccess [Mm]anagement: Access Management
+  (?:[Aa])lert [Ee]ngine: Alert Engine

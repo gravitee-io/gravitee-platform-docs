@@ -1,0 +1,371 @@
+# ============================================
+# Gravitee Product & Platform Terms
+# ============================================
+Gravitee
+APIM
+APID
+GKO
+[Aa]xiom
+Cockpit
+Blackbird
+[Dd]ev[Pp]ortal
+GRAVITEEIO
+
+# ============================================
+# API & Protocol Terms
+# ============================================
+APIs?
+API's
+REST
+RESTful
+GraphQL
+gRPC
+AsyncAPI
+OpenAPI
+OpenID
+OAuth2?
+OIDC
+SAML
+SASL
+SCIM
+SSO
+SSE
+SOAP
+WebSocket[s]?
+WebAuthn
+AMQP
+MQTT[5]?
+mTLS
+[Hh]ealthcheck
+CORS
+CSRF
+FAPI
+PKCE
+HMAC
+JWKS?
+JWS
+JWT
+JTI
+UMA
+CIBA
+DCR
+OAS
+RPT
+CNF
+FIDO2
+PBKDF2
+BCrypt
+RSA
+SHA[0-9]*
+OAUTHBEARER
+SCRAM
+GSSAPI
+ALPN
+W3C
+
+# ============================================
+# Cloud & Infrastructure
+# ============================================
+AWS
+GCP
+GKE
+EKS
+AKS
+S3
+IAM
+CloudHSM
+CloudFormation
+CloudEvents
+VMs?
+VPN
+DMZ
+DNS
+[Cc]loudwatch
+[Ll]oad[Bb]alancer
+ClusterIP
+NodePort
+
+# ============================================
+# Kubernetes & Containers
+# ============================================
+[Kk]ubernetes
+kubectl
+[Hh]elm
+ConfigMap[s]?
+CRDs?
+[Nn]amespaces?
+[Nn]amespaced
+OpenShift
+[Ii]ngress
+ArgoCD
+ArgoRollouts
+GitOps
+Bitnami
+
+# ============================================
+# Databases & Data Stores
+# ============================================
+MongoDB
+PostgreSQL
+MySQL
+MariaDB
+Elasticsearch
+ElasticSearch
+Hazelcast
+[Rr]edis
+DocumentDB
+R2DBC
+RDBMS
+JDBC
+[Dd]atastore
+Liquibase
+
+# ============================================
+# Message Brokers & Streaming
+# ============================================
+[Kk]afka
+RabbitMQ
+ActiveMQ
+DLQs?
+AVRO
+Protobuf
+JOLT
+QoS
+
+# ============================================
+# Monitoring, Logging & Observability
+# ============================================
+OpenTelemetry
+OpenTracing
+[Pp]rometheus
+[Gg]rafana
+[Jj]aeger
+[Zz]ipkin
+[Ff]luentd
+[Ll]ogstash
+[Dd]atadog
+[Ss]plunk
+
+# ============================================
+# Identity & Auth Providers
+# ============================================
+IdP
+IDP
+[Kk]eycloak
+LDAP
+ADFS
+FranceConnect
+[Ee]ntra
+CAS
+HashiCorp
+MFA
+OTP
+RBAC
+PAT
+[Pp]asswordless
+
+# ============================================
+# Java & JVM
+# ============================================
+JVM
+JDK
+JKS
+JRE
+JAAS
+JCE
+OpenJDK
+[Ff]reemarker
+FreeMarker
+Vert\.x
+
+# ============================================
+# Dev Tools & Platforms
+# ============================================
+GitHub
+GitLab
+[Bb]itbucket
+LinkedIn
+[Ii]ntelli[Jj]
+CLI
+SDK
+NPM
+[Ss]wagger
+Redoc
+IntelliJ
+JavaScript
+AngularJS
+
+# ============================================
+# Security & Crypto
+# ============================================
+PEM
+PFX
+PKCS[0-9]*
+PKI
+SSL
+TLS
+SNI
+XSS
+XSLT
+XSL
+OWASP
+CSP
+SOCKS[45]
+ACLs?
+JOSE
+ACME
+CVE
+
+# ============================================
+# Networking & Protocols
+# ============================================
+TCP
+UDP
+HTTP[S]?
+SMTP
+[Hh]ostnames?
+URIs?
+URLs?
+[Ll]ocalhost
+[Gg]zip
+CIDR
+SPA
+LLM
+MCP
+
+# ============================================
+# Formats & Standards
+# ============================================
+JSON
+XML
+YAML
+HTML
+CSS
+CSV
+AsciiDoc
+[Pp]rotobuf
+UTF
+RFC
+ISO
+
+# ============================================
+# Compound / Technical Words
+# ============================================
+[Bb]ackend
+[Ff]rontend
+[Cc]odebase
+[Cc]onfig
+[Dd]atastore
+[Ee]ntrypoints?
+[Ff]ailover
+[Ff]ilesystem
+[Hh]ardcoded
+[Hh]otfixes
+[Kk]eystore
+[Ll]ifecycle
+[Mm]etadata
+[Mm]icroservices
+[Mm]onorepo
+[Oo]nboarding
+[Pp]assphrase
+[Pp]lugins?
+[Pp]rerequisites
+[Qq]uickstart
+[Rr]atelimit
+[Rr]egex
+[Rr]oadmap
+[Rr]ulesets?
+[Rr]ollback
+[Rr]ollout
+[Ss]tandalone
+[Ss]ubpath
+[Tt]emplating
+[Tt]imeframes?
+[Tt]imelines?
+[Tt]ooltip
+[Tt]ruststore
+[Uu]npublish
+[Uu]sername
+[Vv]alidator
+[Vv]ersioning
+[Vv]iewport
+[Ww]ebhooks?
+[Ww]orkflows?
+[Cc]hangelog[s]?
+[Ss]erverless
+[Cc]loud
+[Ee]mail[s]?
+[Rr]epo
+[Uu]pstream
+[Dd]ownstream
+[Bb]lue-green
+[Cc]anary
+[Aa]utoscaling
+[Dd]eserialization
+[Dd]eserialized
+[Dd]eletable
+[Aa]nonymized
+[Bb]ackchannel
+
+# ============================================
+# Gravitee-Specific Features & Config
+# ============================================
+[Ss]harding.tags?
+[Ee]ntrypoint
+gravitee\.yml
+gravitee\.yaml
+[Ee]xpression [Ll]anguage
+EL
+SaaS
+EE
+CE
+OSS
+RPM
+GeoIP
+[Gg]eolocation
+ManagementContext
+ApiDefinition
+SharedPolicyGroup
+ApiResource
+[Aa]piVersion
+UUID
+[Ss]yslog
+
+# ============================================
+# Misc Technical Terms
+# ============================================
+[Dd]ockerfile
+[Oo]pen-source
+US
+IP
+VM
+CPU
+DB
+TTL
+EOF
+AI
+LRU
+MGT
+AE
+SMS
+AD
+OOM
+EOL
+CRUD
+CI
+GPG
+[Ff]ingerprint
+[Aa]uth[Nn]
+A2A
+
+# ============================================
+# Cloud Providers & Services
+# ============================================
+[Ss]alesforce
+[Tt]wilio
+IBM
+Mastercard
+Moby
+Amazon
+Azure
+[Ss]lackbot
