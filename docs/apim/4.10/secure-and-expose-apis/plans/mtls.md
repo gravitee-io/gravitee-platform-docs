@@ -24,16 +24,16 @@ Currently, mTLS plans have the following limitations:
 
 * You can apply mTLS plans to only v4 APIs.
 * You cannot use mTLS plans in Gravitee Cloud with SaaS-based Gateways.
-* Only one client certificate can be added per application. This means that to rotate certificates for an application, you need to either pause the application’s subscriptions or schedule a maintenance window to avoid traffic for that API.
+* Only one client certificate can be added per application. This means that to rotate certificates for an application, you need to either pause the application's subscriptions or schedule a maintenance window to avoid traffic for that API.
 * Applications do not provide a warning that certificates are going to expire.
 
 ## How it works
 
-When using an mTLS plan, you do not need to manually define a Gateway truststore. The Gateway automatically retrieves all certificates from [Applications (that have a TLS Configuration)](mtls.md#how-to-add-a-client-certificate) and loads them into an in-memory truststore.
+When using an mTLS plan, you do not need to manually define a Gateway truststore. The Gateway automatically retrieves all certificates from [Applications (that have a TLS Configuration)](#how-to-add-a-client-certificate) and loads them into an in-memory truststore.
 
 ## Initial Gateway configuration
 
-To use an mTLS plan, you need to [enable HTTPS on your Gateway(s)](../../prepare-a-production-environment/configure-your-http-server.md#enable-https-support).
+To use an mTLS plan, you need to [enable HTTPS on your Gateway(s)](../../prepare-a-production-environment/configure-your-http-server.md).
 
 To enable HTTPS using the `values.yaml` file, use the following configuration to secure Gateway traffic and set the TLS client authentication option:
 
@@ -59,7 +59,7 @@ To subscribe to an mTLS plan, the client has to add a certificate to their appli
 <figure><img src="https://lh7-qw.googleusercontent.com/docsz/AD_4nXc_4L_O2a7U3HCPit9I74v_II5gn7pS-l6uyix2fScJPMusOebtUTmmvHnjL5pVZwOIcKmiRxNOi8uZeumcZTNQzk7VzHhW7tdWZnWNMghyROnJlpbRfXfTkUypSZGmJ2iSejROejRLglgdC-feoXpL5C3G?key=PrMp2J0zWBtqrsqO75zcMw" alt="Screenshot showing Tls configuration"><figcaption><p>Screenshot showing Tls configuration</p></figcaption></figure>
 
 {% hint style="warning" %}
-Multiple applications in the same APIM instance may not share client certificates. You cannot save an application’s configuration if its client certificate is already associated with another application.
+Multiple applications in the same APIM instance may not share client certificates. You cannot save an application's configuration if its client certificate is already associated with another application.
 {% endhint %}
 
 When a client certificate is added to an application, the Gateway adds the application to its in-memory truststore. At runtime, the Gateway checks if a certificate in the truststore matches the certificate of an application subscribed to the API.
@@ -118,6 +118,56 @@ gateway:
 When executing an mTLS plan, the Gateway checks if TLS is enabled.
 
 * If TLS is enabled, the Gateway uses the certificate from the TLS handshake. The handshake occurs before plan selection.
-* If TLS is not enabled, the Gateway checks for the certificate in the header. If the header contains a valid base64-encoded plaintext certificate matching a certificate for a subscribed application, the request succeed.
+* If TLS is not enabled, the Gateway checks for the certificate in the header. If the header contains a valid base64-encoded plaintext certificate matching a certificate for a subscribed application, the request succeeds.
 
 Ensure that only trusted parties can set the certificate header. If you are using a load balancer, the load balancer must be solely responsible for setting this header, and the Gateway should only be directly accessible through the load balancer.
+
+## mTLS for Native Kafka APIs
+
+mTLS authentication for native Kafka APIs works the same way as for classic v4 APIs. The Gateway verifies Kafka client identities using certificates, providing an additional security layer on top of the TLS already required for native Kafka APIs.
+
+### Prerequisites
+
+For mTLS to work correctly:
+
+**Gateway requirements:**
+- Keystore containing the Gateway private key and certificate
+- Truststore containing the CAs that signed client certificates
+- `clientAuth` enabled
+
+**Kafka client requirements:**
+- Keystore containing the client private key and certificate
+- Truststore containing the CA that signed the Gateway certificate
+
+### Gateway configuration
+
+Configure mTLS in the `kafka.ssl` section of `gravitee.yml`. For the full configuration block, see [Configure The Kafka Client And Gateway](../../kafka-gateway/configure-the-kafka-client-and-gateway.md).
+
+{% hint style="warning" %}
+Set `clientAuth: required` to enforce mTLS. The Gateway rejects any client connection without a valid certificate.
+{% endhint %}
+
+### Kafka client configuration
+
+Configure the Kafka client to use SSL with a client keystore:
+
+> For the full configuration block (security.protocol=SSL...), see [Kafka](../../create-and-configure-apis/configure-v4-apis/endpoints/kafka.md).
+### mTLS plan configuration
+
+After completing the SSL/mTLS configuration:
+
+> For mTLS plan configuration details, see [Configure The Kafka Client And Gateway](../../kafka-gateway/configure-the-kafka-client-and-gateway.md).
+
+
+{% hint style="warning" %}
+Kafka APIs can't have Keyless, mTLS, and authentication (OAuth2, JWT, API Key) plans published together.
+{% endhint %}
+
+### Subscription
+
+After publishing the plan:
+
+> For Subscription details, see [Plans](../../kafka-gateway/plans.md).
+
+
+> For Subscription details, see [Configure The Kafka Client And Gateway](../../kafka-gateway/configure-the-kafka-client-and-gateway.md).
