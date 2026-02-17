@@ -17,6 +17,7 @@ Policies marked with an asterisk require an Enterprise Edition license.
 * [AI - Prompt Guard Rails](ai-prompt-guard-rails.md)\*
 * [AI - Prompt Token Tracking](ai-prompt-token-tracking.md)\*
 * [AI - Token Rate Limit](ai-token-rate-limit.md)
+* [AI Semantic Caching](../../../../4.11/create-and-configure-apis/apply-policies/policy-reference/ai-semantic-caching.md)\* — Enables semantic caching of responses based on request content similarity using vector embeddings. Compatible with LLM_PROXY APIs (APIM 4.11.x+, Java 21+).
 * [API Key](api-key.md)
 * [Assign Attributes](assign-attributes.md)
 * [Assign Content](assign-content.md)

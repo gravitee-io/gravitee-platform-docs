@@ -51,6 +51,7 @@ Gravitee offers several different types of plugins. Here are the EE plugins avai
 
 ### Policies
 
+* [AI Semantic Caching](https://download.gravitee.io/#graviteeio-ee/apim/plugins/policies/gravitee-policy-ai-semantic-caching/): Enables semantic caching of responses based on the similarity of request content. Requires AI resources (embedding models, vector stores).
 * [Assign Metrics](https://download.gravitee.io/#graviteeio-ee/apim/plugins/policies/gravitee-policy-assign-metrics/): Pushes extra metrics in addition to the natively provided request metrics.
 * [Cloud Events](https://download.gravitee.io/#graviteeio-ee/apim/plugins/policies/gravitee-policy-cloud-events/): Creates a cloud-events JSON object from messages.
 * [Data Cache](https://download.gravitee.io/#graviteeio-ee/apim/plugins/policies/gravitee-policy-data-cache/): Lets you get, set, and expire arbitrary key-value pairs in a cache resource.
@@ -112,8 +113,8 @@ The Enterprise Policy pack includes policies that are typically necessary for en
 
 The Event-native pack includes capabilities that enable Gravitee to expose, secure, and govern asynchronous APIs and event brokers:
 
-* [**v4 message API entrypoints**](../create-and-configure-apis/create-apis/v4-api-creation-wizard.md#step-2-entrypoints)**:** Access the Gateway and/or consume various message-based backend resources via **HTTP GET**, **HTTP POST**, **Server-sent Events**, **Webhook**, and/or **WebSocket**
-* [**v4 message API endpoints**](../create-and-configure-apis/create-apis/v4-api-creation-wizard.md#introspect-messages-from-event-driven-backend-endpoints)**:**
+* [**v4 message API entrypoints**](../create-and-configure-apis/create-apis/v4-api-creation-wizard.md)**:** Access the Gateway and/or consume various message-based backend resources via **HTTP GET**, **HTTP POST**, **Server-sent Events**, **Webhook**, and/or **WebSocket**
+* [**v4 message API endpoints**](../create-and-configure-apis/create-apis/v4-api-creation-wizard.md)**:**
   * Allow the Gateway to open up a persistent connection and/or call a backend:
     * **Kafka** broker via a Kafka client
     * **MQTT** broker running on MQTT 5.x, via an MQTT client
@@ -123,7 +124,7 @@ The Event-native pack includes capabilities that enable Gravitee to expose, secu
 * **Message Filtering policy:** Filter messages streamed to clients/subscribers based on API publisher and/or client criteria.
 * **AVRO to JSON policy:** Transform information from Avro format to JSON format.
 * **Gateway message reactor plugin:** Enable the Gravitee Gateway to intercept and introspect messages when publishing and subscribing to/from message-based systems.
-* [**Confluent Schema Registry resource**](../create-and-configure-apis/apply-policies/resources.md#confluent-schema-registry)**:** Define Confluent Schema Registry as a resource for serialization and deserialization policies.
+* [**Confluent Schema Registry resource**](../create-and-configure-apis/apply-policies/resources.md)**:** Define Confluent Schema Registry as a resource for serialization and deserialization policies.
 
 </details>
 
@@ -144,8 +145,8 @@ The Legacy Upgrade pack comprises the following plugins and capabilities to enab
 
 The Observability pack includes capabilities to better implement enterprise-grade API monitoring and observability:
 
-* [**Datadog reporter**](../analyze-and-monitor-apis/reporters/datadog-reporter.md#datadog-reporter): Push API metrics to your Datadog instance and dashboards.
-* [**TCP reporter**](../analyze-and-monitor-apis/reporters/tcp-reporter.md#tcp-reporter): Report Gateway events to a TCP listening server.
+* [**Datadog reporter**](../analyze-and-monitor-apis/reporters/datadog-reporter.md): Push API metrics to your Datadog instance and dashboards.
+* [**TCP reporter**](../analyze-and-monitor-apis/reporters/tcp-reporter.md): Report Gateway events to a TCP listening server.
 
 </details>
 

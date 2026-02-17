@@ -49,21 +49,39 @@ The objective is not to apply all of the recommendations, but to ensure that all
 
 4. Brute-force and browser protection
 
-* [ ] [Configure brute force protection](protections.md#brute-force-protection) ([ReCaptcha](protections.md#recaptcha) or [Fail2ban](protections.md#fail2ban))
-* [ ] [Enable CSRF protection](protections.md#enable-csrf-protection)
-* [ ] [Configure CORS for Console and Portal REST APIs](protections.md#configure-cors)
+* [ ] [Configure brute force protection](protections.md) ([ReCaptcha](protections.md) or [Fail2ban](protections.md))
+* [ ] [Enable CSRF protection](protections.md)
+* [ ] [Configure CORS for Console and Portal REST APIs](protections.md)
 
 5. Configuration settings
 
-* [ ] [Change the property encryption secret](general-recommendations/property-encryption.md#property-encryption)
+* [ ] [Change the property encryption secret](general-recommendations/property-encryption.md)
 * [ ] [Enable documentation page sanitizer](general-recommendations/documentation-sanitizer.md#documentation-sanitizer)
-* [ ] [Disable Webhook notifier or configure an authorized list of URLs](general-recommendations/notifiers.md#notifiers)
+* [ ] [Disable Webhook notifier or configure an authorized list of URLs](general-recommendations/notifiers.md)
 
 6. APIM best practices
 
-* [ ] [Apply best practices when designing and deploying APIs](general-recommendations/api-design.md#api-design)
+* [ ] [Apply best practices when designing and deploying APIs](general-recommendations/api-design.md)
+
+7. Advanced caching strategies
+
+* [ ] [Configure semantic caching for LLM and AI workloads](#semantic-caching-for-llm-and-ai-workloads)
 
 </details>
+
+## Semantic caching for LLM and AI workloads
+
+When deploying LLM Proxy APIs, semantic caching can significantly reduce latency and costs by reusing responses for semantically similar requests. The AI Semantic Caching policy uses vector embeddings to match incoming prompts against cached responses.
+
+### Best practices
+
+* **Use JSONPath for prompt extraction**: Extract only the relevant content from complex payloads (e.g., `{#jsonPath(#request.content, '$.messages[-1:].content')}` for chat completions)
+* **Set appropriate cache conditions**: Cache only successful responses (e.g., `{#response.status >= 200 && #response.status < 300}`)
+* **Encode sensitive metadata**: Use `encode: true` for parameters containing PII or sensitive data to hash values using MurmurHash3
+* **Scope cache appropriately**: Use metadata parameters to scope caching per API, plan, or user context
+* **Configure similarity thresholds**: Adjust vector store similarity thresholds to balance cache hit rate versus accuracy
+
+For detailed configuration options and examples, see the <a data-mention href="../create-and-configure-apis/apply-policies/policy-reference/ai-semantic-caching.md">AI Semantic Caching policy reference</a>.
 
 {% hint style="warning" %}
 **Configuring APIM**

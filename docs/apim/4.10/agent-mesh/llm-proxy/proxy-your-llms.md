@@ -6,6 +6,8 @@ The LLM proxy exposes an OpenAI compatible API to the consumer, which you can ea
 
 This allows you to leverage the Gravitee ecosystem with your LLMs. You can apply our policies, manage subscriptions and track analytics, but you also have new features tailored to LLMs such as statistics and rate limiting based on LLM tokens.
 
+The LLM proxy API type is the only API type compatible with the AI Semantic Caching policy, which enables caching of LLM responses based on semantic similarity to reduce latency and costs. For more information, see <a data-mention href="../apply-policies/policy-reference/ai-semantic-caching.md">ai-semantic-caching.md</a>.
+
 This guide explains how to set up your LLM in Gravitee.
 
 ## Prerequisites
@@ -80,6 +82,73 @@ The response lists all of the models that you can call with that API:
 ```
 {"object":"list","data":[{"id":"llmtest:gpt-5-mini","object":"model","owned_by":"llmtest"}]}% 
 ```
+
+## Tutorial: Enable AI Semantic Caching
+
+This tutorial demonstrates how to configure AI Semantic Caching for your LLM proxy API to reduce latency and costs by caching semantically similar responses.
+
+### Prerequisites
+
+Before starting this tutorial, ensure you have:
+
+* A deployed LLM proxy API (created using the steps above)
+* An AI text embedding model resource configured (e.g., OpenAI embeddings)
+* A vector store resource configured (e.g., Redis vector store)
+
+For information on configuring AI resources, see <a data-mention href="../apply-policies/resources.md">resources.md</a>.
+
+### Step 1: Add the AI Semantic Caching policy
+
+1. From the **APIs** screen, select your LLM proxy API.
+2. Click **Policies** in the left navigation.
+3. Click **+ Add policy** in the request phase.
+4. Select **AI Semantic Caching** from the policy list.
+5. Configure the policy:
+    * **Embedding model resource**: Select your configured text embedding model
+    * **Vector store resource**: Select your configured vector store
+    * **Prompt expression**: Use `{#jsonPath(#request.content, '$.messages[-1:].content')}` to extract the last message content
+    * **Cache condition**: Use `{#response.status >= 200 && #response.status < 300}` to cache only successful responses
+    * **Parameters**: Add a parameter with key `retrieval_context_key`, value `{#context.attributes['api']}`, and enable **Encode value**
+6. Click **Add policy**.
+7. Click **Save** and then **Deploy API**.
+
+### Step 2: Test with similar prompts
+
+Send two semantically similar requests to observe cache behavior:
+
+```bash
+# First request (cache miss)
+curl -X POST <GATEWAY_URL>/<CONTEXT_PATH>/chat/completions \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer <API_KEY>" \
+  -d '{
+    "model": "gpt-3.5-turbo",
+    "messages": [{"role": "user", "content": "What is the capital of France?"}]
+  }'
+
+# Second request with similar meaning (cache hit)
+curl -X POST <GATEWAY_URL>/<CONTEXT_PATH>/chat/completions \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer <API_KEY>" \
+  -d '{
+    "model": "gpt-3.5-turbo",
+    "messages": [{"role": "user", "content": "Tell me the capital city of France"}]
+  }'
+```
+
+* Replace `<GATEWAY_URL>` with your Gateway's URL
+* Replace `<CONTEXT_PATH>` with your API's context path
+* Replace `<API_KEY>` with your subscription key
+
+### Step 3: Observe cache hits
+
+The second request should return faster because the response is retrieved from the cache based on semantic similarity. You can verify cache behavior by:
+
+* Checking response headers for cache indicators
+* Reviewing API analytics to see reduced backend calls
+* Monitoring vector store metrics for cache hit rates
+
+For detailed policy configuration options, see <a data-mention href="../apply-policies/policy-reference/ai-semantic-caching.md">ai-semantic-caching.md</a>.
 
 ## Next steps
 

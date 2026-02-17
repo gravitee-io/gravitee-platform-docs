@@ -126,6 +126,16 @@ As an example of how `jsonPath` can be used with EL, suppose you have a JSON pay
 To extract the value of the `price` property for the book with `title` "The Lord of the Rings," you can use the following expression:
 
 `{#jsonPath(#request.content, "$.store.book[?(@.title=='The Lord of the Rings')].price")}`
+
+**Advanced EL examples with AI Semantic Caching policy**
+
+The AI Semantic Caching policy demonstrates advanced EL usage combining JSONPath extraction, context attributes, and conditional logic:
+
+* **Extract last message from chat completion**: `{#jsonPath(#request.content, '$.messages[-1:].content')}` extracts the most recent message content from an OpenAI-compatible chat completion request
+* **Conditional caching based on response status**: `{#response.status >= 200 && #response.status < 300}` ensures only successful responses are cached
+* **Metadata filtering with encoded values**: `{#context.attributes['api']}_{#context.attributes['plan']}_{#context.attributes['user-id']}` creates a composite cache key scoped to API, plan, and user context
+
+For complete configuration examples, see <a data-mention href="ai-semantic-caching.md">ai-semantic-caching.md</a>.
 {% endtab %}
 
 {% tab title="Request/Response body access" %}

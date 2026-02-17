@@ -27,6 +27,10 @@ To add documentation to an API:
 
 <figure><img src="../../.gitbook/assets/documentation_nothing added 1 (1).png" alt=""><figcaption><p>Add pages and/or folders to your API documentation</p></figcaption></figure>
 
+{% hint style="info" %}
+When documenting APIs that use AI resources such as text embedding models or vector stores, consider adding cross-references to relevant policies. For example, the [AI Semantic Caching](../../../4.11/create-and-configure-apis/apply-policies/policy-reference/ai-semantic-caching.md) policy consumes both AI Text Embedding Model and Vector Store resources.
+{% endhint %}
+
 ### Add folders
 
 Folders allow you to organize your documentation by grouping pages. To configure your first folder:
