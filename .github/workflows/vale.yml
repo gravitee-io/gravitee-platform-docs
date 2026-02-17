@@ -1,0 +1,17 @@
+name: Vale Linting
+on:
+  pull_request:
+    paths:
+      - '**.md'
+
+jobs:
+  vale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: errata-ai/vale-action@v2
+        with:
+          files: docs/
+          reporter: github-pr-check
+          vale_flags: "--glob='!**/SUMMARY.md' --glob='!**/CONTRIBUTING.md'"

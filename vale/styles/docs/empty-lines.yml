@@ -1,0 +1,7 @@
+extends: existence
+message: "Don't use more than one empty line to structure content."
+nonword: true
+level: error
+scope: raw
+tokens:
+  - '\n\n\n'

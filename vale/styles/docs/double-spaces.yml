@@ -1,0 +1,7 @@
+extends: existence
+message: "Don't use double spaces between words."
+nonword: true
+level: warning
+scope: raw
+tokens:
+  - '\w  \w'
