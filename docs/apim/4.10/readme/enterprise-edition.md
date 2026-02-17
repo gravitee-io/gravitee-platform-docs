@@ -21,7 +21,7 @@ Gravitee's platform extends beyond API Management. For information on enterprise
 The features below are included in the default enterprise APIM distribution.
 {% endhint %}
 
-<table><thead><tr><th width="214">Feature</th><th>Description</th></tr></thead><tbody><tr><td><strong>Audit Trail</strong></td><td>Audit the consumption and activity of your Gravitee APIs per event and type to monitor the behavior of your APIs and platform</td></tr><tr><td><strong>Bridge Gateway</strong></td><td>Deploy a Bridge Gateway, which is a proxy for a repository, to avoid opening a connection between a database and something outside its network. The sync occurs over HTTP instead of the database protocol.</td></tr><tr><td><strong>Custom roles</strong></td><td>Create custom user roles to fit your needs. A role is a functional group of permissions and can be defined at the organization, environment, API, and/or application level.</td></tr><tr><td><strong>DCR</strong></td><td>The dynamic client registration (DCR) protocol allows OAuth client applications to register with an OAuth server through the OpenID Connect (OIDC) client registration endpoint</td></tr><tr><td><strong>Debug mode</strong></td><td>Easily test and debug your policy execution and enforcement</td></tr><tr><td><strong>Enterprise OpenID Connect SSO</strong></td><td>Use OpenId Connect SSO with your API Management platform</td></tr><tr><td><strong>Sharding tags</strong></td><td>Specify which "shard" of the Gateway an API should be deployed to. By tagging Gateways with specific keywords, you can select a tag in the API's proxy settings to control where the API will be deployed.</td></tr></tbody></table>
+<table><thead><tr><th width="214">Feature</th><th>Description</th></tr></thead><tbody><tr><td><strong>Audit Trail</strong></td><td>Audit the consumption and activity of your Gravitee APIs per event and type to monitor the behavior of your APIs and platform</td></tr><tr><td><strong>Bridge Gateway</strong></td><td>Deploy a Bridge Gateway, which is a proxy for a repository, to avoid opening a connection between a database and something outside its network. The sync occurs over HTTP instead of the database protocol.</td></tr><tr><td><strong>Custom roles</strong></td><td>Create custom user roles to fit your needs. A role is a functional group of permissions and can be defined at the organization, environment, API, and/or application level.</td></tr><tr><td><strong>DCR</strong></td><td>The dynamic client registration (DCR) protocol allows OAuth client applications to register with an OAuth server through the OpenID Connect (OIDC) client registration endpoint</td></tr><tr><td><strong>Debug mode</strong></td><td>Easily test and debug your policy execution and enforcement</td></tr><tr><td><strong>Enterprise OpenID Connect SSO</strong></td><td>Use OpenId Connect SSO with your API Management platform</td></tr><tr><td><strong>Sharding tags</strong></td><td>Specify which "shard" of the Gateway an API should be deployed to. By tagging Gateways with specific keywords, you can select a tag in the API's proxy settings to control where the API will be deployed.</td></tr><tr><td><strong>Tenant management for Kafka endpoints</strong></td><td>Route traffic to different Kafka clusters based on the tenant configuration of the Gateway node. Each endpoint can be tagged with tenant identifiers, and each Gateway node can be configured with a tenant identifier to activate only matching endpoints. This feature is available in Enterprise Edition only.</td></tr></tbody></table>
 
 ## Enterprise plugins
 
@@ -31,17 +31,17 @@ Gravitee offers several different types of plugins. Here are the EE plugins avai
 
 ### Endpoints
 
-* [Agent to Agent](https://download.gravitee.io/#graviteeio-ee/apim/plugins/endpoints/gravitee-endpoint-agent-to-agent/): Supports Google’s Agent-to-Agent (A2A) protocol. To simplify communication, it uses SSE, HTTP GET, or HTTP POST methods in compliance with evolving A2A specifications.
+* [Agent to Agent](https://download.gravitee.io/#graviteeio-ee/apim/plugins/endpoints/gravitee-endpoint-agent-to-agent/): Supports Google's Agent-to-Agent (A2A) protocol. To simplify communication, it uses SSE, HTTP GET, or HTTP POST methods in compliance with evolving A2A specifications.
 * [Azure Service Bus](https://download.gravitee.io/#graviteeio-ee/apim/plugins/endpoints/gravitee-endpoint-azure-service-bus/): Uses HTTP and WebSocket to publish and subscribe to events in Azure Service Bus. The Gateway mediates the protocol between the client and the backend.
 * [Kafka](https://download.gravitee.io/#graviteeio-ee/apim/plugins/endpoints/gravitee-endpoint-kafka/): Uses HTTP and WebSocket to publish and subscribe to events in Kafka. The Gateway mediates the protocol between the client and the backend.
 * [MQTT5](https://download.gravitee.io/#graviteeio-ee/apim/plugins/endpoints/gravitee-endpoint-mqtt5/): Lets you subscribe or publish messages to a MQTT 5.x broker such as HiveMQ or Mosquitto.
-* [Native Kafka](https://download.gravitee.io/#graviteeio-ee/apim/plugins/endpoints/gravitee-endpoint-native-kafka/): Lets you subscribe or publish messages to a Kafka broker using the native Kafka protocol.
+* [Native Kafka](https://download.gravitee.io/#graviteeio-ee/apim/plugins/endpoints/gravitee-endpoint-native-kafka/): Lets you subscribe or publish messages to a Kafka broker using the native Kafka protocol. Supports tenant-based endpoint selection for routing traffic to different Kafka clusters based on Gateway node tenant configuration.
 * [RabbitMQ](https://download.gravitee.io/#graviteeio-ee/apim/plugins/endpoints/gravitee-endpoint-rabbitmq/): Communicates with a RabbitMQ resource using the AMQP 0-9-1 protocol.
 * [Solace](https://download.gravitee.io/#graviteeio-ee/apim/plugins/endpoints/gravitee-endpoint-solace/): Lets you subscribe or publish messages to a Solace broker. Only SMF protocol is supported.
 
 ### Entrypoints
 
-* [Agent to Agent](https://download.gravitee.io/#graviteeio-ee/apim/plugins/entrypoints/gravitee-entrypoint-agent-to-agent/): Supports Google’s Agent-to-Agent (A2A) protocol. To simplify communication, it uses SSE, HTTP GET, or HTTP POST methods in compliance with evolving A2A specifications.
+* [Agent to Agent](https://download.gravitee.io/#graviteeio-ee/apim/plugins/entrypoints/gravitee-entrypoint-agent-to-agent/): Supports Google's Agent-to-Agent (A2A) protocol. To simplify communication, it uses SSE, HTTP GET, or HTTP POST methods in compliance with evolving A2A specifications.
 * [HTTP GET](https://download.gravitee.io/#graviteeio-ee/apim/plugins/entrypoints/gravitee-entrypoint-http-get/): Fronts a backend or data source with a Gateway REST API that supports the HTTP GET request.
 * [HTTP POST](https://download.gravitee.io/#graviteeio-ee/apim/plugins/entrypoints/gravitee-entrypoint-http-post/): Fronts a backend or data source with a Gateway REST API that supports the HTTP POST request.
 * [Native Kafka](https://download.gravitee.io/#graviteeio-ee/apim/plugins/entrypoints/gravitee-entrypoint-native-kafka/): Lets you subscribe or publish messages to a Kafka broker using the native Kafka protocol.
@@ -51,6 +51,7 @@ Gravitee offers several different types of plugins. Here are the EE plugins avai
 
 ### Policies
 
+* [AI Semantic Caching](https://download.gravitee.io/#graviteeio-ee/apim/plugins/policies/gravitee-policy-ai-semantic-caching/): Enables semantic caching of responses based on the similarity of request content. Requires AI resources (embedding models, vector stores).
 * [Assign Metrics](https://download.gravitee.io/#graviteeio-ee/apim/plugins/policies/gravitee-policy-assign-metrics/): Pushes extra metrics in addition to the natively provided request metrics.
 * [Cloud Events](https://download.gravitee.io/#graviteeio-ee/apim/plugins/policies/gravitee-policy-cloud-events/): Creates a cloud-events JSON object from messages.
 * [Data Cache](https://download.gravitee.io/#graviteeio-ee/apim/plugins/policies/gravitee-policy-data-cache/): Lets you get, set, and expire arbitrary key-value pairs in a cache resource.
@@ -112,8 +113,8 @@ The Enterprise Policy pack includes policies that are typically necessary for en
 
 The Event-native pack includes capabilities that enable Gravitee to expose, secure, and govern asynchronous APIs and event brokers:
 
-* [**v4 message API entrypoints**](../create-and-configure-apis/create-apis/v4-api-creation-wizard.md#step-2-entrypoints)**:** Access the Gateway and/or consume various message-based backend resources via **HTTP GET**, **HTTP POST**, **Server-sent Events**, **Webhook**, and/or **WebSocket**
-* [**v4 message API endpoints**](../create-and-configure-apis/create-apis/v4-api-creation-wizard.md#introspect-messages-from-event-driven-backend-endpoints)**:**
+* [**v4 message API entrypoints**](../create-and-configure-apis/create-apis/v4-api-creation-wizard.md)**:** Access the Gateway and/or consume various message-based backend resources via **HTTP GET**, **HTTP POST**, **Server-sent Events**, **Webhook**, and/or **WebSocket**
+* [**v4 message API endpoints**](../create-and-configure-apis/create-apis/v4-api-creation-wizard.md)**:**
   * Allow the Gateway to open up a persistent connection and/or call a backend:
     * **Kafka** broker via a Kafka client
     * **MQTT** broker running on MQTT 5.x, via an MQTT client
@@ -123,7 +124,7 @@ The Event-native pack includes capabilities that enable Gravitee to expose, secu
 * **Message Filtering policy:** Filter messages streamed to clients/subscribers based on API publisher and/or client criteria.
 * **AVRO to JSON policy:** Transform information from Avro format to JSON format.
 * **Gateway message reactor plugin:** Enable the Gravitee Gateway to intercept and introspect messages when publishing and subscribing to/from message-based systems.
-* [**Confluent Schema Registry resource**](../create-and-configure-apis/apply-policies/resources.md#confluent-schema-registry)**:** Define Confluent Schema Registry as a resource for serialization and deserialization policies.
+* [**Confluent Schema Registry resource**](../create-and-configure-apis/apply-policies/resources.md)**:** Define Confluent Schema Registry as a resource for serialization and deserialization policies.
 
 </details>
 
@@ -144,8 +145,8 @@ The Legacy Upgrade pack comprises the following plugins and capabilities to enab
 
 The Observability pack includes capabilities to better implement enterprise-grade API monitoring and observability:
 
-* [**Datadog reporter**](../analyze-and-monitor-apis/reporters/datadog-reporter.md#datadog-reporter): Push API metrics to your Datadog instance and dashboards.
-* [**TCP reporter**](../analyze-and-monitor-apis/reporters/tcp-reporter.md#tcp-reporter): Report Gateway events to a TCP listening server.
+* [**Datadog reporter**](../analyze-and-monitor-apis/reporters/datadog-reporter.md): Push API metrics to your Datadog instance and dashboards.
+* [**TCP reporter**](../analyze-and-monitor-apis/reporters/tcp-reporter.md): Report Gateway events to a TCP listening server.
 
 </details>
 
@@ -158,6 +159,65 @@ The Secret Manager pack includes generic, configurable, and autonomous clients t
 * **HashiCorp Vault**: Use the Key/Value engine of HC Vault to to avoid exposing plain text passwords and secrets keys.
 
 </details>
+
+## Tenant management for Kafka endpoints
+
+Gravitee APIM supports tenant-based endpoint selection for Kafka Native APIs. This capability allows platform administrators to route traffic to different Kafka clusters based on the tenant configuration of the Gateway node.
+
+### How tenant-based routing works
+
+When a Kafka Native API is configured with multiple endpoints:
+
+1. Each endpoint can be tagged with one or more tenant identifiers, or left untagged to serve as a shared fallback.
+2. Each Gateway node can be configured with a tenant identifier via environment variable, system property (`gravitee.tenant`), or in `gravitee.yml`.
+3. At runtime, the Gateway activates only those endpoints whose tenant list is empty or contains the configured tenant.
+4. If no endpoint matches after tenant filtering, the Gateway responds with `503 – No endpoint available`.
+
+### Configuration requirements
+
+#### API authoring (Publisher)
+
+When defining a Kafka Native API endpoint group, publishers can:
+
+- Tag an endpoint with one or more tenants to bind it to specific Gateway fleets
+- Leave the tenant list empty to declare a shared fallback endpoint
+- Combine tenant-specific and shared endpoints in the same group
+
+#### Gateway configuration (Platform admin)
+
+Each Gateway node must expose a configurable tenant identifier:
+
+- Omitting the identifier keeps the node in the shared pool (all endpoints with empty tenant lists)
+- Changing the tenant identifier on a node refreshes its active connector set without requiring API redefinition
+
+### Operational behavior
+
+#### Deployment and routing
+
+- On sync, the Gateway activates only Kafka connectors whose tenant list is empty or contains the configured tenant
+- Tenant-mismatched connectors are ignored entirely
+- Traffic is routed exclusively through active connectors
+- If no connector is available after tenant filtering, requests fail with `503 – No endpoint available`
+
+#### Monitoring and troubleshooting
+
+- Gateway lifecycle signals (health status, connector state, metrics) reflect only tenant-eligible Kafka endpoints
+- Tenant tags are visible in Console lists and API descriptors
+- Operators can observe which connectors are active per tenant through existing Gateway telemetry
+
+### Use cases
+
+#### Zone-aware routing
+
+EU Gateways serve EU clusters, APAC Gateways serve APAC clusters, without duplicating the API definition.
+
+#### Gradual rollout
+
+Publish new tenant-specific endpoints while retaining an untagged shared endpoint to keep legacy nodes running until reconfigured.
+
+#### Hybrid deployments
+
+A single governed API definition reaches different backend clusters depending on where the Gateway node runs (e.g., internal VPN vs external PSC).
 
 ## Gravitee Alert Engine
 

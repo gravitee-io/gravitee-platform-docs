@@ -20,6 +20,7 @@ Changes to the management of Gravitee Organizations and Environments and to the 
 * A single APIM installation supports multiple Organizations and Environments created through Cloud. Each tenant can be either an Organization or an Environment.
 * Features and data are isolated between tenants.
 * Dedicated URLs, or Access Points, are used to access APIM components and APIs deployed on Gravitee Gateways. APIs may only be published on these defined entrypoints.
+* Tenants configured at the organization level can be associated with Kafka Native API endpoints to enable gateway-level endpoint selection.
 
 {% hint style="info" %}
 The isolation scheme of data and features between the logical hierarchical structures of APIM enables a multi-tenant Developer Portal.

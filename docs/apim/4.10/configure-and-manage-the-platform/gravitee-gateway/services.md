@@ -42,6 +42,13 @@ services:
   healthcheck:
     threads: 3 # Threads core size used to check endpoint availability
     jitterInMs: 900 # Random offset (0-5000 ms) applied per API to prevent health checks from firing simultaneously
+
+  # Tenant configuration for Kafka endpoint selection.
+  # When a tenant is configured, the gateway selects Kafka endpoints that either have no tenant configuration
+  # or have a tenant configuration matching the gateway's tenant.
+  tenant:
+    # Tenant identifier used for Kafka endpoint selection
+#   value: my-tenant
 ```
 
 ### Health-check jitter

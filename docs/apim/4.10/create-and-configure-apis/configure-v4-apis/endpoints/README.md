@@ -181,7 +181,7 @@ v4 message APIs currently support the following endpoints:
 * **Solace**: Enables the Gravitee API Gateway to establish a persistent connection with Solace as a backend resource or target.
 * **Mock**: Enables the Gateway to simulate responses from a server for testing API implementations.
 
-### Configuration and Implementation
+### Configuration and implementation
 
 To access endpoint configuration:
 
@@ -198,3 +198,34 @@ The integrations Gravitee uses to enable Kafka, MQTT, RabbitMQ, and Solace endpo
 Click on the tiles below for specific configuration and implementation details.
 
 <table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-type="content-ref"></th></tr></thead><tbody><tr><td>Kafka</td><td></td><td></td><td><a href="kafka.md">kafka.md</a></td></tr><tr><td>MQTT5</td><td></td><td></td><td><a href="mqtt5.md">mqtt5.md</a></td></tr><tr><td>Solace</td><td></td><td></td><td><a href="solace.md">solace.md</a></td></tr><tr><td>RabbitMQ</td><td></td><td></td><td><a href="rabbitmq.md">rabbitmq.md</a></td></tr><tr><td>Mock</td><td></td><td></td><td><a href="mock.md">mock.md</a></td></tr></tbody></table>
+
+### Endpoint management UI updates
+
+The endpoint management page for v4 APIs has been updated to reflect the introduction of **Endpoint Groups** and **tenant configuration** on endpoints. These changes apply primarily to Kafka Native APIs but may also affect the display for other API types.
+
+#### Key UI changes
+
+* **Endpoint Groups**: Endpoints are now organized into groups. Each group can contain multiple endpoints, which are evaluated in order during runtime selection.
+* **Tenant configuration**: Each endpoint can be associated with one or more tenants, or left untagged to serve as a shared endpoint available to all gateways.
+* **Active endpoint indicator**: The first endpoint in a group is labeled "Active" when no tenant or dynamic routing applies.
+* **Reordering controls**: Endpoints can be reordered via drag-and-drop or explicit "Move up/down" controls.
+* **Tenant chips**: Tenant associations are displayed as chips next to each endpoint name.
+
+The updated UI displays:
+
+* A list of endpoints per group
+* Endpoint name, tenant tags (as chips), and status label ("Active" for the first item)
+* Overflow menu for each endpoint (Rename, Duplicate, Delete)
+* Reorder controls (drag or "Move up/down")
+* Optional "Set Active" quick action
+
+<!-- GAP: Screenshots showing the updated endpoint management interface with Endpoint Groups and tenant configuration are required to illustrate these UI changes. -->
+
+#### Warnings and validation
+
+The UI includes non-dismissable warnings stating:
+
+* "No automatic failover / health checks in V1."
+* "Clients handle reconnect; switching endpoints closes existing connections."
+
+Empty-state and error messages guide the user to add at least one endpoint per group.

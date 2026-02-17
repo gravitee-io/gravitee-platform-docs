@@ -17,6 +17,21 @@ The Kafka Gateway natively supports the Kafka protocol and is treated like a tra
 
 You can expose multiple Kafka topics within a single Kafka API, and expose multiple Kafka APIs through the Gravitee Kafka Gateway. Using the Kafka Gateway, data is processed in real time, and virtual topics and partitions enable scalable, cost-effective deployments.
 
+## Multi-Endpoint Configuration
+
+A Kafka API can be configured with multiple endpoint groups, and each group can contain multiple endpoints. Endpoint groups organize and prioritize endpoints for connection management.
+
+## Tenant-Based Endpoint Selection
+
+The Kafka Gateway supports tenant-based endpoint selection. A tenant can be configured in the gateway general configuration, and Kafka endpoints can be associated with one or more specific tenants or left generic (no tenant configuration).
+
+At runtime, the gateway automatically selects the appropriate Kafka endpoint based on the following rules:
+
+- **Gateway without tenant configured**: The gateway selects the first endpoint from the first endpoint group. No tenant-based filtering is applied.
+- **Gateway with tenant configured**: The gateway selects the first valid endpoint from the first endpoint group. An endpoint is valid if it has no tenant configuration (usable by all gateways) or if its tenant configuration matches the tenant configured on the gateway.
+
+Endpoints are evaluated in order within each group, and the first valid endpoint is selected.
+
 To learn more about the Kafka Gateway, see the following articles:
 
 <table data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Configure the Kafka Client &#x26; gateway</td><td><a href="configure-the-kafka-client-and-gateway.md">configure-the-kafka-client-and-gateway.md</a></td></tr><tr><td>Create &#x26; Configure Kafka APIs</td><td><a href="create-and-configure-kafka-apis/">create-and-configure-kafka-apis</a></td></tr><tr><td>Plans</td><td><a href="plans.md">plans.md</a></td></tr><tr><td>Applications</td><td><a href="applications.md">applications.md</a></td></tr><tr><td>Subscriptions</td><td><a href="subscriptions.md">subscriptions.md</a></td></tr><tr><td>Other ways Gravitee supports Kafka</td><td><a href="other-ways-gravitee-supports-kafka.md">other-ways-gravitee-supports-kafka.md</a></td></tr></tbody></table>
