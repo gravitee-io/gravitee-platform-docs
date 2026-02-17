@@ -25,6 +25,7 @@ Before you install the Gravitee APIM, complete the following steps:
 * Have a valid [Azure subscription](https://azure.microsoft.com/en-us/pricing/purchase-options/azure-account)
 * (Optional) [License key](https://documentation.gravitee.io/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing) for Enterprise features
 * (Optional) Register a domain name in Azure DNS or have access to DNS management
+* Java 21+ if using the AI Semantic Caching policy
 
 ## Components Overview
 
@@ -91,14 +92,14 @@ Complete the following steps to verify the NGINX Ingress Controller installation
 
 To install the Gravitee APIM, complete the following steps:
 
-1. [#create-namespace](azure-aks.md#create-namespace "mention")
-2. [#install-mongodb](azure-aks.md#install-mongodb "mention")
-3. [#install-elasticsearch](azure-aks.md#install-elasticsearch "mention")
-4. [#optional-install-redis](azure-aks.md#optional-install-redis "mention")
-5. [#optional-install-postgresql](azure-aks.md#optional-install-postgresql "mention")
-6. [#enterprise-edition-only-create-secret](azure-aks.md#enterprise-edition-only-create-secret "mention")
-7. [#prepare-the-values.yamlfor-helm](azure-aks.md#prepare-the-values.yamlfor-helm "mention")
-8. [#install-using-helm](azure-aks.md#install-using-helm "mention")
+1. [#create-namespace](#create-namespace "mention")
+2. [#install-mongodb](#install-mongodb "mention")
+3. [#install-elasticsearch](#install-elasticsearch "mention")
+4. [#optional-install-redis](#optional-install-redis "mention")
+5. [#optional-install-postgresql](#optional-install-postgresql "mention")
+6. [#enterprise-edition-only-create-secret](#enterprise-edition-only-create-secret "mention")
+7. [#prepare-the-values.yamlfor-helm](#prepare-the-values.yamlfor-helm "mention")
+8. [#install-using-helm](#install-using-helm "mention")
 
 ### Create Namespace
 
@@ -182,23 +183,6 @@ To support analytics and logging, you must install Elasticsearch into your Kuber
       $ helm --namespace=gravitee-apim test elasticsearch
     ```
 
-#### Verification
-
-*   To verify that your Elasticsearch deployment succeeded, check pod status using the following command:
-
-    ```bash
-    kubectl get pods --namespace=gravitee-apim -l app=elasticsearch-master -w 
-    ```
-
-    \
-    \
-    The command generates the following output:
-
-    ```bash
-    NAME                     READY   STATUS    RESTARTS   AGE
-    elasticsearch-master-0   1/1     Running   0          55m
-    ```
-
 ### (Optional) Install Redis
 
 To support caching and rate-limiting, you must install Redis into your Kubernetes cluster. For more information about installing Redis, see the [official chart documentation.](https://artifacthub.io/packages/helm/bitnami/redis)
@@ -210,23 +194,6 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
       -n gravitee-apim \
       --set auth.enabled=true \
       --set auth.password=redis-password
-    ```
-
-#### Verification
-
-*   To verify that your Redis deployment succeeded, check pod status using the following command:
-
-    ```bash
-    kubectl get pods -n gravitee-apim -l app.kubernetes.io/instance=gravitee-redis
-    ```
-
-    \
-    \
-    The command generates the following output:
-
-    ```bash
-    NAME                      READY   STATUS    RESTARTS   AGE
-    gravitee-redis-0          1/1     Running     0        2m
     ```
 
 ### (Optional) Install PostgreSQL
@@ -245,27 +212,6 @@ To support management data, you can install PostgreSQL into your Kubernetes clus
       --set persistence.size=8Gi \
       --set resources.requests.memory=512Mi \
       --set resources.requests.cpu=250m
-    ```
-
-#### Verification
-
-1.  To verify that your PostgreSQL deployment succeeded, retrieve the password using the following command:
-
-    ```bash
-    kubectl get secret --namespace gravitee-apim gravitee-postgresql -o jsonpath="{.data.postgres-password}" | base64 -d
-    ```
-2.  Check pod status using the following command:
-
-    ```bash
-    kubectl get pods -n gravitee-apim -l app.kubernetes.io/instance=gravitee-postgresql
-    ```
-
-    \
-    The command generates the following output:
-
-    ```bash
-    NAME                    READY   STATUS    RESTARTS   AGE
-    gravitee-postgresql-0   1/1     Running   0          2m
     ```
 
 ### (Enterprise Edition Only) Create Secret
@@ -739,12 +685,12 @@ helm uninstall gravitee-apim --namespace gravitee-apim
 
 To verify that your Gravitee APIM platform is up and running on AKS, complete the following steps:
 
-1. [#access-gravitee-apim-web-interface](azure-aks.md#access-gravitee-apim-web-interface "mention")
-2. [#validate-the-pods](azure-aks.md#validate-the-pods "mention")
-3. [#validate-the-pods-2](azure-aks.md#validate-the-pods-2 "mention")
-4. [#validate-the-gateway-logs](azure-aks.md#validate-the-gateway-logs "mention")
-5. [#validate-ingress](azure-aks.md#validate-ingress "mention")
-6. [#validate-the-gateway-url](azure-aks.md#validate-the-gateway-url "mention")
+1. [#access-gravitee-apim-web-interface](#access-gravitee-apim-web-interface "mention")
+2. [#validate-the-pods](#validate-the-pods "mention")
+3. [#validate-the-pods-2](#validate-the-pods-2 "mention")
+4. [#validate-the-gateway-logs](#validate-the-gateway-logs "mention")
+5. [#validate-ingress](#validate-ingress "mention")
+6. [#validate-the-gateway-url](#validate-the-gateway-url "mention")
 
 ### Access Gravitee APIM Web Interface
 
@@ -847,8 +793,8 @@ To validate the Gateway logs, complete the following steps:
 
 Validate your Gateway URL using the following steps:
 
-1. [Validate Gateway URL using Ingress](azure-aks.md#validate-gateway-url-using-ingress)
-2. [Validate Gateway URL using Port Forwarding](azure-aks.md#validate-gateway-url-using-port-forwarding)
+1. [Validate Gateway URL using Ingress](#validate-gateway-url-using-ingress)
+2. [Validate Gateway URL using Port Forwarding](#validate-gateway-url-using-port-forwarding)
 
 The Gateway URL is determined by the ingress configuration in your `values.yaml` file and Azure DNS settings pointing to the Azure Load Balancer IP addresses.
 

@@ -33,6 +33,10 @@ The policy requires an **AI Model Text Classification Resource** to be defined a
 For more information about creating and managing resources, go to [Resources](https://documentation.gravitee.io/apim/policies/resources)
 
 {% hint style="info" %}
+The **AI Text Embedding Model Resource** is required by the [AI Semantic Caching](ai-semantic-caching.md) policy for generating vector embeddings of request content.
+{% endhint %}
+
+{% hint style="info" %}
 The policy will load the model while handling the first request made to the API. Therefore, this first call will take longer than usual because it includes model loading time. Subsequent requests will be processed faster.  When multiple APIs use the same **AI Model Text Classification Resource**, the gateway will load it into memory only once. So if you have 50 APIs, each with the same resource, then the gateway only loads that model once.
 {% endhint %}
 

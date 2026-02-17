@@ -229,12 +229,12 @@ The following table shows the available configurations for the LDAP Authenticati
 | Property              | Required | Description                                                                                                                                                    | Type             | Default                         | Supports EL | Supports Secrets |
 | --------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------------------------------- | ----------- | ---------------- |
 | contextSourceUrl      | Yes      | URL to the LDAP server instance                                                                                                                                | string           | ldap://myserver.example.com:389 | Yes         | Yes              |
-| contextSourceBase     | Yes      | The source base used to authenticate to the LDAP server and query for users when validating user’s credentials                                                 | string           | N/A                             | Yes         | Yes              |
+| contextSourceBase     | Yes      | The source base used to authenticate to the LDAP server and query for users when validating user's credentials                                                 | string           | N/A                             | Yes         | Yes              |
 | contextSourceUsername | Yes      | Username credential used to connect to the LDAP server                                                                                                         | string           | N/A                             | Yes         | Yes              |
 | contextSourcePassword | Yes      | Password credential used to connect to the LDAP server                                                                                                         | string           | N/A                             | Yes         | Yes              |
 | useStartTLS           | No       | Should the API gateway use SSL to connect to the LDAP server                                                                                                   | boolean          | false                           | No          | No               |
 | userSearchFilter      | Yes      | LDAP Filter to select the relevant attribute to check the username                                                                                             | string           | uid={0}                         | Yes         | No               |
-| userSearchBase        | No       | Search base within `contextSourceBase` used to search into the correct OU when validating user’s credentials.                                                  | string           | ou=users                        | Yes         | No               |
+| userSearchBase        | No       | Search base within `contextSourceBase` used to search into the correct OU when validating user's credentials.                                                  | string           | ou=users                        | Yes         | No               |
 | cacheMaxElements      | Yes      | Maximum number of elements within the cache used to store successful authentications. 0 means no cache.                                                        | positive integer | 100                             | No          | No               |
 | cacheTimeToLive       | Yes      | Maximum time to live (in milliseconds) of the elements from the cache used to store successful authentications.                                                | positive integer | 6000 (min 1000)                 | No          | No               |
 | attributes            | Yes      | User LDAP attributes to put in the request context. Attributes can then be read from any other policy supporting EL i.e. `gravitee.attribute.user.{attribute}` | array of string  | \[\*]\(all)                     | No          | No               |
@@ -245,7 +245,7 @@ The following table shows the available configurations for the LDAP Authenticati
 
 ### AI resources
 
-The following resources support AI-powered policies and features in APIM. They provide model inference and vector storage capabilities used by policies such as AI Prompt Guardrails.
+The following resources support AI-powered policies and features in APIM. They provide model inference and vector storage capabilities used by policies such as AI Prompt Guardrails and AI Semantic Caching.
 
 #### AI Model Text Classification
 
@@ -277,3 +277,19 @@ You may encounter an error when using this resource with Gravitee's default Dock
 }
 ```
 {% endcode %}
+
+#### AI Text Embedding Model
+
+The AI Text Embedding Model resource is required by the [AI Semantic Caching policy](docs/apim/4.10/create-and-configure-apis/apply-policies/policy-reference/ai-semantic-caching.md). It converts text into vector representations (embeddings) that enable semantic comparison of user prompts. This resource must be configured at the API or platform level before adding the AI Semantic Caching policy to your flow.
+
+For full configuration details and usage examples, see [AI Semantic Caching](docs/apim/4.10/create-and-configure-apis/apply-policies/policy-reference/ai-semantic-caching.md).
+
+#### AI Vector Store
+
+The AI Vector Store resource is required by the [AI Semantic Caching policy](docs/apim/4.10/create-and-configure-apis/apply-policies/policy-reference/ai-semantic-caching.md). It stores and retrieves vector embeddings used for semantic similarity matching. Configure this resource at the API or platform level before applying the AI Semantic Caching policy.
+
+The similarity threshold configured in the vector store affects cache behavior:
+- **Lower thresholds**: Increase cache hit rate but may reduce accuracy by matching less similar queries
+- **Higher thresholds**: Improve accuracy by requiring closer semantic matches but may reduce cache hit rate
+
+For full configuration details and usage examples, see [AI Semantic Caching](docs/apim/4.10/create-and-configure-apis/apply-policies/policy-reference/ai-semantic-caching.md).

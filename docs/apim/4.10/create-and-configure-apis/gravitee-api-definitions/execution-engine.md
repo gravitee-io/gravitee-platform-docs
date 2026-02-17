@@ -12,7 +12,7 @@ metaLinks:
 To execute Gateway APIs and policy flows, the Gateway relies on a runtime environment referred to as the execution engine. The reactive execution engine is used for v4 APIs. It is based on a modern and fully reactive architecture that enables an improved execution flow for synchronous APIs and supports event-driven policy execution for asynchronous APIs. Added features include native support for pub/sub (publish-subscribe) design and the capability to enforce policies at the message level.
 
 {% hint style="warning" %}
-v2 Gateway APIs can run in [emulation mode](execution-engine.md#v2-gateway-api-emulation-mode) to take advantage of certain execution flow improvements of the reactive engine.
+v2 Gateway APIs can run in [emulation mode](#v2-gateway-api-emulation-mode) to take advantage of certain execution flow improvements of the reactive engine.
 {% endhint %}
 
 ## Key improvements
@@ -27,7 +27,7 @@ Policies can be executed in the exact order in which they have been placed in th
 
 With the new reactive execution engine, it is possible to apply logic on a Head policy based on the payload of the request, e.g., to apply dynamic routing based on the request payload.
 
-v2 Gateway APIs have this capability when [emulation mode](execution-engine.md#v2-gateway-api-emulation-mode) is enabled.
+v2 Gateway APIs have this capability when [emulation mode](#v2-gateway-api-emulation-mode) is enabled.
 
 </details>
 
@@ -37,7 +37,7 @@ v2 Gateway APIs have this capability when [emulation mode](execution-engine.md#v
 
 Proper isolation between platform-level policies and API-level policies is enforced during policy execution. This ensures that platform-level policies are executed before any API-level policies during the request stage and after any API-level policies during the response stage.
 
-v2 Gateway APIs have this capability when [emulation mode](execution-engine.md#v2-gateway-api-emulation-mode) is enabled.
+v2 Gateway APIs have this capability when [emulation mode](#v2-gateway-api-emulation-mode) is enabled.
 
 </details>
 
@@ -91,14 +91,14 @@ Some v4 Gateway API features are dependent on the API definition, not the execut
 
 The following comparisons can be made between the reactive and legacy execution engines:
 
-* [Policy execution](execution-engine.md#policy-execution)
-* [Plan selection](execution-engine.md#plan-selection)
-* [Flow](execution-engine.md#flow)
-* [Logging](execution-engine.md#logging)
-* [Expression Language](execution-engine.md#expression-language)
-* [Bad requests](execution-engine.md#bad-requests)
-* [Origin validation](execution-engine.md#origin-validation)
-* [Timeout management](execution-engine.md#timeout-management)
+* [Policy execution](#policy-execution)
+* [Plan selection](#plan-selection)
+* [Flow](#flow)
+* [Logging](#logging)
+* [Expression Language](#expression-language)
+* [Bad requests](#bad-requests)
+* [Origin validation](#origin-validation)
+* [Timeout management](#timeout-management)
 
 ### Policy execution
 

@@ -81,6 +81,10 @@ htpasswd -bnBC 10 "" new_password | tr -d ':\n'
 
 There are many ways to configure users via LDAP. To illustrate the basic concepts, here are two examples using the `gravitee.yaml` file and the [Gravitee Helm chart](https://github.com/gravitee-io/gravitee-api-management/blob/master/helm/values.yaml) `values.yml` file:
 
+{% hint style="info" %}
+When configuring LDAP authentication with sensitive user information (such as user IDs or email addresses), consider using the `encode` parameter to hash values before storing them as metadata. This privacy protection mechanism uses MurmurHash3 (Base64 encoded) to secure sensitive data. For more information on encoding parameters, see the [AI Semantic Caching policy](../create-and-configure-apis/apply-policies/policy-reference/ai-semantic-caching.md#metadata-and-filtering).
+{% endhint %}
+
 {% code title="gravitee.yaml" %}
 ```yaml
 # ===================================================================

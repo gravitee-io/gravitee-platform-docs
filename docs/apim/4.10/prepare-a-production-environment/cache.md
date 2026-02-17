@@ -70,6 +70,7 @@ API publishers can create Cache resources to:
 
 * Cache upstream of a response with the Cache policy
 * Cache access tokens with the OAuth2 policy
+* Store vector embeddings for semantic caching with the AI Semantic Caching policy
 
 The default distribution includes the [Cache ](cache.md)resource plugin, which stores content in-memory and is locally managed on each Gateway node of the installation.
 
@@ -77,4 +78,4 @@ Configuration of Cache resources cannot be managed using the `hazelcast.xml` fil
 
 ## Persistent cache
 
-APIM also supports the Gravitee [Cache Redis](../create-and-configure-apis/apply-policies/resources.md#cache-redis) resource plugin, based on [Redis](https://redis.io/documentation). This plugin is not in the default distribution, but can be [downloaded](https://download.gravitee.io/#graviteeio-apim/plugins/resources/gravitee-resource-cache-redis/) and deployed with these [instructions](../plugins/deployment.md#deployment).
+APIM also supports the Gravitee [Cache Redis](../create-and-configure-apis/apply-policies/resources.md) resource plugin, based on [Redis](https://redis.io/documentation). This plugin is not in the default distribution, but can be [downloaded](https://download.gravitee.io/#graviteeio-apim/plugins/resources/gravitee-resource-cache-redis/) and deployed with these [instructions](../plugins/deployment.md#deployment).
