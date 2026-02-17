@@ -11,3 +11,9 @@ repos:
       - id: ruff
         args: ["--fix"]
         files: ^tools/.*\.py$
+  - repo: https://github.com/errata-ai/vale
+    rev: v3.9.1
+    hooks:
+      - id: vale
+        args: [--config=.vale.ini]
+        files: \.md$

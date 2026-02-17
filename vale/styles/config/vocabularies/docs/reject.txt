@@ -1,0 +1,10 @@
+# Common misspellings and incorrect forms
+Graviee
+Gravitee.IO
+gravitee
+Kubernete
+Kubernets
+ElasticSearch
+Postgre
+Postgress
+Keycloak
