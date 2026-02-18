@@ -2,7 +2,8 @@ name: Vale Linting
 on:
   pull_request:
     paths:
-      - '**.md'
+      - 'docs/**.md'
+      - 'docs/**.mdx'
 
 permissions:
   contents: read
@@ -18,6 +19,6 @@ jobs:
         with:
           files: all
           reporter: github-pr-review
-          filter_mode: nofilter
+          filter_mode: added
         env:
           GITHUB_TOKEN: ${{ github.token }}
