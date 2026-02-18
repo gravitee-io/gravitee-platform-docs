@@ -16,4 +16,4 @@ repos:
     hooks:
       - id: vale
         args: [--config=.vale.ini]
-        files: \.md$
+        files: \.(md|mdx)$
