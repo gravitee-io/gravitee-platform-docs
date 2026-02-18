@@ -110,7 +110,6 @@ PostgreSQL
 MySQL
 MariaDB
 Elasticsearch
-ElasticSearch
 Hazelcast
 [Rr]edis
 DocumentDB
