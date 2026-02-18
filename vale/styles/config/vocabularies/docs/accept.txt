@@ -5,7 +5,6 @@ Gravitee
 APIM
 APID
 GKO
-[Aa]xiom
 Cockpit
 Blackbird
 [Dd]ev[Pp]ortal
