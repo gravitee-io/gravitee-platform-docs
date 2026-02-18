@@ -5,6 +5,7 @@ on:
       - '**.md'
 
 permissions:
+  contents: read
   pull-requests: write
 
 jobs:
@@ -15,6 +16,8 @@ jobs:
 
       - uses: errata-ai/vale-action@v2
         with:
-          files: docs/
+          files: all
           reporter: github-pr-review
-          vale_flags: "--glob='!**/SUMMARY.md' --glob='!**/CONTRIBUTING.md'"
+          filter_mode: nofilter
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
