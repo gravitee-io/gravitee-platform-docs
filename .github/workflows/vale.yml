@@ -4,6 +4,9 @@ on:
     paths:
       - '**.md'
 
+permissions:
+  pull-requests: write
+
 jobs:
   vale:
     runs-on: ubuntu-latest
@@ -13,5 +16,5 @@ jobs:
       - uses: errata-ai/vale-action@v2
         with:
           files: docs/
-          reporter: github-pr-check
+          reporter: github-pr-review
           vale_flags: "--glob='!**/SUMMARY.md' --glob='!**/CONTRIBUTING.md'"
