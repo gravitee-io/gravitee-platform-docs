@@ -1,10 +1,3 @@
----
-description: An overview about gravitee expression language.
-metaLinks:
-  alternates:
-    - gravitee-expression-language.md
----
-
 # Gravitee Expression Language
 
 ## Overview
@@ -69,6 +62,8 @@ EL allows you to reference certain values injected into the EL context as object
 * `{#response}`: Contains information about the current API response.
 * `{#message}`: Contains information about the current API message.
 * `{#node}` : Contains information about the node hosting the instance of the Gateway handling the API transaction.
+* `{#application}`: Contains information about the consumers' Application authenticated by the Gateway. E.g.: `{#application.metadata['some_key']}`
+* `{#subscription}`: Contains information about the consumers' Subscription authenticated by the Gateway. E.g.: `{#subscription.metadata['some_key']}`
 {% endtab %}
 
 {% tab title="Attributes" %}
@@ -138,7 +133,7 @@ However, depending on the content-type, you can have access to specific content.
 {% hint style="warning" %}
 If a JSON payload that has duplicate keys, APIM keeps the last key.
 
-To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection.md](create-and-configure-apis/apply-policies/policy-reference/json-threat-protection.md "mention").
+To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection](create-and-configure-apis/apply-policies/policy-reference/json-threat-protection "mention").
 {% endhint %}
 
 You can access specific attribute of a JSON request/response payload with `{#request.jsonContent.foo.bar}` , where the request body is similar to the following example:
@@ -169,7 +164,7 @@ You can access specific tag of a XML request/response payload with `{#request.xm
 
 The Expression Language (EL) Assistant helps you write the EL expression needed for the field. You provide the Assistant with the prompt for the EL that you want, and then the assistant returns the corresponding EL for the prompt.
 
-<figure><img src=".gitbook/assets/anim (1).gif" alt=""><figcaption></figcaption></figure>
+<figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2Fgit-blob-7672c60e0db5e4b1f2a071af3eba3f0b759cb7e3%2Fanim.gif?alt=media" alt=""><figcaption></figcaption></figure>
 
 ### Prerequisites
 
@@ -196,7 +191,7 @@ gravitee_newtai_elgen_enabled=true
 ```
 {% endtab %}
 
-{% tab title="values.yaml" %}
+{% tab title="Helm values.yaml" %}
 *   Add the following configuration to your `values.yaml` file:
 
     ```yaml
@@ -215,14 +210,14 @@ Any field that supports Expression Language, supports the AI assistant.
 
 1.  In the field that supports expression language, click the **{EL}** icon.
 
-    <figure><img src=".gitbook/assets/304A887B-9FD1-4011-961A-7DB7D91D3478_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2Fgit-blob-008c4fc76a06b5570f9af67bb2cfc51457ab629f%2F304A887B-9FD1-4011-961A-7DB7D91D3478_1_201_a.jpeg?alt=media" alt=""><figcaption></figcaption></figure>
 2. In the **EL Assistant** pop-up window, type the prompt for the Expression Language that you want the AI assistant to generate. For example, only run this policy if the header equals test.
 3.  Click **Ask Newt AI**. The AI assistant generates the Expression Language.
 
-    <figure><img src=".gitbook/assets/DBE0A0C1-3171-4CA4-A586-A503EBD2B0BD_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2Fgit-blob-7d9c2dbfbfb15a07488aef31b1f2ff476bc84c4c%2FDBE0A0C1-3171-4CA4-A586-A503EBD2B0BD_1_201_a.jpeg?alt=media" alt=""><figcaption></figcaption></figure>
 4.  (Optional) Provide feedback about the answer. To provide feedback, click either the **thumbs u**p or the **thumbs down**.
 
-    <figure><img src=".gitbook/assets/6D6E46F0-AECF-41F9-BE38-53C6EC0EDA38_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2Fgit-blob-fdfd3541a28f3f38863088cd442a5d75838cbcc3%2F6D6E46F0-AECF-41F9-BE38-53C6EC0EDA38_1_201_a.jpeg?alt=media" alt=""><figcaption></figcaption></figure>
 
 ### Use case examples
 
@@ -251,6 +246,8 @@ To add an assertion that only checks the HTTP response, 200, type the following 
 The EL Assistant returns the following response:
 
 `{#response.status == 200}`
+
+
 
 ## APIs
 
@@ -423,5 +420,34 @@ A node is a component that represents an instance of the Gravitee Gateway. Each 
 Get the version of a node : `{#node.version}`
 {% endtab %}
 {% endtabs %}
+
+## Other Tips & Tricks
+
+#### Cast data
+
+If you need to convert or cast a string value into an integer, the following EL can be used:
+
+`{T(java.lang.Integer).parseInt("some_string")}`
+
+#### Evaluating different field types
+
+This "tip" can be used when the evaluating comparisons of different field types.  For example, if the `subscription.metadata['my_key']` value is of type string, but the value in a request/message content is of type number/numeric/integer, the following EL can be used to compare if these two values are the same:
+
+`{(""+#jsonPath(#message.content, '$.customerId')).equals(""+ #subscription.metadata['my_key'])}`
+
+#### Comparing values
+
+When Gravitee is reading the EL data, it looks for expressions starting with `{`, followed by `#`, `T`, or `(`. If it finds one of these patterns, it treats the entire string as a single expression to evaluate. Otherwise, it treats it as a string template.\
+So this won't work:
+
+`{"PARTNER".equals(#subscription.metadata['clientType'])}`
+
+And these will work:
+
+`{("PARTNER".equals(#subscription.metadata['clientType']))}`
+
+`{("PARTNER").equals(#subscription.metadata['clientType'])}`
+
+`{#subscription.metadata['clientType'].equals("PARTNER")}`<br>
 
 [^1]: `{#request.content}` is only available for policies bound to an `on-request-content` phase.
