@@ -68,6 +68,14 @@ To configure Distributed sync with Redis, complete the following steps:
 
 ### (Docker installations only) Configure your Hazelcast Cluster
 
+{% hint style="info" %}
+If you use Kubernetes (Helm), Hazelcast's auto-detection discovers gateway pods automatically on Kubernetes. For more information about Hazelcast's auto-dectection, go to [Kubernetes Auto Discovery.](https://docs.hazelcast.com/hazelcast/5.4/kubernetes/kubernetes-auto-discovery)
+
+
+
+To configure Gateway cluster sync, see [#configure-the-distributed-sync-on-the-apim-gateway](./#configure-the-distributed-sync-on-the-apim-gateway "mention").
+{% endhint %}
+
 1.  In your `gravitee.yml` file navigate to the `cluster` section, and then add the following configuration:&#x20;
 
     ```yaml
@@ -102,7 +110,7 @@ To configure Distributed sync with Redis, complete the following steps:
     * Replace `<gateway_client_2>` with the name of your second Gateway .
     * Replace `<gateway_server>` with your the name of your third Gateway.
 
-### Configure your Redis Repository
+### &#x20;(Docker installations only) Configure your Redis Repository
 
 To enable your distributed sync repository, you must enable the Search module on your Redis instance.&#x20;
 
@@ -186,7 +194,7 @@ To enable your distributed sync repository, you must enable the Search module on
 {% endtab %}
 
 {% tab title="Helm" %}
-1.  In your `values.yaml` file, navigate to the `gateway` section, and then, after the `name:gateway` line, add the following configuration:<br>
+1.  In your `values.yaml` file, navigate to the `gateway` section, and then, after the `name:gateway` line, uncomment the following configuration:<br>
 
     ```bash
     replicaCount: 2
@@ -194,8 +202,6 @@ To enable your distributed sync repository, you must enable the Search module on
       # Cluster configuration for distributed sync
       cluster:
         type: hazelcast
-        hazelcast:
-          configPath: /opt/graviteeio-gateway/config/hazelcast.xml
 
       # Distributed sync configuration
       distributedSync:
@@ -213,44 +219,7 @@ To enable your distributed sync repository, you must enable the Search module on
           distributed:
             enabled: true
     ```
-2.  In your `gateway-configmap.yaml` file, navigate to the `data.gravitee.yml` section, and then add the following configuration:<br>
-
-    ```yaml
-    {{- if .Values.gateway.cluster }}
-        cluster:
-          type: {{ .Values.gateway.cluster.type }}
-          {{- if eq .Values.gateway.cluster.type "hazelcast" }}
-          hazelcast:
-            config-path: {{ .Values.gateway.cluster.hazelcast.configPath }}
-          {{- end }}
-        {{- end }}
-
-        {{- if .Values.gateway.distributedSync }}
-        distributed-sync:
-          type: {{ .Values.gateway.distributedSync.type }}
-          {{- if eq .Values.gateway.distributedSync.type "redis" }}
-          redis:
-            host: {{ .Values.gateway.distributedSync.redis.host }}
-            port: {{ .Values.gateway.distributedSync.redis.port }}
-          {{- end }}
-        {{- end }}
-
-        {{- if .Values.gateway.services }}
-        services:
-          {{- if .Values.gateway.services.sync }}
-          sync:
-            {{- if .Values.gateway.services.sync.repository }}
-            repository:
-              enabled: {{ .Values.gateway.services.sync.repository.enabled }}
-            {{- end }}
-            {{- if .Values.gateway.services.sync.distributed }}
-            distributed:
-              enabled: {{ .Values.gateway.services.sync.distributed.enabled }}
-            {{- end }}
-          {{- end }}
-        {{- end }}
-    ```
-3.  Deploy your installation with your new configurations using the following command:<br>
+2.  Deploy your installation with your new configurations using the following command:<br>
 
     ```bash
     helm upgrade --install graviteeio-apim . \
