@@ -1,15 +1,6 @@
----
-description: An overview about core concepts.
-metaLinks:
-  alternates:
-    - core-concepts.md
----
+### Overview
 
-# Core Concepts
-
-## Overview
-
-The implementation of Gravitee's API management capabilities hinge on the following core concepts.
+The implementation of Gravitee's API management capabilities hinges on the following core concepts:
 
 * An **API** is the proxy that sits between clients and the backend.
 * An **endpoint** is the backend service that can be exposed to the client. Endpoints are part of the configuration for an API.
@@ -21,23 +12,23 @@ The implementation of Gravitee's API management capabilities hinge on the follow
 * The **Management Console** is the control plane UI where APIs are configured. The Management Console has a Management API, which provides a standard model for creating resources in Gravitee. Gateways are registered to a Management API instance.
 * The **Developer Portal** is a UI where subscribers of applications can view documentation, understand how to call an API, and get a credential to use a plan. A service publishes APIs to the Portal, and a client subscribes to the API plan in the Portal.
 
-## Architecture
+### Architecture
 
-Gravitee offers three different API Management architecture schemes: [self-hosted](core-concepts.md#self-hosted-architecture), [hybrid](core-concepts.md#hybrid-architecture), and [Gravitee-managed](core-concepts.md#gravitee-managed-architecture). Each architecture relies on a specific set of Gravitee components. Some components are common to all architectures while others are architecture-specific.
+Gravitee offers three different API Management architecture schemes: self-hosted, hybrid, and Gravitee-managed. Each architecture relies on a specific set of Gravitee components. Some components are common to all architectures while others are architecture-specific.
 
 Gravitee-managed architecture refers to a scheme where all Gravitee API Management components are Gravitee-managed SaaS components. Gravitee Cloud and API Designer are optional and can be connected to a Gravitee-managed API Management installation.
 
-The following table compares the component types and management of self-hosted and hybrid architectures.
+The following table compares the component types and management of self-hosted and hybrid architectures:
 
 <table><thead><tr><th width="326">Component</th><th data-type="checkbox">Self-hosted</th><th data-type="checkbox">Hybrid</th></tr></thead><tbody><tr><td>API Management Console</td><td>true</td><td>true</td></tr><tr><td>Management API</td><td>true</td><td>true</td></tr><tr><td>Developer Portal</td><td>true</td><td>true</td></tr><tr><td>APIM Gateway</td><td>true</td><td>true</td></tr><tr><td>Bridge Gateway</td><td>false</td><td>true</td></tr><tr><td>Config Database</td><td>true</td><td>true</td></tr><tr><td>Analytics Database</td><td>true</td><td>true</td></tr><tr><td>Logstash</td><td>false</td><td>true</td></tr><tr><td>Redis</td><td>false</td><td>true</td></tr><tr><td>Rate Limits Database</td><td>true</td><td>false</td></tr><tr><td>[Enterprise] Gravitee Cloud</td><td>true</td><td>true</td></tr><tr><td>[Enterprise] API Designer</td><td>true</td><td>true</td></tr><tr><td>[Enterprise] Alert Engine</td><td>true</td><td>true</td></tr></tbody></table>
 
-### Component Descriptions
+#### Component Descriptions
 
 Component descriptions for the full catalog of Gravitee architecture components are summarized in the following table:
 
 <table><thead><tr><th width="212.5213913690476">Component</th><th>Description</th></tr></thead><tbody><tr><td>APIM Console<br>(for API producers)</td><td>A web UI that provides easy access to several key APIM Management API services. API publishers can use it to publish APIs. Admins can configure global platform settings and specific Portal settings.</td></tr><tr><td>APIM Management API</td><td>A REST API to manage and configure the APIM Console and APIM Developer Portal. All exposed services are restricted by authentication and authorization rules.</td></tr><tr><td>APIM Developer Portal<br>(for API consumers)</td><td>A web UI that provides easy access to several key APIM API services. API consumers can manage their applications and discover/subscribe to published APIs.</td></tr><tr><td>APIM Gateway</td><td>The core component of the APIM platform. Unlike a traditional HTTP proxy, it can apply policies to transform, secure, or monitor APIs at the request and/or response phase of an API transaction.</td></tr><tr><td>Bridge Gateway</td><td>In a hybrid architecture using Gravitee Classic Cloud, this gateway exposes extra HTTP services to bridge HTTP calls to the underlying repository.</td></tr><tr><td>Config Database</td><td>A database that stores API Management data such as API definitions, users, applications, and plans.</td></tr><tr><td>Analytics Database</td><td>A database that stores Gateway events and logs. In a hybrid architecture using Gravitee Classic Cloud, the Analytics Database is supplemented by an "S3 Bucket."</td></tr><tr><td>Logstash</td><td>Collects and sends local Gateway logs/metrics to the Gravitee APIM SaaS Control Plane. Exclusive to a Classic Cloud hybrid architecture and hosted by users on-prem or in a private cloud.</td></tr><tr><td>Redis</td><td>A database for rate limit synchronized counters. Optionally acts as an external cache in accordance with the Cache policy. Exclusive to hybrid architectures and hosted by users on-prem or in a private cloud.</td></tr><tr><td>[Enterprise]<br>Gravitee Cloud</td><td>A tool for centralized, multi-environment/organization management of APIM and AM installations. Two versions are offered: Gravitee Next-Gen Cloud and Gravitee Classic Cloud.</td></tr><tr><td>[Enterprise]<br>API Designer</td><td>A drag-and-drop MindMap-based tool to quickly and intuitively design Swagger/OAS APIs and deploy mocked APIs for testing.</td></tr><tr><td>[Enterprise]<br>Alert Engine</td><td>Provides APIM/AM users with API platform monitoring via flexible alerting configurations and notification mechanisms.<br>It is triggered by pre-configured upstream conditions and does not require external components or a database.</td></tr></tbody></table>
 
-## Configuration
+### Configuration
 
 Gravitee APIM consists of four components: Gateway, Management API, APIM Console, and Developer Portal. APIM components can be configured using:
 
@@ -49,12 +40,12 @@ Gravitee APIM consists of four components: Gateway, Management API, APIM Console
 The order in which they are listed corresponds to their order of precedence. System properties override the `gravitee.yml` configuration and environment variables override all other configuration methods.
 {% endhint %}
 
-### Environment variables
+#### Environment variables
 
 You can override the default APIM configuration (`gravitee.yml`) and system properties by defining environment variables. Any property in the `yaml` file can be translated to an environment variable by prefixing the property with "gravitee" and using `camel_case` or dot notation.
 
 {% hint style="warning" %}
-Certain properties are case-sensitive and cannot use uppercase characters. We recommend using lowercase characters to define all Gravitee environment variables. To ensure compatibility and avoid or confusion, refer to your system documentation for environment variable naming best practices.
+Certain properties are case-sensitive and cannot use uppercase characters. We recommend using lowercase characters to define all Gravitee environment variables. To ensure compatibility and avoid confusion, refer to your system documentation for environment variable naming best practices.
 {% endhint %}
 
 <details>
@@ -123,7 +114,7 @@ gravitee.security.providers[0].users[1].password=password
 
 </details>
 
-### System properties
+#### System properties
 
 You can override the default APIM configuration (`gravitee.yml`) by defining system properties.
 
@@ -147,7 +138,7 @@ Add this property to the JVM:
 
 </details>
 
-### The `gravitee.yaml` file
+#### The `gravitee.yaml` file
 
 The `gravitee.yaml` file, found in `GRAVITEE_HOME/config/`, is the default way to configure APIM.
 
