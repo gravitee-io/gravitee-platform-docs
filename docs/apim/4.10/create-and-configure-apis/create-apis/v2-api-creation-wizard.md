@@ -65,6 +65,10 @@ The API creation wizard allows you to create either an **API key** or **Keyless*
 * A **quota**: Sets the maximum number of API requests that may occur during the specified number of hours, days, weeks, or months
 * **Resource filtering**: Allows you to filter resources based on whitelists and blacklists
 
+{% hint style="warning" %}
+**Kafka APIs:** Kafka APIs cannot mix Keyless, mTLS, and authentication (OAuth2, JWT, API Key) plans. In order to automatically deploy your API, choose one type: either Keyless, mTLS, or authentication plans.
+{% endhint %}
+
 <figure><img src="../../.gitbook/assets/Screen Shot 2023-06-07 at 1.43.11 PM (1).png" alt=""><figcaption><p>v2 API creation wizard: Plans</p></figcaption></figure>
 
 Gravitee offers additional plan features that are not configured in the API creation wizard. For more in-depth information on plans, refer to the [plans ](../../secure-and-expose-apis/plans/)documentation.

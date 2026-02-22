@@ -95,7 +95,13 @@ Publish your plan by selecting the publish icon on your plan as shown below.
 
 <figure><img src="../../.gitbook/assets/image (9) (3) (1).png" alt=""><figcaption></figcaption></figure>
 
-At this point, it is likely you have both a Keyless and a JWT plan published. Please delete any Keyless plans to ensure the JWT plan can not be bypassed. Select the **X** icon and then follow the prompts in the modal to delete the Keyless plan as shown below:
+{% hint style="info" %}
+**Kafka Native APIs: Plan Type Mutual Exclusion**
+
+If you are working with a Kafka Native API, publishing a JWT plan will automatically close any published Keyless or mTLS plans. A confirmation dialog will appear titled **"Publish plan and close current one(s)"** that lists the plans that will be automatically closed. This is because Kafka Native APIs cannot have Keyless, mTLS, and authentication (OAuth2, JWT, API Key) plans published simultaneously.
+{% endhint %}
+
+At this point, it is likely you have both a Keyless and a JWT plan published. Please delete any Keyless plans to ensure the JWT plan cannot be bypassed. Select the **X** icon and then follow the prompts in the modal to delete the Keyless plan as shown below:
 
 <figure><img src="../../.gitbook/assets/image (18) (1) (1).png" alt=""><figcaption></figcaption></figure>
 

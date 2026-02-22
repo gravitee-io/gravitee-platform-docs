@@ -23,7 +23,16 @@ This policy does not ensure that certificates are valid, since it is done direct
 
 | Plugin version | APIM version  |
 | -------------- | ------------- |
-| 1.x            | 4.5 to latest |
+| 2.x            | 4.10 to latest |
+| 1.x            | 4.5 to 4.9    |
+
+{% hint style="info" %}
+**Kafka Native API Support**
+
+mTLS policy version 2.0.0 or later supports Kafka Native APIs and is compatible with APIM 4.10+. Version 1.x does not support Kafka Native APIs.
+
+mTLS for Kafka Native APIs is an Enterprise Edition feature.
+{% endhint %}
 
 ### Errors <a href="#user-content-errors" id="user-content-errors"></a>
 

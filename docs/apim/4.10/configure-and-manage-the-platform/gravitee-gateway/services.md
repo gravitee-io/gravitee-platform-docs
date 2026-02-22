@@ -42,6 +42,23 @@ services:
   healthcheck:
     threads: 3 # Threads core size used to check endpoint availability
     jitterInMs: 900 # Random offset (0-5000 ms) applied per API to prevent health checks from firing simultaneously
+
+# Kafka SSL configuration for Native APIs
+kafka:
+  ssl:
+    # Gateway server certificate (gateway identity)
+    keystore:
+      type: jks
+      path: /path/to/server.keystore.jks
+      password: changeit
+    
+    # Client certificate validation (mTLS)
+    # Set to 'required' to enforce client certificate authentication
+    clientAuth: required
+    truststore:
+      type: jks
+      path: /path/to/server.truststore.jks
+      password: changeit
 ```
 
 ### Health-check jitter

@@ -11,6 +11,61 @@ metaLinks:
 
 To expose your API to internal or external consumers, it must have at least one plan. A plan provides a service and access layer on top of your API that specifies access limits, subscription validation modes, and other configurations to tailor it to an application. Gravitee offers the following types of plans: Keyless, Basic Authentication, API Key, OAuth2, JWT, Push (Webhooks), and Mutual TLS (mTLS).
 
+The availability of plan security types varies by API type:
+
+| Plan Security Type | HTTP APIs | Kafka Native APIs |
+|:-------------------|:----------|:------------------|
+| Keyless | ✓ | ✓ |
+| API Key | ✓ | ✓ |
+| OAuth2 | ✓ | ✓ |
+| JWT | ✓ | ✓ |
+| Push (Webhooks) | ✓ | ✗ |
+| mTLS | ✓ | ✓ |
+
+### Plan Mutual Exclusion for Kafka Native APIs
+
+Kafka Native APIs enforce strict separation between plan security types. Plans are grouped into three mutually exclusive categories:
+
+- **Keyless**: No authentication required
+- **mTLS**: Certificate-based mutual authentication
+- **Authentication**: API Key, OAuth2, JWT
+
+**Mutual exclusion rules:**
+- Only plans from one category can be published at a time
+- Publishing a plan from one category automatically closes all published plans from conflicting categories
+- This restriction applies only to Kafka Native APIs; HTTP APIs can have multiple plan types published simultaneously
+
+**Examples:**
+- Publishing a Keyless plan will automatically close any published mTLS or authentication plans
+- Publishing an mTLS plan will automatically close any published Keyless or authentication plans
+- Publishing an authentication plan (API Key, OAuth2, or JWT) will automatically close any published Keyless or mTLS plans
+
+**Rationale:** Kafka's connection model does not support mixing authentication methods within a single API deployment.
+
+When you attempt to publish a plan that conflicts with existing published plans, APIM displays a confirmation dialog listing the plans that will be automatically closed. You must confirm the action before the new plan is published and conflicting plans are closed.
+
+### Plan Mutual Exclusion for Kafka Native APIs
+
+Kafka Native APIs enforce strict separation between plan security types. Plans are grouped into three mutually exclusive categories:
+
+- **Keyless**: No authentication required
+- **mTLS**: Certificate-based mutual authentication
+- **Authentication**: API Key, OAuth2, JWT
+
+**Mutual exclusion rules:**
+- Only plans from one category can be published at a time
+- Publishing a plan from one category automatically closes all published plans from conflicting categories
+- This restriction applies only to Kafka Native APIs; HTTP APIs can have multiple plan types published simultaneously
+
+**Examples:**
+- Publishing a Keyless plan will automatically close any published mTLS or authentication plans
+- Publishing an mTLS plan will automatically close any published Keyless or authentication plans
+- Publishing an authentication plan (API Key, OAuth2, or JWT) will automatically close any published Keyless or mTLS plans
+
+**Rationale:** Kafka's connection model does not support mixing authentication methods within a single API deployment.
+
+When you attempt to publish a plan that conflicts with existing published plans, APIM displays a confirmation dialog listing the plans that will be automatically closed. You must confirm the action before the new plan is published and conflicting plans are closed.
+
 Example access scenarios APIM can manage with plans include:
 
 * Read-only access and limited request traffic for potential customers to discover and try out your APIs

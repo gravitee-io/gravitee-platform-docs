@@ -61,7 +61,20 @@ You can use the response template feature to override the default response provi
 
 The policy sends the following error keys:
 
-<table data-full-width="false"><thead><tr><th width="355.6456692913386">Key</th><th width="171">Parameters</th></tr></thead><tbody><tr><td>JSON_INVALID_PAYLOAD</td><td>-</td></tr><tr><td>JSON_INVALID_FORMAT</td><td>-</td></tr><tr><td>JSON_INVALID_RESPONSE_PAYLOAD</td><td>-</td></tr><tr><td>JSON_INVALID_RESPONSE_FORMAT</td><td>-</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="355.6456692913386">Key</th><th width="171">Parameters</th></tr></thead><tbody><tr><td>JSON_INVALID_PAYLOAD</td><td>-</td></tr><tr><td>JSON_INVALID_FORMAT</td><td>-</td></tr><tr><td>JSON_INVALID_RESPONSE_PAYLOAD</td><td>-</td></tr><tr><td>JSON_INVALID_RESPONSE_FORMAT</td><td>-</td></tr><tr><td>SSL_SESSION_REQUIRED</td><td>-</td></tr><tr><td>CLIENT_CERTIFICATE_MISSING</td><td>-</td></tr><tr><td>CLIENT_CERTIFICATE_INVALID</td><td>-</td></tr><tr><td>CLIENT_ABORTED_DURING_RESPONSE_ERROR</td><td>-</td></tr></tbody></table>
+
+### Certificate Validation Errors (Kafka)
+
+For Kafka Native APIs using mTLS authentication, certificate validation errors follow this format:
+
+```
+Certificate validation failed for Kafka connection: {errorKey}
+```
+
+Where `{errorKey}` is one of:
+- `SSL_SESSION_REQUIRED`
+- `CLIENT_CERTIFICATE_MISSING`
+- `CLIENT_CERTIFICATE_INVALID`
 
 ## Changelogs
 
