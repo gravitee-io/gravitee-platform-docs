@@ -30,7 +30,7 @@ The next step is configuring how the Gateway will communicate with clients and b
 * **Gateway entrypoint:** Defines the protocol and configuration settings by which the API consumer communicates with the Gateway. In other words, the Gateway entrypoint dictates how the backend message broker is exposed externally through the Gateway.
 * **Gateway endpoint:** Defines the protocol and configuration settings by which the Gateway API will fetch data/functionality from, or post data to, the backend message broker.
 
-<img src="../../../.gitbook/assets/file.excalidraw (7).svg" alt="Gateway entypoints and endpoints" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (7) (1).svg" alt="Gateway entypoints and endpoints" class="gitbook-drawing">
 
 ### Entrypoints
 
