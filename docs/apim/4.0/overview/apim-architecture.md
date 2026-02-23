@@ -36,7 +36,7 @@ The following diagrams illustrate the component management, design, and virtual 
 
 ### Self-hosted VM installation: LAN + DMZ deployment <a href="#install-on-vms-lan-dmz-deployment" id="install-on-vms-lan-dmz-deployment"></a>
 
-<img src="../.gitbook/assets/file.excalidraw (5).svg" alt="Self-hosted architecture LAN + DMZ" class="gitbook-drawing">
+<img src="../.gitbook/assets/file (1).excalidraw%20\(4\" alt="Self-hosted architecture LAN + DMZ" class="gitbook-drawing">
 
 ## Hybrid architecture
 
