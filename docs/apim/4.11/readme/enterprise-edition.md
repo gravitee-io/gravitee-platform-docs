@@ -51,6 +51,7 @@ Gravitee offers several different types of plugins. Here are the EE plugins avai
 
 ### Policies
 
+* [AI Semantic Caching](https://download.gravitee.io/#graviteeio-ee/apim/plugins/policies/gravitee-policy-ai-semantic-caching/): Reduces latency and cost for LLM Proxy APIs by caching responses to semantically similar prompts using vector embeddings. Enterprise Edition only.
 * [Assign Metrics](https://download.gravitee.io/#graviteeio-ee/apim/plugins/policies/gravitee-policy-assign-metrics/): Pushes extra metrics in addition to the natively provided request metrics.
 * [Cloud Events](https://download.gravitee.io/#graviteeio-ee/apim/plugins/policies/gravitee-policy-cloud-events/): Creates a cloud-events JSON object from messages.
 * [Data Cache](https://download.gravitee.io/#graviteeio-ee/apim/plugins/policies/gravitee-policy-data-cache/): Lets you get, set, and expire arbitrary key-value pairs in a cache resource.

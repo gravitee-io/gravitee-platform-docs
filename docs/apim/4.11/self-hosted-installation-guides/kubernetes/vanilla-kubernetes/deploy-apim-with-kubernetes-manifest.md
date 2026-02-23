@@ -34,7 +34,8 @@ Before deploying Gravitee APIM components, complete the following initial setup 
 * [#create-namespace](deploy-apim-with-kubernetes-manifest.md#create-namespace "mention")
 * [#create-license-secret-enterprise-edition-only](deploy-apim-with-kubernetes-manifest.md#create-license-secret-enterprise-edition-only "mention")
 
-### Prerequisites
+#
+## Prerequisites
 
 You must install the following command line tools:
 
@@ -42,6 +43,17 @@ You must install the following command line tools:
 * [Helm v3](https://helm.sh/docs/intro/install/)
 * Ensure you have access to the self-hosted Kubernetes cluster where you want to install the Gateway.
 * Ensure the self-hosted target environment has outbound Internet connectivity to Gravitee Cloud using HTTPS/443.
+
+### Infrastructure Requirements for AI Semantic Caching
+
+If you plan to use AI Semantic Caching for LLM Proxy APIs, ensure the following infrastructure is available:
+
+* **Enterprise Edition**: AI Semantic Caching requires APIM Enterprise Edition
+* **Vector Store**: One of the following:
+    * Redis with HNSW vector index support, or
+    * AWS S3 bucket
+* **AI Text Embedding Model**: Deployed AI text embedding model resource (ONNX BERT, OpenAI, or HTTP custom)
+
 
 ### Create Namespace
 

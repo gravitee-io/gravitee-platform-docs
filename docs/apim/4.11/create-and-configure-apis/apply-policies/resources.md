@@ -277,3 +277,269 @@ You may encounter an error when using this resource with Gravitee's default Dock
 }
 ```
 {% endcode %}
+
+### AI Text Embedding Model
+
+The AI Text Embedding Model resource converts text into high-dimensional vector embeddings for semantic similarity matching. It is used by the AI Semantic Caching policy to identify semantically similar prompts and return cached responses without invoking the backend LLM. The resource supports three implementation types: OpenAI, HTTP Custom, and ONNX BERT.
+
+{% hint style="info" %}
+When multiple APIs use the same **AI Text Embedding Model Resource**, the Gateway will only load it once into memory. If you have 50 APIs, each with the same resource, the Gateway only loads that model once.
+{% endhint %}
+
+#### OpenAI Embedding Model
+
+The OpenAI Embedding Model implementation connects to the OpenAI API to generate embeddings using OpenAI's text embedding models.
+
+<table><thead><tr><th width="167">Config param</th><th width="304">Description</th><th>Default</th><th>EL support</th><th>Secret support</th></tr></thead><tbody><tr><td>URI</td><td>OpenAI API endpoint</td><td>https://api.openai.com/v1/embeddings</td><td>Yes</td><td>No</td></tr><tr><td>API Key</td><td>API authentication key</td><td>-</td><td>Yes</td><td>Yes</td></tr><tr><td>Organization ID</td><td>Optional organization ID</td><td>-</td><td>Yes</td><td>No</td></tr><tr><td>Project ID</td><td>Optional project ID</td><td>-</td><td>Yes</td><td>No</td></tr><tr><td>Model Name</td><td>Model identifier</td><td>text-embedding-3-small</td><td>Yes</td><td>No</td></tr><tr><td>Dimensions</td><td>Embedding dimensions (must be non-negative)</td><td>-</td><td>No</td><td>No</td></tr><tr><td>Encoding Format</td><td>Output format</td><td>FLOAT</td><td>No</td><td>No</td></tr></tbody></table>
+
+{% code title="Example" %}
+```json
+{
+    "name": "openai-embedding-model",
+    "type": "ai-model-text-embedding",
+    "enabled": true,
+    "configuration": {
+        "type": "OPENAI",
+        "uri": "https://api.openai.com/v1/embeddings",
+        "apiKey": "sk-proj-...",
+        "modelName": "text-embedding-3-small",
+        "dimensions": 384,
+        "encodingFormat": "FLOAT"
+    }
+}
+```
+{% endcode %}
+
+#### HTTP Custom Embedding Model
+
+The HTTP Custom Embedding Model implementation connects to a custom HTTP endpoint to generate embeddings. This allows integration with self-hosted or third-party embedding services.
+
+<table><thead><tr><th width="167">Config param</th><th width="304">Description</th><th>Default</th><th>EL support</th><th>Secret support</th></tr></thead><tbody><tr><td>URI</td><td>HTTP endpoint URI</td><td>-</td><td>Yes</td><td>No</td></tr><tr><td>Method</td><td>HTTP method</td><td>POST</td><td>No</td><td>No</td></tr><tr><td>Headers</td><td>Request headers</td><td>-</td><td>Yes</td><td>Yes</td></tr><tr><td>Request Body Template</td><td>Template for request body</td><td>-</td><td>Yes</td><td>No</td></tr><tr><td>Input Location</td><td>JSONPath to input field</td><td>-</td><td>No</td><td>No</td></tr><tr><td>Output Embedding Location</td><td>JSONPath to embedding output</td><td>-</td><td>No</td><td>No</td></tr></tbody></table>
+
+{% code title="Example" %}
+```json
+{
+    "name": "http-custom-embedding-model",
+    "type": "ai-model-text-embedding",
+    "enabled": true,
+    "configuration": {
+        "type": "HTTP_CUSTOM",
+        "uri": "https://custom-model.example.com/embed",
+        "method": "POST",
+        "headers": [
+            {
+                "name": "Authorization",
+                "value": "Bearer token"
+            }
+        ],
+        "requestBodyTemplate": "{\"input\": \"{input}\"}",
+        "inputLocation": "$.input",
+        "outputEmbeddingLocation": "$.data[0].embedding"
+    }
+}
+```
+{% endcode %}
+
+#### ONNX BERT Embedding Model
+
+The ONNX BERT Embedding Model implementation runs a BERT-based embedding model locally on the Gateway using the ONNX Runtime. The first request to this API resource will take longer than usual because the model is loaded into memory at that time. Subsequent requests are processed faster.
+
+{% hint style="info" %}
+You may encounter an error when using this resource with Gravitee's default Docker image. This is because the default images are based on Alpine Linux, which does not support the ONNX Runtime. To resolve this issue, use the Gravitee Docker image based on Debian, available at `graviteeio/apim-gateway:<version>-debian`.
+{% endhint %}
+
+<table><thead><tr><th width="167">Config param</th><th width="304">Description</th><th>Default</th></tr></thead><tbody><tr><td>Model</td><td>Model type and files. Supported models: <code>XENOVA_ALL_MINILM_L6_V2</code> (512 max sequence length), <code>XENOVA_BGE_SMALL_EN_V1_5</code> (512), <code>XENOVA_MULTILINGUAL_E5_SMALL</code> (512).</td><td>XENOVA_ALL_MINILM_L6_V2</td></tr><tr><td>Pooling Mode</td><td>Pooling strategy</td><td>MEAN</td></tr><tr><td>Padding</td><td>Enable/disable padding</td><td>true</td></tr></tbody></table>
+
+{% code title="Example" %}
+```json
+{
+    "name": "onnx-bert-embedding-model",
+    "type": "ai-model-text-embedding",
+    "enabled": true,
+    "configuration": {
+        "type": "ONNX_BERT",
+        "model": "XENOVA_ALL_MINILM_L6_V2",
+        "poolingMode": "MEAN",
+        "padding": true
+    }
+}
+```
+{% endcode %}
+
+### Redis Vector Store
+
+The Redis Vector Store resource stores and retrieves vector embeddings using Redis with vector indexing support. It is used by the AI Semantic Caching policy to cache LLM responses based on semantic similarity. The resource requires Redis infrastructure with support for the HNSW vector indexing algorithm.
+
+<table><thead><tr><th width="167">Config param</th><th width="304">Description</th><th>Default</th><th>EL support</th><th>Secret support</th></tr></thead><tbody><tr><td>Embedding Size</td><td>Vector dimension size</td><td>384</td><td>No</td><td>No</td></tr><tr><td>Max Results</td><td>Maximum similar vectors to retrieve</td><td>1</td><td>No</td><td>No</td></tr><tr><td>Similarity</td><td>Similarity metric</td><td>COSINE</td><td>No</td><td>No</td></tr><tr><td>Threshold</td><td>Minimum similarity score</td><td>-</td><td>No</td><td>No</td></tr><tr><td>Index Type</td><td>Vector index algorithm</td><td>HNSW</td><td>No</td><td>No</td></tr><tr><td>Allow Eviction</td><td>Enable TTL-based eviction</td><td>true</td><td>No</td><td>No</td></tr><tr><td>Evict Time</td><td>Eviction time value</td><td>10</td><td>No</td><td>No</td></tr><tr><td>Evict Time Unit</td><td>Time unit for eviction</td><td>SECONDS</td><td>No</td><td>No</td></tr><tr><td>Host</td><td>Redis server host</td><td>localhost</td><td>Yes</td><td>No</td></tr><tr><td>Port</td><td>Redis server port</td><td>6379</td><td>No</td><td>No</td></tr><tr><td>Password</td><td>Redis authentication password</td><td>-</td><td>Yes</td><td>Yes</td></tr><tr><td>Use SSL</td><td>Toggle to use SSL connections</td><td>false</td><td>No</td><td>No</td></tr></tbody></table>
+
+{% code title="Example" %}
+```json
+{
+    "name": "redis-vector-store",
+    "type": "ai-vector-store-redis",
+    "enabled": true,
+    "configuration": {
+        "embeddingSize": 384,
+        "maxResults": 1,
+        "similarity": "COSINE",
+        "threshold": 0.7,
+        "indexType": "HNSW",
+        "allowEviction": true,
+        "evictTime": 10,
+        "evictTimeUnit": "SECONDS",
+        "host": "localhost",
+        "port": 6379,
+        "password": "secret",
+        "useSsl": false
+    }
+}
+```
+{% endcode %}
+
+### AWS S3 Vector Store
+
+{% hint style="warning" %}
+**Enterprise only**
+
+The AWS S3 Vector Store resource is an Enterprise Edition capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:
+
+* [Book a demo](https://www.gravitee.io/demo)
+* [Check out the pricing page](https://www.gravitee.io/pricing)
+{% endhint %}
+
+The AWS S3 Vector Store resource stores and retrieves vector embeddings using AWS S3. It is used by the AI Semantic Caching policy to cache LLM responses based on semantic similarity.
+
+<!-- GAP: AWS S3 vector store configuration properties not documented in manifest -->
+
+### AI Text Embedding Model
+
+The AI Text Embedding Model resource converts text into high-dimensional vector embeddings for semantic similarity matching. It is used by the AI Semantic Caching policy to identify semantically similar prompts and return cached responses without invoking the backend LLM. The resource supports three implementation types: OpenAI, HTTP Custom, and ONNX BERT.
+
+{% hint style="info" %}
+When multiple APIs use the same **AI Text Embedding Model Resource**, the Gateway will only load it once into memory. If you have 50 APIs, each with the same resource, the Gateway only loads that model once.
+{% endhint %}
+
+#### OpenAI Embedding Model
+
+The OpenAI Embedding Model implementation connects to the OpenAI API to generate embeddings using OpenAI's text embedding models.
+
+<table><thead><tr><th width="167">Config param</th><th width="304">Description</th><th>Default</th><th>EL support</th><th>Secret support</th></tr></thead><tbody><tr><td>URI</td><td>OpenAI API endpoint</td><td>https://api.openai.com/v1/embeddings</td><td>Yes</td><td>No</td></tr><tr><td>API Key</td><td>API authentication key</td><td>-</td><td>Yes</td><td>Yes</td></tr><tr><td>Organization ID</td><td>Optional organization ID</td><td>-</td><td>Yes</td><td>No</td></tr><tr><td>Project ID</td><td>Optional project ID</td><td>-</td><td>Yes</td><td>No</td></tr><tr><td>Model Name</td><td>Model identifier</td><td>text-embedding-3-small</td><td>Yes</td><td>No</td></tr><tr><td>Dimensions</td><td>Embedding dimensions (must be non-negative)</td><td>-</td><td>No</td><td>No</td></tr><tr><td>Encoding Format</td><td>Output format</td><td>FLOAT</td><td>No</td><td>No</td></tr></tbody></table>
+
+{% code title="Example" %}
+```json
+{
+    "name": "openai-embedding-model",
+    "type": "ai-model-text-embedding",
+    "enabled": true,
+    "configuration": {
+        "type": "OPENAI",
+        "uri": "https://api.openai.com/v1/embeddings",
+        "apiKey": "sk-proj-...",
+        "modelName": "text-embedding-3-small",
+        "dimensions": 384,
+        "encodingFormat": "FLOAT"
+    }
+}
+```
+{% endcode %}
+
+#### HTTP Custom Embedding Model
+
+The HTTP Custom Embedding Model implementation connects to a custom HTTP endpoint to generate embeddings. This allows integration with self-hosted or third-party embedding services.
+
+<table><thead><tr><th width="167">Config param</th><th width="304">Description</th><th>Default</th><th>EL support</th><th>Secret support</th></tr></thead><tbody><tr><td>URI</td><td>HTTP endpoint URI</td><td>-</td><td>Yes</td><td>No</td></tr><tr><td>Method</td><td>HTTP method</td><td>POST</td><td>No</td><td>No</td></tr><tr><td>Headers</td><td>Request headers</td><td>-</td><td>Yes</td><td>Yes</td></tr><tr><td>Request Body Template</td><td>Template for request body</td><td>-</td><td>Yes</td><td>No</td></tr><tr><td>Input Location</td><td>JSONPath to input field</td><td>-</td><td>No</td><td>No</td></tr><tr><td>Output Embedding Location</td><td>JSONPath to embedding output</td><td>-</td><td>No</td><td>No</td></tr></tbody></table>
+
+{% code title="Example" %}
+```json
+{
+    "name": "http-custom-embedding-model",
+    "type": "ai-model-text-embedding",
+    "enabled": true,
+    "configuration": {
+        "type": "HTTP_CUSTOM",
+        "uri": "https://custom-model.example.com/embed",
+        "method": "POST",
+        "headers": [
+            {
+                "name": "Authorization",
+                "value": "Bearer token"
+            }
+        ],
+        "requestBodyTemplate": "{\"input\": \"{input}\"}",
+        "inputLocation": "$.input",
+        "outputEmbeddingLocation": "$.data[0].embedding"
+    }
+}
+```
+{% endcode %}
+
+#### ONNX BERT Embedding Model
+
+The ONNX BERT Embedding Model implementation runs a BERT-based embedding model locally on the Gateway using the ONNX Runtime. The first request to this API resource will take longer than usual because the model is loaded into memory at that time. Subsequent requests are processed faster.
+
+{% hint style="info" %}
+You may encounter an error when using this resource with Gravitee's default Docker image. This is because the default images are based on Alpine Linux, which does not support the ONNX Runtime. To resolve this issue, use the Gravitee Docker image based on Debian, available at `graviteeio/apim-gateway:<version>-debian`.
+{% endhint %}
+
+<table><thead><tr><th width="167">Config param</th><th width="304">Description</th><th>Default</th></tr></thead><tbody><tr><td>Model</td><td>Model type and files. Supported models: <code>XENOVA_ALL_MINILM_L6_V2</code> (512 max sequence length), <code>XENOVA_BGE_SMALL_EN_V1_5</code> (512), <code>XENOVA_MULTILINGUAL_E5_SMALL</code> (512).</td><td>XENOVA_ALL_MINILM_L6_V2</td></tr><tr><td>Pooling Mode</td><td>Pooling strategy</td><td>MEAN</td></tr><tr><td>Padding</td><td>Enable/disable padding</td><td>true</td></tr></tbody></table>
+
+{% code title="Example" %}
+```json
+{
+    "name": "onnx-bert-embedding-model",
+    "type": "ai-model-text-embedding",
+    "enabled": true,
+    "configuration": {
+        "type": "ONNX_BERT",
+        "model": "XENOVA_ALL_MINILM_L6_V2",
+        "poolingMode": "MEAN",
+        "padding": true
+    }
+}
+```
+{% endcode %}
+
+### Redis Vector Store
+
+The Redis Vector Store resource stores and retrieves vector embeddings using Redis with vector indexing support. It is used by the AI Semantic Caching policy to cache LLM responses based on semantic similarity. The resource requires Redis infrastructure with support for the HNSW vector indexing algorithm.
+
+<table><thead><tr><th width="167">Config param</th><th width="304">Description</th><th>Default</th><th>EL support</th><th>Secret support</th></tr></thead><tbody><tr><td>Embedding Size</td><td>Vector dimension size</td><td>384</td><td>No</td><td>No</td></tr><tr><td>Max Results</td><td>Maximum similar vectors to retrieve</td><td>1</td><td>No</td><td>No</td></tr><tr><td>Similarity</td><td>Similarity metric</td><td>COSINE</td><td>No</td><td>No</td></tr><tr><td>Threshold</td><td>Minimum similarity score</td><td>-</td><td>No</td><td>No</td></tr><tr><td>Index Type</td><td>Vector index algorithm</td><td>HNSW</td><td>No</td><td>No</td></tr><tr><td>Allow Eviction</td><td>Enable TTL-based eviction</td><td>true</td><td>No</td><td>No</td></tr><tr><td>Evict Time</td><td>Eviction time value</td><td>10</td><td>No</td><td>No</td></tr><tr><td>Evict Time Unit</td><td>Time unit for eviction</td><td>SECONDS</td><td>No</td><td>No</td></tr><tr><td>Host</td><td>Redis server host</td><td>localhost</td><td>Yes</td><td>No</td></tr><tr><td>Port</td><td>Redis server port</td><td>6379</td><td>No</td><td>No</td></tr><tr><td>Password</td><td>Redis authentication password</td><td>-</td><td>Yes</td><td>Yes</td></tr><tr><td>Use SSL</td><td>Toggle to use SSL connections</td><td>false</td><td>No</td><td>No</td></tr></tbody></table>
+
+{% code title="Example" %}
+```json
+{
+    "name": "redis-vector-store",
+    "type": "ai-vector-store-redis",
+    "enabled": true,
+    "configuration": {
+        "embeddingSize": 384,
+        "maxResults": 1,
+        "similarity": "COSINE",
+        "threshold": 0.7,
+        "indexType": "HNSW",
+        "allowEviction": true,
+        "evictTime": 10,
+        "evictTimeUnit": "SECONDS",
+        "host": "localhost",
+        "port": 6379,
+        "password": "secret",
+        "useSsl": false
+    }
+}
+```
+{% endcode %}
+
+### AWS S3 Vector Store
+
+{% hint style="warning" %}
+**Enterprise only**
+
+The AWS S3 Vector Store resource is an Enterprise Edition capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:
+
+* [Book a demo](https://www.gravitee.io/demo)
+* [Check out the pricing page](https://www.gravitee.io/pricing)
+{% endhint %}
+
+The AWS S3 Vector Store resource stores and retrieves vector embeddings using AWS S3. It is used by the AI Semantic Caching policy to cache LLM responses based on semantic similarity.
+
+<!-- GAP: AWS S3 vector store configuration properties not documented in manifest -->

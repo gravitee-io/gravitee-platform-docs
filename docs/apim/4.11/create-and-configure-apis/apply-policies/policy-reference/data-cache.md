@@ -15,6 +15,12 @@ The Data Cache policy allows you to get, set, and expire arbitrary key-value pai
 * Maintain state in the gateway to track the number of tokens passed to an upstream LLM proxied by the API.
 * Restrict the number of ongoing connections to an endpoint in order to protect a legacy backend from overload.
 
+{% hint style="info" %}
+**Traditional HTTP Caching vs AI Semantic Caching**
+
+The Data Cache policy provides traditional key-value caching based on exact key matches. For LLM Proxy APIs, consider using the [AI Semantic Caching](ai-semantic-caching.md) policy, which caches responses based on semantic similarity of prompts rather than exact text matches. AI Semantic Caching uses vector embeddings to recognize that "What is the capital of France?" and "Capital of France?" are semantically similar, reducing latency and cost for LLM API calls.
+{% endhint %}
+
 ## Basic Usage
 
 * First, you create a [cache resource](https://github.com/gravitee-io/gravitee-platform-docs/blob/6f69d3d43334c5f35db35e34f1d23832790b9725/docs/apim/4.6/policies/resources.md) for the policy to use.
