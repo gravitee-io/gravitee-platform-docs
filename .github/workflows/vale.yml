@@ -17,7 +17,7 @@ jobs:
 
       - uses: errata-ai/vale-action@v2
         with:
-          files: all
+          files: __diff
           reporter: github-pr-review
           filter_mode: added
         env:
