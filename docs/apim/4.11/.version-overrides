@@ -1,3 +1,15 @@
 # Files with version-specific content — do NOT sync from previous version
 # Auto-managed by the documentation pipeline
 # Add files here that intentionally differ from 4.10 (e.g., 4.11 feature docs)
+SUMMARY.md
+configure-and-manage-the-platform/gravitee-gateway/README.md
+create-and-configure-apis/apply-policies/policy-reference/mtls.md
+create-and-configure-apis/create-apis/v4-api-creation-wizard.md
+govern-apis/federation/federated-apis.md
+kafka-gateway/create-and-configure-kafka-apis/README.md
+kafka-gateway/kafka-mtls.md
+kafka-gateway/plans.md
+kafka-gateway/subscriptions.md
+readme/enterprise-edition.md
+release-information/release-notes/apim-4.11.md
+secure-and-expose-apis/plans/README.md

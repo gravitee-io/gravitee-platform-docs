@@ -279,3 +279,44 @@ Authentication failures are handled gracefully—the connection is closed withou
 ```
 Authentication failed [reason]
 ```
+
+### Subscribe to Kafka APIs with mTLS Plans
+
+API consumers must provide a valid client certificate when subscribing to an mTLS plan. The Gateway validates the certificate against the subscription's registered certificate and uses the certificate's MD5 hash as the security token for subscription lookup.
+
+#### Prerequisites
+
+- Gravitee API Management 4.10 or later
+- mTLS policy version 2.0.0-alpha.2 or later
+- Kafka Native API with Kafka listener type configured
+- Server truststore containing the CA that signed client certificates
+- Client certificates signed by a trusted CA
+
+#### Subscription Request Format
+
+When creating a subscription to an mTLS plan, include the Base64-encoded client certificate in the `clientCertificate` field of the subscription request. The Gateway calculates the MD5 hash of the certificate and stores it as the security token for subscription lookup.
+
+<!-- GAP: Missing documentation for the exact API call or Console UI workflow for creating a subscription with a client certificate -->
+
+When the client connects, the Gateway validates the presented certificate against the subscription's stored certificate. The client certificate must be signed by a CA present in the Gateway's truststore.
+
+#### Kafka Client SSL Configuration
+
+Kafka clients connecting to mTLS-protected APIs must configure SSL properties to present their certificate during the TLS handshake.
+
+| Property | Description | Example |
+|:---------|:------------|:--------|
+| `ssl.keystore.location` | Path to client keystore containing certificate | `/path/to/client.keystore.jks` |
+| `ssl.keystore.password` | Keystore password | `changeit` |
+| `ssl.truststore.location` | Path to client truststore containing Gateway CA | `/path/to/client.truststore.jks` |
+
+**Example client configuration:**
+
+```properties
+ssl.keystore.location=/path/to/client.keystore.jks
+ssl.keystore.password=changeit
+ssl.truststore.location=/path/to/client.truststore.jks
+```
+
+<!-- GAP: Missing instructions for generating and signing client certificates -->
+<!-- GAP: Missing specification of supported certificate formats beyond JKS keystores -->

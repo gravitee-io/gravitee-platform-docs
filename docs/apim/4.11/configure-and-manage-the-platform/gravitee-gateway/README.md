@@ -21,3 +21,24 @@ YAML (`yml`) format is sensitive to indentation. Ensure you include the correct 
 The following is a reference of the default configuration of APIM Gateway in your `gravitee.yml` file:
 
 {% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-api-management/blob/master/gravitee-apim-gateway/gravitee-apim-gateway-standalone/gravitee-apim-gateway-standalone-distribution/src/main/resources/config/gravitee.yml" %}
+
+## Kafka SSL Configuration
+
+When using Kafka Native APIs with mTLS authentication, configure the Gateway to require client certificates and specify the truststore containing trusted certificate authorities (CAs).
+
+| Property | Description | Example |
+|:---------|:------------|:--------|
+| `kafka.ssl.clientAuth` | Client certificate requirement mode. Set to `required` to enforce client certificate validation for Kafka connections. | `required` |
+| `kafka.ssl.truststore.type` | Truststore format | `jks` |
+| `kafka.ssl.truststore.password` | Truststore password | `gravitee` |
+| `kafka.ssl.truststore.path` | Absolute path to truststore file containing CAs that signed client certificates | `/path/to/server.truststore.jks` |
+
+```yaml
+kafka:
+  ssl:
+    clientAuth: required
+    truststore:
+      type: jks
+      password: gravitee
+      path: /path/to/server.truststore.jks
+```

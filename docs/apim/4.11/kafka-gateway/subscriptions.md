@@ -148,3 +148,44 @@ When a subscription is revoked:
 1. The subscription status is set to inactive
 2. The client certificate is unregistered from the gateway's subscription truststore manager
 3. Clients using this certificate can no longer connect to the API
+
+### mTLS plans
+
+Subscriptions to mTLS plans require API consumers to provide a valid client certificate when subscribing. The certificate must be Base64-encoded and included in the subscription request's `clientCertificate` field. The Gateway calculates the MD5 hash of the certificate and uses it as the security token for subscription lookup.
+
+For detailed instructions on subscribing to Kafka APIs with mTLS plans, see [Subscribe to Kafka APIs with mTLS Plans](create-and-configure-kafka-apis/configure-kafka-apis/subscribe-to-kafka-apis-with-mtls-plans.md).
+
+#### Certificate-based subscription identification
+
+Subscriptions for mTLS plans are uniquely identified by:
+- API ID
+- Client certificate fingerprint (MD5 hash of the certificate)
+
+#### Subscription workflow
+
+When an administrator creates a subscription for an mTLS plan:
+
+1. The administrator provides the client certificate in Base64-encoded format
+2. The Gateway computes the MD5 hash of the certificate
+3. The Gateway registers the certificate in the subscription truststore manager
+
+#### Authentication flow
+
+When a client connects to an mTLS-secured API:
+
+1. The client presents its certificate during the TLS handshake
+2. The Gateway extracts the certificate from the TLS session
+3. The Gateway computes the MD5 hash of the certificate
+4. The Gateway queries the subscription service using the API ID and certificate fingerprint
+5. If a matching subscription is found and active, authentication succeeds
+6. The connection is authorized under that subscription
+
+<!-- GAP: Exact UI workflow for uploading client certificate during subscription creation -->
+<!-- GAP: Certificate validation feedback during upload -->
+
+#### Revoking mTLS subscriptions
+
+When a subscription is revoked:
+1. The subscription status is set to inactive
+2. The client certificate is unregistered from the Gateway's subscription truststore manager
+3. Clients using this certificate can no longer connect to the API

@@ -138,6 +138,12 @@ From here, API consumers can access their Gravitee Developer Portal and search f
 Depending on the subscription configuration, the application will either auto-validate or require approval.
 
 {% hint style="info" %}
+**mTLS subscriptions for Kafka APIs**
+
+When subscribing to a Kafka API with an mTLS plan, you must provide a Base64-encoded client certificate in the subscription request. For detailed instructions, see [Subscribe to Kafka APIs with mTLS Plans](../../secure-and-expose-apis/plans/kafka-mtls-plans.md).
+{% endhint %}
+
+{% hint style="info" %}
 * For more information on how to create and manage applications in APIM, see [Applications](../../developer-portal/classic-developer-portal/create-an-application.md).
 * For more information on how to create and manage subscriptions in APIM, see [Subscriptions](../../secure-and-expose-apis/subscriptions/).
 {% endhint %}
