@@ -20,6 +20,12 @@
 * [Cloud Tokens](guides/cloud-tokens.md)
 * [Promote APIs](guides/promote-apis.md)
 * [Add Environments](guides/add-environments.md)
+* [Establish private networks with GCP](guides/establish-private-networks-with-gcp/README.md)
+  * [Create a private network](guides/establish-private-networks-with-gcp/create-a-private-network.md)
+  * [View your private network's details](guides/establish-private-networks-with-gcp/view-your-private-networks-details.md)
+  * [Add a service attachment to your private network](guides/establish-private-networks-with-gcp/add-a-service-attachment-to-your-private-network.md)
+  * [Connect a Gateway to your private network](guides/establish-private-networks-with-gcp/connect-a-gateway-to-your-private-network.md)
+  * [Disconnect a Gateway from your private network](guides/establish-private-networks-with-gcp/disconnect-a-gateway-from-your-private-network.md)
 
 ## SELF-HOSTED
 

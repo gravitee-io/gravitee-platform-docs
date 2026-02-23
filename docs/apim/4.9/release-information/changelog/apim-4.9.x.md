@@ -7,6 +7,51 @@ metaLinks:
 
 # APIM 4.9.x
  
+## Gravitee API Management 4.9.13 - February 13, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* \[Protocol Mediation] subscription is not available in EL during PUBLISH and SUBSCRIBE phase [#11101](https://github.com/gravitee-io/issues/issues/11101)
+* Error 503 and Thread Blocked from weighted_round_robin  [#11132](https://github.com/gravitee-io/issues/issues/11132)
+* Gateway - Secrets with long content  [#11144](https://github.com/gravitee-io/issues/issues/11144)
+
+**Management API**
+
+* Multiple PRIMARY_OWNERs after "Transfer Ownership" [#11045](https://github.com/gravitee-io/issues/issues/11045)
+* Re: Unable to view log of API unless Instance READ permission is added to API Publisher [#11051](https://github.com/gravitee-io/issues/issues/11051)
+* Http Client Common Configuration Regression [#11159](https://github.com/gravitee-io/issues/issues/11159)
+
+**Console**
+
+* Re: Unable to view log of API unless Instance READ permission is added to API Publisher [#11051](https://github.com/gravitee-io/issues/issues/11051)
+* Permission Denied on IPV4_ONLY=true [#11130](https://github.com/gravitee-io/issues/issues/11130)
+
+**Other**
+
+* \[Kafka Gateway] Azure Service Bus fails with higher ApiVersions [#11109](https://github.com/gravitee-io/issues/issues/11109)
+* \[Kafka Gateway] Bad ApiVersions when gateway doesn't supports the min version of an api key [#11118](https://github.com/gravitee-io/issues/issues/11118)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Gateway**
+
+* Request response times spike when health checks are performed [#11141](https://github.com/gravitee-io/issues/issues/11141)
+
+**Other**
+
+* \[gravitee-policy-callout-http] Allow to evaluate variables as Object [#11137](https://github.com/gravitee-io/issues/issues/11137)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.9.12 - January 30, 2026
 <details>
 

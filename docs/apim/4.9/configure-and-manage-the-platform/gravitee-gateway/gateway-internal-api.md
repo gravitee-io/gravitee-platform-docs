@@ -39,7 +39,7 @@ The above values are defined as follows:
 
 ## Endpoints
 
-<table data-full-width="true"><thead><tr><th width="201">Operation</th><th width="320.3333333333333">Description</th><th>Example</th></tr></thead><tbody><tr><td><pre data-overflow="wrap"><code>GET /_node
+<table data-full-width="true"><thead><tr><th width="182.8671875">Operation</th><th width="275.4309895833333">Description</th><th width="270.0807291666667">Example</th></tr></thead><tbody><tr><td><pre data-overflow="wrap"><code>GET /_node
 </code></pre></td><td>Gets generic node information.</td><td><pre data-overflow="wrap"><code>HTTP/1.1 200 OK
 Content-Type: application/json
 {
@@ -114,6 +114,49 @@ Content-Type: application/json
 },
 "mem": {
 ...
+}
+</code></pre></td></tr><tr><td><pre data-overflow="wrap"><code>GET /_node/logging
+POST /_node/logging
+</code></pre></td><td><p>Gets or updates the logging configuration.</p><p>Use a <code>GET</code> request to view the current logging configuration. Use a <code>POST</code> request to dynamically change the logging level of a specific package. To reset a logger level, send the same payload with an empty or <code>null</code> level.</p></td><td><p><strong>POST payload example:</strong></p><pre><code>{"org.springframework.data.mongodb.core.MongoTemplate": "DEBUG"}
+</code></pre><p><strong>GET/POST response example:</strong></p><pre><code>HTTP/1.1 200 OK
+Content-Type: application/json
+{
+"org.eclipse.jetty": "INFO",
+"ROOT": "WARN",
+"io.gravitee": "INFO",
+"org.springframework.data.mongodb.core.MongoTemplate": "DEBUG"
+}
+</code></pre></td></tr><tr><td><pre data-overflow="wrap"><code>GET /_node/cluster
+</code></pre></td><td>Gets the current state of the cluster with information about its members.</td><td><pre><code>HTTP/1.1 200 OK
+Content-Type: application/json
+{
+"clusterId": "gio-apim-gateway-cluster-manager-hz55",
+"running": true,
+"self": {
+"primary": true,
+"running": true,
+"attributes": {
+"gio_node_hostname": "node_hostname",
+"gio_node_id": "node_id"
+},
+"version": "5.5.0",
+"host": "127.0.0.1",
+"id": "member_id",
+"self": true
+},
+"members": [
+{
+"primary": true,
+"attributes": {
+"gio_node_hostname": "node_hostname",
+"gio_node_id": "node_id"
+},
+"version": "5.5.0",
+"host": "127.0.0.1",
+"id": "member_id",
+"self": true
+}
+]
 }
 </code></pre></td></tr></tbody></table>
 

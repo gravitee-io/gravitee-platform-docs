@@ -123,7 +123,7 @@ The following examples demonstrate common `Allow-Origin` configurations:
 
 The `Allow-Methods` setting specifies which HTTP methods are allowed when accessing the resource.
 
-<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Configuration details for `Allow Methods` include the following:
 

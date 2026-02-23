@@ -7,54 +7,56 @@ metaLinks:
 
 # Confluent Platform
 
-## Overview
+## Confluent Platform
+
+### Overview
 
 Confluent Platform is a comprehensive event streaming platform built on Apache Kafka. The Confluent Platform federation agent supports both enterprise and community editions.
 
-## Prerequisites
+### Prerequisites
 
 Before you install the Confluent Platform federation agent, complete the following steps:
 
 * Access to a Confluent Platform instance.
 * Verify Gravitee API Management version 4.5 or later, with an enterprise license. For more information about Enterprise edition, see [Enterprise Edition Licensing](https://documentation.gravitee.io/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing#license-support).
-* An access token. For more information, see [how to create a service account and an access token.](../federation-agent-service-account.md)
+* An access token. For more information, see [how to create a service account and an access token.](https://documentation.gravitee.io/apim/govern-apis/federation/federation-agent-service-account)
 * Identify your Confluent Platform cluster API endpoint and schema registry endpoint.
 * Obtain Confluent Platform credentials, including username and password.
 * (Optional) For testing, spin up a local Confluent Platform demo environment. For instructions, see [Confluent Platform demo project](https://github.com/confluentinc/cp-demo), and [how to deploy the Confluent Platform demo environment.](https://docs.confluent.io/platform/current/tutorials/cp-demo/on-prem.html#docker)
 
-## Integrate Confluent Platform with Gravitee APIM
+### Integrate Confluent Platform with Gravitee APIM
 
 To integrate Confluent Platform with Gravitee APIM, complete the following steps:
 
-1. [#create-a-confluent-platform-integration-in-the-gravitee-apim-console](confluent-platform.md#create-a-confluent-platform-integration-in-the-gravitee-apim-console "mention")
-2. [#configure-the-confluent-platform-federation-agent](confluent-platform.md#configure-the-confluent-platform-federation-agent "mention")
-3. [#run-the-confluent-platform-federation-agent](confluent-platform.md#run-the-confluent-platform-federation-agent "mention")
+1. \#create-a-confluent-platform-integration-in-the-gravitee-apim-console
+2. \#configure-the-confluent-platform-federation-agent
+3. \#run-the-confluent-platform-federation-agent
 
-### Create a Confluent Platform integration in the Gravitee APIM Console
+#### Create a Confluent Platform integration in the Gravitee APIM Console
 
 1.  From the Dashboard, click **Integrations**.<br>
 
-    <figure><img src="../../../.gitbook/assets/image (16) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2Fgit-blob-0c97328805d849cfc0c74c50b2831a525fbc5d8a%2Fimage%20(16).png?alt=media" alt=""><figcaption></figcaption></figure>
 2.  Click **Create Integration**.<br>
 
-    <figure><img src="../../../.gitbook/assets/image (18) (2).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2Fgit-blob-48167fc9d375720ab725800b341c1ce18e59acd1%2Fimage%20(18).png?alt=media" alt=""><figcaption></figcaption></figure>
 3.  Select **Confluent Platform**, and then click **Next**.<br>
 
-    <figure><img src="../../../.gitbook/assets/confluent-click-next.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2Fgit-blob-6fac740c1562e8eea1125aad73fb5b585d4678f6%2Fconfluent-click-next.png?alt=media" alt=""><figcaption></figcaption></figure>
 4.  Type the **Integration Name**.<br>
 
-    <figure><img src="../../../.gitbook/assets/enter-confluent-name-and-description.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2Fgit-blob-5d9cdafe2eb5cc0ae0f66137548e57fc195a6be6%2Fenter-confluent-name-and-description.png?alt=media" alt=""><figcaption></figcaption></figure>
 5.  (Optional) Type the **Description** for the integration.<br>
 
-    <figure><img src="../../../.gitbook/assets/enter-confluent-name-and-description (2).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2Fgit-blob-5d9cdafe2eb5cc0ae0f66137548e57fc195a6be6%2Fenter-confluent-name-and-description.png?alt=media" alt=""><figcaption></figcaption></figure>
 6.  Click **Create Integration**.
 
-    <figure><img src="../../../.gitbook/assets/enter-confluent-name-and-description (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2Fgit-blob-196c158fa7c566c87b66d66609f8541327959386%2Fenter-confluent-name-and-description.png?alt=media" alt=""><figcaption></figcaption></figure>
 7.  From the Integration overview tab, copy the **Integration ID**. You need this ID for the agent configuration.
 
-    <figure><img src="../../../.gitbook/assets/confluent-integration-id (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2Fgit-blob-ebb2d8d4c8c38ca239bb4ef26e6cef9f53af978e%2Fconfluent-integration-id.png?alt=media" alt=""><figcaption></figcaption></figure>
 
-### Configure the Confluent Platform federation agent
+#### Configure the Confluent Platform federation agent
 
 The Confluent Platform federation agent requires the following configuration parameters to connect to your Confluent Platform instance:
 
@@ -62,7 +64,7 @@ The Confluent Platform federation agent requires the following configuration par
 * Schema registry endpoint
 * (username and password) Confluent Platform credentials
 
-#### Determine cluster and schema registry endpoints
+**Determine cluster and schema registry endpoints**
 
 For local Confluent Platform demo installations, use the following steps to determine your endpoints.
 
@@ -82,7 +84,7 @@ For local Confluent Platform demo installations, use the following steps to dete
     SCHEMA_REGISTRY_ENDPOINT=https://192.168.1.27:8085
     ```
 
-#### Verification
+**Verification**
 
 Verify the endpoints using the following command:
 
@@ -98,21 +100,21 @@ https://192.168.1.27:8091/kafka
 https://192.168.1.27:8085
 ```
 
-#### Obtain Confluent credentials
+**Obtain Confluent credentials**
 
 The agent requires credentials to connect to the cluster and schema registry APIs.
 
 * **For demo environments:** Use the default super user account with both username and password set to `superUser`
 * **For production environments:** Create a dedicated principal in Confluent Platform for the Gravitee agent.
 
-### Run the Confluent Platform federation agent
+#### Run the Confluent Platform federation agent
 
 You can deploy the Confluent Platform federation agent using either of the following installation methods:
 
-* [#docker-compose](confluent-platform.md#docker-compose "mention")
-* [#helm](confluent-platform.md#helm "mention")
+* \#docker-compose
+* \#helm
 
-### Docker Compose
+#### Docker Compose
 
 1.  Copy the following configuration, and then save it to your Docker Compose file:
 
@@ -201,18 +203,18 @@ You can deploy the Confluent Platform federation agent using either of the follo
     docker compose up -d
     ```
 
-#### Verification
+**Verification**
 
 1.  In the Gravitee API Management console, after refreshing, you should now see the agent's status set to **Connected**.<br>
 
-    <figure><img src="../../../.gitbook/assets/confluent-platform-app-connected.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2Fgit-blob-db3e4fb42b1819d138eabb16117a6a3e158ad742%2Fconfluent-platform-app-connected.png?alt=media" alt=""><figcaption></figcaption></figure>
 2. (Optional) If the Agent Connection shows as `Disconnected`, inspect the agent container logs for error messages.
 
-### Helm
+#### Helm
 
 To deploy the federation agent to your Kubernetes cluster, complete the following steps:
 
-#### Update your Helm Chart
+**Update your Helm Chart**
 
 Add the Gravitee Helm repository and update it to ensure you have access to the latest charts:
 
@@ -222,14 +224,14 @@ helm repo add gravitee https://helm.gravitee.io
 helm repo update
 ```
 
-#### **Configure the Federation Agent Helm values**
+**Configure the Federation Agent Helm values**
 
 Create the Helm values file based on your APIM management API's certificate setup. You can use the standard configuration or custom certificate configuration:
 
-* [#standard-configuration](confluent-platform.md#standard-configuration "mention")
-* [#custom-certificate-configuration](confluent-platform.md#custom-certificate-configuration "mention")
+* \#standard-configuration
+* \#custom-certificate-configuration
 
-#### Standard configuration
+**Standard configuration**
 
 1.  This configuration uses the default Java truststore for your APIM management API certificates. Create a file named `federation-agent-confluent-values.yaml` in your working directory, and then copy the following configuration:
 
@@ -330,7 +332,7 @@ Create the Helm values file based on your APIM management API's certificate setu
       --create-namespace
     ```
 
-#### Custom certificate configuration
+**Custom certificate configuration**
 
 1.  This configuration includes custom truststore volume mounts for certificates from private certificate authorities or self-signed certificates. Create a file named `federation-agent-confluent-values.yaml`, and then copy the following configuration:<br>
 
@@ -452,7 +454,7 @@ If your APIM management API uses certificates that require a custom truststore, 
       --create-namespace
     ```
 
-### Verification
+#### Verification
 
 1.  When the deployment is successful, verify the installation is running using the following command:
 
@@ -469,4 +471,4 @@ If your APIM management API uses certificates that require a custom truststore, 
     ```
 2.  Return to the Gravitee API Management console, refresh the page, and verify that the agent's status is set to **Connected**.
 
-    <figure><img src="../../../.gitbook/assets/image (55).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2Fgit-blob-bf9e77451c5178bc0e8d00ae3396dce20fcba60e%2Fimage.png?alt=media" alt=""><figcaption></figcaption></figure>

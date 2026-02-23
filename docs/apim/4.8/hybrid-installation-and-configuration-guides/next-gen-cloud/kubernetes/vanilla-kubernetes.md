@@ -95,8 +95,6 @@ To prepare your Gravitee `values.yaml` file for Helm, complete the following ste
 
 1.  Copy the following Gravitee `values.yaml` file. This is the base configuration for your new hybrid Gateway.
 
-    \{% code title="values.yaml" %\}
-
     ```yaml
     #This is the license key provided in your Gravitee Cloud account 
     #example: Ic5OXgAAACAAAAACAAAADAAAAAhhbGVydC1lbmdpbmVpbmNsdWRlZAAAABsAAAACAAAABwAAAAhjb21wYW55R3Jhdml0ZWUAAAAxAAAAAgAAAAUAAAAgZW1haWxwbGF0Zm9ybS10ZWFtQGdyYXZpdGVlc291cmNlLmNvbQAAABoAAAALAAAACmV4cGlyeURhdGUAAAGhUXU7/wAAACAAAAACAAAACAAAAAxmZWF0dXJlc2FsZXJ0LWVuZ2luZQAAACEAAAAMAAAACWxpY2Vuc2VJZJTWw5qIQT4bEYqYFx9wSH4AAAEcAAAAAQAAABAAAAEAbGljZW5zZVNpZ25hdHVyZULCHNcIqMuFwEMkSCgE4Q/42YSVluW/vvMtaHZWJ5Xoh3rsWEjCMg8Ku2cTKuSP7FzR/b8GVedDJqxf+o2n8B/LV+WwzZjOAi09EBfLmTLOzzXFNp1KRDk3G4rrKznJ1Kqz9EXjyNAiT/c7en3om6Lx0A4BscZtu6k6i1pAnfHhotJkHMIdNkDqSU4fkyAH6FS+NYcLEcudaeeRr2Th/Dvyn0py7xOUNicgXdBjEXJXMF2vxyNkm0kML4ADG12++dZyG2kgGYg5+A8UdABGxCvIfNsl9uVuP2F5ACr8Uc73HytKpIaZqz71RMxQDuJtRzmkkGxHajJJeZWQZXtLdBoAAAARAAAAAgAAAAUAAAAAcGFja3MAAAAiAAAAAgAAAA8AAAAHc2lnbmF0dXJhfgzanZXN0U0hBLTI1NgAAABgAAAACAAAABAAAAAh0aWVydW5pdmVyc2U=
@@ -198,8 +196,6 @@ To prepare your Gravitee `values.yaml` file for Helm, complete the following ste
     ratelimit:
         type: redis
     ```
-
-    \{% endcode %\}
 2. Make the following modifications to your `values.yaml` file:
    * Replace `<cloud_token>` with your Cloud Token.
    * Replace `<license_key>` with your License Key.
@@ -209,9 +205,7 @@ To prepare your Gravitee `values.yaml` file for Helm, complete the following ste
 
        <figure><img src="../../../.gitbook/assets/gateway-cloud-version.png" alt=""><figcaption></figcaption></figure>
 
-       <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
-         <p>The <code>tag</code> field specifies the version of your Gravitee Gateway. Your Gateway version must match your Gravitee Cloud Control Plane version to ensure compatibility between your hybrid Gateway and the Cloud Management platform.</p>
-       </div>
+       <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>The <code>tag</code> field specifies the version of your Gravitee Gateway. Your Gateway version must match your Gravitee Cloud Control Plane version to ensure compatibility between your hybrid Gateway and the Cloud Management platform.</p></div>
 3. Save your Gravitee `values.yaml` file in your working directory.
 
 <details>

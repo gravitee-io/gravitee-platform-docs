@@ -94,7 +94,7 @@ Publish your plan by selecting the publish icon on your plan as shown below.
 
 At this point, it is likely you have both a Keyless and a JWT plan published. Please delete any Keyless plans to ensure the JWT plan can not be bypassed. Select the **X** icon and then follow the prompts in the modal to delete the Keyless plan as shown below:
 
-<figure><img src="../../.gitbook/assets/image (18) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (18) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Redeploying your API <a href="#redeploying-your-api-7" id="redeploying-your-api-7"></a>
 
@@ -130,7 +130,7 @@ For the sake of this demo, we will be creating a Simple application in the Devel
 
 In the Developer Portal, select **Applications** in the top navigation bar and then select **+ Create an app** in the top right of the screen.<br>
 
-<figure><img src="../../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (16) (1).png" alt=""><figcaption></figcaption></figure>
 
 Provide a name and description then select **Next**. On the security screen, select a Simple application and provide a `client_id` that matches the `client_id` of your IdP’s application. For example, in Okta, you can find your `client_id` right next to the name of your application.<br>
 

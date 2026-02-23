@@ -35,7 +35,7 @@ To integrate Azure API Management with Gravitee APIM, complete the following ste
 
 1.  From the Dashboard, click **Integrations**
 
-    <figure><img src="../../../.gitbook/assets/image (68).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (68) (1).png" alt=""><figcaption></figcaption></figure>
 2.  Click **Create Integration.**
 
     <figure><img src="../../../.gitbook/assets/image (18) (2).png" alt=""><figcaption></figcaption></figure>
@@ -159,20 +159,21 @@ You can deploy the Apigee X federation agent using either of the following insta
 
 1.  Copy the following configuration, and then save it to your Docker Compose file:<br>
 
-    ```bash
+    ```yaml
     services:
       integration-agent:
         image: graviteeio/federation-agent-azure-api-management:${AGENT_VERSION:-latest}
         restart: always
         environment:
           # Gravitee-specific configuration
+          # Classic or self-hosted APIM: Configure WS endpoints
           - gravitee_integration_connector_ws_endpoints_0=${WS_ENDPOINTS}
           - gravitee_integration_connector_ws_headers_0_name=Authorization
           - gravitee_integration_connector_ws_headers_0_value=Bearer ${WS_AUTH_TOKEN}
+          # NextGen Cloud APIM: Replace the three WS endpoint lines above with the following line
+          # - gravitee_cloud_token=${GRAVITEE_CLOUD_TOKEN}
           - gravitee_integration_providers_0_integrationId=${INTEGRATION_ID}
           - gravitee_integration_providers_0_type=azure-api-management
-          # If you are using Gravitee Next-Gen Cloud, then you need to also include a Cloud Token for Federation Agent
-          # - gravitee_cloud_token=${GRAVITEE_CLOUD_TOKEN}
           # Azure APIM authentication
           - gravitee_integration_providers_0_configuration_auth_appId=${APP_ID}
           - gravitee_integration_providers_0_configuration_auth_appSecret=${APP_SECRET}
@@ -190,6 +191,7 @@ You can deploy the Apigee X federation agent using either of the following insta
     ```bash
     ## GRAVITEE PARAMETERS ##
 
+    # Classic or self-hosted APIM: Configure WS endpoints
     # Gravitee APIM management API URL, typically suffixed with the path /integration-controller
     WS_ENDPOINTS=https://[your-APIM-management-API-host]/integration-controller
 
@@ -202,7 +204,8 @@ You can deploy the Apigee X federation agent using either of the following insta
     # APIM organization ID, example: DEFAULT
     WS_ORG_ID=[organization-id]
 
-    # If you are using Gravitee Next-Gen Cloud, then you also need to include a Cloud Token for Federation Agent (https://documentation.gravitee.io/apim/hybrid-installation-and-configuration-guides/next-gen-cloud#cloud-token)
+    # NextGen Cloud APIM: Uncomment the following line and remove WS_ENDPOINTS, WS_AUTH_TOKEN, and WS_ORG_ID above
+    # For more information, see https://documentation.gravitee.io/apim/hybrid-installation-and-configuration-guides/next-gen-cloud#cloud-token
     # GRAVITEE_CLOUD_TOKEN=[your-cloud-token-for-federation-agent]
 
     # Optionally specify a specific version of the agent, default will be latest
@@ -223,7 +226,7 @@ You can deploy the Apigee X federation agent using either of the following insta
     SERVICE=[your-service]
 
     # Azure APIM developer details
-    # This developer will be used as the owner of applications 
+    # This developer will be used as the owner of applications
     # that are created by Gravitee in Azure APIM
     # Gravitee will create the developer if it doesn't already exist
     # or will reuse an existing developer if it exists in Azure
