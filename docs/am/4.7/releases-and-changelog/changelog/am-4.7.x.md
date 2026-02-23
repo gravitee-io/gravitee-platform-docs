@@ -6,6 +6,28 @@ description: >-
 
 # AM 4.7.x
 
+## Gravitee Access Management 4.7.30 - February 23, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Improve reliability of email emission during SCIM Bulk [#11150](https://github.com/gravitee-io/issues/issues/11150)
+
+
+
+
+
+**Other**
+
+* Update Facebook IdP to latest Graph API [#11162](https://github.com/gravitee-io/issues/issues/11162)
+* [DCR] Application fails to inherit Access Token validity from AM Templates [#11178](https://github.com/gravitee-io/issues/issues/11178)
+
+</details>
+
+
 ## Gravitee Access Management 4.7.29 - February 16, 2026
 
 <details>
