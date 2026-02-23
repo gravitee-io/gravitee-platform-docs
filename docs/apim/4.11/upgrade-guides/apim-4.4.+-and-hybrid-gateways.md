@@ -41,6 +41,12 @@ Or you can use an environment variable:
 GRAVITEE_MANAGEMENT_HTTP_SSL_TRUSTALL="true"
 ```
 
+## Gateway Configuration Reference
+
+| Property | Description | Syntax (gravitee.yml) | Syntax (Environment Variable) |
+|:---------|:------------|:----------------------|:------------------------------|
+| `tenant` | Gateway-level tenant identifier used to filter endpoints in Native Kafka APIs. When set, the gateway only selects endpoints tagged with a matching tenant. If unset, all endpoints are eligible for selection. | `tenant: tenant-a` | `GRAVITEE_TENANT=tenant-a` |
+
 {% hint style="warning" %}
 The "trust all" configuration parameter was formerly named `trustall`, it is now named `trustAll` for consistency. To avoid a breaking change both names work, but the former has been deprecated.
 {% endhint %}

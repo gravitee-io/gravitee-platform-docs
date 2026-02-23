@@ -152,6 +152,7 @@ To use a vendor extension, add the `x-graviteeio-definition` field at the root o
   * MAIL
   * URL
 * Picture only accepts Data-URI format. Please see the example below.
+* For Native Kafka API endpoints, the `tenants` field is an optional array of strings used for tenant-based filtering. Each endpoint within `endpointGroups` can include a `tenants` array to specify which tenant identifiers should match that endpoint.
 
 <pre class="language-yaml" data-title="Example"><code class="lang-yaml"><strong>openapi: "3.0.0"
 </strong>info:
