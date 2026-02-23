@@ -7,7 +7,7 @@ description: Add layers of security and functionality to your backend resources
 {% hint style="warning" %}
 This is the second section of the Quickstart Guide.
 
-* By this point, you should already have [created a Gateway API](gateway-apis-101-traditional-and-message-proxies/README.md).
+* By this point, you should already have [created a Gateway API](gateway-apis-101-traditional-and-message-proxies/).
 * Steps will be provided for both traditional proxy and message proxy Gateway APIs.
 {% endhint %}
 
@@ -20,7 +20,7 @@ The next two core Gravitee API Management (APIM) concepts we will focus on are p
 
 Plans and policies are managed by the API publisher to add different layers of security and functionality to the backend resources they own.
 
-<img src="../../.gitbook/assets/file.excalidraw (5) (1).svg" alt="Gateway plans and policies" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.excalidraw (12) (1).svg" alt="Gateway plans and policies" class="gitbook-drawing">
 
 ### Plans
 
@@ -89,7 +89,7 @@ The flow with the resource filtering policy does not apply to the JWT plan and A
 
 ## Add a policy
 
-Let's work through how to add a simple policy to modify the behavior of the Gateway API we created in the [first part of the Quickstart Guide](gateway-apis-101-traditional-and-message-proxies/README.md).
+Let's work through how to add a simple policy to modify the behavior of the Gateway API we created in the [first part of the Quickstart Guide](gateway-apis-101-traditional-and-message-proxies/).
 
 ### Access API
 
@@ -215,7 +215,7 @@ From here, we can manage all the plans and subscriptions for this API. Currently
 
 This plan is currently in the published state. Plans can be in one of four states: staging, published, deprecated, or closed.
 
-<figure><img src="../../.gitbook/assets/image (1)-1.png" alt=""><figcaption><p>Four stages of a plan</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (52) (1).png" alt=""><figcaption><p>Four stages of a plan</p></figcaption></figure>
 
 <details>
 

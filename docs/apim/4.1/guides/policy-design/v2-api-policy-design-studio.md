@@ -99,7 +99,7 @@ If the request is `/test/55`, the resulting flow will be `/test/:id`. If the req
 
 To modify the flow mode, select the **Configuration** tab and change the **Flow Mode** to either **DEFAULT** or **BEST\_MATCH** using the **Flow Mode** drop-down.
 
-<figure><img src="../../.gitbook/assets/Configure flow mode (1)-1.png" alt=""><figcaption><p>v2 Policy Studio: Configure flow mode</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Configure flow mode (1).png" alt=""><figcaption><p>v2 Policy Studio: Configure flow mode</p></figcaption></figure>
 
 ## API properties
 
@@ -204,7 +204,7 @@ Global resources are globally available to all flows associated with the Gateway
 
 As of Gravitee 4.0, Debug mode is an Enterprise Edition capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:
 
-* [Refer to the EE vs OSS documentation](../../overview/ee-vs-oss/README.md)
+* [Refer to the EE vs OSS documentation](../../overview/ee-vs-oss/)
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
