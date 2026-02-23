@@ -59,7 +59,7 @@ You can also select endpoints configured for your API by name using Gravitee Exp
 
 ## Configuration
 
-You can configure multiple rules and their respective redirections relative to the initial request path. When you define rules, it is important to remember that the API `context-path` must not be part of the rule’s path.&#x20;
+You can configure multiple rules and their respective redirections relative to the initial request path. When you define rules, it is important to remember that the API `context-path` must not be part of the rule’s path.
 
 For example, if your `context-path` is `/myapi` and your call is `/myapi/123`, if you want to select `123`, the regular expression is `/(.*)` (don’t forget the `/`).
 
@@ -69,7 +69,7 @@ Using regular expressions can be very useful when you want to capture some parts
 
 For example, to capture the end of a path after `/v1/stores/`, the rule path is `/v1/stores/(.*)`. You can then use it in the `redirect to` property: `http://store_backend/stores/{#group[0]}`
 
-You can also use named groups instead of indexed groups: `/api/(?<version>v[0-9]+)/stores.*` ⇒ `http://host1/products/api/{#groupName'version'}`
+You can also use named groups instead of indexed groups: `/api/(?<version>v[0-9]+)/stores.*` ⇒ `http://host1/products/api/{#groupName['version']}`
 
 ### Phases
 

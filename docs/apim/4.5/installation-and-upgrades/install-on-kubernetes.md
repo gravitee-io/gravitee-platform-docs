@@ -18,7 +18,7 @@ The APIM Helm chart deploys the following components:
 * APIM Management Console
 * APIM Developer Portal
 * APIM Gateway
-* MongoDB replica set or PostgreSQL&#x20;
+* MongoDB replica set or PostgreSQL
 * Elasticsearch Cluster
 
 ## Installing Gravitee API Management
@@ -38,18 +38,20 @@ You must install the following command line tools:
     </strong></code></pre>
 2.  Install the Helm chart to a dedicated namespace using the following command:
 
-    {% code overflow="wrap" %}
+    \{% code overflow="wrap" %\}
+
     ```sh
     helm install graviteeio-apimx graviteeio/apim --create-namespace --namespace gravitee-apim
     ```
-    {% endcode %}
+
+    \{% endcode %\}
 
 {% hint style="info" %}
 **Installation tips**
 
 * Specify each parameter using either of the following methods:
-  * Specify each parameter using the following command:`helm install` and the `--set key=value[,key=value]`.&#x20;
-  * Provide a YAML file that specifics the values for the parameters when you install the Helm chart. For example,&#x20;
+  * Specify each parameter using the following command:`helm install` and the `--set key=value[,key=value]`.
+  * Provide a YAML file that specifics the values for the parameters when you install the Helm chart. For example,
 
 ```bash
 helm install my-release -f values.yaml gravitee
@@ -57,7 +59,7 @@ helm install my-release -f values.yaml gravitee
 {% endhint %}
 
 {% hint style="info" %}
-You can find the full Gravitee configuration file `values.yaml` here:  [https://github.com/gravitee-io/gravitee-api-management/blob/master/helm/values.yaml](https://github.com/gravitee-io/gravitee-api-management/blob/master/helm/values.yaml)
+You can find the full Gravitee configuration file `values.yaml` here: [https://github.com/gravitee-io/gravitee-api-management/blob/master/helm/values.yaml](https://github.com/gravitee-io/gravitee-api-management/blob/master/helm/values.yaml)
 {% endhint %}
 
 ## Configuring the application settings
@@ -66,7 +68,7 @@ By default, the Helm chart creates a ServiceAccount that enables Gravitee API Ma
 
 Roles enable use of the service account, which has the following characteristics:
 
-* The service account created does not have a cluster role. The Helm chart includes an option to configure the service account to use a cluster role.&#x20;
+* The service account created does not have a cluster role. The Helm chart includes an option to configure the service account to use a cluster role.
 * To access a Secret, create a role within your namespace.
 * To access a Secret after you deployed in another namespace, create another role in the other namespace. The two roles can have the same name. Each role provides access to only the namespace where you created the role.
 
@@ -76,7 +78,7 @@ For more information about roles, go to [Role and ClusterRole](https://kubernete
 
 To define the application settings, complete the following settings:
 
-* Ensure that you enable the kubernetes plugin, and then define the Secret settings using the following command: `secrets://kubernetes/mysecret:key?namespace=ns`.&#x20;
+* Ensure that you enable the kubernetes plugin, and then define the Secret settings using the following command: `secrets://kubernetes/mysecret:key?namespace=ns`.
 
 {% hint style="warning" %}
 This syntax applies to only Gravitee versions 4.2 and later.
@@ -88,12 +90,12 @@ This syntax applies to only Gravitee versions 4.2 and later.
 
 {% tabs %}
 {% tab title="Development deployment" %}
-Here is the minimum `value-light.yml` configuration required by a development deployment.&#x20;
+Here is the minimum `value-light.yml` configuration required by a development deployment.
 
 * To deploy the development deployment, change the `domain` value, and then run the following command:
 
 {% hint style="warning" %}
-The below example is sufficient for a trial or evaluation environment, but do not use this`value-light.yml` in production.  You should review the available configuration options before implementing into production.
+The below example is sufficient for a trial or evaluation environment, but do not use this`value-light.yml` in production. You should review the available configuration options before implementing into production.
 {% endhint %}
 
 <pre><code><strong>helm install gravitee-apim graviteeio/apim -f value-light.yml
@@ -164,7 +166,7 @@ extraVolumes: |
 ```
 
 {% hint style="warning" %}
-External configuration files are  available for only the following Helm Chart versions:
+External configuration files are available for only the following Helm Chart versions:
 
 * AE Helm Charts 1.1.42 and later
 * AM Helm Charts 1.0.53 and later
@@ -239,12 +241,12 @@ Use the mongodb-replicaset for only testing purposes and running locally.
 <table><thead><tr><th width="233.66666666666666">Parameter</th><th>Description</th><th>Default</th></tr></thead><tbody><tr><td><strong><code>mongodb-replicaset.enabled</code></strong></td><td>Enable deployment of Mongo replicaset</td><td><code>false</code></td></tr></tbody></table>
 
 {% hint style="warning" %}
-You may encounter issues while running this Helm chart on Apple Silicon M1. If you want to deploy MongoDB on M1, use another Helm chart. For more information, go to  [Support for ARM64 architecture in Bitnami container images](https://github.com/bitnami/charts/issues/7305).
+You may encounter issues while running this Helm chart on Apple Silicon M1. If you want to deploy MongoDB on M1, use another Helm chart. For more information, go to [Support for ARM64 architecture in Bitnami container images](https://github.com/bitnami/charts/issues/7305).
 {% endhint %}
 {% endtab %}
 
 {% tab title="PostgreSQL" %}
-To install a new PostgreSQL database using JDBC, complete the following steps:&#x20;
+To install a new PostgreSQL database using JDBC, complete the following steps:
 
 1. Update the `username`, `password`, and `databasename` parameters
 2. Run the following command:
@@ -339,9 +341,7 @@ gateway:
       ssl: false
 ```
 
-* Replace `host`, `port`, and `password` with details specific to your instance.&#x20;
-
-
+* Replace `host`, `port`, and `password` with details specific to your instance.
 
 4. (optional) Enable `ssl` by setting `ssl` to `true`.
 5. (optional) To connect to a Sentinel cluster, specify the `master` and the `nodes`.
@@ -371,7 +371,7 @@ gateway:
 
 ### **Gravitee parameters**
 
-The following tables lists the available configuration parameters for these components:&#x20;
+The following tables lists the available configuration parameters for these components:
 
 * Gravitee UI
 * Gravitee API
@@ -608,7 +608,7 @@ The following tables lists the available configuration parameters for these comp
 
 ## Federation
 
-[Federation](../using-the-product/federating-your-apis/README.md) is a new capability that was released with APIM 4.4.
+[Federation](../using-the-product/federating-your-apis/) is a new capability that was released with APIM 4.4.
 
 Federation is deactivated by default in the default Helm values. To activate Federation, set enabled = `true` like the following example:
 
@@ -638,7 +638,7 @@ federation:
 
 When this flag is set to enabled, it has the following impacts:
 
-* APIM cluster mode is activated. Federation can work correctly in a highly available APIM deployment.  Also, Hazelcast is configured and runs in memory as a library inside APIM.
+* APIM cluster mode is activated. Federation can work correctly in a highly available APIM deployment. Also, Hazelcast is configured and runs in memory as a library inside APIM.
 * The default ingress used is the host used for the management API. Here is the default path: `/integration-controller`. The default ingress can be overridden n the federation ingress section with a dedicated host for the integration controller.
 
 If you run a single replica of APIM, you can deactivate cluster mode by specifying the following environment variables and values:
@@ -654,7 +654,7 @@ api:
 
 ## Licenses
 
-Enterprise plugins require a license in APIM.&#x20;
+Enterprise plugins require a license in APIM.
 
 To define a license, enter the `license.key` value in the `values.yml` file, and then add the Helm argument `--set license.key=<license.key in base64>`.
 
