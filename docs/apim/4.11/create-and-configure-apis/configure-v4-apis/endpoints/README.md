@@ -181,6 +181,18 @@ v4 message APIs currently support the following endpoints:
 * **Solace**: Enables the Gravitee API Gateway to establish a persistent connection with Solace as a backend resource or target.
 * **Mock**: Enables the Gateway to simulate responses from a server for testing API implementations.
 
+{% hint style="info" %}
+**Native Kafka endpoint behavior**
+
+Native Kafka endpoints differ from HTTP proxy endpoints in the following ways:
+
+* **Endpoint group type is automatically assigned**: For Native Kafka APIs, the endpoint group type is automatically set to `native-kafka`. This type cannot be manually changed after creation.
+* **Bootstrap servers are configured at group level**: Bootstrap server addresses are specified at the endpoint group level and apply to all endpoints in that group.
+* **Security protocol configuration**: Security protocol can be set at the endpoint group level and optionally overridden per individual endpoint. Endpoints inherit group-level settings by default unless explicitly overridden.
+* **Load balancer configuration does not apply**: Native Kafka APIs do not use load balancer settings. The weight field is not applicable.
+* **Default endpoint is always first in first group**: The first endpoint in the first endpoint group is automatically designated as the default endpoint. This cannot be changed through configuration.
+{% endhint %}
+
 ### Configuration and Implementation
 
 To access endpoint configuration:

@@ -32,3 +32,16 @@ Perform the following steps in APIM Console to update the most common default se
       *   Update the **Management URL** to your APIM Console URL.
 
           <figure><img src="../../../.gitbook/assets/prod_def apim4 (1).png" alt=""><figcaption><p>Organization settings</p></figcaption></figure>
+
+## Troubleshooting
+
+### Native Kafka Endpoint Validation
+
+**Issue**: Endpoint configuration fails validation or drag-and-drop reordering does not trigger an update.
+
+**Cause**: Native Kafka endpoints require bootstrap servers with no default value. Load balancer type validation is skipped for Native Kafka APIs. Drag-and-drop operations require `previousIndex` to differ from `currentIndex`.
+
+**Resolution**:
+- Ensure bootstrap server addresses are provided for all Native Kafka endpoints.
+- Verify that drag-and-drop operations move the endpoint to a different position within the group.
+- Confirm the API is correctly identified as a Native Kafka API (type `NATIVE` with at least one `KAFKA` listener).

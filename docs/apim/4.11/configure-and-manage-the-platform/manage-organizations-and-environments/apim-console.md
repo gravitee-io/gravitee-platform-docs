@@ -372,6 +372,8 @@ For example:
 
 #### API Status
 
-The api status page is a panel in the dashboard that displays the status of all APIs.
+The API status page is a panel in the dashboard that displays the status of all APIs.
 
 The tab is enabled by default, but depending on the number of APIs, it may take a while to load. You can disable it in your Gateway settings. See [dashboards](/broken/pages/VzWZiY6KRkqyHZjWmeVT) for more information.
+
+The endpoint management table dynamically adjusts its columns based on API type. For Native Kafka APIs, the weight column is removed since load balancing does not apply. The options column displays security protocol badges with inheritance indicators. The general column label changes from "Target URL" to "Bootstrap Servers" for Kafka endpoints. Drag-and-drop reordering is enabled for endpoints within the same group.

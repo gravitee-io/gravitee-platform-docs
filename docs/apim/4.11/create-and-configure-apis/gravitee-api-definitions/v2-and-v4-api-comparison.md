@@ -83,6 +83,8 @@ GET /products/:productId/items/:id
 | Compare API to Previous Versions                                  | ✅                          | ✅                                                        | ✅                                                        |
 | Custom Dashboards                                                 | ✅                          | 🚫                                                       | 🚫                                                       |
 | Path Mappings                                                     | ✅                          | 🚫                                                       | 🚫                                                       |
+| Multiple Endpoint Groups                                          | ✅                          | ✅                                                        | ⚠️ Supported for NATIVE (Kafka) APIs                    |
+| Endpoint Reordering                                               | ✅                          | ✅                                                        | ⚠️ Supported for NATIVE (Kafka) APIs                    |
 | Logs                                                              | ✅                          | ✅                                                        | ✅                                                        |
 | API Quality                                                       | ✅                          | ⚠️ Replaced by [API score](../../govern-apis/api-score/) | ⚠️ Replaced by[ API score](../../govern-apis/api-score/) |
 | API Review                                                        | ✅                          | ✅                                                        | ✅                                                        |

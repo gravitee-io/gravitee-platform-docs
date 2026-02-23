@@ -1,3 +1,11 @@
 # Files with version-specific content — do NOT sync from previous version
 # Auto-managed by the documentation pipeline
 # Add files here that intentionally differ from 4.10 (e.g., 4.11 feature docs)
+SUMMARY.md
+configure-and-manage-the-platform/manage-organizations-and-environments/apim-console.md
+create-and-configure-apis/configure-v4-apis/endpoints/README.md
+create-and-configure-apis/gravitee-api-definitions/v2-and-v4-api-comparison.md
+kafka-gateway/create-and-configure-kafka-apis/README.md
+kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/endpoints.md
+prepare-a-production-environment/production-best-practices/general-recommendations/default-apim-settings.md
+release-information/release-notes/apim-4.11.md
