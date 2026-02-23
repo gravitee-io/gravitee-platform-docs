@@ -1,4 +1,6 @@
-
+---
+description: This is a test file with bad prose.
+---
 
 # Testing Vale with Bad Prose
 
