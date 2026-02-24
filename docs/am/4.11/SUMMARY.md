@@ -133,6 +133,7 @@
 * [Certificates](guides/certificates/README.md)
   * [AWS Certificate plugin](guides/certificates/aws-certificate-plugin.md)
   * [AWS CloudHSM plugin](guides/certificates/aws-cloudhsm-plugin.md)
+  * [Certificate Fallback for JWT Signing Overview + Configure Certificate Fallback + Certificate Fallback  + Impact: Add section describing the new fallback certificate configuration option. Update any existing certificate selection logic documentation to reflect the three-tier hierarchy (primary → fallback → default). (absorbed) + Impact: Document the new PUT /organizations/{orgId}/environments/{envId}/domains/{domain}/certificate-settings endpoint with request/response schemas and permission requirements. + Impact: Update JWT signing documentation to explain the fallback mechanism. Add note that JWT signing now supports automatic failover to fallback certificate when primary fails. + Impact: Add note that master domains can access certificates from any domain for fallback purposes, enabling cross-domain introspection and centralized certificate management. + Impact: Add troubleshooting section for certificate fallback scenarios. Document the two log patterns administrators should look for when diagnosing certificate issues.](guides/certificates/certificate-fallback.md)
 * [User Management](guides/user-management/README.md)
   * [Users](guides/user-management/users/README.md)
     * [Password Options](guides/user-management/users/password-options.md)

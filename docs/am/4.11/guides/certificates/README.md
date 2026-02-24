@@ -83,6 +83,59 @@ Gravitee API Management (APIM) comes with a JWT Policy to verify and decode toke
 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-certificate-app.png" alt=""><figcaption><p>Apply certificate to application</p></figcaption></figure>
 
+## Certificate Fallback Configuration
+
+### Overview
+
+Configure a domain-level fallback certificate to provide automatic failover when a client's primary certificate fails during JWT signing operations. The fallback certificate activates transparently without manual intervention, improving service resilience.
+
+### Certificate Selection Hierarchy
+
+The system follows a three-tier selection process when signing JWTs:
+
+1. **Primary certificate**: The client's configured certificate
+2. **Fallback certificate**: The domain-level fallback certificate (if configured)
+3. **Default certificate**: The system default certificate (when `fallbackToHmacSignature=true`)
+
+The fallback certificate is skipped if it has the same ID as the primary certificate. Master domains can access certificates from any domain for cross-domain introspection scenarios.
+
+### Prerequisites
+
+- Domain administrator access with `DOMAIN_SETTINGS[UPDATE]` permission
+- At least one valid certificate configured in the domain (or accessible from master domain)
+- Gateway version supporting certificate settings management
+
+### Configure Fallback Certificate
+
+Configure the fallback certificate at the domain level using the Management API.
+
+**Endpoint**: `PUT /organizations/{organizationId}/environments/{environmentId}/domains/{domain}/certificate-settings`
+
+**Request body**:
+
+```json
+{
+  "fallbackCertificate": "backup-cert-id"
+}
+```
+
+**Requirements**:
+
+- The fallback certificate must exist in the certificate manager
+- The fallback certificate must belong to the current domain (unless the domain is a master domain)
+- The fallback certificate cannot have the same ID as the primary certificate
+
+Changes take effect immediately without reloading the domain.
+
+### Logging and Observability
+
+All fallback attempts generate warning-level log entries containing both the original and fallback certificate IDs:
+
+- `"Certificate: {clientCertId} not loaded, using: {fallbackCertId} as fallback"` when the primary certificate fails to load
+- `"Failed to sign JWT with certificate: {primaryCertId}, attempting fallback using: {fallbackCertId}"` when JWT signing fails
+
+These logs provide audit trails for troubleshooting certificate issues.
+
 ### Certificate for Mutual TLS authentication <a href="#certificate-for-mutual-tls-authentication" id="certificate-for-mutual-tls-authentication"></a>
 
 To mark a certificate as usable for mTLS, you just have to check the "mTLS" usage in the configuration form of your certificate.
