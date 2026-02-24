@@ -294,3 +294,168 @@ Now the members of the group section will have access to the Application with th
 {% hint style="info" %}
 Direct user member permissions and group permissions are merged they apply to the same user.
 {% endhint %}
+
+### Permission model reference
+
+The following tables list permissions by assignable type.
+
+{% hint style="info" %}
+All permissions required to use AM API are described in the [AM V3 OpenAPI descriptor.](../reference/am-api-reference.md)
+{% endhint %}
+
+#### ORGANIZATION permissions
+
+| Name | Description |
+|:-----|:------------|
+| ORGANIZATION | Read organization / platform information |
+| ORGANIZATION_SETTINGS | Manage organization / platform global settings |
+| ORGANIZATION_IDENTITY_PROVIDER | Manage organization / platform global identity providers (AM Console authentication) |
+| ORGANIZATION_AUDIT | Manage organization / platform audit logs |
+| ORGANIZATION_REPORTER | Manage organization / platform reporters (for the audit logs storage) |
+| ORGANIZATION_USER | Manage organization / platform users (administrator accounts) |
+| ORGANIZATION_GROUP | Manage organization / platform groups (administrator groups) |
+| ORGANIZATION_ROLE | Manage organization / platform roles (roles and permissions used throughout AM Console) |
+| ORGANIZATION_TAG | Manage organization / platform sharding tags |
+| ORGANIZATION_ENTRYPOINT | Manage organization / platform entry points (root URL for Authentication and Authorization operations) |
+| ORGANIZATION_FORM | Manage organization / platform HTML templates (AM Console login form) |
+| ORGANIZATION_MEMBER | Manage organization / platform HTML memberships |
+| ENVIRONMENT | Manage organization / platform environments (for example, dev, qual, prod) |
+| DOMAIN | Read all security domain information |
+| DOMAIN_SETTINGS | Manage all security domain global settings |
+| DOMAIN_FORM | Manage all security domain custom HTML templates |
+| DOMAIN_EMAIL_TEMPLATE | Manage all security domain custom email templates |
+| DOMAIN_EXTENSION_POINT | Manage all security domain custom extension points |
+| DOMAIN_IDENTITY_PROVIDER | Manage all security domain identity providers |
+| DOMAIN_AUDIT | Manage all security domain audit logs |
+| DOMAIN_CERTIFICATE | Manage all security domain certificates |
+| DOMAIN_USER | Manage all security domain users |
+| DOMAIN_GROUP | Manage all security domain groups |
+| DOMAIN_ROLE | Manage all security domain roles |
+| DOMAIN_SCIM | Manage all security domain audit SCIM settings |
+| DOMAIN_SCOPE | Manage all security domain scopes (role permissions) |
+| DOMAIN_EXTENSION_GRANT | Manage all security domain OAuth 2.0 extension grants |
+| DOMAIN_UMA | Manage all security domain User Managed Access settings |
+| DOMAIN_OPENID | Manage all security domain OAuth 2.0 / OpenID Connect settings (DCR) |
+| DOMAIN_REPORTER | Manage all security domain reporters (audit logs storage) |
+| DOMAIN_MEMBER | Manage all security domain memberships |
+| DOMAIN_ANALYTICS | Manage all security domain analytics |
+| DOMAIN_FACTOR | Manage all security domain MFA settings |
+| DOMAIN_FLOW | Manage all security domain Flow settings |
+| APPLICATION | Read all application information |
+| APPLICATION_SETTINGS | Manage all application global settings |
+| APPLICATION_IDENTITY_PROVIDER | Manage all application identity providers |
+| APPLICATION_FORM | Manage all application custom HTML templates |
+| APPLICATION_EMAIL_TEMPLATE | Manage all application custom email templates |
+| APPLICATION_OPENID | Manage all application custom OAuth 2.0 / OpenID Connect settings |
+| APPLICATION_CERTIFICATE | Manage all application certificates |
+| APPLICATION_MEMBER | Manage all application memberships |
+| APPLICATION_FACTOR | Manage all application MFA settings |
+| APPLICATION_ANALYTICS | Manage all application analytics |
+| APPLICATION_FLOW | Manage all application Flow settings |
+| PROTECTED_RESOURCE_SETTINGS | Manage protected resource settings |
+| PROTECTED_RESOURCE_OAUTH | Manage protected resource OAuth 2.0 configuration |
+| PROTECTED_RESOURCE_CERTIFICATE | Manage protected resource certificates |
+
+#### ENVIRONMENT permissions
+
+| Name | Description |
+|:-----|:------------|
+| ENVIRONMENT | Manage organization / platform environments (for example, dev, qual, prod) |
+| DOMAIN | Read all security domain information |
+| DOMAIN_SETTINGS | Manage all security domain global settings |
+| DOMAIN_FORM | Manage all security domain custom HTML templates |
+| DOMAIN_EMAIL_TEMPLATE | Manage all security domain custom email templates |
+| DOMAIN_EXTENSION_POINT | Manage all security domain custom extension points |
+| DOMAIN_IDENTITY_PROVIDER | Manage all security domain identity providers |
+| DOMAIN_AUDIT | Manage all security domain audit logs |
+| DOMAIN_CERTIFICATE | Manage all security domain certificates |
+| DOMAIN_USER | Manage all security domain users |
+| DOMAIN_GROUP | Manage all security domain groups |
+| DOMAIN_ROLE | Manage all security domain roles |
+| DOMAIN_SCIM | Manage all security domain audit SCIM settings |
+| DOMAIN_SCOPE | Manage all security domain scopes (role permissions) |
+| DOMAIN_EXTENSION_GRANT | Manage all security domain OAuth 2.0 extension grants |
+| DOMAIN_UMA | Manage all security domain User Managed Access settings |
+| DOMAIN_OPENID | Manage all security domain OAuth 2.0 / OpenID Connect settings (DCR) |
+| DOMAIN_REPORTER | Manage all security domain reporters (audit logs storage) |
+| DOMAIN_MEMBER | Manage all security domain memberships |
+| DOMAIN_ANALYTICS | Manage all security domain analytics |
+| DOMAIN_FACTOR | Manage all security domain MFA settings |
+| DOMAIN_FLOW | Manage all security domain Flow settings |
+| APPLICATION | Read all application information |
+| APPLICATION_SETTINGS | Manage all application global settings |
+| APPLICATION_IDENTITY_PROVIDER | Manage all application identity providers |
+| APPLICATION_FORM | Manage all application custom HTML templates |
+| APPLICATION_EMAIL_TEMPLATE | Manage all application custom email templates |
+| APPLICATION_OPENID | Manage all application custom OAuth 2.0 / OpenID Connect settings |
+| APPLICATION_CERTIFICATE | Manage all application certificates |
+| APPLICATION_MEMBER | Manage all application memberships |
+| APPLICATION_FACTOR | Manage all application MFA settings |
+| APPLICATION_ANALYTICS | Manage all application analytics |
+| APPLICATION_FLOW | Manage all application Flow settings |
+| PROTECTED_RESOURCE_SETTINGS | Manage protected resource settings |
+| PROTECTED_RESOURCE_OAUTH | Manage protected resource OAuth 2.0 configuration |
+| PROTECTED_RESOURCE_CERTIFICATE | Manage protected resource certificates |
+
+#### DOMAIN permissions
+
+| Name | Description |
+|:-----|:------------|
+| DOMAIN | Read the security domain information |
+| DOMAIN_SETTINGS | Manage the security domain global settings |
+| DOMAIN_FORM | Manage the security domain custom HTML templates |
+| DOMAIN_EMAIL_TEMPLATE | Manage the security domain custom email templates |
+| DOMAIN_EXTENSION_POINT | Manage the security domain custom extension points |
+| DOMAIN_IDENTITY_PROVIDER | Manage the security domain identity providers |
+| DOMAIN_AUDIT | Manage the security domain audit logs |
+| DOMAIN_CERTIFICATE | Manage the security domain certificates |
+| DOMAIN_USER | Manage the security domain users |
+| DOMAIN_GROUP | Manage the security domain groups |
+| DOMAIN_ROLE | Manage the security domain roles |
+| DOMAIN_SCIM | Manage the security domain audit SCIM settings |
+| DOMAIN_SCOPE | Manage the security domain scopes (role permissions) |
+| DOMAIN_EXTENSION_GRANT | Manage the security domain OAuth 2.0 extension grants |
+| DOMAIN_OPENID | Manage the security domain OAuth 2.0 / OpenID Connect settings (DCR) |
+| DOMAIN_UMA | Manage the security domain User Managed Access settings |
+| DOMAIN_REPORTER | Manage the security domain reporters (audit logs storage) |
+| DOMAIN_MEMBER | Manage the security domain memberships |
+| DOMAIN_ANALYTICS | Manage the security domain analytics |
+| DOMAIN_FACTOR | Manage the security domain MFA settings |
+| DOMAIN_FLOW | Manage the security domain Flow settings |
+| APPLICATION | Read the security domain application information |
+| APPLICATION_SETTINGS | Manage the security domain application global settings |
+| APPLICATION_IDENTITY_PROVIDER | Manage the security domain application identity providers |
+| APPLICATION_FORM | Manage the security domain application custom HTML templates |
+| APPLICATION_EMAIL_TEMPLATE | Manage the security domain application custom email templates |
+| APPLICATION_OPENID | Manage the security domain application custom OAuth 2.0 / OpenID Connect settings |
+| APPLICATION_CERTIFICATE | Manage the security domain application certificates |
+| APPLICATION_MEMBER | Manage the security domain application memberships |
+| APPLICATION_FACTOR | Manage the security domain application MFA settings |
+| APPLICATION_ANALYTICS | Manage the security domain application analytics settings |
+| APPLICATION_FLOW | Manage the security domain application flow settings |
+| PROTECTED_RESOURCE_SETTINGS | Manage protected resource settings |
+| PROTECTED_RESOURCE_OAUTH | Manage protected resource OAuth 2.0 configuration |
+| PROTECTED_RESOURCE_CERTIFICATE | Manage protected resource certificates |
+
+#### APPLICATION permissions
+
+| Name | Description |
+|:-----|:------------|
+| APPLICATION | Read the security domain application information |
+| APPLICATION_SETTINGS | Manage the security domain application global settings |
+| APPLICATION_IDENTITY_PROVIDER | Manage the security domain application identity providers |
+| APPLICATION_FORM | Manage the security domain application custom HTML templates |
+| APPLICATION_EMAIL_TEMPLATE | Manage the security domain application custom email templates |
+| APPLICATION_OPENID | Manage the security domain application custom OAuth 2.0 / OpenID Connect settings |
+| APPLICATION_CERTIFICATE | Manage the security domain application certificates |
+| APPLICATION_MEMBER | Manage the security domain application memberships |
+| APPLICATION_FACTOR | Manage the security domain application MFA settings |
+| APPLICATION_ANALYTICS | Manage the security domain application analytics settings |
+| APPLICATION_FLOW | Manage the security domain application flow settings |
+| PROTECTED_RESOURCE_SETTINGS | Manage protected resource settings |
+| PROTECTED_RESOURCE_OAUTH | Manage protected resource OAuth 2.0 configuration |
+| PROTECTED_RESOURCE_CERTIFICATE | Manage protected resource certificates |
+
+{% hint style="info" %}
+`DOMAIN_SETTINGS[UPDATE]` permission is required at domain, environment, or organization level to update certificate settings.
+{% endhint %}

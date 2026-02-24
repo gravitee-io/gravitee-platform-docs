@@ -14,6 +14,10 @@ AM supports the [RFC 7523](https://tools.ietf.org/html/rfc7523) specification, w
 
 JWT bearer tokens can be used for secure communication between devices and services (and applications) running in the cloud which are protected using OAuth2. Devices is a broad term used for devices, clients, machines and third-party applications that may or may not be web-based.
 
+{% hint style="info" %}
+JWT signing operations support a certificate fallback mechanism that automatically uses a domain-level fallback certificate when the primary certificate fails to load. For configuration details, see <a data-mention href="certificate-fallback.md">certificate-fallback.md</a>.
+{% endhint %}
+
 ### Generate the key pair
 
 ```sh

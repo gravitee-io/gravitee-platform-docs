@@ -134,6 +134,17 @@ This section describes metrics that are provided by the Management API and the G
 | gio\_idp\_evt\_total    | Counter | Number of events (Create, Update, Delete) regarding identity providers received by the Gateway |
 | gio\_auth\_evt\_total   | Counter | Global number of events (Create, Update, Delete) received by the Gateway                       |
 
+#### Certificate Fallback Logging
+
+When certificate fallback is activated during JWT signing operations, the Gateway emits structured warning log messages to support operational observability. These warnings include both the primary certificate ID that failed to load and the fallback certificate ID being used.
+
+**Log Message Format**:
+```
+Certificate: {primaryCertificateId} not loaded, using: {fallbackCertificateId} as fallback
+```
+
+Monitor these warnings to identify certificate loading failures and verify fallback behavior during certificate rotation or outages.
+
 | Metrics                                      | Type    | Description                                                              |
 | -------------------------------------------- | ------- | ------------------------------------------------------------------------ |
 | http\_server\_active\_connections            | Gauge   | Number of opened connections to the HTTP Server.                         |

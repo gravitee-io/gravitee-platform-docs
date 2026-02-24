@@ -14,4 +14,4 @@ Also, Access Management grants access to the secret provider at domain definitio
 
 For more information about Sensitive Data Management in domain definition, see the following articles:
 
-<table data-view="cards"><thead><tr><th></th></tr></thead><tbody><tr><td><a href="configure-secret-providers.md">Configure Secret Providers</a></td></tr><tr><td><a href="apply-secret-to-domains.md">Apply Secret to Domains</a></td></tr><tr><td><a href="plugins-support.md">Plugins Support</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th></tr></thead><tbody><tr><td><a href="configure-secret-providers.md">Configure Secret Providers</a></td></tr><tr><td><a href="apply-secret-to-domains.md">Apply Secret to Domains</a></td></tr><tr><td><a href="plugins-support.md">Plugins Support</a></td></tr><tr><td><a href="certificate-fallback.md">Certificate Fallback</a></td></tr></tbody></table>

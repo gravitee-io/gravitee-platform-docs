@@ -195,3 +195,89 @@ api:
           delay: 10
           timeUnit: MINUTES
 ```
+
+### Certificate Fallback Overview
+
+Certificate fallback provides a configurable safety net when primary client certificates fail or become unavailable during JWT signing operations. Administrators can designate a domain-level fallback certificate that the system automatically uses when the primary certificate can't be loaded, improving resilience during certificate rotation or temporary outages without requiring domain restarts.
+
+#### Certificate Selection Hierarchy
+
+When a client requests JWT signing, the system follows a three-tier fallback chain:
+
+1. The client's configured certificate
+2. The domain's fallback certificate (if configured)
+3. The domain's default HMAC certificate (if `fallbackToHmacSignature` is enabled)
+
+If all options are exhausted, the system throws a `TemporarilyUnavailableException`. Fallback is skipped if the fallback certificate ID matches the primary certificate ID to prevent infinite loops.
+
+| Tier | Source | Condition |
+|:-----|:-------|:----------|
+| Primary | Client configuration | Always attempted first |
+| Fallback | Domain certificate settings | Used when primary fails and fallback is configured |
+| Default | Domain HMAC certificate | Used only if `fallbackToHmacSignature = true` |
+
+{% hint style="info" %}
+Fallback triggers only on certificate load failure, not signing errors.
+{% endhint %}
+
+#### Certificate Visibility Rules
+
+Master domains can access certificates from all domains to support cross-domain introspection scenarios. Regular domains can only access certificates belonging to their own domain. This isolation ensures proper security boundaries while allowing master domains to perform administrative operations across the platform.
+
+#### Hot-Reload Architecture
+
+Certificate settings updates trigger a `DOMAIN_CERTIFICATE_SETTINGS` event that notifies all gateway nodes in real time. Each node reloads its in-memory certificate settings from the repository without requiring a domain restart, enabling zero-downtime certificate configuration changes.
+
+The system uses `AtomicReference` and event manager subscriptions to handle event-driven configuration updates. When a certificate settings change occurs, the event propagates to all gateway nodes, which update their local configuration atomically.
+
+#### JWT Signing Fallback Flow
+
+During JWT signing operations, the gateway uses reactive error handling to implement the fallback chain. When the primary certificate fails to load, the system automatically attempts the fallback certificate. If both fail and HMAC fallback is disabled, the client receives a `temporarily_unavailable` OAuth 2.0 error response.
+
+Gateway logs include `"Certificate: {id} not loaded, using: {fallbackId} as fallback"` warnings to provide operational visibility into fallback activation.
+
+#### Prerequisites
+
+- Domain administrator access with `DOMAIN_SETTINGS[UPDATE]` permission
+- At least one certificate loaded and available in the target domain
+- Understanding of the domain's certificate rotation schedule and failure scenarios
+
+#### Configuring Certificate Fallback
+
+Configure fallback behavior at the domain level using the Management API. The fallback certificate must exist in the same domain (or be accessible if the domain is a master domain).
+
+**API Endpoint**: `PUT /organizations/{organizationId}/environments/{environmentId}/domains/{domain}/certificate-settings`
+
+**Request Body**:
+```json
+{
+  "fallbackCertificate": "cert-backup-2024"
+}
+```
+
+| Property | Description | Example |
+|:---------|:------------|:--------|
+| `fallbackCertificate` | ID of certificate to use when primary certificate fails | `"cert-backup-2024"` |
+
+To enable fallback:
+
+1. Send a PUT request to the certificate settings endpoint with the ID of your fallback certificate.
+2. The system validates that the certificate exists and is accessible to the domain.
+3. The configuration change broadcasts to all gateway nodes via the event system.
+4. Monitor gateway logs for fallback activation warnings during certificate failures.
+
+To disable fallback, send the same request with `"fallbackCertificate": null`.
+
+#### Creating a Client with Fallback Protection
+
+When creating or updating a client that requires JWT signing, configure the primary certificate as usual through the client configuration. The fallback mechanism activates automatically when the primary certificate fails to load—no client-side configuration is required. The client continues to receive signed JWTs transparently, with fallback usage logged on the gateway for operational visibility.
+
+### Certificate Visibility in UI Selectors
+
+The certificate selector dialog in the AM Console now displays system certificates alongside user-created certificates. Previously, system certificates were filtered out of the selector interface.
+
+This change supports certificate fallback configuration scenarios where administrators may need to reference system certificates as fallback options. System certificates remain restricted from use in Mutual TLS authentication contexts, as documented in the [Certificate for Mutual TLS authentication](#certificate-for-mutual-tls-authentication) section.
+
+{% hint style="info" %}
+System certificates are automatically generated when a domain is created and are marked with a "system" designation in the certificate list.
+{% endhint %}
