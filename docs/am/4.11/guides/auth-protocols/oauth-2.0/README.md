@@ -22,7 +22,7 @@ The server hosting the protected resources, capable of accepting and responding 
 
 **Client**
 
-An application making protected resource requests on behalf of the resource owner and with the resource owner’s authorization. The term _client_ does not imply any particular implementation characteristics (e.g. whether the application executes on a server, a desktop or other device).
+An application making protected resource requests on behalf of the resource owner and with the resource owner's authorization. The term _client_ does not imply any particular implementation characteristics (e.g. whether the application executes on a server, a desktop or other device).
 
 **Authorization server**
 
@@ -133,6 +133,47 @@ A refresh token is used to get a new access token, prompting the client applicat
 * For security reasons (a user can remain authenticated forever), a refresh token must be stored in a secure place (i.e server side).
 * Refresh token grant URL: `POST https://am-gateway/{domain}/oauth/token?grant_type=refresh_token&refresh_token={refreshToken} (with Basic client credentials)`
 
+### Token exchange
+
+MCP Servers (Protected Resources in MCP context) can exchange subject tokens for new access tokens using the [token exchange grant](https://tools.ietf.org/html/rfc8693).
+
+#### **Flow**
+
+1. The application obtains a subject token (access, refresh, or ID token) using standard OAuth 2.0 flows.
+2. The MCP Server submits a token exchange request with:
+   - `grant_type=urn:ietf:params:oauth:grant-type:token-exchange`
+   - The subject token
+   - The subject token type
+3. AM validates the subject token type against the domain's `allowedSubjectTokenTypes` list.
+4. AM verifies the token signature and expiration.
+5. AM extracts the `gis` claim.
+6. AM issues a new access token with the MCP Server's `clientId` as both client and audience.
+
+#### **Token lifetime**
+
+The new token's lifetime cannot exceed the subject token's remaining validity.
+
+#### **Restrictions**
+
+- No refresh tokens are issued in token exchange flows
+- No ID tokens are issued, even if `openid` scope is requested
+- Subject token types must be in the domain's `allowedSubjectTokenTypes` list
+- Unsupported token types return an `invalid_request` error
+
+#### **Domain configuration**
+
+Configure allowed subject token types at the domain level:
+
+| Property | Example Value | Description |
+|:---------|:--------------|:------------|
+| `tokenExchangeSettings.enabled` | `true` | Enable token exchange grant |
+| `tokenExchangeSettings.allowedSubjectTokenTypes` | `["urn:ietf:params:oauth:token-type:access_token", "urn:ietf:params:oauth:token-type:id_token"]` | Permitted subject token types for exchange |
+
+#### **Additional information**
+
+* Token exchange grant URL: `POST https://am-gateway/{domain}/oauth/token?grant_type=urn:ietf:params:oauth:grant-type:token-exchange` (with basic client credentials)
+* For more information about this flow, see the [RFC](https://tools.ietf.org/html/rfc8693).
+
 ## Endpoints
 
 The endpoints are the same as the endpoints described in the [AM API specification](../../../reference/am-api-reference.md). AM provides the following OAuth 2.0 endpoints for the AM Gateway:
@@ -167,18 +208,131 @@ When a token has audience claims relating to an [MCP Server](../../mcp-servers/)
 
 Introspection endpoint URL: `https://am-gateway/{domain}/oauth/introspect`
 
+#### Token introspection with Protected Resources
+
+During token introspection, the system resolves the caller by extracting the `aud` claim from the JWT. The resolution logic differs based on the number of audiences in the token:
+
+**Single-audience tokens**
+
+The system follows this resolution sequence:
+
+1. Query `ClientSyncService` by `clientId`
+2. Query `ProtectedResourceSyncService` by `clientId`
+3. Validate via `ProtectedResourceManager` using the resource identifier
+
+**Multi-audience tokens**
+
+The system always validates via resource identifier per [RFC 8707](https://tools.ietf.org/html/rfc8707).
+
+**JWT signature verification**
+
+If the Protected Resource has a `certificate` field, that certificate is used for JWT signature verification. If no certificate is assigned, the system assumes HMAC signing.
+
 ### Revocation endpoint
 
 The [revocation endpoint](https://tools.ietf.org/html/rfc7009) allows clients to notify the authorization server that a previously obtained refresh or access token is no longer needed.
 
 Revocation endpoint URL: `https://am-gateway/{domain}/oauth/revoke`
 
+## Protected Resources
+
+Protected Resources represent OAuth 2.0 resource servers that can authenticate with AM and participate in token introspection and exchange flows.
+
+### Gateway configuration
+
+#### OAuth2 default settings
+
+Protected Resources automatically receive these defaults on creation or update if not explicitly provided:
+
+| Property | Default Value | Description |
+|:---------|:--------------|:------------|
+| `settings.oauth.grantTypes` | `["client_credentials"]` | Allowed grant types |
+| `settings.oauth.responseTypes` | `["code"]` | Allowed response types |
+| `settings.oauth.tokenEndpointAuthMethod` | `"client_secret_basic"` | Token endpoint authentication method |
+| `settings.oauth.clientId` | Copied from `resource.clientId` | OAuth2 client identifier |
+| `settings.oauth.clientSecret` | Preserved if exists | Existing secret value retained |
+
+User-provided values always take precedence over defaults.
+
+### Protected Resource schema
+
+#### Core fields
+
+| Property | Type | Description |
+|:---------|:-----|:------------|
+| `certificate` | String (nullable) | Certificate ID for JWT verification |
+| `settings` | ApplicationSettings | OAuth2 configuration object |
+| `secretSettings` | List<ApplicationSecretSettings> | Secret algorithm settings |
+| `clientId` | String | OAuth2 client identifier |
+| `resourceIdentifiers` | List<String> | RFC 8707 resource identifiers (required, non-empty) |
+
+#### Secret response schema
+
+| Property | Type | Description |
+|:---------|:-----|:------------|
+| `id` | String | Secret identifier |
+| `name` | String | User-provided secret name |
+| `secret` | String | Secret value (only on create/renew) |
+| `settingsId` | String | Reference to algorithm settings |
+| `expiresAt` | Date | Expiration timestamp |
+| `createdAt` | Date | Creation timestamp |
+
+### Creating and managing secrets
+
+Use the Management API to manage Protected Resource secrets.
+
+**Create a secret**
+
+Send a POST request to `/organizations/{orgId}/environments/{envId}/domains/{domain}/protected-resources/{resourceId}/secrets` with a JSON body containing `{"name": "secret-name"}`. The API returns a `ClientSecret` object with the generated secret value, which is only displayed once.
+
+**Renew a secret**
+
+Post to the `/_renew` endpoint under the specific secret ID. This generates a new value while preserving algorithm settings.
+
+**Delete a secret**
+
+Send a DELETE request to the secret's endpoint. The system automatically removes orphaned `ApplicationSecretSettings` when no secrets reference them.
+
+**List secrets**
+
+Send a GET request to the secrets collection endpoint to retrieve all secrets for a resource.
+
+### Searching Protected Resources
+
+Search Protected Resources by name or `clientId` using the `q` query parameter on the list endpoint:
+
+```
+GET /protected-resources?q=search-term
+```
+
+The search supports wildcards (`*`) and performs case-insensitive matching. For example, `?q=mcp-*` returns all resources with names or client IDs starting with "mcp-".
+
+### Architecture notes
+
+#### Event integration
+
+Secret lifecycle operations emit `PROTECTED_RESOURCE_SECRET` events mapped to standard actions:
+
+- `CREATE` for new secrets
+- `UPDATE` for renewals
+- `DELETE` for removals
+
+These events integrate with the existing `ClientSecretNotifierService` for expiration notifications.
+
+#### Settings cleanup
+
+`ApplicationSecretSettings` objects are reference-counted. When a secret is deleted, the system checks if any other secrets reference the same `settingsId`. If not, the settings object is also deleted to prevent orphaned data.
+
+#### MCP Server UI context
+
+The UI filters token endpoint authentication methods when displaying Protected Resources in MCP Server context, showing only `client_secret_basic`, `client_secret_post`, and `client_secret_jwt`.
+
 ## Example
 
-Let’s imagine that a user wants to access his personal data via a web application. The personal data is exposed through an API secured by OAuth 2.0 protocol.
+Let's imagine that a user wants to access his personal data via a web application. The personal data is exposed through an API secured by OAuth 2.0 protocol.
 
 1. The user must be logged in to access his data. The user requests the web application to sign in.
-2. The web application sends an authorization request (resource owner requests access to be granted to the resource owner’s data) to the authorization server.
+2. The web application sends an authorization request (resource owner requests access to be granted to the resource owner's data) to the authorization server.
 
 {% code overflow="wrap" %}
 ```bash
@@ -213,7 +367,7 @@ Location: https://web-app/callback?code=js89p2x1&state=6789DSKL
 Return to the web application
 ```
 
-4\. The resource owner is an authenticated and approved web application acting on the resource owner’s behalf. The web application can request an access token.
+4\. The resource owner is an authenticated and approved web application acting on the resource owner's behalf. The web application can request an access token.
 
 {% code overflow="wrap" %}
 ```bash
@@ -238,7 +392,7 @@ Pragma: no-cache
 }
 ```
 
-5\. The web application has obtained an access token, which it can use to get the user’s personal data.
+5\. The web application has obtained an access token, which it can use to get the user's personal data.
 
 ```bash
 GET  https://api.company.com/users/@me
@@ -256,8 +410,6 @@ token=eyJhbGciOiJIUzI1NiIsInR5...
 
 Introspection request
 
-
-
 HTTP/1.1 200 OK
 Content-Type: application/json
 
@@ -274,8 +426,6 @@ Content-Type: application/json
 
 Introspection response
 
-
-
 HTTP/1.1 200 OK
 Content-Type: application/json
 
@@ -289,7 +439,7 @@ Content-Type: application/json
 Users API response
 ```
 
-7\. The access is valid and the web application can display the resource owner’s personal data. 8. If the resource owner decides to log out, the web application can ask the authorization server to revoke the active access token.
+7\. The access is valid and the web application can display the resource owner's personal data. 8. If the resource owner decides to log out, the web application can ask the authorization server to revoke the active access token.
 
 ```bash
 POST https://am-gateway/{domain}/oauth/revoke HTTP/1.1
@@ -299,8 +449,6 @@ Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW
 token=eyJhbGciOiJIUzI1NiIsInR5...
 
 Revocation request
-
-
 
 HTTP/1.1 200 OK
 

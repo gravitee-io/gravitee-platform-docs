@@ -150,3 +150,27 @@ curl -X POST \
 {% hint style="warning" %}
 **Save the client secret immediately.** The `clientSecret` field in the response contains the raw secret. This is the only time you will see it. Store it securely, as you cannot retrieve it later.
 {% endhint %}
+
+### Search Protected Resources
+
+You can search for Protected Resources by name or Client ID using the `q` query parameter on the list endpoint:
+
+```
+GET /protected-resources?q=search-term
+```
+
+The search supports:
+- **Wildcards**: Use `*` to match any characters
+- **Case-insensitive matching**: Searches both `name` and `clientId` fields
+
+#### Example
+
+To find all resources with names or Client IDs starting with "mcp-":
+
+```bash
+curl -X GET \
+  'https://am-api.example.com/management/organizations/DEFAULT/environments/DEFAULT/domains/my-domain/protected-resources?q=mcp-*' \
+  -H 'Authorization: Bearer {access_token}'
+```
+
+This returns all Protected Resources where the name or `clientId` matches the pattern `mcp-*`.

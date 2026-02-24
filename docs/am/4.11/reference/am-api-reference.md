@@ -20,7 +20,7 @@ Use the following HTTP Authorization request header to call the API: `Authorizat
 
 ### Token endpoint
 
-You can use the `token` endpoint to retrieve the `AM Management API token` . To retrieve the token, present the user credentials in the `Basic authentication scheme`.
+You can use the `token` endpoint to retrieve the `AM Management API token`. To retrieve the token, present the user credentials in the `Basic authentication scheme`.
 
 The following example exchanges default admin account credentials (`admin/adminadmin`) for a token:
 
@@ -42,6 +42,35 @@ curl -X POST \
       "access_token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZ....m4g9SK1fPtcPTLmbxWZDyP1hV9vjdsLdA",
       "expires_at": "Thu Jun 28 10:35:31 CEST 2018",
       "token_type": "bearer"
+  }
+```
+{% endcode %}
+
+### Token exchange endpoint
+
+MCP Servers (Protected Resources) can exchange subject tokens for new access tokens using the token exchange grant type. The application first obtains a subject token (access, refresh, or ID token) using standard OAuth2 flows. The MCP Server then submits a token exchange request with `grant_type=urn:ietf:params:oauth:grant-type:token-exchange`, the subject token, and its type.
+
+The system validates the subject token type against the domain's `allowedSubjectTokenTypes`, verifies the token signature and expiration, extracts the `gis` claim, and issues a new access token with the MCP Server's `clientId` as both client and audience. The new token's lifetime cannot exceed the subject token's remaining validity. No refresh or ID tokens are issued in token exchange flows.
+
+{% code overflow="wrap" %}
+```sh
+POST http(s)://AM_GATEWAY/{domain}/oauth/token HTTP/1.1
+
+curl -X POST \
+  http(s)://AM_GATEWAY/{domain}/oauth/token \
+  -H 'authorization: Basic base64(clientId:clientSecret)' \
+  -H 'content-type: application/x-www-form-urlencoded' \
+  -d 'grant_type=urn:ietf:params:oauth:grant-type:token-exchange' \
+  -d 'subject_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...' \
+  -d 'subject_token_type=urn:ietf:params:oauth:token-type:access_token'
+
+
+  HTTP/1.1 200 OK
+  Content-Type: application/json
+  {
+      "access_token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZ....m4g9SK1fPtcPTLmbxWZDyP1hV9vjdsLdA",
+      "token_type": "bearer",
+      "expires_in": 3600
   }
 ```
 {% endcode %}

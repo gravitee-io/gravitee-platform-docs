@@ -12,6 +12,10 @@ The `clientId` used for the resource configuration must match the `clientId` of 
 
 The following instructions assume that the OAuth server is a Gravitee AM Gateway, but other solutions are supported.
 
+{% hint style="info" %}
+If using Gravitee AM as the authorization server and planning to use token exchange workflows, ensure that token exchange is enabled at the domain level by setting `tokenExchangeSettings.enabled` to `true` and configuring `tokenExchangeSettings.allowedSubjectTokenTypes` with the permitted subject token type URNs (e.g., `urn:ietf:params:oauth:token-type:access_token`, `urn:ietf:params:oauth:token-type:id_token`).
+{% endhint %}
+
 1. Log in to APIM Management Console.
 2. Click **APIs** in the left sidebar.
 3. Select the API you want to add the resource to.

@@ -195,3 +195,21 @@ api:
           delay: 10
           timeUnit: MINUTES
 ```
+
+### Certificate deletion restrictions
+
+Certificates cannot be deleted if they are referenced by any Protected Resource. Attempting to delete a referenced certificate throws a `CertificateWithProtectedResourceException`.
+
+This restriction ensures that Protected Resources configured to use a specific certificate for JWT signature verification during token introspection continue to function correctly. Before deleting a certificate, verify that no Protected Resources reference it in their `certificate` field.
+
+To remove a certificate:
+
+1. Identify all Protected Resources that reference the certificate.
+2. Update each Protected Resource to either:
+   - Reference a different certificate, or
+   - Remove the certificate reference (the system will assume HMAC-signed JWTs).
+3. Delete the certificate after all references are removed.
+
+{% hint style="info" %}
+Use the Protected Resource search functionality to locate resources by name or `clientId` that may reference the certificate.
+{% endhint %}
