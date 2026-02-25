@@ -400,7 +400,7 @@
 * [Plugins](plugins/README.md)
   * [Deployment](plugins/deployment.md)
   * [Customization](plugins/customization.md)
-* [Gravitee Expression Language](gravitee-expression-language.md)
+* [Gravitee Expression Language](../4.9/gravitee-expression-language.md)
 * [Management API Reference](management-api-reference.md)
 * [Expose APIM as an MCP Server](4.9-expose-apim-as-an-mcp-server.md)
 * [Release Information](release-information/README.md)
