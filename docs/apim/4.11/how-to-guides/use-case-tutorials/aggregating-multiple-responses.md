@@ -53,15 +53,15 @@ To make a second request, or multiple requests, to additional backend services, 
 
 Within your APIs' _Policies_ page, ensure you have created a _Flow_.  If not, then click on the + icon next to your Plan, and click on the Create button
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt="" width="375"><figcaption><p>Click on the [+] button to create a new Flow under your Plan</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt="" width="375"><figcaption><p>Click on the [+] button to create a new Flow under your Plan</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt="" width="375"><figcaption><p>Now click on the [Create] button to create your flow</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1).png" alt="" width="375"><figcaption><p>Now click on the [Create] button to create your flow</p></figcaption></figure>
 
 #### Configuring the HTTP Callout policy
 
 1. Click the \[+] button (within the **Request phase**) to add a new Policy into your Flow.
 
-<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption><p>Click on the [+] button - within the Request phase - to add a new HTTP Callout Policy into the Flow</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1).png" alt=""><figcaption><p>Click on the [+] button - within the Request phase - to add a new HTTP Callout Policy into the Flow</p></figcaption></figure>
 
 2. Browse the list of policies for the HTTP Callout policy, and click Select.
 3. Provide the necessary information, such as the HTTP method and URL. Optional fields include the request headers and request body.
