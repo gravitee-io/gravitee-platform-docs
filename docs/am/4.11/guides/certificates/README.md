@@ -83,6 +83,10 @@ Gravitee API Management (APIM) comes with a JWT Policy to verify and decode toke
 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-certificate-app.png" alt=""><figcaption><p>Apply certificate to application</p></figcaption></figure>
 
+{% hint style="info" %}
+Certificates can also be assigned to Protected Resources for signature verification during token introspection. For more information, see <a data-mention href="protected-resource-secret-management.md">protected-resource-secret-management.md</a>.
+{% endhint %}
+
 ### Certificate for Mutual TLS authentication <a href="#certificate-for-mutual-tls-authentication" id="certificate-for-mutual-tls-authentication"></a>
 
 To mark a certificate as usable for mTLS, you just have to check the "mTLS" usage in the configuration form of your certificate.

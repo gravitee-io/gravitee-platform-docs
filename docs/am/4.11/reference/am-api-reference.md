@@ -20,7 +20,7 @@ Use the following HTTP Authorization request header to call the API: `Authorizat
 
 ### Token endpoint
 
-You can use the `token` endpoint to retrieve the `AM Management API token` . To retrieve the token, present the user credentials in the `Basic authentication scheme`.
+You can use the `token` endpoint to retrieve the `AM Management API token`. To retrieve the token, present the user credentials in the `Basic authentication scheme`.
 
 The following example exchanges default admin account credentials (`admin/adminadmin`) for a token:
 
@@ -45,6 +45,10 @@ curl -X POST \
   }
 ```
 {% endcode %}
+
+### Token introspection
+
+During token introspection, AM validates JWT audiences against both Applications and Protected Resources. For single-audience tokens, the introspection service first attempts to resolve the audience as a client ID by checking Applications, then Protected Resources. If found, it returns the associated certificate ID for signature verification or an empty string for HMAC. For multi-audience tokens, the system validates all audiences using RFC 8707 resource identifier rules. This dual-lookup mechanism ensures Protected Resources are recognized as valid token audiences alongside traditional OAuth2 clients.
 
 ### Authorization endpoint
 

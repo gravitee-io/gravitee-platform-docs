@@ -199,3 +199,4 @@
   * [Support](https://community.gravitee.io/c/support/11)
   * [Roadmap & Feedback](https://www.gravitee.io/user-feedback)
   * [Announcements & Events](https://community.gravitee.io/c/announcements/5)
+* [Protected Resource Secret Management Overview](guides/protected-resources/secret-management.md)

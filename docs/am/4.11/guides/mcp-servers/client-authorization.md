@@ -98,7 +98,7 @@ This ensures the MCP client has complete metadata about the Authorization Server
 The client initiates the `/authorize` request.
 
 {% hint style="warning" %}
-The `resource` parameter is mandatory and must match the MCP Server’s resource identifier.
+The `resource` parameter is mandatory and must match the MCP Server's resource identifier.
 {% endhint %}
 
 Example `/authorize` request:
@@ -152,13 +152,14 @@ According to the OAuth 2.1 specification, only the code is returned.
 The client calls the `/token` endpoint.
 
 {% hint style="warning" %}
-The `resource` parameter is mandatory and must match the MCP Server’s resource identifier.
+The `resource` parameter is mandatory and must match the MCP Server's resource identifier.
 {% endhint %}
 
 Example:
 
-<pre><code><strong>POST /oauth/token
-</strong>Content-Type: application/x-www-form-urlencoded
+```
+POST /oauth/token
+Content-Type: application/x-www-form-urlencoded
 
 grant_type=authorization_code
 code=XYZ
@@ -166,9 +167,23 @@ redirect_uri=https://client.example.com/callback
 client_id=abc123
 code_verifier=original_verifier
 resource=https://mcp.example.com
-</code></pre>
+```
 
 The Authorization Server returns the access token (and optionally the refresh token) with the `aud` claim equal to the resource identifier.
+
+### Token endpoint authentication methods
+
+When operating in MCP Server context, Gravitee AM restricts the available token endpoint authentication methods to the following:
+
+* `client_secret_basic`
+* `client_secret_post`
+* `client_secret_jwt`
+
+This filtering ensures MCP Servers use only secret-based authentication flows. Other authentication methods, such as certificate-based client authentication, are not supported for MCP Server Protected Resources.
+
+{% hint style="info" %}
+This restriction applies only to MCP Server contexts. Standard OAuth2 clients and Protected Resources outside the MCP Server workflow support the full range of token endpoint authentication methods.
+{% endhint %}
 
 </details>
 
