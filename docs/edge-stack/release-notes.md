@@ -5,6 +5,12 @@ noIndex: true
 
 # Release Notes
 
+### Version 3.12.12 (Febuary 23, 2026) <a href="#id-3.12.12" id="id-3.12.12"></a>
+
+#### Upgrade Golang to 1.24.12
+
+Ambassador Edge Stack now uses Golang version 1.24.12. This update resolves various security fixes, which includes CVE-2025-61726 and CVE-2025-61730.
+
 ### Version 3.12.11 (January 9, 2026) <a href="#id-3.12.11" id="id-3.12.11"></a>
 
 #### Added additional Mapping validation
