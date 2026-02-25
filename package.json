@@ -4,11 +4,16 @@
   "description": "Sync policy READMEs from Gravitee-io repos to the documentation repository.",
   "main": "sync-policy-readmes.js",
   "scripts": {
-    "start": "node sync-policy-readmes.js"
+    "start": "node sync-policy-readmes.js",
+    "spellcheck": "cspell \"docs/**/*.{md,mdx}\"",
+    "spellcheck:file": "cspell --show-suggestions"
   },
   "author": "Your Name",
   "license": "MIT",
   "dependencies": {
     "node-fetch": "^2.6.7"
+  },
+  "devDependencies": {
+    "cspell": "^9.7.0"
   }
 }
