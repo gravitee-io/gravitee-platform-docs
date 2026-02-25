@@ -30,6 +30,7 @@ The features below are included in the default enterprise Access Management dist
 * SAML v2
 * Geo IP
 * Account Linking
+* Protected Resource Secret Management
 
 ## Enterprise plugins <a href="#enterprise-policy-pack" id="enterprise-policy-pack"></a>
 

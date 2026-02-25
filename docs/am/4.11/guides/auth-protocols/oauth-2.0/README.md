@@ -22,7 +22,7 @@ The server hosting the protected resources, capable of accepting and responding 
 
 **Client**
 
-An application making protected resource requests on behalf of the resource owner and with the resource owner’s authorization. The term _client_ does not imply any particular implementation characteristics (e.g. whether the application executes on a server, a desktop or other device).
+An application making protected resource requests on behalf of the resource owner and with the resource owner's authorization. The term _client_ does not imply any particular implementation characteristics (e.g. whether the application executes on a server, a desktop or other device).
 
 **Authorization server**
 
@@ -167,6 +167,64 @@ When a token has audience claims relating to an [MCP Server](../../mcp-servers/)
 
 Introspection endpoint URL: `https://am-gateway/{domain}/oauth/introspect`
 
+#### Token introspection with Protected Resources
+
+During token introspection, the service validates the JWT's audience claim against both Applications and Protected Resources. The validation follows a fallback chain implemented in the `OAuth2AuthProviderImpl.decodeToken()` method:
+
+**Single audience value**
+
+When the audience claim contains a single value, the service:
+1. First checks if it matches an Application's client ID
+2. Then checks if it matches a Protected Resource's client ID
+3. Finally validates it as a resource identifier per [RFC 8707](https://tools.ietf.org/html/rfc8707)
+
+**Multiple audience values**
+
+When the audience claim contains multiple values, all are validated as resource identifiers per [RFC 8707](https://tools.ietf.org/html/rfc8707).
+
+**Validation failure**
+
+If no valid audience is found through any of these checks, introspection fails with an `InvalidTokenException`.
+
+**Certificate handling**
+
+When a Protected Resource is matched during introspection, the service returns:
+- The certificate ID for certificate-signed tokens (enabling signature verification)
+- An empty string for HMAC-signed tokens
+
+{% hint style="info" %}
+This fallback chain ensures backward compatibility with existing Application-based authentication while enabling Protected Resources to participate in OAuth 2.0 flows.
+{% endhint %}
+
+**Example introspection response with Protected Resource**
+
+When introspecting a token whose audience matches a Protected Resource:
+
+```bash
+POST https://am-gateway/{domain}/oauth/introspect HTTP/1.1
+Accept: application/json
+Content-Type: application/x-www-form-urlencoded
+Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW
+token=eyJhbGciOiJIUzI1NiIsInR5...
+```
+
+```json
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "active": true,
+  "client_id": "protected-resource-001",
+  "aud": "https://protected-resource",
+  "iss": "https://am-gateway/",
+  "exp": 1419356238,
+  "iat": 1419350238,
+  "certificate_id": "cert-abc123"
+}
+```
+
+For HMAC-signed tokens, the `certificate_id` field returns an empty string.
+
 ### Revocation endpoint
 
 The [revocation endpoint](https://tools.ietf.org/html/rfc7009) allows clients to notify the authorization server that a previously obtained refresh or access token is no longer needed.
@@ -175,10 +233,10 @@ Revocation endpoint URL: `https://am-gateway/{domain}/oauth/revoke`
 
 ## Example
 
-Let’s imagine that a user wants to access his personal data via a web application. The personal data is exposed through an API secured by OAuth 2.0 protocol.
+Let's imagine that a user wants to access his personal data via a web application. The personal data is exposed through an API secured by OAuth 2.0 protocol.
 
 1. The user must be logged in to access his data. The user requests the web application to sign in.
-2. The web application sends an authorization request (resource owner requests access to be granted to the resource owner’s data) to the authorization server.
+2. The web application sends an authorization request (resource owner requests access to be granted to the resource owner's data) to the authorization server.
 
 {% code overflow="wrap" %}
 ```bash
@@ -213,7 +271,7 @@ Location: https://web-app/callback?code=js89p2x1&state=6789DSKL
 Return to the web application
 ```
 
-4\. The resource owner is an authenticated and approved web application acting on the resource owner’s behalf. The web application can request an access token.
+4\. The resource owner is an authenticated and approved web application acting on the resource owner's behalf. The web application can request an access token.
 
 {% code overflow="wrap" %}
 ```bash
@@ -238,7 +296,7 @@ Pragma: no-cache
 }
 ```
 
-5\. The web application has obtained an access token, which it can use to get the user’s personal data.
+5\. The web application has obtained an access token, which it can use to get the user's personal data.
 
 ```bash
 GET  https://api.company.com/users/@me
@@ -289,7 +347,7 @@ Content-Type: application/json
 Users API response
 ```
 
-7\. The access is valid and the web application can display the resource owner’s personal data. 8. If the resource owner decides to log out, the web application can ask the authorization server to revoke the active access token.
+7\. The access is valid and the web application can display the resource owner's personal data. 8. If the resource owner decides to log out, the web application can ask the authorization server to revoke the active access token.
 
 ```bash
 POST https://am-gateway/{domain}/oauth/revoke HTTP/1.1

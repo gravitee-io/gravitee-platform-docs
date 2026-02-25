@@ -39,11 +39,35 @@ By default, Gravitee AM automatically generates OAuth 2.0 credentials. You can o
 * **Client ID:** A custom OAuth 2.0 Client Identifier.
   * If not provided, a secure random identifier is generated.
   * Must be unique within the domain.
-*   **Client Secret:** A custom OAuth 2.0 Client Secret.
+* **Client Secret:** A custom OAuth 2.0 Client Secret.
+  * If not provided, a secure random secret will be generated.
 
-    * If not provided, a secure random secret will be generated.
+{% hint style="warning" %}
+The Client Secret is shown only once during creation. Make sure to copy and store it securely. You cannot retrieve the raw secret later.
+{% endhint %}
 
-    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>The Client Secret is shown only once during creation. Make sure to copy and store it securely. You cannot retrieve the raw secret later.</p></div>
+#### Token endpoint authentication methods
+
+MCP Servers support only the following token endpoint authentication methods:
+
+* `client_secret_basic` (default)
+* `client_secret_post`
+* `client_secret_jwt`
+
+Other authentication methods (such as `private_key_jwt`, `tls_client_auth`, or `none`) are not supported for MCP Server contexts. The Management Console UI automatically filters the available authentication methods when you configure an MCP Server.
+
+{% hint style="info" %}
+If you create an MCP Server without specifying a token endpoint authentication method, the system defaults to `client_secret_basic`.
+{% endhint %}
+
+#### UI restrictions for MCP Servers
+
+When creating or configuring an MCP Server in the AM Console, the following UI sections are hidden:
+
+* **Refresh Token settings**: Not displayed for MCP Server contexts.
+* **PKCE (Proof Key for Code Exchange) settings**: Not displayed for MCP Server contexts.
+
+These restrictions apply only to the Management Console UI. The underlying API does not enforce these limitations.
 
 ### Step 4: (Optional) Add MCP Tools  <a href="#step-4-add-mcp-tools-optional" id="step-4-add-mcp-tools-optional"></a>
 

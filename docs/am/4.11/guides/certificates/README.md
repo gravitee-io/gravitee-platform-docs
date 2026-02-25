@@ -99,6 +99,10 @@ System certificates can't be used for mTLS authentication as they are self signe
 
 AM is designed to be extended based on a pluggable modules architecture. You can develop your own certificate and provide a sign method for tokens.
 
+## Certificate deletion restrictions
+
+Certificates cannot be deleted if they are referenced by a Protected Resource. Attempting to delete a certificate that is still in use will result in a `CertificateWithProtectedResourceException`. Before deleting a certificate, ensure it is not assigned to any Protected Resource in the domain.
+
 ## System certificates
 
 When a new domain is created, a certificate is generated for use by the domain applications to sign the tokens. Such certificates are marked as "system" certificates.
