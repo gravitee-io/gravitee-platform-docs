@@ -195,3 +195,199 @@ api:
           delay: 10
           timeUnit: MINUTES
 ```
+
+### Certificate Fallback for JWT Signing
+
+Certificate fallback enables Access Management domains to specify a backup certificate for JWT signing operations. When the primary certificate fails to load or sign a token, the gateway automatically attempts the fallback certificate before resorting to the default HMAC certificate. This improves resilience during certificate rotation or temporary availability issues.
+
+#### Fallback Hierarchy
+
+The gateway evaluates certificates in three tiers:
+
+1. The client's configured certificate
+2. The domain-level fallback certificate
+3. The default HMAC certificate (if `fallbackToHmacSignature` is enabled)
+
+The fallback certificate is only used when it differs from the primary certificate. If all options are exhausted and HMAC fallback is disabled, the gateway throws a `TemporarilyUnavailableException`.
+
+#### Runtime Configuration
+
+Certificate settings can be updated via the Management API without triggering a full domain reload. The gateway subscribes to `DomainCertificateSettingsEvent.UPDATE` events and reloads settings from the database when changes occur. This allows administrators to adjust fallback behavior during certificate rotation without downtime.
+
+#### Master Domain Access
+
+Master domains can reference certificates from any domain in the organization (for cross-domain introspection). Non-master domains can only access certificates within their own domain scope.
+
+#### Prerequisites
+
+* Access Management gateway running with certificate management enabled
+* At least one certificate configured in the domain (beyond the default HMAC certificate)
+* `DOMAIN_SETTINGS[UPDATE]` permission on the target domain, environment, or organization
+*
+
+#### Gateway Configuration
+
+Configure the fallback certificate at the domain level. This setting is stored in the `Domain` model and can be updated independently of other domain properties.
+
+| Property | Description | Example |
+|:---------|:------------|:--------|
+| `certificateSettings.fallbackCertificate` | ID of the certificate to use when the primary certificate fails | `"cert-abc123"` |
+
+The fallback certificate must exist in the domain's certificate store. For master domains, the certificate can belong to any domain in the organization.
+
+#### Configure Certificate Fallback
+
+To enable fallback behavior, update the domain's certificate settings via the Management API or Console UI.
+
+**Using AM Console:**
+
+1. Navigate to **Domain Settings → Certificates**.
+2. Select a fallback certificate from the dropdown.
+3. Click **Save** to activate the fallback.
+
+**Using AM API:**
+
+{% code overflow="wrap" %}
+```sh
+curl -H "Authorization: Bearer :accessToken" \
+     -H "Content-Type:application/json;charset=UTF-8" \
+     -X PUT \
+     -d '{"fallbackCertificate": "<certificate-id>"}' \
+     http://GRAVITEEIO-AM-MGT-API-HOST/management/organizations/{organizationId}/environments/{environmentId}/domains/{domain}/certificate-settings
+```
+{% endcode %}
+
+The gateway immediately subscribes to the change and reloads settings without restarting the domain.
+
+#### JWT Signing with Fallback
+
+When the gateway encodes a JWT, it first attempts to sign with the client's configured certificate. If that certificate is null, the gateway uses the default certificate immediately. If the primary certificate fails to load, the gateway retrieves the domain-level fallback certificate and logs a warning:
+
+```
+Certificate: {id} not loaded, using: {fallbackId} as fallback
+```
+
+If the fallback certificate also fails and HMAC fallback is disabled, the gateway throws a `TemporarilyUnavailableException`.
+
+### JWT Signing with Fallback
+
+When the gateway encodes a JWT, it follows a deterministic fallback sequence to ensure token signing succeeds even when the primary certificate is unavailable.
+
+#### Fallback Logic
+
+The gateway attempts to sign JWTs using the following sequence:
+
+1. **Primary certificate**: The certificate configured for the client application.
+2. **Fallback certificate**: The domain-level fallback certificate (if configured and different from the primary).
+3. **Default HMAC certificate**: The system-generated HMAC certificate (if `fallbackToHmacSignature` is enabled).
+
+#### Fallback Triggers
+
+The gateway invokes fallback logic under the following conditions:
+
+**Null primary certificate**
+If the client's configured certificate is null, the gateway immediately uses the default HMAC certificate without attempting fallback.
+
+**Certificate load failure**
+If the primary certificate fails to load from the certificate store, the gateway retrieves the domain-level fallback certificate and logs:
+
+```
+Certificate: {id} not loaded, using: {fallbackId} as fallback
+```
+
+If the fallback certificate also fails to load:
+- When `fallbackToHmacSignature` is `true`: The gateway falls back to the default HMAC certificate and logs:
+  ```
+  Certificate: {id} not loaded, using default certificate as fallback
+  ```
+- When `fallbackToHmacSignature` is `false`: The gateway throws a `TemporarilyUnavailableException` and the signing operation fails.
+
+**Signing operation failure**
+If the primary certificate loads successfully but fails during the signing operation, the gateway attempts to use the fallback certificate and logs:
+
+```
+Failed to sign JWT with certificate: {id}, attempting fallback using: {fallbackId}
+```
+
+The same HMAC fallback logic applies if the fallback certificate also fails during signing.
+
+#### Mutual Exclusion Logic
+
+The gateway only invokes the fallback certificate when it differs from the primary certificate. Certificate IDs are compared using `Objects.equals(fallback.getCertificateInfo().certificateId(), certificateProvider.getCertificateInfo().certificateId())`. If the IDs match, the gateway skips the fallback tier and progresses directly to the default HMAC certificate (when enabled).
+
+This prevents redundant fallback attempts and ensures the gateway does not retry the same certificate twice.
+
+#### HMAC Fallback Control
+
+The `fallbackToHmacSignature` flag controls whether the gateway can fall back to the default HMAC certificate when both the primary and fallback certificates fail. When this flag is disabled, the gateway throws a `TemporarilyUnavailableException` instead of using HMAC, forcing administrators to resolve certificate issues before JWT signing can succeed.
+
+### Event-Driven Settings Updates
+
+The gateway uses an event-driven architecture to propagate certificate settings changes across distributed deployments. When an administrator updates the fallback certificate via the Management API, the system publishes a `DomainCertificateSettingsEvent.UPDATE` event. All gateway nodes subscribed to this event reload the settings from the database without requiring a full domain restart.
+
+This ensures zero-downtime configuration changes and allows administrators to adjust fallback behavior during certificate rotation without service interruption.
+
+### Master Domain Access
+
+Master domains can reference certificates from any domain in the organization, enabling cross-domain introspection scenarios. Non-master domains can only access certificates within their own domain scope. This restriction applies to both primary and fallback certificate configurations.
+
+### Troubleshooting certificate fallback
+
+When the gateway encounters certificate failures during JWT signing, it logs detailed warnings to help you diagnose and resolve issues. Understanding these log messages and the fallback behavior enables you to maintain token signing reliability during certificate rotation or availability problems.
+
+#### Interpreting fallback warnings
+
+The gateway emits two types of warnings when fallback logic is triggered:
+
+**Certificate load failure**
+When the primary certificate fails to load, the gateway logs:
+
+```
+Certificate: {id} not loaded, using: {fallbackId} as fallback
+```
+
+This indicates the gateway could not retrieve or initialize the primary certificate and has switched to the configured fallback certificate.
+
+**Certificate signing failure**
+When the primary certificate loads successfully but fails during the signing operation, the gateway logs:
+
+```
+Failed to sign JWT with certificate: {id}, attempting fallback using: {fallbackId}
+```
+
+This indicates the primary certificate is accessible but encountered an error while signing the token payload.
+
+Both warnings include the certificate IDs involved, allowing you to correlate log entries with your certificate configuration.
+
+#### Handling exhausted fallback options
+
+If all fallback options are exhausted and `fallbackToHmacSignature` is disabled, the gateway throws a `TemporarilyUnavailableException` and the JWT signing operation fails. This exception indicates:
+
+- The primary certificate failed to load or sign.
+- The fallback certificate (if configured) also failed.
+- HMAC fallback is disabled, preventing the gateway from using the default certificate.
+
+To resolve this:
+
+1. Verify the primary and fallback certificates exist in the domain's certificate store.
+2. Check certificate validity periods and ensure they have not expired.
+3. Review gateway logs for specific error details about why each certificate failed.
+4. If certificate rotation is in progress, enable `fallbackToHmacSignature` temporarily to maintain availability while updating certificates.
+5. Confirm the fallback certificate ID matches an existing certificate in the domain (or organization, for master domains).
+
+#### Common failure scenarios
+
+**Mismatched certificate IDs**
+If the fallback certificate ID does not exist in the domain's certificate store, the gateway skips the fallback and proceeds directly to the default HMAC certificate (if enabled). Verify the fallback certificate ID in **Domain Settings → Certificates** matches an available certificate.
+
+**Identical primary and fallback certificates**
+The gateway skips the fallback if the primary and fallback certificate IDs are identical. This prevents redundant fallback attempts. Ensure the fallback certificate differs from the primary certificate.
+
+**Master domain scope issues**
+Non-master domains can only reference certificates within their own domain. If a non-master domain attempts to use a fallback certificate from another domain, the gateway ignores the fallback. Master domains can reference certificates from any domain in the organization.
+
+### Event-driven settings updates
+
+The gateway uses an event-driven architecture to propagate certificate settings changes across distributed nodes. When an administrator updates the fallback certificate via the Management API, the system publishes a `DomainCertificateSettingsEvent.UPDATE` event. All gateway nodes subscribed to this event reload the settings from the database without requiring a full domain restart. This ensures zero-downtime configuration changes across distributed deployments.
+
+The event subscription mechanism allows the gateway to respond immediately to certificate settings updates. When the Management API processes a certificate settings change, it persists the new configuration to the database and broadcasts the `UPDATE` event. Each gateway node receives the event, queries the updated settings, and applies them to the in-memory domain configuration. This approach eliminates the need for manual domain restarts or configuration file updates when adjusting fallback behavior during certificate rotation.

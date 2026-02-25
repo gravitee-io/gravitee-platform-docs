@@ -93,6 +93,10 @@ With the following content:
 }
 ```
 
+{% hint style="info" %}
+JWT signing operations support certificate fallback behavior. If the primary certificate fails, the gateway automatically attempts the domain-level fallback certificate before resorting to the default HMAC certificate. For details, see [JWT Signing Fallback Behavior](../reference-guide/jwt-signing-fallback-behavior.md).
+{% endhint %}
+
 To exchange the token, you need to call AM Gateway with the following parameter definitions:
 
 * `grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer`

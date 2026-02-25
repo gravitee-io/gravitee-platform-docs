@@ -2,7 +2,7 @@
 
 ## Organizations and environment
 
-Two concepts apply to the setup of **Gravitee Access Management** (AM) installation. Organization and environment.
+Two concepts apply to the setup of **Gravitee Access Management** (AM) installation: organization and environment.
 
 ### Organization
 
@@ -37,14 +37,14 @@ When you log in AM, you are redirected to the portal with at least one `ORGANIZA
 
 As an owner of a security domain or an application you want to manage your members by giving them roles that make sense only when associated with a `DOMAIN` / `APPLICATION`.
 
-For example, you don’t want to allow a simple user or the person in charge of your application settings to be able to manage the whole platform.
+For example, you don't want to allow a simple user or the person in charge of your application settings to be able to manage the whole platform.
 
 In order to limit the scope of the roles, scopes are bound to what we call an `assignable type`:
 
-* `ORGANIZATION` — role for the whole platform
-* `ENVIRONMENT` — role for an environment
-* `DOMAIN` — role for a security domain
-* `APPLICATION` — role for an application
+* `ORGANIZATION` — role for the whole platform
+* `ENVIRONMENT` — role for an environment
+* `DOMAIN` — role for a security domain
+* `APPLICATION` — role for an application
 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-adminguide-roles-permissions.png" alt=""><figcaption><p>Roles</p></figcaption></figure>
 
@@ -113,6 +113,9 @@ Table 1. ORGANIZATION permissions
 | DOMAIN\_ANALYTICS                | Manage all security domain analytics                                                                   |
 | DOMAIN\_FACTOR                   | Manage all security domain MFA settings                                                                |
 | DOMAIN\_FLOW                     | Manage all security domain Flow settings                                                               |
+| PROTECTED\_RESOURCE\_SETTINGS    | Manage all security domain protected resource configuration                                            |
+| PROTECTED\_RESOURCE\_OAUTH       | Manage all security domain protected resource OAuth settings                                           |
+| PROTECTED\_RESOURCE\_CERTIFICATE | Manage all security domain protected resource certificates                                             |
 | APPLICATION                      | Read all application information                                                                       |
 | APPLICATION\_SETTINGS            | Manage all application global settings                                                                 |
 | APPLICATION\_IDENTITY\_PROVIDER  | Manage all application identity providers                                                              |
@@ -151,6 +154,9 @@ Table 2. ENVIRONMENT permissions
 | DOMAIN\_ANALYTICS               | Manage all security domain analytics                                       |
 | DOMAIN\_FACTOR                  | Manage all security domain MFA settings                                    |
 | DOMAIN\_FLOW                    | Manage all security domain Flow settings                                   |
+| PROTECTED\_RESOURCE\_SETTINGS   | Manage all security domain protected resource configuration                |
+| PROTECTED\_RESOURCE\_OAUTH      | Manage all security domain protected resource OAuth settings               |
+| PROTECTED\_RESOURCE\_CERTIFICATE| Manage all security domain protected resource certificates                 |
 | APPLICATION                     | Read all application information                                           |
 | APPLICATION\_SETTINGS           | Manage all application global settings                                     |
 | APPLICATION\_IDENTITY\_PROVIDER | Manage all application identity providers                                  |
@@ -165,40 +171,43 @@ Table 2. ENVIRONMENT permissions
 
 Table 3. DOMAIN permissions
 
-| Name                            | Description                                                                       |
-| ------------------------------- | --------------------------------------------------------------------------------- |
-| DOMAIN                          | Read the security domain information                                              |
-| DOMAIN\_SETTINGS                | Manage the security domain global settings                                        |
-| DOMAIN\_FORM                    | Manage the security domain custom HTML templates                                  |
-| DOMAIN\_EMAIL\_TEMPLATE         | Manage the security domain custom email templates                                 |
-| DOMAIN\_EXTENSION\_POINT        | Manage the security domain custom extension points                                |
-| DOMAIN\_IDENTITY\_PROVIDER      | Manage the security domain identity providers                                     |
-| DOMAIN\_AUDIT                   | Manage the security domain audit logs                                             |
-| DOMAIN\_CERTIFICATE             | Manage the security domain certificates                                           |
-| DOMAIN\_USER                    | Manage the security domain users                                                  |
-| DOMAIN\_GROUP                   | Manage the security domain groups                                                 |
-| DOMAIN\_ROLE                    | Manage the security domain roles                                                  |
-| DOMAIN\_SCIM                    | Manage the security domain audit SCIM settings                                    |
-| DOMAIN\_SCOPE                   | Manage the security domain scopes (role permissions)                              |
-| DOMAIN\_EXTENSION\_GRANT        | Manage the security domain OAuth 2.0 extension grants                             |
-| DOMAIN\_OPENID                  | Manage the security domain OAuth 2.0 / OpenID Connect settings (DCR)              |
-| DOMAIN\_UMA                     | Manage the security domain User Managed Access settings                           |
-| DOMAIN\_REPORTER                | Manage the security domain reporters (audit logs storage)                         |
-| DOMAIN\_MEMBER                  | Manage the security domain memberships                                            |
-| DOMAIN\_ANALYTICS               | Manage the security domain analytics                                              |
-| DOMAIN\_FACTOR                  | Manage the security domain MFA settings                                           |
-| DOMAIN\_FLOW                    | Manage the security domain Flow settings                                          |
-| APPLICATION                     | Read the security domain application information                                  |
-| APPLICATION\_SETTINGS           | Manage the security domain application global settings                            |
-| APPLICATION\_IDENTITY\_PROVIDER | Manage the security domain application identity providers                         |
-| APPLICATION\_FORM               | Manage the security domain application custom HTML templates                      |
-| APPLICATION\_EMAIL\_TEMPLATE    | Manage the security domain application custom email templates                     |
-| APPLICATION\_OPENID             | Manage the security domain application custom OAuth 2.0 / OpenID Connect settings |
-| APPLICATION\_CERTIFICATE        | Manage the security domain application certificates                               |
-| APPLICATION\_MEMBER             | Manage the security domain application memberships                                |
-| APPLICATION\_FACTOR             | Manage the security domain application MFA settings                               |
-| APPLICATION\_ANALYTICS          | Manage the security domain application analytics settings                         |
-| APPLICATION\_FLOW               | Manage the security domain application flow settings                              |
+| Name                             | Description                                                                       |
+| -------------------------------- | --------------------------------------------------------------------------------- |
+| DOMAIN                           | Read the security domain information                                              |
+| DOMAIN\_SETTINGS                 | Manage the security domain global settings                                        |
+| DOMAIN\_FORM                     | Manage the security domain custom HTML templates                                  |
+| DOMAIN\_EMAIL\_TEMPLATE          | Manage the security domain custom email templates                                 |
+| DOMAIN\_EXTENSION\_POINT         | Manage the security domain custom extension points                                |
+| DOMAIN\_IDENTITY\_PROVIDER       | Manage the security domain identity providers                                     |
+| DOMAIN\_AUDIT                    | Manage the security domain audit logs                                             |
+| DOMAIN\_CERTIFICATE              | Manage the security domain certificates                                           |
+| DOMAIN\_USER                     | Manage the security domain users                                                  |
+| DOMAIN\_GROUP                    | Manage the security domain groups                                                 |
+| DOMAIN\_ROLE                     | Manage the security domain roles                                                  |
+| DOMAIN\_SCIM                     | Manage the security domain audit SCIM settings                                    |
+| DOMAIN\_SCOPE                    | Manage the security domain scopes (role permissions)                              |
+| DOMAIN\_EXTENSION\_GRANT         | Manage the security domain OAuth 2.0 extension grants                             |
+| DOMAIN\_OPENID                   | Manage the security domain OAuth 2.0 / OpenID Connect settings (DCR)              |
+| DOMAIN\_UMA                      | Manage the security domain User Managed Access settings                           |
+| DOMAIN\_REPORTER                 | Manage the security domain reporters (audit logs storage)                         |
+| DOMAIN\_MEMBER                   | Manage the security domain memberships                                            |
+| DOMAIN\_ANALYTICS                | Manage the security domain analytics                                              |
+| DOMAIN\_FACTOR                   | Manage the security domain MFA settings                                           |
+| DOMAIN\_FLOW                     | Manage the security domain Flow settings                                          |
+| PROTECTED\_RESOURCE\_SETTINGS    | Manage the security domain protected resource configuration                       |
+| PROTECTED\_RESOURCE\_OAUTH       | Manage the security domain protected resource OAuth settings                      |
+| PROTECTED\_RESOURCE\_CERTIFICATE | Manage the security domain protected resource certificates                        |
+| APPLICATION                      | Read the security domain application information                                  |
+| APPLICATION\_SETTINGS            | Manage the security domain application global settings                            |
+| APPLICATION\_IDENTITY\_PROVIDER  | Manage the security domain application identity providers                         |
+| APPLICATION\_FORM                | Manage the security domain application custom HTML templates                      |
+| APPLICATION\_EMAIL\_TEMPLATE     | Manage the security domain application custom email templates                     |
+| APPLICATION\_OPENID              | Manage the security domain application custom OAuth 2.0 / OpenID Connect settings |
+| APPLICATION\_CERTIFICATE         | Manage the security domain application certificates                               |
+| APPLICATION\_MEMBER              | Manage the security domain application memberships                                |
+| APPLICATION\_FACTOR              | Manage the security domain application MFA settings                               |
+| APPLICATION\_ANALYTICS           | Manage the security domain application analytics settings                         |
+| APPLICATION\_FLOW                | Manage the security domain application flow settings                              |
 
 Table 4. Permissions `APPLICATION`
 
@@ -216,6 +225,16 @@ Table 4. Permissions `APPLICATION`
 | APPLICATION\_ANALYTICS          | Manage the security domain application analytics settings                         |
 | APPLICATION\_FLOW               | Manage the security domain application flow settings                              |
 
+### Certificate fallback configuration
+
+To configure certificate fallback at the domain level, the `DOMAIN_SETTINGS[UPDATE]` permission is required on the target domain, environment, or organization. This permission allows administrators to specify a backup certificate for JWT signing operations when the primary certificate fails to load or sign a token.
+
+Certificate fallback settings can be updated via the Management API or Console UI without triggering a full domain reload. The gateway subscribes to configuration change events and reloads settings from the database when changes occur.
+
+{% hint style="info" %}
+For master domains, the fallback certificate can reference certificates from any domain in the organization. Non-master domains can only reference certificates within their own domain scope.
+{% endhint %}
+
 ## Manage roles
 
 To manage roles and permissions:
@@ -226,7 +245,7 @@ To manage roles and permissions:
 
 ### Create the `REVIEWER_APPLICATION` role
 
-Let’s imagine we want to create a reviewer role, which allows a user to check if your application configuration is valid.
+Let's imagine we want to create a reviewer role, which allows a user to check if your application configuration is valid.
 
 1. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png) and enter the following values:
    * Assignable type : `APPLICATION`
@@ -256,7 +275,7 @@ When users log in to AM Console, they are listed in the **Users** section of the
 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-adminguide-users.png" alt=""><figcaption><p>User overview</p></figcaption></figure>
 
-If you select a user, you have access to detailed account information and will be able to manage the user’s permissions and groups via with the **Administrative roles** and **Groups** sections.
+If you select a user, you have access to detailed account information and will be able to manage the user's permissions and groups via with the **Administrative roles** and **Groups** sections.
 
 ## Groups
 
