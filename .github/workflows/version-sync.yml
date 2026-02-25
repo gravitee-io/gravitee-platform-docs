@@ -2,9 +2,6 @@
 #
 # Automatically syncs changes from docs/{product}/{current_version}/
 # to docs/{product}/{next_version}/ when files change on main.
-#
-# To use: copy this file to the docs repo at .github/workflows/version-sync.yml
-# and configure the product/version matrix below.
 
 name: Version Sync
 
@@ -12,12 +9,12 @@ on:
   push:
     branches: [main]
     paths:
-      # Add one entry per product/version you want to sync FROM.
-      # This example syncs APIM 4.10 → 4.11.
       - 'docs/apim/4.10/**'
-      # Add more as needed:
-      # - 'docs/am/4.10/**'
-      # - 'docs/gko/4.10/**'
+      - 'docs/am/4.10/**'
+
+# Grant write access so the bot can push sync commits
+permissions:
+  contents: write
 
 jobs:
   sync:
@@ -25,16 +22,12 @@ jobs:
     strategy:
       matrix:
         include:
-          # Configure your sync pairs here
           - product: apim
             current: "4.10"
             next: "4.11"
-          # - product: am
-          #   current: "4.10"
-          #   next: "4.11"
-          # - product: gko
-          #   current: "4.10"
-          #   next: "4.11"
+          - product: am
+            current: "4.10"
+            next: "4.11"
 
     steps:
       - uses: actions/checkout@v4
