@@ -46,13 +46,13 @@ jobs:
         run: |
           # Get files changed in this push (relative to docs/{product}/{version}/)
           PREFIX="docs/${{ matrix.product }}/${{ matrix.current }}/"
-          CHANGED=$(git diff --name-only HEAD~1 HEAD -- "$PREFIX" | sed "s|^$PREFIX||")
-          if [ -z "$CHANGED" ]; then
+          git diff --name-only HEAD~1 HEAD -- "$PREFIX" | sed "s|^$PREFIX||" > /tmp/changed_files.txt
+          if [ ! -s /tmp/changed_files.txt ]; then
             echo "skip=true" >> $GITHUB_OUTPUT
           else
             echo "skip=false" >> $GITHUB_OUTPUT
-            # Write to file for multi-line support
-            echo "$CHANGED" > /tmp/changed_files.txt
+            echo "Changed files:"
+            cat /tmp/changed_files.txt
           fi
 
       - name: Check next version exists
@@ -76,13 +76,12 @@ jobs:
       - name: Run sync
         if: steps.changes.outputs.skip == 'false' && steps.check.outputs.exists == 'true'
         run: |
-          CHANGED_ARGS=$(cat /tmp/changed_files.txt | tr '\n' ' ')
           python .github/scripts/sync_versions.py \
             . \
             ${{ matrix.product }} \
             ${{ matrix.current }} \
             ${{ matrix.next }} \
-            --changed-files $CHANGED_ARGS
+            --changed-files-from /tmp/changed_files.txt
 
       - name: Commit and push
         if: steps.changes.outputs.skip == 'false' && steps.check.outputs.exists == 'true'

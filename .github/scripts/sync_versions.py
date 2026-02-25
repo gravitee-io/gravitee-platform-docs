@@ -8,14 +8,15 @@ Usage:
     python sync_versions.py /path/to/repo apim 4.10 4.11
     python sync_versions.py /path/to/repo apim 4.10 4.11 --dry-run
     python sync_versions.py /path/to/repo apim 4.10 4.11 --changed-files file1.md file2.md
+    python sync_versions.py /path/to/repo apim 4.10 4.11 --changed-files-from /tmp/files.txt
 
-When --changed-files is omitted, syncs ALL files from current → next (full sync).
-When provided, only syncs the listed files (incremental sync, for GitHub Action use).
+When --changed-files and --changed-files-from are both omitted, syncs ALL files
+from current → next (full sync).
 
 Exit codes:
-    0 = all files synced cleanly
+    0 = all files synced cleanly (or only warnings)
     1 = conflicts detected (files differ in next_version but aren't in .version-overrides)
-    2 = error (missing dirs, bad args, etc.)
+    2 = fatal error (missing dirs, bad args, etc.)
 """
 
 import argparse
@@ -88,7 +89,7 @@ def sync_versions(
         return {"error": f"Next version dir not found: {next_dir}"}
 
     overrides = load_overrides(next_dir)
-    results = {"synced": [], "skipped": [], "conflicts": [], "new_files": [], "errors": []}
+    results = {"synced": [], "skipped": [], "conflicts": [], "new_files": [], "errors": [], "warnings": []}
 
     # Determine which files to process
     if changed_files:
@@ -111,7 +112,9 @@ def sync_versions(
 
         # File must exist in current version
         if not os.path.exists(current_file):
-            results["errors"].append(f"{rel_path}: not found in {current_version}")
+            # Downgrade to warning — file may have been deleted in source,
+            # or the changed-files list may include renames/deletions.
+            results["warnings"].append(f"{rel_path}: not found in {current_version}")
             continue
 
         # Case 1: File doesn't exist in next version — new file
@@ -161,6 +164,11 @@ def print_results(results: dict, product: str, current: str, next_ver: str, dry_
         for f in results["skipped"]:
             print(f"    ⊘ {f}")
 
+    if results["warnings"]:
+        print(f"  Warnings ({len(results['warnings'])}):")
+        for w in results["warnings"]:
+            print(f"    ⚠ {w}")
+
     if results["errors"]:
         print(f"  Errors ({len(results['errors'])}):")
         for e in results["errors"]:
@@ -170,6 +178,7 @@ def print_results(results: dict, product: str, current: str, next_ver: str, dry_
     print()
     print(f"  Total: {total} files {'would be ' if dry_run else ''}synced, "
           f"{len(results['skipped'])} skipped, "
+          f"{len(results['warnings'])} warnings, "
           f"{len(results['errors'])} errors")
 
 
@@ -181,16 +190,25 @@ def main():
     parser.add_argument("next_version", help="Next version (e.g., 4.11)")
     parser.add_argument("--changed-files", nargs="+",
                         help="Only sync these files (paths relative to version dir)")
+    parser.add_argument("--changed-files-from",
+                        help="Read changed file list from a file (one path per line). "
+                             "Handles filenames with spaces correctly.")
     parser.add_argument("--dry-run", action="store_true",
                         help="Show what would happen without making changes")
     args = parser.parse_args()
+
+    # --changed-files-from takes priority (handles spaces in filenames)
+    changed_files = args.changed_files
+    if args.changed_files_from:
+        with open(args.changed_files_from) as f:
+            changed_files = [line.strip() for line in f if line.strip()]
 
     results = sync_versions(
         repo_path=args.repo_path,
         product=args.product,
         current_version=args.current_version,
         next_version=args.next_version,
-        changed_files=args.changed_files,
+        changed_files=changed_files,
         dry_run=args.dry_run,
     )
 
@@ -200,6 +218,7 @@ def main():
         sys.exit(2)
     if results.get("errors"):
         sys.exit(2)
+    # Warnings (e.g., "not found") are non-fatal — exit 0
     sys.exit(0)
 
 
