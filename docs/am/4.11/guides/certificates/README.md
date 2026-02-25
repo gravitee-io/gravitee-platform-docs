@@ -75,13 +75,67 @@ You can use public keys to verify a token payload’s integrity. To obtain the p
 Gravitee API Management (APIM) comes with a JWT Policy to verify and decode tokens that can be used for your APIs.
 {% endhint %}
 
-### Apply the certificate to your application
+#
+## Apply the certificate to your application
 
 1. In AM Console, click **Applications**.
 2. In the **Settings** tab, click **Certificates**.
 3. Choose your certificate and click **SAVE**.
 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-certificate-app.png" alt=""><figcaption><p>Apply certificate to application</p></figcaption></figure>
+
+## Certificate Fallback for JWT Signing
+
+The certificate fallback feature provides a resilience mechanism for JWT signing operations. When a client's primary certificate fails to load or sign a JWT, the system can attempt signing with a domain-level fallback certificate before falling back to the default HMAC certificate or failing completely.
+
+### Certificate Selection Hierarchy
+
+The system evaluates certificates in a three-tier priority order:
+
+1. Client-specific certificate configured in the client settings
+2. Domain-level fallback certificate (if configured)
+3. Default HMAC certificate (if `fallbackToHmacSignature` is enabled) or `TemporarilyUnavailableException`
+
+### Configure Fallback Certificate
+
+Configure the fallback certificate at the domain level using the Management API. Send a PUT request to `/organizations/{organizationId}/environments/{environmentId}/domains/{domain}/certificate-settings` with a JSON body containing the `fallbackCertificate` property set to a valid certificate ID.
+
+{% code overflow="wrap" %}
+```sh
+curl -H "Authorization: Bearer :accessToken" \
+     -H "Content-Type:application/json;charset=UTF-8" \
+     -X PUT \
+     -d '{
+           "fallbackCertificate": "certificate-id"
+         }' \
+     http://GRAVITEEIO-AM-MGT-API-HOST/management/organizations/{organizationId}/environments/{environmentId}/domains/{domain}/certificate-settings
+```
+{% endcode %}
+
+### Requirements
+
+- Fallback certificate must exist in the domain's certificate repository
+- Fallback certificate must belong to the same domain (unless domain is master)
+- Fallback certificate ID cannot match the primary certificate ID
+- Requires `DOMAIN_SETTINGS[UPDATE]` permission to modify certificate settings
+
+### Fallback Behavior
+
+When signing a JWT, if the primary certificate fails, the system:
+
+1. Retrieves the fallback certificate from the domain settings
+2. Verifies that the fallback certificate ID differs from the primary certificate ID
+3. Logs a warning message: `"Failed to sign JWT with certificate: {primary}, attempting fallback using: {fallback}"`
+4. Attempts signing with the fallback certificate
+5. If the fallback certificate is unavailable and `fallbackToHmacSignature` is enabled, uses the default HMAC certificate
+6. Otherwise, throws a `TemporarilyUnavailableException`
+
+All fallback operations are logged at WARN level with explicit certificate IDs for operational monitoring.
+
+{% hint style="info" %}
+For more information on configuring certificate fallback, see the Certificate Fallback configuration guide.
+{% endhint %}
+
 
 ### Certificate for Mutual TLS authentication <a href="#certificate-for-mutual-tls-authentication" id="certificate-for-mutual-tls-authentication"></a>
 
