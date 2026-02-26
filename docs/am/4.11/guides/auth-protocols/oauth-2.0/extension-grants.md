@@ -14,6 +14,19 @@ AM supports the [RFC 7523](https://tools.ietf.org/html/rfc7523) specification, w
 
 JWT bearer tokens can be used for secure communication between devices and services (and applications) running in the cloud which are protected using OAuth2. Devices is a broad term used for devices, clients, machines and third-party applications that may or may not be web-based.
 
+### JWT Signing and Certificate Fallback
+
+When signing JWTs, AM follows a deterministic fallback chain if the client's configured certificate fails to load:
+
+1. **Primary certificate**: The client's configured certificate
+2. **Domain fallback certificate**: A domain-level certificate configured in certificate settings (if present)
+3. **Default HMAC certificate**: Used only if `fallbackToHmacSignature` is enabled
+4. **Failure**: Throws `TemporarilyUnavailableException` if all options are exhausted
+
+When a fallback occurs, AM logs a warning message at WARN level that includes both certificate IDs. For example, when falling back from a client certificate to a domain fallback certificate, the log message is: `"Failed to sign JWT with certificate: {primary}, attempting fallback using: {fallback}"`. When falling back to the default HMAC certificate, the message is: `"Certificate: {clientCert} not loaded, using default certificate as fallback"`.
+
+The system skips the fallback certificate if its ID matches the primary certificate ID to prevent infinite loops. For more information on configuring certificate fallback at the domain level, see the certificate management documentation.
+
 ### Generate the key pair
 
 ```sh
