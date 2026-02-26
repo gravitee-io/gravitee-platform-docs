@@ -2,8 +2,6 @@
 description: >-
   Configure custom domains for your Gravitee Cloud gateways to expose your APIs
   under your own branded URLs.
-hidden: true
-noIndex: true
 ---
 
 # Configure a Custom Domain for a Gateway
