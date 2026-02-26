@@ -8,6 +8,12 @@ Extension grants are a way to add support for non-standard token issuance scenar
 
 AM allows you to extend available grants for an application by adding custom extension grants.
 
+{% hint style="info" %}
+**Certificate Fallback for JWT Signing**
+
+JWT signing now supports automatic fallback to a backup certificate if the primary certificate fails. Administrators can configure fallback certificates at the domain level to improve service resilience without requiring domain restarts. For more information, see [Certificate Fallback for JWT Signing](../../certificates/README.md#certificate-fallback-for-jwt-signing).
+{% endhint %}
+
 ## JWT Bearer
 
 AM supports the [RFC 7523](https://tools.ietf.org/html/rfc7523) specification, which defines the use of a JSON Web Token (JWT) Bearer Token as a means for requesting an OAuth 2.0 access token and for client authentication. The JWT Bearer Token flow supports the RSA SHA256 algorithm, which uses a public key as the signing secret.

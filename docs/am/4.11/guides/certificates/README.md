@@ -195,3 +195,221 @@ api:
           delay: 10
           timeUnit: MINUTES
 ```
+
+### Certificate Fallback for JWT Signing
+
+Certificate fallback enables AM domains to automatically switch to a backup certificate when the primary certificate fails to load or sign JWTs. Administrators configure fallback certificates at the domain level via the Management API or Console, improving service resilience without requiring domain restarts.
+
+#### Certificate Selection Hierarchy
+
+When a client application or API requests JWT signing, the gateway attempts certificate resolution in this order:
+
+1. Client-configured certificate
+2. Domain fallback certificate
+3. Default HMAC certificate (if `fallbackToHmacSignature=true`)
+4. Fail with `TemporarilyUnavailableException`
+
+The fallback certificate must differ from the original to prevent infinite loops.
+
+#### Master Domain Privileges
+
+Master domains can access certificates from any domain in the organization, enabling cross-domain introspection and centralized certificate management. Regular domains can only access certificates within their own scope.
+
+#### Event-Driven Configuration
+
+Certificate settings updates propagate via `DomainCertificateSettingsEvent` without triggering a full domain reload, allowing runtime configuration changes with minimal service disruption.
+
+#### Prerequisites
+
+* AM domain with at least one non-system certificate configured
+* `DOMAIN_SETTINGS[UPDATE]` permission on the target domain, environment, or organization
+* Certificate IDs for both primary and fallback certificates
+
+#### Gateway Configuration
+
+Configure fallback behavior at the domain level using the Management API or Console.
+
+**Domain Certificate Settings**
+
+| Property | Type | Default | Description |
+|:---------|:-----|:--------|:------------|
+| `fallbackCertificate` | String | `null` | Certificate ID to use when primary certificate fails |
+
+**Management API Endpoint:**
+
+```http
+PUT /organizations/{organizationId}/environments/{environmentId}/domains/{domain}/certificate-settings
+```
+
+**Request Body:**
+
+```json
+{
+  "fallbackCertificate": "cert-backup-2024"
+}
+```
+
+**Response (200):**
+
+```json
+{
+  "certificateSettings": {
+    "fallbackCertificate": "cert-backup-2024"
+  }
+}
+```
+
+#### Creating a Certificate Fallback Configuration
+
+1. In AM Console, navigate to the domain's certificate settings.
+2. Open the certificate selection dialog.
+3. Choose a fallback certificate from the dropdown (system certificates are included).
+4. Click **SAVE**.
+
+The change takes effect immediately without restarting the domain. The gateway logs fallback usage at WARN level:
+
+```
+Failed to sign JWT with certificate: {original}, attempting fallback using: {fallback}
+```
+
+#### Architecture Notes
+
+**JWT Signing Flow**
+
+When `JWTServiceImpl.encodeWithFallback()` encounters a signing error, it retrieves the fallback certificate from `CertificateManager.fallbackCertificateProvider()`, filters out matches to the original certificate, and attempts signing. If the fallback fails or is unavailable, the original error is returned.
+
+**Certificate Provider Resolution**
+
+`CertificateManager.getClientCertificateProvider()` implements the selection hierarchy. If a client has no configured certificate, the default provider is used. If the client certificate fails to load, the system attempts the fallback certificate before falling back to HMAC (if enabled) or throwing `TemporarilyUnavailableException`.
+
+**Validation and Filtering**
+
+Fallback certificate IDs must be non-empty and exist in the certificate manager. The system returns an empty `Maybe` if validation fails, allowing graceful degradation. Master domains bypass domain-scoped filtering when accessing certificates.
+
+#### Restrictions
+
+* Fallback certificate must differ from the primary certificate (prevents infinite loops)
+* Regular domains can only access certificates within their own domain scope
+* Master domains can access certificates from all domains
+* Certificate settings updates require `DOMAIN_SETTINGS[UPDATE]` permission
+*
+*
+*
+
+#### Related Changes
+
+The Management Console certificate selection UI now includes system certificates in the fallback dropdown (previously filtered out). Certificate settings updates emit `DomainCertificateSettingsEvent` with action `UPDATE` and scope `DOMAIN_CERTIFICATE_SETTINGS`, enabling event-driven configuration propagation across gateway nodes.
+
+Fallback usage generates WARN-level logs for operational visibility:
+
+```
+Certificate: {original} not loaded, using: {fallback} as fallback
+Certificate: {original} not loaded, using default certificate as fallback
+```
+
+### Validation and filtering
+
+Fallback certificate IDs must be non-empty and exist in the certificate manager. The system returns an empty `Maybe` if validation fails, allowing graceful degradation. Master domains bypass domain-scoped filtering when accessing certificates.
+
+#### Restrictions
+
+See [Restrictions](#restrictions) above for details.
+#### Related changes
+
+See [Related changes](#related-changes) above for details.
+### Event-driven configuration
+
+See [Event-driven configuration](#event-driven-configuration) above for details.
+#### Prerequisites
+
+See [Prerequisites](#prerequisites) above for details.
+#### Gateway configuration
+
+### Master domain privileges
+
+See [Master domain privileges](#master-domain-privileges) above for details.
+### Architecture notes
+
+#### JWT signing flow
+
+When `JWTServiceImpl.encodeWithFallback()` encounters a signing error, it:
+
+1. Retrieves the fallback certificate from `CertificateManager.fallbackCertificateProvider()`
+2. Filters out matches to the original certificate
+3. Attempts signing with the fallback certificate
+
+If the fallback signing fails or no fallback certificate is available, the original error is returned.
+
+#### Certificate provider resolution
+
+`CertificateManager.getClientCertificateProvider()` implements the certificate selection hierarchy:
+
+1. If a client has a configured certificate, that certificate is used
+2. If no client certificate is configured, the default provider is used
+3. If the client certificate fails to load, the system attempts the fallback certificate
+4. If the fallback certificate is unavailable or fails, the system falls back to HMAC (if enabled)
+5. If HMAC is not enabled, a `TemporarilyUnavailableException` is thrown
+
+#### Validation and filtering
+
+See [Validation and filtering](#validation-and-filtering) above for details.
+### Overview
+
+Certificate fallback enables AM domains to automatically switch to a backup certificate when the primary certificate fails to load or sign JWTs. Configure fallback certificates at the domain level using the Management API to improve service resilience without requiring domain restarts.
+
+### Related changes
+
+See [Related changes](#related-changes) above for details.
+### Restrictions
+
+See [Restrictions](#restrictions) above for details.
+### Domain Certificate Settings
+
+Configure fallback behavior at the domain level using the Management API or AM Console.
+
+#### Configuration Properties
+
+| Property | Type | Default | Description |
+|:---------|:-----|:--------|:------------|
+| `fallbackCertificate` | String | `null` | Certificate ID to use when primary certificate fails |
+
+#### Management API Configuration
+
+Use the following endpoint to configure domain certificate settings:
+
+```http
+PUT /organizations/{organizationId}/environments/{environmentId}/domains/{domain}/certificate-settings
+```
+
+**Request Body:**
+
+```json
+{
+  "fallbackCertificate": "cert-backup-2024"
+}
+```
+
+**Response (200):**
+
+```json
+{
+  "certificateSettings": {
+    "fallbackCertificate": "cert-backup-2024"
+  }
+}
+```
+
+### Key concepts
+
+#### Certificate selection hierarchy
+
+See [Certificate selection hierarchy](#certificate-selection-hierarchy) above for details.
+#### Master domain privileges
+
+See [Master domain privileges](#master-domain-privileges) above for details.
+#### Event-driven configuration
+
+See [Event-driven configuration](#event-driven-configuration) above for details.
+### Prerequisites
+
+See [Prerequisites](#prerequisites) above for details.

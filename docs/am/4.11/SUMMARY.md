@@ -181,6 +181,7 @@
   * [AM 4.0](https://documentation.gravitee.io/am/4.0/releases-and-changelog/release-notes/am-4.0)
 * [Changelog](releases-and-changelog/changelog/README.md)
   * [AM 4.11.x](releases-and-changelog/changelog/am-4.11.x.md)
+    * Certificate fallback for JWT signing: new domain certificate settings API endpoint (`PUT /organizations/{organizationId}/environments/{environmentId}/domains/{domain}/certificate-settings`), fallback certificate configuration in Management Console (now includes system certificates), `DomainCertificateSettingsEvent` for event-driven propagation, and WARN-level logging for fallback usage
   * [AM 4.9.x](https://documentation.gravitee.io/am/4.9/releases-and-changelog/changelog/am-4.9.x)
   * [AM 4.8.x](https://documentation.gravitee.io/am/4.8/releases-and-changelog/changelog/am-4.8.x)
   * [AM 4.7.x](https://documentation.gravitee.io/am/4.7/releases-and-changelog/changelog/am-4.7.x)

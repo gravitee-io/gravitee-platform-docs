@@ -131,7 +131,7 @@ Table 2. ENVIRONMENT permissions
 | ------------------------------- | -------------------------------------------------------------------------- |
 | ENVIRONMENT                     | Manage organization / platform environments (for example, dev, qual, prod) |
 | DOMAIN                          | Read all security domain information                                       |
-| DOMAIN\_SETTINGS                | Manage all security domain global settings                                 |
+| DOMAIN\_SETTINGS                | Manage all security domain global settings (including certificate fallback configuration) |
 | DOMAIN\_FORM                    | Manage all security domain custom HTML templates                           |
 | DOMAIN\_EMAIL\_TEMPLATE         | Manage all security domain custom email templates                          |
 | DOMAIN\_EXTENSION\_POINT        | Manage all security domain custom extension points                         |

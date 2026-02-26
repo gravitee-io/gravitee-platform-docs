@@ -8,6 +8,12 @@ The security domain acts as the container for your applications.
 
 The first task of setting up new authorization and authentication in AM is to create a security domain for your applications. AM comes with a default security domain.
 
+{% hint style="info" %}
+**Master Domain Privileges**
+
+Master domains can access certificates from any domain in the organization for fallback purposes, enabling cross-domain introspection and centralized certificate management. Regular domains are restricted to their own scope.
+{% endhint %}
+
 ## Create a security domain with AM Console
 
 1. Log in to AM Console.
