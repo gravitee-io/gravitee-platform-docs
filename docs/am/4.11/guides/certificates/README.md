@@ -195,3 +195,107 @@ api:
           delay: 10
           timeUnit: MINUTES
 ```
+
+### Certificate Settings API
+
+AM provides a dedicated endpoint for updating certificate settings independently of full domain updates:
+
+```
+PUT /organizations/{organizationId}/environments/{environmentId}/domains/{domain}/certificate-settings
+```
+
+This endpoint allows you to modify certificate fallback configuration without triggering a full domain reload. The response returns the updated domain object with the new certificate settings applied.
+
+**Required permission**: `DOMAIN_SETTINGS[UPDATE]`
+
+### Creating a Subscription with Certificate Fallback
+
+When a client application is configured with a certificate, the system automatically applies fallback logic during JWT signing and certificate provider resolution. The fallback sequence operates as follows:
+
+1. **Primary certificate attempt**: The system attempts to use the configured certificate.
+2. **Fallback certificate attempt**: If the primary certificate fails, the system logs a warning (`"Certificate: {clientCert} not loaded, using: {fallbackId} as fallback"`) and attempts to use the fallback certificate.
+3. **HMAC fallback** (if enabled): If the fallback certificate also fails and `fallbackToHmacSignature = true`, the system falls back to the default HMAC certificate with another warning log.
+4. **Exception**: If all attempts fail, the system throws a `TemporarilyUnavailableException`.
+
+### Architecture Notes
+
+#### Atomic State Management
+
+The system uses `AtomicReference<CertificateSettings>` to ensure thread-safe updates to certificate settings. When the domain repository fetches an updated domain, the certificate settings reference is updated atomically without requiring a domain restart.
+
+#### JWT Signing Fallback
+
+The `JWTServiceImpl` implements fallback logic for JWT encoding. When signing fails with the primary certificate, the service attempts to use the fallback certificate (if different from the original). If the fallback also fails or is the same as the original, the error is propagated. A warning is logged whenever the fallback is used.
+
+### Restrictions
+
+- Fallback certificate must belong to the same domain (except for master domains, which can access certificates from any domain)
+- Certificate settings updates require `DOMAIN_SETTINGS[UPDATE]` permission
+- System certificates are now selectable as fallback certificates in the UI (previously filtered out)
+- If `fallbackToHmacSignature = false`, the system will throw an exception if both primary and fallback certificates fail
+- Certificate loading failures trigger warning logs but don't prevent fallback attempts
+
+### New Permission Types
+
+The following permission types were added to support protected resource settings:
+
+- `PROTECTED_RESOURCE_SETTINGS`
+- `PROTECTED_RESOURCE_OAUTH`
+- `PROTECTED_RESOURCE_CERTIFICATE`
+
+Existing permission descriptions were updated to use more granular permission names. For example, `PROTECTED_RESOURCE[READ]` is now represented as `PROTECTED_RESOURCE_MEMBER[READ]`.
+
+### Related Changes
+
+The UI certificate selection filter was updated to include system certificates, aligning with backend capabilities. This change allows system certificates to be selected as fallback certificates in the certificate settings interface.
+
+### Certificate fallback for domains
+
+Certificate fallback allows domains to specify a backup certificate when the primary client certificate fails to load or is unavailable. This prevents service disruption during certificate rotation or temporary unavailability by providing a domain-level fallback before reverting to the default HMAC certificate.
+
+#### Certificate selection hierarchy
+
+When a client certificate is requested, the system follows this fallback chain:
+
+1. The client's configured certificate
+2. The domain's fallback certificate (if configured)
+3. The domain's default HMAC certificate (only if `fallbackToHmacSignature = true`)
+4. A `TemporarilyUnavailableException` if all options are exhausted
+
+This hierarchy provides graceful degradation and prevents immediate failures during certificate issues.
+
+#### Prerequisites
+
+- Valid certificate IDs for both primary and fallback certificates
+- `DOMAIN_SETTINGS[UPDATE]` permission on domain, environment, or organization level
+- Fallback certificate must be loaded and available in the domain
+
+#### Configure certificate fallback
+
+To configure a fallback certificate, send a PUT request to the certificate settings endpoint:
+
+```sh
+PUT /organizations/{organizationId}/environments/{environmentId}/domains/{domain}/certificate-settings
+```
+
+Request body:
+
+```json
+{
+  "fallbackCertificate": "backup-cert-id"
+}
+```
+
+The system updates only certificate settings without triggering a full domain reload. The response returns the updated domain object with certificate settings.
+
+#### Fallback behavior
+
+When a client application is configured with a certificate, the system automatically applies the fallback logic during JWT signing and certificate provider resolution:
+
+1. If the primary certificate fails, the system logs a warning (`"Certificate: {clientCert} not loaded, using: {fallbackId} as fallback"`) and attempts to use the fallback certificate.
+2. If the fallback also fails and `fallbackToHmacSignature = true`, the system falls back to the default HMAC certificate with another warning log.
+3. If all attempts fail, the system throws a `TemporarilyUnavailableException`.
+
+#### Restrictions
+
+See [Restrictions](#restrictions) above for details.

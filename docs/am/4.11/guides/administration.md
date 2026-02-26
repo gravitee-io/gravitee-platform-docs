@@ -29,22 +29,23 @@ By default, the Community Edition version of AM comes with a default organizatio
 
 ## Roles and permissions overview
 
-You can create administrator roles in AM to grant access to specific areas of a resource (Organization (Platform), Security Domain, Application). Depending on the role permissions, administrators can have full access to this resource. Administrator accounts represent users that can access the administration portal.
+You can create administrator roles in AM to grant access to specific areas of a resource (Organization (Platform), Security Domain, Application, Protected Resource). Depending on the role permissions, administrators can have full access to this resource. Administrator accounts represent users that can access the administration portal.
 
 ### Assignable type
 
 When you log in AM, you are redirected to the portal with at least one `ORGANIZATION` role to be able to see some screens of the platform.
 
-As an owner of a security domain or an application you want to manage your members by giving them roles that make sense only when associated with a `DOMAIN` / `APPLICATION`.
+As an owner of a security domain or an application you want to manage your members by giving them roles that make sense only when associated with a `DOMAIN` / `APPLICATION` / `PROTECTED_RESOURCE`.
 
-For example, you don’t want to allow a simple user or the person in charge of your application settings to be able to manage the whole platform.
+For example, you don't want to allow a simple user or the person in charge of your application settings to be able to manage the whole platform.
 
 In order to limit the scope of the roles, scopes are bound to what we call an `assignable type`:
 
-* `ORGANIZATION` — role for the whole platform
-* `ENVIRONMENT` — role for an environment
-* `DOMAIN` — role for a security domain
-* `APPLICATION` — role for an application
+* `ORGANIZATION` — role for the whole platform
+* `ENVIRONMENT` — role for an environment
+* `DOMAIN` — role for a security domain
+* `APPLICATION` — role for an application
+* `PROTECTED_RESOURCE` — role for a protected resource
 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-adminguide-roles-permissions.png" alt=""><figcaption><p>Roles</p></figcaption></figure>
 
@@ -124,6 +125,10 @@ Table 1. ORGANIZATION permissions
 | APPLICATION\_FACTOR              | Manage all application MFA settings                                                                    |
 | APPLICATION\_ANALYTICS           | Manage all application analytics                                                                       |
 | APPLICATION\_FLOW                | Manage all application Flow settings                                                                   |
+| PROTECTED\_RESOURCE\_SETTINGS    | Manage all protected resource general settings                                                         |
+| PROTECTED\_RESOURCE\_OAUTH       | Manage all protected resource OAuth 2.0 configuration                                                  |
+| PROTECTED\_RESOURCE\_CERTIFICATE | Manage all protected resource certificates                                                             |
+| PROTECTED\_RESOURCE\_MEMBER      | Manage all protected resource memberships                                                              |
 
 Table 2. ENVIRONMENT permissions
 
@@ -162,6 +167,10 @@ Table 2. ENVIRONMENT permissions
 | APPLICATION\_FACTOR             | Manage all application MFA settings                                        |
 | APPLICATION\_ANALYTICS          | Manage all application analytics                                           |
 | APPLICATION\_FLOW               | Manage all application Flow settings                                       |
+| PROTECTED\_RESOURCE\_SETTINGS   | Manage all protected resource general settings                             |
+| PROTECTED\_RESOURCE\_OAUTH      | Manage all protected resource OAuth 2.0 configuration                      |
+| PROTECTED\_RESOURCE\_CERTIFICATE| Manage all protected resource certificates                                 |
+| PROTECTED\_RESOURCE\_MEMBER     | Manage all protected resource memberships                                  |
 
 Table 3. DOMAIN permissions
 
@@ -199,6 +208,10 @@ Table 3. DOMAIN permissions
 | APPLICATION\_FACTOR             | Manage the security domain application MFA settings                               |
 | APPLICATION\_ANALYTICS          | Manage the security domain application analytics settings                         |
 | APPLICATION\_FLOW               | Manage the security domain application flow settings                              |
+| PROTECTED\_RESOURCE\_SETTINGS   | Manage the security domain protected resource general settings                    |
+| PROTECTED\_RESOURCE\_OAUTH      | Manage the security domain protected resource OAuth 2.0 configuration             |
+| PROTECTED\_RESOURCE\_CERTIFICATE| Manage the security domain protected resource certificates                        |
+| PROTECTED\_RESOURCE\_MEMBER     | Manage the security domain protected resource memberships                         |
 
 Table 4. Permissions `APPLICATION`
 
@@ -216,6 +229,15 @@ Table 4. Permissions `APPLICATION`
 | APPLICATION\_ANALYTICS          | Manage the security domain application analytics settings                         |
 | APPLICATION\_FLOW               | Manage the security domain application flow settings                              |
 
+Table 5. Permissions `PROTECTED_RESOURCE`
+
+| Name                             | Description                                                |
+| -------------------------------- | ---------------------------------------------------------- |
+| PROTECTED\_RESOURCE\_SETTINGS    | Manage protected resource general settings                 |
+| PROTECTED\_RESOURCE\_OAUTH       | Manage protected resource OAuth 2.0 configuration          |
+| PROTECTED\_RESOURCE\_CERTIFICATE | Manage protected resource certificates                     |
+| PROTECTED\_RESOURCE\_MEMBER      | Manage protected resource memberships                      |
+
 ## Manage roles
 
 To manage roles and permissions:
@@ -226,7 +248,7 @@ To manage roles and permissions:
 
 ### Create the `REVIEWER_APPLICATION` role
 
-Let’s imagine we want to create a reviewer role, which allows a user to check if your application configuration is valid.
+Let's imagine we want to create a reviewer role, which allows a user to check if your application configuration is valid.
 
 1. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png) and enter the following values:
    * Assignable type : `APPLICATION`
@@ -256,7 +278,7 @@ When users log in to AM Console, they are listed in the **Users** section of the
 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-adminguide-users.png" alt=""><figcaption><p>User overview</p></figcaption></figure>
 
-If you select a user, you have access to detailed account information and will be able to manage the user’s permissions and groups via with the **Administrative roles** and **Groups** sections.
+If you select a user, you have access to detailed account information and will be able to manage the user's permissions and groups via with the **Administrative roles** and **Groups** sections.
 
 ## Groups
 
