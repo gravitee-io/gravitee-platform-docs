@@ -37,14 +37,14 @@ When you log in AM, you are redirected to the portal with at least one `ORGANIZA
 
 As an owner of a security domain or an application you want to manage your members by giving them roles that make sense only when associated with a `DOMAIN` / `APPLICATION`.
 
-For example, you don’t want to allow a simple user or the person in charge of your application settings to be able to manage the whole platform.
+For example, you don't want to allow a simple user or the person in charge of your application settings to be able to manage the whole platform.
 
 In order to limit the scope of the roles, scopes are bound to what we call an `assignable type`:
 
-* `ORGANIZATION` — role for the whole platform
-* `ENVIRONMENT` — role for an environment
-* `DOMAIN` — role for a security domain
-* `APPLICATION` — role for an application
+* `ORGANIZATION` — role for the whole platform
+* `ENVIRONMENT` — role for an environment
+* `DOMAIN` — role for a security domain
+* `APPLICATION` — role for an application
 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-adminguide-roles-permissions.png" alt=""><figcaption><p>Roles</p></figcaption></figure>
 
@@ -188,6 +188,9 @@ Table 3. DOMAIN permissions
 | DOMAIN\_ANALYTICS               | Manage the security domain analytics                                              |
 | DOMAIN\_FACTOR                  | Manage the security domain MFA settings                                           |
 | DOMAIN\_FLOW                    | Manage the security domain Flow settings                                          |
+| PROTECTED\_RESOURCE\_SETTINGS   | Manage the security domain protected resource settings                            |
+| PROTECTED\_RESOURCE\_OAUTH      | Manage the security domain protected resource OAuth settings                      |
+| PROTECTED\_RESOURCE\_CERTIFICATE| Manage the security domain protected resource certificates                        |
 | APPLICATION                     | Read the security domain application information                                  |
 | APPLICATION\_SETTINGS           | Manage the security domain application global settings                            |
 | APPLICATION\_IDENTITY\_PROVIDER | Manage the security domain application identity providers                         |
@@ -199,6 +202,10 @@ Table 3. DOMAIN permissions
 | APPLICATION\_FACTOR             | Manage the security domain application MFA settings                               |
 | APPLICATION\_ANALYTICS          | Manage the security domain application analytics settings                         |
 | APPLICATION\_FLOW               | Manage the security domain application flow settings                              |
+
+{% hint style="info" %}
+The `DOMAIN_SETTINGS[UPDATE]` permission is required for certificate settings updates.
+{% endhint %}
 
 Table 4. Permissions `APPLICATION`
 
@@ -226,7 +233,7 @@ To manage roles and permissions:
 
 ### Create the `REVIEWER_APPLICATION` role
 
-Let’s imagine we want to create a reviewer role, which allows a user to check if your application configuration is valid.
+Let's imagine we want to create a reviewer role, which allows a user to check if your application configuration is valid.
 
 1. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png) and enter the following values:
    * Assignable type : `APPLICATION`
@@ -256,7 +263,7 @@ When users log in to AM Console, they are listed in the **Users** section of the
 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-adminguide-users.png" alt=""><figcaption><p>User overview</p></figcaption></figure>
 
-If you select a user, you have access to detailed account information and will be able to manage the user’s permissions and groups via with the **Administrative roles** and **Groups** sections.
+If you select a user, you have access to detailed account information and will be able to manage the user's permissions and groups via with the **Administrative roles** and **Groups** sections.
 
 ## Groups
 

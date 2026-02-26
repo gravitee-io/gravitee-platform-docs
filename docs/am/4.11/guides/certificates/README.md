@@ -195,3 +195,24 @@ api:
           delay: 10
           timeUnit: MINUTES
 ```
+
+### Configure certificate fallback
+
+Certificate fallback provides resilience for JWT signing operations when a client's primary certificate becomes unavailable. Configure a domain-level fallback certificate that the system automatically uses when the primary certificate fails, preventing service disruptions.
+
+{% hint style="info" %}
+Certificate fallback is available in Gravitee Access Management and targets API platform administrators managing multi-tenant or high-availability environments.
+{% endhint %}
+
+For detailed configuration steps and monitoring guidance, see [Configure Certificate Fallback](#configure-certificate-fallback).
+
+### Certificate selection in Management Console
+
+The Management Console certificate selection dialog now includes system certificates in the dropdown list. Previously, system certificates were filtered out and not available for selection in certificate configuration dialogs.
+
+This change applies to all certificate selection interfaces in the Management Console, including:
+- Application certificate assignment
+- Domain certificate settings
+- Certificate fallback configuration
+
+System certificates remain marked with the "system" designation and continue to follow the same generation and rotation rules described in the [System certificates](#system-certificates) section.
