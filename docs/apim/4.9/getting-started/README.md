@@ -13,9 +13,9 @@ Set up Gravitee quickly and easily with Gravitee Cloud's 14-day **free** trial.
 
 <table data-card-size="large" data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Cloud free trial</td><td><a href="https://eu-auth.cloud.gravitee.io/cloud/register?response_type=code&#x26;client_id=fd45d898-e621-4b12-85d8-98e621ab1237&#x26;state=aFNXUER4ZTJLeVA3cUhZblVpNnI1a0dqT0lFT3Qtd1ZjN0xUMGgyQVU2ZU1Q&#x26;redirect_uri=https%3A%2F%2Feu.cloud.gravitee.io&#x26;scope=openid+profile+email+offline_access&#x26;code_challenge=RawzckmLjFNOvDqrZUPumHbMzXRcIjRRbZFmWlbjLoA&#x26;code_challenge_method=S256&#x26;nonce=aFNXUER4ZTJLeVA3cUhZblVpNnI1a0dqT0lFT3Qtd1ZjN0xUMGgyQVU2ZU1Q&#x26;createUser=true&#x26;hubspotutk=169d02e0ddc1d02ed3202bcac0869f20">https://eu-auth.cloud.gravitee.io/cloud/register?response_type=code&#x26;client_id=fd45d898-e621-4b12-85d8-98e621ab1237&#x26;state=aFNXUER4ZTJLeVA3cUhZblVpNnI1a0dqT0lFT3Qtd1ZjN0xUMGgyQVU2ZU1Q&#x26;redirect_uri=https%3A%2F%2Feu.cloud.gravitee.io&#x26;scope=openid+profile+email+offline_access&#x26;code_challenge=RawzckmLjFNOvDqrZUPumHbMzXRcIjRRbZFmWlbjLoA&#x26;code_challenge_method=S256&#x26;nonce=aFNXUER4ZTJLeVA3cUhZblVpNnI1a0dqT0lFT3Qtd1ZjN0xUMGgyQVU2ZU1Q&#x26;createUser=true&#x26;hubspotutk=169d02e0ddc1d02ed3202bcac0869f20</a></td></tr></tbody></table>
 
-Install the OSS version of Gravitee locally with Docker.
+Get started with Gravitee using Docker. Choose a quick local setup for development, a full self-hosted deployment, or a hybrid approach.
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Local Install with Docker</td><td><a href="broken-reference/">broken-reference</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Self-host Install with Docker</td><td><a href="../self-hosted-installation-guides/docker/">docker</a></td></tr><tr><td>Hybrid install with Docker</td><td><a href="../hybrid-installation-and-configuration-guides/next-gen-cloud/docker/">docker</a></td></tr></tbody></table>
 
 ## Deployment Options
 
