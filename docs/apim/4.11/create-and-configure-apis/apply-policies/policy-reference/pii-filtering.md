@@ -1,6 +1,6 @@
 ## Overview
 
-The PII Filtering Policy uses AI-powered token classification models to detect and redact Personally Identifiable Information (PII) in API request and response payloads. The policy operates in real-time, applying configurable redaction rules based on AI confidence scores and PII categories. It supports both standard HTTP APIs and streaming APIs with appropriate safeguards.
+The PII Filtering Policy uses AI-powered token classification models to detect and redact Personally Identifiable Information (PII) in API request and response payloads. The policy operates in real-time, applying configurable redaction rules based on AI confidence scores and PII categories. It supports standard HTTP APIs and includes a bypass mode for streaming compatibility.
 
 ## Key concepts
 
@@ -20,7 +20,7 @@ The policy operates in two phases:
 - **Request phase**: PII in the request body is redacted before reaching the backend
 - **Response phase**: PII in the response body is redacted before reaching the client
 
-Both phases use the same AI model and configuration but can be independently controlled via the `skipResponsePayloadFiltering` option.
+Both phases use the same AI model and configuration. While request filtering is always active, response filtering can be optionally disabled via the skipResponsePayloadFiltering option.
 
 ### Streaming detection
 
@@ -33,7 +33,7 @@ The policy detects streaming by scanning for the regex pattern `(['"])stream\1\s
 
 ### Redaction algorithm
 
-The policy uses a `BitSet` to track which characters in the payload should be redacted. When the AI model identifies a PII entity, the corresponding character positions are marked in the `BitSet`. Overlapping entities are automatically handled: each character is redacted exactly once. Consecutive tokens with the same base label (e.g., `B-LOC`, `I-LOC`) are merged into a single redaction. The final redacted payload replaces all marked characters with `[REDACTED]`.
+The policy uses a BitSet to track character positions for redaction, ensuring overlapping entities are handled efficiently. Consecutive marked characters are grouped together and replaced by a single [REDACTED] placeholder, maintaining the original structure while masking the sensitive content.
 
 ### Metrics and diagnostics
 
@@ -85,12 +85,11 @@ Configure the policy at the API plan level.
 |:---------|:------------|:--------|
 | `resourceName` | Name of the AI Model Token Classification resource | `my-pii-detector` |
 | `categories` | Standard PII categories to detect (PERSON, LOCATION, EMAIL, etc.) | `["PERSON", "EMAIL"]` |
-| `piiTypes` | Custom AI model labels to detect (e.g., `B-PER`, `S-EMAIL`) | `["B-PER", "I-PER", "EMAIL"]` |
 | `threshold` | Minimum AI confidence score (0.0–1.0) to trigger redaction | `0.5` |
 | `customMapping` | Custom label-to-category mappings | `{"CUSTOM_LABEL": "PERSON"}` |
 | `skipResponsePayloadFiltering` | Skip PII filtering for response payload (required for streaming) | `false` |
 
-The `categories` and `piiTypes` properties work together: a token is redacted if its label matches either a configured category (after normalization) or an explicit `piiTypes` entry. For example, if `categories=["PERSON"]`, both `B-PER` and `I-PER` labels are redacted.
+The policy automatically handles BIO tagging prefixes (B-, I-, S-, E-). When a category is enabled (e.g., PERSON), any model label matching that category after prefix stripping (e.g., B-PERSON, I-PERSON) will be redacted.
 
 ## Creating a PII Filtering Policy
 
@@ -104,7 +103,7 @@ To enable PII filtering:
 
     Reference the resource by name, select the PII categories to detect (e.g., PERSON, EMAIL), and set the confidence threshold.
 
-3. If the API supports streaming, enable `skipResponsePayloadFiltering` to allow streaming requests while still redacting request bodies.
+3. If the API supports streaming, enable skipResponsePayloadFiltering to bypass the streaming rejection logic and allow response streams to pass through.
 
 4. Save the plan and deploy the API.
 
