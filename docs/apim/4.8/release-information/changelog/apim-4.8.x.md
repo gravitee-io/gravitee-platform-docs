@@ -4,6 +4,48 @@ description: Documentation about apim 4.8.x in the context of APIs.
 
 # APIM 4.8.x
  
+## Gravitee API Management 4.8.21 - February 27, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Failover retries leak endpoint query parameters across attempts in HTTP proxy connector [#11164](https://github.com/gravitee-io/issues/issues/11164)
+* Gateway cannot auto-recover if Elasticsearch goes down and then comes back online [#11176](https://github.com/gravitee-io/issues/issues/11176)
+
+**Management API**
+
+* The mAPI is unreachable when a connection cannot be made to Cloud [#10307](https://github.com/gravitee-io/issues/issues/10307)
+* Automatic cleanup failure in commands table due to missing expired_at values [#11136](https://github.com/gravitee-io/issues/issues/11136)
+
+**Console**
+
+* \[UI Bug] LDAP Resource "User search base" field auto-populates with default value on edit [#11072](https://github.com/gravitee-io/issues/issues/11072)
+
+**Portal**
+
+* API Catalog API Visibility [#11155](https://github.com/gravitee-io/issues/issues/11155)
+
+**Other**
+
+* Promotion requests accepted from the main dashboard are not auto refreshed [#11062](https://github.com/gravitee-io/issues/issues/11062)
+* 500 Internal Error against the Tasks endpoint [#11208](https://github.com/gravitee-io/issues/issues/11208)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Console**
+
+* API Mgmt Management Console task list takes too long to load [#11049](https://github.com/gravitee-io/issues/issues/11049)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.8.20 - February 13, 2026
 <details>
 
