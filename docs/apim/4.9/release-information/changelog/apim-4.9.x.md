@@ -34,7 +34,7 @@ metaLinks:
 **Other**
 
 * Promotion requests accepted from the main dashboard are not auto refreshed [#11062](https://github.com/gravitee-io/issues/issues/11062)
-* Assign content policy doesn't supports message.topic for kafka native API [#11194](https://github.com/gravitee-io/issues/issues/11194)
+* Assign content policy doesn't support message.topic for kafka native API [#11194](https://github.com/gravitee-io/issues/issues/11194)
 * 500 Internal Error against the Tasks endpoint [#11208](https://github.com/gravitee-io/issues/issues/11208)
 
 </details>
