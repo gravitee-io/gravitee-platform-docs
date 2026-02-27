@@ -50,7 +50,7 @@ metaLinks:
 
 **Console**
 
-* API Mgmt Management Console task list takes too long too load [#11049](https://github.com/gravitee-io/issues/issues/11049)
+* API Mgmt Management Console task list takes too long to load [#11049](https://github.com/gravitee-io/issues/issues/11049)
 * Debug Mode Enhancement: Increase Timeout & Implement Long-Poll UI [#11180](https://github.com/gravitee-io/issues/issues/11180)
 
 **Helm Charts**
