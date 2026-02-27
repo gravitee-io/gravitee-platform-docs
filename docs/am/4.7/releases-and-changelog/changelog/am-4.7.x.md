@@ -6,6 +6,25 @@ description: >-
 
 # AM 4.7.x
 
+## Gravitee Access Management 4.7.31 - February 27, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* Email BULK processing - context not closed properly [#11199](https://github.com/gravitee-io/issues/issues/11199)
+
+</details>
+
+
 ## Gravitee Access Management 4.7.30 - February 23, 2026
 
 <details>
