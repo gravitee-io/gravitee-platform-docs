@@ -39,7 +39,7 @@ description: API documentation explaining apim 4.7.x.
 
 **Console**
 
-* API Mgmt Management Console task list takes too long too load [#11049](https://github.com/gravitee-io/issues/issues/11049)
+* API Mgmt Management Console task list takes too long to load [#11049](https://github.com/gravitee-io/issues/issues/11049)
 
 </details>
 
