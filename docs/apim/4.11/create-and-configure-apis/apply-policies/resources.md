@@ -229,12 +229,12 @@ The following table shows the available configurations for the LDAP Authenticati
 | Property              | Required | Description                                                                                                                                                    | Type             | Default                         | Supports EL | Supports Secrets |
 | --------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------------------------------- | ----------- | ---------------- |
 | contextSourceUrl      | Yes      | URL to the LDAP server instance                                                                                                                                | string           | ldap://myserver.example.com:389 | Yes         | Yes              |
-| contextSourceBase     | Yes      | The source base used to authenticate to the LDAP server and query for users when validating user’s credentials                                                 | string           | N/A                             | Yes         | Yes              |
+| contextSourceBase     | Yes      | The source base used to authenticate to the LDAP server and query for users when validating user's credentials                                                 | string           | N/A                             | Yes         | Yes              |
 | contextSourceUsername | Yes      | Username credential used to connect to the LDAP server                                                                                                         | string           | N/A                             | Yes         | Yes              |
 | contextSourcePassword | Yes      | Password credential used to connect to the LDAP server                                                                                                         | string           | N/A                             | Yes         | Yes              |
 | useStartTLS           | No       | Should the API gateway use SSL to connect to the LDAP server                                                                                                   | boolean          | false                           | No          | No               |
 | userSearchFilter      | Yes      | LDAP Filter to select the relevant attribute to check the username                                                                                             | string           | uid={0}                         | Yes         | No               |
-| userSearchBase        | No       | Search base within `contextSourceBase` used to search into the correct OU when validating user’s credentials.                                                  | string           | ou=users                        | Yes         | No               |
+| userSearchBase        | No       | Search base within `contextSourceBase` used to search into the correct OU when validating user's credentials.                                                  | string           | ou=users                        | Yes         | No               |
 | cacheMaxElements      | Yes      | Maximum number of elements within the cache used to store successful authentications. 0 means no cache.                                                        | positive integer | 100                             | No          | No               |
 | cacheTimeToLive       | Yes      | Maximum time to live (in milliseconds) of the elements from the cache used to store successful authentications.                                                | positive integer | 6000 (min 1000)                 | No          | No               |
 | attributes            | Yes      | User LDAP attributes to put in the request context. Attributes can then be read from any other policy supporting EL i.e. `gravitee.attribute.user.{attribute}` | array of string  | \[\*]\(all)                     | No          | No               |
@@ -245,7 +245,7 @@ The following table shows the available configurations for the LDAP Authenticati
 
 ### AI resources
 
-The following resources support AI-powered policies and features in APIM. They provide model inference and vector storage capabilities used by policies such as AI Prompt Guardrails.
+The following resources support AI-powered policies and features in APIM. They provide model inference and vector storage capabilities used by policies such as AI Prompt Guardrails and PII Filtering.
 
 #### AI Model Text Classification
 
@@ -272,6 +272,53 @@ You may encounter an error when using this resource with Gravitee's default Dock
     "configuration": {
         "model": {
             "type": "MINILMV2_TOXIC_JIGSAW_MODEL"
+        }
+    }
+}
+```
+{% endcode %}
+
+#### AI Model Token Classification
+
+The AI Model Token Classification resource loads an AI-powered token classification model that identifies and labels individual tokens (words or subwords) in text. It is used by the PII Filtering Policy to detect personally identifiable information (PII) such as names, locations, email addresses, and phone numbers in API request and response payloads.
+
+{% hint style="info" %}
+When multiple APIs use the same **AI Model Token Classification Resource**, the Gateway loads it once into memory. If 50 APIs reference the same resource, the Gateway loads that model only once.
+{% endhint %}
+
+The model runs locally on the Gateway using the ONNX Runtime. The first request to an API using this resource takes longer than usual because the model is loaded into memory at that time. Subsequent requests are processed faster.
+
+{% hint style="info" %}
+You may encounter an error when using this resource with Gravitee's default Docker image. This is because the default images are based on Alpine Linux, which does not support the ONNX Runtime. To resolve this issue, use the Gravitee Docker image based on Debian, available at `graviteeio/apim-gateway:<version>-debian`.
+{% endhint %}
+
+<table><thead><tr><th width="167">Config param</th><th width="384.3046875">Description</th><th>Default</th></tr></thead><tbody><tr><td>Model</td><td>The AI model to use for token classification. Supported models include <code>dslim/distilbert-NER</code> (general named entity recognition) and <code>gravitee-io/bert-small-pii-detection</code> (PII-optimized). The <code>gravitee-io</code> model uses quantization (<code>model.quant.onnx</code>) for reduced memory footprint.</td><td>-</td></tr></tbody></table>
+
+Models are automatically downloaded to `$GRAVITEE_HOME/models/<model-name>/` with the following files: `model.onnx` (or `model.quant.onnx`), `tokenizer.json`, and `config.json`.
+
+**Model Output Format**
+
+Each model outputs token-level predictions with confidence scores (0.0–1.0) and entity labels. Labels follow the BIO tagging scheme:
+- `B-<entity>`: Beginning of an entity (e.g., `B-PER` for the first token of a person's name)
+- `I-<entity>`: Inside an entity (e.g., `I-PER` for subsequent tokens of a person's name)
+- `S-<entity>`: Single-token entity (e.g., `EMAIL` for a complete email address)
+
+Common entity labels include `PER` (person), `LOC` (location), `ORG` (organization), `EMAIL`, and `PHONE`.
+
+**Prerequisites**
+
+- Write permissions to `$GRAVITEE_HOME/models` directory for model downloads
+- Sufficient Java heap memory for model loading
+
+{% code title="Example" %}
+```json
+{
+    "name": "ai-model-token-classification-resource",
+    "type": "ai-model-token-classification",
+    "enabled": true,
+    "configuration": {
+        "model": {
+            "type": "GRAVITEE_BERT_SMALL_PII_DETECTION"
         }
     }
 }

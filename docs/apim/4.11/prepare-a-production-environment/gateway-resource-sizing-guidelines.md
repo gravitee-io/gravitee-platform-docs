@@ -62,6 +62,7 @@ You can specify the JVM memory sizing for each of the Gravitee nodes.
 {% hint style="warning" %}
 * `GIO_MIN_MEM` is the same as `Xms` and `GIO_MAX_MEM` is the same as `Xmx` .
 * To avoid resizing during normal JVM operations, set the same value for both the `GIO_MIN_MEM` and the `GIO_MAX_MEM` .
+* If using AI-powered policies (e.g., PII Filtering Policy), increase Java heap size based on the number of APIs using the policy and the selected AI model size. Ensure `$GRAVITEE_HOME/models` directory has write permissions for automatic model downloads.
 {% endhint %}
 
 {% tabs %}
