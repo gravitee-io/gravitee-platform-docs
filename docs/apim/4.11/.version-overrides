@@ -1,3 +1,9 @@
 # Files with version-specific content — do NOT sync from previous version
 # Auto-managed by the documentation pipeline
 # Add files here that intentionally differ from 4.10 (e.g., 4.11 feature docs)
+SUMMARY.md
+analyze-and-monitor-apis/reporters/README.md
+create-and-configure-apis/apply-policies/policy-reference/pii-filtering.md
+create-and-configure-apis/apply-policies/resources.md
+prepare-a-production-environment/gateway-resource-sizing-guidelines.md
+release-information/release-notes/apim-4.11.md
