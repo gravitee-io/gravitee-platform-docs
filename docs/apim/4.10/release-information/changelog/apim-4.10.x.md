@@ -14,7 +14,7 @@
 
 **Management API**
 
-* The mAPI is are unreachable when a connection cannot be made to Cloud [#10307](https://github.com/gravitee-io/issues/issues/10307)
+* The mAPI is unreachable when a connection cannot be made to Cloud [#10307](https://github.com/gravitee-io/issues/issues/10307)
 * V4 Migration: 400 Error on endpoint updates when 'System Proxy' is enabled in V2 [#11113](https://github.com/gravitee-io/issues/issues/11113)
 * Cannot override cloud client http version [#11186](https://github.com/gravitee-io/issues/issues/11186)
 
