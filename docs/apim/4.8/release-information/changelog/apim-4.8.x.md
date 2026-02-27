@@ -16,7 +16,7 @@ description: Documentation about apim 4.8.x in the context of APIs.
 
 **Management API**
 
-* The mAPI is are unreachable when a connection cannot be made to Cloud [#10307](https://github.com/gravitee-io/issues/issues/10307)
+* The mAPI is unreachable when a connection cannot be made to Cloud [#10307](https://github.com/gravitee-io/issues/issues/10307)
 * Automatic cleanup failure in commands table due to missing expired_at values [#11136](https://github.com/gravitee-io/issues/issues/11136)
 
 **Console**
