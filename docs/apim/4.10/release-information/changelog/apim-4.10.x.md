@@ -30,7 +30,7 @@
 **Other**
 
 * Promotion requests accepted from the main dashboard are not auto refreshed [#11062](https://github.com/gravitee-io/issues/issues/11062)
-* APIs that do not pass the security chain are not showed in the new v4 analytics dashboard [#11131](https://github.com/gravitee-io/issues/issues/11131)
+* APIs that do not pass the security chain are not shown in the new v4 analytics dashboard [#11131](https://github.com/gravitee-io/issues/issues/11131)
 * Lack of resources configuration validation and sanitization for Native APIs [#11161](https://github.com/gravitee-io/issues/issues/11161)
 * \[mcp-acl] policy does not return valid JSON-RPC response in case of error [#11192](https://github.com/gravitee-io/issues/issues/11192)
 * Assign content policy doesn't supports message.topic for kafka native API [#11194](https://github.com/gravitee-io/issues/issues/11194)
