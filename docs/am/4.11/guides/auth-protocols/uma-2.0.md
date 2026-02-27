@@ -445,3 +445,105 @@ token=b02063f8-2698-4141-a063-f82698e1419c
 ```
 
 In this example the RPT is valid and the resource server application can check if the requesting party can access the resource using the `permissions` property.
+
+### Managing Protected Resource Members
+
+Protected resource members define permissions-based access control for individual protected resources. Members are scoped to a specific protected resource within a domain.
+
+#### Add or update a member
+
+Send a POST request to add or update a member:
+
+```
+POST /organizations/{organizationId}/environments/{environmentId}/domains/{domain}/protected-resources/{protected-resource}/members
+```
+
+Include a `NewMembership` payload in the request body.
+
+#### List members
+
+Retrieve all members for a protected resource:
+
+```
+GET /organizations/{organizationId}/environments/{environmentId}/domains/{domain}/protected-resources/{protected-resource}/members
+```
+
+#### Remove a member
+
+Delete a member from a protected resource:
+
+```
+DELETE /organizations/{organizationId}/environments/{environmentId}/domains/{domain}/protected-resources/{protected-resource}/members/{member}
+```
+
+#### Retrieve member permissions
+
+Get the permissions assigned to a member:
+
+```
+GET /organizations/{organizationId}/environments/{environmentId}/domains/{domain}/protected-resources/{protected-resource}/members/permissions
+```
+
+### DCR Constraint Application
+
+During Dynamic Client Registration (DCR), the system checks if `application_type` is `"agent"` before applying constraints. The system:
+
+- Strips forbidden grant types and response types
+- Logs warnings for removed values
+- Applies secure defaults only when necessary
+
+This ensures agent applications are created with the correct security posture from registration, reducing misconfiguration risk.
+
+{% hint style="info" %}
+Constraints are applied automatically during the DCR process. No manual configuration is required after registration.
+{% endhint %}
+
+### Token Endpoint Enforcement
+
+When an agent application requests a token, the token endpoint extracts the client from the routing context and validates that it has at least one configured grant type. If the application type is `AGENT` and the requested grant type is `password`, `refresh_token`, or `implicit`, the endpoint throws an `UnauthorizedClientException` with a descriptive message. This prevents runtime use of forbidden grant types even if they were somehow configured.
+
+{% hint style="info" %}
+Token endpoint enforcement acts as a runtime safeguard, blocking unauthorized grant type usage regardless of application configuration state.
+{% endhint %}
+
+### Managing Protected Resource Secrets
+
+Protected resource secrets provide secure authentication credentials for resource operations. Secrets are scoped to individual protected resources within a domain.
+
+#### Create a secret
+
+Send a POST request to create a new secret:
+
+```
+POST /organizations/{organizationId}/environments/{environmentId}/domains/{domain}/protected-resources/{protected-resource}/secrets
+```
+
+Include a `NewClientSecret` payload in the request body.
+
+#### List secrets
+
+Retrieve all secrets for a protected resource:
+
+```
+GET /organizations/{organizationId}/environments/{environmentId}/domains/{domain}/protected-resources/{protected-resource}/secrets
+```
+
+#### Delete a secret
+
+Remove a secret from a protected resource:
+
+```
+DELETE /organizations/{organizationId}/environments/{environmentId}/domains/{domain}/protected-resources/{protected-resource}/secrets/{secretId}
+```
+
+#### Renew a secret
+
+Generate a new value for an existing secret:
+
+```
+POST /organizations/{organizationId}/environments/{environmentId}/domains/{domain}/protected-resources/{protected-resource}/secrets/{secretId}/_renew
+```
+
+### Agent Card Proxy
+
+Agent applications can expose metadata through an agent card URL. The Management API fetches and proxies this JSON metadata with SSRF protection, including scheme validation, localhost blocking, private IP range filtering, size limits (512 KB), and JSON format validation.

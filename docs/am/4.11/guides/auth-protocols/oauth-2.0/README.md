@@ -72,6 +72,8 @@ The authorization code is used by applications to obtain a temporary code after 
 
 {% hint style="warning" %}
 The OAuth standard now discourages the use of an implicit grant to request access tokens from Javascript applications. You should consider using the [Authorization code ](./#authorization-code)grant with a PKCE extension for all your applications.
+
+The implicit grant type is **forbidden** for [Agent application type](../../applications/README.md#agent-application-type) applications.
 {% endhint %}
 
 The implicit grant is a simplified authorization code flow. Instead of getting a temporary code first, you can retrieve an access token directly from web browser redirection.

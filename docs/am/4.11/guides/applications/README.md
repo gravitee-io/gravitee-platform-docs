@@ -35,7 +35,7 @@ curl -H "Authorization: Bearer :accessToken" \
 
 ### Configure the application
 
-After you have created the new application, you will be redirected to the application’s `Overview` page, which contains some documentation and code samples to help you start configuring the application.
+After you have created the new application, you will be redirected to the application's `Overview` page, which contains some documentation and code samples to help you start configuring the application.
 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-client-settings.png" alt=""><figcaption><p>Application overview</p></figcaption></figure>
 
@@ -43,13 +43,40 @@ After you have created the new application, you will be redirected to the applic
 
 The quickest way to test your newly created application is to request an OAuth2 access token, as described in [set up your first application](../../getting-started/tutorial-getting-started-with-am/set-up-your-first-application.md). If you manage to retrieve an access token, your application is all set.
 
+## Application types
+
+### Agent application type
+
+The Agent application type is a security-hardened profile for machine-to-machine (M2M) authentication. It enforces strict grant type and response type constraints to prevent insecure authentication flows and applies secure defaults during Dynamic Client Registration (DCR) and token issuance.
+
+#### Security model
+
+Agent applications are restricted to secure grant types only. The system automatically strips forbidden grant types (`implicit`, `password`, `refresh_token`) and response types (`token`, `id_token`, `id_token token`) during registration and blocks them at the token endpoint. If no allowed grant types remain after stripping, the system defaults to `authorization_code` with response type `code`.
+
+#### Grant type and response type restrictions
+
+The following constraints are enforced automatically and cannot be overridden:
+
+| Property | Value | Description |
+|:---------|:------|:------------|
+| `FORBIDDEN_GRANT_TYPES` | `implicit`, `password`, `refresh_token` | Grant types blocked for agent applications |
+| `FORBIDDEN_RESPONSE_TYPES` | `token`, `id_token`, `id_token token` | Implicit response types blocked for agent applications |
+
+#### Token endpoint enforcement
+
+When an agent application requests a token, the token endpoint extracts the client from the routing context and validates that it has at least one configured grant type. If the application type is `AGENT` and the requested grant type is `password`, `refresh_token`, or `implicit`, the endpoint throws an `UnauthorizedClientException` with a descriptive message. This prevents runtime use of forbidden grant types even if they were somehow configured.
+
+{% hint style="info" %}
+Token endpoint enforcement acts as a runtime safeguard, blocking unauthorized grant type usage regardless of configuration state.
+{% endhint %}
+
 ## Application identity providers
 
-AM allows your application to use different identity providers (IdPs). If you haven’t configured your providers yet, visit the [Identity Provider guide.](../identity-providers/)
+AM allows your application to use different identity providers (IdPs). If you haven't configured your providers yet, visit the [Identity Provider guide.](../identity-providers/)
 
 The application identity providers are separated into two sections:
 
-* The regular Identity Providers (called also **internal**) that operate inside and AM without redirecting to another provider
+* The regular Identity Providers (called also **internal**) that operate inside AM without redirecting to another provider
 * The Social/Enterprise Identity Providers that require an external service to perform authentication (usually via SSO)
 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-application-identity-providers.png" alt=""><figcaption><p>Application identity providers</p></figcaption></figure>
@@ -85,7 +112,7 @@ When applying rules on **regular** Identity Providers:
 * If the rule is empty, the provider **will be** taken into account (this is to be retro-compatible when migrating from a previous version)
 * Otherwise, AM will authenticate with the first identity provider where the rule matches.
 
-If you are not using[ identifier-first login](../login/identifier-first-login-flow.md), the rule won’t be effective on Social/Enterprise providers
+If you are not using [identifier-first login](../login/identifier-first-login-flow.md), the rule won't be effective on Social/Enterprise providers
 
 However, if you are using identifier-first login:
 
@@ -113,7 +140,7 @@ There is another parameter called **Enable\Disable Open Dynamic Client Registrat
 ### Enable Dynamic Client Registration with AM API
 
 ```sh
-# enable Dynamic Client Registration
+
 curl -X PATCH \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -169,7 +196,7 @@ Unlike confidential clients, public clients are clients who cannot keep their cr
 The following example creates a web application (`access_token` is kept on a backend server).
 
 ```sh
-# Register a new Relying Party (client)
+
 curl -X POST \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -191,7 +218,7 @@ curl -X POST \
 As a SPA does not use a backend, we recommend you use the following implicit flow:
 
 ```sh
-# Register a new Relying Party (client)
+
 curl -X POST \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -215,7 +242,7 @@ Sometimes you may have a bot/software that needs to be authenticated as an appli
 For this, you need to use a `client_credentials` flow:
 
 ```sh
-# Register a new Relying Party (client)
+
 curl -X POST \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -240,7 +267,7 @@ curl -X POST \
 For a mobile app, the `authorization_code` grant is recommended, in addition to [Proof Key for Code Exchange](https://tools.ietf.org/html/rfc7636):
 
 ```sh
-# Register a new Relying Party (client)
+
 curl -X POST \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -253,6 +280,26 @@ curl -X POST \
       }' \
   http://GRAVITEEIO-AM-GATEWAY-HOST/::domain/oidc/register
 ```
+
+**Register agent application example**
+
+Register an agent application through DCR by setting `application_type` to `"agent"` in the registration request:
+
+```sh
+curl -X POST \
+  -H 'Authorization: Bearer :accessToken' \
+  -H 'Content-Type: application/json' \
+  -d '{ \
+        "application_type": "agent", \
+        "redirect_uris": ["https://myDomain/callback"], \
+        "client_name": "my agent application", \
+        "grant_types": ["authorization_code"], \
+        "response_types": ["code"] \
+      }' \
+  http://GRAVITEEIO-AM-GATEWAY-HOST/::domain/oidc/register
+```
+
+The system validates the request, strips any forbidden grant types or response types, and logs warnings for removed values. If no allowed grant types remain, it defaults to `authorization_code` with response type `code`. If no `token_endpoint_auth_method` is specified, it defaults to `client_secret_basic`.
 
 #### Read/update/delete client information
 
@@ -268,7 +315,7 @@ This access token contains a `dcr` scope which can not be obtained, even if you 
 A new registration access token is generated each time the client is updated through the Dynamic Client Registration URI endpoint, which will revoke the previous value.
 
 ```sh
-# Update a registered Relying Party (client)
+
 curl -X PATCH \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -288,7 +335,7 @@ The `renew_secret` endpoint does not need a body.
 When you update a client, a new registration access token is generated each time you renew the client secret.
 
 ```sh
-# Renew the client secret of a registered Relying Party (client)
+
 curl -X POST \
   -H 'Authorization: Bearer :accessToken' \
   http://GRAVITEEIO-AM-GATEWAY-HOST/::domain/oidc/register/:client_id/renew_secret
@@ -307,7 +354,7 @@ To achieve this, you need to first enable the feature and then select the allowe
 You can also enable this feature using AM API:
 
 ```sh
-# Enable Allowed Scopes feature.
+
 curl -X PATCH \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -327,7 +374,7 @@ To enable this feature, you simply select which scopes you want to be automatica
 You can also enable this feature using AM API:
 
 ```sh
-# Enable Default Scopes feature
+
 curl -X PATCH \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -350,7 +397,7 @@ Since there is no longer a requested scope in the request, the default scopes wi
 You can also enable this feature using AM API:
 
 ```sh
-# Force set of scopes on each client registration
+
 curl -X PATCH \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -376,7 +423,7 @@ You can enable the template feature in the AM Dynamic Client Registration **Sett
 You can also enable this feature using AM API:
 
 ```sh
-# enable Dynamic Client Registration
+
 curl -X PATCH \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -397,7 +444,7 @@ In the Dynamic Client Registration **Client templates** tab, enable this feature
 You can also enable this feature using AM API:
 
 ```sh
-# enable Dynamic Client Registration
+
 curl -X PATCH \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -416,7 +463,7 @@ Once a client is set up as a template, it can no longer be used for authenticati
 You need to retrieve the `software_id` of the template, which is available under the `registration_templates_endpoint` provided by the OpenID discovery endpoint.
 
 ```sh
-# Register a new Relying Party (client)
+
 curl -X POST \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -431,3 +478,113 @@ curl -X POST \
 You can override some properties of the template by filling in some metadata, such as `client_name` in the example above.
 
 Some critical information is not copied from the template (e.g. `client_secret` and `redirect_uris`). This is why in the example above, we need to provide valid `redirect_uris` metadata, since in the example, the template we are using is a Single Page Application.
+
+## Manage protected resources
+
+### Manage protected resource members
+
+You can manage members of a protected resource using the following REST API endpoints.
+
+**Add or update a member:**
+
+```sh
+curl -X POST \
+  -H 'Authorization: Bearer :accessToken' \
+  -H 'Content-Type: application/json' \
+  -d '{ \
+        "memberId": "user123", \
+        "permissions": ["READ", "WRITE"] \
+      }' \
+  http://GRAVITEEIO-AM-MGT-API-HOST/management/organizations/:organizationId/environments/:environmentId/domains/:domain/protected-resources/:protected-resource/members
+```
+
+**List all members:**
+
+```sh
+curl -X GET \
+  -H 'Authorization: Bearer :accessToken' \
+  http://GRAVITEEIO-AM-MGT-API-HOST/management/organizations/:organizationId/environments/:environmentId/domains/:domain/protected-resources/:protected-resource/members
+```
+
+**Remove a member:**
+
+```sh
+curl -X DELETE \
+  -H 'Authorization: Bearer :accessToken' \
+  http://GRAVITEEIO-AM-MGT-API-HOST/management/organizations/:organizationId/environments/:environmentId/domains/:domain/protected-resources/:protected-resource/members/:member
+```
+
+**Retrieve member permissions:**
+
+```sh
+curl -X GET \
+  -H 'Authorization: Bearer :accessToken' \
+  http://GRAVITEEIO-AM-MGT-API-HOST/management/organizations/:organizationId/environments/:environmentId/domains/:domain/protected-resources/:protected-resource/members/permissions
+```
+
+### Manage protected resource secrets
+
+You can manage secrets for protected resources using the AM Management API.
+
+**Create a secret:**
+
+```sh
+curl -X POST \
+  -H 'Authorization: Bearer :accessToken' \
+  -H 'Content-Type: application/json' \
+  -d '{ \
+        "name": "my-secret", \
+        "value": "secret-value" \
+      }' \
+  http://GRAVITEEIO-AM-MGT-API-HOST/management/organizations/:organizationId/environments/:environmentId/domains/:domain/protected-resources/:protected-resource/secrets
+```
+
+**List all secrets:**
+
+```sh
+curl -X GET \
+  -H 'Authorization: Bearer :accessToken' \
+  http://GRAVITEEIO-AM-MGT-API-HOST/management/organizations/:organizationId/environments/:environmentId/domains/:domain/protected-resources/:protected-resource/secrets
+```
+
+**Delete a secret:**
+
+```sh
+curl -X DELETE \
+  -H 'Authorization: Bearer :accessToken' \
+  http://GRAVITEEIO-AM-MGT-API-HOST/management/organizations/:organizationId/environments/:environmentId/domains/:domain/protected-resources/:protected-resource/secrets/:secretId
+```
+
+**Renew a secret:**
+
+```sh
+curl -X POST \
+  -H 'Authorization: Bearer :accessToken' \
+  http://GRAVITEEIO-AM-MGT-API-HOST/management/organizations/:organizationId/environments/:environmentId/domains/:domain/protected-resources/:protected-resource/secrets/:secretId/_renew
+```
+
+## Configure agent cards
+
+Set the `agentCardUrl` property in the application's advanced settings (`ApplicationSettings.advanced.agentCardUrl`). The URL must use `http` or `https` scheme and must not point to localhost or private IP ranges (10.x, 172.16-31.x, 192.168.x, 169.254.x).
+
+**Fetch the agent card:**
+
+```sh
+curl -X GET \
+  -H 'Authorization: Bearer :accessToken' \
+  http://GRAVITEEIO-AM-MGT-API-HOST/management/organizations/:organizationId/environments/:environmentId/domains/:domain/applications/:application/agent-card
+```
+
+The system validates the URL, fetches the content with a 5-second timeout, validates the response is 200 status with valid JSON under 512 KB, and returns the proxied JSON.
+
+### Service limits
+
+| Parameter | Value | Description |
+|:----------|:------|:------------|
+| `MAX_BODY_SIZE` | 524288 bytes (512 KB) | Maximum response body size for agent card fetch |
+| `TIMEOUT_MS` | 5000 ms (5 seconds) | Request timeout for agent card fetch |
+| `PRIVATE_IP_PATTERN` | 10.x, 172.16-31.x, 192.168.x, 169.254.x | SSRF-protected IP ranges |
+
+### SSRF protection architecture
+
+The agent card fetch service implements defense-in-depth SSRF protection. It validates the URL scheme (http/https only), checks the host against localhost using `UriBuilder.isLocalhost()`, matches the host against private IP regex patterns, enforces a 5-second timeout, validates HTTP 200 status, checks the response body is non-null and under 512 KB, and validates JSON format using `ObjectMapper.readTree()`. Any violation throws an exception and prevents the fetch.
