@@ -13,7 +13,7 @@ To enable Gravitee Expression Language and dynamic parameters for redirect URIs,
 3. Select **Client Registration**.
 4. Toggle **Enable/Disable EL and dynamic parameters for redirect URIs** to ON.
 
-<figure><img src="../../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
 
 Once enabled, you can use EL in redirect URIs to create personalized user experiences.
 
@@ -26,7 +26,7 @@ To use dynamic redirect URIs with query parameters, complete the following steps
 3. In the **Settings** tab, navigate the **Redirect URI** field.
 4. Specify the `redirect_uris` with query parameters, embedding values using Gravitee Expression Language. For more information about available EL objects and their usage, refer to [am-expression-language.md](../../am-expression-language.md "mention").
 
-<figure><img src="../../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
 
 ### Example
 
