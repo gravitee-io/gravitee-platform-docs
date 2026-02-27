@@ -6,7 +6,83 @@ description: >-
 
 # AM 4.10.x
 
-#### Gravitee Access Management 4.10 - Jan 8, 2026  <a href="#gravitee-access-management-4.8" id="gravitee-access-management-4.8"></a>
+## Gravitee Access Management 4.10.3 - February 23, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Improve reliability of email emission during SCIM Bulk [#11150](https://github.com/gravitee-io/issues/issues/11150)
+
+
+
+
+
+**Other**
+
+* Update Facebook IdP to latest Graph API [#11162](https://github.com/gravitee-io/issues/issues/11162)
+* [DCR] Application fails to inherit Access Token validity from AM Templates [#11178](https://github.com/gravitee-io/issues/issues/11178)
+
+</details>
+
+
+## Gravitee Access Management 4.10.2 - February 16, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Improve Introspect throughput in 4.10 [#11108](https://github.com/gravitee-io/issues/issues/11108)
+* Manage backpressure on email service for SCIM Bulk [#11138](https://github.com/gravitee-io/issues/issues/11138)
+* JWKS endpoint cannot validate older tokens [#11157](https://github.com/gravitee-io/issues/issues/11157)
+
+**Management API**
+
+* Fixed 0 value for page field in User's search response [#11125](https://github.com/gravitee-io/issues/issues/11125)
+
+**Console**
+
+* Event name values in the audit log filter are truncated [#11146](https://github.com/gravitee-io/issues/issues/11146)
+
+**Other**
+
+* Docker - SMTP - Basic Auth - Env vars in uppercase stopping emails being sent [#11089](https://github.com/gravitee-io/issues/issues/11089)
+* SCIM Bulk: use concatMapEager with configurable maxConcurrency [#11100](https://github.com/gravitee-io/issues/issues/11100)
+* Send email asynchronously on PreRegistration  [#11106](https://github.com/gravitee-io/issues/issues/11106)
+* OpenFGA - Improve ALLOWED icon for tuples  [#11110](https://github.com/gravitee-io/issues/issues/11110)
+
+</details>
+
+
+## Gravitee Access Management 4.10.1 - January 29, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* ErrorDescription encoded in the errorHash [#11054](https://github.com/gravitee-io/issues/issues/11054)
+* DCR: Cannot Renew Client Secret [#11058](https://github.com/gravitee-io/issues/issues/11058)
+* Issue with Consent Persistence after initial denial [#11066](https://github.com/gravitee-io/issues/issues/11066)
+* OIDC IdP: Add support for response_mode=form_post (Azure AD long redirect issue) [#11075](https://github.com/gravitee-io/issues/issues/11075)
+* OpenID - id_token flow - Cannot invoke String.indexOf%28String because "s" is null [#11079](https://github.com/gravitee-io/issues/issues/11079)
+* Clean authFlowVer in the session [#11081](https://github.com/gravitee-io/issues/issues/11081)
+
+</details>
+
+
+#### Gravitee Access Management 4.10 - Jan 8, 2026 <a href="#gravitee-access-management-4.8" id="gravitee-access-management-4.8"></a>
 
 <details>
 
@@ -31,7 +107,7 @@ Access Management now supports Certificate-Based Authentication (CBA) as a prima
 ### MCP Server Integration
 
 {% hint style="warning" %}
-**Tech Preview**: MCP Server support is currently in preview. Features and APIs may change in future releases. This functionality is not production-ready, and you should use the feature with caution.
+**Tech Preview**: MCP Server support is currently in preview. Features and APIs may change in future releases. This functionality is not production-ready and you should use the feature with caution.
 {% endhint %}
 
 We are taking the first steps toward making **Model Context Protocol** (MCP) a first-class citizen within Access Management. This feature introduces a new application type designed specifically for MCP Resource Servers, enabling secure, standardized communication between AI models and your data tools.
@@ -56,7 +132,7 @@ In this release, we are laying the foundation for Access Management to serve as 
 
 To improve Gateway performance and reduce log storage overhead, The record of client authentication in the audit logs has been optimized.&#x20;
 
-* **Conditional Logging:** Starting in this version, successful client authentication attempts are filtered from audit logs by default.
+* **Conditional Logging:** Starting in this version, successful client authentication attempts are filtered out of the audit logs by default.
 * **Security Focus:** Failed authentication attempts continue to be logged in full, ensuring that potential unauthorized access or configuration issues remain visible to administrators.
 * **Full Traceability (Optional):** If your compliance requirements necessitate logging every successful authentication, the previous behavior can be restored via configuration.
 
@@ -90,4 +166,3 @@ handlers:
 ```
 
 </details>
-
