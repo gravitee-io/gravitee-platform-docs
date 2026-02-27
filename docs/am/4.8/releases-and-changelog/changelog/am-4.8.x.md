@@ -6,6 +6,25 @@ description: >-
 
 # AM 4.8.x
 
+## Gravitee Access Management 4.8.25 - February 27, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* SMTP Connection with OAuth2 Authentication [#11012](https://github.com/gravitee-io/issues/11012)
+
+</details>
+
+
 ## Gravitee Access Management 4.8.24 - February 26, 2026
 
 <details>
