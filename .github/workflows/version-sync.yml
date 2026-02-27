@@ -1,0 +1,93 @@
+# Version Sync Action
+#
+# Automatically syncs changes from docs/{product}/{current_version}/
+# to docs/{product}/{next_version}/ when files change on main.
+
+name: Version Sync
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/apim/4.10/**'
+      - 'docs/am/4.10/**'
+
+# Grant write access so the bot can push sync commits
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - product: apim
+            current: "4.10"
+            next: "4.11"
+          - product: am
+            current: "4.10"
+            next: "4.11"
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2  # Need parent commit for diff
+
+      - name: Get changed files
+        id: changes
+        run: |
+          # Get files changed in this push (relative to docs/{product}/{version}/)
+          PREFIX="docs/${{ matrix.product }}/${{ matrix.current }}/"
+          git diff --name-only HEAD~1 HEAD -- "$PREFIX" | sed "s|^$PREFIX||" > /tmp/changed_files.txt
+          if [ ! -s /tmp/changed_files.txt ]; then
+            echo "skip=true" >> $GITHUB_OUTPUT
+          else
+            echo "skip=false" >> $GITHUB_OUTPUT
+            echo "Changed files:"
+            cat /tmp/changed_files.txt
+          fi
+
+      - name: Check next version exists
+        if: steps.changes.outputs.skip == 'false'
+        id: check
+        run: |
+          NEXT_DIR="docs/${{ matrix.product }}/${{ matrix.next }}"
+          if [ -d "$NEXT_DIR" ]; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+            echo "⚠️ Next version directory $NEXT_DIR does not exist. Skipping sync."
+          fi
+
+      - name: Set up Python
+        if: steps.changes.outputs.skip == 'false' && steps.check.outputs.exists == 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run sync
+        if: steps.changes.outputs.skip == 'false' && steps.check.outputs.exists == 'true'
+        run: |
+          python .github/scripts/sync_versions.py \
+            . \
+            ${{ matrix.product }} \
+            ${{ matrix.current }} \
+            ${{ matrix.next }} \
+            --changed-files-from /tmp/changed_files.txt
+
+      - name: Commit and push
+        if: steps.changes.outputs.skip == 'false' && steps.check.outputs.exists == 'true'
+        run: |
+          git config user.name "version-sync-bot"
+          git config user.email "version-sync-bot@noreply.github.com"
+          NEXT_DIR="docs/${{ matrix.product }}/${{ matrix.next }}"
+          git add "$NEXT_DIR"
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "[sync] ${{ matrix.product }}: ${{ matrix.current }} → ${{ matrix.next }}
+
+            Auto-synced $(git diff --cached --stat | tail -1)"
+            git push
+          fi

@@ -2,20 +2,6 @@
 description: >-
   Gravitee 101 - Learn all the fundamentals to managing your APIs and
   message/event brokers in 30 minutes or less
-layout:
-  width: default
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
-  metadata:
-    visible: true
 ---
 
 # Quickstart Guide
@@ -34,7 +20,7 @@ Before getting started, you'll need:
 1. Basic familiarity with web APIs and/or message brokers
 2. Gravitee APIM 4.0 or later up and running
 
-To manage your own installations, check out our [APIM install guides](../install-and-upgrade-guides/README.md) for install options to run APIM locally or in your own cloud infrastructure. If you don't have a strong preference, [Quick Install with Docker Compose](../install-and-upgrade-guides/install-on-docker/quick-install-with-docker-compose.md) is the fastest self-managed installation for most users.
+To manage your own installations, check out our [APIM install guides](../install-and-upgrade-guides/) for install options to run APIM locally or in your own cloud infrastructure. If you don't have a strong preference, [Quick Install with Docker Compose](../install-and-upgrade-guides/install-on-docker/quick-install-with-docker-compose.md) is the fastest self-managed installation for most users.
 
 {% hint style="warning" %}
 An enterprise license is required for all message broker functionality.
@@ -62,4 +48,4 @@ For a new installation, the default login is `admin` for both **Username** and *
 With access to the APIM Console, you'll be ready to dive straight into the Quickstart Guide. You should complete the 101 guides in order, as they build upon each other.
 {% endhint %}
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td></td><td>Gateway APIs 101</td><td></td><td><a href="gateway-apis-101-traditional-and-message-proxies/">gateway-apis-101-traditional-and-message-proxies</a></td><td><a href="broken-reference">Broken link</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td></td><td>Gateway APIs 101</td><td></td><td><a href="gateway-apis-101-traditional-and-message-proxies/">gateway-apis-101-traditional-and-message-proxies</a></td><td></td></tr></tbody></table>

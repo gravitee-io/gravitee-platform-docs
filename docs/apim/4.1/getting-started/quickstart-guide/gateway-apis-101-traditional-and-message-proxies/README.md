@@ -5,7 +5,7 @@ description: Manage and expose your backend resources with Gravitee
 # Gateway APIs 101 - Traditional & Message Proxies
 
 {% hint style="warning" %}
-Before beginning this guide, you should already have the Gravitee API Management Console up and running. [Start here](../README.md) if you need help!
+Before beginning this guide, you should already have the Gravitee API Management Console up and running. [Start here](../) if you need help!
 {% endhint %}
 
 ## Overview
@@ -21,7 +21,7 @@ For now, we just need to focus on the Gateway and the Console UI. The Gateway ac
 
 The first Gravitee concept you need to understand is Gateway APIs. As the name suggests, Gateway APIs are APIs deployed to the Gateway and are what your API consumers will call or subscribe to in order to retrieve data, functionality, etc., from your backend services or resources. Your backend services are essentially the data source or functionality that you want to expose to your consumers through the Gateway.
 
-<img src="../../../.gitbook/assets/file.excalidraw (4) (1)-1.svg" alt="" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (11) (1).svg" alt="" class="gitbook-drawing">
 
 {% hint style="warning" %}
 In this Quickstart Guide, the terms _Gateway API_ and _API_ are often used synonymously. However, when referring to an API server used as a backend service or resource, we use the term _backend API_.
@@ -80,7 +80,7 @@ API details is the first step of the API creation wizard. Provide a name, versio
 
 ### Proxy selection: Choose your path
 
-This step is where you decide between the [traditional proxy and message proxy](README.md#traditional-and-message-proxies):
+This step is where you decide between the [traditional proxy and message proxy](./#traditional-and-message-proxies):
 
 * **Traditional proxy:** Select **Proxy Upstream Protocol** to configure the Gateway API to proxy backend API servers
 * **Message proxy**: Select **Introspect Messages From Event-Driven Backend** to configure the Gateway API to proxy event/message brokers

@@ -29,7 +29,7 @@ To enable and configure runtime logging for a v4 proxy API, complete the followi
    * **Logging mode:** Select from **Entrypoint** and **Endpoint** to customize which modes are logged.
    * **Logging phase:** Select from **Request** and **Response** to customize which phases are logged.
    * **Content data:** Select from **Headers** and **Payload** to customize which data is logged.
-   * **Display conditions:** You can filter data based on a **Request phase condition**. This field supports the use of [Gravitee Expression Language](../../gravitee-expression-language.md).
+   * **Display conditions:** You can filter data based on a **Request phase condition**. This field supports the use of [Gravitee Expression Language](../../../4.9/gravitee-expression-language.md).
    * **OpenTelemetry:** You can enable **OpenTelemetry** tracing to capture execution spans and conditions, and optionally **Verbose** tracing to capture detailed span events.
 
 ## Configure v4 message API runtime logs
@@ -58,7 +58,7 @@ To enable and configure runtime logging for a v4 message API, complete the follo
      * **Count:** When the message count reaches the specified value, that message is sampled, and then the message count resets.
      * **Temporal:** Messages are sampled based on a specified time duration value that conforms to ISO-8601 format.
      * **Windowed count:** A specified number of consecutive messages are sampled during a sliding time window, which conforms to an ISO-8601 duration. Once the message count is reached, no new messages are logged until the window closes and a new window begins.
-   * **Display conditions:** You can filter the message data based on a **Request phase condition** and a **Message condition**. Each of these fields supports the use of [Gravitee Expression Language](../../gravitee-expression-language.md).
+   * **Display conditions:** You can filter the message data based on a **Request phase condition** and a **Message condition**. Each of these fields supports the use of [Gravitee Expression Language](../../../4.9/gravitee-expression-language.md).
    * **OpenTelemetry:** You can enable **OpenTelemetry** tracing to capture execution spans and conditions, and optionally **Verbose** tracing to capture detailed span events.
 
 ## Configure v4 message API webhook logging
