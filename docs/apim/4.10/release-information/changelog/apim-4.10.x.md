@@ -1,4 +1,63 @@
 # APIM 4.10.x
+ 
+## Gravitee API Management 4.10.7 - February 27, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Failover retries leak endpoint query parameters across attempts in HTTP proxy connector [#11164](https://github.com/gravitee-io/issues/issues/11164)
+* Gateway cannot auto-recover if Elasticsearch goes down and then comes back online [#11176](https://github.com/gravitee-io/issues/issues/11176)
+* Cannot override cloud client http version [#11186](https://github.com/gravitee-io/issues/issues/11186)
+* ECS Logging format support [#11189](https://github.com/gravitee-io/issues/issues/11189)
+
+**Management API**
+
+* The mAPI is are unreachable when a connection cannot be made to Cloud [#10307](https://github.com/gravitee-io/issues/issues/10307)
+* V4 Migration: 400 Error on endpoint updates when 'System Proxy' is enabled in V2 [#11113](https://github.com/gravitee-io/issues/issues/11113)
+* Cannot override cloud client http version [#11186](https://github.com/gravitee-io/issues/issues/11186)
+
+**Console**
+
+* \[UI Bug] LDAP Resource "User search base" field auto-populates with default value on edit [#11072](https://github.com/gravitee-io/issues/issues/11072)
+
+**Portal**
+
+* Portal-Next: AsyncAPI rendering not working [#11119](https://github.com/gravitee-io/issues/issues/11119)
+* API Catalog API Visibility [#11155](https://github.com/gravitee-io/issues/issues/11155)
+
+**Other**
+
+* Promotion requests accepted from the main dashboard are not auto refreshed [#11062](https://github.com/gravitee-io/issues/issues/11062)
+* APIs that do not pass the security chain are not showed in the new v4 analytics dashboard [#11131](https://github.com/gravitee-io/issues/issues/11131)
+* Lack of resources configuration validation and sanitization for Native APIs [#11161](https://github.com/gravitee-io/issues/issues/11161)
+* \[mcp-acl] policy does not return valid JSON-RPC response in case of error [#11192](https://github.com/gravitee-io/issues/issues/11192)
+* Assign content policy doesn't supports message.topic for kafka native API [#11194](https://github.com/gravitee-io/issues/issues/11194)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Gateway**
+
+* fix performance degradation in 4.9 compared to 4.8  [#11211](https://github.com/gravitee-io/issues/issues/11211)
+* Make 401 Error Details Available in Response [#11212](https://github.com/gravitee-io/issues/issues/11212)
+
+**Console**
+
+* API Mgmt Management Console task list takes too long too load [#11049](https://github.com/gravitee-io/issues/issues/11049)
+* Debug Mode Enhancement: Increase Timeout & Implement Long-Poll UI [#11180](https://github.com/gravitee-io/issues/issues/11180)
+
+**Helm Charts**
+
+* Make 401 Error Details Available in Response [#11212](https://github.com/gravitee-io/issues/issues/11212)
+
+</details>
+
+
 
 ## Gravitee API Management 4.10.6 - February 14, 2026
 <details>
