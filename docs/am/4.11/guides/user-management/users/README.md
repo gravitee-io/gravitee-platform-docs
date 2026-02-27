@@ -62,6 +62,8 @@ curl -H "Authorization: Bearer :accessToken" \
          "referenceId":"gravitee",
          "source":"Default Identity Provider",
          "loginsCount":0,
+         "indefinitelyLocked":false,
+         "temporarilyLocked":false,
          "webAuthnRegistrationCompleted":false,
          "additionalInformation":{
 

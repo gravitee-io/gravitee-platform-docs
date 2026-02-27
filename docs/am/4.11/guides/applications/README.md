@@ -16,6 +16,13 @@ Application definitions apply at the _security domain_ level.
 4. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
 5.  Select the application type and click **Next**.
 
+    Available application types:
+    - **Web**: Browser-based applications using authorization code flow
+    - **Single-Page App**: JavaScript applications using implicit or authorization code with PKCE
+    - **Native**: Mobile or desktop applications using authorization code with PKCE
+    - **Backend-to-Backend**: Service applications using client credentials flow
+    - **Agent**: Machine-to-machine integrations (CI/CD pipelines, monitoring agents, resource management tools) restricted to secure OAuth 2.0 flows. Agents are confidential clients that cannot use implicit grants, resource owner password credentials, or refresh tokens. They support declarative configuration via agent cards.
+
     <figure><img src="https://docs.gravitee.io/images/am/current/quickstart-create-application.png" alt=""><figcaption><p>Select application type</p></figcaption></figure>
 6.  Specify the application details and click **Create**.
 

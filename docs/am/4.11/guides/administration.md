@@ -91,6 +91,7 @@ Table 1. ORGANIZATION permissions
 | ORGANIZATION\_ENTRYPOINT         | Manage organization / platform entry points (root URL for Authentication and Authorization operations) |
 | ORGANIZATION\_FORM               | Manage organization / platform HTML templates (AM Console login form)                                  |
 | ORGANIZATION\_MEMBER             | Manage organization / platform HTML memberships                                                        |
+| PROTECTED\_RESOURCE\_MEMBER      | Manage protected resource memberships (CREATE: create secrets, UPDATE: renew secrets, DELETE: delete secrets, LIST: list secrets) |
 | ENVIRONMENT                      | Manage organization / platform environments (for example, dev, qual, prod)                             |
 | DOMAIN                           | Read all security domain information                                                                   |
 | DOMAIN\_SETTINGS                 | Manage all security domain global settings                                                             |

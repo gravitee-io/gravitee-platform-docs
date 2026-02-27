@@ -122,6 +122,7 @@ The client credentials grant type is used by clients to obtain an access token o
 * The flow is typically used when the client is acting on its own behalf (the client is also the resource owner), i.e. machine-to-machine communication.
 * Client credentials grant URL: `POST https://am-gateway/{domain}/oauth/token?grant_type=client_credentials` (with basic client credentials)
 * For more information about this flow, see the [RFC](https://tools.ietf.org/html/rfc6749#section-1.3.4).
+* Agent applications cannot use the `password`, `refresh_token`, or `implicit` grant types. The token endpoint rejects requests from agent applications attempting to use these grant types with an `UnauthorizedClientException` (400 error).
 
 ### Refresh token
 
