@@ -43,7 +43,7 @@
 
 **Gateway**
 
-* fix performance degradation in 4.9 compared to 4.8  [#11211](https://github.com/gravitee-io/issues/issues/11211)
+* Fix performance degradation in 4.9 compared to 4.8  [#11211](https://github.com/gravitee-io/issues/issues/11211)
 * Make 401 Error Details Available in Response [#11212](https://github.com/gravitee-io/issues/issues/11212)
 
 **Console**
