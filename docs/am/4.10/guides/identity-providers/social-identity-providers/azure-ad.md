@@ -48,7 +48,9 @@ Ensure you have the generated Client ID and Client Secret from the Azure AD appl
 4. Give your identity provider a name.
 5. Enter the Azure Tenant ID of your application.
 6. Enter your Azure application ID and Client Secret.
-7.  Click **Create**.
+7. Specify any required OAuth access using Scopes (`openid`, `email`, and `profile` scopes are always requested by Gravitee AM and do not need to be added here explicitly).
+8. Select the OpenID response mode for your provider, or leave this as `default`. This is the method your provider uses to return authorization parameters. The `form_post` mode is particularly useful when the returned authorization parameters make the redirect URL too long for use in query parameters.
+9.  Click **Create**.
 
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-social-idp-azure-ad.png" alt=""><figcaption><p>Create Azure AD IdP</p></figcaption></figure>
 
