@@ -6,7 +6,7 @@ description: >-
 
 # AM 4.10.x
 
-#### Gravitee Access Management 4.10 - Jan 8, 2026 <a href="#gravitee-access-management-4.8" id="gravitee-access-management-4.8"></a>
+#### Gravitee Access Management 4.10 - Jan 8, 2026  <a href="#gravitee-access-management-4.8" id="gravitee-access-management-4.8"></a>
 
 <details>
 
@@ -31,7 +31,7 @@ Access Management now supports Certificate-Based Authentication (CBA) as a prima
 ### MCP Server Integration
 
 {% hint style="warning" %}
-**Tech Preview**: MCP Server support is currently in preview. Features and APIs may change in future releases. This functionality is not production-ready and you should use the feature with caution.
+**Tech Preview**: MCP Server support is currently in preview. Features and APIs may change in future releases. This functionality is not production-ready, and you should use the feature with caution.
 {% endhint %}
 
 We are taking the first steps toward making **Model Context Protocol** (MCP) a first-class citizen within Access Management. This feature introduces a new application type designed specifically for MCP Resource Servers, enabling secure, standardized communication between AI models and your data tools.
@@ -56,7 +56,7 @@ In this release, we are laying the foundation for Access Management to serve as 
 
 To improve Gateway performance and reduce log storage overhead, The record of client authentication in the audit logs has been optimized.&#x20;
 
-* **Conditional Logging:** Starting in this version, successful client authentication attempts are filtered out of the audit logs by default.
+* **Conditional Logging:** Starting in this version, successful client authentication attempts are filtered from audit logs by default.
 * **Security Focus:** Failed authentication attempts continue to be logged in full, ensuring that potential unauthorized access or configuration issues remain visible to administrators.
 * **Full Traceability (Optional):** If your compliance requirements necessitate logging every successful authentication, the previous behavior can be restored via configuration.
 
@@ -90,3 +90,4 @@ handlers:
 ```
 
 </details>
+
