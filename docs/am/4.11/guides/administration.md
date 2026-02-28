@@ -151,6 +151,9 @@ Table 2. ENVIRONMENT permissions
 | DOMAIN\_ANALYTICS               | Manage all security domain analytics                                       |
 | DOMAIN\_FACTOR                  | Manage all security domain MFA settings                                    |
 | DOMAIN\_FLOW                    | Manage all security domain Flow settings                                   |
+| PROTECTED\_RESOURCE\_SETTINGS   | Manage protected resource settings                                         |
+| PROTECTED\_RESOURCE\_OAUTH      | Manage protected resource OAuth configuration                              |
+| PROTECTED\_RESOURCE\_CERTIFICATE| Manage protected resource certificates                                     |
 | APPLICATION                     | Read all application information                                           |
 | APPLICATION\_SETTINGS           | Manage all application global settings                                     |
 | APPLICATION\_IDENTITY\_PROVIDER | Manage all application identity providers                                  |
