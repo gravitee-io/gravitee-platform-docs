@@ -11,11 +11,15 @@ metaLinks:
 
 The Redis repository plugin enables you to connect to Redis databases to use the Rate Limit feature. The Redis plugin is part of the default distribution of APIM.
 
+{% hint style="info" %}
+Redis 8.4.0 or higher is required for vector store support used by AI Semantic Caching. Vector store functionality is not available in earlier Redis versions.
+{% endhint %}
+
 ## Supported databases
 
 | Database | Version tested        |
 | -------- | --------------------- |
-| Redis    | 6.2.x / 7.0.x / 7.2.x |
+| Redis    | 6.2.x / 7.0.x / 7.2.x / 8.4.x |
 
 ## Configure the Rate Limit repository plugin
 

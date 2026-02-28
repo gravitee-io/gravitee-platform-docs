@@ -245,7 +245,25 @@ The following table shows the available configurations for the LDAP Authenticati
 
 ### AI resources
 
-The following resources support AI-powered policies and features in APIM. They provide model inference and vector storage capabilities used by policies such as AI Prompt Guardrails and PII Filtering.
+The following resources support AI-powered policies and features in APIM. They provide model inference and vector storage capabilities used by policies such as AI Prompt Guardrails, PII Filtering, and AI Semantic Caching.
+
+#### Redis Vector Store Resource
+
+The Redis Vector Store Resource provides vector storage and similarity search capabilities for AI-powered policies. It stores embedding vectors with metadata and enables semantic similarity matching using configurable distance metrics (cosine, euclidean). This resource is used by the AI Semantic Caching policy to cache LLM responses based on semantic similarity of prompts.
+
+For detailed configuration parameters and examples, see the [Redis Vector Store Resource reference](../../prepare-a-production-environment/repositories/redis.md).
+
+#### AWS S3 Vector Store Resource
+
+The AWS S3 Vector Store Resource provides vector storage and similarity search capabilities backed by AWS S3. It stores embedding vectors with metadata and enables semantic similarity matching for AI-powered policies. This resource is used by the AI Semantic Caching policy to cache LLM responses based on semantic similarity of prompts.
+
+For detailed configuration parameters and examples, see the [AWS S3 Vector Store Resource reference](#aws-s3-vector-store-resource).
+
+#### Text Embedding Model Resource
+
+The Text Embedding Model Resource generates vector embeddings from text content using AI models. It supports multiple embedding providers including ONNX BERT models (local inference), OpenAI embeddings (cloud-based), and custom HTTP endpoints. This resource is used by the AI Semantic Caching policy to convert prompts into embedding vectors for similarity matching.
+
+For detailed configuration parameters and examples, see the [Text Embedding Model Resource reference](#text-embedding-model-resource).
 
 #### AI Model Text Classification
 

@@ -16,6 +16,17 @@
 * Includes streaming detection safeguards that reject streaming requests when response filtering is enabled to prevent incomplete redaction
 <!-- /PIPELINE:APIM-12439 -->
 
+
+<!-- PIPELINE:APIM-12437 -->
+#### **AI Semantic Caching for LLM Proxy APIs**
+
+* Reduces LLM API costs and latency by reusing responses for semantically similar requests using vector embeddings instead of exact string matching.
+* Integrates with Redis or AWS S3 vector stores and supports multiple embedding model providers (ONNX BERT, OpenAI, custom HTTP endpoints).
+* Enables multi-tenant caching through metadata filtering with optional MurmurHash3 encoding for secure parameter indexing.
+* Supports automatic cache eviction with configurable time-to-live and similarity thresholds (cosine or euclidean distance metrics).
+* Requires Gravitee APIM Enterprise Edition, Redis 8.4.0+, and configured AI embedding model and vector store resources.
+<!-- /PIPELINE:APIM-12437 -->
+
 ## Improvements
 
 ## Bug Fixes
