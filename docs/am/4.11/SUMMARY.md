@@ -133,6 +133,7 @@
 * [Certificates](guides/certificates/README.md)
   * [AWS Certificate plugin](guides/certificates/aws-certificate-plugin.md)
   * [AWS CloudHSM plugin](guides/certificates/aws-cloudhsm-plugin.md)
+  * [Certificate Fallback for JWT Signing](guides/certificates/certificate-fallback-for-jwt-signing.md)
 * [User Management](guides/user-management/README.md)
   * [Users](guides/user-management/users/README.md)
     * [Password Options](guides/user-management/users/password-options.md)
