@@ -56,6 +56,20 @@ To learn more about Gravitee [Enterprise Edition](../../readme/enterprise-editio
 
 By default, reporters generate the following data, with the camelCase format shown generically. Each reporter type converts the naming convention from camelCase to the format required by that system. The metrics are different between Gravitee v2 and v4 APIs, and v4 metrics are further broken down by request-level metrics and message-level metrics. v4 APIs that use LLM-Proxy or MCP-Proxy endpoints report additional metrics specific to those API types.
 
+### Cache-Specific Metrics
+
+When AI Semantic Caching is enabled on an LLM Proxy API, the following cache-specific metrics are recorded:
+
+| Metric Name              | Type   | Purpose                                                                                           |
+| ------------------------ | ------ | ------------------------------------------------------------------------------------------------- |
+| `cache-hit`              | long   | Incremented by 1 when a cached response is returned without calling the backend                  |
+| `cache-miss`             | long   | Incremented by 1 when no matching cached response is found and the request proceeds to the backend |
+| `cache-error`            | long   | Incremented by 1 when the vector store or embedding model fails, but the request continues normally |
+| `cache-hit-score`        | double | The similarity score of the matched embedding when a cache hit occurs                            |
+| `cache-hit-tokens-saved` | long   | The number of tokens saved by returning a cached response instead of calling the LLM backend     |
+
+These metrics are stored under `additional-metrics` and use typed prefixes (`long_`, `double_`) to indicate the field type in the reporting system.
+
 ### Custom Metrics from Policies
 
 Some policies emit custom metrics that appear in the API analytics dashboard. These metrics are stored under `additional-metrics` and use typed prefixes (`keyword_`, `long_`, `double_`) to indicate the field type in the reporting system.

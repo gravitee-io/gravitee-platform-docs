@@ -7,3 +7,5 @@ create-and-configure-apis/apply-policies/policy-reference/pii-filtering.md
 create-and-configure-apis/apply-policies/resources.md
 prepare-a-production-environment/gateway-resource-sizing-guidelines.md
 release-information/release-notes/apim-4.11.md
+create-and-configure-apis/apply-policies/README.md
+create-and-configure-apis/apply-policies/policy-reference/ai-semantic-caching.md

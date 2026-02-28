@@ -324,3 +324,121 @@ Common entity labels include `PER` (person), `LOC` (location), `ORG` (organizati
 }
 ```
 {% endcode %}
+
+#### Text Embedding Model
+
+The Text Embedding Model resource converts text into vector embeddings for semantic similarity matching. It is required by the AI Semantic Caching policy to recognize semantically similar LLM prompts and serve cached responses. The resource supports three model types: ONNX BERT (local inference), OpenAI (cloud-based), and custom HTTP endpoints.
+
+**ONNX BERT Configuration**
+
+<table><thead><tr><th width="167">Config param</th><th width="384.3046875">Description</th><th>Default</th></tr></thead><tbody><tr><td>Model type</td><td>Pre-trained model selection. Supported models: <code>XENOVA_ALL_MINILM_L6_V2</code>, <code>XENOVA_BGE_SMALL_EN_V1_5</code>, <code>XENOVA_MULTILINGUAL_E5_SMALL</code></td><td>-</td></tr><tr><td>Pooling mode</td><td>Pooling strategy for embeddings</td><td>MEAN</td></tr><tr><td>Padding</td><td>Enable input padding</td><td>true</td></tr></tbody></table>
+
+**OpenAI Configuration**
+
+<table><thead><tr><th width="167">Config param</th><th width="384.3046875">Description</th><th>Default</th></tr></thead><tbody><tr><td>URI</td><td>OpenAI API endpoint</td><td>https://api.openai.com/v1</td></tr><tr><td>API key</td><td>OpenAI API key (required)</td><td>-</td></tr><tr><td>Organization ID</td><td>OpenAI organization ID</td><td>-</td></tr><tr><td>Project ID</td><td>OpenAI project ID</td><td>-</td></tr><tr><td>Model name</td><td>Model identifier (required)</td><td>text-embedding-3-small</td></tr><tr><td>Dimensions</td><td>Embedding dimensions (must be non-negative)</td><td>1536</td></tr><tr><td>Encoding format</td><td>Output format</td><td>FLOAT</td></tr></tbody></table>
+
+**HTTP Configuration**
+
+<table><thead><tr><th width="167">Config param</th><th width="384.3046875">Description</th><th>Default</th></tr></thead><tbody><tr><td>URI</td><td>Custom model endpoint (required)</td><td>-</td></tr><tr><td>Method</td><td>HTTP method (required)</td><td>POST</td></tr><tr><td>Headers</td><td>Request headers</td><td>-</td></tr><tr><td>Request body template</td><td>Request body template</td><td>-</td></tr><tr><td>Input location</td><td>JSON path for input in request</td><td>$.input</td></tr><tr><td>Output embedding location</td><td>JSON path for embedding in response (required)</td><td>$.data[0].embedding</td></tr></tbody></table>
+
+{% code title="Example (ONNX BERT)" %}
+```json
+{
+    "name": "text-embedding-model-resource",
+    "type": "ai-model-text-embedding",
+    "enabled": true,
+    "configuration": {
+        "model": {
+            "type": "ONNX_BERT",
+            "modelType": "XENOVA_ALL_MINILM_L6_V2",
+            "poolingMode": "MEAN",
+            "padding": true
+        }
+    }
+}
+```
+{% endcode %}
+
+{% code title="Example (OpenAI)" %}
+```json
+{
+    "name": "openai-embeddings",
+    "type": "ai-model-text-embedding",
+    "enabled": true,
+    "configuration": {
+        "model": {
+            "type": "OPENAI",
+            "uri": "https://api.openai.com/v1",
+            "apiKey": "sk-...",
+            "modelName": "text-embedding-3-small",
+            "dimensions": 1536,
+            "encodingFormat": "FLOAT"
+        }
+    }
+}
+```
+{% endcode %}
+
+#### Redis Vector Store
+
+The Redis Vector Store resource provides low-latency in-memory vector storage for semantic caching. It is required by the AI Semantic Caching policy to store and retrieve prompt embeddings. The resource uses Redis with vector search capability (RedisStack or Redis Enterprise) and supports configurable indexing (HNSW) and similarity metrics (COSINE).
+
+<table><thead><tr><th width="167">Config param</th><th width="384.3046875">Description</th><th>Default</th></tr></thead><tbody><tr><td>Redis URL</td><td>Redis connection URL (required)</td><td>redis://localhost:6379</td></tr><tr><td>Username</td><td>Redis username</td><td>default</td></tr><tr><td>Password</td><td>Redis password</td><td>-</td></tr><tr><td>Index</td><td>Redis index name (required)</td><td>llm-cache-idx</td></tr><tr><td>Prefix</td><td>Key prefix for vectors (required)</td><td>llm:cache:</td></tr><tr><td>Max pool size</td><td>Maximum connection pool size</td><td>6</td></tr><tr><td>Embedding size</td><td>Dimension of embedding vectors (required)</td><td>384</td></tr><tr><td>Max results</td><td>Maximum search results (required)</td><td>10</td></tr><tr><td>Similarity</td><td>Similarity metric (required)</td><td>COSINE</td></tr><tr><td>Threshold</td><td>Similarity threshold (required)</td><td>0.85</td></tr><tr><td>Index type</td><td>Index type (required)</td><td>HNSW</td></tr></tbody></table>
+
+{% code title="Example" %}
+```json
+{
+    "name": "redis-vectors",
+    "type": "ai-vector-store-redis",
+    "enabled": true,
+    "configuration": {
+        "redisConfig": {
+            "url": "redis://localhost:6379",
+            "username": "default",
+            "index": "llm-cache-idx",
+            "prefix": "llm:cache:",
+            "maxPoolSize": 6
+        },
+        "properties": {
+            "embeddingSize": 384,
+            "maxResults": 10,
+            "similarity": "COSINE",
+            "threshold": 0.85,
+            "indexType": "HNSW"
+        }
+    }
+}
+```
+{% endcode %}
+
+#### AWS S3 Vector Store
+
+The AWS S3 Vector Store resource provides scalable cloud-based vector storage for semantic caching. It is required by the AI Semantic Caching policy to store and retrieve prompt embeddings. The resource uses AWS S3 Vectors service with automatic encryption (SSE-S3 or SSE-KMS) and supports optional TTL-based eviction.
+
+<table><thead><tr><th width="167">Config param</th><th width="384.3046875">Description</th><th>Default</th></tr></thead><tbody><tr><td>Region</td><td>AWS region for S3 Vectors service (required)</td><td>us-east-1</td></tr><tr><td>Vector bucket name</td><td>S3 bucket name for vector storage (required)</td><td>-</td></tr><tr><td>Vector index name</td><td>Index name for vector queries (required)</td><td>-</td></tr><tr><td>AWS access key ID</td><td>AWS access key ID (optional if using IAM)</td><td>-</td></tr><tr><td>AWS secret access key</td><td>AWS secret access key (optional if using IAM)</td><td>-</td></tr><tr><td>Allow eviction</td><td>Enable automatic vector eviction (required)</td><td>true</td></tr><tr><td>Evict time</td><td>Time before eviction (required)</td><td>3600</td></tr><tr><td>Evict time unit</td><td>Time unit for eviction (required)</td><td>SECONDS</td></tr></tbody></table>
+
+AWS S3 Vectors authentication uses explicit credentials if `awsAccessKeyId` and `awsSecretAccessKey` are provided. Otherwise, it falls back to the default AWS credentials chain (environment variables, IAM role, etc.). Encryption is automatically configured as SSE-S3 (S3-managed keys) or SSE-KMS (KMS-managed keys) based on bucket settings.
+
+{% code title="Example" %}
+```json
+{
+    "name": "aws-s3-vectors",
+    "type": "ai-vector-store-aws-s3",
+    "enabled": true,
+    "configuration": {
+        "awsS3VectorsConfiguration": {
+            "region": "us-east-1",
+            "vectorBucketName": "gravitee-llm-cache",
+            "vectorIndexName": "llm-cache-index",
+            "awsAccessKeyId": "AKIA...",
+            "awsSecretAccessKey": "..."
+        },
+        "properties": {
+            "allowEviction": true,
+            "evictTime": 3600,
+            "evictTimeUnit": "SECONDS"
+        }
+    }
+}
+```
+{% endcode %}

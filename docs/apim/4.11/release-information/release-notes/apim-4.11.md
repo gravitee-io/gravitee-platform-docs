@@ -16,6 +16,17 @@
 * Includes streaming detection safeguards that reject streaming requests when response filtering is enabled to prevent incomplete redaction
 <!-- /PIPELINE:APIM-12439 -->
 
+
+<!-- PIPELINE:APIM-12437 -->
+#### **AI Semantic Caching for LLM Proxy APIs**
+
+* Reduces LLM API costs and latency by caching semantically similar requests using vector embeddings, enabling intelligent cache hits even when prompt text differs slightly
+* Supports multiple text embedding models (ONNX BERT, OpenAI, custom HTTP endpoints) and vector storage backends (Redis with HNSW indexing, AWS S3 with automatic encryption)
+* Allows cache scoping using metadata parameters extracted via EL expressions for isolation per API, user, or custom dimension
+* Requires Enterprise Edition license, Hazelcast cache/cluster plugins 8.0.0-alpha.3 or later, and configured text embedding and vector store resources
+* Configurable similarity thresholds and distance metrics (e.g., COSINE) determine cache hit behavior
+<!-- /PIPELINE:APIM-12437 -->
+
 ## Improvements
 
 ## Bug Fixes
