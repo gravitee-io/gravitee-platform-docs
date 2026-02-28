@@ -195,3 +195,113 @@ api:
           delay: 10
           timeUnit: MINUTES
 ```
+
+### Overview
+
+The certificate fallback feature provides a configurable safety mechanism for JWT signing operations in Gravitee Access Management. When a client's primary certificate fails to load or sign a JWT, the system can automatically attempt a domain-level fallback certificate before resorting to the default HMAC certificate or failing completely. This improves service resilience while maintaining security controls for API authentication workflows.
+
+### Certificate selection hierarchy
+
+When signing JWTs or resolving client certificates, the system follows a three-tier hierarchy:
+
+| Priority | Certificate Source | Condition |
+|:---------|:-------------------|:----------|
+| 1 | Client-specific certificate | `client.getCertificate()` is set and successfully loaded |
+| 2 | Fallback certificate | Configured in `certificateSettings.fallbackCertificate` |
+| 3 | Default HMAC certificate | Only if `fallbackToHmacSignature == true` |
+
+If all three options fail or are unavailable, the system throws a `TemporarilyUnavailableException`.
+
+### Fallback scope
+
+Fallback certificates are configured at the domain level and apply to all clients within that domain. Master domains can access certificates from any domain for cross-domain introspection. Regular domains can only use certificates belonging to their own domain ID.
+
+### Mutual exclusion
+
+If the fallback certificate ID matches the primary certificate ID, the fallback step is skipped to prevent infinite loops.
+
+### Prerequisites
+
+- Access Management gateway version
+- User account with `DOMAIN_SETTINGS[UPDATE]` permission on the target domain, environment, or organization
+- At least one valid certificate uploaded to the domain to serve as the fallback
+-
+
+### Configure the fallback certificate
+
+Configure the fallback certificate using the Management API:
+
+```http
+PUT /organizations/{organizationId}/environments/{environmentId}/domains/{domain}/certificate-settings
+```
+
+**Request body:**
+
+```json
+{
+  "fallbackCertificate": "cert-abc-123"
+}
+```
+
+| Property | Description | Example |
+|:---------|:------------|:--------|
+| `certificateSettings.fallbackCertificate` | ID of the certificate to use when primary certificate fails | `"cert-abc-123"` |
+
+The endpoint updates only certificate settings without triggering a full domain reload. Changes propagate to gateway nodes via the `DOMAIN_CERTIFICATE_SETTINGS` event.
+
+### Enable fallback behavior
+
+To enable fallback behavior, send a PUT request to the certificate settings endpoint with the ID of an existing certificate. The certificate must belong to the current domain or be accessible if the domain is a master domain. Once configured, the gateway will automatically attempt the fallback certificate whenever a client's primary certificate fails to load or sign a JWT. No gateway restart is required—settings updates propagate via the event system.
+
+### JWT signing with fallback
+
+When encoding a JWT, the system first attempts to sign using the primary certificate provider. On error, it queries the certificate manager for a fallback provider, filters out cases where the fallback ID matches the primary ID, and logs a warning: `"Failed to sign JWT with certificate: {primary}, attempting fallback using: {fallback}"`. If the fallback certificate also fails or is unavailable, the original error is returned. This logic is implemented in `JWTServiceImpl.encodeJwtWithFallback()`.
+
+### Client certificate resolution
+
+When resolving a client certificate:
+
+1. If `client.getCertificate()` is `null`, return the default certificate immediately.
+2. Attempt to load the client certificate by ID.
+3. On failure:
+   - Try the fallback certificate.
+   - Log warning: `"Certificate: {clientCertId} not loaded, using: {fallbackId} as fallback"`.
+4. If the fallback is unavailable:
+   - If `fallbackToHmacSignature == true`, use the default certificate.
+   - Log warning: `"Certificate: {clientCertId} not loaded, using default certificate as fallback"`.
+   - Otherwise, throw `TemporarilyUnavailableException`.
+
+## Overview
+
+The certificate fallback feature provides a configurable safety mechanism for JWT signing operations in Gravitee Access Management. When a client's primary certificate fails to load or sign a JWT, the system can automatically attempt a domain-level fallback certificate before resorting to the default HMAC certificate or failing completely. This improves service resilience while maintaining security controls for API authentication workflows.
+
+### Event-driven settings updates
+
+Certificate settings updates trigger a `DOMAIN_CERTIFICATE_SETTINGS` event with action `UPDATE`. Gateway nodes listen for this event and reload certificate settings from the repository without restarting the domain. Event listeners are registered in `CertificateManagerImpl.doStart()` and unregistered in `CertificateManagerImpl.doStop()`.
+
+### Certificate visibility rules
+
+Master domains can access all certificates in the system for cross-domain introspection. Regular domains can only access certificates where `certificate.domain.getId()` matches their own domain ID. This is enforced in `CertificateManagerImpl.belongsToCurrentDomain()`.
+
+### Configuring a fallback certificate
+
+To enable fallback behavior, send a PUT request to the certificate settings endpoint with the ID of an existing certificate. The certificate must belong to the current domain (or be accessible if the domain is a master domain). Once configured, the gateway automatically attempts the fallback certificate whenever a client's primary certificate fails to load or sign a JWT. No gateway restart is required—settings updates propagate via the event system.
+
+### JWT signing with fallback
+
+See [JWT signing with fallback](#jwt-signing-with-fallback) above for details.
+### Client certificate resolution
+
+See [Client certificate resolution](#client-certificate-resolution) above for details.
+### Restrictions
+
+- Fallback certificate must belong to the current domain (unless the domain is a master domain)
+- If fallback certificate ID equals the primary certificate ID, fallback is skipped
+- Fallback certificate must be successfully loaded; if it fails, the system proceeds to the default HMAC certificate (if enabled) or throws an error
+- Requires `DOMAIN_SETTINGS[UPDATE]` permission to configure fallback settings
+-
+-
+
+### Related changes
+
+The Management API OpenAPI schema now includes `CertificateSettings` with a `fallbackCertificate` property and a new PUT endpoint for updating certificate settings. Three new permission types were added: `PROTECTED_RESOURCE_SETTINGS`, `PROTECTED_RESOURCE_OAUTH`, and `PROTECTED_RESOURCE_CERTIFICATE`. The UI certificate selection dialog was updated to include system certificates (previously filtered out). All fallback scenarios now emit warning-level logs with certificate IDs for troubleshooting.
