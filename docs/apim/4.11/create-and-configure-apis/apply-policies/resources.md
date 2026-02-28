@@ -7,6 +7,7 @@ metaLinks:
 
 # Resources
 
+<final_file>
 ## Overview
 
 The following sections summarize resource descriptions, configuration parameters, and configuration examples.
@@ -324,3 +325,111 @@ Common entity labels include `PER` (person), `LOC` (location), `ORG` (organizati
 }
 ```
 {% endcode %}
+
+#### Text Embedding Model
+
+The Text Embedding Model resource generates vector embeddings for semantic caching. It converts text prompts into numerical representations that enable similarity-based cache matching. The resource supports three embedding providers: ONNX (local inference), OpenAI (cloud API), and custom HTTP endpoints.
+
+This resource is consumed by the AI Semantic Caching Policy to generate embeddings for incoming requests and query the vector store for cached responses.
+
+**ONNX Provider**
+
+The ONNX provider runs embedding models locally on the Gateway using the ONNX Runtime. Supported models include Xenova variants of `all-MiniLM-L6-v2`, `bge-small-en-v1.5`, and `multilingual-e5-small`.
+
+| Property | Description | Example |
+|:---------|:------------|:--------|
+| `model.type` | Pre-trained ONNX model identifier | `XENOVA_ALL_MINILM_L6_V2`, `XENOVA_BGE_SMALL_EN_V1_5`, `XENOVA_MULTILINGUAL_E5_SMALL` |
+| `poolingMode` | Pooling strategy for token embeddings | `MEAN` |
+| `padding` | Whether to pad input sequences | `true` |
+
+{% code title="ONNX example" %}
+```json
+{
+    "name": "text-embedding-onnx",
+    "type": "ai-model-text-embedding",
+    "enabled": true,
+    "configuration": {
+        "model": {
+            "type": "XENOVA_ALL_MINILM_L6_V2"
+        },
+        "poolingMode": "MEAN",
+        "padding": true
+    }
+}
+```
+{% endcode %}
+
+**OpenAI Provider**
+
+The OpenAI provider calls the OpenAI Embeddings API to generate embeddings using cloud-hosted models.
+
+| Property | Description | Example |
+|:---------|:------------|:--------|
+| `uri` | OpenAI API endpoint | `https://api.openai.com/v1/embeddings` |
+| `apiKey` | API authentication key | `sk-...` |
+| `organizationId` | Optional organization ID | `org-...` |
+| `projectId` | Optional project ID | `proj_...` |
+| `modelName` | Model identifier | `text-embedding-3-small` |
+| `dimensions` | Optional embedding dimensions (non-negative) | `1536` |
+| `encodingFormat` | Output format | `FLOAT`, `BASE64` |
+
+{% code title="OpenAI example" %}
+```json
+{
+    "name": "text-embedding-openai",
+    "type": "ai-model-text-embedding",
+    "enabled": true,
+    "configuration": {
+        "uri": "https://api.openai.com/v1/embeddings",
+        "apiKey": "sk-...",
+        "modelName": "text-embedding-3-small",
+        "dimensions": 1536,
+        "encodingFormat": "FLOAT"
+    }
+}
+```
+{% endcode %}
+
+**HTTP Provider**
+
+The HTTP provider sends requests to a custom embedding endpoint. The request body template and JSONPath expressions define how input text is sent and how embeddings are extracted from the response.
+
+| Property | Description | Example |
+|:---------|:------------|:--------|
+| `uri` | HTTP endpoint URL | `https://embeddings.example.com/v1/embed` |
+| `method` | HTTP method | `POST` |
+| `headers` | List of HTTP headers | `[{"name": "Authorization", "value": "Bearer ..."}]` |
+| `requestBodyTemplate` | Template for request body | `{"input": "{input}"}` |
+| `inputLocation` | JSONPath to input field in request | `$.input` |
+| `outputEmbeddingLocation` | JSONPath to embedding array in response | `$.data[0].embedding` |
+
+{% code title="HTTP example" %}
+```json
+{
+    "name": "text-embedding-http",
+    "type": "ai-model-text-embedding",
+    "enabled": true,
+    "configuration": {
+        "uri": "https://embeddings.example.com/v1/embed",
+        "method": "POST",
+        "headers": [
+            {
+                "name": "Authorization",
+                "value": "Bearer custom-token"
+            }
+        ],
+        "requestBodyTemplate": "{\"input\": \"{input}\"}",
+        "inputLocation": "$.input",
+        "outputEmbeddingLocation": "$.data[0].embedding"
+    }
+}
+```
+{% endcode %}
+
+#### Vector Store
+
+The Vector Store resource stores and queries vector embeddings with metadata for semantic caching. It supports two backend implementations: Redis with vector search support and AWS S3 with vector indexing. The resource is consumed by the AI Semantic Caching Policy to enable similarity-based cache lookups.
+
+**Vector Store Resource (Redis)**
+
+The Redis variant uses Redis Stack's vector search capabilities with HNSW (Hierarchical Navigable Small World) indexing. It requires

@@ -56,6 +56,19 @@ To learn more about Gravitee [Enterprise Edition](../../readme/enterprise-editio
 
 By default, reporters generate the following data, with the camelCase format shown generically. Each reporter type converts the naming convention from camelCase to the format required by that system. The metrics are different between Gravitee v2 and v4 APIs, and v4 metrics are further broken down by request-level metrics and message-level metrics. v4 APIs that use LLM-Proxy or MCP-Proxy endpoints report additional metrics specific to those API types.
 
+### AI Semantic Caching Policy Metrics
+
+The AI Semantic Caching policy emits the following custom metrics when caching is enabled:
+
+| Metric Name | Type | Purpose |
+|:------------|:-----|:--------|
+| `long_ai-semantic-caching_cache-hits` | long | Total count of cache hits where a semantically similar request was found |
+| `long_ai-semantic-caching_cache-misses` | long | Total count of cache misses where no similar request was found |
+| `long_ai-semantic-caching_errors` | long | Total count of errors during cache operations |
+| `long_ai-semantic-caching_token-savings` | long | Total tokens saved by returning cached responses (when token count metadata is available) |
+
+These metrics are incremented for each request processed by the policy and are visible in the API analytics dashboard alongside standard request metrics.
+
 ### Custom Metrics from Policies
 
 Some policies emit custom metrics that appear in the API analytics dashboard. These metrics are stored under `additional-metrics` and use typed prefixes (`keyword_`, `long_`, `double_`) to indicate the field type in the reporting system.

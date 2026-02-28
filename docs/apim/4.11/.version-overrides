@@ -7,3 +7,8 @@ create-and-configure-apis/apply-policies/policy-reference/pii-filtering.md
 create-and-configure-apis/apply-policies/resources.md
 prepare-a-production-environment/gateway-resource-sizing-guidelines.md
 release-information/release-notes/apim-4.11.md
+agent-mesh/llm-proxy/proxy-your-llms.md
+create-and-configure-apis/apply-policies/policy-reference/ai-semantic-caching.md
+hybrid-installation-and-configuration-guides/classic-cloud/kubernetes/gcp-gke.md
+prepare-a-production-environment/repositories/README.md
+readme/enterprise-edition.md
