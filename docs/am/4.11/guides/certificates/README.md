@@ -2,11 +2,11 @@
 
 ## Overview
 
-Cryptographic algorithms such as KeyStore (private/public key) are used to sign using JSON-based data structures (JWT) tokens. Certificates are used as part of the OAuth 2.0 and OpenID Connect protocol to sign access, create and renew ID tokens and ensure the integrity of a token’s payload.
+Cryptographic algorithms such as KeyStore (private/public key) are used to sign using JSON-based data structures (JWT) tokens. Certificates are used as part of the OAuth 2.0 and OpenID Connect protocol to sign access, create and renew ID tokens and ensure the integrity of a token's payload.
 
 Certificate definitions apply at the _security domain_ level.
 
-By default AM is able to load certificate using JKS or PKCS12 format you can upload ugin the console or the REST API. An Enterprise prise plugin also exist to load PCKS12 certificate from [AWS Secret Manager](aws-certificate-plugin.md).
+By default AM is able to load certificate using JKS or PKCS12 format you can upload using the console or the REST API. An Enterprise plugin also exists to load PKCS12 certificate from [AWS Secret Manager](aws-certificate-plugin.md).
 
 ## Create certificates
 
@@ -61,7 +61,7 @@ curl -H "Authorization: Bearer :accessToken" \
 
 ### Public keys
 
-You can use public keys to verify a token payload’s integrity. To obtain the public key for your certificate:
+You can use public keys to verify a token payload's integrity. To obtain the public key for your certificate:
 
 1. In AM Console, click **Settings > Certificates**.
 2.  Next to your certificate, click the key icon.
@@ -195,3 +195,150 @@ api:
           delay: 10
           timeUnit: MINUTES
 ```
+
+## Certificate fallback
+
+The certificate fallback feature provides a domain-level safety mechanism for JWT signing operations. When a client's primary certificate fails or is unavailable, the system automatically falls back to a configured domain certificate. This improves service resilience without requiring manual intervention.
+
+### Certificate resolution hierarchy
+
+When signing a JWT, the system attempts certificate resolution in the following order:
+
+1. Client-specific certificate
+2. Domain fallback certificate (if configured)
+3. Default HMAC certificate (if `fallbackToHmacSignature` is enabled)
+4. Error (`TemporarilyUnavailableException`)
+
+Each fallback attempt is logged at WARN level with certificate IDs for operational visibility.
+
+### Domain certificate settings
+
+Certificate settings are managed independently from other domain configuration. Updates use a dedicated event type (`DOMAIN_CERTIFICATE_SETTINGS`) and apply immediately without triggering a full domain reload. Settings are stored in an `AtomicReference` for thread-safe concurrent access.
+
+### Cross-domain certificate access
+
+Master domains can access certificates from any domain in the organization, enabling cross-domain introspection and centralized certificate management. Regular domains can only access certificates belonging to that domain.
+
+### Thread-safe state management
+
+The certificate settings object is wrapped in an `AtomicReference` to ensure thread-safe reads and updates during concurrent JWT signing operations. This prevents race conditions when fallback certificates are updated while active signing requests are in flight.
+
+{% hint style="info" %}
+Thread safety is critical in high-concurrency environments where multiple JWT signing operations may occur simultaneously.
+{% endhint %}
+
+### Configure certificate fallback
+
+Use the Management API to enable, update, or disable certificate fallback for a domain. Changes apply immediately without requiring a domain restart.
+
+#### Prerequisites
+
+Before configuring certificate fallback, ensure you have:
+
+- An active Access Management domain
+- At least one certificate configured in the domain (or accessible from a master domain)
+- `DOMAIN_SETTINGS[UPDATE]` permission on the target domain, environment, or organization
+
+#### API endpoint
+
+```
+PUT /organizations/{organizationId}/environments/{environmentId}/domains/{domain}/certificate-settings
+```
+
+#### Request body schema
+
+| Property | Type | Description |
+|:---------|:-----|:------------|
+| `fallbackCertificate` | String | Certificate ID to use when primary certificate fails or is unavailable. Set to `null` or empty string to disable fallback. |
+
+#### Enable certificate fallback
+
+To enable fallback, send a PUT request with the fallback certificate ID:
+
+```json
+{
+  "fallbackCertificate": "cert-abc123"
+}
+```
+
+**Example:**
+
+```sh
+curl -H "Authorization: Bearer :accessToken" \
+     -H "Content-Type: application/json" \
+     -X PUT \
+     -d '{"fallbackCertificate": "cert-backup-001"}' \
+     http://GRAVITEEIO-AM-MGT-API-HOST/management/organizations/org1/environments/prod/domains/api-domain/certificate-settings
+```
+
+The certificate must exist in the domain. Master domains can use certificates from any domain in the organization.
+
+#### Disable certificate fallback
+
+To disable fallback, set `fallbackCertificate` to `null` or an empty string:
+
+```json
+{
+  "fallbackCertificate": null
+}
+```
+
+or
+
+```json
+{
+  "fallbackCertificate": ""
+}
+```
+
+#### Behavior notes
+
+- Changes take effect immediately without restarting the domain
+- The fallback certificate must belong to the same domain unless the domain is a master domain
+- Certificate settings updates emit `DOMAIN_CERTIFICATE_SETTINGS` events for monitoring
+- System certificates are now visible in the UI certificate selector and can be selected as fallback certificates
+
+### JWT signing with fallback
+
+When signing a JWT, the system follows this flow:
+
+1. Attempt to sign JWT with the primary certificate provider.
+2. On error:
+   - Retrieve the fallback certificate from `CertificateManager.fallbackCertificateProvider()`.
+   - Filter out the fallback if it matches the failed certificate (prevents infinite loop).
+   - Log warning: `"Failed to sign JWT with certificate: {originalId}, attempting fallback using: {fallbackId}"`.
+   - Attempt signing with the fallback certificate.
+3. If the fallback also fails, return the original error.
+
+### Fallback loop prevention
+
+When a primary certificate fails, the fallback mechanism filters out the fallback certificate if it matches the failed certificate ID. This prevents infinite retry loops when the fallback certificate itself is unavailable.
+
+{% hint style="info" %}
+The system automatically excludes a fallback certificate from the retry sequence if its ID matches the ID of the certificate that triggered the fallback. This ensures that unavailable certificates do not cause repeated failures.
+{% endhint %}
+
+### Certificate loading warnings
+
+The system logs warnings when fallback certificates are used:
+
+| Scenario | Log Level | Message Template |
+|:---------|:----------|:-----------------|
+| Primary certificate missing, using fallback | WARN | `"Certificate: {clientCertId} not loaded, using: {fallbackCertId} as fallback"` |
+| Primary and fallback missing, using default | WARN | `"Certificate: {clientCertId} not loaded, using default certificate as fallback"` |
+
+### Event-driven settings updates
+
+Certificate settings changes propagate through the system using a dedicated `DOMAIN_CERTIFICATE_SETTINGS` event type. This decouples certificate configuration from full domain lifecycle events, reducing reload overhead and improving update latency.
+
+{% hint style="info" %}
+The `DOMAIN_CERTIFICATE_SETTINGS` event type ensures certificate configuration changes are processed independently of broader domain updates, minimizing system impact during certificate management operations.
+{% endhint %}
+
+### Restrictions
+
+- The fallback certificate must belong to the same domain unless the domain is a master domain.
+- System certificates are now visible and selectable in the fallback certificate dropdown.
+- All certificate resolution attempts that fail throw a `TemporarilyUnavailableException`.
+- Certificate settings updates propagate through the system using the `DOMAIN_CERTIFICATE_SETTINGS` event type.
+

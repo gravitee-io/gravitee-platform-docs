@@ -37,14 +37,14 @@ When you log in AM, you are redirected to the portal with at least one `ORGANIZA
 
 As an owner of a security domain or an application you want to manage your members by giving them roles that make sense only when associated with a `DOMAIN` / `APPLICATION`.
 
-For example, you don’t want to allow a simple user or the person in charge of your application settings to be able to manage the whole platform.
+For example, you don't want to allow a simple user or the person in charge of your application settings to be able to manage the whole platform.
 
 In order to limit the scope of the roles, scopes are bound to what we call an `assignable type`:
 
-* `ORGANIZATION` — role for the whole platform
-* `ENVIRONMENT` — role for an environment
-* `DOMAIN` — role for a security domain
-* `APPLICATION` — role for an application
+* `ORGANIZATION` — role for the whole platform
+* `ENVIRONMENT` — role for an environment
+* `DOMAIN` — role for a security domain
+* `APPLICATION` — role for an application
 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-adminguide-roles-permissions.png" alt=""><figcaption><p>Roles</p></figcaption></figure>
 
@@ -74,6 +74,26 @@ The following tables list the permissions by assignable type.
 {% hint style="info" %}
 All the permissions required to use AM API are described in the [AM V3 OpenAPI descriptor.](../reference/am-api-reference.md)
 {% endhint %}
+
+#### Permission model changes in AM 4.11
+
+AM 4.11 introduces three new granular permission types for protected resources:
+
+* `PROTECTED_RESOURCE_SETTINGS`
+* `PROTECTED_RESOURCE_OAUTH`
+* `PROTECTED_RESOURCE_CERTIFICATE`
+
+Existing protected resource endpoints now require more specific permissions. For example, listing protected resource member permissions now requires `PROTECTED_RESOURCE_MEMBER[READ]` instead of the broader `PROTECTED_RESOURCE[READ]` permission.
+
+The following table shows the updated permission requirements:
+
+| Endpoint | Previous Permission | New Permission |
+|:---------|:-------------------|:---------------|
+| List protected resource member permissions | `PROTECTED_RESOURCE[READ]` | `PROTECTED_RESOURCE_MEMBER[READ]` |
+| List secrets of protected resource | `PROTECTED_RESOURCE[LIST]` | `PROTECTED_RESOURCE_OAUTH[LIST]` |
+| Create secret for protected resource | `PROTECTED_RESOURCE[CREATE]` | `PROTECTED_RESOURCE_OAUTH[CREATE]` |
+| Remove secret for protected resource | `PROTECTED_RESOURCE[DELETE]` | `PROTECTED_RESOURCE_OAUTH[DELETE]` |
+| Renew secret for protected resource | `PROTECTED_RESOURCE[UPDATE]` | `PROTECTED_RESOURCE_OAUTH[UPDATE]` |
 
 Table 1. ORGANIZATION permissions
 
@@ -226,7 +246,7 @@ To manage roles and permissions:
 
 ### Create the `REVIEWER_APPLICATION` role
 
-Let’s imagine we want to create a reviewer role, which allows a user to check if your application configuration is valid.
+Let's imagine we want to create a reviewer role, which allows a user to check if your application configuration is valid.
 
 1. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png) and enter the following values:
    * Assignable type : `APPLICATION`
@@ -256,7 +276,7 @@ When users log in to AM Console, they are listed in the **Users** section of the
 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-adminguide-users.png" alt=""><figcaption><p>User overview</p></figcaption></figure>
 
-If you select a user, you have access to detailed account information and will be able to manage the user’s permissions and groups via with the **Administrative roles** and **Groups** sections.
+If you select a user, you have access to detailed account information and will be able to manage the user's permissions and groups via with the **Administrative roles** and **Groups** sections.
 
 ## Groups
 
@@ -294,3 +314,45 @@ Now the members of the group section will have access to the Application with th
 {% hint style="info" %}
 Direct user member permissions and group permissions are merged they apply to the same user.
 {% endhint %}
+
+## Certificate settings
+
+### Certificate selector updates
+
+The UI certificate selector now displays system certificates, allowing them to be selected as fallback certificates. Previously, system certificates were filtered out and unavailable for selection.
+
+Certificate settings updates emit `DOMAIN_CERTIFICATE_SETTINGS` events for monitoring and audit purposes. This dedicated event type allows tracking certificate configuration changes without triggering full domain lifecycle events.
+
+### Thread-safe state management
+
+The certificate settings object is wrapped in an `AtomicReference` to ensure thread-safe reads and updates during concurrent JWT signing operations. This prevents race conditions when fallback certificates are updated while active signing requests are in flight.
+
+{% hint style="info" %}
+Thread safety is critical in high-concurrency environments where multiple JWT signing operations may occur simultaneously while certificate configurations are being updated.
+{% endhint %}
+
+### Fallback loop prevention
+
+When a primary certificate fails, the fallback mechanism filters out the fallback certificate if it matches the failed certificate ID. This prevents infinite retry loops when the fallback certificate itself is unavailable.
+
+{% hint style="info" %}
+The system automatically excludes a fallback certificate from the retry sequence if its ID matches the ID of the certificate that triggered the fallback. This ensures that certificate resolution does not enter an infinite loop.
+{% endhint %}
+
+### Restrictions
+
+The fallback certificate feature has the following restrictions and behaviors:
+
+* **Domain matching**: The fallback certificate must belong to the same domain as the primary certificate, unless the domain is configured as a master domain.
+
+* **System certificate visibility**: System certificates are now visible in the UI certificate selector. Previously, these certificates were hidden from the selection interface.
+
+* **Permission requirements**: Modifying fallback certificate settings requires the `DOMAIN_SETTINGS[UPDATE]` permission.
+
+* **Fallback logging**: When a fallback certificate is used, the system logs a WARN-level event with the following format:
+  ```
+  Certificate: {clientCertId} not loaded, using: {fallbackCertId} as fallback
+  ```
+
+* **Failure handling**: If all fallback attempts fail, the system throws a `TemporarilyUnavailableException`.
+

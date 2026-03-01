@@ -71,3 +71,9 @@ When you visit the AM login page, the **Sign in with Certificate using mTLS** op
 
 * AM checks only certificate's **subjectDN**, **issuerDN** and **serialNumber**.
 * AM verifies the expiration date of presented certificate during the mTLS connection process.&#x20;
+
+## Enterprise Features
+
+The following features are available in the Enterprise Edition only:
+
+* **Certificate Fallback for Domains** — Provides a domain-level safety mechanism for JWT signing operations. When a client's primary certificate fails or is unavailable, the system automatically falls back to a configured domain certificate.
