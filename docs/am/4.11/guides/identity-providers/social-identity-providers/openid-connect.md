@@ -31,10 +31,11 @@ Ensure you have the generated Client ID and Client Secret from the provider appl
 
 1. Give your identity provider a name.
 2. Enter the clientID and clientSecret of your application.
-3. Select the authentication method you want to use as defined in you provider application. To be able to use tls\_client\_auth, you have to provide the [certificates](../../certificates/#certificate-for-mutual-tls-authentication) to Access Management and select this certificate into the dropdown list
-4. Specify the provider endpoints to connect with. If the provider expose a discovery endpoint, you just have to specify the WellKnown endpoint, otherwise you will have to provide all the endpoints manually By default the profile is read using the user info endpoint but you can use the id\_token by enabling the option, if you do so you will have to specify the Public Key Resolver method.
-5. provide the scopes to get information you need. To be able to get user information, you should at least provide the scope `openid`
-6. Click **Create**.
+3. Select the authentication method you want to use as defined in you provider application. To be able to use `tls_client_auth`, you have to provide the [certificates](../../certificates/#certificate-for-mutual-tls-authentication) to Access Management and select this certificate into the dropdown list.
+4. Specify the provider endpoints to connect with. If the provider expose a discovery endpoint, you just have to specify the WellKnown endpoint, otherwise you will have to provide all the endpoints manually By default the profile is read using the user info endpoint but you can use the `id_token` by enabling the option, if you do so you will have to specify the Public Key Resolver method.
+5. Provide the scopes to get information you need. To be able to get user information, you should at least provide the scope `openid` .
+6. Select the OpenID response mode for your provider, or leave this as `default`. This is the method your provider uses to return authorization parameters. The `form_post` mode is particularly useful when the returned authorization parameters make the redirect URL too long for use in query parameters.
+7. Click **Create**.
 
 {% hint style="info" %}
 HTTP client settings apply whether or not HTTP/2 is enabled, but they may affect different request characteristics. In particular, the `HTTP Client max pool size` setting limits the number of concurrent connections, but allows a higher number of concurrent requests with multiplexed HTTP/2 connections. See also [Configure HTTP clients](../../../getting-started/configuration/configure-am-gateway/#configure-http-clients).
