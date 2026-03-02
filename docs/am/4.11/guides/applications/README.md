@@ -16,6 +16,13 @@ Application definitions apply at the _security domain_ level.
 4. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
 5.  Select the application type and click **Next**.
 
+    Available application types:
+    - **Web Application**: Traditional server-side web applications using authorization code flow
+    - **Single-Page Application**: Browser-based applications using implicit or authorization code with PKCE
+    - **Native Application**: Mobile or desktop applications using authorization code with PKCE
+    - **Backend to Backend**: Service applications using client credentials flow
+    - **Agentic Application**: AI assistants and autonomous agents with restricted OAuth grant types and AgentCard metadata support. See [Agent Application Type Guide](agent-application-type.md) for details.
+
     <figure><img src="https://docs.gravitee.io/images/am/current/quickstart-create-application.png" alt=""><figcaption><p>Select application type</p></figcaption></figure>
 6.  Specify the application details and click **Create**.
 

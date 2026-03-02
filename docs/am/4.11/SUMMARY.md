@@ -97,6 +97,7 @@
   * [OpenFGA](guides/authorization-engines/openfga.md)
   * [AuthZen](guides/authorization-engines/authzen.md)
 * [Applications](guides/applications/README.md)
+* [Agent Application Type Guide](guides/applications/agent-application-type.md)
   * [Client Secrets](guides/applications/client-secrets.md)
 * [Branding](guides/branding/README.md)
   * [CSS Custom Variables Reference](guides/branding/css-custom-variables-reference.md)
