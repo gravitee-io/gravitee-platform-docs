@@ -2,11 +2,11 @@
 
 ## Overview
 
-Cryptographic algorithms such as KeyStore (private/public key) are used to sign using JSON-based data structures (JWT) tokens. Certificates are used as part of the OAuth 2.0 and OpenID Connect protocol to sign access, create and renew ID tokens and ensure the integrity of a token’s payload.
+Cryptographic algorithms such as KeyStore (private/public key) are used to sign using JSON-based data structures (JWT) tokens. Certificates are used as part of the OAuth 2.0 and OpenID Connect protocol to sign access, create and renew ID tokens and ensure the integrity of a token's payload.
 
 Certificate definitions apply at the _security domain_ level.
 
-By default AM is able to load certificate using JKS or PKCS12 format you can upload ugin the console or the REST API. An Enterprise prise plugin also exist to load PCKS12 certificate from [AWS Secret Manager](aws-certificate-plugin.md).
+By default AM is able to load certificate using JKS or PKCS12 format you can upload using the console or the REST API. An Enterprise plugin also exists to load PKCS12 certificate from [AWS Secret Manager](aws-certificate-plugin.md).
 
 ## Create certificates
 
@@ -39,7 +39,7 @@ Default keys are RS256 (SHA256withRSA). For RS512 keys, add the following option
 3. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
 4. Choose the certificate type and click **Next**.
 5. Give your certificate a name, then enter the details of the keystore file.
-6.  Click **Create**.
+6. Click **Create**.
 
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-create-certificate.png" alt=""><figcaption><p>Create new certificate</p></figcaption></figure>
 
@@ -61,13 +61,14 @@ curl -H "Authorization: Bearer :accessToken" \
 
 ### Public keys
 
-You can use public keys to verify a token payload’s integrity. To obtain the public key for your certificate:
+You can use public keys to verify a token payload's integrity. To obtain the public key for your certificate:
 
 1. In AM Console, click **Settings > Certificates**.
-2.  Next to your certificate, click the key icon.
+2. Next to your certificate, click the key icon.
 
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-quickstart-profile-public-key.png" alt=""><figcaption><p>Certificates list</p></figcaption></figure>
-3.  You can copy/paste the public key to use with third-party libraries to verify your tokens.
+
+3. You can copy/paste the public key to use with third-party libraries to verify your tokens.
 
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-public-key.png" alt=""><figcaption><p>Certificate public key</p></figcaption></figure>
 
@@ -83,9 +84,9 @@ Gravitee API Management (APIM) comes with a JWT Policy to verify and decode toke
 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-certificate-app.png" alt=""><figcaption><p>Apply certificate to application</p></figcaption></figure>
 
-### Certificate for Mutual TLS authentication <a href="#certificate-for-mutual-tls-authentication" id="certificate-for-mutual-tls-authentication"></a>
+### Certificate for Mutual TLS authentication
 
-To mark a certificate as usable for mTLS, you just have to check the "mTLS" usage in the configuration form of your certificate.
+To mark a certificate as usable for mTLS, check the "mTLS" usage in the configuration form of your certificate.
 
 {% hint style="info" %}
 System certificates can't be used for mTLS authentication as they are self signed certificates generated internally by Access Management.
@@ -195,3 +196,84 @@ api:
           delay: 10
           timeUnit: MINUTES
 ```
+
+## Domain certificate settings
+
+Domain-level certificate settings allow administrators to configure a fallback certificate that is automatically used when a client or application does not have a specific certificate assigned. This feature improves resilience by preventing authentication failures when certificates are missing or unavailable, and provides centralized certificate management at the domain level.
+
+### Certificate selection hierarchy
+
+When signing JWTs or performing cryptographic operations, the system follows a strict priority order:
+
+1. **Client-specific certificate** — The certificate assigned to the client or application
+2. **Domain fallback certificate** — The certificate configured at the domain level
+3. **Default HMAC certificate** — Used only if `fallbackToHmacSignature` is enabled
+4. **Error** — `TemporarilyUnavailableException` if none are available
+
+The fallback certificate acts as a domain-wide safety net, ensuring operations can proceed even when individual clients lack dedicated certificates.
+
+### Fallback certificate resilience
+
+If JWT signing fails with the primary certificate (e.g., due to `SignatureException`), the system automatically retries with the fallback certificate before propagating the error. This retry logic does not apply if the fallback certificate ID matches the primary certificate ID, preventing infinite loops. Successful fallback operations are logged with warnings for audit and troubleshooting.
+
+### Domain isolation
+
+Regular domains can only use certificates where `certificate.domain` matches the domain ID. Master domains can access certificates from all domains for cross-domain introspection. System certificates are now included in the fallback certificate selection pool.
+
+{% hint style="info" %}
+Master domains have elevated certificate access privileges to support cross-domain introspection scenarios.
+{% endhint %}
+
+### Prerequisites
+
+Before configuring a fallback certificate, ensure the following:
+
+* The domain exists in the organization and environment
+* The fallback certificate belongs to the same domain (except for master domains)
+* You have `DOMAIN_SETTINGS[UPDATE]` permission on the domain, environment, or organization
+
+### Certificate settings property
+
+Configure fallback certificates at the domain level using the certificate settings object.
+
+| Property | Description | Example |
+|:---------|:------------|:--------|
+| `certificateSettings.fallbackCertificate` | Certificate ID to use when no client-specific certificate is configured. Set to `null` to disable fallback. | `"cert-abc123"` |
+
+### Configure a fallback certificate
+
+1. Send a PUT request to `/organizations/{organizationId}/environments/{environmentId}/domains/{domain}/certificate-settings` with the following JSON body:
+
+   ```json
+   {
+     "fallbackCertificate": "cert-id"
+   }
+   ```
+
+2. The system validates the certificate:
+   * Certificate must exist
+   * Certificate must belong to the domain
+
+3. If validation passes, the settings are persisted and a `DOMAIN_CERTIFICATE_SETTINGS` event is emitted.
+
+{% hint style="info" %}
+The `DOMAIN_CERTIFICATE_SETTINGS` event allows faster propagation than a full domain reload event.
+{% endhint %}
+
+### Remove a fallback certificate
+
+To remove the fallback certificate, set `fallbackCertificate` to `null` or an empty string in the request body:
+
+```json
+{
+  "fallbackCertificate": null
+}
+```
+
+### Restrictions
+
+* A certificate configured as the domain's fallback certificate cannot be deleted. Attempting deletion returns HTTP 400 with the error message: `"You can't delete a certificate that is configured as the domain's fallback certificate."`
+* Fallback certificate must belong to the same domain as the domain being configured (unless the domain is a master domain)
+* Invalid or non-existent fallback certificate IDs are rejected during domain update or patch operations with `InvalidParameterException`
+* If the fallback certificate ID matches the primary certificate ID during JWT signing, the system does not retry and propagates the original error
+
