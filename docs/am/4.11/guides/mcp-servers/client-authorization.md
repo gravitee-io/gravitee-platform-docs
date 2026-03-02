@@ -213,6 +213,6 @@ Token validation triggers one of the following:
 
 <summary>10. Fine-grained permissions check</summary>
 
-The permission check uses the Authorization Engine and AuthZen and is described in the [Authorization Engines](../authorization-engines/README.md) section.
+The permission check uses the Authorization Engine and AuthZen and is described in the [Authorization Engines](../authorization-engines/) section.
 
 </details>
