@@ -2,11 +2,17 @@
 
 ## Overview
 
-Cryptographic algorithms such as KeyStore (private/public key) are used to sign using JSON-based data structures (JWT) tokens. Certificates are used as part of the OAuth 2.0 and OpenID Connect protocol to sign access, create and renew ID tokens and ensure the integrity of a token’s payload.
+Cryptographic algorithms such as KeyStore (private/public key) are used to sign using JSON-based data structures (JWT) tokens. Certificates are used as part of the OAuth 2.0 and OpenID Connect protocol to sign access, create and renew ID tokens and ensure the integrity of a token's payload.
 
 Certificate definitions apply at the _security domain_ level.
 
-By default AM is able to load certificate using JKS or PKCS12 format you can upload ugin the console or the REST API. An Enterprise prise plugin also exist to load PCKS12 certificate from [AWS Secret Manager](aws-certificate-plugin.md).
+By default AM is able to load certificate using JKS or PKCS12 format you can upload using the console or the REST API. An Enterprise plugin also exists to load PKCS12 certificate from [AWS Secret Manager](aws-certificate-plugin.md).
+
+Domain certificate fallback allows administrators to configure a default certificate that AM uses when an application or identity provider does not specify its own certificate. This prevents service interruptions when certificates are missing or fail to load. The feature is available at the domain level and applies to JWT signing, OAuth token generation, and client authentication flows.
+
+{% hint style="info" %}
+When an application or identity provider does not have a certificate configured, AM automatically uses the domain-level fallback certificate.
+{% endhint %}
 
 ## Create certificates
 
@@ -61,7 +67,7 @@ curl -H "Authorization: Bearer :accessToken" \
 
 ### Public keys
 
-You can use public keys to verify a token payload’s integrity. To obtain the public key for your certificate:
+You can use public keys to verify a token payload's integrity. To obtain the public key for your certificate:
 
 1. In AM Console, click **Settings > Certificates**.
 2.  Next to your certificate, click the key icon.
@@ -195,3 +201,71 @@ api:
           delay: 10
           timeUnit: MINUTES
 ```
+
+## Configure a fallback certificate
+
+### Prerequisites
+
+Before you configure a fallback certificate, ensure the following:
+
+* You have domain administrator permissions (`DOMAIN_SETTINGS[UPDATE]`)
+* At least one certificate is uploaded or available in the domain
+* You are running Access Management 4.11.0 or later
+
+### Fallback certificate resolution
+
+When Access Management needs a certificate for signing or encryption, it follows a three-tier resolution order:
+
+1. Use the client-specified certificate if configured and available
+2. Use the domain's fallback certificate if configured
+3. Use the default HMAC certificate if legacy fallback is enabled
+
+If all three fail, the operation returns a `TemporarilyUnavailableException`.
+
+### Certificate domain isolation
+
+Non-master domains can only access certificates from their own domain. Master domains can access certificates from all domains to support cross-domain introspection. The fallback certificate must belong to the same domain where it's configured.
+
+### System certificate availability
+
+System certificates (pre-installed certificates managed by Access Management) are now available for selection as fallback certificates. Previously, only user-uploaded certificates could be used.
+
+### Gateway configuration
+
+The following table describes the domain certificate settings property:
+
+| Property | Description | Example |
+|:---------|:------------|:--------|
+| `certificateSettings.fallbackCertificate` | Certificate ID to use when no specific certificate is configured | `"cert-abc123"` |
+
+Certificate settings are stored in the `domains` table (`certificate_settings` column, CLOB type) and synchronized across gateway nodes via domain events.
+
+### Configure using Management API
+
+Use the `PUT /organizations/{organizationId}/environments/{environmentId}/domains/{domain}/certificate-settings` endpoint to update certificate settings.
+
+**Request body:**
+
+```json
+{
+  "fallbackCertificate": "cert-id"
+}
+```
+
+The system validates that the certificate exists and belongs to the domain before applying the change. This operation does not trigger a full domain reload—only certificate settings are refreshed.
+
+### Configure using Admin Console
+
+1. Navigate to **Domain Settings > Certificates**.
+2. Select a fallback certificate from the dropdown.
+3. Click **Save**.
+
+All certificates, including system certificates, are available for selection.
+
+### Restrictions
+
+* Fallback certificate must belong to the same domain (cross-domain certificates aren't allowed)
+* Fallback certificate can't be deleted while configured as the domain's fallback (returns `CertificateIsFallbackException` with HTTP 400)
+* Non-master domains can't access certificates from other domains
+* Certificate settings validation runs on domain update, patch, and certificate settings update operations
+* If the fallback certificate isn't found during validation, the operation fails with `InvalidParameterException: "Fallback certificate not found: {certificateId}"`
