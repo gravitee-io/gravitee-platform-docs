@@ -1,3 +1,4 @@
+
 ---
 description: Configuration guide for domain secrets.
 ---
@@ -12,6 +13,9 @@ This feature is available for the Gateway and Management API.
 
 Also, Access Management grants access to the secret provider at domain definition level to provide secret resolution in plugin configurations.&#x20;
 
+Access Management 4.11.0 introduces secret management capabilities for Protected Resources, including multiple client secrets with independent lifecycle management, membership controls, and token introspection enhancements. For more information, see [Secret Management](../../../guides/mcp-servers/manage-protected-resources.md#renew-a-secret).
+
 For more information about Sensitive Data Management in domain definition, see the following articles:
 
-<table data-view="cards"><thead><tr><th></th></tr></thead><tbody><tr><td><a href="configure-secret-providers.md">Configure Secret Providers</a></td></tr><tr><td><a href="apply-secret-to-domains.md">Apply Secret to Domains</a></td></tr><tr><td><a href="plugins-support.md">Plugins Support</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th></tr></thead><tbody><tr><td><a href="configure-secret-providers.md">Configure Secret Providers</a></td></tr><tr><td><a href="apply-secret-to-domains.md">Apply Secret to Domains</a></td></tr><tr><td><a href="plugins-support.md">Plugins Support</a></td></tr><tr><td><a href="secret-management.md">Secret Management</a></td></tr></tbody></table>
+
