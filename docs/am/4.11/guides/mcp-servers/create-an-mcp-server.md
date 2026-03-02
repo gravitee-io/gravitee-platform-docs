@@ -27,7 +27,7 @@ Complete the following steps to create an MCP Server using the AM Console.
 Provide the following required information:
 
 * **Name:** A descriptive name for your MCP Server. For example, `AI File Management Service`.
-* **Resource Identifier:** The URL of the MCP endpoint to protect. For example,  `https://mcp.example.com/api`.
+* **Resource Identifier:** The URL of the MCP endpoint to protect. For example, `https://mcp.example.com/api`.
   * Must be unique in the domain.
   * Must be a valid URL without fragment identifiers.
 * **Description:** (Optional) Additional information about the MCP Server. For example, `Provides file management tools for AI agents`.
@@ -45,7 +45,7 @@ By default, Gravitee AM automatically generates OAuth 2.0 credentials. You can o
 
     <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>The Client Secret is shown only once during creation. Make sure to copy and store it securely. You cannot retrieve the raw secret later.</p></div>
 
-### Step 4: (Optional) Add MCP Tools  <a href="#step-4-add-mcp-tools-optional" id="step-4-add-mcp-tools-optional"></a>
+### Step 4: (Optional) Add MCP Tools <a href="#step-4-add-mcp-tools-optional" id="step-4-add-mcp-tools-optional"></a>
 
 You can add tools during or after creation. To add a tool, complete the following steps:
 
