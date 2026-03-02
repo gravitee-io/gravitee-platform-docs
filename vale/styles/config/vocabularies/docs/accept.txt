@@ -4,11 +4,19 @@
 Gravitee
 APIM
 APID
+AM
 GKO
+GC
 Cockpit
 Blackbird
-[Dd]ev[Pp]ortal
+DevPortal
 GRAVITEEIO
+mAPI
+Gravitee API Management
+Gravitee Access Management
+Gravitee Alert Engine
+Gravitee API Designer
+Gravitee Cloud
 
 # ============================================
 # API & Protocol Terms
@@ -36,6 +44,9 @@ AMQP
 MQTT[5]?
 mTLS
 [Hh]ealthcheck
+RPC
+FQDN
+EDA
 CORS
 CSRF
 FAPI
@@ -79,7 +90,7 @@ VMs?
 VPN
 DMZ
 DNS
-[Cc]loudwatch
+Cloudwatch
 [Ll]oad[Bb]alancer
 ClusterIP
 NodePort
@@ -87,9 +98,9 @@ NodePort
 # ============================================
 # Kubernetes & Containers
 # ============================================
-[Kk]ubernetes
+Kubernetes
 kubectl
-[Hh]elm
+Helm
 ConfigMap[s]?
 CRDs?
 [Nn]amespaces?
@@ -110,7 +121,7 @@ MySQL
 MariaDB
 Elasticsearch
 Hazelcast
-[Rr]edis
+Redis
 DocumentDB
 R2DBC
 RDBMS
@@ -121,7 +132,7 @@ Liquibase
 # ============================================
 # Message Brokers & Streaming
 # ============================================
-[Kk]afka
+Kafka
 RabbitMQ
 ActiveMQ
 DLQs?
@@ -135,31 +146,53 @@ QoS
 # ============================================
 OpenTelemetry
 OpenTracing
-[Pp]rometheus
-[Gg]rafana
-[Jj]aeger
-[Zz]ipkin
-[Ff]luentd
-[Ll]ogstash
-[Dd]atadog
-[Ss]plunk
+Prometheus
+Grafana
+Jaeger
+Zipkin
+Fluentd
+Logstash
+Datadog
+Splunk
+SLI
+SLO
+SLA
+MTTD
+MTTA
+MTTR
+Service Level Indicator
+Service Level Objective
+Service Level Agreement
+Mean Time to Detect
+Mean Time to Acknowledge
+Mean Time to Resolve
 
 # ============================================
 # Identity & Auth Providers
 # ============================================
 IdP
 IDP
-[Kk]eycloak
+Keycloak
 LDAP
 ADFS
 FranceConnect
-[Ee]ntra
+Entra
 CAS
 HashiCorp
 MFA
 OTP
 RBAC
+PBAC
+ABAC
 PAT
+PAM
+JIT
+HITL
+Policy-Based Access Control
+Attribute-Based Access Control
+Privileged Access Management
+Just-in-Time
+Human-in-the-Loop
 [Pp]asswordless
 
 # ============================================
@@ -172,7 +205,7 @@ JRE
 JAAS
 JCE
 OpenJDK
-[Ff]reemarker
+Freemarker
 FreeMarker
 Vert\.x
 
@@ -181,15 +214,14 @@ Vert\.x
 # ============================================
 GitHub
 GitLab
-[Bb]itbucket
+Bitbucket
 LinkedIn
-[Ii]ntelli[Jj]
+IntelliJ
 CLI
 SDK
 NPM
-[Ss]wagger
+Swagger
 Redoc
-IntelliJ
 JavaScript
 AngularJS
 
@@ -225,11 +257,14 @@ SMTP
 URIs?
 URLs?
 [Ll]ocalhost
-[Gg]zip
+Gzip
 CIDR
 SPA
 LLM
 MCP
+Fully Qualified Domain Name
+Remote Procedure Call
+Event-Driven Architecture
 
 # ============================================
 # Formats & Standards
@@ -241,7 +276,7 @@ HTML
 CSS
 CSV
 AsciiDoc
-[Pp]rotobuf
+Protobuf
 UTF
 RFC
 ISO
@@ -299,6 +334,8 @@ ISO
 [Bb]lue-green
 [Cc]anary
 [Aa]utoscaling
+[Mm]ulti-gateway
+[Mm]ulti-broker
 [Dd]eserialization
 [Dd]eserialized
 [Dd]eletable
@@ -325,14 +362,14 @@ ManagementContext
 ApiDefinition
 SharedPolicyGroup
 ApiResource
-[Aa]piVersion
+ApiVersion
 UUID
 [Ss]yslog
 
 # ============================================
 # Misc Technical Terms
 # ============================================
-[Dd]ockerfile
+Dockerfile
 [Oo]pen-source
 US
 IP
@@ -359,11 +396,11 @@ A2A
 # ============================================
 # Cloud Providers & Services
 # ============================================
-[Ss]alesforce
-[Tt]wilio
+Salesforce
+Twilio
 IBM
 Mastercard
 Moby
 Amazon
 Azure
-[Ss]lackbot
+Slackbot
