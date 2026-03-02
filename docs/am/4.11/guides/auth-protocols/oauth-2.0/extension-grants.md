@@ -8,6 +8,61 @@ Extension grants are a way to add support for non-standard token issuance scenar
 
 AM allows you to extend available grants for an application by adding custom extension grants.
 
+## Token Exchange
+
+AM supports RFC 8707 token exchange via the `urn:ietf:params:oauth:grant-type:token-exchange` grant type. This grant type enables server-to-server authentication patterns, including Model Context Protocol (MCP) server integration, where an existing token (access, refresh, ID, or JWT) can be exchanged for a new access token.
+
+### Prerequisites
+
+- Domain with token exchange enabled (`tokenExchangeSettings.enabled = true`)
+- Allowed subject token types configured at the domain level
+- Protected resource or application configured with the token exchange grant type
+- Authentication method compatible with token exchange (`client_secret_basic`, `client_secret_post`, or `client_secret_jwt`)
+
+### Supported Subject Token Types
+
+- `urn:ietf:params:oauth:token-type:access_token`
+- `urn:ietf:params:oauth:token-type:refresh_token`
+- `urn:ietf:params:oauth:token-type:id_token`
+- `urn:ietf:params:oauth:token-type:jwt`
+
+### Token Exchange Request
+
+To exchange a token, send a POST request to the token endpoint with the following parameters:
+
+| Parameter | Required | Description | Example |
+|:----------|:---------|:------------|:--------|
+| `grant_type` | Yes | Must be `urn:ietf:params:oauth:grant-type:token-exchange` | `urn:ietf:params:oauth:grant-type:token-exchange` |
+| `subject_token` | Yes | The token to exchange | `eyJhbGciOiJSUzI1NiIs...` |
+| `subject_token_type` | Yes | Type of the subject token (must be in domain's allowed list) | `urn:ietf:params:oauth:token-type:access_token` |
+| `requested_token_type` | No | Must be `urn:ietf:params:oauth:token-type:access_token` or omitted | `urn:ietf:params:oauth:token-type:access_token` |
+
+Include client credentials via HTTP Basic authentication or POST body parameters according to the configured authentication method.
+
+### Token Exchange Response
+
+```json
+{
+  "access_token": "eyJhbGciOiJSUzI1NiIs...",
+  "issued_token_type": "urn:ietf:params:oauth:token-type:access_token",
+  "token_type": "bearer",
+  "expires_in": 3600
+}
+```
+
+The exchanged token includes the following claims:
+
+- `client_id`: Requesting client's ID (not the original subject token's client)
+- `aud`: Requesting client's ID
+- `gis`: Preserved from subject token (subject identity)
+- `exp`: Minimum of subject token expiration and requesting client's token lifetime
+
+### Restrictions
+
+- Token exchange responses never include `refresh_token` or `id_token`, even if the subject token has `openid` scope
+- Subject token type must be in the domain's `allowedSubjectTokenTypes` list
+- Token exchange requires domain-level enablement
+
 ## JWT Bearer
 
 AM supports the [RFC 7523](https://tools.ietf.org/html/rfc7523) specification, which defines the use of a JSON Web Token (JWT) Bearer Token as a means for requesting an OAuth 2.0 access token and for client authentication. The JWT Bearer Token flow supports the RSA SHA256 algorithm, which uses a public key as the signing secret.

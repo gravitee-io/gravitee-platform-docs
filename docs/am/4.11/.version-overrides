@@ -1,0 +1,8 @@
+SUMMARY.md
+getting-started/tutorial-getting-started-with-am/secure-your-apis/configure-generic-oauth2-authorization-server.md
+guides/applications/client-secrets.md
+guides/auth-protocols/oauth-2.0/extension-grants.md
+guides/certificates/README.md
+guides/mcp-servers/client-authorization.md
+guides/mcp-servers/protected-resource-management.md
+release-information/release-notes/am-4.11.md

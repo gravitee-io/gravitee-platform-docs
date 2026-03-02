@@ -32,15 +32,21 @@ applications:
 
 #### **Adding a new secret:**
 
-1.  Click **"+ New client secret"**.<br>
+1.  Click **"+ New client secret"**.
 
     <figure><img src="../../.gitbook/assets/Screenshot 2025-06-02 at 11.56.31 (1).png" alt=""><figcaption><p>New client secret</p></figcaption></figure>
-2.  Provide description of new secret.<br>
 
-    <div align="left"><figure><img src="../../.gitbook/assets/Screenshot 2025-06-02 at 11.57.31 (1).png" alt="" width="308"><figcaption><p>New client secret description</p></figcaption></figure></div>
-3.  Copy generated secret.<br>
+2.  Provide description of new secret.
 
-    <div align="left"><figure><img src="../../.gitbook/assets/Screenshot 2025-06-02 at 11.57.49.png" alt="" width="305"><figcaption><p>New client secret - copy</p></figcaption></figure></div>
+        <div align="left"><figure><img src="../../.gitbook/assets/Screenshot 2025-06-02 at 11.57.31 (1).png" alt="" width="308"><figcaption><p>New client secret description</p></figcaption></figure></div>
+
+3.  Copy generated secret.
+
+    <div align="left">
+    
+    <figure><img src="../../.gitbook/assets/Screenshot 2025-06-02 at 11.57.49.png" alt="" width="305"><figcaption><p>New client secret - copy</p></figcaption></figure>
+    
+    </div>
 4. Click OK.
 
 #### **Renewing a secret:**
@@ -49,8 +55,9 @@ applications:
 2.  Click **renew button** next to the corresponding secret.
 
     <figure><img src="../../.gitbook/assets/Screenshot 2025-06-02 at 12.32.24.png" alt=""><figcaption><p>Renew Client Secret</p></figcaption></figure>
-3. Copy generated secret.\
-   ![](<../../.gitbook/assets/Screenshot 2025-06-02 at 12.00.01.png>)
+3. Copy generated secret.
+    
+    ![](<../../.gitbook/assets/Screenshot 2025-06-02 at 12.00.01.png>)
 4. Click OK.
 
 #### Deleting a secret:
@@ -60,8 +67,9 @@ applications:
     <br>
 
     <figure><img src="../../.gitbook/assets/Screenshot 2025-06-02 at 12.32.45.png" alt=""><figcaption><p>Delete Client Secret</p></figcaption></figure>
-3. Confirm that you want to delete the secret by entering secret description.\
-   ![](<../../.gitbook/assets/Screenshot 2025-06-02 at 12.00.38.png>)
+3. Confirm that you want to delete the secret by entering secret description.
+    
+    ![](<../../.gitbook/assets/Screenshot 2025-06-02 at 12.00.38.png>)
 
 {% hint style="warning" %}
 Revoked secrets are immediately invalidated and cannot be used for authentication.
@@ -117,6 +125,6 @@ Gravitee AM provides support for monitoring client secret expiration through cus
 * **Client Secret Expired**: A notification is sent when a client secret reaches its expiration date.
 * **Upcoming Secret Expiration**: Periodic notifications can be sent ahead of time, based on a configurable cron schedule, to proactively manage client secrets approaching expiration.
 
-These notifications facilitate timely renewal of client secrets and reduce the risk of authentication failures due to expired credentials.
+These notifications facilitate timely renewal of client secrets and reduce the risk of authentication failures due to expired credentials. Notification subjects include resource type metadata to distinguish between applications and protected resources.
 
 For detailed instructions on configuring the notification mechanisms, refer to the [AM API configuration](../../getting-started/configuration/configure-am-api/#configure-notifications-on-certificates-and-client-secret-expiry) section.

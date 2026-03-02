@@ -149,6 +149,7 @@
   * [Client Authorization](guides/mcp-servers/client-authorization.md)
   * [Create an MCP Server](guides/mcp-servers/create-an-mcp-server.md)
   * [MCP Tools](guides/mcp-servers/mcp-tools.md)
+  * [Protected Resource Management](guides/mcp-servers/protected-resource-management.md)
 * [Session Management](guides/session-management.md)
 * [Audit Trail](guides/audit-trail.md)
 * [Alerts](guides/alerts/README.md)
