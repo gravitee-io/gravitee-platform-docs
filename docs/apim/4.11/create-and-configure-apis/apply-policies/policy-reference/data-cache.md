@@ -233,7 +233,7 @@ request:
 
 ### Related Policies
 
-For AI-specific caching based on semantic similarity, see <a data-mention href="ai-semantic-caching.md">ai-semantic-caching.md</a>.
+For AI-specific caching based on semantic similarity, see <a data-mention href="the AI Semantic Caching policy">ai-semantic-caching.md</a>.
 
 ### Description <a href="#user-content-description" id="user-content-description"></a>
 
