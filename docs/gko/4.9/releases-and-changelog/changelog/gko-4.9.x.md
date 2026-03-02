@@ -9,10 +9,6 @@
 
   * Helm web hook port is not exposed by the service [#11169](https://github.com/gravitee-io/issues/issues/11169)
 
-  **Others**
-
-  * API_KEY security type removed from API plan in version 0.3.0 [#11091](https://github.com/gravitee-io/issues/issues/11091)
-
 </details>
 
 
