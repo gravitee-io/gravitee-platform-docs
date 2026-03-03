@@ -121,6 +121,27 @@ Events:
   Normal  Created         72s   application-controller  Created Application
 ```
 
+## Application Management Capabilities
+
+Applications in Gravitee support additional management features:
+
+<table data-view="cards">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th data-hidden data-card-target data-type="content-ref"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Client Certificate Management</strong></td>
+      <td>Store and manage X.509 client certificates for mutual TLS authentication</td>
+      <td><a href="client-certificate-management.md">client-certificate-management.md</a></td>
+    </tr>
+  </tbody>
+</table>
+
 {% hint style="info" %}
 **For more information:**
 

@@ -64,3 +64,7 @@ manager:
       mountPath: /etc/ca/
       readOnly: true
 ```
+
+## Configure Client Certificates for Mutual TLS
+
+To configure client certificates for mutual TLS authentication, use Client Certificate Management. For detailed instructions on creating, managing, and scheduling client certificates, see the [Client Certificate Management guide](manage-application-client-certificates.md#updating-certificate-metadata).
