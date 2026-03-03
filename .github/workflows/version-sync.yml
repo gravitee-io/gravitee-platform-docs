@@ -17,8 +17,7 @@ on:
       # Add one entry per product/version you want to sync FROM.
       - 'docs/apim/4.10/**'
       - 'docs/am/4.10/**'
-      # Add more as needed:
-      # - 'docs/gko/4.10/**'
+      - 'docs/gko/4.10/**'
 
 # Grant write access so the bot can create branches and PRs
 permissions:
@@ -38,9 +37,9 @@ jobs:
           - product: am
             current: "4.10"
             next: "4.11"
-          # - product: gko
-          #   current: "4.10"
-          #   next: "4.11"
+          - product: gko
+            current: "4.10"
+            next: "4.11"
 
     steps:
       - uses: actions/checkout@v4
