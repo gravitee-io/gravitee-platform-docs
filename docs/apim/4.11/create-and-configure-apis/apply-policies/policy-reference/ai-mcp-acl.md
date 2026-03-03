@@ -6,6 +6,8 @@ The `mcp-acl` policy allows you to control access to MCP (Model Context Protocol
 
 You can add this policy to an MCP Proxy API from the Policy Studio to restrict access to MCP features such as the list of tools, resources, and prompts.
 
+MCP Proxy APIs remain restricted from creating additional endpoint groups or endpoints.
+
 ## Usage
 
 Here are some usage examples of using MCP ACL.
