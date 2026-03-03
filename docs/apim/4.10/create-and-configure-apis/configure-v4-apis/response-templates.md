@@ -40,7 +40,7 @@ When you create response templates, you can define templates in the following wa
     <figure><img src="../../.gitbook/assets/image (209).png" alt=""><figcaption></figcaption></figure>
 2.  Select the API that you want to configure response templates for.<br>
 
-    <figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (70).png" alt=""><figcaption></figcaption></figure>
 3.  From the API's menu, click **Entrypoints**.<br>
 
     <figure><img src="../../.gitbook/assets/9DB31EFE-6F36-4050-AD4B-5135E50E66AA.jpeg" alt=""><figcaption></figcaption></figure>
@@ -59,7 +59,7 @@ When you create response templates, you can define templates in the following wa
    4. (Optional) In the **HTTP Headers** field, enter the `KEY` and `VALUE` for the response.&#x20;
    5.  (Optional) In the **Body** field, enter the body of response that you want to return to the consumer. For example, `{"error": "Custom Missing Key Message"}`.<br>
 
-       <figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../../.gitbook/assets/image (4) (3).png" alt=""><figcaption></figcaption></figure>
 7.  Click **Create**. <br>
 
     <figure><img src="../../.gitbook/assets/EF0E884E-88BE-466F-A0F7-F73C98780115.jpeg" alt=""><figcaption></figcaption></figure>
@@ -68,7 +68,7 @@ When you create response templates, you can define templates in the following wa
     <figure><img src="../../.gitbook/assets/6A4577E6-D8C6-4A3B-8712-37A7428C9A2A.jpeg" alt=""><figcaption></figcaption></figure>
 9.  In the **Deploy your API** pop-up menu, click **Deploy**.<br>
 
-    <figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 ## Verification
 
@@ -76,7 +76,7 @@ To verify if the complete the following steps:&#x20;
 
 1.  Verify that the response templates appears in the **Response Templates** tab of the **Entrypoints** screen.<br>
 
-    <figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (3) (2).png" alt=""><figcaption></figcaption></figure>
 2.  Call your API to trigger your the error response. For example, if you set an API key plan for your API, call your API without the API key like the following example:<br>
 
     ```
