@@ -12,12 +12,6 @@ description: >-
 
 <summary>Bug fixes</summary>
 
-
-
-
-
-
-
 **Other**
 
 * SMTP Connection with OAuth2 Authentication [#11012](https://github.com/gravitee-io/issues/issues/11012)
