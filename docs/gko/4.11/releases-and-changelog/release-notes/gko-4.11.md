@@ -1,5 +1,5 @@
 ---
-Gravitee Kubernetes Operator 4.11 Release Notes.
+title: Gravitee Kubernetes Operator 4.11 Release Notes.
 ---
 
 # GKO 4.11
