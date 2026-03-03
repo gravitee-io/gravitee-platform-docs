@@ -321,7 +321,7 @@
     * [Elasticsearch Reporter](analyze-and-monitor-apis/reporters/elasticsearch-reporter.md)
     * [File Reporter](analyze-and-monitor-apis/reporters/file-reporter.md)
     * [TCP Reporter](analyze-and-monitor-apis/reporters/tcp-reporter.md)
-    * [Datadog Reporter](analyze-and-monitor-apis/reporters/datadog-reporter.md)
+    * [Datadog Reporter](../4.9/analyze-and-monitor-apis/reporters/datadog-reporter.md)
   * [Logging](analyze-and-monitor-apis/logging/README.md)
     * [Configure Gateway-level Logs](analyze-and-monitor-apis/logging/configure-gateway-level-logs.md)
     * [Configure API-level Logs](analyze-and-monitor-apis/logging/configure-api-level-logs.md)
