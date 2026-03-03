@@ -45,7 +45,7 @@ To create a plan:
     * **Sharding tags:** Selectively deploy the plan to particular API Gateways using available [sharding tags](../../configure-and-manage-the-platform/gravitee-gateway/sharding-tags.md)
     * **Groups excluded:** Prevent specified [user groups](../../configure-and-manage-the-platform/manage-organizations-and-environments/user-management.md) from accessing this plan
 7. Click **Next**
-8.  Define the security configuration details appropriate to and required by your selected security type, e.g., OAuth2. See [OAuth2](oauth2.md), [JWT](jwt.md), [API Key](api-key.md), [Keyless](keyless.md), or [Push](push.md) for more information.
+8.  Define the security configuration details appropriate to and required by your selected security type, e.g., OAuth2. See [OAuth2](oauth2.md), [JWT](jwt.md), [API Key](api-key.md), [Keyless](keyless.md), [Push](push.md), or [mTLS](mtls.md) for more information.
 
     <figure><img src="../../.gitbook/assets/plan_oauth2 (1).png" alt=""><figcaption><p>OAuth2 configuration</p></figcaption></figure>
 9.  Select any plan restrictions:
@@ -56,6 +56,7 @@ To create a plan:
     * **Quota:** Limits the number of requests an application can make in a given time period. Generally used to tier access to APIs based on subscription level.
     * **Resource Filtering:** Limits access to API resources according to whitelist and/or blacklist rules.
 10. Click **Create**
+11. If you're publishing a plan for a Kafka Native API and the new plan's security type (Keyless, mTLS, or Authentication) conflicts with already-published plans, the Console displays a confirmation dialog listing plans that will be automatically closed. Type the new plan name to confirm and click **Publish & Close**.
 
 ## Plan stages
 

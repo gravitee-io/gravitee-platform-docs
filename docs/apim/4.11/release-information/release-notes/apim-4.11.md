@@ -16,6 +16,16 @@
 * Includes streaming detection safeguards that reject streaming requests when response filtering is enabled to prevent incomplete redaction
 <!-- /PIPELINE:APIM-12439 -->
 
+
+<!-- PIPELINE:APIM-12520 -->
+#### **mTLS Authentication for Kafka Native APIs**
+
+* Kafka Native APIs now support mutual TLS (mTLS) as a plan security type, enabling certificate-based access control for Kafka connections.
+* Only one security category (Keyless, mTLS, or Authentication) can have published plans at a time—publishing a plan from one category automatically closes all published plans from the other categories.
+* Requires Kafka gateway configuration with SSL client authentication enabled (`kafka.ssl.clientAuth: required`) and proper truststore/keystore setup.
+* Client certificates must be signed by a CA trusted by the gateway; validation failures return asynchronous errors for Kafka connections or 401 Unauthorized for HTTP connections.
+<!-- /PIPELINE:APIM-12520 -->
+
 ## Improvements
 
 ## Bug Fixes
