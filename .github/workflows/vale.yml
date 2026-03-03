@@ -17,11 +17,43 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: errata-ai/vale-action@v2
+      - name: Get changed docs files
+        id: changed-files
+        run: |
+          FILES=$(git diff --name-only --diff-filter=ACMR ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }} -- '*.md' '*.mdx' \
+            | grep -v 'docs/gko/.*/releases-and-changelog/release-notes/' || true)
+          echo "Changed files:"
+          echo "$FILES"
+          echo "files<<EOF" >> "$GITHUB_OUTPUT"
+          echo "$FILES" >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
+
+      - name: Install Vale
+        if: steps.changed-files.outputs.files != ''
+        run: |
+          wget -q "https://github.com/errata-ai/vale/releases/download/v3.13.1/vale_3.13.1_Linux_64-bit.tar.gz"
+          mkdir -p /tmp/vale-bin
+          tar -xzf vale_3.13.1_Linux_64-bit.tar.gz -C /tmp/vale-bin vale
+          chmod +x /tmp/vale-bin/vale
+
+      - name: Vale sync
+        if: steps.changed-files.outputs.files != ''
+        run: /tmp/vale-bin/vale sync
+
+      - name: Install reviewdog
+        if: steps.changed-files.outputs.files != ''
+        uses: reviewdog/action-setup@v1
         with:
-          files: __diff
-          reporter: github-pr-review
-          filter_mode: added
-          vale_flags: "--glob='!docs/gko/*/releases-and-changelog/release-notes/*.md'"
+          reviewdog_version: latest
+
+      - name: Run Vale on changed files
+        if: steps.changed-files.outputs.files != ''
         env:
-          GITHUB_TOKEN: ${{ github.token }}
+          REVIEWDOG_GITHUB_API_TOKEN: ${{ github.token }}
+        run: |
+          echo "${{ steps.changed-files.outputs.files }}" | while IFS= read -r file; do
+            if [ -n "$file" ] && [ -f "$file" ]; then
+              echo "Linting: $file" >&2
+              /tmp/vale-bin/vale --output=line "$file" 2>/dev/null || true
+            fi
+          done | reviewdog -efm="%f:%l:%c:%m" -name=vale -reporter=github-pr-review -filter-mode=added -fail-on-error=false -level=warning
