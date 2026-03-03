@@ -16,6 +16,17 @@
 * Includes streaming detection safeguards that reject streaming requests when response filtering is enabled to prevent incomplete redaction
 <!-- /PIPELINE:APIM-12439 -->
 
+
+<!-- PIPELINE:APIM-12500 -->
+#### **Native Kafka API Endpoint Management**
+
+* Native Kafka APIs now support endpoint group and endpoint creation with drag-and-drop reordering to manage multiple Kafka bootstrap servers and configure endpoint priority.
+* Security protocols (e.g., `SASL_SSL`, `PLAINTEXT`) can be configured at the group level or overridden per endpoint, with protocol badges displayed in the endpoint table.
+* The first endpoint in the first group is automatically designated as the default endpoint for the API.
+* Endpoint groups for Native Kafka APIs use type `native-kafka` and do not require load balancer configuration.
+* Drag-and-drop reordering is disabled in read-only mode, and endpoint management is not available for `MCP_PROXY` API types.
+<!-- /PIPELINE:APIM-12500 -->
+
 ## Improvements
 
 ## Bug Fixes
