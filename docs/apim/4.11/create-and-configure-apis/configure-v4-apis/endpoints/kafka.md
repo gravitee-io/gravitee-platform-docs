@@ -370,7 +370,7 @@ To use this plugin, declare the `kafka` identifier when configuring your API end
 
 #### General configuration <a href="#user-content-general-configuration" id="user-content-general-configuration"></a>
 
-<table><thead><tr><th width="179">Attributes</th><th width="100">Default</th><th width="119">Mandatory</th><th>Description</th></tr></thead><tbody><tr><td>bootstrapServers</td><td>N/A</td><td>Yes</td><td>Define the comma-separated list of host/port pairs used to establish the initial connection to the Kafka cluster.</td></tr></tbody></table>
+<table><thead><tr><th width="179">Attributes</th><th width="100">Default</th><th width="119">Mandatory</th><th>Description</th></tr></thead><tbody><tr><td>bootstrapServers</td><td>N/A</td><td>Yes</td><td>Define the comma-separated list of host/port pairs used to establish the initial connection to the Kafka cluster. For native-kafka endpoint type, this is configured via <code>configuration.bootstrapServers</code>.</td></tr><tr><td>inheritConfiguration</td><td>true</td><td>No</td><td>Whether the endpoint inherits group-level shared configuration. When set to false, endpoint-level <code>sharedConfigurationOverride</code> settings take precedence.</td></tr></tbody></table>
 
 #### Shared Configuration <a href="#user-content-shared-configuration" id="user-content-shared-configuration"></a>
 
