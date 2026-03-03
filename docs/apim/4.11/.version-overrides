@@ -7,3 +7,10 @@ create-and-configure-apis/apply-policies/policy-reference/pii-filtering.md
 create-and-configure-apis/apply-policies/resources.md
 prepare-a-production-environment/gateway-resource-sizing-guidelines.md
 release-information/release-notes/apim-4.11.md
+agent-mesh/add-agents-to-your-agent-catalog.md
+create-and-configure-apis/apply-policies/policy-reference/ai-mcp-acl.md
+create-and-configure-apis/apply-policies/policy-reference/javascript.md
+create-and-configure-apis/gravitee-api-definitions/execution-engine.md
+kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/README.md
+kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/policies.md
+prepare-a-production-environment/repositories/jdbc.md

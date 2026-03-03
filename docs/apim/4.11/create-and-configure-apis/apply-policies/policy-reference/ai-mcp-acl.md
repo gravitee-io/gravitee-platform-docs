@@ -70,9 +70,9 @@ The `mcp-acl` policy can be applied to the following API types and flow phases.
 
 Strikethrough text indicates that a version is deprecated.
 
-| Plugin version | APIM             |
-| -------------- | ---------------- |
-| 1.x            | 4.10.x to latest |
+| Plugin version | APIM             | UI Dependencies |
+| -------------- | ---------------- | --------------- |
+| 1.x            | 4.10.x to latest | 17.6.1          |
 
 ## Configuration options
 

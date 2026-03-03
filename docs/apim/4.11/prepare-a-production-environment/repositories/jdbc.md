@@ -42,6 +42,17 @@ management:
     url:                 # jdbc url
 ```
 
+### Database schema changes in APIM 4.11.x
+
+APIM 4.11.x introduces schema changes to support the Entrypoint Connect execution phase for Native APIs:
+
+* The `ENTRYPOINT_CONNECT` enum value is added to execution phase enums
+* The `entrypointConnect` field is added to the `FlowV4` table to store policies that execute during the Entrypoint Connect phase
+* The `CONNECT` enum value is deprecated
+* The `connect` field in the `FlowV4` table is deprecated
+
+These changes apply to both JDBC and MongoDB repositories. Existing APIs using the deprecated `connect` field must migrate to `entrypointConnect`.
+
 ### Optional configuration
 
 You can configure the following additional properties to fine-tune your JDBC connection and control the behavior of your JDBC database.

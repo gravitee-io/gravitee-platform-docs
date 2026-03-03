@@ -21,6 +21,22 @@ The new reactive engine is designed to address a number of challenges associated
 
 <details>
 
+<summary>Native API execution phases</summary>
+
+Native APIs execute policies across five distinct phases in strict order:
+
+1. **TCP/TLS handshake**: The client establishes a TCP connection and completes TLS negotiation if required.
+2. **Entrypoint Connect**: Policies execute with connection metadata only (remote address, local address, TLS session). This phase runs before authentication and allows connection-level filtering (IP allowlists, rate limiting, TLS validation) to reject unauthorized clients. Only entrypoint connectors support this phase; endpoint connectors do not.
+3. **SASL authentication**: The client authenticates using username/password or certificate validation.
+4. **Interact**: Policies execute for request/response exchanges after authentication.
+5. **Publish/Subscribe**: Policies execute during message flow for producer and consumer operations.
+
+This sequence ensures connection-level filtering happens before authentication overhead.
+
+</details>
+
+<details>
+
 <summary>Policy execution order</summary>
 
 Policies can be executed in the exact order in which they have been placed in the Policy Studio. This addresses a limitation of the legacy engine where policies interacting with the Head part of the request are always executed first, regardless of how they are ordered during the design phase.
