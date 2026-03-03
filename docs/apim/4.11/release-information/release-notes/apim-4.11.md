@@ -16,6 +16,16 @@
 * Includes streaming detection safeguards that reject streaming requests when response filtering is enabled to prevent incomplete redaction
 <!-- /PIPELINE:APIM-12439 -->
 
+
+<!-- PIPELINE:APIM-12500 -->
+#### **Multiple Endpoint Groups for Native Kafka APIs**
+
+* Native Kafka APIs now support multiple endpoint groups and endpoints, enabling flexible management of Kafka broker connections similar to HTTP proxy APIs.
+* Endpoints can be reordered via drag-and-drop within a group, and the first endpoint in the first group is automatically designated as the default endpoint.
+* Each endpoint requires bootstrap server configuration and can inherit or override group-level security protocol settings.
+* The UI automatically adapts for Native Kafka APIs by hiding load balancer configuration (not required for Kafka) and displaying Kafka-specific properties like security protocol inheritance.
+<!-- /PIPELINE:APIM-12500 -->
+
 ## Improvements
 
 ## Bug Fixes
