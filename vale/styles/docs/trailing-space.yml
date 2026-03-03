@@ -1,0 +1,7 @@
+extends: existence
+message: "Don't use trailing spaces at the end of the line."
+nonword: true
+level: error
+scope: raw
+tokens:
+  - '\. \n'
