@@ -85,29 +85,30 @@ Environment-level permissions are listed in the following table.
 {% tab title="API" %}
 API-level permissions are listed in the following table.
 
-| Permission          | Description                                                                                                                                 |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| ALERT               | Manages API alerting                                                                                                                        |
-| ANALYTICS           | Manages API analytics. Only the `READ` permission is used.                                                                                  |
-| AUDIT               | Manages API audits. Only the `READ` permission is used.                                                                                     |
-| DEFINITION          | Manages the API definition                                                                                                                  |
-| DISCOVERY           | Manages service discovery                                                                                                                   |
-| DOCUMENTATION       | Manages API documentation                                                                                                                   |
-| EVENT               | Manages API events. Only the `READ` permission is used.                                                                                     |
-| GATEWAY\_DEFINITION | A specific permission used to update the context-path (`UPDATE`) and to give access to sensitive data (`READ`) such as endpoints and paths. |
-| HEALTH              | Manages API health checks                                                                                                                   |
-| LOG                 | Manages API logs. Only the `READ` permission is used.                                                                                       |
-| MEMBER              | Manages API members                                                                                                                         |
-| METADATA            | Manages API metadata                                                                                                                        |
-| MESSAGE             | Manages messaging                                                                                                                           |
-| NOTIFICATION        | Manages API notifications                                                                                                                   |
-| PLAN                | Manages API plans                                                                                                                           |
-| QUALITY\_RULE       | Manages API quality rules                                                                                                                   |
-| RATING              | Manages API rating                                                                                                                          |
-| RATING\_ANSWERS     | Manages API rating answers                                                                                                                  |
-| RESPONSE\_TEMPLATES | Manages API response templates                                                                                                              |
-| REVIEWS             | Manages API reviews                                                                                                                         |
-| SUBSCRIPTION        | Manages API subscriptions                                                                                                                   |
+| Permission              | Description                                                                                                                                 |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| ALERT                   | Manages API alerting                                                                                                                        |
+| ANALYTICS               | Manages API analytics. Only the `READ` permission is used.                                                                                  |
+| API_PRODUCT_DEFINITION | Manages API Product definitions. Supports `CREATE`, `READ`, `UPDATE`, and `DELETE` actions. |
+| AUDIT                   | Manages API audits. Only the `READ` permission is used.                                                                                     |
+| DEFINITION              | Manages the API definition                                                                                                                  |
+| DISCOVERY               | Manages service discovery                                                                                                                   |
+| DOCUMENTATION           | Manages API documentation                                                                                                                   |
+| EVENT                   | Manages API events. Only the `READ` permission is used.                                                                                     |
+| GATEWAY\_DEFINITION     | A specific permission used to update the context-path (`UPDATE`) and to give access to sensitive data (`READ`) such as endpoints and paths. |
+| HEALTH                  | Manages API health checks                                                                                                                   |
+| LOG                     | Manages API logs. Only the `READ` permission is used.                                                                                       |
+| MEMBER                  | Manages API members                                                                                                                         |
+| METADATA                | Manages API metadata                                                                                                                        |
+| MESSAGE                 | Manages messaging                                                                                                                           |
+| NOTIFICATION            | Manages API notifications                                                                                                                   |
+| PLAN                    | Manages API plans                                                                                                                           |
+| QUALITY\_RULE           | Manages API quality rules                                                                                                                   |
+| RATING                  | Manages API rating                                                                                                                          |
+| RATING\_ANSWERS         | Manages API rating answers                                                                                                                  |
+| RESPONSE\_TEMPLATES     | Manages API response templates                                                                                                              |
+| REVIEWS                 | Manages API reviews                                                                                                                         |
+| SUBSCRIPTION            | Manages API subscriptions                                                                                                                   |
 {% endtab %}
 
 {% tab title="Application" %}

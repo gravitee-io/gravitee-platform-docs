@@ -49,6 +49,25 @@ To extract request attributes and get the Content-Type header you can use the fo
 {#context.attributes['initialRequest'].headers['Content-Type']}
 ```
 
+### API Product Context Attribute
+
+When a subscription is associated with an API Product, the gateway automatically injects the API Product ID into the execution context as `{#context.attributes['apiProduct']}`. You can use this attribute in policy expressions to differentiate product-based access or apply conditional logic based on the API Product.
+
+For example, you can check if a request is associated with an API Product:
+
+```json
+"assign-attributes": {
+  "attributes": [
+    {
+      "name": "hasApiProduct",
+      "value": "{#context.attributes['apiProduct'] != null}"
+    }
+  ]
+}
+```
+
+This attribute is only available when the subscription references an API Product (i.e., when `referenceType=API_PRODUCT`). For standard API subscriptions, this attribute will be `null`.
+
 If you are using the policy in a message API, you can use the policy on the publish and subscribe phases to set attributes. You can access data at the message level with expressions like `{#message.headers['my-header'][0]}`. This can be used, for example, to set an attribute based on the message headers in a Kafka record.
 
 ## Examples

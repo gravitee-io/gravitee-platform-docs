@@ -44,6 +44,7 @@ Secure, optimize, and manage enterprise REST API traffic using advanced policies
 | Policy      | [Assign Metrics](../create-and-configure-apis/apply-policies/policy-reference/assign-metrics.md)             | Push custom metrics alongside natively provided request metrics to populate analytics dashboards or generate monetization invoices. |
 | Policy      | [Data Logging Masking](../create-and-configure-apis/apply-policies/policy-reference/data-logging-masking.md) | Protect sensitive user data by configuring rules to conceal strings and variables in API logs.                                      |
 | Policy      | [GeoIP Filtering](../create-and-configure-apis/apply-policies/policy-reference/geoip-filtering.md)           | Control access to your APIs by allowing or blocking IP addresses based on their physical distance or country of origin.             |
+| Feature     | API Products                                                                                                 | Bundle multiple V4 HTTP Proxy APIs into a single consumable product with unified plans and subscriptions. Requires universe tier.   |
 | Plugin Pack | Enterprise Policy Pack                                                                                       | A bundled pack of enterprise-grade policies necessary for strict, production API Management deployments.                            |
 
 ## Event Management

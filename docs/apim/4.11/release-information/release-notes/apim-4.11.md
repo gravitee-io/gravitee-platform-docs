@@ -16,6 +16,16 @@
 * Includes streaming detection safeguards that reject streaming requests when response filtering is enabled to prevent incomplete redaction
 <!-- /PIPELINE:APIM-12439 -->
 
+
+<!-- PIPELINE:APIM-12371 -->
+#### **API Products**
+
+* Bundle multiple V4 HTTP Proxy APIs into a single consumable product with unified plans and subscriptions, simplifying access management for multi-API workflows.
+* Consumers subscribe to the API Product rather than individual APIs, with product-level plans evaluated before API-level plans in the gateway security chain.
+* Requires a "universe" tier license and V4 HTTP Proxy APIs configured with `allowedInApiProducts=true`.
+* API Product ID is injected into the execution context as `{#context.attributes['apiProduct']}` for policy expressions.
+<!-- /PIPELINE:APIM-12371 -->
+
 ## Improvements
 
 ## Bug Fixes

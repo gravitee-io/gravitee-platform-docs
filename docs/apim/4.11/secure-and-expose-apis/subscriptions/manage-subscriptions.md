@@ -50,6 +50,8 @@ To manage subscriptions in APIM Console:
 
        <figure><img src="../../.gitbook/assets/subscription_validate 2.png" alt=""><figcaption><p>Validate the subscription</p></figcaption></figure>
 
+Subscription lifecycle events (accept, close, reject) are logged in audit events. For API Product subscriptions, audit events reference the API Product using the `API_PRODUCT` reference type.
+
 ## Shared API Keys
 
 Under the **Shared API Keys** header, you can view the API keys that are shared with all application subscriptions that have an API\_KEY plan.

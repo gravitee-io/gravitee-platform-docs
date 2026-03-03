@@ -7,7 +7,13 @@ metaLinks:
 
 # Transfer Subscriptions
 
-API publishers can transfer active subscriptions to a new plan with the same security type:
+API publishers can transfer active subscriptions to a new plan with the same security type. 
+Subscriptions are associated with either an API or an [API Product](../api-products/README.md) through the `referenceType` and `referenceId` fields.
+ The `api` field is deprecated since 4.11.0.
+
+When `referenceType` is `API`, the subscription is linked to a standard API plan. When `referenceType` is `API_PRODUCT`, the subscription is linked to an API Product plan, allowing access to multiple bundled APIs through a single subscription.
+
+To transfer a subscription:
 
 1. Log in to your APIM Console
 2. Select **APIs** from the left nav
