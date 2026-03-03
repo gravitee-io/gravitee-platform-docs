@@ -16,6 +16,16 @@
 * Includes streaming detection safeguards that reject streaming requests when response filtering is enabled to prevent incomplete redaction
 <!-- /PIPELINE:APIM-12439 -->
 
+
+<!-- PIPELINE:APIM-12498 -->
+#### **Multi-Tenant Endpoint Support for Native Kafka APIs**
+
+* Enables a single Kafka API definition to route traffic to different backend Kafka clusters based on the gateway's tenant configuration, eliminating the need to duplicate API definitions across environments.
+* The gateway evaluates its configured `tenant` identifier against each endpoint's `tenants` array and selects the first matching endpoint. If no tenant is configured on the gateway, it matches any endpoint regardless of tenant restrictions.
+* Configure the gateway-level `tenant` property in `gravitee.yml` and assign tenant identifiers to individual endpoints via the Management Console's multi-select dropdown.
+* If no endpoint matches the gateway's tenant, requests fail with a `KafkaNoApiEndpointFoundException`.
+<!-- /PIPELINE:APIM-12498 -->
+
 ## Improvements
 
 ## Bug Fixes
