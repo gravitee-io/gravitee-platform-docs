@@ -17,10 +17,10 @@ The Gravitee Policy Studio allows you to design flows, which are policy enforcem
 
 ## v2 APIs and v4 APIs policy support
 
-Policy support differs based on API definition and type. The following matrix shows which policies are supported by v2 proxy, v4 proxy, and v4 message APIs.
+Policy support differs based on API definition and type. The following matrix shows which policies are supported by v2 proxy, v4 proxy, v4 message, and v4 A2A proxy APIs.
 
 {% hint style="info" %}
-Policies cannot currently be applied to v4 TCP proxy APIs
+Policies cannot currently be applied to v4 TCP proxy APIs. A2A proxy API policy support requires `@gravitee/ui-policy-studio-angular` version 17.4.0 or later.
 {% endhint %}
 
 ### v2 APIs and v4 APIs support comparison for policies

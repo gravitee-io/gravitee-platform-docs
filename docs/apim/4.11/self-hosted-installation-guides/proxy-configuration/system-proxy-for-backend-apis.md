@@ -146,6 +146,15 @@ The following table describes the available environment variables for configurin
 
 After deploying the Gateway with the system proxy configured, you must enable it on each API endpoint that should route traffic through the proxy. Each endpoint has a `useSystemProxy` setting that defaults to false.
 
+### Supported API Types
+
+The following table describes which API types support the system proxy configuration:
+
+| API Type | System Proxy Support | Notes |
+|:---------|:---------------------|:------|
+| HTTP Proxy | Yes | Standard HTTP proxy APIs |
+| A2A Proxy | Yes | Agent-to-agent communication APIs. See [A2A Proxy Reactor Reference](../../configure-and-manage-the-platform/gravitee-gateway/proxy.md) |
+
 ### Management Console UI
 
 #### **For an existing API:**

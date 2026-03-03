@@ -7,3 +7,9 @@ create-and-configure-apis/apply-policies/policy-reference/pii-filtering.md
 create-and-configure-apis/apply-policies/resources.md
 prepare-a-production-environment/gateway-resource-sizing-guidelines.md
 release-information/release-notes/apim-4.11.md
+agent-mesh/create-an-a2a-proxy.md
+create-and-configure-apis/apply-policies/README.md
+create-and-configure-apis/apply-policies/policy-reference/regex-threat-protection.md
+create-and-configure-apis/configure-v2-apis/proxy-settings.md
+create-and-configure-apis/create-apis/v4-api-creation-wizard.md
+self-hosted-installation-guides/proxy-configuration/system-proxy-for-backend-apis.md

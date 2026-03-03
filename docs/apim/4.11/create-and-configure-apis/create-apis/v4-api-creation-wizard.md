@@ -30,6 +30,17 @@ The name and version number are required, but we also recommend giving your API 
 
 <figure><img src="../../.gitbook/assets/v4 wizard_step 1 (1).png" alt=""><figcaption></figcaption></figure>
 
+## API type
+
+Select the API type that matches your use case:
+
+* **Proxy Generic Protocol:** Use this method if you want to use Gravitee to proxy backend REST APIs, SOAP APIs, WebSocket Server, gRPC, or GraphQL over HTTP or TCP. You will not be able to enforce policies at the message level.
+* **Protocol Mediation:** Use this method if you want to expose backend event brokers, such as Kafka and MQTT.
+* **A2A Proxy:** Use this method to enable agent-to-agent communication through Gravitee API Management with specialized HTTP proxy capabilities for routing requests between autonomous agents.
+* **Kafka Protocol:** Refer to the [Kafka documentation](../../kafka-gateway/create-and-configure-kafka-apis/create-kafka-apis.md) if you want to proxy the native Kafka protocol with the Gravitee Gateway acting as a Kafka broker to Kafka clients.
+
+The A2A Proxy API type appears in the console UI with the icon identifier `gio-literal:a2a-proxy`. In the API list view, use the filter value `V4_A2A_PROXY` to isolate A2A Proxy APIs from other types.
+
 ## Entrypoints
 
 Choose how you want to expose your backend.

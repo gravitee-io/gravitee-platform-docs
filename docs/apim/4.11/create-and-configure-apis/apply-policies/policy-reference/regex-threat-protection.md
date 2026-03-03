@@ -62,6 +62,15 @@ The following is the compatibility matrix for APIM and the `regex-threat-protect
 
 <table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th></tr></thead><tbody><tr><td>1.x</td><td>All</td></tr></tbody></table>
 
+### Supported API types
+
+The `regex-threat-protection` policy supports the following API types:
+
+| API type   | Compatible? |
+|:-----------|:------------|
+| HTTP proxy | ✅          |
+| A2A proxy  | ❌          |
+
 ## Errors
 
 <table><thead><tr><th width="224.5">HTTP status code</th><th>Message</th></tr></thead><tbody><tr><td><code>400</code></td><td><p>Applies to:</p><ul><li>Matching request headers</li><li>Matching request path or query parameters</li><li>Matching request body</li></ul></td></tr></tbody></table>

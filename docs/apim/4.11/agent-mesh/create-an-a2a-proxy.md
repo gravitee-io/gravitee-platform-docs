@@ -23,15 +23,31 @@ What is A2A?
 
 As organizations begin to adopt AI agents across various platforms and ecosystems, a new challenge emerges to securely connect, coordinate, and control communication between autonomous agents.
 
-Gravitee’s A2A (Agent-to-Agent) Proxy addresses this challenge by **enabling structured, secure, and observable interactions between agents**, no matter where or how they’re running.
+Gravitee's A2A (Agent-to-Agent) Proxy addresses this challenge by **enabling structured, secure, and observable interactions between agents**, no matter where or how they're running.
 
 Much like any other type of API, A2A interactions benefit from being discoverable, consumable, secured, and governed via Gravitee.
 
-Truly intelligent agents need access to both synchronous (request-response) and asynchronous (event-driven) APIs to operate effectively. Gravitee’s A2A Proxy supports both, enabling agents to communicate and react in real time or over streaming protocols and empowering use cases from real-time decisioning to autonomous workflows.
+Truly intelligent agents need access to both synchronous (request-response) and asynchronous (event-driven) APIs to operate effectively. Gravitee's A2A Proxy supports both, enabling agents to communicate and react in real time or over streaming protocols and empowering use cases from real-time decisioning to autonomous workflows.
+
+The A2A Proxy reactor extends the standard HTTP proxy model with agent-specific routing capabilities. It consists of three components:
+
+* **Reactor plugin** (`gravitee-reactor-a2a-proxy`)
+* **Entrypoint connector** (`gravitee-entrypoint-a2a-proxy`)
+* **Endpoint connector** (`gravitee-endpoint-a2a-proxy`)
+
+All three components are distributed as runtime-scoped ZIP artifacts and share version `1.0.0-alpha.1`.
+
+A2A Proxy APIs support REQUEST and RESPONSE flow phases, matching the capabilities of HTTP_PROXY and LLM_PROXY API types. Policies attached to these phases execute during request ingress and response egress. Flow selectors use HTTP path extraction logic identical to standard proxy APIs.
+
+In the console UI, A2A Proxy appears as "A2A Proxy" with the icon identifier `gio-literal:a2a-proxy`. The API list filter uses the value `V4_A2A_PROXY` to isolate these APIs from other types.
 
 ## Prerequisites
 
-* You must have the Enterprise Edition of Gravitee. For more information about Gravitee Enterprise Edition, see [enterprise-edition.md](../readme/enterprise-edition.md "mention").
+Before creating an A2A Proxy API, ensure the following requirements are met:
+
+* You must have the Enterprise Edition of Gravitee with an enterprise license that includes the `apim-a2a-proxy-reactor` feature enabled (AI pack). For more information about Gravitee Enterprise Edition, see [enterprise-edition.md](../readme/enterprise-edition.md "mention").
+* Gravitee APIM 4.x distribution with A2A Proxy reactor plugin installed
+* Target backend service accessible via HTTP or HTTPS
 
 ## Create an A2A proxy
 
@@ -60,7 +76,7 @@ Truly intelligent agents need access to both synchronous (request-response) and 
 8.  Click **Validate my entrypoints**.
 
     <figure><img src="../.gitbook/assets/00 agent copy (1).png" alt=""><figcaption></figcaption></figure>
-9.  In the **Configure your API endpoints access** screen, provide the **Target URL**. The Target URL is the Agent's address.
+9.  In the **Configure your API endpoints access** screen, provide the **Target URL**. The Target URL is the Agent's address and is mandatory. It must be a valid non-empty URL.
 
     <figure><img src="../.gitbook/assets/4CA47921-5400-4EA4-97C4-43C928118657_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
 10. Click **Validate my endpoints**.
@@ -72,3 +88,49 @@ Truly intelligent agents need access to both synchronous (request-response) and 
 12. In the **Review your API configuration** screen, click **Save & Deploy**.
 
     <figure><img src="../.gitbook/assets/E1E23126-57E1-4FCE-B265-7E0B896F0528_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+
+The reactor validates that the target URL is non-null and non-empty before deployment.
+
+## Applying policies to A2A Proxy APIs
+
+Attach policies to A2A Proxy APIs using the policy studio interface. Flow selectors follow standard HTTP path matching rules. The following policies are supported:
+
+| Policy | Supported Phases |
+|:-------|:----------------|
+| `transform-headers` | REQUEST, RESPONSE |
+| `assign-attributes` | REQUEST, RESPONSE |
+| `callout-http` | REQUEST, RESPONSE |
+| `interrupt` | REQUEST, RESPONSE |
+| `role-based-access-control` | REQUEST |
+| `ipfiltering` | REQUEST |
+| `ai-prompt-guard-rails` | REQUEST |
+| `ratelimit` | REQUEST |
+| `javascript` | REQUEST, RESPONSE |
+| `groovy` | REQUEST, RESPONSE |
+| `retry` | REQUEST |
+
+Policy compatibility is enforced at design time through the policy studio UI.
+
+## Gateway configuration
+
+### Reactor plugin version
+
+| Property | Description | Example |
+|:---------|:------------|:--------|
+| `gravitee-reactor-a2a-proxy.version` | Version of the A2A Proxy reactor plugin | `1.0.0-alpha.1` |
+
+### Endpoint connector configuration
+
+| Property | Description | Example |
+|:---------|:------------|:--------|
+| `target` | Target URL for the A2A proxy endpoint (required, cannot be null or empty) | `https://agent-backend.example.com` |
+
+## Restrictions
+
+* Requires enterprise license with AI pack (`apim-a2a-proxy-reactor` feature)
+* Current version is `1.0.0-alpha.1` (alpha release)
+* Endpoint `target` property is mandatory and must be a valid non-empty URL
+* Flow selectors are limited to HTTP path-based matching (same as HTTP_PROXY and LLM_PROXY)
+* Only REQUEST and RESPONSE flow phases are supported (no MESSAGE phase)
+* Policy support is limited to the 11 policies explicitly updated for A2A_PROXY compatibility
+
