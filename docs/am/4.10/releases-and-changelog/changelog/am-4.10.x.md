@@ -14,8 +14,8 @@ description: >-
 
 **Other**
 
-* SMTP Connection with OAuth2 Authentication [#11012](https://github.com/gravitee-io/issues/issues/11012)
-* Email BULK processing - context not closed properly [#11199](https://github.com/gravitee-io/issues/issues/11199)
+* SMTP Connection with OAuth2 Authentication [#11012](https://github.com/gravitee-io/issues/11012)
+* Email BULK processing - context not closed properly [#11199](https://github.com/gravitee-io/issues/11199)
 
 </details>
 
