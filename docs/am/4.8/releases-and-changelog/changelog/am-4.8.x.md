@@ -6,6 +6,66 @@ description: >-
 
 # AM 4.8.x
 
+## Gravitee Access Management 4.8.25 - February 27, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* SMTP Connection with OAuth2 Authentication [#11012](https://github.com/gravitee-io/issues/11012)
+
+</details>
+
+
+## Gravitee Access Management 4.8.24 - February 26, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* Email BULK processing - context not closed properly [#11199](https://github.com/gravitee-io/issues/issues/11199)
+
+</details>
+
+
+## Gravitee Access Management 4.8.23 - February 23, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Improve reliability of email emission during SCIM Bulk [#11150](https://github.com/gravitee-io/issues/issues/11150)
+
+
+
+
+
+**Other**
+
+* Update Facebook IdP to latest Graph API [#11162](https://github.com/gravitee-io/issues/issues/11162)
+* [DCR] Application fails to inherit Access Token validity from AM Templates [#11178](https://github.com/gravitee-io/issues/issues/11178)
+
+</details>
+
+
 ## Gravitee Access Management 4.8.22 - February 16, 2026
 
 <details>

@@ -1,5 +1,17 @@
 # GKO 4.9.x
 
+## Gravitee Kubernetes Operator 4.9.14 - March 2, 2026
+    
+<details>
+<summary>Bug fixes</summary>
+
+  **GKO**
+
+  * Helm web hook port is not exposed by the service [#11169](https://github.com/gravitee-io/issues/issues/11169)
+
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.9.13 - February 16, 2026
     
 <details>

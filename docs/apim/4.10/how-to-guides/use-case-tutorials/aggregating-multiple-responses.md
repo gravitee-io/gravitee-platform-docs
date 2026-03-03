@@ -53,15 +53,15 @@ To make a second request, or multiple requests, to additional backend services, 
 
 Within your APIs' _Policies_ page, ensure you have created a _Flow_.  If not, then click on the + icon next to your Plan, and click on the Create button
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt="" width="375"><figcaption><p>Click on the [+] button to create a new Flow under your Plan</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt="" width="375"><figcaption><p>Click on the [+] button to create a new Flow under your Plan</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt="" width="375"><figcaption><p>Now click on the [Create] button to create your flow</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1).png" alt="" width="375"><figcaption><p>Now click on the [Create] button to create your flow</p></figcaption></figure>
 
 #### Configuring the HTTP Callout policy
 
 1. Click the \[+] button (within the **Request phase**) to add a new Policy into your Flow.
 
-<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption><p>Click on the [+] button - within the Request phase - to add a new HTTP Callout Policy into the Flow</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1).png" alt=""><figcaption><p>Click on the [+] button - within the Request phase - to add a new HTTP Callout Policy into the Flow</p></figcaption></figure>
 
 2. Browse the list of policies for the HTTP Callout policy, and click Select.
 3. Provide the necessary information, such as the HTTP method and URL. Optional fields include the request headers and request body.
@@ -70,7 +70,7 @@ Within your APIs' _Policies_ page, ensure you have created a _Flow_.  If not, th
    2. Other syntax is available, such as the built-in [`jsonPath`](https://docs.spring.io/spring-integration/reference/spel.html#built-in-spel-functions) function to obtain a specific value of a field from this response.  E.g.: `{#jsonPath(#calloutResponse.content, '$.headers.User-Agent)}`
 
 {% hint style="info" %}
-In Gravitee, a **context variable** (often called a _context attribute_) is a key-value pair stored in the execution context during a request or authentication flow. Policies can create or update these variables, and other policies or templates can then read them using the [Gravitee Expression Language](../../gravitee-expression-language.md).
+In Gravitee, a **context variable** (often called a _context attribute_) is a key-value pair stored in the execution context during a request or authentication flow. Policies can create or update these variables, and other policies or templates can then read them using the [Gravitee Expression Language](../../../4.9/gravitee-expression-language.md).
 {% endhint %}
 
 5. Click Save.

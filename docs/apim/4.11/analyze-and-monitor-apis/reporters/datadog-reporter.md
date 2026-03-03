@@ -12,15 +12,16 @@ metaLinks:
 To configure the Datadog Reporter, download the reporter plugin [here](https://download.gravitee.io/#graviteeio-ee/apim/plugins/reporters/gravitee-reporter-datadog/). Once you’ve downloaded the .ZIP file, you can add it to the Gateway in the same way as [other plugins](../../plugins/). Typically, you’ll install plugins in the `/plugins` directory of your installation. As with other reporters, the Datadog Reporter plugin only needs to be installed on the Gateway, not the Management API.
 
 {% hint style="info" %}
-If you want to collect system metrics and logs from the Management API service, use the [Datadog Agent](https://docs.datadoghq.com/agent/?tab=Linux) to tail the Management API logs, or collect them from stdout.
+If you want to collect system metrics and logs from the Management API service, use the [Datadog Agent](https://docs.datadoghq.com/agent/?tab=Linux) to tail the Management API logs or collect them from stdout.
 {% endhint %}
 
 If you are installing the Gravitee Gateway via Helm, add the following entry in the `additionalPlugins` section (changing the version as needed):
 
 ```yaml
 gateway:
+  ...
   additionalPlugins:
-    - https://download.gravitee.io/graviteeio-ee/apim/plugins/reporters/gravitee-reporter-datadog/gravitee-reporter-datadog-5.0.0.zip
+    - https://download.gravitee.io/graviteeio-ee/apim/plugins/reporters/gravitee-reporter-datadog/gravitee-reporter-datadog-7.2.1.zip
 ```
 
 ## Configuration
@@ -78,15 +79,15 @@ You can obscure the value of this API key by using [configuration-level secrets]
 
 ## Compatibility with APIM
 
-| Plugin version | APIM version     | JDK version |
-| -------------- | ---------------- | ----------- |
-| 7.0            | 4.10.x and later | 21          |
-| 6.0            | 4.9.x and later  | 21          |
-| 5.0            | 4.8.x and later  | 17          |
-| 4.1            | 4.7.x and later  | 17          |
-| 4.x            | 4.5.x and later  | 17          |
-| 3.x            | 4.5.x and later  | 17          |
-| 2.x            | 4.0.x to 4.4.x   | 17          |
+| Datadog Reporter Plugin version | Gravitee APIM version |
+| ------------------------------- | --------------------- |
+| 7.x                             | 4.10.x and later      |
+| 6.x                             | 4.9.x and later       |
+| 5.x                             | 4.8.x and later       |
+| 4.1                             | 4.7.x and later       |
+| 4.x                             | 4.5.x and later       |
+| 3.x                             | 4.5.x and later       |
+| 2.x                             | 4.0.x to 4.4.x        |
 
 ## Data type mapping
 
@@ -137,9 +138,24 @@ The tags that Gravitee includes by default are shown in the table below. You can
 | user           | The authenticated user, if any type of security was used when processing the request                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                                                                              |
 | useragent      | The content of the `User-Agent` header, passed by the client when the incoming request was issued                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | `postmanruntime/7.43.0`                                                                      |
 
+### LLM-Proxy and MCP-Proxy Tags
+
+For LLM-Proxy, the metrics in Datadog are:
+
+* `gravitee.apim.long_llm_proxy_tokens_received`
+* `gravitee.apim.long_llm_proxy_tokens_sent`
+* `gravitee.apim.double_llm-proxy_sent_cost`
+* `gravitee.apim.double_llm-proxy_received_cost`
+
+The `keyword_llm-proxy_provider` and `keyword_llm-proxy_model` tags will be attached to metrics. In MCP-Proxy, metrics are `keyword`-type, meaning these tags apply to metrics such as `gravitee.apim.endpoint_response_time_ms`.
+
+{% hint style="info" %}
+If there is no cost defined on the LLM-Proxy endpoint, then Gravitee won't calculate and publish the `double_*` metrics. See step 8 [here](../../agent-mesh/llm-proxy/proxy-your-llms.md#create-an-llm-proxy-api) to define costs per model.
+{% endhint %}
+
 ## Custom tags
 
-You can add custom [tags](https://docs.datadoghq.com/getting_started/tagging/) to metrics sent to Datadog by adding the following section to the reporter configuration. Tags are a comma-separated list of strings; they can have a key-value format, or just be a raw string. No quotes are required.
+You can add custom [tags](https://docs.datadoghq.com/getting_started/tagging/) to metrics sent to Datadog by adding the following section to the reporter configuration. Tags are a comma-separated list of strings; they can be in key-value format or just raw strings. No quotes are required.
 
 ```yaml
 reporters:
