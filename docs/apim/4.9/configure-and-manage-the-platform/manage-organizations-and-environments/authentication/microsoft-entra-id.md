@@ -1,9 +1,5 @@
 ---
 description: An overview about microsoft entra id.
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/configure-and-manage-the-platform/manage-organizations-and-environments/authentication/microsoft-entra-id
 ---
 
 # Microsoft Entra ID
@@ -13,7 +9,7 @@ metaLinks:
 This article provides information about setting up APIM authentication in the APIM Console UI to use Microsoft Entra ID (formerly known as Azure AD) as an IDP.
 
 {% hint style="info" %}
-For documentation about securing your APIs with OAuth2 and Entra ID, see the documentation on the [JWT Plan](../../../secure-and-expose-apis/plans/jwt.md).
+For documentation about securing your APIs with OAuth2 and Entra ID, see the documentation on the [JWT Plan](../../../../4.10/secure-and-expose-apis/plans/jwt.md).
 {% endhint %}
 
 ## Prerequisites
@@ -24,34 +20,6 @@ For documentation about securing your APIs with OAuth2 and Entra ID, see the doc
 * A Gravitee APIM installation with network access to Entra ID
 
 ## Create an application in Entra ID
-
-1. Create an application in Entra ID. Complete the following steps to fulfill the minimum setup requirements:
-   1. In the Entra ID menu, click **App registrations**.
-   2. Click **New Registration**.
-   3. Type a name for your application. For example, "gravitee-client-local".
-   4. Select who can use or access the API.
-   5. **Supported account types:** Choose an option that applies to your context. For example, Accounts in this organizational directory only (\<your\_domain> only - Single tenant).
-   6. Modify the **Redirect URI** to map to your APIM Console URL. For example, for a local deployment of APIM: `http://localhost:8084`, or for a Gravitee Cloud customer: `https://prod.apim.console.<tenant>.gravitee.cloud`.
-   7. Click **Register** to create the App Registration.
-2.  Obtain the Application (client) ID. For example, "6f9d31e7-802b".
-
-    <figure><img src="https://slabstatic.com/prod/uploads/6lql0jy7/posts/images/preload/vknINzxKjIORrO3PPJCQhI89.png" alt=""><figcaption></figcaption></figure>
-3. Generate a client secret. To generate a client secret, complete the following steps:
-   1. Click **Add a certificate or secret**
-   2. Click on New client secret.
-   3. Enter a Description.
-   4. Specify the Expires value.
-   5. Click **Add**.
-   6.  Copy the Value (not the Secret ID). This is used by APIM to authenticate with Entra ID when checking the tokens and authentication of users logging into Gravitee.
-
-       <figure><img src="https://slabstatic.com/prod/uploads/6lql0jy7/posts/images/preload/lu-VXbcFoZUJOcnAbiVAmOb9.png" alt=""><figcaption></figcaption></figure>
-4.  Configure the **API permissions** to allow Gravitee to read the user **email**, **openid**, and **profile** details.
-
-    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>The <code>profile</code> scope is a permission request that grants access to a wider range of user profile information, including the <code>given_name</code> and <code>family_name</code> claims.</p></div>
-
-    <br>
-
-    <figure><img src="../../../.gitbook/assets/image (71).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 You can now add a new Identity Provider to Gravitee APIM.
