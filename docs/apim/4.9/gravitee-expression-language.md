@@ -436,6 +436,20 @@ Convert or cast a string value into an integer. The following EL can be used:
 
 `{T(java.lang.Integer).parseInt("some_string")}`
 
+#### Obtaining the current date & time
+
+You can use the following EL to obtain the current date & time:&#x20;
+
+`{T(java.time.ZonedDateTime).now(T(java.time.ZoneOffset).UTC).format(T(java.time.format.DateTimeFormatter).ISO_INSTANT)}`
+
+<details>
+
+<summary>Example Output</summary>
+
+`2026-03-03T12:54:33.485682337Z`
+
+</details>
+
 #### Evaluating different field types
 
 This `tip` can be used when evaluating comparisons of different field types.  For example, if the `subscription.metadata['my_key']` value is of type string, but the value in a request/message content is of type number/numeric/integer, the following EL can be used to compare if these two values are the same:
