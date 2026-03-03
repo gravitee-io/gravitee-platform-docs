@@ -112,7 +112,7 @@
       * [OpenID Connect](configure-and-manage-the-platform/manage-organizations-and-environments/authentication/openid-connect.md)
       * [Microsoft Entra ID](../4.9/configure-and-manage-the-platform/manage-organizations-and-environments/authentication/microsoft-entra-id.md)
       * [Roles and Groups Mapping](configure-and-manage-the-platform/manage-organizations-and-environments/authentication/roles-and-groups-mapping.md)
-    * [User Management](configure-and-manage-the-platform/manage-organizations-and-environments/user-management.md)
+    * [User Management](../4.9/configure-and-manage-the-platform/manage-organizations-and-environments/user-management.md)
     * [Applications](configure-and-manage-the-platform/manage-organizations-and-environments/applications.md)
     * [APIM Console](configure-and-manage-the-platform/manage-organizations-and-environments/apim-console.md)
     * [Developer Portal](configure-and-manage-the-platform/manage-organizations-and-environments/developer-portal.md)
