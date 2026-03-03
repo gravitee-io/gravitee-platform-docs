@@ -20,5 +20,6 @@ jobs:
           files: __diff
           reporter: github-pr-review
           filter_mode: added
+          vale_flags: "--glob='!docs/gko/*/releases-and-changelog/release-notes/*.md'"
         env:
           GITHUB_TOKEN: ${{ github.token }}
