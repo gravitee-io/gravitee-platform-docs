@@ -66,6 +66,24 @@ The flow and policy configuration options you are presented with differ based on
     * **Flow name:** Give your flow a descriptive name. Otherwise, a name will be automatically generated using the channel and operation.
     * **Path operator:** Apply this flow to requests with a path that **Equals** or **Starts with** the specified **Path**.
     * **Path:** Define the path to use in conjunction with the **Path operator** to determine if this flow should be applied.
+      *   You can use colon-prefixed path parameters instead of regex for variable segments:
+
+          *   Flow 1 (default on controller root):
+
+              ```
+              pathOperator: STARTS_WITH
+              path: /test
+              ```
+          *   Flow 2 (specific resource):
+
+              <pre><code>pathOperator: EQUALS
+              path: /test/:uuid
+              <strong>-or-
+              </strong>pathOperator: EQUALS
+              path: /test/:uuid/customer/orders/
+              </code></pre>
+
+          This lets one flow match `/test/**` and another match specifically a single-segment `/test/{UUID}` without needing regex. Path parameters are resolved once at the start of request processing and made available to all flows, as long as they are declared consistently (no conflicting positions for the same parameter name across overlapping paths).
     * Choose one or more of the following **Methods for your flow**: ALL, CONNECT, DELETE, GET, HEAD, OPTIONS, PATCH, POST, PUT, TRACE, OTHER.
     * **Condition:** Use [Gravitee's Expression Language (EL)](../../../4.9/gravitee-expression-language.md) to define specific conditions that trigger flow execution.
 7. Click **Create** in the modal, and then **Save** on the **Policies** page.
