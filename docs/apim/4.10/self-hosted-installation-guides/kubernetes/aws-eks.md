@@ -387,7 +387,7 @@ kubectl get pods -n kube-system -l app.kubernetes.io/name=aws-load-balancer-cont
 
 The output shows two pods in `Running` status with `1/1` ready.
 
-```bash
+```actionscript-3
 NAME                                                    READY   STATUS    RESTARTS   AGE
 aws-load-balancer-controller-<replicaset-id>-<pod-id>  1/1     Running   0          33s
 aws-load-balancer-controller-<replicaset-id>-<pod-id>  1/1     Running   0          33s
