@@ -1,11 +1,3 @@
----
-description: Configuration guide for configure your http server.
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/prepare-a-production-environment/configure-your-http-server
----
-
 # Configure your HTTP Server
 
 ## `gravitee.yaml` configuration
@@ -76,7 +68,7 @@ http:
 {% hint style="info" %}
 **Automatic watching**
 
-As of Gravitee APIM v3.13.0, the keystore file is automatically watched for any modifications and reloaded without having to restart the Gateway server.
+The keystore file is automatically watched for any modifications and reloaded without having to restart the Gateway server.
 {% endhint %}
 {% endtab %}
 
@@ -110,13 +102,27 @@ The keystore (or PEM cert & key) stored in the Kubernetes secret or configmap is
 
 First, enable HTTPS support as described in the section above.
 
-You then need to enable `alpn` in `gravitee.yaml`:
+You then need to enable `alpn` in your Gateway configuration:
 
+{% tabs %}
+{% tab title="gravitee.yaml" %}
 ```yaml
 http:
   alpn: true
   ...
 ```
+{% endtab %}
+
+{% tab title="Helm values.yml" %}
+```yaml
+gateway:
+  servers:
+    - type: http
+      alpn: true
+      ...
+```
+{% endtab %}
+{% endtabs %}
 
 You can now consume your API with both HTTP/1 and HTTP/2 protocols:
 
@@ -126,21 +132,45 @@ curl -k -v --http2 https://localhost:8082/my_api
 
 ## **Enable WebSocket support**
 
-To enable WebSocket support, update the `gravitee.yaml` file:
+To enable WebSocket support, you will need to update your Gateway configuration:
 
+{% tabs %}
+{% tab title="gravitee.yaml" %}
 ```yaml
 http:
   websocket:
     enabled: true
 ```
+{% endtab %}
 
-You can now consume your API via both WS and WSS protocols:
+{% tab title="Helm values.yml" %}
+```yaml
+gateway:
+  websocket: true
+  servers:
+    - type: http
+      ... 
+      websocket:
+        enabled: true
+        # subProtocols: v10.stomp, v11.stomp, v12.stomp
+        # perMessageWebSocketCompressionSupported: true
+        # perFrameWebSocketCompressionSupported: true
+        # maxWebSocketFrameSize: 65536
+        # maxWebSocketMessageSize: 262144 # 4 full frames worth of data
+```
+{% endtab %}
+{% endtabs %}
+
+You can now consume your API via both WS and (secure) WSS protocols:
 
 ```sh
 curl ws://localhost:8082/my_websocket
+curl wss://localhost:8082/my_websocket
 ```
 
-## Enable certificate-based client authentication
+## Enable certificate based client authentication <a href="#enable-certificate-based-client-authentication" id="enable-certificate-based-client-authentication"></a>
+
+Follow these steps to enable the certificate based client authentication:&#x20;
 
 ```yaml
 http:
@@ -150,6 +180,46 @@ http:
       path: /path/to/truststore.jks
       password: adminadmin
 ```
+
+{% tabs %}
+{% tab title="gravitee.yaml" %}
+```yaml
+http:
+  ssl:
+    clientAuth: none # Supports none, request, required
+    truststore:
+      path: /path/to/truststore.jks
+      password: adminadmin
+```
+{% endtab %}
+
+{% tab title="Helm values.yml" %}
+<pre class="language-yaml"><code class="lang-yaml">gateway:
+  servers:
+    - type: http
+      ... 
+      ssl:
+<strong>        clientAuth: none # Supports none, request, required
+</strong>#        tlsProtocols: TLSv1.2, TLSv1.3
+#        tlsCiphers: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
+#        keystore:
+#          type: jks # Supports jks, pem, pkcs12, self-signed
+#          path: ${gravitee.home}/security/keystore.jks # A path is required if certificate's type is jks or pkcs12
+#          password: changeit
+#          watch: true # Watch for any updates on the keystore and reload it. Default is true.
+#          # The following is for type 'pem', report to 'secrets' section for other secret-provider plugins.
+#          # This method is now the preferred way for kubernetes: /namespace/secrets/my-tls-secret
+#          secret: secret://kubernetes/my-tls-secret
+        truststore:
+          type: jks # Supports jks, pem, pkcs12, pem-folder (for the latter watch supports added/updated/removed files)
+          path: ${gravitee.home}/security/truststore.jks
+          password: changeit
+          watch: true # Watch for any updates on the keystore and reload it. Default is true.
+#        sni: false
+        openssl: false # Used to rely on OpenSSL Engine instead of default JDK SSL Engine
+</code></pre>
+{% endtab %}
+{% endtabs %}
 
 Available modes for `clientAuth` are:
 
@@ -165,7 +235,7 @@ To enable this feature, you must use an alternate configuration in the `gravitee
 
 * The root-level `http` configuration property should be replaced with the root-level `servers` property. The `servers` property allows for an array of servers in the configuration file.
 * An `id` property has been added to identify and compare servers.
-* The `type` property is now mandatory and at the moment, only supports a value of `http`.
+* The `type` Property is now mandatory and at the moment, only supports a value of `http`.
 
 {% hint style="info" %}
 Gravitee still fully supports all configurations using `http` as the root-level property.
