@@ -6,7 +6,7 @@ This page lists the available AM plugins and provides compatibility matrices wit
 
 ## Plugins
 
-### Factors
+### Factors in flow
 
 #### [gravitee-am-factor-call](https://download.gravitee.io/#graviteeio-ee/am/plugins/factors/gravitee-am-factor-call/)
 
