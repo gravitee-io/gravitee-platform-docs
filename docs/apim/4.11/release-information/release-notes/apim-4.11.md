@@ -16,6 +16,17 @@
 * Includes streaming detection safeguards that reject streaming requests when response filtering is enabled to prevent incomplete redaction
 <!-- /PIPELINE:APIM-12439 -->
 
+
+<!-- PIPELINE:APIM-12500 -->
+#### **Native Kafka Endpoint Management**
+
+* Native Kafka APIs now support endpoint group and endpoint creation with visual drag-and-drop reordering to control endpoint priority.
+* The first endpoint in the first endpoint group is automatically designated as the default endpoint and receives a "Default" badge.
+* Security protocol configuration can be set at the endpoint level or inherited from the endpoint group, with badges indicating override or inheritance status.
+* Load balancer configuration is optional for Native Kafka APIs and validation is automatically removed when a Kafka listener is detected.
+* Endpoint tables display bootstrap servers and security protocol badges (e.g., `SASL_SSL`) for quick configuration visibility.
+<!-- /PIPELINE:APIM-12500 -->
+
 ## Improvements
 
 ## Bug Fixes

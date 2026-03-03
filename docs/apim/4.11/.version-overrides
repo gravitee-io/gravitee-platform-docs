@@ -7,3 +7,5 @@ create-and-configure-apis/apply-policies/policy-reference/pii-filtering.md
 create-and-configure-apis/apply-policies/resources.md
 prepare-a-production-environment/gateway-resource-sizing-guidelines.md
 release-information/release-notes/apim-4.11.md
+kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/endpoints.md
+kafka-gateway/create-and-configure-kafka-apis/create-kafka-apis.md

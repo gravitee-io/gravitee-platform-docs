@@ -52,6 +52,17 @@ The Kafka endpoint configuration is the Kafka cluster being proxied by your API.
 
 Of the following configuration settings, only entering a host/port pair is required. Modifying any other configuration parameters is optional.
 
+### Security Protocol Inheritance
+
+Security protocols can be configured at two levels:
+
+* **Endpoint group level:** Set `sharedConfiguration.security.protocol` to apply a protocol to all endpoints in the group by default.
+* **Endpoint level:** Set `sharedConfigurationOverride.security.protocol` to override the group-level protocol for a specific endpoint.
+
+When viewing endpoints in the endpoint table, security protocol badges (e.g., `SASL_SSL`) display the active protocol. The badge tooltip indicates whether the protocol is inherited from the group configuration or overridden by the endpoint configuration.
+
+### Configuration Steps
+
 1. Define the comma-separated list of host/port pairs to use for establishing the initial connection to the Kafka cluster.
 2. Select **PLAINTEXT**, **SASL\_PLAINTEXT**, **SASL\_SSL**, or **SSL** from the drop-down menu to define your Kafka-specific authentication flow:
    * **PLAINTEXT:** No further security config necessary.
