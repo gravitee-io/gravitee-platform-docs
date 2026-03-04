@@ -57,6 +57,9 @@ metaLinks:
 
 * Make 401 Error Details Available in Response [#11212](https://github.com/gravitee-io/issues/issues/11212)
 
+**Other**
+* OpenAPI Validation Policy fails with OAS 3.1 discriminator schemas [#10763](https://github.com/gravitee-io/issues/issues/10763)
+
 </details>
 
 
