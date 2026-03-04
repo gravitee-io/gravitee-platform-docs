@@ -1,0 +1,9 @@
+SUMMARY.md
+guides/applications/client-secrets.md
+guides/auth-protocols/uma-2.0.md
+guides/auth-protocols/uma-2.0/managing-protected-resource-secrets.md
+guides/mcp-servers/create-an-mcp-server.md
+guides/mcp-servers/protected-resource-constraints.md
+guides/mcp-servers/protected-resource-secrets.md
+guides/mcp-servers/token-introspection-reference.md
+release-information/release-notes/am-4.11.md

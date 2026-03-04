@@ -1,13 +1,16 @@
+
 # Client Secrets
 
-Gravitee AM supports enhanced client secret management, allowing for multiple secrets for each application and configurable expiration policies at both the domain level and application level. These features improve security and flexibility in managing client credentials.
+Gravitee AM supports enhanced client secret management, allowing for multiple secrets for each Application and Protected Resource, with configurable expiration policies at both the domain level and resource level. These features improve security and flexibility in managing client credentials.
+
 
 ## Multiple Client Secrets for each Application
 
 ### Overview
 
-* **Multiple Secrets:** Each application can have multiple active client secrets. This facilitates secret rotation without downtime, as new secrets can be added before deprecating old secrets.
-* **Management:** Secrets can be added, renewed, and revoked through the Gravitee AM UI Console or using the Management API.
+**Multiple Secrets:** Each application can have multiple active client secrets. This facilitates secret rotation without downtime, as new secrets can be added before deprecating old secrets.
+
+**Management:** Secrets can be added, renewed, and revoked through the Gravitee AM UI Console or using the Management API.
 
 ### Use Cases
 

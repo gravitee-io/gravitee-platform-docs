@@ -34,7 +34,17 @@ Provide the following required information:
 
 ### Step 3: (Optional) Configure OAuth 2.0 settings <a href="#step-3-configure-oauth-20-settings-optional" id="step-3-configure-oauth-20-settings-optional"></a>
 
-By default, Gravitee AM automatically generates OAuth 2.0 credentials. You can optionally provide the following custom values:
+By default, Gravitee AM automatically generates OAuth 2.0 credentials and applies the following default settings:
+
+| Property | Default Value | Description |
+|----------|---------------|-------------|
+| `grantTypes` | `["client_credentials"]` | Allowed OAuth grant types |
+| `responseTypes` | `["code"]` | Allowed OAuth response types |
+| `tokenEndpointAuthMethod` | `"client_secret_basic"` | Default authentication method for token endpoint |
+| `clientId` | (copied from resource) | OAuth client identifier |
+| `clientSecret` | (preserved or generated) | OAuth client secret |
+
+You can optionally provide the following custom values:
 
 * **Client ID:** A custom OAuth 2.0 Client Identifier.
   * If not provided, a secure random identifier is generated.
@@ -43,9 +53,28 @@ By default, Gravitee AM automatically generates OAuth 2.0 credentials. You can o
 
     * If not provided, a secure random secret will be generated.
 
-    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>The Client Secret is shown only once during creation. Make sure to copy and store it securely. You cannot retrieve the raw secret later.</p></div>
+    {% hint style="warning" %}
+    The Client Secret is shown only once during creation. Make sure to copy and store it securely. You cannot retrieve the raw secret later.
+    {% endhint %}
 
-### Step 4: (Optional) Add MCP Tools <a href="#step-4-add-mcp-tools-optional" id="step-4-add-mcp-tools-optional"></a>
+{% hint style="info" %}
+These defaults ensure that MCP Servers are configured with standard OAuth 2.0 settings. You can override these values during resource creation or update them later.
+{% endhint %}
+
+### Step 4: (Optional) Configure certificate-based authentication <a href="#step-4-configure-certificate-based-authentication-optional" id="step-4-configure-certificate-based-authentication-optional"></a>
+
+MCP Servers support certificate-based JWT verification for token introspection.
+
+1. Upload a certificate to the domain via the certificate management API.
+2. Update the MCP Server with the certificate ID in the `certificate` field.
+3. During token introspection, if the audience matches the MCP Server's `clientId` and a certificate is configured, the system uses that certificate for JWT signature verification.
+4. If no certificate is configured, the system assumes HMAC-signed tokens.
+
+{% hint style="warning" %}
+Certificates cannot be deleted while referenced by any MCP Server. Deletion attempts return HTTP 400 with error message "You can't delete a certificate with existing protected resources."
+{% endhint %}
+
+### Step 5: (Optional) Add MCP Tools <a href="#step-5-add-mcp-tools-optional" id="step-5-add-mcp-tools-optional"></a>
 
 You can add tools during or after creation. To add a tool, complete the following steps:
 
@@ -59,17 +88,17 @@ You can add tools during or after creation. To add a tool, complete the followin
 You can add multiple tools with different scope requirements.
 
 {% hint style="info" %}
-Scopes must be defined before using the MCP Tool. To define scopes, go to **Settings > Scopes** and create a new scope.
+Scopes must be defined before using the MCP Tool. To define scopes, go to [**Settings > Scopes**](../settings/scopes/) and create a new scope.
 {% endhint %}
 
-### Step 5: Create the MCP Server <a href="#step-5-create-the-mcp-server" id="step-5-create-the-mcp-server"></a>
+### Step 6: Create the MCP Server <a href="#step-6-create-the-mcp-server" id="step-6-create-the-mcp-server"></a>
 
 1. Review your configuration.
 2. Click **Create**.
 3. Copy the Client Secret from the dialog that appears.
 4. Click **Close**.
 
-The MCP Server is now created and deployed to the Gateway.
+The MCP Server is now created and deployed to the Gateway. The system generates a default secret and applies OAuth settings according to the defaults table. The secret expiration notification is registered based on domain-level `SecretExpirationSettings`.
 
 ## Create an MCP Server via the Management API <a href="#create-an-mcp-server-using-the-management-api" id="create-an-mcp-server-using-the-management-api"></a>
 
@@ -148,5 +177,37 @@ curl -X POST \
 ```
 
 {% hint style="warning" %}
-**Save the client secret immediately.** The `clientSecret` field in the response contains the raw secret. This is the only time you will see it. Store it securely, as you cannot retrieve it later.
+**Save the client secret immediately.** The `clientSecret` field in the response contains the raw secret. This is the only time you will see it. Store it securely, as you cannot retrieve it later. The plaintext secret appears only in the creation response. Subsequent retrievals return redacted secrets.
 {% endhint %}
+
+## Manage MCP Server secrets <a href="#manage-mcp-server-secrets" id="manage-mcp-server-secrets"></a>
+
+Secret rotation follows a create-renew-delete cycle.
+
+1. List existing secrets via GET `/secrets` to identify the target secret.
+2. To rotate, POST to `/secrets/{secretId}/_renew`. This generates a new secret value and updates the expiration timestamp.
+3. Delete obsolete secrets via DELETE `/secrets/{secretId}`. The system enforces that at least one secret remains.
+4. If the deleted secret was the last reference to a specific OAuth settings object, those settings are also removed.
+5. All secret operations emit events that update expiration notifications in the background.
+
+## Manage MCP Server membership <a href="#manage-mcp-server-membership" id="manage-mcp-server-membership"></a>
+
+Membership controls access to MCP Server management operations.
+
+1. Add members via POST `/members` with `memberId`, `memberType` (USER or GROUP), and `role`.
+2. List members via GET `/members` to view current assignments.
+3. Remove members via DELETE `/members/{member}`.
+4. Query flattened permissions via GET `/members/permissions` to see effective access rights.
+
+All membership operations require `PROTECTED_RESOURCE_MEMBER` permissions at the resource, domain, environment, or organization level.
+
+## Search MCP Servers <a href="#search-mcp-servers" id="search-mcp-servers"></a>
+
+The search API supports wildcard queries across resource names and client IDs.
+
+* **Endpoint:** GET `/protected-resources?q={query}`
+* **Query Parameter:** `q` (optional) - Search query supporting wildcards (`*`)
+* **Behavior:**
+  * If `q` is present: searches by name or clientId (case-insensitive, wildcard support)
+  * If `q` is absent: returns all resources filtered by type
+* **Response:** `Page<ProtectedResourcePrimaryData>`

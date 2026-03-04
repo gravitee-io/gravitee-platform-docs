@@ -11,7 +11,7 @@ This lets a resource owner configure an authorization server with authorization 
 For example, bank customer (resource owner) Alice with a bank account service (resource server) can use a sharing management service (authorization server) hosted by the bank to manage access to her various protected resources by her spouse Bob, accounting professional Charline, and financial information aggregation company Decide Account, all using different client applications. Each of her bank accounts is a protected resource, and two different scopes of access she can control on them are viewing account data and accessing payment functions.
 
 {% hint style="info" %}
-[The User-Managed Access (UMA) 2.0 Grant for OAuth 2.0 Authorization specification](https://docs.kantarainitiative.org/uma/wg/oauth-uma-grant-2.0-08.html#claim-redirect) discusses the use of the authorization server’s claims interaction endpoint for one or more interactive claims-gathering processes as the authorization server requires. AM does not support interactive claims gathering. Claims gathering is accomplished by having the requesting party acquire an OpenID Connect (OIDC) ID token.
+[The User-Managed Access (UMA) 2.0 Grant for OAuth 2.0 Authorization specification](https://docs.kantarainitiative.org/uma/wg/oauth-uma-grant-2.0-08.html#claim-redirect) discusses the use of the authorization server's claims interaction endpoint for one or more interactive claims-gathering processes as the authorization server requires. AM does not support interactive claims gathering. Claims gathering is accomplished by having the requesting party acquire an OpenID Connect (OIDC) ID token.
 {% endhint %}
 
 ## Using UMA 2.0
@@ -35,15 +35,15 @@ A natural or legal person that uses a client to seek access to a protected resou
 
 **client**
 
-An application that is capable of making requests for protected resources with the resource owner’s authorization and on the requesting party’s behalf.
+An application that is capable of making requests for protected resources with the resource owner's authorization and on the requesting party's behalf.
 
 **resource server**
 
-A server that hosts resources on a resource owner’s behalf and is capable of accepting and responding to requests for protected resources.
+A server that hosts resources on a resource owner's behalf and is capable of accepting and responding to requests for protected resources.
 
 **authorization server**
 
-A server that protects, on a resource owner’s behalf, resources hosted on a resource server.
+A server that protects, on a resource owner's behalf, resources hosted on a resource server.
 
 ## Protocol flow
 
@@ -105,7 +105,7 @@ When the authorization server handles an incoming UMA 2 grant request, some attr
 
 * `{#request}`: current HTTP request including parameters, headers, path, and so on
 * `{#context.attributes['client']}`: OAuth 2.0 client including clientId, clientName, and so on
-* `{#context.attributes['user']}`: requesting party user including elementusername, firstName, lastName, email, roles and so on
+* `{#context.attributes['user']}`: requesting party user including username, firstName, lastName, email, roles and so on
 * `{#context.attributes['permissionRequest']}`: requested permission for the given resource including resourceId and resourceScopes
 
 The following example gives **read** access to a resource only for the requesting party **Bob**.
@@ -125,7 +125,7 @@ if (user.username == 'bob' && permissionRequest.resourceScopes.contains('read'))
 
 ### Permission endpoint
 
-The [permission endpoint](https://docs.kantarainitiative.org/uma/wg/rec-oauth-uma-federated-authz-2.0.html#permission-endpoint) defines a means for the resource server to request one or more permissions (resource identifiers and corresponding scopes) from the authorization server on the client’s behalf, and to receive a permission ticket in return (for example, request party wants to access Alice documents (`GET /alice/documents/**`).
+The [permission endpoint](https://docs.kantarainitiative.org/uma/wg/rec-oauth-uma-federated-authz-2.0.html#permission-endpoint) defines a means for the resource server to request one or more permissions (resource identifiers and corresponding scopes) from the authorization server on the client's behalf, and to receive a permission ticket in return (for example, request party wants to access Alice documents (`GET /alice/documents/**`).
 
 * Authorization endpoint URL: `https://am-gateway/{domain}/uma/protection/permission`
 
@@ -135,12 +135,177 @@ The [introspection endpoint](https://docs.kantarainitiative.org/uma/wg/rec-oauth
 
 * Introspection endpoint URL: `https://am-gateway/{domain}/oauth/introspect`
 
+## Managing Protected Resources
+
+### Searching Protected Resources
+
+The search API enables wildcard-based discovery of Protected Resources across resource names and client IDs.
+
+Submit a GET request to `/protected-resources?q={query}` where `{query}` is an optional, case-insensitive search term. Wildcards (`*`) are supported for pattern matching. If the query parameter is absent, the endpoint returns all resources filtered by type.
+
+Results are paginated and include only primary data fields: ID, name, clientId, and type.
+
+**Example request:**
+
+```sh
+GET /protected-resources?q=account*
+```
+
+**Example response:**
+
+```json
+{
+  "data": [
+    {
+      "id": "62dcf5d7-baa6-4e01-9cf5-d7baa61e01ac",
+      "name": "Account access",
+      "clientId": "account-service-client",
+      "type": "http://www.example.com/resource/account"
+    }
+  ],
+  "page": 0,
+  "size": 10,
+  "totalCount": 1
+}
+```
+
+### Creating Protected Resources with Secrets
+
+Protected Resources are created via the domain API with automatic OAuth settings initialization.
+
+1. Submit a POST request to `/organizations/{orgId}/environments/{envId}/domains/{domain}/protected-resources` with the resource definition.
+2. The system generates a default secret and applies OAuth settings (grant types, authentication method, client credentials).
+3. If a certificate is specified, it is linked for JWT verification.
+4. The secret expiration notification is registered based on domain-level expiration policies.
+5. The plaintext secret is returned only in the creation response. Subsequent retrievals return redacted secrets.
+
+{% hint style="warning" %}
+The plaintext secret is only available in the initial creation response. Store it securely, as it cannot be retrieved again.
+{% endhint %}
+
+### Certificate-Based JWT Verification
+
+Protected Resources support certificate-based JWT verification for token introspection. When a certificate is configured, the system uses it to verify JWT signatures during token validation. If no certificate is specified, the system defaults to HMAC-based signature verification.
+
+#### Configuration Workflow
+
+1. Upload a certificate to the domain using the certificate management API.
+2. Update the Protected Resource by setting the `certificate` field to the certificate ID.
+3. During token introspection, if the token's audience matches the Protected Resource's `clientId` and a certificate is configured, the system uses that certificate for JWT signature verification.
+4. If the `certificate` field is null, the system assumes HMAC-signed tokens and uses the client secret for verification.
+5. Certificates cannot be deleted while referenced by any Protected Resource. Deletion attempts return HTTP 400 with the error message: "You can't delete a certificate with existing protected resources."
+
+#### Audience Validation with Certificates
+
+The following table describes how AM validates audience claims based on the number and type of audiences present in the request:
+
+| Scenario | Validation Behavior |
+|:---------|:-------------------|
+| Single audience = Application clientId | Validates as Application, returns certificate ID |
+| Single audience = Protected Resource clientId | Validates as Protected Resource, returns certificate ID or empty string |
+| Single audience = Resource identifier | Falls back to RFC 8707 validation |
+| Multiple audiences | Always validates via RFC 8707 (resource identifiers) |
+
+{% hint style="info" %}
+When multiple audiences are specified, AM always applies RFC 8707 validation using resource identifiers, regardless of whether individual audiences match Application or Protected Resource client IDs.
+{% endhint %}
+
+When the `certificate` field is populated, the system retrieves the certificate for JWT verification. An empty string or null value indicates HMAC-signed tokens, and the system uses the client secret instead.
+
+### Managing Protected Resource Membership
+
+Membership controls access to Protected Resource management operations. Use the following endpoints to manage members and their permissions:
+
+#### Add members
+
+Add members to a Protected Resource by sending a POST request to `/members` with the following parameters:
+
+* `memberId`: The unique identifier of the user or group
+* `memberType`: Either `USER` or `GROUP`
+* `role`: The role to assign to the member
+
+#### List members
+
+Retrieve the current member assignments for a Protected Resource by sending a GET request to `/members`.
+
+#### Remove members
+
+Remove a member from a Protected Resource by sending a DELETE request to `/members/{member}`, where `{member}` is the member identifier.
+
+#### Query permissions
+
+Query the flattened permissions for a Protected Resource by sending a GET request to `/members/permissions`. This endpoint returns the effective access rights for all members.
+
+{% hint style="info" %}
+All membership operations require `PROTECTED_RESOURCE_MEMBER` permissions at the resource, domain, environment, or organization level.
+{% endhint %}
+
+### Managing Protected Resource Secrets
+
+Secret rotation follows a create-renew-delete cycle:
+
+1. **List existing secrets** via `GET /secrets` to identify the target secret.
+2. **Rotate the secret** by sending a `POST` request to `/secrets/{secretId}/_renew`. This generates a new secret value and updates the expiration timestamp.
+3. **Delete obsolete secrets** via `DELETE /secrets/{secretId}`. The system enforces that at least one secret must remain active.
+4. If the deleted secret was the last reference to a specific OAuth settings object, those settings are also removed.
+5. All secret operations emit events that update expiration notifications in the background.
+
+{% hint style="info" %}
+The system requires at least one active secret at all times. Deletion requests that would remove the last secret will be rejected.
+{% endhint %}
+
+## Restrictions
+
+The following restrictions apply when configuring Protected Resources and MCP Server contexts:
+
+### Protected Resource secrets
+
+* At least one secret must exist per Protected Resource. Deletion of the last secret is blocked.
+* Certificates cannot be deleted while referenced by any Protected Resource. Attempting to do so returns an HTTP 400 error.
+* Secret settings are shared across all secrets. Deleting a secret removes its settings only if no other secrets reference them.
+
+### MCP Server context
+
+* Grant types are restricted to `client_credentials` and `urn:ietf:params:oauth:grant-type:token-exchange` only.
+* Token endpoint authentication methods are restricted to `client_secret_basic`, `client_secret_post`, and `client_secret_jwt`.
+
+### Token validation
+
+* Multi-audience tokens always use RFC 8707 validation regardless of audience content.
+* Certificate-based JWT verification requires the `certificate` field to be populated. Null values default to HMAC signing.
+
+### MCP Server Grant Type Filtering
+
+The following table describes the grant types allowed for MCP Server and Application contexts:
+
+| Context | Allowed Grant Types |
+|---------|---------------------|
+| `McpServer` | `client_credentials`, `urn:ietf:params:oauth:grant-type:token-exchange` |
+| `Application` | All grant types |
+
+{% hint style="info" %}
+MCP Server contexts are restricted to the `client_credentials` and `urn:ietf:params:oauth:grant-type:token-exchange` grant types. Application contexts support all available grant types.
+{% endhint %}
+
+### MCP Server Auth Method Filtering
+
+The following table describes the authentication methods allowed for MCP Server and Application contexts:
+
+| Context | Allowed Methods |
+|---------|----------------|
+| `McpServer` | `client_secret_basic`, `client_secret_post`, `client_secret_jwt` |
+| `Application` | All methods |
+
+{% hint style="info" %}
+MCP Server contexts are restricted to the three client secret-based authentication methods listed above. Application contexts support all available authentication methods.
+{% endhint %}
+
 ## Example
 
-Let’s imagine the user Alice (the resource owner) wants to share read access to her bank account with her accountant Bob (the requesting party). The personal bank account data is exposed through an API (the resource server) secured by OAuth 2.0 protocol.
+Let's imagine the user Alice (the resource owner) wants to share read access to her bank account with her accountant Bob (the requesting party). The personal bank account data is exposed through an API (the resource server) secured by OAuth 2.0 protocol.
 
 1. Alice must log in to the bank application and configure access to personal data resources.
-2. Bob will log in and use the bank application and the bank API to access Alice’s personal data.
+2. Bob will log in and use the bank application and the bank API to access Alice's personal data.
 
 ### Configure your security domain
 
