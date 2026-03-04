@@ -112,11 +112,25 @@ Gravitee AM provides support for monitoring client secret expiration through cus
 
 ### Notification Events
 
-#### Notifications can be triggered automatically in the following two scenarios:
+#### Notifications can be triggered automatically in the following scenarios:
 
 * **Client Secret Expired**: A notification is sent when a client secret reaches its expiration date.
 * **Upcoming Secret Expiration**: Periodic notifications can be sent ahead of time, based on a configurable cron schedule, to proactively manage client secrets approaching expiration.
+* **Protected Resource Secret Expiration**: Notifications are automatically registered when Protected Resource secrets are created or renewed, tracking expiration dates for machine-to-machine authentication credentials.
 
 These notifications facilitate timely renewal of client secrets and reduce the risk of authentication failures due to expired credentials.
+
+### Event Bus Integration
+
+Secret lifecycle operations publish events to the event bus for notification and audit purposes:
+
+| Event Type | Action | Description |
+|:-----------|:-------|:------------|
+| Application Client Secret | CREATE | Application client secret created |
+| Application Client Secret | RENEW | Application client secret renewed |
+| Application Client Secret | DELETE | Application client secret deleted |
+| Protected Resource Secret | CREATE | Protected Resource secret created |
+| Protected Resource Secret | RENEW | Protected Resource secret renewed |
+| Protected Resource Secret | DELETE | Protected Resource secret deleted |
 
 For detailed instructions on configuring the notification mechanisms, refer to the [AM API configuration](../../getting-started/configuration/configure-am-api/#configure-notifications-on-certificates-and-client-secret-expiry) section.

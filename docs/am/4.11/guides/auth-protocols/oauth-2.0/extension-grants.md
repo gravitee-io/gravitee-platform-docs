@@ -8,6 +8,8 @@ Extension grants are a way to add support for non-standard token issuance scenar
 
 AM allows you to extend available grants for an application by adding custom extension grants.
 
+Protected Resources support the token exchange grant type (`urn:ietf:params:oauth:grant-type:token-exchange`). When configuring token exchange flows, resource identifiers defined in Protected Resources are used to validate audience claims during token introspection. For single-audience tokens, the system validates against Application clients first, then Protected Resource clients, and finally RFC 8707 resource identifiers. Multi-audience tokens always use RFC 8707 validation.
+
 ## JWT Bearer
 
 AM supports the [RFC 7523](https://tools.ietf.org/html/rfc7523) specification, which defines the use of a JSON Web Token (JWT) Bearer Token as a means for requesting an OAuth 2.0 access token and for client authentication. The JWT Bearer Token flow supports the RSA SHA256 algorithm, which uses a public key as the signing secret.

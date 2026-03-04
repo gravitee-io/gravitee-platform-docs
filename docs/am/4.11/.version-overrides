@@ -1,0 +1,12 @@
+SUMMARY.md
+getting-started/configuration/domain-secrets/README.md
+guides/applications/README.md
+guides/applications/client-secrets.md
+guides/auth-protocols/oauth-2.0/extension-grants.md
+guides/certificates/README.md
+guides/mcp-servers/client-authorization.md
+guides/mcp-servers/create-an-mcp-server.md
+guides/protected-resources/README.md
+guides/protected-resources/manage-membership.md
+guides/protected-resources/search-protected-resources.md
+release-information/release-notes/am-4.11.md

@@ -6,6 +6,8 @@ _Applications_ act on behalf of the user to request tokens, hold user identity i
 
 Application definitions apply at the _security domain_ level.
 
+Applications work in conjunction with Protected Resources to control access to APIs and services. When a token is issued to an Application, token introspection validates the token against both the Application's client configuration and any associated Protected Resources. This validation ensures that tokens are only accepted by the intended audience, using the `aud` claim to match against Application client IDs or Protected Resource identifiers.
+
 ## Create an application
 
 ### AM Console

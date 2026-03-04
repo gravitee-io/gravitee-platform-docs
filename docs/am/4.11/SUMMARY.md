@@ -52,6 +52,7 @@
   * [Add Custom Claims to Tokens](getting-started/tutorial-getting-started-with-am/add-custom-claims-to-tokens.md)
 
 ## Guides
+  * [Protected Resources Overview](guides/protected-resources/README.md)
 
 * [Prologue](guides/prologue.md)
 * [Auth Protocols](guides/auth-protocols/README.md)
@@ -198,4 +199,6 @@
 * [Community](community-and-support/community/README.md)
   * [Support](https://community.gravitee.io/c/support/11)
   * [Roadmap & Feedback](https://www.gravitee.io/user-feedback)
+  * [Searching Protected Resources](guides/protected-resources/search-protected-resources.md)
+  * [Managing Protected Resource Membership](guides/protected-resources/manage-membership.md)
   * [Announcements & Events](https://community.gravitee.io/c/announcements/5)
