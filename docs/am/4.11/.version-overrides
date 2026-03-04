@@ -1,0 +1,9 @@
+SUMMARY.md
+guides/auth-protocols/protected-resource-secrets.md
+guides/auth-protocols/protected-resources-as-clients.md
+guides/mcp-servers/create-an-mcp-server.md
+guides/mcp-servers/protected-resource-gateway-configuration-reference.md
+guides/mcp-servers/token-exchange.md
+guides/protected_resource_search_and_membership_api_reference.md
+reference/am-api-reference.md
+release-information/release-notes/am-4.11.md

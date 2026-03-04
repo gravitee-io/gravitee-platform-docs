@@ -43,7 +43,47 @@ By default, Gravitee AM automatically generates OAuth 2.0 credentials. You can o
 
     * If not provided, a secure random secret will be generated.
 
-    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>The Client Secret is shown only once during creation. Make sure to copy and store it securely. You cannot retrieve the raw secret later.</p></div>
+    {% hint style="warning" %}
+    The Client Secret is shown only once during creation. Make sure to copy and store it securely. You cannot retrieve the raw secret later.
+    {% endhint %}
+
+#### Grant Type Filtering
+
+The Management Console displays only the following grant types for MCP Servers:
+
+* `client_credentials` (Client Credentials)
+* `urn:ietf:params:oauth:grant-type:token-exchange` (Token Exchange)
+
+{% hint style="info" %}
+For MCP Resource Servers, only the **client_credentials** grant type and token exchange flows are supported. These grant types enable server-to-server authentication where the client authenticates using its credentials to obtain an access token.
+{% endhint %}
+
+The following grant types are not available for MCP Servers:
+
+* `authorization_code`
+* `implicit`
+* `password`
+* `refresh_token`
+
+#### Token Endpoint Authentication Method Filtering
+
+The Management Console displays only the following authentication methods for MCP Servers:
+
+* Based on incoming request (null)
+* Client Secret (Basic) (`client_secret_basic`)
+* Client Secret (Post) (`client_secret_post`)
+* Client Secret (JWT) (`client_secret_jwt`)
+
+The following authentication methods are not available for MCP Servers:
+
+* `private_key_jwt`
+* `tls_client_auth`
+* `self_signed_tls_client_auth`
+* `none`
+
+#### Certificate Selection
+
+You can select a certificate for JWT signature verification during OAuth 2.0 configuration.
 
 ### Step 4: (Optional) Add MCP Tools <a href="#step-4-add-mcp-tools-optional" id="step-4-add-mcp-tools-optional"></a>
 
@@ -150,3 +190,53 @@ curl -X POST \
 {% hint style="warning" %}
 **Save the client secret immediately.** The `clientSecret` field in the response contains the raw secret. This is the only time you will see it. Store it securely, as you cannot retrieve it later.
 {% endhint %}
+
+## Manage MCP Server Secrets
+
+### Secret Management Interfaces
+
+The Management Console provides secret management interfaces for protected resources. You can create, renew, and delete client secrets.
+
+### Secrets List Display
+
+The secrets list displays safe (redacted) metadata for each secret:
+
+* Secret name
+* Creation date
+* Expiration date (if set)
+* Actions: Renew, Delete
+
+Plaintext secret values are never displayed in the list. The raw secret is shown only once during creation.
+
+### Event Notifications
+
+Event notifications track secret lifecycle events:
+
+* `CREATE`
+* `RENEW`
+* `DELETE`
+
+Expiration warnings are triggered automatically.
+
+## Search Protected Resources
+
+Search functionality is integrated into the protected resources list view. The search query supports:
+
+* Exact match by `name` or `clientId` (case-insensitive)
+* Wildcard match using `*` (case-insensitive)
+
+Results are paginated and sorted by `updatedAt` descending.
+
+## Manage Membership
+
+The membership management UI provides:
+
+* Role assignment for users and groups
+* Permission viewing for protected resources
+* Member addition and removal
+
+## Certificate Deletion Validation
+
+Certificate deletion fails if the certificate is referenced by any protected resource. The error message is:
+
+> You can't delete a certificate with existing protected resources.

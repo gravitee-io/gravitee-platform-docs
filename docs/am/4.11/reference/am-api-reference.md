@@ -77,3 +77,77 @@ POST http(s)://AM_MANAGEMENT_API/management/auth/login
 For user migrations from an alternative OIDC provider to Access Management, you can define the `lastPasswordReset` attribute. This attribute ensures that a password policy with password expiry requests a password reset according to the value provided during the migration.
 
 In Management REST API, `lastPasswordReset` attribute in the User definition is a long value representing the number of milliseconds since the standard base time known as "the epoch".
+
+## Protected Resource Secret Management
+
+Protected resources support secret lifecycle operations through dedicated API endpoints.
+
+### Create Secret
+
+`POST /organizations/{organizationId}/environments/{environmentId}/domains/{domain}/protected-resources/{protected-resource}/secrets`
+
+Creates a new secret for the protected resource. The secret value is generated server-side and returned in plaintext only at creation.
+
+**Required Permission:** `PROTECTED_RESOURCE_SECRET[CREATE]`
+
+### Renew Secret
+
+`POST /organizations/{organizationId}/environments/{environmentId}/domains/{domain}/protected-resources/{protected-resource}/secrets/{secretId}/_renew`
+
+Renews an existing secret by generating a new value. The old secret is immediately invalidated.
+
+**Required Permission:** `PROTECTED_RESOURCE_SECRET[UPDATE]`
+
+### Delete Secret
+
+`DELETE /organizations/{organizationId}/environments/{environmentId}/domains/{domain}/protected-resources/{protected-resource}/secrets/{secretId}`
+
+Deletes a secret from the protected resource.
+
+**Required Permission:** `PROTECTED_RESOURCE_SECRET[DELETE]`
+
+## Protected Resource Search
+
+The protected resources list endpoint supports search via the `q` query parameter:
+
+`GET /organizations/{organizationId}/environments/{environmentId}/domains/{domain}/protected-resources?q=search-term`
+
+The search performs case-insensitive matching across `name` and `clientId` fields. Use `*` as a wildcard for partial matching (e.g., `q=prod*` matches resources starting with "prod").
+
+**Required Permission:** `PROTECTED_RESOURCE[LIST]`
+
+## Protected Resource Membership
+
+Membership endpoints enable role-based access control for protected resources.
+
+### Add Member
+
+`POST /organizations/{organizationId}/environments/{environmentId}/domains/{domain}/protected-resources/{protected-resource}/members`
+
+Adds a member with a specified role to the protected resource.
+
+**Required Permission:** `PROTECTED_RESOURCE_MEMBER[CREATE]`
+
+### Remove Member
+
+`DELETE /organizations/{organizationId}/environments/{environmentId}/domains/{domain}/protected-resources/{protected-resource}/members/{member}`
+
+Removes a member from the protected resource.
+
+**Required Permission:** `PROTECTED_RESOURCE_MEMBER[DELETE]`
+
+### List Members
+
+`GET /organizations/{organizationId}/environments/{environmentId}/domains/{domain}/protected-resources/{protected-resource}/members`
+
+Retrieves all members of the protected resource.
+
+**Required Permission:** `PROTECTED_RESOURCE_MEMBER[LIST]`
+
+### List Permissions
+
+`GET /organizations/{organizationId}/environments/{environmentId}/domains/{domain}/protected-resources/{protected-resource}/members/permissions`
+
+Retrieves available permissions for protected resource membership.
+
+**Required Permission:** `PROTECTED_RESOURCE_MEMBER[LIST]`
