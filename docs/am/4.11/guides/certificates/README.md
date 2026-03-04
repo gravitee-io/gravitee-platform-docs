@@ -1,12 +1,13 @@
+
 # Certificates
 
 ## Overview
 
-Cryptographic algorithms such as KeyStore (private/public key) are used to sign using JSON-based data structures (JWT) tokens. Certificates are used as part of the OAuth 2.0 and OpenID Connect protocol to sign access, create and renew ID tokens and ensure the integrity of a token’s payload.
+Cryptographic algorithms such as KeyStore (private/public key) are used to sign using JSON-based data structures (JWT) tokens. Certificates are used as part of the OAuth 2.0 and OpenID Connect protocol to sign access, create and renew ID tokens and ensure the integrity of a token's payload.
 
-Certificate definitions apply at the _security domain_ level.
+Certificate definitions apply at the _security domain_ level. Certificates can now be designated as domain-level fallbacks for JWT signing operations, providing automatic failover when primary certificates are unavailable.
 
-By default AM is able to load certificate using JKS or PKCS12 format you can upload ugin the console or the REST API. An Enterprise prise plugin also exist to load PCKS12 certificate from [AWS Secret Manager](aws-certificate-plugin.md).
+By default AM is able to load certificate using JKS or PKCS12 format you can upload using the console or the REST API. An Enterprise plugin also exists to load PKCS12 certificate from [AWS Secret Manager](aws-certificate-plugin.md).
 
 ## Create certificates
 
@@ -61,7 +62,7 @@ curl -H "Authorization: Bearer :accessToken" \
 
 ### Public keys
 
-You can use public keys to verify a token payload’s integrity. To obtain the public key for your certificate:
+You can use public keys to verify a token payload's integrity. To obtain the public key for your certificate:
 
 1. In AM Console, click **Settings > Certificates**.
 2.  Next to your certificate, click the key icon.
@@ -195,3 +196,77 @@ api:
           delay: 10
           timeUnit: MINUTES
 ```
+
+## Domain certificate fallback
+
+Domain certificate fallback allows administrators to configure a default certificate that applications and identity providers use when their primary certificate is unavailable or fails during JWT signing operations. This prevents service disruptions by automatically falling back to a known-good certificate without requiring manual intervention.
+
+### Certificate resolution order
+
+When signing JWTs (ID tokens, userinfo responses, authorization responses), the system follows a three-tier resolution chain:
+
+1. The client's configured certificate
+2. The domain's fallback certificate if the primary fails
+3. The default HMAC certificate if legacy fallback is enabled
+
+If all options are exhausted, the operation fails with a `TemporarilyUnavailableException`.
+
+### Prerequisites
+
+Before configuring a fallback certificate, ensure you have:
+
+* Domain administrator permissions (`DOMAIN_SETTINGS[UPDATE]`)
+* At least one certificate provisioned in the domain
+* The fallback certificate must belong to the target domain (cross-domain certificates are rejected)
+
+### Configure the fallback certificate
+
+Configure the fallback certificate at the domain level using the Management API endpoint `PUT /organizations/{organizationId}/environments/{environmentId}/domains/{domain}/certificate-settings` with a JSON body containing `{"fallbackCertificate": "certificate-id"}`.
+
+The system validates that the certificate exists and belongs to the domain before accepting the change. This operation requires `DOMAIN_SETTINGS[UPDATE]` permission and triggers a `DOMAIN_CERTIFICATE_SETTINGS` event with action `UPDATE`, allowing certificate managers to reload settings without redeploying the entire domain configuration.
+
+**Request body:**
+
+```json
+{
+  "fallbackCertificate": "certificate-id"
+}
+```
+
+**Response:** `200 OK` - Returns updated `Domain` object
+
+### Certificate deletion protection
+
+Certificates configured as the domain fallback can't be deleted. When attempting to delete a certificate, the system checks whether it's referenced in `certificateSettings.fallbackCertificate` and rejects the operation with a `CertificateIsFallbackException` (HTTP 400) and the message "You can't delete a certificate that is configured as the domain's fallback certificate." Remove the certificate from the fallback configuration before deletion.
+
+### System certificate eligibility
+
+System certificates—previously excluded from selection—are now available as fallback certificates. This allows administrators to designate built-in certificates as domain-wide defaults.
+
+### Restrictions
+
+* Fallback certificate must belong to the same domain (cross-domain references are rejected with `InvalidParameterException`)
+* Certificates configured as fallback can't be deleted until removed from the domain's certificate settings
+* Non-master domains can only access certificates from their own domain; master domains can access certificates from all domains for introspection purposes
+* Fallback logic applies only to JWT signing operations (ID tokens, userinfo, authorization responses)
+* If the fallback certificate is the same as the failed primary certificate, the system skips fallback and propagates the original error to prevent infinite loops
+
+### Logging behavior
+
+Certificate fallback usage is logged at `WARN` level with messages identifying the failed certificate and the fallback in use:
+
+* **Client certificate not loaded, using fallback:**
+  ```
+  Certificate: {client-certificate-id} not loaded, using: {fallback-certificate-id} as fallback
+  ```
+
+* **Client certificate not loaded, using default:**
+  ```
+  Certificate: {client-certificate-id} not loaded, using default certificate as fallback
+  ```
+
+* **JWT signing failed, using fallback:**
+  ```
+  Failed to sign JWT with certificate: {original-certificate-id}, attempting fallback using: {fallback-certificate-id}
+  ```
+
