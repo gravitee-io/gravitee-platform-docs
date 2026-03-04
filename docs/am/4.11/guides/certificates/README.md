@@ -103,6 +103,11 @@ AM is designed to be extended based on a pluggable modules architecture. You can
 
 When a new domain is created, a certificate is generated for use by the domain applications to sign the tokens. Such certificates are marked as "system" certificates.
 
+## Restrictions
+
+- Certificates cannot be deleted if referenced by any Protected Resource. Deletion fails with the error message: `"You can't delete a certificate with existing protected resources."`
+- For information on configuring certificate-based authentication for Protected Resources, see the [Protected Resource Management guide](../mcp-servers/create-an-mcp-server.md#protected-resource-secrets).
+
 ### How to define system certificate properties
 
 System certificates are generated based on the Management API settings that allow the definition of:

@@ -120,3 +120,16 @@ Gravitee AM provides support for monitoring client secret expiration through cus
 These notifications facilitate timely renewal of client secrets and reduce the risk of authentication failures due to expired credentials.
 
 For detailed instructions on configuring the notification mechanisms, refer to the [AM API configuration](../../getting-started/configuration/configure-am-api/#configure-notifications-on-certificates-and-client-secret-expiry) section.
+
+### Template Variables for Protected Resource Notifications
+
+When configuring notification templates for Protected Resource secret expiration, the notification system exposes the following data via `ClientSecretNotifierSubject`:
+
+| Variable | Description |
+|:---------|:------------|
+| `domain` | Domain information |
+| `user` | User information |
+| `client` | Client secret properties |
+| `resourceType` | Resource type identifier (formatted as "protected resource") |
+
+These variables can be used in notification templates to provide context-specific information about Protected Resource secret expiration events.

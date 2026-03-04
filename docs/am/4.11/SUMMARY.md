@@ -27,6 +27,7 @@
   * [Configure Gateway Resilience Mode](getting-started/install-and-upgrade-guides/configure-gateway-resilience-mode.md)
   * [Configure Multiple Data Planes](getting-started/install-and-upgrade-guides/configure-multiple-data-planes.md)
   * [Breaking Changes for Access Management](getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md)
+  * [Protected Resource Secret Management](guides/protected-resources/README.md)
 * [Configuration](getting-started/configuration/README.md)
   * [AM Gateway](getting-started/configuration/configure-am-gateway/README.md)
     * [Internal API](getting-started/configuration/configure-am-gateway/internal-api.md)

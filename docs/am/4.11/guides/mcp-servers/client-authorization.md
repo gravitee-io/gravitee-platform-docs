@@ -211,6 +211,16 @@ Token validation triggers one of the following:
 
 <details>
 
+<summary>Token Exchange for Protected Resources</summary>
+
+Protected Resources can participate in OAuth 2.0 token exchange flows (RFC 8693) when configured with the `urn:ietf:params:oauth:grant-type:token-exchange` grant type in the MCP Server context. This enables Protected Resources to exchange subject tokens for access tokens in machine-to-machine communication scenarios.
+
+For configuration details, see the [MCP Server Context](create-an-mcp-server.md#mcp-server-context) guide.
+
+</details>
+
+<details>
+
 <summary>10. Fine-grained permissions check</summary>
 
 The permission check uses the Authorization Engine and AuthZen and is described in the [Authorization Engines](../authorization-engines/) section.
