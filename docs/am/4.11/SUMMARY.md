@@ -52,6 +52,7 @@
   * [Add Custom Claims to Tokens](getting-started/tutorial-getting-started-with-am/add-custom-claims-to-tokens.md)
 
 ## Guides
+  * [Managing Protected Resource Credentials](guides/protected-resources/README.md)
 
 * [Prologue](guides/prologue.md)
 * [Auth Protocols](guides/auth-protocols/README.md)

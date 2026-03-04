@@ -93,6 +93,10 @@ System certificates can't be used for mTLS authentication as they are self signe
 
 <figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
+### Certificate for Protected Resources
+
+Certificates can be assigned to Protected Resources for JWT signature verification during token introspection. When a certificate is assigned to a Protected Resource, the system uses it to validate tokens issued to that resource.
+
 ### Custom certificates
 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-custom-certificate.png" alt=""><figcaption><p>Custom certificate diagram</p></figcaption></figure>

@@ -77,3 +77,190 @@ POST http(s)://AM_MANAGEMENT_API/management/auth/login
 For user migrations from an alternative OIDC provider to Access Management, you can define the `lastPasswordReset` attribute. This attribute ensures that a password policy with password expiry requests a password reset according to the value provided during the migration.
 
 In Management REST API, `lastPasswordReset` attribute in the User definition is a long value representing the number of milliseconds since the standard base time known as "the epoch".
+
+## Protected Resource Endpoints
+
+### Create Secret
+
+**POST** `/protected-resources/{id}/secrets`
+
+Creates a new secret for the specified Protected Resource.
+
+**Authentication**: Bearer token required
+
+**Request Body**:
+```json
+{
+  "name": "string"
+}
+```
+
+**Response** (200 OK):
+```json
+{
+  "id": "string",
+  "name": "string",
+  "secret": "string",
+  "settingsId": "string",
+  "createdAt": "timestamp"
+}
+```
+
+**Error Codes**:
+- `401 Unauthorized`: Missing or invalid authentication token
+- `404 Not Found`: Protected Resource not found
+
+### Renew Secret
+
+**POST** `/secrets/{secretId}/_renew`
+
+Renews an existing secret by deleting the old value and generating a new one with the same settings.
+
+**Authentication**: Bearer token required
+
+**Response** (200 OK):
+```json
+{
+  "id": "string",
+  "name": "string",
+  "secret": "string",
+  "settingsId": "string",
+  "createdAt": "timestamp"
+}
+```
+
+**Error Codes**:
+- `401 Unauthorized`: Missing or invalid authentication token
+- `404 Not Found`: Secret not found
+
+### Delete Secret
+
+**DELETE** `/secrets/{secretId}`
+
+Deletes the specified secret. Associated settings are removed only if no other secrets reference them.
+
+**Authentication**: Bearer token required
+
+**Response** (204 No Content)
+
+**Error Codes**:
+- `401 Unauthorized`: Missing or invalid authentication token
+- `404 Not Found`: Secret not found
+
+### Add Member
+
+**POST** `/protected-resources/{id}/members`
+
+Adds a member to the Protected Resource with specified permissions.
+
+**Authentication**: Bearer token required
+
+**Request Body**:
+```json
+{
+  "memberId": "string",
+  "memberType": "string",
+  "role": "string"
+}
+```
+
+**Response** (201 Created):
+```json
+{
+  "memberId": "string",
+  "memberType": "string",
+  "referenceId": "string",
+  "referenceType": "string",
+  "role": "string"
+}
+```
+
+**Error Codes**:
+- `401 Unauthorized`: Missing or invalid authentication token
+- `404 Not Found`: Protected Resource not found
+
+### List Members
+
+**GET** `/protected-resources/{id}/members`
+
+Retrieves all members of the specified Protected Resource.
+
+**Authentication**: Bearer token required
+
+**Response** (200 OK):
+```json
+[
+  {
+    "memberId": "string",
+    "memberType": "string",
+    "referenceId": "string",
+    "referenceType": "string",
+    "role": "string"
+  }
+]
+```
+
+**Error Codes**:
+- `401 Unauthorized`: Missing or invalid authentication token
+- `404 Not Found`: Protected Resource not found
+
+### Check Permissions
+
+**GET** `/protected-resources/{id}/permissions`
+
+Returns the authenticated user's permissions for the specified Protected Resource.
+
+**Authentication**: Bearer token required
+
+**Response** (200 OK):
+```json
+[
+  "string"
+]
+```
+
+**Error Codes**:
+- `401 Unauthorized`: Missing or invalid authentication token
+- `404 Not Found`: Protected Resource not found
+
+### Remove Member
+
+**DELETE** `/protected-resources/{id}/members/{member}`
+
+Removes the specified member from the Protected Resource.
+
+**Authentication**: Bearer token required
+
+**Response** (204 No Content)
+
+**Error Codes**:
+- `401 Unauthorized`: Missing or invalid authentication token
+- `404 Not Found`: Protected Resource or member not found
+
+### Search Protected Resources
+
+**GET** `/protected-resources?q=<query>`
+
+Searches for Protected Resources by name or client ID using wildcard patterns. Use `*` to match zero or more characters (e.g., `client*` matches `clientId123` and `client-test`). Searches are case-insensitive and return paginated results.
+
+**Authentication**: Bearer token required
+
+**Query Parameters**:
+- `q`: Search query with wildcard support (optional)
+
+**Response** (200 OK):
+```json
+{
+  "data": [
+    {
+      "id": "string",
+      "name": "string",
+      "clientId": "string"
+    }
+  ],
+  "totalCount": "number"
+}
+```
+
+**Error Codes**:
+- `401 Unauthorized`: Missing or invalid authentication token

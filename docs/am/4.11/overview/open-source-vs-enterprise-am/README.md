@@ -26,10 +26,16 @@ The Gravitee AM Enterprise Edition is available as three different packages, eac
 The features below are included in the default enterprise Access Management distribution and do not require additional enterprise plugins
 {% endhint %}
 
-* Risk Assessment
-* SAML v2
-* Geo IP
-* Account Linking
+| Feature | Description |
+|:--------|:------------|
+| Risk Assessment | (Description pending) |
+| SAML v2 | (Description pending) |
+| Geo IP | (Description pending) |
+| Account Linking | (Description pending) |
+| Protected Resource Secret Management | Manage multiple client secrets with expiration policies for Protected Resources |
+| Protected Resource Certificate-Based Authentication | X.509 certificate support for JWT signature verification during token introspection |
+| Protected Resource Token Exchange | OAuth 2.0 Token Exchange (RFC 8693) support for Protected Resources acting as clients |
+| Protected Resource Membership Management | Administrative permission controls for Protected Resources |
 
 ## Enterprise plugins <a href="#enterprise-policy-pack" id="enterprise-policy-pack"></a>
 

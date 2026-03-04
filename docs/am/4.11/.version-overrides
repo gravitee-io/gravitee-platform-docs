@@ -1,0 +1,8 @@
+SUMMARY.md
+guides/applications/client-secrets.md
+guides/certificates/README.md
+guides/identity-providers/database-identity-providers/README.md
+guides/protected-resources/README.md
+overview/open-source-vs-enterprise-am/README.md
+reference/am-api-reference.md
+release-information/release-notes/am-4.11.md
