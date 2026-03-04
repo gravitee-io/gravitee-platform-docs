@@ -8,7 +8,7 @@ metaLinks:
 # API Quality
 
 {% hint style="warning" %}
-The API Quality feature is only available to v2 APIs and apis feture
+The API Quality feature is only available to v2 APIs
 {% endhint %}
 
 ## Overview
