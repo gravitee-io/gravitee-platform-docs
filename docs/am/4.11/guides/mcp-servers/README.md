@@ -10,6 +10,24 @@
 
 An MCP Server represents a protected resource that exposes one or more MCP Tools to MCP client applications. Access to these tools is protected by OAuth 2.1 and can be further refined using [Authorization Engines](../authorization-engines/) such as OpenFGA for fine-grained, attribute-based, and relationship-based authorization.
 
+### Protected Resources
+
+Protected Resources are entities in Gravitee AM that represent external services or systems requiring OAuth 2.0-based access control. They serve as the foundation for securing access to backend resources and tools.
+
+Protected Resources come in two types:
+
+* **Standard Protected Resources:** General-purpose resources secured by OAuth 2.0 flows.
+* **MCP Servers:** Specialized Protected Resources that expose MCP Tools to AI-integrated client applications.
+
+When you create a Protected Resource, AM automatically applies OAuth 2.0 defaults, including:
+
+* Grant types: `client_credentials`
+* Response types: `code`
+* Token endpoint authentication method: `client_secret_basic`
+* Client ID matching the Protected Resource identifier
+
+These defaults ensure immediate OAuth 2.0 compatibility while allowing customization for specific use cases.
+
 This page provides a high-level overview of MCP Servers and points to the detailed pages for configuration and integration.
 
 ## **MCP Servers in AM**

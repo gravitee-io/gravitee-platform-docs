@@ -10,6 +10,8 @@ The MCP Server authorization flow follows the official [MCP specification](https
 * The client exchanges `code → token` via `/token`.
 * The MCP Server validates the token and scopes, and then executes the tool based on its decision.
 
+MCP Servers support RFC 8693 token exchange flows, allowing clients to exchange existing tokens (access, refresh, ID, or JWT) for new access tokens. Token exchange requires domain-level enablement and restricts MCP Servers to `client_credentials` and token exchange grant types only.
+
 The following diagram shows full MCP Server authorization flow with [AuthZen](../authorization-engines/authzen.md) and [OpenFGA](../authorization-engines/openfga.md) as the Authorization Engine.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2025-11-27 at 12.09.35.png" alt=""><figcaption></figcaption></figure>

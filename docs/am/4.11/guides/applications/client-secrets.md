@@ -1,6 +1,7 @@
+
 # Client Secrets
 
-Gravitee AM supports enhanced client secret management, allowing for multiple secrets for each application and configurable expiration policies at both the domain level and application level. These features improve security and flexibility in managing client credentials.
+Gravitee AM supports enhanced client secret management, allowing for multiple secrets for each application, Protected Resource, and configurable expiration policies at both the domain level and application level. These features improve security and flexibility in managing client credentials.
 
 ## Multiple Client Secrets for each Application
 
@@ -8,6 +9,41 @@ Gravitee AM supports enhanced client secret management, allowing for multiple se
 
 * **Multiple Secrets:** Each application can have multiple active client secrets. This facilitates secret rotation without downtime, as new secrets can be added before deprecating old secrets.
 * **Management:** Secrets can be added, renewed, and revoked through the Gravitee AM UI Console or using the Management API.
+
+## Multiple Named Secrets for Protected Resources
+
+### Overview
+
+Protected Resources support multiple named secrets with independent lifecycles. Each secret generates a unique settings entry and emits lifecycle events on creation, renewal, and deletion. When a secret is deleted, unused settings entries are automatically cleaned up.
+
+### Managing Protected Resource Secrets
+
+Secrets are returned in plaintext only at creation or renewal. Subsequent API calls return safe representations without the secret value.
+
+#### **Adding a new secret:**
+
+1. POST to `/organizations/{orgId}/environments/{envId}/domains/{domain}/protected-resources/{id}/secrets` with `{"name": "secret-name"}`.
+2. The response includes the plaintext secret value—store it securely.
+
+#### **Renewing a secret:**
+
+1. POST to the renewal endpoint for the specific secret.
+2. Copy the generated plaintext secret from the response.
+
+#### **Deleting a secret:**
+
+1. DELETE the secret using the Management API.
+2. The system automatically cleans up unused settings entries.
+
+### Certificate Binding for mTLS Authentication
+
+Protected Resources can bind to domain certificates for mTLS authentication. The system validates certificate existence before assignment and prevents deletion of certificates in use by Protected Resources.
+
+#### **Binding a certificate:**
+
+1. Set the `certificate` field to a valid certificate ID from the domain during resource creation or update.
+2. Certificate validation occurs automatically during the operation.
+
 
 ### Use Cases
 
