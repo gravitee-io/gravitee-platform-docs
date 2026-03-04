@@ -22,7 +22,7 @@ The server hosting the protected resources, capable of accepting and responding 
 
 **Client**
 
-An application making protected resource requests on behalf of the resource owner and with the resource owner’s authorization. The term _client_ does not imply any particular implementation characteristics (e.g. whether the application executes on a server, a desktop or other device).
+An application making protected resource requests on behalf of the resource owner and with the resource owner's authorization. The term _client_ does not imply any particular implementation characteristics (e.g. whether the application executes on a server, a desktop or other device).
 
 **Authorization server**
 
@@ -161,6 +161,22 @@ Token endpoint URL: `https://am-gateway/{domain}/oauth/token`
 
 The [introspection endpoint](https://tools.ietf.org/html/rfc7662#section-2) takes a parameter representing an OAuth 2.0 token and returns a JSON \[RFC7159] document containing meta-information about the token, including whether it is currently active.
 
+Token introspection validates JWT audiences against both OAuth clients and Protected Resources. The validation logic differs based on the number of audiences in the token.
+
+#### Single-audience validation
+
+For tokens with a single audience claim:
+
+1. Check if the audience matches a client ID (Application)
+2. If not found, check if the audience matches a Protected Resource client ID
+3. If not found, fall back to RFC 8707 resource identifier validation
+
+#### Multi-audience validation
+
+For tokens with multiple audience claims, the system always uses RFC 8707 resource identifier validation.
+
+This enables Protected Resources to act as audience targets in token exchange and client credentials flows.
+
 {% hint style="info" %}
 When a token has audience claims relating to an [MCP Server](../../mcp-servers/), by default, introspection is restricted to the authorizing client for that MCP Server.
 {% endhint %}
@@ -173,12 +189,83 @@ The [revocation endpoint](https://tools.ietf.org/html/rfc7009) allows clients to
 
 Revocation endpoint URL: `https://am-gateway/{domain}/oauth/revoke`
 
+## Protected Resources
+
+Protected Resources support secret management, certificate-based authentication, and membership controls. These enhancements enable secure machine-to-machine communication patterns, including MCP Server integrations with token exchange flows.
+
+### Protected Resource secret management
+
+Protected Resources support multiple client secrets with independent lifecycle management. Each secret is generated server-side and can be renewed or deleted without affecting other secrets.
+
+#### Secret settings sharing
+
+Secrets reference shared `secretSettings` entries via `settingsId`. Multiple secrets can use the same cryptographic parameters (algorithm configuration) by referencing the same `secretSettings` entry. When a secret is deleted, the system removes the corresponding `secretSettings` entry only if no other secret references it.
+
+#### Plaintext secret return policy
+
+On creation or renewal, the plaintext secret is returned once in the API response. Subsequent API calls return only safe (redacted) metadata. Store the plaintext secret securely at creation time—it cannot be retrieved later.
+
+### Certificate-based authentication
+
+Protected Resources support certificate-based authentication for secure machine-to-machine communication. When a Protected Resource references a certificate, the system validates certificate existence during creation and update operations.
+
+Certificates used by Protected Resources cannot be deleted. Attempting to delete a certificate in use returns a `400` error with the message: `"You can't delete a certificate with existing protected resources."`
+
+### MCP Server context restrictions
+
+Protected Resources with type `MCP_SERVER` enforce restricted grant type and authentication method sets.
+
+#### Allowed grant types
+
+* `client_credentials`
+* `urn:ietf:params:oauth:grant-type:token-exchange`
+
+#### Allowed token endpoint authentication methods
+
+* `client_secret_basic`
+* `client_secret_post`
+* `client_secret_jwt`
+
+The following methods are excluded:
+
+* `private_key_jwt`
+* `tls_client_auth`
+* `self_signed_tls_client_auth`
+* `none`
+
+### Prerequisites
+
+Before managing Protected Resource secrets or memberships, ensure you have the following permissions:
+
+**Secret management:**
+
+* `PROTECTED_RESOURCE[CREATE]` — Create new secrets
+* `PROTECTED_RESOURCE[UPDATE]` — Renew existing secrets
+* `PROTECTED_RESOURCE[DELETE]` — Delete secrets
+
+**Membership management:**
+
+* `PROTECTED_RESOURCE_MEMBER[LIST]` — View members
+* `PROTECTED_RESOURCE_MEMBER[CREATE]` — Add members
+* `PROTECTED_RESOURCE_MEMBER[DELETE]` — Remove members
+
+**Certificate-based authentication:**
+
+* Valid domain-scoped certificate
+
+### Next steps
+
+For procedural guidance on managing Protected Resource secrets and memberships, see:
+
+* [Manage Protected Resource Secrets](../../mcp-servers/protected-resource-configuration.md#creating-a-protected-resource-with-secrets)
+* [Manage Protected Resource Memberships](../../mcp-servers/protected-resource-configuration.md#managing-protected-resource-memberships)
+
 ## Example
 
-Let’s imagine that a user wants to access his personal data via a web application. The personal data is exposed through an API secured by OAuth 2.0 protocol.
+Let's imagine that a user wants to access his personal data via a web application. The personal data is exposed through an API secured by OAuth 2.0 protocol.
 
 1. The user must be logged in to access his data. The user requests the web application to sign in.
-2. The web application sends an authorization request (resource owner requests access to be granted to the resource owner’s data) to the authorization server.
+2. The web application sends an authorization request (resource owner requests access to be granted to the resource owner's data) to the authorization server.
 
 {% code overflow="wrap" %}
 ```bash
@@ -213,7 +300,7 @@ Location: https://web-app/callback?code=js89p2x1&state=6789DSKL
 Return to the web application
 ```
 
-4\. The resource owner is an authenticated and approved web application acting on the resource owner’s behalf. The web application can request an access token.
+4. The resource owner is an authenticated and approved web application acting on the resource owner's behalf. The web application can request an access token.
 
 {% code overflow="wrap" %}
 ```bash
@@ -238,14 +325,14 @@ Pragma: no-cache
 }
 ```
 
-5\. The web application has obtained an access token, which it can use to get the user’s personal data.
+5. The web application has obtained an access token, which it can use to get the user's personal data.
 
 ```bash
 GET  https://api.company.com/users/@me
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5...
 ```
 
-6\. The Users API must check the incoming token to determine the active state of the access token and decide whether to accept or deny the request.
+6. The Users API must check the incoming token to determine the active state of the access token and decide whether to accept or deny the request.
 
 ```bash
 POST https://am-gateway/{domain}/oauth/introspect HTTP/1.1
@@ -255,8 +342,6 @@ Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW
 token=eyJhbGciOiJIUzI1NiIsInR5...
 
 Introspection request
-
-
 
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -274,8 +359,6 @@ Content-Type: application/json
 
 Introspection response
 
-
-
 HTTP/1.1 200 OK
 Content-Type: application/json
 
@@ -289,7 +372,8 @@ Content-Type: application/json
 Users API response
 ```
 
-7\. The access is valid and the web application can display the resource owner’s personal data. 8. If the resource owner decides to log out, the web application can ask the authorization server to revoke the active access token.
+7. The access is valid and the web application can display the resource owner's personal data.
+8. If the resource owner decides to log out, the web application can ask the authorization server to revoke the active access token.
 
 ```bash
 POST https://am-gateway/{domain}/oauth/revoke HTTP/1.1
@@ -299,8 +383,6 @@ Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW
 token=eyJhbGciOiJIUzI1NiIsInR5...
 
 Revocation request
-
-
 
 HTTP/1.1 200 OK
 

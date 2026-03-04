@@ -8,6 +8,8 @@ description: An overview about reference secrets in domains.
 
 You can configure secret managers to work with your Domains. You can use secrets to hide information in any plugin field that supports secrets using Expression Language.&#x20;
 
+Protected Resources can also maintain multiple client secrets with independent lifecycle management through dedicated API endpoints. Each secret is generated server-side and can be renewed or deleted without affecting other secrets.
+
 This article explains the syntax that you can use to resolve secrets in Domains and configure secret managers.
 
 ### Reference a secret with specialized syntax <a href="#reference-a-secret-with-specialized-syntax" id="reference-a-secret-with-specialized-syntax"></a>

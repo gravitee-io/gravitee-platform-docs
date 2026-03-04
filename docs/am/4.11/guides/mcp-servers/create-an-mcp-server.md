@@ -34,16 +34,63 @@ Provide the following required information:
 
 ### Step 3: (Optional) Configure OAuth 2.0 settings <a href="#step-3-configure-oauth-20-settings-optional" id="step-3-configure-oauth-20-settings-optional"></a>
 
-By default, Gravitee AM automatically generates OAuth 2.0 credentials. You can optionally provide the following custom values:
+By default, Gravitee AM automatically generates OAuth 2.0 credentials and applies default OAuth 2.0 settings. You can optionally provide the following custom values:
 
 * **Client ID:** A custom OAuth 2.0 Client Identifier.
   * If not provided, a secure random identifier is generated.
   * Must be unique within the domain.
-*   **Client Secret:** A custom OAuth 2.0 Client Secret.
+* **Client Secret:** A custom OAuth 2.0 Client Secret.
+  * If not provided, a secure random secret will be generated.
 
-    * If not provided, a secure random secret will be generated.
+{% hint style="warning" %}
+The Client Secret is shown only once during creation. Make sure to copy and store it securely. You cannot retrieve the raw secret later.
+{% endhint %}
 
-    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>The Client Secret is shown only once during creation. Make sure to copy and store it securely. You cannot retrieve the raw secret later.</p></div>
+#### OAuth 2.0 Default Settings
+
+When creating or updating an MCP Server, the system applies default OAuth settings if the `settings.oauth` field is null or incomplete. These defaults ensure functional client credentials flows without explicit configuration.
+
+| Property | Default Value | Description |
+|----------|---------------|-------------|
+| `settings.oauth.grantTypes` | `["client_credentials"]` | Default grant types |
+
+#### Grant Type and Authentication Method Restrictions
+
+MCP Server Protected Resources enforce restricted grant type and authentication method sets to align with MCP Server security requirements.
+
+**Grant Type Restrictions**
+
+MCP Server Protected Resources support only the following grant types:
+
+* `client_credentials`
+* `urn:ietf:params:oauth:grant-type:token-exchange`
+
+All other OAuth 2.0 grant types are excluded when the Protected Resource type is `MCP_SERVER`.
+
+**Token Endpoint Authentication Method Restrictions**
+
+MCP Server Protected Resources support only secret-based authentication methods:
+
+* `client_secret_basic`
+* `client_secret_post`
+* `client_secret_jwt`
+
+The following authentication methods are excluded:
+
+* `private_key_jwt`
+* `tls_client_auth`
+* `self_signed_tls_client_auth`
+* `none`
+
+**UI Behavior**
+
+When creating or editing a Protected Resource with type `MCP_SERVER`, the AM Console automatically:
+
+* Filters the token endpoint authentication method list to show only the three supported secret-based methods
+* Hides the Refresh Token configuration section
+* Hides the PKCE configuration section
+
+These restrictions apply only when the Protected Resource type is `MCP_SERVER`. Standard Protected Resources and Applications support the full range of OAuth 2.0 grant types and authentication methods.
 
 ### Step 4: (Optional) Add MCP Tools <a href="#step-4-add-mcp-tools-optional" id="step-4-add-mcp-tools-optional"></a>
 
