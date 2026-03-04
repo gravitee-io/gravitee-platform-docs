@@ -10,6 +10,10 @@ Before creating an MCP Server, ensure you have the following:
 
 * Access to Gravitee AM Console with `PROTECTED_RESOURCE[CREATE]` permission.
 * The URL(s) of the MCP endpoint(s) you want to protect.
+* **Domain with OAuth 2.0 enabled:** The domain must have OAuth 2.0 configured and active.
+* **For certificate authentication:** A valid X.509 certificate must be uploaded to the domain.
+* **For secret expiration:** Domain-level `SecretExpirationSettings` must be configured.
+* **For membership management:** Users or groups must be defined in the domain identity provider.
 
 ## Create an MCP Server using the AM Console <a href="#create-an-mcp-server-using-am-console" id="create-an-mcp-server-using-am-console"></a>
 
@@ -34,16 +38,35 @@ Provide the following required information:
 
 ### Step 3: (Optional) Configure OAuth 2.0 settings <a href="#step-3-configure-oauth-20-settings-optional" id="step-3-configure-oauth-20-settings-optional"></a>
 
-By default, Gravitee AM automatically generates OAuth 2.0 credentials. You can optionally provide the following custom values:
+By default, Gravitee AM automatically generates OAuth 2.0 credentials and applies the following default settings:
+
+| Property | Default Value | Description |
+|:---------|:--------------|:------------|
+| `settings.oauth.grantTypes` | `["client_credentials"]` | Allowed grant types |
+| `settings.oauth.responseTypes` | `["code"]` | Allowed response types |
+| `settings.oauth.tokenEndpointAuthMethod` | `"client_secret_basic"` | Default authentication method |
+| `settings.oauth.clientId` | (copied from resource) | OAuth client identifier |
+| `settings.oauth.clientSecret` | (preserved if exists) | Preserved on update |
+
+You can optionally provide the following custom values:
 
 * **Client ID:** A custom OAuth 2.0 Client Identifier.
   * If not provided, a secure random identifier is generated.
   * Must be unique within the domain.
-*   **Client Secret:** A custom OAuth 2.0 Client Secret.
+* **Client Secret:** A custom OAuth 2.0 Client Secret.
+  * If not provided, a secure random secret will be generated.
+  * The client secret inherits the domain's expiration settings and is automatically registered for expiration notifications.
 
-    * If not provided, a secure random secret will be generated.
+{% hint style="warning" %}
+The Client Secret is shown only once during creation. Make sure to copy and store it securely. You cannot retrieve the raw secret later.
+{% endhint %}
 
-    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>The Client Secret is shown only once during creation. Make sure to copy and store it securely. You cannot retrieve the raw secret later.</p></div>
+* **Certificate:** (Optional) A valid certificate ID for certificate-based authentication.
+  * The certificate must exist in the domain before creating the protected resource.
+
+{% hint style="info" %}
+For MCP Server contexts, only the following token endpoint authentication methods are permitted: `client_secret_basic`, `client_secret_post`, `client_secret_jwt`. Grant types are restricted to `client_credentials` and `urn:ietf:params:oauth:grant-type:token-exchange`. Refresh token and PKCE options are hidden in the UI for MCP Server contexts.
+{% endhint %}
 
 ### Step 4: (Optional) Add MCP Tools <a href="#step-4-add-mcp-tools-optional" id="step-4-add-mcp-tools-optional"></a>
 
@@ -69,7 +92,7 @@ Scopes must be defined before using the MCP Tool. To define scopes, go to **Sett
 3. Copy the Client Secret from the dialog that appears.
 4. Click **Close**.
 
-The MCP Server is now created and deployed to the Gateway.
+The MCP Server is now created and deployed to the Gateway. The protected resource is available for token introspection and can be referenced in JWT `aud` (audience) claims.
 
 ## Create an MCP Server via the Management API <a href="#create-an-mcp-server-using-the-management-api" id="create-an-mcp-server-using-the-management-api"></a>
 
@@ -111,6 +134,38 @@ curl -X POST \
     ]
   }'
 ```
+
+### Example Request with Certificate <a href="#example-request-with-certificate" id="example-request-with-certificate"></a>
+
+To create a protected resource with certificate-based authentication, include the `certificate` field in your request body with a valid certificate ID:
+
+```bash
+curl -X POST \
+  'https://am-api.example.com/management/organizations/DEFAULT/environments/DEFAULT/domains/my-domain/protected-resources' \
+  -H 'Authorization: Bearer {access_token}' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "name": "AI File Management Service",
+    "resourceIdentifiers": [
+      "https://mcp.example.com/api"
+    ],
+    "description": "Provides file management tools for AI agents",
+    "type": "MCP_SERVER",
+    "certificate": "cert-id-123",
+    "features": [
+      {
+        "type": "MCP_TOOL",
+        "key": "list_files",
+        "description": "List files from the repository",
+        "scopes": ["files:read"]
+      }
+    ]
+  }'
+```
+
+{% hint style="info" %}
+The certificate must exist in the domain before creating the protected resource. The system will reject requests with invalid or non-existent certificate IDs.
+{% endhint %}
 
 ### Example Response <a href="#example-response" id="example-response"></a>
 

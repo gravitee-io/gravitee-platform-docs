@@ -29,6 +29,12 @@ In the AM Console:
 * Assign the required scopes per tool.
 * Ensure the resource identifier matches the MCP Server URL.
 
+When configuring OAuth 2.0 settings for an MCP Server context, the following restrictions apply:
+
+* **Token endpoint authentication methods**: Only `client_secret_basic`, `client_secret_post`, and `client_secret_jwt` are permitted. Methods such as `private_key_jwt`, `tls_client_auth`, `self_signed_tls_client_auth`, and `none` are excluded.
+* **Grant types**: Limited to `client_credentials` and `urn:ietf:params:oauth:grant-type:token-exchange`.
+* **UI behavior**: Refresh token and PKCE configuration sections are hidden for MCP Server contexts.
+
 </details>
 
 <details>
