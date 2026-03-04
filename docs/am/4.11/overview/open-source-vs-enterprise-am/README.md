@@ -30,6 +30,7 @@ The features below are included in the default enterprise Access Management dist
 * SAML v2
 * Geo IP
 * Account Linking
+* Protected Resource Membership Management: Role-based access control for Protected Resources with permission cascade model across resource, domain, environment, and organization scopes
 
 ## Enterprise plugins <a href="#enterprise-policy-pack" id="enterprise-policy-pack"></a>
 

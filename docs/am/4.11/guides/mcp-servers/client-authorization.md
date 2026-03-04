@@ -211,6 +211,32 @@ Token validation triggers one of the following:
 
 <details>
 
+<summary>Client configuration for MCP Server context</summary>
+
+When configuring a Protected Resource in MCP Server context, the UI restricts available token endpoint authentication methods to:
+
+* `client_secret_basic`
+* `client_secret_post`
+* `client_secret_jwt`
+
+The following methods are hidden in the UI:
+
+* `private_key_jwt`
+* `tls_client_auth`
+* `self_signed_tls_client_auth`
+* `none`
+
+The allowed grant types are:
+
+* `client_credentials`
+* `urn:ietf:params:oauth:grant-type:token-exchange`
+
+This filtering applies only in the UI. The API does not enforce context-specific restrictions on token endpoint authentication methods.
+
+</details>
+
+<details>
+
 <summary>10. Fine-grained permissions check</summary>
 
 The permission check uses the Authorization Engine and AuthZen and is described in the [Authorization Engines](../authorization-engines/) section.
