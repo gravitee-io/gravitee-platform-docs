@@ -10,6 +10,14 @@ The MCP Server authorization flow follows the official [MCP specification](https
 * The client exchanges `code → token` via `/token`.
 * The MCP Server validates the token and scopes, and then executes the tool based on its decision.
 
+### MCP Server Context Restrictions
+
+Protected Resources operating in MCP Server context are subject to the following restrictions:
+
+* **Grant types**: Limited to `client_credentials` and `urn:ietf:params:oauth:grant-type:token-exchange`.
+* **Authentication methods**: Limited to `client_secret_basic`, `client_secret_post`, and `client_secret_jwt`. The following methods are excluded: `private_key_jwt`, `tls_client_auth`, `self_signed_tls_client_auth`, `none`.
+* **UI behavior**: When configuring a Protected Resource in MCP Server context, the AM Console automatically filters grant type and authentication method options to show only the allowed values. Refresh token and PKCE configuration sections are hidden in this context.
+
 The following diagram shows full MCP Server authorization flow with [AuthZen](../authorization-engines/authzen.md) and [OpenFGA](../authorization-engines/openfga.md) as the Authorization Engine.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2025-11-27 at 12.09.35.png" alt=""><figcaption></figcaption></figure>

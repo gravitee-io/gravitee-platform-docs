@@ -83,6 +83,21 @@ Gravitee API Management (APIM) comes with a JWT Policy to verify and decode toke
 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-certificate-app.png" alt=""><figcaption><p>Apply certificate to application</p></figcaption></figure>
 
+### Certificate references in Protected Resources
+
+Certificates can be referenced by Protected Resources for JWT signature verification during token introspection. When a token's `aud` claim matches the Protected Resource's `clientId`, the introspection service retrieves the associated certificate ID and uses it to validate the token signature.
+
+To configure a certificate for a Protected Resource:
+
+1. Upload a certificate to the domain via the Certificates API.
+2. Note the certificate ID from the response.
+3. Update the Protected Resource by sending PATCH `/organizations/{orgId}/environments/{envId}/domains/{domain}/protected-resources/{id}` with `{"certificate": "cert-abc123"}` in the request body.
+4. The system validates that the certificate exists and belongs to the correct domain.
+
+{% hint style="warning" %}
+Deleting a certificate fails if any Protected Resources reference it. The operation returns `CertificateWithProtectedResourceException` with the message "You can't delete a certificate with existing protected resources."
+{% endhint %}
+
 ### Certificate for Mutual TLS authentication <a href="#certificate-for-mutual-tls-authentication" id="certificate-for-mutual-tls-authentication"></a>
 
 To mark a certificate as usable for mTLS, you just have to check the "mTLS" usage in the configuration form of your certificate.

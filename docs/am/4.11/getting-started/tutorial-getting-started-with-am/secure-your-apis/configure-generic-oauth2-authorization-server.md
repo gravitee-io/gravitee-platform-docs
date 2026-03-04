@@ -12,6 +12,20 @@ The `clientId` used for the resource configuration must match the `clientId` of 
 
 The following instructions assume that the OAuth server is a Gravitee AM Gateway, but other solutions are supported.
 
+### OAuth 2.0 Default Settings for Protected Resources
+
+Protected Resources in Gravitee Access Management are automatically configured with OAuth 2.0 defaults on creation. These settings can be overridden via the `settings` field in the Protected Resource payload.
+
+| Property | Default Value | Description |
+|:---------|:--------------|:------------|
+| `grantTypes` | `["client_credentials"]` | Allowed grant types for token requests |
+| `responseTypes` | `["code"]` | OAuth 2.0 response types |
+| `tokenEndpointAuthMethod` | `"client_secret_basic"` | Default authentication method for token endpoint |
+| `clientId` | (auto-generated) | OAuth 2.0 client identifier |
+| `clientSecret` | (auto-generated) | Initial client secret (hashed after creation) |
+
+### Configuration Steps
+
 1. Log in to APIM Management Console.
 2. Click **APIs** in the left sidebar.
 3. Select the API you want to add the resource to.

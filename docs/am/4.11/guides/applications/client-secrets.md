@@ -108,7 +108,7 @@ Revoked secrets are immediately invalidated and cannot be used for authenticatio
 
 ## Monitoring Client Secret Expiration
 
-Gravitee AM provides support for monitoring client secret expiration through customizable notifications, allowing proactive management of client credentials.
+Gravitee AM provides support for monitoring client secret expiration through customizable notifications, allowing proactive management of client credentials for both Applications and Protected Resources.
 
 ### Notification Events
 
@@ -118,5 +118,18 @@ Gravitee AM provides support for monitoring client secret expiration through cus
 * **Upcoming Secret Expiration**: Periodic notifications can be sent ahead of time, based on a configurable cron schedule, to proactively manage client secrets approaching expiration.
 
 These notifications facilitate timely renewal of client secrets and reduce the risk of authentication failures due to expired credentials.
+
+### Supported Resource Types
+
+Secret expiration notifications support the following resource types:
+
+* **Applications**: Client secrets associated with OAuth 2.0 applications.
+* **Protected Resources**: Client secrets associated with Protected Resources, including MCP Server contexts.
+
+The `ClientSecretNotifierService` uses a unified `ClientSecretNotifierSubject` data model that includes `resourceType` (`application` or `protected resource`) and entity-specific metadata. The `ProtectedResourceSecretManager` listens for `PROTECTED_RESOURCE_SECRET` events (`CREATE`, `RENEW`, `DELETE`) and registers or unregisters expiration notifications accordingly.
+
+### Prerequisites
+
+The notification system must be enabled at the domain level before secret expiration notifications can be sent.
 
 For detailed instructions on configuring the notification mechanisms, refer to the [AM API configuration](../../getting-started/configuration/configure-am-api/#configure-notifications-on-certificates-and-client-secret-expiry) section.
