@@ -41,6 +41,9 @@ description: API documentation explaining apim 4.7.x.
 
 * API Mgmt Management Console task list takes too long to load [#11049](https://github.com/gravitee-io/issues/issues/11049)
 
+**Other**
+* OpenAPI Validation Policy fails with OAS 3.1 discriminator schemas [#10763](https://github.com/gravitee-io/issues/issues/10763)
+
 </details>
 
 
