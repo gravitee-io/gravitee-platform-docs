@@ -33,6 +33,7 @@
   * [AM API](getting-started/configuration/configure-am-api/README.md)
     * [Internal API](getting-started/configuration/configure-am-api/internal-api.md)
   * [AM Console](getting-started/configuration/configure-am-console.md)
+  * [Protected Resource System Configuration and Schema Changes](getting-started/configuration/configure-protected-resources.md)
   * [Repositories & DataPlane](getting-started/configuration/configure-repositories.md)
   * [Reporters](getting-started/configuration/configure-reporters.md)
   * [Monitoring](getting-started/configuration/configure-monitoring.md)
@@ -52,6 +53,7 @@
   * [Add Custom Claims to Tokens](getting-started/tutorial-getting-started-with-am/add-custom-claims-to-tokens.md)
 
 ## Guides
+  * [Protected Resource Management Overview](guides/protected-resources/README.md)
 
 * [Prologue](guides/prologue.md)
 * [Auth Protocols](guides/auth-protocols/README.md)
@@ -198,4 +200,5 @@
 * [Community](community-and-support/community/README.md)
   * [Support](https://community.gravitee.io/c/support/11)
   * [Roadmap & Feedback](https://www.gravitee.io/user-feedback)
+  * [Token Introspection and Audience Validation](guides/token_introspection_and_audience_validation.md)
   * [Announcements & Events](https://community.gravitee.io/c/announcements/5)

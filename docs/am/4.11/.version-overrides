@@ -1,0 +1,6 @@
+SUMMARY.md
+getting-started/configuration/configure-protected-resources.md
+guides/mcp-servers/create-an-mcp-server.md
+guides/protected-resources/README.md
+guides/token_introspection_and_audience_validation.md
+release-information/release-notes/am-4.11.md
