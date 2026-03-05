@@ -147,6 +147,8 @@
   * [Self-service Account Management](guides/user-management/self-service-account-management.md)
 * [MCP Servers](guides/mcp-servers/README.md)
   * [Client Authorization](guides/mcp-servers/client-authorization.md)
+  * [Configure Token Exchange for MCP Servers](guides/mcp-servers/token-exchange.md)
+  * [Manage Protected Resource Membership](guides/mcp-servers/manage-protected-resource-membership.md)
   * [Create an MCP Server](guides/mcp-servers/create-an-mcp-server.md)
   * [MCP Tools](guides/mcp-servers/mcp-tools.md)
 * [Session Management](guides/session-management.md)
@@ -160,6 +162,7 @@
 * [Administration](guides/administration.md)
 * [AM Expression Language](guides/am-expression-language.md)
 * [Developer Contributions](guides/developer-contributions.md)
+  * [Protected Resources Overview](guides/protected-resources/README.md)
 
 ## Reference
 
@@ -196,6 +199,11 @@
 
 * [Enterprise Support](community-and-support/enterprise-support.md)
 * [Community](community-and-support/community/README.md)
+  * [Protected Resource Implementation Details](reference/protected-resources-implementation.md)
+  * [Protected Resource Restrictions and Constraints](guides/protected-resources/restrictions-and-constraints.md)
+  * [Token Introspection with Protected Resources](guides/protected-resources/token_introspection_with_protected_resources.md)
   * [Support](https://community.gravitee.io/c/support/11)
   * [Roadmap & Feedback](https://www.gravitee.io/user-feedback)
+  * [Create and Configure Protected Resources](guides/protected-resources/create_and_configure_protected_resources.md)
+  * [Protected Resource API](guides/protected-resources/protected_resource_api_reference.md)
   * [Announcements & Events](https://community.gravitee.io/c/announcements/5)

@@ -1,0 +1,10 @@
+SUMMARY.md
+guides/mcp-servers/manage-protected-resource-membership.md
+guides/mcp-servers/token-exchange.md
+guides/protected-resources/README.md
+guides/protected-resources/create_and_configure_protected_resources.md
+guides/protected-resources/protected_resource_api_reference.md
+guides/protected-resources/restrictions-and-constraints.md
+guides/protected-resources/token_introspection_with_protected_resources.md
+reference/protected-resources-implementation.md
+release-information/release-notes/am-4.11.md
