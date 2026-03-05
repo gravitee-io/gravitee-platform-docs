@@ -1,0 +1,7 @@
+SUMMARY.md
+guides/auth-protocols/uma-2.0-protected-resource-secrets.md
+guides/auth-protocols/uma-2.0/protected-resource-membership.md
+guides/mcp-servers/protected-resources-overview.md
+guides/mcp-servers/search-protected-resources.md
+guides/multi-factor-authentication/managing-factors/configuring_certificate-based_authentication_for_protected_resources.md
+release-information/release-notes/am-4.11.md

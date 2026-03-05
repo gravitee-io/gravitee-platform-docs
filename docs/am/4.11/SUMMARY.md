@@ -55,6 +55,7 @@
 
 * [Prologue](guides/prologue.md)
 * [Auth Protocols](guides/auth-protocols/README.md)
+  * [Managing Protected Resource Secrets](guides/auth-protocols/uma-2.0-protected-resource-secrets.md)
   * [OAuth 2.0](guides/auth-protocols/oauth-2.0/README.md)
     * [Which Flow Should I Use?](guides/auth-protocols/oauth-2.0/which-flow-should-i-use.md)
     * [Proof Key for Code Exchange (PKCE)](guides/auth-protocols/oauth-2.0/proof-key-for-code-exchange-pkce.md)
@@ -63,6 +64,7 @@
     * [Extension Grants](guides/auth-protocols/oauth-2.0/extension-grants.md)
     * [Dynamic Redirect URI Parameters](guides/auth-protocols/oauth-2.0/dynamic-redirect-uri-parameters.md)
   * [OpenID Connect](guides/auth-protocols/openid-connect.md)
+  * [Managing Protected Resource Membership](guides/auth-protocols/uma-2.0/protected-resource-membership.md)
   * [UMA 2.0](guides/auth-protocols/uma-2.0.md)
   * [SCIM 2.0](guides/auth-protocols/scim-2.0.md)
   * [Open Banking](guides/auth-protocols/open-banking.md)
@@ -116,6 +118,7 @@
   * [Force Reset Password on Expiration](guides/login/force-reset-password-on-expiration.md)
   * [Certificate Based Authentication](guides/login/certificate-based-authentication.md)
 * [Multi-factor Authentication](guides/multi-factor-authentication/README.md)
+  * [Configuring Certificate-Based Authentication for Protected Resources](guides/multi-factor-authentication/managing-factors/configuring_certificate-based_authentication_for_protected_resources.md)
   * [Managing Factors](guides/multi-factor-authentication/managing-factors/README.md)
     * [Email](guides/multi-factor-authentication/managing-factors/email.md)
     * [One-time-password (OTP)](guides/multi-factor-authentication/managing-factors/one-time-password-otp.md)
@@ -149,6 +152,7 @@
   * [Client Authorization](guides/mcp-servers/client-authorization.md)
   * [Create an MCP Server](guides/mcp-servers/create-an-mcp-server.md)
   * [MCP Tools](guides/mcp-servers/mcp-tools.md)
+  * [Protected Resource Management Overview](guides/mcp-servers/protected-resources-overview.md)
 * [Session Management](guides/session-management.md)
 * [Audit Trail](guides/audit-trail.md)
 * [Alerts](guides/alerts/README.md)
@@ -195,6 +199,7 @@
 ## Community & Support
 
 * [Enterprise Support](community-and-support/enterprise-support.md)
+* [Searching Protected Resources](guides/mcp-servers/search-protected-resources.md)
 * [Community](community-and-support/community/README.md)
   * [Support](https://community.gravitee.io/c/support/11)
   * [Roadmap & Feedback](https://www.gravitee.io/user-feedback)
