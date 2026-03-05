@@ -1,0 +1,9 @@
+SUMMARY.md
+guides/auth-protocols/protected-resource-secrets.md
+guides/certificates/README.md
+guides/mcp-servers/oauth-configuration-reference.md
+guides/mcp-servers/search-protected-resources.md
+guides/protected-resources/managing_protected_resource_memberships.md
+guides/protected-resources/protected_resource_api_and_schema_reference.md
+guides/protected-resources/protected_resource_enhancements_overview.md
+release-information/release-notes/am-4.11.md

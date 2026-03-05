@@ -55,6 +55,7 @@
 
 * [Prologue](guides/prologue.md)
 * [Auth Protocols](guides/auth-protocols/README.md)
+  * [Managing Protected Resource Secrets](guides/auth-protocols/protected-resource-secrets.md)
   * [OAuth 2.0](guides/auth-protocols/oauth-2.0/README.md)
     * [Which Flow Should I Use?](guides/auth-protocols/oauth-2.0/which-flow-should-i-use.md)
     * [Proof Key for Code Exchange (PKCE)](guides/auth-protocols/oauth-2.0/proof-key-for-code-exchange-pkce.md)
@@ -149,6 +150,8 @@
   * [Client Authorization](guides/mcp-servers/client-authorization.md)
   * [Create an MCP Server](guides/mcp-servers/create-an-mcp-server.md)
   * [MCP Tools](guides/mcp-servers/mcp-tools.md)
+  * [Protected Resource OAuth Configuration](guides/mcp-servers/oauth-configuration-reference.md)
+  * [Searching Protected Resources](guides/mcp-servers/search-protected-resources.md)
 * [Session Management](guides/session-management.md)
 * [Audit Trail](guides/audit-trail.md)
 * [Alerts](guides/alerts/README.md)
@@ -160,6 +163,9 @@
 * [Administration](guides/administration.md)
 * [AM Expression Language](guides/am-expression-language.md)
 * [Developer Contributions](guides/developer-contributions.md)
+  * [Protected Resource Enhancements Overview](guides/protected-resources/protected_resource_enhancements_overview.md)
+    * [Managing Protected Resource Memberships](guides/protected-resources/managing_protected_resource_memberships.md)
+    * [Protected Resource API and Schema](guides/protected-resources/protected_resource_api_and_schema_reference.md)
 
 ## Reference
 

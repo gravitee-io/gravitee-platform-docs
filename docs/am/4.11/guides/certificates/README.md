@@ -2,11 +2,11 @@
 
 ## Overview
 
-Cryptographic algorithms such as KeyStore (private/public key) are used to sign using JSON-based data structures (JWT) tokens. Certificates are used as part of the OAuth 2.0 and OpenID Connect protocol to sign access, create and renew ID tokens and ensure the integrity of a token’s payload.
+Cryptographic algorithms such as KeyStore (private/public key) are used to sign using JSON-based data structures (JWT) tokens. Certificates are used as part of the OAuth 2.0 and OpenID Connect protocol to sign access, create and renew ID tokens and ensure the integrity of a token's payload.
 
 Certificate definitions apply at the _security domain_ level.
 
-By default AM is able to load certificate using JKS or PKCS12 format you can upload ugin the console or the REST API. An Enterprise prise plugin also exist to load PCKS12 certificate from [AWS Secret Manager](aws-certificate-plugin.md).
+By default AM is able to load certificate using JKS or PKCS12 format you can upload using the console or the REST API. An Enterprise plugin also exists to load PKCS12 certificate from [AWS Secret Manager](aws-certificate-plugin.md).
 
 ## Create certificates
 
@@ -61,7 +61,7 @@ curl -H "Authorization: Bearer :accessToken" \
 
 ### Public keys
 
-You can use public keys to verify a token payload’s integrity. To obtain the public key for your certificate:
+You can use public keys to verify a token payload's integrity. To obtain the public key for your certificate:
 
 1. In AM Console, click **Settings > Certificates**.
 2.  Next to your certificate, click the key icon.
@@ -83,7 +83,7 @@ Gravitee API Management (APIM) comes with a JWT Policy to verify and decode toke
 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-certificate-app.png" alt=""><figcaption><p>Apply certificate to application</p></figcaption></figure>
 
-### Certificate for Mutual TLS authentication <a href="#certificate-for-mutual-tls-authentication" id="certificate-for-mutual-tls-authentication"></a>
+### Certificate for Mutual TLS authentication
 
 To mark a certificate as usable for mTLS, you just have to check the "mTLS" usage in the configuration form of your certificate.
 
@@ -92,6 +92,26 @@ System certificates can't be used for mTLS authentication as they are self signe
 {% endhint %}
 
 <figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+### Binding a certificate to a Protected Resource
+
+Protected Resources can reference a certificate from the domain's certificate store to enable mTLS authentication. The `certificate` field stores a certificate ID that the system validates before accepting the update.
+
+#### Prerequisites
+
+Before binding a certificate to a Protected Resource, upload a valid certificate to the domain's certificate store.
+
+#### Bind a certificate
+
+Update the Protected Resource's `certificate` field with a valid certificate ID from the domain's certificate store. The system validates that the certificate exists before accepting the update.
+
+When a Protected Resource is converted to a `Client` representation for internal use, the certificate ID is automatically copied to the `Client` object, enabling mTLS authentication flows.
+
+#### Certificate deletion constraints
+
+A certificate cannot be deleted from the certificate store while any Protected Resource references it. Attempting to delete a referenced certificate returns the error: `You can't delete a certificate with existing protected resources.`
+
+To delete a certificate, first remove or update all Protected Resources that reference it.
 
 ### Custom certificates
 
