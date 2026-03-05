@@ -91,6 +91,10 @@ To mark a certificate as usable for mTLS, you just have to check the "mTLS" usag
 System certificates can't be used for mTLS authentication as they are self signed certificates generated internally by Access Management.
 {% endhint %}
 
+### Certificate deletion validation
+
+Certificates associated with Applications, Identity Providers, or Protected Resources cannot be deleted. Attempting to delete a certificate in use will result in a validation error. Remove the certificate association from all dependent entities before deletion.
+
 <figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 ### Custom certificates

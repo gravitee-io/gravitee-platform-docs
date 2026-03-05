@@ -43,7 +43,24 @@ By default, Gravitee AM automatically generates OAuth 2.0 credentials. You can o
 
     * If not provided, a secure random secret will be generated.
 
-    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>The Client Secret is shown only once during creation. Make sure to copy and store it securely. You cannot retrieve the raw secret later.</p></div>
+    {% hint style="warning" %}
+    The Client Secret is shown only once during creation. Make sure to copy and store it securely. You cannot retrieve the raw secret later.
+    {% endhint %}
+
+MCP Servers are restricted to the following grant types:
+
+* `client_credentials`
+* `urn:ietf:params:oauth:grant-type:token-exchange`
+
+Token endpoint authentication methods are limited to:
+
+* `client_secret_basic`
+* `client_secret_post`
+* `client_secret_jwt`
+
+{% hint style="info" %}
+The AM Console automatically filters available options to show only the supported grant types and authentication methods for MCP Servers. Grant types such as `authorization_code`, `password`, `implicit`, and `refresh_token` are not available. Authentication methods such as `private_key_jwt`, `tls_client_auth`, and `self_signed_tls_client_auth` are also not available. The Refresh Token and PKCE configuration sections are hidden for MCP Servers.
+{% endhint %}
 
 ### Step 4: (Optional) Add MCP Tools <a href="#step-4-add-mcp-tools-optional" id="step-4-add-mcp-tools-optional"></a>
 

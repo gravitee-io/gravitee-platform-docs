@@ -56,6 +56,7 @@
 * [Prologue](guides/prologue.md)
 * [Auth Protocols](guides/auth-protocols/README.md)
   * [OAuth 2.0](guides/auth-protocols/oauth-2.0/README.md)
+    * [Protected Resource Enhancements Overview](guides/auth-protocols/oauth-2.0/protected-resources.md)
     * [Which Flow Should I Use?](guides/auth-protocols/oauth-2.0/which-flow-should-i-use.md)
     * [Proof Key for Code Exchange (PKCE)](guides/auth-protocols/oauth-2.0/proof-key-for-code-exchange-pkce.md)
     * [Best Practices](guides/auth-protocols/oauth-2.0/best-practices.md)
@@ -160,10 +161,15 @@
 * [Administration](guides/administration.md)
 * [AM Expression Language](guides/am-expression-language.md)
 * [Developer Contributions](guides/developer-contributions.md)
+  * [Managing Protected Resource Secrets and Certificates](guides/protected-resources/manage-secrets-and-certificates.md)
+    * [Token Introspection with Protected Resources](guides/protected-resources/token_introspection_with_protected_resources.md)
+    * [Managing Protected Resource Membership](guides/protected-resources/managing_protected_resource_membership.md)
+    * [Searching Protected Resources](guides/protected-resources/searching_protected_resources.md)
 
 ## Reference
 
 * [API Reference](reference/am-api-reference.md)
+  * [Protected Resource Database Schema and Event Changes](reference/database-schema/protected-resources.md)
 
 ## Releases & Changelog
 
