@@ -55,6 +55,8 @@
 
 * [Prologue](guides/prologue.md)
 * [Auth Protocols](guides/auth-protocols/README.md)
+  * [Managing Protected Resource Membership](guides/auth-protocols/uma-2.0-protected-resource-membership.md)
+  * [Managing Protected Resource Secrets](guides/auth-protocols/protected-resource-secrets.md)
   * [OAuth 2.0](guides/auth-protocols/oauth-2.0/README.md)
     * [Which Flow Should I Use?](guides/auth-protocols/oauth-2.0/which-flow-should-i-use.md)
     * [Proof Key for Code Exchange (PKCE)](guides/auth-protocols/oauth-2.0/proof-key-for-code-exchange-pkce.md)
@@ -162,6 +164,7 @@
 * [Developer Contributions](guides/developer-contributions.md)
 
 ## Reference
+  * [Protected Resource Configuration](reference/protected-resource-configuration.md)
 
 * [API Reference](reference/am-api-reference.md)
 
@@ -197,5 +200,8 @@
 * [Enterprise Support](community-and-support/enterprise-support.md)
 * [Community](community-and-support/community/README.md)
   * [Support](https://community.gravitee.io/c/support/11)
+  * [Token Introspection with Protected Resources](guides/protected-resources/token_introspection_with_protected_resources.md)
+  * [Searching Protected Resources](guides/protected-resources/search-protected-resources.md)
   * [Roadmap & Feedback](https://www.gravitee.io/user-feedback)
+  * [Creating Protected Resources](guides/protected-resources/creating_protected_resources.md)
   * [Announcements & Events](https://community.gravitee.io/c/announcements/5)

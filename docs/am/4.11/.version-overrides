@@ -1,0 +1,11 @@
+SUMMARY.md
+getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md
+guides/auth-protocols/protected-resource-secrets.md
+guides/auth-protocols/uma-2.0-protected-resource-membership.md
+guides/mcp-servers/create-an-mcp-server.md
+guides/protected-resources/creating_protected_resources.md
+guides/protected-resources/search-protected-resources.md
+guides/protected-resources/token_introspection_with_protected_resources.md
+reference/am-api-reference.md
+reference/protected-resource-configuration.md
+release-information/release-notes/am-4.11.md

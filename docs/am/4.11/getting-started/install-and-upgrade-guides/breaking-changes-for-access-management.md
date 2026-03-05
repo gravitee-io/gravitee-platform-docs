@@ -6,6 +6,7 @@ description: >-
 
 # Breaking Changes for Access Management
 
+<final_file>
 ## Breaking changes from 4.X
 
 Here are the breaking changes from versions 4.X of Gravitee.
@@ -14,7 +15,7 @@ Here are the breaking changes from versions 4.X of Gravitee.
 
 #### Optimized Audit Logging for Client Authentication
 
-To improve Gateway performance and reduce log storage overhead, The record of client events in the audit logs such as token requests and introspection have been optimized.
+To improve Gateway performance and reduce log storage overhead, the record of client events in the audit logs such as token requests and introspection have been optimized.
 
 * **Conditional Logging:** From 4.10, successful client authentication attempts are filtered out of the audit logs by default.
 * **Security Focus:** Failed authentication attempts continue to be logged in full, ensuring that potential unauthorized access or configuration issues remain visible to administrators.
@@ -29,7 +30,7 @@ reporters:
   audits:
     clientAuthentication:
       success:
-        enabled: true        
+        enabled: true
 ```
 
 #### **Enhanced Introspection with Audience (aud) Support**
@@ -49,6 +50,52 @@ handlers:
       allowAudience: false
 ```
 
+#### MCP Server Protected Resources
+
+MCP Server resources have specific restrictions on supported grant types and authentication methods:
+
+**Grant Type Restrictions**
+
+MCP Server resources support only the following grant types:
+- `client_credentials`
+- `urn:ietf:params:oauth:grant-type:token-exchange`
+
+**Authentication Method Restrictions**
+
+MCP Server resources cannot use the following token endpoint authentication methods:
+- `private_key_jwt`
+- `tls_client_auth`
+- `self_signed_tls_client_auth`
+- `none`
+
+**Certificate Management**
+
+Certificate deletion is blocked if any Protected Resource references the certificate. The system returns HTTP 400 with the error message: `"You can't delete a certificate with existing protected resources."`
+
+**Secret Management**
+
+Secret deletion removes the `secretSettings` entry only if no other secret references it. Multiple secrets can share the same `secretSettings` entry via `settingsId`. Secret lifecycle events are published with type `PROTECTED_RESOURCE_SECRET` and actions `CREATE`, `RENEW`, or `DELETE`.
+
+**Search Functionality**
+
+Search queries are case-insensitive and support only suffix wildcards (`*`). Searchable fields are `name` and `clientId`.
+
+**Token Validation**
+
+For multi-audience tokens, the system always uses RFC 8707 resource identifier validation. Client and resource lookup is skipped.
+
+**Protected Resource Updates**
+
+Protected Resource updates preserve the existing `clientSecret` if the update request omits it.
+
+**Database Schema Changes**
+
+Database schema changes add a `certificate` column (JDBC) or field (MongoDB) to the `protected_resources` table/collection.
+
+{% hint style="info" %}
+The UI filters token endpoint authentication methods and hides the Refresh Token and PKCE sections when editing MCP Server resources.
+{% endhint %}
+
 ### 4.9.0
 
 #### MongoDB search on User profiles
@@ -57,7 +104,7 @@ Starting with AM versions 4.5.20, 4.6.14, 4.7.8, and 4.8.1, GitHub issue [10573]
 
 In version 4.9.0, this option is enabled by default, making MongoDB queries for SCIM and user searches on the Management API case-sensitive. To revert to the previous behavior of case-insensitive searches, you must explicitly configure this option in the `gravitee.yaml` file:
 
-```
+```yaml
 legacy:
   mongodb:
     regexCaseInsensitive: true
@@ -139,12 +186,12 @@ Also, you defined the settings related to the repositories at the root level of 
 ```yaml
 management:
   type: mongodb
-  mongodb: 
+  mongodb:
     uri: ...
-    
+
 oauth2:
   type: mongodb
-  mongodb: 
+  mongodb:
     uri: ...
 ```
 {% endcode %}
@@ -158,23 +205,23 @@ Also, a `repositories` section has been introduced to identify the settings rela
 repositories:
   management:
     type: mongodb
-    mongodb: 
+    mongodb:
       uri: ...
-    
+
   oauth2:
     type: mongodb
-    mongodb: 
+    mongodb:
       uri: ...
-  
+
   gateway:
     type: mongodb
-    mongodb: 
+    mongodb:
       uri: ...
 ```
 {% endcode %}
 
 {% hint style="info" %}
-If you use the environment variable to provide database settings, complete the following actions:
+If you use the environment variable to provide database settings, complete the following steps:
 
 * adapt the variable name to include the "repositories" keyword, for example:\
   `GRAVITEE_MANAGEMENT_TYPE=... => GRAVITEE_REPOSITORIES_MANAGEMENT_TYPE=...`
@@ -200,9 +247,9 @@ Here are the breaking changes from versions 3.X of Gravitee.
 
 **Rename or Remove users with duplicate user name**
 
-In the **users** collection/table in AM version 3.21.6 / 3.20.11 / 3.19.17, there is a unique constraint on the `username` field. This constraint fixes the [AM-680](https://github.com/gravitee-io/issues/issues/9117) bug to avoid users with the same user name within an identity provider (IDP). Users with same user name are not active users, and it is not possible to log in using these user’s details. As a result, you may experience issues while upgrading Access Management (AM) from any previous version to 3.21.6 in case the **users** collection/table already has more than one user with the same user name in the `username` field. For the relational database, there could be a unique constraint error in the management API log and for the MongoDB ,the application may not start as MongoDB does not apply the unique constraint due to duplicate data. To start the application, you need to rename or delete the duplicate users from both the **users** collection/table and the corresponding identity provider collection/table.
+In the **users** collection/table in AM version 3.21.6 / 3.20.11 / 3.19.17, there is a unique constraint on the `username` field. This constraint fixes the [AM-680](https://github.com/gravitee-io/issues/issues/9117) bug to avoid users with the same user name within an identity provider (IDP). Users with same user name are not active users, and it is not possible to log in using these user's details. As a result, you may experience issues while upgrading Access Management (AM) from any previous version to 3.21.6 in case the **users** collection/table already has more than one user with the same user name in the `username` field. For the relational database, there could be a unique constraint error in the management API log and for the MongoDB, the application may not start as MongoDB does not apply the unique constraint due to duplicate data. To start the application, you need to rename or delete the duplicate users from both the **users** collection/table and the corresponding identity provider collection/table.
 
-To delete the duplicate users, complete the following steps :
+To delete the duplicate users, complete the following steps:
 
 1. Run a query to find all the users with the duplicate user name from the **users** collection/table.
 2. Rename or Delete these users from the corresponding identity provider collection/table.
@@ -234,16 +281,16 @@ Whatever the dryRun value is, this script generates a summary in JSON format abo
 Complete these steps in a test environment first.
 {% endhint %}
 
-To help you, A liquibase script is executed. This script identifies duplicates and rename some of them according to the connection metadata for each profile. The mostly used profile is considered as the reference and other is renamed with a "\_TO\_RENAME\_OR\_DELETE" suffix.
+To help you, a liquibase script is executed. This script identifies duplicates and rename some of them according to the connection metadata for each profile. The mostly used profile is considered as the reference and other is renamed with a "\_TO\_RENAME\_OR\_DELETE" suffix.
 
 We strongly recommend executing upgrade in a test environment first. Backup the database before executing in the production environment.
 
-If the Management API startup fails, check the logs and see if some duplicates are on error. If there aere errors, for these specific usernames, you will to manually rename them.
+If the Management API startup fails, check the logs and see if some duplicates are on error. If there are errors, for these specific usernames, you will to manually rename them.
 
 If a username cannot be duplicate, there is an error into the logs referencing the username and the identity provider.
 
 {% hint style="info" %}
-* In case of liquibase script error, the management API may fail to start and the **databasechangeloglock** has the `locked` column set to true. Once the duplicate is managed manually, the `locked` columns have to be updated to false to make the liquibase execution possible. You can update the lock using this query : `UPDATE DATABASECHANGELOGLOCK SET LOCKED=0`
+* In case of liquibase script error, the management API may fail to start and the **databasechangeloglock** has the `locked` column set to true. Once the duplicate is managed manually, the `locked` columns have to be updated to false to make the liquibase execution possible. You can update the lock using this query: `UPDATE DATABASECHANGELOGLOCK SET LOCKED=0`
 * After the migration, make sure that the **idp\_users\_xxx** tables contains a unique index in the username column. If there is no index, create this index.
 {% endhint %}
 
@@ -299,7 +346,7 @@ select id, external_id, username, source, logins_count, logget_at, created_at fr
 "yyyyyyyy-bbbb-cccc-bc0b-7bef9bec6af4" "yyyyyyyy-ef9b-4c6a-bc0b-7bef9bec6af4"	"duplicateuser"  "idpinternal" '0' '2023-10-11 13:18:20.555' '2023-10-11 13:18:20.555'
 ```
 
-Second search for the identity provider linked to the user.
+2. Search for the identity provider linked to the user.
 
 ```bash
 select id, type, name, configuration from identities where id = 'idpinternal';
@@ -314,7 +361,7 @@ select id, username from idp_table where username = 'duplicateuser';
 "yyyyyyyy-ef9b-4c6a-bc0b-7bef9bec6af4"	"duplicateuser"
 ```
 
-4. Based on the users table query output, choose the one that you want to preserve, and then rename to order into the the users table and into the idp table. Ensure that the user you are updating the exrernal\_id in the users table matching the user id into the idp table.
+4. Based on the users table query output, choose the one that you want to preserve, and then rename to order into the users table and into the idp table. Ensure that the user you are updating the external\_id in the users table matching the user id into the idp table.
 
 **Rename duplicate from Organization users Table**
 
@@ -384,12 +431,12 @@ With this update, there is a [**theme builder**](https://docs.gravitee.io/am/cur
 **Mitigate Cross Site Scripting (XSS) and Cross Site Framing**
 
 {% hint style="danger" %}
-By default in AM 3.20, to improve security on default installations of AccessManagement, CSP directives, X-XSS-Protection header, and X-Frame-Options header are enabled. Analyze your deployment needs to adapt the default values that we put in place.
+By default in AM 3.20, to improve security on default installations of Access Management, CSP directives, X-XSS-Protection header, and X-Frame-Options header are enabled. Analyze your deployment needs to adapt the default values that we put in place.
 {% endhint %}
 
 Gateway CSP:
 
-```
+```yaml
 csp:
     script-inline-nonce: true
     directives:
@@ -403,14 +450,14 @@ csp:
 
 Gateway XSS-Protection:
 
-```
+```yaml
  xss:
     action: 1; mode=block
 ```
 
 Gateway X-Frame-Option:
 
-```
+```yaml
  xframe:
     action: DENY
 ```
@@ -420,7 +467,7 @@ Gateway X-Frame-Option:
 **Bundle Community Edition and Enterprise Edition**
 
 {% hint style="warning" %}
-Access Management versions from 3.17.2 to 3.17.4 haven been impacted by a regression introduced in the 3.17.2 version of AM. We strongly advise you to upgrade directly to the 3.17.5 or 3.18.4 minimum. For more details about this change, see [Upgrade to 3.18](https://docs.gravitee.io/am/current/am_installguide_migration.html#upgrade_to_3_17_2_3_17_3_3_17_4_3_18_0_3_18_1_3_18_2_3_18_3).
+Access Management versions from 3.17.2 to 3.17.4 have been impacted by a regression introduced in the 3.17.2 version of AM. We strongly advise you to upgrade directly to the 3.17.5 or 3.18.4 minimum. For more details about this change, see [Upgrade to 3.18](https://docs.gravitee.io/am/current/am_installguide_migration.html#upgrade_to_3_17_2_3_17_3_3_17_4_3_18_0_3_18_1_3_18_2_3_18_3).
 {% endhint %}
 
 With this update, Gravitee provides a single bundle for the Access Management (AM) Community Edition (CE) and Enterprise Edition (EE). By default, this bundle or docker image provide CE features and they do not contain EE plugins. If you want to start AM EE with plugins that you paid for, you have to deploy the license key and EE plugin that you need.
@@ -432,7 +479,7 @@ If you use docker to start AM, after a docker-compose, you find a snippet that m
 * To deploy enterprise plugins in an additional plugin directory.
 * To deploy the license file.
 
-```
+```yaml
 management:
     image: graviteeio/am-management-api:3.18.0
     container_name: gio_am_management
@@ -459,7 +506,7 @@ _Deploy AM EE with Helm_
 
 If you use helm, you have to mount the license file using a secret, and then in the `additionalPlugins` section for the gateway and the api, specify which EE plugin to download.
 
-```
+```yaml
 gateway:
   additionalPlugins:
   - https://download.gravitee.io/graviteeio-ee/am/plugins/idps/gravitee-am-identityprovider-saml2-generic/gravitee-am-identityprovider-saml2-generic-<version>.zip
@@ -517,19 +564,19 @@ WebAuthn Login
 
 The User IP and User-Agent used for audit logs require the user to consent to exploit the information.
 
-* `uc_geoip` : consent for IP and geolocation
-* `uc_ua` : consent for User Agent
+* `uc_geoip`: consent for IP and geolocation
+* `uc_ua`: consent for User Agent
 
 You can use the following code:
 
-```bash
+```html
  <input class="mdl-checkbox__input" type="checkbox" th:checked="${uc_geoip}" id="uc_geoip" name="uc_geoip">
     <input class="mdl-checkbox__input" type="checkbox" th:checked="${uc_ua}" id="uc_ua" name="uc_ua">
 ```
 
-If the use have consented to these, you can simply add those inputs as `hidden` form fields. Here is an example:
+If the user has consented to these, you can simply add those inputs as `hidden` form fields. Here is an example:
 
-```bash
+```html
  <input class="mdl-checkbox__input" type="hidden" th:value="on"  id="uc_geoip" name="uc_geoip">
     <input class="mdl-checkbox__input" type="hidden" th:value="on"  id="uc_ua" name="uc_ua">
 ```
@@ -543,7 +590,7 @@ From **3.18.6**, you can implicit user consent in **gravitee.yml** file on the g
 ### 3.17.2
 
 {% hint style="warning" %}
-Access Management versions from 3.17.2 to 3.17.4 haven been impacted by a regression introduced in the 3.17.2 version of AM. We strongly advise you to upgrade directly to the 3.17.5 or 3.18.4 minimum. For more details about this change, see [Upgrade to 3.18](https://docs.gravitee.io/am/current/am_installguide_migration.html#upgrade_to_3_17_2_3_17_3_3_17_4_3_18_0_3_18_1_3_18_2_3_18_3).
+Access Management versions from 3.17.2 to 3.17.4 have been impacted by a regression introduced in the 3.17.2 version of AM. We strongly advise you to upgrade directly to the 3.17.5 or 3.18.4 minimum. For more details about this change, see [Upgrade to 3.18](https://docs.gravitee.io/am/current/am_installguide_migration.html#upgrade_to_3_17_2_3_17_3_3_17_4_3_18_0_3_18_1_3_18_2_3_18_3).
 {% endhint %}
 
 **Automatic redirection to External IDP**
@@ -556,7 +603,7 @@ With this update, the rules on external identity providers are evaluated also du
 
 **Allowed domain lists**
 
-Due to the selection rule feature added in application identity providers, domain whitelists now operate after login and not after identifier-first login. For more information about this change, see[Identifier-first Login Flow](https://docs.gravitee.io/am/current/am_userguide_login_identifier_first_login_flow.html)
+Due to the selection rule feature added in application identity providers, domain whitelists now operate after login and not after identifier-first login. For more information about this change, see [Identifier-first Login Flow](https://docs.gravitee.io/am/current/am_userguide_login_identifier_first_login_flow.html)
 
 **Application Identity Providers**
 
@@ -571,7 +618,7 @@ Also, at management-api level, the schema changes to save the new application co
 
 * Prior to this update:
 
-```
+```json
 {
     ...
     "identities": [
@@ -583,7 +630,7 @@ Also, at management-api level, the schema changes to save the new application co
 
 * After this update:
 
-```
+```json
 {
     ...
     "identityProviders":[
@@ -595,70 +642,45 @@ Also, at management-api level, the schema changes to save the new application co
 }
 ```
 
-Finally, you can check the API reference. To check the APU reference, go to [Management API reference](https://docs.gravitee.io/am/current/am_devguide_management_api_documentation.html).
+Finally, you can check the API reference. To check the API reference, go to [Management API reference](https://docs.gravitee.io/am/current/am_devguide_management_api_documentation.html).
 
 ### 3.15
 
 **OAuth2/OpenID**
 
-Prior to this update, If a user consented to the `openid` scope and no requested claim was provided, the `full_profile` scope was implicit. Otherwise only the requested claims were provided
+Prior to this
 
-With this update, you have to explicitly request the `full_profile` scope claim to get the entire user profile information.
+### Restrictions
 
-**Identity Provider / RoleMappers**
+MCP Server resources support only the following grant types:
+- `client_credentials`
+- `urn:ietf:params:oauth:grant-type:token-exchange`
 
-RoleMappers attached to an identity provider allow the attribution of a role dynamically based on a matching rule.
+MCP Server resources cannot use the following token endpoint authentication methods:
+- `private_key_jwt`
+- `tls_client_auth`
+- `self_signed_tls_client_auth`
+- `none`
 
-Prior to this update, these dynamic roles were stored in the same location as the manually assigned roles, and we could not determine whether a Role was attributed using RoleMapper or manually using the portal.
+Certificate deletion is blocked if any Protected Resource references the certificate. The system returns HTTP 400 with the error message: `"You can't delete a certificate with existing protected resources."`
 
-With this update, we introduced `dynamic roles`, which are separated from the manually assigned roles.
+Secret deletion removes the `secretSettings` entry only if no other secret references it. Multiple secrets can share the same `secretSettings` entry via `settingsId`.
 
-{% hint style="warning" %}
-As we cannot differentiate between the two types of roles before 3.15 and how those roles were assigned, we cannot automate the migration of roles.
-{% endhint %}
+Search queries are case-insensitive and support only suffix wildcards (`*`). Searchable fields are `name` and `clientId`.
 
-### 3.12
+For multi-audience tokens, the system always uses RFC 8707 resource identifier validation. Client and resource lookup is skipped.
 
-**Management REST API: Application Scopes**
+Protected Resource updates preserve the existing `clientSecret` if the update request omits it.
 
-Pior to this update, the application OAuth settings contained multiple collections about scopes. Here are the collections about scopes:
+### Related Changes
 
-* scopes: A list with all scopes authorized for the application.
-* defaultScopes: A list of scopes added as default if the authorized request doesn’t specify a list of scopes.
-* scopeApprovals: A map to specify the amount of time (in seconds) that a scope is considered acceptable by the end user.
+The UI filters token endpoint authentication methods and hides the Refresh Token and PKCE sections when editing MCP Server resources.
 
-```bash
-{
-  "settings": {
-    "oauth": {
-      "scopes": [ "scope1", "openid"],
-      "defaultScopes": [ "openid"],
-      "scopeApprovals": { "opendid" : 3600}
-    }
-  }
-}
-```
+Certificate deletion validation checks Protected Resource references and returns a user-facing error message.
 
-More settings are related to a scope, the OAuth settings for an application have to be refactored to provide a single list — `scopeSettings` — containing objects with scope settings. **This object has the following attributes**:
+The search API supports wildcard queries on `name` and `clientId` fields with case-insensitive matching.
 
-* **scope**: the scope name.
-* **defautlScope**: boolean to defined this scope as a default one if the authorize request doesn’t specify a list of scopes.
-* **scopeApproval**: the amount of time (in seconds) that a scope is considered as accepted per the end user.
+Database schema changes add a `certificate` column (JDBC) or field (MongoDB) to the `protected_resources` table/collection.
 
-### 3.10.6
+Secret lifecycle events are published with type `PROTECTED_RESOURCE_SECRET` and actions `CREATE`, `RENEW`, or `DELETE`.
 
-**Extension Grants**
-
-Before v3.10.6, claims mapping for the extension grant worked only if you had user existence checks off. Starting from v3.10.6, this behavior has changed. If you use the extension grant with claims mapping and user existence enabled, you need to validate the content of generated tokens.
-
-### 3.10.4
-
-**JWK**
-
-The `use` attribute is defined for JWK exposed through the `jwks_uri` endpoint. For more information, go to the [Datatracker](https://datatracker.ietf.org/doc/html/rfc7517#section-4.2)
-
-You can define this value when you configure the domain certificates ( **Settings > domains > mydomain > certiciates**.).
-
-{% hint style="warning" %}
-If one of your certificate is currently used to decrypt/encrypt a JWT, update your certificates configurations .
-{% endhint %}

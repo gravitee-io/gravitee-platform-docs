@@ -1,28 +1,30 @@
 # Create an MCP Server
 
-## Overview <a href="#prerequisites" id="prerequisites"></a>
+## Overview
 
 This guide describes how to create an MCP Server in Gravitee Access Management (AM).
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+Protected Resources now support secret management, certificate-based authentication, and membership controls. Token introspection has been extended to validate Protected Resource audiences alongside traditional OAuth 2.0 clients. These enhancements enable Protected Resources to act as first-class OAuth 2.0 clients with full lifecycle management for credentials and access control.
+
+## Prerequisites
 
 Before creating an MCP Server, ensure you have the following:
 
 * Access to Gravitee AM Console with `PROTECTED_RESOURCE[CREATE]` permission.
 * The URL(s) of the MCP endpoint(s) you want to protect.
 
-## Create an MCP Server using the AM Console <a href="#create-an-mcp-server-using-am-console" id="create-an-mcp-server-using-am-console"></a>
+## Create an MCP Server using the AM Console
 
 Complete the following steps to create an MCP Server using the AM Console.
 
-### Step 1: Navigate to MCP Servers <a href="#step-1-navigate-to-mcp-servers" id="step-1-navigate-to-mcp-servers"></a>
+### Step 1: Navigate to MCP Servers
 
 1. Log in to the AM Console
 2. Select your security domain
 3. Click **MCP Servers** in the left navigation menu
 4. Click the **+** (plus) icon to create a new MCP Server
 
-### Step 2: Configure basic settings <a href="#step-2-configure-basic-settings" id="step-2-configure-basic-settings"></a>
+### Step 2: Configure Basic Settings
 
 Provide the following required information:
 
@@ -32,20 +34,33 @@ Provide the following required information:
   * Must be a valid URL without fragment identifiers.
 * **Description:** (Optional) Additional information about the MCP Server. For example, `Provides file management tools for AI agents`.
 
-### Step 3: (Optional) Configure OAuth 2.0 settings <a href="#step-3-configure-oauth-20-settings-optional" id="step-3-configure-oauth-20-settings-optional"></a>
+### Step 3: (Optional) Configure OAuth 2.0 settings
 
 By default, Gravitee AM automatically generates OAuth 2.0 credentials. You can optionally provide the following custom values:
 
 * **Client ID:** A custom OAuth 2.0 Client Identifier.
   * If not provided, a secure random identifier is generated.
   * Must be unique within the domain.
-*   **Client Secret:** A custom OAuth 2.0 Client Secret.
+* **Client Secret:** A custom OAuth 2.0 Client Secret.
+  * If not provided, a secure random secret will be generated.
 
-    * If not provided, a secure random secret will be generated.
+{% hint style="warning" %}
+The Client Secret is shown only once during creation. Make sure to copy and store it securely. You cannot retrieve the raw secret later.
+{% endhint %}
 
-    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>The Client Secret is shown only once during creation. Make sure to copy and store it securely. You cannot retrieve the raw secret later.</p></div>
+#### Protected Resource Secrets
 
-### Step 4: (Optional) Add MCP Tools <a href="#step-4-add-mcp-tools-optional" id="step-4-add-mcp-tools-optional"></a>
+Protected Resources can maintain multiple client secrets with independent lifecycle management. Each secret is stored in the `clientSecrets` array and references a `secretSettings` entry via `settingsId`. Multiple secrets can share the same settings entry (algorithm, expiration policy). Secrets are generated server-side and returned in plaintext only on creation or renewal. List operations return safe metadata (no plaintext).
+
+#### Certificate-Based Authentication
+
+Protected Resources can reference a certificate by ID for JWT signature verification during token introspection. When a JWT's `aud` claim matches a Protected Resource's `clientId`, the introspection service retrieves the associated certificate for signature validation. Certificate deletion is blocked if any Protected Resource references it, returning HTTP 400 with error message `"You can't delete a certificate with existing protected resources."`.
+
+#### MCP Server OAuth 2.0 Restrictions
+
+Protected Resources with type `MCP_SERVER` have restricted OAuth 2.0 capabilities. Allowed grant types are `client_credentials` and `urn:ietf:params:oauth:grant-type:token-exchange`. Allowed token endpoint authentication methods are `client_secret_basic`, `client_secret_post`, and `client_secret_jwt`. Methods like `private_key_jwt`, `tls_client_auth`, and `none` are excluded. The refresh token and PKCE configuration sections are not available for MCP Server resources.
+
+### Step 4: (Optional) Add MCP Tools
 
 You can add tools during or after creation. To add a tool, complete the following steps:
 
@@ -62,7 +77,7 @@ You can add multiple tools with different scope requirements.
 Scopes must be defined before using the MCP Tool. To define scopes, go to **Settings > Scopes** and create a new scope.
 {% endhint %}
 
-### Step 5: Create the MCP Server <a href="#step-5-create-the-mcp-server" id="step-5-create-the-mcp-server"></a>
+### Step 5: Create the MCP Server
 
 1. Review your configuration.
 2. Click **Create**.
@@ -71,48 +86,56 @@ Scopes must be defined before using the MCP Tool. To define scopes, go to **Sett
 
 The MCP Server is now created and deployed to the Gateway.
 
-## Create an MCP Server via the Management API <a href="#create-an-mcp-server-using-the-management-api" id="create-an-mcp-server-using-the-management-api"></a>
+## Create an MCP Server via the Management API
 
 You can create an MCP Server programmatically using the Gravitee AM Management API (mAPI).
 
-### Endpoint <a href="#endpoint" id="endpoint"></a>
+### Endpoint
 
 ```
 POST /management/organizations/{organizationId}/environments/{environmentId}/domains/{domainId}/protected-resources
 ```
 
-### Example Request <a href="#example-request" id="example-request"></a>
+### Example Request
 
 ```bash
 curl -X POST \
   'https://am-api.example.com/management/organizations/DEFAULT/environments/DEFAULT/domains/my-domain/protected-resources' \
   -H 'Authorization: Bearer {access_token}' \
   -H 'Content-Type: application/json' \
-  -d '{
-    "name": "AI File Management Service",
-    "resourceIdentifiers": [
-      "https://mcp.example.com/api"
-    ],
-    "description": "Provides file management tools for AI agents",
-    "type": "MCP_SERVER",
-    "features": [
-      {
-        "type": "MCP_TOOL",
-        "key": "list_files",
-        "description": "List files from the repository",
-        "scopes": ["files:read"]
-      },
-      {
-        "type": "MCP_TOOL",
-        "key": "create_file",
-        "description": "Create a new file",
-        "scopes": ["files:write"]
-      }
-    ]
-  }'
+  -d @- <<'EOF'
 ```
 
-### Example Response <a href="#example-response" id="example-response"></a>
+```json
+{
+  "name": "AI File Management Service",
+  "resourceIdentifiers": [
+    "https://mcp.example.com/api"
+  ],
+  "description": "Provides file management tools for AI agents",
+  "type": "MCP_SERVER",
+  "features": [
+    {
+      "type": "MCP_TOOL",
+      "key": "list_files",
+      "description": "List files from the repository",
+      "scopes": ["files:read"]
+    },
+    {
+      "type": "MCP_TOOL",
+      "key": "create_file",
+      "description": "Create a new file",
+      "scopes": ["files:write"]
+    }
+  ]
+}
+```
+
+```bash
+EOF
+```
+
+### Example Response
 
 ```json
 {
@@ -150,3 +173,10 @@ curl -X POST \
 {% hint style="warning" %}
 **Save the client secret immediately.** The `clientSecret` field in the response contains the raw secret. This is the only time you will see it. Store it securely, as you cannot retrieve it later.
 {% endhint %}
+
+### Protected Resource Secrets
+
+See [Protected Resource Secrets](#protected-resource-secrets) above for details.
+### Certificate-Based Authentication
+
+See [Certificate-Based Authentication](#certificate-based-authentication) above for details.

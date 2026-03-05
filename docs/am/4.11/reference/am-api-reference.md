@@ -77,3 +77,21 @@ POST http(s)://AM_MANAGEMENT_API/management/auth/login
 For user migrations from an alternative OIDC provider to Access Management, you can define the `lastPasswordReset` attribute. This attribute ensures that a password policy with password expiry requests a password reset according to the value provided during the migration.
 
 In Management REST API, `lastPasswordReset` attribute in the User definition is a long value representing the number of milliseconds since the standard base time known as "the epoch".
+
+### Protected Resource Management
+
+The following endpoints manage Protected Resource secrets, membership, and search operations:
+
+| Endpoint | Method | Description |
+|:---------|:-------|:------------|
+| `/organizations/{orgId}/environments/{envId}/domains/{domain}/protected-resources/{id}/secrets` | GET | List all secrets for a Protected Resource (excludes plaintext values) |
+| `/organizations/{orgId}/environments/{envId}/domains/{domain}/protected-resources/{id}/secrets` | POST | Create a new secret (returns plaintext value once) |
+| `/organizations/{orgId}/environments/{envId}/domains/{domain}/protected-resources/secrets/{secretId}/_renew` | POST | Renew an existing secret (generates new value, preserves ID) |
+| `/organizations/{orgId}/environments/{envId}/domains/{domain}/protected-resources/secrets/{secretId}` | DELETE | Delete a secret |
+| `/organizations/{orgId}/environments/{envId}/domains/{domain}/protected-resources/{id}/members` | GET | List members assigned to a Protected Resource |
+| `/organizations/{orgId}/environments/{envId}/domains/{domain}/protected-resources/{id}/members` | POST | Add a member to a Protected Resource |
+| `/organizations/{orgId}/environments/{envId}/domains/{domain}/protected-resources/members/{member}` | DELETE | Remove a member from a Protected Resource |
+| `/organizations/{orgId}/environments/{envId}/domains/{domain}/protected-resources/members/permissions` | GET | Retrieve flattened permissions for the current user |
+| `/organizations/{orgId}/environments/{envId}/domains/{domain}/protected-resources?q={query}` | GET | Search Protected Resources by name or clientId |
+
+The search endpoint supports case-insensitive queries with optional suffix wildcards (`*`). Exact matches are performed when no wildcard is present (e.g., `q=clientId123`). Wildcard searches match any suffix (e.g., `q=client*` matches `client123`, `clientABC`). If the `q` parameter is absent, all resources are returned.
