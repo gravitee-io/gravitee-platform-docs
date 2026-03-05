@@ -1,0 +1,12 @@
+SUMMARY.md
+getting-started/configuration/domain-secrets/README.md
+guides/auth-protocols/oauth-2.0/certificate-based-token-verification.md
+guides/auth-protocols/uma-protected-resource-membership.md
+guides/certificates/README.md
+guides/mcp-servers/protected-resources-implementation.md
+guides/mcp-servers/protected-resources-overview.md
+guides/mcp-servers/token-exchange.md
+guides/protected-resources/manage-secrets.md
+guides/protected-resources/search_protected_resources.md
+reference/am-api-reference.md
+release-information/release-notes/am-4.11.md

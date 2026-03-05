@@ -55,7 +55,9 @@
 
 * [Prologue](guides/prologue.md)
 * [Auth Protocols](guides/auth-protocols/README.md)
+  * [Manage Protected Resource Membership](guides/auth-protocols/uma-protected-resource-membership.md)
   * [OAuth 2.0](guides/auth-protocols/oauth-2.0/README.md)
+    * [Configure Certificate-Based Token Verification](guides/auth-protocols/oauth-2.0/certificate-based-token-verification.md)
     * [Which Flow Should I Use?](guides/auth-protocols/oauth-2.0/which-flow-should-i-use.md)
     * [Proof Key for Code Exchange (PKCE)](guides/auth-protocols/oauth-2.0/proof-key-for-code-exchange-pkce.md)
     * [Best Practices](guides/auth-protocols/oauth-2.0/best-practices.md)
@@ -147,8 +149,10 @@
   * [Self-service Account Management](guides/user-management/self-service-account-management.md)
 * [MCP Servers](guides/mcp-servers/README.md)
   * [Client Authorization](guides/mcp-servers/client-authorization.md)
+  * [Exchange Tokens for MCP Servers](guides/mcp-servers/token-exchange.md)
   * [Create an MCP Server](guides/mcp-servers/create-an-mcp-server.md)
   * [MCP Tools](guides/mcp-servers/mcp-tools.md)
+  * [Protected Resources Overview](guides/mcp-servers/protected-resources-overview.md)
 * [Session Management](guides/session-management.md)
 * [Audit Trail](guides/audit-trail.md)
 * [Alerts](guides/alerts/README.md)
@@ -195,7 +199,10 @@
 ## Community & Support
 
 * [Enterprise Support](community-and-support/enterprise-support.md)
+* [Protected Resources Implementation](guides/mcp-servers/protected-resources-implementation.md)
+* [Search Protected Resources](guides/protected-resources/search_protected_resources.md)
 * [Community](community-and-support/community/README.md)
   * [Support](https://community.gravitee.io/c/support/11)
   * [Roadmap & Feedback](https://www.gravitee.io/user-feedback)
+  * [Create and Manage Protected Resource Secrets](guides/protected-resources/manage-secrets.md)
   * [Announcements & Events](https://community.gravitee.io/c/announcements/5)
