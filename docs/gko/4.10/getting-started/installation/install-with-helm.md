@@ -27,15 +27,8 @@ The steps to install the GKO on an existing Kubernetes cluster are described bel
 2.  Install the chart with the release name `graviteeio-gko`:
 
     ```bash
-    helm install graviteeio-gko graviteeio/gko --skip-crds
+    helm install graviteeio-gko graviteeio/gko
     ```
-
-{% hint style="info" %}
-We recommend always using the `--skip-crds` flag when installing GKO with Helm. This ensures CRD installation is controlled by the operator's Helm values rather than Helm itself. Use the following configuration values to manage CRD installation:
-
-* `manager.applyCRDs=(true|false)` : Controls whether the operator applies its own CRDs
-* `gatewayAPI.controller.enabled=(true|false)`: Enables the Gateway API controller
-{% endhint %}
 
 When the Gateway API controller is enabled, the operator automatically installs the Gateway API CRDs that match its implementation. For the latest supported Gateway API version and feature set, see the [Kubernetes Gateway API implementations page](https://gateway-api.sigs.k8s.io/implementations/#gravitee-kubernetes-operator).
 
@@ -46,7 +39,7 @@ The following commands assume that the repository has been aliased as `graviteei
 ```bash
 $ helm repo update graviteeio
 
-$ helm upgrade --install graviteeio-gko graviteeio/gko --skip-crds
+$ helm upgrade --install graviteeio-gko graviteeio/gko
 ```
 
 ## Configuration parameters <a href="#configuration-parameters" id="configuration-parameters"></a>
