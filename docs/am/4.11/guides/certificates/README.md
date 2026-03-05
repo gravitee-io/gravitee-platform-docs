@@ -93,6 +93,10 @@ System certificates can't be used for mTLS authentication as they are self signe
 
 <figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
+### Certificate association with Protected Resources
+
+Certificates can be associated with Protected Resources for JWT verification during token introspection. When a Protected Resource references a certificate, that certificate cannot be deleted. Attempting to delete a certificate referenced by any Protected Resource returns `400 Bad Request` with the message "You can't delete a certificate with existing protected resources."
+
 ### Custom certificates
 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-custom-certificate.png" alt=""><figcaption><p>Custom certificate diagram</p></figcaption></figure>

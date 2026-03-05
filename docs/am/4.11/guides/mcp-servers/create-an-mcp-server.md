@@ -10,6 +10,10 @@ Before creating an MCP Server, ensure you have the following:
 
 * Access to Gravitee AM Console with `PROTECTED_RESOURCE[CREATE]` permission.
 * The URL(s) of the MCP endpoint(s) you want to protect.
+* Domain with configured OAuth settings.
+* `PROTECTED_RESOURCE[UPDATE]` permission for secret renewal.
+* `PROTECTED_RESOURCE_MEMBER[CREATE]` permission for membership management.
+* Certificate uploaded to domain (optional, for certificate-based authentication).
 
 ## Create an MCP Server using the AM Console <a href="#create-an-mcp-server-using-am-console" id="create-an-mcp-server-using-am-console"></a>
 
@@ -34,7 +38,21 @@ Provide the following required information:
 
 ### Step 3: (Optional) Configure OAuth 2.0 settings <a href="#step-3-configure-oauth-20-settings-optional" id="step-3-configure-oauth-20-settings-optional"></a>
 
-By default, Gravitee AM automatically generates OAuth 2.0 credentials. You can optionally provide the following custom values:
+By default, Gravitee AM automatically generates OAuth 2.0 credentials and applies the following default settings:
+
+| Property | Default Value | Description |
+|:---------|:--------------|:------------|
+| `grantTypes` | `["client_credentials"]` | Allowed OAuth grant types |
+| `responseTypes` | `["code"]` | Allowed OAuth response types |
+| `tokenEndpointAuthMethod` | `"client_secret_basic"` | Client authentication method |
+| `clientId` | (copied from resource) | OAuth client identifier |
+| `clientSecret` | (preserved or generated) | Client secret value |
+
+{% hint style="info" %}
+When operating in MCP Server context, Protected Resources are restricted to `client_credentials` and `urn:ietf:params:oauth:grant-type:token-exchange` grant types. Token endpoint authentication methods are limited to `client_secret_basic`, `client_secret_post`, and `client_secret_jwt`.
+{% endhint %}
+
+You can optionally provide the following custom values:
 
 * **Client ID:** A custom OAuth 2.0 Client Identifier.
   * If not provided, a secure random identifier is generated.
@@ -43,7 +61,9 @@ By default, Gravitee AM automatically generates OAuth 2.0 credentials. You can o
 
     * If not provided, a secure random secret will be generated.
 
-    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>The Client Secret is shown only once during creation. Make sure to copy and store it securely. You cannot retrieve the raw secret later.</p></div>
+    {% hint style="warning" %}
+    The Client Secret is shown only once during creation. Make sure to copy and store it securely. You cannot retrieve the raw secret later.
+    {% endhint %}
 
 ### Step 4: (Optional) Add MCP Tools <a href="#step-4-add-mcp-tools-optional" id="step-4-add-mcp-tools-optional"></a>
 
@@ -62,7 +82,20 @@ You can add multiple tools with different scope requirements.
 Scopes must be defined before using the MCP Tool. To define scopes, go to **Settings > Scopes** and create a new scope.
 {% endhint %}
 
-### Step 5: Create the MCP Server <a href="#step-5-create-the-mcp-server" id="step-5-create-the-mcp-server"></a>
+### Step 5: (Optional) Associate a certificate <a href="#step-5-associate-a-certificate-optional" id="step-5-associate-a-certificate-optional"></a>
+
+Protected Resources support certificate-based authentication for JWT verification during token introspection. To associate a certificate:
+
+1. Upload a certificate to the domain.
+2. Reference the certificate in the Protected Resource configuration via the `certificate` field.
+
+When introspecting tokens with an audience matching the Protected Resource's `clientId`, the system uses the associated certificate for signature validation. If no certificate is configured, the system assumes HMAC-signed tokens.
+
+{% hint style="warning" %}
+You cannot delete a certificate referenced by any Protected Resource. Attempting to do so returns `400 Bad Request` with message "You can't delete a certificate with existing protected resources."
+{% endhint %}
+
+### Step 6: Create the MCP Server <a href="#step-6-create-the-mcp-server" id="step-6-create-the-mcp-server"></a>
 
 1. Review your configuration.
 2. Click **Create**.
@@ -150,3 +183,5 @@ curl -X POST \
 {% hint style="warning" %}
 **Save the client secret immediately.** The `clientSecret` field in the response contains the raw secret. This is the only time you will see it. Store it securely, as you cannot retrieve it later.
 {% endhint %}
+
+The system automatically generates an initial secret and applies default OAuth settings (`client_credentials` grant, `client_secret_basic` auth method).

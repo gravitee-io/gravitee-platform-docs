@@ -160,6 +160,7 @@
 * [Administration](guides/administration.md)
 * [AM Expression Language](guides/am-expression-language.md)
 * [Developer Contributions](guides/developer-contributions.md)
+  * [Protected Resource Management Overview](guides/protected-resources/overview.md)
 
 ## Reference
 
@@ -198,4 +199,8 @@
 * [Community](community-and-support/community/README.md)
   * [Support](https://community.gravitee.io/c/support/11)
   * [Roadmap & Feedback](https://www.gravitee.io/user-feedback)
+  * [Protected Resource Technical](guides/mcp-servers/protected-resource-reference.md)
+  * [Searching Protected Resources](guides/protected-resources/searching_protected_resources.md)
+  * [Managing Protected Resource Memberships](guides/protected-resources/managing_protected_resource_memberships.md)
+  * [Associating Certificates with Protected Resources](guides/protected-resources/associating_certificates_with_protected_resources.md)
   * [Announcements & Events](https://community.gravitee.io/c/announcements/5)
