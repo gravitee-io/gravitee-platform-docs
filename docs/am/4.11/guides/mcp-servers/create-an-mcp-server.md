@@ -43,7 +43,32 @@ By default, Gravitee AM automatically generates OAuth 2.0 credentials. You can o
 
     * If not provided, a secure random secret will be generated.
 
-    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>The Client Secret is shown only once during creation. Make sure to copy and store it securely. You cannot retrieve the raw secret later.</p></div>
+    {% hint style="warning" %}
+The Client Secret is shown only once during creation. Make sure to copy and store it securely. You cannot retrieve the raw secret later.
+    {% endhint %}
+
+When operating in MCP Server context, Protected Resources are restricted to the following grant types:
+
+* `client_credentials`
+* `urn:ietf:params:oauth:grant-type:token-exchange`
+
+Token endpoint authentication methods are limited to:
+
+* `client_secret_basic`
+* `client_secret_post`
+* `client_secret_jwt`
+
+{% hint style="info" %}
+The Grant Flows component in the AM Console automatically filters available grant types and authentication methods to match MCP Server restrictions. The Refresh Token and PKCE configuration sections are not available for MCP Server resources.
+{% endhint %}
+
+The following table describes the allowed values for token exchange parameters in MCP Server contexts:
+
+| Parameter | Allowed Values |
+|:----------|:---------------|
+| `grant_type` | `client_credentials`, `urn:ietf:params:oauth:grant-type:token-exchange` |
+| `token_endpoint_auth_method` | `client_secret_basic`, `client_secret_post`, `client_secret_jwt` |
+| `subject_token_type` | `urn:ietf:params:oauth:token-type:access_token`, `urn:ietf:params:oauth:token-type:refresh_token`, `urn:ietf:params:oauth:token-type:id_token`, `urn:ietf:params:oauth:token-type:jwt` |
 
 ### Step 4: (Optional) Add MCP Tools <a href="#step-4-add-mcp-tools-optional" id="step-4-add-mcp-tools-optional"></a>
 
