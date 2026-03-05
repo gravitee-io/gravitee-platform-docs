@@ -151,7 +151,7 @@
 
 * [Release Notes](releases-and-changelog/release-notes/README.md)
   * [AM 4.7](releases-and-changelog/release-notes/am-4.7.md)
-  * [AM 4.6](https://documentation.gravitee.io/am/releases-and-changelog/release-notes/am-4.6)
+  * [AM 4.6](https://documentation.gravitee.io/am/4.6/releases-and-changelog/release-notes/am-4.6)
   * [AM 4.5](https://documentation.gravitee.io/am/4.5/releases-and-changelog/release-notes/am-4.5)
   * [AM 4.4](https://documentation.gravitee.io/am/4.4/releases-and-changelog/release-notes/am-4.4)
   * [AM 4.3](https://documentation.gravitee.io/am/4.3/releases-and-changelog/release-notes/am-4.3)
