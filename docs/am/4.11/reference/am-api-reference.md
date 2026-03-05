@@ -77,3 +77,43 @@ POST http(s)://AM_MANAGEMENT_API/management/auth/login
 For user migrations from an alternative OIDC provider to Access Management, you can define the `lastPasswordReset` attribute. This attribute ensures that a password policy with password expiry requests a password reset according to the value provided during the migration.
 
 In Management REST API, `lastPasswordReset` attribute in the User definition is a long value representing the number of milliseconds since the standard base time known as "the epoch".
+
+## Protected Resource Endpoints
+
+Protected Resources represent OAuth 2.0 resource servers that can validate access tokens and participate in token exchange flows. The Management API provides endpoints for managing Protected Resources, their secrets, and memberships.
+
+### Resource Management
+
+| Endpoint | Method | Description |
+|:---------|:-------|:------------|
+| `/organizations/{orgId}/environments/{envId}/domains/{domain}/protected-resources` | POST | Create a new Protected Resource |
+| `/organizations/{orgId}/environments/{envId}/domains/{domain}/protected-resources` | GET | List Protected Resources with optional search filters |
+| `/organizations/{orgId}/environments/{envId}/domains/{domain}/protected-resources/{id}` | GET | Retrieve a specific Protected Resource |
+| `/organizations/{orgId}/environments/{envId}/domains/{domain}/protected-resources/{id}` | DELETE | Delete a Protected Resource |
+
+**Query Parameters for GET /protected-resources:**
+
+| Parameter | Type | Description |
+|:----------|:-----|:------------|
+| `q` | String | Search query supporting wildcard matching on name and clientId fields |
+| `type` | String | Filter by resource type (e.g., `MCP_SERVER`) |
+| `page` | Integer | Page number for pagination |
+| `size` | Integer | Number of results per page (default: 50) |
+
+### Secret Management
+
+| Endpoint | Method | Description |
+|:---------|:-------|:------------|
+| `/organizations/{orgId}/environments/{envId}/domains/{domain}/protected-resources/{id}/secrets` | GET | List all secrets for a Protected Resource (metadata only) |
+| `/organizations/{orgId}/environments/{envId}/domains/{domain}/protected-resources/{id}/secrets` | POST | Create a new secret for a Protected Resource |
+| `/organizations/{orgId}/environments/{envId}/domains/{domain}/protected-resources/{id}/secrets/{secretId}` | DELETE | Delete a specific secret |
+| `/organizations/{orgId}/environments/{envId}/domains/{domain}/protected-resources/{id}/secrets/{secretId}/_renew` | POST | Renew a secret, generating a new value while preserving settings |
+
+### Membership Management
+
+| Endpoint | Method | Description |
+|:---------|:-------|:------------|
+| `/organizations/{orgId}/environments/{envId}/domains/{domain}/protected-resources/{id}/members` | GET | List members assigned to a Protected Resource |
+| `/organizations/{orgId}/environments/{envId}/domains/{domain}/protected-resources/{id}/members` | POST | Assign a user or group to a Protected Resource |
+| `/organizations/{orgId}/environments/{envId}/domains/{domain}/protected-resources/{id}/members/{memberId}` | DELETE | Remove a member from a Protected Resource |
+| `/organizations/{orgId}/environments/{envId}/domains/{domain}/protected-resources/{id}/members/permissions` | GET | Retrieve available permissions for Protected Resource members |
