@@ -100,6 +100,17 @@ The New Developer Portal is in tech preview.
 
 * Kafka Gateway exposes native latency metrics for publish/subscribe analytics.
 
+
+<!-- PIPELINE:APIM-13008 -->
+#### **JMS Endpoint Plugin for Enterprise Messaging Integration**
+
+* Connects Gravitee APIM to JMS-compliant message brokers (ActiveMQ Classic, ActiveMQ Artemis, IBM MQ, Solace) as backend endpoints for both producer and consumer operations.
+* Supports JMS API versions 1.1, 2.0, and Jakarta JMS 3.0 with automatic fallback for asynchronous send operations when providers don't support async messaging.
+* Offers provider-specific configurations with dedicated properties for major brokers, plus a generic JNDI-based model for other JMS providers.
+* Requires Enterprise license (`apim-connectors-advanced` pack) and manual placement of JMS provider client libraries in the `./plugins/jms/ext/` directory.
+* Implements intelligent connection sharing: queue consumers use shared connections, while topic subscriptions switch to exclusive connections for durable subscriptions or when client IDs are specified.
+<!-- /PIPELINE:APIM-13008 -->
+
 ## Updated features
 
 #### **Elasticsearch and OpenSearch support**

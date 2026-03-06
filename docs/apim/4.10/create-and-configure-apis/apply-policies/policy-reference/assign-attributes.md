@@ -51,6 +51,34 @@ To extract request attributes and get the Content-Type header you can use the fo
 
 If you are using the policy in a message API, you can use the policy on the publish and subscribe phases to set attributes. You can access data at the message level with expressions like `{#message.headers['my-header'][0]}`. This can be used, for example, to set an attribute based on the message headers in a Kafka record.
 
+### Dynamic JMS Endpoint Configuration
+
+You can use the `assign-attributes` policy to set JMS-specific context attributes for dynamic endpoint configuration. Attributes prefixed with `gravitee.attributes.endpoint.jms` override JMS endpoint properties at runtime:
+
+```json
+"assign-attributes": {
+  "attributes": [
+    {
+      "name": "gravitee.attributes.endpoint.jms.producer.destinationName",
+      "value": "dynamic.queue.name"
+    }
+  ]
+}
+```
+
+To configure the client ID for JMS topic subscriptions, set the `gravitee.attribute.jms.clientId` attribute:
+
+```json
+"assign-attributes": {
+  "attributes": [
+    {
+      "name": "gravitee.attribute.jms.clientId",
+      "value": "{#request.headers['X-Client-ID']}"
+    }
+  ]
+}
+```
+
 ## Examples
 
 {% hint style="warning" %}
