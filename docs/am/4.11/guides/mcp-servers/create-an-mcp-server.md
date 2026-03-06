@@ -34,7 +34,16 @@ Provide the following required information:
 
 ### Step 3: (Optional) Configure OAuth 2.0 settings <a href="#step-3-configure-oauth-20-settings-optional" id="step-3-configure-oauth-20-settings-optional"></a>
 
-By default, Gravitee AM automatically generates OAuth 2.0 credentials. You can optionally provide the following custom values:
+By default, Gravitee AM automatically generates OAuth 2.0 credentials and applies the following default configuration:
+
+| Field | Default Value |
+|:------|:--------------|
+| `grantTypes` | `["client_credentials"]` |
+| `responseTypes` | `["code"]` |
+| `tokenEndpointAuthMethod` | `"client_secret_basic"` |
+| `clientId` | Value from the resource's client ID field |
+
+You can optionally provide the following custom values:
 
 * **Client ID:** A custom OAuth 2.0 Client Identifier.
   * If not provided, a secure random identifier is generated.
@@ -43,7 +52,13 @@ By default, Gravitee AM automatically generates OAuth 2.0 credentials. You can o
 
     * If not provided, a secure random secret will be generated.
 
-    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>The Client Secret is shown only once during creation. Make sure to copy and store it securely. You cannot retrieve the raw secret later.</p></div>
+    {% hint style="warning" %}
+    The Client Secret is shown only once during creation. Make sure to copy and store it securely. You cannot retrieve the raw secret later.
+    {% endhint %}
+
+{% hint style="info" %}
+MCP Servers have restricted OAuth settings. The grant types dropdown shows only `client_credentials` and `urn:ietf:params:oauth:grant-type:token-exchange`. The token endpoint authentication methods dropdown shows only `client_secret_basic`, `client_secret_post`, and `client_secret_jwt` — excluding `private_key_jwt`, `tls_client_auth`, `self_signed_tls_client_auth`, and `none`.
+{% endhint %}
 
 ### Step 4: (Optional) Add MCP Tools <a href="#step-4-add-mcp-tools-optional" id="step-4-add-mcp-tools-optional"></a>
 

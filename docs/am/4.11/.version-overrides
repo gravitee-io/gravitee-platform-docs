@@ -1,0 +1,10 @@
+SUMMARY.md
+guides/certificates/bind-certificates-to-protected-resources.md
+guides/mcp-servers/create-an-mcp-server.md
+guides/mcp-servers/protected-resource-implementation.md
+guides/protected-resources/README.md
+guides/protected-resources/managing_protected_resource_memberships.md
+guides/protected-resources/managing_protected_resource_secrets.md
+guides/protected-resources/search-protected-resources.md
+guides/protected-resources/token_introspection_with_protected_resources.md
+release-information/release-notes/am-4.11.md

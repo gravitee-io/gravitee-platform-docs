@@ -133,6 +133,7 @@
 * [Certificates](guides/certificates/README.md)
   * [AWS Certificate plugin](guides/certificates/aws-certificate-plugin.md)
   * [AWS CloudHSM plugin](guides/certificates/aws-cloudhsm-plugin.md)
+  * [Binding Certificates to Protected Resources](guides/certificates/bind-certificates-to-protected-resources.md)
 * [User Management](guides/user-management/README.md)
   * [Users](guides/user-management/users/README.md)
     * [Password Options](guides/user-management/users/password-options.md)
@@ -149,6 +150,7 @@
   * [Client Authorization](guides/mcp-servers/client-authorization.md)
   * [Create an MCP Server](guides/mcp-servers/create-an-mcp-server.md)
   * [MCP Tools](guides/mcp-servers/mcp-tools.md)
+  * [Protected Resource Implementation Details](guides/mcp-servers/protected-resource-implementation.md)
 * [Session Management](guides/session-management.md)
 * [Audit Trail](guides/audit-trail.md)
 * [Alerts](guides/alerts/README.md)
@@ -160,6 +162,11 @@
 * [Administration](guides/administration.md)
 * [AM Expression Language](guides/am-expression-language.md)
 * [Developer Contributions](guides/developer-contributions.md)
+  * [Protected Resource Enhancements Overview](guides/protected-resources/README.md)
+    * [Managing Protected Resource Secrets](guides/protected-resources/managing_protected_resource_secrets.md)
+    * [Managing Protected Resource Memberships](guides/protected-resources/managing_protected_resource_memberships.md)
+    * [Searching Protected Resources](guides/protected-resources/search-protected-resources.md)
+    * [Token Introspection with Protected Resources](guides/protected-resources/token_introspection_with_protected_resources.md)
 
 ## Reference
 
