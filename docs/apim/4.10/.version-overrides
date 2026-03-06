@@ -1,0 +1,8 @@
+# Files with version-specific content — do NOT sync from previous version
+# Auto-managed by the documentation pipeline
+SUMMARY.md
+configure-and-manage-the-platform/gravitee-gateway/tenants.md
+kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/configuring_multi-tenant_endpoints_in_native_kafka_api_definitions.md
+kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/endpoints.md
+prepare-a-production-environment/sensitive-data-management/configure-secrets/managing_tenant_assignments_in_the_management_console.md
+release-information/release-notes/apim-4.10.md
