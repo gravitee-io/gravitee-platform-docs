@@ -21,14 +21,15 @@ Step-up authentication is often used in the following scenarios:
 
 * Users want to modify their password.
 * Users initiate a payment.
-* Users want to delegate access to third parties.
-  1. Log in to AM Console.
-  2. Select your application
-  3. Click **Settings > Multifactor Auth**.
-  4. Select your MFA factor and set the **Step up authentication** rule.
-  5.  Click **SAVE**.
+*   Users want to delegate access to third parties.
 
-      <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-mfa-step-up.png" alt=""><figcaption><p>Application settings</p></figcaption></figure>
+    1. Log in to AM Console.
+    2. Select your application
+    3. Click **Settings > Multifactor Auth**.
+    4. Select your MFA factor and set the **Step up authentication** rule.
+    5. Click **SAVE**.
+
+    <figure><img src="../../../4.10/.gitbook/assets/image (100).png" alt=""><figcaption></figcaption></figure>
 
 You can leverage access control by asking your users to confirm their identity before making any sensitive actions. In this example, the sensitive action is represented by the `pisp` (Payment Initiation Service Provider) OAuth 2.0 scope.
 
