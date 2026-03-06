@@ -7,7 +7,7 @@ metaLinks:
 
 # Debug Logging
 
-## Overview
+## Overvi
 
 {% hint style="danger" %}
 Debug logging can reduce performance. To avoid issues with performance, enable debug logging for only specific troubleshooting purposes.
