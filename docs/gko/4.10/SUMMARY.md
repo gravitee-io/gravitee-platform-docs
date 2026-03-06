@@ -34,6 +34,8 @@
 
 ## GUIDES
 
+* [Client Certificate Lifecycle and Identity Model](../../apim/4.10/guides/application-certificate-lifecycle.md)
+* [Client Certificate Technical Constraints and Implementation](../../apim/4.10/guides/application-client-certificates-implementation.md)
 * [Manage JWT subscriptions with GKO](guides/manage-jwt-subscriptions-with-gko.md)
 * [Define an APIM service account for GKO](guides/define-an-apim-service-account-for-gko.md)
 * [Deploy APIs to a Gateway](guides/deploy-apis-to-a-gateway.md)
@@ -47,6 +49,7 @@
 * [DB-less mode](guides/db-less-mode.md)
 * [Templating](guides/templating.md)
 * [Configure the GKO HTTP client for APIM](guides/gko-http-client.md)
+  * [Managing Client Certificates via REST API](../../apim/4.10/guides/developer-contributions/manage-client-certificates-rest-api.md)
 
 ## REFERENCE
 
