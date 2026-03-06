@@ -1,11 +1,15 @@
-# Add the Guard Rails policy to your LLM proxy
+
+# Add policies to your LLM proxy
 
 ## Overview&#x20;
 
-You can use the Guard Rails policy to create an AI-powered text classification model to evaluate user prompts for potentially inappropriate or malicious content. It can detect a wide range of violations, such as profanity, sexually explicit language, harmful intent, and jailbreak prompt injections, which are adversarial inputs crafted to bypass AI safety mechanisms.
+You can add policies to your LLM proxy to enhance security, optimize performance, and control behavior. This guide covers two policies:
+
+* **Guard Rails policy**: Creates an AI-powered text classification model to evaluate user prompts for potentially inappropriate or malicious content. It can detect violations such as profanity, sexually explicit language, harmful intent, and jailbreak prompt injections.
+* **AI Semantic Caching policy**: Reduces LLM costs and latency by caching responses to semantically similar prompts. When a request arrives, the policy converts the prompt to a vector embedding, searches a vector store for similar past queries, and returns the cached response if a match exceeds the configured similarity threshold.
 
 {% hint style="info" %}
-You might receive an error when you use this policy using the Gravitee's docker image. This happens because the default images are based on Alpine Linux, which does not support the ONNX Runtime. To resolve this issue, you must use the Gravitee's docker image based on Debian. To download the correct image, use `graviteeio/apim-gateway:4.10.0-debian`.
+You might receive an error when you use these policies using the Gravitee's docker image. This happens because the default images are based on Alpine Linux, which do not support the ONNX Runtime. To resolve this issue, you must use the Gravitee's docker image based on Debian. To download the correct image, use `graviteeio/apim-gateway:4.10.0-debian`.
 {% endhint %}
 
 ## Prerequisites&#x20;
@@ -14,6 +18,8 @@ You might receive an error when you use this policy using the Gravitee's docker 
 * A fully Self-Hosted Installation of APIM or a Hybrid Installation of APIM. For more information about installing APIM, see [self-hosted-installation-guides](../../self-hosted-installation-guides/ "mention") and [hybrid-installation-and-configuration-guides](../../hybrid-installation-and-configuration-guides/ "mention").
 * An Enterprise License. For more information about obtaining an Enterprise license, see [enterprise-edition.md](../../readme/enterprise-edition.md "mention").
 * Complete the steps in [proxy-your-llms.md](proxy-your-llms.md "mention").
+* For AI Semantic Caching: An AI model resource configured for text embedding (ONNX BERT, OpenAI, or HTTP provider) and a vector store resource (Redis or AWS S3).
+
 
 ## Add Guard Rails policy to your LLM proxy
 
