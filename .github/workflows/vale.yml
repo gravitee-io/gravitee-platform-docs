@@ -54,6 +54,6 @@ jobs:
           echo "${{ steps.changed-files.outputs.files }}" | while IFS= read -r file; do
             if [ -n "$file" ] && [ -f "$file" ]; then
               echo "Linting: $file" >&2
-              /tmp/vale-bin/vale --output=vale/output.tmpl "$file" 2>/dev/null || true
+              /tmp/vale-bin/vale --output=vale/output.tmpl "$file" || true
             fi
           done | reviewdog -efm="%f:%l:%c:%m" -name=vale -reporter=github-pr-review -filter-mode=added -fail-on-error=false -level=warning
