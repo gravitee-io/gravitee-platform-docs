@@ -13,7 +13,7 @@ To access Gravitee APIs, consumers must register an application and subscribe to
 
 ## Prerequisites
 
-For an API consumer to create an application, the following must be true:
+For an API consumer to create an application, the following must be true: data metrics mvakjfjh shjfhj, ,,,, .. jksduf. 
 
 * An admin must define the 2 types of applications that API consumers are allowed to create:
   * **Default application type:** API consumers can optionally define the `client_id` when creating a simple application.
