@@ -100,6 +100,16 @@ The New Developer Portal is in tech preview.
 
 * Kafka Gateway exposes native latency metrics for publish/subscribe analytics.
 
+
+<!-- PIPELINE:APIM-12371 -->
+#### **API Products**
+
+* Bundle multiple V4 HTTP Proxy APIs into a single consumable product with unified plans and subscriptions, simplifying access management for multi-API workflows.
+* Consumers subscribe to the product rather than individual APIs, with subscriptions and plans now supporting both `API` and `API_PRODUCT` reference types.
+* Only V4 HTTP Proxy APIs explicitly marked as "allowed in API Products" can be included, and products must have unique names within each environment.
+* Requires a Universe tier license and database schema updates for the `api_products` and `api_product_apis` tables.
+<!-- /PIPELINE:APIM-12371 -->
+
 ## Updated features
 
 #### **Elasticsearch and OpenSearch support**
