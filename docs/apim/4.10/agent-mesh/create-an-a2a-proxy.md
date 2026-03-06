@@ -23,17 +23,21 @@ What is A2A?
 
 As organizations begin to adopt AI agents across various platforms and ecosystems, a new challenge emerges to securely connect, coordinate, and control communication between autonomous agents.
 
-Gravitee’s A2A (Agent-to-Agent) Proxy addresses this challenge by **enabling structured, secure, and observable interactions between agents**, no matter where or how they’re running.
+Gravitee's A2A (Agent-to-Agent) Proxy addresses this challenge by **enabling structured, secure, and observable interactions between agents**, no matter where or how they're running.
 
 Much like any other type of API, A2A interactions benefit from being discoverable, consumable, secured, and governed via Gravitee.
 
-Truly intelligent agents need access to both synchronous (request-response) and asynchronous (event-driven) APIs to operate effectively. Gravitee’s A2A Proxy supports both, enabling agents to communicate and react in real time or over streaming protocols and empowering use cases from real-time decisioning to autonomous workflows.
+Truly intelligent agents need access to both synchronous (request-response) and asynchronous (event-driven) APIs to operate effectively. Gravitee's A2A Proxy supports both, enabling agents to communicate and react in real time or over streaming protocols and empowering use cases from real-time decisioning to autonomous workflows.
 
 ## Prerequisites
 
-* You must have the Enterprise Edition of Gravitee. For more information about Gravitee Enterprise Edition, see [enterprise-edition.md](../readme/enterprise-edition.md "mention").
+* You must have the Enterprise Edition of Gravitee with the `apim-a2a-proxy-reactor` feature enabled. For more information about Gravitee Enterprise Edition, see [enterprise-edition.md](../readme/enterprise-edition.md "mention").
 
 ## Create an A2A proxy
+
+You can create an A2A Proxy API using the Management API or Console UI.
+
+### Using the Console UI
 
 1.  From the **Dashboard**, click **APIs.**
 
@@ -60,7 +64,7 @@ Truly intelligent agents need access to both synchronous (request-response) and 
 8.  Click **Validate my entrypoints**.
 
     <figure><img src="../.gitbook/assets/00 agent copy (1).png" alt=""><figcaption></figcaption></figure>
-9.  In the **Configure your API endpoints access** screen, provide the **Target URL**. The Target URL is the Agent's address.
+9.  In the **Configure your API endpoints access** screen, provide the **Target URL**. The Target URL is the Agent's address and must be non-null and non-empty.
 
     <figure><img src="../.gitbook/assets/4CA47921-5400-4EA4-97C4-43C928118657_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
 10. Click **Validate my endpoints**.
@@ -72,3 +76,57 @@ Truly intelligent agents need access to both synchronous (request-response) and 
 12. In the **Review your API configuration** screen, click **Save & Deploy**.
 
     <figure><img src="../.gitbook/assets/E1E23126-57E1-4FCE-B265-7E0B896F0528_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+
+The API appears in the Console UI with the "A2A Proxy" label and can be filtered using the A2A Proxy type selector.
+
+### Using the Management API
+
+1. Set `definitionVersion` to `V4` and `type` to `A2A_PROXY`.
+2. Configure flows with HTTP selectors using the `REQUEST` or `RESPONSE` phase.
+3. Add policies compatible with A2A Proxy. Policies must explicitly declare A2A Proxy support in `plugin.properties`.
+4. Define the backend target URL in the endpoint configuration. The target URL must be non-null and non-empty.
+5. Deploy the API to the gateway.
+
+## API definition structure
+
+An A2A Proxy API definition includes standard V4 API properties with `type: "A2A_PROXY"`. Flows use HTTP selectors with optional method filtering. Policies are configured in `request` or `response` arrays within each flow.
+
+Example structure:
+
+```json
+{
+  "definitionVersion": "V4",
+  "type": "A2A_PROXY",
+  "name": "Agent Communication API",
+  "flows": [
+    {
+      "name": "All plans flow",
+      "enabled": true,
+      "selectors": [
+        {
+          "type": "HTTP",
+          "methods": []
+        }
+      ],
+      "request": [
+        {
+          "name": "Rate Limit",
+          "enabled": true,
+          "policy": "rate-limit",
+          "configuration": {}
+        }
+      ]
+    }
+  ]
+}
+```
+
+## Restrictions
+
+* Requires enterprise license with `apim-a2a-proxy-reactor` feature.
+* Endpoint connector supports only `REQUEST_RESPONSE` mode.
+* Target URL must be non-null and non-empty.
+* Flow selectors must use HTTP type (same validation as HTTP Proxy and LLM Proxy).
+* Policies must explicitly declare A2A Proxy support in `plugin.properties`.
+* Connection failures map to `GATEWAY_CLIENT_CONNECTION_ERROR` error key.
+* Timeout exceptions (connect, read, general timeout) map to `REQUEST_TIMEOUT` error key.
