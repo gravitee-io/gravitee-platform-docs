@@ -1,0 +1,6 @@
+# Files with version-specific content — do NOT sync from previous version
+# Auto-managed by the documentation pipeline
+SUMMARY.md
+agent-mesh/llm-proxy/add-the-guard-rails-policy-to-your-llm-proxy.md
+create-and-configure-apis/apply-policies/policy-reference/ai-semantic-caching.md
+release-information/release-notes/apim-4.10.md
