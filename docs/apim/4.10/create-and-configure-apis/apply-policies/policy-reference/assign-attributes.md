@@ -222,7 +222,7 @@ You can configure the `assign-attributes` policy with the following attributes:
 
 The following is the compatibility matrix for APIM and the `assign-attributes` policy:
 
-<table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th></tr></thead><tbody><tr><td>Up to 1.x</td><td>All</td></tr><tr><td>From 2.x</td><td>4.0+</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th><th>A2A_PROXY</th></tr></thead><tbody><tr><td>Up to 1.x</td><td>All</td><td></td></tr><tr><td>From 2.x</td><td>4.0+</td><td></td></tr><tr><td>3.2.0+</td><td>4.0+</td><td>REQUEST, RESPONSE</td></tr></tbody></table>
 
 ## Errors
 

@@ -100,6 +100,17 @@ The New Developer Portal is in tech preview.
 
 * Kafka Gateway exposes native latency metrics for publish/subscribe analytics.
 
+
+<!-- PIPELINE:APIM-12550 -->
+#### **A2A Proxy Reactor for Agent-to-Agent Communication**
+
+* Enables automated agent-to-agent communication through a dedicated reactor, entrypoint, and endpoint for proxying requests between agents.
+* Supports `REQUEST` and `RESPONSE` flow phases with HTTP path extractors for routing decisions, matching the capabilities of HTTP Proxy and other reactor types.
+* Requires an Enterprise license with the `apim-a2a-proxy-reactor` feature enabled and deployment of three plugins: reactor, entrypoint, and endpoint.
+* Compatible with standard policies including Assign Attributes, Callout HTTP, Rate Limit, and others (minimum versions apply—see documentation for full compatibility matrix).
+* APIs are created with `definitionVersion: V4` and `type: A2A_PROXY`, and appear in the Console UI with an "A2A Proxy" label and dedicated icon.
+<!-- /PIPELINE:APIM-12550 -->
+
 ## Updated features
 
 #### **Elasticsearch and OpenSearch support**

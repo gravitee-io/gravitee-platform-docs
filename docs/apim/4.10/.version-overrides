@@ -1,0 +1,9 @@
+# Files with version-specific content — do NOT sync from previous version
+# Auto-managed by the documentation pipeline
+SUMMARY.md
+agent-mesh/create-an-a2a-proxy.md
+create-and-configure-apis/apply-policies/policy-reference/assign-attributes.md
+create-and-configure-apis/configure-v4-apis/entrypoints/README.md
+hybrid-installation-and-configuration-guides/proxy-configuration/a2a_proxy_console_ui_and_library_updates.md
+plugins/a2a-proxy-reactor.md
+release-information/release-notes/apim-4.10.md

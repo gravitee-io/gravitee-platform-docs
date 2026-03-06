@@ -66,6 +66,7 @@ v4 APIs support the following entrypoints:
 * **WebSocket:** Exposes a backend resource via a WebSocket stream
 * **Webhook:** Exposes a backend resource via a Webhooks subscription
 * **Server-sent events (SSE):** Exposes a backend resource via a unidirectional SSE stream
+* **A2A Proxy:** Exposes a backend resource for agent-to-agent communication with `REQUEST_RESPONSE` mode support and HTTP path extractor capabilities for flow routing
 
 ## Procedure
 
