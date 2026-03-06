@@ -32,7 +32,7 @@ In this example, we will retrieve the username from the execution context `{#con
     * Header: **Name** — `X-Custom-Header` **Value** — `{#context.attributes['user'].username}`
     * Variable: **Name** — `X-Custom-Variable` **Value** — `{#jsonPath(#calloutResponse.content, '$.headers.X-Custom-Header')}`
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-quickstart-policies.png" alt=""><figcaption><p>Policy Studio</p></figcaption></figure>
+    <figure><img src="../../../4.10/.gitbook/assets/image (41).png" alt=""><figcaption><p>Poicy Studio and Flows editor</p></figcaption></figure>
 
 {% code overflow="wrap" %}
 ```sh

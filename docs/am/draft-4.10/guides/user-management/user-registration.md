@@ -7,9 +7,9 @@ AM comes with a basic user registration feature.
 ## Enable user registration
 
 1. Log in to AM Console.
-2.  Click **Settings > Login** and toggle on the **User registration** switch.
+2. Click **Settings > Login** and toggle on the **User registration** switch.
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-um-registration-settings.png" alt=""><figcaption><p>Enable user registration</p></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/image (146).png" alt=""><figcaption></figcaption></figure>
 
 A new `Register` link will be available on the login form.
 

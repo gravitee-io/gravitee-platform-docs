@@ -16,18 +16,15 @@ In AM, CORS configuration at the Security Domain level is important for scenario
 
 ## Access CORS in the AM Console
 
-1.  Sign in to your AM Console. The Access Management dashboard appears after login.\\
+1. Sign in to your AM Console. The Access Management dashboard appears after login.
 
-    <figure><img src="../../.gitbook/assets/access-management-dashboard.png" alt=""><figcaption></figcaption></figure>
-2.  From the Dashboard, Click **Settings.**
+<figure><img src="../../../4.10/.gitbook/assets/image (54).png" alt=""><figcaption></figcaption></figure>
 
-    <figure><img src="../../.gitbook/assets/am-settings-left-nav.png" alt=""><figcaption></figcaption></figure>
-3.  In the settings menu, click **Entrypoints.**
+2. From the Dashboard, Click **Settings.**
+3. In the settings menu, click **Entrypoints.**
+4. Turn on the **Enable CORS** toggle.
 
-    <figure><img src="../../.gitbook/assets/entrypoint-security-domain.png" alt=""><figcaption></figcaption></figure>
-4.  Turn on the **Enable CORS** toggle.
-
-    <figure><img src="../../.gitbook/assets/enable-cors-toggle-button.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/image (55).png" alt=""><figcaption></figcaption></figure>
 
 The CORS configuration includes a toggle to enable or disable CORS for the Security Domain. When CORS is disabled, AM uses the default values from the `gravitee.yml` configuration file.
 
@@ -60,7 +57,7 @@ The `Allow-Origin` setting specifies which origins are permitted to access the r
 When Allow Credentials is enabled, the wildcard (`*`) cannot be used for Allow-Origin. You must specify exact origins instead.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/allow-origin-parameter.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/image (56).png" alt=""><figcaption></figcaption></figure>
 
 The following examples demonstrate common `Allow-Origin` configurations:
 
@@ -72,7 +69,7 @@ The following examples demonstrate common `Allow-Origin` configurations:
 
 The `Allow-Methods` setting specifies which HTTP methods are allowed when accessing the resource.
 
-<figure><img src="../../.gitbook/assets/allow-methods-parameter.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/image (57).png" alt=""><figcaption></figcaption></figure>
 
 Configuration details for `Allow Methods` include the following:
 
@@ -83,7 +80,7 @@ Configuration details for `Allow Methods` include the following:
 
 The `Allow-Headers` setting defines which headers can be used in cross-origin requests. The request headers include 'Access-Control-Request-Headers', which relies on CORS configuration to allow its values.
 
-<figure><img src="../../.gitbook/assets/allow-headers-access-management.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/image (58).png" alt=""><figcaption></figcaption></figure>
 
 Configuration details for `Allow Headers` include:
 
@@ -96,7 +93,7 @@ Configuration details for `Allow Headers` include:
 
 The `Max age` setting controls how long pre-flight request results are cached.
 
-<figure><img src="../../.gitbook/assets/max-age-seconds.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/image (59).png" alt=""><figcaption></figcaption></figure>
 
 The following configuration details apply to `Max age`:
 
@@ -111,7 +108,7 @@ The `Allow Credentials` setting controls whether credentials can be included in 
 When enabled, you cannot use `*` for Allow-Origin; you must specify exact origins.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/allow-use-credentials.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/image (60).png" alt=""><figcaption></figcaption></figure>
 
 For example:
 

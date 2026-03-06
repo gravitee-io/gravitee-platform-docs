@@ -14,9 +14,10 @@ By default, the login details for the AM Console administrator account are `admi
 
 To log in:
 
-1.  Open AM Console.
+1. Open AM Console.
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-login-page.png" alt=""><figcaption><p>AM Console login</p></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/image (22).png" alt="AM Console login page"><figcaption><p>AM Console login page</p></figcaption></figure>
+
 2. Log in with the administrator credentials. You are redirected to the AM Console dashboard for your default security domain.
 3. If you want to change the security domain, open the user menu from the top bar and select the domain from the list.
 
@@ -32,9 +33,9 @@ AM Console is accessible by `administrative users` you can manage in the **organ
 
 A security domain lets you manage your end users and their respective applications. It gives the ability to sign your users in by selecting multiple identity providers and building your own custom authentication and authorization journey to match your brand requirements and identity.
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-domain-dashboard.png" alt=""><figcaption><p>Security domain dashboard</p></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/image (23).png" alt=""><figcaption><p>Access Management Dashboard</p></figcaption></figure>
 
-includeThe security domain settings includes several sections that you can navigate using the sidebar menu on your left.
+The security domain settings includes several sections that you can navigate using the sidebar menu on your left.
 
 | Section                         | Description                                                                                                                                                                                                                            |
 | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -68,7 +69,7 @@ To access the security domains, open the user menu from the top bar and click **
 
 The security domains overview displays all the domains available for the current environment. To access one specific security domain, click on its name.
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-list-domains.png" alt=""><figcaption><p>Security Domains overview</p></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/image (24).png" alt=""><figcaption><p>Security Domains - All domains, or create new Domain</p></figcaption></figure>
 
 ### Environments
 
@@ -84,9 +85,9 @@ Here you can configure several aspects of your organization such as :
 * [Administrative roles](../../guides/administration.md#roles-and-permissions-overview): Register new administrative users and manage their roles.
 * Deployment configuration: Set up entrypoints and sharding tags for your AM gateway.
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-organization-settings.png" alt=""><figcaption><p>Organization Settings</p></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/image (25).png" alt=""><figcaption><p>Organization settings</p></figcaption></figure>
 
-The organization settings include several sections that you can navigate using the sidebar menu on your left.
+The Organization settings include several sections that you can navigate using the sidebar menu on your left.
 
 | Section                         | Description                                                                                                                                                                                    |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

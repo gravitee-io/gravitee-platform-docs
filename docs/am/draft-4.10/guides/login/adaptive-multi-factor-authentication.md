@@ -32,4 +32,4 @@ The Gravitee Geoip Plugin uses MaxMind, make sure your AM instance is well provi
 3. Set the **Adaptive MFA** rule.
 4. Click **SAVE**.
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-mfa-adaptive-mfa-rule.png" alt=""><figcaption><p>Configuring A-MFA</p></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/image (101).png" alt=""><figcaption></figcaption></figure>

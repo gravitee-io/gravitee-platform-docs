@@ -12,7 +12,7 @@ The MCP Server authorization flow follows the official [MCP specification](https
 
 The following diagram shows full MCP Server authorization flow with [AuthZen](../authorization-engines/authzen.md) and [OpenFGA](../authorization-engines/openfga.md) as the Authorization Engine.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-11-27 at 12.09.35.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/Screenshot 2025-11-27 at 12.09.35.png" alt=""><figcaption></figcaption></figure>
 
 ## MCP Server authorization flow <a href="#how-mcp-servers-work" id="how-mcp-servers-work"></a>
 
