@@ -100,6 +100,16 @@ The New Developer Portal is in tech preview.
 
 * Kafka Gateway exposes native latency metrics for publish/subscribe analytics.
 
+
+<!-- PIPELINE:APIM-12520 -->
+#### **mTLS Authentication for Kafka Native APIs**
+
+* Kafka native APIs now support mutual TLS (mTLS) authentication, enabling certificate-based client authentication at the gateway level.
+* The gateway validates client certificates during connection establishment and matches certificate digests against active subscriptions for authorization.
+* mTLS plans enforce mutual exclusion with Keyless and Authentication plans—publishing an mTLS plan automatically closes any published plans in conflicting categories.
+* Requires gateway SSL/TLS configuration with `kafka.ssl.clientAuth` set to `"required"` and a truststore containing client CA certificates.
+<!-- /PIPELINE:APIM-12520 -->
+
 ## Updated features
 
 #### **Elasticsearch and OpenSearch support**
