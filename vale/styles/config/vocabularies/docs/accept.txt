@@ -21,7 +21,8 @@ Gravitee Cloud
 # ============================================
 # API & Protocol Terms
 # ============================================
-APIs?
+API
+APIs
 API's
 REST
 RESTful
@@ -404,3 +405,15 @@ Moby
 Amazon
 Azure
 Slackbot
+
+# ============================================
+# Additional Accepted Terms
+# ============================================
+[Aa]gent[s]?
+[Aa]llowlisting
+[Ss]harding
+[Kk]eyless
+[Ee]ndhint
+[Uu][Ss][Aa]
+[Ee][Uu]
+[Mm]anagement [Cc]onsole
