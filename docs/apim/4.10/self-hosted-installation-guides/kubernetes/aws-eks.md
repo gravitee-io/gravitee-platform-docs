@@ -13,7 +13,7 @@ This installation guide is for only development and quick start purposes. Do not
 
 ## Overview
 
-This guide explains how to deploy a complete self-hosted Gravitee APIM platform on Amazon Elastic Kubernetes Service (EKS) using Helm charts.
+This guide explains how to deploy a complete self-hosted Gravitee APIM platform on Amazon Elastic Kubernetes Service (EKS) using Helm charts. there should not be the comment flow on it,,,,,, data minus to... value as one?
 
 ## Prerequisites
 
