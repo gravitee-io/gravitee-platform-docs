@@ -22,7 +22,7 @@ Gravitee defines a flow as the method to control where, and under what condition
 * Define key-value pairs at the API level
 * Configure global resources to support your flows
 
-Flows are created when policies are added to the Request, Response, Publish, and/or Subscribe phases of an existing v4 API. A single API supports multiple flows, which can be applied to different phases and target either subscribers of an individual plan or all users of the API.
+Flows are created when policies are added to the Request, Response, Publish, Subscribe, and/or Entrypoint Connect phases of an existing v4 API. A single API supports multiple flows, which can be applied to different phases and target either subscribers of an individual plan or all users of the API.
 
 Policies are added to flows to enforce security, reliability, and proper data transfer. Examples of policies include traffic shaping, authentication/authorization, rate limiting, and dynamic routing.
 
@@ -38,6 +38,7 @@ The entrypoint(s) of a flow determine its phases. The phase a policy is added to
 * **Response:** A policy is applied to the response from the initial connection. It is enforced after the request is allowed, but before the response is returned to the client.
 * **Publish:** A policy is applied to messages sent to the endpoint. It is enforced when messages are published and before a client is given access to the API.
 * **Subscribe:** A policy is applied to messages received by the entrypoint. It is enforced after messages are subscribed to, but before the response is returned to the client.
+* **Entrypoint Connect:** A policy is applied when a client attempts to establish a connection to a Native API entrypoint. It is enforced before the connection is accepted, allowing inspection of connection metadata (e.g., IP address, TLS certificate) and rejection of connections that do not meet security requirements.
 
 </details>
 
@@ -200,7 +201,7 @@ To configure dynamic properties:
     * **URL:** The target from which to fetch dynamic properties
     * **Request Headers:** The HTTP headers to add to the request fetching properties
     * **Request body:** The HTTP body content to add to the request fetching properties
-    * (Optional) **Transformation (JOLT specification):** If the HTTP service doesn’t return the expected output, edit the JOLT transformation accordingly
+    * (Optional) **Transformation (JOLT specification):** If the HTTP service doesn't return the expected output, edit the JOLT transformation accordingly
     * Toggle **Use system proxy** ON to use the system proxy configured in your APIM installation
 7. Click **Save**
 
