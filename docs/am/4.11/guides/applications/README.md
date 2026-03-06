@@ -16,6 +16,14 @@ Application definitions apply at the _security domain_ level.
 4. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
 5.  Select the application type and click **Next**.
 
+    | Application Type | Description | Key Restrictions |
+    |:-----------------|:------------|:-----------------|
+    | Web | Browser-based applications using authorization code flow | None |
+    | Single-Page App | JavaScript applications running in the browser | None |
+    | Native | Mobile or desktop applications | None |
+    | Backend-to-Backend | Server applications using client credentials | None |
+    | Agent | Agentic/AI applications requiring secure grant flows | Forbidden grant types: `implicit`, `password`, `refresh_token`; no refresh tokens issued; SSRF-protected AgentCard metadata |
+
     <figure><img src="https://docs.gravitee.io/images/am/current/quickstart-create-application.png" alt=""><figcaption><p>Select application type</p></figcaption></figure>
 6.  Specify the application details and click **Create**.
 
