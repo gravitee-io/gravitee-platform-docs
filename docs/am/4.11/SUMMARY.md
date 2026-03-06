@@ -104,6 +104,8 @@
 * [Bot Detection](guides/bot-detection.md)
 * [Device Identifier](guides/device-identifier.md)
 * [Login](guides/login/README.md)
+  * [Magic Link Authentication Feature Guide](guides/login/magic-link-authentication.md)
+  * [Magic Link Authentication Technical](guides/login/magic-link-authentication-technical-reference.md)
   * [Step-up Authentication](guides/login/step-up-authentication.md)
   * [Adaptive Multi-factor Authentication](guides/login/adaptive-multi-factor-authentication.md)
   * [Risk-based MFA](guides/login/risk-based-mfa.md)
@@ -164,6 +166,7 @@
 ## Reference
 
 * [API Reference](reference/am-api-reference.md)
+  * [Magic Link Authentication Configuration](reference/magic-link-configuration-reference.md)
 
 ## Releases & Changelog
 
