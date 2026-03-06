@@ -49,6 +49,19 @@ gateway:
 ```
 {% endcode %}
 
+### Kafka Native API SSL Configuration
+
+For Kafka native APIs using mTLS, configure the gateway to require client certificate authentication and specify the truststore containing CA certificates that signed client certificates:
+
+| Property | Description | Example |
+|:---------|:------------|:--------|
+| kafka.ssl.clientAuth | Require client certificate authentication | `"required"` |
+| kafka.ssl.truststore.type | Truststore format for verifying client certificates | `"jks"` |
+| kafka.ssl.truststore.password | Password for the truststore | `"gravitee"` |
+| kafka.ssl.truststore.path | Path to truststore file containing client CA certificates | `/path/to/server.truststore.jks` |
+
+The truststore must contain the CA certificates that signed the client certificates used in subscriptions.
+
 ## How to add a client certificate
 
 To subscribe to an mTLS plan, the client has to add a certificate to their application. To add a certificate to an application, complete the following steps:
