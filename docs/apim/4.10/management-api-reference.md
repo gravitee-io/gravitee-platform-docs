@@ -22,6 +22,7 @@ To explore the API documentation, select any of the following endpoint categorie
 
 * [**/management component documentation**](https://gravitee-io-labs.github.io/mapi-v1-docs/#tag/api-alerts)**:** provides the specification for the `management` endpoints. Use this component to complete the following actions:
   * Manage V2 APIs
+  * Manage API Products (`POST /api-products`, `POST /api-products/_verify`, `PUT /api-products/{productId}`)
   * Configure applications, dictionaries, sharding tags, users, and other entities
 * [**/management/v2 subcomponent documentation**](https://gravitee-io-labs.github.io/mapi-v2-docs-openapi-apis/)**:** provides the specification for `management/v2` endpoints. Use this component to complete the following actions:
   * Manage V4 and Federated APIs

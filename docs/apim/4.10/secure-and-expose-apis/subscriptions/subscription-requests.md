@@ -25,6 +25,8 @@ API consumers can subscribe to APIs with published plans during the application 
 Whether an application has an associated `client_id` depends on how it was configured. To subscribe to OAuth2 or JWT plans, the application must have a `client_id`.
 {% endhint %}
 
+### Subscribe to an API
+
 To subscribe to an API via the APIM Console:
 
 1. Log in to your APIM Console
@@ -38,3 +40,18 @@ To subscribe to an API via the APIM Console:
 
     <figure><img src="../../.gitbook/assets/subscription_create.png" alt=""><figcaption><p>Select the subscription plan</p></figcaption></figure>
 7. Click **Create** to see the subscription details
+
+### Subscribe to an API Product
+
+Consumers subscribe to API Products through the application subscription workflow.
+
+1. Navigate to the application and click **+ Create a subscription**.
+2. Search for the API Product you want to subscribe to. API Products are labeled "API Product" in the reference type column of the subscription dialog.
+3. Select a plan associated with the API Product.
+4. Click **Create** to submit the subscription request. The system creates a subscription with `referenceType=API_PRODUCT` and `referenceId` set to the product ID.
+5. If the plan uses API Key security, the system generates keys linked to the product subscription.
+6. The subscription grants access to all APIs bundled in the product.
+
+{% hint style="info" %}
+Removing an API from a product does not invalidate existing subscriptions, but new subscriptions will only grant access to the updated API set.
+{% endhint %}

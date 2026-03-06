@@ -17,6 +17,8 @@ Select the application you're looking for, and then select **Subscriptions** fro
 
 From the **Subscriptions** header of this page, you can view, filter, and delete subscriptions. Subscriptions are tagged by security type, the plan and API they belong to, the times at which they were created, processed, started, and ended, and their status.
 
+Subscriptions now support two reference types: `API` (traditional single-API subscriptions) and `API_PRODUCT` (subscriptions to bundled API Products). The `referenceType` and `referenceId` fields identify whether a subscription belongs to an individual API or an API Product. When subscribing to an API Product, the subscription grants access to all APIs bundled in that product.
+
 <figure><img src="../../.gitbook/assets/1 app sub 1.png" alt=""><figcaption></figcaption></figure>
 
 Use the eye icon to view subscription details.
