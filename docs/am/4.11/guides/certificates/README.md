@@ -2,11 +2,13 @@
 
 ## Overview
 
-Cryptographic algorithms such as KeyStore (private/public key) are used to sign using JSON-based data structures (JWT) tokens. Certificates are used as part of the OAuth 2.0 and OpenID Connect protocol to sign access, create and renew ID tokens and ensure the integrity of a token’s payload.
+Cryptographic algorithms such as KeyStore (private/public key) are used to sign using JSON-based data structures (JWT) tokens. Certificates are used as part of the OAuth 2.0 and OpenID Connect protocol to sign access, create and renew ID tokens and ensure the integrity of a token's payload.
 
 Certificate definitions apply at the _security domain_ level.
 
-By default AM is able to load certificate using JKS or PKCS12 format you can upload ugin the console or the REST API. An Enterprise prise plugin also exist to load PCKS12 certificate from [AWS Secret Manager](aws-certificate-plugin.md).
+By default AM is able to load certificate using JKS or PKCS12 format you can upload using the console or the REST API. An Enterprise plugin also exists to load PKCS12 certificate from [AWS Secret Manager](aws-certificate-plugin.md).
+
+Domain certificate settings allow administrators to configure a fallback certificate that is automatically used when an application or identity provider does not have a specific certificate configured. This feature prevents service interruptions by ensuring a valid certificate is always available for cryptographic operations like JWT signing and mTLS authentication.
 
 ## Create certificates
 
@@ -61,7 +63,7 @@ curl -H "Authorization: Bearer :accessToken" \
 
 ### Public keys
 
-You can use public keys to verify a token payload’s integrity. To obtain the public key for your certificate:
+You can use public keys to verify a token payload's integrity. To obtain the public key for your certificate:
 
 1. In AM Console, click **Settings > Certificates**.
 2.  Next to your certificate, click the key icon.
@@ -98,6 +100,51 @@ System certificates can't be used for mTLS authentication as they are self signe
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-custom-certificate.png" alt=""><figcaption><p>Custom certificate diagram</p></figcaption></figure>
 
 AM is designed to be extended based on a pluggable modules architecture. You can develop your own certificate and provide a sign method for tokens.
+
+## Fallback certificate
+
+A fallback certificate is a domain-level certificate that serves as the default when no application-specific or identity provider-specific certificate is configured. The fallback certificate is selected from existing certificates in the domain and applies to all cryptographic operations requiring a certificate. System certificates are now visible in the fallback certificate selection interface.
+
+### Certificate resolution order
+
+When a certificate is required for an operation, the system follows this priority:
+
+1. Client-specified certificate
+2. Domain fallback certificate
+3. Default HMAC certificate (if enabled)
+4. Error if all options are exhausted
+
+Each fallback attempt is logged with a warning indicating which certificate was unavailable and which fallback is being used.
+
+### Domain-scoped access control
+
+Master domains can access certificates from all domains, while regular domains can only access certificates from their own domain. This restriction applies to both certificate selection and fallback certificate configuration.
+
+### Prerequisites
+
+Before configuring a fallback certificate, ensure the following:
+
+* Existing domain with at least one certificate
+* `DOMAIN_SETTINGS[UPDATE]` permission to configure certificate settings
+* Certificate must belong to the same domain (or be accessible if using a master domain)
+
+### Configuring a fallback certificate
+
+Update the domain certificate settings by calling the Management API endpoint `PUT /organizations/{organizationId}/environments/{environmentId}/domains/{domain}/certificate-settings` with a JSON body containing `{"fallbackCertificate": "cert-id"}`. The system validates that the certificate exists and belongs to the domain before applying the change. This operation triggers a lightweight update event (`DOMAIN_CERTIFICATE_SETTINGS.UPDATE`) that notifies gateway nodes without requiring a full domain reload. The fallback certificate is then used automatically for any application or identity provider that does not have a certificate explicitly configured.
+
+The following table describes the certificate settings properties:
+
+| Property | Description | Example |
+|:---------|:------------|:--------|
+| `certificateSettings.fallbackCertificate` | Certificate ID to use as fallback when no specific certificate is configured | `"cert-abc123"` |
+
+### Restrictions
+
+* Fallback certificate must exist in the certificate repository
+* Fallback certificate must belong to the same domain (unless the domain is a master domain)
+* Certificates configured as the domain fallback cannot be deleted (error: `CertificateIsFallbackException` with message "You can't delete a certificate that is configured as the domain's fallback certificate.")
+* Certificates in use by applications, identity providers, or protected resources cannot be deleted
+* If all certificate resolution options are exhausted (no client certificate, no fallback, no default HMAC), a `TemporarilyUnavailableException` is thrown
 
 ## System certificates
 
