@@ -1,0 +1,4 @@
+# Files with version-specific content — do NOT sync from previous version
+# Auto-managed by the documentation pipeline
+guides/deploying_alert_engine_in_cluster_mode.md
+release-information/release-notes/cj-1.0.md
