@@ -21,6 +21,16 @@ This page discusses the [configuration](kafka.md#configuration) and [implementat
 
 For the API to connect to the Kafka cluster, it is required to configure a bootstrap server list and, when consuming, a list of topics. You can [override the default configuration](kafka.md#user-content-dynamic-configuration) for the topics at runtime.
 
+### Native Kafka API Detection
+
+An API is classified as Native Kafka when `api.type === 'NATIVE'` and at least one listener has `type === 'KAFKA'`. This classification determines which endpoint group types are available and which validation rules apply.
+
+### Prerequisites for Native Kafka Endpoint Management
+
+- API must be configured with `type: NATIVE`
+- At least one listener with `type: KAFKA` must exist
+- User must have permissions to modify API endpoint configuration
+
 ### **Bootstrap servers**
 
 You first define a comma-separated list of host/port pairs to use for establishing the initial connection to the Kafka cluster. This list is used to discover the full set of brokers in the cluster. The client will make use of all discovered brokers, irrespective of which servers are listed in the bootstrap server list.

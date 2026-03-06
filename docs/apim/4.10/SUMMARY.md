@@ -390,6 +390,7 @@
   * [Configure your HTTP Server](../4.9/prepare-a-production-environment/configure-your-http-server.md)
   * [Sensitive Data Management](prepare-a-production-environment/sensitive-data-management/README.md)
     * [Configure Secrets](prepare-a-production-environment/sensitive-data-management/configure-secrets/README.md)
+      * [Managing Native Kafka API Endpoints in the Console](prepare-a-production-environment/sensitive-data-management/configure-secrets/managing_native_kafka_api_endpoints_in_the_console.md)
       * [Quick Start](prepare-a-production-environment/sensitive-data-management/configure-secrets/quick-start.md)
       * [Configuration](prepare-a-production-environment/sensitive-data-management/configure-secrets/configuration.md)
       * [Reference Secrets in Configurations](prepare-a-production-environment/sensitive-data-management/configure-secrets/reference-secrets-in-configurations.md)
