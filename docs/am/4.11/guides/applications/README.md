@@ -14,7 +14,7 @@ Application definitions apply at the _security domain_ level.
 2. If you want to create your application in a different security domain, select the domain from the user menu at the top right.
 3. Click **Applications**.
 4. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
-5.  Select the application type and click **Next**.
+5.  Select the application type and click **Next**. The application type selector includes options for Web, Single-Page Application, Native, Backend-to-Backend, Resource Server, and Agentic Application (identified by a `memory` icon).
 
     <figure><img src="https://docs.gravitee.io/images/am/current/quickstart-create-application.png" alt=""><figcaption><p>Select application type</p></figcaption></figure>
 6.  Specify the application details and click **Create**.
@@ -22,6 +22,8 @@ Application definitions apply at the _security domain_ level.
     <figure><img src="https://docs.gravitee.io/images/am/current/quickstart-create-application2.png" alt=""><figcaption><p>Application Settings</p></figcaption></figure>
 
 ### AM API
+
+Create an application by submitting a POST request to the applications endpoint with the required `name` and `type` fields:
 
 {% code overflow="wrap" %}
 ```sh
@@ -33,9 +35,23 @@ curl -H "Authorization: Bearer :accessToken" \
 ```
 {% endcode %}
 
+For agent applications, set `"type": "AGENT"` and optionally include an `agentCardUrl` field:
+
+{% code overflow="wrap" %}
+```sh
+curl -H "Authorization: Bearer :accessToken" \
+     -H "Content-Type:application/json;charset=UTF-8" \
+     -X POST \
+     -d '{"name":"My Agent App", "type": "AGENT", "agentCardUrl": "https://example.com/.well-known/agent-card.json"}' \
+     http://GRAVITEEIO-AM-MGT-API-HOST/management/organizations/DEFAULT/environments/DEFAULT/domains/:domainId/applications
+```
+{% endcode %}
+
+The platform automatically strips forbidden grant types (`implicit`, `password`, `refresh_token`) from agent application configurations. If no valid grant types remain after stripping, the system defaults to `authorization_code`. If you provide an `agentCardUrl`, the platform validates the URL format (HTTP or HTTPS scheme required) at creation time but does not fetch the document until explicitly requested via the AgentCard endpoint.
+
 ### Configure the application
 
-After you have created the new application, you will be redirected to the application’s `Overview` page, which contains some documentation and code samples to help you start configuring the application.
+After you have created the new application, you will be redirected to the application's `Overview` page, which contains some documentation and code samples to help you start configuring the application.
 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-client-settings.png" alt=""><figcaption><p>Application overview</p></figcaption></figure>
 
@@ -45,11 +61,11 @@ The quickest way to test your newly created application is to request an OAuth2 
 
 ## Application identity providers
 
-AM allows your application to use different identity providers (IdPs). If you haven’t configured your providers yet, visit the [Identity Provider guide.](../identity-providers/)
+AM allows your application to use different identity providers (IdPs). If you haven't configured your providers yet, visit the [Identity Provider guide.](../identity-providers/)
 
 The application identity providers are separated into two sections:
 
-* The regular Identity Providers (called also **internal**) that operate inside and AM without redirecting to another provider
+* The regular Identity Providers (called also **internal**) that operate inside AM without redirecting to another provider
 * The Social/Enterprise Identity Providers that require an external service to perform authentication (usually via SSO)
 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-application-identity-providers.png" alt=""><figcaption><p>Application identity providers</p></figcaption></figure>
@@ -85,7 +101,7 @@ When applying rules on **regular** Identity Providers:
 * If the rule is empty, the provider **will be** taken into account (this is to be retro-compatible when migrating from a previous version)
 * Otherwise, AM will authenticate with the first identity provider where the rule matches.
 
-If you are not using[ identifier-first login](../login/identifier-first-login-flow.md), the rule won’t be effective on Social/Enterprise providers
+If you are not using [identifier-first login](../login/identifier-first-login-flow.md), the rule won't be effective on Social/Enterprise providers
 
 However, if you are using identifier-first login:
 
@@ -113,7 +129,6 @@ There is another parameter called **Enable\Disable Open Dynamic Client Registrat
 ### Enable Dynamic Client Registration with AM API
 
 ```sh
-# enable Dynamic Client Registration
 curl -X PATCH \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -169,7 +184,6 @@ Unlike confidential clients, public clients are clients who cannot keep their cr
 The following example creates a web application (`access_token` is kept on a backend server).
 
 ```sh
-# Register a new Relying Party (client)
 curl -X POST \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -191,7 +205,6 @@ curl -X POST \
 As a SPA does not use a backend, we recommend you use the following implicit flow:
 
 ```sh
-# Register a new Relying Party (client)
 curl -X POST \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -215,7 +228,6 @@ Sometimes you may have a bot/software that needs to be authenticated as an appli
 For this, you need to use a `client_credentials` flow:
 
 ```sh
-# Register a new Relying Party (client)
 curl -X POST \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -240,7 +252,6 @@ curl -X POST \
 For a mobile app, the `authorization_code` grant is recommended, in addition to [Proof Key for Code Exchange](https://tools.ietf.org/html/rfc7636):
 
 ```sh
-# Register a new Relying Party (client)
 curl -X POST \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -250,6 +261,25 @@ curl -X POST \
         "client_name": "my mobile application", \
         "grant_types": [ "authorization_code","refresh_token" ], \
         "response_types": [ "code" ] \
+      }' \
+  http://GRAVITEEIO-AM-GATEWAY-HOST/::domain/oidc/register
+```
+
+**Register agent application via DCR**
+
+Register an agent application using the DCR endpoint by including `"application_type": "agent"` in the registration request. The system strips forbidden grant types (`implicit`, `password`, `refresh_token`) and forbidden response types (`token`, `id_token`, `id_token token`) from the request. If all grant types are removed, the system defaults to `authorization_code`. If all response types are removed and `authorization_code` is granted, the system defaults to `code`. The authentication method defaults to `client_secret_basic` if not explicitly set. The registered client receives a `client_id` and `client_secret` with enforced agent constraints.
+
+```sh
+curl -X POST \
+  -H 'Authorization: Bearer :accessToken' \
+  -H 'Content-Type: application/json' \
+  -d '{ \
+        "redirect_uris": ["https://myDomain/callback"], \
+        "application_type": "agent", \
+        "client_name": "my agent application", \
+        "grant_types": [ "authorization_code","client_credentials" ], \
+        "response_types": [ "code" ], \
+        "agentCardUrl": "https://example.com/.well-known/agent-card.json" \
       }' \
   http://GRAVITEEIO-AM-GATEWAY-HOST/::domain/oidc/register
 ```
@@ -268,7 +298,6 @@ This access token contains a `dcr` scope which can not be obtained, even if you 
 A new registration access token is generated each time the client is updated through the Dynamic Client Registration URI endpoint, which will revoke the previous value.
 
 ```sh
-# Update a registered Relying Party (client)
 curl -X PATCH \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -288,7 +317,6 @@ The `renew_secret` endpoint does not need a body.
 When you update a client, a new registration access token is generated each time you renew the client secret.
 
 ```sh
-# Renew the client secret of a registered Relying Party (client)
 curl -X POST \
   -H 'Authorization: Bearer :accessToken' \
   http://GRAVITEEIO-AM-GATEWAY-HOST/::domain/oidc/register/:client_id/renew_secret
@@ -307,7 +335,6 @@ To achieve this, you need to first enable the feature and then select the allowe
 You can also enable this feature using AM API:
 
 ```sh
-# Enable Allowed Scopes feature.
 curl -X PATCH \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -327,7 +354,6 @@ To enable this feature, you simply select which scopes you want to be automatica
 You can also enable this feature using AM API:
 
 ```sh
-# Enable Default Scopes feature
 curl -X PATCH \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -350,7 +376,6 @@ Since there is no longer a requested scope in the request, the default scopes wi
 You can also enable this feature using AM API:
 
 ```sh
-# Force set of scopes on each client registration
 curl -X PATCH \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -376,7 +401,6 @@ You can enable the template feature in the AM Dynamic Client Registration **Sett
 You can also enable this feature using AM API:
 
 ```sh
-# enable Dynamic Client Registration
 curl -X PATCH \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -397,7 +421,6 @@ In the Dynamic Client Registration **Client templates** tab, enable this feature
 You can also enable this feature using AM API:
 
 ```sh
-# enable Dynamic Client Registration
 curl -X PATCH \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -416,7 +439,6 @@ Once a client is set up as a template, it can no longer be used for authenticati
 You need to retrieve the `software_id` of the template, which is available under the `registration_templates_endpoint` provided by the OpenID discovery endpoint.
 
 ```sh
-# Register a new Relying Party (client)
 curl -X POST \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
