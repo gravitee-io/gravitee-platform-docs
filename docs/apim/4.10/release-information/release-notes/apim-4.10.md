@@ -100,6 +100,16 @@ The New Developer Portal is in tech preview.
 
 * Kafka Gateway exposes native latency metrics for publish/subscribe analytics.
 
+
+<!-- PIPELINE:APIM-12498 -->
+#### **Multi-Tenant Endpoint Support for Native Kafka APIs**
+
+* Enables gateway administrators to route Native Kafka API traffic to different backend endpoints based on the gateway's configured tenant identifier, allowing a single API definition to serve multiple isolated environments without duplicating configurations.
+* Each gateway instance can be assigned a tenant identifier via the `tenant` configuration property. The gateway selects the first endpoint whose tenant list includes the gateway's tenant at runtime.
+* Endpoints within a Native Kafka API can declare zero or more tenant identifiers. If no tenant is configured on the gateway, all endpoints are eligible. If no tenant list is defined on an endpoint, that endpoint matches any gateway tenant.
+* The Management Console provides a **Tenants** multi-select dropdown in the endpoint configuration form, displaying tenant names with descriptions for easier configuration.
+<!-- /PIPELINE:APIM-12498 -->
+
 ## Updated features
 
 #### **Elasticsearch and OpenSearch support**

@@ -352,6 +352,7 @@
     * [Create Kafka APIs](kafka-gateway/create-and-configure-kafka-apis/create-kafka-apis.md)
     * [Configure Kafka APIs](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/README.md)
       * [Configuration](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/configuration.md)
+      * [Define Multi-Tenant Endpoints in Native Kafka API Definitions](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/define_multi-tenant_endpoints_in_native_kafka_api_definitions.md)
       * [Entrypoints](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/entrypoints.md)
       * [Endpoints](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/endpoints.md)
       * [Policies](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/policies.md)
