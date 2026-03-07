@@ -23,7 +23,9 @@ Use the eye icon to view subscription details.
 
 <figure><img src="../../.gitbook/assets/1 app sub 3.png" alt=""><figcaption></figcaption></figure>
 
-To filter subscriptions, use the **API** and **API Key** search fields and/or the **Status** drop-down menu. Subscriptions can have a status of accepted, closed, paused, pending, rejected, or resumed.
+To filter subscriptions, use the **API** and **API Key** search fields and/or the **Status** drop-down menu. Subscriptions can have a status of accepted, closed, paused, pending, rejected, or resumed. By default, the subscription list filters to show subscriptions with statuses of ACCEPTED, PAUSED, and PENDING.
+
+The subscription list displays a **Reference Type** column that indicates whether each subscription targets an individual API or an API Product.
 
 <figure><img src="../../.gitbook/assets/1 app sub 2.png" alt=""><figcaption></figcaption></figure>
 

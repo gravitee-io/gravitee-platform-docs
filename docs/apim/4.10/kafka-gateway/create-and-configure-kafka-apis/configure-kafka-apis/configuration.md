@@ -76,7 +76,24 @@ If you are the owner of the API, you can transfer ownership to another member, u
 
 From the **Properties** tab you can configure your API properties, including dynamic properties and encryption.
 
-Properties are read-only during the Gateway's execution of an API transaction. They can be accessed from within flows using Gravitee's Expression Language (EL) and the `#api.properties` statement. To configure properties:
+Properties are read-only during the Gateway's execution of an API transaction. They can be accessed from within flows using Gravitee's Expression Language (EL) and the `#api.properties` statement.
+
+### API Product Configuration Properties
+
+The following properties are used by the gateway to register and manage API Products:
+
+| Property | Description | Example |
+|:---------|:------------|:--------|
+| `id` | Unique identifier for the API Product | `"prod-12345"` |
+| `name` | Product name (must be unique within environment) | `"Payment Gateway Bundle"` |
+| `version` | Product version string | `"1.0.0"` |
+| `description` | Optional product description | `"Unified payment APIs"` |
+| `apiIds` | Array of API identifiers included in the product | `["api-1", "api-2"]` |
+| `deploymentState` | Synchronization state: `NEED_REDEPLOY` or `DEPLOYED` | `"DEPLOYED"` |
+| `environmentId` | Environment identifier | `"env-prod"` |
+| `organizationId` | Organization identifier | `"org-acme"` |
+
+### Configuring API Properties
 
 To configure API properties:
 
