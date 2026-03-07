@@ -1,0 +1,6 @@
+# Files with version-specific content — do NOT sync from previous version
+# Auto-managed by the documentation pipeline
+SUMMARY.md
+create-and-configure-apis/configure-v4-apis/endpoints/jms.md
+kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/endpoints.md
+release-information/release-notes/apim-4.10.md

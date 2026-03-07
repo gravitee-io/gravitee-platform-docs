@@ -100,6 +100,16 @@ The New Developer Portal is in tech preview.
 
 * Kafka Gateway exposes native latency metrics for publish/subscribe analytics.
 
+
+<!-- PIPELINE:APIM-13008 -->
+#### **JMS Endpoint Connector**
+
+* Integrates JMS-compliant message brokers (ActiveMQ Classic, ActiveMQ Artemis, IBM MQ, Solace) as backend endpoints for v4 APIs.
+* Supports both producer (publish) and consumer (subscribe) operations with queue and topic destination types, including durable subscriptions.
+* Provides configurable Quality of Service levels (None, Auto, At-Most-Once, At-Least-Once) to control message delivery guarantees and acknowledgment modes.
+* Requires JMS provider client libraries in `{APIM_HOME}/plugins/jms/ext/` and the `apim-en-endpoint-jms` license feature (included in `apim-connectors-advanced` pack).
+<!-- /PIPELINE:APIM-13008 -->
+
 ## Updated features
 
 #### **Elasticsearch and OpenSearch support**
