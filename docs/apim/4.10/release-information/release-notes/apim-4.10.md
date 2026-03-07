@@ -100,6 +100,16 @@ The New Developer Portal is in tech preview.
 
 * Kafka Gateway exposes native latency metrics for publish/subscribe analytics.
 
+
+<!-- PIPELINE:APIM-12437 -->
+#### **AI Semantic Caching Policy**
+
+* Reduces latency and costs for LLM-based APIs by caching responses based on semantic similarity rather than exact string matching.
+* Uses configurable text embedding models (ONNX BERT, OpenAI, or custom HTTP providers) to compare prompt meanings and return cached responses when similarity exceeds the configured threshold.
+* Supports Redis and AWS S3 as vector store backends with configurable similarity metrics (cosine, euclidean, dot product) and metadata-based indexing.
+* Requires the `apim-ai-policy-semantic-cache` feature flag and configured text embedding model and vector store resources.
+<!-- /PIPELINE:APIM-12437 -->
+
 ## Updated features
 
 #### **Elasticsearch and OpenSearch support**
