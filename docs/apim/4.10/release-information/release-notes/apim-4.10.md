@@ -100,6 +100,17 @@ The New Developer Portal is in tech preview.
 
 * Kafka Gateway exposes native latency metrics for publish/subscribe analytics.
 
+
+<!-- PIPELINE:APIM-12550 -->
+#### **A2A Proxy API Type for Agent-to-Agent Communication**
+
+* Introduces a new `A2A_PROXY` API type (V4 definition) optimized for proxying requests between autonomous agents through Gravitee API Management.
+* Supports HTTP-based flows with policy enforcement at REQUEST and RESPONSE phases using dedicated entrypoint and endpoint connectors.
+* Eleven policies are compatible with A2A Proxy APIs: interrupt, IP filtering, retry, RBAC, HTTP callout, rate limit, JavaScript, Groovy, AI prompt guard rails, assign attributes, and transform headers.
+* Requires AI pack license and uses HTTP selectors with path-based flow routing.
+* Version 1.0.0-alpha.1 is an alpha release with the endpoint connector requiring a non-null, non-blank target URL configuration.
+<!-- /PIPELINE:APIM-12550 -->
+
 ## Updated features
 
 #### **Elasticsearch and OpenSearch support**
