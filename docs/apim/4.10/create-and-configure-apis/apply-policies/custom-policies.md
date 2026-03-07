@@ -120,7 +120,7 @@ A policy is enabled when declared in the API definition. Ensure the policy ident
 
 ## Policy Application
 
-A policy can be applied to the Request phase of the proxy chain, the Response phase, or both.
+A policy can be applied to the Request phase of the proxy chain, the Response phase, or both. For Native APIs (Kafka, Agent-to-Agent), policies can also be applied to the Entrypoint Connect phase.
 
 {% tabs %}
 {% tab title="Apply to Request" %}
@@ -190,6 +190,23 @@ The `PolicyChain` must always be called with `PolicyChain#doNext()` or `PolicyCh
 {% tab title="Apply to both" %}
 A policy is not restricted to only one Gateway proxy phase. It can be applied during both the Request and Response phases by using both annotations in the same class.
 {% endtab %}
+
+{% tab title="Apply to Entrypoint Connect" %}
+For Native APIs (Kafka, Agent-to-Agent), policies can be applied to the Entrypoint Connect phase, which executes before authentication and message processing. Policies must declare `ENTRYPOINT_CONNECT` in their `proxy.policy.phases` manifest property to be selectable in this phase.
+
+{% hint style="warning" %}
+**Entrypoint Connect phase restrictions**
+
+* Only available for Native APIs (Kafka, Agent-to-Agent). HTTP Proxy, Message, LLM Proxy, and MCP Proxy APIs do not support this phase.
+* Policies must explicitly declare `ENTRYPOINT_CONNECT` phase support in their plugin manifest (`proxy.policy.phases` property). Policies without this declaration will not appear in the policy catalog for this phase.
+* The `CONNECT` connector mode and flow phase have been removed. Existing API definitions using `connect` flows must be migrated to `entrypointConnect`.
+* Native Kafka reactor 6.x requires Java 21 and APIM 4.11.x. Version 5.x (APIM 4.10.x) does not include Entrypoint Connect support.
+* Agent-to-Agent connectors require version 2.0.0-alpha.1 or later for Entrypoint Connect support. Version 1.x does not support this phase.
+{% endhint %}
+
+Calling `interrupt(reason)` throws an `InterruptConnectionException`, which closes the socket immediately.
+
+{% endtab %}
 {% endtabs %}
 
 ### Provided parameters
@@ -197,3 +214,27 @@ A policy is not restricted to only one Gateway proxy phase. It can be applied du
 Annotated methods can declare parameters which are automatically provided by the Gateway at runtime. Available parameters are:
 
 <table><thead><tr><th width="288">Parameter class</th><th width="117">Mandatory</th><th>Description</th></tr></thead><tbody><tr><td><code>io.gravitee.gateway.api.Request</code></td><td>No</td><td>Wrapper to the Request object containing all information about the processed request (URI, parameters, headers, input stream, …)</td></tr><tr><td><code>io.gravitee.gateway.api.Response</code></td><td>No</td><td>Wrapper to the Response object containing all information about the processed response (status, headers, output stream, …)</td></tr><tr><td><code>io.gravitee.gateway.api.policy.PolicyChain</code></td><td>Yes</td><td>The current policy chain that gives control to the policy to continue (<code>doNext</code>) or reject (<code>failWith</code>) the chain</td></tr><tr><td><code>io.gravitee.gateway.api.policy.PolicyContext</code></td><td>No</td><td>The policy context that can be used to get contextualized objects (API store, …)</td></tr></tbody></table>
+
+### Policy Context in Entrypoint Connect
+
+Policies executing in the Entrypoint Connect phase have access to connection-level context via template variables. Authentication data, Kafka request details, and message content are not available because authentication and message processing have not yet occurred.
+
+#### Available Template Variables
+
+| Template Variable | Description | Example |
+|:------------------|:------------|:--------|
+| `{#connection.id}` | Connection identifier | `conn-12345` |
+| `{#connection.remoteAddress}` | Client IP address | `192.168.1.100` |
+| `{#connection.localAddress}` | Gateway IP address | `10.0.0.5` |
+| `{#ssl.*}` | TLS session details | `{#ssl.peerCertificates[0].subject}` |
+| `{#context.attributes}` | API-level attributes | `{#context.attributes['api.version']}` |
+
+#### Unavailable Context
+
+The following context properties are not available in the Entrypoint Connect phase:
+
+* `{#principal}` — Authentication data (not yet authenticated)
+* `{#request}` — Kafka request details (no request processed yet)
+* `{#message}` — Message content (no messages yet)
+
+Use the Interact or Publish/Subscribe phases to access these contexts.

@@ -100,6 +100,16 @@ The New Developer Portal is in tech preview.
 
 * Kafka Gateway exposes native latency metrics for publish/subscribe analytics.
 
+
+<!-- PIPELINE:APIM-12497 -->
+#### **Entrypoint Connect Phase for Native APIs**
+
+* Native APIs now support an Entrypoint Connect phase that executes policies when a client first connects, before authentication and message processing.
+* Policies in this phase can inspect connection properties (IP address, TLS session details) and reject connections early by calling `ctx.interrupt(reason)`.
+* This phase replaces the deprecated `CONNECT` mode and provides finer-grained control over client connections for Native Kafka and Agent-to-Agent APIs.
+* Requires APIM 4.11.x or later and policies that declare `ENTRYPOINT_CONNECT` phase support in their plugin manifest.
+<!-- /PIPELINE:APIM-12497 -->
+
 ## Updated features
 
 #### **Elasticsearch and OpenSearch support**

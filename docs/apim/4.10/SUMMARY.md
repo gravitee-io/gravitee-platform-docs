@@ -352,6 +352,8 @@
     * [Create Kafka APIs](kafka-gateway/create-and-configure-kafka-apis/create-kafka-apis.md)
     * [Configure Kafka APIs](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/README.md)
       * [Configuration](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/configuration.md)
+      * [Configure Entrypoint Connect Flows](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/configure-entrypoint-connect-flows.md)
+      * [Entrypoint Connect Phase Concept](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/entrypoint-connect-phase.md)
       * [Entrypoints](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/entrypoints.md)
       * [Endpoints](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/endpoints.md)
       * [Policies](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/policies.md)
