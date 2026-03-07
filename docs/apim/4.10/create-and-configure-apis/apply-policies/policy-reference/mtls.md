@@ -15,9 +15,11 @@ metaLinks:
 
 ### Description <a href="#user-content-description" id="user-content-description"></a>
 
-You can use the `mtls` policy to verify a client certificate exists as part of the request.
+You can use the `mtls` policy to verify a client certificate exists as part of the request. The policy supports both HTTP and Kafka protocol authentication.
 
 This policy does not ensure that certificates are valid, since it is done directly by the server.
+
+For HTTP requests, authentication failures return HTTP 401. For Kafka connections, authentication failures close the connection with an authentication exception.
 
 ### Compatibility with APIM <a href="#user-content-compatibility-with-apim" id="user-content-compatibility-with-apim"></a>
 

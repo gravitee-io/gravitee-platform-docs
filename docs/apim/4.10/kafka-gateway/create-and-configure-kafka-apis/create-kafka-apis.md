@@ -88,6 +88,17 @@ Of the following configuration settings, only entering a host/port pair is requi
        * **PEM with path:** Enter the certificate path and private key path.
    * **SASL\_SSL:** Configure both SASL authentication and SSL encryption, choose a **SASL** mechanism from the options listed under **SASL\_PLAINTEXT**, and then configure **SSL** settings as described in the **SSL** section.
 
+### Gateway-Level SSL Configuration
+
+For Native Kafka APIs requiring client certificate authentication, configure the following gateway-level SSL properties:
+
+| Property | Description | Example |
+|:---------|:------------|:--------|
+| `kafka.ssl.clientAuth` | Require client certificate authentication | `required` |
+| `kafka.ssl.truststore.type` | Truststore format | `jks` |
+| `kafka.ssl.truststore.path` | Path to truststore file | `/path/to/server.truststore.jks` |
+| `kafka.ssl.truststore.password` | Truststore password | `gravitee` |
+
 ## Security
 
 Define a plan to secure, monitor, and transparently communicate information on how to access your Kafka API. The plan types presented are the same as the plan types used for regular HTTP APIs in Gravitee, but map to a Kafka authentication equivalent.
