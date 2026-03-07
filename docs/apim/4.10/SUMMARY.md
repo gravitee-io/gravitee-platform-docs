@@ -163,6 +163,7 @@
     * [User and Group Access](create-and-configure-apis/configure-v2-apis/user-and-group-access.md)
     * [Documentation](create-and-configure-apis/configure-v2-apis/documentation.md)
   * [Apply Policies](create-and-configure-apis/apply-policies/README.md)
+    * [Compatibility for A2A Proxy APIs](create-and-configure-apis/apply-policies/a2a-proxy-policy-compatibility.md)
     * [v4 API Policy Studio](create-and-configure-apis/apply-policies/v4-api-policy-studio.md)
     * [v2 API Policy Studio](create-and-configure-apis/apply-policies/v2-api-policy-studio.md)
     * [Debug Mode](create-and-configure-apis/apply-policies/debug-mode.md)

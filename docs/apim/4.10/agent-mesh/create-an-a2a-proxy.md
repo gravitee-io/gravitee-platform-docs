@@ -23,15 +23,22 @@ What is A2A?
 
 As organizations begin to adopt AI agents across various platforms and ecosystems, a new challenge emerges to securely connect, coordinate, and control communication between autonomous agents.
 
-Gravitee’s A2A (Agent-to-Agent) Proxy addresses this challenge by **enabling structured, secure, and observable interactions between agents**, no matter where or how they’re running.
+Gravitee's A2A (Agent-to-Agent) Proxy addresses this challenge by **enabling structured, secure, and observable interactions between agents**, no matter where or how they're running.
 
 Much like any other type of API, A2A interactions benefit from being discoverable, consumable, secured, and governed via Gravitee.
 
-Truly intelligent agents need access to both synchronous (request-response) and asynchronous (event-driven) APIs to operate effectively. Gravitee’s A2A Proxy supports both, enabling agents to communicate and react in real time or over streaming protocols and empowering use cases from real-time decisioning to autonomous workflows.
+Truly intelligent agents need access to both synchronous (request-response) and asynchronous (event-driven) APIs to operate effectively. Gravitee's A2A Proxy supports both, enabling agents to communicate and react in real time or over streaming protocols and empowering use cases from real-time decisioning to autonomous workflows.
+
+The A2A Proxy reactor provides a specialized API type for proxying requests between autonomous agents. It uses the `A2A_PROXY` definition type with V4 API definitions and inherits HTTP proxy behavior optimized for agent-to-agent communication patterns. Flow selectors use HTTP path extraction, and policies execute at REQUEST and RESPONSE phases.
 
 ## Prerequisites
 
 * You must have the Enterprise Edition of Gravitee. For more information about Gravitee Enterprise Edition, see [enterprise-edition.md](../readme/enterprise-edition.md "mention").
+* Gravitee API Management with AI pack license (`apim-a2a-proxy-reactor` feature) and `gravitee-reactor-a2a-proxy` version 1.0.0-alpha.1 or later
+
+{% hint style="warning" %}
+Version 1.0.0-alpha.1 is an alpha release.
+{% endhint %}
 
 ## Create an A2A proxy
 
@@ -60,7 +67,7 @@ Truly intelligent agents need access to both synchronous (request-response) and 
 8.  Click **Validate my entrypoints**.
 
     <figure><img src="../.gitbook/assets/00 agent copy (1).png" alt=""><figcaption></figcaption></figure>
-9.  In the **Configure your API endpoints access** screen, provide the **Target URL**. The Target URL is the Agent's address.
+9.  In the **Configure your API endpoints access** screen, provide the **Target URL**. The Target URL is the Agent's address and cannot be null or empty.
 
     <figure><img src="../.gitbook/assets/4CA47921-5400-4EA4-97C4-43C928118657_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
 10. Click **Validate my endpoints**.
@@ -72,3 +79,16 @@ Truly intelligent agents need access to both synchronous (request-response) and 
 12. In the **Review your API configuration** screen, click **Save & Deploy**.
 
     <figure><img src="../.gitbook/assets/E1E23126-57E1-4FCE-B265-7E0B896F0528_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+
+The reactor validates that all selectors are HTTP type and that the target URL is non-empty before activation. Only HTTP selectors are valid for A2A_PROXY APIs. Policies attached to REQUEST or RESPONSE phases must declare `a2a_proxy` support.
+
+## Gateway Configuration
+
+### Endpoint connector
+
+The A2A Proxy endpoint connector forwards requests to a configured target URL. It wraps connection errors as `GATEWAY_CLIENT_CONNECTION_ERROR` (502) and timeout errors as `REQUEST_TIMEOUT` (504).
+
+| Property | Description | Example |
+|:---------|:------------|:--------|
+| `target` | Target URL for the A2A proxy endpoint. Cannot be null or empty. | `https://agent.example.com/api` |
+
