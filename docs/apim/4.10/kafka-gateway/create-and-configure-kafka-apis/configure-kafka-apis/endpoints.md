@@ -10,7 +10,17 @@ Endpoints define the protocol and configuration settings the Gateway API uses to
 
 <figure><img src="../../../.gitbook/assets/sample-kafka-api-endpoint.png" alt=""><figcaption></figcaption></figure>
 
-## Security protocols&#x20;
+An API is identified as Native Kafka when `api.type` is `NATIVE` and the API contains at least one listener with `type` set to `KAFKA`. This detection determines which endpoint group types are available and which validation rules apply.
+
+## Endpoint group types
+
+When creating a new endpoint group, the Console automatically selects the appropriate type based on the API: `http-proxy` for Proxy APIs, `llm-proxy` for LLM Proxy APIs, and `native-kafka` for Native Kafka APIs. This ensures endpoint groups match the API's protocol requirements.
+
+## Default endpoint
+
+The first endpoint in the first endpoint group of a Native Kafka API receives a "Default" badge with the tooltip "The default endpoint used by the API is the first one." This badge is visual only and reflects the implicit ordering priority. The badge is assigned only to the first endpoint in the first endpoint group.
+
+## Security protocols
 
 Gravitee Kafka APIs support **PLAINTEXT**, **SASL\_PLAINTEXT**, **SASL\_SSL**, or **SSL** as the security protocol to connect to the Kafka cluster.
 
@@ -20,29 +30,44 @@ In addition to [Kafka's](https://kafka.apache.org/documentation/#security_overvi
 
 * **NONE**: A stub mechanism that falls back to `PLAINTEXT` protocol.
 * **OAUTHBEARER\_TOKEN**: A mechanism that defines a fixed token or a dynamic token from [Gravitee Expression Language](../../../../4.9/gravitee-expression-language.md).
-*   **DELEGATE\_TO\_BROKER**: Authentication is delegated to the Kafka broker.
+* **DELEGATE\_TO\_BROKER**: Authentication is delegated to the Kafka broker.
 
-    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>When using <code>DELEGATE_TO_BROKER</code>, the supported mechanisms available to the client are <code>PLAIN</code> and <code>AWS_IAM_MSK</code>. The <code>AWS_MSK_IAM</code> mechanism requires you to host the Kafka Gateway on AWS. Otherwise, authentication fails.</p></div>
+{% hint style="warning" %}
+When using `DELEGATE_TO_BROKER`, the supported mechanisms available to the client are `PLAIN` and `AWS_IAM_MSK`. The `AWS_MSK_IAM` mechanism requires you to host the Kafka Gateway on AWS. Otherwise, authentication fails.
+{% endhint %}
+
+## Create an endpoint group
+
+To create a new endpoint group for a Native Kafka API:
+
+1. Navigate to the API's endpoint groups page and click **Add endpoint group**. The Console automatically selects `native-kafka` as the endpoint group type.
+2. Optionally configure a load balancer type. This field is not required for Native Kafka APIs.
+3. Add one or more endpoints by specifying bootstrap server addresses.
+4. Configure security protocols at the group level (inherited by all endpoints) or override per endpoint.
+5. Save the endpoint group. The first endpoint in the first group automatically becomes the default endpoint.
 
 ## Edit the endpoint group
 
-Gravitee assigns each Kafka API endpoint group the default name **Default Broker group.** To edit the endpoint group, complete the following steps:&#x20;
+Gravitee assigns each Kafka API endpoint group the default name **Default Broker group.** To edit the endpoint group, complete the following steps:
 
-1.  Click the **Edit** button with the pencil icon to edit the endpoint group.
+1. Click the **Edit** button with the pencil icon to edit the endpoint group.
 
     <figure><img src="../../../.gitbook/assets/edit-button-endpoint-group.png" alt=""><figcaption></figcaption></figure>
-2.  Select the **General** tab to change the name of your Kafka endpoint group.
+
+2. Select the **General** tab to change the name of your Kafka endpoint group.
 
     <figure><img src="../../../.gitbook/assets/image (181).png" alt=""><figcaption></figcaption></figure>
-3.  Select the **Configuration** tab to edit the security settings of your Kafka endpoint group.
+
+3. Select the **Configuration** tab to edit the security settings of your Kafka endpoint group.
 
     <figure><img src="../../../.gitbook/assets/select-configuration-tab-endpoint-group.png" alt=""><figcaption></figcaption></figure>
-4.  Select one of the security protocols from the drop-down menu, and then configure the associated settings to define your Kafka authentication flow.
+
+4. Select one of the security protocols from the drop-down menu, and then configure the associated settings to define your Kafka authentication flow.
 
     <figure><img src="../../../.gitbook/assets/supported-endpoint-security-protocol.png" alt=""><figcaption></figcaption></figure>
 
 * **PLAINTEXT:** No further security configuration is necessary.
-* **SASL\_PLAINTEXT:** Choose NON&#x45;**,** GSSAPI, OAUTHBEARER, OAUTHBEARER\_TOKEN, PLAIN, SCRAM-SHA-256, SCRAM-SHA-512, or DELEGATE\_TO\_BROKER.
+* **SASL\_PLAINTEXT:** Choose NONE, GSSAPI, OAUTHBEARER, OAUTHBEARER\_TOKEN, PLAIN, SCRAM-SHA-256, SCRAM-SHA-512, or DELEGATE\_TO\_BROKER.
   * **NONE:** No additional security configuration required.
   * **AWS\_MSK\_IAM:** Enter the JAAS login context parameters.
   * **GSSAPI:** Enter the JAAS login context parameters.
@@ -62,16 +87,22 @@ Gravitee assigns each Kafka API endpoint group the default name **Default Broker
   * **PEM with path:** Enter the truststore file path and password and the keystore type.
 * **SASL\_SSL:** Configure both SASL authentication and SSL encryption, choose a **SASL** mechanism from the options listed under **SASL\_PLAINTEXT**, and then configure **SSL** settings as described in the **SSL** section.
 
+## Load balancer configuration
+
+Load balancer configuration is optional for Native Kafka APIs. For Proxy and LLM Proxy APIs, a load balancer type must be selected when creating or editing endpoint groups.
+
 ## Edit the endpoint
 
-Gravitee automatically assigns your Kafka API endpoint the name **Default Broker**.&#x20;
+Gravitee automatically assigns your Kafka API endpoint the name **Default Broker**.
 
-1.  Click the pencil icon under **ACTIONS** to edit the endpoint.
+1. Click the pencil icon under **ACTIONS** to edit the endpoint.
 
     <figure><img src="../../../.gitbook/assets/actions-edit-icon-button.png" alt=""><figcaption></figcaption></figure>
-2.  Select the **General** tab to edit your endpoint name and the list of bootstrap servers.
+
+2. Select the **General** tab to edit your endpoint name and the list of bootstrap servers.
 
     <figure><img src="../../../.gitbook/assets/select-the-general-tab.png" alt=""><figcaption></figcaption></figure>
-3.  By default, endpoints inherit configuration settings from their endpoint group. To override these settings, select the **Configuration** tab and configure custom security settings.
+
+3. By default, endpoints inherit configuration settings from their endpoint group. To override these settings, select the **Configuration** tab and configure custom security settings.
 
     <figure><img src="../../../.gitbook/assets/ovveride-endpoints-configuration.png" alt=""><figcaption></figcaption></figure>

@@ -181,6 +181,26 @@ v4 message APIs currently support the following endpoints:
 * **Solace**: Enables the Gravitee API Gateway to establish a persistent connection with Solace as a backend resource or target.
 * **Mock**: Enables the Gateway to simulate responses from a server for testing API implementations.
 
+### Native Kafka API Endpoint Management
+
+Native Kafka APIs support endpoint group and endpoint creation with Kafka-specific configuration. Endpoint groups can contain multiple Kafka endpoints with bootstrap server addresses, security protocols, and drag-and-drop reordering. The first endpoint in the first group is automatically designated as the default endpoint.
+
+**Creating an Endpoint Group**
+
+Navigate to the API's endpoint groups page and click "Add endpoint group." The Console auto-selects `native-kafka` as the endpoint group type. Optionally configure a load balancer type—this field is not required for Native Kafka APIs. Add one or more endpoints by specifying bootstrap server addresses. Configure security protocols at the group level (inherited by all endpoints) or override per endpoint. Save the endpoint group. The first endpoint in the first group automatically becomes the default endpoint.
+
+**Reordering Endpoints**
+
+Endpoints within a group can be reordered using drag-and-drop. Click and hold the drag handle icon on the left side of an endpoint row. Drag the endpoint to the desired position within the group. Release to save the new order. The Console displays "Endpoint reordered successfully" on success. Reordering is disabled in read-only mode and while another reorder operation is in progress.
+
+**Security Protocol Configuration**
+
+Security protocols can be configured at the endpoint group level and inherited by all endpoints, or overridden per endpoint. If a security protocol is configured, it appears as a badge in the options column with a tooltip indicating whether it is inherited from the group or overridden by the endpoint.
+
+**Default Endpoint Designation**
+
+The first endpoint in the first endpoint group receives a "Default" badge with the tooltip "The default endpoint used by the API is the first one." This badge is visual only and reflects the implicit ordering priority.
+
 ### Configuration and Implementation
 
 To access endpoint configuration:
