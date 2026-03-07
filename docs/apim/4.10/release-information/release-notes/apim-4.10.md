@@ -100,6 +100,17 @@ The New Developer Portal is in tech preview.
 
 * Kafka Gateway exposes native latency metrics for publish/subscribe analytics.
 
+
+<!-- PIPELINE:APIM-12500 -->
+#### **Native Kafka API Endpoint Management**
+
+* Native Kafka APIs now support endpoint group creation with Kafka-specific configuration, including bootstrap server addresses and security protocols.
+* The Console automatically selects the `native-kafka` endpoint group type when creating endpoint groups for Native Kafka APIs, ensuring protocol compatibility.
+* Endpoints can be reordered within a group using drag-and-drop, with the first endpoint in the first group automatically designated as the default endpoint.
+* Load balancer type configuration is optional for Native Kafka endpoint groups, unlike Proxy and LLM Proxy APIs where it is required.
+* Security protocols can be configured at the group level (inherited by all endpoints) or overridden per individual endpoint.
+<!-- /PIPELINE:APIM-12500 -->
+
 ## Updated features
 
 #### **Elasticsearch and OpenSearch support**
