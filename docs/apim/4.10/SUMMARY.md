@@ -142,6 +142,7 @@
       * [WebSocket](../4.9/create-and-configure-apis/configure-v4-apis/entrypoints/websocket.md)
     * [Endpoints](create-and-configure-apis/configure-v4-apis/endpoints/README.md)
       * [Azure Service Bus](create-and-configure-apis/configure-v4-apis/endpoints/azure-service-bus.md)
+      * [JMS Endpoint Connector](create-and-configure-apis/configure-v4-apis/endpoints/jms.md)
       * [Kafka](create-and-configure-apis/configure-v4-apis/endpoints/kafka.md)
       * [Mock](create-and-configure-apis/configure-v4-apis/endpoints/mock.md)
       * [MQTT5](create-and-configure-apis/configure-v4-apis/endpoints/mqtt5.md)

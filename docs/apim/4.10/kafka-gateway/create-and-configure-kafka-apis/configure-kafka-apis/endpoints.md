@@ -6,7 +6,14 @@ description: An overview about endpoints.
 
 ## Overview
 
-Endpoints define the protocol and configuration settings the Gateway API uses to fetch data from or post data to the backend API. Kafka APIs can have one endpoint group with a single endpoint. The **Endpoints** section lets you modify your Kafka endpoint group and Kafka endpoint.
+Endpoints define the protocol and configuration settings the Gateway API uses to fetch data from or post data to the backend API. Gravitee supports multiple endpoint types for v4 APIs:
+
+* **Kafka**: Connect to Apache Kafka message brokers for event streaming
+* **JMS**: Integrate with JMS-compliant message brokers (ActiveMQ, IBM MQ, Solace) for producer and consumer operations. See [JMS endpoint configuration](../../../create-and-configure-apis/configure-v4-apis/endpoints/jms.md#security-configuration) for details.
+* **HTTP**: Connect to REST APIs and HTTP-based services
+* **Mock**: Simulate backend responses for testing
+
+Kafka APIs can have one endpoint group with a single endpoint. The **Endpoints** section lets you modify your Kafka endpoint group and Kafka endpoint.
 
 <figure><img src="../../../.gitbook/assets/sample-kafka-api-endpoint.png" alt=""><figcaption></figcaption></figure>
 
