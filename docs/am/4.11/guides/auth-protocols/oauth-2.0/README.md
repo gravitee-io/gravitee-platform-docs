@@ -65,6 +65,7 @@ The authorization code is used by applications to obtain a temporary code after 
 
 * Authorization codes are single use.
 * For server-side web apps, such as native (mobile) and Javascript apps, you also use the [PKCE extension](https://tools.ietf.org/html/rfc7636) as part of your flow, which provides protection against other attacks where the authorization code may be intercepted.
+* Magic link authentication integrates with the standard OAuth 2.0 authorization code flow. After the user completes magic link authentication, the authorization endpoint returns a `code` parameter for token exchange.
 * Authorization code grant URL: `GET https://am-gateway/{domain}/oauth/authorize?response_type=code&client_id=web-app&redirect_uri=https://web-app/callback`
 * For more information about this flow, see the [RFC](https://tools.ietf.org/html/rfc6749#section-1.3.1).
 
