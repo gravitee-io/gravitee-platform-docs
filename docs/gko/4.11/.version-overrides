@@ -1,0 +1,4 @@
+# Files with version-specific content — do NOT sync from previous version
+# Auto-managed by the documentation pipeline
+SUMMARY.md
+release-information/release-notes/gko-4.11.md

@@ -34,6 +34,7 @@
 
 ## GUIDES
 
+* [Client Certificate Management for Applications](../../apim/4.11/guides/application-certificate-management.md)
 * [Manage JWT subscriptions with GKO](guides/manage-jwt-subscriptions-with-gko.md)
 * [Define an APIM service account for GKO](guides/define-an-apim-service-account-for-gko.md)
 * [Deploy APIs to a Gateway](guides/deploy-apis-to-a-gateway.md)
