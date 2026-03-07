@@ -77,3 +77,7 @@ POST http(s)://AM_MANAGEMENT_API/management/auth/login
 For user migrations from an alternative OIDC provider to Access Management, you can define the `lastPasswordReset` attribute. This attribute ensures that a password policy with password expiry requests a password reset according to the value provided during the migration.
 
 In Management REST API, `lastPasswordReset` attribute in the User definition is a long value representing the number of milliseconds since the standard base time known as "the epoch".
+
+### Agent Application AgentCard Endpoint
+
+The `GET /organizations/{orgId}/environments/{envId}/domains/{domain}/applications/{appId}/agent-card` endpoint retrieves AgentCard metadata for agent applications. This endpoint requires `APPLICATION[READ]` permission and enforces SSRF protection by blocking requests to localhost and private IP ranges (10.x.x.x, 192.168.x.x, 172.16-31.x.x, 169.254.x.x). The platform fetches the AgentCard document with a 5-second timeout and rejects responses exceeding 512 KB. The response must return HTTP 200 and valid JSON; otherwise, the endpoint returns an error with the upstream status code or validation failure message.
