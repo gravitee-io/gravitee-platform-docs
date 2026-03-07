@@ -2,11 +2,22 @@
 
 ## Overview
 
-Cryptographic algorithms such as KeyStore (private/public key) are used to sign using JSON-based data structures (JWT) tokens. Certificates are used as part of the OAuth 2.0 and OpenID Connect protocol to sign access, create and renew ID tokens and ensure the integrity of a token’s payload.
+Cryptographic algorithms such as KeyStore (private/public key) are used to sign using JSON-based data structures (JWT) tokens. Certificates are used as part of the OAuth 2.0 and OpenID Connect protocol to sign access, create and renew ID tokens and ensure the integrity of a token's payload.
 
 Certificate definitions apply at the _security domain_ level.
 
-By default AM is able to load certificate using JKS or PKCS12 format you can upload ugin the console or the REST API. An Enterprise prise plugin also exist to load PCKS12 certificate from [AWS Secret Manager](aws-certificate-plugin.md).
+By default AM is able to load certificate using JKS or PKCS12 format you can upload using the console or the REST API. An Enterprise plugin also exists to load PKCS12 certificate from [AWS Secret Manager](aws-certificate-plugin.md).
+
+## Certificate Resolution Hierarchy
+
+When signing JWTs or performing cryptographic operations, AM resolves certificates in the following order:
+
+1. Client-specified certificate
+2. Domain fallback certificate (if configured)
+3. Default HMAC certificate (if enabled)
+4. Error if all options are exhausted
+
+This hierarchy ensures that applications continue to function even when specific certificates are unavailable.
 
 ## Create certificates
 
@@ -61,7 +72,7 @@ curl -H "Authorization: Bearer :accessToken" \
 
 ### Public keys
 
-You can use public keys to verify a token payload’s integrity. To obtain the public key for your certificate:
+You can use public keys to verify a token payload's integrity. To obtain the public key for your certificate:
 
 1. In AM Console, click **Settings > Certificates**.
 2.  Next to your certificate, click the key icon.
@@ -102,6 +113,8 @@ AM is designed to be extended based on a pluggable modules architecture. You can
 ## System certificates
 
 When a new domain is created, a certificate is generated for use by the domain applications to sign the tokens. Such certificates are marked as "system" certificates.
+
+System certificates are now visible in certificate selection dialogs, including the fallback certificate selector. This allows administrators to designate system certificates as domain-level fallbacks.
 
 ### How to define system certificate properties
 
