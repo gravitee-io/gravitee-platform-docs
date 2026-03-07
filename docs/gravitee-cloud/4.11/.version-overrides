@@ -1,0 +1,4 @@
+# Files with version-specific content — do NOT sync from previous version
+# Auto-managed by the documentation pipeline
+guides/alert_engine_cluster_mode_deployment.md
+release-information/release-notes/gravitee-cloud-4.11.md
