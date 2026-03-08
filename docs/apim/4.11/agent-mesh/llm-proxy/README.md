@@ -14,6 +14,8 @@ The Gravitee LLM Proxy accepts OpenAI-compatible API requests and translates the
 
 Developers might not know the details of the APIs for each LLM provider or know which LLM providers that their company has access to. The LLM proxy provides developers with a single API that they can call.
 
+The LLM proxy also reduces token consumption and API latency through semantic caching. When users submit queries that are semantically equivalent to previously processed prompts—even if phrased differently—the proxy serves cached results without invoking the LLM backend. This reduces costs and improves response times for common or similar queries.
+
 ## How does it work?
 
 The proxy automatically routes requests to the right provider and model, which depends on the consumer's request. The proxy automatically maps the request to match the format of the targeted provider.
