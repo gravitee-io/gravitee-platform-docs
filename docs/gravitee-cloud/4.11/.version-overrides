@@ -1,0 +1,3 @@
+# Files with version-specific content — do NOT sync from previous version
+# Auto-managed by the documentation pipeline
+release-information/release-notes/gravitee-cloud-4.11.md

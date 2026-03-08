@@ -95,6 +95,43 @@ If you want to choose Webhook as your notification channel, you will need to def
 {% endtab %}
 {% endtabs %}
 
+## Scheduled alerts
+
+When you create a window-based alert (an alert with a duration and condition), the Alert Engine anchors the evaluation schedule to the trigger's `created_at` timestamp. The engine calculates the next evaluation time by determining which interval the current time falls into relative to `created_at`, then schedules the next cycle at the start of the following interval.
+
+### Updating a scheduled alert
+
+When you update an existing scheduled alert, the APIM UI displays a confirmation dialog warning that the schedule will reset to the `updated_at` timestamp.
+
+{% hint style="warning" %}
+**Update scheduled alert**
+
+This alert has a scheduled duration. Saving your changes will reset the evaluation schedule. The next cycle will start from the moment you confirm this update. Are you sure you want to continue?
+{% endhint %}
+
+Confirm the update to anchor the schedule to the new timestamp. The next evaluation cycle starts from the moment you confirm.
+
+The UI displays the last update timestamp when `updated_at` exists:
+
+```
+Last updated at [timestamp]
+```
+
+### Trigger API schema
+
+The Trigger API includes timestamp fields for schedule anchoring:
+
+| Field | Type | Description |
+|:------|:-----|:------------|
+| `created_at` | Date (nullable) | Timestamp when trigger was created |
+| `updated_at` | Date (nullable) | Timestamp when trigger was last updated |
+
+### Restrictions
+
+* Duration for window-based alerts must be greater than 0. If the duration is 0 or negative, the engine throws `IllegalArgumentException`.
+* If both `updated_at` and `created_at` are null, the engine schedules from the current time and logs a warning.
+* If the anchor timestamp is in the future, the engine falls back to scheduling from the current time and logs a warning.
+
 ## Example alerts
 
 To assist with alert configuration, sample alert templates useful to many teams are shown below.
