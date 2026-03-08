@@ -7,3 +7,7 @@ create-and-configure-apis/apply-policies/policy-reference/pii-filtering.md
 create-and-configure-apis/apply-policies/resources.md
 prepare-a-production-environment/gateway-resource-sizing-guidelines.md
 release-information/release-notes/apim-4.11.md
+configure-and-manage-the-platform/gravitee-gateway/tenants.md
+kafka-gateway/README.md
+kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/console_ui_changes_for_multi-tenant_kafka_endpoints.md
+kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/endpoints.md
