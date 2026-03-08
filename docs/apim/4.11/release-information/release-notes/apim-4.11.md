@@ -27,6 +27,16 @@
 * The deprecated `CONNECT` mode is replaced by this new phase, which provides a dedicated execution point in the policy chain.
 <!-- /PIPELINE:APIM-12497 -->
 
+<!-- PIPELINE:APIM-12550 -->
+#### **A2A Proxy API Type**
+
+* **Breaking change** — A2A proxy APIs created before APIM 4.11 aren't supported. Delete and recreate any existing A2A proxy APIs.
+* Introduces a dedicated V4 API type for agent-to-agent communication, enabling direct integration between AI agents through the Gravitee platform.
+* Uses a standalone reactor architecture with HTTP selectors for flow routing and supports REQUEST and RESPONSE flow phases for policy execution.
+* Requires Enterprise Edition with the AI Agent Management pack and APIM 4.11 or later.
+* Configure the endpoint with a target URL pointing to the agent service and apply compatible policies such as rate limit, IP filtering, transform headers, and AI prompt guard rails.
+<!-- /PIPELINE:APIM-12550 -->
+
 ## Improvements
 
 ## Bug Fixes
