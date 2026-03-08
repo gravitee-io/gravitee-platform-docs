@@ -370,6 +370,7 @@
       * [Console UI changes for multi-tenant Kafka endpoints](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/console_ui_changes_for_multi-tenant_kafka_endpoints.md)
       * [Entrypoints](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/entrypoints.md)
       * [Endpoints](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/endpoints.md)
+      * [mTLS Plans for Kafka Native APIs: Overview and Security Model](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/mtls_plans_for_kafka_native_apis-_overview_and_security_model.md)
       * [Policies](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/policies.md)
       * [Consumers](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/consumers.md)
       * [Documentation](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/documentation.md)
