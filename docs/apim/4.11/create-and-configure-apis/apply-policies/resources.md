@@ -7,6 +7,7 @@ metaLinks:
 
 # Resources
 
+<final_file>
 ## Overview
 
 The following sections summarize resource descriptions, configuration parameters, and configuration examples.
@@ -324,3 +325,80 @@ Common entity labels include `PER` (person), `LOC` (location), `ORG` (organizati
 }
 ```
 {% endcode %}
+
+#### AI Text Embedding Model
+
+The AI Text Embedding Model resource converts text into vector representations (embeddings) for semantic comparison. This resource is used by AI policies such as AI Semantic Caching to enable semantic matching of user prompts.
+
+The resource supports three provider types: ONNX BERT (local models), OpenAI (cloud-based embeddings), and HTTP (custom embedding services).
+
+{% hint style="info" %}
+When multiple APIs use the same AI Text Embedding Model resource, the Gateway loads it once into memory. If 50 APIs reference the same resource, the Gateway loads that model only once.
+{% endhint %}
+
+**ONNX BERT Provider**
+
+The ONNX BERT provider runs embedding models locally on the Gateway using the ONNX Runtime. The first request to this resource will take longer than usual because the model is loaded into memory at that time. Subsequent requests are processed faster.
+
+{% hint style="info" %}
+You may encounter an error when using this resource with Gravitee's default Docker image. This is because the default images are based on Alpine Linux, which does not support the ONNX Runtime. To resolve this issue, use the Gravitee Docker image based on Debian, available at `graviteeio/apim-gateway:<version>-debian`.
+{% endhint %}
+
+<table><thead><tr><th width="167">Config param</th><th width="384.3046875">Description</th><th>Default</th></tr></thead><tbody><tr><td>model.type</td><td>Embedding model type. Supported values: <code>XENOVA_ALL_MINILM_L6_V2</code>, <code>XENOVA_BGE_SMALL_EN_V1_5</code>, <code>XENOVA_MULTILINGUAL_E5_SMALL</code></td><td>-</td></tr><tr><td>poolingMode</td><td>Pooling mode for embeddings</td><td><code>MEAN</code></td></tr><tr><td>padding</td><td>Whether to apply padding</td><td><code>true</code></td></tr></tbody></table>
+
+All ONNX BERT models support a maximum sequence length of 512 tokens.
+
+{% code title="ONNX BERT example" %}
+```json
+{
+    "name": "ai-text-embedding-onnx-bert",
+    "type": "ai-text-embedding-model",
+    "enabled": true,
+    "configuration": {
+        "provider": "ONNX_BERT",
+        "onnxBert": {
+            "model": {
+                "type": "XENOVA_ALL_MINILM_L6_V2"
+            },
+            "poolingMode": "MEAN",
+            "padding": true
+        }
+    }
+}
+```
+{% endcode %}
+
+**OpenAI Provider**
+
+The OpenAI provider generates embeddings using OpenAI's cloud-based API.
+
+<table><thead><tr><th width="167">Config param</th><th width="384.3046875">Description</th><th>Default</th></tr></thead><tbody><tr><td>uri</td><td>OpenAI API endpoint URI</td><td>-</td></tr><tr><td>apiKey</td><td>OpenAI API key</td><td>-</td></tr><tr><td>organizationId</td><td>Optional organization ID</td><td>-</td></tr><tr><td>projectId</td><td>Optional project ID</td><td>-</td></tr><tr><td>modelName</td><td>Name of the embedding model (e.g., <code>text-embedding-ada-002</code>)</td><td>-</td></tr><tr><td>dimensions</td><td>Optional embedding dimensions (must be non-negative)</td><td>-</td></tr><tr><td>encodingFormat</td><td>Encoding format. Supported values: <code>FLOAT</code>, <code>BASE64</code></td><td>-</td></tr></tbody></table>
+
+{% hint style="info" %}
+Embedding dimensions must be compatible with the vector store configuration.
+{% endhint %}
+
+{% code title="OpenAI example" %}
+```json
+{
+    "name": "ai-text-embedding-openai",
+    "type": "ai-text-embedding-model",
+    "enabled": true,
+    "configuration": {
+        "provider": "OPENAI",
+        "openai": {
+            "uri": "https://api.openai.com/v1/embeddings",
+            "apiKey": "sk-...",
+            "modelName": "text-embedding-ada-002",
+            "encodingFormat": "FLOAT"
+        }
+    }
+}
+```
+{% endcode %}
+
+**HTTP Provider**
+
+The HTTP provider generates embeddings using a custom HTTP endpoint.
+
+<table><thead><tr><th width="167">Config param</th><th width="384.3046875">Description</th><th>Default</th></tr></thead><tbody><tr><td>uri</td><td>HTTP endpoint URI
