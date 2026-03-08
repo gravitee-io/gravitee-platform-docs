@@ -1,5 +1,6 @@
 # Gravitee Expression Language
 
+<final_file>
 ## Overview
 
 Gravitee Expression Language (EL) queries and manipulates object graphs to dynamically configure API aspects and policies. Use EL to reference values from the current API transaction and create dynamic filters, routing rules, and policies that respond to specific conditions or parameters.
@@ -311,7 +312,7 @@ The object properties you can access from the `{#request}` root-level object pro
 
 {% tabs %}
 {% tab title="Table" %}
-<table><thead><tr><th width="172">Object property</th><th width="157">Description</th><th width="134">Type</th><th>Example</th></tr></thead><tbody><tr><td><a data-footnote-ref href="#user-content-fn-1">content</a></td><td>Body content</td><td>string</td><td>-</td></tr><tr><td>contextPath</td><td>Context path</td><td>string</td><td>/v2/</td></tr><tr><td>headers</td><td>Headers</td><td>key / value</td><td>X-Custom → myvalue</td></tr><tr><td>host</td><td>The host of the request. This is preferable to using the Host header of the request because HTTP2 requests do not provide this header.</td><td>string</td><td>gravitee.example.com</td></tr><tr><td>id</td><td>Identifier</td><td>string</td><td>12345678-90ab-cdef-1234-567890ab</td></tr><tr><td>localAddress</td><td>Local address</td><td>string</td><td>0:0:0:0:0:0:0:1</td></tr><tr><td>method</td><td>HTTP (Hypertext Transfer Protocol) method</td><td>string</td><td>GET</td></tr><tr><td>params</td><td>Query parameters</td><td>key / value</td><td>order → 100</td></tr><tr><td>path</td><td>Path</td><td>string</td><td>/v2/store/MyStore</td></tr><tr><td>pathInfo</td><td>Path info</td><td>string</td><td>/store/MyStore</td></tr><tr><td>pathInfos</td><td>Path info parts</td><td>array of strings</td><td>[,store,MyStore]</td></tr><tr><td>pathParams</td><td>Path parameters</td><td>key / value</td><td>storeId → MyStore (<em>see Warning for details</em>)</td></tr><tr><td>pathParamsRaw</td><td>Path parameters</td><td>string</td><td>/something/:id/**</td></tr><tr><td>paths</td><td>Path parts</td><td>array of strings</td><td>[,v2,store,MyStore]</td></tr><tr><td>remoteAddress</td><td>Remote address</td><td>string</td><td>0:0:0:0:0:0:0:1</td></tr><tr><td>scheme</td><td>The scheme of the request (either <code>http</code> or <code>https</code>)</td><td>string</td><td>http</td></tr><tr><td>ssl</td><td>SSL (Secure Sockets Layer) session information</td><td>SSL object</td><td>-</td></tr><tr><td>timestamp</td><td>Timestamp</td><td>long</td><td>1602781000267</td></tr><tr><td>transactionId</td><td>Transaction identifier</td><td>string</td><td>cd123456-7890-abcd-ef12-34567890</td></tr><tr><td>uri</td><td>URI (Uniform Resource Identifier)</td><td>string</td><td>/v2/store/MyStore?order=100</td></tr><tr><td>version</td><td>HTTP version</td><td>string</td><td>HTTP_1_1</td></tr></tbody></table>
+<table><thead><tr><th width="172">Object property</th><th width="157">Description</th><th width="134">Type</th><th>Example</th></tr></thead><tbody><tr><td>content</td><td>Body content</td><td>string</td><td>-</td></tr><tr><td>contextPath</td><td>Context path</td><td>string</td><td>/v2/</td></tr><tr><td>headers</td><td>Headers</td><td>key / value</td><td>X-Custom → myvalue</td></tr><tr><td>host</td><td>The host of the request. This is preferable to using the Host header of the request because HTTP2 requests do not provide this header.</td><td>string</td><td>gravitee.example.com</td></tr><tr><td>id</td><td>Identifier</td><td>string</td><td>12345678-90ab-cdef-1234-567890ab</td></tr><tr><td>localAddress</td><td>Local address</td><td>string</td><td>0:0:0:0:0:0:0:1</td></tr><tr><td>method</td><td>HTTP (Hypertext Transfer Protocol) method</td><td>string</td><td>GET</td></tr><tr><td>params</td><td>Query parameters</td><td>key / value</td><td>order → 100</td></tr><tr><td>path</td><td>Path</td><td>string</td><td>/v2/store/MyStore</td></tr><tr><td>pathInfo</td><td>Path info</td><td>string</td><td>/store/MyStore</td></tr><tr><td>pathInfos</td><td>Path info parts</td><td>array of strings</td><td>[,store,MyStore]</td></tr><tr><td>pathParams</td><td>Path parameters</td><td>key / value</td><td>storeId → MyStore (<em>see Warning for details</em>)</td></tr><tr><td>pathParamsRaw</td><td>Path parameters</td><td>string</td><td>/something/:id/**</td></tr><tr><td>paths</td><td>Path parts</td><td>array of strings</td><td>[,v2,store,MyStore]</td></tr><tr><td>remoteAddress</td><td>Remote address</td><td>string</td><td>0:0:0:0:0:0:0:1</td></tr><tr><td>scheme</td><td>The scheme of the request (either <code>http</code> or <code>https</code>)</td><td>string</td><td>http</td></tr><tr><td>ssl</td><td>SSL (Secure Sockets Layer) session information</td><td>SSL object</td><td>-</td></tr><tr><td>timestamp</td><td>Timestamp</td><td>long</td><td>1602781000267</td></tr><tr><td>transactionId</td><td>Transaction identifier</td><td>string</td><td>cd123456-7890-abcd-ef12-34567890</td></tr><tr><td>uri</td><td>URI (Uniform Resource Identifier)</td><td>string</td><td>/v2/store/MyStore?order=100</td></tr><tr><td>version</td><td>HTTP version</td><td>string</td><td>HTTP_1_1</td></tr></tbody></table>
 {% endtab %}
 
 {% tab title="Examples" %}
@@ -425,57 +426,3 @@ The EL (Expression Language) used for a message does not change based on phase. 
 * Get the size of a message: `{#message.contentLength}`
 {% endtab %}
 {% endtabs %}
-
-## Nodes
-
-A node is a component that represents an instance of the Gravitee Gateway. Each node runs a copy of the Gateway that handles incoming requests, executes policies, and forwards requests to upstream services. The object properties you can access for nodes from the `{#node}` root-level object property are listed below.
-
-{% tabs %}
-{% tab title="Table" %}
-<table><thead><tr><th width="179">Object property</th><th width="153">Description</th><th width="94">Type</th><th>Example</th></tr></thead><tbody><tr><td>id</td><td>Node ID</td><td>string</td><td>975de338-90ff-41ab-9de3-3890ff41ab62</td></tr><tr><td>shardingTags</td><td>Node sharding tag</td><td>array of string</td><td>[internal,external]</td></tr><tr><td>tenant</td><td>Node tenant</td><td>string</td><td>Europe</td></tr><tr><td>version</td><td>Node version</td><td>string</td><td>3.14.0</td></tr><tr><td>zone</td><td>Zone the node is grouped in</td><td>string</td><td>europe-west-2</td></tr></tbody></table>
-{% endtab %}
-
-{% tab title="Example" %}
-Get the version of a node: `{#node.version}`
-{% endtab %}
-{% endtabs %}
-
-## Other tips and tricks
-
-### Cast data
-
-To convert or cast a string value into an integer, use the following EL:
-
-```
-{T(java.lang.Integer).parseInt("some_string")}
-```
-
-### Evaluate different field types
-
-Use this technique when comparing values of different field types. For example, if `subscription.metadata['my_key']` is a string but the value in request/message content is numeric, use the following EL to compare them:
-
-```
-{(""+#jsonPath(#message.content, '$.customerId')).equals(""+ #subscription.metadata['my_key'])}
-```
-
-### Compare values
-
-Gravitee reads EL data by looking for expressions starting with `{`, followed by `#`, `T`, or `(`. If it finds one of these patterns, it treats the entire string as a single expression to evaluate. Otherwise, it treats it as a string template.
-
-This won't work:
-
-```
-{"PARTNER".equals(#subscription.metadata['clientType'])}
-```
-
-These will work:
-
-```
-{("PARTNER".equals(#subscription.metadata['clientType']))}
-{("PARTNER").equals(#subscription.metadata['clientType'])}
-{#subscription.metadata['clientType'].equals("PARTNER")}
-```
-
-{% hint style="info" %}
-`{#request.content}` is only available for policies bound to an `on-request-content` phase.
-{% endhint %}
