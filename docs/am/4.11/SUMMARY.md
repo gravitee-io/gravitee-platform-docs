@@ -53,6 +53,7 @@
 
 ## Guides
 
+* [Fetching and Displaying AgentCard Metadata](guides/fetching_and_displaying_agentcard_metadata.md)
 * [Prologue](guides/prologue.md)
 * [Auth Protocols](guides/auth-protocols/README.md)
   * [OAuth 2.0](guides/auth-protocols/oauth-2.0/README.md)
@@ -97,7 +98,9 @@
   * [OpenFGA](guides/authorization-engines/openfga.md)
   * [AuthZen](guides/authorization-engines/authzen.md)
 * [Applications](guides/applications/README.md)
+  * [Agent Application Type Overview](guides/applications/agent-application-type.md)
   * [Client Secrets](guides/applications/client-secrets.md)
+  * [Creating Agent Applications via Console](guides/applications/create-agent-application.md)
 * [Branding](guides/branding/README.md)
   * [CSS Custom Variables Reference](guides/branding/css-custom-variables-reference.md)
   * [Language Default Properties Reference](guides/branding/language-default-properties-reference.md)
