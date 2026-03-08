@@ -16,3 +16,6 @@ gravitee-expression-language.md
 kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/README.md
 kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/connection-interruption.md
 kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/entrypoints.md
+agent-mesh/create-an-a2a-proxy.md
+create-and-configure-apis/gravitee-api-definitions/a2a-proxy-api-type.md
+readme/enterprise-edition.md
