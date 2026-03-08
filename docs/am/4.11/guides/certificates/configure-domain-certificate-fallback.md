@@ -1,0 +1,43 @@
+### System Certificate Visibility
+
+System certificates (including default certificates) are now visible in the fallback certificate selection dialog, allowing administrators to designate built-in certificates as fallback options.
+
+### Prerequisites
+
+Before configuring a fallback certificate for a domain, ensure the following:
+
+* Security domain exists
+* Fallback certificate (if specified) exists and belongs to the same domain
+* User has `DOMAIN_SETTINGS[UPDATE]` permission
+
+### Gateway Configuration
+
+#### Domain Certificate Settings
+
+| Property | Description | Example |
+|:---------|:------------|:--------|
+| `certificateSettings.fallbackCertificate` | The certificate ID to use when an application's primary certificate fails to load | `"fallback-cert-123"` |
+
+### Creating Domain Certificate Settings
+
+To configure a fallback certificate for a domain:
+
+1. Send a PUT request to `/organizations/{organizationId}/environments/{environmentId}/domains/{domain}/certificate-settings` with a JSON body containing the `fallbackCertificate` property set to the desired certificate ID.
+2. The system validates that the certificate exists and belongs to the domain.
+3. If validation passes, the certificate settings are stored and a `DOMAIN_CERTIFICATE_SETTINGS.UPDATE` event is published to notify gateway nodes.
+4. Gateway nodes update their certificate resolution logic without requiring a full domain restart.
+
+**Example request body:**
+
+```json
+{
+  "fallbackCertificate": "fallback-cert-123"
+}
+```
+
+### Restrictions
+
+* Fallback certificate must belong to the same domain (master domains can access certificates from all domains)
+* Certificates configured as domain fallback cannot be deleted (returns `CertificateIsFallbackException` with HTTP 400)
+* Certificates in use by applications, identity providers, or protected resources cannot be deleted
+* Certificate settings validation occurs before persistence
