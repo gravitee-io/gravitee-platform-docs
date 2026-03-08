@@ -34,3 +34,7 @@ secure-and-expose-apis/subscriptions/manage-subscriptions.md
 create-and-configure-apis/configure-v4-apis/endpoints/jms.md
 create-and-configure-apis/apply-policies/policy-reference/ip-filtering.md
 create-and-configure-apis/apply-policies/policy-reference/native-ip-filtering.md
+configure-and-manage-the-platform/gravitee-gateway/tenants.md
+kafka-gateway/README.md
+kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/console_ui_changes_for_multi-tenant_kafka_endpoints.md
+kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/endpoints.md
