@@ -21,6 +21,27 @@ Endpoint deployment is impacted by how tags are applied to API endpoints and Gat
 * An API endpoint that is not configured with a tenant is deployed to all Gateways, regardless of whether the Gateway is configured with a tenant.
 * A Gateway configured with the tenant `foo` deploys all API endpoints that include `foo` in their tenant list.
 
+### Tenant-Based Endpoint Filtering for Native Kafka APIs
+
+For Native Kafka APIs, each Kafka endpoint can be tagged with one or more tenant identifiers. At startup and during hot-reload, the gateway loads only endpoints whose tenant list is empty (shared) or contains the gateway's configured tenant. Endpoints that do not match are skipped entirely.
+
+**Behavior:**
+
+| Gateway Tenant | Endpoint Tenants | Match Result |
+|:--------------|:-----------------|:-------------|
+| Not configured | Any value or empty | ✅ Match (gateway participates in all endpoints) |
+| Configured (e.g., `"tenant-a"`) | `null` or `[]` | ✅ Match (shared endpoint) |
+| Configured (e.g., `"tenant-b"`) | Contains `"tenant-b"` | ✅ Match |
+| Configured (e.g., `"tenant-c"`) | Does not contain `"tenant-c"` | ❌ No Match |
+
+**Shared Endpoints:**
+
+An endpoint with an empty or null tenant list is considered shared and matches any gateway, regardless of the gateway's tenant configuration. Shared endpoints serve as fallbacks when no tenant-specific endpoint matches.
+
+**Fallback Behavior:**
+
+If no endpoint matches the gateway's tenant after filtering, requests fail with a `503 No endpoint available` error. There is no automatic fallback to shared endpoints — fallback must be explicitly configured by including at least one untagged endpoint in the group.
+
 ## Configuring Tenants <a href="#id-9c4f" id="id-9c4f"></a>
 
 To explain tenant usage and behavior, we will build off of our example use case for [sharding tags](sharding-tags.md#configure-sharding-tags-for-your-gravitee-api-gateways). A single API can be deployed to many different Gateways and endpoints, but by using sharding tags you can specify the target Gateway(s), and by using tenants you can specify the target endpoint(s).
