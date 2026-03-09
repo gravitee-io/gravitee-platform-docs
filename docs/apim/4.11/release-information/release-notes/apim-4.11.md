@@ -23,7 +23,7 @@
 * Kafka native APIs now support mTLS plans for client authentication using X.509 certificates, enabling accurate subscription resolution and metrics attribution.
 * The gateway extracts the client certificate from the TLS session, computes its MD5 hash, and uses it as a security token to look up the subscription and populate connection context with `planId`, `applicationId`, and `subscriptionId`.
 * Kafka native APIs enforce strict plan security mutual exclusion—you cannot mix Keyless, mTLS, and authentication plans (OAuth2, JWT, API Key) in published state. Publishing a plan of one type automatically closes all published plans of conflicting types.
-* Requires Gravitee APIM 4.10.1 or later, `gravitee-policy-mtls` version 2.0.0-alpha.2 or later, and gateway configuration with `kafka.ssl.clientAuth=required` and appropriate truststore/keystore settings.
+* Requires Gravitee APIM 4.11 or later, `gravitee-policy-mtls` version 2.0.0-alpha.2 or later, and gateway configuration with `kafka.ssl.clientAuth=required` and appropriate truststore/keystore settings.
 * Subscription certificates are loaded dynamically without requiring gateway restarts—when a subscription is created or updated with a new certificate, the gateway's trust store manager refreshes automatically.
 <!-- /PIPELINE:APIM-12520 -->
 
