@@ -16,14 +16,14 @@ Multi-tenant endpoint support enables a single Kafka API definition to route tra
 
 ### Tenant-based endpoint filtering
 
-Each Kafka endpoint can be tagged with one or more tenant identifiers. At startup and during hot-reload, the gateway loads only endpoints whose tenant list is empty (shared) or contains the gateway's configured tenant. Endpoints that don't match are skipped entirely. If no endpoint remains after filtering, requests fail with a 503 error. There is no automatic fallback to untagged endpoints — fallback is achieved by explicitly defining at least one shared (untagged) endpoint in the group.
+Each Kafka endpoint can be tagged with one or more tenant identifiers. At startup and during hot-reload, the gateway loads only endpoints whose tenant list is empty (shared) or contains the gateway's configured tenant. Endpoints that do not match are skipped entirely. If no endpoint remains after filtering, requests fail with a 503 error. There is no automatic fallback to untagged endpoints — fallback is achieved by explicitly defining at least one shared (untagged) endpoint in the group.
 
 | Gateway Tenant | Endpoint Tenants | Match Result |
 |:--------------|:-----------------|:-------------|
 | Not configured | Any value or empty | ✅ Match (gateway participates in all endpoints) |
-| Configured (e.g., `"tenant-a"`) | `null` or `[]` | ✅ Match (shared endpoint) |
-| Configured (e.g., `"tenant-b"`) | Contains `"tenant-b"` | ✅ Match |
-| Configured (e.g., `"tenant-c"`) | Does not contain `"tenant-c"` | ❌ No Match |
+| Configured (for example, `"tenant-a"`) | `null` or `[]` | ✅ Match (shared endpoint) |
+| Configured (for example, `"tenant-b"`) | Contains `"tenant-b"` | ✅ Match |
+| Configured (for example, `"tenant-c"`) | Does not contain `"tenant-c"` | ❌ No Match |
 
 ### Endpoint selection
 
@@ -64,7 +64,7 @@ Before configuring Kafka API endpoints with multi-tenant support, ensure the fol
 
 | Property | Description | Example |
 |:---------|:------------|:--------|
-| `gravitee.tenant` | Gateway tenant identifier used to filter endpoints. Omit to participate in all endpoints. | `"internal"`, `"external"`, `"eu-west"` |
+| `tenant` | Gateway tenant identifier used to filter endpoints. Omit to participate in all endpoints. | `"internal"`, `"external"`, `"eu-west"` |
 
 The tenant value can be set via environment variable, system property, or `gravitee.yml`. Changing the tenant identifier refreshes the gateway's active endpoint set without requiring API redefinition.
 
@@ -171,9 +171,9 @@ The following example demonstrates a Kafka API endpoint group with tenant-specif
 ## Restrictions
 
 * If no endpoint matches the gateway's tenant after filtering, requests fail with `503 No endpoint available`. There is no automatic fallback to shared endpoints — fallback must be explicitly configured by including an untagged endpoint.
-* Within an endpoint group, only the first tenant-matching endpoint is selected. Multiple matching endpoints aren't load-balanced.
+* Within an endpoint group, only the first tenant-matching endpoint is selected. Multiple matching endpoints are not load-balanced.
 * Tenant filtering applies at gateway startup and hot-reload. Changing an endpoint's tenant tags requires redeploying the API or triggering a sync.
 * Tenant identifiers are case-sensitive and must match exactly between the gateway configuration and endpoint tags.
-* Health checks, metrics, and monitoring reflect only the tenant-eligible endpoints. Tenant-mismatched endpoints don't appear in operational views.
+* Health checks, metrics, and monitoring reflect only the tenant-eligible endpoints. Tenant-mismatched endpoints do not appear in operational views.
 * Tenant objects must be created in the organization before they can be assigned to endpoints. Unknown tenant IDs are displayed as raw strings in the Console.
 * When a gateway with a configured tenant encounters no matching endpoint, the error is logged at WARN level (not ERROR) and the request completes without propagating the exception further. The `KafkaNoApiEndpointFoundException` distinguishes between "no endpoint found for tenant" and "no endpoint found for API" scenarios.

@@ -11,7 +11,7 @@ The Gravitee Kafka Gateway applies Gravitee's API management capabilities direct
 
 With the Kafka Gateway, you can apply [policies](create-and-configure-kafka-apis/configure-kafka-apis/policies.md) on native Kafka topics at runtime. These policies are designed for Kafka-specific use cases. For example, you can easily restrict topic access to approved tenants or require client certificates for mTLS as an additional security layer.
 
-Kafka APIs support multi-tenant endpoint configurations, allowing a single API definition to route to different backend clusters based on gateway tenant assignment. For details, see [Multi-Tenant Endpoint Support](../configure-and-manage-the-platform/manage-organizations-and-environments/support.md).
+Kafka APIs support multi-tenant endpoint configurations, allowing a single API definition to route to different backend clusters based on gateway tenant assignment. For details, see [Multi-tenant endpoint support](create-and-configure-kafka-apis/configure-kafka-apis/endpoints.md#multi-tenant-endpoint-support).
 
 The Kafka Gateway is linked to Gravitee's Developer Portal to facilitate topic availability and knowledge sharing. For example, you can publish [documentation](create-and-configure-kafka-apis/configure-kafka-apis/documentation.md) on Kafka topics, infrastructure, and client connections, or use a self-service mechanism to manage [subscriptions](subscriptions.md) to Kafka topics.
 
