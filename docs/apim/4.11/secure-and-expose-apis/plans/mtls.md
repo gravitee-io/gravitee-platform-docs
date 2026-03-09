@@ -77,9 +77,10 @@ The Gateway validates that no conflicting plan types remain in published state. 
 To subscribe to an mTLS plan, the client has to add a certificate to their application. To add a certificate to an application, complete the following steps:
 
 1. In the Console, navigate to **Applications**, and then click a specific application.
-2. Within the application, click the **Tls Configuration** setting. The client certificate is pasted in base64-encoded format.
+2. Within the application, click the **TLS Configuration** setting. The client certificate is pasted in base64-encoded format.
 
-<figure><img src="https://lh7-qw.googleusercontent.com/docsz/AD_4nXc_4L_O2a7U3HCPit9I74v_II5gn7pS-l6uyix2fScJPMusOebtUTmmvHnjL5pVZwOIcKmiRxNOi8uZeumcZTNQzk7VzHhW7tdWZnWNMghyROnJlpbRfXfTkUypSZGmJ2iSejROejRLglgdC-feoXpL5C3G?key=PrMp2J0zWBtqrsqO75zcMw" alt="Screenshot showing Tls configuration"><figcaption><p>Screenshot showing Tls configuration</p></figcaption></figure>
+<!-- TODO: Screenshot of the TLS Configuration panel in the application settings, showing where to paste the client certificate in base64-encoded format -->
+<figure><img src="../../.gitbook/assets/PLACEHOLDER-application-tls-configuration.png" alt="TLS Configuration panel in application settings"><figcaption><p>TLS Configuration panel in application settings</p></figcaption></figure>
 
 {% hint style="warning" %}
 Multiple applications in the same APIM instance may not share client certificates. You cannot save an application's configuration if its client certificate is already associated with another application.

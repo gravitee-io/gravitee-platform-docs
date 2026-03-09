@@ -1,10 +1,12 @@
-### Overview
+# mTLS plans for Kafka native APIs: overview and security model
+
+## Overview
 
 mTLS plan support for Kafka native APIs enables client authentication using X.509 certificates and resolves subscriptions for accurate metrics attribution. Previously, mTLS was blocked for Kafka listeners, forcing users to rely on Keyless plans with TLS context policies that resulted in ANONYMOUS metrics. This feature brings Kafka native APIs to parity with HTTP and message APIs.
 
-### Plan Security Mutual Exclusion
+## Plan Security Mutual Exclusion
 
-Kafka native APIs enforce strict separation between plan security types. You can't mix Keyless, mTLS, and authentication plans (OAuth2, JWT, API Key) in published state. When publishing a plan of one type, all published plans of conflicting types are automatically closed. Multiple plans of the same security type (e.g., two mTLS plans) can coexist.
+Kafka native APIs enforce strict separation between plan security types. You cannot mix Keyless, mTLS, and authentication plans (OAuth2, JWT, API Key) in published state. When publishing a plan of one type, all published plans of conflicting types are automatically closed. Multiple plans of the same security type (for example, two mTLS plans) can coexist.
 
 | Plan Type to Publish | Conflicts With | Allowed With |
 |:---------------------|:---------------|:-------------|
@@ -22,7 +24,6 @@ When attempting to publish conflicting plan types, the system returns one of the
 | Publishing mTLS when Keyless/auth exists | `"A Keyless or authentication plan is already published for the Native API. mTLS plans cannot be combined with Keyless or authentication plans."` |
 | Publishing auth when Keyless/mTLS exists | `"A Keyless or mTLS plan is already published for the Native API. Authentication plans cannot be combined with Keyless or mTLS plans."` |
 
-### Hot-Reload Certificate Management
+## Hot-Reload Certificate Management
 
 Subscription certificates are loaded dynamically without requiring gateway restarts. When a subscription is created or updated with a new certificate, the gateway's trust store manager refreshes its internal state to include the new certificate.
-
