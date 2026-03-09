@@ -1,125 +1,49 @@
-### Overview
+---
+description: An overview about JMS.
+metaLinks:
+  alternates:
+    - jms.md
+---
 
-The JMS endpoint connector enables Gravitee APIM to produce and consume messages from JMS-compliant message brokers. It supports both queue (point-to-point) and topic (publish-subscribe) messaging patterns with configurable authentication, compression, and JNDI lookup. This feature is part of the `apim-connectors-advanced` license pack and was introduced in gravitee-node versions 7.26.0 and 8.0.0-alpha.11.
+# JMS
 
-### Prerequisites
+## Overview
 
-Before configuring a JMS endpoint, ensure the following requirements are met:
+This page discusses the [configuration](jms.md#configuration) and [implementation](jms.md#implementation) of the **JMS** endpoint and includes a [reference](jms.md#reference) section.
 
-* Gravitee APIM version 4.x or later
-* Valid license for `apim-connectors-advanced` pack (includes `apim-en-endpoint-jms` feature)
-* JMS provider client library placed in `./plugins/jms/ext/` directory at runtime
-* Network connectivity to the target JMS broker
+## Configuration
+
+The **JMS** endpoint allows the Gravitee Gateway to produce and consume messages from JMS-compliant message brokers using web-friendly protocols such as HTTP or WebSocket. The Gateway mediates the protocol between the client and the backend. It supports both queue (point-to-point) and topic (publish-subscribe) messaging patterns.
 
 {% hint style="warning" %}
-The JMS endpoint plugin does not bundle JMS provider client libraries. You must place the required JMS provider library in `./plugins/jms/ext/` at runtime.
+The JMS endpoint plugin does not bundle JMS provider client libraries. Place the required JMS provider library in `./plugins/jms/ext/` at runtime.
 {% endhint %}
 
-### Connection Factory Configuration
+### 1. Initial settings
 
-The connection factory establishes the connection to the JMS broker. Three configuration methods are supported:
+Configure the connection factory to establish the connection to the JMS broker:
 
-* **Direct broker URL:** Specify the connection URL directly (e.g., `tcp://localhost:61616`)
-* **Provider-specific properties:** Configure hostname, port, channel, queue manager, or message VPN
-* **JNDI lookup:** Use JNDI to retrieve the connection factory with custom properties
+1. **Connection factory class name:** Enter the fully qualified class name of the JMS `ConnectionFactory` (for example, `org.apache.activemq.ActiveMQConnectionFactory`).
+2. **JMS API version:** Select the JMS specification version:
+   * `V1_1` — Legacy `javax.jms` support
+   * `V2` — Enhanced `javax.jms` with async send
+   * `V3` — Latest `jakarta.jms` specification
+3. **Connection details:** Provide the connection details using one of these methods:
 
-The `apiVersion` property determines the JMS specification version:
+{% tabs %}
+{% tab title="Direct broker URL" %}
+Enter the broker URL directly (for example, `tcp://localhost:61616`).
+{% endtab %}
 
-* `V1_1`: Legacy `javax.jms` support
-* `V2`: Enhanced `javax.jms` with async send
-* `V3`: Latest `jakarta.jms` specification
+{% tab title="Provider-specific properties" %}
+Configure provider-specific properties such as hostname, port, channel, queue manager, or message VPN. The required properties depend on your JMS provider. For details, see the [supported providers](jms.md#supported-jms-providers) reference section.
+{% endtab %}
 
-#### Connection Factory Properties
+{% tab title="JNDI lookup" %}
+Use JNDI to retrieve the connection factory. Provide the following:
 
-| Property | Description | Example |
-|:---------|:------------|:--------|
-| `connectionFactory.connectionFactoryClassName` | Fully qualified class name of the JMS ConnectionFactory | `org.apache.activemq.ActiveMQConnectionFactory` |
-| `connectionFactory.apiVersion` | JMS API version: `V1_1`, `V2`, or `V3` | `V2` |
-| `connectionFactory.brokerUrl` | Connection URL with optional query parameters | `tcp://localhost:61616?property=value` |
-| `connectionFactory.hostname` | Hostname or IP address of the MQ broker | `broker.example.com` |
-| `connectionFactory.port` | Port number on which the MQ broker is listening | `61616` |
-| `connectionFactory.channel` | MQ client channel name | `DEV.APP.SVRCONN` |
-| `connectionFactory.queueManager` | Queue manager name | `QM1` |
-| `connectionFactory.messageVpn` | Solace Message VPN (logical namespace) | `default` |
-| `connectionFactory.useCompression` | Enable message compression | `false` |
-| `connectionFactory.compressionLevel` | Compression level (0-9, higher = stronger) | `0` |
-| `connectionFactory.jndiLookupName` | JNDI object name to look up | `ConnectionFactory` |
-| `connectionFactory.jndiConfig` | JNDI properties in `jndi.properties` format | See JNDI example below |
-| `connectionFactory.customProperties` | Additional key-value properties passed to the connection factory | `[{"key": "timeout", "value": "5000"}]` |
-
-All configuration properties use the attribute prefix `gravitee.attributes.endpoint.jms`.
-
-### Producer Configuration
-
-Producer mode sends messages to a destination with configurable message type and optional message ID prefix.
-
-| Property | Description | Example |
-|:---------|:------------|:--------|
-| `producer.enabled` | Enable producer capability | `true` |
-| `producer.destinationType` | Destination type: `QUEUE` or `TOPIC` | `QUEUE` |
-| `producer.destinationName` | Name of the queue or topic | `demo.queue` |
-| `producer.targetMessageType` | Message type: `TEXT` or `BYTES` | `TEXT` |
-| `producer.messageIdPrefix` | Prefix to append to message IDs | `api-` |
-
-### Consumer Configuration
-
-Consumer mode receives messages from a destination with support for durable subscriptions on topics and message ID prefix stripping.
-
-| Property | Description | Example |
-|:---------|:------------|:--------|
-| `consumer.enabled` | Enable consumer capability | `true` |
-| `consumer.destinationType` | Destination type: `QUEUE` or `TOPIC` | `TOPIC` |
-| `consumer.destinationName` | Name of the queue or topic | `demo.topic` |
-| `consumer.durableSubscription` | Enable durable subscription (topics only) | `false` |
-| `consumer.messageIdPrefix` | Prefix to strip from received message IDs | `api-` |
-
-### Security Configuration
-
-| Property | Description | Example |
-|:---------|:------------|:--------|
-| `security.auth.username` | Authentication username (supports EL and secrets) | `admin` |
-| `security.auth.password` | Authentication password (supports EL and secrets) | `{#secrets['jms-password']}` |
-
-### Topic Client ID Resolution
-
-Topic consumers use either shared or exclusive connections based on client ID and durability settings:
-
-| Scenario | Connection Type |
-|:---------|:----------------|
-| Non-durable topic, no client ID | Shared connection |
-| Non-durable topic, client ID provided | Exclusive connection |
-| Durable topic, no client ID | Exclusive connection (UUID auto-generated) |
-| Durable topic, client ID provided | Exclusive connection |
-
-Client ID is resolved from the context attribute `gravitee.attribute.jms.clientId` (if set via policy) or the request client identifier. Queue consumers always use shared connections regardless of client ID.
-
-### Creating a JMS Endpoint
-
-Configure a JMS endpoint in the API definition by specifying the endpoint type as `jms` and providing connection factory details.
-
-1. Set the `connectionFactoryClassName` to match your JMS provider (e.g., `org.apache.activemq.ActiveMQConnectionFactory` for ActiveMQ Classic).
-2. Choose the appropriate `apiVersion` (`V2` for `javax.jms` or `V3` for `jakarta.jms`).
-3. Provide connection details via `brokerUrl` or provider-specific properties (hostname, port, channel, queueManager).
-4. Enable producer or consumer capabilities in `sharedConfigurationOverride` with the destination type and name.
-5. Add authentication credentials under `security.auth` if required.
-
-All string properties support EL expressions for dynamic configuration (e.g., `{#request.headers['destination'][0]}`).
-
-#### Example: Produce Messages to Queue
-
-#### Example: Consume Messages from Topic
-
-### Configuring JNDI Lookup
-
-To use JNDI for connection factory lookup, provide the JNDI configuration in `jndi.properties` format under `connectionFactory.jndiConfig`.
-
-1. Specify the initial context factory class (e.g., `org.apache.activemq.jndi.ActiveMQInitialContextFactory`).
-2. Set the provider URL to the broker connection string.
-3. Define the connection factory name in `connectionFactoryNames`.
-4. Optionally map queue and topic names using `queue.` and `topic.` prefixes.
-5. Set `jndiLookupName` to the object name to retrieve (defaults to `ConnectionFactory`).
-
-#### JNDI Configuration Format
+1. **JNDI lookup name:** The JNDI object name to look up (defaults to `ConnectionFactory`).
+2. **JNDI configuration:** JNDI properties in `jndi.properties` format. For example:
 
 ```properties
 java.naming.factory.initial=org.apache.activemq.jndi.ActiveMQInitialContextFactory
@@ -129,29 +53,157 @@ queue.MyQueue=example.MyQueue
 topic.MyTopic=example.MyTopic
 ```
 
-#### JNDI Lookup Protocol Restrictions
+3. **Custom properties:** Optional key-value pairs that override or append to the JNDI configuration. Supports EL expressions.
+{% endtab %}
+{% endtabs %}
 
-The JNDI lookup name is validated against allowed protocols: `tcp`, `ssl`, `tls`, `smf`, `smfs`, `amqp`, `amqps`.
+### 2. Role
 
-Disallowed protocols (`ldap`, `rmi`, `iiop`, `http`, `https`, `dns`, `corba`, `nis`) will trigger validation errors:
+Tell the Gravitee Gateway's JMS client to act as a producer, a consumer, or both a producer and consumer. Choose **Use Consumer**, **Use Producer**, or **Use Consumer and Producer** from the drop-down menu to do one of the following:
 
-* `"JNDI lookup name cannot be null or blank"` — when lookup name is null, empty, or whitespace
-* `"JNDI lookup name contains disallowed protocol: {lookupName}"` — when protocol is not whitelisted
+* **Use Producer:** Tells the Gateway JMS client to be prepared to produce messages and send them to the JMS broker that you define as your endpoint
+* **Use Consumer:** Tells the Gateway JMS client to be prepared to consume messages from the JMS broker that you define as your endpoint
+* **Use Producer and Consumer:** Tells the Gateway JMS client to both **Use Producer** and **Use Consumer**
 
-### Supported JMS Providers
+### 3. Initial security settings
 
-| Provider | JMS 2.x Class Name | JMS 3.x Class Name |
-|:---------|:-------------------|:-------------------|
-| ActiveMQ Classic | `org.apache.activemq.ActiveMQConnectionFactory` | `org.apache.activemq.ActiveMQConnectionFactory` |
+Enter the username and password for JMS broker authentication. Both fields support EL expressions and Gravitee secrets (for example, `{#secrets['jms-password']}`).
+
+### 4. Role settings
+
+If you chose **Use Producer** or **Use Producer and Consumer**, define the settings that the Gravitee Gateway JMS client relies on for producing messages to your backend JMS broker.
+
+If you chose **Use Consumer** or **Use Producer and Consumer**, define the settings that the Gravitee Gateway JMS client relies on for consuming messages from your backend JMS broker.
+
+{% tabs %}
+{% tab title="Producer" %}
+Define the following:
+
+1. **Destination type:** Select `queue` or `topic`.
+2. **Destination name:** Enter the name of the queue or topic.
+3. **Target message type:** Select `TEXT` or `BYTES` (defaults to `TEXT`).
+4. **Message ID prefix:** Optional. Enter a prefix to append to message IDs.
+{% endtab %}
+
+{% tab title="Consumer" %}
+Define the following:
+
+1. **Destination type:** Select `queue` or `topic`.
+2. **Destination name:** Enter the name of the queue or topic.
+3. **Durable subscription:** Enable durable subscription for topic destinations. This setting only applies to topics.
+4. **Message ID prefix:** Optional. Enter a prefix to strip from received message IDs.
+{% endtab %}
+{% endtabs %}
+
+## Implementation
+
+### Topic client ID resolution
+
+Topic consumers use either shared or exclusive connections based on client ID and durability settings:
+
+| Scenario                              | Connection type                          |
+| ------------------------------------- | ---------------------------------------- |
+| Non-durable topic, no client ID       | Shared connection                        |
+| Non-durable topic, client ID provided | Exclusive connection                     |
+| Durable topic, no client ID           | Exclusive connection (UUID auto-generated) |
+| Durable topic, client ID provided     | Exclusive connection                     |
+
+The client ID is resolved from the context attribute `gravitee.attribute.jms.clientId` (if set via policy) or the request client identifier. Queue consumers always use shared connections regardless of client ID.
+
+### Dynamic configuration
+
+All string properties support EL expressions for dynamic configuration. For example:
+
+```json
+{
+  "consumer": {
+    "destinationName": "{#request.headers['destination'][0]}"
+  }
+}
+```
+
+Override configuration using context attributes (via the assign-attribute policy). Attributes use the prefix `gravitee.attributes.endpoint.jms` followed by the property path (for example, `gravitee.attributes.endpoint.jms.consumer.destinationName`).
+
+## Reference
+
+Refer to the following sections for additional details.
+
+### Compatibility matrix
+
+| Plugin version | APIM version  |
+| -------------- | ------------- |
+| 1.x            | 4.x to latest |
+
+### Endpoint identifier
+
+To use this plugin, declare the `jms` identifier when configuring your API endpoints.
+
+### Supported JMS providers
+
+| Provider         | JMS 2.x class name                                                | JMS 3.x class name                                                |
+| ---------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| ActiveMQ Classic | `org.apache.activemq.ActiveMQConnectionFactory`                    | `org.apache.activemq.ActiveMQConnectionFactory`                    |
 | ActiveMQ Artemis | `org.apache.activemq.artemis.jms.client.ActiveMQConnectionFactory` | `org.apache.activemq.artemis.jms.client.ActiveMQConnectionFactory` |
-| IBM MQ | `com.ibm.mq.jms.MQConnectionFactory` | `com.ibm.mq.jakarta.jms.MQConnectionFactory` |
-| Solace | `com.solacesystems.jms.SolConnectionFactory` | N/A |
+| IBM MQ           | `com.ibm.mq.jms.MQConnectionFactory`                               | `com.ibm.mq.jakarta.jms.MQConnectionFactory`                       |
+| Solace           | `com.solacesystems.jms.SolConnectionFactory`                       | N/A                                                                |
+
+### Endpoint configuration
+
+#### Connection factory configuration
+
+| Property | Description | Default | Required |
+| -------- | ----------- | ------- | -------- |
+| `connectionFactoryClassName` | Fully qualified class name of the JMS `ConnectionFactory` | N/A | Yes |
+| `apiVersion` | JMS API version: `V1_1`, `V2`, or `V3` | N/A | Yes |
+| `brokerUrl` | Connection URL with optional query parameters | N/A | No |
+| `hostname` | Hostname or IP address of the MQ broker | N/A | No |
+| `port` | Port number on which the MQ broker is listening | N/A | No |
+| `channel` | MQ client channel name | N/A | No |
+| `queueManager` | Queue manager name | N/A | No |
+| `messageVpn` | Solace Message VPN | N/A | No |
+| `useCompression` | Enable message compression | `false` | No |
+| `compressionLevel` | Compression level (0-9, higher = stronger) | `0` | No |
+| `jndiLookupName` | JNDI object name to look up | `ConnectionFactory` | No |
+| `jndiConfig` | JNDI properties in `jndi.properties` format | N/A | No |
+| `customProperties` | Additional key-value properties passed to the connection factory | `[]` | No |
+
+#### Producer configuration
+
+| Property | Description | Default | Required |
+| -------- | ----------- | ------- | -------- |
+| `producer.enabled` | Enable producer capability | `false` | No |
+| `producer.destinationType` | Destination type: `queue` or `topic` | N/A | Yes (if enabled) |
+| `producer.destinationName` | Name of the queue or topic | N/A | Yes (if enabled) |
+| `producer.targetMessageType` | Message type: `TEXT` or `BYTES` | `TEXT` | No |
+| `producer.messageIdPrefix` | Prefix to append to message IDs | N/A | No |
+
+#### Consumer configuration
+
+| Property | Description | Default | Required |
+| -------- | ----------- | ------- | -------- |
+| `consumer.enabled` | Enable consumer capability | `false` | No |
+| `consumer.destinationType` | Destination type: `queue` or `topic` | N/A | Yes (if enabled) |
+| `consumer.destinationName` | Name of the queue or topic | N/A | Yes (if enabled) |
+| `consumer.durableSubscription` | Enable durable subscription (topics only) | `false` | No |
+| `consumer.messageIdPrefix` | Prefix to strip from received message IDs | N/A | No |
+
+#### Security configuration
+
+| Property | Description | Default | Required |
+| -------- | ----------- | ------- | -------- |
+| `security.auth.username` | Authentication username (supports EL and secrets) | N/A | No |
+| `security.auth.password` | Authentication password (supports EL and secrets) | N/A | No |
+
+### JNDI lookup protocol restrictions
+
+The JNDI lookup name is validated against the following allowed protocols: `tcp`, `ssl`, `tls`, `smf`, `smfs`, `amqp`, `amqps`.
+
+Disallowed protocols (`ldap`, `rmi`, `iiop`, `http`, `https`, `dns`, `corba`, `nis`) trigger validation errors.
 
 ### Restrictions
 
-* Plugin version 1.x requires Gravitee APIM 4.x or later
 * JMS provider client libraries are not bundled and must be placed in `./plugins/jms/ext/` at runtime
-* JNDI lookup names are restricted to protocols: `tcp`, `ssl`, `tls`, `smf`, `smfs`, `amqp`, `amqps`
+* JNDI lookup names are restricted to the protocols listed above
 * Durable subscriptions are only supported for topic destinations
-* Client ID attribute (`gravitee.attribute.jms.clientId`) is only used for topic destinations; queue consumers always use shared connections
-* Compression level must be between 0 and 9
+* The client ID attribute (`gravitee.attribute.jms.clientId`) is only used for topic destinations; queue consumers always use shared connections
+* Compression level accepts values between 0 and 9

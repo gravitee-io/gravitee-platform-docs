@@ -63,7 +63,7 @@
 * Enables Gravitee APIM to produce and consume messages from JMS-compliant brokers (ActiveMQ, IBM MQ, Solace, etc.) using queue or topic messaging patterns.
 * Supports multiple connection factory configuration methods: direct broker URL, provider-specific properties (hostname/port/channel), or JNDI lookup with custom properties.
 * Configurable for producer mode (send messages with TEXT or BYTES format), consumer mode (receive messages with durable subscription support), or both capabilities simultaneously on the same endpoint.
-* Requires `apim-connectors-advanced` license pack and JMS provider client library placed in `./plugins/jms/ext/` directory.
+* Requires `event-native` license pack and JMS provider client library placed in `./plugins/jms/ext/` directory.
 * Topic consumers use shared or exclusive connections based on client ID and durability settings; queue consumers always use shared connections.
 <!-- /PIPELINE:APIM-13008 -->
 
