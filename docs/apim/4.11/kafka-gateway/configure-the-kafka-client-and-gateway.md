@@ -233,7 +233,7 @@ For plan, application, subscription, and resource information, see the following
 
 ### Plan security mutual exclusion
 
-Kafka native APIs enforce strict separation between plan security types. You cannot mix Keyless, mTLS, and authentication plans (OAuth2, JWT, API Key) in published state. When you publish a plan of one type, all published plans of conflicting types are automatically closed. Multiple plans of the same security type (e.g., two mTLS plans) can coexist.
+Kafka native APIs enforce strict separation between plan security types. You cannot mix Keyless, mTLS, and authentication plans (OAuth2, JWT, API Key) in published state. When you publish a plan of one type, all published plans of conflicting types are automatically closed. Multiple plans of the same security type (for example, two mTLS plans) can coexist.
 
 | Plan Type | Can Coexist With | Conflicts With |
 |:----------|:-----------------|:---------------|
