@@ -61,6 +61,7 @@ Mediate, expose, and secure asynchronous event streams by connecting to advanced
 | Endpoint   | [MQTT5](../create-and-configure-apis/configure-v4-apis/endpoints/mqtt5.md)                                   | Publish and subscribe to messages on an MQTT 5.x broker (e.g., HiveMQ, Mosquitto).                                 |
 | Endpoint   | [RabbitMQ](../create-and-configure-apis/configure-v4-apis/endpoints/rabbitmq.md)                             | Communicate seamlessly with a RabbitMQ resource using the AMQP 0-9-1 protocol.                                     |
 | Endpoint   | [Solace](../create-and-configure-apis/configure-v4-apis/endpoints/solace.md)                                 | Publish and subscribe to messages on a Solace broker using the SMF protocol.                                       |
+| Endpoint   | [JMS](../create-and-configure-apis/configure-v4-apis/endpoints/jms.md)                                       | Publish and subscribe to JMS messages from compliant brokers such as ActiveMQ, IBM MQ, and Solace.                 |
 | Resource   | Confluent Schema Registry                                                                                    | Enterprise resource that fetches serialization and deserialization data directly from a Confluent schema registry. |
 
 ## AI Agent Management
