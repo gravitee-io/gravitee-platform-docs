@@ -1,24 +1,27 @@
+### Overview
+The Client Certificates API allows you to programmatically manage X.509 PEM certificates used for application authentication. Through this interface, you can automate the lifecycle of certificates,including creation, metadata updates, retrieval, and deletion—within a specific environment.
+
 ### Prerequisites
 
-Before managing client certificates via API, ensure the following:
+Before managing client certificates using the Client Certirficates API, ensure you meet the following requirements:
 
-* The application exists in the environment
-* You have `APPLICATION_DEFINITION[CREATE]` permission to add certificates
-* You have `APPLICATION_DEFINITION[UPDATE]` permission to modify certificates
-* You have `APPLICATION_DEFINITION[DELETE]` permission to remove certificates
-* The certificate is in valid X.509 PEM format
+* The application exists in the environment.
+* You have `APPLICATION_DEFINITION[CREATE]` permission to add certificates.
+* You have `APPLICATION_DEFINITION[UPDATE]` permission to modify certificates.
+* You have `APPLICATION_DEFINITION[DELETE]` permission to remove certificates.
+* The certificate is in valid X.509 PEM format.
 
 ### Gateway Configuration
 
 <!-- EMPTY: Gateway Configuration -->
 
-### Creating a Client Certificate
+### Create a Client Certificate
 
 To create a certificate, send a POST request to `/applications/{application}/certificates` with a JSON body.
 
 **Required fields:**
 
-* `name` (string, max 255 characters)
+* `name`. The maximum character limit is 255 characters.
 * `certificate` (string, PEM format)
 
 **Optional fields:**
@@ -26,7 +29,7 @@ To create a certificate, send a POST request to `/applications/{application}/cer
 * `startsAt` (date)
 * `endsAt` (date)
 
-The gateway processes the request in four steps:
+The gateway processes the request in the following steps:
 
 1. **PEM parsing**: The gateway parses the PEM block to extract subject, issuer, and expiration metadata.
 2. **Fingerprint computation and uniqueness check**: The gateway computes a SHA-256 fingerprint and checks for uniqueness across active applications in the environment. Certificates with `REVOKED` status and applications with `ARCHIVED` status are excluded from this check.
@@ -41,13 +44,15 @@ The certificate content itself cannot be modified. To replace a certificate, cre
 
 Updates to `startsAt` or `endsAt` trigger status recalculation, potentially transitioning the certificate between `ACTIVE`, `ACTIVE_WITH_END`, `SCHEDULED`, and `REVOKED` states.
 
-### Deleting a Client Certificate
-
+### Delete a Client Certificate
+{% hint style="warning" %}
+Deleting an application cascades to all associated certificates
+{% endhint %}
 To remove a certificate, send a DELETE request to `/applications/{application}/certificates/{certId}`.
 
 Deletion is immediate and cannot be undone. If the application is deleted, all associated certificates are automatically removed via cascade deletion.
 
-### Listing Certificates
+### List Certificates
 
 To retrieve all certificates for an application, send a GET request to `/applications/{application}/certificates`.
 
@@ -55,13 +60,5 @@ Results are paginated with 1-indexed page numbers (e.g., `?page=1`). The gateway
 
 Each certificate in the response includes full metadata: `id`, `crossId`, `applicationId`, `name`, `startsAt`, `endsAt`, `createdAt`, `updatedAt`, `certificate` (PEM), `certificateExpiration`, `subject`, `issuer`, `fingerprint`, `environmentId`, `organizationId`, and `status`.
 
-### Restrictions
 
-* Certificate fingerprints (SHA-256) must be unique across active applications in the same environment
-* Certificate content cannot be updated after creation — rotation requires creating a new certificate and deleting the old one
-* Certificates must be in valid X.509 PEM format
-* `name` field is limited to 255 characters
-* Pagination uses 1-indexed page numbers in API requests, converted to 0-indexed internally
-* Certificates with `REVOKED` status are excluded from uniqueness checks
-* Applications with `ARCHIVED` status are excluded from uniqueness checks
-* Deleting an application cascades to all associated certificates
+
