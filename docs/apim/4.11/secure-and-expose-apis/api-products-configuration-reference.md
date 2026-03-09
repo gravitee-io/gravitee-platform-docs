@@ -1,8 +1,8 @@
-### Gateway Configuration
+# API Products configuration reference
 
+## Gateway Configuration
 
-
-#### API Product Entity Properties
+### API Product Entity Properties
 
 | Property | Type | Default | Description |
 |:---------|:-----|:--------|:------------|
@@ -19,13 +19,13 @@
 | `primaryOwner` | PrimaryOwner | (required) | Primary owner of the API Product |
 | `deploymentState` | enum | null | Deployment sync state: `NEED_REDEPLOY` or `DEPLOYED` |
 
-#### API Configuration for Product Eligibility
+### API Configuration for Product Eligibility
 
 | Property | Type | Default | Description |
 |:---------|:-----|:--------|:------------|
 | `allowedInApiProducts` | boolean | null | Enables API inclusion in API Products; only applicable to V4 HTTP Proxy APIs |
 
-#### Plan Configuration
+### Plan Configuration
 
 | Property | Type | Default | Description |
 |:---------|:-----|:--------|:------------|
