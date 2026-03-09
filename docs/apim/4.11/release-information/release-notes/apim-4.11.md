@@ -42,7 +42,7 @@
 
 * Reduces LLM token consumption and API latency by caching responses based on semantic meaning rather than exact text matching.
 * Uses AI text embedding models and vector stores to identify semantically similar prompts, even when phrased differently, and returns cached results when similarity exceeds the configured threshold.
-* Supports cache partitioning via metadata parameters (e.g., API, plan, user ID) to ensure context-appropriate responses for identical queries from different users.
+* Supports cache partitioning via metadata parameters (for example, API, plan, user ID) to ensure context-appropriate responses for identical queries from different users.
 * Requires an AI text embedding model resource (ONNX BERT, OpenAI, or HTTP provider) and a vector store resource (Redis or AWS S3) with compatible embedding dimensions.
 * Available exclusively on LLM Proxy APIs deployed with Agent Mesh.
 <!-- /PIPELINE:APIM-12437 -->

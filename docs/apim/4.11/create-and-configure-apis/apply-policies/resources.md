@@ -7,7 +7,6 @@ metaLinks:
 
 # Resources
 
-<final_file>
 ## Overview
 
 The following sections summarize resource descriptions, configuration parameters, and configuration examples.

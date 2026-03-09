@@ -1,4 +1,6 @@
-### Overview
+# AI Semantic Caching policy
+
+## Overview
 
 AI Semantic Caching reduces LLM token consumption and API latency by caching responses based on semantic meaning rather than exact text matching. When a user submits a query that is semantically equivalent to a previously processed prompt—even if phrased differently—the policy serves the cached result without invoking the LLM backend. This policy is available exclusively on LLM Proxy APIs and requires an embedding model resource and a vector store resource.
 
@@ -6,13 +8,13 @@ AI Semantic Caching reduces LLM token consumption and API latency by caching res
 AI Semantic Caching is available in Gravitee Enterprise Edition and requires Agent Mesh deployment.
 {% endhint %}
 
-### Key Concepts
+## Key Concepts
 
-#### Semantic Matching
+### Semantic Matching
 
 Traditional caching relies on exact text matching, resulting in cache misses when users rephrase queries. Semantic caching converts prompts into vector embeddings using an AI text embedding model, then searches a vector store for semantically similar queries. If a match exceeds the configured similarity threshold, the cached response is returned immediately. Similarity is measured using configurable metrics (cosine, euclidean, or dot product).
 
-#### Cache Lifecycle
+### Cache Lifecycle
 
 The policy operates in two phases:
 
@@ -28,11 +30,11 @@ The policy operates in two phases:
 2. The stored entry includes the embedding, response body, headers, status code, token usage, and user-defined metadata.
 3. If `allowEviction` is enabled, an `expireAt` timestamp is calculated and stored.
 
-#### Metadata and Partitioning
+### Metadata and Partitioning
 
-Each cached vector includes metadata such as response headers, status code, token usage, and user-defined parameters. Parameters are key-value pairs extracted via EL expressions and can be encoded (hashed using MurmurHash3) to partition the cache by sensitive attributes like API, plan, or user ID. This ensures that semantically identical prompts from different contexts (e.g., "Give me my balance" from different users) retrieve context-appropriate cached results.
+Each cached vector includes metadata such as response headers, status code, token usage, and user-defined parameters. Parameters are key-value pairs extracted via EL expressions and can be encoded (hashed using MurmurHash3) to partition the cache by sensitive attributes like API, plan, or user ID. This ensures that semantically identical prompts from different contexts (for example, "Give me my balance" from different users) retrieve context-appropriate cached results.
 
-### Prerequisites
+## Prerequisites
 
 - LLM Proxy API (semantic caching is not available on standard v4 APIs)
 - Agent Mesh deployment
@@ -40,9 +42,9 @@ Each cached vector includes metadata such as response headers, status code, toke
 - Vector store resource configured (Redis or AWS S3)
 - Embedding model and vector store must use compatible embedding dimensions
 
-### Gateway Configuration
+## Gateway Configuration
 
-#### Policy Configuration
+### Policy Configuration
 
 | Property | Description | Example |
 |:---------|:------------|:--------|
@@ -52,7 +54,7 @@ Each cached vector includes metadata such as response headers, status code, toke
 | `cacheCondition` | EL expression determining whether the response is cacheable (default: `{#response.status >= 200 && #response.status < 300}`) | `"{#response.status >= 200}"` |
 | `parameters` | Array of metadata parameters to store with the vector | See Parameter Configuration below |
 
-#### Parameter Configuration
+### Parameter Configuration
 
 | Property | Description | Example |
 |:---------|:------------|:--------|
@@ -69,24 +71,24 @@ Each cached vector includes metadata such as response headers, status code, toke
 }
 ```
 
-### Creating a Semantic Caching Flow
+## Creating a Semantic Caching Flow
 
 Configure the policy in the request phase of an LLM Proxy API flow:
 
 1. Create or select an AI text embedding model resource and a vector store resource.
 2. Add the AI Semantic Caching policy to the request phase.
 3. Set `modelName` to the embedding model resource name and `vectorStoreName` to the vector store resource name.
-4. (Optional) Customize `promptExpression` to extract the relevant prompt content (e.g., using JSONPath for chat message arrays).
+4. (Optional) Customize `promptExpression` to extract the relevant prompt content (for example, using JSONPath for chat message arrays).
 5. (Optional) Configure `parameters` to partition the cache by API, plan, user, or other context attributes.
 6. Deploy the API.
 
 On the first request, the policy will generate an embedding, find no match, invoke the backend, and cache the response. Subsequent semantically similar requests will return the cached result.
 
-### Embedding Model Configuration
+## Embedding Model Configuration
 
 For detailed configuration of embedding model resources, see the AI text embedding model resource documentation.
 
-#### ONNX BERT Provider
+### ONNX BERT Provider
 
 | Property | Description | Example |
 |:---------|:------------|:--------|
@@ -96,7 +98,7 @@ For detailed configuration of embedding model resources, see the AI text embeddi
 
 All ONNX BERT models support a maximum sequence length of 512 tokens.
 
-#### OpenAI Provider
+### OpenAI Provider
 
 | Property | Description | Example |
 |:---------|:------------|:--------|
@@ -108,7 +110,7 @@ All ONNX BERT models support a maximum sequence length of 512 tokens.
 | `dimensions` | Optional embedding dimensions (must be non-negative) | `1536` |
 | `encodingFormat` | Encoding format | `FLOAT` or `BASE64` |
 
-#### HTTP Provider
+### HTTP Provider
 
 | Property | Description | Example |
 |:---------|:------------|:--------|
@@ -119,11 +121,11 @@ All ONNX BERT models support a maximum sequence length of 512 tokens.
 | `inputLocation` | JSONPath or location for input in request | |
 | `outputEmbeddingLocation` | JSONPath or location for embedding in response | |
 
-### Vector Store Configuration
+## Vector Store Configuration
 
 For detailed configuration of vector store resources, see the vector store resource documentation.
 
-#### AWS S3 Vector Store
+### AWS S3 Vector Store
 
 | Property | Description | Example |
 |:---------|:------------|:--------|
@@ -144,7 +146,7 @@ For detailed configuration of vector store resources, see the vector store resou
 | `properties.evictTime` | Time before eviction | `0` |
 | `properties.evictTimeUnit` | Time unit for eviction | `SECONDS` |
 
-#### Redis Vector Store
+### Redis Vector Store
 
 | Property | Description | Example |
 |:---------|:------------|:--------|
@@ -163,7 +165,7 @@ For detailed configuration of vector store resources, see the vector store resou
 | `redisConfig.vectorStoreConfig.initialCapacity` | Initial capacity | `5` |
 | `redisConfig.vectorStoreConfig.blockSize` | Block size | `10` |
 
-### Metrics
+## Metrics
 
 The policy emits the following metrics:
 
@@ -175,7 +177,7 @@ The policy emits the following metrics:
 | `cache-miss` | long | Set to `1` when cache miss occurs |
 | `cache-error` | long | Set to `1` when error occurs during caching |
 
-### Restrictions
+## Restrictions
 
 - **LLM Proxy API only**: Semantic caching is not available on standard v4 APIs.
 - **Agent Mesh required**: The policy requires Agent Mesh deployment.
