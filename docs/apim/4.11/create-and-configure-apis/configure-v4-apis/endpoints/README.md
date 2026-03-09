@@ -46,7 +46,7 @@ Use the arrow keys to select a value for the weight.
 
 **4. Allow in API Products**
 
-Toggle **Allow in API Products** to enable this API to be included in API Products. This option is only available for V4 HTTP Proxy APIs and cannot be changed once the API is added to an API Product. The toggle is unavailable for read-only APIs (e.g., Kubernetes-managed).
+Toggle **Allow in API Products** to enable this API to be included in API Products. This option is only available for V4 HTTP Proxy APIs and cannot be changed once the API is added to an API Product. The toggle is unavailable for read-only APIs (for example, Kubernetes-managed APIs).
 {% endtab %}
 
 {% tab title="Configuration" %}
