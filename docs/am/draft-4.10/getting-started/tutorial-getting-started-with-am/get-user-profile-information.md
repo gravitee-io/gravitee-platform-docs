@@ -5,7 +5,7 @@
 After you have [set up your first application](set-up-your-first-application.md), you can retrieve user profile information with OpenID Connect.
 
 {% hint style="info" %}
-For more information on OpenID Connect and OAuth2, see [Authorization in AM.](../../#authorization-in-am)
+For more information on OpenID Connect and OAuth2, see [Authorization in AM.](../../../4.10/#authorization-in-am)
 {% endhint %}
 
 In this example, we will use the [Resource Owner Password Credentials flow](https://tools.ietf.org/html/rfc6749#section-1.3.3). You use it to obtain and verify user identities for your applications by issuing [ID Tokens](http://openid.net/specs/openid-connect-core-1_0.html#IDToken) or calling the [UserInfo Endpoint](http://openid.net/specs/openid-connect-core-1_0.html#UserInfo). The default flow is the [Authorization Code flow](https://tools.ietf.org/html/rfc6749#section-1.3.1) with a login page displayed to the end user.
@@ -21,10 +21,14 @@ You can retrieve an ID Token by requesting an access token with a specific `open
 1. [Log in to AM Console](login-to-am-console.md).
 2. Click **Applications**.
 3. Click the application, then click the **Settings** tab.
-4.  Click **OAuth 2.0 / OIDC**.
+4. Click **OAuth 2.0 / OIDC**.
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/quickstart-applications-oauth2.png" alt=""><figcaption><p>Application grant flows</p></figcaption></figure>
-5. In the **Scopes** section, select **openid** from the **Scope** drop-down menu and click **+ADD**.
+<figure><img src="../../../4.10/.gitbook/assets/image (37).png" alt=""><figcaption><p>Application OAuth 2.0/OIDC grant flows</p></figcaption></figure>
+
+5. In the **Scopes** section, click **+ADD SCOPES**, and select **openid** from the drop-down menu and click **Add**.
+
+<figure><img src="../../../4.10/.gitbook/assets/image (38).png" alt=""><figcaption></figcaption></figure>
+
 6. Scroll to the bottom of the page and click **SAVE**.
 
 ### Get an ID Token with AM API
@@ -53,7 +57,7 @@ curl -L -X POST 'http://GRAVITEEIO-AM-GATEWAY-HOST/:domainPath/oauth/token' \
 | password       | **REQUIRED.** User’s password.              |
 | scope          | **REQUIRED.** Set the value to `openid`.    |
 
-If it works correctly, you will see the following response:
+If configured correctly, you will see the following successful response:
 
 {% code overflow="wrap" %}
 ```sh
@@ -88,9 +92,10 @@ ID Tokens must contain at least the following [required claims](http://openid.ne
 Finally, you need to have the ID Token signed by AM.
 
 1. In AM Console, click **Settings**.
-2.  In the **Security** section, click **Certificates**.
+2. In the **Security** section, click **Certificates**.
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/quickstart-applications-certificates.png" alt=""><figcaption><p>AM Certificates</p></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/image (39).png" alt=""><figcaption><p>Certificates</p></figcaption></figure>
+
 3. Retrieve your public key by clicking the key icon.
 4. Copy the signature and use a JWT library to verify it.
 
@@ -133,10 +138,11 @@ The identity provider serves default claims such as the user’s `username`, `gi
 
 1. In AM Console, click **Settings > Providers**.
 2. Select your identity provider settings, then click the **User mappers** tab.
-3.  Map new custom claims with user attributes contained in your user data store.
+3. Map new custom claims with user attributes contained in your user data store.
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-quickstart-profile-user-mappers.png" alt=""><figcaption><p>Add new user information</p></figcaption></figure>
-4. Custom user attributes will be available in the UserInfo Endpoint response.
+<figure><img src="../../../4.10/.gitbook/assets/image (40).png" alt=""><figcaption><p>Configure User Mapping of fields</p></figcaption></figure>
+
+4. Custom user attributes will now be available in the UserInfo Endpoint response.
 
 {% hint style="info" %}
 You can find more information about User mapping in the [User and role mapping](../../guides/identity-providers/user-and-role-mapping.md) section.

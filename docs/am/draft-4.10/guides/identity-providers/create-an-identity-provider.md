@@ -16,25 +16,29 @@ In this example, we are creating an inline identity provider.
 1. Log in to AM Console.
 2. Click **Settings > Providers**.
 3. In the Providers page, click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
-4.  Choose an **Inline** identity provider type and click **Next**.
+4. Choose an **Inline** identity provider type and click **Next**.
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-quickstart-idp-type.png" alt=""><figcaption><p>Inline IdP</p></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/image (61).png" alt=""><figcaption><p>Select an Identity Provider to add</p></figcaption></figure>
+
 5. Give your identity provider a **Name**.
-6.  Add as many users as required, by clicking **Add User** for each new user, then click **Create**.
+6. Add as many users as required, by clicking **Add User** for each new user, then click **Create**.
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-quickstart-create-idp.png" alt=""><figcaption><p>Add user to IdP</p></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/image (62).png" alt=""><figcaption></figcaption></figure>
 
-    <pre class="language-sh" data-overflow="wrap"><code class="lang-sh">curl -H "Authorization: Bearer :accessToken" \
-         -H "Content-Type:application/json;charset=UTF-8" \
-         -X POST \
-         -d '{
-               "external": false,
-               "type": "inline-am-idp",
-               "configuration": "{\"users\":[{\"firstname\":\"John\",\"lastname\":\"Doe\",\"username\":\"johndoe\",\"password\":\"johndoepassword\"}]}",
-               "name": "Inline IdP"
-             }' \
-         http://GRAVITEEIO-AM-MGT-API-HOST/management/organizations/DEFAULT/environments/DEFAULT/domains/:securityDomainPath/identities
-    </code></pre>
+{% code overflow="wrap" %}
+```sh
+curl -H "Authorization: Bearer :accessToken" \
+     -H "Content-Type:application/json;charset=UTF-8" \
+     -X POST \
+     -d '{
+           "external": false,
+           "type": "inline-am-idp",
+           "configuration": "{\"users\":[{\"firstname\":\"John\",\"lastname\":\"Doe\",\"username\":\"johndoe\",\"password\":\"johndoepassword\"}]}",
+           "name": "Inline IdP"
+         }' \
+     http://GRAVITEEIO-AM-MGT-API-HOST/management/organizations/DEFAULT/environments/DEFAULT/domains/:securityDomainPath/identities
+```
+{% endcode %}
 
 ## Custom identity provider
 

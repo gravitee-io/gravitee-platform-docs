@@ -48,9 +48,9 @@ curl -X POST \
 
 ### Authorization endpoint
 
-The `authorization` endpoint is used to interact with the end user to obtain the `AM Management API token`. The user is redirected to the AM login page and the authentication is processed to obtain the token using an HTTP cookie.
+The `authorization` endpoint is used to interact with the end user to obtain the `AM Management API token`. The user is redirected to the AM login page, and the authentication is processed to obtain the token using an HTTP cookie.
 
-Here is example of how to retrieve and use the accessToken on the Management API:
+Here is an example of how to retrieve and use the accessToken on the Management API:
 
 {% code overflow="wrap" %}
 ```sh
@@ -74,6 +74,6 @@ POST http(s)://AM_MANAGEMENT_API/management/auth/login
 
 ### User Migration
 
-For users migrations from an alternative OIDC provider to Access Management, you can define the `lastPasswordReset` attribute. This attribute ensures that a password policy with password expiry requests a password reset according to the value provided during the migration.
+For user migrations from an alternative OIDC provider to Access Management, you can define the `lastPasswordReset` attribute. This attribute ensures that a password policy with password expiry requests a password reset according to the value provided during the migration.
 
 In Management REST API, `lastPasswordReset` attribute in the User definition is a long value representing the number of milliseconds since the standard base time known as "the epoch".
