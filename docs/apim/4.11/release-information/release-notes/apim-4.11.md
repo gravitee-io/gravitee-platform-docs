@@ -21,7 +21,7 @@
 #### **Entrypoint Connect Phase for Native APIs**
 
 * Policies can now execute during the Entrypoint Connect phase, which runs immediately after a client establishes a TCP connection but before authentication and message processing.
-* This phase enables connection-level controls such as IP whitelisting and TLS certificate validation, with the ability to interrupt connections before authentication occurs.
+* This phase enables connection-level controls such as IP filtering and TLS certificate validation, with the ability to interrupt connections before authentication occurs.
 * Context attributes set during Entrypoint Connect are automatically propagated to all subsequent phases (authentication, interact, publish/subscribe).
 * Available for Native Kafka APIs (reactor 6.0.0-alpha.1+) and agent-to-agent APIs (connectors 2.0.0-alpha.1+) in APIM 4.11.0 or later.
 * The deprecated `CONNECT` mode is replaced by this new phase, which provides a dedicated execution point in the policy chain.

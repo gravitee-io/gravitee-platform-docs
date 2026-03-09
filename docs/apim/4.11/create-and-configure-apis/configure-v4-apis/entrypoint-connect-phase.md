@@ -1,4 +1,6 @@
-### Prerequisites
+# Entrypoint Connect phase
+
+## Prerequisites
 
 Before configuring the Entrypoint Connect phase, ensure the following components are installed:
 
@@ -7,7 +9,7 @@ Before configuring the Entrypoint Connect phase, ensure the following components
 * Agent-to-agent connectors 2.0.0-alpha.1 or later (for agent-to-agent APIs)
 * UI components 17.6.1 or later (for Policy Studio support)
 
-### API Definition Model
+## API Definition Model
 
 The `entrypointConnect` field in the API definition model defines policies for the Entrypoint Connect phase.
 
@@ -22,11 +24,11 @@ The `entrypointConnect` field in the API definition model defines policies for t
 The `connect` field has been removed from the API definition model. Use `entrypointConnect` instead.
 {% endhint %}
 
-### Database Schema Requirements
+## Database Schema Requirements
 
 JDBC-based flow repositories must support the `ENTRYPOINT_CONNECT` enum value in the `flow_step_phase` column. The deprecated `CONNECT` enum value has been removed.
 
-### Phase Execution Order
+## Phase Execution Order
 
 The gateway executes policies in the following order:
 
@@ -37,11 +39,11 @@ The gateway executes policies in the following order:
 | 3 | Interact | On all client-gateway interactions |
 | 4 | Publish / Subscribe | During message flow |
 
-### Context Attribute Propagation
+## Context Attribute Propagation
 
 Attributes set during the Entrypoint Connect phase are automatically propagated to the connection context and remain available to all subsequent phases. When the Entrypoint Connect policy chain completes, attributes are copied back to the connection context for use in authentication and message-phase policies.
 
-### Creating Policies for Entrypoint Connect
+## Creating Policies for Entrypoint Connect
 
 To add policies to the Entrypoint Connect phase:
 
@@ -52,7 +54,7 @@ To add policies to the Entrypoint Connect phase:
 5. Reorder policies within the phase as needed using drag-and-drop.
 6. Save and deploy the API to activate the Entrypoint Connect policy chain.
 
-### Interrupting Connections
+## Interrupting Connections
 
 Policies can interrupt a connection during the Entrypoint Connect phase by calling the `interrupt()` method on the `EntrypointConnectContext`. When a policy interrupts the connection:
 
