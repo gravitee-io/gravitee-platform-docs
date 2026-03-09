@@ -1,4 +1,6 @@
-### Template Engine Variables
+# Connection interruption in the Entrypoint Connect phase
+
+## Template engine variables
 
 Policies in the Entrypoint Connect phase have access to the following Expression Language (EL) variables:
 
