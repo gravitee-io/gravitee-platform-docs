@@ -28,18 +28,11 @@ When using `DELEGATE_TO_BROKER`, the supported mechanisms available to the clien
 
 ## Create an endpoint group
 
-To create an endpoint group for a Native Kafka API:
+When creating a Native Kafka API, the endpoint group type is automatically set to `native-kafka`. The load balancer type field is not displayed for Native Kafka APIs.
 
-1. Navigate to the API's endpoint configuration in the Console.
-2. The endpoint group type is automatically set to `native-kafka` when the API type is `NATIVE` and a Kafka listener is detected.
-3. Add at least one endpoint to the group, specifying the bootstrap servers and optional tenant tags.
-4. Save the configuration to validate and deploy the endpoint group.
+Validation requires the group to contain at least one endpoint. Endpoint names must be unique within the group.
 
-{% hint style="info" %}
-The load balancer type field is not displayed for Native Kafka APIs.
-{% endhint %}
-
-Validation ensures the group contains at least one endpoint and that endpoint names are unique within the group.
+<!-- TODO: verify exact UI steps for adding an endpoint group with the SME — steps for navigating to endpoint configuration, adding endpoints, and saving have not been verified against the Console UI -->
 
 ## Edit the endpoint group
 
