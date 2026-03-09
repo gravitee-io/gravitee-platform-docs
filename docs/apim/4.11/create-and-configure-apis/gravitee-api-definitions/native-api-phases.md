@@ -1,4 +1,6 @@
-### Supported Connector Modes
+# Native API phases
+
+## Supported connector modes
 
 Connectors declare which phases they support. The Entrypoint Connect mode is available only on entrypoint connectors.
 

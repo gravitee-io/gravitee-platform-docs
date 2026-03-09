@@ -67,19 +67,6 @@ v4 APIs have the following phases:
 * `onResponse`: This phase is executed after invoking the backend services for both proxy and message APIs. Policies can act on the headers and the content for proxy APIs.
 * `onMessageResponse`: This phase after the `onResponse` phase and allows policies to act on each outgoing message before being sent to the client application. This only applies to message APIs.
 {% endtab %}
-</search>
-</patch>
-
-<patch>
-<search>
-Every API Management installation includes several default resources that are commonly used in standard APIM implementations and can be configured during the API design phase. The recommended configuration method employs the Policy Studio.
-</search>
-<replace>
-Every API Management installation includes several default resources that are commonly used in standard APIM implementations and can be configured during the API design phase. The recommended configuration method employs the Policy Studio.
-
-### Policy Studio phase tiles for Native APIs
-
-When configuring policies for Native APIs in Policy Studio, the Entrypoint Connect phase tile appears before the Interact phase tile. The Entrypoint Connect tile displays the helper text "Policies will be applied when client connects to entrypoint before authentication and message processing."
 
 {% tab title="v2 API definition" %}
 v2 APIs have the following phases:
