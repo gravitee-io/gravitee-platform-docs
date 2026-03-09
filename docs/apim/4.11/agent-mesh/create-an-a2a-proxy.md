@@ -7,8 +7,8 @@ metaLinks:
 
 # Set Up an AI Agent (A2A) Proxy
 
-{% hint style="warning" %}
-This feature only works with v4 message APIs.
+{% hint style="danger" %}
+**Breaking change** — A2A proxy APIs created before APIM 4.11 are not supported. Delete and recreate any existing A2A proxy APIs.
 {% endhint %}
 
 ## Overview
@@ -33,7 +33,7 @@ Truly intelligent agents need access to both synchronous (request-response) and 
 
 Before configuring an A2A Proxy Gateway, ensure the following requirements are met:
 
-* You must have the Enterprise Edition of Gravitee with the `apim-ai` license pack enabled. For more information, see [Enterprise Edition](../readme/enterprise-edition.md).
+* You must have the Enterprise Edition of Gravitee with the AI Agent Management pack enabled. For more information, see [Enterprise Edition](../readme/enterprise-edition.md).
 * Gravitee API Management 4.10 or later
 * APIM Gateway distribution path configured for plugin deployment
 * APIM Management API distribution path configured for plugin deployment
@@ -131,9 +131,8 @@ Configure policies in the flow definition by specifying the policy ID and config
 
 ## Restrictions
 
-* A2A Proxy APIs require Enterprise Edition with the `apim-ai` license pack
+* A2A Proxy APIs require Enterprise Edition with the AI Agent Management pack
 * Only HTTP selectors are supported; CHANNEL and CONDITION_FILTER selectors trigger validation errors
 * The endpoint connector operates exclusively in REQUEST_RESPONSE mode
 * Target URL must be a non-null, non-blank string
 * Flow phases are limited to REQUEST and RESPONSE
-* The reactor version is `1.0.0-alpha.1` (alpha release)
