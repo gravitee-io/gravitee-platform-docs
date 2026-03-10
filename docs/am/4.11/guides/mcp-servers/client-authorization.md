@@ -213,6 +213,13 @@ Token validation triggers one of the following:
 
 <summary>10. Fine-grained permissions check</summary>
 
-The permission check uses the Authorization Engine and AuthZen and is described in the [Authorization Engines](../authorization-engines/) section.
+Once the access is established, the MCP Server, acting as a Policy Enforcement Point (PEP), requests evaulation of a fine-grained permission for accessing the MCP tool using the 
+The permission check uses the Authorization Engine and AuthZen and is described in the [AuthZen](../authorization-engines/authzen) section.
+
+{% hint style="warning" %}
+In order to do so the MCP server obtains an access token from Gravitee AM using OAuth 2.1 Client Credentials grant flow.
+{% endhint %}
+
+If the decision is `true`, the MCP server executes the tool.
 
 </details>

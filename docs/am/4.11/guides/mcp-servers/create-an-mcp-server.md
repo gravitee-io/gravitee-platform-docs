@@ -44,6 +44,9 @@ By default, Gravitee AM automatically generates OAuth 2.0 credentials. You can o
     * If not provided, a secure random secret will be generated.
 
     <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>The Client Secret is shown only once during creation. Make sure to copy and store it securely. You cannot retrieve the raw secret later.</p></div>
+{% hint style="warning" %}
+By default, MCP servers are created with Client Credentials grant flow enabled. This is required for authorization requests. For more information about authorization requests, see [AuthZen](../authorization-engines/authzen.md). You can disable the following creation in the **OAuth 2.0 / OIDC** of the **Settings** screen.
+{% endhint %}  
 
 ### Step 4: (Optional) Add MCP Tools <a href="#step-4-add-mcp-tools-optional" id="step-4-add-mcp-tools-optional"></a>
 
