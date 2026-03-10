@@ -71,17 +71,3 @@ To register an agent application via DCR, send a POST request to the DCR endpoin
   "redirect_uris": ["https://example.com/callback"]
 }
 ```
-
-### Restrictions
-
-Agent applications enforce the following restrictions:
-
-* **Forbidden grant types:** `implicit`, `password`, `refresh_token`
-* **Forbidden response types:** `token`, `id_token`, `id_token token`
-* **AgentCard URL scheme:** Must use `http` or `https` only
-* **AgentCard size limit:** 512 KB maximum
-* **SSRF protection:** Blocks localhost and private IP ranges (10.x.x.x, 172.16-31.x.x, 192.168.x.x, 169.254.x.x)
-* **HTTP status requirement:** AgentCard fetch must return HTTP 200
-* **JSON validation:** AgentCard response must be valid JSON
-
-Existing application types (WEB, NATIVE, BROWSER, SERVICE, RESOURCE_SERVER) are unaffected by these restrictions.
