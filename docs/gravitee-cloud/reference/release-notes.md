@@ -7,6 +7,17 @@ description: Release notes for Gravitee Cloud.
 This section contains an overview of the new features in Gravitee Cloud's releases. For information about the releases, see the following articles:
 
 ## February 2026&#x20;
+<details>
+
+<summary>XXth April </summary>
+
+**Deploy a SaaS Gateway in Amazon Web Services (AWS) ap-southeast-2**
+
+You can use Alert Engine with Gravitee Cloud. If Alert Engine is included your license, Gravitee installs Alert Engine in your API Management (APIM) installations.
+
+For more information about Alert Engine, see Introduction to Gravitee [Alert Engine](../../ae/README.md).
+
+</details>
 
 <details>
 

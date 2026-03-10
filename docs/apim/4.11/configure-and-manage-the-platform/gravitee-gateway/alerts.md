@@ -97,7 +97,7 @@ If you want to choose Webhook as your notification channel, you will need to def
 
 ## Scheduled alerts
 
-When you create a window-based alert (an alert with a duration and condition), the Alert Engine anchors the evaluation schedule to the trigger's `created_at` timestamp. The engine calculates the next evaluation time by determining which interval the current time falls into relative to `created_at`, then schedules the next cycle at the start of the following interval.
+When a condition includes a time frame window, aggregation or rate, the window is calculated from the last time the alert configuration was updated.
 
 ### Updating a scheduled alert
 
@@ -116,6 +116,15 @@ The UI displays the last update timestamp when `updated_at` exists:
 ```
 Last updated at [timestamp]
 ```
+#### Updates effects on evaluation 
+{% hint style="warning" %}
+In some cases, time window alert evaluation schedules might calculate differently than expected in Alert Engine versions befor 3.0.0. If you are self-hosting Alert Engine and use time frame window alerts, upgrade to version 3.0.0 or later.
+{% endhint %}
+
+* If you update any detail of an alert with a time frame window, the update restarts the evaluation schedule and event gathering from the time of update.
+* Unless the alert configuration is updated again, the evaluation schedule continues at regular intervals.
+
+From APIM 4.11, you receive a warning when you update an alert with a time frame window, which indicates that the update resets the evaulation schedule.
 
 ### Trigger API schema
 
