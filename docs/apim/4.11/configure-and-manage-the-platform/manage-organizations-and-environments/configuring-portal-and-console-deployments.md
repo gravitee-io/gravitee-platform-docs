@@ -4,13 +4,13 @@ description: >-
   Console and Portal UIs
 ---
 
-# Configuring Portal & Console Deployments
+# Configuring Portal and Console deployments
 
 ## Overview
 
-Gravitee APIM consists of four components that must communicate correctly:
+Gravitee APIM consists of four components that communicate as follows:
 
-1. **Management API → Console & Portal URLs** — The Management API must know the public URLs of both UIs to generate correct redirect links, email links, and Cockpit registration. Configure these via the `installation` block.
+1. **Management API → Console & Portal URLs** — The Management API requires the public URLs of both UIs to generate correct redirect links, email links, and Cockpit registration. Configure these via the `installation` block.
 2. **Console UI → Management API** — The Console UI requires the Management API's `/management` endpoint as its `baseURL`.
 3. **Portal UI → Management API** — The Portal UI requires the Management API's `/portal` endpoint as its `baseURL`.
 
@@ -114,6 +114,7 @@ Each component is hosted on its own domain.
 ### Helm `values.yaml`
 
 See [Helm `values.yaml`](#helm-valuesyaml) above for details.
+
 ### `gravitee.yml`
 
 See [`gravitee.yml`](#graviteeyml) above for details.
@@ -134,7 +135,7 @@ http:
 
 ### JWT cookie domain
 
-The JWT cookie domain must cover both the Console UI and the Management API. When they share a parent domain, set the cookie domain to the common suffix:
+Ensure the JWT cookie domain covers both the Console UI and the Management API. When they share a parent domain, set the cookie domain to the common suffix:
 
 **Helm:**
 
@@ -151,7 +152,7 @@ jwt:
   cookie-domain: .example.com
 ```
 
-If `jwt.cookie.domain` is not set in Helm, it defaults to `ui.ingress.hosts[0]`. With separate domains, this auto-derived value may be too narrow. Always set it explicitly.
+If `jwt.cookie.domain` is not set in Helm, it defaults to `ui.ingress.hosts[0]`. With separate domains, this auto-derived value is likely too narrow. Always set it explicitly.
 
 ## Scenario 3: Behind a reverse proxy with custom base paths
 
@@ -159,7 +160,7 @@ Components are behind a corporate reverse proxy at non-standard paths, such as `
 
 ### X-Forwarded headers
 
-The Management API includes a JAX-RS `@PreMatching` filter (`UriBuilderRequestFilter`) that rewrites incoming request URIs based on proxy headers. Your reverse proxy must forward these headers for the API to construct correct public-facing URLs.
+The Management API includes a JAX-RS `@PreMatching` filter (`UriBuilderRequestFilter`) that rewrites incoming request URIs based on proxy headers. Configure your reverse proxy to forward these headers so the API constructs correct public-facing URLs.
 
 #### Required headers
 
@@ -168,7 +169,7 @@ The Management API includes a JAX-RS `@PreMatching` filter (`UriBuilderRequestFi
 | `X-Forwarded-Proto`         | Scheme used by the client (`http` or `https`)                         |
 | `X-Forwarded-Host`          | Public-facing hostname (and port if non-standard)                     |
 | `X-Forwarded-Port`          | Public-facing port (ignored when `X-Original-Forwarded-Host` is used) |
-| `X-Forwarded-Prefix`        | Path prefix prepended to API paths (e.g., `/apim`)                    |
+| `X-Forwarded-Prefix`        | Path prefix prepended to API paths (for example, `/apim`)             |
 | `X-Original-Forwarded-Host` | Overrides `X-Forwarded-Host` in chained-proxy scenarios               |
 | `X-Forwarded-For`           | Client IP for audit logs                                              |
 
@@ -177,14 +178,14 @@ The Management API includes a JAX-RS `@PreMatching` filter (`UriBuilderRequestFi
 1. **Static configuration takes precedence** — When `installation.api.url` is set in `gravitee.yml`, it determines the bootstrap API URL. Headers augment but do not override the static base.
 2. **When static config is absent**, headers are used to reconstruct the public URL:
    * **Scheme**: `X-Forwarded-Proto` overrides the request scheme. If absent, the scheme from the configured API URL is used.
-   * **Host**: `X-Original-Forwarded-Host` > `X-Forwarded-Host` > configured API URL host. When the header contains a comma-separated list (multiple proxies), only the first entry is used. If the value contains a port (e.g., `host:8443`), it is split into host and port.
+   * **Host**: `X-Original-Forwarded-Host` > `X-Forwarded-Host` > configured API URL host. When the header contains a comma-separated list (multiple proxies), only the first entry is used. If the value contains a port (for example, `host:8443`), it is split into host and port.
    * **Port**: `X-Forwarded-Port` is applied only when `X-Original-Forwarded-Host` was not used (to avoid mixing headers from different proxy hops).
    * **Path prefix**: `X-Forwarded-Prefix` is prepended to the request path. If absent, the filter applies the configured proxy path from `installation.api.proxyPath.*`.
 3. **Client IP**: `X-Forwarded-For` — the first comma-delimited value is used as the client IP. Falls back to the TCP remote address.
 
 ### Path prefix configuration
 
-When the Management API is served behind a custom path prefix (e.g., `/apim/management` instead of `/management`), configure the proxy paths so the API generates correct URLs in responses:
+When the Management API is served behind a custom path prefix (for example, `/apim/management` instead of `/management`), configure the proxy paths so the API generates correct URLs in responses:
 
 **Helm:**
 

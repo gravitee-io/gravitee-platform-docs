@@ -119,6 +119,7 @@
     * [Developer Portal](configure-and-manage-the-platform/manage-organizations-and-environments/developer-portal.md)
     * [SMTP Configuration](configure-and-manage-the-platform/manage-organizations-and-environments/smtp-configuration.md)
     * [CORS Configuration](configure-and-manage-the-platform/manage-organizations-and-environments/cors-configuration.md)
+    * [Configuring Portal and Console deployments](configure-and-manage-the-platform/manage-organizations-and-environments/configuring-portal-and-console-deployments.md)
     * [Support](configure-and-manage-the-platform/manage-organizations-and-environments/support.md)
   * [Debug Logging](configure-and-manage-the-platform/debug-logging.md)
 * [Create & Configure APIs](create-and-configure-apis/README.md)
