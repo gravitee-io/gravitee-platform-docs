@@ -14,7 +14,7 @@ Application definitions apply at the *security domain* level.
 2. If you want to create your application in a different security domain, select the domain from the user menu at the top right.
 3. Click **Applications**.
 4. Click the plus icon <img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2FR4vk3bTTm3nNj9lAynM3%2Fimage.png?alt=media&#x26;token=704ca395-1cf0-48ba-baeb-05ba669ddab5" alt="" data-size="line">.
-5. Select the [application type](https://documentation.gravitee.io/apim/~/changes/337/broken-reference) and click **Next**.
+5. Select the [application type](../applications/application-types.md) and click **Next**.
 
    <figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2FBUA3LgGgCOdrW4VrUn6u%2Fimage.png?alt=media&#x26;token=f8e06806-b745-43ae-b641-19bfee0c580e" alt=""><figcaption><p>Select application type</p></figcaption></figure>
 6. Specify the application details and click **Create**.
