@@ -1,18 +1,33 @@
 ## Overview
 
-Magic Link Authentication enables passwordless login by sending users a time-limited authentication link via email. When users click the link, they are authenticated without entering a password. This feature is designed for API administrators configuring authentication flows and developers integrating passwordless login into applications.
+Magic Link Authentication enables passwordless login by sending users a time-limited authentication link using email. When users click the link, they are authenticated without entering a password. This feature is designed for API administrators configuring authentication flows and developers integrating passwordless login into applications.
 
-## Key concepts
+The Margic Link authentication method follows the following challenge-response flow:
+1. The user attempts to access a protected application.
+2. The application redirects the  user to Access Management (AM) for authentication.
+3. AM presents a login page with the **Email Magic Link** option.
+4. The user enters their username. For example, their email address or login identifier.
+5. AM searches for the user's registered email in the associated user ddirectory, and then sends a magic link to that address. 
+6. The user clicks the link in the their inbox, or the user pastes the link into their browser.
+7. AM validates the link, establishes the session, and then redirectes the user back to the application.
 
-### Magic Link Token
+The magic link is **single-use** and **time-limited**. If you click the link or the link expires, you cannot use that link again. 
+
+{% hint style="info" %}
+For the best security posture, open the magic link in the same browser where authentication was initiated. AM binds the link to the originating session. If the link is opened in a different browser or device, AM rejects it and prompts the user to request a new magic link.
+{% endhint %}
+
+### Key concepts
+
+#### Magic Link Token
 
 A JWT token embedded in the authentication email link. The token includes standard claims (issuer, subject, audience, expiration, issued-at) and an optional `session_id` claim if present in the original request. Tokens expire after 15 minutes by default. The `session_id` query parameter is consumed during token generation and removed from subsequent redirect URLs.
 
-### Email Template System
+#### Email Template System
 
 Magic Link authentication requires two templates: an email template (`MAGIC_LINK`) containing the authentication link, and a form template (`MAGIC_LINK_LOGIN`) where users enter their email address. Both templates are available only when Magic Link authentication is enabled in login settings.
 
-### Audit Event Type
+#### Audit Event Type
 
 Successful Magic Link authentications generate a `USER_MAGIC_LINK_LOGIN` audit event. Analytics support includes a `magic_link` field type for reporting and filtering authentication events.
 
@@ -23,6 +38,16 @@ Before configuring Magic Link authentication, ensure the following requirements 
 * Email service configured and operational
 * User accounts with valid email addresses
 * Domain or application login settings accessible for configuration
+
+## Install the gravitee-am-authenticator-magiclink plugin
+
+By default, the enterprise plugin [gravitee-am-authenticator-magiclink`](https://download.gravitee.io/#graviteeio-ee/am/plugins/authenticator/magic-link//gravitee-am-authenticator-magiclink/). When the plugin loads successfully, the following entry appears in the server's standard output:
+
+```bash
+INFO  i.g.p.c.internal.PluginRegistryImpl - 	> magiclink-am-authenticator [1.0.0] has been loaded
+...
+INFO  i.g.a.p.a.p.AuthenticatorPluginHandler - Plugin 'magiclink-am-authenticator' installed.
+```
 
 ## Gateway configuration
 
@@ -42,36 +67,37 @@ Configure the following properties to control Magic Link email behavior:
 |:---------|:------------|:--------|
 | `magicLinkAuthEnabled` | Enable or disable Magic Link authentication | `false` |
 
-## Enabling Magic Link authentication
+## Enable Magic Link authentication
 
-To enable Magic Link authentication:
+You can enable MagicLink in either of the following locations:
+* [Enable Magic Link for all applications in a domain](#enable-magic-link-for-all-applications-in-a-domain)
+* [Enable Magic Link for a specific application](#enable-magic-link-for-a-specific-application)
 
-1.  Navigate to login settings in the management console.
-2. Enable the Magic Link authentication option.
-3. Configure email service properties if defaults are insufficient.
-4. Save settings.
+### Enable Magic Link for all applications in a domain
+1. Sign in to the AM Console 
+2. Navigate to **Settings**, and then select **Login**.
+3. In the **Passwordless** section, enable **Passwordless Magic Link Authentication**.
 
-When enabled, the `/magic-link/login` endpoint becomes available and email/form templates are activated. The system validates template availability based on the `magicLinkAuthEnabled` flag. If disabled, Magic Link templates are filtered from available forms. UI components filter Magic Link login forms based on the `allowMagicLink()` check, hiding the template when disabled.
+### Enable Magic Link for a specific application
+
+1. Sign in to the AM COnsole
+2. Navigate to **Applications**, and then select the application that you want to enable the Magic Link for.
+3. Navigate to **Settings**, and then select the **login** tab.
+4. Disable the **Inherit configuartion**.
+5. In the **Passwordless** section, enable **Passwordless Magic Link Authentication**.
 
 ## User authentication flow
 
-Users authenticate via Magic Link using the following process:
+Users authenticate with Magic Link using the following process:
 
-1. Navigate to `/magic-link/login` and enter an email address in the form.
-2. The system generates a JWT token with the user's email as subject, client ID as audience (if client exists), and optional `session_id` claim from query parameters. The `session_id` query parameter is consumed during token generation and removed from subsequent redirect URLs.
-3. An email containing the authentication link (`{domain}/magic-link/auth?token={jwt_token}`) is sent asynchronously via cached thread pool. Delivery failures are logged but don't block the authentication request.
-4. Click the link within the expiration window (default 15 minutes).
-5. The gateway validates the token. On success, the user is authenticated and a `USER_MAGIC_LINK_LOGIN` audit event is logged. On failure, a generic error message ("Invalid user") is displayed to prevent user enumeration attacks.
+1. On the AM login page, there is a **Sign in with Magic Link** button.
+2. The user is redirected to the Magic Link page.
+3. The user enters their email address, and then clicks next.
+4. The user clicks the link in the email.
+5. The user is redirected to the application.
 
-## Restrictions
-
-* Magic Link authenticator plugin (`gravitee-am-authenticator-magiclink`) is commented out in distribution artifacts and is not yet included in releases
-* Token expiration is fixed at configuration time; runtime adjustment requires gateway restart
-* Email sending uses asynchronous execution via cached thread pool; delivery failures are logged but don't block the authentication request
-* Error messages are generic ("Invalid user") to prevent user enumeration attacks
-* The `session_id` query parameter is consumed during token generation and isn't forwarded in redirect URLs
-* The `MAGIC_LINK` and `MAGIC_LINK_LOGIN` templates are unavailable if `magicLinkAuthEnabled` is `false`
-
-## Related changes
-
-The Management API now includes authenticator plugin handler dependencies to support Magic Link configuration. Analytics dashboards support the `magic_link` field type for filtering authentication events. Localization files include English and French labels for Magic Link UI elements, error messages, and form instructions. The `gravitee-node` dependency was updated from 7.18.2 to 7.23.0 to support underlying framework requirements.
+## Configure the email template
+The configure the email template, the template is eitable like other emails. The Magic Link URL is available through the `url` variable.
+```bash
+<a href="${url}">
+```
