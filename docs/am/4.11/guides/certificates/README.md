@@ -97,6 +97,75 @@ System certificates can't be used for mTLS authentication as they are self signe
 
 <figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
+### Fallback certificates
+A fallback certificate provides a safety net for JWT signing within a security domain. When configured, AM will automatically use the fallback certificate if the primary certificate (selected at the application level or the domain default) fails to sign a token or fails to load entirely.
+
+This is particularly useful in environments that rely on external signing infrastructure, such as AWS CloudHSM, where transient connectivity or availability issues could otherwise cause token generation to fail entirely.
+
+#### How the resolution chain works
+When AM needs to sign a JWT token for an application, it follows this resolution chain:
+1. **Application-level certificate** - The certificate explicitly assigned to the application is used first.
+2. **Domain fallback certificate** - If signing with the application certificate fails (signing error or certificate loading error) AM attempts to sign with the domain's configured fallback certificate.
+3. **Legacy HMAC fallback** - If no fallback certificate if configured and the Legacy HMAC flag is enabled, AM falls back to the default HMAC-based certificate provider.
+4. **Failure** - If none of the above succeed, the signing operation fails and the token request returns an error.
+
+#### Configure a fallback cerificate using the Access Management Console
+
+**Prerequisites** 
+
+* At least two certificates must already exist within the domain.
+* You must have the **DOMAIN_SETTINGS[UPDATE]** permission.
+
+**Configure a fallback certificate**
+
+1. Navigate to **Settings > Certificates** in your security domain.
+2. Click **Settings**. The **Certificate Settings** dialog box appears.
+3. From the **Fallback Certificate** dropdown menu, select a certificate.
+4. Click **Confirm**.
+
+{% hint style="info" %}
+When configuring a fallback certificate the security domain does not require a full domain reload. The change is applied to the gateway via a lightweight event, so there is no downtime or route redeployment.
+{% endhint %}
+
+#### Deletion protection
+A certificate that is currently configured as the domain's fallback cannot be deleted. The delete button will be disabled, and hovering over it will show a tooltip with the following text: Cannot delete: certificate is configured as fallback.
+
+To delete a certificate that is marked as fallback, you must comnplete either of the following steps:
+* Reassign the fallback to a different certificate
+* Clear the fallback certificate selection entirely.
+
+#### Legacy HMAC fallback
+
+AM includes a gateway-level setting that controls whether to fall back to the default HMAC-based certificate provider when no other certificate is available to sign a token. This acts as the last resort in the signing resolution chain, before an outright failure.
+
+{% tabs %}
+{% tab title="gravitee.yml" %}
+Apply the following configuration to the Gateway gravitee.yml to enable HMAC fallback:
+
+```yml
+applications:
+  signing:
+    fallback-to-hmac-signature: true  # default: true
+```
+
+{% endtab %}
+
+{% tab title="Environment Variable" %}
+Add the following environment variable to enable HMAC fallback:
+
+```
+gravitee_applications_signining_fallbacktohmacsignature=true
+```
+
+{% endtab %}
+{% endtabs %}
+
+| Property                                          | Default | Description                                                                                                                                                                                                                                 |
+| ------------------------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `applications.signing.fallback-to-hmac-signature` | `true`  | When `true`, the gateway falls back to the default HMAC certificate provider if both the application certificate and the domain fallback certificate are unavailable. Set to `false` to disable this behavior and fail immediately instead. |
+
+This setting is enabled by default. The property is commented out in the default gravitee.yml, meaning the default value of true applies unless explicitly overridden.
+
 ### Custom certificates
 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-custom-certificate.png" alt=""><figcaption><p>Custom certificate diagram</p></figcaption></figure>

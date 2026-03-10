@@ -1,6 +1,3 @@
-### System Certificate Visibility
-
-System certificates (including default certificates) are now visible in the fallback certificate selection dialog, allowing administrators to designate built-in certificates as fallback options.
 
 ### Prerequisites
 
@@ -18,9 +15,15 @@ Before configuring a fallback certificate for a domain, ensure the following:
 |:---------|:------------|:--------|
 | `certificateSettings.fallbackCertificate` | The certificate ID to use when an application's primary certificate fails to load | `"fallback-cert-123"` |
 
-### Creating Domain Certificate Settings
+## Create Domain Ceritifcate Settings
+You can create Domain Certicate Settings with either of the following methods:
+* [Create Domain Certificate Settings using the Access Management UI](#create-domain-certificate-settings-using-the-access-management-ui)
+* [Create Domain Certificate Settings using the Management API](#create-domain-certificate-settings-using-the-management-api)
 
-To configure a fallback certificate for a domain:
+### Create Domain Cerificate Settings using the Access Management UI
+### Create Domain Certificate Settings using the Management API
+
+To configure a fallback certificate for a domai using the Management API, complete the following steps:
 
 1. Send a PUT request to `/organizations/{organizationId}/environments/{environmentId}/domains/{domain}/certificate-settings` with a JSON body containing the `fallbackCertificate` property set to the desired certificate ID.
 2. The system validates that the certificate exists and belongs to the domain.
@@ -41,3 +44,4 @@ To configure a fallback certificate for a domain:
 * Certificates configured as domain fallback cannot be deleted (returns `CertificateIsFallbackException` with HTTP 400)
 * Certificates in use by applications, identity providers, or protected resources cannot be deleted
 * Certificate settings validation occurs before persistence
+ 
