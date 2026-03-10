@@ -16,7 +16,7 @@ Multi-tenant endpoint support enables a single Kafka API definition to route tra
 
 ### Tenant-based endpoint filtering
 
-Each Kafka endpoint can be tagged with one or more tenant identifiers. At startup and during hot-reload, the gateway loads only endpoints whose tenant list is empty (shared) or contains the gateway's configured tenant. Endpoints that do not match are skipped entirely. If no endpoint remains after filtering, requests fail with a 503 error. There is no automatic fallback to untagged endpoints — fallback is achieved by explicitly defining at least one shared (untagged) endpoint in the group.
+Each Kafka endpoint can be tagged with one or more tenant identifiers. At startup and during hot-reload, the gateway loads only endpoints whose tenant list is empty (shared) or contains the gateway's configured tenant. Endpoints that do not match are skipped entirely. If no endpoint remains after filtering, requests fail. There is no automatic fallback to untagged endpoints — include at least one shared (untagged) endpoint in the group to provide a fallback.
 
 | Gateway Tenant | Endpoint Tenants | Match Result |
 |:--------------|:-----------------|:-------------|
@@ -27,7 +27,7 @@ Each Kafka endpoint can be tagged with one or more tenant identifiers. At startu
 
 ### Endpoint selection
 
-Within an endpoint group, the first endpoint matching the tenant filter is selected. If multiple endpoints match, only the first is used — there is no load balancing across tenant-filtered endpoints. This behavior aligns with the single-endpoint-per-group model for Kafka APIs.
+Only the first endpoint group is considered for tenant resolution. If there are multiple endpoint groups, the gateway uses the first group and applies the tenant mechanism if configured. Other groups are ignored.
 
 ### Shared endpoints
 
@@ -170,10 +170,8 @@ The following example demonstrates a Kafka API endpoint group with tenant-specif
 
 ## Restrictions
 
-* If no endpoint matches the gateway's tenant after filtering, requests fail with `503 No endpoint available`. There is no automatic fallback to shared endpoints — fallback must be explicitly configured by including an untagged endpoint.
-* Within an endpoint group, only the first tenant-matching endpoint is selected. Multiple matching endpoints are not load-balanced.
+* If no endpoint matches the gateway's tenant after filtering, requests fail. Include at least one untagged endpoint in the group to provide a fallback.
+* Only the first endpoint group is considered for tenant resolution. Additional endpoint groups are ignored.
 * Tenant filtering applies at gateway startup and hot-reload. Changing an endpoint's tenant tags requires redeploying the API or triggering a sync.
 * Tenant identifiers are case-sensitive and must match exactly between the gateway configuration and endpoint tags.
-* Health checks, metrics, and monitoring reflect only the tenant-eligible endpoints. Tenant-mismatched endpoints do not appear in operational views.
-* Tenant objects must be created in the organization before they can be assigned to endpoints. Unknown tenant IDs are displayed as raw strings in the Console.
-* When a gateway with a configured tenant encounters no matching endpoint, the error is logged at WARN level (not ERROR) and the request completes without propagating the exception further. The `KafkaNoApiEndpointFoundException` distinguishes between "no endpoint found for tenant" and "no endpoint found for API" scenarios.
+* Tenant objects must be created in the organization before they can be assigned to endpoints.
