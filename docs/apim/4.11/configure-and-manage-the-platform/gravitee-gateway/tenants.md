@@ -30,9 +30,9 @@ For Native Kafka APIs, each Kafka endpoint can be tagged with one or more tenant
 | Gateway Tenant | Endpoint Tenants | Match Result |
 |:--------------|:-----------------|:-------------|
 | Not configured | Any value or empty | ✅ Match (gateway participates in all endpoints) |
-| Configured (e.g., `"tenant-a"`) | `null` or `[]` | ✅ Match (shared endpoint) |
-| Configured (e.g., `"tenant-b"`) | Contains `"tenant-b"` | ✅ Match |
-| Configured (e.g., `"tenant-c"`) | Does not contain `"tenant-c"` | ❌ No Match |
+| Configured (for example, `"tenant-a"`) | `null` or `[]` | ✅ Match (shared endpoint) |
+| Configured (for example, `"tenant-b"`) | Contains `"tenant-b"` | ✅ Match |
+| Configured (for example, `"tenant-c"`) | Does not contain `"tenant-c"` | ❌ No Match |
 
 **Shared Endpoints:**
 
@@ -40,7 +40,7 @@ An endpoint with an empty or null tenant list is considered shared and matches a
 
 **Fallback Behavior:**
 
-If no endpoint matches the gateway's tenant after filtering, requests fail with a `503 No endpoint available` error. There is no automatic fallback to shared endpoints — fallback must be explicitly configured by including at least one untagged endpoint in the group.
+If no endpoint matches the gateway's tenant after filtering, requests fail. There is no automatic fallback to shared endpoints — include at least one untagged endpoint in the group to provide a fallback.
 
 ## Configuring Tenants <a href="#id-9c4f" id="id-9c4f"></a>
 
@@ -63,7 +63,7 @@ tenant: 'eu'
 
 Once the Gateway has been configured, the tenant definition must be added via the API Management Console:
 
-1.  Navigate to **Organization Settings** and select **Tenants**_**.**_ Select **Add a tenant** and enter the value for each of your regions, e.g., “usa” and “eu." We also recommend giving each tenant a descriptive name.
+1.  Navigate to **Organization Settings** and select **Tenants**_**.**_ Select **Add a tenant** and enter the value for each of your regions, for example, “usa” and “eu." We also recommend giving each tenant a descriptive name.
 
     <div align="left"><figure><img src="../../.gitbook/assets/tenant_create (1).png" alt="" width="375"><figcaption></figcaption></figure></div>
 2.  Next, configure the Backend and Customer APIs by adding two different endpoints. In our example, these will point to the USA and EU upstream systems (the backend server or the Customer API, depending on which API you are configuring).
