@@ -316,7 +316,7 @@ ISO
 [Tt]emplating
 [Tt]imeframes?
 [Tt]imelines?
-[Tt]ooltip
+[Tt]ooltips?
 [Tt]ruststore
 [Uu]npublish
 [Uu]sername
@@ -414,6 +414,9 @@ Slackbot
 [Ss]harding
 [Kk]eyless
 [Ee]ndhint
+[Ee]ndtab
+[Uu]nconfigured
+[Mm]etaLinks
 [Uu][Ss][Aa]
 [Ee][Uu]
 [Mm]anagement [Cc]onsole
