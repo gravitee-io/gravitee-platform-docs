@@ -113,11 +113,65 @@ Each component is hosted on its own domain.
 
 ### Helm `values.yaml`
 
-See [Helm `values.yaml`](#helm-valuesyaml) above for details.
+When UI hosts differ from API hosts, `ui.baseURL` and `portal.baseURL` must be set explicitly because auto-derivation would produce incorrect cross-origin URLs:
+
+```yaml
+api:
+  ingress:
+    management:
+      scheme: https
+      path: /management
+      hosts:
+        - api.example.com
+    portal:
+      scheme: https
+      path: /portal
+      hosts:
+        - api.example.com
+
+ui:
+  baseURL: https://api.example.com/management
+  ingress:
+    path: /(.*)
+    hosts:
+      - console.example.com
+    annotations:
+      nginx.ingress.kubernetes.io/rewrite-target: /$1
+
+portal:
+  baseURL: https://api.example.com/portal
+  ingress:
+    path: /
+    hosts:
+      - portal.example.com
+
+installation:
+  api:
+    url: https://api.example.com
+  standalone:
+    console:
+      url: https://console.example.com
+    portal:
+      url: https://portal.example.com
+```
 
 ### `gravitee.yml`
 
-See [`gravitee.yml`](#graviteeyml) above for details.
+```yaml
+installation:
+  type: standalone
+  api:
+    url: https://api.example.com
+    proxyPath:
+      management: /management
+      portal: /portal
+  standalone:
+    console:
+      url: https://console.example.com
+    portal:
+      url: https://portal.example.com
+```
+
 ### CORS
 
 When the Console/Portal UIs are on different domains from the Management API, the browser enforces CORS (Cross-Origin Resource Sharing). The Management API enables CORS by default. Verify that the `http.api.management.cors` and `http.api.portal.cors` settings in `gravitee.yml` allow the UI origins:
