@@ -73,6 +73,7 @@ SCRAM
 GSSAPI
 ALPN
 W3C
+JMS
 
 # ============================================
 # Cloud & Infrastructure
@@ -95,6 +96,7 @@ Cloudwatch
 [Ll]oad[Bb]alancer
 ClusterIP
 NodePort
+https
 
 # ============================================
 # Kubernetes & Containers
@@ -136,6 +138,8 @@ Liquibase
 Kafka
 RabbitMQ
 ActiveMQ
+ActiveMQConnectionFactory
+ConnectionFactory
 DLQs?
 AVRO
 Protobuf
@@ -205,6 +209,7 @@ JKS
 JRE
 JAAS
 JCE
+javax
 OpenJDK
 Freemarker
 FreeMarker
@@ -415,6 +420,9 @@ Slackbot
 [Kk]eyless
 [Ee]ndhint
 [Ee]ndtab
+endtab
+[Aa]sync
+async
 [Uu]nconfigured
 [Mm]etaLinks
 [Uu][Ss][Aa]
