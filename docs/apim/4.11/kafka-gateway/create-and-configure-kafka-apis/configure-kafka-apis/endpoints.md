@@ -146,10 +146,10 @@ Gravitee automatically assigns your Kafka API endpoint the name **Default Broker
 
 ## Reorder endpoints
 
-To change the active endpoint, reorder endpoints in the group using drag-and-drop controls in the Console. The first endpoint in the list becomes the active endpoint. Deploying this change triggers a graceful shutdown of existing connections for the API on the gateways, allowing Kafka clients to retry and reconnect to the newly selected endpoint.
+To change the active endpoint, reorder endpoints in the group by dragging them in the Console. The first endpoint in the list becomes the active endpoint. Deploying this change triggers a graceful shutdown of existing connections for the API on the gateways, allowing Kafka clients to retry and reconnect to the newly selected endpoint.
 
 {% hint style="warning" %}
-Drag-and-drop is disabled in read-only mode and while a reordering operation is in progress.
+Reordering is disabled in read-only mode and while a reordering operation is in progress.
 {% endhint %}
 
 ## Console display
