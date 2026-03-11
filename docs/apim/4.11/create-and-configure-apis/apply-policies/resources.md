@@ -371,7 +371,53 @@ All ONNX BERT models support a maximum sequence length of 512 tokens.
 
 The OpenAI provider generates embeddings using OpenAI's cloud-based API.
 
-<table><thead><tr><th width="167">Config param</th><th width="384.3046875">Description</th><th>Default</th></tr></thead><tbody><tr><td>uri</td><td>OpenAI API endpoint URI</td><td>-</td></tr><tr><td>apiKey</td><td>OpenAI API key</td><td>-</td></tr><tr><td>organizationId</td><td>Optional organization ID</td><td>-</td></tr><tr><td>projectId</td><td>Optional project ID</td><td>-</td></tr><tr><td>modelName</td><td>Name of the embedding model (e.g., <code>text-embedding-ada-002</code>)</td><td>-</td></tr><tr><td>dimensions</td><td>Optional embedding dimensions (must be non-negative)</td><td>-</td></tr><tr><td>encodingFormat</td><td>Encoding format. Supported values: <code>FLOAT</code>, <code>BASE64</code></td><td>-</td></tr></tbody></table>
+<table>
+    <thead>
+        <tr>
+            <th width="167">Config param</th>
+            <th width="384.3046875">Description</th>
+            <th>Default</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>uri</td>
+            <td>OpenAI API endpoint URI</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>apiKey</td>
+            <td>OpenAI API key</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>organizationId</td>
+            <td>Optional organization ID</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>projectId</td>
+            <td>Optional project ID</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>modelName</td>
+            <td>Name of the embedding model (e.g., <code>text-embedding-ada-002</code>)</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>dimensions</td>
+            <td>Optional embedding dimensions (must be non-negative)</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>encodingFormat</td>
+            <td>Encoding format. Supported values: <code>FLOAT</code>, <code>BASE64</code></td>
+            <td>-</td>
+        </tr>
+    </tbody>
+</table>
+
 
 {% hint style="info" %}
 Embedding dimensions must be compatible with the vector store configuration.
