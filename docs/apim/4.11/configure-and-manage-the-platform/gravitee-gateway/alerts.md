@@ -97,7 +97,7 @@ If you want to choose Webhook as your notification channel, you will need to def
 
 ## Scheduled alerts
 
-When a condition includes a time frame window, aggregation or rate, the window is calculated from the last time the alert configuration was updated.
+When a condition includes an aggregation or rate within a time frame window, the window is calculated from the last time the alert configuration was updated.
 
 ### Updating a scheduled alert
 
@@ -125,21 +125,6 @@ In some cases, time window alert evaluation schedules might calculate differentl
 * Unless the alert configuration is updated again, the evaluation schedule continues at regular intervals.
 
 From APIM 4.11, you receive a warning when you update an alert with a time frame window, which indicates that the update resets the evaulation schedule.
-
-### Trigger API schema
-
-The Trigger API includes timestamp fields for schedule anchoring:
-
-| Field | Type | Description |
-|:------|:-----|:------------|
-| `created_at` | Date (nullable) | Timestamp when trigger was created |
-| `updated_at` | Date (nullable) | Timestamp when trigger was last updated |
-
-### Restrictions
-
-* Duration for window-based alerts must be greater than 0. If the duration is 0 or negative, the engine throws `IllegalArgumentException`.
-* If both `updated_at` and `created_at` are null, the engine schedules from the current time and logs a warning.
-* If the anchor timestamp is in the future, the engine falls back to scheduling from the current time and logs a warning.
 
 ## Example alerts
 

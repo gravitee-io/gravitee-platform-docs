@@ -11,7 +11,7 @@ This section contains an overview of the new features in Gravitee Cloud's releas
 
 <summary>XXth April </summary>
 
-**Deploy a SaaS Gateway in Amazon Web Services (AWS) ap-southeast-2**
+**Alert Engine now available in Gravitee Cloud**
 
 You can use Alert Engine with Gravitee Cloud. If Alert Engine is included your license, Gravitee installs Alert Engine in your API Management (APIM) installations.
 
