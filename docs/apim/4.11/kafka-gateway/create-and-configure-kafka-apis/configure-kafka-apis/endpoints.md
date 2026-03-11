@@ -6,7 +6,7 @@ description: An overview about endpoints.
 
 ## Overview
 
-Endpoints define the protocol and configuration settings the Gateway API uses to fetch data from or post data to the backend API. Kafka APIs can have one endpoint group with a single endpoint. The **Endpoints** section lets you modify your Kafka endpoint group and Kafka endpoint.
+Endpoints define the protocol and configuration settings the Gateway API uses to fetch data from or post data to the backend API. Native Kafka APIs can define multiple endpoints within an endpoint group, enabling pre-configured cluster alternatives for disaster recovery, migration, and regional routing scenarios. The **Endpoints** section lets you modify your Kafka endpoint group and Kafka endpoint.
 
 <figure><img src="../../../.gitbook/assets/sample-kafka-api-endpoint.png" alt=""><figcaption></figcaption></figure>
 
@@ -68,6 +68,23 @@ Before configuring Kafka API endpoints with multi-tenant support, ensure the fol
 
 The tenant value can be set via environment variable, system property, or `gravitee.yml`. Changing the tenant identifier refreshes the gateway's active endpoint set without requiring API redefinition.
 
+## Create an endpoint group
+
+When creating a Native Kafka API, the endpoint group type is automatically set to `native-kafka`. The load balancing algorithm field is not displayed for Native Kafka APIs.
+
+To create an endpoint group:
+
+1. In the left sidebar, click **Endpoints**.
+2. Click **Add endpoint group**.
+3. Enter a **Name** for the endpoint group. The name cannot contain `:` and must be unique across all endpoint groups and endpoints.
+4. Click **Validate general information**.
+5. Configure the endpoint group settings on the **Configuration** step.
+6. Click **Create endpoint group**.
+
+A default endpoint named `{groupName} default endpoint` is automatically created and inherits the group's configuration.
+
+Validation requires the group to contain at least one endpoint. Endpoint names must be unique within the group.
+
 ## Edit the endpoint group
 
 Gravitee assigns each Kafka API endpoint group the default name **Default Broker group.** To edit the endpoint group, complete the following steps:
@@ -126,6 +143,37 @@ Gravitee automatically assigns your Kafka API endpoint the name **Default Broker
     <figure><img src="../../../.gitbook/assets/ovveride-endpoints-configuration.png" alt=""><figcaption></figcaption></figure>
 
 4. To assign tenant tags to the endpoint, select one or more tenants from the **Tenants** multi-select dropdown. The endpoint configuration form exposes a multi-select **Tenants** field populated from the organization's tenant list, with tenant descriptions shown as tooltips. Leave the tenant list empty to create a shared endpoint that matches any gateway.
+
+## Reorder endpoints
+
+To change the active endpoint, reorder endpoints in the group using drag-and-drop controls in the Console. The first endpoint in the list becomes the active endpoint. Deploying this change triggers a graceful shutdown of existing connections for the API on the gateways, allowing Kafka clients to retry and reconnect to the newly selected endpoint.
+
+{% hint style="warning" %}
+Drag-and-drop is disabled in read-only mode and while a reordering operation is in progress.
+{% endhint %}
+
+## Console display
+
+The Console displays endpoint groups and endpoints with the following columns:
+
+| Column | Description | Displayed for |
+|:-------|:------------|:--------------|
+| Drag icon | Drag handle for reordering | All endpoints |
+| Name | Endpoint name with **Default** badge for the first endpoint in the first group | All endpoints |
+| Bootstrap Servers | Kafka bootstrap servers from the endpoint configuration | Native Kafka endpoints |
+| Security Protocol | Security protocol badge with tooltip indicating inheritance or override | Native Kafka endpoints with security configuration |
+| Actions | Overflow menu (Rename, Duplicate, Delete) | All endpoints |
+
+{% hint style="info" %}
+The weight column is not displayed for Native Kafka APIs.
+{% endhint %}
+
+The **Options** column is hidden if no endpoints in the group have configured options.
+
+Security protocol badges display tooltips:
+
+* **Inherited**: "Security protocol inherited from group configuration"
+* **Override**: "Security protocol override by endpoint configuration"
 
 ## Example endpoint group configuration
 
