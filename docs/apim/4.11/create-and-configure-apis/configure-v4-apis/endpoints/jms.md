@@ -132,7 +132,7 @@ Refer to the following sections for additional details.
 
 | Plugin version | APIM version  |
 | -------------- | ------------- |
-| 1.x            | 4.x to latest |
+| 1.x            | 4.10.x to latest |
 
 ### Endpoint identifier
 
