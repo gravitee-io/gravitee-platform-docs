@@ -1,5 +1,11 @@
 # Gravitee Ingress Controller
 
+{% hint style="danger" %}
+**Deprecated:** The Gravitee Ingress Controller creates v2 API definitions, which are being deprecated. For new deployments, use the [Kubernetes Gateway API](gateway-api/) with HTTPRoute resources instead. The Gateway API controller creates v4 API definitions and is the recommended path forward.
+
+Existing Ingress-based deployments continue to function, but Gravitee does not plan to migrate the Ingress controller to v4 APIs.
+{% endhint %}
+
 ## Overview
 
 This page describes how to deploy, test, and secure the Gravitee Gateway as an ingress runtime and the Gravitee Kubernetes Operator (GKO) as an ingress controller. It also explains how to extend an ingress using an API definition template.

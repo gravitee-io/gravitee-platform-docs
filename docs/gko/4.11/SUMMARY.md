@@ -43,6 +43,8 @@
 * [Export an API as a Kubernetes manifest](guides/export-an-api-as-a-kubernetes-manifest.md)
 * [Multi-environment deployment architecture](guides/multi-environment-architecture.md)
 * [Create your own Helm Charts](guides/create-your-own-helm-charts.md)
+* [Kubernetes Gateway API](guides/gateway-api/README.md)
+  * [HTTPRoute](guides/gateway-api/httproute.md)
 * [Gravitee Ingress Controller](guides/gravitee-ingress-controller.md)
 * [DB-less mode](guides/db-less-mode.md)
 * [Templating](guides/templating.md)
