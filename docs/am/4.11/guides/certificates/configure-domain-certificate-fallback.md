@@ -9,11 +9,14 @@ Before configuring a fallback certificate for a domain, ensure the following:
 
 ### Gateway Configuration
 
-#### Domain Certificate Settings
+#### Enable HMAC signature
+To enable HMAC signature in your `gravitee.yaml` file, navigate to the `applications` section, and then add the following configuration: 
+```yaml
+applications:
+  signing:
+    fallback-to-hmac-signature: true|false
+```
 
-| Property | Description | Example |
-|:---------|:------------|:--------|
-| `certificateSettings.fallbackCertificate` | The certificate ID to use when an application's primary certificate fails to load | `"fallback-cert-123"` |
 
 ## Create Domain Ceritifcate Settings
 You can create Domain Certicate Settings with either of the following methods:
