@@ -428,3 +428,8 @@ async
 [Uu][Ss][Aa]
 [Ee][Uu]
 [Mm]anagement [Cc]onsole
+[Aa]llows?
+[Aa]gainst
+[Ee]num[s]?
+[Rr]eorderable
+[Dd]rag and [Dd]rop
