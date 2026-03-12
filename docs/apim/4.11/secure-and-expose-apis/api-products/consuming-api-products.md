@@ -39,8 +39,16 @@ To execute product-specific policies, use flow conditions that reference the `ap
 ## Subscribe to an API Product
 
 1. In the APIM Console, open the API Product and select **Consumers** in the left sidebar, then select the **Subscriptions** tab.
-2. Create a new subscription by selecting a published plan and an application.
-3. Approve or auto-validate the subscription based on the plan's validation setting.
+2. Click **Create a subscription**.
+3. Select a published plan and an application.
+4. Confirm the subscription.
 
-<!-- TODO: Screenshot of the Subscriptions tab for an API Product showing the subscription list with status badges -->
+The subscription is created with a status based on the plan's validation setting:
+
+- **AUTO** validation: the subscription is immediately **Accepted**
+- **MANUAL** validation: the subscription is set to **Pending** and requires approval
+
+After the subscription is accepted, the client authenticates requests using the method defined by the plan type (API Key header, JWT bearer token, or client certificate).
+
+<!-- TODO: Screenshot of the Subscriptions tab for an API Product showing the subscription list with filters and status badges -->
 <figure><img src="../../../../.gitbook/assets/PLACEHOLDER-api-product-subscriptions.png" alt=""><figcaption><p>API Product subscriptions list</p></figcaption></figure>
