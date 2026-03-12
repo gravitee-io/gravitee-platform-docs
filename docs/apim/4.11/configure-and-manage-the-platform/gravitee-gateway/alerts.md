@@ -126,7 +126,7 @@ In some cases, time window alert evaluation schedules might calculate differentl
 
 From APIM 4.11, you receive a warning when you update an alert with a time frame window, which indicates that the update resets the evaulation schedule.
 
-<figure><img src="../../../../../../.gitbook/assets/update_alerts_screenshot.png" alt="Update scheduled alert confirmation dialog"><figcaption></figcaption></figure>
+<figure><img src="/.gitbook/assets/update_alerts_screenshot.png" alt="Update scheduled alert confirmation dialog"><figcaption></figcaption></figure>
 
 ## Example alerts
 
@@ -138,7 +138,7 @@ To assist with alert configuration, sample alert templates useful to many teams 
 {% tab title="Response time limit" %}
 To configure an alert for response times exceeding a threshold of 1500ms:
 
-<figure><img src="../../../../../../.gitbook/assets/update_alerts_screenshot.png" alt="Update scheduled alert confirmation dialog"><figcaption></figcaption></figure>
+<figure><img src="/.gitbook/assets/update_alerts_screenshot.png" alt="Update scheduled alert confirmation dialog"><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="50th percentile reached" %}
