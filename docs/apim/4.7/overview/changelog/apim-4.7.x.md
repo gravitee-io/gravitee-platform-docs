@@ -4,6 +4,43 @@ description: API documentation explaining apim 4.7.x.
 
 # APIM 4.7.x
  
+## Gravitee API Management 4.7.27 - March 12, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Management API**
+
+* User Attributes Not Resolved in Mail Templates [#11207](https://github.com/gravitee-io/issues/issues/11207)
+
+**Console**
+
+* Custom statistics on the User-Agent [#11203](https://github.com/gravitee-io/issues/issues/11203)
+
+**Portal**
+
+* Button "back to category" disappears in dev portal [#11204](https://github.com/gravitee-io/issues/issues/11204)
+* Ui bug in developer portal [#11214](https://github.com/gravitee-io/issues/issues/11214)
+
+**Other**
+
+* Kafka OAUTHBEARER reconnection not triggered by the Kafka Client with JWT Plan [#10491](https://github.com/gravitee-io/issues/issues/10491)
+* 404 (Not Found) requests not visible in Console Analytics despite correct configuration [#11014](https://github.com/gravitee-io/issues/issues/11014)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Management API**
+
+* Intermittent 500 Error during API Creation: primaryOwner.notFound [#11229](https://github.com/gravitee-io/issues/issues/11229)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.7.26 - February 27, 2026
 <details>
 
