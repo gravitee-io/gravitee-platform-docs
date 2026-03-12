@@ -126,6 +126,8 @@ In some cases, time window alert evaluation schedules might calculate differentl
 
 From APIM 4.11, you receive a warning when you update an alert with a time frame window, which indicates that the update resets the evaulation schedule.
 
+![Update scheduled alert confirmation dialog](~/.gitbook/assets/update_alerts_screenshot.png)
+
 ## Example alerts
 
 To assist with alert configuration, sample alert templates useful to many teams are shown below.
