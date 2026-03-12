@@ -1,37 +1,46 @@
 # Consuming APIs via API Products
 
-## Client Configuration
+## Overview
 
-Clients consume APIs within an API Product using the same authentication mechanisms as individual API subscriptions.
+Clients consume APIs within an API Product using the same authentication mechanisms as individual API subscriptions. A single API Product subscription grants access to all APIs contained in the product.
 
-### Authentication Methods
+## Authentication methods
 
 **API Key plans:**
-* Include the key in the `X-Gravitee-Api-Key` header, or
-* Pass the key as a query parameter
+
+- Include the key in the `X-Gravitee-Api-Key` header, or
+- Pass the key as a query parameter
 
 **JWT plans:**
-* Provide the token in the `Authorization: Bearer` header
+
+- Provide the token in the `Authorization: Bearer` header
 
 **mTLS plans:**
-* Present the client certificate during the TLS handshake
 
-### Gateway Validation
+- Present the client certificate during the TLS handshake
 
-The gateway validates subscriptions in the following order:
+## Gateway subscription validation order
 
-1. Check subscription against the API Product first
-2. If no product subscription matches, check API-level plans
+When a request reaches the gateway, the gateway validates subscriptions in the following priority order:
 
-### Gateway Context Attributes
+1. The gateway checks the request against the API Product plan subscription first.
+2. If no valid API Product subscription exists, the gateway falls back to validating against the individual API plan.
+
+API Product plans take priority, but access through API-level plans is still possible when no product-level subscription applies. APIs within a product retain their own plans and subscriptions, so consumers can continue to subscribe to individual API plans independently of the product.
+
+## Gateway context attributes
 
 For API Product subscriptions, the gateway sets the following context attributes:
 
-* `ATTR_API_PRODUCT`: Set to the API Product ID
-* `apiProductId`: Exposed in the Expression Language context
+- `apiProductId`: The API Product ID, exposed in the Expression Language context
 
-Flow conditions can reference the API Product ID to execute product-specific policies.
+To execute product-specific policies, use flow conditions that reference the `apiProductId` attribute.
 
-### API Key Lookup
+## Subscribe to an API Product
 
-The API key lookup mechanism supports both API and API_PRODUCT reference types via `findByKeyAndReferenceIdAndReferenceType()`.
+1. In the APIM Console, open the API Product and select **Consumers** in the left sidebar, then select the **Subscriptions** tab.
+2. Create a new subscription by selecting a published plan and an application.
+3. Approve or auto-validate the subscription based on the plan's validation setting.
+
+<!-- TODO: Screenshot of the Subscriptions tab for an API Product showing the subscription list with status badges -->
+<figure><img src="../../../../.gitbook/assets/PLACEHOLDER-api-product-subscriptions.png" alt=""><figcaption><p>API Product subscriptions list</p></figcaption></figure>
