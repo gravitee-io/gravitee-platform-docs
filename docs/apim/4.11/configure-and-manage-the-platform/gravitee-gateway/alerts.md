@@ -105,7 +105,7 @@ When a condition includes an aggregation or rate within a time frame window, the
 
 ### Updating a scheduled alert
 
-When you update an existing scheduled alert with a time frame window, the evaluation scheudle restarts from the time of the update. Unless you update the configuration again, the schedule contines at regular intervals based off the new timestamp.
+When you update an existing scheduled alert with a time frame window, the evaluation schedule restarts from the time of the update. Unless you update the configuration again, the schedule continues at regular intervals based off the new timestamp.
 
 ```
 Last updated at [timestamp]
