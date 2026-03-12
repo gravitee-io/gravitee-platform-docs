@@ -1,51 +1,53 @@
 # API Products restrictions and licensing
 
-## Restrictions
-
-API Products are subject to the following constraints and limitations:
-
-## Licensing and Deployment
+## Licensing
 
 API Products require the Enterprise Universe tier. Deployment fails if the organization license tier is not "universe."
 
-## Supported API Types
+## Supported API types
 
 Only V4 HTTP Proxy APIs can be added to API Products. The following API types are not supported:
 
-* Message APIs
-* Kafka APIs
-* LLM APIs
-* MCP APIs
+- Message APIs
+- Kafka APIs
+- LLM APIs
+- MCP APIs
 
-## Plan Type Restrictions
+## Plan type restrictions
 
-API Products do not support the following plan types:
+API Products support the following plan types:
 
-* Keyless plans
-* OAuth plans
+- **API Key**
+- **JWT**
+- **mTLS**
 
-Supported plan types include **API Key, JWT, and mTLS**.
+Keyless and OAuth plans are not supported. The Console UI only displays API Key, JWT, and mTLS as available plan types when creating a plan for an API Product. The Management API rejects Keyless plans with a `400 Bad Request` error: "Plan Security Type KeyLess is not allowed."
 
-## Naming Requirements
+## Naming requirements
 
-API Product names must be unique within an environment. Name uniqueness is validated before creation or update.
+API Product names are unique within an environment. Name comparison is case-sensitive — for example, "My Product" and "my product" are treated as different names. The name is trimmed of leading and trailing whitespace before validation.
 
-## API Inclusion Rules
+If a duplicate name is submitted, the system rejects it with the error: "API Product name must be unique."
 
-APIs must meet the following criteria to be added to an API Product:
+## API inclusion rules
 
-* The `allowedInApiProducts` flag must be set to `true`. APIs with `allowedInApiProducts=false` or `null` cannot be added to products.
-* The `allowedInApiProducts` flag cannot be disabled once an API is included in a product. The flag is greyed out in the UI when the API is used in products.
-* The `allowedInApiProducts` flag is unavailable for read-only APIs (for example, Kubernetes-managed APIs).
+APIs added to an API Product have the following requirements:
 
-## Deprecated Fields
+- The **Allow in API Products** toggle on the API's General Info page is set to enabled. APIs with this toggle disabled or not set cannot be added to products.
+- The **Allow in API Products** toggle cannot be disabled once an API is included in a product. The toggle is greyed out in the Console when the API is used in products.
+- The **Allow in API Products** toggle is unavailable for read-only APIs (for example, Kubernetes-managed APIs).
 
-Plans and subscriptions created before version 4.11.0 use the deprecated `api` field. New resources must use `referenceId` and `referenceType` instead. Legacy methods delegate to new reference-based methods for backward compatibility.
+APIs within a product retain their own plans and subscriptions. Consumers can subscribe to an individual API's plans independently of the product.
 
-## Policy and Flow Restrictions
+## Policy and flow restrictions
 
-API Products cannot include flows or policies at the product level. Policies must be defined at the API or plan level. Customers can use flow conditions to execute product-specific policies by referencing the API Product ID.
+API Products cannot include flows or policies at the product level. Define policies at the API or plan level. To execute product-specific policies, use flow conditions that reference the API Product ID via the `apiProductId` Expression Language attribute.
 
-## Plan Tag Handling
+## Gateway subscription validation order
 
-Empty tags are automatically set for API Product plans during updates to prevent deployment state inconsistencies.
+The gateway validates subscriptions in the following priority order:
+
+1. The gateway checks the request against the API Product plan subscription first.
+2. If no valid API Product subscription exists, the gateway falls back to validating against the individual API plan.
+
+API Product plans take priority, but access through API-level plans is still possible when no product-level subscription applies.
