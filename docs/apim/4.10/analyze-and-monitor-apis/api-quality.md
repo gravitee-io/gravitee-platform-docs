@@ -15,7 +15,9 @@ The API Quality feature is only available to v2 APIs
 
 The Gravitee API Quality feature enables API governance by allowing you to create and automatically assign customizable scores based on certain variables determined to impact API quality. If API Quality is enabled, APIs that you create in Gravitee will automatically be assigned an API quality score.
 
-## Configure API Quality
+## Configure API Qual data valu ....
+
+I am going nowh, and in ,, the valeyyyy
 
 API Quality is configured at the Portal Settings level. To access these settings:
 
