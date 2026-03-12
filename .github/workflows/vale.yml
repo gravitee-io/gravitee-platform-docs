@@ -1,11 +1,9 @@
 name: Vale Linting
 on:
-  workflow_dispatch:
-    inputs:
-      pr_number:
-        description: 'Pull request number to lint (posts review comments on the PR)'
-        required: true
-        type: string
+  pull_request:
+    paths:
+      - 'docs/**.md'
+      - 'docs/**.mdx'
 
 permissions:
   contents: read
@@ -19,12 +17,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Get changed docs files from PR
+      - name: Get changed docs files
         id: changed-files
-        env:
-          GH_TOKEN: ${{ github.token }}
         run: |
-          FILES=$(gh pr diff ${{ inputs.pr_number }} --name-only | grep -E '\.(md|mdx)$' \
+          FILES=$(git diff --name-only --diff-filter=ACMR ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }} -- '*.md' '*.mdx' \
             | grep -v 'docs/gko/.*/releases-and-changelog/release-notes/' || true)
           echo "Changed files:"
           echo "$FILES"
