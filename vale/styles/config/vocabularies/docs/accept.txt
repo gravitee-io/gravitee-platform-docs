@@ -433,3 +433,8 @@ async
 [Ee]num[s]?
 [Rr]eorderable
 [Dd]rag and [Dd]rop
+[Cc]allout[s]?
+[Aa]lias
+[Cc]acheable
+[Ee]ndcode
+[Ee]xtract
