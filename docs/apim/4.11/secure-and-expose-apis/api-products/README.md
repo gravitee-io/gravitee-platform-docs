@@ -6,8 +6,7 @@ API Products enable administrators to bundle multiple V4 HTTP Proxy APIs into a 
 
 This feature requires an Enterprise Universe tier license.
 
-<!-- TODO: Screenshot of the API Products list page in the APIM Console showing the "API Products" navigation item in the left sidebar and the list table -->
-<figure><img src="../../../../.gitbook/assets/PLACEHOLDER-api-products-list.png" alt=""><figcaption><p>API Products list page in the APIM Console</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/api-products-list.png" alt=""><figcaption><p>API Products list page in the APIM Console</p></figcaption></figure>
 
 ## What is an API Product?
 
@@ -54,8 +53,7 @@ Only V4 HTTP Proxy APIs with the **Allow in API Products** toggle enabled can be
 4. Enable the toggle.
 5. Click **Save** to apply the change.
 
-<!-- TODO: Screenshot of the API General Info page showing the "Allow in API Products" toggle for a V4 HTTP Proxy API -->
-<figure><img src="../../../../.gitbook/assets/PLACEHOLDER-allow-in-api-products-toggle.png" alt=""><figcaption><p>"Allow in API Products" toggle on the API General Info page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/allow-in-api-products-toggle.png" alt=""><figcaption><p>"Allow in API Products" toggle on the API General Info page</p></figcaption></figure>
 
 ## Prerequisites
 
@@ -72,8 +70,7 @@ Only V4 HTTP Proxy APIs with the **Allow in API Products** toggle enabled can be
 5. Optionally, enter a **Description**.
 6. Click **Create API Product**.
 
-<!-- TODO: Screenshot of the Create API Product form showing the Name, Version, and Description fields -->
-<figure><img src="../../../../.gitbook/assets/PLACEHOLDER-create-api-product.png" alt=""><figcaption><p>Create API Product form</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/create-api-product.png" alt=""><figcaption><p>Create API Product form</p></figcaption></figure>
 
 ## Edit an API Product
 
@@ -92,8 +89,7 @@ Only V4 HTTP Proxy APIs with the **Allow in API Products** toggle enabled can be
 If an expected API does not appear in the search results, verify that the **Allow in API Products** toggle is enabled on the API's General Info page.
 {% endhint %}
 
-<!-- TODO: Screenshot of the Add API dialog showing the API search field, the info banner ("APIs must have API products enabled before they appear in the list"), and the selected APIs chips -->
-<figure><img src="../../../../.gitbook/assets/PLACEHOLDER-add-api-to-product.png" alt=""><figcaption><p>Add API dialog for an API Product</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/add-api-to-product.png" alt=""><figcaption><p>Add API dialog for an API Product</p></figcaption></figure>
 
 ## Remove an API from a product
 
@@ -118,8 +114,7 @@ If an expected API does not appear in the search results, verify that the **Allo
 
 Keyless and OAuth plan types are not available for API Products.
 
-<!-- TODO: Screenshot of the Plans tab showing the plan type selection menu with API Key, JWT, and mTLS options -->
-<figure><img src="../../../../.gitbook/assets/PLACEHOLDER-api-product-plan-types.png" alt=""><figcaption><p>Plan type selection for an API Product</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/api-product-plan-types.png" alt=""><figcaption><p>Plan type selection for an API Product</p></figcaption></figure>
 
 ## Manage plan lifecycle
 
@@ -160,8 +155,7 @@ After creating plans and adding APIs, deploy the API Product to make it availabl
 
 Deployment requires an active Enterprise Universe tier license.
 
-<!-- TODO: Screenshot of the deployment confirmation dialog showing "Deploy your API Product" title and the Deploy button -->
-<figure><img src="../../../../.gitbook/assets/PLACEHOLDER-deploy-api-product.png" alt=""><figcaption><p>Deploy API Product confirmation dialog</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/deploy-api-product.png" alt=""><figcaption><p>Deploy API Product confirmation dialog</p></figcaption></figure>
 
 ## Create a subscription
 
@@ -186,8 +180,7 @@ The subscription list provides filters to narrow results by:
 
 Click **Reset filters** to clear all active filters.
 
-<!-- TODO: Screenshot of the Subscriptions tab showing the subscription list, filters (Plan, Application, Status, API Key), and the Create a subscription button -->
-<figure><img src="../../../../.gitbook/assets/PLACEHOLDER-api-product-subscriptions.png" alt=""><figcaption><p>API Product subscriptions list with filters</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/api-product-subscriptions.png" alt=""><figcaption><p>API Product subscriptions list with filters</p></figcaption></figure>
 
 ### Manage subscription lifecycle
 
