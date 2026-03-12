@@ -213,7 +213,7 @@ Token validation triggers one of the following:
 
 <summary>10. Fine-grained permissions check</summary>
 
-Once the access is established, the MCP Server, acting as a Policy Enforcement Point (PEP), requests evaulation of a fine-grained permission for accessing the MCP tool using the 
+Once the access is established, the MCP Server, acting as a Policy Enforcement Point (PEP), requests evaluation of a fine-grained permission for accessing the MCP tool using the 
 The permission check uses the Authorization Engine and AuthZen and is described in the [AuthZen](../authorization-engines/authzen) section.
 
 {% hint style="warning" %}
