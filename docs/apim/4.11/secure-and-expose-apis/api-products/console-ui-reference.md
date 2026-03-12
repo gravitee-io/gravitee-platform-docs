@@ -4,8 +4,7 @@
 
 An **API Products** navigation item appears in the APIM Console left sidebar. Selecting it opens the API Products list page with the heading "API Products" and the subtitle "Group together multiple APIs for consumers."
 
-<!-- TODO: Screenshot of the APIM Console left sidebar highlighting the "API Products" navigation item -->
-<figure><img src="../../../../.gitbook/assets/PLACEHOLDER-api-products-nav.png" alt=""><figcaption><p>"API Products" navigation item in the APIM Console sidebar</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/api-products-nav.png" alt=""><figcaption><p>"API Products" navigation item in the APIM Console sidebar</p></figcaption></figure>
 
 ## API Product detail page
 
@@ -17,8 +16,7 @@ After opening an API Product, the detail page displays a left sidebar with the f
 | **APIs** | Add or remove APIs from the product |
 | **Consumers** | Manage plans and subscriptions (contains **Plans** and **Subscriptions** tabs) |
 
-<!-- TODO: Screenshot of the API Product detail page showing the Configuration, APIs, and Consumers menu items in the left sidebar -->
-<figure><img src="../../../../.gitbook/assets/PLACEHOLDER-api-product-detail.png" alt=""><figcaption><p>API Product detail page with navigation menu</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/api-product-detail.png" alt=""><figcaption><p>API Product detail page with navigation menu</p></figcaption></figure>
 
 ## Configuration tab
 

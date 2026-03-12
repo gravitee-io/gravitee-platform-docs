@@ -50,5 +50,4 @@ The subscription is created with a status based on the plan's validation setting
 
 After the subscription is accepted, the client authenticates requests using the method defined by the plan type (API Key header, JWT bearer token, or client certificate).
 
-<!-- TODO: Screenshot of the Subscriptions tab for an API Product showing the subscription list with filters and status badges -->
-<figure><img src="../../../../.gitbook/assets/PLACEHOLDER-api-product-subscriptions.png" alt=""><figcaption><p>API Product subscriptions list</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/api-product-subscriptions.png" alt=""><figcaption><p>API Product subscriptions list</p></figcaption></figure>
