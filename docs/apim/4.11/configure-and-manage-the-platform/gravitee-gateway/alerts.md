@@ -97,36 +97,31 @@ If you want to choose Webhook as your notification channel, you will need to def
 
 ## Scheduled alerts
 
-When a condition includes an aggregation or rate within a time frame window, the window is calculated from the last time the alert configuration was updated.
-
-### Updating a scheduled alert
-
-When you update an existing scheduled alert, the APIM UI displays a confirmation dialog warning that the schedule will reset to the `updated_at` timestamp.
-
-{% hint style="warning" %}
-**Update scheduled alert**
-
-This alert has a scheduled duration. Saving your changes will reset the evaluation schedule. The next cycle will start from the moment you confirm this update. Are you sure you want to continue?
-{% endhint %}
-
-Confirm the update to anchor the schedule to the new timestamp. The next evaluation cycle starts from the moment you confirm.
-
-The UI displays the last update timestamp when `updated_at` exists:
-
-```
-Last updated at [timestamp]
-```
-#### Updates effects on evaluation 
 {% hint style="warning" %}
 In some cases, time window alert evaluation schedules might calculate differently than expected in Alert Engine versions befor 3.0.0. If you are self-hosting Alert Engine and use time frame window alerts, upgrade to version 3.0.0 or later.
 {% endhint %}
 
-* If you update any detail of an alert with a time frame window, the update restarts the evaluation schedule and event gathering from the time of update.
-* Unless the alert configuration is updated again, the evaluation schedule continues at regular intervals.
+When a condition includes an aggregation or rate within a time frame window, the window is calculated from the last time the alert configuration was updated.
 
-From APIM 4.11, you receive a warning when you update an alert with a time frame window, which indicates that the update resets the evaulation schedule.
+### Updating a scheduled alert
+
+When you update an existing scheduled alert with a time frame window, the evaluation scheudle restarts from the time of the update. Unless you update the configuration again, the schedule contines at regular intervals based off the new timestamp.
+
+```
+Last updated at [timestamp]
+```
+
+Also, from 4.11, you receive a warning when you update an alert with a time frame window, which indicates that the update resets the evaulation schedule.
 
 <figure><img src="/.gitbook/assets/update_alerts_screenshot.png" alt="Update scheduled alert confirmation dialog"><figcaption></figcaption></figure>
+
+{% hint style="warning" %}
+**Update scheduled alert**
+
+This alert has a scheduled duration. Saving your changes reset the evaluation schedule. The next cycle will start from the moment you confirm this update.
+{% endhint %}
+
+Confirm the update to anchor the schedule to the new timestamp. The next evaluation cycle starts from the moment you confirm.
 
 ## Example alerts
 
@@ -138,7 +133,7 @@ To assist with alert configuration, sample alert templates useful to many teams 
 {% tab title="Response time limit" %}
 To configure an alert for response times exceeding a threshold of 1500ms:
 
-<figure><img src="/.gitbook/assets/update_alerts_screenshot.png" alt="Update scheduled alert confirmation dialog"><figcaption></figcaption></figure>
+<figure><img src="https://docs.gravitee.io/images/ae/apim/api_alert_response_time_threshold.png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="50th percentile reached" %}
