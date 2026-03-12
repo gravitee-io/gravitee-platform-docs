@@ -77,34 +77,3 @@ POST http(s)://AM_MANAGEMENT_API/management/auth/login
 For user migrations from an alternative OIDC provider to Access Management, you can define the `lastPasswordReset` attribute. This attribute ensures that a password policy with password expiry requests a password reset according to the value provided during the migration.
 
 In Management REST API, `lastPasswordReset` attribute in the User definition is a long value representing the number of milliseconds since the standard base time known as "the epoch".
-
-### Protected Resource Secrets
-
-Protected Resources support client secret lifecycle management through dedicated endpoints:
-
-| Endpoint | Method | Description |
-|:---------|:-------|:------------|
-| `/organizations/{organizationId}/environments/{environmentId}/domains/{domain}/protected-resources/{protected-resource}/secrets` | POST | Create a new secret with a name. Returns the generated secret value (visible only once). |
-| `/organizations/{organizationId}/environments/{environmentId}/domains/{domain}/protected-resources/{protected-resource}/secrets/{secretId}/_renew` | POST | Renew an existing secret. Generates a new value while preserving settings. |
-| `/organizations/{organizationId}/environments/{environmentId}/domains/{domain}/protected-resources/{protected-resource}/secrets/{secretId}` | DELETE | Delete a secret. Removes associated OAuth settings if no other secrets reference them. |
-
-### Protected Resource Membership
-
-Membership endpoints allow assigning users and roles to Protected Resources:
-
-| Endpoint | Method | Description |
-|:---------|:-------|:------------|
-| `/organizations/{organizationId}/environments/{environmentId}/domains/{domain}/protected-resources/{protected-resource}/members` | GET | List all members assigned to the Protected Resource. |
-| `/organizations/{organizationId}/environments/{environmentId}/domains/{domain}/protected-resources/{protected-resource}/members` | POST | Add a member with `memberId`, `memberType`, and `role`. |
-| `/organizations/{organizationId}/environments/{environmentId}/domains/{domain}/protected-resources/{protected-resource}/members/{member}` | DELETE | Remove a member from the Protected Resource. |
-| `/organizations/{organizationId}/environments/{environmentId}/domains/{domain}/protected-resources/{protected-resource}/members/permissions` | GET | Retrieve available permissions for Protected Resource membership. |
-
-### Protected Resource Search
-
-The Protected Resources list endpoint supports text search via the `q` query parameter:
-
-```
-GET /organizations/{organizationId}/environments/{environmentId}/domains/{domain}/protected-resources?q=<query>
-```
-
-Search is case-insensitive and matches against `name` or `clientId` fields. Wildcards are supported (e.g., `q=client*` matches `clientId`, `clientId2`, `clientId-test`). Combine with `type`, `page`, and `size` parameters for filtered, paginated results.
