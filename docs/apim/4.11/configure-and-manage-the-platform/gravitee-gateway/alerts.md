@@ -98,7 +98,7 @@ If you want to choose Webhook as your notification channel, you will need to def
 ## Scheduled alerts
 
 {% hint style="warning" %}
-In some cases, time window alert evaluation schedules might calculate differently than expected in Alert Engine versions befor 3.0.0. If you are self-hosting Alert Engine and use time frame window alerts, upgrade to version 3.0.0 or later.
+In some cases, time window alert evaluation schedules might calculate differently than expected in Alert Engine versions before 3.0.0. If you are self-hosting Alert Engine and use time frame window alerts, upgrade to version 3.0.0 or later.
 {% endhint %}
 
 When a condition includes an aggregation or rate within a time frame window, the window is calculated from the last time the alert configuration was updated.
