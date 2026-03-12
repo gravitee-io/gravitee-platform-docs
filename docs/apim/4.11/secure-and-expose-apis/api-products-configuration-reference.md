@@ -1,34 +1,37 @@
 # API Products configuration reference
 
-## Gateway Configuration
+## API Product properties
 
-### API Product Entity Properties
+| Property | Type | Required | Description |
+|:---------|:-----|:---------|:------------|
+| `name` | string | Yes | Product name. Unique within the environment (case-sensitive comparison). Leading and trailing whitespace is trimmed. |
+| `version` | string | Yes | Product version |
+| `description` | string | No | Product description |
+| `apiIds` | string[] | No | List of API IDs included in the product. All referenced APIs must exist and have `allowedInApiProducts=true`. |
 
-| Property | Type | Default | Description |
-|:---------|:-----|:--------|:------------|
-| `id` | string | (generated) | Unique identifier for the API Product |
-| `name` | string | (required) | Product name; must be unique within environment |
-| `version` | string | (required) | Product version |
-| `description` | string | null | Product description |
-| `apiIds` | string[] | [] | List of API IDs included in the product |
-| `environmentId` | string | (required) | Environment where product is deployed |
-| `organizationId` | string | (required) | Organization owning the product |
-| `createdAt` | Date | (auto) | Creation timestamp |
-| `updatedAt` | Date | (auto) | Last update timestamp |
-| `deployedAt` | Date | null | Last deployment timestamp |
-| `primaryOwner` | PrimaryOwner | (required) | Primary owner of the API Product |
-| `deploymentState` | enum | null | Deployment sync state: `NEED_REDEPLOY` or `DEPLOYED` |
-
-### API Configuration for Product Eligibility
+## API eligibility configuration
 
 | Property | Type | Default | Description |
 |:---------|:-----|:--------|:------------|
-| `allowedInApiProducts` | boolean | null | Enables API inclusion in API Products; only applicable to V4 HTTP Proxy APIs |
+| `allowedInApiProducts` | Boolean | `true` for new V4 HTTP Proxy APIs; `false` for existing APIs created before 4.11.0; `null` for non-HTTP Proxy types | Enables API inclusion in API Products. Only applicable to V4 HTTP Proxy APIs. Cannot be disabled once the API is included in a product. |
 
-### Plan Configuration
+## Plan reference model
 
-| Property | Type | Default | Description |
-|:---------|:-----|:--------|:------------|
-| `referenceId` | string | (required) | ID of the parent API or API Product |
-| `referenceType` | enum | (required) | Reference type: `API` or `API_PRODUCT` |
-| `api` | string | (deprecated) | **Deprecated since 4.11.0.** Use `referenceId` and `referenceType` |
+Plans and subscriptions created for API Products use the following reference fields:
+
+| Property | Type | Description |
+|:---------|:-----|:------------|
+| `referenceId` | string | ID of the parent API or API Product |
+| `referenceType` | enum | `API` or `API_PRODUCT` |
+
+The legacy `api` field on plans is deprecated as of version 4.11.0. Use `referenceId` and `referenceType` for new integrations.
+
+## Supported plan security types
+
+| Security type | Supported | Notes |
+|:--------------|:----------|:------|
+| `API_KEY` | Yes | - |
+| `JWT` | Yes | - |
+| `MTLS` | Yes | - |
+| `KEY_LESS` | No | Rejected with `400 Bad Request` |
+| `OAUTH2` | No | Not available in Console UI or supported for API Products |
