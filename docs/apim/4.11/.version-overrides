@@ -8,7 +8,7 @@ create-and-configure-apis/apply-policies/resources.md
 prepare-a-production-environment/gateway-resource-sizing-guidelines.md
 release-information/release-notes/apim-4.11.md
 kafka-gateway/configure-the-kafka-client-and-gateway.md
-kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/mtls_plans_for_kafka_native_apis-_overview_and_security_model.md
+kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/mtls-plans.md
 kafka-gateway/create-and-configure-kafka-apis/create-kafka-apis.md
 kafka-gateway/plans.md
 secure-and-expose-apis/plans/mtls.md
