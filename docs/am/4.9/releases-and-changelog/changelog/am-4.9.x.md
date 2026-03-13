@@ -16,11 +16,13 @@ description: >-
 
 * Limit the number of Thread to process Bulk Email [#11213](https://github.com/gravitee-io/issues/issues/11213)
 
-
-
 **Console**
 
 * Audit Logs - Column "Target" is truncated [#11200](https://github.com/gravitee-io/issues/issues/11200)
+
+**Management API**
+
+* IDP - Incorrect status error code for PUT request [#8917](https://github.com/gravitee-io/issues/issues/8917)
 
 **Other**
 
