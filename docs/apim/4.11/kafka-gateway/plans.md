@@ -21,12 +21,12 @@ For Kafka APIs, these plans correspond directly to Kafka authentication methods:
 
 <table><thead><tr><th width="201">Plan</th><th>Corresponding Kafka Authentication</th></tr></thead><tbody><tr><td>Keyless (public)</td><td>PLAINTEXT</td></tr><tr><td>API Key</td><td>The API key is used as the password, and the md5 hash of the API key is used as the username, as part of the SASL/SSL with SASL PLAIN authentication method.</td></tr><tr><td>JWT</td><td>Equivalent to SASL/SSL with SASL OAUTHBEARER authentication, where the JWT is used as the OAuth token.</td></tr><tr><td>OAuth2</td><td>Equivalent to SASL/SSL with SASL OAUTHBEARER authentication.</td></tr><tr><td>mTLS</td><td>SSL/TLS with client certificate authentication. The Gateway must be configured with <code>kafka.ssl.clientAuth=required</code> to enforce client certificate authentication.</td></tr></tbody></table>
 
-To authenticate users, each plan must include at least one security type. A security type is a policy that is integrated directly into a plan. Once a plan is created, the security type cannot be changed. Also, your Kafka APIs cannot have conflicting authentication. For example, if your Kafka API has the Keyless plan, you must have Keyless authentication. However, you can use policies to add additional security at the API or plan level.
+To authenticate users, each plan must include at least one security type. A security type is a policy that's integrated directly into a plan. Once a plan is created, the security type can't be changed. Also, your Kafka APIs can't have conflicting authentication. For example, if your Kafka API has the Keyless plan, you must have Keyless authentication. However, you can use policies to add additional security at the API or plan level.
 
 {% hint style="warning" %}
-You cannot have multiple published plans with conflicting authentication. For example, you cannot have a Keyless plan and a JWT plan for a Kafka API. However, you can have multiple plans with authentication for a Kafka API. For example, OAuth2 and JWT.
+You can't have multiple published plans with conflicting authentication. For example, you can't have a Keyless plan and a JWT plan for a Kafka API. However, you can have multiple plans with authentication for a Kafka API. For example, OAuth2 and JWT.
 
-mTLS plans cannot coexist with Keyless plans or authentication plans (OAuth2, JWT, API Key) in published state. Publishing an mTLS plan automatically closes all published Keyless and authentication plans. Publishing a Keyless or authentication plan automatically closes all published mTLS plans.
+mTLS plans can't coexist with Keyless plans or authentication plans (OAuth2, JWT, API Key) in published state. Publishing an mTLS plan automatically closes all published Keyless and authentication plans. Publishing a Keyless or authentication plan automatically closes all published mTLS plans.
 {% endhint %}
 
 ## Plan stages
@@ -35,8 +35,8 @@ A plan can exist in one of four stages:
 
 * STAGING. This is the draft mode of a plan, where it can be configured but won't be accessible to users.
 * PUBLISHED. API consumers can view a published plan on the Developer Portal. Once subscribed, they can use it to consume the API. A published plan can still be edited.
-* DEPRECATED. A deprecated plan won't be available on the Developer Portal and API consumers won't be able to subscribe to it. This cannot be undone. Existing subscriptions are not impacted, giving current API consumers time to migrate without breaking their application.
-* CLOSED. Once a plan is closed, all associated subscriptions are closed. API consumers subscribed to this plan won't be able to use the API. This cannot be undone.
+* DEPRECATED. A deprecated plan won't be available on the Developer Portal and API consumers won't be able to subscribe to it. This can't be undone. Existing subscriptions aren't impacted, giving current API consumers time to migrate without breaking their application.
+* CLOSED. Once a plan is closed, all associated subscriptions are closed. API consumers subscribed to this plan won't be able to use the API. This can't be undone.
 
 Depending on the stage it's in, a plan can be edited, published, deprecated, or closed. See [this](create-and-configure-kafka-apis/configure-kafka-apis/consumers.md#plans) documentation for specific instructions.
 
@@ -78,5 +78,5 @@ Unlike with HTTP APIs, there is only ever one set of policies per plan. Once the
 
 Certificate validation failures result in `MtlsPolicyException` with the following error keys:
 
-<table><thead><tr><th>Error Key</th><th>Description</th></tr></thead><tbody><tr><td><code>SSL_SESSION_REQUIRED</code></td><td>TLS session does not exist</td></tr><tr><td><code>CLIENT_CERTIFICATE_INVALID</code></td><td>Peer certificates cannot be extracted</td></tr><tr><td><code>CLIENT_CERTIFICATE_MISSING</code></td><td>No certificates present in TLS session</td></tr></tbody></table>
+<table><thead><tr><th>Error Key</th><th>Description</th></tr></thead><tbody><tr><td><code>SSL_SESSION_REQUIRED</code></td><td>TLS session doesn't exist</td></tr><tr><td><code>CLIENT_CERTIFICATE_INVALID</code></td><td>Peer certificates can't be extracted</td></tr><tr><td><code>CLIENT_CERTIFICATE_MISSING</code></td><td>No certificates present in TLS session</td></tr></tbody></table>
 

@@ -111,7 +111,7 @@ Define a plan to secure, monitor, and transparently communicate information on h
 Gravitee automatically assigns each API a Default Keyless plan, which grants public access. Click **+ Add plan** to create additional plans.
 
 {% hint style="warning" %}
-Kafka APIs cannot have published plans with conflicting authentication. In order to automatically deploy your API, add either a Keyless plan, which grants public access, or remove the Default Keyless plan and add one or more plans with authentication.
+Kafka APIs can't have published plans with conflicting authentication. In order to automatically deploy your API, add either a Keyless plan, which grants public access, or remove the Default Keyless plan and add one or more plans with authentication.
 {% endhint %}
 
 The Gravitee plans supported by Kafka APIs are summarized below, in increasing order of security

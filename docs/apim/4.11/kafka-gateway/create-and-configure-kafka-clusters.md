@@ -59,7 +59,7 @@ In the **General** tab, you can perform the following actions:
 To delete the cluster, complete the following steps:
 
 {% hint style="warning" %}
-Once you delete a cluster, this action cannot be undone.
+Once you delete a cluster, this action can't be undone.
 {% endhint %}
 
 1. Navigate to the **Danger Zone** section, and then click **Delete**.
@@ -103,7 +103,7 @@ To add a group to your Kafka cluster, complete the following steps:
 To transfer ownership of your Kafka cluster to another user, complete the following steps:
 
 {% hint style="warning" %}
-Once you transfer ownership of a cluster, this action cannot be undone.
+Once you transfer ownership of a cluster, this action can't be undone.
 {% endhint %}
 
 1. From the **User Permissions** tab, click **Transfer ownership**.
