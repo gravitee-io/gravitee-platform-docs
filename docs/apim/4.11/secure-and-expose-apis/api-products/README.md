@@ -24,7 +24,9 @@ An API Product groups one or more V4 HTTP Proxy APIs. Each API Product has its o
 
 APIs within a product retain their own plans and subscriptions. Consumers can subscribe to an individual API's plans independently of the product, and existing API-level subscriptions remain active when an API is added to a product.
 
-An API can belong to multiple products simultaneously.
+An API can belong to multiple products simultaneously. The API's General Info page displays an **Included in** field listing the API Products the API belongs to. If the API is included in more than 5 products, the first 5 are shown with a **+n more** link that opens a searchable dialog.
+
+When viewing subscriptions from the Application level, each subscription displays an **API** or **API Product** label to indicate whether the subscription is for an individual API or an API Product. When creating a subscription from an Application, the search returns results for both APIs and API Products.
 
 ### Gateway subscription validation order
 
