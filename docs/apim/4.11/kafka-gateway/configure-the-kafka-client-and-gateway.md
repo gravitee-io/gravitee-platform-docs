@@ -20,7 +20,7 @@ Running the Kafka Gateway requires an Enterprise license with the Kafka Gateway 
 To run the Kafka Gateway, enable the Gateway server in `gravitee.yml`. The full example of the configuration is defined [below](configure-the-kafka-client-and-gateway.md#appendix-full-gateway-configuration). The baseline required configuration is:
 
 ```yaml
-# Gateway Kafka server
+
 kafka:
   enabled: true
 
@@ -37,7 +37,7 @@ kafka:
 
 ### Bootstrap server domain
 
-* The Gateway runs multiple APIs on different **domains**. The Kafka client will connect to the API using the bootstrap server `{apiHost}.{defaultDomain}:{defaultPort}` , where `{apiHost}` is host prefix defined for each API.
+* The Gateway runs multiple APIs on different **domains**. The Kafka client will connect to the API using the bootstrap server `{apiHost}.{defaultDomain}:{defaultPort}`, where `{apiHost}` is host prefix defined for each API.
 
 <figure><img src="../.gitbook/assets/image (17).png" alt="" width="555"><figcaption><p>The Kafka client routes to the correct API through the gateway using SNI routing.</p></figcaption></figure>
 
@@ -52,7 +52,7 @@ kafka:
 If you have restrictions on the domain names you can use for APIs, you can override the default hostname by updating the Gateway configuration. For example, instead of `{apiHost}.{defaultDomain}` as the hostname, you can set the pattern to `my-bootstrap-{apiHost}.mycompany.org` by configuring the variables below:
 
 ```yaml
-# Gateway Kafka server
+
 kafka:
   enabled: true
 
@@ -65,7 +65,7 @@ kafka:
     # The default domain where the Kafka APIs are exposed. ex: `myapi` will be exposed as `myapi.mycompany.org`
     defaultDomain: "mycompany.org" # Should set according to the public wildcard DNS/Certificate. Default is empty
     defaultPort: 9092 # Default public port for Kafka APIs. Default is 9092
-    
+
     # Customize the host domain.
     # {apiHost} is a placeholder that will be replaced at runtime, when the API is deployed, by the API Host Prefix.
     bootstrapDomainPattern: "my-bootstrap-{apiHost}.mycompany.org"
@@ -94,7 +94,7 @@ The mapping combines the `brokerPrefix`, `brokerSeparator`, and `defaultDomain` 
 If you have restrictions on the domain names you can use for APIs, then, as [above](configure-the-kafka-client-and-gateway.md#what-if-i-have-restrictions-on-the-domains-i-can-use), you can override the broker domain pattern. The configuration will then be as follows (with `brokerDomainPattern` being the relevant option):
 
 ```yaml
-# Gateway Kafka server
+
 kafka:
   enabled: true
 
@@ -107,7 +107,7 @@ kafka:
     # The default domain where the Kafka APIs are exposed. ex: `myapi` will be exposed as `myapi.mycompany.org`
     defaultDomain: "mycompany.org" # Should set according to the public wildcard DNS/Certificate. Default is empty
     defaultPort: 9092 # Default public port for Kafka APIs. Default is 9092
-    
+
     # Customize the host domain.
     # {apiHost} is a placeholder that will be replaced at runtime, when the API is deployed, by the API Host Prefix.
     # {brokerId} is a placeholder that stand for the broker id
@@ -145,6 +145,24 @@ To add more APIs, you will need to add another API host to the first line and tw
 
 </details>
 
+### Configure mTLS authentication
+
+To require client certificate authentication for all Kafka native APIs deployed on the gateway, configure the Gravitee Kafka Gateway with truststore and keystore paths. This is an infrastructure-level configuration that applies globally.
+
+Configure the following SSL properties in `gravitee.yml`:
+
+| Property | Description | Example |
+|:---------|:------------|:--------|
+| `kafka.ssl.clientAuth` | Require client certificate authentication | `required` |
+| `kafka.ssl.truststore.type` | Gateway truststore type for verifying client certificates | `jks` |
+| `kafka.ssl.truststore.password` | Gateway truststore password | `gravitee` |
+| `kafka.ssl.truststore.path` | Path to gateway truststore containing CA that signed client certificates | `/path/to/server.truststore.jks` |
+| `kafka.ssl.keystore.type` | Gateway keystore type | `jks` |
+| `kafka.ssl.keystore.password` | Gateway keystore password | `gravitee` |
+| `kafka.ssl.keystore.path` | Path to gateway keystore | `/path/to/server.keystore.jks` |
+
+The gateway truststore must contain the CA certificate that signed the client certificates. The gateway keystore contains the gateway's identity certificate.
+
 ### Define the default entrypoint configuration
 
 By default, clients talk to Kafka APIs by setting the bootstrap server as `{apiHost}.{defaultDomain}:{defaultPort}`. This is set in `gravitee.yml`, but for convenience, when developing APIs in the UI, you can set the default values appended to the hostname. You can also leave this value blank and respecify the full hostname in the API.
@@ -154,7 +172,7 @@ To configure the APIM Console to use the Kafka domain and port values for your O
 1. Log in to your APIM Console.
 2. Select **Organization** from the bottom of the left nav.
 3. Select **Entrypoints & Sharding Tags** from the left nav.
-4.  In the **Entrypoint Configuration** section, confirm that the **Default Kafka domain** and **Default Kafka port** values match those of your Kafka API.\\
+4. In the **Entrypoint Configuration** section, confirm that the **Default Kafka domain** and **Default Kafka port** values match those of your Kafka API.
 
     <figure><img src="../.gitbook/assets/00 kafka.png" alt=""><figcaption></figcaption></figure>
 
@@ -181,6 +199,16 @@ The client is now ready to use, but to produce and consume messages you must cre
 At this point, you can begin creating and deploying APIs to the Gravitee Kafka Gateway.
 {% endhint %}
 
+### Configure Kafka clients for mTLS authentication
+
+Kafka clients must present the certificate during the TLS handshake. Configure the client with the following SSL properties:
+
+| Property | Description | Example |
+|:---------|:------------|:--------|
+| `ssl.keystore.location` | Path to client keystore containing the certificate | `/path/to/client.keystore.jks` |
+| `ssl.keystore.type` | Client keystore type | `JKS` |
+| `ssl.keystore.password` | Client keystore password | `gravitee` |
+
 ## Produce and consume messages
 
 You can use the Kafka Gateway and client to call your [Kafka API](create-and-configure-kafka-apis/create-kafka-apis.md) and, as a primary use case, produce or consume messages. You can also proxy requests to create and manage topics, update partitions, and manage consumer groups.
@@ -203,6 +231,30 @@ For plan, application, subscription, and resource information, see the following
 * For more information on how subscriptions work in Gravitee, see [Subscriptions](subscriptions.md).
 * To learn how to create a resource, see [Resources](../create-and-configure-apis/apply-policies/resources.md).
 
+### Plan security mutual exclusion
+
+Kafka native APIs enforce strict separation between plan security types. You can't mix Keyless, mTLS, and authentication plans (OAuth2, JWT, API Key) in published state. When you publish a plan of one type, all published plans of conflicting types are automatically closed. Multiple plans of the same security type (for example, two mTLS plans) can coexist.
+
+| Plan Type | Can Coexist With | Conflicts With |
+|:----------|:-----------------|:---------------|
+| Keyless | Other Keyless plans | mTLS, API Key, OAuth2, JWT |
+| mTLS | Other mTLS plans | Keyless, API Key, OAuth2, JWT |
+| API Key, OAuth2, JWT | Other authentication plans | Keyless, mTLS |
+
+{% hint style="info" %}
+If you need to support multiple security types simultaneously, create separate APIs for each security model.
+{% endhint %}
+
+### Certificate-based subscription resolution
+
+The gateway extracts the client certificate from the TLS session, computes its MD5 hash, and uses the hash as a security token to look up the subscription. The subscription must be registered in the gateway's trust store manager.
+
+On successful validation, the gateway populates the connection context with the following attributes for metrics and analytics:
+
+* `planId`
+* `applicationId`
+* `subscriptionId`
+
 ### Example
 
 The following example provides a template for how to produce and consume messages using the Kafka Gateway, Kafka client, and the prerequisites mentioned above.
@@ -210,12 +262,14 @@ The following example provides a template for how to produce and consume message
 1. In the top-level folder of your Kafka download, create an empty `.properties` file named `connect.properties`.
 2. Go to the Developer Portal and find your API.
 3. After selecting your API, click on the **My Subscriptions** tab.
-4.  Copy the script in the **Review Kafka Properties** section and paste it into your `connect.properties` file.
+4. Copy the script in the **Review Kafka Properties** section and paste it into your `connect.properties` file.
 
     <div align="left"><figure><img src="../.gitbook/assets/1 pc 2.png" alt="" width="563"><figcaption></figcaption></figure></div>
-5.  Copy either the produce or consume commands from the **Calling the API** section.
+
+5. Copy either the produce or consume commands from the **Calling the API** section.
 
     <div align="left"><figure><img src="../.gitbook/assets/00 kafka 2.png" alt="" width="563"><figcaption></figcaption></figure></div>
+
 6. In a terminal, change your working directory to the top-level folder of your Kafka download.
 7. Paste and execute the commands you copied to produce or consume messages.
 
@@ -224,7 +278,7 @@ The following example provides a template for how to produce and consume message
 Here is a reference for the full server configuration of the Kafka Gateway.
 
 ```yaml
-# Gateway Kafka server
+
 kafka:
   enabled: false
 
@@ -257,7 +311,7 @@ kafka:
     #      myapi-broker0.mycompany.org
     #      myapi-broker1.mycompany.org
     #      ...
-    
+
   # SSL configuration
   #ssl:
   #  keystore:
@@ -270,6 +324,10 @@ kafka:
   #    secret: secret://kubernetes/my-certificate
   #    watch: true
   #  openssl: true
-    
-  
+  #  # mTLS configuration
+  #  clientAuth: required
+  #  truststore:
+  #    type: jks
+  #    password: gravitee
+  #    path: /path/to/server.truststore.jks
 ```

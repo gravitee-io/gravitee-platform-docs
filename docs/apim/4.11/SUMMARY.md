@@ -354,6 +354,7 @@
       * [Configuration](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/configuration.md)
       * [Entrypoints](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/entrypoints.md)
       * [Endpoints](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/endpoints.md)
+      * [mTLS plans for Kafka native APIs](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/mtls-plans.md)
       * [Policies](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/policies.md)
       * [Consumers](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/consumers.md)
       * [Documentation](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/documentation.md)

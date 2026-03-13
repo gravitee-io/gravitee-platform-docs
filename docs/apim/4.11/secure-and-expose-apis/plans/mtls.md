@@ -24,8 +24,17 @@ Currently, mTLS plans have the following limitations:
 
 * You can apply mTLS plans to only v4 APIs.
 * You cannot use mTLS plans in Gravitee Cloud with SaaS-based Gateways.
-* Only one client certificate can be added per application. This means that to rotate certificates for an application, you need to either pause the application’s subscriptions or schedule a maintenance window to avoid traffic for that API.
+* Only one client certificate can be added per application. This means that to rotate certificates for an application, you need to either pause the application's subscriptions or schedule a maintenance window to avoid traffic for that API.
 * Applications do not provide a warning that certificates are going to expire.
+
+## Restrictions
+
+* mTLS plans cannot coexist with Keyless plans or authentication plans (OAuth2, JWT, API Key) in published state.
+* Publishing an mTLS plan automatically closes all published Keyless and authentication plans.
+* Publishing a Keyless or authentication plan automatically closes all published mTLS plans.
+* Client certificates must be in PEM format for subscription creation.
+* Gateway must be configured with `kafka.ssl.clientAuth=required` to enforce client certificate authentication for Kafka native APIs.
+* Certificate validation failures result in `MtlsPolicyException` with error keys: `SSL_SESSION_REQUIRED`, `CLIENT_CERTIFICATE_INVALID`, `CLIENT_CERTIFICATE_MISSING`.
 
 ## How it works
 
@@ -49,20 +58,47 @@ gateway:
 ```
 {% endcode %}
 
+## Creating an mTLS plan
+
+To create an mTLS plan for a Kafka native API:
+
+1. Navigate to the API's **Plans** section in the Console.
+2. Click **Add new plan**.
+3. Select **mTLS** as the security type.
+4. Configure the plan details (name, description, rate limits).
+5. Click **Publish**.
+
+If Keyless or authentication plans (OAuth2, JWT, API Key) are already published, the Console displays a confirmation dialog listing the plans that will be automatically closed. Click **Publish & Close** to proceed.
+
+The Gateway validates that no conflicting plan types remain in published state. If conflicts are detected, the Gateway throws `NativePlanAuthenticationConflictException`.
+
 ## How to add a client certificate
 
 To subscribe to an mTLS plan, the client has to add a certificate to their application. To add a certificate to an application, complete the following steps:
 
 1. In the Console, navigate to **Applications**, and then click a specific application.
-2. Within the application, click the **Tls Configuration** setting. The client certificate is pasted in base64-encoded format.
+2. Within the application, click the **TLS Configuration** setting. The client certificate is pasted in base64-encoded format.
 
-<figure><img src="https://lh7-qw.googleusercontent.com/docsz/AD_4nXc_4L_O2a7U3HCPit9I74v_II5gn7pS-l6uyix2fScJPMusOebtUTmmvHnjL5pVZwOIcKmiRxNOi8uZeumcZTNQzk7VzHhW7tdWZnWNMghyROnJlpbRfXfTkUypSZGmJ2iSejROejRLglgdC-feoXpL5C3G?key=PrMp2J0zWBtqrsqO75zcMw" alt="Screenshot showing Tls configuration"><figcaption><p>Screenshot showing Tls configuration</p></figcaption></figure>
+<!-- TODO: Screenshot of the TLS Configuration panel in the application settings, showing where to paste the client certificate in base64-encoded format -->
+<figure><img src="../../.gitbook/assets/PLACEHOLDER-application-tls-configuration.png" alt="TLS Configuration panel in application settings"><figcaption><p>TLS Configuration panel in application settings</p></figcaption></figure>
 
 {% hint style="warning" %}
-Multiple applications in the same APIM instance may not share client certificates. You cannot save an application’s configuration if its client certificate is already associated with another application.
+Multiple applications in the same APIM instance may not share client certificates. You cannot save an application's configuration if its client certificate is already associated with another application.
 {% endhint %}
 
 When a client certificate is added to an application, the Gateway adds the application to its in-memory truststore. At runtime, the Gateway checks if a certificate in the truststore matches the certificate of an application subscribed to the API.
+
+## Creating a subscription with mTLS
+
+To create a subscription with mTLS:
+
+1. Navigate to the application's **Subscriptions** page.
+2. Select the mTLS plan.
+3. Provide the client certificate in PEM format.
+
+The subscription service computes the MD5 hash of the certificate and stores it as the security token. The Gateway's trust store manager loads the certificate into its internal registry.
+
+When the client connects with the certificate, the Gateway extracts it from the TLS session, computes its MD5 hash, and matches it against registered subscriptions. On successful match, the Gateway populates the connection context with `planId`, `applicationId`, and `subscriptionId`. Metrics and analytics reflect the resolved subscription instead of ANONYMOUS.
 
 ## How to call an API
 
@@ -76,6 +112,16 @@ $ curl –-cert  <client.cer> --key <client.key> https://my-gateway.com/mtls-api
 ```
 
 Both the client certificate and the private key are required to ensure that your client trusts the certificate sent by the Gateway.
+
+## Client configuration
+
+Kafka clients must present the certificate during TLS handshake. Configure the client with the following SSL properties:
+
+| Property | Description | Example |
+|:---------|:------------|:--------|
+| `ssl.keystore.location` | Path to client keystore containing the certificate | `/path/to/client.keystore.jks` |
+| `ssl.keystore.type` | Client keystore type | `JKS` |
+| `ssl.keystore.password` | Client keystore password | `gravitee` |
 
 ## How to terminate TLS
 
