@@ -24,7 +24,7 @@ The A2A Proxy endpoint connector requires a target URL configuration:
 
 | Property | Type | Description |
 |:---------|:-----|:------------|
-| `target` | String | Target URL for the A2A proxy endpoint. Required, cannot be null or empty. |
+| `target` | String | Target URL for the A2A proxy endpoint. Required, can't be null or empty. |
 
 **Example:**
 
