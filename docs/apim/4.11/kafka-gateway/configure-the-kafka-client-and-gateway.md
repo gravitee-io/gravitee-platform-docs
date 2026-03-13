@@ -71,7 +71,7 @@ kafka:
     bootstrapDomainPattern: "my-bootstrap-{apiHost}.mycompany.org"
 ```
 
-Then, for two APIs, the client will connect to, e.g., `my-bootstrap-api1.mycompany.org:9092` and `my-bootstrap-api2.mycompany.org:9092`, as opposed to the default of `api1.mycompany.org:9092` and `api2.mycompany.org:9092`.
+Then, for two APIs, the client will connect to, for example, `my-bootstrap-api1.mycompany.org:9092` and `my-bootstrap-api2.mycompany.org:9092`, as opposed to the default of `api1.mycompany.org:9092` and `api2.mycompany.org:9092`.
 
 </details>
 
