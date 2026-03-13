@@ -6,6 +6,30 @@ description: >-
 
 # AM 4.10.x
 
+## Gravitee Access Management 4.10.5 - March 13, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Limit the number of Thread to process Bulk Email [#11213](https://github.com/gravitee-io/issues/issues/11213)
+
+
+
+**Console**
+
+* Audit Logs - Column "Target" is truncated [#11200](https://github.com/gravitee-io/issues/issues/11200)
+
+**Other**
+
+* Out of Memory Issues caused by LD_PRELOAD [#11232](https://github.com/gravitee-io/issues/issues/11232)
+* JDBC: sslMode=require without sslRootCert [#11235](https://github.com/gravitee-io/issues/issues/11235)
+
+</details>
+
+
 ## Gravitee Access Management 4.10.4 - March 3, 2026
 
 <details>
