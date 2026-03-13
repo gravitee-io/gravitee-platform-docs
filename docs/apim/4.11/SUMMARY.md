@@ -122,6 +122,7 @@
   * [Debug Logging](configure-and-manage-the-platform/debug-logging.md)
 * [Create & Configure APIs](create-and-configure-apis/README.md)
   * [Gravitee API Definitions](create-and-configure-apis/gravitee-api-definitions/README.md)
+    * [A2A Proxy API Type Overview](create-and-configure-apis/gravitee-api-definitions/a2a-proxy-api-type.md)
     * [v2 and v4 API Comparison](create-and-configure-apis/gravitee-api-definitions/v2-and-v4-api-comparison.md)
     * [Execution Engine](create-and-configure-apis/gravitee-api-definitions/execution-engine.md)
   * [Create APIs](create-and-configure-apis/create-apis/README.md)
