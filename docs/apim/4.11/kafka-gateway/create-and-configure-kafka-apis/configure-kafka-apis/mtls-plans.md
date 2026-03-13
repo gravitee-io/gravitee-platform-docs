@@ -1,4 +1,4 @@
-# mTLS plans for Kafka native APIs: overview and security model
+# mTLS plans for Kafka native APIs
 
 ## Overview
 
