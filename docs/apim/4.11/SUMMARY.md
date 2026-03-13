@@ -86,6 +86,7 @@
     * [Create and Publish an API Using the Management API](how-to-guides/use-case-tutorials/create-and-publish-an-api-using-the-management-api.md)
     * [Create Applications and Subscriptions Using the Management API](how-to-guides/use-case-tutorials/create-applications-and-subscriptions-using-the-management-api.md)
     * [Connect to an Endpoint Using SSE](how-to-guides/use-case-tutorials/connect-to-an-endpoint-using-sse.md)
+    * [Implement BFF pattern (with a Shared Policy Group)](how-to-guides/use-case-tutorials/implement-bff-pattern-with-a-shared-policy-group.md)
 * [Configure & Manage the Platform](configure-and-manage-the-platform/README.md)
   * [Gravitee Gateway](configure-and-manage-the-platform/gravitee-gateway/README.md)
     * [Proxy](configure-and-manage-the-platform/gravitee-gateway/proxy.md)

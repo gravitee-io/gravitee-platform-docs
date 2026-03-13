@@ -1,6 +1,5 @@
 # Gravitee Expression Language
 
-<final_file>
 ## Overview
 
 Gravitee Expression Language (EL) queries and manipulates object graphs to dynamically configure API aspects and policies. Use EL to reference values from the current API transaction and create dynamic filters, routing rules, and policies that respond to specific conditions or parameters.
@@ -426,3 +425,57 @@ The EL (Expression Language) used for a message does not change based on phase. 
 * Get the size of a message: `{#message.contentLength}`
 {% endtab %}
 {% endtabs %}
+
+## Nodes
+
+A node is a component that represents an instance of the Gravitee Gateway. Each node runs a copy of the Gateway that handles incoming requests, executes policies, and forwards requests to upstream services. The object properties you can access for nodes from the `{#node}` root-level object property are listed below.
+
+{% tabs %}
+{% tab title="Table" %}
+<table><thead><tr><th width="179">Object property</th><th width="153">Description</th><th width="94">Type</th><th>Example</th></tr></thead><tbody><tr><td>id</td><td>Node ID</td><td>string</td><td>975de338-90ff-41ab-9de3-3890ff41ab62</td></tr><tr><td>shardingTags</td><td>Node sharding tag</td><td>array of string</td><td>[internal,external]</td></tr><tr><td>tenant</td><td>Node tenant</td><td>string</td><td>Europe</td></tr><tr><td>version</td><td>Node version</td><td>string</td><td>3.14.0</td></tr><tr><td>zone</td><td>Zone the node is grouped in</td><td>string</td><td>europe-west-2</td></tr></tbody></table>
+{% endtab %}
+
+{% tab title="Example" %}
+Get the version of a node: `{#node.version}`
+{% endtab %}
+{% endtabs %}
+
+## Other tips and tricks
+
+### Cast data
+
+To convert or cast a string value into an integer, use the following EL:
+
+```
+{T(java.lang.Integer).parseInt("some_string")}
+```
+
+### Evaluate different field types
+
+Use this technique when comparing values of different field types. For example, if `subscription.metadata['my_key']` is a string but the value in request/message content is numeric, use the following EL to compare them:
+
+```
+{(""+#jsonPath(#message.content, '$.customerId')).equals(""+ #subscription.metadata['my_key'])}
+```
+
+### Compare values
+
+Gravitee reads EL data by looking for expressions starting with `{`, followed by `#`, `T`, or `(`. If it finds one of these patterns, it treats the entire string as a single expression to evaluate. Otherwise, it treats it as a string template.
+
+This won't work:
+
+```
+{"PARTNER".equals(#subscription.metadata['clientType'])}
+```
+
+These will work:
+
+```
+{("PARTNER".equals(#subscription.metadata['clientType']))}
+{("PARTNER").equals(#subscription.metadata['clientType'])}
+{#subscription.metadata['clientType'].equals("PARTNER")}
+```
+
+{% hint style="info" %}
+`{#request.content}` is only available for policies bound to an `on-request-content` phase.
+{% endhint %}
