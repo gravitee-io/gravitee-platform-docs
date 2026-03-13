@@ -15,7 +15,7 @@ This feature is in tech preview.
 
 Terraform defines resources as basic infrastructure elements. It creates and manages these resources as part of its Infrastructure as Code (IaC) workflow. This lets you use configuration files to automate reproducible and version controlled APIs.
 
-Resources are classified by type, where a resource type is associated with a particular provider. Gravitee's Terraform provider supports several different resource types, such as v4 APIs, Shared Policy Groups, Applications, and Subscriptions.
+Resources are classified by type, where a resource type is associated with a particular provider. Gravitee's Terraform provider supports several resource types, including v4 APIs, Shared Policy Groups, Applications, and Subscriptions.
 
 To create a resource, you need to add a resource definition to your Terraform configuration file. The definition includes settings such as the resource type, a Human-readable Identifier (hrid) to uniquely identify the resource by name, and arguments to specify other resource parameters.
 

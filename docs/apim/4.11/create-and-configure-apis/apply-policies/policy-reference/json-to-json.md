@@ -259,6 +259,67 @@ As a more complex use case, you may want to trim down the response payload by on
 ]
 </code></pre></td></tr></tbody></table>
 
+### Flattening Content
+
+Another use case of this policy is to flatten out a complex multi-level JSON object.
+
+Understanding the JOLT logic:
+
+1. `"applicationData": { "*": { ... } }` - Iterates through every element found in the `applicationData` array.
+2. `"metadata": { "*": "..." }` - Inside each element of the `applicationData` array, it iterates through all keys present in the `metadata` object.
+   1. `"@(2,name).&"`
+      * `@(2,name)` - Climbs up two levels to retrieve the element's `name` field (e.g.: 'E-Commerce-App' or 'Mobile-Sales-App').
+      * `.` - JOLT uses a dot as a separator between two attributes.
+      * `&` - Captures the current `metadata` key name.
+3. **Result:** The metadata value is assigned to this new composite key.
+
+<table data-full-width="true"><thead><tr><th width="289.85546875">Starting Content</th><th width="275.41015625">Desired Content</th><th width="419.8828125">JOLT Specification</th></tr></thead><tbody><tr><td><pre class="language-json"><code class="lang-json">{
+  "applicationData": [
+    {
+      "name": "E-Commerce-App",
+      "metadata": {
+        "team": "Alpha",
+        "billing_id": "999"
+      }
+    },
+    {
+      "name": "Mobile-Sales-App",
+      "metadata": {
+        "team": "Beta",
+        "teleCode": 1,
+        "countryCode": "US"
+      }
+    }
+  ]
+}
+</code></pre></td><td><pre class="language-json"><code class="lang-json">{
+  "E-Commerce-App" : {
+    "team" : "Alpha",
+    "billing_id" : "999"
+  },
+  "Mobile-Sales-App" : {
+    "team" : "Beta",
+    "teleCode" : 1,
+    "countryCode" : "US"
+  }
+}
+
+</code></pre></td><td><pre class="language-json"><code class="lang-json">[
+  {
+    "operation": "shift",
+    "spec": {
+      "applicationData": {
+        "*": {
+          "metadata": {
+            "*": "@(2,name).&#x26;"
+          }
+        }
+      }
+    }
+  }
+]
+</code></pre></td></tr></tbody></table>
+
 ## Examples
 
 {% hint style="warning" %}

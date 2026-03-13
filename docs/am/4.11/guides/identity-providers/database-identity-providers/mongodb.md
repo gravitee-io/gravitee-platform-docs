@@ -69,7 +69,7 @@ DATASOURCES_MONGODB_1_SETTINGS_PORT=27017
 
 Once the `datasources` section is configured on the gravitee.yaml and the Management API has been restarted to take it into account, then `Data source ID` field will become editable to select a configuration.
 
-<figure><img src="../../../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.10/.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
 
 ### Connection Precedence
 
@@ -88,9 +88,7 @@ Datasource and **use cluster system** are usable only if MongoDB is defined a ba
 
 You can test your database connection using a web application created in AM.
 
-1.  In AM Console, click **Applications** and select your MongoDB identity provider.
-
-    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-social-idp-list.png" alt=""><figcaption><p>Select MongoDB IdP</p></figcaption></figure>
+1. In AM Console, click **Applications** and select your MongoDB identity provider.
 2.  Call the Login page (i.e `/oauth/authorize` endpoint) and try to sign in with the username/password form.
 
     If you are unable to authenticate your users, there may be a problem with the identity provider settings. Check the AM Gateway log and audit logs for more information.

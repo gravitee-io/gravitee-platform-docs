@@ -53,7 +53,7 @@ To view the details of any entry in the list of runtime logs, select **Logs** fr
 
 The logs screen shows the following API-level logging information:
 
-<figure><img src="../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (14) (1).png" alt=""><figcaption></figcaption></figure>
 
 The **Overview** section provides information about the request and response phases of the API.&#x20;
 

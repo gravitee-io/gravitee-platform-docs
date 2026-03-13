@@ -21,4 +21,4 @@ To enable Hide Login Form:
 3. Go to **Settings > Login** or **Application > "Your app" > Settings > Login**.
 4. Switch on **Hide login form** and click **SAVE**.
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-hide-login-form-settings.png" alt=""><figcaption><p>Settings page for an application with Hide Login Form enabled</p></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/image (107).png" alt=""><figcaption></figcaption></figure>

@@ -38,9 +38,10 @@ Let’s imagine a client application wants to retrieve the `telephoneNumber` att
 1. Log in to AM Console.
 2. Click **Settings > Providers**.
 3. Select your LDAP identity provider and click the **User mappers** tab.
-4.  Map your LDAP (raw) attribute `telephoneNumber` to a new user attribute named `telephone_number`.
+4. Map your LDAP (raw) attribute `telephoneNumber` to a new user attribute named `telephone_number`.
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-idp-user-mappers-phoneno.png" alt=""><figcaption><p>LDAP user mappers</p></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/image (63).png" alt=""><figcaption></figcaption></figure>
+
 5. Get the User Profile information via the UserInfo Endpoint and you will see that the new user attribute is present.
 
 {% code overflow="wrap" %}
@@ -99,9 +100,10 @@ We will then dynamically add the `admin` scope to the `access_token`. The client
 6. Go to the `Providers` section
 7. Click **Settings > Providers** and select your LDAP identity provider.
 8. Click the **Role mappers** tab.
-9.  Set the user’s role configuration:
+9. Set the user’s role configuration:
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-idp-role-mappers.png" alt=""><figcaption><p>LDAP role mapper</p></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/image (64).png" alt=""><figcaption></figcaption></figure>
+
 10. When the client requests the _Token_ endpoint, the new scope representing the user roles will be used.
 11. Ensure you enable the _"Enhance scopes"_ option for your client (**OAuth** tab).
 
@@ -117,4 +119,4 @@ Defining groups in AM helps you to assign roles more efficiently for the domain 
 
 The goal of the Group Mapper is to dynamically add groups to the user profile based on the user information when authenticating.
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption><p>Assign ADMIN group to all user profile with memberOf equals administrators</p></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/image (65).png" alt=""><figcaption></figcaption></figure>

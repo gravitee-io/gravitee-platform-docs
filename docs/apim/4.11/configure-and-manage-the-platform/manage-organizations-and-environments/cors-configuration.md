@@ -94,7 +94,7 @@ If you change the CORS settings using the `gravitee.yml` or environment variable
     <figure><img src="../../.gitbook/assets/31738772-8FFD-4BC5-B5EF-5F303E24249E_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
 2.  In the **Settings screen**, navigate to the **CORS** section.
 
-    <figure><img src="../../.gitbook/assets/image (14) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (14) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Configure CORS at the environment level
 

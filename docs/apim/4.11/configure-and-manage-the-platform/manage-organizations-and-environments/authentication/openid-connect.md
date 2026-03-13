@@ -112,7 +112,7 @@ To configure OpenID Connect authentication using the APIM Console, follow these 
      * Authorize Endpoint
      * UserInfo Endpoint
      * UserInfo Logout Endpoint (optional)
-     * Scopes (optional)
+     * Scopes (the `openid` scope is required per the OIDC specification, additional scopes are optional)
      * Authentication button color (optional)
    * **User profile mapping**: this will be used to define a user's Gravitee user profile based on the values provided by the Identity Provider upon registration:
      * ID
@@ -202,7 +202,7 @@ Optionally, you can configure Keycloak client roles. These roles can be defined 
 
 Gravitee role mapping uses Spring Expression Language ([SpEL](https://docs.spring.io/spring-framework/docs/3.0.x/reference/expressions.html)) for writing conditions. The only available object in context is #profile set from [userInfoEndpoint](https://www.oauth.com/oauth2-servers/signing-in-with-google/verifying-the-user-info/). For example:
 
-```
+```yaml
 security:
   providers:
     - type: oidc
@@ -288,7 +288,7 @@ To configure OpenID Connect authentication using the APIM UI, follow these steps
      * Authorize Endpoint
      * UserInfo Endpoint
      * UserInfo Logout Endpoint (optional)
-     * Scopes (optional)
+     * Scopes (the `openid` scope is required per the OIDC specification, additional scopes are optional)
      * Authentication button color (optional)
    * **User profile mapping**: this will be used to define a user's Gravitee user profile based on the values provided by the Identity Provider upon registration:
      * ID

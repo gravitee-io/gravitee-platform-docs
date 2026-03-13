@@ -75,7 +75,7 @@ In Gravitee, a **context variable** (often called a _context attribute_) is a ke
 
 5. Click Save.
 
-<figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption><p>HTTP Callout policy - configured to GET a response from <code>https://api.gravitee.io/whattimeisit</code>, and store the full response into the context attribute called 'whattimeisit_response'</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (2).png" alt=""><figcaption><p>HTTP Callout policy - configured to GET a response from <code>https://api.gravitee.io/whattimeisit</code>, and store the full response into the context attribute called 'whattimeisit_response'</p></figcaption></figure>
 
 <details>
 
@@ -94,7 +94,7 @@ In Gravitee, a **context variable** (often called a _context attribute_) is a ke
 
 1. Click the + button within the response phase to add a new policy to your flow.
 
-<figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption><p>Click on the [+] button - within the Response phase - to add a new Assign Content Policy into the Flow</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7) (3).png" alt=""><figcaption><p>Click on the [+] button - within the Response phase - to add a new Assign Content Policy into the Flow</p></figcaption></figure>
 
 2. Browse the list of policies for the Assign Content policy, and click Select.
 3. You now need to provide the **Body content**, which is compatible with the [Freemarker](https://freemarker.apache.org/) template engine thereby allowing complex transformations.
@@ -135,11 +135,11 @@ Notice the use of **`$`**`{...}` instead of **`#`**`{...}` when referencing Grav
 
 4. Click Save.
 
-<figure><img src="../../.gitbook/assets/image (10).png" alt=""><figcaption><p>Assign Content policy - configured to overwrite the final response to the consumer.  The 'Body content' has been configured to output just the <code>X-Gravitee-Transaction-Id</code> header value (from the endpoint response) as well as the <code>date</code> field from the HTTP Callout response.  Additionally, only for demonstration purposes, both the full responses from the endpoint and HTTP Callout policy are included too.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (10) (2).png" alt=""><figcaption><p>Assign Content policy - configured to overwrite the final response to the consumer.  The 'Body content' has been configured to output just the <code>X-Gravitee-Transaction-Id</code> header value (from the endpoint response) as well as the <code>date</code> field from the HTTP Callout response.  Additionally, only for demonstration purposes, both the full responses from the endpoint and HTTP Callout policy are included too.</p></figcaption></figure>
 
 5. Click the Flow Save button, and then click **Deploy API** to apply your changes to the Gateway.
 
-<figure><img src="../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (13) (2).png" alt=""><figcaption></figcaption></figure>
 
 ### Test #2
 
