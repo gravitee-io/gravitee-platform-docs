@@ -7,3 +7,11 @@ create-and-configure-apis/apply-policies/policy-reference/pii-filtering.md
 create-and-configure-apis/apply-policies/resources.md
 prepare-a-production-environment/gateway-resource-sizing-guidelines.md
 release-information/release-notes/apim-4.11.md
+create-and-configure-apis/configure-v4-apis/endpoints/README.md
+secure-and-expose-apis/api-products-configuration-reference.md
+secure-and-expose-apis/api-products/README.md
+secure-and-expose-apis/api-products/console-ui-reference.md
+secure-and-expose-apis/api-products/consuming-api-products.md
+secure-and-expose-apis/api-products/manage-api-products-via-management-api.md
+secure-and-expose-apis/api-products/restrictions-and-licensing.md
+secure-and-expose-apis/subscriptions/manage-subscriptions.md
