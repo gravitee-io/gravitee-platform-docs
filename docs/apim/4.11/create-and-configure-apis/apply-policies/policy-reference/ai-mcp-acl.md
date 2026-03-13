@@ -52,6 +52,16 @@ This is particularly useful for applying context-based security policies.
 
 **Usage Example:** You can condition access to certain tools based on a specific property (claim) present in the user's token or a request attribute.
 
+<details>
+
+<summary>Example condition based on OAuth payload</summary>
+
+```
+{#context.attributes['oauth.payload']['scopes'].contains('your_scope_value')}
+```
+
+</details>
+
 **Note:** The field generally expects a Gravitee EL (Expression Language) expression.
 
 ## Phases

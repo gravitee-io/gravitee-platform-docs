@@ -34,7 +34,7 @@ The PKCE extension prevents potential attackers from exchanging the authorizatio
 
 ## Examples
 
-You can use the following examples as a guideline for generating the code\_verifier and code\_challenge if you want to build your application from scratch.
+You can use the following examples as a guideline for generating the `code_verifier` and `code_challenge` if you want to build your application from scratch.
 
 {% hint style="info" %}
 Third-party libraries or SDKs can also be used for this purpose.

@@ -37,7 +37,7 @@ For APIs managed by GKO, you will not be able to add or modify groups or members
 
 In the Gravitee API Management Console, there are environment-level settings that you can use to automatically assign groups to every new API or application that a user creates. These settings are shown in the following screenshot.
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Starting from 4.7.4, this feature has been made available for APIs and applications managed by the Kubernetes Operator as well.
 

@@ -15,10 +15,9 @@ This is the first AM version with WebAuthn support and Relying Party (RP) confor
 ## Enable passwordless authentication for an application
 
 1. Log in to AM Console.
-2. Click **Applications** and select your application.
-3.  In the **Settings** tab, click **Login** and toggle on the **Passwordless** option.
+2. In the **Settings** menu, click **Login** and toggle on the **Enable passwordless** option.
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-passwordless.png" alt=""><figcaption><p>Activate passwordless login</p></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/image (102).png" alt=""><figcaption></figcaption></figure>
 
 ## Manage root certificates
 
@@ -43,13 +42,13 @@ The first time users log in with their username/password, they will see the foll
 
 After the users complete the registration process, their authenticators are immediately registered and they are redirected to your application.
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-passwordless-authenticators.png" alt=""><figcaption><p>Registered user</p></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/image (103).png" alt=""><figcaption></figcaption></figure>
 
 #### **Remember device**
 
 To improve user experience, AM can determine if a passwordless device is already enrolled (or not) for a user, and decide to prompt directly the passwordless login page the next time a user wants to sign in.
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-passwordless-remember-device.png" alt=""><figcaption><p>Remember device settingon</p></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/image (104).png" alt=""><figcaption></figcaption></figure>
 
 ### Login
 

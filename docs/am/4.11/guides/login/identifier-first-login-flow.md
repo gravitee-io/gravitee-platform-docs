@@ -21,7 +21,7 @@ To activate Identifier-first login Flow:
 2. Go to **Settings > Login** or **Application > "Your app" > Settings > Login**.
 3. Switch on **Identifier-first login** and click **SAVE**.
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-login-identifier-first-settings.png" alt=""><figcaption><p>Enable identifier-first login</p></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/image (105).png" alt=""><figcaption></figcaption></figure>
 
 ## Identity providers allowed domain list
 
@@ -34,4 +34,4 @@ If you don’t input any domain however, everyone will be able to login.
 3. Enter the domains you wish to allow
 4. Complete the provider’s form and click **SAVE**.
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-login-identifier-first-identity-provider-domain-whitelist.png" alt=""><figcaption><p>Add provider to domain list</p></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/image (106).png" alt=""><figcaption></figcaption></figure>

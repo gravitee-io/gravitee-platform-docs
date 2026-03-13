@@ -43,9 +43,9 @@ Ensure you have the GitHub application generated Client ID and Client Secret to 
 
 5. Give your identity provider a name.
 6. Enter your GitHub application Client ID and Client Secret.
-7.  Click **Create**.
+7. Click **Create**.
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-social-idp-github.png" alt=""><figcaption><p>Create Github IdP</p></figcaption></figure>
+<figure><img src="../../../../4.10/.gitbook/assets/image (72).png" alt=""><figcaption><p>Create Github Identity Provider</p></figcaption></figure>
 
 {% hint style="info" %}
 On the right side of the screen, under **1. Configure the Redirect URI** copy the value of the URL. You will use it to update your GitHub application settings.
@@ -64,11 +64,12 @@ HTTP client settings apply whether or not HTTP/2 is enabled, but they may affect
 
 You can test your GitHub connection using a web application created in AM.
 
-1.  In AM Console, click **Applications** and select your social identity provider.
+1. In AM Console, click **Applications** and select your social identity provider.
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-social-idp-list.png" alt=""><figcaption><p>Select Github IdP</p></figcaption></figure>
-2.  Call the Login Page (i.e the `/oauth/authorize` endpoint). If the connection is working you will see a **Sign in with …​** button.
+<figure><img src="../../../../4.10/.gitbook/assets/image (73).png" alt=""><figcaption></figcaption></figure>
 
-    If the button is not visible, something may be wrong with the identity provider settings. Check the AM Gateway log for more information.
+2. Call the Login Page (i.e the `/oauth/authorize` endpoint). If the connection is working you will see a **Sign in with …​** button.
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-social-idp-login.png" alt=""><figcaption><p>Sign in options</p></figcaption></figure>
+If the button is not visible, something may be wrong with the identity provider settings. Check the AM Gateway log for more information.
+
+<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-social-idp-login.png" alt=""><figcaption><p>Sign in options</p></figcaption></figure>
