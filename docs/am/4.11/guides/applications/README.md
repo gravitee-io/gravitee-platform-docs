@@ -35,9 +35,19 @@ curl -H "Authorization: Bearer :accessToken" \
 
 ### Configure the application
 
-After you have created the new application, you will be redirected to the application’s `Overview` page, which contains some documentation and code samples to help you start configuring the application.
+After you have created the new application, you will be redirected to the application's `Overview` page, which contains some documentation and code samples to help you start configuring the application.
 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-client-settings.png" alt=""><figcaption><p>Application overview</p></figcaption></figure>
+
+#### Configure client for token exchange
+
+To enable token exchange on a client application, configure the grant type and specify allowed scopes and resource URIs.
+
+1. In the **Grant Types** section, enable `urn:ietf:params:oauth:grant-type:token-exchange`.
+2. Configure allowed scopes for the client in the **Scopes** section.
+3. Configure allowed resource URIs for the client in the **Resource** section.
+
+After configuring the client, it can request token exchange by sending a POST request to the `/oauth/token` endpoint with `grant_type=urn:ietf:params:oauth:grant-type:token-exchange`.
 
 ### Test the application
 
@@ -45,11 +55,11 @@ The quickest way to test your newly created application is to request an OAuth2 
 
 ## Application identity providers
 
-AM allows your application to use different identity providers (IdPs). If you haven’t configured your providers yet, visit the [Identity Provider guide.](../identity-providers/)
+AM allows your application to use different identity providers (IdPs). If you haven't configured your providers yet, visit the [Identity Provider guide.](../identity-providers/)
 
 The application identity providers are separated into two sections:
 
-* The regular Identity Providers (called also **internal**) that operate inside and AM without redirecting to another provider
+* The regular Identity Providers (called also **internal**) that operate inside AM without redirecting to another provider
 * The Social/Enterprise Identity Providers that require an external service to perform authentication (usually via SSO)
 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-application-identity-providers.png" alt=""><figcaption><p>Application identity providers</p></figcaption></figure>
@@ -85,7 +95,7 @@ When applying rules on **regular** Identity Providers:
 * If the rule is empty, the provider **will be** taken into account (this is to be retro-compatible when migrating from a previous version)
 * Otherwise, AM will authenticate with the first identity provider where the rule matches.
 
-If you are not using[ identifier-first login](../login/identifier-first-login-flow.md), the rule won’t be effective on Social/Enterprise providers
+If you are not using [identifier-first login](../login/identifier-first-login-flow.md), the rule won't be effective on Social/Enterprise providers
 
 However, if you are using identifier-first login:
 
@@ -113,7 +123,7 @@ There is another parameter called **Enable\Disable Open Dynamic Client Registrat
 ### Enable Dynamic Client Registration with AM API
 
 ```sh
-# enable Dynamic Client Registration
+
 curl -X PATCH \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -169,7 +179,7 @@ Unlike confidential clients, public clients are clients who cannot keep their cr
 The following example creates a web application (`access_token` is kept on a backend server).
 
 ```sh
-# Register a new Relying Party (client)
+
 curl -X POST \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -191,7 +201,7 @@ curl -X POST \
 As a SPA does not use a backend, we recommend you use the following implicit flow:
 
 ```sh
-# Register a new Relying Party (client)
+
 curl -X POST \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -215,7 +225,7 @@ Sometimes you may have a bot/software that needs to be authenticated as an appli
 For this, you need to use a `client_credentials` flow:
 
 ```sh
-# Register a new Relying Party (client)
+
 curl -X POST \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -240,7 +250,7 @@ curl -X POST \
 For a mobile app, the `authorization_code` grant is recommended, in addition to [Proof Key for Code Exchange](https://tools.ietf.org/html/rfc7636):
 
 ```sh
-# Register a new Relying Party (client)
+
 curl -X POST \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -268,7 +278,7 @@ This access token contains a `dcr` scope which can not be obtained, even if you 
 A new registration access token is generated each time the client is updated through the Dynamic Client Registration URI endpoint, which will revoke the previous value.
 
 ```sh
-# Update a registered Relying Party (client)
+
 curl -X PATCH \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -288,7 +298,7 @@ The `renew_secret` endpoint does not need a body.
 When you update a client, a new registration access token is generated each time you renew the client secret.
 
 ```sh
-# Renew the client secret of a registered Relying Party (client)
+
 curl -X POST \
   -H 'Authorization: Bearer :accessToken' \
   http://GRAVITEEIO-AM-GATEWAY-HOST/::domain/oidc/register/:client_id/renew_secret
@@ -307,7 +317,7 @@ To achieve this, you need to first enable the feature and then select the allowe
 You can also enable this feature using AM API:
 
 ```sh
-# Enable Allowed Scopes feature.
+
 curl -X PATCH \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -327,7 +337,7 @@ To enable this feature, you simply select which scopes you want to be automatica
 You can also enable this feature using AM API:
 
 ```sh
-# Enable Default Scopes feature
+
 curl -X PATCH \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -350,7 +360,7 @@ Since there is no longer a requested scope in the request, the default scopes wi
 You can also enable this feature using AM API:
 
 ```sh
-# Force set of scopes on each client registration
+
 curl -X PATCH \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -376,7 +386,7 @@ You can enable the template feature in the AM Dynamic Client Registration **Sett
 You can also enable this feature using AM API:
 
 ```sh
-# enable Dynamic Client Registration
+
 curl -X PATCH \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -397,7 +407,7 @@ In the Dynamic Client Registration **Client templates** tab, enable this feature
 You can also enable this feature using AM API:
 
 ```sh
-# enable Dynamic Client Registration
+
 curl -X PATCH \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -416,7 +426,7 @@ Once a client is set up as a template, it can no longer be used for authenticati
 You need to retrieve the `software_id` of the template, which is available under the `registration_templates_endpoint` provided by the OpenID discovery endpoint.
 
 ```sh
-# Register a new Relying Party (client)
+
 curl -X POST \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
