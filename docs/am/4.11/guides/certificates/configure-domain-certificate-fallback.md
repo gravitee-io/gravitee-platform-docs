@@ -1,15 +1,14 @@
+## Overview
+This guide explains how to configure a fallback certificate for your domain using the Access Management (AM) or the Management API.
 
-### Prerequisites
 
-Before configuring a fallback certificate for a domain, ensure the following:
+## Configure a domain certificate fallback
 
-* Security domain exists
-* Fallback certificate (if specified) exists and belongs to the same domain
-* User has `DOMAIN_SETTINGS[UPDATE]` permission
+To configure the domain certificate fallback, complete the following stpes:
+1. [Enable HMAC signature](#enable-hmac-signature)
+2. [Configure the Domain Ceritifcate Settings](#configure-the-domain-ceritifcate-settings)
 
-### Gateway Configuration
-
-#### Enable HMAC signature
+### Enable HMAC signature
 To enable HMAC signature in your `gravitee.yaml` file, navigate to the `applications` section, and then add the following configuration: 
 ```yaml
 applications:
@@ -17,14 +16,27 @@ applications:
     fallback-to-hmac-signature: true|false
 ```
 
-
-## Create Domain Ceritifcate Settings
+## Configure the Domain Ceritifcate Settings
 You can create Domain Certicate Settings with either of the following methods:
 * [Create Domain Certificate Settings using the Access Management UI](#create-domain-certificate-settings-using-the-access-management-ui)
 * [Create Domain Certificate Settings using the Management API](#create-domain-certificate-settings-using-the-management-api)
 
-### Create Domain Cerificate Settings using the Access Management UI
-### Create Domain Certificate Settings using the Management API
+### Create the Domain Cerificate Settings using the Access Management UI
+1. Create a certificate. For more information about creating a certificate, see [Certificates](/docs/am/4.11/guides/certificates/README.md).
+2. From the Access Management (AM) dashboard, click **Settings**.
+  <figure><img src="/.gitbook/assets/Fallback_certificate_dashboard.jpg" alt="Access Management dashboard"><figcaption></figcaption></figure>
+3. In the **Settings menu**, navigate to the **Security** section, and then click **Certificates**.
+  <figure><img src="/.gitbook/assets/Fallback_certificate_settings_menu.jpg" alt="Access Management setting's menu"><figcaption></figcaption></figure>
+4. In the **Certificates** screen, click **Settings**. The **Certificate Settings** pop-up window appears.
+  <figure><img src="/.gitbook/assets/Fallback_certificate_certificates_screen.jpg" alt=" Access Management certficiates screen"><figcaption></figcaption></figure>
+5. From the **Fallback Certificate** dropdown menu, select the certificate you want to use. 
+  <figure><img src="/.gitbook/assets/Fallback_certificate_certificates_settings_popup_menu.jpg" alt=" Access Management certficiates screen"><figcaption></figcaption></figure>
+
+#### Verification
+The certificate appears in the **Cerificates** screen of the Access Management UI.
+<figure><img src="/.gitbook/assets/Fallback_certificate_certificates_screen_verification.jpg" alt=" Access Management certficiates screen"><figcaption></figcaption></figure>
+
+### Create the Domain Certificate Settings using the Management API
 
 To configure a fallback certificate for a domai using the Management API, complete the following steps:
 
@@ -40,11 +52,3 @@ To configure a fallback certificate for a domai using the Management API, comple
   "fallbackCertificate": "fallback-cert-123"
 }
 ```
-
-### Restrictions
-
-* Fallback certificate must belong to the same domain (master domains can access certificates from all domains)
-* Certificates configured as domain fallback cannot be deleted (returns `CertificateIsFallbackException` with HTTP 400)
-* Certificates in use by applications, identity providers, or protected resources cannot be deleted
-* Certificate settings validation occurs before persistence
- 
