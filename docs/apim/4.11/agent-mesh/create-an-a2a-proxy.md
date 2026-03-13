@@ -27,7 +27,7 @@ Gravitee's A2A (Agent-to-Agent) Proxy addresses this challenge by **enabling str
 
 Much like any other type of API, A2A interactions benefit from being discoverable, consumable, secured, and governed via Gravitee.
 
-Truly intelligent agents need access to both synchronous (request-response) and asynchronous (event-driven) APIs to operate effectively. Gravitee's A2A Proxy supports both, enabling agents to communicate and react in real time or over streaming protocols and empowering use cases from real-time decisioning to autonomous workflows.
+Agents require access to both synchronous (request-response) and asynchronous (event-driven) APIs. Gravitee's A2A Proxy supports both, enabling agents to communicate and react in real time or over streaming protocols, from real-time decisions to autonomous workflows.
 
 ## Prerequisites
 
