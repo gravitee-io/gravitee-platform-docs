@@ -20,7 +20,7 @@
 <!-- PIPELINE:APIM-12550 -->
 #### **A2A Proxy API Type**
 
-* **Breaking change** — A2A proxy APIs created before APIM 4.11 are not supported. Delete and recreate any existing A2A proxy APIs.
+* **Breaking change** — A2A proxy APIs created before APIM 4.11 aren't supported. Delete and recreate any existing A2A proxy APIs.
 * Introduces a dedicated V4 API type for agent-to-agent communication, enabling direct integration between AI agents through the Gravitee platform.
 * Uses a standalone reactor architecture with HTTP selectors for flow routing and supports REQUEST and RESPONSE flow phases for policy execution.
 * Requires Enterprise Edition with the AI Agent Management pack and APIM 4.11 or later.

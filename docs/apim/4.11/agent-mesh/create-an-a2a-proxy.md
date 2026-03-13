@@ -8,7 +8,7 @@ metaLinks:
 # Set Up an AI Agent (A2A) Proxy
 
 {% hint style="danger" %}
-**Breaking change** — A2A proxy APIs created before APIM 4.11 are not supported. Delete and recreate any existing A2A proxy APIs.
+**Breaking change** — A2A proxy APIs created before APIM 4.11 aren't supported. Delete and recreate any existing A2A proxy APIs.
 {% endhint %}
 
 ## Overview
@@ -65,7 +65,7 @@ Before configuring an A2A Proxy Gateway, ensure the following requirements are m
 8.  Click **Validate my entrypoints**.
 
     <figure><img src="../.gitbook/assets/00 agent copy (1).png" alt=""><figcaption></figcaption></figure>
-9.  In the **Configure your API endpoints access** screen, provide the **Target URL**. The Target URL is the Agent's address and must be a non-null, non-blank string. The endpoint connector validates that the target URL is not null or blank and throws an `IllegalArgumentException` if validation fails.
+9.  In the **Configure your API endpoints access** screen, provide the **Target URL**. The Target URL is the Agent's address and must be a non-null, non-blank string. The endpoint connector validates that the target URL isn't null or blank and throws an `IllegalArgumentException` if validation fails.
 
     <figure><img src="../.gitbook/assets/4CA47921-5400-4EA4-97C4-43C928118657_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
 10. Click **Validate my endpoints**.
@@ -86,7 +86,7 @@ The A2A Proxy endpoint requires a valid target URL pointing to the agent service
 
 | Property | Description | Example |
 |:---------|:------------|:--------|
-| `target` | Target URL for the A2A proxy endpoint. Required, cannot be null or empty. | `https://agent.example.com/api` |
+| `target` | Target URL for the A2A proxy endpoint. Required, can't be null or empty. | `https://agent.example.com/api` |
 
 ### Reactor plugin deployment
 
