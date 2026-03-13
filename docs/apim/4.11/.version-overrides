@@ -39,7 +39,7 @@ kafka-gateway/README.md
 kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/console_ui_changes_for_multi-tenant_kafka_endpoints.md
 kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/endpoints.md
 kafka-gateway/configure-the-kafka-client-and-gateway.md
-kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/mtls_plans_for_kafka_native_apis-_overview_and_security_model.md
+kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/mtls-plans.md
 kafka-gateway/create-and-configure-kafka-apis/create-kafka-apis.md
 kafka-gateway/plans.md
 secure-and-expose-apis/plans/mtls.md
