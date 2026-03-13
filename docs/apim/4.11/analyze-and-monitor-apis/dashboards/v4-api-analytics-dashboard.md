@@ -31,7 +31,7 @@ You can view the following metrics for your V4 APIs:
 * **Average latency**. This metric is the average latency of your Gateway displayed in milliseconds.&#x20;
 *   **Average response time of the Gateway.** This is the average response time of the Gateway in milliseconds.<br>
 
-    <figure><img src="../../.gitbook/assets/image (70).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (70) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Tables and graphs
 
