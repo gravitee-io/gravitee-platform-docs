@@ -23,7 +23,10 @@ import argparse
 import filecmp
 import os
 import shutil
+import subprocess
 import sys
+import tempfile
+from typing import Optional
 
 
 OVERRIDES_FILENAME = ".version-overrides"
@@ -58,6 +61,117 @@ def get_all_files(version_dir: str) -> set:
     return files
 
 
+def find_ancestor_content(
+    repo_path: str,
+    product: str,
+    current_version: str,
+    next_version: str,
+    rel_path: str,
+) -> Optional[str]:
+    """Find the common ancestor content for a protected file.
+
+    The ancestor is the content of the current_version file at the commit
+    when the next_version file was first created (i.e., the initial sync).
+
+    Returns the ancestor content as a string, or None if lookup fails.
+    """
+    next_file_repo_path = os.path.join("docs", product, next_version, rel_path)
+    current_file_repo_path = os.path.join("docs", product, current_version, rel_path)
+
+    try:
+        # Find the commit that added the file to the next_version directory.
+        # Use --diff-filter=A to find the "Add" commit (no --follow).
+        result = subprocess.run(
+            ["git", "log", "--diff-filter=A", "--format=%H", "--", next_file_repo_path],
+            capture_output=True, text=True, cwd=repo_path, timeout=30,
+        )
+        if result.returncode != 0 or not result.stdout.strip():
+            return None
+
+        # Take the latest add commit (first line)
+        add_commit = result.stdout.strip().split("\n")[0]
+
+        # Get the current_version file content at that commit
+        result = subprocess.run(
+            ["git", "show", f"{add_commit}:{current_file_repo_path}"],
+            capture_output=True, text=True, cwd=repo_path, timeout=30,
+        )
+        if result.returncode != 0:
+            return None
+
+        return result.stdout
+    except (subprocess.TimeoutExpired, FileNotFoundError, OSError):
+        return None
+
+
+def merge_protected_file(
+    current_file: str,
+    next_file: str,
+    ancestor_content: str,
+    dry_run: bool = False,
+) -> str:
+    """Perform a three-way merge on a protected file.
+
+    Uses git merge-file to merge changes from the current version into the
+    next version, using the ancestor content as the common base.
+
+    Args:
+        current_file: Path to the current version file (the "other" side).
+        next_file: Path to the next version file (the "current" side — will be updated).
+        ancestor_content: The common ancestor content.
+        dry_run: If True, don't modify the file.
+
+    Returns:
+        'auto_merged' if merge succeeded with no conflicts.
+        'conflict' if merge has conflict markers.
+        'identical' if no changes needed.
+        'error:<msg>' if merge-file failed unexpectedly.
+    """
+    with tempfile.NamedTemporaryFile(mode="w", suffix=".md", delete=False) as base_f:
+        base_f.write(ancestor_content)
+        base_path = base_f.name
+
+    with tempfile.NamedTemporaryFile(mode="w", suffix=".md", delete=False) as curr_f:
+        with open(next_file) as f:
+            next_content = f.read()
+        curr_f.write(next_content)
+        curr_path = curr_f.name
+
+    try:
+        # git merge-file <current> <base> <other>
+        # current = next_file (4.11, the side we want to keep)
+        # base = ancestor content (4.10 at sync time)
+        # other = current_file (4.10 now, the side with new changes)
+        # -p outputs to stdout instead of modifying in-place
+        result = subprocess.run(
+            ["git", "merge-file", "-p", curr_path, base_path, current_file],
+            capture_output=True, text=True, timeout=30,
+        )
+
+        merged_content = result.stdout
+
+        # Return code: 0 = clean merge, >0 = number of conflicts, <0 = error
+        if result.returncode < 0:
+            return f"error:git merge-file failed with code {result.returncode}"
+
+        if merged_content == next_content:
+            return "identical"
+
+        has_conflicts = result.returncode > 0
+
+        if not dry_run:
+            with open(next_file, "w") as f:
+                f.write(merged_content)
+
+        return "conflict" if has_conflicts else "auto_merged"
+
+    except (subprocess.TimeoutExpired, FileNotFoundError, OSError) as e:
+        return f"error:{e}"
+    finally:
+        os.unlink(base_path)
+        os.unlink(curr_path)
+
+
 def sync_versions(
     repo_path: str,
     product: str,
@@ -89,7 +203,10 @@ def sync_versions(
         return {"error": f"Next version dir not found: {next_dir}"}
 
     overrides = load_overrides(next_dir)
-    results = {"synced": [], "skipped": [], "conflicts": [], "new_files": [], "errors": [], "warnings": []}
+    results = {
+        "synced": [], "skipped": [], "conflicts": [], "new_files": [],
+        "errors": [], "warnings": [], "auto_merged": [], "merge_conflicts": [],
+    }
 
     # Determine which files to process
     if changed_files:
@@ -105,9 +222,45 @@ def sync_versions(
         if rel_path == OVERRIDES_FILENAME:
             continue
 
-        # Skip files in overrides registry
+        # Protected files: attempt three-way merge instead of skipping
         if rel_path in overrides:
-            results["skipped"].append(rel_path)
+            if not os.path.exists(current_file):
+                results["skipped"].append(rel_path)
+                continue
+            if not os.path.exists(next_file):
+                # 4.11-only file, nothing to merge from 4.10
+                results["skipped"].append(rel_path)
+                continue
+            if filecmp.cmp(current_file, next_file, shallow=False):
+                # Files are identical — no merge needed
+                continue
+
+            # Attempt three-way merge
+            ancestor = find_ancestor_content(
+                repo_path, product, current_version, next_version, rel_path
+            )
+            if ancestor is None:
+                # Can't find ancestor — fall back to skipping
+                results["skipped"].append(rel_path)
+                results["warnings"].append(
+                    f"{rel_path}: ancestor lookup failed — skipped merge "
+                    f"(file differs between {current_version} and {next_version})"
+                )
+                continue
+
+            merge_result = merge_protected_file(
+                current_file, next_file, ancestor, dry_run=dry_run
+            )
+
+            if merge_result == "auto_merged":
+                results["auto_merged"].append(rel_path)
+            elif merge_result == "conflict":
+                results["merge_conflicts"].append(rel_path)
+            elif merge_result == "identical":
+                pass  # No changes needed
+            elif merge_result.startswith("error:"):
+                results["skipped"].append(rel_path)
+                results["warnings"].append(f"{rel_path}: merge failed — {merge_result}")
             continue
 
         # File must exist in current version
@@ -159,6 +312,16 @@ def print_results(results: dict, product: str, current: str, next_ver: str, dry_
         for f in results["new_files"]:
             print(f"    + {f}")
 
+    if results.get("auto_merged"):
+        print(f"  {prefix}Auto-merged protected files ({len(results['auto_merged'])}):")
+        for f in results["auto_merged"]:
+            print(f"    ⇄ {f}")
+
+    if results.get("merge_conflicts"):
+        print(f"  ⚠ Protected files with CONFLICTS ({len(results['merge_conflicts'])}):")
+        for f in results["merge_conflicts"]:
+            print(f"    ✗ {f} — has conflict markers, needs manual review")
+
     if results["skipped"]:
         print(f"  Skipped (in .version-overrides) ({len(results['skipped'])}):")
         for f in results["skipped"]:
@@ -175,8 +338,12 @@ def print_results(results: dict, product: str, current: str, next_ver: str, dry_
             print(f"    ✗ {e}")
 
     total = len(results["synced"]) + len(results["new_files"])
+    auto_merged = len(results.get("auto_merged", []))
+    merge_conflicts = len(results.get("merge_conflicts", []))
     print()
     print(f"  Total: {total} files {'would be ' if dry_run else ''}synced, "
+          f"{auto_merged} auto-merged, "
+          f"{merge_conflicts} conflicts, "
           f"{len(results['skipped'])} skipped, "
           f"{len(results['warnings'])} warnings, "
           f"{len(results['errors'])} errors")
