@@ -130,7 +130,7 @@ The JWT secret is used for multiple purposes :
 
 * Sign session cookies in the AM API component
 * Sign tokens used for the email verification process in the AM API and AM Gateway components
-* Sign access and refresh tokens in the AM Gateway component if no certificate has been selected for your application (HMAC256)
+* Sign access and refresh tokens in the AM Gateway component if no certificate has been selected for your application (HMAC256), configurable using the `fallback-to-hmac-signature settings.
 
 Any users with this secret can tamper AM sessions and tokens. For security reasons, we strongly advise you to change the default value when using AM.
 
@@ -161,6 +161,14 @@ jwt:
    * the `expire-after` value, to change the validity period from the default value of one week
    * the `cookie-path` and `cookie-domain` values, to adapt them to your own environment; the values you define must be specific to the domain and path where the API is running and not apply to any another environment (for example, `.gravitee.io` could apply to any domain called `xxx.gravitee.io`, such as `dev.gravitee.io` or `qa.gravitee.io`)
    * the `cookie-secure` to adapt the Secure flag for the Session Cookie (should be set to true).
+
+{% hint style="info" %}
+By default, the Gateway falls back to HMAC256 signing (using the JWT secret above) when no certificate is assigned to an application. This behavior is controlled by a [Gateway-level setting](/docs/am/4.11/guides/certificates/README.md#legacy-hmac-fallback).
+
+Since HMAC256 uses a symmetric key, consider configuring a [domain-level fallback certificate](/docs/am/4.11/guides/certificates/README.md#fallback-certificate) instead, which provides an asymmetric-key safety net. 
+
+To disable HMAC fallback entirely, set fallback-to-hmac-signature: false but ensure every application has a valid certificate assigned, or that a domain fallback certificate is configured, otherwise token signing will fail
+{% endhint %}
 
 ### Step 4: Update CORS policy
 
