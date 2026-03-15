@@ -34,9 +34,11 @@
 
 ## GUIDES
 
+* [Client Certificate Management Overview](guides/manage-client-certificates.md)
 * [Manage JWT subscriptions with GKO](guides/manage-jwt-subscriptions-with-gko.md)
 * [Define an APIM service account for GKO](guides/define-an-apim-service-account-for-gko.md)
 * [Deploy APIs to a Gateway](guides/deploy-apis-to-a-gateway.md)
+* [Managing Client Certificates via API](../../apim/4.11/guides/manage-client-certificates-api.md)
 * [Publish APIs to the Developer Portal](guides/publish-apis-to-the-portal.md)
 * [Manage API documentation pages](guides/manage-api-documentation-pages.md)
 * [Manage API and application groups and members](guides/manage-api-groups-and-members.md)
@@ -51,6 +53,7 @@
 ## REFERENCE
 
 * [API Reference](reference/api-reference.md)
+  * [Client Certificate Management](../../apim/4.11/reference/application-client-certificates-api.md)
 
 ## RELEASES & CHANGELOG
 
