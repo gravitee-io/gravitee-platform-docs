@@ -47,10 +47,13 @@
 * [DB-less mode](guides/db-less-mode.md)
 * [Templating](guides/templating.md)
 * [Configure the GKO HTTP client for APIM](guides/gko-http-client.md)
+  * [Creating and Using LLM Analytics Dashboards](../../apim/4.10/guides/analytics-dashboards/create-llm-analytics-dashboard.md)
 
 ## REFERENCE
 
 * [API Reference](reference/api-reference.md)
+  * [LLM Analytics Metrics](../../apim/4.11/reference/analytics/llm-metrics-reference.md)
+    * [Querying LLM Metrics via Analytics API](../../apim/4.x/guides/analytics/query-llm-metrics-api.md)
 
 ## RELEASES & CHANGELOG
 
