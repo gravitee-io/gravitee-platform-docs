@@ -2,11 +2,11 @@
 
 ## Licensing
 
-API Products require the Enterprise Universe tier. Deployment fails if the organization license tier is not "universe."
+API Products require the Enterprise Universe tier. Deployment fails if the organization license tier isn't "universe."
 
 ## Supported API types
 
-Only V4 HTTP Proxy APIs can be added to API Products. The following API types are not supported:
+Only V4 HTTP Proxy APIs can be added to API Products. The following API types aren't supported:
 
 - Message APIs
 - Kafka APIs
@@ -21,11 +21,11 @@ API Products support the following plan types:
 - **JWT**
 - **mTLS**
 
-Keyless and OAuth plans are not supported. The Console UI only displays API Key, JWT, and mTLS as available plan types when creating a plan for an API Product. The Management API rejects Keyless plans with a `400 Bad Request` error: "Plan Security Type KeyLess is not allowed."
+Keyless and OAuth plans aren't supported. The Console UI only displays API Key, JWT, and mTLS as available plan types when creating a plan for an API Product. The Management API rejects Keyless plans with a `400 Bad Request` error: "Plan Security Type KeyLess is not allowed."
 
 ## Naming requirements
 
-API Product names are unique within an environment. Name comparison is case-sensitive — for example, "My Product" and "my product" are treated as different names. The name is trimmed of leading and trailing whitespace before validation.
+API Product names are unique within an environment. Name comparison is case-sensitive — for example, "Product A" and "product a" are treated as different names. The name is trimmed of leading and trailing whitespace before validation.
 
 If a duplicate name is submitted, the system rejects it with the error: "API Product name must be unique."
 
@@ -33,15 +33,15 @@ If a duplicate name is submitted, the system rejects it with the error: "API Pro
 
 APIs added to an API Product have the following requirements:
 
-- The **Allow in API Products** toggle on the API's General Info page is set to enabled. APIs with this toggle disabled or not set cannot be added to products.
-- The **Allow in API Products** toggle cannot be disabled once an API is included in a product. The toggle is greyed out in the Console when the API is used in products.
+- The **Allow in API Products** toggle on the API's General Info page is set to enabled. APIs with this toggle disabled or not set can't be added to products.
+- The **Allow in API Products** toggle can't be disabled once an API is included in a product. The toggle is greyed out in the Console when the API is used in products.
 - The **Allow in API Products** toggle is unavailable for read-only APIs (for example, Kubernetes-managed APIs).
 
 APIs within a product retain their own plans and subscriptions. Consumers can subscribe to an individual API's plans independently of the product.
 
 ## Policy and flow restrictions
 
-API Products cannot include flows or policies at the product level. Define policies at the API or plan level. To execute product-specific policies, use flow conditions that reference the API Product ID via the `apiProductId` Expression Language attribute.
+API Products can't include flows or policies at the product level. Define policies at the API or plan level. To execute product-specific policies, use flow conditions that reference the API Product ID via the `apiProductId` Expression Language attribute.
 
 ## Gateway subscription validation order
 
