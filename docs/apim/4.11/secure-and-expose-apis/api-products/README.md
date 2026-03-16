@@ -12,7 +12,7 @@ This feature requires an Enterprise Universe tier license.
 
 An API Product is an environment-level resource that groups V4 HTTP Proxy APIs under a single subscription model. Each product has:
 
-- A unique name within its environment (name comparison is case-sensitive, so "My Product" and "my product" are treated as different names)
+- A unique name within its environment (name comparison is case-sensitive, so "Product A" and "product a" are treated as different names)
 - A version
 - An optional description
 - Product-level plans (API Key, JWT, or mTLS only — Keyless and OAuth plans are not supported)
@@ -45,7 +45,7 @@ Only V4 HTTP Proxy APIs with the **Allow in API Products** toggle enabled can be
 - Defaults to `true` for new V4 HTTP Proxy APIs created in version 4.11.0 or later
 - Defaults to `false` for existing V4 HTTP Proxy APIs created before version 4.11.0
 - Is unavailable for read-only APIs (for example, Kubernetes-managed APIs)
-- Cannot be disabled once an API is included in a product (the toggle is greyed out with the tooltip "API is currently used in API Products")
+- Can't be disabled once an API is included in a product (the toggle is greyed out with the tooltip "API is currently used in API Products")
 
 ### Enable an API for use in API Products
 
@@ -67,7 +67,7 @@ Only V4 HTTP Proxy APIs with the **Allow in API Products** toggle enabled can be
 
 1. In the APIM Console, select **API Products** in the left sidebar.
 2. Click **Create API Product**.
-3. Enter a unique **Name** for the product. Names are case-sensitive — "My Product" and "my product" are treated as different names.
+3. Enter a unique **Name** for the product. Names are case-sensitive — "Product A" and "product a" are treated as different names.
 4. Enter a **Version** number.
 5. Optionally, enter a **Description**.
 6. Click **Create API Product**.
