@@ -4,7 +4,7 @@ This guide explains how to configure a fallback certificate for your domain usin
 
 ## Configure a domain certificate fallback
 
-To configure the domain certificate fallback, complete the following stpes:
+To configure the domain certificate fallback, complete the following steps:
 1. [Enable HMAC signature](#enable-hmac-signature)
 2. [Configure the Domain Ceritifcate Settings](#configure-the-domain-ceritifcate-settings)
 
@@ -13,7 +13,7 @@ To enable HMAC signature in your `gravitee.yaml` file, navigate to the `applicat
 ```yaml
 applications:
   signing:
-    fallback-to-hmac-signature: true|false
+    fallback-to-hmac-signature: false
 ```
 
 ## Configure the Domain Ceritifcate Settings
