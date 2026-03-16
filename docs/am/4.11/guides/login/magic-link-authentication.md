@@ -2,16 +2,16 @@
 
 Magic Link Authentication enables passwordless login by sending users a time-limited authentication link using email. When users click the link, they are authenticated without entering a password. This feature is designed for API administrators configuring authentication flows and developers integrating passwordless login into applications.
 
-The Margic Link authentication method follows the following challenge-response flow:
+The Magic Link authentication method follows the following challenge-response flow:
 1. The user attempts to access a protected application.
-2. The application redirects the  user to Access Management (AM) for authentication.
+2. The application redirects the user to Access Management (AM) for authentication.
 3. AM presents a login page with the **Email Magic Link** option.
 4. The user enters their username. For example, their email address or login identifier.
-5. AM searches for the user's registered email in the associated user ddirectory, and then sends a magic link to that address. 
+5. AM searches for the user's registered email in the associated user ddirectory, and then sends a magic link to that address.
 6. The user clicks the link in the their inbox, or the user pastes the link into their browser.
-7. AM validates the link, establishes the session, and then redirectes the user back to the application.
+7. AM validates the link, establishes the session, and then redirects the user back to the application.
 
-The magic link is **single-use** and **time-limited**. If you click the link or the link expires, you cannot use that link again. 
+The magic link is **single-use** and **time-limited**. If you click the link or the link expires, you cannot use that link again.
 
 {% hint style="info" %}
 For the best security posture, open the magic link in the same browser where authentication was initiated. AM binds the link to the originating session. If the link is opened in a different browser or device, AM rejects it and prompts the user to request a new magic link.
