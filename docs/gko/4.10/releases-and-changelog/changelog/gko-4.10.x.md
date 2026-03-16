@@ -1,5 +1,17 @@
 # GKO 4.10.x
 
+## Gravitee Kubernetes Operator 4.10.8 - March 16, 2026
+    
+<details>
+<summary>Improvements</summary>
+
+  **Others**
+
+  * Add LLM and MCP to v4 API types [#11151](https://github.com/gravitee-io/issues/issues/11151)
+
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.10.7 - March 2, 2026
     
 <details>
