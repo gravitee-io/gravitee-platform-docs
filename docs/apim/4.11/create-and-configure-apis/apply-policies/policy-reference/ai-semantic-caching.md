@@ -2,7 +2,7 @@
 
 ## Overview
 
-AI Semantic Caching reduces LLM token consumption and API latency by caching responses based on semantic meaning rather than exact text matching. When a user submits a query that is semantically equivalent to a previously processed prompt—even if phrased differently—the policy serves the cached result without invoking the LLM backend. This policy is available exclusively on LLM Proxy APIs and requires an embedding model resource and a vector store resource.
+AI Semantic Caching reduces LLM token consumption and API latency by caching responses based on semantic meaning rather than exact text matching. When a user submits a query that's semantically equivalent to a previously processed prompt—even if phrased differently—the policy serves the cached result without invoking the LLM backend. This policy is available exclusively on LLM Proxy APIs and requires an embedding model resource and a vector store resource.
 
 {% hint style="info" %}
 AI Semantic Caching is available in Gravitee Enterprise Edition and requires Agent Mesh deployment.
@@ -36,7 +36,7 @@ Each cached vector includes metadata such as response headers, status code, toke
 
 ## Prerequisites
 
-- LLM Proxy API (semantic caching is not available on standard v4 APIs)
+- LLM Proxy API (semantic caching isn't available on standard v4 APIs)
 - Agent Mesh deployment
 - AI text embedding model resource configured (ONNX BERT, OpenAI, or HTTP provider)
 - Vector store resource configured (Redis or AWS S3)
@@ -179,7 +179,7 @@ The policy emits the following metrics:
 
 ## Restrictions
 
-- **LLM Proxy API only**: Semantic caching is not available on standard v4 APIs.
+- **LLM Proxy API only**: Semantic caching isn't available on standard v4 APIs.
 - **Agent Mesh required**: The policy requires Agent Mesh deployment.
 - **Compatible embedding dimensions**: The embedding model and vector store must use compatible embedding dimensions.
 - **Read-only mode behavior**: When the vector store is configured in read-only mode, the policy will not write new cache entries but will continue to serve existing cached results.
