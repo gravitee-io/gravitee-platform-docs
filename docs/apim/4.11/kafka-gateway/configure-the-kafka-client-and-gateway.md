@@ -147,9 +147,11 @@ To add more APIs, you will need to add another API host to the first line and tw
 
 ### Configure mTLS authentication
 
-To require client certificate authentication for all Kafka native APIs deployed on the gateway, configure the Gravitee Kafka Gateway with truststore and keystore paths. This is an infrastructure-level configuration that applies globally.
+{% hint style="info" %}
+All Kafka plans already use TLS for transport encryption by default. The configuration below is **only** required when using an mTLS plan, which adds client certificate authentication on top of standard TLS.
+{% endhint %}
 
-Configure the following SSL properties in `gravitee.yml`:
+To require client certificate authentication for Kafka native APIs, add the following SSL properties to `gravitee.yml`. This is an infrastructure-level configuration that applies globally to all Kafka native APIs deployed on the gateway.
 
 | Property | Description | Example |
 |:---------|:------------|:--------|
@@ -201,7 +203,7 @@ At this point, you can begin creating and deploying APIs to the Gravitee Kafka G
 
 ### Configure Kafka clients for mTLS authentication
 
-Kafka clients must present the certificate during the TLS handshake. Configure the client with the following SSL properties:
+When using an mTLS plan, Kafka clients must present a client certificate during the TLS handshake in addition to the standard TLS configuration. Add the following SSL properties to the client's `.properties` file:
 
 | Property | Description | Example |
 |:---------|:------------|:--------|
