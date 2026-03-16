@@ -16,12 +16,12 @@ applications:
     fallback-to-hmac-signature: false
 ```
 
-## Configure the Domain Ceritifcate Settings
-You can create Domain Certicate Settings with either of the following methods:
+## Configure the Domain Certificate Settings
+You can create Domain Certificate Settings with either of the following methods:
 * [Create Domain Certificate Settings using the Access Management UI](#create-domain-certificate-settings-using-the-access-management-ui)
 * [Create Domain Certificate Settings using the Management API](#create-domain-certificate-settings-using-the-management-api)
 
-### Create the Domain Cerificate Settings using the Access Management UI
+### Create the Domain Certificate Settings using the Access Management UI
 1. Create a certificate. For more information about creating a certificate, see [Certificates](/docs/am/4.11/guides/certificates/README.md).
 2. From the Access Management (AM) dashboard, click **Settings**.
   <figure><img src="/.gitbook/assets/Fallback_certificate_dashboard.jpg" alt="Access Management dashboard"><figcaption></figcaption></figure>
@@ -38,7 +38,7 @@ The certificate appears in the **Cerificates** screen of the Access Management U
 
 ### Create the Domain Certificate Settings using the Management API
 
-To configure a fallback certificate for a domai using the Management API, complete the following steps:
+To configure a fallback certificate for a domain using the Management API, complete the following steps:
 
 1. Send a PUT request to `/organizations/{organizationId}/environments/{environmentId}/domains/{domain}/certificate-settings` with a JSON body containing the `fallbackCertificate` property set to the desired certificate ID.
 2. The system validates that the certificate exists and belongs to the domain.
