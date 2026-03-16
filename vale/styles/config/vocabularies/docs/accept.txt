@@ -439,3 +439,4 @@ async
 [Ee]ndcode
 [Ee]nsure
 [Ee]xtract
+[Ss]ubscribable

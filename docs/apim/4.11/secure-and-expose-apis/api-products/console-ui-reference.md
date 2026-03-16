@@ -44,7 +44,7 @@ The **Plans** tab (under **Consumers**) lists all plans for the API Product. Ava
 - **JWT**
 - **mTLS**
 
-Keyless and OAuth plan types are not available.
+Keyless and OAuth plan types aren't available.
 
 Plan lifecycle actions include **Publish**, **Deprecate**, and **Close**. Plans are reorderable via drag and drop.
 

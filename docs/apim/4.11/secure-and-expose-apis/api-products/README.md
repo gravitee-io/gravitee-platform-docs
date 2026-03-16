@@ -88,7 +88,7 @@ Only V4 HTTP Proxy APIs with the **Allow in API Products** toggle enabled can be
 4. Click **Add API**.
 
 {% hint style="info" %}
-If an expected API does not appear in the search results, verify that the **Allow in API Products** toggle is enabled on the API's General Info page.
+If an expected API doesn't appear in the search results, verify that the **Allow in API Products** toggle is enabled on the API's General Info page.
 {% endhint %}
 
 <figure><img src="../../.gitbook/assets/add-api-to-product.png" alt=""><figcaption><p>Add API dialog for an API Product</p></figcaption></figure>
@@ -114,7 +114,7 @@ If an expected API does not appear in the search results, verify that the **Allo
 4. Click **Save** on the final step to create the plan.
 5. The plan is created in **Staging** status. To activate it, proceed to the next section.
 
-Keyless and OAuth plan types are not available for API Products.
+Keyless and OAuth plan types aren't available for API Products.
 
 <figure><img src="../../.gitbook/assets/api-product-plan-types.png" alt=""><figcaption><p>Plan type selection for an API Product</p></figcaption></figure>
 
