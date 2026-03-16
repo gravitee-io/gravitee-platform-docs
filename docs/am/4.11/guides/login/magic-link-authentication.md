@@ -7,7 +7,7 @@ The Magic Link authentication method follows the following challenge-response fl
 2. The application redirects the user to Access Management (AM) for authentication.
 3. AM presents a login page with the **Email Magic Link** option.
 4. The user enters their username. For example, their email address or login identifier.
-5. AM searches for the user's registered email in the associated user ddirectory, and then sends a magic link to that address.
+5. AM searches for the user's registered email in the associated user directory, and then sends a magic link to that address.
 6. The user clicks the link in the their inbox, or the user pastes the link into their browser.
 7. AM validates the link, establishes the session, and then redirects the user back to the application.
 
