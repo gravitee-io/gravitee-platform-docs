@@ -57,6 +57,17 @@
 * Plans and subscriptions now support a reference model with `referenceType` (API or API_PRODUCT) and `referenceId` fields; the legacy `api` field is deprecated as of 4.11.0.
 <!-- /PIPELINE:APIM-12371 -->
 
+
+<!-- PIPELINE:APIM-12308 -->
+#### **Node Logging Infrastructure with MDC Context**
+
+* Enriches application logs with contextual metadata (node ID, API ID, application ID, plan ID) for improved traceability and debugging in production environments.
+* Configure MDC filtering and log patterns directly in `gravitee.yml` without manually editing `logback.xml`, using the `node.logging.mdc.include` property and `%mdcList` conversion word.
+* Supports runtime pattern override for console and file appenders, automatically wrapping file appenders in async mode when enabled via `node.logging.pattern.overrideLogbackXml`.
+* Provides context-aware logging for reactive code paths using `ctx.withLogger(log)` pattern to ensure execution context metadata appears in asynchronous request logs.
+* Available from APIM 4.11; requires `gravitee-node` 8.0.0-alpha.2+ for plugin development and Helm chart version supporting `logback.override` configuration for Kubernetes deployments.
+<!-- /PIPELINE:APIM-12308 -->
+
 ## Improvements
 
 ## Bug Fixes

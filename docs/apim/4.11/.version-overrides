@@ -31,3 +31,6 @@ secure-and-expose-apis/api-products/consuming-api-products.md
 secure-and-expose-apis/api-products/manage-api-products-via-management-api.md
 secure-and-expose-apis/api-products/restrictions-and-licensing.md
 secure-and-expose-apis/subscriptions/manage-subscriptions.md
+configure-and-manage-the-platform/node-logging-configuration.md
+developer-portal/new-developer-portal/configure-authentication/developer_guide-_integrating_node_logging_in_plugins_and_handlers.md
+hybrid-installation-and-configuration-guides/next-gen-cloud/kubernetes/vanilla-kubernetes/overriding_logback_configuration_in_kubernetes_deployments.md
