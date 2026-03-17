@@ -171,7 +171,7 @@ You can access specific tag of a XML request/response payload with `{#request.xm
 
 The Expression Language (EL) Assistant helps you write the EL expression needed for the field. You provide the Assistant with the prompt for the EL you want, and the Assistant returns the corresponding EL.
 
-<figure><img src="../4.10/.gitbook/assets/anim (1).gif" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/anim (1) (1).gif" alt=""><figcaption></figcaption></figure>
 
 ### Prerequisites
 
@@ -217,14 +217,14 @@ Any field that supports Expression Language, supports the AI assistant.
 
 1.  In the field that supports expression language, click the **{EL}** icon.
 
-    <figure><img src="../4.10/.gitbook/assets/304A887B-9FD1-4011-961A-7DB7D91D3478_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src=".gitbook/assets/304A887B-9FD1-4011-961A-7DB7D91D3478_1_201_a (1) (1).jpeg" alt=""><figcaption></figcaption></figure>
 2. In the **EL Assistant** pop-up window, type the prompt for the Expression Language that you want the AI assistant to generate. For example, only run this policy if the header equals test.
 3.  Click **Ask Newt AI**. The AI assistant generates the Expression Language.
 
-    <figure><img src="../4.10/.gitbook/assets/DBE0A0C1-3171-4CA4-A586-A503EBD2B0BD_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src=".gitbook/assets/DBE0A0C1-3171-4CA4-A586-A503EBD2B0BD_1_201_a (1) (1).jpeg" alt=""><figcaption></figcaption></figure>
 4.  (Optional) Provide feedback about the answer. To provide feedback, click either the **thumbs u**p or the **thumbs down**.
 
-    <figure><img src="../4.10/.gitbook/assets/6D6E46F0-AECF-41F9-BE38-53C6EC0EDA38_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src=".gitbook/assets/6D6E46F0-AECF-41F9-BE38-53C6EC0EDA38_1_201_a (1) (1).jpeg" alt=""><figcaption></figcaption></figure>
 
 ### Use case examples
 
@@ -253,8 +253,6 @@ To add an assertion that only checks the HTTP response, 200, type the following 
 The EL Assistant returns the following response:
 
 `{#response.status == 200}`
-
-
 
 ## APIs
 
@@ -438,7 +436,7 @@ Convert or cast a string value into an integer. The following EL can be used:
 
 #### Obtaining the current date & time
 
-You can use the following EL to obtain the current date & time:&#x20;
+You can use the following EL to obtain the current date & time:
 
 `{T(java.time.ZonedDateTime).now(T(java.time.ZoneOffset).UTC).format(T(java.time.format.DateTimeFormatter).ISO_INSTANT)}`
 
@@ -452,7 +450,7 @@ You can use the following EL to obtain the current date & time:&#x20;
 
 #### Evaluating different field types
 
-This `tip` can be used when evaluating comparisons of different field types.  For example, if the `subscription.metadata['my_key']` value is of type string, but the value in a request/message content is of type number/numeric/integer, the following EL can be used to compare if these two values are the same:
+This `tip` can be used when evaluating comparisons of different field types. For example, if the `subscription.metadata['my_key']` value is of type string, but the value in a request/message content is of type number/numeric/integer, the following EL can be used to compare if these two values are the same:
 
 `{(""+#jsonPath(#message.content, '$.customerId')).equals(""+ #subscription.metadata['my_key'])}`
 
