@@ -23,16 +23,16 @@ Endpoint deployment is impacted by how tags are applied to API endpoints and Gat
 
 ### Tenant-Based Endpoint Filtering for Native Kafka APIs
 
-For Native Kafka APIs, each Kafka endpoint can be tagged with one or more tenant identifiers. At startup and during hot-reload, the gateway loads only endpoints whose tenant list is empty (shared) or contains the gateway's configured tenant. Endpoints that do not match are skipped entirely.
+For Native Kafka APIs, each Kafka endpoint can be tagged with one or more tenant identifiers. At startup and during hot-reload, the gateway loads only endpoints whose tenant list is empty (shared) or contains the gateway's configured tenant. Endpoints that don't match are skipped entirely.
 
 **Behavior:**
 
 | Gateway Tenant | Endpoint Tenants | Match Result |
 |:--------------|:-----------------|:-------------|
-| Not configured | Any value or empty | ✅ Match (gateway participates in all endpoints) |
-| Configured (for example, `"tenant-a"`) | `null` or `[]` | ✅ Match (shared endpoint) |
-| Configured (for example, `"tenant-b"`) | Contains `"tenant-b"` | ✅ Match |
-| Configured (for example, `"tenant-c"`) | Does not contain `"tenant-c"` | ❌ No Match |
+| Not configured | Any value or empty | Match (gateway participates in all endpoints) |
+| Configured (for example, `"tenant-a"`) | `null` or `[]` | Match (shared endpoint) |
+| Configured (for example, `"tenant-b"`) | Contains `"tenant-b"` | Match |
+| Configured (for example, `"tenant-c"`) | Doesn't contain `"tenant-c"` | No Match |
 
 **Shared Endpoints:**
 

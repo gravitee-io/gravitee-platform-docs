@@ -93,7 +93,7 @@
 
 * Native Kafka APIs can now define multiple endpoints within an endpoint group, enabling pre-configured cluster alternatives for disaster recovery, migration, and regional routing scenarios.
 * The gateway routes new connections to the active endpoint based on tenant configuration or list order—publishers control which endpoint is active by reordering endpoints in the group.
-* Endpoint switching is manual and publisher-initiated; the gateway does not perform automatic failover or health checks, and Kafka clients must handle reconnection when endpoints change.
+* Endpoint switching is manual and publisher-initiated; the gateway doesn't perform automatic failover or health checks, and Kafka clients must handle reconnection when endpoints change.
 * Tenant-aware routing is supported: if the gateway tenant matches an endpoint's tenant tag, that endpoint is selected; otherwise, the first endpoint in the group is used.
 <!-- /PIPELINE:APIM-12500 -->
 
