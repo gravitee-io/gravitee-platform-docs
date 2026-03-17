@@ -41,9 +41,9 @@ The **Logs** provides filters that refine the list of log entries. The quick fil
 
 * **Period:** Select a predefined time range to display only logs from that window.
 * **API:** Search for and select one or more APIs to display only their logs.
-* **Application:** Search for and select one or more applications to display only their logs.&#x20;
+* **Application:** Search for one or more applications, and then select one or more applications to display only their logs.&#x20;
 
-The **More** button opens a panel with additional filtering options, organized into the following sections:&#x20;
+The **More** button opens a panel with additional filtering options, which are organized into the following sections:&#x20;
 
 **Date**
 
@@ -64,7 +64,7 @@ The **More** button opens a panel with additional filtering options, organized i
 
 * **Transaction ID:** Filter by a transaction ID (UUID format) to find all requests associated with a specific transaction.
 * **Request ID:** Filter by a specific request ID (UUID format) to locate an individual request.
-* **URI:** Filter by request path (for example, `/api/v1/users`).
+* **URI:** Filter by request path. Dor example, `/api/v1/users`.
 * **Response time (ms):** Filter for requests with a response time greater than or equal to the specified value, in milliseconds.
 * **Error Types:** Filter by specific error types. The available options are dynamically populated based on errors observed within the selected date range.&#x20;
 
