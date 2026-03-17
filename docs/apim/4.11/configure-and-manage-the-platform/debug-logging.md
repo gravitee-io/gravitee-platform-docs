@@ -33,6 +33,13 @@ Java-class debug logging means the individual Java classes and packages that are
 * com.graviteesource.policy.kafka.acl.KafkaAclPolicy
 * com.graviteesource.secretprovider.microsoft.keyvault.client.MicrosoftKeyVaultClientImpl
 
+## Prerequisites
+
+Before you configure node logging, ensure the following:
+
+* APIM 4.11 or later is installed
+* You have write access to `gravitee.yml` or Helm chart values
+
 ## Enable component-based debug logging
 
 To enable debug logging for a specific Gravitee component, you can use the following example configurations as templates:
@@ -120,6 +127,10 @@ api:
 {% endcode %}
 
 To enable debug logging for the Gateway component, you can apply the same edits to the `gateway:` section of the `values.yml` file.
+
+{% hint style="info" %}
+Deprecated Helm chart parameters (`api.logging.debug`, `api.logging.graviteeLevel`, etc.) are replaced by `api.logback.override` and `api.node.logging` in APIM 4.11. Use the new parameters for future deployments.
+{% endhint %}
 {% endtab %}
 {% endtabs %}
 
@@ -234,6 +245,29 @@ To also enable debug logging for this specific Java class of the Management API 
 ```
 
 </details>
+
+## Using custom logback configuration
+
+To use a custom `logback.xml` configuration:
+
+1. Set `node.logging.pattern.overrideLogbackXml` to `false` (or omit the property).
+2. Define patterns directly in the `logback.xml` file.
+
+The `%mdcList` conversion word is available in custom patterns, but it will not display content for logs emitted during early startup (before the converter is registered).
+
+{% hint style="warning" %}
+Do NOT use `<conversionRule conversionWord="mdcList" converterClass="..."/>` in `logback.xml`. The converter is registered programmatically and will fail with `PARSER_ERROR[mdcList]` if declared manually.
+{% endhint %}
+
+{% code title="logback.xml" %}
+```xml
+<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+  <encoder>
+    <pattern>%d{HH:mm:ss.SSS} [%thread] [%mdcList] %-5level %logger{36} - %msg%n</pattern>
+  </encoder>
+</appender>
+```
+{% endcode %}
 
 ## Internal API
 

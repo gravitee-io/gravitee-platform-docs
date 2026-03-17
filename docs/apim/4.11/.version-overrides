@@ -31,3 +31,6 @@ secure-and-expose-apis/api-products/consuming-api-products.md
 secure-and-expose-apis/api-products/manage-api-products-via-management-api.md
 secure-and-expose-apis/api-products/restrictions-and-licensing.md
 secure-and-expose-apis/subscriptions/manage-subscriptions.md
+configure-and-manage-the-platform/debug-logging.md
+configure-and-manage-the-platform/node-logging-configuration.md
+configure-and-manage-the-platform/node-logging-infrastructure.md

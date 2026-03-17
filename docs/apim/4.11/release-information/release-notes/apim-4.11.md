@@ -59,4 +59,14 @@
 
 ## Improvements
 
+
+<!-- PIPELINE:APIM-12308 -->
+#### **Node Logging Infrastructure with MDC Support**
+
+* Enriches application logs with contextual metadata (node ID, API details, organization/environment identifiers) using Mapped Diagnostic Context (MDC).
+* Enables runtime configuration of MDC filtering, log patterns, and output formatting directly in `gravitee.yml`, eliminating the need to modify `logback.xml` for common use cases.
+* Supports custom `%mdcList` conversion word for flexible MDC key formatting and filtering in log patterns.
+* Requires APIM 4.11 or later; administrators can configure which MDC keys appear in logs using the `node.logging.mdc.include` property.
+<!-- /PIPELINE:APIM-12308 -->
+
 ## Bug Fixes
