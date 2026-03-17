@@ -16,14 +16,14 @@ Multi-tenant endpoint support enables a single Kafka API definition to route tra
 
 ### Tenant-based endpoint filtering
 
-Each Kafka endpoint can be tagged with one or more tenant identifiers. At startup and during hot-reload, the gateway loads only endpoints whose tenant list is empty (shared) or contains the gateway's configured tenant. Endpoints that do not match are skipped entirely. If no endpoint remains after filtering, requests fail. There is no automatic fallback to untagged endpoints — include at least one shared (untagged) endpoint in the group to provide a fallback.
+Each Kafka endpoint can be tagged with one or more tenant identifiers. At startup and during hot-reload, the gateway loads only endpoints whose tenant list is empty (shared) or contains the gateway's configured tenant. Endpoints that don't match are skipped entirely. If no endpoint remains after filtering, requests fail. There is no automatic fallback to untagged endpoints — include at least one shared (untagged) endpoint in the group to provide a fallback.
 
 | Gateway Tenant | Endpoint Tenants | Match Result |
 |:--------------|:-----------------|:-------------|
-| Not configured | Any value or empty | ✅ Match (gateway participates in all endpoints) |
-| Configured (for example, `"tenant-a"`) | `null` or `[]` | ✅ Match (shared endpoint) |
-| Configured (for example, `"tenant-b"`) | Contains `"tenant-b"` | ✅ Match |
-| Configured (for example, `"tenant-c"`) | Does not contain `"tenant-c"` | ❌ No Match |
+| Not configured | Any value or empty | Match (gateway participates in all endpoints) |
+| Configured (for example, `"tenant-a"`) | `null` or `[]` | Match (shared endpoint) |
+| Configured (for example, `"tenant-b"`) | Contains `"tenant-b"` | Match |
+| Configured (for example, `"tenant-c"`) | Doesn't contain `"tenant-c"` | No Match |
 
 ### Endpoint selection
 
@@ -70,13 +70,13 @@ The tenant value can be set via environment variable, system property, or `gravi
 
 ## Create an endpoint group
 
-When creating a Native Kafka API, the endpoint group type is automatically set to `native-kafka`. The load balancing algorithm field is not displayed for Native Kafka APIs.
+When creating a Native Kafka API, the endpoint group type is automatically set to `native-kafka`. The load balancing algorithm field isn't displayed for Native Kafka APIs.
 
 To create an endpoint group:
 
 1. In the left sidebar, click **Endpoints**.
 2. Click **Add endpoint group**.
-3. Enter a **Name** for the endpoint group. The name cannot contain `:` and must be unique across all endpoint groups and endpoints.
+3. Enter a **Name** for the endpoint group. The name can't contain `:` and must be unique across all endpoint groups and endpoints.
 4. Click **Validate general information**.
 5. Configure the endpoint group settings on the **Configuration** step.
 6. Click **Create endpoint group**.
@@ -165,7 +165,7 @@ The Console displays endpoint groups and endpoints with the following columns:
 | Actions | Overflow menu (Rename, Duplicate, Delete) | All endpoints |
 
 {% hint style="info" %}
-The weight column is not displayed for Native Kafka APIs.
+The weight column isn't displayed for Native Kafka APIs.
 {% endhint %}
 
 The **Options** column is hidden if no endpoints in the group have configured options.
