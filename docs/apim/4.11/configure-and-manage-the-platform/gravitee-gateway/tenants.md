@@ -17,8 +17,8 @@ Endpoint deployment is impacted by how tags are applied to API endpoints and Gat
 
 ### Rules
 
-* A Gateway that is not configured with a tenant deploys all API endpoints, regardless of whether the endpoint has a tenant.
-* An API endpoint that is not configured with a tenant is deployed to all Gateways, regardless of whether the Gateway is configured with a tenant.
+* A Gateway that isn't configured with a tenant deploys all API endpoints, regardless of whether the endpoint has a tenant.
+* An API endpoint that isn't configured with a tenant is deployed to all Gateways, regardless of whether the Gateway is configured with a tenant.
 * A Gateway configured with the tenant `foo` deploys all API endpoints that include `foo` in their tenant list.
 
 ### Tenant-Based Endpoint Filtering for Native Kafka APIs
@@ -36,11 +36,11 @@ For Native Kafka APIs, each Kafka endpoint can be tagged with one or more tenant
 
 **Shared Endpoints:**
 
-An endpoint with an empty or null tenant list is considered shared and matches any gateway, regardless of the gateway's tenant configuration. Shared endpoints serve as fallbacks when no tenant-specific endpoint matches.
+An endpoint with an empty or null tenant list is considered shared and always matches any gateway, regardless of the gateway's tenant configuration. Shared endpoints are included in the filtered set alongside tenant-specific endpoints.
 
-**Fallback Behavior:**
+**No-match behavior:**
 
-If no endpoint matches the gateway's tenant after filtering, requests fail. There is no automatic fallback to shared endpoints — include at least one untagged endpoint in the group to provide a fallback.
+If no endpoint in the group passes the tenant filter (all endpoints are tenant-specific and none match the gateway's tenant), the gateway can't route to the API and connections fail. Include at least one shared (untagged) endpoint in the group to ensure the API remains accessible to all gateways.
 
 ## Configuring Tenants <a href="#id-9c4f" id="id-9c4f"></a>
 

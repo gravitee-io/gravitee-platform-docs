@@ -16,7 +16,7 @@ Multi-tenant endpoint support enables a single Kafka API definition to route tra
 
 ### Tenant-based endpoint filtering
 
-Each Kafka endpoint can be tagged with one or more tenant identifiers. At startup and during hot-reload, the gateway loads only endpoints whose tenant list is empty (shared) or contains the gateway's configured tenant. Endpoints that don't match are skipped entirely. If no endpoint remains after filtering, requests fail. There is no automatic fallback to untagged endpoints — include at least one shared (untagged) endpoint in the group to provide a fallback.
+Each Kafka endpoint can be tagged with one or more tenant identifiers. At startup and during hot-reload, the gateway loads only endpoints whose tenant list is empty (shared) or contains the gateway's configured tenant. Endpoints that don't match are skipped entirely. Shared (untagged) endpoints are always included in the filtered set alongside tenant-specific endpoints. If no endpoint in the group passes the tenant filter (all endpoints are tenant-specific and none match the gateway's tenant), the gateway can't route to the API and connections fail.
 
 | Gateway Tenant | Endpoint Tenants | Match Result |
 |:--------------|:-----------------|:-------------|
@@ -31,7 +31,7 @@ Only the first endpoint group is considered for tenant resolution. If there are 
 
 ### Shared endpoints
 
-An endpoint with an empty or null tenant list is considered shared and matches any gateway, regardless of the gateway's tenant configuration. Shared endpoints serve as a safety net during gradual rollout or when legacy gateways haven't yet been assigned a tenant.
+An endpoint with an empty or null tenant list is considered shared and always matches any gateway, regardless of the gateway's tenant configuration. Shared endpoints are always included in the filtered set, making them useful during gradual rollout or when legacy gateways haven't yet been assigned a tenant.
 
 ## Security protocols
 
@@ -218,7 +218,7 @@ The following example demonstrates a Kafka API endpoint group with tenant-specif
 
 ## Restrictions
 
-* If no endpoint matches the gateway's tenant after filtering, requests fail. Include at least one untagged endpoint in the group to provide a fallback.
+* If no endpoint in the group passes the tenant filter (all endpoints are tenant-specific and none match the gateway's tenant), the gateway can't route to the API and connections fail. Include at least one shared (untagged) endpoint to ensure the API remains accessible to all gateways.
 * Only the first endpoint group is considered for tenant resolution. Additional endpoint groups are ignored.
 * Tenant filtering applies at gateway startup and hot-reload. Changing an endpoint's tenant tags requires redeploying the API or triggering a sync.
 * Tenant identifiers are case-sensitive and must match exactly between the gateway configuration and endpoint tags.
