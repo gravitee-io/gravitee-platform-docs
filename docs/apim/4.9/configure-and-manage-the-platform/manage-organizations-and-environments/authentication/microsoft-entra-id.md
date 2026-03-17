@@ -1,5 +1,9 @@
 ---
 description: An overview about microsoft entra id.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/configure-and-manage-the-platform/manage-organizations-and-environments/authentication/microsoft-entra-id
 ---
 
 # Microsoft Entra ID
@@ -43,10 +47,10 @@ For documentation about securing your APIs with OAuth2 and Entra ID, see the doc
    3. Enter a Description.
    4. Specify the Expires value.
    5. Click **Add**.
-   6. Copy the Value (not the Secret ID). This is used by APIM to authenticate with Entra ID when checking the tokens and authentication of users logging into Gravitee.![](<../../../../4.10/.gitbook/assets/image (231).png>)
+   6. Copy the Value (not the Secret ID). This is used by APIM to authenticate with Entra ID when checking the tokens and authentication of users logging into Gravitee.![](<../../../.gitbook/assets/image (231).png>)
 4. Configure the **API permissions** to allow Gravitee to read the user **email**, **openid**, and **profile** details.
 
-<figure><img src="../../../../4.10/.gitbook/assets/image (230).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (230).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 The `profile` scope is a permission request that grants access to a wider range of user profile information, including the `given_name` and `family_name` claims.
@@ -58,13 +62,13 @@ You can now progress to the next task and add a new Identity Provider to Gravite
 
 ### Task 2: Obtain the needed URLs from Entra ID
 
-Retrieve your endpoint configuration within Entra ID.&#x20;
+Retrieve your endpoint configuration within Entra ID.
 
 1. To retrieve your endpoint configuration, go to the **App Registrations** page, and then click the **Endpoints** menu item. You should see a complete list of available **Endpoints**.
 
 <figure><img src="https://slabstatic.com/prod/uploads/6lql0jy7/posts/images/preload/4_VGG-R9ILX5w7ombyNvQnZb.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../../4.10/.gitbook/assets/image (234).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (234).png" alt=""><figcaption></figcaption></figure>
 
 2. Copy the **OpenID Connect metadata document** link. For example, [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/b7389665-58df-4f4c-a3a3-ed5adf0aafd8/v2.0/.well-known/openid-configuration).
 3. Open the **OpenID Connect metadata document** link in a browser. This link contains the following URLs, which you need to use in the Gravitee Identity Provider configuration wizard:
@@ -87,11 +91,11 @@ Retrieve your endpoint configuration within Entra ID.&#x20;
    4. Enable the **A public email is required to be able to authenticate** option.
 7. In the **Group and role mappings** sub-section, select the **Computed during each user authentication** option.
 
-<figure><img src="../../../../4.10/.gitbook/assets/image (235).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (235).png" alt=""><figcaption></figcaption></figure>
 
 #### Configure the Microsoft Entra ID
 
-<figure><img src="../../../../4.10/.gitbook/assets/image (233).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (233).png" alt=""><figcaption></figcaption></figure>
 
 8. In the **Client Id** field, enter your Microsoft Application Registration Client ID.
 9.  In the **Client Secret** field, enter your Client Secret.
@@ -107,13 +111,13 @@ Retrieve your endpoint configuration within Entra ID.&#x20;
 
 #### User profile mapping
 
-<figure><img src="../../../../4.10/.gitbook/assets/image (232).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (232).png" alt=""><figcaption></figcaption></figure>
 
 17. In the **ID** field, enter `sub` .
 18. In the **First name** field, enter `given_name`.
 19. In the **Last name** field, enter `family_name`.
 20. In the **Email** field, enter `email`.
-21. In the **Picture** field, leave this blank.  Because Entra ID does not provide this claim, providing any value here may cause an error.
+21. In the **Picture** field, leave this blank. Because Entra ID does not provide this claim, providing any value here may cause an error.
 22. Click on **Create**.
 
 {% hint style="info" icon="spider-black-widow" %}
@@ -133,7 +137,7 @@ To avoid the use of a previous token or misconfiguration, reset the cache of you
 1. Sign in to your Gravitee APIM Console. You should now see Entra ID as an option.
 2. Click the button, and then follow the steps to sign in. Once you sign in, you have default (USER) access.
 
-<figure><img src="../../../../4.10/.gitbook/assets/image (238).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (238).png" alt=""><figcaption></figcaption></figure>
 
 ## **Additional Configuration**
 
