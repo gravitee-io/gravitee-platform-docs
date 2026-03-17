@@ -4,7 +4,7 @@
 
 Environment-level logs provide cross-API visibility into the runtime logs for your v4 proxy APIs. You can view request logs across all v4 proxy APIs in a single, centralized page within the APIM Console.
 
-Viewing the environment logs for v4 proxy APIs is provides you with the following benefits:
+Viewing the environment logs for v4 proxy APIs provides you with the following benefits:
 
 * You can monitor traffic patterns across multiple APIs.
 * You can troubleshoot issues that span several APIs.
@@ -33,11 +33,11 @@ The logs table displays a paginated list of log entries across all v4 proxy APIs
 * **Gateway:** The Gateway instance that processed the request.
 * **Response time:** The time taken to process the request.
 
-<figure><img src="/.gitbook/assets/environment-_logs_nav.png" alt=" Logs screen showsing the logs highlighted in the navigation menu"><figcaption></figcaption></figure>
+<figure><img src="/.gitbook/assets/environment-_logs_nav.png" alt=" Logs screen showing the logs highlighted in the navigation menu"><figcaption></figcaption></figure>
 
 ## Filter your logs
 
-The **Logs** provides filters that refine the list of log entries. The quick filters filter information based on the following information:
+The **Logs** provide filters that refine the list of log entries. The quick filters filter information based on the following information:
 
 * **Period:** Select a predefined time range to display only logs from that window.
 * **API:** Search for and select one or more APIs to display only their logs.
