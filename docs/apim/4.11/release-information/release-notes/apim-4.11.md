@@ -67,6 +67,15 @@
 * Topic consumers use shared or exclusive connections based on client ID and durability settings; queue consumers always use shared connections.
 <!-- /PIPELINE:APIM-13008 -->
 
+<!-- PIPELINE:APIM-12999 -->
+#### **Native IP Filtering Policy for Kafka APIs**
+
+* Controls client access to Native Kafka APIs by matching client IP addresses against configurable whitelist and blacklist rules
+* Supports IPv4, IPv6, CIDR notation, IP ranges, and Expression Language for dynamic filtering during entrypoint connection phase
+* Automatically normalizes IPv4-mapped IPv6 addresses and evaluates comma-separated IP lists
+* Rejects unauthorized connections with `CLUSTER_AUTHORIZATION_FAILED` when whitelist or blacklist conditions are not met
+<!-- /PIPELINE:APIM-12999 -->
+
 ## Improvements
 
 ## Bug Fixes
