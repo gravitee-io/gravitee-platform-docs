@@ -23,16 +23,14 @@ The AuthZen Gateway Handler does the following:
     ```
 
 ## Prerequisites
-
-* Gravitee Access Management 4.10.0+.
 * Valid Gravitee Enterprise license with `enterprise-authorization-engine` pack.
 * A configured Authorization Engine plugin instance. For example, OpenFGA.
 
-## Authorization
+## Authentication
 
 The AuthZEN evaluation endpoint **requires authentication**.
 
-Requests **must** use **HTTP Basic Authentication** with credentials belonging to one of the following:
+Requests **must** use **HTTP Bearer Authentication** with credentials belonging to one of the following:
 
 * **OAuth client** registered in the domain
 * **MCP Server** registered in the domain
@@ -89,17 +87,13 @@ The evaluation endpoint returns a JSON object containing the following:
 
 </details>
 
-## Authorization
-
-AuthZen endpoint supports client basic authorization.&#x20;
-
 ## Headers
 
 ### Request headers
 
 | Header          | Description                                        |
 | --------------- | -------------------------------------------------- |
-| `Authorization` | Basic `base64(clientId:clientSecret)`              |
+| `Authorization` | Bearer                                             |
 | `X-Request-ID`  | (Optional) Request identifier for logging/tracing. |
 | `Content-Type`  | Must be `application/json`.                        |
 
