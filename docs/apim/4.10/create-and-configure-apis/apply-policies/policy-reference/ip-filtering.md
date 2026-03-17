@@ -21,6 +21,10 @@ You can use any header sent with the request if you are using a different header
 
 Whitelist mode excludes all IP addresses except the addresses included in the whitelist. Blacklist mode allows all IP addresses except the addresses included in the blacklist.
 
+{% hint style="warning" %}
+The `X-Forwarded-For` header verification is only applicable to self-hosted gateways. On SaaS-based gateways (Gravitee Cloud), the `X-Forwarded-For` header isn't available for IP filtering because the SaaS infrastructure manages traffic routing differently. Use IP filtering with the `X-Forwarded-For` option only on self-hosted gateway deployments.
+{% endhint %}
+
 The blacklist takes precedence, so if an IP address is included in both lists, the policy rejects the request.
 
 You can specify a host to be resolved and checked against the remote IP.
@@ -28,7 +32,7 @@ You can specify a host to be resolved and checked against the remote IP.
 ## Examples
 
 {% hint style="warning" %}
-This policy can be applied to v2 APIs and v4 HTTP proxy APIs. It cannot be applied to v4 message APIs or v4 TCP proxy APIs.
+This policy can be applied to v2 APIs and v4 HTTP proxy APIs. It can't be applied to v4 message APIs or v4 TCP proxy APIs.
 {% endhint %}
 
 {% tabs %}
