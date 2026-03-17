@@ -23,13 +23,13 @@ Client authentication can occur if a load balancer is placed in front of the Gat
 Currently, mTLS plans have the following limitations:
 
 * You can apply mTLS plans to only v4 APIs.
-* You cannot use mTLS plans in Gravitee Cloud with SaaS-based Gateways.
+* You can't use mTLS plans in Gravitee Cloud with SaaS-based Gateways.
 * Only one client certificate can be added per application. This means that to rotate certificates for an application, you need to either pause the application's subscriptions or schedule a maintenance window to avoid traffic for that API.
-* Applications do not provide a warning that certificates are going to expire.
+* Applications don't provide a warning that certificates are going to expire.
 
 ## Restrictions
 
-* mTLS plans cannot coexist with Keyless plans or authentication plans (OAuth2, JWT, API Key) in published state.
+* mTLS plans can't coexist with Keyless plans or authentication plans (OAuth2, JWT, API Key) in published state.
 * Publishing an mTLS plan automatically closes all published Keyless and authentication plans.
 * Publishing a Keyless or authentication plan automatically closes all published mTLS plans.
 * Client certificates must be in PEM format for subscription creation.
@@ -38,7 +38,7 @@ Currently, mTLS plans have the following limitations:
 
 ## How it works
 
-When using an mTLS plan, you do not need to manually define a Gateway truststore. The Gateway automatically retrieves all certificates from [Applications (that have a TLS Configuration)](mtls.md#how-to-add-a-client-certificate) and loads them into an in-memory truststore.
+When using an mTLS plan, you don't need to manually define a Gateway truststore. The Gateway automatically retrieves all certificates from [Applications (that have a TLS Configuration)](mtls.md#how-to-add-a-client-certificate) and loads them into an in-memory truststore.
 
 ## Initial Gateway configuration
 
@@ -83,7 +83,7 @@ To subscribe to an mTLS plan, the client has to add a certificate to their appli
 <figure><img src="../../.gitbook/assets/PLACEHOLDER-application-tls-configuration.png" alt="TLS Configuration panel in application settings"><figcaption><p>TLS Configuration panel in application settings</p></figcaption></figure>
 
 {% hint style="warning" %}
-Multiple applications in the same APIM instance may not share client certificates. You cannot save an application's configuration if its client certificate is already associated with another application.
+Multiple applications in the same APIM instance may not share client certificates. You can't save an application's configuration if its client certificate is already associated with another application.
 {% endhint %}
 
 When a client certificate is added to an application, the Gateway adds the application to its in-memory truststore. At runtime, the Gateway checks if a certificate in the truststore matches the certificate of an application subscribed to the API.
@@ -164,6 +164,6 @@ gateway:
 When executing an mTLS plan, the Gateway checks if TLS is enabled.
 
 * If TLS is enabled, the Gateway uses the certificate from the TLS handshake. The handshake occurs before plan selection.
-* If TLS is not enabled, the Gateway checks for the certificate in the header. If the header contains a valid base64-encoded plaintext certificate matching a certificate for a subscribed application, the request succeed.
+* If TLS isn't enabled, the Gateway checks for the certificate in the header. If the header contains a valid base64-encoded plaintext certificate matching a certificate for a subscribed application, the request succeed.
 
 Ensure that only trusted parties can set the certificate header. If you are using a load balancer, the load balancer must be solely responsible for setting this header, and the Gateway should only be directly accessible through the load balancer.
