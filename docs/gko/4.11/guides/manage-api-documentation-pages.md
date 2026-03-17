@@ -25,10 +25,6 @@ spec:
 For APIs managed by GKO, you will not be able to add or modify documentation pages manually from the APIM Console.
 {% endhint %}
 
-### Environment-level Logs Engine API
-
-For v4 HTTP proxy APIs, Gravitee provides an environment-level Logs Engine API that enables centralized log search across all v4 APIs in an environment. Platform administrators and SREs can search, filter, and inspect runtime connection logs from a single interface without navigating between per-API screens. The API supports filtering by API, application, plan, HTTP method, status, response time, and other dimensions. For detailed API reference documentation, see the [Logs Engine API Reference](../../reference/logs-engine-api.md). The Console UI provides a Logs Explorer page for interactive log search and inspection.
-
 In this guide, learn how to:
 
 * [Reference external pages with fetchers](manage-api-documentation-pages.md#referencing-external-pages-with-fetchers)
