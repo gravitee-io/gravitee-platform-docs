@@ -82,9 +82,9 @@
 
 * Enables a single Kafka API definition to route traffic to different backend clusters based on the gateway's configured tenant identifier, eliminating the need to duplicate API definitions across deployment zones.
 * Each endpoint in the first endpoint group can be tagged with one or more tenant identifiers; gateways automatically filter and activate only endpoints matching their configured tenant at startup and during hot-reload.
-* Endpoints with no tenant tags are treated as shared and match any gateway, providing a fallback option during gradual rollout or for legacy gateways without tenant configuration.
+* Endpoints with no tenant tags are treated as shared and always match any gateway, making them useful during gradual rollout or for legacy gateways without tenant configuration.
 * Configure the gateway tenant identifier using the `tenant` property in `gravitee.yml`, environment variable, or system property.
-* If no endpoint matches the gateway's tenant after filtering, requests fail. Include at least one untagged endpoint to provide a fallback.
+* If all endpoints in the group are tenant-specific and none match the gateway's tenant, the gateway can't route to the API and connections fail. Include at least one shared (untagged) endpoint to ensure the API remains accessible.
 <!-- /PIPELINE:APIM-12498 -->
 
 
