@@ -59,4 +59,15 @@
 
 ## Improvements
 
+
+<!-- PIPELINE:APIM-12308 -->
+#### **Context-Aware Logging Infrastructure**
+
+* Gateway and REST API components now automatically enrich log entries with execution context metadata (node ID, API ID, environment ID, application ID) when using `ExecutionContext.withLogger(log)`.
+* A new `%mdcList` pattern token in Logback configurations allows administrators to control which MDC keys appear in logs, their format, and separators via `gravitee.yml` properties under `node.logging.mdc`.
+* Architecture rules enforced at build time ensure consistent logger usage across plugins and custom handlers, requiring `NodeLoggerFactory.getLogger()` and context-aware logging patterns.
+* Default MDC keys for Gateway include `nodeId` and `apiId`; REST API includes `nodeId`, `envId`, `apiId`, and `appId`.
+* Requires Gravitee Gateway or REST API version 4.6.0+ with `gravitee-node` 8.0.0-alpha.2+ and Logback 1.4+.
+<!-- /PIPELINE:APIM-12308 -->
+
 ## Bug Fixes
