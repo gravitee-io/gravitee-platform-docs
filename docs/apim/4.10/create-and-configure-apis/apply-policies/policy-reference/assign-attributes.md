@@ -202,9 +202,18 @@ spec:
 
 ### Phases
 
+#### Compatible API types
+
+* `PROXY`
+* `MESSAGE`
+* `NATIVE KAFKA`
+* `MCP PROXY`
+* `LLM PROXY`
+* `A2A PROXY`
+
 The phases checked below are supported by the `assign-attributes` policy:
 
-<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="196.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>true</td><td>onResponse</td><td>true</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>true</td></tr><tr><td>onResponseContent</td><td>true</td><td>onMessageResponse</td><td>true</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="196.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>true</td><td>onResponse</td><td>true</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>true</td></tr><tr><td>onResponseContent</td><td>true</td><td>onMessageResponse</td><td>true</td></tr><tr><td>onSubscribe</td><td>true</td><td>onSubcribe</td><td>true</td></tr><tr><td>onInteract</td><td>true</td><td>onSubcribe</td><td>true</td></tr></tbody></table>
 
 ### Options
 
@@ -222,7 +231,11 @@ You can configure the `assign-attributes` policy with the following attributes:
 
 The following is the compatibility matrix for APIM and the `assign-attributes` policy:
 
-<table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th></tr></thead><tbody><tr><td>Up to 1.x</td><td>All</td></tr><tr><td>From 2.x</td><td>4.0+</td></tr></tbody></table>
+{% hint style="info" %}
+Strikethrough text indicates that a version is deprecated.
+{% endhint %}
+
+<table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th></tr></thead><tbody><tr><td>3.x</td><td>4.8.x to latest</td></tr><tr><td>2.x</td><td>4.0.x to 4.7.x</td></tr><tr><td><del>1.x</del></td><td><del>3.x</del></td></tr></tbody></table>
 
 ## Errors
 

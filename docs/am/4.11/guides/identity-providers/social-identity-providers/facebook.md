@@ -37,9 +37,9 @@ Ensure you have the generated App ID and App Secret from Facebook the applicatio
 
 5. Give your identity provider a name.
 6. Enter your Facebook application App ID and App Secret.
-7.  Click **Create**.
+7. Click **Create**.
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-social-idp-facebook.png" alt=""><figcaption><p>Create Facebook IdP</p></figcaption></figure>
+<figure><img src="../../../../4.10/.gitbook/assets/image (70).png" alt=""><figcaption><p>Create Facebook Identity Provider</p></figcaption></figure>
 
 {% hint style="info" %}
 On the right side of the screen under **1. Configure the Redirect URI**, copy the value of the URL. You will use it to update your Facebook application settings.
@@ -64,11 +64,12 @@ Configure the following settings:
 
 You can test your Facebook connection using a web application created in AM.
 
-1.  i.e.In AM Console, click **Applications** and select your social identity provider.
+1. i.e.In AM Console, click **Applications** and select your social identity provider.
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-social-idp-list.png" alt=""><figcaption><p>Select Facebook IdP</p></figcaption></figure>
-2.  Call the Login Page (i.e. `/oauth/authorize` endpoint). If the connection is working you will see a **Sign in with …​** button.
+<figure><img src="../../../../4.10/.gitbook/assets/image (71).png" alt=""><figcaption><p>Select your Facebook Identity Provider</p></figcaption></figure>
 
-    If the button is not visible, there may be a problem with the identity provider settings. Check the AM Gateway log for more information.
+2. Call the Login Page (i.e. `/oauth/authorize` endpoint). If the connection is working you will see a **Sign in with …​** button.
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-social-idp-login.png" alt=""><figcaption><p>Sign in Options</p></figcaption></figure>
+If the button is not visible, there may be a problem with the identity provider settings. Check the AM Gateway log for more information.
+
+<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-social-idp-login.png" alt=""><figcaption><p>Sign in Options</p></figcaption></figure>
