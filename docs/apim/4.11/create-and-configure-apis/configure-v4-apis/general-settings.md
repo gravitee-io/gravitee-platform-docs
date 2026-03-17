@@ -37,6 +37,7 @@ The **Configuration** page shows two main areas under the **General** tab:
 * API picture
 * API background
 * Owner, creation, and connection information
+* **Included in** — Displays which API Products the API belongs to. If the API is included in more than 5 API Products, the first 5 are shown with a **+n more** link. Click the link to open a dialog that lists all API Products and provides a search field to filter by name.
 * The ability to export your API definition, import a new API definition to update your API, duplicate your API, and promote your API
 {% endtab %}
 

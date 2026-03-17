@@ -69,6 +69,7 @@ Govern and manage the communication protocols required for building and securing
 
 | Category   | Feature        | Description                                                                                                        |
 | ---------- | -------------- | ------------------------------------------------------------------------------------------------------------------ |
+| Reactor    | A2A Proxy      | Dedicated V4 API type that enables agent-to-agent communication through the Gravitee API Management platform.      |
 | Entrypoint | Agent to Agent | Support Google's Agent-to-Agent (A2A) protocol using SSE, HTTP GET, or HTTP POST methods for client consumption.   |
 | Endpoint   | Agent to Agent | Support Google's Agent-to-Agent (A2A) protocol using SSE, HTTP GET, or HTTP POST methods for backend connectivity. |
 

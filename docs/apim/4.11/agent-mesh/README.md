@@ -42,6 +42,7 @@ Gravitee's **LLM Proxy** provides a layer of abstraction between AI agents and L
 * Routing to different LLMs.
 * Threat protection using Gravitee's Prompt Guard Rails policy. For more information about the Prompt Guard Rails policy, see [ai-prompt-guard-rails.md](../create-and-configure-apis/apply-policies/policy-reference/ai-prompt-guard-rails.md "mention").
 * Orchestration, such as HTTP calls to obtain data to add to LLM contexts.
+* AI Semantic Caching to reduce token consumption and API latency by caching responses based on semantic meaning. This feature requires Agent Mesh deployment and uses embedding models and vector stores for semantic prompt matching.
 
 ## Agent Catalog
 
