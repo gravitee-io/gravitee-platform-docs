@@ -57,6 +57,17 @@
 * Plans and subscriptions now support a reference model with `referenceType` (API or API_PRODUCT) and `referenceId` fields; the legacy `api` field is deprecated as of 4.11.0.
 <!-- /PIPELINE:APIM-12371 -->
 
+
+<!-- PIPELINE:APIM-12308 -->
+#### **Context-Aware Node Logging with MDC Enrichment**
+
+* Automatically injects node, API, application, and request metadata into log entries for improved correlation and filtering in centralized logging systems.
+* Uses Mapped Diagnostic Context (MDC) to enrich logs with configurable keys (e.g., `nodeId`, `apiId`, `appId`) that can be formatted and filtered according to your logging infrastructure.
+* Configure MDC keys, format patterns, and null value handling via `gravitee.yml` or Helm chart values—see `node.logging.mdc.*` properties.
+* Requires APIM 4.11 or later; developers must use `ctx.withLogger(log)` instead of direct logger calls to enable context enrichment.
+* Pattern override is enabled by default (`node.logging.pattern.overrideLogbackXml: true`) to inject MDC into console and file appenders without modifying `logback.xml`.
+<!-- /PIPELINE:APIM-12308 -->
+
 ## Improvements
 
 ## Bug Fixes
