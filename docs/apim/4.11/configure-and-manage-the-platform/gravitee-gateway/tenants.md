@@ -40,7 +40,7 @@ An endpoint with an empty or null tenant list is considered shared and always ma
 
 **No-match behavior:**
 
-If no endpoint in the group passes the tenant filter (all endpoints are tenant-specific and none match the gateway's tenant), the gateway can't route to the API and connections fail. Include at least one shared (untagged) endpoint in the group to ensure the API remains accessible to all gateways.
+If all endpoints in the group are tenant-specific and none match the gateway's tenant, the gateway can't route to the API. Connections fail in this scenario. Include at least one shared (untagged) endpoint in the group to ensure the API remains accessible to all gateways.
 
 ## Configuring Tenants <a href="#id-9c4f" id="id-9c4f"></a>
 
