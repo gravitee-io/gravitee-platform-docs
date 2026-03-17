@@ -16,7 +16,7 @@ Multi-tenant endpoint support enables a single Kafka API definition to route tra
 
 ### Tenant-based endpoint filtering
 
-Each Kafka endpoint can be tagged with one or more tenant identifiers. At startup and during hot-reload, the gateway loads only endpoints whose tenant list is empty (shared) or contains the gateway's configured tenant. Endpoints that don't match are skipped entirely. Shared (untagged) endpoints are always included in the filtered set alongside tenant-specific endpoints. If no endpoint in the group passes the tenant filter (all endpoints are tenant-specific and none match the gateway's tenant), the gateway can't route to the API and connections fail.
+Each Kafka endpoint can be tagged with one or more tenant identifiers. At startup and during hot-reload, the gateway loads only endpoints whose tenant list is empty (shared) or contains the gateway's configured tenant. Endpoints that don't match are skipped entirely. Shared (untagged) endpoints are always included in the filtered set alongside tenant-specific endpoints. If all endpoints are tenant-specific and none match the gateway's tenant, the gateway can't route to the API. Connections fail in this scenario.
 
 | Gateway Tenant | Endpoint Tenants | Match Result |
 |:--------------|:-----------------|:-------------|
@@ -218,7 +218,7 @@ The following example demonstrates a Kafka API endpoint group with tenant-specif
 
 ## Restrictions
 
-* If no endpoint in the group passes the tenant filter (all endpoints are tenant-specific and none match the gateway's tenant), the gateway can't route to the API and connections fail. Include at least one shared (untagged) endpoint to ensure the API remains accessible to all gateways.
+* If all endpoints are tenant-specific and none match the gateway's tenant, the gateway can't route to the API. Include at least one shared (untagged) endpoint to ensure the API remains accessible to all gateways.
 * Only the first endpoint group is considered for tenant resolution. Additional endpoint groups are ignored.
 * Tenant filtering applies at gateway startup and hot-reload. Changing an endpoint's tenant tags requires redeploying the API or triggering a sync.
 * Tenant identifiers are case-sensitive and must match exactly between the gateway configuration and endpoint tags.
