@@ -13,6 +13,17 @@ This policy applies exclusively to V4 APIs. If you require the policy for a V2 A
 
 ## Phase <a href="#user-content-phase" id="user-content-phase"></a>
 
+The phases shown below apply to proxy APIs. For Native APIs, policies execute in the following order:
+
+| Order | Phase | Timing |
+|:------|:------|:-------|
+| 1 | Entrypoint Connect | Before authentication, before message processing |
+| 2 | Authentication | Gateway-managed authentication step |
+| 3 | Interact | On all client-gateway interactions |
+| 4 | Publish / Subscribe | During message flow |
+
+For proxy APIs:
+
 | onRequest | onResponse |
 | --------- | ---------- |
 | X         |            |

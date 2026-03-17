@@ -544,7 +544,7 @@ notifiers:
         value: 100
 ```
 
-![graviteeio am installationguide certificates ui](https://docs.gravitee.io/images/am/current/graviteeio-am-installationguide-certificates-ui.png)
+<figure><img src="../../../../4.10/.gitbook/assets/image (165).png" alt=""><figcaption></figcaption></figure>
 
 #### Email Notifier
 

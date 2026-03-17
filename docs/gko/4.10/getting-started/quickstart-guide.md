@@ -99,8 +99,7 @@ Replace **baseUrl**, **username**, and **password** with your actual values.
 
 To connect GKO to Gravitee NextGen Cloud, you'll need:
 
-* Your NextGen Cloud APIM management API URL
-* A Cloud Token for authentication
+* A [Cloud Token](quickstart-guide.md#obtain-a-cloud-token) for authentication
 
 #### Obtain a Cloud Token
 
@@ -116,14 +115,13 @@ kind: ManagementContext
 metadata:
   name: "management-context-1"
 spec:
-  baseUrl: <NextGen Cloud APIM management API URL>
-  environmentId: DEFAULT
-  organizationId: DEFAULT
   cloud:
     token: <your-cloud-token>
 ```
 
-Replace **baseUrl** and **token** with your actual values from NextGen Cloud.
+Fields (like **baseUrl**, **environmentId**, and **organizationId**) are not needed as they are automatically included in the Cloud Token from NextGen Cloud.
+
+Full documentation for the ManagementContext is available [here](../overview/custom-resource-definitions/managementcontext.md).
 {% endtab %}
 {% endtabs %}
 

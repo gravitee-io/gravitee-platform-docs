@@ -18,6 +18,17 @@ You can use the `role-based-access-control` policy (RBAC policy) to control acce
 * Allow only incoming requests with roles exactly matching the configured roles (strict mode)
 * Allow incoming requests with at least one role matching the configured roles
 
+### More Information
+
+The `role-based-access-control` policy determines access by evaluating the roles associated with the current request. The way roles are computed and made available to the RBAC policy depends on the security plan and configuration:
+
+* **OAuth2 Plans:** When using an OAuth2 security plan, Gravitee automatically extracts the scopes from the OAuth2 token and places them into the `gravitee.attribute.user.roles` attribute. The RBAC policy then checks this attribute to determine if the user has the required roles to access the resource.
+* **JWT Plans:** For JWT-based authentication, the roles are not automatically extracted. Instead, you must use the [Assign Attributes](assign-attributes.md) policy to extract the relevant claim(s) from the JWT and assign them to the `gravitee.attribute.user.roles` attribute. The RBAC policy will then use this attribute for its authorization checks.
+* **Manual Assignment:** For testing or custom scenarios, you can manually assign a list of roles to the `gravitee.attribute.user.roles` attribute using the [Assign Attributes](assign-attributes.md) policy. It's important that this attribute is set as a List, not a String. For example, you can assign roles using the following expression: `{({'admin', 'writer'})}`
+* **Header-based Assignment:** Alternatively, you can set the role in a request header and use the [Assign Attributes](assign-attributes.md) policy to map this value to the `gravitee.attribute.user.roles` attribute.<br>
+
+The RBAC policy then checks if the roles present in `gravitee.attribute.user.roles` match the roles required to access the endpoint or resource. If there is no role associated with the current request, access is denied with a 403 error. This mechanism allows for fine-grained, dynamic, and context-aware access control at the API gateway level, supporting both role-based and attribute-based access control patterns.
+
 ## Examples
 
 {% hint style="warning" %}
