@@ -1,10 +1,10 @@
-# Applications
+# Application types
 
 ## Overview
 
-_Applications_ act on behalf of the user to request tokens, hold user identity information, and retrieve protected resources from remote services and APIs.
+*Applications* act on behalf of the user to request tokens, hold user identity information, and retrieve protected resources from remote services and APIs.
 
-Application definitions apply at the _security domain_ level.
+Application definitions apply at the *security domain* level.
 
 ## Create an application
 
@@ -13,18 +13,18 @@ Application definitions apply at the _security domain_ level.
 1. Log in to AM Console.
 2. If you want to create your application in a different security domain, select the domain from the user menu at the top right.
 3. Click **Applications**.
-4. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
-5. Select the application type and click **Next**.
+4. Click the plus icon <img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2FR4vk3bTTm3nNj9lAynM3%2Fimage.png?alt=media&#x26;token=704ca395-1cf0-48ba-baeb-05ba669ddab5" alt="" data-size="line">.
+5. Select the [application type](../applications/application-types.md) and click **Next**.
 
-<figure><img src="../../../4.10/.gitbook/assets/image (80).png" alt=""><figcaption><p>Select the Application type</p></figcaption></figure>
-
+   <figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2FBUA3LgGgCOdrW4VrUn6u%2Fimage.png?alt=media&#x26;token=f8e06806-b745-43ae-b641-19bfee0c580e" alt=""><figcaption><p>Select application type</p></figcaption></figure>
 6. Specify the application details and click **Create**.
 
-<figure><img src="../../../4.10/.gitbook/assets/image (81).png" alt=""><figcaption><p>Application settings</p></figcaption></figure>
+   <figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2FCIwunUNnCyI15nkVzi1d%2Fimage.png?alt=media&#x26;token=df4a9be5-3f9f-43a8-ae5a-50543bc3095d" alt=""><figcaption><p>Create Application form</p></figcaption></figure>
 
 ### AM API
 
 {% code overflow="wrap" %}
+
 ```sh
 curl -H "Authorization: Bearer :accessToken" \
      -H "Content-Type:application/json;charset=UTF-8" \
@@ -32,28 +32,29 @@ curl -H "Authorization: Bearer :accessToken" \
      -d '{"name":"My App", "type": "SERVICE"}' \
      http://GRAVITEEIO-AM-MGT-API-HOST/management/organizations/DEFAULT/environments/DEFAULT/domains/:domainId/applications
 ```
+
 {% endcode %}
 
 ### Configure the application
 
-After you have created the new application, you will be redirected to the application's `Overview` page, which contains some documentation and code samples to help you start configuring the application.
+After you have created the new application, you will be redirected to the application’s `Overview` page, which contains some documentation and code samples to help you start configuring the application.
 
-<figure><img src="../../../4.10/.gitbook/assets/image (82).png" alt=""><figcaption><p>Application overview</p></figcaption></figure>
+<figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2F8B7YJu6HZjqpnGIBNbOo%2Fimage.png?alt=media&#x26;token=998cf94f-866c-4b54-92bb-56e05fd585aa" alt="Application Overview"><figcaption><p>Application Overview</p></figcaption></figure>
 
 ### Test the application
 
-The quickest way to test your newly created application is to request an OAuth2 access token, as described in [set up your first application](../../getting-started/tutorial-getting-started-with-am/set-up-your-first-application.md). If you manage to retrieve an access token, your application is all set.
+The quickest way to test your newly created application is to request an OAuth2 access token, as described in [set up your first application](https://documentation.gravitee.io/apim/~/changes/337/broken-reference). If you manage to retrieve an access token, your application is all set.
 
 ## Application identity providers
 
-AM allows your application to use different identity providers (IdPs). If you haven't configured your providers yet, visit the [Identity Provider guide.](../identity-providers/)
+AM allows your application to use different identity providers (IdPs). If you haven’t configured your providers yet, visit the [Identity Provider guide.](https://documentation.gravitee.io/apim/~/changes/337/broken-reference)
 
 The application identity providers are separated into two sections:
 
-* The regular Identity Providers (called also **internal**) that operate inside AM without redirecting to another provider
+* The regular Identity Providers (called also **internal**) that operate inside and AM without redirecting to another provider
 * The Social/Enterprise Identity Providers that require an external service to perform authentication (usually via SSO)
 
-<figure><img src="../../../4.10/.gitbook/assets/image (83).png" alt=""><figcaption><p>Application Identity Provider selection options</p></figcaption></figure>
+<figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2FII76ZE16ZrLHjkHZXnyR%2Fimage.png?alt=media&#x26;token=05e294b1-2987-4f4d-8ad9-5a574e4a47ce" alt="Configure Identity Providers for your Application"><figcaption><p>Configure Identity Providers for your Application</p></figcaption></figure>
 
 You can enable/disable them to include them within your authentication flow.
 
@@ -71,9 +72,9 @@ In order to change the priority of the providers:
 
 Identity provider selection rules also give you more control over the authentication via Gravitee's Expression Language.
 
-When coupled with [flows](../flows/) you can decide which provider will be used to authenticate your end users.
+When coupled with [flows](https://documentation.gravitee.io/apim/~/changes/337/broken-reference) you can decide which provider will be used to authenticate your end users.
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-application-identity-providers-selection-rule.png" alt=""><figcaption><p>Selection rule</p></figcaption></figure>
+<figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2F7UVSKkrgAwci5ByULvnt%2Fimage.png?alt=media&#x26;token=b2467736-9baf-4377-a096-f407879c4658" alt="Define selection rule for Identity Provider"><figcaption><p>Define selection rule for Identity Provider</p></figcaption></figure>
 
 To apply a selection rule:
 
@@ -86,14 +87,14 @@ When applying rules on **regular** Identity Providers:
 * If the rule is empty, the provider **will be** taken into account (this is to be retro-compatible when migrating from a previous version)
 * Otherwise, AM will authenticate with the first identity provider where the rule matches.
 
-If you are not using [identifier-first login](../login/identifier-first-login-flow.md), the rule won't be effective on Social/Enterprise providers
+If you are not using[ identifier-first login](https://documentation.gravitee.io/apim/~/changes/337/broken-reference), the rule won’t be effective on Social/Enterprise providers
 
 However, if you are using identifier-first login:
 
 * If the rule is empty, the provider **WILL NOT BE** taken into account (this is to be retro-compatible when migrating from a previous version)
 * Otherwise, AM will authenticate with the first identity provider where the rule matches.
 
-## Dynamic Client Registration (DCR)
+## Dynamic client registration
 
 Another way to create applications in AM is to use the OpenID Connect Dynamic Client Registration endpoint. This specification enables Relying Parties (clients) to register applications in the OpenID Provider (OP).
 
@@ -109,12 +110,12 @@ By default this feature is disabled. You can enable it through the domain settin
 There is another parameter called **Enable\Disable Open Dynamic Client Registration**. This parameter is used to allow any unauthenticated requests to register new clients through the registration endpoint. It is part of the OpenID specification, but for security reasons, it is disabled by default.
 {% endhint %}
 
-<figure><img src="../../../4.10/.gitbook/assets/image (84).png" alt=""><figcaption><p>Enable DCR</p></figcaption></figure>
+<figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2FNpZEti5QaHAHkSMhlAlA%2Fimage.png?alt=media&#x26;token=d5ffe0d3-ea7e-41de-80b5-d9987e44f749" alt="Enable dynamic client registration"><figcaption><p>Enable Dynamic Client Registration</p></figcaption></figure>
 
 ### Enable Dynamic Client Registration with AM API
 
 ```sh
-
+# enable Dynamic Client Registration
 curl -X PATCH \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -137,11 +138,13 @@ The `dcr_admin` scope grants CRUD access to any clients in your domain. You must
 {% endhint %}
 
 {% code overflow="wrap" %}
+
 ```sh
 #Request a token
 curl -X POST \
   'http://GRAVITEEIO-AM-GATEWAY-HOST/:domain/oauth/token?grant_type=client_credentials&scope=dcr_admin&client_id=:clientId&client_secret=:clientSecret'
 ```
+
 {% endcode %}
 
 #### Register new RP (client)
@@ -170,7 +173,7 @@ Unlike confidential clients, public clients are clients who cannot keep their cr
 The following example creates a web application (`access_token` is kept on a backend server).
 
 ```sh
-
+# Register a new Relying Party (client)
 curl -X POST \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -192,7 +195,7 @@ curl -X POST \
 As a SPA does not use a backend, we recommend you use the following implicit flow:
 
 ```sh
-
+# Register a new Relying Party (client)
 curl -X POST \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -216,7 +219,7 @@ Sometimes you may have a bot/software that needs to be authenticated as an appli
 For this, you need to use a `client_credentials` flow:
 
 ```sh
-
+# Register a new Relying Party (client)
 curl -X POST \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -241,7 +244,7 @@ curl -X POST \
 For a mobile app, the `authorization_code` grant is recommended, in addition to [Proof Key for Code Exchange](https://tools.ietf.org/html/rfc7636):
 
 ```sh
-
+# Register a new Relying Party (client)
 curl -X POST \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -251,23 +254,6 @@ curl -X POST \
         "client_name": "my mobile application", \
         "grant_types": [ "authorization_code","refresh_token" ], \
         "response_types": [ "code" ] \
-      }' \
-  http://GRAVITEEIO-AM-GATEWAY-HOST/::domain/oidc/register
-```
-
-**Register agent application example**
-
-To register an agent application programmatically, send a POST request to the DCR endpoint with `application_type` set to `"agent"`. The system strips forbidden grant types (`implicit`, `password`, `refresh_token`) from the request. If no valid grant types remain after stripping, the system defaults to `["authorization_code"]`. The `redirect_uris` field is required. If `token_endpoint_auth_method` is omitted, the system defaults to `client_secret_basic`. The DCR flow validates agent constraints and strips forbidden response types (`token`, `id_token`, `id_token token`) during registration. If response types become empty and `authorization_code` is granted, the system adds `"code"`.
-
-```sh
-
-curl -X POST \
-  -H 'Authorization: Bearer :accessToken' \
-  -H 'Content-Type: application/json' \
-  -d '{ \
-        "application_type": "agent", \
-        "grant_types": [ "authorization_code","client_credentials" ], \
-        "redirect_uris": ["https://example.com/callback"] \
       }' \
   http://GRAVITEEIO-AM-GATEWAY-HOST/::domain/oidc/register
 ```
@@ -286,7 +272,7 @@ This access token contains a `dcr` scope which can not be obtained, even if you 
 A new registration access token is generated each time the client is updated through the Dynamic Client Registration URI endpoint, which will revoke the previous value.
 
 ```sh
-
+# Update a registered Relying Party (client)
 curl -X PATCH \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -306,7 +292,7 @@ The `renew_secret` endpoint does not need a body.
 When you update a client, a new registration access token is generated each time you renew the client secret.
 
 ```sh
-
+# Renew the client secret of a registered Relying Party (client)
 curl -X POST \
   -H 'Authorization: Bearer :accessToken' \
   http://GRAVITEEIO-AM-GATEWAY-HOST/::domain/oidc/register/:client_id/renew_secret
@@ -325,7 +311,7 @@ To achieve this, you need to first enable the feature and then select the allowe
 You can also enable this feature using AM API:
 
 ```sh
-
+# Enable Allowed Scopes feature.
 curl -X PATCH \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -345,7 +331,7 @@ To enable this feature, you simply select which scopes you want to be automatica
 You can also enable this feature using AM API:
 
 ```sh
-
+# Enable Default Scopes feature
 curl -X PATCH \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -368,7 +354,7 @@ Since there is no longer a requested scope in the request, the default scopes wi
 You can also enable this feature using AM API:
 
 ```sh
-
+# Force set of scopes on each client registration
 curl -X PATCH \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -389,12 +375,12 @@ You can create a client and define it as a template. Registering a new applicati
 
 You can enable the template feature in the AM Dynamic Client Registration **Settings** tab:
 
-<figure><img src="../../../4.10/.gitbook/assets/image (85).png" alt=""><figcaption><p>Enable DCR Templates</p></figcaption></figure>
+<figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2FRYd5yI62dr7Mh1M8word%2Fimage.png?alt=media&#x26;token=2dc2ea2b-7e8d-41fc-8112-7eb5a7551aae" alt=""><figcaption></figcaption></figure>
 
 You can also enable this feature using AM API:
 
 ```sh
-
+# enable Dynamic Client Registration
 curl -X PATCH \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -410,12 +396,12 @@ curl -X PATCH \
 
 In the Dynamic Client Registration **Client templates** tab, enable this feature to be used as a template in the client:
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-domain-define-dcr-templates.png" alt=""><figcaption><p>Specify clients</p></figcaption></figure>
+<figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2F3X8Q9cjacCh38w1S79cj%2Fimage.png?alt=media&#x26;token=bbb88c68-2e57-436e-9f44-f0d2f30b48e6" alt=""><figcaption></figcaption></figure>
 
 You can also enable this feature using AM API:
 
 ```sh
-
+# enable Dynamic Client Registration
 curl -X PATCH \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -427,14 +413,12 @@ curl -X PATCH \
 Once a client is set up as a template, it can no longer be used for authentication purposes.
 {% endhint %}
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-domain-dcr-templates.png" alt=""><figcaption><p>Client overview</p></figcaption></figure>
-
 #### Register call with template example
 
 You need to retrieve the `software_id` of the template, which is available under the `registration_templates_endpoint` provided by the OpenID discovery endpoint.
 
 ```sh
-
+# Register a new Relying Party (client)
 curl -X POST \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
