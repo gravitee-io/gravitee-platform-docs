@@ -1,0 +1,6 @@
+{{- range .Files -}}
+{{- $path := .Path -}}
+{{- range .Alerts -}}
+{{- $path -}}:{{- .Line -}}:{{- if .Span -}}{{- index .Span 0 -}}{{- else -}}1{{- end -}}:{{- .Check -}}:{{- .Message -}}{{- if .Link }} ({{- .Link -}}){{- end }}
+{{ end -}}
+{{- end -}}
