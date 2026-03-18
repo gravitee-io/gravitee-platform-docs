@@ -57,6 +57,16 @@
 * Plans and subscriptions now support a reference model with `referenceType` (API or API_PRODUCT) and `referenceId` fields; the legacy `api` field is deprecated as of 4.11.0.
 <!-- /PIPELINE:APIM-12371 -->
 
+
+<!-- PIPELINE:APIM-12308 -->
+#### **Node-Aware Logging with MDC Enrichment**
+
+* Automatically enriches log entries with contextual metadata (node ID, API ID, environment ID, application ID, plan ID) using SLF4J's Mapped Diagnostic Context (MDC), enabling distributed tracing and request correlation across multi-node deployments.
+* Provides configurable MDC filtering via `node.logging.mdc.include` to control which metadata keys appear in log output, with separate defaults for Gateway (`[nodeId, apiId]`) and REST API (`[nodeId, envId, apiId, appId]`).
+* Supports runtime log pattern override through `node.logging.pattern.overrideLogbackXml` (enabled by default since 4.6.0), allowing centralized pattern management via `gravitee.yml` without editing XML files.
+* Requires Gravitee Gateway or REST API version 4.6.0 or later with Logback 1.4+; custom policies and plugins must use `gravitee-node` 8.0.0-alpha.15+ and context-aware loggers (`ctx.withLogger(log)`) in reactive code paths.
+<!-- /PIPELINE:APIM-12308 -->
+
 ## Improvements
 
 ## Bug Fixes

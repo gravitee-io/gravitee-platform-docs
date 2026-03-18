@@ -96,6 +96,19 @@ To enable debug logging for the Gateway component, you can apply the same edits 
 api:
   enabled: true
   name: api
+  logback:
+    override: false
+  node:
+    logging:
+      mdc:
+        include: [nodeId, envId, apiId, appId]
+        format: "{key}: {value}"
+        separator: " "
+        nullValue: "-"
+      pattern:
+        overrideLogbackXml: true
+        console: "%d{HH:mm:ss.SSS} %-5level %logger{36} [%mdcList] - %msg%n"
+        file: "%d{HH:mm:ss.SSS} %-5level %logger{36} [%mdcList] - %msg%n"
   logging:
     debug: true
     contextualLoggingEnabled: false
@@ -119,8 +132,9 @@ api:
 ```
 {% endcode %}
 
-To enable debug logging for the Gateway component, you can apply the same edits to the `gateway:` section of the `values.yml` file.
+To enable debug logging for the Gateway component, you can apply the same edits to the `gateway:` section of the `values.yml` file. The Gateway defaults to `node.logging.mdc.include: [nodeId, apiId]`.
 {% endtab %}
+</search>
 {% endtabs %}
 
 <details>

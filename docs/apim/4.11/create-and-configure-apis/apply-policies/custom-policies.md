@@ -197,3 +197,68 @@ A policy is not restricted to only one Gateway proxy phase. It can be applied du
 Annotated methods can declare parameters which are automatically provided by the Gateway at runtime. Available parameters are:
 
 <table><thead><tr><th width="288">Parameter class</th><th width="117">Mandatory</th><th>Description</th></tr></thead><tbody><tr><td><code>io.gravitee.gateway.api.Request</code></td><td>No</td><td>Wrapper to the Request object containing all information about the processed request (URI, parameters, headers, input stream, …)</td></tr><tr><td><code>io.gravitee.gateway.api.Response</code></td><td>No</td><td>Wrapper to the Response object containing all information about the processed response (status, headers, output stream, …)</td></tr><tr><td><code>io.gravitee.gateway.api.policy.PolicyChain</code></td><td>Yes</td><td>The current policy chain that gives control to the policy to continue (<code>doNext</code>) or reject (<code>failWith</code>) the chain</td></tr><tr><td><code>io.gravitee.gateway.api.policy.PolicyContext</code></td><td>No</td><td>The policy context that can be used to get contextualized objects (API store, …)</td></tr></tbody></table>
+
+## Context-aware logging
+
+Use `NodeLoggerFactory.getLogger()` to obtain a logger instance, then call `ctx.withLogger(log)` when an `ExecutionContext` is available. This enriches logs with `nodeId`, `apiId`, and other context attributes.
+
+### Basic usage
+
+1. Import `io.gravitee.node.logging.NodeLoggerFactory` and create a logger field:
+
+    ```java
+    import io.gravitee.node.logging.NodeLoggerFactory;
+    import org.slf4j.Logger;
+
+    private static final Logger log = NodeLoggerFactory.getLogger(MyPolicy.class);
+    ```
+
+2. In reactive handlers (e.g., `onRequest`, `onResponse`), wrap the logger with `ctx.withLogger(log)` before logging:
+
+    ```java
+    @OnRequest
+    public void onRequest(Request request, Response response, ExecutionContext ctx, PolicyChain chain) {
+        ctx.withLogger(log).info("Processing request for API: {}", ctx.getAttribute("api"));
+        chain.doNext(request, response);
+    }
+    ```
+
+3. Use standard SLF4J methods (`info`, `debug`, `error`) on the wrapped logger. The system automatically enriches logs with context attributes.
+
+{% hint style="info" %}
+Context-aware logging (`ctx.withLogger`) is mandatory in reactive handlers with `ExecutionContext` access. Direct logger calls will fail ArchUnit validation.
+{% endhint %}
+
+### Lombok integration
+
+Add `@CustomLog` to the class and configure `lombok.config`:
+
+**lombok.config:**
+
+```properties
+lombok.log.custom.declaration = io.gravitee.node.logging.NodeLoggerFactory io.gravitee.node.logging.NodeLoggerFactory.getLogger(TYPE)(TOPIC)
+```
+
+**Usage:**
+
+```java
+import io.gravitee.node.logging.CustomLog;
+
+@CustomLog
+public class MyPolicy {
+    public void onRequest(ExecutionContext ctx) {
+        ctx.withLogger(log).info("Request received");
+    }
+}
+```
+
+### MDC key changes
+
+In `gravitee-gateway-api` 5.0.0, MDC keys were renamed to match REST API conventions. Update log parsing rules accordingly:
+
+| Old Key | New Key |
+|:--------|:--------|
+| `environment` | `envId` |
+| `organization` | `orgId` |
+| `application` | `appId` |
+| `plan` | `planId` |
