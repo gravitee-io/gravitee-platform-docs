@@ -31,7 +31,7 @@ To integrate Mulesoft Anypoint with Gravitee APIM, complete the following steps:
 
 1.  From the Dashboard, click **Integrations**.
 
-    <figure><img src="../../../.gitbook/assets/image (16) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (16) (1) (1).png" alt=""><figcaption></figcaption></figure>
 2.  Click **Create Integration.**
 
     <figure><img src="../../../.gitbook/assets/image (18) (2).png" alt=""><figcaption></figcaption></figure>
