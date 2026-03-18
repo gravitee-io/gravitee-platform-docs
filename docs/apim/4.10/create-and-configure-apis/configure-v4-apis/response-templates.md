@@ -96,9 +96,11 @@ To verify if the complete the following steps:&#x20;
 
 ## Template Keys&#x20;
 
-Here are the template keys that you can override by configuring response templates
+Here are the template keys that you can override by configuring response templates.
 
 ### Global Gateway Keys
+
+The following template keys apply across all gateway-level operations and can be overridden regardless of which policy or endpoint triggered the error.
 
 | **Template key**                | **Description**                                                                                                                                    |
 | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -110,7 +112,11 @@ Here are the template keys that you can override by configuring response templat
 
 ### Policy-Specific Template Keys
 
+The following template keys are scoped to individual policies. Use these keys to define custom error responses for the specific policy responsible for the failure.
+
 #### API Key
+
+The following template keys are triggered when the API Key policy rejects a request due to a missing or invalid key.
 
 | **Template key**  | **Description**                    |
 | ----------------- | ---------------------------------- |
@@ -119,6 +125,8 @@ Here are the template keys that you can override by configuring response templat
 
 #### Callout HTTP
 
+The following template keys are triggered when the Callout HTTP policy encounters an error condition or when a downstream callout request fails.
+
 | **Template key**        | **Description**                                                                  |
 | ----------------------- | -------------------------------------------------------------------------------- |
 | `CALLOUT_EXIT_ON_ERROR` | The policy configuration `errorCondition` is evaluated to true.                  |
@@ -126,11 +134,15 @@ Here are the template keys that you can override by configuring response templat
 
 #### HTTP Signature
 
+The following template key is triggered when the HTTP Signature policy fails to validate the cryptographic signature on an incoming request.
+
 | **Template key**                   | **Description**                             |
 | ---------------------------------- | ------------------------------------------- |
 | `HTTP_SIGNATURE_INVALID_SIGNATURE` | The validation of the signature has failed. |
 
 #### JSON Validation
+
+The following template keys are triggered when the JSON Validation policy detects that a request or response payload fails schema validation or cannot be parsed.
 
 | **Template key**                | **Description**                             |
 | ------------------------------- | ------------------------------------------- |
@@ -141,12 +153,16 @@ Here are the template keys that you can override by configuring response templat
 
 #### JWT
 
+The following template keys are triggered when the JWT policy cannot locate a token in the request or when token validation fails.
+
 | **Template key**    | **Description**                           |
 | ------------------- | ----------------------------------------- |
 | `JWT_MISSING_TOKEN` | The token cannot be found in the request. |
 | `JWT_INVALID_TOKEN` | The token's validation has failed.        |
 
 #### OAuth2
+
+The following template keys are triggered by the OAuth2 policy when access token introspection fails, the required scopes are insufficient, or the authorization server is unavailable.
 
 | **Template key**                  | **Description**                                                                       |
 | --------------------------------- | ------------------------------------------------------------------------------------- |
@@ -160,6 +176,8 @@ Here are the template keys that you can override by configuring response templat
 
 #### Quota Limiting
 
+The following template keys are triggered when the Quota Limiting policy detects that a consumer has exceeded their allocated request quota or encounters an internal processing error.
+
 | **Template key**                | **Description**                                                                              |
 | ------------------------------- | -------------------------------------------------------------------------------------------- |
 | `QUOTA_TOO_MANY_REQUESTS`       | The quota policy detects that the limits has been exceeded.                                  |
@@ -167,6 +185,8 @@ Here are the template keys that you can override by configuring response templat
 | `QUOTA_BLOCK_ON_INTERNAL_ERROR` | An error occurs during quota processing and the error strategy is `BLOCK_ON_INTERNAL_ERROR`. |
 
 #### Rate Limiting
+
+The following template keys are triggered when the Rate Limiting policy detects that a consumer has exceeded the configured request rate or encounters an internal processing error.
 
 | **Template key**                        | **Description**                                                                                   |
 | --------------------------------------- | ------------------------------------------------------------------------------------------------- |
@@ -176,6 +196,8 @@ Here are the template keys that you can override by configuring response templat
 
 #### Spike Arrest
 
+The following template keys are triggered when the Spike Arrest policy detects a traffic spike that exceeds the configured threshold or encounters an internal processing error.
+
 | **Template key**                       | **Description**                                                                            |
 | -------------------------------------- | ------------------------------------------------------------------------------------------ |
 | `SPIKE_ARREST_TOO_MANY_REQUESTS`       | The spike-arrest policy detects that the limits has been exceeded reached.                 |
@@ -184,6 +206,8 @@ Here are the template keys that you can override by configuring response templat
 
 #### Request Content Limit
 
+The following template keys are triggered when the Request Content Limit policy detects that an incoming request body exceeds the configured size limit or is missing the required `Content-Length` header.
+
 | **Template key**                        | **Description**                                          |
 | --------------------------------------- | -------------------------------------------------------- |
 | `REQUEST_CONTENT_LIMIT_TOO_LARGE`       | The request content is higher than the limit configured. |
@@ -191,11 +215,15 @@ Here are the template keys that you can override by configuring response templat
 
 #### Request Validation
 
+The following template key is triggered when the Request Validation policy determines that the incoming request does not conform to the defined validation rules.
+
 | **Template Key**             | **Description**                    |
 | ---------------------------- | ---------------------------------- |
 | `REQUEST_VALIDATION_INVALID` | The request validation has failed. |
 
 #### Resource Filtering
+
+The following template keys are triggered when the Resource Filtering policy blocks a request because the HTTP method is not permitted or the requested path is forbidden.
 
 | **Template Key**                        | **Description**                                          |
 | --------------------------------------- | -------------------------------------------------------- |
@@ -203,6 +231,8 @@ Here are the template keys that you can override by configuring response templat
 | `RESOURCE_FILTERING_FORBIDDEN`          | The policy rejects the access to that path.              |
 
 #### Role-Based Access Control
+
+The following template keys are triggered when the RBAC policy cannot find the required user roles in the execution context, or when the resolved roles do not match the policy's access rules.
 
 | **Template Key**          | **Description**                                                                                            |
 | ------------------------- | ---------------------------------------------------------------------------------------------------------- |
@@ -214,7 +244,11 @@ Here are the template keys that you can override by configuring response templat
 
 ### Endpoint-Specific Template Keys
 
+The following template keys are scoped to specific message broker and streaming endpoints. Use these keys to define custom error responses when an endpoint connection fails or an unknown error is encountered.
+
 #### Kafka
+
+The following template keys are triggered when the Kafka endpoint fails due to an invalid configuration, a closed connection, or an unexpected error during message processing.
 
 | **Template key**                         | **Description**                        |
 | ---------------------------------------- | -------------------------------------- |
@@ -224,6 +258,8 @@ Here are the template keys that you can override by configuring response templat
 
 #### Solace
 
+The following template keys are triggered when the Solace endpoint fails to establish a connection or encounters an error during message subscription or publication.
+
 | **Template key**                      | **Description**                                 |
 | ------------------------------------- | ----------------------------------------------- |
 | FAILURE\_ENDPOINT\_CONNECTION\_FAILED | The connection to Solace cannot be established. |
@@ -232,6 +268,8 @@ Here are the template keys that you can override by configuring response templat
 
 #### MQTT
 
+The following template keys are triggered when the MQTT endpoint cannot establish or maintain a broker connection, or when an unhandled error occurs during messaging.
+
 | **Template key**                     | **Description**                               |
 | ------------------------------------ | --------------------------------------------- |
 | `FAILURE_ENDPOINT_CONNECTION_FAILED` | The connection to MQTT cannot be established. |
@@ -239,6 +277,8 @@ Here are the template keys that you can override by configuring response templat
 | `FAILURE_ENDPOINT_CONNECTION_CLOSED` | The connection to MQTT has been closed.       |
 
 #### RabbitMQ
+
+The following template keys are triggered when the RabbitMQ endpoint cannot establish a connection to the broker or encounters an unhandled error during message processing.
 
 | **Template key**                     | **Description**                                 |
 | ------------------------------------ | ----------------------------------------------- |
