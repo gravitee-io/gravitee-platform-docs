@@ -21,7 +21,7 @@ For the best security posture, open the magic link in the same browser where aut
 
 #### Magic Link Token
 
-A JWT token embedded in the authentication email link. The token includes standard claims (issuer, subject, audience, expiration, issued-at) and an optional `session_id` claim if present in the original request. Tokens expire after 15 minutes by default. The `session_id` query parameter is consumed during token generation and removed from subsequent redirect URLs.
+A JWT token embedded in the authentication email link. The token includes standard claims (issuer, subject, audience, expiration, issued-at and session_id claim). Tokens expire after 15 minutes by default.
 
 #### Email Template System
 
