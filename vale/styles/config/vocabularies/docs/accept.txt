@@ -73,7 +73,7 @@ SCRAM
 GSSAPI
 ALPN
 W3C
-JMS
+[Jj][Mm][Ss]
 
 # ============================================
 # Cloud & Infrastructure

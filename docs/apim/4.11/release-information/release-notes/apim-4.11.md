@@ -57,6 +57,16 @@
 * Plans and subscriptions now support a reference model with `referenceType` (API or API_PRODUCT) and `referenceId` fields; the legacy `api` field is deprecated as of 4.11.0.
 <!-- /PIPELINE:APIM-12371 -->
 
+<!-- PIPELINE:APIM-13008 -->
+#### **JMS Endpoint Connector for Message Broker Integration**
+
+* Enables Gravitee APIM to produce and consume messages from JMS-compliant brokers (ActiveMQ, IBM MQ, Solace, etc.) using queue or topic messaging patterns.
+* Supports multiple connection factory configuration methods: direct broker URL, provider-specific properties (hostname/port/channel), or JNDI lookup with custom properties.
+* Configurable for producer mode (send messages with TEXT or BYTES format), consumer mode (receive messages with durable subscription support), or both capabilities simultaneously on the same endpoint.
+* Requires `event-native` license pack and JMS provider client library placed in `./plugins/jms/ext/` directory.
+* Topic consumers use shared or exclusive connections based on client ID and durability settings; queue consumers always use shared connections.
+<!-- /PIPELINE:APIM-13008 -->
+
 ## Improvements
 
 ## Bug Fixes
