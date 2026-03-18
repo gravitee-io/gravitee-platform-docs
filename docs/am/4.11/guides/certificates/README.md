@@ -145,7 +145,7 @@ Apply the following configuration to the Gateway gravitee.yml to enable HMAC fal
 ```yml
 applications:
   signing:
-    fallback-to-hmac-signature: true  # default: true
+    fallback-to-hmac-signature: true  # default: false
 ```
 
 {% endtab %}
@@ -162,7 +162,7 @@ gravitee_applications_signining_fallbacktohmacsignature=true
 
 | Property                                          | Default | Description                                                                                                                                                                                                                                 |
 | ------------------------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `applications.signing.fallback-to-hmac-signature` | `true`  | When `true`, the gateway falls back to the default HMAC certificate provider if both the application certificate and the domain fallback certificate are unavailable. Set to `false` to disable this behavior and fail immediately instead. |
+| `applications.signing.fallback-to-hmac-signature` | `false`  | When `true`, the gateway falls back to the default HMAC certificate provider if both the application certificate and the domain fallback certificate are unavailable. Set to `false` to disable this behavior and fail immediately instead. |
 
 This setting is enabled by default. The property is commented out in the default gravitee.yml, meaning the default value of true applies unless explicitly overridden.
 
