@@ -34,6 +34,7 @@
 
 ## GUIDES
 
+* [Logs Explorer Console UI](../../apim/4.11/guides/logs-explorer-console-ui.md)
 * [Manage JWT subscriptions with GKO](guides/manage-jwt-subscriptions-with-gko.md)
 * [Define an APIM service account for GKO](guides/define-an-apim-service-account-for-gko.md)
 * [Deploy APIs to a Gateway](guides/deploy-apis-to-a-gateway.md)
@@ -47,10 +48,12 @@
 * [DB-less mode](guides/db-less-mode.md)
 * [Templating](guides/templating.md)
 * [Configure the GKO HTTP client for APIM](guides/gko-http-client.md)
+  * [Logs Engine Overview and Prerequisites](../../apim/4.11/guides/logs-engine-api/overview-and-prerequisites.md)
 
 ## REFERENCE
 
 * [API Reference](reference/api-reference.md)
+  * [Logs Engine API](reference/logs-engine-api.md)
 
 ## RELEASES & CHANGELOG
 
