@@ -163,11 +163,8 @@ jwt:
    * the `cookie-secure` to adapt the Secure flag for the Session Cookie (should be set to true).
 
 {% hint style="info" %}
-By default, the Gateway falls back to HMAC256 signing (using the JWT secret above) when no certificate is assigned to an application. This behavior is controlled by a [Gateway-level setting](/docs/am/4.11/guides/certificates/README.md#legacy-hmac-fallback).
 
 Since HMAC256 uses a symmetric key, consider configuring a [domain-level fallback certificate](/docs/am/4.11/guides/certificates/README.md#fallback-certificate) instead, which provides an asymmetric-key safety net. 
-
-To disable HMAC fallback entirely, set fallback-to-hmac-signature: false but ensure every application has a valid certificate assigned, or that a domain fallback certificate is configured, otherwise token signing will fail
 {% endhint %}
 
 ### Step 4: Update CORS policy

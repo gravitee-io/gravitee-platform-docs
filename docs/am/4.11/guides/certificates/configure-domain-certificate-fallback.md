@@ -1,20 +1,14 @@
+# Configure Domain Certificate Fallback 
+
 ## Overview
 This guide explains how to configure a fallback certificate for your domain using the Access Management (AM) or the Management API.
 
 
-## Configure a domain certificate fallback
+## Configure a Domain Certificate fallback
 
 To configure the domain certificate fallback, complete the following steps:
-1. [Enable HMAC signature](#enable-hmac-signature)
-2. [Configure the Domain Ceritifcate Settings](#configure-the-domain-ceritifcate-settings)
-
-### Enable HMAC signature
-To enable HMAC signature in your `gravitee.yaml` file, navigate to the `applications` section, and then add the following configuration: 
-```yaml
-applications:
-  signing:
-    fallback-to-hmac-signature: false
-```
+1. [Configure the Domain Ceritifcate Settings](#configure-the-domain-ceritifcate-settings)
+2. (Only if you accept a token signature with symmetric key) [Enable HMAC signature](#enable-hmac-signature)
 
 ## Configure the Domain Certificate Settings
 You can create Domain Certificate Settings with either of the following methods:
@@ -51,4 +45,11 @@ To configure a fallback certificate for a domain using the Management API, compl
 {
   "fallbackCertificate": "fallback-cert-123"
 }
+```
+###  (Only if you accept a token signature with symmetric key) Enable HMAC signature
+To enable HMAC signature in your `gravitee.yaml` file, navigate to the `applications` section, and then add the following configuration: 
+```yaml
+applications:
+  signing:
+    fallback-to-hmac-signature: false
 ```
