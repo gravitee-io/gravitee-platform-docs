@@ -73,7 +73,7 @@ Only the subject token's act chain is counted for depth enforcement. The actor t
 {% endhint %}
 
 The Scope Handling setting identifies the default mode for scope narrowing when processing Token Exchange requests within a domain.
-* **Downscoping** is the default mode. Scopes granted in the response are restricted to those present in the subject_token and, if provided `actor_token` if provided. Requests for additional scopes are denied. If no scopes are provided in the scope parameter, granted scopes are the default scopes configured for the OAuth client (Application or MCP Server) intersected with those of the subject_token (and actor_token if provided).
+* **Downscoping** is the default mode. Scopes granted in the response are restricted to those present in the subject_token and, if provided `actor_token`. Requests for additional scopes are denied. If no scopes are provided in the scope parameter, granted scopes are the default scopes configured for the OAuth client (Application or MCP Server) intersected with those of the subject_token and, if provided, th actor_token if provided).
 * **Permissive** can be used to exchange tokens with less restriction. Scopes of the subject_token (or actor_token) are not taken into account during an exchange. Requested scopes are only restricted to those defined for the OAuth client. If no scopes are provided in the scope parameter, granted scopes are the default scopes configured for the OAuth client.
 Permissive mode is less secure but offers a solution for scenarios where subject_token or actor_token do not define any or sufficient scopes (for example, they are ID tokens and cannot bear scopes).
 
