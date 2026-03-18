@@ -23,7 +23,9 @@ Gravitee Cloud
 # ============================================
 API
 APIs
+[Aa]pis
 API's
+[Aa]pim
 REST
 RESTful
 GraphQL
@@ -258,6 +260,7 @@ CVE
 TCP
 UDP
 HTTP[S]?
+[Hh]ttp
 SMTP
 [Hh]ostnames?
 URIs?
@@ -355,6 +358,7 @@ ISO
 [Ee]ntrypoint
 gravitee\.yml
 gravitee\.yaml
+gravitee\.io
 [Ee]xpression [Ll]anguage
 EL
 SaaS
@@ -368,9 +372,15 @@ ManagementContext
 ApiDefinition
 SharedPolicyGroup
 ApiResource
-ApiVersion
+[Aa]piVersion
 UUID
 [Ss]yslog
+[Cc]onformant
+[Cc]ontrollerName
+[Pp]arametersRef
+[Pp]arentRefs
+[Bb]ackendRefs
+HTTPRoute
 
 # ============================================
 # Misc Technical Terms

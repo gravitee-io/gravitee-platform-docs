@@ -8,7 +8,7 @@
 
 The `HTTPRoute` resource defines rules for routing HTTP traffic from a Gateway listener to backend Kubernetes Services. GKO reconciles each HTTPRoute into a v4 API definition that the Gravitee Gateway uses to handle requests.
 
-GKO is partially conformant with the Kubernetes Gateway API v1.4.1 HTTPRoute specification. This page covers the supported features and provides configuration examples.
+GKO has partial conformance with the Kubernetes Gateway API v1.4.1 HTTPRoute specification. This page covers the supported features and provides configuration examples.
 
 ## Supported features
 

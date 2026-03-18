@@ -10,7 +10,7 @@ The Gravitee Kubernetes Operator (GKO) implements the [Kubernetes Gateway API](h
 
 Unlike the [Gravitee Ingress Controller](../gravitee-ingress-controller.md), which creates v2 API definitions, the Gateway API controller creates **v4 API definitions**. This is the recommended approach for new Kubernetes-native deployments.
 
-GKO is officially recognized as a [partially conformant](https://gateway-api.sigs.k8s.io/implementations/) implementation of the Kubernetes Gateway API v1.4.1 standard channel.
+GKO is recognized as a [partial conformance](https://gateway-api.sigs.k8s.io/implementations/) implementation of the Kubernetes Gateway API v1.4.1 standard channel.
 
 ## Supported resources
 
