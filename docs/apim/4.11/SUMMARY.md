@@ -122,6 +122,7 @@
     * [Configuring Portal and Console deployments](configure-and-manage-the-platform/manage-organizations-and-environments/configuring-portal-and-console-deployments.md)
     * [Support](configure-and-manage-the-platform/manage-organizations-and-environments/support.md)
   * [Debug Logging](configure-and-manage-the-platform/debug-logging.md)
+  * [Node Logging Restrictions and Migration Guide](configure-and-manage-the-platform/node-logging-infrastructure.md)
 * [Create & Configure APIs](create-and-configure-apis/README.md)
   * [Gravitee API Definitions](create-and-configure-apis/gravitee-api-definitions/README.md)
     * [Entrypoint Connect phase overview](create-and-configure-apis/gravitee-api-definitions/native-api-phases.md)
@@ -444,3 +445,4 @@
     * [APIM 4.1.x](https://documentation.gravitee.io/apim/4.1/releases-and-changelog/changelogs/apim-4.1.x-changelog)
     * [APIM 4.0.x](https://documentation.gravitee.io/apim/4.0/releases-and-changelog/changelog/apim-4.0.x)
   * [Breaking Changes and Deprecations](release-information/breaking-changes-and-deprecations.md)
+* [Enabling Context-Aware Logging in Code](guides/enabling-context-aware-logging-in-code.md)

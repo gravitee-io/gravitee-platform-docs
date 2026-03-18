@@ -67,6 +67,17 @@
 * Topic consumers use shared or exclusive connections based on client ID and durability settings; queue consumers always use shared connections.
 <!-- /PIPELINE:APIM-13008 -->
 
+
+<!-- PIPELINE:APIM-12308 -->
+#### **Context-Aware Logging with MDC Enrichment**
+
+* Gateway and REST API logs now automatically include request metadata (API ID, environment ID, organization ID, plan ID, application ID) via Mapped Diagnostic Context (MDC).
+* Log patterns can be overridden at runtime through `gravitee.yml` configuration without modifying `logback.xml`, enabling centralized pattern management in containerized environments.
+* MDC filtering controls which metadata fields appear in logs via `node.logging.mdc.include`, with customizable formatting and null-value handling.
+* Requires Gravitee Node 8.0.0-alpha.15 or later and uses the `@CustomLog` annotation for classes requiring node-aware logging.
+* In reactive code paths, use `ctx.withLogger(log).info(...)` instead of `log.info(...)` to ensure MDC enrichment occurs correctly.
+<!-- /PIPELINE:APIM-12308 -->
+
 ## Improvements
 
 ## Bug Fixes

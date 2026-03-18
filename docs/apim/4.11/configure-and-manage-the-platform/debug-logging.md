@@ -19,7 +19,7 @@ Gravitee supports standard Java logging for each Gravitee component and debug lo
 com.graviteesource.secretprovider.microsoft.keyvault.client.MicrosoftKeyVaultClientImpl
 ```
 
-You can enable debug logging using the internal `logback.xml` file or the [Gravitee Helm chart](https://github.com/gravitee-io/gravitee-api-management/blob/master/helm/values.yaml) `values.yml` file. After you had made your changes, you must start the specific Gravitee components. Or, you can temporarily enable debug logging using the [#internal-api](debug-logging.md#internal-api "mention") without restarting the component or container. When you restart the component or container, the runtime configuration is lost and debug logging is disabled. You can enable component-based debug logging and java-class debug logging.
+You can enable debug logging using the internal `logback.xml` file or the [Gravitee Helm chart](https://github.com/gravitee-io/gravitee-api-management/blob/master/helm/values.yaml) `values.yml` file. After you have made your changes, you must start the specific Gravitee components. Or, you can temporarily enable debug logging using the [#internal-api](debug-logging.md#internal-api "mention") without restarting the component or container. When you restart the component or container, the runtime configuration is lost and debug logging is disabled. You can enable component-based debug logging and Java-class debug logging.
 
 Component-based debug logging means that you enable debug logging for the following individual Gravitee components that make up the APIM platform:
 
@@ -32,6 +32,15 @@ Java-class debug logging means the individual Java classes and packages that are
 * org.springframework
 * com.graviteesource.policy.kafka.acl.KafkaAclPolicy
 * com.graviteesource.secretprovider.microsoft.keyvault.client.MicrosoftKeyVaultClientImpl
+
+The Node Logging Infrastructure provides context-aware logging with MDC (Mapped Diagnostic Context) enrichment for Gravitee Gateway and REST API components. It automatically injects request metadata (API ID, environment ID, organization ID, plan ID, user) into log entries and enforces logging best practices through ArchUnit rules. The infrastructure supports runtime pattern overrides, MDC filtering, and lazy logger initialization to minimize overhead in reactive code paths.
+
+## Prerequisites
+
+* Gravitee Node 8.0.0-alpha.15 or later
+* Gravitee Gateway API 5.0.0 or later (for execution context logging)
+* Logback 1.2.x or later
+* SLF4J 1.7.x or later
 
 ## Enable component-based debug logging
 
@@ -235,10 +244,111 @@ To also enable debug logging for this specific Java class of the Management API 
 
 </details>
 
+## Context-aware logging
+
+Loggers automatically enrich MDC with request and node metadata when logging within an execution context. The infrastructure extracts values from `ExecutionContext` attributes and caches them to avoid repeated lookups. When a log source is missing, MDC values default to `"-"` (configurable via `node.logging.mdc.nullValue`). In reactive code, use `ctx.withLogger(log).info(...)` instead of `log.info(...)` to ensure MDC enrichment occurs.
+
+### MDC keys
+
+The following MDC keys are automatically populated for Gateway and REST API components:
+
+| MDC Key | Source | Caching | Description |
+|:--------|:-------|:--------|:------------|
+| `nodeId` | `Node.id()` | Cached | Unique node identifier |
+| `nodeHostname` | `Node.hostname()` | Cached | Node hostname |
+| `nodeApplication` | `Node.application()` | Cached | Application name |
+| `apiId` | `context.getAttribute(ATTR_API)` | Cached | API identifier |
+| `apiName` | `context.getAttribute(ATTR_API_NAME)` | Cached | API name |
+| `apiType` | `context.getInternalAttribute(ATTR_INTERNAL_API_TYPE)` | Cached | API type (v2, v4, etc.) |
+| `envId` | `context.getAttribute(ATTR_ENVIRONMENT)` | Cached | Environment identifier |
+| `orgId` | `context.getAttribute(ATTR_ORGANIZATION)` | Cached | Organization identifier |
+| `appId` | `context.getAttribute(ATTR_APPLICATION)` | Refreshable | Application identifier (changes per request) |
+| `planId` | `context.getAttribute(ATTR_PLAN)` | Refreshable | Plan identifier (changes per request) |
+| `user` | `context.getAttribute(ATTR_USER)` | Refreshable | User identifier |
+
+REST API components include additional MDC keys:
+
+| MDC Key | Source | Description |
+|:--------|:-------|:------------|
+| `correlationId` | `X-Correlation-ID` header | Request correlation ID |
+| `traceParent` | `traceparent` header | W3C Trace Context |
+
+### MDC filtering configuration
+
+| Property | Type | Default | Description |
+|:---------|:-----|:--------|:------------|
+| `node.logging.mdc.format` | String | `"{key}: {value}"` | MDC key-value format pattern |
+| `node.logging.mdc.separator` | String | `" "` | Separator between MDC entries |
+| `node.logging.mdc.nullValue` | String | `"-"` | Value displayed when MDC entry is null |
+| `node.logging.mdc.include` | List\<String> | `["nodeId", "apiId"]` (Gateway)<br>`["nodeId", "envId", "apiId", "appId"]` (REST API) | MDC keys to include in log output |
+
+### Runtime pattern override
+
+The `node.logging.pattern.overrideLogbackXml` setting replaces logback.xml encoder patterns at runtime without modifying the XML file. When enabled, the infrastructure walks the appender tree (including async wrappers) and replaces console and file patterns with values from `gravitee.yml`. This allows centralized pattern management in Kubernetes environments via ConfigMaps.
+
+| Property | Type | Default | Description |
+|:---------|:-----|:--------|:------------|
+| `node.logging.pattern.overrideLogbackXml` | Boolean | `true` | Whether to override logback.xml patterns at runtime |
+| `node.logging.pattern.console` | String | `"%d{HH:mm:ss.SSS} %-5level %logger{36} [%mdcList] - %msg%n"` | Console log pattern when override is enabled |
+| `node.logging.pattern.file` | String | `"%d{HH:mm:ss.SSS} %-5level %logger{36} [%mdcList] - %msg%n"` | File log pattern when override is enabled |
+
+### %mdcList converter
+
+The `%mdcList` conversion word filters and formats MDC entries based on `node.logging.mdc.include`. It is registered programmatically via `PatternLayout.DEFAULT_CONVERTER_SUPPLIER_MAP` and cannot be declared in `logback.xml` using `<conversionRule>` due to classloader visibility constraints. Output format is controlled by `node.logging.mdc.format`, `node.logging.mdc.separator`, and `node.logging.mdc.nullValue`.
+
+Example output:
+
+```
+nodeId: gw-1 apiId: my-api envId: prod
+```
+
+## Helm chart configuration
+
+### API (REST API)
+
+| Property | Type | Default | Description |
+|:---------|:-----|:--------|:------------|
+| `api.logback.override` | Boolean | `false` | Use `api.logback.content` as complete logback.xml |
+| `api.logback.content` | String | JSON-formatted logback config | Complete logback.xml content when override is true |
+| `api.node.logging.mdc.format` | String | `"{key}: {value}"` | MDC key-value format pattern |
+| `api.node.logging.mdc.separator` | String | `" "` | MDC entries separator |
+| `api.node.logging.mdc.nullValue` | String | `"-"` | Value when MDC entry is null |
+| `api.node.logging.mdc.include` | List\<String> | `["nodeId", "envId", "apiId", "appId"]` | MDC keys to include |
+| `api.node.logging.pattern.overrideLogbackXml` | Boolean | `false` | Override logback.xml patterns at runtime |
+| `api.node.logging.pattern.console` | String | `"%d{HH:mm:ss} %-5level %logger{36} [%mdcList] - %msg%n"` | Console pattern |
+| `api.node.logging.pattern.file` | String | `"%d %-5p [%t] %c [%mdcList] : %m%n"` | File pattern |
+
+### Gateway
+
+| Property | Type | Default | Description |
+|:---------|:-----|:--------|:------------|
+| `gateway.logback.override` | Boolean | `false` | Use `gateway.logback.content` as complete logback.xml |
+| `gateway.logback.content` | String | JSON-formatted async logback config | Complete logback.xml content when override is true |
+| `gateway.node.logging.mdc.format` | String | `"{key}: {value}"` | MDC key-value format pattern |
+| `gateway.node.logging.mdc.separator` | String | `" "` | MDC entries separator |
+| `gateway.node.logging.mdc.nullValue` | String | `"-"` | Value when MDC entry is null |
+| `gateway.node.logging.mdc.include` | List\<String> | `["nodeId", "apiId"]` | MDC keys to include |
+| `gateway.node.logging.pattern.overrideLogbackXml` | Boolean | `false` | Override logback.xml patterns at runtime |
+| `gateway.node.logging.pattern.console` | String | `"%d{HH:mm:ss} %-5level %logger{36} [%mdcList] - %msg%n"` | Console pattern |
+| `gateway.node.logging.pattern.file` | String | `"%d %-5p [%t] %c [%mdcList] : %m%n"` | File pattern |
+
+### Usage pattern
+
+When `logback.override` is `false`, the component uses its default logback.xml configuration. When `logback.override` is `true`, the component replaces the entire logback.xml with the content specified in `logback.content`.
+
+The `node.logging.pattern.*` properties allow runtime pattern replacement when `overrideLogbackXml` is `true`. These properties modify existing appender patterns without requiring a full logback.xml replacement.
+
+### MDC include differences
+
+The default `mdc.include` list differs between components:
+
+* **API (REST API)**: Includes `nodeId`, `envId`, `apiId`, and `appId` by default
+* **Gateway**: Includes only `nodeId` and `apiId` by default
+
 ## Internal API
 
 {% hint style="info" %}
-Before you can use the Internal API to enable debug logging, you must [enable the Internal API](management-api/mapi-internal-api.md) .
+Before you can use the Internal API to enable debug logging, you must [enable the Internal API](management-api/mapi-internal-api.md).
 {% endhint %}
 
 The [Internal API](../prepare-a-production-environment/production-best-practices/internal-apis.md) can be used to dynamically enable debug logging without restarting the component or container. When the component or container is restarted, the runtime configuration is lost and therefore debug logging is disabled.
@@ -270,3 +380,11 @@ If your request is successful, the endpoint returns a `HTTP 200 OK` status and t
 ```
 
 </details>
+
+## Restrictions
+
+* The `%mdcList` converter cannot be declared in `logback.xml` via `<conversionRule>` due to classloader visibility. It is registered programmatically and will fail with `PARSER_ERROR[mdcList]` if declared in XML.
+* ArchUnit logging rules are enforced during `mvn install` but skipped during `mvn test` and `mvn deploy` via `-Dgravitee.archrules.skip=true`.
+* Classes must use `NodeLoggerFactory.getLogger()` instead of `org.slf4j.LoggerFactory.getLogger()` unless explicitly allowed via `LoggingArchitectureRules.configure().allowIn(...)`.
+* Methods with an `ExecutionContext` parameter must use `ctx.withLogger(log).info(...)` instead of `log.info(...)` directly, unless the class is in the ArchUnit allow list.
+* MDC keys `appId`, `planId`, and `user` are refreshable and change per request. All other keys are cached for the lifecycle of the execution context.
