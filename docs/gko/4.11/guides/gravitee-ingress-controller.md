@@ -3,7 +3,7 @@
 {% hint style="danger" %}
 **Deprecated:** The Gravitee Ingress Controller creates v2 API definitions, which are being deprecated. For new deployments, use the [Kubernetes Gateway API](gateway-api/) with HTTPRoute resources instead. The Gateway API controller creates v4 API definitions and is the recommended path forward.
 
-Existing Ingress-based deployments continue to function, but Gravitee does not plan to migrate the Ingress controller to v4 APIs.
+Existing Ingress-based deployments continue to function, but Gravitee doesn't plan to migrate the Ingress controller to v4 APIs.
 {% endhint %}
 
 ## Overview
@@ -16,7 +16,7 @@ This page describes how to deploy, test, and secure the Gravitee Gateway as an i
 {% hint style="info" %}
 **Limitations**
 
-The `graviteeio` ingress class does not currently support these features defined in the Kubernetes Ingress specification:
+The `graviteeio` ingress class doesn't currently support these features defined in the Kubernetes Ingress specification:
 
 * [Resource Backends](https://kubernetes.io/docs/concepts/services-networking/ingress/#resource-backend)
 * [Hostname Wildcards](https://kubernetes.io/docs/concepts/services-networking/ingress/#hostname-wildcards)

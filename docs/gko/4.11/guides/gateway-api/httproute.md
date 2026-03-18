@@ -8,7 +8,7 @@
 
 The `HTTPRoute` resource defines rules for routing HTTP traffic from a Gateway listener to backend Kubernetes Services. GKO reconciles each HTTPRoute into a v4 API definition that the Gravitee Gateway uses to handle requests.
 
-GKO is partially conformant with the Kubernetes Gateway API v1.3 HTTPRoute specification. This page covers the supported features and provides configuration examples.
+GKO is partially conformant with the Kubernetes Gateway API v1.4.1 HTTPRoute specification. This page covers the supported features and provides configuration examples.
 
 ## Supported features
 
@@ -40,7 +40,7 @@ GKO passes 32 out of 33 core conformance tests and 7 out of 7 extended conforman
 
 ### Unsupported features
 
-The following extended features are not supported in the current release:
+The following extended features aren't supported in the current release:
 
 - Method matching
 - CORS
@@ -249,7 +249,7 @@ Header modification operations:
 | Operation | Description |
 |-----------|-------------|
 | `add` | Appends a value to the header. If the header exists, the value is appended with a comma separator. |
-| `set` | Overwrites the header value. If the header does not exist, it is created. |
+| `set` | Overwrites the header value. If the header doesn't exist, it is created. |
 | `remove` | Removes the header from the request or response. |
 
 ## Request redirects
@@ -358,8 +358,8 @@ URL rewrite supports the same path replacement types as request redirects (`Repl
 
 ## Limitations
 
-- **Matching across routes**: GKO does not support matching rules that span multiple HTTPRoute resources targeting the same Gateway listener. Each HTTPRoute is reconciled independently into its own v4 API definition.
-- **Backend types**: Only Kubernetes `Service` backends are supported. Resource backends are not supported.
+- **Matching across routes**: GKO doesn't support matching rules that span multiple HTTPRoute resources targeting the same Gateway listener. Each HTTPRoute is reconciled independently into its own v4 API definition.
+- **Backend types**: Only Kubernetes `Service` backends are supported. Resource backends aren't supported.
 - **Single Gateway reference**: Each HTTPRoute references a single Gateway via `parentRefs`.
 
 ## What's next

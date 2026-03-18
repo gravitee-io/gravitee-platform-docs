@@ -10,7 +10,7 @@ The Gravitee Kubernetes Operator (GKO) implements the [Kubernetes Gateway API](h
 
 Unlike the [Gravitee Ingress Controller](../gravitee-ingress-controller.md), which creates v2 API definitions, the Gateway API controller creates **v4 API definitions**. This is the recommended approach for new Kubernetes-native deployments.
 
-GKO is officially recognized as a [partially conformant](https://gateway-api.sigs.k8s.io/implementations/) implementation of the Kubernetes Gateway API v1.3 standard channel.
+GKO is officially recognized as a [partially conformant](https://gateway-api.sigs.k8s.io/implementations/) implementation of the Kubernetes Gateway API v1.4.1 standard channel.
 
 ## Supported resources
 
@@ -25,13 +25,13 @@ The following table lists the Gateway API resources that GKO supports:
 | GatewayClassParameters | `gravitee.io` | v1alpha1 | Supported (Gravitee extension) |
 | KafkaRoute | `gravitee.io` | v1alpha1 | Experimental |
 
-GRPCRoute, TCPRoute, TLSRoute, and UDPRoute are **not** supported.
+GRPCRoute, TCPRoute, TLSRoute, and UDPRoute aren't supported.
 
 ## Prerequisites
 
 Before enabling the Gateway API controller:
 
-- Install GKO in **cluster-scoped mode**. The GatewayClass resource is cluster-scoped, so namespaced installations are not compatible with the Gateway API controller.
+- Install GKO in **cluster-scoped mode**. The GatewayClass resource is cluster-scoped, so namespaced installations aren't compatible with the Gateway API controller.
 - Ensure `manager.scope.namespaces` is empty (`[]`).
 
 ## Enable the Gateway API controller
