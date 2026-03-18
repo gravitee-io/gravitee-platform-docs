@@ -232,7 +232,7 @@ The following template keys are triggered when the Resource Filtering policy blo
 
 #### Role-Based Access Control
 
-The following template keys are triggered when the RBAC policy cannot find the required user roles in the execution context, or when the resolved roles do not match the policy's access rules.
+The following template keys are triggered when the RBAC policy cannot find the required user roles, or when the resolved roles do not match the policy's access rules.
 
 | **Template Key**          | **Description**                                                                                            |
 | ------------------------- | ---------------------------------------------------------------------------------------------------------- |
