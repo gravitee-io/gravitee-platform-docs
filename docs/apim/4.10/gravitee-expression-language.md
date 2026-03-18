@@ -1,3 +1,9 @@
+---
+metaLinks:
+  alternates:
+    - gravitee-expression-language.md
+---
+
 # Gravitee Expression Language
 
 ## Overview
@@ -11,7 +17,7 @@ EL extends the Spring Expression Language (SpEL) by providing additional object 
 
 Custom properties and attributes have special meanings in the Gravitee ecosystem:
 
-* **Custom properties:** Defined at the API level and read-only during the Gateway's execution of an API transaction. Learn more about setting an API's custom properties in [link to custom properties documentation].
+* **Custom properties:** Defined at the API level and read-only during the Gateway's execution of an API transaction. Learn more about setting an API's custom properties in \[link to custom properties documentation].
 * **Attributes:** Scoped to the current API transaction and can be manipulated during the execution phase through the `assign-attributes` policy. Attributes attach additional information to a request or message via a variable that is dropped after the API transaction completes.
 {% endhint %}
 
@@ -133,7 +139,7 @@ Depending on the content-type, you can access specific content.
 {% hint style="warning" %}
 If a JSON payload has duplicate keys, APIM keeps the last key.
 
-To avoid errors caused by duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection](create-and-configure-apis/apply-policies/policy-reference/json-threat-protection "mention").
+To avoid errors caused by duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection](create-and-configure-apis/apply-policies/policy-reference/json-threat-protection/ "mention").
 {% endhint %}
 
 You can access specific attributes of a JSON request/response payload with `{#request.jsonContent.foo.bar}`, where the request body is similar to the following example:
@@ -213,13 +219,10 @@ The EL Assistant is available in any field that supports Expression Language.
 1.  In the field that supports Expression Language, click the **{EL}** icon.
 
     <figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2Fgit-blob-008c4fc76a06b5570f9af67bb2cfc51457ab629f%2F304A887B-9FD1-4011-961A-7DB7D91D3478_1_201_a.jpeg?alt=media" alt=""><figcaption></figcaption></figure>
-
 2. In the **EL Assistant** pop-up window, enter a natural language prompt describing the Expression Language you need. For example: "Only run this policy if the header equals test."
-
 3.  Click **Ask Newt AI**. The Assistant generates the corresponding Expression Language.
 
     <figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2Fgit-blob-7d9c2dbfbfb15a07488aef31b1f2ff476bc84c4c%2FDBE0A0C1-3171-4CA4-A586-A503EBD2B0BD_1_201_a.jpeg?alt=media" alt=""><figcaption></figcaption></figure>
-
 4.  (Optional) Provide feedback by clicking the **thumbs up** or **thumbs down** icon.
 
     <figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2Fgit-blob-fdfd3541a28f3f38863088cd442a5d75838cbcc3%2F6D6E46F0-AECF-41F9-BE38-53C6EC0EDA38_1_201_a.jpeg?alt=media" alt=""><figcaption></figcaption></figure>
@@ -311,7 +314,7 @@ The object properties you can access from the `{#request}` root-level object pro
 
 {% tabs %}
 {% tab title="Table" %}
-<table><thead><tr><th width="172">Object property</th><th width="157">Description</th><th width="134">Type</th><th>Example</th></tr></thead><tbody><tr><td><a data-footnote-ref href="#user-content-fn-1">content</a></td><td>Body content</td><td>string</td><td>-</td></tr><tr><td>contextPath</td><td>Context path</td><td>string</td><td>/v2/</td></tr><tr><td>headers</td><td>Headers</td><td>key / value</td><td>X-Custom → myvalue</td></tr><tr><td>host</td><td>The host of the request. This is preferable to using the Host header of the request because HTTP2 requests do not provide this header.</td><td>string</td><td>gravitee.example.com</td></tr><tr><td>id</td><td>Identifier</td><td>string</td><td>12345678-90ab-cdef-1234-567890ab</td></tr><tr><td>localAddress</td><td>Local address</td><td>string</td><td>0:0:0:0:0:0:0:1</td></tr><tr><td>method</td><td>HTTP (Hypertext Transfer Protocol) method</td><td>string</td><td>GET</td></tr><tr><td>params</td><td>Query parameters</td><td>key / value</td><td>order → 100</td></tr><tr><td>path</td><td>Path</td><td>string</td><td>/v2/store/MyStore</td></tr><tr><td>pathInfo</td><td>Path info</td><td>string</td><td>/store/MyStore</td></tr><tr><td>pathInfos</td><td>Path info parts</td><td>array of strings</td><td>[,store,MyStore]</td></tr><tr><td>pathParams</td><td>Path parameters</td><td>key / value</td><td>storeId → MyStore (<em>see Warning for details</em>)</td></tr><tr><td>pathParamsRaw</td><td>Path parameters</td><td>string</td><td>/something/:id/**</td></tr><tr><td>paths</td><td>Path parts</td><td>array of strings</td><td>[,v2,store,MyStore]</td></tr><tr><td>remoteAddress</td><td>Remote address</td><td>string</td><td>0:0:0:0:0:0:0:1</td></tr><tr><td>scheme</td><td>The scheme of the request (either <code>http</code> or <code>https</code>)</td><td>string</td><td>http</td></tr><tr><td>ssl</td><td>SSL (Secure Sockets Layer) session information</td><td>SSL object</td><td>-</td></tr><tr><td>timestamp</td><td>Timestamp</td><td>long</td><td>1602781000267</td></tr><tr><td>transactionId</td><td>Transaction identifier</td><td>string</td><td>cd123456-7890-abcd-ef12-34567890</td></tr><tr><td>uri</td><td>URI (Uniform Resource Identifier)</td><td>string</td><td>/v2/store/MyStore?order=100</td></tr><tr><td>version</td><td>HTTP version</td><td>string</td><td>HTTP_1_1</td></tr></tbody></table>
+<table><thead><tr><th width="172">Object property</th><th width="157">Description</th><th width="134">Type</th><th>Example</th></tr></thead><tbody><tr><td>content</td><td>Body content</td><td>string</td><td>-</td></tr><tr><td>contextPath</td><td>Context path</td><td>string</td><td>/v2/</td></tr><tr><td>headers</td><td>Headers</td><td>key / value</td><td>X-Custom → myvalue</td></tr><tr><td>host</td><td>The host of the request. This is preferable to using the Host header of the request because HTTP2 requests do not provide this header.</td><td>string</td><td>gravitee.example.com</td></tr><tr><td>id</td><td>Identifier</td><td>string</td><td>12345678-90ab-cdef-1234-567890ab</td></tr><tr><td>localAddress</td><td>Local address</td><td>string</td><td>0:0:0:0:0:0:0:1</td></tr><tr><td>method</td><td>HTTP (Hypertext Transfer Protocol) method</td><td>string</td><td>GET</td></tr><tr><td>params</td><td>Query parameters</td><td>key / value</td><td>order → 100</td></tr><tr><td>path</td><td>Path</td><td>string</td><td>/v2/store/MyStore</td></tr><tr><td>pathInfo</td><td>Path info</td><td>string</td><td>/store/MyStore</td></tr><tr><td>pathInfos</td><td>Path info parts</td><td>array of strings</td><td>[,store,MyStore]</td></tr><tr><td>pathParams</td><td>Path parameters</td><td>key / value</td><td>storeId → MyStore (<em>see Warning for details</em>)</td></tr><tr><td>pathParamsRaw</td><td>Path parameters</td><td>string</td><td>/something/:id/**</td></tr><tr><td>paths</td><td>Path parts</td><td>array of strings</td><td>[,v2,store,MyStore]</td></tr><tr><td>remoteAddress</td><td>Remote address</td><td>string</td><td>0:0:0:0:0:0:0:1</td></tr><tr><td>scheme</td><td>The scheme of the request (either <code>http</code> or <code>https</code>)</td><td>string</td><td>http</td></tr><tr><td>ssl</td><td>SSL (Secure Sockets Layer) session information</td><td>SSL object</td><td>-</td></tr><tr><td>timestamp</td><td>Timestamp</td><td>long</td><td>1602781000267</td></tr><tr><td>transactionId</td><td>Transaction identifier</td><td>string</td><td>cd123456-7890-abcd-ef12-34567890</td></tr><tr><td>uri</td><td>URI (Uniform Resource Identifier)</td><td>string</td><td>/v2/store/MyStore?order=100</td></tr><tr><td>version</td><td>HTTP version</td><td>string</td><td>HTTP_1_1</td></tr></tbody></table>
 {% endtab %}
 
 {% tab title="Examples" %}

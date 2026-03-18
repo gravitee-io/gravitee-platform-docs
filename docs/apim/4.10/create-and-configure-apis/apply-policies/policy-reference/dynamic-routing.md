@@ -9,18 +9,22 @@ metaLinks:
 
 ## Overview
 
-The `dynamic-routing` policy is used to dispatch inbound calls to different targets and endpoints or to rewrite URIs. This policy is particularly useful for creating API mashups.
+The `dynamic-routing` policy is used to dispatch inbound calls to different targets and endpoints or to rewrite URIs. This policy is useful for creating API mashups.
 
-Another typical use case is defining routing similar to the following:
+Another use case is defining routing similar to the following:
 
 * Requests from `http://gateway/apis/store/12/info` are redirected to `http://backend_store12/info`
 * Requests from `http://gateway/apis/store/45/info` are redirected to `http://backend_store45/info`
 
-## Examples
-
 {% hint style="warning" %}
 This policy can be applied to v2 APIs and v4 HTTP proxy APIs. It cannot be applied to v4 message APIs or v4 TCP proxy APIs.
 {% endhint %}
+
+## Examples
+
+### Typical Routing
+
+The following sample configuration routes requests matching `/v1/stores/(.*)` to a different host:
 
 {% tabs %}
 {% tab title="HTTP proxy API example" %}
@@ -52,6 +56,46 @@ You can also select endpoints configured for your API by name using Gravitee Exp
 {% endtab %}
 {% endtabs %}
 
+### Routing using Entrypoint context-paths and flow conditions
+
+The `dynamic-routing` policy can be configured to work with the APIs' (multiple) &#x45;_&#x6E;trypoint context-paths_ as well.  For example, if you have multiple entrypoint context-paths to your API (as shown below), you can route requests on these paths to different backend services.
+
+<figure><img src="../../../.gitbook/assets/image (239).png" alt=""><figcaption><p>An API configuration, showing multiple entrypoint context-paths</p></figcaption></figure>
+
+1. In the API Policy Studio, create a new flow for each entrypoint context-path.
+
+<figure><img src="../../../.gitbook/assets/image (240).png" alt=""><figcaption><p>An API configuration, showing multiple Flows</p></figcaption></figure>
+
+2. For each of your new Flows, apply a _**Flow Condition**_ that matches the entrypoint context-path - using the `request.contextPath` attribute:
+
+{% columns %}
+{% column %}
+<figure><img src="../../../.gitbook/assets/image (241).png" alt=""><figcaption><p>Flow condition for the <code>/entrypoint-path-A</code> entrypoint context-path</p></figcaption></figure>
+{% endcolumn %}
+
+{% column %}
+<figure><img src="../../../.gitbook/assets/image (242).png" alt=""><figcaption><p>Flow condition for the <code>/entrypoint-path-BB</code> entrypoint context-path</p></figcaption></figure>
+{% endcolumn %}
+{% endcolumns %}
+
+3. In each flow, add the `dynamic-routing` policy and configure the target backend service. For example:
+   * Requests starting with `https://gateway/entrypoint-path-A/` route to `https://some.other.service/some-other-api/`
+   * Requests starting with `https://gateway/entrypoint-path-BB/` route to `https://another.service/second-api/`
+
+{% columns %}
+{% column %}
+<figure><img src="../../../.gitbook/assets/image (243).png" alt=""><figcaption><p>Dynamic Routing policy used within the Flow that has the <code>{#request.contextPath=='/entrypoint-path-A'}</code> condition</p></figcaption></figure>
+
+Requests (that start with) `https://gateway/entrypoint-path-A/` will be routed to `https://some.other.service/some-other-api/`
+{% endcolumn %}
+
+{% column %}
+<figure><img src="../../../.gitbook/assets/image (244).png" alt=""><figcaption><p>Dynamic Routing policy used within the Flow that has the <code>{#request.contextPath=='/entrypoint-path-BB'}</code> condition</p></figcaption></figure>
+
+Requests (that start with) `https://gateway/entrypoint-path-BB/` will be routed to `https://another.service/second-api/`
+{% endcolumn %}
+{% endcolumns %}
+
 ## Configuration
 
 You can configure multiple rules and their respective redirections relative to the initial request path. When you define rules, it is important to remember that the API `context-path` must not be part of the rule’s path.
@@ -76,7 +120,7 @@ The phases checked below are supported by the `dynamic-routing` policy:
 
 The `dynamic-routing` policy can be configured with the following attributes:
 
-<table data-full-width="false"><thead><tr><th width="140">Name</th><th width="207">Description</th></tr></thead><tbody><tr><td>request.endpoint</td><td>The endpoint URL invoked by the gateway after dynamic routing</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="172.6214599609375">Name</th><th width="572.3992919921875">Description</th></tr></thead><tbody><tr><td>request.endpoint</td><td>The endpoint URL invoked by the gateway after dynamic routing</td></tr></tbody></table>
 
 ## Compatibility matrix
 

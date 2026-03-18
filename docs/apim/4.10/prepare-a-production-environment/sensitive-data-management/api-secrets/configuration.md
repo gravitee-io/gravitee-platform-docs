@@ -13,7 +13,7 @@ metaLinks:
 This feature work for only V4 APIs.
 {% endhint %}
 
-You can configure secret managers to work with your APIs. You can use secrets to hide information in any field that supports Gravitee Expression Language. For more information about Gravitee Expression Language, see [Gravitee Expression Language](../../../../4.9/gravitee-expression-language.md).
+You can configure secret managers to work with your APIs. You can use secrets to hide information in any field that supports Gravitee Expression Language. For more information about Gravitee Expression Language, see [Gravitee Expression Language](../../../gravitee-expression-language.md).
 
 Secret provider plugins extend the operable range of secret managers to resolve secrets on startup and in APIs. For more information about secret provider plugins, see [Integrations](../../../readme/integrations.md).
 

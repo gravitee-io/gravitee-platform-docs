@@ -51,12 +51,12 @@ From the **User Permissions** tab, you can manage user and group access to indiv
 * [Transfer API ownership](configuration.md#transfer-api-ownership)
 
 {% hint style="info" %}
-See [User Management](../../../../4.9/configure-and-manage-the-platform/manage-organizations-and-environments/user-management.md) to learn more about user and group creation and administration.
+See [User Management](../../../configure-and-manage-the-platform/manage-organizations-and-environments/user-management.md) to learn more about user and group creation and administration.
 {% endhint %}
 
 ### Add members to an API
 
-Click **+ Add members** to add members to your API or alter member roles, which grant specific permissions. For more information on roles, please refer to the [roles documentation.](../../../../4.9/configure-and-manage-the-platform/manage-organizations-and-environments/user-management.md#roles)
+Click **+ Add members** to add members to your API or alter member roles, which grant specific permissions. For more information on roles, please refer to the [roles documentation.](../../../configure-and-manage-the-platform/manage-organizations-and-environments/user-management.md#roles)
 
 <figure><img src="../../../.gitbook/assets/user permissions_add members alter roles (1).png" alt=""><figcaption><p>Add members and alter roles</p></figcaption></figure>
 

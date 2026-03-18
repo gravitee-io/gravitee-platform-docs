@@ -85,7 +85,7 @@ The flow and policy configuration options you are presented with differ based on
 
           This lets one flow match `/test/**` and another match specifically a single-segment `/test/{UUID}` without needing regex. Path parameters are resolved once at the start of request processing and made available to all flows, as long as they are declared consistently (no conflicting positions for the same parameter name across overlapping paths).
     * Choose one or more of the following **Methods for your flow**: ALL, CONNECT, DELETE, GET, HEAD, OPTIONS, PATCH, POST, PUT, TRACE, OTHER.
-    * **Condition:** Use [Gravitee's Expression Language (EL)](../../../4.9/gravitee-expression-language.md) to define specific conditions that trigger flow execution.
+    * **Condition:** Use [Gravitee's Expression Language (EL)](../../gravitee-expression-language.md) to define specific conditions that trigger flow execution.
 7. Click **Create** in the modal, and then **Save** on the **Policies** page.
 8.  To add a policy to your flow, click the **+** icon for the phase where the policy should be enforced.
 
