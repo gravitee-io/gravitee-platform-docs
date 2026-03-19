@@ -35,6 +35,7 @@
 ## GUIDES
 
 * [Logs Explorer Console UI](../../apim/4.11/guides/logs-explorer-console-ui.md)
+* [Creating an MCP Dashboard from Template](creating-mcp-dashboard-from-template.md)
 * [Manage JWT subscriptions with GKO](guides/manage-jwt-subscriptions-with-gko.md)
 * [Define an APIM service account for GKO](guides/define-an-apim-service-account-for-gko.md)
 * [Deploy APIs to a Gateway](guides/deploy-apis-to-a-gateway.md)
@@ -46,9 +47,13 @@
 * [Create your own Helm Charts](guides/create-your-own-helm-charts.md)
 * [Gravitee Ingress Controller](guides/gravitee-ingress-controller.md)
 * [DB-less mode](guides/db-less-mode.md)
+* [Querying MCP Analytics via API](guides/query-mcp-analytics-via-api.md)
 * [Templating](guides/templating.md)
 * [Configure the GKO HTTP client for APIM](guides/gko-http-client.md)
   * [Logs Engine Overview and Prerequisites](../../apim/4.11/guides/logs-engine-api/overview-and-prerequisites.md)
+  * [MCP Analytics Dimensions and Widget Types](../../apim/4.11/guides/analytics/mcp-analytics-dimensions-and-widgets.md)
+    * [MCP Analytics Elasticsearch Mappings and Restrictions](../../apim/4.11/reference/analytics/mcp-elasticsearch-mappings.md)
+      * [Chart Component Architecture Refactoring](../../apim/4.11/reference/dashboard-chart-components.md)
 
 ## REFERENCE
 
