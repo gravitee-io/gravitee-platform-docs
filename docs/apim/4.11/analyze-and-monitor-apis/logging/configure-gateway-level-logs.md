@@ -69,29 +69,27 @@ Set the defaults and limits of the following strategies to control how messages 
 *   **Probabilistic:** Messages are sampled based on a specified probability value between 0.01 and 0.5.
 
     * **Default probability: 0.01** - 1% of messages are sampled.
-    * **Default limit: 0.5** - API publishers sampled number of messages cannot exceed 50% of the total.<br>
+    * **Default limit: 0.5** - API publishers sampled number of messages cannot exceed 50% of the total.
 
     <figure><img src="../../.gitbook/assets/logging-probabalistic.png" alt=""><figcaption></figcaption></figure>
 *   **Count:** When the counted number of messages reaches the specified value, that message is sampled, and the count resets. For example, a value of five means that every fifth message is sampled.
 
     * **Default value: 100** - The 100th message is sampled for every 100 messages counted.
-    * **Default limit: 10** - No less than 10 messages should be sampled.<br>
+    * **Default limit: 10** - No less than 10 messages should be sampled.
 
     <figure><img src="../../.gitbook/assets/logging-count.png" alt=""><figcaption></figcaption></figure>
-*   **Temporal:** Messages are sampled at a specified time duration value that conforms to ISO-8601 format.&#x20;
+*   **Temporal:** Messages are sampled at a specified time duration value that conforms to ISO-8601 format.
 
-    * **Default value: PT1S** - One message is sampled every seconds.
-    * **Default limit: PT1S** - No less than one message per second can be logged.<br>
+    * **Default value: PT1S** - One message is sampled every second.
+    * **Default limit: PT1S** - No less than one message per second can be logged.
 
     <figure><img src="../../.gitbook/assets/logging-temporal.png" alt=""><figcaption></figcaption></figure>
 *   **Windowed count:** The input value specifies the number of consecutive messages that are sampled during a sliding time window, which conforms to an ISO-8601 duration. Once the message count is reached, no new messages are logged until the window closes and a new window begins.
 
-    * **Default value: 1/PT10S** - One message is sampled every ten seconds
-    * **Default limit: 1/PT1S** - One message cannot be sampled more than once per second.<br>
+    * **Default value: 1/PT10S** - One message is sampled every ten seconds.
+    * **Default limit: 1/PT1S** - One message cannot be sampled more than once per second.
 
     <figure><img src="../../.gitbook/assets/logging-windowed.png" alt=""><figcaption></figcaption></figure>
-
-
 
 ## Message sampling system-level defaults
 
@@ -106,7 +104,7 @@ Message sampling **default** and **limit** values are made read-only if your `gr
 Update the REST API `gravitee.yml` to cement these settings:
 
 ```yaml
-# Logging settings
+
 logging:
   messageSampling:
     probabilistic:
@@ -149,7 +147,7 @@ api:
 * **Probabilistic:** Must be a `double` < 1 representing a percentage.
 * **Count:** Must be an `integer`.
 * **Temporal:** Must be a `string` in ISO 8601 format.
-* **Windowed count:** Must be a `string`  formatted as `COUNT/DURATION`, where `COUNT` is a positive integer and `DURATION` is string in ISO 8601 format.
+* **Windowed count:** Must be a `string` formatted as `COUNT/DURATION`, where `COUNT` is a positive integer and `DURATION` is string in ISO 8601 format.
 
 ## Configure the maximum logged payload size
 
@@ -178,17 +176,23 @@ gateway:
 {% endtab %}
 {% endtabs %}
 
-You can use the following convention to set the max size: `{positive integer}[unit]`.&#x20;
+You can use the following convention to set the max size: `{positive integer}[unit]`.
 
 * `G` or `GB` for gigabytes
 * `M` or `MB` for megabytes
 * `K` or `KB` for kilobytes
 * `B` for bytes
-* No unit = `MB`&#x20;
+* No unit = `MB`
 
-For example: `4MB` equivalent of  `4M` or  `4096KB`.
+For example: `4MB` equivalent of `4M` or `4096KB`.
 
-## Available metrics&#x20;
+## Configure Logback and MDC enrichment
+
+Configure logging for Gateway and Management API deployments using Helm chart parameters. These parameters control Logback configuration, MDC (Mapped Diagnostic Context) enrichment, and log pattern formatting.
+
+For complete details on Gateway and Management API logging parameters, MDC keys, Logback patterns, and lazy logger initialization, see [Logging Configuration](../configure-and-manage-the-platform/logging-configuration.md).
+
+## Available metrics
 
 This section lists and describes available metrics specific to API Management.
 
@@ -200,20 +204,20 @@ There are three types of metrics:
 
 ### Gateway metrics
 
-| Metric                                       | Type    | Description                                                              |
+| Metric | Type | Description |
 | -------------------------------------------- | ------- | ------------------------------------------------------------------------ |
-| http\_server\_active\_connections            | Gauge   | Number of opened connections to the HTTP Server                          |
-| http\_server\_requests\_total                | Counter | Number of processed requests                                             |
-| http\_server\_active\_requests               | Gauge   | Number of requests being processed                                       |
-| http\_server\_request\_bytes\_max            | Gauge   | Size of requests in bytes                                                |
-| http\_server\_request\_bytes\_sum            | Counter | Total sum of observations for http\_server\_request\_bytes\_max          |
-| http\_server\_request\_bytes\_count          | Counter | Number of observations for http\_server\_request\_bytes\_max             |
-| httpserverresponsebytesmax                   | Gauge   | Size of responses in bytes                                               |
-| http\_server\_response\_bytes\_max           | Counter | Total sum of observations for http\_server\_response\_bytes\_max         |
-| http\_server\_response\_bytes\_count         | Counter | Number of observations for http\_server\_response\_bytes\_max            |
-| http\_server\_response\_times\_econds\_max   | Gauge   | Response processing time                                                 |
-| http\_server\_response\_time\_seconds\_max   | Counter | Total sum of observations for http\_server\_response\_time\_seconds\_max |
-| http\_server\_response\_time\_seconds\_count | Counter | Number of observations for http\_server\_response\_time\_seconds\_max    |
+| http\_server\_active\_connections | Gauge | Number of opened connections to the HTTP Server |
+| http\_server\_requests\_total | Counter | Number of processed requests |
+| http\_server\_active\_requests | Gauge | Number of requests being processed |
+| http\_server\_request\_bytes\_max | Gauge | Size of requests in bytes |
+| http\_server\_request\_bytes\_sum | Counter | Total sum of observations for http\_server\_request\_bytes\_max |
+| http\_server\_request\_bytes\_count | Counter | Number of observations for http\_server\_request\_bytes\_max |
+| httpserverresponsebytesmax | Gauge | Size of responses in bytes |
+| http\_server\_response\_bytes\_max | Counter | Total sum of observations for http\_server\_response\_bytes\_max |
+| http\_server\_response\_bytes\_count | Counter | Number of observations for http\_server\_response\_bytes\_max |
+| http\_server\_response\_times\_econds\_max | Gauge | Response processing time |
+| http\_server\_response\_time\_seconds\_max | Counter | Total sum of observations for http\_server\_response\_time\_seconds\_max |
+| http\_server\_response\_time\_seconds\_count | Counter | Number of observations for http\_server\_response\_time\_seconds\_max |
 
 {% hint style="info" %}
 In addition to these metrics, JVM metrics about GC, Heap, and Threads are available and prefixed by `jvm_`.

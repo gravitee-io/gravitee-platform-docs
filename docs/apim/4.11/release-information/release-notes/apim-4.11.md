@@ -69,4 +69,14 @@
 
 ## Improvements
 
+
+<!-- PIPELINE:APIM-12308 -->
+#### **Context-Aware Logging Infrastructure**
+
+* Gateway and Management API logs now automatically include request metadata (API ID, environment, organization, application, plan) via MDC (Mapped Diagnostic Context).
+* Logback patterns can be overridden at runtime using `node.logging.pattern.overrideLogbackXml` and related properties in `gravitee.yml` without modifying `logback.xml`.
+* MDC output format is customizable via `node.logging.mdc.format`, `node.logging.mdc.separator`, and `node.logging.mdc.nullValue` configuration properties.
+* Requires Gravitee Node 8.0.0-alpha.2 or later and Logback 1.4+.
+<!-- /PIPELINE:APIM-12308 -->
+
 ## Bug Fixes
