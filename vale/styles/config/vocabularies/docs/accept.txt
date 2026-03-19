@@ -379,6 +379,7 @@ Dockerfile
 [Oo]pen-source
 US
 IP
+IPs
 VM
 CPU
 DB
@@ -440,3 +441,4 @@ async
 [Ee]nsure
 [Ee]xtract
 [Ss]ubscribable
+[Mm]inLength
