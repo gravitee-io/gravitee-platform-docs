@@ -43,6 +43,6 @@ To subscribe to an API via the APIM Console:
 
 ### Subscription forms
 
-If a [subscription form](subscription-forms.md) is configured and enabled for the environment, consumers subscribing through the Developer Portal are prompted to fill in additional metadata fields during the **Review** step of the subscription wizard. The form doesn't appear for Keyless plans.
+When a [subscription form](subscription-forms.md) is enabled for the environment, the Developer Portal prompts consumers to provide additional metadata during the **Review** step. The form doesn't appear for Keyless plans.
 
 For more information, see [Subscription forms](subscription-forms.md).
