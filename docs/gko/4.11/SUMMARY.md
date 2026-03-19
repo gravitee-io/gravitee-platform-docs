@@ -35,6 +35,10 @@
 ## GUIDES
 
 * [Logs Explorer Console UI](../../apim/4.11/guides/logs-explorer-console-ui.md)
+  * [MCP Analytics Overview](../../apim/4.11/analytics/mcp-analytics-overview.md)
+    * [Querying MCP Analytics via API](../../apim/4.11/guides/analytics/querying-mcp-analytics-via-api.md)
+    * [MCP Analytics Restrictions and Limitations](../../apim/4.11/guides/analytics/mcp-analytics-restrictions.md)
+* [Creating an MCP Dashboard](ORPHANED-apim-console-mcp-dashboard.md)
 * [Manage JWT subscriptions with GKO](guides/manage-jwt-subscriptions-with-gko.md)
 * [Define an APIM service account for GKO](guides/define-an-apim-service-account-for-gko.md)
 * [Deploy APIs to a Gateway](guides/deploy-apis-to-a-gateway.md)
@@ -54,6 +58,8 @@
 
 * [API Reference](reference/api-reference.md)
   * [Logs Engine API](reference/logs-engine-api.md)
+  * [MCP Analytics Configuration](reference/mcp-analytics-configuration.md)
+  * [MCP Dashboard Widget](reference/mcp-dashboard-widget-reference.md)
 
 ## RELEASES & CHANGELOG
 
