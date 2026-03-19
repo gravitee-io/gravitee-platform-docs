@@ -10,7 +10,7 @@ Context-aware logging is available from APIM 4.11 onward. Not all plugins have b
 
 ## How it works
 
-Gravitee components use `NodeLoggerFactory` instead of SLF4J's `LoggerFactory` to create loggers. `NodeLoggerFactory` wraps each logger with node-level metadata (node ID, hostname, application name) and delegates to extensible MDC registration hooks that inject request context.
+Gravitee components use `NodeLoggerFactory` instead of SLF4J's `LoggerFactory` to create loggers. `NodeLoggerFactory` wraps each logger with node-level metadata (node ID, hostname, application name). It then delegates to extensible MDC registration hooks that inject request context.
 
 The `%mdcList` custom Logback converter formats selected MDC keys into log output. Administrators control which keys appear, how they're formatted, and how they're separated through `gravitee.yml` properties.
 
