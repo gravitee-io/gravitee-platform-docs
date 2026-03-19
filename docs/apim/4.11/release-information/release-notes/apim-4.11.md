@@ -68,12 +68,13 @@
 <!-- /PIPELINE:APIM-13008 -->
 
 <!-- PIPELINE:APIM-12999 -->
-#### **Native IP Filtering Policy for Kafka APIs**
+#### **Native IP filtering policy for Kafka APIs**
 
-* Controls client access to Native Kafka APIs by matching client IP addresses against configurable whitelist and blacklist rules
-* Supports IPv4, IPv6, CIDR notation, IP ranges, and Expression Language for dynamic filtering during entrypoint connection phase
-* Automatically normalizes IPv4-mapped IPv6 addresses and evaluates comma-separated IP lists
-* Rejects unauthorized connections with `CLUSTER_AUTHORIZATION_FAILED` when whitelist or blacklist conditions are not met
+* Controls client access to Native Kafka APIs by matching client IP addresses against configurable whitelist and blacklist rules during the entrypoint connection phase (`ENTRYPOINT_CONNECT`).
+* Supports IPv4, IPv6, CIDR notation, IP ranges, comma-separated IP lists, and Expression Language for dynamic filtering.
+* Automatically normalizes IPv4-mapped IPv6 addresses to their IPv4 equivalents for rule matching.
+* Rejects unauthorized connections with the Kafka protocol error `CLUSTER_AUTHORIZATION_FAILED` and the message `"IP not allowed"`.
+* Requires Enterprise Edition license with the `apim-native-policy-ip-filtering` feature.
 <!-- /PIPELINE:APIM-12999 -->
 
 ## Improvements
