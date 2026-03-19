@@ -1,29 +1,112 @@
-# Node Logging Infrastructure Overview
+# Context-aware logging
 
 ## Overview
 
-The Node Logging Infrastructure provides context-aware logging for Gravitee Gateway and Management API components. It enriches log entries with request metadata (API ID, organization, environment, application, plan) via MDC (Mapped Diagnostic Context) and enforces consistent logging patterns across the platform through ArchUnit rules. This infrastructure is designed for platform administrators configuring log output and developers writing reactive Gateway plugins.
+Gravitee Gateway and Management API enrich log entries with request metadata — such as API ID, organization, environment, application, and plan — via MDC (Mapped Diagnostic Context). This lets operators filter and correlate logs across multi-tenant environments without manual instrumentation.
 
-## Key Concepts
+{% hint style="info" %}
+Context-aware logging is available from APIM 4.11 onward. Not all plugins have been migrated yet — some logs may lack contextual information until the migration is complete in 4.12.
+{% endhint %}
 
-### Context-Aware Logging
+## How it works
 
-Gravitee components operate in multi-tenant, multi-API environments where a single log line may relate to a specific API, organization, environment, application, or subscription plan. Context-aware logging automatically injects this metadata into MDC so operators can filter and correlate logs without manual instrumentation. The Gateway uses `ExecutionContext` to carry request metadata; the Management API uses HTTP path segments and headers.
+Gravitee components use `NodeLoggerFactory` instead of SLF4J's `LoggerFactory` to create loggers. `NodeLoggerFactory` wraps each logger with node-level metadata (node ID, hostname, application name) and delegates to extensible MDC registration hooks that inject request context.
 
-### NodeLoggerFactory
+The `%mdcList` custom Logback converter formats selected MDC keys into log output. Administrators control which keys appear, how they're formatted, and how they're separated through `gravitee.yml` properties.
 
-`NodeLoggerFactory` replaces direct SLF4J `LoggerFactory` usage. It wraps SLF4J loggers with `NodeAwareLogger`, which enriches MDC with node-level metadata (node ID, hostname, application name) and delegates to extensible MDC registration hooks. Developers use `NodeLoggerFactory.getLogger(MyClass.class)` or Lombok's `@CustomLog` annotation (configured to call `NodeLoggerFactory` via `lombok.config`).
+### Available MDC keys
 
-### MDC Filtering and Formatting
+The following MDC keys are available depending on the component:
 
-The `%mdcList` Logback converter formats selected MDC keys into log output. Administrators configure which keys to include (`node.logging.mdc.include`), how to format each entry (`node.logging.mdc.format`), and how to separate entries (`node.logging.mdc.separator`). This avoids cluttering logs with unused context fields. The converter is registered programmatically at runtime, not via `<conversionRule>` in `logback.xml`.
+<table>
+    <thead>
+        <tr>
+            <th width="180">Key</th>
+            <th width="120">Gateway</th>
+            <th width="120">Management API</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>nodeId</code></td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Gravitee node identifier</td>
+        </tr>
+        <tr>
+            <td><code>nodeHostname</code></td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Node hostname</td>
+        </tr>
+        <tr>
+            <td><code>nodeApplication</code></td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Node application name</td>
+        </tr>
+        <tr>
+            <td><code>apiId</code></td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>API identifier</td>
+        </tr>
+        <tr>
+            <td><code>apiName</code></td>
+            <td>Yes</td>
+            <td>-</td>
+            <td>API name</td>
+        </tr>
+        <tr>
+            <td><code>apiType</code></td>
+            <td>Yes</td>
+            <td>-</td>
+            <td>API type</td>
+        </tr>
+        <tr>
+            <td><code>envId</code></td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Environment identifier</td>
+        </tr>
+        <tr>
+            <td><code>orgId</code></td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Organization identifier</td>
+        </tr>
+        <tr>
+            <td><code>appId</code></td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Application identifier</td>
+        </tr>
+        <tr>
+            <td><code>planId</code></td>
+            <td>Yes</td>
+            <td>-</td>
+            <td>Plan identifier</td>
+        </tr>
+        <tr>
+            <td><code>user</code></td>
+            <td>Yes</td>
+            <td>-</td>
+            <td>Authenticated user</td>
+        </tr>
+        <tr>
+            <td><code>correlationId</code></td>
+            <td>-</td>
+            <td>Yes</td>
+            <td>Request correlation identifier</td>
+        </tr>
+    </tbody>
+</table>
 
-## Prerequisites
+**Gateway-specific keys by API type:**
 
-- Gravitee Gateway or Management API 4.x (alpha.2 or later)
-- Logback 1.4+
-- Maven 3.6+ (if enforcing ArchUnit rules during build)
-- Helm chart 4.x (if deploying via Kubernetes)
+- **HTTP, Message, A2A, LLM, MCP APIs:** `serverId`, `contextPath`, `requestMethod`
+- **TCP APIs:** `serverId`, `sni`
+- **Native Kafka APIs:** `connectionId`, `Principal`
 
-
-For configuration details, see [Node Logging Configuration](node-logging-configuration.md).
+For configuration details, see [Node logging configuration](node-logging-configuration.md).

@@ -1,48 +1,75 @@
-# Implementing Context-Aware Logging in Gateway Plugins and Management API
+# Context-aware logging in plugins
 
-## Creating Context-Aware Logs in Gateway Plugins
+## Overview
 
-Developers writing reactive Gateway plugins (policies, endpoints, entrypoints) must use `ctx.withLogger(log)` when an `ExecutionContext` is available. This ensures that MDC is automatically enriched with request-specific metadata.
+When developing Gateway plugins (policies, endpoints, entrypoints), use the context-aware logging API to ensure log entries are automatically enriched with request metadata such as API ID, environment, organization, application, and plan.
 
-### Five-step pattern
+## Use `ctx.withLogger()` for request-scoped logging
 
-1. **Obtain a logger** via `NodeLoggerFactory.getLogger(MyClass.class)` or `@CustomLog`.
-2. **Wrap the logger** in methods receiving an `ExecutionContext` parameter: `ctx.withLogger(log).info("Processing request")`.
-3. **Automatic MDC enrichment** occurs when the wrapped logger is created. The following keys are extracted from the context:
-   - `apiId`
-   - `envId`
-   - `orgId`
-   - `appId`
-   - `planId`
-   - `user`
-4. **Use the wrapped logger** for all subsequent log calls within that method.
-5. **Do NOT call `log.info()` directly** when `ctx` is available. This bypasses MDC enrichment and violates the ArchUnit rule enforced at build time.
+In any method that receives an `ExecutionContext` parameter, wrap the logger before logging:
 
-## Related Changes
+```java
+@CustomLog
+public class MyPolicy implements Policy {
 
-### Removed Manual Context Registration
+    @Override
+    public Completable onRequest(HttpExecutionContext ctx) {
+        // Wraps the logger with MDC from the execution context
+        ctx.withLogger(log).info("Processing request for API");
+        return Completable.complete();
+    }
+}
+```
 
-The following components no longer require manual hierarchy collection:
+The wrapped logger automatically populates MDC with the following keys extracted from the execution context:
 
-- `DefaultExecutionContext`: Removed `collectParentClasses()` method and static `CONTEXT_CLASSES` field.
-- `DefaultKafkaConnectionContext`: Removed `registerExecutionContextClasses()` static method.
-- `DefaultKafkaExecutionContext`: Removed static initializer calling `registerExecutionContextClasses()`.
-- `DefaultKafkaMessageExecutionContext`: Removed static initializer calling `registerExecutionContextClasses()`.
-- `KafkaEntrypointConnectContextInternal`: Removed static `CONTEXT_CLASSES` field and manual `registerLogSources()` override.
+* `apiId`
+* `envId`
+* `orgId`
+* `appId`
+* `planId`
+* `user`
 
-### Hierarchy Caching Automation
+{% hint style="warning" %}
+Don't call `log.info()` directly when an `ExecutionContext` is available. This bypasses MDC enrichment. The `gravitee-archrules-maven-plugin` enforces this rule at build time and fails the build on violations.
+{% endhint %}
 
-`AbstractBaseExecutionContextAwareLogger` now automatically collects and caches the full class hierarchy (interfaces and superclasses) for each context type. The cache stops at `BaseExecutionContext` and does not include `Object`.
+## Use `NodeLoggerFactory` instead of SLF4J
 
-### Dependency Updates
+All Gravitee plugin classes use `NodeLoggerFactory.getLogger()` instead of SLF4J's `LoggerFactory.getLogger()`. This ensures node-level metadata (node ID, hostname) is always present in MDC.
 
-| Artifact | Version Change | Purpose |
-|:---------|:---------------|:--------|
-| `io.gravitee.node:gravitee-node-logging` | Added (8.0.0-alpha.2) | Provides `NodeLoggerFactory` and `NodeAwareLogger` |
-| `io.gravitee.gateway:gravitee-gateway-api` | 5.0.0-alpha.6 → 5.0.0 | Adds `ExecutionContextLazyLogger` and `AbstractBaseExecutionContextAwareLogger` |
-| `io.gravitee.reactor:gravitee-reactor-native-kafka` | 6.0.0-alpha.6 → 6.0.0-alpha.7 | Removes manual context class registration |
-| `io.gravitee.maven:gravitee-archrules-maven-plugin` | Added (1.0.0-alpha.1 → 1.0.0-alpha.2) | Enforces logging architecture rules |
+Two options for obtaining a logger:
 
-### Removed Module
+**Option 1 — `@CustomLog` annotation (recommended):**
 
-The `gravitee-node-archunit` module was removed. Its functionality was moved to `gravitee-archrules-maven-plugin`.
+```java
+@CustomLog
+public class MyPolicy implements Policy {
+    // 'log' field is automatically created by Lombok
+}
+```
+
+**Option 2 — Direct factory call:**
+
+```java
+import io.gravitee.node.logging.NodeLoggerFactory;
+
+public class MyPolicy implements Policy {
+    private static final Logger log = NodeLoggerFactory.getLogger(MyPolicy.class);
+}
+```
+
+The `@CustomLog` annotation is configured in `lombok.config` to delegate to `NodeLoggerFactory`.
+
+## Build-time enforcement
+
+The `gravitee-archrules-maven-plugin` runs two checks during the Maven `verify` phase:
+
+* **`global-logging-check`:** Fails the build if any class uses `org.slf4j.LoggerFactory` directly instead of `NodeLoggerFactory`.
+* **`execution-context-logging-check`:** Fails the build if a method calls the logger directly when an `ExecutionContext` parameter is in scope (instead of using `ctx.withLogger(log)`).
+
+To skip these checks during local development:
+
+```bash
+mvn clean package -Dgravitee.archrules.skip=true
+```

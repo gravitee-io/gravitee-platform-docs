@@ -1,19 +1,47 @@
-# Configuring Node Logging for Gateway and Management API
+# Node logging configuration
 
-Gravitee Gateway and Management API use a centralized logging infrastructure that enriches log output with node-level and request-level metadata. Administrators configure MDC filtering, log patterns, and Logback overrides via `gravitee.yml` or Helm chart parameters.
+Configure MDC filtering, log patterns, and Logback overrides for the Gravitee Gateway and Management API via `gravitee.yml`.
 
-### MDC Filtering and Formatting
+## MDC filtering and formatting
 
-The `%mdcList` Logback converter formats selected MDC keys into log output. Administrators configure which keys to include (`node.logging.mdc.include`), how to format each entry (`node.logging.mdc.format`), and how to separate entries (`node.logging.mdc.separator`). This avoids cluttering logs with unused context fields. The converter is registered programmatically at runtime, not via `<conversionRule>` in `logback.xml`.
+The `%mdcList` custom Logback converter formats selected MDC keys into log output. Configure which keys to include, how to format each entry, and how to separate entries.
 
-**MDC Filtering Configuration**
-
-| Property | Type | Default | Description |
-|:---------|:-----|:--------|:------------|
-| `node.logging.mdc.format` | String | `"{key}: {value}"` | Template for formatting each MDC key-value pair |
-| `node.logging.mdc.separator` | String | `" "` (space) | Separator between MDC entries |
-| `node.logging.mdc.nullValue` | String | `"-"` | Placeholder when MDC value is null |
-| `node.logging.mdc.include` | List<String> | `[nodeId, apiId]` (Gateway)<br/>`[nodeId, envId, apiId, appId]` (Management API) | MDC keys to include in `%mdcList` output |
+<table>
+    <thead>
+        <tr>
+            <th width="280">Property</th>
+            <th width="120">Type</th>
+            <th width="150">Default</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>node.logging.mdc.format</code></td>
+            <td>String</td>
+            <td><code>{key}: {value}</code></td>
+            <td>Template for formatting each MDC key-value pair</td>
+        </tr>
+        <tr>
+            <td><code>node.logging.mdc.separator</code></td>
+            <td>String</td>
+            <td><code>" "</code> (space)</td>
+            <td>Separator between formatted MDC entries</td>
+        </tr>
+        <tr>
+            <td><code>node.logging.mdc.nullValue</code></td>
+            <td>String</td>
+            <td><code>""</code> (empty)</td>
+            <td>Placeholder when an MDC value is null</td>
+        </tr>
+        <tr>
+            <td><code>node.logging.mdc.include</code></td>
+            <td>List&lt;String&gt;</td>
+            <td><code>[]</code> (empty — all keys included)</td>
+            <td>MDC keys to include in <code>%mdcList</code> output. When empty, all available MDC keys are included.</td>
+        </tr>
+    </tbody>
+</table>
 
 **Example `gravitee.yml`:**
 
@@ -21,27 +49,56 @@ The `%mdcList` Logback converter formats selected MDC keys into log output. Admi
 node:
   logging:
     mdc:
-      format: "{key}={value}"
-      separator: ", "
-      nullValue: "N/A"
+      format: "[{key}: {value}]"
+      separator: " "
+      nullValue: "-"
       include:
-        - nodeId
         - apiId
-        - envId
         - appId
+        - planId
+        - envId
 ```
 
-### Pattern Override
+With this configuration and a request to an API called "my-api", the `%mdcList` output would look like:
+
+```
+[apiId: my-api-id] [appId: my-app-id] [planId: my-plan-id] [envId: DEFAULT]
+```
+
+## Pattern override
 
 Override Logback appender patterns at runtime without modifying `logback.xml`.
 
-**Pattern Override Configuration**
-
-| Property | Type | Default | Description |
-|:---------|:-----|:--------|:------------|
-| `node.logging.pattern.overrideLogbackXml` | Boolean | `true` (as of 4.0.0-alpha.2) | Whether to override logback.xml patterns at runtime |
-| `node.logging.pattern.console` | String | `"%d{HH:mm:ss.SSS} %-5level %logger{36} [%mdcList] - %msg%n"` | Console appender pattern when override is enabled |
-| `node.logging.pattern.file` | String | `"%d{HH:mm:ss.SSS} %-5level %logger{36} [%mdcList] - %msg%n"` | File appender pattern when override is enabled |
+<table>
+    <thead>
+        <tr>
+            <th width="350">Property</th>
+            <th width="100">Type</th>
+            <th width="100">Default</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>node.logging.pattern.overrideLogbackXml</code></td>
+            <td>Boolean</td>
+            <td><code>false</code></td>
+            <td>Override logback.xml patterns at runtime</td>
+        </tr>
+        <tr>
+            <td><code>node.logging.pattern.console</code></td>
+            <td>String</td>
+            <td>-</td>
+            <td>Console (STDOUT) appender pattern when override is enabled</td>
+        </tr>
+        <tr>
+            <td><code>node.logging.pattern.file</code></td>
+            <td>String</td>
+            <td>-</td>
+            <td>File appender pattern when override is enabled</td>
+        </tr>
+    </tbody>
+</table>
 
 **Example `gravitee.yml`:**
 
@@ -50,59 +107,75 @@ node:
   logging:
     pattern:
       overrideLogbackXml: true
-      console: "%d{HH:mm:ss.SSS} [%thread] [%mdcList] %-5level %logger{36} - %msg%n"
-      file: "%d %-5p [%t] %c [%mdcList] : %m%n"
+      console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} [%mdcList] - %msg%n"
+      file: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} [%mdcList] - %msg%n"
 ```
 
-When `overrideLogbackXml` is `true`, the runtime patterns replace those defined in `logback.xml`. The `%mdcList` converter is always registered programmatically, regardless of this setting.
+When `overrideLogbackXml` is `true`, the runtime patterns replace those defined in `logback.xml` for the STDOUT and FILE appenders.
 
 {% hint style="warning" %}
-Do not use `<conversionRule>` in `logback.xml` to register the `%mdcList` converter. The converter class is not visible to Logback's classloader at parse time. Enable pattern override via `gravitee.yml` instead.
+The `%mdcList` converter is registered programmatically at runtime, **after** Logback parses `logback.xml`. Don't use `<conversionRule>` in `logback.xml` to register it — the converter class isn't visible to Logback's classloader at parse time. Use the pattern override via `gravitee.yml` instead.
 {% endhint %}
 
-### Helm Chart Configuration
+{% hint style="info" %}
+Because the pattern override is applied programmatically after startup, some early log lines (during application initialization) use the default pattern from `logback.xml` before the override takes effect. If using `%mdcList` in the override pattern, these early lines display an empty MDC list.
+{% endhint %}
 
-The Helm chart exposes `node.logging.*` properties under `api.node.logging.*` and `gateway.node.logging.*`.
+## Default logback.xml patterns
 
-**Node Logging Parameters**
+The following are the default patterns in the shipped `logback.xml` files. These patterns don't include `%mdcList` — enable the pattern override to add MDC context.
 
-| Parameter | Type | Default | Description |
-|:----------|:-----|:--------|:------------|
-| `api.node.logging.mdc.format` | String | `"{key}: {value}"` | MDC key-value format |
-| `api.node.logging.mdc.separator` | String | `" "` | MDC separator |
-| `api.node.logging.mdc.nullValue` | String | `"-"` | Null value placeholder |
-| `api.node.logging.mdc.include` | List<String> | `[nodeId, envId, apiId, appId]` | MDC keys to include |
-| `api.node.logging.pattern.overrideLogbackXml` | Boolean | `false` | Override logback.xml patterns |
-| `api.node.logging.pattern.console` | String | `%d{HH:mm:ss} %-5level %logger{36} [%mdcList] - %msg%n` | Console pattern |
-| `api.node.logging.pattern.file` | String | `%d %-5p [%t] %c [%mdcList] : %m%n` | File pattern |
+**Gateway:**
 
-For complete Logback customization, use `api.logback.override` and `api.logback.content` to replace the entire `logback.xml` file.
+```
+STDOUT: %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+FILE:   %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+```
 
-**Deprecated Parameters**
+**Management API:**
 
-The following parameters are deprecated. Use `api.logback.override` and `api.node.logging.*` instead:
+```
+STDOUT: %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+FILE:   %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+```
 
-| Deprecated Parameter | Replacement |
-|:--------------------|:------------|
-| `api.logging.debug` | `api.logback.override` + custom logback.xml |
-| `api.logging.graviteeLevel` | Custom logback.xml |
-| `api.logging.jettyLevel` | Custom logback.xml |
-| `api.logging.stdout.encoderPattern` | `api.node.logging.pattern.console` |
-| `api.logging.file.enabled` | Custom logback.xml |
-| `api.logging.file.rollingPolicy` | Custom logback.xml |
-| `api.logging.file.encoderPattern` | `api.node.logging.pattern.file` |
-| `api.logging.additionalLoggers` | Custom logback.xml |
+To retain these patterns while adding MDC context, set the override pattern to include `%mdcList` at the desired position:
 
-### MDC Key Renames in 4.0.0-alpha.2
+```yaml
+node:
+  logging:
+    mdc:
+      include:
+        - apiId
+        - appId
+    pattern:
+      overrideLogbackXml: true
+      console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} [%mdcList] - %msg%n"
+      file: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} [%mdcList] - %msg%n"
+```
 
-The following MDC keys were renamed to shorter forms:
+**Expected output:**
 
-| Old Key | New Key |
-|:--------|:--------|
-| `api` | `apiId` |
-| `environment` | `envId` |
-| `organization` | `orgId` |
-| `application` | `appId` |
-| `plan` | `planId` |
+```
+15:44:17.123 [vert.x-eventloop-thread-0] INFO  i.g.MyPolicy [apiId: my-api-id] [appId: my-app-id] - Processing request
+```
 
-Existing log queries that filter on the old key names must be updated.
+## Individual MDC keys in patterns
+
+As an alternative to `%mdcList`, reference individual MDC keys directly in Logback patterns using the standard `%X{key}` syntax:
+
+```xml
+<pattern>%d{HH:mm:ss.SSS} [%thread] [%X{nodeId}] [%X{apiId}] %-5level %logger{36} - %msg%n</pattern>
+```
+
+This approach works in `logback.xml` directly without requiring the pattern override.
+
+{% hint style="info" %}
+`%mdcList` filters and formats only the keys listed in `node.logging.mdc.include`. Structured encoders (for example, `JsonEncoder` or `EcsEncoder`) log the full MDC map regardless of the include list.
+{% endhint %}
+
+## Limitations
+
+* Not all Gravitee plugins have been migrated to the context-aware logging infrastructure yet. Some logs may lack MDC context until the migration is complete in 4.12.
+* The `%mdcList` converter is only valid for pattern-based encoders. Structured encoders (`JsonEncoder`, `EcsEncoder`) log the full unfiltered MDC map.
+* Early startup log lines use the default `logback.xml` pattern before the runtime override takes effect.

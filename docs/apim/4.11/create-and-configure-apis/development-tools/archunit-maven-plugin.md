@@ -1,64 +1,51 @@
-# Enforcing Logging Rules with ArchUnit Maven Plugin
+# Enforcing logging rules with ArchUnit Maven plugin
 
-## Maven Plugin Configuration
+## Overview
 
-The `gravitee-archrules-maven-plugin` enforces logging architecture rules at build time. The plugin executes during the Maven `verify` phase and provides two goals:
+The `gravitee-archrules-maven-plugin` enforces context-aware logging rules at build time. It runs during the Maven `verify` phase and provides two goals:
 
-* **`global-logging-check`**: Enforces `NodeLoggerFactory` usage and prohibits direct `org.slf4j.LoggerFactory` dependencies.
-* **`execution-context-logging-check`**: Enforces `ctx.withLogger(log)` usage when `ExecutionContext` is available in method scope.
+* **`global-logging-check`:** Verifies that all classes use `NodeLoggerFactory` instead of SLF4J's `LoggerFactory`.
+* **`execution-context-logging-check`:** Verifies that methods with an `ExecutionContext` parameter use `ctx.withLogger(log)` instead of calling the logger directly.
 
-### Plugin Properties
+## Configuration
 
-| Property | Type | Default | Description |
-|:---------|:-----|:--------|:------------|
-| `gravitee.archrules.skip` | Boolean | `false` | Skip all ArchUnit rule checks |
-| `global-logging-check.failOnError` | Boolean | `true` | Fail build on SLF4J `LoggerFactory` usage |
-| `global-logging-check.allowListSuffixes` | List\<String> | `[ConfigurationEvaluator]` | Class name suffixes exempt from rule |
-| `execution-context-logging-check.failOnError` | Boolean | `true` | Fail build on direct Logger calls when ExecutionContext available |
+<table>
+    <thead>
+        <tr>
+            <th width="350">Property</th>
+            <th width="100">Type</th>
+            <th width="100">Default</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>gravitee.archrules.skip</code></td>
+            <td>Boolean</td>
+            <td><code>false</code></td>
+            <td>Skip all ArchUnit rule checks</td>
+        </tr>
+        <tr>
+            <td><code>global-logging-check.failOnError</code></td>
+            <td>Boolean</td>
+            <td><code>true</code></td>
+            <td>Fail build on SLF4J <code>LoggerFactory</code> usage</td>
+        </tr>
+        <tr>
+            <td><code>execution-context-logging-check.failOnError</code></td>
+            <td>Boolean</td>
+            <td><code>true</code></td>
+            <td>Fail build on direct logger calls when <code>ExecutionContext</code> is available</td>
+        </tr>
+    </tbody>
+</table>
 
-### Global Logging Check
+## Skip checks
 
-The `global-logging-check` goal scans configured packages and fails the build if any class depends on `org.slf4j.LoggerFactory`. Classes must use `io.gravitee.node.logging.NodeLoggerFactory` instead.
-
-**Exemptions:**
-
-* Classes with names ending in `ConfigurationEvaluator` (generated classes)
-* Packages excluded via `excludePackagesFromScan()` configuration
-
-**Excluded Packages (not scanned):**
-
-* `io.gravitee.node.reactive.api..`
-* `io.gravitee.gateway.reactive.api..`
-* `io.gravitee.gateway.api..`
-
-### Execution Context Logging Check
-
-The `execution-context-logging-check` goal scans reactive Gateway and plugin packages. It fails the build if a method calls `Logger.xxx()` directly when an `ExecutionContext` parameter is available in scope.
-
-**Scanned Packages:**
-
-* `io.gravitee.gateway.reactive.handlers..`
-* `io.gravitee.gateway.reactive.core..`
-* `io.gravitee.gateway.reactive.debug..`
-* `io.gravitee.apim.plugin..`
-* `io.gravitee.plugin.apiservice..`
-* `io.gravitee.plugin.entrypoint..`
-* `io.gravitee.plugin.endpoint..`
-
-**Exemptions:**
-
-* Classes ending with `ConfigurationEvaluator`
-* Packages `io.gravitee.gateway.reactive.api..` and `io.gravitee.gateway.api..`
-
-### Skipping Checks
-
-To skip ArchUnit checks during packaging or deployment:
+To skip ArchUnit checks during packaging or local development:
 
 ```bash
 mvn clean package -Dgravitee.archrules.skip=true
 ```
 
-**CI Pipeline Behavior:**
-
-* Checks are **skipped** during packaging, staging, and deployment jobs.
-* Checks are **enforced** during build and community build jobs.
+For more information on the logging patterns these rules enforce, see [Context-aware logging in plugins](../../plugins/context-aware-logging.md).
