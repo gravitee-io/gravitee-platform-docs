@@ -105,6 +105,7 @@
   * [Management API](configure-and-manage-the-platform/management-api/README.md)
     * [MAPI Internal API](configure-and-manage-the-platform/management-api/mapi-internal-api.md)
     * [Settings](configure-and-manage-the-platform/management-api/settings.md)
+    * [Cleanup Services](configure-and-manage-the-platform/management-api/cleanup-services.md)
   * [Manage Organizations & Environments](configure-and-manage-the-platform/manage-organizations-and-environments/README.md)
     * [Authentication](configure-and-manage-the-platform/manage-organizations-and-environments/authentication/README.md)
       * [Gravitee Access Management](configure-and-manage-the-platform/manage-organizations-and-environments/authentication/gravitee-access-management.md)
