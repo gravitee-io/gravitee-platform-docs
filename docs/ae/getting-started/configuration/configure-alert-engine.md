@@ -6,25 +6,23 @@ description: This article walks through how to configure Alert Engine
 
 ## Introduction
 
-There are three different ways to configure AE:
+There are three different methods to configure Alert Engine (AE):
 
 * environment variables
 * system properties
 * `gravitee.yml`
 
-The order in which they are listed above corresponds to their order of precedence. In other words, environment variables override the other two configuration types, and system properties override `gravitee.yml`.
+Environment variables overrride system properties, and  environement variables override the `gravitee.yml` file.
 
 ## Configure AE via the `gravitee.yml` file
 
-The `gravitee.yml` file, found in `GRAVITEE_HOME/config/`, is the default way to configure AE.
+The `gravitee.yml` file is the default way to configure AE.
 
 {% hint style="info" %}
-Be aware of sensitivities&#x20;
-
-YAML (`yml`) format is very sensitive to indentation. Ensure you include the correct number of spaces and use spaces instead of tabs.
+The YAML (`yml`) format is sensitive to indentation. Ensure you include the correct number of spaces for each line.
 {% endhint %}
 
-Please see the example below:
+Here is an example with the correct indentation:
 
 ```
 ############################################################################################################
@@ -60,8 +58,8 @@ ingesters:
       users:
         admin: adminadmin
 
-# Alert service configurations. Provided values are default values.
-# All services are enabled by default. To stop one of them, you have to add the property 'enabled: false'.
+
+
 services:
   core:
     http:
@@ -97,7 +95,7 @@ cluster:
 
 You can override the default `gravitee.yml` configuration by defining system properties.
 
-To override this property:
+To override the following property:
 
 ```
 cluster:
@@ -114,9 +112,9 @@ Add this property to the JVM:
 
 ## Environment variables
 
-You can override the default `gravitee.yml` configuration and system properties by defining environment variables.
+By defining environment variables, you can override the default `gravitee.yml` configuration and system properties.
 
-To override this property:
+To override the following property:
 
 ```
 cluster:
@@ -135,13 +133,8 @@ gravitee.cluster.sync.time.value=30
 ```
 
 {% hint style="info" %}
-**Case sensitivities**&#x20;
 
-Some properties are case sensitive and cannot be written in upper case (for example, `gravitee_security_providers_0_tokenIntrospectionEndpoint`). We advise you to define environment variables in lower case. Ensure you use the correct syntax for each property.
-{% endhint %}
+* Some properties are case sensitive and cannot be written in upper case. For example, `gravitee_security_providers_0_tokenIntrospectionEndpoint`. To avoid this issue, define environment variables in lower case and ensure you use the correct syntax for each property.
 
-{% hint style="info" %}
-**Hyphen sensitivities**
-
-In some systems, hyphens are not allowed in variable names. You can replace them with another character such as an underscore (for example, `gravitee_policy_apikey_header` instead of `gravitee_policy_api-key_header`).
+* In some systems, hyphens are not allowed in variable names. You can replace hyphens with another character such as an underscore. For example, `gravitee_policy_apikey_header` instead of `gravitee_policy_api-key_header`).
 {% endhint %}
