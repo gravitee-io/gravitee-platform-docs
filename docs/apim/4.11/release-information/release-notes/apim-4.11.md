@@ -67,6 +67,17 @@
 * Topic consumers use shared or exclusive connections based on client ID and durability settings; queue consumers always use shared connections.
 <!-- /PIPELINE:APIM-13008 -->
 
+
+<!-- PIPELINE:APIM-12170 -->
+#### **Subscription Forms for API Metadata Collection**
+
+* API administrators can now create custom subscription forms to collect structured metadata from consumers during the API subscription process, replacing the legacy comment field from the Classic Portal.
+* Forms are defined using Gravitee Markdown (GMD) syntax in Portal Settings and support input fields, text areas, and validation rules with real-time error checking.
+* Collected metadata is stored as key-value pairs on subscription records and displayed as read-only JSON in both the API publisher console and application owner console.
+* Forms are scoped per environment and only appear when enabled, contain non-empty content, and the selected plan's security type is not `KEY_LESS`.
+* Requires database schema migration `08_add_subscription_forms_table.yml` and `environment-metadata-r` or `environment-metadata-u` permissions to view or manage forms.
+<!-- /PIPELINE:APIM-12170 -->
+
 ## Improvements
 
 ## Bug Fixes

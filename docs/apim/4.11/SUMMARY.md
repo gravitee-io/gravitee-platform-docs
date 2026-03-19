@@ -270,6 +270,8 @@
     * [Global Settings](secure-and-expose-apis/applications/global-settings.md)
     * [User and Group Access](secure-and-expose-apis/applications/user-and-group-access.md)
   * [Subscriptions](secure-and-expose-apis/subscriptions/README.md)
+    * [Creating and Managing Subscription Forms](secure-and-expose-apis/subscriptions/subscription-forms.md)
+    * [Subscription Form API](secure-and-expose-apis/subscriptions/subscription-form-api-reference.md)
     * [Subscription Requests](secure-and-expose-apis/subscriptions/subscription-requests.md)
     * [Manage Subscriptions](secure-and-expose-apis/subscriptions/manage-subscriptions.md)
     * [Transfer Subscriptions](secure-and-expose-apis/subscriptions/transfer-subscriptions.md)
@@ -444,3 +446,4 @@
     * [APIM 4.1.x](https://documentation.gravitee.io/apim/4.1/releases-and-changelog/changelogs/apim-4.1.x-changelog)
     * [APIM 4.0.x](https://documentation.gravitee.io/apim/4.0/releases-and-changelog/changelog/apim-4.0.x)
   * [Breaking Changes and Deprecations](release-information/breaking-changes-and-deprecations.md)
+* [Subscription Form Database Schema](reference/database-schemas/subscription-forms-schema.md)

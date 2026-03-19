@@ -56,9 +56,21 @@ To manage subscriptions in APIM Console:
 
        <figure><img src="../../.gitbook/assets/subscription_validate 2.png" alt=""><figcaption><p>Validate the subscription</p></figcaption></figure>
 
+### Subscription form restrictions
+
+The subscription form feature has the following restrictions:
+
+* **One form per environment:** Each environment can have exactly one subscription form. This is enforced by a unique constraint on `environment_id` in the database.
+* **GMD content validation:** GMD content must not be null, empty, or whitespace-only. The system validates this on save.
+* **Metadata key format validation:** Subscription metadata keys must follow a valid format. Invalid keys return `400 Bad Request` with the message "Invalid metadata key."
+* **KEY_LESS plan exclusion:** Subscription forms do not appear for plans with `KEY_LESS` security type.
+* **Empty value filtering:** Empty or whitespace-only metadata values are excluded from subscription creation.
+* **comment_required flag deprecation:** The legacy `comment_required` plan flag is marked as "Classic Portal only" and does not affect subscription form behavior in the new Portal.
+* **Scoped form state:** Form state is scoped per component instance. Multiple forms on the same page require separate state providers.
+
 ## Shared API Keys
 
-Under the **Shared API Keys** header, you can view the API keys that are shared with all application subscriptions that have an API\_KEY plan.
+Under the **Shared API Keys** header, you can view the API keys that are shared with all application subscriptions that have an API_KEY plan.
 
 <figure><img src="../../.gitbook/assets/1 shared 1.png" alt=""><figcaption></figcaption></figure>
 
@@ -66,14 +78,17 @@ Click the **x** icon to revoke an API key, or the **Renew** button to renew it.
 
 ## API Key plans
 
-Subscriptions to API Key plans include additional security management settings:
 
-*   **Renew:** Generate a new API key or provide a custom API key. The existing API key will be automatically invalidated after two hours.
+Subscriptions to API Key plans include additional security management settings.
 
-    <figure><img src="../../.gitbook/assets/subscription_api key renew.png" alt=""><figcaption><p>Renew an API key</p></figcaption></figure>
-*   **Revoke:** Immediately invalidate an existing API key. This option is reversible.
+**Renew:** Generate a new API key or provide a custom API key. The existing API key will be automatically invalidated after two hours.
 
-    <figure><img src="../../.gitbook/assets/subscription_api key revoke.png" alt=""><figcaption><p>Revoke an API key</p></figcaption></figure>
-*   **Expire:** Set a date/time to automatically invalidate an existing API key
+<figure><img src="../../.gitbook/assets/subscription_api key renew.png" alt=""><figcaption><p>Renew an API key</p></figcaption></figure>
 
-    <figure><img src="../../.gitbook/assets/subscription_api key expire.png" alt=""><figcaption><p>Expire an API key</p></figcaption></figure>
+**Revoke:** Immediately invalidate an existing API key. This option is reversible.
+
+<figure><img src="../../.gitbook/assets/subscription_api key revoke.png" alt=""><figcaption><p>Revoke an API key</p></figcaption></figure>
+
+**Expire:** Set a date/time to automatically invalidate an existing API key.
+
+<figure><img src="../../.gitbook/assets/subscription_api key expire.png" alt=""><figcaption><p>Expire an API key</p></figcaption></figure>
