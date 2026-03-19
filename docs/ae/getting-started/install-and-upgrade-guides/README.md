@@ -8,8 +8,6 @@ description: Get up and running with Gravitee Alert Engine
 
 The following sections explain how to install Gravitee Alert Engine (AE) in your environment.
 
-If you use Gravitee Cloud and Alert Engine is included in your license, Gravitee installs Alert Engine in your environments. 
-
 {% hint style="info" %}
 **Third party installations**&#x20;
 
