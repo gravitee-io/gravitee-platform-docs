@@ -1,67 +1,169 @@
-# Creating and Managing Subscription Forms
-
-Subscription forms allow administrators to collect structured metadata from API consumers during the subscription process. Forms are defined using Gravitee Markdown (GMD) tags and can include input fields, text areas, and validation rules.
-
-### Accessing the subscription form editor
-
-Navigate to [Portal Settings > Subscription Form](../../configure-and-manage-the-platform/manage-organizations-and-environments/developer-portal.md) in the Management Console. The menu item requires `environment-metadata-r` or `environment-metadata-u` permissions.
-
-### Creating a subscription form
-
-1. In the GMD form editor, define input fields using GMD tags. For example:
-   ```markdown
-   <gmd-input name="consumer_company_name" label="Company Name" required="true"/>
-   <gmd-textarea name="consumer_use_case" label="Use Case" required="true"/>
-   ```
-2. Click **Save** to persist the form content. The save button is disabled when content is empty, unchanged, or contains configuration errors.
-3. Toggle the **Enable** switch to make the form visible to API consumers in the Portal.
-
-The form is automatically created for the environment on first save and updated on subsequent saves.
-
-### Managing form state
-
-The form editor validates content in real-time and displays configuration errors:
-
-| Error Type | Severity | Description |
-|:-----------|:---------|:------------|
-| `emptyFieldKey` | error | Field name is missing or empty |
-| `normalizedValue` | warning | Field value requires normalization |
-
-The **Enable** toggle is disabled when:
-- The user lacks `environment-metadata-u` permission
-- Configuration errors are present
-
-An unsaved changes guard prevents accidental navigation away from the editor. The browser prompts for confirmation if you attempt to leave with unsaved changes.
-
-### Consumer subscription flow
-
-When a consumer subscribes to an API with an enabled subscription form:
-
-1. The form appears as step 4 (Checkout) in the subscription wizard, replacing the legacy "Add a comment" card.
-2. The consumer fills out the required and optional fields defined in the GMD content.
-3. The **Next** button is disabled until all required fields are valid.
-4. On submission, form values are filtered to remove empty or whitespace-only entries, then attached to the subscription as metadata.
+# Subscription forms
 
 {% hint style="info" %}
-If the plan security type is `KEY_LESS`, the form is skipped entirely regardless of configuration.
+Subscription forms are available for v4 APIs and API Products. Plans with **Keyless** security type don't display subscription forms.
 {% endhint %}
 
-### Viewing subscription metadata
+## Overview
 
-Subscription metadata appears in the Management Console:
+Subscription forms let API publishers define custom input fields that API consumers fill out when subscribing to a plan in the Developer Portal. The form data is stored as key-value metadata on the subscription record and is accessible to both publishers and consumers after submission.
 
-- **No metadata**: Displays a dash (`-`)
-- **Metadata present**: Displays a read-only Monaco editor with JSON content and a clipboard copy button
+Subscription forms replace the legacy **Consumer must provide a comment when subscribing to a plan** toggle from the Classic Portal. The `comment_required` plan flag has no effect in the Next-Gen Portal.
 
-## Subscription entity schema
+Each environment has one subscription form. The form applies to all plans (except Keyless) across all APIs in that environment.
 
-The `Subscription` entity includes a `metadata` field:
+## Create a subscription form
 
-| Field | Type | Description |
-|:------|:-----|:------------|
-| `metadata` | `Record<string, string>` | Key-value pairs from subscription form submission |
+1. In the Console, navigate to **Portal Settings > Subscription Form**.
+2. Define input fields using Gravitee Markdown (GMD) tags in the editor. A live preview renders on the right side.
+3. Click **Save** to persist the form content.
+4. Toggle the **Enable** switch to make the form visible to API consumers in the Developer Portal.
 
-Metadata is included in subscription creation when:
-1. Subscription form exists and has `gmdContent`
-2. Plan security is not `KEY_LESS`
-3. Metadata object has at least one non-empty key-value pair after filtering
+{% hint style="warning" %}
+The **Enable** toggle is disabled when configuration errors are present or when the user lacks the `ENVIRONMENT_METADATA` update permission.
+{% endhint %}
+
+An unsaved changes guard prompts for confirmation if you navigate away from the editor with unsaved changes.
+
+### Supported form field types
+
+The following GMD form components are available:
+
+<table>
+    <thead>
+        <tr>
+            <th width="200">Component</th>
+            <th width="350">Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>&lt;gmd-input&gt;</code></td>
+            <td>Single-line text input. Supports <code>type</code> attribute for email, URL, and number variants.</td>
+            <td><code>&lt;gmd-input name="company" label="Company" fieldKey="company" required="true"&gt;&lt;/gmd-input&gt;</code></td>
+        </tr>
+        <tr>
+            <td><code>&lt;gmd-textarea&gt;</code></td>
+            <td>Multi-line text input. Supports <code>minLength</code> and <code>maxLength</code> attributes.</td>
+            <td><code>&lt;gmd-textarea name="useCase" label="Use case" fieldKey="use_case" required="true"&gt;&lt;/gmd-textarea&gt;</code></td>
+        </tr>
+        <tr>
+            <td><code>&lt;gmd-select&gt;</code></td>
+            <td>Dropdown selection. Define options as a comma-separated list.</td>
+            <td><code>&lt;gmd-select name="team" label="Team" fieldKey="team" options="Engineering,Product,Other"&gt;&lt;/gmd-select&gt;</code></td>
+        </tr>
+        <tr>
+            <td><code>&lt;gmd-radio&gt;</code></td>
+            <td>Radio button group. Define options as a comma-separated list.</td>
+            <td><code>&lt;gmd-radio name="env" label="Environment" fieldKey="env" options="Production,Staging,Dev"&gt;&lt;/gmd-radio&gt;</code></td>
+        </tr>
+        <tr>
+            <td><code>&lt;gmd-checkbox&gt;</code></td>
+            <td>Single checkbox for boolean or acknowledgment fields.</td>
+            <td><code>&lt;gmd-checkbox name="terms" label="I accept the terms" fieldKey="accept_terms" required="true"&gt;&lt;/gmd-checkbox&gt;</code></td>
+        </tr>
+    </tbody>
+</table>
+
+GMD forms also support layout components (`gmd-grid`, `gmd-card`, `gmd-md`) and custom CSS styling. For a complete example, refer to the default template that appears when creating a new form.
+
+### Example form
+
+```markdown
+<gmd-grid columns="1">
+  <gmd-card>
+    <gmd-card-title>Subscription request</gmd-card-title>
+    <gmd-input name="appName" label="Application name" fieldKey="app_name" required="true"></gmd-input>
+    <gmd-select name="team" label="Team" fieldKey="team" options="Engineering,Product,Data,Other"></gmd-select>
+    <gmd-textarea name="useCase" label="Use case description" fieldKey="use_case" required="true" minLength="20" maxLength="500"></gmd-textarea>
+    <gmd-checkbox name="terms" label="I confirm this information is accurate" fieldKey="confirm_accuracy" required="true"></gmd-checkbox>
+  </gmd-card>
+</gmd-grid>
+```
+
+## Consumer subscription experience
+
+When a subscription form is enabled and the selected plan's security type isn't Keyless, the form appears in the **Review** step of the subscription wizard in the Developer Portal.
+
+The consumer subscription flow works as follows:
+
+1. The consumer selects a plan.
+2. The consumer selects an application.
+3. (Push plans only) The consumer configures the push consumer.
+4. In the **Review** step, the subscription form renders below the subscription summary. The consumer fills in the required and optional fields.
+5. The **Subscribe** button is disabled until all required form fields are valid.
+6. On submission, empty or whitespace-only values are filtered out, and the remaining values are attached to the subscription as metadata.
+
+{% hint style="info" %}
+Form field validation (for example, required fields) is enforced in the Developer Portal UI only. Subscriptions created through the management API or the Console don't enforce the form schema.
+{% endhint %}
+
+## View subscription metadata
+
+After a subscription is created with metadata, the metadata is visible in the following locations:
+
+- **Console — API subscription detail:** Navigate to **APIs > [API] > Consumers > Subscriptions** and select a subscription. Metadata appears as read-only JSON.
+- **Console — Application subscription detail:** Navigate to **Applications > [Application] > Subscriptions** and select a subscription. Metadata appears as read-only JSON.
+- **Developer Portal:** Application owners see metadata on their subscription details.
+
+When no metadata exists for a subscription, a dash (`-`) is displayed.
+
+## Metadata validation rules
+
+The management API enforces the following validation rules on subscription metadata:
+
+<table>
+    <thead>
+        <tr>
+            <th width="250">Rule</th>
+            <th>Detail</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Key format</td>
+            <td>Alphanumeric characters, hyphens, and underscores only. Regex: <code>^[A-Za-z0-9_-]{1,100}$</code></td>
+        </tr>
+        <tr>
+            <td>Max value length</td>
+            <td>1024 characters per value</td>
+        </tr>
+        <tr>
+            <td>Max metadata entries</td>
+            <td>25 key-value pairs per subscription</td>
+        </tr>
+        <tr>
+            <td>HTML sanitization</td>
+            <td>HTML tags are stripped from values to prevent XSS. Special characters (for example, <code>@</code>, <code>+</code>, <code>=</code>) are stored as-is.</td>
+        </tr>
+    </tbody>
+</table>
+
+## Limitations
+
+* **One form per environment:** Each environment supports exactly one subscription form. The form applies to all non-Keyless plans.
+* **Keyless plans excluded:** Subscription forms don't appear for plans with Keyless security type.
+* **Schema isn't enforced for publishers:** The form schema defined for the Portal isn't enforced for API publishers creating or modifying subscriptions through the Console or the management API.
+* **Metadata is read-only for consumers:** Application owners view their subscription metadata but can't modify it, including through the management API or Portal API.
+
+## Permissions
+
+<table>
+    <thead>
+        <tr>
+            <th width="300">Permission</th>
+            <th>Access</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>ENVIRONMENT_METADATA</code> — READ</td>
+            <td>View the subscription form editor and form content</td>
+        </tr>
+        <tr>
+            <td><code>ENVIRONMENT_METADATA</code> — UPDATE</td>
+            <td>Edit form content, enable or disable the form</td>
+        </tr>
+    </tbody>
+</table>

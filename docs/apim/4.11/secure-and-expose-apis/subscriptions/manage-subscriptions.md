@@ -19,7 +19,7 @@ From the **Subscriptions** header of this page, you can view, filter, and delete
 
 ### Subscription reference model
 
-As of version 4.11.0, subscriptions use a reference model that supports both API and API Product subscriptions. Each subscription includes a `referenceType` field (`API` or `API_PRODUCT`) and a `referenceId` pointing to the parent resource. The legacy `api` field is deprecated as of version 4.11.0 and shouldn't be used for new subscriptions.
+As of version 4.11.0, subscriptions use a reference model that supports both API and API Product subscriptions. Each subscription includes a `referenceType` field (`API` or `API_PRODUCT`) and a `referenceId` pointing to the parent resource. The legacy `api` field is deprecated as of 4.11.0 and shouldn't be used for new subscriptions.
 
 When validating subscriptions, the gateway checks API Product subscriptions first before checking API-level plans. This allows organizations to manage access at the product level while maintaining backward compatibility with existing API subscriptions.
 
@@ -56,17 +56,9 @@ To manage subscriptions in APIM Console:
 
        <figure><img src="../../.gitbook/assets/subscription_validate 2.png" alt=""><figcaption><p>Validate the subscription</p></figcaption></figure>
 
-### Subscription form restrictions
+### Subscription metadata
 
-The subscription form feature has the following restrictions:
-
-* **One form per environment:** Each environment can have exactly one subscription form. This is enforced by a unique constraint on `environment_id` in the database.
-* **GMD content validation:** GMD content must not be null, empty, or whitespace-only. The system validates this on save.
-* **Metadata key format validation:** Subscription metadata keys must follow a valid format. Invalid keys return `400 Bad Request` with the message "Invalid metadata key."
-* **KEY_LESS plan exclusion:** Subscription forms do not appear for plans with `KEY_LESS` security type.
-* **Empty value filtering:** Empty or whitespace-only metadata values are excluded from subscription creation.
-* **comment_required flag deprecation:** The legacy `comment_required` plan flag is marked as "Classic Portal only" and does not affect subscription form behavior in the new Portal.
-* **Scoped form state:** Form state is scoped per component instance. Multiple forms on the same page require separate state providers.
+When a subscription includes metadata (collected through a [subscription form](subscription-forms.md) or provided via the management API), the metadata appears as read-only JSON on the subscription detail view. For more information on subscription forms and metadata validation rules, see [Subscription forms](subscription-forms.md).
 
 ## Shared API Keys
 

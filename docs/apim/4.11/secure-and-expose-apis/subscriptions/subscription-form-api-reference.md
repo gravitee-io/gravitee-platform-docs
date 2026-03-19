@@ -1,66 +1,113 @@
-# Subscription Form API Reference
+# Subscription form API reference
 
-## Consumer Subscription Flow
+## Management API v2
 
-When a consumer subscribes to an API with an enabled subscription form, the form appears as step 4 (Checkout) in the subscription wizard, replacing the legacy "Add a comment" card. The consumer fills out the required and optional fields defined in the GMD content. The Next button is disabled until all required fields are valid. On submission, the form values are filtered to remove empty or whitespace-only entries, then attached to the subscription as metadata. If the plan security type is `KEY_LESS`, the form is skipped entirely regardless of configuration.
+### Get subscription form
 
-## API Endpoints
+**GET** `/environments/{envId}/subscription-forms`
 
-### Management API v2
+Retrieves the subscription form for the specified environment. Returns `404` if no form exists.
 
-**GET** `/environments/{envId}/subscription-forms` retrieves the subscription form for an environment, returning 404 if no form exists.
+**Permission:** `ENVIRONMENT_METADATA` — READ
 
-**PUT** `/environments/{envId}/subscription-forms/{id}` updates the `gmdContent` field.
+### Update subscription form content
 
-Request:
+**PUT** `/environments/{envId}/subscription-forms/{subscriptionFormId}`
+
+Updates the GMD content of a subscription form.
+
+**Permission:** `ENVIRONMENT_METADATA` — UPDATE
+
+**Request body:**
 
 ```json
 {
-  "gmdContent": "string"
+  "gmdContent": "<gmd-input name=\"company\" label=\"Company\" fieldKey=\"company\" required=\"true\"></gmd-input>"
 }
 ```
 
-**POST** `/environments/{envId}/subscription-forms/{id}/_enable` enables the subscription form.
+### Enable subscription form
 
-**POST** `/environments/{envId}/subscription-forms/{id}/_disable` disables the subscription form.
+**POST** `/environments/{envId}/subscription-forms/{subscriptionFormId}/_enable`
 
-### Portal API
+Enables the subscription form, making it visible to consumers in the Developer Portal.
 
-**GET** `/subscription-form` retrieves the subscription form only when it exists and is enabled, returning 404 otherwise. This endpoint requires `@RequirePortalAuth` and is called by the consumer subscription flow to determine whether to display the form.
+**Permission:** `ENVIRONMENT_METADATA` — UPDATE
 
-Response (200):
+### Disable subscription form
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | string | Subscription form identifier |
-| `environmentId` | string | Environment identifier |
-| `gmdContent` | string | GMD-formatted form content |
-| `enabled` | boolean | Whether the form is enabled |
-| `createdAt` | number | Creation timestamp |
-| `updatedAt` | number | Last update timestamp |
+**POST** `/environments/{envId}/subscription-forms/{subscriptionFormId}/_disable`
 
-## Subscription Entity Schema
+Disables the subscription form. Consumers won't see the form during the subscription flow.
 
-The `Subscription` entity includes a new `metadata` field of type `Record<string, string>`. When creating a subscription via **POST** `/subscriptions`, include the optional `metadata` property in the request body:
+**Permission:** `ENVIRONMENT_METADATA` — UPDATE
+
+## Portal API
+
+### Get subscription form
+
+**GET** `/subscription-form`
+
+Retrieves the subscription form for the current environment. Returns `404` if no form exists or if the form is disabled. Requires Portal authentication.
+
+**Response (200):**
+
+<table>
+    <thead>
+        <tr>
+            <th width="167">Field</th>
+            <th width="120">Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>id</code></td>
+            <td>string</td>
+            <td>Subscription form identifier</td>
+        </tr>
+        <tr>
+            <td><code>environmentId</code></td>
+            <td>string</td>
+            <td>Environment identifier</td>
+        </tr>
+        <tr>
+            <td><code>gmdContent</code></td>
+            <td>string</td>
+            <td>GMD-formatted form content</td>
+        </tr>
+        <tr>
+            <td><code>enabled</code></td>
+            <td>boolean</td>
+            <td>Whether the form is enabled</td>
+        </tr>
+        <tr>
+            <td><code>createdAt</code></td>
+            <td>number</td>
+            <td>Creation timestamp</td>
+        </tr>
+        <tr>
+            <td><code>updatedAt</code></td>
+            <td>number</td>
+            <td>Last update timestamp</td>
+        </tr>
+    </tbody>
+</table>
+
+## Subscription metadata in requests
+
+When creating a subscription through **POST** `/subscriptions`, include the optional `metadata` property in the request body:
 
 ```json
 {
   "application": "app-id",
   "plan": "plan-id",
   "metadata": {
-    "consumer_company_name": "Acme Corp",
-    "consumer_use_case": "Internal analytics dashboard"
+    "app_name": "My Integration",
+    "team": "Engineering",
+    "use_case": "Internal analytics dashboard"
   }
 }
 ```
 
-## Metadata Display
-
-Subscription metadata is visible in two locations: the API publisher's subscription management view and the application owner's subscription list. Both views use a read-only Monaco editor configured with JSON syntax highlighting, line wrapping, and a clipboard copy button. When metadata is `undefined`, `null`, or an empty object, a dash (`-`) is displayed instead of the editor.
-
-## Restrictions
-
-* Each environment can have exactly one subscription form (enforced by unique constraint on `environment_id`)
-* GMD content must not be null, empty, or whitespace-only (validated on save)
-* Subscription metadata keys must follow a valid format (invalid keys return `400 Bad Request` with message "Invalid metadata key.")
-* Subscription forms do not appear for plans with `KEY_LESS` security type
+Metadata is stored as `Map<String, String>` on the subscription entity. For validation rules and constraints, see [Subscription forms — Metadata validation rules](subscription-forms.md#metadata-validation-rules).

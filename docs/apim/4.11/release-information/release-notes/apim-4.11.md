@@ -69,13 +69,14 @@
 
 
 <!-- PIPELINE:APIM-12170 -->
-#### **Subscription Forms for API Metadata Collection**
+#### **Subscription forms for API metadata collection**
 
-* API administrators can now create custom subscription forms to collect structured metadata from consumers during the API subscription process, replacing the legacy comment field from the Classic Portal.
-* Forms are defined using Gravitee Markdown (GMD) syntax in Portal Settings and support input fields, text areas, and validation rules with real-time error checking.
-* Collected metadata is stored as key-value pairs on subscription records and displayed as read-only JSON in both the API publisher console and application owner console.
-* Forms are scoped per environment and only appear when enabled, contain non-empty content, and the selected plan's security type is not `KEY_LESS`.
-* Requires database schema migration `08_add_subscription_forms_table.yml` and `environment-metadata-r` or `environment-metadata-u` permissions to view or manage forms.
+* API publishers create custom subscription forms using Gravitee Markdown (GMD) to collect structured metadata from consumers during the subscription process in the Developer Portal, replacing the legacy comment field from the Classic Portal.
+* Forms support five field types: text input, text area, select dropdown, radio buttons, and checkboxes, with configurable validation rules and real-time error checking.
+* Collected metadata is stored as key-value pairs on subscription records and displayed as read-only JSON in the Console (API publisher and application owner views) and the Developer Portal.
+* Forms are scoped per environment and appear in the **Review** step of the Portal subscription wizard for all plan types except Keyless.
+* Metadata validation enforces key format (`^[A-Za-z0-9_-]{1,100}$`), a maximum value length of 1024 characters, a maximum of 25 entries per subscription, and HTML tag stripping for XSS prevention.
+* Requires `ENVIRONMENT_METADATA` READ permission to view forms and UPDATE permission to edit or enable/disable forms.
 <!-- /PIPELINE:APIM-12170 -->
 
 ## Improvements

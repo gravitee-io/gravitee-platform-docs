@@ -1,50 +1,48 @@
-# Subscription Form Database Schema
+# Subscription form database reference
 
-## Prerequisites
-
-Before configuring subscription forms, ensure the following requirements are met:
-
-* User must have `environment-metadata-r` permission to view subscription forms
-* User must have `environment-metadata-u` permission to edit or enable/disable subscription forms
-* Database schema migration `08_add_subscription_forms_table.yml` must be applied
-* Portal API authentication must be configured for consumer access
-
-## Database Schema
+## Table structure
 
 The subscription forms table stores one form per environment.
 
-| Column | Type | Constraints | Description |
-|:-------|:-----|:------------|:------------|
-| `id` | `nvarchar(64)` | NOT NULL, PRIMARY KEY | Unique identifier |
-| `environment_id` | `nvarchar(64)` | NOT NULL, UNIQUE | Environment identifier |
-| `gmd_content` | `nclob` | NOT NULL | Gravitee Markdown form content |
-| `enabled` | `boolean` | NOT NULL | Whether form is visible to consumers |
+**Table name:** `${gravitee_prefix}subscription_forms`
 
-**Table name**: `${gravitee_prefix}subscription_forms`
+<table>
+    <thead>
+        <tr>
+            <th width="167">Column</th>
+            <th width="140">Type</th>
+            <th width="180">Constraints</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>id</code></td>
+            <td><code>nvarchar(64)</code></td>
+            <td>NOT NULL, PRIMARY KEY</td>
+            <td>Unique identifier</td>
+        </tr>
+        <tr>
+            <td><code>environment_id</code></td>
+            <td><code>nvarchar(64)</code></td>
+            <td>NOT NULL, UNIQUE</td>
+            <td>Environment identifier (one form per environment)</td>
+        </tr>
+        <tr>
+            <td><code>gmd_content</code></td>
+            <td><code>nclob</code></td>
+            <td>NOT NULL</td>
+            <td>Gravitee Markdown form content</td>
+        </tr>
+        <tr>
+            <td><code>enabled</code></td>
+            <td><code>boolean</code></td>
+            <td>NOT NULL</td>
+            <td>Whether the form is visible to consumers in the Developer Portal</td>
+        </tr>
+    </tbody>
+</table>
 
-**Constraints**:
-* Primary key: `pk_${gravitee_prefix}subscription_forms` on `id`
-* Unique constraint: `uc_${gravitee_prefix}subscription_forms_environment_id` on `environment_id`
+This table is created automatically by the `4.11.0_08_add_subscription_forms_table` Liquibase migration during the APIM 4.11 upgrade.
 
-## Navigation Menu Configuration
-
-The Subscription Form menu item appears in the Portal Settings section.
-
-| Property | Value | Description |
-|:---------|:------|:------------|
-| `displayName` | `'Subscription Form'` | Menu item label |
-| `routerLink` | `'subscription-form'` | Angular route path |
-| `icon` | `'gio:list-check'` | Icon identifier |
-| `permissions` | `['environment-metadata-r', 'environment-metadata-u']` | Required permissions |
-
-## Managing Form State
-
-The form editor validates content in real-time and displays configuration errors such as `emptyFieldKey` (severity: error).
-
-### Form Visibility Rules
-
-The subscription form appears in the subscription flow only when three conditions are met: the form exists with non-empty `gmdContent`, the form is enabled, and the selected plan's security type is not `KEY_LESS`. When these conditions are not met, the subscription proceeds without collecting metadata.
-
-### Metadata Display
-
-Subscription metadata is displayed in both the API publisher console and application owner console as read-only JSON.
+For usage information, see [Subscription forms](../../secure-and-expose-apis/subscriptions/subscription-forms.md).
