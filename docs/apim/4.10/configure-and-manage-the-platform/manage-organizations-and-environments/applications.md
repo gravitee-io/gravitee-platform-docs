@@ -18,7 +18,7 @@ For an API consumer to create an application, the following must be true:
 * An admin must define the 2 types of applications that API consumers are allowed to create:
   * **Default application type:** API consumers can optionally define the `client_id` when creating a simple application.
   * **Dynamic Client Registration (DCR) for applications:** The API publisher must enable and configure DCR for the allowed application types. The client registration provider is responsible for creating the `client_id` and `client_secret` for each application that registers.
-* An API consumer must have a user account to register an application and subscribe to an API (see [User Management](../../../4.9/configure-and-manage-the-platform/manage-organizations-and-environments/user-management.md)).
+* An API consumer must have a user account to register an application and subscribe to an API (see [User Management](user-management.md)).
 
 ## Default application configuration
 
@@ -292,7 +292,7 @@ An application is usually shared through a developer application and retrieves i
 <table><thead><tr><th width="228">Role</th><th>Description</th></tr></thead><tbody><tr><td><strong>Primary owner</strong></td><td>The creator of the application. Can perform all possible API actions.</td></tr><tr><td><strong>Owner</strong></td><td>A lighter version of the primary owner role. Can perform all possible actions except delete the application.</td></tr><tr><td><strong>User</strong></td><td>A person who can access the application in read-only mode and use it to subscribe to an API.</td></tr></tbody></table>
 
 {% hint style="info" %}
-Only users with the required permissions can manage application members. See [User Management](../../../4.9/configure-and-manage-the-platform/manage-organizations-and-environments/user-management.md).
+Only users with the required permissions can manage application members. See [User Management](user-management.md).
 {% endhint %}
 
 ### Delete and restore applications

@@ -12,7 +12,7 @@ The MCP Server authorization flow follows the official [MCP specification](https
 
 The following diagram shows full MCP Server authorization flow with [AuthZen](../authorization-engines/authzen.md) and [OpenFGA](../authorization-engines/openfga.md) as the Authorization Engine.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-11-27 at 12.09.35.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/Screenshot 2025-11-27 at 12.09.35.png" alt=""><figcaption></figcaption></figure>
 
 ## MCP Server authorization flow <a href="#how-mcp-servers-work" id="how-mcp-servers-work"></a>
 
@@ -213,6 +213,13 @@ Token validation triggers one of the following:
 
 <summary>10. Fine-grained permissions check</summary>
 
-The permission check uses the Authorization Engine and AuthZen and is described in the [Authorization Engines](../authorization-engines/) section.
+Once the access is established, the MCP Server, acting as a Policy Enforcement Point (PEP), requests evaluation of a fine-grained permission for accessing the MCP tool using the 
+The permission check uses the Authorization Engine and AuthZen and is described in the [AuthZen](../authorization-engines/authzen) section.
+
+{% hint style="warning" %}
+In order to do so the MCP server obtains an access token from Gravitee AM using OAuth 2.1 Client Credentials grant flow.
+{% endhint %}
+
+If the decision is `true`, the MCP server executes the tool.
 
 </details>
