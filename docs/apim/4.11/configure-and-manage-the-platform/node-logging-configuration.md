@@ -157,7 +157,7 @@ node:
 **Expected output:**
 
 ```
-15:44:17.123 [vert.x-eventloop-thread-0] INFO  i.g.MyPolicy [apiId: my-api-id] [appId: my-app-id] - Processing request
+15:44:17.123 [vert.x-eventloop-thread-0] INFO i.g.MyPolicy [apiId: my-api-id] [appId: my-app-id] - Processing request
 ```
 
 ## Individual MDC keys in patterns
