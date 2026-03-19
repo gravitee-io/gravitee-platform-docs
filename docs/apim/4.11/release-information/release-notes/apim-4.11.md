@@ -67,6 +67,17 @@
 * Topic consumers use shared or exclusive connections based on client ID and durability settings; queue consumers always use shared connections.
 <!-- /PIPELINE:APIM-13008 -->
 
+
+<!-- PIPELINE:APIM-12170 -->
+#### **Subscription Forms**
+
+* Platform administrators can now create custom forms that API consumers must complete when subscribing to API plans, enabling collection of structured metadata such as company name, use case, or contact information.
+* Forms are built using Gravitee Markdown (GMD) components including text inputs, textareas, dropdowns, radio buttons, and checkboxes, with support for validation rules like required fields and length constraints.
+* Forms are configured per environment in the Management Console and appear during the subscription checkout process in the Developer Portal when enabled.
+* Collected metadata is stored as key-value pairs on the subscription entity and displayed in read-only format in both API and Application subscription detail views.
+* Available for all plan types except KEY_LESS plans. Requires database schema migration to add the `subscription_forms` table.
+<!-- /PIPELINE:APIM-12170 -->
+
 ## Improvements
 
 ## Bug Fixes

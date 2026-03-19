@@ -25,6 +25,8 @@ API consumers can subscribe to APIs with published plans during the application 
 Whether an application has an associated `client_id` depends on how it was configured. To subscribe to OAuth2 or JWT plans, the application must have a `client_id`.
 {% endhint %}
 
+### Subscribe via APIM Console
+
 To subscribe to an API via the APIM Console:
 
 1. Log in to your APIM Console
@@ -38,3 +40,22 @@ To subscribe to an API via the APIM Console:
 
     <figure><img src="../../.gitbook/assets/subscription_create.png" alt=""><figcaption><p>Select the subscription plan</p></figcaption></figure>
 7. Click **Create** to see the subscription details
+
+### Subscribe via Developer Portal with subscription forms
+
+When an enabled subscription form exists and the selected plan is not `KEY_LESS`, the form appears during subscription checkout in the Developer Portal.
+
+1. Select an application and plan.
+2. Complete all required fields in the subscription form. The **Subscribe** button is disabled until all fields pass validation.
+3. Click **Subscribe**. Form values are extracted, empty values are filtered out, and the metadata is submitted with the subscription request.
+4. View submitted metadata in the subscription details page under the **Metadata** section, displayed as read-only JSON.
+
+## Subscription metadata
+
+
+Subscription metadata is collected through [subscription forms](subscription-forms.md) and attached to subscription requests.
+ Metadata is only sent when a subscription form exists, is enabled, and the plan security is not `KEY_LESS`. Empty metadata values (null or whitespace-only) are filtered out before submission. Metadata keys must be valid (alphanumeric, underscores, hyphens).
+
+## Validation
+
+Portal page content validation logic has been refactored into the `GraviteeMarkdownValidator` domain service. The exception `EmptyPortalPageContentException` has been replaced with `GraviteeMarkdownContentEmptyException`. This validation now applies to both portal pages and subscription forms.

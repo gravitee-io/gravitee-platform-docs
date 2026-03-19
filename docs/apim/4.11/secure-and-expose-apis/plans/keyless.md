@@ -17,4 +17,8 @@ A Keyless plan does not require configuration other than general plan settings a
 
 Due to not requiring a subscription and the lack of a consumer identifier token, Keyless consumers are set as `unknown application` in the API analytics section.
 
+{% hint style="info" %}
+Subscription forms are not displayed for Keyless plans, as they do not require subscription approval or metadata collection.
+{% endhint %}
+
 You can configure basic authentication for Keyless plans by associating a Basic Authentication policy (see the [policy reference](../../create-and-configure-apis/apply-policies/policy-reference/)) that uses either an LDAP or inline resource.

@@ -32,3 +32,10 @@ secure-and-expose-apis/api-products/manage-api-products-via-management-api.md
 secure-and-expose-apis/api-products/restrictions-and-licensing.md
 secure-and-expose-apis/subscriptions/manage-subscriptions.md
 create-and-configure-apis/configure-v4-apis/endpoints/jms.md
+configure-and-manage-the-platform/manage-organizations-and-environments/subscription-forms.md
+secure-and-expose-apis/plans/keyless.md
+secure-and-expose-apis/subscriptions/manage-subscription-forms-via-management-api.md
+secure-and-expose-apis/subscriptions/subscription-forms-database-schema.md
+secure-and-expose-apis/subscriptions/subscription-forms.md
+secure-and-expose-apis/subscriptions/subscription-metadata.md
+secure-and-expose-apis/subscriptions/subscription-requests.md
