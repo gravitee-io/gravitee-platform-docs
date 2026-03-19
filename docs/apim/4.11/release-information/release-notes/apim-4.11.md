@@ -111,12 +111,12 @@
 
 
 <!-- PIPELINE:APIM-12308 -->
-#### **Context-Aware Logging Infrastructure**
+#### **Context-aware logging infrastructure**
 
 * Gateway and Management API logs now automatically include request metadata (API ID, organization, environment, application, plan) via MDC (Mapped Diagnostic Context), enabling operators to filter and correlate logs across multi-tenant environments without manual instrumentation.
-* Administrators can configure which MDC keys appear in log output using `node.logging.mdc.include` and customize formatting with `node.logging.mdc.format` and `node.logging.mdc.separator` properties in `gravitee.yml`.
-* Logback appender patterns can be overridden at runtime via `node.logging.pattern.console` and `node.logging.pattern.file` properties when `node.logging.pattern.overrideLogbackXml` is enabled (default: `true` as of 4.0.0-alpha.2).
-* Developers must use `NodeLoggerFactory.getLogger()` instead of SLF4J's `LoggerFactory` to ensure MDC enrichment; ArchUnit rules enforce this pattern during Maven builds.
+* Administrators configure which MDC keys appear in log output using `node.logging.mdc.include` and customize formatting with `node.logging.mdc.format` and `node.logging.mdc.separator` properties in `gravitee.yml`.
+* Logback appender patterns are overridden at runtime via `node.logging.pattern.console` and `node.logging.pattern.file` properties when `node.logging.pattern.overrideLogbackXml` is set to `true` (default: `false`).
+* The custom `%mdcList` Logback converter formats and filters MDC keys in log patterns. Structured encoders (JsonEncoder, EcsEncoder) log the full unfiltered MDC map.
 <!-- /PIPELINE:APIM-12308 -->
 
 ## Bug Fixes
