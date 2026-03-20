@@ -6,7 +6,7 @@
 This page is for plugin developers building custom Gravitee policies, endpoints, and entrypoints.
 {% endhint %}
 
-When developing Gateway plugins (policies, endpoints, entrypoints), use the context-aware logging API to ensure log entries are automatically enriched with request metadata such as API ID, environment, organization, application, and plan.
+When developing Gateway plugins (policies, endpoints, entrypoints), use the context-aware logging API. Log entries are automatically enriched with request metadata such as API ID, environment, organization, application, and plan.
 
 ## Use `ctx.withLogger()` for request-scoped logging
 
