@@ -5,16 +5,10 @@
 Gravitee Gateway and Management API enrich log entries with request metadata — such as API ID, organization, environment, application, and plan — via MDC (Mapped Diagnostic Context). This lets operators filter and correlate logs across multi-tenant environments without manual instrumentation.
 
 {% hint style="info" %}
-Context-aware logging is available from APIM 4.11 onward. Not all plugins have been migrated yet — some logs may lack contextual information until the migration is complete in 4.12.
+Context-aware logging is available from APIM 4.11 onward. Not all plugins have been migrated yet — some logs may lack contextual information until the migration is complete in 4.12. This feature will be adopted by other Gravitee products in future versions.
 {% endhint %}
 
-## How it works
-
-Gravitee components use `NodeLoggerFactory` instead of SLF4J's `LoggerFactory` to create loggers. `NodeLoggerFactory` wraps each logger with node-level metadata (node ID, hostname, application name). It then delegates to extensible MDC registration hooks that inject request context.
-
-The `%mdcList` custom Logback converter formats selected MDC keys into log output. Administrators control which keys appear, how they're formatted, and how they're separated through `gravitee.yml` properties.
-
-### Available MDC keys
+## Available MDC keys
 
 The following MDC keys are available depending on the component:
 
