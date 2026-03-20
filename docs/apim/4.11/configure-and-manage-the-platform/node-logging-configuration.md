@@ -123,8 +123,6 @@ Because the pattern override is applied programmatically after startup, some ear
 
 ## Default logback.xml patterns
 
-<!-- TODO: Yann (ytvnr) to verify that these default patterns are accurate -->
-
 The following are the default patterns in the shipped `logback.xml` files. These patterns don't include `%mdcList` — enable the pattern override to add MDC context.
 
 **Gateway:**
@@ -294,5 +292,5 @@ The legacy `logging` block (including `logging.debug`, `logging.stdout.json`, `l
 ## Limitations
 
 * Not all Gravitee plugins have been migrated to the context-aware logging infrastructure yet. Some logs may lack MDC context until the migration is complete in 4.12.
-* The `%mdcList` converter is only valid for pattern-based encoders. Structured encoders (`JsonEncoder`, `EcsEncoder`) log the full unfiltered MDC map.
+* The `%mdcList` converter is only valid for pattern-based encoders. Structured encoders (`JsonEncoder`, `EcsEncoder`) log the full MDC map. This includes keys added manually by specific classes or external libraries. For Gravitee-controlled keys, only the keys listed in `node.logging.mdc.include` are added to MDC.
 * Early startup log lines use the default `logback.xml` pattern before the runtime override takes effect.
