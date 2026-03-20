@@ -2,6 +2,10 @@
 
 ## Overview
 
+{% hint style="info" %}
+This page is for plugin developers building custom Gravitee plugins. The ArchUnit rules require `gravitee-parent` version 24.0.0 or later.
+{% endhint %}
+
 The `gravitee-archrules-maven-plugin` enforces context-aware logging rules at build time. It runs during the Maven `verify` phase and provides two goals:
 
 * **`global-logging-check`:** Verifies that all classes use `NodeLoggerFactory` instead of SLF4J's `LoggerFactory`.
