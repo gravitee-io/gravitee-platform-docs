@@ -43,7 +43,7 @@ The `%mdcList` custom Logback converter formats selected MDC keys into log outpu
     </tbody>
 </table>
 
-**Example `gravitee.yml`:**
+**Example Gateway `gravitee.yml`:**
 
 ```yaml
 node:
@@ -123,6 +123,8 @@ Because the pattern override is applied programmatically after startup, some ear
 
 ## Default logback.xml patterns
 
+<!-- TODO: Yann (ytvnr) to verify that these default patterns are accurate -->
+
 The following are the default patterns in the shipped `logback.xml` files. These patterns don't include `%mdcList` — enable the pattern override to add MDC context.
 
 **Gateway:**
@@ -157,7 +159,7 @@ node:
 **Expected output:**
 
 ```
-15:44:17.123 [vert.x-eventloop-thread-0] INFO i.g.MyPolicy [apiId: my-api-id] [appId: my-app-id] - Processing request
+15:44:17.123 [vert.x-eventloop-thread-0] INFO i.g.g.h.api.ApiReactorHandler [apiId: my-api-id] [appId: my-app-id] - Processing request
 ```
 
 ## Individual MDC keys in patterns
@@ -172,6 +174,121 @@ This approach works in `logback.xml` directly without requiring the pattern over
 
 {% hint style="info" %}
 `%mdcList` filters and formats only the keys listed in `node.logging.mdc.include`. Structured encoders (for example, `JsonEncoder` or `EcsEncoder`) log the full MDC map regardless of the include list.
+{% endhint %}
+
+## Helm chart configuration
+
+For Kubernetes deployments using the Gravitee Helm chart, logging is configured through three independent blocks in `values.yaml`. The legacy `logging` block is deprecated in favor of the new `logback` and `node.logging` blocks.
+
+<table>
+    <thead>
+        <tr>
+            <th width="180">Block</th>
+            <th>Purpose</th>
+            <th width="150">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>logging</code></td>
+            <td>Conditional logback.xml generation (debug, JSON, ECS, file)</td>
+            <td>Deprecated</td>
+        </tr>
+        <tr>
+            <td><code>logback</code></td>
+            <td>Full logback.xml override with user-provided content</td>
+            <td>New</td>
+        </tr>
+        <tr>
+            <td><code>node.logging</code></td>
+            <td>Application-level config in <code>gravitee.yml</code> (MDC formatting, runtime patterns)</td>
+            <td>New</td>
+        </tr>
+    </tbody>
+</table>
+
+### Logback override
+
+Set `logback.override: true` to inject a custom `logback.xml` directly, bypassing the legacy conditional template logic. Provide the full logback.xml content in `logback.content`.
+
+{% hint style="info" %}
+When both `logback.override` and `logging.debug` are `true`, the logback override takes precedence. When `logback.override` is `false` (the default), legacy behavior is unchanged — there's no breaking change.
+{% endhint %}
+
+**Example Gateway `values.yaml`:**
+
+```yaml
+gateway:
+  logback:
+    override: true
+    content: |
+      <?xml version="1.0" encoding="UTF-8"?>
+      <configuration>
+          <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+              <encoder>
+                  <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+              </encoder>
+          </appender>
+          <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+              <file>${gravitee.home}/logs/gravitee.log</file>
+              <encoder>
+                  <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+              </encoder>
+          </appender>
+          <logger name="io.gravitee" level="INFO" />
+          <root level="WARN">
+              <appender-ref ref="STDOUT" />
+              <appender-ref ref="FILE" />
+          </root>
+      </configuration>
+```
+
+### Node logging via Helm
+
+The `node.logging` block configures MDC formatting and pattern overrides in `gravitee.yml`, independently of which logback.xml mechanism is used.
+
+**Example Gateway `values.yaml`:**
+
+```yaml
+gateway:
+  node:
+    logging:
+      mdc:
+        format: "{key}: {value}"
+        separator: " "
+        nullValue: "-"
+        include:
+          - nodeId
+          - apiId
+      pattern:
+        overrideLogbackXml: false
+        console: "%d{HH:mm:ss} %-5level %logger{36} [%mdcList] - %msg%n"
+        file: "%d %-5p [%t] %c [%mdcList] : %m%n"
+```
+
+**Example Management API `values.yaml`:**
+
+```yaml
+api:
+  node:
+    logging:
+      mdc:
+        format: "{key}: {value}"
+        separator: " "
+        nullValue: "-"
+        include:
+          - nodeId
+          - envId
+          - apiId
+          - appId
+      pattern:
+        overrideLogbackXml: false
+        console: "%d{HH:mm:ss} %-5level %logger{36} [%mdcList] - %msg%n"
+        file: "%d %-5p [%t] %c [%mdcList] : %m%n"
+```
+
+{% hint style="warning" %}
+The legacy `logging` block (including `logging.debug`, `logging.stdout.json`, `logging.stdout.ecs`, `logging.file`, and `logging.contextualLoggingEnabled`) is deprecated. Use `logback` for full logback.xml overrides and `node.logging` for MDC and pattern configuration. The legacy block continues to work for backward compatibility but will be removed in a future release.
 {% endhint %}
 
 ## Limitations
