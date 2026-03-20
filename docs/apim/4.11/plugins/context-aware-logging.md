@@ -63,7 +63,14 @@ public class MyPolicy implements Policy {
 }
 ```
 
-The `@CustomLog` annotation is configured in `lombok.config` to delegate to `NodeLoggerFactory`.
+To configure the `@CustomLog` annotation, add a `lombok.config` file at the root of your project with the following content:
+
+```properties
+config.stopBubbling = true
+lombok.log.custom.declaration = org.slf4j.Logger io.gravitee.node.logging.NodeLoggerFactory.getLogger(TYPE)
+```
+
+Also add a Maven dependency on `gravitee-node-logging` (`gravitee-node` 8.0.0 or later is required).
 
 ## Build-time enforcement
 
