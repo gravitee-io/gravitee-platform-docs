@@ -49,6 +49,24 @@ spec:
     format: "STRING"
 ```
 
+### TLS settings
+
+Applications can register multiple client certificates for mTLS authentication. The `settings.tls` object includes a `clientCertificates` array and a `certificate_count` field. The single `clientCertificate` field is deprecated.
+
+Each certificate in the `clientCertificates` array has the following properties:
+
+| Property | Description |
+|:---------|:------------|
+| `id` | Unique certificate identifier |
+| `applicationId` | Owning application ID |
+| `name` | User-defined certificate name |
+| `startsAt` | Optional activation timestamp |
+| `endsAt` | Optional expiration timestamp |
+| `fingerprint` | SHA-256 certificate thumbprint |
+| `status` | Certificate lifecycle state (`ACTIVE`, `ACTIVE_WITH_END`, `SCHEDULED`, `REVOKED`) |
+
+Certificates can be specified using inline PEM content, Secret/ConfigMap references, or template notation. For Secret/ConfigMap references, use the `ref` object with `kind: secrets` or `kind: configmaps`, a `name`, and optional `key` and `namespace`. Template notation uses the format `[[ secret 'secret-name/key' ]]` or `[[ configmap 'configmap-name/key' ]]` and requires `ENABLE_TEMPLATING=true` in the operator configuration.
+
 ## OAuth applications
 
 OAuth application types require Dynamic Client Registration to be activated in APIM.

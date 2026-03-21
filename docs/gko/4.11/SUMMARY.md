@@ -6,6 +6,7 @@
 
 * [Introduction](README.md)
 * [Custom Resource Definitions](overview/custom-resource-definitions/README.md)
+  * [Kubernetes CRD Configuration for Multi-Certificate mTLS](overview/custom-resource-definitions/kubernetes-crd-configuration-for-multi-certificate-mtls.md)
   * [ManagementContext](overview/custom-resource-definitions/managementcontext.md)
   * [ApiV4Definition](overview/custom-resource-definitions/apiv4definition.md)
   * [ApiDefinition](overview/custom-resource-definitions/apidefinition.md)
@@ -38,6 +39,7 @@
 * [Manage JWT subscriptions with GKO](guides/manage-jwt-subscriptions-with-gko.md)
 * [Define an APIM service account for GKO](guides/define-an-apim-service-account-for-gko.md)
 * [Deploy APIs to a Gateway](guides/deploy-apis-to-a-gateway.md)
+* [Multi-Certificate mTLS: Internal Implementation](guides/multi-certificate-mtls-internal-implementation-reference.md)
 * [Publish APIs to the Developer Portal](guides/publish-apis-to-the-portal.md)
 * [Manage API documentation pages](guides/manage-api-documentation-pages.md)
 * [Manage API and application groups and members](guides/manage-api-groups-and-members.md)
@@ -49,6 +51,7 @@
 * [Templating](guides/templating.md)
 * [Configure the GKO HTTP client for APIM](guides/gko-http-client.md)
   * [Logs Engine Overview and Prerequisites](../../apim/4.11/guides/logs-engine-api/overview-and-prerequisites.md)
+    * [Multi-Certificate mTLS Support for Applications](../../apim/4.11/guides/api-exposure-plans-applications-and-subscriptions/applications/multi-certificate-mtls-support-for-applications.md)
 
 ## REFERENCE
 
@@ -58,6 +61,7 @@
 ## RELEASES & CHANGELOG
 
 * [Release Notes](releases-and-changelog/release-notes/README.md)
+  * [Multi-Certificate mTLS: Breaking Changes and Restrictions](../../apim/4.10/releases-and-changelog/breaking-changes/multi-certificate-mtls-breaking-changes-and-restrictions.md)
 
 ***
 <!-- start_release_notes_summary -->
