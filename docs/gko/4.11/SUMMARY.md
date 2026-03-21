@@ -49,6 +49,7 @@
 * [Templating](guides/templating.md)
 * [Configure the GKO HTTP client for APIM](guides/gko-http-client.md)
   * [Logs Engine Overview and Prerequisites](../../apim/4.11/guides/logs-engine-api/overview-and-prerequisites.md)
+  * [MCP Analytics Concepts](../../apim/4.11/guides/mcp-analytics/mcp-analytics-concepts.md)
 
 ## REFERENCE
 
