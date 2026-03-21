@@ -34,3 +34,9 @@ secure-and-expose-apis/subscriptions/manage-subscriptions.md
 create-and-configure-apis/configure-v4-apis/endpoints/jms.md
 create-and-configure-apis/apply-policies/policy-reference/ip-filtering.md
 create-and-configure-apis/apply-policies/policy-reference/native-ip-filtering.md
+configure-and-manage-the-platform/configuring-node-logging-for-gateway-and-management-api.md
+configure-and-manage-the-platform/debug-logging.md
+configure-and-manage-the-platform/node-logging-infrastructure-overview.md
+guides/node-logging-migration-guide-and-version-history.md
+plugins/architecture-rule-enforcement-and-maven-plugin-configuration.md
+plugins/developer-guide-creating-context-aware-logs.md

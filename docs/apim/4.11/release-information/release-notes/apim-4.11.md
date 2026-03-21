@@ -77,6 +77,17 @@
 * Requires Enterprise Edition license with the `apim-native-policy-ip-filtering` feature.
 <!-- /PIPELINE:APIM-12999 -->
 
+
+<!-- PIPELINE:APIM-12308 -->
+#### **Context-Aware Node Logging Infrastructure**
+
+* Automatically enriches log entries with contextual metadata (API ID, organization ID, node ID, etc.) via MDC (Mapped Diagnostic Context) for improved traceability across Gateway and Management API components.
+* Centralizes log pattern configuration through `gravitee.yml` properties, overriding `logback.xml` patterns at runtime when `node.logging.pattern.overrideLogbackXml` is enabled (default behavior).
+* Enforces logging best practices at build time using ArchUnit rules: requires `NodeLoggerFactory` instead of direct SLF4J usage and mandates context-aware logging for methods with `ExecutionContext` parameters.
+* Supports Helm chart configuration modes for logback override, allowing either legacy property-based or complete XML-based logback configuration.
+* Requires Gravitee Node 8.0.0-alpha.2+ and Gateway API 5.0.0-alpha.6+ for full ExecutionContext logging support.
+<!-- /PIPELINE:APIM-12308 -->
+
 ## Improvements
 
 ## Bug Fixes

@@ -119,8 +119,10 @@ api:
 ```
 {% endcode %}
 
-To enable debug logging for the Gateway component, you can apply the same edits to the `gateway:` section of the `values.yml` file.
+To enable debug logging for the Gateway component, you can apply the same edits to the `gateway:` section of the `values.yml` file. The Gateway component supports the same two logback configuration modes via `gateway.logback.override` and `gateway.logback.content`. For more information, see [Helm chart properties](configuring-node-logging-for-gateway-and-management-api.md#helm-chart-properties).
 {% endtab %}
+{% endtabs %}
+</search>
 {% endtabs %}
 
 <details>
