@@ -77,6 +77,17 @@
 * Requires Enterprise Edition license with the `apim-native-policy-ip-filtering` feature.
 <!-- /PIPELINE:APIM-12999 -->
 
+
+<!-- PIPELINE:APIM-12170 -->
+#### **Subscription Form for Custom Metadata Collection**
+
+* API administrators can now configure a custom subscription form to collect metadata from developers during API subscription.
+* Forms are defined using Gravitee Markdown (GMD) syntax in the Management Console under Portal Settings → Subscription Form and apply to all APIs with secured plans within the environment.
+* Collected metadata is stored with each subscription and displayed in the Management Console for review.
+* The form appears in the Developer Portal only when enabled and when subscribing to plans with security types other than `KEY_LESS`.
+* Requires `environment-metadata-r` and `environment-metadata-u` permissions to view and manage subscription forms.
+<!-- /PIPELINE:APIM-12170 -->
+
 ## Improvements
 
 ## Bug Fixes
