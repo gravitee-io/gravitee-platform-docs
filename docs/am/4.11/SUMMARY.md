@@ -57,6 +57,9 @@
 * [Prologue](guides/prologue.md)
 * [Auth Protocols](guides/auth-protocols/README.md)
   * [OAuth 2.0](guides/auth-protocols/oauth-2.0/README.md)
+    * [Token Exchange Gateway Configuration](guides/auth-protocols/oauth-2.0/token-exchange-gateway-configuration-reference.md)
+    * [Managing Trusted Issuers](guides/token-exchange/managing-trusted-issuers.md)
+    * [Token Exchange API](guides/token-exchange/token-exchange-api-reference.md)
     * [Which Flow Should I Use?](guides/auth-protocols/oauth-2.0/which-flow-should-i-use.md)
     * [Proof Key for Code Exchange (PKCE)](guides/auth-protocols/oauth-2.0/proof-key-for-code-exchange-pkce.md)
     * [Best Practices](guides/auth-protocols/oauth-2.0/best-practices.md)
@@ -164,6 +167,7 @@
 * [Administration](guides/administration.md)
 * [AM Expression Language](guides/am-expression-language.md)
 * [Developer Contributions](guides/developer-contributions.md)
+  * [OAuth 2.0 Token Exchange Overview](guides/token-exchange/oauth-2.0-token-exchange-overview.md)
 
 ## Reference
 

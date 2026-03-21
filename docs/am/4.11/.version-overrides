@@ -10,3 +10,7 @@ guides/applications/agent-application-type.md
 guides/applications/create-agent-application.md
 guides/fetching_and_displaying_agentcard_metadata.md
 release-information/release-notes/am-4.11.md
+guides/auth-protocols/oauth-2.0/token-exchange-gateway-configuration-reference.md
+guides/token-exchange/managing-trusted-issuers.md
+guides/token-exchange/oauth-2.0-token-exchange-overview.md
+guides/token-exchange/token-exchange-api-reference.md
