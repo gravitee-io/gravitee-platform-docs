@@ -4,3 +4,8 @@ SUMMARY.md
 guides/manage-api-documentation-pages.md
 reference/logs-engine-api.md
 release-information/release-notes/gko-4.11.md
+creating-and-managing-client-certificates-via-management-api.md
+guides/client-certificate-api-reference-and-restrictions.md
+guides/gateway-configuration-for-pkcs7-certificate-support.md
+guides/pkcs7-certificate-bundles-for-mtls-concepts-and-architecture.md
+overview/custom-resource-definitions/managing-client-certificates-via-kubernetes-operator.md

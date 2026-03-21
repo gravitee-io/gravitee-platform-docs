@@ -11,6 +11,7 @@
   * [ApiDefinition](overview/custom-resource-definitions/apidefinition.md)
   * [ApiResource](overview/custom-resource-definitions/apiresource.md)
   * [Application](overview/custom-resource-definitions/application.md)
+  * [Managing Client Certificates via Kubernetes Operator](overview/custom-resource-definitions/managing-client-certificates-via-kubernetes-operator.md)
   * [Subscription](overview/custom-resource-definitions/subscription.md)
   * [Group](overview/custom-resource-definitions/group.md)
   * [SharedPolicyGroup](overview/custom-resource-definitions/sharedpolicygroup.md)
@@ -34,10 +35,14 @@
 
 ## GUIDES
 
+* [Client Certificate API  and Restrictions](guides/client-certificate-api-reference-and-restrictions.md)
+* [Gateway Configuration for PKCS7 Certificate Support](guides/gateway-configuration-for-pkcs7-certificate-support.md)
 * [Logs Explorer Console UI](../../apim/4.11/guides/logs-explorer-console-ui.md)
+* [Creating and Managing Client Certificates via Management API](creating-and-managing-client-certificates-via-management-api.md)
 * [Manage JWT subscriptions with GKO](guides/manage-jwt-subscriptions-with-gko.md)
 * [Define an APIM service account for GKO](guides/define-an-apim-service-account-for-gko.md)
 * [Deploy APIs to a Gateway](guides/deploy-apis-to-a-gateway.md)
+* [PKCS7 Certificate Bundles for mTLS: Concepts and Architecture](guides/pkcs7-certificate-bundles-for-mtls-concepts-and-architecture.md)
 * [Publish APIs to the Developer Portal](guides/publish-apis-to-the-portal.md)
 * [Manage API documentation pages](guides/manage-api-documentation-pages.md)
 * [Manage API and application groups and members](guides/manage-api-groups-and-members.md)
