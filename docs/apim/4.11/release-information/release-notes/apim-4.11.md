@@ -77,6 +77,16 @@
 * Requires Enterprise Edition license with the `apim-native-policy-ip-filtering` feature.
 <!-- /PIPELINE:APIM-12999 -->
 
+
+<!-- PIPELINE:APIM-12308 -->
+#### **Node-Aware Logging with MDC Enrichment**
+
+* Automatically injects request-scoped metadata (API ID, application ID, organization ID, environment ID) into log entries using Mapped Diagnostic Context (MDC).
+* Enforces centralized logging patterns across Gravitee components through compile-time architecture rules that require use of `NodeLoggerFactory` instead of direct SLF4J calls.
+* Configure MDC formatting and output patterns in `gravitee.yml` using `node.logging.mdc.*` properties, with runtime pattern override support to avoid logback.xml modifications.
+* Requires Gravitee Node 8.0.0-alpha.2 or later and Logback 1.4+.
+<!-- /PIPELINE:APIM-12308 -->
+
 ## Improvements
 
 ## Bug Fixes

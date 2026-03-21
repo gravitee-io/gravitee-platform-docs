@@ -445,3 +445,5 @@
     * [APIM 4.1.x](https://documentation.gravitee.io/apim/4.1/releases-and-changelog/changelogs/apim-4.1.x-changelog)
     * [APIM 4.0.x](https://documentation.gravitee.io/apim/4.0/releases-and-changelog/changelog/apim-4.0.x)
   * [Breaking Changes and Deprecations](release-information/breaking-changes-and-deprecations.md)
+* [Node-Aware Logger Integration for Developers](guides/node-aware-logger-integration-for-developers.md)
+* [Logging Architecture Rules Enforcement](contribute/build-tooling/logging-architecture-rules-enforcement.md)
