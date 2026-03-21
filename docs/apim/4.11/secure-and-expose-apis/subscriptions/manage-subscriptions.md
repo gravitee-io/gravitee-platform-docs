@@ -23,6 +23,8 @@ As of version 4.11.0, subscriptions use a reference model that supports both API
 
 When validating subscriptions, the gateway checks API Product subscriptions first before checking API-level plans. This allows organizations to manage access at the product level while maintaining backward compatibility with existing API subscriptions.
 
+Subscription responses may include an optional `metadata` field containing custom data collected from subscription forms. This field is a key-value object displayed as `{ [key: string]: string }`.
+
 <figure><img src="../../.gitbook/assets/1 app sub 1.png" alt=""><figcaption></figcaption></figure>
 
 Use the eye icon to view subscription details.
@@ -33,7 +35,7 @@ To filter subscriptions, use the **API** and **API Key** search fields and/or th
 
 <figure><img src="../../.gitbook/assets/1 app sub 2.png" alt=""><figcaption></figcaption></figure>
 
-To create a new subscription, click **+ Create a subscription** and search for the API you'd like to subscribe to. Refer to the [subscription](./) documentation for more information.
+To create a new subscription, click **+ Create a subscription** and search for the API you'd like to subscribe to. Refer to the [subscription](../subscribe-to-an-api/) documentation for more information.
 
 ## Subscription validation
 

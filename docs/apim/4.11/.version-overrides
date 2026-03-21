@@ -34,3 +34,7 @@ secure-and-expose-apis/subscriptions/manage-subscriptions.md
 create-and-configure-apis/configure-v4-apis/endpoints/jms.md
 create-and-configure-apis/apply-policies/policy-reference/ip-filtering.md
 create-and-configure-apis/apply-policies/policy-reference/native-ip-filtering.md
+developer-portal/portal-api-reference/portal-api-subscription-form-and-subscription-creation.md
+prepare-a-production-environment/repositories/jdbc.md
+secure-and-expose-apis/subscriptions/creating-and-managing-subscription-forms-in-management-console.md
+secure-and-expose-apis/subscriptions/subscription-form-feature-overview.md
