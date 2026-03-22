@@ -34,10 +34,13 @@
 
 ## GUIDES
 
+* [Client Certificate Management API](guides/client-certificate-management-api-reference.md)
 * [Logs Explorer Console UI](../../apim/4.11/guides/logs-explorer-console-ui.md)
 * [Manage JWT subscriptions with GKO](guides/manage-jwt-subscriptions-with-gko.md)
 * [Define an APIM service account for GKO](guides/define-an-apim-service-account-for-gko.md)
 * [Deploy APIs to a Gateway](guides/deploy-apis-to-a-gateway.md)
+* [Managing Application Client Certificates](guides/managing-application-client-certificates.md)
+* [Multi-Certificate mTLS Support Overview](guides/multi-certificate-mtls-support-overview.md)
 * [Publish APIs to the Developer Portal](guides/publish-apis-to-the-portal.md)
 * [Manage API documentation pages](guides/manage-api-documentation-pages.md)
 * [Manage API and application groups and members](guides/manage-api-groups-and-members.md)
@@ -49,6 +52,7 @@
 * [Templating](guides/templating.md)
 * [Configure the GKO HTTP client for APIM](guides/gko-http-client.md)
   * [Logs Engine Overview and Prerequisites](../../apim/4.11/guides/logs-engine-api/overview-and-prerequisites.md)
+  * [Multi-Certificate mTLS Prerequisites and Restrictions](../../apim/4.11/guides/security/multi-certificate-mtls-prerequisites-and-restrictions.md)
 
 ## REFERENCE
 
