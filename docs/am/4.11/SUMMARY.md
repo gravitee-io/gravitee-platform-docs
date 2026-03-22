@@ -54,6 +54,9 @@
 ## Guides
 
 * [Fetching and Displaying AgentCard Metadata](guides/fetching_and_displaying_agentcard_metadata.md)
+* [OAuth 2.0 Token Exchange Overview and Key Concepts](guides/oauth-2.0-token-exchange-overview-and-key-concepts.md)
+* [Configuring and Validating Trusted Issuers for External JWT Tokens](guides/auth-protocols/oauth-2.0/configuring-and-validating-trusted-issuers-for-external-jwt-tokens.md)
+* [Performing OAuth 2.0 Token Exchange](guides/performing-oauth-2.0-token-exchange-request-parameters-response-fields-and-restrictions.md)
 * [Prologue](guides/prologue.md)
 * [Auth Protocols](guides/auth-protocols/README.md)
   * [OAuth 2.0](guides/auth-protocols/oauth-2.0/README.md)
