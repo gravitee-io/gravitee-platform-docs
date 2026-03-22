@@ -77,6 +77,17 @@
 * Requires Enterprise Edition license with the `apim-native-policy-ip-filtering` feature.
 <!-- /PIPELINE:APIM-12999 -->
 
+
+<!-- PIPELINE:APIM-12170 -->
+#### **Subscription Forms with Custom Metadata Collection**
+
+* API administrators can now define custom subscription forms using Gravitee Markdown (GMD) syntax to collect structured metadata from API consumers during plan subscription.
+* Forms support five input types (text fields, text areas, dropdowns, checkboxes, and radio buttons) with validation rules including required fields, email format, URL format, and length constraints.
+* Metadata is stored as key-value pairs with each subscription and displayed in the Console UI as read-only JSON with syntax highlighting.
+* Forms are configured per environment in Console under Environment Settings > Subscription Form and can be toggled on/off to control visibility to API consumers.
+* Subscription forms are displayed only for plans with security types other than `KEY_LESS` and require environment-level metadata read/update permissions to configure.
+<!-- /PIPELINE:APIM-12170 -->
+
 ## Improvements
 
 ## Bug Fixes
