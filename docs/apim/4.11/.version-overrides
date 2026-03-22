@@ -49,3 +49,7 @@ create-and-configure-apis/development-tools/archunit-maven-plugin.md
 plugins/context-aware-logging.md
 create-and-configure-apis/apply-policies/policy-reference/kafka-governance-rules-policies.md
 kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/policies.md
+developer-portal/new-developer-portal/subscription-form-technical-implementation.md
+secure-and-expose-apis/subscriptions/README.md
+secure-and-expose-apis/subscriptions/creating-and-managing-subscription-forms.md
+secure-and-expose-apis/subscriptions/subscription-form-feature-overview.md
