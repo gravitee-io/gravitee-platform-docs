@@ -54,6 +54,10 @@
 ## Guides
 
 * [Fetching and Displaying AgentCard Metadata](guides/fetching_and_displaying_agentcard_metadata.md)
+* [OAuth 2.0 Token Exchange: Configuring Trusted Issuers](guides/oauth-2.0-token-exchange-configuring-trusted-issuers.md)
+* [OAuth 2.0 Token Exchange: End-User Request Guide](guides/oauth-2.0-token-exchange-end-user-request-guide.md)
+* [OAuth 2.0 Token Exchange: Overview and Key Concepts](guides/oauth-2.0-token-exchange-overview-and-key-concepts.md)
+* [OAuth 2.0 Token Exchange: UI and Integration Changes](guides/oauth-2.0-token-exchange-ui-and-integration-changes.md)
 * [Prologue](guides/prologue.md)
 * [Auth Protocols](guides/auth-protocols/README.md)
   * [OAuth 2.0](guides/auth-protocols/oauth-2.0/README.md)

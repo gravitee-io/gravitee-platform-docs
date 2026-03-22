@@ -25,6 +25,17 @@
 * AgentCard fetching enforces SSRF protection, 512 KB size limits, and 5-second timeouts to prevent security risks and resource exhaustion.
 <!-- /PIPELINE:AM-6322 -->
 
+
+<!-- PIPELINE:AM-6297 -->
+#### **OAuth 2.0 Token Exchange (RFC 8693)**
+
+* Enables clients to exchange security tokens for new access or ID tokens, supporting both impersonation (acting as the subject) and delegation (acting on behalf of the subject) workflows.
+* Supports external JWT issuers via trusted issuer configurations, allowing cross-domain token translation with configurable scope mappings and user binding criteria.
+* Provides two scope handling modes: `DOWNSCOPING` (default) prevents privilege escalation by capping granted scopes to the intersection of subject and actor token scopes, while `PERMISSIVE` mode allows clients to request any configured scope.
+* Enforces delegation depth limits (1-100, default 25) to prevent unbounded delegation chains, with full audit trail preserved in the `act` claim of resulting tokens.
+* Configured at the domain level with controls for allowed token types, impersonation/delegation permissions, and maximum delegation depth.
+<!-- /PIPELINE:AM-6297 -->
+
 ## Improvements
 
 ## Bug Fixes
