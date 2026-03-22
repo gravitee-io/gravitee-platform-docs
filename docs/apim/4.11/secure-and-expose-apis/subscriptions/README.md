@@ -19,6 +19,29 @@ Subscriptions can be associated with either an individual API or an API Product.
 
 When creating a subscription from an Application, the search returns results for both APIs and API Products. Select the desired resource, then choose an available published plan to subscribe to.
 
+### Subscription forms
+
+
+API publishers can [define custom subscription forms](creating-and-managing-subscription-forms.md) that API consumers must complete when subscribing to API plans.
+ Forms are authored in Gravitee Markdown (GMD) and collect structured metadata that is stored with each subscription. Each environment has one subscription form with an enabled flag. When enabled, the form is visible to API consumers in the Portal. When disabled, the form is hidden from Portal API responses but remains accessible via Management API.
+
+Subscription forms are stored in the `subscription_forms` table with columns `id`, `environment_id`, `gmd_content`, and `enabled`. One subscription form per environment is enforced by a unique constraint on `environment_id`.
+
+#### Portal API
+
+**GET `/subscription-form`**
+
+Retrieves the enabled subscription form for the current environment. Returns 404 if the form does not exist or is disabled.
+
+**Response:**
+```json
+{
+  "gmdContent": "string"
+}
+```
+
+**Authentication:** Required
+
 For more information about managing subscriptions:
 
 <table data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Subscription Requests</td><td><a href="subscription-requests.md">subscription-requests.md</a></td></tr><tr><td>Manage Subscriptions</td><td><a href="manage-subscriptions.md">manage-subscriptions.md</a></td></tr><tr><td>Transfer Subscriptions</td><td><a href="transfer-subscriptions.md">transfer-subscriptions.md</a></td></tr></tbody></table>

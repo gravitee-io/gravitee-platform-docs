@@ -116,6 +116,16 @@
 * Requires Enterprise Edition license with the `apim-native-kafka-policy-rules` feature and a Kafka-enabled API (v4 definition with Kafka entrypoint).
 <!-- /PIPELINE:APIM-12792 -->
 
+<!-- PIPELINE:APIM-12170 -->
+#### **Subscription Forms for API Plans**
+
+* API administrators can now define custom subscription forms that API consumers must complete when subscribing to API plans, replacing the legacy comment field from the Classic Portal.
+* Forms are authored using Gravitee Markdown (GMD) in the Management Console with a live preview editor, and submitted values are stored as structured metadata with each subscription.
+* Forms are scoped per environment and can be enabled or disabled to control visibility in the Developer Portal.
+* Requires `environment-metadata-r` permission to view forms and `environment-metadata-u` permission to create or update forms.
+* JDBC repository support is required for persistence (schema version 08).
+<!-- /PIPELINE:APIM-12170 -->
+
 ## Improvements
 
 
