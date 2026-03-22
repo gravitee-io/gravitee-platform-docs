@@ -49,11 +49,13 @@
 * [Templating](guides/templating.md)
 * [Configure the GKO HTTP client for APIM](guides/gko-http-client.md)
   * [Logs Engine Overview and Prerequisites](../../apim/4.11/guides/logs-engine-api/overview-and-prerequisites.md)
+  * [MCP Analytics Facets, Filters, and Gateway Configuration](../../apim/4.11/guides/analytics/mcp-analytics-facets-filters-and-gateway-configuration.md)
 
 ## REFERENCE
 
 * [API Reference](reference/api-reference.md)
   * [Logs Engine API](reference/logs-engine-api.md)
+  * [MCP Dashboard Template](reference/mcp-dashboard-template-reference.md)
 
 ## RELEASES & CHANGELOG
 
