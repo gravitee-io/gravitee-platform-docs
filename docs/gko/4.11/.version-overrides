@@ -4,3 +4,5 @@ SUMMARY.md
 guides/manage-api-documentation-pages.md
 reference/logs-engine-api.md
 release-information/release-notes/gko-4.11.md
+querying-mcp-analytics-and-using-the-mcp-dashboard-template.md
+reference/mcp-analytics-api-reference.md
