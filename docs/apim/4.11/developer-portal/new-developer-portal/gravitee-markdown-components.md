@@ -10,6 +10,7 @@ Here are available Gravitee Markdown components:
 * [#button](gravitee-markdown-components.md#button "mention")
 * [#card](gravitee-markdown-components.md#card "mention")
 * [#grid](gravitee-markdown-components.md#grid "mention")
+* [#form-components](gravitee-markdown-components.md#form-components "mention")
 
 ### Block
 
@@ -262,6 +263,16 @@ Here are some use case examples:
 </gmd-grid>
 ```
 {% endtab %}
+
+{% tab title="Grouping form fields" %}
+```markdown
+<gmd-card>
+  <gmd-card-title>Applicant Information</gmd-card-title>
+  <gmd-input name="company" label="Company Name" fieldKey="company_name" required="true"></gmd-input>
+  <gmd-input name="email" label="Email" fieldKey="email" required="true"></gmd-input>
+</gmd-card>
+```
+{% endtab %}
 {% endtabs %}
 
 ### Grid
@@ -317,4 +328,45 @@ Here are some use cases examples:
 </gmd-grid>
 ```
 {% endtab %}
+
+{% tab title="Grid with form fields" %}
+```markdown
+<gmd-grid columns="2">
+  <gmd-input name="firstName" label="First Name" fieldKey="first_name" required="true"></gmd-input>
+  <gmd-input name="lastName" label="Last Name" fieldKey="last_name" required="true"></gmd-input>
+</gmd-grid>
+```
+{% endtab %}
 {% endtabs %}
+
+### Form components
+
+GMD provides declarative form components embedded in markdown content. These components enable API administrators to build custom subscription forms that collect metadata from developers during API subscription.
+
+#### Available form components
+
+The following table lists all available GMD form components:
+
+| Component | Purpose | Key Attributes |
+|:----------|:--------|:---------------|
+| `<gmd-input>` | Single-line text input | `name`, `label`, `fieldKey`, `required`, `type`, `placeholder`, `minLength`, `maxLength` |
+| `<gmd-textarea>` | Multi-line text input | `name`, `label`, `fieldKey`, `required`, `minLength`, `maxLength`, `placeholder` |
+| `<gmd-select>` | Dropdown selection | `name`, `label`, `fieldKey`, `required`, `options` (comma-separated) |
+| `<gmd-radio>` | Radio button group | `name`, `label`, `fieldKey`, `required`, `options` (comma-separated) |
+| `<gmd-checkbox>` | Checkbox | `name`, `label`, `fieldKey`, `required` |
+
+#### Field Key Mapping
+
+Each input component uses a `fieldKey` attribute to map user input to subscription metadata keys. Form field values are collected and stored as key-value pairs.
+
+Example:
+
+```html
+<gmd-input name="email" label="Email" fieldKey="user_email" required="true"></gmd-input>
+```
+
+Results in metadata:
+
+```json
+{ "user_email": "user@example.com" }
+```
