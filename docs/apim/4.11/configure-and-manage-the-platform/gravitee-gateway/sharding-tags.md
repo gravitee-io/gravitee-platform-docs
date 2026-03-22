@@ -9,11 +9,12 @@ metaLinks:
 
 ## Overview
 
-Sharding tags allow you to “tag” Gateways with a keyword and deploy specific APIs to a specific Gateway with a certain tag. You can apply _sharding tags_ on APIM Gateway instances either at the system property level, with Helm `values.yaml` or with `gravitee.yml`.
+Sharding tags allow you to "tag" Gateways with a keyword and deploy specific APIs to a specific Gateway with a certain tag. You can apply _sharding tags_ on APIM Gateway instances either at the system property level, with Helm `values.yaml` or with `gravitee.yml`.
 
 Gateways can be tagged with one or more sharding tags. Additionally, the `!` symbol can be placed before the tag name to specify exclusion rules.
 
 To learn more about how to deploy APIs to specific Gateways based on sharding tags, refer to [Configure Deployments](../../create-and-configure-apis/configure-v2-apis/proxy-settings.md).
+
 
 ## Tagged Gateway/API behavior
 
@@ -87,7 +88,7 @@ To configure sharding tags, complete the following steps:
 5. Click **Ok**. The sharding tag now appears in the list of **Sharding Tags**.
 
 {% hint style="info" %}
-Take note of the generated 'id', as this may differ from your 'name' (due to the use of underscores or hyphens).
+Take note of the generated 'id' and 'key', as these may differ from your 'name' (due to the use of underscores or hyphens). The 'key' is used for API path references and lookups.
 {% endhint %}
 
 ### Add sharding tags to your APIs
@@ -123,8 +124,8 @@ In your `values.yaml` file, add the following configuration:
 
 {% code title="values.yaml" lineNumbers="true" %}
 ```yaml
-# Sharding tags configuration
-# Allows to define inclusion/exclusion sharding tags to only deploy a part of APIs. To exclude just prefix the tag with '!'.
+
+
 gateway:
   sharding_tags: <tag1>, <tag2>, !<tag3>
 ```
@@ -139,8 +140,8 @@ In your `gravitee.yml` file, add the following configuration:
 
 {% code title="gravitee.yml" lineNumbers="true" %}
 ```yaml
-# Sharding tags configuration
-# Allows to define inclusion/exclusion sharding tags to only deploy a part of APIs. To exclude just prefix the tag with '!'.
+
+
 #tags: <tag1>, <tag2>, !<tag3>
 ```
 {% endcode %}
@@ -168,8 +169,8 @@ In your `docker-compose.yml` file, add the following _environment variable_ conf
 
 {% code title="docker-compose.yml" lineNumbers="true" %}
 ```yaml
-# Sharding tags configuration
-# Allows to define inclusion/exclusion sharding tags to only deploy a part of APIs. To exclude just prefix the tag with '!'.
+
+
 gateway:
   environment:
     - gravitee_tags=<tag1>, <tag2>, !<tag3>
@@ -185,7 +186,7 @@ gateway:
 
 You can also map different entrypoint URLs to specific sharding tags (for auto-generating the display of full URLS in the Developer Portal. The Portal displays available entrypoints based on an API's tag(s).
 
-For example, to configure Gravitee API Manager to apply the “internal test” tag to all APIs tagged with this entrypoint:
+For example, to configure Gravitee API Manager to apply the "internal test" tag to all APIs tagged with this entrypoint:
 
 1.  In the **Dashboard**, click **Organization**.
 
@@ -230,7 +231,3 @@ For example, to configure Gravitee API Manager to apply the “internal test” 
 {% endtabs %}
 
 Your entrypoint mapping is displayed in **Entrypoint Mappings**.
-
-{% hint style="success" %}
-You've just learned how to configure sharding tags for your Gravitee API Gateways. To apply sharding tags to APIs to control where those APIs are deployed, refer to [this documentation](../../create-and-configure-apis/configure-v2-apis/proxy-settings.md).
-{% endhint %}
