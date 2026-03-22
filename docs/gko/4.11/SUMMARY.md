@@ -49,11 +49,14 @@
 * [Templating](guides/templating.md)
 * [Configure the GKO HTTP client for APIM](guides/gko-http-client.md)
   * [Logs Engine Overview and Prerequisites](../../apim/4.11/guides/logs-engine-api/overview-and-prerequisites.md)
+  * [Deploying the MCP Dashboard Template](../../apim/4.11/guides/dashboards/deploying-the-mcp-dashboard-template.md)
 
 ## REFERENCE
 
 * [API Reference](reference/api-reference.md)
   * [Logs Engine API](reference/logs-engine-api.md)
+  * [MCP Analytics Facets, Filters, and Widget Types](../../apim/4.11/reference/analytics/mcp-analytics-facets-filters-and-widget-types-reference.md)
+    * [Constructing MCP Analytics Queries](../../apim/4.11/guides/analytics/constructing-mcp-analytics-queries.md)
 
 ## RELEASES & CHANGELOG
 
@@ -84,3 +87,4 @@
   * [Announcements & Events](https://community.gravitee.io/c/announcements/5)
     
     
+* [MCP Dashboard Template Structure](OUT_OF_SCOPE_APIM_CONTENT/mcp-dashboard-template-structure.md)
