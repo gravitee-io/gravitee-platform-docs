@@ -54,9 +54,11 @@
 ## Guides
 
 * [Fetching and Displaying AgentCard Metadata](guides/fetching_and_displaying_agentcard_metadata.md)
+* [OAuth 2.0 Token Exchange - API](guides/oauth-2.0-token-exchange-api-reference.md)
 * [Prologue](guides/prologue.md)
 * [Auth Protocols](guides/auth-protocols/README.md)
   * [OAuth 2.0](guides/auth-protocols/oauth-2.0/README.md)
+    * [OAuth 2.0 Token Exchange - Administrator Guide](guides/auth-protocols/oauth-2.0/oauth-2.0-token-exchange-administrator-guide.md)
     * [Which Flow Should I Use?](guides/auth-protocols/oauth-2.0/which-flow-should-i-use.md)
     * [Proof Key for Code Exchange (PKCE)](guides/auth-protocols/oauth-2.0/proof-key-for-code-exchange-pkce.md)
     * [Best Practices](guides/auth-protocols/oauth-2.0/best-practices.md)

@@ -10,3 +10,5 @@ guides/applications/agent-application-type.md
 guides/applications/create-agent-application.md
 guides/fetching_and_displaying_agentcard_metadata.md
 release-information/release-notes/am-4.11.md
+guides/auth-protocols/oauth-2.0/oauth-2.0-token-exchange-administrator-guide.md
+guides/oauth-2.0-token-exchange-api-reference.md
