@@ -96,12 +96,31 @@ To enable debug logging for the Gateway component, you can apply the same edits 
 api:
   enabled: true
   name: api
+  logback:
+    override: false
+    content: |
+      # Complete logback.xml content (JSON-formatted)
+  node:
+    logging:
+      mdc:
+        format: "{key}: {value}"
+        separator: " "
+        nullValue: "-"
+        include:
+          - nodeId
+          - envId
+          - apiId
+          - appId
+      pattern:
+        overrideLogbackXml: false
+        console: "%d{HH:mm:ss} %-5level %logger{36} [%mdcList] - %msg%n"
+        file: "%d %-5p [%t] %c [%mdcList] : %m%n"
   logging:
-    debug: true
+    debug: true  # DEPRECATED: Use logback.override and node.logging.* instead
     contextualLoggingEnabled: false
     stdout:
       json: false
-      encoderPattern: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+      encoderPattern: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"  # DEPRECATED
       contextualLoggingEncoderPattern: "%d{HH:mm:ss.SSS} [%thread] [%X{orgId} %X{envId}] %-5level %logger{36} - %msg%n"
     file:
       enabled: false
@@ -114,13 +133,42 @@ api:
         </rollingPolicy>
       encoderPattern: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n%n"
       contextualLoggingEncoderPattern: "%d{HH:mm:ss.SSS} [%thread] [%X{orgId} %X{envId}] %-5level %logger{36} - %msg%n%n"
-    graviteeLevel: DEBUG
+    graviteeLevel: DEBUG  # DEPRECATED: Use logback.override and node.logging.* instead
     jettyLevel: INFO
 ```
 {% endcode %}
 
-To enable debug logging for the Gateway component, you can apply the same edits to the `gateway:` section of the `values.yml` file.
+To enable debug logging for the Gateway component, you can apply the same edits to the `gateway:` section of the `values.yml` file. Gateway-specific values include:
+
+{% code title="values.yml" %}
+```yaml
+gateway:
+  logback:
+    override: false
+    content: |
+      # Complete logback.xml content (JSON-formatted)
+  node:
+    logging:
+      mdc:
+        format: "{key}: {value}"
+        separator: " "
+        nullValue: "-"
+        include:
+          - nodeId
+          - apiId
+      pattern:
+        overrideLogbackXml: false
+        console: "%d{HH:mm:ss} %-5level %logger{36} [%mdcList] - %msg%n"
+        file: "%d %-5p [%t] %c [%mdcList] : %m%n"
+  logging:
+    stdout:
+      encoderPattern: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"  # DEPRECATED
+```
+{% endcode %}
+
+The `api.logging.debug`, `api.logging.graviteeLevel`, and `gateway.logging.stdout.encoderPattern` properties are deprecated. Use `logback.override` and `node.logging.*` values instead.
 {% endtab %}
+</search>
 {% endtabs %}
 
 <details>

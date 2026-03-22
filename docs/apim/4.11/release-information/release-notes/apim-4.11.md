@@ -79,4 +79,14 @@
 
 ## Improvements
 
+
+<!-- PIPELINE:APIM-12308 -->
+#### **Enhanced Node Logging with Execution Context Enrichment**
+
+* Gateway and REST API logs now automatically include contextual metadata (node ID, API ID, environment, user) using SLF4J's Mapped Diagnostic Context (MDC), improving observability and troubleshooting.
+* Administrators can configure which MDC keys appear in logs via `node.logging.mdc.include` in `gravitee.yml` and override log patterns at runtime without modifying `logback.xml` by setting `node.logging.pattern.overrideLogbackXml=true`.
+* Plugin developers must use `NodeLoggerFactory` instead of SLF4J's `LoggerFactory` and call `ExecutionContext.withLogger(log)` in request handlers to enable context-aware logging.
+* The `gravitee-archrules-maven-plugin` enforces logging standards through ArchUnit rules that validate proper usage of `NodeLoggerFactory` and execution context loggers during builds.
+<!-- /PIPELINE:APIM-12308 -->
+
 ## Bug Fixes
