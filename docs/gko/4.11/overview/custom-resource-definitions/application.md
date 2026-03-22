@@ -101,6 +101,7 @@ The `Application` resource has a `Processing Status` field used to view the stat
 | Reconciling | The operator has encountered a recoverable error. A retry will be performed every 5 seconds until the cluster retry limit is reached.    |
 | Failed      | The operator has encountered an unrecoverable error. These are errors that require manual action to correct. No retry will be performed. |
 
+
 Events are added to the resource as part of each action performed by the operator. To view these events, ensure that the CRD creation steps described above are completed, then run the following command:
 
 ```sh
@@ -121,9 +122,6 @@ Events:
   Normal  Created         72s   application-controller  Created Application
 ```
 
-{% hint style="info" %}
-**For more information:**
-
-* The `Application` CRD code is available on [GitHub](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/api/v1alpha1/application_types.go).
-* The `Application` CRD API reference is documented [here](../../reference/api-reference.md).
-{% endhint %}
+For detailed information on configuring client certificates for mTLS authentication, see:
+- [mTLS Client Certificate Management Overview](../../guides/mtls-client-certificate-management-overview.md)
+- [Managing Client Certificates and mTLS Subscriptions](../../guides/managing-client-certificates-and-mtls-subscriptions.md)

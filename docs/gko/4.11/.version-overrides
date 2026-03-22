@@ -4,3 +4,8 @@ SUMMARY.md
 guides/manage-api-documentation-pages.md
 reference/logs-engine-api.md
 release-information/release-notes/gko-4.11.md
+guides/managing-client-certificates-and-mtls-subscriptions.md
+guides/mtls-client-certificate-configuration-reference.md
+guides/mtls-client-certificate-management-overview.md
+guides/mtls-client-certificate-restrictions-and-migration-notes.md
+overview/custom-resource-definitions/application.md
