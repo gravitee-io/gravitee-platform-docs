@@ -14,7 +14,7 @@ From a configuration perspective, a subscription is a successful contract betwee
 {% hint style="info" %}
 **Keyless plan subscriptions**
 
-APIs with Keyless plans do not require the API consumer to create an application or submit a subscription request because no authorization is required to access the backend API.
+APIs with Keyless plans do not require the API consumer to create an application or submit a subscription request because no authorization is required to access the backend API. Subscription forms do not render for `KEY_LESS` plan subscriptions.
 {% endhint %}
 
 ## Configure subscriptions
@@ -38,3 +38,17 @@ To subscribe to an API via the APIM Console:
 
     <figure><img src="../../.gitbook/assets/subscription_create.png" alt=""><figcaption><p>Select the subscription plan</p></figcaption></figure>
 7. Click **Create** to see the subscription details
+
+## Restrictions
+
+* **One subscription form per environment** — Enforced by unique constraint on `environment_id`.
+* **GMD content must not be null, empty, or whitespace-only** — Throws `GraviteeMarkdownContentEmptyException`.
+* **Portal API returns 404 for disabled forms** — Management API returns forms regardless of state.
+* **Save button disabled when:**
+  * Content is empty
+  * Content is unchanged
+  * Configuration errors exist
+* **Enable/disable toggle disabled when:**
+  * User lacks `environment-metadata-u` permission
+  * Configuration errors exist
+* **Classic Portal comment field remains available** — New Portal uses subscription form exclusively. Plan edit UI notes "Classic Portal only" for comment requirement.
