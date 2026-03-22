@@ -122,6 +122,7 @@
     * [Configuring Portal and Console deployments](configure-and-manage-the-platform/manage-organizations-and-environments/configuring-portal-and-console-deployments.md)
     * [Support](configure-and-manage-the-platform/manage-organizations-and-environments/support.md)
   * [Debug Logging](configure-and-manage-the-platform/debug-logging.md)
+  * [Node Logging & Architecture Enforcement](configure-and-manage-the-platform/node-logging-architecture-enforcement.md)
 * [Create & Configure APIs](create-and-configure-apis/README.md)
   * [Gravitee API Definitions](create-and-configure-apis/gravitee-api-definitions/README.md)
     * [Entrypoint Connect phase overview](create-and-configure-apis/gravitee-api-definitions/native-api-phases.md)

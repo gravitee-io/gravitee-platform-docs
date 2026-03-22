@@ -77,6 +77,17 @@
 * Requires Enterprise Edition license with the `apim-native-policy-ip-filtering` feature.
 <!-- /PIPELINE:APIM-12999 -->
 
+
+<!-- PIPELINE:APIM-12308 -->
+#### **Context-Aware Logging with MDC Enrichment**
+
+* Gravitee now automatically enriches log entries with request metadata (API ID, environment, organization, plan, application, user) using Mapped Diagnostic Context (MDC), enabling easier troubleshooting and audit trails across distributed Gateway and Management API deployments.
+* Use `NodeLoggerFactory.getLogger(Class)` instead of standard SLF4J loggers, and call `ctx.withLogger(log)` in request handlers to inject execution context into log statements. The lazy logger pattern defers context resolution until log level is enabled, minimizing performance overhead.
+* Configure which MDC keys appear in logs via `node.logging.mdc.include` in `gravitee.yml`, and customize formatting with `mdc.format`, `mdc.separator`, and `mdc.nullValue` properties. The `%mdcList` conversion word renders selected MDC entries in Logback patterns.
+* A new Maven plugin (`gravitee-archrules-maven-plugin`) enforces consistent logging patterns at compile time, prohibiting direct use of `org.slf4j.LoggerFactory` and requiring `ctx.withLogger(log)` calls in methods with `ExecutionContext` parameters.
+* Requires Gravitee Node 8.0.0-alpha.2+, Gateway API 5.0.0-alpha.6+, and Gravitee Parent 24.0.0-alpha.1+ for full functionality.
+<!-- /PIPELINE:APIM-12308 -->
+
 ## Improvements
 
 ## Bug Fixes
