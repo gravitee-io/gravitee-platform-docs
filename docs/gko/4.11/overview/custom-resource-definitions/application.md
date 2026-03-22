@@ -9,6 +9,16 @@ Gravitee applications fall into two main categories:
 * **Simple applications:** These are self-contained and entirely managed within Gravitee
 * **Web, SPA, Native, and Backend-to-backend applications:** Also know as OAuth applications, or OAuth clients, these can only be created if you have activated Dynamic Client Registration (DCR) in APIM. Using DCR, Gravitee will refer to an external identity provider (such as Gravitee Access Management, Keycloak, or Ping Federate) to request creation of the application. Gravitee will receive the application's client ID and client secret in response. This allows you to set up OAuth and JWT authentication patterns that involve coordination across the application, Gateway, and authorization server.
 
+### UI Display Behavior
+
+When an application has multiple certificates (`certificate_count > 1`), the UI displays a warning banner:
+
+{% hint style="warning" %}
+This application has {count} active certificates. The one displayed is the most recently created.
+{% endhint %}
+
+Only the most recently created certificate is shown in the UI when multiple certificates exist.
+
 ## Simple applications
 
 The example below shows a simple `Application` custom resource definition:
@@ -127,3 +137,23 @@ Events:
 * The `Application` CRD code is available on [GitHub](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/api/v1alpha1/application_types.go).
 * The `Application` CRD API reference is documented [here](../../reference/api-reference.md).
 {% endhint %}
+
+### Overview
+
+Client certificates transition through four statuses based on validity windows and manual actions. During the TLS handshake, the gateway computes a SHA-256 fingerprint of the client certificate and uses this fingerprint to look up the associated subscription.
+
+### Certificate Creation Workflow
+
+For certificate creation instructions, see [mTLS Client Certificate Validation and Cache Behavior](../../guides/mtls-client-certificate-validation-and-cache-behavior.md#creating-client-certificates).
+
+### Fingerprint Uniqueness
+
+Certificate fingerprints must be unique across all active applications (status != REVOKED) within an environment.
+
+The `existsByFingerprintAndActiveApplication()` repository method returns `true` if a fingerprint already exists for an active application.
+
+{% hint style="info" %}
+Only applications with a status other than REVOKED are checked for fingerprint uniqueness.
+{% endhint %}
+
+
