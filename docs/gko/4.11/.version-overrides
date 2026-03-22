@@ -4,3 +4,8 @@ SUMMARY.md
 guides/manage-api-documentation-pages.md
 reference/logs-engine-api.md
 release-information/release-notes/gko-4.11.md
+guides/multi-certificate-mtls-overview-and-concepts.md
+overview/custom-resource-definitions/application.md
+overview/custom-resource-definitions/managing-multi-certificate-mtls-in-kubernetes.md
+overview/custom-resource-definitions/subscription.md
+reference/multi-certificate-mtls-gateway-behavior.md

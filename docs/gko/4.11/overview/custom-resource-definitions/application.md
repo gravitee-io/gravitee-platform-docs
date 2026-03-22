@@ -121,6 +121,7 @@ Events:
   Normal  Created         72s   application-controller  Created Application
 ```
 
+
 {% hint style="info" %}
 **For more information:**
 
