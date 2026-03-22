@@ -77,6 +77,17 @@
 * Requires Enterprise Edition license with the `apim-native-policy-ip-filtering` feature.
 <!-- /PIPELINE:APIM-12999 -->
 
+
+<!-- PIPELINE:APIM-12308 -->
+#### **Context-Aware Node Logging Infrastructure**
+
+* Introduces centralized logging that automatically enriches log entries with node metadata (node ID, hostname, application name) and execution context attributes (API ID, environment ID, organization ID, plan ID, user).
+* Developers use `@CustomLog` annotation to inject loggers that leverage `NodeLoggerFactory` instead of direct SLF4J calls, ensuring consistent MDC enrichment across Gateway and Management API components.
+* Supports runtime MDC pattern overrides via `gravitee.yml` properties (`node.logging.mdc.format`, `node.logging.mdc.separator`, `node.logging.mdc.nullValue`) without modifying `logback.xml`.
+* Enforces architecture rules at build time using Maven ArchUnit plugin to prevent direct `LoggerFactory` usage and ensure execution context logging compliance.
+* Requires `gravitee-node` 8.0.0-alpha.2 or later, `gravitee-gateway-api` 5.0.0 or later, and Lombok 1.18.x for annotation support.
+<!-- /PIPELINE:APIM-12308 -->
+
 ## Improvements
 
 ## Bug Fixes

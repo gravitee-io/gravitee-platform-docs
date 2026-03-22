@@ -19,7 +19,9 @@ Gravitee supports standard Java logging for each Gravitee component and debug lo
 com.graviteesource.secretprovider.microsoft.keyvault.client.MicrosoftKeyVaultClientImpl
 ```
 
-You can enable debug logging using the internal `logback.xml` file or the [Gravitee Helm chart](https://github.com/gravitee-io/gravitee-api-management/blob/master/helm/values.yaml) `values.yml` file. After you had made your changes, you must start the specific Gravitee components. Or, you can temporarily enable debug logging using the [#internal-api](debug-logging.md#internal-api "mention") without restarting the component or container. When you restart the component or container, the runtime configuration is lost and debug logging is disabled. You can enable component-based debug logging and java-class debug logging.
+
+You can enable debug logging using the internal `logback.xml` file or the [Gravitee Helm chart](https://github.com/gravitee-io/gravitee-api-management/blob/master/helm/values.yaml) `values.yml` file. After you have made your changes, you must start the specific Gravitee components. Or, you can temporarily enable debug logging using the [Internal API](#internal-api) without restarting the component or container.
+ When you restart the component or container, the runtime configuration is lost and debug logging is disabled. You can enable component-based debug logging and Java-class debug logging.
 
 Component-based debug logging means that you enable debug logging for the following individual Gravitee components that make up the APIM platform:
 
@@ -32,6 +34,16 @@ Java-class debug logging means the individual Java classes and packages that are
 * org.springframework
 * com.graviteesource.policy.kafka.acl.KafkaAclPolicy
 * com.graviteesource.secretprovider.microsoft.keyvault.client.MicrosoftKeyVaultClientImpl
+
+## Prerequisites
+
+Before you enable debug logging, ensure the following requirements are met:
+
+* Gravitee Gateway or Management API 4.x or later
+* `gravitee-node` 8.0.0-alpha.2 or later
+* `gravitee-gateway-api` 5.0.0 or later (for execution context logging)
+* `gravitee-parent` 24.0.0 or later (for ArchUnit plugin)
+* Lombok 1.18.x or later (for `@CustomLog` annotation)
 
 ## Enable component-based debug logging
 
@@ -86,6 +98,7 @@ To enable debug logging for a specific Gravitee component, you can use the follo
 {% endcode %}
 
 To enable debug logging for the Gateway component, you can apply the same edits to the `/opt/graviteeio-gateway/config/logback.xml` file.
+
 {% endtab %}
 
 {% tab title="Helm chart values.yml" %}
@@ -120,6 +133,15 @@ api:
 {% endcode %}
 
 To enable debug logging for the Gateway component, you can apply the same edits to the `gateway:` section of the `values.yml` file.
+
+Use `logback.override` and `logback.content` to replace the entire `logback.xml` file, or configure `node.logging.*` properties to override patterns only. Deprecated parameters (`api.logging.debug`, `gateway.logging.graviteeLevel`, etc.) are replaced by:
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `api.logback.override` | Boolean | `false` | Use complete custom logback.xml |
+| `api.logback.content` | String | JSON-formatted logback config | Complete logback.xml content |
+| `gateway.logback.override` | Boolean | `false` | Use complete custom logback.xml |
+| `gateway.logback.content` | String | JSON-formatted logback config with async appenders | Complete logback.xml content |
 {% endtab %}
 {% endtabs %}
 
@@ -142,6 +164,22 @@ To enable debug logging for the Gateway component, you can apply the same edits 
 ```
 
 </details>
+
+## Gateway configuration
+
+### Node logging properties
+
+Configure MDC formatting and pattern overrides in `gravitee.yml`:
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `node.logging.mdc.format` | String | `"{key}: {value}"` | MDC key-value format pattern |
+| `node.logging.mdc.separator` | String | `" "` (space) | Separator between MDC entries |
+| `node.logging.mdc.nullValue` | String | `"-"` | Value displayed when MDC entry is null |
+| `node.logging.mdc.include` | List<String> | `["nodeId", "apiId"]` (Gateway)<br>`["nodeId", "envId", "apiId", "appId"]` (Rest API) | MDC keys to include in log output |
+| `node.logging.pattern.overrideLogbackXml` | Boolean | `true` | Whether to override logback.xml patterns at runtime |
+| `node.logging.pattern.console` | String | `"%d{HH:mm:ss.SSS} %-5level %logger{36} [%mdcList] - %msg%n"` | Console log pattern when override is enabled |
+| `node.logging.pattern.file` | String | `"%d{HH:mm:ss.SSS} %-5level %logger{36} [%mdcList] - %msg%n"` | File log pattern when override is enabled |
 
 ## Java class debug logging
 
@@ -238,7 +276,7 @@ To also enable debug logging for this specific Java class of the Management API 
 ## Internal API
 
 {% hint style="info" %}
-Before you can use the Internal API to enable debug logging, you must [enable the Internal API](management-api/mapi-internal-api.md) .
+Before you can use the Internal API to enable debug logging, you must [enable the Internal API](management-api/mapi-internal-api.md).
 {% endhint %}
 
 The [Internal API](../prepare-a-production-environment/production-best-practices/internal-apis.md) can be used to dynamically enable debug logging without restarting the component or container. When the component or container is restarted, the runtime configuration is lost and therefore debug logging is disabled.
