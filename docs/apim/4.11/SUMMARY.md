@@ -2,6 +2,7 @@
 
 * [Introduction](README.md)
   * [Core Concepts](readme/core-concepts.md)
+    * [Implementing Context-Aware Logging and Build Validation](readme/implementing-context-aware-logging-and-build-validation.md)
   * [Enterprise Edition](readme/enterprise-edition.md)
   * [Integrations](readme/integrations.md)
   * [Community Forum](readme/community-forum.md)
@@ -122,6 +123,8 @@
     * [Configuring Portal and Console deployments](configure-and-manage-the-platform/manage-organizations-and-environments/configuring-portal-and-console-deployments.md)
     * [Support](configure-and-manage-the-platform/manage-organizations-and-environments/support.md)
   * [Debug Logging](configure-and-manage-the-platform/debug-logging.md)
+  * [Node Logging and ArchUnit Infrastructure Overview](configure-and-manage-the-platform/node-logging-and-archunit-infrastructure-overview.md)
+  * [Node Logging Configuration](configure-and-manage-the-platform/node-logging-configuration-reference.md)
 * [Create & Configure APIs](create-and-configure-apis/README.md)
   * [Gravitee API Definitions](create-and-configure-apis/gravitee-api-definitions/README.md)
     * [Entrypoint Connect phase overview](create-and-configure-apis/gravitee-api-definitions/native-api-phases.md)

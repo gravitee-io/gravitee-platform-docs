@@ -77,6 +77,16 @@
 * Requires Enterprise Edition license with the `apim-native-policy-ip-filtering` feature.
 <!-- /PIPELINE:APIM-12999 -->
 
+
+<!-- PIPELINE:APIM-12308 -->
+#### **Context-Aware Logging and Architecture Validation**
+
+* Enables automatic injection of execution context metadata (node ID, API ID, environment ID, organization ID, application ID, plan ID) into Gateway and Management API log entries via MDC enrichment.
+* Provides build-time architecture validation using ArchUnit rules to enforce logging best practices, preventing direct use of `org.slf4j.LoggerFactory` and detecting reactive methods that log without MDC enrichment.
+* Supports runtime Logback pattern override through `node.logging.pattern.overrideLogbackXml` configuration, allowing centralized control of log formats without modifying XML files.
+* Requires Logback 1.4+ and `gravitee-node` 8.0.0-alpha.15 or later; MDC keys were shortened in Gateway API 5.0.0 (`environment` → `envId`, `organization` → `orgId`, `application` → `appId`, `plan` → `planId`).
+<!-- /PIPELINE:APIM-12308 -->
+
 ## Improvements
 
 ## Bug Fixes
