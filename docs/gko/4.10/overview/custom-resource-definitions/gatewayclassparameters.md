@@ -71,11 +71,12 @@ You can find details about these configurations options in our [documentation](h
 
 #### Gravitee YAML
 
-An optional yaml field allows you to provide custom gateway configuration, giving you control over additional configuration blocks available in the gateway [settings](https://documentation.gravitee.io/apim/configure-apim/apim-components/gravitee-gateway).
+An optional YAML field allows you to provide custom gateway configuration, giving you control over additional configuration blocks available in the gateway [settings](https://documentation.gravitee.io/apim/configure-apim/apim-components/gravitee-gateway).
 
-However, this does not allow you to configure:
+However, this doesn't allow you to configure:
 
 * Listeners, as they are automatically built from your Gateway specification.
+* Servers or sharding tags, as they are configured automatically based on the Gateway specification.
 * Disabling Kubernetes sync, since it is required for your routes to be deployed to the Gateway.
 * Connecting your Gateway to a management repository, because Gateway API gateways are designed to sync their configuration directly from your Kubernetes cluster.
 
