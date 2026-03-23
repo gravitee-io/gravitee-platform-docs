@@ -77,6 +77,16 @@
 * Requires Enterprise Edition license with the `apim-native-policy-ip-filtering` feature.
 <!-- /PIPELINE:APIM-12999 -->
 
+
+<!-- PIPELINE:APIM-12501 -->
+#### **Portal Dashboard Subscriptions Management**
+
+* Developers can now view and manage all API subscriptions across applications from a centralized dashboard interface.
+* The subscriptions table supports filtering by API, application, and status (with multi-select), and displays key metadata including plan details, creation dates, and current status.
+* Users can close active or suspended subscriptions directly from the dashboard with a confirmation dialog, immediately revoking API access.
+* The dashboard enforces authentication via route guards and displays contextual empty states when no subscriptions exist or filters return no results.
+<!-- /PIPELINE:APIM-12501 -->
+
 ## Improvements
 
 ## Bug Fixes

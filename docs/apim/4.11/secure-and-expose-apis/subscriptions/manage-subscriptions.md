@@ -17,6 +17,10 @@ Select the application you're looking for, and then select **Subscriptions** fro
 
 From the **Subscriptions** header of this page, you can view, filter, and delete subscriptions. Subscriptions are tagged by security type, the plan and API or API Product they belong to, the times at which they were created, processed, started, and ended, and their status.
 
+{% hint style="info" %}
+For detailed API specifications, see [Portal Dashboard Subscriptions API Reference](portal-dashboard-subscriptions-api-reference.md)
+{% endhint %}
+
 ### Subscription reference model
 
 As of version 4.11.0, subscriptions use a reference model that supports both API and API Product subscriptions. Each subscription includes a `referenceType` field (`API` or `API_PRODUCT`) and a `referenceId` pointing to the parent resource. The legacy `api` field is deprecated as of version 4.11.0 and shouldn't be used for new subscriptions.

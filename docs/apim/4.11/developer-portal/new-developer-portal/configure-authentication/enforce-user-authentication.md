@@ -76,3 +76,12 @@ To enforce user authentication, complete the following steps:&#x20;
 *   Log out of your New Developer Portal, and then try to access a page on your New Developer Portal. You are redirected to the login screen. <br>
 
     <figure><img src="../../../.gitbook/assets/image (132).png" alt=""><figcaption></figcaption></figure>
+
+## Authenticated Routes
+
+The following routes enforce authentication via route guards (`redirectGuard`, `authGuard`):
+
+* Portal Dashboard (including all child routes)
+  * Subscriptions tab
+
+When force authentication is enabled, unauthenticated users attempting to access these routes are redirected to the login screen.
