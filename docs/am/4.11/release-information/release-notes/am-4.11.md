@@ -16,6 +16,14 @@
 * Generates `USER_MAGIC_LINK_LOGIN` audit events for successful authentications and supports analytics filtering via the `magic_link` field type.
 * Token expiration time is configurable via `user.magic.link.login.time.value` and `user.magic.link.login.time.unit` gateway properties (defaults to 15 minutes).
 <!-- /PIPELINE:AM-6338 -->
+<!-- PIPELINE:AM-6339 -->
+#### **Domain-Level Certificate Fallback**
+
+* Administrators can configure a fallback certificate at the domain-level to prevent authentication failures when a certificate that is explicitly configured for an application cannot be used.
+* When an application's certificate fails to load (e.g., external provider unavailable), the system automatically uses the domain's fallback certificate to sign OAuth and ID tokens.
+* Fallback certificates are configured using the Management API (`/domains/{domain}/certificate-settings`) and require `DOMAIN_SETTINGS[UPDATE]` permission.
+* Certificates configured as domain fallback cannot be deleted until removed from the fallback configuration.
+<!-- /PIPELINE:AM-6339 -->
 <!-- PIPELINE:AM-6321 -->
 #### **Protected Resource OAuth 2.0 Client Management**
 

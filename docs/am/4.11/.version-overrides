@@ -1,5 +1,7 @@
 SUMMARY.md
 guides/login/magic-link-authentication.md
+guides/certificates/README.md
+guides/certificates/configure-domain-certificate-fallback.md
 guides/mcp-servers/manage-protected-resources.md
 guides/mcp-servers/protected-resource-constraints.md
 guides/protected-resources/README.md

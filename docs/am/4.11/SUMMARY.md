@@ -137,6 +137,7 @@
 * [Certificates](guides/certificates/README.md)
   * [AWS Certificate plugin](guides/certificates/aws-certificate-plugin.md)
   * [AWS CloudHSM plugin](guides/certificates/aws-cloudhsm-plugin.md)
+  * [Configure Domain Certificate Fallback](guides/certificates/configure-domain-certificate-fallback.md)
 
 * [User Management](guides/user-management/README.md)
   * [Users](guides/user-management/users/README.md)

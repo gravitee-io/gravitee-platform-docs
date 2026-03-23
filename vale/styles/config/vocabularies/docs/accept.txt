@@ -442,3 +442,14 @@ async
 [Ee]xtract
 [Ss]ubscribable
 [Mm]inLength
+[Aa]ccessible
+[Ll]ogback
+[Ii]nitializer
+[Aa]ppenders?
+[Aa]piId
+[Ee]nvId
+[Aa]ppId
+[Pp]lanId
+[Oo]rgId
+[Cc]orrelationId
+[Nn]odeId
