@@ -15,6 +15,12 @@ Gravitee supports the following Kafka policies, which can be applied to Kafka AP
 
 <table data-view="cards"><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td><a href="../../../create-and-configure-apis/apply-policies/policy-reference/kafka-acl.md">Kafka ACL</a></td><td></td><td></td></tr><tr><td><a href="../../../create-and-configure-apis/apply-policies/policy-reference/kafka-message-filtering.md">Kafka Message Filtering</a></td><td></td><td></td></tr><tr><td><a href="../../../create-and-configure-apis/apply-policies/policy-reference/kafka-offloading.md">Kafka Offloading</a></td><td></td><td></td></tr><tr><td><a href="../../../create-and-configure-apis/apply-policies/policy-reference/kafka-quota.md">Kafka Quota</a></td><td></td><td></td></tr><tr><td><a href="../../../create-and-configure-apis/apply-policies/policy-reference/kafka-topic-mapping.md">Kafka Topic Mapping</a></td><td></td><td></td></tr><tr><td><a href="../../../create-and-configure-apis/apply-policies/policy-reference/kafka-transform-key.md">Kafka Transform Key</a></td><td></td><td></td></tr></tbody></table>
 
+### Enterprise Features
+
+The following Kafka policies are available as Enterprise features:
+
+* **Kafka Governance Rules Policies**: Requires the `apim-native-kafka-policy-rules` license feature flag. Provides compliance enforcement for Kafka protocol requests. See [Kafka Governance Rules Policies](../../../create-and-configure-apis/apply-policies/policy-reference/kafka-governance-rules-policies.md) for details.
+
 ## Policy phases
 
 The request and response of a Kafka API transaction are broken up into the following phases:

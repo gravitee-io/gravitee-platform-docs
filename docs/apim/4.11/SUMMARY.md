@@ -178,6 +178,7 @@
     * [Custom Policies](create-and-configure-apis/apply-policies/custom-policies.md)
     * [Policy Reference](create-and-configure-apis/apply-policies/policy-reference/README.md)
       * [AI - Semantic Caching](create-and-configure-apis/apply-policies/policy-reference/ai-semantic-caching.md)
+      * [Kafka Governance Rules Policies](create-and-configure-apis/apply-policies/policy-reference/kafka-governance-rules-policies.md)
       * [Native IP filtering](create-and-configure-apis/apply-policies/policy-reference/native-ip-filtering.md)
       * [Test](create-and-configure-apis/apply-policies/policy-reference/test.md)
       * [AI - MCP ACL](create-and-configure-apis/apply-policies/policy-reference/ai-mcp-acl.md)
