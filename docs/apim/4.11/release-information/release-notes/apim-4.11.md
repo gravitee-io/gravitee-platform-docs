@@ -107,6 +107,15 @@
 * Subscription certificates are loaded dynamically without requiring gateway restarts—when a subscription is created or updated with a new certificate, the gateway's trust store manager refreshes automatically.
 <!-- /PIPELINE:APIM-12520 -->
 
+<!-- PIPELINE:APIM-12792 -->
+#### **Kafka Governance Rules Policies**
+
+* Enforce compliance and operational standards on Kafka protocol requests (Produce, Fetch, CreateTopics, AlterConfigs) flowing through the Gateway.
+* Validate fields such as acknowledgements, batch size, compression type, replication factor, and topic configurations against administrator-defined rules.
+* Configure rule actions to forbid requests, override values, throttle clients, or log violations when governance conditions aren't met.
+* Requires Enterprise Edition license with the `apim-native-kafka-policy-rules` feature and a Kafka-enabled API (v4 definition with Kafka entrypoint).
+<!-- /PIPELINE:APIM-12792 -->
+
 ## Improvements
 
 
