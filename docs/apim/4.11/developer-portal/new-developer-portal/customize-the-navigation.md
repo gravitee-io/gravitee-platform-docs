@@ -13,8 +13,44 @@ You can create the following elements for your navigation:
 * **Pages**: Content of your New Developer Portal documentation.&#x20;
 * **Folders**: Use these to group related pages together into sections.
 * **Links**: Connect your documentation to external sites or other internal resources.
+* **APIs**: Add API references directly to the top navigation bar within folders.
 
-When you add a new page, you can customize the page with Gravitee Markdown, which is standard Markdown enriched with dynamic components. For more information about Gravitee Markdown, see[gravitee-markdown-components.md](gravitee-markdown-components.md "mention").
+When you add a new page, you can customize the page with Gravitee Markdown, which is standard Markdown enriched with dynamic components. For more information about Gravitee Markdown, see [gravitee-markdown-components.md](gravitee-markdown-components.md "mention").
+
+### Navigation item types
+
+Portal navigation supports four item types:
+
+| Type | Icon | Allowed Areas | Parent Required |
+|:-----|:-----|:--------------|:----------------|
+| `PAGE` | `gio:page` | All | No |
+| `FOLDER` | `gio:folder` | All | No |
+| `LINK` | `gio:link` | All | No |
+| `API` | `gio:folder-api` | `TOP_NAVBAR` only | Yes |
+
+API items must be placed within folders in the `TOP_NAVBAR` area. Each API can appear only once in the navigation structure.
+
+### Visibility inheritance
+
+Child navigation items inherit visibility constraints from their parent folder. When a parent folder is marked `PRIVATE`, all child items are automatically set to `PRIVATE` and the visibility toggle is disabled in the UI. Public folders allow child items to choose either `PUBLIC` or `PRIVATE` visibility.
+
+| Parent Visibility | Child Visibility | Behavior |
+|:------------------|:-----------------|:---------|
+| `PRIVATE` | Any | Child forced to `PRIVATE` (toggle disabled in UI) |
+| `PUBLIC` | `PUBLIC` or `PRIVATE` | User can choose |
+
+### Publish state dependencies
+
+Navigation items cannot be published if their parent folder is unpublished or unavailable. The publish action is disabled in the UI with a tooltip explaining the restriction. Root-level items and items with published parents can be published freely.
+
+| Condition | Publish Action | Tooltip |
+|:----------|:---------------|:--------|
+| Parent is unpublished | **Disabled** | `"A navigation item cannot be published within an unpublished {type}"` |
+| Parent is unavailable | **Disabled** | `"A navigation item cannot be published because its parent is unavailable"` |
+| Parent is published | **Enabled** | ** |
+| Root item (no parent) | **Enabled** | ** |
+
+API items cannot be edited after creation, but publish and unpublish actions remain available.
 
 ### Default navigation items
 
@@ -36,9 +72,13 @@ The default navigation appears on your New Developer Portal
 
 <figure><img src="../../.gitbook/assets/Screenshot 2025-12-19 at 19.07.11.png" alt=""><figcaption></figcaption></figure>
 
+
 ## Prerequisites&#x20;
 
 * Enable the New Developer Portal. For more information about enabling the New Developer Portal, see [configure-the-new-portal.md](configure-the-new-portal.md "mention").
+* At least one published API available for linking (required for adding API items).
+* A folder item in the `TOP_NAVBAR` area to contain API items (required for adding API items).
+* Appropriate permissions to manage portal navigation.
 
 ## Customizing your navigation
 

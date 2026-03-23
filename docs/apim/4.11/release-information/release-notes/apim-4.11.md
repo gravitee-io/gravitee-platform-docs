@@ -125,6 +125,15 @@
 * Requires `environment-metadata-r` permission to view forms and `environment-metadata-u` permission to create, update, enable, or disable forms.
 <!-- /PIPELINE:APIM-12170 -->
 
+<!-- PIPELINE:APIM-12502 -->
+#### **API Navigation Items in Developer Portal**
+
+* Portal navigation now supports a new `API` item type that allows administrators to add direct API references to the top navigation bar alongside existing page, folder, and link items.
+* API items must be placed within folders in the top navigation and inherit visibility settings from their parent folder. Each API can appear only once in the navigation structure.
+* API items display with a distinct folder-api icon and cannot be edited after creation, though publish/unpublish actions remain available.
+* The Redoc documentation renderer is now bundled locally instead of loaded from CDN for improved performance and reliability.
+<!-- /PIPELINE:APIM-12502 -->
+
 ## Improvements
 
 
