@@ -21,7 +21,7 @@ When creating a subscription from an Application, the search returns results for
 
 ### Subscription forms
 
-API publishers can [define custom subscription forms](creating-and-managing-subscription-forms.md) that API consumers complete when subscribing to API plans. Forms are authored in Gravitee Markdown (GMD) and collect structured metadata that is stored with each subscription. Each environment has one subscription form with an enabled flag. When enabled, the form is visible to API consumers in the Portal. When disabled, the form is hidden from Portal API responses but remains accessible via Management API.
+API publishers can [define custom subscription forms](creating-and-managing-subscription-forms.md) that API consumers complete when subscribing to API plans. Forms are authored in Gravitee Markdown (GMD) and collect structured metadata that is stored with each subscription. Each environment has one subscription form. When the **Visible to API consumers** toggle is enabled, the form appears in the Developer Portal checkout flow for plans that require authentication. Subscription forms aren't displayed for Keyless plans.
 
 For more information about managing subscriptions:
 
