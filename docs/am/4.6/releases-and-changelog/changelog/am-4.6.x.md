@@ -6,6 +6,25 @@ description: >-
 
 # AM 4.6.x
 
+## Gravitee Access Management 4.6.33 - March 23, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* [4.6.32] UserConsentFailureHandler recursive-loop [#11266](https://github.com/gravitee-io/issues/issues/11266)
+
+</details>
+
+
 ## Gravitee Access Management 4.6.32 - January 30, 2026
 
 <details>
