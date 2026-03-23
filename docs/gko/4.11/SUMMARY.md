@@ -1,6 +1,4 @@
-
-  
-  # Table of contents
+# Table of contents
 
 ## OVERVIEW
 
@@ -48,7 +46,12 @@
 * [DB-less mode](guides/db-less-mode.md)
 * [Templating](guides/templating.md)
 * [Configure the GKO HTTP client for APIM](guides/gko-http-client.md)
+<<<<<<< /tmp/tmp9g6llxk_.md
   * [Logs Engine Overview and Prerequisites](../../apim/4.11/guides/logs-engine-api/overview-and-prerequisites.md)
+=======
+* [Gateway API](guides/gateway-api/README.md)
+  * [HTTPRoute](guides/gateway-api/httproute.md)
+>>>>>>> ./docs/gko/4.10/SUMMARY.md
 
 ## REFERENCE
 
@@ -60,7 +63,7 @@
 * [Release Notes](releases-and-changelog/release-notes/README.md)
 
 ***
-<!-- start_release_notes_summary -->
+
 * [GKO 4.10](releases-and-changelog/release-notes/gko-4.10.md)
 * [GKO 4.9](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/4.9/releases-and-changelog/release-notes/gko-4.9)
 * [GKO 4.8](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/4.8/releases-and-changelog/release-notes/gko-4.8)
@@ -69,12 +72,9 @@
 * [GKO 4.5](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/4.5/releases-and-changelog/release-notes/gko-4.5)
 * [GKO 4.4](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/4.4/releases-and-changelog/release-notes/gko-4.4)
 * [GKO 4.3](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/4.3/releases-and-changelog/release-notes/gko-4.3)
-<!-- end_release_notes_summary -->
 * [Changelog](releases-and-changelog/changelog/README.md)
-<!-- start_changelogs_summary -->
 * [GKO 4.10.x](releases-and-changelog/changelog/gko-4.10.x.md)
 * [GKO 4.9.x](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/4.9/releases-and-changelog/changelog/gko-4.9.x)
-<!-- end_changelogs_summary -->
 
 ## COMMUNITY & SUPPORT
 
@@ -82,5 +82,3 @@
 * [Community](community-and-support/community/README.md)
   * [Support](https://community.gravitee.io/c/support/11)
   * [Announcements & Events](https://community.gravitee.io/c/announcements/5)
-    
-    
