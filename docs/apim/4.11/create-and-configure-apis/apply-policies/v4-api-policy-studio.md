@@ -22,7 +22,7 @@ Gravitee defines a flow as the method to control where, and under what condition
 * Define key-value pairs at the API level
 * Configure global resources to support your flows
 
-Flows are created when policies are added to the Request, Response, Publish, and/or Subscribe phases of an existing v4 API. A single API supports multiple flows, which can be applied to different phases and target either subscribers of an individual plan or all users of the API.
+Flows are created when policies are added to the Request, Response, Publish, Subscribe, and/or Entrypoint Connect phases of an existing v4 API. A single API supports multiple flows, which can be applied to different phases and target either subscribers of an individual plan or all users of the API.
 
 Policies are added to flows to enforce security, reliability, and proper data transfer. Examples of policies include traffic shaping, authentication/authorization, rate limiting, and dynamic routing.
 
@@ -34,6 +34,7 @@ The entrypoint(s) of a flow determine its phases. The phase a policy is added to
 
 **Phases**
 
+* **Entrypoint Connect:** A policy is applied when the client connects to the entrypoint, before authentication and message processing. Policies in this phase can interrupt connections before downstream processing occurs.
 * **Request:** A policy is applied when the connection is established. It is enforced at the time of the request and before a client is given access to the API.
 * **Response:** A policy is applied to the response from the initial connection. It is enforced after the request is allowed, but before the response is returned to the client.
 * **Publish:** A policy is applied to messages sent to the endpoint. It is enforced when messages are published and before a client is given access to the API.
@@ -53,7 +54,7 @@ The flow and policy configuration options you are presented with differ based on
 2. Select **APIs** from the navigation
 3. Select the API for which to design a flow
 4. Select **Policies** from the inner menu
-5.  To create a flow, you have the following to options:
+5.  To create a flow, you have the following options:
 
     * To create a flow for a single existing plan, click the + icon next to that plan.
     * To create a flow that applies to all plans, click the + icon next to **All plans**.
@@ -66,8 +67,27 @@ The flow and policy configuration options you are presented with differ based on
     * **Flow name:** Give your flow a descriptive name. Otherwise, a name will be automatically generated using the channel and operation.
     * **Path operator:** Apply this flow to requests with a path that **Equals** or **Starts with** the specified **Path**.
     * **Path:** Define the path to use in conjunction with the **Path operator** to determine if this flow should be applied.
+      *   You can use colon-prefixed path parameters instead of regex for variable segments:
+
+          *   Flow 1 (default on controller root):
+
+              ```
+              pathOperator: STARTS_WITH
+              path: /test
+              ```
+          *   Flow 2 (specific resource):
+
+              <pre><code>pathOperator: EQUALS
+              path: /test/:uuid
+              <strong>-or-
+              </strong>pathOperator: EQUALS
+              path: /test/:uuid/customer/orders/
+              </code></pre>
+
+          This lets one flow match `/test/**` and another match specifically a single-segment `/test/{UUID}` without needing regex. Path parameters are resolved once at the start of request processing and made available to all flows, as long as they are declared consistently (no conflicting positions for the same parameter name across overlapping paths).
+
     * Choose one or more of the following **Methods for your flow**: ALL, CONNECT, DELETE, GET, HEAD, OPTIONS, PATCH, POST, PUT, TRACE, OTHER.
-    * **Condition:** Use [Gravitee's Expression Language (EL)](../../../4.9/gravitee-expression-language.md) to define specific conditions that trigger flow execution.
+    * **Condition:** Use [Gravitee's Expression Language (EL)](../../gravitee-expression-language.md) to define specific conditions that trigger flow execution.
 7. Click **Create** in the modal, and then **Save** on the **Policies** page.
 8.  To add a policy to your flow, click the **+** icon for the phase where the policy should be enforced.
 
@@ -83,17 +103,17 @@ The flow and policy configuration options you are presented with differ based on
 To edit a policy, click on the three vertical dots on its icon in the flow diagram.
 {% endhint %}
 
-### Policy Studio navigation tips
+## Policy Studio navigation tips
 
 The Policy Studio is designed to help you easily distinguish between plans and flows. You can use the search field in the **Flows** panel to surface plans or flows that have names or paths that meet your search criteria. You can also search for a policy based on its name or description.
 
-#### Plans vs flows
+### Plans vs flows
 
 Individual plans are identified by the **Plan:** prefix, as shown in the following example. Each plan can contain one or more flows, where each flow appears as a box under the plan name. You have the option to name your flows and/or their respective paths. Flow names appear above path names, which are prefixed with "/".
 
 <figure><img src="../../.gitbook/assets/0 ps9 (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-#### Find plans and flows
+### Find plans and flows
 
 The single search box in the **Flows** panel can be used to find all plans and flows that meet your search criteria. A search query displays the following results:
 
@@ -107,7 +127,7 @@ The single search box in the **Flows** panel can be used to find all plans and f
 
     <div align="left"><figure><img src="../../.gitbook/assets/00 ps3 (1).png" alt="" width="375"><figcaption></figcaption></figure></div>
 
-#### Find a policy
+### Find a policy
 
 When you click a phase's **+** icon to add a policy to your flow, you can use the search field in the policy selection pop-up to find a policy. The search results surface all policies that include your search text in the policy name or description.
 
@@ -182,7 +202,7 @@ To configure dynamic properties:
     * **URL:** The target from which to fetch dynamic properties
     * **Request Headers:** The HTTP headers to add to the request fetching properties
     * **Request body:** The HTTP body content to add to the request fetching properties
-    * (Optional) **Transformation (JOLT specification):** If the HTTP service doesn’t return the expected output, edit the JOLT transformation accordingly
+    * (Optional) **Transformation (JOLT specification):** If the HTTP service doesn't return the expected output, edit the JOLT transformation accordingly
     * Toggle **Use system proxy** ON to use the system proxy configured in your APIM installation
 7. Click **Save**
 

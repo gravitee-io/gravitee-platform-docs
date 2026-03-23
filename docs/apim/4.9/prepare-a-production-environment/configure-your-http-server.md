@@ -1,3 +1,10 @@
+---
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/prepare-a-production-environment/configure-your-http-server
+---
+
 # Configure your HTTP Server
 
 ## `gravitee.yaml` configuration
@@ -170,7 +177,7 @@ curl wss://localhost:8082/my_websocket
 
 ## Enable certificate based client authentication <a href="#enable-certificate-based-client-authentication" id="enable-certificate-based-client-authentication"></a>
 
-Follow these steps to enable the certificate based client authentication:&#x20;
+Follow these steps to enable the certificate based client authentication:
 
 ```yaml
 http:

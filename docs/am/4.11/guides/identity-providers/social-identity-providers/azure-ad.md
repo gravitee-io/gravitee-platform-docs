@@ -50,9 +50,11 @@ Ensure you have the generated Client ID and Client Secret from the Azure AD appl
 6. Enter your Azure application ID and Client Secret.
 7. Specify any required OAuth access using Scopes (`openid`, `email`, and `profile` scopes are always requested by Gravitee AM and do not need to be added here explicitly).
 8. Select the OpenID response mode for your provider, or leave this as `default`. This is the method your provider uses to return authorization parameters. The `form_post` mode is particularly useful when the returned authorization parameters make the redirect URL too long for use in query parameters.
-9.  Click **Create**.
+9. Click **Create**.
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-social-idp-azure-ad.png" alt=""><figcaption><p>Create Azure AD IdP</p></figcaption></figure>
+<figure><img src="../../../../4.10/.gitbook/assets/image (66).png" alt=""><figcaption><p>Create AzureAD/EntraID IdP</p></figcaption></figure>
+
+<figure><img src="../../../../4.10/.gitbook/assets/image (68).png" alt=""><figcaption><p>The "redirect URI" is available after creating the new Identity Provider</p></figcaption></figure>
 
 {% hint style="info" %}
 On the right of the screen under **1. Configure the Redirect URI**, copy the value of the URL. You will need to update it in your Azure AD application settings.
@@ -71,11 +73,12 @@ HTTP client settings apply whether or not HTTP/2 is enabled, but they may affect
 
 You can test the Azure AD connection using a web application created in AM.
 
-1.  i.e.In AM Console, click **Applications** and select your social identity provider.
+1. i.e.In AM Console, click **Applications** and select your social identity provider.
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-social-idp-list.png" alt=""><figcaption><p>Select Azure AD IdP</p></figcaption></figure>
-2.  Call the Login Page (i.e. `/oauth/authorize` endpoint). If the connection is working you will see the **Sign in with …​** button.
+<figure><img src="../../../../4.10/.gitbook/assets/image (69).png" alt=""><figcaption><p>Select your chosen Identity Provider(s) for each Application</p></figcaption></figure>
 
-    If the button is not visible, there may be a problem the identity provider settings. Check the AM Gateway log for more information.
+2. Call the Login Page (i.e. `/oauth/authorize` endpoint). If the connection is working you will see the **Sign in with …​** button.
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-social-idp-login.png" alt=""><figcaption><p>Sign in options</p></figcaption></figure>
+If the button is not visible, there may be a problem the identity provider settings. Check the AM Gateway log for more information.
+
+<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-social-idp-login.png" alt=""><figcaption><p>Sign in options</p></figcaption></figure>

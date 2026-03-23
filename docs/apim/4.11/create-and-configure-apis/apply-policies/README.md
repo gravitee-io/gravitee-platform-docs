@@ -61,6 +61,7 @@ The request and response of a Gateway API transaction are broken up into phases 
 {% tab title="v4 API definition" %}
 v4 APIs have the following phases:
 
+* `entrypointConnect`: This phase is executed when a client connects to a Native API entrypoint, before authentication and message processing. Policies in this phase can inspect connection metadata and set context attributes. This only applies to Native APIs.
 * `onRequest`: This phase is executed before invoking the backend services for both proxy and message APIs. Policies can act on the headers and the content for proxy APIs.
 * `onMessageRequest`: This phase occurs after the `onRequest` phase and allows policies to act on each incoming message before being sent to the backend service. This only applies to message APIs.
 * `onResponse`: This phase is executed after invoking the backend services for both proxy and message APIs. Policies can act on the headers and the content for proxy APIs.
