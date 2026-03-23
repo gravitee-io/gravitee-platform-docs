@@ -4,7 +4,7 @@
 
 ### GET `/subscription-form`
 
-Retrieves the enabled subscription form for the current environment. Returns 404 if the form doesn't exist or is disabled.
+Retrieves the enabled subscription form for the current environment. Returns 404 if the form doesn't exist or is disabled. The Portal API response only includes `gmdContent` — it doesn't expose the form `id` or `enabled` flag to consumers.
 
 **Response:**
 
@@ -14,28 +14,28 @@ Retrieves the enabled subscription form for the current environment. Returns 404
 }
 ```
 
-**Authentication:** Required
+**Authentication:** Required (Portal auth)
 
-## Subscription metadata properties
+## Subscription metadata
+
+When an API consumer subscribes to an API plan, the form field values are included in the subscription creation request as a `metadata` field containing key-value pairs. Empty values (null, empty strings, whitespace-only) are filtered before submission.
 
 | Property | Type | Description |
 |:---------|:-----|:------------|
-| `metadata` | `Record<string, string>` | Key-value pairs from subscription form fields |
-
-Metadata is included in subscription creation requests and stored in the subscription entity. Empty values are filtered before submission.
+| `metadata` | `Record<string, string>` | Key-value pairs from subscription form fields, submitted with the subscription creation request |
 
 ## Restrictions
 
-- One subscription form per environment (enforced by unique constraint on `environment_id`)
+- One subscription form per environment
 - GMD content can't be null, empty, or whitespace-only
-- Subscription forms aren't displayed for `KEY_LESS` security plans
+- Subscription forms aren't displayed for Keyless plans — the form only renders when the selected plan requires authentication
 - Disabled forms return 404 from Portal API but remain accessible via Management API
-- Metadata keys conform to validation rules (invalid keys return HTTP 400)
-- Comment field from Classic Portal is removed in new Portal — subscription form metadata replaces this functionality
+- Comment field from Classic Portal is removed in the new Portal — subscription form metadata replaces this functionality
 
-## Related changes
+## Console integration
 
-- A new navigation menu item appears in Portal Settings with route `/subscription-form`
-- Permissions use `environment-metadata-r/u` (updated from `environment-settings-r/u`)
-- The subscription checkout flow in Portal renders the form when GMD content exists and the plan security isn't `KEY_LESS`
+- A **Subscription Form** menu item appears under Portal Settings with route `/subscription-form`
+- The toggle label is **Visible to API consumers** (not "Enabled")
+- Permissions use `environment-metadata-r/u`
 - Navigation guards prevent navigation away from unsaved form edits
+- The save button is disabled when content is empty, has configuration errors, or has no unsaved changes

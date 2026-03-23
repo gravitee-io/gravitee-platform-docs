@@ -2,35 +2,38 @@
 
 ## Creating subscription forms
 
-<!-- TODO: verify label in Console UI — "Portal Settings > Subscription Form" navigation path -->
 1. Navigate to **Portal Settings > Subscription Form** in the Management Console.
-2. Author form content using the Monaco editor with GMD syntax. The live preview pane displays the rendered form in real time.
-<!-- TODO: verify label in Console UI — "Enabled" toggle switch -->
-3. Toggle the **Enabled** switch to make the form visible to API consumers in the Portal.
-<!-- TODO: verify label in Console UI — "Save" button -->
+2. Author form content using the GMD form editor. The live preview pane displays the rendered form in real time.
+3. Toggle the **Visible to API consumers** switch to control whether the form appears in the Developer Portal.
 4. Click **Save** to persist changes.
 
-The unsaved changes guard prevents accidental navigation away from unsaved edits. Forms are scoped to the environment level — each environment has one subscription form.
+An unsaved changes guard prevents accidental navigation away from unsaved edits. Forms are scoped to the environment level — each environment has one subscription form.
+
+{% hint style="info" %}
+Subscription forms aren't displayed for Keyless plans. The form only appears during the subscription checkout flow when the selected plan requires authentication (API Key, OAuth2, JWT, or mTLS).
+{% endhint %}
 
 ## Managing subscription forms
 
 ### Updating form content
 
-1. Edit the GMD content in the Monaco editor.
+1. Edit the GMD content in the form editor.
 2. Click **Save** to persist changes.
 
 ### Enabling or disabling forms
 
-Enable or disable the form using the toggle switch or by calling the following endpoints:
+Toggle the **Visible to API consumers** switch in the Console, or call the following Management API endpoints:
 
-* `POST /environments/{envId}/subscription-forms/{id}/_enable`
-* `POST /environments/{envId}/subscription-forms/{id}/_disable`
+* `POST /environments/{envId}/subscription-forms/{subscriptionFormId}/_enable`
+* `POST /environments/{envId}/subscription-forms/{subscriptionFormId}/_disable`
 
 When a form is disabled, it remains accessible via Management API (`GET /environments/{envId}/subscription-forms`) but returns 404 from Portal API (`GET /subscription-form`).
 
-### Viewing subscription metadata
+### Subscription metadata
 
-Subscription metadata is displayed in subscription details pages (API subscriptions and application subscriptions) using a read-only JSON Monaco editor. If metadata is `undefined`, `null`, or an empty object, the viewer displays `-`.
+When an API consumer submits a subscription form, the form field values are stored as key-value pairs in the subscription's `metadata` property. Empty values (null, empty strings, whitespace-only) are filtered before storage.
+
+Subscription metadata is displayed in the subscription details pages (both API subscriptions and application subscriptions) using a read-only viewer.
 
 ## Management API v2 reference
 
@@ -50,11 +53,11 @@ Retrieves the subscription form for the environment, including disabled forms.
 
 **Permissions:** `environment-metadata-r`
 
-### PUT `/environments/{envId}/subscription-forms/{id}`
+### PUT `/environments/{envId}/subscription-forms/{subscriptionFormId}`
 
 Updates the subscription form GMD content.
 
-**Request Body:**
+**Request body:**
 
 ```json
 {
@@ -66,7 +69,7 @@ Updates the subscription form GMD content.
 
 **Permissions:** `environment-metadata-u`
 
-### POST `/environments/{envId}/subscription-forms/{id}/_enable`
+### POST `/environments/{envId}/subscription-forms/{subscriptionFormId}/_enable`
 
 Enables the subscription form for API consumers.
 
@@ -74,7 +77,7 @@ Enables the subscription form for API consumers.
 
 **Permissions:** `environment-metadata-u`
 
-### POST `/environments/{envId}/subscription-forms/{id}/_disable`
+### POST `/environments/{envId}/subscription-forms/{subscriptionFormId}/_disable`
 
 Disables the subscription form for API consumers.
 
@@ -86,11 +89,14 @@ Disables the subscription form for API consumers.
 
 #### GET `/subscription-form`
 
-Retrieves the subscription form for the current environment.
+Retrieves the subscription form for the current environment. Only returns the form when it exists and is enabled — returns 404 otherwise. The Portal API response doesn't include the `id` or `enabled` fields.
 
-**Behavior:**
+**Response:**
 
-* Returns 200 with form content when form exists and `enabled = true`
-* Returns 404 when form isn't found or `enabled = false`
+```json
+{
+  "gmdContent": "string"
+}
+```
 
-**Authentication:** Required
+**Authentication:** Required (Portal auth)
