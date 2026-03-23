@@ -13,6 +13,24 @@ An unsaved changes guard prevents accidental navigation away from unsaved edits.
 Subscription forms aren't displayed for Keyless plans. The form only appears during the subscription checkout flow when the selected plan requires authentication (API Key, OAuth2, JWT, or mTLS).
 {% endhint %}
 
+## GMD form components
+
+Use the following GMD components to build subscription forms:
+
+- **`gmd-input`** — Single-line text input. Supports `minLength`, `maxLength`, and `pattern` validation.
+- **`gmd-textarea`** — Multi-line text input. Supports `minLength`, `maxLength`, and configurable `rows`.
+- **`gmd-select`** — Dropdown selection. Define choices with the `options` attribute.
+- **`gmd-checkbox`** — Checkbox field.
+- **`gmd-radio`** — Radio button selection. Define choices with the `options` attribute.
+
+All components support `fieldKey`, `name`, `label`, `value`, `required`, and `disabled` attributes. The `fieldKey` attribute determines the metadata key stored with the subscription.
+
+{% hint style="info" %}
+`minLength` and `maxLength` validation is only available on `gmd-input` and `gmd-textarea`. Dropdown, checkbox, and radio components don't support length validation.
+{% endhint %}
+
+For a complete attribute reference, see [Subscription form feature overview](subscription-form-feature-overview.md#supported-form-components).
+
 ## Managing subscription forms
 
 ### Updating form content

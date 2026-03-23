@@ -24,6 +24,20 @@ When an API consumer subscribes to an API plan, the form field values are includ
 |:---------|:-----|:------------|
 | `metadata` | `Record<string, string>` | Key-value pairs from subscription form fields, submitted with the subscription creation request |
 
+## GMD form components
+
+The following GMD components are available for subscription forms:
+
+| Component | Description | Validation |
+|:----------|:------------|:-----------|
+| `gmd-input` | Single-line text input | `required`, `minLength`, `maxLength`, `pattern` |
+| `gmd-textarea` | Multi-line text input | `required`, `minLength`, `maxLength` |
+| `gmd-select` | Dropdown selection | `required` |
+| `gmd-checkbox` | Checkbox | `required` |
+| `gmd-radio` | Radio button selection | `required` |
+
+Each component's `fieldKey` attribute maps to the key in the subscription's `metadata` object. Validation error codes: `required`, `minLength`, `maxLength`, `pattern`.
+
 ## Restrictions
 
 - One subscription form per environment
