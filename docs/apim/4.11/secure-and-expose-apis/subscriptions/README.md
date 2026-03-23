@@ -21,26 +21,7 @@ When creating a subscription from an Application, the search returns results for
 
 ### Subscription forms
 
-
-API publishers can [define custom subscription forms](creating-and-managing-subscription-forms.md) that API consumers must complete when subscribing to API plans.
- Forms are authored in Gravitee Markdown (GMD) and collect structured metadata that is stored with each subscription. Each environment has one subscription form with an enabled flag. When enabled, the form is visible to API consumers in the Portal. When disabled, the form is hidden from Portal API responses but remains accessible via Management API.
-
-Subscription forms are stored in the `subscription_forms` table with columns `id`, `environment_id`, `gmd_content`, and `enabled`. One subscription form per environment is enforced by a unique constraint on `environment_id`.
-
-#### Portal API
-
-**GET `/subscription-form`**
-
-Retrieves the enabled subscription form for the current environment. Returns 404 if the form does not exist or is disabled.
-
-**Response:**
-```json
-{
-  "gmdContent": "string"
-}
-```
-
-**Authentication:** Required
+API publishers can [define custom subscription forms](creating-and-managing-subscription-forms.md) that API consumers complete when subscribing to API plans. Forms are authored in Gravitee Markdown (GMD) and collect structured metadata that is stored with each subscription. Each environment has one subscription form with an enabled flag. When enabled, the form is visible to API consumers in the Portal. When disabled, the form is hidden from Portal API responses but remains accessible via Management API.
 
 For more information about managing subscriptions:
 

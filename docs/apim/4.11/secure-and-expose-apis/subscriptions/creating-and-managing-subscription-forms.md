@@ -1,24 +1,25 @@
-# Creating and Managing Subscription Forms
+# Creating and managing subscription forms
 
-## Gateway Configuration
+## Creating subscription forms
 
-## Creating Subscription Forms
-
+<!-- TODO: verify label in Console UI — "Portal Settings > Subscription Form" navigation path -->
 1. Navigate to **Portal Settings > Subscription Form** in the Management Console.
 2. Author form content using the Monaco editor with GMD syntax. The live preview pane displays the rendered form in real time.
+<!-- TODO: verify label in Console UI — "Enabled" toggle switch -->
 3. Toggle the **Enabled** switch to make the form visible to API consumers in the Portal.
+<!-- TODO: verify label in Console UI — "Save" button -->
 4. Click **Save** to persist changes.
 
-The unsaved changes guard prevents accidental navigation away from unsaved edits. Forms are scoped to the environment level — each environment has one subscription form identified by `environment_id` (unique constraint).
+The unsaved changes guard prevents accidental navigation away from unsaved edits. Forms are scoped to the environment level — each environment has one subscription form.
 
-## Managing Subscription Forms
+## Managing subscription forms
 
-### Updating Form Content
+### Updating form content
 
 1. Edit the GMD content in the Monaco editor.
 2. Click **Save** to persist changes.
 
-### Enabling or Disabling Forms
+### Enabling or disabling forms
 
 Enable or disable the form using the toggle switch or by calling the following endpoints:
 
@@ -27,15 +28,13 @@ Enable or disable the form using the toggle switch or by calling the following e
 
 When a form is disabled, it remains accessible via Management API (`GET /environments/{envId}/subscription-forms`) but returns 404 from Portal API (`GET /subscription-form`).
 
-### Viewing Subscription Metadata
+### Viewing subscription metadata
 
 Subscription metadata is displayed in subscription details pages (API subscriptions and application subscriptions) using a read-only JSON Monaco editor. If metadata is `undefined`, `null`, or an empty object, the viewer displays `-`.
 
-## End-User Configuration
+## Management API v2 reference
 
-### Management API v2
-
-#### GET `/environments/{envId}/subscription-forms`
+### GET `/environments/{envId}/subscription-forms`
 
 Retrieves the subscription form for the environment, including disabled forms.
 
@@ -51,7 +50,7 @@ Retrieves the subscription form for the environment, including disabled forms.
 
 **Permissions:** `environment-metadata-r`
 
-#### PUT `/environments/{envId}/subscription-forms/{id}`
+### PUT `/environments/{envId}/subscription-forms/{id}`
 
 Updates the subscription form GMD content.
 
@@ -67,7 +66,7 @@ Updates the subscription form GMD content.
 
 **Permissions:** `environment-metadata-u`
 
-#### POST `/environments/{envId}/subscription-forms/{id}/_enable`
+### POST `/environments/{envId}/subscription-forms/{id}/_enable`
 
 Enables the subscription form for API consumers.
 
@@ -75,7 +74,7 @@ Enables the subscription form for API consumers.
 
 **Permissions:** `environment-metadata-u`
 
-#### POST `/environments/{envId}/subscription-forms/{id}/_disable`
+### POST `/environments/{envId}/subscription-forms/{id}/_disable`
 
 Disables the subscription form for API consumers.
 
@@ -89,11 +88,9 @@ Disables the subscription form for API consumers.
 
 Retrieves the subscription form for the current environment.
 
-**Response:**
-
 **Behavior:**
 
 * Returns 200 with form content when form exists and `enabled = true`
-* Returns 404 when form is not found or `enabled = false`
+* Returns 404 when form isn't found or `enabled = false`
 
 **Authentication:** Required
