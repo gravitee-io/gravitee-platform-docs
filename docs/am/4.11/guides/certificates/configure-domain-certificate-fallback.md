@@ -27,7 +27,7 @@ You can create Domain Certificate Settings with either of the following methods:
   <figure><img src="/.gitbook/assets/Fallback_certificate_certificates_settings_popup_menu.jpg" alt=" Access Management certficiates screen"><figcaption></figcaption></figure>
 
 #### Verification
-The certificate appears in the **Cerificates** screen of the Access Management UI.
+The certificate appears in the **Certificates** screen of the Access Management UI.
 <figure><img src="/.gitbook/assets/Fallback_certificate_certificates_screen_verification.jpg" alt=" Access Management certficiates screen"><figcaption></figcaption></figure>
 
 ### Create the Domain Certificate Settings using the Management API
