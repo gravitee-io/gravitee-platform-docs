@@ -3,7 +3,7 @@
 ## Creating subscription forms
 
 1. Navigate to **Portal Settings > Subscription Form** in the Management Console.
-2. Author form content using the GMD form editor. The live preview pane displays the rendered form in real time.
+2. Write form content using the GMD form editor. The live preview pane displays the rendered form in real time.
 3. Toggle the **Visible to API consumers** switch to control whether the form appears in the Developer Portal.
 4. Click **Save** to persist changes.
 
