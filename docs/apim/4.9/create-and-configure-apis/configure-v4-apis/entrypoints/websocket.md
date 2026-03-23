@@ -1,9 +1,16 @@
+---
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/create-and-configure-apis/configure-v4-apis/entrypoints/websocket
+---
+
 # WebSocket
 
 ## Configuration
 
 {% hint style="info" %}
-You must first configure your Gravitee Gateway to enable Websockets.  More information can be found here: [#enable-websocket-support](../../../prepare-a-production-environment/configure-your-http-server.md#enable-websocket-support "mention")
+You must first configure your Gravitee Gateway to enable Websockets. More information can be found here: [#enable-websocket-support](../../../prepare-a-production-environment/configure-your-http-server.md#enable-websocket-support "mention")
 {% endhint %}
 
 If you chose **WebSocket** as an entrypoint, you can modify the following configuration parameters.

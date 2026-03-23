@@ -18,7 +18,7 @@ The following example retrieves `Execution Context` data using the [Gravitee Exp
 ```
 {% endcode %}
 
-<figure><img src="../../.gitbook/assets/Screenshot 2025-08-04 at 08.48.36.png" alt=""><figcaption><p>Policy Studio</p></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/image (157).png" alt=""><figcaption><p>Policy Studio</p></figcaption></figure>
 
 ## Flow configuration
 
@@ -355,8 +355,6 @@ The following attributes are available while processing the policy chain:
 * [**User**](./#user): authenticated user
 
 </details>
-
-<figure><img src="../../.gitbook/assets/Screenshot 2025-08-04 at 08.48.36.png" alt=""><figcaption><p>Policy Studio</p></figcaption></figure>
 
 ## Execution context information
 

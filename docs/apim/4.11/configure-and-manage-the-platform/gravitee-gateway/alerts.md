@@ -95,6 +95,34 @@ If you want to choose Webhook as your notification channel, you will need to def
 {% endtab %}
 {% endtabs %}
 
+## Scheduled alerts
+
+{% hint style="warning" %}
+In some cases, time window alert evaluation schedules might calculate differently than expected in Alert Engine versions before 3.0.0. If you are self-hosting Alert Engine and use time frame window alerts, upgrade to version 3.0.0 or later.
+{% endhint %}
+
+When a condition includes an aggregation or rate within a time frame window, the window is calculated from the last time the alert configuration was updated.
+
+### Updating a scheduled alert
+
+When you update an existing scheduled alert with a time frame window, the evaluation schedule restarts from the time of the update. Unless you update the configuration again, the schedule continues at regular intervals based off the new timestamp.
+
+```
+Last updated at [timestamp]
+```
+
+Also, from 4.11, you receive a warning when you update an alert with a time frame window, which indicates that the update resets the evaulation schedule.
+
+<figure><img src="/.gitbook/assets/update_alerts_screenshot.png" alt="Update scheduled alert confirmation dialog"><figcaption></figcaption></figure>
+
+{% hint style="warning" %}
+**Update scheduled alert**
+
+This alert has a scheduled duration. Saving your changes reset the evaluation schedule. The next cycle will start from the moment you confirm this update.
+{% endhint %}
+
+Confirm the update to anchor the schedule to the new timestamp. The next evaluation cycle starts from the moment you confirm.
+
 ## Example alerts
 
 To assist with alert configuration, sample alert templates useful to many teams are shown below.

@@ -9,7 +9,7 @@ metaLinks:
 
 ## Overview
 
-Azure API Management is Azure's built-in API management solution that you can use to expose services running in the Azure cloud to the public internet
+Azure API Management is Azure's built-in API management solution that you can use to expose services running in the Azure cloud to the public internet.&#x20;
 
 ## Prerequisites
 
@@ -515,7 +515,7 @@ If your APIM management API uses certificates that require a custom truststore, 
 
 2. Make the following modifications to your `federation-agent-azure-values.yaml` file:
    * Replace `[your-cloud-token]` with your Gravitee Cloud token or remove the entire `cloud:` section if using self-hosted APIM.
-   * Replace `[your-APIM-management-API-host]` with your APIM management API URL. For example, `apim.example.com` or `gravitee-apim-api.gravitee-apim.svc.cluster.local:8083` for internal Kubernetes service.
+   * Replace `[your-APIM-management-API-host]` with your APIM management API URL. For example, `apim.example.com` or `gravitee-apim-api.gravitee-apim.svc.cluster.local:8083` for the internal Kubernetes service.
    * Replace `[your-token]` with your service account bearer token.
    * Replace `[your-integration-id]` with the Integration ID.
    * Replace `[your-app-id]` with your Azure Service Principal App ID.
@@ -558,7 +558,7 @@ If your APIM management API uses certificates that require a custom truststore, 
 
 ## Limitations
 
-By default, the agent only ingests the APIs of products that have a single API. To change this behavior, you can set a configuration:
+By default, the agent ingests only the APIs of products with a single API. To change this behavior, you can set a configuration:
 
 ```yaml
 - gravitee_integration_providers_0_configuration_multipleApiByProduct=true

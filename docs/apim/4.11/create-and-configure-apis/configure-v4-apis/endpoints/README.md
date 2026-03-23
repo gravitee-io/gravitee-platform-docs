@@ -43,6 +43,10 @@ Enter your target URL in the **Target URL** text field.
 **3. Configure the load balancer**
 
 Use the arrow keys to select a value for the weight.
+
+**4. Allow in API Products**
+
+Toggle **Allow in API Products** to enable this API to be included in API Products. This option is only available for V4 HTTP Proxy APIs and cannot be changed once the API is added to an API Product. The toggle is unavailable for read-only APIs (for example, Kubernetes-managed APIs).
 {% endtab %}
 
 {% tab title="Configuration" %}
@@ -179,6 +183,7 @@ v4 message APIs currently support the following endpoints:
 * **MQTT 5**: Enables the Gravitee API Gateway to establish a persistent connection with an MQTT topic as a backend resource or target.
 * **RabbitMQ**: Enables the Gravitee API Gateway to establish a persistent connection with RabbitMQ as a backend resource or target. This will only work if you are using RabbitMQ and the AMQP 0-9-1 protocol. Because this endpoint supports the AMQP 0-9-1 protocol, it may support other event brokers and message queues that communicate over the AMQP 0-9-1 protocol. However, Gravitee does not guarantee or officially support these implementations.
 * **Solace**: Enables the Gravitee API Gateway to establish a persistent connection with Solace as a backend resource or target.
+* **JMS**: Enables the Gravitee API Gateway to produce and consume messages from JMS-compliant message brokers such as ActiveMQ, IBM MQ, and Solace.
 * **Mock**: Enables the Gateway to simulate responses from a server for testing API implementations.
 
 ### Configuration and Implementation
@@ -197,4 +202,4 @@ The integrations Gravitee uses to enable Kafka, MQTT, RabbitMQ, and Solace endpo
 
 Click on the tiles below for specific configuration and implementation details.
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-type="content-ref"></th></tr></thead><tbody><tr><td>Kafka</td><td></td><td></td><td><a href="kafka.md">kafka.md</a></td></tr><tr><td>MQTT5</td><td></td><td></td><td><a href="mqtt5.md">mqtt5.md</a></td></tr><tr><td>Solace</td><td></td><td></td><td><a href="solace.md">solace.md</a></td></tr><tr><td>RabbitMQ</td><td></td><td></td><td><a href="rabbitmq.md">rabbitmq.md</a></td></tr><tr><td>Mock</td><td></td><td></td><td><a href="mock.md">mock.md</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-type="content-ref"></th></tr></thead><tbody><tr><td>Kafka</td><td></td><td></td><td><a href="kafka.md">kafka.md</a></td></tr><tr><td>MQTT5</td><td></td><td></td><td><a href="mqtt5.md">mqtt5.md</a></td></tr><tr><td>Solace</td><td></td><td></td><td><a href="solace.md">solace.md</a></td></tr><tr><td>RabbitMQ</td><td></td><td></td><td><a href="rabbitmq.md">rabbitmq.md</a></td></tr><tr><td>JMS</td><td></td><td></td><td><a href="jms.md">jms.md</a></td></tr><tr><td>Mock</td><td></td><td></td><td><a href="mock.md">mock.md</a></td></tr></tbody></table>

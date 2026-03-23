@@ -73,6 +73,7 @@ SCRAM
 GSSAPI
 ALPN
 W3C
+[Jj][Mm][Ss]
 
 # ============================================
 # Cloud & Infrastructure
@@ -95,6 +96,7 @@ Cloudwatch
 [Ll]oad[Bb]alancer
 ClusterIP
 NodePort
+https
 
 # ============================================
 # Kubernetes & Containers
@@ -136,6 +138,8 @@ Liquibase
 Kafka
 RabbitMQ
 ActiveMQ
+ActiveMQConnectionFactory
+ConnectionFactory
 DLQs?
 AVRO
 Protobuf
@@ -205,6 +209,7 @@ JKS
 JRE
 JAAS
 JCE
+javax
 OpenJDK
 Freemarker
 FreeMarker
@@ -316,7 +321,7 @@ ISO
 [Tt]emplating
 [Tt]imeframes?
 [Tt]imelines?
-[Tt]ooltip
+[Tt]ooltips?
 [Tt]ruststore
 [Uu]npublish
 [Uu]sername
@@ -374,6 +379,7 @@ Dockerfile
 [Oo]pen-source
 US
 IP
+IPs
 VM
 CPU
 DB
@@ -414,6 +420,25 @@ Slackbot
 [Ss]harding
 [Kk]eyless
 [Ee]ndhint
+[Ee]ndtab
+endtab
+[Aa]sync
+async
+[Uu]nconfigured
+[Mm]etaLinks
 [Uu][Ss][Aa]
 [Ee][Uu]
 [Mm]anagement [Cc]onsole
+[Aa]llows?
+[Aa]gainst
+[Ee]num[s]?
+[Rr]eorderable
+[Dd]rag and [Dd]rop
+[Cc]allout[s]?
+[Aa]lias
+[Cc]acheable
+[Ee]ndcode
+[Ee]nsure
+[Ee]xtract
+[Ss]ubscribable
+[Mm]inLength

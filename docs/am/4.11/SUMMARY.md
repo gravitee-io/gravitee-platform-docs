@@ -33,7 +33,7 @@
   * [AM API](getting-started/configuration/configure-am-api/README.md)
     * [Internal API](getting-started/configuration/configure-am-api/internal-api.md)
   * [AM Console](getting-started/configuration/configure-am-console.md)
-  * [Repositories & DataPlane](getting-started/configuration/configure-repositories.md)
+  * [Repositories & Data Plane](getting-started/configuration/configure-repositories.md)
   * [Reporters](getting-started/configuration/configure-reporters.md)
   * [Monitoring](getting-started/configuration/configure-monitoring.md)
   * [Secret Providers](getting-started/configuration/secret-providers.md)
@@ -47,12 +47,13 @@
   * [Get User Profile Information](getting-started/tutorial-getting-started-with-am/get-user-profile-information.md)
   * [Secure Your APIs](getting-started/tutorial-getting-started-with-am/secure-your-apis/README.md)
     * [Configure Generic OAuth2 Authorization Server](getting-started/tutorial-getting-started-with-am/secure-your-apis/configure-generic-oauth2-authorization-server.md)
-    * [Configure Gravitee.io Access Management](getting-started/tutorial-getting-started-with-am/secure-your-apis/configure-gravitee.io-access-management.md)
+    * [Configure Gravitee Access Management](getting-started/tutorial-getting-started-with-am/secure-your-apis/configure-gravitee.io-access-management.md)
   * [Configure a Flow](getting-started/tutorial-getting-started-with-am/configure-a-flow.md)
   * [Add Custom Claims to Tokens](getting-started/tutorial-getting-started-with-am/add-custom-claims-to-tokens.md)
 
 ## Guides
 
+* [Fetching and Displaying AgentCard Metadata](guides/fetching_and_displaying_agentcard_metadata.md)
 * [Prologue](guides/prologue.md)
 * [Auth Protocols](guides/auth-protocols/README.md)
   * [OAuth 2.0](guides/auth-protocols/oauth-2.0/README.md)
@@ -97,7 +98,9 @@
   * [OpenFGA](guides/authorization-engines/openfga.md)
   * [AuthZen](guides/authorization-engines/authzen.md)
 * [Applications](guides/applications/README.md)
+  * [Agent Application Type Overview](guides/applications/agent-application-type.md)
   * [Client Secrets](guides/applications/client-secrets.md)
+  * [Creating Agent Applications via Console](guides/applications/create-agent-application.md)
 * [Branding](guides/branding/README.md)
   * [CSS Custom Variables Reference](guides/branding/css-custom-variables-reference.md)
   * [Language Default Properties Reference](guides/branding/language-default-properties-reference.md)
@@ -134,6 +137,7 @@
   * [AWS Certificate plugin](guides/certificates/aws-certificate-plugin.md)
   * [AWS CloudHSM plugin](guides/certificates/aws-cloudhsm-plugin.md)
   * [Configure Domain Certificate Fallback](guides/certificates/configure-domain-certificate-fallback.md)
+
 * [User Management](guides/user-management/README.md)
   * [Users](guides/user-management/users/README.md)
     * [Password Options](guides/user-management/users/password-options.md)

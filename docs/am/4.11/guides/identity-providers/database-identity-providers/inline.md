@@ -49,9 +49,7 @@ If you decide to switch from `bcrypt` to none, you must update all password fiel
 
 You can test your database connection using a web application created in AM.
 
-1.  In AM Console, click **Applications** and select your inline identity provider.
-
-    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-social-idp-list.png" alt=""><figcaption><p>Select Inline IdP</p></figcaption></figure>
+1. In AM Console, click **Applications** and select your inline identity provider.
 2.  Call the Login page (i.e `/oauth/authorize` endpoint) and try to sign in with the username/password form.
 
     If you are unable to authenticate your user, there may be a problem with the identity provider settings. Check the AM Gateway log and audit logs for more information.
