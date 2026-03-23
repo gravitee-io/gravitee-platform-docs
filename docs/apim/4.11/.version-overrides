@@ -47,3 +47,6 @@ configure-and-manage-the-platform/logging-infrastructure.md
 configure-and-manage-the-platform/node-logging-configuration.md
 create-and-configure-apis/development-tools/archunit-maven-plugin.md
 plugins/context-aware-logging.md
+developer-portal/new-developer-portal/pagination-controls-and-accessibility.md
+guides/unified-api-catalog-view.md
+secure-and-expose-apis/subscriptions/subscription-requests.md

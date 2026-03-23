@@ -119,4 +119,14 @@
 * The custom `%mdcList` Logback converter formats and filters MDC keys in log patterns. Structured encoders (JsonEncoder, EcsEncoder) log the full unfiltered MDC map.
 <!-- /PIPELINE:APIM-12308 -->
 
+
+<!-- PIPELINE:APIM-13003 -->
+#### **Unified API Catalog and Enhanced Subscription Workflow**
+
+* The API catalog now presents all APIs in a single unified view with grid or list display modes, replacing the previous category-based navigation structure.
+* Subscription workflow includes numbered step headers (Plan Selection, Application Selection, Push Details, Review) to improve clarity and guide users through the process.
+* Pagination controls across catalog and application selection screens now support configurable page sizes (5-100 for catalog, 6-96 for applications) with full ARIA labels for accessibility.
+* Application selection validates existing subscriptions and displays clear messaging when applications are already subscribed to the selected plan or have conflicting API key subscriptions.
+<!-- /PIPELINE:APIM-13003 -->
+
 ## Bug Fixes
