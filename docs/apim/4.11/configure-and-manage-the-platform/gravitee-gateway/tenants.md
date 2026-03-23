@@ -17,9 +17,30 @@ Endpoint deployment is impacted by how tags are applied to API endpoints and Gat
 
 ### Rules
 
-* A Gateway that is not configured with a tenant deploys all API endpoints, regardless of whether the endpoint has a tenant.
-* An API endpoint that is not configured with a tenant is deployed to all Gateways, regardless of whether the Gateway is configured with a tenant.
+* A Gateway that isn't configured with a tenant deploys all API endpoints, regardless of whether the endpoint has a tenant.
+* An API endpoint that isn't configured with a tenant is deployed to all Gateways, regardless of whether the Gateway is configured with a tenant.
 * A Gateway configured with the tenant `foo` deploys all API endpoints that include `foo` in their tenant list.
+
+### Tenant-Based Endpoint Filtering for Native Kafka APIs
+
+For Native Kafka APIs, each Kafka endpoint can be tagged with one or more tenant identifiers. At startup and during hot-reload, the gateway loads only endpoints whose tenant list is empty (shared) or contains the gateway's configured tenant. Endpoints that don't match are skipped entirely.
+
+**Behavior:**
+
+| Gateway Tenant | Endpoint Tenants | Match Result |
+|:--------------|:-----------------|:-------------|
+| Not configured | Any value or empty | Match (gateway participates in all endpoints) |
+| Configured (for example, `"tenant-a"`) | `null` or `[]` | Match (shared endpoint) |
+| Configured (for example, `"tenant-b"`) | Contains `"tenant-b"` | Match |
+| Configured (for example, `"tenant-c"`) | Doesn't contain `"tenant-c"` | No Match |
+
+**Shared Endpoints:**
+
+An endpoint with an empty or null tenant list is considered shared and always matches any gateway, regardless of the gateway's tenant configuration. Shared endpoints are included in the filtered set alongside tenant-specific endpoints.
+
+**No-match behavior:**
+
+If all endpoints in the group are tenant-specific and none match the gateway's tenant, the gateway can't route to the API. Connections fail in this scenario. Include at least one shared (untagged) endpoint in the group to ensure the API remains accessible to all gateways.
 
 ## Configuring Tenants <a href="#id-9c4f" id="id-9c4f"></a>
 
@@ -42,7 +63,7 @@ tenant: 'eu'
 
 Once the Gateway has been configured, the tenant definition must be added via the API Management Console:
 
-1.  Navigate to **Organization Settings** and select **Tenants**_**.**_ Select **Add a tenant** and enter the value for each of your regions, e.g., “usa” and “eu." We also recommend giving each tenant a descriptive name.
+1.  Navigate to **Organization Settings** and select **Tenants**_**.**_ Select **Add a tenant** and enter the value for each of your regions, for example, “usa” and “eu." We also recommend giving each tenant a descriptive name.
 
     <div align="left"><figure><img src="../../.gitbook/assets/tenant_create (1).png" alt="" width="375"><figcaption></figcaption></figure></div>
 2.  Next, configure the Backend and Customer APIs by adding two different endpoints. In our example, these will point to the USA and EU upstream systems (the backend server or the Customer API, depending on which API you are configuring).

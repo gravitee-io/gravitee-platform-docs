@@ -105,6 +105,7 @@
   * [Management API](configure-and-manage-the-platform/management-api/README.md)
     * [MAPI Internal API](configure-and-manage-the-platform/management-api/mapi-internal-api.md)
     * [Settings](configure-and-manage-the-platform/management-api/settings.md)
+    * [Cleanup Services](configure-and-manage-the-platform/management-api/cleanup-services.md)
   * [Manage Organizations & Environments](configure-and-manage-the-platform/manage-organizations-and-environments/README.md)
     * [Authentication](configure-and-manage-the-platform/manage-organizations-and-environments/authentication/README.md)
       * [Gravitee Access Management](configure-and-manage-the-platform/manage-organizations-and-environments/authentication/gravitee-access-management.md)
@@ -430,3 +431,4 @@
     * [APIM 4.1.x](https://documentation.gravitee.io/apim/4.1/releases-and-changelog/changelogs/apim-4.1.x-changelog)
     * [APIM 4.0.x](https://documentation.gravitee.io/apim/4.0/releases-and-changelog/changelog/apim-4.0.x)
   * [Breaking Changes and Deprecations](release-information/breaking-changes-and-deprecations.md)
+  * [test page](release-information/test-page.md)

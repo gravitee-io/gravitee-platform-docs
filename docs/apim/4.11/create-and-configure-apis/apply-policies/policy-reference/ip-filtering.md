@@ -11,6 +11,8 @@ metaLinks:
 
 You can use the `ip-filtering` policy to control access to your API by filtering IP addresses. You can allow or deny a specific IP address or range of IP addresses with [CIDR](https://tools.ietf.org/html/rfc1519).
 
+For Native Kafka APIs, use the [Native IP Filtering](native-ip-filtering.md) policy, which provides whitelist and blacklist logic with support for IPv4, IPv6, CIDR notation, IP ranges, and Expression Language during the entrypoint connection phase.
+
 You can toggle the `Use custom IP address (support EL)` option to filter forwarded IPs using a custom header.
 
 <figure><img src="../../../.gitbook/assets/00 ip.png" alt=""><figcaption></figcaption></figure>

@@ -88,6 +88,20 @@ Of the following configuration settings, only entering a host/port pair is requi
        * **PEM with path:** Enter the certificate path and private key path.
    * **SASL\_SSL:** Configure both SASL authentication and SSL encryption, choose a **SASL** mechanism from the options listed under **SASL\_PLAINTEXT**, and then configure **SSL** settings as described in the **SSL** section.
 
+### Gateway SSL Configuration for mTLS
+
+To enforce client certificate authentication for Kafka APIs, configure the gateway with the following SSL properties:
+
+| Property | Description | Example |
+|:---------|:------------|:--------|
+| `kafka.ssl.clientAuth` | Require client certificate authentication. Must be set to `required` to enforce certificate authentication. | `required` |
+| `kafka.ssl.truststore.type` | Gateway truststore type for verifying client certificates | `jks` |
+| `kafka.ssl.truststore.password` | Gateway truststore password | `gravitee` |
+| `kafka.ssl.truststore.path` | Path to gateway truststore containing CA that signed client certificates | `/path/to/server.truststore.jks` |
+| `kafka.ssl.keystore.type` | Gateway keystore type | `jks` |
+| `kafka.ssl.keystore.password` | Gateway keystore password | `gravitee` |
+| `kafka.ssl.keystore.path` | Path to gateway keystore | `/path/to/server.keystore.jks` |
+
 ## Security
 
 Define a plan to secure, monitor, and transparently communicate information on how to access your Kafka API. The plan types presented are the same as the plan types used for regular HTTP APIs in Gravitee, but map to a Kafka authentication equivalent.
@@ -97,7 +111,7 @@ Define a plan to secure, monitor, and transparently communicate information on h
 Gravitee automatically assigns each API a Default Keyless plan, which grants public access. Click **+ Add plan** to create additional plans.
 
 {% hint style="warning" %}
-Kafka APIs cannot have published plans with conflicting authentication. In order to automatically deploy your API, add either a Keyless plan, which grants public access, or remove the Default Keyless plan and add one or more plans with authentication.
+Kafka APIs can't have published plans with conflicting authentication. In order to automatically deploy your API, add either a Keyless plan, which grants public access, or remove the Default Keyless plan and add one or more plans with authentication.
 {% endhint %}
 
 The Gravitee plans supported by Kafka APIs are summarized below, in increasing order of security
@@ -105,7 +119,7 @@ The Gravitee plans supported by Kafka APIs are summarized below, in increasing o
 <table><thead><tr><th width="201">Plan</th><th>Description</th></tr></thead><tbody><tr><td>Keyless (public)</td><td>When configured, this plan does not add security. It is considered an "open" plan.</td></tr><tr><td>API Key</td><td>The gateway only accepts connections from clients that pass an API key corresponding to a valid subscription to the proxy in the client properties. The API key is used as the password, and the md5 hash of the API key is used as the username, as part of the SASL/SSL with SASL PLAIN authentication method.</td></tr><tr><td>JWT</td><td>The gateway only accepts connections from clients that pass a valid JWT with a client ID claim corresponding to a valid subscription to the proxy in the client properties. This is equivalent to SASL/SSL with SASL OAUTHBEARER authentication, where the JWT is used as the OAuth token.</td></tr><tr><td>OAuth2</td><td>The gateway only accepts connections from clients that pass a valid OAuth token with a client ID corresponding to a valid subscription to the proxy in the client properties. This is equivalent to SASL/SSL with SASL OAUTHBEARER authentication.</td></tr></tbody></table>
 
 {% hint style="info" %}
-To learn more about how plans function in Gravitee, refer to the [plans](../../secure-and-expose-apis/plans/) documentation. mTLS plans are not yet supported for Kafka APIs.
+To learn more about how plans function in Gravitee, refer to the [plans](../../secure-and-expose-apis/plans/) documentation. For mTLS plan configuration with Kafka APIs, see [mTLS plans](../create-and-configure-kafka-apis/configure-kafka-apis/mtls-plans.md).
 {% endhint %}
 
 Individual plan configurations as they pertain to Kafka APIs are described in detail below.
