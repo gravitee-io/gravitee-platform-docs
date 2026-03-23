@@ -13,13 +13,11 @@ Gravitee policies are customizable rules or logic the Gateway executes during an
 
 Gravitee supports the following Kafka policies, which can be applied to Kafka APIs.
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td><a href="../../../create-and-configure-apis/apply-policies/policy-reference/kafka-acl.md">Kafka ACL</a></td><td></td><td></td></tr><tr><td><a href="../../../create-and-configure-apis/apply-policies/policy-reference/kafka-message-filtering.md">Kafka Message Filtering</a></td><td></td><td></td></tr><tr><td><a href="../../../create-and-configure-apis/apply-policies/policy-reference/kafka-offloading.md">Kafka Offloading</a></td><td></td><td></td></tr><tr><td><a href="../../../create-and-configure-apis/apply-policies/policy-reference/kafka-quota.md">Kafka Quota</a></td><td></td><td></td></tr><tr><td><a href="../../../create-and-configure-apis/apply-policies/policy-reference/kafka-topic-mapping.md">Kafka Topic Mapping</a></td><td></td><td></td></tr><tr><td><a href="../../../create-and-configure-apis/apply-policies/policy-reference/kafka-transform-key.md">Kafka Transform Key</a></td><td></td><td></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td><a href="../../../create-and-configure-apis/apply-policies/policy-reference/kafka-acl.md">Kafka ACL</a></td><td></td><td></td></tr><tr><td><a href="../../../create-and-configure-apis/apply-policies/policy-reference/kafka-governance-rules-policies.md">Kafka Governance Rules</a></td><td></td><td></td></tr><tr><td><a href="../../../create-and-configure-apis/apply-policies/policy-reference/kafka-message-filtering.md">Kafka Message Filtering</a></td><td></td><td></td></tr><tr><td><a href="../../../create-and-configure-apis/apply-policies/policy-reference/kafka-offloading.md">Kafka Offloading</a></td><td></td><td></td></tr><tr><td><a href="../../../create-and-configure-apis/apply-policies/policy-reference/kafka-quota.md">Kafka Quota</a></td><td></td><td></td></tr><tr><td><a href="../../../create-and-configure-apis/apply-policies/policy-reference/kafka-topic-mapping.md">Kafka Topic Mapping</a></td><td></td><td></td></tr><tr><td><a href="../../../create-and-configure-apis/apply-policies/policy-reference/kafka-transform-key.md">Kafka Transform Key</a></td><td></td><td></td></tr></tbody></table>
 
-### Enterprise Features
-
-The following Kafka policies are available as Enterprise features:
-
-* **Kafka Governance Rules Policies**: Requires the `apim-native-kafka-policy-rules` license feature flag. Provides compliance enforcement for Kafka protocol requests. See [Kafka Governance Rules Policies](../../../create-and-configure-apis/apply-policies/policy-reference/kafka-governance-rules-policies.md) for details.
+{% hint style="info" %}
+The [Kafka governance rules policies](../../../create-and-configure-apis/apply-policies/policy-reference/kafka-governance-rules-policies.md) (Produce Rules, Fetch Rules, Create Topic Rules, Alter Topic Rules) require an Enterprise Edition license with the `apim-native-kafka-policy-rules` feature.
+{% endhint %}
 
 ## Policy phases
 
@@ -32,7 +30,7 @@ The request and response of a Kafka API transaction are broken up into the follo
 
 Which Kafka policies can be applied to each phase is summarized below:
 
-<table><thead><tr><th>Policy</th><th data-type="checkbox">Connect</th><th data-type="checkbox">Interact</th><th data-type="checkbox">Publish</th><th data-type="checkbox">Subscribe</th></tr></thead><tbody><tr><td>Kafka ACL</td><td>false</td><td>true</td><td>false</td><td>false</td></tr><tr><td>Kafka Message Filtering</td><td>false</td><td>false</td><td>false</td><td>true</td></tr><tr><td>Kafka Offloading</td><td>false</td><td>false</td><td>true</td><td>true</td></tr><tr><td>Kafka Quota</td><td>false</td><td>false</td><td>true</td><td>true</td></tr><tr><td>Kafka Topic Mapping</td><td>false</td><td>true</td><td>false</td><td>false</td></tr><tr><td>Kafka Transform Key</td><td>false</td><td>false</td><td>true</td><td>true</td></tr></tbody></table>
+<table><thead><tr><th>Policy</th><th data-type="checkbox">Connect</th><th data-type="checkbox">Interact</th><th data-type="checkbox">Publish</th><th data-type="checkbox">Subscribe</th></tr></thead><tbody><tr><td>Kafka ACL</td><td>false</td><td>true</td><td>false</td><td>false</td></tr><tr><td>Kafka Alter Topic Rules</td><td>false</td><td>true</td><td>false</td><td>false</td></tr><tr><td>Kafka Create Topic Rules</td><td>false</td><td>true</td><td>false</td><td>false</td></tr><tr><td>Kafka Fetch Rules</td><td>false</td><td>true</td><td>false</td><td>false</td></tr><tr><td>Kafka Message Filtering</td><td>false</td><td>false</td><td>false</td><td>true</td></tr><tr><td>Kafka Offloading</td><td>false</td><td>false</td><td>true</td><td>true</td></tr><tr><td>Kafka Produce Rules</td><td>false</td><td>false</td><td>true</td><td>false</td></tr><tr><td>Kafka Quota</td><td>false</td><td>false</td><td>true</td><td>true</td></tr><tr><td>Kafka Topic Mapping</td><td>false</td><td>true</td><td>false</td><td>false</td></tr><tr><td>Kafka Transform Key</td><td>false</td><td>false</td><td>true</td><td>true</td></tr></tbody></table>
 
 Kafka policies can be applied to these phases in policy chains of arbitrary length.
 
