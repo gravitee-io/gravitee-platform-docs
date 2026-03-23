@@ -125,3 +125,6 @@ gateway:
 4. Choose the AWS Cloud HSM type and click **Next**
 5. Give your certificate a name, then enter the AWS settings details to retrieve the key pair
 6. Click **Create**
+{% hint style="info" %}
+If you're using AWS-based certificates (Secret Manager or CloudHSM) where transient connectivity  issues may cause signing failures, consider configuring a Fallback Certificate at the domain level. See [Fallback Certificate](../certificates/README.md) for details. 
+{% endhint %}
