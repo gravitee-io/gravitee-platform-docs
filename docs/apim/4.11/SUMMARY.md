@@ -105,6 +105,7 @@
   * [Management API](configure-and-manage-the-platform/management-api/README.md)
     * [MAPI Internal API](configure-and-manage-the-platform/management-api/mapi-internal-api.md)
     * [Settings](configure-and-manage-the-platform/management-api/settings.md)
+    * [Cleanup Services](configure-and-manage-the-platform/management-api/cleanup-services.md)
   * [Manage Organizations & Environments](configure-and-manage-the-platform/manage-organizations-and-environments/README.md)
     * [Authentication](configure-and-manage-the-platform/manage-organizations-and-environments/authentication/README.md)
       * [Gravitee Access Management](configure-and-manage-the-platform/manage-organizations-and-environments/authentication/gravitee-access-management.md)
@@ -288,6 +289,7 @@
   * [API Products configuration reference](secure-and-expose-apis/api-products-configuration-reference.md)
 * [Developer Portal](developer-portal/README.md)
   * [New Developer Portal](developer-portal/new-developer-portal/README.md)
+    * [Catalog](developer-portal/new-developer-portal/catalog.md)
     * [Create an Application](developer-portal/new-developer-portal/create-an-application.md)
     * [Enable the New Developer Portal](developer-portal/new-developer-portal/configure-the-new-portal.md)
     * [Layout and Theme](developer-portal/new-developer-portal/layout-and-theme.md)
@@ -300,7 +302,11 @@
       * [Configure authentication with Login and password](developer-portal/new-developer-portal/configure-authentication/configure-authentication-with-login-and-password.md)
       * [Configure authentication with SSO](developer-portal/new-developer-portal/configure-authentication/configure-authentication-with-sso.md)
       * [Enforce User Authentication](developer-portal/new-developer-portal/configure-authentication/enforce-user-authentication.md)
+<<<<<<< /tmp/tmpobzolaf5.md
     * [Subscription form technical implementation](developer-portal/new-developer-portal/subscription-form-technical-implementation.md)
+=======
+    * [Manage subscriptions](developer-portal/new-developer-portal/manage-subscriptions.md)
+>>>>>>> ./docs/apim/4.10/SUMMARY.md
   * [Classic Developer Portal](developer-portal/classic-developer-portal/README.md)
     * [Configuration File](developer-portal/classic-developer-portal/configuration-file.md)
     * [Portal Settings](developer-portal/classic-developer-portal/portal-settings.md)
@@ -455,3 +461,4 @@
     * [APIM 4.1.x](https://documentation.gravitee.io/apim/4.1/releases-and-changelog/changelogs/apim-4.1.x-changelog)
     * [APIM 4.0.x](https://documentation.gravitee.io/apim/4.0/releases-and-changelog/changelog/apim-4.0.x)
   * [Breaking Changes and Deprecations](release-information/breaking-changes-and-deprecations.md)
+  * [test page](release-information/test-page.md)
