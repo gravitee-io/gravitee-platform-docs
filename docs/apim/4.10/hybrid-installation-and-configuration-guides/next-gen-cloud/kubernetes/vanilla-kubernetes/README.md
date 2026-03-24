@@ -101,32 +101,32 @@ To prepare your Gravitee `values.yaml` file for Helm, complete the following ste
     \{% code title="values.yaml" %\}
 
     ```yaml
-    #This is the license key provided in your Gravitee Cloud account 
+    # This is the license key provided in your Gravitee Cloud account 
     #example: Ic5OXgAAACAAAAACAAAADAAAAAhhbGVydC1lbmdpbmVpbmNsdWRlZAAAABsAAAACAAAABwAAAAhjb21wYW55R3Jhdml0ZWUAAAAxAAAAAgAAAAUAAAAgZW1haWxwbGF0Zm9ybS10ZWFtQGdyYXZpdGVlc291cmNlLmNvbQAAABoAAAALAAAACmV4cGlyeURhdGUAAAGhUXU7/wAAACAAAAACAAAACAAAAAxmZWF0dXJlc2FsZXJ0LWVuZ2luZQAAACEAAAAMAAAACWxpY2Vuc2VJZJTWw5qIQT4bEYqYFx9wSH4AAAEcAAAAAQAAABAAAAEAbGljZW5zZVNpZ25hdHVyZULCHNcIqMuFwEMkSCgE4Q/42YSVluW/vvMtaHZWJ5Xoh3rsWEjCMg8Ku2cTKuSP7FzR/b8GVedDJqxf+o2n8B/LV+WwzZjOAi09EBfLmTLOzzXFNp1KRDk3G4rrKznJ1Kqz9EXjyNAiT/c7en3om6Lx0A4BscZtu6k6i1pAnfHhotJkHMIdNkDqSU4fkyAH6FS+NYcLEcudaeeRr2Th/Dvyn0py7xOUNicgXdBjEXJXMF2vxyNkm0kML4ADG12++dZyG2kgGYg5+A8UdABGxCvIfNsl9uVuP2F5ACr8Uc73HytKpIaZqz71RMxQDuJtRzmkkGxHajJJeZWQZXtLdBoAAAARAAAAAgAAAAUAAAAAcGFja3MAAAAiAAAAAgAAAA8AAAAHc2lnbmF0dXJhfgzanZXN0U0hBLTI1NgAAABgAAAACAAAABAAAAAh0aWVydW5pdmVyc2U=
     license:
         key: "<license_key>"
-    #This section controls the Management API component deployment of Gravitee. 
-    #It is disabled for a hybrid gateway installation
+    # This section controls the Management API component deployment of Gravitee. 
+    # It is disabled for a hybrid gateway installation
     api:
         enabled: false
-    #This section controls the Developer Portal API component deployment of Gravitee. 
-    #It is disabled for a hybrid gateway installation
+    # This section controls the Developer Portal API component deployment of Gravitee. 
+    # It is disabled for a hybrid gateway installation
     portal:
         enabled: false
     #This section controls the API Management Console component deployment of Gravitee. 
     #It is disabled for a hybrid gateway installation
     ui:
         enabled: false
-    #This section controls the Alert Engine component deployment of Gravitee. 
-    #It is disabled for a hybrid gateway installation
+    # This section controls the Alert Engine component deployment of Gravitee. 
+    # It is disabled for a hybrid gateway installation
     alerts:
         enabled: false
-    #This section controls the Analytics Database component deployment of Gravitee based on ElasticSearch. 
-    #It is disabled for a hybrid gateway installation
+    # This section controls the Analytics Database component deployment of Gravitee based on ElasticSearch. 
+    # It is disabled for a hybrid gateway installation
     es:
         enabled: false
         
-    #This section has multiple parameters to configure the API Gateway deployment  
+    # This section has multiple parameters to configure the API Gateway deployment  
     gateway:
         replicaCount: 1 #number of replicas of the pod
         image:
@@ -139,28 +139,28 @@ To prepare your Gravitee `values.yaml` file for Helm, complete the following ste
             prometheus.io/path: /_node/metrics/prometheus
             prometheus.io/port: "18082"
             prometheus.io/scrape: "true"
-        #Sets environment variables.  
+        # Sets environment variables.  
         env:
             #Gravitee Cloud Token. This is the value gathered in your Gravitee Cloud Account when you install a new Hybrid Gateway.
             - name: gravitee_cloud_token
               value: "<cloud_token>"
         
-        #Configure the API Gateway internal API. 
+        # Configure the API Gateway internal API. 
         services:
-            #The following sections enables the exposure of metrics to Prometheus. 
+            # The following sections enables the exposure of metrics to Prometheus. 
             metrics:
                 enabled: true
                 prometheus:
                     enabled: true
 
-            #This enables the Gravitee APIM Gateway internal API for monitoring and retrieving technical information about the component.
+            # This enables the Gravitee APIM Gateway internal API for monitoring and retrieving technical information about the component.
             core:
                 http:
                     enabled: true
             sync:
                 kubernetes:
                     enabled: false
-            #disables bridge mode. unnecessary for a hybrid gateway.
+            # disables bridge mode. unnecessary for a hybrid gateway.
             bridge:
                 enabled: false
         service:
@@ -182,8 +182,9 @@ To prepare your Gravitee `values.yaml` file for Helm, complete the following ste
                 type: RollingUpdate
                 rollingUpdate:
                     maxUnavailable: 0
-        #Reporter configuration section.
-        #no additional reporter enabled for the hybrid gateway outside of the default Cloud Gateway reporter
+                    
+        # Reporter configuration section.
+        # no additional reporter enabled for the hybrid gateway outside of the default Cloud Gateway reporter
         reporters:
             file:
                 enabled: false
