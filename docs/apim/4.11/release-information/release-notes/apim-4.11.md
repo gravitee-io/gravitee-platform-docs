@@ -125,6 +125,17 @@
 * Requires `environment-metadata-r` permission to view forms and `environment-metadata-u` permission to create, update, enable, or disable forms.
 <!-- /PIPELINE:APIM-12170 -->
 
+
+<!-- PIPELINE:APIM-13117 -->
+#### **AI Model Text Classification**
+
+* Adds nine pre-trained ONNX models for detecting toxic content and prompt injection attacks in API traffic, supporting up to 15 languages.
+* Includes binary and multi-label toxicity detection models (BERT variants, DistilBERT, Detoxify, MiniLMv2) and prompt injection detection models (Llama Prompt Guard 22M and 86M).
+* Models are deployed as gateway resources to filter or analyze text payloads before they reach backend services or LLM endpoints.
+* Multi-label models return probability scores for specific toxicity categories (insults, threats, hate speech, obscenity) and demographic attributes, enabling per-category threshold configuration.
+* Prompt injection models identify malicious attempts to override LLM instructions with a 512-token context window limitation.
+<!-- /PIPELINE:APIM-13117 -->
+
 ## Improvements
 
 

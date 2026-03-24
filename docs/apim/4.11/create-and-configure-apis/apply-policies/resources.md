@@ -249,7 +249,7 @@ The following resources support AI-powered policies and features in APIM. They p
 
 #### AI Model Text Classification
 
-The AI Model Text Classification resource loads an AI-powered text classification model that evaluates text content against a set of classification labels. It is used by the AI Prompt Guard Rails policy to detect inappropriate or malicious content in user prompts, such as profanity, toxicity, harmful intent, and jailbreak prompt injections.
+The AI Model Text Classification resource provides pre-trained machine learning models for detecting toxic content and prompt injection attacks in API traffic. The feature includes nine ONNX-optimized models covering toxicity detection (binary and multi-label) and prompt injection/jailbreak detection across up to 15 languages. For detailed model specifications, performance metrics, and configuration guidance, see [AI Model Text Classification Overview](../../guides/ai-model-text-classification-overview.md).
 
 {% hint style="info" %}
 When multiple APIs use the same **AI Model Text Classification Resource**, the gateway will only load it once into memory. So if you have 50 APIs, each with the same resource, then the gateway only loads that model once.

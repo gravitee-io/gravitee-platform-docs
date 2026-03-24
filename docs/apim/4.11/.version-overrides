@@ -53,3 +53,6 @@ developer-portal/new-developer-portal/subscription-form-technical-implementation
 secure-and-expose-apis/subscriptions/README.md
 secure-and-expose-apis/subscriptions/creating-and-managing-subscription-forms.md
 secure-and-expose-apis/subscriptions/subscription-form-feature-overview.md
+create-and-configure-apis/apply-policies/ai-model-text-classification-model-reference.md
+guides/ai-model-text-classification-configuration-and-restrictions.md
+guides/ai-model-text-classification-overview.md
