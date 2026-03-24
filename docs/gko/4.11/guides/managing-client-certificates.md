@@ -16,7 +16,13 @@ To revoke a certificate, select it from the list and choose "Revoke." Revoked ce
 
 ### Kubernetes CRD Configuration
 
-For Kubernetes-managed applications, define certificates in the `Application` CRD under `spec.tlsSettings.clientCertificates`. Each certificate requires a `name` and either inline `content` or a `ref` to a Kubernetes Secret or ConfigMap. Optionally specify `startsAt` and `endsAt` dates for scheduled activation and expiration. The `clientCertificate` field (singular) is deprecated and cannot be used alongside `clientCertificates`.
+For Kubernetes-managed applications, define certificates in the `Application` CRD under `settings.tls.clientCertificates`. Each certificate requires a `name` and either inline `content` or a `ref` to a Kubernetes Secret or ConfigMap. Optionally specify `startsAt` and `endsAt` dates for scheduled activation and expiration.
+
+Three provisioning modes are supported and can be combined:
+
+1. **Inline content** — Provide the PEM certificate directly in the `content` field.
+2. **References** — Point to a Kubernetes Secret or ConfigMap using `ref`.
+3. **Template notation** — Use the `[[ secret ... ]]` / `[[ configmap ... ]]` template syntax (requires `EnableTemplating` feature flag).
 
 ```yaml
 clientCertificates:
@@ -30,3 +36,7 @@ clientCertificates:
     endsAt: "2025-12-31T23:59:59Z"
     encoded: false
 ```
+
+{% hint style="warning" %}
+The `clientCertificate` (singular) field is **deprecated** and cannot be used alongside `clientCertificates` (plural). See the [CRD Configuration Reference](kubernetes-crd-configuration-for-client-certificates.md) for migration instructions and full validation rules.
+{% endhint %}
