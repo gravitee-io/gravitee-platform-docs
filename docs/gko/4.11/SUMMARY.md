@@ -49,11 +49,13 @@
 * [Templating](guides/templating.md)
 * [Configure the GKO HTTP client for APIM](guides/gko-http-client.md)
   * [Logs Engine Overview and Prerequisites](../../apim/4.11/guides/logs-engine-api/overview-and-prerequisites.md)
+  * [Configure LLM Analytics in Elasticsearch](../../apim/4.11/guides/analytics/configure-llm-analytics-in-elasticsearch.md)
 
 ## REFERENCE
 
 * [API Reference](reference/api-reference.md)
   * [Logs Engine API](reference/logs-engine-api.md)
+  * [LLM Analytics API](../../apim/4.11/reference/llm-analytics-api-reference.md)
 
 ## RELEASES & CHANGELOG
 
