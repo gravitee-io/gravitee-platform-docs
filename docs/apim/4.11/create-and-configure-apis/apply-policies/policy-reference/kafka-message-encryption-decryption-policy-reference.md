@@ -1,133 +1,298 @@
-# Kafka Message Encryption & Decryption Policy Reference
+# Kafka message encryption and decryption
 
 ## Overview
 
-The Kafka Message Encryption & Decryption Policy secures Kafka message payloads using AES-GCM encryption with optional compression. It encrypts messages during the Publish phase and decrypts them during the Subscribe phase, supporting whole-payload or individual JSON field processing. This policy is designed for Native Kafka APIs in APIM 4.7.x and above.
+The Kafka Message Encryption and Decryption policy secures Kafka message payloads using AES-GCM encryption with optional compression. It encrypts messages during the Publish phase and decrypts them during the Subscribe phase, supporting whole-payload or individual JSON field processing.
 
-## Key Concepts
+<!-- TODO: verify Enterprise Edition pack — feature flag is currently commented out in plugin.properties (#feature=apim-native-kafka-policy-encryption). Confirm with SME whether this is an Enterprise policy and which pack it belongs to. -->
 
-### Encryption Modes
+{% hint style="warning" %}
+This policy applies to Native Kafka APIs only. It requires APIM 4.7.x or later.
+{% endhint %}
 
-The policy supports three encryption modes that determine how keys are managed and how encrypted data is formatted. All modes use AES-GCM algorithms (128, 192, or 256-bit).
+## Encryption modes
 
-| Mode | Uses DEK | Output Format | Description |
-|:-----|:---------|:--------------|:------------|
-| `DIRECT_RAW_BASE64` | No | Base64-encoded ciphertext | Direct encryption with master key, output as base64 string |
-| `DIRECT_JWE` | No | JWE compact serialization | Direct encryption with master key, output as JWE object |
-| `JWE_WITH_DEK` | Yes | JWE compact serialization | Generates data encryption key (DEK) per message, encrypts DEK with master key |
+The policy supports three encryption modes that determine how keys are managed and how encrypted data is formatted. All modes use AES-GCM algorithms.
 
-### Processing Scopes
+<table>
+    <thead>
+        <tr>
+            <th width="220">Mode</th>
+            <th width="200">Output format</th>
+            <th>Description</th>
+            <th width="250">Supported algorithms</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>DIRECT_RAW_BASE64</code></td>
+            <td>Base64-encoded ciphertext</td>
+            <td>Direct encryption with the master key, output as a base64 string</td>
+            <td><code>AES_128_GCM</code>, <code>AES_256_GCM</code></td>
+        </tr>
+        <tr>
+            <td><code>DIRECT_JWE</code></td>
+            <td>JWE compact serialization</td>
+            <td>Direct encryption with the master key, output as a JWE object</td>
+            <td><code>AES_128_GCM</code>, <code>AES_192_GCM</code>, <code>AES_256_GCM</code></td>
+        </tr>
+        <tr>
+            <td><code>JWE_WITH_DEK</code></td>
+            <td>JWE compact serialization</td>
+            <td>Generates a data encryption key (DEK) per message and encrypts the DEK with the master key</td>
+            <td><code>AES_128_GCM</code>, <code>AES_192_GCM</code>, <code>AES_256_GCM</code></td>
+        </tr>
+    </tbody>
+</table>
+
+{% hint style="warning" %}
+`DIRECT_RAW_BASE64` mode doesn't support `AES_192_GCM`. Use `DIRECT_JWE` or `JWE_WITH_DEK` if AES-192 is required.
+{% endhint %}
+
+## Processing scopes
 
 The policy can process entire message payloads or target specific JSON fields using JSONPath expressions.
 
-| Scope Type | Description | Compression Behavior |
-|:-----------|:------------|:---------------------|
-| `WHOLE_PAYLOAD` | Encrypts/decrypts entire message payload | Applied once to entire payload |
-| `JSON_INDIVIDUAL_FIELDS` | Encrypts/decrypts specific JSON fields identified by JSONPath | Applied individually to each field; other fields remain untouched |
+<table>
+    <thead>
+        <tr>
+            <th width="250">Scope type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>WHOLE_PAYLOAD</code></td>
+            <td>Encrypts or decrypts the entire message payload. Compression is applied once to the entire payload.</td>
+        </tr>
+        <tr>
+            <td><code>JSON_INDIVIDUAL_FIELDS</code></td>
+            <td>Encrypts or decrypts specific JSON fields identified by JSONPath expressions. Compression is applied individually to each field. Other fields remain untouched.</td>
+        </tr>
+    </tbody>
+</table>
 
-### Keystore Types
+## Compression algorithms
 
-Keys are provided through one of two keystore configurations.
-
-| Store Type | Configuration | Use Case |
-|:-----------|:--------------|:---------|
-| `NONE` | `keyValue` (base64-encoded key) | Direct key provisioning without external keystore |
-| `PKCS12` | `location` or `content`, `password`, `keyPassword` | PKCS12 keystore file (path or base64-encoded content) |
-
-### Metadata Placement
-
-Encryption metadata (algorithm, mode, compression) is stored alongside encrypted messages to enable decryption. During Subscribe phase, metadata is automatically removed before returning messages to clients.
-
-| Placement Type | Description |
-|:---------------|:------------|
-| `NONE` | No metadata appended |
-| `KAFKA_HEADER` | Metadata stored in Kafka message headers with configurable prefix (default: `X-Gravitee-Encryption-`) |
-
-### Compression Algorithms
-
-Compression is applied before encryption and reversed after decryption. When processing individual fields, compression is applied per field.
+Compression is applied before encryption and reversed after decryption.
 
 | Algorithm | Description |
 |:----------|:------------|
-| `NONE` | No compression |
+| `NONE` | No compression (default) |
 | `GZIP` | GZIP compression |
 | `LZ4_BLOCK` | LZ4 block compression |
 | `LZ4_FRAMED` | LZ4 framed compression |
 | `BZIP2` | BZIP2 compression |
 | `SNAPPY_FRAMED` | Snappy framed compression |
 
-### Field Types
+## Keystore configuration
 
-When processing individual JSON fields, each field must be typed to ensure correct serialization after decryption.
+Provide keys through one of two keystore types. All key fields support Expression Language and the Gravitee secrets mechanism.
 
-| Field Type | JSON Type | Java Mapping |
-|:-----------|:----------|:-------------|
-| `STRING` | String | `String.class` |
-| `NUMERIC` | Number | `Number.class` |
-| `BOOLEAN` | Boolean | `Boolean.class` |
-| `OBJECT` | Object | `Map.class` |
-| `LIST` | Array | `List.class` |
+<table>
+    <thead>
+        <tr>
+            <th width="120">Store type</th>
+            <th width="350">Required fields</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>NONE</code></td>
+            <td><code>keyValue</code> (base64-encoded key)</td>
+            <td>Direct key provisioning without an external keystore</td>
+        </tr>
+        <tr>
+            <td><code>PKCS12</code></td>
+            <td><code>location</code> or <code>content</code>, <code>password</code>, and optionally <code>keyPassword</code></td>
+            <td>PKCS12 keystore file (by path or base64-encoded content)</td>
+        </tr>
+    </tbody>
+</table>
 
-## Prerequisites
+## Metadata placement
 
-- Gravitee APIM 4.7.x or above
-- Native Kafka API configured
-- Encryption keys (AES 128, 192, or 256-bit) provisioned as base64-encoded values or stored in PKCS12 keystore
-- For individual field processing: valid JSONPath expressions identifying target fields
-- For PKCS12 keystores: keystore file accessible to gateway or base64-encoded content
+Encryption metadata (algorithm, mode, compression) is stored alongside encrypted messages to enable automatic decryption during the Subscribe phase.
 
-## Gateway Configuration
+| Placement type | Description |
+|:---------------|:------------|
+| `NONE` | No metadata appended |
+| `KAFKA_HEADER` | Metadata stored in Kafka message headers with a configurable prefix (default: `X-Gravitee-Encryption-`) |
 
-### Policy Configuration
+{% hint style="info" %}
+Set the metadata placement to `KAFKA_HEADER` to enable automatic decryption. Without metadata headers, the Subscribe phase can't determine the encryption settings.
+{% endhint %}
 
-Configure the policy at the API plan level using the following properties. All keystore fields support Expression Language (EL) and the secrets mechanism.
+## Policy configuration reference
+
+Configure the policy with encryption settings for the Publish phase and decryption settings for the Subscribe phase. Encryption and decryption settings use the same mode and algorithm.
+
+### Top-level properties
+
+<table>
+    <thead>
+        <tr>
+            <th width="250">Property</th>
+            <th width="100">Type</th>
+            <th width="100">Required</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>encryption</code></td>
+            <td>Object</td>
+            <td>Publish phase</td>
+            <td>Encryption settings. Required when the policy runs in the Publish phase.</td>
+        </tr>
+        <tr>
+            <td><code>encryption.mode</code></td>
+            <td>Enum</td>
+            <td>Yes</td>
+            <td><code>DIRECT_RAW_BASE64</code>, <code>DIRECT_JWE</code>, or <code>JWE_WITH_DEK</code></td>
+        </tr>
+        <tr>
+            <td><code>encryption.keyId</code></td>
+            <td>String</td>
+            <td>Yes</td>
+            <td>Key identifier. Supports EL and secrets.</td>
+        </tr>
+        <tr>
+            <td><code>encryption.algorithm</code></td>
+            <td>Enum</td>
+            <td>Yes</td>
+            <td><code>AES_128_GCM</code>, <code>AES_192_GCM</code>, or <code>AES_256_GCM</code>. Default: <code>AES_256_GCM</code>. Availability depends on the selected mode.</td>
+        </tr>
+        <tr>
+            <td><code>decryption</code></td>
+            <td>Object</td>
+            <td>Subscribe phase</td>
+            <td>Decryption settings. Required when the policy runs in the Subscribe phase.</td>
+        </tr>
+        <tr>
+            <td><code>decryption.mode</code></td>
+            <td>Enum</td>
+            <td>Yes</td>
+            <td>Use the same mode as encryption.</td>
+        </tr>
+        <tr>
+            <td><code>decryption.keyId</code></td>
+            <td>String</td>
+            <td>Yes</td>
+            <td>Key identifier. Supports EL and secrets.</td>
+        </tr>
+        <tr>
+            <td><code>decryption.algorithm</code></td>
+            <td>Enum</td>
+            <td>Yes</td>
+            <td>Use the same algorithm as encryption. Default: <code>AES_256_GCM</code>.</td>
+        </tr>
+        <tr>
+            <td><code>processingScope</code></td>
+            <td>Object</td>
+            <td>Yes</td>
+            <td>Defines which parts of the payload to process.</td>
+        </tr>
+        <tr>
+            <td><code>processingScope.scopeType</code></td>
+            <td>Enum</td>
+            <td>Yes</td>
+            <td><code>WHOLE_PAYLOAD</code> or <code>JSON_INDIVIDUAL_FIELDS</code></td>
+        </tr>
+        <tr>
+            <td><code>processingScope.fields</code></td>
+            <td>Array</td>
+            <td>Conditional</td>
+            <td>Required when <code>scopeType</code> is <code>JSON_INDIVIDUAL_FIELDS</code>. List of field definitions.</td>
+        </tr>
+        <tr>
+            <td><code>keyStore</code></td>
+            <td>Object</td>
+            <td>Yes</td>
+            <td>Keystore configuration.</td>
+        </tr>
+        <tr>
+            <td><code>keyStore.storeType</code></td>
+            <td>Enum</td>
+            <td>Yes</td>
+            <td><code>NONE</code> or <code>PKCS12</code></td>
+        </tr>
+        <tr>
+            <td><code>keyStore.keyValue</code></td>
+            <td>String</td>
+            <td>Conditional</td>
+            <td>Base64-encoded key. Required when <code>storeType</code> is <code>NONE</code>. Supports EL and secrets.</td>
+        </tr>
+        <tr>
+            <td><code>keyStore.location</code></td>
+            <td>String</td>
+            <td>Conditional</td>
+            <td>File path to PKCS12 keystore. Supports EL and secrets.</td>
+        </tr>
+        <tr>
+            <td><code>keyStore.content</code></td>
+            <td>String</td>
+            <td>Conditional</td>
+            <td>Base64-encoded PKCS12 keystore content. Supports EL and secrets.</td>
+        </tr>
+        <tr>
+            <td><code>keyStore.password</code></td>
+            <td>String</td>
+            <td>Conditional</td>
+            <td>Keystore password. Required for <code>PKCS12</code>. Supports EL and secrets.</td>
+        </tr>
+        <tr>
+            <td><code>keyStore.keyPassword</code></td>
+            <td>String</td>
+            <td>No</td>
+            <td>Key password within the keystore. Supports EL and secrets.</td>
+        </tr>
+        <tr>
+            <td><code>metadataConfiguration</code></td>
+            <td>Object</td>
+            <td>Yes</td>
+            <td>Metadata placement settings.</td>
+        </tr>
+        <tr>
+            <td><code>metadataConfiguration.placementType</code></td>
+            <td>Enum</td>
+            <td>Yes</td>
+            <td><code>NONE</code> or <code>KAFKA_HEADER</code></td>
+        </tr>
+        <tr>
+            <td><code>metadataConfiguration.headerPrefix</code></td>
+            <td>String</td>
+            <td>No</td>
+            <td>Prefix for metadata headers. Default: <code>X-Gravitee-Encryption-</code></td>
+        </tr>
+        <tr>
+            <td><code>compressionConfiguration</code></td>
+            <td>Object</td>
+            <td>Yes</td>
+            <td>Compression settings.</td>
+        </tr>
+        <tr>
+            <td><code>compressionConfiguration.compressionAlgorithm</code></td>
+            <td>Enum</td>
+            <td>Yes</td>
+            <td><code>NONE</code>, <code>GZIP</code>, <code>LZ4_BLOCK</code>, <code>LZ4_FRAMED</code>, <code>BZIP2</code>, or <code>SNAPPY_FRAMED</code>. Default: <code>NONE</code></td>
+        </tr>
+    </tbody>
+</table>
+
+### Field configuration (individual fields mode)
+
+When `processingScope.scopeType` is `JSON_INDIVIDUAL_FIELDS`, define each field:
 
 | Property | Type | Required | Description |
 |:---------|:-----|:---------|:------------|
-| `encryption` | Object | No | Encryption settings for Publish phase |
-| `encryption.mode` | Enum | Yes | `DIRECT_RAW_BASE64`, `DIRECT_JWE`, or `JWE_WITH_DEK` |
-| `encryption.keyId` | String | Yes | Key identifier (supports EL and secrets) |
-| `encryption.algorithm` | Enum | Yes | `AES_128_GCM`, `AES_192_GCM`, or `AES_256_GCM` |
-| `decryption` | Object | No | Decryption settings for Subscribe phase |
-| `decryption.mode` | Enum | Yes | Must match encryption mode |
-| `decryption.keyId` | String | Yes | Key identifier (supports EL and secrets) |
-| `decryption.algorithm` | Enum | Yes | Must match encryption algorithm |
-| `processingScope` | Object | Yes | Defines which parts of payload to process |
-| `processingScope.scopeType` | Enum | Yes | `WHOLE_PAYLOAD` or `JSON_INDIVIDUAL_FIELDS` |
-| `processingScope.fields` | Array | Conditional | Required for `JSON_INDIVIDUAL_FIELDS`; list of field definitions |
-| `keyStore` | Object | Yes | Keystore configuration |
-| `keyStore.storeType` | Enum | Yes | `NONE` or `PKCS12` |
-| `keyStore.keyValue` | String | Conditional | Base64-encoded key (required for `NONE` type) |
-| `keyStore.location` | String | Conditional | File path to PKCS12 keystore |
-| `keyStore.content` | String | Conditional | Base64-encoded PKCS12 keystore content |
-| `keyStore.password` | String | Conditional | Keystore password (for PKCS12) |
-| `keyStore.keyPassword` | String | Conditional | Key password within keystore (for PKCS12) |
-| `metadataConfiguration` | Object | Yes | Metadata placement settings |
-| `metadataConfiguration.placementType` | Enum | Yes | `NONE` or `KAFKA_HEADER` |
-| `metadataConfiguration.headerPrefix` | String | No | Prefix for metadata headers (default: `X-Gravitee-Encryption-`) |
-| `compressionConfiguration` | Object | Yes | Compression settings |
-| `compressionConfiguration.compressionAlgorithm` | Enum | Yes | `NONE`, `GZIP`, `LZ4_BLOCK`, `LZ4_FRAMED`, `BZIP2`, or `SNAPPY_FRAMED` |
+| `fieldPath` | String | Yes | JSONPath expression (for example, `$.secretField1`) |
+| `fieldType` | Enum | Yes | `STRING` (default), `NUMERIC`, `BOOLEAN`, `OBJECT`, or `LIST` |
 
-### Field Configuration (Individual Fields Mode)
+## Configuration examples
 
-When `processingScope.scopeType` is `JSON_INDIVIDUAL_FIELDS`, define each field with the following properties:
-
-| Property | Type | Required | Description |
-|:---------|:-----|:---------|:------------|
-| `fieldPath` | String | Yes | JSONPath expression (e.g., `$.secretField1`) |
-| `fieldType` | Enum | Yes | `STRING`, `NUMERIC`, `BOOLEAN`, `OBJECT`, or `LIST` |
-
-## Creating a Policy Configuration
-
-To enable encryption and decryption on a Kafka API, configure the policy at the plan level with encryption settings for Publish phase and decryption settings for Subscribe phase.
-
-1. Define the keystore type and provide either a base64-encoded key (`NONE` type) or PKCS12 keystore details (`PKCS12` type).
-2. Specify the processing scope: use `WHOLE_PAYLOAD` to encrypt the entire message or `JSON_INDIVIDUAL_FIELDS` to target specific fields with JSONPath expressions.
-3. Select an encryption mode (`DIRECT_RAW_BASE64`, `DIRECT_JWE`, or `JWE_WITH_DEK`) and matching algorithm (`AES_128_GCM`, `AES_192_GCM`, or `AES_256_GCM`).
-4. Configure metadata placement (typically `KAFKA_HEADER` with default prefix `X-Gravitee-Encryption-`) and optional compression algorithm.
-5. Ensure decryption settings mirror encryption settings (same mode, algorithm, and key).
-
-### Example: Whole Payload with Direct Raw Encryption
+### Whole payload with direct raw encryption
 
 ```json
 {
@@ -153,7 +318,7 @@ To enable encryption and decryption on a Kafka API, configure the policy at the 
 }
 ```
 
-### Example: Individual JSON Fields
+### Individual JSON fields
 
 ```json
 {
@@ -189,7 +354,7 @@ To enable encryption and decryption on a Kafka API, configure the policy at the 
 }
 ```
 
-### Example: JWE with DEK and PKCS12 Keystore
+### JWE with DEK and PKCS12 keystore
 
 ```json
 {
@@ -217,30 +382,17 @@ To enable encryption and decryption on a Kafka API, configure the policy at the 
 }
 ```
 
-## Managing Encryption and Decryption
+## How the policy processes messages
 
-The policy operates automatically during message flow.
-
-1. During Publish phase, the policy compresses (if configured), encrypts the payload or individual fields, and appends metadata to Kafka headers.
-2. During Subscribe phase, the policy reads metadata from Kafka headers, decrypts the payload or fields, decompresses (if applicable), and removes metadata headers before returning messages to clients.
-
-No manual intervention is required once the policy is configured.
-
-## End-User Configuration
-
-<!-- EMPTY: End-User Configuration -->
+1. **Publish phase**: The policy compresses the payload or fields (if configured), encrypts the data, and appends metadata to Kafka headers.
+2. **Subscribe phase**: The policy reads metadata from Kafka headers, decrypts the payload or fields, decompresses the data (if applicable), and removes the metadata headers before returning messages to clients.
 
 ## Restrictions
 
 - Supported only on Native Kafka APIs
-- Requires APIM 4.7.x or above
-- Encryption and decryption configurations must use matching mode and algorithm
+- Requires APIM 4.7.x or later
+- Encryption and decryption configurations use matching mode and algorithm
+- `DIRECT_RAW_BASE64` mode doesn't support `AES_192_GCM`
 - `JSON_INDIVIDUAL_FIELDS` scope requires valid JSONPath expressions and correct field type mappings
-- PKCS12 keystores require both `password` and `keyPassword` properties
-- Metadata placement type `KAFKA_HEADER` is required for automatic decryption (metadata must be available to Subscribe phase)
-- Encryption failures during Publish phase result in `InvalidRecordException` with error message format: `"Message encryption failed at topic: %s, at partition: %s at offset: %s"`
-- Decryption failures during Subscribe phase result in `CorruptRecordException` with error message format: `"Message decryption failed at topic: %s, at partition: %s at offset: %s"`
-
-## Related Changes
-
-The policy introduces three custom exception types (`CryptoAlgorithmException`, `CryptoKeyException`, `CryptoProcessingException`) for error handling during cryptographic operations. Error responses include default throttle time and are returned via Kafka protocol error handlers (`ProduceRequest.getErrorResponse()` for Publish, `FetchRequest.getErrorResponse()` for Subscribe). The policy depends on `commons-compress` 1.28.0 for compression algorithms and integrates with Gravitee's secrets mechanism for secure key management.
+- PKCS12 keystores require a `password` property
+- Set metadata placement to `KAFKA_HEADER` for automatic decryption — the Subscribe phase reads metadata from headers to determine settings
