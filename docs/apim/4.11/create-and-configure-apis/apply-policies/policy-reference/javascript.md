@@ -128,6 +128,22 @@ JSON.stringify(content);
 ]
 ```
 
+#### Base64 encoding/decoding
+
+The following example shows how to use Base64 functions to encode and decode content:
+
+```javascript
+// Encode content to Base64
+var originalContent = 'Hello, World!';
+var encodedContent = btoa(originalContent);
+
+// Decode Base64 content
+var decodedContent = atob(encodedContent);
+
+// Return the encoded content
+encodedContent;
+```
+
 ***
 
 ## Dictionaries - Properties
