@@ -2,7 +2,7 @@
 
 ## Overview
 
-Clients consume APIs within an API Product using the same authentication mechanisms as individual API subscriptions. A single API Product subscription grants access to all APIs contained in the product.
+Clients consume APIs within an API Product using the same authentication mechanisms as individual API subscriptions. A single API Product subscription grants access to all APIs contained in the API Product.
 
 ## Authentication methods
 
@@ -26,7 +26,7 @@ When a request reaches the gateway, the gateway validates subscriptions in the f
 1. The gateway checks the request against the API Product plan subscription first.
 2. If no valid API Product subscription exists, the gateway falls back to validating against the individual API plan.
 
-API Product plans take priority, but access through API-level plans is still possible when no product-level subscription applies. APIs within a product retain their own plans and subscriptions, so consumers can continue to subscribe to individual API plans independently of the product.
+API Product plans take priority, but access through API-level plans is still possible when no API Product-level subscription applies. APIs within an API Product retain their own plans and subscriptions, so consumers can continue to subscribe to individual API plans independently of the API Product.
 
 ## Gateway context attributes
 
@@ -34,7 +34,7 @@ For API Product subscriptions, the gateway sets the following context attributes
 
 - `apiProductId`: The API Product ID, exposed in the Expression Language context
 
-To execute product-specific policies, use flow conditions that reference the `apiProductId` attribute.
+To execute API Product-specific policies, use flow conditions that reference the `apiProductId` attribute.
 
 ## Subscribe to an API Product
 

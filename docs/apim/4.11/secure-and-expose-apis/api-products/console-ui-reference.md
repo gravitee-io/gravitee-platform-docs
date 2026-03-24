@@ -12,8 +12,8 @@ After opening an API Product, the detail page displays a left sidebar with the f
 
 | Menu item | Description |
 |:----------|:------------|
-| **Configuration** | Edit the product name, version, and description |
-| **APIs** | Add or remove APIs from the product |
+| **Configuration** | Edit the API Product name, version, and description |
+| **APIs** | Add or remove APIs from the API Product |
 | **Consumers** | Manage plans and subscriptions (contains **Plans** and **Subscriptions** tabs) |
 
 <figure><img src="../../.gitbook/assets/api-product-detail.png" alt=""><figcaption><p>API Product detail page with navigation menu</p></figcaption></figure>
@@ -26,11 +26,11 @@ The **Configuration** tab displays editable fields for:
 - **Version** — required
 - **Description** — optional
 
-A danger zone at the bottom of the page provides options to remove all APIs from the product or delete the product entirely.
+A danger zone at the bottom of the page provides options to remove all APIs from the API Product or delete the API Product entirely.
 
 ## APIs tab
 
-The **APIs** tab lists all APIs included in the product with the following columns: Name, Context Path, Definition, and Version.
+The **APIs** tab lists all APIs included in the API Product with the following columns: Name, Context Path, Definition, and Version.
 
 - Click **Add API** to open the **Add API** dialog and search for eligible APIs.
 - The info banner in the dialog states: "APIs must have API products enabled before they appear in the list."

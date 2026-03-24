@@ -21,7 +21,7 @@ From the **Subscriptions** header of this page, you can view, filter, and delete
 
 As of version 4.11.0, subscriptions use a reference model that supports both API and API Product subscriptions. Each subscription includes a `referenceType` field (`API` or `API_PRODUCT`) and a `referenceId` pointing to the parent resource. The legacy `api` field is deprecated as of version 4.11.0 and shouldn't be used for new subscriptions.
 
-When validating subscriptions, the gateway checks API Product subscriptions first before checking API-level plans. This allows organizations to manage access at the product level while maintaining backward compatibility with existing API subscriptions.
+When validating subscriptions, the gateway checks API Product subscriptions first before checking API-level plans. This allows organizations to manage access at the API Product level while maintaining backward compatibility with existing API subscriptions.
 
 <figure><img src="../../.gitbook/assets/1 app sub 1.png" alt=""><figcaption></figcaption></figure>
 

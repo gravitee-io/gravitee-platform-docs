@@ -4,16 +4,16 @@
 
 | Property | Type | Required | Description |
 |:---------|:-----|:---------|:------------|
-| `name` | string | Yes | Product name. Unique within the environment (case-sensitive comparison). Leading and trailing whitespace is trimmed. |
-| `version` | string | Yes | Product version |
-| `description` | string | No | Product description |
-| `apiIds` | string[] | No | List of API IDs included in the product. All referenced APIs must exist and have `allowedInApiProducts=true`. |
+| `name` | string | Yes | API Product name. Unique within the environment (case-sensitive comparison). Leading and trailing whitespace is trimmed. |
+| `version` | string | Yes | API Product version |
+| `description` | string | No | API Product description |
+| `apiIds` | string[] | No | List of API IDs included in the API Product. All referenced APIs must exist and have `allowedInApiProducts=true`. |
 
 ## API eligibility configuration
 
 | Property | Type | Default | Description |
 |:---------|:-----|:--------|:------------|
-| `allowedInApiProducts` | Boolean | `true` for new V4 HTTP Proxy APIs; `false` for existing APIs created before 4.11.0; `null` for non-HTTP Proxy types | Enables API inclusion in API Products. Only applicable to V4 HTTP Proxy APIs. Cannot be disabled once the API is included in a product. |
+| `allowedInApiProducts` | Boolean | `true` for new V4 HTTP Proxy APIs; `false` for existing APIs created before 4.11.0; `null` for non-HTTP Proxy types | Enables API inclusion in API Products. Only applicable to V4 HTTP Proxy APIs. Can't be disabled once the API is included in an API Product. |
 
 ## Plan reference model
 
