@@ -34,7 +34,11 @@
 
 ## GUIDES
 
+* [Kubernetes CRD Configuration for Client Certificates](guides/kubernetes-crd-configuration-for-client-certificates.md)
 * [Logs Explorer Console UI](../../apim/4.11/guides/logs-explorer-console-ui.md)
+    * [Gateway Configuration for mTLS Certificate Management](../../apim/4.11/gateway/configuration/gateway-configuration-for-mtls-certificate-management.md)
+* [Managing Client Certificates](guides/managing-client-certificates.md)
+* [mTLS Certificate Management Overview](mtls-certificate-management-overview.md)
 * [Manage JWT subscriptions with GKO](guides/manage-jwt-subscriptions-with-gko.md)
 * [Define an APIM service account for GKO](guides/define-an-apim-service-account-for-gko.md)
 * [Deploy APIs to a Gateway](guides/deploy-apis-to-a-gateway.md)
