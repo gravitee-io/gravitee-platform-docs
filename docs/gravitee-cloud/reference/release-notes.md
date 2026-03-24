@@ -10,6 +10,18 @@ This section contains an overview of the new features in Gravitee Cloud's releas
 
 <details>
 
+<summary>26th February</summary>
+
+**Configure custom domains for SaaS Gateways**
+
+You can now configure custom domains for your SaaS Gateways. With this feature, you can route API traffic through your own domain, for example, `dev.gravitee.io` , instead of the default Gravitee gateway URL.&#x20;
+
+For more information about how to configure a custom domain for your SaaS Gateway, see [custom-domains.md](../guides/custom-domains.md "mention").
+
+</details>
+
+<details>
+
 <summary>11th February </summary>
 
 **Deploy a SaaS Gateway in Amazon Web Services (AWS) ap-southeast-2**
