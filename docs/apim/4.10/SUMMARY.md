@@ -281,6 +281,7 @@
       * [Configure authentication with Login and password](developer-portal/new-developer-portal/configure-authentication/configure-authentication-with-login-and-password.md)
       * [Configure authentication with SSO](developer-portal/new-developer-portal/configure-authentication/configure-authentication-with-sso.md)
       * [Enforce User Authentication](developer-portal/new-developer-portal/configure-authentication/enforce-user-authentication.md)
+    * [Manage subscriptions](developer-portal/new-developer-portal/manage-subscriptions.md)
   * [Classic Developer Portal](developer-portal/classic-developer-portal/README.md)
     * [Configuration File](developer-portal/classic-developer-portal/configuration-file.md)
     * [Portal Settings](developer-portal/classic-developer-portal/portal-settings.md)
