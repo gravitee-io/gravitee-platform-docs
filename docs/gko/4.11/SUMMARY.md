@@ -38,6 +38,7 @@
 * [Manage JWT subscriptions with GKO](guides/manage-jwt-subscriptions-with-gko.md)
 * [Define an APIM service account for GKO](guides/define-an-apim-service-account-for-gko.md)
 * [Deploy APIs to a Gateway](guides/deploy-apis-to-a-gateway.md)
+* [MCP Analytics & Dashboard Enhancements Overview](../../apim/4.11/guides/mcp-analytics-dashboard-enhancements-overview.md)
 * [Publish APIs to the Developer Portal](guides/publish-apis-to-the-portal.md)
 * [Manage API documentation pages](guides/manage-api-documentation-pages.md)
 * [Manage API and application groups and members](guides/manage-api-groups-and-members.md)
@@ -49,6 +50,8 @@
 * [Templating](guides/templating.md)
 * [Configure the GKO HTTP client for APIM](guides/gko-http-client.md)
   * [Logs Engine Overview and Prerequisites](../../apim/4.11/guides/logs-engine-api/overview-and-prerequisites.md)
+  * [Creating MCP Analytics Queries and Dashboards](../../apim/4.11/guides/analytics/creating-mcp-analytics-queries-and-dashboards.md)
+  * [MCP Dashboard Template](../../apim/4.11/guides/observability/mcp-dashboard-template-reference.md)
 
 ## REFERENCE
 
