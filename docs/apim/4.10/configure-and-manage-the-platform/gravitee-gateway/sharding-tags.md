@@ -215,7 +215,7 @@ For example, to configure Gravitee API Manager to apply the “internal test” 
 1. From the **Sharding tags** drop-down menu, select the sharding tags that you want to map to this entrypoint.
 2.  In the **Default TCP port** field, type the number of your TCP port.
 
-    <figure><img src="../../.gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (20) (1).png" alt=""><figcaption></figcaption></figure>
 3. Click **Ok**.
 {% endtab %}
 
