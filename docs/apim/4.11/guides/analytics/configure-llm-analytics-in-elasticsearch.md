@@ -78,4 +78,30 @@ To query LLM token or cost metrics, construct a `MetricRequest` with the metric 
 
 The response includes aggregated token counts, costs, or averages based on your configuration.
 
+## Creating an LLM Dashboard
 
+To create an LLM dashboard from the template:
+
+1. Navigate to **Observability** > **Dashboards**.
+2. Click **Create dashboard** > **Create from template**.
+3. Select the **LLM** template in the left panel and click **Use template**.
+4. The platform creates the dashboard and redirects to the new dashboard view.
+5. Adjust filters or the timeframe to customize the dashboard view.
+
+### Verification
+
+To verify the dashboard was created successfully, navigate back to **Observability** > **Dashboards**. The new LLM dashboard appears in the dashboard list.
+
+{% hint style="warning" %}
+If the dashboard displays no data, verify that:
+* The Elasticsearch backend is running
+* LLM APIs are generating traffic and populating `additional-metrics` fields
+{% endhint %}
+
+### Next Steps
+
+After creating an LLM dashboard, you can:
+
+* Create additional custom dashboards
+* Add filters to focus on specific models, providers, or cost ranges
+* Monitor for abnormal behavior, increased errors, or unusual token consumption
