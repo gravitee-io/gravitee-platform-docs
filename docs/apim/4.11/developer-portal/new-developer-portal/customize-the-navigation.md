@@ -15,78 +15,78 @@ You can create the following elements for your navigation:
 * **Links**: Connect your documentation to external sites or other internal resources.
 * **APIs**: Add API references directly to the top navigation bar within folders.
 
+{% hint style="info" %}
+Publishing an API in the Console doesn't automatically make it visible on the Developer Portal. To display an API on the Developer Portal, create an API navigation item in the portal navigation settings and publish it.
+{% endhint %}
+
 When you add a new page, you can customize the page with Gravitee Markdown, which is standard Markdown enriched with dynamic components. For more information about Gravitee Markdown, see [gravitee-markdown-components.md](gravitee-markdown-components.md "mention").
 
 ### Navigation item types
 
 Portal navigation supports four item types:
 
-| Type | Icon | Allowed Areas | Parent Required |
-|:-----|:-----|:--------------|:----------------|
-| `PAGE` | `gio:page` | All | No |
-| `FOLDER` | `gio:folder` | All | No |
-| `LINK` | `gio:link` | All | No |
-| `API` | `gio:folder-api` | `TOP_NAVBAR` only | Yes |
+| Type | Allowed areas | Parent required |
+|:-----|:--------------|:----------------|
+| Page | All | No |
+| Folder | All | No |
+| Link | All | No |
+| API | Top navigation bar only | Yes (folder) |
 
-API items must be placed within folders in the `TOP_NAVBAR` area. Each API can appear only once in the navigation structure.
+API items are only allowed inside folders in the top navigation bar area. Each API can appear only once in the navigation structure.
 
 ### Visibility inheritance
 
-Child navigation items inherit visibility constraints from their parent folder. When a parent folder is marked `PRIVATE`, all child items are automatically set to `PRIVATE` and the visibility toggle is disabled in the UI. Public folders allow child items to choose either `PUBLIC` or `PRIVATE` visibility.
+Child navigation items inherit visibility constraints from their parent folder. When a parent folder is set to private, all child items are automatically set to private and the visibility toggle is disabled. Public folders allow child items to use either public or private visibility.
 
-| Parent Visibility | Child Visibility | Behavior |
+| Parent visibility | Child visibility | Behavior |
 |:------------------|:-----------------|:---------|
-| `PRIVATE` | Any | Child forced to `PRIVATE` (toggle disabled in UI) |
-| `PUBLIC` | `PUBLIC` or `PRIVATE` | User can choose |
+| Private | Any | Child forced to private (toggle disabled) |
+| Public | Public or private | User chooses |
 
 ### Publish state dependencies
 
-Navigation items cannot be published if their parent folder is unpublished or unavailable. The publish action is disabled in the UI with a tooltip explaining the restriction. Root-level items and items with published parents can be published freely.
+A navigation item can't be published if its parent folder is unpublished or unavailable. The publish action is disabled with a tooltip explaining the restriction. Root-level items and items with published parents can be published freely.
 
-| Condition | Publish Action | Tooltip |
-|:----------|:---------------|:--------|
-| Parent is unpublished | **Disabled** | `"A navigation item cannot be published within an unpublished {type}"` |
-| Parent is unavailable | **Disabled** | `"A navigation item cannot be published because its parent is unavailable"` |
-| Parent is published | **Enabled** | ** |
-| Root item (no parent) | **Enabled** | ** |
-
-API items cannot be edited after creation, but publish and unpublish actions remain available.
+API items can't be edited after creation, but publish and unpublish actions remain available.
 
 ### Default navigation items
 
-By default some pages already created for you with content. These pages are published and public by default. Here are the following folders pages, and links that are created by default:
+By default, some pages are already created for you with content. These pages are published and public by default. The following folders, pages, and links are created by default:
 
 * A folder named Guides, which contains a Getting Started page.
-* A folder Core concepts, which contains a page that describes making your first API call and a page that describes authentication.
+* A folder named Core concepts, which contains a page that describes making your first API call and a page that describes authentication.
 * A link to Docs that brings you to the Gravitee documentation.
 
 #### Console view
 
 <figure><img src="../../.gitbook/assets/Screenshot 2025-12-19 at 19.05.51.png" alt=""><figcaption></figcaption></figure>
 
-#### Developer portal view
+#### Developer Portal view
 
-The default navigation appears on your New Developer Portal
+The default navigation appears on your New Developer Portal.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2025-12-19 at 19.06.57.png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/Screenshot 2025-12-19 at 19.07.11.png" alt=""><figcaption></figcaption></figure>
 
-
 ## Prerequisites&#x20;
 
 * Enable the New Developer Portal. For more information about enabling the New Developer Portal, see [configure-the-new-portal.md](configure-the-new-portal.md "mention").
 * At least one published API available for linking (required for adding API items).
-* A folder item in the `TOP_NAVBAR` area to contain API items (required for adding API items).
-* Appropriate permissions to manage portal navigation.
+* A published folder in the top navigation bar area (required for adding API items).
 
 ## Customizing your navigation
+
+{% hint style="info" %}
+The **Add** dropdown at the top of the Navigation items panel creates root-level items only (pages, folders, and links). To add items inside a folder, or to add API items, use the context menu (ellipsis icon) on the target folder.
+{% endhint %}
 
 With the New Developer Portal, you can customize your navigation in the following ways:
 
 * [#add-a-page](customize-the-navigation.md#add-a-page "mention")
 * [#add-a-folder](customize-the-navigation.md#add-a-folder "mention")
 * [#add-a-link](customize-the-navigation.md#add-a-link "mention")
+* [#add-api-items-to-a-folder](customize-the-navigation.md#add-api-items-to-a-folder "mention")
 
 1.  From the **Dashboard**, click **Settings**.<br>
 
@@ -101,7 +101,7 @@ With the New Developer Portal, you can customize your navigation in the followin
 
 {% tabs %}
 {% tab title="Pages" %}
-When you add a page that is not in a folder, the page appears as a root level menu item. When you publish the page, the page appears in the top navigation bar of your New Developer Portal.
+When you add a page that isn't in a folder, the page appears as a root level menu item. When you publish the page, the page appears in the top navigation bar of your New Developer Portal.
 
 ### Add a page&#x20;
 
@@ -109,7 +109,7 @@ When you add a page that is not in a folder, the page appears as a root level me
 
     <figure><img src="../../.gitbook/assets/FB8F0725-08EB-4B68-B365-122337D12C4F_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 2. In the **Add page** pop-up screen, type a title for your page.
-3. (Optional) Turn on the **Authentication is required to view this page.** toggle. This toggle ensures that the user must be signed in to the New Developer Portal to see the page.&#x20;
+3. (Optional) Turn on the **Authentication is required to view this page.** toggle. This toggle ensures that the user is signed in to the New Developer Portal to see the page.&#x20;
 4.  Click **Add**.<br>
 
     <figure><img src="../../.gitbook/assets/A492BF45-07AE-4443-91F6-DF15C255160E_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
@@ -120,7 +120,7 @@ When you add a page that is not in a folder, the page appears as a root level me
        <figure><img src="../../.gitbook/assets/138D78C1-526C-4741-89DF-C8F9BCF8137D_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 
 
-   *   Navigate to the page in the navigation bar, click the **ellipses** (<i class="fa-ellipsis-vertical">:ellipsis-vertical:</i>), and then click **Publish**.<br>
+   *   Navigate to the page in the navigation bar, click the **ellipsis** icon, and then click **Publish**.<br>
 
        <figure><img src="../../.gitbook/assets/1A5E08E1-648C-4437-81C6-F4C480F04193_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
 7.  In the **Publish page** pop-up window, click **Publish**.<br>
@@ -138,8 +138,8 @@ Folders group related pages together. A folder is a section on your New Develope
 1.  Click **Add**, and then click **Add Folder**. <br>
 
     <figure><img src="../../.gitbook/assets/B4C6D536-2F1D-453D-9269-F80B53854B3F_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
-2. In the **Add folder** **pop-up** menu, type a title for the folder.&#x20;
-3. (Optional) Turn on the **Authentication is required to view this folder**. toggle. This ensures that the user has to sign in to the New Developer Portal to view the folder.&#x20;
+2. In the **Add folder** pop-up menu, type a title for the folder.&#x20;
+3. (Optional) Turn on the **Authentication is required to view this folder** toggle. This ensures that the user has to sign in to the New Developer Portal to view the folder.&#x20;
 4.  Click **Add**.<br>
 
     <figure><img src="../../.gitbook/assets/46A3BA38-DD28-42B3-8BBC-BA5B2ABABBE2_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
@@ -147,10 +147,10 @@ Folders group related pages together. A folder is a section on your New Develope
    *   Click **Publish**.<br>
 
        <figure><img src="../../.gitbook/assets/image (89).png" alt=""><figcaption></figcaption></figure>
-   *   Navigate to the folder in the navigation bar, click the **ellipses**, and then click **Publish**.<br>
+   *   Navigate to the folder in the navigation bar, click the **ellipsis** icon, and then click **Publish**.<br>
 
        <figure><img src="../../.gitbook/assets/FAD5D2FB-4EEE-49B7-8081-F790D1AE0EC4_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
-6.  In the **Publish folder**, pop-up box, click **Publish**.<br>
+6.  In the **Publish folder** pop-up box, click **Publish**.<br>
 
     <figure><img src="../../.gitbook/assets/0C92FAF4-F289-4D79-89D2-62448A9E8FE8_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 
@@ -158,15 +158,15 @@ Folders group related pages together. A folder is a section on your New Develope
 
 When you add a page to a folder, that page becomes a menu item within that section of the New Developer Portal.&#x20;
 
-1. Navigate to the the folder in the **Navigation items** menu.&#x20;
-2. Click **the ellipsis**.&#x20;
+1. Navigate to the folder in the **Navigation items** menu.&#x20;
+2. Click the **ellipsis** icon.&#x20;
 3.  Click **Add page**. <br>
 
     <figure><img src="../../.gitbook/assets/E4576EEE-A99A-40AF-A637-9AC6F6C44D4A.jpeg" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Links" %}
-When you add a link, the link appears as a root level menu item. When you publish the link, the page appears in the top navigation bar of your New Developer Portal.
+When you add a link, the link appears as a root level menu item. When you publish the link, the link appears in the top navigation bar of your New Developer Portal.
 
 ### Add a link
 
@@ -176,20 +176,54 @@ When you add a link, the link appears as a root level menu item. When you publis
 2. In the **Add link** pop-up box, complete the following sub-steps:
    1. In the **Title** field, type a title for the link.
    2. In the **Link settings** field, enter the URL for the link.
-   3. (Optional) Turn on the **Authentication is required to view this link**. toggle. This toggle ensures that the user has to sign in to the New Developer Portal to view the link.
+   3. (Optional) Turn on the **Authentication is required to view this link** toggle. This toggle ensures that the user has to sign in to the New Developer Portal to view the link.
 3.  Click **Add**.<br>
 
     <figure><img src="../../.gitbook/assets/3476293A-507F-401E-855B-1CD3999E207E_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
-4. Publish the page. To publish the page, complete either of the following steps:
+4. Publish the link. To publish the link, complete either of the following steps:
    *   Click **Publish**.<br>
 
        <figure><img src="../../.gitbook/assets/image (90).png" alt=""><figcaption></figcaption></figure>
-   *   Navigate to link in the navigation bar, click the **ellipses**, and then click **Publish**.<br>
+   *   Navigate to the link in the navigation bar, click the **ellipsis** icon, and then click **Publish**.<br>
 
        <figure><img src="../../.gitbook/assets/D897DBD4-B160-4F29-ACD8-14E5D0959CF5_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 5.  In the **Publish link** pop-up menu, click **Publish**.<br>
 
     <figure><img src="../../.gitbook/assets/B33EB73A-836D-4E7F-A297-53C23A7AB324_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+
+{% tab title="APIs" %}
+API items add API references to the Developer Portal navigation. They are only allowed inside folders in the top navigation bar area.
+
+{% hint style="info" %}
+Publishing an API in the Console isn't enough to make it visible on the Developer Portal. You need to create an API navigation item inside a folder and publish it for the API to appear.
+{% endhint %}
+
+### Add API items to a folder
+
+1. Navigate to the folder in the **Navigation items** menu.
+2. Click the **ellipsis** icon on the folder.
+3. Click **Add API**.
+4. In the **Add API** dialog, select one or more APIs to add.
+5. Choose the visibility (public or private). If the parent folder is private, visibility is automatically set to private.
+6. Click **Add**.
+7. Publish the API item. Navigate to the API item in the navigation tree, click the **ellipsis** icon, and then click **Publish**.
+
+<!-- TODO: Screenshot of the Add API dialog in Console > New Developer Portal > Navigation items -->
+
+{% hint style="warning" %}
+API items can't be edited after creation. To change the linked API, delete the API item and create a new one. The **Add API** option isn't available in the top-level **Add** dropdown. Use the **ellipsis** icon on a folder to access it.
+{% endhint %}
+
+### Delete an API item
+
+Deleting an API navigation item removes it from the Developer Portal navigation only. The underlying API isn't affected and remains available in the Console.
+
+1. Navigate to the API item in the **Navigation items** menu.
+2. Click the **ellipsis** icon.
+3. Click **Delete**.
+4. In the confirmation dialog, type the item name to confirm, and then click **Delete**.
+
 {% endtab %}
 {% endtabs %}
 
