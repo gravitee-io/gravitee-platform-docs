@@ -2,7 +2,7 @@
 
 ## Overview
 
-API Products enable administrators to bundle multiple V4 HTTP Proxy APIs into a single subscribable package with unified access control. Instead of managing subscriptions to individual APIs, organizations define product-level plans that grant access to all APIs within the product.
+API Products enable administrators to bundle multiple V4 HTTP Proxy APIs into a single subscribable package with unified access control. Instead of managing subscriptions to individual APIs, organizations define API Product-level plans that grant access to all APIs within the API Product.
 
 This feature requires an Enterprise Universe tier license.
 
@@ -10,21 +10,21 @@ This feature requires an Enterprise Universe tier license.
 
 ## What is an API Product?
 
-An API Product is an environment-level resource that groups V4 HTTP Proxy APIs under a single subscription model. Each product has:
+An API Product is an environment-level resource that groups V4 HTTP Proxy APIs under a single subscription model. Each API Product has:
 
 - A unique name within its environment (name comparison is case-sensitive, so "Product A" and "product a" are treated as different names)
 - A version
 - An optional description
-- Product-level plans (API Key, JWT, or mTLS only — Keyless and OAuth plans are not supported)
-- Product-level subscriptions
+- API Product-level plans (API Key, JWT, or mTLS only — Keyless and OAuth plans aren't supported)
+- API Product-level subscriptions
 
-## How APIs, products, plans, and subscriptions relate
+## How APIs, API Products, plans, and subscriptions relate
 
 An API Product groups one or more V4 HTTP Proxy APIs. Each API Product has its own plans and subscriptions, separate from the plans and subscriptions of the individual APIs it contains.
 
-APIs within a product retain their own plans and subscriptions. Consumers can subscribe to an individual API's plans independently of the product, and existing API-level subscriptions remain active when an API is added to a product.
+APIs within an API Product retain their own plans and subscriptions. Consumers can subscribe to an individual API's plans independently of the API Product, and existing API-level subscriptions remain active when an API is added to an API Product.
 
-An API can belong to multiple products simultaneously. The API's General Info page displays an **Included in** field listing the API Products the API belongs to. If the API is included in more than 5 products, the first 5 are shown with a **+n more** link that opens a searchable dialog.
+An API can belong to multiple API Products simultaneously. The API's General Info page displays an **Included in** field listing the API Products the API belongs to. If the API is included in more than 5 API Products, the first 5 are shown with a **+n more** link that opens a searchable dialog.
 
 When viewing subscriptions from the Application level, each subscription displays an **API** or **API Product** label to indicate whether the subscription is for an individual API or an API Product. When creating a subscription from an Application, the search returns results for both APIs and API Products.
 
@@ -35,7 +35,7 @@ When a request reaches the gateway, the gateway validates subscriptions in the f
 1. The gateway checks the request against the API Product plan subscription first.
 2. If no valid API Product subscription exists, the gateway falls back to validating against the individual API plan.
 
-API Product plans take priority, but access through API-level plans is still possible when no product-level subscription applies.
+API Product plans take priority, but access through API-level plans is still possible when no API Product-level subscription applies.
 
 ## API eligibility
 
@@ -45,7 +45,7 @@ Only V4 HTTP Proxy APIs with the **Allow in API Products** toggle enabled can be
 - Defaults to `true` for new V4 HTTP Proxy APIs created in version 4.11.0 or later
 - Defaults to `false` for existing V4 HTTP Proxy APIs created before version 4.11.0
 - Is unavailable for read-only APIs (for example, Kubernetes-managed APIs)
-- Can't be disabled once an API is included in a product (the toggle is greyed out with the tooltip "API is currently used in API Products")
+- Can't be disabled once an API is included in an API Product (the toggle is greyed out with the tooltip "API is currently used in API Products")
 
 ### Enable an API for use in API Products
 
@@ -67,7 +67,7 @@ Only V4 HTTP Proxy APIs with the **Allow in API Products** toggle enabled can be
 
 1. In the APIM Console, select **API Products** in the left sidebar.
 2. Click **Create API Product**.
-3. Enter a unique **Name** for the product. Names are case-sensitive — "Product A" and "product a" are treated as different names.
+3. Enter a unique **Name** for the API Product. Names are case-sensitive — "Product A" and "product a" are treated as different names.
 4. Enter a **Version** number.
 5. Optionally, enter a **Description**.
 6. Click **Create API Product**.
@@ -80,7 +80,7 @@ Only V4 HTTP Proxy APIs with the **Allow in API Products** toggle enabled can be
 2. Update the **Name**, **Version**, or **Description** fields as needed.
 3. A save bar appears at the bottom of the page when changes are detected. Click **Save** to apply the changes, or click **Reset** to discard them.
 
-## Add APIs to a product
+## Add APIs to an API Product
 
 1. Open the API Product and select **APIs** in the left sidebar.
 2. Click **Add API**.
@@ -93,13 +93,13 @@ If an expected API doesn't appear in the search results, verify that the **Allow
 
 <figure><img src="../../.gitbook/assets/add-api-to-product.png" alt=""><figcaption><p>Add API dialog for an API Product</p></figcaption></figure>
 
-## Remove an API from a product
+## Remove an API from an API Product
 
 1. Open the API Product and select **APIs** in the left sidebar.
 2. In the APIs list, click the trash icon next to the API to remove.
 3. In the confirmation dialog, click **Yes, remove it**.
 
-## Remove all APIs from a product
+## Remove all APIs from an API Product
 
 1. Open the API Product and select **Configuration** in the left sidebar.
 2. Scroll to the **Danger Zone** section at the bottom of the page.
@@ -150,7 +150,7 @@ To change the order in which plans are evaluated, drag and drop plans in the lis
 
 ## Deploy an API Product
 
-After creating plans and adding APIs, deploy the API Product to make it available at the gateway. When the product is out of sync, a warning banner displays "This API Product is out of sync." with a **Deploy API Product** button.
+After creating plans and adding APIs, deploy the API Product to make it available at the gateway. When the API Product is out of sync, a warning banner displays "This API Product is out of sync." with a **Deploy API Product** button.
 
 1. Click **Deploy API Product** in the banner.
 2. In the **Deploy your API Product** dialog, click **Deploy**.
