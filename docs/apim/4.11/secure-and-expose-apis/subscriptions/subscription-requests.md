@@ -5,7 +5,7 @@ metaLinks:
     - subscription-requests.md
 ---
 
-# Subscription Requests
+# Subscription requests
 
 ## Overview
 
@@ -14,69 +14,18 @@ From a configuration perspective, a subscription is a successful contract betwee
 {% hint style="info" %}
 **Keyless plan subscriptions**
 
-APIs with Keyless plans do not require the API consumer to create an application or submit a subscription request because no authorization is required to access the backend API.
+APIs with Keyless plans don't require the API consumer to create an application or submit a subscription request because no authorization is required to access the backend API.
 {% endhint %}
-
 
 ## Configure subscriptions
 
 API consumers can subscribe to APIs with published plans during the application creation process, or after the application is created, through the APIM Console or Developer Portal.
 
 {% hint style="info" %}
-Whether an application has an `client_id` depends on how it was configured. To subscribe to OAuth2 or JWT plans, the application must have a `client_id`.
-{% endhint %}
-
-### Subscription Workflow Steps
-
-The subscription process uses four distinct steps identified by the `SubscribeStep` enum:
-
-* `PLAN_SELECTION`: Choose a plan
-* `APP_SELECTION`: Choose an application
-* `PUSH_DETAILS`: Configure Consumer (push-mode plans only)
-* `REVIEW`: Review (formerly "Checkout")
-
-Each step includes a numbered badge and descriptive header.
-
-**Step 1: Choose a plan**
-
-A plan lets an application access an API. Once subscribed and approved, the application gets credentials to use it.
-
-**Step 2: Choose an application**
-
-An application represents a developer's project that interacts with the API. Keyless plans skip this step and proceed directly to review.
-
-**Step 3: Configure Consumer**
-
-This step appears only for push-mode plans.
-
-**Step 4: Review**
-
-The final step before submission.
-
-### Application Selection Validation
-
-Applications are disabled for selection when:
-
-* A valid subscription already exists for the chosen plan
-* The application uses shared key mode and already has an active API key subscription for the target API
-
-The validation message reads: "A subscription already exists for this plan"
-
-### Prerequisites
-
-Before you configure API subscriptions, ensure you have the following:
-
-* Gravitee API Management portal
-* Existing API catalog with published APIs
-* Applications configured for subscription
-
-{% hint style="info" %}
-Applications are not required for keyless plans.
+Whether an application has an associated `client_id` depends on how it was configured. To subscribe to OAuth2 or JWT plans, the application must have a `client_id`.
 {% endhint %}
 
 ### Subscribe to an API via APIM Console
-
-To subscribe to an API via the APIM Console:
 
 1. Log in to your APIM Console
 2. Select **Applications** from the left nav
@@ -84,7 +33,7 @@ To subscribe to an API via the APIM Console:
 4.  Click the **+ Create a subscription** button
 
     <figure><img src="../../.gitbook/assets/subscription_create 2.png" alt=""><figcaption><p>Create a subscription</p></figcaption></figure>
-5. Search for the API you want to subscribe to. To be searchable the API consumer must have access to the API, i.e., the API must be public or the API consumer must be a member of it.
+5. Search for the API you want to subscribe to. To be searchable the API consumer must have access to the API, for example, the API is public or the API consumer is a member of it.
 6.  Select the plan you would like to request a subscription to
 
     <figure><img src="../../.gitbook/assets/subscription_create.png" alt=""><figcaption><p>Select the subscription plan</p></figcaption></figure>
@@ -92,8 +41,12 @@ To subscribe to an API via the APIM Console:
 
 ### Subscribe to an API via Developer Portal
 
-Navigate to the catalog at `/catalog`, select an API, and choose a plan. The subscription wizard displays step 1 ("Choose a plan") with a description explaining that plans grant application access and provide credentials. After selecting a plan, proceed to step 2 ("Choose an application").
+1. Navigate to the API catalog and select an API.
+2. Choose a plan. A plan grants your application access to the API. Once subscribed and approved, the application receives credentials.
+3. Select the application to subscribe with. If the application already has an active subscription for the chosen plan, it's disabled for selection.
+4. (Optional) Leave a comment for the API owner explaining why you need access.
+5. Review your selections and submit the subscription request.
 
-The subscription comment dialog displays the subtitle: "Briefly explain why you need this API so the owner can review your request."
-
-The subscription info layout uses a column direction for improved vertical stacking.
+{% hint style="info" %}
+Keyless plans skip the application selection step and proceed directly to review.
+{% endhint %}
