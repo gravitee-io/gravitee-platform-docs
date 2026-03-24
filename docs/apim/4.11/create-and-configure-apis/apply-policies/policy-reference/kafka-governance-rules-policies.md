@@ -54,19 +54,19 @@ Intercepts Kafka Produce requests in the **PUBLISH** phase. Enforces rules on pr
 Header rules are evaluated in declaration order. The first rule that fires stops further header evaluation for that record batch.
 {% endhint %}
 
-For the full list of configurable properties, open a Kafka API in the APIM Console, go to **Policies** (Policy Studio), add the Kafka Produce Rules policy to a flow, and refer to the policy configuration form.
+To view all configurable properties, open a Kafka API in the APIM Console and go to **Policies** (Policy Studio). Add the Kafka Produce Rules policy to a flow and refer to its configuration form.
 
 ### Kafka Fetch Rules policy
 
 Intercepts Kafka Fetch requests in the **INTERACT** phase. Enforces rules on consumer behavior including isolation level, minimum/maximum bytes, and maximum wait time.
 
-For the full list of configurable properties, open a Kafka API in the APIM Console, go to **Policies** (Policy Studio), add the Kafka Fetch Rules policy to a flow, and refer to the policy configuration form.
+To view all configurable properties, open a Kafka API in the APIM Console and go to **Policies** (Policy Studio). Add the Kafka Fetch Rules policy to a flow and refer to its configuration form.
 
 ### Kafka Create Topic Rules policy
 
 Intercepts Kafka CreateTopics requests in the **INTERACT** phase. Enforces topic naming conventions and configuration standards at creation time.
 
-For the full list of configurable properties, open a Kafka API in the APIM Console, go to **Policies** (Policy Studio), add the Kafka Create Topic Rules policy to a flow, and refer to the policy configuration form.
+To view all configurable properties, open a Kafka API in the APIM Console and go to **Policies** (Policy Studio). Add the Kafka Create Topic Rules policy to a flow and refer to its configuration form.
 
 ### Kafka Alter Topic Rules policy
 
@@ -76,7 +76,7 @@ Intercepts Kafka AlterConfigs requests in the **INTERACT** phase. Enforces topic
 Topic naming validation doesn't apply to Alter Topic Rules because AlterConfigs can't rename topics. For topic creation naming enforcement, use the Create Topic Rules policy.
 {% endhint %}
 
-For the full list of configurable properties, open a Kafka API in the APIM Console, go to **Policies** (Policy Studio), add the Kafka Alter Topic Rules policy to a flow, and refer to the policy configuration form.
+To view all configurable properties, open a Kafka API in the APIM Console and go to **Policies** (Policy Studio). Add the Kafka Alter Topic Rules policy to a flow and refer to its configuration form.
 
 ## Restrictions
 
