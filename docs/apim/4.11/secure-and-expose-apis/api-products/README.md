@@ -15,7 +15,7 @@ An API Product is an environment-level resource that groups V4 HTTP Proxy APIs u
 - A unique name within its environment (name comparison is case-sensitive, so "Product A" and "product a" are treated as different names)
 - A version
 - An optional description
-- API Product-level plans (API Key, JWT, or mTLS only — Keyless and OAuth plans are not supported)
+- API Product-level plans (API Key, JWT, or mTLS only — Keyless and OAuth plans aren't supported)
 - API Product-level subscriptions
 
 ## How APIs, API Products, plans, and subscriptions relate
