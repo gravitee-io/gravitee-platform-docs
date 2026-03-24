@@ -272,7 +272,7 @@
     * [User and Group Access](secure-and-expose-apis/applications/user-and-group-access.md)
   * [Subscriptions](secure-and-expose-apis/subscriptions/README.md)
     * [Managing API Subscriptions in the Portal Dashboard](secure-and-expose-apis/subscriptions/managing-api-subscriptions-in-the-portal-dashboard.md)
-    * [Portal Dashboard Subscriptions API](secure-and-expose-apis/subscriptions/portal-dashboard-subscriptions-api-reference.md)
+    * [Portal Dashboard subscriptions restrictions](secure-and-expose-apis/subscriptions/portal-dashboard-subscriptions-api-reference.md)
     * [Subscription Requests](secure-and-expose-apis/subscriptions/subscription-requests.md)
     * [Manage Subscriptions](secure-and-expose-apis/subscriptions/manage-subscriptions.md)
     * [Transfer Subscriptions](secure-and-expose-apis/subscriptions/transfer-subscriptions.md)

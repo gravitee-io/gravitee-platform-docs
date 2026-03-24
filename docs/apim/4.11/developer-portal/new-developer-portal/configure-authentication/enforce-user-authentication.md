@@ -77,11 +77,10 @@ To enforce user authentication, complete the following steps:&#x20;
 
     <figure><img src="../../../.gitbook/assets/image (132).png" alt=""><figcaption></figcaption></figure>
 
-## Authenticated Routes
+## Authenticated areas
 
-The following routes enforce authentication via route guards (`redirectGuard`, `authGuard`):
+The following areas of the Developer Portal require authentication:
 
-* Portal Dashboard (including all child routes)
-  * Subscriptions tab
+* Portal Dashboard (including Subscriptions and Applications)
 
-When force authentication is enabled, unauthenticated users attempting to access these routes are redirected to the login screen.
+When force authentication is enabled, unauthenticated users attempting to access these areas are redirected to the login screen.

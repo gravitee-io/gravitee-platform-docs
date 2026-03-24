@@ -1,36 +1,30 @@
-# Portal Dashboard Subscriptions Overview
+# Portal Dashboard subscriptions overview
 
 ## Overview
 
-The Portal Dashboard provides a centralized interface for API consumers to view and manage their API subscriptions. Users can browse all subscriptions across applications, filter by API or status, view detailed subscription information, and close active subscriptions. This feature is designed for developers and application owners who need to monitor and control their API access.
+The Portal Dashboard provides a centralized interface for API consumers to view and manage their API subscriptions. Instead of navigating to individual APIs to find subscriptions, users can browse all subscriptions across applications, filter by API, application, or status, view detailed subscription information, and close active subscriptions.
 
-## Key Concepts
+## Accessing the Dashboard
 
-### Dashboard Navigation
+To open the Dashboard, click your user avatar in the top-right corner of the Developer Portal and select **Dashboard**. The Dashboard displays a sidebar with two navigation items: **Applications** and **Subscriptions**.
 
-The dashboard uses a tabbed navigation structure with a subscriptions route. Breadcrumbs display the current context (e.g., "Subscription {subscriptionId}") and support clickable navigation back to parent views. The dashboard enforces authentication via route guards (`redirectGuard`, `authGuard`) applied to all child routes.
+## Subscription statuses
 
-### Subscription status lifecycle
+Subscriptions display the following statuses in the Dashboard:
 
-Subscriptions display user-friendly status labels mapped from internal states. The system recognizes five statuses:
+| Status | Description |
+|:-------|:------------|
+| Accepted | The subscription is active and the consumer has API access |
+| Paused | The subscription is temporarily suspended |
+| Closed | The subscription is permanently closed |
+| Pending | The subscription is awaiting approval |
+| Rejected | The subscription request was rejected |
 
-| Internal Status | User-Visible Label |
-|:----------------|:-------------------|
-| `ACCEPTED` | Active |
-| `PAUSED` | Suspended |
-| `CLOSED` | Closed |
-| `PENDING` | Pending |
-| `REJECTED` | Rejected |
+Only Accepted and Paused subscriptions can be closed by the user.
 
-Only Active and Suspended subscriptions can be closed by the user.
+## Subscription table
 
-### Subscription Metadata
-
-Each subscription includes metadata for associated APIs and applications. API metadata contains a `name` and `apiVersion` field, while application metadata contains only a `name`. The UI retrieves metadata by ID and falls back to displaying the raw ID if metadata is unavailable.
-
-### Subscription Table
-
-The subscriptions table displays five columns:
+The Subscriptions page displays a table with the following columns:
 
 | Column | Description |
 |:-------|:------------|
@@ -40,15 +34,15 @@ The subscriptions table displays five columns:
 | Created | Subscription creation date |
 | Status | Current subscription status |
 
-Rows are clickable and navigate to the subscription details page. The table supports filtering by API, application, and status, with multi-select capability for status filters.
+Click any row to navigate to the subscription details page. The table supports filtering by API, application, and status, with multi-select capability for status filters.
 
-### Empty States
+## Empty states
 
-The UI distinguishes between two empty states:
+The Dashboard distinguishes between two empty states:
 
-* **No subscriptions exist:** When no subscriptions exist and no filters are applied, the system displays "No API subscriptions yet" with guidance to browse the catalog.
-* **No filtered results:** When filters are applied but no results match, it shows "No subscriptions found" with a button to clear filters.
+* **No subscriptions exist:** When no subscriptions exist and no filters are applied, the Dashboard displays "No API subscriptions yet" with guidance to browse the catalog.
+* **No filtered results:** When filters are applied but no results match, the Dashboard displays "No subscriptions found" with a button to clear filters.
 
-### Close Subscription Dialog
+## Close subscription dialog
 
-A shared confirmation dialog prompts users before closing a subscription. The dialog displays the title "Close this subscription?" with the warning "You will lose access to the API." Users confirm with "Yes, close" or cancel the action. The dialog is reusable across the dashboard and API subscriptions tab.
+A confirmation dialog prompts users before closing a subscription. The dialog displays the title "Close this subscription?" with the warning "You will lose access to the API." Confirm with "Yes, close" or cancel the action.
