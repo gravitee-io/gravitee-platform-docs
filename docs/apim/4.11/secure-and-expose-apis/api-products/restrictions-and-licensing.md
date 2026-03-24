@@ -33,15 +33,15 @@ If a duplicate name is submitted, the system rejects it with the error: "API Pro
 
 APIs added to an API Product have the following requirements:
 
-- The **Allow in API Products** toggle on the API's General Info page is set to enabled. APIs with this toggle disabled or not set can't be added to products.
-- The **Allow in API Products** toggle can't be disabled once an API is included in a product. The toggle is greyed out in the Console when the API is used in products.
+- The **Allow in API Products** toggle on the API's General Info page is set to enabled. APIs with this toggle disabled or not set can't be added to API Products.
+- The **Allow in API Products** toggle can't be disabled once an API is included in an API Product. The toggle is greyed out in the Console when the API is used in API Products.
 - The **Allow in API Products** toggle is unavailable for read-only APIs (for example, Kubernetes-managed APIs).
 
-APIs within a product retain their own plans and subscriptions. Consumers can subscribe to an individual API's plans independently of the product.
+APIs within an API Product retain their own plans and subscriptions. Consumers can subscribe to an individual API's plans independently of the API Product.
 
 ## Policy and flow restrictions
 
-API Products can't include flows or policies at the product level. Define policies at the API or plan level. To execute product-specific policies, use flow conditions that reference the API Product ID via the `apiProductId` Expression Language attribute.
+API Products can't include flows or policies at the API Product level. Define policies at the API or plan level. To execute API Product-specific policies, use flow conditions that reference the API Product ID via the `apiProductId` Expression Language attribute.
 
 ## Gateway subscription validation order
 
@@ -50,4 +50,4 @@ The gateway validates subscriptions in the following priority order:
 1. The gateway checks the request against the API Product plan subscription first.
 2. If no valid API Product subscription exists, the gateway falls back to validating against the individual API plan.
 
-API Product plans take priority, but access through API-level plans is still possible when no product-level subscription applies.
+API Product plans take priority, but access through API-level plans is still possible when no API Product-level subscription applies.
