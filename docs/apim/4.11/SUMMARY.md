@@ -170,6 +170,7 @@
     * [User and Group Access](create-and-configure-apis/configure-v2-apis/user-and-group-access.md)
     * [Documentation](create-and-configure-apis/configure-v2-apis/documentation.md)
   * [Apply Policies](create-and-configure-apis/apply-policies/README.md)
+    * [AI - Model Text Classification Configuration Guide](create-and-configure-apis/apply-policies/ai-model-text-classification-configuration-guide.md)
     * [v4 API Policy Studio](create-and-configure-apis/apply-policies/v4-api-policy-studio.md)
     * [v2 API Policy Studio](create-and-configure-apis/apply-policies/v2-api-policy-studio.md)
     * [Debug Mode](create-and-configure-apis/apply-policies/debug-mode.md)
@@ -455,3 +456,4 @@
     * [APIM 4.1.x](https://documentation.gravitee.io/apim/4.1/releases-and-changelog/changelogs/apim-4.1.x-changelog)
     * [APIM 4.0.x](https://documentation.gravitee.io/apim/4.0/releases-and-changelog/changelog/apim-4.0.x)
   * [Breaking Changes and Deprecations](release-information/breaking-changes-and-deprecations.md)
+* [AI - Model Text Classification](guides/ai-model-text-classification-reference.md)

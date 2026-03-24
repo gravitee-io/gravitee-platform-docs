@@ -125,6 +125,17 @@
 * Requires `environment-metadata-r` permission to view forms and `environment-metadata-u` permission to create, update, enable, or disable forms.
 <!-- /PIPELINE:APIM-12170 -->
 
+
+<!-- PIPELINE:APIM-13117 -->
+#### **AI Model Text Classification for Content Moderation**
+
+* Detects toxic content and prompt injection attacks in API traffic using pre-trained ONNX machine learning models
+* Supports 15 languages for toxicity detection (binary and multi-label classification across 7 toxicity dimensions) and 8 languages for prompt injection/jailbreak detection
+* Offers nine model variants ranging from ultra-lightweight (4.39M parameters) to high-accuracy (300M parameters) to balance latency, memory usage, and detection accuracy
+* DistilBERT-multilingual (100M parameters) recommended for broad language support; Prompt Guard 22M (70.8M ONNX) recommended for injection detection
+* Multi-label models provide granular categorization including severe toxicity, obscenity, identity attacks, insults, threats, and sexual content
+<!-- /PIPELINE:APIM-13117 -->
+
 ## Improvements
 
 
