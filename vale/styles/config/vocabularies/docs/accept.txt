@@ -457,3 +457,7 @@ async
 [Cc]odec
 [Cc]onfigs
 [Aa]cks
+[Cc]iphertext
+JSONPath
+[Kk]eystores?
+GZIP
