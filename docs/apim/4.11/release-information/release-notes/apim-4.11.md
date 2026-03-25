@@ -134,6 +134,17 @@
 * Keys are provisioned as base64-encoded values or stored in PKCS12 keystores, with support for Expression Language and the Gravitee secrets mechanism.
 <!-- /PIPELINE:APIM-13002 -->
 
+
+<!-- PIPELINE:APIM-13117 -->
+#### **AI Model Text Classification Resources**
+
+* Adds nine pre-trained ONNX models for toxicity detection and prompt injection filtering in API traffic, supporting up to 15 languages.
+* Binary toxicity models (BERT Tiny/Mini/Small, DistilBERT Multilingual) classify content as toxic or non-toxic; multi-label models (Detoxify ONNX, MiniLMv2) provide detailed toxicity breakdowns across categories like insult, threat, and hate speech.
+* Prompt injection models (Llama Prompt Guard 22M/86M) detect malicious attempts to override LLM instructions, returning BENIGN or MALICIOUS labels for 8 supported languages.
+* Platform administrators configure models as gateway resources to filter or analyze text payloads before they reach backend services.
+* All models use ONNX quantized inference for reduced memory footprint and faster latency compared to original PyTorch/TensorFlow implementations.
+<!-- /PIPELINE:APIM-13117 -->
+
 ## Improvements
 
 

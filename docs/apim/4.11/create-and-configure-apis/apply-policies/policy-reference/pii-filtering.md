@@ -56,7 +56,7 @@ Increase Java heap size and Kubernetes resource limits based on the number of AP
 ## Prerequisites
 
 - Gravitee APIM 4.10.3 or later
-- Enterprise license with `agent-mesh` pack (includes `apim-policy-pii-filtering` and `apim-ai-resource-token-classification` features)
+- Enterprise license with `agent-mesh` pack (includes `apim-policy-pii-filtering`, `apim-ai-resource-token-classification`, and `apim-ai-resource-text-classification` features)
 - Write permissions to `$GRAVITEE_HOME/models` directory for model downloads
 - Sufficient Java heap memory for model loading
 - Kubernetes resource limits increased if deploying in containerized environments
@@ -125,7 +125,7 @@ Without this setting, streaming requests are rejected with a 400 error:
 
 ## Restrictions
 
-- Requires Enterprise license with `agent-mesh` pack (includes `apim-policy-pii-filtering` and `apim-ai-resource-token-classification` features)
+- Requires [Enterprise license](https://www.gravitee.io/pricing) with `agent-mesh` pack (includes `apim-policy-pii-filtering` and `apim-ai-resource-token-classification` features)
 - Supported API types: `http-proxy`, `llm-proxy`, `mcp-proxy`
 - Streaming APIs require `skipResponsePayloadFiltering=true` or requests are rejected with 400 error
 - Models must be downloaded to `$GRAVITEE_HOME/models` (requires write permissions)
