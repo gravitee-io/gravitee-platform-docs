@@ -157,8 +157,8 @@ For detailed configuration of vector store resources, see the vector store resou
 | `redisConfig.query` | Redis query template | |
 | `redisConfig.scoreField` | Field name for similarity score | |
 | `redisConfig.maxPoolSize` | Maximum connection pool size | `6` |
-| `redisConfig.vectorStoreConfig.vectorType` | Vector data type | `"BFLOAT16"` |
-| `redisConfig.vectorStoreConfig.M` | HNSW M parameter | `10` |
+| `redisConfig.vectorStoreConfig.vectorType` | Vector data type | `"FLOAT32"` |
+| `redisConfig.vectorStoreConfig.M` | HNSW M parameter | `16` |
 | `redisConfig.vectorStoreConfig.efConstruction` | HNSW ef_construction parameter | `200` |
 | `redisConfig.vectorStoreConfig.efRuntime` | HNSW ef_runtime parameter | `10` |
 | `redisConfig.vectorStoreConfig.epsilon` | HNSW epsilon parameter | `0.01` |
@@ -176,6 +176,79 @@ The policy emits the following metrics:
 | `cache-hit-tokens-saved` | long | Number of tokens saved by cache hit |
 | `cache-miss` | long | Set to `1` when cache miss occurs |
 | `cache-error` | long | Set to `1` when error occurs during caching |
+
+## Configuration guide
+
+To configure AI Semantic Caching effectively, balance **latency** (the cache lookup is faster than calling the LLM) against **precision** (the cache doesn't serve the wrong answer for a similar-looking but different query).
+
+### Choose an embedding model
+
+The embedding model converts user prompts into vectors for similarity comparison. Three provider types are available: ONNX BERT (local), OpenAI (external API), and HTTP (custom endpoint).
+
+**Recommended: Use a local ONNX BERT model.** Local models run entirely on the gateway with zero network overhead, making them ideal for cache lookups where speed matters. External API calls (for example, to OpenAI) add network round-trip latency that reduces the performance benefit of caching.
+
+| Parameter | Recommended value | Reasoning |
+|:----------|:------------------|:----------|
+| `provider` | `bertOnnx` | Runs locally on the gateway with no external API dependency. |
+| `model.type` | `XENOVA_ALL_MINILM_L6_V2` | Produces 384-dimensional embeddings. Suitable for matching English-language user queries. |
+| `poolingMode` | `MEAN` (default) | Captures the overall meaning of the full query by averaging all token embeddings. |
+| `padding` | `false` (default) | Padding isn't needed for most prompt lengths under 512 tokens. |
+
+All three ONNX BERT models (`XENOVA_ALL_MINILM_L6_V2`, `XENOVA_BGE_SMALL_EN_V1_5`, `XENOVA_MULTILINGUAL_E5_SMALL`) produce 384-dimensional embeddings and support a maximum sequence length of 512 tokens.
+
+{% hint style="info" %}
+**When to consider OpenAI instead:** If queries are highly complex or multilingual and the local ONNX model fails to produce accurate matches, switch to an OpenAI model such as `text-embedding-3-small` (1536 dimensions). Update `embeddingSize` in the vector store configuration to match the model's output dimension.
+{% endhint %}
+
+### Configure the Redis vector store
+
+The vector store holds cached embeddings and performs similarity searches. For semantic caching, configure for **strict matching** and **automatic cleanup**.
+
+{% hint style="warning" %}
+The `readOnly` property defaults to `true`. Set it to `false` to allow the policy to write new cache entries. If `readOnly` remains `true`, the policy serves existing cached results but doesn't store new ones.
+{% endhint %}
+
+| Parameter | Recommended value | Default | Reasoning |
+|:----------|:------------------|:--------|:----------|
+| `embeddingSize` | `384` | `384` | Match this to the embedding model's output dimension. For ONNX BERT models, use `384`. For OpenAI `text-embedding-3-small`, use `1536`. |
+| `similarity` | `COSINE` | `COSINE` | Standard metric for text semantic similarity. Returns a normalized score between 0 and 1. |
+| `threshold` | `0.90`–`0.98` | `0.7` | For caching, use a higher threshold than the default. A value of `0.7` is appropriate for RAG-style retrieval, but semantic caching requires near-exact matches to avoid serving incorrect cached responses. Start at `0.90` and adjust based on testing. |
+| `maxResults` | `1` | `5` | Only the single best match is needed for a cache hit decision. Retrieving more results adds unnecessary latency. |
+| `readOnly` | `false` | `true` | Set to `false` to enable cache writes. |
+| `allowEviction` | `true` | `false` | Enables automatic cleanup of stale cache entries. Without eviction, the cache grows indefinitely and cached answers may become outdated. |
+| `evictTime` | Based on use case (for example, `24`) | `1` | Define how long a cached response remains valid. The appropriate value depends on how frequently the underlying data changes. |
+| `evictTimeUnit` | `HOURS` | `HOURS` | Available units: `MINUTES`, `HOURS`, `DAYS`. |
+| `indexType` | `HNSW` | `HNSW` | Recommended for production workloads. `HNSW` provides fast approximate nearest-neighbor search. Use `FLAT` for exhaustive exact search on small datasets (under ~1,000 vectors). |
+
+### Tune the similarity threshold
+
+The `threshold` parameter is the most important setting for semantic caching accuracy.
+
+**Higher threshold (0.95–0.98):**
+- The cache only returns a hit when the new query is nearly identical to a stored query.
+- Risk: Lower cache hit rate. Rephrased queries (for example, "How do I reset my password?" vs. "Password reset steps") may not match.
+
+**Lower threshold (0.80–0.90):**
+- The cache returns hits for a wider range of similar queries, increasing the cache hit rate.
+- Risk: False positives. The cache may treat "What is the price of product X?" and "What is the price of product Y?" as equivalent and serve the wrong cached response.
+
+Recommended: Start at `0.90` and increase the threshold if false positives appear. Test with representative queries from your actual workload to find the right balance.
+
+### Understand key tradeoffs
+
+#### Embedded vs. external embedding models
+
+- **ONNX BERT (local):** Zero network latency, no external API cost, and data stays on the gateway. Uses gateway CPU and memory.
+- **OpenAI (external):** Higher-quality embeddings for complex or multilingual queries, but adds network round-trip time and API cost.
+
+For caching, prioritize low-latency lookups. Local ONNX models are the recommended starting point.
+
+#### HNSW vs. FLAT index type
+
+- **HNSW:** Fast approximate nearest-neighbor search. Suitable for large caches. The tradeoff is a small probability of missing a valid cache hit.
+- **FLAT:** Exact exhaustive search with 100% recall accuracy, but search time increases linearly with cache size.
+
+For most production workloads, use `HNSW`. Switch to `FLAT` only for small datasets where exact matching is critical and search latency isn't a concern.
 
 ## Restrictions
 
