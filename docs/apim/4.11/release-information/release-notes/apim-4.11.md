@@ -117,12 +117,13 @@
 <!-- /PIPELINE:APIM-12792 -->
 
 <!-- PIPELINE:APIM-12170 -->
-#### **Subscription Forms for API Plans**
+#### **Subscription Forms for API Subscriptions**
 
-* API publishers can now define custom subscription forms that API consumers complete when subscribing to API plans, replacing the legacy comment field from the Classic Portal.
-* Forms are authored using Gravitee Markdown (GMD) in the Management Console with a live preview editor, and submitted values are stored as structured metadata with each subscription.
-* Forms are scoped per environment and can be toggled visible or hidden for API consumers in the Developer Portal. Subscription forms aren't displayed for Keyless plans.
-* Requires `environment-metadata-r` permission to view forms and `environment-metadata-u` permission to create, update, enable, or disable forms.
+* API administrators can create custom subscription forms using Gravitee Markdown (GMD) to collect structured metadata (company name, use case, environment) from API consumers during the subscription process.
+* Forms are built in a split-pane editor in Console (Portal Settings → Subscription Form) with real-time validation and live preview, supporting text inputs, dropdowns, checkboxes, radio buttons, and layout components.
+* Submitted metadata is stored with each subscription as key-value pairs and displayed in read-only format in the Console subscription details view.
+* Forms can be enabled or disabled to control visibility in the Developer Portal; disabled forms return a 404 response to Portal API requests.
+* This feature replaces the legacy plan comment field from the Classic Developer Portal with a more structured and flexible metadata collection system.
 <!-- /PIPELINE:APIM-12170 -->
 
 ## Improvements

@@ -4,7 +4,7 @@
 
 ### GET `/subscription-form`
 
-Retrieves the enabled subscription form for the current environment. Returns 404 if the form doesn't exist or is disabled. The Portal API response only includes `gmdContent` — it doesn't expose the form `id` or `enabled` flag to consumers.
+Retrieves the enabled subscription form for the current environment. Requires Portal authentication. Returns `200 OK` with a `SubscriptionForm` object containing only `gmdContent` if the form exists and `enabled` is `true`. Returns `404 Not Found` if the form does not exist or is disabled. The Portal API response only includes `gmdContent` — it doesn't expose the form `id` or `enabled` flag to consumers.
 
 **Response:**
 
@@ -14,7 +14,22 @@ Retrieves the enabled subscription form for the current environment. Returns 404
 }
 ```
 
-**Authentication:** Required (Portal auth)
+### POST `/subscriptions`
+
+Creates a subscription with optional metadata from the form. The request body must contain `application` (string), `plan` (string), and optionally `metadata` (object with string keys and values). Metadata keys are validated—no spaces or special characters allowed. Returns `400 Bad Request` with error message `"Invalid metadata key."` if validation fails. Empty or whitespace-only metadata values are filtered out before submission.
+
+**Request body:**
+
+```json
+{
+  "application": "app-id",
+  "plan": "plan-id",
+  "metadata": {
+    "company": "Acme Corp",
+    "use_case": "Internal API integration"
+  }
+}
+```
 
 ## Subscription metadata
 
@@ -53,3 +68,8 @@ Each component's `fieldKey` attribute maps to the key in the subscription's `met
 - Permissions use `environment-metadata-r/u`
 - Navigation guards prevent navigation away from unsaved form edits
 - The save button is disabled when content is empty, has configuration errors, or has no unsaved changes
+
+
+## Database schema
+
+For database schema details, see [Creating and managing subscription forms](creating-and-managing-subscription-forms.md#database-schema).

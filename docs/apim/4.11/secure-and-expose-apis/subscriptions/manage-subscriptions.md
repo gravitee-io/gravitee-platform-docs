@@ -29,6 +29,14 @@ Use the eye icon to view subscription details.
 
 <figure><img src="../../.gitbook/assets/1 app sub 3.png" alt=""><figcaption></figcaption></figure>
 
+### Subscription metadata
+
+The Console displays subscription metadata in read-only format at **API → Subscriptions → Edit Subscription** and **Application → Subscriptions → Subscription Details**. When metadata is `undefined`, `null`, or an empty object (`{}`), a dash (`-`) is displayed. When metadata contains values, a read-only Monaco JSON editor renders the key-value pairs with a 1px solid border and 4px border radius.
+
+Metadata is stored with the subscription during subscription creation.
+
+### Filtering and searching
+
 To filter subscriptions, use the **API** and **API Key** search fields and/or the **Status** drop-down menu. Subscriptions can have a status of accepted, closed, paused, pending, rejected, or resumed.
 
 <figure><img src="../../.gitbook/assets/1 app sub 2.png" alt=""><figcaption></figcaption></figure>

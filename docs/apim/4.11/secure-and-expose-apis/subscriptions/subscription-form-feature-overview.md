@@ -8,7 +8,7 @@ The subscription form feature enables API publishers to define a custom form tha
 
 ### Gravitee Markdown (GMD) content
 
-GMD is a structured markup language used to define form fields and layout. Form content is authored in the Management Console using a form editor with live preview.
+GMD is a structured markup language used to define form fields and layout. Form content is authored in the Management Console using a split-pane editor with live preview (source on left, rendered form on right). The GMD content is validated and stored in the subscription form entity.
 
 #### Supported form components
 
@@ -26,7 +26,7 @@ GMD supports the following form components:
         <tr>
             <td><code>gmd-input</code></td>
             <td>Single-line text input field</td>
-            <td><code>fieldKey</code>, <code>name</code>, <code>label</code>, <code>placeholder</code>, <code>value</code>, <code>required</code>, <code>minLength</code>, <code>maxLength</code>, <code>pattern</code>, <code>readonly</code>, <code>disabled</code></td>
+            <td><code>fieldKey</code>, <code>name</code>, <code>label</code>, <code>placeholder</code>, <code>value</code>, <code>required</code>, <code>minLength</code>, <code>maxLength</code>, <code>pattern</code>, <code>type</code>, <code>readonly</code>, <code>disabled</code></td>
         </tr>
         <tr>
             <td><code>gmd-textarea</code></td>
@@ -48,6 +48,16 @@ GMD supports the following form components:
             <td>Radio button selection field</td>
             <td><code>fieldKey</code>, <code>name</code>, <code>label</code>, <code>value</code>, <code>required</code>, <code>options</code>, <code>readonly</code>, <code>disabled</code></td>
         </tr>
+        <tr>
+            <td><code>gmd-card</code></td>
+            <td>Container for grouping form elements</td>
+            <td>Supports nested <code>gmd-card-title</code> and other GMD components</td>
+        </tr>
+        <tr>
+            <td><code>gmd-grid</code></td>
+            <td>Layout grid for organizing form elements</td>
+            <td><code>columns</code></td>
+        </tr>
     </tbody>
 </table>
 
@@ -57,14 +67,26 @@ GMD supports the following form components:
 
 #### Common attributes
 
-All components share these base attributes:
+All form components share these base attributes:
 
-- **`fieldKey`** — Unique identifier for the form field. Used as the metadata key when the subscription is created.
-- **`name`** — Name of the form field.
+- **`fieldKey`** — Unique identifier for the form field. Used as the metadata key when the subscription is created. If omitted, the field value isn't submitted with the form. Metadata keys must not contain spaces or special characters.
+- **`name`** — Name of the form field and HTML id attribute.
 - **`label`** — Display label shown to the API consumer.
 - **`value`** — Default value for the field.
 - **`required`** — When set, the field is mandatory and the form can't be submitted without a value.
 - **`disabled`** — Prevents the consumer from interacting with the field.
+- **`readonly`** — Makes the field read-only.
+- **`placeholder`** — Placeholder text displayed when the field is empty.
+
+#### Input-specific attributes
+
+`gmd-input` supports an additional `type` attribute that accepts the following values: `text`, `email`, `url`, `number`.
+
+`gmd-textarea` supports a `rows` attribute to control the height of the text area.
+
+`gmd-select` and `gmd-radio` require an `options` attribute containing comma-separated values for the available choices.
+
+`gmd-grid` requires a `columns` attribute to define the number of columns in the layout grid.
 
 #### Validation
 
@@ -78,7 +100,7 @@ Validation errors use the following error codes: `required`, `minLength`, `maxLe
 
 ### Subscription metadata
 
-When an API consumer submits a subscription form, the form field values are stored as key-value pairs in the subscription's `metadata` property. Empty values (null, empty strings, whitespace-only) are filtered before storage.
+When an API consumer submits a subscription form, the form field values are stored as key-value pairs in the subscription's `metadata` property. Empty values (null, empty strings, whitespace-only) are filtered before storage. Metadata is displayed in read-only JSON format in the Console.
 
 {% hint style="info" %}
 Metadata belongs to the subscription, not to the form itself. Each subscription stores its own metadata based on the form field values submitted at subscription time.

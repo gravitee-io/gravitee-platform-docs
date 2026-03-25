@@ -300,6 +300,7 @@
       * [Configure authentication with Login and password](developer-portal/new-developer-portal/configure-authentication/configure-authentication-with-login-and-password.md)
       * [Configure authentication with SSO](developer-portal/new-developer-portal/configure-authentication/configure-authentication-with-sso.md)
       * [Enforce User Authentication](developer-portal/new-developer-portal/configure-authentication/enforce-user-authentication.md)
+    * [Subscribing to APIs with Subscription Forms (Portal End-User Guide)](developer-portal/new-developer-portal/subscribing-to-apis-with-subscription-forms-portal-end-user-guide.md)
     * [Subscription form technical implementation](developer-portal/new-developer-portal/subscription-form-technical-implementation.md)
   * [Classic Developer Portal](developer-portal/classic-developer-portal/README.md)
     * [Configuration File](developer-portal/classic-developer-portal/configuration-file.md)
