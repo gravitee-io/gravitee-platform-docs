@@ -43,10 +43,10 @@ When deploying a new Gateway, you can optionally set sharding tags. To add shard
 1.  Navigate to the **Deployment Tags** section.
 
     <figure><img src="../../.gitbook/assets/deployment-tags-cloud-version.png" alt=""><figcaption></figcaption></figure>
-2.  In the **Sharding Tags IDs** field, enter one or more tags that identify this Gateway's purpose. For example, "us-east", "production", "eu-west".
+2.  In the **Sharding Tags Keys** field, enter one or more tags that identify this Gateway's purpose. For example, "us-east", "production", "eu-west".
 
     <figure><img src="../../.gitbook/assets/sharding-tag-ids-cloud.png" alt=""><figcaption></figcaption></figure>
-3.  In the **Tenant Tags** field, input identifiers that represent the backend services or tenants the Gateway should route to. For example, "eu-west-1".
+3.  In the **Tenant Tag Keys** field, input identifiers that represent the backend services or tenants the Gateway should route to. For example, "eu-west-1".
 
     <figure><img src="../../.gitbook/assets/tenant-tag-ids-description.png" alt=""><figcaption></figcaption></figure>
 4. Click **Save**.
@@ -64,7 +64,7 @@ When deploying a new Gateway, you can optionally set sharding tags. To add shard
    4.  Choose the region for your Gateway
 
        <figure><img src="../../.gitbook/assets/deploy-gateway-2.png" alt=""><figcaption></figcaption></figure>
-3. (Optional) Add development tags. For morei nformation about adding development tags, see [#optional-add-development-tags](./#optional-add-development-tags "mention").
+3. (Optional) Add development tags. For more information about adding development tags, see [#optional-add-development-tags](./#optional-add-development-tags "mention").
 4.  Click on **Save.**
 
     <figure><img src="../../.gitbook/assets/click-on-save.png" alt=""><figcaption></figcaption></figure>
