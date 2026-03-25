@@ -134,6 +134,16 @@
 * Keys are provisioned as base64-encoded values or stored in PKCS12 keystores, with support for Expression Language and the Gravitee secrets mechanism.
 <!-- /PIPELINE:APIM-13002 -->
 
+
+<!-- PIPELINE:APIM-13117 -->
+#### **AI Model Text Classification Resource**
+
+* Provides pre-trained ONNX models for toxicity detection and prompt injection filtering at the API gateway, enabling real-time classification of text content before it reaches backend services.
+* Supports nine optimized models across three categories: binary toxicity detection (BERT Tiny/Mini/Small, DistilBERT), multi-label toxicity classification (Detoxify ONNX, MiniLMv2 Toxic Jigsaw), and prompt injection detection (Llama Prompt Guard 22M/86M).
+* Models support up to 18 languages and return classification labels such as `toxic`/`not-toxic` for binary models, granular toxicity categories for multi-label models, and `BENIGN`/`MALICIOUS` for prompt injection detection.
+* Gateway memory requirements range from ~5MB (BERT Tiny) to ~300MB (Detoxify ONNX) depending on the selected model.
+<!-- /PIPELINE:APIM-13117 -->
+
 ## Improvements
 
 

@@ -7,6 +7,7 @@ metaLinks:
 
 # Resources
 
+<final_file>
 ## Overview
 
 The following sections summarize resource descriptions, configuration parameters, and configuration examples.
@@ -296,7 +297,7 @@ You may encounter an error when using this resource with Gravitee's default Dock
 
 Models are automatically downloaded to `$GRAVITEE_HOME/models/<model-name>/` with the following files: `model.onnx` (or `model.quant.onnx`), `tokenizer.json`, and `config.json`.
 
-**Model Output Format**
+**Model output format**
 
 Each model outputs token-level predictions with confidence scores (0.0–1.0) and entity labels. Labels follow the BIO tagging scheme:
 - `B-<entity>`: Beginning of an entity (e.g., `B-PER` for the first token of a person's name)
@@ -386,64 +387,4 @@ The OpenAI provider generates embeddings using OpenAI's cloud-based API.
             <td>-</td>
         </tr>
         <tr>
-            <td>apiKey</td>
-            <td>OpenAI API key</td>
-            <td>-</td>
-        </tr>
-        <tr>
-            <td>organizationId</td>
-            <td>Optional organization ID</td>
-            <td>-</td>
-        </tr>
-        <tr>
-            <td>projectId</td>
-            <td>Optional project ID</td>
-            <td>-</td>
-        </tr>
-        <tr>
-            <td>modelName</td>
-            <td>Name of the embedding model (e.g., <code>text-embedding-ada-002</code>)</td>
-            <td>-</td>
-        </tr>
-        <tr>
-            <td>dimensions</td>
-            <td>Optional embedding dimensions (must be non-negative)</td>
-            <td>-</td>
-        </tr>
-        <tr>
-            <td>encodingFormat</td>
-            <td>Encoding format. Supported values: <code>FLOAT</code>, <code>BASE64</code></td>
-            <td>-</td>
-        </tr>
-    </tbody>
-</table>
-
-
-{% hint style="info" %}
-Embedding dimensions must be compatible with the vector store configuration.
-{% endhint %}
-
-{% code title="OpenAI example" %}
-```json
-{
-    "name": "ai-text-embedding-openai",
-    "type": "ai-text-embedding-model",
-    "enabled": true,
-    "configuration": {
-        "provider": "OPENAI",
-        "openai": {
-            "uri": "https://api.openai.com/v1/embeddings",
-            "apiKey": "sk-...",
-            "modelName": "text-embedding-ada-002",
-            "encodingFormat": "FLOAT"
-        }
-    }
-}
-```
-{% endcode %}
-
-**HTTP Provider**
-
-The HTTP provider generates embeddings using a custom HTTP endpoint.
-
-<table><thead><tr><th width="167">Config param</th><th width="384.3046875">Description</th><th>Default</th></tr></thead><tbody><tr><td>uri</td><td>HTTP endpoint URI
+            <td
