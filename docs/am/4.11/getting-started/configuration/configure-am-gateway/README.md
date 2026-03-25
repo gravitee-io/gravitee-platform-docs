@@ -151,7 +151,7 @@ http:
 
 ### **Enable HTTPS support**
 
-First, you need to provide a keystore. If you don’t have one, you can generate it:
+First, you need to provide a keystore. If you don't have one, you can generate it:
 
 ```sh
 keytool -genkey \
@@ -191,7 +191,6 @@ http:
 
 {% code title="gravitee.yml" %}
 ```yaml
-# SMTP configuration used to send mails
 email:
   enabled: false
   host: smtp.my.domain
@@ -200,15 +199,6 @@ email:
   from: noreply@my.domain
   username: user@my.domain
   password: password
-#  properties:
-#    auth: true
-#    starttls.enable: true
-#    ssl.trust: smtp.gmail.com
-#    ssl.protocols: TLSv1.2
-
-# Mail templates
-#templates:
-#  path: ${gravitee.home}/templates
 ```
 {% endcode %}
 
@@ -285,52 +275,52 @@ repositories:
       dbname: ${ds.mongodb.dbname}
       host: ${ds.mongodb.host}
       port: ${ds.mongodb.port}
-#      username:
-#      password:
-#      connectionsPerHost: 0
-#      connectTimeout: 500
-#      maxWaitTime: 120000
-#      socketTimeout: 500
-#      socketKeepAlive: false
-#      maxConnectionLifeTime: 0
-#      maxConnectionIdleTime: 0
-#      serverSelectionTimeout: 0
-#      description: gravitee.io
-#      heartbeatFrequency: 10000
-#      minHeartbeatFrequency: 500
-#      heartbeatConnectTimeout: 1000
-#      heartbeatSocketTimeout: 20000
-#      localThreshold: 15
-#      minConnectionsPerHost: 0
-#      sslEnabled: false
-#      threadsAllowedToBlockForConnectionMultiplier: 5
-#      cursorFinalizerEnabled: true
-#      keystore:
-#        keystorePassword:
-#        keyPassword
 
-# Management repository: single MongoDB using URI
-# For more information about MongoDB configuration using URI, please have a look to:
-# - http://api.mongodb.org/java/current/com/mongodb/MongoClientURI.html
-#repositories:
-#  management:
-#    type: mongodb
-#    mongodb:
-#      uri: mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]
 
-# Management repository: clustered MongoDB
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #repositories:
-#  management:
-#    type: mongodb
-#    mongodb:
-#      servers:
-#        - host: mongo1
-#          port: 27017
-#        - host: mongo2
-#          port: 27017
-#      dbname: ${ds.mongodb.dbname}
-#      connectTimeout: 500
-#      socketTimeout: 250
+
+
+
+
+
+
+#repositories:
+
+
+
+
+
+
+
+
+
+
+
 ```
 {% endcode %}
 
@@ -384,7 +374,7 @@ The PBKDF2 algorithm accepts three properties:
 
 * **rounds**: The number of iterations (default: 600000)
 * **salt**: The length in bits of the salt value (default: 16)
-* **algorithm**: PBKDF2 with the specified pseudo-random function (default: PBKDF2WithHmacSHA25&#x36;**)**
+* **algorithm**: PBKDF2 with the specified pseudo-random function (default: PBKDF2WithHmacSHA256)
 
 The default values are those recommended by OWASP.
 
@@ -466,7 +456,7 @@ In development environment with a single AM Gateway you can use standalone witho
 {% endhint %}
 
 ```yaml
-# Configure cache implementation
+
 cache:
   type: redis
   redis:
@@ -500,8 +490,8 @@ cache:
 Configuring the `cache` section is not enough, the second step is to enable the cache usage for user profile into the `user` section.
 
 ```yaml
-# User management configuration
-user:user
+
+user:
   # keep user profile during authentication flow
   # into a cache to limit read access to the Database
   # when the Gateway is looking for the profile linked to the session
@@ -510,3 +500,60 @@ user:user
     # retention duration in seconds
     ttl: 3600
 ```
+
+### Configure Token Exchange
+
+Token exchange enables clients to exchange one token for another, supporting both impersonation and delegation scenarios as defined in RFC 8693 OAuth 2.0 Token Exchange. Configure token exchange at the domain level and optionally override scope handling per client.
+
+#### Domain Token Exchange Settings
+
+Configure token exchange at the domain level via `TokenExchangeSettings`:
+
+| Property | Type | Default | Description |
+|:---------|:-----|:--------|:------------|
+| `enabled` | boolean | `false` | Enable RFC 8693 OAuth 2.0 Token Exchange |
+| `allowedSubjectTokenTypes` | Set\<String> | `[ACCESS_TOKEN, REFRESH_TOKEN, ID_TOKEN]` | Token types accepted as `subject_token` |
+| `allowedRequestedTokenTypes` | Set\<String> | `[ACCESS_TOKEN]` | Token types that can be requested via `requested_token_type` |
+| `allowImpersonation` | boolean | `true` | Allow token exchange without `actor_token` |
+| `allowDelegation` | boolean | `false` | Allow token exchange with `actor_token` |
+| `allowedActorTokenTypes` | Set\<String> | `[ACCESS_TOKEN, REFRESH_TOKEN, ID_TOKEN]` | Token types accepted as `actor_token` when delegation enabled |
+| `maxDelegationDepth` | int | `25` | Maximum depth of nested `act` claims (range: 1-100) |
+| `trustedIssuers` | List\<TrustedIssuer> | `[]` | External issuers whose tokens can be exchanged |
+
+#### Trusted Issuer Configuration
+
+Each trusted issuer entry in `trustedIssuers` supports:
+
+| Property | Type | Description |
+|:---------|:-----|:------------|
+| `issuer` | String | Issuer URL (must match JWT `iss` claim) |
+| `keyResolutionMethod` | Enum | `JWKS_URL` or `PEM` |
+| `jwksUri` | String | JWKS endpoint URL (required when method is `JWKS_URL`) |
+| `certificate` | String | PEM-encoded X.509 certificate (required when method is `PEM`) |
+| `scopeMappings` | Map\<String, String> | External scope → domain scope mappings |
+| `userBindingEnabled` | boolean | Enable user binding via criteria |
+| `userBindingCriteria` | List\<UserBindingCriterion> | EL expressions to match external token claims to domain users |
+
+#### User Binding Criteria
+
+Each `UserBindingCriterion` specifies:
+
+| Property | Type | Description |
+|:---------|:-----|:------------|
+| `attribute` | String | User attribute to match (e.g., `email`, `username`) |
+| `expression` | String | EL expression evaluated against token claims (e.g., `{#context.attributes['token']['email']}`) |
+
+#### Client Token Exchange Settings
+
+Configure scope handling per client via `TokenExchangeOAuthSettings`:
+
+| Property | Type | Default | Description |
+|:---------|:-----|:--------|:------------|
+| `inherited` | boolean | `true` | Inherit scope handling mode from domain settings |
+| `scopeHandling` | Enum | `DOWNSCOPING` | `DOWNSCOPING` (subject/actor scopes cap grants) or `PERMISSIVE` (subject/actor scopes ignored) |
+
+Client scope handling can be inherited from domain defaults or overridden per client.
+
+#### Creating a Token Exchange Request
+
+To exchange a token, the client sends a POST request to the token endpoint with `grant_type=urn:ietf:params:oauth:grant-type:token-exchange`. Include `subject_token` (the token to exchange) and `subject_token_type` (its type URI). Optionally specify `requested_token_type` (defaults to `ACCESS_TOKEN` if allowed), `scope` (space-delimited scopes), and `resource` (target resource URIs). For delegation, include `actor_token` and `actor_token_type`. Authenticate the client using its configured method. The gateway validates the subject token's signature and temporal claims, resolves the user (via trusted issuer binding if applicable), computes allowed scopes based on the configured mode, and issues a new token. The response includes `access_token`, `token_type`, `expires_in`, `issued_token_type`, and `scope` (unless `requested_token_type` is `ID_TOKEN`, in which case `scope` is omitted).

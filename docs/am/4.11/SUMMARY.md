@@ -54,6 +54,7 @@
 ## Guides
 
 * [Fetching and Displaying AgentCard Metadata](guides/fetching_and_displaying_agentcard_metadata.md)
+* [OAuth 2.0 Token Exchange Overview and Concepts](guides/oauth-2.0-token-exchange-overview-and-concepts.md)
 * [Prologue](guides/prologue.md)
 * [Auth Protocols](guides/auth-protocols/README.md)
   * [OAuth 2.0](guides/auth-protocols/oauth-2.0/README.md)
@@ -138,6 +139,7 @@
   * [AWS CloudHSM plugin](guides/certificates/aws-cloudhsm-plugin.md)
   * [Configure Domain Certificate Fallback](guides/certificates/configure-domain-certificate-fallback.md)
 
+* [Token Exchange Restrictions and Implementation Notes](guides/token-exchange-restrictions-and-implementation-notes.md)
 * [User Management](guides/user-management/README.md)
   * [Users](guides/user-management/users/README.md)
     * [Password Options](guides/user-management/users/password-options.md)
@@ -165,6 +167,7 @@
 * [Administration](guides/administration.md)
 * [AM Expression Language](guides/am-expression-language.md)
 * [Developer Contributions](guides/developer-contributions.md)
+  * [Using Token Exchange: Requests, Responses, and Delegation Claims](guides/using-token-exchange-requests-responses-and-delegation-claims.md)
 
 ## Reference
 
