@@ -2,7 +2,7 @@
 
 ## Overview
 
-mTLS Certificate Management enables administrators to upload, validate, and rotate client certificates for application-level mutual TLS authentication. The feature supports PKCS7 certificate bundles, scheduled certificate activation, and grace-period rotation to prevent downtime. It is available in APIM 4.11 and above.
+mTLS Certificate Management enables administrators to upload, validate, and rotate client certificates for application-level mutual TLS authentication. The feature supports multiple client certificates, scheduled certificate activation, and grace-period rotation to prevent downtime. It is available in APIM 4.11 and above.
 
 ## Key Concepts
 
