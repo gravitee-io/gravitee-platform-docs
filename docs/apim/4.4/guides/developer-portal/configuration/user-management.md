@@ -21,7 +21,7 @@ To configure SMTP settings:
 
 1. Log in to the Management Console
 2. Select **Settings** from the left sidebar
-3. Select **Settings** from the inner left sidebar&#x20;
+3. Select **Settings** from the inner left sidebar
 4. Configure the **SMTP** settings are at the bottom of the page
 
 {% hint style="info" %}
@@ -40,7 +40,7 @@ After configuring SMTP, you can create a new user in the Developer Portal:
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2023-06-05 at 12.14.03 PM.png" alt=""><figcaption><p>Developer portal sign up page</p></figcaption></figure>
 
-You will receive a registration confirmation at the email address you provided.&#x20;
+You will receive a registration confirmation at the email address you provided.
 
 ### Complete sign-up
 
@@ -71,10 +71,10 @@ All users can be viewed in the Management Console by anyone with administrator p
 
 As an administrator, you can click on an entry for user details and to apply administrative policies. Additionally, admins can pre-register users by clicking the **Add user** button on the top right of the page.
 
-<figure><img src="../../../.gitbook/assets/image (40).png" alt=""><figcaption><p>Management Console user overview</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (93).png" alt=""><figcaption><p>Management Console user overview</p></figcaption></figure>
 
 {% hint style="info" %}
 **Detailed user administration**
 
-For additional information on user management, including roles, groups, and permissions, see the [Administration guide.](../../../using-the-product/administration/#introduction)
+For additional information on user management, including roles, groups, and permissions, see the [Administration guide.](../../../using-the-product/administration/README.md#introduction)
 {% endhint %}

@@ -1,3 +1,7 @@
+---
+description: Configuration guide for header ids.
+---
+
 # Header IDs
 
 By default, the APIM Gateway will generate an id for each request and set it in the following headers:

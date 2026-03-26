@@ -1,9 +1,13 @@
+---
+description: Configuration guide for dictionaries.
+---
+
 # Dictionaries
 
 {% hint style="warning" %}
 **Changes to Gravitee Dictionaries in Version 4.7.6**
 
-Starting from version 4.7.6, you can use dictionaries in a [Multi-tenancy](../../../4.7x/configure-and-manage-the-platform/install-and-upgrade/multi-tenancy.md) setup. With this new capability, you can complete the following actions:
+Starting from version 4.7.6, you can use dictionaries in a [Multi-tenancy](../../self-hosted-installation-guides/multi-tenancy.md) setup. With this new capability, you can complete the following actions:
 
 * create dictionaries with the same name in different environments
 * promote APIs between environments without renaming dictionaries
@@ -33,7 +37,7 @@ Dictionary properties are based on key-value pairs. You can create two types of 
 
 Dictionaries need to be deployed to the API Gateway before you can use them. You can see the date and time the dictionary was last deployed in the dictionary list:
 
-<figure><img src="../../.gitbook/assets/image (140).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (46).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 **How are dictionaries used?**
@@ -45,7 +49,7 @@ You can use dictionaries anywhere in APIM where [Gravitee Expression Language](.
 
 To create a new dictionary, select **Settings** in the left hand nav, then select **Dictionaries.**
 
-<figure><img src="../../.gitbook/assets/2023-06-28_10-17-24 (1).gif" alt=""><figcaption><p>Access dictionary settings</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/2023-06-28_10-17-24 (1) (1).gif" alt=""><figcaption><p>Access dictionary settings</p></figcaption></figure>
 
 Select the <img src="../../.gitbook/assets/Screen Shot 2023-06-28 at 10.18.10 AM.png" alt="" data-size="line">icon. You'll be brought to the **Create a new dictionary** page. Here, you'll need to define the **Name, Description,** and **Type.** You'll have two options for **Dictionary type**:
 

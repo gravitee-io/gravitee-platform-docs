@@ -10,17 +10,17 @@ description: >-
 
 The default settings created during APIM installation can be useful for testing your new instance. However, some may not be suitable for a production environment, where security is more of a consideration.
 
-This guide highlights the APIM settings that require special attention while you prepare to move to a production environment. The following high-level checklist links to the details of how and why you would enforce each list item.&#x20;
+This guide highlights the APIM settings that require special attention while you prepare to move to a production environment. The following high-level checklist links to the details of how and why you would enforce each list item.
 
 {% hint style="warning" %}
 **Configuring APIM**
 
-APIM includes many other configuration options and every environment is unique. However you configure new settings (via the `gravitee.yml` file, APIM Console, or environment and system variables) it is important to understand that one configuration type can override another. [Configure APIM Gateway](the-gravitee-api-gateway/) gives a good overview of this topic.
+APIM includes many other configuration options and every environment is unique. However you configure new settings (via the `gravitee.yml` file, APIM Console, or environment and system variables) it is important to understand that one configuration type can override another. [Configure APIM Gateway](the-gravitee-api-gateway/README.md) gives a good overview of this topic.
 {% endhint %}
 
 ## Security checklist
 
-Review and amend the following before going into production and exposing your APIs.&#x20;
+Review and amend the following before going into production and exposing your APIs.
 
 {% hint style="info" %}
 The objective is not to apply all of the recommendations, but to ensure that all configurations have been made with caution.
@@ -51,7 +51,7 @@ The rest of this article primarily focuses on how to implement the items in this
 
 ### Internal APIs
 
-APIM API and APIM Gateway include internal APIs that are enabled by default. These internal APIs permit the retrieval of monitoring and technical information pertaining to Gravitee components (more information [here](https://documentation.gravitee.io/apim/getting-started/configuration/configure-apim-management-api/internal-api-1)).
+APIM API and APIM Gateway include internal APIs that are enabled by default. These internal APIs permit the retrieval of monitoring and technical information pertaining to Gravitee components (more information [here](https://documentation.gravitee.io/apim/configure-and-manage-the-platform/management-api/mapi-internal-api)).
 
 #### Disabling internal APIs
 
@@ -158,9 +158,9 @@ http:
       enabled: true
 ```
 
-The Console REST API will remain inaccessible to the outside world if you decide to make your Developer Portal reachable from outside of your company. However, Gravitee recommends that you do not expose your Console or Developer Portal publicly if there is no particular business requirement.&#x20;
+The Console REST API will remain inaccessible to the outside world if you decide to make your Developer Portal reachable from outside of your company. However, Gravitee recommends that you do not expose your Console or Developer Portal publicly if there is no particular business requirement.
 
-Refer to the [Gravitee documentation](https://documentation.gravitee.io/apim/getting-started/configuration/configure-apim-management-api/internal-api#configure-the-management-and-portal-apis) for more information about Console and Portal APIs.
+Refer to the [Gravitee documentation](https://documentation.gravitee.io/apim/configure-and-manage-the-platform/management-api/mapi-internal-api) for more information about Console and Portal APIs.
 
 #### Enable HTTPS
 
@@ -186,14 +186,14 @@ You can find additional details regarding HTTPS support for the REST APIs in the
 
 **We highly recommend using your own corporate identity provider** (must be OAuth2/OIDC-compliant) to delegate authentication to your Management Console and Portal. You have several choices:
 
-* [Gravitee Access Management](https://documentation.gravitee.io/apim/getting-started/configuration/authentication-and-sso#gravitee-access-management-authentication)
+* [Gravitee Access Management](https://documentation.gravitee.io/apim#gravitee-access-management-authentication)
 * [GitHub](https://documentation.gravitee.io/apim/getting-started/configuration/authentication-and-sso#github-authentication)
 * [Google](https://documentation.gravitee.io/apim/getting-started/configuration/authentication-and-sso#google-authentication)
 * [Any compliant OAuth/OIDC server](https://documentation.gravitee.io/apim/getting-started/configuration/authentication-and-sso#openid-connect-authentication)
 
-Alternatively, you can rely on your [LDAP server](https://documentation.gravitee.io/apim/getting-started/configuration/authentication-and-sso#ldap-authentication).
+Alternatively, you can rely on your [LDAP server](https://documentation.gravitee.io/apim#ldap-authentication).
 
-It is preferable to rely on an external identity provider to handle security so you can easily comply with your internal company security policy. You can configure role mapping to automatically assign a role to a given user matching particular criteria. Refer to the [Gravitee documentation](https://documentation.gravitee.io/apim/getting-started/configuration/authentication-and-sso#gravitee-access-management-authentication) for an example of role or group mapping.
+It is preferable to rely on an external identity provider to handle security so you can easily comply with your internal company security policy. You can configure role mapping to automatically assign a role to a given user matching particular criteria. Refer to the [Gravitee documentation](https://documentation.gravitee.io/apim#gravitee-access-management-authentication) for an example of role or group mapping.
 
 #### Developer Portal authentication
 
@@ -355,7 +355,7 @@ http:
     enabled: true
 ```
 
-We strongly recommend **NEVER** disabling CSRF protection unless you are absolutely sure of what you are doing and that your users may be exposed to [Cross Site Request Forgery attacks](https://fr.wikipedia.org/wiki/Cross-site\_request\_forgery).
+We strongly recommend **NEVER** disabling CSRF protection unless you are absolutely sure of what you are doing and that your users may be exposed to Cross Site Request Forgery attacks.
 
 #### Configure CORS
 
@@ -374,7 +374,7 @@ http:
         allow-origin: 'https://gio-portal.mycompany.com'
 ```
 
-`allow-origin: '*'` should be considered a security risk because it permits all cross-origin requests. **We highly recommend fine-tuning the allow-origin setting. Refer to** the [Gravitee documentation](https://documentation.gravitee.io/apim/getting-started/configuration/configure-apim-management-api/internal-api#cors-configuration) for other useful information related to CORS.
+`allow-origin: '*'` should be considered a security risk because it permits all cross-origin requests. **We highly recommend fine-tuning the allow-origin setting. Refer to** the [Gravitee documentation](../../guides/api-configuration/v2-api-configuration/general-proxy-settings.md) for other useful information related to CORS.
 
 ### Other configuration settings
 
@@ -443,31 +443,25 @@ Perform the following steps in APIM Console to update the most common default se
     1. Select **Settings** in the inner sidebar.
     2. Update the **Company name.**
 
-    <figure><img src="../../.gitbook/assets/Screenshot 2023-07-11 at 3.34.14 PM.png" alt=""><figcaption><p>Portal settings</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/prod_def apim1.png" alt=""><figcaption><p>Portal settings</p></figcaption></figure>
 4.  In the **Gateway** section:
 
     1. Select **API Logging**.
     2. Update the maximum logging duration for APIM API logging to avoid flooding. In this example, we have configured a logging duration of 15 minutes:
 
-    <figure><img src="../../.gitbook/assets/Screenshot 2023-07-11 at 3.42.12 PM.png" alt=""><figcaption><p>API logging settings</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/prod_def apim2.png" alt=""><figcaption><p>API logging settings</p></figcaption></figure>
 5. Select **Organization** in the main sidebar:
    1.  In the **Gateway** section:
 
        1. Select **Sharding Tags**.
        2. In the **Entrypoint mappings** section of the page, update the **Entrypoint** field with your APIM API endpoint.
 
-
-
-       <figure><img src="../../.gitbook/assets/Screenshot 2023-07-11 at 3.38.19 PM.png" alt=""><figcaption><p>Save sharding tag</p></figcaption></figure>
+       <figure><img src="../../.gitbook/assets/prod_def apim3.png" alt=""><figcaption><p>Save sharding tag</p></figcaption></figure>
    2. Select **Settings** in the inner sidebar:
       * Update the **Title** of APIM Console to make it more appropriate to your own environment.
       * Update the **Management URL** to your APIM Console URL.
 
-<div align="right" data-full-width="true">
-
-<figure><img src="../../.gitbook/assets/Screenshot 2023-07-11 at 3.31.13 PM.png" alt="" width="563"><figcaption><p>Organization settings</p></figcaption></figure>
-
-</div>
+<div align="right" data-full-width="true"><figure><img src="../../.gitbook/assets/prod_def apim4.png" alt="" width="563"><figcaption><p>Organization settings</p></figcaption></figure></div>
 
 #### Portal & Console default Nginx security config
 
@@ -518,13 +512,13 @@ Some good practices to establish:
 * Assign permissions to a group instead of each user individually.
 * Automatically associate a group with each new API or application to facilitate permission management.
 
-You can find detail on roles, groups, and permissions in the [Gravitee documentation](https://documentation.gravitee.io/apim/guides/administration/user-management-and-permissions).
+You can find detail on roles, groups, and permissions in the [Gravitee documentation](../../guides/administration/user-management-and-permissions.md).
 
 #### API review & quality
 
 You can **enable API review and quality** to avoid public exposure to the Developer Portal that is unexpected and lacks strong security requirements, or if you want a member of a Quality team to review API designs prior to deploying the API and making it accessible to API consumers. This can seamlessly establish a robust API strategy.
 
-You can find more information about API review and quality in the [Gravitee documentation](https://documentation.gravitee.io/apim/guides/api-measurement-tracking-and-analytics/using-the-api-quality-feature).
+You can find more information about API review and quality in the [Gravitee documentation](../../guides/api-measurement-tracking-and-analytics/using-the-api-quality-feature.md).
 
 #### API design
 
@@ -536,4 +530,4 @@ There is no "rule of thumb" when it comes to designing and exposing your APIs, a
 * Require the API consumer to enter a comment when subscribing to an API. This is a simple way to understand the motivation for a subscription and helps detect malicious attempts to access an API.
 * Regularly review subscriptions and revoke those that are no longer used.
 
-More information on how to manage API subscriptions is detailed in the [Gravitee documentation](https://documentation.gravitee.io/apim/guides/api-exposure-plans-applications-and-subscriptions/subscriptions).
+More information on how to manage API subscriptions is detailed in the [Gravitee documentation](../../guides/api-exposure-plans-applications-and-subscriptions/subscriptions.md).

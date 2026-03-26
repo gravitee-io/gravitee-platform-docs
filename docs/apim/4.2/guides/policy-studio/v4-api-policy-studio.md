@@ -92,7 +92,7 @@ Properties are key-value pairs you can define at the Gateway API level to implem
 
 To configure API properties, select **Properties** from the inner left nav. To hardcode properties, either specify properties one at a time or toggle from **Simple** to **Expert** mode and enter property definitions in `<key>=<value>` format.
 
-<figure><img src="../../.gitbook/assets/policy studio_properties expert (1).png" alt=""><figcaption><p>API properties expert mode</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/policy studio_properties expert.png" alt=""><figcaption><p>API properties expert mode</p></figcaption></figure>
 
 ### Encryption
 
@@ -163,7 +163,7 @@ Some policies support the addition of resources, which can be used for authentic
 | HTTP signature                                       | HTTP Authentication Provider                                                        |
 | Basic authentication                                 | <p>LDAP Authentication Provider<br>Inline Authentication Provider</p>               |
 
-After these resources are created, you will be able to reference them when designing policies using the **Policy Studio**. Refer to the [Resources](../api-configuration/resources.md) and [Policy Reference](./#v4) documentation for more information on resources and how they are used by policies.
+After these resources are created, you will be able to reference them when designing policies using the **Policy Studio**. Refer to the [Resources](../api-configuration/resources.md) and [Policy Reference](README.md#v4) documentation for more information on resources and how they are used by policies.
 
 {% hint style="info" %}
 Global resources are globally available to all flows associated with the Gateway API. However, they will not be available to other Gateway APIs.

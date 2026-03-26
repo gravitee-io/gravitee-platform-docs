@@ -1,3 +1,7 @@
+---
+description: Overview of Audit Trail.
+---
+
 # Audit Trail
 
 ## Overview
@@ -14,12 +18,12 @@ Audit logs in AM are split into two parts: Organization audit logs and Domain au
 
 ### Organization audit logs
 
-The AM Console Organization Audit log page displays all events which have occurred from administrator activities.&#x20;
+The AM Console Organization Audit log page displays all events which have occurred from administrator activities.
 
 To view Organization Audit log:
 
 1. Log in to AM Console.
-2. Click Ogranization > Audit&#x20;
+2. Click Ogranization > Audit
 
 <figure><img src="../.gitbook/assets/Organization audit log.png" alt=""><figcaption><p>Organization audit log</p></figcaption></figure>
 
@@ -96,8 +100,6 @@ It is possible to populate all audit logs from all domains within organization t
 <figure><img src="../.gitbook/assets/Global repoerter.png" alt=""><figcaption><p>Global reporter configuration</p></figcaption></figure>
 
 This functionality is supported only for **Organization Audit Logs.**
-
-
 
 ### File reporter
 
@@ -304,14 +306,12 @@ To create a Kafka reporter for a domain:
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-adminguide-add-reporter.png" alt=""><figcaption><p>Audit settings</p></figcaption></figure>
 5.  Select **Kafka** as the reporter type and enter the reporter name and file name.
 
-
-
     <figure><img src="../.gitbook/assets/kafka reporter.png" alt=""><figcaption><p>Add a Kafka reporter</p></figcaption></figure>
 6. Provide **Name**, **Bootstrap servers**, **Topic**, **Acks.**
 
 **Schema Registry**
 
-Kafka reporter supports Schema registry. This configuration is optional. When the schema registry URL is not provided, then messages will be sent to Kafka Broker in JSON format. When the schema registry URL is provided, then the schema of the message will be stored in Schema Registry and ID and version of the schema will be attached at the beginning of the JSON message.&#x20;
+Kafka reporter supports Schema registry. This configuration is optional. When the schema registry URL is not provided, then messages will be sent to Kafka Broker in JSON format. When the schema registry URL is provided, then the schema of the message will be stored in Schema Registry and ID and version of the schema will be attached at the beginning of the JSON message.
 
 Currently, only JSON schema is supported.
 
@@ -330,8 +330,8 @@ Kafka reporter sends all messages to separate partitions based on domain id or o
 1. To create secured connection between Kafka Reporter and Kafka Broker, configure your Kafka broker:
 2. As described in the following Kafka documentation, add to your broker configuration JAAS configuration:
 
-* [https://kafka.apache.org/documentation/#security\_sasl\_jaasconfig](https://kafka.apache.org/documentation/#security\_sasl\_jaasconfig)&#x20;
-* [https://kafka.apache.org/documentation/#security\_sasl\_brokerconfig](https://kafka.apache.org/documentation/#security\_sasl\_brokerconfig)
+* [https://kafka.apache.org/documentation/#security\_sasl\_jaasconfig](https://kafka.apache.org/documentation/#security_sasl_jaasconfig)
+* [https://kafka.apache.org/documentation/#security\_sasl\_brokerconfig](https://kafka.apache.org/documentation/#security_sasl_brokerconfig)
 
 3. When your broker is correctly configured, add additional **Producer properties** to your Kafka Reporter:
 
@@ -347,7 +347,7 @@ Kafka reporter sends all messages to separate partitions based on domain id or o
 
 If Kafka broker is using SSL/TLS encryption, you must add additional steps to secure this connection.
 
-1. Place trusted truststore certificate along with AM Management installation.&#x20;
+1. Place trusted truststore certificate along with AM Management installation.
 2. Specify location and password of this trust store and change `security.protocol` in **Producer properties:**
 
 \
@@ -362,4 +362,3 @@ If Kafka broker is using SSL/TLS encryption, you must add additional steps to se
 `ssl.truststore.password = "secret_password"`
 
 <figure><img src="../.gitbook/assets/kafka-ssl-config.png" alt=""><figcaption><p>Kafka TLS/SSL security config</p></figcaption></figure>
-

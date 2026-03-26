@@ -1,3 +1,7 @@
+---
+description: An overview about Message Flow Control.
+---
+
 # Message Flow Control
 
 ## Overview
@@ -47,7 +51,7 @@ This is possible using the TCP layer of the network model, where TCP stores the 
 
 <figure><img src="https://slabstatic.com/prod/uploads/6lql0jy7/posts/images/DFKJw2dO2pnypqTfItns_8Ic.png" alt=""><figcaption><p>End-user application flow control via TCP</p></figcaption></figure>
 
-TCP flow control consists of ensuring an application doesn’t send additional packets when the receive buffer is full (i.e., the receiver is not able to handle them).&#x20;
+TCP flow control consists of ensuring an application doesn’t send additional packets when the receive buffer is full (i.e., the receiver is not able to handle them).
 
 The TCP protocol allows for transmitting the receive window, which corresponds to the free space remaining in the receive buffer, to notify the sender. The sender is then able to adapt the flow.
 
@@ -89,7 +93,7 @@ A Mock endpoint and/or WebSocket entrypoint can be used in lieu of Kafka and/or 
 
 ### Setup
 
-1. Import [this SSE-Kafka API](https://slabstatic.com/prod/uploads/6lql0jy7/posts/attachments/uHCG\_mgqWRBdrJZzGWfg7gSv.json) into your local running APIM instance and deploy it.
+1. Import [this SSE-Kafka API](https://slabstatic.com/prod/uploads/6lql0jy7/posts/attachments/uHCG_mgqWRBdrJZzGWfg7gSv.json) into your local running APIM instance and deploy it.
 2. Start feeding your Kafka topic (e.g., `topic-users`) via the following script:
 
 ```yaml
@@ -138,7 +142,7 @@ data: {"id": 3, "message": "Hello"}
 tcp.port == 8082 && ip.addr == 127.0.0.1 && http
 ```
 
-2. Restart the SSE curl command above to see it appear in Wireshark.&#x20;
+2. Restart the SSE curl command above to see it appear in Wireshark.
 
 <figure><img src="https://slabstatic.com/prod/uploads/6lql0jy7/posts/images/preload/5yxioH7jsvNMC3ZEWmRv6c7K.png" alt=""><figcaption></figcaption></figure>
 
@@ -152,7 +156,7 @@ tcp.port == 8082 && ip.addr == 127.0.0.1 && http
 
 ### Look at the Gateway memory
 
-1. We can use Visual VM to view the current APIM Gateway memory. The consumption of the messages should have stopped since the curl command is  paused.
+1. We can use Visual VM to view the current APIM Gateway memory. The consumption of the messages should have stopped since the curl command is paused.
 
 <figure><img src="https://slabstatic.com/prod/uploads/6lql0jy7/posts/images/gnXYThJ_vcyWrl-KB4RJ4l7N.png" alt=""><figcaption></figcaption></figure>
 

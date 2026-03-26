@@ -1,3 +1,7 @@
+---
+description: An overview about solace.
+---
+
 # Solace
 
 ## Overview
@@ -10,17 +14,17 @@ Event Portal is a Solace product that acts like an API portal, but for Events. G
 
 In order to Federate Solace Event APIs into Gravitee, you'll need permission to access the Solace console, or you'll at least need access to somebody who does so that they can provide you with credentials that the agent will use to authenticate against Solace's management API.
 
-For more information about how to use the Solace Event portal to manage Event API, check out the getting started guide: [https://api.solace.dev/cloud/reference/apim-getting-started](https://api.solace.dev/cloud/reference/apim-getting-started).&#x20;
+For more information about how to use the Solace Event portal to manage Event API, check out the getting started guide: [https://api.solace.dev/cloud/reference/apim-getting-started](https://api.solace.dev/cloud/reference/apim-getting-started).
 
 The minimum permissions required by the federation agent are described in the section called [Minimum Solace permissions required by the agent](solace.md#minimum-solace-permissions-required-by-the-agent). It is also worth taking a look at the Solace documentation about [authenticating against the Solace management API](https://api.solace.dev/cloud/reference/apim-getting-started#api-authentication).
 
-You'll also need to be running Gravitee API Management version 4.4 or above, with an enterprise license.&#x20;
+You'll also need to be running Gravitee API Management version 4.4 or above, with an enterprise license.
 
 For the federation agent to authenticate with Gravitee API Management, you'll also need an access token. Head to our dedicated guide on [how to create a service account and an access token](../federation-agent-service-account.md) for the federation agent.
 
 ## 1. Create a Solace integration in the Gravitee APIM Console
 
-Head to the Gravitee APIM Console, open the Integrations section in the left menu, and create a new Solace integration.&#x20;
+Head to the Gravitee APIM Console, open the Integrations section in the left menu, and create a new Solace integration.
 
 Once you've created the integration, copy the integration ID that will be visible on the integration overview tab, you'll use this later:
 
@@ -33,7 +37,7 @@ The Solace federation agent will need the following configuration parameters in 
 * Solace endpoint
 * Solace API token
 
-The Solace endpoint to be used is common for all Solace customers:&#x20;
+The Solace endpoint to be used is common for all Solace customers:
 
 ```properties
 https://apim-production-api.solace.cloud/api/v2/apim
@@ -69,7 +73,7 @@ services:
       - gravitee_integration_providers_0_configuration_0_appDomains=${SOLACE_APPLICATION_0_DOMAIN:-}
 ```
 
-Next, create a file named `.env` in the same directory. We'll use it to set the required Docker Compose variables. Fill the values in this file from those you obtained in [step 2](solace.md#id-2.-configure-the-azure-federation-agent).
+Next, create a file named `.env` in the same directory. We'll use it to set the required Docker Compose variables. Fill the values in this file from those you obtained in [step 2](azure-api-management.md#id-2.-configure-the-azure-federation-agent).
 
 ```bash
 ## GRAVITEE PARAMETERS ##

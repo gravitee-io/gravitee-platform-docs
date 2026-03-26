@@ -1,3 +1,7 @@
+---
+description: Overview of Developer Contributions.
+---
+
 # Developer Contributions
 
 ## Overview

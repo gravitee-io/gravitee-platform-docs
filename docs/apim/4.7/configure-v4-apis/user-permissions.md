@@ -1,3 +1,7 @@
+---
+description: An overview about user permissions.
+---
+
 # User Permissions
 
 ## Overview

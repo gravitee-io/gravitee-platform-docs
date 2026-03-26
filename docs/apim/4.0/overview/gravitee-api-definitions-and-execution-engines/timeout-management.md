@@ -1,3 +1,7 @@
+---
+description: Configuration guide for Timeout management.
+---
+
 # Timeout management
 
 ## Legacy execution engine behavior
@@ -24,7 +28,7 @@ The timeout value is calculated from the following two properties:
 {% hint style="info" %}
 **Timeout configuration**
 
-The reactive execution engine interprets timeout values less than or equal to `0` as "no timeout" (same as the legacy engine).&#x20;
+The reactive execution engine interprets timeout values less than or equal to `0` as "no timeout" (same as the legacy engine).
 
 If you configure the timeout with a positive value, then it will act normally.
 
@@ -35,7 +39,7 @@ If no configuration is provided, a default configuration is set to default to 30
 
 The example below shows timelines indicating when a timeout should occur depending on the duration of the API flow and the response platform flows:
 
-* We assume that there is no timeout defined for the backend in the API’s endpoint configuration.&#x20;
+* We assume that there is no timeout defined for the backend in the API’s endpoint configuration.
   * In real life, those timeout values should be shorter than `http.requestTimeout` and should interrupt the flow at the invoker level.
 * We are using `http.requestTimeout=2000ms` and `http.requestTimeoutGraceDelay=30ms`.
 

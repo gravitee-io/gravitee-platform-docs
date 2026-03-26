@@ -1,3 +1,7 @@
+---
+description: Overview of Repositories.
+---
+
 # Repositories
 
 ## Overview
@@ -120,12 +124,12 @@ You can deploy this repository plugin in AM to use the most common databases, in
 * MariaDB 10.3+
 
 {% hint style="info" %}
-AM uses the JDBC and R2DBC drivers together, since AM uses [Liquibase](https://www.liquibase.org/) to manage the database schema. You need to deploy the correct JDBC and R2DBC drivers for your database in your AM instance’s `plugins/ext/repository-am-jdbc` directory.
+AM uses the JDBC and R2DBC drivers together, since AM uses [Liquibase](https://www.liquibase.com/community) to manage the database schema. You need to deploy the correct JDBC and R2DBC drivers for your database in your AM instance’s `plugins/ext/repository-am-jdbc` directory.
 {% endhint %}
 
 | Database             | Version tested | JDBC Driver                                                                                                                           | R2DBC Driver                                                                                                                     |
 | -------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| Postgresql           | 11            | [Download page](https://jdbc.postgresql.org/download/)                                                                                | [Download page](https://repo1.maven.org/maven2/org/postgresql/r2dbc-postgresql/1.0.2.RELEASE/r2dbc-postgresql-1.0.2.RELEASE.jar) |
+| Postgresql           | 11             | [Download page](https://jdbc.postgresql.org/download/)                                                                                | [Download page](https://repo1.maven.org/maven2/org/postgresql/r2dbc-postgresql/1.0.2.RELEASE/r2dbc-postgresql-1.0.2.RELEASE.jar) |
 | MySQL                | 8.0            | [Download page](https://dev.mysql.com/downloads/connector/j/)                                                                         | [Download page](https://repo1.maven.org/maven2/io/asyncer/r2dbc-mysql/1.0.2/r2dbc-mysql-1.0.2.jar)                               |
 | MariaDB              | 10.3           | [Download page](https://downloads.mariadb.org/connector-java/)                                                                        | [Download page](https://repo1.maven.org/maven2/org/mariadb/r2dbc-mariadb/1.1.3/r2dbc-mariadb-1.1.3.jar)                          |
 | Microsoft SQL Server | 2017-CU12      | [Download page](https://docs.microsoft.com/en-us/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017) | [Download page](https://repo1.maven.org/maven2/io/r2dbc/r2dbc-mssql/1.0.0.RELEASE/r2dbc-mssql-1.0.0.RELEASE.jar)                 |
@@ -278,7 +282,7 @@ If you want to clean data by yourself, please use the field `expire_at` to know 
 
 ### Liquibase
 
-AM uses [liquibase](https://www.liquibase.org/) to manage database schemas on startup of the AM services.
+AM uses [liquibase](https://www.liquibase.com/community) to manage database schemas on startup of the AM services.
 
 If you want to disable automatic update, you’ll need to add this section to your `gravitee.yml` file.
 

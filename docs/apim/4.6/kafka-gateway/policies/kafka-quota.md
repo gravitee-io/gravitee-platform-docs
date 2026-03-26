@@ -1,3 +1,7 @@
+---
+description: Configuration guide for kafka quota.
+---
+
 # Kafka Quota
 
 ### Description <a href="#user-content-description" id="user-content-description"></a>

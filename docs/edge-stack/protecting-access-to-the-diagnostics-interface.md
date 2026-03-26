@@ -1,4 +1,5 @@
 ---
+description: Overview of Diagnostics Interface.
 hidden: true
 noIndex: true
 ---

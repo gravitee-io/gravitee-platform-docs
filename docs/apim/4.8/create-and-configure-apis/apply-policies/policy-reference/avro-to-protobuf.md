@@ -1,3 +1,7 @@
+---
+description: An overview about avro to protobuf.
+---
+
 # Avro to Protobuf
 
 ## Phases <a href="#user-content-phases" id="user-content-phases"></a>
@@ -17,7 +21,7 @@ To serialize data in Avro, you need a [schema](https://avro.apache.org/docs/1.11
 * inlined in the policy configuration.
 * with a Schema Registry.
 
-To serialize data in Protobuf, you need a [schema](https://avro-protobuf.dev/overview/). There are two ways to provide a schema:
+To serialize data in Protobuf, you need a schema. There are two ways to provide a schema:
 
 * inlined in the policy configuration.
 * with a Schema Registry.

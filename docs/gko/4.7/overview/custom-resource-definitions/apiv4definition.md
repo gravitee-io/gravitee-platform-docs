@@ -1,3 +1,7 @@
+---
+description: Overview of ApiV4Definition.
+---
+
 # ApiV4Definition
 
 The `ApiV4Definition` custom resource represents the configuration for a v4 API on the Gravitee Gateway. v4 APIs are created from the latest version of the Gravitee API definition, which supports both synchronous and asynchronous APIs. GKO also supports the previous [v2 API definition](apidefinition.md) with a dedicated CRD.

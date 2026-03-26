@@ -1,3 +1,7 @@
+---
+description: Installation guide for Namespaced Install.
+---
+
 # Cluster vs Namespaced Install
 
 The Gravitee Kubernetes Operator (GKO) can either be configured to listen to resources across an entire cluster or scoped to a single namespace. The `manager.scope.cluster` boolean parameter is used to determine which installation method is used by the GKO Helm Chart.

@@ -1,3 +1,7 @@
+---
+description: Configuration and usage guide for applying plans to you apis.
+---
+
 # Applying Plans to you APIs
 
 ## Introduction
@@ -14,9 +18,9 @@ Each plan must include at least one security type by which subscribers can be au
 
 The sections below describe:
 
-* [How to create a plan](./#create-a-plan)
-* [How to publish a plan](./#publish-a-plan)
-* [How plans are selected](./#plan-selection-rules)
+* [How to create a plan](README.md#create-a-plan)
+* [How to publish a plan](README.md#publish-a-plan)
+* [How plans are selected](README.md#plan-selection-rules)
 
 ## Create a plan
 
@@ -29,7 +33,7 @@ To create a plan:
 5.  Under the **Plans** header tab, click **+ Add new plan** and select your plan security type:
 
     <figure><img src="../../../../.gitbook/assets/plan_select security type.png" alt=""><figcaption><p>Add a new plan</p></figcaption></figure>
-6.  Configure the general plan settings:&#x20;
+6.  Configure the general plan settings:
 
     <figure><img src="../../../../.gitbook/assets/plan_general.png" alt=""><figcaption><p>Configure general plan settings</p></figcaption></figure>
 
@@ -45,7 +49,7 @@ To create a plan:
 8.  Define the security configuration details appropriate to and required by your selected security type, e.g., OAuth2.
 
     <figure><img src="../../../../.gitbook/assets/plan_oauth2.png" alt=""><figcaption><p>OAuth2 configuration</p></figcaption></figure>
-9.  Select any plan restrictions:&#x20;
+9.  Select any plan restrictions:
 
     <figure><img src="../../../../.gitbook/assets/plan_restrictions.png" alt=""><figcaption><p>Select plan restrictions</p></figcaption></figure>
 
@@ -68,7 +72,7 @@ API consumers can view a published plan on the Developer Portal. Once subscribed
 {% endtab %}
 
 {% tab title="DEPRECATED" %}
-A deprecated plan won’t be available on the Developer Portal and API consumers won’t be able to subscribe to it. This cannot be undone. Existing subscriptions are not impacted, giving current API consumers time to migrate without breaking their application.&#x20;
+A deprecated plan won’t be available on the Developer Portal and API consumers won’t be able to subscribe to it. This cannot be undone. Existing subscriptions are not impacted, giving current API consumers time to migrate without breaking their application.
 {% endtab %}
 
 {% tab title="CLOSED" %}
@@ -108,10 +112,10 @@ To close a plan, click on the 'x' icon:
 
 ## Plan selection rules
 
-APIM automatically routes each API request to the correct plan. The plan selection workflow parses all published plans in the following order: **JWT**, **OAuth2**, **API Key**, **Keyless**.&#x20;
+APIM automatically routes each API request to the correct plan. The plan selection workflow parses all published plans in the following order: **JWT**, **OAuth2**, **API Key**, **Keyless**.
 
 {% hint style="warning" %}
-This workflow only applies to [v4 APIs and v2 APIs in emulation mode.](../../../../overview/plugins-and-api-definitions/gravitee-api-definitions-and-execution-engines/#plan-selection)
+This workflow only applies to [v4 APIs and v2 APIs in emulation mode.](../../../../overview/plugins-and-api-definitions/gravitee-api-definitions-and-execution-engines/engine-comparisons.md#plan-selection)
 {% endhint %}
 
 The parsing rules for each plan type are detailed below:

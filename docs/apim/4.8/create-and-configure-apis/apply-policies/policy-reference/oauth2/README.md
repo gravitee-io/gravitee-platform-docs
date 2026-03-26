@@ -1,3 +1,7 @@
+---
+description: An overview about oauth2.
+---
+
 # OAuth2
 
 ## Overview

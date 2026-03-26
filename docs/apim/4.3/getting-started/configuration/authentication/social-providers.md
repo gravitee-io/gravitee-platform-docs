@@ -1,3 +1,7 @@
+---
+description: An overview about Social Providers.
+---
+
 # Social Providers
 
 ## Overview
@@ -26,7 +30,7 @@ Before you can set up GitHub as an authentication provider for Gravitee APIM, yo
 2. Select **OAuth Apps**
 3.  Select **Register an application**
 
-    <figure><img src="../../../.gitbook/assets/github_register_new_app (1).png" alt=""><figcaption><p>Register an application in GitHub</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/github_register_new_app.png" alt=""><figcaption><p>Register an application in GitHub</p></figcaption></figure>
 4.  Enter in your Gravitee details in the **Register a new OAuth application** section. Please note that the Authorization callback URL must match the domain hosting Gravitee APIM. When you're done, select **Register application.**
 
     <figure><img src="../../../.gitbook/assets/github_fill_app_form.png" alt=""><figcaption><p>Register Gravitee details in GitHub</p></figcaption></figure>
@@ -118,9 +122,9 @@ In order to connect Google and Gravitee APIM, you'll need to create a Google OAu
     <figure><img src="../../../.gitbook/assets/google_create_client.png" alt=""><figcaption><p>Create your OAuth client ID</p></figcaption></figure>
 4.  Enter in your client details. These will be your Gravitee APIM details. The **Authorized redirect URIs** value _must match_ the domain hosting your Gravitee APIM Portal.
 
-    <figure><img src="../../../.gitbook/assets/google_fill_client_form_gravitee_details.png" alt=""><figcaption><p>Enter in your Gravitee details when creating a Client ID</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/google_fill_client_form.png" alt=""><figcaption><p>Enter in your Gravitee details when creating a Client ID</p></figcaption></figure>
 5. Select **Create**.
-6.  Retrieve the new **Client ID** and **Client secret**.&#x20;
+6.  Retrieve the new **Client ID** and **Client secret**.
 
     <figure><img src="../../../.gitbook/assets/google_client_credentials.png" alt=""><figcaption><p>Google Client ID and Client secret.</p></figcaption></figure>
 

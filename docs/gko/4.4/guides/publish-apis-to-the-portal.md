@@ -1,3 +1,7 @@
+---
+description: Overview of Publish APIs.
+---
+
 # Publish APIs to the portal
 
 Whether or not APIs managed by GKO are published to the Gravitee Developer Portal is a controlled by an attribute called **lifecycle\_state** that is common to both `ApiV4Definition` and `ApiDefinition` CRDs.
@@ -36,7 +40,7 @@ To unpublish the API, change the `lifecycle_state` property value to `UNPUBLISHE
 
 ## Setting a category for an API
 
-APIs can be grouped into categories to improve navigation for API consumers that discover APIs on the developer portal. Both `ApiV4Definition` and `ApiDefinition` can reference categories in APIM by name. If a category is referenced that does not exist in APIM, it will simply be ignored.&#x20;
+APIs can be grouped into categories to improve navigation for API consumers that discover APIs on the developer portal. Both `ApiV4Definition` and `ApiDefinition` can reference categories in APIM by name. If a category is referenced that does not exist in APIM, it will simply be ignored.
 
 Below is an example `ApiV4Definition` that references two categories called `banking` and `credit`:
 

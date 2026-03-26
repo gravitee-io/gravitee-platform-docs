@@ -45,7 +45,6 @@ This snippet of a V4 API definition includes a flow that contains a Data Masking
               "bodyRules" : [ ]
             }
           } ],
-```
   ...
   }
   ...
@@ -56,7 +55,7 @@ This snippet of a V4 API definition includes a flow that contains a Data Masking
 {% tab title="V4 API CRD" %}
 This snippet of a V4 API yaml manifest for the Gravitee Kubernetes Operator includes a flow that contains a Data Masking policy.
 
-````yaml
+```yaml
 apiVersion: "gravitee.io/v1alpha1"
 kind: "ApiV4Definition"
 metadata:
@@ -90,10 +89,8 @@ spec:
         - path: "reqHeaderToHide"
           replacer: "*"
         scope: "RESPONSE_CONTENT"
-        bodyRules: []
-```
-        
+        bodyRules: []        
     ...
-````
+```
 {% endtab %}
 {% endtabs %}

@@ -1,4 +1,5 @@
 ---
+description: Configuration guide for Configure.
 noIndex: true
 ---
 
@@ -240,11 +241,11 @@ intercepted
 ```
 
 {% hint style="info" %}
-This utilizes an `initContainer` that requires \`NET\_ADMIN\` capabilities. If your cluster administrator has disabled them, you will be unable to use numeric ports with the agent injector.&#x20;
+This utilizes an `initContainer` that requires \`NET\_ADMIN\` capabilities. If your cluster administrator has disabled them, you will be unable to use numeric ports with the agent injector.
 {% endhint %}
 
 {% hint style="info" %}
-This requires the Traffic Agent to run as GID `7777`. By default, this is disabled on openshift clusters. To enable running as GID `7777` on a specific openshift namespace, run: `oc adm policy add-scc-to-group anyuid system:serviceaccounts:$NAMESPACE`&#x20;
+This requires the Traffic Agent to run as GID `7777`. By default, this is disabled on openshift clusters. To enable running as GID `7777` on a specific openshift namespace, run: `oc adm policy add-scc-to-group anyuid system:serviceaccounts:$NAMESPACE`
 {% endhint %}
 
 {% hint style="info" %}

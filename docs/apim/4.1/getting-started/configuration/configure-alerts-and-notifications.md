@@ -12,7 +12,7 @@ Gravitee allows you to set up alerts and notifications based on events recognize
 
 ## Configure notifications for your APIs
 
-{% @arcade/embed flowId="vLOPiPtuGAbHWNJj6LRN" url="https://app.arcade.software/share/vLOPiPtuGAbHWNJj6LRN" %}
+{% @arcade/embed url="https://app.arcade.software/share/vLOPiPtuGAbHWNJj6LRN" flowId="vLOPiPtuGAbHWNJj6LRN" %}
 
 APIM includes 3 categories of notifications and 3 types of notifiers. Their purpose and configuration are described below, along with customization via templates.
 
@@ -67,19 +67,11 @@ The Portal notifier is the default notifier and sends messages to users logged i
 
 They can be displayed by clicking the bell icon in the header menu of APIM Console:
 
-<div align="left">
-
-<figure><img src="../../.gitbook/assets/console_notification_link.png" alt="" width="375"><figcaption></figcaption></figure>
-
-</div>
+<div align="left"><figure><img src="../../.gitbook/assets/console_notification_link.png" alt="" width="375"><figcaption></figcaption></figure></div>
 
 In the Developer Portal, notifications are displayed in a page accessible from the user menu:
 
-<div align="left">
-
-<figure><img src="../../.gitbook/assets/portal_notification_link.png" alt="" width="188"><figcaption></figcaption></figure>
-
-</div>
+<div align="left"><figure><img src="../../.gitbook/assets/portal_notification_link.png" alt="" width="188"><figcaption></figcaption></figure></div>
 
 The templates of Portal notifications can be customized in **Settings**. For more information, see [Templates](configure-alerts-and-notifications.md#templates).
 {% endtab %}
@@ -217,7 +209,7 @@ The available attributes are summarized below. Use the [Apache Freemarker templa
 The following documentation is only relevant if you have Gravitee Alert Engine enabled, which is an Enterprise-only capability. To enable the following alerting capabilities, please [contact us](https://www.gravitee.io/contact-us) or reach out to your CSM.
 {% endhint %}
 
-{% @arcade/embed flowId="5HCcKbjuS7rfjlFsxPTI" url="https://app.arcade.software/share/5HCcKbjuS7rfjlFsxPTI" %}
+{% @arcade/embed url="https://app.arcade.software/share/5HCcKbjuS7rfjlFsxPTI" flowId="5HCcKbjuS7rfjlFsxPTI" %}
 
 When configuring an API's settings, you can also set up alerting conditions for the Gateway. To configure alerts for an API, select the API from the **APIs** menu. Then, under **Notifications,** select **Alerts**.
 

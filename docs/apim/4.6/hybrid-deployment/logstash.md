@@ -1,3 +1,7 @@
+---
+description: Configuration guide for logstash.
+---
+
 # Logstash
 
 ## Compatibility with Elasticsearch
@@ -9,7 +13,6 @@ Support versions: Please refer to the [compatibility matrix with Elasticsearch](
 1. Install Logstash. To install Logstash, go to either of the following websites:
 
 * [Official Helm charts](https://artifacthub.io/packages/helm/elastic/logstash#how-to-install-oss-version-of-logstash)
-* [Bitnami Helm charts](https://bitnami.com/stack/logstash/helm)
 
 2. Configure Logstash by coping the following file:
 
@@ -29,7 +32,7 @@ gateway:
 
 ## Docker
 
-1. Install Logstash. To install Logstash, copy the following file:&#x20;
+1. Install Logstash. To install Logstash, copy the following file:
 
 {% code title="docker-compose.yaml" lineNumbers="true" %}
 ```yaml

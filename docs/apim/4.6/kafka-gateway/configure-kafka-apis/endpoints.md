@@ -1,3 +1,7 @@
+---
+description: An overview about endpoints.
+---
+
 # Endpoints
 
 ## Overview
@@ -8,7 +12,7 @@ Endpoints define the protocol and configuration settings by which the Gateway AP
 
 ## Edit the endpoint group
 
-Gravitee automatically assigns the endpoint group of a Kafka API the name **Default Broker group**. To edit the endpoint group, click the **Edit** button with the pencil icon.&#x20;
+Gravitee automatically assigns the endpoint group of a Kafka API the name **Default Broker group**. To edit the endpoint group, click the **Edit** button with the pencil icon.
 
 By selecting the **General** tab, you can change the name of your Kafka endpoint group.
 
@@ -23,8 +27,8 @@ Gravitee Kafka APIs support **PLAINTEXT**, **SASL\_PLAINTEXT**, **SASL\_SSL**, o
 * **PLAINTEXT:** No further security configuration is necessary.
 * **SASL\_PLAINTEXT:** Choose NON&#x45;**,** GSSAPI, OAUTHBEARER, OAUTHBEARER\_TOKEN, PLAIN, SCRAM\_SHA-256, or SCRAM-SHA-512
   * **NONE:** No further security config necessary.
-  * **AWS\_MSK\_IAM:** Enter the JAAS login context parameters.&#x20;
-  * **GSSAPI:** Enter the JAAS login context parameters.&#x20;
+  * **AWS\_MSK\_IAM:** Enter the JAAS login context parameters.
+  * **GSSAPI:** Enter the JAAS login context parameters.
   * **OAUTHBEARER:** Enter the OAuth token URL, client ID, client secret, and scopes to request when issuing a new token.
   * **OAUTHBEARER\_TOKEN:** Provide your custom token value.
   * **PLAIN:** Enter the username and password to connect to the broker.
@@ -53,7 +57,7 @@ Gravitee Kafka APIs support **PLAINTEXT**, **SASL\_PLAINTEXT**, **SASL\_SSL**, o
 
 ## Edit the endpoint
 
-Gravitee automatically assigns your Kafka API endpoint the name **Default Broker**. To edit the endpoint, click the pencil icon under ACTIONS.&#x20;
+Gravitee automatically assigns your Kafka API endpoint the name **Default Broker**. To edit the endpoint, click the pencil icon under ACTIONS.
 
 By selecting the **General** tab, you can edit your endpoint name and the list of bootstrap servers.
 

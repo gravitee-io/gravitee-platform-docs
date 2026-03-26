@@ -1,3 +1,7 @@
+---
+description: An overview about mtls.
+---
+
 # mTLS
 
 ## Overview
@@ -7,7 +11,7 @@ The mTLS authentication type enforces the use of a client certificate to connect
 You can use the mTLS with or without TLS enabled between the client and the gateway. The gateway server can require client authentication, which uses the truststore at the server level to determine which clients to trust. The mTLS plan checks the client certificate with the gateway-level TLS. The client certificate is either found in either of the following locations:
 
 * The TLS session between the client and the gateway
-* In a pre-specified header in plaintext, base64-encoded.&#x20;
+* In a pre-specified header in plaintext, base64-encoded.
 
 This can be done if a load balancer is placed in front of the gateway that terminates TLS. For more information about the configuration, See configuration.
 
@@ -17,7 +21,7 @@ Currently, mTLS plans have the following limitations:
 
 * You can apply mTLS plans to only v4 APIs.
 * You cannot use mTLS plans in Gravitee Cloud with SaaS-based Gateways.
-* Only one client certificate can be added per application. This means that to rotate certificates for an application, you need to pause the application’s subscriptions or schedule a maintenance window to avoid traffic for that API.&#x20;
+* Only one client certificate can be added per application. This means that to rotate certificates for an application, you need to pause the application’s subscriptions or schedule a maintenance window to avoid traffic for that API.
 * Applications do not provide a warning that certificates are going to expire.
 
 ## How to add a client certificate
@@ -37,7 +41,7 @@ When you add a client certificate to an application, the gateway adds this appli
 
 ## How to call an API
 
-To call an API with mTLS, you must have the client certificate and the private key, and your client trusts the certificate sent by the gateway.&#x20;
+To call an API with mTLS, you must have the client certificate and the private key, and your client trusts the certificate sent by the gateway.
 
 Use the following command, replacing `<client.cer>` and `<client.key>` with the name of the files where you have stored your client certificate and the file where you have stored the client key.
 

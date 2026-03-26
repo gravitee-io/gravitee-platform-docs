@@ -1,18 +1,35 @@
 ---
+description: Configuration guide for ---.
 hidden: true
+noIndex: true
 ---
 
 # Vanilla Kubernetes
+
+{% hint style="warning" %}
+This installation guide is for only development and quick start purposes. Do not use it for production environments. For more information about best practices for production environments, contact your Technical Account Manager.
+{% endhint %}
 
 ## Configure Redis
 
 Redis can be used by Gravitee for both caching and rate-limiting.
 
-1. To install Redis, use packages available from [Bitnami Helm charts](https://artifacthub.io/packages/helm/bitnami/redis).  The following example uses a standalone configuration.
-2.  Configure your Gravitee Gateway to use Redis by using the following example `values.yaml` configuration:\
+1.  To install Redis, use packages available from [Bitnami Helm charts](https://artifacthub.io/packages/helm/bitnami/redis). The following example uses a standalone configuration:
 
+    ```sh
+    helm repo add bitnami https://charts.bitnami.com/bitnami
 
-    {% code title="values.yaml" lineNumbers="true" %}
+    helm repo update
+
+    helm install redis-apim bitnami/redis \
+      --version 19.6.4 \
+      --set image.repository=bitnamilegacy/redis \
+      --set auth.password=p@ssw0rd
+    ```
+2.  Configure your Gravitee Gateway to use Redis by using the following example `values.yaml` configuration:
+
+    \{% code title="values.yaml" lineNumbers="true" %\}
+
     ```yaml
     gateway:
       ...
@@ -25,7 +42,8 @@ Redis can be used by Gravitee for both caching and rate-limiting.
         #password: kubernetes://<namespace>/secrets/<my-secret-name>/<my-secret-key>
         download: true
     ```
-    {% endcode %}
+
+    \{% endcode %\}
 
 ## Configure Logstash
 
@@ -37,8 +55,7 @@ You can configure Logstash to send data to ElasticSearch.
 {% endhint %}
 
 1. Install Logstash. To install Logstash, go to [Official Helm charts](https://artifacthub.io/packages/helm/elastic/logstash#how-to-install-oss-version-of-logstash).
-2.  Configure the Logstash helm chart with the following values:\
-
+2.  Configure the Logstash helm chart with the following values:
 
     ```json
     image: "docker.elastic.co/logstash/logstash"  
@@ -98,12 +115,10 @@ You can configure Logstash to send data to ElasticSearch.
           }
         }
     ```
+3.  In your Gateway `values.yaml` file, configure the TCP reporter to push the analytics to Logstash using the following example:
 
-    &#x20;
-3.  In your Gateway `values.yaml` file, configure the TCP reporter to push the analytics to Logstash using the following example:\
+    \{% code title="values.yaml" lineNumbers="true" %\}
 
-
-    {% code title="values.yaml" lineNumbers="true" %}
     ```yaml
     gateway:
       reporters:
@@ -115,13 +130,11 @@ You can configure Logstash to send data to ElasticSearch.
           port: 8379
           output: elasticsearch
     ```
-    {% endcode %}
 
-## Configure Fluentd
+    \{% endcode %\}## Configure Fluentd
 
-* Install Fluentd. To install Fluentd,  go to either of the following sites:
+* Install Fluentd. To install Fluentd, go to either of the following sites:
   * [Official Helm charts](https://artifacthub.io/packages/helm/fluent/fluentd)
-  * [Bitnami Helm charts](https://bitnami.com/stack/fluentd/helm)
 
 ## Configure Alert Engine
 
@@ -135,4 +148,3 @@ alerts:
     username: kubernetes://<namespace>/secrets/<my-secret-name>/<my-secret-key>
     password: kubernetes://<namespace>/secrets/<my-secret-name>/<my-secret-key>
 ```
-

@@ -1,3 +1,7 @@
+---
+description: Overview of RsIxA8XfirhMJETy17RE.
+---
+
 # Refresh Tokens
 
 ## Overview
@@ -6,7 +10,7 @@ A refresh token is used to get a new access token without user interaction (i.e.
 
 This allows good practices such as shortening the access token lifetime for security purposes without involving the user when the access token expires.
 
-By default, the refresh token is single-use only and must be used to request a new access token until it expires.&#x20;
+By default, the refresh token is single-use only and must be used to request a new access token until it expires.
 
 {% hint style="info" %}
 For security reasons, a refresh token must be stored in a secure place (i.e. server-side) because they essentially allow a user to remain authenticated forever.

@@ -1,4 +1,5 @@
 ---
+description: Overview of Model Context Protocol.
 noIndex: true
 ---
 
@@ -20,7 +21,7 @@ Use the following procedures and resources in this guide to learn how to host an
 
 You can host a third-party MCP server in Blackbird using the Blackbird CLI. The MCP catalog offers several options to fit different use cases. In this procedure, you'll browse the catalog, select a server, deploy it in your environment, and export the connection details to use in a compatible client (e.g., VS Code or Cursor).
 
-> **Note:** The following procedure provides key arguments and flags related to the CLI commands, but you can find more information and examples in the [Blackbird CLI](blackbird-cli/).
+> **Note:** The following procedure provides key arguments and flags related to the CLI commands, but you can find more information and examples in the [Blackbird CLI](blackbird-cli/README.md).
 
 ### Prerequisites
 
@@ -81,7 +82,7 @@ You can use the Visual Studio Code (VS Code) integration to host a third-party M
 
 **To host an MCP server using VS Code:**
 
-1. Make sure the [Hosted Dev Environment with Blackbird](https://marketplace.visualstudio.com/items?itemName=Ambassador.blackbird-plugin) extension is running in VS Code.
+1. Make sure the Hosted Dev Environment with Blackbird extension is running in VS Code.
 2. In the side bar under Blackbird, expand **MCP Catalog** to view available servers.
 3. Hover over the server you want to deploy and select the **Run** icon to launch it.
 4. The input box prompts you for each required parameter. Provide the requested parameters.
@@ -102,7 +103,7 @@ Before following the example workflow, ensure you meet the following requirement
 
 * You installed the Blackbird CLI. For more information, see [#getting-started-with-the-blackbird-cli](blackbird-cli/#getting-started-with-the-blackbird-cli "mention").
 * You installed Docker and it's actively running. For more information, see [Get Docker](https://docs.docker.com/get-started/get-docker/).
-* You installed the Cursor MCP client. For more information, see Download [Cursor](https://www.cursor.com/en/downloads).
+* You installed the Cursor MCP client. For more information, see Download [Cursor](https://cursor.com/).
 
 **To host a GitHub MCP server:**
 

@@ -1,4 +1,5 @@
 ---
+description: Overview of Basic Authentication.
 noIndex: true
 ---
 
@@ -200,7 +201,7 @@ $ curl -Lv -u username:password $AMBASSADORURL/backend/get-quote/
 }
 ```
 
-### &#x20;What's next?
+### What's next?
 
 * Get started with authentication by installing Ambassador Edge Stack: [..](../../ "mention").
 * For more details see the `External` filter documentation: [using-filters-and-filterpolicies.md](../../technical-reference/filters/using-filters-and-filterpolicies.md "mention").

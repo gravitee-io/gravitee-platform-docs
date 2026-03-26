@@ -1,6 +1,10 @@
+---
+description: Overview of Notification.
+---
+
 # Notification
 
-The ``Notification resource allows you to configure event-based notifications within Gravitee, targeting the Gravitee Console UI. Notifications are triggered by API-related events and sent to specific users or groups based on the configuration.
+The \`\`Notification resource allows you to configure event-based notifications within Gravitee, targeting the Gravitee Console UI. Notifications are triggered by API-related events and sent to specific users or groups based on the configuration.
 
 ## Overview
 
@@ -34,30 +38,30 @@ Right now, only `console` is available as a target, and `api` as an even type.
 
 The following are the allowed values for `apiEvents` when configuring notifications for API-related events:
 
-- `APIKEY_EXPIRED`
-- `APIKEY_RENEWED`
-- `APIKEY_REVOKED`
-- `SUBSCRIPTION_NEW`
-- `SUBSCRIPTION_ACCEPTED`
-- `SUBSCRIPTION_CLOSED`
-- `SUBSCRIPTION_PAUSED`
-- `SUBSCRIPTION_RESUMED`
-- `SUBSCRIPTION_REJECTED`
-- `SUBSCRIPTION_TRANSFERRED`
-- `SUBSCRIPTION_FAILED`
-- `NEW_SUPPORT_TICKET`
-- `API_STARTED`
-- `API_STOPPED`
-- `API_UPDATED`
-- `API_DEPLOYED`
-- `NEW_RATING`
-- `NEW_RATING_ANSWER`
-- `MESSAGE`
-- `ASK_FOR_REVIEW`
-- `REVIEW_OK`
-- `REQUEST_FOR_CHANGES`
-- `API_DEPRECATED`
-- `NEW_SPEC_GENERATED`
+* `APIKEY_EXPIRED`
+* `APIKEY_RENEWED`
+* `APIKEY_REVOKED`
+* `SUBSCRIPTION_NEW`
+* `SUBSCRIPTION_ACCEPTED`
+* `SUBSCRIPTION_CLOSED`
+* `SUBSCRIPTION_PAUSED`
+* `SUBSCRIPTION_RESUMED`
+* `SUBSCRIPTION_REJECTED`
+* `SUBSCRIPTION_TRANSFERRED`
+* `SUBSCRIPTION_FAILED`
+* `NEW_SUPPORT_TICKET`
+* `API_STARTED`
+* `API_STOPPED`
+* `API_UPDATED`
+* `API_DEPLOYED`
+* `NEW_RATING`
+* `NEW_RATING_ANSWER`
+* `MESSAGE`
+* `ASK_FOR_REVIEW`
+* `REVIEW_OK`
+* `REQUEST_FOR_CHANGES`
+* `API_DEPRECATED`
+* `NEW_SPEC_GENERATED`
 
 > 💡 Use these values under the `console.apiEvents` field to define which events will trigger a notification.
 

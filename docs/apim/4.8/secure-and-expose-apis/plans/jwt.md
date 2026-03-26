@@ -1,3 +1,7 @@
+---
+description: An overview about jwt.
+---
+
 # JWT
 
 ## Overview
@@ -10,7 +14,7 @@ When an Identity Provider does not fully support the [OAuth2](oauth2.md) standar
 For example, Azure Entra ID does not provide a token introspection endpoint. So, you must use the JWT Plan with the JWKS\_URL resolver like `https://login.microsoft.com/{tenant_id}/discovery/v2.0/keys` to introspect, validate, and extract token custom claims.
 {% endhint %}
 
-## Configuration&#x20;
+## Configuration
 
 APIM uses client IDs to recognize applications that have subscribed to a JWT plan. The inbound JWT payload must include the `client_id` claim to establish a connection between the JWT and the APIM application subscription.
 
@@ -23,7 +27,8 @@ A JWT plan presents the following configuration options:
   * **GIVEN\_KEY**: Provide a signature key as a resolver parameter according to the signature algorithm (`ssh-rsa`, `pem`, `crt` or `public-key` format
   *   **GATEWAY\_KEYS:** Search for public keys set in the API Gateway `gravitee.yml` configuration that match the authorization server `iss` (issuer) and `kid` (key ID) claims of the incoming JWT
 
-      {% code title="gravitee.yml" %}
+      \{% code title="gravitee.yml" %\}
+
       ```yaml
       jwt:
         issuer:
@@ -31,8 +36,8 @@ A JWT plan presents the following configuration options:
             default: ssh-rsa myValidationKey anEmail@domain.com
             kid-2016: ssh-rsa myCurrentValidationKey anEmail@domain.com
       ```
-      {% endcode %}
-  * **JWKS\_URL**: Provide a URL ending with `/.well-known/jwks.json` from which the Gateway can retrieve the JWKS
+
+      \{% endcode %\} \* **JWKS\_URL**: Provide a URL ending with `/.well-known/jwks.json` from which the Gateway can retrieve the JWKS
 * **Use system proxy:** When using **JWKS\_URL**, optionally make the HTTP call through a system-wide proxy configured in `gravitee.yml`
 *   **Extract JWT Claims:** Allow claims to be accessed in the `jwt.claims` context attribute during request/response via Gravitee Expression Language (EL), e.g., extract the issuer claim from the JWT:
 

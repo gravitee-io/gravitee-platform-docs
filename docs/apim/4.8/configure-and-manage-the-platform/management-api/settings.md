@@ -1,3 +1,7 @@
+---
+description: Configuration guide for settings.
+---
+
 # Settings
 
 ## Management settings

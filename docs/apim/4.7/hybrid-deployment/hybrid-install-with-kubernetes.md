@@ -1,3 +1,7 @@
+---
+description: Tutorial on hybrid install with kubernetes.
+---
+
 # Hybrid Install with Kubernetes
 
 To install a Gravitee Gateway on Kubernetes, complete the following steps:

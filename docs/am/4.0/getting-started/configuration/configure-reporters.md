@@ -1,3 +1,7 @@
+---
+description: API and reference documentation for AM Gateway.
+---
+
 # Configure Reporters
 
 ## Overview

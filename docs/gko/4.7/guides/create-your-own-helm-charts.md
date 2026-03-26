@@ -1,3 +1,7 @@
+---
+description: Overview of Helm Charts.
+---
+
 # Create your own Helm Charts
 
 ## Overview

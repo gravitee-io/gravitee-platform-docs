@@ -1,0 +1,11 @@
+- Updated H1 heading to use Title Case.
+- Added an overview sentence summarizing the purpose of the guide.
+- Normalized the Prerequisites heading and removed HTML space entities.
+- Rewrote the first prerequisite bullet to avoid repetition and clarify self-hosted vs hybrid installation.
+- Removed HTML <br> line breaks from sentences and list items.
+- Corrected double spacing in the APIM version prerequisite sentence.
+- Replaced hash-prefixed anchor link text with readable labels for each authentication method and simplified anchor targets.
+- Improved wording for the password-generation bullet from “hash password” to “hashed password” and clarified that the command is run.
+- Clarified the introductory sentences for APIM data source authentication and fixed the “your the” typo.
+- Added UNCERTAIN annotations after each empty Verification section to flag missing verification procedures.
+- Added a NEED CLARIFICATION annotation inside the empty Helm tab for APIM data source authentication to flag missing configuration details.

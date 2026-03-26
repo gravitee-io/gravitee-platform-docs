@@ -1,3 +1,7 @@
+---
+description: Configuration guide for After.
+---
+
 # Remember Authentication Device
 
 ## Overview

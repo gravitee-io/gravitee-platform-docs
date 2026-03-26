@@ -1,3 +1,7 @@
+---
+description: An overview about self-hosted installation guides.
+---
+
 # Self-Hosted Installation Guides
 
 ## Overview
@@ -21,14 +25,14 @@ Gravitee APIM can be installed using the following technology stacks and deploym
 ### Kubernetes
 
 * [kubernetes](kubernetes/ "mention")
-* AWS EKS
-* Azure AKS
+* [AWS EKS](kubernetes/aws-eks.md)
+* [Azure AKS](kubernetes/azure-aks.md)
 * GCP GKE
 * [openshift.md](kubernetes/openshift.md "mention")
 
 ### Linux
 
-* [Broken link](broken-reference "mention")
+* [rpm](rpm/ "mention")
 * [.zip.md](.zip.md "mention")
 
 ### Windows
@@ -41,15 +45,15 @@ The following diagrams illustrate the component management and design of a self-
 
 ### Self-hosted component management
 
-<figure><img src="../.gitbook/assets/image (316).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
 
-Self-hosted component management means that the customer hosts and manages both the Control Plane(s) and Data Plane(s). &#x20;
+Self-hosted component management means that the customer hosts and manages both the Control Plane(s) and Data Plane(s).
 
 To support a multi-environment configuration, the self-hosted Control Plane must be connected to Gravitee Cloud.
 
 ### Self-hosted architecture diagram
 
-<figure><img src="../.gitbook/assets/image (317).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (12) (1).png" alt=""><figcaption></figcaption></figure>
 
 In a typical self-hosted architecture, the customer manages both the Data Plane and the Control Plane. The Management Control Plane consists of API Management (mAPI), and, optionally, Gravitee Alert Engine and Gravitee Access Management.
 

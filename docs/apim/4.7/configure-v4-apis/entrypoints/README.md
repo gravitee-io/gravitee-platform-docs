@@ -1,16 +1,20 @@
+---
+description: An overview about entrypoints.
+---
+
 # Entrypoints
 
 ## Overview
 
-You can choose to configure either [v4 proxy API entrypoints](./#proxy-api-entrypoints) or [v4 message API entrypoints](./#message-api-entrypoints).
+You can choose to configure either [v4 proxy API entrypoints](README.md#proxy-api-entrypoints) or [v4 message API entrypoints](README.md#message-api-entrypoints).
 
 ## Proxy API entrypoints
 
 To configure v4 proxy API entrypoints:
 
 1. Select **APIs** from the left nav
-2. Select your API&#x20;
-3. Select **Entrypoints** from the inner left nav&#x20;
+2. Select your API
+3. Select **Entrypoints** from the inner left nav
 
 Refer to the following sections for step-by-step configuration details per proxy type.
 
@@ -20,7 +24,7 @@ Edit the entrypoint's settings under the **Entrypoints** tab.
 
 <figure><img src="../../.gitbook/assets/edit HTTP entrypoint.png" alt=""><figcaption><p>v4 HTTP proxy API entrypoint configuration</p></figcaption></figure>
 
-You have the option to:&#x20;
+You have the option to:
 
 * Alter existing entrypoints by changing the context path
 * Add a new entrypoint by clicking **Add context path** and adding a new context path
@@ -34,7 +38,7 @@ Edit the entrypoint's settings under the **Entrypoints** tab.
 
 <figure><img src="../../.gitbook/assets/tcp_entrypoints.png" alt=""><figcaption><p>v4 TCP proxy API entrypoint configuration</p></figcaption></figure>
 
-You have the option to:&#x20;
+You have the option to:
 
 * Alter existing entrypoints by changing the host
 * Add a new entrypoint by clicking **Add host** and adding a new host
@@ -70,7 +74,7 @@ At the top right of the page, you can choose to enable or disable virtual hosts.
 
 Entrypoint configuration depends on which entrypoint(s) your API utilizes. Click on the tiles below for the configuration details of each specific entrypoint.
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td><a href="http-get.md">HTTP GET</a></td><td></td><td><a href="broken-reference">Broken link</a></td></tr><tr><td></td><td><a href="http-post.md">HTTP POST</a></td><td></td><td><a href="broken-reference">Broken link</a></td></tr><tr><td></td><td><a href="websocket.md">WebSocket</a></td><td></td><td><a href="broken-reference">Broken link</a></td></tr><tr><td></td><td><a href="webhook.md">Webhook</a></td><td></td><td><a href="broken-reference">Broken link</a></td></tr><tr><td></td><td><a href="server-sent-events.md">Server-sent Events</a></td><td></td><td><a href="broken-reference">Broken link</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td><a href="http-get.md">HTTP GET</a></td><td></td><td><a href="broken-reference/">broken-reference</a></td></tr><tr><td></td><td><a href="http-post.md">HTTP POST</a></td><td></td><td><a href="broken-reference/">broken-reference</a></td></tr><tr><td></td><td><a href="websocket.md">WebSocket</a></td><td></td><td><a href="broken-reference/">broken-reference</a></td></tr><tr><td></td><td><a href="webhook.md">Webhook</a></td><td></td><td><a href="broken-reference/">broken-reference</a></td></tr><tr><td></td><td><a href="server-sent-events.md">Server-sent Events</a></td><td></td><td><a href="broken-reference/">broken-reference</a></td></tr></tbody></table>
 
 You can also add an entrypoint to your API by clicking **Add an entrypoint**. Configuration is entrypoint-specific (see the tiles above).
 

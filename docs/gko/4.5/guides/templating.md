@@ -1,3 +1,7 @@
+---
+description: Overview of Templating.
+---
+
 # Templating
 
 ## Overview
@@ -41,7 +45,7 @@ You can create a Kubernetes secret that matches this template with the following
 kubectl create secret generic api-definition-secret --from-literal=api-name=my-api
 ```
 
-At runtime, when GKO reconciles this API definition, it will execute the templating engine and inject the referenced value.&#x20;
+At runtime, when GKO reconciles this API definition, it will execute the templating engine and inject the referenced value.
 
 ## Use Kubernetes configMaps
 
@@ -65,7 +69,7 @@ You can create a Kubernetes configMap that matches this template with the follow
 kubectl create configmap api-definition-cm --from-literal=api-name=my-api
 ```
 
-At runtime, when GKO reconciles this API definition, it will execute the templating engine and inject the referenced value.&#x20;
+At runtime, when GKO reconciles this API definition, it will execute the templating engine and inject the referenced value.
 
 ## Pass a GitHub personal access token to an API definition from a secret
 
@@ -122,8 +126,3 @@ Now when you create this API, it will dynamically load the README.md markdown fi
 <figure><img src="../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
-
-
-
-
-

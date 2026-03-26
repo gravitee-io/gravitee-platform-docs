@@ -1,3 +1,7 @@
+---
+description: Configuration guide for Configure MFA.
+---
+
 # Configure MFA for an Application
 
 ## Overview
@@ -21,7 +25,7 @@ The first step is to enable factors. This section allows you to control which fa
 The first step to set up MFA is to choose which factors the application should use.
 
 {% hint style="info" %}
-If you have not already created at least one factor, visit Security Domain settings to create one. ([Managing Factors](managing-factors/))
+If you have not already created at least one factor, visit Security Domain settings to create one. ([Managing Factors](managing-factors/README.md))
 {% endhint %}
 
 1.  Click on **Select Factors**
@@ -60,7 +64,7 @@ To remediate this risk, there is a concept of a Default factor. This factor will
 
 Default factor is managed by choosing the factor with a radio button.
 
-<figure><img src="../../.gitbook/assets/conf mfa 8.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/conf mfa 7.png" alt=""><figcaption></figcaption></figure>
 
 ## Section 2 - MFA enrollment
 

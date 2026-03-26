@@ -1,3 +1,7 @@
+---
+description: Configuration and usage guide for terminating tls in front of the gateway.
+---
+
 # Terminating TLS in front of the Gateway
 
 {% hint style="danger" %}

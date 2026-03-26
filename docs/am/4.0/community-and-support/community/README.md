@@ -1,3 +1,9 @@
+---
+description: >-
+  Overview of We re pleased to meet you Before you dive into the forum we d love
+  to give you an overview of what to expect.
+---
+
 # Community
 
 We’re pleased to meet you! Before you dive into the forum, we’d love to give you an overview of what to expect.

@@ -1,19 +1,29 @@
+---
+description: An overview about v2 api creation wizard.
+---
+
 # v2 API Creation Wizard
 
 ## Overview
 
 In Gravitee, your API definition is a JSON representation of your Gateway API. The v2 API definition supports HTTP-based APIs and the legacy version of the Policy Studio. This article describes how to create APIs in Gravitee using the v2 API creation wizard.
 
+{% hint style="warning" %}
+When you create an API with a JSON payload that has duplicate keys, APIM keeps the last key.
+
+To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection.md](../policies/json-threat-protection.md "mention").
+{% endhint %}
+
 ## Access the API creation wizard
 
-To create a v2 API in Gravitee:&#x20;
+To create a v2 API in Gravitee:
 
 1. Log in to your APIM Console
 2. Select **APIs** tab from the left nav
 3. Click **+ Add API** in the top right corner of the UI
 4. In Create Classic API, click **Create V2 API**.
 
-<figure><img src="../.gitbook/assets/image (141).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (139) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Step 1: General
 
@@ -34,7 +44,7 @@ Optionally, you can select the **Advanced mode** hyperlink in the top right corn
 
 Define your **Backend**, which is the target backend where the request will be received.
 
-Optionally, you can select **Advanced mode** to define **Tenants** and/or **Sharding tags** for this API. These specify the Gateways to which the API is deployed.&#x20;
+Optionally, you can select **Advanced mode** to define **Tenants** and/or **Sharding tags** for this API. These specify the Gateways to which the API is deployed.
 
 {% hint style="info" %}
 Refer to [Tenants](../gravitee-gateway/tenants.md) and/or [Sharding tags](../gravitee-gateway/sharding-tags.md) for more information.

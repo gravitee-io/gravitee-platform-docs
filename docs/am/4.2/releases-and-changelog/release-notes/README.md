@@ -15,7 +15,7 @@ Gravitee version 4.2 was released on December 22nd, 2023. 4.2 focused on securit
 {% hint style="info" %}
 **Changelog vs release notes**
 
-A more condensed version of what's new is available in the [Changelog](broken-reference), which also tracks breaking changes and bug fixes.
+A more condensed version of what's new is available in the changelog, which also tracks breaking changes and bug fixes.
 {% endhint %}
 
 ## User feedback portal

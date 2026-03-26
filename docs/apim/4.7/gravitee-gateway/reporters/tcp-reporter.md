@@ -1,3 +1,7 @@
+---
+description: Configuration and setup guide for tcp reporter.
+---
+
 # TCP Reporter
 
 ## Configuration

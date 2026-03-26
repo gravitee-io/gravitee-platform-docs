@@ -1,3 +1,7 @@
+---
+description: An overview about configure dcr.
+---
+
 # Configure DCR
 
 ## Overview
@@ -92,11 +96,11 @@ Lastly, we need to enable the proper scopes for the app and retrieve the client 
 
 We need to add the `dcr_admin` scope to ensure the initial access token tied to this application has the proper permissions to create new applications. Select **+ Add Scopes**, search for **dcr\_admin**, select the **Client\_registration\_admin** scope that pops up, and click **Add**. After adding the scope, make sure you click **Save**.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.53.32 AM (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.53.32 AM.png" alt=""><figcaption></figcaption></figure>
 
 The `dcr_admin` scope must also be added to the scope in the APIM DCR Provider configuration page.
 
-<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (38) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 Alternatively, you could make the `dcr_admin` scope a default scope in the "DCR Application" of your IdP

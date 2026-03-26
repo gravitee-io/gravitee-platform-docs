@@ -1,3 +1,7 @@
+---
+description: An overview about configure dcr.
+---
+
 # Configure DCR
 
 ## Overview
@@ -23,8 +27,6 @@ The first step is to enable DCR for your instance of APIM. To do this, go to **S
 Simple applications are not secure as they allow API consumers to define their own `client_id`. However, advanced applications only allow the client registration provider to create the `client_id` and `client_secret` for each application that registers. Therefore, for advanced applications to function, DCR must be enabled and configured.
 
 Under **Client registration providers (DCR)**, toggle on **Enable client registration providers (DCR) for applications**.
-
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 9.29.06 AM.jpg" alt=""><figcaption></figcaption></figure>
 
 ### 2. Configure AM as DCR provider <a href="#configure-am-as-dcr-provider-6" id="configure-am-as-dcr-provider-6"></a>
 
@@ -53,8 +55,6 @@ The first step is to create or select the security domain that you want to use i
 <figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.32.02 AM.png" alt=""><figcaption></figcaption></figure>
 
 Once you have a domain, select **Settings** in the sidebar, scroll down to the **Openid** section, and select **Client Registration**. Toggle on the **Enable/Disable Dynamic Client Registration** setting.
-
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.33.29 AM.jpg" alt=""><figcaption></figcaption></figure>
 
 ### 2. Create AM Client Registration Provider Application <a href="#create-am-client-registration-provider-application-8" id="create-am-client-registration-provider-application-8"></a>
 
@@ -86,11 +86,11 @@ Lastly, we need to enable the proper scopes for the app and retrieve the client 
 
 We need to add the `dcr_admin` scope to ensure the initial access token tied to this application has the proper permissions to create new applications. Select **+ Add Scopes**, search for **dcr\_admin**, select the **Client\_registration\_admin** scope that pops up, and click **Add**. After adding the scope, make sure you click **Save**.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.53.32 AM (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.53.32 AM.png" alt=""><figcaption></figcaption></figure>
 
 The `dcr_admin` scope must also be added to the scope in the APIM DCR Provider configuration page.
 
-<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (38) (1)-1.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 Alternatively, you could make the `dcr_admin` scope a default scope in the "DCR Application" of your IdP

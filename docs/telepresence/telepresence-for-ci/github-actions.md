@@ -1,4 +1,5 @@
 ---
+description: Overview of GitHub Actions.
 noIndex: true
 ---
 

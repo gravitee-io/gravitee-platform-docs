@@ -1,3 +1,7 @@
+---
+description: An overview about layout and theme.
+---
+
 # Layout and Theme
 
 ## Overview
@@ -6,7 +10,7 @@ Administrators have the option to modify the layout and theme of the Developer P
 
 ## API Sidebar
 
-You can click on an API in the Developer Portal to access its details. Selecting the **General information** header tab will display the API's description and reviews (if any have been submitted), as well as a sidebar on the right that contains additional information.&#x20;
+You can click on an API in the Developer Portal to access its details. Selecting the **General information** header tab will display the API's description and reviews (if any have been submitted), as well as a sidebar on the right that contains additional information.
 
 <div data-full-width="false"><figure><img src="../../.gitbook/assets/Screenshot 2023-05-31 at 1.57.16 PM.png" alt=""><figcaption><p>Developer Portal API sidebar</p></figcaption></figure></div>
 
@@ -25,7 +29,7 @@ The access URL for each API in the Developer Portal is the default entrypoint fo
 {% hint style="info" %}
 [Sharding tags](../../configure-and-manage-the-platform/gravitee-gateway/sharding-tags.md) are used to help manage complex distributed architectures:
 
-* By assigning sharding tags to APIs and Gravitee Gateways, an API is deployed to a subset of the available Gateways.&#x20;
+* By assigning sharding tags to APIs and Gravitee Gateways, an API is deployed to a subset of the available Gateways.
 * By mapping sharding tags to a Gateway’s entrypoint URL, the Developer Portal can intelligently display different entrypoints based on an API's sharding tags.
 {% endhint %}
 {% endtab %}
@@ -33,7 +37,7 @@ The access URL for each API in the Developer Portal is the default entrypoint fo
 {% tab title="Modify sidebar settings" %}
 To modify the sidebar settings:
 
-1. Return to the Management Console's home page&#x20;
+1. Return to the Management Console's home page
 2. Select **Settings** from the left sidebar
 3. Select **API Portal Information** from the inner left sidebar to display the following options:
 
@@ -119,7 +123,7 @@ Administrators can customize the header and footer navigation of the Developer P
 * Link to an existing documentation page
 * Link to a category
 
-Each link is treated as a new documentation page. To learn about the features and functionality of Developer Portal documentation, see [Documentation](broken-reference).
+Each link is treated as a new documentation page. To learn about the features and functionality of Developer Portal documentation, see [Documentation](../../create-and-configure-apis/configure-v4-apis/documentation.md).
 
 {% tabs %}
 {% tab title="System folders" %}
@@ -160,7 +164,7 @@ To view your new link, click **Save** and navigate to the Developer Portal:
 
 <figure><img src="../../.gitbook/assets/dev_portal_custom_link_example.png" alt=""><figcaption><p>Sample "Gravitee Homepage" custom link</p></figcaption></figure>
 
-Each custom link offers additional features such as translations and access control. See [Documentation](broken-reference) for more information.
+Each custom link offers additional features such as translations and access control.
 {% endtab %}
 {% endtabs %}
 
@@ -193,22 +197,19 @@ The top menu includes the following options:
 
 ### Basic customization
 
-<table><thead><tr><th width="157.5">Property</th><th>Use case</th></tr></thead><tbody><tr><td>Images</td><td>Show logos. Optional logo is used for the homepage and the footer. Using the default logo overrides the optional logo.</td></tr><tr><td>Homepage</td><td>Add a Homepage background image.</td></tr><tr><td>Colors</td><td>Define primary, neutral, and font colors.</td></tr><tr><td>Fonts</td><td>Choose font family and sizes. Medium sizes are used by default. For more information about Fonts, see <a data-mention href="broken-reference">Broken link</a></td></tr></tbody></table>
+<table><thead><tr><th width="157.5">Property</th><th>Use case</th></tr></thead><tbody><tr><td>Images</td><td>Show logos. Optional logo is used for the homepage and the footer. Using the default logo overrides the optional logo.</td></tr><tr><td>Homepage</td><td>Add a Homepage background image.</td></tr><tr><td>Colors</td><td>Define primary, neutral, and font colors.</td></tr><tr><td>Fonts</td><td>Choose font family and sizes. Medium sizes are used by default. For more information about Fonts, see <a data-mention href="broken-reference/">broken-reference</a></td></tr></tbody></table>
 
 #### Fonts
 
 To change the font for your Developer Portal, complete the following steps:
 
-1.  From the dashboard, click **Settings**.\
+1.  From the dashboard, click **Settings**.
 
-
-    <figure><img src="../../.gitbook/assets/76D66FB4-4D8E-467D-AADE-543FC7813158_1_201_a (3).jpeg" alt=""><figcaption></figcaption></figure>
-2.  In the Settings menu, navigate to the Portal section, and then click **Theme**. \
-
+    <figure><img src="../../.gitbook/assets/76D66FB4-4D8E-467D-AADE-543FC7813158_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+2.  In the Settings menu, navigate to the Portal section, and then click **Theme**.
 
     <figure><img src="../../.gitbook/assets/6F371DAF-0579-4E18-9F96-A50558F86954_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
-3.  In the Theme menu, click **Fonts**.\
-
+3.  In the Theme menu, click **Fonts**.
 
     <figure><img src="../../.gitbook/assets/CC1CE981-BDBD-47C2-A33D-49E0F03C5F4A.jpeg" alt=""><figcaption></figcaption></figure>
 4. Navigate to the **Family** field, and then click the down arrow.

@@ -1,3 +1,7 @@
+---
+description: Overview of Audit Trail.
+---
+
 # Audit Trail
 
 ## Overview

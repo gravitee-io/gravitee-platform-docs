@@ -8,7 +8,7 @@ description: >-
 
 ## Introduction
 
-This guide will walk through how to configure your general Gravitee APIM Management API settings using the `gravitee.yaml` file. As detailed in the [Configuring APIM Components](../#configuring-apim-components), you can override these settings by using system properties or environment variables
+This guide will walk through how to configure your general Gravitee APIM Management API settings using the `gravitee.yaml` file. As detailed in the [Configuring APIM Components](../README.md#configuring-apim-components), you can override these settings by using system properties or environment variables
 
 ## The `gravitee.yaml` file
 
@@ -119,7 +119,7 @@ CORS (Cross-Origin Resource Sharing) is a mechanism that allows resources on a w
 
 For more information on CORS, take a look at the [CORS specification](https://www.w3.org/TR/cors).
 
-CORS can be applied at three different levels:&#x20;
+CORS can be applied at three different levels:
 
 1. [API](../../../guides/api-configuration/v2-api-configuration/general-proxy-settings.md#configure-cors)
 2. Environment
@@ -270,12 +270,12 @@ This section shows the SMTP configuration used for sending email.
 
 You can configure SMTP using `gravitee.yml`, environment variables or directly in APIM Console. If SMTP is configured with `gravitee.yml` or environment variables, then that configuration will be used, even if settings exist in the database.
 
-SMTP can be applied at two different levels:&#x20;
+SMTP can be applied at two different levels:
 
 1. Environment
 2. Organization
 
-where the more specific level overrides the broader level:  Environment > Organization.
+where the more specific level overrides the broader level: Environment > Organization.
 
 Here's an example of configuring SMTP using the `gravitee.yml` file:
 

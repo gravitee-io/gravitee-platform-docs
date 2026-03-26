@@ -1,7 +1,12 @@
+---
+description: Setup instructions and guidance for manual install.
+---
+
 # Manual install
 
 {% hint style="warning" %}
-RPM install is not supported on distributions with old versions of RPM. For example, SLES 11 and CentOS 5 . If you use an old version of RPM, install Gravitee APIM with .zip instead. For more information about installing Gravitee APIM with .zip, see [install APIM with .zip](../.zip.md).
+* RPM install is not supported on distributions with old versions of RPM. For example, SLES 11 and CentOS 5 . If you use an old version of RPM, install Gravitee APIM with .zip instead. For more information about installing Gravitee APIM with .zip, see [install APIM with .zip](../.zip.md).
+* This installation guide is for only development and quick start purposes. Do not use it for production environments. For more information about best practices for production environments, contact your Technical Account Manager.
 {% endhint %}
 
 ## Prerequisites
@@ -137,23 +142,16 @@ The above commands to install and start Nginx will now run using this repository
 
 To install Java 21, use either of the following commands depending on your operating system:
 
-*   If you are running Gravitee APIM on an Amazon Linux, enable the repository that contains Java using the following command:\
-
+*   If you are running Gravitee APIM on an Amazon Linux, enable the repository that contains Java using the following command:
 
     ```sh
     sudo amazon-linux-extras enable java-openjdk21
     ```
-
-
-
--   If you are running APIM on any other operating system, install Java using the following the command:\
-
+*   If you are running APIM on any other operating system, install Java using the following the command:
 
     ```sh
     sudo yum install java-21-openjdk -y
     ```
-
-
 
 **Verification**
 

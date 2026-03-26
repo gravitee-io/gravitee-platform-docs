@@ -1,4 +1,5 @@
 ---
+description: Upgrade and migration guide for Newer Version.
 noIndex: true
 ---
 
@@ -10,7 +11,7 @@ noIndex: true
 Read the instructions below before making any changes to your cluster!
 {% endhint %}
 
-There are currently multiple paths for upgrading Ambassador Edge Stack, depending on what version you're currently running, what you want to be running, and whether you installed Ambassador Edge Stack using [Helm or YAML](../).
+There are currently multiple paths for upgrading Ambassador Edge Stack, depending on what version you're currently running, what you want to be running, and whether you installed Ambassador Edge Stack using [Helm or YAML](../README.md).
 
 (To check out if you installed Ambassador Edge Stack using Helm, run `helm list --all-namespaces` and see if Ambassador Edge Stack is listed. If so, you installed using Helm.)
 
@@ -26,8 +27,8 @@ See the instructions on updating Emissary-ingress.
 
 | If you're running.                    | You can upgrade to           |
 | ------------------------------------- | ---------------------------- |
-| Ambassador Edge Stack 3.11.X          | Ambassador Edge Stack 3.12.6 |
-| Ambassador Edge Stack 2.5.1           | Ambassador Edge Stack 3.12.6 |
+| Ambassador Edge Stack 3.11.X          | Ambassador Edge Stack 3.12.8 |
+| Ambassador Edge Stack 2.5.1           | Ambassador Edge Stack 3.12.8 |
 | Ambassador Edge Stack 2.4.X           | Ambassador Edge Stack 2.5.1  |
 | Ambassador Edge Stack 2.0.X           | Ambassador Edge Stack 2.5.1  |
 | Ambassador Edge Stack 1.14.4          | Ambassador Edge Stack 2.5.1  |
@@ -38,8 +39,8 @@ See the instructions on updating Emissary-ingress.
 
 | If you're running.                    | You can upgrade to           |
 | ------------------------------------- | ---------------------------- |
-| Ambassador Edge Stack 3.11.X          | Ambassador Edge Stack 3.12.6 |
-| Ambassador Edge Stack 2.5.1           | Ambassador Edge Stack 3.12.6 |
+| Ambassador Edge Stack 3.11.X          | Ambassador Edge Stack 3.12.8 |
+| Ambassador Edge Stack 2.5.1           | Ambassador Edge Stack 3.12.8 |
 | Ambassador Edge Stack 2.4.X           | Ambassador Edge Stack 2.5.1  |
 | Ambassador Edge Stack 2.0.X           | Ambassador Edge Stack 2.5.1  |
 | Ambassador Edge Stack 1.14.4          | Ambassador Edge Stack 2.5.1  |

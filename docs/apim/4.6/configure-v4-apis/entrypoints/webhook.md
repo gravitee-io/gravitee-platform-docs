@@ -1,3 +1,7 @@
+---
+description: Configuration guide for webhook.
+---
+
 # Webhook
 
 ## Configuration
@@ -6,9 +10,9 @@ If you chose **Webhook** as an entrypoint, you can modify the following configur
 
 1. Choose whether to interrupt message consumption if the request to the callback URL ends with a 5xx error.
 2. Choose whether to interrupt message consumption if the request to the callback URL ends with an exception.
-3. Define the maximum time, in milliseconds, to connect to the Webhook.&#x20;
+3. Define the maximum time, in milliseconds, to connect to the Webhook.
 4. Define the maximum time, in milliseconds, allotted for the Webhook to complete the request (including response).
-5. Define the maximum time, in milliseconds, a connection will stay in the pool without being used. Once this time has elapsed, the unused connection will be closed, freeing the associated resources.&#x20;
+5. Define the maximum time, in milliseconds, a connection will stay in the pool without being used. Once this time has elapsed, the unused connection will be closed, freeing the associated resources.
 6. Use the drop-down menu to select a proxy option: **No proxy**, **Use proxy configured at system level**, or **Use proxy for client connections**.
    * If you chose **Use proxy for client connections**, define the following:
      * **Proxy type:** Choose between HTTP, SOCKS4 and SOCKS5.
@@ -72,7 +76,7 @@ The underlying HTTP client that performs the calls to the Webhook URL can be tun
 
 Dead Letter Queue (DLQ) is the ability to push undelivered messages to an external storage. When configuring DLQ with Webhook, you can redirect all messages rejected by the Webhook to another location, such as a Kafka topic.
 
-By default, without DLQ, any error returned by the Webhook will stop message consumption.&#x20;
+By default, without DLQ, any error returned by the Webhook will stop message consumption.
 
 * **To configure DLQ in the Console:** toggle **Dead Letter Queue** ON to define an external storage where each unsuccessfully pushed message will be stored and configure a replay strategy. Use the drop-down menu to select a pre-existing and supported endpoint or endpoint group to use for the DLQ.
 *   **To enable DLQ via the API definition:** declare another endpoint that will be used to configure the DLQ object in the Webhook entrypoint definition:
@@ -96,7 +100,7 @@ Once configured and deployed, any message rejected by the Webhook with a 4xx err
 
 #### Secured callbacks <a href="#user-content-secured-callbacks" id="user-content-secured-callbacks"></a>
 
-To secure a callback, add an `auth` object to the configuration section of your API definition. Security information can be provided when creating the subscription.&#x20;
+To secure a callback, add an `auth` object to the configuration section of your API definition. Security information can be provided when creating the subscription.
 
 Callbacks can be secured using basic authentication, JWT, and OAuth2. Examples of the currently supported authentication protocols are shown below.
 

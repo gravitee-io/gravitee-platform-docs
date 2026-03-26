@@ -1,6 +1,10 @@
+---
+description: Installation guide for Cluster.
+---
+
 # Cluster vs namespaced install
 
-The Gravitee Kubernetes Operator (GKO) can be configured to either listen to resources across an entire cluster, or scoped to a single namespace. The manager.scope.cluster boolean parameter is used to determine which installation method is used by the GKO Helm chart.&#x20;
+The Gravitee Kubernetes Operator (GKO) can be configured to either listen to resources across an entire cluster, or scoped to a single namespace. The manager.scope.cluster boolean parameter is used to determine which installation method is used by the GKO Helm chart.
 
 {% tabs %}
 {% tab title="Cluster Mode" %}
@@ -27,4 +31,3 @@ An overview of this architecture is described by the diagram below.
 <figure><img src="../../.gitbook/assets/k8s namespaced mode.png" alt=""><figcaption><p>Multiple operators, each listening to its own namespace</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
-

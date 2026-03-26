@@ -12,7 +12,7 @@ The API Quality feature is only available to v2 APIs
 
 ## Overview
 
-The Gravitee API Quality feature enables API governance by allowing you to create and automatically assign customizable scores based on certain variables determined to impact API quality. If API Quality is enabled, APIs that you create in Gravitee will automatically be assigned an API quality score.&#x20;
+The Gravitee API Quality feature enables API governance by allowing you to create and automatically assign customizable scores based on certain variables determined to impact API quality. If API Quality is enabled, APIs that you create in Gravitee will automatically be assigned an API quality score.
 
 ## Configure API Quality
 
@@ -20,7 +20,7 @@ API Quality is configured at the Portal Settings level. To access these settings
 
 1. Log in to your API Management Console.
 2. Select **Settings** from the left nav.
-3. Select **API Quality** from the inner left nav&#x20;
+3. Select **API Quality** from the inner left nav
 4.  Configure pre-built quality characteristics that Gravitee automatically enforces:
 
     <figure><img src="../../../.gitbook/assets/api quality.png" alt=""><figcaption><p>API Quality settings</p></figcaption></figure>
@@ -30,7 +30,7 @@ API Quality is configured at the Portal Settings level. To access these settings
     * **Description:** **Description weight** assigns a weight to the overall description, while **Description minimum length**, **Logo weight**, **Categories weight**, and **Labels weight** assign weights to description characteristics
     * **Documentation:** Specify **Functional documentation weight** and **Technical documentation weight**
     * **Endpoint:** Specify **Healthcheck weight**
-5.  Click **+ Add new quality rule** to configure a custom rule that will be enforced manually:&#x20;
+5.  Click **+ Add new quality rule** to configure a custom rule that will be enforced manually:
 
     <figure><img src="../../../.gitbook/assets/api quality_manual rule.png" alt=""><figcaption><p>Create a manual custom rule</p></figcaption></figure>
 

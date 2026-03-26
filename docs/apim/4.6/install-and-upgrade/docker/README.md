@@ -1,16 +1,18 @@
+---
+description: Configuration guide for docker.
+---
+
 # Docker
 
 There are three methods for installing Gravitee API Management (APIM) with Docker:
 
-<table data-view="cards"><thead><tr><th data-type="content-ref"></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><a href="quick-install.md">quick-install.md</a></td><td>Quickly install Docker without any additional plugins</td><td><a href="quick-install.md">quick-install.md</a></td></tr><tr><td><a href="docker-compose.md">docker-compose.md</a></td><td>Add additional plugins and control the location of the persistent data             </td><td><a href="docker-compose.md">docker-compose.md</a></td></tr><tr><td><a href="docker-images.md">docker-images.md</a></td><td>Create all the components for the installation using the command line        </td><td><a href="docker-images.md">docker-images.md</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th data-type="content-ref"></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><a href="quick-install.md">quick-install.md</a></td><td>Quickly install Docker without any additional plugins</td><td><a href="quick-install.md">quick-install.md</a></td></tr><tr><td><a href="docker-compose.md">docker-compose.md</a></td><td>Add additional plugins and control the location of the persistent data</td><td><a href="docker-compose.md">docker-compose.md</a></td></tr><tr><td><a href="docker-images.md">docker-images.md</a></td><td>Create all the components for the installation using the command line</td><td><a href="docker-images.md">docker-images.md</a></td></tr></tbody></table>
 
 ## Architecture of Gravitee API Management with Docker
 
 The following diagram shows the architecture that is common each Docker installation method:
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/docker/apim_simple_docker_architecture.png" alt="Diagram showing the architecture of Gravitee API Management installed on Docker"><figcaption><p>Docker installation architecture</p></figcaption></figure>
-
-
 
 ## Configuration of the individual components
 

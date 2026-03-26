@@ -1,3 +1,7 @@
+---
+description: An overview about customization.
+---
+
 # Customization
 
 ## Overview

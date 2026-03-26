@@ -1,3 +1,7 @@
+---
+description: Troubleshooting guide for Email templates.
+---
+
 # Language Default Properties Reference
 
 ## Email templates
@@ -27,6 +31,12 @@
 | email.registration\_confirmation.header.description | To complete your registration, simply confirm that we have the correct email. If you didn’t create this account, you can ignore this message.              |
 | email.registration\_confirmation.button             | Confirm my account                                                                                                                                         |
 | email.registration\_confirmation.description        | This link will expire in {0,number,integer} {1}. After that, you must submit a new request to your administrator to resend a new account activation email. |
+| email.magic_link.header.title                       | Sign in to {0}.                                                                                                                                            |
+| email.magic_link.header.description.first.row       | Hi there,                                                                                                                                                  |
+| email.magic_link.header.description.second.row      | You requested to sign in to {0}. Click the button below to access your account:                                                                            |
+| email.magic_link.button                             | Sign in to {0}                                                                                                                                             |
+| email.magic_link.expiration                         | This link will expire in {0,number,integer} {1} for security.                                                                                              |
+| email.magic_link.raw.link                           | If the button doesn't work, copy and paste this link into your browser:                                                                                    |
 
 ## Login form
 

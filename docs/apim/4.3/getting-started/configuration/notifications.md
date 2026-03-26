@@ -217,7 +217,7 @@ The following documentation is only relevant if you have Gravitee Alert Engine e
 
 When configuring platform settings, you can also set up alerting conditions for the Gateway. To configure alerts, select **Alerts** from the left nav of your APIM console. If you already have alerts configured, you'll see the configured alerts. If not, you'll see a blank alerts menu and a **+** icon.
 
-<figure><img src="../../.gitbook/assets/alerts.png" alt=""><figcaption><p>Alerts</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Alerts menu.png" alt=""><figcaption><p>Alerts</p></figcaption></figure>
 
 Select the **+** icon to create your first alert. On the **Create a new alert** page, configure the following:
 

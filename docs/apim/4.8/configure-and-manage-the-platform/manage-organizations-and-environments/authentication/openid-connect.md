@@ -1,3 +1,7 @@
+---
+description: An overview about openid connect.
+---
+
 # OpenID Connect
 
 ## Overview
@@ -37,7 +41,7 @@ Ensure all prerequisites are satisfied before attempting to configure your OpenI
 
 ### Configuration
 
-You can set up your OpenID Connect authentication using the `gravitee.yaml` file or the API Management (APIM) Console.&#x20;
+You can set up your OpenID Connect authentication using the `gravitee.yaml` file or the API Management (APIM) Console.
 
 {% tabs %}
 {% tab title="gravitee.yaml file" %}
@@ -131,8 +135,7 @@ When using custom a Public Key Infrastructure (PKI) for your OAuth2 authenticati
     ```
 *   Add an environment variable to your Docker Compose file to ensure that this configuration persists across settings. For example:
 
-    ````yaml
-    ```
+    ```yaml
     local_managementapi:
         extends:
           file: common.yml
@@ -150,7 +153,6 @@ When using custom a Public Key Infrastructure (PKI) for your OAuth2 authenticati
           - gravitee_management_mongodb_uri=mongodb://demo-mongodb:27017/gravitee?serverSelectionTimeoutMS=5000&connectTimeoutMS=5000&socketTimeoutMS=5000
           - gravitee_analytics_elasticsearch_endpoints_0=http://demo-elasticsearch:9200
     ```
-    ````
 
 ## Keycloak authentication
 
@@ -166,7 +168,7 @@ Before you can connect to Gravitee's portal using Keycloak, you need to create a
 2.  Enter in your client details for Gravitee. The `Valid Redirect URIs` value must exactly match the domain which is hosting APIM Portal.
 
     <figure><img src="../../../.gitbook/assets/keycloak_configure_client.png" alt=""><figcaption><p>Enter Gravitee client details in Keycloak</p></figcaption></figure>
-3.  Once you're done and create the client, retrieve the client credentials that you will need to give to Gravitee.&#x20;
+3.  Once you're done and create the client, retrieve the client credentials that you will need to give to Gravitee.
 
     <figure><img src="../../../.gitbook/assets/keycloak_client_credentials.png" alt=""><figcaption><p>Keycloak client credentials that will need to be given to Gravitee</p></figcaption></figure>
 
@@ -191,7 +193,7 @@ Optionally, you can configure Keycloak client roles. These roles can be defined 
 1.  In your client, create roles by organization, as needed.
 
     <figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/authentication/keycloak_mng-04-client-add_roles.png" alt=""><figcaption><p>Add roles in Keycloak</p></figcaption></figure>
-2.  To configure Keycloak users with appropriate roles, select **Role Mappings** and define roles as is appropriate.&#x20;
+2.  To configure Keycloak users with appropriate roles, select **Role Mappings** and define roles as is appropriate.
 
     <figure><img src="../../../.gitbook/assets/keycloak_mng-roles-05-users-add_user_client_roles.png" alt=""><figcaption><p>Define role mappings</p></figcaption></figure>
 
@@ -212,7 +214,7 @@ security:
 
 ### Configure Keycloak authentication in Gravitee
 
-You can configure Keycloak settings in Gravitee either using Gravitee's APIM Console or the `gravitee.yaml` file. Either way, the configuration is stored in the database, meaning that APIM starts using your new configuration as soon as you select **Save** (if configuring in APIM Console) or restart the APIM API (if configuring in the configuration file).&#x20;
+You can configure Keycloak settings in Gravitee either using Gravitee's APIM Console or the `gravitee.yaml` file. Either way, the configuration is stored in the database, meaning that APIM starts using your new configuration as soon as you select **Save** (if configuring in APIM Console) or restart the APIM API (if configuring in the configuration file).
 
 See the tabs below for how to configure Keycloak authentication via the APIM UI and the `gravitee.yaml` file.
 

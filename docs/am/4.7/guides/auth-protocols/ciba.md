@@ -1,3 +1,7 @@
+---
+description: Overview of CIBA.
+---
+
 # CIBA
 
 ## Overview

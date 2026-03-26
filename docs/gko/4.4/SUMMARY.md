@@ -3,7 +3,6 @@
 ## OVERVIEW
 
 * [Introduction](README.md)
-* 
 * [Custom resource definitions](overview/custom-resource-definitions/README.md)
   * [ManagementContext](overview/custom-resource-definitions/managementcontext.md)
   * [ApiV4Definition](overview/custom-resource-definitions/apiv4definition.md)
@@ -12,7 +11,6 @@
   * [Application](overview/custom-resource-definitions/application.md)
 * [Example architecture](overview/example-architecture.md)
 * [Compatibility and limitations](overview/compatibility-and-limitations.md)
-
 
 ## GETTING STARTED
 
@@ -26,7 +24,6 @@
   * [Store APIs in local configMaps](getting-started/api-storage-and-control-options/store-apis-in-local-configmaps.md)
 
 ## GUIDES
-
 
 * [Define an APIM service account for GKO](guides/define-an-apim-service-account-for-gko.md)
 * [Deploy APIs to a gateway](guides/deploy-apis-to-a-gateway.md)
@@ -45,7 +42,6 @@
 * [API reference](reference/api-reference.md)
 
 ## RELEASES & CHANGELOG
-
 
 * [Release notes](releases-and-changelog/release-notes/README.md)
   * [GKO 4.4](releases-and-changelog/release-notes/gko-4.4.md)

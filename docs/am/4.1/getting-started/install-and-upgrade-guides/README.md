@@ -1,3 +1,7 @@
+---
+description: Installation guide for Upgrade Guides.
+---
+
 # Install & Upgrade Guides
 
 {% hint style="warning" %}

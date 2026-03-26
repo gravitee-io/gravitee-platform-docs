@@ -1,3 +1,7 @@
+---
+description: An overview about shared policy groups.
+---
+
 # Shared Policy Groups
 
 ## Overview
@@ -6,11 +10,11 @@
 Shared policy groups only work with the Gravitee v4 API definition.
 {% endhint %}
 
-With shared policy groups, you can define a collection of policies in a central location and use them across multiple APIs. Also, you can complete the following actions:&#x20;
+With shared policy groups, you can define a collection of policies in a central location and use them across multiple APIs. Also, you can complete the following actions:
 
 * Define a standard set of policies to shape traffic
-* Enforce security standards&#x20;
-* Transform messages.&#x20;
+* Enforce security standards
+* Transform messages.
 
 The deployment of a shared policy group to the gateway is independent of the deployment lifecycle of the APIs the shared policy group is used in. If you make a change to the shared policy group, and then deploy it to the gateway, all APIs will pick up the changes when the next connection begins, without requiring the APIs to be restarted. When using this feature at scale, inform your team of any changes you make, and test your changes before deploying to a higher environment.
 
@@ -18,9 +22,9 @@ The deployment of a shared policy group to the gateway is independent of the dep
 
 1. Navigate to the shared policy groups by completing the following sub-steps:
 
-&#x20;       a.  Navigate to **Settings**, and then click **Gateway**.
+a. Navigate to **Settings**, and then click **Gateway**.
 
-&#x20;       b.  Click **Shared Policy Group**.
+b. Click **Shared Policy Group**.
 
 2. Click **Add Shared Policy Group**.
 3. Depending on the chain that you want execute on, select either **proxy APIs** or **message APIs**.
@@ -42,7 +46,7 @@ This choice cannot be changed later. To change the phase of the API execution th
 
 Before you begin, you must create an API flow.
 
-1. To add a policy flow, click **the plus button** to see the policies that are applicable to the phase.&#x20;
+1. To add a policy flow, click **the plus button** to see the policies that are applicable to the phase.
 2. (Optional) To filter the result for shared policy groups, click **Shared Policy Group**.
 
 {% hint style="info" %}
@@ -60,11 +64,11 @@ The trigger condition works the same as for a regular policy. But when the trigg
 
 <figure><img src="https://lh7-qw.googleusercontent.com/docsz/AD_4nXdBSOmAx2_odvERZdo9W0byoOS_o9Clx_dsaJa_pWGZWHrirXdt9KXPo8sdcvOn2huz_9IalLRCPjpRA_8yge669fWn8CPGX0zPXFt9QfqkSsh7n4U1LxqxtyhkeL82MUtRHlHVJnvCvk7D2fZ7CaIis15d?key=PrMp2J0zWBtqrsqO75zcMw" alt="Policy for Request phase  screen with a shared policy group selected"><figcaption><p>Policies for Request phase screen with a shared policy group selected</p></figcaption></figure>
 
-5. Click **Add policy**.&#x20;
+5. Click **Add policy**.
 
 ## Add a policy chain
 
-1. Navigate to the light version of the Gravitee policy studio,&#x20;
+1. Navigate to the light version of the Gravitee policy studio,
 2. In the policy chain, click the **plus symbol**. You see a list of policies filtered to those are compatible with the phase the shared policy group executes on.
 3. Add the policies to the chain, and then configure the policies.
 4. To persist the changes, click **Save**.
@@ -74,9 +78,9 @@ You can now use the shared policy group in an API flow.
 
 ## Edit a shared policy group
 
-You can edit the shared policy group, complete the following steps:&#x20;
+You can edit the shared policy group, complete the following steps:
 
-1. Navigate to the policy chain.&#x20;
+1. Navigate to the policy chain.
 2. On the **shared policy group tile**, click the three vertical dots.
 3. From here, you can complete the following actions:
    * Edit the policy group's name and condition.
@@ -106,22 +110,22 @@ To compare two versions, select two versions to compare. You can compare the ver
 
 ### Restore
 
-To restore a previous version, click **Restore version i**n the **version details** window. This action creates a pending version that you must deploy.&#x20;
+To restore a previous version, click **Restore version i**n the **version details** window. This action creates a pending version that you must deploy.
 
 ## AI flows
 
-By default, Gravitee APIM 4.5 has three shared policy groups that empowers AI use cases. These policy groups can be chained together to support LLM proxy use cases. For example,  prompt templating, prompt security, and LLM rate limiting.
+By default, Gravitee APIM 4.5 has three shared policy groups that empowers AI use cases. These policy groups can be chained together to support LLM proxy use cases. For example, prompt templating, prompt security, and LLM rate limiting.
 
 Here are the default shared policy groups:
 
 * **Rate Limit & Request token limit**: This policy limits the number of requests and number of tokens sent in a request. To use this policy, set context attributes prompt, maxTokens, and maxRequests.
-* **Prompt Templating Example**: Uses the Assign Content policy to create and enhance a prompt from external data.&#x20;
+* **Prompt Templating Example**: Uses the Assign Content policy to create and enhance a prompt from external data.
   * In this example, the shared policy group takes an input field of **ip** in the request body and adds it as an attribute.
   * It runs an HTTP Callout policy to find the IP address set in the context attribute and return its country and city as context attributes.
   * From the context attributes, it crafts a prompt in the Assign Attributes policy.
 * **Redirect to HuggingFace**: This policy group crafts the body of a request to HuggingFace, which includes model parameters and options, and then it sends that request to a Dynamic Routing policy that redirects to HuggingFace.
 
-You can use these shared policy groups together to build an LLM proxy for prompt templating and rate limiting. Also, you can edit these shared policy groups to match your needs.&#x20;
+You can use these shared policy groups together to build an LLM proxy for prompt templating and rate limiting. Also, you can edit these shared policy groups to match your needs.
 
 You can delete these shared policy groups if you do not wish to have them. If you delete them, they will not return in that environment.
 
@@ -139,7 +143,7 @@ curl --request GET \
 
 ```
 
-* You cannot import a shared policy group. As a workaround,  if you have a valid personal access token and the APIM\_HOST environment variable set, you can create a shared policy group through the management API using the following command, with the `data` field containing the group definition:
+* You cannot import a shared policy group. As a workaround, if you have a valid personal access token and the APIM\_HOST environment variable set, you can create a shared policy group through the management API using the following command, with the `data` field containing the group definition:
 
 ```bash
 curl --request POST \

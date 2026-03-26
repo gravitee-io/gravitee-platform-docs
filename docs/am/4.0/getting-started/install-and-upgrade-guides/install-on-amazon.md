@@ -1,3 +1,7 @@
+---
+description: Installation guide for Amazon Linux.
+---
+
 # Install on Amazon
 
 ## Overview

@@ -1,11 +1,15 @@
+---
+description: An overview about execution engine.
+---
+
 # Execution Engine
 
 ## Overview
 
-To execute Gateway APIs and policy flows, the Gateway relies on a runtime environment referred to as the execution engine. The reactive execution engine is used for v4 APIs. It is based on a modern and fully reactive architecture that enables an improved execution flow for synchronous APIs and supports event-driven policy execution for asynchronous APIs. Added features include native support for pub/sub (publish-subscribe) design and the capability to enforce policies at the message level.&#x20;
+To execute Gateway APIs and policy flows, the Gateway relies on a runtime environment referred to as the execution engine. The reactive execution engine is used for v4 APIs. It is based on a modern and fully reactive architecture that enables an improved execution flow for synchronous APIs and supports event-driven policy execution for asynchronous APIs. Added features include native support for pub/sub (publish-subscribe) design and the capability to enforce policies at the message level.
 
 {% hint style="warning" %}
-v2 Gateway APIs can run in [emulation mode](execution-engine.md#v2-gateway-api-emulation-mode) to take advantage of certain execution flow improvements of the reactive engine.&#x20;
+v2 Gateway APIs can run in [emulation mode](execution-engine.md#v2-gateway-api-emulation-mode) to take advantage of certain execution flow improvements of the reactive engine.
 {% endhint %}
 
 ## Key improvements
@@ -16,7 +20,7 @@ The new reactive engine is designed to address a number of challenges associated
 
 <summary>Policy execution order</summary>
 
-Policies can be executed in the exact order in which they have been placed in the Policy Studio. This addresses a limitation of the legacy engine where policies interacting with the Head part of the request are always executed first, regardless of how they are ordered during the design phase.&#x20;
+Policies can be executed in the exact order in which they have been placed in the Policy Studio. This addresses a limitation of the legacy engine where policies interacting with the Head part of the request are always executed first, regardless of how they are ordered during the design phase.
 
 With the new reactive execution engine, it is possible to apply logic on a Head policy based on the payload of the request, e.g., to apply dynamic routing based on the request payload.
 
@@ -54,7 +58,7 @@ Message-based, asynchronous APIs such as Kafka, MQTT, WebSocket, SSE, and Webhoo
 
 The legacy execution engine supports all Gravitee policies that existed prior to the 4.0 release. These policies will continue to function without any changes to configuration or execution.
 
-All policies will also support the new reactive execution engine, but not all policies can being applied at the message level. Whether a policy can be applied to v4 proxy APIs and/or v4 message APIs is detailed per policy in the [Policies](broken-reference) section.
+All policies will also support the new reactive execution engine, but not all policies can being applied at the message level. Whether a policy can be applied to v4 proxy APIs and/or v4 message APIs is detailed per policy in the [Policies](README.md) section.
 
 ## v2 Gateway API emulation mode
 
@@ -308,9 +312,19 @@ However, defining a policy or a flow condition based on the request or response 
 {% endtab %}
 
 {% tab title="Reactive engine improvements" %}
-Using the reactive execution engine, it is possible to define a condition based on the request or response body. For example, you can create a condition such as `{#request.content == 'something'}`.
+{% hint style="warning" %}
+If a JSON payload has duplicate keys, APIM keeps the last key.
 
-Depending on the expected content type, it is also possible to define a condition based on JSON such as `{#request.jsonContent.foo.bar == 'something'}` where the request body looks like this:
+To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection.md](../apply-policies/policy-reference/json-threat-protection.md "mention").
+{% endhint %}
+
+Using the reactive execution engine, you can access the request/response raw content using `{#request.content}` .
+
+However, depending on the content-type, you can have access to specific content.
+
+**JSON content**
+
+You can access specific attribute of a JSON request/response payload with `{#request.jsonContent.foo.bar}` , where the request body is similar to the following example:
 
 ```json
 {
@@ -320,7 +334,9 @@ Depending on the expected content type, it is also possible to define a conditio
 }
 ```
 
-The same applies to XML content using `{#request.xmlContent.foo.bar == 'something'}`:
+**XML content**
+
+You can access specific tag of a XML request/response payload with `{#request.xmlContent.foo.bar}` , where the request body is similar to the following example:
 
 ```xml
 <foo>
@@ -390,7 +406,7 @@ The timeout value is calculated from the following two properties:
 {% hint style="info" %}
 **Timeout configuration**
 
-The reactive execution engine interprets timeout values less than or equal to `0` as "no timeout" (same as the legacy engine).&#x20;
+The reactive execution engine interprets timeout values less than or equal to `0` as "no timeout" (same as the legacy engine).
 
 If you configure the timeout with a positive value, then it will act normally.
 

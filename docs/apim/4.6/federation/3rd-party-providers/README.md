@@ -1,3 +1,7 @@
+---
+description: API documentation for 3rd-party providers.
+---
+
 # 3rd-Party Providers
 
 There is a dedicated integration for each 3rd-party API gateway or event broker whose APIs can be federated into Gravitee. Gravitee provides one agent dedicated to each provider. Please reach out to us if you're interested in having a single agent that can handle multiple providers. The details of each provider integration are linked below.

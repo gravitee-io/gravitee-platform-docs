@@ -1,4 +1,5 @@
 ---
+description: Overview of TCP Connections.
 noIndex: true
 ---
 
@@ -31,7 +32,7 @@ The downstream configuration refers to the connection between the end-client and
 
 If the `port` does not pair with an actual existing `Listener`, then an appropriate internal `Listener` is automatically created.
 
-If the `Listener` does _not_ terminate TLS (controlled by `Listener.spec.protocolStack` and by `TCPMapping.spec.host`), then no `Hosts` may associate with the `Listener`, and only one `TCPMapping` (or set of [canaried](../../technical-reference/ingress-and-load-balancing/canary-releases.md) `TCPMappings`; see the `weight` attribute) may associate with the `Listener`.&#x20;
+If the `Listener` does _not_ terminate TLS (controlled by `Listener.spec.protocolStack` and by `TCPMapping.spec.host`), then no `Hosts` may associate with the `Listener`, and only one `TCPMapping` (or set of [canaried](../../technical-reference/ingress-and-load-balancing/canary-releases.md) `TCPMappings`; see the `weight` attribute) may associate with the `Listener`.
 
 If the `Listener` _does_ terminate TLS, then any number of `TCPMappings` and `Hosts` may associate with the `Listener`, and are selected between using SNI.
 

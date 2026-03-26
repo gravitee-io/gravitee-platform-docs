@@ -1,4 +1,10 @@
-# Manual install
+---
+description: >-
+  Setup and installation guide for Installing Gravitee APIM on an Amazon
+  instance with Manual Install.
+---
+
+# Installing Gravitee APIM on an Amazon instance with Manual Install
 
 ## Introduction
 
@@ -51,11 +57,13 @@ Amazon Linux instances use the package manager `yum`. To use `yum` to set up acc
     ```
 3.  Refresh the local cache:
 
-    {% code overflow="wrap" %}
+    \{% code overflow="wrap" %\}
+
     ```sh
     sudo yum -q makecache -y --disablerepo='*' --enablerepo='graviteeio'
     ```
-    {% endcode %}
+
+    \{% endcode %\}
 
 </details>
 
@@ -180,7 +188,7 @@ APIM uses ElasticSearch as the default reporting and analytics repository. Follo
 
 <summary>Install Nginx</summary>
 
-Both APIM user interfaces (Management Console and Developer Portal) use Nginx as their web server. Follow the steps below to set up Nginx. For further customization of the installation, refer to the [Nginx Installation documentation](https://nginx.org/en/linux\_packages.html#Amazon-Linux).
+Both APIM user interfaces (Management Console and Developer Portal) use Nginx as their web server. Follow the steps below to set up Nginx. For further customization of the installation, refer to the [Nginx Installation documentation](https://nginx.org/en/linux_packages.html#Amazon-Linux).
 
 1.  Create a file called `/etc/yum.repos.d/nginx.repo` using the following command:
 

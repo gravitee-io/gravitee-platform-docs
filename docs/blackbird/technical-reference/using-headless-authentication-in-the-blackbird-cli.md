@@ -1,4 +1,5 @@
 ---
+description: Step-by-step tutorial for Using Headless Authentication.
 noIndex: true
 ---
 

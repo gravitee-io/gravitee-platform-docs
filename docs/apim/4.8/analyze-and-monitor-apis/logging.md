@@ -1,3 +1,7 @@
+---
+description: An overview about logging.
+---
+
 # Logging
 
 ## Overview
@@ -26,7 +30,7 @@ Configurable settings are grouped in the following categories:
 
 {% tabs %}
 {% tab title="Duration" %}
-Limit the duration of logging by entering a numeric value (ms) in the **Maximum duration** field. This avoids the prolonged capture of headers and/or body payload and excessive CPU/memory consumption.&#x20;
+Limit the duration of logging by entering a numeric value (ms) in the **Maximum duration** field. This avoids the prolonged capture of headers and/or body payload and excessive CPU/memory consumption.
 
 The default value (90000 ms) logs minimal call information. A value of 0 is interpreted as no maximum duration.
 {% endtab %}
@@ -44,7 +48,7 @@ Toggle **Display end user on API Logging (in case of OAuth2/JWT plan)** to inclu
 
 {% tab title="Message Sampling" %}
 {% hint style="info" %}
-V4-Message APIs only:  Message sampling is used to avoid excessive resource consumption and is only relevant to V4-Message APIs.
+V4-Message APIs only: Message sampling is used to avoid excessive resource consumption and is only relevant to V4-Message APIs.
 {% endhint %}
 
 Set the defaults and limits of the possible sampling configurations.
@@ -68,7 +72,7 @@ Comprehensive connection logs allow you to analyze the usage of your v4 message 
 3. Select your API
 4. Click on **API Traffic** in the inner left sidebar
 
-Logs are displayed under the **Runtime Logs** tab in reverse chronological order:&#x20;
+Logs are displayed under the **Runtime Logs** tab in reverse chronological order:
 
 <figure><img src="../.gitbook/assets/runtime logs_list message CROP.png" alt=""><figcaption><p>Sample v4 message API runtime log entries</p></figcaption></figure>
 
@@ -89,7 +93,7 @@ Logging information can be modified by configuring the options under the **Setti
 {% tabs %}
 {% tab title="v4 message APIs" %}
 {% hint style="info" %}
-Select logging options judiciously to optimize the value of recorded data against the potential for impact to API performance. Sampling is used to avoid excessive resource consumption and is only relevant to v4 message APIs.&#x20;
+Select logging options judiciously to optimize the value of recorded data against the potential for impact to API performance. Sampling is used to avoid excessive resource consumption and is only relevant to v4 message APIs.
 {% endhint %}
 
 To configure which information is recorded, select from the following options:
@@ -118,8 +122,7 @@ Sampling methods for v4 message APIs can also be configured in the `gravitee.yml
 * **Temporal:** Must be a `string` in ISO 8601 format
 
 {% code title="gravitee.yaml" %}
-````yaml
-```
+```yaml
 logging:
   messageSampling:
     probabilistic:
@@ -132,7 +135,6 @@ logging:
       default: PT1S
       limit: PT1S 
 ```
-````
 {% endcode %}
 {% endtab %}
 
@@ -173,13 +175,14 @@ Under the **Messages** header, entrypoint and endpoint message details are group
 
 <figure><img src="../.gitbook/assets/message details_CROP.png" alt=""><figcaption><p>View message details</p></figcaption></figure>
 
-Each message record includes placeholder tabs for raw content, headers, and metadata. If the corresponding data was recorded, it will appear under the tab. If no data was recorded, the field will be empty.
+Each message record includes placeholder tabs for raw content, headers, and metadata. If the corresponding data was recorded, it will appear under the tab. If no data was recorded, the field will be empty. 
 {% endtab %}
 
 {% tab title="v4 proxy APIs" %}
-Under **Details**, logs for the entry are grouped by **Entrypoint Request**, **Endpoint Request**, **Entrypoint Response**, and **Endpoint Response**, with **Headers** and **Payload** as the content:&#x20;
+Under **Details**, logs for the entry are grouped by **Entrypoint Request**, **Endpoint Request**, **Entrypoint Response**, and **Endpoint Response**, with **Headers** and **Payload** as the content:
 
 <figure><img src="../.gitbook/assets/proxy logs_CROP.png" alt=""><figcaption><p>View log details</p></figcaption></figure>
+
 {% endtab %}
 {% endtabs %}
 
@@ -200,7 +203,7 @@ services:
 ```
 
 {% hint style="info" %}
-* By default, the internal component API is bound to `localhost` only and must not be invoked outside `localhost`. To widely expose the API, you may need to set the `services.core.http.host` property to the correct network interface.&#x20;
+* By default, the internal component API is bound to `localhost` only and must not be invoked outside `localhost`. To widely expose the API, you may need to set the `services.core.http.host` property to the correct network interface.
 * If you run the application in a Docker container, set the IP address to 0.0.0.0.
 {% endhint %}
 

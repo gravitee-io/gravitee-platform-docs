@@ -1,3 +1,7 @@
+---
+description: Overview of Recovery Codes.
+---
+
 # Recovery Codes
 
 The **recovery code** factor generates a set of recovery codes that the user can use to authenticate in case the other options are not available. The recovery codes are generated and shown only once to the user during the enrollment or login process. It is thus advisable to download and keep the recovery codes in a safe place.

@@ -1,4 +1,5 @@
 ---
+description: Overview of The Ambassador Operating Model.
 noIndex: true
 ---
 
@@ -18,7 +19,7 @@ Because many different teams may need to write policies, Ambassador Edge Stack s
 
 Code cannot provide value to end-users until it is running in production. [Continuous Delivery](https://continuousdelivery.com/) is the ability to get changes of all types -- including new features, configuration changes, bug fixes, and experiments -- into production, and in front of customers safely and quickly in a sustainable way.
 
-[GitOps](https://gitops.weave.works/docs/intro-weave-gitops/) is an approach to continuous delivery that relies on using a source control system as a single source of truth for all infrastructure and configuration. **In the GitOps model, configuration changes go through a specific workflow:**
+GitOps is an approach to continuous delivery that relies on using a source control system as a single source of truth for all infrastructure and configuration. **In the GitOps model, configuration changes go through a specific workflow:**
 
 1. All configuration is stored in source control.
 2. A configuration change is made via pull request.
@@ -57,5 +58,4 @@ In a typical Ambassador Edge Stack GitOps workflow:
 
 ## Further reading
 
-* How [Gitops can change](https://www.getambassador.io/blog/cloud-native-workflow-gitops-and-kubernetes) when adopting Kubernetes.
 * Netflix introduces [full cycle development](https://www.getambassador.io/kubernetes-glossary/full-cycle-development), a model for developing microservices

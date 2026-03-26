@@ -1,7 +1,11 @@
+---
+description: An overview about graphql rate limit.
+---
+
 # GraphQL Rate Limit
 
 {% hint style="warning" %}
-**This feature requires** [**Gravitee's Enterprise Edition**](../../../../4.6/overview/gravitee-apim-enterprise-edition/)**.**
+**This feature requires** [**Gravitee's Enterprise Edition**](../../../readme/enterprise-edition.md)**.**
 {% endhint %}
 
 ## Overview

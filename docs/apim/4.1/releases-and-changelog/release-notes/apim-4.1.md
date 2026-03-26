@@ -34,7 +34,7 @@ Endpoints and endpoint groups that have already been configured can be modified 
 
 The configuration of an endpoint during the creation workflow determines the endpoint group’s default configuration. The endpoint then inherits this configuration from the group by default. Unless inheritance is disabled, changes to the endpoint group configuration will proliferate to all endpoints in the group.
 
-<figure><img src="../../.gitbook/assets/default endpoint group (1).png" alt=""><figcaption><p>Default endpoint group</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/default endpoint group (1) (1).png" alt=""><figcaption><p>Default endpoint group</p></figcaption></figure>
 
 By default, an endpoint added to an endpoint group will inherit the group's configuration. This allows an API publisher to quickly add new endpoints with the same settings and behavior as other endpoints in the group. Changes can be made to the new endpoint's configuration if inheritance is disabled, and will persist if inheritance remains disabled.
 
@@ -42,9 +42,9 @@ By default, an endpoint added to an endpoint group will inherit the group's conf
 
 For more information on endpoint enhancements, refer to [this guide](../../guides/api-configuration/v4-api-configuration/endpoint-configuration.md#endpoint-management).
 
-### User and group access&#x20;
+### User and group access
 
-{% @arcade/embed flowId="cFPsuQlW9Jd8KOvrvnLM" url="https://app.arcade.software/share/cFPsuQlW9Jd8KOvrvnLM" %}
+{% @arcade/embed url="https://app.arcade.software/share/cFPsuQlW9Jd8KOvrvnLM" flowId="cFPsuQlW9Jd8KOvrvnLM" %}
 
 You can manage user and group access to individual APIs via the Management Console. You can add members to your API and alter member roles, which come with specific permissions. You can also add groups to your API to give all members of those groups access. In addition, the owner of an API can transfer ownership to another member, user, or group by selecting a stakeholder and assigning that stakeholder a role. For more information, refer to [this guide](../../guides/api-configuration/v2-api-configuration/configure-user-and-group-access.md).
 
@@ -54,16 +54,16 @@ You can manage user and group access to individual APIs via the Management Conso
 
 ## Importing and duplicating v4 APIs
 
-You can now create a v4 API by uploading a JSON file containing an existing Gravitee v4 API definition. For the details of this feature, refer to the [documentation](../../guides/create-apis/import-apis/).
+You can now create a v4 API by uploading a JSON file containing an existing Gravitee v4 API definition. For the details of this feature, refer to the [documentation](../../guides/create-apis/import-apis/README.md).
 
 A v4 API can now also be duplicated. Refer to [this page](../../guides/api-configuration/v4-api-configuration/api-general-settings.md) for more details.
 
 ## Logging
 
-The Management Console now allows you to view comprehensive connection logs to analyze the usage of your v4 message APIs. The record will be paginated with no limit to the number of pages, and if logging is disabled, existing logs will still be displayed.&#x20;
+The Management Console now allows you to view comprehensive connection logs to analyze the usage of your v4 message APIs. The record will be paginated with no limit to the number of pages, and if logging is disabled, existing logs will still be displayed.
 
 <figure><img src="../../.gitbook/assets/runtime logs chron order.png" alt=""><figcaption><p>History of up-to-date runtime logs</p></figcaption></figure>
 
-Runtime log settings can be modified to customize and extend the data capture. You can also drill into a log entry to view detailed message content. For more information on logging, refer to [this section](broken-reference).
+Runtime log settings can be modified to customize and extend the data capture. You can also drill into a log entry to view detailed message content. For more information on logging, refer to [this section](../../overview/gravitee-api-definitions-and-execution-engines/logging.md).
 
 <figure><img src="../../.gitbook/assets/runtime logs view messages.png" alt=""><figcaption><p>View messages for log details</p></figcaption></figure>

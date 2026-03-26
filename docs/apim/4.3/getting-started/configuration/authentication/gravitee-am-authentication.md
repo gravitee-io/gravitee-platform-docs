@@ -1,3 +1,7 @@
+---
+description: An overview about Gravitee AM Authentication.
+---
+
 # Gravitee AM Authentication
 
 ## Overview

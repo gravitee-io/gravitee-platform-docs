@@ -12,7 +12,7 @@ The Gravitee **API Quality** feature enables you to create and automatically ass
 
 ### Configure API Quality
 
-{% @arcade/embed flowId="ditvkcx6pI6iFmYwQvt9" url="https://app.arcade.software/share/ditvkcx6pI6iFmYwQvt9" %}
+{% @arcade/embed url="https://app.arcade.software/share/ditvkcx6pI6iFmYwQvt9" flowId="ditvkcx6pI6iFmYwQvt9" %}
 
 API Quality is configured at the Portal Settings level. To access these settings:
 

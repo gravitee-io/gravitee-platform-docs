@@ -1,3 +1,7 @@
+---
+description: Overview of Custom Resource Definitions.
+---
+
 # Custom Resource Definitions
 
 The Gravitee Kubernetes Operator (GKO) comes with several custom resource definitions (CRDs):

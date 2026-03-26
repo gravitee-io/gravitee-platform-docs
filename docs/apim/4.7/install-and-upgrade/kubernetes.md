@@ -18,7 +18,6 @@ The APIM Helm chart deploys the following components:
 * APIM Management Console
 * APIM Developer Portal
 * APIM Gateway
-* MongoDB replica set or PostgreSQL
 * Elasticsearch Cluster
 
 ## Installing Gravitee API Management
@@ -185,8 +184,14 @@ To configure the following features, complete the following steps:
 {% tab title="MongoDB" %}
 To install MongoDB with Helm, use the following command:
 
-```
-helm install mongodb bitnami/mongodb --set auth.rootPassword=r00t
+```sh
+helm repo add bitnami https://charts.bitnami.com/bitnami
+
+helm repo update
+
+helm install mongodb bitnami/mongodb \
+  --set image.repository=bitnamilegacy/mongodb \
+  --set auth.rootPassword=r00t
 ```
 
 **Configuring the connection MongoDB**
@@ -246,8 +251,15 @@ To install a new PostgreSQL database using JDBC, complete the following steps:
 2. Run the following command:
 
 ```sh
-helm install --set postgresqlUsername=postgres --set postgresqlPassword=P@ssw0rd
---set postgresqlDatabase=graviteeapim postgres-apim bitnami/postgresql
+helm repo add bitnami https://charts.bitnami.com/bitnami
+
+helm repo update
+
+helm install postgres-apim bitnami/postgresql \
+  --set image.repository=bitnamilegacy/postgresql \
+  --set postgresqlUsername=postgres \
+  --set postgresqlPassword=P@ssw0rd \
+  --set postgresqlDatabase=graviteeapim
 ```
 
 3. Verify that the PostgreSQL pod works using the following command:
@@ -259,7 +271,7 @@ kubectl get pods
 If the PostgreSQL is running correctly, you see an output similar to the following output:
 
 {% code title="Expected output" %}
-```
+```sh
 NAME                                      READY   UP-TO-DATE   AVAILABLE   AGE
 postgres-apim-postgresql-0                1/1     Running      0           98s
 ```
@@ -298,7 +310,14 @@ The Elasticsearch installed by Gravitee is NOT recommended in production. It is 
 1. To install Redis (for caching & rate-limiting), use the following command:
 
 ```sh
-helm install --set auth.password=p@ssw0rd redis-apim bitnami/redis
+helm repo add bitnami https://charts.bitnami.com/bitnami
+
+helm repo update
+
+helm install redis-apim bitnami/redis \
+  --version 19.6.4 \
+  --set image.repository=bitnamilegacy/redis \
+  --set auth.password=p@ssw0rd
 ```
 
 For more information on configuring Redis Helm chart, go to [Redis](https://github.com/bitnami/charts/tree/main/bitnami/redis).
@@ -312,7 +331,7 @@ kubectl get pods
 If the Redis pod(s) are working correctly, you will see a similar output to the following:
 
 {% code title="Expected output" %}
-```
+```sh
 NAME                    READY   STATUS    RESTARTS   AGE
 redis-apim-master-0     1/1     Running   0          105s
 redis-apim-replicas-0   1/1     Running   0          105s

@@ -200,10 +200,10 @@ By default, the service account created for the Gateway does not have a cluster 
 * Your definitions must sit in the same namespace (e.g., `apim-example`)
 * The name of the context must match the reference in the API definition
 
-Alternatively, you can configure the [Helm Chart](../../getting-started/installation/) to use a cluster role.
+Alternatively, you can configure the [Helm Chart](../../getting-started/installation/README.md) to use a cluster role.
 {% endhint %}
 
 For more information:
 
-* The `ManagementContext` CRD code is available on [GitHub](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/api/v1alpha1/managementcontext\_types.go).
+* The `ManagementContext` CRD code is available on [GitHub](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/api/v1alpha1/managementcontext_types.go).
 * The `ManagementContext` CRD API reference is documented [here](../../reference/api-reference.md).

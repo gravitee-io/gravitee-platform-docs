@@ -1,17 +1,19 @@
+---
+description: An overview about create an application.
+---
+
 # Create an Application
 
 ## Overview
 
-Unless the API has a keyless plan, a consumer must register an application and subscribe to a published API plan to access an API. Applications act on behalf of the user to request tokens, provide user identity information, and retrieve protected resources from remote services and APIs.&#x20;
+Unless the API has a keyless plan, a consumer must register an application and subscribe to a published API plan to access an API. Applications act on behalf of the user to request tokens, provide user identity information, and retrieve protected resources from remote services and APIs.
 
 ## Create an application
 
-1.  In the Developer Portal, click on **Applications** in the header&#x20;
+1.  In the Developer Portal, click on **Applications** in the header
 
     <figure><img src="../../.gitbook/assets/applications_home.png" alt=""><figcaption><p>Create an app</p></figcaption></figure>
-
-
-2.  On the **General** page, specify:&#x20;
+2.  On the **General** page, specify:
 
     * **Application name:** Give your application a name (required)
     * **Description:** Describe the purpose of your application (required)
@@ -23,7 +25,7 @@ Unless the API has a keyless plan, a consumer must register an application and s
 
 {% tabs %}
 {% tab title="Simple" %}
-A Simple application is hands-free. With this application, you have the ability to define the client ID.&#x20;
+A Simple application is hands-free. With this application, you have the ability to define the client ID.
 
 Parameters:
 
@@ -34,7 +36,7 @@ Parameters:
 {% endtab %}
 
 {% tab title="SPA" %}
-A **SPA**, or single-page application (Angular, React, etc.), is a web application that performs the majority of the user interface logic in a web browser and uses web APIs to communicate with the web server.&#x20;
+A **SPA**, or single-page application (Angular, React, etc.), is a web application that performs the majority of the user interface logic in a web browser and uses web APIs to communicate with the web server.
 
 Parameters:
 
@@ -81,7 +83,7 @@ Once you add a **Redirect URI**, a green checkmark will appear in lieu of the re
 {% endtab %}
 
 {% tab title="Backend to backend" %}
-A **Backend to backend** application is machine to machine and does not require a user interface.&#x20;
+A **Backend to backend** application is machine to machine and does not require a user interface.
 
 Parameters:
 
@@ -109,18 +111,14 @@ Once you've created an application, you can click on it and use the header optio
 *   **General information:** View and/or modify the application's configuration.
 
     <figure><img src="../../.gitbook/assets/application_edit.png" alt=""><figcaption><p>General information</p></figcaption></figure>
-
-
-*   **Metadata:** Enter a **Name** and **Value** and use the **Format** selector to define metadata for your application. Use the **ADD** and **UPDATE** buttons to modify your entries.&#x20;
+*   **Metadata:** Enter a **Name** and **Value** and use the **Format** selector to define metadata for your application. Use the **ADD** and **UPDATE** buttons to modify your entries.
 
     <figure><img src="../../.gitbook/assets/application_metadata.png" alt=""><figcaption><p>Metadata</p></figcaption></figure>
-
-
 *   **Subscriptions:** View the APIs your application is subscribed to. Use the **API** drop-down menu to choose a particular API and the **status** drop-down menu to list all APIs with the selected status.
 
     <figure><img src="../../.gitbook/assets/application_subscription info.png" alt=""><figcaption><p>Subscriptions</p></figcaption></figure>
 * **Members:** View and edit member information:
-  *   **MEMBERS LIST:** View the names and roles of current application members.&#x20;
+  *   **MEMBERS LIST:** View the names and roles of current application members.
 
       <figure><img src="../../.gitbook/assets/application_members list.png" alt=""><figcaption><p>Members list</p></figcaption></figure>
   *   **ADD A MEMBER:** Use the search field to add a member to the application and assign that member a role.
@@ -132,19 +130,15 @@ Once you've created an application, you can click on it and use the header optio
   *   **INHERITED MEMBERS:** View the names and roles of members inherited from other groups.
 
       <figure><img src="../../.gitbook/assets/application_inherited members.png" alt=""><figcaption><p>Inherited members</p></figcaption></figure>
-*   **Analytics:** Use the available filters to refine the application logs. Scroll down to view other metrics related to the application (top paths, top APIs, response times, etc.).&#x20;
+*   **Analytics:** Use the available filters to refine the application logs. Scroll down to view other metrics related to the application (top paths, top APIs, response times, etc.).
 
     <figure><img src="../../.gitbook/assets/application_analytics.png" alt=""><figcaption><p>Analytics</p></figcaption></figure>
-*   **Logs:** Use the available filters to view and optionally export refined application analytics. Scroll down to view the logs.&#x20;
+*   **Logs:** Use the available filters to view and optionally export refined application analytics. Scroll down to view the logs.
 
     <figure><img src="../../.gitbook/assets/application_logs.png" alt=""><figcaption><p>Logs</p></figcaption></figure>
-
-
 *   **Notifications:** Specify which of your application's subscription events you would like to be notified of.
 
     <figure><img src="../../.gitbook/assets/application_alerts.png" alt=""><figcaption><p>Notifications</p></figcaption></figure>
-
-
 *   **Alerts:** Use the fields and drop-down menus to define an alert. After you **ADD AN ALERT**, it will appear in the **ALERTS LIST**. Application members will be notified via email.
 
     <figure><img src="../../.gitbook/assets/application alerts.png" alt=""><figcaption><p>Alerts</p></figcaption></figure>

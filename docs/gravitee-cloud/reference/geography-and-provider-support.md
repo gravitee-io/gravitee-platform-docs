@@ -21,15 +21,7 @@ Gravitee Cloud currently offers the following geography and provider support. If
 
 ### Gravitee hosted API Gateways
 
-| Provider            | Geography             | Region                        |
-| ------------------- | --------------------- | ----------------------------- |
-| Azure               | US (United States)    | Washington (westus2)          |
-| Azure               | US (United States)    | Virginia (eastus2)            |
-| Azure               | EU (Europe)           | Netherlands (westeurope)      |
-| AWS                 | US (United States)    | N. Virginia (us-east-1)       |
-| (_Coming soon) GCP_ | _US (United States)_  | _Iowa (us-central1)_          |
-| (_Coming soon) GCP_ | _EU (Europe)_         | _Frankfurt (europe-west3)_    |
-| (_Coming soon) GCP_ | _APAC (Asia-Pacific)_ | _Singapore (asia-southeast1)_ |
+<table><thead><tr><th width="249">Provider</th><th>Geography</th><th>Region</th></tr></thead><tbody><tr><td>Azure</td><td>US (United States)</td><td>Washington (westus2)</td></tr><tr><td>Azure</td><td>US (United States)</td><td>Virginia (eastus2)</td></tr><tr><td>Azure</td><td>EU (Europe)</td><td>Netherlands (westeurope)</td></tr><tr><td>AWS</td><td>US (United States)</td><td>N. Virginia (us-east-1)</td></tr><tr><td>AWS</td><td>APAC (Asia-Pacific)</td><td>Sydney (ap-southeast-2)</td></tr><tr><td>AWS</td><td>EU (Europe)</td><td>Dublin (eu-west-1)</td></tr><tr><td>GCP</td><td>US (United States)</td><td>Iowa (us-central1)</td></tr><tr><td>GCP</td><td>EU (Europe)</td><td>Frankfurt (europe-west3)</td></tr><tr><td>GCP</td><td>APAC (Asia-Pacific)</td><td>Singapore (asia-southeast1)</td></tr></tbody></table>
 
 For more information about Azure regions, go to [Microsoft Datacenters](https://datacenters.microsoft.com/globe/explore/).
 

@@ -1,3 +1,7 @@
+---
+description: Overview of Manage groups.
+---
+
 # Groups
 
 ## Manage groups
@@ -6,8 +10,6 @@
 
 1. Log in to AM Console.
 2.  Search for groups by clicking **Groups**.
-
-
 
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-um-search-groups.png" alt=""><figcaption><p>List of groups</p></figcaption></figure>
 
@@ -28,8 +30,6 @@ You can add an new member to your group as follows:
 1. In AM Console, click **Settings > Groups**.
 2. Select your group, and in the **Members** tab, click **Add members**.
 3.  Search for users by username, then click **Add**.
-
-
 
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-um-add-member.png" alt=""><figcaption><p>Add users to group</p></figcaption></figure>
 

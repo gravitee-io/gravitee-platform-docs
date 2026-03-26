@@ -1,3 +1,7 @@
+---
+description: Deployment guide for Multi.
+---
+
 # Multi-environment deployment architecture
 
 In a multi-environment deployment, a single GKO can be deployed and can publish APIs to different environments (logical or physical).

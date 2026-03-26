@@ -1,7 +1,11 @@
+---
+description: An overview about Documentation.
+---
+
 # Documentation
 
 {% hint style="warning" %}
-As of Gravitee 4.2, the APIM Documentation feature is only available for v4 APIs.&#x20;
+As of Gravitee 4.2, the APIM Documentation feature is only available for v4 APIs.
 {% endhint %}
 
 ## Overview
@@ -21,7 +25,7 @@ To add documentation to an API:
 
 ### Add folders
 
-Folders allow you to organize your documentation by grouping pages. To configure your first folder:&#x20;
+Folders allow you to organize your documentation by grouping pages. To configure your first folder:
 
 1. From the top-level **Home** directory, click **Add new folder**
 2. Specify the following:
@@ -40,7 +44,7 @@ A folder will be **Hidden**, or not visible in the Developer Portal, until it co
 
 <figure><img src="../../../.gitbook/assets/docs_folder added.png" alt=""><figcaption><p>Add a folder to Home directory</p></figcaption></figure>
 
-**Documentation** supports a nested structure. Once you've added a folder to the **Home** directory, you can click into it to create additional folders or pages.&#x20;
+**Documentation** supports a nested structure. Once you've added a folder to the **Home** directory, you can click into it to create additional folders or pages.
 
 ### Add pages
 
@@ -73,7 +77,7 @@ To edit or delete folders or pages, or to change the documentation structure, us
 
 <figure><img src="../../../.gitbook/assets/docs_editing.png" alt=""><figcaption><p>Select from Actions to edit</p></figcaption></figure>
 
-**Edit folders:** To edit a folder's name or visibility, click on the pencil icon in the folder's entry, change the name and/or visibility, then click **Save**. The changes made to a folder's visibility will impact who can see it in the Developer Portal.&#x20;
+**Edit folders:** To edit a folder's name or visibility, click on the pencil icon in the folder's entry, change the name and/or visibility, then click **Save**. The changes made to a folder's visibility will impact who can see it in the Developer Portal.
 
 **Edit pages:** To edit an existing page, click on the pencil icon in the page's entry, and change the name, visibility, and/or content. If the page is already published, click **Publish changes**. If the page is not published, you will have the option to **Save** or **Save and publish** your changes.
 
@@ -89,7 +93,7 @@ API documentation is visible in the Developer Portal if both the API and documen
 
 To view the documentation in the Developer Portal:
 
-1.  Click **Open API in Developer Portal**&#x20;
+1.  Click **Open API in Developer Portal**
 
     <figure><img src="../../../.gitbook/assets/docs_open api.png" alt=""><figcaption><p>Open API in Developer Portal</p></figcaption></figure>
 2.  Click on **Documentation** in the header options

@@ -1,14 +1,136 @@
+---
+description: Release notes for Gravitee Cloud.
+---
+
 # Release Notes
 
-This section contains an overview of the new features in Gravitee Cloud's releases. For information about the releases, see the following articles:&#x20;
+This section contains an overview of the new features in Gravitee Cloud's releases. For information about the releases, see the following articles:
+
+## February 2026&#x20;
+
+<details>
+
+<summary>26th February</summary>
+
+**Configure custom domains for SaaS Gateways**
+
+You can now configure custom domains for your SaaS Gateways. With this feature, you can route API traffic through your own domain, for example, `dev.gravitee.io` , instead of the default Gravitee gateway URL.&#x20;
+
+For more information about how to configure a custom domain for your SaaS Gateway, see [custom-domains.md](../guides/custom-domains.md "mention").
+
+</details>
+
+<details>
+
+<summary>11th February </summary>
+
+**Deploy a SaaS Gateway in Amazon Web Services (AWS) ap-southeast-2**
+
+You can now deploy a SaaS Gateway in Amazon Web Services (AWS) in APAC, `ap-southeast-2`.&#x20;
+
+For more information about Gateway providers and the available regions for each provider, see [geography-and-provider-support.md](geography-and-provider-support.md "mention").
+
+</details>
+
+<details>
+
+<summary>5th February </summary>
+
+**GCP Private Network**
+
+You can now create a private network for SaaS Gateways deployed in the Google Cloud Platform (GCP). This service lets you connect to upstream services without exposing traffic to the public internet.
+
+For more information about Gateway providers and the available regions for each provider, see [geography-and-provider-support.md](geography-and-provider-support.md "mention").
+
+</details>
+
+## December 2025
+
+<details>
+
+<summary>18 December </summary>
+
+**Promote APIs**
+
+You can now promote V4 APIs from one environment to another environment. For example, Staging to Production. For more information about promoting APIs, see [Promote APIs.](https://documentation.gravitee.io/apim/create-and-configure-apis/create-apis/promote-apis)
+
+**V4 APIs are default in API Designer**&#x20;
+
+In API Designer, V4 APIs are now the default API type when you create an API. For more information about creating an API with the API Designer, see [API Designer](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/ePLkAjjF4tUASuMeIrXC/ "mention").
+
+
+
+</details>
+
+## November 2025
+
+<details>
+
+<summary>19 November </summary>
+
+**Delete SaaS Gateways and environments**
+
+You can now delete SaaS Gateways and environments, including the default environments. For more information about deleting Gatways and environments, see [delete-a-gravitee-hosted-gateway.md](../guides/gravitee-hosted-gateways/delete-a-gravitee-hosted-gateway.md "mention").
+
+</details>
+
+## October 2025
+
+<details>
+
+<summary>17th October </summary>
+
+**Deploy a SaaS Gateway in Google Cloud Platform (GCP)**
+
+You can now deploy a SaaS Gateway in Google Cloud Platform (GCP). You can deploy the Gateway in the following regions:&#x20;
+
+* US: `us-central1`.
+* EU: `europe-west3`
+* APAC: `asia-southeast1`.
+
+For more information about Gateway providers and the available regions for each provider, see [geography-and-provider-support.md](geography-and-provider-support.md "mention").
+
+</details>
+
+<details>
+
+<summary>14 October</summary>
+
+**Deploy SaaS Gateways with multiple provides and in multiple regions**
+
+You can now deploy your SaaS Gateways with multiple provider and in multiple regions. For more information about deploying your SaaS Gateways, see [gravitee-hosted-gateways](../guides/gravitee-hosted-gateways/ "mention").
+
+</details>
+
+## July 2025
+
+<details>
+
+<summary>28th July</summary>
+
+**Deploy a SaaS Gateway in AWS**
+
+You can now deploy a SaaS Gateway in AWS. You can deploy a Gateway only in `us-east-1`. For more information about Gateway providers and the available regions for each provider, see [geography-and-provider-support.md](geography-and-provider-support.md "mention").
+
+</details>
 
 ## May 2025
 
 <details>
 
+<summary>21st May</summary>
+
+**Retrieve user info from the token or userInfo endpoint**&#x20;
+
+You can now retrieve a user's profile information from either the token or the `userInfo` endpoint. For more information about retrieving a user's profile information, see [configure-sso.md](../guides/configure-sso.md "mention").
+
+</details>
+
+<details>
+
 <summary>15th May</summary>
 
-## Adding Environments
+**Adding Environments**
 
 You can now request more environments in Gravitee Cloud to map out your specific organization. For more information about linking additional environments to your account, contact Gravitee. To learn more about how to add a new environment after it is linked, see [add-environments.md](../guides/add-environments.md "mention").
 
@@ -34,7 +156,7 @@ For more information, see the [Custom Domains](../guides/custom-domains.md) docu
 
 <summary>6th November</summary>
 
-## Cloud Hosted Gateways
+**Cloud Hosted Gateways**
 
 We’re thrilled to introduce **Cloud Hosted Gateways** for Gravitee Cloud API Management! With Cloud Hosted Gateways, Gravitee takes care of the setup and maintenance for your gateway environments, allowing you to focus on managing your APIs effortlessly.
 
@@ -46,7 +168,7 @@ We’re thrilled to introduce **Cloud Hosted Gateways** for Gravitee Cloud API M
 
 Deploying a Cloud Hosted Gateway takes just a few minutes. Simply navigate to your Gravitee Cloud Dashboard, select your environment to deploy Cloud hosted gateways for, and Gravitee will handle the rest!
 
-[Read more about deploying Cloud Hosted Gateways here](../guides/gravitee-hosted-gateways.md)
+[Read more about deploying Cloud Hosted Gateways here](../guides/gravitee-hosted-gateways/)
 
 </details>
 
@@ -56,13 +178,12 @@ Deploying a Cloud Hosted Gateway takes just a few minutes. Simply navigate to yo
 
 <summary>28th September</summary>
 
-## Hybrid Gateways
+**Hybrid Gateways**
 
 You can now, in a simple self-serve, manned deploy self-hosted hybrid gateways to your Gravitee Cloud API Management environments.\
 \
 Configuration will be synced securely from Cloud Gate components, and transactional analytics data will be sent from the gateway to your dedicated analytics index. So it can be viewed in detail in the API Management Control Plane Dashboard.\
 \
-Read more about the feature [here](broken-reference).
+Read more about the feature [here](https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/hybrid-installation-and-configuration-guides).
 
 </details>
-

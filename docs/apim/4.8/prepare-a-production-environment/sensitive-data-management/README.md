@@ -1,3 +1,7 @@
+---
+description: Configuration guide for sensitive data management.
+---
+
 # Sensitive Data Management
 
 For more information about Sensitive Data Management, see the following articles:

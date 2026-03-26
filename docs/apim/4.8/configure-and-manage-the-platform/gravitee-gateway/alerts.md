@@ -1,3 +1,7 @@
+---
+description: An overview about alerts.
+---
+
 # Alerts
 
 {% hint style="info" %}
@@ -6,7 +10,7 @@ The following documentation is only relevant if you have Gravitee Alert Engine e
 
 ## Overview
 
-When configuring platform settings, you can also set up alerting conditions for the Gateway.&#x20;
+When configuring platform settings, you can also set up alerting conditions for the Gateway.
 
 ## Configuration
 

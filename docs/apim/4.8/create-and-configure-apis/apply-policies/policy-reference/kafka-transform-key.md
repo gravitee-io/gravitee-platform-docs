@@ -1,3 +1,7 @@
+---
+description: An overview about kafka transform key.
+---
+
 # Kafka Transform Key
 
 ## Overview
@@ -18,7 +22,7 @@ Use cases for this policy:
 * **Example:** High-frequency system logs or telemetry data.
 * **Why:** Using a key such as `hostId` or `serviceId` helps distribute messages across partitions, improving throughput and consumer parallelism.
 
-#### &#x20;**Targeted consumption or filtering**
+#### **Targeted consumption or filtering**
 
 * **Example:** A consumer that wants messages from only a specific `regionId` or `productType`.
 * **Why:** Including such information in the key allows smarter routing or filtering by consumers.

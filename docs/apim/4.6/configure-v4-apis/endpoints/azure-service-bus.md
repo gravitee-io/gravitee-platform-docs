@@ -1,3 +1,7 @@
+---
+description: An overview about azure service bus.
+---
+
 # Azure Service Bus
 
 ## Overview
@@ -26,9 +30,9 @@ You will define more Gravitee Gateway-specific security settings later on, but t
 
 ### 4. Role settings
 
-If you chose **Use Producer** or **Use Producer and Consumer**, you must define the settings that the Gravitee Gateway Azure Service Bus client will rely on for producing messages to your backend Azure Service Bus topic/broker.&#x20;
+If you chose **Use Producer** or **Use Producer and Consumer**, you must define the settings that the Gravitee Gateway Azure Service Bus client will rely on for producing messages to your backend Azure Service Bus topic/broker.
 
-If you chose **Use Consumer** or **Use Producer and Consumer**, you must define the settings that the Gravitee Gateway Azure Service Bus client will rely on for consuming messages from your backend Azure Service Bus topic/broker.&#x20;
+If you chose **Use Consumer** or **Use Producer and Consumer**, you must define the settings that the Gravitee Gateway Azure Service Bus client will rely on for consuming messages from your backend Azure Service Bus topic/broker.
 
 {% tabs %}
 {% tab title="Producer" %}

@@ -1,3 +1,7 @@
+---
+description: Tutorial on gcp gke.
+---
+
 # GCP GKE
 
 To install a Gravitee Gateway on Kubernetes using GCP GKE, complete the following steps:
@@ -8,6 +12,10 @@ You must be familiar with the following topics:
 * Google Cloud Platform (GCP)
 * Kubernetes (K8s)
 * Helm
+{% endhint %}
+
+{% hint style="warning" %}
+This installation guide is for only development and quick start purposes. Do not use it for production environments. For more information about best practices for production environments, contact your Technical Account Manager.
 {% endhint %}
 
 ## Target architecture
@@ -52,7 +60,8 @@ You can replace these with the names of your clusters.
 
 1.  Initialize the cluster, including prerequisites, using the following commands:
 
-    {% code overflow="wrap" %}
+    \{% code overflow="wrap" %\}
+
     ```sh
     $ gcloud container clusters get-credentials hybrid-mgmt-eu --zone=europe-west1-b
 
@@ -65,7 +74,8 @@ You can replace these with the names of your clusters.
     // Add Gravitee Helm repository
     $ helm repo add graviteeio https://helm.gravitee.io
     ```
-    {% endcode %}
+
+    \{% endcode %\}
 2.  Deploy the APIM instance using the following command. APIM contains the follow components:
 
     * The Management Console

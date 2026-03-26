@@ -1,3 +1,7 @@
+---
+description: Overview of Password Options.
+---
+
 # Password Options
 
 Passwords are crucial for users as they protect sensitive information, secure online accounts, and prevent unauthorized access, ensuring privacy and safety.
@@ -18,7 +22,7 @@ For this purpose, you can now set a flag on the user profile that control if the
 
 ### Send registration email to user and let user set pass
 
-Imagine the same scenario as above,  you want to create thousands of users enable them to sign in using Access Management. But this time, you want the user to set their first password themselves.
+Imagine the same scenario as above, you want to create thousands of users enable them to sign in using Access Management. But this time, you want the user to set their first password themselves.
 
 For this purpose, Access Management offers the feature pre-registration. If you set Enable pre-registration to true, then you as an admin will not be required to set a password for the user. Instead the user will receive a registration email to the email defined in the user profile. When the user clicks on this email, they will be taken to Access Management where they will be asked to set their password.
 

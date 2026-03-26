@@ -1,3 +1,7 @@
+---
+description: Concepts and architecture for Design Interface.
+---
+
 # Design Interface
 
 ## Overview
@@ -8,11 +12,7 @@ The design interface is the core of the API Designer. Initially, the interface s
 * **resource:** The anchor points of the API that conceptually map to a set of entities.
 * **attribute:** The data carriers of the API.
 
-<div align="center">
-
-<figure><img src="https://docs.gravitee.io/images/cockpit/apid_design_default.png" alt="" width="563"><figcaption></figcaption></figure>
-
-</div>
+<div align="center"><figure><img src="https://docs.gravitee.io/images/cockpit/apid_design_default.png" alt="" width="563"><figcaption></figcaption></figure></div>
 
 Each element can be expanded (+). To remove an element, right-click it and select delete.
 

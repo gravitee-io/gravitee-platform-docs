@@ -31,8 +31,7 @@ This policy can be applied to v2 APIs and v4 HTTP proxy APIs. It cannot be appli
 {% tab title="V4 API Definition" %}
 This flow demonstrates the use of the HTTP Callout policy to make an external callout to the JsonPlaceholder API, retrieve key elements that are inserted in Context Variables, and chained with an Assign Content policy that maps the response to the consumer.
 
-````json
-```
+```json
 "flows" : [ {
       "id" : "0e919364-f985-4d4b-9193-64f9857d4b9b",
       "path-operator" : {
@@ -68,7 +67,7 @@ This flow demonstrates the use of the HTTP Callout policy to make an external ca
     } ]
   } ],
 ```
-````
+
 {% endtab %}
 
 {% tab title="V4 API CRD" %}
@@ -185,4 +184,4 @@ The error keys sent by this policy are as follows:
 
 ## Changelogs
 
-{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-callout-http/blob/master/CHANGELOG.md" %}
+<div data-gb-custom-block data-tag="@github-files/github-code-block" data-url='https://github.com/gravitee-io/gravitee-policy-callout-http/blob/master/CHANGELOG.md'></div>

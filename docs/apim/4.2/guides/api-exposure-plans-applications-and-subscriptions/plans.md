@@ -8,9 +8,9 @@ To expose your API to internal or external consumers, it must have at least one 
 
 ## Create a plan
 
-Plans are always created by the API publisher. You can create plans in the Management Console as part of the [API creation process](../create-apis/). You can also create them later with the **Portal > Plans** function as shown below.
+Plans are always created by the API publisher. You can create plans in the Management Console as part of the [API creation process](../create-apis/README.md). You can also create them later with the **Portal > Plans** function as shown below.
 
-{% @arcade/embed flowId="L3b4AWtxtYkNE89ZiR2Y" url="https://app.arcade.software/share/L3b4AWtxtYkNE89ZiR2Y" %}
+{% @arcade/embed url="https://app.arcade.software/share/L3b4AWtxtYkNE89ZiR2Y" flowId="L3b4AWtxtYkNE89ZiR2Y" %}
 
 Creating a plan begins by navigating to your API, selecting **Plans** in the sidebar, and then selecting **Add new plan** in the top right of the page.
 
@@ -97,7 +97,7 @@ The most important part of plan configuration is security. APIM supports the fol
 {% hint style="info" %}
 **Policies vs authentication types**
 
-Authentication types are simply policies integrated directly into a plan. Once a plan is created, the authentication type can not be changed. However, you can always add additional security at the API or plan level with policies in the design studio by following the steps to add policies to a flow in the [Policy Studio](../policy-studio/).
+Authentication types are simply policies integrated directly into a plan. Once a plan is created, the authentication type can not be changed. However, you can always add additional security at the API or plan level with policies in the design studio by following the steps to add policies to a flow in the [Policy Studio](../policy-studio/README.md).
 
 There are some additional considerations when using a plan with JWT or OAuth 2.0 security. For example, if we create a JWT plan, the Gateway API won’t be accessible unless the JWT token is linked to a subscription. Therefore, for the request to succeed, the API consumer must subscribe to the API and embed the _client\_id_ in the JWT token when using a JWT plan as opposed to a JWT policy.
 {% endhint %}
@@ -298,7 +298,7 @@ Deprecating plans allow consumers of the API time to migrate without breaking th
 
 Publishing a plan is as simple as clicking the **Publish Plan** button, confirming your desire to publish the plan with the modal that appears on your screen, and deploying your API again to synchronize the change.
 
-{% @arcade/embed flowId="vOBfQE9VInuyA1g7b4kF" url="https://app.arcade.software/share/vOBfQE9VInuyA1g7b4kF" %}
+{% @arcade/embed url="https://app.arcade.software/share/vOBfQE9VInuyA1g7b4kF" flowId="vOBfQE9VInuyA1g7b4kF" %}
 
 A published plan can either be deprecated or closed. Neither operation can be undone.
 
@@ -307,7 +307,7 @@ A published plan can either be deprecated or closed. Neither operation can be un
 APIM automatically routes each API request to the correct plan. The plan selection workflow parses all the published plans in the following order: JWT, OAuth2, API Key, Keyless. Each plan type has the following rules:
 
 {% hint style="warning" %}
-This workflow only applies to [v4 APIs and v2 APIs in emulation mode.](../../overview/gravitee-api-definitions-and-execution-engines/#plan-selection)
+This workflow only applies to [v4 APIs and v2 APIs in emulation mode.](../../overview/gravitee-api-definitions-and-execution-engines/README.md#plan-selection)
 {% endhint %}
 
 * JWT

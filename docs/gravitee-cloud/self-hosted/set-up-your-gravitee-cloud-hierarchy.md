@@ -1,3 +1,7 @@
+---
+description: Installation guide for Gravitee Cloud Hierarchy.
+---
+
 # Set up your Gravitee Cloud Hierarchy
 
 ## Introduction

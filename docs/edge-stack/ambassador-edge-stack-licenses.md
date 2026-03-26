@@ -1,4 +1,5 @@
 ---
+description: Overview of Ambassador Edge Stack Licenses.
 noIndex: true
 ---
 

@@ -1,3 +1,7 @@
+---
+description: Overview of JDBC.
+---
+
 # JDBC
 
 ## Overview

@@ -1,3 +1,7 @@
+---
+description: API documentation explaining notifiers.
+---
+
 # Notifiers
 
 By default, APIM allows an API publisher to send notifications related to its APIs. This includes sending notifications over HTTP, which can be useful for automation. However, we recommend disabling this feature if you don't expect to use it:

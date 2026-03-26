@@ -1,3 +1,7 @@
+---
+description: API and reference documentation for OAuth.
+---
+
 # Extension Grants
 
 ## Overview
@@ -30,12 +34,8 @@ $ openssl rsa -in rsa_private.pem -pubout -out rsa_public.pem
 2. Click **Settings**, then in the **OAUTH 2.0** section, click **Extension Grants**.
 3.  Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
 
-
-
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-extension-grants-jwt-bearer-create1.png" alt=""><figcaption><p>Extension grants screen</p></figcaption></figure>
 4.  Select **Extension Grant JWT Bearer** and click **Next**.
-
-
 
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-extension-grants-jwt-bearer-create2.png" alt=""><figcaption><p>Add JWT bearer</p></figcaption></figure>
 5. Complete the grant flow configuration and click **Create**.
@@ -59,8 +59,6 @@ If you want to copy claims from the incoming token to the final access token, yo
 1. In AM Console, click **Applications**.
 2. Select your application and in the **Settings** tab, click **OAuth 2.0 / OIDC**.
 3.  In the **Grant flows** section, select your extension grant.
-
-
 
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-extension-grants-jwt-bearer-associate.png" alt=""><figcaption><p>Associate extension grant with application</p></figcaption></figure>
 4.  Click **SAVE**.

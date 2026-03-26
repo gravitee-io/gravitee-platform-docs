@@ -1,7 +1,11 @@
+---
+description: An overview about types of assets.
+---
+
 # Types of Assets
 
 {% hint style="warning" %}
-API Score is a technology preview. This feature is not recommended for production environments.&#x20;
+API Score is a technology preview. This feature is not recommended for production environments.
 {% endhint %}
 
 ## Overview
@@ -16,24 +20,24 @@ API score works by analyzing different parts of your APIs and checking them agai
 * Gravitee federated API definitions
 * Gravitee v2 API definitions
 
-All of the "API definition" asset types are essentially the same as what you get if you export an API from the Gravitee API Management Console. They contain all of your API's settings, such as name, version, labels, categories, plans, policies, etc.&#x20;
+All of the "API definition" asset types are essentially the same as what you get if you export an API from the Gravitee API Management Console. They contain all of your API's settings, such as name, version, labels, categories, plans, policies, etc.
 
-To assist you in writing rulesets, the sections below include examples of how to obtain copies of assets.&#x20;
+To assist you in writing rulesets, the sections below include examples of how to obtain copies of assets.
 
-## Export a Gravitee API definition&#x20;
+## Export a Gravitee API definition
 
 To export a Gravitee API definition, follow these steps:
 
 1. Log in to your APIM Console, then click **APIs**.
-2. Click the API that you want to export.&#x20;
+2. Click the API that you want to export.
 3. In the **General** or **Configuration** tab, click **Export**.
-4. (Optional) Select the information that you want to export. You can choose the following information to export: Groups, Members, Pages, Plans, and Metadata.&#x20;
+4. (Optional) Select the information that you want to export. You can choose the following information to export: Groups, Members, Pages, Plans, and Metadata.
 5. Click **Export**.
 
-Below is a partial example of an exported API definition for a v4 proxy API. All of the attributes you see here can be used in your API Score custom rulesets.&#x20;
+Below is a partial example of an exported API definition for a v4 proxy API. All of the attributes you see here can be used in your API Score custom rulesets.
 
 {% code lineNumbers="true" %}
-````json
+```json
 {
   "export": {
     "date": "2025-02-27T14:11:38.684449698Z",
@@ -82,16 +86,15 @@ Below is a partial example of an exported API definition for a v4 proxy API. All
             "secondary": false
           }
 ```
-````
 {% endcode %}
 
-## Federated API definition&#x20;
+## Federated API definition
 
-Federated APIs ingested from 3rd-party providers like AWS, Apigee, Azure, IBM, Mulesoft, Solace, and Confluent, cannot currently be exported from the user interface.&#x20;
+Federated APIs ingested from 3rd-party providers like AWS, Apigee, Azure, IBM, Mulesoft, Solace, and Confluent, cannot currently be exported from the user interface.
 
 To help you write rulesets against this asset type, you can modify the example below. This example shows the structure of a federated API definition.
 
-````yaml
+```yaml
   "api" : {
     "id" : "b9211075-e090-342f-b8db-9944872934ff",
     "name" : "Shipping logistics SA",
@@ -141,4 +144,3 @@ To help you write rulesets against this asset type, you can modify the example b
       "viewer" : "Swagger"
     }
 ```
-````

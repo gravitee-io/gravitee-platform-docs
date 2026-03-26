@@ -1,10 +1,14 @@
+---
+description: Overview of Group.
+---
+
 # Group
 
 The `Group` custom resource allows to create a group in a given APIM environment. Groups created using this resource can be later on either referenced as kubernetes object references (i.e. using the group metadata name and an optional namespace), or using their name as it was already possible for groups created from the API management console.
 
 ## Create a `Group`
 
-Because groups are only relevant for a given APIM environment, group resource *must* reference an existing management context object.
+Because groups are only relevant for a given APIM environment, group resource _must_ reference an existing management context object.
 
 The example below shows a simple `Group` custom resource definition:
 
@@ -31,9 +35,9 @@ spec:
 
 The rule for validation and defaults are the same as already in place for API and Application members. This means that
 
-  - Unknown members added to a group will result in a warning being issued and the member being discarded
-  - Role scope that are not defined will result in the default role for that scope being applied when the group is created in APIM
-  - Unknown role names will result in a warning being issued and the default role for the scope being applied.
+* Unknown members added to a group will result in a warning being issued and the member being discarded
+* Role scope that are not defined will result in the default role for that scope being applied when the group is created in APIM
+* Unknown role names will result in a warning being issued and the default role for the scope being applied.
 
 ## Referencing a group from an ApiDefinition
 

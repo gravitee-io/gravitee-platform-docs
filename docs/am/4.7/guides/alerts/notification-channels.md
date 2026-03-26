@@ -1,3 +1,7 @@
+---
+description: Overview of Notification Channels.
+---
+
 # Notification Channels
 
 ## Overview

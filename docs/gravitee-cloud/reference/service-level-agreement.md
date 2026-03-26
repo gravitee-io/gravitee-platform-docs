@@ -1,3 +1,7 @@
+---
+description: Overview of Service Level Agreement.
+---
+
 # Service Level Agreement
 
 ## Service Level Agreements
@@ -17,7 +21,7 @@ This page shows the Service Level Agreements (SLAs) and service regulation compl
 * **Database backups**: Every 1 minute.
 * **Analytics data backups**: Every 30 minutes.
 
-### Disaster recovery  <a href="#disaster-recovery" id="disaster-recovery"></a>
+### Disaster recovery <a href="#disaster-recovery" id="disaster-recovery"></a>
 
 * R**ecovery Point Objective (RPO):** 90 minutes
 * **Recovery Time Objective (RTO):** 120 minutes
@@ -27,4 +31,3 @@ This page shows the Service Level Agreements (SLAs) and service regulation compl
 * SOC 2 Type I certified
 * SOC 2 Type II under review
 * ISO27001
-

@@ -1,3 +1,7 @@
+---
+description: API and reference documentation for You.
+---
+
 # HTTP (web service)
 
 ## Overview
@@ -5,7 +9,7 @@
 You can authenticate and manage users in AM using remote API calls.
 
 {% hint style="info" %}
-For the Identity Provider to work, the user’s payload must at least contain the following claims: _`sub`_. To obtain more information about your user you can use the link: [Standard Claims](https://openid.net/specs/openid-connect-core-1\_0.html#StandardClaims) of the OpenID Connect protocol. You can achieve this with the AM User Mapper feature.
+For the Identity Provider to work, the user’s payload must at least contain the following claims: _`sub`_. To obtain more information about your user you can use the link: [Standard Claims](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) of the OpenID Connect protocol. You can achieve this with the AM User Mapper feature.
 {% endhint %}
 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-http-idp-mapping.png" alt=""><figcaption><p>HTTP IdP</p></figcaption></figure>
@@ -93,8 +97,6 @@ Only the _username_ attribute is available at this stage.
 You can test your HTTP connection using a web application created in AM.
 
 1.  In AM Console, click **Applications** and select your HTTP identity provider.
-
-
 
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-social-idp-list.png" alt=""><figcaption><p>Select application IdP</p></figcaption></figure>
 2.  Call the Login page (i.e `/oauth/authorize` endpoint) and try to sign in with the username/password form.

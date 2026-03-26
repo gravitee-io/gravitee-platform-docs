@@ -1,4 +1,5 @@
 ---
+description: Upgrade and migration guide for Upgrade Process.
 hidden: true
 noIndex: true
 ---
@@ -49,7 +50,7 @@ sudo chmod a+x /usr/local/bin/telepresence
 {% endtab %}
 
 {% tab title="Windows" %}
-The [MSI Installer](https://app.getambassador.io/download/tel2/windows/amd64/$dlVersion$/telepresence-setup.exe) can upgrade Telepresence, or if you installed it with Powershell:
+The MSI Installer can upgrade Telepresence, or if you installed it with Powershell:
 
 ```powershell
 # To install Telepresence, run the following commands

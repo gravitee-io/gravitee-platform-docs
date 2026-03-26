@@ -1,3 +1,7 @@
+---
+description: Configuration and usage guide for confluent and keycloak resources.
+---
+
 # Confluent and Keycloak resources
 
 {% tabs %}
@@ -7,7 +11,7 @@
 
 As of Gravitee 4.0, the ability to use Confluent Schema Registry as a resource is an Enterprise Edition capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:
 
-* [Refer to the EE vs OSS documentation](../../../overview/gravitee-apim-enterprise-edition/)
+* [Refer to the EE vs OSS documentation](../../../overview/gravitee-apim-enterprise-edition/README.md)
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
@@ -20,8 +24,6 @@ As of Gravitee 4.0, the ability to use Confluent Schema Registry as a resource i
 {% tab title="Keycloak Adapter" %}
 <figure><img src="../../../.gitbook/assets/resource_keycloak.png" alt=""><figcaption><p>Create a Keycloak Adapter resource</p></figcaption></figure>
 
-
-
 | Config param                  | Description                                           | Default |
 | ----------------------------- | ----------------------------------------------------- | ------- |
 | Resource name                 | The name of the resource                              | -       |
@@ -32,4 +34,3 @@ As of Gravitee 4.0, the ability to use Confluent Schema Registry as a resource i
 | Trust all                     | Trust all certificates, including self-signed         | true    |
 {% endtab %}
 {% endtabs %}
-

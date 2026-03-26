@@ -1,3 +1,7 @@
+---
+description: Configuration guide for geoip filtering.
+---
+
 # GeoIP Filtering
 
 {% hint style="warning" %}

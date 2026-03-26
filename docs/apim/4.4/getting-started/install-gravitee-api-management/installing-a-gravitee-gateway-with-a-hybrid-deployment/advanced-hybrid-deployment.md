@@ -7,7 +7,7 @@ description: Installing and configuring a hybrid API Management deployment
 ## Installing your Self-Hosted Hybrid Gateway
 
 {% hint style="danger" %}
-Make sure that the version you install is compatible with the Control-Plane SaaS version. For more information about compatibility, see [Components of Hybrid Architecture](https://documentation.gravitee.io/apim/getting-started/install-gravitee-api-management/installing-a-gravitee-gateway-with-a-hybrid-deployment#components-of-hybrid-architecture).
+Make sure that the version you install is compatible with the Control-Plane SaaS version. 
 {% endhint %}
 
 {% hint style="info" %}
@@ -28,7 +28,7 @@ Ensure that you add the Gravitee.io License file.
 {% endtab %}
 
 {% tab title="Docker" %}
-* Install Gravitee API Management (APIM). For more information about installing Gravitee APIM, see[ Installing Gravitee API Management with Docker](../../../installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-docker/).
+* Install Gravitee API Management (APIM). For more information about installing Gravitee APIM, see[ Installing Gravitee API Management with Docker](../../../installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-docker/README.md).
 * Download, and then mount the following plugins for the Gravitee Gateway:
   * Redis Repository. This repository is used for the rate limits' synchronized counters. To download this repository, go to [Gravitee.io Downloads](https://download.gravitee.io/#graviteeio-apim/plugins/repositories/gravitee-apim-repository-redis).
   * TCP Reporter. This repository is used to push events to Logstash. To download this repository, go to [Gravitee.io Downloads.](https://download.gravitee.io/#graviteeio-ee/apim/plugins/reporters/gravitee-reporter-tcp/)
@@ -125,7 +125,7 @@ services:
 ```
 {% endcode %}
 
-* Replace \<VERSION-ALIGNED-WITH-CONTROL-PLANE> with the version of the gateway that aligns with your control plane. For more information about compatibility versions, see[ Components of Hybrid Architecture](https://documentation.gravitee.io/apim/getting-started/install-gravitee-api-management/installing-a-gravitee-gateway-with-a-hybrid-deployment#components-of-hybrid-architecture).
+* Replace \<VERSION-ALIGNED-WITH-CONTROL-PLANE> with the version of the gateway that aligns with your control plane. 
 {% endtab %}
 
 {% tab title="VM" %}
@@ -201,7 +201,7 @@ services:
 ```
 {% endcode %}
 
-* Replace \<VERSION-ALIGNED-WITH-CONTROL-PLANE> with the version of the gateway that aligns with your control plane. For more information about compatibility versions, see[ Components of Hybrid Architecture](https://documentation.gravitee.io/apim/getting-started/install-gravitee-api-management/installing-a-gravitee-gateway-with-a-hybrid-deployment#components-of-hybrid-architecture).
+* Replace \<VERSION-ALIGNED-WITH-CONTROL-PLANE> with the version of the gateway that aligns with your control plane. 
 {% endtab %}
 
 {% tab title="VM" %}
@@ -268,7 +268,7 @@ services:
 ```
 {% endcode %}
 
-* Replace \<VERSION-ALIGNED-WITH-CONTROL-PLANE> with the version of the gateway that aligns with your control plane. For more information about compatibility versions, see[ Components of Hybrid Architecture](https://documentation.gravitee.io/apim/getting-started/install-gravitee-api-management/installing-a-gravitee-gateway-with-a-hybrid-deployment#components-of-hybrid-architecture).
+* Replace \<VERSION-ALIGNED-WITH-CONTROL-PLANE> with the version of the gateway that aligns with your control plane. 
 {% endtab %}
 
 {% tab title="VM" %}
@@ -328,7 +328,7 @@ services:
 ```
 {% endcode %}
 
-* Replace \<VERSION-ALIGNED-WITH-CONTROL-PLANE> with the version of the gateway that aligns with your control plane. For more information about compatibility versions, see[ Components of Hybrid Architecture](https://documentation.gravitee.io/apim/getting-started/install-gravitee-api-management/installing-a-gravitee-gateway-with-a-hybrid-deployment#components-of-hybrid-architecture).
+* Replace \<VERSION-ALIGNED-WITH-CONTROL-PLANE> with the version of the gateway that aligns with your control plane. 
 {% endtab %}
 
 {% tab title="VM" %}
@@ -490,7 +490,7 @@ services:
 ```
 {% endcode %}
 
-* Replace \<VERSION-ALIGNED-WITH-CONTROL-PLANE> with the version of the gateway that aligns with your control plane. For more information about compatibility versions, see[ Components of Hybrid Architecture](https://documentation.gravitee.io/apim/getting-started/install-gravitee-api-management/installing-a-gravitee-gateway-with-a-hybrid-deployment#components-of-hybrid-architecture).
+* Replace \<VERSION-ALIGNED-WITH-CONTROL-PLANE> with the version of the gateway that aligns with your control plane. 
 * Replace \<GIO\_LICENSE> with your license key.
 * Replace \<YOUR-COCKPIT-ENV-HRID>  with your cockpit ID.
 
@@ -646,7 +646,7 @@ services:
 {% endtab %}
 
 {% tab title="VM" %}
-* To install Redis, go to[ redis.io](https://redis.io/docs/getting-started/installation/).
+* To install Redis, go to [redis.io](https://redis.io/docs/latest/get-started/).
 {% endtab %}
 {% endtabs %}
 

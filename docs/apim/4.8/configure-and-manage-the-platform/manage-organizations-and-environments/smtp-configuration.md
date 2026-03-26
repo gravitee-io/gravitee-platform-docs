@@ -1,3 +1,7 @@
+---
+description: An overview about smtp configuration.
+---
+
 # SMTP Configuration
 
 ## Overview
@@ -6,12 +10,12 @@ This section shows the SMTP configuration used for sending email.
 
 You can configure SMTP using `gravitee.yml`, environment variables or directly in APIM Console. If SMTP is configured with `gravitee.yml` or environment variables, then that configuration will be used, even if settings exist in the database.
 
-SMTP can be applied at two different levels:&#x20;
+SMTP can be applied at two different levels:
 
 1. Environment
 2. Organization
 
-where the more specific level overrides the broader level:  Environment > Organization.
+where the more specific level overrides the broader level: Environment > Organization.
 
 Here's an example of configuring SMTP using the `gravitee.yml` file:
 

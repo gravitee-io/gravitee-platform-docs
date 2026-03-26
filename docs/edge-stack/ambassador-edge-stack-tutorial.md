@@ -1,4 +1,5 @@
 ---
+description: Step-by-step tutorial for Ambassador Edge Stack Tutorial.
 hidden: true
 noIndex: true
 ---

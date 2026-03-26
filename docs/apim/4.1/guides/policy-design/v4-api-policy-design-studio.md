@@ -24,7 +24,7 @@ Gravitee defines a flow as the method to control where, and under what condition
 * **Properties:** Define key-value pairs at the API level. These properties are read-only during the Gateway's execution of an API transaction.
 * **Resources:** Configure global resources to support your Gateway API's flows
 
-{% @arcade/embed flowId="7C6Cxc8zgfgs6uWfJTEf" url="https://app.arcade.software/share/7C6Cxc8zgfgs6uWfJTEf" %}
+{% @arcade/embed url="https://app.arcade.software/share/7C6Cxc8zgfgs6uWfJTEf" flowId="7C6Cxc8zgfgs6uWfJTEf" %}
 
 ## Design
 
@@ -41,7 +41,7 @@ You can create multiple policies for a single flow, each with a different config
 
 The sample Gateway API shown below has three plans: Keyless, API Key, and JWT. Flows can be set to target subscribers of any of these three plans, like the "sample API Key flow", or they can target all users of the API, such as the "sample HTTP Get flow" and "sample Websocket flow".
 
-<figure><img src="../../.gitbook/assets/policy studio_flow.png" alt=""><figcaption><p>Sample v4 Policy Studio</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/policy studio_flow (1).png" alt=""><figcaption><p>Sample v4 Policy Studio</p></figcaption></figure>
 
 ### Create a flow
 
@@ -94,7 +94,7 @@ Properties are key-value pairs you can define at the Gateway API level to implem
 
 To configure API properties, select **Properties** from the inner left nav. To hardcode properties, either specify properties one at a time or toggle from **Simple** to **Expert** mode and enter property definitions in `<key>=<value>` format.
 
-<figure><img src="../../.gitbook/assets/policy studio_properties expert (1).png" alt=""><figcaption><p>API properties expert mode</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/policy studio_properties expert.png" alt=""><figcaption><p>API properties expert mode</p></figcaption></figure>
 
 ### Encryption
 

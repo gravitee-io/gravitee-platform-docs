@@ -49,5 +49,5 @@ You'll be presented with the following options:
 {% hint style="success" %}
 **Success!**
 
-Once you've imported your API, it will be created as a private API, and you will be brought to that APIs menu and details page. From here, you can further [configure your API](../../api-configuration/), [design policies for that API](../../policy-design/), [expose that API](../../api-exposure-plans-applications-and-subscriptions/), etc.
+Once you've imported your API, it will be created as a private API, and you will be brought to that APIs menu and details page. From here, you can further [configure your API](../../api-configuration/README.md), [design policies for that API](../../policy-design/README.md), [expose that API](../../api-exposure-plans-applications-and-subscriptions/README.md), etc.
 {% endhint %}

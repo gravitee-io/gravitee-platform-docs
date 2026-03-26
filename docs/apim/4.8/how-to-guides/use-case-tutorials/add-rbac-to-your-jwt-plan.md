@@ -1,3 +1,7 @@
+---
+description: An overview about add rbac to your jwt plan.
+---
+
 # Add RBAC to your JWT Plan
 
 {% hint style="warning" %}

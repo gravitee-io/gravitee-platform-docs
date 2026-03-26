@@ -1,3 +1,7 @@
+---
+description: Overview of Gravitee Access Management.
+---
+
 # MFA Security
 
 ## Overview
@@ -50,8 +54,6 @@ The Brute Force Detection feature enables you to configure and limit the number 
 2. Select **User Accounts** under **SECURITY**.
 3. Enable **Brute Force Detection** in the **MFA** section.
 4.  Define your **Brute Force Detection** preferences.
-
-
 
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-mfa-security.png" alt=""><figcaption><p>Brute force detection preferences</p></figcaption></figure>
 

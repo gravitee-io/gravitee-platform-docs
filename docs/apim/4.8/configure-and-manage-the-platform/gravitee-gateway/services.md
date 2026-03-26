@@ -1,3 +1,7 @@
+---
+description: Configuration guide for services.
+---
+
 # Services
 
 You can update the default APIM Gateway default values. All services are enabled by default. To stop a service, you need to add the property '`enabled: false`' (you can see an example in the '`local`' service).

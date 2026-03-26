@@ -32,7 +32,7 @@ The first part of the Entrypoints step is to choose how you want to expose your 
 * **Proxy upstream protocol:** use this method if you want to use Gravitee to proxy backend REST APIs, SOAP APIs, WebSocket Server, gRPC, or GraphQL. You will not be able to enforce policies at the message level.
 * **Introspect messages from event-driven backend:** use this method if you want to expose backend event brokers, such as Kafka and MQTT.
 
-What you choose will dictate the kinds of entrypoints and endpoints that you can select later on. For more in-depth information on the exact support that these two methods offer, please [refer to this documentation. ](../#backend-exposure-methods)
+What you choose will dictate the kinds of entrypoints and endpoints that you can select later on. For more in-depth information on the exact support that these two methods offer, please [refer to this documentation. ](../README.md#backend-exposure-methods)
 
 <figure><img src="../../../.gitbook/assets/Screen Shot 2023-06-08 at 8.39.02 AM.png" alt=""><figcaption><p>v4 API creation wizard: select how you want your backend service exposed</p></figcaption></figure>
 
@@ -103,7 +103,7 @@ If you choose **Webhook** as an entrypoint, you will be brought to a page where 
     * (Optional) Proxy password: enter your proxy password in the **Proxy password** text field.
 
 **SOCKS proxy**\
-[A SOCKS proxy](https://hailbytes.com/how-to-use-socks4-and-socks5-proxy-servers-for-anonymous-web-browsing/) is a type of proxy server that uses the SOCKS protocol to tunnel traffic through an intermediary server.
+A SOCKS proxy is a type of proxy server that uses the SOCKS protocol to tunnel traffic through an intermediary server.
 
 </details>
 
@@ -381,9 +381,9 @@ On the **General** screen, define:
 * **Description**
 * **Characteristics**
 * **Subscription** options: choose whether to auto-validate subscriptions, require a message from consumers during subscription, and/or to present a message to the consumer upon subscription
-* **Access control**: here, select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../administration/#users-and-user-groups).
+* **Access control**: here, select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../administration/README.md#users-and-user-groups).
 
-<img src="../../../.gitbook/assets/image (3).png" alt="" data-size="original">
+<img src="../../../.gitbook/assets/image.png" alt="" data-size="original">
 
 
 
@@ -399,7 +399,7 @@ Once you're done, select Next, and move on to **OAuth2 authentication configurat
 * Choose whether or not to permit authorization headers to target endpoints&#x20;
 * Optionally, you can define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan's selection process. You will need to use the Gravitee Expression Language here. For more information on the Gravitee Expression Language, please refer to the Expression Language documentation.
 
-![](<../../../.gitbook/assets/image (1).png>)
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 After you're done with the configuration, select Next to define any additional restrictions for the plan. These Restrictions include:
 
@@ -412,7 +412,7 @@ After you're done with the configuration, select Next to define any additional r
 * **Quota**: defines a rate limit over a period of hours, days, or months. If you choose this, you'll need to then define the same settings as you would for rate limiting (see above)
 * **Resource filtering**: this allows you to restrict resources based on defined whitelist/allowed and/or blacklist/disallowed settings. These will be defined by path patterns and methods.
 
-![](<../../../.gitbook/assets/image (2).png>)
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -428,7 +428,7 @@ On the **General** screen, define:
 * **Description**
 * **Characteristics**
 * **Subscription** options: choose whether to auto-validate subscriptions, require a message from consumers during subscription, and/or to present a message to the consumer upon subscription
-* **Access control**: here, select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../administration/#users-and-user-groups).
+* **Access control**: here, select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../administration/README.md#users-and-user-groups).
 
 Once you're done with your general details, select **Next**. Then, you'll need to define your JWT authentication configuration. This will require you to:&#x20;
 
@@ -459,7 +459,7 @@ Once you're done configuring your JWT plan, select **Next**. You'll then define 
 * **Quota**: defines a rate limit over a period of hours, days, or months. If you choose this, you'll need to then define the same settings as you would for rate limiting (see above)
 * **Resource filtering**: this allows you to restrict resources based on defined whitelist/allowed and/or blacklist/disallowed settings. These will be defined by path patterns and methods.
 
-![](<../../../.gitbook/assets/image (2) (1).png>)
+<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -475,7 +475,7 @@ On the General page, define:
 * **Description**
 * **Characteristics**
 * **Subscription** options: choose whether to auto-validate subscriptions, require a message from consumers during subscription, and/or to present a message to the consumer upon subscription
-* **Access control**: here, select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../administration/#users-and-user-groups).
+* **Access control**: here, select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../administration/README.md#users-and-user-groups).
 
 After you're done, select **Next**, and you'll be taken to the **API key authentication** configuration page. Here, you need to:
 
@@ -507,7 +507,7 @@ On the General page, define:
 * **Description**
 * **Characteristics**
 * **Subscription** options: choose whether to auto-validate subscriptions, require a message from consumers during subscription, and/or to present a message to the consumer upon subscription
-* **Access control**: here, select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../administration/#users-and-user-groups).
+* **Access control**: here, select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../administration/README.md#users-and-user-groups).
 
 After you're done, select **Next,** and you'll be taken to the **Restriction** page. This is where you can define any additional restrictions that you want to be associated with your plan. your options include:
 

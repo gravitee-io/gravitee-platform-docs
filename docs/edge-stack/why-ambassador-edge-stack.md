@@ -1,4 +1,5 @@
 ---
+description: Overview of Why Ambassador Edge Stack.
 hidden: true
 noIndex: true
 ---
@@ -51,9 +52,8 @@ Ambassador Edge Stack takes full advantage of Kubernetes and Envoy Proxy.
 
 ## For more information
 
-[Deploy Ambassador Edge Stack today](./) and join the community [Slack Channel](http://a8r.io/slack).
+[Deploy Ambassador Edge Stack today](README.md) and join the community [Slack Channel](http://a8r.io/slack).
 
 Interested in learning more?
 
-* [Why did we start building Ambassador Edge Stack?](https://www.getambassador.io/blog/envoy-nginx-haproxy-comparison-why-edge-stack-chose-envoy)
 * [Ambassador Edge Stack Architecture overview](core-concepts/ambassador-edge-stack-architecture.md)

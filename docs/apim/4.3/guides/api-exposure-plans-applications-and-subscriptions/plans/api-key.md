@@ -10,7 +10,7 @@ The API key authentication type enforces verification of API keys during request
 
 ## Configuration
 
-An API Key plan offers only basic security, acting more like a unique identifier than a security token.&#x20;
+An API Key plan offers only basic security, acting more like a unique identifier than a security token.
 
 <figure><img src="../../../.gitbook/assets/plan_api key.png" alt=""><figcaption><p>API Key configuration</p></figcaption></figure>
 
@@ -23,7 +23,7 @@ By default, API keys are randomly generated for each subscription, but Gravitee 
 
 1. Log in to your APIM Console
 2. Select Settings from the left nav
-3.  Select Settings from the inner left nav:&#x20;
+3.  Select Settings from the inner left nav:
 
     <figure><img src="../../../.gitbook/assets/plan_key generation.png" alt=""><figcaption><p>API key generation settings</p></figcaption></figure>
 
@@ -37,11 +37,11 @@ The custom API key must have between 8 and 64 characters and be URL-compliant. `
 
 You can provide a custom API key when:
 
-*   Creating a subscription&#x20;
+*   Creating a subscription
 
     <figure><img src="../../../.gitbook/assets/plan_create subscription.png" alt=""><figcaption><p>Manually create a subscription</p></figcaption></figure>
 * Accepting a subscription
-*   Renewing a subscription&#x20;
+*   Renewing a subscription
 
     <figure><img src="../../../.gitbook/assets/plan_renew api key.png" alt=""><figcaption><p>Renew a subscription</p></figcaption></figure>
 
@@ -70,12 +70,10 @@ If shared API key mode is disabled, applications that have already been configur
 A shared API key may be used to call APIs that are owned by other API publishers. Consequently:
 
 * Shared API keys cannot be edited from an API publisher's subscriptions
-*   API publishers can read shared API keys, but cannot renew or revoke them&#x20;
+*   API publishers can read shared API keys, but cannot renew or revoke them
 
     <figure><img src="../../../.gitbook/assets/shared-api-key-3.png" alt=""><figcaption><p>Shared API key administration limitations</p></figcaption></figure>
-
-
-*   Shared API keys can only be renewed/revoked by the application owner, from the subscription view of their APIM Console or Developer Portal&#x20;
+*   Shared API keys can only be renewed/revoked by the application owner, from the subscription view of their APIM Console or Developer Portal
 
     <figure><img src="../../../.gitbook/assets/shared-api-key-4.png" alt=""><figcaption><p>Manage shared API keys in APIM Console</p></figcaption></figure>
 

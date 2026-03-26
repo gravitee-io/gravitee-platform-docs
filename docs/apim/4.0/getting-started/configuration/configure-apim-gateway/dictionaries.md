@@ -27,7 +27,7 @@ You can use dictionaries anywhere in APIM where [Gravitee Expression Language](.
 
 To create a bew dictionary, select **Settings** in the left-hand nav. Then, select **Dictionaries.**
 
-<figure><img src="../../../.gitbook/assets/2023-06-28_10-17-24 (1).gif" alt=""><figcaption><p>Access dictionary settings</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/2023-06-28_10-17-24 (1) (1).gif" alt=""><figcaption><p>Access dictionary settings</p></figcaption></figure>
 
 Then, select the <img src="../../../.gitbook/assets/Screen Shot 2023-06-28 at 10.18.10 AM.png" alt="" data-size="line">icon. You'll be brought to the **Create a new dictionary** page. Here, you'll need to define the **Name, Description,** and **Type.** You'll have two options for **Dictionary type:**
 

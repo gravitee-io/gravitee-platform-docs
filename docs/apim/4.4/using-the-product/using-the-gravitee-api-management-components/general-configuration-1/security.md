@@ -1,4 +1,8 @@
-# Security
+---
+description: Tutorial on Configuring the Security for the Gravitee API Management API.
+---
+
+# Configuring the Security for the Gravitee API Management API
 
 ## Brute-force attacks
 

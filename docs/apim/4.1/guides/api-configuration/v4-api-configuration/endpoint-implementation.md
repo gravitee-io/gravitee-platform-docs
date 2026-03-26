@@ -46,9 +46,9 @@ The `auto-offset-reset` of the API is managed at the endpoint level and cannot b
 
 **Offset selection**
 
-By default, the consumer that is created will either resume from where it left off or use the `auto-offset-reset` configuration to position itself at the beginning or end of the topic.&#x20;
+By default, the consumer that is created will either resume from where it left off or use the `auto-offset-reset` configuration to position itself at the beginning or end of the topic.
 
-Offsets are determined by partitions, resulting in numerous possible mappings. To mitigate the inherent complexity of offset selection, Gravitee has introduced a mechanism to target a specific position on a Kafka topic.&#x20;
+Offsets are determined by partitions, resulting in numerous possible mappings. To mitigate the inherent complexity of offset selection, Gravitee has introduced a mechanism to target a specific position on a Kafka topic.
 
 Given a compatible entrypoint (SSE, HTTP GET), and by using At-Most-Once or At-Least-Once QoS, it is possible to specify a last event ID. The format is encoded by default and follows the pattern:
 
@@ -76,9 +76,9 @@ A topic is retrieved from the API configuration and can be overridden, either on
 
 **Partitioning**
 
-The only supported method for targeting a specific partition is to define a key and rely on the built-in partitioning mechanism. Kafka's default partitioner strategy uses the key to compute the associated partition: `hash(key) % nm of partition`.&#x20;
+The only supported method for targeting a specific partition is to define a key and rely on the built-in partitioning mechanism. Kafka's default partitioner strategy uses the key to compute the associated partition: `hash(key) % nm of partition`.
 
-Repeated use of the same key on each message guarantees that messages are relegated to the same partition and order is maintained. Gravitee doesn't support overriding this mechanism to manually set the partition.&#x20;
+Repeated use of the same key on each message guarantees that messages are relegated to the same partition and order is maintained. Gravitee doesn't support overriding this mechanism to manually set the partition.
 
 To set a key on a message, the attribute `gravitee.attribute.kafka.recordKey` must be added to the message.
 
@@ -152,7 +152,7 @@ On each incoming request, the endpoint searches an internal cache for an existin
 
 <summary>Subscribe</summary>
 
-### Message Receiver
+#### Message Receiver
 
 On each incoming request, the [common messaging service](endpoint-implementation.md#common-to-subscribe-and-publish-1) is used to create a Dedicated Message Receiver. The Solace endpoint consumes messages based on the QoS:
 
@@ -168,7 +168,7 @@ A Persistent Message Receiver is created to keep track of messages.
 
 When the entrypoint supports manual ack, the endpoint will use it. Otherwise, the endpoint will use auto-ack for every message received in addition to a Durable Non Exclusive queue that follows the naming format `gravitee/gio-gateway/<clientIdentifier>`.
 
-### Topic
+#### Topic
 
 The topic is retrieved from the API configuration and cannot be overridden via attributes.
 
@@ -196,17 +196,17 @@ The topic is retrieved from the API configuration and cannot be overridden with 
 
 On each incoming request, the RabbitMQ endpoint retrieves information from the request to create a dedicated consumer that will persist until the request terminates. Subscription relies on:
 
-### Connection Name
+#### Connection Name
 
 A connection name is generated for the consumer per the format `gio-apim-consumer-<first part of uuid>`, e.g., `gio-apim-consumer-a0eebc99`.
 
-### Exchange
+#### Exchange
 
 The endpoint will declare the exchange with the options provided by the configuration at the API level. The exchange name can be overridden with the attribute `rabbitmq.exchange`**.**
 
 If the provided exchange options are incompatible with the existing exchange found on RabbitMQ, the request will be interrupted with an error.
 
-### Queue
+#### Queue
 
 The request's client identifier will be used to create a queue per the format `gravitee/gio-gateway/<clientIdentifier>`**.**
 
@@ -218,22 +218,22 @@ The created queue will have different options depending on the QoS applied on th
 
 **Other not supported:** If the queue already exists, the messages will be load-balanced between both clients.
 
-### Routing Key
+#### Routing Key
 
 In order to route the proper messages to the queue, a routing key from the API configuration is used to create the binding between the exchange and the queue. The routing key can be overridden with the attribute `rabbitmq.routingKey`
 
-### QoS
+#### QoS
 
 **None:** Applies a strategy with high throughput, low latency, no durability, and no reliability.
 
-* The broker disregards a message as soon as it sends it to the consumer.&#x20;
-* Only use this mode if downstream subscribers can consume messages at a rate exceeding the flow of inbound messages. Otherwise, messages will accumulate in the JVM process memory, leading to out-of-memory errors.&#x20;
+* The broker disregards a message as soon as it sends it to the consumer.
+* Only use this mode if downstream subscribers can consume messages at a rate exceeding the flow of inbound messages. Otherwise, messages will accumulate in the JVM process memory, leading to out-of-memory errors.
 * This mode uses auto-ack when registering the RabbitMQ Consumer.
 
 **Auto:** Applies a strategy that balances performance and quality.
 
 * When the entrypoint supports manual ack, the strategy will use it. Otherwise, it will use auto-ack from the RabbitMQ Reactor library.
-* Messages are acknowledged upon arrival in the `Flux#doOnNext` callback to promote a message flow that downstream subscribers can manage.&#x20;
+* Messages are acknowledged upon arrival in the `Flux#doOnNext` callback to promote a message flow that downstream subscribers can manage.
 * This mode does not use auto-ack when registering the RabbitMQ Consumer. Instead, `consumeAutoAck` means messages are automatically acknowledged by the library in one the Flux hooks.
 
 </details>

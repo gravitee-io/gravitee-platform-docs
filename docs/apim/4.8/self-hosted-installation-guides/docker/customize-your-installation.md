@@ -10,7 +10,7 @@ description: This page explains how to customize your Gravitee API Management on
   * For the API Gateway, `the plugin-ext` folder is located at `/gravitee/apim-gateway/plugins`.
   * For the Management API, the `plugin-ext` is located at `/gravitee/apim-management-api/plugins.`
 * You can download additional plugins from [the plugins download page](https://download.gravitee.io/#graviteeio-apim/plugins/).
-* For more information about plugin deployment, see [Deployment](../../plugins/#deployment).
+* For more information about plugin deployment, see [Deployment](../../plugins/deployment.md#deployment).
 
 {% hint style="warning" %}
 Some plugins need to be installed on both the API Gateway and the Management API. Installation details are provided in a specific plugin’s documentation.
@@ -22,7 +22,7 @@ Some plugins need to be installed on both the API Gateway and the Management API
 {% tab title="Use Redis with docker-compose" %}
 To use Redis with `docker compose`, complete the following steps:
 
-1.  In the `$services.gateway.environment` section of the Docker Compose file, add the following lines of code:\
+1.  In the `$services.gateway.environment` section of the Docker Compose file, add the following lines of code:
 
 
     ```yaml
@@ -33,16 +33,16 @@ To use Redis with `docker compose`, complete the following steps:
 
 
 
-    {% hint style="info" %}
-    Your Redis host and port may be different
-    {% endhint %}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p>Your Redis host and port may be different</p>
+    </div>
 2. Remove the following line of code: `gravitee_ratelimit_mongodb_uri`.
 {% endtab %}
 
 {% tab title="Use Redis with Docker images" %}
 To use Redis with Docker images, complete the following steps:
 
-1.  In the command that you use to start the API Gateway, add the following environment variables:\
+1.  In the command that you use to start the API Gateway, add the following environment variables:
 
 
     ```bash
@@ -53,9 +53,9 @@ To use Redis with Docker images, complete the following steps:
 
 
 
-    {% hint style="info" %}
-    Your Redis host and port may be different.
-    {% endhint %}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <p>Your Redis host and port may be different.</p>
+    </div>
 2. Remove the following line of code: `gravitee_ratelimit_mongodb_uri`.
 {% endtab %}
 {% endtabs %}
@@ -71,13 +71,15 @@ To use Redis with Docker images, complete the following steps:
 
 To download the driver, complete the following sub-steps:
 
-1. Download the correct driver for your database. For more information about downloading the correct drive, go to [Supported databases.](../../prepare-a-production-environment/repositories/#supported-databases)
+1. Download the correct driver for your database. For more information about downloading the correct drive, go to [Supported databases.](../../prepare-a-production-environment/repositories/README.md#supported-databases)
 2. Place the driver in the `plugins-ext` folder.
 
-{% hint style="info" %}
-* For the API Gateway, the `plugin-ext` folder is located at `/gravitee/apim-gateway/plugins`.
-* For the Management API, the `plugin-ext`folder is located at the `/gravitee/apim-management-api/plugins`.
-{% endhint %}
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info">
+      <ul>
+        <li>For the API Gateway, the <code>plugin-ext</code> folder is located at <code>/gravitee/apim-gateway/plugins</code>.</li>
+        <li>For the Management API, the <code>plugin-ext</code>folder is located at the <code>/gravitee/apim-management-api/plugins</code>.</li>
+      </ul>
+    </div>
 
 ### 2. Use JDBC
 
@@ -87,7 +89,7 @@ To use the JDBC driver, complete the following sub-steps based on if you install
 {% tab title="Use JDBC with docker-compose" %}
 To use JDBC with `docker-compose`, complete the following steps:
 
-1.  In the `$services.gateway.environment` section, add the following lines of code:\
+1.  In the `$services.gateway.environment` section, add the following lines of code:
 
 
     ```yaml
@@ -97,18 +99,20 @@ To use JDBC with `docker-compose`, complete the following steps:
 
 
 
-    {% hint style="danger" %}
-    * Ensure that your `gravitee_management_jdbc_url` is appropriate for your environment.
-    * Use `useSSL=false` with caution in production.
-    * Your host, port, username, and password may be different.
-    {% endhint %}
+    <div data-gb-custom-block data-tag="hint" data-style="danger" class="hint hint-danger">
+      <ul>
+        <li>Ensure that your <code>gravitee_management_jdbc_url</code> is appropriate for your environment.</li>
+        <li>Use <code>useSSL=false</code> with caution in production.</li>
+        <li>Your host, port, username, and password may be different.</li>
+      </ul>
+    </div>
 2. Remove the following line of code: `gravitee_management_mongodb_uri`.
 {% endtab %}
 
 {% tab title="Use JDBC with Docker images" %}
 To use JDBC with Docker images, complete the following steps:
 
-1.  In the command that you use to start the Gateway, add the following environment variables:\
+1.  In the command that you use to start the Gateway, add the following environment variables:
 
 
     ```bash
@@ -118,11 +122,13 @@ To use JDBC with Docker images, complete the following steps:
 
 
 
-    {% hint style="danger" %}
-    * Ensure that your`gravitee_management_jdbc_url` is appropriate for your environment.
-    * Use `useSSL=false` with caution in production.
-    * Your host, port, username, and password may be different.
-    {% endhint %}
+    <div data-gb-custom-block data-tag="hint" data-style="danger" class="hint hint-danger">
+      <ul>
+        <li>Ensure that your<code>gravitee_management_jdbc_url</code> is appropriate for your environment.</li>
+        <li>Use <code>useSSL=false</code> with caution in production.</li>
+        <li>Your host, port, username, and password may be different.</li>
+      </ul>
+    </div>
 2. Remove the following line of code: `gravitee_management_mongodb_uri`.
 {% endtab %}
 {% endtabs %}

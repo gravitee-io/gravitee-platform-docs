@@ -1,4 +1,5 @@
 ---
+description: An overview about ---.
 hidden: true
 ---
 
@@ -27,11 +28,11 @@ A typical usage would be to allow access to all paths (`/**`) but in read-only m
 
 #### "Deny access to all, except allowed users"
 
-Another typical use case is to deny access to all, except specifically allowed users.  In this scenario, we want to generically deny all access to any endpoint within the API, but allow specific users to specific paths/methods of the API.  The below screenshot and policy configuration code describes our above scenario. &#x20;
+Another typical use case is to deny access to all, except specifically allowed users. In this scenario, we want to generically deny all access to any endpoint within the API, but allow specific users to specific paths/methods of the API. The below screenshot and policy configuration code describes our above scenario.
 
-We have added the Resource Filtering policy to our JWT plan, and defined a Trigger condition on the policy: `{#context.attributes['jwt.claims']['scope'].contains('getInventory') == false}`. &#x20;
+We have added the Resource Filtering policy to our JWT plan, and defined a Trigger condition on the policy: `{#context.attributes['jwt.claims']['scope'].contains('getInventory') == false}`.
 
-If the authenticated client (i.e.: the access token) does not have the custom claim named `scope`, or the custom claim does not contain the value  `getInventory`, then the policy is triggered and every endpoint path (`/**`) will be blacklisted, and the client will receive a <mark style="color:red;">`403`</mark> or <mark style="color:red;">`405`</mark> response status.
+If the authenticated client (i.e.: the access token) does not have the custom claim named `scope`, or the custom claim does not contain the value `getInventory`, then the policy is triggered and every endpoint path (`/**`) will be blacklisted, and the client will receive a <mark style="color:red;">`403`</mark> or <mark style="color:red;">`405`</mark> response status.
 
 However, if the client's access token includes a custom claim `scope`, and it contains `getInventory`, then the Resource Filtering is NOT applied, and the client is allowed access to any specific endpoint path (within this API).
 

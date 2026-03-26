@@ -1,3 +1,7 @@
+---
+description: Overview of FranceConnect.
+---
+
 # FranceConnect
 
 ## Overview

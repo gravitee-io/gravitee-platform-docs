@@ -1,3 +1,7 @@
+---
+description: An overview about overview.
+---
+
 # Overview
 
 ## Gravitee API definitions
@@ -10,7 +14,7 @@ A Gravitee API definition is a JSON representation of everything that the APIM G
 
 The v2 API definition hinges on the following:
 
-* Endpoints refer to the final backend target or data source of a request&#x20;
+* Endpoints refer to the final backend target or data source of a request
 * There is no concept of entrypoints
 
 Because there is no decoupling of entrypoints and endpoints, v2 APIs do not support protocol mediation between event brokers and messaging services. When creating v2 APIs, you are limited to proxying backend APIs that communicate over HTTP by exposing Gateway APIs that communicate over HTTP. Policy enforcement at the request/response levels is fully supported, but there is no support for message-level policies.
@@ -32,7 +36,7 @@ Gravitee Gateway entrypoints and endpoints are decoupled.
 
 Decoupled entrypoints and endpoints allow you to use different protocols for the entrypoint and endpoint of a single API. Gravitee uses this as the basis for protocol mediation. Protocol mediation is the ability to mediate between the two different protocols used by the consumer and a backend service.
 
-An example of protocol mediation is a Kafka topic that is consumable over WebSockets. In this case, you would choose the WebSockets entrypoint and the Kafka endpoint.&#x20;
+An example of protocol mediation is a Kafka topic that is consumable over WebSockets. In this case, you would choose the WebSockets entrypoint and the Kafka endpoint.
 
 As another example, a backend REST API can be exposed as a Gateway REST API. Your entrypoint would be the URL location of your Gateway API, otherwise known as the context path. The endpoint would be your target URL, which is the URL for the backend resource that you want to expose.
 
@@ -60,8 +64,8 @@ In addition to message introspection, Gravitee offers both HTTP and TCP proxy su
 
 {% tabs %}
 {% tab title="HTTP proxy APIs" %}
-* Traditional proxy APIs&#x20;
-* Use synchronous HTTP requests&#x20;
+* Traditional proxy APIs
+* Use synchronous HTTP requests
 * Support transformation to enable traffic shaping, analytics, and the application of policies
 {% endtab %}
 

@@ -52,13 +52,13 @@ The objective is not to apply all of the recommendations, but to ensure that all
 
 5. Configuration settings
 
-* [ ] [Change the property encryption secret](settings/#property-encryption)
-* [ ] [Enable documentation page sanitizer](settings/#documentation-sanitizer)
-* [ ] [Disable Webhook notifier or configure an authorized list of URLs](settings/#notifiers)
+* [ ] [Change the property encryption secret](settings/property-encryption.md#property-encryption)
+* [ ] [Enable documentation page sanitizer](settings/documentation-sanitizer.md#documentation-sanitizer)
+* [ ] [Disable Webhook notifier or configure an authorized list of URLs](settings/notifiers.md#notifiers)
 
 6. APIM best practices
 
-* [ ] [Apply best practices when designing and deploying APIs](settings/#api-design)
+* [ ] [Apply best practices when designing and deploying APIs](settings/api-design.md#api-design)
 
 </details>
 

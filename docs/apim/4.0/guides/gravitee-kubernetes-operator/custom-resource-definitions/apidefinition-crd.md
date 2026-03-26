@@ -1,3 +1,7 @@
+---
+description: Tutorial on ApiDefinition CRD.
+---
+
 # ApiDefinition CRD
 
 ## How to use the API Definition (`ApiDefinition`) custom resource

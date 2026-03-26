@@ -1,3 +1,7 @@
+---
+description: An overview about overview.
+---
+
 # Overview
 
 ## What is a hybrid deployment?
@@ -42,6 +46,6 @@ The following table lists the Bridge versions supported by each Gateway version.
 
 ## Architecture
 
-<img src="../.gitbook/assets/file.excalidraw (18).svg" alt="Hybrid deployment architecture" class="gitbook-drawing">
+![Hybrid deployment architecture](<../.gitbook/assets/file.excalidraw (4) (1).svg>)
 
-<figure><img src="../.gitbook/assets/image (136).png" alt="Diagram showing the hybrid architecture"><figcaption><p>Hybrid architecture connections</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (135).png" alt="Diagram showing the hybrid architecture"><figcaption><p>Hybrid architecture connections</p></figcaption></figure>

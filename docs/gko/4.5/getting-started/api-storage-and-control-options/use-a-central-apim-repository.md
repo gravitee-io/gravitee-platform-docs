@@ -1,3 +1,7 @@
+---
+description: Overview of APIM.
+---
+
 # Use a central APIM repository
 
 The Gravitee platform can be set up such that GKO and the Gateway use the APIM repository (e.g. MongoDB database) as the source of configuration to which GKO sends APIs and deployment events (start/stop), and from which the API Gateway loads APIs and deployment events.

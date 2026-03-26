@@ -1,4 +1,5 @@
 ---
+description: Overview of Istio Integration.
 noIndex: true
 ---
 
@@ -8,7 +9,7 @@ Ambassador Edge Stack and Istio: Edge Proxy and Service Mesh together in one. Am
 
 Ambassador Edge Stack and Istio can be deployed together on Kubernetes. In this configuration, Ambassador Edge Stack manages traditional edge functions such as authentication, TLS termination, and edge routing. Istio mediates communication from Ambassador Edge Stack to services, and communication between services.
 
-This allows the operator to have the best of both worlds: a high performance, modern edge service (Ambassador Edge Stack) combined with a state-of-the-art service mesh (Istio). While Istio has introduced a [Gateway](https://istio.io/latest/docs/tasks/traffic-management/ingress/ingress-control/) abstraction, Ambassador Edge Stack still has a much broader feature set for edge routing than Istio. For more on this topic, see our blog post on [API Gateway vs Service Mesh](https://www.getambassador.io/blog/edge-stack-istio-kubernetes-microservices-integration).
+This allows the operator to have the best of both worlds: a high performance, modern edge service (Ambassador Edge Stack) combined with a state-of-the-art service mesh (Istio). While Istio has introduced a [Gateway](https://istio.io/latest/docs/tasks/traffic-management/ingress/ingress-control/) abstraction, Ambassador Edge Stack still has a much broader feature set for edge routing than Istio.
 
 This guide explains how to take advantage of both Ambassador Edge Stack and Istio to have complete control and observability over how requests are made in your cluster:
 
@@ -154,12 +155,11 @@ After configuring Ambassador Edge Stack for Istio integration, the Istio mTLS ce
 
 * Both the `istio-proxy` sidecar and Ambassador Edge Stack mount the `istio-certs` volume at `/etc/istio-certs`.
 * The `istio-proxy` sidecar saves the mTLS certificates into `/etc/istio-certs` (per the `OUTPUT_CERTS` environment variable).
-*   Ambassador Edge Stack reads the mTLS certificates from `/etc/istio-certs` (per the `AMBASSADOR_ISTIO_SECRET_DIR` environment variable) and creates a Secret named `istio-certs`.\
+*   Ambassador Edge Stack reads the mTLS certificates from `/etc/istio-certs` (per the `AMBASSADOR_ISTIO_SECRET_DIR` environment variable) and creates a Secret named `istio-certs`.
 
-
-    {% hint style="warning" %}
-    At present, the Secret name `istio-certs` cannot be changed.
-    {% endhint %}
+    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning">
+      <p>At present, the Secret name <code>istio-certs</code> cannot be changed.</p>
+    </div>
 
 To make use of the `istio-certs` Secret, create a `TLSContext` referencing it:
 
@@ -221,7 +221,7 @@ To configure a `Mapping` to use mTLS, you need to use the `tls` element of the `
 tls: istio-upstream
 ```
 
-For example, if you have installed the Quote service as described on the [Getting Started](../../) page, you will have a similar `Mapping`:
+For example, if you have installed the Quote service as described on the [Getting Started](../../README.md) page, you will have a similar `Mapping`:
 
 ```yaml
 apiVersion: getambassador.io/v3alpha1

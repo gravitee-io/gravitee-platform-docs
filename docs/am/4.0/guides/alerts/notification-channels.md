@@ -1,3 +1,7 @@
+---
+description: Overview of Slack.
+---
+
 # Notification Channels
 
 ## Overview

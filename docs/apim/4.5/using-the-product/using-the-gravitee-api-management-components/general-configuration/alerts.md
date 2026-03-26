@@ -1,3 +1,7 @@
+---
+description: Configuration and usage guide for alerts.
+---
+
 # Alerts
 
 {% hint style="info" %}

@@ -1,3 +1,7 @@
+---
+description: An overview about General Info Settings.
+---
+
 # General Info Settings
 
 {% hint style="info" %}

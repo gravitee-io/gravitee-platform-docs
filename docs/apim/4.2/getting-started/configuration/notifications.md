@@ -12,7 +12,7 @@ Gravitee allows you to set up alerts and notifications based on events recognize
 
 ## Configure notifications for your APIs
 
-{% @arcade/embed flowId="vLOPiPtuGAbHWNJj6LRN" url="https://app.arcade.software/share/vLOPiPtuGAbHWNJj6LRN" %}
+{% @arcade/embed url="https://app.arcade.software/share/vLOPiPtuGAbHWNJj6LRN" flowId="vLOPiPtuGAbHWNJj6LRN" %}
 
 APIM includes 3 categories of notifications and 3 types of notifiers. Their purpose and configuration are described below, along with customization via templates.
 

@@ -1,3 +1,7 @@
+---
+description: Overview of API categorization
+---
+
 # Categorizing Web APIs
 
 Web APIs are generally categorized as synchronous or asynchronous and stateless or stateful. These concepts are often subject to cross-pollination (e.g. all stateless APIs are synchronous) when, in actuality, they are entirely independent. Their respective details and relationships are further explored below in [synchronous vs asynchronous](categorizing-web-apis.md#synchronous-vs-asynchronous-9) and [stateful vs stateless web APIs](categorizing-web-apis.md#stateful-vs-stateless-web-apis-13).
@@ -112,7 +116,7 @@ To demonstrate the benefits of EDA, consider an example use case where an IoT de
 For use cases that focus on real-time applications, event-driven architecture and asynchronous APIs enable communication that is significantly more efficient. EDA is a novel way to structure an application and can lead to both internal and external integration challenges. The decision to use async communication is context-dependent and a single system often leverages both synchronous and asynchronous APIs.
 
 {% hint style="info" %}
-Generally, the HTTP application protocol is conceptualized and discussed as a synchronous protocol. However, there are different versions of HTTP such as HTTP/1.1 (currently the most widely used version), HTTP/2.0, and HTTP/3.0. HTTP/2.0 functionality like multiplexing begins to break down the strict request/response model because multiple requests can be bundled together and returned in any order. The [evolution of HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics\_of\_HTTP/Evolution\_of\_HTTP) serves to caution against oversimplifying protocol classifications.
+Generally, the HTTP application protocol is conceptualized and discussed as a synchronous protocol. However, there are different versions of HTTP such as HTTP/1.1 (currently the most widely used version), HTTP/2.0, and HTTP/3.0. HTTP/2.0 functionality like multiplexing begins to break down the strict request/response model because multiple requests can be bundled together and returned in any order. The evolution of HTTP serves to caution against oversimplifying protocol classifications.
 {% endhint %}
 
 ## **Reactive programming**

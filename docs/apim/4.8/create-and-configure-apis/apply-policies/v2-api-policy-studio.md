@@ -1,9 +1,13 @@
+---
+description: An overview about v2 api policy studio.
+---
+
 # v2 API Policy Studio
 
 {% hint style="warning" %}
 **Legacy version**
 
-The v2 Policy Studio can only be used to design flows for APIs using the v2 API definition and does not support applying policies at the message level or for pub/sub use cases. Instead, please refer to the [v4 Policy Studio](v4-api-policy-studio.md) documentation.
+The v2 Policy Studio can only be used to design flows for APIs using the v2 API definition and does not support applying policies at the message level or for pub/sub use cases. Instead, please refer to the [v4 Policy Studio](4.9-v4-api-policy-studio.md) documentation.
 {% endhint %}
 
 ## Overview
@@ -12,11 +16,11 @@ The v2 Policy Studio consists of the following sections:
 
 * [**Design**](v2-api-policy-studio.md#design)**:** Manage all flows associated with your Gateway API
 * [**Configuration**](v2-api-policy-studio.md#configure-flow-mode)**:** Modify settings related to flow execution
-* [**Debug**](v2-api-policy-studio.md#debug-mode)**:** Test and troubleshoot your Gateway APIs
+* [**Debug**](debug-mode.md#debug-mode)**:** Test and troubleshoot your Gateway APIs
 
 ## Design
 
-Flows are created when policies are added to the request and/or response phases and targeted by path, HTTP method(s), or via [Gravitee's Expression Language](../../gravitee-expression-language.md). A single API supports multiple flows, which can be set to target subscribers of an individual plan or all users of the API.&#x20;
+Flows are created when policies are added to the request and/or response phases and targeted by path, HTTP method(s), or via [Gravitee's Expression Language](../../gravitee-expression-language.md). A single API supports multiple flows, which can be set to target subscribers of an individual plan or all users of the API.
 
 To create a flow and add policies:
 
@@ -25,7 +29,7 @@ To create a flow and add policies:
 3. Select the API for which to design a flow
 4. Select **Policy Studio** from the inner left nav
 5. Select the **Design** tab
-6.  In the **Flows** section, select the **+** icon, then configure the flow:&#x20;
+6.  In the **Flows** section, select the **+** icon, then configure the flow:
 
     <figure><img src="../../.gitbook/assets/v2 design.png" alt=""><figcaption><p>Configure a flow</p></figcaption></figure>
 
@@ -36,11 +40,11 @@ To create a flow and add policies:
     * **Conditions:** Define specific conditions that will trigger flow execution using Gravitee's Expression Language (EL).
 7. To add a policy to the flow, drag-and-drop the policy that you want to enforce onto either the request or response phase
 8. To configure the policy, select it and use the menu beneath the flow map
-9. Select the **checkmark icon**, then click **Save** in the pop-up window&#x20;
+9. Select the **checkmark icon**, then click **Save** in the pop-up window
 10. Redeploy your API to the Gateway for the changes to take effect
 
 {% hint style="info" %}
-* A policy added to the request phase will be enforced by the Gateway at the time of the request, before a client is given access to the API.&#x20;
+* A policy added to the request phase will be enforced by the Gateway at the time of the request, before a client is given access to the API.
 * If a policy is added to the response phase, the Gateway will enforce the policy after the request is allowed, but before the response is returned to the client.
 {% endhint %}
 
@@ -94,7 +98,7 @@ To modify the flow mode:
 2. Selecting **APIs** from the left nav
 3. Select the API for which to design a flow
 4. Select **Policy Studio** from the inner left nav
-5. Select the **Configuration** tab&#x20;
-6.  Change the **Flow Mode** to either **DEFAULT** or **BEST\_MATCH** using the drop-down menu&#x20;
+5. Select the **Configuration** tab
+6.  Change the **Flow Mode** to either **DEFAULT** or **BEST\_MATCH** using the drop-down menu
 
     <figure><img src="../../.gitbook/assets/v2 PS configuration.png" alt=""><figcaption><p>Configure Flow Mode</p></figcaption></figure>

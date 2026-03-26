@@ -8,7 +8,7 @@ description: This article walks through how to configure v4 API entrypoints
 
 In Gravitee, Gateway entrypoints define the protocol and configuration settings by which the API consumer accesses the Gateway API. The Gateway entrypoint dictates how the backend API is exposed through the Gateway.
 
-After you've created your Gateway API and selected your entrypoint(s), you can configure them on the **API** page of the Developer Portal.  This article walks through that process for configuring both v4 Message API entrypoints and v4 Proxy API entrypoints.
+After you've created your Gateway API and selected your entrypoint(s), you can configure them on the **API** page of the Developer Portal. This article walks through that process for configuring both v4 Message API entrypoints and v4 Proxy API entrypoints.
 
 ## Configure v4 message API entrypoints
 
@@ -17,7 +17,7 @@ After you've created your Gateway API and selected your entrypoint(s), you can c
 
 As of Gravitee 4.1, the ability to create APIs with message API entrypoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise Edition and what's included in various enterprise packages, please:
 
-* [Refer to the EE vs OSS documentation](../../../overview/ee-vs-oss/)
+* [Refer to the EE vs OSS documentation](../../../overview/ee-vs-oss/README.md)
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
@@ -87,7 +87,7 @@ If you chose **Webhook** as an entrypoint, you will be brought to a page where y
 * **Proxy Options**
   * Use the drop-down menu to select a proxy option: **No proxy**, **Use proxy configured at system level**, or **Use proxy for client connections**.
     * If you chose **Use proxy for client connections**, define the following:
-      * **Proxy type:** Choose between **HTTP**, **SOCKS4** and **SOCKS5**. A [**SOCKS proxy**](https://hailbytes.com/how-to-use-socks4-and-socks5-proxy-servers-for-anonymous-web-browsing/) is a type of proxy server that uses the SOCKS protocol to tunnel traffic through an intermediary server.
+      * **Proxy type:** Choose between **HTTP**, **SOCKS4** and **SOCKS5**. A **SOCKS proxy** is a type of proxy server that uses the SOCKS protocol to tunnel traffic through an intermediary server.
       * **Proxy host:** Enter your proxy host in the text field.
       * **Proxy port:** Enter your proxy port in the text field.
       * (Optional) **Proxy username:** Enter your proxy username in the text field.
@@ -193,11 +193,11 @@ When you are done configuring your entrypoints, make sure to select **Save chang
 
 ## Configure v4 Proxy API entrypoints
 
-To alter v4 Proxy API entrypoints, select your API, and then select **General** from the **Entrypoints** category in the left-hand nav.&#x20;
+To alter v4 Proxy API entrypoints, select your API, and then select **General** from the **Entrypoints** category in the left-hand nav.
 
-<figure><img src="../../../.gitbook/assets/virtual host_on (1).png" alt=""><figcaption><p>v4 proxy API entrypoint configuration</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/virtual host_on (1) (1).png" alt=""><figcaption><p>v4 proxy API entrypoint configuration</p></figcaption></figure>
 
-From here, you can:&#x20;
+From here, you can:
 
 * Alter existing entrypoints by changing the context path
 * Add a new entrypoint by clicking **Add context path** and then adding a new context path

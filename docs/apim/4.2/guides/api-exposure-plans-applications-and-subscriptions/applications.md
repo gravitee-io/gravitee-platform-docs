@@ -70,7 +70,7 @@ Additional Oauth terminology:
 
 As of Gravitee 4.0, Dynamic Client Registration is an Enterprise Edition capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:
 
-* [Refer to the EE vs OSS documentation](../../overview/gravitee-apim-enterprise-edition/)
+* [Refer to the EE vs OSS documentation](../../overview/gravitee-apim-enterprise-edition/README.md)
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
@@ -87,7 +87,7 @@ You are presented with the following options when configuring a client registrat
 
 The **General** section allows you to set a **Name** and **Description** for your client registration provider.
 
-The **Configuration** section first requires you to set an **OpenID Connect Discovery Endpoint** which is the URL where an OIDC-compatible authorization server publishes its metadata. The metadata is a JSON listing of the OpenID/OAuth endpoints, supported scopes and claims, public keys used to sign the tokens, and other details. This information can be used to construct a request to the authorization server. The field names and values are defined in the [OIDC Discovery Specification.](https://openid.net/specs/openid-connect-discovery-1\_0.html)
+The **Configuration** section first requires you to set an **OpenID Connect Discovery Endpoint** which is the URL where an OIDC-compatible authorization server publishes its metadata. The metadata is a JSON listing of the OpenID/OAuth endpoints, supported scopes and claims, public keys used to sign the tokens, and other details. This information can be used to construct a request to the authorization server. The field names and values are defined in the [OIDC Discovery Specification.](https://openid.net/specs/openid-connect-discovery-1_0.html)
 
 Once the endpoint is set, the configuration options branch in two directions based on the **Initial Access Token Provider: Client Credentials** or direct provisioning of an **Initial Access Token.** Both of these options are detailed further in the [following section](applications.md#dcr-initial-access-token-flows).
 
@@ -243,11 +243,11 @@ When a new application is created, only the application’s creator, the _primar
 
 By default, APIM includes three membership roles:
 
-| Role              | Description                                                                                                                               |
-| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| Role              | Description                                                                                                                                |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | **Primary owner** | When an application is created, the primary owner is the creator of the application. Primary owner can do all possible actions for an API. |
-| **Owner**         | Owner is a lightest version of the primary owner role. Owner can do all possible actions except delete the application.                   |
-| **User**          | A user is a person who can access the application in read only mode and use the application to subscribe to an API.                       |
+| **Owner**         | Owner is a lightest version of the primary owner role. Owner can do all possible actions except delete the application.                    |
+| **User**          | A user is a person who can access the application in read only mode and use the application to subscribe to an API.                        |
 
 {% hint style="info" %}
 Only users with the required permissions can manage application members. For more details, see the [User Management and Permissions](../administration/user-management-and-permissions.md) section of the Administration Guide.

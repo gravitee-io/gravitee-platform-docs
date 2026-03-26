@@ -19,7 +19,7 @@ Alternatively, you can install the full APIM stack and dependencies as detailed 
 
 ### Prerequisites
 
-The following steps assume you have configured your package management system as described in [Configure the package management system (yum).](../#configure-the-package-management-system-yum)
+The following steps assume you have configured your package management system as described in [Configure the package management system (yum).](../README.md#configure-the-package-management-system-yum)
 
 ### Install the APIM Gateway package
 
@@ -86,7 +86,7 @@ sudo systemctl restart graviteeio-apim-gateway
 
 ### Prerequisites
 
-The following steps assume you have configured your package management system as described in [Configure the package management system (yum).](../#configure-the-package-management-system-yum)
+The following steps assume you have configured your package management system as described in [Configure the package management system (yum).](../README.md#configure-the-package-management-system-yum)
 
 ### Install the Management API package
 
@@ -155,8 +155,8 @@ sudo systemctl restart graviteeio-apim-rest-api
 
 Before you install the Management Console, you must complete the following configuration.
 
-1. Ensure you have configured your package management system, as described in [Configure the package management system (yum).](../#configure-the-package-management-system-yum)
-2. Install and run the [management API](broken-reference/).
+1. Ensure you have configured your package management system, as described in [Configure the package management system (yum).](../README.md#configure-the-package-management-system-yum)
+2. Install and run the [management API](README.md).
 3. Install Nginx by running the following commands:
 
 ```sh
@@ -229,8 +229,8 @@ sudo systemctl restart nginx
 
 Before you install the Developer Portal, you must complete the following configuration.
 
-1. Ensure you have configured your package management system, as described in [Configure the package management system (yum).](../#configure-the-package-management-system-yum)
-2. Install and run the [management API](broken-reference/).
+1. Ensure you have configured your package management system, as described in [Configure the package management system (yum).](../README.md#configure-the-package-management-system-yum)
+2. Install and run the [management API](README.md).
 3. Install Nginx by running the following commands:
 
 ```sh
@@ -298,5 +298,5 @@ sudo systemctl restart nginx
 ```
 
 {% hint style="success" %}
-Congratulations! Now that APIM is up and running, check out the [Tutorials](../../../tutorials/) for your next steps.
+Congratulations! Now that APIM is up and running, check out the Tutorials for your next steps.
 {% endhint %}

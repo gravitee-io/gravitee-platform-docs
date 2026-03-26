@@ -1,4 +1,5 @@
 ---
+description: Overview of Ambassador Cloud Developer Portal Overview.
 hidden: true
 noIndex: true
 ---

@@ -1,3 +1,7 @@
+---
+description: An overview about Configuring Gravitee API Management Cache.
+---
+
 # Configuring Gravitee API Management Cache
 
 ## Overview
@@ -5,7 +9,7 @@
 Caches are used to store different types of data in Gravitee API Management (APIM). The following Cache Managers are available as plugins:
 
 * **Standalone Cache Manager:** The default plugin. The cache will not be distributed and will always remain local to the node (in-memory).
-* **Hazelcast Cache Manager:** Must be added to the distribution and enabled by setting `cache.type` to `hazelcast`. The cache can be either local (in-memory) or distributed (Hazelcast IMap).&#x20;
+* **Hazelcast Cache Manager:** Must be added to the distribution and enabled by setting `cache.type` to `hazelcast`. The cache can be either local (in-memory) or distributed (Hazelcast IMap).
 
 ## Configuration
 
@@ -62,7 +66,7 @@ More information can be found in the [Hazelcast documentation](https://docs.haze
 API publishers can [create Cache resources](../using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/resources.md#how-to-create-a-resource) to:
 
 * Cache upstream of a response with the [Cache policy](../using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/a-c/cache.md)
-* Cache access tokens with the [OAuth2 policy](../using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/l-p/oauth2/)
+* Cache access tokens with the [OAuth2 policy](../using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/l-p/oauth2/README.md)
 
 The default distribution includes the [Cache resource](../using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/resources.md#cache) plugin, which stores content in-memory and is locally managed on each Gateway node of the installation.
 
@@ -70,4 +74,4 @@ Configuration of Cache resources cannot be managed using the `hazelcast.xml` fil
 
 ## Persistent cache
 
-APIM also supports the Gravitee [Redis Cache resource](../using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/resources.md#cache-redis) plugin, based on [Redis](https://redis.io/documentation). This plugin is not in the default distribution, but can be [downloaded](https://download.gravitee.io/#graviteeio-apim/plugins/resources/gravitee-resource-cache-redis/) and deployed with these [instructions](../overview/plugins-and-api-definitions-for-gravitee-api-management/plugins/#deployment).
+APIM also supports the Gravitee [Redis Cache resource](../using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/resources.md#cache-redis) plugin, based on [Redis](https://redis.io/documentation). This plugin is not in the default distribution, but can be [downloaded](https://download.gravitee.io/#graviteeio-apim/plugins/resources/gravitee-resource-cache-redis/) and deployed with these [instructions](../overview/plugins-and-api-definitions-for-gravitee-api-management/plugins/deploying-plugins.md#deployment).

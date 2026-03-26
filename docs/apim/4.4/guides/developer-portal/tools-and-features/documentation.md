@@ -1,3 +1,7 @@
+---
+description: An overview about Viewing API Documentation with Gravitee Developer Portal.
+---
+
 # Viewing API Documentation with Gravitee Developer Portal
 
 ## Overview

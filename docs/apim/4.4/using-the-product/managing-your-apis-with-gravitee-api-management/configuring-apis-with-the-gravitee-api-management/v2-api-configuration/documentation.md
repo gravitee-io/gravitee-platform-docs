@@ -18,18 +18,16 @@ To import documentation:
 4. Select **Documentation** from the inner left nav
 5. Select the **Pages** tab
 6. Choose one of the following two options:
-   *   Click on **Import multiple files**&#x20;
+   *   Click on **Import multiple files**
 
        <figure><img src="../../../../.gitbook/assets/v2 docs_import multiple files.png" alt=""><figcaption><p>Import multiple files</p></figcaption></figure>
-
-
 
        * Toggle **Publish all imported pages** ON or OFF
        * To **Select your source**, choose from: Bitbucket, git, GitHub, GitLab, or a URL
        * Fill in the information appropriate to and required by your selection
        * Click **IMPORT**
    * Import individual files while creating new API documentation:
-     *   Under the **Pages** tab, click the <img src="../../../../.gitbook/assets/Screen Shot 2023-06-08 at 3.06.53 PM.png" alt="" data-size="line"> icon&#x20;
+     *   Under the **Pages** tab, click the <img src="../../../../.gitbook/assets/Screen Shot 2023-06-08 at 3.06.53 PM.png" alt="" data-size="line"> icon
 
          <figure><img src="../../../../.gitbook/assets/v2 docs_create.png" alt=""><figcaption><p>Import via page creation</p></figcaption></figure>
      * Choose from **ASCIIDOC**, **ASYNCAPI**, **SWAGGER**, and **MARKDOWN**
@@ -67,7 +65,7 @@ To add metadata:
 3. Select your API
 4. Select **Documentation** from the inner left nav
 5. Select the **Metadata** tab
-6.  Click on **+ Add API Metadata**&#x20;
+6.  Click on **+ Add API Metadata**
 
     <figure><img src="../../../../.gitbook/assets/v2 docs_metadata.png" alt=""><figcaption><p>Add API metadata</p></figcaption></figure>
 7. Choose a name for your API, select the format (string, numeric, boolean, date, mail, url), and define the value

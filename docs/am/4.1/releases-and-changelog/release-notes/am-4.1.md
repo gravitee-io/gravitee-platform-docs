@@ -8,7 +8,7 @@ description: >-
 
 ## MFA Challenge policy
 
-The MFA Challenge policy is an [Enterprise Edition](../../overview/open-source-vs-enterprise-am/) policy plugin. It allows a security domain or application owner to apply an MFA step to enforce security and ensure that the user account has not been compromised. The MFA Factor used for the challenge can be specified. For more information, see [this section](../../guides/multi-factor-authentication/mfa-security.md#mfa-challenge-policy).
+The MFA Challenge policy is an [Enterprise Edition](../../overview/open-source-vs-enterprise-am/README.md) policy plugin. It allows a security domain or application owner to apply an MFA step to enforce security and ensure that the user account has not been compromised. The MFA Factor used for the challenge can be specified. For more information, see [this section](../../guides/multi-factor-authentication/mfa-security.md#mfa-challenge-policy).
 
 <figure><img src="../../.gitbook/assets/mfa challenge policy.png" alt=""><figcaption><p>Password reset triggers MFA Challenge</p></figcaption></figure>
 

@@ -1,3 +1,7 @@
+---
+description: Configuration guide for configure v2 apis.
+---
+
 # Configure v2 APIs
 
 To configure your v2 API, see the following articles:

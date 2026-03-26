@@ -1,3 +1,7 @@
+---
+description: Overview of SAML.
+---
+
 # SAML 2.0
 
 ## Overview
@@ -56,6 +60,10 @@ Be sure to have your SAML 2.0 IdP protocol plugin and your license key installed
 
 {% hint style="info" %}
 If you choose to not use a certificate, the SAML Response assertion will not be signed.
+{% endhint %}
+
+{% hint style="warning" %}
+SAML cannot currently be configured at the Organization level.
 {% endhint %}
 
 ### Test the connection

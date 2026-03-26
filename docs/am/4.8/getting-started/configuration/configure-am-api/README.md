@@ -1,3 +1,7 @@
+---
+description: API and reference documentation for AM API.
+---
+
 # AM API
 
 ## Configuration overview
@@ -550,7 +554,7 @@ notifiers:
 
 The email notifier expects SMTP server settings.
 
-<table><thead><tr><th width="374"> setting name </th><th>description</th></tr></thead><tbody><tr><td>host</td><td>SMTP server host name</td></tr><tr><td>port</td><td>SMTP server port</td></tr><tr><td>username</td><td>The username used to authenticate on the SMTP server</td></tr><tr><td>password</td><td>The password used to authenticate on the SMTP server</td></tr><tr><td>from</td><td>The email "from" value used in the sent email</td></tr><tr><td>startTLSEnabled</td><td>Boolean value to use startTls (false by default)</td></tr><tr><td>sslTrustAll</td><td>Boolean value to trust all servers when SSL is used (false by default)</td></tr><tr><td>sslKeyStore</td><td>Path to the SSL keystore</td></tr><tr><td>sslKeyStorePassword</td><td>Password to access the keystore</td></tr></tbody></table>
+<table><thead><tr><th width="374">setting name</th><th>description</th></tr></thead><tbody><tr><td>host</td><td>SMTP server host name</td></tr><tr><td>port</td><td>SMTP server port</td></tr><tr><td>username</td><td>The username used to authenticate on the SMTP server</td></tr><tr><td>password</td><td>The password used to authenticate on the SMTP server</td></tr><tr><td>from</td><td>The email "from" value used in the sent email</td></tr><tr><td>startTLSEnabled</td><td>Boolean value to use startTls (false by default)</td></tr><tr><td>sslTrustAll</td><td>Boolean value to trust all servers when SSL is used (false by default)</td></tr><tr><td>sslKeyStore</td><td>Path to the SSL keystore</td></tr><tr><td>sslKeyStorePassword</td><td>Password to access the keystore</td></tr></tbody></table>
 
 ```yaml
 notifiers:
@@ -571,15 +575,15 @@ notifiers:
 
 The Kafka notifier must have settings configured to connect to the Kafka broker.
 
-| setting name         | description                                                                                             |
-| -------------------- | ------------------------------------------------------------------------------------------------------- |
-| bootstrapServers     | The comma-separated list of Kafka brokers used as the contact point                                     |
-| topic                | The Kafka topic to which the notification record is sent                                                |
-| acks                 | The number of acknowledgments the notifier requires (valid values : \[all, -1, 0, 1])                   |
-| username             | The username used by JAAS setting `org.apache.kafka.common.security.plain.PlainLoginModule` (optional)  |
-| password             | The password used by JAAS  setting `org.apache.kafka.common.security.plain.PlainLoginModule` (optional) |
-| schemaRegistryUrl    | The URL of the schemaRegistry (optional)                                                                |
-| additionalProperties | The list of key/value pairs to provide additional settings to the Kafka producer                        |
+| setting name         | description                                                                                            |
+| -------------------- | ------------------------------------------------------------------------------------------------------ |
+| bootstrapServers     | The comma-separated list of Kafka brokers used as the contact point                                    |
+| topic                | The Kafka topic to which the notification record is sent                                               |
+| acks                 | The number of acknowledgments the notifier requires (valid values : \[all, -1, 0, 1])                  |
+| username             | The username used by JAAS setting `org.apache.kafka.common.security.plain.PlainLoginModule` (optional) |
+| password             | The password used by JAAS setting `org.apache.kafka.common.security.plain.PlainLoginModule` (optional) |
+| schemaRegistryUrl    | The URL of the schemaRegistry (optional)                                                               |
+| additionalProperties | The list of key/value pairs to provide additional settings to the Kafka producer                       |
 
 ```yaml
 notifiers:

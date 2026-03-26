@@ -1,3 +1,7 @@
+---
+description: Tutorial on Prerequisites.
+---
+
 # Prerequisites
 
 This page describes how to install the prerequisites required to run Gravitee API Management (APIM) on an Amazon instance.
@@ -181,7 +185,7 @@ You should see that there’s a process listening on that port.
 
 ## Install Nginx
 
-Both APIM user interfaces (Management Console and Developer Portal) use Nginx as their webserver. Follow the steps below to set up Nginx. For further customization of the installation, refer to the [Nginx Installation documentation.](https://nginx.org/en/linux\_packages.html#Amazon-Linux)
+Both APIM user interfaces (Management Console and Developer Portal) use Nginx as their webserver. Follow the steps below to set up Nginx. For further customization of the installation, refer to the [Nginx Installation documentation.](https://nginx.org/en/linux_packages.html#Amazon-Linux)
 
 1. Create a file called `/etc/yum.repos.d/nginx.repo` using the following command:
 

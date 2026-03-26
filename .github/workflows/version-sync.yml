@@ -1,0 +1,126 @@
+# Version Sync Action
+#
+# Automatically syncs changes from docs/{product}/{current_version}/
+# to docs/{product}/{next_version}/ when files change on main.
+#
+# Creates a PR (instead of pushing directly) to respect branch protection.
+#
+# To use: copy this file to the docs repo at .github/workflows/version-sync.yml
+# and configure the product/version matrix below.
+
+name: Version Sync
+
+on:
+  push:
+    branches: [main]
+    paths:
+      # Add one entry per product/version you want to sync FROM.
+      - 'docs/apim/4.10/**'
+      - 'docs/am/4.10/**'
+      - 'docs/gko/4.10/**'
+
+# Grant write access so the bot can create branches and PRs
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          # Configure your sync pairs here
+          - product: apim
+            current: "4.10"
+            next: "4.11"
+          - product: am
+            current: "4.10"
+            next: "4.11"
+          - product: gko
+            current: "4.10"
+            next: "4.11"
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.VERSION_SYNC_TOKEN }}
+          fetch-depth: 0  # Full history — GitBook may push multi-commit batches
+
+      - name: Get changed files
+        id: changes
+        run: |
+          # Get files changed in this push (relative to docs/{product}/{version}/)
+          PREFIX="docs/${{ matrix.product }}/${{ matrix.current }}/"
+          BEFORE="${{ github.event.before }}"
+          # Detect force-push or initial push (before = all-zeros)
+          if [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then
+            echo "Initial push detected — skipping sync."
+            echo "skip=true" >> $GITHUB_OUTPUT
+          else
+            git diff --name-only "$BEFORE" HEAD -- "$PREFIX" | sed "s|^$PREFIX||" > /tmp/changed_files.txt
+            if [ ! -s /tmp/changed_files.txt ]; then
+              echo "skip=true" >> $GITHUB_OUTPUT
+            else
+              echo "skip=false" >> $GITHUB_OUTPUT
+              echo "Changed files:"
+              cat /tmp/changed_files.txt
+            fi
+          fi
+
+      - name: Check next version exists
+        if: steps.changes.outputs.skip == 'false'
+        id: check
+        run: |
+          NEXT_DIR="docs/${{ matrix.product }}/${{ matrix.next }}"
+          if [ -d "$NEXT_DIR" ]; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+            echo "⚠️ Next version directory $NEXT_DIR does not exist. Skipping sync."
+          fi
+
+      - name: Set up Python
+        if: steps.changes.outputs.skip == 'false' && steps.check.outputs.exists == 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run sync
+        if: steps.changes.outputs.skip == 'false' && steps.check.outputs.exists == 'true'
+        id: sync
+        run: |
+          python .github/scripts/sync_versions.py \
+            . \
+            ${{ matrix.product }} \
+            ${{ matrix.current }} \
+            ${{ matrix.next }} \
+            --changed-files-from /tmp/changed_files.txt
+          # Check if sync actually produced diffs (for PR gate)
+          # git diff catches modified tracked files; git ls-files catches new untracked files
+          if git diff --quiet && [ -z "$(git ls-files --others --exclude-standard)" ]; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create sync PR
+        if: steps.sync.outputs.has_changes == 'true'
+        id: create-pr
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.VERSION_SYNC_TOKEN }}
+          commit-message: "[sync] ${{ matrix.product }}: ${{ matrix.current }} → ${{ matrix.next }}"
+          title: "[sync] ${{ matrix.product }}: ${{ matrix.current }} → ${{ matrix.next }}"
+          body: |
+            Auto-synced changes from `docs/${{ matrix.product }}/${{ matrix.current }}/` to `docs/${{ matrix.product }}/${{ matrix.next }}/`.
+
+            Triggered by push to `main` (${{ github.sha }}).
+          branch: "sync/${{ matrix.product }}-${{ matrix.current }}-to-${{ matrix.next }}"
+          delete-branch: true
+
+      - name: Enable auto-merge
+        if: steps.create-pr.outputs.pull-request-number
+        run: gh pr merge ${{ steps.create-pr.outputs.pull-request-number }} --auto --squash
+        env:
+          GH_TOKEN: ${{ secrets.VERSION_SYNC_TOKEN }}

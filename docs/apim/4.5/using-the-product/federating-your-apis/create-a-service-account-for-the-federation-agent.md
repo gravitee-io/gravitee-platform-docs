@@ -1,6 +1,12 @@
+---
+description: >-
+  Setup and installation guide for create a service account for the federation
+  agent.
+---
+
 # Create a service account for the federation agent
 
-The best way to provide credentials for the federation agent to connect to your APIM installation is to create a service account in the Gravitee API Management console dedicated to the agent.&#x20;
+The best way to provide credentials for the federation agent to connect to your APIM installation is to create a service account in the Gravitee API Management console dedicated to the agent.
 
 To do this, head to the organisation settings in APIM, create a new user, and choose **Service Account**.
 
@@ -14,11 +20,11 @@ Next, ensure that this service account has the right permissions for the federat
 
 You can create a new dedicated Federation Agent role just for this purpose, which will enable you to give the agent the minimum necessary permissions.
 
-Alternatively, you can give the agent the API\_PUBLISHER role at environment level.&#x20;
+Alternatively, you can give the agent the API\_PUBLISHER role at environment level.
 
 The screenshot below shows the environment-level permissions included in the API\_PUBLISHER role by default:
 
-<figure><img src="../../.gitbook/assets/image (126).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
 From the newly created service account, scroll to the **Tokens** section at the bottom of the page and create a new token:
 

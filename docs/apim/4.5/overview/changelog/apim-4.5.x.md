@@ -6,6 +6,136 @@ description: >-
 
 # APIM 4.5.x
  
+## Gravitee API Management 4.5.29 - October 24, 2025
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Management API**
+
+* V4 - Flow id missing in create api response, plan is not created as part of same api [#10888](https://github.com/gravitee-io/issues/issues/10888)
+
+**Console**
+
+* Fetching groups for an application takes a really long time [#10709](https://github.com/gravitee-io/issues/issues/10709)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Console**
+
+* New updated API picture & background not visible without refreshing the page [#10857](https://github.com/gravitee-io/issues/issues/10857)
+
+</details>
+
+
+ 
+## Gravitee API Management 4.5.28 - October 10, 2025
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Read timeout on v4 returns 500 [#10767](https://github.com/gravitee-io/issues/issues/10767)
+* Webhook subscription is not stopped on 500 error [#10799](https://github.com/gravitee-io/issues/issues/10799)
+
+**Management API**
+
+* Image not updated with mAPI [#10809](https://github.com/gravitee-io/issues/issues/10809)
+
+**Other**
+
+* Two users created with identical email addresses [#10423](https://github.com/gravitee-io/issues/issues/10423)
+* Custom API keys are truncated to 64 characters when created through the console UI [#10873](https://github.com/gravitee-io/issues/issues/10873)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Other**
+
+* Character length for API description is only 4000 for Postgres [#10825](https://github.com/gravitee-io/issues/issues/10825)
+
+</details>
+
+
+ 
+## Gravitee API Management 4.5.27 - September 26, 2025
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Gateway rejects client certificates missing BEGIN/END markers in X-Gravitee-Client-Cert header [#10816](https://github.com/gravitee-io/issues/issues/10816)
+
+**Management API**
+
+* Group edit fails for APIs with missing visibility [#10804](https://github.com/gravitee-io/issues/issues/10804)
+
+**Console**
+
+* Prevent multiple primary owners when API Primary Owner mode is set to Group [#10629](https://github.com/gravitee-io/issues/issues/10629)
+* Audit history shows incorrect API groups and path mappings deletion [#10814](https://github.com/gravitee-io/issues/issues/10814)
+* Image appears too large inside dropdown menu [#10819](https://github.com/gravitee-io/issues/issues/10819)
+
+**Helm Charts**
+
+* Frequent Prometheus endpoint calls can cause OOM errors [#10466](https://github.com/gravitee-io/issues/issues/10466)
+
+**Other**
+
+* IPV6 CIDR ranges do not work in the IP filtering policy [#10656](https://github.com/gravitee-io/issues/issues/10656)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Management API**
+
+* Character length for entrypoints is only 64 for Postgres [#10698](https://github.com/gravitee-io/issues/issues/10698)
+
+**Helm Charts**
+
+* Add helm.sh/chart to pod template annotations [#10832](https://github.com/gravitee-io/issues/issues/10832)
+
+**Other**
+
+* \[JSON threat protection policy] add an option to block JSON with duplicated keys [#10841](https://github.com/gravitee-io/issues/issues/10841)
+
+</details>
+
+
+
+## Gravitee API Management 4.5.26 - September 12, 2025
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Management API**
+
+* Memory issues when loading audit events [#10582](https://github.com/gravitee-io/issues/issues/10582)
+* Heavy latencies using Audit section with a larger number of apps.[#10783](https://github.com/gravitee-io/issues/issues/10783)
+* Audit History groups fetch timeout[#10682](https://github.com/gravitee-io/issues/issues/10682)
+* Bad behavior on weighted round robin[#10405](https://github.com/gravitee-io/issues/issues/10405)
+
+**Console**
+
+* Unable to import path mapping from swagger document [#10810](https://github.com/gravitee-io/issues/issues/10810)
+* Alert creation form missing fields on smaller screens[#10823](https://github.com/gravitee-io/issues/issues/10823)
+* Slow loading when viewing 'Tasks' on Console[#10650](https://github.com/gravitee-io/issues/issues/10650)
+* Bad behavior on weighted round robin[#10405](https://github.com/gravitee-io/issues/issues/10405)
+
+</details>
+ 
 ## Gravitee API Management 4.5.25 - August 29, 2025
 <details>
 

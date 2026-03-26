@@ -1,8 +1,12 @@
+---
+description: Tutorial on protections.
+---
+
 # Protections
 
 ## Brute-force protection
 
-A brute-force attack is the submission of a high volume of authentication requests consisting of password permutations. Even with OAuth 2.0 enabled, you can leave behind a login form for in-memory or local users. Some tools can help you to prevent malicious actions by banning IPs. This section explains how to secure the APIM UI components (Management and Portal) and APIM APIs against brute-force attacks.&#x20;
+A brute-force attack is the submission of a high volume of authentication requests consisting of password permutations. Even with OAuth 2.0 enabled, you can leave behind a login form for in-memory or local users. Some tools can help you to prevent malicious actions by banning IPs. This section explains how to secure the APIM UI components (Management and Portal) and APIM APIs against brute-force attacks.
 
 ### ReCaptcha
 
@@ -24,7 +28,7 @@ Gravitee relies on [ReCaptcha V3](https://developers.google.com/recaptcha/docs/v
 
 If your platform is particularly exposed to the outside world, we recommend adding additional protection against pure brute-force attacks by setting up Fail2Ban. For instructions on installing Fail2Ban, see the [Fail2Ban website](https://www.fail2ban.org).
 
-Fail2Ban scans log files and automatically bans IPs that show malicious signs, e.g., too many password failures, seeking an opportunity for exploitation, etc.&#x20;
+Fail2Ban scans log files and automatically bans IPs that show malicious signs, e.g., too many password failures, seeking an opportunity for exploitation, etc.
 
 #### **Configuration**
 
@@ -119,7 +123,7 @@ http:
     enabled: true
 ```
 
-We strongly recommend **NEVER** disabling CSRF protection unless you are absolutely sure of what you are doing and that your users may be exposed to [Cross Site Request Forgery attacks](https://fr.wikipedia.org/wiki/Cross-site_request_forgery).
+We strongly recommend **NEVER** disabling CSRF protection unless you are absolutely sure of what you are doing and that your users may be exposed to [Cross Site Request Forgery attacks](https://en.wikipedia.org/wiki/Cross-site_request_forgery).
 
 ### Configure CORS
 
@@ -138,4 +142,4 @@ http:
         allow-origin: 'https://gio-portal.mycompany.com'
 ```
 
-`allow-origin: '*'` should be considered a security risk because it permits all cross-origin requests. **We highly recommend fine-tuning the allow-origin setting. Refer to** the [Gravitee documentation](https://documentation.gravitee.io/apim/getting-started/configuration/configure-apim-management-api/internal-api#cors-configuration) for other useful information related to CORS.
+`allow-origin: '*'` should be considered a security risk because it permits all cross-origin requests. **We highly recommend fine-tuning the allow-origin setting. Refer to** the [Gravitee documentation](../../create-and-configure-apis/configure-v2-apis/proxy-settings.md) for other useful information related to CORS.

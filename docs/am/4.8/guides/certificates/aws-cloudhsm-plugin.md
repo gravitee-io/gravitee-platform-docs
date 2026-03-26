@@ -1,3 +1,7 @@
+---
+description: Overview of AWS CloudHSM.
+---
+
 # AWS CloudHSM plugin
 
 ## Overview

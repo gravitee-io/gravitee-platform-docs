@@ -1,9 +1,13 @@
+---
+description: Overview of Password Policy.
+---
+
 # Password Policy
 
 > A key concern when using passwords for authentication is password strength. A "strong" password policy makes it difficult or even improbable for one to guess the password through either manual or automated means.
 
 — OWASP\
-[_Authentication cheat sheet_](https://cheatsheetseries.owasp.org/cheatsheets/Authentication\_Cheat\_Sheet.html#implement-proper-password-strength-controls)
+[_Authentication cheat sheet_](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html#implement-proper-password-strength-controls)
 
 ## Configure a password policy
 
@@ -56,7 +60,7 @@ Where:
 
 ## Custom UI errors
 
-You can access the password policy settings in your **Sign Up** and **Register** [HTML templates](../branding/#custom-pages), making it possible to customize the error messages your end users see.
+You can access the password policy settings in your **Sign Up** and **Register** [HTML templates](../branding/README.md#custom-pages), making it possible to customize the error messages your end users see.
 
 {% code overflow="wrap" %}
 ```html

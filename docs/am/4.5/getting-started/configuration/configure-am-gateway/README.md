@@ -1,3 +1,7 @@
+---
+description: Overview of AM Gateway.
+---
+
 # AM Gateway
 
 ## Overview
@@ -340,7 +344,7 @@ As of AM 4.2.0, the client secret can be hashed when stored into the database. F
 * BCrypt
 * PBKDF2
 
-To specify which hash algorithm is in used, update the `applications` section of `gravitee.yml`:&#x20;
+To specify which hash algorithm is in used, update the `applications` section of `gravitee.yml`:
 
 ```yaml
 applications:
@@ -380,7 +384,7 @@ The PBKDF2 algorithm accepts three properties:
 
 * **rounds**: The number of iterations (default: 600000)
 * **salt**: The length in bits of the salt value (default: 16)
-* **algorithm**: PBKDF2 with the specified pseudo-random function (default: PBKDF2WithHmacSHA256**)**
+* **algorithm**: PBKDF2 with the specified pseudo-random function (default: PBKDF2WithHmacSHA256\*\*)\*\*
 
 The default values are those recommended by OWASP.
 
@@ -399,7 +403,7 @@ applications:
 
 ### Token request response
 
-By default, all additional parameters, except for the following standard parameters are mapped to `/token` response:&#x20;
+By default, all additional parameters, except for the following standard parameters are mapped to `/token` response:
 
 * `access_token`
 * `token_type`
@@ -421,7 +425,7 @@ handlers:
 
 If a configuration is updated on the AM Console, it needs to be propagated on the AM Gateway instances. To check for an update to a configuration, the AM gateway periodically checks the database to detect new events to synchronize the configuration state. You can configure the synchronization process in `services.sync` section of the `gravitee.yaml` file.
 
-In this section, you specify the frequency of the synchronization process using a cron expression. To save database access during user authentication,  the synchronization process enables the `permissions` option to load Groups and role definitions into the Gateway memory.&#x20;
+In this section, you specify the frequency of the synchronization process using a cron expression. To save database access during user authentication, the synchronization process enables the `permissions` option to load Groups and role definitions into the Gateway memory.
 
 ```yaml
 services:
@@ -490,4 +494,3 @@ user:user
     # retention duration in seconds
     ttl: 3600
 ```
-

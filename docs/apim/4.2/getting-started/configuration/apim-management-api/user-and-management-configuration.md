@@ -1,3 +1,7 @@
+---
+description: Configuration guide for User and Management Configuration.
+---
+
 # User and Management Configuration
 
 ## Introduction

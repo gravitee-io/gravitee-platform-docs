@@ -1,3 +1,7 @@
+---
+description: An overview about user and group access.
+---
+
 # User and Group Access
 
 ## Overview
@@ -14,12 +18,12 @@ Under the **Members** tab you can add users or groups as members of you applicat
 
 <figure><img src="../../.gitbook/assets/1 group.png" alt=""><figcaption></figcaption></figure>
 
-* Click **+ Add members** to add members to your application. You can search for users by name or email.&#x20;
+* Click **+ Add members** to add members to your application. You can search for users by name or email.
 * Use the **Role** drop-down menu to select member roles, which grant specific permissions. For more information on roles, please refer to the [documentation](../../administration/user-management.md#roles).
 
 ## Groups
 
-Click the **Groups** tab to see which groups have access to your application. Use the drop-down menu to change group selections.&#x20;
+Click the **Groups** tab to see which groups have access to your application. Use the drop-down menu to change group selections.
 
 <figure><img src="../../.gitbook/assets/1 group 2.png" alt=""><figcaption></figcaption></figure>
 
@@ -27,9 +31,9 @@ Selecting a group gives all members of that group access to your application.
 
 ## Transfer ownership
 
-Under the **Transfer ownership** tab you can grant complete application access to an application member or other user.&#x20;
+Under the **Transfer ownership** tab you can grant complete application access to an application member or other user.
 
-Click **Application member** and use the drop-down menu to select a user who is already a member of your application.&#x20;
+Click **Application member** and use the drop-down menu to select a user who is already a member of your application.
 
 <figure><img src="../../.gitbook/assets/1 group 3.png" alt=""><figcaption></figcaption></figure>
 

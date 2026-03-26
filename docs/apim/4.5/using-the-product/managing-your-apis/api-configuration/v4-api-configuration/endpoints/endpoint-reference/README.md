@@ -1,3 +1,7 @@
+---
+description: An overview about endpoint reference.
+---
+
 # Endpoint Reference
 
 ## Overview

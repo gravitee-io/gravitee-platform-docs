@@ -1,3 +1,7 @@
+---
+description: Configuration guide for Configure Gateway Resilience Mode.
+---
+
 # Configure Gateway Resilience Mode
 
 ## Overview

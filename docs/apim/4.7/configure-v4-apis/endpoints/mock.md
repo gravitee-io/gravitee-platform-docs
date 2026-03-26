@@ -1,3 +1,7 @@
+---
+description: Configuration and setup guide for mock.
+---
+
 # Mock
 
 ## Configuration

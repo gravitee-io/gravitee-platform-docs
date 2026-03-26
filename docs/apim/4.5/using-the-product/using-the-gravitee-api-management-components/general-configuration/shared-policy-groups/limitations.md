@@ -1,3 +1,7 @@
+---
+description: Documentation on policies and controls for limitations.
+---
+
 # Limitations
 
 Shared policy groups have the following limitations:
@@ -12,7 +16,7 @@ curl --request GET \
 
 ```
 
-* You cannot import a shared policy group. As a workaround,  if you have a valid personal access token and the APIM\_HOST environment variable set, you can create a shared policy group through the management API using the following command, with the `data` field containing the group definition:
+* You cannot import a shared policy group. As a workaround, if you have a valid personal access token and the APIM\_HOST environment variable set, you can create a shared policy group through the management API using the following command, with the `data` field containing the group definition:
 
 ```bash
 curl --request POST \

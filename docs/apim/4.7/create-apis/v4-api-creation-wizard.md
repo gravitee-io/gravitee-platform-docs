@@ -1,6 +1,16 @@
+---
+description: An overview about v4 api creation wizard.
+---
+
 # v4 API Creation Wizard
 
 ## Overview
+
+{% hint style="warning" %}
+When you create an API with a JSON payload that has duplicate keys, APIM keeps the last key.
+
+To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection.md](../policies/json-threat-protection.md "mention").
+{% endhint %}
 
 The v4 API creation wizard makes it easy to create new Gateway APIs from scratch. To access the v4 API creation wizard:
 
@@ -8,7 +18,7 @@ The v4 API creation wizard makes it easy to create new Gateway APIs from scratch
 2. Click on **APIs** in the left nav
 3. In the Create New API , click on **Create V4 API**.
 
-<figure><img src="../.gitbook/assets/image (140).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (139) (1).png" alt=""><figcaption></figcaption></figure>
 
 The API creation wizard comprises several steps, each of which requires you to define certain sets of information.
 
@@ -38,13 +48,13 @@ The Gravitee documentation adopts concise terminology to differentiate between t
 **Message API:** An API created using **Protocol Mediation**
 {% endhint %}
 
-<figure><img src="../.gitbook/assets/v4 step 2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/v4 step 2 (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Generic proxy entrypoints
 
 If you chose **Proxy Generic Protocol**, select either HTTP Proxy or TCP Proxy as your entrypoint.
 
-<figure><img src="../.gitbook/assets/v4 3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/v4 3 (1).png" alt=""><figcaption></figcaption></figure>
 
 The configuration details for each proxy entrypoint selection are discussed below.
 
@@ -183,11 +193,11 @@ The HTTP proxy and TCP proxy endpoint configurations are described in detail bel
 
 <summary>HTTP Proxy</summary>
 
-#### Define your target URL
+**Define your target URL**
 
 Enter your target URL in the **Target URL** text field.
 
-#### Define your HTTP options
+**Define your HTTP options**
 
 1. Select the HTTP protocol version to use. HTTP/1.1 and HTTP/2 are supported.\
    If you selected HTTP/2, choose to either allow or disallow h2c clear text upgrade.
@@ -200,7 +210,7 @@ Enter your target URL in the **Target URL** text field.
 8. Define the number of max concurrent connections.
 9. Enter key-value pairs to create headers that the Gateway should add or override before proxying the request to the backend API.
 
-#### Define your Proxy options
+**Define your Proxy options**
 
 Choose between **No proxy**, **Use proxy configured at system level**, or **Use proxy for client connections**.
 
@@ -212,7 +222,7 @@ If **Use proxy for client connections** is selected, you'll need to define the f
 * (Optional) **Proxy username:** Enter your proxy username in the text field.
 * (Optional) **Proxy password:** Enter your proxy password in the text field.
 
-#### Define your SSL options
+**Define your SSL options**
 
 1. Toggle **Verify Host** to enable or disable host verification.
 2. Toggle **Trust all** to ON to trust any origin certificates.
@@ -239,13 +249,13 @@ If **Use proxy for client connections** is selected, you'll need to define the f
 
 <summary>TCP Proxy</summary>
 
-#### Target server
+**Target server**
 
 * **Host :** Name or IP of the backend host to connect to
 * **Port:** Number of the backend port
 * **Is target secured:** Toggle to enable SSL to connect to target
 
-#### SSL Options
+**SSL Options**
 
 1. **Verify Host:** Toggle to enable host name verification
 2. **Trust all:** Toggle ON for the Gateway to trust any origin certificates.
@@ -266,7 +276,7 @@ If **Use proxy for client connections** is selected, you'll need to define the f
    * **PEM with path:** Enter the paths to the certificate and private key files
    * **PEM with content:** Enter the certificate and private key
 
-#### TCP client options
+**TCP client options**
 
 1. **Connection timeout:** Enter the timeout in ms to connect to the target
 2. **Reconnect attempts:** Enter the number of times to try connecting to the target. 0 means no retry.
@@ -275,7 +285,7 @@ If **Use proxy for client connections** is selected, you'll need to define the f
 5. **Read idle timeout (ms):** The connection will timeout and be closed if no data is received within the timeout period.
 6. **Write idle timeout (ms):** The connection will timeout and be closed if no data is sent within the timeout period.
 
-#### Proxy options
+**Proxy options**
 
 Choose between **No proxy**, **Use proxy configured at system level**, or **Use proxy for client connections**.
 
@@ -304,7 +314,7 @@ Gravitee supports several different types of endpoints that cater to different p
 
 <table><thead><tr><th width="245">Endpoint</th><th>Description</th></tr></thead><tbody><tr><td><a href="v4-api-creation-wizard.md#azure-service-bus">Azure Service Bus</a></td><td>Publish and subscribe to events in Azure Service Bus using web-friendly protocols such as HTTP or WebSocket. The Gateway mediates the protocol between the client and the backend.</td></tr><tr><td><a href="v4-api-creation-wizard.md#kafka">Kafka</a></td><td>The Gateway opens up a persistent connection and/or sets up a Kafka client to call a backend Kafka broker.</td></tr><tr><td><a href="v4-api-creation-wizard.md#mock">Mock</a></td><td>The Gateway mocks a backend service to emulate the behavior of a typical HTTP server and test processes.</td></tr><tr><td><a href="v4-api-creation-wizard.md#mqtt-5.x">MQTT 5.x</a></td><td>The Gateway opens up a persistent connection and/or sets up an MQTT client to call a backend MQTT broker. The broker must run on MQTT 5.x.</td></tr><tr><td><a href="v4-api-creation-wizard.md#rabbitmq">RabbitMQ</a></td><td>The Gateway opens up a persistent connection and/or calls a backend RabbitMQ resource. The resource must communicate using the AMQP 0-9-1 protocol.</td></tr><tr><td><a href="v4-api-creation-wizard.md#solace">Solace</a></td><td>The Gateway creates an API that exposes Solace resources and event APIs via your chosen entrypoint(s).</td></tr></tbody></table>
 
-<figure><img src="../.gitbook/assets/a v4 00.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/a v4 00 (1).png" alt=""><figcaption></figcaption></figure>
 
 Protocol mediation endpoint configurations are described in detail below.
 
@@ -496,7 +506,7 @@ Entering a URL and VPN name is required. Modifying any other configuration param
 
 Define a plan to secure, monitor, and transparently communicate information on how to access your API. This includes the configuration of authorization resources, such as Gravitee AM or another OAuth2 resource, and access limitations, such as rate limiting and quotas.
 
-<figure><img src="../.gitbook/assets/a v4 1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/a v4 1 (1).png" alt=""><figcaption></figcaption></figure>
 
 Gravitee automatically assigns each API a Default Keyless plan, which grants public access.
 
@@ -522,7 +532,7 @@ Individual plan configurations as they pertain to each API type are described in
 
 Select **API Key** from the **+ Add plan** drop-down menu, then define general details, configuration settings, and restrictions.
 
-#### General
+**General**
 
 You must enter a value in the **Name** field. Modifying the other configuration parameters is optional.
 
@@ -534,12 +544,12 @@ You must enter a value in the **Name** field. Modifying the other configuration 
 6. **Deployment:** Select sharding tags
 7. **Access control:** Select any Groups within APIM that you do not want to have access to this API.
 
-#### Configuration
+**Configuration**
 
 * (Optional) Choose whether to propagate your API key to upstream APIs.
 * (Optional) Use the [Gravitee Expression Language](../getting-started/gravitee-expression-language.md) to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
 
-#### Restrictions
+**Restrictions**
 
 Choose to enable any of the following.
 
@@ -562,7 +572,7 @@ Choose to enable any of the following.
 
 Select **JWT** from the **+ Add plan** drop-down menu, then define general details, configuration settings, and restrictions.
 
-#### General
+**General**
 
 You must enter a value in the **Name** field. Modifying the other configuration parameters is optional.
 
@@ -574,7 +584,7 @@ You must enter a value in the **Name** field. Modifying the other configuration 
 6. **Deployment:** Select sharding tags
 7. **Access control:** Select any Groups within APIM that you do not want to have access to this API.
 
-#### Configuration
+**Configuration**
 
 Only the **Signature** and **JWKS resolver** selections are required. Modifying the other configuration parameters is optional.
 
@@ -607,7 +617,7 @@ Only the **Signature** and **JWKS resolver** selections are required. Modifying 
 18. Choose whether to ignore the case of the token type when comparing the expected values.
 19. Use the Gravitee Expression Language to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
 
-#### Restrictions
+**Restrictions**
 
 Choose to enable any of the following.
 
@@ -630,7 +640,7 @@ Choose to enable any of the following.
 
 Select **Keyless (public)** from the **+ Add plan** drop-down menu, then define general details and restrictions.
 
-#### General
+**General**
 
 You must enter a value in the **Name** field. Modifying the other configuration parameters is optional.
 
@@ -642,7 +652,7 @@ You must enter a value in the **Name** field. Modifying the other configuration 
 6. **Deployment:** Select sharding tags
 7. **Access control:** Select any Groups within APIM that you do not want to have access to this API.
 
-#### Restrictions
+**Restrictions**
 
 Choose to enable any of the following.
 
@@ -665,7 +675,7 @@ Choose to enable any of the following.
 
 Select **mTLS** from the **+ Add plan** drop-down menu, then define general details, configuration settings, and restrictions.
 
-#### General
+**General**
 
 You must enter a value in the **Name** field. Modifying the other configuration parameters is optional.
 
@@ -677,11 +687,11 @@ You must enter a value in the **Name** field. Modifying the other configuration 
 6. **Deployment:** Select sharding tags
 7. **Access control:** Select any Groups within APIM that you do not want to have access to this API.
 
-#### Configuration
+**Configuration**
 
 (Optional) Use the [Gravitee Expression Language](../getting-started/gravitee-expression-language.md) to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
 
-#### Restrictions
+**Restrictions**
 
 Choose to enable any of the following.
 
@@ -704,7 +714,7 @@ Choose to enable any of the following.
 
 Select **OAuth2** from the **+ Add plan** drop-down menu, then define general details, configuration settings, and restrictions.
 
-#### General
+**General**
 
 You must enter a value in the **Name** field. Modifying the other configuration parameters is optional.
 
@@ -716,7 +726,7 @@ You must enter a value in the **Name** field. Modifying the other configuration 
 6. **Deployment:** Select sharding tags
 7. **Access control:** Select any Groups within APIM that you do not want to have access to this API.
 
-#### Configuration
+**Configuration**
 
 Only the **OAuth2 resource** and **Cache resource** fields are required. Modifying the other configuration parameters is optional.
 
@@ -728,7 +738,7 @@ Only the **OAuth2 resource** and **Cache resource** fields are required. Modifyi
 6. Choose whether to permit authorization headers to target endpoints.
 7. Use the [Gravitee Expression Language](../getting-started/gravitee-expression-language.md) to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
 
-#### Restrictions
+**Restrictions**
 
 Choose to enable any of the following.
 
@@ -753,7 +763,7 @@ Choose to enable any of the following.
 
 Select **Keyless (public)** from the **+ Add plan** drop-down menu, then define general details and restrictions.
 
-#### General
+**General**
 
 You must enter a value in the **Name** field. Modifying the other configuration parameters is optional.
 
@@ -772,7 +782,7 @@ You must enter a value in the **Name** field. Modifying the other configuration 
 
 Select **API Key** from the **+ Add plan** drop-down menu, then define general details, configuration settings, and restrictions.
 
-#### General
+**General**
 
 You must enter a value in the **Name** field. Modifying the other configuration parameters is optional.
 
@@ -783,12 +793,12 @@ You must enter a value in the **Name** field. Modifying the other configuration 
 5. **Subscriptions:** Choose whether to auto-validate subscriptions, require a message from a consumer during subscription, and/or present a message to the consumer upon subscription.
 6. **Access control:** Select any Groups within APIM that you do not want to have access to this API.
 
-#### Configuration
+**Configuration**
 
 * (Optional) Choose whether to propagate your API key to upstream APIs.
 * (Optional) Use the [Gravitee Expression Language](../getting-started/gravitee-expression-language.md) to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
 
-#### Restrictions
+**Restrictions**
 
 Choose to enable any of the following.
 
@@ -811,7 +821,7 @@ Choose to enable any of the following.
 
 Select **JWT** from the **+ Add plan** drop-down menu, then define general details, configuration settings, and restrictions.
 
-#### General
+**General**
 
 You must enter a value in the **Name** field. Modifying the other configuration parameters is optional.
 
@@ -822,7 +832,7 @@ You must enter a value in the **Name** field. Modifying the other configuration 
 5. **Subscriptions:** Choose whether to auto-validate subscriptions, require a message from a consumer during subscription, and/or present a message to the consumer upon subscription.
 6. **Access control:** Select any Groups within APIM that you do not want to have access to this API.
 
-#### Configuration
+**Configuration**
 
 Only the **Signature** and **JWKS resolver** selections are required. Modifying the other configuration parameters is optional.
 
@@ -855,7 +865,7 @@ Only the **Signature** and **JWKS resolver** selections are required. Modifying 
 18. Choose whether to ignore the case of the token type when comparing the expected values.
 19. Use the Gravitee Expression Language to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
 
-#### Restrictions
+**Restrictions**
 
 Choose to enable any of the following.
 
@@ -878,7 +888,7 @@ Choose to enable any of the following.
 
 Select **Keyless (public)** from the **+ Add plan** drop-down menu, then define general details and restrictions.
 
-#### General
+**General**
 
 You must enter a value in the **Name** field. Modifying the other configuration parameters is optional.
 
@@ -887,7 +897,7 @@ You must enter a value in the **Name** field. Modifying the other configuration 
 3. **Characteristics**
 4. **Access control:** Select any Groups within APIM that you do not want to have access to this API.
 
-#### Restrictions
+**Restrictions**
 
 Choose to enable any of the following.
 
@@ -910,7 +920,7 @@ Choose to enable any of the following.
 
 Select **mTLS** from the **+ Add plan** drop-down menu, then define general details, configuration settings, and restrictions.
 
-#### General
+**General**
 
 You must enter a value in the **Name** field. Modifying the other configuration parameters is optional.
 
@@ -920,11 +930,11 @@ You must enter a value in the **Name** field. Modifying the other configuration 
 4. **Subscriptions:** Choose whether to auto-validate subscriptions, require a message from a consumer during subscription, and/or present a message to the consumer upon subscription.
 5. **Access control:** Select any Groups within APIM that you do not want to have access to this API.
 
-#### Configuration
+**Configuration**
 
 (Optional) Use the [Gravitee Expression Language](../getting-started/gravitee-expression-language.md) to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
 
-#### Restrictions
+**Restrictions**
 
 Choose to enable any of the following.
 
@@ -947,7 +957,7 @@ Choose to enable any of the following.
 
 Select **OAuth2** from the **+ Add plan** drop-down menu, then define general details, configuration settings, and restrictions.
 
-#### General
+**General**
 
 You must enter a value in the **Name** field. Modifying the other configuration parameters is optional.
 
@@ -957,7 +967,7 @@ You must enter a value in the **Name** field. Modifying the other configuration 
 4. **Subscriptions:** Choose whether to auto-validate subscriptions, require a message from a consumer during subscription, and/or present a message to the consumer upon subscription.
 5. **Access control:** Select any Groups within APIM that you do not want to have access to this API.
 
-#### Configuration
+**Configuration**
 
 Only the **OAuth2 resource** and **Cache resource** fields are required. Modifying the other configuration parameters is optional.
 
@@ -969,7 +979,7 @@ Only the **OAuth2 resource** and **Cache resource** fields are required. Modifyi
 6. Choose whether to permit authorization headers to target endpoints.
 7. Use the [Gravitee Expression Language](../getting-started/gravitee-expression-language.md) to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
 
-#### Restrictions
+**Restrictions**
 
 Choose to enable any of the following.
 
@@ -992,7 +1002,7 @@ Choose to enable any of the following.
 
 Select **Push** from the **+ Add plan** drop-down menu, then define general details and restrictions.
 
-#### General
+**General**
 
 You must enter a value in the **Name** field. Modifying the other configuration parameters is optional.
 
@@ -1002,7 +1012,7 @@ You must enter a value in the **Name** field. Modifying the other configuration 
 4. **Subscriptions:** Choose whether to auto-validate subscriptions, require a message from a consumer during subscription, and/or present a message to the consumer upon subscription.
 5. **Access control:** Select any Groups within APIM that you do not want to have access to this API.
 
-#### Restrictions
+**Restrictions**
 
 Choose to enable any of the following.
 

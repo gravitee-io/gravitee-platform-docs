@@ -1,3 +1,7 @@
+---
+description: An overview about opentelemetry.
+---
+
 # OpenTelemetry
 
 {% hint style="warning" %}
@@ -109,7 +113,7 @@ gateway:
 * If unset default endpoint is `http://locahost:4317`, replace \<OPENTELMETRY\_ENDPOINT> with the endpoint that you use for OpenTelemetry.
 * If your endpoint URL uses `http://` or `grpc://` , you can use this configuration for a basic default configuration.
 
-2.  (Optional) For a more advanced configuration, add the following configuration to your `values.yaml`:\\
+2.  (Optional) For a more advanced configuration, add the following configuration to your `values.yaml`:
 
     With the following configuration, you can complete the following actions with OpenTelemetry:
 
@@ -179,7 +183,7 @@ To enable OpenTelemetry for an API, you must have OpenTelemetry enabled on your 
 6. Scroll down to the **OpenTelemetry** section and toggle **Enabled** to ON.
 7. (Optional) Toggle **Verbose** to ON to enable technical tracing.
 
-<figure><img src="../.gitbook/assets/1 otel 1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/1 otel 1 (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 Enabling **Verbose** increases the number of spans per trace, which can negatively impact performance.

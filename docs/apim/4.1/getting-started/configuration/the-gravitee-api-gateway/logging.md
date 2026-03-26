@@ -1,3 +1,7 @@
+---
+description: An overview about Logging.
+---
+
 # Logging
 
 ## Overview
@@ -20,7 +24,7 @@ To configure runtime logging for your v4 Gateway APIs:
 2. Go to **Settings** in the left sidebar
 3. Click on **API logging** in the inner left sidebar
 
-<figure><img src="../../../.gitbook/assets/2023-06-28_10-39-47 (1).gif" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/2023-06-28_10-39-47 (1) (1).gif" alt=""><figcaption></figcaption></figure>
 
 You can choose to enable:
 
@@ -35,7 +39,7 @@ You can also define the maximum duration (in ms) of logging mode activation by e
 The following sections describe the logging capabilities for v4 message APIs.
 
 {% hint style="info" %}
-Runtime logs are not yet available for v4 proxy APIs.&#x20;
+Runtime logs are not yet available for v4 proxy APIs.
 {% endhint %}
 
 ### View record of logs

@@ -1,13 +1,546 @@
+---
+description: Documentation about apim 4.8.x in the context of APIs.
+---
+
 # APIM 4.8.x
  
-## Gravitee API Management 4.8.6 - September 1, 2025
+## Gravitee API Management 4.8.22 - March 12, 2026
 <details>
+
+<summary>Bug Fixes</summary>
+
+**Management API**
+
+* User Attributes Not Resolved in Mail Templates [#11207](https://github.com/gravitee-io/issues/issues/11207)
+
+**Console**
+
+* Broken 'Open log settings' link in V4 Protocol Mediation API log details [#11167](https://github.com/gravitee-io/issues/issues/11167)
+* Custom statistics on the User-Agent [#11203](https://github.com/gravitee-io/issues/issues/11203)
+
+**Portal**
+
+* Button "back to category" disappears in dev portal [#11204](https://github.com/gravitee-io/issues/issues/11204)
+* Ui bug in developer portal [#11214](https://github.com/gravitee-io/issues/issues/11214)
+
+**Other**
+
+* Kafka OAUTHBEARER reconnection not triggered by the Kafka Client with JWT Plan [#10491](https://github.com/gravitee-io/issues/issues/10491)
+* 404 (Not Found) requests not visible in Console Analytics despite correct configuration [#11014](https://github.com/gravitee-io/issues/issues/11014)
+* JSON Web Token policy always returns fails to validate token [#11233](https://github.com/gravitee-io/issues/issues/11233)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Management API**
+
+* Intermittent 500 Error during API Creation: primaryOwner.notFound [#11229](https://github.com/gravitee-io/issues/issues/11229)
+
+</details>
+
+
+ 
+## Gravitee API Management 4.8.21 - February 27, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Failover retries leak endpoint query parameters across attempts in HTTP proxy connector [#11164](https://github.com/gravitee-io/issues/issues/11164)
+* Gateway cannot auto-recover if Elasticsearch goes down and then comes back online [#11176](https://github.com/gravitee-io/issues/issues/11176)
+
+**Management API**
+
+* The mAPI is unreachable when a connection cannot be made to Cloud [#10307](https://github.com/gravitee-io/issues/issues/10307)
+* Automatic cleanup failure in commands table due to missing expired_at values [#11136](https://github.com/gravitee-io/issues/issues/11136)
+
+**Console**
+
+* \[UI Bug] LDAP Resource "User search base" field auto-populates with default value on edit [#11072](https://github.com/gravitee-io/issues/issues/11072)
+
+**Portal**
+
+* API Catalog API Visibility [#11155](https://github.com/gravitee-io/issues/issues/11155)
+
+**Other**
+
+* Promotion requests accepted from the main dashboard are not auto refreshed [#11062](https://github.com/gravitee-io/issues/issues/11062)
+* 500 Internal Error against the Tasks endpoint [#11208](https://github.com/gravitee-io/issues/issues/11208)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Console**
+
+* API Mgmt Management Console task list takes too long to load [#11049](https://github.com/gravitee-io/issues/issues/11049)
+
+**Other**
+* OpenAPI Validation Policy fails with OAS 3.1 discriminator schemas [#10763](https://github.com/gravitee-io/issues/issues/10763)
+
+</details>
+
+
+ 
+## Gravitee API Management 4.8.20 - February 13, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* \[Protocol Mediation] subscription is not available in EL during PUBLISH and SUBSCRIBE phase [#11101](https://github.com/gravitee-io/issues/issues/11101)
+* Error 503 and Thread Blocked from weighted_round_robin  [#11132](https://github.com/gravitee-io/issues/issues/11132)
+
+**Management API**
+
+* Multiple PRIMARY_OWNERs after "Transfer Ownership" [#11045](https://github.com/gravitee-io/issues/issues/11045)
+
+**Other**
+
+* \[Kafka Gateway] Bad ApiVersions when gateway doesn't supports the min version of an api key [#11118](https://github.com/gravitee-io/issues/issues/11118)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Gateway**
+
+* Request response times spike when health checks are performed [#11141](https://github.com/gravitee-io/issues/issues/11141)
+
+**Other**
+
+* \[gravitee-policy-callout-http] Allow to evaluate variables as Object [#11137](https://github.com/gravitee-io/issues/issues/11137)
+
+</details>
+
+
+ 
+## Gravitee API Management 4.8.19 - January 30, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Double / when in the called url when using Service discovery plugin [#11076](https://github.com/gravitee-io/issues/issues/11076)
+
+**Management API**
+
+* Prevent multiple primary owners through ownership transfer [#11102](https://github.com/gravitee-io/issues/issues/11102)
+
+**Portal**
+
+* \[PORTAL] Filtering Problem  [#11028](https://github.com/gravitee-io/issues/issues/11028)
+
+**Other**
+
+* SSL enforcement policy issue [#11009](https://github.com/gravitee-io/issues/issues/11009)
+* Group Management follow-up (still broken in some places) [#11042](https://github.com/gravitee-io/issues/issues/11042)
+* \[Kafka Gateway] Side effects on upstream connection when EL is used to configure SASL [#11103](https://github.com/gravitee-io/issues/issues/11103)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Gateway**
+
+* JAVA_OPTS displays password parameters in gateway logs [#11073](https://github.com/gravitee-io/issues/issues/11073)
+
+**Management API**
+
+* JAVA_OPTS displays password parameters in gateway logs [#11073](https://github.com/gravitee-io/issues/issues/11073)
+
+</details>
+
+
+ 
+## Gravitee API Management 4.8.18 - January 19, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Console**
+
+* Save changes button does not appear on policy studio when jwt policy is dropped [#11011](https://github.com/gravitee-io/issues/issues/11011)
+
+</details>
+
+
+ 
+## Gravitee API Management 4.8.17 - December 19, 2025
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* 504 Gateway Timeout logs show server as Null [#10295](https://github.com/gravitee-io/issues/issues/10295)
+* V4 WebSocket backend fails when sec-websocket-protocol header is provided [#10987](https://github.com/gravitee-io/issues/issues/10987)
+
+**Management API**
+
+* Duplicate user entries appearing randomly in search results [#10744](https://github.com/gravitee-io/issues/issues/10744)
+* Portal notification configuration upgrade failure after APIM upgrade [#11030](https://github.com/gravitee-io/issues/issues/11030)
+
+**Console**
+
+* Management UIs logout URL missing id_token_hint [#10399](https://github.com/gravitee-io/issues/issues/10399)
+* Group Roles not shown until page refresh when added to a user [#11026](https://github.com/gravitee-io/issues/issues/11026)
+* Headers in logs for V4 messages APIs not loading correctly in UI [#11027](https://github.com/gravitee-io/issues/issues/11027)
+
+**Portal**
+
+* Developer portal is impossible to use with a lot of applications [#10784](https://github.com/gravitee-io/issues/issues/10784)
+
+**Other**
+
+* Shared Policy Group data cache lost on API redeploy [#10797](https://github.com/gravitee-io/issues/issues/10797)
+
+</details>
+
+
+ 
+## Gravitee API Management 4.8.16 - December 10, 2025
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Incorrect HTTP request metrics for V4 APIs [#10994](https://github.com/gravitee-io/issues/issues/10994)
+* Revert - disabled resource has no effect \[10831] [#11019](https://github.com/gravitee-io/issues/issues/11019)
+
+**Management API**
+
+* Silent failure when changing email to one already in use [#11017](https://github.com/gravitee-io/issues/issues/11017)
+
+**Console**
+
+* Silent failure when changing email to one already in use [#11017](https://github.com/gravitee-io/issues/issues/11017)
+
+</details>
+
+
+
+## Gravitee API Management 4.8.14 - November 25, 2025
+
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Other**
+
+* Lost api notifications after upgrade [#10924](https://github.com/gravitee-io/issues/issues/10924)
+* Intermittent 503s on OAuth2 Introspection due to Stale Connection Reuse [#10984](https://github.com/gravitee-io/issues/issues/10984)
+
+</details>
+
+## Gravitee API Management 4.8.13 - November 21, 2025
+
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Management API**
+
+* Shared policy not being executed in debug mode [#10885](https://github.com/gravitee-io/issues/issues/10885)
+* Valid OpenAPI are being rejected at import for v4 APIs [#10975](https://github.com/gravitee-io/issues/issues/10975)
+
+**Console**
+
+* Applications Graph analytics issue [#10837](https://github.com/gravitee-io/issues/issues/10837)
+* Export was exposing unwanted `hrid` field in CRD export [#10937](https://github.com/gravitee-io/issues/issues/10937)
+
+**Portal**
+
+* Documentation pages in new dev portal show misaligned content [#10947](https://github.com/gravitee-io/issues/issues/10947)
+* New Developer Portal - Guide Navigation Redirects Incorrectly [#10962](https://github.com/gravitee-io/issues/issues/10962)
+
+**Other**
+
+* Cannot use access\_token in SASL JAAS config for OAUTHBEARER mechanism [#10927](https://github.com/gravitee-io/issues/issues/10927)
+* AI Prompt Token Tracking Policy skipped with Non-Strict application/json Content-Type [#10964](https://github.com/gravitee-io/issues/issues/10964)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Gateway**
+
+* Redis - Unable to connect to Redis WRONGPASS invalid username-password pair or user is disabled [#10966](https://github.com/gravitee-io/issues/issues/10966)
+
+**Management API**
+
+* User groups API now supports filtering by environmentId query parameter [#10788](https://github.com/gravitee-io/issues/issues/10788)
+
+**Other**
+
+* Allow Json validation policy to use a nullable field if provided in schema [#10828](https://github.com/gravitee-io/issues/issues/10828)
+* OpenTelemetry API gateway attribute values and trace linking [#10898](https://github.com/gravitee-io/issues/issues/10898)
+* Performance Optimization for API Configuration Validation [#10989](https://github.com/gravitee-io/issues/issues/10989)
+
+</details>
+
+## Gravitee API Management 4.8.12 - November 7, 2025
+
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Allow disabling Vertx Native Transport [#10889](https://github.com/gravitee-io/issues/issues/10889)
+* Sec-WebSocket-Protocol header not propagated in WebSocket connections for v4 APIs [#10950](https://github.com/gravitee-io/issues/issues/10950)
+
+**Management API**
+
+* Using payload filter in v2 API logs does not always return correct number of results [#10747](https://github.com/gravitee-io/issues/issues/10747)
+* Difference between policy names based on the creation method. [#10803](https://github.com/gravitee-io/issues/issues/10803)
+* Search API feature not working on Developer Portal [#10892](https://github.com/gravitee-io/issues/issues/10892)
+* Path mapping on import fails for certain paths [#10909](https://github.com/gravitee-io/issues/issues/10909)
+
+**Console**
+
+* Applied filter tags disappear in log view [#10931](https://github.com/gravitee-io/issues/issues/10931)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Gateway**
+
+* API traffic runtime logs incorrectly show endpoint response 200 [#10896](https://github.com/gravitee-io/issues/issues/10896)
+
+**Console**
+
+* Update Management API connection failure banner copy [#10945](https://github.com/gravitee-io/issues/issues/10945)
+
+**Other**
+
+* Enable configurable API Key header name in API Key plan [#10939](https://github.com/gravitee-io/issues/issues/10939)
+
+</details>
+
+## Gravitee API Management 4.8.11 - October 24, 2025
+
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Management API**
+
+* Flow id missing in create api response of V4 APIs [#10888](https://github.com/gravitee-io/issues/issues/10888)
+* Visibility flag is not getting updated as part of api creation using mAPI [#10895](https://github.com/gravitee-io/issues/issues/10895)
+* Federation Agent connection causes ThreadBlocked while fetching token [#10913](https://github.com/gravitee-io/issues/issues/10913)
+
+**Console**
+
+* Fetching groups for an application takes a really long time [#10709](https://github.com/gravitee-io/issues/issues/10709)
+* Impossible to delete member group [#10836](https://github.com/gravitee-io/issues/issues/10836)
+
+**Other**
+
+* Webhook Entrypoint: Linear retry delay incorrectly interpreted as milliseconds instead of seconds [#10520](https://github.com/gravitee-io/issues/issues/10520)
+* Ensure IPv4 backward compatibility in docker images [#10859](https://github.com/gravitee-io/issues/issues/10859)
+* Requests blocked (403) when IP Filtering Policy contains both hostname and IP [#10866](https://github.com/gravitee-io/issues/issues/10866)
+* Inconsistency in portal sub-path configuration between IPv4 and IPv6 NGINX files [#10904](https://github.com/gravitee-io/issues/issues/10904)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Management API**
+
+* 502 Bad Gateway Error when backend response headers exceed endpoint size limit [#10863](https://github.com/gravitee-io/issues/issues/10863)
+
+**Console**
+
+* 502 Bad Gateway Error when backend response headers exceed endpoint size limit [#10863](https://github.com/gravitee-io/issues/issues/10863)
+
+</details>
+
+## Gravitee API Management 4.8.10 - October 17, 2025
+
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Debug mode can trigger ThreadBlocked with Bridge repository [#10886](https://github.com/gravitee-io/issues/issues/10886)
+
+**Console**
+
+* Adding a policy at Org level causes a "HTTP 404 Not Found" error in UI. [#10666](https://github.com/gravitee-io/issues/issues/10666)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Console**
+
+* New updated API picture & background not visible without refreshing the page [#10857](https://github.com/gravitee-io/issues/issues/10857)
+
+**Helm Charts**
+
+* Gravitee Gateway removes password attribute from SSL section when password is empty string "" [#10861](https://github.com/gravitee-io/issues/issues/10861)
+
+</details>
+
+## Gravitee API Management 4.8.9 - October 10, 2025
+
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Read timeout on v4 returns 500 [#10767](https://github.com/gravitee-io/issues/issues/10767)
+* EL request.xmlContent Fails with XML Declaration [#10842](https://github.com/gravitee-io/issues/issues/10842)
+* Impossible to increase backend HTTP/2 window sizes [#10852](https://github.com/gravitee-io/issues/issues/10852)
+
+**Management API**
+
+* Image not updated with mAPI [#10809](https://github.com/gravitee-io/issues/issues/10809)
+* Error when trying to retrieve the portal notification settings [#10870](https://github.com/gravitee-io/issues/issues/10870)
+
+**Other**
+
+* Two users created with identical email addresses [#10423](https://github.com/gravitee-io/issues/issues/10423)
+* Webhook Entrypoint: "No Retry" configuration ignores setting and uses default linear retry. [#10519](https://github.com/gravitee-io/issues/issues/10519)
+* Upgrader error on PortalNotificationConfig repository when upgrading from 4.2 to 4.8 [#10847](https://github.com/gravitee-io/issues/issues/10847)
+* Custom API keys are truncated to 64 characters when created through the console UI [#10873](https://github.com/gravitee-io/issues/issues/10873)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Other**
+
+* Character length for API description is only 4000 for Postgres [#10825](https://github.com/gravitee-io/issues/issues/10825)
+* File reporter creates empty log files despite event exclusion. [#10853](https://github.com/gravitee-io/issues/issues/10853)
+
+</details>
+
+## Gravitee API Management 4.8.8 - September 26, 2025
+
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Gateway rejects client certificates missing BEGIN/END markers in X-Gravitee-Client-Cert header [#10816](https://github.com/gravitee-io/issues/issues/10816)
+
+**Management API**
+
+* Unable to search federated APIs using metadata [#10676](https://github.com/gravitee-io/issues/issues/10676)
+* Group edit fails for APIs with missing visibility [#10804](https://github.com/gravitee-io/issues/issues/10804)
+* Health-check endpoint target returns type instead of full URL after 4.8 upgrade [#10818](https://github.com/gravitee-io/issues/issues/10818)
+
+**Console**
+
+* Prevent multiple primary owners when API Primary Owner mode is set to Group [#10629](https://github.com/gravitee-io/issues/issues/10629)
+* Gap between the "Health Check Dashboard" date and the "Dashboard API Traffic" date [#10813](https://github.com/gravitee-io/issues/issues/10813)
+* Audit history shows incorrect API groups and path mappings deletion [#10814](https://github.com/gravitee-io/issues/issues/10814)
+* Image appears too large inside dropdown menu [#10819](https://github.com/gravitee-io/issues/issues/10819)
+
+**Helm Charts**
+
+* Frequent Prometheus endpoint calls can cause OOM errors [#10466](https://github.com/gravitee-io/issues/issues/10466)
+
+**Other**
+
+* IPV6 CIDR ranges do not work in the IP filtering policy [#10656](https://github.com/gravitee-io/issues/issues/10656)
+* Using Check Topic Existence with the AWS MSK IAM SASL mechanism results in errors [#10746](https://github.com/gravitee-io/issues/issues/10746)
+* Remove corrupted subscriptions from database [#10821](https://github.com/gravitee-io/issues/issues/10821)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Management API**
+
+* Character length for entrypoints is only 64 for Postgres [#10698](https://github.com/gravitee-io/issues/issues/10698)
+
+**Helm Charts**
+
+* Add helm.sh/chart to pod template annotations [#10832](https://github.com/gravitee-io/issues/issues/10832)
+
+**Other**
+
+* \[JSON threat protection policy] add an option to block JSON with duplicated keys [#10841](https://github.com/gravitee-io/issues/issues/10841)
+* OAS Plugin decoding issue – validation fails with encoded values [#10845](https://github.com/gravitee-io/issues/issues/10845)
+
+</details>
+
+## Gravitee API Management 4.8.7 - September 12, 2025
+
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Unable to retrieve secrets from HashiCorp[#10760](https://github.com/gravitee-io/issues/issues/10760)
+
+**Management API**
+
+* Memory issues when loading audit events [#10582](https://github.com/gravitee-io/issues/issues/10582)
+* Heavy latencies using Audit section with a larger number of apps.[#10783](https://github.com/gravitee-io/issues/issues/10783)
+* Audit History groups fetch timeout[#10682](https://github.com/gravitee-io/issues/issues/10682)
+* Bad behavior on weighted round robin[#10405](https://github.com/gravitee-io/issues/issues/10405)
+* Dynamic Properties configuration is not exported when exporting a V4 API[#10726](https://github.com/gravitee-io/issues/issues/10726)
+
+**Console**
+
+* Unable to import path mapping from swagger document [#10810](https://github.com/gravitee-io/issues/issues/10810)
+* Alert creation form missing fields on smaller screens[#10823](https://github.com/gravitee-io/issues/issues/10823)
+* Slow loading when viewing 'Tasks' on Console[#10650](https://github.com/gravitee-io/issues/issues/10650)
+* Bad behavior on weighted round robin[#10405](https://github.com/gravitee-io/issues/issues/10405)
+
+**Other**
+
+* Elastic reporter fails with ES7 and V4 Proxy API[#10772](https://github.com/gravitee-io/issues/issues/10772)
+* APIs with MCP enabled require the Accept header to be present in debug requests [#10652](https://github.com/gravitee-io/issues/issues/10652)
+
+</details>
+
+## Gravitee API Management 4.8.6 - September 1, 2025
+
+<details>
+
 <summary>Security</summary>
 
 * Harden authorization controls for the automation API [#10771](https://github.com/gravitee-io/issues/issues/10771)
+
 </details>
- 
+
 ## Gravitee API Management 4.8.5 - August 29, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -31,15 +564,14 @@
 
 **Other**
 
-* Kafka ACLs not properly refreshed during fetch  [#10735](https://github.com/gravitee-io/issues/issues/10735)
+* Kafka ACLs not properly refreshed during fetch [#10735](https://github.com/gravitee-io/issues/issues/10735)
 * Kafka ACL - optimize ActionFilter instantiation [#10745](https://github.com/gravitee-io/issues/issues/10745)
 * Kafka Gateway - ACL Policy Issue for Virtual Topics [#10754](https://github.com/gravitee-io/issues/issues/10754)
 
 </details>
 
-
- 
 ## Gravitee API Management 4.8.4 - August 14, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -74,9 +606,8 @@
 * \[MCP Entrypoint] POST operation through the MCP server gives a 500 / timeout. [#10720](https://github.com/gravitee-io/issues/issues/10720)
 * UI Bug: Management Console application logs headers are truncated/squished with long values [#10721](https://github.com/gravitee-io/issues/issues/10721)
 * OOM error in gateway when management repository becomes unresponsive causes worker thread starvation and analytics reporter blockage [#10723](https://github.com/gravitee-io/issues/issues/10723)
-* A2A Proxy does not support Strands AI SDK  [#10743](https://github.com/gravitee-io/issues/issues/10743)
+* A2A Proxy does not support Strands AI SDK [#10743](https://github.com/gravitee-io/issues/issues/10743)
 * Gravitee gateway sending thousands of requests per second [#10732](https://github.com/gravitee-io/issues/issues/10732)
-
 
 </details>
 
@@ -91,9 +622,8 @@
 
 </details>
 
-
- 
 ## Gravitee API Management 4.8.3 - August 1, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -111,16 +641,16 @@
 
 **Console**
 
-* The error key CLIENT_ABORTED_DURING_RESPONSE_ERROR is not present in the console UI. [#10683](https://github.com/gravitee-io/issues/issues/10683)
+* The error key CLIENT\_ABORTED\_DURING\_RESPONSE\_ERROR is not present in the console UI. [#10683](https://github.com/gravitee-io/issues/issues/10683)
 
 **Portal**
 
-*  Portal Try it Out feature taking a long time to load [#10595](https://github.com/gravitee-io/issues/issues/10595)
-* Openapi contracts with binary examples can not be read by the dev portal  [#10639](https://github.com/gravitee-io/issues/issues/10639)
+* Portal Try it Out feature taking a long time to load [#10595](https://github.com/gravitee-io/issues/issues/10595)
+* Openapi contracts with binary examples can not be read by the dev portal [#10639](https://github.com/gravitee-io/issues/issues/10639)
 
 **Other**
 
-* JDBC Error in Gravitee when querying large number of applications using IN clause  [#10496](https://github.com/gravitee-io/issues/issues/10496)
+* JDBC Error in Gravitee when querying large number of applications using IN clause [#10496](https://github.com/gravitee-io/issues/issues/10496)
 * Console : Image Not Fitting Avatar Due to Aspect Ratio [#10649](https://github.com/gravitee-io/issues/issues/10649)
 * Unable to modify set/replace/append headers in the UI for the Transform Headers policy [#10655](https://github.com/gravitee-io/issues/issues/10655)
 * Unable to access Logs details [#10695](https://github.com/gravitee-io/issues/issues/10695)
@@ -137,9 +667,8 @@
 
 </details>
 
-
- 
 ## Gravitee API Management 4.8.2 - July 18, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -165,8 +694,6 @@
 * \[Kafka Offloading Policy] Large Payloads Support [#10674](https://github.com/gravitee-io/issues/issues/10674)
 
 </details>
-
-
 
 ## Gravitee API Management 4.8.1 - July 7, 2025
 

@@ -1,4 +1,5 @@
 ---
+description: Overview of Scaling Ambassador Edge Stack.
 noIndex: true
 ---
 
@@ -135,7 +136,7 @@ The following are the different types of profiles you can run:
 | Profile                   | Function                                                                                                                                      |
 | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | /debug/pprof/allocs       | Returns a sampling of all past memory allocations.                                                                                            |
-| /debug/pprof/block        | Returns stack traces of goroutines that led to blocking on synchronization primitives.                                                         |
+| /debug/pprof/block        | Returns stack traces of goroutines that led to blocking on synchronization primitives.                                                        |
 | /debug/pprof/cmdline      | Returns the command line that was invoked by the current program.                                                                             |
 | /debug/pprof/goroutine    | Returns stack traces of all current goroutines.                                                                                               |
 | /debug/pprof/heap         | Returns a sampling of memory allocations of live objects.                                                                                     |

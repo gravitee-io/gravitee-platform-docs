@@ -11,7 +11,7 @@ description: >-
 The following sections describe the logging capabilities of the Console for v4 message APIs.
 
 {% hint style="info" %}
-Runtime logs are not yet available for v4 proxy APIs.&#x20;
+Runtime logs are not yet available for v4 proxy APIs.
 {% endhint %}
 
 ### View record of logs

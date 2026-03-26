@@ -11,15 +11,14 @@ description: >-
 
 As of Gravitee 4.0, the sharding tags feature is an Enterprise Edition capability. To learn more about Gravitee EE and what's included in various enterprise packages:
 
-* [Refer to the EE vs OSS documentation](../../overview/ee-vs-oss/)
-* [Book a demo](http://127.0.0.1:5000/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
+* [Refer to the EE vs OSS documentation](../../overview/ee-vs-oss/README.md)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
 
 {% hint style="info" %}
 **v4 API limitations**
 
-As of Gravitee 4.0, you cannot implement sharding tags for v4 APIs using the APIM Console. This can only be done via the [Management API](../../reference/management-api-reference/).&#x20;
+As of Gravitee 4.0, you cannot implement sharding tags for v4 APIs using the APIM Console. This can only be done via the [Management API](../../reference/management-api-reference/README.md).&#x20;
 {% endhint %}
 
 ## Introduction
@@ -50,7 +49,7 @@ API deployment is impacted by how tags are applied to APIs and Gateways.
 
 Our discussion of sharding tag configuration assumes an architecture that includes both DMZ Gateways and internal, corporate Gateways. We want to tag these Gateways as external-only and internal-only, respectively, per the diagram below:
 
-<figure><img src="../../.gitbook/assets/Example architecture (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Example architecture.png" alt=""><figcaption></figcaption></figure>
 
 Before sharding tags can be defined in the Gravitee API Management Console, the API Gateway `gravitee.yaml` file must be modified to assign a Gravitee API Gateway to a specific sharding tag:
 

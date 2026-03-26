@@ -1,4 +1,5 @@
 ---
+description: An overview about ---.
 hidden: true
 ---
 
@@ -16,7 +17,7 @@ This policy can be applied to v2 APIs, v4 HTTP proxy APIs, and v4 message APIs. 
 
 {% tabs %}
 {% tab title="HTTP proxy API example" %}
-#### Example 1:  onRequest / onResponse
+**Example 1: onRequest / onResponse**
 
 The following example Groovy script is executed during the OnResponse phase to change HTTP headers:
 
@@ -25,7 +26,7 @@ response.headers.remove 'X-Powered-By'
 response.headers.'X-Gravitee-Gateway-Version' = '0.14.0'
 ```
 
-#### Example 2:  OnRequestContent / OnResponseContent
+**Example 2: OnRequestContent / OnResponseContent**
 
 The following example shows you how to use the `groovy` policy to transform JSON content:
 
@@ -65,7 +66,7 @@ return JsonOutput.toJson(content)
 {% endtab %}
 
 {% tab title="Message API example" %}
-#### OnMessageRequest / OnMessageResponse
+**OnMessageRequest / OnMessageResponse**
 
 The following example shows you how to use the Groovy policy to override the content of a message to change the greeting:
 
@@ -155,7 +156,7 @@ result.contentType = 'application/json'
 You can also transform request or response body content by applying a Groovy script on the `OnRequestContent` phase or the `OnResponseContent` phase.
 
 {% hint style="info" %}
-If you are using the [reactive](../../4.6/overview/gravitee-api-definitions-and-execution-engines/reactive-execution-engine.md) engine, a single script is defined. To override the content of the request or response, `overrideContent`must be enabled in your configuration.
+If you are using the [reactive](../create-apis/overview/execution-engine.md#reactive-engine-improvements) engine, a single script is defined. To override the content of the request or response, `overrideContent`must be enabled in your configuration.
 {% endhint %}
 {% endtab %}
 
@@ -166,7 +167,7 @@ This policy allows you to override the content of a message. Message content can
 
 ### Impact of execution engine
 
-The number of scripts used for the `groovy` policy and their execution depend on which [execution engine](../../4.6/overview/gravitee-api-definitions-and-execution-engines/) is running.
+The number of scripts used for the `groovy` policy and their execution depend on which [execution engine](../create-apis/overview/execution-engine.md#reactive-and-legacy-execution-engine-comparison) is running.
 
 {% tabs %}
 {% tab title="Legacy engine" %}

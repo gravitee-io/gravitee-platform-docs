@@ -1,3 +1,7 @@
+---
+description: Documentation about breaking changes and deprecations in the context of APIs.
+---
+
 # Breaking Changes and Deprecations
 
 ## Breaking changes
@@ -12,15 +16,15 @@ Here are the breaking changes from versions 4.X of Gravitee.
 
 **APIM Standalone components**
 
-The APIM standalone components that were available to download from [Gravitee.io downloads - apim/components](https://download.gravitee.io/#graviteeio-apim/components/) are no longer available or supported.&#x20;
+The APIM standalone components that were available to download from [Gravitee.io downloads - apim/components](https://download.gravitee.io/#graviteeio-apim/components/) are no longer available or supported.
 
 You can use the full distribution .ZIP file instead. To download the full distribution .ZIP file, go to [Gravitee.io downloads - apim/distributions](https://download.gravitee.io/#graviteeio-apim/distributions/).
 
 **Lucene update 10**
 
-Lucene has been upgraded to 10. Before starting the Management API (mAPI), you must clean the `/data` directory in your `GRAVITEE_HOME` containing Lucene working files. Otherwise, the mAPI does not start. There is no impact. When mAPI restarts, it re-indexes.&#x20;
+Lucene has been upgraded to 10. Before starting the Management API (mAPI), you must clean the `/data` directory in your `GRAVITEE_HOME` containing Lucene working files. Otherwise, the mAPI does not start. There is no impact. When mAPI restarts, it re-indexes.
 
-**Custom plugin development**&#x20;
+**Custom plugin development**
 
 If a plugin is referencing `io.gravitee.gateway.reactor.ReactableApi`, it needs to be recompiled with APIM 4.8 dependencies because `ReactableApi` it is now an interface rather than an abstract class. Without recompilation, the plugin throws a `java.lang.IncompatibleClassChangeError` .
 
@@ -36,7 +40,7 @@ Once the pod is terminated, `cache-hazelcast` installs successfully. The upgrade
 
 **Azure API Management update**
 
-There is a new parameter for ingesting Azure APIs. To ingest Azure APIs, you must set `gravitee_integration_providers_0_configuration_subscriptionApprovalType` in your `docker-compose.yaml` and set the `SUBSCRIPTION_APPROVAL_TYPE`  in your `.env` file to `AUTOMATIC` , `MANUAL` or `ALL` .
+There is a new parameter for ingesting Azure APIs. To ingest Azure APIs, you must set `gravitee_integration_providers_0_configuration_subscriptionApprovalType` in your `docker-compose.yaml` and set the `SUBSCRIPTION_APPROVAL_TYPE` in your `.env` file to `AUTOMATIC` , `MANUAL` or `ALL` .
 
 To keep the previous behavior of Azure API Management, set the `SUBSCRIPTION_APPROVAL_TYPE` to `AUTOMATIC` .
 

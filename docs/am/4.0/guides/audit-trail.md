@@ -1,3 +1,7 @@
+---
+description: Overview of AM.
+---
+
 # Audit Trail
 
 ## Overview
@@ -14,8 +18,6 @@ The AM Console Audit log page displays all events which have taken place, includ
 
 1. Log in to AM Console.
 2.  Click **Settings > Audit Log**.
-
-
 
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-logs-audit.png" alt=""><figcaption><p>Audit log</p></figcaption></figure>
 
@@ -89,8 +91,6 @@ By default, a reporter is created for each security domain and allows you to cho
 2. Click **Settings > Audit Log**.
 3.  Click the settings icon and configure the reporter.
 
-
-
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-logs-audit-reporter.png" alt=""><figcaption><p>Configure reporter</p></figcaption></figure>
 
 {% hint style="warning" %}
@@ -114,12 +114,8 @@ To create a File reporter for a domain:
 3. Click the settings icon ![am settings icon](https://docs.gravitee.io/images/icons/am-settings-icon.png).
 4.  Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
 
-
-
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-adminguide-add-reporter.png" alt=""><figcaption><p>Audit settings</p></figcaption></figure>
 5.  Select **File** as the reporter type and enter the reporter name and file name.
-
-
 
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-adminguide-file-reporter.png" alt=""><figcaption><p>Add a file reporter</p></figcaption></figure>
 

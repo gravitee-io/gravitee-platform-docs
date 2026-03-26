@@ -1,4 +1,8 @@
-# Security
+---
+description: Tutorial on configuring the security.
+---
+
+# Configuring the security
 
 ## Brute-force attacks
 

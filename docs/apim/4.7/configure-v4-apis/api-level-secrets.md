@@ -1,3 +1,7 @@
+---
+description: An overview about api-level secrets.
+---
+
 # API-Level Secrets
 
 ## Overview
@@ -321,7 +325,7 @@ You can see here that the definition does not contain a clear text secret. This 
 
 Here is an example of referencing a secret when you configure a Redis Cache resource:
 
-<figure><img src="../.gitbook/assets/image (143).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (142).png" alt=""><figcaption></figcaption></figure>
 
 ### Native Kafka endpoint API example
 
@@ -390,7 +394,7 @@ You can see here that the definition does not contain a clear text secret. This 
 
 Here is an example of referencing a secret during a SASL configuration:
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-01-23 at 13.54.01.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screenshot 2025-01-23 at 13.54.01 (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Hiding secret provider plugin
 

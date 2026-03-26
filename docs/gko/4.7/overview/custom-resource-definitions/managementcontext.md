@@ -47,7 +47,7 @@ Authentication credentials may either be added inline in the `ManagementContext`
 
 The custom resource created in the following example refers to a Management API instance exposed at `https://gravitee-api.acme.com`. It targets the `dev` environment of the `acme` organization, using the `admin` account and basic authentication credentials defined in a Kubernetes Secret. To create this custom resource, complete the following steps:
 
-1.  Create a Secret to store the credentials:\
+1.  Create a Secret to store the credentials:
 
 
     ```sh
@@ -59,7 +59,7 @@ The custom resource created in the following example refers to a Management API 
 
 
 2. Define a `ManagementContext` custom resource using either of the following methods:
-   1.  Define a `ManagementContext` custom resource referencing the Secret:\
+   1.  Define a `ManagementContext` custom resource referencing the Secret:
 
 
        ```yaml
@@ -78,7 +78,7 @@ The custom resource created in the following example refers to a Management API 
        ```
 
 
-   2.  If you are using the cloud token for authentication, you must use the `cloud` property to define the `ManagementContext` custom resource referencing the Secret:\
+   2.  If you are using the cloud token for authentication, you must use the `cloud` property to define the `ManagementContext` custom resource referencing the Secret:
 
 
        ```yaml
@@ -222,7 +222,7 @@ By default, the service account created for the Gateway does not have a cluster 
 * Your definitions must sit in the same namespace (e.g., `apim-example`)
 * The name of the context must match the reference in the API definition
 
-Alternatively, you can configure the [Helm Chart](../../getting-started/installation/) to use a cluster role.
+Alternatively, you can configure the [Helm Chart](../../getting-started/installation/README.md) to use a cluster role.
 {% endhint %}
 
 {% hint style="info" %}

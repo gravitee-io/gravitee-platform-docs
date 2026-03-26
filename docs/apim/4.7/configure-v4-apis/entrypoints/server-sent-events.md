@@ -1,3 +1,7 @@
+---
+description: Configuration and setup guide for server-sent events.
+---
+
 # Server-sent Events
 
 ## Configuration

@@ -1,4 +1,5 @@
 ---
+description: Overview of Cleartext Support.
 noIndex: true
 ---
 
@@ -7,7 +8,7 @@ noIndex: true
 While most modern web applications choose to encrypt all traffic, there remain cases where supporting cleartext communications is important. Ambassador Edge Stack supports both forcing [automatic redirection to HTTPS](cleartext-support.md#http-https-redirection) and [serving cleartext](cleartext-support.md#cleartext-routing) traffic on a `Host`.
 
 {% hint style="info" %}
-If no `Host`s are defined, Ambassador Edge Stack enables HTTP->HTTPS redirection. You will need to explicitly create a `Host` to enable cleartext communication at all.&#x20;
+If no `Host`s are defined, Ambassador Edge Stack enables HTTP->HTTPS redirection. You will need to explicitly create a `Host` to enable cleartext communication at all.
 {% endhint %}
 
 {% hint style="info" %}
@@ -30,7 +31,7 @@ This allows routing for either HTTP and HTTPS, or _only_ HTTP, depending on `tls
 * If the `Host` does specify a `tlsSecret`, it will route both HTTP and HTTPS.
 
 {% hint style="info" %}
-If no `Host`s are defined, Ambassador Edge Stack enables HTTP->HTTPS redirection. You will need to explicitly create a `Host` to enable cleartext communication at all.&#x20;
+If no `Host`s are defined, Ambassador Edge Stack enables HTTP->HTTPS redirection. You will need to explicitly create a `Host` to enable cleartext communication at all.
 {% endhint %}
 
 {% hint style="info" %}
@@ -66,7 +67,7 @@ requestPolicy:
 Ambassador Edge Stack determines which requests are secure and which are insecure using the `securityModel` of the `Listener` that accepts the request.
 
 {% hint style="info" %}
-If no `Host`s are defined, Ambassador Edge Stack enables HTTP->HTTPS redirection. You will need to explicitly create a `Host` to enable cleartext communication at all.&#x20;
+If no `Host`s are defined, Ambassador Edge Stack enables HTTP->HTTPS redirection. You will need to explicitly create a `Host` to enable cleartext communication at all.
 {% endhint %}
 
 {% hint style="info" %}

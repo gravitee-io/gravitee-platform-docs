@@ -1,3 +1,7 @@
+---
+description: Overview of Remember Authentication Device.
+---
+
 # Remember Authentication Device
 
 ## Overview

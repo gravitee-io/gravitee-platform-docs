@@ -1,3 +1,9 @@
+---
+description: >-
+  An overview about customizing the layout and theme of the gravitee developer
+  portal.
+---
+
 # Customizing the layout and theme of the Gravitee Developer Portal
 
 ## Overview
@@ -11,7 +17,7 @@ Administrators have the option to modify the layout and theme of the Developer P
 
 ## API Sidebar
 
-You can click on an API in the Developer Portal to access its details. Selecting the **General information** header tab will display the API's description and reviews (if any have been submitted), as well as a sidebar on the right that contains additional information.&#x20;
+You can click on an API in the Developer Portal to access its details. Selecting the **General information** header tab will display the API's description and reviews (if any have been submitted), as well as a sidebar on the right that contains additional information.
 
 <div data-full-width="false"><figure><img src="../../../../.gitbook/assets/Screenshot 2023-05-31 at 1.57.16 PM.png" alt=""><figcaption><p>Developer Portal API sidebar</p></figcaption></figure></div>
 
@@ -28,11 +34,11 @@ The access URL for each API in the Developer Portal is the default entrypoint fo
 <figure><img src="../../../../.gitbook/assets/Screenshot 2023-07-28 at 12.51.56 PM.png" alt=""><figcaption><p>Modify the access URL</p></figcaption></figure>
 
 {% hint style="info" %}
-&#x20;**Sharding Tags and Gateway Entrypoint Mappings**
+**Sharding Tags and Gateway Entrypoint Mappings**
 
 [Sharding Tags](../../general-configuration/sharding-tags.md) tags are used to help manage complex distributed architectures:
 
-* By assigning sharding tags to APIs and Gravitee Gateways, an API is deployed to a subset of the available Gateways.&#x20;
+* By assigning sharding tags to APIs and Gravitee Gateways, an API is deployed to a subset of the available Gateways.
 * By mapping sharding tags to a Gateway’s entrypoint URL, the Developer Portal can intelligently display different entrypoints based on an API's sharding tags.
 {% endhint %}
 {% endtab %}
@@ -40,7 +46,7 @@ The access URL for each API in the Developer Portal is the default entrypoint fo
 {% tab title="Modify sidebar settings" %}
 To modify the sidebar settings:
 
-1. Return to the Management Console's home page&#x20;
+1. Return to the Management Console's home page
 2. Select **Settings** from the left sidebar
 3. Select **API Portal Information** from the inner left sidebar to display the following options:
 

@@ -5,7 +5,7 @@ description: This page provides the technical details of the Message Filtering p
 # Message Filtering
 
 {% hint style="warning" %}
-**This feature requires** [**Gravitee's Enterprise Edition**](../../../../../overview/gravitee-apim-enterprise-edition/)**.**
+**This feature requires** [**Gravitee's Enterprise Edition**](../../../../../overview/gravitee-apim-enterprise-edition/README.md)**.**
 {% endhint %}
 
 ## Overview

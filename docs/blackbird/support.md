@@ -1,4 +1,5 @@
 ---
+description: Overview of Support.
 noIndex: true
 ---
 
@@ -8,7 +9,7 @@ We understand that building and managing APIs can be complex, and our team is re
 
 ## For paying customers
 
-As a paying customer, you have access to our dedicated support team. If you encounter any issues or have questions, contact us by [email](mailto:support@datawire.io) or visit our [support portal](https://support.datawire.io/).
+As a paying customer, you have access to our dedicated support team.
 
 ## For free trial customers
 

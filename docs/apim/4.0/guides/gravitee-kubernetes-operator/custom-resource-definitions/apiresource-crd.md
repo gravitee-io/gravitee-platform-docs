@@ -1,3 +1,7 @@
+---
+description: Tutorial on ApiResource CRD.
+---
+
 # ApiResource CRD
 
 ## Creating a reusable API resource

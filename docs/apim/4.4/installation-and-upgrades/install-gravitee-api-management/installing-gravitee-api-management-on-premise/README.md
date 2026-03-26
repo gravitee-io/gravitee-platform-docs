@@ -1,3 +1,9 @@
+---
+description: >-
+  Setup and installation guide for Installing a self-hosted Gravitee API
+  Management platform.
+---
+
 # Installing a self-hosted Gravitee API Management platform
 
 You can install a self-hosted Gravitee API Management platform using the following installation methods:

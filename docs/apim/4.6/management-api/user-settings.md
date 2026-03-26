@@ -1,3 +1,7 @@
+---
+description: Configuration guide for user settings.
+---
+
 # User Settings
 
 ## Configuration

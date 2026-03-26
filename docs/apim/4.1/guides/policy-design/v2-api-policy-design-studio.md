@@ -22,7 +22,7 @@ The v2 Policy Studio is broken into the following sections:
 * **Resources:** Configure global resources to support your Gateway API's flows
 * **Debug:** Test and troubleshoot your Gateway APIs
 
-{% @arcade/embed flowId="kApsIRtoWrfIFRzd7DQj" url="https://app.arcade.software/share/kApsIRtoWrfIFRzd7DQj" %}
+{% @arcade/embed url="https://app.arcade.software/share/kApsIRtoWrfIFRzd7DQj" flowId="kApsIRtoWrfIFRzd7DQj" %}
 
 ## Design
 
@@ -99,7 +99,7 @@ If the request is `/test/55`, the resulting flow will be `/test/:id`. If the req
 
 To modify the flow mode, select the **Configuration** tab and change the **Flow Mode** to either **DEFAULT** or **BEST\_MATCH** using the **Flow Mode** drop-down.
 
-<figure><img src="../../.gitbook/assets/Configure flow mode.png" alt=""><figcaption><p>v2 Policy Studio: Configure flow mode</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Configure flow mode (1).png" alt=""><figcaption><p>v2 Policy Studio: Configure flow mode</p></figcaption></figure>
 
 ## API properties
 
@@ -107,7 +107,7 @@ Properties allow you to define key-value pairs at the Gateway API level. These p
 
 API properties are set and configured in the **Properties** tab. You can specify properties one by one, or toggle from **Simple** to **Expert** mode and paste property definitions into an editor in the format `<key>=<value>`.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-06-12 at 7.11.41 AM.png" alt=""><figcaption><p>API properties expert format</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/v2 properties.png" alt=""><figcaption><p>API properties expert format</p></figcaption></figure>
 
 ### Encryption
 
@@ -134,13 +134,13 @@ api:
 The secret must be **32 bytes in length.**
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-06-12 at 7.45.12 AM.png" alt=""><figcaption><p>Encrypted API property</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/v2 encrypted property.png" alt=""><figcaption><p>Encrypted API property</p></figcaption></figure>
 
 ### **Dynamic properties**
 
 You can also configure dynamic properties by clicking **CONFIGURE DYNAMIC PROPERTIES**. Dynamic properties are fetched from a remote server on a regular schedule and subsequently updated according to the details you specify.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-06-12 at 7.15.36 AM.png" alt=""><figcaption><p>Dynamic properties configuration screen</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/v2 dynamic properties.png" alt=""><figcaption><p>Dynamic properties configuration screen</p></figcaption></figure>
 
 To configure dynamic properties:
 
@@ -163,7 +163,7 @@ In this example, we want our Gateway API to query our shop databases to check th
 
 The first step is to define a list of properties for the shops, with each unique shop ID as the key and the URL of the shop as the value.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-06-12 at 7.20.12 AM.png" alt=""><figcaption><p>Add API properties</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/v2 dynamic properties example 1.png" alt=""><figcaption><p>Add API properties</p></figcaption></figure>
 
 We then configure a dynamic routing policy for the API with a routing rule which builds a new URL dynamically through property matching. The URL is created with a `#properties` statement which matches properties returned by querying the request header containing the shop ID.
 

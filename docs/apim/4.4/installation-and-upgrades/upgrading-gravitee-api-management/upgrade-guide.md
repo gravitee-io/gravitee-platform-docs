@@ -1,3 +1,7 @@
+---
+description: An overview about Upgrade Guide.
+---
+
 # Upgrade Guide
 
 {% hint style="danger" %}
@@ -13,12 +17,12 @@ Upgrading to APIM 4.4 is deployment-specific. The 4.0 breaking changes cited bel
 {% hint style="warning" %}
 * **If your upgrade will skip versions:** Read the version-specific upgrade notes for each intermediate version. You may be required to perform manual actions as part of the upgrade.
 * **Run scripts on the correct database:** `gravitee` is not always the default database. Run `show dbs` to return your database name.
-* **Ensure that you are aware of the breaking changes and deprecated functionality:** For more information about the breaking changes and deprecated functionality, see [Breaking changes and deprecated functionality for API Management](https://documentation.gravitee.io/apim/getting-started/upgrading-gravitee-api-management/breaking-changes-and-deprecated-functionality).
+* **Ensure that you are aware of the breaking changes and deprecated functionality:** For more information about the breaking changes and deprecated functionality, see [breaking-changes-and-deprecated-functionality-for-api-management.md](breaking-changes-and-deprecated-functionality-for-api-management.md "mention").
 {% endhint %}
 
 ## EE plugins
 
-Particular plugins are only available to enterprise customers. [See Gravitee APIM Enterprise Edition](../../overview/gravitee-apim-enterprise-edition/) for additional information.
+Particular plugins are only available to enterprise customers. [See Gravitee APIM Enterprise Edition](../../overview/gravitee-apim-enterprise-edition/README.md) for additional information.
 
 ## Running APIM
 
@@ -28,26 +32,19 @@ Particular plugins are only available to enterprise customers. [See Gravitee API
 * TLS 1.0 and TLS 1.1 protocols are disabled by default. You can enable these protocols with the proper TCP SSL configuration of the Gateway:
 
 {% code overflow="wrap" %}
-````
 ```yaml
 http:
   ssl:
     tlsProtocols: TLSv1.0, TLSv1.1, TLSv1.2
 ```
-````
 {% endcode %}
 
-```
-&#x20;or using environment variables:
-
-```
+ or using environment variables:
 
 {% code overflow="wrap" %}
-````
 ```bash
 GRAVITEE_HTTP_SSL_TLSPROTOCOLS=TLSv1.0,TLSv1.1,TLSv1.2
 ```
-````
 {% endcode %}
 
 ## **Monitoring APIM**
@@ -143,7 +140,7 @@ APIM installations connected to Cloud require changes to the Management API's `g
 ### APIM 4.2 with Cloud connected
 
 {% hint style="warning" %}
-The user must edit the Management API's `gravitee.yaml`.
+The user must edit the Management API's <code>gravitee.yaml</code>.
 {% endhint %}
 
 If an APIM installation connected to Cloud is upgraded to 4.2, the user must make the following changes to the Management API's `gravitee.yaml` file for the installation to function as `standalone`:
@@ -170,7 +167,7 @@ installation:
 ### APIM 4.2+ and multiple Consoles/Portals in a connected Cloud
 
 {% hint style="warning" %}
-The user must edit the Management API's `gravitee.yaml`.
+The user must edit the Management API's <code>gravitee.yaml</code>.
 {% endhint %}
 
 If an APIM installation with multiple Consoles and/or Portals set up in a connected Cloud is upgraded to 4.2, the user must make the following changes to the Management API's `gravitee.yaml` file for the installation to function as `standalone`:

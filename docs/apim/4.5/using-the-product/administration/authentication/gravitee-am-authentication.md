@@ -1,3 +1,7 @@
+---
+description: An overview about configuring gravitee access management authentication.
+---
+
 # Configuring Gravitee Access Management Authentication
 
 ## Overview

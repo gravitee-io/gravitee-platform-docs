@@ -1,3 +1,7 @@
+---
+description: An overview about solace.
+---
+
 # Solace
 
 ## Overview
@@ -23,7 +27,7 @@ You can tell the Gravitee Gateway's Solace client to act as a producer, a consum
 
 ### 3. Initial security settings
 
-You will define more Gravitee Gateway-specific security settings later on, but this is where you define your Solace-specific authentication flow. &#x20;
+You will define more Gravitee Gateway-specific security settings later on, but this is where you define your Solace-specific authentication flow.
 
 1. Enter the username and password used for authentication.
 2. Choose whether to ignore SSL expiration.
@@ -47,7 +51,7 @@ Enter the truststore file's location and SSL password.
 
 If you chose **Use Producer** or **Use Producer and Consumer**, you must define the settings that the Gravitee Gateway Solace client will rely on for producing messages to your backend Solace topic/broker.
 
-If you chose **Use Consumer** or **Use Producer and Consumer**, you must define the settings that the Gravitee Gateway Solace client will rely on to consume messages from your backend Solace topic/broker.&#x20;
+If you chose **Use Consumer** or **Use Producer and Consumer**, you must define the settings that the Gravitee Gateway Solace client will rely on to consume messages from your backend Solace topic/broker.
 
 {% tabs %}
 {% tab title="Producer" %}

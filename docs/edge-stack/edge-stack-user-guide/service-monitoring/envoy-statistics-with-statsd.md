@@ -1,4 +1,5 @@
 ---
+description: Overview of Envoy Statistics.
 noIndex: true
 ---
 

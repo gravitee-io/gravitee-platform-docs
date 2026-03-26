@@ -18,7 +18,7 @@ In addition, you can now [register for a free time-limited Gravitee Cockpit tria
 For more information about Enterprise Edition licenses, installation, and versioning, see the Enterprise Edition section.
 {% endhint %}
 
-As described in the [Introduction to Gravitee API Management (APIM)](../../), APIM is split into four main components:
+As described in the [Introduction to Gravitee API Management (APIM)](../../README.md), APIM is split into four main components:
 
 * APIM Gateway
 * APIM Management API

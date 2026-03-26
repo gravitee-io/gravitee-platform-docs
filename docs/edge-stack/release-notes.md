@@ -1,8 +1,79 @@
 ---
+description: Release notes for Release Notes.
 noIndex: true
 ---
 
 # Release Notes
+
+### Version 3.12.13 (March 12, 2026) <a href="#id-3.12.13" id="id-3.12.13"></a>
+
+#### Upgrade Golang to 1.24.13
+
+Ambassador Edge Stack now uses Golang version 1.24.13. This update resolves various security fixes, including CVE-2025-68121.
+
+### Version 3.12.12 (Febuary 23, 2026) <a href="#id-3.12.12" id="id-3.12.12"></a>
+
+#### Upgrade Golang to 1.24.12
+
+Ambassador Edge Stack now uses Golang version 1.24.12. This update resolves various security fixes, which includes CVE-2025-61726 and CVE-2025-61730.
+
+### Version 3.12.11 (January 9, 2026) <a href="#id-3.12.11" id="id-3.12.11"></a>
+
+#### Added additional Mapping validation
+
+Added condition support to the Mapping CRD to track readiness state and validation errors. The new `conditions` field in `MappingStatus` provides standardized feedback about Mapping health, including reasons like `Ready` and `InvalidPathPrefix`
+
+#### Upgrade Golang to 1.24.11
+
+Ambassador Edge Stack now uses Golang version 1.24.11. This update resolves various security fixes, including CVE-2025-61727
+
+#### Upgrade Alpine to 3.22
+
+Upgraded base image to alpine-3.22 as part of continued investment in keeping dependencies updated.
+
+### Version 3.12.10 (December 3, 2025) <a href="#id-3.12.10" id="id-3.12.10"></a>
+
+#### Upgrade Golang to 1.24.10
+
+Ambassador Edge Stack now uses Golang version 1.24.10. This update resolves various security fixes including CVE-2025-47912 and CVE-2025-58186
+
+#### Upgrade various dependencies
+
+Various dependencies were upgraded, in particular ACME packages were upgraded to resolve various security fixes.&#x20;
+
+### Version 3.12.9 (October 17, 2025) <a href="#id-3.12.9" id="id-3.12.9"></a>
+
+#### Upgrade Coraza to 3.3.3
+
+Ambassador Edge Stack now uses Coraza version 3.3.3. This update addresses and resolves various security fixes. Please note that with this update Coraza has introduced additional logging around certain variables. These logs can be disabled by updating your WAF rules. Please visit the [WAF rules page](edge-stack-user-guide/web-application-firewalls/configuring-web-application-firewall-rules-in-ambassador-edge-stack.md) for more information.
+
+### Version 3.12.8 (October 9, 2025) <a href="#id-3.12.8" id="id-3.12.8"></a>
+
+#### Patch XSRF vulnerability
+
+Previously there was an error with how we verified XSRF cookies on the redirection endpoint allowing for potential XSRF attacks. This has been patched and further verification of the XSRF cookie has been added.
+
+#### Update to JSON logging format
+
+When using JSON log format, Filter errors would output with the `host` tag to describe the host of the request. This caused issues when importing with Datadog and has been updated to be `hostname`.
+
+#### Upgrade to Envoy 1.31.10
+
+Ambassador Edge Stack is now built on Envoy v1.31.10, which includes security enhancements. For more information, see [Envoy Proxy 1.31.10 Release Notes](https://www.envoyproxy.io/docs/envoy/v1.31.10/version_history/version_history).
+
+### Version 3.12.7 (September 16, 2025) <a href="#id-3.12.7" id="id-3.12.7"></a>
+
+#### Fix SameSite behavior when multiple FilterPolicies point to a single Filter
+
+Previously there was an error with how the `SameSite` value on the Cookie were set when multiple FilterPolicies pointed to the same Filter. The Cookie would use the FilterPolicy that had the highest precedence for that Filter even if it was on the wrong paths. Now, the `SameSite` value in the FilterPolicy is respected for that path.
+
+#### Added further debug log information on the AuthService
+
+When using the `debug` log level, more information is now logged when using Filters and other Capabilities related to the AuthService.
+
+#### Upgraded Golang to 1.24.5
+
+Ambassador Edge Stack now uses Golang version 1.24.5. This update resolves various security fixes.
 
 ### Version 3.12.6 (July 25, 2025) <a href="#id-3.12.6" id="id-3.12.6"></a>
 
@@ -162,7 +233,7 @@ Multiple Golang and Python dependencies have been updated to ensure Ambassador E
 
 #### Shipped Helm chart v8.10.0
 
-\- Update default image to Ambassador Edge Stack v3.10.0.\\
+\- Update default image to Ambassador Edge Stack v3.10.0.
 
 ### Version 3.9.3 (December 14, 2023) <a href="#id-3.9.3" id="id-3.9.3"></a>
 
@@ -222,7 +293,7 @@ APIExt would previously allow for TLS 1.0 connections. We have updated it to now
 
 #### Shipped Helm chart v8.9.0
 
-\- Update default image to Ambassador Edge Stack v3.9.0.\\
+\- Update default image to Ambassador Edge Stack v3.9.0.
 
 #### Ensure APIExt server is available before starting Edge Stack
 
@@ -274,7 +345,7 @@ This upgrades Ambassador Edge Stack to be built on Envoy v1.26.4 which includes 
 
 #### Shipped Helm chart v8.7.2
 
-\- Update default image to Ambassador Edge Stack v3.7.2.\\
+\- Update default image to Ambassador Edge Stack v3.7.2.
 
 ### Version 3.7.1 (July 13, 2023) <a href="#id-3.7.1" id="id-3.7.1"></a>
 

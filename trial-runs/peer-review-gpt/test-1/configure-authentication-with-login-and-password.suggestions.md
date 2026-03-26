@@ -1,0 +1,16 @@
+- Add explicit verification steps for each authentication method:
+  - In-memory users (for example, confirm that specific test users can sign in to the APIM Console or Developer Portal).
+  - LDAP authentication (for example, verify that users synchronized from LDAP can authenticate and that group-to-role mapping is correct).
+  - APIM data source authentication (for example, verify that users created through APIM can sign in to the New Developer Portal).
+- Consider adding OS-specific guidance for password generation:
+  - Provide an explicit example for Linux/macOS using the htpasswd command.
+  - If applicable, add a Windows-native alternative (for example, PowerShell-based command) or clarify that the current example is cross-platform.
+- Review all default usernames and passwords shown in configuration examples and:
+  - Emphasize that these are examples only and should be changed in production.
+  - Optionally add a short security note reminding users to rotate default credentials.
+- For APIM data source authentication:
+  - Confirm whether additional management or database configuration is required beyond the Docker security.providers example.
+  - If required, document the management data source configuration and any constraints (for example, supported databases).
+- Validate the LDAP configuration examples against a current reference deployment:
+  - Confirm that all attribute names, base DNs, and filters match current product behavior.
+  - If necessary, add short comments describing when to use each filter pattern (for example, AD vs native LDAP).

@@ -1,3 +1,7 @@
+---
+description: Deployment guide for Deploy APIs.
+---
+
 # Deploy APIs to a Gateway
 
 The `state` attribute of the `ApiV4Definition` and `ApiDefinition` CRDs determines if an API should be in the `STARTED` or `STOPPED` state. By default, an API's `state` is set to `STARTED`.

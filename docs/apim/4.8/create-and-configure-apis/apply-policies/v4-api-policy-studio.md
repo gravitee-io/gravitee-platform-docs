@@ -1,3 +1,7 @@
+---
+description: An overview about v4 api policy studio.
+---
+
 # v4 API Policy Studio
 
 {% hint style="info" %}
@@ -92,7 +96,7 @@ To configure API properties:
 4. Select **Configuration** from the inner left nav
 5.  Select the **Properties** tab
 
-    <figure><img src="../../.gitbook/assets/api properties_tab (1).png" alt=""><figcaption><p>Add API properties</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/api properties_tab.png" alt=""><figcaption><p>Add API properties</p></figcaption></figure>
 6. To add hardcoded properties, either:
    * Click **Add property** and enter property definitions one at a time as a key-value pair
    * Click **Import** and enter property definitions as a list in `<key>=<value>` format
@@ -117,7 +121,7 @@ To encrypt a hardcoded API property value:
     ```
 2.  Enable the **Encrypt** toggle when adding a property via **Add property**. Once you click **Save**, you can no longer edit, modify, or view the value.
 
-    <div align="left"><figure><img src="../../.gitbook/assets/api properties_add (1).png" alt="" width="375"><figcaption></figcaption></figure></div>
+    <div align="left"><figure><img src="../../.gitbook/assets/api properties_add.png" alt="" width="375"><figcaption></figcaption></figure></div>
 
 ### **Dynamic properties**
 
@@ -130,7 +134,7 @@ To configure dynamic properties:
 5. Select the **Properties** tab
 6.  Click the **Manage dynamically** button and define the configuration
 
-    <figure><img src="../../.gitbook/assets/api properties_dynamically manage (2).png" alt=""><figcaption><p>Configure dynamic properties</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/api properties_dynamically manage.png" alt=""><figcaption><p>Configure dynamic properties</p></figcaption></figure>
 
     * Toggle **Enabled** to ON
     * **Schedule:** A cron expression to schedule the health check

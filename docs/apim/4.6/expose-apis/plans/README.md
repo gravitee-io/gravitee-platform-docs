@@ -1,3 +1,7 @@
+---
+description: Configuration guide for plans.
+---
+
 # Plans
 
 ## Introduction
@@ -16,9 +20,9 @@ Each plan must include at least one security type by which subscribers can be au
 
 The sections below describe:
 
-* [How to create a plan](./#create-a-plan)
-* [Plan stages](./#plan-stages)
-* [Plan selection rules](./#plan-selection-rules)
+* [How to create a plan](README.md#create-a-plan)
+* [Plan stages](README.md#plan-stages)
+* [Plan selection rules](README.md#plan-selection-rules)
 
 ## Create a plan
 
@@ -31,14 +35,14 @@ To create a plan:
 5.  Under the **Plans** header tab, click **+ Add new plan** and select your plan security type:
 
     <figure><img src="../../.gitbook/assets/plan_select security type.png" alt=""><figcaption><p>Add a new plan</p></figcaption></figure>
-6.  Configure the general plan settings:&#x20;
+6.  Configure the general plan settings:
 
     <figure><img src="../../.gitbook/assets/plan_general.png" alt=""><figcaption><p>Configure general plan settings</p></figcaption></figure>
 
     * **Name:** Enter a name for your plan
     * **Description:** Enter a description of your plan
     * **Characteristics:** Define labels used to tag your plan
-    * **Page of General Conditions:** Select a published [Documentation](broken-reference) page whose terms must be accepted by the user to finalize the subscription process
+    * **Page of General Conditions:** Select a published [Documentation](../../configure-v4-apis/documentation.md) page whose terms must be accepted by the user to finalize the subscription process
     * Toggle **Auto validate subscription** ON to accept all subscriptions to a plan without the API publisher's approval
     * Toggle **Consumer must provide a comment when subscribing to the plan** ON to require an explanation for the subscription request, with the option to leave a **Custom message to display to consumer**
     * **Sharding tags:** Selectively deploy the plan to particular APIs using available [sharding tags](../../gravitee-gateway/sharding-tags.md)
@@ -47,7 +51,7 @@ To create a plan:
 8.  Define the security configuration details appropriate to and required by your selected security type, e.g., OAuth2. See [OAuth2](oauth2.md), [JWT](jwt.md), [API Key](api-key.md), [Keyless](keyless.md), or [Push](push.md) for more information.
 
     <figure><img src="../../.gitbook/assets/plan_oauth2.png" alt=""><figcaption><p>OAuth2 configuration</p></figcaption></figure>
-9.  Select any plan restrictions:&#x20;
+9.  Select any plan restrictions:
 
     <figure><img src="../../.gitbook/assets/plan_restrictions.png" alt=""><figcaption><p>Select plan restrictions</p></figcaption></figure>
 
@@ -70,7 +74,7 @@ API consumers can view a published plan on the Developer Portal. Once subscribed
 {% endtab %}
 
 {% tab title="DEPRECATED" %}
-A deprecated plan won’t be available on the Developer Portal and API consumers won’t be able to subscribe to it. This cannot be undone. Existing subscriptions are not impacted, giving current API consumers time to migrate without breaking their application.&#x20;
+A deprecated plan won’t be available on the Developer Portal and API consumers won’t be able to subscribe to it. This cannot be undone. Existing subscriptions are not impacted, giving current API consumers time to migrate without breaking their application.
 {% endtab %}
 
 {% tab title="CLOSED" %}
@@ -110,7 +114,7 @@ To close a plan, click on the 'x' icon:
 
 ## Plan selection rules
 
-APIM automatically routes each API request to the correct plan. The plan selection workflow parses all published plans in the following order: **JWT**, **OAuth2**, **API Key**, **Keyless**.&#x20;
+APIM automatically routes each API request to the correct plan. The plan selection workflow parses all published plans in the following order: **JWT**, **OAuth2**, **API Key**, **Keyless**.
 
 {% hint style="warning" %}
 This workflow only applies to [v4 APIs and v2 APIs in emulation mode](../../overview/execution-engine.md#v2-gateway-api-emulation-mode).

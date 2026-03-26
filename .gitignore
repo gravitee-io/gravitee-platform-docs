@@ -7,3 +7,24 @@
 *.iml
 node_modules/
 package-lock.json
+
+# Python tooling
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+*.log
+
+# Virtual environments
+.venv/
+venv/
+.env/
+
+# Link governance tooling cache
+tools/.cache/
+.cache/
+.ipynb_checkpoints/
+
+# Build outputs (future-proof)
+dist/
+build/

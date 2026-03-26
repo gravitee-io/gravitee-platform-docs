@@ -1,11 +1,15 @@
-# Installing on OpenShift
+---
+description: An overview about openshift.
+---
+
+# OpenShift
 
 ## Before you begin
 
 * Gravitee API Management (APIM) Helm chart is compatible with only OpenShift versions 3.10 and later.
 * You must install the following command line tools:
   * [Kubectl or OC](https://docs.openshift.com/container-platform/4.9/cli_reference/openshift_cli/getting-started-cli.html#cli-installing-cli_cli-developer-commands)
-  * [Helm](https://docs.openshift.com/container-platform/4.10/applications/working_with_helm_charts/installing-helm.html)
+  * [Helm](https://docs.redhat.com/en/documentation/openshift_container_platform/4.10/html/building_applications/working-with-helm-charts#installing-helm)
 
 ## Procedure
 
@@ -26,8 +30,8 @@ If you want to configure the ServiceAccount with more advanced settings, you mus
 You can configure your deployment for the following configuration types:
 
 * Development deployment
-* External configuration&#x20;
-* Shared configuration&#x20;
+* External configuration
+* Shared configuration
 
 The configuration types for OpenShift are the same configuration types for Kubernetes. For more information about the configuration types, see [#configuration-types](install-on-kubernetes.md#configuration-types "mention").
 
@@ -110,7 +114,7 @@ You might encounter issues while running this Helm chart on Apple Silicon M1. If
 {% endtab %}
 
 {% tab title="PostgresSQL" %}
-&#x20;**(Optional) Install PostgreSQL**
+**(Optional) Install PostgreSQL**
 
 {% hint style="info" %}
 If you have already installed PostgreSQL, you do not need to install PostgreSQL again.
@@ -233,7 +237,7 @@ redis-apim-replicas-1   1/1     Running   0          68s
 redis-apim-replicas-2   1/1     Running   0          40s
 ```
 
-**Configure Redis**&#x20;
+**Configure Redis**
 
 * To use Redis for rate limit policy, add the following information to the `values.yml` file:
 
@@ -294,7 +298,7 @@ The process for configuring the Gravitee components on OpenShift is the same pro
 When you configure the values.yml file for OpenShift deployment, you must complete the following actions:
 
 * Use the full host domain instead of paths for all components.
-* Override the security context to let OpenShift automatically define the `user-id` and `group-id`  you use to run the containers. Here is an example of the security context that has been overridden:&#x20;
+* Override the security context to let OpenShift automatically define the `user-id` and `group-id` you use to run the containers. Here is an example of the security context that has been overridden:
 
 ```yaml
 securityContext:
@@ -308,7 +312,7 @@ securityContext:
         type: RuntimeDefault
 ```
 
-* For Openshift to automatically create Routes from the Ingress, define the `ingressClassName` as `none`.  Here is an example of an `ingressClassName` defined as `none`:
+* For Openshift to automatically create Routes from the Ingress, define the `ingressClassName` as `none`. Here is an example of an `ingressClassName` defined as `none`:
 
 ```yaml
  api:
@@ -422,9 +426,9 @@ ui:
 
 ### Install the Gravitee Helm Chart
 
-To install the Gravitee Helm Chart, complete the following steps:&#x20;
+To install the Gravitee Helm Chart, complete the following steps:
 
-1. &#x20;Add the Gravitee Helm chart repo using the following command:
+1. Add the Gravitee Helm chart repo using the following command:
 
 ```
 helm repo add graviteeio https://helm.gravitee.io

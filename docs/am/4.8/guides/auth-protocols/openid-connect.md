@@ -1,3 +1,7 @@
+---
+description: Overview of OpenID Connect.
+---
+
 # OpenID Connect
 
 ## Overview

@@ -1,3 +1,7 @@
+---
+description: Information about release information.
+---
+
 # Release Information
 
 Gravitee's Release Information has been divided into the following sections:

@@ -1,3 +1,7 @@
+---
+description: An overview about 3rd-party providers.
+---
+
 # 3rd-Party Providers
 
 ## Overview

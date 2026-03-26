@@ -1,3 +1,7 @@
+---
+description: Overview of Enterprise Identity Providers.
+---
+
 # Enterprise Identity Providers
 
 AM includes the most common corporate/enterprise servers to authenticate your users:

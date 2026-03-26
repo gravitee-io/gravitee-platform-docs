@@ -12,7 +12,7 @@ In Gravitee, your API definition is a JSON representation of your Gateway API. T
 
 ## Access the API creation wizard
 
-To create a v2 API in Gravitee:&#x20;
+To create a v2 API in Gravitee:
 
 1. Log in to your APIM Console
 2. Select **APIs** tab from the left nav
@@ -38,7 +38,7 @@ Optionally, you can select the **Advanced mode** hyperlink in the top right corn
 
 Define your **Backend**, which is the target backend where the request will be received.
 
-Optionally, you can select **Advanced mode** to define **Tenants** and/or **Sharding tags** for this API. These specify the Gateways to which the API is deployed.&#x20;
+Optionally, you can select **Advanced mode** to define **Tenants** and/or **Sharding tags** for this API. These specify the Gateways to which the API is deployed.
 
 {% hint style="info" %}
 Refer to [Tenants](../../../using-the-gravitee-api-management-components/general-configuration/tenants.md) and/or [Sharding tags](../../../using-the-gravitee-api-management-components/general-configuration/sharding-tags.md) for more information.

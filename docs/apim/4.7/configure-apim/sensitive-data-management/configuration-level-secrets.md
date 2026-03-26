@@ -1,3 +1,7 @@
+---
+description: An overview about configuration-level secrets.
+---
+
 # Configuration-Level Secrets
 
 ## Overview

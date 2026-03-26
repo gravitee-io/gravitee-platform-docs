@@ -131,11 +131,11 @@ If you use the environment variable to provide database settings, complete the f
 
 **MongoDB index names**
 
-The MongoDB indices are named using the first letters of the fields that compose the index. This change allows the automatic management of index creation on DocumentDB. This change requires the execution of a MongoDB script to delete, and then recreate AM indices. For more information about this change, see the [migration guide](https://documentation.gravitee.io/am/v/4.0/getting-started/install-and-upgrade-guides/upgrade-guide).
+The MongoDB indices are named using the first letters of the fields that compose the index. This change allows the automatic management of index creation on DocumentDB. This change requires the execution of a MongoDB script to delete, and then recreate AM indices. For more information about this change, see the [migration guide](https://documentation.gravitee.io/am/4.0/getting-started/install-and-upgrade-guides/upgrade-guide).
 
 **Enterprise Edition plugins**
 
-Some plugins are available to only Enterprise Edition and requires a license to use them. For more information about the Enterprise Edition plugins, see the [changelog](https://documentation.gravitee.io/am/v/4.0/releases-and-changelog/changelog/am-4.0.x)
+Some plugins are available to only Enterprise Edition and requires a license to use them. For more information about the Enterprise Edition plugins, see the [changelog](https://documentation.gravitee.io/am/4.0/releases-and-changelog/changelog/am-4.0.x)
 
 ## Breaking changes from 3.X
 
@@ -269,7 +269,7 @@ The procedure is the same as the one for the **users** table but need to be appl
 
 **Docker Images**
 
-To be compliant with [CIS\_Docker\_v1.3.1\_L1](https://www.tenable.com/audits/items/CIS_Docker_v1.3.1_L1_Docker_Linux.audit:bdcea17ac365110218526796ae3095b1) ,the docker images use the `graviteeio` user. This change means that if you use the official images and deploy them on your k8s installation, nothing changes. If you build your own Dockerfile from Gravitee images, you must provide the correct rights according to your modifications. If you deploy on `openshift`, you have to add the following configuration:
+To be compliant with CIS_Docker_v1.3.1_L1, the docker images use the `graviteeio` user. This change means that if you use the official images and deploy them on your k8s installation, nothing changes. If you build your own Dockerfile from Gravitee images, you must provide the correct rights according to your modifications. If you deploy on `openshift`, you have to add the following configuration:
 
 ```bash
 securityContext:

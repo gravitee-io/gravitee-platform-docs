@@ -1,3 +1,7 @@
+---
+description: An overview about basic authentication.
+---
+
 # Basic Authentication
 
 ## Overview

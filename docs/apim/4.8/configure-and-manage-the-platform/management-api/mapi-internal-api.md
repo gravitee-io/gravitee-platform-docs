@@ -1,3 +1,7 @@
+---
+description: An overview about mapi internal api.
+---
+
 # MAPI Internal API
 
 ## Overview
@@ -44,39 +48,35 @@ Content-Type: application/json
         "REVISION": "132e719ef314b40f352e6399034d68a9a95e95ef"
     }
 }
-        
-</code></pre></td></tr><tr><td><code>GET /_node/health</code></td><td><p>Gets the health status of the component.</p><p>Probes can be filtered using the optional <code>probes</code> query parameter, which can handle a list of probes separated by commas (<code>,</code>). If no query param is provided, the health of all probes is returned. If the return status is 200, everything is ok; if it is 500, there is at least one error.</p><p>This endpoint can be used by a load balancer, e.g., to determine if a component instance is not in the pool.</p><p>⚠ The following probes are not displayed by default and you must explicitly use the query param to retrieve them:</p><ul><li><strong>cpu</strong></li></ul><ul><li><strong>memory</strong></li></ul><ul><li><strong>api-sync</strong></li></ul><p>These probes are considered healthy if they are under a configurable threshold (default is 80%). To configure the default, add it to your <code>gravitee.yml</code>:</p><pre><code>
+</code></pre></td></tr><tr><td><code>GET /_node/health</code></td><td><p>Gets the health status of the component.</p><p>Probes can be filtered using the optional <code>probes</code> query parameter, which can handle a list of probes separated by commas (<code>,</code>). If no query param is provided, the health of all probes is returned. If the return status is 200, everything is ok; if it is 500, there is at least one error.</p><p>This endpoint can be used by a load balancer, e.g., to determine if a component instance is not in the pool.</p><p>⚠ The following probes are not displayed by default and you must explicitly use the query param to retrieve them:</p><ul><li><strong>cpu</strong></li><li><strong>memory</strong></li><li><strong>api-sync</strong></li></ul><p>These probes are considered healthy if they are under a configurable threshold (default is 80%). To configure the default, add it to your <code>gravitee.yml</code>:</p><pre><code>
 services:
-  health:
-    threshold:
-      cpu: 80
-      memory: 80
-        
+health:
+threshold:
+cpu: 80
+memory: 80
 </code></pre></td><td><p><code>GET /_node/health</code></p><pre><code>HTTP/1.1 200 OK
 Content-Type: application/json
 {
-  "management-repository": {
-    "healthy": true
-  },
-  "gravitee-apis": {
-    "healthy": true
-  },
-  "repository-analytics": {
-    "healthy": true
-  }
+"management-repository": {
+"healthy": true
+},
+"gravitee-apis": {
+"healthy": true
+},
+"repository-analytics": {
+"healthy": true
 }
-        
+}
 </code></pre><p><code>GET /_node/health?probes=management-repository,gravitee-apis</code></p><pre><code>HTTP/1.1 200 OK
 Content-Type: application/json
 {
-  "management-repository": {
-    "healthy": true
-  },
-  "gravitee-apis": {
-    "healthy": true
-  }
+"management-repository": {
+"healthy": true
+},
+"gravitee-apis": {
+"healthy": true
 }
-        
+}
 </code></pre></td></tr><tr><td><code>GET /_node/configuration</code></td><td>Gets the node configuration from the <code>gravitee.yml</code> file and/or environment variables.</td><td><pre><code>HTTP/1.1 200 OK
 Content-Type: application/json
 {
@@ -106,5 +106,45 @@ Content-Type: application/json
 },
 "mem": {
 ...
+}
+</code></pre></td></tr><tr><td><code>GET /_node/logging</code><br><code>POST /_node/logging</code></td><td><p>Gets or updates the logging configuration.</p><p>Use a <code>GET</code> request to view the current logging configuration. Use a <code>POST</code> request to dynamically change the logging level of a specific package. To reset a logger level, send the same payload with an empty or <code>null</code> level.</p></td><td><p><strong>POST payload example:</strong></p><pre><code>{"org.springframework.data.mongodb.core.MongoTemplate": "DEBUG"}
+</code></pre><p><strong>GET/POST response example:</strong></p><pre><code>HTTP/1.1 200 OK
+Content-Type: application/json
+{
+    "org.eclipse.jetty": "INFO",
+    "ROOT": "WARN",
+    "io.gravitee": "INFO",
+    "org.springframework.data.mongodb.core.MongoTemplate": "DEBUG"
+}
+</code></pre></td></tr><tr><td><code>GET /_node/cluster</code></td><td>Gets the current state of the cluster with information about its members.</td><td><pre><code>HTTP/1.1 200 OK
+Content-Type: application/json
+{
+    "clusterId": "gio-apim-gateway-cluster-manager-hz55",
+    "running": true,
+    "self": {
+        "primary": true,
+        "running": true,
+        "attributes": {
+            "gio_node_hostname": "node_hostname",
+            "gio_node_id": "node_id"
+        },
+        "version": "5.5.0",
+        "host": "127.0.0.1",
+        "id": "member_id",
+        "self": true
+    },
+    "members": [
+        {
+            "primary": true,
+            "attributes": {
+                "gio_node_hostname": "node_hostname",
+                "gio_node_id": "node_id"
+            },
+            "version": "5.5.0",
+            "host": "127.0.0.1",
+            "id": "member_id",
+            "self": true
+        }
+    ]
 }
 </code></pre></td></tr></tbody></table>

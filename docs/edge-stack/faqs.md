@@ -1,4 +1,5 @@
 ---
+description: Frequently asked questions about FAQs.
 noIndex: true
 ---
 
@@ -14,7 +15,7 @@ Kubernetes shifts application architecture for microservices, as well as the dev
 * API management capabilities such as a developer portal and OpenID Connect integration for Single Sign-On.
 * A declarative, self-service management model built on Kubernetes Custom Resource Definitions, enabling GitOps-style continuous delivery workflows.
 
-We've written about [the history of Ambassador Edge Stack](https://www.getambassador.io/blog/envoy-nginx-haproxy-comparison-why-edge-stack-chose-envoy), [Why Ambassador Edge Stack In Depth](why-ambassador-edge-stack.md), [Features and Benefits](features-and-benefits.md) and about the [evolution of API Gateways](core-concepts/microservices-api-gateways.md).
+We've written about [Why Ambassador Edge Stack In Depth](why-ambassador-edge-stack.md), [Features and Benefits](features-and-benefits.md) and about the [evolution of API Gateways](core-concepts/microservices-api-gateways.md).
 
 ### What's the difference between Emissary-ingress and Ambassador Edge Stack?
 
@@ -38,7 +39,7 @@ Yes. Thousands of organizations, large and small, run Ambassador Edge Stack in p
 
 ### What is the performance of Ambassador Edge Stack?
 
-There are many dimensions to performance. We published a benchmark of [Ambassador Edge Stack performance on Kubernetes](https://www.getambassador.io/resources/envoyproxy-performance-on-k8s). Our internal performance regressions cover many other scenarios; we expect to publish more data in the future.
+There are many dimensions to performance. We published a benchmark of Ambassador Edge Stack performance on Kubernetes. Our internal performance regressions cover many other scenarios; we expect to publish more data in the future.
 
 ### What's the difference between a service mesh (such as Istio) and Ambassador Edge Stack?
 

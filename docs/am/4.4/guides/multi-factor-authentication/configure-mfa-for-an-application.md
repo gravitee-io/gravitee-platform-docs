@@ -1,3 +1,7 @@
+---
+description: Configuration guide for Configure MFA.
+---
+
 # Configure MFA for an Application
 
 ## Overview
@@ -6,13 +10,13 @@ Multi-factor authentication behaviour is configured on application level in Acce
 
 Gravitee Access Management MFA is built to let you tailor exactly which factor each user type should be able to use, and if the user should be proposed enroll a factor or forced to always be challenged for each login.
 
-Below you will be able to understand how all five configurable sections of MFA works. Note that not all sections are mandatory to fulfill a successful MFA rollout to your users. It completely depends on what you are trying to achieve.&#x20;
+Below you will be able to understand how all five configurable sections of MFA works. Note that not all sections are mandatory to fulfill a successful MFA rollout to your users. It completely depends on what you are trying to achieve.
 
-Each section is complemented with a flow chart showing the sections part in the overall MFA flow evaluation.&#x20;
+Each section is complemented with a flow chart showing the sections part in the overall MFA flow evaluation.
 
 ## Section 1 - Factors
 
-The first step is to enable factors. This section allows you to control which factors that are enabled for the application, which users that should use each factor, and lastly which factor that should be default factor for users.&#x20;
+The first step is to enable factors. This section allows you to control which factors that are enabled for the application, which users that should use each factor, and lastly which factor that should be default factor for users.
 
 <figure><img src="../../.gitbook/assets/conf mfa 1.png" alt="" width="375"><figcaption><p>Flow chart for evaluating enabled factors, selection rules and default factor.</p></figcaption></figure>
 
@@ -21,16 +25,16 @@ The first step is to enable factors. This section allows you to control which fa
 The first step to set up MFA is to choose which factors the application should use.
 
 {% hint style="info" %}
-If you have not already created at least one factor, visit Security Domain settings to create one. ([Managing Factors](managing-factors/))
+If you have not already created at least one factor, visit Security Domain settings to create one. ([Managing Factors](managing-factors/README.md))
 {% endhint %}
 
-1.  Click on **Select Factors**&#x20;
+1.  Click on **Select Factors**
 
     <figure><img src="../../.gitbook/assets/conf mfa 2.png" alt=""><figcaption></figcaption></figure>
-2.  Select one to many factors, then click **Add Selected**&#x20;
+2.  Select one to many factors, then click **Add Selected**
 
     <figure><img src="../../.gitbook/assets/conf mfa 3.png" alt=""><figcaption></figcaption></figure>
-3.  You should now have the selected factors enabled for the application&#x20;
+3.  You should now have the selected factors enabled for the application
 
     <figure><img src="../../.gitbook/assets/conf mfa 4.png" alt=""><figcaption></figcaption></figure>
 
@@ -42,13 +46,13 @@ For example, maybe you run a global service and offer national identity MFA meth
 
 The selection rule supports Expression Language (EL) and allows you to make decisions based on the end users profile attributes.
 
-1.  Click on Selection Rule icon for one factor&#x20;
+1.  Click on Selection Rule icon for one factor
 
     <figure><img src="../../.gitbook/assets/conf mfa 5.png" alt=""><figcaption></figcaption></figure>
-2.  Add a Selection Rule and click on **Save**&#x20;
+2.  Add a Selection Rule and click on **Save**
 
     <figure><img src="../../.gitbook/assets/conf mfa 6.png" alt=""><figcaption></figcaption></figure>
-3.  Only users matching the Selection Rule will be able to enroll using the factor&#x20;
+3.  Only users matching the Selection Rule will be able to enroll using the factor
 
     <figure><img src="../../.gitbook/assets/conf mfa 7.png" alt=""><figcaption></figcaption></figure>
 
@@ -90,7 +94,7 @@ With conditional enrollment, you will be able to control which users that should
 
 <figure><img src="../../.gitbook/assets/conf mfa 12.png" alt=""><figcaption></figcaption></figure>
 
-#### &#x20;Allow users to skip Conditional enrollment (Extra flexibility)
+#### Allow users to skip Conditional enrollment (Extra flexibility)
 
 You may use conditional enrollment in combination with optional enrollment. This is done by enabling Allow users to skip Conditional Enrollment toggle. You may then add an additional rule that allows some users to skip MFA enrollment for some time even if the matched the first conditional rule.
 

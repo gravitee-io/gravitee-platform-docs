@@ -1,22 +1,30 @@
+---
+description: An overview about azure aks.
+---
+
 # Azure AKS
 
 ## Overview
 
 This guide explains how to install and connect a Hybrid Gateway to Gravitee Cloud using Azure Kubernetes Service.
 
+{% hint style="warning" %}
+This installation guide is for only development and quick start purposes. Do not use it for production environments. For more information about best practices for production environments, contact your Technical Account Manager.
+{% endhint %}
+
 ## Prerequisites
 
 Before you install a Hybrid Gateway, complete the following steps:
 
 * Install [helm](https://helm.sh/docs/intro/install/).
-* Install [kubectl](https://kubernetes.io/docs/tasks/tools/).&#x20;
+* Install [kubectl](https://kubernetes.io/docs/tasks/tools/).
 * Install [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
 * Ensure you have access to [Gravitee Cloud](https://cloud.gravitee.io/), with permissions to install new Gateways.
 * Ensure you have access to the [AKS cluster](https://learn.microsoft.com/en-us/azure/aks/learn/quick-kubernetes-deploy-portal?tabs=azure-cli) where you want to install the Gateway.
 * Ensure the self-hosted target environment has outbound Internet connectivity to Gravitee Cloud using HTTPS/443.
 * Complete the steps in [#prepare-your-installation](../#prepare-your-installation "mention").
 
-### Create AKS Cluster&#x20;
+### Create AKS Cluster
 
 If you don't have an existing AKS cluster, create one by following these steps:
 
@@ -25,7 +33,7 @@ If you don't have an existing AKS cluster, create one by following these steps:
     ```sh
     az login
     ```
-2.  Create the  Resource Group using the following command:
+2.  Create the Resource Group using the following command:
 
     ```bash
     # Replace <resource-group-name> with your desired name (e.g., "my-resource-rg")
@@ -55,7 +63,7 @@ If you don't have an existing AKS cluster, create one by following these steps:
 This process takes 5-10 minutes to complete.
 {% endhint %}
 
-4.  Connect kubectl to AKS Cluster using the following command:&#x20;
+4.  Connect kubectl to AKS Cluster using the following command:
 
     ```bash
     # Get credentials to connect kubectl to your cluster
@@ -75,18 +83,18 @@ To install the Gravitee Gateway, complete the following steps:
 3. [#prepare-values.yaml-for-helm](azure-aks.md#prepare-values.yaml-for-helm "mention")
 4. [#install-with-helm](azure-aks.md#install-with-helm "mention")
 
-### Install NGINX Ingress Controller&#x20;
+### Install NGINX Ingress Controller
 
 The gateway requires an ingress controller to handle external traffic.
 
-1.  Add the NGINX Helm repository using the following command:&#x20;
+1.  Add the NGINX Helm repository using the following command:
 
     ```bash
     helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 
     helm repo update
     ```
-2.  Install the NGINX ingress controller using the following command:&#x20;
+2.  Install the NGINX ingress controller using the following command:
 
     ```bash
     helm install ingress-nginx ingress-nginx/ingress-nginx \
@@ -99,10 +107,14 @@ The gateway requires an ingress controller to handle external traffic.
 
 To support caching and rate-limiting, you must install Redis into your Kubernetes cluster. For more information, see [Bitnami package for Redis®](https://artifacthub.io/packages/helm/bitnami/redis).
 
-1.  Install Redis with Helm using the following command, which also creates a new `gravitee-apim` namespace:&#x20;
+1.  Install Redis with Helm using the following command, which also creates a new `gravitee-apim` namespace:
 
     ```bash
-    helm install gravitee-apim-redis oci://registry-1.docker.io/bitnamicharts/redis --version 19.6.4 --create-namespace --namespace gravitee-apim
+    helm install gravitee-apim-redis oci://registry-1.docker.io/bitnamicharts/redis \
+      --version 19.6.4 \
+      --create-namespace \
+      --namespace gravitee-apim \
+      --set image.repository=bitnamilegacy/redis
     ```
 2.  Extract the Redis hostname from the command output and save it for future use. The following sample output lists `gravitee-apim-redis-master.gravitee-apim.svc.cluster.local` as the Redis hostname:
 
@@ -135,16 +147,14 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
     ```bash
     kubectl get secret --namespace gravitee-apim gravitee-apim-redis -o jsonpath="{.data.redis-password}" | base64 -d
     ```
-4.  To verify that your Redis deployment succeeded, check pod status using the following command:\
-
+4.  To verify that your Redis deployment succeeded, check pod status using the following command:
 
     ```
     kubectl get pods -n gravitee-apim -l app.kubernetes.io/instance=gravitee-apim-redis
     ```
 
     \
-    The command generates the following output: \
-
+    The command generates the following output:
 
     ```bash
         NAME                          READY   STATUS    RESTARTS   AGE
@@ -302,10 +312,9 @@ To prepare your Gravitee `values.yaml` file for Helm, complete the following ste
    * Replace `<license_key>` with your License Key.
    * Replace `<redis_hostname>` with your extracted Redis hostname.
    * Replace `<redis_password>` with your extracted Redis password.
-   * Replace `<hosts>` with the host information you entered in the Gravitee \
+   * Replace `<hosts>` with the host information you entered in the Gravitee\
      Cloud Gateway setup.
-   *   Set the `tag` field in the Gateway image section to the value displayed in the Overview section of your Gravitee Cloud Dashboard.\
-
+   *   Set the `tag` field in the Gateway image section to the value displayed in the Overview section of your Gravitee Cloud Dashboard.
 
        <figure><img src="../../../.gitbook/assets/nextgen-cloud-gateway-tag.png" alt=""><figcaption></figcaption></figure>
 
@@ -319,25 +328,25 @@ The `tag` field specifies the version of your Gravitee Gateway. Your Gateway ver
 
 <summary>Explanations of key predefined <code>values.yaml</code> parameter settings</summary>
 
-#### **Service configuration**&#x20;
+**Service configuration**
 
-This uses Azure's native load balancing through the ingress controller, providing SSL termination, path-based routing.&#x20;
+This uses Azure's native load balancing through the ingress controller, providing SSL termination, path-based routing.
 
-**Ingress configuration**&#x20;
+**Ingress configuration**
 
 The ingress is enabled with `NGINX` as the controller class, creating an external endpoint through Azure's load balancer. The hosts field must match at least one of the hosts configured in your Gravitee Cloud setup, and multiple hostnames are supported for multi-domain deployments.
 
-**Gateway version**&#x20;
+**Gateway version**
 
 The `tag` field is commented out by default, allowing the Helm chart to use its default version. You can uncomment and specify a version when you need to ensure compatibility with a specific Gravitee Cloud control plane version or when performing controlled upgrades.
 
-**Resource allocation**&#x20;
+**Resource allocation**
 
 The configured limits prevent excessive cluster resource consumption while ensuring adequate performance for API processing. You can adjust these based on your expected load patterns and available node pool capacity.
 
-**Deployment strategy**&#x20;
+**Deployment strategy**
 
-The `RollingUpdate` strategy with `maxUnavailable` set to 0 ensures zero-downtime updates during configuration changes or version upgrades.&#x20;
+The `RollingUpdate` strategy with `maxUnavailable` set to 0 ensures zero-downtime updates during configuration changes or version upgrades.
 
 </details>
 
@@ -345,17 +354,17 @@ The `RollingUpdate` strategy with `maxUnavailable` set to 0 ensures zero-downtim
 
 To install your Gravitee Gateway with Helm, complete the following steps:
 
-1.  From your working directory, add the Gravitee Helm chart repository to your Kubernetes environment using the following command:&#x20;
+1.  From your working directory, add the Gravitee Helm chart repository to your Kubernetes environment using the following command:
 
     ```bash
     helm repo add graviteeio https://helm.gravitee.io
     ```
-2.  Install the Helm chart with the Gravitee `values.yaml` file into a dedicated namespace using the following command:&#x20;
+2.  Install the Helm chart with the Gravitee `values.yaml` file into a dedicated namespace using the following command:
 
     ```bash
     helm install graviteeio-apim-gateway graviteeio/apim --namespace gravitee-apim -f ./values.yaml
     ```
-3.  Verify the installation was successful. The command output should be similar to the following:&#x20;
+3.  Verify the installation was successful. The command output should be similar to the following:
 
     ```bash
     NAME: graviteeio-apim-gateway
@@ -368,16 +377,14 @@ To install your Gravitee Gateway with Helm, complete the following steps:
     1. Watch all containers come up.
       $ kubectl get pods --namespace=gravitee-apim -l app.kubernetes.io/instance=graviteeio-apim-gateway -w
     ```
-4.  Verify the installation by checking pod status:\
-
+4.  Verify the installation by checking pod status:
 
     ```bash
     kubectl get pods --namespace=gravitee-apim -l app.kubernetes.io/instance=graviteeio-apim-gateway
     ```
 
     \
-    The command generates the following output:\
-
+    The command generates the following output:
 
     ```bash
     NAME                                              READY   STATUS    RESTARTS   AGE
@@ -396,7 +403,7 @@ helm uninstall graviteeio-apim-gateway --namespace gravitee-apim
 
 Your Gateway appears in the Gateways section of your Gravitee Cloud Dashboard.
 
-<figure><img src="../../../.gitbook/assets/gravitee-gateway-cloud-verification (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/gravitee-gateway-cloud-verification (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 To verify that your Gateway is up and running, complete the following steps:
 
@@ -411,12 +418,12 @@ A healthy Gateway pod displays the `Running` status with `1/1` ready containers 
 
 To validate your pods, complete the following steps:
 
-1.  Use the following command to query the pod status:&#x20;
+1.  Use the following command to query the pod status:
 
     ```bash
     kubectl get pods --namespace=gravitee-apim -l app.kubernetes.io/instance=graviteeio-apim-gateway
     ```
-2.  Verify that the deployment was successful. The output should show that a Gravitee Gateway is ready and running with no restarts.&#x20;
+2.  Verify that the deployment was successful. The output should show that a Gravitee Gateway is ready and running with no restarts.
 
     ```sh
     NAME                                               READY   STATUS    RESTARTS   AGE
@@ -427,12 +434,12 @@ To validate your pods, complete the following steps:
 
 To validate the Gateway logs, complete the following steps:
 
-1.  To list all the pods in your deployment, use the following command:&#x20;
+1.  To list all the pods in your deployment, use the following command:
 
     ```bash
     kubectl get pods --namespace=gravitee-apim -l app.kubernetes.io/instance=graviteeio-apim-gateway
     ```
-2.  In the output, find the name of the pod from which to obtain logs. For example, `graviteeio-apim-gateway-gateway-6b77d4dd96-8k5l9`.&#x20;
+2.  In the output, find the name of the pod from which to obtain logs. For example, `graviteeio-apim-gateway-gateway-6b77d4dd96-8k5l9`.
 
     ```sh
     NAME                                               READY   STATUS    RESTARTS   AGE
@@ -443,7 +450,7 @@ To validate the Gateway logs, complete the following steps:
     ```bash
     kubectl logs --namespace=gravitee-apim <NAME_OF_THE_POD>
     ```
-4.  Review the log file. The following example output shows the important log entries.&#x20;
+4.  Review the log file. The following example output shows the important log entries.
 
     ```sh
     =========================================================================
@@ -495,9 +502,7 @@ To validate the Gateway logs, complete the following steps:
     NAME                              CLASS   HOSTS                           ADDRESS         PORTS   AGE
     graviteeio-apim-gateway-gateway   nginx   xxxxxxx.xxx.xxx.xxx.xxx    xxx.xxx.xxx.xxx      80      24m
     ```
-
-
-2.  Get the external IP of your ingress controller:&#x20;
+2.  Get the external IP of your ingress controller:
 
     ```sh
     kubectl get service -n ingress-nginx
@@ -518,7 +523,7 @@ Your Gateway URL is determined by the networking settings you specify in the `in
 
 To validate the Gateway URL, complete the following steps:
 
-1. Get and use the ingress details from the [#validate-the-ingress-configuration](azure-aks.md#validate-the-ingress-configuration "mention") section above to find your Load Balancer address.&#x20;
+1. Get and use the ingress details from the [#validate-the-ingress-configuration](azure-aks.md#validate-the-ingress-configuration "mention") section above to find your Load Balancer address.
 2.  Make a GET request to the Gateway using the Load Balancer address and your configured hostname:
 
     ```sh

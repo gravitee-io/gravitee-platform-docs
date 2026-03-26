@@ -12,14 +12,14 @@ Gravitee offers open source and enterprise versions of its API Management (APIM)
 
 Refer to the sections below to learn about what's included in the Gravitee APIM Enterprise Edition:
 
-* [Enterprise features](./#enterprise-features)
-* [Enterprise plugins](./#enterprise-plugins)
-* [Advanced API monitoring](./#advanced-api-monitoring)
-* [Advanced environment management](./#advanced-environment-management)
-* [Hosting options](./#hosting-options)
+* [Enterprise features](README.md#enterprise-features)
+* [Enterprise plugins](README.md#enterprise-plugins)
+* [Advanced API monitoring](README.md#advanced-api-monitoring)
+* [Advanced environment management](README.md#advanced-environment-management)
+* [Hosting options](README.md#hosting-options)
 
 {% hint style="info" %}
-Gravitee's platform extends beyond API Management. For information on enterprise versions of other products, please refer to the [platform overview](https://documentation.gravitee.io/platform-overview/gravitee-essentials/gravitee-offerings-ce-vs-ee).
+Gravitee's platform extends beyond API Management. For information on enterprise versions of other products, please refer to the [platform overview](https://documentation.gravitee.io/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee).
 {% endhint %}
 
 ## Enterprise features
@@ -40,7 +40,7 @@ EE plugins are installed from their respective repositories in GitHub. Graviteeâ
 
 For example, the Data Logging Masking policy repository is at `https://github.com/gravitee-io/gravitee-policy-data-logging-masking`.&#x20;
 
-If you have not been granted access to private EE plugin repositories as part of your EE license request process, email [contact@graviteesource.com](mailto:contact@graviteesource.com). Information on plugin deployment can be found [here](../plugins-and-api-definitions/plugins/plugins.md#deployment). Packs are described in more detail below.
+If you have not been granted access to private EE plugin repositories as part of your EE license request process, email [contact@graviteesource.com](mailto:contact@graviteesource.com). Information on plugin deployment can be found [here](../plugins-and-api-definitions/plugins/deploying-plugins.md#deployment). Packs are described in more detail below.
 
 <details>
 
@@ -72,7 +72,7 @@ The Event-native pack includes capabilities that enable Gravitee to expose, secu
 * [**Message Filtering policy**](../../using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/l-p/message-filtering.md)**:** Filter messages streamed to clients/subscribers based on API publisher and/or client criteria.
 * [**Avro to JSON policy**](../../using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/a-c/avro-to-json.md)**:** Transform information from Avro format to JSON format.
 * **Gateway message reactor plugin:** Enable the Gravitee Gateway to intercept and introspect messages when publishing and subscribing to/from message-based systems.
-* [**Confluent Schema Registry resource**](../../using-the-product/managing-your-apis/resources/#confluent-schema-registry)**:** Define Confluent Schema Registry as a resource for serialization and deserialization policies.
+* [**Confluent Schema Registry resource**](../../using-the-product/managing-your-apis/resources/confluent-and-keycloak-resources.md#confluent-schema-registry)**:** Define Confluent Schema Registry as a resource for serialization and deserialization policies.
 
 </details>
 
@@ -93,8 +93,8 @@ The Legacy Upgrade pack comprises the following plugins and capabilities to enab
 
 The Observability pack includes capabilities to better implement enterprise-grade API monitoring and observability:
 
-* [**Datadog reporter**](../../using-the-product/using-the-gravitee-api-management-components/general-configuration/reporters/#datadog-reporter): Push API metrics to your Datadog instance and dashboards.
-* [**TCP reporter**](../../using-the-product/using-the-gravitee-api-management-components/general-configuration/reporters/#tcp-reporter): Report Gateway events to a TCP listening server.
+* [**Datadog reporter**](../../using-the-product/using-the-gravitee-api-management-components/general-configuration/reporters/README.md#datadog-reporter): Push API metrics to your Datadog instance and dashboards.
+* [**TCP reporter**](../../using-the-product/using-the-gravitee-api-management-components/general-configuration/reporters/README.md#tcp-reporter): Report Gateway events to a TCP listening server.
 
 </details>
 
@@ -110,7 +110,7 @@ The Secret Manager pack includes generic, configurable, and autonomous clients t
 
 ## Advanced API monitoring
 
-Not technically a part of the Access Management product, Gravitee offers a standalone, enterprise-grade API monitoring solution called Gravitee Alert Engine (AE). AE provides APIM and AM users with efficient and flexible API platform monitoring, including advanced alerting configurations and notifications sent through preferred channels such as email, Slack and Webhooks. Alert Engine integrates with Gravitee APIM and AM to enable advanced alerting, new dashboards, etc. For more information, please refer to [the Alert Engine documentation](https://documentation.gravitee.io/ae/overview/introduction-to-gravitee-alert-engine).
+Not technically a part of the Access Management product, Gravitee offers a standalone, enterprise-grade API monitoring solution called Gravitee Alert Engine (AE). AE provides APIM and AM users with efficient and flexible API platform monitoring, including advanced alerting configurations and notifications sent through preferred channels such as email, Slack and Webhooks. Alert Engine integrates with Gravitee APIM and AM to enable advanced alerting, new dashboards, etc. For more information, please refer to [the Alert Engine documentation](https://documentation.gravitee.io/alert-engine).
 
 ## Advanced environment management
 

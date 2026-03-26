@@ -1,8 +1,12 @@
+---
+description: Overview of Facebook Developer.
+---
+
 # Facebook
 
 ## Overview
 
-You can authenticate users with Facebook. Before you begin, you need to sign up for a [Facebook Developer account](https://www.facebook.com/r.php?next=https%3A%2F%2Fdevelopers.facebook.com%2F\&locale=en\_US\&display=page).
+You can authenticate users with Facebook. Before you begin, you need to sign up for a [Facebook Developer account](https://www.facebook.com/r.php?next=https%3A%2F%2Fdevelopers.facebook.com%2F\&locale=en_US\&display=page).
 
 ## Steps
 
@@ -39,8 +43,6 @@ Ensure you have the generated App ID and App Secret from Facebook the applicatio
 6. Enter your Facebook application App ID and App Secret.
 7.  Click **Create**.
 
-
-
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-social-idp-facebook.png" alt=""><figcaption><p>Create Facebook IdP</p></figcaption></figure>
 
 {% hint style="info" %}
@@ -63,8 +65,6 @@ Configure the following settings:
 You can test your Facebook connection using a web application created in AM.
 
 1.  i.e.In AM Console, click **Applications** and select your social identity provider.
-
-
 
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-social-idp-list.png" alt=""><figcaption><p>Select Facebook IdP</p></figcaption></figure>
 2.  Call the Login Page (i.e. `/oauth/authorize` endpoint). If the connection is working you will see a **Sign in with …​** button.

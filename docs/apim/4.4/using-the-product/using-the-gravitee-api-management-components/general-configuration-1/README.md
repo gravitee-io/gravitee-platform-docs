@@ -20,13 +20,13 @@ YAML (`yml`) format is sensitive to indentation. Ensure you include the correct 
 
 With the `gravitee.yaml` file, you can configure the following:
 
-* [HTTP Server](./#configure-http-server)
-* [Management and Portal APIs](./#configure-the-management-and-portal-apis)
-* [CORS](./#cors-configuration)
-* [Management repository](./#configure-the-management-repository)
-* [Analytics repository](./#configure-the-analytics-repository)
-* [SMTP](./#smtp-configuration)
-* [Default `gravitee.yaml` file](./#default-gravitee.yaml-config-file)
+* [HTTP Server](README.md#configure-http-server)
+* [Management and Portal APIs](README.md#configure-the-management-and-portal-apis)
+* [CORS](README.md#cors-configuration)
+* [Management repository](README.md#configure-the-management-repository)
+* [Analytics repository](README.md#configure-the-analytics-repository)
+* [SMTP](README.md#smtp-configuration)
+* [Default `gravitee.yaml` file](README.md#default-gravitee.yaml-config-file)
 
 ## Configure HTTP server
 
@@ -112,7 +112,7 @@ CORS (Cross-Origin Resource Sharing) is a mechanism that allows resources on a w
 
 For more information on CORS, take a look at the [CORS specification](https://www.w3.org/TR/cors).
 
-CORS can be applied at three different levels:&#x20;
+CORS can be applied at three different levels:
 
 1. [API](../../managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v2-api-configuration/general-proxy-settings.md#configure-cors)
 2. Environment
@@ -263,12 +263,12 @@ This section shows the SMTP configuration used for sending email.
 
 You can configure SMTP using `gravitee.yml`, environment variables or directly in APIM Console. If SMTP is configured with `gravitee.yml` or environment variables, then that configuration will be used, even if settings exist in the database.
 
-SMTP can be applied at two different levels:&#x20;
+SMTP can be applied at two different levels:
 
 1. Environment
 2. Organization
 
-where the more specific level overrides the broader level:  Environment > Organization.
+where the more specific level overrides the broader level: Environment > Organization.
 
 Here's an example of configuring SMTP using the `gravitee.yml` file:
 

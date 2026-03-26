@@ -1,3 +1,7 @@
+---
+description: Examples and code samples for Example Architecture.
+---
+
 # Example Architecture
 
 The Gravitee Kubernetes Operator (GKO) is commonly used as one piece of a broader API platform that includes components such as a central Gravitee control plane, one or more Gravitee data planes, a GitOps tool like ArgoCD, and a version control system.

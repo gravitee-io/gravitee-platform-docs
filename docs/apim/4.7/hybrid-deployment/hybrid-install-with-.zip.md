@@ -1,3 +1,7 @@
+---
+description: Setup instructions and guidance for hybrid install with .zip.
+---
+
 # Hybrid Install with .ZIP
 
 1. Install Gravitee API Management (APIM). For more information about installing Gravitee APIM, see [Install with .ZIP](../install-and-upgrade/.zip.md).

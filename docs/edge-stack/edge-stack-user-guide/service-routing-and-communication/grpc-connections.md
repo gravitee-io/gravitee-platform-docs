@@ -1,4 +1,5 @@
 ---
+description: Overview of Connections.
 noIndex: true
 ---
 
@@ -386,7 +387,7 @@ spec:
   host: api.example.com
 ```
 
-Some gRPC client libraries produce requests where the `host` or `:authority` header includes the port number. For example, a request to the above service might include `host: api.example.com:443` instead of just `host: api.example.com`. To avoid having Ambassador Edge Stack return a 404 (not found) response to these requests due to the mismatched host, you may want to set `strip_matching_host_port` in the Ambassador module. See [the-module-resource.md](../../technical-reference/using-custom-resources/the-module-resource.md "mention") for more information.&#x20;
+Some gRPC client libraries produce requests where the `host` or `:authority` header includes the port number. For example, a request to the above service might include `host: api.example.com:443` instead of just `host: api.example.com`. To avoid having Ambassador Edge Stack return a 404 (not found) response to these requests due to the mismatched host, you may want to set `strip_matching_host_port` in the Ambassador module. See [the-module-resource.md](../../technical-reference/using-custom-resources/the-module-resource.md "mention") for more information.
 
 Alternately, you may find it cleaner to make sure your gRPC client does not include the port in the `host` header. Here is an example using gRPC/Go.
 

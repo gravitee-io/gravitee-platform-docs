@@ -1,3 +1,7 @@
+---
+description: Tutorial on Logging.
+---
+
 # Logging
 
 ## Introduction

@@ -1,3 +1,7 @@
+---
+description: Guide for contributing to the codebase
+---
+
 # Contribute to the Codebase
 
 This page describes how you can contribute to Gravitee's codebase:
@@ -179,7 +183,7 @@ The project includes by default the configuration `Rest API - MongoDB` to run th
 {% endtab %}
 {% endtabs %}
 
-#### APIM Console (gravitee-apim-console-webui)&#x20;
+#### APIM Console (gravitee-apim-console-webui)
 
 {% tabs %}
 {% tab title="CLI method" %}
@@ -199,7 +203,7 @@ To `npm install`, duplicate this configuration and choose **Command > Install**.
 {% endtab %}
 {% endtabs %}
 
-#### APIM Portal (gravitee-apim-portal-webui)&#x20;
+#### APIM Portal (gravitee-apim-portal-webui)
 
 {% tabs %}
 {% tab title="CLI method" %}

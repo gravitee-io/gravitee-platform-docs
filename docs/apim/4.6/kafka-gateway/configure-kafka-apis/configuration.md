@@ -1,3 +1,7 @@
+---
+description: An overview about configuration.
+---
+
 # Configuration
 
 ## Overview
@@ -5,7 +9,7 @@
 The **Configuration** section allows you to manage and customize the following high-level settings:
 
 * [General](configuration.md#general)
-* [User Permissions](configuration.md#user-permissions)&#x20;
+* [User Permissions](configuration.md#user-permissions)
 * [Properties](configuration.md#properties)
 * [Resources](configuration.md#resources)
 * [Notifications](configuration.md#notifications)
@@ -83,12 +87,12 @@ Properties are read-only during the Gateway's execution of an API transaction. T
 
 To configure API properties:
 
-1.  Select **Properties** from the inner left nav&#x20;
+1.  Select **Properties** from the inner left nav
 
     <figure><img src="../../.gitbook/assets/v2 proxy_properties.png" alt=""><figcaption><p>Add API properties</p></figcaption></figure>
 2. To add hardcoded properties, either:
    * Click **Add property** and enter property definitions one at a time as a key-value pair
-   * Click **Import** and enter property definitions as a list in `<key>=<value>` format&#x20;
+   * Click **Import** and enter property definitions as a list in `<key>=<value>` format
 
 ### Encryption
 
@@ -98,7 +102,7 @@ Encrypted values can be used by API policies, but encrypted data should be used 
 
 To encrypt a hardcoded API property value:
 
-1.  Reset the default secret key in `gravitee.yml`. The secret must be 32 bytes in length.&#x20;
+1.  Reset the default secret key in `gravitee.yml`. The secret must be 32 bytes in length.
 
     ```yaml
     # Encrypt API properties using this secret:
@@ -108,15 +112,15 @@ To encrypt a hardcoded API property value:
              secret: vvLJ4Q8Khvv9tm2tIPdkGEdmgKUruAL6
      to provide the best security available.
     ```
-2.  Enable the **Encrypt** toggle when adding a property via **Add property**. Once you click **Save**, you can no longer edit, modify, or view the value.&#x20;
+2.  Enable the **Encrypt** toggle when adding a property via **Add property**. Once you click **Save**, you can no longer edit, modify, or view the value.
 
-    <div align="left"><figure><img src="../../.gitbook/assets/api properties_add (1).png" alt="" width="375"><figcaption></figcaption></figure></div>
+    <div align="left"><figure><img src="../../.gitbook/assets/api properties_add.png" alt="" width="375"><figcaption></figcaption></figure></div>
 
 ### **Dynamic properties**
 
 To configure dynamic properties:
 
-1.  Click the **Manage dynamically** button and define the configuration&#x20;
+1.  Click the **Manage dynamically** button and define the configuration
 
     <figure><img src="../../.gitbook/assets/v2 proxy_properties dynamic.png" alt=""><figcaption><p>Configure dynamic properties</p></figcaption></figure>
 
@@ -133,7 +137,7 @@ To configure dynamic properties:
 After the first call, the resultant property is added to the list of global properties, where its value is continuously updated according to the `cron` schedule specified.
 
 {% hint style="info" %}
-Key-value pairs can also be maintained using a dictionary, e.g., if this information is stored independently of the API creation process or applies to multiple APIs.&#x20;
+Key-value pairs can also be maintained using a dictionary, e.g., if this information is stored independently of the API creation process or applies to multiple APIs.
 {% endhint %}
 
 ## Resources
@@ -164,15 +168,14 @@ The **Notifications** tab allows you to subscribe to notifications related to a 
 2. Select **APIs**, from the left nav.
 3. Select your API.
 4. Select **Configuration** from the inner left nav.
-5.  Select the **Notifications** header.\
-
+5.  Select the **Notifications** header.
 
     <figure><img src="../../.gitbook/assets/A 1 config notifications.png" alt=""><figcaption></figcaption></figure>
 6. Click **+ Add notification** to create a new one.
 7. Give your notification a name and select either:
    * **Default Email Notifier:**
      * Enter a list of emails, using "," or ";" as the separator
-   * **Default Webhook Notifier:**&#x20;
+   * **Default Webhook Notifier:**
      * Enter the Webhook URL
      * Choose whether to use system proxy
 

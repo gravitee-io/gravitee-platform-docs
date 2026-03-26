@@ -1,4 +1,5 @@
 ---
+description: Overview of VPN Configurations.
 noIndex: true
 ---
 

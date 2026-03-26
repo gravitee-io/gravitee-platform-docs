@@ -1,3 +1,7 @@
+---
+description: Guide to deploying Operator Resources with Helm.
+---
+
 # Deploy Operator Resources with Helm
 
 ## Overview

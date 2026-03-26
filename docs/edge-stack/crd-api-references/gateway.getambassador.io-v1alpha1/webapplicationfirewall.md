@@ -1,4 +1,5 @@
 ---
+description: Overview of WebApplicationFirewall.
 noIndex: true
 ---
 
@@ -62,8 +63,8 @@ Defines the rules to be used for the Web Application Firewall
 
 Defines a reference to a [Kubernetes ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/) to load firewall rules from.
 
-| **Field**   | **Type** | **Description**                                                              |
-| ----------- | -------- | ---------------------------------------------------------------------------- |
+| **Field**   | **Type** | **Description**                                                               |
+| ----------- | -------- | ----------------------------------------------------------------------------- |
 | `name`      | `string` | Name of the referenced Kubernetes `ConfigMap`.                                |
 | `namespace` | `string` | Namespace of the referenced Kubernetes `ConfigMap`.                           |
 | `key`       | `string` | The key in the referenced Kubernetes `ConfigMap` to pull the rules data from. |

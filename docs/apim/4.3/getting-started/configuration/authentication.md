@@ -80,7 +80,7 @@ security:
 
 ### Generate a new password
 
-If you use [bcrypt](https://en.wikipedia.org/wiki/Bcrypt) to hash passwords, you can generate new passwords with the [htpasswd](https://httpd.apache.org/docs/current/en/programs/htpasswd.html) command line, as shown in the following example (where `new_password` is your new password):
+If you use bcrypt to hash passwords, you can generate new passwords with the [htpasswd](https://httpd.apache.org/docs/current/en/programs/htpasswd.html) command line, as shown in the following example (where `new_password` is your new password):
 
 ```
 htpasswd -bnBC 10 "" new_password | tr -d ':\n'
@@ -260,7 +260,7 @@ Before you can set up GitHub as an authentication provider for Gravitee APIM, yo
 2. Select **OAuth Apps**
 3.  Select **Register an application**
 
-    <figure><img src="../../.gitbook/assets/github_register_new_app (1).png" alt=""><figcaption><p>Register an application in GitHub</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/github_register_new_app.png" alt=""><figcaption><p>Register an application in GitHub</p></figcaption></figure>
 4.  Enter in your Gravitee details in the **Register a new OAuth application** section. Please note that the Authorization callback URL must match the domain hosting Gravitee APIM. When you're done, select **Register application.**
 
     <figure><img src="../../.gitbook/assets/github_fill_app_form.png" alt=""><figcaption><p>Register Gravitee details in GitHub</p></figcaption></figure>
@@ -533,30 +533,28 @@ When using custom a Public Key Infrastructure (PKI) for your OAuth2 authenticati
       -Djavax.net.ssl.trustStore=/opt/graviteeio-management-api/security/truststore.jks
       -Djavax.net.ssl.trustStorePassword=<MYPWD>"
     ```
-* Add an environment variable to your Docker compose file to ensure that this configuration persists across settings. For example:
+*   Add an environment variable to your Docker compose file to ensure that this configuration persists across settings. For example:
 
-{% code overflow="wrap" lineNumbers="true" %}
-````
-```
-local_managementapi:
-    extends:
-      file: common.yml
-      service: managementapi
-    ports:
-      - "8005:8083"
-    volumes:
-      - ./conf/ssl/truststore.jks:/opt/graviteeio-management-api/security/truststore.jks:ro
-      - ./logs/management-api:/home/gravitee/logs
-    links:
-      - "local_mongodb:demo-mongodb"
-      - "local_elasticsearch:demo-elasticsearch"
-    environment:
-      - JAVA_OPTS=-Djavax.net.ssl.trustStore=/opt/graviteeio-management-api/security/truststore.jks -Djavax.net.ssl.trustStorePassword=<MYPWD>
-      - gravitee_management_mongodb_uri=mongodb://demo-mongodb:27017/gravitee?serverSelectionTimeoutMS=5000&connectTimeoutMS=5000&socketTimeoutMS=5000
-      - gravitee_analytics_elasticsearch_endpoints_0=http://demo-elasticsearch:9200
-```
-````
-{% endcode %}
+    {% code overflow="wrap" lineNumbers="true" %}
+    ```
+    local_managementapi:
+        extends:
+          file: common.yml
+          service: managementapi
+        ports:
+          - "8005:8083"
+        volumes:
+          - ./conf/ssl/truststore.jks:/opt/graviteeio-management-api/security/truststore.jks:ro
+          - ./logs/management-api:/home/gravitee/logs
+        links:
+          - "local_mongodb:demo-mongodb"
+          - "local_elasticsearch:demo-elasticsearch"
+        environment:
+          - JAVA_OPTS=-Djavax.net.ssl.trustStore=/opt/graviteeio-management-api/security/truststore.jks -Djavax.net.ssl.trustStorePassword=<MYPWD>
+          - gravitee_management_mongodb_uri=mongodb://demo-mongodb:27017/gravitee?serverSelectionTimeoutMS=5000&connectTimeoutMS=5000&socketTimeoutMS=5000
+          - gravitee_analytics_elasticsearch_endpoints_0=http://demo-elasticsearch:9200
+    ```
+    {% endcode %}
 
 ## Keycloak authentication
 

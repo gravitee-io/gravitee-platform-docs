@@ -1,3 +1,7 @@
+---
+description: An overview about dynamic routing.
+---
+
 # Dynamic Routing
 
 ## Overview
@@ -57,7 +61,7 @@ Using regular expressions can be very useful when you want to capture some parts
 
 For example, to capture the end of a path after `/v1/stores/`, the rule path is `/v1/stores/(.*)`. You can then use it in the `redirect to` property: `http://store_backend/stores/{#group[0]}`
 
-You can also use named groups instead of indexed groups: `/api/(?<version>v[0-9]+)/stores.*` ⇒ `http://host1/products/api/{#groupName'version'}`
+You can also use named groups instead of indexed groups: `/api/(?<version>v[0-9]+)/stores.*` ⇒ `http://host1/products/api/{#groupName['version']}`
 
 ### Phases
 

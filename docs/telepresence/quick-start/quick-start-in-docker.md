@@ -1,4 +1,5 @@
 ---
+description: Getting started with Quick Start.
 noIndex: true
 ---
 
@@ -55,7 +56,7 @@ cd telepresence-local-quickstart
 git clone https://github.com/ambassadorlabs/telepresence-local-quickstart.git --recurse-submodules
 
 # Change to the repo directory
-cd .\telepresence-local-quickstart\
+cd .\telepresence-local-quickstart
 
 # Run the Windows setup script
 .\windows-setup.ps1
@@ -82,7 +83,7 @@ cd .\telepresence-local-quickstart\
     Forwarding from 127.0.0.1:8080 -> 8080
     Forwarding from [::1]:8080 -> 8080
     ```
-3. Open the app in your browser by typing [http://localhost:8080/](http://localhost:8080/) into the search bar.
+3. Open the app in your browser by typing `http://localhost:8080/` into the search bar.
 
 You are connected to the VeryLargeJavaService, which talks to the DataProcessingService as an upstream dependency. The DataProcessingService in turn has a dependency on VeryLargeDatastore.
 
@@ -112,7 +113,7 @@ Next, we’ll create an intercept. An intercept is a rule that tells Telepresenc
 2. Go to the frontend service again in your browser and refresh (if you closed the `port-forward` from step 3, you will have to re-start it). You will now see the <mark style="color:blue;">**blue**</mark> elements in the app.
 
 {% hint style="success" %}
-The frontend’s request to DataProcessingService is being **intercepted and rerouted** to the server on your laptop!&#x20;
+The frontend’s request to DataProcessingService is being **intercepted and rerouted** to the server on your laptop!
 {% endhint %}
 
 {% hint style="info" %}

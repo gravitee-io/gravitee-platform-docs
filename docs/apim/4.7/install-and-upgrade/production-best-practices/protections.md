@@ -1,3 +1,7 @@
+---
+description: Configuration and setup guide for protections.
+---
+
 # Protections
 
 ## Brute-force protection
@@ -37,7 +41,7 @@ http:
     enabled: true
 ```
 
-We strongly recommend **NEVER** disabling CSRF protection unless you are absolutely sure of what you are doing and that your users may be exposed to [Cross Site Request Forgery attacks](https://fr.wikipedia.org/wiki/Cross-site_request_forgery).
+We strongly recommend **NEVER** disabling CSRF protection unless you are absolutely sure of what you are doing and that your users may be exposed to [Cross Site Request Forgery attacks](https://en.wikipedia.org/wiki/Cross-site_request_forgery).
 
 ### Configure CORS
 
@@ -56,4 +60,4 @@ http:
         allow-origin: 'https://gio-portal.mycompany.com'
 ```
 
-`allow-origin: '*'` should be considered a security risk because it permits all cross-origin requests. **We highly recommend fine-tuning the allow-origin setting. Refer to** the [Gravitee documentation](https://documentation.gravitee.io/apim/getting-started/configuration/configure-apim-management-api/internal-api#cors-configuration) for other useful information related to CORS.
+`allow-origin: '*'` should be considered a security risk because it permits all cross-origin requests. **We highly recommend fine-tuning the allow-origin setting. Refer to** the [Gravitee documentation](../../configure-v2-apis/proxy-settings.md) for other useful information related to CORS.

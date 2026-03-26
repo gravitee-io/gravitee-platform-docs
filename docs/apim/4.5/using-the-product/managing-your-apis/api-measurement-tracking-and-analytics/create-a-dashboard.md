@@ -23,18 +23,16 @@ You can configure your Gravitee Dashboard by creating dashboard charts for three
 1. Log in to your APIM Console
 2. Click on **Settings** in the left nav
 3. Click on **Analytics** in the inner left nav
-4.  Choose to **ADD A NEW PLATFORM DASHBOARD**, **ADD A NEW API DASHBOARD**, or **ADD A NEW APPLICATION DASHBOARD**&#x20;
+4.  Choose to **ADD A NEW PLATFORM DASHBOARD**, **ADD A NEW API DASHBOARD**, or **ADD A NEW APPLICATION DASHBOARD**
 
     <figure><img src="../../../.gitbook/assets/dashboard_add.png" alt=""><figcaption><p>Add a dashboard to a category</p></figcaption></figure>
-5.  Define your **Dashboard name** and **Query filter** (optional), then click **SAVE**&#x20;
+5.  Define your **Dashboard name** and **Query filter** (optional), then click **SAVE**
 
     <figure><img src="../../../.gitbook/assets/dashboard_create.png" alt=""><figcaption><p>Add a dashboard</p></figcaption></figure>
 6. Click the plus icon at the bottom of the screen to add a widget
 7.  Click the pencil icon to configure the widget:
 
     <figure><img src="../../../.gitbook/assets/dashboard_configure widget.png" alt=""><figcaption><p>Configure your widget</p></figcaption></figure>
-
-
 
     * Give your widget a **Name** and (optionally) a **Subtitle**
     * Select a **Widget type** from the drop-down menu, e.g., **table**

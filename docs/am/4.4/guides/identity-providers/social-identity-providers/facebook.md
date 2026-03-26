@@ -1,8 +1,12 @@
+---
+description: Overview of Facebook.
+---
+
 # Facebook
 
 ## Overview
 
-You can authenticate users with Facebook. Before you begin, you need to sign up for a [Facebook Developer account](https://www.facebook.com/r.php?next=https%3A%2F%2Fdevelopers.facebook.com%2F\&locale=en\_US\&display=page).
+You can authenticate users with Facebook. Before you begin, you need to sign up for a [Facebook Developer account](https://www.facebook.com/r.php?next=https%3A%2F%2Fdevelopers.facebook.com%2F\&locale=en_US\&display=page).
 
 ## Steps
 

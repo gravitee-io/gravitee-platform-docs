@@ -1,3 +1,7 @@
+---
+description: An overview about Response Templates.
+---
+
 # Response Templates
 
 ## Overview
@@ -23,8 +27,8 @@ Response template overrides are triggered by error keys, which are specific to p
 
 Prior to defining a response template, verify:
 
-* Which policies have been applied to the API. This can be viewed in the [API's plan](../../../api-exposure-plans-applications-and-subscriptions/plans/).
-* Which error keys can be overridden per policy associated with your API.&#x20;
+* Which policies have been applied to the API. This can be viewed in the [API's plan](../../../api-exposure-plans-applications-and-subscriptions/plans/README.md).
+* Which error keys can be overridden per policy associated with your API.
 
 Below are the policy error keys that you can override by configuring response templates:
 
@@ -45,7 +49,7 @@ To configure a response template:
 4. Select **Entrypoints** from the inner left nav
 5. Click on the **Response Templates** header
 6. Click on the **Add new Response Template** button
-7.  Customize the **Create a new Response Template** form&#x20;
+7.  Customize the **Create a new Response Template** form
 
     <figure><img src="../../../../.gitbook/assets/create response template.png" alt=""><figcaption><p>Configure a new response template</p></figcaption></figure>
 

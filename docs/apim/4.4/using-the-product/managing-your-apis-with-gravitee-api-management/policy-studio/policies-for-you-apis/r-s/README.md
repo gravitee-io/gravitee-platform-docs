@@ -1,3 +1,7 @@
+---
+description: Guide on policies and governance for R-S.
+---
+
 # R-S
 
 Here are the policies that fall between R and S:

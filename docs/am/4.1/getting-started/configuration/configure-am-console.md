@@ -1,3 +1,7 @@
+---
+description: Configuration guide for Configure AM Console.
+---
+
 # Configure AM Console
 
 You can configure AM Console with a file named `constants.json`.

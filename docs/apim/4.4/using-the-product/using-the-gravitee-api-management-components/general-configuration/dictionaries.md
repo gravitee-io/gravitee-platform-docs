@@ -4,14 +4,16 @@ description: >-
   Management
 ---
 
+# Configuring the Dictionaries in Gravitee API Management Gateway
+
 {% hint style="warning" %}
 **Changes to Gravitee Dictionaries in Version 4.4.29**
 
 Starting from version 4.4.29, you can use dictionaries in a [Multi-tenancy](../../../installation-and-upgrades/install-gravitee-api-management/multi-tenancy.md) setup. With this new capability, you can complete the following actions:
 
-- create dictionaries with the same name in different environments
-- promote APIs between environments without renaming dictionaries
-- recreate or update a dictionary in a new environment independently
+* create dictionaries with the same name in different environments
+* promote APIs between environments without renaming dictionaries
+* recreate or update a dictionary in a new environment independently
 
 **Enabling Multi-tenant Dictionary Support**
 
@@ -29,9 +31,9 @@ dictionaries:
 ```
 {% endhint %}
 
-# Configuring the Dictionaries in Gravitee API Management Gateway
+## Configuring the Dictionaries in Gravitee API Management Gateway
 
-## Introduction
+### Introduction
 
 While API publishers can create properties for their own APIs, dictionaries provide a way to manage properties independent of individual APIs, making it possible to apply them across APIs and maintain them globally with a different user profile, such as an administrator.
 
@@ -47,18 +49,18 @@ Dictionaries need to be deployed to the API Gateway before you can use them. You
 You can use dictionaries anywhere in APIM where [Gravitee Expression Language](../../managing-your-apis-with-gravitee-api-management/gravitee-expression-language.md) is supported, such as when defining policies for API flows. You can access dictionary properties with the Expression Language statement `#dictionaries`.
 {% endhint %}
 
-## Create a new dictionary
+### Create a new dictionary
 
 To create a new dictionary, select **Settings** in the left hand nav, then select **Dictionaries.**
 
-<figure><img src="../../../.gitbook/assets/2023-06-28_10-17-24 (1).gif" alt=""><figcaption><p>Access dictionary settings</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/2023-06-28_10-17-24 (1) (1).gif" alt=""><figcaption><p>Access dictionary settings</p></figcaption></figure>
 
 Select the <img src="../../../.gitbook/assets/Screen Shot 2023-06-28 at 10.18.10 AM.png" alt="" data-size="line">icon. You'll be brought to the **Create a new dictionary** page. Here, you'll need to define the **Name, Description,** and **Type.** You'll have two options for **Dictionary type:**
 
 * **Manual**: These dictionaries are made up of static properties defined manually at dictionary creation time
 * **Dynamic**: These dictionaries are made up of properties that are updated continuously, based on a schedule and source URL defined at dictionary creation time
 
-### Create a manual dictionary
+#### Create a manual dictionary
 
 To create a manual dictionary, choose **Manual** as the **Type**, then click **Create.** You'll be brought to a page where you can define the static properties for your dictionary. To create a property, select the <img src="../../../.gitbook/assets/Screen Shot 2023-06-28 at 10.22.56 AM.png" alt="" data-size="line">icon and give your property a name and value.
 
@@ -66,7 +68,7 @@ To create a manual dictionary, choose **Manual** as the **Type**, then click **C
 
 Select **Add**, and then **Save Properties** when you are done defining your key-value pairs. To start and deploy your dictionary, select **Deploy.**
 
-### Create a dynamic dictionary
+#### Create a dynamic dictionary
 
 To create a manual dictionary, choose **Dynamic** as the **Type**. **Trigger** and **Provider** sections will then appear.
 

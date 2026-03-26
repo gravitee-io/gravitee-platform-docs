@@ -1,13 +1,17 @@
+---
+description: An overview about kubernetes.
+---
+
 # Kubernetes
 
 ## Deployment Methods
 
 {% include "../../../.gitbook/includes/hybrid-installation-support.md" %}
 
-*
+* [vanilla-kubernetes.md](vanilla-kubernetes.md "mention")
 * [AWS EKS](aws-eks.md)
 * [azure-aks.md](azure-aks.md "mention")
-* GCP EKS
+* GCP GKE
 * [openshift.md](openshift.md "mention")
 
 ## Overview
@@ -16,7 +20,7 @@ You can use Kubernetes to install the self-hosted components of a Gravitee API M
 
 The `values.yaml` configuration file serves as the bridge between your local Kubernetes infrastructure and Gravitee Cloud. It contains all of the parameters that define how your hybrid Gateway operates, connects to Gravitee Cloud, and integrates with supporting services like Redis.
 
-The Helm installation process converts your configuration into running Kubernetes resources. These resources provide your API Gateway with the functionality that maintains secure connectivity with Gravitee Cloud.&#x20;
+The Helm installation process converts your configuration into running Kubernetes resources. These resources provide your API Gateway with the functionality that maintains secure connectivity with Gravitee Cloud.
 
 The following Kubernetes resources are created with the Gravitee Helm chart:
 

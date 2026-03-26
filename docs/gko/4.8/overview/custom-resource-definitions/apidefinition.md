@@ -1,3 +1,7 @@
+---
+description: Overview of ApiDefinition.
+---
+
 # ApiDefinition
 
 The `ApiDefinition` custom resource represents the configuration for a v2 API on the Gravitee Gateway. GKO also supports the more recent [v4 API definition](apiv4definition.md) with its own CRD.

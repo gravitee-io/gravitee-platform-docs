@@ -1,3 +1,7 @@
+---
+description: An overview about upgrade guide.
+---
+
 # Upgrade Guide
 
 {% hint style="danger" %}
@@ -24,37 +28,32 @@ Particular plugins are only available to enterprise customers. [See Gravitee API
 
 * Depending on your version of APIM, you must run the following versions of Java:
   * For versions 4.6 and before, APIM requires at least Java17.
-  * For version for 4.7 and later, APIM requires at least Java21.&#x20;
+  * For version for 4.7 and later, APIM requires at least Java21.
 * There are no longer enterprise tags (i.e., suffixed by `-ee`).
 * Cluster managers are available as plugins. Hazelcast Cluster Manager has been removed from the default distribution.
 * TLS 1.0 and TLS 1.1 protocols are disabled by default. You can enable these protocols with the proper TCP SSL configuration of the Gateway:
 
 {% code overflow="wrap" %}
-````
 ```yaml
 http:
   ssl:
     tlsProtocols: TLSv1.0, TLSv1.1, TLSv1.2
 ```
-````
 {% endcode %}
 
-```
-&#x20;or using environment variables:
-
-```
+ or using environment variables:
 
 {% code overflow="wrap" %}
-````
 ```bash
 GRAVITEE_HTTP_SSL_TLSPROTOCOLS=TLSv1.0,TLSv1.1,TLSv1.2
 ```
-````
 {% endcode %}
 
 ## **Monitoring APIM**
 
-* The name of the sync probe has been changed from `api-sync` to `sync-process` to make the completion of all sync processes explicit.
+* The name of the sync probe has been changed from `
+
+api-sync` to `sync-process` to make the completion of all sync processes explicit.
 * The content of the sync handler has changed slightly to align with new concepts:
   * `initialDone`: `true` if the first initial synchronization is done
   * `counter`: The number of iterations
@@ -172,7 +171,7 @@ installation:
 ### APIM 4.2+ and multiple Consoles/Portals in a connected Cloud
 
 {% hint style="warning" %}
-The user must edit the Management API's `gravitee.yaml`.
+The user must edit the Management API's <code>gravitee.yaml</code>.
 {% endhint %}
 
 If an APIM installation with multiple Consoles and/or Portals set up in a connected Cloud is upgraded to 4.2, the user must make the following changes to the Management API's `gravitee.yaml` file for the installation to function as `standalone`:
@@ -213,7 +212,7 @@ You **need to** update `gravitee.yml` or your Helm's `values.yaml` if your confi
 * You were using a secured connection between Hybrid Gateway and Bridge Server (Gateway or Management API)
 * You were using the default value (unset param)
 * You were using a non-public CA to sign your certificate
-* Your \`gateway.http.management.ssl configuration do not use a trust store to accept the server certificate.
+* Your `gateway.http.management.ssl` configuration do not use a trust store to accept the server certificate.
 
 The can explicitly disable certificate checks in the `gravitee.yaml`:
 

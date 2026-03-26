@@ -1,3 +1,7 @@
+---
+description: An overview about gateway internal api.
+---
+
 # Gateway Internal API
 
 ## Overview
@@ -45,40 +49,36 @@ Content-Type: application/json
         "REVISION": "132e719ef314b40f352e6399034d68a9a95e95ef"
     }
 }
-        
 </code></pre></td></tr><tr><td><pre data-overflow="wrap"><code>GET /_node/health
-</code></pre></td><td><p>Gets the health status of the component.</p><p>Probes can be filtered using the optional <code>probes</code> query parameter, which can handle a list of probes separated by commas (<code>,</code>). If no query param is provided, the health of all probes is returned. If the return status is 200, everything is ok; if it is 500, there is at least one error.</p><p>This endpoint can be used by a load balancer, e.g., to determine if a component instance is not in the pool.</p><p>⚠ The following probes are not displayed by default and you must explicitly use the query param to retrieve them:</p><ul><li><strong>cpu</strong></li></ul><ul><li><strong>memory</strong></li></ul><ul><li><strong>api-sync</strong></li></ul><p>These probes are considered healthy if they are under a configurable threshold (default is 80%). To configure the default, add it to your <code>gravitee.yml</code>:</p><pre><code>
+</code></pre></td><td><p>Gets the health status of the component.</p><p>Probes can be filtered using the optional <code>probes</code> query parameter, which can handle a list of probes separated by commas (<code>,</code>). If no query param is provided, the health of all probes is returned. If the return status is 200, everything is ok; if it is 500, there is at least one error.</p><p>This endpoint can be used by a load balancer, e.g., to determine if a component instance is not in the pool.</p><p>⚠ The following probes are not displayed by default and you must explicitly use the query param to retrieve them:</p><ul><li><strong>cpu</strong></li><li><strong>memory</strong></li><li><strong>api-sync</strong></li></ul><p>These probes are considered healthy if they are under a configurable threshold (default is 80%). To configure the default, add it to your <code>gravitee.yml</code>:</p><pre><code>
 services:
-  health:
-    threshold:
-      cpu: 80
-      memory: 80
-        
+health:
+threshold:
+cpu: 80
+memory: 80
 </code></pre></td><td><p><code>GET /_node/health</code></p><pre><code>HTTP/1.1 200 OK
 Content-Type: application/json
 {
-  "ratelimit-repository": {
-    "healthy": true
-  },
-  "management-repository": {
-    "healthy": true
-  },
-  "http-server": {
-    "healthy": true
-  }
+"ratelimit-repository": {
+"healthy": true
+},
+"management-repository": {
+"healthy": true
+},
+"http-server": {
+"healthy": true
 }
-        
+}
 </code></pre><p><code>GET /_node/health?probes=management-repository,http-server</code></p><pre><code>HTTP/1.1 200 OK
 Content-Type: application/json
 {
-  "management-repository": {
-    "healthy": true
-  },
-  "http-server": {
-    "healthy": true
-  }
+"management-repository": {
+"healthy": true
+},
+"http-server": {
+"healthy": true
 }
-        
+}
 </code></pre></td></tr><tr><td><pre data-overflow="wrap"><code>GET /_node/configuration
 </code></pre></td><td>Gets the node configuration from the <code>gravitee.yml</code> file and/or environment variables.</td><td><pre><code><strong>HTTP/1.1 200 OK
 </strong>Content-Type: application/json

@@ -1,3 +1,7 @@
+---
+description: Overview of Application.
+---
+
 # Application
 
 The `Application` custom resource represents the configuration for a Gravitee application. To access Gravitee APIs, consumers must register an application and subscribe to a published API plan. Applications act on behalf of the user to request tokens, provide user identity information, and consume APIs.
@@ -90,5 +94,5 @@ Events:
 
 For more information:
 
-* The `Application` CRD code is available on [GitHub](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/api/v1alpha1/application\_types.go).
+* The `Application` CRD code is available on [GitHub](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/api/v1alpha1/application_types.go).
 * The `Application` CRD API reference is documented [here](../../reference/api-reference.md).

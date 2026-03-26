@@ -1,3 +1,7 @@
+---
+description: An overview about Configuring the Logging in Gravitee API Management Gateway.
+---
+
 # Configuring the Logging in Gravitee API Management Gateway
 
 ## Overview
@@ -30,7 +34,7 @@ Configurable settings are grouped in the following categories:
 
 {% tabs %}
 {% tab title="Duration" %}
-Limit the duration of logging by entering a numeric value (ms) in the **Maximum duration** field. This avoids the prolonged capture of headers and/or body payload and excessive CPU/memory consumption.&#x20;
+Limit the duration of logging by entering a numeric value (ms) in the **Maximum duration** field. This avoids the prolonged capture of headers and/or body payload and excessive CPU/memory consumption.
 
 The default value (90000 ms) logs minimal call information. A value of 0 is interpreted as no maximum duration.
 {% endtab %}
@@ -72,7 +76,7 @@ Comprehensive connection logs allow you to analyze the usage of your v4 message 
 3. Select your API
 4. Click on **API Traffic** in the inner left sidebar
 
-Logs are displayed under the **Runtime Logs** tab in reverse chronological order:&#x20;
+Logs are displayed under the **Runtime Logs** tab in reverse chronological order:
 
 <figure><img src="../../../.gitbook/assets/runtime logs_list message CROP.png" alt=""><figcaption><p>Sample v4 message API runtime log entries</p></figcaption></figure>
 
@@ -90,10 +94,8 @@ Logging information can be modified by configuring the options under the **Setti
 4. Click on **API Traffic** in the inner left sidebar
 5. Click on the **Settings** tab
 
-{% tabs %}
-{% tab title="v4 message APIs" %}
 {% hint style="info" %}
-Select logging options judiciously to optimize the value of recorded data against the potential for impact to API performance. Sampling is used to avoid excessive resource consumption and is only relevant to v4 message APIs.&#x20;
+Select logging options judiciously to optimize the value of recorded data against the potential for impact to API performance. Sampling is used to avoid excessive resource consumption and is only relevant to v4 message APIs.
 {% endhint %}
 
 To configure which information is recorded, select from the following options:
@@ -122,8 +124,7 @@ Sampling methods for v4 message APIs can also be configured in the `gravitee.yml
 * **Temporal:** Must be a `string` in ISO 8601 format
 
 {% code title="gravitee.yaml" %}
-````yaml
-```
+```yaml
 logging:
   messageSampling:
     probabilistic:
@@ -136,7 +137,6 @@ logging:
       default: PT1S
       limit: PT1S 
 ```
-````
 {% endcode %}
 {% endtab %}
 
@@ -153,6 +153,7 @@ To configure which information is recorded, select from the following options:
 * **Display conditions:** You have the ability to filter data based on **Request phase condition**. This field supports the use of [Gravitee Expression Language](../../managing-your-apis-with-gravitee-api-management/gravitee-expression-language.md).
 
 <figure><img src="../../../.gitbook/assets/proxy API settings_CROP.png" alt=""><figcaption><p>Runtime logs settings</p></figcaption></figure>
+
 {% endtab %}
 {% endtabs %}
 
@@ -181,9 +182,10 @@ Each message record includes placeholder tabs for raw content, headers, and meta
 {% endtab %}
 
 {% tab title="v4 proxy APIs" %}
-Under **Details**, logs for the entry are grouped by **Entrypoint Request**, **Endpoint Request**, **Entrypoint Response**, and **Endpoint Response**, with **Headers** and **Payload** as the content:&#x20;
+Under **Details**, logs for the entry are grouped by **Entrypoint Request**, **Endpoint Request**, **Entrypoint Response**, and **Endpoint Response**, with **Headers** and **Payload** as the content:
 
 <figure><img src="../../../.gitbook/assets/proxy logs_CROP.png" alt=""><figcaption><p>View log details</p></figcaption></figure>
+
 {% endtab %}
 {% endtabs %}
 

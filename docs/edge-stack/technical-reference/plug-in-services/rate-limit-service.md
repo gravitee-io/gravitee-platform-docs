@@ -1,10 +1,11 @@
 ---
+description: Overview of Rate Limit Service.
 noIndex: true
 ---
 
 # Rate Limit Service
 
-Rate limiting is a powerful technique to improve the [availability and resilience of your services](https://www.getambassador.io/blog/rate-limiting-a-useful-tool-with-distributed-systems). In Ambassador Edge Stack, each request can have one or more _labels_. These labels are exposed to a third-party service via a gRPC API. The third-party service can then rate limit requests based on the request labels.
+Rate limiting is a powerful technique to improve the [availability and resilience of your services](https://www.gravitee.io/blog/rate-limiting-a-useful-tool-with-distributed-systems). In Ambassador Edge Stack, each request can have one or more _labels_. These labels are exposed to a third-party service via a gRPC API. The third-party service can then rate limit requests based on the request labels.
 
 **Note that `RateLimitService` is only applicable to Emissary-ingress, and not Ambassador Edge Stack, as Ambassador Edge Stack includes a built-in rate limit service.**
 
@@ -81,6 +82,5 @@ The [Emissary-ingress Rate Limiting Tutorial](../../rate-limiting-tutorial.md) h
 
 ## Further reading
 
-* [Rate limiting: a useful tool with distributed systems](https://www.getambassador.io/blog/rate-limiting-a-useful-tool-with-distributed-systems)
-* [Rate limiting for API Gateways](https://www.getambassador.io/blog/rate-limiting-for-api-gateways)
-* [Implementing a Java Rate Limiting Service for Ambassador Edge Stack](https://www.getambassador.io/blog/java-rate-limiting-edge-stack-api-gateway)
+* [Rate limiting: a useful tool with distributed systems](https://www.gravitee.io/blog/rate-limiting-a-useful-tool-with-distributed-systems)
+* [Rate limiting for API Gateways](https://www.gravitee.io/blog/rate-limiting-for-api-gateways)

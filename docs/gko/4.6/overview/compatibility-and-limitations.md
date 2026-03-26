@@ -1,3 +1,7 @@
+---
+description: Overview of Compatibility.
+---
+
 # Compatibility and Limitations
 
 In its early iterations, the Gravitee Kubernetes Operator (GKO) focused on managing the most important aspect of any API management platform: the APIs themselves. Over time, GKO has evolved to manage API documentation pages, API access controls, API resources (such as authentication servers and caches), and more. In the future, GKO will continue to expand its reach to cover new parts of the API lifecycle.

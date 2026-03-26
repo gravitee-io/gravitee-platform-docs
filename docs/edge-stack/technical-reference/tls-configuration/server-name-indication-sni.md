@@ -1,4 +1,5 @@
 ---
+description: Overview of Server Name Indication.
 noIndex: true
 ---
 

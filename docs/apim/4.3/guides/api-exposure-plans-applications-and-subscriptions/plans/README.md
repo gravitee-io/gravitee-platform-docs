@@ -1,3 +1,7 @@
+---
+description: Configuration guide for Plans.
+---
+
 # Plans
 
 ## Introduction
@@ -8,19 +12,15 @@ To expose your API to internal or external consumers, it must have at least one 
 * Premium access with public resources and access limits for your partners
 * Unlimited access to your internal enterprise applications
 
-<div align="center">
-
-<figure><img src="../../../.gitbook/assets/plan-diagram.png" alt="" width="375"><figcaption><p>High-level plan diagram</p></figcaption></figure>
-
-</div>
+<div align="center"><figure><img src="../../../.gitbook/assets/plan-diagram.png" alt="" width="375"><figcaption><p>High-level plan diagram</p></figcaption></figure></div>
 
 Each plan must include at least one security type by which subscribers can be authenticated. A security type is a policy integrated directly into a plan. Once a plan is created, the security type can not be changed. However, you can add additional security at the API or plan level with policies.
 
 The sections below describe:
 
-* [How to create a plan](./#create-a-plan)
-* [How to publish a plan](./#publish-a-plan)
-* [How plans are selected](./#plan-selection-rules)
+* [How to create a plan](README.md#create-a-plan)
+* [How to publish a plan](README.md#publish-a-plan)
+* [How plans are selected](README.md#plan-selection-rules)
 
 ## Create a plan
 
@@ -33,7 +33,7 @@ To create a plan:
 5.  Under the **Plans** header tab, click **+ Add new plan** and select your plan security type:
 
     <figure><img src="../../../.gitbook/assets/plan_select security type.png" alt=""><figcaption><p>Add a new plan</p></figcaption></figure>
-6.  Configure the general plan settings:&#x20;
+6.  Configure the general plan settings:
 
     <figure><img src="../../../.gitbook/assets/plan_general.png" alt=""><figcaption><p>Configure general plan settings</p></figcaption></figure>
 
@@ -46,10 +46,10 @@ To create a plan:
     * **Sharding tags:** Selectively deploy the plan to particular APIs using available [sharding tags](../../../getting-started/configuration/apim-gateway/sharding-tags.md)
     * **Groups excluded:** Prevent specified [user groups](../../administration/user-management-and-permissions.md) from accessing your plan
 7. Click **Next**
-8.  Define the security configuration details appropriate to and required by your selected security type, e.g., OAuth2. See  [**OAuth2**](oauth2.md), [**JWT**](jwt.md), [**API Key**](api-key.md), [**Keyless (public)**](keyless.md), or [**Push plan**](push.md) for more information.
+8.  Define the security configuration details appropriate to and required by your selected security type, e.g., OAuth2. See [**OAuth2**](oauth2.md), [**JWT**](jwt.md), [**API Key**](api-key.md), [**Keyless (public)**](keyless.md), or [**Push plan**](push.md) for more information.
 
     <figure><img src="../../../.gitbook/assets/plan_oauth2.png" alt=""><figcaption><p>OAuth2 configuration</p></figcaption></figure>
-9.  Select any plan restrictions:&#x20;
+9.  Select any plan restrictions:
 
     <figure><img src="../../../.gitbook/assets/plan_restrictions.png" alt=""><figcaption><p>Select plan restrictions</p></figcaption></figure>
 
@@ -72,7 +72,7 @@ API consumers can view a published plan on the Developer Portal. Once subscribed
 {% endtab %}
 
 {% tab title="DEPRECATED" %}
-A deprecated plan won’t be available on the Developer Portal and API consumers won’t be able to subscribe to it. This cannot be undone. Existing subscriptions are not impacted, giving current API consumers time to migrate without breaking their application.&#x20;
+A deprecated plan won’t be available on the Developer Portal and API consumers won’t be able to subscribe to it. This cannot be undone. Existing subscriptions are not impacted, giving current API consumers time to migrate without breaking their application.
 {% endtab %}
 
 {% tab title="CLOSED" %}
@@ -112,10 +112,10 @@ To close a plan, click on the 'x' icon:
 
 ## Plan selection rules
 
-APIM automatically routes each API request to the correct plan. The plan selection workflow parses all published plans in the following order: **JWT**, **OAuth2**, **API Key**, **Keyless**.&#x20;
+APIM automatically routes each API request to the correct plan. The plan selection workflow parses all published plans in the following order: **JWT**, **OAuth2**, **API Key**, **Keyless**.
 
 {% hint style="warning" %}
-This workflow only applies to [v4 APIs and v2 APIs in emulation mode.](../../../overview/gravitee-api-definitions-and-execution-engines/#plan-selection)
+This workflow only applies to [v4 APIs and v2 APIs in emulation mode.](../../../overview/gravitee-api-definitions-and-execution-engines/engine-comparisons.md#plan-selection)
 {% endhint %}
 
 The parsing rules for each plan type are detailed below:

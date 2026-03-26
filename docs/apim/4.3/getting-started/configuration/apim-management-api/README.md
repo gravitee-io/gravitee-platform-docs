@@ -1,3 +1,7 @@
+---
+description: Configuration guide for APIM Management API.
+---
+
 # APIM Management API
 
 This section focuses on the following Gravitee API Management (APIM) Management API configuration settings:

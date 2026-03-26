@@ -30,14 +30,14 @@ Gravitee 4.3 was released on March 31st, 2024. Feature updates include new API d
 
 ## API descriptions
 
-In keeping with the OpenAPI Specification's support for Markdown in the Description field, Markdown can be entered in the description field of Gravitee API.&#x20;
+In keeping with the OpenAPI Specification's support for Markdown in the Description field, Markdown can be entered in the description field of Gravitee API.
 
 An API description will be rendered as Markdown in the Developer Portal UI if:
 
 * An OpenAPI spec is imported and contains Markdown in the Description field
 * Markdown is entered for the description of an API
 
-To learn more about importing an API, see the [documentation](../../guides/create-apis/import-apis/).
+To learn more about importing an API, see the [documentation](../../guides/create-apis/import-apis/README.md).
 
 ## API documentation
 
@@ -46,27 +46,27 @@ Gravitee 4.3 includes numerous API documentation enhancements:
 * v4 API documentation supports templating via the **Fill in the content myself** editor, where API properties can be used to access the API data in your documentation.
 * YAML or JSON can be entered into the **Fill in the content myself** editor to create an API docs page from either an OpenAPI or AsyncAPI spec. The OpenAPI spec for a documentation page is shown in the APIM Console and reflects how the API documentation is rendered in the Developer Portal.
 * To automate the process of creating OpenAPI or AsyncAPI docs pages for v4 APIs, you can make a Management API endpoint REST call to create a docs page from an OpenAPI or AsyncAPI spec.
-*   Markdown, OpenAPI, and AsyncAPI files can be uploaded as v4 API documentation pages via the Console.&#x20;
+*   Markdown, OpenAPI, and AsyncAPI files can be uploaded as v4 API documentation pages via the Console.
 
     <figure><img src="../../.gitbook/assets/docs_content 1.png" alt=""><figcaption><p>Upload a Markdown file as a documentation page</p></figcaption></figure>
 
     <figure><img src="../../.gitbook/assets/docs_markdown content.png" alt=""><figcaption><p>Uploaded Markdown content</p></figcaption></figure>
-*   Like user-created content, imported content can be edited via the Markdown editor, and by enabling **Toggle preview**, you can view the content you enter and the rendered page side-by-side.&#x20;
+*   Like user-created content, imported content can be edited via the Markdown editor, and by enabling **Toggle preview**, you can view the content you enter and the rendered page side-by-side.
 
     <figure><img src="../../.gitbook/assets/edit imported content 1.png" alt=""><figcaption><p>Use the editor to modify imported content</p></figcaption></figure>
-* Page referencing allows documentation pages to be reused and easily exported between environments. Within an API's documentation, you can link to one page from another via special syntax.&#x20;
+* Page referencing allows documentation pages to be reused and easily exported between environments. Within an API's documentation, you can link to one page from another via special syntax.
 * In addition to making API documentation available via the Developer Portal, you can send messages to parties interested in your API to advertise updates, warn of upcoming changes, etc. Message delivery mechanism, recipients, and content can be configured in the APIM Console.
-*   Dynamic v4 API documentation pages can be created by adding metadata keys and values.&#x20;
+*   Dynamic v4 API documentation pages can be created by adding metadata keys and values.
 
     <figure><img src="../../.gitbook/assets/metadata_screen.png" alt=""><figcaption><p>API metadata</p></figcaption></figure>
 
-Refer to the [API Documentation](../../guides/api-configuration/v4-api-configuration/documentation.md) section for more information.&#x20;
+Refer to the [API Documentation](../../guides/api-configuration/v4-api-configuration/documentation.md) section for more information.
 
 ## API properties
 
-v4 API properties can be dynamically managed via the **Properties** tab of the API Management Console's **Configuration** screen**.** To learn more about properties and how to set them, see the [documentation](../../guides/policy-studio/v4-api-policy-studio.md#api-properties).
+v4 API properties can be dynamically managed via the **Properties** tab of the API Management Console's **Configuration** screen\*\*.\*\* To learn more about properties and how to set them, see the [documentation](../../guides/policy-studio/v4-api-policy-studio.md#api-properties).
 
-<figure><img src="../../.gitbook/assets/api properties_dynamically manage (1).png" alt=""><figcaption><p>Dynamically manage properties</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/api properties_dynamically manage.png" alt=""><figcaption><p>Dynamically manage properties</p></figcaption></figure>
 
 ## Audit logs
 
@@ -76,7 +76,7 @@ Events and audit entries are now captured at the API level for v4 APIs. These ar
 
 See the [Audit Logs](../../guides/api-configuration/v4-api-configuration/audit-logs.md) documentation for more information.
 
-## Developer Portal&#x20;
+## Developer Portal
 
 ### Catalog descriptions
 
@@ -88,7 +88,7 @@ Markdown support has been extended to the **Description** field in the API Catal
 
 If incorrect templating is applied to the Markdown page of an API, errors alert the user that the page will not be formatted as intended when published to the Developer Portal.
 
-<figure><img src="../../.gitbook/assets/incorrect templating (1).png" alt=""><figcaption><p>Example of incorrect templating</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/incorrect templating.png" alt=""><figcaption><p>Example of incorrect templating</p></figcaption></figure>
 
 For more information on how to configure documentation for the Developer Portal, see [this section](../../guides/developer-portal/configuration/documentation.md).
 
@@ -98,7 +98,7 @@ For more information on how to configure documentation for the Developer Portal,
 
 The Management Console's Health-check feature can be used for v4 HTTP proxy APIs to monitor the availability and health of your endpoints and/or your API Gateways.
 
-<figure><img src="../../.gitbook/assets/health-check config form (1).png" alt=""><figcaption><p>Health-check configuration settings for v4 HTTP proxy APIs</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/health-check config form.png" alt=""><figcaption><p>Health-check configuration settings for v4 HTTP proxy APIs</p></figcaption></figure>
 
 For more information, see [Health-check](../../guides/api-configuration/v4-api-configuration/endpoints/health-check.md).
 
@@ -122,7 +122,7 @@ For more information, see the [Webhook entrypoint configuration ](../../guides/a
 
 ### CORS
 
-CORS support has been extended to v4 message and proxy APIs. For CORS to be applied, an API must contain at least one HTTP GET, HTTP POST, HTTP Proxy, or SSE entrypoint. WebSocket entrypoints do not support CORS.&#x20;
+CORS support has been extended to v4 message and proxy APIs. For CORS to be applied, an API must contain at least one HTTP GET, HTTP POST, HTTP Proxy, or SSE entrypoint. WebSocket entrypoints do not support CORS.
 
 To learn more, see the [v4 CORS configuration](../../guides/api-configuration/v4-api-configuration/entrypoints/cors.md) documentation.
 
@@ -137,9 +137,9 @@ To learn more, see the [v4 CORS configuration](../../guides/api-configuration/v4
 * Webhook
 * WebSocket
 
-Responses can be templatized if the errors raised during the request/response phase(s) are associated with a policy whose policy keys can be overridden. Multiple templates can be created for one API, for multiple policies and/or multiple error keys sent by the same policy. Multiple template definitions can be created for the same error key in a single template, for different content types or status codes.&#x20;
+Responses can be templatized if the errors raised during the request/response phase(s) are associated with a policy whose policy keys can be overridden. Multiple templates can be created for one API, for multiple policies and/or multiple error keys sent by the same policy. Multiple template definitions can be created for the same error key in a single template, for different content types or status codes.
 
-<figure><img src="../../.gitbook/assets/create response template (1).png" alt=""><figcaption><p>Create a response template</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/create response template.png" alt=""><figcaption><p>Create a response template</p></figcaption></figure>
 
 ## Gravitee Expression Language
 
@@ -159,7 +159,7 @@ For more information, refer to the [Notifications](../../getting-started/configu
 
 ### AVRO <> Protobuf
 
-You can use the [`avro-protobuf` policy](../../reference/policy-reference/avro-to-protobuf.md) to apply a transformation (or mapping) on the request, and/or response, and/or message content of an API call.&#x20;
+You can use the [`avro-protobuf` policy](../../reference/policy-reference/avro-to-protobuf.md) to apply a transformation (or mapping) on the request, and/or response, and/or message content of an API call.
 
 AVRO to Protobuf conversion:
 
@@ -175,23 +175,23 @@ Protobuf to AVRO conversion:
 
 ### GraphQL Rate Limit
 
-The [`graphql-rate-limit` policy](../../reference/policy-reference/graphql-rate-limit.md) has been added to limit the load placed on the GraphQL server so that GraphQL resources can be served reliably without overloading the system. It is a Gravitee Enterprise Edition feature and requires a [license](https://documentation.gravitee.io/platform-overview/gravitee-essentials/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing)​.
+The [`graphql-rate-limit` policy](../../reference/policy-reference/graphql-rate-limit.md) has been added to limit the load placed on the GraphQL server so that GraphQL resources can be served reliably without overloading the system. It is a Gravitee Enterprise Edition feature and requires a [license](https://documentation.gravitee.io/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing)​.
 
 The Gravitee Gateway evaluates query costs by introspecting schema and analyzing the query, then applying a rate-limiting strategy based on a computed/weighted score. This protects the backend GraphQL server from having to process costly GraphQL requests.
 
 ### Protobuf <> JSON
 
-You can use the [`protobuf-json` policy](../../reference/policy-reference/protobuf-to-json.md) to apply a transformation (or mapping) on the request, and/or response, and/or message content of an API call.&#x20;
+You can use the [`protobuf-json` policy](../../reference/policy-reference/protobuf-to-json.md) to apply a transformation (or mapping) on the request, and/or response, and/or message content of an API call.
 
 Protobuf to JSON conversion:
 
-* If the caller of an API sends a message in JSON format to a backend with a specified schema, the message will reach the backend in Avro format with the data in binary. The caller of the API can then consume the message back in JSON format, and the Avro schema will be specified directly in the policy.&#x20;
+* If the caller of an API sends a message in JSON format to a backend with a specified schema, the message will reach the backend in Avro format with the data in binary. The caller of the API can then consume the message back in JSON format, and the Avro schema will be specified directly in the policy.
 * This transformation can also be applied in the body
 * If the user makes a POST request with an incorrect body, the response returns an error
 
 JSON to Protobuf conversion:
 
-* If the caller of an API sends a message in JSON format to a backend with a specified schema, the message will reach the backend in Protobuf format with the data in binary. The caller of the API can then consume the message back in JSON format, and the Protobuf schema will be specified directly in the policy.&#x20;
+* If the caller of an API sends a message in JSON format to a backend with a specified schema, the message will reach the backend in Protobuf format with the data in binary. The caller of the API can then consume the message back in JSON format, and the Protobuf schema will be specified directly in the policy.
 * This transformation can also be applied in the body
 
 ### Rate Limit
@@ -226,4 +226,4 @@ To learn how to create a TCP proxy API, see the [v4 API creation wizard](../../g
 
 The TCP reporter can be configured to use TLS when connecting to the target so that the entire communication is TLS-encrypted end-to-end. The user can configure the reporter to use TLS either with or without client verification enabled.
 
-For more details, see the [TCP reporter documentation](../../getting-started/configuration/reporters/#tcp-reporter).
+For more details, see the [TCP reporter documentation](../../getting-started/configuration/reporters/README.md#tcp-reporter).

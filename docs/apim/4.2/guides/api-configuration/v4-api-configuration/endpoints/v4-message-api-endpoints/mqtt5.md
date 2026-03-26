@@ -1,3 +1,7 @@
+---
+description: An overview about MQTT5.
+---
+
 # MQTT5
 
 ## Overview
@@ -67,7 +71,7 @@ Define whichever of the following are relevant to your configuration.
 
 If you chose **Use Producer** or **Use Producer and Consumer**, you must define the settings that the Gravitee Gateway MQTT client will rely on to produce messages to your backend MQTT topic/broker.
 
-If you chose **Use Consumer** or **Use Producer and Consumer**, you must define the settings that the Gravitee Gateway MQTT client will rely on to consume messages from your backend MQTT topic/broker.&#x20;
+If you chose **Use Consumer** or **Use Producer and Consumer**, you must define the settings that the Gravitee Gateway MQTT client will rely on to consume messages from your backend MQTT topic/broker.
 
 {% tabs %}
 {% tab title="Producer" %}

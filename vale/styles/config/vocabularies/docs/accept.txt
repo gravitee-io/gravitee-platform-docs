@@ -1,0 +1,465 @@
+# ============================================
+# Gravitee Product & Platform Terms
+# ============================================
+Gravitee
+APIM
+APID
+AM
+GKO
+GC
+Cockpit
+Blackbird
+DevPortal
+GRAVITEEIO
+mAPI
+Gravitee API Management
+Gravitee Access Management
+Gravitee Alert Engine
+Gravitee API Designer
+Gravitee Cloud
+
+# ============================================
+# API & Protocol Terms
+# ============================================
+API
+APIs
+API's
+REST
+RESTful
+GraphQL
+gRPC
+AsyncAPI
+OpenAPI
+OpenID
+OAuth2?
+OIDC
+SAML
+SASL
+SCIM
+SSO
+SSE
+SOAP
+WebSocket[s]?
+WebAuthn
+AMQP
+MQTT[5]?
+mTLS
+[Hh]ealthcheck
+RPC
+FQDN
+EDA
+CORS
+CSRF
+FAPI
+PKCE
+HMAC
+JWKS?
+JWS
+JWT
+JTI
+UMA
+CIBA
+DCR
+OAS
+RPT
+CNF
+FIDO2
+PBKDF2
+BCrypt
+RSA
+SHA[0-9]*
+OAUTHBEARER
+SCRAM
+GSSAPI
+ALPN
+W3C
+[Jj][Mm][Ss]
+
+# ============================================
+# Cloud & Infrastructure
+# ============================================
+AWS
+GCP
+GKE
+EKS
+AKS
+S3
+IAM
+CloudHSM
+CloudFormation
+CloudEvents
+VMs?
+VPN
+DMZ
+DNS
+Cloudwatch
+[Ll]oad[Bb]alancer
+ClusterIP
+NodePort
+https
+
+# ============================================
+# Kubernetes & Containers
+# ============================================
+Kubernetes
+kubectl
+Helm
+ConfigMap[s]?
+CRDs?
+[Nn]amespaces?
+[Nn]amespaced
+OpenShift
+[Ii]ngress
+ArgoCD
+ArgoRollouts
+GitOps
+Bitnami
+
+# ============================================
+# Databases & Data Stores
+# ============================================
+MongoDB
+PostgreSQL
+MySQL
+MariaDB
+Elasticsearch
+Hazelcast
+Redis
+DocumentDB
+R2DBC
+RDBMS
+JDBC
+[Dd]atastore
+Liquibase
+
+# ============================================
+# Message Brokers & Streaming
+# ============================================
+Kafka
+RabbitMQ
+ActiveMQ
+ActiveMQConnectionFactory
+ConnectionFactory
+DLQs?
+AVRO
+Protobuf
+JOLT
+QoS
+
+# ============================================
+# Monitoring, Logging & Observability
+# ============================================
+OpenTelemetry
+OpenTracing
+Prometheus
+Grafana
+Jaeger
+Zipkin
+Fluentd
+Logstash
+Datadog
+Splunk
+SLI
+SLO
+SLA
+MTTD
+MTTA
+MTTR
+Service Level Indicator
+Service Level Objective
+Service Level Agreement
+Mean Time to Detect
+Mean Time to Acknowledge
+Mean Time to Resolve
+
+# ============================================
+# Identity & Auth Providers
+# ============================================
+IdP
+IDP
+Keycloak
+LDAP
+ADFS
+FranceConnect
+Entra
+CAS
+HashiCorp
+MFA
+OTP
+RBAC
+PBAC
+ABAC
+PAT
+PAM
+JIT
+HITL
+Policy-Based Access Control
+Attribute-Based Access Control
+Privileged Access Management
+Just-in-Time
+Human-in-the-Loop
+[Pp]asswordless
+
+# ============================================
+# Java & JVM
+# ============================================
+JVM
+JDK
+JKS
+JRE
+JAAS
+JCE
+javax
+OpenJDK
+Freemarker
+FreeMarker
+Vert\.x
+
+# ============================================
+# Dev Tools & Platforms
+# ============================================
+GitHub
+GitLab
+Bitbucket
+LinkedIn
+IntelliJ
+CLI
+SDK
+NPM
+Swagger
+Redoc
+JavaScript
+AngularJS
+
+# ============================================
+# Security & Crypto
+# ============================================
+PEM
+PFX
+PKCS[0-9]*
+PKI
+SSL
+TLS
+SNI
+XSS
+XSLT
+XSL
+OWASP
+CSP
+SOCKS[45]
+ACLs?
+JOSE
+ACME
+CVE
+
+# ============================================
+# Networking & Protocols
+# ============================================
+TCP
+UDP
+HTTP[S]?
+SMTP
+[Hh]ostnames?
+URIs?
+URLs?
+[Ll]ocalhost
+Gzip
+CIDR
+SPA
+LLM
+MCP
+Fully Qualified Domain Name
+Remote Procedure Call
+Event-Driven Architecture
+
+# ============================================
+# Formats & Standards
+# ============================================
+JSON
+XML
+YAML
+HTML
+CSS
+CSV
+AsciiDoc
+Protobuf
+UTF
+RFC
+ISO
+
+# ============================================
+# Compound / Technical Words
+# ============================================
+[Bb]ackend
+[Ff]rontend
+[Cc]odebase
+[Cc]onfig
+[Dd]atastore
+[Ee]ntrypoints?
+[Ff]ailover
+[Ff]ilesystem
+[Hh]ardcoded
+[Hh]otfixes
+[Kk]eystore
+[Ll]ifecycle
+[Mm]etadata
+[Mm]icroservices
+[Mm]onorepo
+[Oo]nboarding
+[Pp]assphrase
+[Pp]lugins?
+[Pp]rerequisites
+[Qq]uickstart
+[Rr]atelimit
+[Rr]egex
+[Rr]oadmap
+[Rr]ulesets?
+[Rr]ollback
+[Rr]ollout
+[Ss]tandalone
+[Ss]ubpath
+[Tt]emplating
+[Tt]imeframes?
+[Tt]imelines?
+[Tt]ooltips?
+[Tt]ruststore
+[Uu]npublish
+[Uu]sername
+[Vv]alidator
+[Vv]ersioning
+[Vv]iewport
+[Ww]ebhooks?
+[Ww]orkflows?
+[Cc]hangelog[s]?
+[Ss]erverless
+[Cc]loud
+[Ee]mail[s]?
+[Rr]epo
+[Uu]pstream
+[Dd]ownstream
+[Bb]lue-green
+[Cc]anary
+[Aa]utoscaling
+[Mm]ulti-gateway
+[Mm]ulti-broker
+[Dd]eserialization
+[Dd]eserialized
+[Dd]eletable
+[Aa]nonymized
+[Bb]ackchannel
+
+# ============================================
+# Gravitee-Specific Features & Config
+# ============================================
+[Ss]harding.tags?
+[Ee]ntrypoint
+gravitee\.yml
+gravitee\.yaml
+[Ee]xpression [Ll]anguage
+EL
+SaaS
+EE
+CE
+OSS
+RPM
+GeoIP
+[Gg]eolocation
+ManagementContext
+ApiDefinition
+SharedPolicyGroup
+ApiResource
+ApiVersion
+UUID
+[Ss]yslog
+
+# ============================================
+# Misc Technical Terms
+# ============================================
+Dockerfile
+[Oo]pen-source
+US
+IP
+IPs
+VM
+CPU
+DB
+TTL
+EOF
+AI
+LRU
+MGT
+AE
+SMS
+AD
+OOM
+EOL
+CRUD
+CI
+GPG
+[Ff]ingerprint
+[Aa]uth[Nn]
+A2A
+
+# ============================================
+# Cloud Providers & Services
+# ============================================
+Salesforce
+Twilio
+IBM
+Mastercard
+Moby
+Amazon
+Azure
+Slackbot
+
+# ============================================
+# Additional Accepted Terms
+# ============================================
+[Aa]gent[s]?
+[Aa]llowlisting
+[Ss]harding
+[Kk]eyless
+[Ee]ndhint
+[Ee]ndtab
+endtab
+[Aa]sync
+async
+[Uu]nconfigured
+[Mm]etaLinks
+[Uu][Ss][Aa]
+[Ee][Uu]
+[Mm]anagement [Cc]onsole
+[Aa]llows?
+[Aa]gainst
+[Ee]num[s]?
+[Rr]eorderable
+[Dd]rag and [Dd]rop
+[Cc]allout[s]?
+[Aa]lias
+[Cc]acheable
+[Ee]ndcode
+[Ee]nsure
+[Ee]xtract
+[Ss]ubscribable
+[Mm]inLength
+[Aa]ccessible
+[Ll]ogback
+[Ii]nitializer
+[Aa]ppenders?
+[Aa]piId
+[Ee]nvId
+[Aa]ppId
+[Pp]lanId
+[Oo]rgId
+[Cc]orrelationId
+[Nn]odeId
+[Ii]dempotence
+[Cc]odec
+[Cc]onfigs
+[Aa]cks
+[Cc]iphertext
+JSONPath
+[Kk]eystores?
+GZIP
+[Hh]inglish
+[Mm]inuva

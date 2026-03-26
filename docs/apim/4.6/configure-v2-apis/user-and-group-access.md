@@ -23,7 +23,7 @@ To configure user and group access for your APIs:
 1. Log in to APIM Console
 2. Select **APIs** from the left nav
 3. Select your API
-4.  From the inner left nav, select **User and group access**&#x20;
+4.  From the inner left nav, select **User and group access**
 
     <figure><img src="../.gitbook/assets/v2 user and group access.png" alt=""><figcaption><p>Configure user and group access</p></figcaption></figure>
 
@@ -35,7 +35,7 @@ Click **+ Add members** to add members to your API or alter member roles, which 
 
 ### Add groups to an API
 
-To give groups access to your API, click **Manage groups** and select the desired group(s) from the drop-down menu. This will give all members of that group access to your API.&#x20;
+To give groups access to your API, click **Manage groups** and select the desired group(s) from the drop-down menu. This will give all members of that group access to your API.
 
 <figure><img src="../.gitbook/assets/v2 manage groups.png" alt=""><figcaption><p>Give groups access to your API</p></figcaption></figure>
 

@@ -120,7 +120,7 @@ If you chose **Webhook** as an entrypoint, you will be brought to a page where y
     * (Optional) Proxy username: enter your proxy username in the **Proxy username** text field.
     * (Optional) Proxy password: enter your proxy password in the **Proxy password** text field.
 
-A [**SOCKS proxy**](https://hailbytes.com/how-to-use-socks4-and-socks5-proxy-servers-for-anonymous-web-browsing/) is a type of proxy server that uses the SOCKS protocol to tunnel traffic through an intermediary server.
+A **SOCKS proxy** is a type of proxy server that uses the SOCKS protocol to tunnel traffic through an intermediary server.
 
 Also, when using Webhooks as an entrypoint, you can set up a dead letter queue for storing undelivered messages. When configuring DLQ with Webhook, you redirect all the messages that the Webhook rejects to another location, such as a Kafka topic. To learn more, please refer to he DLQ documentation.
 
@@ -414,8 +414,7 @@ The **RabbitMQ** endpoint allows the Gateway to open up a persistent connection 
   * Enable or disable **Durable**
   * Enable or disable **Auto Delete**
   * **Routing Key**
-
-- **Consumer settings** (if you chose **Use Consumer** or **Use Producer and Consumer**): define the settings that the Gravitee Gateway Kafka client will rely on for consuming messages from your backend Kafka topic/broker. You will need to define:
+* **Consumer settings** (if you chose **Use Consumer** or **Use Producer and Consumer**): define the settings that the Gravitee Gateway Kafka client will rely on for consuming messages from your backend Kafka topic/broker. You will need to define:
   * **Exchange name**
   * **Exchange type**
   * Enable or disable [**Durable**](https://www.rabbitmq.com/tutorials/amqp-concepts.html#exchanges)**:** Durable exchanges survive broker restart
@@ -458,7 +457,7 @@ To configure your OAuth2 plan, select OAuth2 from the **+Add plan** drop-down me
 * **Subscription:** choose whether to auto-validate subscriptions, require a message from a consumer during subscription, and/or present a message to the consumer upon subscription.
 * **Access control:** select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../administration/#users-and-user-groups).
 
-<img src="../../../.gitbook/assets/image (37).png" alt="" data-size="original">
+<img src="../../../.gitbook/assets/image (37) (1).png" alt="" data-size="original">
 
 Select Next to move on to **OAuth2 authentication configuration**. Here, you'll specify:
 
@@ -470,7 +469,7 @@ Select Next to move on to **OAuth2 authentication configuration**. Here, you'll 
 * Whether to permit authorization headers to target endpoints.
 * (Optional) Define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process. You will need to use the Gravitee Expression Language. For more information on the Gravitee Expression Language, please refer to the Expression Language documentation.
 
-<img src="../../../.gitbook/assets/image (51).png" alt="" data-size="original">
+<img src="../../../.gitbook/assets/image (42) (1).png" alt="" data-size="original">
 
 Select Next to define any additional restrictions for the plan. These restrictions include:
 
@@ -483,7 +482,7 @@ Select Next to define any additional restrictions for the plan. These restrictio
 * **Quota:** define a rate limit over a period of hours, days, or months. If you choose this, you will need to define the same settings that are applicable to rate limiting (see above).
 * **Resource filtering:** restricts resources based on defined whitelist/allowed and/or blacklist/disallowed settings. These will be defined by path patterns and methods.
 
-<img src="../../../.gitbook/assets/image (43).png" alt="" data-size="original">
+<img src="../../../.gitbook/assets/image (43) (1).png" alt="" data-size="original">
 
 </details>
 
@@ -528,7 +527,7 @@ Select Next to define any restrictions associated with this plan. Your options i
 * **Quota:** define a rate limit over a period of hours, days, or months. If you choose this, you will need to define the same settings that are applicable to rate limiting (see above).
 * **Resource filtering:** restricts resources based on defined whitelist/allowed and/or blacklist/disallowed settings. These will be defined by path patterns and methods.
 
-<img src="../../../.gitbook/assets/image (44).png" alt="" data-size="original">
+<img src="../../../.gitbook/assets/image (43) (1).png" alt="" data-size="original">
 
 </details>
 

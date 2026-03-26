@@ -216,14 +216,15 @@
 
 * [Release Notes](releases-and-changelog/release-notes/README.md)
   * [APIM 4.0](releases-and-changelog/release-notes/apim-4.0.md)
-  * [APIM 4.1](https://documentation.gravitee.io/apim/v/4.1/releases-and-changelog/release-notes/apim-4.1)
+  * [APIM 4.1](https://documentation.gravitee.io/apim/4.1/releases-and-changelog/release-notes/apim-4.1)
 * [Changelog](releases-and-changelog/changelog/README.md)
   * [APIM 4.0.x](releases-and-changelog/changelog/apim-4.0.x.md)
-  * [APIM 4.1.x](https://documentation.gravitee.io/apim/v/4.1/releases-and-changelog/changelogs/apim-4.1.x-changelog)
+  * [APIM 4.1.x](https://documentation.gravitee.io/apim/4.1/releases-and-changelog/changelogs/apim-4.1.x-changelog)
 
 ## Community & Support
 
-* [Enterprise Support](community-and-support/enterprise-support.md)
+* [Enterprise Support](community-and-support/enterprise-support/README.md)
+  * [Test](community-and-support/enterprise-support/test.md)
 * [Community](community-and-support/community/README.md)
   * [Support](https://community.gravitee.io/c/support/11)
   * [Announcements & Events](https://community.gravitee.io/c/announcements/5)

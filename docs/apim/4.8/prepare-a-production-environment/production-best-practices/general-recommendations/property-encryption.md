@@ -1,3 +1,7 @@
+---
+description: Setup guide for property encryption.
+---
+
 # Property Encryption
 
 Gravitee allows attaching properties to an API and offers the capability to store encrypted property values. **You must change the default encryption secret** with a custom secret that can't be determined easily. You must consider the following when changing the secret:
@@ -14,4 +18,4 @@ api:
          secret: <32 byte length secret>
 ```
 
-You can find additional details about property encryption in [Properties](../../../create-and-configure-apis/apply-policies/v4-api-policy-studio.md#api-properties).
+You can find additional details about property encryption in [Properties](../../../create-and-configure-apis/apply-policies/4.9-v4-api-policy-studio.md#api-properties).

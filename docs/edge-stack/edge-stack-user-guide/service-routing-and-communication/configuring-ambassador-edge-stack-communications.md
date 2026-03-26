@@ -1,4 +1,5 @@
 ---
+description: Overview of Configuring Ambassador Edge Stack Communications.
 noIndex: true
 ---
 
@@ -13,13 +14,13 @@ For Ambassador Edge Stack to do its job of managing network communications for y
 Once the basic communications setup is in place, Ambassador Edge Stack `Mapping`s and `TCPMapping`s can be associated with `Host`s to actually do routing.
 
 {% hint style="warning" %}
-Remember that `Listener` and `Host` resources are  required for a functioning Ambassador Edge Stack installation that can route traffic!\
+Remember that `Listener` and `Host` resources are required for a functioning Ambassador Edge Stack installation that can route traffic!\
 Learn more about `Listener`.\
-Learn more about `Host`.&#x20;
+Learn more about `Host`.
 {% endhint %}
 
 {% hint style="warning" %}
-Remember that Ambassador Edge Stack does not make sure that a wildcard `Host` exists! If the wildcard behavior is needed, a `Host` with a `hostname` of `"*"` must be defined by the user.&#x20;
+Remember that Ambassador Edge Stack does not make sure that a wildcard `Host` exists! If the wildcard behavior is needed, a `Host` with a `hostname` of `"*"` must be defined by the user.
 {% endhint %}
 
 {% hint style="info" %}

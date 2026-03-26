@@ -1,4 +1,5 @@
 ---
+description: Overview of Load Balancing.
 noIndex: true
 ---
 
@@ -20,7 +21,7 @@ Supported load balancer policies:
 * `ring_hash`
 * `maglev`
 
-For more information on the different policies and the implications, see [load balancing strategies in Kubernetes](https://www.getambassador.io/blog/kubernetes-ingress-controllers-nodeport-load-balancers).
+For more information on the different policies and the implications, see [load balancing strategies in Kubernetes](https://www.gravitee.io/blog/kubernetes-ingress-controllers-nodeport-load-balancers).
 
 ## Round robin
 

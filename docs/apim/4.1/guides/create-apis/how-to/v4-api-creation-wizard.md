@@ -4,7 +4,7 @@ description: This article walks through how to use the Gravitee v4 API creation 
 
 # v4 API creation wizard
 
-{% @arcade/embed flowId="IoH5bZLjSO6ce8UbgMmc" url="https://app.arcade.software/share/IoH5bZLjSO6ce8UbgMmc" %}
+{% @arcade/embed url="https://app.arcade.software/share/IoH5bZLjSO6ce8UbgMmc" flowId="IoH5bZLjSO6ce8UbgMmc" %}
 
 ## Introduction
 
@@ -35,9 +35,9 @@ The first part of the Entrypoints step is to choose how you want to expose your 
 {% hint style="info" %}
 The Gravitee documentation adopts concise terminology to differentiate between these API types:
 
-**Proxy API:** An API created using **Proxy upstream protocol**&#x20;
+**Proxy API:** An API created using **Proxy upstream protocol**
 
-**Message API:** An API created using **Introspect messages from event-driven backend**&#x20;
+**Message API:** An API created using **Introspect messages from event-driven backend**
 {% endhint %}
 
 What you choose will dictate the kinds of entrypoints and endpoints that you can select later on. For more in-depth information on the exact support that these two methods offer, please [refer to this documentation](../#backend-exposure-methods).
@@ -112,7 +112,7 @@ If you chose **Webhook** as an entrypoint, you will be brought to a page where y
 * **Proxy Options**
   * Use the drop-down menu to select a proxy option: **No proxy**, **Use proxy configured at system level**, or **Use proxy for client connections**.
     * If you chose **Use proxy for client connections**, define the following:
-      * **Proxy type:** Choose between **HTTP**, **SOCKS4** and **SOCKS5**. A [**SOCKS proxy**](https://hailbytes.com/how-to-use-socks4-and-socks5-proxy-servers-for-anonymous-web-browsing/) is a type of proxy server that uses the SOCKS protocol to tunnel traffic through an intermediary server.
+      * **Proxy type:** Choose between **HTTP**, **SOCKS4** and **SOCKS5**. A **SOCKS proxy** is a type of proxy server that uses the SOCKS protocol to tunnel traffic through an intermediary server.
       * **Proxy host:** Enter your proxy host in the text field.
       * **Proxy port:** Enter your proxy port in the text field.
       * (Optional) **Proxy username:** Enter your proxy username in the text field.
@@ -122,7 +122,7 @@ If you chose **Webhook** as an entrypoint, you will be brought to a page where y
 
 **DLQ Configuration**
 
-As of Gravtiee APIM 4.0, you can only configure DLQs and secure callbacks for your Webhook via the API definition.&#x20;
+As of Gravtiee APIM 4.0, you can only configure DLQs and secure callbacks for your Webhook via the API definition.
 
 **1. Set up DLQ**
 
@@ -248,16 +248,13 @@ Gateway endpoints define the protocol and configuration by which the Gateway API
 
 ### HTTP proxy endpoints
 
-If you chose the HTTP proxy option, your endpoint will be an HTTP proxy.&#x20;
+If you chose the HTTP proxy option, your endpoint will be an HTTP proxy.
 
 <details>
 
 <summary>Configure HTTP proxy endpoints</summary>
 
 * **Define your target URL:** Enter your target URL in the **Target URL** text field.
-
-<!---->
-
 * **Define your HTTP options:**
   * Choose to either allow or disallow h2c clear text upgrade by toggling **Allow h2c Clear Text Upgrade** ON or OFF.
     * You'll need to select the HTTP protocol version to use. HTTP/1.1 and HTTP/2 are supported.
@@ -271,9 +268,6 @@ If you chose the HTTP proxy option, your endpoint will be an HTTP proxy.&#x20;
   * Define the number of max concurrent connections by entering a numeric value or using the arrow keys in the text field.
   * Choose to propagate client Accept-Encoding header by toggling **Propagate client Accept-Encoding header (no decompression if any)** ON or OFF.
   * Select **+ Add HTTP headers** to add headers that the Gateway should add or override before proxying the request to the backend API.
-
-<!---->
-
 * **Define your Proxy options:**
   * Choose whether to use a proxy for client connections by toggling **Use proxy** ON of OFF.
     * If enabled, you will need to select from the proxy types in the **Proxy type** drop-down: **HTTP proxy**, **SOCKS4**, or **SOCKS5**.
@@ -282,13 +276,7 @@ If you chose the HTTP proxy option, your endpoint will be an HTTP proxy.&#x20;
     * **Proxy port:** Enter your proxy port in the text field.
     * (Optional) **Proxy username:** Enter your proxy username in the text field.
     * (Optional) **Proxy password:** Enter your proxy password in the text field.
-
-<!---->
-
 * **Define your SSL options**
-
-<!---->
-
 * **Define your keystore**
 
 </details>
@@ -426,7 +414,7 @@ The **Kafka** endpoint allows the Gateway to open up a persistent connection and
 
 **Recovering Kafka messages**
 
-Kafka messages are acknowledged automatically or manually by the consumer to avoid consuming messages multiple times. To read previous messages requires specifying the offset at which the Kafka consumer should start consuming records and the entrypoint must support the **at-least-one** or **at-most-one** QoS.&#x20;
+Kafka messages are acknowledged automatically or manually by the consumer to avoid consuming messages multiple times. To read previous messages requires specifying the offset at which the Kafka consumer should start consuming records and the entrypoint must support the **at-least-one** or **at-most-one** QoS.
 
 As an example using SSE as an entrypoint, first define the QoS for the entrypoint:
 
@@ -483,7 +471,7 @@ Choosing the **Solace** endpoint enables the Gravitee Gateway to create an API t
   * **Retain settings:** Whether the retain flag must be set for every published message by toggling **Retained** ON or OFF. If enabled, the broker stores the last retained message.
   * **Message expiry interval:** Defines the period of time that the broker stores the PUBLISH message for any matching subscribers that are not currently connected. When no message expiry interval is set, the broker must store the message for matching subscribers indefinitely. When the `retained=true` option is set on the PUBLISH message, this interval also defines how long a message is retained on a topic.
   * **Response topic:** Represents the topics on which the responses from the message receivers are expected.
-* **Consumer settings** (if you chose **Use Consumer** or **Use Producer and Consumer**): Define the settings that the Gravitee Gateway Solace client will rely on to consume messages from your backend Solace topic/broker.&#x20;
+* **Consumer settings** (if you chose **Use Consumer** or **Use Producer and Consumer**): Define the settings that the Gravitee Gateway Solace client will rely on to consume messages from your backend Solace topic/broker.
   * Define the **Topic** from which the Gateway Solace client will consume messages.
   * Toggle Authentication configuration ON or OFF. When OFF, no further configuration is necessary. When ON, you will need to:
     * Define the username used for authentication.
@@ -501,7 +489,7 @@ The **RabbitMQ** endpoint allows the Gateway to open up a persistent connection 
 * **Server port**: define the port that RabbitMQ is using
 * How the Gateway will interact with RabbitMQ by instructing the Gravitee Gateway to act as either a producer, a consumer, or both a producer and consumer. Choose either **Use Consumer**, **Use Producer**, or **Use Consumer and Producer** from the drop-down menu to do one of the following:
   * **Use Producer:** tells the Gateway Gateway to be prepared to produce messages and send them to RabbitMQ that you define as your endpoint
-  * **Use Consumer:** tells the Gateway to be prepared to consume messages from  RabbitMQ that you define as your endpoint
+  * **Use Consumer:** tells the Gateway to be prepared to consume messages from RabbitMQ that you define as your endpoint
   * **Use Producer and Consumer:** tell the Gateway to be able to use both **Use Producer** and **Use Consumer** settings
 * **Authentication:** define the **username** and **password** for RabbitMQ authentication
 * **Producer settings** (if you chose **Use Producer** or **Use Producer and Consumer**): define the settings that the Gravitee Gateway Kafka client will rely on for producing messages to your backend Kafka topic/broker. You will need to define:
@@ -510,9 +498,6 @@ The **RabbitMQ** endpoint allows the Gateway to open up a persistent connection 
   * Enable or disable **Durable**
   * Enable or disable **Auto Delete**
   * **Routing Key**
-
-<!---->
-
 * **Consumer settings** (if you chose **Use Consumer** or **Use Producer and Consumer**): define the settings that the Gravitee Gateway Kafka client will rely on for consuming messages from your backend Kafka topic/broker. You will need to define:
   * **Exchange name**
   * **Exchange type**
@@ -562,7 +547,7 @@ To configure your OAuth2 plan, select OAuth2 from the **+Add plan** drop-down me
 * **Subscription:** choose whether to auto-validate subscriptions, require a message from a consumer during subscription, and/or present a message to the consumer upon subscription.
 * **Access control:** select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../administration/#users-and-user-groups).
 
-<img src="../../../.gitbook/assets/image (37).png" alt="" data-size="original">
+<img src="../../../.gitbook/assets/image (37) (1).png" alt="" data-size="original">
 
 Select Next to move on to **OAuth2 authentication configuration**. Here, you'll specify:
 
@@ -574,7 +559,7 @@ Select Next to move on to **OAuth2 authentication configuration**. Here, you'll 
 * Whether to permit authorization headers to target endpoints.
 * (Optional) Define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process. You will need to use the Gravitee Expression Language. For more information on the Gravitee Expression Language, please refer to the Expression Language documentation.
 
-<img src="../../../.gitbook/assets/image (51).png" alt="" data-size="original">
+<img src="../../../.gitbook/assets/image (42) (1).png" alt="" data-size="original">
 
 Select Next to define any additional restrictions for the plan. These restrictions include:
 
@@ -587,7 +572,7 @@ Select Next to define any additional restrictions for the plan. These restrictio
 * **Quota:** define a rate limit over a period of hours, days, or months. If you choose this, you will need to define the same settings that are applicable to rate limiting (see above).
 * **Resource filtering:** restricts resources based on defined whitelist/allowed and/or blacklist/disallowed settings. These will be defined by path patterns and methods.
 
-<img src="../../../.gitbook/assets/image (43).png" alt="" data-size="original">
+<img src="../../../.gitbook/assets/image (43) (1).png" alt="" data-size="original">
 
 </details>
 
@@ -635,7 +620,7 @@ Select Next to define any restrictions associated with this plan. Your options i
 * **Quota:** define a rate limit over a period of hours, days, or months. If you choose this, you will need to define the same settings that are applicable to rate limiting (see above).
 * **Resource filtering:** restricts resources based on defined whitelist/allowed and/or blacklist/disallowed settings. These will be defined by path patterns and methods.
 
-<img src="../../../.gitbook/assets/image (44).png" alt="" data-size="original">
+<img src="../../../.gitbook/assets/image (43) (1).png" alt="" data-size="original">
 
 </details>
 

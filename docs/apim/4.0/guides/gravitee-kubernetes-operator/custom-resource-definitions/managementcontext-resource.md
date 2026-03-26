@@ -1,3 +1,7 @@
+---
+description: Tutorial on ManagementContext Resource.
+---
+
 # ManagementContext Resource
 
 ## How to use the Management Context (`ManagementContext`) custom resource

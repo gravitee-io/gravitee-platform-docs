@@ -1,3 +1,7 @@
+---
+description: Guide to configuring Dynamic Client Registration with APIM.
+---
+
 # Configure Dynamic Client Registration with APIM
 
 ## Overview
@@ -12,7 +16,7 @@ This tutorial will quickly showcase how to configure Dynamic Client Registration
 
 ## Prerequisites <a href="#prerequisites-3" id="prerequisites-3"></a>
 
-To participate in this tutorial, you must have an [Enterprise instance of APIM](../../overview/gravitee-apim-enterprise-edition/) 4.0 or later up and running.
+To participate in this tutorial, you must have an [Enterprise instance of APIM](../../overview/gravitee-apim-enterprise-edition/README.md) 4.0 or later up and running.
 
 You also need to have an authentication server supporting OIDC. We will be using [Gravitee Access Management (AM)](https://documentation.gravitee.io/am/overview/readme) as our provider, but you are free to use any authentication server supporting OIDC.
 
@@ -41,7 +45,7 @@ The **Configuration** section first requires you to provide an **OpenID Connect 
 {% hint style="info" %}
 **OpenID Connect Discovery Endpoint**
 
-The authorization server metadata published to this endpoint is a JSON listing of the OpenID/OAuth endpoints, supported scopes and claims, public keys used to sign the tokens, and other details. This information can be used to construct a request to the authorization server. The field names and values are defined in the [OIDC Discovery Specification.](https://openid.net/specs/openid-connect-discovery-1\_0.html)
+The authorization server metadata published to this endpoint is a JSON listing of the OpenID/OAuth endpoints, supported scopes and claims, public keys used to sign the tokens, and other details. This information can be used to construct a request to the authorization server. The field names and values are defined in the [OIDC Discovery Specification.](https://openid.net/specs/openid-connect-discovery-1_0.html)
 {% endhint %}
 
 You must also select an **Initial Access Token Provider**, and we will be using **Client Credentials**. Client credentials is an authorization grant flow that allows APIM to securely retrieve an access token from AM.

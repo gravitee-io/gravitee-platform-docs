@@ -15,7 +15,7 @@ description: This page explains how to customize your Gravitee API Management on
 
 You can download additional plugins from [the plugins download page](https://download.gravitee.io/#graviteeio-apim/plugins/).
 
-For more information about plugin deployment, see [Deployment](../../getting-started/plugins/#deployment).
+For more information about plugin deployment, see [Deployment](../../getting-started/plugins/deployment.md#deployment).
 
 {% hint style="warning" %}
 Some plugins need to be installed on both the API Gateway and the Management API. Installation details are provided in a specific plugin’s documentation.
@@ -72,7 +72,7 @@ Your Redis host and port may be different.
 
 To download the driver, complete the following sub-steps:
 
-1. Download the correct driver for your database. For more information about downloading the correct drive, go to [Supported databases.](../../configure-apim/repositories/#supported-databases)
+1. Download the correct driver for your database. For more information about downloading the correct drive, go to [Supported databases.](../../configure-apim/repositories/README.md#supported-databases)
 2. Place the driver in the `plugins-ext` folder.
 
 {% hint style="info" %}

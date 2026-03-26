@@ -1,4 +1,5 @@
 ---
+description: Overview of Progressive Delivery.
 noIndex: true
 ---
 
@@ -48,4 +49,4 @@ This allows verification that the service is not crashing or otherwise behaving 
 
 ## Further reading
 
-* [Canary release pattern](https://www.getambassador.io/blog/canary-releases-edge-stack-api-gateway)
+* [Canary release pattern](https://www.gravitee.io/blog/canary-releases-edge-stack-api-gateway)

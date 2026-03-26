@@ -1,5 +1,9 @@
+---
+description: Tutorial on use case tutorials.
+---
+
 # Use Case Tutorials
 
-Gravitee has identified the following most common uses cases for Gravitee API Management (APIM). For more information about each use case, see the following articles:&#x20;
+Gravitee has identified the following most common uses cases for Gravitee API Management (APIM). For more information about each use case, see the following articles:
 
 <table data-view="cards"><thead><tr><th data-type="content-ref"></th><th></th><th></th></tr></thead><tbody><tr><td><a href="rate-limit-rest-apis.md">rate-limit-rest-apis.md</a></td><td></td><td></td></tr><tr><td><a href="configure-jwt-security.md">configure-jwt-security.md</a></td><td></td><td></td></tr><tr><td><a href="add-rbac-to-your-jwt-plan.md">add-rbac-to-your-jwt-plan.md</a></td><td></td><td></td></tr><tr><td><a href="configure-dcr.md">configure-dcr.md</a></td><td></td><td></td></tr><tr><td><a href="secure-and-expose-grpc-services.md">secure-and-expose-grpc-services.md</a></td><td></td><td></td></tr><tr><td><a href="expose-soap-webservices-as-rest-apis.md">expose-soap-webservices-as-rest-apis.md</a></td><td></td><td></td></tr><tr><td><a href="create-and-publish-an-api-using-the-management-api.md">create-and-publish-an-api-using-the-management-api.md</a></td><td></td><td></td></tr></tbody></table>

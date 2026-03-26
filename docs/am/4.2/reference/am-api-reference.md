@@ -1,9 +1,13 @@
+---
+description: API and reference documentation for AM API Reference.
+---
+
 # AM API Reference
 
 ## Overview
 
 {% hint style="info" %}
-The OpenAPI specs for other versions of AM are available in the documentation for that version.&#x20;
+The OpenAPI specs for other versions of AM are available in the documentation for that version.
 {% endhint %}
 
 The AM API exposes a complete Restful API accessible to anyone wanting to script some part of the administration.
@@ -30,7 +34,7 @@ POST http(s)://AM_MANAGEMENT_API/management/auth/token HTTP/1.1
 
 curl -X POST \
   http(s)://AM_MANAGEMENT_API/management/auth/token \
-  -H 'authorization: Basic base64(admin:adminadmin)' \
+  -H 'authorization: Basic base64(admin:adminadmin)' 
 
 
   HTTP/1.1 200 OK

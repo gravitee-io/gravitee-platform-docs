@@ -1,3 +1,7 @@
+---
+description: Tutorial on notifications.
+---
+
 # Notifications
 
 The **Notification settings** section allows you to configure your own Developer Portal notifications using Portal, Email or Webhook notifiers.

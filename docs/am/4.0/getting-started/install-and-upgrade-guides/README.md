@@ -1,3 +1,7 @@
+---
+description: Overview of hint style warning.
+---
+
 # Install & Upgrade Guides
 
 {% hint style="warning" %}

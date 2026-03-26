@@ -1,3 +1,7 @@
+---
+description: Concepts and architecture for AM Architecture.
+---
+
 # AM Architecture
 
 This page provides details on Gravitee Access Management's (AM) architecture. Before you install and use the product, take a few moments to get to know the AM architecture.

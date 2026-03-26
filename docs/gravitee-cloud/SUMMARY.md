@@ -12,13 +12,20 @@
 ## Guides
 
 * [Hybrid Installation & Configuration](https://documentation.gravitee.io/apim/hybrid-installation-and-configuration-guides/next-gen-cloud)
-* [Gravitee Hosted Gateways](guides/gravitee-hosted-gateways.md)
-* [Custom Domains](guides/custom-domains.md)
+* [Deploy a Gravitee Hosted Gateway](guides/gravitee-hosted-gateways/README.md)
+  * [Delete a Gravitee Hosted Gateway](guides/gravitee-hosted-gateways/delete-a-gravitee-hosted-gateway.md)
+* [Configure a Custom Domain for a Gateway](guides/custom-domains.md)
 * [Configure Single Sign On](guides/configure-sso.md)
 * [Account Token](guides/account-token.md)
 * [Cloud Tokens](guides/cloud-tokens.md)
 * [Promote APIs](guides/promote-apis.md)
 * [Add Environments](guides/add-environments.md)
+* [Establish private networks with GCP](guides/establish-private-networks-with-gcp/README.md)
+  * [Create a private network](guides/establish-private-networks-with-gcp/create-a-private-network.md)
+  * [View your private network's details](guides/establish-private-networks-with-gcp/view-your-private-networks-details.md)
+  * [Add a service attachment to your private network](guides/establish-private-networks-with-gcp/add-a-service-attachment-to-your-private-network.md)
+  * [Connect a Gateway to your private network](guides/establish-private-networks-with-gcp/connect-a-gateway-to-your-private-network.md)
+  * [Disconnect a Gateway from your private network](guides/establish-private-networks-with-gcp/disconnect-a-gateway-from-your-private-network.md)
 
 ## SELF-HOSTED
 

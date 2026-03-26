@@ -56,7 +56,7 @@ To configure load-balancing in Gravitee, follow these steps:
 7\. You'll be taken to the **General** tab. Here, you will name your endpoint group and select the load-balancing algorithm. For the sake of this article, let's select **Round robin**.
 
 {% hint style="info" %}
-Please refer to the [load-balancing concepts section](broken-reference/) if you need in-depth explanations of the various load-balancing algorithms that Gravitee supports.
+Please refer to the load-balancing concepts sectionif you need in-depth explanations of the various load-balancing algorithms that Gravitee supports.
 {% endhint %}
 
 ![](https://colony-recorder.s3.amazonaws.com/files/2023-03-07/0f165e09-c3b5-43fc-b760-d34585ecd629/stack\_animation.webp)
@@ -73,7 +73,7 @@ Please refer to the [load-balancing concepts section](broken-reference/) if you 
 
 </div>
 
-10\. Optional: If you want to enable Service Discovery, select the **Service discovery** tab. Service discovery will enable external endpoints to be dynamically added or removed to or from the group. For more information on Service Discovery, please refer to our documentation on [Gravitee Service discovery.](broken-reference/)
+10\. Optional: If you want to enable Service Discovery, select the **Service discovery** tab. Service discovery will enable external endpoints to be dynamically added or removed to or from the group. For more information on Service Discovery, please refer to our documentation on Gravitee Service discovery.
 
 ![](https://colony-recorder.s3.amazonaws.com/files/2023-03-07/cf7799b5-28eb-4dff-9895-1e7a6f481edb/stack\_animation.webp)
 

@@ -1,3 +1,7 @@
+---
+description: An overview about search for apis in the console.
+---
+
 # Search for APIs in the Console
 
 ## Overview
@@ -42,7 +46,7 @@ Here are some examples of what you can enter into the search bar to filter the r
 * For all v4 APIs: `definition_version:4.0.0`
 * For APIs that have either of the given [sharding tags](../gravitee-gateway/sharding-tags.md): `tags:china-internet tags:china`
 * For an API name that contains one term but not another: `name:"*Allan*" NOT name:"*Test_"`
-* For any APIs that have [health checks](../configure-v4-apis/health-checks.md) configured:  `has_health_check:true`
+* For any APIs that have [health checks](../configure-v4-apis/health-checks.md) configured: `has_health_check:true`
 
 {% hint style="info" %}
 Gravitee uses [Apache Lucene](https://lucene.apache.org/core/2_9_4/queryparsersyntax.html) so you can create your own queries using its rich query language.

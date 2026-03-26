@@ -5,7 +5,7 @@ description: This page provides the technical details of the Protobuf to JSON po
 # Protobuf to JSON
 
 {% hint style="warning" %}
-**This feature requires** [**Gravitee's Enterprise Edition**](../../overview/ee-vs-oss/)**.**
+**This feature requires** [**Gravitee's Enterprise Edition**](../../overview/ee-vs-oss/README.md)**.**
 {% endhint %}
 
 ## Overview

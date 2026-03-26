@@ -1,3 +1,7 @@
+---
+description: Configuration guide for Configuration.
+---
+
 # Configuration
 
 The guides in this section explain how to configure the AM components and repositories after installation. For more details on ongoing AM configuration tasks, see the [**Administration Guide**](../../guides/administration.md).
