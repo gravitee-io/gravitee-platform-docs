@@ -87,7 +87,7 @@ spec:
     namespace: default
 ```
 
-#### Gateway
+### Gateway
 
 The `Gateway` resource defines listeners that accept traffic. GKO supports HTTP and HTTPS listeners:
 
