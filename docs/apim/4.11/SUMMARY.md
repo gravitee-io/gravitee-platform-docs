@@ -178,8 +178,10 @@
     * [Resources](create-and-configure-apis/apply-policies/resources.md)
     * [Custom Policies](create-and-configure-apis/apply-policies/custom-policies.md)
     * [Policy Reference](create-and-configure-apis/apply-policies/policy-reference/README.md)
+      * [AI - Model Text Classification - Model and Performance Metrics](create-and-configure-apis/apply-policies/policy-reference/ai-model-text-classification-model-reference-and-performance-metrics.md)
       * [AI - Semantic Caching](create-and-configure-apis/apply-policies/policy-reference/ai-semantic-caching.md)
       * [Kafka Governance Rules Policies](create-and-configure-apis/apply-policies/policy-reference/kafka-governance-rules-policies.md)
+      * [Kafka Message Encryption & Decryption](create-and-configure-apis/apply-policies/policy-reference/kafka-message-encryption-decryption-policy-reference.md)
       * [Native IP filtering](create-and-configure-apis/apply-policies/policy-reference/native-ip-filtering.md)
       * [Test](create-and-configure-apis/apply-policies/policy-reference/test.md)
       * [AI - MCP ACL](create-and-configure-apis/apply-policies/policy-reference/ai-mcp-acl.md)
@@ -302,11 +304,7 @@
       * [Configure authentication with Login and password](developer-portal/new-developer-portal/configure-authentication/configure-authentication-with-login-and-password.md)
       * [Configure authentication with SSO](developer-portal/new-developer-portal/configure-authentication/configure-authentication-with-sso.md)
       * [Enforce User Authentication](developer-portal/new-developer-portal/configure-authentication/enforce-user-authentication.md)
-<<<<<<< /tmp/tmpobzolaf5.md
     * [Subscription form technical implementation](developer-portal/new-developer-portal/subscription-form-technical-implementation.md)
-=======
-    * [Manage subscriptions](developer-portal/new-developer-portal/manage-subscriptions.md)
->>>>>>> ./docs/apim/4.10/SUMMARY.md
   * [Classic Developer Portal](developer-portal/classic-developer-portal/README.md)
     * [Configuration File](developer-portal/classic-developer-portal/configuration-file.md)
     * [Portal Settings](developer-portal/classic-developer-portal/portal-settings.md)
@@ -461,4 +459,5 @@
     * [APIM 4.1.x](https://documentation.gravitee.io/apim/4.1/releases-and-changelog/changelogs/apim-4.1.x-changelog)
     * [APIM 4.0.x](https://documentation.gravitee.io/apim/4.0/releases-and-changelog/changelog/apim-4.0.x)
   * [Breaking Changes and Deprecations](release-information/breaking-changes-and-deprecations.md)
-  * [test page](release-information/test-page.md)
+* [AI - Model Text Classification - Overview and Model Selection](guides/ai-model-text-classification-overview-and-model-selection.md)
+  * [AI - Model Text Classification - Configuration and Usage](guides/ai-model-text-classification-configuration-and-usage.md)
