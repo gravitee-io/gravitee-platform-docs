@@ -7,6 +7,15 @@
 ## New Features
 
 
+<!-- PIPELINE:AM-6338 -->
+#### **Magic Link Authentication**
+
+* Enables passwordless login by sending users a time-limited authentication link via email, eliminating the need to enter passwords during sign-in.
+* Users enter their email address at `/magic-link/login`, receive a JWT-based authentication link valid for 15 minutes (configurable), and are authenticated when they click the link.
+* Requires email service configuration and must be enabled in domain or application login settings via the `magicLinkAuthEnabled` property.
+* Generates `USER_MAGIC_LINK_LOGIN` audit events for successful authentications and supports analytics filtering via the `magic_link` field type.
+* Token expiration time is configurable via `user.magic.link.login.time.value` and `user.magic.link.login.time.unit` gateway properties (defaults to 15 minutes).
+<!-- /PIPELINE:AM-6338 -->
 <!-- PIPELINE:AM-6339 -->
 #### **Domain-Level Certificate Fallback**
 
@@ -32,6 +41,16 @@
 * Supports optional AgentCard metadata import via the A2A specification, allowing administrators to fetch and display agent capabilities, tools, and prompts from a publicly accessible URL.
 * AgentCard fetching enforces SSRF protection, 512 KB size limits, and 5-second timeouts to prevent security risks and resource exhaustion.
 <!-- /PIPELINE:AM-6322 -->
+
+
+<!-- PIPELINE:AM-6297 -->
+#### **OAuth 2.0 Token Exchange (RFC 8693)**
+
+* Enables clients to exchange security tokens for new tokens, supporting impersonation (acting as another user) and delegation (acting on behalf of another user) scenarios.
+* Supports access tokens, refresh tokens, and ID tokens as input and output, with configurable scope handling modes (downscoping or permissive) to control granted permissions.
+* Allows administrators to configure trusted external JWT issuers with JWKS or PEM-based key resolution, scope mappings, and user binding rules via EL expressions.
+* Impersonation is enabled by default; delegation requires explicit configuration via `allowDelegation` setting.
+<!-- /PIPELINE:AM-6297 -->
 
 ## Improvements
 
