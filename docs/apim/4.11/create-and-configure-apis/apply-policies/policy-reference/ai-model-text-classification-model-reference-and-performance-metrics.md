@@ -66,7 +66,7 @@ Both Llama Prompt Guard models (`GRAVITEE_LLAMA_PROMPT_GUARD_22M_MODEL`, `GRAVIT
 
 | Label | Description |
 |:------|:------------|
-| `BENIGN` | Prompt does not attempt to override or manipulate prior instructions |
+| `BENIGN` | Prompt doesn't attempt to override or manipulate prior instructions |
 | `MALICIOUS` | Prompt explicitly attempts to override developer or user instructions (injection/jailbreak) |
 
 ## Performance metrics

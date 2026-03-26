@@ -177,7 +177,7 @@
     * [Resources](create-and-configure-apis/apply-policies/resources.md)
     * [Custom Policies](create-and-configure-apis/apply-policies/custom-policies.md)
     * [Policy Reference](create-and-configure-apis/apply-policies/policy-reference/README.md)
-      * [AI - Model Text Classification - Model  and Performance Metrics](create-and-configure-apis/apply-policies/policy-reference/ai-model-text-classification-model-reference-and-performance-metrics.md)
+      * [AI - Model Text Classification - Model and Performance Metrics](create-and-configure-apis/apply-policies/policy-reference/ai-model-text-classification-model-reference-and-performance-metrics.md)
       * [AI - Semantic Caching](create-and-configure-apis/apply-policies/policy-reference/ai-semantic-caching.md)
       * [Kafka Governance Rules Policies](create-and-configure-apis/apply-policies/policy-reference/kafka-governance-rules-policies.md)
       * [Kafka Message Encryption & Decryption](create-and-configure-apis/apply-policies/policy-reference/kafka-message-encryption-decryption-policy-reference.md)

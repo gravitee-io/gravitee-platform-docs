@@ -2,7 +2,7 @@
 
 ## Overview
 
-AI Model Text Classification provides pre-trained models for detecting toxic content and prompt injection attacks in API traffic. Nine models are available, spanning toxicity detection (binary and multi-label) and prompt injection detection, with support for up to 15 languages. Administrators select models based on accuracy requirements, resource constraints, and language coverage.
+AI Model Text Classification provides pre-trained models for detecting toxic content and prompt injection attacks in API traffic. Eight models are available, spanning toxicity detection (binary and multi-label) and prompt injection detection, with support for up to 15 languages. Administrators select models based on accuracy requirements, resource constraints, and language coverage.
 
 For the complete list of model identifiers, classification labels, and performance benchmarks, see [Model Reference and Performance Metrics](../create-and-configure-apis/apply-policies/policy-reference/ai-model-text-classification-model-reference-and-performance-metrics.md).
 
@@ -10,7 +10,7 @@ For the complete list of model identifiers, classification labels, and performan
 
 ### Toxicity detection
 
-Toxicity detection models classify text as toxic or non-toxic, with optional fine-grained categorization. Binary models return a single `toxic` or `not-toxic` label. Multi-label models return scores across multiple toxicity categories (e.g., `severe_toxicity`, `obscene`, `threat`, `identity_attack`) and demographic targets (e.g., `male`, `female`, `christian`, `muslim`). All toxicity models are trained on the gravitee-io/textdetox-multilingual-toxicity-dataset or Jigsaw Toxic Comment Classification Challenge dataset.
+Toxicity detection models classify text as toxic or non-toxic, with optional fine-grained categorization. Binary models return a single `toxic` or `not-toxic` label. Multi-label models return scores across multiple toxicity categories (for example, `severe_toxicity`, `obscene`, `threat`, `identity_attack`) and demographic targets (for example, `male`, `female`, `christian`, `muslim`). All toxicity models are trained on the gravitee-io/textdetox-multilingual-toxicity-dataset or Jigsaw Toxic Comment Classification Challenge dataset.
 
 | Model Type | Labels | Languages | Use Case |
 |:-----------|:-------|:----------|:---------|
@@ -39,7 +39,7 @@ Toxicity detection models classify text as toxic or non-toxic, with optional fin
 
 ### Prompt injection detection
 
-Prompt injection detection models identify attempts to override or manipulate system instructions in LLM prompts. Models return `BENIGN` (safe prompt) or `MALICIOUS` (injection/jailbreak attempt). Both Llama Prompt Guard variants support 8 languages and a 512-token context window. The 22M variant is recommended for production use; the 86M optimized version suffers significant accuracy degradation.
+Prompt injection detection models identify attempts to override or manipulate system instructions in LLM prompts. Models return `BENIGN` (safe prompt) or `MALICIOUS` (injection/jailbreak attempt). Both Llama Prompt Guard variants support 8 languages and a 512-token context window. The 22M variant is recommended for production use. The 86M optimized version suffers significant accuracy degradation.
 
 | Model | Parameters | Accuracy (Optimized) | Recommended |
 |:------|:-----------|:---------------------|:------------|

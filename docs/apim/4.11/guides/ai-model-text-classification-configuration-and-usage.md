@@ -18,7 +18,7 @@ Monitor model accuracy and latency using the metrics tables in the [Model Refere
 * **BERT Small Toxicity**: Overfitting on Spanish (Δ -0.124), Italian (Δ -0.116), Hindi (Δ -0.144).
 * **DistilBERT Multilingual Toxicity**: Binary classification only. F1 range 0.62–0.96. Weaker on Hebrew, Amharic, Chinese.
 * **Detoxify ONNX**: Largest toxicity model (300M parameters). Highest memory/latency. 7 languages only (no Arabic, Chinese, Hindi, Japanese, German).
-* **MiniLMv2 Toxic Jigsaw**: English only. Trained on Wikipedia talk pages (may not generalize to social media, code, technical content).
-* **Llama Prompt Guard (both variants)**: 512-token context window (longer prompts require segmentation). Focused on explicit attacks (may miss subtle/novel techniques). Meta recommends domain-specific fine-tuning for production.
+* **MiniLMv2 Toxic Jigsaw**: English only. Trained on Wikipedia talk pages (doesn't reliably generalize to social media, code, technical content).
+* **Llama Prompt Guard (both variants)**: 512-token context window (longer prompts require segmentation). Focused on explicit attacks (doesn't reliably catch subtle/novel techniques). Meta recommends domain-specific fine-tuning for production.
 * **All binary toxicity models**: No fine-grained toxicity categories.
 * **All multi-label models**: Require threshold tuning per label for optimal precision/recall.
