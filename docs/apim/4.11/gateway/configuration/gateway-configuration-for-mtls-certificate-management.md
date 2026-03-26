@@ -8,7 +8,7 @@ Uploaded certificates are validated before storage. It must a X.509 certificate 
 
 * APIM version 4.11 or above
 * Application with mTLS plan configured
-* Valid X.509 certificate in PEM format (or PKCS7 bundle)
+* Valid X.509 certificates in PEM format
 * TLS-enabled gateway endpoint
 
 
