@@ -72,8 +72,23 @@ POST http(s)://AM_MANAGEMENT_API/management/auth/login
 
 * `redirect_uri`: redirection endpoint after authentication success
 
+
 ### User Migration
 
 For user migrations from an alternative OIDC provider to Access Management, you can define the `lastPasswordReset` attribute. This attribute ensures that a password policy with password expiry requests a password reset according to the value provided during the migration.
 
 In Management REST API, `lastPasswordReset` attribute in the User definition is a long value representing the number of milliseconds since the standard base time known as "the epoch".
+
+## SAML 2.0 Identity Provider Configuration
+
+The `saml2-generic-am-idp` identity provider type supports configuration via metadata URL or metadata file, simplifying integration with external SAML IdPs.
+
+### Metadata Provider Configuration
+
+| Property | Type | Description |
+|:---------|:-----|:------------|
+| `idpMetadataProvider` | String | Metadata source type. Valid values: `"METADATA_URL"`, `"METADATA_FILE"` |
+| `idpMetadataUrl` | String | URL to fetch IdP metadata from (required when `idpMetadataProvider` is `"METADATA_URL"`) |
+| `idpMetadataFile` | String | Complete IdP metadata XML document (required when `idpMetadataProvider` is `"METADATA_FILE"`) |
+| `graviteeCertificate` | String | Certificate ID for signing AuthnRequests when IdP metadata specifies `WantAuthnRequestsSigned=true` |
+| `requestSigningAlgorithm` | String | Algorithm for signing SAML requests (e.g., `http://www.w3.org/2001/04/xmldsig-more#rsa-sha256`) |

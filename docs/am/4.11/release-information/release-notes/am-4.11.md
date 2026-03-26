@@ -33,6 +33,17 @@
 * AgentCard fetching enforces SSRF protection, 512 KB size limits, and 5-second timeouts to prevent security risks and resource exhaustion.
 <!-- /PIPELINE:AM-6322 -->
 
+
+<!-- PIPELINE:AM-6340 -->
+#### **SAML IdP Metadata Configuration**
+
+* Configure SAML 2.0 identity providers using metadata URLs or metadata files instead of manually entering individual SAML endpoints.
+* Supports three configuration modes: manual endpoint entry, metadata URL fetching, and metadata file upload.
+* Automatically extracts IdP configuration including sign-in URL, sign-out URL, and single logout service URL from metadata sources.
+* Requires certificate configuration for signing SAML requests when IdP metadata specifies `WantAuthnRequestsSigned=true`.
+* Applies standard SAML attribute mapping to populate user profile fields from SAML assertions.
+<!-- /PIPELINE:AM-6340 -->
+
 ## Improvements
 
 ## Bug Fixes

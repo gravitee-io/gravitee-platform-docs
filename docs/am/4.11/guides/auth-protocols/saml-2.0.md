@@ -4,7 +4,7 @@
 
 [The Security Assertion Markup Language (SAML)](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html) standard defines an XML-based framework for describing and exchanging security information between online business partners.
 
-Gravitee Access Management (AM) supports the SAML protocol and can serve both as Identity Provider (IdP) and Service Provider (SP) :
+Gravitee Access Management (AM) supports the SAML protocol and can serve both as Identity Provider (IdP) and Service Provider (SP):
 
 * [Configure AM as SAML Identity Provider](saml-2.0.md#enable-saml-2.0-identity-provider-support)
 * [Configure AM as SAML Service Provider](../identity-providers/enterprise-identity-providers/saml-2.0.md)
@@ -25,12 +25,12 @@ An entity that authenticates users and provides to service providers (SP) an aut
 
 ## Enable SAML 2.0 Identity Provider support
 
-Currently, AM supports the following SAML bindings :
+Currently, AM supports the following SAML bindings:
 
 * HTTP-Redirect
 * HTTP-POST
 
-and the following options :
+and the following options:
 
 * Web Browser SSO Profile
 * Single Logout Profile
@@ -62,12 +62,22 @@ If you choose to not use a certificate, the SAML Response assertion will not be 
 SAML cannot currently be configured at the Organization level.
 {% endhint %}
 
+### SAML IdP Metadata Endpoint
+
+The SAML IdP metadata endpoint exposes the provider domain's SAML configuration as an XML metadata document. The endpoint URL follows the pattern:
+
+```
+{AM_GATEWAY_URL}/{domain_hrid}/saml2/idp/metadata
+```
+
+The endpoint returns XML containing `IDPSSODescriptor` and `SingleSignOnService` elements. This endpoint is used by metadata URL mode configurations and by external service providers integrating with the IdP.
+
 ### Test the connection
 
 To connect your applications to the AM SAML 2.0 IdP, you need at least the following information:
 
-* **SingleSignOnService**, the SAML IdP Sign In URL : `https://AM_GATEWAY/{domain}/saml2/idp/SSO`
-* **SingleLogoutService**, the SAML IdP Sign Out URL : `https://AM_GATEWAY/{domain}/saml2/idp/logout`
+* **SingleSignOnService**, the SAML IdP Sign In URL: `https://AM_GATEWAY/{domain}/saml2/idp/SSO`
+* **SingleLogoutService**, the SAML IdP Sign Out URL: `https://AM_GATEWAY/{domain}/saml2/idp/logout`
 * **Signing certificate**, the public signing certificate (encoded in PEM)
 
 {% hint style="info" %}
@@ -85,5 +95,5 @@ You can test your SAML 2.0 connection using a web application created in AM.
 7. If everything is OK, your user will be redirected to the application **attribute consume service URL** with the SAML Response assertion as a parameter.
 
 {% hint style="info" %}
-SAML 2.0 IdP protocol is compatible out of the box with all the existing features of AM just like the OAuth 2.0/OpenId Connect protocol, such as passwordless, MFA, social login, etc.
+SAML 2.0 IdP protocol is compatible out of the box with all the existing features of AM just like the OAuth 2.0/OpenID Connect protocol, such as passwordless, MFA, social login, etc.
 {% endhint %}

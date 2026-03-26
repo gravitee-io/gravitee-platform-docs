@@ -12,3 +12,6 @@ guides/applications/agent-application-type.md
 guides/applications/create-agent-application.md
 guides/fetching_and_displaying_agentcard_metadata.md
 release-information/release-notes/am-4.11.md
+guides/auth-protocols/saml-2.0.md
+guides/identity-providers/enterprise-identity-providers/saml-2.0.md
+guides/saml-idp-plugin-version-upgrade-notes.md

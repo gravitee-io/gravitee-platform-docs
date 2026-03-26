@@ -69,6 +69,7 @@
   * [Open Banking](guides/auth-protocols/open-banking.md)
   * [CIBA](guides/auth-protocols/ciba.md)
   * [SAML 2.0](guides/auth-protocols/saml-2.0.md)
+* [SAML IdP Plugin Version Upgrade Notes](guides/saml-idp-plugin-version-upgrade-notes.md)
 * [Security Domains](guides/security-domains/README.md)
   * [Configure CORS for Security Domains](guides/security-domains/configure-cors-for-security-domains.md)
 * [Identity Providers](guides/identity-providers/README.md)
