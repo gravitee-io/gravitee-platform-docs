@@ -134,6 +134,16 @@
 * Keys are provisioned as base64-encoded values or stored in PKCS12 keystores, with support for Expression Language and the Gravitee secrets mechanism.
 <!-- /PIPELINE:APIM-13002 -->
 
+
+<!-- PIPELINE:APIM-13117 -->
+#### **AI Model Text Classification Resource**
+
+* Provides nine pre-trained models for detecting toxic content and prompt injection attacks in API traffic, supporting up to 15 languages.
+* Includes binary and multi-label toxicity detection models (2–16 labels) and two Llama Prompt Guard variants for identifying LLM prompt manipulation attempts.
+* Administrators select models based on accuracy requirements, resource constraints, and language coverage, with configurable classification thresholds per model type.
+* Models are sourced from HuggingFace repositories and require sufficient memory and compute resources (model sizes range from 4.39M to 100M+ parameters).
+<!-- /PIPELINE:APIM-13117 -->
+
 ## Improvements
 
 
