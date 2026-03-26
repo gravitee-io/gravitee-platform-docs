@@ -54,6 +54,9 @@
 ## Guides
 
 * [Fetching and Displaying AgentCard Metadata](guides/fetching_and_displaying_agentcard_metadata.md)
+* [OAuth 2.0 Token Exchange API](guides/oauth-2.0-token-exchange-api-reference.md)
+* [OAuth 2.0 Token Exchange Concepts](guides/oauth-2.0-token-exchange-concepts.md)
+* [OAuth 2.0 Token Exchange Configuration](guides/oauth-2.0-token-exchange-configuration-reference.md)
 * [Prologue](guides/prologue.md)
 * [Auth Protocols](guides/auth-protocols/README.md)
   * [OAuth 2.0](guides/auth-protocols/oauth-2.0/README.md)
@@ -107,6 +110,7 @@
 * [Bot Detection](guides/bot-detection.md)
 * [Device Identifier](guides/device-identifier.md)
 * [Login](guides/login/README.md)
+  * [Magic Link Authentication Overview](guides/login/magic-link-authentication.md)
   * [Step-up Authentication](guides/login/step-up-authentication.md)
   * [Adaptive Multi-factor Authentication](guides/login/adaptive-multi-factor-authentication.md)
   * [Risk-based MFA](guides/login/risk-based-mfa.md)
@@ -165,6 +169,7 @@
 * [Administration](guides/administration.md)
 * [AM Expression Language](guides/am-expression-language.md)
 * [Developer Contributions](guides/developer-contributions.md)
+  * [Using OAuth 2.0 Token Exchange](guides/using-oauth-2.0-token-exchange.md)
 
 ## Reference
 
