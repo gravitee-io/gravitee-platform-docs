@@ -63,7 +63,7 @@ GatewayClassParameters (Gravitee-specific configuration)
 
 The `GatewayClassParameters` custom resource is the Gravitee extension point for configuring Gateway API deployments. It controls licensing, Kafka support, custom gateway configuration, and Kubernetes deployment settings.
 
-For a full reference, see [GatewayClassParameters CRD.](../../overview/custom-resource-definitions/gatewayclassparameters.md)
+For a full reference, see [GatewayClassParameters CRD](../../overview/custom-resource-definitions/gatewayclassparameters.md).
 
 {% hint style="info" %}
 The `gravitee.yaml` section of `GatewayClassParameters` doesn't allow you to define servers or sharding tags, as these are configured automatically based on the Gateway specification.&#x20;
