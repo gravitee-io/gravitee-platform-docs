@@ -34,7 +34,7 @@ Certificate expiration is not checked — it is the user's responsibility to ens
 | `kind` | string | `secrets` | Kind of resource: `secrets` or `configmaps`. |
 | `name` | string | (required) | Name of the Secret or ConfigMap. |
 | `key` | string | `tls.crt` | Key in the resource's data map. |
-| `namespace` | string | (app ns) | Namespace of the resource. Defaults to the Application's namespace. |
+| `namespace` | string | (application's) | Namespace of the resource. Defaults to the Application's namespace. |
 
 ## Certificate Provisioning Modes
 
