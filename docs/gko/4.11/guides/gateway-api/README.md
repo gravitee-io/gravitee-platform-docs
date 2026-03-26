@@ -29,7 +29,7 @@ GRPCRoute, TCPRoute, TLSRoute, and UDPRoute aren't supported.
 
 Before enabling the Gateway API controller:
 
-* Install GKO in[ **cluster-scoped mode**.](../../getting-started/installation/cluster-vs-namespaced-install.md) The GatewayClass resource is cluster-scoped, so namespaced installations aren't compatible with the Gateway API controller.
+* Install GKO in [**cluster-scoped mode**](../../getting-started/installation/cluster-vs-namespaced-install.md). The GatewayClass resource is cluster-scoped, so namespaced installations aren't compatible with the Gateway API controller.
 * Ensure `manager.scope.namespaces` is empty (`[]`).
 
 ## Enable the Gateway API controller
