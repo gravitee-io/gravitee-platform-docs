@@ -54,3 +54,7 @@ secure-and-expose-apis/subscriptions/README.md
 secure-and-expose-apis/subscriptions/creating-and-managing-subscription-forms.md
 secure-and-expose-apis/subscriptions/subscription-form-feature-overview.md
 create-and-configure-apis/apply-policies/policy-reference/kafka-message-encryption-decryption-policy-reference.md
+create-and-configure-apis/apply-policies/policy-reference/ai-model-text-classification-model-reference-and-performance-metrics.md
+create-and-configure-apis/apply-policies/policy-reference/ai-prompt-guard-rails.md
+guides/ai-model-text-classification-configuration-and-usage.md
+guides/ai-model-text-classification-overview-and-model-selection.md

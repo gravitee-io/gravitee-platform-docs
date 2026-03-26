@@ -11,6 +11,8 @@ metaLinks:
 
 This policy uses an AI-powered text classification model to evaluate user prompts for potentially inappropriate or malicious content. It can detect a wide range of violations, such as profanity, sexually explicit language, harmful intent, and jailbreak prompt injections, which are adversarial inputs crafted to bypass AI safety mechanisms.
 
+For LLM-backed APIs, the policy supports prompt injection detection using Llama Prompt Guard models (22M and 86M variants). These models identify attempts to override or manipulate system instructions in user prompts, returning `BENIGN` (safe prompt) or `MALICIOUS` (injection/jailbreak attempt). Both variants support 8 languages (English, French, German, Hindi, Italian, Portuguese, Spanish, Thai) and a 512-token context window. The 22M variant is recommended for production use due to superior accuracy and performance.
+
 Depending on configuration, when a prompt is flagged:
 
 * **Blocked and flagged** – the request is denied at the gateway
