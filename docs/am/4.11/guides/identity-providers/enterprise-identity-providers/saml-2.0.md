@@ -81,7 +81,10 @@ Before configuring SAML IdP metadata, ensure the following requirements are met:
 3. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
 4. Select **SAML 2.0** as your identity provider type and click **Next**.
 5. Give your identity provider a name.
-6. Configure the settings (EntityID, Sign In URL, Sign Out URL, Signing certificate). Alternatively, provide a metadata URL or upload a metadata XML file to automatically populate these settings.
+6. Select an **IdP Metadata Provider** mode:
+   1. For **METADATA\_URL**, enter **Entity ID (SP)** and **Metadata URL** values. If the metadata contains multiple entities, **Entity ID (IdP)** is also required to select the correct one.
+   2. For **METADATA\_FILE**, enter **Entity ID (SP)** and paste the metadata XML in **Metadata File**. If the metadata contains multiple entities, **Entity ID (IdP)** is also required to select the correct one.
+   3. For **MANUAL**, configure the required settings: **Entity ID (SP)**, **Sign In URL**, and **Signing Certificate**.
 7. Click **Create**.
 
 {% hint style="info" %}
@@ -154,6 +157,15 @@ To configure a SAML IdP using a metadata file, create an identity provider of ty
 |:---------|:------------|:--------|
 | `wantAssertionsSigned` | Whether SP requires signed assertions | `true` or `false` |
 | `certificate` | X.509 PEM certificate of the SP for verifying signed AuthnRequests | PEM-encoded certificate |
+
+## Restrictions
+
+* Metadata provider modes are mutually exclusive — you can't combine manual properties with `METADATA_URL` or `METADATA_FILE`.
+* Metadata URL must return HTTP 200 with valid XML containing `IDPSSODescriptor` and `SingleSignOnService` elements.
+* Metadata file must be valid XML starting with an XML declaration or element tag, containing `IDPSSODescriptor` and `SingleSignOnService` elements.
+* Provider domain must be fully started before fetching certificate PEM — the management API's `SyncManager` polls for certificate events every 5 seconds, requiring a 10–30 second wait for DEPLOY event processing.
+* Certificate in the provider domain must be type `javakeystore-am-certificate`.
+* Metadata URL must match the pattern `^https?:\/\/.+\/saml2\/idp\/metadata$`.
 
 ## Test the connection
 
