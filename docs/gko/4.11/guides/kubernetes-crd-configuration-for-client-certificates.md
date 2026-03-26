@@ -116,7 +116,6 @@ To rotate certificates without downtime:
 
 - `clientCertificate` (singular) and `clientCertificates` (plural) **cannot be used together**. Choose one or the other.
 - Each entry must have **either** `content` **or** `ref`, but not both (and not neither).
-- If a subscription to an mTLS plan has `endingAt` set, at least one certificate must have `endsAt` after the subscription's `endingAt`.
 - The `ref.kind` must be `secrets` or `configmaps`.
 - The certificate must be a valid PEM certificate.
 - The certificate cannot be a CA certificate.
