@@ -10,7 +10,9 @@ For the complete list of model identifiers, classification labels, and performan
 
 ### Toxicity detection
 
-Toxicity detection models classify text as toxic or non-toxic, with optional fine-grained categorization. Binary models return a single `toxic` or `not-toxic` label. Multi-label models return scores across multiple toxicity categories (for example, `severe_toxicity`, `obscene`, `threat`, `identity_attack`) and demographic targets (for example, `male`, `female`, `christian`, `muslim`). All toxicity models are trained on the gravitee-io/textdetox-multilingual-toxicity-dataset or Jigsaw Toxic Comment Classification Challenge dataset.
+Toxicity detection models classify text as toxic or non-toxic, with optional fine-grained categorization. Binary models return a single `toxic` or `not-toxic` label. Multi-label models return scores across multiple toxicity categories (for example, `severe_toxicity`, `obscene`, `threat`, `identity_attack`) and demographic targets (for example, `male`, `female`, `christian`, `muslim`).
+
+All toxicity models are trained on the `gravitee-io/textdetox-multilingual-toxicity-dataset` or the Jigsaw Toxic Comment Classification Challenge dataset.
 
 | Model Type | Labels | Languages | Use Case |
 |:-----------|:-------|:----------|:---------|
@@ -61,5 +63,5 @@ Model selection balances accuracy, resource footprint, language coverage, and la
 ## Prerequisites
 
 - Gravitee API Management platform with AI Model Text Classification resource plugin installed
-- Access to HuggingFace model repositories (gravitee-io, minuva, meta-llama namespaces)
+- Access to HuggingFace model repositories (`gravitee-io`, `minuva`, `meta-llama` namespaces)
 - Sufficient memory and compute resources for selected model (see [Model Reference](../create-and-configure-apis/apply-policies/policy-reference/ai-model-text-classification-model-reference-and-performance-metrics.md) for model sizes)
