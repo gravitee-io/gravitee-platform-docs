@@ -46,12 +46,8 @@
 * [DB-less mode](guides/db-less-mode.md)
 * [Templating](guides/templating.md)
 * [Configure the GKO HTTP client for APIM](guides/gko-http-client.md)
-<<<<<<< /tmp/tmp9g6llxk_.md
-  * [Logs Engine Overview and Prerequisites](../../apim/4.11/guides/logs-engine-api/overview-and-prerequisites.md)
-=======
 * [Gateway API](guides/gateway-api/README.md)
   * [HTTPRoute](guides/gateway-api/httproute.md)
->>>>>>> ./docs/gko/4.10/SUMMARY.md
 
 ## REFERENCE
 
