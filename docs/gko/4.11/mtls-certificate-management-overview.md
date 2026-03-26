@@ -33,5 +33,5 @@ Uploaded certificates are validated before storage. The platform extracts the su
 
 - APIM version 4.11 or above
 - Application with mTLS plan configured
-- Valid X.509 certificate in PEM format (or PKCS7 bundle)
+- Valid X.509 certificate in PEM format
 - TLS-enabled gateway endpoint
