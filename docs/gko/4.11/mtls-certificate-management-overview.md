@@ -21,13 +21,9 @@ Client certificates progress through four states: **Scheduled** (not yet active)
 
 Certificate rotation allows administrators to upload a new certificate while an existing certificate remains active during a grace period. Both certificates authenticate requests during the overlap, preventing downtime. The grace period end date must not be in the past or exceed the active certificate's expiration.
 
-### PKCS7 Bundle Processing
-
-The platform accepts PKCS7/CMS-formatted certificate bundles containing multiple certificates. Bundles are parsed into individual certificates, each assigned a unique alias. Empty bundles are rejected unless explicitly allowed. Certificates are stored in PEM format.
-
 ### Certificate Validation
 
-Uploaded certificates are validated before storage. The platform extracts the subject, issuer, expiration date, and generates a SHA-256 fingerprint. The fingerprint is checked for uniqueness within the environment to prevent duplicate uploads. Certificate cannot be a CA cert, in case of PEM bundle only the first certificate of the chain is retained.
+Uploaded certificates are validated before storage. The platform extracts the subject, issuer, expiration date, and generates a SHA-256 fingerprint. The fingerprint is checked for uniqueness within the environment to prevent duplicate uploads. The certificate must be in X.509 format and cannot be a CA certificate. If the uploaded PEM contains a certificate chain, only the first certificate is retained.
 
 ## Prerequisites
 
