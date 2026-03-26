@@ -25,16 +25,17 @@ To create an application, complete the following steps:
 
 ### Navigate to the create an application screen
 
-1.  From the New Developer Portal, click your **profile icon**, and then click **Applications**.<br>
+1. From the New Developer Portal, click your **profile icon**, and then click **Applications**.
 
-    <figure><img src="../../.gitbook/assets/24CEDF9D-C4AF-4AE9-85FB-B38CBB209138.jpeg" alt=""><figcaption></figcaption></figure>
-2.  From the **Applications** screen, click **+ Create**.<br>
+<figure><img src="../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
 
-    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>The Create button is visible only for users with he <code>ENVIRONMENT:APPLICATION:CREATE</code> permission.</p></div>
+2. From the **Applications** screen, click **+ Create**.
 
+{% hint style="info" %}
+The Create button is visible only for users with he `ENVIRONMENT:APPLICATION:CREATE` permission.
+{% endhint %}
 
-
-    <figure><img src="../../.gitbook/assets/FBEA8614-26C9-47AF-9EB3-FE0F3E1DD40C_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
 
 ### Create an application
 
@@ -95,10 +96,10 @@ To create an application, complete the following steps:
 
 2.  Click **Create**.<br>
 
-    <figure><img src="../../.gitbook/assets/image (176).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
 
 ## Verification&#x20;
 
-You are brought to the application's **Analytics & Logs** screen.&#x20;
+You are brought to the application's **Settings & Security screen** screen.&#x20;
 
-<figure><img src="../../.gitbook/assets/0751EBF1-6A7D-4444-863A-D489A3BB2263_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
