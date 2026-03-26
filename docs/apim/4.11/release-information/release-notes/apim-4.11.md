@@ -125,6 +125,15 @@
 * Requires `environment-metadata-r` permission to view forms and `environment-metadata-u` permission to create, update, enable, or disable forms.
 <!-- /PIPELINE:APIM-12170 -->
 
+<!-- PIPELINE:APIM-13002 -->
+#### **Kafka message encryption and decryption policy**
+
+* Encrypts and decrypts Kafka message payloads at the gateway level using AES-GCM (128, 192, or 256-bit), ensuring data is protected while stored in Kafka topics without requiring changes to producer or consumer applications.
+* Supports three encryption modes: direct encryption with base64 output, direct encryption with JWE format, and DEK-based encryption that generates a unique data encryption key per message.
+* Processes entire message payloads or individual JSON fields identified by JSONPath expressions. Optional compression (GZIP, LZ4, BZIP2, Snappy) mitigates the storage overhead of encrypted data.
+* Keys are provisioned as base64-encoded values or stored in PKCS12 keystores, with support for Expression Language and the Gravitee secrets mechanism.
+<!-- /PIPELINE:APIM-13002 -->
+
 ## Improvements
 
 
