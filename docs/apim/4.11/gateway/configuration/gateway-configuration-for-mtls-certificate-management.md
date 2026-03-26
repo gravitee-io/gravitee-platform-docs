@@ -2,7 +2,7 @@
 
 ## Certificate Validation
 
-Uploaded certificates are validated before storage. The platform extracts the subject, issuer, expiration date, and generates a SHA-256 fingerprint. Certificates with expiration dates in the past are rejected. The fingerprint is checked for uniqueness within the environment to prevent duplicate uploads.
+Uploaded certificates are validated before storage. It must a X.509 certificate that is not a CA. If it is certificate chain, only the first one is read. The platform extracts the subject, issuer, expiration date, and generates a SHA-256 fingerprint.  The fingerprint is checked for uniqueness within the environment to prevent duplicate uploads: it is rejected if an active or scheduled certificate is bound to an active application.
 
 ## Prerequisites
 
