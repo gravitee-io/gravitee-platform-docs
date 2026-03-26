@@ -33,6 +33,16 @@
 * AgentCard fetching enforces SSRF protection, 512 KB size limits, and 5-second timeouts to prevent security risks and resource exhaustion.
 <!-- /PIPELINE:AM-6322 -->
 
+
+<!-- PIPELINE:AM-6297 -->
+#### **OAuth 2.0 Token Exchange (RFC 8693)**
+
+* Enables clients to exchange security tokens for new tokens, supporting impersonation (acting as another user) and delegation (acting on behalf of another user) scenarios.
+* Supports access tokens, refresh tokens, and ID tokens as input and output, with configurable scope handling modes (downscoping or permissive) to control granted permissions.
+* Allows administrators to configure trusted external JWT issuers with JWKS or PEM-based key resolution, scope mappings, and user binding rules via EL expressions.
+* Impersonation is enabled by default; delegation requires explicit configuration via `allowDelegation` setting.
+<!-- /PIPELINE:AM-6297 -->
+
 ## Improvements
 
 ## Bug Fixes
