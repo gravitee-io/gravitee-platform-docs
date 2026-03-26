@@ -27,7 +27,7 @@ The platform accepts PKCS7/CMS-formatted certificate bundles containing multiple
 
 ### Certificate Validation
 
-Uploaded certificates are validated before storage. The platform extracts the subject, issuer, expiration date, and generates a SHA-256 fingerprint. Certificates with expiration dates in the past are rejected. The fingerprint is checked for uniqueness within the environment to prevent duplicate uploads.
+Uploaded certificates are validated before storage. The platform extracts the subject, issuer, expiration date, and generates a SHA-256 fingerprint. The fingerprint is checked for uniqueness within the environment to prevent duplicate uploads. Certificate cannot be a CA cert, in case of PEM bundle only the first certificate of the chain is retained.
 
 ## Prerequisites
 
