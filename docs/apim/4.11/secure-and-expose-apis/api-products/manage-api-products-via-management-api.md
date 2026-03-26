@@ -86,7 +86,7 @@ Manage subscription lifecycle using these endpoints:
 
 ## Plan and subscription reference model
 
-Plans and subscriptions use a reference model to distinguish between API-level and product-level resources:
+Plans and subscriptions use a reference model to distinguish between API-level and API Product-level resources:
 
 - `referenceType`: `API` or `API_PRODUCT`
 - `referenceId`: The ID of the parent API or API Product

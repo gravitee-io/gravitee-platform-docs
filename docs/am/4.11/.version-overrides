@@ -1,4 +1,6 @@
 SUMMARY.md
+guides/certificates/README.md
+guides/certificates/configure-domain-certificate-fallback.md
 guides/mcp-servers/manage-protected-resources.md
 guides/mcp-servers/protected-resource-constraints.md
 guides/protected-resources/README.md
@@ -10,3 +12,7 @@ guides/applications/agent-application-type.md
 guides/applications/create-agent-application.md
 guides/fetching_and_displaying_agentcard_metadata.md
 release-information/release-notes/am-4.11.md
+guides/oauth-2.0-token-exchange-api-reference.md
+guides/oauth-2.0-token-exchange-concepts.md
+guides/oauth-2.0-token-exchange-configuration-reference.md
+guides/using-oauth-2.0-token-exchange.md

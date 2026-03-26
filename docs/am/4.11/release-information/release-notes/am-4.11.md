@@ -7,6 +7,14 @@
 ## New Features
 
 
+<!-- PIPELINE:AM-6339 -->
+#### **Domain-Level Certificate Fallback**
+
+* Administrators can configure a fallback certificate at the domain-level to prevent authentication failures when a certificate that is explicitly configured for an application cannot be used.
+* When an application's certificate fails to load (e.g., external provider unavailable), the system automatically uses the domain's fallback certificate to sign OAuth and ID tokens.
+* Fallback certificates are configured using the Management API (`/domains/{domain}/certificate-settings`) and require `DOMAIN_SETTINGS[UPDATE]` permission.
+* Certificates configured as domain fallback cannot be deleted until removed from the fallback configuration.
+<!-- /PIPELINE:AM-6339 -->
 <!-- PIPELINE:AM-6321 -->
 #### **Protected Resource OAuth 2.0 Client Management**
 
@@ -24,6 +32,16 @@
 * Supports optional AgentCard metadata import via the A2A specification, allowing administrators to fetch and display agent capabilities, tools, and prompts from a publicly accessible URL.
 * AgentCard fetching enforces SSRF protection, 512 KB size limits, and 5-second timeouts to prevent security risks and resource exhaustion.
 <!-- /PIPELINE:AM-6322 -->
+
+
+<!-- PIPELINE:AM-6297 -->
+#### **OAuth 2.0 Token Exchange (RFC 8693)**
+
+* Enables clients to exchange security tokens for new tokens, supporting impersonation (acting as another user) and delegation (acting on behalf of another user) scenarios.
+* Supports access tokens, refresh tokens, and ID tokens as input and output, with configurable scope handling modes (downscoping or permissive) to control granted permissions.
+* Allows administrators to configure trusted external JWT issuers with JWKS or PEM-based key resolution, scope mappings, and user binding rules via EL expressions.
+* Impersonation is enabled by default; delegation requires explicit configuration via `allowDelegation` setting.
+<!-- /PIPELINE:AM-6297 -->
 
 ## Improvements
 
