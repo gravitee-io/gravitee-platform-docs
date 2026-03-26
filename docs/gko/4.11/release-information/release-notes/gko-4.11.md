@@ -14,7 +14,7 @@
 * Administrators can now upload, validate, and rotate authentication directly through the Management Console (for application managed outside of GKO)
 * Supports scheduled certificate activation, and grace-period rotation to prevent downtime during certificate updates.
 * Certificates are validated on upload (SHA-256 fingerprint, uniqueness) and progress through lifecycle states: Scheduled, Active, Active with End Date, and Revoked.
-* Requires APIM 4.11 or above and a TLS-enabled gateway endpoint with an mTLS plan configured for the application.
+* Requires APIM 4.11 or above and an API with mTLS plan subscribed for the application.
 <!-- /PIPELINE:GKO-2006 -->
 
 ## Improvements
