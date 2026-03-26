@@ -461,3 +461,5 @@ async
 JSONPath
 [Kk]eystores?
 GZIP
+[Hh]inglish
+[Mm]inuva

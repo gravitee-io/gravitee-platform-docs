@@ -4,14 +4,14 @@
 
 | Model ID | HuggingFace Repository | Architecture | Parameters | License |
 |:---------|:-----------------------|:-------------|:-----------|:--------|
-| `GRAVITEE_IO_BERT_TINY_TOXICITY` | gravitee-io/bert-tiny-toxicity | BERT-tiny (2 layers, 128 hidden) | 4.39M | OpenRAIL++ |
-| `GRAVITEE_IO_BERT_MINI_TOXICITY` | gravitee-io/bert-mini-toxicity | BERT-mini (4 layers, 256 hidden) | 11.2M | OpenRAIL++ |
-| `GRAVITEE_IO_BERT_SMALL_TOXICITY` | gravitee-io/bert-small-toxicity | BERT-small (4 layers, 512 hidden) | 28.8M | OpenRAIL++ |
-| `GRAVITEE_IO_DISTILBERT_MULTILINGUAL_TOXICITY_CLASSIFIER` | gravitee-io/distilbert-multilingual-toxicity-classifier | DistilBERT-base-multilingual-cased | 100M | OpenRAIL++ |
-| `GRAVITEE_DETOXIFY_ONNX_MODEL` | gravitee-io/detoxify-onnx | XLM-RoBERTa-base | 300M | Apache 2.0 |
-| `MINILMV2_TOXIC_JIGSAW_MODEL` | minuva/MiniLMv2-toxic-jigsaw-onnx | MiniLMv2-L6-H384 | 23M | Apache 2.0 |
-| `GRAVITEE_LLAMA_PROMPT_GUARD_22M_MODEL` | gravitee-io/Llama-Prompt-Guard-2-22M-onnx | DeBERTa-v2-xsmall | 22M (70.8M ONNX F32) | Llama 4 Community License |
-| `GRAVITEE_LLAMA_PROMPT_GUARD_86M_MODEL` | gravitee-io/Llama-Prompt-Guard-2-86M-onnx | DeBERTa-v2 (12 layers, 768 hidden) | 86M (300M ONNX F32) | Llama 4 Community License |
+| `GRAVITEE_IO_BERT_TINY_TOXICITY` | `gravitee-io/bert-tiny-toxicity` | BERT-tiny (2 layers, 128 hidden) | 4.39M | OpenRAIL++ |
+| `GRAVITEE_IO_BERT_MINI_TOXICITY` | `gravitee-io/bert-mini-toxicity` | BERT-mini (4 layers, 256 hidden) | 11.2M | OpenRAIL++ |
+| `GRAVITEE_IO_BERT_SMALL_TOXICITY` | `gravitee-io/bert-small-toxicity` | BERT-small (4 layers, 512 hidden) | 28.8M | OpenRAIL++ |
+| `GRAVITEE_IO_DISTILBERT_MULTILINGUAL_TOXICITY_CLASSIFIER` | `gravitee-io/distilbert-multilingual-toxicity-classifier` | DistilBERT-base-multilingual-cased | 100M | OpenRAIL++ |
+| `GRAVITEE_DETOXIFY_ONNX_MODEL` | `gravitee-io/detoxify-onnx` | XLM-RoBERTa-base | 300M | Apache 2.0 |
+| `MINILMV2_TOXIC_JIGSAW_MODEL` | `minuva/MiniLMv2-toxic-jigsaw-onnx` | MiniLMv2-L6-H384 | 23M | Apache 2.0 |
+| `GRAVITEE_LLAMA_PROMPT_GUARD_22M_MODEL` | `gravitee-io/Llama-Prompt-Guard-2-22M-onnx` | DeBERTa-v2-xsmall | 22M (70.8M ONNX F32) | Llama 4 Community License |
+| `GRAVITEE_LLAMA_PROMPT_GUARD_86M_MODEL` | `gravitee-io/Llama-Prompt-Guard-2-86M-onnx` | DeBERTa-v2 (12 layers, 768 hidden) | 86M (300M ONNX F32) | Llama 4 Community License |
 
 ## Classification labels
 
@@ -180,7 +180,7 @@ All three variants share:
 - 15-language support
 - ONNX quantized format
 - OpenRAIL++ license
-- Same training dataset (gravitee-io/textdetox-multilingual-toxicity-dataset)
+- Same training dataset (`gravitee-io/textdetox-multilingual-toxicity-dataset`)
 
 ### Llama Prompt Guard family
 
@@ -202,8 +202,8 @@ Both variants share:
 
 | Model Family | Training Dataset | Split |
 |:-------------|:-----------------|:------|
-| BERT Tiny/Mini/Small Toxicity | gravitee-io/textdetox-multilingual-toxicity-dataset | 85% train / 15% validation per language |
-| DistilBERT Multilingual Toxicity | gravitee-io/textdetox-multilingual-toxicity-dataset | 85% train / 15% validation per language |
-| Detoxify ONNX | Base model: unitary/multilingual-toxic-xlm-roberta | Pre-trained |
+| BERT Tiny/Mini/Small Toxicity | `gravitee-io/textdetox-multilingual-toxicity-dataset` | 85% train / 15% validation per language |
+| DistilBERT Multilingual Toxicity | `gravitee-io/textdetox-multilingual-toxicity-dataset` | 85% train / 15% validation per language |
+| Detoxify ONNX | Base model: `unitary/multilingual-toxic-xlm-roberta` | Pre-trained |
 | MiniLMv2 Toxic Jigsaw | Jigsaw Toxic Comment Classification Challenge (Kaggle) | N/A |
-| Llama Prompt Guard 22M/86M | jackhhao/jailbreak-classification (evaluation only) | Pre-trained by Meta |
+| Llama Prompt Guard 22M/86M | `jackhhao/jailbreak-classification` (evaluation only) | Pre-trained by Meta |
