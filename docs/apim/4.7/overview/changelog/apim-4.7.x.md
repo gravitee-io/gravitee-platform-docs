@@ -41,7 +41,7 @@ description: API documentation explaining apim 4.7.x.
 **Other**
 
 * \[gravitee-policy-aws-lambda] Unexpected Retry and Duplicate Invocation of AWS Lambda via Gravitee API Gateway [#11096](https://github.com/gravitee-io/issues/issues/11096)
-* "Thread blocked" error received when invalid creadentials set for Elastic Search [#11184](https://github.com/gravitee-io/issues/issues/11184)
+* "Thread blocked" error received when invalid credentials set for Elastic Search [#11184](https://github.com/gravitee-io/issues/issues/11184)
 * Support client_secret_basic authentication for OAuth2 token endpoint [#11249](https://github.com/gravitee-io/issues/issues/11249)
 
 </details>
