@@ -54,4 +54,15 @@
 
 ## Improvements
 
+
+<!-- PIPELINE:AM-6340 -->
+#### **SAML 2.0 Identity Provider Metadata Configuration Options**
+
+* SAML 2.0 identity providers can now be configured using three metadata provisioning methods: Metadata URL (remote endpoint), Metadata File (static XML import), or Manual (individual field entry).
+* Metadata URL and Metadata File options support multi-entity metadata documents by requiring an Entity ID (IdP) parameter to select the correct entity.
+* The Metadata URL option automatically fetches and updates IdP configuration at AM startup, reducing configuration errors and eliminating manual updates.
+* SAML SP Metadata endpoint is available at `https://AM_GW_HOST/:domain/saml2/sp/metadata/:providerId` for IdP registration (AM 3.7+).
+* Encrypted assertion responses are supported when the **wantAssertionsEncrypted** option is enabled (SAML IdP plugin v1.4.0+).
+<!-- /PIPELINE:AM-6340 -->
+
 ## Bug Fixes
