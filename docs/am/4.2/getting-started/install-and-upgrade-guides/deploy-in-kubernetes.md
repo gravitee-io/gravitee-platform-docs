@@ -14,6 +14,8 @@ The Helm Chart supports versions 2.10.x and higher.
 
 ### Components
 
+test it when there are no upgre guuides to it: hjsfhjkvkgvsfjh 76736sjhknmsf nsfghj
+
 This chart will deploy the following:
 
 * Gravitee AM Console
