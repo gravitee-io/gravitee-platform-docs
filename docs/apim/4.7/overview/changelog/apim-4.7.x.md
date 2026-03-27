@@ -11,7 +11,7 @@ description: API documentation explaining apim 4.7.x.
 
 **Gateway**
 
-* SSL enforcement policy will return a 403 if if the SSL connection is terminated at the ingress level [#11234](https://github.com/gravitee-io/issues/issues/11234)
+* SSL enforcement policy will return a 403 if the SSL connection is terminated at the ingress level [#11234](https://github.com/gravitee-io/issues/issues/11234)
 * JWT plans can only have one subscription transfer [#11246](https://github.com/gravitee-io/issues/issues/11246)
 * Duplicate traceparent header [#11248](https://github.com/gravitee-io/issues/issues/11248)
 
