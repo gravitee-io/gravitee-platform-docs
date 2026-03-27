@@ -17,7 +17,7 @@ A full SaaS set up of Gravitee is a convenient way to run Gravitee. Gravitee man
 ## Deploy a Gravitee hosted Gateway
 
 {% hint style="info" %}
-You do not have to scale your Gateways. Gravitee scales your Gateways and manages high availability.
+You don't have to scale your Gateways. Gravitee scales your Gateways and manages high availability.
 {% endhint %}
 
 ### Add Gateway details
@@ -43,10 +43,12 @@ When deploying a new Gateway, you can optionally set sharding tags. To add shard
 1.  Navigate to the **Deployment Tags** section.
 
     <figure><img src="../../.gitbook/assets/deployment-tags-cloud-version.png" alt=""><figcaption></figcaption></figure>
+<!-- TODO: verify label in Cloud UI — agent draft changed "Sharding Tags IDs" to "Sharding Tags Keys" but Cloud UI source code isn't available locally to confirm -->
 2.  In the **Sharding Tags Keys** field, enter one or more tags that identify this Gateway's purpose. For example, "us-east", "production", "eu-west".
 
     <figure><img src="../../.gitbook/assets/sharding-tag-ids-cloud.png" alt=""><figcaption></figcaption></figure>
-3.  In the **Tenant Tag Keys** field, input identifiers that represent the backend services or tenants the Gateway should route to. For example, "eu-west-1".
+<!-- TODO: verify label in Cloud UI — agent draft changed "Tenant Tags" to "Tenant Tag Keys" but Cloud UI source code isn't available locally to confirm -->
+3.  In the **Tenant Tag Keys** field, enter identifiers that represent the backend services or tenants the Gateway routes to. For example, "eu-west-1".
 
     <figure><img src="../../.gitbook/assets/tenant-tag-ids-description.png" alt=""><figcaption></figcaption></figure>
 4. Click **Save**.
@@ -149,7 +151,7 @@ Gateway tagging is handled in the Cloud UI deployment process. For API configura
 * [Add sharding tags to your APIs](https://documentation.gravitee.io/apim/configure-and-manage-the-platform/gravitee-gateway/sharding-tags#add-sharding-tags-to-your-apis)
 
 {% hint style="danger" %}
-**Note:** Skip any steps involving `gravitee.yml`, `values.yaml`, or environment variables. These are not applicable to Gravitee-hosted gateways.
+**Note:** Skip any steps involving `gravitee.yml`, `values.yaml`, or environment variables. These aren't applicable to Gravitee-hosted gateways.
 {% endhint %}
 
 #### Configure Tenant Tags in API Management
