@@ -4,6 +4,59 @@ description: Documentation about apim 4.8.x in the context of APIs.
 
 # APIM 4.8.x
  
+## Gravitee API Management 4.8.23 - March 27, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* SSL enforcement policy will return a 403 if if the SSL connection is terminated at the ingress level [#11234](https://github.com/gravitee-io/issues/issues/11234)
+* Dynamic dictionary not deployed when environment is not the default one [#11236](https://github.com/gravitee-io/issues/issues/11236)
+* JWT plans can only have one subscription transfer [#11246](https://github.com/gravitee-io/issues/issues/11246)
+* Duplicate traceparent header [#11248](https://github.com/gravitee-io/issues/issues/11248)
+* The Health Check of the API V4 is not working as expected with tenant [#11275](https://github.com/gravitee-io/issues/issues/11275)
+
+**Management API**
+
+* Promotion Button in UI Yields Parsing Error [#11277](https://github.com/gravitee-io/issues/issues/11277)
+
+**Console**
+
+* Missing fields when creating an alert [#10802](https://github.com/gravitee-io/issues/issues/10802)
+* Not able search/filter logs by path [#11255](https://github.com/gravitee-io/issues/issues/11255)
+
+**Other**
+
+* Bootstrap URL for Kafka DLQ endpoint does not support Expression Language [#10906](https://github.com/gravitee-io/issues/issues/10906)
+* Application menu not showing up on first login [#10951](https://github.com/gravitee-io/issues/issues/10951)
+* Promotion request is not found in Audit of the target environment. [#11065](https://github.com/gravitee-io/issues/issues/11065)
+* json-validation policy error key [#11152](https://github.com/gravitee-io/issues/issues/11152)
+* Agent Mesh - Generate Tools from OpenAPI [#11165](https://github.com/gravitee-io/issues/issues/11165)
+* \[V4 Emulation] IllegalStateException: HTTP/2 streams failing due to missing Content-Length validation [#11191](https://github.com/gravitee-io/issues/issues/11191)
+* OpenAPI Specification Validation Policy - Validation errors [#11223](https://github.com/gravitee-io/issues/issues/11223)
+* MCP Tool Generation: Operation descriptions and business rules are missing from generated tools [#11226](https://github.com/gravitee-io/issues/issues/11226)
+* Detaching an API looses API context after confirmation [#11239](https://github.com/gravitee-io/issues/issues/11239)
+* Kafka gateways is throwing recurrent "Thread blocked" errors [#11242](https://github.com/gravitee-io/issues/issues/11242)
+* OAuth2 token acquisition failure is silently swallowed [#11250](https://github.com/gravitee-io/issues/issues/11250)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Other**
+
+* Api Categories exported by IDs instead of names [#10944](https://github.com/gravitee-io/issues/issues/10944)
+* \[gravitee-policy-aws-lambda] Unexpected Retry and Duplicate Invocation of AWS Lambda via Gravitee API Gateway [#11096](https://github.com/gravitee-io/issues/issues/11096)
+* "Thread blocked" error received when invalid creadentials set for Elastic Search [#11184](https://github.com/gravitee-io/issues/issues/11184)
+* Support client_secret_basic authentication for OAuth2 token endpoint [#11249](https://github.com/gravitee-io/issues/issues/11249)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.8.22 - March 12, 2026
 <details>
 
