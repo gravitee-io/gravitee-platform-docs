@@ -17,3 +17,4 @@ guides/oauth-2.0-token-exchange-api-reference.md
 guides/oauth-2.0-token-exchange-concepts.md
 guides/oauth-2.0-token-exchange-configuration-reference.md
 guides/using-oauth-2.0-token-exchange.md
+guides/identity-providers/enterprise-identity-providers/saml-2.0.md
