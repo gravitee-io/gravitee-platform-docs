@@ -35,7 +35,7 @@ In the GitHub PR sidebar, click the gear icon next to **Labels** and select `val
 To run Vale locally before pushing:
 
 ```bash
-# Install Vale (see https://vale.sh/docs/topics/installation/ for other OSes)
+# Install Vale (see https://vale.sh/docs/install for other OSes)
 brew install vale
 
 # Sync Vale packages
