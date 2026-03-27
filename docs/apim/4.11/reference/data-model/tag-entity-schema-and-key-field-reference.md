@@ -1,85 +1,80 @@
 # Tag entity schema and key field reference
 
+<!-- DISCREPANCY: This page was placed in 4.11 by the agent, but the feature is merged in APIM 4.12.x only (confirmed by Okhelifi and verified from git history + Liquibase v4_12_0 directory). Move this file to docs/apim/4.12/ once that folder exists. -->
+
 ## Overview
 
-Tag Key Migration introduces a dedicated `key` field to the Tag entity, separating human-readable tag identifiers from internal UUIDs. This change affects all tag management operations and API endpoints that reference tags. Existing tags are automatically migrated from ID-based to key-based lookups during platform upgrade.
+Starting in APIM 4.12, each tag has a dedicated `key` field that separates the human-readable tag identifier from the internal `id`. This affects how tags are referenced in REST API endpoints and how new tags are created.
 
-## Tag identifiers
+For existing tags, the migration preserves the current `id` value and copies it into the new `key` field. This means existing API clients continue to work without changes. Only new tags created after migration receive a UUID as their `id`.
 
-Tags use two distinct identifiers: an internal UUID (`id`) for database references and a human-readable key (`key`) for API operations. The `key` field stores the original tag identifier (previously stored in `id`), while `id` is regenerated as a UUID during migration. All REST endpoints accept tag keys instead of IDs in path parameters.
+<!-- Verified from TagKeyUpgrader.java: tag.setKey(tag.getId()) — existing IDs are preserved, not regenerated. Confirmed by Okhelifi. -->
+
+## Tag fields
 
 | Field | Format | Purpose | Example |
 |:------|:-------|:--------|:--------|
-| `id` | UUID | Internal database reference | `70237305-6f68-450e-a373-056f68750e50` |
-| `key` | String (max 64 chars) | User-facing identifier for API operations | `international` |
-| `name` | String (max 64 chars) | Display name | `International` |
+| `id` | String | Internal database reference. For existing tags, this retains the original value. For new tags, this is a UUID. | `70237305-6f68-450e-a373-056f68750e50` |
+| `key` | String (max 64 chars) | User-facing identifier used in API operations and path parameters | `international` |
+| `name` | String (max 64 chars) | Display name (unique within the reference scope) | `International` |
+| `description` | String | Optional tag description | — |
+| `restrictedGroups` | Array of strings | Optional list of groups with access to this tag | — |
 
-## Tag entity properties
+When creating a tag, provide both `key` and `name` (each 1–64 characters). The `key` field is immutable after creation.
 
-The Tag entity includes `id`, `key`, `name`, `description`, and `restrictedGroups`. When creating a tag, both `key` and `name` are required and must be 1-64 characters. The `key` field is immutable after creation — update operations don't accept an `id` field in the request body. Tag lookups and filtering use the `key` field for all repository queries.
-
-| Property | Type | Required | Constraints | Description |
-|:---------|:-----|:---------|:------------|:------------|
-| `id` | String (UUID) | Yes | Auto-generated | Internal database reference |
-| `key` | String | Yes (create only) | 1-64 characters, immutable | User-facing identifier for API operations |
-| `name` | String | Yes | 1-64 characters, unique within reference scope | Display name |
-| `description` | String | No | — | Tag description |
-| `restrictedGroups` | Array of Strings | No | — | Groups with access to this tag |
-
-## Tag lookup behavior
-
-All tag repository operations use key-based queries instead of ID-based queries. Single tag lookups call `findByKeyAndReference(key, ...)`, and bulk operations use `findByKeysAndReference(Set<String> keys, ...)`. Tag validation accepts a set of tag keys and throws `TagNotFoundException` with an array of missing keys if any key isn't found. Empty input sets return immediately without querying the repository.
+<!-- Verified from UpdateTagEntity.java: no key field exists in the update DTO. TagServiceImpl preserves the key on update via .key(existingTag.getKey()). -->
 
 ## REST API endpoints
 
-All tag management endpoints use tag keys in path parameters instead of UUIDs.
+All tag management endpoints use the tag `key` in path parameters.
 
-| Endpoint | Method | Path parameter | Request body changes |
-|:---------|:-------|:---------------|:---------------------|
-| Get tag | GET | `/tags/{tag-key}` | N/A |
-| Create tag | POST | `/tags` | Must include `key` field |
-| Update tag | PUT | `/tags/{tag-key}` | `id` field removed |
-| Delete tag | DELETE | `/tags/{tag-key}` | N/A |
+| Endpoint | Method | Path | Notes |
+|:---------|:-------|:-----|:------|
+| List tags | GET | `/tags` | Returns all tags |
+| Get tag | GET | `/tags/{tagKey}` | Retrieve a single tag by key |
+| Create tag | POST | `/tags` | Include `key` and `name` in the request body |
+| Update tag | PUT | `/tags/{tagKey}` | Accepts `name`, `description`, and `restrictedGroups` only |
+| Delete tag | DELETE | `/tags/{tagKey}` | Delete a tag by key |
+
+<!-- Verified from TagsResource.java: GET /tags, GET /tags/{tag}, POST /tags, PUT /tags/{tag}, DELETE /tags/{tag}. All path params reference the key. -->
 
 ### Create a tag
 
-To create a tag, send a POST request to `/tags` with the following fields:
+Send a POST request to `/tags` with the following fields:
 
-- `key` (required, 1-64 characters) — immutable tag identifier
-- `name` (required, 1-64 characters) — must be unique within the reference scope
+- `key` (required, 1–64 characters): immutable tag identifier
+- `name` (required, 1–64 characters): display name, unique within the reference scope
 - `description` (optional)
 - `restrictedGroups` (optional array)
 
-The system generates a UUID for the internal `id` field. If a tag with the same `name` already exists, the operation fails with `DuplicateTagNameException`. The response includes both the generated `id` and the provided `key`.
+The system generates a UUID for the internal `id` field. If a tag with the same `key` already exists, the request fails.
 
-### Manage tags
+<!-- Verified: DuplicateTagKeyException is thrown on duplicate key (TagServiceImpl.java line 142). -->
 
-To retrieve a tag, send a GET request to `/tags/{tag-key}` using the tag's key (not its UUID).
+### Update a tag
 
-To update a tag, send a PUT request to `/tags/{tag-key}` with `name`, `description`, and `restrictedGroups`. The `id` field is no longer accepted in update requests.
+Send a PUT request to `/tags/{tagKey}` with `name`, `description`, and `restrictedGroups`. The request body doesn't accept `id` or `key` fields.
 
-To delete a tag, send a DELETE request to `/tags/{tag-key}`.
+### Delete a tag
 
-## Repository configuration
+Send a DELETE request to `/tags/{tagKey}`.
 
-JDBC repositories use `escapeReservedWord("key")` in SQL queries because `key` is a reserved word in some databases. MongoDB repositories replace the following methods:
+## Behavior for existing vs. new tags
 
-- `findByIdAndReferenceIdAndReferenceType` → `findByKeyAndReferenceIdAndReferenceType`
-- `findByIdInAndReferenceIdAndReferenceType` → `findByKeyInAndReferenceIdAndReferenceType`
+{% hint style="info" %}
+For **existing tags**, the migration preserves the original `id` value and sets `key` to the same value. Existing API clients that reference tags by their current ID in path parameters continue to work, because the `key` matches the old `id`.
+
+For **new tags** created after migration, the `id` is a generated UUID. API clients interact with new tags using the `key` field in path parameters, not the UUID.
+{% endhint %}
+
+<!-- DISCREPANCY: The original agent draft stated "existing API clients using tag IDs will fail" — this is incorrect. Okhelifi confirmed existing IDs are preserved and the key equals the old ID. Only new tags use UUIDs as IDs. -->
 
 ## Restrictions
 
-- Tag keys are immutable after creation — updates don't accept a `key` field.
-- Tag names must be unique within the same reference scope (enforced by `DuplicateTagNameException`).
+- Tag keys are immutable after creation.
+- Tag names are unique within the same reference scope.
 - The `key` field is limited to 64 characters.
-- Path parameters in tag endpoints expect keys, not UUIDs — existing API clients using tag IDs will fail.
 
-{% hint style="warning" %}
-This is a breaking change. API clients that reference tags by ID in path parameters must be updated to use tag keys instead.
-{% endhint %}
+## Related
 
-## Prerequisites
-
-- Database schema must include the `tags.key` column (added via Liquibase changelog `09_add_tags_key_column.yml`).
-- Existing tags must be migrated using the `TagKeyUpgrader` (execution order 715). For details, see [Tag key migration upgrade procedure](../../upgrade-guides/tag-key-migration-upgrade-procedure.md).
-- API clients must be updated to use tag keys instead of tag IDs in path parameters.
+- [Tag key migration upgrade procedure](../../upgrade-guides/tag-key-migration-upgrade-procedure.md)
