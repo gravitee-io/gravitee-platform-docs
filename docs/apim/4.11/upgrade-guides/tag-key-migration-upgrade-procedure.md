@@ -31,7 +31,7 @@ Before migration:
 Tag { id: "international", key: null, name: "International" }
 
 After migration:
-Tag { id: "70237305-6f68-450e-a373-056f68750e50", key: "international", name: "International" }
+Tag { id: "international", key: "international", name: "International" }
 ```
 
 If the migration fails, the upgrader returns `false` and logs an error message.
