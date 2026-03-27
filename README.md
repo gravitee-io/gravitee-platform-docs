@@ -10,3 +10,40 @@ When browsing the documentation, please pay special attention to the following:
 - **Compatibility matrices:** Verify that specific documentation is applicable to particular Gravitee installations.
 - **API definitions and phases:** Different versions of the Gravitee API definition support different features and functionality.
 - **Links:** Links offer easy access to information that is related, prerequisite, or consequent to the current concept or component.
+
+## Vale linting
+
+This repo uses [Vale](https://vale.sh/) to enforce writing style rules on documentation files (`.md` and `.mdx`). Vale runs as a GitHub Actions workflow on pull requests, but **only when the `vale integration` label is attached**.
+
+### How it works
+
+1. Open a PR that changes files under `docs/`.
+2. Vale does **not** run automatically — no noise on draft or pipeline-generated PRs.
+3. When the PR is ready for style review, add the **`vale integration`** label from the PR sidebar (under "Labels").
+4. Vale runs and posts inline review comments via [reviewdog](https://github.com/reviewdog/reviewdog).
+5. If you push new commits while the label is attached, Vale re-runs automatically.
+6. To stop Vale from running on subsequent pushes, remove the label.
+
+### Adding the label
+
+In the GitHub PR sidebar, click the gear icon next to **Labels** and select `vale integration`:
+
+![vale integration label](https://img.shields.io/badge/label-vale%20integration-0E8A16)
+
+### Local usage
+
+To run Vale locally before pushing:
+
+```bash
+# Install Vale (see https://vale.sh/docs/install for other OSes)
+brew install vale
+
+# Sync Vale packages
+vale sync
+
+# Lint a specific file
+vale docs/apim/4.11/path/to/file.md
+
+# Lint all changed docs files
+git diff --name-only main -- '*.md' '*.mdx' | xargs vale
+```
