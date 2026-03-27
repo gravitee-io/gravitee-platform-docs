@@ -52,6 +52,16 @@
 * Impersonation is enabled by default; delegation requires explicit configuration via `allowDelegation` setting.
 <!-- /PIPELINE:AM-6297 -->
 
+
+<!-- PIPELINE:AM-6340 -->
+#### **SAML Identity Provider Metadata Configuration**
+
+* SAML identity providers can now be configured using metadata URL or metadata file upload, eliminating manual endpoint and certificate configuration.
+* Three configuration modes are supported: Manual (individual endpoint specification), Metadata URL (remote endpoint fetch), and Metadata File (inline XML upload).
+* Metadata-based modes automatically sign authentication requests when the IdP requires it, using certificates from the AM certificate store.
+* The JSON schema validator now prevents duplicate default value injection in oneOf schemas, improving validation accuracy for complex configurations.
+<!-- /PIPELINE:AM-6340 -->
+
 ## Improvements
 
 ## Bug Fixes

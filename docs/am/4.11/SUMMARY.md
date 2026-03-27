@@ -54,6 +54,7 @@
 ## Guides
 
 * [Fetching and Displaying AgentCard Metadata](guides/fetching_and_displaying_agentcard_metadata.md)
+* [JSON Schema oneOf Default Injection Enhancement](guides/json-schema-oneof-default-injection-enhancement.md)
 * [OAuth 2.0 Token Exchange API](guides/oauth-2.0-token-exchange-api-reference.md)
 * [OAuth 2.0 Token Exchange Concepts](guides/oauth-2.0-token-exchange-concepts.md)
 * [OAuth 2.0 Token Exchange Configuration](guides/oauth-2.0-token-exchange-configuration-reference.md)
