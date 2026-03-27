@@ -45,5 +45,5 @@ vale sync
 vale docs/apim/4.11/path/to/file.md
 
 # Lint all changed docs files
-git diff --name-only main -- '*.md' | xargs vale
+git diff --name-only main -- '*.md' '*.mdx' | xargs vale
 ```
