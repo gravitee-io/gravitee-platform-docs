@@ -54,4 +54,14 @@
 
 ## Improvements
 
+
+<!-- PIPELINE:AM-6340 -->
+#### **SAML 2.0 Identity Provider Metadata Configuration**
+
+* SAML 2.0 identity providers can now be configured using three metadata options: remote metadata URL, local metadata file, or manual entry of individual values.
+* Metadata URL and file options support automatic configuration extraction, reducing setup errors and eliminating the need to manually enter SSO endpoints and certificates.
+* When metadata contains multiple entities, the Entity ID (IdP) field can be used to select the correct identity provider configuration.
+* The SAML SP metadata endpoint is available at `https://AM_GW_HOST/:domain/saml2/sp/metadata/:providerId` for sharing with SAML IdP servers during registration.
+<!-- /PIPELINE:AM-6340 -->
+
 ## Bug Fixes
