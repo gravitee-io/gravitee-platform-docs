@@ -83,6 +83,7 @@
     * [Kerberos](guides/identity-providers/enterprise-identity-providers/kerberos.md)
     * [SAML 2.0](guides/identity-providers/enterprise-identity-providers/saml-2.0.md)
     * [CAS](guides/identity-providers/enterprise-identity-providers/cas.md)
+    * [SAML Identity Provider Configuration](guides/identity-providers/enterprise-identity-providers/saml-identity-provider-configuration-reference.md)
   * [Social Identity Providers](guides/identity-providers/social-identity-providers/README.md)
     * [OpenID Connect](guides/identity-providers/social-identity-providers/openid-connect.md)
     * [Azure AD](guides/identity-providers/social-identity-providers/azure-ad.md)

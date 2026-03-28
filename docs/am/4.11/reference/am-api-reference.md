@@ -20,7 +20,7 @@ Use the following HTTP Authorization request header to call the API: `Authorizat
 
 ### Token endpoint
 
-You can use the `token` endpoint to retrieve the `AM Management API token` . To retrieve the token, present the user credentials in the `Basic authentication scheme`.
+You can use the `token` endpoint to retrieve the `AM Management API token`. To retrieve the token, present the user credentials in the `Basic authentication scheme`.
 
 The following example exchanges default admin account credentials (`admin/adminadmin`) for a token:
 

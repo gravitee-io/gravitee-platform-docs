@@ -74,6 +74,8 @@ To connect your applications to the AM SAML 2.0 IdP, you need at least the follo
 SAML IdP metadata information can be found here: `https://AM_GATEWAY/{domain}/saml2/idp/metadata`
 {% endhint %}
 
+When configuring a SAML identity provider for a client application, you can use metadata-based configuration to automatically extract signing certificates and service endpoints. Set `idpMetadataProvider` to `METADATA_URL` and provide the metadata endpoint URL (e.g., `https://AM_GATEWAY/{provider-domain}/saml2/idp/metadata`), or set it to `METADATA_FILE` and upload the metadata XML directly. The client application can sign outbound SAML AuthnRequests using a certificate from the AM certificate repository by referencing its ID in the `graviteeCertificate` property.
+
 You can test your SAML 2.0 connection using a web application created in AM.
 
 1. In AM Console, create a new web application.

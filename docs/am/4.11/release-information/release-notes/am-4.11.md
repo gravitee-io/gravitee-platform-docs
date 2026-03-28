@@ -52,6 +52,17 @@
 * Impersonation is enabled by default; delegation requires explicit configuration via `allowDelegation` setting.
 <!-- /PIPELINE:AM-6297 -->
 
+
+<!-- PIPELINE:AM-6340 -->
+#### **SAML Identity Provider Metadata Configuration**
+
+* SAML identity providers can now be configured using metadata URLs or inline XML files, eliminating manual endpoint and certificate configuration.
+* The system automatically extracts signing certificates, SSO endpoints, and protocol bindings from IdP metadata, reducing configuration errors.
+* Three configuration modes are supported: metadata URL (fetch from remote endpoint), metadata file (upload XML directly), and manual (legacy explicit configuration).
+* Certificate synchronization between client applications and provider domains is required when using metadata-based configuration.
+* Attribute mappings default to standard SAML claim URIs and can be customized to align with specific IdP schemas.
+<!-- /PIPELINE:AM-6340 -->
+
 ## Improvements
 
 ## Bug Fixes
