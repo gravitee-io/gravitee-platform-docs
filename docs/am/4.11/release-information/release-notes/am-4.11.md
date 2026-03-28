@@ -54,4 +54,15 @@
 
 ## Improvements
 
+
+<!-- PIPELINE:AM-6340 -->
+#### **Enhanced SAML 2.0 Identity Provider Configuration Options**
+
+* SAML 2.0 identity providers can now be configured using three metadata provisioning methods: remote metadata URL, local metadata file upload, or manual entry of individual values.
+* Metadata URL configuration enables dynamic metadata exchange and automatic updates at startup, reducing configuration errors and maintenance overhead.
+* Metadata file upload provides an alternative for environments requiring strict security controls and version management without network dependencies.
+* The SAML 2.0 SP metadata endpoint is now available at `https://AM_GW_HOST/:domain/saml2/sp/metadata/:providerId` for sharing with SAML IdP servers during registration.
+* Encrypted assertion responses are supported when the **wantAssertionsEncrypted** option is enabled (requires SAML IdP plugin v1.4.0 or later).
+<!-- /PIPELINE:AM-6340 -->
+
 ## Bug Fixes
