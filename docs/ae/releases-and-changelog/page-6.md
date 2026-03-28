@@ -10,6 +10,15 @@ The changelog provides in-depth overviews of what's new in Gravitee major, minor
 
 ## Alert Engine changelog
 
+### 3.0.0 (2026-03-13)
+
+#### Breaking Changes
+
+_**General**_ 
+* Independent per-trigger timers now replace shared duration-based timers for scheduled alerts
+** Compatible with earlier APIM versions, but if using APIM version >= 4.10.7, scheduled alerts are now more reliably anchored to the alert's updated time. Therefore, APIM >= 4.10.7 is recommended
+** Timers are no longer aligned to time unit boundaries
+
 ### 2.3.2 (2025-09-16)
 
 _**General**_
