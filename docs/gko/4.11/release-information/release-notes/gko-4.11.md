@@ -17,6 +17,17 @@
 * Requires APIM 4.11 or above and an API with an mTLS plan subscribed for the application.
 <!-- /PIPELINE:GKO-2006 -->
 
+
+<!-- PIPELINE:GKO-2024 -->
+#### **LLM Analytics Dashboard Template**
+
+* Introduces a pre-built dashboard template for monitoring LLM usage, token consumption, and costs across AI-powered APIs.
+* Tracks six new metrics: tokens sent/received, token costs, total tokens, and total cost, computed via Elasticsearch scripted aggregations.
+* Enables real-time visibility into LLM provider usage patterns, cost trends, and response status distribution.
+* Requires `Environment-dashboard-c` permission to create dashboards from the template.
+* Replaces the previous AI Gateway template with LLM-focused analytics.
+<!-- /PIPELINE:GKO-2024 -->
+
 ## Improvements
 
 ## Bug Fixes
