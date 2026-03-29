@@ -54,4 +54,14 @@
 
 ## Improvements
 
+
+<!-- PIPELINE:AM-6340 -->
+#### **SAML 2.0 Identity Provider Metadata Configuration**
+
+* SAML 2.0 identity providers can now be configured using three metadata options: remote metadata URL, local metadata file, or manual entry of individual values.
+* Metadata URL option enables dynamic configuration updates by fetching IdP metadata from a remote XML endpoint at startup.
+* Metadata file option supports static XML import for environments requiring strict security controls and offline configuration.
+* Entity ID (IdP) parameter is now required when metadata contains multiple entities to ensure correct IdP selection.
+<!-- /PIPELINE:AM-6340 -->
+
 ## Bug Fixes
