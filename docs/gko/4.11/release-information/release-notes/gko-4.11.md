@@ -17,6 +17,16 @@
 * Requires APIM 4.11 or above and an API with an mTLS plan subscribed for the application.
 <!-- /PIPELINE:GKO-2006 -->
 
+
+<!-- PIPELINE:GKO-2025 -->
+#### **MCP Analytics and Dashboard Templates**
+
+* Monitor Model Context Protocol (MCP) API usage through dedicated facets for methods, tools, resources, and prompts in Analytics dashboards.
+* Create pre-configured MCP dashboards from templates with 11 widgets covering request volume, latency percentiles (P90, P99), method distribution, and top-5 rankings.
+* Filter analytics data by MCP-specific metadata fields: `MCP_PROXY_METHOD`, `MCP_PROXY_TOOL`, `MCP_PROXY_RESOURCE`, and `MCP_PROXY_PROMPT`.
+* Requires Environment-level dashboard permissions (`dashboard-r`, `dashboard-c`, `dashboard-u`, `dashboard-d`) to create and manage MCP dashboards.
+<!-- /PIPELINE:GKO-2025 -->
+
 ## Improvements
 
 ## Bug Fixes

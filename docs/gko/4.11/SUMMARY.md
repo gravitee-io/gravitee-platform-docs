@@ -51,6 +51,8 @@
 * [Configure the GKO HTTP client for APIM](guides/gko-http-client.md)
 * [Gateway API](guides/gateway-api/README.md)
   * [HTTPRoute](guides/gateway-api/httproute.md)
+  * [Create an MCP Dashboard from a Template](../../apim/4.11/guides/observability/create-an-mcp-dashboard-from-a-template.md)
+  * [MCP Analytics Support](../../apim/4.11/guides/analytics/mcp-analytics-support.md)
 
 ## REFERENCE
 
