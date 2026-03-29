@@ -32,7 +32,9 @@
 
 ## GUIDES
 
+* [Create an LLM Dashboard from Template](guides/create-an-llm-dashboard-from-template.md)
 * [Kubernetes CRD Configuration for Client Certificates](guides/kubernetes-crd-configuration-for-client-certificates.md)
+* [LLM Analytics Migration and Related Changes](guides/llm-analytics-migration-and-related-changes.md)
 * [Logs Explorer Console UI](../../apim/4.11/guides/logs-explorer-console-ui.md)
     * [Gateway Configuration for mTLS Certificate Management](../../apim/4.11/gateway/configuration/gateway-configuration-for-mtls-certificate-management.md)
 * [mTLS Certificate Management Overview](mtls-certificate-management-overview.md)
@@ -47,6 +49,7 @@
 * [Create your own Helm Charts](guides/create-your-own-helm-charts.md)
 * [Gravitee Ingress Controller](guides/gravitee-ingress-controller.md)
 * [DB-less mode](guides/db-less-mode.md)
+* [Query LLM Metrics and Configure LLM Dashboards](guides/query-llm-metrics-and-configure-llm-dashboards.md)
 * [Templating](guides/templating.md)
 * [Configure the GKO HTTP client for APIM](guides/gko-http-client.md)
 * [Gateway API](guides/gateway-api/README.md)
@@ -56,6 +59,7 @@
 
 * [API Reference](reference/api-reference.md)
   * [Logs Engine API](reference/logs-engine-api.md)
+  * [LLM Metrics, Filters, and Dashboard Templates](../../apim/4.11/reference/llm-metrics-filters-and-dashboard-templates-reference.md)
 
 ## RELEASES & CHANGELOG
 

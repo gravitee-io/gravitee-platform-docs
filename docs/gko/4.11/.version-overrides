@@ -7,3 +7,6 @@ release-information/release-notes/gko-4.11.md
 guides/kubernetes-crd-configuration-for-client-certificates.md
 guides/managing-client-certificates.md
 mtls-certificate-management-overview.md
+guides/create-an-llm-dashboard-from-template.md
+guides/llm-analytics-migration-and-related-changes.md
+guides/query-llm-metrics-and-configure-llm-dashboards.md
