@@ -54,4 +54,14 @@
 
 ## Improvements
 
+
+<!-- PIPELINE:AM-6340 -->
+#### **SAML 2.0 Identity Provider Metadata Configuration**
+
+* SAML 2.0 identity providers can now be configured using three metadata provisioning methods: remote metadata URL, local metadata file, or manual entry of individual values.
+* Metadata URL configuration enables dynamic exchange of metadata and automatic updates at AM startup, reducing configuration errors.
+* Metadata file option provides an alternative for environments requiring strict security controls and version management without network dependencies.
+* Manual configuration remains available for scenarios requiring individual metadata value entry, including Entity ID, Sign-In URL, and signing certificate.
+<!-- /PIPELINE:AM-6340 -->
+
 ## Bug Fixes
