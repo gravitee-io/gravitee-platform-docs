@@ -7,3 +7,5 @@ release-information/release-notes/gko-4.11.md
 guides/kubernetes-crd-configuration-for-client-certificates.md
 guides/managing-client-certificates.md
 mtls-certificate-management-overview.md
+create-an-mcp-dashboard-from-template.md
+reference/mcp-analytics-facets-and-dashboard-templates.md

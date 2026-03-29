@@ -35,6 +35,7 @@
 * [Kubernetes CRD Configuration for Client Certificates](guides/kubernetes-crd-configuration-for-client-certificates.md)
 * [Logs Explorer Console UI](../../apim/4.11/guides/logs-explorer-console-ui.md)
     * [Gateway Configuration for mTLS Certificate Management](../../apim/4.11/gateway/configuration/gateway-configuration-for-mtls-certificate-management.md)
+* [Create an MCP Dashboard from Template](create-an-mcp-dashboard-from-template.md)
 * [mTLS Certificate Management Overview](mtls-certificate-management-overview.md)
 * [Manage JWT subscriptions with GKO](guides/manage-jwt-subscriptions-with-gko.md)
 * [Define an APIM service account for GKO](guides/define-an-apim-service-account-for-gko.md)
@@ -56,6 +57,7 @@
 
 * [API Reference](reference/api-reference.md)
   * [Logs Engine API](reference/logs-engine-api.md)
+  * [MCP Analytics Facets and Dashboard Templates](reference/mcp-analytics-facets-and-dashboard-templates.md)
 
 ## RELEASES & CHANGELOG
 

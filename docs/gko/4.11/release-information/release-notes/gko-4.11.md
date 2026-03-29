@@ -17,6 +17,16 @@
 * Requires APIM 4.11 or above and an API with an mTLS plan subscribed for the application.
 <!-- /PIPELINE:GKO-2006 -->
 
+
+<!-- PIPELINE:GKO-2025 -->
+#### **MCP Analytics Dashboard Template**
+
+* Introduces a pre-built dashboard template for monitoring Model Context Protocol (MCP) API usage, including method distribution, tool calls, resource reads, and prompt retrievals.
+* Adds four MCP-specific analytics facets (`MCP_PROXY_METHOD`, `MCP_PROXY_TOOL`, `MCP_PROXY_RESOURCE`, `MCP_PROXY_PROMPT`) for filtering and aggregating MCP protocol data in Elasticsearch.
+* Users with `Environment-dashboard-c` permission can create dashboards from the template via **Observability > Dashboards > Create from template**.
+* Requires MCP-enabled APIs and active analytics data collection to populate dashboard widgets.
+<!-- /PIPELINE:GKO-2025 -->
+
 ## Improvements
 
 ## Bug Fixes
