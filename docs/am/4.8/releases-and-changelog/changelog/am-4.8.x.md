@@ -6,6 +6,30 @@ description: >-
 
 # AM 4.8.x
 
+## Gravitee Access Management 4.8.27 - March 30, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* improve logging of AWS HSM plugin [#11240](https://github.com/gravitee-io/issues/issues/11240)
+* Limit the emailLeaseAcquiring attempt for email bulk [#11260](https://github.com/gravitee-io/issues/issues/11260)
+
+**Management API**
+
+* fix API breaking change on SMTP resource update [#11244](https://github.com/gravitee-io/issues/issues/11244)
+
+
+
+**Other**
+
+* upgrade avro [#11228](https://github.com/gravitee-io/issues/issues/11228)
+
+</details>
+
+
 ## Gravitee Access Management 4.8.27 - March 27, 2026
 
 <details>
