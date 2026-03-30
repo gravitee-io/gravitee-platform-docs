@@ -222,45 +222,9 @@ def sync_versions(
         if rel_path == OVERRIDES_FILENAME:
             continue
 
-        # Protected files: attempt three-way merge instead of skipping
+        # Protected files: skip (managed manually via .version-overrides)
         if rel_path in overrides:
-            if not os.path.exists(current_file):
-                results["skipped"].append(rel_path)
-                continue
-            if not os.path.exists(next_file):
-                # 4.11-only file, nothing to merge from 4.10
-                results["skipped"].append(rel_path)
-                continue
-            if filecmp.cmp(current_file, next_file, shallow=False):
-                # Files are identical — no merge needed
-                continue
-
-            # Attempt three-way merge
-            ancestor = find_ancestor_content(
-                repo_path, product, current_version, next_version, rel_path
-            )
-            if ancestor is None:
-                # Can't find ancestor — fall back to skipping
-                results["skipped"].append(rel_path)
-                results["warnings"].append(
-                    f"{rel_path}: ancestor lookup failed — skipped merge "
-                    f"(file differs between {current_version} and {next_version})"
-                )
-                continue
-
-            merge_result = merge_protected_file(
-                current_file, next_file, ancestor, dry_run=dry_run
-            )
-
-            if merge_result == "auto_merged":
-                results["auto_merged"].append(rel_path)
-            elif merge_result == "conflict":
-                results["merge_conflicts"].append(rel_path)
-            elif merge_result == "identical":
-                pass  # No changes needed
-            elif merge_result.startswith("error:"):
-                results["skipped"].append(rel_path)
-                results["warnings"].append(f"{rel_path}: merge failed — {merge_result}")
+            results["skipped"].append(rel_path)
             continue
 
         # File must exist in current version
