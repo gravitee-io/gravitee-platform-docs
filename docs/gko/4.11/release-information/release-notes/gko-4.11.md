@@ -17,6 +17,16 @@
 * Requires APIM 4.11 or above and an API with an mTLS plan subscribed for the application.
 <!-- /PIPELINE:GKO-2006 -->
 
+
+<!-- PIPELINE:GKO-2024 -->
+#### **LLM Analytics and Dashboard Template**
+
+* Monitor token consumption and costs for Large Language Model integrations across your environment.
+* Track total and average token counts, associated costs, and usage patterns by model and provider using new `LLM_PROMPT_TOTAL_TOKEN` and `LLM_PROMPT_TOKEN_COST` metrics.
+* Create dashboards from the new LLM template (formerly AI Gateway) to visualize LLM-specific metrics and filter by API type, model, and provider.
+* Requires `Environment-dashboard-r`, `Environment-dashboard-c`, `Environment-dashboard-u`, or `Environment-dashboard-d` permissions to view, create, update, or delete dashboards.
+<!-- /PIPELINE:GKO-2024 -->
+
 ## Improvements
 
 ## Bug Fixes
