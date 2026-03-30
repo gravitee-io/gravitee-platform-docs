@@ -12,6 +12,21 @@ Existing A2A proxy APIs continue to work but they are no longer supported.
 
 ## New Features
 
+#### **LLM Dashboard**
+
+* Users can view analytics for their LLMs in the observability section of their APIM Console. 
+* The LLM dashboard provides you with clear visibility into the LLMs' performance and traffic patterns. 
+* The dashboard shows the following key metrics:
+** Total tokens. The combined total of prompt tokens and completion tokens processed.
+** Average tokens per request. The average token consumption for each LLM call.
+** Total token count over time. The cost trend of tokens for prompts and completion.
+** Token cost over time. The trend of prompt, completion, and total tokens consumed.
+** Total cost. The total cost of the LLM usage.
+** Average cost per request. The average spend for each LLM call.
+** Response status reparition. The breakdown of HTTP outcomes for each LLM call.
+** Total token per model. The breadkown of comsumption across LLM models.
+** Total requests. All HTTP calls processed by the Gateway.
+** LLM requests. Total call volume targeting LLM providers.
 #### **MCP dashboard**
 
 * Users can view analytics for their MCPs in the observability section of their APIM Console. 
