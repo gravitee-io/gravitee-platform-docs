@@ -46,7 +46,7 @@ This section includes access to mission-critical (and potentially dangerous) act
 * **Start/stop the API:** Deploy the API to all Gateways, or the Gateways specified using [sharding tags](../../configure-and-manage-the-platform/gravitee-gateway/sharding-tags.md)
 * **Publish the API:** Publish the API to the Developer Portal
 * **Make Public:** Make the API public so that everybody can see it
-* **Deprecate:** Unpublish the API from the Developer Portal
+* **Deprecate:** Unpublish the API from the Developer Portal. For details on all lifecycle states and allowed transitions, see [API lifecycle states](api-lifecycle-states.md).
 * **Delete:** Delete the API
 {% endtab %}
 {% endtabs %}

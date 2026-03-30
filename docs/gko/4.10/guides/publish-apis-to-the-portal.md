@@ -33,6 +33,34 @@ spec:
 
 To unpublish the API, change the `lifecycle_state` property value to `UNPUBLISHED`.
 
+## Deprecate or archive an API
+
+For `ApiV4Definition` resources, the `lifecycleState` field also accepts `DEPRECATED` and `ARCHIVED`:
+
+```yaml
+apiVersion: gravitee.io/v1alpha1
+kind: ApiV4Definition
+metadata:
+  name: my-api
+spec:
+  name: "my-api"
+  version: "1.0"
+  type: PROXY
+  lifecycleState: "DEPRECATED"
+  # ... rest of the API definition
+```
+
+* **DEPRECATED**: The API is no longer visible to consumers. New plans can't be created on it. Existing subscriptions and Gateway traffic aren't affected. This is a terminal state.
+* **ARCHIVED**: The API is fully retired. It can't be started or stopped through the Management API. This is a terminal state.
+
+{% hint style="warning" %}
+Both DEPRECATED and ARCHIVED are terminal states. Once applied, the lifecycle state can't be changed. Plan the retirement workflow carefully before applying these states.
+{% endhint %}
+
+{% hint style="info" %}
+For the full list of allowed lifecycle state transitions and validation rules, see [API lifecycle states](../../../apim/4.10/create-and-configure-apis/configure-v4-apis/api-lifecycle-states.md) in the APIM documentation.
+{% endhint %}
+
 ## Setting a category for an API
 
 APIs can be grouped into categories to help API consumers navigate through APIs they discover on the Developer Portal. Both `ApiV4Definition` and `ApiDefinition` can reference categories in APIM by name. If a referenced category does not exist in APIM, it will be ignored.
