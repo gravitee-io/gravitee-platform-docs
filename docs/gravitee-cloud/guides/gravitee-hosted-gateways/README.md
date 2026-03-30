@@ -43,11 +43,9 @@ When deploying a new Gateway, you can optionally set sharding tags. To add shard
 1.  Navigate to the **Deployment Tags** section.
 
     <figure><img src="../../.gitbook/assets/deployment-tags-cloud-version.png" alt=""><figcaption></figcaption></figure>
-<!-- TODO: verify label in Cloud UI — agent draft changed "Sharding Tags IDs" to "Sharding Tags Keys" but Cloud UI source code isn't available locally to confirm -->
 2.  In the **Sharding Tags Keys** field, enter one or more tags that identify this Gateway's purpose. For example, `us-east`, `production`, `eu-west`.
 
     <figure><img src="../../.gitbook/assets/sharding-tag-ids-cloud.png" alt=""><figcaption></figcaption></figure>
-<!-- TODO: verify label in Cloud UI — agent draft changed "Tenant Tags" to "Tenant Tag Keys" but Cloud UI source code isn't available locally to confirm -->
 3.  In the **Tenant Tag Keys** field, enter identifiers that represent the backend services or tenants the Gateway routes to. For example, `eu-west-1`.
 
     <figure><img src="../../.gitbook/assets/tenant-tag-ids-description.png" alt=""><figcaption></figcaption></figure>
