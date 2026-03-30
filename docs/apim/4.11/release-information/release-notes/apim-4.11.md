@@ -4,6 +4,10 @@
 
 ## Breaking Changes
 
+#### **End of support for V1 APIs**
+
+V1 APIs have been deprecated since version 4.0.0 of API Management (APIM). From 4.12.0 of APIM, V1 APIs are no longer supported. To prepare for the end of support, you must migrate your V1 APIs to at least V2 before upgrading to 4.12.0.
+
 ## New Features
 
 
