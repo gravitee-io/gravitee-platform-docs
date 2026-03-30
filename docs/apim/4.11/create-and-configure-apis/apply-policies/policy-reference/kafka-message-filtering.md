@@ -52,6 +52,8 @@ You can configure the policy with the following options:
 
 ## Examples <a href="#user-content-example" id="user-content-example"></a>
 
+<table><thead><tr><th width="200">Format</th><th width="300">Example</th><th>Description</th></tr></thead><tbody><tr><td>Single IP (IPv4)</td><td><code>192.168.1.1</code></td><td>Exact match</td></tr><tr><td>Single IP (IPv6)</td><td><code>fd12:3456:789a::1</code></td><td>Exact match</td></tr><tr><td>CIDR (IPv4)</td><td><code>192.168.1.0/24</code></td><td>Network range</td></tr><tr><td>CIDR (IPv6)</td><td><code>fd12:3456:789a::/64</code></td><td>Network range</td></tr><tr><td>IP range (IPv4)</td><td><code>192.168.1.1-192.168.1.10</code></td><td>Inclusive range</td></tr><tr><td>IP range (IPv6)</td><td><code>fd12:3456:789a::1-fd12:3456:789a::a</code></td><td>Inclusive range</td></tr><tr><td>Comma-separated</td><td><code>192.168.1.1,192.168.2.0/24</code></td><td>Multiple values evaluated individually</td></tr><tr><td>Expression Language</td><td><code>{#api.properties['allowed_ips']}</code></td><td>Evaluated at runtime</td></tr></tbody></table>
+
 If my message looks like:
 
 ```json

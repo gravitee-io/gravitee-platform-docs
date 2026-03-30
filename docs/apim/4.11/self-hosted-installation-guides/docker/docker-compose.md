@@ -373,6 +373,7 @@ This example shows configuration for Confluent Platform integration. For Solace 
       storage:
         name: storage
 
+    # configure services
     services:
       mongodb:
         image: mongo:7.0

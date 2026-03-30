@@ -12,7 +12,7 @@ You can configure authentication for the New Developer Portal, where users must 
 * Configure one or more of the following identity providers:
   * [gravitee-access-management.md](../../../configure-and-manage-the-platform/manage-organizations-and-environments/authentication/gravitee-access-management.md "mention")
   * [social-providers.md](../../../configure-and-manage-the-platform/manage-organizations-and-environments/authentication/social-providers.md "mention")
-  * [microsoft-entra-id.md](../../../../4.9/configure-and-manage-the-platform/manage-organizations-and-environments/authentication/microsoft-entra-id.md "mention")
+  * [microsoft-entra-id.md](../../../configure-and-manage-the-platform/manage-organizations-and-environments/authentication/microsoft-entra-id.md "mention")
   * [openid-connect.md](../../../configure-and-manage-the-platform/manage-organizations-and-environments/authentication/openid-connect.md "mention")
 
 ## Configure authentication with SSO

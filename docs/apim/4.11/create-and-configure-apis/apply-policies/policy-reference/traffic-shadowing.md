@@ -11,10 +11,17 @@ metaLinks:
 
 Traffic shadowing allows to asynchronously copy the traffic to another service. By using this policy, the requests are duplicated and sent to the target. The target is an endpoint defined at the API level. The request can be enriched with additional headers.
 
+### Endpoint scoping
+
+The shadow endpoint target resolves differently depending on the API version:
+
+* **v2 APIs:** The shadow endpoint is resolved within the same endpoint group as the invoking endpoint. The target endpoint name refers to an endpoint in the current group only.
+* **v4 HTTP proxy APIs:** The shadow endpoint is resolved across all endpoint groups. The target endpoint name can refer to any endpoint in any group defined on the API.
+
 ## Examples
 
 {% hint style="warning" %}
-This policy can only be applied to v2 APIs. It cannot be applied to v4 message APIs or v4 proxy APIs.
+This policy can be applied to v2 APIs and v4 HTTP proxy APIs. It can't be applied to v4 message APIs or v4 TCP proxy APIs. V4 HTTP proxy API support requires plugin version 3.0.0 or later and APIM 4.6 or later.
 {% endhint %}
 
 {% tabs %}
@@ -55,9 +62,10 @@ The `traffic-shadowing` policy can be configured with the following options:
 
 The following is the compatibility matrix for APIM and the `traffic-shadowing` policy:
 
-| Plugin version | Supported APIM versions            |
-| -------------- | ---------------------------------- |
-| 2.x and upper  | 3.18.20, 3.19.9, 3.20.3 and upper. |
+| Plugin version | Supported APIM versions                      |
+| -------------- | -------------------------------------------- |
+| 3.x            | 4.6.0 and later (adds v4 HTTP proxy support) |
+| 2.x            | 3.18.20, 3.19.9, 3.20.3 and later            |
 
 ## Changelogs
 
