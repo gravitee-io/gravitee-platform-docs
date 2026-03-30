@@ -41,13 +41,45 @@ For `ApiV4Definition` resources, the `lifecycleState` field also accepts `DEPREC
 apiVersion: gravitee.io/v1alpha1
 kind: ApiV4Definition
 metadata:
-  name: my-api
+  name: api-v4
+  namespace: gravitee
 spec:
-  name: "my-api"
+  name: "api-v4"
+  description: "API v4 managed by Gravitee Kubernetes Operator"
   version: "1.0"
   type: PROXY
   lifecycleState: "DEPRECATED"
-  # ... rest of the API definition
+  contextRef:
+    name: "management-context-1"
+  definitionContext:
+    origin: KUBERNETES
+    syncFrom: MANAGEMENT
+  listeners:
+    - type: HTTP
+      paths:
+        - path: "/echo-v4"
+      entrypoints:
+        - type: http-proxy
+          qos: AUTO
+  endpointGroups:
+    - name: Default HTTP proxy group
+      type: http-proxy
+      endpoints:
+        - name: Default HTTP proxy
+          type: http-proxy
+          inheritConfiguration: false
+          configuration:
+            target: https://api.gravitee.io/echo
+          secondary: false
+  flowExecution:
+    mode: DEFAULT
+    matchRequired: false
+  plans:
+    KeyLess:
+      name: "Free plan"
+      description: "This plan does not require any authentication"
+      security:
+        type: "KEY_LESS"
 ```
 
 * **DEPRECATED**: The API is no longer visible to consumers. New plans can't be created on it. Existing subscriptions and Gateway traffic aren't affected. This is a terminal state.
