@@ -17,7 +17,7 @@ A full SaaS set up of Gravitee is a convenient way to run Gravitee. Gravitee man
 ## Deploy a Gravitee hosted Gateway
 
 {% hint style="info" %}
-You do not have to scale your Gateways. Gravitee scales your Gateways and manages high availability.
+You don't have to scale your Gateways. Gravitee scales your Gateways and manages high availability.
 {% endhint %}
 
 ### Add Gateway details
@@ -43,10 +43,10 @@ When deploying a new Gateway, you can optionally set sharding tags. To add shard
 1.  Navigate to the **Deployment Tags** section.
 
     <figure><img src="../../.gitbook/assets/deployment-tags-cloud-version.png" alt=""><figcaption></figcaption></figure>
-2.  In the **Sharding Tags IDs** field, enter one or more tags that identify this Gateway's purpose. For example, "us-east", "production", "eu-west".
+2.  In the **Sharding Tags Keys** field, enter one or more tags that identify this Gateway's purpose. For example, `us-east`, `production`, `eu-west`.
 
     <figure><img src="../../.gitbook/assets/sharding-tag-ids-cloud.png" alt=""><figcaption></figcaption></figure>
-3.  In the **Tenant Tags** field, input identifiers that represent the backend services or tenants the Gateway should route to. For example, "eu-west-1".
+3.  In the **Tenant Tag Keys** field, enter identifiers that represent the backend services or tenants the Gateway routes to. For example, `eu-west-1`.
 
     <figure><img src="../../.gitbook/assets/tenant-tag-ids-description.png" alt=""><figcaption></figcaption></figure>
 4. Click **Save**.
@@ -64,7 +64,7 @@ When deploying a new Gateway, you can optionally set sharding tags. To add shard
    4.  Choose the region for your Gateway
 
        <figure><img src="../../.gitbook/assets/deploy-gateway-2.png" alt=""><figcaption></figcaption></figure>
-3. (Optional) Add development tags. For morei nformation about adding development tags, see [#optional-add-development-tags](./#optional-add-development-tags "mention").
+3. (Optional) Add development tags. For more information about adding development tags, see [#optional-add-development-tags](./#optional-add-development-tags "mention").
 4.  Click on **Save.**
 
     <figure><img src="../../.gitbook/assets/click-on-save.png" alt=""><figcaption></figcaption></figure>
@@ -149,7 +149,7 @@ Gateway tagging is handled in the Cloud UI deployment process. For API configura
 * [Add sharding tags to your APIs](https://documentation.gravitee.io/apim/configure-and-manage-the-platform/gravitee-gateway/sharding-tags#add-sharding-tags-to-your-apis)
 
 {% hint style="danger" %}
-**Note:** Skip any steps involving `gravitee.yml`, `values.yaml`, or environment variables. These are not applicable to Gravitee-hosted gateways.
+**Note:** Skip any steps involving `gravitee.yml`, `values.yaml`, or environment variables. These aren't applicable to Gravitee-hosted gateways.
 {% endhint %}
 
 #### Configure Tenant Tags in API Management
