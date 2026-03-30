@@ -94,8 +94,7 @@ jobs:
             . \
             ${{ matrix.product }} \
             ${{ matrix.current }} \
-            ${{ matrix.next }} \
-            --changed-files-from /tmp/changed_files.txt
+            ${{ matrix.next }}
           # Check if sync actually produced diffs (for PR gate)
           # git diff catches modified tracked files; git ls-files catches new untracked files
           if git diff --quiet && [ -z "$(git ls-files --others --exclude-standard)" ]; then
