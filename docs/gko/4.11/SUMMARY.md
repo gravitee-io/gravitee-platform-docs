@@ -33,7 +33,6 @@
 ## GUIDES
 
 * [Kubernetes CRD Configuration for Client Certificates](guides/kubernetes-crd-configuration-for-client-certificates.md)
-* [Logs Explorer Console UI](../../apim/4.11/guides/logs-explorer-console-ui.md)
     * [Gateway Configuration for mTLS Certificate Management](../../apim/4.11/gateway/configuration/gateway-configuration-for-mtls-certificate-management.md)
 * [mTLS Certificate Management Overview](mtls-certificate-management-overview.md)
 * [Manage JWT subscriptions with GKO](guides/manage-jwt-subscriptions-with-gko.md)
@@ -55,7 +54,6 @@
 ## REFERENCE
 
 * [API Reference](reference/api-reference.md)
-  * [Logs Engine API](reference/logs-engine-api.md)
 
 ## RELEASES & CHANGELOG
 
