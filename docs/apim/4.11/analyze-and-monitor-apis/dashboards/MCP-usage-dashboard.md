@@ -2,7 +2,7 @@
 
 ## Overview
 
-The LLM Dashboard provides users with clear visibility into the LLM usage for their environment. With this Dashboard, the user can monitor how often a tool is used, the behavior of the LLM, and any errors produced by the LLM.
+The MCP Dashboard provides users with clear visibility into the MCP usage for their environment. With this Dashboard, the user can monitor how often a tool is used, the behavior of the MCP, and any errors produced by the MCP.
 
 ### Metrics for the MCP Dashboard
 The LLM dashboard shows the following metrics:
@@ -17,7 +17,7 @@ The LLM dashboard shows the following metrics:
 * Response status repartition. The distribution of HTTP response status codes for MCP requests.
 * Most used tools. The top 5 MCP tools by request count.
 * Most used prompts. The top 5 most used request prompts by request count.
-* Average response time. Average Gateway response time. for MCP requests over time.
+* Average response time. Average Gateway response time for MCP requests over time.
 
 ## Prerequisities 
 To configure the MCP Dashboard, the user must have the following permissions:

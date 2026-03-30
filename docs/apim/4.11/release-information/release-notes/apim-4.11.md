@@ -6,6 +6,26 @@
 
 ## New Features
 
+#### **MCP dashboard**
+
+* Users can view analytics for their MCPs in the observability section of their APIM Console. 
+
+* The MCP dashboard provides you with clear visibility into the MCPs' performance and traffic patterns. 
+
+* The dashboard shows the following key metrics:
+** MCP requests. The total number of requests targeting MCP APIs.
+** Average latency. The average Gateway latency for MCP requests.
+** Max latency. The maximum Gateway latency observed for MCP requests.
+** P90 latency. The 90th percentile Gateway latency for MCP requests.
+** P99 latency. The 99th percentile Gateway latency for MCP requests.
+** Method usage. The distribution of MCP proxy methods by request count. 
+** Method usage over time. The evolution of the method usage over time.
+** Most used resources. The top five used MCP resources by request count.
+** Response status repartition. The distribution of HTTP response status codes for MCP requests.
+** Most used tools. The top 5 MCP tools by request count.
+** Most used prompts. The top 5 most used request prompts by request count.
+** Average response time. Average Gateway response time for MCP requests over time.
+
 
 <!-- PIPELINE:APIM-12439 -->
 #### **AI-Powered PII Filtering Policy**
