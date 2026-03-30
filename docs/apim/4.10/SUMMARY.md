@@ -135,6 +135,7 @@
     * [Promote APIs](create-and-configure-apis/create-apis/promote-apis.md)
   * [Configure v4 APIs](create-and-configure-apis/configure-v4-apis/README.md)
     * [General Settings](create-and-configure-apis/configure-v4-apis/general-settings.md)
+    * [API Lifecycle States](create-and-configure-apis/configure-v4-apis/api-lifecycle-states.md)
     * [Entrypoints](create-and-configure-apis/configure-v4-apis/entrypoints/README.md)
       * [HTTP GET](create-and-configure-apis/configure-v4-apis/entrypoints/http-get.md)
       * [HTTP POST](create-and-configure-apis/configure-v4-apis/entrypoints/http-post.md)
