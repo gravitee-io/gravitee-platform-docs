@@ -113,7 +113,7 @@ Transitioning directly from DEPRECATED to ARCHIVED isn't currently supported. To
     * **Deprecate**: Transitions to DEPRECATED.
 
 {% hint style="info" %}
-The Console doesn't expose an **Archive** action. To set the ARCHIVED state, use the Management API or the Gravitee Kubernetes Operator.
+The Console doesn't expose an **Archive** action. To set the ARCHIVED state, use the Management API or the [Gravitee Kubernetes Operator](../../../../gko/4.10/guides/publish-apis-to-the-portal.md).
 {% endhint %}
 
 ### Management API
@@ -130,61 +130,6 @@ curl -X PUT "https://{management-api}/management/v2/environments/{envId}/apis/{a
 ```
 
 Replace `DEPRECATED` with the target state (`PUBLISHED`, `UNPUBLISHED`, `DEPRECATED`, or `ARCHIVED`).
-
-### Gravitee Kubernetes Operator
-
-Set the `lifecycleState` field in the `ApiV4Definition` custom resource:
-
-```yaml
-apiVersion: gravitee.io/v1alpha1
-kind: ApiV4Definition
-metadata:
-  name: api-v4
-  namespace: gravitee
-spec:
-  name: "api-v4"
-  description: "API v4 managed by Gravitee Kubernetes Operator"
-  version: "1.0"
-  type: PROXY
-  lifecycleState: "DEPRECATED"
-  contextRef:
-    name: "management-context-1"
-  definitionContext:
-    origin: KUBERNETES
-    syncFrom: MANAGEMENT
-  listeners:
-    - type: HTTP
-      paths:
-        - path: "/echo-v4"
-      entrypoints:
-        - type: http-proxy
-          qos: AUTO
-  endpointGroups:
-    - name: Default HTTP proxy group
-      type: http-proxy
-      endpoints:
-        - name: Default HTTP proxy
-          type: http-proxy
-          inheritConfiguration: false
-          configuration:
-            target: https://api.gravitee.io/echo
-          secondary: false
-  flowExecution:
-    mode: DEFAULT
-    matchRequired: false
-  plans:
-    KeyLess:
-      name: "Free plan"
-      description: "This plan does not require any authentication"
-      security:
-        type: "KEY_LESS"
-```
-
-The accepted values for `ApiV4Definition` resources are `PUBLISHED`, `UNPUBLISHED`, `DEPRECATED`, and `ARCHIVED`. The default is `UNPUBLISHED`.
-
-{% hint style="info" %}
-For more details on managing API visibility with GKO, see [Publish APIs to the Developer Portal](../../../../gko/4.10/guides/publish-apis-to-the-portal.md).
-{% endhint %}
 
 ## Lifecycle state vs. plan status
 
