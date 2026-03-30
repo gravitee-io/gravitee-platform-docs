@@ -15,6 +15,15 @@ Here are the breaking changes for versions 4.X of Gravitee and versions 3.X of G
 
 Here are the breaking changes from versions 4.X of Gravitee.
 
+#### 4.11.0
+
+**A2A Proxy APIs architecture**
+
+The A2A proxy architecture introduces the `A2A_PROXY` API type. With this change, you must create your A2A Proxy APIs again to avoid any issues and to align with the new architecture.
+
+Existing A2A proxy APIs continue to work but they are no longer supported.
+
+
 #### 4.10.0
 
 **Kafka Native APIs Analytics**
