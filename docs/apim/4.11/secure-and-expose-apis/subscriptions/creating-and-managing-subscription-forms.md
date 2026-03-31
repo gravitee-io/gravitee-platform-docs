@@ -3,8 +3,23 @@
 ## Creating subscription forms
 
 1. Navigate to **Portal Settings > Subscription Form** in the Management Console.
+
+    <figure><img src="../../.gitbook/assets/pvdE8Owg__image.png" alt="Management Console dashboard"><figcaption></figcaption></figure>
+
+    <figure><img src="../../.gitbook/assets/git-blob__601A31D5-D722-4B6B-AC99-72E0D9D5E765_1_201_a.jpeg" alt="Settings menu"><figcaption></figcaption></figure>
+
+    <figure><img src="../../.gitbook/assets/eB0pOpBE__image.png" alt="Portal settings"><figcaption></figcaption></figure>
+
+    <figure><img src="../../.gitbook/assets/657dxh5i__Zrzut ekranu 2026-03-10 o 14.02.19.png" alt="Subscription Form menu item"><figcaption></figcaption></figure>
+
 2. Write form content using the GMD form editor. The live preview pane displays the rendered form in real time.
+
+    <figure><img src="../../.gitbook/assets/HnW9DAMW__Zrzut ekranu 2026-03-10 o 14.04.01.png" alt="GMD form editor with live preview"><figcaption></figcaption></figure>
+
 3. Toggle the **Visible to API consumers** switch to control whether the form appears in the Developer Portal.
+
+    <figure><img src="../../.gitbook/assets/e768lrUA__Zrzut ekranu 2026-03-10 o 14.08.31.png" alt="Visibility toggle and save controls"><figcaption></figcaption></figure>
+
 4. Click **Save** to persist changes.
 
 An unsaved changes guard prevents accidental navigation away from unsaved edits. Forms are scoped to the environment level — each environment has one subscription form.
@@ -12,6 +27,8 @@ An unsaved changes guard prevents accidental navigation away from unsaved edits.
 {% hint style="info" %}
 Subscription forms aren't displayed for Keyless plans. The form only appears during the subscription checkout flow when the selected plan requires authentication (API Key, OAuth2, JWT, or mTLS).
 {% endhint %}
+
+<figure><img src="../../.gitbook/assets/HsfV91lH__image.png" alt="Validation panel showing field validation rules"><figcaption></figcaption></figure>
 
 ## GMD form components
 
@@ -30,6 +47,18 @@ All components support `fieldKey`, `name`, `label`, `value`, `required`, and `di
 {% endhint %}
 
 For a complete attribute reference, see [Subscription form feature overview](subscription-form-feature-overview.md#supported-form-components).
+
+### Verifying the subscription form
+
+To verify the form appears correctly:
+
+1. Enable the form using the **Visible to API consumers** toggle.
+2. Open your Developer Portal and navigate to an API.
+3. Start a subscription — the custom form should appear on the right side of the subscription checkout flow.
+
+<figure><img src="../../.gitbook/assets/yxZoykMa__Zrzut ekranu 2026-03-10 o 14.11.14.png" alt="Subscription checkout showing custom form"><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/Nsy6qPct__image.png" alt="Completed subscription form in Developer Portal"><figcaption></figcaption></figure>
 
 ## Managing subscription forms
 
