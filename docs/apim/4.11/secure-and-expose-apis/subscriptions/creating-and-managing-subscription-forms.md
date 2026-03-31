@@ -2,16 +2,37 @@
 
 ## Creating subscription forms
 
-1. Navigate to **Portal Settings > Subscription Form** in the Management Console.
-2. Write form content using the GMD form editor. The live preview pane displays the rendered form in real time.
-3. Toggle the **Visible to API consumers** switch to control whether the form appears in the Developer Portal.
-4. Click **Save** to persist changes.
+1. In the Management Console, click **Settings** in the left sidebar.
+
+    <figure><img src="../../.gitbook/assets/pvdE8Owg__image.png" alt="Management Console dashboard with Settings highlighted"><figcaption><p>Click Settings in the left sidebar</p></figcaption></figure>
+
+2. Scroll to the **New Developer Portal** section and click **Open Settings**.
+
+    <figure><img src="../../.gitbook/assets/eB0pOpBE__image.png" alt="New Developer Portal section with Open Settings button"><figcaption><p>Click Open Settings in the New Developer Portal section</p></figcaption></figure>
+
+3. In the portal settings sidebar, select **Subscription Form**.
+
+    <figure><img src="../../.gitbook/assets/657dxh5i__Zrzut ekranu 2026-03-10 o 14.02.19.png" alt="Portal settings sidebar with Subscription Form highlighted"><figcaption><p>Select Subscription Form in the portal settings sidebar</p></figcaption></figure>
+
+4. Write form content using the GMD form editor. The live preview pane displays the rendered form in real time.
+
+    <figure><img src="../../.gitbook/assets/HnW9DAMW__Zrzut ekranu 2026-03-10 o 14.04.01.png" alt="GMD form editor with live preview"><figcaption><p>GMD form editor with live preview pane</p></figcaption></figure>
+
+5. Toggle the **Visible to API consumers** switch to control whether the form appears in the Developer Portal.
+
+    <figure><img src="../../.gitbook/assets/e768lrUA__Zrzut ekranu 2026-03-10 o 14.08.31.png" alt="Visible to API consumers toggle and Save button"><figcaption><p>Visible to API consumers toggle and Save button</p></figcaption></figure>
+
+6. Click **Save** to persist changes.
 
 An unsaved changes guard prevents accidental navigation away from unsaved edits. Forms are scoped to the environment level — each environment has one subscription form.
 
 {% hint style="info" %}
 Subscription forms aren't displayed for Keyless plans. The form only appears during the subscription checkout flow when the selected plan requires authentication (API Key, OAuth2, JWT, or mTLS).
 {% endhint %}
+
+The form editor validates GMD content in real time. Configuration errors, auto-corrected warnings, and field validation status appear in the validation panel below the editor.
+
+<figure><img src="../../.gitbook/assets/HsfV91lH__image.png" alt="Validation panel showing configuration errors and field status"><figcaption><p>Validation panel showing configuration errors, warnings, and field status</p></figcaption></figure>
 
 ## GMD form components
 
@@ -52,6 +73,19 @@ When a form is disabled, it remains accessible via Management API (`GET /environ
 When an API consumer submits a subscription form, the form field values are stored as key-value pairs in the subscription's `metadata` property. Empty values (null, empty strings, whitespace-only) are filtered before storage.
 
 Subscription metadata is displayed in the subscription details pages (both API subscriptions and application subscriptions) using a read-only viewer.
+
+## Verification
+
+To verify the subscription form is working as expected, follow these steps:
+
+1. Enable the form using the **Visible to API consumers** toggle.
+2. Click **Open Website** in the portal settings top bar to open the Developer Portal.
+
+    <figure><img src="../../.gitbook/assets/yxZoykMa__Zrzut ekranu 2026-03-10 o 14.11.14.png" alt="Open Website button in the portal settings top bar"><figcaption><p>Click Open Website to preview the Developer Portal</p></figcaption></figure>
+
+3. Navigate to an API and start a subscription. The custom form appears on the right side of the subscription checkout flow.
+
+    <figure><img src="../../.gitbook/assets/Nsy6qPct__image.png" alt="Custom subscription form rendered in the Developer Portal checkout"><figcaption><p>Custom subscription form in the Developer Portal subscription checkout</p></figcaption></figure>
 
 ## Management API v2 reference
 
