@@ -4,6 +4,7 @@ description: This page details the go-forward strategy for supporting v1 APIs in
 
 # Support for v1 APIs
 
+## Overview
 This page details Gravitee’s strategy for supporting v1 APIs in API Management (APIM). 
 
 {% hint style="info" %}
@@ -19,9 +20,10 @@ If you run version 3.20 of APIM, you can import your v1 API, and then upgrade th
 ## Upgrade to APIM 4.x.x with v1 APIs
 
 Depending on which version of Gravitee that you upgrade to, you have to complete different actions for your v1 APIs. Follow the steps for your upgrade:
-* [Upgrade to versions 4.0.0 to 4.11.x](link)
+* [Upgrade to versions 4.0.0 to 4.11.x](#upgrade-to-versions-400-to-411x)
+* [Upgrade to version 4.12.x](#upgrade-to-version-412x)
 
-### Upgrade to versions 4.0.0 to 4.11.x.
+### Upgrade to versions 4.0.0 to 4.11.x
 
 When you upgrade an existing APIM environment to version 4.0.0 up to 4.11.x, here is how your environment interacts with v1 APIs:
 
