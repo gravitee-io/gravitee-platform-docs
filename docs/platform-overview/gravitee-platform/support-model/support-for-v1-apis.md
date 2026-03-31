@@ -4,54 +4,37 @@ description: This page details the go-forward strategy for supporting v1 APIs in
 
 # Support for v1 APIs
 
-## Overview
+This page details Gravitee’s strategy for supporting v1 APIs in API Management (APIM). 
 
-This document outlines how we intend to manage and support v1 APIs in future versions of APIM. The following FAQ present the details:&#x20;
+{% hint style="info" %}
+Gravitee deprecated v1 APIs in version 4.4.0 of APIM. From version 4.12.0, there is no support for v1 APIs. 
+{% endhint %}
 
-* [Can a user create v1 APIs today?](support-for-v1-apis.md#can-a-user-create-v1-apis-today)
-* [What happens when APIM is updated from \~3.15 to 4.0?](support-for-v1-apis.md#what-happens-when-apim-is-updated-from-3.15-to-4.0)
-* [When will v1 APIs stop running on the Gateway?](support-for-v1-apis.md#when-will-v1-apis-stop-running-on-the-gateway)
-* [How will we support upgrading v1 APIs in v4?](support-for-v1-apis.md#how-will-we-support-upgrading-v1-apis-in-v4)
-* [Why include the upgrader in the backend and not in the UI?](support-for-v1-apis.md#why-include-the-upgrader-in-the-backend-and-not-in-the-ui)
-* [What will happen to users who still have v1 APIs in 5.0?](support-for-v1-apis.md#what-will-happen-to-users-who-still-have-v1-apis-in-5.0)
-* [What will happen to the v1 API code?](support-for-v1-apis.md#what-will-happen-to-the-v1-api-code)
+## Create and import v1 APIs
 
-Although v1 APIs have been **deprecated**, they are still supported. Gravitee uses deprecation to publicly signal that we intend to remove the deprecated functionality from a future release.
+If you run version 3.20 or later of APIM, you cannot create v1 APIs.
 
-## FAQ
+If you run version 3.20 of APIM, you can import your v1 API, and then upgrade the API to v2. If you run version 4.0.0 or later, you cannot import v1 APIs.
 
-The following FAQ cover the details of future support for v1 APIs.
+## Upgrade to APIM 4.x.x with v1 APIs
 
-### Can a user create v1 APIs today?
+Depending on which version of Gravitee that you upgrade to, you have to complete different actions for your v1 APIs. Follow the steps for your upgrade:
+* [Upgrade to versions 4.0.0 to 4.11.x](link)
 
-No. A user cannot create a v1 API in APIM 3.20 or 4.0. In version 3.20, a user can import a v1 API and also specify that they want to convert the API to v2. In version 4.0, users **cannot** import v1 APIs.
+### Upgrade to versions 4.0.0 to 4.11.x.
 
-### What happens when APIM is updated from \~3.15 to 4.0?
+When you upgrade an existing APIM environment to version 4.0.0 up to 4.11.x, here is how your environment interacts with v1 APIs:
 
-Many customers are running versions of APIM that support creating v1 APIs (e.g., APIM 3.15). If these users upgrade their existing APIM environments to 4.0, the following behavior will occur:
+* v1 APIs continue to run on the Gateway.
+* Client applications can still call the v1 APIs that you deployed.
+* v1 APIs appear as read-only. Gravitee prompts you to upgrade the API to a v2 definition.
+* If you run version 4.0.0 of APIM, you can create, publish, deprecate, and close plans for v1 APIs.
 
-* v1 APIs will **continue running** on the Gateway. Client applications will continue to be able to call the deployed v1 APIs.
-* In the v4 UI, the API will appear in the list but be **read only**. A banner present for v1 APIs prompts the user to upgrade the API to the v2 definition.
-* Currently, users can still create, publish, deprecate, and close plans for v1 APIs. We **do** plan to remove this feature, likely in 4.1.
+### Upgrade to version 4.12.x
 
-### When will v1 APIs stop running on the Gateway?
+From 4.12.0 of APIM, Gravitee no longer supports v1 APIs. Before you upgrade to version 4.12.0, ensure that you migrate all v1 APIs to at least a v2 API definition. If you upgrade to 4.12.0 with a v1 API, here is how Gravitee interacts with v1 APIs
 
-For version 4.0, v1 APIs will **continue running** on the Gateway but will be read only. We will not prevent v1 APIs from running on the Gateway until we release APIM 5.0. The earliest release date for APIM 5.0 will be in summer of 2024.
-
-### How will we support upgrading v1 APIs in v4?
-
-We plan to add an automated v1 API upgrader that can be turned on with a certain configuration of the APIM instance's properties in `gravitee.yml`. This will leverage an existing upgrader framework we use for APIM, where the upgrader  will be runnable in a "dry run" mode. "Dry run" will be able to report which APIs still need upgrading and which are able to be upgraded automatically.&#x20;
-
-If an API cannot be automatically upgraded, we will log the incompatibility. If an API cannot be migrated at all, Gravitee will be available to assist its customers in manually upgrading the API via manipulations to the database.
-
-### Why include the upgrader in the backend and not in the UI?
-
-We expect that customers who still use and manage v1 APIs will be comfortable managing APIM through the configuration files, and devoting time to develop a v1 frontend will be at the expense of adding valuable features to the UI. We have therefore elected to keep v1 behind-the-scenes and only expose it for customers who need this particular feature.
-
-### What will happen to users who still have v1 APIs in 5.0?
-
-For users with v1 APIs who upgrade to 5.0, their v1 APIs will appear in the UI as in-error with an invalid version. Any running v1 APIs will be stopped and "undeployed" by the Management API, and the 5.0 Gateway will ignore v1 APIs upon start-up. The v1 upgrader will still be present and will run whenever the management API starts assuming its `enabled` property is set to `true`.
-
-### What will happen to the v1 API code?
-
-The code to run v1 APIs will be entirely removed from the APIM codebase. However, the v1 code from previous versions of the codebase will be obtainable from the version history in GitHub.
+* Gravitee removes the v1 API code from the APIM codebase.
+* The APIM Gateway ignores v1 APIs.
+* The Management API automatically stops running v1 APIs.
+* In the UI, v1 APIs display an error indicating an invalid version.
