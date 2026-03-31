@@ -65,7 +65,7 @@ To configure sharding tags, complete the following steps:
 
 * [#create-a-tag-in-the-apim-console](sharding-tags.md#create-a-tag-in-the-apim-console "mention")
 * [#add-sharding-tags-to-your-apis](sharding-tags.md#add-sharding-tags-to-your-apis "mention")
-* [#add-the-tag-id-to-values.yaml-gravitee.yml-or-with-environment-variables](sharding-tags.md#add-the-tag-id-to-values.yaml-gravitee.yml-or-with-environment-variables "mention")
+* [#add-the-tag-key-to-values.yaml-gravitee.yml-or-with-environment-variables](sharding-tags.md#add-the-tag-key-to-values.yaml-gravitee.yml-or-with-environment-variables "mention")
 
 ### Create a tag in the APIM Console
 
@@ -78,17 +78,14 @@ To configure sharding tags, complete the following steps:
 3.  Navigate to **Sharding Tags**, and then click **+ Add a tag**.
 
     <figure><img src="../../.gitbook/assets/add-a-sharding-tag (1).png" alt=""><figcaption></figcaption></figure>
-4. In the **Create a tag** pop-up window, add the following information:
-   1. In the **Name** field, add the name of your tag.
-   2. (Optional) In the **Description** field, add a description for the tag.
-   3.  (Optional) From the **Restricted groups** drop-down menu, select the groups that you want to be able to deploy to this tag.
+4. In the **Create a tag** pop-up window, enter the following information:
+   1. In the **Name** field, enter the name of the tag.
+   2. In the **Key** field, enter a unique key for the tag. The key accepts 1–64 lowercase alphanumeric characters and hyphens only. The key is immutable after creation and is the value used in `gravitee.yml` and API path parameters.
+   3. (Optional) In the **Description** field, enter a description for the tag.
+   4.  (Optional) From the **Restricted groups** drop-down menu, select the groups that you want to be able to deploy to this tag.
 
-       <figure><img src="../../.gitbook/assets/create-a-tag-pop-up (1).png" alt=""><figcaption></figcaption></figure>
-5. Click **Ok**. The sharding tag now appears in the list of **Sharding Tags**.
-
-{% hint style="info" %}
-Take note of the generated 'id', as this may differ from your 'name' (due to the use of underscores or hyphens).
-{% endhint %}
+       <figure><img src="../../.gitbook/assets/create-a-tag-with-key-field.png" alt=""><figcaption><p>Create a tag dialog with Name, Key, Description, and Restricted groups fields</p></figcaption></figure>
+5. Click **Ok**. The sharding tag now appears in the list of **Sharding Tags**. The **Key** column displays the tag key used for Gateway configuration and API operations.
 
 ### Add sharding tags to your APIs
 
@@ -109,13 +106,13 @@ Take note of the generated 'id', as this may differ from your 'name' (due to the
 
     <figure><img src="../../.gitbook/assets/sharding-tag-popup-save-changes (1).png" alt=""><figcaption></figcaption></figure>
 
-### Add the tag ID to `values.yaml`, `gravitee.yml` or with environment variables
+### Add the tag key to `values.yaml`, `gravitee.yml` or with environment variables
 
-1. Find the ID for your sharding tag(s). To find the ID of your sharding tag(s), complete the following substeps:
+1. Find the key for your sharding tag(s). To find the key of your sharding tag(s), complete the following substeps:
    1. From the **Dashboard**, click **Organization**.
    2. In the **Organization** menu, click **Entrypoints & Sharding Tags**.
-   3. Navigate to the **Sharding Tags** section. The ID of your sharding tag is in the **ID** column.
-2. Add the ID of your sharding tag or tags to either your Helm `values.yaml`, `gravitee.yml` file or as environment variables by completing the set of following steps that match your configuration:
+   3. Navigate to the **Sharding Tags** section. The key of your sharding tag is in the **Key** column.
+2. Add the key of your sharding tag or tags to either your Helm `values.yaml`, `gravitee.yml` file or as environment variables by completing the set of following steps that match your configuration:
 
 {% tabs %}
 {% tab title="Helm values.yaml" %}
@@ -130,7 +127,7 @@ gateway:
 ```
 {% endcode %}
 
-* Replace `<tag1>, <tag2>, !<tag3>` with a comma-separated list of your sharding tag IDs.
+* Replace `<tag1>, <tag2>, !<tag3>` with a comma-separated list of your sharding tag keys.
 * To exclude a tag from a Gateway configuration, add an exclamation mark (!) before the tag.
 {% endtab %}
 
@@ -146,7 +143,7 @@ In your `gravitee.yml` file, add the following configuration:
 {% endcode %}
 
 * Uncomment `#tags: <tag1>, <tag2>, !<tag3>`.
-* Replace `<tag1>, <tag2>, !<tag3>` with a comma-separated list of your sharding tag IDs.
+* Replace `<tag1>, <tag2>, !<tag3>` with a comma-separated list of your sharding tag keys.
 * To exclude a tag from a Gateway configuration, add an exclamation mark (!) before the tag.
 {% endtab %}
 
@@ -159,7 +156,7 @@ gravitee_tags=<tag1>,<tag2>,!<tag3>
 ```
 {% endcode %}
 
-* Replace `<tag1>, <tag2>, !<tag3>` with a comma-separated list of your sharding tag IDs.
+* Replace `<tag1>, <tag2>, !<tag3>` with a comma-separated list of your sharding tag keys.
 * To exclude a tag from a Gateway configuration, add an exclamation mark (!) before the tag.
 {% endtab %}
 
@@ -176,7 +173,7 @@ gateway:
 ```
 {% endcode %}
 
-* Replace `<tag1>, <tag2>, !<tag3>` with a comma-separated list of your sharding tag IDs.
+* Replace `<tag1>, <tag2>, !<tag3>` with a comma-separated list of your sharding tag keys.
 * To exclude a tag from a Gateway configuration, add an exclamation mark (!) before the tag.
 {% endtab %}
 {% endtabs %}

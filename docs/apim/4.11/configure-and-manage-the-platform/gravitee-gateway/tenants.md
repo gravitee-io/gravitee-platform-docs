@@ -46,7 +46,7 @@ If all endpoints in the group are tenant-specific and none match the gateway's t
 
 To explain tenant usage and behavior, we will build off of our example use case for [sharding tags](sharding-tags.md#configure-sharding-tags-for-your-gravitee-api-gateways). A single API can be deployed to many different Gateways and endpoints, but by using sharding tags you can specify the target Gateway(s), and by using tenants you can specify the target endpoint(s).
 
-Similar to sharding tags, tenant configuration is a two-step process. You must “tag” a Gateway to identify in which region it has been deployed. To demonstrate, we will add the following configuration to each Gateway's `gravitee.yaml` file, where all USA-deployed Gateways are tagged with "usa" and all EU-deployed Gateways are tagged with "eu"
+Similar to sharding tags, tenant configuration is a two-step process. You must "tag" a Gateway to identify in which region it has been deployed. To demonstrate, we will add the following configuration to each Gateway's `gravitee.yaml` file, where all USA-deployed Gateways are tagged with "usa" and all EU-deployed Gateways are tagged with "eu"
 
 ```yaml
 # Multi-tenant configuration
@@ -63,9 +63,12 @@ tenant: 'eu'
 
 Once the Gateway has been configured, the tenant definition must be added via the API Management Console:
 
-1.  Navigate to **Organization Settings** and select **Tenants**_**.**_ Select **Add a tenant** and enter the value for each of your regions, for example, “usa” and “eu." We also recommend giving each tenant a descriptive name.
+1.  Navigate to **Organization Settings** and select **Tenants**. Click **Add a tenant** and enter the following information:
 
-    <div align="left"><figure><img src="../../.gitbook/assets/tenant_create (1).png" alt="" width="375"><figcaption></figcaption></figure></div>
+    1. In the **Name** field, enter a descriptive name for the tenant, for example, "USA" or "EU."
+    2. In the **Key** field, enter a unique key for the tenant. The key accepts 1–64 lowercase alphanumeric characters and hyphens only. The key is immutable after creation and is the value used in `gravitee.yml` to tag Gateways with a tenant.
+
+    <figure><img src="../../.gitbook/assets/create-a-tenant-with-key-field.png" alt=""><figcaption><p>Create a tenant dialog with Name, Key, and Description fields</p></figcaption></figure>
 2.  Next, configure the Backend and Customer APIs by adding two different endpoints. In our example, these will point to the USA and EU upstream systems (the backend server or the Customer API, depending on which API you are configuring).
 
     <figure><img src="../../.gitbook/assets/tenant_BE &#x26; customer.png" alt=""><figcaption></figcaption></figure>
@@ -76,11 +79,11 @@ Once the Gateway has been configured, the tenant definition must be added via th
 {% hint style="success" %}
 Now that the two endpoints are defined, Gateways GWI1, GWI2, GWI3 and GWI4 will apply this logic:
 
-* If a tenant configuration is “eu,” a request to Backend API is proxied to `https://eu.backend.com`
-* If a tenant configuration is “usa,” a request to Backend API is proxied to `https://usa.backend.com`
+* If a tenant configuration is "eu," a request to Backend API is proxied to `https://eu.backend.com`
+* If a tenant configuration is "usa," a request to Backend API is proxied to `https://usa.backend.com`
 
 Similarly, Gateways GWE1, GWE2, GWE3, GWE4 will apply the following logic when serving partner requests to the Customer API:
 
-* If a tenant configuration is “eu,” a request to Customer API is proxied to `https://eu.customer-api.com`
-* If a tenant configuration is “usa,” a request to Backend API is proxied to `https://usa.backend-api.com`
+* If a tenant configuration is "eu," a request to Customer API is proxied to `https://eu.customer-api.com`
+* If a tenant configuration is "usa," a request to Backend API is proxied to `https://usa.backend-api.com`
 {% endhint %}
