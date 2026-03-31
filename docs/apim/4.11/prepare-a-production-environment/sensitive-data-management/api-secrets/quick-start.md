@@ -131,13 +131,13 @@ Create an API with a fake sensitive that you secure after we make sure everythin
         * KEY: `Authorization`
         * VALUE: `ApiKey 123456789`
 
-        <figure><img src="../../../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
+        <figure><img src="../../../.gitbook/assets/image (18) (1).png" alt=""><figcaption></figcaption></figure>
 11. Click **Validate my endpoints**.
 
     <figure><img src="../../../.gitbook/assets/image (69).png" alt=""><figcaption></figcaption></figure>
 12. Click V**alidate my plans**.
 
-    <figure><img src="../../../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (19) (1).png" alt=""><figcaption></figcaption></figure>
 13. Click **Save & Deploy API**.
 
     <figure><img src="../../../.gitbook/assets/image (14) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>

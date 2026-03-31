@@ -4,7 +4,52 @@
 
 ## Breaking Changes
 
+#### **End of support for V1 APIs**
+
+V1 APIs have been deprecated since version 4.0.0 of API Management (APIM). From 4.12.0 of APIM, V1 APIs are no longer supported. To prepare for the end of support, you must migrate your V1 APIs to at least V2 before upgrading to 4.12.0.
+
+####  **A2A proxy APIs**
+
+The A2A proxy architecture introduces the `A2A_PROXY` API type. With this change, you must create your A2A Proxy APIs again to avoid any issues and to align with the new architecture.
+
+Existing A2A proxy APIs continue to work but they are no longer supported.
+
 ## New Features
+
+#### **LLM Dashboard**
+
+* Users can view analytics for their LLMs in the observability section of their APIM Console. 
+* The LLM dashboard provides you with clear visibility into the LLMs' performance and traffic patterns. 
+* The dashboard shows the following key metrics:
+** Total tokens. The combined total of prompt tokens and completion tokens processed.
+** Average tokens per request. The average token consumption for each LLM call.
+** Total token count over time. The cost trend of tokens for prompts and completion.
+** Token cost over time. The trend of prompt, completion, and total tokens consumed.
+** Total cost. The total cost of the LLM usage.
+** Average cost per request. The average spend for each LLM call.
+** Response status reparition. The breakdown of HTTP outcomes for each LLM call.
+** Total token per model. The breadkown of comsumption across LLM models.
+** Total requests. All HTTP calls processed by the Gateway.
+** LLM requests. Total call volume targeting LLM providers.
+#### **MCP dashboard**
+
+* Users can view analytics for their MCPs in the observability section of their APIM Console. 
+
+* The MCP dashboard provides you with clear visibility into the MCPs' performance and traffic patterns. 
+
+* The dashboard shows the following key metrics:
+** MCP requests. The total number of requests targeting MCP APIs.
+** Average latency. The average Gateway latency for MCP requests.
+** Max latency. The maximum Gateway latency observed for MCP requests.
+** P90 latency. The 90th percentile Gateway latency for MCP requests.
+** P99 latency. The 99th percentile Gateway latency for MCP requests.
+** Method usage. The distribution of MCP proxy methods by request count. 
+** Method usage over time. The evolution of the method usage over time.
+** Most used resources. The top five used MCP resources by request count.
+** Response status repartition. The distribution of HTTP response status codes for MCP requests.
+** Most used tools. The top 5 MCP tools by request count.
+** Most used prompts. The top 5 most used request prompts by request count.
+** Average response time. Average Gateway response time for MCP requests over time.
 
 
 <!-- PIPELINE:APIM-12439 -->
@@ -29,8 +74,6 @@
 
 <!-- PIPELINE:APIM-12550 -->
 #### **A2A Proxy API Type**
-
-* **Breaking change** — A2A proxy APIs created before APIM 4.11 aren't supported. Delete and recreate any existing A2A proxy APIs.
 * Introduces a dedicated V4 API type for agent-to-agent communication, enabling direct integration between AI agents through the Gravitee platform.
 * Uses a standalone reactor architecture with HTTP selectors for flow routing and supports REQUEST and RESPONSE flow phases for policy execution.
 * Requires Enterprise Edition with the AI Agent Management pack and APIM 4.11 or later.

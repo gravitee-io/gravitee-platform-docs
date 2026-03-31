@@ -58,3 +58,19 @@ create-and-configure-apis/apply-policies/policy-reference/ai-model-text-classifi
 create-and-configure-apis/apply-policies/policy-reference/ai-prompt-guard-rails.md
 guides/ai-model-text-classification-configuration-and-usage.md
 guides/ai-model-text-classification-overview-and-model-selection.md
+
+# Files with version-specific content or GitBook edits (added 2026-03-30)
+analyze-and-monitor-apis/dashboards/LLM-usage-dashboard.md
+analyze-and-monitor-apis/dashboards/MCP-usage-dashboard.md
+analyze-and-monitor-apis/logging/configure-environment-level-logs.md
+configure-and-manage-the-platform/gravitee-gateway/alerts.md
+create-and-configure-apis/apply-policies/policy-reference/javascript-policy-new-reference.md
+create-and-configure-apis/configure-v4-apis/general-settings.md
+create-and-configure-apis/development-tools/README.md
+gateway/configuration/README.md
+gateway/configuration/gateway-configuration-for-mtls-certificate-management.md
+guides/README.md
+reference/data-model/README.md
+reference/data-model/tag-entity-schema-and-key-field-reference.md
+release-information/breaking-changes-and-deprecations.md
+upgrade-guides/tag-key-migration-upgrade-procedure.md

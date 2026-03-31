@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Tag key migration upgrade procedure
 
 <!-- DISCREPANCY: This page was placed in 4.11 by the agent, but the feature is merged in APIM 4.12.x only (confirmed by Okhelifi and verified from git history + Liquibase v4_12_0 directory). Move this file to docs/apim/4.12/ once that folder exists. -->

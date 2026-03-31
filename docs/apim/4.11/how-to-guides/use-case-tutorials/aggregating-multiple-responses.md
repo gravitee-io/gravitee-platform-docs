@@ -70,7 +70,7 @@ Within your APIs' _Policies_ page, ensure you have created a _Flow_.  If not, th
    2. Other syntax is available, such as the built-in [`jsonPath`](https://docs.spring.io/spring-integration/reference/spel.html#built-in-spel-functions) function to obtain a specific value of a field from this response.  E.g.: `{#jsonPath(#calloutResponse.content, '$.headers.User-Agent)}`
 
 {% hint style="info" %}
-In Gravitee, a **context variable** (often called a _context attribute_) is a key-value pair stored in the execution context during a request or authentication flow. Policies can create or update these variables, and other policies or templates can then read them using the [Gravitee Expression Language](../../../4.9/gravitee-expression-language.md).
+In Gravitee, a **context variable** (often called a _context attribute_) is a key-value pair stored in the execution context during a request or authentication flow. Policies can create or update these variables, and other policies or templates can then read them using the [Gravitee Expression Language](../../gravitee-expression-language.md).
 {% endhint %}
 
 5. Click Save.
