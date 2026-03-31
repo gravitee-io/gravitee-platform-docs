@@ -39,16 +39,16 @@ When an MCP client connects, it authenticates through AM, receives an access tok
 
 This guide uses three separate Gravitee components:
 
-* **MCP Server**: Your upstream Model Context Protocol server, the service being secured.&#x20;
-* **Gravitee APIM**: The API gateway that proxies requests to your MCP server.&#x20;
-* **Gravitee AM**: The OAuth2 authorization server that handles authentication.&#x20;
-* **MCP Client:** The application that connects to your MCP server through the Gravitee Gateway. For example: VSCode, Cursor, or Native SDK. &#x20;
+* **MCP Server**: Your upstream Model Context Protocol server, the service being secured.
+* **Gravitee APIM**: The API gateway that proxies requests to your MCP server.
+* **Gravitee AM**: The OAuth2 authorization server that handles authentication.
+* **MCP Client:** The application that connects to your MCP server through the Gravitee Gateway. For example: VSCode, Cursor, or Native SDK.
 
-## Prerequisites&#x20;
+## Prerequisites
 
-* A Gravitee Access Management (AM) domain with configuration rights and the Gateway URL. For example: `https://am-gateway.example.com` For more information on getting started with AM Console, see [how to access AM Console. ](https://documentation.gravitee.io/am/getting-started/tutorial-getting-started-with-am/login-to-am-console)
-* An MCP client that supports OAuth2 authentication with Dynamic Client Registration (DCR). For example, VSCode with MCP support.&#x20;
-* An unsecured MCP server to proxy.&#x20;
+* A Gravitee Access Management (AM) domain with configuration rights and the Gateway URL. For example: `https://am-gateway.example.com` For more information on getting started with AM Console, see [how to access AM Console.](https://documentation.gravitee.io/am/getting-started/tutorial-getting-started-with-am/login-to-am-console)
+* An MCP client that supports OAuth2 authentication with Dynamic Client Registration (DCR). For example, VSCode with MCP support.
+* An unsecured MCP server to proxy.
 
 ## **Configuration Workflow**
 
@@ -64,13 +64,13 @@ To secure your MCP proxy, complete the following steps:
 
 ## Create the MCP Proxy API in APIM
 
-1.  From the **Dashboard**, click **APIs.**&#x20;
+1.  From the **Dashboard**, click **APIs.**
 
     <figure><img src="../.gitbook/assets/mcp-click-api.png" alt=""><figcaption></figcaption></figure>
-2.  Click **+ Add API.**&#x20;
+2.  Click **+ Add API.**
 
     <figure><img src="../.gitbook/assets/mcp-click-add-api.png" alt=""><figcaption></figcaption></figure>
-3.  Click **Create V4 API.**&#x20;
+3.  Click **Create V4 API.**
 
     <figure><img src="../.gitbook/assets/select-create-v4-api-mcp.png" alt=""><figcaption></figcaption></figure>
 4. Configure the API. To configure the API, complete the following steps:
@@ -80,16 +80,16 @@ To secure your MCP proxy, complete the following steps:
 5.  Click **Validate my API details.**<br>
 
     <figure><img src="../.gitbook/assets/1.png" alt=""><figcaption></figcaption></figure>
-6.  Select AI **Gateway**, and then click **Select my API architecture.**&#x20;
+6.  Select AI **Gateway**, and then click **Select my API architecture.**
 
     <figure><img src="../.gitbook/assets/ai-gateway-mcp.png" alt=""><figcaption></figcaption></figure>
-7.  Select MCP Proxy, and then click **Select my entrypoints.**&#x20;
+7.  Select MCP Proxy, and then click **Select my entrypoints.**
 
     <figure><img src="../.gitbook/assets/select-my-entrypoint-mcp.png" alt=""><figcaption></figcaption></figure>
-8.  Enter the `context-path` . For example: `/my-mcp-secure-api` , and then click **Validate my entrypoints.** <br>
+8.  Enter the `context-path` . For example: `/my-mcp-secure-api` , and then click **Validate my entrypoints.**<br>
 
     <figure><img src="../.gitbook/assets/2.png" alt=""><figcaption></figcaption></figure>
-9.  Enter your MCP server URL in the **MCP Server Backend URL field**. For example: [`http://localhost:3001/mcp`](http://localhost:3001/mcp) , and then click **Validate my endpoints.** <br>
+9.  Enter your MCP server URL in the **MCP Server Backend URL field**. For example: [`http://localhost:3001/mcp`](http://localhost:3001/mcp) , and then click **Validate my endpoints.**<br>
 
     <figure><img src="../.gitbook/assets/environment-mcp-server-url.png" alt=""><figcaption></figcaption></figure>
 10. Click **Validate my plans.**
@@ -99,17 +99,15 @@ To secure your MCP proxy, complete the following steps:
 
     <figure><img src="../.gitbook/assets/save-and-deploy-api-mcp.png" alt=""><figcaption></figcaption></figure>
 
-
-
-### Verification&#x20;
+### Verification
 
 The API appears in your API management console with your configuration.<br>
 
 <figure><img src="../.gitbook/assets/3.png" alt=""><figcaption></figcaption></figure>
 
-## Register the MCP Server in AM&#x20;
+## Register the MCP Server in AM
 
-1.  From the AM dashboard, click **MCP Servers.**&#x20;
+1.  From the AM dashboard, click **MCP Servers.**
 
     <figure><img src="../.gitbook/assets/am-click-mcp-servers.png" alt=""><figcaption></figcaption></figure>
 2.  Click the **+ (plus)** icon to create a new MCP server.
@@ -117,7 +115,7 @@ The API appears in your API management console with your configuration.<br>
     <figure><img src="../.gitbook/assets/plus-icon-mcp-server.png" alt=""><figcaption></figcaption></figure>
 3. Configure your MCP server. To configure your MCP server, complete the following steps:
    1. **Name:** Enter a name. For example, `My MCP Server`.
-   2. **MCP Resource Identifier:** Enter the APIM API entrypoint URL from [Step 9 above](secure-mcp-proxy-with-oauth2.md#create-the-mcp-proxy-api-in-apim) in  [#create-the-mcp-proxy-api-in-apim](secure-mcp-proxy-with-oauth2.md#create-the-mcp-proxy-api-in-apim "mention") section. For example, `https://apim-gateway.example.com/mcp-proxy`.&#x20;
+   2. **MCP Resource Identifier:** Enter the APIM API entrypoint URL from [Step 9 above](secure-mcp-proxy-with-oauth2.md#create-the-mcp-proxy-api-in-apim) in [#create-the-mcp-proxy-api-in-apim](secure-mcp-proxy-with-oauth2.md#create-the-mcp-proxy-api-in-apim "mention") section. For example, `https://apim-gateway.example.com/mcp-proxy`.
    3.  (Optional) **Description:** Enter a description.<br>
 
        <figure><img src="../.gitbook/assets/am-entrypoint-url (1).png" alt=""><figcaption></figcaption></figure>
@@ -126,10 +124,10 @@ The API appears in your API management console with your configuration.<br>
 4.  Click **Create.**
 
     <figure><img src="../.gitbook/assets/image (160).png" alt=""><figcaption></figcaption></figure>
-5. In the **copy your client secret** pop-up box, copy the **Client Secret** and store the credentials securely.&#x20;
+5. In the **copy your client secret** pop-up box, copy the **Client Secret** and store the credentials securely.
 
 {% hint style="danger" %}
-The Client Secret is displayed only once. Copy and store it securely before closing the pop-up box.&#x20;
+The Client Secret is displayed only once. Copy and store it securely before closing the pop-up box.
 {% endhint %}
 
 <figure><img src="../.gitbook/assets/image (161).png" alt=""><figcaption></figcaption></figure>
@@ -142,12 +140,12 @@ Dynamic Client Registration (DCR) allows MCP clients to automatically register w
 If DCR is not enabled, manually create an Application in AM for the MCP client and configure the redirect URLs accordingly. Also, configure the MCP client with the Client ID and Client Secret. For more information, see [Applications](https://documentation.gravitee.io/am/guides/applications)
 {% endhint %}
 
-To enable DCR, complete the following steps:&#x20;
+To enable DCR, complete the following steps:
 
 1.  In the AM Console, navigate to Settings.
 
     <figure><img src="../.gitbook/assets/am-dcr-settings.png" alt=""><figcaption></figcaption></figure>
-2.  &#x20;Click **Client Registration**.
+2.  Click **Client Registration**.
 
     <figure><img src="../.gitbook/assets/client-registration.png" alt=""><figcaption></figcaption></figure>
 3.  Turn on the **Enable Dynamic Client Registration** toggle.
@@ -158,9 +156,9 @@ To enable DCR, complete the following steps:&#x20;
    *   **Allow custom redirect URIs:** (Optional) Enable for production clients with custom redirect configurations.
 
        <figure><img src="../.gitbook/assets/enable-dynamic-client-registration (1).png" alt=""><figcaption></figcaption></figure>
-5. Click **Save**.&#x20;
+5. Click **Save**.
 
-## (Optional) Enable user registration in AM&#x20;
+## (Optional) Enable user registration in AM
 
 User registration allows new users to create accounts during authentication.
 
@@ -182,8 +180,6 @@ Complete the following steps to enable user registration:
 4.  Click **Save**.
 
     <figure><img src="../.gitbook/assets/click-save-am-registration.png" alt=""><figcaption></figcaption></figure>
-
-
 
 ## Configure the OAuth2 Plan in APIM
 
@@ -209,10 +205,10 @@ For more information on protected resource metadata discovery, see the [MCP spec
 5.  Configure the resource to establish the connection to your AM instance by providing the following values:
 
     * **Name:** Enter a name. For example, `AM OAuth2 Resource`
-    * **Server URL:** Enter the AM Gateway URL. For example, `https://am-gateway.example.com`&#x20;
+    * **Server URL:** Enter the AM Gateway URL. For example, `https://am-gateway.example.com`
     * **Security Domain:** Enter the AM security domain name.
-    * **Client ID:** Enter the Client ID from [Step 3](secure-mcp-proxy-with-oauth2.md#register-the-mcp-server-in-am) in the [#register-the-mcp-server-in-am](secure-mcp-proxy-with-oauth2.md#register-the-mcp-server-in-am "mention") section.&#x20;
-    * **Client Secret:** Enter the Client Secret from [Step 3](secure-mcp-proxy-with-oauth2.md#register-the-mcp-server-in-am) in the [#register-the-mcp-server-in-am](secure-mcp-proxy-with-oauth2.md#register-the-mcp-server-in-am "mention")section.&#x20;
+    * **Client ID:** Enter the Client ID from [Step 3](secure-mcp-proxy-with-oauth2.md#register-the-mcp-server-in-am) in the [#register-the-mcp-server-in-am](secure-mcp-proxy-with-oauth2.md#register-the-mcp-server-in-am "mention") section.
+    * **Client Secret:** Enter the Client Secret from [Step 3](secure-mcp-proxy-with-oauth2.md#register-the-mcp-server-in-am) in the [#register-the-mcp-server-in-am](secure-mcp-proxy-with-oauth2.md#register-the-mcp-server-in-am "mention")section.
 
     <figure><img src="../.gitbook/assets/gravitee-am-gateway.png" alt=""><figcaption></figcaption></figure>
 6.  Click **Save**.
@@ -223,9 +219,7 @@ For more information on protected resource metadata discovery, see the [MCP spec
     <figure><img src="../.gitbook/assets/consumers-master-dev.png" alt=""><figcaption></figcaption></figure>
 8.  Locate the Keyless plan, and then click the **close icon**.<br>
 
-    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>This operation is irreversible. You cannot reopen a closed plan. </p></div>
-
-
+    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>This operation is irreversible. You cannot reopen a closed plan.</p></div>
 
     <figure><img src="../.gitbook/assets/close-plan-resource.png" alt=""><figcaption></figcaption></figure>
 
@@ -260,27 +254,27 @@ For more information on protected resource metadata discovery, see the [MCP spec
 14. Click **Publish the plan**.
 
     <figure><img src="../.gitbook/assets/publish-the-plan.png" alt=""><figcaption></figcaption></figure>
-15. Click the **Deploy API** pop-up box.&#x20;
+15. Click the **Deploy API** pop-up box.
 
     <figure><img src="../.gitbook/assets/deploy-api.png" alt=""><figcaption></figcaption></figure>
 
 The MCP client uses the OAuth2 server configured in APIM upon connection.
 
-## Verification&#x20;
+## Verification
 
 Verify your configuration in both the APIM Console and AM Console.
 
 {% tabs %}
 {% tab title="APIM Console" %}
-### APIM Console
+#### APIM Console
 
 1.  Navigate to your MCP proxy API.<br>
 
     <figure><img src="../.gitbook/assets/api-configuration.png" alt=""><figcaption></figcaption></figure>
-2.  Click **Consumers**, and then verify the OAuth2 plan is published.&#x20;
+2.  Click **Consumers**, and then verify the OAuth2 plan is published.
 
     <figure><img src="../.gitbook/assets/auth2-consumers-publichsed.png" alt=""><figcaption></figcaption></figure>
-3.  Click **Deployments** and confirm the latest deployment is successful and in use.&#x20;
+3.  Click **Deployments** and confirm the latest deployment is successful and in use.
 
     <figure><img src="../.gitbook/assets/image (163).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
@@ -292,13 +286,13 @@ Verify your configuration in both the APIM Console and AM Console.
 2.  Click **MCP Servers**.
 
     <figure><img src="../.gitbook/assets/am-domain-mcp-server (1).png" alt=""><figcaption></figcaption></figure>
-3.  &#x20;Verify your MCP server resource is configured.<br>
+3.  Verify your MCP server resource is configured.<br>
 
     <figure><img src="../.gitbook/assets/mcp-clients-to-use-am-server.png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
-### Verify the OAuth2 Protection&#x20;
+### Verify the OAuth2 Protection
 
 Replace `<apim-gateway-url>` with your APIM Gateway URL and `<context-path>` with your configured context path, then run the following command:
 
@@ -310,14 +304,14 @@ The output shows the expected response:
 * HTTP 401 Unauthorized
 * `WWW-Authenticate` header present in the response
 
-This confirms the API requires OAuth2 authentication.&#x20;
+This confirms the API requires OAuth2 authentication.
 
 ## Connect MCP Client
 
 Your MCP proxy API is secured with OAuth2. To connect an MCP client to your secured API:
 
 1. Configure your MCP client with the APIM Gateway URL and context path
-2. The client handles OAuth2 authentication automatically through (DCR) Dynamic Client Registration.&#x20;
+2. The client handles OAuth2 authentication automatically through (DCR) Dynamic Client Registration.
 
 For client-specific configuration instructions, refer to your MCP client's documentation. For example, For VSCode MCP, see the [MCP servers in VS code documentation](https://code.visualstudio.com/docs/copilot/customization/mcp-servers) , For Native language SDKs see the [MCP SDK documentation](https://modelcontextprotocol.io/docs/develop/connect-remote-servers)
 
