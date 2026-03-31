@@ -113,7 +113,7 @@ Last updated at [timestamp]
 
 Also, from 4.11, you receive a warning when you update an alert with a time frame window, which indicates that the update resets the evaulation schedule.
 
-<figure><img src="/.gitbook/assets/update_alerts_screenshot.png" alt="Update scheduled alert confirmation dialog"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/update_alerts_screenshot.png" alt="Update scheduled alert confirmation dialog"><figcaption></figcaption></figure>
 
 {% hint style="warning" %}
 **Update scheduled alert**

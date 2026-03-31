@@ -1,4 +1,4 @@
-# Manage subscriptions
+# Manage Subscriptions
 
 ### Overview <a href="#overview" id="overview"></a>
 
@@ -43,8 +43,6 @@ To subscribe to an API, complete the following steps:
 You can manage all existing subscriptions from the subscriptions dashboard.
 
 1. Using the dropdown menu at the top right corner of the screen, navigate to the Subscriptions page
-
-<figure><img src="../../.gitbook/assets/Screenshot 2026-03-20 at 16.09.36.png" alt=""><figcaption></figcaption></figure>
 
 This page shows all subscriptions **across all APIs and Applications**. You can filter subscriptions by API, Application, and Subscription Status.
 
