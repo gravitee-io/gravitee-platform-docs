@@ -11,7 +11,7 @@ The policy uses pre-trained AI models to identify PII entities in text. Two mode
 - `dslim/distilbert-NER`: General named entity recognition
 - `gravitee-io/bert-small-pii-detection`: PII-optimized detection
 
-Models are loaded into memory at runtime and require write permissions to `$GRAVITEE_HOME/models` for automatic downloads. Each model outputs token-level predictions with confidence scores (0.0–1.0) and entity labels (e.g., `B-PER`, `I-LOC`, `EMAIL`).
+Models are loaded into memory at runtime and require write permissions to `$GRAVITEE_HOME/models` for automatic downloads. Each model outputs token-level predictions with confidence scores (0.0–1.0) and entity labels (for example, `B-PER`, `I-LOC`, `EMAIL`).
 
 ### Dual-phase redaction
 
@@ -37,15 +37,17 @@ The policy uses a BitSet to track character positions for redaction, ensuring ov
 
 ### Metrics and diagnostics
 
-The policy emits custom metrics for each detected PII category (e.g., `long_pii_person`, `long_pii_email`) and a total count (`long_pii_total`). These metrics are added to the API analytics dashboard.
+The policy emits custom metrics for each detected PII category and a total count (`long_pii_total`). These metrics are added to the API analytics dashboard. For the full list of metric keys per category, see [Supported PII categories](pii-filtering.md#supported-pii-categories).
 
-When PII is detected, the policy also logs an execution warning with the format:
+When PII is detected, the policy also logs an execution warning that includes the payload origin (request or response) and the detected labels:
 
 ```
 PII detected in <request|response>: <labels>
 ```
 
-The `<labels>` field lists the distinct PII categories found (e.g., "PERSON, EMAIL").
+The `<labels>` field lists the distinct PII categories found (for example, "PERSON, EMAIL").
+
+<!-- Verified from PiiFilteringPolicy.java:146 — warning includes PayloadOrigin (REQUEST/RESPONSE). APIM-12708 confirmed. -->
 
 ### Model loading and memory
 
@@ -73,9 +75,12 @@ Create an AI Model Token Classification resource before configuring the policy.
 
 Models are automatically downloaded to `$GRAVITEE_HOME/models/<model-name>/` with the following files:
 
-- `model.onnx` (or `model.quant.onnx`)
-- `tokenizer.json`
-- `config.json`
+| Model | Model file path | Additional files |
+|:------|:----------------|:-----------------|
+| `DSLIM_DISTILBERT_NER` | `onnx/model.onnx` | `tokenizer.json`, `config.json` |
+| `GRAVITEE_BERT_SMALL_PII_DETECTION` | `model.quant.onnx` | `tokenizer.json`, `config.json` |
+
+<!-- Verified from ModelEnum.java:23-29 — DSLIM uses onnx/model.onnx (subdirectory), BERT Small uses model.quant.onnx at root. -->
 
 ### Policy configuration
 
@@ -84,12 +89,99 @@ Configure the policy at the API plan level.
 | Property | Description | Example |
 |:---------|:------------|:--------|
 | `resourceName` | Name of the AI Model Token Classification resource | `my-pii-detector` |
-| `categories` | Standard PII categories to detect (PERSON, LOCATION, EMAIL, etc.) | `["PERSON", "EMAIL"]` |
+| `categories` | PII categories to detect (see [supported categories](pii-filtering.md#supported-pii-categories)) | `["PERSON", "EMAIL"]` |
 | `threshold` | Minimum AI confidence score (0.0–1.0) to trigger redaction | `0.5` |
 | `customMapping` | Custom label-to-category mappings | `{"CUSTOM_LABEL": "PERSON"}` |
 | `skipResponsePayloadFiltering` | Skip PII filtering for response payload (required for streaming) | `false` |
 
-The policy automatically handles BIO tagging prefixes (B-, I-, S-, E-). When a category is enabled (e.g., PERSON), any model label matching that category after prefix stripping (e.g., B-PERSON, I-PERSON) will be redacted.
+The policy automatically handles BIO tagging prefixes (B-, I-, S-, E-). When a category is enabled (for example, PERSON), any model label matching that category after prefix stripping (for example, B-PERSON, I-PERSON) is redacted. Isolated I-tokens (tokens with an I- prefix that don't follow a corresponding B- token) are discarded to prevent false positives.
+
+<!-- Verified from IOBTag.java:13-24 and RefineClassificationResults.java:51-82 — BIO entity reconstruction drops orphan I-tokens. -->
+
+### Supported PII categories
+
+The following table lists all supported PII categories and their corresponding analytics metric keys:
+
+<table>
+    <thead>
+        <tr>
+            <th width="250">Category</th>
+            <th width="280">Metric key</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>PERSON</code></td>
+            <td><code>long_pii_personName</code></td>
+            <td>Personal names</td>
+        </tr>
+        <tr>
+            <td><code>ORGANIZATION</code></td>
+            <td><code>long_pii_organization</code></td>
+            <td>Organization and company names</td>
+        </tr>
+        <tr>
+            <td><code>LOCATION</code></td>
+            <td><code>long_pii_location</code></td>
+            <td>Physical addresses and location names</td>
+        </tr>
+        <tr>
+            <td><code>EMAIL</code></td>
+            <td><code>long_pii_email</code></td>
+            <td>Email addresses</td>
+        </tr>
+        <tr>
+            <td><code>PHONE</code></td>
+            <td><code>long_pii_phone</code></td>
+            <td>Phone numbers</td>
+        </tr>
+        <tr>
+            <td><code>NETWORK_IDENTIFIER</code></td>
+            <td><code>long_pii_networkIdentifier</code></td>
+            <td>IP addresses, MAC addresses, and other network identifiers</td>
+        </tr>
+        <tr>
+            <td><code>DEVICE_IDENTIFIER</code></td>
+            <td><code>long_pii_deviceIdentifier</code></td>
+            <td>Device serial numbers, IMEI, and similar identifiers</td>
+        </tr>
+        <tr>
+            <td><code>FINANCIAL_ACCOUNT</code></td>
+            <td><code>long_pii_financialAccount</code></td>
+            <td>Bank account numbers, credit card numbers, and financial identifiers</td>
+        </tr>
+        <tr>
+            <td><code>GOVERNMENT_ID</code></td>
+            <td><code>long_pii_governmentId</code></td>
+            <td>Passport numbers, national IDs, social security numbers, and similar</td>
+        </tr>
+        <tr>
+            <td><code>VEHICLE_ID</code></td>
+            <td><code>long_pii_vehicleId</code></td>
+            <td>Vehicle identification numbers and license plates</td>
+        </tr>
+        <tr>
+            <td><code>CREDENTIAL</code></td>
+            <td><code>long_pii_credential</code></td>
+            <td>Passwords, API keys, tokens, and authentication credentials</td>
+        </tr>
+        <tr>
+            <td><code>DEMOGRAPHIC</code></td>
+            <td><code>long_pii_demographic</code></td>
+            <td>Age, gender, ethnicity, and other demographic data</td>
+        </tr>
+        <tr>
+            <td><code>MISCELLANEOUS</code></td>
+            <td><code>long_pii_miscellaneous</code></td>
+            <td>Other PII that doesn't fit into the above categories</td>
+        </tr>
+    </tbody>
+</table>
+
+A total count metric (`long_pii_total`) is also emitted for every detection event.
+
+<!-- Verified from PiiCategory.java:17-55 — all 13 categories and their exact metric key strings. -->
 
 ## Creating a PII Filtering Policy
 
@@ -101,7 +193,7 @@ To enable PII filtering:
 
 2. Create or edit an API plan and add the PII Filtering Policy.
 
-    Reference the resource by name, select the PII categories to detect (e.g., PERSON, EMAIL), and set the confidence threshold.
+    Reference the resource by name, select the PII categories to detect (for example, PERSON, EMAIL), and set the confidence threshold.
 
 3. If the API supports streaming, enable skipResponsePayloadFiltering to bypass the streaming rejection logic and allow response streams to pass through.
 
@@ -109,7 +201,7 @@ To enable PII filtering:
 
 ## Creating a subscription with streaming support
 
-For APIs that support streaming (e.g., LLM APIs with `"stream": true`), configure the policy with `skipResponsePayloadFiltering=true`. This allows streaming requests to pass through while still redacting PII in the request body.
+For APIs that support streaming (for example, LLM APIs with `"stream": true`), configure the policy with `skipResponsePayloadFiltering=true`. This allows streaming requests to pass through while still redacting PII in the request body.
 
 Without this setting, streaming requests are rejected with a 400 error:
 
@@ -138,19 +230,4 @@ Without this setting, streaming requests are rejected with a 400 error:
 
 ## Related changes
 
-The policy introduces new custom metrics (`long_pii_total`, `long_pii_<category>`) visible in the API analytics dashboard. Execution warnings are logged when PII is detected, with the format "PII detected in <request|response>: <labels>".
-
-The Gateway console includes a new AI Model Token Classification resource type under Resources, with model selection UI for `dslim/distilbert-NER` and `gravitee-io/bert-small-pii-detection`. The policy configuration UI includes:
-
-- Resource selector (filtered to `ai-model-token-classification` type)
-- Category multi-select
-- Threshold slider (0.0–1.0)
-- Checkbox for `skipResponsePayloadFiltering`
-
-Dependencies include:
-
-- `gravitee-resource-ai-model-api` (2.2.0)
-- `gravitee-inference-service` (1.3.3)
-- APIM core (4.10.3)
-
-The policy and resource are distributed as separate ZIP artifacts in the APIM distribution.
+The Gateway console includes a new AI Model Token Classification resource type under Resources, with model selection for `dslim/distilbert-NER` and `gravitee-io/bert-small-pii-detection`.
