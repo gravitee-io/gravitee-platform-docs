@@ -66,9 +66,9 @@ Once the Gateway has been configured, the tenant definition must be added via th
 1.  Navigate to **Organization Settings** and select **Tenants**. Click **Add a tenant** and enter the following information:
 
     1. In the **Name** field, enter a descriptive name for the tenant, for example, “USA” or “EU.”
-    2.  In the **Key** field, enter a unique key for the tenant. The key accepts 1–64 lowercase alphanumeric characters and hyphens only. The key is immutable after creation and is the value used in `gravitee.yml` to tag Gateways with a tenant.
+    2. In the **Key** field, enter a unique key for the tenant. The key accepts 1–64 lowercase alphanumeric characters and hyphens only. The key is immutable after creation and is the value used in `gravitee.yml` to tag Gateways with a tenant.
 
-        <div align=”left”><figure><img src=”../../.gitbook/assets/create-a-tenant-with-key-field.png” alt=”” width=”375”><figcaption><p>Create a tenant dialog with Name, Key, and Description fields</p></figcaption></figure></div>
+    <div align=”left”><figure><img src=”../../.gitbook/assets/create-a-tenant-with-key-field.png” alt=”” width=”375”><figcaption><p>Create a tenant dialog with Name, Key, and Description fields</p></figcaption></figure></div>
 2.  Next, configure the Backend and Customer APIs by adding two different endpoints. In our example, these will point to the USA and EU upstream systems (the backend server or the Customer API, depending on which API you are configuring).
 
     <figure><img src="../../.gitbook/assets/tenant_BE &#x26; customer.png" alt=""><figcaption></figcaption></figure>
