@@ -175,8 +175,7 @@ Mean Time to Resolve
 # ============================================
 # Identity & Auth Providers
 # ============================================
-IdP
-IDP
+[Ii][Dd][Pp]
 Keycloak
 LDAP
 ADFS
