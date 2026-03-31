@@ -33,9 +33,8 @@
 ## GUIDES
 
 * [Kubernetes CRD Configuration for Client Certificates](guides/kubernetes-crd-configuration-for-client-certificates.md)
-* [Logs Explorer Console UI](../../apim/4.11/guides/logs-explorer-console-ui.md)
-    * [Gateway Configuration for mTLS Certificate Management](../../apim/4.11/gateway/configuration/gateway-configuration-for-mtls-certificate-management.md)
 * [mTLS Certificate Management Overview](mtls-certificate-management-overview.md)
+  * [Gateway Configuration for mTLS Certificate Management](../../apim/4.11/gateway/configuration/gateway-configuration-for-mtls-certificate-management.md)
 * [Manage JWT subscriptions with GKO](guides/manage-jwt-subscriptions-with-gko.md)
 * [Define an APIM service account for GKO](guides/define-an-apim-service-account-for-gko.md)
 * [Deploy APIs to a Gateway](guides/deploy-apis-to-a-gateway.md)
@@ -55,15 +54,12 @@
 ## REFERENCE
 
 * [API Reference](reference/api-reference.md)
-  * [Logs Engine API](reference/logs-engine-api.md)
 
 ## RELEASES & CHANGELOG
 
 * [Release Notes](releases-and-changelog/release-notes/README.md)
-
-***
-
-* [GKO 4.10](releases-and-changelog/release-notes/gko-4.10.md)
+  * [GKO 4.11](releases-and-changelog/release-notes/gko-4.11.md)
+  * [GKO 4.10](releases-and-changelog/release-notes/gko-4.10.md)
 * [GKO 4.9](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/4.9/releases-and-changelog/release-notes/gko-4.9)
 * [GKO 4.8](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/4.8/releases-and-changelog/release-notes/gko-4.8)
 * [GKO 4.7](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/4.7/releases-and-changelog/release-notes/gko-4.7)
@@ -72,7 +68,8 @@
 * [GKO 4.4](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/4.4/releases-and-changelog/release-notes/gko-4.4)
 * [GKO 4.3](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/4.3/releases-and-changelog/release-notes/gko-4.3)
 * [Changelog](releases-and-changelog/changelog/README.md)
-* [GKO 4.10.x](releases-and-changelog/changelog/gko-4.10.x.md)
+  * [GKO 4.11.x](releases-and-changelog/changelog/gko-4.11.x.md)
+  * [GKO 4.10.x](releases-and-changelog/changelog/gko-4.10.x.md)
 * [GKO 4.9.x](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/4.9/releases-and-changelog/changelog/gko-4.9.x)
 
 ## COMMUNITY & SUPPORT
