@@ -29,6 +29,32 @@ When creating a tag, provide both `key` and `name` (each 1–64 characters). The
 
 <!-- Verified from UpdateTagEntity.java: no key field exists in the update DTO. TagServiceImpl preserves the key on update via .key(existingTag.getKey()). -->
 
+### Key validation rules
+
+The `key` field is sanitized on creation using the following rules:
+
+- Lowercase alphanumeric characters and hyphens (`-`) only
+- Leading and trailing hyphens are stripped
+- Any character that isn't `a-z`, `0-9`, or `-` is replaced with a hyphen
+- Consecutive hyphens are collapsed into a single hyphen
+
+For example, `My Tag Name!` becomes `my-tag-name`.
+
+<!-- Verified from sanitizeKeyBase() in TagServiceImpl.java: toLowerCase, replaceAll("[^a-z0-9-]", "-"), replaceAll("-+", "-"), strip leading/trailing hyphens. -->
+
+## Tenant key differences
+
+Tenant keys follow the same validation rules as tag keys, with the following differences:
+
+| Property | Tag | Tenant |
+|:---------|:----|:-------|
+| Key maximum length | 64 characters | 64 characters |
+| Name maximum length | 64 characters | 40 characters |
+| Key immutable after creation | Yes — the update DTO doesn't include a `key` field | The update DTO includes a `key` field, but the Console UI disables editing. Treat as effectively immutable. |
+| Used in | `gravitee.yml` `tags` config, API path parameters | `gravitee.yml` `tenant` config, API endpoint tenant assignment |
+
+<!-- UI verified: tenant Create dialog shows Name* 0/40, Key* 0/64, Description 0/160. The @Size(max=40) in NewTenantEntity.java applies to the name field, not the key field. UpdateTenantEntity.java includes key field (unlike UpdateTagEntity), but Console UI disables editing via the form control. -->
+
 ## REST API endpoints
 
 All tag management endpoints use the tag `key` in path parameters.
@@ -76,9 +102,11 @@ For **new tags** created after migration, the `id` is a generated UUID. API clie
 
 ## Restrictions
 
-- Tag keys are immutable after creation.
-- Tag names are unique within the same reference scope.
-- The `key` field is limited to 64 characters.
+- Tag keys are immutable after creation (max 64 characters).
+- Tenant keys are effectively immutable after creation (max 64 characters).
+- Tenant names are limited to 40 characters.
+- Tag and tenant names are unique within the same reference scope.
+- Keys accept only lowercase alphanumeric characters and hyphens.
 
 ## Related
 
