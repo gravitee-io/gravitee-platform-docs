@@ -2,23 +2,27 @@
 
 ## Creating subscription forms
 
-1. In the Management Console, click **Settings** in the left sidebar. Scroll to the **New Developer Portal** section, click **Open Settings**, then select **Subscription Form** in the portal settings sidebar.
+1. In the Management Console, click **Settings** in the left sidebar.
 
     <figure><img src="../../.gitbook/assets/pvdE8Owg__image.png" alt="Management Console dashboard with Settings highlighted"><figcaption><p>Click Settings in the left sidebar</p></figcaption></figure>
 
+2. Scroll to the **New Developer Portal** section and click **Open Settings**.
+
     <figure><img src="../../.gitbook/assets/eB0pOpBE__image.png" alt="New Developer Portal section with Open Settings button"><figcaption><p>Click Open Settings in the New Developer Portal section</p></figcaption></figure>
+
+3. In the portal settings sidebar, select **Subscription Form**.
 
     <figure><img src="../../.gitbook/assets/657dxh5i__Zrzut ekranu 2026-03-10 o 14.02.19.png" alt="Portal settings sidebar with Subscription Form highlighted"><figcaption><p>Select Subscription Form in the portal settings sidebar</p></figcaption></figure>
 
-2. Write form content using the GMD form editor. The live preview pane displays the rendered form in real time.
+4. Write form content using the GMD form editor. The live preview pane displays the rendered form in real time.
 
     <figure><img src="../../.gitbook/assets/HnW9DAMW__Zrzut ekranu 2026-03-10 o 14.04.01.png" alt="GMD form editor with live preview"><figcaption><p>GMD form editor with live preview pane</p></figcaption></figure>
 
-3. Toggle the **Visible to API consumers** switch to control whether the form appears in the Developer Portal.
+5. Toggle the **Visible to API consumers** switch to control whether the form appears in the Developer Portal.
 
     <figure><img src="../../.gitbook/assets/e768lrUA__Zrzut ekranu 2026-03-10 o 14.08.31.png" alt="Visible to API consumers toggle and Save button"><figcaption><p>Visible to API consumers toggle and Save button</p></figcaption></figure>
 
-4. Click **Save** to persist changes.
+6. Click **Save** to persist changes.
 
 An unsaved changes guard prevents accidental navigation away from unsaved edits. Forms are scoped to the environment level — each environment has one subscription form.
 
