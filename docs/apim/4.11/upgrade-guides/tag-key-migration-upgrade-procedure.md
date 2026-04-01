@@ -68,7 +68,7 @@ After migration:
 - New tags and tenants created via the API require a `key` field in the request body.
 - API clients that create new tags or tenants and store the `id` for later reference need to use the `key` for subsequent operations (GET, PUT, DELETE), not the UUID `id`.
 
-For the full list of affected endpoints, see [Tag entity schema and key field reference](../reference/data-model/tag-entity-schema-and-key-field-reference.md#rest-api-endpoints).
+For the full list of affected endpoints, see [Tag entity schema and key field reference](../configure-and-manage-the-platform/gravitee-gateway/tag-entity-schema-and-key-field-reference.md#rest-api-endpoints).
 
 {% hint style="info" %}
 If the migration encounters an error, it logs a failure message and the platform continues to start. Check the application logs for details and contact support if tag operations don't work as expected after upgrade.
