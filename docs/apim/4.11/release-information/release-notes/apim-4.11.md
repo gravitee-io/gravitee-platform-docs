@@ -2,6 +2,20 @@
 
 ## Highlights
 
+* LLM Dashboard and MCP Dashboard provide real-time analytics for LLM token usage, costs, and MCP request latency in the APIM Console.
+* AI-Powered PII Filtering policy detects and redacts personally identifiable information in API payloads using on-device AI models.
+* AI Semantic Caching reduces LLM token consumption by returning cached responses for semantically similar prompts.
+* A2A Proxy API type enables direct agent-to-agent communication through a dedicated V4 reactor with HTTP selectors.
+* API Products bundle multiple V4 HTTP Proxy APIs into a single subscribable package with unified plans and subscriptions.
+* JMS Endpoint Connector integrates Gravitee with JMS-compliant brokers (ActiveMQ, IBM MQ, Solace) for queue and topic messaging.
+* Entrypoint Connect phase enables policy execution at TCP connection time for Native Kafka and A2A APIs, before authentication.
+* mTLS plan support for Kafka Native APIs authenticates clients via X.509 certificates with dynamic trust store updates.
+* Kafka Governance Rules policies enforce compliance standards on Produce, Fetch, CreateTopics, and AlterConfigs requests.
+* Kafka message encryption and decryption policy protects Kafka payloads at the gateway level using AES-GCM with JWE or DEK modes.
+* Native IP filtering policy for Kafka APIs controls client access using whitelist/blacklist rules with IPv4, IPv6, and CIDR support.
+* Multi-tenant endpoint support routes Kafka traffic to different backend clusters based on gateway tenant configuration.
+* Subscription forms let API publishers define custom forms that consumers complete when subscribing to plans.
+* Context-aware logging infrastructure automatically enriches gateway logs with API, organization, environment, and plan metadata.
 ## Breaking Changes
 
 #### **End of support for V1 APIs**
@@ -21,16 +35,16 @@ Existing A2A proxy APIs continue to work but they are no longer supported.
 * Users can view analytics for their LLMs in the observability section of their APIM Console. 
 * The LLM dashboard provides you with clear visibility into the LLMs' performance and traffic patterns. 
 * The dashboard shows the following key metrics:
-** Total tokens. The combined total of prompt tokens and completion tokens processed.
-** Average tokens per request. The average token consumption for each LLM call.
-** Total token count over time. The cost trend of tokens for prompts and completion.
-** Token cost over time. The trend of prompt, completion, and total tokens consumed.
-** Total cost. The total cost of the LLM usage.
-** Average cost per request. The average spend for each LLM call.
-** Response status reparition. The breakdown of HTTP outcomes for each LLM call.
-** Total token per model. The breadkown of comsumption across LLM models.
-** Total requests. All HTTP calls processed by the Gateway.
-** LLM requests. Total call volume targeting LLM providers.
+  * **Total tokens.** The combined total of prompt tokens and completion tokens processed.
+  * **Average tokens per request.** The average token consumption for each LLM call.
+  * **Total token count over time.** The cost trend of tokens for prompts and completion.
+  * **Token cost over time.** The trend of prompt, completion, and total tokens consumed.
+  * **Total cost.** The total cost of the LLM usage.
+  * **Average cost per request.** The average spend for each LLM call.
+  * **Response status repartition.** The breakdown of HTTP outcomes for each LLM call.
+  * **Total token per model.** The breakdown of consumption across LLM models.
+  * **Total requests.** All HTTP calls processed by the Gateway.
+  * **LLM requests.** Total call volume targeting LLM providers.
 #### **MCP dashboard**
 
 * Users can view analytics for their MCPs in the observability section of their APIM Console. 
@@ -38,18 +52,18 @@ Existing A2A proxy APIs continue to work but they are no longer supported.
 * The MCP dashboard provides you with clear visibility into the MCPs' performance and traffic patterns. 
 
 * The dashboard shows the following key metrics:
-** MCP requests. The total number of requests targeting MCP APIs.
-** Average latency. The average Gateway latency for MCP requests.
-** Max latency. The maximum Gateway latency observed for MCP requests.
-** P90 latency. The 90th percentile Gateway latency for MCP requests.
-** P99 latency. The 99th percentile Gateway latency for MCP requests.
-** Method usage. The distribution of MCP proxy methods by request count. 
-** Method usage over time. The evolution of the method usage over time.
-** Most used resources. The top five used MCP resources by request count.
-** Response status repartition. The distribution of HTTP response status codes for MCP requests.
-** Most used tools. The top 5 MCP tools by request count.
-** Most used prompts. The top 5 most used request prompts by request count.
-** Average response time. Average Gateway response time for MCP requests over time.
+  * **MCP requests.** The total number of requests targeting MCP APIs.
+  * **Average latency.** The average Gateway latency for MCP requests.
+  * **Max latency.** The maximum Gateway latency observed for MCP requests.
+  * **P90 latency.** The 90th percentile Gateway latency for MCP requests.
+  * **P99 latency.** The 99th percentile Gateway latency for MCP requests.
+  * **Method usage.** The distribution of MCP proxy methods by request count.
+  * **Method usage over time.** The evolution of the method usage over time.
+  * **Most used resources.** The top five used MCP resources by request count.
+  * **Response status repartition.** The distribution of HTTP response status codes for MCP requests.
+  * **Most used tools.** The top 5 MCP tools by request count.
+  * **Most used prompts.** The top 5 most used request prompts by request count.
+  * **Average response time.** Average Gateway response time for MCP requests over time.
 
 
 <!-- PIPELINE:APIM-12439 -->
