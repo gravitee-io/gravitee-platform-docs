@@ -1,3 +1,10 @@
+---
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/identity-providers/social-identity-providers/github
+---
+
 # Github
 
 ## Overview
@@ -45,7 +52,7 @@ Ensure you have the GitHub application generated Client ID and Client Secret to 
 6. Enter your GitHub application Client ID and Client Secret.
 7. Click **Create**.
 
-<figure><img src="../../../../4.10/.gitbook/assets/image (72).png" alt=""><figcaption><p>Create Github Identity Provider</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (72).png" alt=""><figcaption><p>Create Github Identity Provider</p></figcaption></figure>
 
 {% hint style="info" %}
 On the right side of the screen, under **1. Configure the Redirect URI** copy the value of the URL. You will use it to update your GitHub application settings.
@@ -66,7 +73,7 @@ You can test your GitHub connection using a web application created in AM.
 
 1. In AM Console, click **Applications** and select your social identity provider.
 
-<figure><img src="../../../../4.10/.gitbook/assets/image (73).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (73).png" alt=""><figcaption></figcaption></figure>
 
 2. Call the Login Page (i.e the `/oauth/authorize` endpoint). If the connection is working you will see a **Sign in with …​** button.
 

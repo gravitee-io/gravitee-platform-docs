@@ -1,3 +1,10 @@
+---
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/auth-protocols/uma-2.0
+---
+
 # UMA 2.0
 
 ## Overview

@@ -1,3 +1,10 @@
+---
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/configuration
+---
+
 # Configuration
 
 The guides in this section explain how to configure the AM components and repositories after installation. For more details on ongoing AM configuration tasks, see the [**Administration Guide**](../../guides/administration.md).

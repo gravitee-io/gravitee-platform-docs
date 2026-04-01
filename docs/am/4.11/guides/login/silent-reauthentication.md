@@ -1,3 +1,10 @@
+---
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/login/silent-reauthentication
+---
+
 # Silent Reauthentication
 
 To lower authentication friction from third parties which can’t maintain a session with Gravitee Access Management (AM), the use of the OpenID Connect ID Token let you request new tokens in a silent manner.

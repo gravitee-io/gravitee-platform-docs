@@ -1,5 +1,9 @@
 ---
 description: Learn more about Gravitee Enterprise Edition support
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/community-and-support/enterprise-support
 ---
 
 # Enterprise Support

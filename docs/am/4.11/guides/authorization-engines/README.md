@@ -1,3 +1,10 @@
+---
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/authorization-engines
+---
+
 # Authorization Engines
 
 {% hint style="danger" %}
@@ -77,4 +84,4 @@ To manage Authorization Engines in a domain, the following permissions are requi
    1. AM returns a decision (`allow` or `deny`).
    2. The MCP Server enforces the decision before executing the operation.
 
-<figure><img src="../../../4.10/.gitbook/assets/auth-eng.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/auth-eng.jpg" alt=""><figcaption></figcaption></figure>

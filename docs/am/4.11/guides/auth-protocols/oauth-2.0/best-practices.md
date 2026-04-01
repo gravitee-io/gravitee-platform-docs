@@ -1,3 +1,10 @@
+---
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/auth-protocols/oauth-2.0/best-practices
+---
+
 # Best Practices
 
 The [OAuth 2.0 Security Best Current Practice](https://tools.ietf.org/html/draft-ietf-oauth-security-topics) describes security requirements and other recommendations for clients and servers implementing OAuth 2.0.

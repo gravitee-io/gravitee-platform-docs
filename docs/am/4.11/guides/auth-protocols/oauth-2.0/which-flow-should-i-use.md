@@ -1,3 +1,10 @@
+---
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/auth-protocols/oauth-2.0/which-flow-should-i-use
+---
+
 # Which Flow Should I Use?
 
 Deciding which OAuth 2.0 flow to use depends mainly on the type of client the end user will be using and the level of trust between AM authorization server and your clients.

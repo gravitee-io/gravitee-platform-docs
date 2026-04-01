@@ -1,3 +1,10 @@
+---
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/tutorial-getting-started-with-am/login-to-am-console
+---
+
 # Log in to AM Console
 
 ## How to access AM Console
@@ -16,7 +23,7 @@ To log in:
 
 1. Open AM Console.
 
-<figure><img src="../../../4.10/.gitbook/assets/image (22).png" alt="AM Console login page"><figcaption><p>AM Console login page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (22).png" alt="AM Console login page"><figcaption><p>AM Console login page</p></figcaption></figure>
 
 2. Log in with the administrator credentials. You are redirected to the AM Console dashboard for your default security domain.
 3. If you want to change the security domain, open the user menu from the top bar and select the domain from the list.
@@ -33,7 +40,7 @@ AM Console is accessible by `administrative users` you can manage in the **organ
 
 A security domain lets you manage your end users and their respective applications. It gives the ability to sign your users in by selecting multiple identity providers and building your own custom authentication and authorization journey to match your brand requirements and identity.
 
-<figure><img src="../../../4.10/.gitbook/assets/image (23).png" alt=""><figcaption><p>Access Management Dashboard</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (23).png" alt=""><figcaption><p>Access Management Dashboard</p></figcaption></figure>
 
 The security domain settings includes several sections that you can navigate using the sidebar menu on your left.
 
@@ -69,7 +76,7 @@ To access the security domains, open the user menu from the top bar and click **
 
 The security domains overview displays all the domains available for the current environment. To access one specific security domain, click on its name.
 
-<figure><img src="../../../4.10/.gitbook/assets/image (24).png" alt=""><figcaption><p>Security Domains - All domains, or create new Domain</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (24).png" alt=""><figcaption><p>Security Domains - All domains, or create new Domain</p></figcaption></figure>
 
 ### Environments
 
@@ -85,7 +92,7 @@ Here you can configure several aspects of your organization such as :
 * [Administrative roles](../../guides/administration.md#roles-and-permissions-overview): Register new administrative users and manage their roles.
 * Deployment configuration: Set up entrypoints and sharding tags for your AM gateway.
 
-<figure><img src="../../../4.10/.gitbook/assets/image (25).png" alt=""><figcaption><p>Organization settings</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (25).png" alt=""><figcaption><p>Organization settings</p></figcaption></figure>
 
 The Organization settings include several sections that you can navigate using the sidebar menu on your left.
 

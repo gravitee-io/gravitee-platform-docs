@@ -2,6 +2,10 @@
 description: >-
   This article covers the new features released in Gravitee Access Management
   4.10.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/releases-and-changelog/release-notes/am-4.10
 ---
 
 # AM 4.10
@@ -13,7 +17,7 @@ Access Management supports [Kafka reporter](../../getting-started/configuration/
 ### Secret References in Domain-Level Plugins
 
 {% hint style="info" %}
-This functionality is currently exclusive to the **Certificate** **Plugin**.&#x20;
+This functionality is currently exclusive to the **Certificate** **Plugin**.
 {% endhint %}
 
 AM 4.10 extends our Secret Provider capabilities beyond the global `gravitee.yaml` configuration. Administrators can utilize [secret references](../../getting-started/configuration/domain-secrets/) within specific plugin configurations defined at the Domain level.
@@ -36,13 +40,13 @@ Access Management is now taking its first steps toward becoming a first-class ci
 ### Authorization Engine (OpenFGA & AuthZen)
 
 {% hint style="warning" %}
-**Tech Preview:** The OpenFGA Authorization Engine is currently in tech preview. Features and APIs may change in future releases. This functionality is not production-ready. Contact Gravitee to get access and discover the feature.&#x20;
+**Tech Preview:** The OpenFGA Authorization Engine is currently in tech preview. Features and APIs may change in future releases. This functionality is not production-ready. Contact Gravitee to get access and discover the feature.
 
 To get access, reach out to your Gravitee customer contact, or [book a demo](https://www.gravitee.io/demo).
 {% endhint %}
 
 In 4.10, we are laying the foundation for Access Management to serve as the primary[ Policy Decision Point](am-4.10.md#authorization-engine-openfga-and-authzen) (PDP) and permissions engine for Agentic AI and MCP ecosystems. This feature enables fine-grained, relationship-based access control (ReBAC) for AI tools and resources.
 
-* **OpenFGA Integration**: Connect an OpenFGA server to manage "tuples" that define relationships between users and AI tools. For example,  `user:johndoe` can `invoke` `tool:get_weather`.
+* **OpenFGA Integration**: Connect an OpenFGA server to manage "tuples" that define relationships between users and AI tools. For example, `user:johndoe` can `invoke` `tool:get_weather`.
 * **AuthZen Interface**: An MVP interface aligned with the AuthZen specification allows MCP Gateways to request real-time "Permit/Deny" decisions.
 * **Auditability**: A new `PERMISSION_EVALUATED` audit entry captures full request/response payloads for every AI authorization decision.

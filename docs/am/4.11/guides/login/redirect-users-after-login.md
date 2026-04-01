@@ -1,3 +1,10 @@
+---
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/login/redirect-users-after-login
+---
+
 # Redirect Users After Login
 
 Login flows are always triggered by calling standard endpoints from protocols such as OAuth 2.0/OpenID Connect or SAML 2.0.

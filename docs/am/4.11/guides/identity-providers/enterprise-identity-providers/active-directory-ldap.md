@@ -1,3 +1,10 @@
+---
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/identity-providers/enterprise-identity-providers/active-directory-ldap
+---
+
 # Active Directory/LDAP
 
 ## Overview

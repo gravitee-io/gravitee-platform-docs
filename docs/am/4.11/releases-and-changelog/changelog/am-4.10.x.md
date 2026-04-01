@@ -2,6 +2,10 @@
 description: >-
   This page contains the changelog entries for AM 4.10.0 and any future minor or
   patch AM 4.10.x releases.
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/releases-and-changelog/changelog/am-4.10.x
 ---
 
 # AM 4.10.x
@@ -26,9 +30,7 @@ description: >-
 
 * Update reporter script [#11262](https://github.com/gravitee-io/issues/issues/11262)
 
-
 </details>
-
 
 ## Gravitee Access Management 4.10.5 - March 13, 2026
 
@@ -50,11 +52,10 @@ description: >-
 
 **Other**
 
-* Out of Memory Issues caused by LD_PRELOAD [#11232](https://github.com/gravitee-io/issues/issues/11232)
+* Out of Memory Issues caused by LD\_PRELOAD [#11232](https://github.com/gravitee-io/issues/issues/11232)
 * JDBC: sslMode=require without sslRootCert [#11235](https://github.com/gravitee-io/issues/issues/11235)
 
 </details>
-
 
 ## Gravitee Access Management 4.10.4 - March 3, 2026
 
@@ -138,11 +139,11 @@ description: >-
 
 <summary>What's new</summary>
 
-#### Enhanced Kafka Reporting for Audit Logs
+**Enhanced Kafka Reporting for Audit Logs**
 
 Access Management supports Kafka reporter, which enables seamless integration between your audit trails and Kafka topics. You can optimize data flow by selecting specific event types to send to your Kafka cluster.
 
-#### Secret References in Domain-Level Plugins
+**Secret References in Domain-Level Plugins**
 
 AM 4.1 extends our Secret Provider capabilities beyond the global `gravitee.yaml` configuration. Administrators can utilize secret references within specific plugin configurations defined at the Domain level.
 
@@ -150,11 +151,11 @@ AM 4.1 extends our Secret Provider capabilities beyond the global `gravitee.yaml
 This functionality is currently exclusive to the **Certificate** **Plugin**.
 {% endhint %}
 
-#### User Authentication via Certificate
+**User Authentication via Certificate**
 
 Access Management now supports Certificate-Based Authentication (CBA) as a primary authentication factor. Similar to WebAuthn, CBA uses public-key cryptography to prove identity but utilizes standard X.509 digital certificates.
 
-#### MCP Server Integration
+**MCP Server Integration**
 
 {% hint style="warning" %}
 **Tech Preview**: MCP Server support is currently in preview. Features and APIs may change in future releases. This functionality is not production-ready and you should use the feature with caution.
@@ -162,7 +163,7 @@ Access Management now supports Certificate-Based Authentication (CBA) as a prima
 
 We are taking the first steps toward making **Model Context Protocol** (MCP) a first-class citizen within Access Management. This feature introduces a new application type designed specifically for MCP Resource Servers, enabling secure, standardized communication between AI models and your data tools.
 
-#### Authorization Engine (OpenFGA & AuthZen)
+**Authorization Engine (OpenFGA & AuthZen)**
 
 {% hint style="warning" %}
 **Tech Preview:** The OpenFGA Authorization Engine is in tech preview. Features and APIs may change in future releases. This functionality is not production-ready. Contact Gravitee to get access and discover the feature.
@@ -178,7 +179,7 @@ In this release, we are laying the foundation for Access Management to serve as 
 
 <summary>Breaking changes</summary>
 
-#### Optimized Audit Logging for Client Authentication
+**Optimized Audit Logging for Client Authentication**
 
 To improve Gateway performance and reduce log storage overhead, The record of client authentication in the audit logs has been optimized.
 

@@ -1,3 +1,10 @@
+---
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/multi-factor-authentication/managing-factors/phone-call
+---
+
 # Phone Call
 
 With phone call verification, you can receive a verification code via a phone call to be used as the second factor to validate a user’s account.

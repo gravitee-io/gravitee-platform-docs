@@ -1,3 +1,10 @@
+---
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/authorization-engines/authzen
+---
+
 # AuthZen
 
 {% hint style="danger" %}
@@ -23,6 +30,7 @@ The AuthZen Gateway Handler does the following:
     ```
 
 ## Prerequisites
+
 * Valid Gravitee Enterprise license with `enterprise-authorization-engine` pack.
 * A configured Authorization Engine plugin instance. For example, OpenFGA.
 
