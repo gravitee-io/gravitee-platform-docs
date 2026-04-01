@@ -47,6 +47,8 @@
 * [Configure the GKO HTTP client for APIM](guides/gko-http-client.md)
 * [Gateway API](guides/gateway-api/README.md)
   * [HTTPRoute](guides/gateway-api/httproute.md)
+  * [TLS with cert-manager](guides/gateway-api/tls-with-cert-manager.md)
+  * [DNS with external-dns](guides/gateway-api/dns-with-external-dns.md)
 
 ## REFERENCE
 
