@@ -43,10 +43,10 @@ When deploying a new Gateway, you can optionally set sharding tags. To add shard
 1.  Navigate to the **Deployment Tags** section.
 
     <figure><img src="../../.gitbook/assets/deployment-tags-cloud-version.png" alt=""><figcaption></figcaption></figure>
-2.  In the **Sharding Tags Keys** field, enter one or more tags that identify this Gateway's purpose. For example, `us-east`, `production`, `eu-west`.
+2.  In the **Sharding Tag Keys** field, enter one or more tag keys that identify this Gateway's purpose. For example, `us-east`, `production`, `eu-west`.
 
     <figure><img src="../../.gitbook/assets/sharding-tag-ids-cloud.png" alt=""><figcaption></figcaption></figure>
-3.  In the **Tenant Tag Keys** field, enter identifiers that represent the backend services or tenants the Gateway routes to. For example, `eu-west-1`.
+3.  In the **Tenant Tag Keys** field, enter keys that represent the backend services or tenants the Gateway routes to. For example, `eu-west-1`.
 
     <figure><img src="../../.gitbook/assets/tenant-tag-ids-description.png" alt=""><figcaption></figcaption></figure>
 4. Click **Save**.
@@ -124,9 +124,9 @@ To update Sharding tags or Tenant tags on an existing Gateway, complete the foll
 2.  Click the Gateway name to access Gateway settings.
 
     <figure><img src="../../.gitbook/assets/general-details.png" alt=""><figcaption></figcaption></figure>
-3.  In the **Tags Deployment Details** section, you can add new Sharding tag IDs, and Tenant tag IDs. The changes are applied without requiring Gateway restart. 
+3.  In the **Tags Deployment Details** section, you can add new sharding tag keys and tenant tag keys. The changes are applied without requiring Gateway restart.
 
-    <figure><img src="../../.gitbook/assets/add-more sharding-tag-ids-and-tenant-ids.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/cloud-deployment-tags-keys.png" alt=""><figcaption><p>Deployment Tags section with Sharding Tag Keys and Tenant Tag Keys</p></figcaption></figure>
 
 {% hint style="info" %}
 Sharding tag changes are applied immediately without gateway downtime. However, API synchronization may take a few minutes to complete.

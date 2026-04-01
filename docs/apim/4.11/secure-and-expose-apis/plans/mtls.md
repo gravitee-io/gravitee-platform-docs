@@ -76,11 +76,25 @@ The Gateway validates that no conflicting plan types remain in published state. 
 
 To subscribe to an mTLS plan, the client has to add a certificate to their application. To add a certificate to an application, complete the following steps:
 
-1. In the Console, navigate to **Applications**, and then click a specific application.
-2. Within the application, click the **TLS Configuration** setting. The client certificate is pasted in base64-encoded format.
+1.  In the Console, navigate to **Applications**, and then click a specific application.
 
-<!-- TODO: Screenshot of the TLS Configuration panel in the application settings, showing where to paste the client certificate in base64-encoded format -->
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-application-tls-configuration.png" alt="TLS Configuration panel in application settings"><figcaption><p>TLS Configuration panel in application settings</p></figcaption></figure>
+2.  In the application sidebar, click **Global settings**.
+
+3.  Scroll to the **Certificates** section.
+
+    <figure><img src="../../.gitbook/assets/application-certificates-section.png" alt=""><figcaption><p>Certificates section in the application Global settings page</p></figcaption></figure>
+
+4.  Click **+ Add certificate** to open the dialog.
+
+5.  In the **Certificate Name** field, enter a name for the certificate.
+
+6.  In the **Certificate** field under **Paste certificate**, paste the PEM-encoded client certificate. Alternatively, under **Upload file**, drag and drop a `.pem` or `.crt` file.
+
+    <figure><img src="../../.gitbook/assets/add-certificate-dialog.png" alt=""><figcaption><p>Add certificate dialog with Certificate Name, Paste certificate, and Upload file fields</p></figcaption></figure>
+
+7.  Click **Continue**, and then set the **Active until** date.
+
+8.  Review the certificate summary and click **Add**.
 
 {% hint style="warning" %}
 Multiple applications in the same APIM instance may not share client certificates. You can't save an application's configuration if its client certificate is already associated with another application.
