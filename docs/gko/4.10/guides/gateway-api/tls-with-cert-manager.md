@@ -1,4 +1,4 @@
-# TLS with cert-manager
+# Configure TLS with cert-manager
 
 ## Overview
 
@@ -23,7 +23,7 @@ Each HTTPS listener supports exactly one `certificateRef`. Specifying multiple c
 
 ## Prerequisites
 
-Before configuring TLS with cert-manager:
+Before configuring TLS with cert-manager, verify the following:
 
 * Install GKO with the Gateway API controller enabled. See [Gateway API](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/guides/gateway-api) for setup instructions.
 * Verify a `GatewayClass` and `GatewayClassParameters` resource exist and the GatewayClass is in `Accepted=True` state.
@@ -161,7 +161,7 @@ Apply the Gateway:
 kubectl apply -f gateway.yaml
 ```
 
-When this Gateway is created:
+When this Gateway is created, the following occurs:
 
 * cert-manager reads the annotations and the HTTPS listener's `hostname` field.
 * cert-manager creates a `Certificate` resource with the Secret name `https-server`, DNS names from the listener hostname (`*.apis.example.dev`), and subject fields from the annotations.
@@ -489,7 +489,7 @@ This grants the Gateway in the `default` namespace permission to reference Secre
 
 ## Constraints
 
-* Each HTTPS listener accepts exactly **one** `certificateRef`. Specifying multiple references causes the listener to enter a `RejectTooManyCertificateRefs` state.
+* Each HTTPS listener accepts exactly **one** `certificateRef`. Specifying multiple references causes the listener to enter a `TooManyCertificateRefs` state.
 * The `certificateRef` kind is `Secret` and the group is `""` (Kubernetes core API group). Other kinds aren't supported.
 * The Secret contains PEM-encoded `tls.crt` and `tls.key` fields. Secrets with missing or malformed PEM data are rejected.
 * GKO watches for changes to referenced Secrets and automatically re-reconciles the Gateway when a certificate is renewed.
@@ -497,7 +497,7 @@ This grants the Gateway in the `default` namespace permission to reference Secre
 ## What's next
 
 * [Gateway API overview](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/guides/gateway-api): Set up GatewayClass, GatewayClassParameters, and Gateway resources.
-* [DNS with external-dns](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/guides/gateway-api/dns-with-external-dns): Automate DNS record creation for Gateway Services.
+* [Configure DNS with external-dns](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/guides/gateway-api/dns-with-external-dns): Configure DNS record creation for Gateway Services.
 * [HTTPRoute](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/guides/gateway-api/httproute): Configure path-based routing, header matching, and traffic splitting.
 * [GatewayClassParameters](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/overview/custom-resource-definitions/gatewayclassparameters): Configure Gravitee-specific Gateway API settings.
 * [cert-manager Gateway API documentation](https://cert-manager.io/docs/usage/gateway/): Full reference for cert-manager's Gateway API integration.

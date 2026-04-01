@@ -1,4 +1,4 @@
-# DNS with external-dns
+# Configure DNS with external-dns
 
 ## Overview
 
@@ -18,7 +18,7 @@ The external-dns integration follows this flow:
 
 ## Prerequisites
 
-Before configuring DNS with external-dns:
+Before configuring DNS with external-dns, verify the following:
 
 * Install GKO with the Gateway API controller enabled. See [Gateway API](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/guides/gateway-api) for setup instructions.
 * Verify a `GatewayClass` and `GatewayClassParameters` resource exist and the GatewayClass is in `Accepted=True` state.
@@ -256,7 +256,7 @@ spec:
 
 {% endcode %}
 
-When applied:
+When applied, the following occurs:
 
 * GKO deploys the Gateway and creates a `LoadBalancer` Service with the external-dns hostname annotation.
 * external-dns creates a DNS record for `api.example.dev` pointing to the load balancer IP.
@@ -264,7 +264,7 @@ When applied:
 * GKO configures the Gravitee Gateway with the TLS certificate.
 * Traffic reaches the Gateway over HTTPS through the DNS hostname with a valid TLS certificate.
 
-For detailed cert-manager configuration, see [TLS with cert-manager](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/guides/gateway-api/tls-with-cert-manager).
+For detailed cert-manager configuration, see [Configure TLS with cert-manager](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/guides/gateway-api/tls-with-cert-manager).
 
 ## Multiple hostnames
 
@@ -288,7 +288,7 @@ spec:
 ## What's next
 
 * [Gateway API overview](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/guides/gateway-api): Set up GatewayClass, GatewayClassParameters, and Gateway resources.
-* [TLS with cert-manager](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/guides/gateway-api/tls-with-cert-manager): Automate TLS certificate provisioning for Gateway HTTPS listeners.
+* [Configure TLS with cert-manager](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/guides/gateway-api/tls-with-cert-manager): Configure TLS certificate provisioning for Gateway HTTPS listeners.
 * [HTTPRoute](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/guides/gateway-api/httproute): Configure path-based routing, header matching, and traffic splitting.
 * [GatewayClassParameters](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/overview/custom-resource-definitions/gatewayclassparameters): Configure Gravitee-specific Gateway API settings.
 * [external-dns documentation](https://kubernetes-sigs.github.io/external-dns/): Full reference for external-dns setup and provider configuration.
