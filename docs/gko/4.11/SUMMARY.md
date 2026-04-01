@@ -33,8 +33,6 @@
 ## GUIDES
 
 * [Kubernetes CRD Configuration for Client Certificates](guides/kubernetes-crd-configuration-for-client-certificates.md)
-* [mTLS Certificate Management Overview](mtls-certificate-management-overview.md)
-  * [Gateway Configuration for mTLS Certificate Management](guides/mtls-certificate-management-overview/gateway-configuration-for-mtls-certificate-management.md)
 * [Manage JWT subscriptions with GKO](guides/manage-jwt-subscriptions-with-gko.md)
 * [Define an APIM service account for GKO](guides/define-an-apim-service-account-for-gko.md)
 * [Deploy APIs to a Gateway](guides/deploy-apis-to-a-gateway.md)
