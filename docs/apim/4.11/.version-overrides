@@ -67,10 +67,10 @@ configure-and-manage-the-platform/gravitee-gateway/alerts.md
 create-and-configure-apis/apply-policies/policy-reference/javascript-policy-new-reference.md
 create-and-configure-apis/configure-v4-apis/general-settings.md
 create-and-configure-apis/development-tools/README.md
-gateway/configuration/README.md
-gateway/configuration/gateway-configuration-for-mtls-certificate-management.md
-guides/README.md
-reference/data-model/README.md
-reference/data-model/tag-entity-schema-and-key-field-reference.md
+configure-and-manage-the-platform/gravitee-gateway/gateway-configuration-for-mtls-certificate-management.md
+configure-and-manage-the-platform/gravitee-gateway/tag-entity-schema-and-key-field-reference.md
+ai-agent-management/AI-resources/README.md
+ai-agent-management/AI-resources/ai-model-text-classification-overview-and-model-selection.md
+ai-agent-management/AI-resources/ai-model-text-classification-configuration-and-usage.md
 release-information/breaking-changes-and-deprecations.md
 upgrade-guides/tag-key-migration-upgrade-procedure.md
