@@ -8,7 +8,7 @@ description: This page details the go-forward strategy for supporting v1 APIs in
 This page details Gravitee’s strategy for supporting v1 APIs in API Management (APIM). 
 
 {% hint style="info" %}
-Gravitee deprecated v1 APIs in version 4.4.0 of APIM. From version 4.12.0, there is no support for v1 APIs. 
+Gravitee deprecated v1 APIs in version 4.0.0 of APIM. From version 4.12.0, there is no support for v1 APIs. 
 {% endhint %}
 
 ## Create and import v1 APIs
@@ -34,7 +34,7 @@ When you upgrade an existing APIM environment to version 4.0.0 up to 4.11.x, her
 
 ### Upgrade to version 4.12.x
 
-From 4.12.0 of APIM, Gravitee no longer supports v1 APIs. Before you upgrade to version 4.12.0, ensure that you migrate all v1 APIs to at least a v2 API definition. If you upgrade to 4.12.0 with a v1 API, here is how Gravitee interacts with v1 APIs
+From 4.12.0 of APIM, Gravitee no longer supports v1 APIs. Before you upgrade to version 4.12.0, ensure that you migrate all v1 APIs to at least a v2 API definition. If you upgrade to 4.12.0 with a v1 API, here is how Gravitee interacts with v1 APIs:
 
 * Gravitee removes the v1 API code from the APIM codebase.
 * The APIM Gateway ignores v1 APIs.
