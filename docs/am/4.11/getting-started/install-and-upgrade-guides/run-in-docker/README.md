@@ -1,3 +1,10 @@
+---
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/install-and-upgrade-guides/run-in-docker
+---
+
 # Run in Docker
 
 Gravitee provides [Docker images](https://hub.docker.com/u/graviteeio/) for the maintained Access Management (AM) components. You can run the images individually or start a complete AM environment using our `docker-compose` file.

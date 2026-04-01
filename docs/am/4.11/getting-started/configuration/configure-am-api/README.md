@@ -1,3 +1,10 @@
+---
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/configuration/configure-am-api
+---
+
 # AM API
 
 ## Configuration overview
@@ -544,7 +551,7 @@ notifiers:
         value: 100
 ```
 
-<figure><img src="../../../../4.10/.gitbook/assets/image (165).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (165).png" alt=""><figcaption></figcaption></figure>
 
 #### Email Notifier
 

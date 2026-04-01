@@ -1,3 +1,9 @@
+---
+metaLinks:
+  alternates:
+    - https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/reference/am-api-reference
+---
+
 # API Reference
 
 ## Overview

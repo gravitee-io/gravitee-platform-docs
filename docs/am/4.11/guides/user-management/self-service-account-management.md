@@ -1,3 +1,10 @@
+---
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/user-management/self-service-account-management
+---
+
 # Self-service Account Management
 
 ## Overview

@@ -1,3 +1,10 @@
+---
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/overview/am-architecture/control-plane-and-data-plane
+---
+
 # Control Plane & Data Plane
 
 Gravitee provides the flexibility to choose the type of database for each specific use case, referred to as the "scope," to distribute the load and reduce pressure on a single storage point.
@@ -208,4 +215,4 @@ repositories:
 
 For more details on how to configure AM with multiple DataBase or multiple Data Planes, please refer to the [Configure Multiple Data Planes](../../getting-started/install-and-upgrade-guides/configure-multiple-data-planes.md) page.
 
-<figure><img src="../../../4.10/.gitbook/assets/am-multi-dataplane (1).svg" alt=""><figcaption><p>Multiple DataPlane deployment</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/am-multi-dataplane (1).svg" alt=""><figcaption><p>Multiple DataPlane deployment</p></figcaption></figure>

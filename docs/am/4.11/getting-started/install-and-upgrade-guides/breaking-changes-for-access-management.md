@@ -2,6 +2,10 @@
 description: >-
   This page describes the breaking changes that may occur when upgrading
   Gravitee Access Management
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/install-and-upgrade-guides/breaking-changes-for-access-management
 ---
 
 # Breaking Changes for Access Management

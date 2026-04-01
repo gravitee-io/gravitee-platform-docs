@@ -1,3 +1,10 @@
+---
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/multi-factor-authentication/managing-factors
+---
+
 # Managing Factors
 
 ## Overview
@@ -14,7 +21,7 @@ Some factors also require a [**Resource**](../../resources.md).
 2. Click the plus icon.
 3. Select the factor type and click **Next.**
 
-<figure><img src="../../../../4.10/.gitbook/assets/image (108).png" alt=""><figcaption><p>Setting up Multifactor Auth from you Security Domain settings.</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (108).png" alt=""><figcaption><p>Setting up Multifactor Auth from you Security Domain settings.</p></figcaption></figure>
 
 4. Enter the factor details and click **Create**.
 

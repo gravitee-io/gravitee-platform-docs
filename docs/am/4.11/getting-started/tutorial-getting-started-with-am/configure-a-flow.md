@@ -1,3 +1,10 @@
+---
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/tutorial-getting-started-with-am/configure-a-flow
+---
+
 # Configure a Flow
 
 ## Overview
@@ -32,7 +39,7 @@ In this example, we will retrieve the username from the execution context `{#con
     * Header: **Name** — `X-Custom-Header` **Value** — `{#context.attributes['user'].username}`
     * Variable: **Name** — `X-Custom-Variable` **Value** — `{#jsonPath(#calloutResponse.content, '$.headers.X-Custom-Header')}`
 
-    <figure><img src="../../../4.10/.gitbook/assets/image (41).png" alt=""><figcaption><p>Poicy Studio and Flows editor</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (41).png" alt=""><figcaption><p>Poicy Studio and Flows editor</p></figcaption></figure>
 
 {% code overflow="wrap" %}
 ```sh

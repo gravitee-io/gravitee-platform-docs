@@ -54,9 +54,9 @@
 ## Guides
 
 * [Fetching and Displaying AgentCard Metadata](guides/fetching_and_displaying_agentcard_metadata.md)
-* [OAuth 2.0 Token Exchange API](guides/oauth-2.0-token-exchange-api-reference.md)
-* [OAuth 2.0 Token Exchange Concepts](guides/oauth-2.0-token-exchange-concepts.md)
-* [OAuth 2.0 Token Exchange Configuration](guides/oauth-2.0-token-exchange-configuration-reference.md)
+* [OAuth 2.0 Token Exchange](guides/oauth-2.0-token-exchange-concepts/README.md)
+  * [OAuth 2.0 Token Exchange Configuration](guides/oauth-2.0-token-exchange-concepts/oauth-2.0-token-exchange-configuration-reference.md)
+  * [OAuth 2.0 Token Exchange API](guides/oauth-2.0-token-exchange-concepts/oauth-2.0-token-exchange-api-reference.md)
 * [Prologue](guides/prologue.md)
 * [Auth Protocols](guides/auth-protocols/README.md)
   * [OAuth 2.0](guides/auth-protocols/oauth-2.0/README.md)
@@ -140,7 +140,6 @@
   * [AWS Certificate plugin](guides/certificates/aws-certificate-plugin.md)
   * [AWS CloudHSM plugin](guides/certificates/aws-cloudhsm-plugin.md)
   * [Configure Domain Certificate Fallback](guides/certificates/configure-domain-certificate-fallback.md)
-
 * [User Management](guides/user-management/README.md)
   * [Users](guides/user-management/users/README.md)
     * [Password Options](guides/user-management/users/password-options.md)

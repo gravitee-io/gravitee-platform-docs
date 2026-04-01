@@ -1,3 +1,9 @@
+---
+metaLinks:
+  alternates:
+    - https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/branding
+---
+
 # Branding
 
 ## Overview
@@ -19,7 +25,7 @@ To fully tend to your application branding and user experience, AM enables you t
 
 The Theme Builder enables you to create a unique look and feel for your AM templates so they are aligned with your brand requirements. The Theme Builder makes it easier to add custom CSS and the organization’s logo in the templates, and to preview the changes - all in one place.
 
-<figure><img src="../../../4.10/.gitbook/assets/image (90).png" alt=""><figcaption><p>Login Form Theme Editor</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (90).png" alt=""><figcaption><p>Login Form Theme Editor</p></figcaption></figure>
 
 The Theme Builder is available in the domain **`Design`** section. A brief description of the builder follows below:
 
@@ -53,7 +59,7 @@ Customising CSS is an option for more advanced users who want a more granular cu
 }
 ```
 
-<figure><img src="../../../4.10/.gitbook/assets/image (91).png" alt=""><figcaption><p>Using CSS to customize the theme</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (91).png" alt=""><figcaption><p>Using CSS to customize the theme</p></figcaption></figure>
 
 [Check this documentation](css-custom-variables-reference.md) for information about all available CSS properties and their default values.
 
@@ -135,7 +141,7 @@ You can customize pages for an entire security domain or for an individual appli
 3. In the **Forms** section, click the edit icon ![edit icon](https://docs.gravitee.io/images/icons/edit-icon.png) of the page template.
 4. Update the HTML as required. You can preview the result in the **Preview** tab.
 
-<figure><img src="../../../4.10/.gitbook/assets/image (93).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (93).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 Each form requires a minimum configuration. You can retrieve contextual documentation on the HTML needed for each type of page by clicking the ![am info icon](https://docs.gravitee.io/images/icons/am-info-icon.png) information icon.
@@ -227,7 +233,7 @@ You can customize email templates for an entire security domain or for an indivi
 3. In the **Emails** section, click the edit icon ![edit icon](https://docs.gravitee.io/images/icons/edit-icon.png) of the email template.
 4. Update the HTML as required. You can preview the result in the **Preview** tab.
 
-<figure><img src="../../../4.10/.gitbook/assets/image (94).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (94).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 Each email requires a minimum configuration. You can retrieve contextual documentation on the HTML needed for each type of page by clicking the ![am info icon](https://docs.gravitee.io/images/icons/am-info-icon.png) information icon.

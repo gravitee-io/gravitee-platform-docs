@@ -1,3 +1,10 @@
+---
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/auth-protocols/oauth-2.0/extension-grants
+---
+
 # Extension Grants
 
 ## Overview
@@ -30,11 +37,11 @@ $ openssl rsa -in rsa_private.pem -pubout -out rsa_public.pem
 2. Click **Settings**, then in the **OAUTH 2.0** section, click **Extension Grants**.
 3. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
 
-<figure><img src="../../../../4.10/.gitbook/assets/image (46).png" alt=""><figcaption><p>Create extension grant</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (46).png" alt=""><figcaption><p>Create extension grant</p></figcaption></figure>
 
 4. Select **Extension Grant JWT Bearer** and click **Next**.
 
-<figure><img src="../../../../4.10/.gitbook/assets/image (47).png" alt=""><figcaption><p>Add JWT Bearer</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (47).png" alt=""><figcaption><p>Add JWT Bearer</p></figcaption></figure>
 
 5. Complete the grant flow configuration and click **Create**.
 
@@ -42,7 +49,7 @@ The plugin provides two types of public key resolver: JWKS\_URL and GIVEN\_KEY. 
 
 To validate assertion against remote JWKS, the resolver parameter must be a specified URL:
 
-<figure><img src="../../../../4.10/.gitbook/assets/image (48).png" alt=""><figcaption><p>JWKS as resolve parameter</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (48).png" alt=""><figcaption><p>JWKS as resolve parameter</p></figcaption></figure>
 
 To validate the token signature against the signature key, it must be in the following format:
 
@@ -52,7 +59,7 @@ or start with:
 
 `-----BEGIN CERTIFICATE-----` .
 
-<div><figure><img src="../../../../4.10/.gitbook/assets/Screenshot 2025-09-10 at 18.09.55.png" alt=""><figcaption></figcaption></figure> <figure><img src="../../../../4.10/.gitbook/assets/Screenshot 2025-09-10 at 18.09.44.png" alt=""><figcaption></figcaption></figure></div>
+<div><figure><img src="../../../.gitbook/assets/Screenshot 2025-09-10 at 18.09.55.png" alt=""><figcaption></figcaption></figure> <figure><img src="../../../.gitbook/assets/Screenshot 2025-09-10 at 18.09.44.png" alt=""><figcaption></figcaption></figure></div>
 
 If you want to copy claims from the incoming token to the final access token, you can use the **Claims mapper**. The **Claims mapper** will copy the incoming token claims as additional information about the user profile under the `claims` entry. This will allow you to add these claims using token customization.
 
@@ -62,7 +69,7 @@ If you want to copy claims from the incoming token to the final access token, yo
 2. Select your application and in the **Settings** tab, click **OAuth 2.0 / OIDC**.
 3. In the **Grant flows** section, select your extension grant.
 
-<figure><img src="../../../../4.10/.gitbook/assets/image (49).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (49).png" alt=""><figcaption></figcaption></figure>
 
 4. Click **SAVE**.
 
