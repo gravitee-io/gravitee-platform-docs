@@ -31,6 +31,7 @@ The AuthZen Gateway Handler does the following:
 
 ## Prerequisites
 
+* Gravitee Access Management 4.10.0+.
 * Valid Gravitee Enterprise license with `enterprise-authorization-engine` pack.
 * A configured Authorization Engine plugin instance. For example, OpenFGA.
 
