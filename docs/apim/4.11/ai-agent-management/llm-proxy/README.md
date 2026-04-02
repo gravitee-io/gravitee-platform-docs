@@ -6,7 +6,7 @@
 
 An LLM Proxy is an API that is dedicated to proxying calls between an LLM consumer and an LLM provider. For example, between an AI agent and OpenAI.
 
-The proxy exposes an OpenAI-compatible API so that the consumer does not have to adapt their APIs calls.&#x20;
+The proxy exposes an OpenAI-compatible API so that the consumer does not have to adapt their APIs calls.
 
 The Gravitee LLM Proxy accepts OpenAI-compatible API requests and translates them to provider-specific formats. Each provider has different levels of support for OpenAI features based on their underlying API capabilities. We support only text generation.
 
@@ -47,27 +47,27 @@ The proxy automatically routes requests to the right provider and model, which d
 
 #### Chat Completions and Responses
 
-| Feature                                                                                      | Parameter                      | Gemini | Bedrock | OpenAI | OpenAI-Compatible | Notes                                    |
-| -------------------------------------------------------------------------------------------- | ------------------------------ | ------ | ------- | ------ | ----------------- | ---------------------------------------- |
-| **Messages**                                                                                 | `messages` / `input`           | ✅      | ✅       | ✅      | ✅                 |                                          |
-| **Max Tokens**                                                                               | `max_completion_tokens`        | ✅      | ✅       | ✅      | ✅                 | Primary token limit parameter            |
-|                                                                                              | `max_tokens`                   | ✅      | ✅       | ✅      | ✅                 | Fallback for chat completions            |
-|                                                                                              | `max_output_tokens`            | ✅      | ✅       | ✅      | ✅                 | For responses endpoint                   |
-| **Temperature**                                                                              | `temperature`                  | ✅      | ✅       | ✅      | ✅                 | Controls randomness (0.0-2.0 for Gemini) |
-| **Top P**                                                                                    | `top_p`                        | ✅      | ✅       | ✅      | ✅                 | Nucleus sampling (0.0-1.0)               |
-| **Stop Sequences**                                                                           | `stop`                         | ✅      | ✅       | ✅      | ✅                 | Array of stop sequences                  |
-| <p><strong>Tool calling</strong><br><br>Note: This feature is for only chat completions.</p> | <p><code>tools</code> <br></p> | ✅      | ✅       | ✅      | ✅                 |                                          |
-|                                                                                              | `tool_choice`                  | ✅      | ✅       | ✅      | ✅                 |                                          |
-| **Seed**                                                                                     | `seed`                         | ✅      | ❌       | ✅      | ✅                 | Reproducible generation                  |
-| **Streaming**                                                                                | `stream`                       | ✅      | ❌       | ✅      | ✅                 | SSE streaming                            |
-| **Frequency Penalty**                                                                        | `frequency_penalty`            | ❌      | ❌       | ✅      | ✅                 |                                          |
-| **Presence Penalty**                                                                         | `presence_penalty`             | ❌      | ❌       | ✅      | ✅                 |                                          |
-| **Logit Bias**                                                                               | `logit_bias`                   | ❌      | ❌       | ✅      | ✅                 |                                          |
-| **Log Probabilities**                                                                        | `logprobs`                     | ❌      | ❌       | ✅      | ✅                 |                                          |
-|                                                                                              | `top_logprobs`                 | ❌      | ❌       | ✅      | ✅                 |                                          |
-| **Multiple Choices**                                                                         | `n`                            | ❌      | ❌       | ✅      | ✅                 |                                          |
-| **User ID**                                                                                  | `user`                         | ❌      | ❌       | ✅      | ✅                 |                                          |
-| **Top K**                                                                                    | `top_k`                        | ❌      | ❌       | ✅      | ✅                 |                                          |
+| Feature                                                                                      | Parameter                     | Gemini | Bedrock | OpenAI | OpenAI-Compatible | Notes                                    |
+| -------------------------------------------------------------------------------------------- | ----------------------------- | ------ | ------- | ------ | ----------------- | ---------------------------------------- |
+| **Messages**                                                                                 | `messages` / `input`          | ✅      | ✅       | ✅      | ✅                 |                                          |
+| **Max Tokens**                                                                               | `max_completion_tokens`       | ✅      | ✅       | ✅      | ✅                 | Primary token limit parameter            |
+|                                                                                              | `max_tokens`                  | ✅      | ✅       | ✅      | ✅                 | Fallback for chat completions            |
+|                                                                                              | `max_output_tokens`           | ✅      | ✅       | ✅      | ✅                 | For responses endpoint                   |
+| **Temperature**                                                                              | `temperature`                 | ✅      | ✅       | ✅      | ✅                 | Controls randomness (0.0-2.0 for Gemini) |
+| **Top P**                                                                                    | `top_p`                       | ✅      | ✅       | ✅      | ✅                 | Nucleus sampling (0.0-1.0)               |
+| **Stop Sequences**                                                                           | `stop`                        | ✅      | ✅       | ✅      | ✅                 | Array of stop sequences                  |
+| <p><strong>Tool calling</strong><br><br>Note: This feature is for only chat completions.</p> | <p><code>tools</code><br></p> | ✅      | ✅       | ✅      | ✅                 |                                          |
+|                                                                                              | `tool_choice`                 | ✅      | ✅       | ✅      | ✅                 |                                          |
+| **Seed**                                                                                     | `seed`                        | ✅      | ❌       | ✅      | ✅                 | Reproducible generation                  |
+| **Streaming**                                                                                | `stream`                      | ✅      | ❌       | ✅      | ✅                 | SSE streaming                            |
+| **Frequency Penalty**                                                                        | `frequency_penalty`           | ❌      | ❌       | ✅      | ✅                 |                                          |
+| **Presence Penalty**                                                                         | `presence_penalty`            | ❌      | ❌       | ✅      | ✅                 |                                          |
+| **Logit Bias**                                                                               | `logit_bias`                  | ❌      | ❌       | ✅      | ✅                 |                                          |
+| **Log Probabilities**                                                                        | `logprobs`                    | ❌      | ❌       | ✅      | ✅                 |                                          |
+|                                                                                              | `top_logprobs`                | ❌      | ❌       | ✅      | ✅                 |                                          |
+| **Multiple Choices**                                                                         | `n`                           | ❌      | ❌       | ✅      | ✅                 |                                          |
+| **User ID**                                                                                  | `user`                        | ❌      | ❌       | ✅      | ✅                 |                                          |
+| **Top K**                                                                                    | `top_k`                       | ❌      | ❌       | ✅      | ✅                 |                                          |
 
 #### Embeddings
 
@@ -154,11 +154,19 @@ All endpoints return accurate token counts:
 {% endtab %}
 
 {% tab title="Streaming support" %}
-**Not Available:**
+**Chat completions**
 
-* Streaming mode (`stream: true`) is not implemented for any endpoint
-* Returns error when streaming is requested
-* All responses use direct (non-streaming) mode only
+* Streaming support with AWS EventStream binary protocol
+* Each chunk contains incremental text deltas
+* Final chunk contains reason and token usage
+* Terminated with `[DONE]` marker
+
+**Responses**
+
+* Advanced multi-event streaming
+* Event types: `response.output_text.delta` and `response.completed`&#x20;
+* Provides detailed metadata and event ordering.
+* Final event includes complete usage statistics.
 {% endtab %}
 
 {% tab title="Token usage" %}
