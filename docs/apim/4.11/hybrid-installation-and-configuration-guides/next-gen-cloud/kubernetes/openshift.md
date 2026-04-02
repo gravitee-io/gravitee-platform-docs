@@ -42,7 +42,7 @@ gateway:
   replicaCount: 1
   image:
     repository: graviteeio/apim-gateway
-    tag: 4.8.1
+    tag: 4.11.0
     pullPolicy: IfNotPresent
   autoscaling:
     enabled: false
