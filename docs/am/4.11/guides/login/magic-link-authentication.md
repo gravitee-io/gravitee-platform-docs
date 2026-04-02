@@ -1,3 +1,5 @@
+# Magic Link Authentication
+
 ## Overview
 
 Magic Link Authentication enables passwordless login by sending users a time-limited authentication link using email. When users click the link, they are authenticated without entering a password. This feature is designed for API administrators configuring authentication flows and developers integrating passwordless login into applications.
@@ -8,7 +10,7 @@ The Magic Link authentication method follows the following challenge-response fl
 3. AM presents a login page with the **Email Magic Link** option.
 4. The user enters their username. For example, their email address or login identifier.
 5. AM searches for the user's registered email in the associated user directory, and then sends a magic link to that address.
-6. The user clicks the link in the their inbox, or the user pastes the link into their browser.
+6. The user clicks the link in their inbox, or the user pastes the link into their browser.
 7. AM validates the link, establishes the session, and then redirects the user back to the application.
 
 The magic link is **single-use** and **time-limited**. If you click the link or the link expires, you cannot use that link again.
@@ -41,7 +43,7 @@ Before configuring Magic Link authentication, ensure the following requirements 
 
 ## Install the gravitee-am-authenticator-magiclink plugin
 
-By default, the enterprise plugin [gravitee-am-authenticator-magiclink`](https://download.gravitee.io/#graviteeio-ee/am/plugins/authenticator/magic-link//gravitee-am-authenticator-magiclink/). When the plugin loads successfully, the following entry appears in the server's standard output:
+By default, the enterprise plugin `gravitee-am-authenticator-magiclink` is bundled with Gravitee AM Enterprise Edition. When the plugin loads successfully, the following entry appears in the server's standard output:
 
 ```bash
 INFO  i.g.p.c.internal.PluginRegistryImpl - 	> magiclink-am-authenticator [1.0.0] has been loaded
@@ -80,10 +82,10 @@ You can enable MagicLink in either of the following locations:
 
 ### Enable Magic Link for a specific application
 
-1. Sign in to the AM COnsole
+1. Sign in to the AM Console
 2. Navigate to **Applications**, and then select the application that you want to enable the Magic Link for.
 3. Navigate to **Settings**, and then select the **login** tab.
-4. Disable the **Inherit configuartion**.
+4. Disable the **Inherit configuration**.
 5. In the **Passwordless** section, enable **Passwordless Magic Link Authentication**.
 
 ## User authentication flow
@@ -97,7 +99,7 @@ Users authenticate with Magic Link using the following process:
 5. The user is redirected to the application.
 
 ## Configure the email template
-The configure the email template, the template is eitable like other emails. The Magic Link URL is available through the `url` variable.
+To configure the email template, edit it like other AM email templates. The Magic Link URL is available through the `url` variable.
 ```bash
 <a href="${url}">
 ```

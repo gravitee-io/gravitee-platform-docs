@@ -1,3 +1,5 @@
+# PII Filtering
+
 ## Overview
 
 The PII Filtering Policy uses AI-powered token classification models to detect and redact Personally Identifiable Information (PII) in API request and response payloads. The policy operates in real-time, applying configurable redaction rules based on AI confidence scores and PII categories. It supports standard HTTP APIs and includes a bypass mode for streaming compatibility.
