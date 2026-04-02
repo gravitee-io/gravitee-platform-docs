@@ -16,11 +16,11 @@ gravitee-expression-language.md
 kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/README.md
 kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/connection-interruption.md
 kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/entrypoints.md
-agent-mesh/create-an-a2a-proxy.md
+ai-agent-management/create-an-a2a-proxy.md
 create-and-configure-apis/gravitee-api-definitions/a2a-proxy-api-type.md
 readme/enterprise-edition.md
-agent-mesh/README.md
-agent-mesh/llm-proxy/README.md
+ai-agent-management/README.md
+ai-agent-management/llm-proxy/README.md
 create-and-configure-apis/apply-policies/policy-reference/ai-semantic-caching.md
 configure-and-manage-the-platform/manage-organizations-and-environments/configuring-portal-and-console-deployments.md
 create-and-configure-apis/configure-v4-apis/endpoints/README.md
@@ -56,8 +56,7 @@ secure-and-expose-apis/subscriptions/subscription-form-feature-overview.md
 create-and-configure-apis/apply-policies/policy-reference/kafka-message-encryption-decryption-policy-reference.md
 create-and-configure-apis/apply-policies/policy-reference/ai-model-text-classification-model-reference-and-performance-metrics.md
 create-and-configure-apis/apply-policies/policy-reference/ai-prompt-guard-rails.md
-guides/ai-model-text-classification-configuration-and-usage.md
-guides/ai-model-text-classification-overview-and-model-selection.md
+
 
 # Files with version-specific content or GitBook edits (added 2026-03-30)
 analyze-and-monitor-apis/dashboards/LLM-usage-dashboard.md
