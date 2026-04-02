@@ -57,7 +57,7 @@
 
 * [Release Notes](releases-and-changelog/release-notes/README.md)
   * [GKO 4.11](releases-and-changelog/release-notes/gko-4.11.md)
-  * [GKO 4.10](releases-and-changelog/release-notes/gko-4.10.md)
+  * [GKO 4.10](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/gko-4.10)
   * [GKO 4.9](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/4.9/releases-and-changelog/release-notes/gko-4.9)
   * [GKO 4.8](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/4.8/releases-and-changelog/release-notes/gko-4.8)
   * [GKO 4.7](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/4.7/releases-and-changelog/release-notes/gko-4.7)
