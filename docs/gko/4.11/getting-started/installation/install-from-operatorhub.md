@@ -28,6 +28,8 @@ Upgrade approval depends on the subscription configuration:
 
 ## Installation
 
+GKO is available on both OpenShift and vanilla Kubernetes clusters that run the Operator Lifecycle Manager (OLM).
+
 ### OpenShift
 
 GKO appears in the OperatorHub section of the OpenShift web console.
