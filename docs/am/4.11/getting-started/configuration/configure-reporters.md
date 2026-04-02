@@ -133,3 +133,102 @@ If the Kafka broker is using SSL/TLS encryption, you must add additional steps t
 `ssl.truststore.password = "secret_password"`
 
 <figure><img src="../../.gitbook/assets/kafka-ssl-config.png" alt=""><figcaption><p>Kafka TLS/SSL security config</p></figcaption></figure>
+
+## Audit data retention
+
+{% hint style="info" %}
+**Available for:** MongoDB Reporter and JDBC Reporter only.
+{% endhint %}
+
+{% hint style="warning" %}
+**Deleted audit data can't be recovered.** Ensure your retention period meets your organization's compliance and operational requirements before enabling this feature.
+{% endhint %}
+
+Access Management lets you automatically purge old audit logs based on a configurable retention period.
+
+The audit retention feature deletes audit records older than a specified number of days. The purge process:
+
+* Runs as a scheduled task (default: daily at 11 PM)
+* Works across all audit supported reporters for all domains
+
+### Configuration
+
+Audit retention is configured in the `gravitee.yml` file under the Management API configuration.
+
+**Enable audit retention**
+
+Add the following configuration to your Management API `gravitee.yml`:
+
+```yaml
+services:
+  purge:
+    enabled: true
+    cron: 0 0 23 * * *
+    audits:
+      retention:
+        days: 90
+```
+
+#### Configuration options
+
+| Property | Description | Notes |
+| --- | --- | --- |
+| `services.purge.enabled` | Enable or disable the purge service | Affects both event and audit purging |
+| `services.purge.cron` | Cron expression for purge schedule | Spring cron syntax |
+| `services.purge.audits.retention.days` | Number of days to retain audit data | Value must be greater than `0` |
+
+#### Disable audit retention
+
+To disable audit purging while keeping other purge tasks active:
+
+```yaml
+services:
+  purge:
+    enabled: true
+    audits:
+      retention:
+        days: 0
+```
+
+To disable all purge operations:
+
+```yaml
+services:
+  purge:
+    enabled: false
+```
+
+#### MongoDB index for audit retention
+
+When purge is `enabled` and `retention.days > 0`, the service ensures an index optimized for purge queries is created on startup:
+
+* **Index:** `(timestamp ASC, _id ASC)`
+
+This index is used to efficiently scan and delete old documents in a stable order.
+
+{% hint style="warning" %}
+In Access Management with MongoDB, index creation happens on startup only if index management is enabled: `ensureIndexOnStart=true` (default is `true`). In environments where index creation is managed externally, make sure this index exists before enabling purge.
+{% endhint %}
+
+#### Startup impact
+
+When purge is enabled for the first time (enabling it on an existing large dataset), the first purge execution may take noticeable time because it starts removing historical audit records.
+
+* Deletion is performed **in batches**, which helps control database load.
+* The system remains **operational** during the purge process.
+* You may observe increased I/O and CPU usage on MongoDB during the initial cleanup, depending on the amount of historical data.
+
+#### Helm chart configuration
+
+When deploying with Helm, configure audit retention in your `values.yaml`:
+
+```yaml
+api:
+  services:
+    purge:
+      enabled: true
+      cron: "0 0 23 * * *"
+      audits:
+        retention:
+          days: 90
+```
