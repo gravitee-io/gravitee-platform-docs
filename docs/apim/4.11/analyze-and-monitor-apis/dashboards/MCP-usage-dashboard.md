@@ -33,12 +33,32 @@ To configure the MCP Dashboard, the user must have the following permissions:
 ## Create an MCP usage Dashboard
 
 1. From the **Dashboard**, click **Observability**.
-2. From the **Observability** dropdown menu, click **Dashboard**. ![Screenshot showing observability dropdown menu in the console](../../.gitbook/assets/LLM_dashboard_navigation.jpg)
-3. Click **Create dashboard**, and then click **Create from template**. ![Screenshot showing dashboard list with the create dashboard dropdown clicked](../../.gitbook/assets/LLM_Dashboard_create_dropdown_menu.jpg)
-4. Click **MCP**, and then click **Use template**. ![Screenshot showing the MCP dashboard template](../../.gitbook/assets/MCP_Dashboard_template.jpg)
-5. (Optional) Change the name of the dashboard and the labels for the dashboard. To change the name of the dashboard and the labels for the dashboard, complete the following sub-steps: a. Click **Dashboard options**, and then click **Edit**. ![Screenshot showing the MCP dashboard edit button](../../.gitbook/assets/MCP_Dashboard_edit_dropdown.jpg) b. In the **Edit dashboard** pop-up window, navigate to the **Name** field, and then enter a new name for your dashboard. c. To add a new label for your dashboard, click **+ Add label**, and then enter the key-value pair. d. To delete a label, click the **X** next the key-value pair that you want to delete. ![Screenshot showing the edit popup window](../../.gitbook/assets/MCP_Dashboard_edit_popup_window.jpg)
-6. (Optional) Change the timeframe for the dashboard. To changee the timeframe for the dashboard, compelte the following sub-steps: a. Click the **timeframe** dropdown menu. b. Select a new time frame or select **custom** to enter a custome timeframe. ![Screenshot showing the timeframe list](../../.gitbook/assets/MCP_Dashboard_timeframe.jpg)
+2.  From the **Observability** dropdown menu, click **Dashboard**. <br>
+
+    <figure><img src="../../.gitbook/assets/LLM_dashboard_navigation.jpg" alt=""><figcaption></figcaption></figure>
+3.  Click **Create dashboard**, and then click **Create from template**. <br>
+
+    <figure><img src="../../.gitbook/assets/LLM_Dashboard_create_dropdown_menu.jpg" alt=""><figcaption></figcaption></figure>
+4.  Click **MCP**, and then click **Use template**. <br>
+
+    <figure><img src="../../.gitbook/assets/MCP_Dashboard_template.jpg" alt=""><figcaption></figcaption></figure>
+5. (Optional) Change the name of the dashboard and the labels for the dashboard. To change the name of the dashboard and the labels for the dashboard, complete the following sub-steps:&#x20;
+   1.  Click **Dashboard options**, and then click **Edit**.  <br>
+
+       <figure><img src="../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+   2. In the **Edit dashboard** pop-up window, navigate to the **Name** field, and then enter a new name for your dashboard.&#x20;
+   3. To add a new label for your dashboard, click **+ Add label**, and then enter the key-value pair.&#x20;
+   4.  To delete a label, click the **X** next the key-value pair that you want to delete. <br>
+
+       <figure><img src="../../.gitbook/assets/MCP_Dashboard_edit_popup_window.jpg" alt=""><figcaption></figcaption></figure>
+6. (Optional) Change the timeframe for the dashboard. To changee the timeframe for the dashboard, complete the following sub-steps:&#x20;
+   1. Click the **timeframe** dropdown menu.&#x20;
+   2.  Select a new time frame or select **custom** to enter a custome timeframe. <br>
+
+       <figure><img src="../../.gitbook/assets/MCP_Dashboard_timeframe.jpg" alt=""><figcaption></figcaption></figure>
 
 ## Verification
 
-Your dashboard appears in the Dashboard list. ![Screenshot showing the timeframe list](../../.gitbook/assets/MCP_Dashboard_dashboard_list.jpg)
+Your dashboard appears in the Dashboard list.&#x20;
+
+<figure><img src="../../.gitbook/assets/MCP_Dashboard_dashboard_list.jpg" alt=""><figcaption></figcaption></figure>
