@@ -2,7 +2,7 @@
 description: An overview about customization.
 metaLinks:
   alternates:
-    - customization.md
+    - ./
 ---
 
 # Customization
@@ -64,7 +64,7 @@ The different files/folders are described below:
 
 {% tabs %}
 {% tab title=".jar" %}
-The main `.jar` file of each plugin contains information on the business behavior and the[ plugin descriptor file](customization.md#plugin.properties).
+The main `.jar` file of each plugin contains information on the business behavior and the[ plugin descriptor file](./#plugin.properties).
 {% endtab %}
 
 {% tab title="lib/" %}
