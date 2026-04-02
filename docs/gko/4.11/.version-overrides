@@ -1,7 +1,7 @@
 # Files with version-specific content — do NOT sync from previous version
 # Auto-managed by the documentation pipeline
 SUMMARY.md
-guides/README.md
+
 guides/gateway-api/README.md
 guides/kubernetes-crd-configuration-for-client-certificates.md
 

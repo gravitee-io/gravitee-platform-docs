@@ -4,7 +4,7 @@
 
 The Kafka Message Encryption and Decryption policy secures Kafka message payloads using AES-GCM encryption with optional compression. It encrypts messages during the Publish phase and decrypts them during the Subscribe phase, supporting whole-payload or individual JSON field processing.
 
-<!-- TODO: verify Enterprise Edition pack — feature flag is currently commented out in plugin.properties (#feature=apim-native-kafka-policy-encryption). Confirm with SME whether this is an Enterprise policy and which pack it belongs to. -->
+
 
 {% hint style="warning" %}
 This policy applies to Native Kafka APIs only. It requires APIM 4.7.x or later.

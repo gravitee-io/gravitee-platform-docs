@@ -2,7 +2,7 @@
 # Auto-managed by the documentation pipeline
 SUMMARY.md
 getting-started/install-and-upgrade-guides/configure-a-production-ready-am-environment.md
-guides/README.md
+
 guides/applications/README.md
 guides/applications/application-types.md
 guides/applications/create-agent-application.md
@@ -17,7 +17,7 @@ guides/mcp-servers/create-an-mcp-server.md
 guides/oauth-2.0-token-exchange-concepts/oauth-2.0-token-exchange-api-reference.md
 guides/oauth-2.0-token-exchange-concepts/oauth-2.0-token-exchange-configuration-reference.md
 guides/using-oauth-2.0-token-exchange.md
-reference/README.md
+
 reference/am-api-reference.md
 
 releases-and-changelog/changelog/am-4.11.x.md
