@@ -4,7 +4,6 @@ SUMMARY.md
 guides/README.md
 guides/gateway-api/README.md
 guides/kubernetes-crd-configuration-for-client-certificates.md
-mtls-certificate-management-overview.md
-release-information/release-notes/gko-4.11.md
+
 releases-and-changelog/changelog/gko-4.11.x.md
 releases-and-changelog/release-notes/gko-4.11.md
