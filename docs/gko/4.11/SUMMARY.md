@@ -22,6 +22,7 @@
 
 * [Quickstart Guide](getting-started/quickstart-guide.md)
 * [Installation](getting-started/installation/README.md)
+  * [Install from OperatorHub](getting-started/installation/install-from-operatorhub.md)
   * [Install with Helm](getting-started/installation/install-with-helm.md)
   * [Cluster vs Namespaced Install](getting-started/installation/cluster-vs-namespaced-install.md)
   * [RBAC customization](getting-started/installation/rbac-customization.md)
