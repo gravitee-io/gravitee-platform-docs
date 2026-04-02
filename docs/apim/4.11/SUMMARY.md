@@ -433,6 +433,7 @@
   * [Deployment](plugins/deployment.md)
   * [Customization](plugins/customization.md)
   * [Context-aware logging in plugins](plugins/context-aware-logging.md)
+  * [Enforcing logging rules with ArchUnit Maven plugin](plugins/archunit-maven-plugin.md)
 * [Gravitee Expression Language](gravitee-expression-language.md)
 * [Management API Reference](management-api-reference.md)
 * [Expose APIM as an MCP Server](4.9-expose-apim-as-an-mcp-server.md)
