@@ -1,4 +1,6 @@
-### Fetching AgentCard Metadata
+# Fetching and Displaying AgentCard Metadata
+
+## Fetching AgentCard Metadata
 
 Administrators with `APPLICATION[READ]` permission can fetch an agent's AgentCard metadata via the Management API endpoint:
 
@@ -6,14 +8,14 @@ Administrators with `APPLICATION[READ]` permission can fetch an agent's AgentCar
 GET /organizations/{organizationId}/environments/{environmentId}/domains/{domain}/applications/{application}/agent-card
 ```
 
-#### Request Flow
+### Request Flow
 
 1. The endpoint retrieves the `agentCardUrl` from the application's advanced settings.
 2. Access Management fetches the JSON document from the URL, enforcing SSRF protection (blocking localhost and private IP ranges) and a 512 KB size limit.
 3. The response proxies the AgentCard JSON to the client.
 4. If the URL is missing, malformed, or returns a non-200 status, the endpoint returns a 400 or 500 error.
 
-#### Error Conditions
+### Error Conditions
 
 | Condition | Error Message |
 |:----------|:--------------|
@@ -23,6 +25,6 @@ GET /organizations/{organizationId}/environments/{environmentId}/domains/{domain
 | Non-200 HTTP status | `Agent card URL returned status {code}` |
 | Invalid JSON | `Agent card response is not valid JSON` |
 
-#### UI Display
+### UI Display
 
 The UI displays the fetched AgentCard in a dedicated "Agent Metadata" tab within application settings. The tab includes parsed views for Capabilities, Tools, Prompts, and Raw JSON.
