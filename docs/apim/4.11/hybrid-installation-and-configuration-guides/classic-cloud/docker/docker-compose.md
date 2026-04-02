@@ -28,7 +28,7 @@ volumes:
 services:
 
   gateway:
-    image: graviteeio/apim-gateway:4.4.4
+    image: graviteeio/apim-gateway:4.11.0
     container_name: gio_apim_hybrid_gateway
     restart: always
     ports:
@@ -130,7 +130,7 @@ The following sections of this article assume you are using the `docker-compose.
 {% endhint %}
 
 * All `xxx` values in the sample `docker-compose.yml` above must be replaced by the credentials appropriate to your environment. These can be provided by your Technical Account Manager.
-* Ensure the version of your Gravitee Cloud environment corresponds to the Gateway version used by your `docker-compose.yml`, e.g., `image: graviteeio/apim-gateway:4.4.4` in the sample `docker-compose.yml`.
+* Ensure the version of your Gravitee Cloud environment corresponds to the Gateway version used by your `docker-compose.yml`, e.g., `image: graviteeio/apim-gateway:4.11.0` in the sample `docker-compose.yml`.
 * Ensure the Logstash and Redis versions used by your `docker-compose.yml` are supported by Gravitee:
   * For supported version of Redis, refer to [Supported databases](../../../prepare-a-production-environment/repositories/redis.md#supported-databases).
   * For supported version of Logstash, refer to [Compatibility with Elasticsearch](/broken/pages/VnFfvu2Jm1SCuFmCzqpb).

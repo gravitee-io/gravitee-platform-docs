@@ -87,7 +87,7 @@ To confirm that your Hybrid installation is working, complete the following step
 
     ```sh
     CONTAINER ID   IMAGE                         COMMAND                  CREATED             STATUS             PORTS                    NAMES
-    50016b90785e   graviteeio/apim-gateway:4.8.2   "./bin/gravitee"         About an hour ago   Up About an hour   0.0.0.0:8082->8082/tcp   gio-apim-hybrid-gateway
+    50016b90785e   graviteeio/apim-gateway:4.11.0   "./bin/gravitee"         About an hour ago   Up About an hour   0.0.0.0:8082->8082/tcp   gio-apim-hybrid-gateway
     a8d3e6f1c2b4   redis:7.2-alpine              "redis-server --requ..." About an hour ago   Up About an hour   0.0.0.0:6379->6379/tcp   gio-apim-hybrid-redis
     ```
 
