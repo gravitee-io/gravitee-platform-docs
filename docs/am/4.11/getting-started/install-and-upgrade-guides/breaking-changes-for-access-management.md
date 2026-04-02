@@ -14,6 +14,20 @@ metaLinks:
 
 Here are the breaking changes from versions 4.X of Gravitee.
 
+### 4.11.0
+
+**Modified Token Signing Behavior**&#x20;
+
+Previously, a certificate loading error would trigger an automatic fallback to HMAC signing. This behavior is disabled by default in AM 4.11. (see [Domain certificate fallback](../../guides/certificates/configure-domain-certificate-fallback.md))
+
+To restore this legacy behavior, update your `gravitee.yaml`:
+
+```yaml
+applications:
+  signing:
+    fallback-to-hmac-signature: false
+```
+
 ### 4.10.0
 
 #### Optimized Audit Logging for Client Authentication
