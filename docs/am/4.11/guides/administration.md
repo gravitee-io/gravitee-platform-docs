@@ -1,9 +1,3 @@
----
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/administration
----
-
 # Administration
 
 ## Organizations and environment
@@ -52,7 +46,7 @@ In order to limit the scope of the roles, scopes are bound to what we call an `a
 * `DOMAIN` — role for a security domain
 * `APPLICATION` — role for an application
 
-<figure><img src="../.gitbook/assets/image (158).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../4.10/.gitbook/assets/image (158).png" alt=""><figcaption></figcaption></figure>
 
 ### Role
 
@@ -240,7 +234,7 @@ Let’s imagine we want to create a reviewer role, which allows a user to check 
     * Name : `REVIEWER_APPLICATION`
     * Description : `Read-only role`
 
-    <figure><img src="../.gitbook/assets/image (159).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../4.10/.gitbook/assets/image (159).png" alt=""><figcaption></figcaption></figure>
 2. Click **CREATE**.
 
 ### Configure the `REVIEWER_APPLICATION` role
@@ -249,19 +243,19 @@ You must give `READ` permissions to all sections of your application. This allow
 
 Click **SAVE** to store the changes.
 
-<figure><img src="../.gitbook/assets/image (160).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../4.10/.gitbook/assets/image (160).png" alt=""><figcaption></figcaption></figure>
 
 ### Result
 
 Go to your applications' **Administrative roles** settings section and add a new member with the `REVIEWER_APPLICATION` role. The user `Reviewer User` now has read access to your application.
 
-<figure><img src="../.gitbook/assets/image (161).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../4.10/.gitbook/assets/image (161).png" alt=""><figcaption></figcaption></figure>
 
 ## Users
 
 When users log in to AM Console, they are listed in the **Users** section of the domains' **Settings** menu.
 
-<figure><img src="../.gitbook/assets/image (162).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../4.10/.gitbook/assets/image (162).png" alt=""><figcaption></figcaption></figure>
 
 If you select a user, you have access to detailed account information and will be able to manage the user’s permissions and groups via with the **Administrative roles** and **Groups** sections.
 
@@ -279,7 +273,7 @@ In the example below, we will create a `FOO Team` group where you can put all me
 4. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
 5. Enter the details of the group.
 
-<figure><img src="../.gitbook/assets/image (163).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../4.10/.gitbook/assets/image (163).png" alt=""><figcaption></figcaption></figure>
 
 6. Click **CREATE**.
 
@@ -289,7 +283,7 @@ In the example below, we will create a `FOO Team` group where you can put all me
 2. Click the **Members** tab.
 3. Add a user by clicking **+ Add members**.
 
-<figure><img src="../.gitbook/assets/image (164).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../4.10/.gitbook/assets/image (164).png" alt=""><figcaption></figcaption></figure>
 
 ### Add the group to an application
 

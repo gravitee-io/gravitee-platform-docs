@@ -1,9 +1,3 @@
----
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/mcp-servers
----
-
 # MCP Servers
 
 {% hint style="danger" %}
@@ -74,7 +68,7 @@ This section explains how they work together, why they must remain separate, and
 
 ### **OAuth 2.1 scopes**
 
-[OAuth](../auth-protocols/oauth-2.0) 2.1 scopes represent what the user allows a client application to do on their behalf. Scopes are requested by the client and explicitly approved by the user during the authorization flow.
+[OAuth](../auth-protocols/oauth-2.0/) 2.1 scopes represent what the user allows a client application to do on their behalf. Scopes are requested by the client and explicitly approved by the user during the authorization flow.
 
 OAuth 2.1 scopes have the following characteristics:
 

@@ -1,8 +1,5 @@
 ---
 description: A deep dive on Gravitee Access Management's feature set
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/prologue
 ---
 
 # Prologue

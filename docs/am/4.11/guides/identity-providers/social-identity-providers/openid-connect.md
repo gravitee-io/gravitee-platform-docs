@@ -1,10 +1,3 @@
----
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/identity-providers/social-identity-providers/openid-connect
----
-
 # OpenID Connect
 
 ## Overview <a href="#overview" id="overview"></a>
@@ -61,13 +54,13 @@ If you provide the WellKnown endpoint, you may not have to specify the JWKS\_URL
 
 ### Set up the connection in OIDC provider <a href="#set-up-the-connection-in-oidc-provider" id="set-up-the-connection-in-oidc-provider"></a>
 
-After creating the OpenID identity provider in Gravitee AM, configure the redirect URI in your external identity provider, for example, Azure Active Directory.
+After creating the OpenID identity provider in Gravitee AM, configure the redirect URI in your external identity provider, for example, Azure Active Directory.&#x20;
 
 1. In the Gravitee AM Console, locate the **Redirect URI** in the right side panel of your configured identity provider, and then copy this value.
 2. Go to your identity provider's application settings, for example, Azure Active Directory app registration:
    * Navigate to your OAuth client application configuration
    * Add the copied Redirect URI to the list of allowed redirect URIs
-   * The redirect URI points to your **Gravitee AM Console URL.** For example, `https://your-am-console-domain/auth/login/callback`
+   * The redirect URI points to your **Gravitee AM Console URL.** For example, `https://your-am-console-domain/auth/login/callback`&#x20;
 3. Save the configuration in your identity provider.
 
 {% hint style="info" %}

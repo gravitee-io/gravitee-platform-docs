@@ -1,10 +1,3 @@
----
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/install-and-upgrade-guides/deploy-in-kubernetes
----
-
 # Deploy in Kubernetes
 
 ## Overview
@@ -1075,22 +1068,4 @@ ui:
         secretName: am-console-cert
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
-```
-
-## Purge service
-
-AM provides a purge service for audits and events entities:
-
-```yaml
-api:
-  services:
-    purge:
-      enabled: true
-      cron: "0 0 23 * * *"
-      audits:
-        retention:
-          days: 90
-      events:
-        retention:
-          days: 90
 ```

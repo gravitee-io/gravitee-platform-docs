@@ -1,10 +1,3 @@
----
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/identity-providers/social-identity-providers/facebook
----
-
 # Facebook
 
 ## Overview
@@ -46,7 +39,7 @@ Ensure you have the generated App ID and App Secret from Facebook the applicatio
 6. Enter your Facebook application App ID and App Secret.
 7. Click **Create**.
 
-<figure><img src="../../../.gitbook/assets/image (70).png" alt=""><figcaption><p>Create Facebook Identity Provider</p></figcaption></figure>
+<figure><img src="../../../../4.10/.gitbook/assets/image (70).png" alt=""><figcaption><p>Create Facebook Identity Provider</p></figcaption></figure>
 
 {% hint style="info" %}
 On the right side of the screen under **1. Configure the Redirect URI**, copy the value of the URL. You will use it to update your Facebook application settings.
@@ -73,7 +66,7 @@ You can test your Facebook connection using a web application created in AM.
 
 1. i.e.In AM Console, click **Applications** and select your social identity provider.
 
-<figure><img src="../../../.gitbook/assets/image (71).png" alt=""><figcaption><p>Select your Facebook Identity Provider</p></figcaption></figure>
+<figure><img src="../../../../4.10/.gitbook/assets/image (71).png" alt=""><figcaption><p>Select your Facebook Identity Provider</p></figcaption></figure>
 
 2. Call the Login Page (i.e. `/oauth/authorize` endpoint). If the connection is working you will see a **Sign in with …​** button.
 

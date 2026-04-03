@@ -1,10 +1,3 @@
----
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/identity-providers/database-identity-providers
----
-
 # Database Identity Providers
 
 Gravitee Access Management (AM) includes the most common database servers to authenticate your users, such as MongoDB, PostgreSQL, MySQL, SQL Server, and MariaDB.

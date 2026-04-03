@@ -1,10 +1,3 @@
----
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/alerts/notification-channels
----
-
 # Notification Channels
 
 ## Overview

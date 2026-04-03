@@ -1,10 +1,3 @@
----
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/configuration/domain-secrets/configure-secret-providers
----
-
 # Configure Secret Providers
 
 ## Overview <a href="#overview" id="overview"></a>
@@ -32,13 +25,13 @@ This article explains the syntax Gravitee uses to resolve secrets in domains and
 
 A `secret provider` plugin must be either bundled or added to the plugin directory.
 
-You can enable `secret-provider` plugins by configuring them in `gravitee.yml` or in the `values.yaml`. The configurations for each secret provider plugin are discussed in the following sections.
+You can enable `secret-provider` plugins by configuring them in `gravitee.yml`  or in the `values.yaml`. The configurations for each secret provider plugin are discussed in the following sections.
 
 The following examples are for both `gravitee.yml` and Helm `values.yml`.
 
 #### Kubernetes <a href="#kubernetes" id="kubernetes"></a>
 
-The following example show to resolve secrets in the same namespace.
+The following example show to resolve secrets in the same namespace.&#x20;
 
 {% tabs %}
 {% tab title="Resolving secrets in the same namespace" %}
@@ -64,7 +57,7 @@ domains:
 The deployment of Gravitee must be configured to access the additional namespace.
 {% endhint %}
 
-* Navigate to the `domains` section of your `gravitee.yml` file or your `values.yaml` file, and then add the following configuration:
+* Navigate to the `domains` section of your `gravitee.yml` file or your `values.yaml` file, and then add the following configuration:&#x20;
 
 ```yml
 domains:
@@ -370,7 +363,7 @@ domains:
 {% endtab %}
 {% endtabs %}
 
-Here are more options that you can use to configure your AWS secret manager:
+Here are more options that you can use  to configure your AWS secret manager:
 
 * `fipsEnabled` to enable FIPS. The default value is `false` .
 * `connectionTimeoutMs` to control connection the timeout. The default value is `5000` .
@@ -418,11 +411,11 @@ Secrets are resolved and stored in a cache. Cached data stays off-heap, preventi
 
 When the plugin is initialized, secrets are resolved and cached . The cache is accessed when the secret expression language is evaluated. Here is the following consequence:
 
-* The first domain to use a given secret URI. For example, `/kubernetes/my-secret` resolves the secret and all key/values in it. Subsequent domains that use a secret with the same URI does not trigger a new resolution. This means that if the value changes in the secret manager, the new value is ignored.
+* The first domain to use a given secret URI. For example, `/kubernetes/my-secret` resolves the secret and all key/values in it. Subsequent domains that use a secret with the same URI does not trigger a new resolution. This means that if the value changes in the secret manager, the new value is ignored.&#x20;
 
 #### Cache configuration
 
-The cache is enable by default with a TTL set to 1 hours (duration in millisecond) without cache size limit.
+The cache is enable by default with a TTL set to 1 hours (duration in millisecond) without cache size limit.&#x20;
 
 * To configure the cache, Navigate to the `domains.secrets`, and then add the `cache` section.
 

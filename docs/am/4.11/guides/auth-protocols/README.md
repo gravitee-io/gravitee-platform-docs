@@ -1,8 +1,5 @@
 ---
 description: Authorization, Authentication, and Identity Protocols Supported
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/auth-protocols
 ---
 
 # Auth Protocols

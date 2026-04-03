@@ -1,10 +1,3 @@
----
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/identity-providers/social-identity-providers
----
-
 # Social Identity Providers
 
 Gravitee Access Management (AM) provides the most common social networks out of the box, including Google, Facebook, Twitter, GitHub, LinkedIn and Azure AD.

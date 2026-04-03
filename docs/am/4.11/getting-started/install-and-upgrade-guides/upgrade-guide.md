@@ -1,10 +1,3 @@
----
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/install-and-upgrade-guides/upgrade-guide
----
-
 # 4.5 Upgrade Guide
 
 {% hint style="warning" %}

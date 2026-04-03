@@ -1,9 +1,3 @@
----
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/bot-detection
----
-
 # Bot Detection
 
 ## Overview
@@ -58,7 +52,7 @@ AM supports various Bot Detection mechanisms for protecting user account out of 
 
 Once created, the details page of the plugin instance will display some code snippets to help you in the integration with your custom application pages if any.
 
-<figure><img src="../.gitbook/assets/image (95).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../4.10/.gitbook/assets/image (95).png" alt=""><figcaption></figcaption></figure>
 
 ### Google reCAPTCHA v3
 

@@ -1,9 +1,3 @@
----
-metaLinks:
-  alternates:
-    - https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/flows
----
-
 # Flows
 
 ## Overview
@@ -24,7 +18,7 @@ The following example retrieves `Execution Context` data using the [Gravitee Exp
 ```
 {% endcode %}
 
-<figure><img src="../../.gitbook/assets/image (157).png" alt=""><figcaption><p>Policy Studio</p></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/image (157).png" alt=""><figcaption><p>Policy Studio</p></figcaption></figure>
 
 ## Flow configuration
 

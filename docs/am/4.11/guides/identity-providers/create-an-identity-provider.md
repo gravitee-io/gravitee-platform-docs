@@ -1,10 +1,3 @@
----
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/identity-providers/create-an-identity-provider
----
-
 # Create an Identity Provider
 
 ## Overview
@@ -25,12 +18,12 @@ In this example, we are creating an inline identity provider.
 3. In the Providers page, click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
 4. Choose an **Inline** identity provider type and click **Next**.
 
-<figure><img src="../../.gitbook/assets/image (61).png" alt=""><figcaption><p>Select an Identity Provider to add</p></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/image (61).png" alt=""><figcaption><p>Select an Identity Provider to add</p></figcaption></figure>
 
 5. Give your identity provider a **Name**.
 6. Add as many users as required, by clicking **Add User** for each new user, then click **Create**.
 
-<figure><img src="../../.gitbook/assets/image (62).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/image (62).png" alt=""><figcaption></figcaption></figure>
 
 {% code overflow="wrap" %}
 ```sh

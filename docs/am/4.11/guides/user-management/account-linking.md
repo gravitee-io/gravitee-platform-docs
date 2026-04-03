@@ -1,10 +1,3 @@
----
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/user-management/account-linking
----
-
 # Account Linking
 
 ## Overview
@@ -51,7 +44,7 @@ To activate the Account Linking feature for a particular application:
       1. **Attribute name:** Username, email, etc.
       2. **Attribute value:** Supports Expression Language
 
-<figure><img src="../../.gitbook/assets/image (147).png" alt=""><figcaption><p>Apply account linking at the application level</p></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/image (147).png" alt=""><figcaption><p>Apply account linking at the application level</p></figcaption></figure>
 
 {% hint style="success" %}
 Multiple accounts with the same attributes are now considered to represent the same user.
@@ -75,7 +68,7 @@ To activate the Account Linking feature for the security domain:
       1. **Attribute name:** Username, email, etc.
       2. **Attribute value:** Supports Expression Language
 
-<figure><img src="../../.gitbook/assets/image (149).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/image (149).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 Multiple accounts with the same attributes are now considered to represent the same user.

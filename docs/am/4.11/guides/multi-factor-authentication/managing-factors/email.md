@@ -1,10 +1,3 @@
----
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/multi-factor-authentication/managing-factors/email
----
-
 # Email
 
 With Email verification, you can receive a verification code on your email address to be used as the second factor to validate a user’s account.

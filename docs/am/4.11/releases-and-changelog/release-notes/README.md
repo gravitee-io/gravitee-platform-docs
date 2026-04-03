@@ -1,9 +1,5 @@
 ---
 description: Learn more about the Gravitee release notes section
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/releases-and-changelog/release-notes
 ---
 
 # Release Notes

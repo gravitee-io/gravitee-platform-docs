@@ -2,10 +2,6 @@
 description: >-
   This article explores the additional features that you get from the enterprise
   Gravitee Access Management solution.
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/overview/open-source-vs-enterprise-am
 ---
 
 # Gravitee AM Enterprise Edition

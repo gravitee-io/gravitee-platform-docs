@@ -1,9 +1,5 @@
 ---
 description: Configuration guide for domain secrets.
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/configuration/domain-secrets
 ---
 
 # Domain Secrets
@@ -14,7 +10,7 @@ You can obscure secrets in `gravitee.yml`, Helm charts, and environment variable
 
 This feature is available for the Gateway and Management API.
 
-Also, Access Management grants access to the secret provider at domain definition level to provide secret resolution in plugin configurations.
+Also, Access Management grants access to the secret provider at domain definition level to provide secret resolution in plugin configurations.&#x20;
 
 For more information about Sensitive Data Management in domain definition, see the following articles:
 

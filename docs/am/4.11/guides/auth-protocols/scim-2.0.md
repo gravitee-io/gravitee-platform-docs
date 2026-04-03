@@ -1,10 +1,3 @@
----
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/auth-protocols/scim-2.0
----
-
 # SCIM 2.0
 
 [The System for Cross-domain Identity Management (SCIM)](https://datatracker.ietf.org/doc/html/rfc7644) 2.0 is a standard for automating the exchange of user identity information between identity domains, or IT systems.
@@ -17,9 +10,9 @@ SCIM protocol endpoints are exposed by the AM Gateway following the [OpenAPI spe
 
 SCIM defines schemas and protocols for identity management.\
 It relies on REST APIs that provide the following capabilities:\
-• CRUD operations for Users and Groups\
-• Search and filtering capabilities\
-• Bulk APIs (with limitations)
+&#x9;•	CRUD operations for Users and Groups\
+&#x9;•	Search and filtering capabilities\
+&#x9;•	Bulk APIs (with limitations)
 
 {% hint style="warning" %}
 Bulk operations for Groups are not currently supported.
@@ -48,7 +41,7 @@ Any other attributes are handled by Gravitee Access Management in the following 
 * **not interpreted** by Gravitee Access Management logic
 * stored as-is in `user.additionalInformation`.
 
-You can still use these custom attributes in templates andpolicies. But they do not trigger any built-in behavior.
+You can still use these custom attributes in templates andpolicies. But they do not trigger any built-in behavior. &#x20;
 
 ### Example
 

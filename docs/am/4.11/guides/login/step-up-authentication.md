@@ -1,10 +1,3 @@
----
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/login/step-up-authentication
----
-
 # Step-up Authentication
 
 ## Overview
@@ -36,7 +29,7 @@ Step-up authentication is often used in the following scenarios:
     4. Select your MFA factor and set the **Step up authentication** rule.
     5. Click **SAVE**.
 
-    <figure><img src="../../.gitbook/assets/image (100).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../4.10/.gitbook/assets/image (100).png" alt=""><figcaption></figcaption></figure>
 
 You can leverage access control by asking your users to confirm their identity before making any sensitive actions. In this example, the sensitive action is represented by the `pisp` (Payment Initiation Service Provider) OAuth 2.0 scope.
 

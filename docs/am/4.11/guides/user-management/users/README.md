@@ -1,10 +1,3 @@
----
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/user-management/users
----
-
 # Users
 
 ## Manage users
@@ -14,7 +7,7 @@ metaLinks:
 1. Log in to AM Console.
 2. Search for users by clicking **Settings > Users** and entering the username in the search field.
 
-<figure><img src="../../../.gitbook/assets/image (139).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.10/.gitbook/assets/image (139).png" alt=""><figcaption></figcaption></figure>
 
 You can also list users with the AM API `/users` endpoint.
 
@@ -176,7 +169,7 @@ You create users in a security domain.
 5. (Optional) You can also add/modify specific attributes relating to the user. This user metadata will be available in the user’s profile.
 6. You will be redirected to the created user’s page.
 
-<figure><img src="../../../.gitbook/assets/image (140).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.10/.gitbook/assets/image (140).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 You can choose to enable `Pre-Registration`, to allow users to finish registering their own account. An email will be sent to the user with instructions.
@@ -186,7 +179,7 @@ You can choose to enable `Pre-Registration`, to allow users to finish registerin
 
 You can update the username of your user. Updating the username is only available via the console and the Management API.
 
-<figure><img src="../../../.gitbook/assets/image (141).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.10/.gitbook/assets/image (141).png" alt=""><figcaption></figcaption></figure>
 
 1. Log in to AM Console.
 2. Click **Settings > Users**
@@ -206,6 +199,6 @@ You can assign roles directly from the user profile, or from the identity provid
 If you are using both user roles and the identity provider role mapper feature, the two roles will be in two different places, you can see the different roles in **Settings > Users > "Your User" > Roles**.
 {% endhint %}
 
-<figure><img src="../../../.gitbook/assets/image (142).png" alt=""><figcaption><p>User roles overview</p></figcaption></figure>
+<figure><img src="../../../../4.10/.gitbook/assets/image (142).png" alt=""><figcaption><p>User roles overview</p></figcaption></figure>
 
 By default, users are stored in the pre-defined `Default Identity Provider`, which is available by default for each security domain. You can apply role mapping to your users.

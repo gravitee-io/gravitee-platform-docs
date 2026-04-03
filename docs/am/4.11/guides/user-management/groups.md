@@ -1,10 +1,3 @@
----
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/user-management/groups
----
-
 # Groups
 
 ## Manage groups
@@ -14,7 +7,7 @@ metaLinks:
 1. Log in to AM Console.
 2. Search for groups by clicking **Groups**.
 
-<figure><img src="../../.gitbook/assets/image (143).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/image (143).png" alt=""><figcaption></figcaption></figure>
 
 ### Create a new group
 
@@ -34,7 +27,7 @@ You can add an new member to your group as follows:
 2. Select your group, and in the **Members** tab, click **Add members**.
 3. Search for users by username, then click **Add**.
 
-<figure><img src="../../.gitbook/assets/image (144).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/image (144).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 Currently, only users created by AM API or the SCIM protocol and external users who have already logged in can be found.

@@ -1,10 +1,3 @@
----
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/install-and-upgrade-guides/run-in-docker/docker-images-install
----
-
 # Docker Images Install
 
 This section explains how to run AM images in Docker. These procedures are intended for users who are already familiar with Docker.

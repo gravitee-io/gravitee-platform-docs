@@ -1,10 +1,3 @@
----
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/login/certificate-based-authentication
----
-
 # Certificate Based Authentication
 
 ## Overview
@@ -28,7 +21,7 @@ INFO  i.g.a.g.h.v.VertxSecurityDomainHandler - 	 Authenticator cba-authenticator
 
 ### Gateway settings
 
-`auth.cba.jwt.state.ttl` - default is 30. Specifies the TTL (in seconds) of the state token passed between regular and mTLS-enabled hosts.
+&#x20;`auth.cba.jwt.state.ttl` - default is 30. Specifies the TTL (in seconds) of the state token passed between regular and mTLS-enabled hosts.
 
 `http.ssl.certificateHeader` - Header where the peer certificate is read if there are no sslSession (default is null)
 
@@ -48,21 +41,21 @@ Or for specific application
 4. Disable **Inherit configuration** option
 5. In **Passwordless** section, enable **Passwordless Certificate Based Authentication** and setup **Base URL**
 
-The CBA authentication base URL must be configured as the entrypoint where `SSL_VERIFY_CLIENT` is enabled.
+The CBA authentication base URL must be configured as the entrypoint where `SSL_VERIFY_CLIENT` is enabled.&#x20;
 
 ## Register user's certificate
 
-In order to register User's Certificate credential, go to
+In order to register User's Certificate credential, go to&#x20;
 
 1. Log in to AM Console
 2. In **Settings** go to **Users** page and select a user
 3. Go to **Credentials** tab and select **Enroll Certificate** button
 
 {% hint style="info" %}
-The option is available only when CBA is enabled on Domain's level or Application's assigned to the user
+The option is available only when CBA is enabled on Domain's level or Application's assigned to the user&#x20;
 {% endhint %}
 
-The certificate can be added by selecting a file from the browser or by pasting the PEM content
+The certificate can be added by selecting a file from the browser or by pasting the PEM content&#x20;
 
 {% hint style="info" %}
 Within a single domain, only one certificate with a unique thumbprint is allowed.
@@ -77,4 +70,4 @@ When you visit the AM login page, the **Sign in with Certificate using mTLS** op
 ## Caveats
 
 * AM checks only certificate's **subjectDN**, **issuerDN** and **serialNumber**.
-* AM verifies the expiration date of presented certificate during the mTLS connection process.
+* AM verifies the expiration date of presented certificate during the mTLS connection process.&#x20;

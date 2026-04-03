@@ -1,10 +1,3 @@
----
-metaLinks:
-  alternates:
-    - >-
-      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/identity-providers/database-identity-providers/mongodb
----
-
 # MongoDB
 
 ## Overview
@@ -76,7 +69,7 @@ DATASOURCES_MONGODB_1_SETTINGS_PORT=27017
 
 Once the `datasources` section is configured on the gravitee.yaml and the Management API has been restarted to take it into account, then `Data source ID` field will become editable to select a configuration.
 
-<figure><img src="../../../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../4.10/.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
 
 ### Connection Precedence
 
