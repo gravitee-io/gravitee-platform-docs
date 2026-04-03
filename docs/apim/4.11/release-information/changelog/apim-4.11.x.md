@@ -1,11 +1,7 @@
----
-hidden: true
-noIndex: true
----
-
 # APIM 4.11.x
- 
+
 ## Gravitee API Management 4.11.0 - April 3, 2026
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -54,11 +50,8 @@ noIndex: true
 
 **Other**
 
-* Support client_secret_basic authentication for OAuth2 token endpoint [#11249](https://github.com/gravitee-io/issues/issues/11249)
-* Update IP Filtering policy documentation in  [#11251](https://github.com/gravitee-io/issues/issues/11251)
+* Support client\_secret\_basic authentication for OAuth2 token endpoint [#11249](https://github.com/gravitee-io/issues/issues/11249)
+* Update IP Filtering policy documentation in [#11251](https://github.com/gravitee-io/issues/issues/11251)
 * Add the scope field to the WWW-Authenticate header in the OAuth2 Policy [#11307](https://github.com/gravitee-io/issues/issues/11307)
 
 </details>
-
-
-
