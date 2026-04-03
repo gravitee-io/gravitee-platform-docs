@@ -178,5 +178,3 @@ Existing A2A proxy APIs continue to work but they are no longer supported.
 * Administrators configure which MDC keys appear in log output using `node.logging.mdc.include` and customize formatting with `node.logging.mdc.format` and `node.logging.mdc.separator` properties in `gravitee.yml`.
 * Logback appender patterns are overridden at runtime via `node.logging.pattern.console` and `node.logging.pattern.file` properties when `node.logging.pattern.overrideLogbackXml` is set to `true` (default: `false`).
 * The custom `%mdcList` Logback converter formats and filters MDC keys in log patterns. Structured encoders (JsonEncoder, EcsEncoder) log the full unfiltered MDC map.
-
-## Bug Fixes
