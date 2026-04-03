@@ -6,6 +6,29 @@ description: >-
 
 # AM 4.8.x
 
+## Gravitee Access Management 4.8.28 - April 3, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* User cannot signin due to EmailFactor issue [#11304](https://github.com/gravitee-io/issues/issues/11304)
+
+
+
+
+
+**Other**
+
+* Create index based on timestamp for audit logs. [#11258](https://github.com/gravitee-io/issues/issues/11258)
+* Error after rollback when MFA flow exist [#11282](https://github.com/gravitee-io/issues/issues/11282)
+* Optimize resource for Bulk Email management [#11283](https://github.com/gravitee-io/issues/issues/11283)
+
+</details>
+
+
 ## Gravitee Access Management 4.8.27 - March 27, 2026
 
 <details>
