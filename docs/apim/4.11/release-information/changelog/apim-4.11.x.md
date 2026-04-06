@@ -1,4 +1,16 @@
 # APIM 4.11.x
+ 
+## Gravitee API Management 4.11.1 - April 4, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Console**
+
+* Revert: Unable to reset the password [#11289](https://github.com/gravitee-io/issues/issues/11289)
+
+</details>
+
 
 ## Gravitee API Management 4.11.0 - April 3, 2026
 
