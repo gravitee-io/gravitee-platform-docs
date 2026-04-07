@@ -40,23 +40,27 @@ Guides and examples can be found in the [Gravitee "apim" Terraform Registry docu
 
 ## Release notes
 
-These are the changes for version 0.5
+These are the changes for version 0.5.x
 
 ### Features
-* Application support multiple mTLS client certificates with optional start/end dates
-* Subscription metadata support  
-* Experimental: API HCL export 
+
+* Application supports multiple mTLS client certificates with optional start/end dates
+* Subscription metadata support
+* Experimental: API HCL export
 
 ### Improvements
-* More tutorial in the registry docs
-* `failure_condition` and `force_next_endpoint_on_failure` have added to API's failover configuration
+
+* More tutorials in the registry docs
+* `failure_condition` and `force_next_endpoint_on_failure` have been added to the API's failover configuration
 
 ### Bugs
-* Subscription `plan_hri` update is silently ignored by the API
+
+* Subscription `plan_hrid` update is silently ignored by the API
 
 ### Notable changes
-* Endpoint name is now mandatory
-* Flow phase hence flow property `connect` has beed renamed to `entrypoint_connect` for `NATIVE` APIs
+
+* The endpoint name is now mandatory
+* Flow phase, hence flow property `connect` has been renamed to `entrypoint_connect` for `NATIVE` APIs
 
 ### Known limitations
 
