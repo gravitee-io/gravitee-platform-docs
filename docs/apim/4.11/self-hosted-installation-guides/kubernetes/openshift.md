@@ -529,3 +529,7 @@ To install the Gravitee Helm Chart, complete the following steps:
 {% hint style="info" %}
 `values.yaml` is the file that you prepared in the [#configure-the-gravitee-parameters-and-values.yml-file](openshift.md#configure-the-gravitee-parameters-and-values.yml-file "mention") section.
 {% endhint %}
+
+## Proxy configuration
+
+To route Gateway traffic through a corporate proxy (for example, for backend API calls or JWKS retrieval from external identity providers like Microsoft Entra ID), configure the system proxy using `gravitee_system_proxy_*` environment variables in the Gateway section of your `values.yaml`. For detailed instructions, see [Proxy Configuration](../proxy-configuration/).

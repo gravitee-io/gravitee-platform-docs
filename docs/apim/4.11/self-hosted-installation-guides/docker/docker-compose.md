@@ -628,3 +628,7 @@ If APIM is running with high availability, you need to set up cluster mode. To s
 4. Add the following plugins to APIM:
    * [https://download.gravitee.io/plugins/node-cache/gravitee-node-cache-plugin-hazelcast/gravitee-node-cache-plugin-hazelcast-5.18.1.zip](https://download.gravitee.io/plugins/node-cache/gravitee-node-cache-plugin-hazelcast/gravitee-node-cache-plugin-hazelcast-5.18.1.zip)
    * [https://download.gravitee.io/plugins/node-cluster/gravitee-node-cluster-plugin-hazelcast/gravitee-node-cluster-plugin-hazelcast-5.18.1.zip](https://download.gravitee.io/plugins/node-cluster/gravitee-node-cluster-plugin-hazelcast/gravitee-node-cluster-plugin-hazelcast-5.18.1.zip)
+
+## Proxy configuration
+
+To route Gateway traffic through a corporate proxy (for example, for backend API calls or JWKS retrieval from external identity providers like Microsoft Entra ID), configure the system proxy using `gravitee_system_proxy_*` environment variables on the Gateway container. For detailed instructions, see [Proxy Configuration](../proxy-configuration/).

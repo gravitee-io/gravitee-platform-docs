@@ -874,6 +874,10 @@ To validate the Gateway URL, complete the following steps:
     No context-path matches the request URI.
     ```
 
+## Proxy configuration
+
+To route Gateway traffic through a corporate proxy (for example, for backend API calls or JWKS retrieval from external identity providers like Microsoft Entra ID), configure the system proxy using `gravitee_system_proxy_*` environment variables in the Gateway section of your `values.yaml`. For detailed instructions, see [Proxy Configuration](../../proxy-configuration/).
+
 ## Next steps
 
 * Create your first API. For more information about creating your first API, see [create-and-publish-your-first-api](../../../getting-started/create-and-publish-your-first-api/ "mention").
