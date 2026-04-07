@@ -6,7 +6,7 @@ These CRDs are also used to determine which [categories](publish-apis-to-the-por
 
 ## Publish an API to the Portal
 
-By default, APIs are not published to the Developer Portal. To publish an API, set the `lifecycle_state` property value to `PUBLISHED`:
+By default, APIs aren't published to the Developer Portal. To publish an API, set the `lifecycle_state` property value to `PUBLISHED`:
 
 ```yaml
 apiVersion: gravitee.io/v1alpha1
