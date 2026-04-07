@@ -366,4 +366,15 @@ If APIM is running with high availability, you need to set up cluster mode. To s
 
 ## Proxy configuration
 
-To route Gateway traffic through a corporate proxy (for example, for backend API calls or JWKS retrieval from external identity providers like Microsoft Entra ID), configure the system proxy using `gravitee_system_proxy_*` environment variables on the Gateway container. For detailed instructions, see [Proxy Configuration](../proxy-configuration/).
+To route Gateway traffic through a corporate proxy (for example, for backend API calls or JWKS retrieval from external identity providers like Microsoft Entra ID), add the following `gravitee_system_proxy_*` environment variables to the Gateway container:
+
+```
+gravitee_system_proxy_enabled=true
+gravitee_system_proxy_type=HTTP
+gravitee_system_proxy_host=<proxy-host>
+gravitee_system_proxy_port=<proxy-port>
+gravitee_system_proxy_https_host=<proxy-host>
+gravitee_system_proxy_https_port=<proxy-port>
+```
+
+For the full configuration reference including proxy authentication, see [System Proxy for Backend APIs](../proxy-configuration/system-proxy-for-backend-apis.md). For an overview of all proxy methods, see [Proxy Configuration](../proxy-configuration/).
