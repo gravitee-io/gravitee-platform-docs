@@ -24,10 +24,13 @@ Users of OpenTofu can use the APIM provider as well: [https://search.opentofu.or
 
 ## Compatibility matrix
 
-| Provider version | APIM version | Terraform/OpenTofu qualified versions |
-|---|---|---|
-| 0.4.x | 4.10.x | 1.10 to latest / latest |
-| 0.3.x | 4.9.x / 4.10.x | 1.10 to latest / latest |
-| 0.2.x | 4.8.x | 1.10 to 1.12 / not supported |
+As it remains a tech preview, support is done in best effort mode where fixes are mainly done on the latest version or the provider.
+
+| Provider version | APIM version                                                                | Terraform/OpenTofu qualified versions |
+| ---------------- | --------------------------------------------------------------------------- | ------------------------------------- |
+| 0.5.x            | <p>4.11.x <br><sub><em>(4.10.x / 4.9.x without new features)</em></sub></p> | 1.9 + latest / latest                 |
+| 0.4.x            | 4.10.x / 4.9.x                                                              | 1.10 to latest / latest               |
+| 0.3.x            | 4.9.x / 4.10.x                                                              | 1.10 to latest / latest               |
+| 0.2.x            | 4.8.x                                                                       | 1.10 to 1.12 / not supported          |
 
 <table data-view="cards"><thead><tr><th data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><a href="quick-start-guide.md">quick-start-guide.md</a></td><td></td></tr><tr><td><a href="example-resource-configurations.md">example-resource-configurations.md</a></td><td></td></tr></tbody></table>
