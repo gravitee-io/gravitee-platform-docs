@@ -15,6 +15,6 @@ metaLinks:
 * [OpenShift](openshift.md)
 * GCP GKE
 
-## Additional configuration
+## Proxy configuration
 
-* [Proxy Configuration](../proxy-configuration/) — Configure system proxy, HTTP client proxy, or Bridge proxy for enterprise environments where the Gateway routes traffic through a corporate proxy
+To route Gateway traffic through a corporate proxy (for example, for backend API calls or JWKS retrieval from external identity providers), see [Proxy Configuration](../proxy-configuration/).

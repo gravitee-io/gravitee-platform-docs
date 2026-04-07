@@ -167,6 +167,10 @@ To shut down the Gateway, choose one of the following options.
     docker logs -f gio_apim_hybrid_gateway
     ```
 
+## Proxy configuration
+
+To route Gateway traffic through a corporate proxy (for example, for backend API calls or JWKS retrieval from external identity providers like Microsoft Entra ID), configure the system proxy using `gravitee_system_proxy_*` environment variables on the Gateway container. For detailed instructions, see [Proxy Configuration](../../proxy-configuration/).
+
 ### Next steps
 
 * Access your API Management Console. To access your Console, complete the following steps:
