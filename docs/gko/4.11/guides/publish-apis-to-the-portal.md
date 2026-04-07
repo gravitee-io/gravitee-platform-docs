@@ -82,15 +82,15 @@ spec:
         type: "KEY_LESS"
 ```
 
-* **DEPRECATED**: The API is no longer visible to consumers. New plans can't be created on it. Existing subscriptions and Gateway traffic aren't affected.
+* **DEPRECATED**: The API is no longer visible to consumers. New plans can't be created on it. Existing subscriptions and Gateway traffic aren't affected. This is a terminal state.
 * **ARCHIVED**: The API is fully retired. It can't be started or stopped through the Management API. This is a terminal state.
 
-{% hint style="info" %}
-The operator supports transitioning from DEPRECATED to ARCHIVED. To archive a deprecated API, update the `lifecycleState` field to `ARCHIVED`. The Console and Management API don't allow this transition directly.
+{% hint style="warning" %}
+Both DEPRECATED and ARCHIVED are terminal states. Once applied, the lifecycle state can't be changed. Plan the retirement workflow carefully before applying these states.
 {% endhint %}
 
 {% hint style="info" %}
-For the full list of allowed lifecycle state transitions and validation rules, see [API lifecycle states](../../../apim/4.11/create-and-configure-apis/configure-v4-apis/api-lifecycle-states.md) in the APIM documentation.
+For the full list of allowed lifecycle state transitions and validation rules, see [API lifecycle states](../../../apim/4.10/create-and-configure-apis/configure-v4-apis/api-lifecycle-states.md) in the APIM documentation.
 {% endhint %}
 
 ## Setting a category for an API
