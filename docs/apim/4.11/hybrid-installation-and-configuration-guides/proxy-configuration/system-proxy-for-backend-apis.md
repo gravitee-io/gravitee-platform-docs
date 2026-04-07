@@ -78,15 +78,25 @@ gateway:
 
   # System Proxy Configuration (via environment variables)
   env:
+    # Enable System Proxy
+    - name: gravitee_system_proxy_enabled
+      value: "true"
+
     # Proxy Type
     - name: gravitee_system_proxy_type
       value: "HTTP"                            # Options: HTTP, SOCKS4, SOCKS5
 
-    # Proxy Host and Port
+    # HTTP Proxy Host and Port
     - name: gravitee_system_proxy_host
       value: "corporate-proxy.internal"        # REPLACE with your proxy hostname
     - name: gravitee_system_proxy_port
       value: "8080"                            # REPLACE with your proxy port
+
+    # HTTPS Proxy Host and Port
+    - name: gravitee_system_proxy_https_host
+      value: "corporate-proxy.internal"        # REPLACE with your HTTPS proxy hostname
+    - name: gravitee_system_proxy_https_port
+      value: "8080"                            # REPLACE with your HTTPS proxy port
 
     # Proxy Authentication (using Kubernetes Secrets)
     - name: gravitee_system_proxy_username
@@ -106,9 +116,12 @@ gateway:
 For deployments using environment variables directly:
 
 ```
+gravitee_system_proxy_enabled=true
 gravitee_system_proxy_type=HTTP
 gravitee_system_proxy_host=corporate-proxy.internal
 gravitee_system_proxy_port=8080
+gravitee_system_proxy_https_host=corporate-proxy.internal
+gravitee_system_proxy_https_port=8080
 gravitee_system_proxy_username=proxy-user
 gravitee_system_proxy_password=proxy-password
 ```
@@ -120,9 +133,13 @@ For reference, the equivalent `gravitee.yml` configuration:
 ```yaml
 system:
   proxy:
+    enabled: true
     type: HTTP        # HTTP, SOCKS4, SOCKS5
     host: corporate-proxy.internal
     port: 8080
+    https:
+      host: corporate-proxy.internal
+      port: 8080
     username: proxy-user
     password: proxy-password
 ```
@@ -152,13 +169,16 @@ This section provides reference information for system proxy configuration:
 
 The following table describes the available environment variables for configuring the system proxy:
 
-| Variable                         | Type    | Description                                   |
-| -------------------------------- | ------- | --------------------------------------------- |
-| `gravitee_system_proxy_type`     | string  | Proxy protocol: `HTTP`, `SOCKS4`, or `SOCKS5` |
-| `gravitee_system_proxy_host`     | string  | Proxy server hostname                         |
-| `gravitee_system_proxy_port`     | integer | Proxy server port                             |
-| `gravitee_system_proxy_username` | string  | Proxy authentication username                 |
-| `gravitee_system_proxy_password` | string  | Proxy authentication password                 |
+| Variable                              | Type    | Description                                        |
+| ------------------------------------- | ------- | -------------------------------------------------- |
+| `gravitee_system_proxy_enabled`       | boolean | Enable the system proxy                            |
+| `gravitee_system_proxy_type`          | string  | Proxy protocol: `HTTP`, `SOCKS4`, or `SOCKS5`     |
+| `gravitee_system_proxy_host`          | string  | HTTP proxy server hostname                         |
+| `gravitee_system_proxy_port`          | integer | HTTP proxy server port                             |
+| `gravitee_system_proxy_https_host`    | string  | HTTPS proxy server hostname                        |
+| `gravitee_system_proxy_https_port`    | integer | HTTPS proxy server port                            |
+| `gravitee_system_proxy_username`      | string  | Proxy authentication username                      |
+| `gravitee_system_proxy_password`      | string  | Proxy authentication password                      |
 
 ## Configure APIs to Use System Proxy
 
