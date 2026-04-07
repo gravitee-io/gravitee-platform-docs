@@ -28,23 +28,42 @@ import sys
 
 OVERRIDES_FILENAME = ".version-overrides"
 
+# Files that are inherently version-specific and must NEVER be synced.
+# These are excluded regardless of .version-overrides content.
+ALWAYS_SKIP = {".gitbook.yaml"}
 
-def load_overrides(next_version_dir: str) -> set:
+
+def load_overrides(next_version_dir: str) -> tuple:
     """Load the .version-overrides file from the next version directory.
 
-    Returns a set of relative paths (relative to the version dir) that
-    should NOT be synced from current → next.
+    Returns a tuple of (file_overrides, dir_prefixes):
+      - file_overrides: set of exact relative paths to skip
+      - dir_prefixes: list of directory prefixes to skip (entries ending with /)
     """
     overrides_path = os.path.join(next_version_dir, OVERRIDES_FILENAME)
     if not os.path.exists(overrides_path):
-        return set()
-    overrides = set()
+        return set(), []
+    file_overrides = set()
+    dir_prefixes = []
     with open(overrides_path) as f:
         for line in f:
             line = line.strip()
             if line and not line.startswith("#"):
-                overrides.add(line)
-    return overrides
+                if line.endswith("/"):
+                    dir_prefixes.append(line)
+                else:
+                    file_overrides.add(line)
+    return file_overrides, dir_prefixes
+
+
+def is_overridden(rel_path: str, file_overrides: set, dir_prefixes: list) -> bool:
+    """Check if a file path is protected by overrides (exact match or dir prefix)."""
+    if rel_path in file_overrides:
+        return True
+    for prefix in dir_prefixes:
+        if rel_path.startswith(prefix):
+            return True
+    return False
 
 
 def get_all_files(version_dir: str) -> set:
@@ -56,6 +75,7 @@ def get_all_files(version_dir: str) -> set:
             rel_path = os.path.relpath(full_path, version_dir)
             files.add(rel_path)
     return files
+
 
 
 def sync_versions(
@@ -88,7 +108,7 @@ def sync_versions(
     if not os.path.isdir(next_dir):
         return {"error": f"Next version dir not found: {next_dir}"}
 
-    overrides = load_overrides(next_dir)
+    file_overrides, dir_prefixes = load_overrides(next_dir)
     results = {
         "synced": [], "skipped": [], "conflicts": [], "new_files": [],
         "errors": [], "warnings": [], "auto_merged": [], "merge_conflicts": [],
@@ -108,8 +128,14 @@ def sync_versions(
         if rel_path == OVERRIDES_FILENAME:
             continue
 
+        # Skip files that are inherently version-specific
+        if os.path.basename(rel_path) in ALWAYS_SKIP:
+            results["skipped"].append(rel_path)
+            continue
+
         # Protected files: skip (managed manually via .version-overrides)
-        if rel_path in overrides:
+        # Supports both exact file paths and directory prefixes (ending with /)
+        if is_overridden(rel_path, file_overrides, dir_prefixes):
             results["skipped"].append(rel_path)
             continue
 
