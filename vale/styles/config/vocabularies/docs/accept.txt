@@ -2,7 +2,7 @@
 # Gravitee Product & Platform Terms
 # ============================================
 Gravitee
-APIM
+[Aa][Pp][Ii][Mm]
 APID
 AM
 GKO
@@ -91,7 +91,7 @@ CloudEvents
 VMs?
 VPN
 DMZ
-DNS
+[Dd][Nn][Ss]
 Cloudwatch
 [Ll]oad[Bb]alancer
 ClusterIP
@@ -256,7 +256,7 @@ CVE
 # ============================================
 TCP
 UDP
-HTTP[S]?
+[Hh][Tt][Tt][Pp][Ss]?
 SMTP
 [Hh]ostnames?
 URIs?
@@ -417,6 +417,12 @@ Slackbot
 external-dns
 cert-manager
 controllerName
+parametersRef
+[Oo]penssl
+[Gg]ravitee\.io
+[Mm]inikube
+balancer's
+[Jj]etstack
 
 # ============================================
 # Additional Accepted Terms
