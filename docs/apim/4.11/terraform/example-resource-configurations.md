@@ -45,4 +45,4 @@ The following known limitations apply to the 0.4.x version of the Gravitee Terra
 * APIs created using Terraform are shown in the Console with the 'Kubernetes' icon because they are read only.
 * When you run terraform plan for APIs, several differences exist between state and remote. These do not impact runtime and will be fixed in upcoming patches.
   * The encrypted properties payload is marked as changed because encrypted values replace unencrypted values.
-* APIKey subscriptions aren't supported.
+* API Key subscriptions are not supported.
