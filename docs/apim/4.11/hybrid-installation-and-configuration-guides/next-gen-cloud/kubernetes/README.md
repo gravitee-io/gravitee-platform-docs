@@ -15,6 +15,10 @@ metaLinks:
 * [Openshift](openshift.md)
 * GCP GKE
 
+## Additional configuration
+
+* [Proxy Configuration](../../proxy-configuration/) — Configure system proxy or hybrid Gateway proxy for enterprise environments where the Gateway routes traffic through a corporate proxy
+
 ## Overview
 
 You can use Kubernetes to install the self-hosted components of a Gravitee API Management (APIM) Next-Gen Cloud hybrid architecture. A Kubernetes installation relies on the `values.yaml` configuration file and the Gravitee Helm chart.

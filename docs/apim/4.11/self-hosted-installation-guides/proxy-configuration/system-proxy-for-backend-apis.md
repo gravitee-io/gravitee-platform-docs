@@ -21,6 +21,12 @@ This guide explains how to configure a **System Proxy** that the Gravitee Gatewa
 The system proxy is only used for APIs that enable `useSystemProxy: true` in their endpoint configuration. Internal APIs can bypass the proxy by leaving this option disabled.
 {% endhint %}
 
+{% hint style="info" %}
+**JWKS retrieval through a proxy**
+
+The system proxy also applies to JWT plan JWKS retrieval when **Use system proxy** is enabled in the [JWT plan configuration](../../secure-and-expose-apis/plans/jwt.md#jwks-retrieval-through-a-corporate-proxy). This is required when the Gateway retrieves JWKS from external identity providers (for example, Microsoft Entra ID, Google, or Okta) through a corporate proxy.
+{% endhint %}
+
 ## Prerequisites
 
 * Kubernetes cluster with Helm installed
