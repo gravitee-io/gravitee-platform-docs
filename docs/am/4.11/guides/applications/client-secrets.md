@@ -1,3 +1,10 @@
+---
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/applications/client-secrets
+---
+
 # Client Secrets
 
 Gravitee AM supports enhanced client secret management, allowing for multiple secrets for each application and configurable expiration policies at both the domain level and application level. These features improve security and flexibility in managing client credentials.
@@ -34,15 +41,15 @@ applications:
 
 1. Click **"+ New client secret"**.
 
-<figure><img src="../../../4.10/.gitbook/assets/image (87).png" alt=""><figcaption><p>Create new client secret</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (87).png" alt=""><figcaption><p>Create new client secret</p></figcaption></figure>
 
 2. Provide description of new secret.
 
-<div align="left"><figure><img src="../../../4.10/.gitbook/assets/Screenshot 2025-06-02 at 11.57.31 (1).png" alt="" width="308"><figcaption><p>New client secret description</p></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/Screenshot 2025-06-02 at 11.57.31 (1).png" alt="" width="308"><figcaption><p>New client secret description</p></figcaption></figure></div>
 
 3. Copy generated secret.
 
-<div align="left"><figure><img src="../../../4.10/.gitbook/assets/Screenshot 2025-06-02 at 11.57.49.png" alt="" width="305"><figcaption><p>New client secret - copy</p></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/Screenshot 2025-06-02 at 11.57.49.png" alt="" width="305"><figcaption><p>New client secret - copy</p></figcaption></figure></div>
 
 4. Click OK.
 
@@ -51,9 +58,9 @@ applications:
 1. In the **Secrets & Certificates** tab, locate the secret to renew.
 2.  Click **renew button** next to the corresponding secret.
 
-    <figure><img src="../../../4.10/.gitbook/assets/Screenshot 2025-06-02 at 12.32.24.png" alt=""><figcaption><p>Renew Client Secret</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/Screenshot 2025-06-02 at 12.32.24.png" alt=""><figcaption><p>Renew Client Secret</p></figcaption></figure>
 3. Copy generated secret.\
-   ![](<../../../4.10/.gitbook/assets/Screenshot 2025-06-02 at 12.00.01.png>)
+   ![](<../../.gitbook/assets/Screenshot 2025-06-02 at 12.00.01.png>)
 4. Click OK.
 
 #### Deleting a secret:
@@ -62,9 +69,9 @@ applications:
 2.  Click the **delete button** next to the corresponding secret.\
     <br>
 
-    <figure><img src="../../../4.10/.gitbook/assets/Screenshot 2025-06-02 at 12.32.45.png" alt=""><figcaption><p>Delete Client Secret</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/Screenshot 2025-06-02 at 12.32.45.png" alt=""><figcaption><p>Delete Client Secret</p></figcaption></figure>
 3. Confirm that you want to delete the secret by entering secret description.\
-   ![](<../../../4.10/.gitbook/assets/Screenshot 2025-06-02 at 12.00.38.png>)
+   ![](<../../.gitbook/assets/Screenshot 2025-06-02 at 12.00.38.png>)
 
 {% hint style="warning" %}
 Revoked secrets are immediately invalidated and cannot be used for authentication.
@@ -80,9 +87,7 @@ Revoked secrets are immediately invalidated and cannot be used for authenticatio
     1. Navigate to the **Domain**.
     2. Go to **Settings**, and then **Client Secrets.**
 
-    <figure><img src="../../../4.10/.gitbook/assets/image (89).png" alt=""><figcaption></figcaption></figure>
-
-
+    <figure><img src="../../.gitbook/assets/image (89).png" alt=""><figcaption></figcaption></figure>
 3. Enable client secret expiry.
 4. Set the **Expiry Time Unit** and **Expiry Time Duration**. For example, 3 months.
 5. Save the changes.
@@ -96,9 +101,9 @@ Revoked secrets are immediately invalidated and cannot be used for authenticatio
   3. Go to **Settings**, and then **Secrets & Certificates**.
   4.  Click **Settings**.<br>
 
-      <figure><img src="../../../4.10/.gitbook/assets/Screenshot 2025-06-02 at 12.28.04 (1).png" alt=""><figcaption><p>Application Secret Settings</p></figcaption></figure>
+      <figure><img src="../../.gitbook/assets/Screenshot 2025-06-02 at 12.28.04 (1).png" alt=""><figcaption><p>Application Secret Settings</p></figcaption></figure>
   5. Toggle **Use Domain Rules**, and then and select **Expiry Time Unit** and **Expiry Time Duration**.\
-     ![](<../../../4.10/.gitbook/assets/image (9).png>)
+     ![](<../../.gitbook/assets/image (9).png>)
   6. Save the changes.
 
 ### **Behavior:**

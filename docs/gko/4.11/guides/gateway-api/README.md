@@ -66,7 +66,7 @@ The `GatewayClassParameters` custom resource is the Gravitee extension point for
 For a full reference, see [GatewayClassParameters CRD](../../overview/custom-resource-definitions/gatewayclassparameters.md).
 
 {% hint style="info" %}
-The `gravitee.yaml` section of `GatewayClassParameters` doesn't allow you to define servers or sharding tags, as these are configured automatically based on the Gateway specification.&#x20;
+The `gravitee.yaml` section of `GatewayClassParameters` doesn't allow you to define servers or sharding tags, as these are configured automatically based on the Gateway specification.
 {% endhint %}
 
 ### GatewayClass

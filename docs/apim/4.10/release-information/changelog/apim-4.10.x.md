@@ -1,5 +1,53 @@
 # APIM 4.10.x
  
+## Gravitee API Management 4.10.11 - April 3, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Console**
+
+* Revert: Unable to reset the password [#11289](https://github.com/gravitee-io/issues/issues/11289)
+
+</details>
+
+ 
+## Gravitee API Management 4.10.10 - April 2, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* No error message for V2 API without V4 emulation in 4.9.x [#11126](https://github.com/gravitee-io/issues/issues/11126)
+
+**Management API**
+
+* Unable to import path mapping from swagger document [#10806](https://github.com/gravitee-io/issues/issues/10806)
+* No error message for V2 API without V4 emulation in 4.9.x [#11126](https://github.com/gravitee-io/issues/issues/11126)
+* Unable to resend or retrigger expired sign-up confirmation links [#11295](https://github.com/gravitee-io/issues/issues/11295)
+* Error when deleting an API with pages [#11308](https://github.com/gravitee-io/issues/issues/11308)
+
+**Console**
+
+* No error message for V2 API without V4 emulation in 4.9.x [#11126](https://github.com/gravitee-io/issues/issues/11126)
+* Unable to reset the password [#11289](https://github.com/gravitee-io/issues/issues/11289)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Other**
+
+* PostgreSQL character limit of 256 for flows [#11087](https://github.com/gravitee-io/issues/issues/11087)
+* Update IP Filtering policy documentation in  [#11251](https://github.com/gravitee-io/issues/issues/11251)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.10.9 - March 27, 2026
 <details>
 

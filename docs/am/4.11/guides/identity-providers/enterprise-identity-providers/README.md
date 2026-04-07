@@ -1,3 +1,10 @@
+---
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/identity-providers/enterprise-identity-providers
+---
+
 # Enterprise Identity Providers
 
 AM includes the most common corporate/enterprise servers to authenticate your users:

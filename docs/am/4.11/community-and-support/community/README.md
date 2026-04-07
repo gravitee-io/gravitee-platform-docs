@@ -1,3 +1,10 @@
+---
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/community-and-support/community
+---
+
 # Community
 
 We’re pleased to meet you! Before you dive into the forum, we’d love to give you an overview of what to expect.

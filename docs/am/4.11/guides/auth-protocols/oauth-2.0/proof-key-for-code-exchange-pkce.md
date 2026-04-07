@@ -1,3 +1,10 @@
+---
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/auth-protocols/oauth-2.0/proof-key-for-code-exchange-pkce
+---
+
 # Proof Key for Code Exchange (PKCE)
 
 [Proof Key for Code Exchange (PKCE)](https://datatracker.ietf.org/doc/html/rfc7636) is an extension to the [authorization code](./#authorization-code) flow to prevent interception attacks from public clients.

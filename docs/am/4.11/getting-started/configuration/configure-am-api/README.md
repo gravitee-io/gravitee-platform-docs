@@ -1,3 +1,10 @@
+---
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/configuration/configure-am-api
+---
+
 # AM API
 
 ## Configuration overview
@@ -213,7 +220,9 @@ security:
 
 ### Configure email
 
-```
+#### Basic authentication
+
+```yaml
 # SMTP configuration used to send mails
 email:
   enabled: false
@@ -223,6 +232,37 @@ email:
   from: noreply@my.domain
   username: user@my.domain
   password: password
+  authMethod: basic
+#  properties:
+#    auth: true
+#    starttls.enable: true
+#    ssl.trust: smtp.gmail.com
+#    ssl.protocols: TLSv1.2
+
+# Mail templates
+#templates:
+#  path: ${gravitee.home}/templates
+```
+
+#### OAuth2 (XOAUTH2) authentication
+
+```yaml
+# SMTP configuration used to send mails
+email:
+  enabled: false
+  host: smtp.my.domain
+  subject: "[Gravitee.io] %s"
+  port: 587
+  from: noreply@my.domain
+  username: user@my.domain
+  authMethod: oauth2
+  oauth2:
+    tokenEndpoint: https://oauth2.googleapis.com/token # OAuth2 token endpoint URL
+    clientId: client123
+    clientSecret: topSecret
+    refreshToken: ABCD1234
+    scope: https://mail.google.com/
+
 #  properties:
 #    auth: true
 #    starttls.enable: true
@@ -238,7 +278,7 @@ email:
 In order to enforce TLS 1.2 uncomment the properties in the above example and change according to your requirements.
 {% endhint %}
 
-#### **Email password and name complexity**
+#### **Email, password, and name complexity**
 
 You can configure the complexities as per your organizational requirements. The default settings is shown below:
 
@@ -544,7 +584,7 @@ notifiers:
         value: 100
 ```
 
-<figure><img src="../../../../4.10/.gitbook/assets/image (165).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (165).png" alt=""><figcaption></figcaption></figure>
 
 #### Email Notifier
 

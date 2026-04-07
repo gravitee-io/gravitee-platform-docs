@@ -53,10 +53,9 @@
 
 ## Guides
 
-* [Fetching and Displaying AgentCard Metadata](guides/fetching_and_displaying_agentcard_metadata.md)
-* [OAuth 2.0 Token Exchange API](guides/oauth-2.0-token-exchange-api-reference.md)
-* [OAuth 2.0 Token Exchange Concepts](guides/oauth-2.0-token-exchange-concepts.md)
-* [OAuth 2.0 Token Exchange Configuration](guides/oauth-2.0-token-exchange-configuration-reference.md)
+* [OAuth 2.0 Token Exchange](guides/oauth-2.0-token-exchange-concepts/README.md)
+  * [OAuth 2.0 Token Exchange Configuration](guides/oauth-2.0-token-exchange-concepts/oauth-2.0-token-exchange-configuration-reference.md)
+  * [OAuth 2.0 Token Exchange API](guides/oauth-2.0-token-exchange-concepts/oauth-2.0-token-exchange-api-reference.md)
 * [Prologue](guides/prologue.md)
 * [Auth Protocols](guides/auth-protocols/README.md)
   * [OAuth 2.0](guides/auth-protocols/oauth-2.0/README.md)
@@ -101,9 +100,7 @@
   * [OpenFGA](guides/authorization-engines/openfga.md)
   * [AuthZen](guides/authorization-engines/authzen.md)
 * [Applications](guides/applications/README.md)
-  * [Agent Application Type Overview](guides/applications/agent-application-type.md)
   * [Client Secrets](guides/applications/client-secrets.md)
-  * [Creating Agent Applications via Console](guides/applications/create-agent-application.md)
 * [Branding](guides/branding/README.md)
   * [CSS Custom Variables Reference](guides/branding/css-custom-variables-reference.md)
   * [Language Default Properties Reference](guides/branding/language-default-properties-reference.md)
@@ -141,7 +138,6 @@
   * [AWS Certificate plugin](guides/certificates/aws-certificate-plugin.md)
   * [AWS CloudHSM plugin](guides/certificates/aws-cloudhsm-plugin.md)
   * [Configure Domain Certificate Fallback](guides/certificates/configure-domain-certificate-fallback.md)
-
 * [User Management](guides/user-management/README.md)
   * [Users](guides/user-management/users/README.md)
     * [Password Options](guides/user-management/users/password-options.md)
@@ -178,7 +174,8 @@
 ## Releases & Changelog
 
 * [Release Notes](releases-and-changelog/release-notes/README.md)
-  * [AM 4.10](releases-and-changelog/release-notes/am-4.10.md)
+  * [AM 4.11](releases-and-changelog/release-notes/am-4.11.md)
+  * [AM 4.10](https://documentation.gravitee.io/am/releases-and-changelog/release-notes/am-4.10)
   * [AM 4.9](https://documentation.gravitee.io/am/4.9/releases-and-changelog/release-notes/am-4.9)
   * [AM 4.8](https://documentation.gravitee.io/am/4.8/releases-and-changelog/release-notes/am-4.8)
   * [AM 4.7](https://documentation.gravitee.io/am/4.7/releases-and-changelog/release-notes/am-4.7)
@@ -190,7 +187,8 @@
   * [AM 4.1](https://documentation.gravitee.io/am/4.1/releases-and-changelog/release-notes/am-4.1)
   * [AM 4.0](https://documentation.gravitee.io/am/4.0/releases-and-changelog/release-notes/am-4.0)
 * [Changelog](releases-and-changelog/changelog/README.md)
-  * [AM 4.10.x](releases-and-changelog/changelog/am-4.10.x.md)
+  * [AM 4.11.x](releases-and-changelog/changelog/am-4.11.x.md)
+  * [AM 4.10.x](https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/releases-and-changelog/changelog/am-4.10.x)
   * [AM 4.9.x](https://documentation.gravitee.io/am/4.9/releases-and-changelog/changelog/am-4.9.x)
   * [AM 4.8.x](https://documentation.gravitee.io/am/4.8/releases-and-changelog/changelog/am-4.8.x)
   * [AM 4.7.x](https://documentation.gravitee.io/am/4.7/releases-and-changelog/changelog/am-4.7.x)

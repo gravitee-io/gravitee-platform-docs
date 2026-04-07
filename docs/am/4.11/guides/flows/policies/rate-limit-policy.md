@@ -2,6 +2,10 @@
 description: >-
   This page provides the technical details of the Rate Limit policy in Access
   Management
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/flows/policies/rate-limit-policy
 ---
 
 # Rate Limit Policy
