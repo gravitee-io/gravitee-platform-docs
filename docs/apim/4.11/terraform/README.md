@@ -18,4 +18,19 @@ Terraform configuration files are written in HashiCorp Configuration Language (H
 
 Click on the cards below to learn more about Gravitee's Terraform provider. If you are familiar with Terraform, you can visit the [Gravitee "apim" Terraform Regisitry documentation](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/guides/setup) to get started.
 
+{% hint style="info" %}
+Users of OpenTofu can use the APIM provider as well: [https://search.opentofu.org/provider/gravitee-io/apim/latest](https://search.opentofu.org/provider/gravitee-io/apim/latest)
+{% endhint %}
+
+## Compatibility matrix
+
+As it remains a tech preview, support is done in best effort mode where fixes are mainly done on the latest version or the provider.
+
+| Provider version | APIM version                                                                | Terraform/OpenTofu qualified versions |
+| ---------------- | --------------------------------------------------------------------------- | ------------------------------------- |
+| 0.5.x            | <p>4.11.x <br><sub><em>(4.10.x / 4.9.x without new features)</em></sub></p> | 1.9 + latest / latest                 |
+| 0.4.x            | 4.10.x / 4.9.x                                                              | 1.10 to latest / latest               |
+| 0.3.x            | 4.9.x / 4.10.x                                                              | 1.10 to latest / latest               |
+| 0.2.x            | 4.8.x                                                                       | 1.10 to 1.12 / not supported          |
+
 <table data-view="cards"><thead><tr><th data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><a href="quick-start-guide.md">quick-start-guide.md</a></td><td></td></tr><tr><td><a href="example-resource-configurations.md">example-resource-configurations.md</a></td><td></td></tr></tbody></table>

@@ -22,6 +22,7 @@
 
 * [Quickstart Guide](getting-started/quickstart-guide.md)
 * [Installation](getting-started/installation/README.md)
+  * [Install from OperatorHub](getting-started/installation/install-from-operatorhub.md)
   * [Install with Helm](getting-started/installation/install-with-helm.md)
   * [Cluster vs Namespaced Install](getting-started/installation/cluster-vs-namespaced-install.md)
   * [RBAC customization](getting-started/installation/rbac-customization.md)
@@ -48,6 +49,8 @@
 * [Configure the GKO HTTP client for APIM](guides/gko-http-client.md)
 * [Gateway API](guides/gateway-api/README.md)
   * [HTTPRoute](guides/gateway-api/httproute.md)
+  * [Configure TLS with cert-manager](guides/gateway-api/tls-with-cert-manager.md)
+  * [Configure DNS with external-dns](guides/gateway-api/dns-with-external-dns.md)
 
 ## REFERENCE
 
@@ -57,7 +60,7 @@
 
 * [Release Notes](releases-and-changelog/release-notes/README.md)
   * [GKO 4.11](releases-and-changelog/release-notes/gko-4.11.md)
-  * [GKO 4.10](releases-and-changelog/release-notes/gko-4.10.md)
+  * [GKO 4.10](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/gko-4.10)
   * [GKO 4.9](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/4.9/releases-and-changelog/release-notes/gko-4.9)
   * [GKO 4.8](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/4.8/releases-and-changelog/release-notes/gko-4.8)
   * [GKO 4.7](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/4.7/releases-and-changelog/release-notes/gko-4.7)
@@ -67,7 +70,7 @@
   * [GKO 4.3](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/4.3/releases-and-changelog/release-notes/gko-4.3)
 * [Changelog](releases-and-changelog/changelog/README.md)
   * [GKO 4.11.x](releases-and-changelog/changelog/gko-4.11.x.md)
-  * [GKO 4.10.x](releases-and-changelog/changelog/gko-4.10.x.md)
+  * [GKO 4.10.x](https://app.gitbook.com/s/mzvj63JEIkcb9VMFMq3W/gko-4.10.x)
   * [GKO 4.9.x](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/4.9/releases-and-changelog/changelog/gko-4.9.x)
 
 ## COMMUNITY & SUPPORT

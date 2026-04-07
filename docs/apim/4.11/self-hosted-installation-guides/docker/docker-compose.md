@@ -628,3 +628,18 @@ If APIM is running with high availability, you need to set up cluster mode. To s
 4. Add the following plugins to APIM:
    * [https://download.gravitee.io/plugins/node-cache/gravitee-node-cache-plugin-hazelcast/gravitee-node-cache-plugin-hazelcast-5.18.1.zip](https://download.gravitee.io/plugins/node-cache/gravitee-node-cache-plugin-hazelcast/gravitee-node-cache-plugin-hazelcast-5.18.1.zip)
    * [https://download.gravitee.io/plugins/node-cluster/gravitee-node-cluster-plugin-hazelcast/gravitee-node-cluster-plugin-hazelcast-5.18.1.zip](https://download.gravitee.io/plugins/node-cluster/gravitee-node-cluster-plugin-hazelcast/gravitee-node-cluster-plugin-hazelcast-5.18.1.zip)
+
+## Proxy configuration
+
+To route Gateway traffic through a corporate proxy (for example, for backend API calls or JWKS retrieval from external identity providers like Microsoft Entra ID), add the following `gravitee_system_proxy_*` environment variables to the Gateway container:
+
+```
+gravitee_system_proxy_enabled=true
+gravitee_system_proxy_type=HTTP
+gravitee_system_proxy_host=<proxy-host>
+gravitee_system_proxy_port=<proxy-port>
+gravitee_system_proxy_https_host=<proxy-host>
+gravitee_system_proxy_https_port=<proxy-port>
+```
+
+For the full configuration reference including proxy authentication, see [System Proxy for Backend APIs](../proxy-configuration/system-proxy-for-backend-apis.md). For an overview of all proxy methods, see [Proxy Configuration](../proxy-configuration/).
