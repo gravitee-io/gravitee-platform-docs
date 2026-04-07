@@ -40,12 +40,9 @@ Guides and examples can be found in the [Gravitee "apim" Terraform Registry docu
 
 ## Known limitations
 
-The following known limitations apply to the 0.2.x version of the Gravitee Terraform provider:
+The following known limitations apply to the 0.4.x version of the Gravitee Terraform provider:
 
 * APIs created using Terraform are shown in the Console with the 'Kubernetes' icon because they are read only.
 * When you run `terraform plan` for APIs, several differences exist between state and remote. These do not impact runtime and will be fixed in upcoming patches.
-  * Pages appear as changed, but they are unordered.
-  * State stores the dynamic properties service configuration as an encoded JSON string instead of plain JSON.
   * The encrypted properties payload is marked as changed because encrypted values replace unencrypted values.
-  * A plan's "general conditions" page cannot be linked to the plan using the page hrid.
 * APIKey subscriptions are not supported.
