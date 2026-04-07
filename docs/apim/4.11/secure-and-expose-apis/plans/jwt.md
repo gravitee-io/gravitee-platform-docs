@@ -41,7 +41,7 @@ A JWT plan presents the following configuration options:
       ```
 
       \{% endcode %\} \* **JWKS\_URL**: Provide a URL ending with `/.well-known/jwks.json` from which the Gateway can retrieve the JWKS
-* **Use system proxy:** When using **JWKS_URL**, optionally route the JWKS retrieval call through the Gateway's [system proxy](../../self-hosted-installation-guides/proxy-configuration/system-proxy-for-backend-apis.md). Enable this option when the Gateway reaches external identity providers (for example, Microsoft Entra ID, Google, or Okta) through a corporate proxy.
+* **Use system proxy:** When using **JWKS\_URL**, optionally make the HTTP call through a system-wide proxy configured in `gravitee.yml`
 *   **Extract JWT Claims:** Allow claims to be accessed in the `jwt.claims` context attribute during request/response via Gravitee Expression Language (EL), e.g., extract the issuer claim from the JWT:
 
     ```
@@ -54,22 +54,5 @@ A JWT plan presents the following configuration options:
 * **Enable certificate bound thumbprint validation:** Validates the certificate thumbprint extracted from the `access_token` against the one provided by the client
 * **Extract client certificate from headers:** Extracts the client certificate from the request header (provided in **Header name** field). Necessary when the mTLS connection is handled by a proxy.
 * **Additional selection rule:** Allows you to use the EL to filter by contextual data (request headers, tokens, attributes, etc.) for plans of the same type (e.g., for two JWT plans, you can set different selection rules on each plan to determine which plan handles each request)
-
-### JWKS retrieval through a corporate proxy
-
-In enterprise environments where the Gateway reaches external identity providers through a corporate proxy, enable **Use system proxy** in the JWT plan configuration. This routes outbound JWKS retrieval calls (for example, to Microsoft Entra ID, Google, or Okta) through the system proxy configured at the Gateway level.
-
-To configure the system proxy on the Gateway, see [System Proxy for Backend APIs](../../self-hosted-installation-guides/proxy-configuration/system-proxy-for-backend-apis.md).
-
-{% hint style="warning" %}
-**Adjust timeouts for proxy environments**
-
-The default `connectTimeout` and `requestTimeout` for JWKS retrieval are both **2000 ms**. In environments where traffic routes through a corporate proxy, increase these values to account for additional proxy latency. Recommended starting values for enterprise proxy environments:
-
-* `connectTimeout`: **5000 ms**
-* `requestTimeout`: **10000 ms**
-
-Configure these values in the JWT plan settings or in the API definition JSON.
-{% endhint %}
 
 Once JWT configuration is complete and the plan is created and published, your API will be JWT-secured and subscribed consumers must call the API with an `Authorization: Bearer your-JWT` HTTP header.

@@ -32,7 +32,7 @@ The available lifecycle states are:
         </tr>
         <tr>
             <td><code>DEPRECATED</code></td>
-            <td>The API is no longer visible on the Developer Portal. New plans can't be created on a deprecated API, and the Console removes publish and unpublish actions. Existing subscriptions and Gateway traffic aren't affected.</td>
+            <td>The API is no longer visible on the Developer Portal. New plans can't be created on a deprecated API, and the Console removes publish and unpublish actions. Existing subscriptions and Gateway traffic aren't affected. This is a <strong>terminal state</strong> — the API can't transition to any other lifecycle state after deprecation.</td>
         </tr>
         <tr>
             <td><code>ARCHIVED</code></td>
@@ -71,7 +71,7 @@ Not all state transitions are valid. The following table shows which transitions
         </tr>
         <tr>
             <td><code>DEPRECATED</code></td>
-            <td><code>ARCHIVED</code> (Gravitee Kubernetes Operator only)</td>
+            <td>None (terminal state)</td>
         </tr>
         <tr>
             <td><code>ARCHIVED</code></td>
@@ -82,8 +82,7 @@ Not all state transitions are valid. The following table shows which transitions
 
 Key rules:
 
-* **ARCHIVED is terminal.** Once an API reaches the ARCHIVED state, it can't transition to any other lifecycle state.
-* **DEPRECATED → ARCHIVED is supported through the Gravitee Kubernetes Operator only.** The Console and Management API don't allow transitions from DEPRECATED. To archive a deprecated API through the operator, update the `lifecycleState` field in your `ApiV4Definition` resource to `ARCHIVED`. For details, see [Deprecate or archive an API](../../../../gko/4.11/guides/publish-apis-to-the-portal.md#deprecate-or-archive-an-api).
+* **DEPRECATED and ARCHIVED are terminal.** Once an API reaches either state, it can't transition to any other lifecycle state. Plan the retirement workflow carefully before applying these states.
 * **No backward transition to CREATED.** After an API has been published or unpublished, it can't return to the CREATED state.
 * **API Review blocks transitions from CREATED.** If API Review is enabled and the API has an active review in progress (IN\_REVIEW status), transitions from CREATED are blocked until the review is completed.
 
@@ -94,7 +93,11 @@ A common pattern for gracefully retiring an API:
 1. **PUBLISHED** → **DEPRECATED**: Signal that the API is being retired. The API is no longer visible to consumers, and new plans can't be created on it.
 2. Deprecate or close the API's individual plans to block new subscriptions.
 3. Stop the API's runtime state (STARTED → STOPPED) after all consumers have migrated.
-4. **DEPRECATED** → **ARCHIVED** (operator only): Archive the API to preserve its history and analytics, or delete it.
+4. Delete the API, or keep it in the DEPRECATED state for historical reference.
+
+{% hint style="warning" %}
+Transitioning directly from DEPRECATED to ARCHIVED isn't currently supported. To archive an API, apply the ARCHIVED state before deprecating it, or delete the deprecated API instead.
+{% endhint %}
 
 ## Change the lifecycle state
 
@@ -110,7 +113,7 @@ A common pattern for gracefully retiring an API:
     * **Deprecate**: Transitions to DEPRECATED.
 
 {% hint style="info" %}
-The Console doesn't expose an **Archive** action. To set the ARCHIVED state, use the Management API or the [Gravitee Kubernetes Operator](../../../../gko/4.11/guides/publish-apis-to-the-portal.md).
+The Console doesn't expose an **Archive** action. To set the ARCHIVED state, use the Management API or the [Gravitee Kubernetes Operator](../../../../gko/4.10/guides/publish-apis-to-the-portal.md).
 {% endhint %}
 
 ### Management API

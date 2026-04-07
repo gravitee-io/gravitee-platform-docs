@@ -12,7 +12,7 @@ metaLinks:
 Plugins can be installed to expand the capabilities of Gravitee APIM Gateway, APIM Management API (mAPI), AM, or Alert Engine (AE). They can customize the component’s behavior to satisfy needs and technical constraints.
 
 {% hint style="info" %}
-For more technical information about plugins, including details of their directory structure and how to create your own, see the [Custom Plugins Guide](customization/).
+For more technical information about plugins, including details of their directory structure and how to create your own, see the [Custom Plugins Guide](customization.md).
 {% endhint %}
 
 ## Types of plugins
@@ -95,7 +95,7 @@ Out-of-the-box reporters:
 * Metrics Reporter
 * TCP reporter
 
-You can create, use and deploy custom reporters as described in the [Custom Plugins](customization/) guide.
+You can create, use and deploy custom reporters as described in the [Custom Plugins](customization.md) guide.
 
 </details>
 

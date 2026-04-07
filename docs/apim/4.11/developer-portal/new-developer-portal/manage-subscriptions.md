@@ -1,4 +1,4 @@
-# Manage Subscriptions
+# Manage subscriptions
 
 ### Overview <a href="#overview" id="overview"></a>
 
@@ -44,9 +44,11 @@ You can manage all existing subscriptions from the subscriptions dashboard.
 
 1. Using the dropdown menu at the top right corner of the screen, navigate to the Subscriptions page
 
+<figure><img src="../../.gitbook/assets/Screenshot 2026-03-20 at 16.09.36.png" alt=""><figcaption></figcaption></figure>
+
 This page shows all subscriptions **across all APIs and Applications**. You can filter subscriptions by API, Application, and Subscription Status.
 
-2. Click on a subscription in the subscription list, and you will be redirected to [#subscription-details](manage-subscriptions.md#subscription-details "mention")
+Click on a subscription in the subscription list, and you will be redirected to [#subscription-details](manage-subscriptions.md#subscription-details "mention")
 
 <figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 

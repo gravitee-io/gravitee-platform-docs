@@ -58,18 +58,23 @@ You can also select endpoints configured for your API by name using Gravitee Exp
 
 ### Routing using Entrypoint context-paths and flow conditions
 
-The `dynamic-routing` policy can be configured to work with the APIs' (multiple) &#x45;_&#x6E;trypoint context-paths_ as well. For example, if you have multiple entrypoint context-paths to your API (as shown below), you can route requests on these paths to different backend services.
+The `dynamic-routing` policy can be configured to work with the APIs' (multiple) &#x45;_&#x6E;trypoint context-paths_ as well.  For example, if you have multiple entrypoint context-paths to your API (as shown below), you can route requests on these paths to different backend services.
+
+<figure><img src="../../../.gitbook/assets/image (239).png" alt=""><figcaption><p>An API configuration, showing multiple entrypoint context-paths</p></figcaption></figure>
 
 1. In the API Policy Studio, create a new flow for each entrypoint context-path.
+
+<figure><img src="../../../.gitbook/assets/image (240).png" alt=""><figcaption><p>An API configuration, showing multiple Flows</p></figcaption></figure>
+
 2. For each of your new Flows, apply a _**Flow Condition**_ that matches the entrypoint context-path - using the `request.contextPath` attribute:
 
 {% columns %}
 {% column %}
-
+<figure><img src="../../../.gitbook/assets/image (241).png" alt=""><figcaption><p>Flow condition for the <code>/entrypoint-path-A</code> entrypoint context-path</p></figcaption></figure>
 {% endcolumn %}
 
 {% column %}
-
+<figure><img src="../../../.gitbook/assets/image (242).png" alt=""><figcaption><p>Flow condition for the <code>/entrypoint-path-BB</code> entrypoint context-path</p></figcaption></figure>
 {% endcolumn %}
 {% endcolumns %}
 
@@ -79,10 +84,14 @@ The `dynamic-routing` policy can be configured to work with the APIs' (multiple)
 
 {% columns %}
 {% column %}
+<figure><img src="../../../.gitbook/assets/image (243).png" alt=""><figcaption><p>Dynamic Routing policy used within the Flow that has the <code>{#request.contextPath=='/entrypoint-path-A'}</code> condition</p></figcaption></figure>
+
 Requests (that start with) `https://gateway/entrypoint-path-A/` will be routed to `https://some.other.service/some-other-api/`
 {% endcolumn %}
 
 {% column %}
+<figure><img src="../../../.gitbook/assets/image (244).png" alt=""><figcaption><p>Dynamic Routing policy used within the Flow that has the <code>{#request.contextPath=='/entrypoint-path-BB'}</code> condition</p></figcaption></figure>
+
 Requests (that start with) `https://gateway/entrypoint-path-BB/` will be routed to `https://another.service/second-api/`
 {% endcolumn %}
 {% endcolumns %}

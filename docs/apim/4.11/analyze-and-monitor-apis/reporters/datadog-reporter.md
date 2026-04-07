@@ -150,7 +150,7 @@ For LLM-Proxy, the metrics in Datadog are:
 The `keyword_llm-proxy_provider` and `keyword_llm-proxy_model` tags will be attached to metrics. In MCP-Proxy, metrics are `keyword`-type, meaning these tags apply to metrics such as `gravitee.apim.endpoint_response_time_ms`.
 
 {% hint style="info" %}
-If there is no cost defined on the LLM-Proxy endpoint, then Gravitee won't calculate and publish the `double_*` metrics. See step 8 [here](../../ai-agent-management/llm-proxy/proxy-your-llms.md#create-an-llm-proxy-api) to define costs per model.
+If there is no cost defined on the LLM-Proxy endpoint, then Gravitee won't calculate and publish the `double_*` metrics. See step 8 [here](../../agent-mesh/llm-proxy/proxy-your-llms.md#create-an-llm-proxy-api) to define costs per model.
 {% endhint %}
 
 ## Custom tags
