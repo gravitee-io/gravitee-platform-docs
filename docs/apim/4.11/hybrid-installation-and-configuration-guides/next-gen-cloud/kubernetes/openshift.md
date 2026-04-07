@@ -138,3 +138,7 @@ No context-path matches the request URI.
 ```
 
 You can now create and deploy APIs to your hybrid Gateway.
+
+## Proxy configuration
+
+To route Gateway traffic through a corporate proxy (for example, for backend API calls or JWKS retrieval from external identity providers like Microsoft Entra ID), configure the system proxy using `gravitee_system_proxy_*` environment variables in the Gateway section of your `values.yaml`. For detailed instructions, see [Proxy Configuration](../../proxy-configuration/).

@@ -412,6 +412,13 @@ Azure
 Slackbot
 
 # ============================================
+# Kubernetes Tooling
+# ============================================
+external-dns
+cert-manager
+controllerName
+
+# ============================================
 # Additional Accepted Terms
 # ============================================
 [Aa]gent[s]?
