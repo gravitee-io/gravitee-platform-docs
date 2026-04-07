@@ -77,6 +77,25 @@ def get_all_files(version_dir: str) -> set:
     return files
 
 
+def split_frontmatter(content: str) -> tuple:
+    """Split markdown content into (frontmatter, body).
+
+    Returns (frontmatter_str, body_str) where:
+      - frontmatter_str includes the --- delimiters and trailing newline,
+        or None if no frontmatter is found.
+      - body_str is everything after the frontmatter.
+    """
+    if not content.startswith("---\n"):
+        return None, content
+    end = content.find("\n---\n", 3)
+    if end == -1:
+        # Check if file is ONLY frontmatter (no trailing newline after closing ---)
+        if content.rstrip().endswith("---") and content.count("---") >= 2:
+            return content, ""
+        return None, content
+    fm_end = end + 5  # len('\n---\n')
+    return content[:fm_end], content[fm_end:]
+
 
 def sync_versions(
     repo_path: str,
@@ -154,15 +173,48 @@ def sync_versions(
                 shutil.copy2(current_file, next_file)
             continue
 
-        # Case 2: Files are identical — already in sync
-        if filecmp.cmp(current_file, next_file, shallow=False):
-            continue  # Nothing to do
+        # Case 2 & 3: File exists in both — compare and sync
+        # For markdown files, use frontmatter-aware comparison and sync.
+        # This preserves version-specific YAML frontmatter (e.g., metaLinks,
+        # alternates) that GitBook adds to the target version.
+        if rel_path.endswith(".md"):
+            try:
+                source_content = open(current_file, encoding="utf-8").read()
+                target_content = open(next_file, encoding="utf-8").read()
+            except (UnicodeDecodeError, OSError):
+                # Fallback to binary comparison for files that can't be read as text
+                if filecmp.cmp(current_file, next_file, shallow=False):
+                    continue
+                results["synced"].append(rel_path)
+                if not dry_run:
+                    shutil.copy2(current_file, next_file)
+                continue
 
-        # Case 3: Files differ — sync (overwrite next with current)
-        # This is safe because divergent files should be in .version-overrides
-        results["synced"].append(rel_path)
-        if not dry_run:
-            shutil.copy2(current_file, next_file)
+            _, source_body = split_frontmatter(source_content)
+            target_fm, target_body = split_frontmatter(target_content)
+
+            # Bodies identical — already in sync (ignore frontmatter differences)
+            if source_body.strip() == target_body.strip():
+                continue
+
+            # Bodies differ — sync body from source, preserve target's frontmatter
+            results["synced"].append(rel_path)
+            if not dry_run:
+                if target_fm is not None:
+                    merged = target_fm + source_body
+                else:
+                    # Target has no frontmatter — use source body without
+                    # source frontmatter (frontmatter is version-specific)
+                    merged = source_body
+                with open(next_file, "w", encoding="utf-8") as f:
+                    f.write(merged)
+        else:
+            # Non-markdown files: binary comparison
+            if filecmp.cmp(current_file, next_file, shallow=False):
+                continue
+            results["synced"].append(rel_path)
+            if not dry_run:
+                shutil.copy2(current_file, next_file)
 
     return results
 

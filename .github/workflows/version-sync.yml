@@ -10,14 +10,19 @@
 
 name: Version Sync
 
+# DISABLED: 4.10 → 4.11 sync no longer needed (4.11 published).
+# To re-enable for the next version pair (e.g., 4.11 → 4.12):
+#   1. Update the paths below to the new source version
+#   2. Update the matrix entries with the new version pair
+#   3. Ensure .version-overrides in the target version dir is up to date
 on:
-  push:
-    branches: [main]
-    paths:
-      # Add one entry per product/version you want to sync FROM.
-      - 'docs/apim/4.10/**'
-      - 'docs/am/4.10/**'
-      - 'docs/gko/4.10/**'
+  workflow_dispatch: # Manual trigger only while disabled
+  # push:
+  #   branches: [main]
+  #   paths:
+  #     - 'docs/apim/4.11/**'
+  #     - 'docs/am/4.11/**'
+  #     - 'docs/gko/4.11/**'
 
 # Grant write access so the bot can create branches and PRs
 permissions:
@@ -30,16 +35,19 @@ jobs:
     strategy:
       matrix:
         include:
-          # Configure your sync pairs here
-          - product: apim
-            current: "4.10"
-            next: "4.11"
-          - product: am
-            current: "4.10"
-            next: "4.11"
-          - product: gko
-            current: "4.10"
-            next: "4.11"
+          # DISABLED — uncomment and update for next version pair
+          # - product: apim
+          #   current: "4.11"
+          #   next: "4.12"
+          # - product: am
+          #   current: "4.11"
+          #   next: "4.12"
+          # - product: gko
+          #   current: "4.11"
+          #   next: "4.12"
+          - product: _disabled
+            current: "0.0"
+            next: "0.0"
 
     steps:
       - uses: actions/checkout@v4
