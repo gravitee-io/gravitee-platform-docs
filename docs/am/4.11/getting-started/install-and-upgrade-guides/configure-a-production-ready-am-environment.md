@@ -1,3 +1,10 @@
+---
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/install-and-upgrade-guides/configure-a-production-ready-am-environment
+---
+
 # Configure a Production-ready AM Environment
 
 ## Overview
@@ -122,7 +129,7 @@ security:
 
 3. Update the default administrator password:
 
-<figure><img src="../../../4.10/.gitbook/assets/image (18).png" alt="Admin password"><figcaption><p>Admin password</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (18).png" alt="Admin password"><figcaption><p>Admin password</p></figcaption></figure>
 
 ### Step 3: Update the JWT secret
 
@@ -130,7 +137,7 @@ The JWT secret is used for multiple purposes :
 
 * Sign session cookies in the AM API component
 * Sign tokens used for the email verification process in the AM API and AM Gateway components
-* Sign access and refresh tokens in the AM Gateway component if no certificate has been selected for your application (HMAC256), configurable using the `fallback-to-hmac-signature settings.
+* Sign access and refresh tokens in the AM Gateway component if no certificate has been selected for your application (HMAC256), configurable using the `fallback-to-hmac-signature` settings.
 
 Any users with this secret can tamper AM sessions and tokens. For security reasons, we strongly advise you to change the default value when using AM.
 
@@ -163,8 +170,7 @@ jwt:
    * the `cookie-secure` to adapt the Secure flag for the Session Cookie (should be set to true).
 
 {% hint style="info" %}
-
-Since HMAC256 uses a symmetric key, consider configuring a [domain-level fallback certificate](/docs/am/4.11/guides/certificates/README.md#fallback-certificate) instead, which provides an asymmetric-key safety net. 
+Since HMAC256 uses a symmetric key, consider configuring a [domain-level fallback certificate](../../guides/certificates/#fallback-certificate) instead, which provides an asymmetric-key safety net.
 {% endhint %}
 
 ### Step 4: Update CORS policy

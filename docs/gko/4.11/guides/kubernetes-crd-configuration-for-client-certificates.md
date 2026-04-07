@@ -10,30 +10,30 @@ The existing `clientCertificate` (singular) field is **deprecated** but remains 
 
 Each entry in the `clientCertificates` list is a `ClientCertificate` object with the following fields:
 
-| Field | Type | Required | Description |
-|:------|:-----|:---------|:------------|
-| `name` | string | No | Label for this certificate. Defaults to `<appName>-<index>`. |
-| `content` | string | XOR `ref` | Inline PEM/Base64 certificate content, or a `[[ ]]` template notation. |
-| `ref` | CertificateRef | XOR `content` | Reference to a Secret or ConfigMap containing the certificate. |
-| `startsAt` | string (RFC3339) | No | Optional start date of the certificate validity period. |
-| `endsAt` | string (RFC3339) | No | Optional end date of the certificate validity period. |
-| `encoded` | bool | No | If `true`, content is base64-encoded and will be decoded before sending to APIM. |
+| Field      | Type             | Required      | Description                                                                      |
+| ---------- | ---------------- | ------------- | -------------------------------------------------------------------------------- |
+| `name`     | string           | No            | Label for this certificate. Defaults to `<appName>-<index>`.                     |
+| `content`  | string           | XOR `ref`     | Inline PEM/Base64 certificate content, or a `[[ ]]` template notation.           |
+| `ref`      | CertificateRef   | XOR `content` | Reference to a Secret or ConfigMap containing the certificate.                   |
+| `startsAt` | string (RFC3339) | No            | Optional start date of the certificate validity period.                          |
+| `endsAt`   | string (RFC3339) | No            | Optional end date of the certificate validity period.                            |
+| `encoded`  | bool             | No            | If `true`, content is base64-encoded and will be decoded before sending to APIM. |
 
 {% hint style="info" %}
 A certificate with no end date is valid until the subscription ends.
 {% endhint %}
 
 {% hint style="warning" %}
-Certificate expiration is not checked — it is the user's responsibility to ensure the certificate is valid beyond the end date (if set).
+Certificate expiration is not checked. It is the user's responsibility to ensure the certificate is valid beyond the end date (if set).
 {% endhint %}
 
 ### CertificateRef
 
-| Field | Type | Default | Description |
-|:------|:-----|:--------|:------------|
-| `kind` | string | `secrets` | Kind of resource: `secrets` or `configmaps`. |
-| `name` | string | (required) | Name of the Secret or ConfigMap. |
-| `key` | string | `tls.crt` | Key in the resource's data map. |
+| Field       | Type   | Default         | Description                                                         |
+| ----------- | ------ | --------------- | ------------------------------------------------------------------- |
+| `kind`      | string | `secrets`       | Kind of resource: `secrets` or `configmaps`.                        |
+| `name`      | string | (required)      | Name of the Secret or ConfigMap.                                    |
+| `key`       | string | `tls.crt`       | Key in the resource's data map.                                     |
 | `namespace` | string | (application's) | Namespace of the resource. Defaults to the Application's namespace. |
 
 ## Certificate Provisioning Modes
@@ -114,12 +114,12 @@ To rotate certificates without downtime:
 
 ## Validation Rules
 
-- `clientCertificate` (singular) and `clientCertificates` (plural) **cannot be used together**. Choose one or the other.
-- Each entry must have **either** `content` **or** `ref`, but not both (and not neither).
-- The `ref.kind` must be `secrets` or `configmaps`.
-- The certificate must be a valid PEM certificate.
-- The certificate cannot be a CA certificate.
-- If the PEM contains several certificates (e.g., a certificate chain), only the first certificate is used.
+* `clientCertificate` (singular) and `clientCertificates` (plural) **cannot be used together**. Choose one or the other.
+* Each entry must have **either** `content` **or** `ref`, but not both (and not neither).
+* The `ref.kind` must be `secrets` or `configmaps`.
+* The certificate must be a valid PEM certificate.
+* The certificate cannot be a CA certificate.
+* If the PEM contains several certificates (e.g., a certificate chain), only the first certificate is used.
 
 ## Deprecation of `clientCertificate`
 

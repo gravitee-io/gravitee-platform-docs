@@ -1,3 +1,9 @@
+---
+metaLinks:
+  alternates:
+    - https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/reference/am-api-reference
+---
+
 # API Reference
 
 ## Overview
@@ -8,7 +14,7 @@ The OpenAPI specs for other versions of AM are available in the documentation fo
 
 The AM API exposes a complete Restful API accessible to anyone wanting to script some part of the administration.
 
-* To access the OpenAPI spec for AM 4.10, go to [OpenAPI spec](https://raw.githubusercontent.com/gravitee-io/gravitee-access-management/4.10.x/docs/mapi/openapi.yaml).
+* To access the OpenAPI spec for AM 4.11, go to [OpenAPI spec](https://raw.githubusercontent.com/gravitee-io/gravitee-access-management/4.11.x/docs/mapi/openapi.yaml).
 
 ## Authorization
 

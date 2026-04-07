@@ -1,3 +1,9 @@
+---
+metaLinks:
+  alternates:
+    - https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/certificates
+---
+
 # Certificates
 
 ## Overview
@@ -45,7 +51,7 @@ Default keys are RS256 (SHA256withRSA). For RS512 keys, add the following option
 5. Give your certificate a name, then enter the details of the keystore file.
 6. Click **Create**.
 
-<figure><img src="../../../4.10/.gitbook/assets/image (132).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (132).png" alt=""><figcaption></figcaption></figure>
 
 ### Create a new certificate with AM API
 
@@ -70,11 +76,11 @@ You can use public keys to verify a token payload's integrity. To obtain the pub
 1. In AM Console, click **Settings > Certificates**.
 2. Next to your certificate, click the key icon.
 
-<figure><img src="../../../4.10/.gitbook/assets/image (134).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (134).png" alt=""><figcaption></figcaption></figure>
 
 3. You can copy/paste the public key to use with third-party libraries to verify your tokens.
 
-<figure><img src="../../../4.10/.gitbook/assets/image (135).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (135).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 Gravitee API Management (APIM) comes with a JWT Policy to verify and decode tokens that can be used for your APIs.
@@ -86,7 +92,7 @@ Gravitee API Management (APIM) comes with a JWT Policy to verify and decode toke
 2. In the **Settings** tab, click **Secrets & Certificates** tab.
 3. Choose your certificate and click **SAVE**.
 
-<figure><img src="../../../4.10/.gitbook/assets/image (136).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (136).png" alt=""><figcaption></figcaption></figure>
 
 ### Certificate for Mutual TLS authentication <a href="#certificate-for-mutual-tls-authentication" id="certificate-for-mutual-tls-authentication"></a>
 
@@ -96,15 +102,18 @@ To mark a certificate as usable for mTLS, you just have to check the "mTLS" usag
 System certificates can't be used for mTLS authentication as they are self signed certificates generated internally by Access Management.
 {% endhint %}
 
-<figure><img src="../../../4.10/.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 ### Fallback certificates
+
 A fallback certificate provides a safety net for JWT signing within a security domain. When configured, AM will automatically use the fallback certificate if the primary certificate (selected at the application level or the domain default) fails to sign a token or fails to load entirely.
 
 This is particularly useful in environments that rely on external signing infrastructure, such as AWS CloudHSM, where transient connectivity or availability issues could otherwise cause token generation to fail entirely.
 
 #### How the resolution chain works
+
 When AM needs to sign a JWT token for an application, it follows this resolution chain:
+
 1. **Application-level certificate** - The certificate explicitly assigned to the application is used first.
 2. **Domain fallback certificate** - If signing with the application certificate fails (signing error or certificate loading error) AM attempts to sign with the domain's configured fallback certificate.
 3. **Legacy HMAC fallback** - If no fallback certificate if configured and the Legacy HMAC flag is enabled, AM falls back to the default HMAC-based certificate provider.
@@ -112,10 +121,10 @@ When AM needs to sign a JWT token for an application, it follows this resolution
 
 #### Configure a fallback cerificate using the Access Management Console
 
-**Prerequisites** 
+**Prerequisites**
 
 * At least two certificates must already exist within the domain.
-* You must have the **DOMAIN_SETTINGS[UPDATE]** permission.
+* You must have the **DOMAIN\_SETTINGS\[UPDATE]** permission.
 
 **Configure a fallback certificate**
 
@@ -129,9 +138,11 @@ When configuring a fallback certificate the security domain does not require a f
 {% endhint %}
 
 #### Deletion protection
+
 A certificate that is currently configured as the domain's fallback cannot be deleted. The delete button will be disabled, and hovering over it will show a tooltip with the following text: Cannot delete: certificate is configured as fallback.
 
 To delete a certificate that is marked as fallback, you must comnplete either of the following steps:
+
 * Reassign the fallback to a different certificate
 * Clear the fallback certificate selection entirely.
 
@@ -148,7 +159,6 @@ applications:
   signing:
     fallback-to-hmac-signature: true  # default: false
 ```
-
 {% endtab %}
 
 {% tab title="Environment Variable" %}
@@ -157,13 +167,12 @@ Add the following environment variable to enable HMAC fallback:
 ```
 gravitee_applications_signining_fallbacktohmacsignature=true
 ```
-
 {% endtab %}
 {% endtabs %}
 
 | Property                                          | Default | Description                                                                                                                                                                                                                                 |
 | ------------------------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `applications.signing.fallback-to-hmac-signature` | `false`  | When `true`, the gateway falls back to the default HMAC certificate provider if both the application certificate and the domain fallback certificate are unavailable. Set to `false` to disable this behavior and fail immediately instead. |
+| `applications.signing.fallback-to-hmac-signature` | `false` | When `true`, the gateway falls back to the default HMAC certificate provider if both the application certificate and the domain fallback certificate are unavailable. Set to `false` to disable this behavior and fail immediately instead. |
 
 This setting is enabled by default. The property is commented out in the default gravitee.yml, meaning the default value of true applies unless explicitly overridden.
 
@@ -238,7 +247,7 @@ Like all certificates, a system certificate has a given validity period, after w
 See this [documentation page](../../getting-started/configuration/configure-am-api/) for details on how to configure notifications about certificate expiry.
 {% endhint %}
 
-<figure><img src="../../../4.10/.gitbook/assets/image (137).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (137).png" alt=""><figcaption></figcaption></figure>
 
 #### How to configure the applications update
 

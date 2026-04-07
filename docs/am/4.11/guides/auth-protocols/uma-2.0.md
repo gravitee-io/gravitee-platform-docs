@@ -1,3 +1,10 @@
+---
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/auth-protocols/uma-2.0
+---
+
 # UMA 2.0
 
 ## Overview
@@ -188,9 +195,9 @@ The requesting party needs to use the same identity provider as the provider to 
 
 #### **Get a Protection API Token (PAT)**
 
-The resource owner must acquire a PAT to register a resource and create authorization grant rules. To obtain the PAT the resource owner must log in to the application using any [OAuth 2.0 flow](../../../draft-4.10/guides/auth-protocols/oauth-2.0#flow).
+The resource owner must acquire a PAT to register a resource and create authorization grant rules. To obtain the PAT the resource owner must log in to the application using any [OAuth 2.0 flow](oauth-2.0/#flow).
 
-In this example, we are using the [Resource owner password flow](../../../draft-4.10/guides/auth-protocols/oauth-2.0#flow):
+In this example, we are using the [Resource owner password flow](oauth-2.0/#flow):
 
 {% code overflow="wrap" %}
 ```sh

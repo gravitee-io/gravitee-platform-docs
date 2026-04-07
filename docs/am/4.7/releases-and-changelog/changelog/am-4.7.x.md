@@ -6,6 +6,25 @@ description: >-
 
 # AM 4.7.x
 
+## Gravitee Access Management 4.7.34 - April 3, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* Optimize resource for Bulk Email management [#11283](https://github.com/gravitee-io/issues/issues/11283)
+
+</details>
+
+
 ## Gravitee Access Management 4.7.33 - March 27, 2026
 
 <details>

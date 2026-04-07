@@ -2,6 +2,10 @@
 description: >-
   This page describes the breaking changes that may occur when upgrading
   Gravitee Access Management
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/install-and-upgrade-guides/breaking-changes-for-access-management
 ---
 
 # Breaking Changes for Access Management
@@ -9,6 +13,20 @@ description: >-
 ## Breaking changes from 4.X
 
 Here are the breaking changes from versions 4.X of Gravitee.
+
+### 4.11.0
+
+**Modified Token Signing Behavior**&#x20;
+
+Previously, a certificate loading error would trigger an automatic fallback to HMAC signing. This behavior is disabled by default in AM 4.11. (see [Domain certificate fallback](../../guides/certificates/configure-domain-certificate-fallback.md))
+
+To restore this legacy behavior, update your `gravitee.yaml`:
+
+```yaml
+applications:
+  signing:
+    fallback-to-hmac-signature: false
+```
 
 ### 4.10.0
 

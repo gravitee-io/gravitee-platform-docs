@@ -1,3 +1,10 @@
+---
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/configuration/configure-am-gateway
+---
+
 # AM Gateway
 
 ## Overview
@@ -189,6 +196,10 @@ http:
 
 ### Configure email
 
+#### Basic authentication
+
+Basic authentication uses a username and password to authenticate with the SMTP server. This method requires storing credentials directly in the configuration.
+
 {% code title="gravitee.yml" %}
 ```yaml
 # SMTP configuration used to send mails
@@ -200,6 +211,41 @@ email:
   from: noreply@my.domain
   username: user@my.domain
   password: password
+  authMethod: basic
+#  properties:
+#    auth: true
+#    starttls.enable: true
+#    ssl.trust: smtp.gmail.com
+#    ssl.protocols: TLSv1.2
+
+# Mail templates
+#templates:
+#  path: ${gravitee.home}/templates
+```
+{% endcode %}
+
+#### OAuth2 (XOAUTH2) authentication
+
+OAuth2 authentication provides enhanced security by using token-based authentication instead of storing passwords. It requires initial setup with your OAuth2 provider to obtain the refresh token, but offers better security and is recommended for production environments, especially when using providers that enforce OAuth2 for SMTP.
+
+{% code title="gravitee.yml" %}
+```yaml
+# SMTP configuration used to send mails
+email:
+  enabled: false
+  host: smtp.my.domain
+  subject: "[Gravitee.io] %s"
+  port: 587
+  from: noreply@my.domain
+  username: user@my.domain
+  authMethod: oauth2
+  oauth2:
+    tokenEndpoint: https://oauth2.googleapis.com/token # OAuth2 token endpoint URL
+    clientId: client123
+    clientSecret: topSecret
+    refreshToken: ABCD1234
+    scope: https://mail.google.com/
+
 #  properties:
 #    auth: true
 #    starttls.enable: true
@@ -216,7 +262,7 @@ email:
 In order to enforce TLS 1.2 uncomment the properties in the above example and change according to your requirements.
 {% endhint %}
 
-#### **Email password and name complexity**
+#### **Email, password, and name complexity**
 
 You can configure the complexities as per your organizational requirements. The default settings is shown below:
 

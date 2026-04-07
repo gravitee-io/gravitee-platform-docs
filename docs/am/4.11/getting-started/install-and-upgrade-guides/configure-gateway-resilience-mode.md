@@ -1,3 +1,10 @@
+---
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/getting-started/install-and-upgrade-guides/configure-gateway-resilience-mode
+---
+
 # Configure Gateway Resilience Mode
 
 ## Overview

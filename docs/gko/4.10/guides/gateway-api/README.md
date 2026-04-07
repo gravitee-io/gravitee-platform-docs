@@ -27,7 +27,7 @@ GRPCRoute, TCPRoute, TLSRoute, and UDPRoute aren't supported.
 
 ## Prerequisites
 
-Before enabling the Gateway API controller:
+Before enabling the Gateway API controller, verify the following:
 
 * Install GKO in[ **cluster-scoped mode**.](../../getting-started/installation/cluster-vs-namespaced-install.md) The GatewayClass resource is cluster-scoped, so namespaced installations aren't compatible with the Gateway API controller.
 * Ensure `manager.scope.namespaces` is empty (`[]`).
@@ -191,9 +191,11 @@ spec:
 
 ## What's next
 
-* [HTTPRoute:](httproute.md) Configure path-based routing, header matching, traffic splitting, redirects, URL rewrites, and header modification.
+* [HTTPRoute](httproute.md): Configure path-based routing, header matching, traffic splitting, redirects, URL rewrites, and header modification.
+* [Configure TLS with cert-manager](tls-with-cert-manager.md): Configure TLS certificate provisioning for Gateway HTTPS listeners.
+* [Configure DNS with external-dns](dns-with-external-dns.md): Configure DNS record creation for Gateway Services.
 * [GatewayClassParameters](../../overview/custom-resource-definitions/gatewayclassparameters.md): Configure Gravitee-specific Gateway API settings including Kubernetes deployment options and autoscaling.
-* [KafkaRoute:](../../overview/custom-resource-definitions/kafkaroute.md) (experimental) Route Kafka traffic through the Gateway (requires Enterprise license).
+* [KafkaRoute](../../overview/custom-resource-definitions/kafkaroute.md): (experimental) Route Kafka traffic through the Gateway (requires Enterprise license).
 * [DB-less mode](../db-less-mode.md): Learn how the deployed Gateway runs without database dependencies for faster startup and autoscaling.
-* [Gravitee Kubernetes Operator:](https://github.com/gravitee-io/gravitee-kubernetes-operator) Learn more about GKO, including CRD management, installation, and guides for managing APIs through Kubernetes.
+* [Gravitee Kubernetes Operator](https://github.com/gravitee-io/gravitee-kubernetes-operator): Learn more about GKO, including CRD management, installation, and guides for managing APIs through Kubernetes.
 * [Example manifests](https://github.com/gravitee-io/gravitee-kubernetes-operator/tree/master/examples/gateway-api): Complete YAML examples for all Gateway API resources in the GKO repository.

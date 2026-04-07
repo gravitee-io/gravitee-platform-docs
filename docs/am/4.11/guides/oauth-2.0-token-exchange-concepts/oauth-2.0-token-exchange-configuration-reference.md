@@ -1,33 +1,31 @@
-# OAuth 2.0 Token Exchange Configuration Reference
+# OAuth 2.0 Token Exchange Configuration
 
 ## Enable Token Exchange
 
 To enable Token Exchange for your environment:
 
-1. **Domain level:** Navigate to **Settings > OAuth 2.0 > Token Exchange** and toggle **Enable Token Exchange** on. Configure impersonation and delegation as needed.
+1.  **Domain level:** Navigate to **Settings > OAuth 2.0 > Token Exchange** and toggle **Enable Token Exchange** on. Configure impersonation and delegation as needed.
 
-    <figure><img src="../.gitbook/assets/lDpWnmyu__Screenshot 2026-03-05 at 11.53.36.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/lDpWnmyu__Screenshot 2026-03-05 at 11.53.36.png" alt=""><figcaption></figcaption></figure>
+2.  **Application level:** In the application's OAuth 2.0 settings, add `Token Exchange` as an allowed grant type.
 
-2. **Application level:** In the application's OAuth 2.0 settings, add `Token Exchange` as an allowed grant type.
-
-    <figure><img src="../.gitbook/assets/y7500g2u__image (2).png" alt=""><figcaption></figcaption></figure>
-
+    <figure><img src="../../.gitbook/assets/y7500g2u__image (2).png" alt=""><figcaption></figcaption></figure>
 3. **Client authentication:** The client must authenticate on the token endpoint (e.g., using HTTP Basic authentication with `client_id` and `client_secret`).
 
 ## Domain Configuration Reference
 
 **Settings > OAuth 2.0 > Token Exchange > Settings** tab
 
-| Setting | Description | Default |
-|:--------|:------------|:--------|
-| Enable Token Exchange | Master toggle for the Token Exchange grant | Off |
-| Allowed Subject Token Types | Token types accepted as `subject_token` | Access Token, Refresh Token, ID Token, JWT |
-| Allowed Requested Token Types | Token types that can be issued | Access Token, ID Token |
-| Allow Impersonation | Enable exchange without `actor_token` | On (when Token Exchange is enabled) |
-| Allow Delegation | Enable exchange with `actor_token`; issued tokens include an `act` claim | Off |
-| Allowed Actor Token Types | Token types accepted as `actor_token` (delegation only) | Access Token, ID Token, JWT |
-| Maximum Delegation Depth | Maximum nesting depth of `act` claims (1–100) | 25 |
-| Scope Handling | Mode controlling what scopes can be granted based on the request | Downscoping |
+| Setting                       | Description                                                              | Default                                    |
+| ----------------------------- | ------------------------------------------------------------------------ | ------------------------------------------ |
+| Enable Token Exchange         | Master toggle for the Token Exchange grant                               | Off                                        |
+| Allowed Subject Token Types   | Token types accepted as `subject_token`                                  | Access Token, Refresh Token, ID Token, JWT |
+| Allowed Requested Token Types | Token types that can be issued                                           | Access Token, ID Token                     |
+| Allow Impersonation           | Enable exchange without `actor_token`                                    | On (when Token Exchange is enabled)        |
+| Allow Delegation              | Enable exchange with `actor_token`; issued tokens include an `act` claim | Off                                        |
+| Allowed Actor Token Types     | Token types accepted as `actor_token` (delegation only)                  | Access Token, ID Token, JWT                |
+| Maximum Delegation Depth      | Maximum nesting depth of `act` claims (1–100)                            | 25                                         |
+| Scope Handling                | Mode controlling what scopes can be granted based on the request         | Downscoping                                |
 
 {% hint style="info" %}
 At least one of **Allow Impersonation** or **Allow Delegation** must be enabled when Token Exchange is active.
@@ -74,12 +72,12 @@ domain:
 
 Each trusted issuer entry configures an external JWT issuer. Multiple issuers can be configured, but issuer URLs must be unique.
 
-| Setting | Description | Required |
-|:--------|:------------|:---------|
-| Issuer URL | The exact string expected in the `iss` claim of the incoming JWT. Must be unique across the list. | Yes |
-| Key Resolution Method | How to obtain the public key used to verify the JWT signature. `JWKS_URL` or `PEM`. | Yes |
-| JWKS URL | URL of the issuer's JWKS endpoint (e.g. `https://idp.example.com/.well-known/jwks.json`). Only shown/required when method is `JWKS_URL`. | When method is `JWKS_URL` |
-| PEM Certificate | PEM-encoded X.509 certificate whose public key is used for verification. Only shown/required when method is `PEM`. | When method is `PEM` |
+| Setting               | Description                                                                                                                              | Required                  |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
+| Issuer URL            | The exact string expected in the `iss` claim of the incoming JWT. Must be unique across the list.                                        | Yes                       |
+| Key Resolution Method | How to obtain the public key used to verify the JWT signature. `JWKS_URL` or `PEM`.                                                      | Yes                       |
+| JWKS URL              | URL of the issuer's JWKS endpoint (e.g. `https://idp.example.com/.well-known/jwks.json`). Only shown/required when method is `JWKS_URL`. | When method is `JWKS_URL` |
+| PEM Certificate       | PEM-encoded X.509 certificate whose public key is used for verification. Only shown/required when method is `PEM`.                       | When method is `PEM`      |
 
 ### Scope Mappings
 
@@ -91,9 +89,9 @@ When enabled, the gateway resolves the external JWT subject to exactly one exist
 
 **User Binding Criteria** can be defined as pairs of attributes and claims:
 
-| Setting | Description | Examples |
-|:--------|:------------|:---------|
-| User Attribute | The domain user repository attribute to match against (must be a searchable field). | `userName`, `emails.value` |
+| Setting            | Description                                                                                                               | Examples                     |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
+| User Attribute     | The domain user repository attribute to match against (must be a searchable field).                                       | `userName`, `emails.value`   |
 | Claim / Expression | A claim name or an EL expression evaluated with the validated subject-token claims in context under the variable `token`. | `email`, `{#token['email']}` |
 
 ### Security Model

@@ -1,3 +1,10 @@
+---
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/login/passwordless-w3c-webauthn
+---
+
 # Passwordless (W3C Webauthn)
 
 ## Overview
@@ -17,7 +24,7 @@ This is the first AM version with WebAuthn support and Relying Party (RP) confor
 1. Log in to AM Console.
 2. In the **Settings** menu, click **Login** and toggle on the **Enable passwordless** option.
 
-<figure><img src="../../../4.10/.gitbook/assets/image (102).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (102).png" alt=""><figcaption></figcaption></figure>
 
 ## Manage root certificates
 
@@ -42,13 +49,13 @@ The first time users log in with their username/password, they will see the foll
 
 After the users complete the registration process, their authenticators are immediately registered and they are redirected to your application.
 
-<figure><img src="../../../4.10/.gitbook/assets/image (103).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (103).png" alt=""><figcaption></figcaption></figure>
 
 #### **Remember device**
 
 To improve user experience, AM can determine if a passwordless device is already enrolled (or not) for a user, and decide to prompt directly the passwordless login page the next time a user wants to sign in.
 
-<figure><img src="../../../4.10/.gitbook/assets/image (104).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (104).png" alt=""><figcaption></figcaption></figure>
 
 ### Login
 

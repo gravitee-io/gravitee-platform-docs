@@ -28,7 +28,7 @@ plugins:
   path: ${gravitee.home}/plugins
 ```
 
-Users can add plugins not included in APIM's default distribution to this directory. This includes different versions of Gravitee plugins or their own [custom plugins](customization.md).
+Users can add plugins not included in APIM's default distribution to this directory. This includes different versions of Gravitee plugins or their own [custom plugins](customization/).
 
 {% hint style="info" %}
 To understand how Gravitee handles duplicate plugins, see plugins [discovery and loading.](deployment.md#discovery-and-loading)

@@ -1,3 +1,10 @@
+---
+metaLinks:
+  alternates:
+    - >-
+      https://app.gitbook.com/s/H4VhZJXn1S232OEmh8Wv/guides/user-management/user-attributes
+---
+
 # User attributes
 
 User profiles in Access Management mainly contains of two sections: general details and additional information.\

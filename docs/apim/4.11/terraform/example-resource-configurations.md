@@ -38,14 +38,35 @@ Terraform can create, update, or delete these resources as part of its workflow.
 Guides and examples can be found in the [Gravitee "apim" Terraform Registry documentation](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs).
 {% endhint %}
 
-## Known limitations
+## Release notes
 
-The following known limitations apply to the 0.2.x version of the Gravitee Terraform provider:
+These are the changes for version 0.5.x
 
-* APIs created using Terraform are shown in the Console with the 'Kubernetes' icon because they are read only.
+### Features
+
+* Application supports multiple mTLS client certificates with optional start/end dates
+* Subscription metadata support
+* Experimental: API HCL export
+
+### Improvements
+
+* More tutorials in the registry docs
+* `failure_condition` and `force_next_endpoint_on_failure` have been added to the API's failover configuration
+
+### Bugs
+
+* Subscription `plan_hrid` update is silently ignored by the API
+
+### Notable changes
+
+* The endpoint name is now mandatory
+* Flow phase, hence flow property `connect` has been renamed to `entrypoint_connect` for `NATIVE` APIs
+
+### Known limitations
+
+The following known limitations apply to the 0.5.x version of the Gravitee Terraform provider:
+
 * When you run `terraform plan` for APIs, several differences exist between state and remote. These do not impact runtime and will be fixed in upcoming patches.
-  * Pages appear as changed, but they are unordered.
   * State stores the dynamic properties service configuration as an encoded JSON string instead of plain JSON.
   * The encrypted properties payload is marked as changed because encrypted values replace unencrypted values.
-  * A plan's "general conditions" page cannot be linked to the plan using the page hrid.
 * APIKey subscriptions are not supported.
