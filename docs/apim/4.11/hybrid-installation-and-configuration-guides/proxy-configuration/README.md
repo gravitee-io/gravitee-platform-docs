@@ -25,6 +25,6 @@ This is used by Gateways to send metrics and logs to Gravitee Cloud through a pr
 
 #### System Proxy
 
-Used by the Gateway to route API calls to backend services through a centralized proxy. APIs must have `useSystemProxy: true` enabled in their endpoint configuration. The system proxy also applies to JWT plan JWKS retrieval from external identity providers (for example, Microsoft Entra ID) when **Use system proxy** is enabled in the [JWT plan configuration](../../secure-and-expose-apis/plans/jwt.md#jwks-retrieval-through-a-corporate-proxy).
+Used by the Gateway to route API calls to backend services through a centralized proxy. APIs must have useSystemProxy: true enabled in their endpoint configuration. The system proxy also applies to JWT plan JWKS retrieval from external identity providers (for example, Microsoft Entra ID, Google, or Okta) when **Use system proxy** is enabled in the [JWT plan configuration](../../secure-and-expose-apis/plans/jwt.md#jwks-retrieval-through-a-corporate-proxy).
 
 **Configuration path:** Environment variables `gravitee_system_proxy_*`
