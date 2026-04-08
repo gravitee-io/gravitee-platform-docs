@@ -18,7 +18,7 @@ Gravitee no longer supports the native ES client. Previous connectors provided b
 
 | Database      | Version tested          |
 | ------------- | ----------------------- |
-| ElasticSearch | 7.17.x / 8.16.x / 9.2.x |
+| ElasticSearch | 7.17.x / 8.19.x / 9.3.x |
 | OpenSearch    | 1.x / 2.x / 3.x         |
 
 ## Prerequisites
