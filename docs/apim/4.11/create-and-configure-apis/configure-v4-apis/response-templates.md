@@ -29,6 +29,30 @@ When you create response templates, you can define templates in the following wa
 * Multiple templates for one API. You can configure response templates for multiple policies or multiple error keys that are sent by the same policy.
 * Multiple template definitions for the same error key in a response template. You can configure response templates for different content types or status codes.
 
+## Default response payload
+
+When the Gateway raises an error, it looks for a response template that matches the error key. If no template matches, the Gateway falls back in this order:
+
+1. **A template registered under the reserved key `DEFAULT`.** Define a template with the key `DEFAULT` to override the response for every error key that doesn't have its own template.
+2. **The built-in default payload.** If neither a key-specific template nor a `DEFAULT` template exists, the Gateway returns a built-in payload. This is the same payload an API returns when no response templates are configured at all.
+
+The built-in payload format depends on the request's `Accept` header:
+
+* If the `Accept` header includes `application/json` or `*/*`, the Gateway sets `Content-Type: application/json` and returns:
+
+    ```json
+    {
+      "message": "<error message from the failing policy or component>",
+      "http_status_code": <status code set by the failing policy or component>
+    }
+    ```
+
+* For any other `Accept` value, the Gateway sets `Content-Type: text/plain` and returns the raw error message string.
+
+The status code comes from the policy or component that raised the failure. For example, the HTTP Callout policy uses its `errorStatusCode` configuration, which defaults to `500`.
+
+The built-in payload doesn't include the error key. To expose the error key to API consumers, configure a response template that references `{#error.key}` in its body. See [#customize-the-response-body-with-the-expression-language](response-templates.md#customize-the-response-body-with-the-expression-language "mention").
+
 ## Prerequisites
 
 * A v4 API with the policy or endpoint that you want to set the response template for. For more information about creating a v4 API, see [create-an-api.md](../../getting-started/create-and-publish-your-first-api/create-an-api.md "mention").
@@ -93,6 +117,36 @@ To verify if the complete the following steps:&#x20;
     ```bash
     {"error": "My custom missing key error"}% 
     ```
+
+## Customize the response body with the Expression Language
+
+When you set a response template body, the Gateway evaluates it with the [Gravitee Expression Language](../../gravitee-expression-language.md). Two variables are bound to the templating context inside a response template body:
+
+| Variable      | Description                                                                                       |
+| ------------- | ------------------------------------------------------------------------------------------------- |
+| `#error`      | The execution failure that triggered the template.                                                |
+| `#parameters` | A map of additional parameters set by the failing policy. The map is empty for most policies. |
+
+The `#error` object exposes the following fields:
+
+| Field                | Description                                                                            |
+| -------------------- | -------------------------------------------------------------------------------------- |
+| `#error.statusCode`  | The HTTP status code set by the failing policy or component.                           |
+| `#error.key`         | The error key that triggered the template, for example `CALLOUT_HTTP_ERROR`.           |
+| `#error.message`     | The error message produced by the failing policy or component.                         |
+| `#error.parameters`  | The same map as `#parameters`, exposed as a property of the error object.              |
+
+Example response template body that returns the error key, status code, and message in a JSON envelope:
+
+```json
+{
+  "error": {
+    "code": "{#error.key}",
+    "status": {#error.statusCode},
+    "detail": "{#error.message}"
+  }
+}
+```
 
 ## Template Keys&#x20;
 
