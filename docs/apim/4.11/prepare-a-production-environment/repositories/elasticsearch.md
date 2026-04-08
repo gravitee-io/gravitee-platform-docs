@@ -14,11 +14,11 @@ The Elasticsearch (ES) connector uses the HTTP API exposed by ES instances.
 Gravitee no longer supports the native ES client. Previous connectors provided by Gravitee are no longer supported.
 {% endhint %}
 
-## Supported databases&#x20;
+## Supported databases
 
 | Database      | Version tested          |
 | ------------- | ----------------------- |
-| ElasticSearch | 7.17.x / 8.16.x / 9.2.x |
+| ElasticSearch | 7.17.x / 8.19.x / 9.3.x |
 | OpenSearch    | 1.x / 2.x / 3.x         |
 
 ## Prerequisites
@@ -26,7 +26,7 @@ Gravitee no longer supports the native ES client. Previous connectors provided b
 The following prerequisites are required for OpenSearch or Elasticsearch integration with Gravitee API Management:
 
 * **Required node roles:** The cluster must have nodes with `master`, `data`, and `ingest` roles. At least one node must have the `ingest` role enabled.
-* **Ingest pipelines:** By default, Gravitee configures ingest pipelines (`geoip`, `user_agent`) that are applied during bulk indexing operations.&#x20;
+* **Ingest pipelines:** By default, Gravitee configures ingest pipelines (`geoip`, `user_agent`) that are applied during bulk indexing operations.
 
 ## Configuration
 
