@@ -19,13 +19,48 @@ The CalloutHttpPolicy includes comprehensive OpenTelemetry tracing support using
 
 ## Errors
 
-These templates are defined at the API level, in the "Entrypoint" section for v4 APIs, or in "Response Templates" for v2 APIs.\
-The error keys sent by this policy are as follows:
+The `callout-http` policy raises two error keys:
 
-| Key                      |
-| ------------------------ |
-| CALLOUT\_EXIT\_ON\_ERROR |
-| CALLOUT\_HTTP\_ERROR     |
+| Key                      | Raised when                                                                                                          |
+| ------------------------ | -------------------------------------------------------------------------------------------------------------------- |
+| `CALLOUT_HTTP_ERROR`     | The HTTP call itself fails (for example, connection refused, DNS failure, or TLS handshake error) and `exitOnError` is `true`. The error message is the underlying cause's message.   |
+| `CALLOUT_EXIT_ON_ERROR`  | The configured `errorCondition` evaluates to `true`. The error message is the evaluated `errorContent`.              |
+
+In both cases, the response status code is the policy's `errorStatusCode` (defaults to `500`).
+
+### Default response payload
+
+If no response template is configured for the error key, the Gateway returns a built-in payload. The format depends on the request's `Accept` header:
+
+* If the `Accept` header includes `application/json` or `*/*`, the Gateway sets `Content-Type: application/json` and returns:
+
+    ```json
+    {
+      "message": "<error message described above>",
+      "http_status_code": <errorStatusCode, default 500>
+    }
+    ```
+
+* For any other `Accept` value, the Gateway sets `Content-Type: text/plain` and returns the raw error message string.
+
+### Override the default payload with a response template
+
+To return a custom body, headers, or status code for these error keys, configure a response template at the API level:
+
+* **v4 APIs:** Add a response template under the API's **Entrypoints** section. See [response-templates.md](../../configure-v4-apis/response-templates.md "mention").
+* **v2 APIs:** Add a response template under the API's **Proxy** > **Response Templates** section. See [proxy-settings.md](../../configure-v2-apis/proxy-settings.md "mention").
+
+Inside the template body, the Gateway exposes the failure as the `#error` Expression Language variable. For example, a template body that surfaces the error key and the upstream error message:
+
+```json
+{
+  "error": {
+    "code": "{#error.key}",
+    "status": {#error.statusCode},
+    "detail": "{#error.message}"
+  }
+}
+```
 
 ## Phases
 
