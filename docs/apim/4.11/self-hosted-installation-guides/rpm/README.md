@@ -164,7 +164,7 @@ To install APIM with RPM packages, complete the following steps:
 *   Install the Gravitee APIM components using the following command:
 
     ```bash
-    sudo yum install graviteeio-apim-gateway graviteeio-apim-management-api graviteeio-apim-portal graviteeio-apim-console -y
+    sudo yum install graviteeio-apim-gateway-4x graviteeio-apim-rest-api-4x graviteeio-apim-management-ui-4x graviteeio-apim-portal-ui-4x -y
     ```
 *   Initialize the Gravitee APIM components using the following commands:
 
@@ -174,18 +174,43 @@ To install APIM with RPM packages, complete the following steps:
     sudo systemctl enable graviteeio-apim-gateway
     sudo systemctl start graviteeio-apim-gateway
 
-    sudo systemctl enable graviteeio-apim-management-api
-    sudo systemctl start graviteeio-apim-management-api
-
-    sudo systemctl enable graviteeio-apim-portal
-    sudo systemctl start graviteeio-apim-portal
-
-    sudo systemctl enable graviteeio-apim-console
-    sudo systemctl start graviteeio-apim-console
+    sudo systemctl enable graviteeio-apim-rest-api
+    sudo systemctl start graviteeio-apim-rest-api
     ```
 
 ## Verification
 
 {% hint style="info" %}
-The services may take a few minutes to initialize.
+The services may take a few minutes to initialise.
 {% endhint %}
+
+To verify that Gravitee API Management is installed and running as expected, follow these steps:
+
+1.  Confirm that the APIM Gateway service is active using the following command:
+
+    ```bash
+    sudo systemctl status graviteeio-apim-gateway
+    ```
+
+    The command reports `Active: active (running)`.<br>
+2.  Confirm that the APIM Management API service is active using the following command:
+
+    ```bash
+    sudo systemctl status graviteeio-apim-rest-api
+    ```
+
+    The command reports `Active: active (running)`.<br>
+3.  Confirm that the four APIM component ports are listening using the following command:
+
+    ```bash
+    sudo ss -lntp "( sport = 8082 or sport = 8083 or sport = 8084 or sport = 8085 )"
+    ```
+
+    The output lists one listening socket on each of the following ports:
+
+    * `8082` — APIM Gateway
+    * `8083` — APIM Management API
+    * `8084` — APIM Management Console (served by Nginx)
+    * `8085` — Developer Portal (served by Nginx)<br>
+4. Open the APIM Management Console in a web browser at `http://<YOUR_HOST>:8084`, and sign in with the default credentials `admin` / `admin`. The Management Console home page appears.<br>
+5. Open the Developer Portal in a web browser at `http://<YOUR_HOST>:8085`. The Developer Portal home page appears.
