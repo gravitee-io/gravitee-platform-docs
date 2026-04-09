@@ -13,7 +13,7 @@ metaLinks:
   * For the API Gateway, `the plugin-ext` folder is located at `/gravitee/apim-gateway/plugins`.
   * For the Management API, the `plugin-ext` is located at `/gravitee/apim-management-api/plugins.`
 * You can download additional plugins from [the plugins download page](https://download.gravitee.io/#graviteeio-apim/plugins/).
-* For more information about plugin deployment, see [Deployment](../../plugins/deployment.md#deployment).
+* For more information about plugin deployment, see [Deployment](/broken/pages/MwnqnOZbIveNi3En29sA#deployment).
 
 {% hint style="warning" %}
 Some plugins need to be installed on both the API Gateway and the Management API. Installation details are provided in a specific plugin’s documentation.
@@ -64,10 +64,10 @@ To use Redis with Docker images, complete the following steps:
 
 To download the driver, complete the following sub-steps:
 
-1. Download the correct driver for your database. For more information about downloading the correct drive, go to [Supported databases.](../../prepare-a-production-environment/repositories/#supported-databases)
-2.  Place the driver in the `plugins-ext` folder.
+1. Download the correct driver for your database. For more information about downloading the correct drive, go to [Supported databases.](/broken/pages/RtDX5nJeEEX6Z0CfVf0v#supported-databases)
+2.  Place the driver in the `plugins/ext/repository-jdbc/` subfolder of the container's `GRAVITEEIO_HOME` directory.
 
-    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><ul><li>For the API Gateway, the <code>plugin-ext</code> folder is located at <code>/gravitee/apim-gateway/plugins</code>.</li><li>For the Management API, the <code>plugin-ext</code>folder is located at the <code>/gravitee/apim-management-api/plugins</code>.</li></ul></div>
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><ul><li>Inside the container, the target path is <code>/opt/graviteeio-gateway/plugins/ext/repository-jdbc/</code> for the API Gateway and <code>/opt/graviteeio-management-api/plugins/ext/repository-jdbc/</code> for the Management API. If you mount a host volume (for example, <code>./apim-gateway/plugins</code> → <code>/opt/graviteeio-gateway/plugins</code>), the driver goes in <code>./apim-gateway/plugins/ext/repository-jdbc/</code> on the host.</li></ul></div>
 
 ### 2. Use JDBC
 
