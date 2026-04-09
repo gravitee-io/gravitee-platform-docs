@@ -94,7 +94,7 @@ Kubernetes namespaces provide logical isolation and organization within a cluste
 ### Install MongoDB
 
 {% hint style="info" %}
-You can use PostgreSQL instead of MongoDB. For more information about installing PostgreSQL, see [#optional-install-postgresql](./#optional-install-postgresql "mention").
+You can use other databases to store configuration management data (see [JDBC repositories](../../../prepare-a-production-environment/repositories/)). For example; to use PostgreSQL, see [#optional-install-postgresql](./#optional-install-postgresql "mention").
 {% endhint %}
 
 To support API definitions and configuration, you must install MongoDB into your Kubernetes cluster. For more information about installing MongoDB, see the [official chart documentation](https://artifacthub.io/packages/helm/bitnami/mongodb)

@@ -9,12 +9,13 @@ metaLinks:
 
 ## Overview
 
-Gravitee uses repositories to store different types of data. They are configured in `gravitee.yml`, where each repository can correspond to a particular scope. For example, management data can be stored in MongoDB, rate limiting data in Redis, and analytics data in ElasticSearch.
+Gravitee uses repositories to store different types of data. They are configured in `gravitee.yml` or the Gravitee Helm chart `values.yml`, where each repository can correspond to a particular scope. For example, configuration/management data can be stored in MongoDB, rate limiting data in Redis, and analytics data in ElasticSearch.
 
 ## Management Repository
 
-The Management repository is used to store global configurations such as APIs, applications, and API keys. The default configuration uses MongoDB (single server). You can configure the Management repository using the `gravitee.yaml` file:
+The Management repository is used to store global configurations such as APIs, applications, and API keys. The default configuration uses MongoDB (single server). You can configure the Management repository using the `gravitee.yml` file:
 
+{% code title="gravitee.yml" %}
 ```yaml
 management:
   type: mongodb
@@ -79,11 +80,13 @@ management:
 #    connectTimeout: 500
 #    socketTimeout: 250
 ```
+{% endcode %}
 
 ## Analytics Repository
 
-The Analytics repository stores all reporting, metrics, and health-checks for all APIM Gateway instances. The default configuration uses [Elasticsearch](https://www.elastic.co/products/elasticsearch).
+The Analytics repository stores all reporting, metrics, API logs, and health-checks for all APIM Gateway instances. The default configuration uses [Elasticsearch](https://www.elastic.co/products/elasticsearch).
 
+{% code title="gravitee.yml" %}
 ```yaml
   type: elasticsearch
   elasticsearch:
@@ -94,6 +97,7 @@ The Analytics repository stores all reporting, metrics, and health-checks for al
 #       username:
 #       password:
 ```
+{% endcode %}
 
 ## Rate Limit Repository
 

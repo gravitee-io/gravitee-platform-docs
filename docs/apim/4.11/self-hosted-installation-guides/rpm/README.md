@@ -103,6 +103,10 @@ To install APIM with RPM packages, complete the following steps:
 
 ### Install MongoDB
 
+{% hint style="info" %}
+You can use other databases to store configuration management data (see [JDBC repositories](../../prepare-a-production-environment/repositories/)).
+{% endhint %}
+
 1. Install MongoDB using either of the following methods:
    *   Install MongoDB automatically using the following commands:
 
