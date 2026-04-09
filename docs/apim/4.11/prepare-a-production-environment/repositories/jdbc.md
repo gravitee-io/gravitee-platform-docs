@@ -44,7 +44,7 @@ If you are configuring Gravitee with the Helm chart and using the MySQL JDBC, pl
 {% hint style="info" %}
 **Before moving on**
 
-If you are using Docker to install and run APIM, you should place the driver in the `plugins-ext` folder and configure it by using the Docker Compose file or command line arguments. For more information, see [Customize you Installation](../../self-hosted-installation-guides/docker/customize-your-installation.md).
+If you're using Docker to install and run APIM, place the driver in the `plugins/ext/repository-jdbc/` subfolder of the container's `GRAVITEEIO_HOME` directory (`/opt/graviteeio-gateway/plugins/ext/repository-jdbc/` for the Gateway and `/opt/graviteeio-management-api/plugins/ext/repository-jdbc/` for the Management API), and configure it through the Docker Compose file or command-line arguments. For more information, see [Customize you Installation](../../self-hosted-installation-guides/docker/customize-your-installation.md).
 {% endhint %}
 
 ## Configuration
