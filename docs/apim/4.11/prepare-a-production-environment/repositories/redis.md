@@ -100,21 +100,16 @@ ratelimit:
       type: jks
       path: ${gravitee.home}/security/redis-keystore.jks
       password: secret
-    keyPassword:
-    alias:
-    certificates: # Certificates are required if keystore's type is pem
-    #      - cert: ${gravitee.home}/security/redis-mycompany.org.pem
-    #        key: ${gravitee.home}/security/redis-mycompany.org.key
-    #      - cert: ${gravitee.home}/security/redis-myothercompany.com.pem
-    #        key: ${gravitee.home}/security/redis-myothercompany.com.key
+      keyPassword:
+      alias:
+      certificates: # Certificates are required if keystore's type is pem
+      #      - cert: ${gravitee.home}/security/redis-mycompany.org.pem
+      #        key: ${gravitee.home}/security/redis-mycompany.org.key
+      #      - cert: ${gravitee.home}/security/redis-myothercompany.com.pem
+      #        key: ${gravitee.home}/security/redis-myothercompany.com.key
     truststore:
       type: pem
       path: ${gravitee.home}/security/redis-truststore.jks
       password: secret
       alias:
-</code></pre><div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>If Redis Rate Limit repository is not accessible, the API call will fail. Do not forget to monitor your probe health-check to verify that Redis repository is healthy.</p></div></td></tr><tr><td>Parameter</td><td>Default</td><td>Description</td></tr><tr><td>type</td><td></td><td>Supports <code>jks</code>, <code>pem</code>, <code>pkcs12</code></td></tr><tr><td>path</td><td></td><td>A path is required if certificate’s type is <code>jks</code> or <code>pkcs12</code></td></tr><tr><td>password</td><td></td><td></td></tr><tr><td>alias</td><td></td><td></td></tr><tr><td>certificates</td><td></td><td>List of certificates with cert and key. Certificates are required if keystore’s type is <code>pem</code></td></tr><tr><td>Parameter</td><td>Default</td><td>Description</td></tr><tr><td>type</td><td></td><td>Supports <code>jks</code>, <code>pem</code>, <code>pkcs12</code></td></tr><tr><td>path</td><td></td><td></td></tr><tr><td>password</td><td></td><td></td></tr><tr><td>alias</td><td></td><td></td></tr></tbody></table>
-
-</div>
-
-</div>
 ```

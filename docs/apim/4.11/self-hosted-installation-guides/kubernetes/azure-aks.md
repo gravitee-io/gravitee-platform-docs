@@ -119,6 +119,10 @@ This guide requires MongoDB and Elasticsearch to be installed for the complete A
 
 ### Install MongoDB
 
+{% hint style="info" %}
+You can use other databases to store configuration management data (see [JDBC repositories](../../prepare-a-production-environment/repositories/)).
+{% endhint %}
+
 To support API definitions and configuration, you must install MongoDB into your Kubernetes cluster. For more information about installing MongoDB, see the [official chart documentation](https://artifacthub.io/packages/helm/bitnami/mongodb)
 
 1.  Install MongoDB with Helm using the following command:
