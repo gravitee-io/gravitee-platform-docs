@@ -11,7 +11,7 @@ EL extends the Spring Expression Language (SpEL) by providing additional object 
 
 Custom properties and attributes have special meanings in the Gravitee ecosystem:
 
-* **Custom properties:** Defined at the API level and read-only during the Gateway's execution of an API transaction. Learn more about setting an API's custom properties in [link to custom properties documentation].
+* **Custom properties:** Defined at the API level and read-only during the Gateway's execution of an API transaction. Learn more about setting an API's custom properties in \[link to custom properties documentation].
 * **Attributes:** Scoped to the current API transaction and can be manipulated during the execution phase through the `assign-attributes` policy. Attributes attach additional information to a request or message via a variable that is dropped after the API transaction completes.
 {% endhint %}
 
@@ -133,7 +133,7 @@ Depending on the content-type, you can access specific content.
 {% hint style="warning" %}
 If a JSON payload has duplicate keys, APIM keeps the last key.
 
-To avoid errors caused by duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection](create-and-configure-apis/apply-policies/policy-reference/json-threat-protection "mention").
+To avoid errors caused by duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection](create-and-configure-apis/apply-policies/policy-reference/json-threat-protection/ "mention").
 {% endhint %}
 
 You can access specific attributes of a JSON request/response payload with `{#request.jsonContent.foo.bar}`, where the request body is similar to the following example:
@@ -213,13 +213,10 @@ The EL Assistant is available in any field that supports Expression Language.
 1.  In the field that supports Expression Language, click the **{EL}** icon.
 
     <figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2Fgit-blob-008c4fc76a06b5570f9af67bb2cfc51457ab629f%2F304A887B-9FD1-4011-961A-7DB7D91D3478_1_201_a.jpeg?alt=media" alt=""><figcaption></figcaption></figure>
-
 2. In the **EL Assistant** pop-up window, enter a natural language prompt describing the Expression Language you need. For example: "Only run this policy if the header equals test."
-
 3.  Click **Ask Newt AI**. The Assistant generates the corresponding Expression Language.
 
     <figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2Fgit-blob-7d9c2dbfbfb15a07488aef31b1f2ff476bc84c4c%2FDBE0A0C1-3171-4CA4-A586-A503EBD2B0BD_1_201_a.jpeg?alt=media" alt=""><figcaption></figcaption></figure>
-
 4.  (Optional) Provide feedback by clicking the **thumbs up** or **thumbs down** icon.
 
     <figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2Fgit-blob-fdfd3541a28f3f38863088cd442a5d75838cbcc3%2F6D6E46F0-AECF-41F9-BE38-53C6EC0EDA38_1_201_a.jpeg?alt=media" alt=""><figcaption></figcaption></figure>
@@ -425,6 +422,72 @@ The EL (Expression Language) used for a message does not change based on phase. 
 * Get the size of a message: `{#message.contentLength}`
 {% endtab %}
 {% endtabs %}
+
+### Kafka Gateway
+
+The Kafka Gateway uses a distinct set of Expression Language root objects that reflect Kafka protocol concepts rather than HTTP concepts. Use this section when configuring EL on Kafka APIs — for example, in endpoint configuration, policy conditions, or connection interruption rules.
+
+{% hint style="warning" %}
+The `#request`, `#response`, and `#message` objects on Kafka APIs expose different properties than the HTTP versions documented earlier on this page. HTTP-specific properties such as `#request.method`, `#request.headers`, or `#request.path` aren't available on Kafka APIs.
+{% endhint %}
+
+#### EL availability by phase
+
+The set of root objects available to an EL expression depends on the execution phase. Kafka APIs run through four distinct phases, each exposing a different variable surface.
+
+<table><thead><tr><th width="200">Phase</th><th width="210">When it runs</th><th>Available root objects</th></tr></thead><tbody><tr><td>Entrypoint Connect</td><td>Before the Kafka client authenticates</td><td><code>#connection</code>, <code>#ssl</code>, <code>#context</code> (attributes and addresses only — no <code>principal</code>)</td></tr><tr><td>Connection</td><td>After the client authenticates, once per connection</td><td><code>#context</code> (with <code>principal</code> and <code>ssl</code>)</td></tr><tr><td>Request</td><td>Per Kafka protocol request (Produce, Fetch, Metadata, and others)</td><td><code>#request</code>, <code>#response</code>, <code>#context</code></td></tr><tr><td>Message</td><td>Per Kafka record, for message-level policies</td><td><code>#message</code>, plus everything available in the Request phase</td></tr></tbody></table>
+
+#### Kafka context object properties
+
+The `#context` root object on a Kafka API exposes connection-level and authentication data for the current client connection.
+
+<table><thead><tr><th width="172">Object property</th><th width="260">Description</th><th width="120">Type</th><th>Example</th></tr></thead><tbody><tr><td>attributes</td><td>Context attributes associated with the Kafka connection</td><td>key / value</td><td><code>{#context.attributes['plan']}</code></td></tr><tr><td>remoteAddress</td><td>Remote address of the Kafka client</td><td>string</td><td><code>{#context.remoteAddress}</code></td></tr><tr><td>localAddress</td><td>Local address of the gateway listener</td><td>string</td><td><code>{#context.localAddress}</code></td></tr><tr><td>ssl</td><td>TLS session information for the client connection</td><td>SSL object</td><td><code>{#context.ssl.clientHost}</code></td></tr><tr><td>principal</td><td>Authenticated Kafka principal for the current connection</td><td>Principal object</td><td><code>{#context.principal.name}</code></td></tr></tbody></table>
+
+**Kafka principal object properties**
+
+The `#context.principal` object exposes the authenticated Kafka client identity.
+
+<table><thead><tr><th width="172">Object property</th><th width="300">Description</th><th width="100">Type</th><th>Nullable</th></tr></thead><tbody><tr><td>name</td><td>The principal name as seen by the Kafka broker (for example, the SASL username or the certificate common name)</td><td>string</td><td>Yes — returns <code>null</code> when no principal is set</td></tr><tr><td>token</td><td>The raw bearer token presented by the client</td><td>string</td><td>Yes — populated only when the client authenticates with SASL OAUTHBEARER. Returns <code>null</code> for all other authentication methods, including PLAINTEXT, mTLS, SASL PLAIN, SASL SCRAM, and API Key plans</td></tr></tbody></table>
+
+**Pass the client's OAuth token to the broker**
+
+When a Kafka API is secured with SASL OAUTHBEARER and the gateway forwards the client's bearer token to the upstream Kafka broker, configure the endpoint's bearer token field as follows:
+
+```
+{#context.principal.token}
+```
+
+The gateway extracts the token from the authenticated client connection and reuses it when authenticating to the broker.
+
+#### Kafka request object properties
+
+The `#request` root object on a Kafka API exposes Kafka protocol-level metadata for the current operation. It's only available in the Request phase.
+
+<table><thead><tr><th width="172">Object property</th><th width="260">Description</th><th width="108">Type</th><th>Example</th></tr></thead><tbody><tr><td>correlationId</td><td>Correlation ID of the Kafka request, returned as a string</td><td>string</td><td><code>12345</code></td></tr><tr><td>apiKey</td><td>Name of the Kafka protocol operation</td><td>string</td><td><code>PRODUCE</code>, <code>FETCH</code>, <code>METADATA</code></td></tr><tr><td>apiVersion</td><td>Version of the Kafka protocol operation</td><td>int</td><td><code>10</code></td></tr><tr><td>clientId</td><td>Client ID sent by the Kafka client in the request header</td><td>string</td><td><code>my-kafka-producer</code></td></tr></tbody></table>
+
+{% hint style="warning" %}
+**`#request.apiKey` isn't the Gravitee API Key plan.** On Kafka APIs, `#request.apiKey` returns the Kafka protocol operation name (for example, `PRODUCE` or `FETCH`). To read the API key value used by a Gravitee API Key plan, use `{#context.attributes['api-key']}` instead.
+{% endhint %}
+
+#### Kafka response object properties
+
+The `#response` root object is registered for Kafka APIs but doesn't currently expose any properties. Don't rely on `#response.*` expressions on Kafka APIs.
+
+#### Kafka message object properties
+
+For policies that run on individual Kafka records — for example, the Kafka Message Filtering policy — the `#message` root object exposes record-level data.
+
+<table><thead><tr><th width="172">Object property</th><th width="260">Description</th><th width="108">Type</th><th>Example</th></tr></thead><tbody><tr><td>topic</td><td>Name of the Kafka topic the record belongs to</td><td>string</td><td><code>orders</code></td></tr><tr><td>key</td><td>Record key, as a string</td><td>string</td><td><code>customer-42</code></td></tr><tr><td>content</td><td>Record value body, as a string</td><td>string</td><td><code>{"total":100}</code></td></tr><tr><td>contentLength</td><td>Length of the record value body</td><td>int</td><td><code>14</code></td></tr><tr><td>headersString</td><td>Record headers with values decoded as strings</td><td>key / value</td><td><code>{#message.headersString['trace-id']}</code></td></tr><tr><td>headersRaw</td><td>Record headers with raw byte-array values</td><td>key / value</td><td>-</td></tr><tr><td>metadata</td><td>Metadata attached to the message by the gateway</td><td>key / value</td><td><code>{#message.metadata['partition']}</code></td></tr><tr><td>error</td><td>Flag indicating whether the record is in an error state</td><td>boolean</td><td><code>false</code></td></tr></tbody></table>
+
+#### Entrypoint Connect phase context
+
+At the Entrypoint Connect phase — policies that run before the Kafka client authenticates, such as connection interruption rules — the EL context is intentionally reduced. Only connection-level data is available.
+
+<table><thead><tr><th width="200">Root object</th><th width="200">Property</th><th>Description</th></tr></thead><tbody><tr><td><code>#connection</code></td><td>id</td><td>Stable identifier for the client connection</td></tr><tr><td><code>#connection</code></td><td>remoteAddress</td><td>Address of the Kafka client</td></tr><tr><td><code>#connection</code></td><td>localAddress</td><td>Address of the gateway listener</td></tr><tr><td><code>#ssl</code></td><td>(SSL object)</td><td>TLS session for the client connection, if SSL is configured</td></tr><tr><td><code>#context</code></td><td>attributes</td><td>Context attributes set before authentication</td></tr><tr><td><code>#context</code></td><td>remoteAddress</td><td>Remote address of the Kafka client</td></tr><tr><td><code>#context</code></td><td>localAddress</td><td>Local address of the gateway listener</td></tr></tbody></table>
+
+{% hint style="warning" %}
+`#context.principal`, `#request`, `#response`, and `#message` aren't available in the Entrypoint Connect phase because authentication hasn't occurred and no Kafka protocol request has been received yet. Referencing them in an EL expression evaluated at this phase returns `null` or raises an evaluation error.
+{% endhint %}
 
 ## Nodes
 
