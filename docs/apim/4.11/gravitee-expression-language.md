@@ -265,6 +265,12 @@ The EL Assistant returns:
 
 Use the Gravitee Expression Language (EL) to access API transaction information through root-level objects injected into the EL context: custom properties, dictionaries, and endpoints.
 
+### API object properties
+
+The `{#api}` root-level object exposes metadata about the Gateway API handling the current transaction.
+
+<table><thead><tr><th width="172">Object property</th><th width="260">Description</th><th width="108">Type</th><th>Example</th></tr></thead><tbody><tr><td>id</td><td>Gateway API identifier</td><td>string</td><td><code>{#api.id}</code></td></tr><tr><td>name</td><td>Gateway API name</td><td>string</td><td><code>{#api.name}</code></td></tr><tr><td>version</td><td>Gateway API version, as declared on the API definition</td><td>string</td><td><code>{#api.version}</code></td></tr><tr><td>properties</td><td>Custom properties defined on the API. See the Custom properties tab below for details</td><td>key / value</td><td><code>{#api.properties['my-property']}</code></td></tr></tbody></table>
+
 {% tabs %}
 {% tab title="Custom properties" %}
 Define custom properties for your API. These properties are automatically injected into the expression language context and can be referenced during an API transaction from the `{#api.properties}` root-level object property.
@@ -323,18 +329,26 @@ When APIM Gateway handles an incoming API request, some object properties are au
 
 Some policies (e.g., the OAuth2 policy) register other attributes in the request context. For more information, refer to the documentation for individual policies.
 
-Request context attributes and examples are listed below.
+Request context attributes and examples are listed below:&#x20;
 
 {% tabs %}
 {% tab title="Table" %}
-<table><thead><tr><th width="170">Object property</th><th width="190">Description</th><th width="104">Type</th><th>Nullable</th></tr></thead><tbody><tr><td>api</td><td>Called API</td><td>string</td><td>-</td></tr><tr><td>api-key</td><td>The API key used (for an API Key plan)</td><td>string</td><td>X (for no API Key plan)</td></tr><tr><td>application</td><td>The authenticated application making incoming HTTP requests</td><td>string</td><td>X (for Keyless plan)</td></tr><tr><td>context-path</td><td>Context path</td><td>string</td><td>-</td></tr><tr><td>plan</td><td>Plan used to manage incoming HTTP requests</td><td>string</td><td>-</td></tr><tr><td>resolved-path</td><td>The path defined in policies</td><td>string</td><td>-</td></tr><tr><td>user-id</td><td><p>The user identifier of an incoming HTTP request:</p><p>* The subscription ID for an API Key plan</p><p>* The remote IP for a Keyless plan</p></td><td>string</td><td>-</td></tr></tbody></table>
+<table><thead><tr><th width="190">Attribute key</th><th width="320">Description</th><th width="104">Type</th><th>Set by</th></tr></thead><tbody><tr><td>api</td><td>ID of the API handling the request</td><td>string</td><td>Gateway (always)</td></tr><tr><td>api.name</td><td>Name of the API handling the request</td><td>string</td><td>Gateway (always)</td></tr><tr><td>api.deployed-at</td><td>Timestamp of the last API deployment</td><td>long</td><td>Gateway (always)</td></tr><tr><td>api-key</td><td>The API key used by the consumer</td><td>string</td><td>API Key policy (only on API Key plans)</td></tr><tr><td>application</td><td>ID of the authenticated application</td><td>string</td><td>Security chain (empty for Keyless plans)</td></tr><tr><td>apiProduct</td><td>ID of the API Product associated with the current subscription</td><td>string</td><td>Subscription processor (only when the subscription belongs to an API Product)</td></tr><tr><td>plan</td><td>ID of the plan the consumer is subscribed to</td><td>string</td><td>Security chain</td></tr><tr><td>user</td><td>Authenticated user identifier</td><td>string</td><td>Security chain</td></tr><tr><td>user.roles</td><td>Roles granted to the authenticated user</td><td>list / array</td><td>Security chain</td></tr><tr><td>user-id</td><td>The user identifier of the incoming HTTP request. The subscription ID for an API Key plan, the remote IP for a Keyless plan</td><td>string</td><td>Gateway (always)</td></tr><tr><td>clientIdentifier</td><td>Stable client identifier used for rate limiting and logging. Derived from the subscription ID, a header, or the remote address</td><td>string</td><td>Subscription processor (always)</td></tr><tr><td>organization</td><td>ID of the organization the API belongs to</td><td>string</td><td>Gateway (always)</td></tr><tr><td>environment</td><td>ID of the environment the API is deployed in</td><td>string</td><td>Gateway (always)</td></tr><tr><td>context-path</td><td>Context path configured on the API listener</td><td>string</td><td>Gateway (always)</td></tr><tr><td>resolved-path</td><td>Path resolved from the flow selectors — the path defined in policies</td><td>string</td><td>Flow chain</td></tr><tr><td>mapped-path</td><td>Path mapping matched for analytics and logging</td><td>string</td><td>Gateway (always)</td></tr><tr><td>request.method</td><td>HTTP method of the current request</td><td>string</td><td>Gateway (always)</td></tr><tr><td>request.endpoint</td><td>Endpoint URI selected for the current request</td><td>string</td><td>Gateway (always)</td></tr><tr><td>request.endpoint.override</td><td>Endpoint URI explicitly overridden for the current request (for example, by the Dynamic Routing policy)</td><td>string</td><td>Dynamic routing / assign-attributes (only when overridden)</td></tr><tr><td>request.original-url</td><td>Full URL of the original request received by the Gateway, including scheme, host, and path</td><td>string</td><td>Gateway (always)</td></tr><tr><td>quota.count</td><td>Current value of the quota counter for the active subscription</td><td>long</td><td>Quota policy (only when a Quota policy is applied)</td></tr><tr><td>quota.limit</td><td>Configured quota limit</td><td>long</td><td>Quota policy (only when a Quota policy is applied)</td></tr><tr><td>quota.remaining</td><td>Remaining quota for the active subscription</td><td>long</td><td>Quota policy (only when a Quota policy is applied)</td></tr><tr><td>quota.reset.time</td><td>Timestamp at which the quota counter resets</td><td>long</td><td>Quota policy (only when a Quota policy is applied)</td></tr><tr><td>sni</td><td>Server Name Indication value from the TLS handshake</td><td>string</td><td>Gateway (only when TLS SNI is used)</td></tr></tbody></table>
 {% endtab %}
 
 {% tab title="Examples" %}
 * Get the value of the `user-id` attribute for an incoming HTTP request: `{#context.attributes['user-id']}`
 * Get the value of the `plan` attribute for an incoming HTTP request: `{#context.attributes['plan']}`
+* Get the authenticated application ID: `{#context.attributes['application']}`
+* Get the stable client identifier: `{#context.attributes['clientIdentifier']}`
 {% endtab %}
 {% endtabs %}
+
+{% hint style="info" %}
+**Attribute keys without the `gravitee.attribute.` prefix**
+
+&#x20;The Gateway stores context attributes with a `gravitee.attribute.` prefix (for example, `gravitee.attribute.plan`). Expression Language lookups through `{#context.attributes['...']}` accept either the short key or the fully prefixed key. Use the short keys shown in the table above for readability.
+{% endhint %}
 
 ### SSL object properties
 
@@ -488,6 +502,26 @@ At the Entrypoint Connect phase — policies that run before the Kafka client au
 {% hint style="warning" %}
 `#context.principal`, `#request`, `#response`, and `#message` aren't available in the Entrypoint Connect phase because authentication hasn't occurred and no Kafka protocol request has been received yet. Referencing them in an EL expression evaluated at this phase returns `null` or raises an evaluation error.
 {% endhint %}
+
+
+
+### Subscription
+
+The `{#subscription}` root-level object exposes information about the consumer subscription that authenticated the current API transaction. It's available once the security chain has resolved a subscription in practice, from the Request phase onward for every non-Keyless plan.
+
+<table><thead><tr><th width="180">Object property</th><th width="320">Description</th><th width="108">Type</th><th>Example</th></tr></thead><tbody><tr><td>id</td><td>Subscription identifier</td><td>string</td><td><code>{#subscription.id}</code></td></tr><tr><td>type</td><td>Subscription type. One of <code>STANDARD</code> or <code>PUSH</code></td><td>string</td><td><code>{#subscription.type}</code></td></tr><tr><td>applicationName</td><td>Name of the application that owns the subscription</td><td>string</td><td><code>{#subscription.applicationName}</code></td></tr><tr><td>clientId</td><td>OAuth2 client ID associated with the subscription, if the plan uses one</td><td>string</td><td><code>{#subscription.clientId}</code></td></tr><tr><td>apiProductId</td><td>Identifier of the API Product associated with the subscription, if the subscription was created through an API Product</td><td>string</td><td><code>{#subscription.apiProductId}</code></td></tr><tr><td>metadata</td><td>Key / value metadata attached to the subscription by the API publisher</td><td>key / value</td><td><code>{#subscription.metadata['clientType']}</code></td></tr></tbody></table>
+
+{% hint style="info" %}
+**Referencing the authenticated application from EL**
+
+To reference the application that owns the current subscription, use `{#subscription.applicationName}` for the application name or `{#context.attributes['application']}` for the application ID. There's no dedicated `#application` root-level object.
+{% endhint %}
+
+**Examples**
+
+* Route based on the subscribing application: `{#subscription.applicationName == 'partner-portal'}`
+* Compare a subscription metadata value to a literal string: `{#subscription.metadata['clientType'].equals('PARTNER')}`
+* Forward the subscription ID to the upstream as a header: `{#subscription.id}`
 
 ## Nodes
 
