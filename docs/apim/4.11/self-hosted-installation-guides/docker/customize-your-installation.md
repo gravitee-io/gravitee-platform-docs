@@ -65,9 +65,9 @@ To use Redis with Docker images, complete the following steps:
 To download the driver, complete the following sub-steps:
 
 1. Download the correct driver for your database. For more information about downloading the correct drive, go to [Supported databases.](../../prepare-a-production-environment/repositories/#supported-databases)
-2.  Place the driver in the `plugins-ext` folder.
+2.  Place the driver in the `plugins/ext/repository-jdbc/` subfolder of the container's `GRAVITEEIO_HOME` directory.
 
-    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><ul><li>For the API Gateway, the <code>plugin-ext</code> folder is located at <code>/gravitee/apim-gateway/plugins</code>.</li><li>For the Management API, the <code>plugin-ext</code>folder is located at the <code>/gravitee/apim-management-api/plugins</code>.</li></ul></div>
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><ul><li>Inside the container, the target path is <code>/opt/graviteeio-gateway/plugins/ext/repository-jdbc/</code> for the API Gateway and <code>/opt/graviteeio-management-api/plugins/ext/repository-jdbc/</code> for the Management API. If you mount a host volume (for example, <code>./apim-gateway/plugins</code> → <code>/opt/graviteeio-gateway/plugins</code>), the driver goes in <code>./apim-gateway/plugins/ext/repository-jdbc/</code> on the host.</li></ul></div>
 
 ### 2. Use JDBC
 
