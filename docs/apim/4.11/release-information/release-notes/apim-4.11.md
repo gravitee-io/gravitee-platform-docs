@@ -170,6 +170,17 @@ Existing A2A proxy APIs continue to work but they are no longer supported.
 * Administrators select models based on accuracy requirements, resource constraints, and language coverage, with configurable classification thresholds per model type.
 * Models are sourced from HuggingFace repositories and require sufficient memory and compute resources (model sizes range from 4.39M to 100M+ parameters).
 
+
+<!-- PIPELINE:APIM-13343 -->
+#### **Checkbox Group Fields and Dynamic Options in Subscription Forms**
+
+* Subscription forms now support checkbox group fields that allow subscribers to select multiple options from a predefined or dynamically resolved list.
+* Options can be populated at runtime using Expression Language (EL) to reference API or environment metadata, with required fallback values for contexts where metadata is unavailable.
+* Checkbox groups enforce validation constraints including required selection (at least one option) and option list validation (all selected values must exist in allowed options).
+* Subscription forms support up to 25 fields total, with input fields limited to 256 characters and textarea fields limited to 1024 characters.
+* Form submissions are validated against all constraints before subscription creation, returning field-level error messages when validation fails.
+<!-- /PIPELINE:APIM-13343 -->
+
 ## Improvements
 
 #### **Context-aware logging infrastructure**

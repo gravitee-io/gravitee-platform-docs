@@ -24,13 +24,16 @@
 
 6. Click **Save** to persist changes.
 
-An unsaved changes guard prevents accidental navigation away from unsaved edits. Forms are scoped to the environment level — each environment has one subscription form.
+An unsaved changes guard prevents accidental navigation away from unsaved edits. Forms are scoped to the environment level — each environment has one subscription form. The form builder enforces a 25-field maximum limit at save time. Exceeding this limit throws a `SubscriptionFormDefinitionValidationException`.
 
 {% hint style="info" %}
 Subscription forms aren't displayed for Keyless plans. The form only appears during the subscription checkout flow when the selected plan requires authentication (API Key, OAuth2, JWT, or mTLS).
 {% endhint %}
 
-The form editor validates GMD content in real time. Configuration errors, auto-corrected warnings, and field validation status appear in the validation panel below the editor.
+The form editor validates GMD content in real time. Configuration errors, auto-corrected warnings, and field validation status appear in the validation panel below the editor. The form builder validates your configuration and blocks saving if critical errors exist:
+
+- **Missing EL fallback** (`missingElFallback`): EL expressions must include fallback values after the `}:` separator.
+- **Invalid EL syntax** (`invalidElSyntax`): Expressions must start with `{#` (not `#{` or `{` alone).
 
 <figure><img src="../../.gitbook/assets/HsfV91lH__image.png" alt="Validation panel showing configuration errors and field status"><figcaption><p>Validation panel showing configuration errors, warnings, and field status</p></figcaption></figure>
 
@@ -42,15 +45,16 @@ Use the following GMD components to build subscription forms:
 - **`gmd-textarea`** — Multi-line text input. Supports `minLength`, `maxLength`, and configurable `rows`.
 - **`gmd-select`** — Dropdown selection. Define choices with the `options` attribute.
 - **`gmd-checkbox`** — Checkbox field.
+- **`gmd-checkbox-group`** — Checkbox group field. Define choices with the `options` attribute using either a comma-separated list (e.g., `"Authentication,Rate Limiting,Analytics"`) or an EL expression with fallback (e.g., `"{#api.metadata['features']}:Authentication,Rate Limiting"`). Mark the field as `required="true"` if at least one selection is mandatory.
 - **`gmd-radio`** — Radio button selection. Define choices with the `options` attribute.
 
 All components support `fieldKey`, `name`, `label`, `value`, `required`, and `disabled` attributes. The `fieldKey` attribute determines the metadata key stored with the subscription.
 
 {% hint style="info" %}
-`minLength` and `maxLength` validation is only available on `gmd-input` and `gmd-textarea`. Dropdown, checkbox, and radio components don't support length validation.
+`minLength` and `maxLength` validation is only available on `gmd-input` and `gmd-textarea`. Dropdown, checkbox, checkbox group, and radio components don't support length validation.
 {% endhint %}
 
-For a complete attribute reference, see [Subscription form feature overview](subscription-form-feature-overview.md#supported-form-components).
+For a complete attribute reference, see [Subscription form field attributes and validation constraints reference](subscription-form-field-attributes-and-validation-constraints-reference.md).
 
 ## Managing subscription forms
 
@@ -70,7 +74,9 @@ When a form is disabled, it remains accessible via Management API (`GET /environ
 
 ### Subscription metadata
 
-When an API consumer submits a subscription form, the form field values are stored as key-value pairs in the subscription's `metadata` property. Empty values (null, empty strings, whitespace-only) are filtered before storage.
+When an API consumer submits a subscription form, the form field values are stored as key-value pairs in the subscription's `metadata` property. Checkbox group selections are serialized as comma-separated strings (e.g., `"Authentication,Analytics"`). Empty values (null, empty strings, whitespace-only) are filtered before storage.
+
+The platform validates all metadata against the form's validation constraints and rejects invalid submissions with HTTP 400 and field-level error messages.
 
 Subscription metadata is displayed in the subscription details pages (both API subscriptions and application subscriptions) using a read-only viewer.
 
@@ -148,6 +154,25 @@ Retrieves the subscription form for the current environment. Only returns the fo
 ```json
 {
   "gmdContent": "string"
+}
+```
+
+**Authentication:** Required (Portal auth)
+
+#### GET `/apis/{apiId}/subscription-form`
+
+Retrieves the subscription form for a specific API, including resolved dynamic options. Returns the GMD content and a `resolvedOptions` map containing the effective option lists for fields with EL expressions. The Portal UI merges resolved options into the GMD content before rendering, replacing static or fallback options with values resolved from API and environment metadata.
+
+Dynamic options require API metadata keys to exist or fallback values will be used. The Console Form Builder has no API context, so fallback values are always displayed during form design.
+
+**Response:**
+
+```json
+{
+  "gmdContent": "string",
+  "resolvedOptions": {
+    "fieldKey": ["option1", "option2"]
+  }
 }
 ```
 
