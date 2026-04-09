@@ -16,6 +16,43 @@ Retrieves the enabled subscription form for the current environment. Returns 404
 
 **Authentication:** Required (Portal auth)
 
+### GET `/apis/{apiId}/subscription-form`
+
+Retrieves the subscription form content for a specific API when the form exists and is enabled for the environment. EL expressions in option-bearing fields are resolved against the API's metadata. If resolution fails, fallback values are returned. Returns 404 when no subscription form exists for the environment, when the form is disabled, or when the API is not visible to the user.
+
+**Response:**
+
+```json
+{
+  "gmdContent": "string",
+  "resolvedOptions": {
+    "fieldKey1": ["option1", "option2"],
+    "fieldKey2": ["optionA", "optionB"]
+  }
+}
+```
+
+**Authentication:** Requires `BasicAuth` or `CookieAuth`
+
+## Management API v2
+
+### GET `/environments/{envId}/subscription-forms`
+
+Returns the subscription form for an environment. `resolvedOptions` is present only when at least one field has dynamic options. Keys are field keys; values are the effective option lists (fallback values when no API context is available).
+
+**Response:**
+
+```json
+{
+  "id": "uuid",
+  "gmdContent": "string",
+  "enabled": false,
+  "resolvedOptions": {
+    "fieldKey": ["option1", "option2"]
+  }
+}
+```
+
 ## Subscription metadata
 
 When an API consumer subscribes to an API plan, the form field values are included in the subscription creation request as a `metadata` field containing key-value pairs. Empty values (null, empty strings, whitespace-only) are filtered before submission.
@@ -37,6 +74,18 @@ The following GMD components are available for subscription forms:
 | `gmd-radio` | Radio button selection | `required` |
 
 Each component's `fieldKey` attribute maps to the key in the subscription's `metadata` object. Validation error codes: `required`, `minLength`, `maxLength`, `pattern`.
+
+### GMD checkbox component properties
+
+| Property | Type | Default | Description |
+|:---------|:-----|:--------|:------------|
+| Name | string | `''` | HTML name attribute for checkbox inputs |
+| Label | string | — | Display label shown above the group (renders as `<legend>`) |
+| Field Key | string | — | Key used for form state tracking and data collection |
+| Value | string | — | Comma-separated preselected values (e.g., `"Option 1,Option 3"`) |
+| Required | boolean | `false` | Whether at least one option must be selected |
+| Options | string | `''` | Comma-separated list of options or EL expression with fallback (e.g., `"{#api.metadata['key']}:option1,option2"`) |
+| Disabled | boolean | `false` | Disables all checkboxes and removes field from form state |
 
 ## Restrictions
 

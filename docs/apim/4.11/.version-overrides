@@ -77,3 +77,6 @@ upgrade-guides/tag-key-migration-upgrade-procedure.md
 # Renamed directories — block old paths from being synced as new files
 # 4.10 agent-mesh/ was renamed to ai-agent-management/ in 4.11
 agent-mesh/
+gmd-checkbox-group-component-reference.md
+secure-and-expose-apis/subscriptions/subscription-form-restrictions-and-validation-rules.md
+upgrade-guides/subscription-form-migration-and-breaking-changes-4.11.0.md
