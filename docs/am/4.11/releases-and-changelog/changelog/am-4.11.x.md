@@ -82,7 +82,7 @@ When an application sign a token, HMAC signature is not used as fallback mechani
 **Console**
 
 * User History - event names are truncated [#11290](https://github.com/gravitee-io/issues/issues/11290)
-* Re: Audit Logs - Column "Target" is truncated [#11291](https://github.com/gravitee-io/issues/issues/11291)
+* Audit Logs - Column "Target" is truncated [#11291](https://github.com/gravitee-io/issues/issues/11291)
 
 **Other**
 
