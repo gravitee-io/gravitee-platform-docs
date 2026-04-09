@@ -40,6 +40,8 @@ The general settings of the Developer Portal can be overridden with the `gravite
   * **Add Google Analytics:** Add a Google Analytics tracking ID to the Developer Portal
   * **Allow Upload Images:** Allows documentation owners to attach images as additional resources
   * **Max size upload file (bytes):** Controls the size of images that documentation owners are allowed to attach
+* **New Developer Portal**
+  * **Enable mTLS Certificate Management:** Allow application owners to upload, rotate, and manage client certificates for mutual TLS authentication in the new Developer Portal
 * **OpenAPI Viewers:** Choose a viewer to display your API documentation
 * **Schedulers:** Configure the frequency with which the Developer Portal runs background tasks such as syncing data and sending/receiving notifications
 *   **(v2 APIs only) Documentation URL:** Set the URL shown at the end of the v2 API creation flow
