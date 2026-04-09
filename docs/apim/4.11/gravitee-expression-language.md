@@ -428,7 +428,7 @@ The EL (Expression Language) used for a message does not change based on phase. 
 The Kafka Gateway uses a distinct set of Expression Language root objects that reflect Kafka protocol concepts rather than HTTP concepts. Use this section when configuring EL on Kafka APIs — for example, in endpoint configuration, policy conditions, or connection interruption rules.
 
 {% hint style="warning" %}
-The `#request`, `#response`, and `#message` objects on Kafka APIs expose different properties than the HTTP versions documented earlier on this page. HTTP-specific properties such as `#request.method`, `#request.headers`, or `#request.path` aren't available on Kafka APIs.
+The `#request`, `#response`, and `#message` objects on Kafka APIs expose different properties than the HTTP versions. HTTP-specific properties such as `#request.method`, `#request.headers`, or `#request.path` aren't available on Kafka APIs.
 {% endhint %}
 
 #### EL availability by phase
