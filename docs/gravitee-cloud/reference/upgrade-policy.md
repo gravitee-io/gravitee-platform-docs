@@ -10,7 +10,7 @@ The upgrade policy applies only to Gravitee Cloud accounts. If you run a complet
 
 ## Control plane upgrades (minor/major)
 
-The upgrades occur 30 days after the release of API Management, which occurs once a quarter. Gravitee notifies you 14 days before the upgrade.
+The upgrades occur 14 days after the release of API Management, which occurs once a quarter. Gravitee notifies you 14 days before the upgrade.
 
 For more information about the upgrade of API Management, see [Release Schedule.](https://documentation.gravitee.io/platform-overview/gravitee-platform/release-schedule)
 
