@@ -43,4 +43,4 @@ The example below shows timelines indicating when a timeout should occur dependi
   * In real life, those timeout values should be shorter than `http.requestTimeout` and should interrupt the flow at the invoker level.
 * We are using `http.requestTimeout=2000ms` and `http.requestTimeoutGraceDelay=30ms`.
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/event-native/event-native-api-management-timeout.png" alt=""><figcaption><p>Reactive engine timeout management</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/event-native-api-management-timeout.png" alt=""><figcaption><p>Reactive engine timeout management</p></figcaption></figure>

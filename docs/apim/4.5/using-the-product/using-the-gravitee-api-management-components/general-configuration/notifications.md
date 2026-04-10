@@ -130,7 +130,7 @@ The JSON body is similar to the following (depending on the notification type, s
 
 To create a Webhook notifier:
 
-1. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
+1. Click the plus icon ![plus icon](../../../.gitbook/assets/plus-icon.png).
 2. Choose the **Default Webhook Notifier** type and give the notifier a name.
 3. Add the URL which APIM will call to send notifications.
 4. Subscribe to the desired notifications.

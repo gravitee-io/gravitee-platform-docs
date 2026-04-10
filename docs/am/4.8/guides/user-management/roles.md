@@ -14,9 +14,9 @@ You create roles in a security domain.
 
 1. Log in to AM Console.
 2. Click **Settings > Scopes**.
-3. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png) and create a scope called `admin`.
+3. Click the plus icon ![plus icon](../../.gitbook/assets/plus-icon.png) and create a scope called `admin`.
 4. Click **Settings > Roles**.
-5. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
+5. Click the plus icon ![plus icon](../../.gitbook/assets/plus-icon.png).
 6.  Give your role a name and a description and click **SAVE**.
 
     You will be redirected to the created role’s page.

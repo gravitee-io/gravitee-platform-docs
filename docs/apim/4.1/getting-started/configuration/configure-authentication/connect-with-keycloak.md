@@ -12,10 +12,10 @@ Before you can connect to the Gravitee portal using Keycloak, you need to create
 
 1.  In Keycloak, create a new client.
 
-    ![Create a new client](https://docs.gravitee.io/images/apim/3.x/installation/authentication/keycloak\_create\_client.png)
+    ![Create a new client](../../../.gitbook/assets/keycloak_create_client.png)
 2.  Enter the client details.
 
-    ![Fill the form](https://docs.gravitee.io/images/apim/3.x/installation/authentication/keycloak\_configure\_client.png)
+    ![Fill the form](../../../.gitbook/assets/keycloak_configure_client.png)
 
 |   | The `Valid Redirect URIs` value must exactly match the domain which is hosting APIM Portal. |
 | - | ------------------------------------------------------------------------------------------- |
@@ -24,7 +24,7 @@ Before you can connect to the Gravitee portal using Keycloak, you need to create
 
 After you create the client, you can retrieve its details for authentication configuration.
 
-![Get Client credentials](https://docs.gravitee.io/images/apim/3.x/installation/authentication/keycloak\_client\_credentials.png)
+![Get Client credentials](../../../.gitbook/assets/keycloak_client_credentials.png)
 
 ### Configure APIM
 
@@ -69,11 +69,11 @@ You can configure this provider both in APIM Console and in the `gravitee.yml` c
 **APIM Console configuration**
 
 1. Click **Organization Settings > Authentication**.
-2. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png) and select the **OpenID Connect** icon.
+2. Click the plus icon ![plus icon](../../../.gitbook/assets/plus-icon.png) and select the **OpenID Connect** icon.
 3. If you want to use this provider to log in to APIM Portal, ensure that **Allow portal authentication to use this identity provider** is checked. To use it only for APIM Console, uncheck this option.
 4.  Enter the details of the provider, including the credentials created in the AM client.
 
-    ![Gravitee.io - New OIDC IDP](https://docs.gravitee.io/images/apim/3.x/management-api-configuration-idp/new-oidc.png)
+    ![Gravitee.io - New OIDC IDP](../../../.gitbook/assets/new-oidc.png)
 5. Click **CREATE**.
 6. Activate the provider for Portal or Console login.
 
@@ -124,26 +124,26 @@ security:
 
 1.  Create your new user.
 
-    ![Create a user](https://docs.gravitee.io/images/apim/3.x/installation/authentication/keycloak\_users.png)
+    ![Create a user](../../../.gitbook/assets/keycloak_users.png)
 2.  Enter the user details.
 
-    ![Fill the user form](https://docs.gravitee.io/images/apim/3.x/installation/authentication/keycloak\_create\_user.png)
+    ![Fill the user form](../../../.gitbook/assets/keycloak_create_user.png)
 3.  Define the user credentials.
 
-    ![Define user credentials](https://docs.gravitee.io/images/apim/3.x/installation/authentication/keycloak\_create\_user\_credentials.png)
+    ![Define user credentials](../../../.gitbook/assets/keycloak_create_user_credentials.png)
 
 #### Log in to APIM Portal
 
 1.  Click **Sign in with Keycloak**.
 
-    ![Login Form](https://docs.gravitee.io/images/apim/3.x/installation/authentication/keycloak\_login\_form.png)
+    ![Login Form](../../../.gitbook/assets/keycloak_login_form.png)
 2.  Enter the Keycloak credentials and click **Log In**.
 
-    ![Keycloak Login Form](https://docs.gravitee.io/images/apim/3.x/installation/authentication/keycloak\_login\_form2.png)
+    ![Keycloak Login Form](../../../.gitbook/assets/keycloak_login_form2.png)
 
     You have successfully logged in:
 
-    ![Here we are !](https://docs.gravitee.io/images/apim/3.x/installation/authentication/keycloak\_login\_success.png)
+    ![Here we are !](../../../.gitbook/assets/keycloak_login_success.png)
 
 ### Managing roles with keycloak
 
@@ -153,31 +153,31 @@ Configure Keycloak and Gravitee to map your own organization with available buil
 
 1.  Consider built-in or create custom Gravitee roles.
 
-    ![Gravitee console - roles page](https://docs.gravitee.io/images/apim/3.x/installation/authentication/keycloak\_mng-00-gravitee-default\_roles.png)
+    ![Gravitee console - roles page](../../../.gitbook/assets/keycloak_mng-00-gravitee-default_roles.png)
 
 #### Create and configure Keycloak Client scope
 
 1. In your realm, go to the `Client scopes` page.
 2.  Set a special gravitee-client-groups [Scope](https://oauth.net/2/scope/) that will contain users' roles.
 
-    ![Keycloak console - Create scope](https://docs.gravitee.io/images/apim/3.x/installation/authentication/keycloak\_mng-01-client\_scopes-roles\_add\_client\_scope.png)
+    ![Keycloak console - Create scope](../../../.gitbook/assets/keycloak_mng-01-client_scopes-roles_add_client_scope.png)
 3.  In the new client scope, set a mapper with Claim name "groups".
 
-    ![Keycloak console - Add mapper to scope](https://docs.gravitee.io/images/apim/3.x/installation/authentication/keycloak\_mng-02-client\_scopes-mapper.png)
+    ![Keycloak console - Add mapper to scope](../../../.gitbook/assets/keycloak_mng-02-client_scopes-mapper.png)
 4. In your realm, go to the `Client` page, and select your Client.
 5.  Add the new configured scope in the `Client Scopes` tab.
 
-    ![Keycloak console - Add scope to client](https://docs.gravitee.io/images/apim/3.x/installation/authentication/keycloak\_mng-03-client-add\_scope.png)
+    ![Keycloak console - Add scope to client](../../../.gitbook/assets/keycloak_mng-03-client-add_scope.png)
 
 #### Create Keycloak Client roles
 
 1.  In your client, create roles as needed by organization.
 
-    ![Keycloak console - Create client roles](https://docs.gravitee.io/images/apim/3.x/installation/authentication/keycloak\_mng-04-client-add\_roles.png)
+    ![Keycloak console - Create client roles](../../../.gitbook/assets/keycloak_mng-04-client-add_roles.png)
 
 #### Configure Keycloak users with appropriate roles
 
-![Keycloak console - Add roles to user](https://docs.gravitee.io/images/apim/3.x/installation/authentication/keycloak\_mng-roles-05-users-add\_user\_client\_roles.png)
+![Keycloak console - Add roles to user](../../../.gitbook/assets/keycloak_mng-roles-05-users-add_user_client_roles.png)
 
 #### Configure Gravitee role mappings
 

@@ -44,7 +44,7 @@ Let’s imagine a client application wants to retrieve the `telephoneNumber` att
 3. Select your LDAP identity provider and click the **User mappers** tab.
 4.  Map your LDAP (raw) attribute `telephoneNumber` to a new user attribute named `telephone_number`.
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-idp-user-mappers-phoneno.png" alt=""><figcaption><p>LDAP user mappers</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/graviteeio-am-userguide-idp-user-mappers-phoneno.png" alt=""><figcaption><p>LDAP user mappers</p></figcaption></figure>
 5. Get the User Profile information via the UserInfo Endpoint and you will see that the new user attribute is present.
 
 {% code overflow="wrap" %}
@@ -95,18 +95,18 @@ We will then dynamically add the `admin` scope to the `access_token`. The client
 
 1. Log in to AM Console.
 2. Click **Settings > Scopes**.
-3. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png) and create an `admin` scope.
+3. Click the plus icon ![plus icon](../../.gitbook/assets/plus-icon.png) and create an `admin` scope.
 4. Click **Settings > Roles**.
-5. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png) and create an `administrator` role. Select the `admin` scope permission.
+5. Click the plus icon ![plus icon](../../.gitbook/assets/plus-icon.png) and create an `administrator` role. Select the `admin` scope permission.
 6. Go to the `Providers` section
 7. Click **Settings > Providers** and select your LDAP identity provider.
 8. Click the **Role mappers** tab.
 9.  Set the user’s role configuration:
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-idp-role-mappers.png" alt=""><figcaption><p>LDAP role mapper</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/graviteeio-am-userguide-idp-role-mappers.png" alt=""><figcaption><p>LDAP role mapper</p></figcaption></figure>
 10. When the client requests the _Token_ endpoint, the new scope representing the user roles will be used.
 11. Ensure you enable the _"Enhance scopes"_ option for your client (**OAuth** tab).
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-user-guide-mapping-idp-enhance-scopes.png" alt=""><figcaption><p>Enhance scopes</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/graviteeio-am-user-guide-mapping-idp-enhance-scopes.png" alt=""><figcaption><p>Enhance scopes</p></figcaption></figure>
 
 The same principle applies to all identity providers.
