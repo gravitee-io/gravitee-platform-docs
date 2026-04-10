@@ -26,7 +26,7 @@ These steps are explained in detail when you register the installation.
 
 Register the installation using the detailed instructions in the **How to register a new installation** link, below **Installations** in the dashboard. After registration, the installation is displayed as a pending installation in GC:
 
-![pending installations](https://docs.gravitee.io/images/cockpit/pending-installations.png)
+![pending installations](../.gitbook/assets/pending-installations.png)
 
 ### Add the installation to GC
 
@@ -35,21 +35,21 @@ Register the installation using the detailed instructions in the **How to regist
    2. Select the environment to which to link the installation.
    3.  Click **ACCEPT**.
 
-       ![accept installation](https://docs.gravitee.io/images/cockpit/accept-installation.png)
+       ![accept installation](../.gitbook/assets/accept-installation.png)
 
        The installation is added to the hierarchy map with a link to the environment.
 2.  Link the accepted installation to other environments in GC as needed, from the environment settings page.
 
-    ![linked installations](https://docs.gravitee.io/images/cockpit/linked-installations.png)
+    ![linked installations](../.gitbook/assets/linked-installations.png)
 
 ### Log in to an installation
 
 There are two ways to log in to an installation in GC:
 
-* Click the login icon ![cockpit login icon](https://docs.gravitee.io/images/icons/cockpit-login-icon.png) on the installation in the hierarchy map
+* Click the login icon ![cockpit login icon](../.gitbook/assets/cockpit-login-icon.png) on the installation in the hierarchy map
 * Click **LOGIN** on the environment settings page of the linked environment:
 
-![linked installations login](https://docs.gravitee.io/images/cockpit/linked-installations-login.png)
+![linked installations login](../.gitbook/assets/linked-installations-login.png)
 
 You are redirected to the Console login page of the APIM or AM instance.
 

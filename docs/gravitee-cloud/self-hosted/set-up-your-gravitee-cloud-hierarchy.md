@@ -25,6 +25,6 @@ You can update the general details of entities, delete entities, and manage user
 To update settings for an entity in your organization:
 
 1. Click the organization name in the left-hand menu.
-2. Click the settings icon ![cockpit settings icon](https://docs.gravitee.io/images/icons/cockpit-settings-icon.png) of the entity
+2. Click the settings icon ![cockpit settings icon](../.gitbook/assets/cockpit-settings-icon.png) of the entity
 
 When you're done, just make sure that you **Save**.

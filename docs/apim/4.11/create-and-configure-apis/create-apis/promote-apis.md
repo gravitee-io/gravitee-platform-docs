@@ -26,7 +26,7 @@ Before promoting an API, ensure the following requirements are met:
 
 The following diagram shows an example organization (UK) with multiple environments (Dev, QA, Demo, Prod). Each environment is connected to an APIM installation, which communicates with Gravitee Cloud:
 
-![Map of installations in Cockpit](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/promote-apis/graviteeio-promote-api-cockpit-graph.png)
+![Map of installations in Cockpit](../../.gitbook/assets/graviteeio-promote-api-cockpit-graph.png)
 
 ### Request a promotion for an API
 

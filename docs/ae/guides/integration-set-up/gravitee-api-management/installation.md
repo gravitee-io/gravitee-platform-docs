@@ -70,7 +70,7 @@ You can have as many endpoints as you need. The node will select one of them usi
 
 You can use discovery mode when running an AE cluster to automatically register other nodes in the cluster from a single node reference.
 
-<figure><img src="https://docs.gravitee.io/images/ae/howitworks/discovery.png" alt=""><figcaption><p>Alert Engine, auto-discovery</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/discovery.png" alt=""><figcaption><p>Alert Engine, auto-discovery</p></figcaption></figure>
 
 ### Event sending mode
 

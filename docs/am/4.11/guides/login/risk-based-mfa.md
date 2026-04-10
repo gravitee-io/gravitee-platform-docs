@@ -23,15 +23,15 @@ Adaptive access allows you to choose between 4 MFA strategies:
 
 * **OPTIONAL**: The end user can skip MFA for a given amount of time (default is 10 hours)
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-mfa-risk-based-optional.png" alt=""><figcaption><p>Optional MFA</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-risk-based-optional.png" alt=""><figcaption><p>Optional MFA</p></figcaption></figure>
 
 * **REQUIRED**: The end user will be required to enroll. They will also be challenged at every login.
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-mfa-risk-based-required.png" alt=""><figcaption><p>Required MFA</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-risk-based-required.png" alt=""><figcaption><p>Required MFA</p></figcaption></figure>
 
 * **CONDITIONAL**: The end user will be prompted to enroll and challenge in regard to [Adaptive MFA](adaptive-multi-factor-authentication.md)
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-mfa-risk-based-conditional.png" alt=""><figcaption><p>Conditional MFA</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-risk-based-conditional.png" alt=""><figcaption><p>Conditional MFA</p></figcaption></figure>
 
 * **RISK-BASED**: The end user will be intelligently prompted MFA based on risk assessments
   1. `Devices`: Will check the device of the User across the security domain (Remember Device needs to be activated to collect the user’s device)
@@ -42,7 +42,7 @@ Adaptive access allows you to choose between 4 MFA strategies:
 If device assessment is enabled, we won’t prompt MFA with `Remember Device` as it would be redundant
 {% endhint %}
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-mfa-risk-based-intelligent.png" alt=""><figcaption><p>Risk-based MFA</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-risk-based-intelligent.png" alt=""><figcaption><p>Risk-based MFA</p></figcaption></figure>
 
 In order to have the GeoVelocity working, you will need:
 

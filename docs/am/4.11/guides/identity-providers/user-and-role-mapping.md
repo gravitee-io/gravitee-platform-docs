@@ -101,9 +101,9 @@ We will then dynamically add the `admin` scope to the `access_token`. The client
 
 1. Log in to AM Console.
 2. Click **Settings > Scopes**.
-3. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png) and create an `admin` scope.
+3. Click the plus icon ![plus icon](../../.gitbook/assets/plus-icon.png) and create an `admin` scope.
 4. Click **Settings > Roles**.
-5. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png) and create an `administrator` role. Select the `admin` scope permission.
+5. Click the plus icon ![plus icon](../../.gitbook/assets/plus-icon.png) and create an `administrator` role. Select the `admin` scope permission.
 6. Go to the `Providers` section
 7. Click **Settings > Providers** and select your LDAP identity provider.
 8. Click the **Role mappers** tab.
@@ -114,7 +114,7 @@ We will then dynamically add the `admin` scope to the `access_token`. The client
 10. When the client requests the _Token_ endpoint, the new scope representing the user roles will be used.
 11. Ensure you enable the _"Enhance scopes"_ option for your client (**OAuth** tab).
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-user-guide-mapping-idp-enhance-scopes.png" alt=""><figcaption><p>Enhance scopes</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/graviteeio-am-user-guide-mapping-idp-enhance-scopes.png" alt=""><figcaption><p>Enhance scopes</p></figcaption></figure>
 
 The same principle applies to all identity providers.
 

@@ -171,7 +171,7 @@ You create users in a security domain.
 
 1. Log in to AM Console.
 2. Click **Settings > Users**.
-3. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
+3. Click the plus icon ![plus icon](../../../.gitbook/assets/plus-icon.png).
 4. Give your user a **First name**, a **Last name**, an **Email** and a **Username** and click **SAVE**.
 5. (Optional) You can also add/modify specific attributes relating to the user. This user metadata will be available in the user’s profile.
 6. You will be redirected to the created user’s page.

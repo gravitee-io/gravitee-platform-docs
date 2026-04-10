@@ -37,7 +37,7 @@ You only need to create a new security domain for an application when you do not
     <figure><img src="../../.gitbook/assets/image (27).png" alt=""><figcaption><p>Define your new security domain</p></figcaption></figure>
 4.  Select the **click here** link on the banner to enable the domain.
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/quickstart-enable-domain.png" alt=""><figcaption><p>Banner to enable domain</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/quickstart-enable-domain.png" alt=""><figcaption><p>Banner to enable domain</p></figcaption></figure>
 
 ### Create a domain with AM API
 
@@ -66,7 +66,7 @@ Before you can work with AM Gateway, you must create an _application_. The appli
 In this example, we will create a regular web application.
 
 1. Click **Applications**.
-2. In the Applications page, click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
+2. In the Applications page, click the plus icon ![plus icon](../../.gitbook/assets/plus-icon.png).
 3. Choose a **Web** application type.
 
 <figure><img src="../../.gitbook/assets/image (30).png" alt=""><figcaption><p>Select yourt desired Application type</p></figcaption></figure>
@@ -86,7 +86,7 @@ An _identity provider_ (IdP) is usually a service used to authenticate and commu
 In this example, we will create an In-memory identity provider with an inline user configuration.
 
 1. Click **Organization > Identity Providers**.
-2. In the Identity Providers page, click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
+2. In the Identity Providers page, click the plus icon ![plus icon](../../.gitbook/assets/plus-icon.png).
 3. Choose **Inline** and click **Next**.
 
 <figure><img src="../../.gitbook/assets/image (32).png" alt=""><figcaption><p>Select new Identity Provider</p></figcaption></figure>

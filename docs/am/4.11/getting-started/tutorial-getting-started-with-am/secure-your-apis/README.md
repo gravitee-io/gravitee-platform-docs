@@ -11,7 +11,7 @@ metaLinks:
 
 In this section, we will demonstrate how to use [Gravitee API Management](https://www.gravitee.io/products/api-management) to secure your APIs.
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-quickstart-secure-apis-overview.png" alt=""><figcaption><p>Gravitee platform</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/graviteeio-am-quickstart-secure-apis-overview.png" alt=""><figcaption><p>Gravitee platform</p></figcaption></figure>
 
 ### Before you begin
 
