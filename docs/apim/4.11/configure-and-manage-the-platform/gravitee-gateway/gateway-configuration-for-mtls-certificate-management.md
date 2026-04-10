@@ -14,4 +14,6 @@ Uploaded certificates are validated before storage. The certificate must be an X
 
 ## Certificate Management
 
-For Kubernetes-managed certificate configuration, see [Kubernetes CRD Configuration for Client Certificates](../../../../gko/4.11/guides/kubernetes-crd-configuration-for-client-certificates.md).
+Application owners can upload and manage client certificates through the Developer Portal when the **mTLS** certificate management feature is enabled by administrators. For details on uploading, rotating, and managing certificates through the Developer Portal UI, see the **mTLS** Certificate Management for Applications documentation.
+
+For Kubernetes-managed certificate configuration, see Kubernetes CRD Configuration for Client Certificates.

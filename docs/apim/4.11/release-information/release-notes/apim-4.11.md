@@ -181,6 +181,16 @@ Existing A2A proxy APIs continue to work but they are no longer supported.
 * Form submissions are validated against all constraints before subscription creation, returning field-level error messages when validation fails.
 <!-- /PIPELINE:APIM-13343 -->
 
+<!-- PIPELINE:APIM-13342 -->
+#### **mTLS Certificate Management for Applications**
+
+* Application owners can now upload, rotate, and manage client certificates for mutual TLS authentication directly in the New Developer Portal.
+* Certificates support scheduled activation dates and configurable grace periods during rotation to prevent downtime when transitioning between certificates.
+* Administrators control feature availability via the `portal.next.mtls.enabled` configuration property, which defaults to disabled.
+* Requires `APPLICATION_DEFINITION[READ]` permission to view certificates and `APPLICATION_DEFINITION[UPDATE]` permission to manage them.
+* Certificates must be uploaded in PEM format with `.pem`, `.crt`, or `.cer` file extensions.
+<!-- /PIPELINE:APIM-13342 -->
+
 ## Improvements
 
 #### **Context-aware logging infrastructure**

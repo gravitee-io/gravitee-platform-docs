@@ -77,3 +77,9 @@ upgrade-guides/tag-key-migration-upgrade-procedure.md
 # Renamed directories — block old paths from being synced as new files
 # 4.10 agent-mesh/ was renamed to ai-agent-management/ in 4.11
 agent-mesh/
+configure-and-manage-the-platform/management-api/mtls-certificate-management-api-reference.md
+developer-portal/classic-developer-portal/portal-settings.md
+developer-portal/new-developer-portal/configuring-mtls-certificate-management-administrator-guide.md
+developer-portal/new-developer-portal/creating-and-managing-mtls-certificates-application-owner-guide.md
+developer-portal/new-developer-portal/mtls-certificate-management-ui-implementation-developer-portal-changes.md
+secure-and-expose-apis/applications/mtls-certificate-management-for-applications-overview-and-concepts.md
