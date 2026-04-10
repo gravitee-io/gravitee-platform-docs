@@ -45,3 +45,7 @@ The general settings of the Developer Portal can be overridden with the `gravite
 *   **(v2 APIs only) Documentation URL:** Set the URL shown at the end of the v2 API creation flow
 
     <figure><img src="../../.gitbook/assets/documentation_url (1).png" alt=""><figcaption><p>Documentation URL setting for v2 API creation flow</p></figcaption></figure>
+
+## New Developer Portal
+
+* **Enable mTLS Certificate Management:** Controls the `portalNext.mtls.enabled` property. When enabled, application owners can manage client certificates for mutual TLS authentication through the new Developer Portal. Default: `false`
