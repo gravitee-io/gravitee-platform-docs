@@ -13,7 +13,7 @@ Application definitions apply at the _security domain_ level.
 1. Log in to AM Console.
 2. If you want to create your application in a different security domain, select the domain from the user menu at the top right.
 3. Click **Applications**.
-4. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
+4. Click the plus icon ![plus icon](../../.gitbook/assets/plus-icon.png).
 5. Select the application type and click **Next**.
 
 <figure><img src="../../../4.10/.gitbook/assets/image (80).png" alt=""><figcaption><p>Select the Application type</p></figcaption></figure>
@@ -73,7 +73,7 @@ Identity provider selection rules also give you more control over the authentica
 
 When coupled with [flows](../flows/) you can decide which provider will be used to authenticate your end users.
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-application-identity-providers-selection-rule.png" alt=""><figcaption><p>Selection rule</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-application-identity-providers-selection-rule.png" alt=""><figcaption><p>Selection rule</p></figcaption></figure>
 
 To apply a selection rule:
 
@@ -393,7 +393,7 @@ curl -X PATCH \
 
 In the Dynamic Client Registration **Client templates** tab, enable this feature to be used as a template in the client:
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-domain-define-dcr-templates.png" alt=""><figcaption><p>Specify clients</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-domain-define-dcr-templates.png" alt=""><figcaption><p>Specify clients</p></figcaption></figure>
 
 You can also enable this feature using AM API:
 
@@ -410,7 +410,7 @@ curl -X PATCH \
 Once a client is set up as a template, it can no longer be used for authentication purposes.
 {% endhint %}
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-domain-dcr-templates.png" alt=""><figcaption><p>Client overview</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-domain-dcr-templates.png" alt=""><figcaption><p>Client overview</p></figcaption></figure>
 
 #### Register call with template example
 

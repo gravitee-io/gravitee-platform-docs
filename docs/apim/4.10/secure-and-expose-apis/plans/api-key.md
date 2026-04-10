@@ -54,7 +54,7 @@ The shared API key mode allows consumers to reuse the same API key across all AP
 
 API keys can only be shared across API Key plans that belong to distinct Gateway APIs. If you attempt to subscribe to two API Key plans on the same Gateway API, no prompt will be made to choose the application API key type and the default mode will be used automatically.
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-2-portal.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/shared-api-key-2-portal.png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2023-03-16 at 11.44.51 AM (1).png" alt=""><figcaption></figcaption></figure>
 

@@ -34,13 +34,13 @@ In V3 mode, different execution scopes are required in order to indicate at whic
 
 As a result, all policies working on the body content are postponed to be executed after the policies working on headers. This leads to an execution order than is often different than the one originally designed, as shown in the following diagram:
 
-![event native api management execution scopes 1](https://docs.gravitee.io/images/apim/3.x/event-native/event-native-api-management-execution-scopes-1.png)
+![event native api management execution scopes 1](../../.gitbook/assets/event-native-api-management-execution-scopes-1.png)
 
 #### New V4 policy execution engine mode
 
 In V4 mode, the `REQUEST_CONTENT` and `RESPONSE_CONTENT` scopes (which we now call 'phases') are no longer considered - all policies are executed in the exact order of design, regardless of whether they work on the content or not. This is shown in the following diagram:
 
-![event native api management execution scopes 2](https://docs.gravitee.io/images/apim/3.x/event-native/event-native-api-management-execution-scopes-2.png)
+![event native api management execution scopes 2](../../.gitbook/assets/event-native-api-management-execution-scopes-2.png)
 
 #### Potential impact
 
@@ -61,7 +61,7 @@ In V3 mode, the following issues exist with logging:
 
 For example:
 
-![event native api management logging 1](https://docs.gravitee.io/images/apim/3.x/event-native/event-native-api-management-logging-1.png)
+![event native api management logging 1](../../.gitbook/assets/event-native-api-management-logging-1.png)
 
 #### New V4 policy execution engine mode
 
@@ -72,7 +72,7 @@ In V4 mode:
 
 For example:
 
-![event native api management logging 2](https://docs.gravitee.io/images/apim/3.x/event-native/event-native-api-management-logging-2.png)
+![event native api management logging 2](../../.gitbook/assets/event-native-api-management-logging-2.png)
 
 ### Condition evaluation
 
@@ -82,7 +82,7 @@ In V3 mode, when the Gateway provides a valid EL expression that fails to be eva
 
 For example:
 
-![event native api management condition evaluation 1](https://docs.gravitee.io/images/apim/3.x/event-native/event-native-api-management-condition-evaluation-1.png)
+![event native api management condition evaluation 1](../../.gitbook/assets/event-native-api-management-condition-evaluation-1.png)
 
 #### New V4 policy execution engine mode
 
@@ -95,7 +95,7 @@ A policy is skipped when:
 
 This is shown in the example below:
 
-![event native api management condition evaluation 2](https://docs.gravitee.io/images/apim/3.x/event-native/event-native-api-management-condition-evaluation-2.png)
+![event native api management condition evaluation 2](../../.gitbook/assets/event-native-api-management-condition-evaluation-2.png)
 
 Mastering EL expressions can be difficult, so the new mode ensures that if an EL expression fails because it is trying to access missing data, the condition is evaluated as `false`. This makes the use of EL expressions much simpler and easier.
 
@@ -105,7 +105,7 @@ The execution still fails and throws an error if the provided EL expression cann
 
 The example below shows the new behavior:
 
-![event native api management condition evaluation 3](https://docs.gravitee.io/images/apim/3.x/event-native/event-native-api-management-condition-evaluation-3.png)
+![event native api management condition evaluation 3](../../.gitbook/assets/event-native-api-management-condition-evaluation-3.png)
 
 #### Potential impact
 
@@ -137,7 +137,7 @@ In V3 mode, a condition can be defined once for the whole flow but it is evaluat
 
 The example below shows this behavior:
 
-![event native api management flow condition 1](https://docs.gravitee.io/images/apim/3.x/event-native/event-native-api-management-flow-condition-1.png)
+![event native api management flow condition 1](../../.gitbook/assets/event-native-api-management-flow-condition-1.png)
 
 #### New V4 policy execution engine mode
 
@@ -145,7 +145,7 @@ In V4 mode, the flow condition will be applied once for the whole flow - if the 
 
 The example below shows the new behavior:
 
-![event native api management flow condition 2](https://docs.gravitee.io/images/apim/3.x/event-native/event-native-api-management-flow-condition-2.png)
+![event native api management flow condition 2](../../.gitbook/assets/event-native-api-management-flow-condition-2.png)
 
 #### Potential impact
 
@@ -161,7 +161,7 @@ In V3 mode, when a policy fails, the execution flow is interrupted and the respo
 
 The example below shows this behavior:
 
-![event native api management flow interruption 1](https://docs.gravitee.io/images/apim/3.x/event-native/event-native-api-management-flow-interruption-1.png)
+![event native api management flow interruption 1](../../.gitbook/assets/event-native-api-management-flow-interruption-1.png)
 
 #### New V4 policy execution engine mode
 
@@ -169,7 +169,7 @@ The new V4 policy execution engine ensures that platform flows are always execut
 
 The example below shows the new behavior:
 
-![event native api management flow interruption 2](https://docs.gravitee.io/images/apim/3.x/event-native/event-native-api-management-flow-interruption-2.png)
+![event native api management flow interruption 2](../../.gitbook/assets/event-native-api-management-flow-interruption-2.png)
 
 ### Access-Control-Allowed-Origin
 
@@ -183,7 +183,7 @@ In V4 mode, the allowed origin is returned instead of `*` - for example, `Access
 
 The example below shows the new behavior:
 
-![event native api management cors](https://docs.gravitee.io/images/apim/3.x/event-native/event-native-api-management-cors.png)
+![event native api management cors](../../.gitbook/assets/event-native-api-management-cors.png)
 
 ### Expression Language (EL) expression parsing
 
@@ -287,7 +287,7 @@ We will use `http.requestTimeout=2000ms` and `http.requestTimeoutGraceDelay=30ms
 
 The example below shows timelines indicating when a timeout should occur depending on the duration of the API flow and the response platform flows:
 
-![event native api management timeout](https://docs.gravitee.io/images/apim/3.x/event-native/event-native-api-management-timeout.png)
+![event native api management timeout](../../.gitbook/assets/event-native-api-management-timeout.png)
 
 ### Plan selection
 

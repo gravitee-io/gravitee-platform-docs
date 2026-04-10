@@ -17,10 +17,10 @@ Please configure **WebAuthn** under the **Security** section so that the plugin 
 Creating a FIDO2 factor is straightforward as the plugin uses **WebAuthn** configuration. Please follow the steps to create the factor plugin.
 
 1. Select **Security > Multifactor Auth**.
-2. Select the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
+2. Select the plus icon ![plus icon](../../.gitbook/assets/plus-icon.png).
 3.  Select **FIDO2 Factor** and click **Next**. Here is a screenshot of the plugin you should see:
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-mfa-fido2.png" alt=""><figcaption><p>FIDO2 factor plugin</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-fido2.png" alt=""><figcaption><p>FIDO2 factor plugin</p></figcaption></figure>
 4. Provide a suitable name.
 5. Click **Create**.
 
@@ -32,7 +32,7 @@ Creating a FIDO2 factor is straightforward as the plugin uses **WebAuthn** confi
 
 Here is an example of an application that has the FIDO2 factor along with other factors.
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-mfa-fido2-app-settings.png" alt=""><figcaption><p>Application with FIDO2 factor</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-fido2-app-settings.png" alt=""><figcaption><p>Application with FIDO2 factor</p></figcaption></figure>
 
 ## Enrollment scenarios for FIDO2 factor plugin
 
@@ -47,10 +47,10 @@ The enrollment behavior for the FIDO2 plugin depends on a couple of things. Firs
 
 The following diagram shows how enrollment occurs for the scenarios mentioned in the previous section. For simplicity, the diagram assumes the application has FIDO2 multi-factor enabled. Notice that this plugin ignores the **MFA challenge** step during the enrollment process in certain cases.
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-mfa-fido2-enrollment-flow.png" alt=""><figcaption><p>Enrollment diagram</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-fido2-enrollment-flow.png" alt=""><figcaption><p>Enrollment diagram</p></figcaption></figure>
 
 ## Challenge step
 
 The following diagram shows only the challenge step. For simplicity, the diagram assumes the user has already enrolled to a FIDO2 factor plugin.
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-mfa-fido2-challenge-flow.png" alt=""><figcaption><p>Challenge diagram</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-mfa-fido2-challenge-flow.png" alt=""><figcaption><p>Challenge diagram</p></figcaption></figure>

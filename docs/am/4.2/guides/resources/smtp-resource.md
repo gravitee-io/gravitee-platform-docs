@@ -16,4 +16,4 @@ To create an SMTP resource:
 4. Click "+".
 5.  Select your new SMTP resource and complete the configuration form.
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-resource-smtp.png" alt=""><figcaption><p>SMTP configuration</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/graviteeio-am-userguide-resource-smtp.png" alt=""><figcaption><p>SMTP configuration</p></figcaption></figure>

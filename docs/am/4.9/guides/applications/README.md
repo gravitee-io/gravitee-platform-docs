@@ -17,13 +17,13 @@ Application definitions apply at the _security domain_ level.
 1. Log in to AM Console.
 2. If you want to create your application in a different security domain, select the domain from the user menu at the top right.
 3. Click **Applications**.
-4. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
+4. Click the plus icon ![plus icon](../../.gitbook/assets/plus-icon.png).
 5.  Select the application type and click **Next**.
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/quickstart-create-application.png" alt=""><figcaption><p>Select application type</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/quickstart-create-application.png" alt=""><figcaption><p>Select application type</p></figcaption></figure>
 6.  Specify the application details and click **Create**.
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/quickstart-create-application2.png" alt=""><figcaption><p>Application Settings</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/quickstart-create-application2.png" alt=""><figcaption><p>Application Settings</p></figcaption></figure>
 
 ### AM API
 
@@ -41,7 +41,7 @@ curl -H "Authorization: Bearer :accessToken" \
 
 After you have created the new application, you will be redirected to the application’s `Overview` page, which contains some documentation and code samples to help you start configuring the application.
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-client-settings.png" alt=""><figcaption><p>Application overview</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-client-settings.png" alt=""><figcaption><p>Application overview</p></figcaption></figure>
 
 ### Test the application
 
@@ -56,7 +56,7 @@ The application identity providers are separated into two sections:
 * The regular Identity Providers (called also **internal**) that operate inside and AM without redirecting to another provider
 * The Social/Enterprise Identity Providers that require an external service to perform authentication (usually via SSO)
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-application-identity-providers.png" alt=""><figcaption><p>Application identity providers</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-application-identity-providers.png" alt=""><figcaption><p>Application identity providers</p></figcaption></figure>
 
 You can enable/disable them to include them within your authentication flow.
 
@@ -76,7 +76,7 @@ Identity provider selection rules also give you more control over the authentica
 
 When coupled with [flows](../flows/README.md) you can decide which provider will be used to authenticate your end users.
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-application-identity-providers-selection-rule.png" alt=""><figcaption><p>Selection rule</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-application-identity-providers-selection-rule.png" alt=""><figcaption><p>Selection rule</p></figcaption></figure>
 
 To apply a selection rule:
 
@@ -112,7 +112,7 @@ By default this feature is disabled. You can enable it through the domain settin
 There is another parameter called **Enable\Disable Open Dynamic Client Registration**. This parameter is used to allow any unauthenticated requests to register new clients through the registration endpoint. It is part of the OpenID specification, but for security reasons, it is disabled by default.
 {% endhint %}
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-domain-enable-dcr.png" alt=""><figcaption><p>Enable dynamic client registration</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-domain-enable-dcr.png" alt=""><figcaption><p>Enable dynamic client registration</p></figcaption></figure>
 
 ### Enable Dynamic Client Registration with AM API
 
@@ -375,7 +375,7 @@ You can create a client and define it as a template. Registering a new applicati
 
 You can enable the template feature in the AM Dynamic Client Registration **Settings** tab:
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-domain-enable-dcr-templates.png" alt=""><figcaption><p>Enable templates</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-domain-enable-dcr-templates.png" alt=""><figcaption><p>Enable templates</p></figcaption></figure>
 
 You can also enable this feature using AM API:
 
@@ -396,7 +396,7 @@ curl -X PATCH \
 
 In the Dynamic Client Registration **Client templates** tab, enable this feature to be used as a template in the client:
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-domain-define-dcr-templates.png" alt=""><figcaption><p>Specify clients</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-domain-define-dcr-templates.png" alt=""><figcaption><p>Specify clients</p></figcaption></figure>
 
 You can also enable this feature using AM API:
 
@@ -413,7 +413,7 @@ curl -X PATCH \
 Once a client is set up as a template, it can no longer be used for authentication purposes.
 {% endhint %}
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-domain-dcr-templates.png" alt=""><figcaption><p>Client overview</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-domain-dcr-templates.png" alt=""><figcaption><p>Client overview</p></figcaption></figure>
 
 #### Register call with template example
 

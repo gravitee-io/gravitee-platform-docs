@@ -10,7 +10,7 @@ To create a notification channel:
 
 1. Log in to AM Console.
 2. Click **Alerts > Notifiers**.
-3. In the Notifiers page, click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
+3. In the Notifiers page, click the plus icon ![plus icon](../../.gitbook/assets/plus-icon.png).
 4. Choose your notifier type and click **Next**.
 5. Configure your notifier and click **Save**.
 
@@ -22,7 +22,7 @@ You can notify and alert administrators using the SMTP server.
 
 1. Log in to AM Console.
 2. Click **Settings > Alerts > Notifiers**.
-3. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
+3. Click the plus icon ![plus icon](../../.gitbook/assets/plus-icon.png).
 4. Select **Email** as your notifier type and click **Next**.
 5. Give your notifier a name.
 6. Configure the settings.
@@ -76,7 +76,7 @@ You can notify and alert administrators using a webhook.
 
 1. Log in to AM Console.
 2. Click **Settings > Alerts > Notifiers**.
-3. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
+3. Click the plus icon ![plus icon](../../.gitbook/assets/plus-icon.png).
 4. Select **Webhook** as your notifier type and click **Next**.
 5. Give your notifier a name.
 6. Configure the settings.
@@ -143,7 +143,7 @@ For more information about Slack integration, see the Alert Engine Slack notifie
 
 1. Log in to AM Console.
 2. Click **Settings > Alerts > Notifiers**.
-3. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
+3. Click the plus icon ![plus icon](../../.gitbook/assets/plus-icon.png).
 4. Select **Slack** as your notifier type and click **Next**.
 5. Give your notifier a name.
 6. Configure the settings (slack channel and slack token).

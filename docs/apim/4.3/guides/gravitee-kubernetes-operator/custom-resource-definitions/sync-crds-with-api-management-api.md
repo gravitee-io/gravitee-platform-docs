@@ -163,4 +163,4 @@ Different APIs are published on each of the environments because although APIs u
 
 The following diagram illustrates the multi-environment deployment architectural approach:
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/kubernetes/gko-architecture-3-multi-env.png" alt=""><figcaption><p>Multi-environment deployment architecture</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/gko-architecture-3-multi-env.png" alt=""><figcaption><p>Multi-environment deployment architecture</p></figcaption></figure>

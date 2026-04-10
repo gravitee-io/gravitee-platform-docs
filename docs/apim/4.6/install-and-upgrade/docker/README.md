@@ -12,7 +12,7 @@ There are three methods for installing Gravitee API Management (APIM) with Docke
 
 The following diagram shows the architecture that is common each Docker installation method:
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/docker/apim_simple_docker_architecture.png" alt="Diagram showing the architecture of Gravitee API Management installed on Docker"><figcaption><p>Docker installation architecture</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/apim_simple_docker_architecture.png" alt="Diagram showing the architecture of Gravitee API Management installed on Docker"><figcaption><p>Docker installation architecture</p></figcaption></figure>
 
 ## Configuration of the individual components
 

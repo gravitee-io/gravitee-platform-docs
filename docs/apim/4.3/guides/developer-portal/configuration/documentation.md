@@ -127,7 +127,7 @@ The API owner is <#if api.primaryOwner.email??><a href="mailto:${api.primaryOwne
 
 The above sample script creates the following in the Developer Portal:
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/graviteeio-page-documentation-template.png" alt=""><figcaption><p>Result of templating engine example</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/graviteeio-page-documentation-template.png" alt=""><figcaption><p>Result of templating engine example</p></figcaption></figure>
 
 **API properties reference**
 
@@ -217,7 +217,7 @@ Follow the steps below to configure a fetcher to import multiple files:
 3. Select the **GitHub** or **GitLab** fetcher
 4.  Specify the details of the external source, such as the URL of the external API, the name of the repository, and the branch. The fields vary slightly depending on the fetcher.
 
-    <figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/import-multiple-file-dets.png" alt=""><figcaption><p>Configure a fetcher</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/import-multiple-file-dets.png" alt=""><figcaption><p>Configure a fetcher</p></figcaption></figure>
 5. In the **Filepath** field, enter the path to your JSON documentation specification file
 6. Enter a **Username** to authenticate the request
 7. Enter a **Personal Access Token**, which must be generated in your GitHub or GitLab user profile
@@ -272,7 +272,7 @@ You can add translations for your pages via the **Translations** tab:
 4. (Optional) You can edit the content to add translated content by toggling on the switch
 5. Click **Save Translation** at the bottom of the page
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/graviteeio-page-documentation-translations-1.png" alt=""><figcaption><p>Translate a page</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/graviteeio-page-documentation-translations-1.png" alt=""><figcaption><p>Translate a page</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Access control" %}
@@ -281,6 +281,6 @@ From the **Access Control** tab:
 * You can mark a page as **Private** if you want to deny access to anonymous users.
 * If a page is **Private**, you can configure access lists to either require or exclude certain [roles and groups](../../administration/README.md) by toggling the **Excluded** option.
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/graviteeio-page-documentation-access-control.png" alt=""><figcaption><p>Documentation access control</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/graviteeio-page-documentation-access-control.png" alt=""><figcaption><p>Documentation access control</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}

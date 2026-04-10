@@ -27,7 +27,7 @@ You can retrieve an ID Token by requesting an access token with a specific `open
 3. Click the application, then click the **Settings** tab.
 4.  Click **OAuth 2.0 / OIDC**.
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/quickstart-applications-oauth2.png" alt=""><figcaption><p>Application grant flows</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/quickstart-applications-oauth2.png" alt=""><figcaption><p>Application grant flows</p></figcaption></figure>
 5. In the **Scopes** section, select **openid** from the **Scope** drop-down menu and click **+ADD**.
 6. Scroll to the bottom of the page and click **SAVE**.
 
@@ -94,7 +94,7 @@ Finally, you need to have the ID Token signed by AM.
 1. In AM Console, click **Settings**.
 2.  In the **Security** section, click **Certificates**.
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/quickstart-applications-certificates.png" alt=""><figcaption><p>AM Certificates</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/quickstart-applications-certificates.png" alt=""><figcaption><p>AM Certificates</p></figcaption></figure>
 3. Retrieve your public key by clicking the key icon.
 4. Copy the signature and use a JWT library to verify it.
 
@@ -139,7 +139,7 @@ The identity provider serves default claims such as the user’s `username`, `gi
 2. Select your identity provider settings, then click the **User mappers** tab.
 3.  Map new custom claims with user attributes contained in your user data store.
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-quickstart-profile-user-mappers.png" alt=""><figcaption><p>Add new user information</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/graviteeio-am-quickstart-profile-user-mappers.png" alt=""><figcaption><p>Add new user information</p></figcaption></figure>
 4. Custom user attributes will be available in the UserInfo Endpoint response.
 
 {% hint style="info" %}

@@ -23,7 +23,7 @@ To fully tend to your application branding and user experience, AM enables you t
 
 The Theme Builder enables you to create a unique look and feel for your AM templates so they are aligned with your brand requirements. The Theme Builder makes it easier to add custom CSS and the organization’s logo in the templates, and to preview the changes - all in one place.
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-branding-theme-builder.png" alt=""><figcaption><p>AM theme builder</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-branding-theme-builder.png" alt=""><figcaption><p>AM theme builder</p></figcaption></figure>
 
 The Theme Builder is available in the domain **`Design`** section. A brief description of the builder follows below:
 
@@ -44,7 +44,7 @@ Logo, favicon, and theme color are applied for all the default pages provided by
 The content Security Policy (CSP) will prevent third-party URL access unless it has been set as permitted. For more information on how to allow cross-domain URL access, please see [Mitigate XSS CSF in AM environment](../../getting-started/install-and-upgrade-guides/configure-a-production-ready-am-environment.md#step-7-mitigate-cross-site-scripting-xss-and-cross-site-framing) and [Mitigate XSS CSF in Helm](../../getting-started/install-and-upgrade-guides/deploy-in-kubernetes.md#production-ready-configuration).
 {% endhint %}
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-branding-theme-builder-custom-preview.png" alt=""><figcaption><p>Custom logo</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-branding-theme-builder-custom-preview.png" alt=""><figcaption><p>Custom logo</p></figcaption></figure>
 
 ### Custom CSS
 
@@ -57,7 +57,7 @@ Customising CSS is an option for more advanced users who want a more granular cu
 }
 ```
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-branding-theme-builder-custom-css.png" alt=""><figcaption><p>Using custom CSS</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-branding-theme-builder-custom-css.png" alt=""><figcaption><p>Using custom CSS</p></figcaption></figure>
 
 [Check this documentation](css-custom-variables-reference.md) for information about all available CSS properties and their default values.
 
@@ -71,7 +71,7 @@ The internationalization option is available under the domain **`Design → Text
 Under the hood all the templates uses Thymeleaf and Freemarker engines to support translation.
 {% endhint %}
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-branding-theme-builder-texts.png" alt=""><figcaption><p>Translations</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-branding-theme-builder-texts.png" alt=""><figcaption><p>Translations</p></figcaption></figure>
 
 ### Customize translation
 
@@ -85,14 +85,14 @@ To create a new language or customize texts for a default supported language:
 2. Click **Settings > Texts**.
 3. Click **`ADD A NEW LANGUAGE`** button in the **`Languages`** section.
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-branding-theme-builder-add-language.png" alt=""><figcaption><p>Add a new language</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-branding-theme-builder-add-language.png" alt=""><figcaption><p>Add a new language</p></figcaption></figure>
 
 4. Select a language code from the dropdown menu and click the **`ADD`** button.
 5. Click the **`SAVE CHANGES`** button.
 6. Select the language from the dropdown menu in the **`Translations`** section.
 7. Click **`ADD A NEW TRANSLATION`**.
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-branding-theme-builder-new-translation.png" alt=""><figcaption><p>Add a translation</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-branding-theme-builder-new-translation.png" alt=""><figcaption><p>Add a translation</p></figcaption></figure>
 
 8. Provide a valid property key name and value that you want to customize.
 9. Click **`ADD`** and then **`SAVE CHANGES`**.
@@ -136,13 +136,13 @@ You can customize pages for an entire security domain or for an individual appli
 2. To customize pages:
    * for a security domain, click **Settings**
    * for an application, click **Applications** and select your application, then click the **Design** tab
-3. In the **Forms** section, click the edit icon ![edit icon](https://docs.gravitee.io/images/icons/edit-icon.png) of the page template.
+3. In the **Forms** section, click the edit icon ![edit icon](../../.gitbook/assets/edit-icon.png) of the page template.
 4.  Update the HTML as required. You can preview the result in the **Preview** tab.
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-um-forms.png" alt=""><figcaption><p>Page template</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/graviteeio-am-userguide-um-forms.png" alt=""><figcaption><p>Page template</p></figcaption></figure>
 
 {% hint style="info" %}
-Each form requires a minimum configuration. You can retrieve contextual documentation on the HTML needed for each type of page by clicking the ![am info icon](https://docs.gravitee.io/images/icons/am-info-icon.png) information icon.
+Each form requires a minimum configuration. You can retrieve contextual documentation on the HTML needed for each type of page by clicking the ![am info icon](../../.gitbook/assets/am-info-icon.png) information icon.
 {% endhint %}
 
 ### Execution context
@@ -228,13 +228,13 @@ You can customize email templates for an entire security domain or for an indivi
 2. To customize email templates:
    * for a security domain, click **Settings**
    * for an application, click **Applications** and select your application, then click the **Design** tab
-3. In the **Emails** section, click the edit icon ![edit icon](https://docs.gravitee.io/images/icons/edit-icon.png) of the email template.
+3. In the **Emails** section, click the edit icon ![edit icon](../../.gitbook/assets/edit-icon.png) of the email template.
 4.  Update the HTML as required. You can preview the result in the **Preview** tab.
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-um-emails.png" alt=""><figcaption><p>Email template</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/graviteeio-am-userguide-um-emails.png" alt=""><figcaption><p>Email template</p></figcaption></figure>
 
 {% hint style="info" %}
-Each email requires a minimum configuration. You can retrieve contextual documentation on the HTML needed for each type of page by clicking the ![am info icon](https://docs.gravitee.io/images/icons/am-info-icon.png) information icon.
+Each email requires a minimum configuration. You can retrieve contextual documentation on the HTML needed for each type of page by clicking the ![am info icon](../../.gitbook/assets/am-info-icon.png) information icon.
 {% endhint %}
 
 ### Execution context

@@ -11,7 +11,7 @@ Gravitee Access Management (AM) includes various device identifier mechanisms. D
 ## Create a new device identifier
 
 1. In AM Console, click **Settings > Device Identifier**.
-2. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
+2. Click the plus icon ![plus icon](../.gitbook/assets/plus-icon.png).
 3. Select the device identifier type, and then click **Next**.
 4. Enter the configuration details, and then click **Create**.
 

@@ -195,7 +195,7 @@ paths:
 
 When importing an OpenAPI definition, you can select the option **Create policies on path** to specify that all routes declared in the OpenAPI specification will be automatically created in APIM. To verify, navigate to the policy management view.
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/manage-apis/graviteeio-import-openapi-policies-path.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-import-openapi-policies-path.png" alt=""><figcaption></figcaption></figure>
 
 You can also choose to activate policies (below) that will be configured using the OpenAPI specification:
 

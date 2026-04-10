@@ -9,7 +9,7 @@ If users lose their mobile device or can’t use their authenticator application
 1. Log in to AM Console.
 2. Click **Settings > Users**.
 3. Select the user and click the **Multi-Factor Authentication** tab.
-4. Select the MFA factor you want to remove and click the remove icon ![remove icon](https://docs.gravitee.io/images/icons/remove-icon.png).
+4. Select the MFA factor you want to remove and click the remove icon ![remove icon](../../.gitbook/assets/remove-icon.png).
 
 You can also reset a user’s MFA with AM API:
 

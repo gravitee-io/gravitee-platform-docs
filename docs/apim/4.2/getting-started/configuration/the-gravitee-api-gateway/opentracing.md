@@ -64,11 +64,11 @@ Now, it's time to test OpenTracing. Follow these steps:
 2. Open Gravitee APIM, and choose an API that already has a policy assigned to it (or create a test API and add any policies you like for this test). Now, call your API.
 3. To see your calls, open the helpful, user-friendly JaegerUI by visiting `http://localhost:16686` (note that JaegerUI was automatically installed earlier in the process). Select **Search** and find the API you called.
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/configuration/tracing-info-general.png" alt=""><figcaption><p>See API calls in JaegerUI</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/tracing-info-general.png" alt=""><figcaption><p>See API calls in JaegerUI</p></figcaption></figure>
 
 In these examples, you’ll also notice that each policy traversed is listed on a different line to provide greater visibility and to assist with debugging. You can even see timestamp info on the detailed view.
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/configuration/tracing-info-detailed.png" alt=""><figcaption><p>Timestamp information on the detailed view</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/tracing-info-detailed.png" alt=""><figcaption><p>Timestamp information on the detailed view</p></figcaption></figure>
 
 ## Configure Environment Variables
 

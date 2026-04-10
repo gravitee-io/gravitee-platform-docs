@@ -38,7 +38,7 @@ Record the client secret value for later use, as it is not displayed again after
 ## Create an Azure AD identity provider
 
 1. Log in to AM Console.
-2. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
+2. Click the plus icon ![plus icon](../../../.gitbook/assets/plus-icon.png).
 3. Choose the **Azure AD** identity provider type and click **Next**.
 
 {% hint style="info" %}
@@ -81,4 +81,4 @@ You can test the Azure AD connection using a web application created in AM.
 
 If the button is not visible, there may be a problem the identity provider settings. Check the AM Gateway log for more information.
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-social-idp-login.png" alt=""><figcaption><p>Sign in options</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-social-idp-login.png" alt=""><figcaption><p>Sign in options</p></figcaption></figure>

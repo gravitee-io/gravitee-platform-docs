@@ -139,7 +139,7 @@ To configure dynamic properties:
    * Request headers and body to include with the call
    * JOLT transformation to perform on the response
 2. Toggle **Enabled** ON
-3. Click the tick icon ![tick icon](https://docs.gravitee.io/images/icons/tick-icon.png) to save your changes
+3. Click the tick icon ![tick icon](../../.gitbook/assets/tick-icon.png) to save your changes
 4. Click **Save**
 
 After the first call, the resultant property is added to the list of global properties, where its value is continuously updated according to the `cron` schedule specified.

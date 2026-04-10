@@ -73,10 +73,10 @@ You can select any properties you want to delete and/or select **Deploy** to dep
 
 The following example creates a list of properties based on extracting the names and versions from the JSON at the defined URL and assigning them to the property keys and values:
 
-<img src="https://docs.gravitee.io/images/apim/3.x/installation/configuration/configure-dict-dynamic-property-def.png" alt="" data-size="original">
+<img src="../../.gitbook/assets/configure-dict-dynamic-property-def.png" alt="" data-size="original">
 
 When you select **Start**, the properties are added to the list according to the defined schedule:
 
-<img src="https://docs.gravitee.io/images/apim/3.x/installation/configuration/configure-dict-dynamic-property-list.png" alt="" data-size="original">
+<img src="../../.gitbook/assets/configure-dict-dynamic-property-list.png" alt="" data-size="original">
 
 </details>

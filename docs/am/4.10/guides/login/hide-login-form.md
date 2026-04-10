@@ -4,13 +4,13 @@
 
 Hide Login Form enables you to hide the default Gravitee login form and only display upstream Identity Provider(s) configured and enabled for the application.
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-hide-login-form-false.png" alt=""><figcaption><p>Login form where Hide Login Form is not enabled</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-hide-login-form-false.png" alt=""><figcaption><p>Login form where Hide Login Form is not enabled</p></figcaption></figure>
 
 If you have one Identity provider configured for the application Gravitee AM will direct the user directly to the Identity Provider.
 
 If you have multiple Identity Providers configured for the application Gravitee AM will display the Identity Providers to the user.
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-hide-login-form-multiple-idp.png" alt=""><figcaption><p>Login form where Hide Login Form is enabled and multiple IdPs are enabled</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-hide-login-form-multiple-idp.png" alt=""><figcaption><p>Login form where Hide Login Form is enabled and multiple IdPs are enabled</p></figcaption></figure>
 
 ## Enable Hide Login Form
 

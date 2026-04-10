@@ -15,7 +15,7 @@ You create groups in a security domain.
 
 1. Log in to AM Console.
 2. Click **Settings > Groups**.
-3. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
+3. Click the plus icon ![plus icon](../../.gitbook/assets/plus-icon.png).
 4. Give your group a **Name** and click **SAVE**.
 5. You will be redirected to the new group’s page.
 

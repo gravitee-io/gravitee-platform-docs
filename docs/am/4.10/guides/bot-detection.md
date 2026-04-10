@@ -46,7 +46,7 @@ AM supports various Bot Detection mechanisms for protecting user account out of 
 
 1. Log in to AM Console.
 2. Click **Settings > Bot Detection**.
-3. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
+3. Click the plus icon ![plus icon](../.gitbook/assets/plus-icon.png).
 4. Select the bot detection type and click **Next**.
 5. Enter the configuration details and click **Create**.
 

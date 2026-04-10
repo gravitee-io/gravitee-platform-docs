@@ -34,7 +34,7 @@ GitHub will generate a Client ID and Client Secret for your application. Make a 
 
 1. Log in to AM Console.
 2. Click **Settings > Providers**.
-3. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
+3. Click the plus icon ![plus icon](../../../.gitbook/assets/plus-icon.png).
 4. Choose the **GitHub** identity provider type and click **Next**.
 
 {% hint style="info" %}
@@ -72,4 +72,4 @@ You can test your GitHub connection using a web application created in AM.
 
 If the button is not visible, something may be wrong with the identity provider settings. Check the AM Gateway log for more information.
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-social-idp-login.png" alt=""><figcaption><p>Sign in options</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-social-idp-login.png" alt=""><figcaption><p>Sign in options</p></figcaption></figure>
