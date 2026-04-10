@@ -22,4 +22,4 @@ AM’s system of alerts and notifications is based on the Gravitee Alert Engine 
 Alert Engine is a standalone module that needs to be configured and deployed before use. For more information, see the AE installation documentation.
 {% endhint %}
 
-<figure><img src="https://docs.gravitee.io/images/ae/howitworks/overview.png" alt=""><figcaption><p>Alert Engine diagram</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/overview.png" alt=""><figcaption><p>Alert Engine diagram</p></figcaption></figure>

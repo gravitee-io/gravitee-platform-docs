@@ -17,7 +17,7 @@ To create an identity provider:
 
 1. Log in to AM Console.
 2. Click **Settings > Providers**.
-3. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
+3. Click the plus icon ![plus icon](../../../.gitbook/assets/plus-icon.png).
 4. Select **Inline** as your identity provider type and click **Next**.
 5. Give your identity provider a name.
 6. Configure the settings.

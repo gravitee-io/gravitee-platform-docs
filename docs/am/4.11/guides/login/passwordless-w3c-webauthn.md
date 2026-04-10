@@ -35,7 +35,7 @@ WebAuthn relies on certificates to authenticate the device. These certificates c
 3. Click **Settings**, then click **WebAuthn** in the **Security** section.
 4.  In the **Certificates** section, select the certificate details.
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-passwordless-certificates.png" alt=""><figcaption><p>Root certificate</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/graviteeio-am-userguide-passwordless-certificates.png" alt=""><figcaption><p>Root certificate</p></figcaption></figure>
 
 ## Authenticate with WebAuthn
 
@@ -45,7 +45,7 @@ Before users can use `Passwordless` authentication for your application, they fi
 
 The first time users log in with their username/password, they will see the following screen:
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-passwordless-enroll.png" alt=""><figcaption><p>Passworldless setup UI</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-passwordless-enroll.png" alt=""><figcaption><p>Passworldless setup UI</p></figcaption></figure>
 
 After the users complete the registration process, their authenticators are immediately registered and they are redirected to your application.
 
@@ -65,11 +65,11 @@ Ensure your users have [registered their security devices.](passwordless-w3c-web
 
 If your application has `Passwordless` authentication enabled, a new link `Sign in with fingerprint, device or security key` will be displayed on the login page.
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-passwordless-login-page.png" alt=""><figcaption><p>Passwordless login option</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-passwordless-login-page.png" alt=""><figcaption><p>Passwordless login option</p></figcaption></figure>
 
 By clicking on the link, users are redirected to the "Passwordless Login Page", where they need to enter their username and click `Sign in`. A security window will pop up, where they follow instructions to sign in.
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-passwordless-login-username-page.png" alt=""><figcaption><p>Passworldess login page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-passwordless-login-username-page.png" alt=""><figcaption><p>Passworldess login page</p></figcaption></figure>
 
 {% hint style="info" %}
 The look and feel of the Passwordless forms can be overridden. See [custom pages](../branding/#custom-pages) for more information.

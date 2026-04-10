@@ -86,8 +86,8 @@ It is possible to populate all audit logs from all domains within organization t
 
 1. Log in to AM Console.
 2. Click **Organization > Audit Log**.
-3. Click the settings icon ![am settings icon](https://docs.gravitee.io/images/icons/am-settings-icon.png).
-4. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
+3. Click the settings icon ![am settings icon](../.gitbook/assets/am-settings-icon.png).
+4. Click the plus icon ![plus icon](../.gitbook/assets/plus-icon.png).
 5. Select "Log events from all domains in this organization"
 
 <figure><img src="../.gitbook/assets/image (153).png" alt=""><figcaption></figcaption></figure>
@@ -106,8 +106,8 @@ To create a File reporter for a domain:
 
 1. Log in to AM Console.
 2. Click **Settings > Audit Log**.
-3. Click the settings icon ![am settings icon](https://docs.gravitee.io/images/icons/am-settings-icon.png).
-4. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
+3. Click the settings icon ![am settings icon](../.gitbook/assets/am-settings-icon.png).
+4. Click the plus icon ![plus icon](../.gitbook/assets/plus-icon.png).
 
 <figure><img src="../.gitbook/assets/image (154).png" alt=""><figcaption></figcaption></figure>
 
@@ -294,8 +294,8 @@ To create a Kafka reporter for a domain:
 
 1. Log in to AM Console.
 2. Click **Settings > Audit Log**.
-3. Click the settings icon ![am settings icon](https://docs.gravitee.io/images/icons/am-settings-icon.png).
-4. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
+3. Click the settings icon ![am settings icon](../.gitbook/assets/am-settings-icon.png).
+4. Click the plus icon ![plus icon](../.gitbook/assets/plus-icon.png).
 5. Select **Kafka** as the reporter type and enter the reporter name and file name.
 
 <figure><img src="../.gitbook/assets/image (156).png" alt=""><figcaption></figcaption></figure>
