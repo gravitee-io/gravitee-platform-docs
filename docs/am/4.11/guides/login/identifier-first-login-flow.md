@@ -13,12 +13,12 @@ Identifier-first login authentication enables the login flow to be split into tw
 
 * The first step consists in a page containing a single form field where you can input your username
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-login-identifier-first-first-page-flow.png" alt=""><figcaption><p>Split login first step</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-login-identifier-first-first-page-flow.png" alt=""><figcaption><p>Split login first step</p></figcaption></figure>
 
 * Regarding the input submitted, the user gets redirected to the login form and is asked to input your password
 * If the username is an email, the user gets redirected to an external provider matching your domain based on a whitelist
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-login-identifier-first-second-page-flow.png" alt=""><figcaption><p>Split login second step</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-login-identifier-first-second-page-flow.png" alt=""><figcaption><p>Split login second step</p></figcaption></figure>
 
 ## Activate Identifier-first Login
 
