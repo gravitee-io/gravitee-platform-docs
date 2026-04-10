@@ -170,6 +170,16 @@ Existing A2A proxy APIs continue to work but they are no longer supported.
 * Administrators select models based on accuracy requirements, resource constraints, and language coverage, with configurable classification thresholds per model type.
 * Models are sourced from HuggingFace repositories and require sufficient memory and compute resources (model sizes range from 4.39M to 100M+ parameters).
 
+
+<!-- PIPELINE:APIM-13343 -->
+#### **Subscription Form Validation and Dynamic Options**
+
+* API administrators can now define structured subscription forms with field-level validation constraints including required fields, length limits, regex patterns, and allowed values.
+* Forms support dynamic option lists for select, radio, and checkbox-group fields using Expression Language (EL) to populate values from API metadata, with fallback options when no API context is available.
+* Validation occurs at both form save time (syntax and field count) and subscription submission time (required fields, length, pattern, and allowed values), with detailed error messages for invalid submissions.
+* Requires Gravitee APIM 4.11.0 or later with subscription form feature enabled for the environment.
+<!-- /PIPELINE:APIM-13343 -->
+
 ## Improvements
 
 #### **Context-aware logging infrastructure**
