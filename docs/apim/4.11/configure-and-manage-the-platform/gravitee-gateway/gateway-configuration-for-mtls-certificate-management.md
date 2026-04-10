@@ -14,4 +14,6 @@ Uploaded certificates are validated before storage. The certificate must be an X
 
 ## Certificate Management
 
-For Kubernetes-managed certificate configuration, see [Kubernetes CRD Configuration for Client Certificates](../../../../gko/4.11/guides/kubernetes-crd-configuration-for-client-certificates.md).
+For Kubernetes-managed certificate configuration, see [Kubernetes CRD Configuration for Client Certificates](https://docs.gravitee.io/gko/4.11/guides/kubernetes-crd-configuration-for-client-certificates).
+
+When the mTLS Certificate Management feature is enabled in the Developer Portal (`portal.next.mtls.enabled` set to `true`), application owners can upload and rotate client certificates directly through the Developer Portal UI. This feature supports grace-period rotation to avoid downtime during certificate updates. For details on enabling and using this feature, see the mTLS Certificate Management documentation.

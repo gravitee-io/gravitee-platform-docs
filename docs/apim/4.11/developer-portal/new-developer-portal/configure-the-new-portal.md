@@ -25,6 +25,12 @@ For self-hosted installations and hybrid deployments of Gravitee, you can set th
 3.  Navigate to the **New Developer Portal** section, and then turn on the **Enable the New Developer Portal** toggle.
 
     <figure><img src="../../.gitbook/assets/image (57).png" alt=""><figcaption></figcaption></figure>
+
+    The following configuration properties are available:
+
+    | Property | Description | Default |
+    |:---------|:------------|:--------|
+    | `portal.next.mtls.enabled` | Enables mTLS certificate management UI in the New Developer Portal | `false` |
 4.  In the **You have unsaved changes** pop-up window, click **Save**.
 
     <figure><img src="../../.gitbook/assets/image (11) (1).png" alt=""><figcaption></figcaption></figure>

@@ -27,3 +27,46 @@ To explore the API documentation, select any of the following endpoint categorie
   * Manage V4 and Federated APIs
   * Configure multi-tenant aspects of APIM such as licenses, plugins, and OEM customization
 * [**/portal component documentation**](https://gravitee-io-labs.github.io/mapi-v2-docs-openapi-portal/)**:** productize APIs and manage applications and subscriptions
+
+## Application Certificate Management
+
+Application owners interact with certificates via the following REST endpoints:
+
+| Method | Path | Description |
+|:-------|:-----|:------------|
+| `GET` | `/applications/{applicationId}/certificates?page={page}&size={size}` | List certificates with pagination |
+| `POST` | `/applications/{applicationId}/certificates` | Create a new certificate |
+| `POST` | `/applications/{applicationId}/certificates/_validate` | Validate a PEM certificate before upload |
+| `GET` | `/applications/{applicationId}/certificates/{certId}` | Get a single certificate |
+| `PUT` | `/applications/{applicationId}/certificates/{certId}` | Update a certificate |
+| `DELETE` | `/applications/{applicationId}/certificates/{certId}` | Delete a certificate |
+
+### Certificate Upload Fields
+
+| Field | Description | Example |
+|:------|:------------|:--------|
+| **Name** | Certificate name (max 256 characters) | `"Production Client Cert"` |
+| **Certificate (PEM)** | PEM-encoded certificate content | `-----BEGIN CERTIFICATE-----\n...\n-----END CERTIFICATE-----` |
+| **Active Until** | Optional expiry date (ISO 8601) | `"2025-12-31T23:59:59Z"` |
+
+### Certificate Update Fields
+
+| Field | Description | Example |
+|:------|:------------|:--------|
+| **Name** | Updated certificate name | `"Updated Cert Name"` |
+| **Active Until** | Updated expiry date | `"2026-01-15T00:00:00Z"` |
+
+### Grace Period Configuration
+
+| Field | Description | Example |
+|:------|:------------|:--------|
+| **Grace Period End** | End date for the current active certificate during rotation (required when active certificates exist; must not exceed active certificate expiration) | `"2025-06-30T23:59:59Z"` |
+
+### Restrictions
+
+* Certificate name is limited to 256 characters
+* File upload only accepts `.pem`, `.crt`, `.cer` extensions
+* Grace Period End date cannot exceed the active certificate's expiration date
+* Deleting the last active certificate is blocked if active **M Tls** subscriptions exist (returns HTTP 400)
+* Certificate validation is performed server-side; invalid PEM format is rejected at upload time
+* Feature is only available in the new Developer Portal when `portal.next.mtls.enabled` is `true`
