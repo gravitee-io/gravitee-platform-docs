@@ -27,7 +27,7 @@ CAS specifies a Browser Single-Signon sequence diagram involving a CAS server, a
 In this scenario, the AM CAS identity provider acts as a CAS service between your application and the CAS server.
 {% endhint %}
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-social-idp-cas.png" alt=""><figcaption><p>AM CAS flow</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-social-idp-cas.png" alt=""><figcaption><p>AM CAS flow</p></figcaption></figure>
 
 ## Get your CAS Server metadata
 
@@ -44,7 +44,7 @@ Before you begin, obtain this information from your CAS server administrator and
 
 1. Log in to AM Console.
 2. Click **Settings > Providers**.
-3. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
+3. Click the plus icon ![plus icon](../../../.gitbook/assets/plus-icon.png).
 4. Select **CAS** as your identity provider type and click **Next**.
 5. Give your identity provider a name.
 6. Configure the settings (Login URL, Service Validate URL)
@@ -60,7 +60,7 @@ You can test your CAS connection using a web application created in AM.
 
 1.  In AM Console, click **Applications > App > Identity Providers** and select your CAS connector.
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-social-idp-list.png" alt=""><figcaption><p>Select CAS IdP</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-social-idp-list.png" alt=""><figcaption><p>Select CAS IdP</p></figcaption></figure>
 2.  Call the Login page (the `/oauth/authorize` endpoint). If the connection is working you will see a **Sign in with CAS** button.
 
     If the button is not visible, there may be a problem with the identity provider settings. Check the AM Gateway log for more information.
