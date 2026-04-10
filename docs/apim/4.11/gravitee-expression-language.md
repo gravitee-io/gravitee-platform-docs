@@ -158,6 +158,61 @@ You can access specific tags of an XML request/response payload with `{#request.
 {% endtab %}
 {% endtabs %}
 
+
+
+## EL syntax and evaluation rules
+
+Gravitee EL wraps Spring Expression Language (SpEL) with a template parser that recognizes three expression markers inside strings. Everything outside a marker is treated as literal text.
+
+#### Expression markers
+
+The EL template parser recognizes three markers, with optional whitespace allowed after the opening `{`:
+
+* `{#...}` — evaluates a SpEL expression. This is the canonical EL marker.
+* `{(...)}` — evaluates a parenthesized SpEL expression. Useful for inline evaluation inside a larger string.
+* `{T(...)}` — evaluates a SpEL type reference, for example `{T(java.lang.String).format(...)}`.
+
+Any `{...}` block that doesn't start with `#`, `(`, or `T` is left untouched and returned as literal text.
+
+#### Condition fields
+
+Gateway condition fields (for example, policy conditions and flow conditions) are evaluated by the gateway as a Boolean. The Gateway passes the raw field value to the template engine with `Boolean.class` as the target type. The template engine returns a Boolean, which the gateway uses to decide whether the condition matches.
+
+If evaluation throws an `ExpressionEvaluationException`, the gateway logs a warning, raises an `EXPRESSION_EVALUATION_ERROR` execution warning, and treats the condition as non-matching (the element is filtered out).
+
+#### Verified evaluation examples
+
+The following examples reflect the behavior shipped with the Gateway:
+
+<table><thead><tr><th width="260">Input</th><th width="220">Target type</th><th>Result</th></tr></thead><tbody><tr><td><code>true</code></td><td><code>Boolean</code></td><td><code>true</code></td></tr><tr><td><code>{#request.headers['X-Gravitee-Endpoint'] == null}</code></td><td><code>Boolean</code></td><td>Boolean result of the comparison</td></tr><tr><td><code>{#request.content.startsWith('pong')}</code></td><td><code>Boolean</code></td><td>Boolean result of the comparison</td></tr><tr><td><code>{1 == 1}</code></td><td><code>String</code></td><td>Literal <code>{1 == 1}</code> (not evaluated — no EL marker)</td></tr><tr><td><code>{(1 == 1)}</code></td><td><code>String</code></td><td><code>true</code></td></tr><tr><td><code>{(12 == 1)}</code></td><td><code>String</code></td><td><code>false</code></td></tr></tbody></table>
+
+{% hint style="info" %}
+The EL template parser only treats a `{...}` block as an expression if the first non-whitespace character inside is #, (, or T. A bare input like 1==1 or true written without any marker is returned as literal text by the template engine. For a Boolean condition field, wrap the comparison in an EL marker, for example `{#request.headers['X-Debug'] != null}` so the gateway evaluates it.
+{% endhint %}
+
+### EL versus Apache FreeMarker
+
+Gravitee uses two different template languages in different places. They aren't interchangeable.
+
+#### Where EL is used
+
+EL is used in Gateway execution paths, including:
+
+* Policy and flow condition fields.
+* Any field documented as supporting EL.
+
+EL expressions use `{#...}`, `{(...)}`, or `{T(...)}` markers.
+
+#### Where FreeMarker is used
+
+Gravitee notifiers render their configuration payloads (for example, the webhook notifier body) through Apache FreeMarker. The notifier base class builds a FreeMarker `Template` from the configured payload and processes it against a parameters map before dispatching the notification.
+
+FreeMarker uses `${...}` placeholders and its own directive syntax, which is different from EL. For FreeMarker syntax, see the [Apache FreeMarker documentation](https://freemarker.apache.org/docs/index.html).
+
+{% hint style="warning" %}
+The notifier body is processed by FreeMarker, not the EL template engine. The EL parser doesn't recognize `${...}` as an expression marker, so FreeMarker syntax in a Gateway condition field is treated as literal text. Use the language that matches the field.
+{% endhint %}
+
 ## Expression Language Assistant
 
 ### Overview
