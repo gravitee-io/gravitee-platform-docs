@@ -14,7 +14,7 @@ To create an identity provider:
 
 1. Log in to AM Console.
 2. Click **Settings > Providers**.
-3. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
+3. Click the plus icon ![plus icon](../../../.gitbook/assets/plus-icon.png).
 4. Select **Inline** as your identity provider type and click **Next**.
 5. Give your identity provider a name.
 6. Configure the settings.
@@ -55,7 +55,7 @@ You can test your database connection using a web application created in AM.
 
 1.  In AM Console, click **Applications** and select your inline identity provider.
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-social-idp-list.png" alt=""><figcaption><p>Select Inline IdP</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-social-idp-list.png" alt=""><figcaption><p>Select Inline IdP</p></figcaption></figure>
 2.  Call the Login page (i.e `/oauth/authorize` endpoint) and try to sign in with the username/password form.
 
     If you are unable to authenticate your user, there may be a problem with the identity provider settings. Check the AM Gateway log and audit logs for more information.

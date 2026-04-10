@@ -180,14 +180,14 @@ Before you can connect to Gravitee's portal using Keycloak, you need to create a
 1. In your realm, go to the `Client scopes` page.
 2.  Set a special gravitee-client-groups [Scope](https://oauth.net/2/scope/) that will contain users' roles.
 
-    ![Keycloak console - Create scope](https://docs.gravitee.io/images/apim/3.x/installation/authentication/keycloak_mng-01-client_scopes-roles_add_client_scope.png)
+    ![Keycloak console - Create scope](../../.gitbook/assets/keycloak_mng-01-client_scopes-roles_add_client_scope.png)
 3.  In the new client scope, set a mapper with Claim name "groups".
 
-    ![Keycloak console - Add mapper to scope](https://docs.gravitee.io/images/apim/3.x/installation/authentication/keycloak_mng-02-client_scopes-mapper.png)
+    ![Keycloak console - Add mapper to scope](../../.gitbook/assets/keycloak_mng-02-client_scopes-mapper.png)
 4. In your realm, go to the `Client` page, and select your Client.
 5.  Add the new configured scope in the `Client Scopes` tab.
 
-    ![Keycloak console - Add scope to client](https://docs.gravitee.io/images/apim/3.x/installation/authentication/keycloak_mng-03-client-add_scope.png)
+    ![Keycloak console - Add scope to client](../../.gitbook/assets/keycloak_mng-03-client-add_scope.png)
 
 ### Create Keycloak Client roles
 
@@ -195,7 +195,7 @@ Optionally, you can configure Keycloak client roles. These roles can be defined 
 
 1.  In your client, create roles by organization, as needed.
 
-    <figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/authentication/keycloak_mng-04-client-add_roles.png" alt=""><figcaption><p>Add roles in Keycloak</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/keycloak_mng-04-client-add_roles.png" alt=""><figcaption><p>Add roles in Keycloak</p></figcaption></figure>
 2.  To configure Keycloak users with appropriate roles, select **Role Mappings** and define roles as is appropriate.
 
     <figure><img src="../../.gitbook/assets/keycloak_mng-roles-05-users-add_user_client_roles.png" alt=""><figcaption><p>Define role mappings</p></figcaption></figure>

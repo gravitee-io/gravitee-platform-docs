@@ -132,7 +132,7 @@ The JSON body is similar to the following (depending on the notification type, s
 
 To create a Webhook notifier:
 
-1. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
+1. Click the plus icon ![plus icon](../../../.gitbook/assets/plus-icon.png).
 2. Choose the **Default Webhook Notifier** type and give the notifier a name.
 3. Add the URL which APIM will call to send notifications.
 4. Subscribe to the desired notifications.
@@ -295,19 +295,19 @@ To assist with alert configuration, sample alert templates useful to many teams 
 {% tab title="Response time limit" %}
 To configure an alert for response times exceeding a threshold of 1500ms:
 
-<figure><img src="https://docs.gravitee.io/images/ae/apim/api_alert_response_time_threshold.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/api_alert_response_time_threshold.png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="50th percentile reached" %}
 To configure an alert for the 50th percentile of response times exceeding 200 ms in the last 5 minutes:
 
-<figure><img src="https://docs.gravitee.io/images/ae/apim/api_alert_50percentile.png" alt=""><figcaption><p>Alert for 50th percentile of response time greater than X ms</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/api_alert_50percentile.png" alt=""><figcaption><p>Alert for 50th percentile of response time greater than X ms</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Quota reached" %}
 To configure an alert for reaching the quota limit on requests:
 
-<figure><img src="https://docs.gravitee.io/images/ae/apim/api_alert_quota_too_many_requests.png" alt=""><figcaption><p>Alert for reaching the quota limit on requests</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/api_alert_quota_too_many_requests.png" alt=""><figcaption><p>Alert for reaching the quota limit on requests</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -317,24 +317,24 @@ To configure an alert for reaching the quota limit on requests:
 {% tab title="Invalid API key" %}
 To trigger an alert when an invalid API key is passed to the Gateway:
 
-<figure><img src="https://docs.gravitee.io/images/ae/apim/api_alert_api_key_invalid.png" alt=""><figcaption><p>Invalid API key alert</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/api_alert_api_key_invalid.png" alt=""><figcaption><p>Invalid API key alert</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Errors per interval" %}
 To configure an alert for the number of 5xx errors reaching a threshold of 10 in the last 5 minutes:
 
-<figure><img src="https://docs.gravitee.io/images/ae/apim/api_alert_api_too_many_errors.png" alt=""><figcaption><p>Alert for too many errors in the last five minutes</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/api_alert_api_too_many_errors.png" alt=""><figcaption><p>Alert for too many errors in the last five minutes</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="No requests in X min" %}
 To configure an alert for no requests made to the API during the last minute:
 
-<figure><img src="https://docs.gravitee.io/images/ae/apim/api_alert_api_no_request_last_minute.png" alt=""><figcaption><p>Alert for no API requests in the last minute</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/api_alert_api_no_request_last_minute.png" alt=""><figcaption><p>Alert for no API requests in the last minute</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Filtered no requests in X min" %}
 The following example is the same as above, but filters on `my-application`:
 
-<figure><img src="https://docs.gravitee.io/images/ae/apim/api_alert_application_no_request_last_minute.png" alt=""><figcaption><p>Alert for no API requests from my application in the last minute</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/api_alert_application_no_request_last_minute.png" alt=""><figcaption><p>Alert for no API requests from my application in the last minute</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}

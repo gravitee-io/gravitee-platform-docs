@@ -17,10 +17,10 @@ Before you can connect to APIM Portal using a GitHub account, you need to create
 2. Click **OAuth Apps**.
 3.  Click **Register an application**.
 
-    ![Register a new GitHub OAuth apps](https://docs.gravitee.io/images/apim/3.x/installation/authentication/github\_register\_new\_app.png)
+    ![Register a new GitHub OAuth apps](../../../.gitbook/assets/github_register_new_app.png)
 4.  Enter the application details.
 
-    ![Fill the form](https://docs.gravitee.io/images/apim/3.x/installation/authentication/github\_fill\_app\_form.png)
+    ![Fill the form](../../../.gitbook/assets/github_fill_app_form.png)
 
     |   | The `Authorization callback URL` must exactly match the domain hosting APIM Portal. |
     | - | ----------------------------------------------------------------------------------- |
@@ -30,7 +30,7 @@ Before you can connect to APIM Portal using a GitHub account, you need to create
 
 After you create the GitHub application, you can retrieve the OAuth2 client ID and secret.
 
-![Get Oauth2 credentials](https://docs.gravitee.io/images/apim/3.x/installation/authentication/github\_oauth\_credentials.png)
+![Get Oauth2 credentials](../../../.gitbook/assets/github_oauth_credentials.png)
 
 ### Configure APIM
 
@@ -44,11 +44,11 @@ You can configure this provider both in APIM Console and in the `gravitee.yml` c
 **APIM Console configuration**
 
 1. Click **Organization Settings > Authentication**.
-2. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png) and select the **GitHub** icon.
+2. Click the plus icon ![plus icon](../../../.gitbook/assets/plus-icon.png) and select the **GitHub** icon.
 3. If you want to use this provider to log in to APIM Portal, ensure that **Allow portal authentication to use this identity provider** is checked. To use it only for APIM Console, uncheck this option.
 4.  Enter the details of the provider, including the OAuth2 credentials created in the GitHub OAuth app.
 
-    ![Gravitee.io - New Github IDP](https://docs.gravitee.io/images/apim/3.x/management-api-configuration-idp/new-github.png)
+    ![Gravitee.io - New Github IDP](../../../.gitbook/assets/new-github.png)
 5. Click **CREATE**.
 6. Activate the provider for Portal or Console login.
 
@@ -70,11 +70,11 @@ security:
 
 1.  Click **Sign in with GitHub**.
 
-    ![Login Form](https://docs.gravitee.io/images/apim/3.x/installation/authentication/github\_login\_form.png)
+    ![Login Form](../../../.gitbook/assets/github_login_form.png)
 2.  Allow access to the user account.
 
-    ![Login Form](https://docs.gravitee.io/images/apim/3.x/installation/authentication/github\_access\_account.png)
+    ![Login Form](../../../.gitbook/assets/github_access_account.png)
 
     You have successfully logged in:
 
-    ![Here we are !](https://docs.gravitee.io/images/apim/3.x/installation/authentication/github\_login\_success.png)
+    ![Here we are !](../../../.gitbook/assets/github_login_success.png)

@@ -32,7 +32,7 @@ You can also configure an LDAP server to fetch additional information on the cur
 
 1. Log in to AM Console.
 2. Click **Settings > Providers**.
-3. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
+3. Click the plus icon ![plus icon](../../../.gitbook/assets/plus-icon.png).
 4. Select **Kerberos** as your identity provider type and click **Next**.
 5. Give your identity provider a name.
 6. Configure the settings (realm, keytab and principal).
@@ -44,7 +44,7 @@ You can test your Kerberos connection using a web application created in AM.
 
 1.  In AM Console, click **Applications** and select your Kerberos connector in the **Identity Providers** tab.
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-social-idp-list.png" alt=""><figcaption><p>Select Kerberos IdP</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-social-idp-list.png" alt=""><figcaption><p>Select Kerberos IdP</p></figcaption></figure>
 
 {% hint style="info" %}
 Once Kerberos is selected, the Kerberos connection will be established before displaying the login page, making it invisible to end users.

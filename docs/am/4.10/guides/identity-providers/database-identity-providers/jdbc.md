@@ -19,7 +19,7 @@ Before you begin, you need to ensure that your database has the appropriate fiel
 
 1. Log in to AM Console.
 2. Click **Settings > Providers**.
-3. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
+3. Click the plus icon ![plus icon](../../../.gitbook/assets/plus-icon.png).
 4. Select **JDBC** as your identity provider type and click **Next**.
 5. Give your identity provider a name.
 6. Configure the database settings as required.
