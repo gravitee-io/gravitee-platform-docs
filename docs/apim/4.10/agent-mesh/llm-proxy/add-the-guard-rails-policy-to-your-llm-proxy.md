@@ -26,10 +26,10 @@ To add the Guard Rails policy to your LLM proxy, complete the following steps:&#
 
 1.  From the **Dashboard**, click **APIs**. <br>
 
-    <figure><img src="../../.gitbook/assets/image (97).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/agent-mesh-llm-proxy-add-the-guard--97.png" alt=""><figcaption></figcaption></figure>
 2.  In the **APIs** screen, click your LLM proxy. <br>
 
-    <figure><img src="../../.gitbook/assets/image (98).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/agent-mesh-llm-proxy-add-the-guard--98.png" alt=""><figcaption></figcaption></figure>
 3.  From the **Configuration** screen, click **Resources**. <br>
 
     <figure><img src="../../.gitbook/assets/AE9DD4BA-A207-45AF-95D9-7304015C32C2_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>

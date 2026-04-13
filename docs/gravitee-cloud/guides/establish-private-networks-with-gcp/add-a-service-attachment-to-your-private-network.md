@@ -13,13 +13,13 @@ You add a service attachment to your private network with Gravitee Cloud. A Serv
 
 1.  From the **Dashboard**, click **Settings**. <br>
 
-    <figure><img src="../../.gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/guide-establish-private-networks-wi-20.png" alt=""><figcaption></figcaption></figure>
 2.  In the settings menu, click **Private Networks**.<br>
 
-    <figure><img src="../../.gitbook/assets/image (27).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/guide-establish-private-networks-wi-27.png" alt=""><figcaption></figcaption></figure>
 3.  From the list of private networks, click **the name of the private network** that you want to add a service attachment to. <br>
 
-    <figure><img src="../../.gitbook/assets/image (28).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/guide-establish-private-networks-wi-28.png" alt=""><figcaption></figcaption></figure>
 4.  Navigate to **Service Attachments**, and then click **Add Service Attachment URI**. <br>
 
     <figure><img src="../../.gitbook/assets/EC714F01-BD2F-4517-8653-C74EC76910A7_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
@@ -34,7 +34,7 @@ You add a service attachment to your private network with Gravitee Cloud. A Serv
 
 The service attachment appears in the **Service Attachment URIs** section of your private network's details page.
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/guide-establish-private-networks-wi-1.png" alt=""><figcaption></figcaption></figure>
 
 ## Next steps&#x20;
 

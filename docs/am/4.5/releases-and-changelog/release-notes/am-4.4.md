@@ -20,7 +20,7 @@ In addition of the `client_secret_post` and `client_secret_basic` The OpenID Con
 
 As password is a sensitive aspect of user account security, you now have an option to force a user to reset their password at next sign in. This help you to create an account with temporary password and request a reset password during the first user authentication.
 
-<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/releases-and-changelog-release-note-4.png" alt=""><figcaption></figcaption></figure>
 
 ## Password Policy at Identity Provider level
 

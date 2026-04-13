@@ -29,10 +29,10 @@ To integrate AWS API Gateway with Gravitee APIM, complete the following steps:
 
 1.  From the Dashboard, click **Integrations.**<br>
 
-    <figure><img src="../../../../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/govern-federation-aws-api-gateway-r-16.png" alt=""><figcaption></figcaption></figure>
 2.  Click **Create Integration.**<br>
 
-    <figure><img src="../../../../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/govern-federation-aws-api-gateway-r-18.png" alt=""><figcaption></figcaption></figure>
 3.  Select **AWS API Gateway**, and then click **Next.**
 
     <figure><img src="../../../../.gitbook/assets/select-aws-api-gateway.png" alt=""><figcaption></figcaption></figure>
@@ -41,7 +41,7 @@ To integrate AWS API Gateway with Gravitee APIM, complete the following steps:
     <figure><img src="../../../../.gitbook/assets/enter-the-aws-api-integration-name.png" alt=""><figcaption></figcaption></figure>
 5.  (Optional) Type a **Description** for the integration.
 
-    <figure><img src="../../../../.gitbook/assets/image (47).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/govern-federation-aws-api-gateway-r-47.png" alt=""><figcaption></figcaption></figure>
 6.  Click **Create Integration.**
 
     <figure><img src="../../../../.gitbook/assets/click-create-integration-for-aws-api-gateway.png" alt=""><figcaption></figcaption></figure>
@@ -140,7 +140,7 @@ You can deploy the AWS API Gateway federation agent using either of the followin
 
 1.  In the Gravitee API Management console, after refreshing, you should now see the agent's status set to `Connected`.<br>
 
-    <figure><img src="../../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/govern-federation-aws-api-gateway-r-2.png" alt=""><figcaption></figcaption></figure>
 2. (Optional) If the Agent Connection shows as `Disconnected`, inspect the agent container logs for error messages.
 
 ### Helm <a href="#helm" id="helm"></a>
@@ -396,7 +396,7 @@ If your APIM management API uses certificates that require a custom truststore, 
     ```
 2.  Return to the Gravitee API Management console, refresh the page, and verify that the agent's status is set to Connected:
 
-    <figure><img src="../../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/govern-federation-aws-api-gateway-r-2.png" alt=""><figcaption></figcaption></figure>
 
 ## Minimum AWS permissions required by the agent
 
