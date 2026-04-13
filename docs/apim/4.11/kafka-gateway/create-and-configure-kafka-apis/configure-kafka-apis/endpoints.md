@@ -95,7 +95,7 @@ Gravitee assigns each Kafka API endpoint group the default name **Default Broker
 
 2. Select the **General** tab to change the name of your Kafka endpoint group.
 
-    <figure><img src="../../../.gitbook/assets/image (181).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/kafka-gw-kafka-apis-configure-kafka-181.png" alt=""><figcaption></figcaption></figure>
 
 3. Select the **Configuration** tab to edit the security settings of your Kafka endpoint group.
 

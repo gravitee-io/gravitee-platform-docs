@@ -61,10 +61,10 @@ The built-in payload doesn't include the error key. To expose the error key to A
 
 1.  From the **Dashboard**, click **APIs**. <br>
 
-    <figure><img src="../../.gitbook/assets/image (209).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/config-apis-v4-config-response-temp-209.png" alt=""><figcaption></figcaption></figure>
 2.  Select the API that you want to configure response templates for.<br>
 
-    <figure><img src="../../.gitbook/assets/image (70).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/config-apis-v4-config-response-temp-70.png" alt=""><figcaption></figcaption></figure>
 3.  From the API's menu, click **Entrypoints**.<br>
 
     <figure><img src="../../.gitbook/assets/9DB31EFE-6F36-4050-AD4B-5135E50E66AA.jpeg" alt=""><figcaption></figcaption></figure>
@@ -77,7 +77,7 @@ The built-in payload doesn't include the error key. To expose the error key to A
 6. Create the response template. To create the response template, complete the following sub-steps:
    1.  From the **Template key** dropdown menu, select the Template key that you want to apply to the API. For example, `GATEWAY_PLAN_UNRESOLVABLE`. For more information about Template Keys, see [#template-keys](response-templates.md#template-keys "mention").<br>
 
-       <figure><img src="../../.gitbook/assets/image (224).png" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../../.gitbook/assets/config-apis-v4-config-response-temp-224.png" alt=""><figcaption></figcaption></figure>
    2. In the **Accept header to match** field, enter the request header or request headers that trigger the response template. The default value is `*/*`.
    3. In the **Status Code** field, add the status code that you want to associate with the response template. For example, `401`.&#x20;
    4. (Optional) In the **HTTP Headers** field, enter the `KEY` and `VALUE` for the response.&#x20;
