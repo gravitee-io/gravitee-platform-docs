@@ -337,7 +337,7 @@ docker compose up -d
 
 Users can sign in with their login and password.
 
-<figure><img src="../../../.gitbook/assets/image (133).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/devportal-new-portal-configure-auth-133.png" alt=""><figcaption></figcaption></figure>
 
 ## Next steps&#x20;
 

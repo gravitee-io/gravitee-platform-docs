@@ -115,7 +115,7 @@ Folders group related pages together. A folder is a section on your New Develope
 
     *   Click **Publish**.<br>
 
-        <figure><img src="../../.gitbook/assets/image (89).png" alt=""><figcaption></figcaption></figure>
+        <figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--89.png" alt=""><figcaption></figcaption></figure>
     *   Navigate to the folder in the navigation bar, click the **ellipses**, and then click **Publish**.<br>
 
         <figure><img src="../../.gitbook/assets/FAD5D2FB-4EEE-49B7-8081-F790D1AE0EC4_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
@@ -159,7 +159,7 @@ When you add a link, the link appears as a root level menu item. When you publis
 
     *   Click **Publish**.<br>
 
-        <figure><img src="../../.gitbook/assets/image (90).png" alt=""><figcaption></figcaption></figure>
+        <figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--90.png" alt=""><figcaption></figcaption></figure>
     *   Navigate to link in the navigation bar, click the **ellipses**, and then click **Publish**.<br>
 
         <figure><img src="../../.gitbook/assets/D897DBD4-B160-4F29-ACD8-14E5D0959CF5_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
