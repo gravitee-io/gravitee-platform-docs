@@ -27,12 +27,12 @@ Retrieves the subscription form for a specific API with resolved dynamic options
 **Authentication:** Required (Portal auth)
 
 {% hint style="info" %}
-The environment-scoped endpoint `GET /subscription-form` (no API context) has been removed and replaced by the API-scoped endpoint `GET /apis/{apiId}/subscription-form`.
+The environment-scoped endpoint `GET /subscription-form` is deprecated. Use the API-scoped endpoint `GET /apis/{apiId}/subscription-form` instead, which resolves dynamic options against the API's metadata.
 {% endhint %}
 
 ## Subscription metadata
 
-When an API consumer subscribes to an API plan, the form field values are included in the subscription creation request as a `metadata` field containing key-value pairs. Empty values (null, empty strings, whitespace-only) are filtered before submission. The platform enforces a maximum of 25 metadata entries per subscription submission. Exceeding this limit throws `SubscriptionFormValidationException` at validation time.
+When an API consumer subscribes to an API plan, the form field values are included in the subscription creation request as a `metadata` field containing key-value pairs. Empty values (null, empty strings, whitespace-only) are filtered before submission. Subscription submissions are capped at 25 metadata entries.
 
 | Property | Type | Description |
 |:---------|:-----|:------------|
@@ -49,22 +49,22 @@ The following GMD components are available for subscription forms:
 | `gmd-select` | Dropdown selection | `required` |
 | `gmd-checkbox` | Checkbox | `required` |
 | `gmd-radio` | Radio button selection | `required` |
-| `gmd-checkbox-group` | Checkbox group with multiple selections | `required`, `eachOf` |
+| `gmd-checkbox-group` | Checkbox group with multiple selections | `required` |
 
-Each component's `fieldKey` attribute maps to the key in the subscription's `metadata` object. Validation error codes: `required`, `minLength`, `maxLength`, `pattern`, `eachOf`.
+Each component's `fieldKey` attribute maps to the key in the subscription's `metadata` object. Frontend validation error codes: `required`, `minLength`, `maxLength`, `pattern`. The backend additionally rejects checkbox group submissions when a selected value isn't in the allowed options list, and select or radio submissions when the value isn't in the allowed options list.
 
 ### Checkbox group behavior
 
-Subscribers select one or more options from each checkbox group. The form serializes selections as comma-separated strings sorted alphabetically (e.g., `"Analytics,Authentication"`).
+Subscribers select one or more options from each checkbox group. The form serializes selections as a comma-separated string sorted alphabetically (for example, `"Analytics,Authentication"`).
 
-Validation constraints for checkbox groups:
+Checkbox groups enforce two backend checks at submission time:
 
-- **Non-Empty Selection**: At least one value must be selected when the field is required
-- **Each Of**: Every selected value must exist in the allowed options list
+- When the field is required, at least one value must be selected.
+- Every selected value must exist in the allowed options list.
 
 ### Dynamic options resolution
 
-The Portal UI merges resolved options into the GMD content before rendering. This process replaces static or fallback options with values resolved from API and environment metadata. Dynamic options resolution requires API and environment metadata context; fallback values are used in Console Form Builder (no API context available).
+The Portal UI merges resolved options into the GMD content before rendering, replacing static or fallback options with values resolved from API and environment metadata. In the Console subscription form editor, EL expressions aren't resolved against API metadata — only the fallback values are shown as a preview.
 
 ## Restrictions
 
@@ -72,8 +72,8 @@ The Portal UI merges resolved options into the GMD content before rendering. Thi
 - Maximum 25 fields per subscription form (enforced at save time)
 - Maximum 25 metadata entries per subscription submission (enforced at validation time)
 - GMD content can't be null, empty, or whitespace-only
-- Input fields: hard maximum length of 256 characters (user-defined `maxLength` clamped to this value; 256 used when omitted)
-- Textarea fields: hard maximum length of 1024 characters (user-defined `maxLength` clamped to this value; 1024 used when omitted)
+- Input fields: hard maximum length of 256 characters. User-defined `maxLength` values are clamped to 256, and 256 is applied when `maxLength` is omitted.
+- Textarea fields: hard maximum length of 1024 characters. User-defined `maxLength` values are clamped to 1024, and 1024 is applied when `maxLength` is omitted.
 - EL expressions in options must include fallback values using syntax `{#expression}:fallback1,fallback2` (missing fallback reports `missingElFallback` error with severity `error`)
 - EL expressions must start with `{#` (expressions starting with `#{` or `{` alone report `invalidElSyntax` error)
 - Subscription forms aren't displayed for Keyless plans — the form only renders when the selected plan requires authentication
@@ -87,15 +87,3 @@ The Portal UI merges resolved options into the GMD content before rendering. Thi
 - Permissions use `environment-metadata-r/u`
 - Navigation guards prevent navigation away from unsaved form edits
 - The save button is disabled when content is empty, has configuration errors, or has no unsaved changes
-
-## Styling
-
-The following CSS custom properties control the appearance of checkbox group components in subscription forms:
-
-| Property | Description | Default |
-|:---------|:------------|:--------|
-| `--gmd-checkbox-group-outlined-label-text-size` | Label font size | `0.875rem` |
-| `--gmd-checkbox-group-outlined-label-text-weight` | Label font weight | `500` |
-| `--gmd-checkbox-group-outlined-label-text-color` | Label text color | `inherit` |
-| `--gmd-checkbox-group-error-text-color` | Error message color | (theme error color) |
-| `--gmd-checkbox-group-subscript-text-size` | Error message font size | `0.8125rem` |

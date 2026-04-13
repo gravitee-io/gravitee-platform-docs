@@ -1,56 +1,61 @@
-
 # Subscription form field attributes and validation constraints reference
 
+This reference documents the attributes supported by the `gmd-checkbox-group` form component, the syntax for dynamic options, and the validation constraints applied to subscription form submissions.
 
-## Key Concepts
+## Checkbox group attributes
 
-### Checkbox Group Field
-
-A checkbox group is a multi-select input component that allows subscribers to choose one or more options from a predefined or dynamically resolved list. Selected values are serialized as comma-separated strings and sorted alphabetically (e.g., `"Option 1,Option 3"`). Checkbox groups support required validation (at least one selection must be made) and option list validation (all selected values must exist in the allowed options).
+A checkbox group is a multi-select form field that lets subscribers choose one or more options from a predefined or dynamically resolved list. Selected values are serialized as a comma-separated string sorted alphabetically (for example, `"Option 1,Option 3"`).
 
 | Attribute | Type | Description | Example |
 |:----------|:-----|:------------|:--------|
-| `fieldKey` | string | Unique identifier for the field in form state and metadata | `"features"` |
-| `label` | string | Display label rendered as fieldset legend | `"Select Features"` |
-| `options` | string | Comma-separated list or EL expression with fallback | `"{#api.metadata['features']}:Auth,Logging"` |
-| `required` | boolean | Whether at least one option must be selected | `true` |
+| `fieldKey` | string | Unique identifier for the field, used as the key in the subscription's `metadata` object | `"features"` |
+| `label` | string | Display label rendered as the fieldset legend | `"Select Features"` |
+| `options` | string | Comma-separated list, or an EL expression followed by a fallback list | `"{#api.metadata['features']}:Auth,Logging"` |
+| `required` | boolean | Set to `true` to require at least one selection | `true` |
 | `value` | string | Comma-separated preselected values | `"Auth,Logging"` |
-| `disabled` | boolean | Disables all checkboxes and removes field from form state | `false` |
+| `disabled` | boolean | Set to `true` to disable all checkboxes | `false` |
 
-### Dynamic Options Resolution
+## Dynamic options with EL expressions
 
-Options can be populated at runtime using Expression Language (EL) expressions that reference API or environment metadata. Expressions follow the syntax `{#api.metadata['key']}:fallback1,fallback2`, where the fallback list is required and used when no API context is available (e.g., in the Console Form Builder) or when the metadata key is missing.
+Options on `gmd-select`, `gmd-radio`, and `gmd-checkbox-group` can be populated at runtime using Expression Language (EL) expressions that reference API or environment metadata. Expressions use the syntax `{#expression}:fallback1,fallback2`, where the fallback list is required.
 
-Invalid EL syntax triggers configuration errors that block form saving:
-- Expressions starting with `#{` or `{` without `#` report an `invalidElSyntax` error
-- Missing fallback values report a `missingElFallback` error
+The fallback list is applied when:
 
-Configuration errors with severity `error` block form saving. Warnings do not block save.
+- The Portal is rendering the form but the EL expression's metadata key doesn't exist.
+- The form is being previewed in the Console subscription form editor, which doesn't resolve EL against API metadata.
 
-### Validation Constraints
+Invalid EL syntax produces configuration errors that block saving:
 
-Subscription form submissions are validated against constraints derived from the form schema. Validation occurs before subscription creation and returns HTTP 400 with field-level error messages when constraints are violated.
+- Expressions that start with `#{`, or `{` without a following `#`, report an `invalidElSyntax` error.
+- Expressions without a fallback list after the `}:` separator report a `missingElFallback` error.
 
-Constraints include required field checks, length limits, pattern matching, and option list validation. Checkbox groups enforce **Non-Empty Selection** (at least one value when required) and **Each Of** (every selected value must exist in the allowed options list).
+Configuration errors with severity `error` block form saving. Warnings don't block saving.
 
-| Constraint | Applies To | Rule | Error Message |
-|:-----------|:-----------|:-----|:--------------|
-| Required | Text fields | Value must not be blank | `"Field '{fieldKey}' is required"` |
-| Must Be True | Checkbox | Value must equal `"true"` | `"Field '{fieldKey}' is required"` |
-| Non-Empty Selection | Checkbox group | At least one value in CSV | `"Field '{fieldKey}' is required"` |
-| Each Of | Checkbox group | Every CSV value in allowed list | `"Field '{fieldKey}': value '{item}' is not among the allowed options"` |
-| Min Length | Input, Textarea | Length ≥ min (skipped when empty) | `"Field '{fieldKey}' must be at least {min} characters long"` |
-| Max Length | Input, Textarea | Length ≤ max (skipped when empty) | `"Field '{fieldKey}' must be at most {max} characters long"` |
-| Matches Pattern | Input | Value matches regex (skipped when empty) | `"Field '{fieldKey}' does not match the required pattern"` |
-| One Of | Select, Radio | Single value in allowed list | `"Field '{fieldKey}': value '{value}' is not among the allowed options"` |
-| Read Only | Any field with readonly value | Value must equal preset reference | `"Field '{fieldKey}': read-only field cannot be modified"` |
+## Validation constraints
 
-Hard length limits are enforced for input and textarea fields:
-- **Input fields**: 256 characters maximum. User-defined `maxLength` values are clamped to 256. When omitted, 256 is used.
-- **Textarea fields**: 1024 characters maximum. User-defined `maxLength` values are clamped to 1024. When omitted, 1024 is used.
+Subscription form submissions are validated against constraints derived from the form schema before the subscription is created. When a constraint fails, the submission is rejected with field-level error messages.
 
-## Prerequisites
+The following constraints are applied at submission time:
 
-- Gravitee API Management 4.11.0 or later
-- Subscription form enabled for the environment
-- For dynamic options: API metadata keys referenced in EL expressions must exist or fallback values will be used
+| Constraint | Applies to | Rule |
+|:-----------|:-----------|:-----|
+| Required | `gmd-input`, `gmd-textarea`, `gmd-select`, `gmd-radio` | Value isn't blank |
+| Must be true | `gmd-checkbox` | Value equals `"true"` |
+| Non-empty selection | `gmd-checkbox-group` | At least one value is selected |
+| Each of | `gmd-checkbox-group` | Every selected value is in the allowed options list |
+| Min length | `gmd-input`, `gmd-textarea` | Length is at least `minLength` (skipped when the value is empty) |
+| Max length | `gmd-input`, `gmd-textarea` | Length is at most `maxLength` (skipped when the value is empty) |
+| Matches pattern | `gmd-input` | Value matches the configured regex (skipped when the value is empty) |
+| One of | `gmd-select`, `gmd-radio` | Value is in the allowed options list |
+| Read only | Any field marked `readonly` with a preset `value` | Value equals the preset reference |
+
+### Hard length limits
+
+The following hard length limits are always enforced regardless of user configuration:
+
+- **Input fields** — 256 characters maximum. User-defined `maxLength` values are clamped to 256, and 256 is applied when `maxLength` is omitted.
+- **Textarea fields** — 1024 characters maximum. User-defined `maxLength` values are clamped to 1024, and 1024 is applied when `maxLength` is omitted.
+
+### Field count limit
+
+Subscription forms are limited to a maximum of 25 fields. The form editor enforces this limit at save time and rejects forms that exceed it. Subscription submissions are also capped at 25 metadata entries.

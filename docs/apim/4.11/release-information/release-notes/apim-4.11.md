@@ -172,7 +172,7 @@ Existing A2A proxy APIs continue to work but they are no longer supported.
 
 
 <!-- PIPELINE:APIM-13343 -->
-#### **Checkbox Group Fields and Dynamic Options in Subscription Forms**
+#### **Checkbox group fields and dynamic options in subscription forms**
 
 * Subscription forms now support checkbox group fields that allow subscribers to select multiple options from a predefined or dynamically resolved list.
 * Options can be populated at runtime using Expression Language (EL) to reference API or environment metadata, with required fallback values for contexts where metadata is unavailable.
