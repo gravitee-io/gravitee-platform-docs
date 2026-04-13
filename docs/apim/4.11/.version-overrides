@@ -53,6 +53,7 @@ developer-portal/new-developer-portal/subscription-form-technical-implementation
 secure-and-expose-apis/subscriptions/README.md
 secure-and-expose-apis/subscriptions/creating-and-managing-subscription-forms.md
 secure-and-expose-apis/subscriptions/subscription-form-feature-overview.md
+secure-and-expose-apis/subscriptions/subscription-form-field-attributes-and-validation-constraints-reference.md
 create-and-configure-apis/apply-policies/policy-reference/kafka-message-encryption-decryption-policy-reference.md
 create-and-configure-apis/apply-policies/policy-reference/ai-model-text-classification-model-reference-and-performance-metrics.md
 create-and-configure-apis/apply-policies/policy-reference/ai-prompt-guard-rails.md
@@ -77,4 +78,3 @@ upgrade-guides/tag-key-migration-upgrade-procedure.md
 # Renamed directories — block old paths from being synced as new files
 # 4.10 agent-mesh/ was renamed to ai-agent-management/ in 4.11
 agent-mesh/
-secure-and-expose-apis/subscriptions/subscription-form-field-attributes-and-validation-constraints-reference.md
