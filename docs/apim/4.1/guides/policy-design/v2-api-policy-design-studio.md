@@ -152,7 +152,7 @@ To configure dynamic properties:
    * Request headers and body to include with the call
    * JOLT transformation to perform on the response
 3. Toggle **Enabled** ON
-4. Select the tick icon ![tick icon](https://docs.gravitee.io/images/icons/tick-icon.png) to save your changes
+4. Select the tick icon ![tick icon](../../.gitbook/assets/tick-icon.png) to save your changes
 5. Select **SAVE**
 
 After the first call, the resulting property is added to the list of global properties, where its value is continuously updated according to the `cron` schedule specified.
@@ -167,7 +167,7 @@ The first step is to define a list of properties for the shops, with each unique
 
 We then configure a dynamic routing policy for the API with a routing rule which builds a new URL dynamically through property matching. The URL is created with a `#properties` statement which matches properties returned by querying the request header containing the shop ID.
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/design-studio/dynamic-routing-properties.png" alt=""><figcaption><p>Add dynamic routing policy based on API property</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/dynamic-routing-properties.png" alt=""><figcaption><p>Add dynamic routing policy based on API property</p></figcaption></figure>
 
 If the ID in the request header matches the key of one of the properties, it is replaced with the URL. The dynamic routing policy then reroutes the API call to the URL.
 
@@ -271,13 +271,13 @@ Note that this order may differ from the order in which policies were placed in 
 
 The Gateway always executes policies interacting with the HTTP header part of the request (onRequest, onResponse) before policies interacting with the body part of the request (onRequestContent, onResponseContent). A policy may appear twice in the timeline if it interacts with both the header and body of the request.
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/design-studio/debug-mode/debug-mode-policy-chain.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/debug-mode-policy-chain.png" alt=""><figcaption></figcaption></figure>
 
 ### **Navigating the timeline**
 
 You can scroll through the list of policies via the timeline. You can also quickly access a specific policy by selecting it in the **quick access** timeline.
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/design-studio/debug-mode/debug-mode-timeline.png" alt=""><figcaption><p>Navigating debug timeline</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/debug-mode-timeline.png" alt=""><figcaption><p>Navigating debug timeline</p></figcaption></figure>
 
 Select **Request Input** or **Request Output** to view the global transformation on the request and the difference between what has been received by the Gateway and what has been sent to the backend.
 

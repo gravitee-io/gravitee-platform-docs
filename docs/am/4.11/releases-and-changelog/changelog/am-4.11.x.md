@@ -64,3 +64,31 @@ AM 4.12 will be the last release to support the `openid` scope client\_credentia
 When an application sign a token, HMAC signature is not used as fallback mechanism anymore if the application certificate is not available. &#x20;
 
 </details>
+
+## Gravitee Access Management 4.11.1 - April 9, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* EnrichAuthContext ignored when session is active [#11301](https://github.com/gravitee-io/issues/issues/11301)
+
+**Management API**
+
+* Improve list domain response time [#11315](https://github.com/gravitee-io/issues/issues/11315)
+
+**Console**
+
+* User History - event names are truncated [#11290](https://github.com/gravitee-io/issues/issues/11290)
+* Audit Logs - Column "Target" is truncated [#11291](https://github.com/gravitee-io/issues/issues/11291)
+
+**Other**
+
+* Force reset password not prompting user to reset password during login [#11298](https://github.com/gravitee-io/issues/issues/11298)
+* Force ordering for application search [#11309](https://github.com/gravitee-io/issues/issues/11309)
+
+</details>
+
+

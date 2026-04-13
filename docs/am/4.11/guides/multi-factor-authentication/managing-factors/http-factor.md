@@ -27,4 +27,4 @@ Our Gravitee MFA HTTP plugin makes that a possibility. With our new Gravitee MFA
 * Bring some customization and offer a better user experience
 * Facilitate solution migration
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-mfa-factor-http.png" alt=""><figcaption><p>HTTP MFA integration</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-mfa-factor-http.png" alt=""><figcaption><p>HTTP MFA integration</p></figcaption></figure>

@@ -31,7 +31,7 @@ In this example, we demonstrate how to deploy a Gravitee Gateway (APIM) in two d
   * A Bridge Gateway
 * A **Gateway cluster** that runs the APIM Gateway.
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/hybrid/hybrid_deployment_k8s.png" alt=""><figcaption><p>Kubernetes hybrid deployment architecture diagram</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/hybrid_deployment_k8s.png" alt=""><figcaption><p>Kubernetes hybrid deployment architecture diagram</p></figcaption></figure>
 
 In this example, the deployment consists of the following components:
 
@@ -48,7 +48,7 @@ In this example, the deployment consists of the following components:
 * Ensure the two GCP clusters exist.
 * Ensure that Helm is installed on the GCP clusters.
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/hybrid/hybrid_k8s_clusters.png" alt=""><figcaption><p>Sample K8 clusters</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/hybrid_k8s_clusters.png" alt=""><figcaption><p>Sample K8 clusters</p></figcaption></figure>
 
 {% hint style="warning" %}
 The following hybrid architecture example uses these names:
@@ -187,7 +187,7 @@ The file shows the following elements:
 * You enabled the bridge service for the Gateway.
 * Declared a new ingress to expose it to remote clusters.
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/hybrid/hybrid_deployment_ingress.png" alt=""><figcaption><p>APIM management cluster</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/hybrid_deployment_ingress.png" alt=""><figcaption><p>APIM management cluster</p></figcaption></figure>
 
 ### Deploy the Gateway cluster
 
@@ -267,7 +267,7 @@ portal:
 * You have disabled all the management components to prevent their deployment.
 * You have enabled `http` management mode for the gateway, and you use this link to mount all the required information in the Gateway to process API calls.
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/hybrid/hybrid_deployment_http.png" alt=""><figcaption><p>APIM gatewaye cluster</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/hybrid_deployment_http.png" alt=""><figcaption><p>APIM gatewaye cluster</p></figcaption></figure>
 
 ### Verification
 
@@ -288,7 +288,7 @@ Examine the Gateway pod logs. You should see an output like this example:
 
 Open the Management Console. You should see two gateways.
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/hybrid/hybrid_deployment_gateways.png" alt=""><figcaption><p>Hybrid K8 deployment</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/hybrid_deployment_gateways.png" alt=""><figcaption><p>Hybrid K8 deployment</p></figcaption></figure>
 
 {% hint style="info" %}
 **Additional assets**

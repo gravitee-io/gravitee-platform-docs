@@ -11,7 +11,7 @@ description: Configuration guide for Manage users.
 1. Log in to AM Console.
 2.  Search for users by clicking **Settings > Users** and entering the username in the search field.
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-um-search-users.png" alt=""><figcaption><p>Search for users</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/graviteeio-am-userguide-um-search-users.png" alt=""><figcaption><p>Search for users</p></figcaption></figure>
 
 You can also list users with the AM API `/users` endpoint.
 
@@ -168,24 +168,24 @@ You create users in a security domain.
 
 1. Log in to AM Console.
 2. Click **Settings > Users**.
-3. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
+3. Click the plus icon ![plus icon](../../.gitbook/assets/plus-icon.png).
 4. Give your user a **First name**, a **Last name**, an **Email** and a **Username** and click **SAVE**.
 5. (Optional) You can also add/modify specific attributes relating to the user. This user metadata will be available in the user’s profile.
 6.  You will be redirected to the created user’s page.
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-um-create-user.png" alt=""><figcaption><p>New user creation page</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/graviteeio-am-userguide-um-create-user.png" alt=""><figcaption><p>New user creation page</p></figcaption></figure>
 
 {% hint style="info" %}
 You can choose to enable `Pre-Registration`, to allow users to finish registering their own account. An email will be sent to the user with instructions.
 {% endhint %}
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-um-pre-registration-mail.png" alt=""><figcaption><p>New user registration email</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-um-pre-registration-mail.png" alt=""><figcaption><p>New user registration email</p></figcaption></figure>
 
 ### Update the username
 
 You can update the username of your user. Updating the username is only available via the console and the management-api.
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-um-user-update-usename.png" alt=""><figcaption><p>Update username</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-um-user-update-usename.png" alt=""><figcaption><p>Update username</p></figcaption></figure>
 
 1. Log in to AM Console.
 2. Click **Settings > Users**
@@ -205,8 +205,8 @@ You can assign roles directly from the user profile, or from the identity provid
 If you are using both user roles and the identity provider role mapper feature, the two roles will be in two different places, you can see the different roles in **Settings > Users > "Your User" > Roles**.
 {% endhint %}
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-um-user-assigned-dynamic-roles.png" alt=""><figcaption><p>User roles overview</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-um-user-assigned-dynamic-roles.png" alt=""><figcaption><p>User roles overview</p></figcaption></figure>
 
 By default, users are stored in the pre-defined `Default Identity Provider`, which is available by default for each security domain. You can apply role mapping to your users.
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-um-user-role-mapping.png" alt=""><figcaption><p>Default IdP</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-um-user-role-mapping.png" alt=""><figcaption><p>Default IdP</p></figcaption></figure>

@@ -32,13 +32,13 @@ The legacy execution engine requires execution scopes to indicate the level at w
 
 Execution of all policies working on the body content are postponed until the policies working on headers have been executed. This leads to an execution order that is often different than the one originally designed.
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/event-native/event-native-api-management-execution-scopes-1.png" alt=""><figcaption><p>Legacy engine execution order</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/event-native-api-management-execution-scopes-1.png" alt=""><figcaption><p>Legacy engine execution order</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Reactive engine improvements" %}
 The reactive execution engine does not consider the `REQUEST_CONTENT` and `RESPONSE_CONTENT` phases. All policies are executed in the exact order of the design, regardless of whether they work on the content or not.
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/event-native/event-native-api-management-execution-scopes-2.png" alt=""><figcaption><p>Reactive engine execution order</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/event-native-api-management-execution-scopes-2.png" alt=""><figcaption><p>Reactive engine execution order</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -136,13 +136,13 @@ When using the legacy execution engine, a condition can be defined once for the 
 
 For example, a condition could be defined based on a request header that is removed during the `REQUEST` phase (e.g., the user does not want the request header to be transmitted to the backend). The condition is then re-evaluated and the `RESPONSE` phase is skipped completely, as shown below:
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/event-native/event-native-api-management-flow-condition-1.png" alt=""><figcaption><p>Partial flow execution example</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/event-native-api-management-flow-condition-1.png" alt=""><figcaption><p>Partial flow execution example</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Reactive engine improvements" %}
 When using the reactive execution engine, the flow condition will be applied once for the whole flow. If the condition is evaluated as `true`, then both the `REQUEST` and the `RESPONSE` phases will be executed, as shown below:
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/event-native/event-native-api-management-flow-condition-2.png" alt=""><figcaption><p>Reactive execution engine flow condition improvements</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/event-native-api-management-flow-condition-2.png" alt=""><figcaption><p>Reactive execution engine flow condition improvements</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -175,7 +175,7 @@ The legacy execution engine presents logging issues:
 * A `502` status code normally indicates that the server has responded with a `502` status code, but `502` is also returned for connection failures
 * Consumer response headers are not displayed clearly
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/event-native/event-native-api-management-logging-1.png" alt=""><figcaption><p>Sample 502 log with the legacy execution engine</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/event-native-api-management-logging-1.png" alt=""><figcaption><p>Sample 502 log with the legacy execution engine</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Reactive engine improvements" %}
@@ -184,7 +184,7 @@ The reactive execution engine implements the following improvements:
 * When a connectivity error occurs during a connection attempt to the backend endpoint, the Gateway response displays an HTTP status code `0` and no headers. This clarifies that no response has been received from the backend endpoint due to the connectivity error.
 * Consumer response headers are displayed more clearly
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/event-native/event-native-api-management-logging-2.png" alt=""><figcaption><p>Sample 502 log with the reactive execution engine</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/event-native-api-management-logging-2.png" alt=""><figcaption><p>Sample 502 log with the reactive execution engine</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -196,19 +196,19 @@ The reactive execution engine implements the following improvements:
 {% tab title="Legacy engine behavior" %}
 The Gateway returns a `500` error with an obscure message when the legacy execution engine fails to evaluate a valid Gravitee Expression Language (EL) expression because it is trying to access missing data.
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/event-native/event-native-api-management-condition-evaluation-1.png" alt=""><figcaption><p>Sample EL condition evaluation error with legacy engine</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/event-native-api-management-condition-evaluation-1.png" alt=""><figcaption><p>Sample EL condition evaluation error with legacy engine</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Reactive engine improvements" %}
 The reactive execution engine executes a policy (or flow) when a valid EL expression evaluates as `true`. Otherwise, the policy is skipped because the EL expression evaluates as `false`.
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/event-native/event-native-api-management-condition-evaluation-2.png" alt=""><figcaption><p>Sample EL condition skipping behavior with reactive engine</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/event-native-api-management-condition-evaluation-2.png" alt=""><figcaption><p>Sample EL condition skipping behavior with reactive engine</p></figcaption></figure>
 
 The reactive execution engine ensures EL expressions that attempt to access missing data are evaluated as `false`. For example, `{#request.headers['X-Test'][0] == 'something'}` will skip execution even if the request header `X-Test` is not specified.
 
 The execution will fail and throw an error if the provided EL expression cannot be parsed, e.g., if it is syntactically invalid. The error message details why the EL expression cannot be parsed.
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/event-native/event-native-api-management-condition-evaluation-3.png" alt=""><figcaption><p>Sample EL condition error with reactive engine</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/event-native-api-management-condition-evaluation-3.png" alt=""><figcaption><p>Sample EL condition error with reactive engine</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -286,7 +286,7 @@ When using the legacy execution engine, you can configure Cross-Origin Resource 
 {% tab title="Reactive engine improvements" %}
 When using the reactive execution engine, the allowed origin(s) you specify is returned instead of `*`. For example, in the configuration shown below, `Access-Control-Allowed-Origin: https://test.gravitee.io`.
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/event-native/event-native-api-management-cors.png" alt=""><figcaption><p>Sample CORS configuration</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/event-native-api-management-cors.png" alt=""><figcaption><p>Sample CORS configuration</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -332,4 +332,4 @@ The example below shows timelines indicating when a timeout should occur dependi
 * There is no timeout defined for the backend in the API’s endpoint configuration (real timeout values should be shorter than `http.requestTimeout` and should interrupt the flow at the invoker level)
 * `http.requestTimeout=2000ms` and `http.requestTimeoutGraceDelay=30ms`
 
-<div align="left"><figure><img src="https://docs.gravitee.io/images/apim/3.x/event-native/event-native-api-management-timeout.png" alt="" width="375"><figcaption><p>Reactive engine timeout management</p></figcaption></figure></div>
+<div align="left"><figure><img src="../../../.gitbook/assets/event-native-api-management-timeout.png" alt="" width="375"><figcaption><p>Reactive engine timeout management</p></figcaption></figure></div>

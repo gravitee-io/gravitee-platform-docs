@@ -413,7 +413,7 @@ notifiers:
     enabled: true
 ```
 
-![graviteeio am installationguide certificates ui](https://docs.gravitee.io/images/am/current/graviteeio-am-installationguide-certificates-ui.png)
+![graviteeio am installationguide certificates ui](../../../.gitbook/assets/graviteeio-am-installationguide-certificates-ui.png)
 
 ## Configure load balancing
 
