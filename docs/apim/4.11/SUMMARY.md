@@ -277,6 +277,7 @@
   * [Subscriptions](secure-and-expose-apis/subscriptions/README.md)
     * [Creating and managing subscription forms](secure-and-expose-apis/subscriptions/creating-and-managing-subscription-forms.md)
     * [Subscription form feature overview](secure-and-expose-apis/subscriptions/subscription-form-feature-overview.md)
+    * [Subscription form field attributes and validation constraints reference](secure-and-expose-apis/subscriptions/subscription-form-field-attributes-and-validation-constraints-reference.md)
     * [Subscription Requests](secure-and-expose-apis/subscriptions/subscription-requests.md)
     * [Manage Subscriptions](secure-and-expose-apis/subscriptions/manage-subscriptions.md)
     * [Transfer Subscriptions](secure-and-expose-apis/subscriptions/transfer-subscriptions.md)
