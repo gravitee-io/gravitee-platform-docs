@@ -37,13 +37,13 @@ You can view the following metrics for your V4 APIs:
 
 *   **HTTP Statuses.** This graph shows the number of each HTTP status returned by the Gateway.<br>
 
-    <figure><img src="../../.gitbook/assets/image (73).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analytics-dashboards-v4-api-analyti-73.png" alt=""><figcaption></figcaption></figure>
 *   **Response time**. This graph shows the average response time of the endpoint and the Gateway.<br>
 
-    <figure><img src="../../.gitbook/assets/image (74).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analytics-dashboards-v4-api-analyti-74.png" alt=""><figcaption></figcaption></figure>
 *   **Response Statuses.** This graph shows the number of response statuses over a period of time.<br>
 
-    <figure><img src="../../.gitbook/assets/image (75).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analytics-dashboards-v4-api-analyti-75.png" alt=""><figcaption></figcaption></figure>
 *   **Top 5 Applications**. This graph shows the top five applications by HTTP requests.<br>
 
-    <figure><img src="../../.gitbook/assets/image (76).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analytics-dashboards-v4-api-analyti-76.png" alt=""><figcaption></figcaption></figure>

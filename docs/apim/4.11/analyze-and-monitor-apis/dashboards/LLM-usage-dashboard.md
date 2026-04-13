@@ -45,7 +45,7 @@ To configure the LLM Dashboard, the user must have the following permissions:
 5. (Optional) Change the name of the dashboard and the labels for the dashboard. To change the name of the dashboard and the labels for the dashboard, complete the following sub-steps:&#x20;
    1.  Click **Dashboard options**, and then click **Edit**. <br>
 
-       <figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../../.gitbook/assets/analytics-dashboards-llm-usage-dash-5.png" alt=""><figcaption></figcaption></figure>
    2. In the **Edit dashboard** pop-up window, navigate to the **Name** field, and then enter a new name for your dashboard.&#x20;
    3. To add a new label for your dashboard, click **+ Add label**, and then enter the key-value pair.&#x20;
    4.  To delete a label, click the **X** next the key-value pair that you want to delete.&#x20;

@@ -282,7 +282,7 @@ org.apache.kafka.common.security.plain.PlainLoginModule required username='$Conn
 
 * The value of the connection string can be found by navigating to Settings > Shared access policies in the Azure UI, and clicking on the policy to get the information for that policy. Then, select the entry entitled `Connection string-primary key`.
 
-<figure><img src="../../../.gitbook/assets/image (138).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/config-apis-v4-config-endpoints-kaf-138.png" alt=""><figcaption></figcaption></figure>
 
 * The bootstrap server name is in the format:
 
