@@ -7,7 +7,7 @@ Catalog allows consumers to discover APIs published in the New Developer Portal.
 ## Prerequisites
 
 * Enable the New Developer Portal. For more information about enabling the New Developer Portal, see [configure-the-new-portal.md](configure-the-new-portal.md "mention").
-* Publish APIs. For more information about how to publish APIs in the New Developer Portal, see [Add an API](customize-the-navigation.md#add-an-api).
+* Publish APIs. For more information about how to publish APIs in the New Developer Portal, see [#add-an-api](customize-the-navigation.md#add-an-api "mention").
 
 ## Display APIs in the Catalog
 
