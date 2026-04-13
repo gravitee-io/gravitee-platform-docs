@@ -24,7 +24,7 @@ Head to the Gravitee APIM Console, open the Integrations section in the left men
 
 Once you've created the integration, copy the integration ID that will be visible on the integration overview tab, you'll use this later:
 
-<figure><img src="../../../.gitbook/assets/image (121).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/governance-federation-apigee-x-121.png" alt=""><figcaption></figcaption></figure>
 
 ## 2. Configure the Apigee X federation agent
 
@@ -38,7 +38,7 @@ The Apigee X federation agent will need the following configuration parameters i
 
 To find the ID of the Google Cloud project you want to work with, you can head to the GCP console and open the Project drop down in the header bar. In there, you should be able to find your desired project's ID:
 
-<figure><img src="../../../.gitbook/assets/image (122).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/governance-federation-apigee-x-122.png" alt=""><figcaption></figcaption></figure>
 
 ### Create a GCP service account key for the agent
 

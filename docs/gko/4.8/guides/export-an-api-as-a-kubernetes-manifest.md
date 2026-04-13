@@ -15,7 +15,7 @@ Export can be done through the UI, or using the Management API (which is very pr
 
 In the Gravitee API Management Console, go to the overview of any v2 or v4 API and click the **Export** button to view the available export options.
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/guide-export-an-api-as-a-kubernetes-2.png" alt=""><figcaption></figcaption></figure>
 
 In the modal that opens, select the **CRD API Definition** tab and click the **Export** button.
 

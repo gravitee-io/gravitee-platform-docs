@@ -320,7 +320,7 @@ The definition does not contain a clear text secret. This definition is saved, a
 
 Here is an example of how to reference a secret when you configure a Redis Cache resource:
 
-<figure><img src="../../../.gitbook/assets/image (142).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/prod-env-secrets-reference-secrets--142.png" alt=""><figcaption></figcaption></figure>
 
 ### Native Kafka endpoint API example
 

@@ -85,13 +85,13 @@ You see both Gateway configurations in the **Gravitee Hosted Gateways** section,
 
 The Gateway or Gateways appear in the **Gateways** section of the **Dashboard**.
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/guide-gravitee-hosted-gateways-read-3.png" alt=""><figcaption></figcaption></figure>
 
 ## View the details of a Gateway
 
 *   To the view the details of a Gateway, click the Gateway name to see the Gateway details. 
 
-    <figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/guide-gravitee-hosted-gateways-read-2.png" alt=""><figcaption></figcaption></figure>
 
 ### Gateway Domains
 

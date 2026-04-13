@@ -93,7 +93,7 @@ Since AM 4.4.0, certificates section can manage client certificate for Mutual TL
 System certificates can't be used for mTLS authentication as they are self signed certificates generated internally by Access Management.
 {% endhint %}
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>Enable mTLS usage to be able to use a certificate to secure backend connections</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/guide-certificates-0.png" alt=""><figcaption><p>Enable mTLS usage to be able to use a certificate to secure backend connections</p></figcaption></figure>
 
 ### Custom certificates
 

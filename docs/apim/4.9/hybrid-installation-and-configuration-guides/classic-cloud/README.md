@@ -60,6 +60,6 @@ The following table lists the Bridge versions supported by each Gateway version.
 
 ## Architecture
 
-<figure><img src="../../.gitbook/assets/image (25).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/hybrid-classic-cloud-readme-25.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (26).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/hybrid-classic-cloud-readme-26.png" alt=""><figcaption></figcaption></figure>

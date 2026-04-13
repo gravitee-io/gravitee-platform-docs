@@ -207,7 +207,7 @@ For example, to configure Gravitee API Manager to apply the “internal test” 
 1) From the **Sharding tags** drop-down menu, select the sharding tags that you want to map to the entrypoint.
 2)  In the **Entrypoint url** field, enter your entrypoint URL.
 
-    <figure><img src="../../.gitbook/assets/image (58).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/platform-gateway-sharding-tags-58.png" alt=""><figcaption></figcaption></figure>
 3) Click **Ok.**
 {% endtab %}
 
@@ -224,7 +224,7 @@ For example, to configure Gravitee API Manager to apply the “internal test” 
 2. In the **Default Kafka domain** field, type your Default Kafka domain.
 3.  In the **Default Kafka port** field, type your default Kafka port.
 
-    <figure><img src="../../.gitbook/assets/image (59).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/platform-gateway-sharding-tags-59.png" alt=""><figcaption></figcaption></figure>
 4. Click **Ok**.
 {% endtab %}
 {% endtabs %}

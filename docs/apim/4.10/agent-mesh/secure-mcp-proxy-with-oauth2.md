@@ -125,14 +125,14 @@ The API appears in your API management console with your configuration.<br>
    5. **Client Secret:** Enter your Client secret.
 4.  Click **Create.**
 
-    <figure><img src="../.gitbook/assets/image (160).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/agent-mesh-secure-mcp-proxy-with-oa-160.png" alt=""><figcaption></figcaption></figure>
 5. In the **copy your client secret** pop-up box, copy the **Client Secret** and store the credentials securely.&#x20;
 
 {% hint style="danger" %}
 The Client Secret is displayed only once. Copy and store it securely before closing the pop-up box.&#x20;
 {% endhint %}
 
-<figure><img src="../.gitbook/assets/image (161).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/agent-mesh-secure-mcp-proxy-with-oa-161.png" alt=""><figcaption></figcaption></figure>
 
 ## Enable Dynamic Client Registration in AM
 
@@ -172,7 +172,7 @@ Complete the following steps to enable user registration:
 
 1.  In the AM Console, navigate to **Settings**<br>
 
-    <figure><img src="../.gitbook/assets/image (162).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/agent-mesh-secure-mcp-proxy-with-oa-162.png" alt=""><figcaption></figcaption></figure>
 2.  Click **Login**.
 
     <figure><img src="../.gitbook/assets/click-login-am-settings.png" alt=""><figcaption></figcaption></figure>
@@ -282,7 +282,7 @@ Verify your configuration in both the APIM Console and AM Console.
     <figure><img src="../.gitbook/assets/auth2-consumers-publichsed.png" alt=""><figcaption></figcaption></figure>
 3.  Click **Deployments** and confirm the latest deployment is successful and in use.&#x20;
 
-    <figure><img src="../.gitbook/assets/image (163).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/agent-mesh-secure-mcp-proxy-with-oa-163.png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="AM Console" %}

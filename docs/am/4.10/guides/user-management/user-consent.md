@@ -18,7 +18,7 @@ You can view a list of applications for which each user has provided consent. To
 2. Click **Settings > Users**.
 3. Select the user and in the **Authorized Apps** tab, revoke the application.
 
-<figure><img src="../../../4.10/.gitbook/assets/image (150).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/guide-user-management-user-consent-150.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 Revoking consent can also be done via the [AM Management API](../../reference/am-api-reference.md).

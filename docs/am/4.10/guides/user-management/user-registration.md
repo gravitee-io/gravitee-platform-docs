@@ -9,7 +9,7 @@ AM comes with a basic user registration feature.
 1. Log in to AM Console.
 2. Click **Settings > Login** and toggle on the **User registration** switch.
 
-<figure><img src="../../../4.10/.gitbook/assets/image (146).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/guide-user-management-user-registra-146.png" alt=""><figcaption></figcaption></figure>
 
 A new `Register` link will be available on the login form.
 
