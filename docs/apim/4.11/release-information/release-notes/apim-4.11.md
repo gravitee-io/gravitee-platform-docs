@@ -170,6 +170,17 @@ Existing A2A proxy APIs continue to work but they are no longer supported.
 * Administrators select models based on accuracy requirements, resource constraints, and language coverage, with configurable classification thresholds per model type.
 * Models are sourced from HuggingFace repositories and require sufficient memory and compute resources (model sizes range from 4.39M to 100M+ parameters).
 
+
+<!-- PIPELINE:APIM-13342 -->
+#### **mTLS Certificate Management for Applications**
+
+* Application owners can now upload, rotate, and manage client certificates for mutual TLS authentication directly in the New Developer Portal.
+* Certificates support scheduled activation dates and configurable grace periods during rotation to prevent downtime when transitioning between certificates.
+* Administrators control feature availability via the `portal.next.mtls.enabled` configuration property, which defaults to disabled.
+* Requires `APPLICATION_DEFINITION[READ]` permission to view certificates and `APPLICATION_DEFINITION[UPDATE]` permission to manage them.
+* Certificates must be uploaded in PEM format with `.pem`, `.crt`, or `.cer` file extensions.
+<!-- /PIPELINE:APIM-13342 -->
+
 ## Improvements
 
 #### **Context-aware logging infrastructure**
