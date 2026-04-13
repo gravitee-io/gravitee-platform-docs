@@ -1,0 +1,61 @@
+name: auto-rename-generic-images
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'docs/**/.gitbook/assets/**'
+
+jobs:
+  rename:
+    # Skip if this push was the auto-rename bot itself
+    if: "!contains(github.event.head_commit.message, '[auto-rename]')"
+    runs-on: ubuntu-latest
+
+    concurrency:
+      group: auto-rename-images
+      cancel-in-progress: false
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check for generic images
+        id: check
+        run: |
+          # Fast check using the same regex as the rename script
+          COUNT=$(python3 -c "
+          import os, re
+          p = re.compile(r'^image(?:(?:\s|%20)*\(\d+\))*(?:-\d+)?\.(?:png|jpg|jpeg|gif|svg|webp)$', re.I)
+          print(sum(1 for dp,_,fn in os.walk('docs') if dp.endswith('/.gitbook/assets') for f in fn if p.match(f)))
+          ")
+          echo "count=$COUNT" >> "$GITHUB_OUTPUT"
+          if [ "$COUNT" -eq 0 ]; then
+            echo "✅ No generic images found."
+          else
+            echo "⚠️ Found $COUNT generic image file(s). Will rename."
+          fi
+
+      - name: Rename generic images
+        if: steps.check.outputs.count != '0'
+        run: python3 .github/scripts/auto-rename-images.py
+
+      - name: Commit and push
+        if: steps.check.outputs.count != '0'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/
+          # Only commit if there are actual changes
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "fix: auto-rename generic images to descriptive names [auto-rename]"
+            git push
+          fi
