@@ -574,7 +574,7 @@ To configure your OAuth2 plan, select OAuth2 from the **+Add plan** drop-down me
 * **Subscription:** choose whether to auto-validate subscriptions, require a message from a consumer during subscription, and/or present a message to the consumer upon subscription.
 * **Access control:** select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../../administration/user-management-and-permissions.md#users-and-user-groups).
 
-<img src="../../../../.gitbook/assets/image (92).png" alt="" data-size="original">
+<img src="../../../../.gitbook/assets/using-the-product-managing-your-api-92.png" alt="" data-size="original">
 
 Select Next to move on to **OAuth2 authentication configuration**. Here, you'll specify:
 
@@ -586,7 +586,7 @@ Select Next to move on to **OAuth2 authentication configuration**. Here, you'll 
 * Whether to permit authorization headers to target endpoints.
 * (Optional) Define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process. You will need to use the Gravitee Expression Language. For more information on the Gravitee Expression Language, please refer to the Expression Language documentation.
 
-<img src="../../../../.gitbook/assets/image (97).png" alt="" data-size="original">
+<img src="../../../../.gitbook/assets/using-the-product-managing-your-api-97.png" alt="" data-size="original">
 
 Select Next to define any additional restrictions for the plan. These restrictions include:
 
@@ -599,7 +599,7 @@ Select Next to define any additional restrictions for the plan. These restrictio
 * **Quota:** define a rate limit over a period of hours, days, or months. If you choose this, you will need to define the same settings that are applicable to rate limiting (see above).
 * **Resource filtering:** restricts resources based on defined whitelist/allowed and/or blacklist/disallowed settings. These will be defined by path patterns and methods.
 
-<img src="../../../../.gitbook/assets/image (98).png" alt="" data-size="original">
+<img src="../../../../.gitbook/assets/using-the-product-managing-your-api-98.png" alt="" data-size="original">
 
 </details>
 
@@ -644,7 +644,7 @@ Select Next to define any restrictions associated with this plan. Your options i
 * **Quota:** define a rate limit over a period of hours, days, or months. If you choose this, you will need to define the same settings that are applicable to rate limiting (see above).
 * **Resource filtering:** restricts resources based on defined whitelist/allowed and/or blacklist/disallowed settings. These will be defined by path patterns and methods.
 
-<img src="../../../../.gitbook/assets/image (98).png" alt="" data-size="original">
+<img src="../../../../.gitbook/assets/using-the-product-managing-your-api-98.png" alt="" data-size="original">
 
 </details>
 

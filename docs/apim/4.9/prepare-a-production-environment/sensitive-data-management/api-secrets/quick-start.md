@@ -118,30 +118,30 @@ Create an API with a fake sensitive that you secure after we make sure everythin
     <figure><img src="../../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 7.  Select **HTTP Proxy**, and then click **Select my entrypoints**.
 
-    <figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/prod-env-secrets-quick-start-8.png" alt=""><figcaption></figcaption></figure>
 8. In the **context-path** field, type a context path. For example, `/test/secrets/echo` .
 9.  Click **Validate my entrypoints**.
 
-    <figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/prod-env-secrets-quick-start-9.png" alt=""><figcaption></figcaption></figure>
 10. In the **Configure your API endpoints access**, complete the following sub-steps:
     1.  In the **Target url** field, set the target URL to `https://api.gravitee.io/echo` .
 
-        <figure><img src="../../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+        <figure><img src="../../../.gitbook/assets/prod-env-secrets-quick-start-10.png" alt=""><figcaption></figcaption></figure>
     2.  In HTTP Headers section, add the following values:
 
         * KEY: `Authorization`
         * VALUE: `ApiKey 123456789`
 
-        <figure><img src="../../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+        <figure><img src="../../../.gitbook/assets/prod-env-secrets-quick-start-11.png" alt=""><figcaption></figcaption></figure>
 11. Click **Validate my endpoints**.
 
-    <figure><img src="../../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/prod-env-secrets-quick-start-12.png" alt=""><figcaption></figcaption></figure>
 12. Click V**alidate my plans**.
 
-    <figure><img src="../../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/prod-env-secrets-quick-start-13.png" alt=""><figcaption></figcaption></figure>
 13. Click **Save & Deploy API**.
 
-    <figure><img src="../../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/prod-env-secrets-quick-start-14.png" alt=""><figcaption></figcaption></figure>
 
 ### Test the API
 
@@ -215,7 +215,7 @@ If you export your API, you see the Authorization header as part of the definiti
     <figure><img src="../../../.gitbook/assets/5DF13AD2-0BEC-4D40-9D2E-33BFED89E109.jpeg" alt=""><figcaption></figcaption></figure>
 3.  Click the **Configuration** tab, and then navigate to **HTTP Headers**.
 
-    <figure><img src="../../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/prod-env-secrets-quick-start-15.png" alt=""><figcaption></figcaption></figure>
 4. In the **VALUE** field, replace `ApiKey 123465798` with `ApiKey{#secrets.get('/vault/secret/gravitee/apikeys:username')}` .
 5.  In the **You have unsaved changes** pop-up window, click **Save.**
 

@@ -21,13 +21,13 @@ You can connect a Gateway to your private network with either of the following m
 
 1.  From the **Dashboard**, click **Settings**. <br>
 
-    <figure><img src="../../.gitbook/assets/image (29).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/guide-establish-private-networks-wi-29.png" alt=""><figcaption></figcaption></figure>
 2.  From the **Settings** menu, click **Private Networks**.<br>
 
-    <figure><img src="../../.gitbook/assets/image (30).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/guide-establish-private-networks-wi-30.png" alt=""><figcaption></figcaption></figure>
 3.  Click the **name of the private network** that you want to add a Gateway to.<br>
 
-    <figure><img src="../../.gitbook/assets/image (32).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/guide-establish-private-networks-wi-32.png" alt=""><figcaption></figcaption></figure>
 4. Navigate to the **Associated Gateways** section.
 5.  Type the name of the Gateway, and then click the name of the Gateway from the list. <br>
 
@@ -61,7 +61,7 @@ The Gateway appears in the list of the Associated Gateways.<br>
 
 The **Connect** button changes to a **Disconnect** button.
 
-<figure><img src="../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/guide-establish-private-networks-wi-15.png" alt=""><figcaption></figcaption></figure>
 
 ## Next steps&#x20;
 

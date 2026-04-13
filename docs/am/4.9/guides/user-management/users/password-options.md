@@ -26,4 +26,4 @@ Imagine the same scenario as above, you want to create thousands of users enable
 
 For this purpose, Access Management offers the feature pre-registration. If you set Enable pre-registration to true, then you as an admin will not be required to set a password for the user. Instead the user will receive a registration email to the email defined in the user profile. When the user clicks on this email, they will be taken to Access Management where they will be asked to set their password.
 
-<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption><p>A user profile where Enable pre-registration is enabled. This means that the user will receive an email with a link that will allow the user to set their first password.</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/guide-user-management-users-passwor-8.png" alt=""><figcaption><p>A user profile where Enable pre-registration is enabled. This means that the user will receive an email with a link that will allow the user to set their first password.</p></figcaption></figure>

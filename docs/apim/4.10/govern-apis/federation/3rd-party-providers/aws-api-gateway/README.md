@@ -143,7 +143,7 @@ You can deploy the AWS API Gateway federation agent using either of the followin
 
 1.  In the Gravitee API Management console, after refreshing, you should now see the agent's status set to `Connected`.<br>
 
-    <figure><img src="../../../../.gitbook/assets/image (48).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/govern-federation-aws-api-gateway-r-48.png" alt=""><figcaption></figcaption></figure>
 2. (Optional) If the Agent Connection shows as `Disconnected`, inspect the agent container logs for error messages.
 
 ### Helm <a href="#helm" id="helm"></a>
@@ -399,7 +399,7 @@ If your APIM management API uses certificates that require a custom truststore, 
     ```
 2.  Return to the Gravitee API Management console, refresh the page, and verify that the agent's status is set to Connected:
 
-    <figure><img src="../../../../.gitbook/assets/image (48).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/govern-federation-aws-api-gateway-r-48.png" alt=""><figcaption></figcaption></figure>
 
 ## Minimum AWS permissions required by the agent
 

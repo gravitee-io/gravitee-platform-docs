@@ -77,14 +77,14 @@ When you add a page that is not in a folder, the page appears as a root level me
 4.  Click **Add**.\
     Here we need to mention that now we can add 2 types of pages Gravitee markdown and OpenAPI. here are the screenshots:
 
-    <figure><img src="../../.gitbook/assets/image (251).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--251.png" alt=""><figcaption></figcaption></figure>
 
-    <figure><img src="../../.gitbook/assets/image (252).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--252.png" alt=""><figcaption></figcaption></figure>
 5. Customize your page. The page contains default content that you can use to customize your new page with unique content. For more information about customizing your page with Gravitee Markdown, see [gravitee-markdown-components.md](gravitee-markdown-components.md "mention")
 
 Open API example content:
 
-<figure><img src="../../.gitbook/assets/image (253).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--253.png" alt=""><figcaption></figcaption></figure>
 
 6. Publish the page by completing either of the following steps:
 
@@ -125,7 +125,7 @@ Folders group related pages together. A folder is a section on your New Develope
 
     *   Click **Publish**.<br>
 
-        <figure><img src="../../.gitbook/assets/image (89).png" alt=""><figcaption></figcaption></figure>
+        <figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--89.png" alt=""><figcaption></figcaption></figure>
     *   Navigate to the folder in the navigation bar, click the **ellipses**, and then click **Publish**.<br>
 
         <figure><img src="../../.gitbook/assets/FAD5D2FB-4EEE-49B7-8081-F790D1AE0EC4_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
@@ -137,7 +137,7 @@ Folders group related pages together. A folder is a section on your New Develope
 
 Unpublishing now works by cascade: all navigation items within a folder are unpublished with their parent.
 
-<figure><img src="../../.gitbook/assets/image (254).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--254.png" alt=""><figcaption></figcaption></figure>
 
 ### Add a page to a folder
 
@@ -171,7 +171,7 @@ When you add a link, the link appears as a root level menu item. When you publis
 
     *   Click **Publish**.<br>
 
-        <figure><img src="../../.gitbook/assets/image (90).png" alt=""><figcaption></figcaption></figure>
+        <figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--90.png" alt=""><figcaption></figcaption></figure>
     *   Navigate to link in the navigation bar, click the **ellipses**, and then click **Publish**.<br>
 
         <figure><img src="../../.gitbook/assets/D897DBD4-B160-4F29-ACD8-14E5D0959CF5_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
@@ -200,13 +200,13 @@ However, there are some limitations of APIs compared to folders:
 
 1. Open the context menu of a folder in which you want to add your API by clicking the **ellipses**, and then click **Add API**.&#x20;
 
-<figure><img src="../../.gitbook/assets/image (255).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--255.png" alt=""><figcaption></figcaption></figure>
 
 2. An **API selection dialog** opens up where you can select APIs to be added.
 3. (Optional) Turn on the **Authentication is required to view selected APIs** toggle. This ensures that the user has to sign in to the New Developer Portal to view the APIs.&#x20;
 4. Click **Add**.
 
-<figure><img src="../../.gitbook/assets/image (257).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--257.png" alt=""><figcaption></figcaption></figure>
 
 5. Publish the API. To publish the API, complete either of the following steps:
 
@@ -214,15 +214,15 @@ However, there are some limitations of APIs compared to folders:
 
 * Click **Publish**.
 
-<figure><img src="../../.gitbook/assets/image (245).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--245.png" alt=""><figcaption></figcaption></figure>
 
 * Navigate to the folder in the navigation bar, click the **ellipses**, and then click **Publish**.
 
-<figure><img src="../../.gitbook/assets/image (246).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--246.png" alt=""><figcaption></figcaption></figure>
 
 6. In the **Publish API** pop-up box, click **Publish**.
 
-<figure><img src="../../.gitbook/assets/image (247).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--247.png" alt=""><figcaption></figcaption></figure>
 
 ### Add a page to an API
 
@@ -248,8 +248,8 @@ The content appears on the New Developer Portal. To view the content, complete t
 
 Click **Open website**.&#x20;
 
-<figure><img src="../../.gitbook/assets/image (249).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--249.png" alt=""><figcaption></figcaption></figure>
 
 The new root-level items appear in the navigation bar.
 
-<figure><img src="../../.gitbook/assets/image (250).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--250.png" alt=""><figcaption></figcaption></figure>

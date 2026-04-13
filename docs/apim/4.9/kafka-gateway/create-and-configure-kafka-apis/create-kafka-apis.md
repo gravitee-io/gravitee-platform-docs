@@ -26,7 +26,7 @@ The API definitions for Kafka APIs can be generated using the APIM Console's API
 
 The API creation wizard comprises several steps, each of which requires you to define certain sets of information.
 
-<figure><img src="../../.gitbook/assets/image (138).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/kafka-gw-kafka-apis-create-kafka-ap-138.png" alt=""><figcaption></figcaption></figure>
 
 ## API details
 

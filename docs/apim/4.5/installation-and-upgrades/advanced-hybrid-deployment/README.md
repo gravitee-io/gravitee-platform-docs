@@ -35,7 +35,7 @@ The Gravitee Gateway needs the following two components:
 
 ![Hybrid deployment architecture](../../.gitbook/assets/file.excalidraw%20(4)%20(1).svg)
 
-<figure><img src="../../.gitbook/assets/image (134).png" alt="Diagram showing the hybrid architecture"><figcaption><p>Hybrid architecture connections</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/installation-and-upgrades-advanced--134.png" alt="Diagram showing the hybrid architecture"><figcaption><p>Hybrid architecture connections</p></figcaption></figure>
 
 ## Installing your Self-Hosted Hybrid Gateway <a href="#installation" id="installation"></a>
 

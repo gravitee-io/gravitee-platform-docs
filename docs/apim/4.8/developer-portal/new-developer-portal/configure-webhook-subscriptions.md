@@ -16,7 +16,7 @@ This feature is in tech preview.
 
 1.  From the Developer Portal's catalog, navigate to the webhook that you want to configure.
 
-    <figure><img src="../../.gitbook/assets/image (299).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/devportal-new-portal-configure-webh-299.png" alt=""><figcaption></figcaption></figure>
 2.  Click **Learn More**.
 
     <figure><img src="../../.gitbook/assets/805EA5C8-A387-48A8-962F-8BAF3149889F.jpeg" alt=""><figcaption></figcaption></figure>
@@ -38,7 +38,7 @@ This feature is in tech preview.
     5. From the **Security configuration** drop-down menu, select the configuration to connect to the callback URL. The default is **No security**.
     6. (Optional) In the **SSL** section, enable **Verify host** and **Trust all**.
 
-    <figure><img src="../../.gitbook/assets/image (300).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/devportal-new-portal-configure-webh-300.png" alt=""><figcaption></figcaption></figure>
 7.  Click **Next**.
 
     <figure><img src="../../.gitbook/assets/E64B2895-B6B3-43C2-BE7A-DD162CC6E029.jpeg" alt=""><figcaption></figcaption></figure>
@@ -51,4 +51,4 @@ This feature is in tech preview.
 
 Once you subscribe to an API, the Developer Portal displays the description details. For example:
 
-<figure><img src="../../.gitbook/assets/image (301).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/devportal-new-portal-configure-webh-301.png" alt=""><figcaption></figcaption></figure>

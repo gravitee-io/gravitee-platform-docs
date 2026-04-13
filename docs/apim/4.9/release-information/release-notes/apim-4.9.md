@@ -94,7 +94,7 @@ metaLinks:
 *   **API list filters**\
     Adds drop-down filters on the APIs screen for type, status, sharding tags, categories, Portal status, and Portal visibility. This lets users quickly narrow large API inventories without crafting Lucene queries.
 
-    <figure><img src="../../.gitbook/assets/image (43).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/release-information-release-notes-a-43.png" alt=""><figcaption></figcaption></figure>
 * **Policy Studio search and navigation**\
   Adds navigation and search tips to the v4 Policy Studio, explaining how plans and flows are labeled and how the single search box filters by plan name, flow name, or path. It also shows how to search the policy selector by name/description, making it faster to find and manage flows and policies in complex APIs.
 * **Developer Portal CSS tokens**\

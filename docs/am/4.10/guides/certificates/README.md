@@ -41,7 +41,7 @@ Default keys are RS256 (SHA256withRSA). For RS512 keys, add the following option
 5. Give your certificate a name, then enter the details of the keystore file.
 6. Click **Create**.
 
-<figure><img src="../../../4.10/.gitbook/assets/image (132).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/guide-certificates-readme-132.png" alt=""><figcaption></figcaption></figure>
 
 ### Create a new certificate with AM API
 
@@ -66,11 +66,11 @@ You can use public keys to verify a token payload’s integrity. To obtain the p
 1. In AM Console, click **Settings > Certificates**.
 2. Next to your certificate, click the key icon.
 
-<figure><img src="../../../4.10/.gitbook/assets/image (134).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/guide-certificates-readme-134.png" alt=""><figcaption></figcaption></figure>
 
 3. You can copy/paste the public key to use with third-party libraries to verify your tokens.
 
-<figure><img src="../../../4.10/.gitbook/assets/image (135).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/guide-certificates-readme-135.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 Gravitee API Management (APIM) comes with a JWT Policy to verify and decode tokens that can be used for your APIs.
@@ -82,7 +82,7 @@ Gravitee API Management (APIM) comes with a JWT Policy to verify and decode toke
 2. In the **Settings** tab, click **Secrets & Certificates** tab.
 3. Choose your certificate and click **SAVE**.
 
-<figure><img src="../../../4.10/.gitbook/assets/image (136).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/guide-certificates-readme-136.png" alt=""><figcaption></figcaption></figure>
 
 ### Certificate for Mutual TLS authentication <a href="#certificate-for-mutual-tls-authentication" id="certificate-for-mutual-tls-authentication"></a>
 
@@ -92,7 +92,7 @@ To mark a certificate as usable for mTLS, you just have to check the "mTLS" usag
 System certificates can't be used for mTLS authentication as they are self signed certificates generated internally by Access Management.
 {% endhint %}
 
-<figure><img src="../../../4.10/.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/guide-certificates-readme-4.png" alt=""><figcaption></figcaption></figure>
 
 ### Custom certificates
 
@@ -153,7 +153,7 @@ Like all certificates, a system certificate has a given validity period, after w
 See this [documentation page](../../getting-started/configuration/configure-am-api/) for details on how to configure notifications about certificate expiry.
 {% endhint %}
 
-<figure><img src="../../../4.10/.gitbook/assets/image (137).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/guide-certificates-readme-137.png" alt=""><figcaption></figcaption></figure>
 
 #### How to configure the applications update
 

@@ -40,7 +40,7 @@ Let’s imagine a client application wants to retrieve the `telephoneNumber` att
 3. Select your LDAP identity provider and click the **User mappers** tab.
 4. Map your LDAP (raw) attribute `telephoneNumber` to a new user attribute named `telephone_number`.
 
-<figure><img src="../../../4.10/.gitbook/assets/image (63).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/guide-identity-providers-user-and-r-63.png" alt=""><figcaption></figcaption></figure>
 
 5. Get the User Profile information via the UserInfo Endpoint and you will see that the new user attribute is present.
 
@@ -102,7 +102,7 @@ We will then dynamically add the `admin` scope to the `access_token`. The client
 8. Click the **Role mappers** tab.
 9. Set the user’s role configuration:
 
-<figure><img src="../../../4.10/.gitbook/assets/image (64).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/guide-identity-providers-user-and-r-64.png" alt=""><figcaption></figcaption></figure>
 
 10. When the client requests the _Token_ endpoint, the new scope representing the user roles will be used.
 11. Ensure you enable the _"Enhance scopes"_ option for your client (**OAuth** tab).
@@ -119,4 +119,4 @@ Defining groups in AM helps you to assign roles more efficiently for the domain 
 
 The goal of the Group Mapper is to dynamically add groups to the user profile based on the user information when authenticating.
 
-<figure><img src="../../../4.10/.gitbook/assets/image (65).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/guide-identity-providers-user-and-r-65.png" alt=""><figcaption></figcaption></figure>

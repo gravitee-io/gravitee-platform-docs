@@ -387,7 +387,7 @@ If your APIM management API uses certificates that require a custom truststore, 
     ```
 2.  Return to the Gravitee API Management console, refresh the page, and verify that the agent's status is set to **Connected**.<br>
 
-    <figure><img src="../../../.gitbook/assets/image (51).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/govern-federation-solace-51.png" alt=""><figcaption></figcaption></figure>
 
 ## Minimum Solace permissions required by the agent
 

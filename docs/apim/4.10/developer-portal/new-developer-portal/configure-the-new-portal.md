@@ -18,13 +18,13 @@ For self-hosted installations and hybrid deployments of Gravitee, you can set th
 
 1.  From the **Dashboard**, click **Settings**.
 
-    <figure><img src="../../.gitbook/assets/image (45).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/devportal-new-portal-configure-the--45.png" alt=""><figcaption></figcaption></figure>
 2.  In the **Portal** section of the **Settings** menu, click **Settings**.
 
     <figure><img src="../../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
 3.  Navigate to the **New Developer Portal** section, and then turn on the **Enable the New Developer Portal** toggle.
 
-    <figure><img src="../../.gitbook/assets/image (57).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/devportal-new-portal-configure-the--57.png" alt=""><figcaption></figcaption></figure>
 4.  In the **You have unsaved changes** pop-up window, click **Save**.
 
     <figure><img src="../../.gitbook/assets/image (11) (1).png" alt=""><figcaption></figcaption></figure>

@@ -28,10 +28,10 @@ To integrate Solace with Gravitee APIM, complete the following steps:
 
 1.  From the Dashboard, click **Integrations.**
 
-    <figure><img src="../../../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/govern-federation-solace-16.png" alt=""><figcaption></figcaption></figure>
 2.  Click **Create Integration**.
 
-    <figure><img src="../../../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/govern-federation-solace-18.png" alt=""><figcaption></figcaption></figure>
 3.  Select **Solace**, and then click **Next**.
 
     <figure><img src="../../../.gitbook/assets/select-solace-and-click-next.png" alt=""><figcaption></figcaption></figure>
@@ -40,7 +40,7 @@ To integrate Solace with Gravitee APIM, complete the following steps:
     <figure><img src="../../../.gitbook/assets/solace-integration-name-and-description.png" alt=""><figcaption></figcaption></figure>
 5.  (Optional) Type the **Description** for the integration.
 
-    <figure><img src="../../../.gitbook/assets/image (61).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/govern-federation-solace-61.png" alt=""><figcaption></figcaption></figure>
 6.  Click **Create Integration**.
 
     <figure><img src="../../../.gitbook/assets/click-create-integration-solace.png" alt=""><figcaption></figcaption></figure>
@@ -383,7 +383,7 @@ If your APIM management API uses certificates that require a custom truststore, 
     ```
 2.  Return to the Gravitee API Management console, refresh the page, and verify that the agent's status is set to **Connected**.<br>
 
-    <figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/govern-federation-solace-3.png" alt=""><figcaption></figcaption></figure>
 
 ## Minimum Solace permissions required by the agent
 

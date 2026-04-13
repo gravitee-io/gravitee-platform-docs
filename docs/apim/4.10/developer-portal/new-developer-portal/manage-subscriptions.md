@@ -16,27 +16,27 @@ To subscribe to an API, complete the following steps:
 1. Navigate to the Catalog.
 2. Choose an API and navigate its documentation page
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/devportal-new-portal-manage-subscri-0.png" alt=""><figcaption></figcaption></figure>
 
 2. Click Subscribe to navigate to the Subscription page
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/devportal-new-portal-manage-subscri-1.png" alt=""><figcaption></figcaption></figure>
 
 3. Select a Plan
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/devportal-new-portal-manage-subscri-2.png" alt=""><figcaption></figcaption></figure>
 
 4. Select an application
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/devportal-new-portal-manage-subscri-3.png" alt=""><figcaption></figcaption></figure>
 
 5. Confirm the subscription
 
-<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/devportal-new-portal-manage-subscri-4.png" alt=""><figcaption></figcaption></figure>
 
 6. You will be redirected to the [#subscription-details](manage-subscriptions.md#subscription-details "mention")
 
-<figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/devportal-new-portal-manage-subscri-6.png" alt=""><figcaption></figcaption></figure>
 
 ### View existing subscriptions
 
@@ -50,7 +50,7 @@ This page shows all subscriptions **across all APIs and Applications**. You can 
 
 Click on a subscription in the subscription list, and you will be redirected to [#subscription-details](manage-subscriptions.md#subscription-details "mention")
 
-<figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/devportal-new-portal-manage-subscri-7.png" alt=""><figcaption></figcaption></figure>
 
 ### Subscription details
 
@@ -61,14 +61,14 @@ This page allows you to manage an individual subscription.
 * Navigate to the Application page
 * Close subscription
 
-<figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/devportal-new-portal-manage-subscri-9.png" alt=""><figcaption></figcaption></figure>
 
 #### Close subscription
 
 To close a subscription, click on Close subscription button at the top right corner of the screen.
 
-<figure><img src="../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/devportal-new-portal-manage-subscri-10.png" alt=""><figcaption></figcaption></figure>
 
 Once closed, the subscription status is updated and access information is no longer visible.
 
-<figure><img src="../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/devportal-new-portal-manage-subscri-11.png" alt=""><figcaption></figcaption></figure>

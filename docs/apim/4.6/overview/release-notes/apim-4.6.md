@@ -79,7 +79,7 @@ Gravitee 4.6 includes three major updates to the API Score feature for automated
 * Support for custom JavaScript functions, so that you can write more complex rules
 * Support for scoring the Gravitee API definition for v4 proxy and message APIs (in addition to the already supported OpenAPI and AsyncAPI scoring)
 
-<figure><img src="../../.gitbook/assets/image (141).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/overview-release-notes-apim-46-141.png" alt=""><figcaption></figcaption></figure>
 
 ### Updates to the APIM v2-v4 Comparison Matrix
 

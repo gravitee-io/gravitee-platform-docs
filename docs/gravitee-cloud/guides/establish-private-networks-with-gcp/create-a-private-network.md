@@ -20,4 +20,4 @@ For more information about the Cloud providers and regions that Gravitee support
 
 *   To create a new private network, contact your Gravitee representative. For example, your Technical Account Manager.<br>
 
-    <figure><img src="../../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/guide-establish-private-networks-wi-17.png" alt=""><figcaption></figcaption></figure>

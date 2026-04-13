@@ -18,7 +18,7 @@ The following example retrieves `Execution Context` data using the [Gravitee Exp
 ```
 {% endcode %}
 
-<figure><img src="../../../4.10/.gitbook/assets/image (157).png" alt=""><figcaption><p>Policy Studio</p></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/guide-flows-readme-157.png" alt=""><figcaption><p>Policy Studio</p></figcaption></figure>
 
 ## Flow configuration
 

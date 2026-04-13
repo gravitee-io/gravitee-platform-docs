@@ -14,7 +14,7 @@ Some factors also require a [**Resource**](../../resources.md).
 2. Click the plus icon.
 3. Select the factor type and click **Next.**
 
-<figure><img src="../../../../4.10/.gitbook/assets/image (108).png" alt=""><figcaption><p>Setting up Multifactor Auth from you Security Domain settings.</p></figcaption></figure>
+<figure><img src="../../../../4.10/.gitbook/assets/guide-multi-factor-authentication-m-108.png" alt=""><figcaption><p>Setting up Multifactor Auth from you Security Domain settings.</p></figcaption></figure>
 
 4. Enter the factor details and click **Create**.
 

@@ -8,7 +8,7 @@ description: >-
 
 To use Gravitee Cloud where you connect your own fully self-hosted installations, you need to select "Self-hosted" as profile when setting up your account.
 
-<figure><img src="../.gitbook/assets/image (21).png" alt=""><figcaption><p>Gravitee Cloud account set up page with Self-hosted deployment option chosen.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/self-hosted-getting-started-with-se-21.png" alt=""><figcaption><p>Gravitee Cloud account set up page with Self-hosted deployment option chosen.</p></figcaption></figure>
 
 With Gravitee Cloud Self-hosted profile you can:
 
@@ -24,7 +24,7 @@ Want to run Gravitee in the easiest and most secure way? Maybe Gravitee Cloud is
 
 Gravitee Cloud self-hosted is based on a hierarchy of the following entity types:
 
-<figure><img src="../.gitbook/assets/image (22).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/self-hosted-getting-started-with-se-22.png" alt=""><figcaption></figcaption></figure>
 
 | Entity                    | Description                                                                                                                                                                                                                                                                  |
 | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -47,4 +47,4 @@ The Gravitee Cloud hierarchy pictured below has the following setup:
 * One APIM installation, with two Gateway nodes and one REST API node.
 * One AM installation, with one Gateway node and one REST API node.
 
-<figure><img src="../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/self-hosted-getting-started-with-se-23.png" alt=""><figcaption></figcaption></figure>

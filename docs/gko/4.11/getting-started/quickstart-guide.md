@@ -211,7 +211,7 @@ apiv4definition.gravitee.io/echo-api-declarative-v4 created
 
 You will now be able to view your newly created API within the Gravitee API Management Console. It will be labeled as "Kubernetes Origin" and will be read-only (as the _source of truth_ is now your CRD file).
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/gs-quickstart-guide-4.png" alt=""><figcaption></figcaption></figure>
 
 You can now also invoke your deployed API through the APIM Gateway. You'll need to update the example host name given below with your Gateway's real address:
 

@@ -95,7 +95,7 @@ Revoked secrets are immediately invalidated and cannot be used for authenticatio
 
       <figure><img src="../../.gitbook/assets/Screenshot 2025-06-02 at 12.28.04.png" alt=""><figcaption><p>Application Secret Settings</p></figcaption></figure>
   5. Toggle **Use Domain Rules**, and then and select **Expiry Time Unit** and **Expiry Time Duration**.\
-     ![](<../../.gitbook/assets/image (10).png>)
+     ![](<../../.gitbook/assets/guide-applications-client-secrets-10.png>)
   6. Save the changes.
 
 ### **Behavior:**

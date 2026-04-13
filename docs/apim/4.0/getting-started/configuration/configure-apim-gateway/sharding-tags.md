@@ -128,7 +128,7 @@ To demonstrate, let's instruct Gravitee API Manager to apply the “internal tes
 
 You can view your entrypoint mapping in the **Entrypoint mappings** section:
 
-<figure><img src="../../../.gitbook/assets/image (48).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/gs-config-configure-apim-gateway-sh-48.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 You've just learned how to configure sharding tags for your Gravitee API Gateways. To apply sharding tags to APIs in order to control where those APIs are deployed, refer to [this documentation](../../../guides/api-configuration/v2-api-configuration/configure-general-proxy-settings.md#configure-deployments).

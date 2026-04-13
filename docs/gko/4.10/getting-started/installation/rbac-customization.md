@@ -24,7 +24,7 @@ In Namespaced Scope, the GKO only monitors a single namespace or a predefined li
 
 The following diagram provides a visual breakdown of the resources the GKO might need access to, along with the corresponding permissions required for each.
 
-<figure><img src="../../.gitbook/assets/image (18).png" alt=""><figcaption><p>GKO Required Permissions</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gs-install-rbac-customization-18.png" alt=""><figcaption><p>GKO Required Permissions</p></figcaption></figure>
 
 The GKO requires access to the following resources:
 

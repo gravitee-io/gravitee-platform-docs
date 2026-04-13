@@ -41,7 +41,7 @@ applications:
 
 1. Click **"+ New client secret"**.
 
-<figure><img src="../../.gitbook/assets/image (87).png" alt=""><figcaption><p>Create new client secret</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/guide-applications-client-secrets-87.png" alt=""><figcaption><p>Create new client secret</p></figcaption></figure>
 
 2. Provide description of new secret.
 
@@ -87,7 +87,7 @@ Revoked secrets are immediately invalidated and cannot be used for authenticatio
     1. Navigate to the **Domain**.
     2. Go to **Settings**, and then **Client Secrets.**
 
-    <figure><img src="../../.gitbook/assets/image (89).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/guide-applications-client-secrets-89.png" alt=""><figcaption></figcaption></figure>
 3. Enable client secret expiry.
 4. Set the **Expiry Time Unit** and **Expiry Time Duration**. For example, 3 months.
 5. Save the changes.
@@ -103,7 +103,7 @@ Revoked secrets are immediately invalidated and cannot be used for authenticatio
 
       <figure><img src="../../.gitbook/assets/Screenshot 2025-06-02 at 12.28.04 (1).png" alt=""><figcaption><p>Application Secret Settings</p></figcaption></figure>
   5. Toggle **Use Domain Rules**, and then and select **Expiry Time Unit** and **Expiry Time Duration**.\
-     ![](<../../.gitbook/assets/image (9).png>)
+     ![](<../../.gitbook/assets/guide-applications-client-secrets-9.png>)
   6. Save the changes.
 
 ### **Behavior:**

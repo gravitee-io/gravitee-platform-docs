@@ -27,7 +27,7 @@ To create an application, complete the following steps:
 
 1. From the New Developer Portal, click your **profile icon**, and then click **Applications**.
 
-<figure><img src="../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/devportal-new-portal-create-an-appl-12.png" alt=""><figcaption></figcaption></figure>
 
 2. From the **Applications** screen, click **+ Create**.
 
@@ -35,7 +35,7 @@ To create an application, complete the following steps:
 The Create button is visible only for users with he `ENVIRONMENT:APPLICATION:CREATE` permission.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/devportal-new-portal-create-an-appl-13.png" alt=""><figcaption></figcaption></figure>
 
 ### Create an application
 
@@ -96,10 +96,10 @@ The Create button is visible only for users with he `ENVIRONMENT:APPLICATION:CRE
 
 2.  Click **Create**.<br>
 
-    <figure><img src="../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/devportal-new-portal-create-an-appl-14.png" alt=""><figcaption></figcaption></figure>
 
 ## Verification&#x20;
 
 You are brought to the application's **Settings & Security screen** screen.&#x20;
 
-<figure><img src="../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/devportal-new-portal-create-an-appl-15.png" alt=""><figcaption></figcaption></figure>

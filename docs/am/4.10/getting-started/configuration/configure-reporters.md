@@ -75,7 +75,7 @@ To control audit traffic and reduce event noise, you can use the Kafka reporter 
 Use the search box to quickly locate and select specific event types.
 {% endhint %}
 
-<figure><img src="../../../4.10/.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../4.10/.gitbook/assets/gs-config-configure-reporters-16.png" alt=""><figcaption></figcaption></figure>
 
 ### **Schema Registry**
 

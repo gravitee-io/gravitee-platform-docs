@@ -96,10 +96,10 @@ Deleting a custom domain is permanent. API traffic routed through this domain st
 
 1.  From the **Dashboard**, navigate to **Gateways**, and then click the Gateway that you want to delete the custom domain for.<br>
 
-    <figure><img src="../.gitbook/assets/image (45).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/guide-custom-domains-45.png" alt=""><figcaption></figcaption></figure>
 2.  In the Gateway details' menu, click **Custom Domains**.<br>
 
-    <figure><img src="../.gitbook/assets/image (46).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/guide-custom-domains-46.png" alt=""><figcaption></figcaption></figure>
 3.  Navigate to the custom domain that you want to delete, and then click the **bin** icon. <br>
 
     <figure><img src="../.gitbook/assets/4260169E-541D-4709-8AE8-0B3C5220A19B_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>

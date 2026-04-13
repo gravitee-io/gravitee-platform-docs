@@ -11,10 +11,10 @@ In the Developer Portal catalog, you can easily find an API based on a category 
 1. Log in to your APIM Console.
 2.  From the home page, click **Settings**.
 
-    <figure><img src="../../.gitbook/assets/image (199).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/devportal-new-portal-layout-and-the-199.png" alt=""><figcaption></figcaption></figure>
 3.  In the **Portal** section of the settings menu, click **Settings**.
 
-    <figure><img src="../../.gitbook/assets/image (200).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/devportal-new-portal-layout-and-the-200.png" alt=""><figcaption></figcaption></figure>
 4.  Navigate to the **New Developer Portal** section, then click **Open Settings**.
 
     <figure><img src="../../.gitbook/assets/dev portal settings.png" alt=""><figcaption></figcaption></figure>
