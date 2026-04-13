@@ -152,7 +152,7 @@ To use the UMA 2.0 protocol you must enable it at the security domain level.
 
 #### **Create a resource owner**
 
-1. Click **Settings > Users** and click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
+1. Click **Settings > Users** and click the plus icon ![plus icon](../../.gitbook/assets/plus-icon.png).
 2. Complete the details of the resource owner (Alice) and click **CREATE**.
 
 {% hint style="info" %}
@@ -161,7 +161,7 @@ The resource owner needs to use the same identity provider as the provider to be
 
 #### **Create a requesting party**
 
-1. In **Settings > Users**, click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
+1. In **Settings > Users**, click the plus icon ![plus icon](../../.gitbook/assets/plus-icon.png).
 2. Complete the details of the requesting party (Bob) and click **CREATE**.
 
 {% hint style="info" %}
@@ -170,7 +170,7 @@ The requesting party needs to use the same identity provider as the provider to 
 
 #### **Create the client application**
 
-1. Click **Applications** and click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
+1. Click **Applications** and click the plus icon ![plus icon](../../.gitbook/assets/plus-icon.png).
 2. Select the **Web** application type and click **Next**.
 3. Complete the application details and click **Create**.
 4. Click the **Identity Providers** tab and select the identity provider you set for your requesting party user (Bob).
@@ -179,7 +179,7 @@ The requesting party needs to use the same identity provider as the provider to 
 
 #### **Create the resource server application**
 
-1. In **Applications**, click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
+1. In **Applications**, click the plus icon ![plus icon](../../.gitbook/assets/plus-icon.png).
 2. Select **Resource Server** as the application type and click **Next**.
 3. Complete the application details and click **Create**.
 4. Click the **Identity Providers** tab and select the identity provider you set for your resource owner (Alice).

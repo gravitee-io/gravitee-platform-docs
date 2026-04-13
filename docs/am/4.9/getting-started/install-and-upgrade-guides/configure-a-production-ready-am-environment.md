@@ -99,7 +99,7 @@ security:
 
 3.  Update the default administrator password:
 
-    <figure><img src="https://docs.gravitee.io/images/apim/3.x/how-tos/configure-apim/admin-pwd.png" alt=""><figcaption><p>Admin password</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/admin-pwd.png" alt=""><figcaption><p>Admin password</p></figcaption></figure>
 
 ### Step 3: Update the JWT secret
 

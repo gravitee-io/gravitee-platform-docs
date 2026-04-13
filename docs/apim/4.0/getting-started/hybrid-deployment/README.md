@@ -14,7 +14,7 @@ The APIM hybrid deployment solution (in the form of hybrid components, or plugin
 
 The following diagram shows a typical hybrid APIM architecture:
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/hybrid/hybrid_deployment_architecture.png" alt=""><figcaption><p>Hybrid deployment architecture</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/hybrid_deployment_architecture.png" alt=""><figcaption><p>Hybrid deployment architecture</p></figcaption></figure>
 
 ## Configuration
 

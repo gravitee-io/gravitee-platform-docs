@@ -36,7 +36,7 @@ Default keys are RS256 (SHA256withRSA). For RS512 keys, add the following option
 
 1. Log in to AM Console.
 2. Click **Settings > Certificates**.
-3. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
+3. Click the plus icon ![plus icon](../../.gitbook/assets/plus-icon.png).
 4. Choose the certificate type and click **Next**.
 5. Give your certificate a name, then enter the details of the keystore file.
 6. Click **Create**.
@@ -96,7 +96,7 @@ System certificates can't be used for mTLS authentication as they are self signe
 
 ### Custom certificates
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-custom-certificate.png" alt=""><figcaption><p>Custom certificate diagram</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-custom-certificate.png" alt=""><figcaption><p>Custom certificate diagram</p></figcaption></figure>
 
 AM is designed to be extended based on a pluggable modules architecture. You can develop your own certificate and provide a sign method for tokens.
 

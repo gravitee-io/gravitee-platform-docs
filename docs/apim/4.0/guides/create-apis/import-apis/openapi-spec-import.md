@@ -12,11 +12,11 @@ To import an API from OpenAPI:
 
 * If the OpenAPI specification is a file, select **IMPORT FILE** and browse your file system
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/manage-apis/graviteeio-import-openapi-file.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/graviteeio-import-openapi-file.png" alt=""><figcaption></figcaption></figure>
 
 * If the OpenAPI specification is a link, select **IMPORT FROM LINK**, choose **Swagger / OpenAPI**, and enter the definition URL
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/manage-apis/graviteeio-import-openapi-link.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/graviteeio-import-openapi-link.png" alt=""><figcaption></figcaption></figure>
 
 ## **Context-path resolution**
 
@@ -133,7 +133,7 @@ paths:
 
 When importing an OpenAPI definition, you can select the option **Create policies on path** to specify that all routes declared in the OpenAPI specification will be automatically created in APIM. To verify, navigate to the policy management view.
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/manage-apis/graviteeio-import-openapi-policies-path.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/graviteeio-import-openapi-policies-path.png" alt=""><figcaption></figcaption></figure>
 
 You can also choose to activate policies (below) that will be configured using the OpenAPI specification:
 

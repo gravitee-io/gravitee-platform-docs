@@ -30,7 +30,7 @@ Salesforce will generate a Consumer Key and Consumer Secret for your application
 1. Log in to AM Console.
 2. If you want to change to a different security domain, select it from the user menu at the top right.
 3. Click **Settings > Providers**.
-4. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
+4. Click the plus icon ![plus icon](../../../.gitbook/assets/plus-icon.png).
 5. Select **Salesforce** as your identity provider type and click **Next**.
 
 {% hint style="info" %}
@@ -63,4 +63,4 @@ You can test your Salesforce connection using a web application created in AM.
 
 If the button is not visible, there may be a problem with the identity provider settings. Check the AM Gateway log for more information.
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-social-idp-login.png" alt=""><figcaption><p>Sign in options</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/graviteeio-am-userguide-social-idp-login.png" alt=""><figcaption><p>Sign in options</p></figcaption></figure>

@@ -26,7 +26,7 @@ The `graviteeio` ingress class does not currently support these features defined
 * A Gravitee backend service routed and made available through a Gravitee ingress is deployed in the `gravitee-apis` namespace.
 * The APIM components used to gather analytics and review the configuration is deployed in the `gravitee-apim` namespace.
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/kubernetes/gko-architecture-4-ingress.png" alt=""><figcaption><p>Sample Kubernetes cluster</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/gko-architecture-4-ingress.png" alt=""><figcaption><p>Sample Kubernetes cluster</p></figcaption></figure>
 
 This process is divided into the following steps:
 

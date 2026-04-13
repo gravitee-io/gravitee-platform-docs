@@ -143,7 +143,7 @@ System folders are identified by a padlock icon:
 
 There are three system folders: `Header`, `TopFooter` and `Footer`. Each system folder corresponds to an area of the Developer Portal:
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/graviteeio-page-link-portal-zones.png" alt=""><figcaption><p>Developer Portal - system folder mapping</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/graviteeio-page-link-portal-zones.png" alt=""><figcaption><p>Developer Portal - system folder mapping</p></figcaption></figure>
 
 {% hint style="warning" %}
 **`TopFooter`system folder nesting**

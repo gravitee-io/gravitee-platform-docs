@@ -75,7 +75,7 @@ The shared API key mode allows consumers to reuse the same API key across all AP
 
 API keys can only be shared across API Key plans that belong to distinct Gateway APIs. If you attempt to subscribe to two API Key plans on the same Gateway API, no prompt will be made to choose the application API key type and the default mode will be used automatically.
 
-![Subscribing in the Developer Portal](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-2-portal.png) ![Subscribing in the APIM Console](../../../.gitbook/assets/Screen Shot 2023-03-16 at 11.44.51 AM.png)
+![Subscribing in the Developer Portal](../../../.gitbook/assets/shared-api-key-2-portal.png) ![Subscribing in the APIM Console](../../../.gitbook/assets/Screen Shot 2023-03-16 at 11.44.51 AM.png)
 
 To select the API key type, the shared API key mode must be [enabled](subscriptions.md#api-key-plans) before creating an application. To enable this option, create a new application and subscribe to two API Key plans.
 
@@ -88,7 +88,7 @@ A shared API key may be used to call APIs that are owned by other API publishers
 * Shared API keys cannot be edited from an API publisher's subscriptions
 *   API publishers can read shared API keys, but cannot renew or revoke them
 
-    <figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-2-portal.png" alt=""><figcaption><p>Shared API key administration limitations</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/shared-api-key-2-portal.png" alt=""><figcaption><p>Shared API key administration limitations</p></figcaption></figure>
 *   Shared API keys can only be renewed/revoked by the application owner, from the subscription view of their APIM Console or Developer Portal
 
     <figure><img src="../../../.gitbook/assets/Screen Shot 2023-03-16 at 11.44.51 AM.png" alt=""><figcaption><p>Manage shared API keys in APIM Console</p></figcaption></figure>

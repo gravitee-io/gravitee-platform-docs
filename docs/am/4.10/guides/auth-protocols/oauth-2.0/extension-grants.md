@@ -28,7 +28,7 @@ $ openssl rsa -in rsa_private.pem -pubout -out rsa_public.pem
 
 1. Log in to AM Console.
 2. Click **Settings**, then in the **OAUTH 2.0** section, click **Extension Grants**.
-3. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
+3. Click the plus icon ![plus icon](../../../.gitbook/assets/plus-icon.png).
 
 <figure><img src="../../../../4.10/.gitbook/assets/image (46).png" alt=""><figcaption><p>Create extension grant</p></figcaption></figure>
 

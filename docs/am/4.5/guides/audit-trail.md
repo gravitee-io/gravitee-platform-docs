@@ -34,7 +34,7 @@ Next to Organization audit logs there is a dedicated audit logs for every domain
 1. Log in to AM Console.
 2.  Click **Settings > Audit Log**.
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-logs-audit.png" alt=""><figcaption><p>Domain audit log</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/graviteeio-am-userguide-logs-audit.png" alt=""><figcaption><p>Domain audit log</p></figcaption></figure>
 
 {% hint style="info" %}
 All of this information can also be retrieved with the [AM API.](../reference/am-api-reference.md)
@@ -79,7 +79,7 @@ By default, a reporter is created for each security domain and allows you to cho
 2. Click **Settings > Audit Log**.
 3.  Click the settings icon and configure the reporter.
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-logs-audit-reporter.png" alt=""><figcaption><p>Configure reporter</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/graviteeio-am-userguide-logs-audit-reporter.png" alt=""><figcaption><p>Configure reporter</p></figcaption></figure>
 
 {% hint style="warning" %}
 There is no log retention. It is up to you define a retention window and periodically clear old data.
@@ -93,8 +93,8 @@ It is possible to populate all audit logs from all domains within organization t
 
 1. Log in to AM Console.
 2. Click **Organization > Audit Log**.
-3. Click the settings icon ![am settings icon](https://docs.gravitee.io/images/icons/am-settings-icon.png).
-4. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
+3. Click the settings icon ![am settings icon](../.gitbook/assets/am-settings-icon.png).
+4. Click the plus icon ![plus icon](../.gitbook/assets/plus-icon.png).
 5. Select "Log events from all domains in this organization"
 
 <figure><img src="../.gitbook/assets/Global repoerter.png" alt=""><figcaption><p>Global reporter configuration</p></figcaption></figure>
@@ -113,13 +113,13 @@ To create a File reporter for a domain:
 
 1. Log in to AM Console.
 2. Click **Settings > Audit Log**.
-3. Click the settings icon ![am settings icon](https://docs.gravitee.io/images/icons/am-settings-icon.png).
-4.  Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
+3. Click the settings icon ![am settings icon](../.gitbook/assets/am-settings-icon.png).
+4.  Click the plus icon ![plus icon](../.gitbook/assets/plus-icon.png).
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-adminguide-add-reporter.png" alt=""><figcaption><p>Audit settings</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/graviteeio-am-adminguide-add-reporter.png" alt=""><figcaption><p>Audit settings</p></figcaption></figure>
 5.  Select **File** as the reporter type and enter the reporter name and file name.
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-adminguide-file-reporter.png" alt=""><figcaption><p>Add a file reporter</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/graviteeio-am-adminguide-file-reporter.png" alt=""><figcaption><p>Add a file reporter</p></figcaption></figure>
 
 #### Example: ingest audit logs into ElasticSearch
 
@@ -300,10 +300,10 @@ To create a Kafka reporter for a domain:
 
 1. Log in to AM Console.
 2. Click **Settings > Audit Log**.
-3. Click the settings icon ![am settings icon](https://docs.gravitee.io/images/icons/am-settings-icon.png).
-4.  Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
+3. Click the settings icon ![am settings icon](../.gitbook/assets/am-settings-icon.png).
+4.  Click the plus icon ![plus icon](../.gitbook/assets/plus-icon.png).
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-adminguide-add-reporter.png" alt=""><figcaption><p>Audit settings</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/graviteeio-am-adminguide-add-reporter.png" alt=""><figcaption><p>Audit settings</p></figcaption></figure>
 5.  Select **Kafka** as the reporter type and enter the reporter name and file name.
 
     <figure><img src="../.gitbook/assets/kafka reporter.png" alt=""><figcaption><p>Add a Kafka reporter</p></figcaption></figure>
