@@ -26,7 +26,7 @@ The first step is to create a Gateway API. A Gateway API is simply an API deploy
 
 In the Console UI, select the Gateway API you want to secure with a JWT plan.
 
-<figure><img src="../../.gitbook/assets/image (1)-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/getting-started-use-case-tutorials-confi-1.png" alt=""><figcaption></figcaption></figure>
 
 For now, be sure to leave the **Default Keyless (UNSECURED)** plan as we’ll be configuring the plan separately.
 
@@ -51,7 +51,7 @@ All Gateway APIs require at least one published plan to deploy the API to the Ga
 
 In the APIM Console UI, open the Gateway API you want to secure with a JWT plan. You should see a screen similar to the following:
 
-<figure><img src="../../.gitbook/assets/image (2) (1)-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/getting-started-use-case-tutorials-confi-2-1.png" alt=""><figcaption></figcaption></figure>
 
 In the sidebar, select **Plans**, and then select **+Add new plan** in the top right of the screen. In the drop-down that appears, select **JWT**.
 
@@ -90,7 +90,7 @@ After creating a plan, it’s initially in the first of the four stages of a pla
 
 Publish your plan by selecting the publish icon on your plan as shown below.
 
-<figure><img src="../../.gitbook/assets/image (9) (1)-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/getting-started-use-case-tutorials-confi-9-1.png" alt=""><figcaption></figcaption></figure>
 
 At this point, it is likely you have both a Keyless and a JWT plan published. Please delete any Keyless plans to ensure the JWT plan can not be bypassed. Select the **X** icon and then follow the prompts in the modal to delete the Keyless plan as shown below:
 

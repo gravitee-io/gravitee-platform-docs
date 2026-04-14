@@ -195,7 +195,7 @@ Rate limiting policies can also be added during [Step 4: Security](https://docum
 
 The Spike Arrest policy cannot be added during the API creation process.
 
-<figure><img src="../../.gitbook/assets/image (48) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-cases-48-1.png" alt=""><figcaption></figcaption></figure>
 
 7. Toggle Rate Limiting and/or Quota ON to configure rate limiting policies for the plan
 
@@ -211,4 +211,4 @@ Rate limiting policies added during the API creation process will applied to the
 9. Click **Add plan**
 10. Add additional plans or select **Validate my plans** to continue with the API creation process
 
-<figure><img src="../../.gitbook/assets/image (50) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-cases-50-1.png" alt=""><figcaption></figcaption></figure>

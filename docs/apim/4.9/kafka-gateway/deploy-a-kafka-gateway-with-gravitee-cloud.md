@@ -16,7 +16,7 @@ This guide explains how to use Gravitee Cloud to deploy a Gravitee Gateway that 
 
 1.  Sign in to [Gravitee Cloud](https://cloud.gravitee.io/).
 
-    <figure><img src="../.gitbook/assets/image (272) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/kafka-gateway-deploy-a-kafka-gateway-wit-272-1.png" alt=""><figcaption></figcaption></figure>
 2.  From the **Dashboard**, navigate to the **Gateways** section, and then click **Deploy Gateway**.
 
     <figure><img src="../.gitbook/assets/C1B3BA37-339C-4235-9592-B7EABB4DDA45_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
@@ -36,7 +36,7 @@ To verify that the Kafka Gateway deployed correctly, complete the following step
 
 *   From the **Dashboard**, navigate to the **Gateways** section, and then confirm that the Gateway row entries are not greyed out and the Gateway name is an active link.
 
-    <figure><img src="../.gitbook/assets/image (303) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/kafka-gateway-deploy-a-kafka-gateway-wit-303-1.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 If the Gateway was not deployed correctly, the Gateway row entries are greyed out and the Gateway name is an inactive link.

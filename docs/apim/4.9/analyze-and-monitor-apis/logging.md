@@ -43,7 +43,7 @@ Limit the duration of logging by entering a numeric value, in ms, in the **Maxim
 
 The default value is 90000 ms. This value logs minimal call information. A value of 0 is interpreted as no maximum duration.
 
-<figure><img src="../.gitbook/assets/image (360) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/analyze-and-monitor-apis-logging-360-1.png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Audit" %}
@@ -52,13 +52,13 @@ When enabled, the following options track who accessed specific data from the au
 * Enable audit on API Logging consultation
 *   Generate API Logging audit events (API\_LOGGING\_ENABLED, API\_LOGGING\_DISABLED, API\_LOGGING\_UPDATED)
 
-    <figure><img src="../.gitbook/assets/image (361) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/analyze-and-monitor-apis-logging-361-1.png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="User" %}
 Toggle **Display end user on API Logging (in case of OAuth2/JWT plan)** to include information about the end user in the API logging. This is useful when using an OAuth2 or JWT plan.
 
-<figure><img src="../.gitbook/assets/image (362) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/analyze-and-monitor-apis-logging-362-1.png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Message Sampling" %}
@@ -105,7 +105,7 @@ You can filter API logs by the following information:
 * HTTP methods. This is the method the user used to interact with the API.
 *   Plan. This is the plan that the user used to interact with the API.
 
-    <figure><img src="../.gitbook/assets/image (363) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/analyze-and-monitor-apis-logging-363-1.png" alt=""><figcaption></figcaption></figure>
 
 ### Modify logging information
 
@@ -141,7 +141,7 @@ To configure which information is recorded, select from the following options:
   * **Temporal:** Messages are sampled based on a specified time duration value that conforms to ISO-8601 format.
 *   **Display conditions:** You have the ability to filter the message data based on **Request phase condition** and **Message condition**. Each of these fields supports the use of [Gravitee Expression Language](../gravitee-expression-language.md).
 
-    <figure><img src="../.gitbook/assets/image (364) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/analyze-and-monitor-apis-logging-364-1.png" alt=""><figcaption></figcaption></figure>
 
 **Configure sampling methods with `gravitee.yml`**
 
@@ -183,7 +183,7 @@ Select logging options judiciously to optimize the value of recorded data agains
 * **Content data:** Select from **Headers** and **Payload** to customize which data is logged.
 *   **Display conditions:** You have the ability to filter data based on **Request phase condition**. This field supports the use of [Gravitee Expression Language](../gravitee-expression-language.md).
 
-    <figure><img src="../.gitbook/assets/image (365) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/analyze-and-monitor-apis-logging-365-1.png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -196,10 +196,10 @@ To view the details of any entry in the list of runtime logs:
     <figure><img src="../.gitbook/assets/7142A579-577C-48F7-BF1F-35F6229DBB88_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
 2.  Select the API that you want to view the runtime logs for.
 
-    <figure><img src="../.gitbook/assets/image (366) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/analyze-and-monitor-apis-logging-366-1.png" alt=""><figcaption></figcaption></figure>
 3.  Click **Logs**. You are shown a list of API logs.
 
-    <figure><img src="../.gitbook/assets/image (367) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/analyze-and-monitor-apis-logging-367-1.png" alt=""><figcaption></figcaption></figure>
 4.  Click **the eye symbol** next to the log that you want to view the details of.
 
     <figure><img src="../.gitbook/assets/321F6892-812F-4DAA-AEE6-0CA0C44BEFF4_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
@@ -226,7 +226,7 @@ In the logs screen, you see the following information about your API logs:
 
 The overview section provides information about the Request and Response phase of the API.
 
-<figure><img src="../.gitbook/assets/image (368) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/analyze-and-monitor-apis-logging-368-1.png" alt=""><figcaption></figcaption></figure>
 
 **More details**
 
@@ -258,7 +258,7 @@ In the request section, you see the information about the following topics:
 * **Body**
   *   Shows the body sent in the request.
 
-      <figure><img src="../.gitbook/assets/image (369) (1) (1).png" alt=""><figcaption></figcaption></figure>
+      <figure><img src="../.gitbook/assets/analyze-and-monitor-apis-logging-369-1-1.png" alt=""><figcaption></figcaption></figure>
 
 **Response**
 

@@ -30,7 +30,7 @@ This guide explains how to Publish your API.
     <figure><img src="../../.gitbook/assets/CD257AC3-4FE5-4277-AF15-65EF394D9979.jpeg" alt=""><figcaption></figcaption></figure>
 4.  In the **Publish API** pop-up window, click **Publish**. Your API is now published to the Developer Portal.
 
-    <figure><img src="../../.gitbook/assets/image (40) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/getting-started-create-and-publish-your-40-1.png" alt=""><figcaption></figcaption></figure>
 
 ## Verification
 

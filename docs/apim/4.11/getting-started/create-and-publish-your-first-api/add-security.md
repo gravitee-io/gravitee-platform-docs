@@ -56,19 +56,19 @@ To add security to your API, complete the following steps:
     <figure><img src="../../.gitbook/assets/80812F89-F280-4D0C-A83B-EB9417385B96.jpeg" alt=""><figcaption></figcaption></figure>
 11. In the Publish plan pop-up window, click **Publish.**
 
-    <figure><img src="../../.gitbook/assets/image (32) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/getting-started-create-and-publish-your-32-1.png" alt=""><figcaption></figcaption></figure>
 12. Click **Deploy API**.
 
     <figure><img src="../../.gitbook/assets/8AB63E94-AAA6-4BDA-B648-077BB451A35C (1).jpeg" alt=""><figcaption></figcaption></figure>
 13. In the **Deploy your API** pop-up window, click **Deploy**.
 
-    <figure><img src="../../.gitbook/assets/image (33) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/getting-started-create-and-publish-your-33-1.png" alt=""><figcaption></figcaption></figure>
 
 #### Verification
 
 The new plan appears in the **PUBLISHED** tab of the **Consumers** screen.
 
-<figure><img src="../../.gitbook/assets/image (34) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/getting-started-create-and-publish-your-34-1.png" alt=""><figcaption></figcaption></figure>
 
 ### Remove the Keyless plan from your API
 
@@ -78,7 +78,7 @@ WARNING: Removing a plan is irreversible
 
 1.  Navigate to the **PUBLISHED** tab of the screen.
 
-    <figure><img src="../../.gitbook/assets/image (14) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/getting-started-create-and-publish-your-14-1-1-1.png" alt=""><figcaption></figcaption></figure>
 2.  For your **Default Keyless (UNSECURED)** plan, click **Close the plan** button.
 
     <figure><img src="../../.gitbook/assets/3627B0A7-AF24-4E4B-A22B-5AFEB7FB29A5.jpeg" alt=""><figcaption></figcaption></figure>
@@ -105,7 +105,7 @@ To test your API Key plan, complete the following steps:
     <figure><img src="../../.gitbook/assets/22CB1B38-1964-47F6-B5B7-8B634D3D8D0B.jpeg" alt=""><figcaption></figcaption></figure>
 2.  In the **Applications** screen, click the **Default application**.
 
-    <figure><img src="../../.gitbook/assets/image (20) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/getting-started-create-and-publish-your-20-1.png" alt=""><figcaption></figcaption></figure>
 3.  In the **Default application** configuration screen, click **Subscriptions**.
 
     <figure><img src="../../.gitbook/assets/F1AD5888-A518-42D5-8C18-33BCCB583C06.jpeg" alt=""><figcaption></figcaption></figure>

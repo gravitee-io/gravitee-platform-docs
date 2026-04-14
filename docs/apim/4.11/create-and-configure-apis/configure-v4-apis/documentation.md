@@ -170,7 +170,7 @@ When you add an OpenAPI specification to document your API, the **Configure Open
 * Enable "Try It!" mode
 * Display vendor extensions
 
-<figure><img src="../../.gitbook/assets/image (359) (1).png" alt="Configure OpenAPI Viewer screenshot" width="563"><figcaption><p>Configure OpenAPI Viewer</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/create-and-configure-apis-configure-v4-a-359-1.png" alt="Configure OpenAPI Viewer screenshot" width="563"><figcaption><p>Configure OpenAPI Viewer</p></figcaption></figure>
 
 ## Add metadata
 

@@ -173,7 +173,7 @@ To enable OpenTelemetry for an API, you must have OpenTelemetry enabled on your 
     <figure><img src="../.gitbook/assets/analytics-opentelemetry-51.png" alt=""><figcaption></figcaption></figure>
 3.  From your **API** menu, click **Deployment**.<br>
 
-    <figure><img src="../.gitbook/assets/image (55) (1) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/analyze-and-monitor-apis-opentelemetry-55-1-1.png" alt=""><figcaption></figcaption></figure>
 4.  From the **Deployment** screen, click **Reporter Settings**.<br>
 
     <figure><img src="../.gitbook/assets/analytics-opentelemetry-49.png" alt=""><figcaption></figcaption></figure>
