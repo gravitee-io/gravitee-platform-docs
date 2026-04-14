@@ -48,11 +48,16 @@ GMD supports the following form components:
             <td>Radio button selection field</td>
             <td><code>fieldKey</code>, <code>name</code>, <code>label</code>, <code>value</code>, <code>required</code>, <code>options</code>, <code>readonly</code>, <code>disabled</code></td>
         </tr>
+        <tr>
+            <td><code>gmd-checkbox-group</code></td>
+            <td>Multi-select checkbox group field. Subscribers select one or more options from a predefined or dynamically resolved list. Selected values are serialized as an alphabetically sorted, comma-separated string.</td>
+            <td><code>fieldKey</code>, <code>name</code>, <code>label</code>, <code>value</code>, <code>required</code>, <code>options</code>, <code>disabled</code></td>
+        </tr>
     </tbody>
 </table>
 
 {% hint style="info" %}
-`minLength` and `maxLength` validation attributes are only available on `gmd-input` and `gmd-textarea` components. `gmd-select`, `gmd-checkbox`, and `gmd-radio` don't support length validation.
+`minLength` and `maxLength` validation attributes are only available on `gmd-input` and `gmd-textarea` components. `gmd-select`, `gmd-checkbox`, `gmd-radio`, and `gmd-checkbox-group` don't support length validation.
 {% endhint %}
 
 #### Common attributes
@@ -75,6 +80,26 @@ All components share these base attributes:
 - **`pattern`** — (`gmd-input` only) Regular expression pattern the value is validated against.
 
 Validation errors use the following error codes: `required`, `minLength`, `maxLength`, and `pattern`.
+
+#### Dynamic options with EL expressions
+
+Options on `gmd-select`, `gmd-radio`, and `gmd-checkbox-group` can be populated at runtime using Expression Language (EL) expressions that reference API or environment metadata. Expressions use the syntax `{#expression}:fallback1,fallback2`, where the fallback list after the `}:` separator is required.
+
+For example, `options="{#api.metadata['features']}:Authentication,Rate Limiting"` renders the options resolved from the API's `features` metadata entry, and falls back to `Authentication,Rate Limiting` when that metadata entry doesn't exist.
+
+The fallback list is applied when:
+
+- The Developer Portal is rendering the form but the EL expression's metadata key doesn't exist on the API.
+- The form is previewed in the Console subscription form editor, which doesn't resolve EL expressions against API metadata.
+
+Invalid EL syntax produces configuration errors that block saving:
+
+- Expressions that start with `#{`, or with `{` without a following `#`, report an `invalidElSyntax` error.
+- Expressions without a fallback list after the `}:` separator report a `missingElFallback` error.
+
+### Backend validation
+
+When an API consumer submits a subscription form, Gravitee validates every field on the backend before creating the subscription — not only in the browser. Invalid submissions are rejected with field-level error messages, so form constraints can't be bypassed by a misbehaving client. The same frontend error codes (`required`, `minLength`, `maxLength`, `pattern`) apply, and the backend additionally rejects `gmd-select`, `gmd-radio`, and `gmd-checkbox-group` submissions when the value isn't in the allowed options list.
 
 ### Subscription metadata
 
