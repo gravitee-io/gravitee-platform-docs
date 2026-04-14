@@ -100,7 +100,7 @@ To configure a Twilio Verify resource, you must specify:
 {% tab title="SFR DMC API" %}
 The SFR DMC API resource is a SMS provider that you can use to send verifications codes to users during the multi-factor authentication process.
 
-<figure><img src="../../4.10/.gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../4.10/.gitbook/assets/guide-resources-20.png" alt=""><figcaption></figcaption></figure>
 
 To configure an SRF resource, you must specify:
 
@@ -118,7 +118,7 @@ To configure an SRF resource, you must specify:
 {% tab title="Orange Contact everyone" %}
 The Orange Contact everyone resource is a SMS provider that you can use to send verifications codes to users during the multi-factor authentication process.
 
-<figure><img src="../../4.10/.gitbook/assets/image (21).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../4.10/.gitbook/assets/guide-resources-21.png" alt=""><figcaption></figcaption></figure>
 
 To configure an Orange Contact everyone resource, you must specify:
 
@@ -143,10 +143,10 @@ To configure an Orange Contact everyone resource, you must specify:
 4. Click the plus icon at the bottom of the page
 5. Select the resource type and click **Next**
 
-<figure><img src="../../4.10/.gitbook/assets/image (130).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../4.10/.gitbook/assets/guide-resources-130.png" alt=""><figcaption></figcaption></figure>
 
 6. Enter the resource configuration values (see [Resource Types](resources.md#resource-types)) and click **Create.**
 
-<figure><img src="../../4.10/.gitbook/assets/image (131).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../4.10/.gitbook/assets/guide-resources-131.png" alt=""><figcaption></figcaption></figure>
 
 7. Your resource is now available for use in AM

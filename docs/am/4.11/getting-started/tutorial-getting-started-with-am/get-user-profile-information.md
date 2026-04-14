@@ -30,11 +30,11 @@ You can retrieve an ID Token by requesting an access token with a specific `open
 3. Click the application, then click the **Settings** tab.
 4. Click **OAuth 2.0 / OIDC**.
 
-<figure><img src="../../.gitbook/assets/image (37).png" alt=""><figcaption><p>Application OAuth 2.0/OIDC grant flows</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gs-tutorial-getting-started-with-am-37.png" alt=""><figcaption><p>Application OAuth 2.0/OIDC grant flows</p></figcaption></figure>
 
 5. In the **Scopes** section, click **+ADD SCOPES**, and select **openid** from the drop-down menu and click **Add**.
 
-<figure><img src="../../.gitbook/assets/image (38).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gs-tutorial-getting-started-with-am-38.png" alt=""><figcaption></figcaption></figure>
 
 6. Scroll to the bottom of the page and click **SAVE**.
 
@@ -101,7 +101,7 @@ Finally, you need to have the ID Token signed by AM.
 1. In AM Console, click **Settings**.
 2. In the **Security** section, click **Certificates**.
 
-<figure><img src="../../.gitbook/assets/image (39).png" alt=""><figcaption><p>Certificates</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gs-tutorial-getting-started-with-am-39.png" alt=""><figcaption><p>Certificates</p></figcaption></figure>
 
 3. Retrieve your public key by clicking the key icon.
 4. Copy the signature and use a JWT library to verify it.
@@ -147,7 +147,7 @@ The identity provider serves default claims such as the user’s `username`, `gi
 2. Select your identity provider settings, then click the **User mappers** tab.
 3. Map new custom claims with user attributes contained in your user data store.
 
-<figure><img src="../../.gitbook/assets/image (40).png" alt=""><figcaption><p>Configure User Mapping of fields</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gs-tutorial-getting-started-with-am-40.png" alt=""><figcaption><p>Configure User Mapping of fields</p></figcaption></figure>
 
 4. Custom user attributes will now be available in the UserInfo Endpoint response.
 

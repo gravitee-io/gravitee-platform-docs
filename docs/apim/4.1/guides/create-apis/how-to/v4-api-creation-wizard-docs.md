@@ -383,7 +383,7 @@ On the **General** screen, define:
 * **Subscription** options: choose whether to auto-validate subscriptions, require a message from consumers during subscription, and/or to present a message to the consumer upon subscription
 * **Access control**: here, select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../administration/README.md#users-and-user-groups).
 
-<img src="../../../.gitbook/assets/image.png" alt="" data-size="original">
+<img src="../../../.gitbook/assets/guide-create-apis-how-to-v4-api-cre-0.png" alt="" data-size="original">
 
 
 
@@ -399,7 +399,7 @@ Once you're done, select Next, and move on to **OAuth2 authentication configurat
 * Choose whether or not to permit authorization headers to target endpoints&#x20;
 * Optionally, you can define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan's selection process. You will need to use the Gravitee Expression Language here. For more information on the Gravitee Expression Language, please refer to the Expression Language documentation.
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/guide-create-apis-how-to-v4-api-cre-1.png" alt=""><figcaption></figcaption></figure>
 
 After you're done with the configuration, select Next to define any additional restrictions for the plan. These Restrictions include:
 
@@ -412,7 +412,7 @@ After you're done with the configuration, select Next to define any additional r
 * **Quota**: defines a rate limit over a period of hours, days, or months. If you choose this, you'll need to then define the same settings as you would for rate limiting (see above)
 * **Resource filtering**: this allows you to restrict resources based on defined whitelist/allowed and/or blacklist/disallowed settings. These will be defined by path patterns and methods.
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/guide-create-apis-how-to-v4-api-cre-2.png" alt=""><figcaption></figcaption></figure>
 
 </details>
 

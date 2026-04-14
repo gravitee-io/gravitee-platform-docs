@@ -584,7 +584,7 @@ notifiers:
         value: 100
 ```
 
-<figure><img src="../../../.gitbook/assets/image (165).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/gs-config-configure-am-api-readme-165.png" alt=""><figcaption></figcaption></figure>
 
 #### Email Notifier
 

@@ -48,4 +48,4 @@ The following table lists the Bridge versions supported by each Gateway version.
 
 ![Hybrid deployment architecture](<../.gitbook/assets/file.excalidraw (4) (1).svg>)
 
-<figure><img src="../.gitbook/assets/image (135).png" alt="Diagram showing the hybrid architecture"><figcaption><p>Hybrid architecture connections</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/hybrid-deployment-overview-135.png" alt="Diagram showing the hybrid architecture"><figcaption><p>Hybrid architecture connections</p></figcaption></figure>

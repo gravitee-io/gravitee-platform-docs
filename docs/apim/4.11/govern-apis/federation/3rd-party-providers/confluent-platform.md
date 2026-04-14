@@ -471,4 +471,4 @@ If your APIM management API uses certificates that require a custom truststore, 
     ```
 2.  Return to the Gravitee API Management console, refresh the page, and verify that the agent's status is set to **Connected**.
 
-    <figure><img src="../../../.gitbook/assets/image (46).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/govern-federation-confluent-platfor-46.png" alt=""><figcaption></figcaption></figure>

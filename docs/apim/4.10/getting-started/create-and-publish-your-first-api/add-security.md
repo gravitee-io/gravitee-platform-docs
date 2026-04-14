@@ -29,7 +29,7 @@ To add security to your API, complete the following steps:
     <figure><img src="../../.gitbook/assets/FEF08D45-E65E-4131-8D16-4D1D767906F0.jpeg" alt=""><figcaption></figcaption></figure>
 2.  Click your API.
 
-    <figure><img src="../../.gitbook/assets/image (320).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gs-first-api-add-security-320.png" alt=""><figcaption></figcaption></figure>
 3.  Click **Consumers**.
 
     <figure><img src="../../.gitbook/assets/1CEDFEB8-E635-41FE-BEFC-3B815EEB1D69.jpeg" alt=""><figcaption></figcaption></figure>
@@ -47,10 +47,10 @@ To add security to your API, complete the following steps:
     <figure><img src="../../.gitbook/assets/E43BBC55-59A5-4CC6-B689-57D5433E1F35.jpeg" alt=""><figcaption></figcaption></figure>
 8.  In the API Key authentication configuration screen, click **Next**.
 
-    <figure><img src="../../.gitbook/assets/image (27).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gs-first-api-add-security-27.png" alt=""><figcaption></figcaption></figure>
 9.  Click **Create**.
 
-    <figure><img src="../../.gitbook/assets/image (28).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gs-first-api-add-security-28.png" alt=""><figcaption></figcaption></figure>
 10. In the **Consumers** screen, click the **Publish the plan** button.
 
     <figure><img src="../../.gitbook/assets/80812F89-F280-4D0C-A83B-EB9417385B96.jpeg" alt=""><figcaption></figcaption></figure>
@@ -84,13 +84,13 @@ WARNING: Removing a plan is irreversible
     <figure><img src="../../.gitbook/assets/3627B0A7-AF24-4E4B-A22B-5AFEB7FB29A5.jpeg" alt=""><figcaption></figcaption></figure>
 3.  In the **Close plan** pop-up window, type Default Keyless (UNSECURED), and then click **Yes, close this plan.**
 
-    <figure><img src="../../.gitbook/assets/image (44).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gs-first-api-add-security-44.png" alt=""><figcaption></figcaption></figure>
 
 #### Verification
 
 The Default Keyless (UNSECURED) plan is removed from the **PUBLISHED** tab.
 
-<figure><img src="../../.gitbook/assets/image (58).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gs-first-api-add-security-58.png" alt=""><figcaption></figcaption></figure>
 
 ## Verification
 
@@ -118,7 +118,7 @@ To test your API Key plan, complete the following steps:
    3. Click the name of the plan that you created in [#add-an-api-key-plan-to-your-api](add-security.md#add-an-api-key-plan-to-your-api "mention").
    4.  Click **Create**.
 
-       <figure><img src="../../.gitbook/assets/image (59).png" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../../.gitbook/assets/gs-first-api-add-security-59.png" alt=""><figcaption></figcaption></figure>
 6.  Copy your API key from the **API Keys** section of the **Subscriptions** page.
 
     <figure><img src="../../.gitbook/assets/0E509DC6-90E7-4154-B768-920FB55DA442.jpeg" alt=""><figcaption></figcaption></figure>

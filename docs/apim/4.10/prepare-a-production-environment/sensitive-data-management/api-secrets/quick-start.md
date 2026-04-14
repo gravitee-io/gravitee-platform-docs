@@ -134,7 +134,7 @@ Create an API with a fake sensitive that you secure after we make sure everythin
         <figure><img src="../../../.gitbook/assets/image (18) (1).png" alt=""><figcaption></figcaption></figure>
 11. Click **Validate my endpoints**.
 
-    <figure><img src="../../../.gitbook/assets/image (69).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/prod-env-secrets-quick-start-69.png" alt=""><figcaption></figcaption></figure>
 12. Click V**alidate my plans**.
 
     <figure><img src="../../../.gitbook/assets/image (19) (1).png" alt=""><figcaption></figcaption></figure>
@@ -214,7 +214,7 @@ If you export your API, you see the Authorization header as part of the definiti
     <figure><img src="../../../.gitbook/assets/5DF13AD2-0BEC-4D40-9D2E-33BFED89E109.jpeg" alt=""><figcaption></figcaption></figure>
 3.  Click the **Configuration** tab, and then navigate to **HTTP Headers**.
 
-    <figure><img src="../../../.gitbook/assets/image (44).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/prod-env-secrets-quick-start-44.png" alt=""><figcaption></figcaption></figure>
 4. In the **VALUE** field, replace `ApiKey 123465798` with `ApiKey{#secrets.get('/vault/secret/gravitee/apikeys:username')}` .
 5.  In the **You have unsaved changes** pop-up window, click **Save.**
 

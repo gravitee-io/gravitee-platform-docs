@@ -15,7 +15,7 @@ The purpose of this platform as a whole is to:
 
 Below is an illustration of one such platform:
 
-<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/overview-example-architecture-9.png" alt=""><figcaption></figcaption></figure>
 
 In the approach illustrated above, GKO enables GitOps-style API management by:
 

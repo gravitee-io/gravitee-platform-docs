@@ -78,10 +78,10 @@ Users with environment `API` [permissions](https://documentation.gravitee.io/api
 {% tab title="Accept the Promotion" %}
 1)  Click **Accept** to approve the promotion<br>
 
-    <figure><img src="../../.gitbook/assets/image (184).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/config-apis-create-apis-promote-api-184.png" alt=""><figcaption></figcaption></figure>
 2)  The API is created in the target environment, and the task is removed from the list.<br>
 
-    <figure><img src="../../.gitbook/assets/image (185).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/config-apis-create-apis-promote-api-185.png" alt=""><figcaption></figcaption></figure>
 
 
 {% endtab %}
@@ -89,7 +89,7 @@ Users with environment `API` [permissions](https://documentation.gravitee.io/api
 {% tab title="Reject the Promotion" %}
 1.  Click Reject to discard the promotion request.
 
-    <figure><img src="../../.gitbook/assets/image (186).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/config-apis-create-apis-promote-api-186.png" alt=""><figcaption></figcaption></figure>
 2.  The task is removed from the list.<br>
 
     <figure><img src="../../.gitbook/assets/no-task-to-display.png" alt=""><figcaption></figcaption></figure>

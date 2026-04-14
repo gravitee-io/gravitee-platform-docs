@@ -37,7 +37,7 @@ For self-hosted installations and hybrid deployments of Gravitee, you can set th
 
 *   Click the **Open Website** button. The New Developer Portal opens in a new tab.
 
-    <figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/devportal-new-portal-configure-the--5.png" alt=""><figcaption></figcaption></figure>
 
 ## Set the New Developer Portal as default
 
@@ -126,7 +126,7 @@ Here is an example of the environmental variables set in a `docker-compose-apim.
 
 *   In the APIM Console, click **Developer Portal**. The New Developer Portal opens in a new tab.
 
-    <figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/devportal-new-portal-configure-the--6.png" alt=""><figcaption></figcaption></figure>
 
 ## Next Steps
 
