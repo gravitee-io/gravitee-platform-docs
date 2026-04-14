@@ -47,10 +47,10 @@ Welcome page in the Developer Portal:
 
 With the New Developer Portal, you can customize your navigation in the following ways:
 
-* [#add-a-page](customize-the-navigation.md#add-a-page "mention")
-* [#add-a-folder](customize-the-navigation.md#add-a-folder "mention")
-* [#add-a-link](customize-the-navigation.md#add-a-link "mention")
-* [#add-an-api](customize-the-navigation.md#add-an-api "mention")
+* [Add a page](#add-a-page)
+* [Add a folder](#add-a-folder)
+* [Add a link](#add-a-link)
+* [Add an API](#add-an-api)
 
 1.  From the **Dashboard**, click **Settings**.<br>
 
