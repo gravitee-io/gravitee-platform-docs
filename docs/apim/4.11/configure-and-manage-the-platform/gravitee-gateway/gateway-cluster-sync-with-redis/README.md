@@ -19,7 +19,7 @@ The Gateway Cluster sync improves both scalability and resilience.
 
 ### How does it work?
 
-The new repository scope, `Distributed Sync`,  is responsible for keeping the sync state for a cluster.
+The new repository scope, `Distributed Sync`, is responsible for keeping the sync state for a cluster.
 
 In the repository, the primary node stores information regarding the current synchronization state and what is currently deployed.
 
@@ -27,7 +27,7 @@ This allows another node to take over if the current primary node goes down with
 
 By enabling the Gateway Cluster sync on your gateways, the master node fetches the API definitions from the management repository (MongoDB, Bridge, JDBC), and then stores them in the Redis distributed sync repository, while the other gateways only read the API definitions from the Redis distributed sync repository.
 
-<figure><img src="../../../.gitbook/assets/platform-gateway-gateway-cluster-sy-156.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/platform-gateway-gateway-cluster-sy-156 (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Distributed Synchronization State
 
@@ -43,14 +43,14 @@ The Synchronization State tracks the current sync process. It contains the follo
 The objects are used to know what needs to be deployed or undeployed across the cluster. They contain the following information:
 
 * `id`: the identifier of the object
-* `Type`:  `API`, `API_KEY`, `SUBSCRIPTION`, `DICTIONARY`,  `ORGANIZATION` , and `LICENSE`&#x20;
-* `SyncAction`:  `DEPLOY` or  `UNDEPLOY`
+* `Type`: `API`, `API_KEY`, `SUBSCRIPTION`, `DICTIONARY`, `ORGANIZATION` , and `LICENSE`
+* `SyncAction`: `DEPLOY` or `UNDEPLOY`
 * `Payload`: The object to deploy or undeploy
 * `UpdatedAt`: Date of the update to allow incremental syncs
 
 After any business object is deployed, and only if distributed sync is enabled, the primary node stores those objects in the new distributed sync repository.
 
-## Prerequisites&#x20;
+## Prerequisites
 
 Before you enable the distributed sync with Redis, you must complete the following steps:
 
@@ -71,12 +71,10 @@ To configure Distributed sync with Redis, complete the following steps:
 {% hint style="info" %}
 If you use Kubernetes (Helm), Hazelcast's auto-detection discovers gateway pods automatically on Kubernetes. For more information about Hazelcast's auto-dectection, go to [Kubernetes Auto Discovery.](https://docs.hazelcast.com/hazelcast/5.4/kubernetes/kubernetes-auto-discovery)
 
-
-
 To configure Gateway cluster sync, see [#configure-the-distributed-sync-on-the-apim-gateway](./#configure-the-distributed-sync-on-the-apim-gateway "mention").
 {% endhint %}
 
-1.  In your `gravitee.yml` file navigate to the `cluster` section, and then add the following configuration:&#x20;
+1.  In your `gravitee.yml` file navigate to the `cluster` section, and then add the following configuration:
 
     ```yaml
     cluster:
@@ -110,9 +108,9 @@ To configure Gateway cluster sync, see [#configure-the-distributed-sync-on-the-a
     * Replace `<gateway_client_2>` with the name of your second Gateway .
     * Replace `<gateway_server>` with your the name of your third Gateway.
 
-### &#x20;(Docker installations only) Configure your Redis Repository
+### (Docker installations only) Configure your Redis Repository
 
-To enable your distributed sync repository, you must enable the Search module on your Redis instance.&#x20;
+To enable your distributed sync repository, you must enable the Search module on your Redis instance.
 
 *   Enable the Search module using the following command:<br>
 

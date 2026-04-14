@@ -36,16 +36,16 @@ When API Score scores your API, it returns issues in the form of errors, warning
 
 ## How your API score is calculated
 
-Your API's score is calculated using the following formula:&#x20;
+Your API's score is calculated using the following formula:
 
 `100 · e^−0.1·(1.0·nbErrors + 0.5·nbWarnings + 0.2·nbInfos + 0.1·nbHints)` which is the same as `nbErrors + 0.5·nbWarnings + 0.2·nbInfos + 0.1·nbHints` .
 
-Your API's score is projected onto a function that has the following shape:&#x20;
+Your API's score is projected onto a function that has the following shape:
 
-<figure><img src="../../.gitbook/assets/govern-api-score-readme-77.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/govern-api-score-readme-77 (1).png" alt=""><figcaption></figcaption></figure>
 
 For example, if your API has 1 error, 0 warnings, 2 infos, and 1 hint, the score is calculated as follows:
 
-`math.exp(-.1*(1e + .5 w + .2i + .1h)) * 100`&#x20;
+`math.exp(-.1*(1e + .5 w + .2i + .1h)) * 100`
 
 This formula results in a score of `22.31%`.

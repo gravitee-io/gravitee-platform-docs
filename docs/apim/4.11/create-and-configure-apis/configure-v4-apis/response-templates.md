@@ -38,7 +38,7 @@ When the Gateway raises an error, it looks for a response template that matches 
 
 The built-in payload format depends on the request's `Accept` header:
 
-* If the `Accept` header includes `application/json` or `*/*`, the Gateway sets `Content-Type: application/json` and returns:
+*   If the `Accept` header includes `application/json` or `*/*`, the Gateway sets `Content-Type: application/json` and returns:
 
     ```json
     {
@@ -46,7 +46,6 @@ The built-in payload format depends on the request's `Accept` header:
       "http_status_code": <status code set by the failing policy or component>
     }
     ```
-
 * For any other `Accept` value, the Gateway sets `Content-Type: text/plain` and returns the raw error message string.
 
 The status code comes from the policy or component that raised the failure. For example, the HTTP Callout policy uses its `errorStatusCode` configuration, which defaults to `500`.
@@ -59,12 +58,12 @@ The built-in payload doesn't include the error key. To expose the error key to A
 
 ## Create a response template
 
-1.  From the **Dashboard**, click **APIs**. <br>
+1.  From the **Dashboard**, click **APIs**.<br>
 
-    <figure><img src="../../.gitbook/assets/config-apis-v4-config-response-temp-209.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/config-apis-v4-config-response-temp-209 (1).png" alt=""><figcaption></figcaption></figure>
 2.  Select the API that you want to configure response templates for.<br>
 
-    <figure><img src="../../.gitbook/assets/config-apis-v4-config-response-temp-70.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/config-apis-v4-config-response-temp-70 (1).png" alt=""><figcaption></figcaption></figure>
 3.  From the API's menu, click **Entrypoints**.<br>
 
     <figure><img src="../../.gitbook/assets/9DB31EFE-6F36-4050-AD4B-5135E50E66AA.jpeg" alt=""><figcaption></figcaption></figure>
@@ -77,14 +76,14 @@ The built-in payload doesn't include the error key. To expose the error key to A
 6. Create the response template. To create the response template, complete the following sub-steps:
    1.  From the **Template key** dropdown menu, select the Template key that you want to apply to the API. For example, `GATEWAY_PLAN_UNRESOLVABLE`. For more information about Template Keys, see [#template-keys](response-templates.md#template-keys "mention").<br>
 
-       <figure><img src="../../.gitbook/assets/config-apis-v4-config-response-temp-224.png" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../../.gitbook/assets/config-apis-v4-config-response-temp-224 (1).png" alt=""><figcaption></figcaption></figure>
    2. In the **Accept header to match** field, enter the request header or request headers that trigger the response template. The default value is `*/*`.
-   3. In the **Status Code** field, add the status code that you want to associate with the response template. For example, `401`.&#x20;
-   4. (Optional) In the **HTTP Headers** field, enter the `KEY` and `VALUE` for the response.&#x20;
+   3. In the **Status Code** field, add the status code that you want to associate with the response template. For example, `401`.
+   4. (Optional) In the **HTTP Headers** field, enter the `KEY` and `VALUE` for the response.
    5.  (Optional) In the **Body** field, enter the body of response that you want to return to the consumer. For example, `{"error": "Custom Missing Key Message"}`.<br>
 
        <figure><img src="../../.gitbook/assets/image (4) (3).png" alt=""><figcaption></figcaption></figure>
-7.  Click **Create**. <br>
+7.  Click **Create**.<br>
 
     <figure><img src="../../.gitbook/assets/EF0E884E-88BE-466F-A0F7-F73C98780115.jpeg" alt=""><figcaption></figcaption></figure>
 8.  In the **This API is out of sync** pop-up banner, click **Deploy API**.<br>
@@ -96,7 +95,7 @@ The built-in payload doesn't include the error key. To expose the error key to A
 
 ## Verification
 
-To verify if the complete the following steps:&#x20;
+To verify if the complete the following steps:
 
 1.  Verify that the response templates appears in the **Response Templates** tab of the **Entrypoints** screen.<br>
 
@@ -112,7 +111,7 @@ To verify if the complete the following steps:&#x20;
     * Replace `<context_path>` with the context path for your API.
 
     \
-    You receive the following message in the response:&#x20;
+    You receive the following message in the response:
 
     ```bash
     {"error": "My custom missing key error"}% 
@@ -122,19 +121,19 @@ To verify if the complete the following steps:&#x20;
 
 When you set a response template body, the Gateway evaluates it with the [Gravitee Expression Language](../../gravitee-expression-language.md). Two variables are bound to the templating context inside a response template body:
 
-| Variable      | Description                                                                                       |
-| ------------- | ------------------------------------------------------------------------------------------------- |
-| `#error`      | The execution failure that triggered the template.                                                |
+| Variable      | Description                                                                                   |
+| ------------- | --------------------------------------------------------------------------------------------- |
+| `#error`      | The execution failure that triggered the template.                                            |
 | `#parameters` | A map of additional parameters set by the failing policy. The map is empty for most policies. |
 
 The `#error` object exposes the following fields:
 
-| Field                | Description                                                                            |
-| -------------------- | -------------------------------------------------------------------------------------- |
-| `#error.statusCode`  | The HTTP status code set by the failing policy or component.                           |
-| `#error.key`         | The error key that triggered the template, for example `CALLOUT_HTTP_ERROR`.           |
-| `#error.message`     | The error message produced by the failing policy or component.                         |
-| `#error.parameters`  | The same map as `#parameters`, exposed as a property of the error object.              |
+| Field               | Description                                                                  |
+| ------------------- | ---------------------------------------------------------------------------- |
+| `#error.statusCode` | The HTTP status code set by the failing policy or component.                 |
+| `#error.key`        | The error key that triggered the template, for example `CALLOUT_HTTP_ERROR`. |
+| `#error.message`    | The error message produced by the failing policy or component.               |
+| `#error.parameters` | The same map as `#parameters`, exposed as a property of the error object.    |
 
 Example response template body that returns the error key, status code, and message in a JSON envelope:
 
@@ -148,19 +147,19 @@ Example response template body that returns the error key, status code, and mess
 }
 ```
 
-## Template Keys&#x20;
+## Template Keys
 
 Here are the template keys that you can override by configuring response templates
 
 ### Global Gateway Keys
 
-| **Template key**                | **Description**                                                                                                                                    |
-| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `GATEWAY_OAUTH2_ACCESS_DENIED`  | <p>No valid subscription can be found for the <code>clientid</code>. </p><p></p><p>This template works for only for JWT or OAuth2 plan.</p><p></p> |
-| `GATEWAY_OAUTH2_INVALID_CLIENT` | No clientld found in the Execution context.                                                                                                        |
-| `GATEWAY_PLAN_UNRESOLVABLE`     | The Gateway cannot resolve or authenticate a request using any available security plan and must challenge the client for authentication.           |
-| `GATEWAY_POLICY_INTERNAL_ERROR` | An internal error occurs during Policies execution.                                                                                                |
-| `REQUEST_TIMEOUT`               | A `http.requestTimeout` is configured to be `> 0` with and the request is not finished before that time.                                           |
+| **Template key**                | **Description**                                                                                                                          |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| `GATEWAY_OAUTH2_ACCESS_DENIED`  | <p>No valid subscription can be found for the <code>clientid</code>.</p><p>This template works for only for JWT or OAuth2 plan.</p>      |
+| `GATEWAY_OAUTH2_INVALID_CLIENT` | No clientld found in the Execution context.                                                                                              |
+| `GATEWAY_PLAN_UNRESOLVABLE`     | The Gateway cannot resolve or authenticate a request using any available security plan and must challenge the client for authentication. |
+| `GATEWAY_POLICY_INTERNAL_ERROR` | An internal error occurs during Policies execution.                                                                                      |
+| `REQUEST_TIMEOUT`               | A `http.requestTimeout` is configured to be `> 0` with and the request is not finished before that time.                                 |
 
 ### Policy-Specific Template Keys
 
