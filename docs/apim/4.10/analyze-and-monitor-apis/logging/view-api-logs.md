@@ -35,7 +35,7 @@ You can filter v4 proxy API and v4 message API runtime logs based on the followi
 
 The **More** button offers additional filtering options.
 
-<figure><img src="../../.gitbook/assets/image (363) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (363) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 You can filter v4 message webhook logs based on time period, HTTP status, and application. The **More** button lets you filter by callback URL and a customized timeframe.&#x20;
 
