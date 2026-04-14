@@ -459,7 +459,7 @@ Once you're done configuring your JWT plan, select **Next**. You'll then define 
 * **Quota**: defines a rate limit over a period of hours, days, or months. If you choose this, you'll need to then define the same settings as you would for rate limiting (see above)
 * **Resource filtering**: this allows you to restrict resources based on defined whitelist/allowed and/or blacklist/disallowed settings. These will be defined by path patterns and methods.
 
-<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/guides-create-apis-how-to-v4-api-creatio-2-1.png" alt=""><figcaption></figcaption></figure>
 
 </details>
 

@@ -32,7 +32,7 @@ jobs:
           # Fast check using the same regex as the rename script
           COUNT=$(python3 -c "
           import os, re
-          p = re.compile(r'^image(?:(?:\s|%20)*\(\d+\))*(?:-\d+)?\.(?:png|jpg|jpeg|gif|svg|webp)$', re.I)
+          p = re.compile(r'^(?:[a-zA-Z0-9]{8}__)?image(?:(?:\s|%20)*\(\d+\))*(?:-\d+)?\.(?:png|jpg|jpeg|gif|svg|webp)$', re.I)
           print(sum(1 for dp,_,fn in os.walk('docs') if dp.endswith('/.gitbook/assets') for f in fn if p.match(f)))
           ")
           echo "count=$COUNT" >> "$GITHUB_OUTPUT"

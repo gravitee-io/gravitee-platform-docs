@@ -53,7 +53,7 @@ To support a multi-environment configuration, the self-hosted Control Plane must
 
 ### Self-hosted architecture diagram
 
-<figure><img src="../.gitbook/assets/image (12) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/self-hosted-installation-guides-readme-12-1.png" alt=""><figcaption></figcaption></figure>
 
 In a typical self-hosted architecture, the customer manages both the Data Plane and the Control Plane. The Management Control Plane consists of API Management (mAPI), and, optionally, Gravitee Alert Engine and Gravitee Access Management.
 

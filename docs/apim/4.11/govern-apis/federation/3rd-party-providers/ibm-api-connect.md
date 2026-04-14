@@ -36,10 +36,10 @@ To integrate IBM API Connect with Gravitee APIM, complete the following steps:
 
 1.  From the Dashboard, click **Integrations**.<br>
 
-    <figure><img src="../../../.gitbook/assets/image (16) (1) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-16-1-1-v4.png" alt=""><figcaption></figcaption></figure>
 2.  Click **Create Integration**.
 
-    <figure><img src="../../../.gitbook/assets/image (18) (2).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-18-2-v5.png" alt=""><figcaption></figcaption></figure>
 3.  Select **IBM API Connect**, and then click **Next**.<br>
 
     <figure><img src="../../../.gitbook/assets/click-next-on-integrations-workflow (1).png" alt=""><figcaption></figcaption></figure>
@@ -618,7 +618,7 @@ Create the Helm values file based on your APIM management API's certificate setu
     ```
 2.  Return to the Gravitee API Management console, refresh the page, and verify that the agent's status is set to **Connected**.
 
-    <figure><img src="../../../.gitbook/assets/image (56) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-56-1.png" alt=""><figcaption></figcaption></figure>
 
 ## Limitations
 

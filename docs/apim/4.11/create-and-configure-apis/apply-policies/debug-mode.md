@@ -51,7 +51,7 @@ Debug mode cannot test the following policies and features:
 7. In the **Request body** field, enter the request body.
 8.  Click **Send**. You are shown a timeline of the order of the flows and policies.
 
-    <figure><img src="../../.gitbook/assets/image (302) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/create-and-configure-apis-apply-policies-302-1.png" alt=""><figcaption></figcaption></figure>
 9.  Select a step in the timeline to compare its inputs and outputs.
 
     <figure><img src="../../.gitbook/assets/56CF95D5-879A-4F32-AB8C-98A640017267 (1).jpeg" alt=""><figcaption></figcaption></figure>

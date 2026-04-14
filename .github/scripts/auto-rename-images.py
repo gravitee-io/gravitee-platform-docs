@@ -12,6 +12,8 @@ Matches all GitBook generic naming patterns:
   - image (N) (M).png
   - image (N) (M) (K).png
   - image (N)-1.png
+  - HsfV91lH__image.png  (hash-prefixed GitBook uploads)
+  - abcd1234__image (N).png
   - etc.
 
 Exit codes:
@@ -28,21 +30,47 @@ from pathlib import Path
 
 DOCS = Path("docs")
 
-# Match any file starting with "image" followed by optional parenthesized
+# Match any file starting with "image" (optionally prefixed by an 8-char
+# alphanumeric hash and double-underscore) followed by optional parenthesized
 # numbers and/or suffixes, ending in an image extension.
 # Handles both real spaces and literal %20 in filenames on disk.
-# Examples: image.png, image (12).png, image (3) (1).png, image%20(48)%20(1).png
+# Examples: image.png, image (12).png, image (3) (1).png, HsfV91lH__image.png
 GENERIC_PATTERN = re.compile(
-    r"^image(?:(?:\s|%20)*\(\d+\))*(?:-\d+)?\.(?:png|jpg|jpeg|gif|svg|webp)$", re.I
+    r"^(?:[a-zA-Z0-9]{8}__)?image(?:(?:\s|%20)*\(\d+\))*(?:-\d+)?\.(?:png|jpg|jpeg|gif|svg|webp)$", re.I
 )
 
 # Extract the primary sequence number from the filename for use in descriptive names
 SEQ_EXTRACT = re.compile(r"^image\s*(?:\((\d+)\))?")
 
 
-def slugify(text: str, max_len: int = 40) -> str:
-    """Create a filename-safe slug from text."""
-    slug = re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
+def slugify(text: str) -> str:
+    """Create a filename-safe slug from a single path segment."""
+    return re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
+
+
+def build_slug(page_path: Path, version_root: Path, max_len: int = 40) -> str:
+    """Build a descriptive slug prioritizing the page name.
+
+    Starts with the page basename and prepends parent directory names
+    from right-to-left until the slug reaches max_len. This ensures
+    the most-descriptive segment (the page name) is always preserved,
+    unlike a left-to-right truncation which loses it on deep paths.
+    """
+    rel = page_path.relative_to(version_root)
+    parts = list(rel.with_suffix("").parts)
+
+    # Start with the page name (most important)
+    slug = slugify(parts[-1])
+
+    # Prepend parent dirs from right-to-left until we hit max_len
+    for part in reversed(parts[:-1]):
+        parent = slugify(part)
+        candidate = f"{parent}-{slug}"
+        if len(candidate) <= max_len:
+            slug = candidate
+        else:
+            break
+
     return slug[:max_len].rstrip("-")
 
 
@@ -71,10 +99,8 @@ def find_referencing_pages(image_path: Path, version_root: Path) -> list[Path]:
     referencing = []
     # Build all search variants: literal name, space-encoded, and %20-decoded
     search_variants = {image_name, encoded_name}
-    # If the filename itself has %20, also search for space-decoded form
     if "%20" in image_name:
         search_variants.add(image_name.replace("%20", " "))
-    # If the filename has spaces, also search for %20-encoded form
     if " " in image_name:
         search_variants.add(image_name.replace(" ", "%20"))
 
@@ -95,18 +121,12 @@ def find_referencing_pages(image_path: Path, version_root: Path) -> list[Path]:
 
 def generate_name(page_path: Path, original_name: str, version_root: Path) -> str:
     """Generate a descriptive name from the page path and original sequence number."""
-    # Extract the primary number from the original name
-    m = SEQ_EXTRACT.match(original_name)
-    num = m.group(1) if m and m.group(1) else "0"
-
-    # If there are additional paren groups, append them to make it unique
+    # If there are parenthesized numbers, join them to form the suffix
     all_nums = re.findall(r"\((\d+)\)", original_name)
-    suffix = "-".join(all_nums) if all_nums else num
+    suffix = "-".join(all_nums) if all_nums else "0"
 
     ext = original_name.rsplit(".", 1)[-1]
-
-    rel = page_path.relative_to(version_root)
-    slug = slugify(str(rel.with_suffix("")).replace(os.sep, "-").replace("/", "-"))
+    slug = build_slug(page_path, version_root)
 
     return f"{slug}-{suffix}.{ext}"
 
@@ -147,10 +167,43 @@ def process_image(image_path: Path) -> list[str]:
     actions = []
 
     if not pages:
-        # Orphan — no page references it. Delete it.
-        image_path.unlink()
-        actions.append(f"  Deleted orphan: {image_path.relative_to(DOCS)}")
-        return actions
+        # Before deleting as orphan, check if any OTHER version references
+        # this file via cross-version relative paths (e.g. ../../../4.10/.gitbook/assets/...)
+        image_name = image_path.name
+        encoded_name = image_name.replace(" ", "%20")
+        search_variants = {image_name, encoded_name}
+        if "%20" in image_name:
+            search_variants.add(image_name.replace("%20", " "))
+
+        cross_ref = False
+        for dirpath, dirnames, filenames in os.walk(DOCS):
+            dirnames[:] = [d for d in dirnames if not d.startswith(".")]
+            if Path(dirpath).is_relative_to(version_root):
+                continue  # Already checked within version_root
+            for f in filenames:
+                if not f.endswith(".md"):
+                    continue
+                try:
+                    content = (Path(dirpath) / f).read_text("utf-8", errors="replace")
+                except OSError:
+                    continue
+                if any(v in content for v in search_variants):
+                    cross_ref = True
+                    actions.append(
+                        f"  Skipped (cross-product ref): {image_path.relative_to(DOCS)} "
+                        f"(referenced by {Path(dirpath) / f})"
+                    )
+                    break
+            if cross_ref:
+                break
+
+        if cross_ref:
+            return actions
+
+        if not pages:
+            image_path.unlink()
+            actions.append(f"  Deleted orphan: {image_path.relative_to(DOCS)}")
+            return actions
 
     if len(pages) == 1:
         # Single reference — rename in place

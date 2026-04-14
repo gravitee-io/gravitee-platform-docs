@@ -134,7 +134,7 @@ To ensure all API consumers, regardless of their plan, do not overwhelm the API,
 7. Click **Add policy**
 8. On the **Policies** page, click **Save**
 
-<figure><img src="../../.gitbook/assets/image (38) (1)-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-cases-38-1.png" alt=""><figcaption></figcaption></figure>
 
 9. Click **Deploy API** to redeploy the API and have the changes take effect
 
@@ -185,7 +185,7 @@ Rate limiting policies can also be added during [Step 4: Security](https://docum
 3. Click **API Key**
 4. Enter a plan **Name**, **Description** (optional), and modify **Subscriptions** and **Access-Control** (optional)
 
-<figure><img src="../../.gitbook/assets/image (46) (1)-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/using-the-product-most-common-use-cases-46-1.png" alt=""><figcaption></figcaption></figure>
 
 5. Click **Next**, then optionally propagate the API Key to upstream API or add a selectional rule
 
