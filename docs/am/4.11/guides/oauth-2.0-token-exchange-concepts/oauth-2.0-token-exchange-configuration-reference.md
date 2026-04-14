@@ -9,7 +9,7 @@ To enable Token Exchange for your environment:
     <figure><img src="../../.gitbook/assets/lDpWnmyu__Screenshot 2026-03-05 at 11.53.36.png" alt=""><figcaption></figcaption></figure>
 2.  **Application level:** In the application's OAuth 2.0 settings, add `Token Exchange` as an allowed grant type.
 
-    <figure><img src="../../.gitbook/assets/y7500g2u__image (2).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/oauth-2-0-token-exchange-configuration-r-2.png" alt=""><figcaption></figcaption></figure>
 3. **Client authentication:** The client must authenticate on the token endpoint (e.g., using HTTP Basic authentication with `client_id` and `client_secret`).
 
 ## Domain Configuration Reference

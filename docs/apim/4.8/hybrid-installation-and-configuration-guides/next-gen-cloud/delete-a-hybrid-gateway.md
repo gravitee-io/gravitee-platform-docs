@@ -12,7 +12,7 @@ Deleting a hybrid Gateway is a way to maintain control and security within your 
 
 1.  Sign in to [Gravitee Cloud](https://cloud.gravitee.io/).
 
-    <figure><img src="../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/hybrid-installation-and-configuration-gu-4-1.png" alt=""><figcaption></figcaption></figure>
 2.  Navigate to the **Gateways** section, and then click the Gateway that you want to delete.
 
     <figure><img src="../../.gitbook/assets/4F6BF985-5015-4CA0-ABA0-526FD7E1AC90_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>

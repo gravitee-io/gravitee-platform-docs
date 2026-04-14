@@ -31,10 +31,10 @@ To integrate Solace with Gravitee APIM, complete the following steps:
 
 1.  From the Dashboard, click **Integrations.**
 
-    <figure><img src="../../../.gitbook/assets/image (16) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-16-1-1-1-v2.png" alt=""><figcaption></figcaption></figure>
 2.  Click **Create Integration**.
 
-    <figure><img src="../../../.gitbook/assets/image (18) (2) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-18-2-1-v2.png" alt=""><figcaption></figcaption></figure>
 3.  Select **Solace**, and then click **Next**.
 
     <figure><img src="../../../.gitbook/assets/select-solace-and-click-next.png" alt=""><figcaption></figcaption></figure>
@@ -43,7 +43,7 @@ To integrate Solace with Gravitee APIM, complete the following steps:
     <figure><img src="../../../.gitbook/assets/solace-integration-name-and-description.png" alt=""><figcaption></figcaption></figure>
 5.  (Optional) Type the **Description** for the integration.
 
-    <figure><img src="../../../.gitbook/assets/image (61) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-61-1.png" alt=""><figcaption></figcaption></figure>
 6.  Click **Create Integration**.
 
     <figure><img src="../../../.gitbook/assets/click-create-integration-solace.png" alt=""><figcaption></figcaption></figure>

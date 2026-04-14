@@ -41,7 +41,7 @@ Limit logging duration to avoid excessive CPU/memory consumption and the prolong
 
 The default maximum duration is 90000 ms. This value logs minimal call information. A value of 0 is interpreted as no maximum duration.
 
-<figure><img src="../../.gitbook/assets/image (360) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/analyze-and-monitor-apis-logging-configu-360-1-1.png" alt=""><figcaption></figcaption></figure>
 
 ### Audit
 
@@ -50,13 +50,13 @@ Enable the following options to track who accessed specific data from the audit 
 * **Enable audit on API Logging consultation:** Records who accessed API logs.
 * **Generate API Logging audit events (API\_LOGGING\_ENABLED, API\_LOGGING\_DISABLED, API\_LOGGING\_UPDATED):** Records changes to the API logging configuration.
 
-<figure><img src="../../.gitbook/assets/image (361) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/analyze-and-monitor-apis-logging-configu-361-1-1.png" alt=""><figcaption></figcaption></figure>
 
 ### User
 
 Enable **Display end user on API Logging (in case of OAuth2/JWT plan)** to include information about the end user in the logs. This is applicable to OAuth2 or JWT plans.
 
-<figure><img src="../../.gitbook/assets/image (362) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/analyze-and-monitor-apis-logging-configu-362-1-1.png" alt=""><figcaption></figcaption></figure>
 
 ### Message sampling defaults and limits
 

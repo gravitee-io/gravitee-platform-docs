@@ -204,7 +204,7 @@ For example, to configure Gravitee API Manager to apply the “internal test” 
 1) From the **Sharding tags** drop-down menu, select the sharding tags that you want to map to the entrypoint.
 2)  In the **Entrypoint url** field, enter your entrypoint URL.
 
-    <figure><img src="../../.gitbook/assets/image (9) (1)-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/configure-and-manage-the-platform-gravit-9-1.png" alt=""><figcaption></figcaption></figure>
 3) Click **Ok.**
 {% endtab %}
 
@@ -212,7 +212,7 @@ For example, to configure Gravitee API Manager to apply the “internal test” 
 1. From the **Sharding tags** drop-down menu, select the sharding tags that you want to map to this entrypoint.
 2.  In the **Default TCP port** field, type the number of your TCP port.
 
-    <figure><img src="../../.gitbook/assets/image (10) (1)-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/configure-and-manage-the-platform-gravit-10-1.png" alt=""><figcaption></figcaption></figure>
 3. Click **Ok**.
 {% endtab %}
 
@@ -221,7 +221,7 @@ For example, to configure Gravitee API Manager to apply the “internal test” 
 2. In the **Default Kafka domain** field, type your Default Kafka domain.
 3.  In the **Default Kafka port** field, type your default Kafka port.
 
-    <figure><img src="../../.gitbook/assets/image (11) (1)-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/configure-and-manage-the-platform-gravit-11-1.png" alt=""><figcaption></figcaption></figure>
 4. Click **Ok**.
 {% endtab %}
 {% endtabs %}
