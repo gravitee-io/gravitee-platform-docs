@@ -27,7 +27,7 @@ For self-hosted installations and hybrid deployments of Gravitee, you can set th
     <figure><img src="../../.gitbook/assets/devportal-new-portal-configure-the--57.png" alt=""><figcaption></figcaption></figure>
 4.  In the **You have unsaved changes** pop-up window, click **Save**.
 
-    <figure><img src="../../.gitbook/assets/image (11) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (11) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Verification
 

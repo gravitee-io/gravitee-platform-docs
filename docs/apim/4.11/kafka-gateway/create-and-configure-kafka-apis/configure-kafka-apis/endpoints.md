@@ -18,12 +18,12 @@ Multi-tenant endpoint support enables a single Kafka API definition to route tra
 
 Each Kafka endpoint can be tagged with one or more tenant identifiers. At startup and during hot-reload, the gateway loads only endpoints whose tenant list is empty (shared) or contains the gateway's configured tenant. Endpoints that don't match are skipped entirely. Shared (untagged) endpoints are always included in the filtered set alongside tenant-specific endpoints. If all endpoints are tenant-specific and none match the gateway's tenant, the gateway can't route to the API. Connections fail in this scenario.
 
-| Gateway Tenant | Endpoint Tenants | Match Result |
-|:--------------|:-----------------|:-------------|
-| Not configured | Any value or empty | Match (gateway participates in all endpoints) |
-| Configured (for example, `"tenant-a"`) | `null` or `[]` | Match (shared endpoint) |
-| Configured (for example, `"tenant-b"`) | Contains `"tenant-b"` | Match |
-| Configured (for example, `"tenant-c"`) | Doesn't contain `"tenant-c"` | No Match |
+| Gateway Tenant                         | Endpoint Tenants             | Match Result                                  |
+| -------------------------------------- | ---------------------------- | --------------------------------------------- |
+| Not configured                         | Any value or empty           | Match (gateway participates in all endpoints) |
+| Configured (for example, `"tenant-a"`) | `null` or `[]`               | Match (shared endpoint)                       |
+| Configured (for example, `"tenant-b"`) | Contains `"tenant-b"`        | Match                                         |
+| Configured (for example, `"tenant-c"`) | Doesn't contain `"tenant-c"` | No Match                                      |
 
 ### Endpoint selection
 
@@ -62,8 +62,8 @@ Before configuring Kafka API endpoints with multi-tenant support, ensure the fol
 
 ### Tenant identifier
 
-| Property | Description | Example |
-|:---------|:------------|:--------|
+| Property | Description                                                                               | Example                                 |
+| -------- | ----------------------------------------------------------------------------------------- | --------------------------------------- |
 | `tenant` | Gateway tenant identifier used to filter endpoints. Omit to participate in all endpoints. | `"internal"`, `"external"`, `"eu-west"` |
 
 The tenant value can be set via environment variable, system property, or `gravitee.yml`. Changing the tenant identifier refreshes the gateway's active endpoint set without requiring API redefinition.
@@ -89,19 +89,16 @@ Validation requires the group to contain at least one endpoint. Endpoint names m
 
 Gravitee assigns each Kafka API endpoint group the default name **Default Broker group.** To edit the endpoint group, complete the following steps:
 
-1. Click the **Edit** button with the pencil icon to edit the endpoint group.
+1.  Click the **Edit** button with the pencil icon to edit the endpoint group.
 
     <figure><img src="../../../.gitbook/assets/edit-button-endpoint-group.png" alt=""><figcaption></figcaption></figure>
+2.  Select the **General** tab to change the name of your Kafka endpoint group.
 
-2. Select the **General** tab to change the name of your Kafka endpoint group.
-
-    <figure><img src="../../../.gitbook/assets/kafka-gw-kafka-apis-configure-kafka-181.png" alt=""><figcaption></figcaption></figure>
-
-3. Select the **Configuration** tab to edit the security settings of your Kafka endpoint group.
+    <figure><img src="../../../.gitbook/assets/kafka-gw-kafka-apis-configure-kafka-181 (1).png" alt=""><figcaption></figcaption></figure>
+3.  Select the **Configuration** tab to edit the security settings of your Kafka endpoint group.
 
     <figure><img src="../../../.gitbook/assets/select-configuration-tab-endpoint-group.png" alt=""><figcaption></figcaption></figure>
-
-4. Select one of the security protocols from the drop-down menu, and then configure the associated settings to define your Kafka authentication flow.
+4.  Select one of the security protocols from the drop-down menu, and then configure the associated settings to define your Kafka authentication flow.
 
     <figure><img src="../../../.gitbook/assets/supported-endpoint-security-protocol.png" alt=""><figcaption></figcaption></figure>
 
@@ -130,18 +127,15 @@ Gravitee assigns each Kafka API endpoint group the default name **Default Broker
 
 Gravitee automatically assigns your Kafka API endpoint the name **Default Broker**. The Console endpoint table includes a **Tenants** column displaying comma-separated tenant names for each endpoint. The column is hidden if no endpoint in the group has tenants configured.
 
-1. Click the pencil icon under **ACTIONS** to edit the endpoint.
+1.  Click the pencil icon under **ACTIONS** to edit the endpoint.
 
     <figure><img src="../../../.gitbook/assets/actions-edit-icon-button.png" alt=""><figcaption></figcaption></figure>
-
-2. Select the **General** tab to edit your endpoint name and the list of bootstrap servers.
+2.  Select the **General** tab to edit your endpoint name and the list of bootstrap servers.
 
     <figure><img src="../../../.gitbook/assets/select-the-general-tab.png" alt=""><figcaption></figcaption></figure>
-
-3. By default, endpoints inherit configuration settings from their endpoint group. To override these settings, select the **Configuration** tab and configure custom security settings.
+3.  By default, endpoints inherit configuration settings from their endpoint group. To override these settings, select the **Configuration** tab and configure custom security settings.
 
     <figure><img src="../../../.gitbook/assets/ovveride-endpoints-configuration.png" alt=""><figcaption></figcaption></figure>
-
 4. To assign tenant tags to the endpoint, select one or more tenants from the **Tenants** multi-select dropdown. The endpoint configuration form exposes a multi-select **Tenants** field populated from the organization's tenant list, with tenant descriptions shown as tooltips. Leave the tenant list empty to create a shared endpoint that matches any gateway.
 
 ## Reorder endpoints
@@ -156,13 +150,13 @@ Reordering is disabled in read-only mode and while a reordering operation is in 
 
 The Console displays endpoint groups and endpoints with the following columns:
 
-| Column | Description | Displayed for |
-|:-------|:------------|:--------------|
-| Drag icon | Drag handle for reordering | All endpoints |
-| Name | Endpoint name with **Default** badge for the first endpoint in the first group | All endpoints |
-| Bootstrap Servers | Kafka bootstrap servers from the endpoint configuration | Native Kafka endpoints |
-| Security Protocol | Security protocol badge with tooltip indicating inheritance or override | Native Kafka endpoints with security configuration |
-| Actions | Overflow menu (Rename, Duplicate, Delete) | All endpoints |
+| Column            | Description                                                                    | Displayed for                                      |
+| ----------------- | ------------------------------------------------------------------------------ | -------------------------------------------------- |
+| Drag icon         | Drag handle for reordering                                                     | All endpoints                                      |
+| Name              | Endpoint name with **Default** badge for the first endpoint in the first group | All endpoints                                      |
+| Bootstrap Servers | Kafka bootstrap servers from the endpoint configuration                        | Native Kafka endpoints                             |
+| Security Protocol | Security protocol badge with tooltip indicating inheritance or override        | Native Kafka endpoints with security configuration |
+| Actions           | Overflow menu (Rename, Duplicate, Delete)                                      | All endpoints                                      |
 
 {% hint style="info" %}
 The weight column isn't displayed for Native Kafka APIs.

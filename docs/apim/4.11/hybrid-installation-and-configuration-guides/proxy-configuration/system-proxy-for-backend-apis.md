@@ -20,7 +20,7 @@ Follow these steps to configure the system proxy:
 {% hint style="info" %}
 **Selective Proxy Usage**
 
-The system proxy is only used for APIs that enable `useSystemProxy: true`  in their endpoint configuration. Internal APIs can bypass the proxy by leaving this option disabled.
+The system proxy is only used for APIs that enable `useSystemProxy: true` in their endpoint configuration. Internal APIs can bypass the proxy by leaving this option disabled.
 {% endhint %}
 
 {% hint style="info" %}
@@ -35,7 +35,7 @@ Before configuring the system proxy, ensure you have the following:
 
 * Kubernetes cluster with [Helm](https://helm.sh/docs/intro/install/) installed.
 * Corporate proxy server hostname and port.
-* Proxy authentication credentials.&#x20;
+* Proxy authentication credentials.
 
 ## Configuration
 
@@ -169,20 +169,20 @@ This section provides reference information for system proxy configuration:
 
 The following table describes the available environment variables for configuring the system proxy:
 
-| Variable                              | Type    | Description                                        |
-| ------------------------------------- | ------- | -------------------------------------------------- |
-| `gravitee_system_proxy_enabled`       | boolean | Enable the system proxy                            |
-| `gravitee_system_proxy_type`          | string  | Proxy protocol: `HTTP`, `SOCKS4`, or `SOCKS5`     |
-| `gravitee_system_proxy_host`          | string  | HTTP proxy server hostname                         |
-| `gravitee_system_proxy_port`          | integer | HTTP proxy server port                             |
-| `gravitee_system_proxy_https_host`    | string  | HTTPS proxy server hostname                        |
-| `gravitee_system_proxy_https_port`    | integer | HTTPS proxy server port                            |
-| `gravitee_system_proxy_username`      | string  | Proxy authentication username                      |
-| `gravitee_system_proxy_password`      | string  | Proxy authentication password                      |
+| Variable                           | Type    | Description                                   |
+| ---------------------------------- | ------- | --------------------------------------------- |
+| `gravitee_system_proxy_enabled`    | boolean | Enable the system proxy                       |
+| `gravitee_system_proxy_type`       | string  | Proxy protocol: `HTTP`, `SOCKS4`, or `SOCKS5` |
+| `gravitee_system_proxy_host`       | string  | HTTP proxy server hostname                    |
+| `gravitee_system_proxy_port`       | integer | HTTP proxy server port                        |
+| `gravitee_system_proxy_https_host` | string  | HTTPS proxy server hostname                   |
+| `gravitee_system_proxy_https_port` | integer | HTTPS proxy server port                       |
+| `gravitee_system_proxy_username`   | string  | Proxy authentication username                 |
+| `gravitee_system_proxy_password`   | string  | Proxy authentication password                 |
 
 ## Configure APIs to Use System Proxy
 
-After deploying the Gateway with the system proxy configured, you enable it for each API that should route traffic through the proxy.&#x20;
+After deploying the Gateway with the system proxy configured, you enable it for each API that should route traffic through the proxy.
 
 ### Management Console UI
 
@@ -199,8 +199,8 @@ After deploying the Gateway with the system proxy configured, you enable it for 
     <figure><img src="../../.gitbook/assets/Screenshot 2026-02-09 at 04.10.55.png" alt=""><figcaption></figcaption></figure>
 4.  Scroll to the **Proxy** section and enable **Use System Proxy**.
 
-    <figure><img src="../../.gitbook/assets/hybrid-proxy-configuration-system-p-193.png" alt=""><figcaption></figcaption></figure>
-5. Save and deploy your API.&#x20;
+    <figure><img src="../../.gitbook/assets/hybrid-proxy-configuration-system-p-193 (1).png" alt=""><figcaption></figcaption></figure>
+5. Save and deploy your API.
 
 #### **For a new API:**
 

@@ -1,13 +1,13 @@
-# Configure authentication with Login and password
+# Configure Authentication with Login and Password
 
 ## Overview
 
 You can configure authentication for the New Developer Portal, where users must use a username and password to access your New Developer Portal. This limits access to only authenticated users increases the security of your New Developer Portal.
 
-## Prerequisites&#x20;
+## Prerequisites
 
-* Install Self-Hosted Installation of Gravitee APIM or a Hybrid Installation of Gravitee APIM. For more information about installing Gravitee APIM, see [self-hosted-installation-guides](../../../self-hosted-installation-guides/ "mention") or [hybrid-installation-and-configuration-guides](../../../hybrid-installation-and-configuration-guides/ "mention").&#x20;
-* Ensure that your installation of Gravitee APIM  is version 4.10 or later. For more information about upgrading Gravitee APIM, see [upgrade-guides](../../../upgrade-guides/ "mention").
+* Install Self-Hosted Installation of Gravitee APIM or a Hybrid Installation of Gravitee APIM. For more information about installing Gravitee APIM, see [self-hosted-installation-guides](../../../self-hosted-installation-guides/ "mention") or [hybrid-installation-and-configuration-guides](../../../hybrid-installation-and-configuration-guides/ "mention").
+* Ensure that your installation of Gravitee APIM is version 4.10 or later. For more information about upgrading Gravitee APIM, see [upgrade-guides](../../../upgrade-guides/ "mention").
 * Complete the steps in [configure-the-new-portal.md](../configure-the-new-portal.md "mention").
 
 ## Authentication using login and password
@@ -28,7 +28,7 @@ To configure in-memory users, complete the steps relevant to your installation t
 
 {% tabs %}
 {% tab title="Docker" %}
-1. In your `gravitee.yaml` file, navigate to the `security` section, and then add the following configuration:&#x20;
+1. In your `gravitee.yaml` file, navigate to the `security` section, and then add the following configuration:
 
 <pre class="language-yaml"><code class="lang-yaml">Overview
 The following sections describe how to configure in-memory users, LDAP authentication, and APIM data source authentication.
@@ -98,7 +98,7 @@ security:
     htpasswd -nbBC 10 '' "<new_password>" | tr -d ':\n' | sed 's/$2y/$2a/'
     ```
 
-    * Replace `<new_password>` with the new password.&#x20;
+    * Replace `<new_password>` with the new password.
 3. In your `gravitee.yaml`, navigate to `user.password`, and then add the new password that you generated in step 2.
 4. Deploy your installation with your new configuration using the following command:
 
@@ -160,7 +160,7 @@ docker compose up -d
     htpasswd -nbBC 10 '' "<new_password>" | tr -d ':\n' | sed 's/$2y/$2a/'
     ```
 
-    * Replace `<new_password>` with the new password.&#x20;
+    * Replace `<new_password>` with the new password.
 3. In your `gravitee.yaml`, navigate to `user.password`, and then add the new password that you generated in step 2.
 4.  Deploy your installation with your new configuration using the following command:<br>
 
@@ -175,13 +175,13 @@ docker compose up -d
 {% endtab %}
 {% endtabs %}
 
-### LDAP authentication&#x20;
+### LDAP authentication
 
 To configure LDAP authentication, complete the steps relevant to your installation type:
 
 {% tabs %}
 {% tab title="Docker" %}
-1.  Navigate to the `security` section, and then add the following configuration: <br>
+1.  Navigate to the `security` section, and then add the following configuration:<br>
 
     ```yaml
     # ===================================================================
@@ -218,7 +218,7 @@ To configure LDAP authentication, complete the steps relevant to your installati
               base: "ou=people"
               filter: "(&(objectClass=myObjectClass)(|(cn=*{0}*)(uid={0})))"
     ```
-2.  Deploy your installation with your new configuration using the following command: <br>
+2.  Deploy your installation with your new configuration using the following command:<br>
 
     ```yaml
     docker compose up -d
@@ -226,7 +226,7 @@ To configure LDAP authentication, complete the steps relevant to your installati
 {% endtab %}
 
 {% tab title="Helm" %}
-1.  In your `values.yaml` file, navigate to the `ldap` section, and then add the following configuration: <br>
+1.  In your `values.yaml` file, navigate to the `ldap` section, and then add the following configuration:<br>
 
     ```yaml
     ldap:
@@ -286,13 +286,13 @@ To configure LDAP authentication, complete the steps relevant to your installati
 {% endtab %}
 {% endtabs %}
 
-### APIM data source authentication&#x20;
+### APIM data source authentication
 
 {% hint style="info" %}
 If you use OAuth2 as an authentication method to sign in to the New Developer Portal, you must configure APIM as a data source.
 {% endhint %}
 
-You can connect users to the New Developer Portal using APIM as a data source. If you want to enable self-registration for users, you must add an APIM data source.&#x20;
+You can connect users to the New Developer Portal using APIM as a data source. If you want to enable self-registration for users, you must add an APIM data source.
 
 To connect users using an APIM data source, follow the steps relevant to your installation:
 
@@ -333,12 +333,12 @@ docker compose up -d
 {% endtab %}
 {% endtabs %}
 
-## Verification&#x20;
+## Verification
 
 Users can sign in with their login and password.
 
-<figure><img src="../../../.gitbook/assets/devportal-new-portal-configure-auth-133.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/devportal-new-portal-configure-auth-133 (1).png" alt=""><figcaption></figcaption></figure>
 
-## Next steps&#x20;
+## Next steps
 
 * [enforce-user-authentication.md](enforce-user-authentication.md "mention")
