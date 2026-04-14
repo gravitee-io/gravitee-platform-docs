@@ -54,7 +54,7 @@ All components support `fieldKey`, `name`, `label`, `value`, `required`, and `di
 `minLength` and `maxLength` validation is only available on `gmd-input` and `gmd-textarea`. Dropdown, checkbox, checkbox group, and radio components don't support length validation.
 {% endhint %}
 
-For a complete attribute reference, see [Subscription form field attributes and validation constraints reference](subscription-form-field-attributes-and-validation-constraints-reference.md).
+For the full list of component attributes, see [Subscription form feature overview](subscription-form-feature-overview.md). For backend validation rules, hard length limits, and field-count restrictions, see [Subscription form technical implementation](../../developer-portal/new-developer-portal/subscription-form-technical-implementation.md).
 
 ## Managing subscription forms
 
@@ -70,13 +70,13 @@ Toggle the **Visible to API consumers** switch in the Console, or call the follo
 * `POST /environments/{envId}/subscription-forms/{subscriptionFormId}/_enable`
 * `POST /environments/{envId}/subscription-forms/{subscriptionFormId}/_disable`
 
-When a form is disabled, it remains accessible via Management API (`GET /environments/{envId}/subscription-forms`) but returns 404 from Portal API (`GET /subscription-form`).
+When a form is disabled, it remains accessible via Management API (`GET /environments/{envId}/subscription-forms`) but returns 404 from Portal API (`GET /apis/{apiId}/subscription-form`).
 
 ### Subscription metadata
 
 When an API consumer submits a subscription form, the form field values are stored as key-value pairs in the subscription's `metadata` property. Checkbox group selections are serialized as comma-separated strings (for example, `"Authentication,Analytics"`). Empty values (null, empty strings, whitespace-only) are filtered before storage.
 
-Submissions are validated against the form's constraints before the subscription is created. Invalid submissions are rejected with field-level error messages.
+Every submitted subscription form is validated on the backend before the subscription is created — not only in the browser — so the constraints defined on the form (`required`, `minLength`, `maxLength`, `pattern`, and allowed options for `gmd-select`, `gmd-radio`, and `gmd-checkbox-group`) can't be bypassed by a misbehaving client. Invalid submissions are rejected with field-level error messages.
 
 Subscription metadata is displayed in the subscription details pages (both API subscriptions and application subscriptions) using a read-only viewer.
 
@@ -145,23 +145,9 @@ Disables the subscription form for API consumers.
 
 ### Portal API
 
-#### GET `/subscription-form`
-
-Retrieves the subscription form for the current environment. Only returns the form when it exists and is enabled — returns 404 otherwise. The Portal API response doesn't include the `id` or `enabled` fields.
-
-**Response:**
-
-```json
-{
-  "gmdContent": "string"
-}
-```
-
-**Authentication:** Required (Portal auth)
-
 #### GET `/apis/{apiId}/subscription-form`
 
-Retrieves the subscription form for a specific API, including resolved dynamic options. Returns the GMD content and a `resolvedOptions` map containing the effective option lists for fields with EL expressions. The Portal UI merges resolved options into the GMD content before rendering, replacing static or fallback options with values resolved from API and environment metadata.
+Retrieves the subscription form for a specific API, including resolved dynamic options. Only returns the form when it exists and is enabled — returns 404 otherwise. The response includes the GMD content and a `resolvedOptions` map containing the effective option lists for fields with EL expressions. The Portal UI merges resolved options into the GMD content before rendering, replacing static or fallback options with values resolved from API and environment metadata.
 
 When an EL expression's API metadata key is missing, the fallback list is used instead. In the Console subscription form editor, EL expressions aren't resolved — only the fallback values are shown as a preview during form design.
 
