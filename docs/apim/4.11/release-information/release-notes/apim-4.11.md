@@ -182,13 +182,13 @@ Existing A2A proxy APIs continue to work but they are no longer supported.
 <!-- /PIPELINE:APIM-13343 -->
 
 <!-- PIPELINE:APIM-13342 -->
-#### **mTLS Certificate Management for Applications**
+#### **mTLS certificate management for applications**
 
-* Application owners can now upload, rotate, and manage client certificates for mutual TLS authentication directly in the New Developer Portal.
-* Certificates support scheduled activation dates and configurable grace periods during rotation to prevent downtime when transitioning between certificates.
-* Administrators control feature availability via the `portal.next.mtls.enabled` configuration property, which defaults to disabled.
-* Requires `APPLICATION_DEFINITION[READ]` permission to view certificates and `APPLICATION_DEFINITION[UPDATE]` permission to manage them.
-* Certificates must be uploaded in PEM format with `.pem`, `.crt`, or `.cer` file extensions.
+* Application owners can now upload, rotate, and retire client certificates for mutual TLS authentication directly from the new Developer Portal, without raising tickets to platform administrators.
+* Certificates support scheduled activation dates and grace-period rotation, so both the old and new certificate authenticate subscriptions during cut-over and traffic doesn't fail.
+* Administrators enable the feature per environment with the **Enable mTLS Certificate Management** toggle in the **New Developer Portal** section of **Portal** settings, which sets the `portal.next.mtls.enabled` parameter. The feature defaults to disabled and is only available with an Enterprise Edition license.
+* Application owners need `APPLICATION_DEFINITION[UPDATE]` on the application to view or manage certificates through the new Developer Portal. The Certificates section is rendered inside the application's edit form, so read-only access isn't enough.
+* Certificates are uploaded in PEM format. The portal file picker accepts `.pem`, `.crt`, and `.cer` files.
 <!-- /PIPELINE:APIM-13342 -->
 
 ## Improvements

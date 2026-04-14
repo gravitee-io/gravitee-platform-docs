@@ -4,48 +4,43 @@ This guide shows administrators how to enable the self-service mTLS certificate 
 
 ## Prerequisites
 
-- APIM 4.11 or later, running with an Enterprise Edition license. The **Enable mTLS Certificate Management** toggle is hidden from the Management Console if no Enterprise license is active.
-- The new Developer Portal is enabled for the environment. This sets the `portal.next.access.enabled` parameter and is controlled by the **Enable the New Developer Portal** toggle in the **New Developer Portal** section of the **Portal** settings page in the Management Console.
-- You have permission to edit portal settings for the environment.
+- APIM 4.11 or later, running with an Enterprise Edition license. The **Enable mTLS Certificate Management** toggle is hidden from the Management Console when no Enterprise license is active.
+- The new Developer Portal is enabled for the environment. This sets the `portal.next.access.enabled` parameter and is controlled by the **Enable the New Developer Portal** toggle in the **New Developer Portal** section of the portal settings page in the Management Console.
+- You have permission to edit portal settings for the environment (`environment-settings-u`).
 
 ## Enable the feature
 
 The feature is controlled by a single environment-scoped parameter, `portal.next.mtls.enabled`, which defaults to disabled. You toggle it from the Management Console.
 
-1. In the Management Console, open **Settings**.
+1. In the Management Console, click **Settings** in the left sidebar.
 
-    <!-- TODO: Screenshot of Management Console Settings sidebar entry -->
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-console-settings-sidebar.png" alt=""><figcaption><p>Settings in the Management Console sidebar</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/console-settings-sidebar.png" alt=""><figcaption><p>Settings entry in the Management Console left sidebar</p></figcaption></figure>
 
-2. Click **Portal**.
+2. In the inner sidebar, under the **Portal** group, click **Settings**.
 
-    <!-- TODO: Screenshot of Portal settings page -->
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-console-portal-settings.png" alt=""><figcaption><p>Portal settings page</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/console-portal-group-settings.png" alt=""><figcaption><p>Settings item under the Portal group in the inner sidebar</p></figcaption></figure>
 
 3. Scroll to the **New Developer Portal** section.
 
-    <!-- TODO: Screenshot of New Developer Portal section -->
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-console-new-developer-portal-section.png" alt=""><figcaption><p>New Developer Portal section</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/console-new-developer-portal-section.png" alt=""><figcaption><p>New Developer Portal section on the portal settings page</p></figcaption></figure>
 
 4. Turn on the **Enable mTLS Certificate Management** toggle.
 
-    <!-- TODO: Screenshot of Enable mTLS Certificate Management toggle -->
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-console-enable-mtls-toggle.png" alt=""><figcaption><p>Enable mTLS Certificate Management toggle</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/console-enable-mtls-toggle.png" alt=""><figcaption><p>Enable mTLS Certificate Management toggle in the on position</p></figcaption></figure>
 
-5. Save the settings.
+5. Click **Save** to apply the change.
 
-The toggle takes effect immediately for the current environment. Application owners with `APPLICATION_DEFINITION[READ]` on an application now see a **Certificates** section on the application's **Settings** tab in the new Developer Portal.
+The toggle takes effect immediately for the current environment. Application owners with `APPLICATION_DEFINITION[UPDATE]` on an application now see a **Certificates** section inside the edit form on the application's **Settings & Security** tab in the new Developer Portal. Read-only users can't reach the section — the Certificates component is only rendered in the edit view.
 
 ## Disable the feature
 
-Turn off the **Enable mTLS Certificate Management** toggle and save. Existing certificates aren't deleted — they remain in the database and continue to authenticate existing mTLS subscriptions — but application owners can no longer view or manage them from the new Developer Portal. Re-enable the toggle to restore access.
+Turn off the **Enable mTLS Certificate Management** toggle and click **Save**. Existing certificates aren't deleted — they remain in the database and continue to authenticate existing mTLS subscriptions — but application owners can no longer view or manage them from the new Developer Portal. Re-enable the toggle to restore access.
 
 ## Verification
 
 To verify the toggle is working as expected, follow these steps:
 
-1. Sign in to the new Developer Portal as a user with `APPLICATION_DEFINITION[READ]` on an application.
-2. Open the application's **Settings** tab. With the toggle enabled, the **Certificates** section is visible. With the toggle disabled, the section is hidden.
-
-    <!-- TODO: Screenshot of Settings tab showing Certificates section -->
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-new-portal-settings-with-certificates.png" alt=""><figcaption><p>Application Settings tab with Certificates section visible</p></figcaption></figure>
+1. Sign in to the new Developer Portal as a user with `APPLICATION_DEFINITION[UPDATE]` on an application.
+2. Go to **Applications** and click the application.
+3. On the **Settings & Security** tab, click **Edit**.
+4. Scroll to the **Certificates** section at the bottom of the edit form. With the toggle enabled, the section is visible. With the toggle disabled, the section is hidden.
