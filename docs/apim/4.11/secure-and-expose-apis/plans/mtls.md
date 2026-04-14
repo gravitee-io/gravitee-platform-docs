@@ -24,8 +24,11 @@ Currently, mTLS plans have the following limitations:
 
 * You can apply mTLS plans to only v4 APIs.
 * You can't use mTLS plans in Gravitee Cloud with SaaS-based Gateways.
-* Only one client certificate can be added per application. This means that to rotate certificates for an application, you need to either pause the application's subscriptions or schedule a maintenance window to avoid traffic for that API.
 * Applications don't provide a warning that certificates are going to expire.
+
+{% hint style="info" %}
+Starting with APIM 4.11, application owners can upload, rotate, and retire multiple client certificates per application from the new Developer Portal, with grace-period rotation that keeps both the old and new certificate active during cut-over. For details, see [mTLS certificate management for applications](../applications/mtls-certificate-management-for-applications-overview-and-concepts.md).
+{% endhint %}
 
 ## Restrictions
 
