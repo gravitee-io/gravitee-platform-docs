@@ -23,7 +23,7 @@ You can configure your Gravitee Dashboard by creating dashboard charts for three
 1.  From the **Dashboard**, click **Settings**.<br>
 
     <figure><img src="../../.gitbook/assets/7534F42D-B743-43DB-9366-986800402C97_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
-2.  From the **Settings** menu, click **Analytics**. <br>
+2.  From the **Settings** menu, click **Analytics**.<br>
 
     <figure><img src="../../.gitbook/assets/AAD595E6-7AD5-4AB9-BF4B-B0DF0B24F007_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 3. Add your new platform dashboard, API dashboard, or application dashboard. To add a new dashboard, follow the steps for the dashboard that you want to create:
@@ -48,23 +48,23 @@ You can configure your Gravitee Dashboard by creating dashboard charts for three
 
 {% tabs %}
 {% tab title="table" %}
-1) In the **Title** field, type a name for your widget.&#x20;
-2) (Optional) In the **Subtitle** field, type a subtitle for your widget.&#x20;
+1) In the **Title** field, type a name for your widget.
+2) (Optional) In the **Subtitle** field, type a subtitle for your widget.
 3) From the **Field dropdown menu**, select one of the following options:
    * API
-   * Application&#x20;
+   * Application
    * Plan
    * Path
-   * Mapped path&#x20;
+   * Mapped path
    * HTTP Status
    * Tenant
-   * Host&#x20;
-   * Consumer IP&#x20;
-   * Country&#x20;
+   * Host
+   * Consumer IP
+   * Country
    * City
    * User
-   * User agent&#x20;
-   * Operating system&#x20;
+   * User agent
+   * Operating system
    * Zone
 4) From the **Projection** dropdown menu, select one of the following options:
    * Hits
@@ -74,79 +74,77 @@ You can configure your Gravitee Dashboard by creating dashboard charts for three
    * Request content length (byte)
    * Response content length (byte)
 5) From the **Order** dropdown menu, select one of the following options:
-   * Desc&#x20;
+   * Desc
    * Asc
 6) (Optional) Select the **Display percentage** checkbox.
-7)  Click **the pencil icon**. <br>
+7)  Click **the pencil icon**.<br>
 
-    <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-113.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-113 (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="line" %}
-1. In the **Title** field, type a name for your widget.&#x20;
-2. (Optional) In the **Subtitle** field, type a subtitle for your widget.&#x20;
+1. In the **Title** field, type a name for your widget.
+2. (Optional) In the **Subtitle** field, type a subtitle for your widget.
 3. From the **Field dropdown menu**, select one of the following options:
    * Average global latency ms
    * Average api latency ms
-   * Average proxy latency ms&#x20;
-   * Average request content length byte&#x20;
-   * Average response content length byte&#x20;
-   * By api&#x20;
-   * By application&#x20;
-   * By plan&#x20;
-   * By path&#x20;
-   * By mapped path&#x20;
-   * By http status&#x20;
-   * By tenant&#x20;
-   * By host&#x20;
+   * Average proxy latency ms
+   * Average request content length byte
+   * Average response content length byte
+   * By api
+   * By application
+   * By plan
+   * By path
+   * By mapped path
+   * By http status
+   * By tenant
+   * By host
    * By consumer ip
-   * By country&#x20;
-   * By city&#x20;
-   * By user agent&#x20;
+   * By country
+   * By city
+   * By user agent
    * By operating system
    * By zone
-4. (Optional) Select the **Display stacked** checkbox.&#x20;
+4. (Optional) Select the **Display stacked** checkbox.
 5. (Optional) Select the **Allows to check a field filter** checkbox.
-6.  Click **the pencil icon**. <br>
+6.  Click **the pencil icon**.<br>
 
     <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-114.png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="pie" %}
-1. In the **Title** field, type a name for your widget.&#x20;
-2. (Optional) In the **Subtitle** field, type a subtitle for your widget.&#x20;
+1. In the **Title** field, type a name for your widget.
+2. (Optional) In the **Subtitle** field, type a subtitle for your widget.
 3. From the **Field dropdown menu**, select one of the following options:
-   * HTTP Status&#x20;
+   * HTTP Status
    * Global latency (ms)
-   * API Latency (ms)&#x20;
-   * Proxy latency (ms)&#x20;
+   * API Latency (ms)
+   * Proxy latency (ms)
    * Request content length (byte)
    * Response content length (byte)
-4. Click **the plus icon.**&#x20;
+4. Click **the plus icon.**
 5. In the **Min** field, type a minimum number for your pie section.
-6. In the **Max** field, type a maximum number for your pie sectio&#x6E;**.**&#x20;
+6. In the **Max** field, type a maximum number for your pie sectio&#x6E;**.**
 7. In the **label** field, type a label name for your pie section.
-8.  Use the **color** selector to pick a color for your pie section. <br>
+8.  Use the **color** selector to pick a color for your pie section.<br>
 
-    <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-116.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-116 (1).png" alt=""><figcaption></figcaption></figure>
 9.  Click **the pencil icon**.<br>
 
     <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-114.png" alt=""><figcaption></figcaption></figure>
-
-
 {% endtab %}
 
 {% tab title="map" %}
-1. In the **Title** field, type a name for your widget.&#x20;
-2. (Optional) In the **Subtitle** field, type a subtitle for your widget.&#x20;
-3.  Click **the pencil icon**. <br>
+1. In the **Title** field, type a name for your widget.
+2. (Optional) In the **Subtitle** field, type a subtitle for your widget.
+3.  Click **the pencil icon**.<br>
 
     <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-114.png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="stats" %}
-1. In the **Title** field, type a name for your widget.&#x20;
-2. (Optional) In the **Subtitle** field, type a subtitle for your widget.&#x20;
+1. In the **Title** field, type a name for your widget.
+2. (Optional) In the **Subtitle** field, type a subtitle for your widget.
 3. From the **Field** dropdown menu, select from the following options:
    * Global latency (ms)
    * API latency (ms)
@@ -157,17 +155,17 @@ You can configure your Gravitee Dashboard by creating dashboard charts for three
    * min
    * max
    * avg
-   * requests per second&#x20;
+   * requests per second
    * total
    * sum
-5.  Click **the pencil icon**. <br>
+5.  Click **the pencil icon**.<br>
 
     <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-114.png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
 12. (Optional) Move your widget to a new location. To move your widget, click and hold the widget and then move the widget to a new location on your dashboard.
-13. (Optional) Adjust the size of the widget. To adjust the size of the widget, navigate to the edges of the widget or the corner of the widgets, click and hold the widget, and then drag the widget to adjust the size.&#x20;
+13. (Optional) Adjust the size of the widget. To adjust the size of the widget, navigate to the edges of the widget or the corner of the widgets, click and hold the widget, and then drag the widget to adjust the size.
 14. (Optional) Enable a preview of your dashboard. To enable a preview of your dashboard, click **ENABLE PREVIEW**.<br>
 
     <figure><img src="../../.gitbook/assets/4F326025-ECDE-4320-AF6E-1DBC4B7AA16A_1_201_a (2).jpeg" alt=""><figcaption></figcaption></figure>
@@ -178,7 +176,7 @@ You can configure your Gravitee Dashboard by creating dashboard charts for three
 1.  From the **Dashboard**, click **Analytics**.<br>
 
     <figure><img src="../../.gitbook/assets/3B42B875-734D-4378-9ED3-CFB70B7271C7_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
-2.  Click the **Select a Dashboard dropdown menu**. Your Dashboard appears in the dropdown menu. <br>
+2.  Click the **Select a Dashboard dropdown menu**. Your Dashboard appears in the dropdown menu.<br>
 
     <figure><img src="../../.gitbook/assets/67C046AF-4AA3-4760-95C4-CEC94B0F4015_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 
@@ -187,7 +185,7 @@ You can configure your Gravitee Dashboard by creating dashboard charts for three
 1.  From the **Dashboard**, click **Analytics**.<br>
 
     <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-117.png" alt=""><figcaption></figcaption></figure>
-2.  From the **Select a dashboard**, select the dashboard that you want to view. <br>
+2.  From the **Select a dashboard**, select the dashboard that you want to view.<br>
 
     <figure><img src="../../.gitbook/assets/dashboard_view (1).png" alt=""><figcaption><p>View your dashboard</p></figcaption></figure>
 
@@ -199,6 +197,6 @@ You can configure your Gravitee Dashboard by creating dashboard charts for three
 2. From the **Settings** menu, click **Analytics**.
 3.  Click the name of the dashboard that you want to view.<br>
 
-    <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-122.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-122 (2).png" alt=""><figcaption></figcaption></figure>
 4. Edit your dashboard and widgets. For more information about editing your dashboard, see [#create-a-dashboard](v2-api-analytics-dashboards.md#create-a-dashboard "mention").
 5. Click **SAVE.**

@@ -3,10 +3,10 @@
 ## Overview
 
 {% hint style="warning" %}
-This dashboard displays metrics for v4 proxy APIs only.&#x20;
+This dashboard displays metrics for v4 proxy APIs only.
 {% endhint %}
 
-The V4 API analytics dashboard provides you with clear visibility into the API performance and traffic patterns for all of your V4 APIs at the environment level. These metrics include request volumes, error rates, response times, and application usage.&#x20;
+The V4 API analytics dashboard provides you with clear visibility into the API performance and traffic patterns for all of your V4 APIs at the environment level. These metrics include request volumes, error rates, response times, and application usage.
 
 ## Access the V4 Dashboard
 
@@ -28,7 +28,7 @@ You can view the following metrics for your V4 APIs:
 
 * **Requests**. This metric is the total number of calls made to your v4 APIs.
 * **Error Rate.** This metric is the total number of errors for your v4 APIs displayed in a percentage.
-* **Average latency**. This metric is the average latency of your Gateway displayed in milliseconds.&#x20;
+* **Average latency**. This metric is the average latency of your Gateway displayed in milliseconds.
 *   **Average response time of the Gateway.** This is the average response time of the Gateway in milliseconds.<br>
 
     <figure><img src="../../.gitbook/assets/image (70) (1).png" alt=""><figcaption></figcaption></figure>
@@ -37,7 +37,7 @@ You can view the following metrics for your V4 APIs:
 
 *   **HTTP Statuses.** This graph shows the number of each HTTP status returned by the Gateway.<br>
 
-    <figure><img src="../../.gitbook/assets/analytics-dashboards-v4-api-analyti-73.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analytics-dashboards-v4-api-analyti-73 (2).png" alt=""><figcaption></figcaption></figure>
 *   **Response time**. This graph shows the average response time of the endpoint and the Gateway.<br>
 
     <figure><img src="../../.gitbook/assets/analytics-dashboards-v4-api-analyti-74.png" alt=""><figcaption></figcaption></figure>
