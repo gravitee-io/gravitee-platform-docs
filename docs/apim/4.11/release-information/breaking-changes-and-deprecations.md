@@ -23,9 +23,9 @@ The A2A proxy architecture introduces the `A2A_PROXY` API type. With this change
 
 Existing A2A proxy APIs continue to work but they are no longer supported.
 
-**APIs published to the Next-Gen Developer Portal must be published again**
+**APIs and documentation pages published to the Next-Gen Developer Portal must be published again**
 
-When you upgrade to APIM 4.11, any APIs published to the Next-Gen Developer Portal are no longer published. With this change, you must publish your APIs again to the Next-Gen Portal. 
+When you upgrade to APIM 4.11, any APIs and documentation pages published to the Next-Gen Developer Portal are no longer published. With this change, you must publish your APIs again to the Next-Gen Portal. 
 
 
 #### 4.10.0
