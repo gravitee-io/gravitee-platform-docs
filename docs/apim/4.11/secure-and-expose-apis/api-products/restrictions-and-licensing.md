@@ -41,7 +41,7 @@ APIs within an API Product retain their own plans and subscriptions. Consumers c
 
 ## Policy and flow restrictions
 
-API Products can't include flows or policies at the API Product level. Define policies at the API or plan level. To execute API Product-specific policies, use flow conditions that reference the API Product ID via the `apiProductId` Expression Language attribute.
+API Products can't include flows or policies at the API Product level. Define policies at the API or plan level. To execute API Product-specific policies, use flow conditions that reference the `apiProduct` Expression Language context attribute, for example `{#context.attributes['apiProduct'] == '<api-product-id>'}`. To branch on the plan that authorized the request, reference the `plan` context attribute, for example `{#context.attributes['plan'] == '<plan-id>'}`. For a full description of these attributes, see [Gateway context attributes](consuming-api-products.md#gateway-context-attributes).
 
 ## Gateway subscription validation order
 
