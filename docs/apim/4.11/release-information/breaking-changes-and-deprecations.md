@@ -21,7 +21,13 @@ Here are the breaking changes from versions 4.X of Gravitee.
 
 The A2A proxy architecture introduces the `A2A_PROXY` API type. With this change, you must create your A2A Proxy APIs again to avoid any issues and to align with the new architecture.
 
-Existing A2A proxy APIs continue to work but they are no longer supported.
+**Next-Gen Developer Portal APIs and documentation pages must be published again**
+
+When you upgrade to APIM 4.11, any APIs and documentation pages that you published to the New Developer Portal are no longer published. After you upgrade to 4.11, publish your APIs and documentation pages again through the **Navigation items** section of the New Developer Portal settings.
+
+**New Developer Portal subscriptions require published API pages**
+
+When you upgrade to APIM 4.11, an API accepts subscriptions through the New Developer Portal only after you publish the API's pages. To enable subscriptions to an API, publish the API's pages through the **Navigation items** section of the New Developer Portal settings.
 
 
 #### 4.10.0
