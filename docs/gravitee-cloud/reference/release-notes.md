@@ -14,7 +14,7 @@ This section contains an overview of the new features in Gravitee Cloud's releas
 
 **Alert Engine available in Gravitee Cloud**
 
-You can now configure Alert Engine in Gravitee Cloud. With this feature, you can ensure your APIs function efficiently with real-time monitoring, track performance, and get instant alerts so you can resolve downtime promptly. 
+You can now configure Alert Engine in Gravitee Cloud. With this feature, you can ensure your APIs function efficiently with real-time monitoring, track performance, and get instant alerts so you can resolve downtime.
 
 For more information about Alert Engine, see [Introduction to Alert Engine](/docs/ae/README.md).
 
