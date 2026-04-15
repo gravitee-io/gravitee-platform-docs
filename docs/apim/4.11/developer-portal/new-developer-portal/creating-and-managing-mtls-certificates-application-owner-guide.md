@@ -4,28 +4,24 @@ This guide shows application owners how to upload, rotate, and delete mTLS clien
 
 ## Prerequisites
 
-- The new Developer Portal is enabled for your environment (`portal.next.access.enabled`).
-- Your administrator has turned on the **Enable mTLS Certificate Management** toggle in the **New Developer Portal** section of the **Portal** settings page in the Management Console. Without this toggle the Certificates section isn't shown. For details, see [Configuring mTLS certificate management (administrator guide)](configuring-mtls-certificate-management-administrator-guide.md).
-- You have `APPLICATION_DEFINITION[UPDATE]` on the application. The Certificates section is rendered inside the application's edit form, so `APPLICATION_DEFINITION[READ]` alone isn't enough to view or manage certificates from the new Developer Portal.
-- Your certificate is a valid X.509 certificate in PEM format. CA certificates aren't accepted.
+* The new Developer Portal is enabled for your environment (`portal.next.access.enabled`).
+* Your administrator has turned on the **Enable mTLS Certificate Management** toggle in the **New Developer Portal** section of the **Portal** settings page in the Management Console. Without this toggle the Certificates section isn't shown. For details, see [Configuring mTLS certificate management (administrator guide)](configuring-mtls-certificate-management-administrator-guide.md).
+* You have `APPLICATION_DEFINITION[UPDATE]` on the application. The Certificates section is rendered inside the application's edit form, so `APPLICATION_DEFINITION[READ]` alone isn't enough to view or manage certificates from the new Developer Portal.
+* Your certificate is a valid X.509 certificate in PEM format. CA certificates aren't accepted.
 
 ## Open the Certificates section
 
-1. Sign in to the new Developer Portal.
+1.  Sign in to the new Developer Portal.
 
     <figure><img src="../../.gitbook/assets/new-portal-homepage.png" alt=""><figcaption><p>New Developer Portal homepage</p></figcaption></figure>
-
-2. Go to **Applications**.
+2.  Go to **Applications**.
 
     <figure><img src="../../.gitbook/assets/new-portal-applications-list.png" alt=""><figcaption><p>Applications list in the new Developer Portal</p></figcaption></figure>
-
-3. Click the application you want to manage. The application opens on the **Settings & Security** tab in view mode.
+3.  Click the application you want to manage. The application opens on the **Settings & Security** tab in view mode.
 
     <figure><img src="../../.gitbook/assets/new-portal-application-settings-security-read.png" alt=""><figcaption><p>Settings &#x26; Security tab in view mode, showing the Edit button</p></figcaption></figure>
-
 4. Click **Edit**. The **Settings & Security** tab switches to edit mode and displays the **Application details** form.
-
-5. Scroll to the **Certificates** section at the bottom of the form.
+5.  Scroll to the **Certificates** section at the bottom of the form.
 
     <figure><img src="../../.gitbook/assets/new-portal-application-edit-certificates-empty.png" alt=""><figcaption><p>Certificates section in its empty state, inside the edit form</p></figcaption></figure>
 
@@ -33,52 +29,35 @@ This guide shows application owners how to upload, rotate, and delete mTLS clien
 
 ## Upload a certificate
 
-1. In the **Certificates** section, click **Upload certificate**. The **Add certificate** dialog opens on the **Upload** step.
+1.  In the **Certificates** section, click **Upload certificate**. The **Add certificate** dialog opens on the **Upload** step.
 
     <figure><img src="../../.gitbook/assets/new-portal-add-certificate-upload-step.png" alt=""><figcaption><p>Upload step of the Add certificate dialog</p></figcaption></figure>
-
 2. In the **Certificate Name** field, enter a name for the certificate. The name can be up to 255 characters.
-
 3. Provide the PEM-encoded certificate body in one of two ways:
-
-    - Under **Paste certificate**, paste the PEM content into the **Certificate (PEM)** text area.
-    - Under **Upload file**, click **Choose file (.pem, .crt, .cer)** and select a certificate file from your local machine. If the **Certificate Name** field is empty, it auto-fills with the file name (without extension).
-
+   * Under **Paste certificate**, paste the PEM content into the **Certificate (PEM)** text area.
+   * Under **Upload file**, click **Choose file (.pem, .crt, .cer)** and select a certificate file from your local machine. If the **Certificate Name** field is empty, it auto-fills with the file name (without extension).
 4. Click **Continue**. The portal sends the PEM to Gravitee for validation. If the certificate is valid, the wizard advances to the **Configure** step and pre-fills **Active until (optional)** with the certificate's expiration date. If validation fails, an inline error appears and you stay on the **Upload** step.
-
 5. On the **Configure** step, optionally adjust **Active until (optional)**. The date can't be earlier than today.
-
-    <!-- TODO: Screenshot of the Configure step of the Add certificate dialog without an existing active certificate, showing only the Active until (optional) field -->
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-new-portal-add-certificate-configure-step.png" alt=""><figcaption><p>Configure step of the Add certificate dialog</p></figcaption></figure>
-
 6. If another certificate is already active for this application, the **Configure** step also shows a **Grace period end for current certificate** field. Set the date on which the currently active certificate should be revoked. Both certificates remain active until that date, so clients can cut over without downtime. The grace period end can't be later than the currently active certificate's expiration.
-
-    <!-- TODO: Screenshot of the Configure step of the Add certificate dialog with the Grace period end for current certificate field visible during rotation -->
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-new-portal-add-certificate-grace-period.png" alt=""><figcaption><p>Grace period end for current certificate field on the Configure step</p></figcaption></figure>
-
 7. Click **Continue**. The wizard advances to the **Confirm** step and displays the **Certificate Summary**.
-
-    <!-- TODO: Screenshot of the Confirm step of the Add certificate dialog showing the Certificate Summary with Name, Active until, and Grace period ends rows -->
-    <figure><img src="../../.gitbook/assets/PLACEHOLDER-new-portal-add-certificate-confirm-step.png" alt=""><figcaption><p>Confirm step showing the Certificate Summary</p></figcaption></figure>
-
 8. Review the summary and click **Add Certificate**. The new certificate is created, and if a grace period was set, the currently active certificate's end date is updated to match.
 
 ## View certificates
 
 In the **Certificates** section, two tabs organize certificates by state:
 
-- **Active certificates** — certificates with status `ACTIVE`, `ACTIVE_WITH_END`, or `SCHEDULED`.
-- **Certificate history** — certificates with status `REVOKED`.
+* **Active certificates** — certificates with status `ACTIVE`, `ACTIVE_WITH_END`, or `SCHEDULED`.
+* **Certificate history** — certificates with status `REVOKED`.
 
 Each row displays:
 
-| Column | Description |
-|:-------|:------------|
-| Name | The certificate's display name. |
-| Uploaded | The date the certificate was uploaded. |
-| Expiry date | The certificate's X.509 `notAfter` date. |
-| Status | The current certificate status. |
-| Days remaining | The number of days until expiration. |
+| Column         | Description                              |
+| -------------- | ---------------------------------------- |
+| Name           | The certificate's display name.          |
+| Uploaded       | The date the certificate was uploaded.   |
+| Expiry date    | The certificate's X.509 `notAfter` date. |
+| Status         | The current certificate status.          |
+| Days remaining | The number of days until expiration.     |
 
 ## Delete a certificate
 
