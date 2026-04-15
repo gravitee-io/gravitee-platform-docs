@@ -25,7 +25,7 @@ Existing A2A proxy APIs continue to work but they are no longer supported.
 
 **APIs and documentation pages published to the Next-Gen Developer Portal must be published again**
 
-When you upgrade to APIM 4.11, any APIs and documentation pages published to the Next-Gen Developer Portal are no longer published. With this change, you must publish your APIs again to the Next-Gen Portal. 
+When you upgrade to APIM 4.11, any APIs and documentation pages published to the Next-Gen Developer Portal are no longer published. With this change, you must publish your APIs again to the Next-Gen Portal through the Next-gen Portal **Navigation** settings.
 
 **To enable subscriptions to APIs with the Next-Gen Portal, you must publish pages for those APIs**
 
