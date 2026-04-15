@@ -6,11 +6,11 @@ description: An overview about ai - prompt token tracking.
 
 ## Overview
 
-This policy allows you to track of the number of tokens sent and received by an AI API.
+This policy allows you to track the number of tokens sent and received by an AI API.
 
 ## Usage
 
-Here are some examples for how to use the AI - Prompt Token Tracking.
+Here are some examples of how to use the AI - Prompt Token Tracking.
 
 ### Built-in support for OpenAI, Gemini, Claude, and Mistral
 
@@ -25,9 +25,9 @@ Select the appropriate type in the configuration, and the plugin handles the tok
 
 ### Custom Provider
 
-When the API provider is not one of the built-in providers, use the `CUSTOM` type. When you choose the `CUSTOM`, you must provide a custom response body parsing configuration that matches the structure of the API responses from your provider.
+When the API provider is not one of the built-in providers, use the `CUSTOM` type. When you choose the `CUSTOM` type, you must provide a custom response body parsing configuration that matches the structure of the API responses from your provider.
 
-For example, the following configuration can be used to extract tokens usage and model from a custom AI API response:
+For example, the following configuration can be used to extract token usage and model from a custom AI API response:
 
 ```json
 {
@@ -43,7 +43,7 @@ For example, the following configuration can be used to extract tokens usage and
 
 * Sent tokens count point: `my_usage.promptUsage`
 * Receive tokens count point: `my_usage.responseUsage`
-* Sent tokens count point: `my_model`
+* Model pointer: `my_model`
 
 ## Phases
 
@@ -104,11 +104,11 @@ Strikethrough text indicates that a version is deprecated.
 
 **Response body parsing: Custom provider `type = "CUSTOM"`**
 
-| <p>Name<br><code>json name</code></p>                            | <p>Type<br><code>constraint</code></p> | Mandatory | Default | Description                                                                     |
-| ---------------------------------------------------------------- | -------------------------------------- | :-------: | ------- | ------------------------------------------------------------------------------- |
-| <p>Sent token count EL<br><code>inputTokenPointer</code></p>     | string                                 |     ✅     |         | A Gravitee Expression Language that represent number of tokens sent to LLM      |
-| <p>Model pointer<br><code>modelPointer</code></p>                | string                                 |           |         | A Gravitee Expression Language that represent model of LLM                      |
-| <p>Receive token count EL<br><code>outputTokenPointer</code></p> | string                                 |     ✅     |         | A Gravitee Expression Language that represent number of tokens receive from LLM |
+| <p>Name<br><code>json name</code></p>                            | <p>Type<br><code>constraint</code></p> | Mandatory | Default | Description                                                                      |
+| ---------------------------------------------------------------- | -------------------------------------- | :-------: | ------- | -------------------------------------------------------------------------------- |
+| <p>Sent token count EL<br><code>inputTokenPointer</code></p>     | string                                 |     ✅     |         | A Gravitee Expression Language that represent number of tokens sent to the LLM   |
+| <p>Model pointer<br><code>modelPointer</code></p>                | string                                 |           |         | A Gravitee Expression Language that represent model of LLM                       |
+| <p>Receive token count EL<br><code>outputTokenPointer</code></p> | string                                 |     ✅     |         | A Gravitee Expression Language that represent number of tokens received from LLM |
 
 **Cost (Object)**
 
@@ -122,14 +122,34 @@ Strikethrough text indicates that a version is deprecated.
 | ------------------------------------- | -------------------------------------- | :-------: | ------- | ----------- |
 | No properties                         |                                        |           |         |             |
 
-**Cost: Cost calculation `type = "pricing"`**
+**Cost: Cost calculation `type = "pricing"`**&#x20;
 
-| <p>Name<br><code>json name</code></p>                            | <p>Type<br><code>constraint</code></p>  | Mandatory | Default | Description              |
-| ---------------------------------------------------------------- | --------------------------------------- | :-------: | ------- | ------------------------ |
-| <p>Input Token Price Unit<br><code>inputPriceUnit</code></p>     | <p>number<br><code>(0, +Inf]</code></p> |     ✅     |         | Input Token Price Unit   |
-| <p>Input Token Price Value<br><code>inputPriceValue</code></p>   | <p>number<br><code>(0, +Inf]</code></p> |     ✅     |         | Input Token Price Value  |
-| <p>Output Token Price Unit<br><code>outputPriceUnit</code></p>   | <p>number<br><code>(0, +Inf]</code></p> |     ✅     |         | Output Token Price Unit  |
-| <p>Output Token Price Value<br><code>outputPriceValue</code></p> | <p>number<br><code>(0, +Inf]</code></p> |     ✅     |         | Output Token Price Value |
+| <p>Name<br><code>json name</code></p>                            | <p>Type<br><code>constraint</code></p>  | Mandatory | Default | Description                                                                                               |
+| ---------------------------------------------------------------- | --------------------------------------- | :-------: | ------- | --------------------------------------------------------------------------------------------------------- |
+| <p>Input Token Price Unit<br><code>inputPriceUnit</code></p>     | <p>number<br><code>(0, +Inf]</code></p> |     ✅     |         | Number of input tokens that `inputPriceValue` applies to. Set to `1000000` to price tokens per million.   |
+| <p>Input Token Price Value<br><code>inputPriceValue</code></p>   | <p>number<br><code>(0, +Inf]</code></p> |     ✅     |         | Price charged for `inputPriceUnit` input tokens, in the currency of your choice.                          |
+| <p>Output Token Price Unit<br><code>outputPriceUnit</code></p>   | <p>number<br><code>(0, +Inf]</code></p> |     ✅     |         | Number of output tokens that `outputPriceValue` applies to. Set to `1000000` to price tokens per million. |
+| <p>Output Token Price Value<br><code>outputPriceValue</code></p> | <p>number<br><code>(0, +Inf]</code></p> |     ✅     |         | Price charged for `outputPriceUnit` output tokens, in the currency of your choice.                        |
+
+#### How the cost is calculated
+
+The gateway computes the per-request cost from the tracked token counts and the policy's pricing configuration:
+
+* `input cost = input tokens × inputPriceValue ÷ inputPriceUnit`
+* `output cost = output tokens × outputPriceValue ÷ outputPriceUnit`
+
+Express the price as a ratio. `inputPriceValue` is the price charged for `inputPriceUnit` input tokens, and `outputPriceValue` is the price charged for `outputPriceUnit` output tokens. This matches how AI providers typically publish pricing, for example "$0.40 per 1,000,000 tokens".
+
+To configure the policy for a published price of $0.40 per 1,000,000 input tokens and $0.80 per 1,000,000 output tokens, set:
+
+* `inputPriceValue`: `0.4`
+* `inputPriceUnit`: `1000000`
+* `outputPriceValue`: `0.8`
+* `outputPriceUnit`: `1000000`
+
+For a request with 500 input tokens and 200 output tokens, the gateway records an input cost of `500 × 0.4 ÷ 1000000 = 0.0002` and an output cost of `200 × 0.8 ÷ 1000000 = 0.00016`. The policy doesn't enforce or store a currency. Costs are reported in the same currency you used for the price values.
+
+The gateway emits the computed cost and token counts as analytics metrics on every response: `double_llm-proxy_sent-cost`, `double_llm-proxy_received-cost`, `long_llm-proxy_tokens-sent`, and `long_llm-proxy_tokens-received`. When a model is extracted, it's reported as `keyword_llm-proxy_model`.
 
 ## Examples
 
