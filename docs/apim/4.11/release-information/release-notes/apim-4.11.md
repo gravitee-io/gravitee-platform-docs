@@ -30,6 +30,8 @@ The A2A proxy architecture introduces the `A2A_PROXY` API type. With this change
 
 Existing A2A proxy APIs continue to work but they are no longer supported.
 
+#### APIs published to the Next-Gen Developer Portal must be published again
+
 ## New Features
 
 #### **LLM Dashboard**
