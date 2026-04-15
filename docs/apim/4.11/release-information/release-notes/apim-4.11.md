@@ -12,6 +12,7 @@
 * mTLS plan support for Kafka Native APIs authenticates clients via X.509 certificates with dynamic trust store updates.
 * Kafka Governance Rules policies enforce compliance standards on Produce, Fetch, CreateTopics, and AlterConfigs requests.
 * Kafka message encryption and decryption policy protects Kafka payloads at the gateway level using AES-GCM with JWE or DEK modes.
+* Groovy policy is now compatible with Native Kafka APIs, letting you apply custom Groovy scripts to Kafka message flows.
 * Native IP filtering policy for Kafka APIs controls client access using whitelist/blacklist rules with IPv4, IPv6, and CIDR support.
 * Multi-tenant endpoint support routes Kafka traffic to different backend clusters based on gateway tenant configuration.
 * Subscription forms let API publishers define custom forms that consumers complete when subscribing to plans.
@@ -162,6 +163,13 @@ Existing A2A proxy APIs continue to work but they are no longer supported.
 * Supports three encryption modes: direct encryption with base64 output, direct encryption with JWE format, and DEK-based encryption that generates a unique data encryption key per message.
 * Processes entire message payloads or individual JSON fields identified by JSONPath expressions. Optional compression (GZIP, LZ4, BZIP2, Snappy) mitigates the storage overhead of encrypted data.
 * Keys are provisioned as base64-encoded values or stored in PKCS12 keystores, with support for Expression Language and the Gravitee secrets mechanism.
+
+#### **Groovy policy support for Native Kafka APIs**
+
+* The Groovy policy can now be applied to Native Kafka APIs, enabling custom Groovy scripting for complex logic on Kafka message flows.
+* Runs on the Interact, Publish, and Subscribe phases of Native Kafka flows, so scripts can inspect and transform Kafka records as they pass through the gateway.
+* Policy configuration, script syntax, and the Groovy whitelist are unchanged. Existing Groovy scripts are reused without modification.
+* Requires `gravitee-policy-groovy` 4.3.0 or later and APIM 4.11 with the Kafka Gateway.
 
 #### **AI Model Text Classification Resource**
 
