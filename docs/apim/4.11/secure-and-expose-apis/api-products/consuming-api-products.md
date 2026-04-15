@@ -30,11 +30,15 @@ API Product plans take priority, but access through API-level plans is still pos
 
 ## Gateway context attributes
 
-For API Product subscriptions, the gateway sets the following context attributes:
+For API Product subscriptions, the gateway sets the following context attributes on the request execution context. Reference them from Gravitee Expression Language (EL) to write flow conditions that branch on the API Product or plan context:
 
-- `apiProductId`: The API Product ID, exposed in the Expression Language context
+- `apiProduct`: ID of the API Product that owns the current subscription. Set only when the request is authorized through an API Product subscription.
+- `plan`: ID of the plan that authorized the current request. For an API Product subscription, this is the API Product plan ID. For a subscription created directly against an individual API, this is the API plan ID.
 
-To execute API Product-specific policies, use flow conditions that reference the `apiProductId` attribute.
+Use these attributes in flow conditions to differentiate between API Product and API plan execution contexts:
+
+- Match requests routed through a specific API Product: `{#context.attributes['apiProduct'] == '<api-product-id>'}`
+- Match requests authorized by a specific plan (API Product plan or API plan): `{#context.attributes['plan'] == '<plan-id>'}`
 
 ## Subscribe to an API Product
 
