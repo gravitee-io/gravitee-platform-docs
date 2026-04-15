@@ -138,7 +138,7 @@ The gateway computes the per-request cost from the tracked token counts and the 
 * `input cost = input tokens × inputPriceValue ÷ inputPriceUnit`
 * `output cost = output tokens × outputPriceValue ÷ outputPriceUnit`
 
-Express the price as a ratio. `inputPriceValue` is the price charged for `inputPriceUnit` input tokens, and `outputPriceValue` is the price charged for `outputPriceUnit` output tokens. This matches how AI providers typically publish pricing, for example "$0.40 per 1,000,000 tokens".
+Express the price as a ratio. `inputPriceValue` is the price charged for `inputPriceUnit` input tokens, and `outputPriceValue` is the price charged for `outputPriceUnit` output tokens. This matches how AI providers typically publish pricing, for example, "$0.40 per 1,000,000 tokens".
 
 To configure the policy for a published price of $0.40 per 1,000,000 input tokens and $0.80 per 1,000,000 output tokens, set:
 
@@ -149,7 +149,11 @@ To configure the policy for a published price of $0.40 per 1,000,000 input token
 
 For a request with 500 input tokens and 200 output tokens, the gateway records an input cost of `500 × 0.4 ÷ 1000000 = 0.0002` and an output cost of `200 × 0.8 ÷ 1000000 = 0.00016`. The policy doesn't enforce or store a currency. Costs are reported in the same currency you used for the price values.
 
-The gateway emits the computed cost and token counts as analytics metrics on every response: `double_llm-proxy_sent-cost`, `double_llm-proxy_received-cost`, `long_llm-proxy_tokens-sent`, and `long_llm-proxy_tokens-received`. When a model is extracted, it's reported as `keyword_llm-proxy_model`.
+The gateway emits the following analytics metrics when the response body is JSON and token extraction succeeds:
+
+* `long_llm-proxy_tokens-sent` and `long_llm-proxy_tokens-received` : the token counts.
+* `keyword_llm-proxy_model` : the extracted model, when the extractor returns one
+* `double_llm-proxy_sent-cost` and `double_llm-proxy_received-cost` : the computed costs, only when all four pricing fields are configured.
 
 ## Examples
 
