@@ -13,7 +13,7 @@ This quick start uses configuration examples for HashiCorp Vault and Gravitee AP
 
 ## Prerequisites
 
-* A Gravitee APIM instance in a local or development environment.
+* A Gravitee APIM instance in a development environment, self-hosted deployment, or a self-hosted Hybrid Gateway.
 * Credentials for your secret manager.
 
 ## Configure and reference configuration-level secrets
@@ -26,9 +26,9 @@ To configure configuration-level secrets, complete the following steps:
 
 ### Configure Gravitee to access a secret manager
 
-After you configure your HashiCrorp Vault, you can configure your environment using a `gravitee.yml` file, the Helm chart, or environment variables.
+Once your instance of HashiCorp Vault is configured, you can then apply the configuration using the  `gravitee.yml` file, the Helm chart, or environment variables.
 
-#### Configure access to a secret manager with a `gravitee.yml` file
+#### Option 1: Configure access to a secret manager with a `gravitee.yml` file
 
 *   In your `gravitee.yml` file, add the following configuration:
 
@@ -46,7 +46,7 @@ After you configure your HashiCrorp Vault, you can configure your environment us
             token: root
     ```
 
-#### Configure access to a secret manager with a Helm chart
+#### Option 2: Configure access to a secret manager with a Helm chart
 
 *   In your Helm chart, add the following configuration:
 
@@ -58,7 +58,7 @@ After you configure your HashiCrorp Vault, you can configure your environment us
           ## other properties as listed above
     ```
 
-#### Configure access to a secret manager with environment variables
+#### Option 3: Configure access to a secret manager with environment variables
 
 *   In your `docker-compose.yml` file, add the following configuration:
 
@@ -115,7 +115,7 @@ ds:
 ### Restart and test
 
 1. Restart your Gateway.
-2. Check the logs and ensure that there are no errors.
+2. Check the logs and ensure there are no errors when loading the Secret Manager.
 
 ## Next steps
 

@@ -13,11 +13,11 @@ This quick start uses configuration examples for HashiCorp Vault and Gravitee AP
 
 ## Prerequisites
 
-* A Gravitee APIM instance in a local or development environment running
+* A Gravitee APIM instance in a development environment, self-hosted deployment, or a self-hosted Hybrid Gateway
 * Credentials for your desired running Secret Manager
 
 {% hint style="warning" %}
-This feature work for only V4 APIs.
+This feature is only compatible with V4 APIs.
 {% endhint %}
 
 ## Configure access to a secret manager and reference the secret
@@ -34,9 +34,9 @@ To configure access to the secret manager and reference the secret, complete the
 
 ### Configure Gravitee to access a secret manager
 
-Once you instance of HashiCorp Vault is configured, you can add the following configurations to configure access to a Secret Manager.
+Once your instance of HashiCorp Vault is configured, you can then apply the configuration using the  `gravitee.yml` file, the Helm chart, or environment variables.
 
-#### Configure access to the secret manager with a gravitee.yml file.
+#### Option 1: Configure access to the secret manager with a gravitee.yml file.
 
 * Add the following configuration to your `gravitee.yml` file.
 
@@ -59,7 +59,7 @@ api:
 
 For more information about configuring access to your secret manager, see [configuration.md](configuration.md "mention").
 
-#### Configure access to a secret manager with a Helm chart
+#### Option 2: Configure access to a secret manager with a Helm chart
 
 * Add the following configuration to your Helm chart:
 
@@ -76,7 +76,7 @@ gateway:
 
 For more information about configuring access to your secret manager, see [configuration.md](configuration.md "mention").
 
-#### Configure access to a secret manager with environment variables
+#### Option 3: Configure access to a secret manager with environment variables
 
 * In your `docker-compose.yml` file, add the following configuration:
 
@@ -94,12 +94,12 @@ For more information about configuring access to your secret manager, see [confi
 
 ### Restart and test
 
-1. Restart you Gateway.
-2. Check the logs and ensure that there are no errors.
+1. Restart your Gateway.
+2. Check the logs and ensure there are no errors when loading the Secret Manager.
 
 ### Create an API
 
-Create an API with a fake sensitive that you secure after we make sure everything works as expected.
+Create an API with a fake/exposed secret, which you will later secure (after we make sure everything works as expected).
 
 1.  From the **Dashboard**, click **APIs**.
 
@@ -114,45 +114,45 @@ Create an API with a fake sensitive that you secure after we make sure everythin
 5. In the **Version number** field, type a version. For example, 1.1.
 6.  Click **Validate my details**.
 
-    <figure><img src="../../../.gitbook/assets/prepare-a-production-environment-sensiti-10-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 7.  Select **HTTP Proxy**, and then click **Select my entrypoints**.
 
-    <figure><img src="../../../.gitbook/assets/prepare-a-production-environment-sensiti-15-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
 8. In the **context-path** field, type a context path. For example, `/test/secrets/echo` .
 9.  Click **Validate my entrypoints**.
 
-    <figure><img src="../../../.gitbook/assets/prepare-a-production-environment-sensiti-16-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 10. In the **Configure your API endpoints access**, complete the following sub-steps:
     1.  In the **Target url** field, set the target URL to `https://api.gravitee.io/echo` .
 
-        <figure><img src="../../../.gitbook/assets/prepare-a-production-environment-sensiti-17-1.png" alt=""><figcaption></figcaption></figure>
+        <figure><img src="../../../.gitbook/assets/image (10) (1).png" alt=""><figcaption></figcaption></figure>
     2.  In HTTP Headers section, add the following values:
 
         * KEY: `Authorization`
         * VALUE: `ApiKey 123456789`
 
-        <figure><img src="../../../.gitbook/assets/prepare-a-production-environment-sensiti-18-1.png" alt=""><figcaption></figcaption></figure>
+        <figure><img src="../../../.gitbook/assets/image (18) (1).png" alt=""><figcaption></figcaption></figure>
 11. Click **Validate my endpoints**.
 
-    <figure><img src="../../../.gitbook/assets/prod-env-secrets-quick-start-69.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (12) (2).png" alt=""><figcaption></figcaption></figure>
 12. Click V**alidate my plans**.
 
-    <figure><img src="../../../.gitbook/assets/prepare-a-production-environment-sensiti-19-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (19) (1).png" alt=""><figcaption></figcaption></figure>
 13. Click **Save & Deploy API**.
 
-    <figure><img src="../../../.gitbook/assets/prepare-a-production-environment-sensiti-14-1-1-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
 
 ### Test the API
 
-* Call the endpoint. Here is an example call with [httpie](https://httpie.io/cli):
+* Call the endpoint. Here is an example call with curl:
 
 ```bash
-http :8082/test/secrets/echo/
+curl http://{your_gateway_url}:8082/test/secrets/echo
 ```
 
-You receive the following output:
+You should receive the following output:
 
-<pre class="language-json"><code class="lang-json">HTTP/1.1 200 OK
+<pre class="language-shellscript"><code class="lang-shellscript">HTTP/1.1 200 OK
 Content-Length: 311
 Content-Type: application/json
 Sozu-Id: 01K4PV89Y5A0X3X3CK9R902JX5
@@ -175,7 +175,7 @@ X-Gravitee-Transaction-Id: beb5e861-dfc1-456d-b5e8-61dfc1756d70
 }
 </code></pre>
 
-If you export your API, you see the Authorization header as part of the definition:
+In the export of your API, you will see the `Authorization` header - and exposed secret/value - as part of the API definition:
 
 ```json
 ...
@@ -214,7 +214,7 @@ If you export your API, you see the Authorization header as part of the definiti
     <figure><img src="../../../.gitbook/assets/5DF13AD2-0BEC-4D40-9D2E-33BFED89E109.jpeg" alt=""><figcaption></figcaption></figure>
 3.  Click the **Configuration** tab, and then navigate to **HTTP Headers**.
 
-    <figure><img src="../../../.gitbook/assets/prod-env-secrets-quick-start-44.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
 4. In the **VALUE** field, replace `ApiKey 123465798` with `ApiKey{#secrets.get('/vault/secret/gravitee/apikeys:username')}` .
 5.  In the **You have unsaved changes** pop-up window, click **Save.**
 
@@ -226,14 +226,17 @@ If you export your API, you see the Authorization header as part of the definiti
 ### Test and export
 
 1. Check the logs for errors.
-2.  Call the endpoint. Here is an example call with [httpie](https://httpie.io/cli):
+2.  Call the endpoint. Here is an example call with curl:
 
     ```bash
-    http :8082/test/secrets/echo/
+    curl http://{your_gateway_url}:8082/test/secrets/echo
     ```
-3. Export your API.
 
-You receive the following output:
+The response should be the same as before, but the secret has been obtained from the Secret Manager.
+
+**Export your API** (using the same process as before).
+
+You should now only see the secret reference (instead of the clear text ApiKey value):
 
 ```json
 ...
