@@ -39,8 +39,8 @@ For the Elasticsearch 7.x v4 Metrics Template, add the following field mapping t
 
 ```json
 "api-product-id": {
-    "type": "keyword"
-}
+      "type": "keyword"
+  },
 ```
 
 ### Elasticsearch 7.x v4 Log Template
@@ -49,8 +49,8 @@ For the Elasticsearch 7.x v4 Log Template, add the following field mapping to th
 
 ```json
 "api-product-id": {
-    "type": "keyword"
-}
+      "type": "keyword"
+  },
 ```
 
 ### Elasticsearch 8.x v4 Metrics Template
@@ -59,8 +59,8 @@ For the Elasticsearch 8.x v4 Metrics Template, add the following field mapping t
 
 ```json
 "api-product-id": {
-    "type": "keyword"
-}
+      "type": "keyword"
+  },
 ```
 
 ### Elasticsearch 8.x v4 Log Template
@@ -69,8 +69,8 @@ For the Elasticsearch 8.x v4 Log Template, add the following field mapping to th
 
 ```json
 "api-product-id": {
-    "type": "keyword"
-}
+      "type": "keyword"
+  },
 ```
 
 ### Elasticsearch 9.x v4 Metrics Template
@@ -79,8 +79,8 @@ For the Elasticsearch 9.x v4 Metrics Template, add the following field mapping t
 
 ```json
 "api-product-id": {
-    "type": "keyword"
-}
+      "type": "keyword"
+  },
 ```
 
 ### Elasticsearch 9.x v4 Log Template
@@ -89,8 +89,8 @@ For the Elasticsearch 9.x v4 Log Template, add the following field mapping to th
 
 ```json
 "api-product-id": {
-    "type": "keyword"
-}
+      "type": "keyword"
+  },
 ```
 
 ### OpenSearch v4 Metrics Template
@@ -99,8 +99,8 @@ For the OpenSearch v4 Metrics Template, add the following field mapping to the `
 
 ```json
 "api-product-id": {
-    "type": "keyword"
-}
+      "type": "keyword"
+  },
 ```
 
 ### OpenSearch v4 Log Template
@@ -109,8 +109,8 @@ For the OpenSearch v4 Log Template, add the following field mapping to the `prop
 
 ```json
 "api-product-id": {
-    "type": "keyword"
-}
+      "type": "keyword"
+  },
 ```
 
 ### Field Description
