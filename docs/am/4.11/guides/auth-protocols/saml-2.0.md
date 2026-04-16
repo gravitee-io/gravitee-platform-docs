@@ -107,7 +107,7 @@ Place the `gravitee-am-gateway-handler-saml2-idp-<version>.zip` file in the loca
 
 For more information on Docker EE configuration, see [Docker images install.](../../getting-started/install-and-upgrade-guides/run-in-docker/docker-images-install.md)
 
-**Kubernetes installation (Helm)**
+#### **Kubernetes installation (Helm)**
 
 Create a Kubernetes secret from your license key file:
 
