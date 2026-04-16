@@ -21,13 +21,13 @@ You can add custom claims to your Access Tokens or ID Tokens.
 
     You can now request your tokens to retrieve your custom claims.
 
-<figure><img src="../../.gitbook/assets/gs-tutorial-getting-started-with-am-42.png" alt=""><figcaption><p>Define custom claims</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gs-tutorial-getting-started-with-am-42 (1).png" alt=""><figcaption><p>Define custom claims</p></figcaption></figure>
 
 {% hint style="info" %}
 The mapping here uses the Gravitee Expression Language to dynamically add custom data. To add more static information, you can also use raw values .
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/gs-tutorial-getting-started-with-am-45.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gs-tutorial-getting-started-with-am-45 (1).png" alt=""><figcaption></figcaption></figure>
 
 To retrieve claims from the User Profile, use the following Gravitee Expression Language formats:
 
