@@ -5,6 +5,20 @@ noIndex: true
 
 # Release Notes
 
+### Version 3.13.0 (April 14, 2026) <a href="#id-3.13.0" id="id-3.13.0"></a>
+
+#### Admission webhook to prevent invalid Mappings from applying
+
+Added an admission webhook that validates `v3alpha1.Mapping` resources at apply time. Invalid Mappings are now rejected before they are admitted to the cluster, which prevents misconfigured resources from affecting routing.&#x20;
+
+#### **Helm chart ClusterRole changes**
+
+A new Helm value `rbac.skipClusterRoles` allows you to deploy Ambassador Edge Stack without cluster-wide RBAC. When enabled, the chart substitutes `Role` and `RoleBinding` resources in place of `ClusterRole` and `ClusterRoleBinding`, which supports environments where cluster-admin permissions are restricted. A new `extraObjects` value has also been added, which allows users to inject arbitrary Kubernetes objects into the Helm deployment.
+
+#### **`add_request_headers` and `add_response_headers` now accept plain string values**
+
+The `add_request_headers` and `add_response_headers` fields on Mapping now accept a plain string value as a shorthand, for example, `add_response_headers: {x-foo: bar}`, in addition to the existing object format with `value` and `append` fields. This restores compatibility with the v2 API behavior.
+
 ### Version 3.12.13 (March 12, 2026) <a href="#id-3.12.13" id="id-3.12.13"></a>
 
 #### Upgrade Golang to 1.24.13
