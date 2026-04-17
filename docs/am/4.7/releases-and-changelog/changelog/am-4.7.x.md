@@ -12,30 +12,17 @@ description: >-
 
 <summary>Bug fixes</summary>
 
+**Gateway**
 
-
-
-
-
-
-**Other**
-
-* MFA Enrollment Stuck in PENDING_ACTIVATION [#11245](https://github.com/gravitee-io/issues/issues/11245)
+* DCR-created applications are now able to inherit domain flows by default [#11271](https://github.com/gravitee-io/issues/issues/11271)
 
 </details>
-
 
 ## Gravitee Access Management 4.7.34 - April 3, 2026
 
 <details>
 
 <summary>Bug fixes</summary>
-
-
-
-
-
-
 
 **Other**
 
