@@ -14,19 +14,14 @@ description: >-
 
 **Gateway**
 
-* DCR-created applications do not inherit domain flows by default [#11271](https://github.com/gravitee-io/issues/issues/11271)
-
-
-
-
+* DCR-created applications are now able to inherit domain flows by default [#11271](https://github.com/gravitee-io/issues/issues/11271)
 
 **Other**
 
-* MFA Enrollment Stuck in PENDING_ACTIVATION [#11245](https://github.com/gravitee-io/issues/issues/11245)
-* User edit form : additional information does not show all custom fields [#11333](https://github.com/gravitee-io/issues/issues/11333)
+* Resolved issue with MFA Enrollment Stuck in PENDING_ACTIVATION [#11245](https://github.com/gravitee-io/issues/issues/11245)
+* User edit form now displays all custom feilds within additional information [#11333](https://github.com/gravitee-io/issues/issues/11333)
 
 </details>
-
 
 ## Gravitee Access Management 4.9.17 - April 9, 2026
 
@@ -54,7 +49,6 @@ description: >-
 
 </details>
 
-
 ## Gravitee Access Management 4.9.16 - April 3, 2026
 
 <details>
@@ -65,10 +59,6 @@ description: >-
 
 * User cannot signin due to EmailFactor issue [#11304](https://github.com/gravitee-io/issues/issues/11304)
 
-
-
-
-
 **Other**
 
 * Create index based on timestamp for audit logs. [#11258](https://github.com/gravitee-io/issues/issues/11258)
@@ -76,7 +66,6 @@ description: >-
 * Optimize resource for Bulk Email management [#11283](https://github.com/gravitee-io/issues/issues/11283)
 
 </details>
-
 
 ## Gravitee Access Management 4.9.15 - March 27, 2026
 
@@ -94,9 +83,7 @@ description: >-
 
 * Fix API breaking change on SMTP resource update [#11244](https://github.com/gravitee-io/issues/issues/11244)
 
-
 </details>
-
 
 ## Gravitee Access Management 4.9.14 - March 13, 2026
 
@@ -123,18 +110,11 @@ description: >-
 
 </details>
 
-
 ## Gravitee Access Management 4.9.13 - February 27, 2026
 
 <details>
 
 <summary>Bug fixes</summary>
-
-
-
-
-
-
 
 **Other**
 
@@ -142,7 +122,6 @@ description: >-
 * Email BULK processing - context not closed properly [#11199](https://github.com/gravitee-io/issues/issues/11199)
 
 </details>
-
 
 ## Gravitee Access Management 4.9.12 - February 23, 2026
 
@@ -154,17 +133,12 @@ description: >-
 
 * Improve reliability of email emission during SCIM Bulk [#11150](https://github.com/gravitee-io/issues/issues/11150)
 
-
-
-
-
 **Other**
 
 * Update Facebook IdP to latest Graph API [#11162](https://github.com/gravitee-io/issues/issues/11162)
 * [DCR] Application fails to inherit Access Token validity from AM Templates [#11178](https://github.com/gravitee-io/issues/issues/11178)
 
 </details>
-
 
 ## Gravitee Access Management 4.9.11 - February 16, 2026
 
@@ -192,18 +166,11 @@ description: >-
 
 </details>
 
-
 ## Gravitee Access Management 4.9.10 - January 29, 2026
 
 <details>
 
 <summary>Bug fixes</summary>
-
-
-
-
-
-
 
 **Other**
 
@@ -215,7 +182,6 @@ description: >-
 
 </details>
 
-
 ## Gravitee Access Management 4.9.9 - January 19, 2026
 
 <details>
@@ -226,10 +192,6 @@ description: >-
 
 * Retrieve clientID from context for AccountFactorsEndpointHandler::sendChallenge [#11023](https://github.com/gravitee-io/issues/issues/11023)
 
-
-
-
-
 **Other**
 
 * [Helm] Dataplane volume are missing for JDBC backend [#11008](https://github.com/gravitee-io/issues/issues/11008)
@@ -239,18 +201,11 @@ description: >-
 
 </details>
 
-
 ## Gravitee Access Management 4.9.8 - January 2, 2026
 
 <details>
 
 <summary>Bug fixes</summary>
-
-
-
-
-
-
 
 **Other**
 
@@ -267,12 +222,6 @@ description: >-
 
 <summary>Bug fixes</summary>
 
-
-
-
-
-
-
 **Other**
 
 * Apply jemalloc to dockerfile for Gateway/MAPI (4.7+) [#10991](https://github.com/gravitee-io/issues/issues/10991)
@@ -284,18 +233,11 @@ description: >-
 
 </details>
 
-
 ## Gravitee Access Management 4.9.6 - December 10, 2025
 
 <details>
 
 <summary>Bug fixes</summary>
-
-
-
-
-
-
 
 **Other**
 
@@ -319,8 +261,6 @@ description: >-
 
 * WebAuthn - credentials are not removed when a user is deleted [#10990](https://github.com/gravitee-io/issues/issues/10990)
 
-
-
 **Other**
 
 * The default helm chart currently does not reflect our suggested {{maxAcquireTime}} and {{maxCreateConnectionTime}} values. [#10983](https://github.com/gravitee-io/issues/issues/10983)
@@ -330,7 +270,6 @@ description: >-
 * Email notification fails for Certificate expiry [#11007](https://github.com/gravitee-io/issues/issues/11007)
 
 </details>
-
 
 ## Gravitee Access Management 4.9.4 - November 21, 2025
 
