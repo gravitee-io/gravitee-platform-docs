@@ -83,6 +83,7 @@
     * [Create Applications and Subscriptions Using the Management API](how-to-guides/use-case-tutorials/create-applications-and-subscriptions-using-the-management-api.md)
     * [Connect to an Endpoint Using SSE](how-to-guides/use-case-tutorials/connect-to-an-endpoint-using-sse.md)
     * [Implement BFF pattern (with a Shared Policy Group)](how-to-guides/use-case-tutorials/implement-bff-pattern-with-a-shared-policy-group.md)
+    * [Configure an MCP-Proxy with the OAuth plan and Entra ID](how-to-guides/use-case-tutorials/secure-a-mcp-proxy-with-entra-id-oauth.md)
 * [Configure & Manage the Platform](configure-and-manage-the-platform/README.md)
   * [Gravitee Gateway](configure-and-manage-the-platform/gravitee-gateway/README.md)
     * [Proxy](configure-and-manage-the-platform/gravitee-gateway/proxy.md)
