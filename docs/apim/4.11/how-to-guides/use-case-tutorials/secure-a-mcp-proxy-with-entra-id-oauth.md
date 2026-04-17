@@ -86,12 +86,12 @@ Stop the MCP Tool Server by clicking **Stop**.
    3. **Redirect URI (optional)**: Leave blank. You'll add multiple entries in the next steps.
 4. Click **Register**.
 
-{% hint style="success" %}
-The new App Registration is complete. Store the following values for later use when configuring OAuth:
+    {% hint style="success" %}
+    The new App Registration is complete. Store the following values for later use when configuring OAuth:
 
-1. **Application (client) ID** (for example, `2553a281-2ebf-4d6c-aea1-1303a1af0dc6`), which will become part of your audience value.
-2. **Directory (tenant) ID** (for example, `fffe4189-a2fb-4ec8-89ce-f5649e94735e`).
-{% endhint %}
+    1. **Application (client) ID** (for example, `2553a281-2ebf-4d6c-aea1-1303a1af0dc6`), which will become part of your audience value.
+    2. **Directory (tenant) ID** (for example, `fffe4189-a2fb-4ec8-89ce-f5649e94735e`).
+    {% endhint %}
 
 5. Click **Add a Redirect URI** and add the relevant URIs. For VS Code, you need two items:
    1. **Platform Type**: Web
@@ -163,11 +163,11 @@ You have secured this MCP-Proxy with the secure OAuth plan.
 
     <figure><img src="https://414586439-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FU1xXmp5guXALDJnWHthY%2Fuploads%2FC91ejNrzd6d4Kzo2XXfM%2Fimage.png?alt=media&#x26;token=0aaec839-6ad3-4e80-955b-138ef452e554" alt=""><figcaption></figcaption></figure>
 
-{% hint style="info" %}
-If you see other dialog boxes (such as the screenshot below), your Entra ID OAuth Resource has not been configured correctly (for example, incorrect Tenant ID).
+    {% hint style="info" %}
+    If you see other dialog boxes (such as the screenshot below), your Entra ID OAuth Resource has not been configured correctly (for example, incorrect Tenant ID).
 
-<p align="center"><img src="https://414586439-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FU1xXmp5guXALDJnWHthY%2Fuploads%2F7iM81GG8oCwlhtOj2a6V%2Fimage.png?alt=media&#x26;token=39cac312-bb82-45e2-9e17-f6a00af66056" alt=""></p>
-{% endhint %}
+    <p align="center"><img src="https://414586439-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FU1xXmp5guXALDJnWHthY%2Fuploads%2F7iM81GG8oCwlhtOj2a6V%2Fimage.png?alt=media&#x26;token=39cac312-bb82-45e2-9e17-f6a00af66056" alt=""></p>
+    {% endhint %}
 
 2. VS Code will request your client ID for the MCP Authorization Pre-Registration method. Enter the client ID of your Entra ID App Registration. VS Code will also request an optional client secret. Do not supply a client secret.
 
@@ -177,9 +177,9 @@ If you see other dialog boxes (such as the screenshot below), your Entra ID OAut
 
     <figure><img src="https://414586439-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FU1xXmp5guXALDJnWHthY%2Fuploads%2FuczEtrTjPYwPolnuHwgV%2Fimage.png?alt=media&#x26;token=ea2ad8c5-5694-4a71-8dbd-71db6960bc61" alt="" width="274"><figcaption></figcaption></figure>
 
-{% hint style="info" %}
-If you see other messages at this stage, the issue is usually related to misconfiguration of your Entra ID OAuth Resource or OAuth plan.
-{% endhint %}
+    {% hint style="info" %}
+    If you see other messages at this stage, the issue is usually related to misconfiguration of your Entra ID OAuth Resource or OAuth plan.
+    {% endhint %}
 
 4. A new browser tab will open. Sign in with your Entra ID user account or select an existing Entra ID user account.
 5. Consent to the required permissions for VS Code to use your App Registration:
@@ -196,9 +196,9 @@ If you see other messages at this stage, the issue is usually related to misconf
 
     <figure><img src="https://414586439-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FU1xXmp5guXALDJnWHthY%2Fuploads%2FHAUDztkcYG0fSDA1PByv%2Fimage.png?alt=media&#x26;token=d765fc26-c042-44a6-afe9-1a5a0e8c6c90" alt=""><figcaption></figcaption></figure>
 
-{% hint style="info" %}
-If you encounter errors or do not see the available tools, you typically have a configuration issue in your Entra ID App Registration. Check your VS Code OUTPUT console to troubleshoot.
-{% endhint %}
+    {% hint style="info" %}
+    If you encounter errors or do not see the available tools, you typically have a configuration issue in your Entra ID App Registration. Check your VS Code OUTPUT console to troubleshoot.
+    {% endhint %}
 
 8. To verify access to these tools, use the CHAT to ask what tools are available from the `demo-ms-learn-mcp` tool server:
 
