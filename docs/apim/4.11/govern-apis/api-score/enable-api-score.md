@@ -25,10 +25,14 @@ API Score is a technology preview feature, meaning you must to opt-in to use it.
 
 1.  From the home page, click **Settings**.
 
-    <figure><img src="../../.gitbook/assets/govern-apis-api-score-enable-api-score-218-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (218) (1).png" alt=""><figcaption></figcaption></figure>
 2.  In the **Portal** section, click **API Quality**.
 
-    <figure><img src="../../.gitbook/assets/govern-api-score-enable-api-score-220.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (220).png" alt=""><figcaption></figcaption></figure>
 3.  In the **API Score** section, turn on **Enable API Score**.
 
-    <figure><img src="../../.gitbook/assets/govern-api-score-enable-api-score-221.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (221).png" alt=""><figcaption></figcaption></figure>
+
+
+
+Turning on **Enable API Score** only makes the feature available. No API is scored until you run an evaluation on it. For the next step, see [Generate an API Score.](generate-an-api-score.md)

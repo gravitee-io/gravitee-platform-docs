@@ -16,10 +16,11 @@ API Score is a technology preview. This feature is not recommended for productio
 High-level API Score statistics are shown on the **API Score** page. To get to your API Score dashboard:
 
 1. Ensure that API Score is enabled. For more information about enabling API Score, see [Enable API Score](enable-api-score.md).
-2. Log in to your APIM Console.
-3.  In the menu, click **API Score**.
+2. Run at least one evaluation so the dashboard has data to show. For more information about running an evaluation, see [Generate an API Score.](generate-an-api-score.md)
+3. Log in to your APIM Console.
+4.  In the menu, click **API Score**.
 
-    <figure><img src="../../.gitbook/assets/govern-api-score-view-api-scores-207.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (207).png" alt=""><figcaption></figcaption></figure>
 
 The **Overview** and **APIs** sections of the **API Score** page provide you with high-level metrics to understand the quality of your APIs. These metrics are:
 
@@ -31,11 +32,11 @@ The **Overview** and **APIs** sections of the **API Score** page provide you wit
 
 The **Overview** section shows these metrics across all of your APIs.
 
-<figure><img src="../../.gitbook/assets/govern-api-score-view-api-scores-205.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (205).png" alt=""><figcaption></figcaption></figure>
 
 The **APIs** section contains a list of your APIs to show these metrics for each API individually.
 
-<figure><img src="../../.gitbook/assets/govern-api-score-view-api-scores-206.png" alt=""><figcaption><p>Example API score dashboard</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (206).png" alt=""><figcaption><p>Example API score dashboard</p></figcaption></figure>
 
 ## Individual API Score details
 
