@@ -7,6 +7,50 @@ metaLinks:
 
 # APIM 4.9.x
  
+## Gravitee API Management 4.9.17 - April 17, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Prometheus scrapping error: scrape request times out [#11036](https://github.com/gravitee-io/issues/issues/11036)
+* No error message for V2 API without V4 emulation in 4.9.x [#11126](https://github.com/gravitee-io/issues/issues/11126)
+* Groovy policy at ORG level throws exception when modifying response status code [#11293](https://github.com/gravitee-io/issues/issues/11293)
+* Data masking policy masks the whole payload [#11303](https://github.com/gravitee-io/issues/issues/11303)
+* Gateway ConcurrentModificationException during request dispatch [#11312](https://github.com/gravitee-io/issues/issues/11312)
+* gravitee-resource-cache-redis leaks LettuceConnectionFactory on every API redeploy [#11314](https://github.com/gravitee-io/issues/issues/11314)
+* Dictionaries not available in v2 API resource configuration [#11346](https://github.com/gravitee-io/issues/issues/11346)
+
+**Management API**
+
+* Unable to import path mapping from swagger document [#10806](https://github.com/gravitee-io/issues/issues/10806)
+* No error message for V2 API without V4 emulation in 4.9.x [#11126](https://github.com/gravitee-io/issues/issues/11126)
+* V2 API failed to migrate to v4 due to endpoint configuration [#11264](https://github.com/gravitee-io/issues/issues/11264)
+* Unable to resend or retrigger expired sign-up confirmation links [#11295](https://github.com/gravitee-io/issues/issues/11295)
+* API logs are not displayed when multiple status filters are used [#11305](https://github.com/gravitee-io/issues/issues/11305)
+* Error when deleting an API with pages [#11308](https://github.com/gravitee-io/issues/issues/11308)
+
+**Console**
+
+* No error message for V2 API without V4 emulation in 4.9.x [#11126](https://github.com/gravitee-io/issues/issues/11126)
+* Unable to reset the password [#11289](https://github.com/gravitee-io/issues/issues/11289)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Other**
+
+* PostgreSQL character limit of 256 for flows [#11087](https://github.com/gravitee-io/issues/issues/11087)
+* Update IP Filtering policy documentation  [#11251](https://github.com/gravitee-io/issues/issues/11251)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.9.16 - March 27, 2026
 <details>
 
