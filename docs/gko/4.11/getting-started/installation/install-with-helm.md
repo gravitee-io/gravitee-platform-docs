@@ -51,6 +51,7 @@ The Gravitee Kubernetes Operator Helm Chart supports the configuration of the fo
 * [Controller Manager](install-with-helm.md#controller-manager)
 * [Ingress](install-with-helm.md#ingress)
 * [Gateway API](install-with-helm.md#gateway-api)
+* [Security context](install-with-helm.md#security-context)
 
 {% tabs %}
 {% tab title="RBAC" %}
@@ -134,8 +135,23 @@ manager:
     namespaces: []
 ```
 {% endtab %}
+
+{% tab title="Security context" %}
+The GKO Helm chart ships with hardened security defaults. These settings enforce non-root execution, a read-only root filesystem, and minimal Linux capabilities.
+
+| Name                                                         | Description                                                | Value     |
+| ------------------------------------------------------------ | ---------------------------------------------------------- | --------- |
+| `manager.pod.securityContext.runAsNonRoot`                   | Requires the pod to run as a non-root user.                | `true`    |
+| `manager.container.securityContext.allowPrivilegeEscalation` | Prevents the container from gaining additional privileges. | `false`   |
+| `manager.container.securityContext.readOnlyRootFilesystem`   | Mounts the root filesystem as read-only.                   | `true`    |
+| `manager.container.securityContext.capabilities.drop`        | Linux capabilities to drop from the container.             | `["ALL"]` |
+
+The GKO container image uses the `gcr.io/distroless/static:nonroot` base image and runs as UID `65532`.
+
+{% hint style="info" %}
+These defaults align with the Kubernetes [Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/) `restricted` profile. No additional configuration is needed for hardened security when installing GKO with Helm.
+{% endhint %}
+{% endtab %}
 {% endtabs %}
-
-
 
 [^1]: I forgot to add a precision here. Something like: "If you are deploying the operator in several namespaces ny setting \`scope.cluster\` to \`false\`, a different service account name \*must\* be used on each installation.
