@@ -42,6 +42,15 @@
 
 * When returning the protected resource metadata from the OAuth2 policy, it should include the scopes [#11343](https://github.com/gravitee-io/issues/issues/11343)
 
+**Helm chart**
+
+* Improve JDBC driver delivery options in the Helm chart:
+  * `auto` uses bundled PostgreSQL, MariaDB, and SQL Server drivers, and uses startup download for MySQL and other custom JDBC families
+  * `image` allows using a dedicated customer-provided JDBC image instead of downloading the driver at startup
+  * `download` keeps the explicit startup download mode
+  * `preinstalled` allows using JDBC drivers already baked into custom API and Gateway runtime images, without JDBC runtime provisioning
+* Validate `jdbc.driverSource` values during chart rendering and fail on unsupported values.
+
 </details>
 
 
