@@ -733,6 +733,12 @@ STATUS: deployed
 REVISION: 1
 ```
 
+## Configure a JDBC database (optional)
+
+By default, this guide installs MongoDB as the Configuration Database. To use a JDBC database instead, configure `jdbc.driverSource` in your Helm values. The supported modes are `auto`, `download`, `image`, and `preinstalled` (Helm chart 4.11.2+, which uses a driver already baked into your custom API and Gateway runtime images).
+
+For full details on each mode and per-database `values.yml` examples, see [JDBC repositories](../../../prepare-a-production-environment/repositories/jdbc.md).
+
 ## Verification
 
 To verify that your Gravitee APIM platform is up and running, complete the following steps:

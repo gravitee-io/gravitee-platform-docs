@@ -534,6 +534,12 @@ To install the Gravitee Helm Chart, complete the following steps:
 `values.yaml` is the file that you prepared in the [#configure-the-gravitee-parameters-and-values.yml-file](openshift.md#configure-the-gravitee-parameters-and-values.yml-file "mention") section.
 {% endhint %}
 
+## Configure a JDBC database (optional)
+
+By default, this guide installs MongoDB as the Configuration Database. To use a JDBC database instead, configure `jdbc.driverSource` in your Helm values. The supported modes are `auto`, `download`, `image`, and `preinstalled` (Helm chart 4.11.2+, which uses a driver already baked into your custom API and Gateway runtime images).
+
+For full details on each mode and per-database `values.yml` examples, see [JDBC repositories](../../prepare-a-production-environment/repositories/jdbc.md).
+
 ## Proxy configuration
 
 To route Gateway traffic through a corporate proxy (for example, for backend API calls or JWKS retrieval from external identity providers like Microsoft Entra ID), add the following `gravitee_system_proxy_*` environment variables to the Gateway section of your `values.yaml`:

@@ -128,7 +128,7 @@ Redis
 DocumentDB
 R2DBC
 RDBMS
-JDBC
+[Jj][Dd][Bb][Cc]
 [Dd]atastore
 Liquibase
 
