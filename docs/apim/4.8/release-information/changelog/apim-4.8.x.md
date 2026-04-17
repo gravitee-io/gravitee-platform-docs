@@ -37,7 +37,7 @@ description: Documentation about apim 4.8.x in the context of APIs.
 
 **Other**
 
-* Update IP Filtering policy documentation  [#11251](https://github.com/gravitee-io/issues/issues/11251)
+* Update IP Filtering policy documentation [#11251](https://github.com/gravitee-io/issues/issues/11251)
 
 </details>
 
