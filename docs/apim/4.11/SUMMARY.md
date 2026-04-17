@@ -337,6 +337,7 @@
     * [View API Scores](govern-apis/api-score/view-api-scores.md)
     * [Rulesets and Functions](govern-apis/api-score/rulesets-and-functions.md)
     * [Types of Assets](govern-apis/api-score/types-of-assets.md)
+    * [Generate an API Score](govern-apis/api-score/generate-an-api-score.md)
 * [Analyze & Monitor APIs](analyze-and-monitor-apis/README.md)
   * [Dashboards](analyze-and-monitor-apis/dashboards/README.md)
     * [Overview dashboard](analyze-and-monitor-apis/dashboards/overview-dashboard.md)

@@ -11,7 +11,7 @@ metaLinks:
 API Score is a tech preview. This feature is not recommended for production environments.
 {% endhint %}
 
-<table data-view="cards"><thead><tr><th data-type="content-ref"></th></tr></thead><tbody><tr><td><a href="enable-api-score.md">enable-api-score.md</a></td></tr><tr><td><a href="view-api-scores.md">view-api-scores.md</a></td></tr><tr><td><a href="rulesets-and-functions.md">rulesets-and-functions.md</a></td></tr><tr><td><a href="types-of-assets.md">types-of-assets.md</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th data-type="content-ref"></th></tr></thead><tbody><tr><td><a href="enable-api-score.md">enable-api-score.md</a></td></tr><tr><td><a href="view-api-scores.md">view-api-scores.md</a></td></tr><tr><td><a href="rulesets-and-functions.md">rulesets-and-functions.md</a></td></tr><tr><td><a href="types-of-assets.md">types-of-assets.md</a></td></tr><tr><td><a href="generate-an-api-score.md">generate-an-api-score.md</a></td></tr></tbody></table>
 
 ## Overview
 
@@ -42,7 +42,7 @@ Your API's score is calculated using the following formula:
 
 Your API's score is projected onto a function that has the following shape:
 
-<figure><img src="../../.gitbook/assets/govern-api-score-readme-77 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/govern-api-score-readme-77.png" alt=""><figcaption></figcaption></figure>
 
 For example, if your API has 1 error, 0 warnings, 2 infos, and 1 hint, the score is calculated as follows:
 
