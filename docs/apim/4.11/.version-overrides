@@ -81,3 +81,4 @@ configure-and-manage-the-platform/management-api/mtls-certificate-management-api
 developer-portal/new-developer-portal/configuring-mtls-certificate-management-administrator-guide.md
 developer-portal/new-developer-portal/creating-and-managing-mtls-certificates-application-owner-guide.md
 secure-and-expose-apis/applications/mtls-certificate-management-for-applications-overview-and-concepts.md
+how-to-guides/use-case-tutorials/secure-a-mcp-proxy-with-entra-id-oauth.md
