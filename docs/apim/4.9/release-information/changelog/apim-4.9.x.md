@@ -14,7 +14,7 @@ metaLinks:
 
 **Gateway**
 
-* Prometheus scrapping error: scrape request times out [#11036](https://github.com/gravitee-io/issues/issues/11036)
+* Prometheus scraping error: scrape request times out [#11036](https://github.com/gravitee-io/issues/issues/11036)
 * No error message for V2 API without V4 emulation in 4.9.x [#11126](https://github.com/gravitee-io/issues/issues/11126)
 * Groovy policy at ORG level throws exception when modifying response status code [#11293](https://github.com/gravitee-io/issues/issues/11293)
 * Data masking policy masks the whole payload [#11303](https://github.com/gravitee-io/issues/issues/11303)
