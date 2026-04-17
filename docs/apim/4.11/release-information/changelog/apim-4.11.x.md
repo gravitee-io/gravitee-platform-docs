@@ -1,5 +1,51 @@
 # APIM 4.11.x
  
+## Gravitee API Management 4.11.2 - April 17, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Prometheus scrapping error: scrape request times out [#11036](https://github.com/gravitee-io/issues/issues/11036)
+* Data masking policy masks the whole payload [#11303](https://github.com/gravitee-io/issues/issues/11303)
+* Gateway ConcurrentModificationException during request dispatch [#11312](https://github.com/gravitee-io/issues/issues/11312)
+* OpenAPI Specification Validation Policy - Validation errors [#11330](https://github.com/gravitee-io/issues/issues/11330)
+* Dictionaries not available in v2 API resource configuration [#11346](https://github.com/gravitee-io/issues/issues/11346)
+
+**Management API**
+
+* V2 API failed to migrate to v4 due to endpoint configuration [#11264](https://github.com/gravitee-io/issues/issues/11264)
+* v4 API logs are inaccessible when the analytics type is none [#11297](https://github.com/gravitee-io/issues/issues/11297)
+
+**Console**
+
+* endpointGroups.sharedConfiguration.headers and endpointGroups.sharedConfiguration.http Cannot Be Applied Together in v4 api defintion [#11163](https://github.com/gravitee-io/issues/issues/11163)
+* endpointGroups.sharedConfiguration.headers and endpointGroups.sharedConfiguration.http Cannot Be Applied Together in v4 api defintion [#11168](https://github.com/gravitee-io/issues/issues/11168)
+* The filters applied in the v4 API logs are not preserved  [#11302](https://github.com/gravitee-io/issues/issues/11302)
+
+**Other**
+
+* Warning - Failed to evaluate duration [#11341](https://github.com/gravitee-io/issues/issues/11341)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Console**
+
+* Add Entra ID to the OAuth2 API Resources [#11345](https://github.com/gravitee-io/issues/issues/11345)
+
+**Other**
+
+* When returning the protected resource metadata from the OAuth2 policy, it should include the scopes [#11343](https://github.com/gravitee-io/issues/issues/11343)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.11.1 - April 4, 2026
 <details>
 
