@@ -4,6 +4,38 @@ description: API documentation explaining apim 4.7.x.
 
 # APIM 4.7.x
  
+## Gravitee API Management 4.7.29 - April 17, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Prometheus scrapping error: scrape request times out [#11036](https://github.com/gravitee-io/issues/issues/11036)
+* Groovy policy at ORG level throws exception when modifying response status code [#11293](https://github.com/gravitee-io/issues/issues/11293)
+* Data masking policy masks the whole payload [#11303](https://github.com/gravitee-io/issues/issues/11303)
+* gravitee-resource-cache-redis leaks LettuceConnectionFactory on every API redeploy [#11314](https://github.com/gravitee-io/issues/issues/11314)
+
+**Management API**
+
+* Unable to import path mapping from swagger document [#10806](https://github.com/gravitee-io/issues/issues/10806)
+* API logs are not displayed when multiple status filters are used [#11305](https://github.com/gravitee-io/issues/issues/11305)
+* Error when deleting an API with pages [#11308](https://github.com/gravitee-io/issues/issues/11308)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Other**
+
+* Update IP Filtering policy documentation  [#11251](https://github.com/gravitee-io/issues/issues/11251)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.7.28 - March 30, 2026
 <details>
 

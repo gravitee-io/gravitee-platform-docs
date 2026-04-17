@@ -124,30 +124,30 @@ Strikethrough text indicates that a version is deprecated.
 
 **Cost: Cost calculation `type = "pricing"`**&#x20;
 
-| <p>Name<br><code>json name</code></p>                            | <p>Type<br><code>constraint</code></p>  | Mandatory | Default | Description                                                                                               |
-| ---------------------------------------------------------------- | --------------------------------------- | :-------: | ------- | --------------------------------------------------------------------------------------------------------- |
-| <p>Input Token Price Unit<br><code>inputPriceUnit</code></p>     | <p>number<br><code>(0, +Inf]</code></p> |     ✅     |         | Number of input tokens that `inputPriceValue` applies to. Set to `1000000` to price tokens per million.   |
-| <p>Input Token Price Value<br><code>inputPriceValue</code></p>   | <p>number<br><code>(0, +Inf]</code></p> |     ✅     |         | Price charged for `inputPriceUnit` input tokens, in the currency of your choice.                          |
-| <p>Output Token Price Unit<br><code>outputPriceUnit</code></p>   | <p>number<br><code>(0, +Inf]</code></p> |     ✅     |         | Number of output tokens that `outputPriceValue` applies to. Set to `1000000` to price tokens per million. |
-| <p>Output Token Price Value<br><code>outputPriceValue</code></p> | <p>number<br><code>(0, +Inf]</code></p> |     ✅     |         | Price charged for `outputPriceUnit` output tokens, in the currency of your choice.                        |
+| <p>Name<br><code>json name</code></p>                            | <p>Type<br><code>constraint</code></p>  | Mandatory | Default | Description                                                                         |
+| ---------------------------------------------------------------- | --------------------------------------- | :-------: | ------- | ----------------------------------------------------------------------------------- |
+| <p>Input Token Price Unit<br><code>inputPriceUnit</code></p>     | <p>number<br><code>(0, +Inf]</code></p> |     ✅     |         | Always set to `1000000`. The policy prices input tokens per 1,000,000 tokens only.  |
+| <p>Input Token Price Value<br><code>inputPriceValue</code></p>   | <p>number<br><code>(0, +Inf]</code></p> |     ✅     |         | Price charged for 1,000,000 input tokens, in the currency of your choice.           |
+| <p>Output Token Price Unit<br><code>outputPriceUnit</code></p>   | <p>number<br><code>(0, +Inf]</code></p> |     ✅     |         | Always set to `1000000`. The policy prices output tokens per 1,000,000 tokens only. |
+| <p>Output Token Price Value<br><code>outputPriceValue</code></p> | <p>number<br><code>(0, +Inf]</code></p> |     ✅     |         | Price charged for 1,000,000 output tokens, in the currency of your choice.          |
 
-#### How the cost is calculated
+#### **How the cost is calculated**
 
-The gateway computes the per-request cost from the tracked token counts and the policy's pricing configuration:
+The policy prices tokens per 1,000,000 only. Always set `inputPriceUnit` and `outputPriceUnit` to `1000000`, and set `inputPriceValue` and `outputPriceValue` to the price you pay for 1,000,000 input and output tokens.
 
-* `input cost = input tokens × inputPriceValue ÷ inputPriceUnit`
-* `output cost = output tokens × outputPriceValue ÷ outputPriceUnit`
+The gateway computes the per-request cost from the tracked token counts and the configured prices:
 
-Express the price as a ratio. `inputPriceValue` is the price charged for `inputPriceUnit` input tokens, and `outputPriceValue` is the price charged for `outputPriceUnit` output tokens. This matches how AI providers typically publish pricing, for example, "$0.40 per 1,000,000 tokens".
+* `input cost = input tokens × inputPriceValue ÷ 1,000,000`
+* `output cost = output tokens × outputPriceValue ÷ 1,000,000`
 
-To configure the policy for a published price of $0.40 per 1,000,000 input tokens and $0.80 per 1,000,000 output tokens, set:
+For example, to price input tokens at `0.4` per 1,000,000 and output tokens at `0.8` per 1,000,000, set:
 
 * `inputPriceValue`: `0.4`
 * `inputPriceUnit`: `1000000`
 * `outputPriceValue`: `0.8`
 * `outputPriceUnit`: `1000000`
 
-For a request with 500 input tokens and 200 output tokens, the gateway records an input cost of `500 × 0.4 ÷ 1000000 = 0.0002` and an output cost of `200 × 0.8 ÷ 1000000 = 0.00016`. The policy doesn't enforce or store a currency. Costs are reported in the same currency you used for the price values.
+For a request with 500 input tokens and 200 output tokens, the gateway records an input cost of `500 × 0.4 ÷ 1,000,000 = 0.0002` and an output cost of `200 × 0.8 ÷ 1,000,000 = 0.00016`. The policy doesn't enforce or store a currency. Costs are reported in the same currency you used for the price values.
 
 The gateway emits the following analytics metrics when the response body is JSON and token extraction succeeds:
 

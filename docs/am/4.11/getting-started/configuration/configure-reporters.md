@@ -82,7 +82,7 @@ To control audit traffic and reduce event noise, you can use the Kafka reporter 
 Use the search box to quickly locate and select specific event types.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/gs-config-configure-reporters-16.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gs-config-configure-reporters-16 (1).png" alt=""><figcaption></figcaption></figure>
 
 ### **Schema Registry**
 
@@ -171,11 +171,11 @@ services:
 
 #### Configuration options
 
-| Property | Description | Notes |
-| --- | --- | --- |
-| `services.purge.enabled` | Enable or disable the purge service | Affects both event and audit purging |
-| `services.purge.cron` | Cron expression for purge schedule | Spring cron syntax |
-| `services.purge.audits.retention.days` | Number of days to retain audit data | Value must be greater than `0` |
+| Property                               | Description                         | Notes                                |
+| -------------------------------------- | ----------------------------------- | ------------------------------------ |
+| `services.purge.enabled`               | Enable or disable the purge service | Affects both event and audit purging |
+| `services.purge.cron`                  | Cron expression for purge schedule  | Spring cron syntax                   |
+| `services.purge.audits.retention.days` | Number of days to retain audit data | Value must be greater than `0`       |
 
 #### Disable audit retention
 

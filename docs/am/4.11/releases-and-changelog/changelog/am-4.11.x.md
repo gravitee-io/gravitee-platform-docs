@@ -6,7 +6,59 @@ description: >-
 
 # AM 4.11.x
 
-#### Gravitee Access Management 4.11 - April 3, 2026 <a href="#gravitee-access-management-4.8" id="gravitee-access-management-4.8"></a>
+## Gravitee Access Management 4.11.2 - April 17, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Audit Viewer**
+
+* Audit log for TOKEN_REVOKED now correctly displays user profile name, when the user profile is disabled
+
+**Gateway**
+
+* DCR-created applications are now able to inherit domain flows by default [#11271](https://github.com/gravitee-io/issues/issues/11271)
+
+**Other**
+
+* Resolved issue with MFA Enrollment Stuck in PENDING_ACTIVATION [#11245](https://github.com/gravitee-io/issues/issues/11245)
+* User edit form now displays all custom fields within additional information [#11333](https://github.com/gravitee-io/issues/issues/11333)
+
+**CVE**
+ 
+* Remediates: CVE-2026-1605, CVE-2026-33870
+
+</details>
+
+## Gravitee Access Management 4.11.1 - April 9, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* EnrichAuthContext ignored when session is active [#11301](https://github.com/gravitee-io/issues/issues/11301)
+
+**Management API**
+
+* Improve list domain response time [#11315](https://github.com/gravitee-io/issues/issues/11315)
+
+**Console**
+
+* User History - event names are truncated [#11290](https://github.com/gravitee-io/issues/issues/11290)
+* Audit Logs - Column "Target" is truncated [#11291](https://github.com/gravitee-io/issues/issues/11291)
+
+**Other**
+
+* Force reset password not prompting user to reset password during login [#11298](https://github.com/gravitee-io/issues/issues/11298)
+* Force ordering for application search [#11309](https://github.com/gravitee-io/issues/issues/11309)
+
+</details>
+
+
+#### Gravitee Access Management 4.11 - April 3, 2026 <a href="#gravitee-access-management-4.11" id="gravitee-access-management-4.11"></a>
 
 <details>
 
@@ -64,31 +116,3 @@ AM 4.12 will be the last release to support the `openid` scope client\_credentia
 When an application sign a token, HMAC signature is not used as fallback mechanism anymore if the application certificate is not available. &#x20;
 
 </details>
-
-## Gravitee Access Management 4.11.1 - April 9, 2026
-
-<details>
-
-<summary>Bug fixes</summary>
-
-**Gateway**
-
-* EnrichAuthContext ignored when session is active [#11301](https://github.com/gravitee-io/issues/issues/11301)
-
-**Management API**
-
-* Improve list domain response time [#11315](https://github.com/gravitee-io/issues/issues/11315)
-
-**Console**
-
-* User History - event names are truncated [#11290](https://github.com/gravitee-io/issues/issues/11290)
-* Audit Logs - Column "Target" is truncated [#11291](https://github.com/gravitee-io/issues/issues/11291)
-
-**Other**
-
-* Force reset password not prompting user to reset password during login [#11298](https://github.com/gravitee-io/issues/issues/11298)
-* Force ordering for application search [#11309](https://github.com/gravitee-io/issues/issues/11309)
-
-</details>
-
-
