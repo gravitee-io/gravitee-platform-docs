@@ -19,7 +19,7 @@ description: >-
 **Other**
 
 * Resolved issue with MFA Enrollment Stuck in PENDING_ACTIVATION [#11245](https://github.com/gravitee-io/issues/issues/11245)
-* User edit form now displays all custom feilds within additional information [#11333](https://github.com/gravitee-io/issues/issues/11333)
+* User edit form now displays all custom fields within additional information [#11333](https://github.com/gravitee-io/issues/issues/11333)
 
 **CVE**
  
