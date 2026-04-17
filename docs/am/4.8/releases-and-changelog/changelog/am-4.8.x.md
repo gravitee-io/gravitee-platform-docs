@@ -14,19 +14,14 @@ description: >-
 
 **Gateway**
 
-* DCR-created applications do not inherit domain flows by default [#11271](https://github.com/gravitee-io/issues/issues/11271)
-
-
-
-
+* DCR-created applications are now able to inherit domain flows by default [#11271](https://github.com/gravitee-io/issues/issues/11271)
 
 **Other**
 
-* MFA Enrollment Stuck in PENDING_ACTIVATION [#11245](https://github.com/gravitee-io/issues/issues/11245)
-* User edit form : additional information does not show all custom fields [#11333](https://github.com/gravitee-io/issues/issues/11333)
+* Resolved issue with MFA Enrollment Stuck in PENDING_ACTIVATION [#11245](https://github.com/gravitee-io/issues/issues/11245)
+* User edit form now displays all custom feilds within additional information [#11333](https://github.com/gravitee-io/issues/issues/11333)
 
 </details>
-
 
 ## Gravitee Access Management 4.8.29 - April 9, 2026
 
