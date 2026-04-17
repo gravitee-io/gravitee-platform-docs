@@ -91,16 +91,21 @@ management:
 This section only applies if you are using the Gravitee Helm chart to install a self-hosted instance of Gravitee APIM.
 {% endhint %}
 
-From Gravitee APIM v4.11, the Gravitee Helm chart now includes additional startup behavior to auto-select the appropriate JDBC driver, and is derived from `jdbc.url` and `jdbc.driverSource`:
+From Gravitee APIM v4.11, the Gravitee Helm chart includes additional startup behavior to auto-select the appropriate JDBC driver, derived from `jdbc.url` and `jdbc.driverSource`. The supported `jdbc.driverSource` values are:
 
-* `jdbc.driverSource=auto` uses bundled PostgreSQL, MariaDB, and Microsoft SQL Server drivers, but uses _startup download_ for MySQL and any other custom JDBC family
-* `jdbc.driverSource=download` always downloads the driver from `jdbc.driver` at startup
-* `jdbc.driverSource=image` copies the driver at startup from a dedicated customer-provided JDBC image (from `/drivers/mysql-connector-j.jar`).
+* `auto` (default): uses bundled PostgreSQL, MariaDB, and Microsoft SQL Server drivers, and uses _startup download_ for MySQL and any other custom JDBC family
+* `download`: always downloads the driver from `jdbc.driver` at startup
+* `image`: copies the driver at startup from a dedicated customer-provided JDBC image (from `/drivers/mysql-connector-j.jar`)
+* `preinstalled` (Helm chart 4.11.2+): uses a driver already baked into the final API and Gateway runtime images, with no runtime provisioning
+
+{% hint style="info" %}
+Any other value for `jdbc.driverSource` fails chart rendering.
+{% endhint %}
 
 When `jdbc.driverSource=auto`:
 
 * MySQL still requires `jdbc.driver`
-* PostgreSQL, MariaDB, and SQL Server do not use `jdbc.driver`
+* PostgreSQL, MariaDB, and SQL Server don't use `jdbc.driver`
 
 ### PostgreSQL Configuration (with Gravitee Helm Chart)
 
@@ -200,6 +205,33 @@ jdbc:
   driverSource: auto
   url: jdbc:customdb://customdb:1234/graviteeapim
   driver: https://artifacts.example.com/jdbc/customdb-driver.jar
+  username: gravitee
+  password: P@ssw0rd
+management:
+  type: jdbc
+```
+{% endcode %}
+
+### Preinstalled Driver Configuration (with Gravitee Helm Chart)
+
+{% hint style="info" %}
+Preinstalled driver mode is available from Gravitee Helm chart `4.11.2`.
+{% endhint %}
+
+For hardened immutable deployments, use `preinstalled` mode with custom API and Gateway images that already contain the JDBC driver in:
+
+* `/opt/graviteeio-management-api/plugins/ext/repository-jdbc`
+* `/opt/graviteeio-gateway/plugins/ext/repository-jdbc`
+
+In this mode, the chart doesn't create a JDBC initContainer, `emptyDir`, or JDBC volume mount. The API upgrader job follows the same behavior.
+
+The example below shows how to configure the Helm chart to use a preinstalled MySQL driver baked into your custom runtime images:
+
+{% code title="values.yml" %}
+```yaml
+jdbc:
+  driverSource: preinstalled
+  url: jdbc:mysql://mysql-apim-mysql:3306/graviteeapim
   username: gravitee
   password: P@ssw0rd
 management:
