@@ -6,6 +6,28 @@ description: >-
 
 # AM 4.10.x
 
+## Gravitee Access Management 4.10.9 - April 17, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* DCR-created applications do not inherit domain flows by default [#11271](https://github.com/gravitee-io/issues/issues/11271)
+
+
+
+
+
+**Other**
+
+* MFA Enrollment Stuck in PENDING_ACTIVATION [#11245](https://github.com/gravitee-io/issues/issues/11245)
+* User edit form : additional information does not show all custom fields [#11333](https://github.com/gravitee-io/issues/issues/11333)
+
+</details>
+
+
 ## Gravitee Access Management 4.10.8 - April 9, 2026
 
 <details>
