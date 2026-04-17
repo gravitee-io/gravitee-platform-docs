@@ -6,6 +6,25 @@ description: >-
 
 # AM 4.7.x
 
+## Gravitee Access Management 4.7.35 - April 17, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* MFA Enrollment Stuck in PENDING_ACTIVATION [#11245](https://github.com/gravitee-io/issues/issues/11245)
+
+</details>
+
+
 ## Gravitee Access Management 4.7.34 - April 3, 2026
 
 <details>
