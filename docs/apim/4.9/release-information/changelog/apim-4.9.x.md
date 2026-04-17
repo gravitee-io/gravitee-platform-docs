@@ -45,7 +45,7 @@ metaLinks:
 **Other**
 
 * PostgreSQL character limit of 256 for flows [#11087](https://github.com/gravitee-io/issues/issues/11087)
-* Update IP Filtering policy documentation  [#11251](https://github.com/gravitee-io/issues/issues/11251)
+* Update IP Filtering policy documentation [#11251](https://github.com/gravitee-io/issues/issues/11251)
 
 </details>
 
