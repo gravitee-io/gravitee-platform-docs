@@ -1,5 +1,59 @@
 # APIM 4.10.x
  
+## Gravitee API Management 4.10.12 - April 17, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Prometheus scrapping error: scrape request times out [#11036](https://github.com/gravitee-io/issues/issues/11036)
+* Dynamic routing policies are unable to correctly render the endpoint for certain routing rules. [#11272](https://github.com/gravitee-io/issues/issues/11272)
+* Dynamic Routing policy using only default endpoint with retry policy [#11280](https://github.com/gravitee-io/issues/issues/11280)
+* Groovy policy at ORG level throws exception when modifying response status code [#11293](https://github.com/gravitee-io/issues/issues/11293)
+* Data masking policy masks the whole payload [#11303](https://github.com/gravitee-io/issues/issues/11303)
+* gravitee-resource-cache-redis leaks LettuceConnectionFactory on every API redeploy [#11314](https://github.com/gravitee-io/issues/issues/11314)
+* OpenAPI Specification Validation Policy - Validation errors [#11330](https://github.com/gravitee-io/issues/issues/11330)
+* Dictionaries not available in v2 API resource configuration [#11346](https://github.com/gravitee-io/issues/issues/11346)
+
+**Management API**
+
+* V2 API failed to migrate to v4 due to endpoint configuration [#11264](https://github.com/gravitee-io/issues/issues/11264)
+* v4 API logs are inaccessible when the analytics type is none [#11297](https://github.com/gravitee-io/issues/issues/11297)
+* API logs are not displayed when multiple status filters are used [#11305](https://github.com/gravitee-io/issues/issues/11305)
+
+**Console**
+
+* endpointGroups.sharedConfiguration.headers and endpointGroups.sharedConfiguration.http Cannot Be Applied Together in v4 api defintion [#11163](https://github.com/gravitee-io/issues/issues/11163)
+* endpointGroups.sharedConfiguration.headers and endpointGroups.sharedConfiguration.http Cannot Be Applied Together in v4 api defintion [#11168](https://github.com/gravitee-io/issues/issues/11168)
+* The filters applied in the v4 API logs are not preserved  [#11302](https://github.com/gravitee-io/issues/issues/11302)
+
+**Other**
+
+* Warning - Failed to evaluate duration [#11341](https://github.com/gravitee-io/issues/issues/11341)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Gateway**
+
+* MCP Proxy: serve .well-known/oauth-protected-resource at RFC 9728 compliant host-scoped URL [#11299](https://github.com/gravitee-io/issues/issues/11299)
+
+**Console**
+
+* Add Entra ID to the OAuth2 API Resources [#11345](https://github.com/gravitee-io/issues/issues/11345)
+
+**Other**
+
+* Add the scope field to the WWW-Authenticate header in the OAuth2 Policy [#11307](https://github.com/gravitee-io/issues/issues/11307)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.10.11 - April 3, 2026
 <details>
 
