@@ -21,6 +21,10 @@ description: >-
 * Resolved issue with MFA Enrollment Stuck in PENDING_ACTIVATION [#11245](https://github.com/gravitee-io/issues/issues/11245)
 * User edit form now displays all custom feilds within additional information [#11333](https://github.com/gravitee-io/issues/issues/11333)
 
+**CVE**
+
+* Remediates: CVE-2026-1605, CVE-2026-33870
+
 </details>
 
 ## Gravitee Access Management 4.8.29 - April 9, 2026
