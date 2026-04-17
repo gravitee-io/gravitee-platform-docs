@@ -4,6 +4,8 @@ description: >-
   patch AM 4.11.x releases.
 ---
 
+# AM 4.11.x
+
 ## Gravitee Access Management 4.11.2 - April 17, 2026
 
 <details>
@@ -55,9 +57,8 @@ description: >-
 
 </details>
 
-# AM 4.11.x
 
-#### Gravitee Access Management 4.11 - April 3, 2026 <a href="#gravitee-access-management-4.8" id="gravitee-access-management-4.8"></a>
+#### Gravitee Access Management 4.11 - April 3, 2026 <a href="#gravitee-access-management-4.11" id="gravitee-access-management-4.11"></a>
 
 <details>
 
