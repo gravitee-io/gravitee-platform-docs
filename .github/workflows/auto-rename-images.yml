@@ -19,6 +19,7 @@ jobs:
 
     permissions:
       contents: write
+      pull-requests: write
 
     steps:
       - name: Checkout
@@ -32,7 +33,7 @@ jobs:
           # Fast check using the same regex as the rename script
           COUNT=$(python3 -c "
           import os, re
-          p = re.compile(r'^(?:[a-zA-Z0-9]{8}__)?image(?:(?:\s|%20)*\(\d+\))*(?:-\d+)?\.(?:png|jpg|jpeg|gif|svg|webp)$', re.I)
+          p = re.compile(r'^(?:[a-zA-Z0-9]{8}__)?image(?:(?:\\s|%20)*\\(\\d+\\))*(?:-\\d+)?\\.(?:png|jpg|jpeg|gif|svg|webp)$', re.I)
           print(sum(1 for dp,_,fn in os.walk('docs') if dp.endswith('/.gitbook/assets') for f in fn if p.match(f)))
           ")
           echo "count=$COUNT" >> "$GITHUB_OUTPUT"
@@ -46,16 +47,36 @@ jobs:
         if: steps.check.outputs.count != '0'
         run: python3 .github/scripts/auto-rename-images.py
 
-      - name: Commit and push
+      - name: Commit and open PR
         if: steps.check.outputs.count != '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          BRANCH="auto-rename-images"
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add docs/
-          # Only commit if there are actual changes
+          # Only proceed if there are actual changes
           if git diff --cached --quiet; then
             echo "No changes to commit."
+            exit 0
+          fi
+          git commit -m "fix: auto-rename generic images to descriptive names [auto-rename]"
+          # Force-push to the fixed branch (handles re-runs cleanly)
+          git push origin HEAD:"$BRANCH" --force
+          # Check if a PR already exists for this branch
+          EXISTING_PR=$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number // empty')
+          if [ -n "$EXISTING_PR" ]; then
+            echo "✅ PR #$EXISTING_PR already exists for branch $BRANCH. Updated via force-push."
           else
-            git commit -m "fix: auto-rename generic images to descriptive names [auto-rename]"
-            git push
+            gh pr create \
+              --title "fix: auto-rename generic images to descriptive names [auto-rename]" \
+              --body "Automated rename of generic image files to descriptive, page-scoped names.
+
+          This PR was created by the auto-rename-generic-images workflow.
+          All renames are R100 (byte-identical content, name change only).
+          Orphan images (from GitBook space duplication) are deleted." \
+              --base main \
+              --head "$BRANCH"
+            echo "✅ PR created for branch $BRANCH."
           fi
