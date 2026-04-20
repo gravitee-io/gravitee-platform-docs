@@ -5,9 +5,9 @@ noIndex: true
 
 # Test that a new Gateway syncs without access to the database
 
-## Overview&#x20;
+## Overview
 
-## Prerequisites&#x20;
+## Prerequisites
 
 * Complete the steps in [.](./ "mention").
 * Deploy an API
@@ -20,7 +20,7 @@ noIndex: true
 export APIM_REGISTRY=graviteeio.azurecr.io && export APIM_VERSION=master-latest && docker compose up -d redis-stack mongodb elasticsearch gateway_primary management_api management_ui
 ```
 
-<figure><img src="../../../.gitbook/assets/unknown (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/unknown.png" alt=""><figcaption></figcaption></figure>
 
 2. Deploy an API to your Gateway. For more information about deploying a an API, see [create-and-configure-apis](../../../create-and-configure-apis/ "mention").
 3.  Call your API using the following command:<br>
@@ -39,7 +39,7 @@ export APIM_REGISTRY=graviteeio.azurecr.io && export APIM_VERSION=master-latest 
     \
     You see the following output:
 
-<figure><img src="../../../.gitbook/assets/unknown (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/unknown (1).png" alt=""><figcaption></figcaption></figure>
 
 5.  Stop the the Primary Gateway and your database using the following command:<br>
 
@@ -50,7 +50,7 @@ export APIM_REGISTRY=graviteeio.azurecr.io && export APIM_VERSION=master-latest 
     ```
     ```
 
-<figure><img src="../../../.gitbook/assets/unknown (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/unknown (2).png" alt=""><figcaption></figcaption></figure>
 
 ## Verification
 
@@ -62,4 +62,3 @@ Curl http://localhost:8082/testMukul
 
 \
 You receive a 200 response.<br>
-

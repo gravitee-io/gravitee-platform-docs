@@ -5,15 +5,15 @@
 This guide explains how to configure a **System Proxy** that the Gravitee Gateway uses to communicate with backend APIs. This is useful when:
 
 * Your Gateway needs to reach external backend APIs through a corporate proxy.
-* You want a central proxy configuration for all API endpoints.&#x20;
+* You want a central proxy configuration for all API endpoints.
 * APIs are configured with `useSystemProxy:true` in their endpoint settings.
 
 ## How it Works
 
-1. Configure the system proxy in the Gateway.&#x20;
+1. Configure the system proxy in the Gateway.
 2. Create an API with an endpoint pointing to your backend.
-3. Enable `useSystemProxy` on each endpoint that should route through the proxy.&#x20;
-4. The Gateway routes all backend calls for that API through the system proxy.&#x20;
+3. Enable `useSystemProxy` on each endpoint that should route through the proxy.
+4. The Gateway routes all backend calls for that API through the system proxy.
 
 {% hint style="info" %}
 **Selective Proxy Usage**
@@ -25,7 +25,7 @@ The system proxy is only used for APIs that enable `useSystemProxy: true` in the
 
 * Kubernetes cluster with Helm installed
 * Corporate proxy server hostname and port
-* Proxy authentication credentials&#x20;
+* Proxy authentication credentials
 
 ## Configuration
 
@@ -161,8 +161,8 @@ After deploying the Gateway with the system proxy configured, you must enable it
     <figure><img src="../../.gitbook/assets/Screenshot 2026-02-09 at 04.10.55.png" alt=""><figcaption></figcaption></figure>
 4.  Scroll to the **Proxy** section and enable **Use System Proxy**.
 
-    <figure><img src="../../.gitbook/assets/self-hosted-proxy-configuration-sys-193.png" alt=""><figcaption></figcaption></figure>
-5. Save and deploy your API.&#x20;
+    <figure><img src="../../.gitbook/assets/hybrid-proxy-configuration-system-p-193.png" alt=""><figcaption></figcaption></figure>
+5. Save and deploy your API.
 
 #### **For a new API:**
 

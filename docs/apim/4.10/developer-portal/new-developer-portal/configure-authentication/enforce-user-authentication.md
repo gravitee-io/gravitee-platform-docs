@@ -63,10 +63,10 @@ To enforce user authentication, complete the following steps:
 
 1.  From the **Dashboard**, click **Settings**.
 
-    <figure><img src="../../../.gitbook/assets/devportal-new-portal-configure-auth-126 (2).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/devportal-new-portal-configure-auth-126.png" alt=""><figcaption></figcaption></figure>
 2.  In the **Settings** menu, navigate to the **Portal** section, and then click **Authentication**.
 
-    <figure><img src="../../../.gitbook/assets/devportal-new-portal-configure-auth-127 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/devportal-new-portal-configure-auth-127.png" alt=""><figcaption></figcaption></figure>
 3.  Turn on **Force authentication to access portal**.
 
     <figure><img src="../../../.gitbook/assets/C59621FB-6019-478F-BEB5-65646363CD72_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
