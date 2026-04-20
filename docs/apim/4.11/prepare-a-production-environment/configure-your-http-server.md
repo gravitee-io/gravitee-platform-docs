@@ -7,9 +7,13 @@ metaLinks:
 
 # Configure your HTTP Server
 
-## `gravitee.yaml` configuration
+## Default HTTP server configuration
 
-You configure the HTTP Server configuration in the following section of the `gravitee.yaml` file:
+Configure the Gateway HTTP server by setting the following properties. Use the tab that matches your deployment method.
+
+{% tabs %}
+{% tab title="gravitee.yaml" %}
+Update the following section of the `gravitee.yaml` file:
 
 ```yaml
 http:
@@ -33,14 +37,73 @@ http:
       path: ${gravitee.home}/security/truststore.jks
       password: secret
 ```
+{% endtab %}
 
-## **Enable HTTPS support**
+{% tab title=".env" %}
+Add the following variables to the `.env` file loaded by your `docker-compose.yml`, or to the `environment:` block of the Gateway service:
 
-You can use the gravitee.yaml file to configure HTTPS support. However, you first need to enable secure mode in `gravitee.yml` and provide a keystore. You can generate a keystore if you don't have one, or use the file path or Kubernetes location.
+```bash
+gravitee_http_port=8082
+gravitee_http_host=0.0.0.0
+gravitee_http_idleTimeout=0
+gravitee_http_tcpKeepAlive=true
+gravitee_http_compressionSupported=false
+gravitee_http_maxHeaderSize=8192
+gravitee_http_maxChunkSize=8192
+gravitee_http_instances=0
+gravitee_http_requestTimeout=30000
+gravitee_http_secured=false
+gravitee_http_alpn=false
+gravitee_http_ssl_clientAuth=none
+gravitee_http_ssl_keystore_path=/opt/graviteeio-gateway/security/keystore.jks
+gravitee_http_ssl_keystore_password=secret
+gravitee_http_ssl_truststore_path=/opt/graviteeio-gateway/security/truststore.jks
+gravitee_http_ssl_truststore_password=secret
+```
+{% endtab %}
 
-{% tabs %}
-{% tab title="Generate a keystore" %}
-Generate a keystore:
+{% tab title="Helm values.yaml" %}
+Update the `gateway:` section of your `values.yaml` file. The APIM Helm chart renders these values into the Gateway `gravitee.yml` at install time:
+
+```yaml
+gateway:
+  service:
+    internalPort: 8082
+  http:
+    requestTimeout: 30000
+    requestTimeoutGraceDelay: 30
+    maxHeaderSize: 8192
+    maxChunkSize: 8192
+    maxInitialLineLength: 4096
+    maxFormAttributeSize: 2048
+    alpn: "true"
+  ssl:
+    enabled: false
+    clientAuth: none # Supports none, request, required
+    keystore:
+      type: jks
+      path: ${gravitee.home}/security/keystore.jks
+      password: secret
+    truststore:
+      type: jks
+      path: ${gravitee.home}/security/truststore.jks
+      password: secret
+  websocket: false
+```
+
+{% hint style="info" %}
+In single-server mode the Helm chart fixes `host` to `0.0.0.0` and doesn't expose `idleTimeout`, `tcpKeepAlive`, `compressionSupported`, or `instances`. To override any of those fields, switch to the `gateway.servers[]` array described in [Multi-server support.](configure-your-http-server.md#multi-server-support)
+{% endhint %}
+{% endtab %}
+{% endtabs %}
+
+## Enable HTTPS support
+
+To enable HTTPS, turn on secure mode and provide a keystore. Generate a keystore if you don't already have one, or reference an existing file path or Kubernetes location.
+
+## Generate a keystore
+
+Generate a keystore with `keytool`:
 
 ```sh
 keytool -genkey \
@@ -53,11 +116,13 @@ keytool -genkey \
   -keypass secret \
   -storepass secret
 ```
-{% endtab %}
 
-{% tab title="File keystore" %}
-Provide a path pointing to the keystore containing the certificate and the associated private key:
+### Reference a keystore file
 
+Point the Gateway at the keystore that contains the certificate and private key.
+
+{% tabs %}
+{% tab title="gravitee.yaml" %}
 ```yaml
 http:
   # ... skipped for simplicity
@@ -71,17 +136,43 @@ http:
       path:
       password:
 ```
+{% endtab %}
+
+{% tab title=".env" %}
+```bash
+gravitee_http_secured=true
+gravitee_http_ssl_clientAuth=none
+gravitee_http_ssl_keystore_path=/path/to/keystore.jks
+gravitee_http_ssl_keystore_password=adminadmin
+```
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+```yaml
+gateway:
+  ssl:
+    enabled: true
+    clientAuth: none # Supports none, request, required
+    keystore:
+      type: jks
+      path: /path/to/keystore.jks
+      password: adminadmin
+```
+{% endtab %}
+{% endtabs %}
 
 {% hint style="info" %}
 **Automatic watching**
 
 As of Gravitee APIM v3.13.0, the keystore file is automatically watched for any modifications and reloaded without having to restart the Gateway server.
 {% endhint %}
-{% endtab %}
 
-{% tab title="K8s secret / configmap keystore" %}
-It is possible to load the keystore directly from the Kubernetes secret or configmap by specifying the appropriate Kubernetes location in the `gravitee.yaml` file:
+### Load a keystore from a Kubernetes secret or configmap
 
+Load the keystore directly from a Kubernetes secret or configmap by specifying the Kubernetes location.
+
+{% tabs %}
+{% tab title="gravitee.yaml" %}
 ```yaml
 http:
   # ... skipped for simplicity
@@ -93,47 +184,103 @@ http:
       kubernetes: /my-namespace/secrets/my-secret/keystore
       password: adminadmin
 ```
+{% endtab %}
 
-The expected `http.ssl.keystore.kubernetes` is structured as follows: `/{namespace}/{type}/{name}/{key}` with:
+{% tab title=".env" %}
+```bash
+gravitee_http_secured=true
+gravitee_http_ssl_clientAuth=none
+gravitee_http_ssl_keystore_type=pkcs12
+gravitee_http_ssl_keystore_kubernetes=/my-namespace/secrets/my-secret/keystore
+gravitee_http_ssl_keystore_password=adminadmin
+```
+{% endtab %}
 
-* `namespace`: the name of the targeted Kubernetes namespace
-* `type`: can be either `secrets` or `configmaps`, depending on the type of Kubernetes resources being retrieved
-* `name`: the name of the secret or configmap to retrieve
-* `key`: the name of the key holding the value to retrieve. The `key` is optional when using a standard `kubernetes.io/tls` secret (note: it only supports PEM cert & key). The `key` is mandatory for any `Opaque` secret or configmap (note: they only support JKS & PKC12 keystore type).
-
-The keystore (or PEM cert & key) stored in the Kubernetes secret or configmap is automatically watched for any modifications and reloaded without having to restart the Gateway server.
+{% tab title="Helm values.yaml" %}
+```yaml
+gateway:
+  ssl:
+    enabled: true
+    clientAuth: none # Supports none, request, required
+    keystore:
+      type: pkcs12
+      kubernetes: /my-namespace/secrets/my-secret/keystore
+      password: adminadmin
+```
 {% endtab %}
 {% endtabs %}
 
-## **Enable HTTP/2 support**
+The expected `http.ssl.keystore.kubernetes` value is structured as `/{namespace}/{type}/{name}/{key}`:
 
-First, enable HTTPS support as described in the section above.
+* `namespace`: the name of the targeted Kubernetes namespace
+* `type`: either `secrets` or `configmaps`, depending on the Kubernetes resource type
+* `name`: the name of the secret or configmap to retrieve
+* `key`: the name of the key holding the value to retrieve. The `key` is optional when using a standard `kubernetes.io/tls` secret (note: it only supports PEM cert & key). The `key` is mandatory for any `Opaque` secret or configmap (note: they only support JKS & PKC12 keystore type).
 
-You then need to enable `alpn` in `gravitee.yaml`:
+The keystore (or PEM cert & key) stored in the Kubernetes secret or configmap is automatically watched for any modifications and reloaded without restarting the Gateway server.
 
+## Enable HTTP/2 support
+
+First, enable HTTPS as described above. Then turn on `alpn`.
+
+{% tabs %}
+{% tab title="gravitee.yaml" %}
 ```yaml
 http:
   alpn: true
   ...
 ```
+{% endtab %}
 
-You can now consume your API with both HTTP/1 and HTTP/2 protocols:
+{% tab title=".env" %}
+```bash
+gravitee_http_alpn=true
+```
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+```yaml
+gateway:
+  http:
+    alpn: "true"
+```
+{% endtab %}
+{% endtabs %}
+
+Consume your API with both HTTP/1 and HTTP/2 protocols:
 
 ```sh
 curl -k -v --http2 https://localhost:8082/my_api
 ```
 
-## **Enable WebSocket support**
+## Enable WebSocket support
 
-To enable WebSocket support, update the `gravitee.yaml` file:
+Turn on WebSocket support for the Gateway.
 
+{% tabs %}
+{% tab title="gravitee.yaml" %}
 ```yaml
 http:
   websocket:
     enabled: true
 ```
+{% endtab %}
 
-You can now consume your API via both WS and WSS protocols:
+{% tab title=".env" %}
+```bash
+gravitee_http_websocket_enabled=true
+```
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+```yaml
+gateway:
+  websocket: true
+```
+{% endtab %}
+{% endtabs %}
+
+Consume your API via both WS and WSS protocols:
 
 ```sh
 curl ws://localhost:8082/my_websocket
@@ -141,6 +288,10 @@ curl ws://localhost:8082/my_websocket
 
 ## Enable certificate-based client authentication
 
+Configure a truststore and set `clientAuth` to the desired mode.
+
+{% tabs %}
+{% tab title="gravitee.yaml" %}
 ```yaml
 http:
   ssl:
@@ -149,30 +300,53 @@ http:
       path: /path/to/truststore.jks
       password: adminadmin
 ```
+{% endtab %}
 
-Available modes for `clientAuth` are:
+{% tab title=".env" %}
+```bash
+gravitee_http_ssl_clientAuth=none
+gravitee_http_ssl_truststore_path=/path/to/truststore.jks
+gravitee_http_ssl_truststore_password=adminadmin
+```
+{% endtab %}
 
-* None: Client authentication is disabled (replacement of the `false` value)
-* Request: Client authentication is not required but can be if using SSL enforcement policy
-* Requires: Client authentication is required (replacement of `true` value)
+{% tab title="Helm values.yaml" %}
+```yaml
+gateway:
+  ssl:
+    enabled: true
+    clientAuth: none # Supports none, request, required
+    truststore:
+      type: jks
+      path: /path/to/truststore.jks
+      password: adminadmin
+```
+{% endtab %}
+{% endtabs %}
+
+Available modes for `clientAuth`:
+
+* `none`: Client authentication is disabled (replacement of the `false` value)
+* `request`: Client authentication isn't required but can be if using the SSL enforcement policy
+* `required`: Client authentication is required (replacement of the `true` value)
 
 ## Multi-server support
 
-The Gravitee APIM Gateway currently supports a multi-server architecture which allows one Gateway to support multiple protocols. For example, the Gateway can now proxy both HTTP and HTTPS requests by running two servers on different ports simultaneously.
+The Gravitee APIM Gateway supports a multi-server architecture that lets one Gateway expose multiple protocols. For example, the Gateway can proxy both HTTP and HTTPS by running two servers on different ports simultaneously.
 
-To enable this feature, you must use an alternate configuration in the `gravitee.yaml` file:
+To enable this, replace the root-level `http` property with the root-level `servers` array. Each entry requires:
 
-* The root-level `http` configuration property should be replaced with the root-level `servers` property. The `servers` property allows for an array of servers in the configuration file.
-* An `id` property has been added to identify and compare servers.
-* The `type` property is now mandatory and at the moment, only supports a value of `http`.
+* An `id` property to identify and compare servers
+* A `type` property (currently only `http` is supported)
 
 {% hint style="info" %}
-Gravitee still fully supports all configurations using `http` as the root-level property.
+Gravitee still fully supports configurations that use `http` as the root-level property.
 {% endhint %}
 
-The rest of the configuration schema remains unchanged. Here is an example of a configuration that allows one Gateway to support `HTTP` and `HTTPS`:
+The rest of the configuration schema is unchanged. The following example configures one Gateway to support both HTTP and HTTPS.
 
-{% code title="gravitee.yaml" %}
+{% tabs %}
+{% tab title="gravitee.yaml" %}
 ```yaml
 # Gateway servers
 servers:
@@ -191,4 +365,36 @@ servers:
       sni: true
       openssl: true
 ```
-{% endcode %}
+{% endtab %}
+
+{% tab title=".env" %}
+Docker Compose can't express the `servers[]` array through flat environment variables. Mount a custom `gravitee.yml` into the Gateway container instead:
+
+```yaml
+services:
+  gateway:
+    image: graviteeio/apim-gateway:latest
+    volumes:
+      - ./gravitee.yml:/opt/graviteeio-gateway/config/gravitee.yml
+```
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+```yaml
+gateway:
+  servers:
+    - type: http
+      port: 8092
+    - type: http
+      port: 8443
+      secured: true
+      alpn: true
+      ssl:
+        keystore:
+          type: jks
+          path: ${gravitee.home}/security/keystore.jks
+        sni: true
+        openssl: true
+```
+{% endtab %}
+{% endtabs %}
