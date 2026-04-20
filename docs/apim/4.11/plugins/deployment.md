@@ -65,6 +65,100 @@ The property `removePlugins` has been removed from the Helm chart as it is no lo
 {% endtab %}
 {% endtabs %}
 
+
+
+### **Air-gapped clusters and environments without internet access**
+
+`additionalPlugins` relies on an initContainer that uses `wget` to download each URL into `/tmp/plugins-ext` before the Gateway or Management API starts. The initContainer needs network egress to every URL you list, so it isn't suitable when the cluster can't reach an external host or when initContainers aren't permitted. For those cases, mount the plugin archives directly into the `plugins-ext` directory using `extraVolumes` and `extraVolumeMounts`.
+
+The chart sets `GRAVITEE_PLUGINS_PATH_0` to `${gravitee.home}/plugins` and `GRAVITEE_PLUGINS_PATH_1` to `${gravitee.home}/plugins-ext`. Inside the container, `plugins-ext` resolves to `/opt/graviteeio-gateway/plugins-ext` for the Gateway and `/opt/graviteeio-management-api/plugins-ext` for the Management API. Mount your plugin archives at either path.
+
+#### **Option 1: Mount plugins from a ConfigMap or Secret**
+
+Use this option for small plugin archives. For larger archives, use Option 2.
+
+1.  Create the ConfigMap from the plugin `.zip` files:
+
+    ```bash
+    kubectl create configmap gravitee-plugins \
+      --from-file=my-plugin.zip=/path/to/my-plugin.zip \
+      --from-file=my-other-plugin.zip=/path/to/my-other-plugin.zip \
+      -n gravitee
+    ```
+2.  Reference the ConfigMap in `values.yaml`:
+
+    ```yaml
+    gateway:
+      extraVolumes: |
+        - name: gravitee-plugins
+          configMap:
+            name: gravitee-plugins
+      extraVolumeMounts: |
+        - name: gravitee-plugins
+          mountPath: /opt/graviteeio-gateway/plugins-ext
+          readOnly: true
+
+    api:
+      extraVolumes: |
+        - name: gravitee-plugins
+          configMap:
+            name: gravitee-plugins
+      extraVolumeMounts: |
+        - name: gravitee-plugins
+          mountPath: /opt/graviteeio-management-api/plugins-ext
+          readOnly: true
+    ```
+
+#### **Option 2: Mount plugins from a PersistentVolume**
+
+Use this option for larger plugin archives, or when you want to update plugins without re-templating the chart.
+
+1. Pre-populate a PersistentVolume with the plugin `.zip` files using a mechanism supported by your storage class (for example, a storage admin copying the archives onto the underlying disk, or a one-off Job that runs before the APIM release).
+2.  Bind the PVC in `values.yaml`:
+
+    ```yaml
+    gateway:
+      extraVolumes: |
+        - name: gravitee-plugins
+          persistentVolumeClaim:
+            claimName: gravitee-plugins-pvc
+      extraVolumeMounts: |
+        - name: gravitee-plugins
+          mountPath: /opt/graviteeio-gateway/plugins-ext
+          readOnly: true
+    ```
+
+#### **Option 3: Pull plugins with a custom initContainer**
+
+Use this option when the cluster can reach an internal artifact store (for example, an internal S3 bucket, Nexus, or Artifactory) but can't reach the public internet. Replace the default download initContainer with one that targets your internal source.
+
+1.  Leave `additionalPlugins` empty and define an `extraInitContainers` block:
+
+    ```yaml
+    gateway:
+      extraInitContainers: |
+        - name: fetch-plugins
+          image: amazon/aws-cli:2.15.0
+          command:
+            - sh
+            - -c
+            - aws s3 cp s3://internal-gravitee-plugins/ /tmp/plugins-ext/ --recursive
+          volumeMounts:
+            - name: gravitee-plugins
+              mountPath: /tmp/plugins-ext
+      extraVolumes: |
+        - name: gravitee-plugins
+          emptyDir: {}
+      extraVolumeMounts: |
+        - name: gravitee-plugins
+          mountPath: /opt/graviteeio-gateway/plugins-ext
+    ```
+2. Ensure the custom image is pullable from a registry the cluster can reach. Apply the same pattern to the `api` section if the Management API also needs plugins.
+
+{% hint style="info" %}
+Plugins mounted via `extraVolumeMounts` follow the same discovery and loading rules as plugins downloaded by `additionalPlugins`. A plugin in `plugins-ext` with the same ID as a bundled plugin takes precedence because its file modification time is more recent.
+{% endhint %}
+
 ## Discovery and loading
 
 Plugin discovery and loading occurs regardless of APIM license type. If a plugin is not included with your license, then it will be loaded but it will not be functional.
