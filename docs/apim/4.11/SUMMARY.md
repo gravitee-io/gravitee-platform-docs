@@ -111,6 +111,7 @@
       * [Microsoft Entra ID](configure-and-manage-the-platform/manage-organizations-and-environments/authentication/microsoft-entra-id.md)
       * [Roles and Groups Mapping](configure-and-manage-the-platform/manage-organizations-and-environments/authentication/roles-and-groups-mapping.md)
     * [User Management](configure-and-manage-the-platform/manage-organizations-and-environments/user-management.md)
+    * [Create a service account](configure-and-manage-the-platform/manage-organizations-and-environments/create-a-service-account.md)
     * [Applications](configure-and-manage-the-platform/manage-organizations-and-environments/applications.md)
     * [APIM Console](configure-and-manage-the-platform/manage-organizations-and-environments/apim-console.md)
     * [Developer Portal](configure-and-manage-the-platform/manage-organizations-and-environments/developer-portal.md)

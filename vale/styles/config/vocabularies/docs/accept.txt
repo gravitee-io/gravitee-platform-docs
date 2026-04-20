@@ -410,6 +410,9 @@ Moby
 Amazon
 Azure
 Slackbot
+Anypoint
+Apigee
+MuleSoft
 
 # ============================================
 # Kubernetes Tooling
