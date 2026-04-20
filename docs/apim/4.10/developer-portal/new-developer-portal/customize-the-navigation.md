@@ -48,7 +48,7 @@ Welcome page in the Developer Portal:
 With the New Developer Portal, you can customize your navigation in the following ways:
 
 * [Add a page](customize-the-navigation.md#pages)
-* [Add a folder ](customize-the-navigation.md#folders)
+* [Add a folder](customize-the-navigation.md#folders)
 * [Add a link](customize-the-navigation.md#links)
 * [Add an API](customize-the-navigation.md#api)
 
@@ -67,7 +67,7 @@ With the New Developer Portal, you can customize your navigation in the followin
 {% tab title="Pages" %}
 When you add a page that is not in a folder, the page appears as a root level menu item. When you publish the page, the page appears in the top navigation bar of your New Developer Portal.
 
-#### Add a page
+**Add a page**
 
 1.  Click **Add**, and then click **Add Page**.<br>
 
@@ -95,7 +95,7 @@ Open API example content:
     <figure><img src="../../.gitbook/assets/138D78C1-526C-4741-89DF-C8F9BCF8137D_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 *   Navigate to the page in the navigation bar, click the **ellipses** (<i class="fa-ellipsis-vertical">:ellipsis-vertical:</i>), and then click **Publish**.<br>
 
-    <figure><img src="../../.gitbook/assets/1A5E08E1-648C-4437-81C6-F4C480F04193_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/1A5E08E1-648C-4437-81C6-F4C480F04193_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 
 1.  In the **Publish page** pop-up window, click **Publish**.<br>
 
@@ -105,7 +105,7 @@ Open API example content:
 {% tab title="Folders" %}
 Folders group related pages together. A folder is a section on your New Developer Portal. When you add pages to your folder, they appear in the menu for that section instead of the top navigation.
 
-#### Add a folder
+**Add a folder**
 
 1.  Click **Add**, and then click **Add Folder**.<br>
 
@@ -114,7 +114,7 @@ Folders group related pages together. A folder is a section on your New Develope
 3. (Optional) Turn on the **Authentication is required to view this folder**. toggle. This ensures that the user has to sign in to the New Developer Portal to view the folder.
 4.  Click **Add**.<br>
 
-    <figure><img src="../../.gitbook/assets/46A3BA38-DD28-42B3-8BBC-BA5B2ABABBE2_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/46A3BA38-DD28-42B3-8BBC-BA5B2ABABBE2_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 5.  Publish the folder. To publish the folder, complete either of the following steps:
 
     ⚠️ A folder can be only published if all of its ancestor folders are published or if it's a top level folder.
@@ -129,13 +129,13 @@ Folders group related pages together. A folder is a section on your New Develope
 
     <figure><img src="../../.gitbook/assets/0C92FAF4-F289-4D79-89D2-62448A9E8FE8_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 
-#### Unpublishing cascade
+**Unpublishing cascade**
 
 Unpublishing now works by cascade: all navigation items within a folder are unpublished with their parent.
 
 <figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--254.png" alt=""><figcaption></figcaption></figure>
 
-#### Add a page to a folder
+**Add a page to a folder**
 
 When you add a page to a folder, that page becomes a menu item within that section of the New Developer Portal.
 
@@ -149,18 +149,18 @@ When you add a page to a folder, that page becomes a menu item within that secti
 {% tab title="Links" %}
 When you add a link, the link appears as a root level menu item. When you publish the link, the page appears in the top navigation bar of your New Developer Portal.
 
-#### Add a link
+**Add a link**
 
 1.  Click **Add**, and then click **Add Link**.<br>
 
-    <figure><img src="../../.gitbook/assets/26E3BF6E-215F-43C8-850F-752A02323AEF_1_201_a (2).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/26E3BF6E-215F-43C8-850F-752A02323AEF_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 2. In the **Add link** pop-up box, complete the following sub-steps:
    1. In the **Title** field, type a title for the link.
    2. In the **Link settings** field, enter the URL for the link.
    3. (Optional) Turn on the **Authentication is required to view this link**. toggle. This toggle ensures that the user has to sign in to the New Developer Portal to view the link.
 3.  Click **Add**.<br>
 
-    <figure><img src="../../.gitbook/assets/3476293A-507F-401E-855B-1CD3999E207E_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/3476293A-507F-401E-855B-1CD3999E207E_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 4.  Publish the page. To publish the page, complete either of the following steps:
 
     ⚠️ A link can be only published if all of its ancestor folders are published or if it's a top level link.
@@ -192,11 +192,11 @@ However, there are some limitations of APIs compared to folders:
 * APIs cannot contain other APIs and that on any level of the hierarchy, for example API -> Folder -> API chain is not allowed.
 * APIs also cannot be at the top level of the navigation structure, they have to be inside a folder.
 
-#### Add an API
+**Add an API**
 
 1. Open the context menu of a folder in which you want to add your API by clicking the **ellipses**, and then click **Add API**.
 
-<figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--255 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--255.png" alt=""><figcaption></figcaption></figure>
 
 2. An **API selection dialog** opens up where you can select APIs to be added.
 3. (Optional) Turn on the **Authentication is required to view selected APIs** toggle. This ensures that the user has to sign in to the New Developer Portal to view the APIs.
@@ -220,7 +220,7 @@ However, there are some limitations of APIs compared to folders:
 
 <figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--247.png" alt=""><figcaption></figcaption></figure>
 
-#### Add a page to an API
+**Add a page to an API**
 
 When you add a page to an API, that page becomes a menu item within that API in the New Developer Portal.
 
@@ -228,7 +228,7 @@ When you add a page to an API, that page becomes a menu item within that API in 
 2. Click **the ellipsis**.
 3. Click **Add page**.
 
-#### Add a folder to an API
+**Add a folder to an API**
 
 When you add a folder to an API, that folder becomes nested within that API in the New Developer Portal.
 

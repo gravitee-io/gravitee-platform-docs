@@ -11,7 +11,7 @@ metaLinks:
 
 To find an application's subscriptions, log in to your APIM Console, and then select **Applications** from the menu.
 
-<figure><img src="../../.gitbook/assets/00 sub 1 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/00 sub 1.png" alt=""><figcaption></figcaption></figure>
 
 Select the application you're looking for, and then select **Subscriptions** from the menu.
 

@@ -70,12 +70,12 @@ Add differentiated Quota policies to each plan per the instructions below.
 1. Select the **+** icon next to the API Key (SILVER) plan
 2. Modify the flow name, operator, path, methods, and conditions as desired (leaving name and path blank will apply default values)
 
-<figure><img src="../../.gitbook/assets/haley 2 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/haley 2.png" alt=""><figcaption></figcaption></figure>
 
 3. Click **Create**
 4. Select the **+** icon within the request phase section. This lets us use the Quota policy to limit the number of requests Silver Tier members can make to the API per mont&#x68;_._
 
-<figure><img src="../../.gitbook/assets/haley 3 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/haley 3.png" alt=""><figcaption></figcaption></figure>
 
 5. Use the search bar or scroll to navigate to the **Quota** policy, then click **Select**.
 
@@ -132,7 +132,7 @@ To ensure all API consumers, regardless of their plan, do not overwhelm the API,
 
 9.  Click **Deploy API** to redeploy the API and have the changes take effect<br>
 
-    <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-ra-203.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-ra-198.png" alt=""><figcaption></figcaption></figure>
 
 ### **Step 4: Add Spike Arrest policy via Common flows** <a href="#step-4-add-spike-arrest-policy-via-common-flows" id="step-4-add-spike-arrest-policy-via-common-flows"></a>
 
@@ -141,7 +141,7 @@ Now, let's mitigate traffic spikes and maintain quality of service for all consu
 1. Select the **+** icon next to **Common flows**
 2.  Modify the flow name, operator, path, methods, and conditions as desired (leaving name and path blank will apply default values)<br>
 
-    <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-ra-204.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-ra-199.png" alt=""><figcaption></figcaption></figure>
 3. Click **Create**
 4. Select the **+** icon within the request phase section to use the Spike Arrest policy to limit sudden spikes in traffic. Configured as a **Common flow**, the Spike Arrest policy applies to all API consumers.
 

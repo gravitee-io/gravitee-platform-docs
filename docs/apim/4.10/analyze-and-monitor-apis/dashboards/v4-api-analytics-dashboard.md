@@ -12,7 +12,7 @@ The V4 API analytics dashboard provides you with clear visibility into the API p
 
 1.  From the **Dashboard**, click **Analytics**.<br>
 
-    <figure><img src="../../.gitbook/assets/A160372A-F5F3-48D2-9354-70460A1D779C_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/A160372A-F5F3-48D2-9354-70460A1D779C_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 2.  Click the **V4 Dashboard** tab.<br>
 
     <figure><img src="../../.gitbook/assets/B0A9C126-752D-43F1-BE69-F99008FECD29_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
@@ -37,7 +37,7 @@ You can view the following metrics for your V4 APIs:
 
 *   **HTTP Statuses.** This graph shows the number of each HTTP status returned by the Gateway.<br>
 
-    <figure><img src="../../.gitbook/assets/analytics-dashboards-v4-api-analyti-73 (2).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analytics-dashboards-v4-api-analyti-73.png" alt=""><figcaption></figcaption></figure>
 *   **Response time**. This graph shows the average response time of the endpoint and the Gateway.<br>
 
     <figure><img src="../../.gitbook/assets/analytics-dashboards-v4-api-analyti-74.png" alt=""><figcaption></figcaption></figure>

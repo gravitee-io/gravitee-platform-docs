@@ -5,11 +5,9 @@ noIndex: true
 
 # Test that a new Gateway in a cluster user bridge syncs if the bridge crashes
 
+## Overview
 
-
-## Overview&#x20;
-
-## Prerequisites&#x20;
+## Prerequisites
 
 ## Test the Gateway sync
 
@@ -51,7 +49,7 @@ noIndex: true
 
 The new Gateway syncs with Redis. Here is an example output:<br>
 
-<figure><img src="../../../.gitbook/assets/unknown (17).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/unknown (13).png" alt=""><figcaption></figcaption></figure>
 
 ## Verification
 

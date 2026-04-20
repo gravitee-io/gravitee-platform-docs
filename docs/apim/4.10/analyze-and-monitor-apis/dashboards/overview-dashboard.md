@@ -19,7 +19,7 @@ The Overview Dashboard provides you with clear visibility into the API performan
     <figure><img src="../../.gitbook/assets/analytics-dashboards-overview-dashb-105.png" alt=""><figcaption></figcaption></figure>
 *   **API Response Status**. This graph show the number of each API response and the total number of hits.<br>
 
-    <figure><img src="../../.gitbook/assets/analytics-dashboards-overview-dashb-107 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analytics-dashboards-overview-dashb-107.png" alt=""><figcaption></figcaption></figure>
 *   **Top APIs**. This table ranks your APIs based on the amount of hits that they received within a specific period of time.<br>
 
     <figure><img src="../../.gitbook/assets/analytics-dashboards-overview-dashb-109.png" alt=""><figcaption></figcaption></figure>

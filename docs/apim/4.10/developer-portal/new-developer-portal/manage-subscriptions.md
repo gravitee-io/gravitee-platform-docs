@@ -32,7 +32,7 @@ To subscribe to an API, complete the following steps:
 
 5. Confirm the subscription
 
-<figure><img src="../../.gitbook/assets/devportal-new-portal-manage-subscri-4 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/devportal-new-portal-manage-subscri-4.png" alt=""><figcaption></figcaption></figure>
 
 6. You will be redirected to the [#subscription-details](manage-subscriptions.md#subscription-details "mention")
 
