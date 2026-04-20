@@ -10,11 +10,17 @@ To get started with Gravitee Cloud, complete the following steps
 
 <figure><img src="../.gitbook/assets/gs-getting-started-with-gravitee-cl-24.png" alt=""><figcaption><p>Gravitee Cloud registration page.</p></figcaption></figure>
 
-**Step 2** - Name your Cloud Account
+**Step 2** - Check your inbox for the verification email sent by Gravitee Cloud, then click the link in the email to confirm your email address. Registration can't continue until your email address is verified.
 
-**Step 3** - Choose _14 days Enterprise trial_ as deployment option as the trial will be your first stepping stone into Gravitee Cloud.
+{% hint style="warning" %}
+If the email doesn't arrive within a few minutes, check your spam folder.
+{% endhint %}
 
-Step 4 - Click on _"Get Going"_
+Step 3 - Name your cloud account
+
+**Step 4** - Choose _14 days Enterprise trial_ as the deployment option. The trial is your first stepping stone into Gravitee Cloud.
+
+Step 5 - Click on _"Get Going"_
 
 <figure><img src="../.gitbook/assets/gs-getting-started-with-gravitee-cl-25.png" alt=""><figcaption><p>Gravitee Cloud Account setup page.</p></figcaption></figure>
 
