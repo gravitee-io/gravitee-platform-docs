@@ -22,11 +22,11 @@ If the email doesn't arrive within a few minutes, check your spam folder.
 
 <figure><img src="../.gitbook/assets/cloud-enterprise-trial.png" alt=""><figcaption></figcaption></figure>
 
-Step 5 - Select the data residency you want. Gravitee allows you to select the region where you would like your data to reside for API Management.&#x20;
+**Step 5** - Select the data residency you want. Gravitee allows you to select the region where you would like your data to reside for API Management.&#x20;
 
 <figure><img src="../.gitbook/assets/gravitee-data-residency-cloud.png" alt=""><figcaption></figcaption></figure>
 
-Step 6 - Click on _"Get Going"_
+**Step 6** - Click on _"Get Going"_
 
 You are then directed to the Gravitee Cloud Dashboard, where you can discover your options in Gravitee Cloud UI or go straight into API Management Control Plane by accessing APIM Console or Dev Portal.
 
