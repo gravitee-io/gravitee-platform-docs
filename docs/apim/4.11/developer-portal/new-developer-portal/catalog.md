@@ -15,11 +15,11 @@ The catalog allows you to see the APIs in two view modes:
 
 1. Card view
 
-<figure><img src="../../.gitbook/assets/devportal-new-portal-catalog-258 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/devportal-new-portal-catalog-258.png" alt=""><figcaption></figcaption></figure>
 
 2. List view
 
-<figure><img src="../../.gitbook/assets/devportal-new-portal-catalog-259 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/devportal-new-portal-catalog-259.png" alt=""><figcaption></figcaption></figure>
 
 You can also use the search bar to narrow your selection by your query.
 

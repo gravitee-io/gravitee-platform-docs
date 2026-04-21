@@ -23,7 +23,7 @@ APIM uses client IDs to recognize applications that have subscribed to a JWT pla
 
 A JWT plan presents the following configuration options:
 
-<figure><img src="../../.gitbook/assets/plan_jwt configure (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/plan_jwt configure.png" alt=""><figcaption></figcaption></figure>
 
 * **Signature:** Select the algorithm used to hash and encrypt your JWT
 * **JWKS resolver:** Select a method to retrieve the JSON Web Key (JWK), which is often stored inside a JSON Web Key Set (JWKS) and required by the Gateway to validate the signature of the JWT:
@@ -41,7 +41,7 @@ A JWT plan presents the following configuration options:
       ```
 
       \{% endcode %\} \* **JWKS\_URL**: Provide a URL ending with `/.well-known/jwks.json` from which the Gateway can retrieve the JWKS
-* **Use system proxy:** When using **JWKS_URL**, optionally route the JWKS retrieval call through the Gateway's [system proxy](../../self-hosted-installation-guides/proxy-configuration/system-proxy-for-backend-apis.md). Enable this option when the Gateway reaches external identity providers (for example, Microsoft Entra ID, Google, or Okta) through a corporate proxy.
+* **Use system proxy:** When using **JWKS\_URL**, optionally route the JWKS retrieval call through the Gateway's [system proxy](../../self-hosted-installation-guides/proxy-configuration/system-proxy-for-backend-apis.md). Enable this option when the Gateway reaches external identity providers (for example, Microsoft Entra ID, Google, or Okta) through a corporate proxy.
 *   **Extract JWT Claims:** Allow claims to be accessed in the `jwt.claims` context attribute during request/response via Gravitee Expression Language (EL), e.g., extract the issuer claim from the JWT:
 
     ```

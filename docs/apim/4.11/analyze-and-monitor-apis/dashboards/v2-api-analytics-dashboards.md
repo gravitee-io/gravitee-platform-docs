@@ -10,7 +10,7 @@ The Dashboard is fully customizable. For more information about creating configu
 
 *   From the **Dashboard**, click **Analytics**.<br>
 
-    <figure><img src="../../.gitbook/assets/A160372A-F5F3-48D2-9354-70460A1D779C_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/A160372A-F5F3-48D2-9354-70460A1D779C_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 
 The Analytics section opens on the v2 API analytics Dashboard.
 
@@ -29,7 +29,7 @@ You can configure your Gravitee Dashboard by creating dashboard charts for three
 3. Add your new platform dashboard, API dashboard, or application dashboard. To add a new dashboard, follow the steps for the dashboard that you want to create:
 4.  Click **ADD A NEW PLATFORM DASHBOARD**, **ADD A NEW API DASHBOARD**, or **ADD A NEW APPLICATION DASHBOARD**.<br>
 
-    <figure><img src="../../.gitbook/assets/39C2D49D-FFDD-4E68-975B-38C7C6C104F4_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/39C2D49D-FFDD-4E68-975B-38C7C6C104F4_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 5. In the **Dashboard** name field, type a name for your Dashboard. For example, `sample dashboard`.
 6. (Optional) Clear the **Enabled dashboard**.
 7. (Optional) In the **Query filter** field, type a query filter for your dashboard. For example, to get hits geo-localized in France, use `geoip.country_iso_code:FR`.
@@ -79,7 +79,7 @@ You can configure your Gravitee Dashboard by creating dashboard charts for three
 6) (Optional) Select the **Display percentage** checkbox.
 7)  Click **the pencil icon**.<br>
 
-    <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-113 (2).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-113.png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="line" %}
@@ -109,7 +109,7 @@ You can configure your Gravitee Dashboard by creating dashboard charts for three
 5. (Optional) Select the **Allows to check a field filter** checkbox.
 6.  Click **the pencil icon**.<br>
 
-    <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-114.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-113.png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="pie" %}
@@ -128,10 +128,10 @@ You can configure your Gravitee Dashboard by creating dashboard charts for three
 7. In the **label** field, type a label name for your pie section.
 8.  Use the **color** selector to pick a color for your pie section.<br>
 
-    <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-116 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-116.png" alt=""><figcaption></figcaption></figure>
 9.  Click **the pencil icon**.<br>
 
-    <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-114.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-113.png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="map" %}
@@ -139,7 +139,7 @@ You can configure your Gravitee Dashboard by creating dashboard charts for three
 2. (Optional) In the **Subtitle** field, type a subtitle for your widget.
 3.  Click **the pencil icon**.<br>
 
-    <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-114.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-113.png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="stats" %}
@@ -160,7 +160,7 @@ You can configure your Gravitee Dashboard by creating dashboard charts for three
    * sum
 5.  Click **the pencil icon**.<br>
 
-    <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-114.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-113.png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -168,7 +168,7 @@ You can configure your Gravitee Dashboard by creating dashboard charts for three
 13. (Optional) Adjust the size of the widget. To adjust the size of the widget, navigate to the edges of the widget or the corner of the widgets, click and hold the widget, and then drag the widget to adjust the size.
 14. (Optional) Enable a preview of your dashboard. To enable a preview of your dashboard, click **ENABLE PREVIEW**.<br>
 
-    <figure><img src="../../.gitbook/assets/4F326025-ECDE-4320-AF6E-1DBC4B7AA16A_1_201_a (2).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/4F326025-ECDE-4320-AF6E-1DBC4B7AA16A_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 15. Click **SAVE**.
 
 ### Verification
@@ -184,19 +184,19 @@ You can configure your Gravitee Dashboard by creating dashboard charts for three
 
 1.  From the **Dashboard**, click **Analytics**.<br>
 
-    <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-117 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-117.png" alt=""><figcaption></figcaption></figure>
 2.  From the **Select a dashboard**, select the dashboard that you want to view.<br>
 
-    <figure><img src="../../.gitbook/assets/dashboard_view (1).png" alt=""><figcaption><p>View your dashboard</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/dashboard_view.png" alt=""><figcaption><p>View your dashboard</p></figcaption></figure>
 
 ## Edit an existing dashboard
 
 1.  From the **Dashboard**, click **Settings**.<br>
 
-    <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-119 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-119.png" alt=""><figcaption></figcaption></figure>
 2. From the **Settings** menu, click **Analytics**.
 3.  Click the name of the dashboard that you want to view.<br>
 
-    <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-122 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analytics-dashboards-v2-api-analyti-122.png" alt=""><figcaption></figcaption></figure>
 4. Edit your dashboard and widgets. For more information about editing your dashboard, see [#create-a-dashboard](v2-api-analytics-dashboards.md#create-a-dashboard "mention").
 5. Click **SAVE.**

@@ -10,23 +10,23 @@ The Overview Dashboard provides you with clear visibility into the API performan
 
 *   **Summary.** This metrics shows your total number of APIs and your total number of applications.<br>
 
-    <figure><img src="../../.gitbook/assets/analytics-dashboards-overview-dashb-103 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analytics-dashboards-overview-dashb-103.png" alt=""><figcaption></figcaption></figure>
 *   **API Lifecycle state**. This graph shows the number of APIs in each stage of the lifecycle.<br>
 
-    <figure><img src="../../.gitbook/assets/analytics-dashboards-overview-dashb-104 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analytics-dashboards-overview-dashb-104.png" alt=""><figcaption></figcaption></figure>
 *   **API State.** This graph shows the number of APIs in each state.<br>
 
-    <figure><img src="../../.gitbook/assets/analytics-dashboards-overview-dashb-105 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analytics-dashboards-overview-dashb-105.png" alt=""><figcaption></figcaption></figure>
 *   **API Response Status**. This graph show the number of each API response and the total number of hits.<br>
 
-    <figure><img src="../../.gitbook/assets/analytics-dashboards-overview-dashb-107 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analytics-dashboards-overview-dashb-107.png" alt=""><figcaption></figcaption></figure>
 *   **Top APIs**. This table ranks your APIs based on the amount of hits that they received within a specific period of time.<br>
 
-    <figure><img src="../../.gitbook/assets/analytics-dashboards-overview-dashb-109 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analytics-dashboards-overview-dashb-109.png" alt=""><figcaption></figcaption></figure>
 *   **Top failed APIs**. This table ranks the APIs with the most failures based on the amount of hits that the APIs received within a specific period of time.<br>
 
-    <figure><img src="../../.gitbook/assets/analytics-dashboards-overview-dashb-111 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analytics-dashboards-overview-dashb-111.png" alt=""><figcaption></figcaption></figure>
 *   **API Request Stats**. This table shows the total number of API request and the average response time per second. Also, this table shows the minimum, maximum response time, and the average response time in milliseconds.<br>
 
-    <figure><img src="../../.gitbook/assets/analytics-dashboards-overview-dashb-112 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analytics-dashboards-overview-dashb-112.png" alt=""><figcaption></figcaption></figure>
 * **Top applications**. This table ranks your applications by the number of hits that the applications received within a specific period of time.

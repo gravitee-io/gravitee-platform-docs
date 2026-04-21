@@ -58,7 +58,7 @@ See [User Management](../../../configure-and-manage-the-platform/manage-organiza
 
 Click **+ Add members** to add members to your API or alter member roles, which grant specific permissions. For more information on roles, please refer to the [roles documentation.](../../../configure-and-manage-the-platform/manage-organizations-and-environments/user-management.md#roles)
 
-<figure><img src="../../../.gitbook/assets/user permissions_add members alter roles (1).png" alt=""><figcaption><p>Add members and alter roles</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/user permissions_add members alter roles.png" alt=""><figcaption><p>Add members and alter roles</p></figcaption></figure>
 
 ### Add groups to an API
 
@@ -107,7 +107,7 @@ To encrypt a hardcoded API property value:
     ```
 2.  Enable the **Encrypt** toggle when adding a property via **Add property**. Once you click **Save**, you can no longer edit, modify, or view the value.
 
-    <div align="left"><figure><img src="../../../.gitbook/assets/api properties_add (1).png" alt="" width="375"><figcaption></figcaption></figure></div>
+    <div align="left"><figure><img src="../../../.gitbook/assets/api properties_add.png" alt="" width="375"><figcaption></figcaption></figure></div>
 
 ### **Dynamic properties**
 
@@ -115,7 +115,7 @@ To configure dynamic properties:
 
 1.  Click the **Manage dynamically** button and define the configuration
 
-    <figure><img src="../../../.gitbook/assets/v2 proxy_properties dynamic (1).png" alt=""><figcaption><p>Configure dynamic properties</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/v2 proxy_properties dynamic.png" alt=""><figcaption><p>Configure dynamic properties</p></figcaption></figure>
 
     * Toggle **Enabled** to ON
     * **Schedule:** A cron expression to schedule the health check

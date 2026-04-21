@@ -118,19 +118,19 @@ The API appears in your API management console with your configuration.<br>
    2. **MCP Resource Identifier:** Enter the APIM API entrypoint URL from [Step 9 above](secure-mcp-proxy-with-oauth2.md#create-the-mcp-proxy-api-in-apim) in [#create-the-mcp-proxy-api-in-apim](secure-mcp-proxy-with-oauth2.md#create-the-mcp-proxy-api-in-apim "mention") section. For example, `https://apim-gateway.example.com/mcp-proxy`.
    3.  (Optional) **Description:** Enter a description.<br>
 
-       <figure><img src="../.gitbook/assets/am-entrypoint-url (1).png" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../.gitbook/assets/am-entrypoint-url.png" alt=""><figcaption></figcaption></figure>
    4. **Client ID:** Enter your Client ID
    5. **Client Secret:** Enter your Client secret.
 4.  Click **Create.**
 
-    <figure><img src="../.gitbook/assets/ai-mgmt-secure-mcp-proxy-with-oauth-160.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/agent-mesh-secure-mcp-proxy-with-oa-160.png" alt=""><figcaption></figcaption></figure>
 5. In the **copy your client secret** pop-up box, copy the **Client Secret** and store the credentials securely.
 
 {% hint style="danger" %}
 The Client Secret is displayed only once. Copy and store it securely before closing the pop-up box.
 {% endhint %}
 
-<figure><img src="../.gitbook/assets/ai-mgmt-secure-mcp-proxy-with-oauth-161.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/agent-mesh-secure-mcp-proxy-with-oa-161.png" alt=""><figcaption></figcaption></figure>
 
 ## Enable Dynamic Client Registration in AM
 
@@ -155,7 +155,7 @@ To enable DCR, complete the following steps:
    * **Allow localhost redirect URIs:** (Optional) Enable for local development and testing.
    *   **Allow custom redirect URIs:** (Optional) Enable for production clients with custom redirect configurations.
 
-       <figure><img src="../.gitbook/assets/enable-dynamic-client-registration (1).png" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../.gitbook/assets/enable-dynamic-client-registration.png" alt=""><figcaption></figcaption></figure>
 5. Click **Save**.
 
 ## (Optional) Enable user registration in AM
@@ -170,7 +170,7 @@ Complete the following steps to enable user registration:
 
 1.  In the AM Console, navigate to **Settings**<br>
 
-    <figure><img src="../.gitbook/assets/ai-mgmt-secure-mcp-proxy-with-oauth-162.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/agent-mesh-secure-mcp-proxy-with-oa-162.png" alt=""><figcaption></figcaption></figure>
 2.  Click **Login**.
 
     <figure><img src="../.gitbook/assets/click-login-am-settings.png" alt=""><figcaption></figcaption></figure>
@@ -192,7 +192,7 @@ For more information on protected resource metadata discovery, see the [MCP spec
 
 1.  In the API Console, navigate to your MCP proxy API.
 
-    <figure><img src="../.gitbook/assets/3 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/3.png" alt=""><figcaption></figcaption></figure>
 2.  Click **Resources**.<br>
 
     <figure><img src="../.gitbook/assets/4.png" alt=""><figcaption></figcaption></figure>
@@ -266,7 +266,7 @@ Verify your configuration in both the APIM Console and AM Console.
 
 {% tabs %}
 {% tab title="APIM Console" %}
-#### APIM Console
+**APIM Console**
 
 1.  Navigate to your MCP proxy API.<br>
 
@@ -276,7 +276,7 @@ Verify your configuration in both the APIM Console and AM Console.
     <figure><img src="../.gitbook/assets/auth2-consumers-publichsed.png" alt=""><figcaption></figcaption></figure>
 3.  Click **Deployments** and confirm the latest deployment is successful and in use.
 
-    <figure><img src="../.gitbook/assets/ai-mgmt-secure-mcp-proxy-with-oauth-163.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/agent-mesh-secure-mcp-proxy-with-oa-163.png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="AM Console" %}
@@ -285,7 +285,7 @@ Verify your configuration in both the APIM Console and AM Console.
     <figure><img src="../.gitbook/assets/am-domain-mcp-server.png" alt=""><figcaption></figcaption></figure>
 2.  Click **MCP Servers**.
 
-    <figure><img src="../.gitbook/assets/am-domain-mcp-server (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/am-domain-mcp-server.png" alt=""><figcaption></figcaption></figure>
 3.  Verify your MCP server resource is configured.<br>
 
     <figure><img src="../.gitbook/assets/mcp-clients-to-use-am-server.png" alt=""><figcaption></figcaption></figure>

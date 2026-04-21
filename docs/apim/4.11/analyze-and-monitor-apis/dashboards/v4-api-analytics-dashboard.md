@@ -12,7 +12,7 @@ The V4 API analytics dashboard provides you with clear visibility into the API p
 
 1.  From the **Dashboard**, click **Analytics**.<br>
 
-    <figure><img src="../../.gitbook/assets/A160372A-F5F3-48D2-9354-70460A1D779C_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/A160372A-F5F3-48D2-9354-70460A1D779C_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 2.  Click the **V4 Dashboard** tab.<br>
 
     <figure><img src="../../.gitbook/assets/B0A9C126-752D-43F1-BE69-F99008FECD29_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
@@ -31,19 +31,19 @@ You can view the following metrics for your V4 APIs:
 * **Average latency**. This metric is the average latency of your Gateway displayed in milliseconds.
 *   **Average response time of the Gateway.** This is the average response time of the Gateway in milliseconds.<br>
 
-    <figure><img src="../../.gitbook/assets/analyze-and-monitor-apis-dashboards-v4-a-70-1 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analyze-and-monitor-apis-dashboards-v4-a-70-1.png" alt=""><figcaption></figcaption></figure>
 
 ### Tables and graphs
 
 *   **HTTP Statuses.** This graph shows the number of each HTTP status returned by the Gateway.<br>
 
-    <figure><img src="../../.gitbook/assets/analytics-dashboards-v4-api-analyti-73 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analytics-dashboards-v4-api-analyti-73.png" alt=""><figcaption></figcaption></figure>
 *   **Response time**. This graph shows the average response time of the endpoint and the Gateway.<br>
 
-    <figure><img src="../../.gitbook/assets/analytics-dashboards-v4-api-analyti-74 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analytics-dashboards-v4-api-analyti-74.png" alt=""><figcaption></figcaption></figure>
 *   **Response Statuses.** This graph shows the number of response statuses over a period of time.<br>
 
-    <figure><img src="../../.gitbook/assets/analytics-dashboards-v4-api-analyti-75 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analytics-dashboards-v4-api-analyti-75.png" alt=""><figcaption></figcaption></figure>
 *   **Top 5 Applications**. This graph shows the top five applications by HTTP requests.<br>
 
-    <figure><img src="../../.gitbook/assets/analytics-dashboards-v4-api-analyti-76 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/analytics-dashboards-v4-api-analyti-76.png" alt=""><figcaption></figcaption></figure>

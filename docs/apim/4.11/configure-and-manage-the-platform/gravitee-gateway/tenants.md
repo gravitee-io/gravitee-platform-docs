@@ -27,12 +27,12 @@ For Native Kafka APIs, each Kafka endpoint can be tagged with one or more tenant
 
 **Behavior:**
 
-| Gateway Tenant | Endpoint Tenants | Match Result |
-|:--------------|:-----------------|:-------------|
-| Not configured | Any value or empty | Match (gateway participates in all endpoints) |
-| Configured (for example, `"tenant-a"`) | `null` or `[]` | Match (shared endpoint) |
-| Configured (for example, `"tenant-b"`) | Contains `"tenant-b"` | Match |
-| Configured (for example, `"tenant-c"`) | Doesn't contain `"tenant-c"` | No Match |
+| Gateway Tenant                         | Endpoint Tenants             | Match Result                                  |
+| -------------------------------------- | ---------------------------- | --------------------------------------------- |
+| Not configured                         | Any value or empty           | Match (gateway participates in all endpoints) |
+| Configured (for example, `"tenant-a"`) | `null` or `[]`               | Match (shared endpoint)                       |
+| Configured (for example, `"tenant-b"`) | Contains `"tenant-b"`        | Match                                         |
+| Configured (for example, `"tenant-c"`) | Doesn't contain `"tenant-c"` | No Match                                      |
 
 **Shared Endpoints:**
 
@@ -74,7 +74,7 @@ Once the Gateway has been configured, the tenant definition must be added via th
     <figure><img src="../../.gitbook/assets/tenant_BE &#x26; customer.png" alt=""><figcaption></figcaption></figure>
 3.  Specify which tenant a backend will apply to. Our two endpoints each point to different backends and are each assigned to a different tenant:
 
-    <figure><img src="../../.gitbook/assets/tenant_specify (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/tenant_specify.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 Now that the two endpoints are defined, Gateways GWI1, GWI2, GWI3 and GWI4 will apply this logic:
