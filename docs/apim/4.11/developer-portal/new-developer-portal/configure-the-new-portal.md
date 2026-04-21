@@ -29,7 +29,7 @@ For self-hosted installations and hybrid deployments of Gravitee, you can set th
 
     <figure><img src="../../.gitbook/assets/developer-portal-new-developer-portal-co-11-1-1.png" alt=""><figcaption></figcaption></figure>
 
-### Verification
+## Verification
 
 *   Click the **Open Website** button. The New Developer Portal opens in a new tab.
 
@@ -38,6 +38,12 @@ For self-hosted installations and hybrid deployments of Gravitee, you can set th
 ## Set the New Developer Portal as default
 
 To configure Gravitee to use the New Developer Portal by default, complete the following steps for your installation type:
+
+{% hint style="info" %}
+The `DEFAULT_PORTAL` environment variable (Docker) and the `portal.defaultPortal` Helm value (Kubernetes) accept `classic` or `next`. The default value is `classic`.
+
+To keep the Classic Developer Portal as the default, set `DEFAULT_PORTAL=classic` in Docker or `defaultPortal: "classic"` in Kubernetes. In Docker deployments, leaving `DEFAULT_PORTAL` unset can cause the theme preview iframe on the Console **Themes** settings page to show "Page is not available". Set the variable explicitly to avoid this.
+{% endhint %}
 
 {% tabs %}
 {% tab title="Docker" %}
@@ -118,7 +124,7 @@ Here is an example of the environmental variables set in a `docker-compose-apim.
 {% endtab %}
 {% endtabs %}
 
-### Verification
+## Verification
 
 *   In the APIM Console, click **Developer Portal**. The New Developer Portal opens in a new tab.
 
