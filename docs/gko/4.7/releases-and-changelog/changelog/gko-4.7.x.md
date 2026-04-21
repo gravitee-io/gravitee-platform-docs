@@ -4,6 +4,22 @@ description: Overview of GKO.
 
 # GKO 4.7.x
 
+## Gravitee Kubernetes Operator 4.7.29 - April 21, 2026
+    
+<details>
+<summary>Bug fixes</summary>
+
+  **APIM**
+
+  * Can pass page HRID for plan General Conditions [#11270](https://github.com/gravitee-io/issues/issues/11270)
+
+  **Others**
+
+  * Updating ApiV4Definition to change plan generalConditions to a new page HRID causes reconciliation failure (HTTP 500) [#11327](https://github.com/gravitee-io/issues/issues/11327)
+
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.7.27 - March 16, 2026
 
 There is nothing new in version 4.7.27.
