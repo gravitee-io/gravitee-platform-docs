@@ -71,13 +71,13 @@ To configure sharding tags, complete the following steps:
 
 1.  In the **Dashboard**, click **Organization**.
 
-    <figure><img src="../../.gitbook/assets/apim-console-organization (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/apim-console-organization.png" alt=""><figcaption></figcaption></figure>
 2.  In the **Organization** menu, click **Entrypoints & Sharding Tags**.
 
-    <figure><img src="../../.gitbook/assets/entrypoints-sharding-tags (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/entrypoints-sharding-tags.png" alt=""><figcaption></figcaption></figure>
 3.  Navigate to **Sharding Tags**, and then click **+ Add a tag**.
 
-    <figure><img src="../../.gitbook/assets/add-a-sharding-tag (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/add-a-sharding-tag.png" alt=""><figcaption></figcaption></figure>
 4. In the **Create a tag** pop-up window, enter the following information:
    1. In the **Name** field, enter the name of the tag.
    2. In the **Key** field, enter a unique key for the tag. The key accepts 1–64 lowercase alphanumeric characters and hyphens only. The key is immutable after creation and is the value used in `gravitee.yml` and API path parameters.
@@ -91,20 +91,20 @@ To configure sharding tags, complete the following steps:
 
 1.  From the **Dashboard**, click **APIs**.
 
-    <figure><img src="../../.gitbook/assets/click-on-apis (1) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/click-on-apis (1).png" alt=""><figcaption></figcaption></figure>
 2.  In the **APIs** screen, select the API to which you want to add a sharding tag.
 
-    <figure><img src="../../.gitbook/assets/select-sharding-tag-api (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/select-sharding-tag-api.png" alt=""><figcaption></figcaption></figure>
 3.  In the **APIs** menu, click **Deployment**.
 
-    <figure><img src="../../.gitbook/assets/select-deployment-in-api (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/select-deployment-in-api.png" alt=""><figcaption></figcaption></figure>
 4. In the **Deployment** screen, navigate to the **Deployment configuration** section.
 5.  From the **Sharding tags** drop-down menu, select the sharding tag that you want to add to the API.
 
-    <figure><img src="../../.gitbook/assets/sharding-tags-drop-down-menu (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/sharding-tags-drop-down-menu.png" alt=""><figcaption></figcaption></figure>
 6.  In the **You have unsaved changes** pop-up, click **Save**.
 
-    <figure><img src="../../.gitbook/assets/sharding-tag-popup-save-changes (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/sharding-tag-popup-save-changes.png" alt=""><figcaption></figcaption></figure>
 
 ### Add the tag key to `values.yaml`, `gravitee.yml` or with environment variables
 
@@ -186,13 +186,13 @@ For example, to configure Gravitee API Manager to apply the “internal test” 
 
 1.  In the **Dashboard**, click **Organization**.
 
-    <figure><img src="../../.gitbook/assets/apim-console-organization (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/apim-console-organization.png" alt=""><figcaption></figcaption></figure>
 2.  In the **Organization** menu, click **Entrypoints & Sharding Tags**.
 
-    <figure><img src="../../.gitbook/assets/entrypoints-sharding-tags (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/entrypoints-sharding-tags.png" alt=""><figcaption></figcaption></figure>
 3.  Navigate to **Entrypoint Mappings**, and then click **+ Add a mapping**.
 
-    <figure><img src="../../.gitbook/assets/entrypoint-mapping (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/entrypoint-mapping.png" alt=""><figcaption></figcaption></figure>
 4. From the **+ Add a mapping** drop-down menu, select one of the following entrypoints:
    * HTTP
    * TCP
@@ -204,7 +204,7 @@ For example, to configure Gravitee API Manager to apply the “internal test” 
 1) From the **Sharding tags** drop-down menu, select the sharding tags that you want to map to the entrypoint.
 2)  In the **Entrypoint url** field, enter your entrypoint URL.
 
-    <figure><img src="../../.gitbook/assets/platform-gateway-sharding-tags-58.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gs-first-api-add-security-58.png" alt=""><figcaption></figcaption></figure>
 3) Click **Ok.**
 {% endtab %}
 
@@ -212,7 +212,7 @@ For example, to configure Gravitee API Manager to apply the “internal test” 
 1. From the **Sharding tags** drop-down menu, select the sharding tags that you want to map to this entrypoint.
 2.  In the **Default TCP port** field, type the number of your TCP port.
 
-    <figure><img src="../../.gitbook/assets/configure-and-manage-the-platform-gravit-20-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/getting-started-create-and-publish-your-20-1.png" alt=""><figcaption></figcaption></figure>
 3. Click **Ok**.
 {% endtab %}
 
@@ -221,7 +221,7 @@ For example, to configure Gravitee API Manager to apply the “internal test” 
 2. In the **Default Kafka domain** field, type your Default Kafka domain.
 3.  In the **Default Kafka port** field, type your default Kafka port.
 
-    <figure><img src="../../.gitbook/assets/platform-gateway-sharding-tags-59.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gs-first-api-add-security-59.png" alt=""><figcaption></figcaption></figure>
 4. Click **Ok**.
 {% endtab %}
 {% endtabs %}

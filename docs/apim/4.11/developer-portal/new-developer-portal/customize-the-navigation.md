@@ -89,7 +89,7 @@ Open API example content:
     <figure><img src="../../.gitbook/assets/138D78C1-526C-4741-89DF-C8F9BCF8137D_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 *   Navigate to the page in the navigation bar, click the **ellipses** (<i class="fa-ellipsis-vertical">:ellipsis-vertical:</i>), and then click **Publish**.<br>
 
-    <figure><img src="../../.gitbook/assets/1A5E08E1-648C-4437-81C6-F4C480F04193_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/1A5E08E1-648C-4437-81C6-F4C480F04193_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 
 1.  In the **Publish page** pop-up window, click **Publish**.<br>
 
@@ -108,14 +108,14 @@ Folders group related pages together. A folder is a section on your New Develope
 3. (Optional) Turn on the **Authentication is required to view this folder**. toggle. This ensures that the user has to sign in to the New Developer Portal to view the folder.
 4.  Click **Add**.<br>
 
-    <figure><img src="../../.gitbook/assets/46A3BA38-DD28-42B3-8BBC-BA5B2ABABBE2_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/46A3BA38-DD28-42B3-8BBC-BA5B2ABABBE2_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 5.  Publish the folder. To publish the folder, complete either of the following steps:
 
     ⚠️ A folder can be only published if all of its ancestor folders are published or if it's a top level folder.
 
     *   Click **Publish**.<br>
 
-        <figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--89 (1).png" alt=""><figcaption></figcaption></figure>
+        <figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--89.png" alt=""><figcaption></figcaption></figure>
     *   Navigate to the folder in the navigation bar, click the **ellipses**, and then click **Publish**.<br>
 
         <figure><img src="../../.gitbook/assets/FAD5D2FB-4EEE-49B7-8081-F790D1AE0EC4_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
@@ -145,21 +145,21 @@ When you add a link, the link appears as a root level menu item. When you publis
 
 1.  Click **Add**, and then click **Add Link**.<br>
 
-    <figure><img src="../../.gitbook/assets/26E3BF6E-215F-43C8-850F-752A02323AEF_1_201_a (2).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/26E3BF6E-215F-43C8-850F-752A02323AEF_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 2. In the **Add link** pop-up box, complete the following sub-steps:
    1. In the **Title** field, type a title for the link.
    2. In the **Link settings** field, enter the URL for the link.
    3. (Optional) Turn on the **Authentication is required to view this link**. toggle. This toggle ensures that the user has to sign in to the New Developer Portal to view the link.
 3.  Click **Add**.<br>
 
-    <figure><img src="../../.gitbook/assets/3476293A-507F-401E-855B-1CD3999E207E_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/3476293A-507F-401E-855B-1CD3999E207E_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 4.  Publish the page. To publish the page, complete either of the following steps:
 
     ⚠️ A link can be only published if all of its ancestor folders are published or if it's a top level link.
 
     *   Click **Publish**.<br>
 
-        <figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--90 (1).png" alt=""><figcaption></figcaption></figure>
+        <figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--90.png" alt=""><figcaption></figcaption></figure>
     *   Navigate to link in the navigation bar, click the **ellipses**, and then click **Publish**.<br>
 
         <figure><img src="../../.gitbook/assets/D897DBD4-B160-4F29-ACD8-14E5D0959CF5_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>

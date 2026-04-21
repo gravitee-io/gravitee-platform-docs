@@ -41,10 +41,10 @@ Debug mode cannot test the following policies and features:
 1. From the **Dashboard**, select **APIs**.
 2.  Select the API to debug.
 
-    <figure><img src="../../.gitbook/assets/F7FEF455-70DE-4D69-88CF-E4C1492FFCC4_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/F7FEF455-70DE-4D69-88CF-E4C1492FFCC4_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 3.  From the **API** menu, select **Debug**.
 
-    <figure><img src="../../.gitbook/assets/4113783D-63E4-4EC3-BF1D-E036512CE99E (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/4113783D-63E4-4EC3-BF1D-E036512CE99E.png" alt=""><figcaption></figcaption></figure>
 4. From the **HTTP method** drop-down menu, select the HTTP method to test.
 5. In the **Path** field, enter the path to test.
 6. In the **Headers** tab, enter the name and value of the key.
@@ -54,7 +54,7 @@ Debug mode cannot test the following policies and features:
     <figure><img src="../../.gitbook/assets/create-and-configure-apis-apply-policies-302-1.png" alt=""><figcaption></figcaption></figure>
 9.  Select a step in the timeline to compare its inputs and outputs.
 
-    <figure><img src="../../.gitbook/assets/56CF95D5-879A-4F32-AB8C-98A640017267 (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/56CF95D5-879A-4F32-AB8C-98A640017267.jpeg" alt=""><figcaption></figcaption></figure>
 
 ### Understand the Debug mode timeline and inspector
 

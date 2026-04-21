@@ -27,7 +27,7 @@ This allows another node to take over if the current primary node goes down with
 
 By enabling the Gateway Cluster sync on your gateways, the master node fetches the API definitions from the management repository (MongoDB, Bridge, JDBC), and then stores them in the Redis distributed sync repository, while the other gateways only read the API definitions from the Redis distributed sync repository.
 
-<figure><img src="../../../.gitbook/assets/platform-gateway-gateway-cluster-sy-156 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/platform-gateway-gateway-cluster-sy-156.png" alt=""><figcaption></figcaption></figure>
 
 ### Distributed Synchronization State
 

@@ -40,7 +40,7 @@ To request a promotion, you need to have API `DEFINITION` [permissions](https://
     <figure><img src="../../.gitbook/assets/api-entity-to-promote.png" alt=""><figcaption></figcaption></figure>
 3.  From the APIs menu, click **General.**
 
-    <figure><img src="../../.gitbook/assets/click-general-from-configuration-tab (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/click-general-from-configuration-tab.png" alt=""><figcaption></figcaption></figure>
 4.  Click **Promote**.
 
     <figure><img src="../../.gitbook/assets/click-promote.png" alt=""><figcaption></figcaption></figure>
@@ -78,16 +78,16 @@ Users with environment `API` [permissions](https://documentation.gravitee.io/api
 {% tab title="Accept the Promotion" %}
 1)  Click **Accept** to approve the promotion<br>
 
-    <figure><img src="../../.gitbook/assets/config-apis-create-apis-promote-api-184 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/config-apis-create-apis-promote-api-184.png" alt=""><figcaption></figcaption></figure>
 2)  The API is created in the target environment, and the task is removed from the list.<br>
 
-    <figure><img src="../../.gitbook/assets/config-apis-create-apis-promote-api-185 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/config-apis-create-apis-promote-api-185.png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Reject the Promotion" %}
 1.  Click Reject to discard the promotion request.
 
-    <figure><img src="../../.gitbook/assets/config-apis-create-apis-promote-api-186 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/config-apis-create-apis-promote-api-186.png" alt=""><figcaption></figcaption></figure>
 2.  The task is removed from the list.<br>
 
     <figure><img src="../../.gitbook/assets/no-task-to-display.png" alt=""><figcaption></figcaption></figure>

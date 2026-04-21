@@ -124,7 +124,7 @@ The following diagrams illustrate the component management, design, and self-hos
 
 ### Hybrid component management
 
-<figure><img src="../.gitbook/assets/hybrid-installation-and-configuration-gu-22-1-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/getting-started-create-and-publish-your-21-2.png" alt=""><figcaption></figcaption></figure>
 
 ### Hybrid architecture diagram
 

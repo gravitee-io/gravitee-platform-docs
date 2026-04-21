@@ -9,7 +9,7 @@ metaLinks:
 
 ## Overview
 
-Azure API Management is Azure's built-in API management solution that you can use to expose services running in the Azure cloud to the public internet.&#x20;
+Azure API Management is Azure's built-in API management solution that you can use to expose services running in the Azure cloud to the public internet.
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ To integrate Azure API Management with Gravitee APIM, complete the following ste
     <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-68-1.png" alt=""><figcaption></figcaption></figure>
 2.  Click **Create Integration.**
 
-    <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-18-2-v4.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/govern-apis-federation-3rd-party-provide-18-2.png" alt=""><figcaption></figcaption></figure>
 3.  Select **Azure API Management**, and then click **Next**.
 
     <figure><img src="../../../.gitbook/assets/click-next-azure-federation.png" alt=""><figcaption></figcaption></figure>

@@ -31,7 +31,7 @@ To configure SMTP settings:
 By default, the `gravitee.yml` configuration file disables email because email requires configuring an SMTP email service. You must set up email for your APIM deployment per the [SMTP configuration guide](../../configure-and-manage-the-platform/manage-organizations-and-environments/smtp-configuration.md) to be able to modify the SMTP settings.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-06-05 at 12.03.55 PM (1).png" alt=""><figcaption><p>SMTP default settings</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-06-05 at 12.03.55 PM.png" alt=""><figcaption><p>SMTP default settings</p></figcaption></figure>
 
 ### Create a user
 
@@ -41,7 +41,7 @@ After configuring SMTP, you can create a new user in the Developer Portal:
 2. In the new incognito window, select **Sign up** at the bottom of the modal
 3. Provide the required information and click the **Sign Up** button
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-06-05 at 12.14.03 PM (1).png" alt=""><figcaption><p>Developer portal sign up page</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-06-05 at 12.14.03 PM.png" alt=""><figcaption><p>Developer portal sign up page</p></figcaption></figure>
 
 You will receive a registration confirmation at the email address you provided.
 

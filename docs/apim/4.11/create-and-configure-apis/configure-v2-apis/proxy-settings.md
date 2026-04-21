@@ -28,7 +28,7 @@ To configure the API entrypoints:
 
 1.  Select **Entrypoints** from the inner left nav
 
-    <figure><img src="../../.gitbook/assets/v2 proxy_entrypoints (1).png" alt=""><figcaption><p>Configure v2 API entrypoints</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/v2 proxy_entrypoints.png" alt=""><figcaption><p>Configure v2 API entrypoints</p></figcaption></figure>
 
     * Edit your **Context-path** or create a new one via **Add context-path**
     * Toggle **Enable virtual hosts** ON or OFF
@@ -40,7 +40,7 @@ CORS is a mechanism that allows resources on a web page to be requested from ano
 
 1.  Select **CORS** from the inner left nav
 
-    <figure><img src="../../.gitbook/assets/v2 proxy_CORS (1).png" alt=""><figcaption><p>Configure CORS</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/v2 proxy_CORS.png" alt=""><figcaption><p>Configure CORS</p></figcaption></figure>
 2.  Set the following parameters:
 
     * **Enable CORS:** Toggle to ON to enable CORS.
@@ -64,7 +64,7 @@ CORS is a mechanism that allows resources on a web page to be requested from ano
 
 All requests rejected because of CORS issues will generate logs that you can view in the `Analytics` section of your API logs.
 
-<img src="../../.gitbook/assets/graviteeio-troubleshooting-cors (1).png" alt="" data-size="original">
+<img src="../../.gitbook/assets/graviteeio-troubleshooting-cors.png" alt="" data-size="original">
 {% endhint %}
 
 ## Deployments
@@ -73,7 +73,7 @@ All requests rejected because of CORS issues will generate logs that you can vie
 
 1.  Select **Deployments** from the inner left nav
 
-    <figure><img src="../../.gitbook/assets/v2 proxy_deployments (1).png" alt=""><figcaption><p>Configure sharding tags</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/v2 proxy_deployments.png" alt=""><figcaption><p>Configure sharding tags</p></figcaption></figure>
 2. From the **Sharding tags** drop-down menu, choose one or more sharding tags
 3. Click **Save**
 
@@ -90,7 +90,7 @@ When the Gateway raises an error, it looks for a response template that matches 
 
 The built-in payload format depends on the request's `Accept` header:
 
-* If the `Accept` header includes `application/json` or `*/*`, the Gateway sets `Content-Type: application/json` and returns:
+*   If the `Accept` header includes `application/json` or `*/*`, the Gateway sets `Content-Type: application/json` and returns:
 
     ```json
     {
@@ -98,7 +98,6 @@ The built-in payload format depends on the request's `Accept` header:
       "http_status_code": <status code set by the failing policy or component>
     }
     ```
-
 * For any other `Accept` value, the Gateway sets `Content-Type: text/plain` and returns the raw error message string.
 
 The status code comes from the policy or component that raised the failure. For example, the HTTP Callout policy uses its `errorStatusCode` configuration, which defaults to `500`.
@@ -129,7 +128,7 @@ To configure a response template:
 2. Click on the **Add new Response Template** button
 3.  Customize the **Create a new Response Template** form
 
-    <figure><img src="../../.gitbook/assets/create response template (1).png" alt=""><figcaption><p>Configure a new response template</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/create response template.png" alt=""><figcaption><p>Configure a new response template</p></figcaption></figure>
 
     * **Template key:** Choose the template key via the **Template key** drop-down.
     * **Accept header to match:** Specify the requests header that should trigger use of the response template. The default value is `*/*`. To send the template override values only for JSON or XML requests, specify `JSON` or `XML.`
@@ -143,20 +142,20 @@ To configure a response template:
 
 When you set a response template body, the Gateway evaluates it with the [Gravitee Expression Language](../../gravitee-expression-language.md). Three variables are bound to the templating context inside a v2 response template body:
 
-| Variable      | Description                                                                                       |
-| ------------- | ------------------------------------------------------------------------------------------------- |
-| `#error`      | The execution failure that triggered the template.                                                |
-| `#request`    | The incoming request that triggered the failure.                                                  |
+| Variable      | Description                                                                                   |
+| ------------- | --------------------------------------------------------------------------------------------- |
+| `#error`      | The execution failure that triggered the template.                                            |
+| `#request`    | The incoming request that triggered the failure.                                              |
 | `#parameters` | A map of additional parameters set by the failing policy. The map is empty for most policies. |
 
 The `#error` object exposes the following fields:
 
-| Field                | Description                                                                            |
-| -------------------- | -------------------------------------------------------------------------------------- |
-| `#error.statusCode`  | The HTTP status code set by the failing policy or component.                           |
-| `#error.key`         | The error key that triggered the template, for example `CALLOUT_HTTP_ERROR`.           |
-| `#error.message`     | The error message produced by the failing policy or component.                         |
-| `#error.parameters`  | The same map as `#parameters`, exposed as a property of the error object.              |
+| Field               | Description                                                                  |
+| ------------------- | ---------------------------------------------------------------------------- |
+| `#error.statusCode` | The HTTP status code set by the failing policy or component.                 |
+| `#error.key`        | The error key that triggered the template, for example `CALLOUT_HTTP_ERROR`. |
+| `#error.message`    | The error message produced by the failing policy or component.               |
+| `#error.parameters` | The same map as `#parameters`, exposed as a property of the error object.    |
 
 Example response template body that returns the error key, status code, and message in a JSON envelope:
 
@@ -178,7 +177,7 @@ To configure API properties:
 
 1.  Select **Properties** from the inner left nav
 
-    <figure><img src="../../.gitbook/assets/v2 proxy_properties (1).png" alt=""><figcaption><p>Add API properties</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/v2 proxy_properties.png" alt=""><figcaption><p>Add API properties</p></figcaption></figure>
 2. To add hardcoded properties, either:
    * Click **Add property** and enter property definitions one at a time as a key-value pair
    * Click **Import** and enter property definitions as a list in `<key>=<value>` format
@@ -203,7 +202,7 @@ To encrypt a hardcoded API property value:
     ```
 2.  Enable the **Encrypt** toggle when adding a property via **Add property**. Once you click **Save**, you can no longer edit, modify, or view the value.
 
-    <div align="left"><figure><img src="../../.gitbook/assets/api properties_add (1).png" alt="" width="375"><figcaption></figcaption></figure></div>
+    <div align="left"><figure><img src="../../.gitbook/assets/api properties_add.png" alt="" width="375"><figcaption></figcaption></figure></div>
 
 ### **Dynamic properties**
 
@@ -211,7 +210,7 @@ To configure dynamic properties:
 
 1.  Click the **Manage dynamically** button and define the configuration
 
-    <figure><img src="../../.gitbook/assets/v2 proxy_properties dynamic (1).png" alt=""><figcaption><p>Configure dynamic properties</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/v2 proxy_properties dynamic.png" alt=""><figcaption><p>Configure dynamic properties</p></figcaption></figure>
 
     * Toggle **Enabled** to ON
     * **Schedule:** A cron expression to schedule the health check

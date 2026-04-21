@@ -199,7 +199,7 @@ After deploying the Gateway with the system proxy configured, you enable it for 
     <figure><img src="../../.gitbook/assets/Screenshot 2026-02-09 at 04.10.55.png" alt=""><figcaption></figcaption></figure>
 4.  Scroll to the **Proxy** section and enable **Use System Proxy**.
 
-    <figure><img src="../../.gitbook/assets/hybrid-proxy-configuration-system-p-193 (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/hybrid-proxy-configuration-system-p-193.png" alt=""><figcaption></figcaption></figure>
 5. Save and deploy your API.
 
 #### **For a new API:**
