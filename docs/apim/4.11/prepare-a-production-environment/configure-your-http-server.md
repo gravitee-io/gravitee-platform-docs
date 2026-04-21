@@ -330,6 +330,89 @@ Available modes for `clientAuth`:
 * `request`: Client authentication isn't required but can be if using the SSL enforcement policy
 * `required`: Client authentication is required (replacement of the `true` value)
 
+
+
+## Reject revoked client certificates with a CRL
+
+Starting with Gravitee APIM 4.10, the Gateway can reject mTLS connections from clients whose certificates appear on a Certificate Revocation List (CRL). When CRL checking is enabled, the Gateway evaluates each client certificate against the loaded CRLs during the TLS handshake. If the certificate is revoked, the handshake fails and the request doesn't reach plan evaluation. This applies to every mTLS flow, including [mTLS plans.](../secure-and-expose-apis/plans/mtls.md)
+
+Point the Gateway at a single CRL file or at a folder that contains multiple CRL files. The Gateway accepts X.509 CRLs in DER or PEM format.
+
+{% tabs %}
+{% tab title="gravitee.yaml" %}
+```yaml
+http:
+  ssl:
+    crl:
+      path: /path/to/crl        # File or folder of CRL files
+      watch: true               # Hot-reload on filesystem changes
+```
+{% endtab %}
+
+{% tab title=".env" %}
+```bash
+gravitee_http_ssl_crl_path=/path/to/crl
+gravitee_http_ssl_crl_watch=true
+```
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+```yaml
+gateway:
+  ssl:
+    crl:
+      path: /path/to/crl
+      watch: true
+```
+{% endtab %}
+{% endtabs %}
+
+### CRL configuration reference
+
+<table><thead><tr><th width="220">Property</th><th>Description</th><th width="110">Default</th><th data-type="checkbox">Required</th></tr></thead><tbody><tr><td><code>http.ssl.crl.path</code></td><td>Path to a single CRL file or to a folder that contains one or more CRL files. Accepted formats: DER and PEM. When unset, CRL checking is disabled.</td><td>-</td><td>false</td></tr><tr><td><code>http.ssl.crl.watch</code></td><td>When <code>true</code>, the Gateway watches the CRL path and reloads CRLs on create, modify, and delete events. When <code>false</code>, CRLs are loaded once at Gateway startup.</td><td><code>true</code></td><td>false</td></tr></tbody></table>
+
+### CRL loading behavior
+
+* **Path unset**: CRL checking is disabled. The Gateway doesn't evaluate client certificates against any CRL.
+* **Path points to a file**: the Gateway loads the file as an X.509 CRL. If the file can't be parsed, the Gateway logs the failure and proceeds with an empty CRL set.
+* **Path points to a folder**: the Gateway loads every regular file inside the folder as an X.509 CRL and combines them into a single revocation set.
+* **Path must exist at startup**: the Gateway doesn't start if the path doesn't resolve to an existing file or folder. Create the path before starting the Gateway.
+* **Hot reload with `watch: true`**: the Gateway registers a filesystem watcher on the CRL path (or its parent directory when the path points to a single file) and reloads CRLs when a file is created, modified, or deleted.
+* **Startup-only with `watch: false`**: CRLs are loaded once at Gateway startup. Restart the Gateway to pick up changes.
+* **Revoked certificate rejection**: when a client presents a revoked certificate, the Gateway throws a `CertificateException` that identifies the serial number and subject, and the TLS handshake fails.
+
+{% hint style="info" %}
+CRL checking runs at the server-level TLS handshake, before the Gateway evaluates plans. Subscription certificates registered by mTLS plans go through the same trust manager, so revoked certificates are rejected before subscription matching.
+{% endhint %}
+
+### Apply CRL checking to other Gateway servers
+
+The `ssl.crl` block is available under every server prefix. Enable CRL checking on the top-level TCP server, on the Kafka Gateway server, and on each entry of the `servers[]` array by adding the same block under the corresponding prefix.
+
+{% code title="gravitee.yaml" %}
+```yaml
+tcp:
+  ssl:
+    crl:
+      path: /path/to/crl
+      watch: true
+
+kafka:
+  ssl:
+    crl:
+      path: /path/to/crl
+      watch: true
+
+servers:
+  - id: "http_secured"
+    type: http
+    ssl:
+      crl:
+        path: /path/to/crl
+        watch: true
+```
+{% endcode %}
+
 ## Multi-server support
 
 The Gravitee APIM Gateway supports a multi-server architecture that lets one Gateway expose multiple protocols. For example, the Gateway can proxy both HTTP and HTTPS by running two servers on different ports simultaneously.

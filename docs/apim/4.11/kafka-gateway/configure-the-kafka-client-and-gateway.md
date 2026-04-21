@@ -153,17 +153,27 @@ All Kafka plans already use TLS for transport encryption by default. The configu
 
 To require client certificate authentication for Kafka native APIs, add the following SSL properties to `gravitee.yml`. This is an infrastructure-level configuration that applies globally to all Kafka native APIs deployed on the gateway.
 
-| Property | Description | Example |
-|:---------|:------------|:--------|
-| `kafka.ssl.clientAuth` | Require client certificate authentication | `required` |
-| `kafka.ssl.truststore.type` | Gateway truststore type for verifying client certificates | `jks` |
-| `kafka.ssl.truststore.password` | Gateway truststore password | `gravitee` |
-| `kafka.ssl.truststore.path` | Path to gateway truststore containing CA that signed client certificates | `/path/to/server.truststore.jks` |
-| `kafka.ssl.keystore.type` | Gateway keystore type | `jks` |
-| `kafka.ssl.keystore.password` | Gateway keystore password | `gravitee` |
-| `kafka.ssl.keystore.path` | Path to gateway keystore | `/path/to/server.keystore.jks` |
+| Property                        | Description                                                              | Example                          |
+| ------------------------------- | ------------------------------------------------------------------------ | -------------------------------- |
+| `kafka.ssl.clientAuth`          | Require client certificate authentication                                | `required`                       |
+| `kafka.ssl.truststore.type`     | Gateway truststore type for verifying client certificates                | `jks`                            |
+| `kafka.ssl.truststore.password` | Gateway truststore password                                              | `gravitee`                       |
+| `kafka.ssl.truststore.path`     | Path to gateway truststore containing CA that signed client certificates | `/path/to/server.truststore.jks` |
+| `kafka.ssl.keystore.type`       | Gateway keystore type                                                    | `jks`                            |
+| `kafka.ssl.keystore.password`   | Gateway keystore password                                                | `gravitee`                       |
+| `kafka.ssl.keystore.path`       | Path to gateway keystore                                                 | `/path/to/server.keystore.jks`   |
 
 The gateway truststore must contain the CA certificate that signed the client certificates. The gateway keystore contains the gateway's identity certificate.
+
+To reject connections from clients whose certificates have been revoked, add a `kafka.ssl.crl` block to `gravitee.yml`. The CRL options mirror the HTTP server's CRL options — see[ Reject revoked client certificates with a CRL](../prepare-a-production-environment/configure-your-http-server.md#reject-revoked-client-certificates-with-a-crl) for the full reference and behaviour.
+
+```yaml
+kafka:
+  ssl:
+    crl:
+      path: /path/to/crl
+      watch: true
+```
 
 ### Define the default entrypoint configuration
 
@@ -174,7 +184,7 @@ To configure the APIM Console to use the Kafka domain and port values for your O
 1. Log in to your APIM Console.
 2. Select **Organization** from the bottom of the left nav.
 3. Select **Entrypoints & Sharding Tags** from the left nav.
-4. In the **Entrypoint Configuration** section, confirm that the **Default Kafka domain** and **Default Kafka port** values match those of your Kafka API.
+4.  In the **Entrypoint Configuration** section, confirm that the **Default Kafka domain** and **Default Kafka port** values match those of your Kafka API.
 
     <figure><img src="../.gitbook/assets/00 kafka.png" alt=""><figcaption></figcaption></figure>
 
@@ -205,11 +215,11 @@ At this point, you can begin creating and deploying APIs to the Gravitee Kafka G
 
 When using an mTLS plan, Kafka clients must present a client certificate during the TLS handshake in addition to the standard TLS configuration. Add the following SSL properties to the client's `.properties` file:
 
-| Property | Description | Example |
-|:---------|:------------|:--------|
+| Property                | Description                                        | Example                        |
+| ----------------------- | -------------------------------------------------- | ------------------------------ |
 | `ssl.keystore.location` | Path to client keystore containing the certificate | `/path/to/client.keystore.jks` |
-| `ssl.keystore.type` | Client keystore type | `JKS` |
-| `ssl.keystore.password` | Client keystore password | `gravitee` |
+| `ssl.keystore.type`     | Client keystore type                               | `JKS`                          |
+| `ssl.keystore.password` | Client keystore password                           | `gravitee`                     |
 
 ## Produce and consume messages
 
@@ -237,11 +247,11 @@ For plan, application, subscription, and resource information, see the following
 
 Kafka native APIs enforce strict separation between plan security types. You can't mix Keyless, mTLS, and authentication plans (OAuth2, JWT, API Key) in published state. When you publish a plan of one type, all published plans of conflicting types are automatically closed. Multiple plans of the same security type (for example, two mTLS plans) can coexist.
 
-| Plan Type | Can Coexist With | Conflicts With |
-|:----------|:-----------------|:---------------|
-| Keyless | Other Keyless plans | mTLS, API Key, OAuth2, JWT |
-| mTLS | Other mTLS plans | Keyless, API Key, OAuth2, JWT |
-| API Key, OAuth2, JWT | Other authentication plans | Keyless, mTLS |
+| Plan Type            | Can Coexist With           | Conflicts With                |
+| -------------------- | -------------------------- | ----------------------------- |
+| Keyless              | Other Keyless plans        | mTLS, API Key, OAuth2, JWT    |
+| mTLS                 | Other mTLS plans           | Keyless, API Key, OAuth2, JWT |
+| API Key, OAuth2, JWT | Other authentication plans | Keyless, mTLS                 |
 
 {% hint style="info" %}
 If you need to support multiple security types simultaneously, create separate APIs for each security model.
@@ -264,14 +274,12 @@ The following example provides a template for how to produce and consume message
 1. In the top-level folder of your Kafka download, create an empty `.properties` file named `connect.properties`.
 2. Go to the Developer Portal and find your API.
 3. After selecting your API, click on the **My Subscriptions** tab.
-4. Copy the script in the **Review Kafka Properties** section and paste it into your `connect.properties` file.
+4.  Copy the script in the **Review Kafka Properties** section and paste it into your `connect.properties` file.
 
     <div align="left"><figure><img src="../.gitbook/assets/1 pc 2.png" alt="" width="563"><figcaption></figcaption></figure></div>
-
-5. Copy either the produce or consume commands from the **Calling the API** section.
+5.  Copy either the produce or consume commands from the **Calling the API** section.
 
     <div align="left"><figure><img src="../.gitbook/assets/00 kafka 2.png" alt="" width="563"><figcaption></figcaption></figure></div>
-
 6. In a terminal, change your working directory to the top-level folder of your Kafka download.
 7. Paste and execute the commands you copied to produce or consume messages.
 

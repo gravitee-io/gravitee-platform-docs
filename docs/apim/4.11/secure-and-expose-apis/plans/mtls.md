@@ -61,6 +61,8 @@ gateway:
 ```
 {% endcode %}
 
+To reject clients whose certificates have been revoked, enable CRL checking on the Gateway. CRL evaluation runs during the TLS handshake, before plan selection, so revoked certificates never reach mTLS plan matching. See [Reject revoked client certificates with a CRL.](../../prepare-a-production-environment/configure-your-http-server.md#reject-revoked-client-certificates-with-a-crl)
+
 ## Creating an mTLS plan
 
 To create an mTLS plan for a Kafka native API:
@@ -79,25 +81,18 @@ The Gateway validates that no conflicting plan types remain in published state. 
 
 To subscribe to an mTLS plan, the client has to add a certificate to their application. To add a certificate to an application, complete the following steps:
 
-1.  In the Console, navigate to **Applications**, and then click a specific application.
-
-2.  In the application sidebar, click **Global settings**.
-
+1. In the Console, navigate to **Applications**, and then click a specific application.
+2. In the application sidebar, click **Global settings**.
 3.  Scroll to the **Certificates** section.
 
     <figure><img src="../../.gitbook/assets/application-certificates-section.png" alt=""><figcaption><p>Certificates section in the application Global settings page</p></figcaption></figure>
-
-4.  Click **+ Add certificate** to open the dialog.
-
-5.  In the **Certificate Name** field, enter a name for the certificate.
-
+4. Click **+ Add certificate** to open the dialog.
+5. In the **Certificate Name** field, enter a name for the certificate.
 6.  In the **Certificate** field under **Paste certificate**, paste the PEM-encoded client certificate. Alternatively, under **Upload file**, drag and drop a `.pem` or `.crt` file.
 
     <figure><img src="../../.gitbook/assets/add-certificate-dialog.png" alt=""><figcaption><p>Add certificate dialog with Certificate Name, Paste certificate, and Upload file fields</p></figcaption></figure>
-
-7.  Click **Continue**, and then set the **Active until** date.
-
-8.  Review the certificate summary and click **Add**.
+7. Click **Continue**, and then set the **Active until** date.
+8. Review the certificate summary and click **Add**.
 
 {% hint style="warning" %}
 Multiple applications in the same APIM instance may not share client certificates. You can't save an application's configuration if its client certificate is already associated with another application.
@@ -134,11 +129,11 @@ Both the client certificate and the private key are required to ensure that your
 
 Kafka clients must present the certificate during TLS handshake. Configure the client with the following SSL properties:
 
-| Property | Description | Example |
-|:---------|:------------|:--------|
+| Property                | Description                                        | Example                        |
+| ----------------------- | -------------------------------------------------- | ------------------------------ |
 | `ssl.keystore.location` | Path to client keystore containing the certificate | `/path/to/client.keystore.jks` |
-| `ssl.keystore.type` | Client keystore type | `JKS` |
-| `ssl.keystore.password` | Client keystore password | `gravitee` |
+| `ssl.keystore.type`     | Client keystore type                               | `JKS`                          |
+| `ssl.keystore.password` | Client keystore password                           | `gravitee`                     |
 
 ## How to terminate TLS
 
