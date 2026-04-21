@@ -39,6 +39,12 @@ For self-hosted installations and hybrid deployments of Gravitee, you can set th
 
 To configure Gravitee to use the New Developer Portal by default, complete the following steps for your installation type:
 
+{% hint style="info" %}
+The `DEFAULT_PORTAL` environment variable (Docker) and the `portal.defaultPortal` Helm value (Kubernetes) accept `classic` or `next`. The default value is `classic`.
+
+To keep the Classic Developer Portal as the default, set `DEFAULT_PORTAL=classic` in Docker or `defaultPortal: "classic"` in Kubernetes. In Docker deployments, leaving `DEFAULT_PORTAL` unset can cause the theme preview iframe on the Console **Themes** settings page to show "Page is not available". Set the variable explicitly to avoid this.
+{% endhint %}
+
 {% tabs %}
 {% tab title="Docker" %}
 1. In your `docker-compose-apim.yml` file, you must set the following environment variables:
