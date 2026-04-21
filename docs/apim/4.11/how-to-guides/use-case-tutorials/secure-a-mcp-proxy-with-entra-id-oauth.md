@@ -207,9 +207,7 @@ You can now access the secured MS Learn MCP Tool Server via the Gravitee Gateway
 
 ### Step 6: (Optional) Secure access to specific tools on the MCP Tool Server
 
-Why would you want to secure individual Tools on a MCP Tool Server?
-
-What 3rd-party dependencies are required?  (for example, User-based permissions that the MCP ACL Policy can utilise)
+Coming soon...
 
 
 
