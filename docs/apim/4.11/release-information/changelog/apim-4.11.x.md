@@ -1,5 +1,26 @@
 # APIM 4.11.x
  
+## Gravitee API Management 4.11.3 - April 21, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Management API**
+
+* Users that do not have any API Products permissions receive an error on the general configuration page of v4 APIs [#11350](https://github.com/gravitee-io/issues/issues/11350)
+
+**Console**
+
+* Users that do not have any API Products permissions receive an error on the general configuration page of v4 APIs [#11350](https://github.com/gravitee-io/issues/issues/11350)
+
+**Helm Charts**
+
+* 4.11 upgrade attempt with helm failing with openshift context error  [#11359](https://github.com/gravitee-io/issues/issues/11359)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.11.2 - April 17, 2026
 <details>
 
