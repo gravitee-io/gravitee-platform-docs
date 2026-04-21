@@ -189,31 +189,28 @@ You have secured this MCP-Proxy with the secure OAuth plan.
     <figure><img src="https://414586439-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FU1xXmp5guXALDJnWHthY%2Fuploads%2FlMpE7ZfWCu3Wjou9PJzW%2Fhow-to-guide-secure-mcp-proxy-with-entra-id-perms1.png?alt=media&#x26;token=5228afe7-f496-4bf6-9470-f45dbfda761d" alt="" width="375"><figcaption></figcaption></figure>
 
     <figure><img src="https://414586439-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FU1xXmp5guXALDJnWHthY%2Fuploads%2FRqQJP4qI0jsIL8WIYi6b%2Fhow-to-guide-secure-mcp-proxy-with-entra-id-perms2.png?alt=media&#x26;token=9905afe9-c4df-483b-af53-8d9fe0192e43" alt="" width="375"><figcaption></figcaption></figure>
-6.  Verify that you are signed in:
 
-    <figure><img src="https://414586439-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FU1xXmp5guXALDJnWHthY%2Fuploads%2Fv2TzWufqFLaWGRO5bJmh%2Fimage.png?alt=media&#x26;token=c21bc66d-06bf-4a68-96b4-00aeb0b4af66" alt="" width="375"><figcaption></figcaption></figure>
-7.  In VS Code, verify that 3 tools are available.
 
-    <figure><img src="https://414586439-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FU1xXmp5guXALDJnWHthY%2Fuploads%2FHAUDztkcYG0fSDA1PByv%2Fimage.png?alt=media&#x26;token=d765fc26-c042-44a6-afe9-1a5a0e8c6c90" alt=""><figcaption></figcaption></figure>
 
-    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>If you encounter errors or do not see the available tools, you typically have a configuration issue in your Entra ID App Registration. Check your VS Code OUTPUT console to troubleshoot.</p></div>
-8.  To verify access to these tools, use the CHAT to ask what tools are available from the `demo-ms-learn-mcp` tool server:
+6. Verify that you are signed in:
 
-    <figure><img src="https://414586439-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FU1xXmp5guXALDJnWHthY%2Fuploads%2FmpSkmz2sArtpbANikfzr%2Fimage.png?alt=media&#x26;token=48a6facf-fbff-451c-b68a-f59be7716fc4" alt=""><figcaption></figcaption></figure>
+<figure><img src="https://414586439-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FU1xXmp5guXALDJnWHthY%2Fuploads%2Fv2TzWufqFLaWGRO5bJmh%2Fimage.png?alt=media&#x26;token=c21bc66d-06bf-4a68-96b4-00aeb0b4af66" alt="" width="375"><figcaption></figcaption></figure>
+
+7. In VS Code, verify that 3 tools are available.
+
+<figure><img src="https://414586439-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FU1xXmp5guXALDJnWHthY%2Fuploads%2FHAUDztkcYG0fSDA1PByv%2Fimage.png?alt=media&#x26;token=d765fc26-c042-44a6-afe9-1a5a0e8c6c90" alt=""><figcaption></figcaption></figure>
+
+{% hint style="info" %}
+If you encounter errors or do not see the available tools, you typically have a configuration issue in your Entra ID App Registration. Check your VS Code OUTPUT console to troubleshoot.
+{% endhint %}
+
+8. To verify access to these tools, use the CHAT to ask what tools are available from the `demo-ms-learn-mcp` tool server:
+
+<figure><img src="https://414586439-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FU1xXmp5guXALDJnWHthY%2Fuploads%2FmpSkmz2sArtpbANikfzr%2Fimage.png?alt=media&#x26;token=48a6facf-fbff-451c-b68a-f59be7716fc4" alt=""><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 You can now access the secured MS Learn MCP Tool Server via the Gravitee Gateway using Entra ID OAuth.
 {% endhint %}
-
-### Step 6: (Optional) Secure access to specific tools on the MCP Tool Server
-
-Coming soon...
-
-
-
-
-
-***
 
 ## Appendix 1: Reference MCP-Proxy and Entra ID App Registration configurations
 
