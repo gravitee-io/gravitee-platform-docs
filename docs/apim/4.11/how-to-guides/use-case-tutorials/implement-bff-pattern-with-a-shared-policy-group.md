@@ -18,6 +18,8 @@ Due to the above issues, the recommended security approach for SPAs is to avoid 
 The **BFF pattern** can also serve as a valuable approach in scenarios where backend APIs or applications lack existing protection, providing a transparent and secure mechanism for consumers to access them through web browsers.
 {% endhint %}
 
+<figure><img src="../../.gitbook/assets/cdn-spa-authorisation-server-acrchitecture.png" alt=""><figcaption></figcaption></figure>
+
 #### BFF Shared Policy Group responsibilities
 
 * **OAuth Agent:** Forwards OAuth requests to the Authorization Server when requested by the SPA. The agent creates the actual OAuth request messages and any secrets used, then receives tokens in response messages. Secure cookies are then returned to the browser and cannot be accessed by the SPA's JavaScript code.
@@ -29,9 +31,13 @@ This guide assumes that the `clientId` property has been created in your API. Th
 
 ### Task 1: Create an On-Request Shared Policy Group
 
-1. Navigate to the shared policy groups by clicking on Settings, and then **Shared Policy Groups**.
+1.  Navigate to the shared policy groups by clicking on Settings, and then **Shared Policy Groups**.<br>
+
+    <figure><img src="../../.gitbook/assets/shared-policy-group-settings.png" alt=""><figcaption></figcaption></figure>
 2. Click **Add Shared Policy Group**, and select **Proxy API**.
-3. Specify a name for this SPG, and ensure the **Request** phase is selected. Then click on the **\[Save]** button.
+3.  Specify a name for this SPG, and ensure the **Request** phase is selected. Then click on the **\[Save]** button.<br>
+
+    <figure><img src="../../.gitbook/assets/add-shared-policy-group-for-proxy-api.png" alt=""><figcaption></figcaption></figure>
 4. Add the [**Groovy**](../../create-and-configure-apis/apply-policies/policy-reference/4.9-groovy.md) **Policy**
    1. Use the following GroovyScript to get the Auth BFF cookie
 
@@ -60,11 +66,15 @@ context.attributes['bffCookie'] = bffCookie
 
 b. Click on the **\[Add policy]** button, and progress to the next step.
 
+<figure><img src="../../.gitbook/assets/groovy-script-bff-cookie.png" alt=""><figcaption></figcaption></figure>
+
 5. Add the [**Mock**](../../create-and-configure-apis/apply-policies/policy-reference/mock.md) **Policy**
    1. Set the **Trigger condition** to `{#context.attributes['bffCookie'] == null && #request.params['code'] == null}`
    2. Set the **HTTP Status Code** to `302-MOVED_TEMPORARILY`
    3. Add a new **Header** named `Location`, with value of `https://auth.server.com/oauth/authorize?client_id={#api.properties['clientId']}&response_type=code&redirect_uri={#request.scheme + '://' + #request.host + #request.path}`
-   4. Click on the **\[Add policy]** button, and progress to the next step.
+   4.  Click on the **\[Add policy]** button, and progress to the next step.
+
+       <figure><img src="../../.gitbook/assets/mock-policy-request-on.png" alt=""><figcaption></figcaption></figure>
 6. Add the [**HTTP Callout**](../../create-and-configure-apis/apply-policies/policy-reference/http-callout.md) **Policy**
    1. Set the **Trigger condition** to `{#context.attributes['bffCookie'] == null && #request.params['code'] != null}`
    2. Set the **HTTP Method** to `POST`
@@ -72,18 +82,26 @@ b. Click on the **\[Add policy]** button, and progress to the next step.
    4. Add a new **Header** named `Content-Type`, with value of `application/x-www-form-urlencoded`
    5. Set the **Request body** to `grant_type=authorization_code&code={#request.params['code'][0]}&client_id={#api.properties['clientId']}&redirect_uri={#request.scheme + '://' + #request.host + #request.path}`
    6. Add a new **Context Variable** named `accessToken`, with value of `{#jsonPath(#calloutResponse.content, '$.access_token')}`
-   7. Click on the **\[Add policy]** button, and progress to the next step.
+   7.  Click on the **\[Add policy]** button, and progress to the next step.
+
+       <figure><img src="../../.gitbook/assets/policies-for-reqyest-phase-http-callout.png" alt=""><figcaption></figcaption></figure>
 7. Add the [**Transform Headers**](../../create-and-configure-apis/apply-policies/policy-reference/transform-headers.md) **Policy**
    1. Set the **Trigger condition** to `{#context.attributes['bffCookie'] != null}`
    2. Within the **Set/replace headers** section, add a new **Key** named `Authorization` with a value of `Bearer {#context.attributes['bffCookie']}`
-   3. Click on the **\[Add policy]** button, and progress to the next step.
+   3.  Click on the **\[Add policy]** button, and progress to the next step.
+
+       <figure><img src="../../.gitbook/assets/transform-header-policy-key-value.png" alt=""><figcaption></figcaption></figure>
 8. Add the [**JSON Web Tokens**](../../create-and-configure-apis/apply-policies/policy-reference/jws-validator.md) **Policy**
    1. Set the **Trigger condition** to `{#context.attributes['bffCookie'] != null}`
    2. Set the **JWKS resolver** to `JWKS_URL`
    3. Set the **Resolver parameter** to `https://auth.server.com/.well-known/jwks.json`
-   4. Click on the **\[Add policy]** button, and progress to the next step.
+   4.  Click on the **\[Add policy]** button, and progress to the next step.<br>
+
+       <figure><img src="../../.gitbook/assets/json-web-tokens-context.png" alt=""><figcaption></figcaption></figure>
 9. Now that all the policies have been added, click on the **\[Save]** button.
 10. Click the **\[Deploy]** button.
+
+    <figure><img src="../../.gitbook/assets/click-deploy-button-bff.png" alt=""><figcaption></figcaption></figure>
 
 <details>
 
@@ -222,15 +240,23 @@ You can import this Shared Policy Group using Gravitee's Management API.
 
 ### Task 2: Create an On-Response shared policy group
 
-1. Navigate back to the shared policy groups by clicking on Settings, and then **Shared Policy Groups**.
+1.  Navigate back to the shared policy groups by clicking on Settings, and then **Shared Policy Groups**.
+
+    <figure><img src="../../.gitbook/assets/shared-policy-groups-geoip.png" alt=""><figcaption></figcaption></figure>
 2. Click **Add Shared Policy Group**, and select **Proxy API**.
-3. Specify a name for this SPG, and ensure the **Response** phase is selected. Then click on the **\[Save]** button.
+3.  Specify a name for this SPG, and ensure the **Response** phase is selected. Then click on the **\[Save]** button.
+
+    <figure><img src="../../.gitbook/assets/request-response-beff-onresponse.png" alt=""><figcaption></figcaption></figure>
 4. Add the [**Transform Headers**](../../create-and-configure-apis/apply-policies/policy-reference/transform-headers.md) **Policy**
    1. Set the **Trigger condition** to `{#context.attributes['accessToken'] != null}`
    2. Within the **Set/replace headers** section, add a new **Key** named `Set-Cookie` with a value of `X-Gravitee-BFF-Cookie={#context.attributes['accessToken']}; Path=/; HttpOnly; SameSite=Strict`
-   3. Click on the **\[Add policy]** button, and progress to the next step.
+   3.  Click on the **\[Add policy]** button, and progress to the next step.
+
+       <figure><img src="../../.gitbook/assets/transform-headers-bff-samsite.png" alt=""><figcaption></figcaption></figure>
 5. Now that all the policies have been added, click on the **\[Save]** button.
-6. Click the **\[Deploy]** button.
+6.  Click the **\[Deploy]** button.
+
+    <figure><img src="../../.gitbook/assets/version-history-shared-policy-group.png" alt=""><figcaption></figcaption></figure>
 
 <details>
 
@@ -290,6 +316,8 @@ Now it is time to add these Shared Policy Groups into your existing API.
    1. Add the '**BFF On-Request Shared Policy Group**' into the **Request** **Phase**, and
    2. Add the '**BFF On-Response Shared Policy Group**' into the **Response Phase**.
 5. Click on the **\[Save]** button.
-6. Finally, click on the **\[Deploy API]** popup, to deploy these configuration changes to your Gateway.
+6.  Finally, click on the **\[Deploy API]** popup, to deploy these configuration changes to your Gateway.
+
+    <figure><img src="../../.gitbook/assets/apis-policies-flow-details.png" alt=""><figcaption></figcaption></figure>
 
 To quickly test the flow, just call your API via a Web Browser and you should be redirected to the login page of your Authorization Server if no cookie has been found.
