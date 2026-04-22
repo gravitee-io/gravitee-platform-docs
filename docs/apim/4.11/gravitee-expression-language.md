@@ -158,8 +158,6 @@ You can access specific tags of an XML request/response payload with `{#request.
 {% endtab %}
 {% endtabs %}
 
-
-
 ## EL syntax and evaluation rules
 
 Gravitee EL wraps Spring Expression Language (SpEL) with a template parser that recognizes three expression markers inside strings. Everything outside a marker is treated as literal text.
@@ -384,7 +382,7 @@ When APIM Gateway handles an incoming API request, some object properties are au
 
 Some policies (e.g., the OAuth2 policy) register other attributes in the request context. For more information, refer to the documentation for individual policies.
 
-Request context attributes and examples are listed below:&#x20;
+Request context attributes and examples are listed below:
 
 {% tabs %}
 {% tab title="Table" %}
@@ -402,7 +400,7 @@ Request context attributes and examples are listed below:&#x20;
 {% hint style="info" %}
 **Attribute keys without the `gravitee.attribute.` prefix**
 
-&#x20;The Gateway stores context attributes with a `gravitee.attribute.` prefix (for example, `gravitee.attribute.plan`). Expression Language lookups through `{#context.attributes['...']}` accept either the short key or the fully prefixed key. Use the short keys shown in the table above for readability.
+The Gateway stores context attributes with a `gravitee.attribute.` prefix (for example, `gravitee.attribute.plan`). Expression Language lookups through `{#context.attributes['...']}` accept either the short key or the fully prefixed key. Use the short keys shown in the table above for readability.
 {% endhint %}
 
 ### SSL object properties
@@ -492,6 +490,92 @@ The EL (Expression Language) used for a message does not change based on phase. 
 {% endtab %}
 {% endtabs %}
 
+### Message metadata by endpoint type
+
+On v4 Message APIs (**Introspect messages from event-driven backend**), the gateway populates `{#message.metadata}` with keys specific to the endpoint connector that consumed the message from the backend. Use these keys in policy conditions, assign-attributes expressions, and dynamic routing to react to protocol-level data without parsing the payload.
+
+{% hint style="info" %}
+The **Kafka Gateway** section below documents a separate `{#message}` surface for Kafka-native APIs built on the Kafka Gateway. The metadata keys listed here apply to v4 Message APIs attached to the Kafka endpoint connector, not to the Kafka Gateway.
+{% endhint %}
+
+{% tabs %}
+{% tab title="Kafka" %}
+The Kafka endpoint populates the following metadata keys on each consumed record.
+
+<table><thead><tr><th width="180">Metadata key</th><th width="280">Description</th><th width="100">Type</th><th>Example</th></tr></thead><tbody><tr><td>topic</td><td>Name of the Kafka topic the record was consumed from</td><td>string</td><td><code>{#message.metadata['topic']}</code></td></tr><tr><td>partition</td><td>Partition number the record was consumed from</td><td>int</td><td><code>{#message.metadata['partition']}</code></td></tr><tr><td>offset</td><td>Offset of the record within its partition</td><td>long</td><td><code>{#message.metadata['offset']}</code></td></tr><tr><td>key</td><td>Record key. Only set when the record has a key. Byte-array keys are decoded as UTF-8 strings.</td><td>string</td><td><code>{#message.metadata['key']}</code></td></tr></tbody></table>
+
+**Examples**
+
+*   Route only messages from the `orders` topic:
+
+    ```bash
+    {#message.metadata['topic'] == 'orders'}
+    ```
+*   Apply a policy only to records from partition `0`:
+
+    ```bash
+    {#message.metadata['partition'] == 0}
+    ```
+*   Build a CloudEvents `source` from the record coordinates:
+
+    ```bash
+    kafka://{#message.metadata['topic']}/{#message.metadata['partition']}/{#message.metadata['offset']}
+    ```
+*   Forward the record key as an upstream header value:
+
+    ```bash
+    {#message.metadata['key']}
+    ```
+{% endtab %}
+
+{% tab title="MQTT5" %}
+The MQTT5 endpoint populates the following metadata keys on each received publish packet.
+
+<table><thead><tr><th width="210">Metadata key</th><th width="280">Description</th><th width="100">Type</th><th>Example</th></tr></thead><tbody><tr><td>topic</td><td>Topic the packet was published on</td><td>string</td><td><code>{#message.metadata['topic']}</code></td></tr><tr><td>type</td><td>MQTT5 packet type name reported by the client library</td><td>string</td><td><code>PUBLISH</code></td></tr><tr><td>qos</td><td>Numeric QoS level (<code>0</code>, <code>1</code>, or <code>2</code>)</td><td>int</td><td><code>{#message.metadata['qos']}</code></td></tr><tr><td>retain</td><td>Whether the retain flag was set on the publish</td><td>boolean</td><td><code>{#message.metadata['retain']}</code></td></tr><tr><td>contentType</td><td>MQTT5 content-type property, when the publisher set it</td><td>string</td><td><code>{#message.metadata['contentType']}</code></td></tr><tr><td>messageExpiryInterval</td><td>MQTT5 message expiry interval, in seconds. Returns <code>-1</code> when the publisher didn't set it.</td><td>long</td><td><code>{#message.metadata['messageExpiryInterval']}</code></td></tr><tr><td>responseTopic</td><td>MQTT5 response-topic property, when the publisher set it</td><td>string</td><td><code>{#message.metadata['responseTopic']}</code></td></tr></tbody></table>
+
+**Examples**
+
+*   Run a policy only for QoS 2 messages:
+
+    ```bash
+    {#message.metadata['qos'] == 2}
+    ```
+*   Route retained messages to a dedicated flow:
+
+    ```bash
+    {#message.metadata['retain'] == true}
+    ```
+{% endtab %}
+
+{% tab title="Solace" %}
+The Solace endpoint populates the following metadata keys on each received message.
+
+<table><thead><tr><th width="210">Metadata key</th><th width="280">Description</th><th width="100">Type</th><th>Example</th></tr></thead><tbody><tr><td>senderId</td><td>Sender ID reported by Solace for the message</td><td>string</td><td><code>{#message.metadata['senderId']}</code></td></tr><tr><td>destinationName</td><td>Queue or topic name the message was consumed from</td><td>string</td><td><code>{#message.metadata['destinationName']}</code></td></tr><tr><td>senderTimestamp</td><td>Sender-side timestamp in epoch milliseconds. Returns <code>-1</code> when the message doesn't carry one.</td><td>long</td><td><code>{#message.metadata['senderTimestamp']}</code></td></tr><tr><td>isCached</td><td>Whether the message was delivered from the Solace cache</td><td>boolean</td><td><code>{#message.metadata['isCached']}</code></td></tr><tr><td>isRedelivered</td><td>Whether the message is a redelivery</td><td>boolean</td><td><code>{#message.metadata['isRedelivered']}</code></td></tr></tbody></table>
+
+**Example**
+
+*   Skip redelivered messages in a filtering policy:
+
+    ```bash
+    {#message.metadata['isRedelivered'] == false}
+    ```
+{% endtab %}
+
+{% tab title="RabbitMQ" %}
+The RabbitMQ endpoint always populates three envelope keys on every delivery. The remaining keys appear only when the publisher set the corresponding AMQP property.
+
+<table><thead><tr><th width="200">Metadata key</th><th width="280">Description</th><th width="100">Type</th><th>Set when</th></tr></thead><tbody><tr><td>deliveryTag</td><td>Broker-assigned delivery tag for the current delivery</td><td>long</td><td>Always</td></tr><tr><td>exchange</td><td>Exchange the message was published through</td><td>string</td><td>Always</td></tr><tr><td>routingKey</td><td>Routing key used when the message was published</td><td>string</td><td>Always</td></tr><tr><td>appId</td><td>AMQP <code>app-id</code> property</td><td>string</td><td>Set by publisher</td></tr><tr><td>expiration</td><td>AMQP <code>expiration</code> property, as a string in milliseconds</td><td>string</td><td>Set by publisher</td></tr><tr><td>type</td><td>AMQP <code>type</code> property</td><td>string</td><td>Set by publisher</td></tr><tr><td>deliveryMode</td><td>AMQP <code>delivery-mode</code> (<code>1</code> for non-persistent, <code>2</code> for persistent)</td><td>int</td><td>Set by publisher</td></tr><tr><td>replyTo</td><td>AMQP <code>reply-to</code> property</td><td>string</td><td>Set by publisher</td></tr><tr><td>priority</td><td>AMQP <code>priority</code> property</td><td>int</td><td>Set by publisher</td></tr><tr><td>timestamp</td><td>AMQP <code>timestamp</code> property</td><td>date</td><td>Set by publisher</td></tr><tr><td>userId</td><td>AMQP <code>user-id</code> property</td><td>string</td><td>Set by publisher</td></tr></tbody></table>
+
+**Example**
+
+*   Route messages by routing key prefix:
+
+    ```bash
+    {#message.metadata['routingKey'].startsWith('payments.')}
+    ```
+{% endtab %}
+{% endtabs %}
+
 ### Kafka Gateway
 
 The Kafka Gateway uses a distinct set of Expression Language root objects that reflect Kafka protocol concepts rather than HTTP concepts. Use this section when configuring EL on Kafka APIs — for example, in endpoint configuration, policy conditions, or connection interruption rules.
@@ -500,7 +584,7 @@ The Kafka Gateway uses a distinct set of Expression Language root objects that r
 The `#request`, `#response`, and `#message` objects on Kafka APIs expose different properties than the HTTP versions. HTTP-specific properties such as `#request.method`, `#request.headers`, or `#request.path` aren't available on Kafka APIs.
 {% endhint %}
 
-#### EL availability by phase
+### EL availability by phase
 
 The set of root objects available to an EL expression depends on the execution phase. Kafka APIs run through four distinct phases, each exposing a different variable surface.
 
@@ -557,8 +641,6 @@ At the Entrypoint Connect phase — policies that run before the Kafka client au
 {% hint style="warning" %}
 `#context.principal`, `#request`, `#response`, and `#message` aren't available in the Entrypoint Connect phase because authentication hasn't occurred and no Kafka protocol request has been received yet. Referencing them in an EL expression evaluated at this phase returns `null` or raises an evaluation error.
 {% endhint %}
-
-
 
 ### Subscription
 
