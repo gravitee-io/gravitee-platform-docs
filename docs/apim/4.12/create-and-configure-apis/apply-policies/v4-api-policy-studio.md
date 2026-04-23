@@ -67,7 +67,7 @@ The flow and policy configuration options you are presented with differ based on
     * **Flow name:** Give your flow a descriptive name. Otherwise, a name will be automatically generated using the channel and operation.
     * **Path operator:** Apply this flow to requests with a path that **Equals** or **Starts with** the specified **Path**.
     * **Path:** Define the path to use in conjunction with the **Path operator** to determine if this flow should be applied.
-      *   You can use colon-prefixed path parameters instead of regex for variable segments:
+      *   Declare a path parameter by prefixing a segment with a colon (`:`), followed by the parameter name. Each `:<name>` captures the value of one path segment and makes it available to the rest of the request chain:
 
           *   Flow 1 (default on controller root):
 
@@ -84,7 +84,9 @@ The flow and policy configuration options you are presented with differ based on
               path: /test/:uuid/customer/orders/
               </code></pre>
 
-          This lets one flow match `/test/**` and another match specifically a single-segment `/test/{UUID}` without needing regex. Path parameters are resolved once at the start of request processing and made available to all flows, as long as they are declared consistently (no conflicting positions for the same parameter name across overlapping paths).
+          This lets one flow match `/test/**` and another match specifically a single-segment `/test/{UUID}` without needing regex.
+      *   **Access path parameters in policies and conditions.** For v4 APIs, path parameters are resolved once at the start of request processing and made available to every flow in the request. Reference them with [Gravitee's Expression Language](../../gravitee-expression-language.md) using `{#request.pathParams['<name>']}`. The raw declared pattern is available as `{#request.pathParamsRaw}`. For example, with a path of `/products/:productId/items/:itemId`, `{#request.pathParams['productId']}` returns the first captured segment and `{#request.pathParams['itemId']}` returns the second. Use these values anywhere an EL expression is accepted, for example in a flow **Condition**, an Assign Attributes policy, or a Dynamic Routing policy.
+      *   **Declare parameter names consistently across overlapping flows.** When you save the API, Gravitee rejects any two flows whose paths have the same number of segments and match in every static segment but use different parameter names at the same position. For example, `/products/:productId/items/:itemId` and `/products/:productId/items/details` can coexist, but `/products/:id/items/:itemId` and `/products/:productId/items/:id` can't. For the full list of differences between v2 and v4 path parameter handling, see [v2 and v4 API comparison](../gravitee-api-definitions/v2-and-v4-api-comparison.md).
     * Choose one or more of the following **Methods for your flow**: ALL, CONNECT, DELETE, GET, HEAD, OPTIONS, PATCH, POST, PUT, TRACE, OTHER.
     * **Condition:** Use [Gravitee's Expression Language (EL)](../../gravitee-expression-language.md) to define specific conditions that trigger flow execution.
 7. Click **Create** in the modal, and then **Save** on the **Policies** page.
