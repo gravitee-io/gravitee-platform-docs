@@ -213,6 +213,14 @@ gateway:
         level: DEBUG
     # - name: io.gravitee.test.infopackage
     #   level: DEBUG
+    # ...
+
+# you can also specify a timezone for your logs within your environment variables:
+  env:
+    - name: JAVA_OPTS
+      value: -Duser.timezone=America/Denver
+    - name: ...
+
 ```
 {% endcode %}
 
