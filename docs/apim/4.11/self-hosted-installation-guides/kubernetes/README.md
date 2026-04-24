@@ -38,6 +38,55 @@ gateway:
 
 For the full configuration reference including proxy authentication and `gravitee.yml` equivalents, see [Configure Helm values](../proxy-configuration/system-proxy-for-backend-apis.md#configure-helm-values). For an overview of all proxy methods, see [Proxy Configuration](../proxy-configuration/).
 
+## Ingress body size limit
+
+Kubernetes deployments that front APIM components with the NGINX Ingress Controller are subject to a request body size limit enforced by the ingress, not by Gravitee. When a client sends a request larger than this limit, the ingress rejects it with `413 Request Entity Too Large` before the request reaches any Gravitee component.
+
+The APIM Helm chart doesn't set a body size annotation on any ingress by default. If requests to the Gateway, the Management API, or the Portal API exceed the limit configured on your ingress controller, raise the limit by setting the `nginx.ingress.kubernetes.io/proxy-body-size` annotation on the affected ingress.
+
+The APIM Helm chart doesn't set a body size annotation on any ingress by default. If requests to the Gateway, the Management API, or the Portal API exceed the limit configured on your ingress controller, raise the limit by setting the `nginx.ingress.kubernetes.io/proxy-body-size` annotation on the affected ingress.
+
+{% hint style="info" %}
+`nginx.ingress.kubernetes.io/proxy-body-size` is an annotation of the NGINX Ingress Controller. For the annotation's default, accepted value format, and the `0` setting that disables the check entirely, see the [NGINX Ingress Controller annotation reference](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/#custom-max-body-size). If your cluster uses a different ingress controller, refer to that controller's documentation for the equivalent setting.
+{% endhint %}
+
+### Apply the annotation to each ingress
+
+Each APIM component exposes its ingress through a separate Helm value path. Set `proxy-body-size` on every ingress whose traffic carries request bodies you need to accept:
+
+| Ingress           | Helm value path                      | Traffic                                                                                                                                                                      |
+| ----------------- | ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Gateway dataplane | `gateway.ingress.annotations`        | Incoming API calls from consumers to the Gateway. Size this to the largest request body an API on the Gateway accepts.                                                       |
+| Management API    | `api.ingress.management.annotations` | Calls to the Management REST API, including API imports, policy definitions, and configuration uploads. Size this to the largest import or configuration payload you submit. |
+| Portal API        | `api.ingress.portal.annotations`     | Calls to the Portal REST API from the Developer Portal. Size this if consumers submit large payloads through the Portal.                                                     |
+
+The following excerpt shows the annotation applied to the Gateway and Management API ingresses in `values.yaml`:
+
+```yaml
+api:
+  ingress:
+    management:
+      annotations:
+        kubernetes.io/ingress.class: nginx
+        nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+    portal:
+      annotations:
+        kubernetes.io/ingress.class: nginx
+        nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+
+gateway:
+  ingress:
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+```
+
+The `50m` value is an example, not a recommended default. Set each limit based on the largest payload you expect to send through that ingress.
+
+### Hybrid Gateway deployments
+
+In a Hybrid Gateway deployment, only the Gateway ingress runs in your cluster. The Management API and Portal API run in the Gravitee Cloud control plane, so their ingresses aren't part of your Helm values. Apply `proxy-body-size` to `gateway.ingress.annotations` to raise the Gateway dataplane limit for the Hybrid cluster you manage. For the body size limits enforced by Gravitee Cloud on the control-plane side, contact Gravitee support.
+
 ## Harden the security context
 
 All APIM container images run as non-root users by default. The Helm chart configures a `securityContext` on each component's deployment that enforces non-root execution.
