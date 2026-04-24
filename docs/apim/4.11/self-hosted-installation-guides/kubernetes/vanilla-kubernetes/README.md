@@ -903,6 +903,12 @@ gateway:
 
 For the full configuration reference including proxy authentication and `gravitee.yml` equivalents, see [Configure Helm values](../../proxy-configuration/system-proxy-for-backend-apis.md#configure-helm-values). For an overview of all proxy methods, see [Proxy Configuration](../../proxy-configuration/).
 
+## Ingress body size limit
+
+This guide installs the NGINX Ingress Controller to route external traffic into APIM. NGINX enforces a request body size limit on every ingress it fronts, and the APIM Helm chart doesn't set this limit by default. Requests to the Gateway, the Management API, or the Portal API that exceed the limit are rejected with `413 Request Entity Too Large` before they reach any Gravitee component.
+
+To raise the limit, set the `nginx.ingress.kubernetes.io/proxy-body-size` annotation on each affected ingress in your `values.yaml`. For the list of ingress Helm paths, example annotation values, and guidance for Hybrid Gateway deployments, see [Ingress body size limit](../#ingress-body-size-limit) in the Kubernetes overview.
+
 ## Next steps
 
 * Create your first API. For more information about creating your first API, see [create-and-publish-your-first-api](../../../getting-started/create-and-publish-your-first-api/ "mention").

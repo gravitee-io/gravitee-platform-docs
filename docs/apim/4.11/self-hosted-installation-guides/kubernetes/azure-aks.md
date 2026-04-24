@@ -927,6 +927,12 @@ gateway:
 
 For the full configuration reference including proxy authentication and `gravitee.yml` equivalents, see [Configure Helm values](../proxy-configuration/system-proxy-for-backend-apis.md#configure-helm-values). For an overview of all proxy methods, see [Proxy Configuration](../proxy-configuration/).
 
+## Ingress body size limit
+
+The reference `values.yaml` in this guide sets `nginx.ingress.kubernetes.io/proxy-body-size: "50m"` as a starting point on the NGINX ingresses that accept request bodies: Management API (`api.ingress.management.annotations`), Portal API (`api.ingress.portal.annotations`), Gateway (`gateway.ingress.annotations`), and Developer Portal (`portal.ingress.annotations`). This annotation raises the NGINX Ingress Controller's body size limit for each affected ingress so clients aren't rejected with `413 Request Entity Too Large` for payloads up to 50 MB.
+
+Adjust the `50m` value on each ingress to match the largest payload you expect to send through it. For the role each ingress plays and guidance for Hybrid Gateway deployments, see [Ingress body size limit](./#ingress-body-size-limit) in the Kubernetes overview.
+
 ## Next steps <a href="#next-steps" id="next-steps"></a>
 
 * Create your first API. For more information about creating your first API, see [Create & Publish Your First API](../../getting-started/create-and-publish-your-first-api/).
