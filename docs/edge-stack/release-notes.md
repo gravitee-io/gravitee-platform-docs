@@ -5,6 +5,20 @@ noIndex: true
 
 # Release Notes
 
+### Version 3.13.1 (April 22, 2026) <a href="#id-3.13.1" id="id-3.13.1"></a>
+
+#### Patch CSRF login vulnerability
+
+Previously, the CSRF state check on the OAuth2 redirection endpoint rejected callbacks whose state was initiated by a different browser session, which broke flows such as Microsoft Office and SharePoint deep-linking. The state check is now scoped to unauthenticated sessions, and CSRF protection on the redirection endpoint continues to be enforced through the existing XSRF cookie verification.
+
+#### Secure unauthenticated admin services
+
+Previously, the admin service APIs exposed on the health-check port accepted remote requests without authentication. When an admin API key is configured via the `AMBASSADOR_ADMIN_API_KEY` environment variable or an `ambassador-edge-stack-admin-api-key` secret in the Ambassador namespace, remote requests must now include it in the `X-Ambassador-Admin-API-Key` header (or `adminApiKey` query parameter). Localhost requests and the `check_alive` and `check_ready` health endpoints continue to bypass authentication.
+
+#### Fixed Helm chart rendering of PodSecurityPolicy on newer Kubernetes versions
+
+`PodSecurityPolicy` was removed in Kubernetes 1.25, which caused the Helm chart to fail when rendering the `PodSecurityPolicy` template and its RBAC rules on newer clusters. The chart now checks for the `policy/v1beta1` API before rendering these resources.
+
 ### Version 3.13.0 (April 14, 2026) <a href="#id-3.13.0" id="id-3.13.0"></a>
 
 #### Admission webhook to prevent invalid Mappings from applying
