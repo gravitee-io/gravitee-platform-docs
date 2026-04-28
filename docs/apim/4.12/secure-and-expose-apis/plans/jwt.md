@@ -48,8 +48,8 @@ A JWT plan presents the following configuration options:
     {#context.attributes['jwt.claims']['iss']}
     ```
 * **Propagate Authorization header:** Propagate the header containing the JWT token to the backend APIs
-* **User claim:** Set the payload claim where the user can be extracted. The default `sub` value is standard with JWTs.
-* **Client ID claim:** Override the default claim where the client ID can be extracted. By default, the Gateway checks the `azp` claim, then the `aud` claim, and finally the `client_id` claim.
+* **User claim:** Set the payload claim where the user can be extracted. The default `sub` value is standard with JWTs. Supports dot-notation for nested claims (e.g., `realm_access.preferred_username`). A flat claim whose name literally contains a dot takes precedence over nested path traversal.
+* **Client ID claim:** Override the default claim where the client ID can be extracted. By default, the Gateway checks the `azp` claim, then the `aud` claim, and finally the `client_id` claim. Supports dot-notation for nested claims (e.g., `act.repository`). A flat claim whose name literally contains a dot takes precedence over nested path traversal.
 * **Ignore missing CNF:** Ignores CNF validation if the token doesn't contain any CNF information
 * **Enable certificate bound thumbprint validation:** Validates the certificate thumbprint extracted from the `access_token` against the one provided by the client
 * **Extract client certificate from headers:** Extracts the client certificate from the request header (provided in **Header name** field). Necessary when the mTLS connection is handled by a proxy.
