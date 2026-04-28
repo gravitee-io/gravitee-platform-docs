@@ -72,7 +72,7 @@ The following known limitations apply to the 0.5.x version of the Gravitee Terra
 * APIKey subscriptions are not supported.
 
 
-### Automation API — Missing Properties (4.11 / Terraform 0.5.x)
+### Automation API: missing properties (4.11, Terraform 0.5.x)
 
 | Resource          | Section                   | Missing Property                   | Type                                  | Supported in Automation API                                           |
 |-------------------|---------------------------|------------------------------------|---------------------------------------|-----------------------------------------------------------------------|
@@ -86,7 +86,7 @@ The following known limitations apply to the 0.5.x version of the Gravitee Terra
 | apim_application  |                           | `type`                             | string                                | No (simple applications)                                              |
 | apim_subscription | `apim_subscriptionSpec`   | `consumerConfiguration`            | object                                | 4.12                                                                  |
 | apim_subscription | `apim_subscriptionSpec`   | `apiKeyMode`                       | enum (SHARED, EXCLUSIVE, UNSPECIFIED) | Only EXCLUSIVE is supported, hence property is absent                 |
-| apim_subscription | `apim_subscriptionSpec`   | `startingAt`                       | date-time                             | Never, Subscriptions are always auto-accepted hence started immediatly|
+| apim_subscription | `apim_subscriptionSpec`   | `startingAt`                       | date-time                             | Never, Subscriptions are always auto-accepted hence started immediately|
 | apim_subscription | `apim_subscriptionSpec`   | `generalConditionsAccepted`        | boolean                               | Never, Subscriptions are always auto-accepted                         |
 | apim_subscription | `apim_subscriptionSpec`   | `generalConditionsContentRevision` | object (PageRevisionId)               | Never, Subscriptions are always auto-accepted                         |
 
