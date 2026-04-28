@@ -60,7 +60,7 @@ Before you secure an MCP Proxy with Entra ID OAuth2, complete the following:
    1. [Add Entra ID OAuth Resource](secure-a-mcp-proxy-with-entra-id-oauth.md#add-the-entra-id-oauth-resource).
    2. [Remove the KEYLESS plan and add a new secure OAuth plan](secure-a-mcp-proxy-with-entra-id-oauth.md#add-the-oauth-plan).
 5. [Test secured access](secure-a-mcp-proxy-with-entra-id-oauth.md#step-5-test-secured-access-using-microsoft-vs-code) using Microsoft VS Code.
-6. (Optionally) [Secure access to a specific Tool on the MCP Tool Server](secure-a-mcp-proxy-with-entra-id-oauth.md#step-6-optional-secure-access-to-specific-tools-on-the-mcp-tool-server).
+6. (Optionally) [Secure access to a specific Tool on the MCP Tool Server.](secure-a-mcp-proxy-with-entra-id-oauth.md#step-6-optionally-secure-access-to-a-specific-tool-on-the-mcp-tool-server).
 
 ### Step 1: Create a new MCP-Proxy
 
@@ -128,7 +128,7 @@ Stop the MCP Tool Server by clicking **Stop**.
     <figure><img src="https://414586439-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FU1xXmp5guXALDJnWHthY%2Fuploads%2FfbHNH3Ar8GLR5KndeAOK%2Fimage.png?alt=media&#x26;token=62ae15cf-1ab5-4d6d-94d1-bcef20e19e35" alt=""><figcaption></figcaption></figure>
 8.  Microsoft requires at least one scope for successful operation. In the **Expose an API** menu, click **Add a scope**.
 
-    1. Define the **Application ID URI**. Leave this as default (for example, `api://2553a281-2ebf-4d6c-aea1-1303a1af0dc6`) or specify a different value.
+    1. Define the **Application ID URI**. Leave this as default (for example, `api://2553a281-2ebf-4d6c-aea1-1303a1af0dc6`) or specify a different value such as the Gateway API URL (for example, `https://mygateway.mycompany.com/ms-learn-mcp)`.
 
     <figure><img src="https://414586439-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FU1xXmp5guXALDJnWHthY%2Fuploads%2FVtScjtbqHZcNH5HQTv6U%2Fimage.png?alt=media&#x26;token=78fa9a30-1bc9-448e-ae01-cb38ff64b71c" alt=""><figcaption></figcaption></figure>
 
@@ -148,7 +148,7 @@ Remove the KEYLESS plan from your MCP-Proxy API and replace it with the OAuth pl
 2.  Configure the Microsoft Entra ID resource:
 
     1. **Name**: EntraID OAuth Resource
-    2. **Audience**: Specify your Entra ID **Application (client) ID** (for example, `api://2553a281-2ebf-4d6c-aea1-1303a1af0dc6`).
+    2. **Audience**: Specify your Entra ID **Application (client) ID** (for example, `api://2553a281-2ebf-4d6c-aea1-1303a1af0dc6`) or specify a different value such as the Gateway API URL (for example, `https://mygateway.mycompany.com/ms-learn-mcp)`.
 
     <figure><img src="https://414586439-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FU1xXmp5guXALDJnWHthY%2Fuploads%2F6RE7AG3KjCCIswjISL6a%2Fimage.png?alt=media&#x26;token=a92bc58d-eee5-46ca-9373-f2645eb7ba02" alt=""><figcaption></figcaption></figure>
 
@@ -159,7 +159,7 @@ Remove the KEYLESS plan from your MCP-Proxy API and replace it with the OAuth pl
 
     1. **Name**: Secure OAuth Plan with Entra ID
     2. **OAuth2 authentication configuration > OAuth2 resource**: EntraID OAuth Resource
-    3. **OAuth2 authentication configuration > Required scopes**: `api://2553a281-2ebf-4d6c-aea1-1303a1af0dc6/Tools.Read`
+    3. **OAuth2 authentication configuration > Required scopes**: `api://2553a281-2ebf-4d6c-aea1-1303a1af0dc6/Tools.Read` or your Gateway API URL + scope (for example, `https://mygateway.mycompany.com/ms-learn-mcp/Tools.Read)`.
 
     <figure><img src="https://414586439-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FU1xXmp5guXALDJnWHthY%2Fuploads%2FNd9gG5dZDR3SwSyqoPwl%2Fimage.png?alt=media&#x26;token=0a11e4b6-3cbe-4f16-a3d8-c7c349ac6c71" alt=""><figcaption></figcaption></figure>
 3. Save your changes, publish the new OAuth plan, and deploy your API configuration changes to the Gateway.
@@ -174,7 +174,7 @@ You have secured this MCP-Proxy with the secure OAuth plan.
 
     <figure><img src="https://414586439-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FU1xXmp5guXALDJnWHthY%2Fuploads%2FC91ejNrzd6d4Kzo2XXfM%2Fimage.png?alt=media&#x26;token=0aaec839-6ad3-4e80-955b-138ef452e554" alt=""><figcaption></figcaption></figure>
 
-    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>If you see other dialog boxes (such as the screenshot below), your Entra ID OAuth Resource has not been configured correctly (for example, incorrect Tenant ID).</p><p><img src="https://414586439-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FU1xXmp5guXALDJnWHthY%2Fuploads%2F7iM81GG8oCwlhtOj2a6V%2Fimage.png?alt=media&#x26;token=39cac312-bb82-45e2-9e17-f6a00af66056" alt="" data-size="original"></p></div>
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>If you see other dialog boxes (such as the screenshot below), your Entra ID OAuth Resource has not been configured correctly (for example, incorrect Tenant ID).</p><p align="center"><img src="https://414586439-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FU1xXmp5guXALDJnWHthY%2Fuploads%2F7iM81GG8oCwlhtOj2a6V%2Fimage.png?alt=media&#x26;token=39cac312-bb82-45e2-9e17-f6a00af66056" alt="" data-size="original"></p></div>
 2.  VS Code will request your client ID for the MCP Authorization Pre-Registration method. Enter the client ID of your Entra ID App Registration. VS Code will also request an optional client secret. Do not supply a client secret.
 
     <figure><img src="https://414586439-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FU1xXmp5guXALDJnWHthY%2Fuploads%2FQuhRHKNEKp1YC8cyopAQ%2Fimage.png?alt=media&#x26;token=084841ff-de8d-457b-8430-136cd92516fb" alt=""><figcaption></figcaption></figure>
@@ -189,9 +189,6 @@ You have secured this MCP-Proxy with the secure OAuth plan.
     <figure><img src="https://414586439-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FU1xXmp5guXALDJnWHthY%2Fuploads%2FlMpE7ZfWCu3Wjou9PJzW%2Fhow-to-guide-secure-mcp-proxy-with-entra-id-perms1.png?alt=media&#x26;token=5228afe7-f496-4bf6-9470-f45dbfda761d" alt="" width="375"><figcaption></figcaption></figure>
 
     <figure><img src="https://414586439-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FU1xXmp5guXALDJnWHthY%2Fuploads%2FRqQJP4qI0jsIL8WIYi6b%2Fhow-to-guide-secure-mcp-proxy-with-entra-id-perms2.png?alt=media&#x26;token=9905afe9-c4df-483b-af53-8d9fe0192e43" alt="" width="375"><figcaption></figcaption></figure>
-
-
-
 6. Verify that you are signed in:
 
 <figure><img src="https://414586439-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FU1xXmp5guXALDJnWHthY%2Fuploads%2Fv2TzWufqFLaWGRO5bJmh%2Fimage.png?alt=media&#x26;token=c21bc66d-06bf-4a68-96b4-00aeb0b4af66" alt="" width="375"><figcaption></figcaption></figure>
@@ -211,6 +208,10 @@ If you encounter errors or do not see the available tools, you typically have a 
 {% hint style="success" %}
 You can now access the secured MS Learn MCP Tool Server via the Gravitee Gateway using Entra ID OAuth.
 {% endhint %}
+
+### Step 6: (Optionally) Secure access to a specific Tool on the MCP Tool Server
+
+You can now use the MCP ACLs Policy to limit users/clients to specific tools.  View the [MCP ACLs Policy](../../create-and-configure-apis/apply-policies/policy-reference/ai-mcp-acl.md) for more information.
 
 ## Appendix 1: Reference MCP-Proxy and Entra ID App Registration configurations
 
@@ -466,3 +467,30 @@ The sequence follows six main phases:
 6. **Resolution**: Gravitee validates the token and, if correct, forwards the original request to the MCP Tool Server, allowing the user to successfully complete their action.
 
 <figure><img src="../../.gitbook/assets/secure-a-mcp-proxy-with-entra-id-oauth-flow1.png" alt=""><figcaption></figcaption></figure>
+
+## Appendix 3: Working with Claude Code
+
+To operate with Claude Code, you will need to add the relevant RedirectURI to your Entra ID Application:
+
+* **Platform Type**: Mobile and desktop applications
+* **Redirect URI**: `http://localhost:8765/callback`
+
+Claude Code requires a slightly different MCP configuration, as shown below:
+
+{% code title=".claude.json" %}
+```json
+{
+  "mcpServers": {
+    "demo-ms-learn-mcp": {
+      "type": "http",
+      "url": "https://mygateway.mycompany.com/ms-learn-mcp",
+      "oauth": {
+        "clientId": "...",
+        "callbackPort": 8765,
+        "scopes": "https://mygateway.mycompany.com/ms-learn-mcp/user_impersonation"
+      }
+    }
+  }
+}
+```
+{% endcode %}
