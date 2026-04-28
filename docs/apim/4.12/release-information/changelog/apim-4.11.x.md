@@ -1,5 +1,23 @@
 # APIM 4.11.x
  
+## Gravitee API Management 4.11.4 - April 21, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Console**
+
+* Unable to edit inline Markdown document/page for v2 APIs and portal documentation [#11348](https://github.com/gravitee-io/issues/issues/11348)
+
+**Portal**
+
+* Group users of an API cannot see it in the Next Gen Portal [#11360](https://github.com/gravitee-io/issues/issues/11360)
+* Documentation items permissions are different from catalog permissions [#11361](https://github.com/gravitee-io/issues/issues/11361)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.11.3 - April 21, 2026
 <details>
 
