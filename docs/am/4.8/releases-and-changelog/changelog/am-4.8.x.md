@@ -21,6 +21,7 @@ description: >-
 **Other**
 
 * VHost with path "/" throws ArrayIndexOutOfBoundsException [#11358](https://github.com/gravitee-io/issues/issues/11358)
+* SMTP resource implict authentication [#11372](https://github.com/gravitee-io/issues/issues/11372)
 
 </details>
 
