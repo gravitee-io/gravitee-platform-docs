@@ -37,6 +37,7 @@
 * [Manage JWT subscriptions with GKO](guides/manage-jwt-subscriptions-with-gko.md)
 * [Define an APIM service account for GKO](guides/define-an-apim-service-account-for-gko.md)
 * [Deploy APIs to a Gateway](guides/deploy-apis-to-a-gateway.md)
+* [Managing API Key Subscriptions with GKO](guides/managing-api-key-subscriptions-with-gko.md)
 * [Publish APIs to the Developer Portal](guides/publish-apis-to-the-portal.md)
 * [Manage API documentation pages](guides/manage-api-documentation-pages.md)
 * [Manage API and application groups and members](guides/manage-api-groups-and-members.md)
