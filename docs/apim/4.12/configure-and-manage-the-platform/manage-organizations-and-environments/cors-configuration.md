@@ -21,7 +21,7 @@ You can apply CORS at following levels:
 
 When you apply CORS configurations, the API level overrides the Environment level, and the environment level overrides the Organization level.
 
-You can configure CORS at the organization level using `gravitee.yml`, environment variables, or directly in APIM Console. Here are examples that configures CORS in the `gravitee.yml` file and with environment variables:
+You can configure CORS at the organization level using `gravitee.yml`, environment variables, the Helm chart, or directly in the APIM Console. Use the tab that matches your deployment method.
 
 {% tabs %}
 {% tab title="gravitee.yaml" %}
@@ -63,20 +63,46 @@ http:
 {% endcode %}
 {% endtab %}
 
-{% tab title="environment variables" %}
+{% tab title=".env" %}
+Add the following variables to the `.env` file loaded by your `docker-compose.yml`, or to the `environment:` block of the Management API service:
+
+```bash
+gravitee_http_api_management_allow-origin=http://developer.mycompany.com
+gravitee_http_api_management_allow-headers=X-Requested-With
+gravitee_http_api_management_allow-methods='OPTIONS; GET; POST; PUT; DELETE'
+gravitee_http_api_management_exposed-headers=
+gravitee_http_api_management_max-age=864000
+
+gravitee_http_api_portal_allow-origin=http://developer.mycompany.com
+gravitee_http_api_portal_allow-headers=X-Requested-With
+gravitee_http_api_portal_allow-methods='OPTIONS; GET; POST; PUT; DELETE'
+gravitee_http_api_portal_exposed-headers=
+gravitee_http_api_portal_max-age=864000
 ```
-gravitee_http_api_management_allow-origin
-gravitee_http_api_management_allow-headers
-gravitee_http_api_management_allow-methods
-gravitee_http_api_management_exposed-headers
-gravitee_http_api_management_max-age
+{% endtab %}
 
+{% tab title="Helm values.yaml" %}
+The APIM Helm chart doesn't expose dedicated CORS keys for the Management API or Portal API. Inject the equivalent environment variables through the `api.env` array of your `values.yaml` file:
 
-gravitee_http_api_portal_allow-origin
-gravitee_http_api_portal_allow-headers
-gravitee_http_api_portal_allow-methods
-gravitee_http_api_portal_exposed-headers
-gravitee_http_api_portal_max-age
+```yaml
+api:
+  env:
+    - name: gravitee_http_api_management_allow-origin
+      value: http://developer.mycompany.com
+    - name: gravitee_http_api_management_allow-headers
+      value: X-Requested-With
+    - name: gravitee_http_api_management_allow-methods
+      value: 'OPTIONS; GET; POST; PUT; DELETE'
+    - name: gravitee_http_api_management_max-age
+      value: "864000"
+    - name: gravitee_http_api_portal_allow-origin
+      value: http://developer.mycompany.com
+    - name: gravitee_http_api_portal_allow-headers
+      value: X-Requested-With
+    - name: gravitee_http_api_portal_allow-methods
+      value: 'OPTIONS; GET; POST; PUT; DELETE'
+    - name: gravitee_http_api_portal_max-age
+      value: "864000"
 ```
 {% endtab %}
 {% endtabs %}

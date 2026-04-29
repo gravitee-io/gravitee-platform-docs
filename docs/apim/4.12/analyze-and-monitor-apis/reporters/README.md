@@ -17,8 +17,10 @@ ElasticSearch is the default reporter for gateway runtime data and is required f
 If you want to monitor the **server** logs from the gateway or the management API, you can use an agent for your observability platform (e.g. the [Datadog agent](https://docs.datadoghq.com/agent/?tab=Linux)) to tail the server logs. If you want to monitor the server metrics from your Gravitee infrastructure (e.g. CPU and memory usage), you can instrument the server directly or use the Prometheus endpoint for the Gravitee component.
 {% endhint %}
 
-You can configure various aspects of reporters, such as reporting monitoring data, request metrics, and health checks. All reporters are enabled by default. To stop a reporter, you need to add the property `enabled: false`:
+You can configure various aspects of reporters, such as reporting monitoring data, request metrics, and health checks. All reporters are enabled by default. To stop a reporter, you need to add the property `enabled: false`. Use the tab that matches your deployment method.
 
+{% tabs %}
+{% tab title="gravitee.yaml" %}
 ```yaml
 reporters:
   elasticsearch:
@@ -32,6 +34,41 @@ reporters:
 #       username:
 #       password:
 ```
+{% endtab %}
+
+{% tab title=".env" %}
+Add the following variables to the `.env` file loaded by your `docker-compose.yml`, or to the `environment:` block of the Gateway service:
+
+```bash
+gravitee_reporters_elasticsearch_endpoints_0=http://localhost:9200
+# gravitee_reporters_elasticsearch_index=gravitee
+# gravitee_reporters_elasticsearch_bulk_actions=500
+# gravitee_reporters_elasticsearch_bulk_flush_interval=1
+# gravitee_reporters_elasticsearch_security_username=
+# gravitee_reporters_elasticsearch_security_password=
+```
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+The Elasticsearch reporter is enabled by default in the APIM Helm chart. Connection details come from the shared `es:` block; reporter-specific toggles go under `gateway.reporters.elasticsearch`:
+
+```yaml
+gateway:
+  reporters:
+    elasticsearch:
+      enabled: true
+
+es:
+  endpoints:
+    - http://elasticsearch-master:9200
+  index: gravitee
+  security:
+    enabled: false
+    # username:
+    # password:
+```
+{% endtab %}
+{% endtabs %}
 
 This page documents the available reporters and the metrics and logs captured by each reporter, in a generic format. The configuration for each reporter and the format of the metrics in those reporting systems are covered in their own pages.
 
@@ -64,10 +101,10 @@ Some policies emit custom metrics that appear in the API analytics dashboard. Th
 
 The PII Filtering Policy emits the following custom metrics when PII is detected:
 
-| Metric Name              | Type | Purpose                                                                                      |
-| ------------------------ | ---- | -------------------------------------------------------------------------------------------- |
-| `long_pii_total`         | long | Total count of PII detections across all categories                                          |
-| `long_pii_<category>`    | long | Per-category PII detection count (e.g., `long_pii_person`, `long_pii_email`, `long_pii_location`) |
+| Metric Name           | Type | Purpose                                                                                           |
+| --------------------- | ---- | ------------------------------------------------------------------------------------------------- |
+| `long_pii_total`      | long | Total count of PII detections across all categories                                               |
+| `long_pii_<category>` | long | Per-category PII detection count (e.g., `long_pii_person`, `long_pii_email`, `long_pii_location`) |
 
 These metrics are incremented for each detected PII entity and are visible in the API analytics dashboard alongside standard request metrics.
 

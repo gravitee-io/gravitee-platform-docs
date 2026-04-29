@@ -26,50 +26,52 @@ To configure configuration-level secrets, complete the following steps:
 
 ### Configure Gravitee to access a secret manager
 
-Once your instance of HashiCorp Vault is configured, you can then apply the configuration using the  `gravitee.yml` file, the Helm chart, or environment variables.
+Once your instance of HashiCorp Vault is configured, you can then apply the configuration using the `gravitee.yml` file, the Helm chart, or environment variables.
 
-#### Option 1: Configure access to a secret manager with a `gravitee.yml` file
+{% tabs %}
+{% tab title="gravitee.yaml" %}
+In your `gravitee.yml` file, add the following configuration:
 
-*   In your `gravitee.yml` file, add the following configuration:
+```yaml
+secrets:
+  vault:
+    enabled: true
+    host: 127.0.0.1
+    port: 8200
+    ssl:
+      enabled: false
+    auth:
+      method: token
+      config:
+        token: root
+```
+{% endtab %}
 
-    ```yaml
-    secrets:
-      vault:
-        enabled: true
-        host: 127.0.0.1      
-        port: 8200
-        ssl:
-          enabled: false
-        auth:
-          method: token 
-          config:
-            token: root
-    ```
+{% tab title=".env" %}
+In your `docker-compose.yml` file, add the following environment variables to the Gateway service:
 
-#### Option 2: Configure access to a secret manager with a Helm chart
+```bash
+GRAVITEE_SECRETS_VAULT_ENABLED="true"
+GRAVITEE_SECRETS_VAULT_HOST="127.0.0.1"
+GRAVITEE_SECRETS_VAULT_PORT="8200"
+GRAVITEE_SECRETS_VAULT_SSL_ENABLED="true"
+GRAVITEE_SECRETS_VAULT_AUTH_METHOD="token"
+GRAVITEE_SECRETS_VAULT_AUTH_CONFIG_TOKEN="root"
+```
+{% endtab %}
 
-*   In your Helm chart, add the following configuration:
+{% tab title="Helm values.yaml" %}
+In your `values.yaml` file, add the following configuration. Nest under `gateway:` for the Gateway and under `api:` for the Management API:
 
-    ```yaml
-    gateway:
-      secrets:
-        vault:
-          enabled: true
-          ## other properties as listed above
-    ```
-
-#### Option 3: Configure access to a secret manager with environment variables
-
-*   In your `docker-compose.yml` file, add the following configuration:
-
-    ```bash
-    GRAVITEE_SECRETS_VAULT_ENABLED="true"
-    GRAVITEE_SECRETS_VAULT_HOST="127.0.0.1"
-    GRAVITEE_SECRETS_VAULT_PORT="8200"
-    GRAVITEE_SECRETS_VAULT_SSL_ENABLED="true"
-    GRAVITEE_SECRETS_VAULT_AUTH_METHOD="token"
-    GRAVITEE_SECRETS_VAULT_AUTH_CONFIG_TOKEN="root"
-    ```
+```yaml
+gateway:
+  secrets:
+    vault:
+      enabled: true
+      ## other properties as listed in the gravitee.yaml tab
+```
+{% endtab %}
+{% endtabs %}
 
 {% hint style="info" %}
 For more information about configuring access to your secret manager, see [configuration.md](configuration.md "mention").
