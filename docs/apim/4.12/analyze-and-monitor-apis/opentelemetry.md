@@ -16,7 +16,7 @@ The OpenTelemetry framework supports standardized observability, which means tha
 
 With OpenTelemetry, tracers are created for specific services. By default, a global tracer is created for a Gateway-level service and follows the same lifecycle as the Gateway. For v2 APIs, this global tracer is used when you enable OpenTelemetry in the Gateway configuration. Optionally, you can create a tracer when a v4 API is deployed. An API-level tracer follows the same lifecycle as the API and stops when you undeploy an API.
 
-You can enable verbose tracing for v4 APIs. Verbose mode adds detailed execution events to each policy span, capturing headers and context attributes before and after policy execution. When verbose tracing is enabled, policy descriptions configured in policy step definitions are included in tracing spans as the `gravitee.policy.description` attribute, improving observability by annotating trace data with the purpose or intent of each policy step.
+You can enable verbose tracing for v4 APIs. Verbose mode adds detailed execution events to each policy span, which captures headers and context attributes before and after policy execution. When you enable verbose tracing, policy descriptions configured in policy step definitions are included in tracing spans as the `gravitee.policy.description` attribute. This inclusion improves observability by annotating trace data with the purpose or intent of each policy step.
 
 To enable OpenTelemetry, complete the following steps:
 
@@ -28,7 +28,7 @@ To enable OpenTelemetry, complete the following steps:
 Gravitee follows OpenTelemetry naming conventions:
 
 * Standard attributes are prefixed with `gravitee.`.
-* Custom attributes remain unchanged without a prefix or alteration. For example, attributes added via the Assign Attributes policy.
+* Custom attributes remain unchanged without a prefix or alteration. For example, attributes added with the Assign Attributes policy.
 * Headers are prefixed with `http.request.` or `http.response.` based on the execution phase.
 * Gravitee-specific headers contain `X-Gravitee` in their names.
 
@@ -179,7 +179,7 @@ Standard tracing is enabled by default. It captures request and response flow, p
 
 ### (Optional) Verbose mode
 
-Verbose mode adds detailed execution events to each policy span. It captures the complete state before and after policy execution through span events that include headers and context attributes. When verbose tracing is enabled, policy descriptions configured in policy step definitions are included in tracing spans as the `gravitee.policy.description` attribute.
+Verbose mode adds detailed execution events to each policy span. It captures the complete state before and after policy execution through span events that include headers and context attributes. When you enable verbose tracing, policy descriptions configured in policy step definitions are included in tracing spans as the `gravitee.policy.description` attribute.
 
 #### What verbose mode captures
 
@@ -227,23 +227,23 @@ Verbose mode affects resource usage in the following ways:
 
 ## Policy description tracing
 
-Policy description tracing enables API administrators to include human-readable policy descriptions in distributed tracing spans when verbose tracing is enabled. This feature improves observability by annotating trace data with the purpose or intent of each policy step, making it easier to diagnose API execution flows and troubleshoot issues across request and message processing pipelines.
+Policy description tracing enables API administrators to include human-readable policy descriptions in distributed tracing spans when verbose tracing is enabled. This feature annotates trace data with the purpose or intent of each policy step. This feature makes it easier to diagnose API execution flows and troubleshoot issues across request and message processing pipelines.
 
 ### Tracing span attributes
 
-When verbose tracing is enabled, the gateway adds a `gravitee.policy.description` attribute to each policy execution span. The attribute value is populated from the description field configured in the policy step definition. If the description is blank or verbose tracing is disabled, the attribute is omitted. Existing span attributes (`gravitee.policy`, `gravitee.phase`, `messaging.message.id`, `messaging.operation.type`) remain unchanged.
+When you enable verbose verbose tracing, the gateway adds a `gravitee.policy.description` attribute to each policy execution span. The attribute value is populated from the description field configured in the policy step definition. If the description is blank or if you disable verbose tracing, the attribute is omitted. Existing span attributes, for example, `gravitee.policy`, `gravitee.phase`, `messaging.message.id`, `messaging.operation.type`, have not changed.
 
 ### Shared Policy Groups
 
-Shared Policy Groups allow reusable policy chains to be referenced across multiple flows. Policy descriptions from steps within a Shared Policy Group are included in tracing spans when verbose mode is enabled. Nested Shared Policy Groups (a Shared Policy Group referencing another Shared Policy Group) are not supported and will be skipped with a warning logged to the gateway.
+Shared Policy Groups allow reusable policy chains to be referenced across multiple flows. Policy descriptions from steps within a Shared Policy Group are included in tracing spans when you enable verbose mode. Nested Shared Policy Groups, which is a Shared Policy Group referencing another Shared Policy Group, are not supported and are skipped with a warning logged to the Gateway.
 
 ### Creating policy descriptions
 
-To enable policy description tracing, configure a description for each policy step in your API flow definition. When the gateway executes the policy, it stores the description in an internal execution context attribute. The tracing hook reads this attribute and adds the `gravitee.policy.description` span attribute if verbose tracing is enabled. For Shared Policy Groups, descriptions from individual steps within the group are captured and traced in the same manner. If a policy step has no description or the description is blank, the attribute is omitted from the span.
+To create policy description tracing, configure a description for each policy step in your API flow definition. When the gateway executes the policy, it stores the description in an internal execution context attribute. The tracing hook reads this attribute and adds the `gravitee.policy.description` span attribute if  you enable verbose tracing. For Shared Policy Groups, descriptions from individual steps within the group are captured and traced in the same way. If a policy step has no description or the description is blank, the attribute is not included in the span.
 
 ### Viewing tracing data
 
-After enabling verbose tracing and configuring policy descriptions, tracing spans will include the `gravitee.policy.description` attribute alongside existing attributes (`gravitee.policy`, `gravitee.phase`). For message policies, spans also include `messaging.message.id` and `messaging.operation.type` set to `PROCESS`. The description attribute is cleared between policy executions; if a subsequent policy has no description, the attribute is set to `null` in the execution context.
+After you enable verbose tracing and configuring policy descriptions, tracing spans include the `gravitee.policy.description` attribute awith existing attribute like `gravitee.policy`, `gravitee.phase`. For message policies, spans also include `messaging.message.id` and `messaging.operation.type` that are set to `PROCESS`. The description attribute is cleared between policy executions. If a subsequent policy has no description, the attribute is set to `null` in the execution context.
 
 The attribute is visible on the span corresponding to the policy execution in any connected OpenTelemetry-compatible observability backend, for example:
 
@@ -254,8 +254,8 @@ The attribute is visible on the span corresponding to the policy execution in an
 
 Policy description tracing has the following restrictions:
 
-* Policy descriptions are included in tracing spans only when verbose tracing is explicitly enabled via the internal execution context attribute.
-* Nested Shared Policy Groups are not supported; steps with policy ID matching the Shared Policy Group identifier are skipped and a warning is logged: "Nested Shared Policy Group is not supported. The Shared Policy Group {name} will be ignored".
+* Policy descriptions are included in tracing spans only when verbose tracing is explicitly enabled using the internal execution context attribute.
+* Nested Shared Policy Groups are not supported. Steps with policy ID matching the Shared Policy Group identifier are skipped and a warning is logged with the following message: "Nested Shared Policy Group is not supported. The Shared Policy Group {name}will be ignored".
 * Blank or whitespace-only descriptions are treated as absent and not added to spans.
 * The description attribute is cleared between policy executions; if a policy has no description, the attribute is set to `null`.
 * Disabled steps are excluded from tracing.
@@ -267,9 +267,9 @@ This feature applies to the following API types:
 * v4 HTTP/Proxy APIs
 * v2 APIs
 * v4 Message APIs
-* Shared Policy Groups (across all API types)
+* Shared Policy Groups across all API types
 
-APIs without policy descriptions continue to work unchanged. APIs with policy descriptions will automatically include them in tracing spans when verbose tracing is enabled. No breaking changes are introduced; existing tracing behavior remains intact when verbose mode is disabled.
+APIs without policy descriptions continue to work wtihout changes. APIs with policy descriptions automatically include them in tracing spans when verbose tracing is enabled. No breaking changes are introduced. Existing tracing behavior remains intact when verbose mode is disabled.
 
 ## OpenTelemetry API trace details
 
@@ -282,7 +282,7 @@ You can use OpenTelemetry traces to view the following API transaction details:
 * Number of messages. This number is based on the defined sampling value.
 * Type of server used. For example, Mock or Kafka.
 * Policies that are executed.
-* Policy descriptions (when verbose tracing is enabled).
+* Policy descriptions when you enable verbose tracing.
 * `message_Id`. For example, the ID of each message in a Kafka topic.
 * If you call an API with invalid authentication, you can see a trace with a warning and logs with details about the errors.
 * For a POST or GET request, you see the following information: `request_body_size`, `request_content_length`, `context-path`, `host.name` and `http_status_code`.
