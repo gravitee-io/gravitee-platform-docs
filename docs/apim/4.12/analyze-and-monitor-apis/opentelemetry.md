@@ -243,7 +243,7 @@ To create policy description tracing, configure a description for each policy st
 
 ### Viewing tracing data
 
-After you enable verbose tracing and configuring policy descriptions, tracing spans include the `gravitee.policy.description` attribute awith existing attribute like `gravitee.policy`, `gravitee.phase`. For message policies, spans also include `messaging.message.id` and `messaging.operation.type` that are set to `PROCESS`. The description attribute is cleared between policy executions. If a subsequent policy has no description, the attribute is set to `null` in the execution context.
+After you enable verbose tracing and configuring policy descriptions, tracing spans include the `gravitee.policy.description` attribute with existing attribute like `gravitee.policy`, `gravitee.phase`. For message policies, spans also include `messaging.message.id` and `messaging.operation.type` that are set to `PROCESS`. The description attribute is cleared between policy executions. If a subsequent policy has no description, the attribute is set to `null` in the execution context.
 
 The attribute is visible on the span corresponding to the policy execution in any connected OpenTelemetry-compatible observability backend, for example:
 
