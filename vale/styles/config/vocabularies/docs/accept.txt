@@ -435,8 +435,8 @@ balancer's
 [Ss]harding
 [Kk]eyless
 [Ee]ndhint
-[Ee]ndtab
-endtab
+[Ee]ndtabs?
+endtabs?
 [Aa]sync
 async
 [Uu]nconfigured
@@ -481,3 +481,5 @@ JSONPath
 GZIP
 [Hh]inglish
 [Mm]inuva
+JWTs?
+Okta

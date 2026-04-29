@@ -10,9 +10,13 @@ The following sections describe how to configure in-memory users, LDAP authentic
 
 ## In-memory users
 
-This example shows a basic in-memory implementation, providing a simple and convenient way to declare advanced users of APIM, such as administrator users. To do this, you could configure the `gravitee.yaml` file as follows:
+This example shows a basic in-memory implementation, providing a simple and convenient way to declare advanced users of APIM, such as administrator users. Use the tab that matches your deployment method.
 
-<pre class="language-yaml"><code class="lang-yaml"># Authentication and identity sources
+{% tabs %}
+{% tab title="gravitee.yaml" %}
+{% code title="gravitee.yml" %}
+```yaml
+# Authentication and identity sources
 # Users can have following roles (authorities):
 #  USER: Can access portal and be a member of an API
 #  API_PUBLISHER: Can create and manage APIs
@@ -22,14 +26,14 @@ security:
   # When using an authentication providers, use trustAll mode for TLS connections
   # trustAll: false
   providers:  # authentication providers
-    - type: <a data-footnote-ref href="#user-content-fn-1">memory</a>
+    - type: memory
       # allow search results to display the user email. Be careful, It may be contrary to the user privacy.
 #      allow-email-in-search-results: true
       # password encoding/hashing algorithm. One of:
       # - bcrypt : passwords are hashed with bcrypt (supports only $2a$ algorithm)
       # - none : passwords are not hashed/encrypted
       # default value is bcrypt
-      pasasword-encoding-algo: bcrypt
+      password-encoding-algo: bcrypt
       users:
         - user:
           username: user
@@ -66,8 +70,57 @@ security:
           password: $2a$10$2gtKPYRB9zaVaPcn5RBx/.3T.7SeZoDGs9GKqbo9G64fKyXFR1He.
           roles: ORGANIZATION:USER,ENVIRONMENT:USER
           #email:
+```
+{% endcode %}
+{% endtab %}
 
-</code></pre>
+{% tab title=".env" %}
+For Docker Compose, in-memory user lists are most reliably defined in `gravitee.yml` mounted into the Management API container. The provider type and password encoding can be set via environment variables in the `.env` file or the `environment:` block of the Management API service:
+
+```bash
+gravitee_security_providers_0_type=memory
+gravitee_security_providers_0_password-encoding-algo=bcrypt
+gravitee_security_providers_0_allow-email-in-search-results=false
+```
+
+For the user list, mount a `gravitee.yml` file containing the `security.providers[].users` block into `/opt/graviteeio-management-api/config/gravitee.yml`.
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+Set the `inMemoryAuth` block, the admin account values, and `extraInMemoryUsers` in your `values.yaml` file. The APIM Helm chart renders these values into a `security.providers[]` entry of type `memory` in the Management API `gravitee.yml` at install time:
+
+```yaml
+inMemoryAuth:
+  enabled: true
+  allowEmailInSearchResults: false
+  passwordEncodingAlgo: bcrypt
+
+# Default admin account (set adminAccountEnable=false to disable)
+adminAccountEnable: true
+adminPasswordBcrypt: $2a$10$Ihk05VSds5rUSgMdsMVi9OKMIx2yUvMz7y9VP3rJmQeizZLrhLMyq
+adminEmail:
+adminFirstName:
+adminLastName:
+
+extraInMemoryUsers: |
+  - user:
+    username: user
+    # Password value: password
+    password: $2a$10$9kjw/SH9gucCId3Lnt6EmuFreUAcXSZgpvAYuW2ISv7hSOhHRH1AO
+    roles: ORGANIZATION:USER, ENVIRONMENT:USER
+  - user:
+    username: api1
+    # Password value: api1
+    password: $2a$10$iXdXO4wAYdhx2LOwijsp7.PsoAZQ05zEdHxbriIYCbtyo.y32LTji
+    roles: ORGANIZATION:USER, ENVIRONMENT:API_PUBLISHER
+  - user:
+    username: application1
+    # Password value: application1
+    password: $2a$10$2gtKPYRB9zaVaPcn5RBx/.3T.7SeZoDGs9GKqbo9G64fKyXFR1He.
+    roles: ORGANIZATION:USER, ENVIRONMENT:USER
+```
+{% endtab %}
+{% endtabs %}
 
 ### Generate a new password
 
@@ -79,9 +132,11 @@ htpasswd -bnBC 10 "" new_password | tr -d ':\n'
 
 ## LDAP authentication
 
-There are many ways to configure users via LDAP. To illustrate the basic concepts, here are two examples using the `gravitee.yaml` file and the [Gravitee Helm chart](https://github.com/gravitee-io/gravitee-api-management/blob/master/helm/values.yaml) `values.yml` file:
+There are many ways to configure users via LDAP. The following example illustrates the basic concepts. Use the tab that matches your deployment method.
 
-{% code title="gravitee.yaml" %}
+{% tabs %}
+{% tab title="gravitee.yaml" %}
+{% code title="gravitee.yml" %}
 ```yaml
 # ===================================================================
 # LDAP SECURITY PROPERTIES
@@ -118,8 +173,25 @@ security:
           filter: "(&(objectClass=myObjectClass)(|(cn=*{0}*)(uid={0})))"
 ```
 {% endcode %}
+{% endtab %}
 
-{% code title="values.yml" %}
+{% tab title=".env" %}
+For Docker Compose, LDAP user and group filters are most reliably defined in `gravitee.yml` mounted into the Management API container. The basic LDAP provider settings can be set via environment variables in the `.env` file or the `environment:` block of the Management API service:
+
+```bash
+gravitee_security_providers_0_type=ldap
+gravitee_security_providers_0_context_username=uid=admin,ou=system
+gravitee_security_providers_0_context_password=secret
+gravitee_security_providers_0_context_url=ldap://localhost:389/dc=gravitee,dc=io
+gravitee_security_providers_0_context_base=c=io,o=gravitee
+```
+
+For the full `authentication`, `lookup`, and `role.mapper` blocks, mount a `gravitee.yml` file containing the `security.providers[]` entry into `/opt/graviteeio-management-api/config/gravitee.yml`.
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+Set the `ldap` block in your `values.yaml` file. The APIM Helm chart renders these values into a `security.providers[]` entry of type `ldap` in the Management API `gravitee.yml` at install time:
+
 ```yaml
 ldap:
   enabled: true
@@ -165,18 +237,44 @@ ldap:
       # The filter can be any type of complex LDAP query
       filter: (&(objectClass=person)(|(cn=*{0}*)(sAMAccountName={0})))
 ```
-{% endcode %}
+{% endtab %}
+{% endtabs %}
 
 ## APIM data source authentication
 
 APIM allows users to connect using an APIM data source. This is required if you want to add and register users via self-registration.
 
-To activate this provider, all you need to do is declare it in the `gravitee.yaml` file. All data source information is then retrieved from the Management Repository configuration.
+All data source information is retrieved from the Management Repository configuration. Use the tab that matches your deployment method.
 
+{% tabs %}
+{% tab title="gravitee.yaml" %}
+{% code title="gravitee.yml" %}
 ```yaml
 security:
   providers:
     - type: gravitee
 ```
+{% endcode %}
+{% endtab %}
+
+{% tab title=".env" %}
+Add the following variable to the `.env` file loaded by your `docker-compose.yml`, or to the `environment:` block of the Management API service:
+
+```bash
+gravitee_security_providers_0_type=gravitee
+```
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+The APIM data source provider is enabled by default. Confirm or set `graviteeRepoAuth.enabled` in your `values.yaml` file:
+
+```yaml
+graviteeRepoAuth:
+  enabled: true
+```
+
+The chart renders this as a `security.providers[]` entry of type `gravitee` in the Management API `gravitee.yml` at install time.
+{% endtab %}
+{% endtabs %}
 
 [^1]: insert memory here.
