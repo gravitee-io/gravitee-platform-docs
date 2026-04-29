@@ -14,11 +14,11 @@ Gravitee APIM can use a variety of JDBC repositories for its Configuration Datab
 From Gravitee APIM v4.11, the default images now include the following JDBC drivers:
 
 * PostgreSQL JDBC Driver (42.7.7+)
-* MariaDB Connector/J (3.5.6+), and&#x20;
+* MariaDB Connector/J (3.5.6+), and
 * Microsoft JDBC Driver for SQL Server (12.10.2.jre11+)
 
 {% hint style="warning" %}
-Due to licensing restrictions, MySQL drivers are intentionally not bundled in the default images.  You must follow these [steps](jdbc.md#install-the-mysql-jdbc-driver) to manually include the relevant MySQL Connector/J driver.
+Due to licensing restrictions, MySQL drivers are intentionally not bundled in the default images. You must follow these [steps](jdbc.md#install-the-mysql-jdbc-driver) to manually include the relevant MySQL Connector/J driver.
 {% endhint %}
 
 ## Supported Databases
@@ -35,7 +35,7 @@ This section only applies if you want to use MySQL as the Configuration Database
 
 Because licensing restrictions prevent the inclusion of the MySQL JDBC driver in the default Gravitee images, you must manually include the driver.
 
-If you are configuring Gravitee with the Helm chart and using the MySQL JDBC, please refer to these [steps](jdbc.md#mysql-configuration-with-gravitee-helm-chart).  Otherwise, repeat these steps for each component (APIM Gateway and APIM Management API) where the MySQL database is used:
+If you are configuring Gravitee with the Helm chart and using the MySQL JDBC, please refer to these [steps](jdbc.md#mysql-configuration-with-gravitee-helm-chart). Otherwise, repeat these steps for each component (APIM Gateway and APIM Management API) where the MySQL database is used:
 
 1. Download the JDBC driver corresponding to your database version
 2. Place the driver in `$GRAVITEE_HOME/plugins/ext/repository-jdbc`
@@ -51,8 +51,10 @@ If you're using Docker to install and run APIM, place the driver in the `plugins
 
 ### Mandatory configuration
 
-Below is the minimum configuration needed to get started with a JDBC database.
+Below is the minimum configuration needed to get started with a JDBC database. Use the tab that matches your deployment method.
 
+{% tabs %}
+{% tab title="gravitee.yaml" %}
 {% code title="gravitee.yml" %}
 ```yaml
 management:
@@ -61,11 +63,40 @@ management:
     url:                 # jdbc url
 ```
 {% endcode %}
+{% endtab %}
+
+{% tab title=".env" %}
+Add the following variables to the `.env` file loaded by your `docker-compose.yml`, or to the `environment:` block of the Management API and Gateway services:
+
+```bash
+gravitee_management_type=jdbc
+gravitee_management_jdbc_url=
+```
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+Set `management.type=jdbc` and the `jdbc:` block in your `values.yaml` file:
+
+```yaml
+management:
+  type: jdbc
+jdbc:
+  driverSource: auto
+  url:
+  username:
+  password:
+```
+
+For a complete per-database example, see the [PostgreSQL](jdbc.md#postgresql-configuration-with-gravitee-helm-chart), [MariaDB](jdbc.md#mariadb-configuration-with-gravitee-helm-chart), [SQL Server](jdbc.md#microsoft-sql-server-configuration-with-gravitee-helm-chart), or [MySQL](jdbc.md#mysql-configuration-with-gravitee-helm-chart) section below.
+{% endtab %}
+{% endtabs %}
 
 ### Optional configuration
 
-You can configure the following additional properties to fine-tune your JDBC connection and control the behavior of your JDBC database.
+You can configure the following additional properties to fine-tune your JDBC connection and control the behavior of your JDBC database. Use the tab that matches your deployment method.
 
+{% tabs %}
+{% tab title="gravitee.yaml" %}
 {% code title="gravitee.yml" %}
 ```yaml
 management:
@@ -84,6 +115,63 @@ management:
         maxPoolSize:            # jdbc max pool size (default 10)
 ```
 {% endcode %}
+{% endtab %}
+
+{% tab title=".env" %}
+Add the following variables to the `.env` file loaded by your `docker-compose.yml`, or to the `environment:` block of the Management API and Gateway services:
+
+```bash
+gravitee_management_type=jdbc
+gravitee_management_jdbc_prefix=
+gravitee_management_jdbc_url=
+gravitee_management_jdbc_username=
+gravitee_management_jdbc_password=
+gravitee_management_jdbc_pool_autoCommit=true
+gravitee_management_jdbc_pool_connectionTimeout=10000
+gravitee_management_jdbc_pool_idleTimeout=600000
+gravitee_management_jdbc_pool_maxLifetime=1800000
+gravitee_management_jdbc_pool_minIdle=10
+gravitee_management_jdbc_pool_maxPoolSize=10
+```
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+Set the `jdbc:` block in your `values.yaml` file. The chart renders `jdbc.url`, `jdbc.username`, `jdbc.password`, `jdbc.schema`, `jdbc.liquibase`, and the `jdbc.pool` block into the Management API and Gateway `gravitee.yml` files at install time:
+
+```yaml
+management:
+  type: jdbc
+jdbc:
+  driverSource: auto
+  url:
+  username:
+  password:
+  schema: public
+  liquibase: true
+  pool:
+    autoCommit: true
+    connectionTimeout: 10000
+    idleTimeout: 600000
+    maxLifetime: 1800000
+    minIdle: 10
+    maxPoolSize: 10
+    registerMbeans: true
+```
+
+The chart doesn't expose a dedicated `jdbc.prefix` value. To set a custom table prefix, inject the equivalent environment variables through the `api.env` and `gateway.env` arrays of your `values.yaml` file:
+
+```yaml
+api:
+  env:
+    - name: gravitee_management_jdbc_prefix
+      value: prefix_
+gateway:
+  env:
+    - name: gravitee_management_jdbc_prefix
+      value: prefix_
+```
+{% endtab %}
+{% endtabs %}
 
 ## Gravitee Helm chart JDBC configuration details
 
@@ -299,5 +387,4 @@ Some databases have an option to enforce the use of a primary key on all tables,
 
 During future upgrades, you will need add back `?sessionVariables=sql_require_primary_key=OFF` during the upgrade only.
 
-:information\_source: More information:  [https://dev.mysql.com/doc/connector-j/en/connector-j-connp-props-session.html](https://dev.mysql.com/doc/connector-j/en/connector-j-connp-props-session.html)
-
+:information\_source: More information: [https://dev.mysql.com/doc/connector-j/en/connector-j-connp-props-session.html](https://dev.mysql.com/doc/connector-j/en/connector-j-connp-props-session.html)
