@@ -31,7 +31,7 @@ spec:
   api:
     name: petstore-api
   plan: petstore-jwt-plan
-  application: 
+  application:
     name: petstore-consumer
 ```
 {% endcode %}
@@ -70,3 +70,66 @@ metadata:
 * The `Subscription` CRD code is available on [GitHub](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/api/v1alpha1/subscription_types.go).
 * The `Subscription` CRD API reference is documented [here](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/docs/api/reference.md#subscription).
 {% endhint %}
+
+### Overview
+
+API Key Rotation for Subscriptions enables administrators to manage multiple API keys per subscription with optional expiry dates. The feature replaces the single `customApiKey` field with an `apiKeys` array, allowing seamless key rotation without service interruption. It is available for API_KEY plan types via the Automation REST API and Kubernetes Operator.
+
+#### Reconciliation Logic
+
+The system applies the following rules during subscription updates:
+
+| Condition | Action |
+|:----------|:-------|
+| Key in spec, active in APIM | Update `expireAt` if changed |
+| Key in spec, revoked in APIM | Reactivate it |
+| Key in spec, not in APIM | Create it |
+| Key not in spec, active in APIM | Revoke immediately |
+| Key not in spec, revoked in APIM | No-op |
+
+{% hint style="info" %}
+**Key** refers to an API key defined in the GKO resource specification. **Spec** refers to the desired state declared in the Kubernetes resource.
+{% endhint %}
+
+### Restrictions
+
+- **Plan type compatibility**: The `apiKeys` array is only allowed for `API_KEY` plan types. Attempting to use it with other plan types (e.g., `JWT`) results in a validation error.
+- **Key length**: Each API key must be 32–256 characters in length.
+- **Duplicate prevention**: Duplicate keys within the `apiKeys` array are not permitted.
+- **Schema migration**: The `customApiKey` field is removed from the schema. Existing subscriptions must migrate to the `apiKeys` array format.
+- **Rotation behavior**: API key rotation requires updating the entire `apiKeys` array. Partial updates are not supported.
+- **Revocation handling**: Revoked keys remain in APIM with `revoked: true` status and are not automatically deleted.
+- **Restoration behavior**: When restoring a closed subscription with custom API keys, revoked keys are reactivated if present in the spec.
+- **Expiration**: Keys without an `expireAt` value remain valid indefinitely.
+- **Reconciliation frequency**: Key reconciliation occurs on every subscription update. Frequent updates may trigger multiple reconciliation cycles.
+
+{% hint style="warning" %}
+API key rotation requires replacing the entire `apiKeys` array. Partial updates are not supported.
+{% endhint %}
+
+### Rotating API Keys
+
+Update the `SubscriptionSpec.apiKeys` array by adding new keys and optionally retaining old keys. The system reconciles the desired state by performing the following actions:
+
+* Creating new keys not present in APIM
+* Reactivating revoked keys present in the spec
+* Revoking active keys not present in the spec
+* Updating `expireAt` for keys with changed expiry
+
+Old keys removed from the spec are revoked immediately. To rotate a key without downtime, add the new key to the array before removing the old key in a subsequent update.
+
+{% hint style="warning" %}
+Keys removed from the `apiKeys` array are revoked immediately and cannot be used for API access.
+{% endhint %}
+
+### Prerequisites
+
+Before configuring API key subscriptions, ensure the following requirements are met:
+
+* The subscription must target an `API_KEY` plan type.
+* Each API key must be between 32 and 256 characters in length.
+* The updated Kubernetes CRD (`gravitee.io_subscriptions.yaml`) must be applied before using `apiKeys` in Kubernetes resources.
+* Automation REST API clients must use the updated `SubscriptionSpec` schema.
+
+For example YAML syntax, see the "Creating a Subscription with Custom API Keys" section below.
+
