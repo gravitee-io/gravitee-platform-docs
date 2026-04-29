@@ -13,8 +13,10 @@ Gravitee uses repositories to store different types of data. They are configured
 
 ## Management Repository
 
-The Management repository is used to store global configurations such as APIs, applications, and API keys. The default configuration uses MongoDB (single server). You can configure the Management repository using the `gravitee.yml` file:
+The Management repository is used to store global configurations such as APIs, applications, and API keys. The default configuration uses MongoDB (single server). Use the tab that matches your deployment method.
 
+{% tabs %}
+{% tab title="gravitee.yaml" %}
 {% code title="gravitee.yml" %}
 ```yaml
 management:
@@ -81,13 +83,63 @@ management:
 #    socketTimeout: 250
 ```
 {% endcode %}
+{% endtab %}
+
+{% tab title=".env" %}
+Add the following variables to the `.env` file loaded by your `docker-compose.yml`, or to the `environment:` block of the Management API and Gateway services:
+
+```bash
+gravitee_management_type=mongodb
+gravitee_management_mongodb_dbname=gravitee
+gravitee_management_mongodb_host=mongodb
+gravitee_management_mongodb_port=27017
+# Single MongoDB using URI:
+# gravitee_management_mongodb_uri=mongodb://username:password@host:27017/gravitee
+```
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+Set `management.type` and the shared `mongo:` block in your `values.yaml` file. The APIM Helm chart uses the same `mongo:` block to render the Management repository connection in the Management API and Gateway `gravitee.yml` files at install time:
+
+```yaml
+management:
+  type: mongodb
+
+mongo:
+  dbhost: graviteeio-apim-mongodb-replicaset-headless
+  dbname: gravitee
+  dbport: 27017
+  rsEnabled: true
+  rs: rs0
+  connectTimeoutMS: 30000
+  sslEnabled: false
+  socketKeepAlive: false
+  auth:
+    enabled: false
+    source: admin
+    username:
+    password:
+  # Single MongoDB using URI (overrides dbhost/dbport/dbname):
+  # uri: mongodb://username:password@host:27017/gravitee
+  # Clustered MongoDB:
+  # servers: |
+  #   - host: mongo1
+  #     port: 27017
+  #   - host: mongo2
+  #     port: 27017
+```
+{% endtab %}
+{% endtabs %}
 
 ## Analytics Repository
 
-The Analytics repository stores all reporting, metrics, API logs, and health-checks for all APIM Gateway instances. The default configuration uses [Elasticsearch](https://www.elastic.co/products/elasticsearch).
+The Analytics repository stores all reporting, metrics, API logs, and health-checks for all APIM Gateway instances. The default configuration uses [Elasticsearch](https://www.elastic.co/products/elasticsearch). Use the tab that matches your deployment method.
 
+{% tabs %}
+{% tab title="gravitee.yaml" %}
 {% code title="gravitee.yml" %}
 ```yaml
+analytics:
   type: elasticsearch
   elasticsearch:
     endpoints:
@@ -98,10 +150,46 @@ The Analytics repository stores all reporting, metrics, API logs, and health-che
 #       password:
 ```
 {% endcode %}
+{% endtab %}
+
+{% tab title=".env" %}
+Add the following variables to the `.env` file loaded by your `docker-compose.yml`, or to the `environment:` block of the Management API and Gateway services:
+
+```bash
+gravitee_analytics_type=elasticsearch
+gravitee_analytics_elasticsearch_endpoints_0=http://localhost:9200
+# gravitee_analytics_elasticsearch_index=gravitee
+# gravitee_analytics_elasticsearch_security_username=
+# gravitee_analytics_elasticsearch_security_password=
+```
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+Set the `es:` block in your `values.yaml` file. The APIM Helm chart renders these values into the `analytics.elasticsearch` section of the Management API and Gateway `gravitee.yml` files at install time:
+
+```yaml
+es:
+  enabled: true
+  endpoints:
+    - http://elasticsearch-master:9200
+  index: gravitee
+  security:
+    enabled: false
+    # username:
+    # password:
+  ssl:
+    enabled: false
+    # keystore:
+    #   type: jks
+    #   path:
+    #   password:
+```
+{% endtab %}
+{% endtabs %}
 
 ## Rate Limit Repository
 
-When defining the Rate Limiting policy, the Gravitee APIM Gateway needs to store data to share with other APIM Gateway instances.
+When defining the rate-limiting policy, the Gravitee APIM Gateway needs to store data to share with other APIM Gateway instances.
 
 For Management repositories, you can define a custom prefix for the Rate Limit table or collection name.
 
