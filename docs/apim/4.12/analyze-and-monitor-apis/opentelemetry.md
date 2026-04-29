@@ -231,7 +231,7 @@ Policy description tracing enables API administrators to include human-readable 
 
 ### Tracing span attributes
 
-When you enable verbose verbose tracing, the gateway adds a `gravitee.policy.description` attribute to each policy execution span. The attribute value is populated from the description field configured in the policy step definition. If the description is blank or if you disable verbose tracing, the attribute is omitted. Existing span attributes, for example, `gravitee.policy`, `gravitee.phase`, `messaging.message.id`, `messaging.operation.type`, have not changed.
+When you enable verbose tracing, the gateway adds a `gravitee.policy.description` attribute to each policy execution span. The attribute value is populated from the description field configured in the policy step definition. If the description is blank or if you disable verbose tracing, the attribute is omitted. Existing span attributes, for example, `gravitee.policy`, `gravitee.phase`, `messaging.message.id`, `messaging.operation.type`, have not changed.
 
 ### Shared Policy Groups
 
@@ -269,7 +269,7 @@ This feature applies to the following API types:
 * v4 Message APIs
 * Shared Policy Groups across all API types
 
-APIs without policy descriptions continue to work wtihout changes. APIs with policy descriptions automatically include them in tracing spans when verbose tracing is enabled. No breaking changes are introduced. Existing tracing behavior remains intact when verbose mode is disabled.
+APIs without policy descriptions continue to work without changes. APIs with policy descriptions automatically include them in tracing spans when verbose tracing is enabled. No breaking changes are introduced. Existing tracing behavior remains intact when verbose mode is disabled.
 
 ## OpenTelemetry API trace details
 
