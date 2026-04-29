@@ -6,6 +6,26 @@ description: >-
 
 # AM 4.8.x
 
+## Gravitee Access Management 4.8.31 - April 24, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* VHost with path "/" throws ArrayIndexOutOfBoundsException [#11358](https://github.com/gravitee-io/issues/issues/11358)
+* SMTP resource implict authentication [#11372](https://github.com/gravitee-io/issues/issues/11372)
+
+</details>
+
+
 ## Gravitee Access Management 4.8.30 - April 17, 2026
 
 <details>

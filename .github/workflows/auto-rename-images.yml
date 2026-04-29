@@ -68,6 +68,7 @@ jobs:
           EXISTING_PR=$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number // empty')
           if [ -n "$EXISTING_PR" ]; then
             echo "✅ PR #$EXISTING_PR already exists for branch $BRANCH. Updated via force-push."
+            PR_NUMBER="$EXISTING_PR"
           else
             gh pr create \
               --title "fix: auto-rename generic images to descriptive names [auto-rename]" \
@@ -78,5 +79,11 @@ jobs:
           Orphan images (from GitBook space duplication) are deleted." \
               --base main \
               --head "$BRANCH"
+            PR_NUMBER=$(gh pr view "$BRANCH" --json number --jq '.number')
             echo "✅ PR created for branch $BRANCH."
+          fi
+          # Arm auto-merge so the PR merges as soon as checks pass
+          # (requires github-actions[bot] on branch protection bypass list)
+          if [ -n "$PR_NUMBER" ]; then
+            gh pr merge "$PR_NUMBER" --auto --squash || echo "⚠️ Auto-merge could not be enabled (approval likely required)."
           fi
