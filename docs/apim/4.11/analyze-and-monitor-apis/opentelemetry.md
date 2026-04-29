@@ -1,5 +1,5 @@
 ---
-description: An overview about opentelemetry.
+description: An overview about OpenTelemetry.
 ---
 
 # OpenTelemetry
@@ -42,7 +42,7 @@ Gravitee follows OpenTelemetry naming conventions:
 To enable OpenTelemetry for your Gateway, follow the steps for your installation type:
 
 {% tabs %}
-{% tab title="gravitee.yml" %}
+{% tab title="gravitee.yaml" %}
 *   To enable OpenTelemetry, add the following configuration to your `gravitee.yml` file:
 
     ```yaml
@@ -92,7 +92,7 @@ To enable OpenTelemetry for your Gateway, follow the steps for your installation
 * Replace `<OPENTELEMETRY_ENDPOINT>` with the endpoint that you use for your OpenTelemetry collector. The default endpoint is `http://localhost:4317`.
 {% endtab %}
 
-{% tab title="values.yaml" %}
+{% tab title="Helm values.yaml" %}
 *   To enable OpenTelemetry, add the following configuration to your `values.yaml` file:
 
     ```yaml
@@ -142,8 +142,8 @@ To enable OpenTelemetry for your Gateway, follow the steps for your installation
 * Replace `<OPENTELEMETRY_ENDPOINT>` with the endpoint that you use for the your OpenTelemetry collector. The default endpoint is `http://localhost:4317`.
 {% endtab %}
 
-{% tab title="Environment variables" %}
-*   To enable enable OpenTelemetry, add the following environment variable to your `.env` file:
+{% tab title=".env" %}
+*   To enable OpenTelemetry, add the following environment variable to your `.env` file:
 
     ```bash
     GRAVITEE_SERVICES_OPENTELEMETRY_ENABLED=true
@@ -188,7 +188,7 @@ Verbose mode records the following execution data:
 
 * Detailed header captures (request & response).
 * Context attribute snapshots.
-* Pre and post policy execution events.
+* Events that fire before and after policy execution.
 * Complete state visibility before and after each policy.
 
 #### **When to enable verbose mode:**&#x20;
