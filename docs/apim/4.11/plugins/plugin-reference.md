@@ -6,7 +6,7 @@ noIndex: true
 
 # APIM Plugin Reference
 
-This page catalogs all APIM plugins available through the [Gravitee Marketplace](https://www.gravitee.io/plugins). Plugins that have dedicated documentation pages are linked directly. All other plugins include their full marketplace documentation inline.
+This page catalogs all APIM plugins. Plugins that have dedicated documentation pages are linked directly. All other plugins include their full marketplace documentation inline.
 
 ## Connector
 

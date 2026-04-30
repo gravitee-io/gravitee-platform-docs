@@ -6,7 +6,7 @@ noIndex: true
 
 # AM Plugin Reference
 
-This page catalogs all AM plugins available through the [Gravitee Marketplace](https://www.gravitee.io/plugins). Plugins that have dedicated documentation pages are linked directly. All other plugins include their full marketplace documentation inline.
+This page catalogs all AM plugins. Plugins that have dedicated documentation pages are linked directly. All other plugins include their full marketplace documentation inline.
 
 ## AM Reporter
 

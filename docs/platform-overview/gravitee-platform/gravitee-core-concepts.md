@@ -95,8 +95,6 @@ Policies that cache responses from backend APIs to eliminate the need for subseq
 Gravitee plugins are modules or components that add or extend functionality by plugging into the Gravitee ecosystem. A policy is a type of plugin, i.e., a feature or function that is enabled through plugin functionality.
 
 {% hint style="info" %}
-Browse the current collection of [Gravitee plugins](https://www.gravitee.io/plugins).
-
 Refer to the [APIM Plugins](https://documentation.gravitee.io/apim/overview/plugins) guide for more information or to the [Custom Plugins guide](https://documentation.gravitee.io/apim/plugins/customization) for the instructions to build a plugin.
 {% endhint %}
 
