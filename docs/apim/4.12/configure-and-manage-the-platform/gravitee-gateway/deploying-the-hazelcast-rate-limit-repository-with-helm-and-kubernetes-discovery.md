@@ -100,6 +100,4 @@ Kubernetes discovery requires a ServiceAccount with `get`/`list` permissions on 
 When `apim.managedServiceAccount: false`, the chart prints a NOTES.txt warning. Each gateway pod falls back to a single-member cluster, causing rate-limit budgets to be multiplied by the replica count (each pod enforces the limit independently).
 {% endhint %}
 
-## Restrictions
 
-<!-- EMPTY: Restrictions -->

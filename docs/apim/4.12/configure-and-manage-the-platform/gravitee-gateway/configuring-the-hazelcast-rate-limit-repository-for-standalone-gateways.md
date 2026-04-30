@@ -10,13 +10,6 @@
 | `ratelimit.hazelcast.config-path` | Path to Hazelcast XML or YAML configuration file | `${gravitee.home}/config/hazelcast-ratelimit.xml` |
 | `ratelimit.hazelcast.instance-name` | Name of the Hazelcast instance | `gio-apim-ratelimit-hz` |
 
-### Helm Chart Overrides
-
-| Property | Description | Example |
-|:---------|:------------|:--------|
-| `gateway.ratelimit.hazelcast.configPath` | Overrides the Hazelcast config file path in Helm deployments | `${gravitee.home}/config/hazelcast-ratelimit.xml` |
-| `gateway.ratelimit.hazelcast.port` | Hazelcast member port and Kubernetes discovery service port | `5901` |
-
 ### Hazelcast System Properties
 
 The plugin auto-configures the following Hazelcast system properties:
