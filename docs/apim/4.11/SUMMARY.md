@@ -438,6 +438,7 @@
       * [Reference Secrets in APIs](prepare-a-production-environment/sensitive-data-management/api-secrets/reference-secrets-in-apis.md)
     * [Plugin support](prepare-a-production-environment/sensitive-data-management/plugin-support.md)
 * [Plugins](plugins/README.md)
+  * [Plugin Reference](plugins/plugin-reference.md)
   * [Deployment](plugins/deployment.md)
   * [Customization](plugins/customization/README.md)
     * [Context-Aware Logging in Plugins](plugins/customization/context-aware-logging.md)
