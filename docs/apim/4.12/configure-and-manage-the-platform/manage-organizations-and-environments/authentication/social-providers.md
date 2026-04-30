@@ -26,7 +26,7 @@ Before you can set up GitHub as an authentication provider for Gravitee APIM, yo
 
 ### Retrieve your OAuth2 credentials
 
-After you've registered Gravitee, you'll need to retrieve the GitHub OAUth2 credentials that you'll need to give to Gravitee APIM. To do so, follow these steps:
+After you've registered Gravitee, you'll need to retrieve the GitHub OAuth2 credentials that you'll need to give to Gravitee APIM. To do so, follow these steps:
 
 1. In your GitHub settings, select **OAuth Apps**
 2. Find your Gravitee OAuth app
@@ -46,19 +46,38 @@ If you configure the provider in the configuration file and then change the valu
 {% endhint %}
 
 {% tabs %}
-{% tab title="gravitee.yaml file" %}
-Configuring GitHub authentication via the `gravitee.yaml` file is easy. Simply update the following section of the `gravitee.yaml` file with your GitHub OAuth2 app credentials that [you retrieved above](social-providers.md#retrieve-your-oauth2-credentials).
+{% tab title="gravitee.yaml" %}
+Update the following section of the `gravitee.yaml` file with your GitHub OAuth2 app credentials that [you retrieved above](social-providers.md#retrieve-your-oauth2-credentials), then restart the Gravitee APIM API.
 
-```
+```yaml
 security:
   providers:
     - type: github
       clientId: xxxx-xxx-xxx-xxx
       clientSecret: xxxx-xxx-xxx-xxx
 ```
+{% endtab %}
 
-\
-After this, you just need to restart the Gravitee APIM API, and you should be good to go.
+{% tab title=".env" %}
+Add the following variables to the `.env` file loaded by your `docker-compose.yml`, or to the `environment:` block of the Management API service, then restart the Management API:
+
+```bash
+gravitee_security_providers_0_type=github
+gravitee_security_providers_0_clientId=xxxx-xxx-xxx-xxx
+gravitee_security_providers_0_clientSecret=xxxx-xxx-xxx-xxx
+```
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+Add a `security.providers[]` entry to your `values.yaml` file. The APIM Helm chart renders this entry into the Management API `gravitee.yml` at install time:
+
+```yaml
+security:
+  providers:
+    - type: github
+      clientId: xxxx-xxx-xxx-xxx
+      clientSecret: xxxx-xxx-xxx-xxx
+```
 {% endtab %}
 
 {% tab title="APIM UI" %}
@@ -122,19 +141,38 @@ If you configure the provider in the configuration file and then change the valu
 {% endhint %}
 
 {% tabs %}
-{% tab title="gravitee.yaml file" %}
-Configuring Google authentication via the gravitee.yaml file is easy. simply update the following section of the file with the Google client credentials.
+{% tab title="gravitee.yaml" %}
+Update the following section of the `gravitee.yaml` file with the Google client credentials, then restart the APIM API.
 
-```
+```yaml
 security:
   providers:
     - type: google
       clientId: xxxx-xxx-xxx-xxx
       clientSecret: xxxx-xxx-xxx-xxx
 ```
+{% endtab %}
 
-\
-Once you're done, just restart the APIM API.
+{% tab title=".env" %}
+Add the following variables to the `.env` file loaded by your `docker-compose.yml`, or to the `environment:` block of the Management API service, then restart the Management API:
+
+```bash
+gravitee_security_providers_0_type=google
+gravitee_security_providers_0_clientId=xxxx-xxx-xxx-xxx
+gravitee_security_providers_0_clientSecret=xxxx-xxx-xxx-xxx
+```
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+Add a `security.providers[]` entry to your `values.yaml` file. The APIM Helm chart renders this entry into the Management API `gravitee.yml` at install time:
+
+```yaml
+security:
+  providers:
+    - type: google
+      clientId: xxxx-xxx-xxx-xxx
+      clientSecret: xxxx-xxx-xxx-xxx
+```
 {% endtab %}
 
 {% tab title="APIM UI" %}

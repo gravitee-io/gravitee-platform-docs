@@ -13,9 +13,11 @@ The Gravitee API Management (APIM) Management API component includes its own int
 
 ## Configuration
 
-Enable the API as a service in the `gravitee.yml` file and update any other required configuration:
+Enable the API as a service and update any other required configuration. Use the tab that matches your deployment method.
 
-{% code title="gravitee.ym" %}
+{% tabs %}
+{% tab title="gravitee.yaml" %}
+{% code title="gravitee.yml" %}
 ```yaml
 services:
   core:
@@ -29,6 +31,42 @@ services:
           admin: adminadmin
 ```
 {% endcode %}
+{% endtab %}
+
+{% tab title=".env" %}
+Add the following variables to the `.env` file loaded by your `docker-compose.yml`, or to the `environment:` block of the Management API service:
+
+```bash
+gravitee_services_core_http_enabled=true
+gravitee_services_core_http_port=18083
+gravitee_services_core_http_host=localhost
+gravitee_services_core_http_authentication_type=basic
+gravitee_services_core_http_authentication_users_admin=adminadmin
+```
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+Set the `api.http.services.core.http` block in your `values.yaml` file. The APIM Helm chart renders these values into the Management API `gravitee.yml` at install time:
+
+```yaml
+api:
+  http:
+    services:
+      core:
+        http:
+          enabled: true
+          port: 18083
+          host: localhost
+          authentication:
+            type: basic
+            password: adminadmin
+```
+
+{% hint style="info" %}
+The chart hardcodes the username to `admin`. To configure additional users, mount a custom `gravitee.yml` into the Management API container or inject indexed environment variables through the `api.env` array (for example, `gravitee_services_core_http_authentication_users_<username>`).
+{% endhint %}
+{% endtab %}
+{% endtabs %}
 
 The above values are defined as follows:
 
