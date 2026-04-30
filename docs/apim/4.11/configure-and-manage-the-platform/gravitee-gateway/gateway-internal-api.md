@@ -13,8 +13,11 @@ The Gravitee APIM Gateway component includes its own internal API for monitoring
 
 ## Configuration
 
-Enable the API as a service in the `gravitee.yaml` file and update any other required configuration:
+Enable the API as a service and update any other required configuration. Use the tab that matches your deployment method.
 
+{% tabs %}
+{% tab title="gravitee.yaml" %}
+{% code title="gravitee.yml" %}
 ```yaml
 services:
   core:
@@ -27,6 +30,42 @@ services:
         users:
           admin: adminadmin
 ```
+{% endcode %}
+{% endtab %}
+
+{% tab title=".env" %}
+Add the following variables to the `.env` file loaded by your `docker-compose.yml`, or to the `environment:` block of the Gateway service:
+
+```bash
+gravitee_services_core_http_enabled=true
+gravitee_services_core_http_port=18082
+gravitee_services_core_http_host=localhost
+gravitee_services_core_http_authentication_type=basic
+gravitee_services_core_http_authentication_users_admin=adminadmin
+```
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+Set the `gateway.services.core.http` block in your `values.yaml` file. The APIM Helm chart renders these values into the Gateway `gravitee.yml` at install time:
+
+```yaml
+gateway:
+  services:
+    core:
+      http:
+        enabled: true
+        port: 18082
+        host: localhost
+        authentication:
+          type: basic
+          password: adminadmin
+```
+
+{% hint style="info" %}
+The chart hardcodes the username to `admin`. To configure additional users, mount a custom `gravitee.yml` into the Gateway container or inject indexed environment variables through the `gateway.env` array.
+{% endhint %}
+{% endtab %}
+{% endtabs %}
 
 The above values are defined as follows:
 
