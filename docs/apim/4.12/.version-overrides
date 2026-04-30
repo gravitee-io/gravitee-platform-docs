@@ -5,3 +5,8 @@ analyze-and-monitor-apis/opentelemetry.md
 create-and-configure-apis/apply-policies/README.md
 create-and-configure-apis/apply-policies/shared-policy-groups.md
 release-information/release-notes/apim-4.12.md
+configure-and-manage-the-platform/gravitee-gateway/configuring-the-hazelcast-rate-limit-repository-for-standalone-gateways.md
+configure-and-manage-the-platform/gravitee-gateway/deploying-the-hazelcast-rate-limit-repository-with-helm-and-kubernetes-discovery.md
+prepare-a-production-environment/repositories/README.md
+prepare-a-production-environment/repositories/hazelcast-rate-limit-repository-overview-and-key-concepts.md
+prepare-a-production-environment/repositories/hazelcast-rate-limit-repository-restrictions-and-known-limitations.md

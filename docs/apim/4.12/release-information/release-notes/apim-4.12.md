@@ -6,6 +6,17 @@
 
 ## New Features
 
+
+<!-- PIPELINE:APIM-13752 -->
+#### **Hazelcast Rate Limit Repository**
+
+* The Hazelcast rate limit repository is now available as an alternative to Redis for distributed rate limiting across gateway instances.
+* Supports both standalone deployments (TCP-IP discovery) and Kubernetes environments (automatic service discovery via the Helm chart).
+* Configure by setting `ratelimit.type=hazelcast` in `gravitee.yml` and providing a `hazelcast-ratelimit.xml` configuration file (sample included in the distribution).
+* Kubernetes deployments using the Helm chart automatically provision the required Service, RBAC permissions, and discovery configuration when `apim.managedServiceAccount=true`.
+* When RBAC is disabled, each gateway pod operates as a single-member cluster, which multiplies rate limit budgets by the replica count.
+<!-- /PIPELINE:APIM-13752 -->
+
 ## Improvements
 
 
