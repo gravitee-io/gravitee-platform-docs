@@ -32,8 +32,10 @@ The default simple application enables an API consumer to define the `client_id`
 <figure><img src="../../.gitbook/assets/0 app.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
-To expedite API consumption, a default application is automatically created for every new user (not including admins). This can be disabled in the `gravitee.yml` file as shown below:
+To expedite API consumption, a default application is automatically created for every new user (not including admins). To disable this behavior, use the tab that matches your deployment method.
 
+{% tabs %}
+{% tab title="gravitee.yaml" %}
 {% code title="gravitee.yml" overflow="wrap" %}
 ```yaml
 user:
@@ -42,6 +44,27 @@ user:
        defaultApplication: false
 ```
 {% endcode %}
+{% endtab %}
+
+{% tab title=".env" %}
+Add the following variable to the `.env` file loaded by your `docker-compose.yml`, or to the `environment:` block of the Management API service:
+
+```bash
+gravitee_user_login_defaultApplication=false
+```
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+Set the `api.user.login.defaultApplication` value in your `values.yaml` file. The APIM Helm chart renders this value into the Management API `gravitee.yml` at install time:
+
+```yaml
+api:
+  user:
+    login:
+      defaultApplication: false
+```
+{% endtab %}
+{% endtabs %}
 {% endhint %}
 
 ## DCR application configuration

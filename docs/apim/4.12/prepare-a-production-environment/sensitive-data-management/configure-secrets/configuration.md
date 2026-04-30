@@ -24,24 +24,26 @@ To learn more about Gravitee [Enterprise Edition](../../../readme/enterprise-edi
 
 Current limitations are summarized below:
 
-* Only the `http.ssl.keystore.secret` x.509 pairs, in either PEM or KeyStore format, can be watched, and therefore hot-reloaded.
-* Only environment variables and `gravitee.yml` properties can be resolved into secrets.\
-  A secret URL cannot be set using JVM properties, For example:\
-  `-Dsystem.proxy.password=secret://kubernetes/giosecrets:proxypass` **cannot be used**. JVM properties are passed directly to the platform without parsing, and are not detected by Gravitee as secrets to resolve.
+* Only the `http.ssl.keystore.secret` x.509 pairs, in either PEM or keystore format, can be watched, and therefore hot-reloaded.
+* Only environment variables and `gravitee.yml` properties can be resolved into secrets. A secret URL can't be set using JVM properties. For example: `Dsystem.proxy.password=secret://kubernetes/giosecrets:proxypass` **can't be used**. JVM properties are passed directly to the platform without parsing, and are not detected by Gravitee as secrets to resolve.
 * The `vault` plugin watches via polling because Vault Events is an enterprise feature.
-* The `aws` plugin does not support watch. When used in a configuration, the secret is resolved once.
+* The `aws` plugin doesn't support watch. When used in a configuration, the secret is resolved once.
 
-## Configuration for each secret manager <a href="#per-manager-configuration" id="per-manager-configuration"></a>
+### Configuration for each secret manager <a href="#per-manager-configuration" id="per-manager-configuration"></a>
 
 A `secret provider` plugin must be either bundled or added to the plugin directory.
 
 You can enable a `secret-provider` plugin by configuring it in `gravitee.yml`. The configurations for each secret provider plugin are discussed in the following sections.
 
+{% hint style="info" %}
+The examples in this section show `gravitee.yml` syntax. For APIM Helm chart deployments, the same blocks must be nested under `api:` or `gateway:` in your `values.yaml` file, depending on which component reads the secret. See Helm chart specifics below for the equivalent Helm chart configuration.
+{% endhint %}
+
 ### Kubernetes
 
 The following example is a typical configuration for running Gravitee in Kubernetes. With this configuration, secrets are **resolved in the same namespace**.
 
-{% code title="gravitee.yml/Helm values.yml" %}
+{% code title="gravitee.yml" %}
 ```yaml
 secrets:
   kubernetes:
@@ -51,7 +53,7 @@ secrets:
 
 The following example shows how to add another namespace:
 
-{% code title="gravitee.yml/Helm values.yml" %}
+{% code title="gravitee.yml" %}
 ```yaml
 secrets:
   kubernetes:
