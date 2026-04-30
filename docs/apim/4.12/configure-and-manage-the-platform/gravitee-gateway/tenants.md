@@ -46,7 +46,11 @@ If all endpoints in the group are tenant-specific and none match the gateway's t
 
 To explain tenant usage and behavior, we will build off of our example use case for [sharding tags](sharding-tags.md#configure-sharding-tags-for-your-gravitee-api-gateways). A single API can be deployed to many different Gateways and endpoints, but by using sharding tags you can specify the target Gateway(s), and by using tenants you can specify the target endpoint(s).
 
-Similar to sharding tags, tenant configuration is a two-step process. You must "tag" a Gateway to identify in which region it has been deployed. To demonstrate, we will add the following configuration to each Gateway's `gravitee.yaml` file, where all USA-deployed Gateways are tagged with "usa" and all EU-deployed Gateways are tagged with "eu"
+Similar to sharding tags, tenant configuration is a two-step process. You must "tag" a Gateway to identify in which region it has been deployed. The following examples show how to tag USA-deployed Gateways with `usa` and EU-deployed Gateways with `eu`. Use the tab that matches your deployment method.
+
+{% tabs %}
+{% tab title="gravitee.yaml" %}
+Add the following to each Gateway's `gravitee.yml` file:
 
 ```yaml
 # Multi-tenant configuration
@@ -60,6 +64,38 @@ tenant: 'usa'
 # EU Region:
 tenant: 'eu'
 ```
+{% endtab %}
+
+{% tab title=".env" %}
+Add the following variable to the `.env` file loaded by your `docker-compose.yml`, or to the `environment:` block of each Gateway service:
+
+```bash
+# USA Region:
+gravitee_tenant=usa
+
+# ...or...
+
+# EU Region:
+gravitee_tenant=eu
+```
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+Set the `gateway.tenant` value in your `values.yaml` file. The APIM Helm chart renders this value into the Gateway `gravitee.yml` at install time:
+
+```yaml
+# USA Region:
+gateway:
+  tenant: usa
+
+# ...or...
+
+# EU Region:
+gateway:
+  tenant: eu
+```
+{% endtab %}
+{% endtabs %}
 
 Once the Gateway has been configured, the tenant definition must be added via the API Management Console:
 
