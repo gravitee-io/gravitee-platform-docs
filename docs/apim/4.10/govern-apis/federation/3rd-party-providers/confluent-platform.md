@@ -45,13 +45,13 @@ To integrate Confluent Platform with Gravitee APIM, complete the following steps
     <figure><img src="../../../.gitbook/assets/enter-confluent-name-and-description.png" alt=""><figcaption></figcaption></figure>
 5.  (Optional) Type the **Description** for the integration.<br>
 
-    <figure><img src="../../../.gitbook/assets/enter-confluent-name-and-description (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/enter-confluent-name-and-description.png" alt=""><figcaption></figcaption></figure>
 6.  Click **Create Integration**.
 
     <figure><img src="../../../.gitbook/assets/enter-confluent-name-and-description (2).png" alt=""><figcaption></figcaption></figure>
 7.  From the Integration overview tab, copy the **Integration ID**. You need this ID for the agent configuration.
 
-    <figure><img src="../../../.gitbook/assets/confluent-integration-id (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/confluent-integration-id.png" alt=""><figcaption></figcaption></figure>
 
 ### Configure the Confluent Platform federation agent
 

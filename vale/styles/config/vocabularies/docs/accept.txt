@@ -128,7 +128,7 @@ Redis
 DocumentDB
 R2DBC
 RDBMS
-JDBC
+[Jj][Dd][Bb][Cc]
 [Dd]atastore
 Liquibase
 
@@ -322,6 +322,7 @@ ISO
 [Tt]imelines?
 [Tt]ooltips?
 [Tt]ruststore
+[Uu]ndeploy(ed)?
 [Uu]npublish
 [Uu]sername
 [Vv]alidator
@@ -410,6 +411,9 @@ Moby
 Amazon
 Azure
 Slackbot
+Anypoint
+Apigee
+MuleSoft
 
 # ============================================
 # Kubernetes Tooling
@@ -432,8 +436,8 @@ balancer's
 [Ss]harding
 [Kk]eyless
 [Ee]ndhint
-[Ee]ndtab
-endtab
+[Ee]ndtabs?
+endtabs?
 [Aa]sync
 async
 [Uu]nconfigured
@@ -463,6 +467,9 @@ async
 [Aa]ppId
 [Pp]lanId
 [Oo]rgId
+[Bb]oolean
+apim_application
+apim_subscription
 [Cc]orrelationId
 [Nn]odeId
 [Ii]dempotence
@@ -475,3 +482,5 @@ JSONPath
 GZIP
 [Hh]inglish
 [Mm]inuva
+JWTs?
+Okta

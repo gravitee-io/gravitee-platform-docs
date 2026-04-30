@@ -1,18 +1,18 @@
 # Configure authentication with SSO
 
-## Overview&#x20;
+## Overview
 
 You can configure authentication for the New Developer Portal, where users must use a SSO login to access your New Developer Portal. This limits access to only authenticated users increases the security of your New Developer Portal.
 
-## Prerequisites&#x20;
+## Prerequisites
 
-* Install Self-Hosted Installation of Gravitee APIM or a Hybrid Installation of Gravitee APIM. For more information about installating Gravitee APIM, see [self-hosted-installation-guides](../../../self-hosted-installation-guides/ "mention") or [hybrid-installation-and-configuration-guides](../../../hybrid-installation-and-configuration-guides/ "mention").&#x20;
-* Ensure that your installation of Gravitee APIM  is version 4.10 or later. For more information about upgrading Gravitee APIM, see [upgrade-guides](../../../upgrade-guides/ "mention").
+* Install Self-Hosted Installation of Gravitee APIM or a Hybrid Installation of Gravitee APIM. For more information about installating Gravitee APIM, see [self-hosted-installation-guides](../../../self-hosted-installation-guides/ "mention") or [hybrid-installation-and-configuration-guides](../../../hybrid-installation-and-configuration-guides/ "mention").
+* Ensure that your installation of Gravitee APIM is version 4.10 or later. For more information about upgrading Gravitee APIM, see [upgrade-guides](../../../upgrade-guides/ "mention").
 * Complete the steps in [configure-the-new-portal.md](../configure-the-new-portal.md "mention").
 * Configure one or more of the following identity providers:
   * [gravitee-access-management.md](../../../configure-and-manage-the-platform/manage-organizations-and-environments/authentication/gravitee-access-management.md "mention")
   * [social-providers.md](../../../configure-and-manage-the-platform/manage-organizations-and-environments/authentication/social-providers.md "mention")
-  * [microsoft-entra-id.md](../../../configure-and-manage-the-platform/manage-organizations-and-environments/authentication/microsoft-entra-id.md "mention")
+  * [microsoft-entra-id.md](../../../../4.9/configure-and-manage-the-platform/manage-organizations-and-environments/authentication/microsoft-entra-id.md "mention")
   * [openid-connect.md](../../../configure-and-manage-the-platform/manage-organizations-and-environments/authentication/openid-connect.md "mention")
 
 ## Configure authentication with SSO
@@ -94,9 +94,9 @@ helm upgrade gravitee-apim gravitee/apim \
 {% endtab %}
 {% endtabs %}
 
-### Activate an identity provider in the APIM Console&#x20;
+### Activate an identity provider in the APIM Console
 
-1.  From the **Dashboard**, click **Settings**. <br>
+1.  From the **Dashboard**, click **Settings**.<br>
 
     <figure><img src="../../../.gitbook/assets/FBF81839-15D7-4CC9-8ABC-BE5C51A3260A_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 2.  From the **Settings** menu, navigate to the **Portal** section, and then click **Authentication**.<br>
@@ -105,7 +105,7 @@ helm upgrade gravitee-apim gravitee/apim \
 3.  Turn on the SSO toggle that you want to activate.<br>
 
     <figure><img src="../../../.gitbook/assets/8293D9DC-F869-443A-AA92-94FF405AA4DF_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
-4.  (SSO only log in only) Turn off the **Show login form on Portal** toggle. <br>
+4.  (SSO only log in only) Turn off the **Show login form on Portal** toggle.<br>
 
     <figure><img src="../../../.gitbook/assets/devportal-new-portal-configure-auth-131.png" alt=""><figcaption></figcaption></figure>
 

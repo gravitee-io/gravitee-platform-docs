@@ -6,6 +6,47 @@ description: >-
 
 # AM 4.8.x
 
+## Gravitee Access Management 4.8.31 - April 24, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* VHost with path "/" throws ArrayIndexOutOfBoundsException [#11358](https://github.com/gravitee-io/issues/issues/11358)
+* SMTP resource implict authentication [#11372](https://github.com/gravitee-io/issues/issues/11372)
+
+</details>
+
+
+## Gravitee Access Management 4.8.30 - April 17, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* DCR-created applications are now able to inherit domain flows by default [#11271](https://github.com/gravitee-io/issues/issues/11271)
+
+**Other**
+
+* Resolved issue with MFA Enrollment Stuck in PENDING_ACTIVATION [#11245](https://github.com/gravitee-io/issues/issues/11245)
+* User edit form now displays all custom fields within additional information [#11333](https://github.com/gravitee-io/issues/issues/11333)
+
+**CVE**
+
+* Remediates: CVE-2026-1605, CVE-2026-33870
+
+</details>
+
 ## Gravitee Access Management 4.8.29 - April 9, 2026
 
 <details>

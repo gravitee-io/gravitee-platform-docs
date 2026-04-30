@@ -1,5 +1,5 @@
 ---
-description: An overview about jwt.
+description: An overview about JWT.
 metaLinks:
   alternates:
     - jwt.md
@@ -9,12 +9,12 @@ metaLinks:
 
 ## Overview
 
-A JSON Web Token (JWT) is an open method for representing claims securely between two parties. It is digitally signed using an HMAC shared key or RSA public/private key pair. The JWT authentication type ensures that a JWT issued by a third party is valid by verifying its signature and expiration date. Only applications with approved JWTs can access APIs associated with a JWT plan.
+A JSON Web Token (JWT) is an open method for representing claims securely between two parties. It's digitally signed using an HMAC shared key or RSA public/private key pair. The JWT authentication type ensures that a JWT issued by a third party is valid by verifying its signature and expiration date. Only applications with approved JWTs can access APIs associated with a JWT plan.
 
 {% hint style="info" %}
-When an Identity Provider does not fully support the [OAuth2](oauth2.md) standard, use the JWT Plan .
+When an Identity Provider doesn't fully support the [OAuth2](oauth2.md) standard, use the JWT Plan .
 
-For example, Azure Entra ID does not provide a token introspection endpoint. So, you must use the JWT Plan with the JWKS\_URL resolver like `https://login.microsoft.com/{tenant_id}/discovery/v2.0/keys` to introspect, validate, and extract token custom claims.
+For example, Azure Entra ID doesn't provide a token introspection endpoint. So, you must use the JWT Plan with the JWKS\_URL resolver like `https://login.microsoft.com/{tenant_id}/discovery/v2.0/keys` to introspect, validate, and extract token custom claims.
 {% endhint %}
 
 ## Configuration
@@ -23,14 +23,12 @@ APIM uses client IDs to recognize applications that have subscribed to a JWT pla
 
 A JWT plan presents the following configuration options:
 
-<figure><img src="../../.gitbook/assets/plan_jwt configure (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/plan_jwt configure.png" alt=""><figcaption></figcaption></figure>
 
 * **Signature:** Select the algorithm used to hash and encrypt your JWT
 * **JWKS resolver:** Select a method to retrieve the JSON Web Key (JWK), which is often stored inside a JSON Web Key Set (JWKS) and required by the Gateway to validate the signature of the JWT:
   * **GIVEN\_KEY**: Provide a signature key as a resolver parameter according to the signature algorithm (`ssh-rsa`, `pem`, `crt` or `public-key` format
   *   **GATEWAY\_KEYS:** Search for public keys set in the API Gateway `gravitee.yml` configuration that match the authorization server `iss` (issuer) and `kid` (key ID) claims of the incoming JWT
-
-      \{% code title="gravitee.yml" %\}
 
       ```yaml
       jwt:
@@ -40,8 +38,9 @@ A JWT plan presents the following configuration options:
             kid-2016: ssh-rsa myCurrentValidationKey anEmail@domain.com
       ```
 
-      \{% endcode %\} \* **JWKS\_URL**: Provide a URL ending with `/.well-known/jwks.json` from which the Gateway can retrieve the JWKS
-* **Use system proxy:** When using **JWKS_URL**, optionally route the JWKS retrieval call through the Gateway's [system proxy](../../self-hosted-installation-guides/proxy-configuration/system-proxy-for-backend-apis.md). Enable this option when the Gateway reaches external identity providers (for example, Microsoft Entra ID, Google, or Okta) through a corporate proxy.
+      For Docker Compose, set the equivalent values via environment variables (for example, `gravitee_jwt_issuer_my.authorization.server_default=ssh-rsa myValidationKey anEmail@domain.com`). For Helm deployments, the chart doesn't expose these Gateway-side issuer keys natively, so inject them through the `gateway.env` array of your `values.yaml` file.
+  * **JWKS\_URL**: Provide a URL ending with `/.well-known/jwks.json` from which the Gateway can retrieve the JWKS
+* **Use system proxy:** When using **JWKS\_URL**, optionally route the JWKS retrieval call through the Gateway's [system proxy](../../self-hosted-installation-guides/proxy-configuration/system-proxy-for-backend-apis.md). Enable this option when the Gateway reaches external identity providers (for example, Microsoft Entra ID, Google, or Okta) through a corporate proxy.
 *   **Extract JWT Claims:** Allow claims to be accessed in the `jwt.claims` context attribute during request/response via Gravitee Expression Language (EL), e.g., extract the issuer claim from the JWT:
 
     ```

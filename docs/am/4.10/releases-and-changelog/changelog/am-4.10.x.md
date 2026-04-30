@@ -6,6 +6,27 @@ description: >-
 
 # AM 4.10.x
 
+## Gravitee Access Management 4.10.9 - April 17, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* DCR-created applications are now able to inherit domain flows by default [#11271](https://github.com/gravitee-io/issues/issues/11271)
+
+**Other**
+
+* Resolved issue with MFA Enrollment Stuck in PENDING_ACTIVATION [#11245](https://github.com/gravitee-io/issues/issues/11245)
+* User edit form now displays all custom fields within additional information [#11333](https://github.com/gravitee-io/issues/issues/11333)
+
+**CVE**
+ 
+* Remediates: CVE-2026-1605, CVE-2026-33870
+
+</details>
+
 ## Gravitee Access Management 4.10.8 - April 9, 2026
 
 <details>
@@ -43,10 +64,6 @@ description: >-
 
 * User cannot signin due to EmailFactor issue [#11304](https://github.com/gravitee-io/issues/issues/11304)
 
-
-
-
-
 **Other**
 
 * Create index based on timestamp for audit logs. [#11258](https://github.com/gravitee-io/issues/issues/11258)
@@ -54,7 +71,6 @@ description: >-
 * Optimize resource for Bulk Email management [#11283](https://github.com/gravitee-io/issues/issues/11283)
 
 </details>
-
 
 ## Gravitee Access Management 4.10.6 - March 27, 2026
 
@@ -76,9 +92,7 @@ description: >-
 
 * Update reporter script [#11262](https://github.com/gravitee-io/issues/issues/11262)
 
-
 </details>
-
 
 ## Gravitee Access Management 4.10.5 - March 13, 2026
 
@@ -104,7 +118,6 @@ description: >-
 * JDBC: sslMode=require without sslRootCert [#11235](https://github.com/gravitee-io/issues/issues/11235)
 
 </details>
-
 
 ## Gravitee Access Management 4.10.4 - March 3, 2026
 

@@ -92,17 +92,24 @@ def find_version_root(image_path: Path) -> Path:
 
 
 def find_referencing_pages(image_path: Path, version_root: Path) -> list[Path]:
-    """Find markdown files that reference this image."""
+    """Find markdown files that reference this image via local paths.
+
+    Only matches local .gitbook/assets/ references, not external CDN URLs
+    that happen to contain the filename as a substring.
+    """
     image_name = image_path.name
     encoded_name = image_name.replace(" ", "%20")
 
     referencing = []
-    # Build all search variants: literal name, space-encoded, and %20-decoded
-    search_variants = {image_name, encoded_name}
+    # Build all search variants anchored to the local assets path.
+    # This prevents false positives from GitBook CDN URLs like:
+    #   https://...gitbook.io/.../image%20(16).png?alt=media
+    search_variants = {
+        f".gitbook/assets/{image_name}",
+        f".gitbook/assets/{encoded_name}",
+    }
     if "%20" in image_name:
-        search_variants.add(image_name.replace("%20", " "))
-    if " " in image_name:
-        search_variants.add(image_name.replace(" ", "%20"))
+        search_variants.add(f".gitbook/assets/{image_name.replace('%20', ' ')}")
 
     for dirpath, dirnames, filenames in os.walk(version_root):
         dirnames[:] = [d for d in dirnames if not d.startswith(".")]
@@ -169,11 +176,15 @@ def process_image(image_path: Path) -> list[str]:
     if not pages:
         # Before deleting as orphan, check if any OTHER version references
         # this file via cross-version relative paths (e.g. ../../../4.10/.gitbook/assets/...)
+        # Only match local .gitbook/assets/ references, NOT external CDN URLs.
         image_name = image_path.name
         encoded_name = image_name.replace(" ", "%20")
-        search_variants = {image_name, encoded_name}
+        search_variants = {
+            f".gitbook/assets/{image_name}",
+            f".gitbook/assets/{encoded_name}",
+        }
         if "%20" in image_name:
-            search_variants.add(image_name.replace("%20", " "))
+            search_variants.add(f".gitbook/assets/{image_name.replace('%20', ' ')}")
 
         cross_ref = False
         for dirpath, dirnames, filenames in os.walk(DOCS):

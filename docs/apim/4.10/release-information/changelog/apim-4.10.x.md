@@ -1,5 +1,106 @@
 # APIM 4.10.x
  
+## Gravitee API Management 4.10.13 - April 30, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Management API**
+
+* Creating a subscription on an api key plan results on two api keys generation [#11347](https://github.com/gravitee-io/issues/issues/11347)
+
+**Console**
+
+* API members with Member Read and Definition Update permissions can modify group access [#11259](https://github.com/gravitee-io/issues/issues/11259)
+* Re: Search user api wrong result when paginated [#11311](https://github.com/gravitee-io/issues/issues/11311)
+* Roles permissions are in-consistent.  [#11324](https://github.com/gravitee-io/issues/issues/11324)
+
+**Portal**
+
+* Default portal navigation items are created on every Cloud environment update [#11369](https://github.com/gravitee-io/issues/issues/11369)
+
+**Other**
+
+* Consuming Kafka tombstone messages causes NullPointerException [#11353](https://github.com/gravitee-io/issues/issues/11353)
+* PromptGuardRails policy - contentChecks filter not applied to block reason, exposing unintended classifier labels in error response [#11373](https://github.com/gravitee-io/issues/issues/11373)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Gateway**
+
+* Some warnings displayed after upgrade to v 4.7.x [#10862](https://github.com/gravitee-io/issues/issues/10862)
+
+**Management API**
+
+* Some warnings displayed after upgrade to v 4.7.x [#10862](https://github.com/gravitee-io/issues/issues/10862)
+* Include API metadata in the same endpoint response as the rest of the API data [#10971](https://github.com/gravitee-io/issues/issues/10971)
+
+**Other**
+
+* Add opt-in URL path normalization to the Resource Filtering policy [#11337](https://github.com/gravitee-io/issues/issues/11337)
+
+</details>
+
+
+ 
+## Gravitee API Management 4.10.12 - April 17, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Prometheus scrapping error: scrape request times out [#11036](https://github.com/gravitee-io/issues/issues/11036)
+* Dynamic routing policies are unable to correctly render the endpoint for certain routing rules. [#11272](https://github.com/gravitee-io/issues/issues/11272)
+* Dynamic Routing policy using only default endpoint with retry policy [#11280](https://github.com/gravitee-io/issues/issues/11280)
+* Groovy policy at ORG level throws exception when modifying response status code [#11293](https://github.com/gravitee-io/issues/issues/11293)
+* Data masking policy masks the whole payload [#11303](https://github.com/gravitee-io/issues/issues/11303)
+* gravitee-resource-cache-redis leaks LettuceConnectionFactory on every API redeploy [#11314](https://github.com/gravitee-io/issues/issues/11314)
+* OpenAPI Specification Validation Policy - Validation errors [#11330](https://github.com/gravitee-io/issues/issues/11330)
+* Dictionaries not available in v2 API resource configuration [#11346](https://github.com/gravitee-io/issues/issues/11346)
+
+**Management API**
+
+* V2 API failed to migrate to v4 due to endpoint configuration [#11264](https://github.com/gravitee-io/issues/issues/11264)
+* v4 API logs are inaccessible when the analytics type is none [#11297](https://github.com/gravitee-io/issues/issues/11297)
+* API logs are not displayed when multiple status filters are used [#11305](https://github.com/gravitee-io/issues/issues/11305)
+
+**Console**
+
+* endpointGroups.sharedConfiguration.headers and endpointGroups.sharedConfiguration.http Cannot Be Applied Together in v4 api defintion [#11163](https://github.com/gravitee-io/issues/issues/11163)
+* endpointGroups.sharedConfiguration.headers and endpointGroups.sharedConfiguration.http Cannot Be Applied Together in v4 api defintion [#11168](https://github.com/gravitee-io/issues/issues/11168)
+* The filters applied in the v4 API logs are not preserved  [#11302](https://github.com/gravitee-io/issues/issues/11302)
+
+**Other**
+
+* Warning - Failed to evaluate duration [#11341](https://github.com/gravitee-io/issues/issues/11341)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Gateway**
+
+* MCP Proxy: serve .well-known/oauth-protected-resource at RFC 9728 compliant host-scoped URL [#11299](https://github.com/gravitee-io/issues/issues/11299)
+
+**Console**
+
+* Add Entra ID to the OAuth2 API Resources [#11345](https://github.com/gravitee-io/issues/issues/11345)
+
+**Other**
+
+* Add the scope field to the WWW-Authenticate header in the OAuth2 Policy [#11307](https://github.com/gravitee-io/issues/issues/11307)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.10.11 - April 3, 2026
 <details>
 
