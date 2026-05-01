@@ -7,6 +7,48 @@ metaLinks:
 
 # APIM 4.9.x
  
+## Gravitee API Management 4.9.18 - April 30, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Management API**
+
+* Creating a subscription on an api key plan results on two api keys generation [#11347](https://github.com/gravitee-io/issues/issues/11347)
+
+**Console**
+
+* API members with Member Read and Definition Update permissions can modify group access [#11259](https://github.com/gravitee-io/issues/issues/11259)
+* Re: Search user api wrong result when paginated [#11311](https://github.com/gravitee-io/issues/issues/11311)
+* Roles permissions are in-consistent.  [#11324](https://github.com/gravitee-io/issues/issues/11324)
+
+**Other**
+
+* Consuming Kafka tombstone messages causes NullPointerException [#11353](https://github.com/gravitee-io/issues/issues/11353)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Gateway**
+
+* Some warnings displayed after upgrade to v 4.7.x [#10862](https://github.com/gravitee-io/issues/issues/10862)
+
+**Management API**
+
+* Some warnings displayed after upgrade to v 4.7.x [#10862](https://github.com/gravitee-io/issues/issues/10862)
+* Include API metadata in the same endpoint response as the rest of the API data [#10971](https://github.com/gravitee-io/issues/issues/10971)
+
+**Other**
+
+* Add opt-in URL path normalization to the Resource Filtering policy [#11337](https://github.com/gravitee-io/issues/issues/11337)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.9.17 - April 17, 2026
 <details>
 
