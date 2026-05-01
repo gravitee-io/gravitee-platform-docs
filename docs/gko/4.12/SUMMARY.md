@@ -35,6 +35,7 @@
 
 * [Kubernetes CRD Configuration for Client Certificates](guides/kubernetes-crd-configuration-for-client-certificates.md)
 * [Manage JWT subscriptions with GKO](guides/manage-jwt-subscriptions-with-gko.md)
+* [Manage API key subscriptions with GKO](guides/manage-api-key-subscriptions-with-gko.md)
 * [Define an APIM service account for GKO](guides/define-an-apim-service-account-for-gko.md)
 * [Deploy APIs to a Gateway](guides/deploy-apis-to-a-gateway.md)
 * [Publish APIs to the Developer Portal](guides/publish-apis-to-the-portal.md)
