@@ -35,6 +35,7 @@
 
 * [Kubernetes CRD Configuration for Client Certificates](guides/kubernetes-crd-configuration-for-client-certificates.md)
 * [Manage JWT subscriptions with GKO](guides/manage-jwt-subscriptions-with-gko.md)
+* [Manage API key subscriptions with GKO](guides/manage-api-key-subscriptions-with-gko.md)
 * [Define an APIM service account for GKO](guides/define-an-apim-service-account-for-gko.md)
 * [Deploy APIs to a Gateway](guides/deploy-apis-to-a-gateway.md)
 * [Publish APIs to the Developer Portal](guides/publish-apis-to-the-portal.md)
@@ -59,6 +60,7 @@
 ## RELEASES & CHANGELOG
 
 * [Release Notes](releases-and-changelog/release-notes/README.md)
+  * [GKO 4.12](releases-and-changelog/release-notes/gko-4.12.md)
   * [GKO 4.11](releases-and-changelog/release-notes/gko-4.11.md)
   * [GKO 4.10](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/gko-4.10)
   * [GKO 4.9](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/4.9/releases-and-changelog/release-notes/gko-4.9)
