@@ -44,11 +44,11 @@ Ensure all prerequisites are satisfied before attempting to configure your OpenI
 
 ### Configuration
 
-You can set up your OpenID Connect authentication using the `gravitee.yaml` file or the API Management (APIM) Console.
+You can set up your OpenID Connect authentication using the `gravitee.yaml` file, the Helm chart, or the API Management (APIM) Console. Use the tab that matches your deployment method.
 
 {% tabs %}
-{% tab title="gravitee.yaml file" %}
-To configure an OpenID Connect authentication provider using the `gravitee.yaml` configuration file, you'll need to update to the file with your client information. You'll need to enter in this information where we have **(enter in client information)** called out in the code block. Depending on your client, this information will be different. To see a real-life example, check out the [Configure Keycloak authentication](openid-connect.md#example-keycloak-authentication) section below.
+{% tab title="gravitee.yaml" %}
+To configure an OpenID Connect authentication provider using the `gravitee.yaml` configuration file, you'll need to update to the file with your client information. You'll need to enter in this information where we have **(enter in client information)** called out in the code block. Depending on your client, this information will be different. To see a real-life example, check out the Configure Keycloak authentication section below.
 
 {% code overflow="wrap" lineNumbers="true" %}
 ```yaml
@@ -87,6 +87,49 @@ security:
             - (enter in client information) #applied to environment whose id is <ENVIRONMENT_ID>
 ```
 {% endcode %}
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+Set the `oidcAuth` block in your `values.yaml` file. The APIM Helm chart renders these values into a single `security.providers[]` entry of type `oidc` in the Management API `gravitee.yml` at install time:
+
+```yaml
+oidcAuth:
+  enabled: true
+  id: (enter in client information; defaults to the type when omitted)
+  clientId: (enter in client information)
+  clientSecret: (enter in client information)
+  tokenIntrospectionEndpoint: (enter in client information)
+  tokenEndpoint: (enter in client information)
+  authorizeEndpoint: (enter in client information)
+  userInfoEndpoint: (enter in client information)
+  userLogoutEndpoint: (enter in client information)
+  color: "(enter in client information)"
+  syncMappings: false
+  scopes:
+    - (enter in client information)
+  userMapping:
+    id: (enter in client information)
+    email: (enter in client information)
+    lastname: (enter in client information)
+    firstname: (enter in client information)
+    picture: (enter in client information)
+  groupMapping:
+    - condition: (enter in client information)
+      groups:
+        - (enter in client information) 1
+        - (enter in client information) 2
+  roleMapping:
+    - condition: (enter in client information)
+      roles:
+        - (enter in client information)
+        - (enter in client information)
+        - (enter in client information)
+        - (enter in client information)
+```
+
+{% hint style="info" %}
+The chart's `oidcAuth` block configures one OpenID Connect provider per chart release.
+{% endhint %}
 {% endtab %}
 
 {% tab title="APIM Console" %}
@@ -261,6 +304,48 @@ security:
             - "ENVIRONMENT:API_CONSUMER"                  #applied to the DEFAULT environment
             - "ENVIRONMENT:DEFAULT:API_CONSUMER"          #applied to the DEFAULT environment
             - "ENVIRONMENT:<ENVIRONMENT_ID>:API_CONSUMER" #applied to environment whose id is <ENVIRONMENT_ID>
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+To configure Keycloak as an OpenID Connect authentication provider using the APIM Helm chart, set the `oidcAuth` block in your `values.yaml` file:
+
+{% code overflow="wrap" lineNumbers="true" %}
+```yaml
+oidcAuth:
+  enabled: true
+  id: keycloak # defaults to the type when omitted
+  clientId: gravitee
+  clientSecret: 3aea136c-f056-49a8-80f4-a6ea521b0c94
+  tokenIntrospectionEndpoint: http://localhost:8080/auth/realms/master/protocol/openid-connect/token/introspect
+  tokenEndpoint: http://localhost:8080/auth/realms/master/protocol/openid-connect/token
+  authorizeEndpoint: http://localhost:8080/auth/realms/master/protocol/openid-connect/auth
+  userInfoEndpoint: http://localhost:8080/auth/realms/master/protocol/openid-connect/userinfo
+  userLogoutEndpoint: http://localhost:8080/auth/realms/master/protocol/openid-connect/logout
+  color: "#0076b4"
+  syncMappings: false
+  scopes:
+    - openid
+    - profile
+  userMapping:
+    id: sub
+    email: email
+    lastname: family_name
+    firstname: given_name
+    picture: picture
+  groupMapping:
+    - condition: "{#jsonPath(#profile, '$.identity_provider_id') == 'PARTNERS' && #jsonPath(#profile, '$.job_id') != 'API_MANAGER'}"
+      groups:
+        - Group 1
+        - Group 2
+  roleMapping:
+    - condition: "{#jsonPath(#profile, '$.job_id') != 'API_MANAGER'}"
+      roles:
+        - "ORGANIZATION:USER"
+        - "ENVIRONMENT:API_CONSUMER"
+        - "ENVIRONMENT:DEFAULT:API_CONSUMER"
+        - "ENVIRONMENT:<ENVIRONMENT_ID>:API_CONSUMER"
 ```
 {% endcode %}
 {% endtab %}

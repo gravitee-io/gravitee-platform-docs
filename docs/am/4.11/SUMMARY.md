@@ -6,6 +6,7 @@
 * [AM Architecture](overview/am-architecture/README.md)
   * [Control Plane & Data Plane](overview/am-architecture/control-plane-and-data-plane.md)
 * [Plugins](overview/plugins/README.md)
+  * [Plugin Reference](overview/plugins/plugin-reference.md)
   * [Compatibility Matrices](overview/plugins/compatibility-matrices.md)
 * [Gravitee AM Enterprise Edition](overview/open-source-vs-enterprise-am/README.md)
   * [Enterprise Edition Licensing](https://documentation.gravitee.io/platform-overview/gravitee-essentials/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing)

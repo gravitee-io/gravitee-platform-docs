@@ -6,8 +6,10 @@ The following sections detail the configurations necessary to expose metrics to 
 
 ## Enable the metrics service
 
-Prometheus support is activated and exposed using the component’s internal API. The metrics service can be enabled in the `gravitee.yml` configuration file:
+Prometheus support is activated and exposed using the component’s internal API. Use the tab that matches your deployment method.
 
+{% tabs %}
+{% tab title="gravitee.yaml" %}
 {% code title="gravitee.yml" %}
 ```yaml
 services:
@@ -17,6 +19,31 @@ services:
       enabled: true
 ```
 {% endcode %}
+{% endtab %}
+
+{% tab title=".env" %}
+Add the following variables to the `.env` file loaded by your `docker-compose.yml`, or to the `environment:` block of the Gateway service:
+
+```bash
+gravitee_services_metrics_enabled=true
+gravitee_services_metrics_prometheus_enabled=true
+```
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+Set the `gateway.services.metrics` block in your `values.yaml` file. The APIM Helm chart renders this block directly into the Gateway `gravitee.yml` at install time:
+
+```yaml
+gateway:
+  services:
+    metrics:
+      enabled: true
+      prometheus:
+        enabled: true
+        concurrencyLimit: 3
+```
+{% endtab %}
+{% endtabs %}
 
 {% hint style="info" %}
 * By default, the internal component API is bound to `localhost` only and must not be invoked outside `localhost`. To widely expose the API, you may need to set the `services.core.http.host` property to the correct network interface.

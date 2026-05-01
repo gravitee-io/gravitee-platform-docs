@@ -2,5 +2,8 @@
 # Auto-managed by the documentation pipeline
 SUMMARY.md
 create-and-configure-apis/apply-policies/policy-reference/4.9-jwt-validator.md
-release-information/release-notes/apim-4.12.md
 secure-and-expose-apis/plans/jwt.md
+analyze-and-monitor-apis/opentelemetry.md
+create-and-configure-apis/apply-policies/README.md
+create-and-configure-apis/apply-policies/shared-policy-groups.md
+release-information/release-notes/apim-4.12.md

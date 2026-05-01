@@ -159,17 +159,23 @@ http:
 {% endcode %}
 {% endtab %}
 
-{% tab title="Kubernetes values.yaml" %}
-{% code title="values.yaml" %}
+{% tab title=".env" %}
+Add the following variable to the `.env` file loaded by your `docker-compose.yml`, or to the `environment:` block of the Gateway service:
+
+```bash
+gravitee_http_ssl_clientAuthHeader_name=X-Gravitee-Client-Cert
+```
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+The APIM Helm chart doesn't expose a dedicated `clientAuthHeader` value. Inject the equivalent environment variable through the `gateway.env` array of your `values.yaml` file:
+
 ```yaml
 gateway:
-  # ...
-  ssl:
-    clientAuthHeader:
-      name: X-Gravitee-Client-Cert
-    # ...
+  env:
+    - name: gravitee_http_ssl_clientAuthHeader_name
+      value: X-Gravitee-Client-Cert
 ```
-{% endcode %}
 {% endtab %}
 {% endtabs %}
 
