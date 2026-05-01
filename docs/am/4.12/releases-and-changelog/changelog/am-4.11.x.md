@@ -6,6 +6,28 @@ description: >-
 
 # AM 4.11.x
 
+## Gravitee Access Management 4.11.3 - May 1, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* MFA : Sent verification code to active/enrolled factor [#11318](https://github.com/gravitee-io/issues/issues/11318)
+* VHost with path "/" throws ArrayIndexOutOfBoundsException [#11358](https://github.com/gravitee-io/issues/issues/11358)
+* SMTP resource implict authentication [#11372](https://github.com/gravitee-io/issues/issues/11372)
+* IdP Whitelist: Domain validation is case-sensitive [#11386](https://github.com/gravitee-io/issues/issues/11386)
+
+</details>
+
+
 ## Gravitee Access Management 4.11.2 - April 17, 2026
 
 <details>
