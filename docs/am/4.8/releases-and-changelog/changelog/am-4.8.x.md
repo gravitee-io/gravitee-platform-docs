@@ -6,6 +6,25 @@ description: >-
 
 # AM 4.8.x
 
+## Gravitee Access Management 4.8.32 - May 1, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* IdP Whitelist: Domain validation is case-sensitive [#11386](https://github.com/gravitee-io/issues/issues/11386)
+
+</details>
+
+
 ## Gravitee Access Management 4.8.31 - April 24, 2026
 
 <details>
