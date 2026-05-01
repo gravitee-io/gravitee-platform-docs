@@ -154,3 +154,7 @@ The GKO admission webhook rejects a `Subscription` when:
 * Two entries in `apiKeys` share the same `key` value.
 * Any `apiKeys[].expireAt` isn't a valid RFC 3339 date-time.
 
+### Step-by-step guide
+
+For an end-to-end walkthrough, including a worked rotation example, see [manage-api-key-subscriptions-with-gko.md](../../guides/manage-api-key-subscriptions-with-gko.md "mention").
+
