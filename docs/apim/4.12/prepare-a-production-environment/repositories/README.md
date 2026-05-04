@@ -193,7 +193,7 @@ When defining the rate-limiting policy, the Gravitee APIM Gateway needs to store
 
 For Management repositories, you can define a custom prefix for the Rate Limit table or collection name.
 
-Counters can be stored in MongoDB, JDBC, or Redis Standalone.
+Counters can be stored in MongoDB, JDBC, Redis Standalone, or Hazelcast.
 
 {% tabs %}
 {% tab title="MongoDB" %}
@@ -239,6 +239,17 @@ ratelimit:
 ```
 
 Redis Sentinel and Redis SSL configuration options are presented [here](redis.md#redis).
+{% endtab %}
+
+{% tab title="Hazelcast" %}
+To store counters in Hazelcast:
+
+```yaml
+ratelimit:
+  type: hazelcast
+  hazelcast:
+    config-path: ${gravitee.home}/config/hazelcast-ratelimit.xml
+```
 {% endtab %}
 {% endtabs %}
 
