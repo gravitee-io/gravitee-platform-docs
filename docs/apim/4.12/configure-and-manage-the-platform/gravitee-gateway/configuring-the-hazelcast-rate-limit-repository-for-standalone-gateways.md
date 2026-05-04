@@ -2,6 +2,23 @@
 
 ## Gateway Configuration
 
+### Standalone Gateways
+
+1. Copy `config/hazelcast-ratelimit.xml.sample` to `config/hazelcast-ratelimit.xml`
+2. Configure TCP-IP join with a static member list:
+   ```xml
+   <join>
+       <auto-detection enabled="false"/>
+       <multicast enabled="false"/>
+       <tcp-ip enabled="true">
+           <interface>127.0.0.1</interface>
+       </tcp-ip>
+   </join>
+   ```
+3. Set `ratelimit.type: hazelcast` in `gravitee.yml`
+
+The gateway loads the configuration on startup and joins the Hazelcast cluster.
+
 ### Rate-Limit Repository Settings
 
 | Property | Description | Example |
