@@ -4,6 +4,12 @@ description: Overview of GKO.
 
 # GKO 4.8.x
 
+## Gravitee Kubernetes Operator 4.8.25 - May 4, 2026
+
+There is nothing new in version 4.8.25.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
 ## Gravitee Kubernetes Operator 4.8.24 - April 21, 2026
     
 <details>
@@ -19,7 +25,6 @@ description: Overview of GKO.
   * Can pass page HRID for plan General Conditions [#11270](https://github.com/gravitee-io/issues/issues/11270)
 
 </details>
-
 
 ## Gravitee Kubernetes Operator 4.8.22 - March 16, 2026
 
