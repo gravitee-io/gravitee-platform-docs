@@ -25,9 +25,9 @@ GatewayClassParameters (Gravitee-specific configuration)
               └── HTTPRoute (references Gateway, defines routing rules)
 ```
 
-The HTTPRoute defines the ingress path and hostname, then forwards traffic to the APIM gateway service. An `ApiV4Definition` with the same name defines the actual API behavior (listeners, endpoints, plans, flows) on the APIM gateway.
+The HTTPRoute defines the ingress path and hostname, then forwards traffic to the APIM gateway service. An `ApiV4Definition` with the same name defines the actual API behavior (listeners, endpoints, plans, flows) on the APIM Gateway.
 
-<figure><img src="../../.gitbook/assets/GatewayAPI-Configure-With-APIM-Flow.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/kubertenes-gateway-api-integration-tooling.png" alt=""><figcaption></figcaption></figure>
 
 ## Prerequisites
 
@@ -101,10 +101,10 @@ gateway:
 ```
 {% endcode %}
 
-The `!` prefix tells the gateway to exclude APIs tagged with `gravitee/gravitee-gateway`, while still allowing other ConfigMap-based definitions through.
+The `!` prefix tells the Gateway to exclude APIs tagged with `gravitee/gravitee-gateway`, while still allowing other ConfigMap-based definitions through.
 
 {% hint style="info" %}
-APIM Helm Chart reference: [https://github.com/gravitee-io/gravitee-api-management/blob/master/helm/values.yaml#L1522](https://github.com/gravitee-io/gravitee-api-management/blob/master/helm/values.yaml#L1522)
+See the [APIM Helm Chart reference](https://github.com/gravitee-io/gravitee-api-management/blob/master/helm/values.yaml#L1522) for more information.&#x20;
 {% endhint %}
 
 ### Step 3: Prepare Resources
@@ -374,9 +374,9 @@ The example below traces a single request end-to-end, showing how it moves throu
 1. A client sends `GET /echo/hostname` with `Host: echo.gateway.mycompany.com`
 2. The **Gateway API gateway** matches the request via the HTTPRoute and proxies it to `apim-gateway:82`
 3. The **Gravitee APIM Gateway** matches the request against the `echo` API (by path and virtual host), applies plans and policies, then proxies to the backend (`httpbin-1.gravitee.svc.cluster.local:8080`).
-4. The backend responds, and the response flows back through both gateways to the client.
+4.  The backend responds, and the response flows back through both gateways to the client.
 
-<figure><img src="../../.gitbook/assets/full-example-of-configuring-self-hosted-gravitee-apim-with-k8s-gateway-api-request-flow.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/request-flow-kubernetes-cluster-http-route.png" alt=""><figcaption></figcaption></figure>
 
 ### **Step 1: Confirm ManagementContext**
 
