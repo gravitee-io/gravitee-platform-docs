@@ -59,15 +59,26 @@ Before you install APIM, complete the following steps:
      └── mongodb
          └── data
     ```
-3.  (**Enterprise Edition only**) Place your license key file in the current root directory:
+3.  Change into the `gravitee` directory. You will run all remaining commands in this guide from here:
 
-    ```shellscript
+    ```bash
+    cd gravitee
+    ```
+
+{% hint style="info" %}
+The Docker Compose volume paths (such as `./mongodb/data` and `./license.key`) are resolved relative to the location of the `docker-compose-apim.yml` file. Both the Compose file and the license key must therefore live inside the `gravitee` directory alongside the subdirectories you just created.&#x20;
+{% endhint %}
+
+4.  (**Enterprise Edition only**) If you are using Gravitee Enterprise Edition, copy your license file into the `gravitee` directory and name it `license.key`:<br>
+
+    ```bash
     cp /path/to/your/license.key ./license.key
     ```
 
-    Replace `/path/to/your/license.key` with the actual path to your Gravitee license file. You must name your license file `license.key` and it must be located in the same directory as your `docker-compose-apim.yml` file.
-4. In your current root directory, create a file called `docker-compose-apim.yml`.
-5.  Add the following configuration to your `docker-compose-apim.yml` file, and then save the file:
+Replace `/path/to/your/license.key` with the actual path to your Gravitee license file. You must name your license file `license.key` and it must be located in the same directory as your `docker-compose-apim.yml` file.
+
+5. In your current root directory, create a file called `docker-compose-apim.yml`.
+6.  Add the following configuration to your `docker-compose-apim.yml` file, and then save the file:
 
     ```yaml
     #
@@ -212,7 +223,20 @@ Before you install APIM, complete the following steps:
         networks:
           - frontend
     ```
-6.  Run Docker Compose with the following command:
+7.  Confirm that the `gravitee` directory now contains the following files alongside the subdirectories from [Step 1:](docker-compose.md#install-gravitee-apim)
+
+    ```bash
+    ./gravitee
+        ├── docker-compose-apim.yml
+        ├── license.key                  # Enterprise Edition only
+        ├── apim-gateway/
+        ├── apim-management-api/
+        ├── apim-management-ui/
+        ├── apim-portal-ui/
+        ├── elasticsearch/
+        └── mongodb/
+    ```
+8.  From inside the `gravitee` directory, start the services:
 
     ```bash
     docker compose -f docker-compose-apim.yml up -d
