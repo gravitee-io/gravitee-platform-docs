@@ -27,7 +27,7 @@ Kafka Console is currently only available for self-hosted deployments and not co
 
 Before deploying Kafka Console, ensure the following criteria are met:
 
-* Version **4.9.0-alpha.3** or later for APIM or the Gravitee Helm Chart, depending on your deployment method. There is no `latest` tag for Kafka Console.
+* Version **4.11.0** or later for APIM or the Gravitee Helm Chart, depending on your deployment method. There is no `latest` tag for Kafka Console.
 * An Enterprise license that includes the **apim-cluster** feature.
 * The Kafka Console container image is not available on the public Docker registry. Contact your customer team for access to the container image.
 * The Kafka Console must be able to reach the Management API using the internal Docker network. Use service names, such as `mapi`, instead of `localhost`.
@@ -49,7 +49,7 @@ To deploy the Kafka Console using Docker Compose, complete the following steps.
 
     ```yaml
     management_api:
-      image: graviteeio/apim-management-api:4.9.0-alpha.3
+      image: graviteeio/apim-management-api:4.11.0
       environment:
         - gravitee_kafka_console_enabled=true
         - gravitee_kafka_console_server_host=kafkaConsole
@@ -98,7 +98,7 @@ To deploy the Kafka Console using Docker Compose, complete the following steps.
 5.  Start your Docker Compose stack with the correct APIM version by running the following command:
 
     ```bash
-    APIM_VERSION=4.9.0-alpha.3 docker compose up -d
+    APIM_VERSION=4.11.0 docker compose up -d
     ```
 
 <details>
@@ -378,7 +378,7 @@ services:
 * Replace the JWT secret `TCkyfrr8F6c75mAGKpRtKPaBHt9LyJ7P` with your own 32-character secret.
 * Replace the included SSL certificates mounted from `./.ssl/` directory with your own.
 * The OAuth/OIDC configuration points to an internal Gravitee test environment. Adjust this for your setup.
-* Launch with `APIM_VERSION=4.9.0-alpha.3 docker compose up -d`.
+* Launch with `APIM_VERSION=4.11.0 docker compose up -d`.
 
 </details>
 
@@ -387,7 +387,7 @@ services:
 To deploy the Kafka Console using the Gravitee Helm Chart, complete the following steps.
 
 {% hint style="warning" %}
-There is a bug in `4.9.0-alpha.3` that requires adding the JWT secret to both the `api` section and the `kafkaConsole` section. This redundancy will be fixed in future releases.
+There is a bug in `4.11.0` that requires adding the JWT secret to both the `api` section and the `kafkaConsole` section. This redundancy will be fixed in future releases.
 {% endhint %}
 
 1.  Add the following Kafka Console configuration to your Helm `values.yml` file:
@@ -434,7 +434,7 @@ kafkaConsole:
 ````
 ```bash
 helm upgrade --install gravitee-apim gravitee/apim \
-  --version 4.9.0-alpha.3 \
+  --version 4.11.0 \
   -f values.yml
 ```
 ````

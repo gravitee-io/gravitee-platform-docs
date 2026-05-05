@@ -176,7 +176,7 @@ gateway:
     replicaCount: 1
     image:
         repository: graviteeio/apim-gateway
-        tag: 4.9.0
+        tag: <add_the_gateway_tag> #The gateway version to install. It has to align with the control plane of your Gravitee Cloud
         pullPolicy: IfNotPresent
     autoscaling:
         enabled: false
@@ -267,7 +267,7 @@ Make the following modifications to your `values.yaml` file:
 
 * Replace `LICENSE KEY` with your Gravitee License Key.
 * Replace `CLOUD TOKEN` with the token generated for your hybrid gateway in the Gravitee Cloud UI.
-* Ensure the `tag` field (e.g., `4.8.0`) under `gateway.image` matches the version required by your Gravitee Cloud control plane.
+* Replace `<add_the_gateway_tag>` under `gateway.image.tag` with the gateway version to install. It has to align with the control plane of your Gravitee Cloud.
 * Replace the entire list under `gateway.additionalPlugins` with the actual URLs of your custom plugins hosted on your internal S3 bucket.
 * Replace `"myredispassword"` under `gateway.ratelimit.redis.password` with the same `<redis_password>` you set in the Redis manifest.
 * Replace `"mymaster"` under `gateway.ratelimit.redis.sentinel.master` with the same `<redis_master_name>` you set in the Redis manifest.
