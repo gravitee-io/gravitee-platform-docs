@@ -285,7 +285,7 @@ To enable Federation, complete the following steps:
 
     ```yaml
     management_api:
-        image: graviteeio/apim-management-api:4.11.0-debian
+        image: graviteeio/apim-management-api:latest-debian
         container_name: mgmtapi
         restart: always
         ports:
