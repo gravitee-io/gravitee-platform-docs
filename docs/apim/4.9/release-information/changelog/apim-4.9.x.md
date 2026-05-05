@@ -471,6 +471,7 @@ metaLinks:
 * Handle X-Forwarded-Prefix and X-Original-Forwarded-Host headers to properly build links for portal [#10993](https://github.com/gravitee-io/issues/issues/10993)
 * JWT policy missing in error transparency execution logs [#11005](https://github.com/gravitee-io/issues/issues/11005)
 * Client aborted during response missing in error transparency execution logs [#11006](https://github.com/gravitee-io/issues/issues/11006)
+* Support added for ElasticSearch 9.x. 
 
 </details>
 
