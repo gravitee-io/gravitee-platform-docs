@@ -29,7 +29,7 @@ For more information about acquiring these prerequisites, see [#prepare-your-ins
 
     ```
     # The Gateway version must match the Control Plane version to ensure compatibility.
-    APIM_VERSION=4.8
+    APIM_VERSION=4.11
 
     # Use a Redis version that is supported by Gravitee.
     # See the list of supported Redis versions: https://documentation.gravitee.io/apim/configure-apim/repositories/redis#supported-databases
