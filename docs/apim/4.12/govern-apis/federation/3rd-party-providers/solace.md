@@ -185,7 +185,7 @@ Create the Helm values file based on your APIM management API's certificate setu
         image:
           repository: graviteeio
           name: federation-agent-solace
-          tag: 4.8.4
+          tag: 4.11.0
 
         resources:
           requests:
@@ -285,7 +285,7 @@ Create the Helm values file based on your APIM management API's certificate setu
         image:
           repository: graviteeio
           name: federation-agent-solace
-          tag: 4.8.4
+          tag: 4.11.0
         
         extraVolumeMounts: |
           - name: custom-truststore

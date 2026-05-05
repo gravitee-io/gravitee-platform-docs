@@ -42,7 +42,7 @@ gateway:
   replicaCount: 1
   image:
     repository: graviteeio/apim-gateway
-    tag: 4.8.1
+    tag: <add_the_gateway_tag> #The gateway version to install. It has to align with the control plane of your Gravitee Cloud
     pullPolicy: IfNotPresent
   autoscaling:
     enabled: false
@@ -124,6 +124,7 @@ license:
 * Replace `${your-cloud-token}` with your Cloud Token from Gravitee Cloud
 * Replace `${gateway_hostname}` with your specific hostname for the Gravitee Gateway
 * Replace `${your-license-key}` with your Gravitee License from Gravitee Cloud
+* Replace `<add_the_gateway_tag>` with the gateway version to install. It has to align with the control plane of your Gravitee Cloud.
 
 ## Verification
 

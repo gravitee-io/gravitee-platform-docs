@@ -53,13 +53,13 @@ To enable API rate-limiting, configure your Gateway to use a rate-limiting repos
       -e gravitee_ratelimit_redis_ssl=false \
       -e gravitee_cloud_token=<cloud_token> \
       -e gravitee_license_key=<license_key> \
-      graviteeio/apim-gateway:<CONTROL_PLANE_VERSION>
+      graviteeio/apim-gateway:<add_the_gateway_tag> #The gateway version to install. It has to align with the control plane of your Gravitee Cloud
     ```
 
     * Replace `<cloud_token>` with your Cloud Token from Gravitee Cloud.
     * Replace `<license_key>` with your License Key from Gravitee Cloud.
     * Set `redis_password` environment variable: `export redis_password=your_redis_password` or replace `${redis_password}` with your actual Redis password.
-    *   Replace `<CONTROL_PLANE_VERSION>` with the version that matches your Gravitee Cloud Control Plane. For example. 4.8.2.
+    *   Replace `<add_the_gateway_tag>` with the gateway version to install. It has to align with the control plane of your Gravitee Cloud.
 
         <figure><img src="../../../.gitbook/assets/hybrid-cloud-docker-docker-cli-62.png" alt=""><figcaption></figcaption></figure>
 
@@ -87,7 +87,7 @@ To confirm that your Hybrid installation is working, complete the following step
 
     ```sh
     CONTAINER ID   IMAGE                         COMMAND                  CREATED             STATUS             PORTS                    NAMES
-    50016b90785e   graviteeio/apim-gateway:4.8.2   "./bin/gravitee"         About an hour ago   Up About an hour   0.0.0.0:8082->8082/tcp   gio-apim-hybrid-gateway
+    50016b90785e   graviteeio/apim-gateway:4.11.0   "./bin/gravitee"         About an hour ago   Up About an hour   0.0.0.0:8082->8082/tcp   gio-apim-hybrid-gateway
     a8d3e6f1c2b4   redis:7.2-alpine              "redis-server --requ..." About an hour ago   Up About an hour   0.0.0.0:6379->6379/tcp   gio-apim-hybrid-redis
     ```
 
@@ -164,7 +164,7 @@ This response confirms that the Gateway has initialized, but no APIs have been d
     [gio-apim-hybrid-gateway] INFO  i.g.r.redis.vertx.RedisClient - Redis is now ready to be used.
     [gio-apim-hybrid-gateway] INFO  i.g.node.container.AbstractContainer - Starting Gravitee.io - API Gateway...
     [gio-apim-hybrid-gateway] INFO  i.g.g.r.s.vertx.HttpProtocolVerticle - HTTP server [http] ready to accept requests on port 8082
-    [gio-apim-hybrid-gateway] INFO  i.g.node.container.AbstractNode - Gravitee.io - API Gateway id[05dbfca1-3102-4cbb-9bfc-a13102acbbdd] version[4.8.2] started in 866 ms.
+    [gio-apim-hybrid-gateway] INFO  i.g.node.container.AbstractNode - Gravitee.io - API Gateway id[05dbfca1-3102-4cbb-9bfc-a13102acbbdd] version[4.11.0] started in 866 ms.
     [gio-apim-hybrid-gateway] INFO  i.g.g.s.s.p.r.s.n.NodeMetadataSynchronizer - Node metadata synchronized in 285ms
     [gio-apim-hybrid-gateway] INFO  i.g.g.s.s.p.r.s.l.LicenseSynchronizer - 1 licenses synchronized in 46ms
     [gio-apim-hybrid-gateway] INFO  i.g.g.s.s.p.r.s.api.ApiSynchronizer - 0 apis synchronized in 26ms
