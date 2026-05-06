@@ -330,12 +330,37 @@ This file is located in the `/dashboards` folder of the Management API distribut
 
 To customize the Home dashboard you can either modify this file or specify a new folder in the `gravitee.yml` file:
 
-```
+{% tabs %}
+{% tab title="gravitee.yaml" %}
+Update the `console:` section of the Management API `gravitee.yml` file:
+
+```yaml
 # Console dashboards
 console:
   dashboards:
     path: ${gravitee.home}/dashboards
 ```
+{% endtab %}
+
+{% tab title=".env" %}
+Add the following variable to the `.env` file loaded by `docker-compose.yml`, or to the `environment:` block of the Management API service:
+
+```bash
+gravitee_console_dashboards_path=/opt/graviteeio-management-api/dashboards
+```
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+The APIM Helm chart doesn't expose `console.dashboards.path` as a structured value, so set it through the Management API container environment under `api.env`:
+
+```yaml
+api:
+  env:
+    - name: gravitee_console_dashboards_path
+      value: /opt/graviteeio-management-api/dashboards
+```
+{% endtab %}
+{% endtabs %}
 
 By default, this section is commented out and the path is `${gravitee.home}/dashboards`
 
@@ -343,7 +368,7 @@ Charts are generated with [Highcharts](https://api.highcharts.com/highcharts/). 
 
 For example:
 
-```
+```json
 [
   {
     "row": 0,

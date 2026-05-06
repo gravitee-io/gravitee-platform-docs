@@ -48,16 +48,38 @@ Execution transparency analytics requires the following components before you ca
 
 ## Configure Execution Transparency
 
-* Warning reporting is enabled by default in your environment. Here is what the default configuration looks like in the Gateway section of your `gravitee.yml` file:
+Warning reporting is enabled by default. To disable it or re-enable it  use the tab that matches your deployment method.
+
+{% tabs %}
+{% tab title="gravitee.yaml" %}
+Update the Gateway `gravitee.yml` file:
 
 ```yaml
-# gravitee.yml
+reporters:
+  warnings:
+    enabled: true
+```
+{% endtab %}
 
+{% tab title=".env" %}
+Add the following variable to the `.env` file loaded by `docker-compose.yml`, or to the `environment:` block of the Gateway service:
+
+```bash
+gravitee_reporters_warnings_enabled=true
+```
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+Update the `gateway:` section of your `values.yaml` file. The APIM Helm chart renders these values into the Gateway `gravitee.yml` at install time:
+
+```yaml
 gateway:
   reporters:
     warnings:
       enabled: true
 ```
+{% endtab %}
+{% endtabs %}
 
 ## How Execution Transparency Analytics Works
 
