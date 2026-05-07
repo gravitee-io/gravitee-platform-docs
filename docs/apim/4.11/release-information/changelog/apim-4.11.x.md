@@ -1,5 +1,46 @@
 # APIM 4.11.x
  
+## Gravitee API Management 4.11.6 - May 7, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* OTEL: policy.trigger.executed always true for conditional policies [#11385](https://github.com/gravitee-io/issues/issues/11385)
+
+**Management API**
+
+* Access control references to deleted groups prevents promotions [#11334](https://github.com/gravitee-io/issues/issues/11334)
+* Global policies deleted [#11390](https://github.com/gravitee-io/issues/issues/11390)
+* Exposed Entrypoints bug when using sharding tags and virtual host [#11395](https://github.com/gravitee-io/issues/issues/11395)
+* Unable to connect to console anymore [#11406](https://github.com/gravitee-io/issues/issues/11406)
+
+**Other**
+
+* Not possible to use EL for Solace Topics  [#11261](https://github.com/gravitee-io/issues/issues/11261)
+* APIM - Host in healthcheck Header  does not work [#11328](https://github.com/gravitee-io/issues/issues/11328)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Gateway**
+
+* Support PNA on the gateway [#11252](https://github.com/gravitee-io/issues/issues/11252)
+
+**Management API**
+
+* JDBC: migrate emoji-bearing NVARCHAR columns from utf8mb3 to utf8mb4 on MySQL/MariaDB [#11400](https://github.com/gravitee-io/issues/issues/11400)
+* JDBC repository: support MySQL deployments with sql_require_primary_key=ON [#11401](https://github.com/gravitee-io/issues/issues/11401)
+* SubscriptionReferenceTypeUpgrader & PlanReferenceTypeUpgrader improvement [#11402](https://github.com/gravitee-io/issues/issues/11402)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.11.5 - April 30, 2026
 <details>
 
