@@ -16,7 +16,7 @@ noIndex: true
 
   **Others**
 
-  * Updating ApiV4Definition to change plan generalConditions to a new page HRID causes reconciliation failure (HTTP 500) [#11327](https://github.com/gravitee-io/issues/issues/11327)
+  * Updating `ApiV4Definition` to change plan `generalConditions` to a new page HRID causes reconciliation failure (HTTP 500) [#11327](https://github.com/gravitee-io/issues/issues/11327)
 
 
 ## Gravitee Kubernetes Operator 4.11.1 - April 21, 2026
