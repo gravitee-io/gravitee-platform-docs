@@ -66,6 +66,7 @@
     * [Extension Grants](guides/auth-protocols/oauth-2.0/extension-grants.md)
     * [Dynamic Redirect URI Parameters](guides/auth-protocols/oauth-2.0/dynamic-redirect-uri-parameters.md)
   * [OpenID Connect](guides/auth-protocols/openid-connect.md)
+  * [SAML Assertion Attribute Mapping Concepts](guides/auth-protocols/saml-assertion-attribute-mapping-concepts.md)
   * [UMA 2.0](guides/auth-protocols/uma-2.0.md)
   * [SCIM 2.0](guides/auth-protocols/scim-2.0.md)
   * [Open Banking](guides/auth-protocols/open-banking.md)
@@ -170,10 +171,12 @@
 ## Reference
 
 * [API Reference](reference/am-api-reference.md)
+  * [SAML Assertion Mapping API](reference/saml-assertion-mapping-api-reference.md)
 
 ## Releases & Changelog
 
 * [Release Notes](releases-and-changelog/release-notes/README.md)
+  * [AM 4.12](releases-and-changelog/release-notes/am-4.12.md)
   * [AM 4.11](releases-and-changelog/release-notes/am-4.11.md)
   * [AM 4.10](https://documentation.gravitee.io/am/releases-and-changelog/release-notes/am-4.10)
   * [AM 4.9](https://documentation.gravitee.io/am/4.9/releases-and-changelog/release-notes/am-4.9)

@@ -162,6 +162,15 @@ After installing the plugin and the license key, verify the SAML 2.0 IdP protoco
 5. Click **SAML 2.0**.
 6. Confirm the **SAML 2.0 IdP support** toggle is available without a lock icon. A lock icon indicates the license doesn't include this feature.
 
+### Prerequisites
+
+Before configuring SAML assertion mappings, ensure the following requirements are met:
+
+* SAML identity provider configuration is enabled for the application
+* Service provider metadata is configured (**Entity ID**, **Assertion Consumer Service URL**)
+* User profile fields are populated with data referenced in Expression Language (EL) expressions
+* Understanding of EL syntax for attribute mapping
+
 ### Activate SAML 2.0 IdP
 
 {% hint style="info" %}
@@ -210,3 +219,12 @@ Test the SAML 2.0 connection using a web application created in AM:
 {% hint style="info" %}
 The SAML 2.0 IdP protocol is compatible out of the box with all existing AM features, such as passwordless, MFA, and social login, just like the OAuth 2.0/OpenID Connect protocol.
 {% endhint %}
+
+### Prerequisites
+
+Before configuring SAML assertion mappings, ensure the following requirements are met:
+
+* SAML identity provider configuration is enabled for the application
+* Service provider metadata is configured (**Entity ID**, **Assertion Consumer Service URL**)
+* User profile fields are populated with data referenced in Expression Language (EL) expressions
+* Understanding of EL syntax for attribute mapping
