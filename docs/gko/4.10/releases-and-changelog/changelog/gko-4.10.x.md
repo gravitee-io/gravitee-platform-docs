@@ -7,7 +7,7 @@
 
   **GKO**
 
-  * Impossible to remove API or Application after subscription is updated  [#11331](https://github.com/gravitee-io/issues/issues/11331)
+* Impossible to remove API or Application after subscription is updated [#11331](https://github.com/gravitee-io/issues/issues/11331)
 
   **APIM**
 
