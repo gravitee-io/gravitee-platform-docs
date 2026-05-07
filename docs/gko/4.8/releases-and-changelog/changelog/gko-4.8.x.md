@@ -11,15 +11,12 @@ description: Overview of GKO.
 
   **GKO**
 
-  * Impossible to remove API or Application after subscription is updated  [#11331](https://github.com/gravitee-io/issues/issues/11331)
+  * Impossible to remove API or Application after subscription is updated [#11331](https://github.com/gravitee-io/issues/issues/11331)
+  * Updating ApiV4Definition to change plan generalConditions to a new page HRID causes reconciliation failure (HTTP 500) [#11327](https://github.com/gravitee-io/issues/issues/11327)
 
   **APIM**
 
   * Can pass page HRID for plan General Conditions [#11270](https://github.com/gravitee-io/issues/issues/11270)
-
-  **Others**
-
-  * Updating ApiV4Definition to change plan generalConditions to a new page HRID causes reconciliation failure (HTTP 500) [#11327](https://github.com/gravitee-io/issues/issues/11327)
 
 </details>
 
