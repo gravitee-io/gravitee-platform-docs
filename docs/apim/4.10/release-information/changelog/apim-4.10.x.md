@@ -1,5 +1,39 @@
 # APIM 4.10.x
  
+## Gravitee API Management 4.10.14 - May 7, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* OTEL: policy.trigger.executed always true for conditional policies [#11385](https://github.com/gravitee-io/issues/issues/11385)
+
+**Management API**
+
+* Access control references to deleted groups prevents promotions [#11334](https://github.com/gravitee-io/issues/issues/11334)
+* Global policies deleted [#11390](https://github.com/gravitee-io/issues/issues/11390)
+* Exposed Entrypoints bug when using sharding tags and virtual host [#11395](https://github.com/gravitee-io/issues/issues/11395)
+* Unable to connect to console anymore [#11406](https://github.com/gravitee-io/issues/issues/11406)
+
+**Other**
+
+* Not possible to use EL for Solace Topics  [#11261](https://github.com/gravitee-io/issues/issues/11261)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Gateway**
+
+* Support PNA on the gateway [#11252](https://github.com/gravitee-io/issues/issues/11252)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.10.13 - April 30, 2026
 <details>
 
