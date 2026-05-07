@@ -1,6 +1,19 @@
 # GKO 4.10.x
 
-<<<<<<< HEAD
+## Gravitee Kubernetes Operator 4.10.12 - May 7, 2026
+
+There is nothing new in version 4.10.12.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+
+## Gravitee Kubernetes Operator 4.10.11 - May 7, 2026
+
+There is nothing new in version 4.10.11.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+
 ## Gravitee Kubernetes Operator 4.10.10 - April 21, 2026
     
 <details>
@@ -9,23 +22,13 @@
   **GKO**
 
 * Impossible to remove API or Application after subscription is updated [#11331](https://github.com/gravitee-io/issues/issues/11331)
+* Updating ApiV4Definition to change plan generalConditions to a new page HRID causes reconciliation failure (HTTP 500) [#11327](https://github.com/gravitee-io/issues/issues/11327)
 
   **APIM**
 
-  * Can pass page HRID for plan General Conditions [#11270](https://github.com/gravitee-io/issues/issues/11270)
-
-  **Others**
-
-  * Updating ApiV4Definition to change plan generalConditions to a new page HRID causes reconciliation failure (HTTP 500) [#11327](https://github.com/gravitee-io/issues/issues/11327)
-
+* Can pass page HRID for plan General Conditions [#11270](https://github.com/gravitee-io/issues/issues/11270)
+  
 </details>
-=======
-## Gravitee Kubernetes Operator 4.10.12 - May 7, 2026
-
-There is nothing new in version 4.10.12.
-
-> This version was generated to keep the kubernetes operator in sync with other gravitee products.
->>>>>>> 5fcea0497 (docs: add changelog for gko-4.10.12)
 
 
 ## Gravitee Kubernetes Operator 4.10.8 - March 16, 2026
