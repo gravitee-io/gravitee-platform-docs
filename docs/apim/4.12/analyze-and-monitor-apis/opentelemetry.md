@@ -18,6 +18,8 @@ With OpenTelemetry, tracers are created for specific services. By default, a glo
 
 You can enable verbose tracing for v4 APIs. Verbose mode adds detailed execution events to each policy span, which captures headers and context attributes before and after policy execution. When you enable verbose tracing, policy descriptions configured in policy step definitions are included in tracing spans as the `gravitee.policy.description` attribute. This inclusion improves observability by annotating trace data with the purpose or intent of each policy step.
 
+For Kafka native APIs, OpenTelemetry tracing provides distributed tracing for Kafka protocol operations, capturing connection lifecycle, authentication, and per-request spans with protocol-specific attributes (topics, batch counts, consumer groups, error codes). Tracing is opt-in at both gateway and API levels, with an optional verbose mode that adds per-phase, per-flow, and per-policy spans for deep debugging.
+
 To enable OpenTelemetry, complete the following steps:
 
 1. [#enable-opentelemetry-for-your-gateway](opentelemetry.md#enable-opentelemetry-for-your-gateway "mention")
@@ -54,6 +56,13 @@ To enable OpenTelemetry for your Gateway, follow the steps for your installation
         # Allow to add any extra attributes on all spans
         extraAttributes:
           - deployment.environment.name: production
+
+        # Kafka tracing filter
+        kafka:
+          # Restricts per-request spans to specific Kafka protocol types; empty list traces all types
+          tracedApiKeys:
+            - PRODUCE
+            - FETCH
 
         exporter:
           endpoint: <OPENTELEMETRY_ENDPOINT>
@@ -106,6 +115,13 @@ To enable OpenTelemetry for your Gateway, follow the steps for your installation
           extraAttributes:
             - deployment.environment.name: production
 
+          # Kafka tracing filter
+          kafka:
+            # Restricts per-request spans to specific Kafka protocol types; empty list traces all types
+            tracedApiKeys:
+              - PRODUCE
+              - FETCH
+
           exporter:
             endpoint: <OPENTELEMETRY_ENDPOINT>
             protocol: http/protobuf          # 'grpc' by default
@@ -153,6 +169,10 @@ To enable OpenTelemetry for your Gateway, follow the steps for your installation
 
 For more information about OpenTelemetry configurations, go to the [Gravitee Node OpenTelemetry GitHub README](https://github.com/gravitee-io/gravitee-node/tree/master/gravitee-node-opentelemetry).
 
+### Kafka Tracing Filter
+
+The `services.opentelemetry.kafka.tracedApiKeys` property restricts per-request spans to specific Kafka protocol types (e.g., `PRODUCE`, `FETCH`). If the list is empty or omitted, all Kafka protocol types are traced. Filtering to `[PRODUCE, FETCH]` reduces noise from housekeeping requests like `METADATA`, `HEARTBEAT`, and `FIND_COORDINATOR`.
+
 ### Verification
 
 *   To verify that you are sending traces to your OpenTelemetry collector, use the following command:
@@ -169,6 +189,21 @@ For more information about OpenTelemetry configurations, go to the [Gravitee Nod
 To enable OpenTelemetry for an API, you must have OpenTelemetry enabled on your Gateway. For more information, see [#enable-opentelemetry-for-your-gateway](opentelemetry.md#enable-opentelemetry-for-your-gateway "mention").
 {% endhint %}
 
+### Per-API Tracing Configuration for V4 Native APIs
+
+V4 NATIVE APIs support per-API OpenTelemetry tracing configuration through the following properties:
+
+| Property | Description | Example |
+|:---------|:------------|:--------|
+| `analytics.tracing.enabled` | Per-API OpenTelemetry tracing toggle | `true` |
+| `analytics.tracing.verbose` | Per-API verbose mode toggle | `false` |
+
+Tracing requires enablement at both the gateway level (`services.opentelemetry.enabled=true`) and the per-API level (`analytics.tracing.enabled=true`). If either is disabled, no spans are created for that API. This two-tier model allows platform administrators to control tracing infrastructure globally while API owners decide which APIs to instrument.
+
+Per-API tracing settings are configured in the Reporter Settings UI for native APIs. The OpenTelemetry section includes **Enabled** and **Verbose** slide toggles. The **Enabled** toggle help text explains that per-request spans are generated only for Kafka operations listed in the gateway-level `services.opentelemetry.kafka.tracedApiKeys` configuration. The **Verbose** toggle help text warns that enabling verbose mode increases trace volume significantly and should be used only for deep debugging. A warning icon is displayed inline with the verbose toggle help text.
+
+Both toggles are disabled when analytics is disabled (`analytics.enabled=false`), the user lacks `api-definition-u` permission, or the API is not V4 or not NATIVE type. The **Verbose** toggle is additionally disabled when tracing is not enabled (`analytics.tracing.enabled=false`).
+
 ## Tracing modes
 
 Gravitee APIM offers two levels of tracing to capture API request execution data.
@@ -177,9 +212,13 @@ Gravitee APIM offers two levels of tracing to capture API request execution data
 
 Standard tracing is enabled by default. It captures request and response flow, policy execution timing, backend invocation spans, error tracking, and conditional policy trigger recording.
 
+For Kafka native APIs, standard mode creates a root connection span (SpanKind.SERVER), authentication span, broker connect span (SpanKind.CLIENT), and per-request grouping spans (e.g., PRODUCE with SpanKind.PRODUCER).
+
 ### (Optional) Verbose mode
 
 Verbose mode adds detailed execution events to each policy span. It captures the complete state before and after policy execution through span events that include headers and context attributes. When you enable verbose tracing, policy descriptions configured in policy step definitions are included in tracing spans as the `gravitee.policy.description` attribute.
+
+For Kafka native APIs, verbose mode requires both gateway-level `services.opentelemetry.verbose=true` and per-API `analytics.tracing.verbose=true`. Verbose mode adds per-phase, per-flow, and per-policy spans beneath each per-request span.
 
 #### What verbose mode captures
 
@@ -190,6 +229,7 @@ Verbose mode records the following execution data:
 * Pre and post policy execution events.
 * Complete state visibility before and after each policy.
 * Policy descriptions from policy step definitions.
+* For Kafka native APIs: per-phase spans (e.g., Interact request, Publish), flow spans (e.g., plan, api), and policy spans.
 
 #### When to enable verbose mode
 
@@ -210,6 +250,10 @@ Verbose mode affects resource usage in the following ways:
 * Uses a higher network bandwidth to reach the OpenTelemetry collector.
 * Requires additional storage in the observability backend.
 * Results in minimal performance impact (< 1ms per policy).
+
+{% hint style="warning" %}
+Enable verbose mode only for deep debugging — it significantly increases trace volume on high-throughput Kafka APIs.
+{% endhint %}
 
 ### Verification
 
@@ -286,3 +330,42 @@ You can use OpenTelemetry traces to view the following API transaction details:
 * `message_Id`. For example, the ID of each message in a Kafka topic.
 * If you call an API with invalid authentication, you can see a trace with a warning and logs with details about the errors.
 * For a POST or GET request, you see the following information: `request_body_size`, `request_content_length`, `context-path`, `host.name` and `http_status_code`.
+
+## Kafka Native API Tracing
+
+OpenTelemetry tracing for Kafka native APIs provides distributed tracing for Kafka protocol operations, capturing connection lifecycle, authentication, and per-request spans with protocol-specific attributes (topics, batch counts, consumer groups, error codes).
+
+### Dual-Level Enablement
+
+Tracing requires enablement at both the gateway level (`services.opentelemetry.enabled=true`) and the per-API level (`analytics.tracing.enabled=true`). If either is disabled, no spans are created for that API. This two-tier model allows platform administrators to control tracing infrastructure globally while API owners decide which APIs to instrument.
+
+### Span Attributes
+
+Spans include OpenTelemetry semantic conventions for messaging systems and Gravitee-specific attributes:
+
+| Attribute | Description |
+|:----------|:------------|
+| `messaging.system` | Always `"kafka"` |
+| `messaging.destination.name` | Topic name(s), comma-separated; falls back to `"id:<uuid>"` for Kafka protocol v12+ |
+| `messaging.consumer.group.name` | Consumer group ID (JOIN_GROUP, HEARTBEAT, OFFSET_COMMIT, LEAVE_GROUP, SYNC_GROUP) |
+| `messaging.batch.message_count` | Number of records in PRODUCE/FETCH request/response |
+| `messaging.operation.type` | `"send"` (PRODUCE), `"receive"` (FETCH, JOIN_GROUP, SYNC_GROUP), `"settle"` (OFFSET_COMMIT) |
+| `messaging.operation.name` | `"send"`, `"poll"`, `"commit"`, `"join"`, `"sync"`, `"heartbeat"`, `"leave"` |
+| `messaging.client.id` | Kafka client ID from request header |
+| `error.type` | Kafka error code name (e.g., `"INVALID_REQUEST"`) or exception class name |
+| `gravitee.api.id` | API identifier |
+| `gravitee.auth.method` | `"SASL"` or `"PLAINTEXT"` |
+| `gravitee.auth.sasl.mechanism` | SASL mechanism (e.g., `"PLAIN"`) |
+| `gravitee.auth.principal` | Authenticated principal name |
+| `gravitee.auth.plan` | Resolved plan name |
+| `gravitee.auth.security.type` | Security type (e.g., `"api-key"`, `"key-less"`) |
+| `gravitee.error.origin` | Error classification: `"policy"`, `"security"`, `"broker"`, `"internal"` |
+| `gravitee.error.recommendation` | Human-readable error guidance |
+| `network.peer.address` | Client IP address |
+| `network.peer.port` | Client port |
+| `server.address` | Broker domain pattern |
+| `server.port` | Gateway listener port |
+
+### Error Attribution
+
+Errors are classified by origin (`policy`, `security`, `broker`, `internal`) and recorded in the `gravitee.error.origin` span attribute. Policy failures, authentication failures, broker errors, and internal errors are distinguished to guide troubleshooting.
