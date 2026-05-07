@@ -211,6 +211,10 @@ Test the SAML 2.0 connection using a web application created in AM:
 The SAML 2.0 IdP protocol is compatible out of the box with all existing AM features, such as passwordless, MFA, and social login, just like the OAuth 2.0/OpenID Connect protocol.
 {% endhint %}
 
+#### Prerequisites
+
+Before configuring SAML assertion mappings, complete the following steps:
+
 #### NameID Mapping
 
 The NameID element in a SAML response uniquely identifies the authenticated user to the service provider. By default, Gravitee Access Management uses the internal user ID, or the user's email address when the service provider explicitly requests `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress` format.
@@ -221,7 +225,7 @@ The **NameID Mapping** field accepts an EL expression that resolves to a custom 
 If the expression evaluates to null, empty, or throws an error, the system falls back to the default internal user ID.
 {% endhint %}
 
-#### SAMLAssertionAttribute Structure
+#### Assertion Attribute Fields
 
 The following table describes the fields used to define a SAML assertion attribute:
 
@@ -230,7 +234,20 @@ The following table describes the fields used to define a SAML assertion attribu
 | **Name** | Yes | SAML attribute name emitted in the `<Attribute Name="...">` element |
 | **Value** | Yes | EL expression whose resolved string value becomes the attribute value |
 
-### Managing Assertion Attributes
+#### Default Attribute Set
+
+When no custom assertion attributes are configured, the following attributes are emitted automatically:
+
+| Attribute Name | Source |
+|:---------------|:-------|
+| `sub` | User's internal ID |
+| `preferred_username` | User's username |
+| `email` | User's email address |
+| `name` | User's display name |
+| `given_name` | User's first name |
+| `family_name` | User's last name |
+
+#### Managing Assertion Attributes
 
 When custom attributes are configured, the default attribute set is entirely replaced. To include attributes from the default set, you must explicitly add them to the custom attributes table with their corresponding Expression Language (EL) expressions.
 
@@ -255,9 +272,14 @@ No custom attributes configured — the default attribute set (`sub`, `username`
 
 Attributes whose EL expressions evaluate to `null` or throw errors are omitted from the SAML response. A warning is logged on the server when this occurs.
 
-### Prerequisites
+#### Restrictions
 
-Before configuring SAML assertion mappings, complete the following steps:
+* When custom assertion attributes are configured, the **entire** default attribute set is replaced. There is no merge behavior; you must explicitly list all desired attributes.
+* EL evaluation errors (invalid syntax, missing context attributes) result in the attribute being silently skipped with a server-side warning log. No user-facing error is surfaced.
+* The **NameID Mapping** expression is ignored when the service provider requests `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress` format; the user's email address is always used.
+* Null or empty string results from EL evaluation cause the attribute to be omitted from the assertion (for custom attributes) or fall back to the default internal user ID (for NameID mapping).
+* Both `name` and `value` fields are required for each custom assertion attribute and cannot be null.
+
 
 * Configure a SAML service provider application in Gravitee Access Management
 * Familiarize yourself with Expression Language (EL) syntax for accessing user context attributes
