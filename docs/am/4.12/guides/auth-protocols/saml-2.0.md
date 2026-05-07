@@ -210,3 +210,56 @@ Test the SAML 2.0 connection using a web application created in AM:
 {% hint style="info" %}
 The SAML 2.0 IdP protocol is compatible out of the box with all existing AM features, such as passwordless, MFA, and social login, just like the OAuth 2.0/OpenID Connect protocol.
 {% endhint %}
+
+#### NameID Mapping
+
+The NameID element in a SAML response uniquely identifies the authenticated user to the service provider. By default, Gravitee Access Management uses the internal user ID, or the user's email address when the service provider explicitly requests `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress` format.
+
+The **NameID Mapping** field accepts an EL expression that resolves to a custom string value. This allows administrators to derive the NameID from any attribute in the user context, such as username, employee ID, or a computed value.
+
+{% hint style="info" %}
+If the expression evaluates to null, empty, or throws an error, the system falls back to the default internal user ID.
+{% endhint %}
+
+#### SAMLAssertionAttribute Structure
+
+The following table describes the fields used to define a SAML assertion attribute:
+
+| Field | Required | Description |
+|:------|:---------|:------------|
+| **Name** | Yes | SAML attribute name emitted in the `<Attribute Name="...">` element |
+| **Value** | Yes | EL expression whose resolved string value becomes the attribute value |
+
+### Managing Assertion Attributes
+
+When custom attributes are configured, the default attribute set is entirely replaced. To include attributes from the default set, you must explicitly add them to the custom attributes table with their corresponding Expression Language (EL) expressions.
+
+**Example:**
+
+| Attribute Name | EL Expression                           |
+|----------------|-----------------------------------------|
+| `sub`          | `{#context.attributes['user'].id}`      |
+| `username`     | `{#context.attributes['user'].username}`|
+
+{% hint style="warning" %}
+Duplicate attribute names are rejected. If you attempt to add a duplicate, a notification appears: `"Attribute name already exists"`.
+{% endhint %}
+
+If no custom attributes are configured, the form displays an empty state hint:
+
+{% hint style="info" %}
+No custom attributes configured — the default attribute set (`sub`, `username`, `name`, `email`, etc.) will be emitted.
+{% endhint %}
+
+#### Attribute Evaluation Behavior
+
+Attributes whose EL expressions evaluate to `null` or throw errors are omitted from the SAML response. A warning is logged on the server when this occurs.
+
+### Prerequisites
+
+Before configuring SAML assertion mappings, complete the following steps:
+
+* Configure a SAML service provider application in Gravitee Access Management
+* Familiarize yourself with Expression Language (EL) syntax for accessing user context attributes
+* Understand SAML NameID formats and assertion attribute requirements for the target service provider
+

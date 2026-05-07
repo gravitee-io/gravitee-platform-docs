@@ -147,3 +147,18 @@ In the tokens tab of the application OAuth 2.0 settings `domains > mydomain > ap
 **Claim Value:** `{#context.attributes['authFlow']['authflow-attribute']}`
 
 <figure><img src="../.gitbook/assets/graviteeio-am-userguide-el-token.png" alt=""><figcaption><p>Application tokens</p></figcaption></figure>
+
+## SAML assertion attribute mapping examples
+
+When configuring SAML assertion attributes, you can use Expression Language to access user context attributes. Common examples include:
+
+**NameID Mapping:**
+* `{#context.attributes['user'].username}` — Use the username as the NameID value
+* `{#context.attributes['user'].email}` — Use the email address as the NameID value
+
+**Custom Assertion Attributes:**
+* **Attribute Name:** `email` | **Value:** `{#context.attributes['user'].email}`
+* **Attribute Name:** `employeeId` | **Value:** `{#context.attributes['user'].additionalInformation['employeeId']}`
+* **Attribute Name:** `displayName` | **Value:** `{#context.attributes['user'].firstname + ' ' + #context.attributes['user'].lastname}`
+
+These expressions allow you to map user profile data into SAML responses sent to service providers.
