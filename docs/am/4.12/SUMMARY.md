@@ -58,6 +58,7 @@
   * [OAuth 2.0 Token Exchange API](guides/oauth-2.0-token-exchange-concepts/oauth-2.0-token-exchange-api-reference.md)
 * [Prologue](guides/prologue.md)
 * [Auth Protocols](guides/auth-protocols/README.md)
+  * [Configure SAML Assertion Mappings in the Console](guides/auth-protocols/configure-saml-assertion-mappings-in-the-console.md)
   * [OAuth 2.0](guides/auth-protocols/oauth-2.0/README.md)
     * [Which Flow Should I Use?](guides/auth-protocols/oauth-2.0/which-flow-should-i-use.md)
     * [Proof Key for Code Exchange (PKCE)](guides/auth-protocols/oauth-2.0/proof-key-for-code-exchange-pkce.md)
@@ -170,10 +171,12 @@
 ## Reference
 
 * [API Reference](reference/am-api-reference.md)
+  * [Application SAML Settings API Schema](reference/application-saml-settings-api-schema-reference.md)
 
 ## Releases & Changelog
 
 * [Release Notes](releases-and-changelog/release-notes/README.md)
+  * [AM 4.12](releases-and-changelog/release-notes/am-4.12.md)
   * [AM 4.11](releases-and-changelog/release-notes/am-4.11.md)
   * [AM 4.10](https://documentation.gravitee.io/am/releases-and-changelog/release-notes/am-4.10)
   * [AM 4.9](https://documentation.gravitee.io/am/4.9/releases-and-changelog/release-notes/am-4.9)
