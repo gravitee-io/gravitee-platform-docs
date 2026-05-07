@@ -1,5 +1,12 @@
 # GKO 4.9.x
 
+
+## Gravitee Kubernetes Operator 4.9.19 - May 7, 2026
+
+There is nothing new in version 4.9.19.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
 ## Gravitee Kubernetes Operator 4.9.17 - April 21, 2026
     
 <details>
@@ -18,7 +25,6 @@
   * Updating ApiV4Definition to change plan generalConditions to a new page HRID causes reconciliation failure (HTTP 500) [#11327](https://github.com/gravitee-io/issues/issues/11327)
 
 </details>
-
 
 ## Gravitee Kubernetes Operator 4.9.15 - March 16, 2026
 
