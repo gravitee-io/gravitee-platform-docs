@@ -18,7 +18,7 @@ With OpenTelemetry, tracers are created for specific services. By default, a glo
 
 You can enable verbose tracing for v4 APIs. Verbose mode adds detailed execution events to each policy span, which captures headers and context attributes before and after policy execution. When you enable verbose tracing, policy descriptions configured in policy step definitions are included in tracing spans as the `gravitee.policy.description` attribute. This inclusion improves observability by annotating trace data with the purpose or intent of each policy step.
 
-For Kafka native APIs, OpenTelemetry tracing provides distributed tracing for Kafka protocol operations, capturing connection lifecycle, authentication, and per-request spans with protocol-specific attributes (topics, batch counts, consumer groups, error codes). Tracing is opt-in at both gateway and API levels, with an optional verbose mode that adds per-phase, per-flow, and per-policy spans for deep debugging.
+For Kafka native APIs, OpenTelemetry tracing covers Kafka protocol operations, capturing the connection lifecycle, authentication, and per-request spans with protocol-specific attributes (topics, batch counts, consumer groups, error codes). Tracing is opt-in at both gateway and API levels, with an optional verbose mode that adds per-phase, per-flow, and per-policy spans for deep debugging.
 
 To enable OpenTelemetry, complete the following steps:
 
@@ -169,9 +169,15 @@ To enable OpenTelemetry for your Gateway, follow the steps for your installation
 
 For more information about OpenTelemetry configurations, go to the [Gravitee Node OpenTelemetry GitHub README](https://github.com/gravitee-io/gravitee-node/tree/master/gravitee-node-opentelemetry).
 
-### Kafka Tracing Filter
+### Kafka tracing filter
 
-The `services.opentelemetry.kafka.tracedApiKeys` property restricts per-request spans to specific Kafka protocol types (e.g., `PRODUCE`, `FETCH`). If the list is empty or omitted, all Kafka protocol types are traced. Filtering to `[PRODUCE, FETCH]` reduces noise from housekeeping requests like `METADATA`, `HEARTBEAT`, and `FIND_COORDINATOR`.
+The `services.opentelemetry.kafka.tracedApiKeys` property restricts per-request spans to specific Kafka protocol operations (e.g., `PRODUCE`, `FETCH`). If the list is empty or omitted, all Kafka protocol operations are traced.
+
+{% hint style="info" %}
+**Recommended for production:** set `tracedApiKeys: [PRODUCE, FETCH]`. This keeps full visibility on the data path while dropping high-frequency housekeeping operations such as `METADATA`, `HEARTBEAT`, `FIND_COORDINATOR`, and `API_VERSIONS`, which significantly reduces trace volume on busy Kafka APIs.
+{% endhint %}
+
+Connection-setup spans (`Kafka connection`, `Authentication`, `Broker connect`) are emitted on every traced connection and are not affected by this filter — only per-request spans are gated by it.
 
 ### Verification
 
@@ -189,7 +195,7 @@ The `services.opentelemetry.kafka.tracedApiKeys` property restricts per-request 
 To enable OpenTelemetry for an API, you must have OpenTelemetry enabled on your Gateway. For more information, see [#enable-opentelemetry-for-your-gateway](opentelemetry.md#enable-opentelemetry-for-your-gateway "mention").
 {% endhint %}
 
-### Per-API Tracing Configuration for V4 Native APIs
+### Per-API tracing configuration for V4 native APIs
 
 V4 NATIVE APIs support per-API OpenTelemetry tracing configuration through the following properties:
 
@@ -200,9 +206,9 @@ V4 NATIVE APIs support per-API OpenTelemetry tracing configuration through the f
 
 Tracing requires enablement at both the gateway level (`services.opentelemetry.enabled=true`) and the per-API level (`analytics.tracing.enabled=true`). If either is disabled, no spans are created for that API. This two-tier model allows platform administrators to control tracing infrastructure globally while API owners decide which APIs to instrument.
 
-Per-API tracing settings are configured in the Reporter Settings UI for native APIs. The OpenTelemetry section includes **Enabled** and **Verbose** slide toggles. The **Enabled** toggle help text explains that per-request spans are generated only for Kafka operations listed in the gateway-level `services.opentelemetry.kafka.tracedApiKeys` configuration. The **Verbose** toggle help text warns that enabling verbose mode increases trace volume significantly and should be used only for deep debugging. A warning icon is displayed inline with the verbose toggle help text.
+Per-API tracing settings are configured in the Reporter Settings page of the API. The **Enabled** toggle activates tracing for the API; the **Verbose** toggle additionally enables the per-phase, per-flow, and per-policy span hierarchy.
 
-Both toggles are disabled when analytics is disabled (`analytics.enabled=false`), the user lacks `api-definition-u` permission, or the API is not V4 or not NATIVE type. The **Verbose** toggle is additionally disabled when tracing is not enabled (`analytics.tracing.enabled=false`).
+Both toggles are disabled when analytics is disabled (`analytics.enabled=false`), when the user lacks the `api-definition-u` permission, or when the API is not a V4 NATIVE API. The **Verbose** toggle is additionally disabled when `analytics.tracing.enabled=false`.
 
 ## Tracing modes
 
@@ -212,7 +218,7 @@ Gravitee APIM offers two levels of tracing to capture API request execution data
 
 Standard tracing is enabled by default. It captures request and response flow, policy execution timing, backend invocation spans, error tracking, and conditional policy trigger recording.
 
-For Kafka native APIs, standard mode creates a root connection span (SpanKind.SERVER), authentication span, broker connect span (SpanKind.CLIENT), and per-request grouping spans (e.g., PRODUCE with SpanKind.PRODUCER).
+For Kafka native APIs, standard mode creates a root connection span (SpanKind.SERVER), an authentication span (SpanKind.INTERNAL), a broker connect span (SpanKind.CLIENT), and one per-request grouping span per Kafka operation processed on the connection (e.g., PRODUCE with SpanKind.PRODUCER, FETCH with SpanKind.CLIENT).
 
 ### (Optional) Verbose mode
 
@@ -229,7 +235,7 @@ Verbose mode records the following execution data:
 * Pre and post policy execution events.
 * Complete state visibility before and after each policy.
 * Policy descriptions from policy step definitions.
-* For Kafka native APIs: per-phase spans (e.g., Interact request, Publish), flow spans (e.g., plan, api), and policy spans.
+* For Kafka native APIs: per-phase / per-flow spans (`Entrypoint connect`, `Interact request`, `Interact response`, `Publish`, `Subscribe`) and individual policy spans. Each policy span carries a `flow` attribute identifying which flow level it ran on (`plan` or `api`).
 
 #### When to enable verbose mode
 
@@ -331,41 +337,94 @@ You can use OpenTelemetry traces to view the following API transaction details:
 * If you call an API with invalid authentication, you can see a trace with a warning and logs with details about the errors.
 * For a POST or GET request, you see the following information: `request_body_size`, `request_content_length`, `context-path`, `host.name` and `http_status_code`.
 
-## Kafka Native API Tracing
+## Kafka native API tracing
 
-OpenTelemetry tracing for Kafka native APIs provides distributed tracing for Kafka protocol operations, capturing connection lifecycle, authentication, and per-request spans with protocol-specific attributes (topics, batch counts, consumer groups, error codes).
+OpenTelemetry tracing for Kafka native APIs covers the full Kafka protocol exchange between client and Gateway: connection lifecycle, authentication, and per-request spans with protocol-specific attributes (topics, batch counts, consumer groups, error codes).
 
-### Dual-Level Enablement
+Each Gateway-side trace is self-contained — every Kafka client connection starts a fresh trace at the Gateway. The Kafka wire protocol does not carry trace context the way HTTP does, so traces are not automatically chained from upstream Kafka clients or to the backend broker.
+
+### Dual-level enablement
 
 Tracing requires enablement at both the gateway level (`services.opentelemetry.enabled=true`) and the per-API level (`analytics.tracing.enabled=true`). If either is disabled, no spans are created for that API. This two-tier model allows platform administrators to control tracing infrastructure globally while API owners decide which APIs to instrument.
 
-### Span Attributes
+### Trace shape
+
+The diagrams below show the typical span tree produced by a single Kafka producer connection.
+
+**Standard mode** (default):
+
+```
+Kafka connection
+├─ Authentication
+├─ Broker connect
+├─ API_VERSIONS
+├─ METADATA
+├─ INIT_PRODUCER_ID
+└─ PRODUCE
+       messaging.destination.name=orders
+       messaging.batch.message_count=2
+       messaging.operation.type=send
+```
+
+**Verbose mode** — adds the policy / flow / phase hierarchy under each per-request span:
+
+```
+Kafka connection
+├─ Entrypoint connect
+│   └─ <policy>
+├─ Authentication
+├─ Broker connect
+└─ PRODUCE
+    ├─ Publish               (flow span)
+    │   └─ <policy>
+    ├─ Interact request      (phase span)
+    │   └─ <policy>
+    └─ Interact response     (phase span)
+        └─ <policy>
+```
+
+For consumer connections, `Subscribe` replaces `Publish` under each `FETCH` span.
+
+**With `tracedApiKeys: [PRODUCE, FETCH]`** — connection-setup spans are still emitted, only listed operations get per-request spans:
+
+```
+Kafka connection
+├─ Authentication
+├─ Broker connect
+├─ PRODUCE
+└─ FETCH
+   (METADATA, API_VERSIONS, JOIN_GROUP, HEARTBEAT, OFFSET_COMMIT, etc. — not traced)
+```
+
+### Span attributes
 
 Spans include OpenTelemetry semantic conventions for messaging systems and Gravitee-specific attributes:
 
 | Attribute | Description |
 |:----------|:------------|
 | `messaging.system` | Always `"kafka"` |
-| `messaging.destination.name` | Topic name(s), comma-separated; falls back to `"id:<uuid>"` for Kafka protocol v12+ |
+| `messaging.destination.name` | Topic name(s), comma-separated; falls back to `"id:<uuid>"` for Kafka protocol v12+ where requests use topic UUIDs |
 | `messaging.consumer.group.name` | Consumer group ID (JOIN_GROUP, HEARTBEAT, OFFSET_COMMIT, LEAVE_GROUP, SYNC_GROUP) |
-| `messaging.batch.message_count` | Number of records in PRODUCE/FETCH request/response |
-| `messaging.operation.type` | `"send"` (PRODUCE), `"receive"` (FETCH, JOIN_GROUP, SYNC_GROUP), `"settle"` (OFFSET_COMMIT) |
+| `messaging.batch.message_count` | Number of records in a PRODUCE request or FETCH response |
+| `messaging.operation.type` | `"send"` (PRODUCE, HEARTBEAT, LEAVE_GROUP), `"receive"` (FETCH, JOIN_GROUP, SYNC_GROUP), `"settle"` (OFFSET_COMMIT) |
 | `messaging.operation.name` | `"send"`, `"poll"`, `"commit"`, `"join"`, `"sync"`, `"heartbeat"`, `"leave"` |
-| `messaging.client.id` | Kafka client ID from request header |
+| `messaging.client.id` | Kafka client ID from the request header (set only when the client provides a non-empty value) |
 | `error.type` | Kafka error code name (e.g., `"INVALID_REQUEST"`) or exception class name |
 | `gravitee.api.id` | API identifier |
 | `gravitee.auth.method` | `"SASL"` or `"PLAINTEXT"` |
-| `gravitee.auth.sasl.mechanism` | SASL mechanism (e.g., `"PLAIN"`) |
+| `gravitee.auth.sasl.mechanism` | SASL mechanism (e.g., `"PLAIN"`, `"SCRAM-SHA-256"`, `"SCRAM-SHA-512"`, `"OAUTHBEARER"`) |
 | `gravitee.auth.principal` | Authenticated principal name |
 | `gravitee.auth.plan` | Resolved plan name |
-| `gravitee.auth.security.type` | Security type (e.g., `"api-key"`, `"key-less"`) |
-| `gravitee.error.origin` | Error classification: `"policy"`, `"security"`, `"broker"`, `"internal"` |
-| `gravitee.error.recommendation` | Human-readable error guidance |
+| `gravitee.auth.security.type` | Security type (e.g., `"api-key"`, `"jwt"`, `"oauth2"`, `"key-less"`, `"mtls"`) |
+| `gravitee.error.origin` | Error classification: `"policy"`, `"security"`, `"config"`, `"broker"`, `"internal"` |
+| `gravitee.error.recommendation` | Human-readable, actionable error guidance |
 | `network.peer.address` | Client IP address |
 | `network.peer.port` | Client port |
 | `server.address` | Broker domain pattern |
 | `server.port` | Gateway listener port |
 
-### Error Attribution
+### Error attribution
 
-Errors are classified by origin (`policy`, `security`, `broker`, `internal`) and recorded in the `gravitee.error.origin` span attribute. Policy failures, authentication failures, broker errors, and internal errors are distinguished to guide troubleshooting.
+When something fails, the affected span and the root `Kafka connection` span are tagged `otel.status_code=ERROR` with `error.type`, `gravitee.error.origin`, and `gravitee.error.recommendation`.
+
+`gravitee.error.origin` is designed for fast triage — it tells you immediately whether a failure was caused by a misconfigured policy (`policy`), an authentication problem (`security`), an invalid API configuration such as a missing endpoint (`config`), an unreachable broker (`broker`), or an unexpected Gateway error (`internal`).
