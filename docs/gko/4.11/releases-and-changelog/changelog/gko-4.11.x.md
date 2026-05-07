@@ -12,7 +12,7 @@ noIndex: true
 
   **Others**
 
-  * Allow http route to shortcut api controller [#11342](https://github.com/gravitee-io/issues/issues/11342)
+  * Allow HTTP route to shortcut the API controller [#11342](https://github.com/gravitee-io/issues/issues/11342)
 
 </details>
 
