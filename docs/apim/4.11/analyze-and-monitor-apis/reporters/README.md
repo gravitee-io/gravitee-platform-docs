@@ -110,7 +110,7 @@ These metrics are incremented for each detected PII entity and are visible in th
 
 {% tabs %}
 {% tab title="v4 Metrics" %}
-<table><thead><tr><th width="349">Metric Name</th><th>Purpose</th></tr></thead><tbody><tr><td>requestId</td><td>Unique identifier Universally Unique Identifier (UUID) identifying the request</td></tr><tr><td>transactionId</td><td>Used to track end-to-end transactions spanning across multiple HTTP requests. The Gateway configuration allows defining an expected correlation ID header passed by a client request. If this header is set, the content of this field will be set to the value of the header. If no correlation header has been passed, the content of this field will be the same as the content of the request ID. This value will be propagated to the upstream service using the correlation header defined in the configuration (the default header is <code>X-Gravitee-Transaction-Id</code>).</td></tr><tr><td>apiId</td><td>ID of the API</td></tr><tr><td>apiName</td><td>Name of the API at the time of the request</td></tr><tr><td>apiType</td><td>Type of the API (message, proxy)</td></tr><tr><td>planId</td><td>ID of the plan</td></tr><tr><td>applicationId</td><td>The application ID; for a keyless plan, this value is "1"</td></tr><tr><td>subscriptionId</td><td>The subscription ID; for a keyless plan, this value will be the same as the value of the remote address field</td></tr><tr><td>clientIdentifier</td><td>Unique identifier for the client</td></tr><tr><td>tenant</td><td>ID of the tenant evaluated for the API (see <a href="../../configure-and-manage-the-platform/gravitee-gateway/tenants.md">tenants</a>)</td></tr><tr><td>zone</td><td>Text field set in gravitee.yml to indicate additional information about the gateway instance the API is running on</td></tr><tr><td>httpMethod</td><td>HTTP verb used in the client connection</td></tr><tr><td>localAddress</td><td>The address used as a destination when the incoming request was issued by the client</td></tr><tr><td>remoteAddress</td><td>The remote address used as a source when the incoming request was issued by the client</td></tr><tr><td>host</td><td>The content of the <code>Host</code> header, passed when the incoming request was issued by the client</td></tr><tr><td>uri</td><td>The URI used by the client to perform its request (this includes the context path of the request and query parameters)</td></tr><tr><td>pathInfo</td><td>The path used to perform the client request (starting from the context path of the API)</td></tr><tr><td>mappedPath</td><td>If a path mapping has been defined to group requests in your analytics, this is the value of your mapping.</td></tr><tr><td>userAgent</td><td>The content of the <code>User-Agent</code> header, passed by the client when the incoming request was issued</td></tr><tr><td>requestContentLength</td><td>The size of the body, in bytes, of the incoming request issued by the Gateway client</td></tr><tr><td>requestEnded</td><td>Boolean to indicate if the request has completed; request may be ongoing if the connection is over Websocket or SSE</td></tr><tr><td>entrypointId</td><td>ID of the entrypoint used in the API connection</td></tr><tr><td>endpoint</td><td>The URL used by the proxy to forward the request to the upstream service</td></tr><tr><td>endpointResponseTimeMs</td><td>The time (ms) it takes the upstream service to respond to the Gateway proxy</td></tr><tr><td>responseContentLength</td><td>The size of the body, in bytes, of the response received by the Gateway client</td></tr><tr><td>gatewayResponseTimeMs</td><td>The time (ms) it takes the Gateway to respond to the client (this includes the roundtrip between the Gateway and the upstream service)</td></tr><tr><td>gatewayLatencyMs</td><td>The overhead added by the Gateway when forwarding the request upstream and the response back to the client</td></tr><tr><td>user</td><td>The authenticated user, if any type of security was used when processing the request</td></tr><tr><td>securityType</td><td>The security type, if security was used when processing the request (can be either API_KEY, OAUTH2 or JWT)</td></tr><tr><td>securityToken</td><td>The security token, if any type of security was used when processing the request</td></tr><tr><td>errorMessage</td><td>A more detailed explanation of the error associated with the error key (if any)</td></tr><tr><td>errorKey</td><td>If the policy chain was interrupted by an error, this key identifies the error type</td></tr></tbody></table>
+<table><thead><tr><th width="349">Metric Name</th><th>Purpose</th></tr></thead><tbody><tr><td>requestId</td><td>Unique identifier Universally Unique Identifier (UUID) identifying the request</td></tr><tr><td>transactionId</td><td>Used to track end-to-end transactions spanning across multiple HTTP requests. The Gateway configuration allows defining an expected correlation ID header passed by a client request. If this header is set, the content of this field will be set to the value of the header. If no correlation header has been passed, the content of this field will be the same as the content of the request ID. This value will be propagated to the upstream service using the correlation header defined in the configuration (the default header is <code>X-Gravitee-Transaction-Id</code>).</td></tr><tr><td>apiId</td><td>ID of the API</td></tr><tr><td>apiName</td><td>Name of the API at the time of the request</td></tr><tr><td>apiProductId</td><td>ID of the API Product the API belongs to. Empty if the API isn't part of an API Product.</td></tr><tr><td>apiType</td><td>Type of the API (message, proxy)</td></tr><tr><td>planId</td><td>ID of the plan</td></tr><tr><td>applicationId</td><td>The application ID; for a keyless plan, this value is "1"</td></tr><tr><td>subscriptionId</td><td>The subscription ID; for a keyless plan, this value will be the same as the value of the remote address field</td></tr><tr><td>organizationId</td><td>ID of the organization the API belongs to</td></tr><tr><td>environmentId</td><td>ID of the environment the API belongs to</td></tr><tr><td>clientIdentifier</td><td>Unique identifier for the client</td></tr><tr><td>tenant</td><td>ID of the tenant evaluated for the API (see <a href="../../configure-and-manage-the-platform/gravitee-gateway/tenants.md">tenants</a>)</td></tr><tr><td>zone</td><td>Text field set in gravitee.yml to indicate additional information about the gateway instance the API is running on</td></tr><tr><td>httpMethod</td><td>HTTP verb used in the client connection</td></tr><tr><td>localAddress</td><td>The address used as a destination when the incoming request was issued by the client</td></tr><tr><td>remoteAddress</td><td>The remote address used as a source when the incoming request was issued by the client</td></tr><tr><td>host</td><td>The content of the <code>Host</code> header, passed when the incoming request was issued by the client</td></tr><tr><td>uri</td><td>The URI used by the client to perform its request (this includes the context path of the request and query parameters)</td></tr><tr><td>pathInfo</td><td>The path used to perform the client request (starting from the context path of the API)</td></tr><tr><td>mappedPath</td><td>If a path mapping has been defined to group requests in your analytics, this is the value of your mapping.</td></tr><tr><td>userAgent</td><td>The content of the <code>User-Agent</code> header, passed by the client when the incoming request was issued</td></tr><tr><td>requestContentLength</td><td>The size of the body, in bytes, of the incoming request issued by the Gateway client</td></tr><tr><td>requestEnded</td><td>Boolean to indicate if the request has completed; request may be ongoing if the connection is over Websocket or SSE</td></tr><tr><td>entrypointId</td><td>ID of the entrypoint used in the API connection</td></tr><tr><td>endpoint</td><td>The URL used by the proxy to forward the request to the upstream service</td></tr><tr><td>endpointResponseTimeMs</td><td>The time (ms) it takes the upstream service to respond to the Gateway proxy</td></tr><tr><td>responseContentLength</td><td>The size of the body, in bytes, of the response received by the Gateway client</td></tr><tr><td>status</td><td>HTTP response status code returned to the client</td></tr><tr><td>gatewayResponseTimeMs</td><td>The time (ms) it takes the Gateway to respond to the client (this includes the roundtrip between the Gateway and the upstream service)</td></tr><tr><td>gatewayLatencyMs</td><td>The overhead added by the Gateway when forwarding the request upstream and the response back to the client</td></tr><tr><td>user</td><td>The authenticated user, if any type of security was used when processing the request</td></tr><tr><td>securityType</td><td>The security type, if security was used when processing the request (can be either API_KEY, OAUTH2 or JWT)</td></tr><tr><td>securityToken</td><td>The security token, if any type of security was used when processing the request</td></tr><tr><td>errorMessage</td><td>A more detailed explanation of the error associated with the error key (if any)</td></tr><tr><td>errorKey</td><td>If the policy chain was interrupted by an error, this key identifies the error type</td></tr></tbody></table>
 {% endtab %}
 
 {% tab title="v4 Message Metrics" %}
@@ -119,6 +119,8 @@ These metrics are incremented for each detected PII entity and are visible in th
 | requestId           | ID of the request                                                                                 |
 | apiId               | ID of the API                                                                                     |
 | apiName             | Name of the API at the time of the request                                                        |
+| organizationId      | ID of the organization the API belongs to                                                         |
+| environmentId       | ID of the environment the API belongs to                                                          |
 | clientIdentifier    | Unique ID for the client                                                                          |
 | correlationId       | Internal and unique ID to identify the Gravitee message                                           |
 | parentCorrelationId | Parent correlation ID of the message, if any                                                      |
@@ -135,7 +137,7 @@ These metrics are incremented for each detected PII entity and are visible in th
 {% endtab %}
 
 {% tab title="v2 Metrics" %}
-<table><thead><tr><th width="349">Metric Name</th><th>Purpose</th></tr></thead><tbody><tr><td>timestamp</td><td>The timestamp of the transaction in milliseconds</td></tr><tr><td>proxyResponseTimeMs</td><td>The time (ms) it takes the Gateway to respond to the client (this includes the roundtrip between the Gateway and the upstream service)</td></tr><tr><td>proxyLatencyMs</td><td>The overhead added by the Gateway when forwarding the request upstream and the response back to the client</td></tr><tr><td>apiResponseTimeMs</td><td>The time (ms) it takes the upstream service to respond to the Gateway proxy</td></tr><tr><td>requestId</td><td>Unique identifier Universally Unique Identifier (UUID) identifying the request</td></tr><tr><td>api</td><td>ID of the API</td></tr><tr><td>apiName</td><td>Name of the API at the time of the request</td></tr><tr><td>application</td><td>The application ID; for a keyless plan, this value is "1"</td></tr><tr><td>transactionId</td><td>Used to track end-to-end transactions spanning across multiple HTTP requests. The Gateway configuration allows defining an expected correlation ID header passed by a client request. If this header is set, the content of this field will be set to the value of the header. If no correlation header has been passed, the content of this field will be the same as the content of the request ID. This value will be propagated to the upstream service using the correlation header defined in the configuration (the default header is <code>X-Gravitee-Transaction-Id</code>).</td></tr><tr><td>clientIdentifier</td><td>Unique identifier for the client</td></tr><tr><td>tenant</td><td>ID of the tenant evaluated for the API (see <a href="../../configure-and-manage-the-platform/gravitee-gateway/tenants.md">tenants</a>)</td></tr><tr><td>message</td><td>A detailed explanation of the error associated with the error key (if any)</td></tr><tr><td>plan</td><td>ID of the plan</td></tr><tr><td>localAddress</td><td>The address used as a destination when the incoming request was issued by the client</td></tr><tr><td>remoteAddress</td><td>The remote address used as a source when the incoming request was issued by the client</td></tr><tr><td>httpMethod</td><td>HTTP verb used in the client connection</td></tr><tr><td>host</td><td>The content of the <code>Host</code> header, passed when the incoming request was issued by the client</td></tr><tr><td>uri</td><td>The URI used by the client to perform its request (this includes the context path of the request and query parameters)</td></tr><tr><td>requestContentLength</td><td>The size of the body, in bytes, of the response received by the Gateway client</td></tr><tr><td>responseContentLength</td><td>The size of the body, in bytes, of the response received by the Gateway client</td></tr><tr><td>status</td><td>HTTP response status code integer</td></tr><tr><td>endpoint</td><td>The URL used by the proxy to forward the request to the upstream service</td></tr><tr><td>path</td><td>The path used to perform the client request (starting from the context path of the API)</td></tr><tr><td>mappedPath</td><td>If a path mapping has been defined to group requests in your analytics, this is the value of your mapping.</td></tr><tr><td>userAgent</td><td>The content of the <code>User-Agent</code> header, passed by the client when the incoming request was issued</td></tr><tr><td>user</td><td>The authenticated user, if any type of security was used when processing the request</td></tr><tr><td>securityType</td><td>The security type, if security was used when processing the request (can be either API_KEY, OAUTH2 or JWT)</td></tr><tr><td>securityToken</td><td>The security token, if any type of security was used when processing the request</td></tr><tr><td>errorKey</td><td>If the policy chain was interrupted by an error, this key identifies the error type</td></tr><tr><td>subscription</td><td>The subscription ID; for a keyless plan, this value will be the same as the value of the remote address field</td></tr><tr><td>zone</td><td>Text field set in gravitee.yml to indicate additional information about the gateway instance the API is running on</td></tr></tbody></table>
+<table><thead><tr><th width="349">Metric Name</th><th>Purpose</th></tr></thead><tbody><tr><td>timestamp</td><td>The timestamp of the transaction in milliseconds</td></tr><tr><td>proxyResponseTimeMs</td><td>The time (ms) it takes the Gateway to respond to the client (this includes the roundtrip between the Gateway and the upstream service)</td></tr><tr><td>proxyLatencyMs</td><td>The overhead added by the Gateway when forwarding the request upstream and the response back to the client</td></tr><tr><td>apiResponseTimeMs</td><td>The time (ms) it takes the upstream service to respond to the Gateway proxy</td></tr><tr><td>requestId</td><td>Unique identifier Universally Unique Identifier (UUID) identifying the request</td></tr><tr><td>api</td><td>ID of the API</td></tr><tr><td>apiName</td><td>Name of the API at the time of the request</td></tr><tr><td>application</td><td>The application ID; for a keyless plan, this value is "1"</td></tr><tr><td>transactionId</td><td>Used to track end-to-end transactions spanning across multiple HTTP requests. The Gateway configuration allows defining an expected correlation ID header passed by a client request. If this header is set, the content of this field will be set to the value of the header. If no correlation header has been passed, the content of this field will be the same as the content of the request ID. This value will be propagated to the upstream service using the correlation header defined in the configuration (the default header is <code>X-Gravitee-Transaction-Id</code>).</td></tr><tr><td>clientIdentifier</td><td>Unique identifier for the client</td></tr><tr><td>organizationId</td><td>ID of the organization the API belongs to</td></tr><tr><td>environmentId</td><td>ID of the environment the API belongs to</td></tr><tr><td>tenant</td><td>ID of the tenant evaluated for the API (see <a href="../../configure-and-manage-the-platform/gravitee-gateway/tenants.md">tenants</a>)</td></tr><tr><td>message</td><td>A detailed explanation of the error associated with the error key (if any)</td></tr><tr><td>plan</td><td>ID of the plan</td></tr><tr><td>localAddress</td><td>The address used as a destination when the incoming request was issued by the client</td></tr><tr><td>remoteAddress</td><td>The remote address used as a source when the incoming request was issued by the client</td></tr><tr><td>httpMethod</td><td>HTTP verb used in the client connection</td></tr><tr><td>host</td><td>The content of the <code>Host</code> header, passed when the incoming request was issued by the client</td></tr><tr><td>uri</td><td>The URI used by the client to perform its request (this includes the context path of the request and query parameters)</td></tr><tr><td>requestContentLength</td><td>The size of the body, in bytes, of the response received by the Gateway client</td></tr><tr><td>responseContentLength</td><td>The size of the body, in bytes, of the response received by the Gateway client</td></tr><tr><td>status</td><td>HTTP response status code integer</td></tr><tr><td>endpoint</td><td>The URL used by the proxy to forward the request to the upstream service</td></tr><tr><td>path</td><td>The path used to perform the client request (starting from the context path of the API)</td></tr><tr><td>mappedPath</td><td>If a path mapping has been defined to group requests in your analytics, this is the value of your mapping.</td></tr><tr><td>userAgent</td><td>The content of the <code>User-Agent</code> header, passed by the client when the incoming request was issued</td></tr><tr><td>user</td><td>The authenticated user, if any type of security was used when processing the request</td></tr><tr><td>securityType</td><td>The security type, if security was used when processing the request (can be either API_KEY, OAUTH2 or JWT)</td></tr><tr><td>securityToken</td><td>The security token, if any type of security was used when processing the request</td></tr><tr><td>errorKey</td><td>If the policy chain was interrupted by an error, this key identifies the error type</td></tr><tr><td>subscription</td><td>The subscription ID; for a keyless plan, this value will be the same as the value of the remote address field</td></tr><tr><td>zone</td><td>Text field set in gravitee.yml to indicate additional information about the gateway instance the API is running on</td></tr></tbody></table>
 {% endtab %}
 {% endtabs %}
 
@@ -244,11 +246,14 @@ When using e.g. the File Reporter with JSON format, here is a sample of the cont
   "requestId": "076aea69-6024-4590-aaea-6960247590a0",
   "transactionId": "076aea69-6024-4590-aaea-6960247590a0",
   "apiId": "5f67b38f-0700-4557-a7b3-8f0700855779",
+  "apiName": "echo-api",
   "apiType": "proxy",
   "planId": "8463511c-fbed-4ca9-a351-1cfbed9ca99d",
   "applicationId": "91f077b0-1204-49e4-b077-b0120419e4f6",
   "subscriptionId": "318e47e5-349c-4fa4-8e47-e5349c3fa444",
   "clientIdentifier": "318e47e5-349c-4fa4-8e47-e5349c3fa444",
+  "organizationId": "DEFAULT",
+  "environmentId": "DEFAULT",
   "httpMethod": "GET",
   "localAddress": "127.0.0.1",
   "remoteAddress": "127.0.0.1",
@@ -258,12 +263,15 @@ When using e.g. the File Reporter with JSON format, here is a sample of the cont
   "userAgent": "curl/7.88.1",
   "requestContentLength": -1,
   "requestEnded": true,
+  "entrypointId": "http-proxy",
   "endpoint": "https://api.gravitee.io/echo",
   "endpointResponseTimeMs": 137,
   "status": 200,
   "responseContentLength": 274,
   "gatewayResponseTimeMs": 144,
-  "gatewayLatencyMs": 7
+  "gatewayLatencyMs": 7,
+  "errorKey": null,
+  "errorMessage": null
 }
 ```
 {% endcode %}
@@ -277,9 +285,12 @@ When using e.g. the File Reporter with JSON format, here is a sample of the cont
   "apiResponseTimeMs": 144,
   "requestId": "13f5ae30-068b-4e2d-b5ae-30068bae2d2d",
   "api": "ff3c6c48-53e0-41d6-bc6c-4853e011d656",
+  "apiName": "echo-api",
   "application": "91f077b0-1204-49e4-b077-b0120419e4f6",
   "transactionId": "13f5ae30-068b-4e2d-b5ae-30068bae2d2d",
   "plan": "e115ea63-7cef-4646-95ea-637cef7646ec",
+  "organizationId": "DEFAULT",
+  "environmentId": "DEFAULT",
   "localAddress": "127.0.0.1",
   "remoteAddress": "127.0.0.1",
   "httpMethod": "GET",
@@ -303,73 +314,110 @@ When using e.g. the File Reporter with JSON format, here is a sample of the cont
 {% endtab %}
 
 {% tab title="CSV" %}
-When using e.g. the File Reporter with CSV format, here is a sample of the contents of `metrics.csv`:
+The File Reporter writes one CSV record per request to `metrics.csv`. Fields are separated by `;`, string values are wrapped in `"`, and each record ends with `\r\n`. Empty values appear as `""` for strings and as the empty position for numbers. Columns are written in a fixed order, which differs between the Reactive engine (v4 APIs) and the Legacy engine (v2 APIs).
 
-{% code title="Reactive engine" %}
+The columns described below are the request metrics. Records also contain trailing columns for any populated `additionalMetrics` (numeric, double, keyword, boolean, integer, string, and JSON values, in that order) followed by any `customMetrics` set on the request. Each `additionalMetrics` and `customMetrics` value is appended in iteration order.
+
+{% code title="Reactive engine — column reference" %}
+<table>
+    <thead>
+        <tr>
+            <th width="80">Position</th>
+            <th width="220">Column</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>1</td><td><code>transactionId</code></td><td>End-to-end transaction ID. Falls back to <code>requestId</code> if no correlation header is set.</td></tr>
+        <tr><td>2</td><td><code>requestId</code></td><td>Unique UUID identifying the request.</td></tr>
+        <tr><td>3</td><td><code>timestamp</code></td><td>Request timestamp in milliseconds since epoch.</td></tr>
+        <tr><td>4</td><td><code>remoteAddress</code></td><td>Source address of the incoming request.</td></tr>
+        <tr><td>5</td><td><code>localAddress</code></td><td>Destination address the incoming request was issued to.</td></tr>
+        <tr><td>6</td><td><code>apiId</code></td><td>ID of the API.</td></tr>
+        <tr><td>7</td><td><code>apiName</code></td><td>Name of the API at the time of the request.</td></tr>
+        <tr><td>8</td><td><code>organizationId</code></td><td>ID of the organization the API belongs to.</td></tr>
+        <tr><td>9</td><td><code>environmentId</code></td><td>ID of the environment the API belongs to.</td></tr>
+        <tr><td>10</td><td><code>applicationId</code></td><td>Application ID. <code>"1"</code> for keyless plans.</td></tr>
+        <tr><td>11</td><td><code>planId</code></td><td>ID of the plan.</td></tr>
+        <tr><td>12</td><td><code>subscriptionId</code></td><td>Subscription ID. Empty for keyless plans.</td></tr>
+        <tr><td>13</td><td><code>user</code></td><td>Authenticated user, if security was used.</td></tr>
+        <tr><td>14</td><td><code>tenant</code></td><td>Tenant evaluated for the API.</td></tr>
+        <tr><td>15</td><td><code>uri</code></td><td>URI used by the client (includes context path and query string).</td></tr>
+        <tr><td>16</td><td><code>pathInfo</code></td><td>Path portion after the API context path.</td></tr>
+        <tr><td>17</td><td><code>mappedPath</code></td><td>Path mapping value, if a path mapping is configured.</td></tr>
+        <tr><td>18</td><td><code>httpMethod</code></td><td>HTTP method of the client request.</td></tr>
+        <tr><td>19</td><td><code>status</code></td><td>HTTP response status code returned to the client.</td></tr>
+        <tr><td>20</td><td><code>entrypointId</code></td><td>ID of the entrypoint used by the API.</td></tr>
+        <tr><td>21</td><td><code>endpoint</code></td><td>URL the proxy used to forward the request upstream.</td></tr>
+        <tr><td>22</td><td><code>errorKey</code></td><td>Error key, if the policy chain was interrupted by an error.</td></tr>
+        <tr><td>23</td><td><code>errorMessage</code></td><td>Detailed explanation of the error.</td></tr>
+        <tr><td>24</td><td><code>userAgent</code></td><td><code>User-Agent</code> header from the client request.</td></tr>
+        <tr><td>25</td><td><code>host</code></td><td><code>Host</code> header from the client request.</td></tr>
+        <tr><td>26</td><td><code>requestContentLength</code></td><td>Size in bytes of the incoming request body. <code>-1</code> if unknown.</td></tr>
+        <tr><td>27</td><td><code>responseContentLength</code></td><td>Size in bytes of the response body returned to the client.</td></tr>
+        <tr><td>28</td><td><code>endpointResponseTimeMs</code></td><td>Time (ms) for the upstream service to respond to the gateway.</td></tr>
+        <tr><td>29</td><td><code>gatewayResponseTimeMs</code></td><td>Time (ms) for the gateway to respond to the client (includes upstream roundtrip).</td></tr>
+        <tr><td>30</td><td><code>gatewayLatencyMs</code></td><td>Overhead added by the gateway when forwarding the request and response.</td></tr>
+        <tr><td>31</td><td><code>securityType</code></td><td>Security type used (<code>API_KEY</code>, <code>OAUTH2</code>, <code>JWT</code>).</td></tr>
+        <tr><td>32</td><td><code>securityToken</code></td><td>Security token, if security was used.</td></tr>
+    </tbody>
+</table>
+{% endcode %}
+
+{% code title="Reactive engine — sample" %}
 ```csv
-"076aea69-6024-4590-aaea-6960247590a0";
-"076aea69-6024-4590-aaea-6960247590a0";
-1692359213844;
-"127.0.0.1";
-"127.0.0.1";
-"5f67b38f-0700-4557-a7b3-8f0700855779";
-"91f077b0-1204-49e4-b077-b0120419e4f6";
-"8463511c-fbed-4ca9-a351-1cfbed9ca99d";
-"318e47e5-349c-4fa4-8e47-e5349c3fa444";
-"";
-"";
-"/test-v4";
-"";
-"";
-"GET";
-200;
-"https://api.gravitee.io/echo";
-"";
-"";
-"curl/7.88.1";
-"localhost:8082";
--1;
-274;
-137;
-144;
-7;
-"";
-""
-
+"076aea69-6024-4590-aaea-6960247590a0";"076aea69-6024-4590-aaea-6960247590a0";1692359213844;"127.0.0.1";"127.0.0.1";"5f67b38f-0700-4557-a7b3-8f0700855779";"echo-api";"DEFAULT";"DEFAULT";"91f077b0-1204-49e4-b077-b0120419e4f6";"8463511c-fbed-4ca9-a351-1cfbed9ca99d";"318e47e5-349c-4fa4-8e47-e5349c3fa444";"";"";"/test-v4";"";"";"GET";200;"http-proxy";"https://api.gravitee.io/echo";"";"";"curl/7.88.1";"localhost:8082";-1;274;137;144;7;"";""
 ```
 {% endcode %}
 
-{% code title="Legacy engine" %}
+{% code title="Legacy engine — column reference" %}
+<table>
+    <thead>
+        <tr>
+            <th width="80">Position</th>
+            <th width="220">Column</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>1</td><td><code>transactionId</code></td><td>End-to-end transaction ID. Falls back to <code>requestId</code> if no correlation header is set.</td></tr>
+        <tr><td>2</td><td><code>requestId</code></td><td>Unique UUID identifying the request.</td></tr>
+        <tr><td>3</td><td><code>timestamp</code></td><td>Request timestamp in milliseconds since epoch.</td></tr>
+        <tr><td>4</td><td><code>remoteAddress</code></td><td>Source address of the incoming request.</td></tr>
+        <tr><td>5</td><td><code>localAddress</code></td><td>Destination address the incoming request was issued to.</td></tr>
+        <tr><td>6</td><td><code>api</code></td><td>ID of the API.</td></tr>
+        <tr><td>7</td><td><code>apiName</code></td><td>Name of the API at the time of the request.</td></tr>
+        <tr><td>8</td><td><code>organizationId</code></td><td>ID of the organization the API belongs to.</td></tr>
+        <tr><td>9</td><td><code>environmentId</code></td><td>ID of the environment the API belongs to.</td></tr>
+        <tr><td>10</td><td><code>application</code></td><td>Application ID. <code>"1"</code> for keyless plans.</td></tr>
+        <tr><td>11</td><td><code>plan</code></td><td>ID of the plan.</td></tr>
+        <tr><td>12</td><td><code>subscription</code></td><td>Subscription ID. Empty for keyless plans.</td></tr>
+        <tr><td>13</td><td><code>user</code></td><td>Authenticated user, if security was used.</td></tr>
+        <tr><td>14</td><td><code>tenant</code></td><td>Tenant evaluated for the API.</td></tr>
+        <tr><td>15</td><td><code>uri</code></td><td>URI used by the client (includes context path and query string).</td></tr>
+        <tr><td>16</td><td><code>path</code></td><td>Path portion after the API context path.</td></tr>
+        <tr><td>17</td><td><code>mappedPath</code></td><td>Path mapping value, if a path mapping is configured.</td></tr>
+        <tr><td>18</td><td><code>httpMethod</code></td><td>HTTP method of the client request.</td></tr>
+        <tr><td>19</td><td><code>status</code></td><td>HTTP response status code returned to the client.</td></tr>
+        <tr><td>20</td><td><code>endpoint</code></td><td>URL the proxy used to forward the request upstream.</td></tr>
+        <tr><td>21</td><td><code>errorKey</code></td><td>Error key, if the policy chain was interrupted by an error.</td></tr>
+        <tr><td>22</td><td><code>message</code></td><td>Detailed explanation of the error.</td></tr>
+        <tr><td>23</td><td><code>userAgent</code></td><td><code>User-Agent</code> header from the client request.</td></tr>
+        <tr><td>24</td><td><code>host</code></td><td><code>Host</code> header from the client request.</td></tr>
+        <tr><td>25</td><td><code>requestContentLength</code></td><td>Size in bytes of the incoming request body.</td></tr>
+        <tr><td>26</td><td><code>responseContentLength</code></td><td>Size in bytes of the response body returned to the client.</td></tr>
+        <tr><td>27</td><td><code>apiResponseTimeMs</code></td><td>Time (ms) for the upstream service to respond to the gateway.</td></tr>
+        <tr><td>28</td><td><code>proxyResponseTimeMs</code></td><td>Time (ms) for the gateway to respond to the client (includes upstream roundtrip).</td></tr>
+        <tr><td>29</td><td><code>proxyLatencyMs</code></td><td>Overhead added by the gateway when forwarding the request and response.</td></tr>
+        <tr><td>30</td><td><code>securityType</code></td><td>Security type used (<code>API_KEY</code>, <code>OAUTH2</code>, <code>JWT</code>).</td></tr>
+        <tr><td>31</td><td><code>securityToken</code></td><td>Security token, if security was used.</td></tr>
+    </tbody>
+</table>
+{% endcode %}
+
+{% code title="Legacy engine — sample" %}
 ```csv
-"13f5ae30-068b-4e2d-b5ae-30068bae2d2d";
-"13f5ae30-068b-4e2d-b5ae-30068bae2d2d";
-1692357381941;
-"127.0.0.1";
-"127.0.0.1";
-"ff3c6c48-53e0-41d6-bc6c-4853e011d656";
-"91f077b0-1204-49e4-b077-b0120419e4f6";
-"e115ea63-7cef-4646-95ea-637cef7646ec";
-"04975880-f147-43bc-9758-80f147e3bcbb";
-"";
-"";
-"/test";
-"";
-"";
-"GET";
-200;
-"https://api.gravitee.io/echo";
-"";
-"";
-"curl/7.88.1";
-"localhost:8082";
-0;
-275;
-144;
-150;
-6;
-"API_KEY";
-"ff3c6c48-53e0-41d6-bc6c-4853e011d656";
-"europe-north1-a"
+"13f5ae30-068b-4e2d-b5ae-30068bae2d2d";"13f5ae30-068b-4e2d-b5ae-30068bae2d2d";1692357381941;"127.0.0.1";"127.0.0.1";"ff3c6c48-53e0-41d6-bc6c-4853e011d656";"echo-api";"DEFAULT";"DEFAULT";"91f077b0-1204-49e4-b077-b0120419e4f6";"e115ea63-7cef-4646-95ea-637cef7646ec";"04975880-f147-43bc-9758-80f147e3bcbb";"";"";"/test";"";"";"GET";200;"https://api.gravitee.io/echo";"";"";"curl/7.88.1";"localhost:8082";0;275;144;150;6;"API_KEY";"ff3c6c48-53e0-41d6-bc6c-4853e011d656"
 ```
 {% endcode %}
 {% endtab %}
