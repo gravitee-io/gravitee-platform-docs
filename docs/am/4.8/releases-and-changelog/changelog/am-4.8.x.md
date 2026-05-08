@@ -6,6 +6,26 @@ description: >-
 
 # AM 4.8.x
 
+## Gravitee Access Management 4.8.33 - May 8, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* Improve CPU consumption with thousand of domain [#11411](https://github.com/gravitee-io/issues/issues/11411)
+* Addition of access log for the Gateway [#11415](https://github.com/gravitee-io/issues/issues/11415)
+
+</details>
+
+
 ## Gravitee Access Management 4.8.32 - May 1, 2026
 
 <details>
