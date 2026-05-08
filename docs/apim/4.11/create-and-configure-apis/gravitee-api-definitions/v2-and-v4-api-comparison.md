@@ -56,7 +56,7 @@ GET /products/:productId/items/:id
 
 Both paths share the same shape, with parameters in positions 2 and 4 and matching literals at positions 1 and 3. Same shape, same conflict.
 
-**Cases that look ambiguous but aren't**
+#### **Cases that look ambiguous but aren't**
 
 * **Different segment counts.** `/products/:productId/items/:itemId` and `/:productId` don't conflict because they have different numbers of segments.
 * **Static literal at the same position as a parameter.** `/products/:productId/items/:itemId` and `/products/:productId/items/static` don't conflict because position 4 is a parameter in one path and a static literal in the other.
