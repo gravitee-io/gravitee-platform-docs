@@ -23,23 +23,43 @@ v2 APIs and v4 APIs handle path parameters differently. The following table summ
 | Validation           | No strict rules.                                 | Prevents conflicts before deployment.  |
 | Use in APIs          | Hard to manage across multiple flows.            | Standardized and optimized.            |
 
-### **Example of the path parameters allowed for v4 APIs**
+## **Example of the path parameters allowed for v4 APIs**
 
-Here are examples of path parameters that are allowed for v4 APIs and that are not allowed for v4 APIs:
+When you save a v4 API, the Management API rejects the configuration if any two flow paths in the API or its plans are ambiguous. Two paths are ambiguous when they have the same number of segments and every segment position is either a parameter in both paths or the same static literal in both paths. The parameter name doesn't matter. Only the path shape does. This validation blocks misconfigured paths before they reach the gateway. The Management API responds with an `Invalid path parameters` validation error and lists the conflicting paths.
 
-#### **Allowed**
+### **Allowed**
+
+Two flows whose paths have different shapes:
 
 ```bash
 GET /products/:productId/items/:itemId
 GET /products/:productId/items/details
 ```
 
-#### **Not allowed**
+The fourth segment is a parameter (`:itemId`) in one path and a static literal (`details`) in the other, so the shapes differ.
+
+### **Not allowed**
+
+Two flows whose paths have the same shape:
 
 ```bash
+GET /products/:productId/items/:itemId
 GET /products/:id/items/:itemId
-GET /products/:productId/items/:id 
 ```
+
+Both paths have four segments and share the shape `/products/:/items/:`. The parameter names differ, but the gateway can't pick the right flow at runtime, so the API is rejected.
+
+```bash
+GET /products/:productId/items/:itemId
+GET /products/:productId/items/:id
+```
+
+Both paths share the same shape, with parameters in positions 2 and 4 and matching literals at positions 1 and 3. Same shape, same conflict.
+
+**Cases that look ambiguous but aren't**
+
+* **Different segment counts.** `/products/:productId/items/:itemId` and `/:productId` don't conflict because they have different numbers of segments.
+* **Static literal at the same position as a parameter.** `/products/:productId/items/:itemId` and `/products/:productId/items/static` don't conflict because position 4 is a parameter in one path and a static literal in the other.
 
 ## Support for functionalities
 
