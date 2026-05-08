@@ -12,3 +12,5 @@ configure-and-manage-the-platform/gravitee-gateway/deploying-the-hazelcast-rate-
 prepare-a-production-environment/repositories/README.md
 prepare-a-production-environment/repositories/hazelcast-rate-limit-repository-overview-and-key-concepts.md
 prepare-a-production-environment/repositories/hazelcast-rate-limit-repository-restrictions-and-known-limitations.md
+create-and-configure-apis/configure-v4-apis/reporter-settings-ui-for-native-apis-opentelemetry-section.md
+kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/enable-opentelemetry-tracing-for-a-kafka-api.md
