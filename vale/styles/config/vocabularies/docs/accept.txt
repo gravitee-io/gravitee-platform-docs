@@ -484,3 +484,5 @@ GZIP
 [Mm]inuva
 JWTs?
 Okta
+[Pp]roxied
+Kibana
