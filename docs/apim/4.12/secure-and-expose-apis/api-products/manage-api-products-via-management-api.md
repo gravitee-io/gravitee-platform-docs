@@ -84,6 +84,101 @@ Manage subscription lifecycle using these endpoints:
 - Resume: POST to `/_resume`
 - Transfer: POST to `/_transfer`
 
+## Manage API Product members
+
+The following endpoints manage API Product members and ownership transfer.
+
+### Retrieve members
+
+Send a GET request to `/environments/{envId}/api-products/{apiProductId}/members` to retrieve the list of members for an API Product.
+
+**Query Parameters:**
+
+| Parameter | Type | Default | Description |
+|:----------|:-----|:--------|:------------|
+| `page` | integer | `1` | Page number for pagination |
+| `perPage` | integer | `10` | Number of members per page |
+
+**Response:**
+
+Returns a `MembersResponse` object with pagination metadata.
+
+### Add a member
+
+Send a POST request to `/environments/{envId}/api-products/{apiProductId}/members` to add a new member to an API Product.
+
+**Request Body:**
+
+`AddMember` object with the following properties:
+
+| Property | Type | Required | Description |
+|:---------|:-----|:---------|:------------|
+| `userId` | string | Conditional | User's technical identifier. Required if `externalReference` is not provided. |
+| `externalReference` | string | Conditional | User reference from an identity provider. Required if `userId` is not provided. |
+| `roleName` | string | Yes | Name of the role to assign to the member |
+
+**Response:**
+
+Returns a `Member` object representing the newly added member.
+
+<figure><img src="../../.gitbook/assets/apim-api-product-ownership-transfer-group-management-step-09.png" alt="Add members dialog showing default role assignments for API, API Product, Application, Integration, and Cluster roles"><figcaption></figcaption></figure>
+
+### Update a member's role
+
+Send a PUT request to `/environments/{envId}/api-products/{apiProductId}/members/{memberId}` to update the role of an existing member.
+
+**Request Body:**
+
+```json
+{
+ "roleName": "string"
+}
+```
+
+**Response:**
+
+Returns the updated `Member` object.
+
+### Remove a member
+
+Send a DELETE request to `/environments/{envId}/api-products/{apiProductId}/members/{memberId}` to remove a member from an API Product.
+
+**Response:**
+
+Returns `204 No Content` on successful deletion.
+
+### Transfer ownership
+
+Send a POST request to `/environments/{envId}/api-products/{apiProductId}/members/_transfer-ownership` to transfer primary ownership of an API Product to another user or group.
+
+**Request Body:**
+
+`ApiProductTransferOwnership` object with the following properties:
+
+| Property | Type | Required | Description |
+|:---------|:-----|:---------|:------------|
+| `newPrimaryOwnerId` | string | Conditional | The new primary owner's technical identifier (user or group). Required if `userReference` is not provided. |
+| `userReference` | string | Conditional | The new primary owner reference from an identity provider. Required if `newPrimaryOwnerId` is not provided. |
+| `userType` | string | Yes | Type of the new primary owner. Valid values: `USER`, `GROUP` |
+| `currentPrimaryOwnerNewRole` | string | Yes | Name of the role to assign to the current primary owner after the transfer |
+
+**Validation Rules:**
+
+- Either `newPrimaryOwnerId` or `userReference` must be provided. If both are null or blank, the request fails with `InvalidDataException`.
+- The `currentPrimaryOwnerNewRole` cannot be `PRIMARY_OWNER`. Attempting to assign this role throws `TransferOwnershipNotAllowedException`.
+
+**Response:**
+
+Returns `204 No Content` on successful transfer.
+
+## Configure API Product primary owner mode
+
+The API Product primary owner mode setting controls whether API Product primary owners can be users, groups, or both.
+
+| Property | Type | Default | Description |
+|:---------|:-----|:--------|:------------|
+| `api.product.primary.owner.mode` | String | `HYBRID` | Controls whether API Product primary owner can be USER, GROUP, or HYBRID (both). Valid values: `USER`, `GROUP`, `HYBRID`. Scopes: ENVIRONMENT, ORGANIZATION, SYSTEM. |
+
 ## Plan and subscription reference model
 
 Plans and subscriptions use a reference model to distinguish between API-level and API Product-level resources:
