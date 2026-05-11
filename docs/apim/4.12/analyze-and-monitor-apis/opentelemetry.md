@@ -24,6 +24,7 @@ To enable OpenTelemetry, complete the following steps:
 
 1. [#enable-opentelemetry-for-your-gateway](opentelemetry.md#enable-opentelemetry-for-your-gateway "mention")
 2. [#enable-opentelemetry-for-an-api](opentelemetry.md#enable-opentelemetry-for-an-api "mention")
+3. (Optional) [#otel-logs-log-to-trace-correlation](opentelemetry.md#otel-logs-log-to-trace-correlation "mention")
 
 ## Naming Conventions
 
@@ -209,6 +210,107 @@ Tracing requires enablement at both the gateway level (`services.opentelemetry.e
 Per-API tracing settings are configured in the Reporter Settings page of the API. The **Enabled** toggle activates tracing for the API; the **Verbose** toggle additionally enables the per-phase, per-flow, and per-policy span hierarchy.
 
 Both toggles are disabled when analytics is disabled (`analytics.enabled=false`), when the user lacks the `api-definition-u` permission, or when the API is not a V4 NATIVE API. The **Verbose** toggle is additionally disabled when `analytics.tracing.enabled=false`.
+
+## OTel Logs: Log-to-Trace Correlation
+
+{% hint style="info" %}
+OTel Logs requires the `gravitee-reporter-otel` plugin and OpenTelemetry tracing enabled at both the gateway and per-API level.
+{% endhint %}
+
+Gravitee injects the active OpenTelemetry `traceId` and `spanId` into every runtime log record captured during request processing and exports those records to the configured OTLP log backend. This enables full log-to-trace correlation: each log line carries the trace ID so you can navigate directly from a log to its corresponding trace (and vice versa, using the **Logs for this span** button in Grafana/Tempo).
+
+This feature applies to v4 HTTP/Proxy APIs and v4 Message APIs.
+
+### Prerequisites
+
+* The `gravitee-reporter-otel` plugin must be installed on the gateway. For installation instructions, see [Plugins](../plugins/README.md).
+* OpenTelemetry tracing must be globally enabled on the gateway (`services.opentelemetry.enabled: true`).
+* An OTLP-compatible log backend must be reachable from the gateway (e.g. Loki, Grafana Cloud, or an OpenTelemetry Collector).
+
+### Configure the logs endpoint on the gateway
+
+Add the `logsEndpoint` under `services.opentelemetry.exporter` in your `gravitee.yml`:
+
+{% tabs %}
+{% tab title="gravitee.yml" %}
+```yaml
+services:
+  opentelemetry:
+    enabled: true
+    exporter:
+      endpoint: http://<otel-collector>:4317   # traces
+      logsEndpoint: http://<loki>:3100/otlp/v1/logs
+      compression: none
+      timeout: 10s
+```
+{% endtab %}
+
+{% tab title="Environment variables" %}
+```bash
+gravitee_services_opentelemetry_enabled=true
+gravitee_services_opentelemetry_exporter_logsEndpoint=http://<loki>:3100/otlp/v1/logs
+```
+{% endtab %}
+{% endtabs %}
+
+{% hint style="warning" %}
+When the gateway runs inside Docker, use the container hostname (e.g. `http://loki:3100/otlp/v1/logs`).
+{% endhint %}
+
+### Enable OTel Logs per API
+
+OTel Logs is disabled by default and must be explicitly enabled per API.
+
+1. Open the API in the Gravitee API Console.
+2. Go to **Analytics** > **Reporter Settings**.
+3. Ensure **OpenTelemetry Tracing** is already enabled.
+4. Toggle **OTel Logs** on.
+5. Click **Save** and deploy the API.
+
+{% hint style="info" %}
+The **OTel Logs** toggle is only available when **OpenTelemetry Tracing** is enabled for the API. Disabling tracing automatically disables OTel Logs.
+{% endhint %}
+
+### What is captured per request
+
+When OTel Logs is enabled, each request produces up to four log entries - one per capture point in the request lifecycle:
+
+| Capture point | Log body content |
+|:---|:---|
+| `entrypoint-request` | Request body **before** any request policies (original payload) |
+| `endpoint-request` | Request body **after** request policies (e.g. after a JSON-to-JSON transform) |
+| `endpoint-response` | Raw backend response body |
+| `entrypoint-response` | Response body + response headers after response policies |
+
+Each log entry is enriched with log record attributes including `trace_id`, `span_id`, `api_id`, `api_name`, `log_type`, `http_response_status_code`, and per-header attributes (e.g. `http_request_header_content_type`).
+
+### Policy visibility in OTel logs
+
+The table below shows what is visible in OTel for common policy types:
+
+| Policy type | Visible in OTel? | Where |
+|:---|:---|:---|
+| JSON-to-JSON Transform (body rewrite) | Yes | Log body of the `endpoint-request` capture point shows the transformed payload |
+| Assign Attributes (context map) | Partial | Span metadata only (`gravitee.policy=policy-assign-attributes`, `gravitee.policy.trigger.executed=true`); assigned values are **not** visible |
+| Transform Headers | Yes | Response headers added by Transform Headers appear as log record attributes on the `entrypoint-response` entry |
+
+### Viewing correlated logs in Grafana
+
+1. Open **Grafana** > **Explore** > **Tempo**.
+2. Select a trace for your API.
+3. Click on a span in the waterfall view.
+4. Click **Logs for this span** - Grafana queries Loki by `trace_id` and displays the correlated log lines.
+5. Click on a log line to expand it and view all log fields, including response headers and payload details.
+
+{% hint style="warning" %}
+For **Logs for this span** to return results, the `service.name` reported by both the OTel tracer and the OTel logger must be the same (`gio_apim_gateway`). If they differ, Grafana silently returns no results.
+{% endhint %}
+
+### Behavior notes
+
+* Log records are exported asynchronously: OTel Logs adds no latency to the request path.
+* If OTel is disabled globally on the gateway, the feature has zero overhead.
+* Enabling OTel Logs alongside existing logging (Elasticsearch, file reporter) results in both reporters receiving the same log record.
 
 ## Tracing modes
 
