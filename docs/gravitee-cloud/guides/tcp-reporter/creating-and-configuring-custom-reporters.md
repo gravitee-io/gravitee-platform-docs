@@ -8,7 +8,7 @@ Before creating a custom reporter, ensure the following requirements are met:
 * `customReporters` release toggle enabled in the platform
 * Account-level permissions to manage custom reporters
 * TCP endpoint accessible from gateway network
-* (Optional) JKS or PKCS12 certificate files for TLS connections
+* (Optional) JKS or PFX certificate files for TLS connections
 
 ## Creating a Custom Reporter
 
@@ -31,10 +31,10 @@ Before creating a custom reporter, ensure the following requirements are met:
 7. (Optional) Enable TLS:
  1. Toggle **TLS Enabled**.
  2. (Optional) Enable **TLS Verify Client** to validate the remote server's certificate.
- 3. Select the **Keystore Type** (JKS or PFK).
+ 3. Select the **Keystore Type** (JKS or PFX).
  4. Upload the keystore file (maximum 2 MB).
  5. Provide the encrypted keystore password.
- 6. Select the **Truststore Type** (JKS or PFK).
+ 6. Select the **Truststore Type** (JKS or PFX).
  7. Upload the truststore file (maximum 2 MB).
  8. Provide the encrypted truststore password.
 8. Link the reporter to one or more gateways.

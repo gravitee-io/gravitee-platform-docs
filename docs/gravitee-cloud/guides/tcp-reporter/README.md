@@ -29,7 +29,7 @@ Reporters are deployed to gateways through a linking mechanism. A single reporte
 
 ### Data Type Selection
 
-Administrators choose which telemetry streams to export from a predefined set of data types. Available types include V2 Logs, V2 Metrics, V4 Logs, V4 Metrics, V4 Message Logs, V4 Message Metrics, API Health Check Logs, and Kafka event metrics (operation, topic, application, API). The Gateway Monitoring Metrics type is always excluded from export, even if selected, as it is reserved for internal gateway monitoring.
+Administrators choose which telemetry streams to export from a predefined set of data types. Available types include V2 Logs, V2 Metrics, V4 Logs, V4 Metrics, V4 Message Logs, V4 Message Metrics, API Health Check Logs, and Kafka event metrics (operation, topic, application, API). 
 
 For more information about data selection, see [Configuring Reporters and Selecting Fields](https://documentation.gravitee.io/apim/analyze-and-monitor-apis/reporters#configuring-reporters-and-selecting-fields).
 
