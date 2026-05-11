@@ -37,6 +37,17 @@
 * Spans include OpenTelemetry semantic conventions for messaging systems and Gravitee-specific attributes for error classification, authentication details, and API identification.
 <!-- /PIPELINE:APIM-13472 -->
 
+
+<!-- PIPELINE:APIM-13461 -->
+#### **API Product Membership and Ownership Management**
+
+* Add individual users as direct members of an API Product and assign them specific roles that determine their permissions (read, manage, deploy, etc.).
+* Attach or detach groups to API Products, allowing group members to inherit API Product roles automatically without individual assignment.
+* Transfer primary ownership of an API Product to another user or group, with the previous owner demoted to a regular role of your choice.
+* Configure API Product Primary Owner mode at the environment level to control whether new API Products are owned by a user, a group, or either (hybrid mode).
+* Review all API Products a user has access to (directly or through groups) from the Organization page's user details view.
+<!-- /PIPELINE:APIM-13461 -->
+
 ## Improvements
 
 
