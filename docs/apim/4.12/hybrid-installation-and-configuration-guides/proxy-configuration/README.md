@@ -4,10 +4,11 @@
 
 In enterprise environments, Gravitee components often communicate through corporate proxy servers. This section covers proxy configuration for hybrid deployment scenarios.
 
-| Guide                         | Use Case                                                                                   |
-| ----------------------------- | ------------------------------------------------------------------------------------------ |
-| Hybrid Gateway Proxy          | Configure a Hybrid Gateway to connect to a Bridge Server or Gravitee Cloud through a proxy |
-| System Proxy for Backend APIs | Configure a Gateway to route backend API calls through a system proxy                      |
+| Guide                          | Use Case                                                                                                                    |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
+| Configure Cloud Gateway Client | Configure HTTP, proxy, and SSL settings for every component that connects to Gravitee Cloud Gateway from a single namespace |
+| Hybrid Gateway Proxy           | Configure a Hybrid Gateway to connect to a Bridge Server or Gravitee Cloud through a proxy                                  |
+| System Proxy for Backend APIs  | Configure a Gateway to route backend API calls through a system proxy                                                       |
 
 ## Proxy Types
 
@@ -33,14 +34,14 @@ Used by the Gateway to route API calls to backend services through a centralized
 
 Gravitee supports several proxy configuration approaches. The following table describes each method and when to use it:
 
-| Method | Environment variables | Use case |
-| --- | --- | --- |
-| **System proxy** | `gravitee_system_proxy_*` | Route Gateway outbound calls through a proxy, including backend API calls and JWKS retrieval from external identity providers. This is the correct method for Helm-based Kubernetes and OpenShift deployments. |
-| **HTTP Repository proxy** | `gateway.management.http.proxy` | Route Hybrid Gateway connections to the Bridge Server or Gravitee Cloud Platform through a proxy. |
-| **Cloud Reporter proxy** | `gravitee_cloud_client_proxy_*` | Route Gateway metrics and log reporting to Gravitee Cloud through a proxy. |
-| **HTTP Client proxy** | `gravitee_httpClient_proxy_*` | Route Management API outbound HTTP calls (webhooks, API imports, external notifications) through a proxy. This doesn't affect Gateway traffic. |
-| **JVM flags** | `-Dhttp.proxyHost`, `-Dhttps.proxyHost` | Standard Java proxy flags. These aren't used by Gravitee's internal HTTP clients and aren't recommended for Gravitee proxy configuration. |
-| **OS environment variables** | `HTTP_PROXY`, `HTTPS_PROXY` | Standard OS-level proxy variables. These aren't used by Gravitee internally and don't configure Gravitee components. |
+| Method                       | Environment variables                   | Use case                                                                                                                                                                                                       |
+| ---------------------------- | --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **System proxy**             | `gravitee_system_proxy_*`               | Route Gateway outbound calls through a proxy, including backend API calls and JWKS retrieval from external identity providers. This is the correct method for Helm-based Kubernetes and OpenShift deployments. |
+| **HTTP Repository proxy**    | `gateway.management.http.proxy`         | Route Hybrid Gateway connections to the Bridge Server or Gravitee Cloud Platform through a proxy.                                                                                                              |
+| **Cloud Reporter proxy**     | `gravitee_cloud_client_proxy_*`         | Route Gateway metrics and log reporting to Gravitee Cloud through a proxy.                                                                                                                                     |
+| **HTTP Client proxy**        | `gravitee_httpClient_proxy_*`           | Route Management API outbound HTTP calls (webhooks, API imports, external notifications) through a proxy. This doesn't affect Gateway traffic.                                                                 |
+| **JVM flags**                | `-Dhttp.proxyHost`, `-Dhttps.proxyHost` | Standard Java proxy flags. These aren't used by Gravitee's internal HTTP clients and aren't recommended for Gravitee proxy configuration.                                                                      |
+| **OS environment variables** | `HTTP_PROXY`, `HTTPS_PROXY`             | Standard OS-level proxy variables. These aren't used by Gravitee internally and don't configure Gravitee components.                                                                                           |
 
 {% hint style="warning" %}
 **Use `gravitee_system_proxy_*` for Gateway proxy configuration**
