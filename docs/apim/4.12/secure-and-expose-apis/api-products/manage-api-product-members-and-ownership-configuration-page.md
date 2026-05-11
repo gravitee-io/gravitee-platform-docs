@@ -14,8 +14,8 @@ Before managing API Product members and ownership, ensure you have the required 
 
 To add a direct member, complete the following steps:
 
-1. From the **Dashboard*8, click **API Products**.
-2. Select the API Prodcut that you ewant to add a member to.
+1. From the **Dashboard**, click **API Products**.
+2. Select the API Product that you want to add a member to.
 3. Click **+ Add members**.
 
     <figure><img src="../../.gitbook/assets/apim-api-product-ownership-transfer-group-management-step-02.png" alt="Members configuration panel showing role dropdown with OWNER and USER options"><figcaption></figcaption></figure>
@@ -41,7 +41,7 @@ Inherited group members appear in read-only cards below the direct members table
 To transfer ownership, complete the following steps:
 
 1. From the **Dashboard*8, click **API Products**.
-2. Select the API Prodcut that you want to transfer ownership for.
+2. Select the API Product that you want to transfer ownership for.
 2. Click **Transfer ownership**.
 
     <figure><img src="../../.gitbook/assets/apim-api-product-ownership-transfer-group-management-step-05.png" alt="Transfer ownership dialog with primary owner group selection and role assignment options"><figcaption></figcaption></figure>
@@ -66,10 +66,10 @@ To transfer ownership, complete the following steps:
 
 ### Manage Groups
 
-To manage attached groups, complete the followin steps:
+To manage attached groups, complete the following steps:
 
 1. From the **Dashboard**, click **API Products**.
-2. Selec the API Product that you want to manage the group for.
+2. Select the API Product that you want to manage the group for.
 3. Click **Manage groups**.
 
     <figure><img src="../../.gitbook/assets/apim-api-product-ownership-transfer-group-management-step-08.png" alt="Groups management interface showing empty groups list with add group button"><figcaption></figcaption></figure>
