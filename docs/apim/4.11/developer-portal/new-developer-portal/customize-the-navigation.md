@@ -74,8 +74,7 @@ When you add a page that is not in a folder, the page appears as a root level me
     <figure><img src="../../.gitbook/assets/FB8F0725-08EB-4B68-B365-122337D12C4F_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 2. In the **Add page** pop-up screen, type a title for your page.
 3. (Optional) Turn on the **Authentication is required to view this page.** toggle. This toggle ensures that the user must be signed in to the New Developer Portal to see the page.
-4. Click **Add**.\
-   Here we need to mention that now we can add 2 types of pages Gravitee markdown and OpenAPI. here are the screenshots:
+4. Click **Add**.
 5. Customize your page. The page contains default content that you can use to customize your new page with unique content. For more information about customizing your page with Gravitee Markdown, see [gravitee-markdown-components.md](gravitee-markdown-components.md "mention")
 
 Open API example content:
