@@ -154,6 +154,10 @@ By default, the Developer Portal homepage has the following content :
 </style>
 ```
 
+{% hint style="info" %}
+The default homepage example above uses custom CSS classes (e.g., `.homepage-title`, `.flex-container`) that only target custom HTML elements. If you add your own `<style>` blocks, follow the same pattern: only style your own custom HTML classes and avoid targeting GMD component internals or portal built-in components (header, footer, sidebar, etc.), as their structure may change between releases. For more details, see [Add custom CSS to your theme](layout-and-theme.md#add-custom-css-to-your-theme).
+{% endhint %}
+
 To edit the homepage, complete the following steps:
 
 1.  In the Markdown editor, enter your Markdown or GMD to customize the homepage.For more information about the GMD components that you can enter to customize the homepage, see [#gravitee-markdown-components](customize-the-homepage.md#gravitee-markdown-components "mention").
