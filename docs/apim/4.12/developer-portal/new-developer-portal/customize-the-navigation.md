@@ -91,8 +91,7 @@ When you add a page that is not in a folder, the page appears as a root level me
 *   Navigate to the page in the navigation bar, click the **ellipses** (<i class="fa-ellipsis-vertical">:ellipsis-vertical:</i>), and then click **Publish**.<br>
 
     <figure><img src="../../.gitbook/assets/1A5E08E1-648C-4437-81C6-F4C480F04193_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
-
-1.  In the **Publish page** pop-up window, click **Publish**.<br>
+8.  In the **Publish page** pop-up window, click **Publish**.<br>
 
     <figure><img src="../../.gitbook/assets/C52E694A-6761-45A5-B46B-998AE39FF5E1_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 {% endtab %}
