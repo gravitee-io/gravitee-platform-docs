@@ -17,8 +17,7 @@ Before creating a custom reporter, ensure the following requirements are met:
 3. Provide a unique name for the reporter.
  * Name must be 2-128 characters.
  * Allowed characters: alphanumeric, spaces, hyphens, underscores, and periods.
-4. Select **TCP** as the reporter type.
-5. Configure the connection settings:
+4. Configure the following connection settings:
  1. Enter the destination **Host** (maximum 255 characters, no protocol prefix or path).
  2. Enter the **Port** (1-65535).
  3. Set the **Connection Timeout** in milliseconds.
@@ -32,10 +31,10 @@ Before creating a custom reporter, ensure the following requirements are met:
 7. (Optional) Enable TLS:
  1. Toggle **TLS Enabled**.
  2. (Optional) Enable **TLS Verify Client** to validate the remote server's certificate.
- 3. Select the **Keystore Type** (JKS or PKCS12).
+ 3. Select the **Keystore Type** (JKS or PFK).
  4. Upload the keystore file (maximum 2 MB).
  5. Provide the encrypted keystore password.
- 6. Select the **Truststore Type** (JKS or PKCS12).
+ 6. Select the **Truststore Type** (JKS or PFK).
  7. Upload the truststore file (maximum 2 MB).
  8. Provide the encrypted truststore password.
 8. Link the reporter to one or more gateways.
