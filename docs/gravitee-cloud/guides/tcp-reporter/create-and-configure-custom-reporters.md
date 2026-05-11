@@ -1,8 +1,8 @@
-# Creating and Configuring Custom Reporters
+# Create and Configure Custom Reporters
 
 ## Prerequisites
 
-Before creating a custom reporter, ensure the following requirements are met:
+Before creating a custom reporter, ensure you meet the following requirements:
 
 * Enterprise license with Galaxy or Universe tier
 * Account-level permissions to manage custom reporters
@@ -11,12 +11,13 @@ Before creating a custom reporter, ensure the following requirements are met:
 
 ## Creating a Custom Reporter
 
-1. Access the custom reporters configuration page.
-2. Click **Create Custom Reporter**.
-3. Provide a unique name for the reporter.
- * Name must be 2-128 characters.
+1. From the **Dashboard**, click **Settings**.
+2. From the **Settings** menu, click **Custom Reporters**.
+3. Click **Create Custom Reporter**.
+4. In the **Name** field, enter a unique name for the reporter. The name must meet the following requirements:
+ * Must be 2-128 characters.
  * Allowed characters: alphanumeric, spaces, hyphens, underscores, and periods.
-4. Configure the following connection settings:
+5. Configure the following connection settings:
  1. Enter the destination **Host** (maximum 255 characters, no protocol prefix or path).
  2. Enter the **Port** (1-65535).
  3. Set the **Connection Timeout** in milliseconds.
