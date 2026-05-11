@@ -21,6 +21,7 @@
 * [Promote APIs](guides/promote-apis.md)
 * [Add Environments](guides/add-environments.md)
 * [Alert Engine](guides/alert-engine.md)
+* [Creating and Managing Custom Reporters](creating-and-managing-custom-reporters.md)
 * [Establish private networks with GCP](guides/establish-private-networks-with-gcp/README.md)
   * [Create a private network](guides/establish-private-networks-with-gcp/create-a-private-network.md)
   * [View your private network's details](guides/establish-private-networks-with-gcp/view-your-private-networks-details.md)
