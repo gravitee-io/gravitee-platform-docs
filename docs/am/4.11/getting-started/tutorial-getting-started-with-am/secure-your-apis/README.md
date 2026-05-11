@@ -36,8 +36,7 @@ Both the OAuth2 plan and the OAuth2 policy require a resource to access an OAuth
 
 ## Choose your security approach&#x20;
 
-Choose whether to secure the API with an OAuth2 plan or the OAuth2 policy. Choose the OAuth2 plan to secure the API with subscription-based access control, where applications subscribe to the plan and the Gateway ties bearer tokens to subscriptions. Choose the OAuth2 policy to\
-enforce token introspection at the flow level without a subscription model.&#x20;
+Choose whether to secure the API with an OAuth2 plan or the OAuth2 policy. Choose the OAuth2 plan to secure the API with subscription-based access control, where applications subscribe to the plan and the Gateway ties bearer tokens to subscriptions. Choose the OAuth2 policy to enforce token introspection at the flow level without a subscription model.&#x20;
 
 {% tabs %}
 {% tab title="OAuth2 plan" %}
