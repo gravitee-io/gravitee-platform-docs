@@ -1,4 +1,4 @@
-# Managing API Product Members and Ownership (Configuration Page)
+# Manage API Product Members and Ownership
 
 ## Prerequisites
 
@@ -8,25 +8,23 @@ Before managing API Product members and ownership, ensure you have the required 
 * `api_product-member-c` to add members
 * `api_product-member-d` to delete members
 * `environment-group-r` to view inherited group members
+* When `API Product Primary Mode` is `GROUP`, you must belong to at least one group with a PRIMARY_OWNER member for API_PRODUCT scope. The target group for ownership transfer must have at least one member with PRIMARY_OWNER role for API_PRODUCT scope.
 
-When `api.product.primary.owner.mode` is `GROUP`, you must belong to at least one group with a PRIMARY_OWNER member for API_PRODUCT scope. The target group for ownership transfer must have at least one member with PRIMARY_OWNER role for API_PRODUCT scope.
+## Create API Product Members
 
-## Gateway Configuration
+To add a direct member, complete the following steps:
 
-## Creating API Product Members
-
-To add a direct member:
-
-1. Navigate to the API Product members page.
-2. Click **Add members**.
+1. From the **Dashboard*8, click **API Products**.
+2. Select the API Prodcut that you ewant to add a member to.
+3. Click **+ Add members**.
 
     <figure><img src="../../.gitbook/assets/apim-api-product-ownership-transfer-group-management-step-02.png" alt="Members configuration panel showing role dropdown with OWNER and USER options"><figcaption></figcaption></figure>
 
-3. Provide either a user ID (technical identifier) or an external reference (identity provider reference).
+3. Enter the name of the person or people that you want to add to the API Product Group, and then click **Select**.
 
     <figure><img src="../../.gitbook/assets/apim-api-product-ownership-transfer-group-management-step-03.png" alt="Select users dialog with search field showing taylor s in results"><figcaption></figcaption></figure>
 
-4. Select a role from the available roles. The PRIMARY_OWNER role is excluded from the role selection.
+4. Navigate to the user you added, and then, from the **Role** dropdown menu, select a role from the available roles.
 
     The member appears in the members table with the assigned role.
 
@@ -38,11 +36,13 @@ To remove a member, click the delete icon in the member's row. The delete icon i
 
 Inherited group members appear in read-only cards below the direct members table, with pagination independent per group.
 
-## Transferring Ownership
+## Transfer Ownership
 
-To transfer ownership:
+To transfer ownership, complete the following steps:
 
-1. Click **Transfer ownership** on the API Product members page.
+1. From the **Dashboard*8, click **API Products**.
+2. Select the API Prodcut that you want to transfer ownership for.
+2. Click **Transfer ownership**.
 
     <figure><img src="../../.gitbook/assets/apim-api-product-ownership-transfer-group-management-step-05.png" alt="Transfer ownership dialog with primary owner group selection and role assignment options"><figcaption></figcaption></figure>
 
@@ -62,21 +62,19 @@ To transfer ownership:
 
     If no eligible groups exist, a banner states: "You can't set a group as primary owner. To set a group as a primary owner, the group must contain a member with a primary owner API Product role."
 
-4. Submit the transfer to reassign ownership.
+4. Click **Transfer**.
 
-### Managing Groups
+### Manage Groups
 
-To manage attached groups:
+To manage attached groups, complete the followin steps:
 
-1. Click **Manage groups** on the API Product members page.
+1. From the **Dashboard**, click **API Products**.
+2. Selec the API Product that you want to manage the group for.
+3. Click **Manage groups**.
 
     <figure><img src="../../.gitbook/assets/apim-api-product-ownership-transfer-group-management-step-08.png" alt="Groups management interface showing empty groups list with add group button"><figcaption></figcaption></figure>
 
-2. If you lack `api_product-member-u` permission, the dialog displays a read-only list of associated groups (or "No groups associated" if none exist).
-3. If you have update permission, use the multi-select dropdown to select or deselect groups. The dropdown displays all available groups, excluding groups with the `apiProductPrimaryOwner` field set.
-4. Click **Save** to update the API Product's group associations.
+4. From the **Manage groups** pop-up menu, select the groups that you want to have access to your API Product.
+5. Click **Save**.
 
 Inherited members from the attached groups appear in read-only cards below the direct members table, with pagination independent per group.
-
-## End-User Configuration
-

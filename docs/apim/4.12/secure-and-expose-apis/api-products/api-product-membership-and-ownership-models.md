@@ -1,10 +1,13 @@
 # API Product Membership and Ownership Models
 
-## Key Concepts
+## Overview 
+This article describes the API Product Memebrship and Ownership models for users.
 
-### Primary Owner Mode
+### Key Concepts
 
-The primary owner mode determines whether an API Product's primary owner must be a user, a group, or either. The mode is configured globally via the `api.product.primary.owner.mode` parameter and defaults to `HYBRID`.
+#### Primary Owner Mode
+
+The primary owner mode determines whether an API Product's primary owner must be a user, a group, or either. The mode is configured globally with the `api.product.primary.owner.mode` parameter, which defaults to `HYBRID`.
 
 * **USER mode**: Only individual users can be primary owners.
 * **GROUP mode**: Only groups with at least one member holding a PRIMARY_OWNER role for API_PRODUCT scope can be primary owners.
@@ -14,10 +17,10 @@ The primary owner mode is read at API Product creation and does not retroactivel
 
 ### Direct and Inherited Members
 
-API Products support two membership types:
+API Products supports the following membership types:
 
-* **Direct members**: Added individually with specific roles. Direct members appear in the members table with editable roles (except for the primary owner).
-* **Inherited members**: Derived from attached groups. Inherited members are displayed in read-only cards below the direct members table, grouped by their source group. Role changes for inherited members must be made in the group management UI.
+* **Direct members**: Added individually with specific roles. Direct members appear in the members table with editable roles, except for the primary owner.
+* **Inherited members**: Derived from attached groups. Inherited members are displayed in `read-only` cards below the direct members table, grouped by their source group. Role changes for inherited members must be made in the group management UI.
 
 When a user is both a direct member and a member through a group, their effective role is the maximum of their direct role and all group roles.
 

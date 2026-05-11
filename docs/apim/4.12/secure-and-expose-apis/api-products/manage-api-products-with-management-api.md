@@ -1,4 +1,4 @@
-# Managing API Products via Management API
+# Managing API Products with the Management API
 
 ## Create an API Product
 
