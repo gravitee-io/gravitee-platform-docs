@@ -87,54 +87,6 @@ You can apply the OAuth2 policy directly to a flow in Policy Studio. The policy 
 {% endtab %}
 {% endtabs %}
 
-
-
-### Create an OAuth2 plan
-
-An OAuth2 plan is the recommended way to secure an API with OAuth2. It secures the API at the subscription layer. On every request, the gateway introspects the bearer token using the OAuth2 authorization server resource configured in the previous section, then matches the response against a subscribed application.
-
-To create an OAuth2 plan in APIM Console:
-
-1. Log in to APIM Console.
-2. Click **APIs** in the left sidebar.
-3. Select the API you want to secure.
-4. Click **Consumers** in the inner left sidebar.
-5.  Under the **Plans** tab, click **+ Add new plan**.<br>
-
-    <figure><img src="../../../.gitbook/assets/add-new-plan-with-consumers.png" alt=""><figcaption></figcaption></figure>
-6. Select **OAuth2** from the menu.
-7.  Fill in the general plan settings, then click **Next**. For details on each field, see [Create a plan](https://documentation.gravitee.io/apim/secure-and-expose-apis/plans).<br>
-
-    <figure><img src="../../../.gitbook/assets/general-plan-settings-0auth2.png" alt=""><figcaption></figcaption></figure>
-8. In the **OAuth2 resource** field, select the AM authorization server resource configured in the previous section. Configure any additional OAuth2 fields, such as **Check scopes**, **Required scopes**, or **Permit authorization header to the target endpoints**. For the full field reference, see [OAuth2 plan](https://documentation.gravitee.io/apim/secure-and-expose-apis/plans/oauth2).
-9. Click **Next**, set any plan restrictions, and click **Create**.
-10. Publish the plan so that consumers can subscribe to it.
-11. Save and deploy or redeploy your API.
-
-After the plan is published, an application must subscribe to it to call the API. For details, see [Applications](https://documentation.gravitee.io/apim/secure-and-expose-apis/applications) and [Subscriptions](https://documentation.gravitee.io/apim/secure-and-expose-apis/subscriptions).
-
-### Configure the OAuth2 policy (alternative)
-
-As an alternative to an OAuth2 plan, you can apply the OAuth2 policy directly to a flow in Policy Studio. The policy enforces token introspection on requests that match the flow, **but doesn't tie callers to a subscription.**
-
-1. Log in to APIM Management Console.
-2. Click **APIs** in the left sidebar.
-3. Select the API you want to secure.
-4. Click **Policy Studio** in the inner left sidebar.
-5. Select the flow you want to secure.
-6.  Under the Initial connection tab, click the `+` icon of the **Request phase**. The OAuth2 policy can be applied to v2 APIs and v4 proxy APIs. It cannot be applied at the message level.
-
-    <figure><img src="../../../.gitbook/assets/oauth2 add to flow.png" alt=""><figcaption><p>Add a policy to Request phase flow</p></figcaption></figure>
-7.  In the resulting dialog box, **select** the OAuth2 tile:
-
-    <figure><img src="../../../.gitbook/assets/oauth2 policy.png" alt=""><figcaption><p>Add the OAuth2 policy to the flow</p></figcaption></figure>
-8.  Configure the OAuth2 policy per the [documentation](https://documentation.gravitee.io/apim/reference/policy-reference/oauth2):
-
-    <figure><img src="../../../.gitbook/assets/oauth2 policy details.png" alt=""><figcaption><p>Configure the OAuth2 policy</p></figcaption></figure>
-9. Click **Add policy**.
-10. **Save** and deploy/redeploy your API.
-11. [Verify that your API is OAuth2 secured.](./#verify-oauth2-security)
-
 ## Verify OAuth2 security
 
 You can confirm that your API is OAuth2 secured by calling it through APIM Gateway:
