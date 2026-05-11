@@ -201,7 +201,7 @@ Test the SAML 2.0 connection using a web application created in AM:
 
 1. In AM Console, click **Settings**.
 2. Click **SAML 2.0**.
-3. Verify and update the SAML 2.0 application settings.
+3. Verify and update the [SAML 2.0 application settings](#saml-20-application-settings).
 4. Select an identity provider to connect your users.
 5. Call the Login page (the `/saml/idp/SSO?SAMLRequest=…` endpoint).
 6. Enter the username and password, then click **Sign in**.
@@ -211,73 +211,44 @@ Test the SAML 2.0 connection using a web application created in AM:
 The SAML 2.0 IdP protocol is compatible out of the box with all existing AM features, such as passwordless, MFA, and social login, just like the OAuth 2.0/OpenID Connect protocol.
 {% endhint %}
 
-## Related Changes
+## SAML 2.0 application settings
 
-The Application SAML Settings form now includes an **Assertion Mapping** section with the following components:
+As part of Application settings you can configure the service provider (SP) identity, endpoints, signing and encryption preferences, assertion conditions, attribute mapping, and the SP certificate used by Gravitee AM acting as the SAML 2.0 identity provider.
 
-* **NameID Mapping** text input
-* **Custom Attributes** table
+### Assertion mapping
 
-The **Custom Attributes** table supports:
+The Application SAML 2.0 settings include an **Assertion Mapping** section with options to manage mapping of both NameID and custom attributes.
 
-* Adding attribute mappings
-* Displaying existing mappings
-* Deleting attribute mappings
-* Validation to prevent duplicate attribute names
+#### NameID mapping
 
-## Application SAML Settings API
-
-The Application SAML Settings API allows you to configure SAML-specific properties for an application, including NameID mapping and custom assertion attributes.
-
-### ApplicationSAMLSettings schema
-
-The `ApplicationSAMLSettings` object includes the following properties:
-
-| Property | Type | Description |
-|----------|------|-------------|
-| **Name Id Mapping** | string | Expression Language (EL) expression used to define the NameID value in SAML assertions |
-| **Assertion Attributes** | array of `SAMLAssertionAttribute` | Custom attribute mappings for SAML assertions |
-| `entityId` | string | SAML entity identifier |
-| `certificate` | string | Certificate used for SAML signing |
-| `responseBinding` | string | SAML response binding method |
-| `singleLogoutServiceUrl` | string | URL for single logout service |
-| `attributeConsumeServiceUrl` | string | URL for attribute consumer service |
-
-### SAMLAssertionAttribute schema
-
-The `SAMLAssertionAttribute` object defines custom attributes to include in SAML assertions:
-
-| Property | Type | Required | Description |
-|----------|------|----------|-------------|
-| `name` | string | Yes | SAML attribute name |
-| `value` | string | Yes | Expression Language (EL) expression used to define the attribute value |
-
-## SAML 2.0 IdP protocol plugin enhancements
-
-Gravitee AM 4.12 introduces new configuration options for the SAML 2.0 Identity Provider (IdP) protocol plugin. These enhancements provide greater control over NameID format handling and assertion attribute mapping.
-
-### Supported NameID formats
-
-The SAML 2.0 IdP protocol plugin supports the following NameID format:
+The SAML 2.0 IdP protocol plugin supports the NameID format when specified in a SAML request:
 
 * `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`
 
-All other NameID formats defined in the [SAML 2.0 specification](https://uwconnect.uw.edu/it?id=kb_article_view&sysparm_article=KB0033905) are handled using the new **NameID Mapping** expression or the default internal user ID as the value for the `<NameID>` element in SAML responses.
+All other NameID formats defined in the [SAML 2.0 specification](https://uwconnect.uw.edu/it?id=kb_article_view&sysparm_article=KB0033905) present in SAML requests have no special handling. The `<NameID>` element in the SAML response will be determined from the **NameID Mapping** expression or the default internal user ID will be used.
 
-### NameID format precedence
-
-The SAML 2.0 IdP protocol plugin determines the NameID value using the following order of precedence:
+The SAML 2.0 IdP protocol plugin determines the `<NameID>` value using the following order of precedence:
 
 1. **Supported format in request**: If the SAML request specifies `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`, the plugin uses the user's email address.
 2. **NameID Mapping expression**: If the request specifies a different format or no format, the plugin evaluates the **NameID Mapping** expression configured in the application's SAML 2.0 settings.
 3. **Default internal user ID**: If no mapping is configured, the plugin uses the internal user ID.
 
-### Assertion attribute mapping
+#### Custom attributes table
 
-The **Assertion Attribute Mapping** setting allows you to define custom attributes to include in SAML responses. If you omit this configuration, the plugin returns the standard set of attributes, maintaining backward compatibility with AM 4.11.
+The **Attribute Name** and **Value** settings allow you to define custom attributes to include in SAML responses. If you omit this configuration, the plugin returns the standard set of attributes:
 
-For examples of expression language syntax that apply to **NameID Mapping** and **Assertion Attribute Mapping**, see [Gravitee Expression Language](../../am-expression-language.md).
+```
+sub
+username
+name
+givenname
+familyname
+middlename
+nickname
+mail
+profile
+picture
+phonenumber
+```
 
-{% hint style="info" %}
-These configuration options are available in the Gravitee AM Console UI. API-level changes are not documented, as current usage is described only in terms of the Console UI.
-{% endhint %}
+For examples of expression language syntax that apply to **NameID Mapping** and custom attribute **Value**s, see [Gravitee Expression Language](../am-expression-language.md).

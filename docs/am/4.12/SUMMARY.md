@@ -58,7 +58,6 @@
   * [OAuth 2.0 Token Exchange API](guides/oauth-2.0-token-exchange-concepts/oauth-2.0-token-exchange-api-reference.md)
 * [Prologue](guides/prologue.md)
 * [Auth Protocols](guides/auth-protocols/README.md)
-  * [Configure SAML Assertion Mappings in the Console](guides/auth-protocols/configure-saml-assertion-mappings-in-the-console.md)
   * [OAuth 2.0](guides/auth-protocols/oauth-2.0/README.md)
     * [Which Flow Should I Use?](guides/auth-protocols/oauth-2.0/which-flow-should-i-use.md)
     * [Proof Key for Code Exchange (PKCE)](guides/auth-protocols/oauth-2.0/proof-key-for-code-exchange-pkce.md)
@@ -171,7 +170,6 @@
 ## Reference
 
 * [API Reference](reference/am-api-reference.md)
-  * [Application SAML Settings API Schema](reference/application-saml-settings-api-schema-reference.md)
 
 ## Releases & Changelog
 
