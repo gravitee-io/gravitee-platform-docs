@@ -37,6 +37,17 @@
 * Spans include OpenTelemetry semantic conventions for messaging systems and Gravitee-specific attributes for error classification, authentication details, and API identification.
 <!-- /PIPELINE:APIM-13472 -->
 
+
+<!-- PIPELINE:APIM-12132 -->
+#### **Update v4 APIs by Importing OpenAPI or Gravitee Definitions**
+
+* Update existing v4 APIs by importing a Gravitee v4 API definition (JSON/YAML) or OpenAPI Specification file from the Console UI.
+* The imported file acts as the source of truth and overwrites the API's existing configuration, including endpoints, flows, plans, pages, and metadata, while preserving the API ID and deployment state.
+* For OpenAPI imports on v4 HTTP/Proxy APIs, optionally generate documentation pages from the spec and attach the OpenAPI Specification Validation policy to flows.
+* Supported for all v4 API types except Federated APIs and Federated A2A agents; the imported definition's type must match the existing API's type (Proxy, Message, or Native).
+* Access the feature via the **Import** button on the v4 API details page (requires appropriate permissions).
+<!-- /PIPELINE:APIM-12132 -->
+
 ## Improvements
 
 

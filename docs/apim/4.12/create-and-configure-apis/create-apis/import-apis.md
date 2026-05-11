@@ -15,6 +15,8 @@ Every API includes a context path, virtual host(s), or host(s). These values mus
 
 All items from the import bundle are imported, for example, groups, members, pages, plans, and metadata.
 
+For detailed instructions on importing or updating V4 APIs from OpenAPI or Gravitee definitions, see [Import or Update a V4 API from OpenAPI or Gravitee Definition](import-or-update-a-v4-api-from-openapi-or-gravitee-definition.md).
+
 Additional information that applies to importing an OpenAPI specification can be found [below](import-apis.md#importing-an-openapi-spec).
 
 {% hint style="warning" %}
@@ -153,7 +155,7 @@ To use a vendor extension, add the `x-graviteeio-definition` field at the root o
   * URL
 * Picture only accepts Data-URI format. Please see the example below.
 
-<pre class="language-yaml" data-title="Example"><code class="lang-yaml"><strong>openapi: "3.0.0"
+<pre class="language-yaml" data-title="Example"><code class="lang-yaml"><strong>OpenAPI: "3.0.0"
 </strong>info:
   version: 1.2.3
   title: Gravitee Echo API
