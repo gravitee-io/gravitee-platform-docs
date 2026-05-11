@@ -45,6 +45,7 @@
   * [Proxy Configuration](hybrid-installation-and-configuration-guides/proxy-configuration/README.md)
     * [Hybrid Gateway Proxy Configuration](hybrid-installation-and-configuration-guides/proxy-configuration/hybrid-gateway-proxy-configuration.md)
     * [System Proxy for Backend APIs](hybrid-installation-and-configuration-guides/proxy-configuration/system-proxy-for-backend-apis.md)
+    * [Configure Cloud Gateway Client](hybrid-installation-and-configuration-guides/proxy-configuration/configure-cloud-gateway-client.md)
 * [Self-Hosted Installation Guides](self-hosted-installation-guides/README.md)
   * [Docker](self-hosted-installation-guides/docker/README.md)
     * [Docker Compose](self-hosted-installation-guides/docker/docker-compose.md)
