@@ -5,7 +5,7 @@ metaLinks:
     - breaking-changes-and-deprecations.md
 ---
 
-# Breaking Changes and Deprecations
+# Breaking Changes, Deprecations, and Known Issues
 
 ## Breaking changes
 
@@ -177,3 +177,21 @@ Here is the deprecated functionality from 3.X of Gravitee
 **Deprecated api | gateway | ui | portal.security context is removed**
 
 The deprecated api | gateway | ui | portal.security context has been removed.
+
+## Known Issues
+
+Here are the Known Issues for versions 4.X of Gravitee 
+
+## 4.10 
+
+Here are the Known Issues for version 4.10.x of Gravitee
+
+### 4.10.8
+
+**Cache redis resource does not correctly process expression language for v2 APIs**
+The cache redis resource does not correctly process expression language in the supported fields for v2 APIs.
+
+As a workaround, [steps for workaround]
+
+
+Track the issue here: [Cache redis resource does not correctly process expression language for v2 APIs](https://github.com/gravitee-io/issues/issues/11306)
