@@ -27,7 +27,7 @@ To view Organization Audit log:
 1. Log in to AM Console.
 2. Click Organization > Audit
 
-<figure><img src="../.gitbook/assets/guide-audit-trail-151 (1).png" alt=""><figcaption><p>Organization audit log</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/guide-audit-trail-151.png" alt=""><figcaption><p>Organization audit log</p></figcaption></figure>
 
 {% hint style="info" %}
 All of this information can also be retrieved with the [AM API.](../reference/am-api-reference.md)
@@ -72,7 +72,7 @@ By default, a reporter is created for each security domain and allows you to cho
 2. Click **Settings > Audit Log**.
 3. Click the settings icon and configure the reporter.
 
-<figure><img src="../.gitbook/assets/guide-audit-trail-152 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/guide-audit-trail-152.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="warning" %}
 There is no log retention. It is up to you define a retention window and periodically clear old data.
@@ -90,7 +90,7 @@ It is possible to populate all audit logs from all domains within organization t
 4. Click the plus icon ![plus icon](../.gitbook/assets/plus-icon.png).
 5. Select "Log events from all domains in this organization"
 
-<figure><img src="../.gitbook/assets/guide-audit-trail-153 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/guide-audit-trail-153.png" alt=""><figcaption></figcaption></figure>
 
 This functionality is supported only for **Organization Audit Logs.**
 
@@ -109,11 +109,11 @@ To create a File reporter for a domain:
 3. Click the settings icon ![am settings icon](../.gitbook/assets/am-settings-icon.png).
 4. Click the plus icon ![plus icon](../.gitbook/assets/plus-icon.png).
 
-<figure><img src="../.gitbook/assets/guide-audit-trail-154 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/guide-audit-trail-154.png" alt=""><figcaption></figcaption></figure>
 
 5. Select **File** as the reporter type and enter the reporter name and file name.
 
-<figure><img src="../.gitbook/assets/guide-audit-trail-155 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/guide-audit-trail-155.png" alt=""><figcaption></figcaption></figure>
 
 #### Example: ingest audit logs into ElasticSearch
 
@@ -298,7 +298,7 @@ To create a Kafka reporter for a domain:
 4. Click the plus icon ![plus icon](../.gitbook/assets/plus-icon.png).
 5. Select **Kafka** as the reporter type and enter the reporter name and file name.
 
-<figure><img src="../.gitbook/assets/guide-audit-trail-156 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/guide-audit-trail-156.png" alt=""><figcaption></figcaption></figure>
 
 6. Provide **Name**, **Bootstrap servers**, **Topic**, **Acks.**
 
