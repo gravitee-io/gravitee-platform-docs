@@ -1,17 +1,17 @@
 # Configure TCP Reporter
 
-## Overview 
+## Overview
 
 Custom Reporters enable API platform administrators to configure TCP-based log and metrics exporters that stream analytics data from Gravitee gateways to external monitoring systems. Reporters support TLS encryption, configurable retry logic, and selective data type filtering. This feature is available to enterprise customers with Galaxy or Universe tier licenses.
 
 For more information about TCP reporter configuration, see [TCP Reporter](https://documentation.gravitee.io/apim/analyze-and-monitor-apis/reporters/tcp-reporter).
 
-### Compatibility matrix 
+### Compatibility matrix
 
-| Reporter | APIM version |
-| :--- | :--- |
-| TCP TLS | 4.11.x and above |
-| TCP Plain | Any version |
+| Reporter  | APIM version     |
+| --------- | ---------------- |
+| TCP TLS   | 4.11.x and above |
+| TCP Plain | Any version      |
 
 ## Key Concepts
 
@@ -29,7 +29,7 @@ Reporters are deployed to Gateways through a linking mechanism. A single reporte
 
 ### Data Type Selection
 
-Administrators choose which telemetry streams to export from a predefined set of data types. The available types include V2 Logs, V2 Metrics, V4 Logs, V4 Metrics, V4 Message Logs, V4 Message Metrics, API Health Check Logs, and Kafka event metrics, which include operation, topic, application, and API. 
+Administrators choose which telemetry streams to export from a predefined set of data types. The available types include V2 Logs, V2 Metrics, V4 Logs, V4 Metrics, V4 Message Logs, V4 Message Metrics, API Health Check Logs, and Kafka event metrics, which include operation, topic, application, and API.
 
 For more information about data selection, see [Configuring Reporters and Selecting Fields](https://documentation.gravitee.io/apim/analyze-and-monitor-apis/reporters#configuring-reporters-and-selecting-fields).
 
@@ -43,10 +43,11 @@ Reporters support mutual TLS authentication using JKS or PFX keystores and trust
 
 ## Prerequisites
 
-- Enterprise license with Galaxy or Universe tier
-- Account-level permissions to manage custom reporters
-- TCP endpoint accessible from gateway network
-- (Optional) JKS or PFX certificate files for TLS connections
+* Enterprise license with Galaxy or Universe tier
+* Account-level permissions to manage custom reporters
+* TCP endpoint accessible from gateway network
+* (Optional) JKS or PFX certificate files for TLS connections
 
 To learn more about how to configure the TCP reporter, see the following articles:
-<table data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Creating and Configuring Custom Reporters</td><td><a href="creating-and-configuring-custom-reporters.md">creating-and-configuring-custom-reporters.md</a></td></tr><tr><td>Custom Reporters Reference</td><td><a href="custom-reporters-reference.md">custom-reporters-reference.md</a></td></tr><tr><td>Managing Custom Reporter Deployments</td><td><a href="managing-custom-reporter-deployments.md">managing-custom-reporter-deployments.md</a></td></tr></tbody></table>
+
+<table data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Creating and Configuring Custom Reporters</td><td><a href="create-and-configure-custom-reporters.md">create-and-configure-custom-reporters.md</a></td></tr><tr><td>Custom Reporters Reference</td><td><a href="custom-reporters-reference.md">custom-reporters-reference.md</a></td></tr><tr><td>Managing Custom Reporter Deployments</td><td><a href="manage-custom-reporter-deployments.md">manage-custom-reporter-deployments.md</a></td></tr></tbody></table>
