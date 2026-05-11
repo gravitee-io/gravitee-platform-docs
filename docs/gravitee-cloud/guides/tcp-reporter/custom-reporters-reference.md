@@ -14,6 +14,5 @@
 - Password fields display a masked placeholder (`********`) for existing values; actual passwords cannot be retrieved after initial entry
 - Updating a reporter re-deploys only to gateways with `DEPLOYED` status (not `PENDING` or `DELETING`)
 - Configuration keys changed from seconds to milliseconds in recent versions; existing reporters must migrate values (e.g., `connectionTimeoutSeconds: "30"` becomes `connectTimeout: "1000"`)
-- Output format restriction changed from multiple formats (`json`, `csv`, `message_pack`, `elasticsearch`) to JSON only; existing reporters with non-JSON formats will fail validation on update
 
 <figure><img src="../../.gitbook/assets/gravitee-cloud-custom-reporters-step-07.png" alt="Gateway selection dialog showing no eligible gateways found message with eligibility requirements"><figcaption></figcaption></figure>
