@@ -27,7 +27,10 @@ Before creating a custom reporter, ensure you meet the following requirements:
 
  <figure><img src="../../.gitbook/assets/gravitee-cloud-custom-reporters-step-06.png" alt="Connection settings form with host, port, connection timeout, reconnect attempts, reconnect interval, and retry timeout fields"><figcaption></figcaption></figure>
 
-6. Select at least one data type to export from the available options.
+6.  Link the reporter to one or more gateways. To link the reporter to a Gateway, complete the following sub-steps:
+ 1. Click **Add Gateways**.
+ 2. In the **Select Gateways to link** pop-up window, select the Gateways that you want to link to the reporter.
+ 3. Click **Add Gateway**.
 7. (Optional) Enable TLS:
  1. Toggle **TLS Enabled**.
  2. (Optional) Enable **TLS Verify Client** to validate the remote server's certificate.
@@ -37,7 +40,11 @@ Before creating a custom reporter, ensure you meet the following requirements:
  6. Select the **Truststore Type** (JKS or PFX).
  7. Upload the truststore file (maximum 2 MB).
  8. Provide the encrypted truststore password.
-8. Link the reporter to one or more gateways.
+8. From the **Data Selection** menu, select at least one data type to export from the available options.
 9. Click **Save**.
 
 <figure><img src="../../.gitbook/assets/gravitee-cloud-custom-reporters-step-04.png" alt="Edit custom reporter page showing basic configuration, gateway linking, connection settings, TLS configuration, and data selection sections"><figcaption></figcaption></figure>
+
+## Verification 
+
+Your Custom Reporter appears in the Custom Reporters screen.
