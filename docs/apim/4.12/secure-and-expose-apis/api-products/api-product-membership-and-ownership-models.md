@@ -29,4 +29,4 @@ Detaching a group removes inherited access for its members on that product, but 
 
 Transferring ownership reassigns the primary owner role to a new user or group and assigns a new role to the current primary owner. The transfer requires either a new primary owner ID (technical identifier) or a user reference (identity provider reference). The current primary owner cannot retain the PRIMARY_OWNER role after the transfer.
 
-When transferring from a group primary owner, the group remains attached to the API Product. This differs from API ownership transfers, which remove the group.
+When transferring from a group primary owner, this action removed the group from the API Product. This differs from API ownership transfers, which remove the group.
