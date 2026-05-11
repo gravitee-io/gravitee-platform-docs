@@ -5,7 +5,6 @@
 Before creating a custom reporter, ensure the following requirements are met:
 
 * Enterprise license with Galaxy or Universe tier
-* `customReporters` release toggle enabled in the platform
 * Account-level permissions to manage custom reporters
 * TCP endpoint accessible from gateway network
 * (Optional) JKS or PFX certificate files for TLS connections

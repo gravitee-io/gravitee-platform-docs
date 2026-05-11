@@ -11,7 +11,7 @@ For more information about TCP reporter configuration, see [TCP Reporter](https:
 | Reporter | APIM version |
 | :--- | :--- |
 | TCP TLS | 4.11.x and above |
-| TCP Plain | Up to 4.11.x |
+| TCP Plain | any version |
 
 ## Key Concepts
 
@@ -44,7 +44,6 @@ Reporters support mutual TLS authentication using JKS or PFX keystores and trust
 ## Prerequisites
 
 - Enterprise license with Galaxy or Universe tier
-- `customReporters` release toggle enabled in the platform
 - Account-level permissions to manage custom reporters
 - TCP endpoint accessible from gateway network
 - (Optional) JKS or PFX certificate files for TLS connections
