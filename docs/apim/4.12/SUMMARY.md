@@ -1,12 +1,5 @@
 # Table of contents
 
-* [Introduction](README.md)
-  * [Core Concepts](readme/core-concepts.md)
-  * [Enterprise Edition](readme/enterprise-edition.md)
-  * [Integrations](readme/integrations.md)
-  * [Community Forum](readme/community-forum.md)
-  * [Contribute to APIM](readme/contribute-to-apim.md)
-* [Getting Started](getting-started/README.md)
   * [Next-Gen Cloud Free Trial](https://eu.cloud.gravitee.io/)
   * [Fully self-hosted installation with Vanilla Kubernetes](getting-started/vanilla-kubernetes.md)
   * [Fully self-hosted installation with Docker](getting-started/local-install-with-docker.md)
@@ -469,8 +462,6 @@
     * [APIM 4.2](https://documentation.gravitee.io/apim/4.2/overview/release-notes/apim-4.2)
     * [APIM 4.1](https://documentation.gravitee.io/apim/4.1/releases-and-changelog/release-notes/apim-4.1)
     * [APIM 4.0](https://documentation.gravitee.io/apim/4.0/releases-and-changelog/release-notes/apim-4.0)
-  * [Changelog](release-information/changelog/README.md)
-    * [APIM 4.11.x](release-information/changelog/apim-4.11.x.md)
     * [APIM 4.10.x](https://app.gitbook.com/s/bGmDEarvnV52XdcOiV8o/release-information/changelog/apim-4.10.x)
     * [APIM 4.9.x](https://documentation.gravitee.io/apim/4.9/release-information/changelog/apim-4.9.x)
     * [APIM 4.8.x](https://documentation.gravitee.io/apim/4.8/release-information/changelog/apim-4.8.x)
@@ -482,4 +473,3 @@
     * [APIM 4.2.x](https://documentation.gravitee.io/apim/4.2/overview/changelog/apim-4.2.x)
     * [APIM 4.1.x](https://documentation.gravitee.io/apim/4.1/releases-and-changelog/changelogs/apim-4.1.x-changelog)
     * [APIM 4.0.x](https://documentation.gravitee.io/apim/4.0/releases-and-changelog/changelog/apim-4.0.x)
-  * [Breaking Changes and Deprecations](release-information/breaking-changes-and-deprecations.md)
