@@ -289,6 +289,10 @@ Here are more options that can be used to configure your AWS secret manager:
 * `connectionTimeoutMs` to control the connection timeout (`5000` by default)
 * `endpointOverride` to use a non-default AWS endpoint
 
+{% hint style="info" %}
+The `secret://aws/<path>:<key>` URI syntax shown on this page applies to `gravitee.yml`, Helm `values.yaml`, and environment variables only. To reference an AWS Secrets Manager value from inside a v4 API definition, for example, in an endpoint's SSL or mTLS configuration, request headers, URL, or authentication credentials, use the `{#secrets.get('/aws/<path>:<key>')}` Gravitee Expression Language syntax instead. For details, see reference-secrets-in-apis.md.
+{% endhint %}
+
 ## Combine several secret managers
 
 You can use several secret managers at once.
