@@ -37,11 +37,11 @@ $ openssl rsa -in rsa_private.pem -pubout -out rsa_public.pem
 2. Click **Settings**, then in the **OAUTH 2.0** section, click **Extension Grants**.
 3. Click the plus icon ![plus icon](../../../.gitbook/assets/plus-icon.png).
 
-<figure><img src="../../../.gitbook/assets/guide-auth-protocols-oauth-20-exten-46 (1).png" alt=""><figcaption><p>Create extension grant</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/guide-auth-protocols-oauth-20-exten-46.png" alt=""><figcaption><p>Create extension grant</p></figcaption></figure>
 
 4. Select **Extension Grant JWT Bearer** and click **Next**.
 
-<figure><img src="../../../.gitbook/assets/guide-auth-protocols-oauth-20-exten-47 (1).png" alt=""><figcaption><p>Add JWT Bearer</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/guide-auth-protocols-oauth-20-exten-47.png" alt=""><figcaption><p>Add JWT Bearer</p></figcaption></figure>
 
 5. Complete the grant flow configuration and click **Create**.
 
@@ -49,7 +49,7 @@ The plugin provides two types of public key resolver: JWKS\_URL and GIVEN\_KEY. 
 
 To validate assertion against remote JWKS, the resolver parameter must be a specified URL:
 
-<figure><img src="../../../.gitbook/assets/guide-auth-protocols-oauth-20-exten-48 (1).png" alt=""><figcaption><p>JWKS as resolve parameter</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/guide-auth-protocols-oauth-20-exten-48.png" alt=""><figcaption><p>JWKS as resolve parameter</p></figcaption></figure>
 
 To validate the token signature against the signature key, it must be in the following format:
 
@@ -69,7 +69,7 @@ If you want to copy claims from the incoming token to the final access token, yo
 2. Select your application and in the **Settings** tab, click **OAuth 2.0 / OIDC**.
 3. In the **Grant flows** section, select your extension grant.
 
-<figure><img src="../../../.gitbook/assets/guide-auth-protocols-oauth-20-exten-49 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/guide-auth-protocols-oauth-20-exten-49.png" alt=""><figcaption></figcaption></figure>
 
 4. Click **SAVE**.
 

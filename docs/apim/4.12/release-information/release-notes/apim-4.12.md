@@ -26,6 +26,28 @@
 <!-- /PIPELINE:APIM-13822 -->
 
 
+
+<!-- PIPELINE:APIM-13472 -->
+#### **OpenTelemetry Tracing for Kafka Native APIs**
+
+* Provides OpenTelemetry tracing for Kafka protocol operations, capturing connection lifecycle, authentication, and per-request spans with protocol-specific attributes (topics, batch counts, consumer groups, error codes).
+* Requires enablement at both gateway level (`services.opentelemetry.enabled=true`) and per-API level (`analytics.tracing.enabled=true`), allowing platform administrators to control tracing infrastructure globally while API owners decide which APIs to instrument.
+* Supports optional verbose mode (`services.opentelemetry.verbose=true` and `analytics.tracing.verbose=true`) that adds per-phase, per-flow, and per-policy spans for deep debugging—use only when needed as it significantly increases trace volume on high-throughput APIs.
+* Includes API key filtering (`services.opentelemetry.kafka.tracedApiKeys`) to restrict tracing to specific Kafka protocol types (e.g., `PRODUCE`, `FETCH`), reducing noise from housekeeping requests.
+* Spans include OpenTelemetry semantic conventions for messaging systems and Gravitee-specific attributes for error classification, authentication details, and API identification.
+<!-- /PIPELINE:APIM-13472 -->
+
+
+<!-- PIPELINE:APIM-13461 -->
+#### **API Product Membership and Ownership Management**
+
+* Add individual users as direct members of an API Product and assign them specific roles that determine their permissions (read, manage, deploy, etc.).
+* Attach or detach groups to API Products, allowing group members to inherit API Product roles automatically without individual assignment.
+* Transfer primary ownership of an API Product to another user or group, with the previous owner demoted to a regular role of your choice.
+* Configure API Product Primary Owner mode at the environment level to control whether new API Products are owned by a user, a group, or either (hybrid mode).
+* Review all API Products a user has access to (directly or through groups) from the Organization page's user details view.
+<!-- /PIPELINE:APIM-13461 -->
+
 ## Improvements
 
 

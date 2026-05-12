@@ -22,11 +22,11 @@ Application definitions apply at the _security domain_ level.
 4. Click the plus icon ![plus icon](../../.gitbook/assets/plus-icon.png).
 5. Select the application type and click **Next**.
 
-<figure><img src="../../.gitbook/assets/guide-applications-readme-80 (1).png" alt=""><figcaption><p>Select the Application type</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/guide-applications-readme-80.png" alt=""><figcaption><p>Select the Application type</p></figcaption></figure>
 
 6. Specify the application details and click **Create**.
 
-<figure><img src="../../.gitbook/assets/guide-applications-readme-81 (1).png" alt=""><figcaption><p>Application settings</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/guide-applications-readme-81.png" alt=""><figcaption><p>Application settings</p></figcaption></figure>
 
 ### AM API
 
@@ -44,7 +44,7 @@ curl -H "Authorization: Bearer :accessToken" \
 
 After you have created the new application, you will be redirected to the application's `Overview` page, which contains some documentation and code samples to help you start configuring the application.
 
-<figure><img src="../../.gitbook/assets/guide-applications-readme-82 (1).png" alt=""><figcaption><p>Application overview</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/guide-applications-readme-82.png" alt=""><figcaption><p>Application overview</p></figcaption></figure>
 
 ### Test the application
 
@@ -59,7 +59,7 @@ The application identity providers are separated into two sections:
 * The regular Identity Providers (called also **internal**) that operate inside AM without redirecting to another provider
 * The Social/Enterprise Identity Providers that require an external service to perform authentication (usually via SSO)
 
-<figure><img src="../../.gitbook/assets/guide-applications-readme-83 (1).png" alt=""><figcaption><p>Application Identity Provider selection options</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/guide-applications-readme-83.png" alt=""><figcaption><p>Application Identity Provider selection options</p></figcaption></figure>
 
 You can enable/disable them to include them within your authentication flow.
 
@@ -115,7 +115,7 @@ By default this feature is disabled. You can enable it through the domain settin
 There is another parameter called **Enable\Disable Open Dynamic Client Registration**. This parameter is used to allow any unauthenticated requests to register new clients through the registration endpoint. It is part of the OpenID specification, but for security reasons, it is disabled by default.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/guide-applications-readme-84 (1).png" alt=""><figcaption><p>Enable DCR</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/guide-applications-readme-84.png" alt=""><figcaption><p>Enable DCR</p></figcaption></figure>
 
 ### Enable Dynamic Client Registration with AM API
 
@@ -395,7 +395,7 @@ You can create a client and define it as a template. Registering a new applicati
 
 You can enable the template feature in the AM Dynamic Client Registration **Settings** tab:
 
-<figure><img src="../../.gitbook/assets/guide-applications-readme-85 (1).png" alt=""><figcaption><p>Enable DCR Templates</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/guide-applications-readme-85.png" alt=""><figcaption><p>Enable DCR Templates</p></figcaption></figure>
 
 You can also enable this feature using AM API:
 
