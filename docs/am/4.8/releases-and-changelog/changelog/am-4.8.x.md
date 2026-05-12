@@ -6,6 +6,34 @@ description: >-
 
 # AM 4.8.x
 
+## Gravitee Access Management 4.8.34 - May 12, 2026
+
+<details>
+
+<summary>What's new !</summary>
+
+=**What's new!**
+
+* UserProfile claims exentension
+
+</details>
+
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+
+
+</details>
+
+
 ## Gravitee Access Management 4.8.33 - May 8, 2026
 
 <details>
