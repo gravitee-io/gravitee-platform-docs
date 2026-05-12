@@ -20,10 +20,10 @@ Gravitee V4 and Federated APIs are managed within the **v2** subcomponent of the
 
 To explore the API documentation, select any of the following endpoint categories to open an integrated API viewer and client. The viewer includes an option to download the API specification.
 
-* [**/management component documentation**](https://gravitee-io-labs.github.io/mapi-v1-docs/#tag/api-alerts)**:** provides the specification for the `management` endpoints. Use this component to complete the following actions:
+* [**/management component documentation**](https://apim-api-docs.gravitee.io/?v=4.10&api=management)**:** provides the specification for the `management` endpoints. Use this component to complete the following actions:
   * Manage V2 APIs
   * Configure applications, dictionaries, sharding tags, users, and other entities
-* [**/management/v2 subcomponent documentation**](https://gravitee-io-labs.github.io/mapi-v2-docs-openapi-apis/)**:** provides the specification for `management/v2` endpoints. Use this component to complete the following actions:
+* [**/management/v2 subcomponent documentation**](https://apim-api-docs.gravitee.io/?v=4.10&api=mgmt-v2-apis)**:** provides the specification for `management/v2` endpoints. Use this component to complete the following actions:
   * Manage V4 and Federated APIs
   * Configure multi-tenant aspects of APIM such as licenses, plugins, and OEM customization
-* [**/portal component documentation**](https://gravitee-io-labs.github.io/mapi-v2-docs-openapi-portal/)**:** productize APIs and manage applications and subscriptions
+* [**/portal component documentation**](https://apim-api-docs.gravitee.io/?v=4.10&api=portal)**:** productize APIs and manage applications and subscriptions
