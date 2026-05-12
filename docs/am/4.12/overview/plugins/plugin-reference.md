@@ -4,7 +4,7 @@ hidden: true
 noIndex: true
 ---
 
-# AM Plugin Reference
+# Plugin Reference
 
 This page catalogs all AM plugins. Plugins that have dedicated documentation pages are linked directly. All other plugins include their full marketplace documentation inline.
 
@@ -16,7 +16,7 @@ This page catalogs all AM plugins. Plugins that have dedicated documentation pag
 
 **Plugin ID**: `gravitee-am-reporter-file`
 
-*No additional documentation available.*
+_No additional documentation available._
 
 </details>
 
@@ -26,7 +26,7 @@ This page catalogs all AM plugins. Plugins that have dedicated documentation pag
 
 **Plugin ID**: `gravitee-am-reporter-jdbc`
 
-*No additional documentation available.*
+_No additional documentation available._
 
 </details>
 
@@ -36,7 +36,7 @@ This page catalogs all AM plugins. Plugins that have dedicated documentation pag
 
 **Plugin ID**: `gravitee-am-reporter-kafka`
 
-*No additional documentation available.*
+_No additional documentation available._
 
 </details>
 
@@ -46,7 +46,7 @@ This page catalogs all AM plugins. Plugins that have dedicated documentation pag
 
 **Plugin ID**: `gravitee-am-reporter-mongodb`
 
-*No additional documentation available.*
+_No additional documentation available._
 
 </details>
 
@@ -72,20 +72,19 @@ This page catalogs all AM plugins. Plugins that have dedicated documentation pag
 
 **Plugin ID**: `gravitee-am-certificate-aws`
 
-#### Gravitee IO - Access Management - Certificate - AWS
+**Gravitee IO - Access Management - Certificate - AWS**
 
-
-##### Description
+**Description**
 
 With Certificate - AWS, get certificates from AWS secret manager to delegate storing secrets to AWS. It requires `gravitee-secret-provider-aws` plugin to run.
 
-##### Installation
+**Installation**
 
 1. Copy the `gravitee-am-certificate-aws` plugin .zip file into the `plugins` folder of the AM Gateway and the AM Management API.
 2. Copy the `gravitee-secret-provider-aws` plugin .zip file into the `plugins` folder of the AM Gateway and the AM Management API.
 3. Restart AM Gateway and the AM Management API components.
 
-##### Configuration
+**Configuration**
 
 A new entry will be available in the resource list `AM -> Settings -> Certificates` to create and configure a new resource.
 
@@ -99,44 +98,44 @@ A new entry will be available in the resource list `AM -> Settings -> Certificat
 
 **Plugin ID**: `gravitee-am-certificate-hsm-aws`
 
-#### Gravitee IO - Access Management - Certificate - AWS CloudHSM
+**Gravitee IO - Access Management - Certificate - AWS CloudHSM**
 
-##### Description
+**Description**
 
 With Certificate - AWS CloudHSM, get signing capability delegated to the AWS CloudHSM service
 
-##### Building & running from scratch
+**Building & running from scratch**
 
 1. Ensure you're authorized to `gravitee-artifactory-releases` repository
 2. Run `mvn clean install`
 3. Copy installed `/.m2/repository/com/amazonaws/cloudhsm-jce/5.13.0/cloudhsm-jce-5.13.0.jar` to `plugins/ext/aws-hsm-am-certificate` folder of the AM Gateway and the AM Management API.
 4. Copy built `gravitee-am-certificate-hsm-aws` plugin .zip file into the `plugins` folder of the AM Gateway and the AM Management API.
 
-##### Manual installation
+**Manual installation**
 
-1. Install CloudHSM JCE jar from https://docs.aws.amazon.com/cloudhsm/latest/userguide/java-library-install_5.html[here]
+1. Install CloudHSM JCE jar from https://docs.aws.amazon.com/cloudhsm/latest/userguide/java-library-install\_5.html\[here]
 2. Copy installed `/cloudhsm-jce-5.13.0.jar` to `plugins/ext/aws-hsm-am-certificate` folder of the AM Gateway and the AM Management API.
-3. Get and copy  `gravitee-am-certificate-hsm-aws` plugin .zip file into the `plugins` folder of the AM Gateway and the AM Management API.
+3. Get and copy `gravitee-am-certificate-hsm-aws` plugin .zip file into the `plugins` folder of the AM Gateway and the AM Management API.
 
-##### Configuration
+**Configuration**
 
 Get and set AWS HSM CA cert file path to JVM params: `-Daws.hsm.ca.file.path=<path_to_cert>` for AM Gateway and the AM Management API components.
 
 A new entry will be available in the certificate list `AM -> Settings -> Certificates` to create and configure a new certificate.
 
-##### Authentication
+**Authentication**
 
 Access to CloudHSM requires a username and password for the crypto user created in HSM specifically for this connection.
 
 Both credentials can be dynamically retrieved using available secret providers via EL expressions, e.g. `{#secrets.get('/prod/cloudhsmCredentials/password')}`.
 
-Please refer to the https://documentation.gravitee.io/apim/prepare-a-production-environment/sensitive-data-management/api-secrets/reference-secrets-in-apis[documentation] for more details regarding secret provider deployment and usage.
+Please refer to the https://documentation.gravitee.io/apim/prepare-a-production-environment/sensitive-data-management/api-secrets/reference-secrets-in-apis\[documentation] for more details regarding secret provider deployment and usage.
 
-##### Troubleshooting
+**Troubleshooting**
 
 Ensure you have the correct `cloudhsm-jce` jar targeting your processor architecture. In case of a mismatch, download the appropriate one from the link above.
 
-For more information, visit https://gravitee.atlassian.net/browse/AM-4157[page]
+For more information, visit https://gravitee.atlassian.net/browse/AM-4157\[page]
 
 </details>
 
@@ -146,7 +145,7 @@ For more information, visit https://gravitee.atlassian.net/browse/AM-4157[page]
 
 **Plugin ID**: `gravitee-am-certificate-javakeystore`
 
-*No additional documentation available.*
+_No additional documentation available._
 
 </details>
 
@@ -156,7 +155,7 @@ For more information, visit https://gravitee.atlassian.net/browse/AM-4157[page]
 
 **Plugin ID**: `gravitee-am-certificate-pkcs12`
 
-*No additional documentation available.*
+_No additional documentation available._
 
 </details>
 
@@ -192,18 +191,17 @@ For more information, visit https://gravitee.atlassian.net/browse/AM-4157[page]
 
 **Plugin ID**: `gravitee-am-authenticator-cba`
 
-#### Gravitee IO - Access Management - Authenticator - CBA
+**Gravitee IO - Access Management - Authenticator - CBA**
 
-
-##### Overview
+**Overview**
 
 Certificate Based Authentication.
 
-##### Requirements
+**Requirements**
 
 * Gravitee Access Management 4.10.0+
 
-##### License
+**License**
 
 This plugin is part of Gravitee Enterprise Edition.
 
@@ -217,18 +215,17 @@ This plugin is part of Gravitee Enterprise Edition.
 
 **Plugin ID**: `gravitee-am-authenticator-magiclink`
 
-#### Gravitee IO - Access Management - Authenticator - Magic Link
+**Gravitee IO - Access Management - Authenticator - Magic Link**
 
-
-##### Overview
+**Overview**
 
 Magic Link Based Authentication.
 
-##### Requirements
+**Requirements**
 
 * Gravitee Access Management 4.10.0+
 
-##### License
+**License**
 
 This plugin is part of Gravitee Enterprise Edition.
 
@@ -242,9 +239,9 @@ This plugin is part of Gravitee Enterprise Edition.
 
 **Plugin ID**: `gravitee-am-factor-call`
 
-#### Gravitee.io - Access Management - Call Factor
+**Gravitee.io - Access Management - Call Factor**
 
-##### Description
+**Description**
 
 Allows Multi Factor Authentication to be used over phone call.
 
@@ -270,22 +267,20 @@ Allows Multi Factor Authentication to be used over phone call.
 
 **Plugin ID**: `gravitee-am-factor-fido2`
 
-#### Gravitee.io - Access Management - FIDO2 Factor
+**Gravitee.io - Access Management - FIDO2 Factor**
 
-
-##### Description
+**Description**
 
 FIDO2 Factor allows user to verify identity using fingerprint, device or security key during multi-factor authentication process.
 
-##### Installation
+**Installation**
 
 1. Copy the plugin .zip file into the `plugins` folder of the AM Gateway and the AM Management API
 2. Restart both components.
 
-##### Configuration
+**Configuration**
 
-FIDO2 can be added as a MFA factor at: `AM_UI -> Settings -> Multifactor Auth -> FIDO2 Factor`. This factor uses `WebAuthn` configuration and does not have its own configuration.
-WebAuthn configuration can be updated at `AM_UI -> Settings -> WebAuthn` section.
+FIDO2 can be added as a MFA factor at: `AM_UI -> Settings -> Multifactor Auth -> FIDO2 Factor`. This factor uses `WebAuthn` configuration and does not have its own configuration. WebAuthn configuration can be updated at `AM_UI -> Settings -> WebAuthn` section.
 
 </details>
 
@@ -297,22 +292,20 @@ WebAuthn configuration can be updated at `AM_UI -> Settings -> WebAuthn` section
 
 **Plugin ID**: `gravitee-am-factor-http`
 
-#### Gravitee.io - Access Management - HTTP Factor
+**Gravitee.io - Access Management - HTTP Factor**
 
+**Description**
 
-##### Description
+Allows Multi Factor Authentication to be used over HTTP when paired with the https://github.com/gravitee-io/gravitee-am-resource-http\[HTTP Resource].
 
-Allows Multi Factor Authentication to be used over HTTP when paired with the https://github.com/gravitee-io/gravitee-am-resource-http[HTTP Resource].
-
-##### Installation
+**Installation**
 
 1. Copy the plugin .zip file into the `plugins` folder of the AM Gateway and the AM Management API
 2. Restart both components.
 
-##### Configuration
+**Configuration**
 
-HTTP can be added as an MFA factor at: `AM_UI → Domain Settings → Multifactor Auth`. Create a new instance of the
-HTTP factor and set the Resource to an instance of https://github.com/gravitee-io/gravitee-am-resource-http[HTTP Resource].
+HTTP can be added as an MFA factor at: `AM_UI → Domain Settings → Multifactor Auth`. Create a new instance of the HTTP factor and set the Resource to an instance of https://github.com/gravitee-io/gravitee-am-resource-http\[HTTP Resource].
 
 </details>
 
@@ -322,18 +315,18 @@ HTTP factor and set the Resource to an instance of https://github.com/gravitee-i
 
 **Plugin ID**: `gravitee-am-factor-mock`
 
-#### Gravitee.io - Access Management - Mock Factor
+**Gravitee.io - Access Management - Mock Factor**
 
-##### Description
+**Description**
 
 With MFA Mock factor, you can easily test MFA feature
 
-##### Installation
+**Installation**
 
 1. Copy the plugin .zip file into the `plugins` folder of the AM Gateway and the AM Management API
 2. Restart both components.
 
-##### Configuration
+**Configuration**
 
 A new entry will be available in the factor list `AM_UI -> Multifactor Auth -> Mock` to create and configure a new mock factor.
 
@@ -355,18 +348,18 @@ A new entry will be available in the factor list `AM_UI -> Multifactor Auth -> M
 
 **Plugin ID**: `gravitee-am-factor-otp-sender`
 
-#### Gravitee.io - Access Management - OTP Sender Factor
+**Gravitee.io - Access Management - OTP Sender Factor**
 
-##### Description
+**Description**
 
 OTP Sender Factor allows user to verify identity security thanks to a code sent to their devices (SMS, Email, ...) during multi-factor authentication process.
 
-##### Installation
+**Installation**
 
 1. Copy the plugin .zip file into the `plugins` folder of the AM Gateway and the AM Management API
 2. Restart both components.
 
-##### Configuration
+**Configuration**
 
 OTP Sender factor can be added as a MFA factor at: `AM_UI -> Settings -> Multifactor Auth -> OTP Sender Factor`.
 
@@ -380,9 +373,9 @@ OTP Sender factor can be added as a MFA factor at: `AM_UI -> Settings -> Multifa
 
 **Plugin ID**: `gravitee-am-factor-recovery-code`
 
-#### Gravitee.io - Access Management - Recovery code factor
+**Gravitee.io - Access Management - Recovery code factor**
 
-##### Description
+**Description**
 
 Allows Multi-Factor Authentication to provide recovery codes. This plugin needs to be paired with another factor in order to work.
 
@@ -398,9 +391,9 @@ Allows Multi-Factor Authentication to provide recovery codes. This plugin needs 
 
 **Plugin ID**: `gravitee-am-factor-sms`
 
-#### Gravitee.io - Access Management - SMS Factor
+**Gravitee.io - Access Management - SMS Factor**
 
-##### Description
+**Description**
 
 Allows Multi Factor Authentication to be used over SMS.
 
@@ -430,17 +423,16 @@ Allows Multi Factor Authentication to be used over SMS.
 
 Gravitee.io - Access Management - CAS Identity Provider
 
-
-##### Description
+**Description**
 
 CAS Identity Provider will let you authenticate users and retrieve their information from your Enterprise CAS Server.
 
-##### Installation
+**Installation**
 
 1. Copy the plugin .zip file into the `plugins` folder of the AM Gateway and the AM Management API
 2. Restart both components.
 
-##### Configuration
+**Configuration**
 
 A new entry will be available in the provider list `AM_UI -> Domain Settings -> Providers` letting you create and configure a new connection to your CAS Server.
 
@@ -464,18 +456,15 @@ A new entry will be available in the provider list `AM_UI -> Domain Settings -> 
 
 **Plugin ID**: `gravitee-am-identityprovider-franceconnect`
 
-# Setup FranceConnect IDP
+## Setup FranceConnect IDP
 
 > **Note:** Only for FranceConnect Dev environment, the AM domain must be named `domain-fc-test`
 
-Look at [FranceConnect](https://partenaires.franceconnect.gouv.fr/fcp/fournisseur-service)
-Your security domain must listen on `/domain-fc-test` to make it work
+Look at [FranceConnect](https://partenaires.franceconnect.gouv.fr/fcp/fournisseur-service) Your security domain must listen on `/domain-fc-test` to make it work
 
+### Test FranceConnect v1
 
-## Test FranceConnect v1
-
-> **Note:** For non french guys, you have to use the DEV env and these client credentials (CLIENT ID : '211286433e39cce01db448d80181bdfd005554b19cd51b3fe7943f6b3b86ab6e' / CLIENT SECRET : '2791a731e6a59f56b6b4dd0d08c9b1f593b5f3658b9fd731cb24248e2669af4b'). Test users are available in this file https://github.com/france-connect/identity-provider-example/blob/master/database.csv. You can use the login 'avec_nom_dusage' with password '123'
-
+> **Note:** For non french guys, you have to use the DEV env and these client credentials (CLIENT ID : '211286433e39cce01db448d80181bdfd005554b19cd51b3fe7943f6b3b86ab6e' / CLIENT SECRET : '2791a731e6a59f56b6b4dd0d08c9b1f593b5f3658b9fd731cb24248e2669af4b'). Test users are available in this file https://github.com/france-connect/identity-provider-example/blob/master/database.csv. You can use the login 'avec\_nom\_dusage' with password '123'
 
 ```
 > docker run --name proxy-france-connect -p 4242:4242 -v $(pwd)/nginx-franceconnect.conf:/etc/nginx/conf.d/default.conf:ro -d nginx
@@ -483,36 +472,37 @@ Your security domain must listen on `/domain-fc-test` to make it work
 
 > **Note:** for ubuntu user `host.docker.internal` may not be initialized, if the container doesn't start you may have to provide this extra parameter `--add-host=host.docker.internal:host-gateway`
 
+### Test FranceConnect v2
 
-## Test FranceConnect v2
+#### Signature - RS 256
 
-### Signature - RS 256
-
-You have to use the INTEGRATION_V2 env and these client credentials (Client ID : 8fc600ec406421ff7ebfa6aeb9e88b714532a25f18b8f547c3bfbc81f2e85818 / Client secret : 37a13cf24682975f4c35d04913bc453ea16d5357d0c688536aa5374138b55116). Test users are available in this file https://github.com/france-connect/identity-provider-example/blob/master/database.csv. You can use the login 'test' with password '123'
+You have to use the INTEGRATION\_V2 env and these client credentials (Client ID : 8fc600ec406421ff7ebfa6aeb9e88b714532a25f18b8f547c3bfbc81f2e85818 / Client secret : 37a13cf24682975f4c35d04913bc453ea16d5357d0c688536aa5374138b55116). Test users are available in this file https://github.com/france-connect/identity-provider-example/blob/master/database.csv. You can use the login 'test' with password '123'
 
 > **Note:** for FranceConnect v2, nginx is not useful anymore but you still have to name your domain 'domain-fc-test' and your GW have to listen on localhost:8092 (http://localhost:8092/domain-fc-test)
 
 The FranceConnect service request has been made to allow the following scopes:
+
 * openid
 * email
-* given_name
-* family_name
+* given\_name
+* family\_name
 
 All the other scopes will fail
 
 The parameter `acr_values` needs to be provided with `eidas1` as value.
 
-### Signature - ES 256
+#### Signature - ES 256
 
-You have to use the INTEGRATION_V2 env and these client credentials (Client ID : b0ce37999787f871f3240672493e32971c9a4a5cce85eb908ea158efd9879baf / Client secret : ab8d3732ecba0efe01d395c4ed473db6332811d328cc7f110a41cbe0b4d681da). Test users are available in this file https://github.com/france-connect/identity-provider-example/blob/master/database.csv. You can use the login 'test' with password '123'
+You have to use the INTEGRATION\_V2 env and these client credentials (Client ID : b0ce37999787f871f3240672493e32971c9a4a5cce85eb908ea158efd9879baf / Client secret : ab8d3732ecba0efe01d395c4ed473db6332811d328cc7f110a41cbe0b4d681da). Test users are available in this file https://github.com/france-connect/identity-provider-example/blob/master/database.csv. You can use the login 'test' with password '123'
 
 > **Note:** for FranceConnect v2, nginx is not useful anymore but you still have to name your domain 'domain-fc-test-es256' and your GW have to listen on localhost:8092 (http://localhost:8092/domain-fc-test-es256)
 
 The FranceConnect service request has been made to allow the following scopes:
+
 * openid
 * email
-* given_name
-* family_name
+* given\_name
+* family\_name
 
 All the other scopes will fail
 
@@ -536,7 +526,7 @@ The parameter `acr_values` needs to be provided with `eidas1` as value.
 
 **Plugin ID**: `gravitee-am-identityprovider-google`
 
-*No additional documentation available.*
+_No additional documentation available._
 
 </details>
 
@@ -598,15 +588,13 @@ This Identity Provider is dedicated to organization users. This implementation i
 
 **Plugin ID**: `gravitee-am-identityprovider-kerberos`
 
-#### Gravitee.io Access Management - Kerberos Identity Provider - Enterprise Edition
+**Gravitee.io Access Management - Kerberos Identity Provider - Enterprise Edition**
 
+**Overview**
 
-##### Overview
+This IdentityProvider allows to identify a use using Kerberos Login/Password form or using the SPNEGO protocol. This README describes how to create a simple test environment to test this plugin.
 
-This IdentityProvider allows to identify a use using Kerberos Login/Password form or using the SPNEGO protocol.
-This README describes how to create a simple test environment to test this plugin.
-
-##### How to test
+**How to test**
 
 This section describes how to boostrap a kerberos server backed by an OpenLDAP.
 
@@ -628,11 +616,15 @@ docker-compose up kdc-kadmin
 
 You will need to change debian image to `debian:stable` on MAC for the Dockerfiles:
 
-    - kdc-kadmin
-    - kerberos-client
+```
+- kdc-kadmin
+- kerberos-client
+```
 
-## Hosts
-### Linux
+### Hosts
+
+#### Linux
+
 Copy docker container IP and create an entry into your /etc/hosts
 
 ```bash
@@ -643,7 +635,7 @@ sudo echo "${LDAP_IP}     openldap.example.org" >> /etc/hosts
 sudo echo "127.0.0.1     app.example.org" >> /etc/hosts
 ```
 
-### MAC
+#### MAC
 
 Copy docker container IP and create an entry into your /etc/hosts
 
@@ -674,6 +666,7 @@ docker-compose exec kdc-kadmin bash -c "kadmin.local -q 'ktadd -k /tmp/openldap.
 ```
 
 Copy the OpenLDAP keytab onto OpenLDAP container
+
 ```bash
 docker cp docker-kerberos-kdc-kadmin-1:/tmp/openldap.keytab /tmp/
 docker cp /tmp/openldap.keytab docker-kerberos-openldap-1:/etc/ldap/
@@ -681,20 +674,20 @@ docker-compose exec openldap bash -c "chmod 755 /etc/ldap/openldap.keytab"
 ```
 
 Copy the kerberos IdP keytab on you localhost in order to make it accessible by the AM Gateway
+
 ```bash
 docker cp docker-kerberos-kdc-kadmin-1:/tmp/app.keytab ~/workspace/home-am-gw/
 docker cp docker-kerberos-kdc-kadmin-1:/tmp/app-localhost.keytab ~/workspace/home-am-gw/
 ```
 
+Install kerberos client on your laptop For Ubuntu :
 
-Install kerberos client on your laptop
-For Ubuntu :
 ```bash
 sudo apt-get install krb5-user
 # as an option, install also krb5-config to generate the relevant configuration files automatically (even if some update have to be done)
 ```
 
-Edit your kerberos configuration file to declare REALM information, you should have at least this content (note: ccache_type may depend on the OS):
+Edit your kerberos configuration file to declare REALM information, you should have at least this content (note: ccache\_type may depend on the OS):
 
 ```bash
 sudo vi /etc/krb5.conf
@@ -724,6 +717,7 @@ sudo vi /etc/krb5.conf
 ```
 
 Test you environment by connecting to kerberos as admin (or user0x)
+
 ```bash
 # connect to kerberos
 $> kinit user01 # or admin/admin
@@ -738,6 +732,7 @@ Valid starting       Expires              Service principal
 ```
 
 Copy the keytab on you localhost in order to make it accessible by the AM Gateway
+
 ```bash
 docker cp docker-kerberos-kdc-kadmin-1:/tmp/app.keytab ~/workspace/home-am-gw/
 docker cp docker-kerberos-kdc-kadmin-1:/tmp/app-localhost.keytab ~/workspace/home-am-gw/
@@ -745,37 +740,37 @@ docker cp docker-kerberos-kdc-kadmin-1:/tmp/app-localhost.keytab ~/workspace/hom
 
 In the Kerberos IDP configuration form, use :
 
- - Linux: the `app-localhost.keytab` with principal `HTTP/localhost`, because we are running on localhost, DNS resolve our localhost IP with localhost.
- - MAC: the `app.keytab` with `HTTP/app.example.org`
+* Linux: the `app-localhost.keytab` with principal `HTTP/localhost`, because we are running on localhost, DNS resolve our localhost IP with localhost.
+* MAC: the `app.keytab` with `HTTP/app.example.org`
 
-##### Configure Firefox
+**Configure Firefox**
 
-Go to firefox settings `about:config`
-Search "negotiate" and add `.example.org` as trusted-uri.
-Restart your browser.
+Go to firefox settings `about:config` Search "negotiate" and add `.example.org` as trusted-uri. Restart your browser.
 
 > **Note:** DO NOT TEST using private navigation, I don't know why but in private mode the negotiation isn't executed.
 
 Go to your login page using the `app.example.org` hostname, you should see two request in your network console.
+
 ```
 http://app.example.org:8092/mydomain/oauth/authorize?client_id=62b256ca-ce2f-4afe-b256-cace2f1afe86&response_type=token&redirect_uri=https://callback
 ```
 
-##### Kerberos utilities
+**Kerberos utilities**
 
 * Get TGT from command line : kinit
 * List all tickets from command line : klist
 * Delete tickets from command line : kdestroy
 * Generate Service Ticket using TGT from command line : kvno
-* Generate LDAP Authentication File for KRB : sudo kdb5_ldap_util -D cn=admin,dc=example,dc=org stashsrvpw -f /etc/krb5kdc/service.keyfile uid=kdc-service,dc=example,dc=org
+* Generate LDAP Authentication File for KRB : sudo kdb5\_ldap\_util -D cn=admin,dc=example,dc=org stashsrvpw -f /etc/krb5kdc/service.keyfile uid=kdc-service,dc=example,dc=org
 
-##### RFC
+**RFC**
 
 SPNEGO : https://tools.ietf.org/html/rfc4559
 
-##### TIPS
+**TIPS**
 
 List LDAP ACLS:
+
 ```
 ldapsearch -LLL -H ldapi:/// -Y EXTERNAL -b "olcDatabase={1}mdb,cn=config" olcAccess
 ```
@@ -830,19 +825,18 @@ ldapsearch -LLL -H ldapi:/// -Y EXTERNAL -b "olcDatabase={1}mdb,cn=config" olcAc
 
 **Plugin ID**: `gravitee-am-identityprovider-saml`
 
-#### Gravitee.io - Access Management - SAML 2.0 Identity Provider
+**Gravitee.io - Access Management - SAML 2.0 Identity Provider**
 
-
-##### Description
+**Description**
 
 SAML 2.0 Identity Provider will let you authenticate users and retrieve their information from your Enterprise SAML 2.0 Identity Provider Server (IdP).
 
-##### Installation
+**Installation**
 
 1. Copy the plugin .zip file into the `plugins` folder of the AM Gateway and the AM Management API
 2. Restart both components.
 
-##### Configuration
+**Configuration**
 
 A new entry will be available in the provider list `AM_UI -> Domain Settings -> Providers` letting you create and configure a new connection to your SAML 2.0 Identity Provider Server.
 
@@ -870,35 +864,34 @@ A new entry will be available in the provider list `AM_UI -> Domain Settings -> 
 
 **Plugin ID**: `gravitee-secret-provider-aws`
 
-# gravitee-secret-provider-aws
+## gravitee-secret-provider-aws
 
-## Category
+### Category
 
 `secret-provider`
 
-## Compatibility Matrix
+### Compatibility Matrix
 
 | Gravitee Version | Secret Provider AWS | Product |
-|------------------|---------------------|---------|
+| ---------------- | ------------------- | ------- |
 | 4.2.x            | 1.0.x               | All     |
 | 4.6.x            | 2.0.0               | All     |
 
-
-## Overview
+### Overview
 
 Get secret from AWS Secret Manager.
 
 Authentication can be made via static credentials or using the SDK's chain authentication mechanism.
 
-## Configuration
+### Configuration
 
 These are an example configuration in `gravitee.yml`.
 
-### Configuration level-secrets
+#### Configuration level-secrets
 
 Will allow `secrets://aws/...` in gravitee.yml
 
-```YAML
+```yaml
 secrets:
   aws:
     enabled: true
@@ -914,8 +907,9 @@ secrets:
         secretAccessKey: ...
 ```
 
-### API level secrets
-```YAML
+#### API level secrets
+
+```yaml
 api:
   secrets:
     providers:
@@ -925,7 +919,7 @@ api:
           # the, just as above
 ```
 
-## Know limitations
+### Know limitations
 
 * JSON Secrets only (no plain text, or binary)
 * No watch, although secret may contain X.590 pair, but won't be renewed upon update.
@@ -940,21 +934,21 @@ api:
 
 **Plugin ID**: `gravitee-secret-provider-hc-vault`
 
-# HC Vault Secret Provider
+## HC Vault Secret Provider
 
-## Category
+### Category
 
 `secret-provider`
 
-## Compatibility Matrix
+### Compatibility Matrix
 
 | Gravitee Version | Secret Provider HC Vault | Product |
-|------------------|--------------------------|---------|
+| ---------------- | ------------------------ | ------- |
 | 4.2.x            | 1.0.x                    | All     |
 | 4.6.x            | 2.0.0                    | All     |
 | 4.6.4            | 2.1.0                    | All     |
 
-## Overview
+### Overview
 
 This EE plugin allow to pull secret from k/v engine of Vault (v1 & v2).
 
@@ -969,22 +963,24 @@ Authentication methods are:
 * certificate (mTLS)
 * kubernetes
 
-## Hands-on to use it in gravitee.yml
+### Hands-on to use it in gravitee.yml
 
 This README show you how to configure gravitee and Vault with a basic use case.
 
-*CAUTION: When mentioning `gravitee.yml` it can mean Gateway configuration and mAPI as well if you want to create APIs and test.*
+_CAUTION: When mentioning `gravitee.yml` it can mean Gateway configuration and mAPI as well if you want to create APIs and test._
 
-### Install vault for masOS:
+#### Install vault for masOS:
 
 `brew tap hashicorp/tap`
 
 `brew install hashicorp/tap/vault`
 
-### Start Vault (in mem storage no TLS)
+#### Start Vault (in mem storage no TLS)
+
 `vault server -dev`
 
-*Copy the root token from the logs*
+_Copy the root token from the logs_
+
 ```
 The unseal key and root token are displayed below in case you want to
 seal/unseal the Vault or re-authenticate.
@@ -995,41 +991,45 @@ Root Token: s.THE_ROOT_TOKEN_387f3d387KJHFE (fake value)
 Development mode should NOT be used in production installations!
 ```
 
-### With Docker
+#### With Docker
 
-`docker run -it -p=8200:8200 --name=dev-vault vault:1.13.3` 
+`docker run -it -p=8200:8200 --name=dev-vault vault:1.13.3`
 
 The same bug as above is shown
 
-### Login
+#### Login
 
 open another terminal
 
-```BASH
+```bash
 export VAULT_ADDR='http://127.0.0.1:8200'
 export VAULT_DEV_ROOT_TOKEN=s.THE_ROOT_TOKEN_387f3d387KJHFE
 ```
+
 then do the following to get logged as root
 
-```BASH
+```bash
 vault login (root token prompted), type it again
 ```
 
-### Configure a secret
+#### Configure a secret
 
 We are configuring Mongo DB password. So you must Gravitee with MongoDB using a password.
 
 Create a secret
-```BASH
+
+```bash
 vault kv put -mount=secret gravitee/mongo pass=<password here>
 ```
 
 Test
-```BASH
+
+```bash
 vault kv get -mount=secret -field=pass gravitee/mongo
 ```
 
 You should get an output like this
+
 ```
 ======= Secret Path =======
 secret/data/gravitee/mongo
@@ -1053,7 +1053,7 @@ Now let's make our secrets read-only with a policy.
 
 We could create several policy for different kind of secrets and bind some of them when setting up Vault auth or creating a Vault token.
 
-```BASH
+```bash
 vault policy write gravitee-read - << EOF
 
 path "secret/data/gravitee/*" {
@@ -1066,17 +1066,17 @@ path "secret/data/gravitee/*" {
 EOF
 ```
 
-## Configure Gravitee to use vault
+### Configure Gravitee to use vault
 
 This is the full config. Later the bear minimum will be shown
 
 Add the following to gravitee.yml (if not set yet)
 
-### For configuration-level secrets
+#### For configuration-level secrets
 
 Most of the example after are using the configuration-level syntax: `secret://vault...`
 
-```YAML
+```yaml
 secrets:
   vault:
     enabled: true
@@ -1142,9 +1142,9 @@ ds:
     password: secret://vault/secret/gravitee/mongo/pass
 ```
 
-### For api-level secrets
+#### For api-level secrets
 
-```YAML
+```yaml
 api:
   secrets:
     providers:
@@ -1156,31 +1156,35 @@ api:
 
 ```
 
-## Authenticate with a token
+### Authenticate with a token
 
 Create a policy-specific token to use in gravitee, this will allow to restrict to reading only our secret.
 
-```BASH
+```bash
 export VAULT_GRAVITEE_TOKEN=$(vault token create -field token -policy=gravitee-read)
 ```
 
 Introspect
-```BASH
+
+```bash
 vault token lookup $VAULT_GRAVITEE_TOKEN
 ```
 
 Test read
-```BASH
+
+```bash
 VAULT_TOKEN=$VAULT_GRAVITEE_TOKEN vault kv get -mount=secret gravitee/mongo
 ```
 
 Test write (you should get a 403 as you can't write)
-```BASH
+
+```bash
 VAULT_TOKEN=$VAULT_GRAVITEE_TOKEN vault kv put -mount=secret gravitee/mongo pass=foobar
 ```
 
 you can update `gravitee.yml` as follows (extract)
-```YAML
+
+```yaml
 secrets:
     vault:
         auth:
@@ -1192,19 +1196,22 @@ ds:
     mongodb:  
         password: secret://vault/secret/gravitee/mongo/pass
 ```
+
 start the Gateway and
 
-## Authenticate with an AppRole
+### Authenticate with an AppRole
 
-Weapon of choice for applications, we use a role (it's id) and there are multiples way to create a secret_id, you can trust third party to generate it and wrap it for a use-once only by your application. CI can generate it, and make it available to Gravitee. Here we don't support this use case yet, we just set it in the config. No need for a token, the plugin will ask vault to create one.
+Weapon of choice for applications, we use a role (it's id) and there are multiples way to create a secret\_id, you can trust third party to generate it and wrap it for a use-once only by your application. CI can generate it, and make it available to Gravitee. Here we don't support this use case yet, we just set it in the config. No need for a token, the plugin will ask vault to create one.
 
 Enable it
-```BASH
+
+```bash
 vault auth enable approle
 ```
 
 Create an app role specific for our policy
-```BASH
+
+```bash
 # Some short usage (e.g for integration testing purposes)
 # can log-in for 30 mins (default, can be changed at creation time)
 # once logged in can be used for 10 mins
@@ -1228,20 +1235,21 @@ export ROLE_ID="$(vault read -field=role_id auth/approle/role/gravitee-conf/role
 export SECRET_ID="$(vault write -f -field=secret_id auth/approle/role/gravitee-conf/secret-id)"
 ```
 
-Test with CLI (to mimic what the plugin does)
-Create a new token (this what we are doing in the plugin)
+Test with CLI (to mimic what the plugin does) Create a new token (this what we are doing in the plugin)
 
-```BASH
+```bash
 export VAULT_APP_ROLE_TOKEN=$(vault write -field=token auth/approle/login role_id="$ROLE_ID" secret_id="$SECRET_ID")
 ```
 
 You can copy the token and do the following
-```BASH
+
+```bash
 VAULT_TOKEN=$VAULT_APP_ROLE vault kv get -mount=secret gravitee/mongo
 ```
 
 Edit `gravitee.yml` as follows (extract)
-```YAML
+
+```yaml
 secrets:
     vault:
         auth:
@@ -1251,17 +1259,19 @@ secrets:
                 secretId: <value of $SECRET_ID>
 ```
 
-## Authenticate with User/Pass
+### Authenticate with User/Pass
 
 For development basic uses cases.
 
 Enable it
-```BASH
+
+```bash
 vault auth enable userpass
-````
+```
 
 Create a password and attach policies to it (here with a short renew period but infinite logins).
-```BASH
+
+```bash
 vault write auth/userpass/users/admin \
     password=changeme \
     policies=gravitee-read \
@@ -1271,7 +1281,7 @@ vault write auth/userpass/users/admin \
 
 Update `gravitee.yml`
 
-```YAML
+```yaml
 secrets:
     vault:
         auth:
@@ -1282,30 +1292,33 @@ secrets:
 
 ```
 
-## Authenticate with GitHub
+### Authenticate with GitHub
 
 Could be useful with a shared Vault instance for developers.
 
 Enable it
-```BASH
+
+```bash
 vault auth enable github
 ```
 
 Configure it to get data from `gravitee-io` if you are part of it ;-)
 
-```BASH
+```bash
 vault write auth/github/config organization=gravitee-io
 ```
 
 Map our policy
 
 To a team
-```BASH
+
+```bash
 vault write auth/github/map/teams/<team> value=gravitee-read
 ```
 
 Or to a specific user
-```BASH
+
+```bash
 vault write auth/github/map/users/<github user> value=gravitee-read
 ```
 
@@ -1315,7 +1328,7 @@ Your Profile => Settings => Developer Settings => Personal Token => Classic => C
 
 Adapt the gravitee.yml
 
-```YAML
+```yaml
 secrets:
     vault:
         auth:
@@ -1324,19 +1337,21 @@ secrets:
                 token: <your personal github token here>
 ```
 
-## Authenticate with Client certificate mTLS
+### Authenticate with Client certificate mTLS
 
-*CAUTION: you need to start Vault with TLS configured* this a longer process, but manageable. We assume you do not use a publicly exposed Vault instance hence you will need to use the Vault listener CA certificate, named  `vault-sub-ca.pem` and we assume it is located in the current directory.
+_CAUTION: you need to start Vault with TLS configured_ this a longer process, but manageable. We assume you do not use a publicly exposed Vault instance hence you will need to use the Vault listener CA certificate, named `vault-sub-ca.pem` and we assume it is located in the current directory.
 
 Starting from there this is how to configure it.
 
 Enable it
-```BASH
+
+```bash
 vault auth enable cert -ca-cert=vault-sub-ca.pem 
 ```
 
 Generate a key pair to use as client certificate
-```BASH
+
+```bash
 openssl req -x509 -nodes \
             -sha256 -days 356 \
             -newkey rsa:2048 \
@@ -1346,7 +1361,8 @@ openssl req -x509 -nodes \
 ```
 
 Configure the client cert to match our policy
-```BASH
+
+```bash
 vault write -ca-cert=vault-sub-ca.pem \
             auth/cert/certs/web \
             display_name=web \
@@ -1356,7 +1372,8 @@ vault write -ca-cert=vault-sub-ca.pem \
 ```
 
 Now you can login
-```BASH
+
+```bash
 vault login \
     -method=cert \
     -ca-cert=vault-sub-ca.pem \
@@ -1364,15 +1381,16 @@ vault login \
     -client-key=private_key.pem \
     name=web
 ```
+
 and fetch a secret
 
-```BASH
+```bash
 vault kv get -mount=secret -field=pass gravitee/mongo
 ```
 
 Update `gravitee.yml`
 
-```YAML
+```yaml
 secrets:
   vault:
     ssl:
@@ -1387,23 +1405,24 @@ secrets:
         key: /path/to/client-pair/private_key.pem
 ```
 
-
-## Authenticate using Kubernetes
+### Authenticate using Kubernetes
 
 This mode allow you to use Gravitee Kubernetes Service Account to authenticate into Vault.
 
 You need to:
+
 * Deploy Vault in Kubernetes. Using Vault's Helm charts `system:auth-delegator` at cluster level is already configured.
 * Configure Vault Kubernetes Auth, you will need the service account name used by Gravitee
-* Deploy Gravitee in the same cluster enabling Vault secret provider plugin to use Kubernetes as authentication method 
+* Deploy Gravitee in the same cluster enabling Vault secret provider plugin to use Kubernetes as authentication method
 
 Two cases:
+
 * Short-lived service account token (recommended)
 * Long-lived service account token
 
 **All examples below are done in the `default` namespace** but Vault and Gravitee can be deployed in different ones.
 
-### Installing Vault
+#### Installing Vault
 
 This installs Vault in dev mode, root token is "`root`". You can use any version of Vault starting after 1.9.
 
@@ -1435,7 +1454,7 @@ Then enable and configure vault to allow Kubernetes Authentication
 vault auth enable kubernetes
 ```
 
-### Short-lived token
+#### Short-lived token
 
 Here we rely on the service account token in the Gravitee pod.
 
@@ -1448,7 +1467,7 @@ vault write auth/kubernetes/config \
 
 Now we can create a role (`testrole`) in Vault to handle the authentication using the policy created above in this readme.
 
-Here we assume Gravitee Service account is named `apim-sa` and the namespace is `default`. 
+Here we assume Gravitee Service account is named `apim-sa` and the namespace is `default`.
 
 **Warning** the ttl matters. Kubelet will renew token 80% before TTL. So if the Pod uses service [account token projection](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#launch-a-pod-using-service-account-token-projection) ttl needs to as low as 80% of the TTL configured.
 
@@ -1460,7 +1479,7 @@ vault write auth/kubernetes/role/testrole \
   ttl=24h
 ```
 
-### Deploy Gravitee Gateway for short-lived token
+#### Deploy Gravitee Gateway for short-lived token
 
 Use the Helm chart with the following values.yaml (as an example)
 
@@ -1486,7 +1505,7 @@ license:
   key: # here is your license key
 ```
 
-### Long-lived token
+#### Long-lived token
 
 When installing Vault using Helm Charts your need add this option when installing.
 
@@ -1517,7 +1536,7 @@ vault write auth/kubernetes/config \
 
 The role configuration is the same above.
 
-### Deploy Gravitee Gateway using long-lived token
+#### Deploy Gravitee Gateway using long-lived token
 
 Use the Helm chart with the following values.yaml
 
@@ -1566,21 +1585,20 @@ license:
 
 **Plugin ID**: `gravitee-secret-provider-kubernetes`
 
-# gravitee-secret-provider-kubernetes
+## gravitee-secret-provider-kubernetes
 
-## Category
+### Category
 
 `secret-provider`
 
-## Compatibility Matrix
+### Compatibility Matrix
 
 | Gravitee Version | Secret Provider AWS | Product |
-|------------------|---------------------|---------|
+| ---------------- | ------------------- | ------- |
 | 4.2.x            | 1.0.x               | All     |
 | 4.6.x            | 2.0.0               | All     |
 
-
-## Overview
+### Overview
 
 Get secrets from Kubernetes.
 
@@ -1589,7 +1607,7 @@ User may provide a specific kube config file, or rely on local or finally use cl
 * supports of watch for TLS configuration
 * equivalent to `kubernetes://secrets` except the URL-like syntax varies.
 
-## Documentation:
+### Documentation:
 
 TODO provide link to documentation.gravitee.io
 
@@ -1605,17 +1623,16 @@ TODO provide link to documentation.gravitee.io
 
 **Plugin ID**: `gravitee-am-policy-account-linking`
 
-#### Account Linking policy
+**Account Linking policy**
 
-
-##### Description
+**Description**
 
 You can use the `account-linking` policy to link users between multiple identity providers
 
-##### Configuration
+**Configuration**
 
 | Property | Required | Description | Type |
-| --- | --- | --- | --- |
+| -------- | -------- | ----------- | ---- |
 
 </details>
 
@@ -1625,20 +1642,19 @@ You can use the `account-linking` policy to link users between multiple identity
 
 **Plugin ID**: `gravitee-am-policy-enrich-auth-flow`
 
-#### Enrich Authentication Flow Profile
+**Enrich Authentication Flow Profile**
 
-##### Description
+**Description**
 
-You can use the `enrich-auth-flow` policy to persist some information between the authentication steps.
-These data will be automatically loaded into the execution context attributes through the `authFlow` entry. (`{#context.attributes['authFlow']['my-additional-attribute']}`)
+You can use the `enrich-auth-flow` policy to persist some information between the authentication steps. These data will be automatically loaded into the execution context attributes through the `authFlow` entry. (`{#context.attributes['authFlow']['my-additional-attribute']}`)
 
-##### Configuration
+**Configuration**
 
-| Property | Required | Description | Type | Default |
-| --- | --- | --- | --- | --- |
-| properties | Yes |  |  |  |
-| The information to get from the execution context |  |  |  |  |
-| List of properties | - |  |  |  |
+| Property                                          | Required | Description | Type | Default |
+| ------------------------------------------------- | -------- | ----------- | ---- | ------- |
+| properties                                        | Yes      |             |      |         |
+| The information to get from the execution context |          |             |      |         |
+| List of properties                                | -        |             |      |         |
 
 </details>
 
@@ -1648,21 +1664,21 @@ These data will be automatically loaded into the execution context attributes th
 
 **Plugin ID**: `gravitee-am-policy-enrich-profile`
 
-#### Enrich User Profile
+**Enrich User Profile**
 
-##### Description
+**Description**
 
 You can use the `enrich-profile` policy to add some information to the user profile based on the AM execution context.
 
-##### Configuration
+**Configuration**
 
-| Property | Required | Description | Type | Default |
-| --- | --- | --- | --- | --- |
-| properties | Yes |  |  |  |
-| The information to get from the execution context |  |  |  |  |
-| List of properties | - | exitOnError | No |  |
-| Terminate the request if there are an error |  |  |  |  |
-| boolean | false |  |  |  |
+| Property                                          | Required | Description | Type | Default |
+| ------------------------------------------------- | -------- | ----------- | ---- | ------- |
+| properties                                        | Yes      |             |      |         |
+| The information to get from the execution context |          |             |      |         |
+| List of properties                                | -        | exitOnError | No   |         |
+| Terminate the request if there are an error       |          |             |      |         |
+| boolean                                           | false    |             |      |         |
 
 </details>
 
@@ -1672,32 +1688,31 @@ You can use the `enrich-profile` policy to add some information to the user prof
 
 **Plugin ID**: `gravitee-am-policy-enroll-mfa`
 
-#### Enroll MFA policy
+**Enroll MFA policy**
 
-##### Description
+**Description**
 
-You can use the `enroll-mfa` policy to automatically enroll MFA factors based on the user profile information and that way skip
-the interactive MFA enrollment step.
+You can use the `enroll-mfa` policy to automatically enroll MFA factors based on the user profile information and that way skip the interactive MFA enrollment step.
 
-##### Configuration
+**Configuration**
 
-| Property | Required | Description | Type | Default |
-| --- | --- | --- | --- | --- |
-| MFA Factor ID |  |  |  |  |
-| Yes |  |  |  |  |
-| The MFA factor to enroll |  |  |  |  |
-| String |  |  |  |  |
-| - |  |  |  |  |
-| Value |  |  |  |  |
-| Yes (except the HTTP MFA factor) |  |  |  |  |
-| The value used to enroll the MFA factor (email, phone number, ...). Support EL. |  |  |  |  |
-| String |  |  |  |  |
-| - |  |  |  |  |
-| Primary |  |  |  |  |
-| Yes |  |  |  |  |
-| Set this factor as a primary method for the end-user |  |  |  |  |
-| boolean |  |  |  |  |
-| false |  |  |  |  |
+| Property                                                                        | Required | Description | Type | Default |
+| ------------------------------------------------------------------------------- | -------- | ----------- | ---- | ------- |
+| MFA Factor ID                                                                   |          |             |      |         |
+| Yes                                                                             |          |             |      |         |
+| The MFA factor to enroll                                                        |          |             |      |         |
+| String                                                                          |          |             |      |         |
+| -                                                                               |          |             |      |         |
+| Value                                                                           |          |             |      |         |
+| Yes (except the HTTP MFA factor)                                                |          |             |      |         |
+| The value used to enroll the MFA factor (email, phone number, ...). Support EL. |          |             |      |         |
+| String                                                                          |          |             |      |         |
+| -                                                                               |          |             |      |         |
+| Primary                                                                         |          |             |      |         |
+| Yes                                                                             |          |             |      |         |
+| Set this factor as a primary method for the end-user                            |          |             |      |         |
+| boolean                                                                         |          |             |      |         |
+| false                                                                           |          |             |      |         |
 
 </details>
 
@@ -1707,22 +1722,22 @@ the interactive MFA enrollment step.
 
 **Plugin ID**: `gravitee-am-policy-mfa-challenge`
 
-#### MFA Challenge policy
+**MFA Challenge policy**
 
-##### Description
+**Description**
 
 You can use the `mfa-challenge` policy to enforce users to confirm their identity by using another factor.
 
 > **Warning:** Enabling `Enroll factor if user has no MFA device` expects an authenticated user. This is why this option has to be disabled for `Reset Password` flow as it can lead to user error.
 
-##### Configuration
+**Configuration**
 
-| Property | Required | Description | Type |
-| --- | --- | --- | --- |
-| MFA Factor ID |  |  |  |
-| Yes |  |  |  |
-| The MFA factor to challenge |  |  |  |
-| String |  |  |  |
+| Property                    | Required | Description | Type |
+| --------------------------- | -------- | ----------- | ---- |
+| MFA Factor ID               |          |             |      |
+| Yes                         |          |             |      |
+| The MFA factor to challenge |          |             |      |
+| String                      |          |             |      |
 
 </details>
 
@@ -1732,7 +1747,7 @@ You can use the `mfa-challenge` policy to enforce users to confirm their identit
 
 **Plugin ID**: `gravitee-am-policy-send-email`
 
-*No additional documentation available.*
+_No additional documentation available._
 
 </details>
 
@@ -1746,21 +1761,20 @@ You can use the `mfa-challenge` policy to enforce users to confirm their identit
 
 **Plugin ID**: `gravitee-am-gateway-handler-saml2-idp`
 
-#### Gravitee.io - Access Management - SAML 2.0 Identity Provider
+**Gravitee.io - Access Management - SAML 2.0 Identity Provider**
 
-
-##### Description
+**Description**
 
 Configuring AM to serve as a SAML Identity Provider to let your application use SAML 2.0 Protocol to authenticate your users in addition of the OAuth 2.0 / OIDC protocol.
 
-image:./saml-idp.png["Gravitee.io - SAML 2.0 IdP"]
+image:./saml-idp.png\["Gravitee.io - SAML 2.0 IdP"]
 
-##### Installation
+**Installation**
 
 1. Copy the plugin .zip file into the `plugins` folder of the AM Gateway.
 2. Restart gateway component.
 
-##### Configuration
+**Configuration**
 
 A new entry will be available at `AM_UI -> Domain Settings -> SAML 2.0` letting you configure your SAML 2.0 Identity Provider Server options.
 
@@ -1774,21 +1788,20 @@ A new entry will be available at `AM_UI -> Domain Settings -> SAML 2.0` letting 
 
 **Plugin ID**: `gravitee-am-resource-http`
 
-#### Gravitee.io - Access Management - HTTP Resource
+**Gravitee.io - Access Management - HTTP Resource**
 
-##### Description
+**Description**
 
 With HTTP Resource, send messages to all your customers, collaborators, via the media of your choice: sms, enriched sms, email, voice or fax.
 
-##### Installation
+**Installation**
 
 1. Copy the plugin .zip file into the `plugins` folder of the AM Gateway and the AM Management API
 2. Restart both components.
 
-##### Configuration
+**Configuration**
 
-A new entry will be available in the resource list `AM_UI -> Services -> HTTP` to create and configure a new resource.
-This resource is used as a SMS/Email provider to send verification codes during multifactor authentication process.
+A new entry will be available in the resource list `AM_UI -> Services -> HTTP` to create and configure a new resource. This resource is used as a SMS/Email provider to send verification codes during multifactor authentication process.
 
 </details>
 
@@ -1798,21 +1811,20 @@ This resource is used as a SMS/Email provider to send verification codes during 
 
 **Plugin ID**: `gravitee-am-resource-http-factor`
 
-#### Gravitee.io - Access Management - HTTP Factor Resource
+**Gravitee.io - Access Management - HTTP Factor Resource**
 
-##### Description
+**Description**
 
 HTTP Factor resource facilitates to send HTTP requests to and endpoint to receive response which can be used as per the user needs.
 
-##### Installation
+**Installation**
 
 1. Copy the plugin .zip file into the `plugins` folder of the AM Gateway and the AM Management API
 2. Restart both components.
 
-##### Configuration
+**Configuration**
 
-A new entry will be available in the resource list `AM_UI -> Services -> HTTP Factor` to create and configure a new HTTP Factor resource.
-This resource can be used with SMS provider to complete send and check verification steps during multifactor authentication process.
+A new entry will be available in the resource list `AM_UI -> Services -> HTTP Factor` to create and configure a new HTTP Factor resource. This resource can be used with SMS provider to complete send and check verification steps during multifactor authentication process.
 
 </details>
 
@@ -1822,8 +1834,8 @@ This resource can be used with SMS provider to complete send and check verificat
 
 **Plugin ID**: `gravitee-am-resource-infobip`
 
-To use the plugin, create an account at [infobip site](https://www.infobip.com/), follow the instructions.
-To create the resource at AM, you will need:
+To use the plugin, create an account at [infobip site](https://www.infobip.com/), follow the instructions. To create the resource at AM, you will need:
+
 * Api Key: the authorization from the service
 * Api Key prefix: Basic, App, IBSSO, Bearer
 * base url: base url provided
@@ -1840,21 +1852,20 @@ Any doubt, check the docs [here](https://www.infobip.com/docs/api)
 
 **Plugin ID**: `gravitee-am-resource-mfa-mock`
 
-#### Gravitee.io - Access Management - Mock Resource
+**Gravitee.io - Access Management - Mock Resource**
 
-##### Description
+**Description**
 
 With MFA Mock resource, you can easily test factors like SMS, Email without third party services.
 
-##### Installation
+**Installation**
 
 1. Copy the plugin .zip file into the `plugins` folder of the AM Gateway and the AM Management API
 2. Restart both components.
 
-##### Configuration
+**Configuration**
 
-A new entry will be available in the resource list `AM_UI -> Services -> Mock` to create and configure a new resource.
-This resource is used as a SMS, Email provider to validate a static code defined into the plugin configuration.
+A new entry will be available in the resource list `AM_UI -> Services -> Mock` to create and configure a new resource. This resource is used as a SMS, Email provider to validate a static code defined into the plugin configuration.
 
 </details>
 
@@ -1864,21 +1875,20 @@ This resource is used as a SMS, Email provider to validate a static code defined
 
 **Plugin ID**: `gravitee-am-resource-orange-contact-everyone`
 
-#### Gravitee.io - Access Management - Orange Contact Everyone Resource
+**Gravitee.io - Access Management - Orange Contact Everyone Resource**
 
-##### Description
+**Description**
 
 With Orange Contact Everyone service, send messages to all your customers, collaborators, via the media of your choice: sms, enriched sms, email, voice or fax.
 
-##### Installation
+**Installation**
 
 1. Copy the plugin .zip file into the `plugins` folder of the AM Gateway and the AM Management API
 2. Restart both components.
 
-##### Configuration
+**Configuration**
 
-A new entry will be available in the resource list `AM_UI -> Services -> Orange Contact Everyone` to create and configure a new resource.
-This resource is used as a SMS provider to send verification codes during multifactor authentication process.
+A new entry will be available in the resource list `AM_UI -> Services -> Orange Contact Everyone` to create and configure a new resource. This resource is used as a SMS provider to send verification codes during multifactor authentication process.
 
 </details>
 
@@ -1888,21 +1898,20 @@ This resource is used as a SMS provider to send verification codes during multif
 
 **Plugin ID**: `gravitee-am-resource-sfr`
 
-#### Gravitee.io - Access Management - SFR DMC API Resource
+**Gravitee.io - Access Management - SFR DMC API Resource**
 
-##### Description
+**Description**
 
 With SFR DMC API, send messages to all your customers, collaborators, via the media of your choice: sms, enriched sms, email, voice or fax.
 
-##### Installation
+**Installation**
 
 1. Copy the plugin .zip file into the `plugins` folder of the AM Gateway and the AM Management API
 2. Restart both components.
 
-##### Configuration
+**Configuration**
 
-A new entry will be available in the resource list `AM_UI -> Services -> SFR DMC API` to create and configure a new resource.
-This resource is used as a SMS provider to send verification codes during multifactor authentication process.
+A new entry will be available in the resource list `AM_UI -> Services -> SFR DMC API` to create and configure a new resource. This resource is used as a SMS provider to send verification codes during multifactor authentication process.
 
 </details>
 
@@ -1912,7 +1921,7 @@ This resource is used as a SMS provider to send verification codes during multif
 
 **Plugin ID**: `gravitee-am-resource-smtp`
 
-*No additional documentation available.*
+_No additional documentation available._
 
 </details>
 
@@ -1922,9 +1931,9 @@ This resource is used as a SMS provider to send verification codes during multif
 
 **Plugin ID**: `gravitee-am-resource-twilio`
 
-#### Gravitee.io - Access Management - HTTP Twilio Resource
+**Gravitee.io - Access Management - HTTP Twilio Resource**
 
-##### Description
+**Description**
 
 HTTP Twilio resource facilitates integration with Twilio.
 
