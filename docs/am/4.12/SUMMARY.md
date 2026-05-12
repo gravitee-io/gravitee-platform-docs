@@ -174,6 +174,7 @@
 ## Releases & Changelog
 
 * [Release Notes](releases-and-changelog/release-notes/README.md)
+  * [AM 4.12](releases-and-changelog/release-notes/am-4.12.md)
   * [AM 4.11](releases-and-changelog/release-notes/am-4.11.md)
   * [AM 4.10](https://documentation.gravitee.io/am/releases-and-changelog/release-notes/am-4.10)
   * [AM 4.9](https://documentation.gravitee.io/am/4.9/releases-and-changelog/release-notes/am-4.9)
