@@ -48,6 +48,17 @@
 * Review all API Products a user has access to (directly or through groups) from the Organization page's user details view.
 <!-- /PIPELINE:APIM-13461 -->
 
+
+<!-- PIPELINE:APIM-13463 -->
+#### **OpenTelemetry Logs Integration for Log-to-Trace Correlation**
+
+* Injects active trace IDs and span IDs into runtime log records captured during request processing, enabling direct navigation from logs in Loki to corresponding traces in Tempo via Grafana.
+* Captures request and response payloads at four lifecycle points (entrypoint request/response, endpoint request/response) and exports them asynchronously to Loki via OTLP/HTTP to avoid adding latency.
+* Requires the `gravitee-reporter-otel` plugin installed as a `.zip` file in the gateway's `plugins/` directory and OpenTelemetry tracing enabled on the API.
+* Controlled by a per-API OTel Logs toggle in the Console UI under Runtime Logs settings, subject to the configured tracing sampling strategy.
+* The `service.name` must match between tracer and logger (default: `gio_apim_gateway`) for Grafana correlation to function correctly.
+<!-- /PIPELINE:APIM-13463 -->
+
 ## Improvements
 
 
