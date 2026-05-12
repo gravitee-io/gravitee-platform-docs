@@ -73,14 +73,15 @@ When you add a page that is not in a folder, the page appears as a root level me
 
     <figure><img src="../../.gitbook/assets/FB8F0725-08EB-4B68-B365-122337D12C4F_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 2. In the **Add page** pop-up screen, type a title for your page.
-3. (Optional) Turn on the **Authentication is required to view this page.** toggle. This toggle ensures that the user must be signed in to the New Developer Portal to see the page.
-4. Click **Add**.\
-   Here we need to mention that now we can add 2 types of pages Gravitee markdown and OpenAPI. here are the screenshots:
-5. Customize your page. The page contains default content that you can use to customize your new page with unique content. For more information about customizing your page with Gravitee Markdown, see [gravitee-markdown-components.md](gravitee-markdown-components.md "mention")
+3.  The pop-up screen allows you to select one of 2 types of pages: Gravitee Markdown or OpenAPI specification.<br>
 
-Open API example content:
+    <figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--251.png" alt=""><figcaption><p>Add page pop-up with Markdown selected</p></figcaption></figure>
 
-6. Publish the page by completing either of the following steps:
+    <figure><img src="../../.gitbook/assets/devportal-new-portal-customize-the--252.png" alt=""><figcaption><p>Add page pop-up with OpenAPI selected</p></figcaption></figure>
+4. (Optional) Turn on the **Authentication is required to view this page.** toggle. This toggle ensures that the user must be signed in to the New Developer Portal to see the page.
+5. Click **Add**.
+6. Customize your page. The page contains default content that you can use to customize your new page with unique content. For more information about customizing your page with Gravitee Markdown, see [gravitee-markdown-components.md](gravitee-markdown-components.md "mention").
+7. Publish the page by completing either of the following steps:
 
 ⚠️ A page can only be published if all of its ancestor folders are published or if it's a top level page.
 
@@ -90,8 +91,7 @@ Open API example content:
 *   Navigate to the page in the navigation bar, click the **ellipses** (<i class="fa-ellipsis-vertical">:ellipsis-vertical:</i>), and then click **Publish**.<br>
 
     <figure><img src="../../.gitbook/assets/1A5E08E1-648C-4437-81C6-F4C480F04193_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
-
-1.  In the **Publish page** pop-up window, click **Publish**.<br>
+8.  In the **Publish page** pop-up window, click **Publish**.<br>
 
     <figure><img src="../../.gitbook/assets/C52E694A-6761-45A5-B46B-998AE39FF5E1_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 {% endtab %}
