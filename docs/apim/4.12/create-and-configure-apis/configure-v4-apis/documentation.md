@@ -83,6 +83,8 @@ Enter the page content in the text editor as Markdown, or enter YAML or JSON to 
 
 {% hint style="info" %}
 To automate the process of creating OpenAPI or AsyncAPI docs pages for v4 APIs, you can make a Management API endpoint REST call to create a docs page from an OpenAPI or AsyncAPI spec.
+
+When importing or updating an API from an OpenAPI Specification, you can enable the **Create documentation page from spec** option to automatically generate a documentation page under the API's Documentation section.
 {% endhint %}
 
 **Toggle preview** enables a side-by-side view of the content you enter and the rendered page.
@@ -247,9 +249,9 @@ Markdown, OpenAPI spec, and AsyncAPI spec documentation pages will be rendered i
 
 To view the documentation in the Developer Portal:
 
-1.  Click **Open API in Developer Portal**
+1.  Click **OpenAPI in Developer Portal**
 
-    <figure><img src="../../.gitbook/assets/docs_open api 1.png" alt=""><figcaption><p>Open API in Developer Portal</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/docs_open api 1.png" alt=""><figcaption><p>OpenAPI in Developer Portal</p></figcaption></figure>
 2.  Click on **Documentation** in the header options
 
     <figure><img src="../../.gitbook/assets/docs_dev portal docs 1.png" alt=""><figcaption><p>API documentation</p></figcaption></figure>

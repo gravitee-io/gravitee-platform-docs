@@ -23,6 +23,16 @@ When you import an API with a JSON payload that has duplicate keys, APIM keeps t
 To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection.md](../apply-policies/policy-reference/json-threat-protection.md "mention").
 {% endhint %}
 
+## Prerequisites
+
+Before importing an API definition, ensure the following requirements are met:
+
+* You have `API_DEFINITION[UPDATE]` permission for the target API.
+* **For OpenAPI imports:** The target API must be a v4 HTTP Proxy type.
+* **For Gravitee definition imports:** The target API must not be a Federated API or Federated A2A agent.
+* **For remote URL sources:** The endpoint must be reachable via HTTP/HTTPS and allow CORS requests from the Console origin. This requirement applies to Gravitee definitions only.
+* **For OpenAPI Specification Validation policy option:** The `oas-validation` policy plugin must be installed.
+
 ## Import your API
 
 To import your API:
@@ -54,6 +64,21 @@ To import your API:
 {% hint style="success" %}
 Once you've imported your API, it will be created as a private API and you will be brought to the API menu and details page.
 {% endhint %}
+
+## Restrictions
+
+The following restrictions apply when importing API definitions:
+
+* **WSDL import format:** Disabled in the current release. This feature is marked as "Coming soon."
+* **OpenAPI imports:** Only applicable to v4 HTTP Proxy APIs.
+* **Gravitee definition imports:** Not supported for Federated APIs or Federated A2A agents.
+* **Remote URL sources:** Gravitee definitions imported from remote URLs require CORS-enabled endpoints that are accessible from the browser.
+* **OpenAPI Specification Validation policy toggle:** Only displayed when the `oas-validation` policy plugin is installed.
+* **Flow ID preservation:** During OpenAPI re-import, flow IDs are preserved only if the HTTP selector key (path + sorted methods) matches exactly.
+* **Plan deletion:** Plans present in the database but absent from the import definition are deleted automatically during update. No user confirmation is required.
+* **Page deletion:** Pages present in the database but absent from the import definition are deleted automatically during update.
+* **API type matching:** The imported definition's type must match the existing API's type (Proxy, Message, or Native). Type mismatches are rejected.
+* **Property preservation:** Properties from the existing API definition are preserved only when the imported definition contains no properties.
 
 ## Import an OpenAPI spec
 
@@ -129,6 +154,46 @@ paths:
   ...
 ```
 
+### Related Changes
+
+The **Import** button on the v4 API details page is now enabled for v4 APIs. Clicking **Import** opens the **Update API** modal, which reuses the v4 Import Wizard stepper.
+
+#### Import Form Component
+
+The legacy single-page import form component (`api-import-v4`) has been replaced by the new multi-step form component (`api-import-v4-form`). The route `/environments/{envId}/apis/import/v4` now renders the new component.
+
+#### File Picker Behavior
+
+File picker state management has been improved:
+
+* File selection is cleared when the API format changes on step 1.
+* The native `<input accept>` attribute updates reactively when allowed file extensions change.
+
+#### Post-Import Behavior
+
+After a successful update, the following tabs reflect the imported configuration:
+
+* General
+* Entrypoints
+* Endpoints
+* Plans
+* Flows
+
+#### OpenAPI Import Features
+
+For OpenAPI imports with documentation enabled:
+
+* A new page appears under **Documentation** → **Pages**.
+
+For OpenAPI imports with OAS Validation enabled:
+
+* The OpenAPI Specification Validation policy appears on generated flows in Policy Studio.
+
+#### Sync and Audit
+
+* The gateway sync indicator shows the API as out-of-sync until redeployed.
+* An audit log entry is recorded for the update action.
+
 ### Vendor Extensions
 
 You can use a vendor extension to add more information about your API to an OpenAPI specification.
@@ -153,7 +218,7 @@ To use a vendor extension, add the `x-graviteeio-definition` field at the root o
   * URL
 * Picture only accepts Data-URI format. Please see the example below.
 
-<pre class="language-yaml" data-title="Example"><code class="lang-yaml"><strong>openapi: "3.0.0"
+<pre class="language-yaml" data-title="Example"><code class="lang-yaml"><strong>OpenAPI: "3.0.0"
 </strong>info:
   version: 1.2.3
   title: Gravitee Echo API
@@ -307,6 +372,16 @@ How groups, members, and roles are imported depends on the installation.
 * **When importing to another environment that runs on a separate APIM instance:** Direct members will not be preserved, and groups that are unknown to the target environment will be created without preserving their memberships.
 {% endtab %}
 {% endtabs %}
+
+### Prerequisites
+
+Before importing an API definition, ensure the following requirements are met:
+
+* You have `API_DEFINITION[UPDATE]` permission for the target API.
+* **For OpenAPI imports:** The target API must be a v4 HTTP Proxy type.
+* **For Gravitee definition imports:** The target API must not be a Federated API or Federated A2A agent.
+* **For remote URL sources:** The endpoint must be reachable via HTTP/HTTPS and allow CORS requests from the Console origin. This requirement applies to Gravitee definitions only.
+* **For OpenAPI Specification Validation policy option:** The `oas-validation` policy plugin must be installed.
 
 ### CI/CD use case examples
 

@@ -48,6 +48,17 @@
 * Review all API Products a user has access to (directly or through groups) from the Organization page's user details view.
 <!-- /PIPELINE:APIM-13461 -->
 
+
+<!-- PIPELINE:APIM-12132 -->
+#### **API Import and Update from OpenAPI and Gravitee Definitions**
+
+* Import or update v4 HTTP Proxy, v4 Message, and v4 Native APIs using OpenAPI Specifications (2.x/3.x) or Gravitee v4 API definition files.
+* Upload definition files locally or fetch them from remote URLs with optional authorization headers for authenticated endpoints.
+* Optionally generate documentation pages and attach OpenAPI Specification Validation policies during OpenAPI imports (requires `oas-validation` policy plugin).
+* Updates are destructive—imported definitions fully replace existing API configurations including endpoints, flows, plans, pages, and metadata while preserving API ID and deployment state.
+* Not supported for Federated APIs or Federated A2A agents; requires `API_DEFINITION[UPDATE]` permission.
+<!-- /PIPELINE:APIM-12132 -->
+
 ## Improvements
 
 
