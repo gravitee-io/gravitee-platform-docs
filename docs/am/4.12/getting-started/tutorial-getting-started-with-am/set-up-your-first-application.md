@@ -31,10 +31,10 @@ You only need to create a new security domain for an application when you do not
 1. Login to AM Console.
 2.  From the user menu at the top right, click **Create domain**.
 
-    <figure><img src="../../.gitbook/assets/gs-tutorial-getting-started-with-am-26 (1).png" alt="" width="375"><figcaption><p>Create a new security domain</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gs-tutorial-getting-started-with-am-26.png" alt="" width="375"><figcaption><p>Create a new security domain</p></figcaption></figure>
 3.  Give your security domain a **Name** and a **Description** and click **CREATE**.
 
-    <figure><img src="../../.gitbook/assets/gs-tutorial-getting-started-with-am-27 (1).png" alt=""><figcaption><p>Define your new security domain</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gs-tutorial-getting-started-with-am-27.png" alt=""><figcaption><p>Define your new security domain</p></figcaption></figure>
 4.  Select the **click here** link on the banner to enable the domain.
 
     <figure><img src="../../.gitbook/assets/quickstart-enable-domain.png" alt=""><figcaption><p>Banner to enable domain</p></figcaption></figure>
@@ -69,11 +69,11 @@ In this example, we will create a regular web application.
 2. In the Applications page, click the plus icon ![plus icon](../../.gitbook/assets/plus-icon.png).
 3. Choose a **Web** application type.
 
-<figure><img src="../../.gitbook/assets/gs-tutorial-getting-started-with-am-30 (1).png" alt=""><figcaption><p>Select yourt desired Application type</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gs-tutorial-getting-started-with-am-30.png" alt=""><figcaption><p>Select yourt desired Application type</p></figcaption></figure>
 
 4. Give your application a **Name** and a **Redirect URI** (with HTTPS scheme and non-localhost) and click the **Create** button.
 
-<figure><img src="../../.gitbook/assets/gs-tutorial-getting-started-with-am-31 (1).png" alt=""><figcaption><p>New Application settings</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gs-tutorial-getting-started-with-am-31.png" alt=""><figcaption><p>New Application settings</p></figcaption></figure>
 
 {% hint style="info" %}
 This application will be used by end users, so we need to bind them with an identity provider.
@@ -89,16 +89,16 @@ In this example, we will create an In-memory identity provider with an inline us
 2. In the Identity Providers page, click the plus icon ![plus icon](../../.gitbook/assets/plus-icon.png).
 3. Choose **Inline** and click **Next**.
 
-<figure><img src="../../.gitbook/assets/gs-tutorial-getting-started-with-am-32 (1).png" alt=""><figcaption><p>Select new Identity Provider</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gs-tutorial-getting-started-with-am-32.png" alt=""><figcaption><p>Select new Identity Provider</p></figcaption></figure>
 
 4. Give your identity provider a **Name** and enter the user details, then click **Create**.
 
-<figure><img src="../../.gitbook/assets/gs-tutorial-getting-started-with-am-33 (1).png" alt=""><figcaption><p>Configure your new Identity Provider</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gs-tutorial-getting-started-with-am-33.png" alt=""><figcaption><p>Configure your new Identity Provider</p></figcaption></figure>
 
 5. Click **Applications** and select your web application.
 6. In the **Identity Providers** tab, select **Inline identity provider** and click **SAVE**.
 
-<figure><img src="../../.gitbook/assets/gs-tutorial-getting-started-with-am-34 (1).png" alt=""><figcaption><p>Select Identity Provider for this Application</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gs-tutorial-getting-started-with-am-34.png" alt=""><figcaption><p>Select Identity Provider for this Application</p></figcaption></figure>
 
 ## Test your identity provider with OAuth2
 
@@ -111,11 +111,11 @@ In the case of a **Web Application**, **Single Page Application** or **Native Ap
 1. Click **Applications** and select your web application.
 2. In the **Overview** tab, get to the **Initiate the Login flow** section and copy the given URL
 
-<figure><img src="../../.gitbook/assets/gs-tutorial-getting-started-with-am-35 (1).png" alt=""><figcaption><p>Obtain the Login Flow URL</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gs-tutorial-getting-started-with-am-35.png" alt=""><figcaption><p>Obtain the Login Flow URL</p></figcaption></figure>
 
 You will be redirected to the Login page where you can enter the credentials configured in the Identity Provider.
 
-<figure><img src="../../.gitbook/assets/gs-tutorial-getting-started-with-am-36 (1).png" alt=""><figcaption><p>Login Page for the Application (using Identity Provider)</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gs-tutorial-getting-started-with-am-36.png" alt=""><figcaption><p>Login Page for the Application (using Identity Provider)</p></figcaption></figure>
 
 Once logged in you will be redirected to the configured `redirect_uri` with the correct parameters regarding your OAuth2 configuration.
 

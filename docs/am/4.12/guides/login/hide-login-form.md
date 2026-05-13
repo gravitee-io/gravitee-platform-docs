@@ -28,4 +28,4 @@ To enable Hide Login Form:
 3. Go to **Settings > Login** or **Application > "Your app" > Settings > Login**.
 4. Switch on **Hide login form** and click **SAVE**.
 
-<figure><img src="../../.gitbook/assets/guide-login-hide-login-form-107 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/guide-login-hide-login-form-107.png" alt=""><figcaption></figcaption></figure>
