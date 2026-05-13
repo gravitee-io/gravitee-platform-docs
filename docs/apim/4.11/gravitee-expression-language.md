@@ -495,12 +495,12 @@ The EL (Expression Language) used for a message does not change based on phase. 
 On v4 Message APIs, some endpoint connectors read writable attributes off the current context or message and use them to override their runtime behavior. Set these keys with the [Assign Attributes](create-and-configure-apis/apply-policies/policy-reference/assign-attributes.md) policy to change connector behavior per request or per message.
 
 {% hint style="warning" %}
-The keys in this section apply only to v4 Message APIs that attach the Kafka **endpoint connector** — that is, APIs built with the **Introspect messages from event-driven backend** method (protocol mediation). For Kafka APIs built on the **Kafka Gateway** (native Kafka protocol), these keys have no effect — the Kafka Gateway routes traffic at the Kafka protocol level and doesn't read these Gravitee attributes. See the [Kafka Gateway](#kafka-gateway) section below for the EL surface available on Kafka APIs.
+The keys in this section apply only to v4 Message APIs that attach the Kafka **endpoint connector**. These are APIs built with the **Introspect messages from event-driven backend** method (protocol mediation). For Kafka APIs built on the **Kafka Gateway** (native Kafka protocol), these keys have no effect: the Kafka Gateway routes traffic at the Kafka protocol level and doesn't read these Gravitee attributes. See the [Kafka Gateway](#kafka-gateway) section below for the EL surface available on Kafka APIs.
 {% endhint %}
 
 {% tabs %}
 {% tab title="Kafka endpoint" %}
-The Kafka endpoint connector reads the following writable attributes. There are two prefixes — `gravitee.attribute.kafka.*` (hand-coded attribute names the connector reads at specific points) and `gravitee.attributes.endpoint.kafka.*` (handled by the endpoint's configuration evaluator and able to override any field on the shared configuration).
+The Kafka endpoint connector reads the following writable attributes. There are two prefixes: `gravitee.attribute.kafka.*` (hand-coded attribute names the connector reads at specific points) and `gravitee.attributes.endpoint.kafka.*` (handled by the endpoint's configuration evaluator and able to override any field on the shared configuration).
 
 <table>
     <thead>

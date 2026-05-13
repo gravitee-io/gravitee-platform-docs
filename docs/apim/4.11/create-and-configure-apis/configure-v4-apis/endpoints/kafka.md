@@ -110,7 +110,7 @@ Define the following:
 Each Kafka record consumed by the gateway carries metadata for the record key, topic, partition, and offset. Extract record metadata with EL using the syntax `{#message.metadata['key']}`. Supported metadata keys are `key`, `topic`, `partition`, and `offset`.
 
 {% hint style="info" %}
-These metadata keys are populated by the connector on every consumed record and exposed to EL through `{#message.metadata}`. For **writable attributes** that the connector reads back to override its runtime behavior — for example, to override the producer topic per message — see [Dynamic configuration](kafka.md#user-content-dynamic-configuration) below. The Expression Language reference lists every Kafka writable attribute in the [Writable message attributes by endpoint type](../../../gravitee-expression-language.md#writable-message-attributes-by-endpoint-type) section.
+These metadata keys are populated by the connector on every consumed record and exposed to EL through `{#message.metadata}`. For **writable attributes** that the connector reads back to override its runtime behavior (for example, to override the producer topic per message), see [Dynamic configuration](kafka.md#user-content-dynamic-configuration) below. The Expression Language reference lists every Kafka writable attribute in the [Writable message attributes by endpoint type](../../../gravitee-expression-language.md#writable-message-attributes-by-endpoint-type) section.
 {% endhint %}
 
 ### Subscriber Data

@@ -15,7 +15,7 @@ API consumers call or subscribe to Gateway APIs to retrieve data or functionalit
 {% hint style="warning" %}
 **Message attributes don't apply to Kafka APIs.** Kafka APIs proxy the native Kafka protocol, so the writable attribute keys documented for the Kafka **endpoint connector** (protocol mediation) have no effect here. Specifically, the `gravitee.attribute.kafka.*` and `gravitee.attributes.endpoint.kafka.*` keys described on the [Kafka endpoint reference](../../create-and-configure-apis/configure-v4-apis/endpoints/kafka.md) page are read by the Kafka endpoint only, not by the Kafka Gateway.
 
-To work with Kafka APIs through the Expression Language — for example, to read the authenticated principal, the client's bearer token, or per-record metadata — see the [Kafka Gateway](../../gravitee-expression-language.md#kafka-gateway) section of the Expression Language reference.
+To work with Kafka APIs through the Expression Language, see the [Kafka Gateway](../../gravitee-expression-language.md#kafka-gateway) section of the Expression Language reference. That section covers reading the authenticated principal, the client's bearer token, and per-record metadata.
 {% endhint %}
 
 ## The creation wizard
