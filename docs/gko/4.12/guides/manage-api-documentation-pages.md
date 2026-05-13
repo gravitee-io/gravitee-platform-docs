@@ -7,7 +7,7 @@ description: Documentation pages can be defined in the API definition CRDs
 {% hint style="warning" %}
 **New Developer Portal**
 
-Documentation pages defined in API definition CRDs apply to the Classic Developer Portal. They do not apply to the New Developer Portal, where API documentation is configured and published separately.
+Documentation pages defined in API definition CRDs apply to the Classic Developer Portal. They don't apply to the New Developer Portal, where API documentation is configured and published separately.
 {% endhint %}
 
 ## Overview
