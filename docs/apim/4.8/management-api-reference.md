@@ -1,5 +1,5 @@
 ---
-description: An overview about management api reference.
+description: An overview about management API reference.
 ---
 
 # Management API Reference
