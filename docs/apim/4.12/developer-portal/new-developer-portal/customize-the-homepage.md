@@ -155,7 +155,7 @@ By default, the Developer Portal homepage has the following content :
 ```
 
 {% hint style="info" %}
-The default homepage example above uses custom CSS classes (e.g., `.homepage-title`, `.flex-container`) that only target custom HTML elements. If you add your own `<style>` blocks, follow the same pattern: only style your own custom HTML classes and avoid targeting GMD component internals or portal built-in components (header, footer, sidebar, etc.), as their structure may change between releases. For more details, see [Add custom CSS to your theme](layout-and-theme.md#add-custom-css-to-your-theme).
+The default homepage example above uses custom CSS classes (for example, `.homepage-title` and `.flex-container`) that only target custom HTML elements. If you add your own `<style>` blocks, follow the same pattern: only style your own custom HTML classes and avoid targeting GMD component internals or portal built-in components such as the header, footer, and sidebar. Their internal structure is subject to change between releases. For more details, see [Add custom CSS to your theme](layout-and-theme.md#add-custom-css-to-your-theme).
 {% endhint %}
 
 To edit the homepage, complete the following steps:
