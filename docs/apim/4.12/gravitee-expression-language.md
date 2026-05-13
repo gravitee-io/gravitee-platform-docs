@@ -490,6 +490,64 @@ The EL (Expression Language) used for a message does not change based on phase. 
 {% endtab %}
 {% endtabs %}
 
+### Writable message attributes by endpoint type
+
+On v4 Message APIs, some endpoint connectors read writable attributes off the current context or message and use them to override their runtime behavior. Set these keys with the [Assign Attributes](create-and-configure-apis/apply-policies/policy-reference/assign-attributes.md) policy to change connector behavior per request or per message.
+
+{% hint style="warning" %}
+The keys in this section apply only to v4 Message APIs that attach the Kafka **endpoint connector**. These are APIs built with the **Introspect messages from event-driven backend** method (protocol mediation). For Kafka APIs built on the **Kafka Gateway** (native Kafka protocol), these keys have no effect: the Kafka Gateway routes traffic at the Kafka protocol level and doesn't read these Gravitee attributes. See the [Kafka Gateway](#kafka-gateway) section below for the EL surface available on Kafka APIs.
+{% endhint %}
+
+{% tabs %}
+{% tab title="Kafka endpoint" %}
+The Kafka endpoint connector reads the following writable attributes. There are two prefixes: `gravitee.attribute.kafka.*` (hand-coded attribute names the connector reads at specific points) and `gravitee.attributes.endpoint.kafka.*` (handled by the endpoint's configuration evaluator and able to override any field on the shared configuration).
+
+<table>
+    <thead>
+        <tr>
+            <th width="360">Attribute key</th>
+            <th width="170">Reads from</th>
+            <th>Effect</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>gravitee.attribute.kafka.topics</code></td>
+            <td>Context (consumer and producer), message (producer fallback)</td>
+            <td>Overrides the consumer topic list, or the producer topic list when no <code>producer.topics</code> attribute is set on the message.</td>
+        </tr>
+        <tr>
+            <td><code>gravitee.attribute.kafka.groupId</code></td>
+            <td>Context</td>
+            <td>Overrides the consumer group ID for the request.</td>
+        </tr>
+        <tr>
+            <td><code>gravitee.attribute.kafka.recordKey</code></td>
+            <td>Message, falls back to context</td>
+            <td>Sets the produced record's key.</td>
+        </tr>
+        <tr>
+            <td><code>gravitee.attribute.kafka.avroKey</code></td>
+            <td>Message</td>
+            <td>Sets a raw byte-buffer key on the produced record. Short-circuits <code>recordKey</code> when set, and adds an <code>avroKey</code> header to the record.</td>
+        </tr>
+        <tr>
+            <td><code>gravitee.attributes.endpoint.kafka.producer.topics</code></td>
+            <td>Message</td>
+            <td>Per-message override of the producer topic list. Read before the <code>kafka.topics</code> fallback. Routes the message to a different topic than the one configured on the endpoint.</td>
+        </tr>
+        <tr>
+            <td><code>gravitee.attributes.endpoint.kafka.&#x3C;field></code></td>
+            <td>Context</td>
+            <td>Per-request override of any field on the endpoint's shared configuration. For example, <code>gravitee.attributes.endpoint.kafka.consumer.topics</code> overrides the consumer topic list, and <code>gravitee.attributes.endpoint.kafka.security.sasl.saslMechanism</code> overrides the SASL mechanism.</td>
+        </tr>
+    </tbody>
+</table>
+
+For full details on what each Kafka attribute does and when the connector reads it, see the [Kafka endpoint reference](create-and-configure-apis/configure-v4-apis/endpoints/kafka.md).
+{% endtab %}
+{% endtabs %}
+
 ### Message metadata by endpoint type
 
 On v4 Message APIs (**Introspect messages from event-driven backend**), the gateway populates `{#message.metadata}` with keys specific to the endpoint connector that consumed the message from the backend. Use these keys in policy conditions, assign-attributes expressions, and dynamic routing to react to protocol-level data without parsing the payload.
