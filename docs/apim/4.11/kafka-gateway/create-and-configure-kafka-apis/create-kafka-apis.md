@@ -12,6 +12,12 @@ Gravitee Kafka APIs apply Gravitee API Management (APIM) capabilities directly t
 API consumers call or subscribe to Gateway APIs to retrieve data or functionality exposed by backend services. Gravitee defines three different types of Gateway APIs: proxy APIs, message APIs, and native APIs. These are differentiated by whether they proxy REST or event-driven APIs, and whether the Gravitee Gateway performs [protocol mediation](../../create-and-configure-apis/gravitee-api-definitions/#protocol-mediation) or proxies the native protocol.
 {% endhint %}
 
+{% hint style="warning" %}
+**Message attributes don't apply to Kafka APIs.** Kafka APIs proxy the native Kafka protocol, so the writable attribute keys documented for the Kafka **endpoint connector** (protocol mediation) have no effect here. Specifically, the `gravitee.attribute.kafka.*` and `gravitee.attributes.endpoint.kafka.*` keys described on the [Kafka endpoint reference](../../create-and-configure-apis/configure-v4-apis/endpoints/kafka.md) page are read by the Kafka endpoint only, not by the Kafka Gateway.
+
+To work with Kafka APIs through the Expression Language — for example, to read the authenticated principal, the client's bearer token, or per-record metadata — see the [Kafka Gateway](../../gravitee-expression-language.md#kafka-gateway) section of the Expression Language reference.
+{% endhint %}
+
 ## The creation wizard
 
 The API definitions for Kafka APIs can be generated using the APIM Console's API creation wizard, which is a UI-based tool that makes it easy to create Kafka APIs from scratch. To access the API creation wizard:
