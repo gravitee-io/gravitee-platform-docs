@@ -128,7 +128,7 @@ The following diagrams illustrate the component management, design, and self-hos
 
 ### Hybrid architecture diagram
 
-<figure><img src="../.gitbook/assets/hybrid-architecture-diagram.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/GraviteeAPIM-Hybrid-Architecture-2.png" alt=""><figcaption></figcaption></figure>
 
 In a typical hybrid architecture, the customer manages the Data Plane and Gravitee manages the Control Plane.
 

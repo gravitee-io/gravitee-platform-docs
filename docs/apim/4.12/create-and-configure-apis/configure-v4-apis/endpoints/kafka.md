@@ -12,7 +12,9 @@ metaLinks:
 The Kafka endpoint **mediates the protocol** between the Kafka cluster and the client that connects over HTTP. The API runtime on the gateway includes an embedded Kafka client that can produce and consume directly to and from the cluster.
 
 {% hint style="info" %}
-You can also use the [Gravitee Kafka Gateway](../../../kafka-gateway/) to proxy a Kafka cluster using the Kafka native protocol (over TCP).
+This page covers the **Kafka endpoint connector**, which mediates between HTTP-based entrypoints and a Kafka cluster (protocol mediation). The configuration options, record metadata, and attribute keys documented on this page apply to v4 Message APIs that attach this connector.
+
+To proxy a Kafka cluster using the native Kafka protocol (over TCP), use the [Gravitee Kafka Gateway](../../../kafka-gateway/) instead. The attribute keys on this page have no effect on Kafka APIs built on the Kafka Gateway.
 {% endhint %}
 
 This page discusses the [configuration](kafka.md#configuration) and [implementation](kafka.md#implementation) of the Kafka endpoint and includes a [reference](kafka.md#reference) section.
@@ -103,9 +105,13 @@ Define the following:
 {% endtab %}
 {% endtabs %}
 
-### Properties for Message Attributes
+### Kafka record metadata available to EL
 
-Each message within the gateway execution flow contains **metadata**, including the message key, topic, partition, and offset. To extract message metadata with EL, use the syntax `{#message.metadata.[]}`, e.g., `{#message.metadata.key}`. Supported attributes are `key`, `topic`, `partition`, and `offset`.
+Each Kafka record consumed by the gateway carries metadata for the record key, topic, partition, and offset. Extract record metadata with EL using the syntax `{#message.metadata['key']}`. Supported metadata keys are `key`, `topic`, `partition`, and `offset`.
+
+{% hint style="info" %}
+These metadata keys are populated by the connector on every consumed record and exposed to EL through `{#message.metadata}`. For **writable attributes** that the connector reads back to override its runtime behavior (for example, to override the producer topic per message), see [Dynamic configuration](kafka.md#user-content-dynamic-configuration) below. The Expression Language reference lists every Kafka writable attribute in the [Writable message attributes by endpoint type](../../../gravitee-expression-language.md#writable-message-attributes-by-endpoint-type) section.
+{% endhint %}
 
 ### Subscriber Data
 
