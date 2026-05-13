@@ -10,7 +10,7 @@ Configure the following properties in `gravitee.yaml` to enable OpenTelemetry tr
 |:---------|:------------|:--------|
 | `services.opentelemetry.enabled` | Enable OpenTelemetry globally on the gateway | `true` |
 | `services.opentelemetry.traces.enabled` | Enable OpenTelemetry tracing | `true` |
-| `services.opentelemetry.exporter.logsEndpoint` | OTLP HTTP endpoint for log records. Must be the full URL including signal path (e.g., `/v1/logs`). Log records are always exported over HTTP/protobuf (not gRPC) because Loki does not implement the gRPC LogsService. | `http://localhost:3100/otlp/v1/logs` |
+| `services.opentelemetry.exporter.logsEndpoint` | OTLP HTTP endpoint for log records. Must be the full URL including signal path (e.g., `/v1/logs`). Log records are always exported over HTTP/protobuf (not gRPC). | `http://localhost:3100/otlp/v1/logs` |
 | `services.opentelemetry.exporter.compression` | Compression algorithm for log export | `none` |
 | `services.opentelemetry.exporter.timeout` | Export timeout | `10s` |
 
