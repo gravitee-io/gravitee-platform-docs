@@ -7,7 +7,7 @@ You can customize the New Developer Portal with Gravitee Markdown (GMD).
 GMD supports standard Markdown, custom GMD components, and raw HTML/CSS (no JavaScript).
 
 {% hint style="info" %}
-All content within GMD is rendered with default styles that are customizable via [CSS tokens](layout-and-theme.md#available-css-tokens). If you use custom HTML and CSS beyond the supported tokens, only target your own custom HTML elements. Avoid targeting GMD component internals or portal built-in components, as their structure may change between releases. For details, see [Add custom CSS to your theme](layout-and-theme.md#add-custom-css-to-your-theme).
+All content within GMD is rendered with default styles that are customizable through [CSS tokens](layout-and-theme.md#available-css-tokens). If you use custom HTML and CSS beyond the supported tokens, only target your own custom HTML elements. Avoid targeting GMD component internals or portal built-in components, because their internal structure is subject to change between releases. For details, see [Add custom CSS to your theme](layout-and-theme.md#add-custom-css-to-your-theme).
 {% endhint %}
 
 Here are available Gravitee Markdown components:
@@ -276,7 +276,7 @@ The grid component provides a flexible layout for organizing content with column
 
 To add content to to your Grid, you must specify the number of columns with the `columns=` attribute, and then use either the `cell` component or any GMD component.
 
-The grid component's layout is responsive out of the box. If you need additional control over the grid layout, prefer wrapping your content in custom HTML elements with your own CSS classes rather than targeting internal GMD classes like `.grid-container`, which may change between releases.
+The grid component's layout is responsive out of the box. To gain additional control over the grid layout, wrap your content in custom HTML elements with your own CSS classes rather than targeting internal GMD classes such as `.grid-container`, which are subject to change between releases.
 
 The component adjusts to the following screens sizes:
 

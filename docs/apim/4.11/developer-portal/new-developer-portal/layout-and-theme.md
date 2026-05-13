@@ -102,12 +102,12 @@ Custom CSS overrides the default theme for the Developer Portal.
 {% hint style="warning" %}
 **CSS tokens vs. custom CSS**
 
-The recommended way to customize the portal is to use the [supported CSS tokens](#available-css-tokens). These tokens are guaranteed to remain stable as the portal evolves, and we are actively expanding the list. Feel free to request new tokens if needed.
+The recommended way to customize the portal is through the [supported CSS tokens](#available-css-tokens). These tokens are guaranteed to remain stable as the portal evolves, and Gravitee continues to expand the list.
 
-If the CSS tokens are not enough, you can write custom CSS in the Advanced CSS editor, but be aware of the following risks:
+If the CSS tokens aren't enough, write custom CSS in the Advanced CSS editor with the following caveats:
 
-- **Only style your own custom HTML.** Custom CSS should be used in tandem with custom HTML elements (e.g., inside documentation pages or the homepage). Avoid targeting Gravitee Markdown (GMD) component internals or any of the portal's built-in components (header, footer, sidebar, breadcrumbs, application views, subscription flows, etc.), as their underlying structure may change in future releases and break your styles.
-- **You own the responsiveness.** GMD components are responsive out of the box. When you use custom HTML and CSS instead, you are fully responsible for handling responsive behavior across screen sizes.
+- **Only style your own custom HTML.** Use custom CSS only alongside custom HTML elements, such as elements inside documentation pages or the homepage. Avoid targeting Gravitee Markdown (GMD) component internals or any of the portal's built-in components, including the header, footer, sidebar, breadcrumbs, application views, and subscription flows. Their underlying structure is subject to change in future releases, which would break your styles.
+- **You own the responsiveness.** GMD components are responsive out of the box. When you use custom HTML and CSS instead, you're fully responsible for handling responsive behavior across screen sizes.
 {% endhint %}
 
 You can add custom CSS to your Developer Portal's theme with the Advanced CSS editor. To add custom CSS to your Developer Portal's theme, complete the following steps:
@@ -138,7 +138,7 @@ You can add custom CSS to your Developer Portal's theme with the Advanced CSS ed
 
        <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><ul><li>To view all the available CSS tokens, click <strong>View available tokens</strong> .</li><li>For a full list of the available CSS tokens that you can use to customize your New Developer Portal, see <a data-mention href="layout-and-theme.md#available-css-tokens">#available-css-tokens</a>.</li></ul></div>
 
-   * Alternatively, you can enter custom CSS code in the **Advanced CSS box**. If you do, ensure you only target your own custom HTML elements (see the [warning above](#add-custom-css-to-your-theme) for details).
+   * Alternatively, in the **Advanced CSS box**, enter custom CSS code. Target only your own custom HTML elements (see the [warning above](#add-custom-css-to-your-theme) for details).
 
 ### Verification
 
