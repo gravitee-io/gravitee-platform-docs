@@ -6,6 +6,25 @@ description: >-
 
 # AM 4.8.x
 
+## Gravitee Access Management 4.8.35 - May 13, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* SCIM PUT/PATCH switches internal flag to false [#11425](https://github.com/gravitee-io/issues/issues/11425)
+
+</details>
+
+
 ## Gravitee Access Management 4.8.34 - May 12, 2026
 
 <details>
