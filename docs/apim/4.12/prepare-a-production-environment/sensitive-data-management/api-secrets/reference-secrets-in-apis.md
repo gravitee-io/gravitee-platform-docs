@@ -15,6 +15,24 @@ Secret provider plugins extend the operable range of secret managers to resolve 
 
 This article explains the syntax that you can use to resolve secrets in v4 APIs and configure secret managers.
 
+### How to reference secrets
+
+Every secret provider plugin enabled in `gravitee.yml` is usable from inside a v4 API definition with the `{#secrets.get(...)}` Gravitee Expression Language syntax described in this article. This includes AWS Secrets Manager (`aws`), HashiCorp Vault (`vault`), and Kubernetes Secrets (`kubernetes`).
+
+Inside a v4 API definition, the Gateway scans the following locations for secret references:
+
+* Listener entrypoint configuration
+* Endpoint configuration and shared configuration override
+* Endpoint group shared configuration
+* Endpoint group service discovery and health check services, and per-endpoint health check (proxy and message v4 APIs)
+* Resource configuration
+* Plan security configuration
+* Policy step configuration inside API flows and plan flows
+* Response template body and headers (proxy and message v4 APIs)
+* Dynamic property service
+
+Use a secret reference in any field within these locations that contains sensitive information, such as endpoint URLs, request and response headers, authentication credentials, and SSL/TLS or mTLS settings.
+
 {% hint style="warning" %}
 * This feature is available in Enterprise Edition only. To learn more about Gravitee Enterprise Edition, see [enterprise-edition.md](../../../readme/enterprise-edition.md "mention").
 * Secrets work with only v4 APIs.
