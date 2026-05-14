@@ -40,8 +40,8 @@ The policy will load the model while handling the first request made to the API.
 
 After the resource is created, the policy must be configured with the corresponding name using the **AI Model Resource Name** property.
 
-{% hint style="info" %}
-Ensure you add additional memory resources to the Gateway so the models can be loaded into memory.
+{% hint style="warning" %}
+Without sufficient Java heap, the Gateway throws an `OutOfMemoryError` when the AI Model Text Classification resource loads the selected model on the first request. The Llama Prompt Guard 86M variant expands to approximately 300M parameters in ONNX F32 representation, while the smallest option (BERT Tiny) carries 4.39M parameters. Size the Gateway heap based on the selected model and the number of APIs that use the resource. For per-model parameter counts and footprints, see [AI Model Text Classification - Model Reference and Performance Metrics](ai-model-text-classification-model-reference-and-performance-metrics.md). For JVM heap configuration on Docker Compose or Kubernetes, see [Gateway Resource Sizing](../../../prepare-a-production-environment/gateway-resource-sizing-guidelines.md).
 {% endhint %}
 
 ## Notice
