@@ -340,7 +340,7 @@ curl --location 'https://<your-gravitee-mapi-host>/management/v2/organizations/D
 
 </details>
 
-## Add content to your new Page
+### Add content to your new Page
 
 {% hint style="info" %}
 &#x20;For OpenAPI specs, ensure the `content` is a valid JSON string and `type` is `SWAGGER`. If you use Markdown, ensure the `type` is set to `MARKDOWN`.
@@ -462,7 +462,7 @@ curl --location --request PUT 'https://<your-gravitee-mapi-host>/management/v2/o
 
 </details>
 
-## Verification
+### Verification
 
 * The API page has the `published` status in the Developer Portal Console.
 
