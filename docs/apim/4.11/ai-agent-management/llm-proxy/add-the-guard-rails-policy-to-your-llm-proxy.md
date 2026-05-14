@@ -13,6 +13,7 @@ You might receive an error when you use this policy using the Gravitee's docker 
 * Access to one of the following LLM providers: OpenAI API, Gemini, or Bedrock, and an OpenAI-compatible LLM.
 * A fully Self-Hosted Installation of APIM or a Hybrid Installation of APIM. For more information about installing APIM, see [self-hosted-installation-guides](../../self-hosted-installation-guides/ "mention") and [hybrid-installation-and-configuration-guides](../../hybrid-installation-and-configuration-guides/ "mention").
 * An Enterprise License. For more information about obtaining an Enterprise license, see [enterprise-edition.md](../../readme/enterprise-edition.md "mention").
+* Sufficient Java heap on the Gateway to load the selected text classification model. Without enough heap, the Gateway throws an `OutOfMemoryError` when the model loads on the first request. For per-model parameter counts and footprints, see [AI Model Text Classification - Model Reference and Performance Metrics](../../create-and-configure-apis/apply-policies/policy-reference/ai-model-text-classification-model-reference-and-performance-metrics.md). For JVM heap configuration, see [Gateway Resource Sizing](../../prepare-a-production-environment/gateway-resource-sizing-guidelines.md).
 * Complete the steps in [proxy-your-llms.md](proxy-your-llms.md "mention").
 
 ## Add Guard Rails policy to your LLM proxy
