@@ -21,11 +21,11 @@ Before you structure your navigation, complete the following steps:
 
 ## Structure your navigation with the Management API
 
-1. (**one time operation)** Create a Portal folder
-2. Obtain the ID of your API
-3. Add the API to your Developer Portal&#x20;
-4. Add a new Page to your API
-5. Add content to your Page
+1. [#one-time-operation-create-a-portal-folder](structure-the-navigation-with-the-management-api.md#one-time-operation-create-a-portal-folder "mention")
+2. [#obtain-the-id-api](structure-the-navigation-with-the-management-api.md#obtain-the-id-api "mention")
+3. [#add-the-api-to-the-developer-portal](structure-the-navigation-with-the-management-api.md#add-the-api-to-the-developer-portal "mention")
+4. [#add-a-new-page-to-your-api](structure-the-navigation-with-the-management-api.md#add-a-new-page-to-your-api "mention")
+5. [#add-content-to-your-new-page](structure-the-navigation-with-the-management-api.md#add-content-to-your-new-page "mention")
 
 
 
