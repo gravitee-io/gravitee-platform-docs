@@ -4,6 +4,12 @@ description: Documentation pages can be defined in the API definition CRDs
 
 # Manage API documentation pages
 
+{% hint style="warning" %}
+**New Developer Portal**
+
+Documentation pages defined in API definition CRDs apply to the Classic Developer Portal. They don't apply to the New Developer Portal, where API documentation is configured and published separately.
+{% endhint %}
+
 ## Overview
 
 The `ApiV4Definition` and `ApiDefinition` CRDs both allow documentation pages to be created alongside the API. Generally speaking, the CRDs support all of the documentation page types offered by Gravitee API Management: OpenAPI specifications (a.k.a. Swagger), AsyncAPI definitions, Markdown pages, AsciiDoc pages, and folders.
