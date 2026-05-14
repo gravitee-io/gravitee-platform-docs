@@ -62,7 +62,7 @@ You can specify the JVM memory sizing for each of the Gravitee nodes.
 {% hint style="warning" %}
 * `GIO_MIN_MEM` is the same as `Xms` and `GIO_MAX_MEM` is the same as `Xmx` .
 * To avoid resizing during normal JVM operations, set the same value for both the `GIO_MIN_MEM` and the `GIO_MAX_MEM` .
-* If using AI-powered policies (e.g., PII Filtering Policy), increase Java heap size based on the number of APIs using the policy and the selected AI model size. Ensure `$GRAVITEE_HOME/models` directory has write permissions for automatic model downloads.
+* AI-powered policies such as **AI Prompt Guard Rails** and **PII Filtering** load ONNX classification models into the Gateway's Java heap on the first request to an API that uses the resource. Without sufficient heap, the Gateway throws an `OutOfMemoryError` when the model loads. Size the heap based on the selected model and the number of APIs that use the resource. Available text classification models range from 4.39M parameters (BERT Tiny) up to approximately 300M parameters (Detoxify ONNX, and Llama Prompt Guard 86M in ONNX F32 representation). For per-model parameter counts and footprints, see [AI Model Text Classification - Model Reference and Performance Metrics](../create-and-configure-apis/apply-policies/policy-reference/ai-model-text-classification-model-reference-and-performance-metrics.md). The resource downloads model files to `$GRAVITEE_HOME/models` on first use, so the user running the Gateway needs write permission on that directory. The ONNX Runtime isn't supported on Alpine Linux. Use the Debian-based image (`graviteeio/apim-gateway:<version>-debian`).
 {% endhint %}
 
 {% tabs %}
