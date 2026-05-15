@@ -29,7 +29,8 @@ to_entries[]
       ecol: (.Span[1] + 1)
     } ) as $pos
 | {
-    message: "[\(.Check)] \(.Message)",
+    message: ( "[\(.Check)] \(.Message)"
+               + ( if (.Link // "") != "" then " (\(.Link))" else "" end ) ),
     location: {
       path: $path,
       range: {
