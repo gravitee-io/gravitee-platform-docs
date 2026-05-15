@@ -17,6 +17,10 @@ All items from the import bundle are imported, for example, groups, members, pag
 
 Additional information that applies to importing an OpenAPI specification can be found [below](import-apis.md#importing-an-openapi-spec).
 
+For v4 APIs, the Import button opens a unified **Update API** modal that supports both creating new APIs and updating existing APIs. The modal accepts **Gravitee v4 Definition** (applicable to all v4 API types except Federated APIs) and **OpenAPI Specification** (applicable to v4 HTTP Proxy APIs only). WSDL is displayed but currently disabled. The imported file fully overwrites the API configuration, including endpoints, flows, plans, pages, and metadata. The API ID, deployment state, and origin metadata are preserved. Plans absent from the import are deleted. Pages and flows are matched by identifier or key and updated in place; unmatched items are removed. The update is atomic.
+
+For v2 APIs, the Import button continues to open the legacy import dialog.
+
 {% hint style="warning" %}
 When you import an API with a JSON payload that has duplicate keys, APIM keeps the last key.
 
@@ -153,7 +157,7 @@ To use a vendor extension, add the `x-graviteeio-definition` field at the root o
   * URL
 * Picture only accepts Data-URI format. Please see the example below.
 
-<pre class="language-yaml" data-title="Example"><code class="lang-yaml"><strong>openapi: "3.0.0"
+<pre class="language-yaml" data-title="Example"><code class="lang-yaml"><strong>OpenAPI: "3.0.0"
 </strong>info:
   version: 1.2.3
   title: Gravitee Echo API
