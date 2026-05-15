@@ -14,7 +14,7 @@ description: >-
 
 =**What's new!**
 
-* UserProfile claims exentension
+* UserProfile claims extension
 
 </details>
 
