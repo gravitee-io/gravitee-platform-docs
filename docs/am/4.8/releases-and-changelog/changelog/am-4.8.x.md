@@ -6,6 +6,25 @@ description: >-
 
 # AM 4.8.x
 
+## Gravitee Access Management 4.8.36 - May 15, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* 'Master' attribute value is inconsistent when listing domains vs retrieving a specific domain [#11422](https://github.com/gravitee-io/issues/issues/11422)
+
+</details>
+
+
 ## Gravitee Access Management 4.8.35 - May 13, 2026
 
 <details>
