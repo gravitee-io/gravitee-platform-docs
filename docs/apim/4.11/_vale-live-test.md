@@ -33,7 +33,7 @@ Restart the gateway, then restart the the cache after the change.
 
 ## First person plural
 
-We recommend that we secure the gateway before we expose it publicly.
+I recommend that I secure the gateway before I expose it publicly.
 
 ## First person singular
 
