@@ -17,7 +17,7 @@ If the gateway does not respond, don't retry the request immediately.
 
 ## Word choice
 
-Open the developer portal, check the alert engine, then visit gravitee.io.
+Open the portal afterwards, then administrate the engine.
 
 ## Wordiness
 
