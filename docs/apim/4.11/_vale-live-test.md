@@ -13,7 +13,7 @@ The api reference page documents every api endpoint in detail.
 
 ## Contractions
 
-If the gateway does not respond, do not retry the request immediately.
+If the gateway does not respond, don't retry the request immediately.
 
 ## Word choice
 
