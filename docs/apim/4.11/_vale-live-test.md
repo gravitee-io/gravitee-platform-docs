@@ -4,30 +4,49 @@
 
 # Vale live test page
 
-## Terminology check (expect button, fix api to API)
+<!-- Sections below are grouped: first the ones that get a Commit-suggestion -->
+<!-- button, then the ones that stay plain comments (no safe auto-fix). -->
+
+## Terminology
 
 The api reference page documents every api endpoint in detail.
 
-## Contraction check (expect button, fix do not to don't)
+## Contractions
 
 If the gateway does not respond, do not retry the request immediately.
 
-## Word choice check (expect button, fix to canonical term)
+## Word choice
 
 Open the developer portal, check the alert engine, then visit gravitee.io.
 
-## Adverb check (expect button that deletes the word)
+## Wordiness
+
+You can utilize the gateway in order to proxy requests.
+
+## Adverbs
 
 The gateway is very fast and really reliable in production.
 
-## Repetition check (expect button, fix the the to the)
+## Repetition
 
-Restart the the gateway after applying the configuration change.
+Restart the gateway, then restart the the cache after the change.
 
-## First person check (expect plain comment, no button)
+## First person plural
 
 We recommend that we secure the gateway before we expose it publicly.
 
-## Sentence length check (expect plain comment, no button)
+## First person singular
 
-This sentence is intentionally written to be far longer than it really needs to be so that it comfortably exceeds the configured maximum sentence length and is flagged by the Microsoft sentence length rule without offering any automatic fix whatsoever.
+I think the gateway configuration looks fine to me.
+
+## Double spaces
+
+This line has a  double space in the middle of it on purpose.
+
+## Spelling
+
+This line contains a mispeled word for the spelling rule.
+
+## Sentence length
+
+This sentence is intentionally written to be far longer than it needs to so that it comfortably exceeds the configured maximum sentence length and is flagged by the Microsoft sentence length rule without offering any automatic fix at all.
