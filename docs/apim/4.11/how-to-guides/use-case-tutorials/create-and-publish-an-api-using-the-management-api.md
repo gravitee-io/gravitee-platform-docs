@@ -186,6 +186,12 @@ You can now view your API in your Gravitee API Management Console. The API has t
 
 ## 7. (Optional) Publish the API to the Developer Portal
 
+{% hint style="info" %}
+Applies to publishing an API to the Classic Developer Portal
+
+For the New Developer Portal (released in v4.11) please see here: [structure-the-navigation-with-the-management-api.md](../../developer-portal/new-developer-portal/customize-the-navigation/structure-the-navigation-with-the-management-api.md "mention")
+{% endhint %}
+
 If you want to publish your API to the Developer Portal, you must modify its configuration. To modify the APIs configuration, complete the following steps:
 
 1. From the JSON response of the Create API Request, modify the `lifecycleState` attribute to value `PUBLISHED`, and then send the result in a `PUT` request like the following example:
