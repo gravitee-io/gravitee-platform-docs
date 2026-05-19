@@ -1,5 +1,49 @@
 # APIM 4.11.x
  
+## Gravitee API Management 4.11.7 - May 19, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Health Check endpoint doesn't execute [#11394](https://github.com/gravitee-io/issues/issues/11394)
+* Gravitee API Product adoption issues [#11417](https://github.com/gravitee-io/issues/issues/11417)
+* Webhook subscriptions fail with NPE [#11419](https://github.com/gravitee-io/issues/issues/11419)
+
+**Management API**
+
+* APIM v4.11.x Failing Changeset || Orphan plans [#11365](https://github.com/gravitee-io/issues/issues/11365)
+* API Proxy deployment using Terraform provider fail [#11378](https://github.com/gravitee-io/issues/issues/11378)
+* Validation of duplicated context paths does not check secondary context paths [#11409](https://github.com/gravitee-io/issues/issues/11409)
+* Shared API key renewal persists new key with environmentId=null [#11439](https://github.com/gravitee-io/issues/issues/11439)
+* JDBC: Liquibase changeset 1.25.2-rebuild-key-pk-other precondition is schema-blind on Postgres/MSSQL/H2 [#11440](https://github.com/gravitee-io/issues/issues/11440)
+
+**Console**
+
+* Unable to Change the Custom Timeframe after Error [#11154](https://github.com/gravitee-io/issues/issues/11154)
+* Deprecated plans missing from Policy Studio for v4 APIs [#11399](https://github.com/gravitee-io/issues/issues/11399)
+* Payload Search Not Working [#11403](https://github.com/gravitee-io/issues/issues/11403)
+
+**Portal**
+
+* Payload Search Not Working [#11403](https://github.com/gravitee-io/issues/issues/11403)
+* Error 500 when trying to filter logs in the developer portal [#11405](https://github.com/gravitee-io/issues/issues/11405)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Management API**
+
+* Maintain an in-memory API path index to avoid full-catalog scan on path collision check [#11424](https://github.com/gravitee-io/issues/issues/11424)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.11.6 - May 7, 2026
 <details>
 
