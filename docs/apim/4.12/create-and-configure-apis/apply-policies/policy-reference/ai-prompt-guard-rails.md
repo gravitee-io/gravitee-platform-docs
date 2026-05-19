@@ -13,7 +13,7 @@ This policy uses an AI-powered text classification model to evaluate user prompt
 
 For LLM-backed APIs, the policy supports prompt injection detection using Llama Prompt Guard models (22M and 86M variants). These models identify attempts to override or manipulate system instructions in user prompts, returning `BENIGN` (safe prompt) or `MALICIOUS` (injection/jailbreak attempt). Both variants support 8 languages (English, French, German, Hindi, Italian, Portuguese, Spanish, Thai) and a 512-token context window. The 22M variant is recommended for production use due to superior accuracy and performance.
 
-Depending on configuration, when a prompt is flagged:
+Depending on the configuration, when a prompt is flagged:
 
 * **Blocked and flagged** – the request is denied at the gateway
 * **Allowed but flagged** – the request proceeds but is logged for monitoring
@@ -24,9 +24,9 @@ You may face an error when using this policy using the Gravitee's docker image. 
 
 ## Content Checks
 
-The Content Checks property specifies the classification labels that are applied to evaluate prompts. You should choose Labels in alignment with the selected model's capabilities and the intended filtering goals. For example, filtering for profanity while omitting toxicity checks.
+The `contentChecks` property is a comma-separated list of the classification labels the policy evaluates. The policy compares every label the model returns against this list using an exact, case-sensitive string match. Enter each label exactly as the model returns it, including case (`toxic`, not `TOXIC`). Whitespace around commas is ignored. Leave `contentChecks` empty to evaluate against every label the model returns.
 
-Supported labels are documented in the model’s card or configuration file.
+The valid labels depend on the model selected in the AI Model Text Classification resource. Each model returns its own fixed label set, for example, binary `toxic` / `not-toxic`, the six-label Jigsaw set, or `BENIGN` / `MALICIOUS` for the Llama Prompt Guard models. For the full per-model label list, see[ AI Model Text Classification - Model Reference and Performance Metrics.](ai-model-text-classification-model-reference-and-performance-metrics.md)
 
 ## AI Model Resource
 
@@ -35,7 +35,7 @@ The policy requires an **AI Model Text Classification Resource** to be defined a
 For more information about creating and managing resources, go to [Resources](https://documentation.gravitee.io/apim/policies/resources)
 
 {% hint style="info" %}
-The policy will load the model while handling the first request made to the API. Therefore, this first call will take longer than usual because it includes model loading time. Subsequent requests will be processed faster.  When multiple APIs use the same **AI Model Text Classification Resource**, the gateway will load it into memory only once. So if you have 50 APIs, each with the same resource, then the gateway only loads that model once.
+The policy will load the model while handling the first request made to the API. Therefore, this first call will take longer than usual because it includes model loading time. Subsequent requests will be processed faster. When multiple APIs use the same **AI Model Text Classification Resource**, the gateway will load it into memory only once. So if you have 50 APIs, each with the same resource, then the gateway only loads that model once.
 {% endhint %}
 
 After the resource is created, the policy must be configured with the corresponding name using the **AI Model Resource Name** property.
