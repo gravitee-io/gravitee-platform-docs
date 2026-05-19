@@ -1,5 +1,34 @@
 # APIM 4.10.x
  
+## Gravitee API Management 4.10.15 - May 19, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Health Check endpoint doesn't execute [#11394](https://github.com/gravitee-io/issues/issues/11394)
+
+**Management API**
+
+* Validation of duplicated context paths does not check secondary context paths [#11409](https://github.com/gravitee-io/issues/issues/11409)
+* Shared API key renewal persists new key with environmentId=null [#11439](https://github.com/gravitee-io/issues/issues/11439)
+
+**Console**
+
+* Unable to Change the Custom Timeframe after Error [#11154](https://github.com/gravitee-io/issues/issues/11154)
+* Deprecated plans missing from Policy Studio for v4 APIs [#11399](https://github.com/gravitee-io/issues/issues/11399)
+* Payload Search Not Working [#11403](https://github.com/gravitee-io/issues/issues/11403)
+
+**Portal**
+
+* Payload Search Not Working [#11403](https://github.com/gravitee-io/issues/issues/11403)
+* Error 500 when trying to filter logs in the developer portal [#11405](https://github.com/gravitee-io/issues/issues/11405)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.10.14 - May 7, 2026
 <details>
 
