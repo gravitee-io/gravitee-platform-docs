@@ -433,6 +433,8 @@ curl -X PATCH \
 Once a client is set up as a template, it can no longer be used for authentication purposes.
 {% endhint %}
 
+Template applications can also serve as CIMD templates, inheriting OAuth settings to CIMD clients. Template applications used as CIMD templates cannot be deleted or un-templated, and display a "CIMD Template Application" badge in the UI.
+
 <figure><img src="../../.gitbook/assets/graviteeio-am-userguide-domain-dcr-templates.png" alt=""><figcaption><p>Client overview</p></figcaption></figure>
 
 #### Register call with template example

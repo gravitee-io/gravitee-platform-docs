@@ -4,3 +4,11 @@ SUMMARY.md
 guides/auth-protocols/saml-2.0.md
 guides/identity-providers/enterprise-identity-providers/saml-2.0.md
 releases-and-changelog/release-notes/am-4.12.md
+.gitbook/assets/am-cimd-settings-advanced.png
+.gitbook/assets/am-cimd-settings-disabled.png
+.gitbook/assets/am-cimd-settings-enabled.png
+getting-started/configuration/configure-am-gateway/cimd-gateway-configuration-reference.md
+guides/applications/README.md
+guides/applications/client-id-metadata-document-cimd-overview.md
+guides/applications/implement-cimd-clients.md
+guides/security-domains/enable-cimd-for-a-domain.md
