@@ -162,6 +162,7 @@
     * [Documentation](create-and-configure-apis/configure-v4-apis/documentation.md)
     * [Audit Logs](create-and-configure-apis/configure-v4-apis/audit-logs.md)
     * [Version History](create-and-configure-apis/configure-v4-apis/version-history.md)
+    * [Load balancing and failover](create-and-configure-apis/configure-v4-apis/load-balancing-and-failover.md)
   * [Configure v2 APIs](create-and-configure-apis/configure-v2-apis/README.md)
     * [General Settings](create-and-configure-apis/configure-v2-apis/general-settings.md)
     * [Proxy Settings](create-and-configure-apis/configure-v2-apis/proxy-settings.md)
