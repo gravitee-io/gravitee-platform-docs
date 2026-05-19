@@ -35,7 +35,7 @@ curl --request POST \
   --data 'password={password}'
 ```
 
-The response will contain an access token and a refresh token (+ id\_token if you have specified the openid scope).
+The response will contain an access token and a refresh token (+ id\_token if you have specified the OpenID scope).
 
 ```sh
 {
@@ -70,7 +70,7 @@ curl --request POST \
 By default the refresh token is single use only. See [refresh token rotation](refresh-tokens.md#refresh-token-rotation) for more information.
 {% endhint %}
 
-The response will contain an access token and a **new** refresh token (+ id\_token if you have specified the openid scope).
+The response will contain an access token and a **new** refresh token (+ id\_token if you have specified the OpenID scope).
 
 ```sh
 {
@@ -101,6 +101,10 @@ curl --request POST \
 ```
 
 The application should match the one for which the refresh token was issued.
+
+### Automatic Revocation for CIMD Clients
+
+When the **Revoke Tokens And Consents When Client Metadata Changes** setting is enabled for a domain, all access tokens, refresh tokens, and scope approvals for a CIMD client are automatically revoked if the SHA-256 hash of the metadata document changes. This policy detects changes in remote CIMD metadata only; changes to the template application do not trigger revocation.
 
 ## Refresh token rotation
 

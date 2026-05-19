@@ -4,3 +4,12 @@ SUMMARY.md
 guides/auth-protocols/saml-2.0.md
 guides/identity-providers/enterprise-identity-providers/saml-2.0.md
 releases-and-changelog/release-notes/am-4.12.md
+getting-started/configuration/configure-am-gateway/README.md
+getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md
+guides/applications/README.md
+guides/applications/cimd-logo-endpoint-and-discovery-metadata.md
+guides/applications/cimd-restrictions-and-constraints.md
+guides/auth-protocols/client-id-metadata-document-cimd-overview.md
+guides/auth-protocols/oauth-2.0/cimd-client-usage-and-runtime-behavior.md
+guides/auth-protocols/oauth-2.0/refresh-tokens.md
+guides/security-domains/enable-cimd-for-a-domain.md

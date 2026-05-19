@@ -158,7 +158,7 @@ http:
 
 ### **Enable HTTPS support**
 
-First, you need to provide a keystore. If you don’t have one, you can generate it:
+First, you need to provide a keystore. If you don't have one, you can generate it:
 
 ```sh
 keytool -genkey \
@@ -202,7 +202,7 @@ Basic authentication uses a username and password to authenticate with the SMTP 
 
 {% code title="gravitee.yml" %}
 ```yaml
-# SMTP configuration used to send mails
+
 email:
   enabled: false
   host: smtp.my.domain
@@ -212,15 +212,15 @@ email:
   username: user@my.domain
   password: password
   authMethod: basic
-#  properties:
-#    auth: true
-#    starttls.enable: true
-#    ssl.trust: smtp.gmail.com
-#    ssl.protocols: TLSv1.2
 
-# Mail templates
+
+
+
+
+
+
 #templates:
-#  path: ${gravitee.home}/templates
+
 ```
 {% endcode %}
 
@@ -230,7 +230,7 @@ OAuth2 authentication provides enhanced security by using token-based authentica
 
 {% code title="gravitee.yml" %}
 ```yaml
-# SMTP configuration used to send mails
+
 email:
   enabled: false
   host: smtp.my.domain
@@ -246,15 +246,15 @@ email:
     refreshToken: ABCD1234
     scope: https://mail.google.com/
 
-#  properties:
-#    auth: true
-#    starttls.enable: true
-#    ssl.trust: smtp.gmail.com
-#    ssl.protocols: TLSv1.2
 
-# Mail templates
+
+
+
+
+
+
 #templates:
-#  path: ${gravitee.home}/templates
+
 ```
 {% endcode %}
 
@@ -331,52 +331,52 @@ repositories:
       dbname: ${ds.mongodb.dbname}
       host: ${ds.mongodb.host}
       port: ${ds.mongodb.port}
-#      username:
-#      password:
-#      connectionsPerHost: 0
-#      connectTimeout: 500
-#      maxWaitTime: 120000
-#      socketTimeout: 500
-#      socketKeepAlive: false
-#      maxConnectionLifeTime: 0
-#      maxConnectionIdleTime: 0
-#      serverSelectionTimeout: 0
-#      description: gravitee.io
-#      heartbeatFrequency: 10000
-#      minHeartbeatFrequency: 500
-#      heartbeatConnectTimeout: 1000
-#      heartbeatSocketTimeout: 20000
-#      localThreshold: 15
-#      minConnectionsPerHost: 0
-#      sslEnabled: false
-#      threadsAllowedToBlockForConnectionMultiplier: 5
-#      cursorFinalizerEnabled: true
-#      keystore:
-#        keystorePassword:
-#        keyPassword
 
-# Management repository: single MongoDB using URI
-# For more information about MongoDB configuration using URI, please have a look to:
-# - http://api.mongodb.org/java/current/com/mongodb/MongoClientURI.html
-#repositories:
-#  management:
-#    type: mongodb
-#    mongodb:
-#      uri: mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]
 
-# Management repository: clustered MongoDB
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #repositories:
-#  management:
-#    type: mongodb
-#    mongodb:
-#      servers:
-#        - host: mongo1
-#          port: 27017
-#        - host: mongo2
-#          port: 27017
-#      dbname: ${ds.mongodb.dbname}
-#      connectTimeout: 500
-#      socketTimeout: 250
+
+
+
+
+
+
+#repositories:
+
+
+
+
+
+
+
+
+
+
+
 ```
 {% endcode %}
 
@@ -463,6 +463,33 @@ httpClient:
     keepAliveTimeout: 60 # in seconds
 ```
 
+### Configure CIMD settings
+
+Configure Client ID Metadata Document (CIMD) support at the gateway level by adding the following properties to `gravitee.yml`:
+
+{% code title="gravitee.yml" %}
+```yaml
+oidc:
+  cimdSettings:
+    enabled: false
+    templateId: app-123 # Application ID of the template used for CIMD clients (required when enabled)
+    allowPrivateIpAddress: false # Allow metadata document requests to private, loopback, and link-local IP addresses
+    allowUnsecuredHttpUri: false # Allow metadata document requests to plain HTTP (non-HTTPS) URIs
+    fetchTimeoutMs: 3000 # Timeout in milliseconds for fetching client metadata documents
+    maxResponseSizeKb: 20 # Maximum allowed size of a metadata response in kilobytes
+    allowedDomains: # Restrict metadata document to these domains (supports wildcard for first-level subdomain). Empty list allows all domains
+      - "*.example.com"
+      - "trusted.org"
+    cacheTtlSeconds: 3600 # Time-to-live for cached metadata responses in seconds
+    cacheMaxEntries: 500 # Maximum number of entries to store in the metadata cache
+    revokeOnDocumentChange: false # Revoke all tokens and consents when CIMD metadata document hash changes
+```
+{% endcode %}
+
+<table><thead><tr><th>Property</th><th>Description</th><th>Example</th></tr></thead><tbody><tr><td><code>oidc.cimdSettings.enabled</code></td><td>Enable Client ID Metadata Document support</td><td><code>false</code></td></tr><tr><td><code>oidc.cimdSettings.templateId</code></td><td>Application ID of the template used for CIMD clients (required when enabled)</td><td><code>app-123</code></td></tr><tr><td><code>oidc.cimdSettings.allowPrivateIpAddress</code></td><td>Allow metadata document requests to private, loopback, and link-local IP addresses</td><td><code>false</code></td></tr><tr><td><code>oidc.cimdSettings.allowUnsecuredHttpUri</code></td><td>Allow metadata document requests to plain HTTP (non-HTTPS) URIs</td><td><code>false</code></td></tr><tr><td><code>oidc.cimdSettings.fetchTimeoutMs</code></td><td>Timeout in milliseconds for fetching client metadata documents</td><td><code>3000</code></td></tr><tr><td><code>oidc.cimdSettings.maxResponseSizeKb</code></td><td>Maximum allowed size of a metadata response in kilobytes</td><td><code>20</code></td></tr><tr><td><code>oidc.cimdSettings.allowedDomains</code></td><td>Restrict metadata document to these domains (supports wildcard for first-level subdomain). Empty list allows all domains</td><td><code>["*.example.com", "trusted.org"]</code></td></tr><tr><td><code>oidc.cimdSettings.cacheTtlSeconds</code></td><td>Time-to-live for cached metadata responses in seconds</td><td><code>3600</code></td></tr><tr><td><code>oidc.cimdSettings.cacheMaxEntries</code></td><td>Maximum number of entries to store in the metadata cache</td><td><code>500</code></td></tr><tr><td><code>oidc.cimdSettings.revokeOnDocumentChange</code></td><td>Revoke all tokens and consents when CIMD metadata document hash changes</td><td><code>false</code></td></tr></tbody></table>
+
+JWKS public keys presented in CIMD metadata are stored in the in-memory cache alongside keys for pre-registered clients. This cache is configured using `gravitee.yml` settings.
+
 ### Token request response
 
 By default, all additional parameters, except for the following standard parameters are mapped to `/token` response:
@@ -512,7 +539,7 @@ In development environment with a single AM Gateway you can use standalone witho
 {% endhint %}
 
 ```yaml
-# Configure cache implementation
+
 cache:
   type: redis
   redis:
@@ -546,7 +573,7 @@ cache:
 Configuring the `cache` section is not enough, the second step is to enable the cache usage for user profile into the `user` section.
 
 ```yaml
-# User management configuration
+
 user:user
   # keep user profile during authentication flow
   # into a cache to limit read access to the Database
