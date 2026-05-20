@@ -30,6 +30,7 @@
 * [Configuration](getting-started/configuration/README.md)
   * [AM Gateway](getting-started/configuration/configure-am-gateway/README.md)
     * [Internal API](getting-started/configuration/configure-am-gateway/internal-api.md)
+    * [CIMD Gateway Configuration Reference](getting-started/configuration/configure-am-gateway/cimd-gateway-configuration-reference.md)
   * [AM API](getting-started/configuration/configure-am-api/README.md)
     * [Internal API](getting-started/configuration/configure-am-api/internal-api.md)
   * [AM Console](getting-started/configuration/configure-am-console.md)
@@ -53,11 +54,14 @@
 
 ## Guides
 
+* [Enable and Configure CIMD in the Console](guides/enable-and-configure-cimd-in-the-console.md)
 * [OAuth 2.0 Token Exchange](guides/oauth-2.0-token-exchange-concepts/README.md)
   * [OAuth 2.0 Token Exchange Configuration](guides/oauth-2.0-token-exchange-concepts/oauth-2.0-token-exchange-configuration-reference.md)
   * [OAuth 2.0 Token Exchange API](guides/oauth-2.0-token-exchange-concepts/oauth-2.0-token-exchange-api-reference.md)
 * [Prologue](guides/prologue.md)
 * [Auth Protocols](guides/auth-protocols/README.md)
+  * [CIMD Client Authentication Flow and Endpoints](guides/auth-protocols/cimd-client-authentication-flow-and-endpoints.md)
+  * [CIMD Overview and Key Concepts](guides/auth-protocols/cimd-overview-and-key-concepts.md)
   * [OAuth 2.0](guides/auth-protocols/oauth-2.0/README.md)
     * [Which Flow Should I Use?](guides/auth-protocols/oauth-2.0/which-flow-should-i-use.md)
     * [Proof Key for Code Exchange (PKCE)](guides/auth-protocols/oauth-2.0/proof-key-for-code-exchange-pkce.md)

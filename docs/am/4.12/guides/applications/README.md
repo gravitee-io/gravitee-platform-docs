@@ -12,6 +12,8 @@ _Applications_ act on behalf of the user to request tokens, hold user identity i
 
 Application definitions apply at the _security domain_ level.
 
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Client ID Metadata Document (CIMD)</strong></td><td>Learn how to configure CIMD clients that inherit configuration from a template application and do not require pre-registration.</td><td>client-id-metadata-document-cimd.md</td></tr></tbody></table>
+
 ## Create an application
 
 ### AM Console
