@@ -141,7 +141,7 @@ managementcontext.gravitee.io/management-context-1 created
 
 Now that you've defined a way for GKO to communicate with a Gravitee API Management instance, you can create your first GKO-managed API.
 
-### Create an ApiV4Definition
+## Create an ApiV4Definition
 
 The `ApiV4Definition` CRD is used to create modern Gravitee v4 APIs (for all types of APIs, including HTTP, Event APIs, and AI Agentic services). It contains all of the parameters of a Gravitee API such as the entrypoint, endpoint, plans, policies, groups & members, and documentation pages. The CRD also lets you control whether the API is started or stopped, and whether or not it is published to the Developer Portal.
 
