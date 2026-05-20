@@ -194,7 +194,7 @@ spec:
 There are a few things worth mentioning about the above resource:
 
 * This API definition references the `ManagementContext` we just created. This tells GKO to sync this API definition with the APIM installation referenced in the `ManagementContext`.
-* The API definition specifies that the API should be created in a `STARTED` state (i.e., deployed), and `PUBLISHED` on the Developer Portal with `PUBLIC` visibility.
+* The API definition specifies that the API should be created in a `STARTED` state (that is, deployed), and `PUBLISHED` on the Developer Portal with `PUBLIC` visibility.
 * The backend target (or "endpoint") for this API is a mock service hosted by Gravitee that echoes back information about the incoming call.
 
 Create the resource with the following command:
