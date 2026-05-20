@@ -24,8 +24,10 @@ http:
   compressionSupported: false
   maxHeaderSize: 8192
   maxChunkSize: 8192
+  maxInitialLineLength: 4096
   instances: 0
   requestTimeout: 30000
+  requestTimeoutGraceDelay: 30
   secured: false
   alpn: false
   ssl:
@@ -50,8 +52,10 @@ gravitee_http_tcpKeepAlive=true
 gravitee_http_compressionSupported=false
 gravitee_http_maxHeaderSize=8192
 gravitee_http_maxChunkSize=8192
+gravitee_http_maxInitialLineLength=4096
 gravitee_http_instances=0
 gravitee_http_requestTimeout=30000
+gravitee_http_requestTimeoutGraceDelay=30
 gravitee_http_secured=false
 gravitee_http_alpn=false
 gravitee_http_ssl_clientAuth=none
@@ -119,7 +123,7 @@ keytool -genkey \
 
 ### Reference a keystore file
 
-Point the Gateway at the keystore that contains the certificate and private key.
+Point the Gateway at the keystore that contains the certificate and private key. Supported keystore types are `jks`, `pem`, `pkcs12`, and `self-signed`. For PEM keystores, use the `certificates` array form instead of `path`.
 
 {% tabs %}
 {% tab title="gravitee.yaml" %}
@@ -129,12 +133,35 @@ http:
   secured: true
   ssl:
     clientAuth: none # Supports none, request, required
+    tlsProtocols: TLSv1.2, TLSv1.3
+    tlsCiphers: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
     keystore:
+      type: jks # Supports jks, pem, pkcs12, self-signed
       path: /path/to/keystore.jks
       password: adminadmin
+      watch: true # Reloads the keystore on filesystem changes. Default true.
+      defaultAlias: # Optional. Target a specific key pair when the keystore contains more than one.
     truststore:
+      type: jks # Supports jks, pem, pkcs12, pem-folder
       path:
       password:
+      watch: true # Reloads the truststore on filesystem changes. Default true.
+```
+
+For a PEM keystore, use the `certificates` array instead of `path`:
+
+```yaml
+http:
+  secured: true
+  ssl:
+    keystore:
+      type: pem
+      certificates:
+        - cert: /path/to/mycompany.org.pem
+          key: /path/to/mycompany.org.key
+        - cert: /path/to/mycompany.com.pem
+          key: /path/to/mycompany.com.key
+      watch: true
 ```
 {% endtab %}
 
@@ -142,8 +169,11 @@ http:
 ```bash
 gravitee_http_secured=true
 gravitee_http_ssl_clientAuth=none
+gravitee_http_ssl_tlsProtocols=TLSv1.2,TLSv1.3
+gravitee_http_ssl_keystore_type=jks
 gravitee_http_ssl_keystore_path=/path/to/keystore.jks
 gravitee_http_ssl_keystore_password=adminadmin
+gravitee_http_ssl_keystore_watch=true
 ```
 {% endtab %}
 
@@ -154,10 +184,15 @@ gateway:
     enabled: true
     clientAuth: none # Supports none, request, required
     keystore:
-      type: jks
+      type: jks # Supports jks, pem, pkcs12, self-signed
       path: /path/to/keystore.jks
       password: adminadmin
+      watch: true
+    truststore:
+      type: jks # Supports jks, pem, pkcs12, pem-folder
 ```
+
+The single-server `gateway.ssl.*` block renders only `keystore.{type,path,password,kubernetes,watch,secret}`, `truststore.{type,path,password}`, `clientAuth`, `crl.{path,watch}`, and `sni`. To set `tlsProtocols`, `tlsCiphers`, `defaultAlias`, `openssl`, the `certificates` array, or any per-truststore reload setting on a Helm install, switch to the `gateway.servers[]` array form described in [Multi-server support.](configure-your-http-server.md#multi-server-support)
 {% endtab %}
 {% endtabs %}
 
@@ -169,7 +204,10 @@ As of Gravitee APIM v3.13.0, the keystore file is automatically watched for any 
 
 ### Load a keystore from a Kubernetes secret or configmap
 
-Load the keystore directly from a Kubernetes secret or configmap by specifying the Kubernetes location.
+Load the keystore directly from a Kubernetes secret or configmap by specifying the location. Two forms are available:
+
+* `ssl.keystore.secret: secret://kubernetes/<secret-name>` is the preferred form. It uses the Gravitee secret-provider plugin system, which also supports other providers such as HashiCorp Vault and AWS Secrets Manager.
+* `ssl.keystore.kubernetes: /<namespace>/<type>/<name>/<key>` is the legacy form, kept for backward compatibility.
 
 {% tabs %}
 {% tab title="gravitee.yaml" %}
@@ -218,6 +256,154 @@ The expected `http.ssl.keystore.kubernetes` value is structured as `/{namespace}
 * `key`: the name of the key holding the value to retrieve. The `key` is optional when using a standard `kubernetes.io/tls` secret (note: it only supports PEM cert & key). The `key` is mandatory for any `Opaque` secret or configmap (note: they only support JKS & PKC12 keystore type).
 
 The keystore (or PEM cert & key) stored in the Kubernetes secret or configmap is automatically watched for any modifications and reloaded without restarting the Gateway server.
+
+### Enable SNI and the OpenSSL engine
+
+Enable Server Name Indication (SNI) when a single Gateway listener serves multiple certificates. SNI lets the Gateway select the correct certificate at TLS handshake time based on the hostname the client requested. Enable `openssl` to route TLS through the OpenSSL engine instead of the default JDK SSL engine.
+
+{% tabs %}
+{% tab title="gravitee.yaml" %}
+```yaml
+http:
+  secured: true
+  ssl:
+    sni: true
+    openssl: true
+```
+{% endtab %}
+
+{% tab title=".env" %}
+```bash
+gravitee_http_secured=true
+gravitee_http_ssl_sni=true
+gravitee_http_ssl_openssl=true
+```
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+The single-server `gateway.ssl.*` form supports `sni` but doesn't render `openssl`. To set `openssl` on a Helm install, use the `gateway.servers[]` array described in [Multi-server support.](configure-your-http-server.md#multi-server-support)
+
+```yaml
+gateway:
+  ssl:
+    enabled: true
+    sni: true
+```
+{% endtab %}
+{% endtabs %}
+
+### HTTPS configuration reference
+
+The following fields configure HTTPS on the Gateway HTTP server. Set them under `http:` in `gravitee.yml`, or under `gateway.ssl.*` in Helm `values.yaml` when the field is exposed by the chart's single-server form.
+
+<table>
+    <thead>
+        <tr>
+            <th width="240">Property</th>
+            <th>Description</th>
+            <th width="140">Default</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>http.secured</code></td>
+            <td>Enables HTTPS on the Gateway HTTP server.</td>
+            <td><code>false</code></td>
+        </tr>
+        <tr>
+            <td><code>http.ssl.clientAuth</code></td>
+            <td>Client certificate authentication mode. Accepts <code>none</code>, <code>request</code>, or <code>required</code>.</td>
+            <td><code>none</code></td>
+        </tr>
+        <tr>
+            <td><code>http.ssl.clientAuthHeader.name</code></td>
+            <td>Header name to extract the client certificate from. Use this when NGINX or another load balancer terminates TLS in front of the Gateway.</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><code>http.ssl.tlsProtocols</code></td>
+            <td>Comma-separated allow list of TLS protocol versions.</td>
+            <td><code>TLSv1.2, TLSv1.3</code></td>
+        </tr>
+        <tr>
+            <td><code>http.ssl.tlsCiphers</code></td>
+            <td>Comma-separated allow list of TLS cipher suites.</td>
+            <td>See <code>gravitee.yml</code> template</td>
+        </tr>
+        <tr>
+            <td><code>http.ssl.keystore.type</code></td>
+            <td>Keystore type. Accepts <code>jks</code>, <code>pem</code>, <code>pkcs12</code>, or <code>self-signed</code>.</td>
+            <td><code>jks</code></td>
+        </tr>
+        <tr>
+            <td><code>http.ssl.keystore.path</code></td>
+            <td>Filesystem path to the keystore. Required when <code>type</code> is <code>jks</code> or <code>pkcs12</code>.</td>
+            <td><code>${gravitee.home}/security/keystore.jks</code></td>
+        </tr>
+        <tr>
+            <td><code>http.ssl.keystore.password</code></td>
+            <td>Keystore password.</td>
+            <td><code>secret</code></td>
+        </tr>
+        <tr>
+            <td><code>http.ssl.keystore.certificates</code></td>
+            <td>Array of <code>cert</code> and <code>key</code> file pairs. Required when <code>type</code> is <code>pem</code>.</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><code>http.ssl.keystore.watch</code></td>
+            <td>When <code>true</code>, the Gateway watches the keystore file and reloads on changes without restarting.</td>
+            <td><code>true</code></td>
+        </tr>
+        <tr>
+            <td><code>http.ssl.keystore.defaultAlias</code></td>
+            <td>Target alias to select a specific key pair when the keystore contains more than one.</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><code>http.ssl.keystore.kubernetes</code></td>
+            <td>Legacy Kubernetes secret or configmap location, in the form <code>/&#x3C;namespace>/&#x3C;type>/&#x3C;name>/&#x3C;key></code>.</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><code>http.ssl.keystore.secret</code></td>
+            <td>Preferred secret-provider reference, in the form <code>secret://kubernetes/&#x3C;secret-name></code>. Supports Kubernetes, HashiCorp Vault, AWS Secrets Manager, and other configured providers.</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><code>http.ssl.truststore.type</code></td>
+            <td>Truststore type. Accepts <code>jks</code>, <code>pem</code>, <code>pkcs12</code>, or <code>pem-folder</code>. The <code>pem-folder</code> type watches a folder for added, updated, or removed PEM files.</td>
+            <td><code>jks</code></td>
+        </tr>
+        <tr>
+            <td><code>http.ssl.truststore.path</code></td>
+            <td>Filesystem path to the truststore.</td>
+            <td><code>${gravitee.home}/security/truststore.jks</code></td>
+        </tr>
+        <tr>
+            <td><code>http.ssl.truststore.password</code></td>
+            <td>Truststore password.</td>
+            <td><code>secret</code></td>
+        </tr>
+        <tr>
+            <td><code>http.ssl.truststore.watch</code></td>
+            <td>When <code>true</code>, the Gateway watches the truststore file or folder and reloads on changes.</td>
+            <td><code>true</code></td>
+        </tr>
+        <tr>
+            <td><code>http.ssl.sni</code></td>
+            <td>Enables Server Name Indication. Set to <code>true</code> when a single Gateway listener serves multiple certificates.</td>
+            <td><code>false</code></td>
+        </tr>
+        <tr>
+            <td><code>http.ssl.openssl</code></td>
+            <td>Routes TLS through the OpenSSL engine instead of the default JDK SSL engine.</td>
+            <td><code>false</code></td>
+        </tr>
+    </tbody>
+</table>
+
+For CRL configuration, see the [CRL configuration reference](#crl-configuration-reference) below.
 
 ## Enable HTTP/2 support
 
