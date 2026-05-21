@@ -26,7 +26,7 @@ Use the following HTTP Authorization request header to call the API: `Authorizat
 
 ### Token endpoint
 
-You can use the `token` endpoint to retrieve the `AM Management API token` . To retrieve the token, present the user credentials in the `Basic authentication scheme`.
+You can use the `token` endpoint to retrieve the `AM Management API token`. To retrieve the token, present the user credentials in the `Basic authentication scheme`.
 
 The following example exchanges default admin account credentials (`admin/adminadmin`) for a token:
 
@@ -83,3 +83,26 @@ POST http(s)://AM_MANAGEMENT_API/management/auth/login
 For user migrations from an alternative OIDC provider to Access Management, you can define the `lastPasswordReset` attribute. This attribute ensures that a password policy with password expiry requests a password reset according to the value provided during the migration.
 
 In Management REST API, `lastPasswordReset` attribute in the User definition is a long value representing the number of milliseconds since the standard base time known as "the epoch".
+
+
+## End-User Configuration
+
+### CIMD Logo Endpoint
+
+**Path:** `/{domain}/cimd/logo?clientId={url-encoded-client-id}`
+
+**Method:** `GET`
+
+**Response:**
+- `200 OK` with `Content-Type: image/*`
+- `404 Not Found` if logo not available
+
+For detailed behavior and configuration, see the CIMD feature guide.
+
+### OIDC Discovery Metadata
+
+**Path:** `/.well-known/openid-configuration`
+
+**Method:** `GET`
+
+When CIMD is enabled, the discovery document includes `client_id_metadata_document_supported: true`.

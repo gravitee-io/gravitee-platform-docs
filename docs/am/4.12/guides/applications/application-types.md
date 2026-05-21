@@ -392,7 +392,8 @@ curl -X PATCH \
   http://GRAVITEEIO-AM-MGT-API-HOST/management/domains/:domainId
 ```
 
-#### Define which client must be used as a template
+#
+### Define which client must be used as a template
 
 In the Dynamic Client Registration **Client templates** tab, enable this feature to be used as a template in the client:
 
@@ -410,8 +411,9 @@ curl -X PATCH \
 ```
 
 {% hint style="warning" %}
-Once a client is set up as a template, it can no longer be used for authentication purposes.
+Once a client is set up as a template, it can no longer be used for authentication purposes. Template applications used for Client ID Metadata Document (CIMD) cannot be deleted or un-templated while CIMD is enabled for the domain.
 {% endhint %}
+
 
 #### Register call with template example
 

@@ -261,23 +261,6 @@ curl -X POST \
   http://GRAVITEEIO-AM-GATEWAY-HOST/::domain/oidc/register
 ```
 
-**Register agent application example**
-
-To register an agent application programmatically, send a POST request to the DCR endpoint with `application_type` set to `"agent"`. The system strips forbidden grant types (`implicit`, `password`, `refresh_token`) from the request. If no valid grant types remain after stripping, the system defaults to `["authorization_code"]`. The `redirect_uris` field is required. If `token_endpoint_auth_method` is omitted, the system defaults to `client_secret_basic`. The DCR flow validates agent constraints and strips forbidden response types (`token`, `id_token`, `id_token token`) during registration. If response types become empty and `authorization_code` is granted, the system adds `"code"`.
-
-```sh
-
-curl -X POST \
-  -H 'Authorization: Bearer :accessToken' \
-  -H 'Content-Type: application/json' \
-  -d '{ \
-        "application_type": "agent", \
-        "grant_types": [ "authorization_code","client_credentials" ], \
-        "redirect_uris": ["https://example.com/callback"] \
-      }' \
-  http://GRAVITEEIO-AM-GATEWAY-HOST/::domain/oidc/register
-```
-
 #### Read/update/delete client information
 
 The `register` endpoint also allows you to GET/UPDATE/PATCH/DELETE actions on a `client_id` that has been registered through the `registration` endpoint.\
@@ -421,7 +404,6 @@ In the Dynamic Client Registration **Client templates** tab, enable this feature
 You can also enable this feature using AM API:
 
 ```sh
-
 curl -X PATCH \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -434,6 +416,10 @@ Once a client is set up as a template, it can no longer be used for authenticati
 {% endhint %}
 
 <figure><img src="../../.gitbook/assets/graviteeio-am-userguide-domain-dcr-templates.png" alt=""><figcaption><p>Client overview</p></figcaption></figure>
+
+#### Mark an application as a CIMD template
+
+To designate an application as a CIMD template, navigate to the application's settings and enable the **Template** toggle. When an application is selected as a domain's CIMD template, the UI displays a **CIMD Template** badge on the application overview page. The delete button and template toggle are disabled with tooltips explaining that the application cannot be deleted or un-templated while it is configured as the CIMD template for the domain.
 
 #### Register call with template example
 
