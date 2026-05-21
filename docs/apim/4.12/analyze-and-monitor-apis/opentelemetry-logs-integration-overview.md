@@ -36,5 +36,5 @@ Before you enable OpenTelemetry Logs Integration, complete the following steps:
 * Install the `gravitee-reporter-otel` plugin on the gateway by copying the plugin `.zip` file into the gateway's `plugins/` directory. The gateway ignores `.jar` files — the plugin must be a `.zip`. Without this plugin, trace and span IDs are captured internally but nothing is exported to the log backend.
 * Enable OpenTelemetry globally on the gateway.
 * Ensure a compatible log backend is reachable from the gateway (e.g., Loki via an OTel Collector or directly via OTLP/HTTP).
-* Verify that the `service.name` used by both the tracer and the OTel logger match in Tempo and Loki for Grafana log-trace correlation to work. Both use `gio-apim-gateway` by default. If they differ, the "Logs for this span" button in Tempo will silently return no results.
+* Verify that the `service.name` used by both the tracer and the OTel logger match in Tempo and Loki for Grafana log-trace correlation to work. Both use `gio-apim-gateway` by default. If they differ, the "Logs for this span" button in Tempo will return no results.
 
