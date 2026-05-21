@@ -12,6 +12,10 @@ _Applications_ act on behalf of the user to request tokens, hold user identity i
 
 Application definitions apply at the _security domain_ level.
 
+### Template Applications
+
+A template application defines baseline configuration for Client ID Metadata Document (CIMD) clients. Template applications specify allowed grant types, response types, scopes, identity providers, token validity, certificates, and MFA settings that CIMD clients inherit. To use an application as a CIMD template, enable the "Template" flag in the application settings. Template applications cannot be deleted or un-templated while referenced as the CIMD template in domain settings.
+
 ## Create an application
 
 ### AM Console

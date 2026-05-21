@@ -52,6 +52,24 @@ curl -X POST \
 ```
 {% endcode %}
 
+### CIMD logo endpoint
+
+You can use the `GET /{domain}/cimd/logo` endpoint to retrieve cached logos for CIMD clients. The endpoint accepts a `clientId` query parameter (URL-encoded) and returns `200 OK` with `Content-Type: image/*` and a `Cache-Control` header on success, or `404 Not Found` if the logo is not cached or the metadata lacks a `logo_uri`. Logos are fetched on-demand and cached; remote `logo_uri` values are never served directly.
+
+{% code overflow="wrap" %}
+```sh
+GET http(s)://AM_GATEWAY/{domain}/cimd/logo?clientId=https%3A%2F%2Fclient.example.com%2Fmetadata HTTP/1.1
+
+curl -X GET \
+  'http(s)://AM_GATEWAY/{domain}/cimd/logo?clientId=https%3A%2F%2Fclient.example.com%2Fmetadata'
+
+
+  HTTP/1.1 200 OK
+  Content-Type: image/png
+  Cache-Control: max-age=3600
+```
+{% endcode %}
+
 ### Authorization endpoint
 
 The `authorization` endpoint is used to interact with the end user to obtain the `AM Management API token`. The user is redirected to the AM login page, and the authentication is processed to obtain the token using an HTTP cookie.
