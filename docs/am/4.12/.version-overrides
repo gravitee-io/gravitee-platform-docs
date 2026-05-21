@@ -4,3 +4,12 @@ SUMMARY.md
 guides/auth-protocols/saml-2.0.md
 guides/identity-providers/enterprise-identity-providers/saml-2.0.md
 releases-and-changelog/release-notes/am-4.12.md
+guides/applications/README.md
+guides/applications/cimd-metadata-document-specification.md
+guides/applications/configuring-cimd-in-access-management.md
+guides/auth-protocols/authenticating-cimd-clients.md
+guides/auth-protocols/cimd-console-and-ui-changes.md
+guides/auth-protocols/cimd-overview-and-architecture.md
+guides/auth-protocols/oauth-2.0/refresh-tokens.md
+guides/cimd-logo-api-reference.md
+reference/am-api-reference.md

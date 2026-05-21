@@ -35,7 +35,7 @@ curl --request POST \
   --data 'password={password}'
 ```
 
-The response will contain an access token and a refresh token (+ id\_token if you have specified the openid scope).
+The response will contain an access token and a refresh token (+ id\_token if you have specified the OpenID scope).
 
 ```sh
 {
@@ -70,7 +70,7 @@ curl --request POST \
 By default the refresh token is single use only. See [refresh token rotation](refresh-tokens.md#refresh-token-rotation) for more information.
 {% endhint %}
 
-The response will contain an access token and a **new** refresh token (+ id\_token if you have specified the openid scope).
+The response will contain an access token and a **new** refresh token (+ id\_token if you have specified the OpenID scope).
 
 ```sh
 {
@@ -119,4 +119,17 @@ To disable the refresh token rotation :
 1. Log in to AM Console.
 2. Go to **Application → Settings → OAuth 2.0 / OIDC**.
 3. Select **Disable Refresh Token Rotation**.
+4. Press **SAVE**.
+
+## Token revocation on CIMD metadata change
+
+When Client ID Metadata Document (CIMD) is enabled and the `revokeOnDocumentChange` policy is active, the gateway automatically revokes tokens when remote metadata changes. The gateway computes a SHA-256 hash of each CIMD metadata document and stores it in the `cimd_client_state` table. On subsequent metadata fetches, if the hash differs from the stored value, all access tokens, refresh tokens, and scope approvals for that client are revoked.
+
+This policy detects changes to remote metadata only. Changes to template application settings (grant types, scopes, token validity, identity providers, MFA, certificates) do not trigger revocation. The stored hash persists indefinitely while the policy is enabled and is deleted when the policy is disabled.
+
+To enable token revocation on metadata change:
+
+1. Log in to AM Console.
+2. Go to **Domain → Settings → OAuth 2.0 / OIDC → CIMD**.
+3. Select **Revoke tokens and consents when client metadata changes**.
 4. Press **SAVE**.

@@ -53,11 +53,15 @@
 
 ## Guides
 
+* [CIMD Logo API Reference](guides/cimd-logo-api-reference.md)
 * [OAuth 2.0 Token Exchange](guides/oauth-2.0-token-exchange-concepts/README.md)
   * [OAuth 2.0 Token Exchange Configuration](guides/oauth-2.0-token-exchange-concepts/oauth-2.0-token-exchange-configuration-reference.md)
   * [OAuth 2.0 Token Exchange API](guides/oauth-2.0-token-exchange-concepts/oauth-2.0-token-exchange-api-reference.md)
 * [Prologue](guides/prologue.md)
 * [Auth Protocols](guides/auth-protocols/README.md)
+  * [Authenticating CIMD Clients](guides/auth-protocols/authenticating-cimd-clients.md)
+  * [CIMD Console and UI Changes](guides/auth-protocols/cimd-console-and-ui-changes.md)
+  * [CIMD Overview and Architecture](guides/auth-protocols/cimd-overview-and-architecture.md)
   * [OAuth 2.0](guides/auth-protocols/oauth-2.0/README.md)
     * [Which Flow Should I Use?](guides/auth-protocols/oauth-2.0/which-flow-should-i-use.md)
     * [Proof Key for Code Exchange (PKCE)](guides/auth-protocols/oauth-2.0/proof-key-for-code-exchange-pkce.md)
@@ -100,7 +104,9 @@
   * [OpenFGA](guides/authorization-engines/openfga.md)
   * [AuthZen](guides/authorization-engines/authzen.md)
 * [Applications](guides/applications/README.md)
+  * [CIMD Metadata Document Specification](guides/applications/cimd-metadata-document-specification.md)
   * [Client Secrets](guides/applications/client-secrets.md)
+  * [Configuring CIMD in Access Management](guides/applications/configuring-cimd-in-access-management.md)
 * [Branding](guides/branding/README.md)
   * [CSS Custom Variables Reference](guides/branding/css-custom-variables-reference.md)
   * [Language Default Properties Reference](guides/branding/language-default-properties-reference.md)
