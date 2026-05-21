@@ -3,7 +3,7 @@
 ## Create an OpeneTelemetry Logs Configuration
 
 1. From the **Dashboard**, click **APIs**.
-2. Select the API that you want to enbale Opentelemtry for.
+2. Select the API that you want to enable Opentelemtry for.
 3. From the API menu, click **Deployment**, and then click **Reporter Settings**.
 4. Navigate to the **OpenTelemetry** section, and then turn on the **Enable OpenTelemetry tracing** toggle.
 5. In the **You have unsaved changes** pop-up box, click **Save**.
