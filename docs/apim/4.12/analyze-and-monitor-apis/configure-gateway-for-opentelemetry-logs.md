@@ -10,7 +10,7 @@ To enable OpenTelemetry tracing and configure the logs export endpoint, configur
 |:---------|:------------|:--------|
 | `services.opentelemetry.enabled` | Enable OpenTelemetry globally on the Gateway | `true` |
 | `services.opentelemetry.traces.enabled` | Enable OpenTelemetry tracing | `true` |
-| `services.opentelemetry.exporter.logsEndpoint` | OTLP HTTP endpoint for log records. This must be the full URL including signal path, for exmaple, `/v1/logs`. Log records are always exported over HTTP/Protobuf and not gRPC. | `http://localhost:3100/otlp/v1/logs` |
+| `services.opentelemetry.exporter.logsEndpoint` | OTLP HTTP endpoint for log records. This must be the full URL including signal path, for example, `/v1/logs`. Log records are always exported over HTTP/Protobuf and not gRPC. | `http://localhost:3100/otlp/v1/logs` |
 | `services.opentelemetry.exporter.compression` | Compression algorithm for log export | `none` |
 | `services.opentelemetry.exporter.timeout` | Export timeout | `10s` |
 
