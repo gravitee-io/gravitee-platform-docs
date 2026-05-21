@@ -23,7 +23,7 @@ Each log entry corresponds to one of four capture points in the request lifecycl
 
 ### OTel Logs Toggle
 
-The OTel Logs toggle is a per-API setting available in the Console UI under Runtime Logs settings. It is only available when OpenTelemetry Tracing is already enabled on the API. When enabled, all four payload directions (entrypoint request/response, endpoint request/response) are captured regardless of Elasticsearch logging configuration. Header capture remains controlled by the Elasticsearch logging configuration. All requests generate log records when enabled. For Message APIs, payload capture is additionally subject to the message sampling strategy configured in the API analytics settings. Trace and span IDs are only populated for requests sampled by the tracer.
+The OTel Logs toggle is a per-API setting available in the Console UI under Runtime Logs settings. it's only available when OpenTelemetry Tracing is already enabled on the API. When enabled, all four payload directions (entrypoint request/response, endpoint request/response) are captured regardless of Elasticsearch logging configuration. Header capture remains controlled by the Elasticsearch logging configuration. All requests generate log records when enabled. For Message APIs, payload capture is additionally subject to the message sampling strategy configured in the API analytics settings. Trace and span IDs are only populated for requests sampled by the tracer.
 
 <figure><img src="../.gitbook/assets/apim-opentelemetry-logs-integration-step-01.png" alt="OpenTelemetry settings panel showing Enabled, Verbose, and OTel Logs toggle options"><figcaption></figcaption></figure>
 
