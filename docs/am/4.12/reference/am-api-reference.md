@@ -78,6 +78,23 @@ POST http(s)://AM_MANAGEMENT_API/management/auth/login
 
 * `redirect_uri`: redirection endpoint after authentication success
 
+### CIMD Logo endpoint
+
+**Endpoint:** `GET /{domain}/cimd/logo?clientId={url-encoded-client-id}`
+
+Serves client logos for CIMD clients. Returns a cached logo if available. On cache miss, fetches the logo from `logo_uri` if metadata is cached and valid. Returns `404` if no logo is available or metadata has expired.
+
+**Response codes:**
+- `200`: Logo served successfully
+- `404`: Logo unavailable or metadata expired
+
+**Response headers:**
+- `Content-Type`: MIME type of the logo image
+- `Cache-Control`: Caching directives for the logo
+
+**Restrictions:**
+- Logo fetch is limited to 256 KB
+
 ### User Migration
 
 For user migrations from an alternative OIDC provider to Access Management, you can define the `lastPasswordReset` attribute. This attribute ensures that a password policy with password expiry requests a password reset according to the value provided during the migration.

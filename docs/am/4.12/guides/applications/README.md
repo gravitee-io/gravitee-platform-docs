@@ -435,6 +435,10 @@ Once a client is set up as a template, it can no longer be used for authenticati
 
 <figure><img src="../../.gitbook/assets/graviteeio-am-userguide-domain-dcr-templates.png" alt=""><figcaption><p>Client overview</p></figcaption></figure>
 
+#### Template applications for CIMD
+
+Applications can be designated as templates to serve as configuration baselines for Client ID Metadata Document (CIMD) clients. To designate an application as a template, enable the **Template** toggle in the application's general settings. Template applications define identity providers, MFA settings, token validity, certificates, and other application-level settings inherited by CIMD clients. OAuth-specific settings (`grant_types`, `response_types`, `scope`) are intersected with the CIMD metadata document: only values present in both the template and the metadata are applied to the synthesized client.
+
 #### Register call with template example
 
 You need to retrieve the `software_id` of the template, which is available under the `registration_templates_endpoint` provided by the OpenID discovery endpoint.
