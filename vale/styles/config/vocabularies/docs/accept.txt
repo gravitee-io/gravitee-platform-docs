@@ -150,6 +150,7 @@ QoS
 # Monitoring, Logging & Observability
 # ============================================
 OpenTelemetry
+OTel
 OpenTracing
 Prometheus
 Grafana
