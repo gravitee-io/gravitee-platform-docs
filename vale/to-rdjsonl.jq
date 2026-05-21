@@ -11,6 +11,11 @@
 #        range is widened one column left to also consume the preceding space
 #        (an adverb is almost always preceded by a space), guarded so it never
 #        underflows column 1. Microsoft.Adverbs and any other remove rule.
+#   5. docs.Spelling carrying a `Suggestion` field. Vale's JSON omits spelling
+#        candidates, so vale/add-spelling-suggestions.py augments each
+#        docs.Spelling alert with a `Suggestion` field upstream of this jq.
+#        When the helper finds no plausible candidate, the field is absent
+#        and the alert falls through to a plain comment.
 #
 # Rules with no deterministic fix (Microsoft.We, Microsoft.SentenceLength) and
 # Microsoft.Spacing (mechanical fix exists but corrupts identifiers like
@@ -66,6 +71,10 @@ to_entries[]
         then { text: "",
                 s: (if $pos.scol > 1 then $pos.scol - 1 else $pos.scol end),
                 e: $pos.ecol }
+
+        elif (.Check == "docs.Spelling")
+             and ((.Suggestion // "") != "")
+        then { text: .Suggestion, s: $pos.scol, e: $pos.ecol }
 
         else null
         end
