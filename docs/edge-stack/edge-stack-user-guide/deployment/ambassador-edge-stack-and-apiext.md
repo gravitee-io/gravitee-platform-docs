@@ -188,3 +188,32 @@ spec:
       - v1
 # additional fields truncated for brevity...
 ```
+
+### Enable the Mapping validation webhook
+
+The APIExt server can also run an admission webhook that validates `Mapping` resources at apply time. When enabled, invalid Mappings are rejected before they are admitted to the cluster, which prevents misconfigured resources from affecting routing. The webhook validates `getambassador.io/v3alpha1` Mappings, and as of 3.13.2 it also validates `getambassador.io/v2` Mappings by converting them to `v3alpha1` before validation.
+
+The validation webhook is **disabled by default**. To enable it, set the `AMBASSADOR_VALIDATION_WEBHOOK_ENABLED` environment variable to `true` on the `emissary-apiext` deployment.
+
+* `AMBASSADOR_VALIDATION_WEBHOOK_ENABLED` - When set to `true`, the APIExt server enables the validation webhook controller. Any other value, or leaving the variable unset, keeps the webhook disabled.
+
+```yaml
+# additional fields truncated for brevity...
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: emissary-apiext
+  namespace: emissary-system
+spec:
+  replicas: 3
+  template:
+    spec:
+      serviceAccountName: emissary-apiext
+      containers:
+        - name: emissary-apiext
+          image: docker.io/datawire/aes:3.13.2
+          command: [ "apiext", "emissary-apiext" ]
+          env:
+            - name: AMBASSADOR_VALIDATION_WEBHOOK_ENABLED
+              value: "true"
+```
