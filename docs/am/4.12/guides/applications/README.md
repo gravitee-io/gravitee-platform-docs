@@ -435,6 +435,8 @@ Once a client is set up as a template, it can no longer be used for authenticati
 
 <figure><img src="../../.gitbook/assets/graviteeio-am-userguide-domain-dcr-templates.png" alt=""><figcaption><p>Client overview</p></figcaption></figure>
 
+Applications marked as templates for CIMD (Client ID Metadata Document) display a "CIMD Template" badge in the UI. CIMD template applications cannot be deleted or have their template flag removed while referenced by CIMD settings.
+
 #### Register call with template example
 
 You need to retrieve the `software_id` of the template, which is available under the `registration_templates_endpoint` provided by the OpenID discovery endpoint.
