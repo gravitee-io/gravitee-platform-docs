@@ -224,7 +224,7 @@ A `cron` expression is a string consisting of six fields (representing seconds, 
 * Fetch every second: `* * */1 * * *`
 * At 00:00 on Saturday : `0 0 0 * * SAT`
 
-Documentation auto-fetch schedules are subject to [platform-wide frequency limits](portal-settings.md#documentation) configured by administrators. If you attempt to configure a schedule more frequent than the configured limit, a validation error will occur. If the APIM administrator configured a maximum fetch frequency, the value configured by the APIM administrator will override the frequency you specify.
+Documentation auto-fetch schedules are subject to [platform-wide frequency limits](../../configure-and-manage-the-platform/management-api/cron-schedule-frequency-limits.md) configured by administrators. If you attempt to configure a schedule more frequent than the configured limit, a validation error will occur. If the APIM administrator configured a maximum fetch frequency, the value configured by the APIM administrator will override the frequency you specify.
 {% endhint %}
 
 9.  Select **IMPORT** for APIM to add the files to your documentation set

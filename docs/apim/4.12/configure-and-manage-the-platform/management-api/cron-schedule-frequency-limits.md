@@ -45,16 +45,16 @@ Before configuring frequency limits, ensure you have:
 
  ```yaml
  services:
- dynamic_properties:
- cron_limit: 0 */5 * * * *
+   dynamic_properties:
+     cron_limit: 0 */5 * * * *
  ```
 
  For dictionary polling:
 
  ```yaml
  services:
- dictionary:
- delay_limit: 300000
+   dictionary:
+     delay_limit: 300000
  ```
 
 2. Save the configuration file.
