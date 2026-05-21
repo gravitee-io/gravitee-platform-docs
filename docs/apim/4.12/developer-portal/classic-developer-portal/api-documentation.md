@@ -31,7 +31,7 @@ To create documentation:
     <figure><img src="../../.gitbook/assets/documenation_folder.png" alt=""><figcaption><p>Sample documentation folder</p></figcaption></figure>
 * **Markdown Template:** Create templates reusable for site-wide and API Markdown documentation.
 * **Markdown:** Use the Markdown syntax for the documentation page.
-* **AsciiDoc:** Use the Asciidoc syntax for the documentation page.
+* **AsciiDoc:** Use the AsciiDoc syntax for the documentation page.
 * **OpenAPI (Swagger):** Use the OpenAPI syntax for the documentation page.
 * **AsyncAPI:** Use the AsyncAPI syntax for the documentation page.
 
@@ -224,7 +224,7 @@ A `cron` expression is a string consisting of six fields (representing seconds, 
 * Fetch every second: `* * */1 * * *`
 * At 00:00 on Saturday : `0 0 0 * * SAT`
 
-If the APIM administrator configured a maximum fetch frequency, the value configured by the APIM administrator will override the frequency you specify.
+Documentation auto-fetch schedules are subject to [platform-wide frequency limits](../../configure-and-manage-the-platform/management-api/cron-schedule-frequency-limits.md) configured by administrators. If you attempt to configure a schedule more frequent than the configured limit, a validation error will occur. If the APIM administrator configured a maximum fetch frequency, the value configured by the APIM administrator will override the frequency you specify.
 {% endhint %}
 
 9.  Select **IMPORT** for APIM to add the files to your documentation set

@@ -93,6 +93,7 @@
     * [Gateway Cluster sync with Redis](configure-and-manage-the-platform/gravitee-gateway/gateway-cluster-sync-with-redis/README.md)
     * [Gateway Configuration for mTLS Certificate Management](configure-and-manage-the-platform/gravitee-gateway/gateway-configuration-for-mtls-certificate-management.md)
   * [Management API](configure-and-manage-the-platform/management-api/README.md)
+    * [Cron Schedule Frequency Limits](configure-and-manage-the-platform/management-api/cron-schedule-frequency-limits.md)
     * [MAPI Internal API](configure-and-manage-the-platform/management-api/mapi-internal-api.md)
     * [mTLS certificate management API reference](configure-and-manage-the-platform/management-api/mtls-certificate-management-api-reference.md)
     * [Settings](configure-and-manage-the-platform/management-api/settings.md)
