@@ -4,3 +4,8 @@ SUMMARY.md
 guides/auth-protocols/saml-2.0.md
 guides/identity-providers/enterprise-identity-providers/saml-2.0.md
 releases-and-changelog/release-notes/am-4.12.md
+getting-started/configuration/configure-am-gateway/cimd-gateway-configuration-reference.md
+guides/applications/README.md
+guides/applications/cimd-operational-reference.md
+guides/auth-protocols/oauth-2.0/refresh-tokens.md
+guides/mcp-servers/cimd-feature-overview-and-key-concepts.md

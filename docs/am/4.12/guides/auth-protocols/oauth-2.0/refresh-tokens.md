@@ -35,7 +35,7 @@ curl --request POST \
   --data 'password={password}'
 ```
 
-The response will contain an access token and a refresh token (+ id\_token if you have specified the openid scope).
+The response will contain an access token and a refresh token (+ id\_token if you have specified the OpenID scope).
 
 ```sh
 {
@@ -66,11 +66,13 @@ curl --request POST \
   --data 'refresh_token={refreshToken}'
 ```
 
+For CIMD clients, the `client_id` (metadata URL) must be provided in the request body or Basic auth header (URL-encoded). Refresh tokens are validated against the CIMD client's metadata hash; if the hash has changed and revocation-on-change is enabled, the refresh token is invalid.
+
 {% hint style="info" %}
 By default the refresh token is single use only. See [refresh token rotation](refresh-tokens.md#refresh-token-rotation) for more information.
 {% endhint %}
 
-The response will contain an access token and a **new** refresh token (+ id\_token if you have specified the openid scope).
+The response will contain an access token and a **new** refresh token (+ id\_token if you have specified the OpenID scope).
 
 ```sh
 {
