@@ -22,6 +22,7 @@
 # casing ("OpenTelemetry"), other suggestions copy the source word's
 # leading-cap / all-caps pattern.
 
+import difflib
 import json
 import sys
 from pathlib import Path
@@ -85,20 +86,41 @@ def apply_case(source, replacement):
     return replacement
 
 
-def best_candidate(lower, spell):
-    """Return the best pyspellchecker candidate for `lower`, or None."""
+def best_candidate(lower, spell, vocab_set):
+    """Return the best pyspellchecker candidate for `lower`, or None.
+
+    Filters applied in order (each only narrows the pool if non-empty):
+      1. accept.txt vocab candidates — so OTl -> OTel beats OTl -> Oil
+         even though "Oil" outranks "OTel" in general English frequency.
+      2. Length bias — drop candidates shorter than the typo (a shorter
+         real word is rarely what the writer meant; people usually missed
+         or added a letter rather than collapsed the whole word).
+      3. First-character match — typos rarely affect the first letter, so
+         "otl" -> "otel" beats "otl" -> "ttl" when both are vocab hits and
+         tie on the seeded frequency.
+      4. Composite score: pyspellchecker frequency, then difflib similarity
+         ratio against the typo as a deterministic tiebreaker (so
+         "otl" -> "otel" wins over "otl" -> "otp" when both are accept.txt
+         vocab and tie on every other axis).
+    """
     candidates = spell.candidates(lower)
     if not candidates:
         return None
     candidates = {c for c in candidates if c != lower}
     if not candidates:
         return None
-    # Length bias: drop candidates shorter than the typo (a shorter real
-    # word is rarely what the writer meant — they usually missed or added
-    # a letter, not collapsed the whole word).
-    same_or_longer = {c for c in candidates if len(c) >= len(lower)}
-    pool = same_or_longer if same_or_longer else candidates
-    return max(pool, key=lambda c: spell[c])
+    vocab_hits = {c for c in candidates if c in vocab_set}
+    pool = vocab_hits if vocab_hits else candidates
+    same_or_longer = {c for c in pool if len(c) >= len(lower)}
+    if same_or_longer:
+        pool = same_or_longer
+    same_first = {c for c in pool if c[:1] == lower[:1]}
+    if same_first:
+        pool = same_first
+    return max(
+        pool,
+        key=lambda c: (spell[c], difflib.SequenceMatcher(None, lower, c).ratio()),
+    )
 
 
 def render(word, replacement, vocab_case):
@@ -111,6 +133,7 @@ def render(word, replacement, vocab_case):
 def main():
     spell = SpellChecker()
     vocab_words, vocab_case = load_vocab(ACCEPT_FILE)
+    vocab_set = set(vocab_words)
     if vocab_words:
         spell.word_frequency.load_words(vocab_words)
 
@@ -130,7 +153,7 @@ def main():
                 alert["Suggestion"] = apply_case(word, COMMON_TYPOS[lower])
                 continue
 
-            cand = best_candidate(lower, spell)
+            cand = best_candidate(lower, spell, vocab_set)
             if cand and cand != lower:
                 alert["Suggestion"] = render(word, cand, vocab_case)
 
