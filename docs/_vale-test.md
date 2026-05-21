@@ -7,7 +7,7 @@ Add the `vale integration` label to the test PR to trigger the workflow.
 
 ## docs.Spelling — curated common typos (button expected)
 
-teh quick brown fox. adn the lazy dog. jsut a moment. thier setup. tihs is taht
+teh quick brown fox. and the lazy dog. jsut a moment. thier setup. tihs is taht
 problem. dat is the wrong word. wiht no warning. wnat the system to respond.
 
 ## docs.Spelling — typos resolved via pyspellchecker (button expected)
