@@ -150,6 +150,7 @@ QoS
 # Monitoring, Logging & Observability
 # ============================================
 OpenTelemetry
+OTel
 OpenTracing
 Prometheus
 Grafana
@@ -210,7 +211,6 @@ JAAS
 JCE
 javax
 OpenJDK
-Freemarker
 FreeMarker
 Vert\.x
 
@@ -249,7 +249,7 @@ SOCKS[45]
 ACLs?
 JOSE
 ACME
-CVE
+CVEs?
 
 # ============================================
 # Networking & Protocols
@@ -281,7 +281,6 @@ HTML
 CSS
 CSV
 AsciiDoc
-Protobuf
 UTF
 RFC
 ISO
@@ -293,7 +292,6 @@ ISO
 [Ff]rontend
 [Cc]odebase
 [Cc]onfig
-[Dd]atastore
 [Ee]ntrypoints?
 [Ff]ailover
 [Ff]ilesystem
@@ -479,7 +477,6 @@ apim_subscription
 [Cc]iphertext
 JSONPath
 [Kk]eystores?
-GZIP
 [Hh]inglish
 [Mm]inuva
 JWTs?
@@ -488,3 +485,72 @@ Okta
 Kibana
 [Ss]ubcomponents?
 [Pp]roductize
+Kandji
+Jamf
+DAImon
+Intune
+[Uu]nmanaged
+[Aa]llowlists?
+
+# ============================================
+# Gamma Platform
+# ============================================
+Gamma
+[Aa]gentic
+[Hh]yperscaler
+[Hh]yperscaler-[Ff]ederated
+[Ee]licitation
+[Gg]uardrails?
+MCPs?
+stdio
+ESM
+
+# ============================================
+# AI / LLM Ecosystem
+# ============================================
+Anthropic
+OpenAI
+Claude
+Sonnet
+ChatGPT
+Bedrock
+Vertex
+Foundry
+Cursor
+Copilot
+LangChain
+FastMCP
+Smithery
+HubSpot
+Stripe
+Auth0
+Garden
+
+# ============================================
+# Workload Identity & Authorization
+# ============================================
+Cedar
+SPIFFE
+SPIRE
+SVID
+PDP
+PEP
+PII
+MDM
+CIMD
+Kerberos
+
+# ============================================
+# Kafka & Event Streaming (additions)
+# ============================================
+AKHQ
+Confluent
+Conduktor
+MessagePack
+Snappy
+
+# ============================================
+# Misc additions
+# ============================================
+Jira
+GAP
