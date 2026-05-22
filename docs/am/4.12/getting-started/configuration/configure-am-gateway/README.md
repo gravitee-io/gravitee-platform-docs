@@ -447,6 +447,38 @@ applications:
       algorithm: PBKDF2WithHmacSHA256
 ```
 
+### Configure CIMD settings
+
+Client ID Metadata Document (CIMD) settings control how the gateway fetches and validates metadata for CIMD clients. Configure CIMD in the `oidc.cimdSettings` section of `gravitee.yml`:
+
+```yaml
+oidc:
+  cimdSettings:
+    enabled: false
+    templateId: # Application ID of the template used for CIMD clients
+    allowPrivateIpAddress: false
+    allowUnsecuredHttpUri: false
+    fetchTimeoutMs: 3000
+    maxResponseSizeKb: 20
+    allowedDomains: []
+    cacheTtlSeconds: 3600
+    cacheMaxEntries: 500
+    revokeOnDocumentChange: false
+```
+
+| Property | Description |
+|:---------|:------------|
+| `enabled` | Enable or disable CIMD support for the domain. |
+| `templateId` | Application ID of the template used for CIMD clients. Required when CIMD is enabled. |
+| `allowPrivateIpAddress` | Allow metadata document requests to private, loopback, link-local, and any-local IP addresses. |
+| `allowUnsecuredHttpUri` | Allow metadata document requests to plain HTTP (non-HTTPS) URIs. |
+| `fetchTimeoutMs` | Timeout in milliseconds for fetching client metadata documents. Must be greater than 0. |
+| `maxResponseSizeKb` | Maximum allowed size of a metadata response in kilobytes. Must be greater than 0. |
+| `allowedDomains` | Restrict metadata document fetching to these domains. Supports wildcard for first-level subdomain (e.g., `*.example.com`). Empty list allows all domains. |
+| `cacheTtlSeconds` | Time-to-live for cached metadata responses in seconds. Must be greater than 0. |
+| `cacheMaxEntries` | Maximum number of entries to store in the metadata cache. Must be greater than 0. |
+| `revokeOnDocumentChange` | Revoke all tokens and consents when the CIMD metadata document changes. |
+
 ### Configure HTTP clients
 
 HTTP web clients initiate communication with web servers. For example, communication with external identity providers. HTTP web clients can be configured in the `httpClient` section of the `gravitee.yaml` file.

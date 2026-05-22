@@ -435,6 +435,8 @@ Once a client is set up as a template, it can no longer be used for authenticati
 
 <figure><img src="../../.gitbook/assets/graviteeio-am-userguide-domain-dcr-templates.png" alt=""><figcaption><p>Client overview</p></figcaption></figure>
 
+Applications marked as templates for Dynamic Client Registration display a **Template** badge in the application list. Applications marked as CIMD templates display a **CIMD Template** badge. Template applications cannot be deleted while referenced in domain settings. Attempting to delete a template application or unset its template flag while it is referenced in domain CIMD settings raises an error.
+
 #### Register call with template example
 
 You need to retrieve the `software_id` of the template, which is available under the `registration_templates_endpoint` provided by the OpenID discovery endpoint.
