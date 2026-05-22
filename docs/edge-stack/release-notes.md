@@ -17,7 +17,7 @@ Ambassador Edge Stack now uses Golang version 1.25.10. This update resolves vari
 
 #### Upgrade various dependencies
 
-Various dependencies were upgraded, including gRPC, the Prometheus client, and OpenTelemetry packages, as part of our general dependency upgrade process to resolve security fixes.
+Upgraded gRPC, the Prometheus client, OpenTelemetry, and other dependencies to resolve security fixes.
 
 #### Fixed admission webhook rejecting v2 Mapping resources
 
@@ -41,7 +41,7 @@ Previously, the admin service APIs exposed on the health-check port accepted rem
 
 #### Admission webhook to prevent invalid Mappings from applying
 
-Added an admission webhook that validates `v3alpha1.Mapping` resources at apply time. Invalid Mappings are now rejected before they are admitted to the cluster, which prevents misconfigured resources from affecting routing. The webhook is disabled by default; to enable it, set the environment variable `AMBASSADOR_VALIDATION_WEBHOOK_ENABLED=true` on the `emissary-apiext` deployment.&#x20;
+Added an admission webhook that validates `v3alpha1.Mapping` resources at apply time. Invalid Mappings are now rejected before they are admitted to the cluster, which prevents misconfigured resources from affecting routing. The webhook is disabled by default. To enable it, set the environment variable `AMBASSADOR_VALIDATION_WEBHOOK_ENABLED=true` on the `emissary-apiext` deployment.&#x20;
 
 #### **Helm chart ClusterRole changes**
 
