@@ -14,6 +14,52 @@ metaLinks:
 
 Here are the breaking changes from versions 4.X of Gravitee.
 
+### 4.12
+
+#### Restrictions
+
+CIMD clients are subject to the following restrictions:
+
+* **Authentication methods**: CIMD clients cannot use secret-based authentication methods (`client_secret_basic`, `client_secret_post`, `client_secret_jwt`).
+* **Redirect URI matching**: CIMD clients always require exact redirect URI matching. Prefix matching is not supported.
+* **Metadata document size**: Metadata document size is limited to `maxResponseSizeKb` (default: 20 KB).
+* **Logo size**: Logo size is limited to 256 KB.
+* **Cache eviction**: Cache eviction is LRU-based. No manual cache invalidation API is available.
+* **JWKS URI accessibility**: `jwks_uri` must be accessible from the gateway and is subject to the same SSRF protection as the metadata URL.
+* **Template application deletion**: The template application cannot be deleted or un-templated while it is referenced as the CIMD template.
+* **Metadata fetch retries**: Metadata fetch retries up to 3 times with a 100ms delay between attempts.
+* **Template inheritance**: CIMD clients inherit the template's identity providers, factors, and other settings that are not overridden by metadata.
+* **Client ID precedence**: Pre-registered clients take precedence over CIMD clients when the same `client_id` is used.
+* **Token revocation scope**: Token revocation on metadata change detects changes in remote CIMD metadata only. Changes to template application settings do not trigger revocation.
+* **Hash data persistence**: Hash data for the token revocation policy persists indefinitely while the policy is enabled and is deleted when the policy is disabled.
+
+#### Related Changes
+
+When CIMD is enabled, the following changes apply:
+
+##### OIDC Discovery Document
+
+The OIDC discovery document (`/.well-known/openid-configuration`) includes `"client_id_metadata_document_supported": true`.
+
+##### Application Console Behavior
+
+Applications selected as the CIMD template in the CIMD settings display a **CIMD Template** badge in the console and cannot be deleted while referenced as the CIMD template.
+
+##### CIMD Settings Page
+
+The CIMD settings page is accessible at `/{envHrid}/domains/{domainId}/settings/cimd` with the following permissions:
+
+* `domain_openid_read` (view)
+* `domain_openid_update` (edit)
+
+##### Configuration Property Update
+
+The configuration property `oidc.cimdSettings.softwareId` has been renamed to `oidc.cimdSettings.templateId`. Existing configurations must be updated to use the new property name.
+
+##### JWKS Public Key Storage
+
+JWKS public keys from CIMD metadata are stored in the same in-memory cache as keys for pre-registered clients, using the gateway's standard JWKS cache settings configured in `gravitee.yml`.
+
 ### 4.11.0
 
 **Modified Token Signing Behavior**&#x20;
@@ -262,7 +308,7 @@ If a username cannot be duplicate, there is an error into the logs referencing t
 
 {% hint style="info" %}
 * In case of liquibase script error, the management API may fail to start and the **databasechangeloglock** has the `locked` column set to true. Once the duplicate is managed manually, the `locked` columns have to be updated to false to make the liquibase execution possible. You can update the lock using this query : `UPDATE DATABASECHANGELOGLOCK SET LOCKED=0`
-* After the migration, make sure that the **idp\_users\_xxx** tables contains a unique index in the username column. If there is no index, create this index.
+* After the migration, make sure that the **IdP\_users\_xxx** tables contains a unique index in the username column. If there is no index, create this index.
 {% endhint %}
 
 Here are two types of User entry errors:
@@ -332,7 +378,7 @@ select id, username from idp_table where username = 'duplicateuser';
 "yyyyyyyy-ef9b-4c6a-bc0b-7bef9bec6af4"	"duplicateuser"
 ```
 
-4. Based on the users table query output, choose the one that you want to preserve, and then rename to order into the the users table and into the idp table. Ensure that the user you are updating the exrernal\_id in the users table matching the user id into the idp table.
+4. Based on the users table query output, choose the one that you want to preserve, and then rename to order into the the users table and into the IdP table. Ensure that the user you are updating the exrernal\_id in the users table matching the user id into the IdP table.
 
 **Rename duplicate from Organization users Table**
 
@@ -382,7 +428,7 @@ Analyze your deployment needs to adapt the default values that we put in place.
 
 **Theme and Branding**
 
-With this update, there is a [**theme builder**](https://docs.gravitee.io/am/current/am_userguide_branding_theme_builder.html)**,** which enables Access Management (AM) users to create unique AM templates. The theme builder has new assets that are used by the default forms and emails of AM. All the assets provided before AM 3.19 are still served by the Gateway to render the old form templates. Those assets are deprecated and will be removed in a future version. Here is a list of deprecated assets:
+With this update, there is a **theme builder****,** which enables Access Management (AM) users to create unique AM templates. The theme builder has new assets that are used by the default forms and emails of AM. All the assets provided before AM 3.19 are still served by the Gateway to render the old form templates. Those assets are deprecated and will be removed in a future version. Here is a list of deprecated assets:
 
 * css/access\_confirmation.css
 * css/forgot\_password.css
@@ -438,7 +484,7 @@ Gateway X-Frame-Option:
 **Bundle Community Edition and Enterprise Edition**
 
 {% hint style="warning" %}
-Access Management versions from 3.17.2 to 3.17.4 haven been impacted by a regression introduced in the 3.17.2 version of AM. We strongly advise you to upgrade directly to the 3.17.5 or 3.18.4 minimum. For more details about this change, see [Upgrade to 3.18](https://docs.gravitee.io/am/current/am_installguide_migration.html#upgrade_to_3_17_2_3_17_3_3_17_4_3_18_0_3_18_1_3_18_2_3_18_3).
+Access Management versions from 3.17.2 to 3.17.4 haven been impacted by a regression introduced in the 3.17.2 version of AM. We strongly advise you to upgrade directly to the 3.17.5 or 3.18.4 minimum. For more details about this change, see Upgrade to 3.18.
 {% endhint %}
 
 With this update, Gravitee provides a single bundle for the Access Management (AM) Community Edition (CE) and Enterprise Edition (EE). By default, this bundle or docker image provide CE features and they do not contain EE plugins. If you want to start AM EE with plugins that you paid for, you have to deploy the license key and EE plugin that you need.
@@ -507,7 +553,7 @@ api:
 
 To better match the recommendation asked by Apple to use biometric devices for WebAuthn (passwordless) feature, backend APIs and JavaScript scripts have been updated to reflect that change.
 
-If you use webauthn JavaScript scripts in your custom HTML templates, we strongly advise you to use the v2 version started from the 3.18.0 version.
+If you use WebAuthn JavaScript scripts in your custom HTML templates, we strongly advise you to use the v2 version started from the 3.18.0 version.
 
 For more information about the recommendation from Apple, go to [WebKit Bugzilla](https://bugs.webkit.org/show_bug.cgi?id=213595).
 
@@ -552,7 +598,7 @@ If the use have consented to these, you can simply add those inputs as `hidden` 
     <input class="mdl-checkbox__input" type="hidden" th:value="on"  id="uc_ua" name="uc_ua">
 ```
 
-For more information about this change, see [Risk-based MFA](https://docs.gravitee.io/am/current/am_userguide_mfa_risk_based.html#user_activity_and_consent).
+For more information about this change, see Risk-based MFA.
 
 {% hint style="info" %}
 From **3.18.6**, you can implicit user consent in **gravitee.yml** file on the gateway side. In the **consent** section of the yml file, variable **ip** and **user-agent** is introduced for collecting user consent implicitly.
@@ -561,7 +607,7 @@ From **3.18.6**, you can implicit user consent in **gravitee.yml** file on the g
 ### 3.17.2
 
 {% hint style="warning" %}
-Access Management versions from 3.17.2 to 3.17.4 haven been impacted by a regression introduced in the 3.17.2 version of AM. We strongly advise you to upgrade directly to the 3.17.5 or 3.18.4 minimum. For more details about this change, see [Upgrade to 3.18](https://docs.gravitee.io/am/current/am_installguide_migration.html#upgrade_to_3_17_2_3_17_3_3_17_4_3_18_0_3_18_1_3_18_2_3_18_3).
+Access Management versions from 3.17.2 to 3.17.4 haven been impacted by a regression introduced in the 3.17.2 version of AM. We strongly advise you to upgrade directly to the 3.17.5 or 3.18.4 minimum. For more details about this change, see Upgrade to 3.18.
 {% endhint %}
 
 **Automatic redirection to External IDP**
@@ -574,7 +620,7 @@ With this update, the rules on external identity providers are evaluated also du
 
 **Allowed domain lists**
 
-Due to the selection rule feature added in application identity providers, domain whitelists now operate after login and not after identifier-first login. For more information about this change, see[Identifier-first Login Flow](https://docs.gravitee.io/am/current/am_userguide_login_identifier_first_login_flow.html)
+Due to the selection rule feature added in application identity providers, domain whitelists now operate after login and not after identifier-first login. For more information about this change, see Identifier-first Login Flow
 
 **Application Identity Providers**
 
@@ -583,7 +629,7 @@ At application level, identity providers support the following actions:
 * Priority: When the end user tries to log in, the application will first try to log in with the highest priority identity provider.
 * Selection rule: When the end user tries to log in, the application will try to log in with the identity provider that matches the rule.
 
-For more information about this change, see [Application Identity Providers](https://docs.gravitee.io/am/current/am_userguide_client_identity_providers.html).
+For more information about this change, see Application Identity Providers.
 
 Also, at management-api level, the schema changes to save the new application configuration:
 
@@ -613,7 +659,7 @@ Also, at management-api level, the schema changes to save the new application co
 }
 ```
 
-Finally, you can check the API reference. To check the APU reference, go to [Management API reference](https://docs.gravitee.io/am/current/am_devguide_management_api_documentation.html).
+Finally, you can check the API reference. To check the APU reference, go to Management API reference.
 
 ### 3.15
 

@@ -42,7 +42,7 @@ The authorization code flow returns an authorization code to the client, which c
 ### Implicit flow
 
 {% hint style="warning" %}
-The OAuth standard now discourages the use of an implicit grant to request access tokens from Javascript applications. You should consider using the Authorization code flow with a PKCE extension for all your applications.
+The OAuth standard now discourages the use of an implicit grant to request access tokens from JavaScript applications. You should consider using the Authorization code flow with a PKCE extension for all your applications.
 {% endhint %}
 
 When using the implicit flow, all tokens are returned from the [authorization endpoint](https://github.com/gravitee-io/gravitee-platform-docs/tree/main/docs/am/4.2/guides/auth-protocols/oauth-2.0). The token endpoint is not used.
@@ -67,10 +67,12 @@ In order to get an ID Token, the client must use an authorization code flow or i
 
 ## Dynamic client registration
 
-For an OpenID Connect Relying Party (client) to use OpenID services, it needs to first register and be known by the OpenID Provider. With dynamic client registration, RPs can self-register by providing information and obtaining, as a result, the required information (`client_id`) to use it. AM follows the [Openid Connect Dynamic Client Registration](https://openid.net/specs/openid-connect-registration-1_0.html) specifications.
+For an OpenID Connect Relying Party (client) to use OpenID services, it needs to first register and be known by the OpenID Provider. With dynamic client registration, RPs can self-register by providing information and obtaining, as a result, the required information (`client_id`) to use it. AM follows the [OpenID Connect Dynamic Client Registration](https://openid.net/specs/openid-connect-registration-1_0.html) specifications.
 
 Register URL is available through the `registration_endpoint` attribute, under the OpenID connect discovery endpoint, and used to be: `POST https://am-gateway/{domain}/oidc/register`. READ/UPDATE/DELETE can be performed with respectively GET/(PUT or PATCH)/DELETE on the `registration_client_uri` attribute retrieved from the register payload result.
 
 {% hint style="warning" %}
 Unlike PATCH, PUT requires you to provide all the client metadata. Omitted fields will be treated as null or empty values.
 {% endhint %}
+
+When Client ID Metadata Document (CIMD) is enabled, the OIDC discovery document includes `"client_id_metadata_document_supported": true`.

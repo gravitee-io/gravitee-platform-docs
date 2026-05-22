@@ -435,6 +435,23 @@ Once a client is set up as a template, it can no longer be used for authenticati
 
 <figure><img src="../../.gitbook/assets/graviteeio-am-userguide-domain-dcr-templates.png" alt=""><figcaption><p>Client overview</p></figcaption></figure>
 
+#### Define which client must be used as a CIMD template
+
+In the CIMD settings, select a template application from the autocomplete dropdown (filtered to applications with `template: true`). Template applications define identity providers, MFA settings, token validity, certificates, and other application-level settings inherited by CIMD clients. Template applications display a "CIMD Template" badge and cannot be deleted while referenced as the CIMD template.
+
+You can also configure the CIMD template using AM API:
+
+```sh
+curl -X PATCH \
+  -H 'Authorization: Bearer :accessToken' \
+  -H 'Content-Type: application/json' \
+  -d '{ "oidc": {
+        "cimdSettings": { \
+            "templateId": ":clientId"
+      }}}' \
+  http://GRAVITEEIO-AM-MGT-API-HOST/management/domains/:domainId
+```
+
 #### Register call with template example
 
 You need to retrieve the `software_id` of the template, which is available under the `registration_templates_endpoint` provided by the OpenID discovery endpoint.

@@ -229,3 +229,29 @@ In order to do so the MCP server obtains an access token from Gravitee AM using 
 If the decision is `true`, the MCP server executes the tool.
 
 </details>
+#### Token Exchange
+
+During token exchange, the client sends the `client_id` in the token request. The gateway resolves the client from cache or re-fetches metadata if expired. The issued token includes an `aud` claim set to the `client_id` URL.
+
+### End-User Configuration
+
+{% hint style="info" %}
+Navigate to **Settings → CIMD** in the domain console to configure Client ID Metadata Document support.
+{% endhint %}
+
+1. Toggle **Enable CIMD** to enable Client ID Metadata Document support.
+
+    <figure><img src="../../.gitbook/assets/am-cimd-settings-overview.png" alt="CIMD settings page showing Enable CIMD toggle and Template Application selector"><figcaption></figcaption></figure>
+
+2. Select a **Template Application** from the autocomplete dropdown (filtered to applications with `template: true`).
+3. Toggle **Allow Private/Loopback IP Addresses** to allow metadata document requests to private, loopback, link-local, or any-local IP addresses.
+
+    <figure><img src="../../.gitbook/assets/am-cimd-ssrf-protection.png" alt="CIMD SSRF protection settings showing Allow Private/Loopback IP Addresses and Allow Unsecured HTTP URIs toggles"><figcaption></figcaption></figure>
+
+4. Toggle **Allow Unsecured HTTP URIs** to allow metadata document requests to plain HTTP (non-HTTPS) URIs.
+5. Enter a value in the **Fetch Timeout (ms)** field to set the timeout for metadata fetch operations (must be greater than 0).
+
+    <figure><img src="../../.gitbook/assets/am-cimd-fetch-settings.png" alt="CIMD fetch settings showing Fetch Timeout and Max Response Size fields"><figcaption></figcaption></figure>
+
+6. Enter a value in the **Max Response Size (KB)** field to set the maximum allowed size of a metadata response (must be greater than 0).
+
