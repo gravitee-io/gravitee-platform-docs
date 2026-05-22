@@ -41,7 +41,7 @@ Previously, the admin service APIs exposed on the health-check port accepted rem
 
 #### Admission webhook to prevent invalid Mappings from applying
 
-Added an admission webhook that validates `v3alpha1.Mapping` resources at apply time. Invalid Mappings are now rejected before they are admitted to the cluster, which prevents misconfigured resources from affecting routing. The webhook is disabled by default. To enable it, set the environment variable `AMBASSADOR_VALIDATION_WEBHOOK_ENABLED=true` on the `emissary-apiext` deployment.&#x20;
+Added an admission webhook that validates `v3alpha1.Mapping` resources at apply time. Invalid Mappings are now rejected before they are admitted to the cluster, which prevents misconfigured resources from affecting routing. The webhook is disabled by default. To enable it, set the environment variable `AMBASSADOR_VALIDATION_WEBHOOK_ENABLED=true` on the `emissary-apiext` deployment.
 
 #### **Helm chart ClusterRole changes**
 
