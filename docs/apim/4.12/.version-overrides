@@ -30,3 +30,15 @@ secure-and-expose-apis/api-products/api-product-membership-and-ownership-models.
 secure-and-expose-apis/api-products/configuring-api-product-primary-owner-mode-and-group-defaults.md
 secure-and-expose-apis/api-products/manage-api-products-with-management-api.md
 secure-and-expose-apis/api-products/managing-api-product-members-and-ownership-configuration-page.md
+.gitbook/assets/apim-opentelemetry-logs-integration-step-01.png
+.gitbook/assets/apim-opentelemetry-logs-integration-step-02.png
+.gitbook/assets/apim-opentelemetry-logs-integration-step-03.png
+.gitbook/assets/apim-opentelemetry-logs-integration-step-04.png
+.gitbook/assets/apim-opentelemetry-logs-integration-step-05.png
+.gitbook/assets/apim-opentelemetry-logs-integration-step-06.png
+.gitbook/assets/apim-opentelemetry-logs-integration-step-07.png
+.gitbook/assets/apim-opentelemetry-logs-integration-step-08.png
+analyze-and-monitor-apis/configure-gateway-for-opentelemetry-logs.md
+analyze-and-monitor-apis/enable-and-use-opentelemetry-logs-for-apis.md
+analyze-and-monitor-apis/opentelemetry-logs-integration-overview.md
+plugins/plugin-reference.md
