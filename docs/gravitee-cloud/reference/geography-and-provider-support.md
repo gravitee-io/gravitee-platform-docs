@@ -18,6 +18,7 @@ Gravitee Cloud currently offers the following geography and provider support. If
 | -------- | ------------------ | ------------------------ |
 | Azure    | US (United States) | Washington (westus2)     |
 | Azure    | EU (Europe)        | Netherlands (westeurope) |
+| Azure    | AU (Australia)     | Australia (australiaeast)|
 
 ### Gravitee hosted API Gateways
 
