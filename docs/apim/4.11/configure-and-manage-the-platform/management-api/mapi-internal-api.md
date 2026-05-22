@@ -193,3 +193,85 @@ Content-Type: application/json
     ]
 }
 </code></pre></td></tr></tbody></table>
+
+## Heap dump and thread dump endpoints
+
+The Management API internal API exposes two endpoints for capturing JVM heap dumps and thread dumps to help with troubleshooting. Both endpoints are disabled by default for security reasons. Enable them only when you need them, and confirm the Management API internal API has authentication configured before exposing them.
+
+<table data-full-width="true"><thead><tr><th width="220">Operation</th><th>Description</th></tr></thead><tbody><tr><td><pre data-overflow="wrap"><code>GET /_node/heapdump
+</code></pre></td><td><p>Returns a JVM heap dump file as the response body. The file extension is <code>.hprof</code> for HotSpot JVMs and <code>.phd</code> for OpenJ9 JVMs.</p><p>Pass the optional <code>?live=true</code> query parameter to forward the <code>live</code> flag to the HotSpot heap dump API (default <code>false</code>). The flag has no effect on OpenJ9.</p><p>The endpoint serializes heap dump requests. Only one heap dump runs at a time.</p></td></tr><tr><td><pre data-overflow="wrap"><code>GET /_node/threaddump
+</code></pre></td><td>Returns a plain-text dump of all live threads as the response body (<code>Content-Type: text/plain;charset=UTF-8</code>). Each request reports locked monitors and locked synchronizers.</td></tr></tbody></table>
+
+### Enable the endpoints
+
+Set the enable flags on the Management API and restart it. Use the tab that matches your deployment method.
+
+{% tabs %}
+{% tab title="gravitee.yaml" %}
+{% code title="gravitee.yml" %}
+```yaml
+services:
+  core:
+    endpoints:
+      heapdump:
+        enabled: true
+      threaddump:
+        enabled: true
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title=".env" %}
+Add the following variables to the `.env` file loaded by your `docker-compose.yml`, or to the `environment:` block of the Management API service:
+
+```bash
+gravitee_services_core_endpoints_heapdump_enabled=true
+gravitee_services_core_endpoints_threaddump_enabled=true
+```
+{% endtab %}
+
+{% tab title="Helm values.yaml" %}
+The APIM Helm chart doesn't expose dedicated values for these endpoints, so inject them as environment variables through the `api.env` array. The Management API container picks them up through Gravitee's `gravitee_` env-var prefix:
+
+```yaml
+api:
+  env:
+    - name: gravitee_services_core_endpoints_heapdump_enabled
+      value: "true"
+    - name: gravitee_services_core_endpoints_threaddump_enabled
+      value: "true"
+```
+{% endtab %}
+{% endtabs %}
+
+{% hint style="warning" %}
+These endpoints expose JVM internals and the contents of process memory. Don't enable them on a Management API that's reachable without authentication, and disable them again once you've captured the dumps you need.
+{% endhint %}
+
+### Capture a heap dump
+
+Request the heap dump from the host running the Management API, replacing the host, port, and credentials with values from your `services.core.http` configuration. The endpoint streams the dump in the response body, so write it to a file:
+
+```bash
+curl -u admin:adminadmin \
+  http://localhost:18083/_node/heapdump \
+  -o heap-$(date +%Y-%m-%d-%H-%M).hprof
+```
+
+If the Management API runs in a Kubernetes pod, forward the internal API port from the Management API pod first, then run the same `curl` against `localhost`:
+
+```bash
+kubectl port-forward -n <namespace> <management-api-pod> 18083:18083
+```
+
+To analyze the dump, open the `.hprof` file in a HotSpot-compatible heap analyzer, or open the `.phd` file in an OpenJ9-compatible analyzer. The file format depends on the JVM the Management API runs on.
+
+### Capture a thread dump
+
+Request the thread dump the same way. The response body is plain text and opens in any text editor:
+
+```bash
+curl -u admin:adminadmin \
+  http://localhost:18083/_node/threaddump \
+  -o thread-$(date +%Y-%m-%d-%H-%M).txt
+```
