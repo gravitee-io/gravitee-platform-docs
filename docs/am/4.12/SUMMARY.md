@@ -53,11 +53,14 @@
 
 ## Guides
 
+* [CIMD Reference and Restrictions](guides/cimd-reference-and-restrictions.md)
 * [OAuth 2.0 Token Exchange](guides/oauth-2.0-token-exchange-concepts/README.md)
   * [OAuth 2.0 Token Exchange Configuration](guides/oauth-2.0-token-exchange-concepts/oauth-2.0-token-exchange-configuration-reference.md)
   * [OAuth 2.0 Token Exchange API](guides/oauth-2.0-token-exchange-concepts/oauth-2.0-token-exchange-api-reference.md)
 * [Prologue](guides/prologue.md)
 * [Auth Protocols](guides/auth-protocols/README.md)
+  * [Client ID Metadata Document (CIMD) Overview](guides/auth-protocols/client-id-metadata-document-cimd-overview.md)
+  * [Configuring and Using CIMD](guides/auth-protocols/configuring-and-using-cimd.md)
   * [OAuth 2.0](guides/auth-protocols/oauth-2.0/README.md)
     * [Which Flow Should I Use?](guides/auth-protocols/oauth-2.0/which-flow-should-i-use.md)
     * [Proof Key for Code Exchange (PKCE)](guides/auth-protocols/oauth-2.0/proof-key-for-code-exchange-pkce.md)

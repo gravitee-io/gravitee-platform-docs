@@ -433,6 +433,10 @@ curl -X PATCH \
 Once a client is set up as a template, it can no longer be used for authentication purposes.
 {% endhint %}
 
+#### Mark an application as a CIMD template
+
+To designate an application as a template for Client ID Metadata Document (CIMD) clients, navigate to **Domain Settings → Client Registration → Templates** and select the application from the list. Template applications define baseline OAuth settings (grant types, response types, scopes, identity providers, MFA settings, token validity, certificates) for CIMD clients. Template applications cannot be deleted or un-templated while referenced in CIMD settings.
+
 <figure><img src="../../.gitbook/assets/graviteeio-am-userguide-domain-dcr-templates.png" alt=""><figcaption><p>Client overview</p></figcaption></figure>
 
 #### Register call with template example

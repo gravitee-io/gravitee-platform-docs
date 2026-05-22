@@ -83,3 +83,20 @@ POST http(s)://AM_MANAGEMENT_API/management/auth/login
 For user migrations from an alternative OIDC provider to Access Management, you can define the `lastPasswordReset` attribute. This attribute ensures that a password policy with password expiry requests a password reset according to the value provided during the migration.
 
 In Management REST API, `lastPasswordReset` attribute in the User definition is a long value representing the number of milliseconds since the standard base time known as "the epoch".
+
+### CIMD Logo Endpoint
+
+**Endpoint:** `GET /{domain}/cimd/logo?clientId={url-encoded-client-id}`
+
+Retrieves the logo image for a CIMD client. The gateway fetches the `logo_uri` from cached metadata (or fetches metadata on cache miss), validates the URI against SSRF rules, and retrieves the logo with a 256 KB size limit. Logos are cached in-memory with TTL equal to the remaining metadata TTL.
+
+**Response Codes:**
+
+- `200 OK`: Logo retrieved successfully. Response includes `Content-Type: image/*` and `Cache-Control: max-age={ttl}` header.
+- `404 Not Found`: No logo available or metadata missing.
+
+**Validation:**
+
+- Logo URIs are validated against SSRF protection rules (same as metadata document URIs)
+- Maximum logo size is 256 KB
+- Logos are cached in-memory with TTL matching the remaining metadata cache TTL
