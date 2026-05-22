@@ -224,12 +224,25 @@ The Expression Language (EL) Assistant generates EL expressions based on natural
 Before using the EL Assistant, complete the following:
 
 * Register for a Gravitee Cloud account at [Cloud](https://cockpit.gravitee.io/).
-* (Self-hosted and Hybrid installations only) Register your installation in Gravitee Cloud. For more information, see Register installations.
+* (Self-hosted and Hybrid installations only) Register your installation in Gravitee Cloud. For more information, see [Register installations.](https://documentation.gravitee.io/gravitee-cloud/self-hosted/register-installations)
 * (Self-hosted and Hybrid installations only) Enable the EL Assistant by adding the following configuration:
+* Enable the EL Assistant on the Management API.
+
+{% hint style="warning" %}
+The `newtai.elgen.enabled` setting is read by the Management API, not the Gateway. Apply it to the Management API's `gravitee.yml`, the Management API container's environment, or the `api.newtai.elgen` block of `values.yaml`. Setting it on the Gateway has no effect.
+{% endhint %}
+
+**Gravitee Cloud (SaaS) deployments**
+
+In a Gravitee Cloud deployment, you don't operate the Management API, so you can't edit `gravitee.yml` or `values.yaml` yourself. [Contact Gravitee support ](https://www.gravitee.io/contact-us)to request that the EL Assistant be enabled on your environment.
+
+**Self-hosted and Hybrid deployments**
+
+Apply one of the following configurations to the Management API.
 
 {% tabs %}
-{% tab title="gravitee.yaml" %}
-Add the following configuration to the root level of your `gravitee.yaml` file:
+{% tab title="gravitee.yml" %}
+Add the following configuration at the root level of the Management API's `gravitee.yml` file:
 
 ```yaml
 newtai:
@@ -239,7 +252,7 @@ newtai:
 {% endtab %}
 
 {% tab title=".env" %}
-Add the following line to your `.env` file:
+Add the following line to the `.env` file loaded by the Management API container, or to that container's `environment:` block:
 
 ```bash
 gravitee_newtai_elgen_enabled=true
@@ -247,12 +260,13 @@ gravitee_newtai_elgen_enabled=true
 {% endtab %}
 
 {% tab title="Helm values.yaml" %}
-Add the following configuration to your `values.yaml` file:
+Add the following configuration under the `api:` block of your `values.yaml` file. The key nests under `api.newtai.elgen`, not at the root of `values.yaml`.
 
 ```yaml
-newtai:
-  elgen:
-    enabled: true
+api:
+  newtai:
+    elgen:
+      enabled: true
 ```
 {% endtab %}
 {% endtabs %}
@@ -487,6 +501,24 @@ The EL (Expression Language) used for a message does not change based on phase. 
 {% tab title="Examples" %}
 * Get the value of the `Content-Type` header for a message: `{#message.headers['content-type']}`
 * Get the size of a message: `{#message.contentLength}`
+{% endtab %}
+{% endtabs %}
+
+### Writable message attributes by endpoint type
+
+On v4 Message APIs, some endpoint connectors read writable attributes off the current context or message and use them to override their runtime behavior. Set these keys with the [Assign Attributes](create-and-configure-apis/apply-policies/policy-reference/assign-attributes.md) policy to change connector behavior per request or per message.
+
+{% hint style="warning" %}
+The keys in this section apply only to v4 Message APIs that attach the Kafka **endpoint connector**. These are APIs built with the **Introspect messages from event-driven backend** method (protocol mediation). For Kafka APIs built on the **Kafka Gateway** (native Kafka protocol), these keys have no effect: the Kafka Gateway routes traffic at the Kafka protocol level and doesn't read these Gravitee attributes. See the [Kafka Gateway](gravitee-expression-language.md#kafka-gateway) section below for the EL surface available on Kafka APIs.
+{% endhint %}
+
+{% tabs %}
+{% tab title="Kafka endpoint" %}
+The Kafka endpoint connector reads the following writable attributes. There are two prefixes: `gravitee.attribute.kafka.*` (hand-coded attribute names the connector reads at specific points) and `gravitee.attributes.endpoint.kafka.*` (handled by the endpoint's configuration evaluator and able to override any field on the shared configuration).
+
+<table><thead><tr><th width="360">Attribute key</th><th width="170">Reads from</th><th>Effect</th></tr></thead><tbody><tr><td><code>gravitee.attribute.kafka.topics</code></td><td>Context (consumer and producer), message (producer fallback)</td><td>Overrides the consumer topic list, or the producer topic list when no <code>producer.topics</code> attribute is set on the message.</td></tr><tr><td><code>gravitee.attribute.kafka.groupId</code></td><td>Context</td><td>Overrides the consumer group ID for the request.</td></tr><tr><td><code>gravitee.attribute.kafka.recordKey</code></td><td>Message, falls back to context</td><td>Sets the produced record's key.</td></tr><tr><td><code>gravitee.attribute.kafka.avroKey</code></td><td>Message</td><td>Sets a raw byte-buffer key on the produced record. Short-circuits <code>recordKey</code> when set, and adds an <code>avroKey</code> header to the record.</td></tr><tr><td><code>gravitee.attributes.endpoint.kafka.producer.topics</code></td><td>Message</td><td>Per-message override of the producer topic list. Read before the <code>kafka.topics</code> fallback. Routes the message to a different topic than the one configured on the endpoint.</td></tr><tr><td><code>gravitee.attributes.endpoint.kafka.&#x3C;field></code></td><td>Context</td><td>Per-request override of any field on the endpoint's shared configuration. For example, <code>gravitee.attributes.endpoint.kafka.consumer.topics</code> overrides the consumer topic list, and <code>gravitee.attributes.endpoint.kafka.security.sasl.saslMechanism</code> overrides the SASL mechanism.</td></tr></tbody></table>
+
+For full details on what each Kafka attribute does and when the connector reads it, see the [Kafka endpoint reference](create-and-configure-apis/configure-v4-apis/endpoints/kafka.md).
 {% endtab %}
 {% endtabs %}
 
