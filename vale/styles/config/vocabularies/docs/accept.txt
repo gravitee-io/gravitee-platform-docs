@@ -250,7 +250,7 @@ SOCKS[45]
 ACLs?
 JOSE
 ACME
-CVE
+CVEs?
 
 # ============================================
 # Networking & Protocols
