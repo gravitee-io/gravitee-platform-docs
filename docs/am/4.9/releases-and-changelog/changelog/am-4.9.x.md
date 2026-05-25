@@ -6,6 +6,25 @@ description: >-
 
 # AM 4.9.x
 
+## Gravitee Access Management 4.9.21 - May 25, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* UI Crash on Device Deletion [#11446](https://github.com/gravitee-io/issues/issues/11446)
+
+</details>
+
+
 ## Gravitee Access Management 4.9.20 - May 15, 2026
 
 <details>
