@@ -103,15 +103,3 @@ gateway:
       exporter:
         logsEndpoint: http://loki:3100/otlp/v1/logs
 ```
-
-#### Environment Variable Overrides
-
-Override configuration properties using environment variables:
-
-```bash
-gravitee_services_tracing_otel_redaction_defaultReplacement=[REDACTED]
-gravitee_services_tracing_otel_redaction_rules_0_attributeNamePattern=http.request.header.authorization
-gravitee_services_tracing_otel_redaction_rules_0_maskingStrategy_type=FULL
-gravitee_services_opentelemetry_exporter_logsEndpoint=http://loki:3100/otlp/v1/logs
-```
-
