@@ -6,6 +6,26 @@ description: >-
 
 # AM 4.11.x
 
+## Gravitee Access Management 4.11.5 - May 25, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* Sync delay between GW when using DCR [#11443](https://github.com/gravitee-io/issues/issues/11443)
+* UI Crash on Device Deletion [#11446](https://github.com/gravitee-io/issues/issues/11446)
+
+</details>
+
+
 ## Gravitee Access Management 4.11.4 - May 15, 2026
 
 <details>
