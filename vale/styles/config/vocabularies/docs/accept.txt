@@ -199,6 +199,8 @@ Privileged Access Management
 Just-in-Time
 Human-in-the-Loop
 [Pp]asswordless
+client_id
+client_secret
 
 # ============================================
 # Java & JVM
@@ -262,6 +264,7 @@ SMTP
 URIs?
 URLs?
 [Ll]ocalhost
+[Ll]oopback
 Gzip
 CIDR
 SPA
