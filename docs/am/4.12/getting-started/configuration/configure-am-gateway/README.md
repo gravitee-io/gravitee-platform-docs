@@ -556,3 +556,26 @@ user:user
     # retention duration in seconds
     ttl: 3600
 ```
+
+### Gateway Configuration
+
+#### CIMD Settings
+
+Configure Client ID Metadata Document (CIMD) support in the `gravitee.yml` file under the `oidc.cimdSettings` section. All properties are optional unless otherwise noted.
+
+| Property | Description | Example |
+|:---------|:------------|:--------|
+| `oidc.cimdSettings.enabled` | Enable Client ID Metadata Document support. When enabled, the gateway accepts URL-shaped `client_id` values and retrieves client metadata from the URL. | `false` |
+| `oidc.cimdSettings.templateId` | Application ID of the template used for CIMD clients. Required when CIMD is enabled. The template application must have its `template` flag set to `true`. | `"app-template-123"` |
+| `oidc.cimdSettings.allowPrivateIpAddress` | Allow metadata document requests to private, loopback, link-local, or any-local IP addresses. When `false`, the gateway rejects metadata URLs that resolve to these address ranges. | `false` |
+| `oidc.cimdSettings.allowUnsecuredHttpUri` | Allow metadata document requests to plain HTTP URIs. When `false`, the gateway requires HTTPS for all metadata URLs. | `false` |
+| `oidc.cimdSettings.fetchTimeoutMs` | Timeout in milliseconds for fetching client metadata documents. Requests exceeding this duration are rejected. | `3000` |
+| `oidc.cimdSettings.maxResponseSizeKb` | Maximum allowed size of a metadata response in kilobytes. Responses exceeding this size are rejected. | `20` |
+| `oidc.cimdSettings.allowedDomains` | Restrict metadata document requests to these domains. Supports wildcard syntax for first-level subdomains (e.g., `*.example.com`). An empty list allows all domains. | `["*.example.com", "trusted.org"]` |
+| `oidc.cimdSettings.cacheTtlSeconds` | Time-to-live for cached metadata responses in seconds. Metadata documents are cached in memory and refreshed after this duration. | `3600` |
+| `oidc.cimdSettings.cacheMaxEntries` | Maximum number of entries to store in the metadata cache. When the cache is full, the least recently used entries are evicted. | `500` |
+| `oidc.cimdSettings.revokeOnDocumentChange` | Revoke all tokens and scope approvals when a CIMD metadata document changes. The gateway compares a SHA-256 hash of the metadata document on each fetch. If the hash changes, all tokens for that client are revoked. This policy detects changes in remote CIMD metadata only; changes to the template application do not trigger revocation. | `false` |
+
+#### JWKS Cache Configuration
+
+JWKS public keys presented in CIMD metadata are stored in the in-memory cache alongside keys for pre-registered clients. Configure the cache using standard `gravitee.yml` JWKS cache settings.

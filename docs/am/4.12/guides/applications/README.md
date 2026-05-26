@@ -429,6 +429,8 @@ curl -X PATCH \
   http://GRAVITEEIO-AM-MGT-API-HOST/management/domains/:domainId/clients/:clientId
 ```
 
+Applications can also be designated as CIMD templates by setting the template flag. Template applications define default settings for all CIMD clients in a domain. Template applications cannot be deleted or un-templated while CIMD is enabled.
+
 {% hint style="warning" %}
 Once a client is set up as a template, it can no longer be used for authentication purposes.
 {% endhint %}
