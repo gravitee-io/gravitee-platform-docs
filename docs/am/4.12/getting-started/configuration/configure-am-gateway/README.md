@@ -463,6 +463,56 @@ httpClient:
     keepAliveTimeout: 60 # in seconds
 ```
 
+### JWKS resolver and cache
+
+The AM Gateway fetches JSON Web Key Sets (JWKS) from remote URLs when it must resolve public keys to verify JWT signatures. Typical cases include:
+
+* OAuth 2.0 token exchange with trusted issuers configured for JWKS URL resolution
+* Extension grants that validate incoming assertions against a remote JWKS
+* Client authentication where applications declare a `jwks_uri`
+* `jwks_uri` values declared in [Client ID Metadata Document (CIMD)](../../../guides/auth-protocols/oauth-2.0/cimd.md) metadata
+
+Retriever implementation and JWKS caching are configured in the Gateway `gravitee.yml` file under `jwt.jwks`.
+
+#### JWKS retriever
+
+Two retriever implementations are available:
+
+| Type | Description |
+|:-----|:------------|
+| `JOSE` (default) | Uses Java `HttpURLConnection`. Does not use the Gateway [`httpClient`](README.md#configure-http-clients) settings. Proxy and truststore configuration may require `JAVA_OPTS`. |
+| `WEBCLIENT` | Uses the Gateway `httpClient` configuration for TLS, proxy, timeouts, and HTTP/2. Required for JWKS caching. |
+
+Enable the `WEBCLIENT` retriever in `gravitee.yml`:
+
+```yaml
+jwt:
+  jwks:
+    retriever:
+      type: WEBCLIENT # default: JOSE
+```
+
+#### JWKS cache
+
+When the retriever type is `WEBCLIENT`, the Gateway caches JWKS documents fetched from remote URIs in an in-memory cache. Each distinct JWKS URL is cached separately. This reduces load on external issuers and improves latency for JWT validation that relies on the same JWKS endpoint.
+
+{% hint style="warning" %}
+JWKS caching is only active when `jwt.jwks.retriever.type` is `WEBCLIENT`. The default `JOSE` retriever does not use this cache.
+{% endhint %}
+
+Configure the cache in `gravitee.yml`:
+
+```yaml
+jwt:
+  jwks:
+    retriever:
+      type: WEBCLIENT
+    cache:
+      ttlAfterWriteSeconds: 3600
+      maximumSize: 100
+```
+
+
 ### Token request response
 
 By default, all additional parameters, except for the following standard parameters are mapped to `/token` response:

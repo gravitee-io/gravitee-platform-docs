@@ -65,6 +65,7 @@
     * [Refresh Tokens](guides/auth-protocols/oauth-2.0/refresh-tokens.md)
     * [Extension Grants](guides/auth-protocols/oauth-2.0/extension-grants.md)
     * [Dynamic Redirect URI Parameters](guides/auth-protocols/oauth-2.0/dynamic-redirect-uri-parameters.md)
+    * [CIMD](guides/auth-protocols/oauth-2.0/cimd.md)
   * [OpenID Connect](guides/auth-protocols/openid-connect.md)
   * [UMA 2.0](guides/auth-protocols/uma-2.0.md)
   * [SCIM 2.0](guides/auth-protocols/scim-2.0.md)
