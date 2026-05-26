@@ -4,6 +4,8 @@
 
 OpenTelemetry Logs Integration injects active trace IDs and span IDs into runtime log records captured during request processing and exports them to the configured OTLP log backend. This enables full log-to-trace correlation in Grafana: each log line carries the trace ID so you can navigate directly from a log to its corresponding trace in Tempo. This applies to v4 HTTP/Proxy APIs and v4 Message APIs.
 
+OpenTelemetry Span Attribute Redaction masks sensitive span metadata before OTLP export. Log Correlation emits request and response payloads as OpenTelemetry log records linked to traces, enabling log-to-trace navigation in Grafana and other OTel-compatible backends.
+
 ## Key Concepts
 
 ### Log-to-Trace Correlation

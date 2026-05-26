@@ -59,6 +59,16 @@
 * The `service.name` must match between tracer and logger (default: `gio_apim_gateway`) for Grafana correlation to function correctly.
 <!-- /PIPELINE:APIM-13463 -->
 
+
+<!-- PIPELINE:APIM-13549 -->
+#### **OpenTelemetry Span Attribute Redaction and Log Correlation**
+
+* Mask sensitive span attributes (authorization headers, API keys, tokens, consumer identifiers, PII) before export to OTLP collectors using configurable glob or regex patterns.
+* Apply FULL masking (replace entire value) or PARTIAL masking (preserve prefix/suffix, mask middle section) with global rules in `gravitee.yml` and API-specific overrides in the Console.
+* Emit request and response payloads as OpenTelemetry log records correlated to active traces via `traceId` and `spanId`, enabling log-to-trace navigation in Grafana and other OTel-compatible backends.
+* Requires OpenTelemetry tracing enabled, OTLP exporter endpoint configured, and v4 HTTP/Proxy or TCP APIs (redaction) or v4 HTTP/Proxy APIs (log correlation).
+<!-- /PIPELINE:APIM-13549 -->
+
 ## Improvements
 
 
