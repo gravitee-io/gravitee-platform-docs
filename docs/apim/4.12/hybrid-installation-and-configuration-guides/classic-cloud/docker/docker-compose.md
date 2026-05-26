@@ -42,6 +42,7 @@ services:
       - ./.logs/apim-gateway:/opt/graviteeio-gateway/logs
       - ./.license:/opt/graviteeio-gateway/license
       - ./.plugins:/opt/graviteeio-gateway/plugins-ext
+      - ./gravitee.yml:/opt/graviteeio-gateway/config/gravitee.yml:ro
     environment:
       # gravitee_tags=UK
       
@@ -81,6 +82,11 @@ services:
       # - gravitee_alerts_alert-engine_ws_security_username=xxx
       # - gravitee_alerts_alert-engine_ws_security_password=xxx
 
+      # --- OPENTELEMETRY (OPTIONAL) ---
+      # - gravitee_services_tracing_enabled=true
+      # - gravitee_services_tracing_type=opentelemetry
+      # - gravitee_services_tracing_otel_endpoint=http://otel-collector:4317
+
   logstash:
      # https://www.docker.elastic.co/r/logstash/logstash-oss
      image: docker.elastic.co/logstash/logstash-oss:${LOGSTASH_VERSION:-8.10.2}
@@ -117,6 +123,41 @@ services:
 #      - data-redis:/data
 ```
 
+Example `gravitee.yml` with OpenTelemetry redaction rules and log correlation:
+
+```yaml
+services:
+  tracing:
+    enabled: true
+    type: opentelemetry
+
+    otel:
+      endpoint: http://otel-collector:4317
+
+      redaction:
+        defaultReplacement: "[REDACTED]"
+
+        rules:
+          - attributeNamePattern: "http.request.header.authorization"
+            maskingStrategy:
+              type: FULL
+              replacement: "[REDACTED]"
+
+          - attributeNamePattern: "http.request.header.**"
+            maskingStrategy:
+              type: FULL
+
+          - attributeNamePattern: "enduser.id"
+            maskingStrategy:
+              type: PARTIAL
+              prefixLength: 0
+              suffixLength: 4
+              replacement: "*"
+
+      exporter:
+        logsEndpoint: http://localhost:3100/otlp/v1/logs
+```
+
 This `docker-compose.yml` contains multiple services:
 
 * Gateway(s): Each Gateway declares the component used to route traffic and applies policies (one service per Gateway).
@@ -148,6 +189,15 @@ First, you need to upload the `license.key` file sent by your Technical Account 
 ```
 
 You must update the path on the left of this command with the path where you will host the `license.key` file on your system.
+
+Similarly, mount the `gravitee.yml` configuration file to provide OpenTelemetry redaction rules and other gateway settings:
+
+```yaml
+    volumes:
+      - ./gravitee.yml:/opt/graviteeio-gateway/config/gravitee.yml:ro
+```
+
+You must update the path on the left of this command with the path where you will host the `gravitee.yml` file on your system.
 
 To link your Gateway to a specific environment defined in Gravitee Cloud, update the following values:
 

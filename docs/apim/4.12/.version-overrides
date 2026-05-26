@@ -42,3 +42,6 @@ analyze-and-monitor-apis/configure-gateway-for-opentelemetry-logs.md
 analyze-and-monitor-apis/enable-and-use-opentelemetry-logs-for-apis.md
 analyze-and-monitor-apis/opentelemetry-logs-integration-overview.md
 plugins/plugin-reference.md
+analyze-and-monitor-apis/creating-api-specific-redaction-rules-and-enabling-log-correlation-in-the-console.md
+analyze-and-monitor-apis/opentelemetry-span-attribute-redaction-and-log-correlation-overview.md
+hybrid-installation-and-configuration-guides/classic-cloud/docker/docker-compose.md

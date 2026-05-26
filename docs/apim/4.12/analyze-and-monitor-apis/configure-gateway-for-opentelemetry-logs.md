@@ -23,3 +23,105 @@ When you run the Gateway inside Docker, use the container hostname, for example,
 {% hint style="info" %}
 If OTel is disabled globally on the Gateway, the feature has zero overhead.
 {% endhint %}
+
+### Redaction Rules
+
+Configure global redaction rules in `gravitee.yml` under `services.opentelemetry.redactionRules`. Each rule is an array element with the following properties:
+
+| Property | Description | Example |
+|:---------|:------------|:--------|
+| `services.opentelemetry.redactionRules[N].attributeNamePattern` | Glob or regex pattern matching span attribute keys. Short names (no dots) match any namespace. `*` = one segment, `**` = any depth. Prefix with `regex:` for exact regex. | `http.request.header.authorization` |
+| `services.opentelemetry.redactionRules[N].maskingStrategy.type` | `FULL` or `PARTIAL` | `FULL` |
+| `services.opentelemetry.redactionRules[N].maskingStrategy.replacement` | FULL: replacement text (default: `[REDACTED]`). PARTIAL: single mask character (default: `*`). | `[REDACTED]` |
+| `services.opentelemetry.redactionRules[N].maskingStrategy.prefixLength` | PARTIAL only: number of leading characters to keep visible. | `2` |
+| `services.opentelemetry.redactionRules[N].maskingStrategy.suffixLength` | PARTIAL only: number of trailing characters to keep visible. | `2` |
+| `services.opentelemetry.redactionRules[N].valuePattern` | Java regex (partial match). Rule only fires when the attribute value matches. | `^Bearer ` |
+| `services.opentelemetry.redactionDefaultReplacement` | Fallback replacement text for FULL rules with no per-rule replacement. | `[REDACTED]` |
+
+Rules are evaluated in order and the first matching rule wins. YAML-configured rules are always applied before API-specific rules.
+
+### Example Configuration
+
+{% tabs %}
+{% tab title="gravitee.yml" %}
+```yaml
+services:
+  tracing:
+    enabled: true
+    type: opentelemetry
+
+    otel:
+      endpoint: http://otel-collector:4317
+
+      redaction:
+        defaultReplacement: "[REDACTED]"
+
+        rules:
+          - attributeNamePattern: "http.request.header.authorization"
+            maskingStrategy:
+              type: FULL
+              replacement: "[REDACTED]"
+
+          - attributeNamePattern: "http.request.header.**"
+            maskingStrategy:
+              type: FULL
+
+          - attributeNamePattern: "url.query"
+            valuePattern: "*token=*"
+            maskingStrategy:
+              type: FULL
+
+          - attributeNamePattern: "enduser.id"
+            maskingStrategy:
+              type: PARTIAL
+              prefixLength: 0
+              suffixLength: 4
+              replacement: "*"
+
+      exporter:
+        logsEndpoint: http://localhost:3100/otlp/v1/logs
+```
+{% endtab %}
+
+{% tab title="Docker Compose" %}
+```yaml
+services:
+  gateway:
+    image: graviteeio/apim-gateway:4.12.0
+    volumes:
+      - ./gravitee.yml:/opt/graviteeio-gateway/config/gravitee.yml:ro
+    environment:
+      gravitee_services_tracing_enabled: true
+      gravitee_services_tracing_type: opentelemetry
+      gravitee_services_tracing_otel_endpoint: http://otel-collector:4317
+```
+{% endtab %}
+
+{% tab title="Helm" %}
+```yaml
+gateway:
+  services:
+    tracing:
+      enabled: true
+      type: opentelemetry
+
+      otel:
+        endpoint: http://otel-collector:4317
+
+        redaction:
+          defaultReplacement: "[REDACTED]"
+
+          rules:
+            - attributeNamePattern: "http.request.header.authorization"
+              maskingStrategy:
+                type: FULL
+
+            - attributeNamePattern: "gravitee.consumer.**"
+              maskingStrategy:
+                type: PARTIAL
+                prefixLength: 2
+                suffixLength: 2
+                replacement: "*"
+```
+{% endtab %}
+{% endtabs %}

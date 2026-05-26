@@ -20,6 +20,8 @@ You can enable verbose tracing for v4 APIs. Verbose mode adds detailed execution
 
 For Kafka native APIs, OpenTelemetry tracing covers Kafka protocol operations, capturing the connection lifecycle, authentication, and per-request spans with protocol-specific attributes (topics, batch counts, consumer groups, error codes). Tracing is opt-in at both gateway and API levels, with an optional verbose mode that adds per-phase, per-flow, and per-policy spans for deep debugging.
 
+OpenTelemetry also supports span attribute redaction and log correlation. Span attribute redaction allows you to mask or remove sensitive data from trace spans before export. Log correlation enables automatic linking of application logs to distributed traces through trace context injection.
+
 To enable OpenTelemetry, complete the following steps:
 
 1. [#enable-opentelemetry-for-your-gateway](opentelemetry.md#enable-opentelemetry-for-your-gateway "mention")
@@ -310,6 +312,14 @@ Policy description tracing has the following restrictions:
 * The description attribute is cleared between policy executions; if a policy has no description, the attribute is set to `null`.
 * Disabled steps are excluded from tracing.
 
+#
+### API Changes
+
+The following API changes support span attribute redaction:
+
+
+* **TracerFactory.createTracer overload:** `TracerFactory.createTracer` now has a new overload accepting `RedactionConfig`. Existing implementations must provide a default implementation returning the old signature or `RedactionConfig.EMPTY`.
+
 ### Supported API types
 
 This feature applies to the following API types:
@@ -320,6 +330,62 @@ This feature applies to the following API types:
 * Shared Policy Groups across all API types
 
 APIs without policy descriptions continue to work without changes. APIs with policy descriptions automatically include them in tracing spans when verbose tracing is enabled. No breaking changes are introduced. Existing tracing behavior remains intact when verbose mode is disabled.
+
+## Span attribute redaction
+
+Span attribute redaction allows you to mask or remove sensitive data from trace spans before export. Redaction applies to span attributes, event attributes, and resource attributes. Span names, event names, and link attributes are not redacted.
+
+Redaction rules are defined at the gateway level in `gravitee.yml` or `values.yaml` and can be supplemented with per-API rules configured in the [Console UI](creating-api-specific-redaction-rules-and-enabling-log-correlation-in-the-console.md). Gateway-level rules are evaluated first, followed by API-specific rules. When multiple rules match the same attribute, the first matching rule wins.
+
+### Masking types
+
+Span attribute redaction supports two masking types:
+
+* **FULL:** Replaces the entire attribute value with a fixed replacement text.
+* **PARTIAL:** Masks a portion of the attribute value while preserving a specified number of characters at the beginning and end. Requires a single mask character.
+
+### Configuration
+
+Redaction rules are configured using the following properties:
+
+| Property | Description | Required |
+|:---------|:------------|:---------|
+| `attributeNamePattern` | Case-insensitive regex pattern matching attribute keys | Yes |
+| `maskingType` | `FULL` or `PARTIAL` | Yes |
+| `replacementText` | Fixed replacement text for FULL masking | FULL only |
+| `prefixLength` | Number of characters to preserve at the beginning for PARTIAL masking | PARTIAL only |
+| `suffixLength` | Number of characters to preserve at the end for PARTIAL masking | PARTIAL only |
+| `maskCharacter` | Single character used for masking in PARTIAL mode | PARTIAL only |
+| `valuePattern` | Optional regex pattern to filter which values are redacted | No |
+
+### Restrictions
+
+Span attribute redaction has the following restrictions:
+
+* **API type support:** Span attribute redaction is supported for v4 HTTP/Proxy and v4 TCP APIs only.
+* **Redaction scope:** Redaction applies only to span attributes, event attributes, and resource attributes. Span names, event names, and link attributes are not redacted.
+* **Pattern matching:** Pattern matching is case-insensitive for attribute keys.
+* **PARTIAL masking:** PARTIAL masking requires a single mask character. Multi-character mask strings throw `IllegalArgumentException`.
+* **Prefix and suffix length:** `prefixLength` and `suffixLength` must be non-negative. Negative values throw `IllegalArgumentException`.
+* **Invalid regex:** Invalid regex in `attributeNamePattern` or `valuePattern` throws `IllegalArgumentException` with message `"Invalid key pattern '<pattern>' in RedactionRule: <cause>"` or `"Invalid value pattern '<pattern>' in RedactionRule for key '<key>': <cause>"`.
+* **Multiple matching rules:** When multiple rules match the same attribute, the first matching rule wins. Rules are evaluated in order.
+* **Rule evaluation order:** API-specific rules are appended after YAML-configured rules.
+* **Partial masking preview sample:** Partial masking preview sample is fixed at `ABCDEFGHIJ1234` (14 characters).
+* **UI redaction rules:** UI redaction rules are read-only for Kubernetes-origin APIs.
+
+## Log correlation
+
+Log correlation enables automatic linking of application logs to distributed traces through trace context injection. When enabled, the Gateway injects trace context (trace ID and span ID) into application logs, allowing you to correlate log entries with their corresponding trace spans in your observability backend.
+
+Log correlation is configured at the gateway level and requires OpenTelemetry Logs export to be enabled. OTel Logs are always exported over HTTP/protobuf. The `logsEndpoint` must be the full URL including `/v1/logs`.
+
+### Restrictions
+
+Log correlation has the following restrictions:
+
+* **API type support:** Log correlation is supported for v4 HTTP/Proxy and v4 Message APIs only.
+* **OTel Logs export:** OTel Logs are always exported over HTTP/protobuf. Loki does not implement the gRPC `LogsService`. The SDK does not append the signal path automatically; `logsEndpoint` must be the full URL including `/v1/logs`.
+* **Span ID reliability in multiplexed flows:** `Tracer.spanId(Context)` and `Tracer.traceId(Context)` read from a single per-context slot that behaves like a stack. The slot is only guaranteed to reflect the logically active span when spans on the same Vert.x context are strictly LIFO-nested (e.g., classic request/response HTTP flows). In reactors that multiplex concurrent spans onto a single Vert.x context (e.g., Kafka native reactor, or any flow that creates spans inside `doOnSubscribe` / `Completable.defer`), the slot can hold a sibling span, be restored to `null` by an out-of-order end, or otherwise not match the span the caller has in mind. In those cases, resolve the specific `Span` the caller cares about (e.g., from a context attribute) and use `Span.traceId()` / `Span.spanId()` instead.
 
 ## OpenTelemetry API trace details
 
