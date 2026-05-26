@@ -2,14 +2,8 @@
 # Auto-managed by the documentation pipeline
 SUMMARY.md
 guides/auth-protocols/saml-2.0.md
-guides/identity-providers/enterprise-identity-providers/saml-2.0.md
 releases-and-changelog/release-notes/am-4.12.md
 .gitbook/assets/am-cimd-allowed-domains.png
-.gitbook/assets/am-cimd-fetch-settings.png
 .gitbook/assets/am-cimd-settings-overview.png
-.gitbook/assets/am-cimd-ssrf-protection.png
-getting-started/configuration/configure-am-gateway/README.md
 guides/applications/README.md
-guides/applications/client-id-metadata-document-cimd-overview.md
-guides/auth-protocols/cimd-logo-endpoint-api-reference.md
-guides/auth-protocols/configure-cimd-in-access-management-console.md
+guides/auth-protocols/oauth-2.0/cimd.md
