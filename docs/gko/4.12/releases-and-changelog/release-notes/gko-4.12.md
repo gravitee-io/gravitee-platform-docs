@@ -24,6 +24,16 @@ title: Gravitee Kubernetes Operator 4.12 Release Notes.
 * Available for `API_KEY` plan types through the GKO `Subscription` CRD and the APIM Automation REST API.
 <!-- /PIPELINE:GKO-2550 -->
 
+
+<!-- PIPELINE:GKO-2567 -->
+#### **Dictionary Management via Automation API and Kubernetes CRD**
+
+* Create, update, and delete dictionaries programmatically using the Automation API or Kubernetes CRD to store key-value pairs for use in API policies and configurations.
+* Manual dictionaries hold static properties, while dynamic dictionaries poll external HTTP endpoints at scheduled intervals using JOLT transformations to refresh values automatically.
+* Dictionaries are identified by a human-readable ID (HRID) unique within an environment and can be deployed to the gateway (manual) or started/stopped (dynamic) to control availability.
+* Requires `ENVIRONMENT_DICTIONARY` permissions with `CREATE`, `UPDATE`, `DELETE`, and `READ` actions; dynamic dictionaries require a reachable HTTP endpoint and valid JOLT specification.
+<!-- /PIPELINE:GKO-2567 -->
+
 ## Improvements
 
 ## Bug Fixes
