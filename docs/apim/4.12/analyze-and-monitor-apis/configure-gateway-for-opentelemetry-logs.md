@@ -23,3 +23,95 @@ When you run the Gateway inside Docker, use the container hostname, for example,
 {% hint style="info" %}
 If OTel is disabled globally on the Gateway, the feature has zero overhead.
 {% endhint %}
+
+### Redaction Rules
+
+Define redaction rules under `services.tracing.otel.redaction` to apply gateway-level protection to all APIs. Rules configured here apply to all APIs and are evaluated before API-level rules.
+
+| Property | Description | Example |
+|:---------|:------------|:--------|
+| `services.tracing.otel.redaction.defaultReplacement` | Fallback replacement text for FULL rules with no per-rule replacement. | `[REDACTED]` |
+| `services.tracing.otel.redaction.rules[N].attributeNamePattern` | Glob or regex pattern matching span attribute keys. Short names (no dots) match any namespace. `*` = one segment, `**` = any depth. Prefix with `regex:` for exact regex. | `http.request.header.authorization` |
+| `services.tracing.otel.redaction.rules[N].maskingStrategy.type` | Masking strategy: `FULL` or `PARTIAL`. | `FULL` |
+| `services.tracing.otel.redaction.rules[N].maskingStrategy.replacement` | FULL: replacement text. PARTIAL: single mask character. | `[REDACTED]` (FULL) / `*` (PARTIAL) |
+| `services.tracing.otel.redaction.rules[N].maskingStrategy.prefixLength` | PARTIAL only: number of leading characters to keep visible. | `2` |
+| `services.tracing.otel.redaction.rules[N].maskingStrategy.suffixLength` | PARTIAL only: number of trailing characters to keep visible. | `4` |
+| `services.tracing.otel.redaction.rules[N].valuePattern` | Java regex (partial match). Rule only fires when the attribute value matches. | `Bearer *` |
+
+**Example:**
+
+```yaml
+services:
+  tracing:
+    enabled: true
+    type: opentelemetry
+    otel:
+      endpoint: http://otel-collector:4317
+      redaction:
+        defaultReplacement: "[REDACTED]"
+        rules:
+          - attributeNamePattern: "http.request.header.authorization"
+            maskingStrategy:
+              type: FULL
+              replacement: "[REDACTED]"
+          - attributeNamePattern: "http.request.header.**"
+            maskingStrategy:
+              type: FULL
+          - attributeNamePattern: "url.query"
+            valuePattern: "*token=*"
+            maskingStrategy:
+              type: FULL
+          - attributeNamePattern: "enduser.id"
+            maskingStrategy:
+              type: PARTIAL
+              prefixLength: 0
+              suffixLength: 4
+              replacement: "*"
+```
+
+**Environment variable equivalent:**
+
+```bash
+gravitee_services_tracing_otel_redaction_defaultReplacement=[REDACTED]
+gravitee_services_tracing_otel_redaction_rules_0_attributeNamePattern=http.request.header.authorization
+gravitee_services_tracing_otel_redaction_rules_0_maskingStrategy_type=FULL
+```
+
+**Helm configuration:**
+
+```yaml
+gateway:
+  services:
+    tracing:
+      enabled: true
+      type: opentelemetry
+      otel:
+        endpoint: http://otel-collector:4317
+        redaction:
+          defaultReplacement: "[REDACTED]"
+          rules:
+            - attributeNamePattern: "http.request.header.authorization"
+              maskingStrategy:
+                type: FULL
+            - attributeNamePattern: "gravitee.consumer.**"
+              maskingStrategy:
+                type: PARTIAL
+                prefixLength: 2
+                suffixLength: 2
+                replacement: "*"
+    opentelemetry:
+      exporter:
+        logsEndpoint: http://loki:3100/otlp/v1/logs
+```
+
+#### Environment Variable Overrides
+
+Override configuration properties using environment variables:
+
+```bash
+gravitee_services_tracing_otel_redaction_defaultReplacement=[REDACTED]
+gravitee_services_tracing_otel_redaction_rules_0_attributeNamePattern=http.request.header.authorization
+gravitee_services_tracing_otel_redaction_rules_0_maskingStrategy_type=FULL
+gravitee_services_opentelemetry_exporter_logsEndpoint=http://loki:3100/otlp/v1/logs
+```
+

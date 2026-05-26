@@ -366,6 +366,8 @@
     * [Configure Gateway for OpenTelemetry Logs](analyze-and-monitor-apis/configure-gateway-for-opentelemetry-logs.md)
     * [Enable and Use OpenTelemetry Logs for APIs](analyze-and-monitor-apis/enable-and-use-opentelemetry-logs-for-apis.md)
   * [Execution Transparency Analytics](analyze-and-monitor-apis/execution-transparency-analytics.md)
+  * [OpenTelemetry Span Attribute Redaction and Logging Overview](analyze-and-monitor-apis/opentelemetry-span-attribute-redaction-and-logging-overview.md)
+  * [OpenTelemetry Redaction and Logging Restrictions and Limitations](analyze-and-monitor-apis/opentelemetry-redaction-and-logging-restrictions-and-limitations.md)
 * [AI Agent Management](ai-agent-management/README.md)
   * [Set Up an AI Agent (A2A) Proxy](ai-agent-management/create-an-a2a-proxy.md)
   * [Discover and Catalog AI Agents (A2A)](ai-agent-management/add-agents-to-your-agent-catalog.md)
