@@ -262,6 +262,7 @@
       * [XSLT](create-and-configure-apis/apply-policies/policy-reference/xslt.md)
   * [Development Tools](create-and-configure-apis/development-tools/README.md)
     * [Enforcing logging rules with ArchUnit Maven plugin](create-and-configure-apis/development-tools/enforcing-logging-rules-with-archunit-maven-plugin.md)
+  * [Configure Span Attribute Redaction Rules in the Console](create-and-configure-apis/configure-span-attribute-redaction-rules-in-the-console.md)
 * [Secure & Expose APIs](secure-and-expose-apis/README.md)
   * [Plans](secure-and-expose-apis/plans/README.md)
     * [Keyless](secure-and-expose-apis/plans/keyless.md)

@@ -2,7 +2,7 @@
 
 ## Gateway Configuration
 
-### OpenTelemetry Service
+### OpenTelemetry service
 
 To enable OpenTelemetry tracing and configure the logs export endpoint, configure the following properties in your `gravitee.yaml`:
 
@@ -13,6 +13,13 @@ To enable OpenTelemetry tracing and configure the logs export endpoint, configur
 | `services.opentelemetry.exporter.logsEndpoint` | OTLP HTTP endpoint for log records. This must be the full URL including signal path, for example, `/v1/logs`. Log records are always exported over HTTP/Protobuf and not gRPC. | `http://localhost:3100/otlp/v1/logs` |
 | `services.opentelemetry.exporter.compression` | Compression algorithm for log export | `none` |
 | `services.opentelemetry.exporter.timeout` | Export timeout | `10s` |
+| `services.opentelemetry.redactionRules[N].attributeNamePattern` | Glob or regex pattern matching span attribute keys. Short names (no dots) match any namespace. `*` = one segment, `**` = any depth. Prefix with `regex:` for exact regex. | `http.request.header.*` |
+| `services.opentelemetry.redactionRules[N].maskingStrategy.type` | `FULL` or `PARTIAL` | `FULL` |
+| `services.opentelemetry.redactionRules[N].maskingStrategy.replacement` | FULL: replacement text. PARTIAL: single mask character. | `[REDACTED]` (FULL) / `*` (PARTIAL) |
+| `services.opentelemetry.redactionRules[N].maskingStrategy.prefixLength` | PARTIAL only: number of leading characters to keep visible. | `2` |
+| `services.opentelemetry.redactionRules[N].maskingStrategy.suffixLength` | PARTIAL only: number of trailing characters to keep visible. | `4` |
+| `services.opentelemetry.redactionRules[N].valuePattern` | Java regex (partial match). Rule only fires when the attribute value matches. | `*token=*` |
+| `services.opentelemetry.redactionDefaultReplacement` | Fallback replacement text for FULL rules with no per-rule replacement. | `[REDACTED]` |
 
 **Environment variable equivalent:** `gravitee_services_opentelemetry_exporter_logsEndpoint=http://<loki>:3100/otlp/v1/logs`
 
@@ -23,3 +30,92 @@ When you run the Gateway inside Docker, use the container hostname, for example,
 {% hint style="info" %}
 If OTel is disabled globally on the Gateway, the feature has zero overhead.
 {% endhint %}
+
+{% hint style="info" %}
+API-level redaction rules are appended after platform-level rules configured in `gravitee.yml`.
+{% endhint %}
+
+
+#### Example: Platform-Level Configuration
+
+```yaml
+services:
+  tracing:
+    enabled: true
+    type: opentelemetry
+
+    otel:
+      endpoint: http://otel-collector:4317
+
+      redaction:
+        defaultReplacement: "[REDACTED]"
+
+        rules:
+          - attributeNamePattern: "http.request.header.authorization"
+            maskingStrategy:
+              type: FULL
+              replacement: "[REDACTED]"
+
+          - attributeNamePattern: "http.request.header.**"
+            maskingStrategy:
+              type: FULL
+
+          - attributeNamePattern: "url.query"
+            valuePattern: "*token=*"
+            maskingStrategy:
+              type: FULL
+
+          - attributeNamePattern: "enduser.id"
+            maskingStrategy:
+              type: PARTIAL
+              prefixLength: 0
+              suffixLength: 4
+              replacement: "*"
+
+      exporter:
+        logsEndpoint: http://loki:3100/otlp/v1/logs
+```
+
+
+#### Example: Docker Compose Environment Variables
+
+```bash
+gravitee_services_tracing_enabled=true
+gravitee_services_tracing_type=opentelemetry
+gravitee_services_tracing_otel_endpoint=http://otel-collector:4317
+gravitee_services_tracing_otel_redaction_defaultReplacement=[REDACTED]
+gravitee_services_tracing_otel_redaction_rules_0_attributeNamePattern=http.request.header.authorization
+gravitee_services_tracing_otel_redaction_rules_0_maskingStrategy_type=FULL
+gravitee_services_tracing_otel_exporter_logsEndpoint=http://loki:3100/otlp/v1/logs
+```
+
+#### Example: Helm Values
+
+```yaml
+gateway:
+  services:
+    tracing:
+      enabled: true
+      type: opentelemetry
+
+      otel:
+        endpoint: http://otel-collector:4317
+
+        redaction:
+          defaultReplacement: "[REDACTED]"
+
+          rules:
+            - attributeNamePattern: "http.request.header.authorization"
+              maskingStrategy:
+                type: FULL
+
+            - attributeNamePattern: "gravitee.consumer.**"
+              maskingStrategy:
+                type: PARTIAL
+                prefixLength: 2
+                suffixLength: 2
+                replacement: "*"
+
+        exporter:
+          logsEndpoint: http://loki:3100/otlp/v1/logs
+```

@@ -42,3 +42,6 @@ analyze-and-monitor-apis/configure-gateway-for-opentelemetry-logs.md
 analyze-and-monitor-apis/enable-and-use-opentelemetry-logs-for-apis.md
 analyze-and-monitor-apis/opentelemetry-logs-integration-overview.md
 plugins/plugin-reference.md
+.gitbook/assets/analytics-tracing-section.png
+.gitbook/assets/reporter-settings-empty-rules.png
+create-and-configure-apis/configure-span-attribute-redaction-rules-in-the-console.md
