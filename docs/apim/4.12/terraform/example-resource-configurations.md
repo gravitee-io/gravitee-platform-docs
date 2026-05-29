@@ -22,12 +22,15 @@ Terraform uses your configuration files to track the state of your infrastructur
 
 The Gravitee Terraform provider supports the following Gravitee resource types:
 
-* v4 HTTP proxy API
-* v4 message API
-* v4 Native Kafka API
+* HTTP proxy API
+* Message API (protocol mediation)
+* Kafka Native API
+* AI proxy APIs (MCP, A2A, LLM)
 * Shared Policy Group
 * Application
 * Subscription
+* Group
+* Dictionary
 
 Terraform can create, update, or delete these resources as part of its workflow.
 
@@ -35,53 +38,18 @@ Terraform can create, update, or delete these resources as part of its workflow.
 Guides and examples can be found in the [Gravitee "apim" Terraform Registry documentation](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs).
 {% endhint %}
 
-## Release notes
 
-These are the changes for version 0.5.x
+## Automation API gaps
 
-### Features
-
-* Application supports multiple mTLS client certificates with optional start/end dates
-* Subscription metadata support
-* Experimental: API HCL export
-
-### Improvements
-
-* More tutorials in the registry docs
-* `failure_condition` and `force_next_endpoint_on_failure` have been added to the API's failover configuration
-
-### Bugs
-
-* Subscription `plan_hrid` update is silently ignored by the API
-
-### Notable changes
-
-* The endpoint name is now mandatory
-* Flow phase, hence flow property `connect` has been renamed to `entrypoint_connect` for `NATIVE` APIs
-
-### Known limitations
-
-The following known limitations apply to the 0.5.x version of the Gravitee Terraform provider:
-
-* When you run `terraform plan` for APIs, several differences exist between state and remote. These do not impact runtime and will be fixed in upcoming patches.
-  * State stores the dynamic properties service configuration as an encoded JSON string instead of plain JSON.
-  * The encrypted properties payload is marked as changed because encrypted values replace unencrypted values.
-* APIKey subscriptions are not supported.
-
-
-### Automation API: missing properties (4.11, Terraform 0.5.x)
+Missing properties or values in regards of the Management API:
 
 | Resource          | Section                   | Missing Property                   | Type                                  | Supported in Automation API                                           |
 |-------------------|---------------------------|------------------------------------|---------------------------------------|-----------------------------------------------------------------------|
-| apim_apiv4        |                           | `allowedInApiProducts`             | boolean                               | No                                                                    |
-| apim_apiv4        |                           | `allowMultiJwtOauth2Subscriptions` | boolean                               | No                                                                    |
 | apim_apiv4        | `plans`                   | `commentMessage`                   | string                                | Never will, Subscriptions are always auto-accepted                    |
 | apim_apiv4        | `plans`                   | `commentRequired`                  | boolean                               | Never will, Subscriptions are always auto-accepted                    |
 | apim_apiv4        | `plans`                   | `order`                            | integer                               | Never will, mapped to the list index, UI feature only                 |
-| apim_apiv4        | `listeners.kafka` (Kafka) | `port`                             | integer                               | No                                                                    |
 | apim_application  |                           | `apiKeyMode`                       | enum (SHARED, EXCLUSIVE, UNSPECIFIED) | Only EXCLUSIVE is supported, hence property is absent                 |
 | apim_application  |                           | `type`                             | string                                | No (simple applications)                                              |
-| apim_subscription | `apim_subscriptionSpec`   | `consumerConfiguration`            | object                                | 4.12                                                                  |
 | apim_subscription | `apim_subscriptionSpec`   | `apiKeyMode`                       | enum (SHARED, EXCLUSIVE, UNSPECIFIED) | Only EXCLUSIVE is supported, hence property is absent                 |
 | apim_subscription | `apim_subscriptionSpec`   | `startingAt`                       | date-time                             | Never, Subscriptions are always auto-accepted hence started immediately|
 | apim_subscription | `apim_subscriptionSpec`   | `generalConditionsAccepted`        | boolean                               | Never, Subscriptions are always auto-accepted                         |
