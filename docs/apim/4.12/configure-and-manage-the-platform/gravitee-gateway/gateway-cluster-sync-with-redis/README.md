@@ -55,7 +55,7 @@ After any business object is deployed, and only if distributed sync is enabled, 
 Before you enable the distributed sync with Redis, you must complete the following steps:
 
 {% hint style="info" %}
-A standard Redis deployment without the Search module appears to connect successfully but every distributed-sync write fails with `Unknown command 'FT.CREATE'` and the Gateway neevr reaches a "ready" state.
+A standard Redis deployment without the Search module appears to connect successfully but every distributed-sync write fails with `Unknown command 'FT.CREATE'` and the Gateway never reaches a "ready" state.
 {% endhint %}
 
 * Install Redis with the search module. Distributed sync requires the RedisSearch module. To ensure that you have the RedisSearch module, use of the following Redis modules:
