@@ -59,6 +59,17 @@
 * The `service.name` must match between tracer and logger (default: `gio_apim_gateway`) for Grafana correlation to function correctly.
 <!-- /PIPELINE:APIM-13463 -->
 
+
+<!-- PIPELINE:APIM-13549 -->
+#### **Span Attribute Redaction for OpenTelemetry Tracing**
+
+* Masks sensitive span metadata (authorization headers, API keys, tokens, query parameters) before traces leave the Gateway via OTLP export.
+* Configure pattern-based redaction rules at the platform level (`gravitee.yml`) or per-API in the Console using glob patterns, short names, or regex.
+* Supports FULL masking (replaces entire value with `[REDACTED]`) or PARTIAL masking (preserves visible prefix/suffix, masks middle section).
+* Requires OpenTelemetry tracing enabled and v4 HTTP/Proxy or TCP APIs. API-level rules require verbose tracing enabled.
+* Non-string attributes (Long, Boolean, Double, StringArray) are coerced to String when redacted.
+<!-- /PIPELINE:APIM-13549 -->
+
 ## Improvements
 
 

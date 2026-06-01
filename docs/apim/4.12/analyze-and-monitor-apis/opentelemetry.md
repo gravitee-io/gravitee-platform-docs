@@ -195,6 +195,15 @@ Connection-setup spans (`Kafka connection`, `Authentication`, `Broker connect`) 
 To enable OpenTelemetry for an API, you must have OpenTelemetry enabled on your Gateway. For more information, see [#enable-opentelemetry-for-your-gateway](opentelemetry.md#enable-opentelemetry-for-your-gateway "mention").
 {% endhint %}
 
+### Prerequisites
+
+Span attribute redaction requires the following:
+
+- Gravitee API Management 4.12.0 or later
+- OpenTelemetry tracing enabled (`services.tracing.enabled: true`, `services.tracing.type: opentelemetry`)
+- v4 HTTP/Proxy or v4 TCP API
+- Verbose tracing enabled (`tracing.verbose: true`) for API-level configuration
+
 ### Per-API tracing configuration for V4 native APIs
 
 V4 NATIVE APIs support per-API OpenTelemetry tracing configuration through the following properties:

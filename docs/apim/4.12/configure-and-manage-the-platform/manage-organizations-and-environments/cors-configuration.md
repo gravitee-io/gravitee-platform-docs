@@ -59,6 +59,24 @@ http:
 #      allow-methods: 'OPTIONS; GET; POST; PUT; DELETE'
     # Which headers to allow (default values: Cache-Control; Pragma; Origin; Authorization; Content-Type; X-Requested-With; If-Match; X-Xsrf-Token)
 #      allow-headers: 'X-Requested-With'
+
+# Configure OpenTelemetry span attribute redaction.
+services:
+  opentelemetry:
+    # Default replacement text for FULL masking rules with no per-rule replacement.
+#    redactionDefaultReplacement: "[REDACTED]"
+    # Platform-level redaction rules applied before API-specific rules.
+#    redactionRules:
+#      - attributeNamePattern: "http.request.header.authorization"
+#        maskingStrategy:
+#          type: FULL
+#          replacement: "[REDACTED]"
+#      - attributeNamePattern: "enduser.id"
+#        maskingStrategy:
+#          type: PARTIAL
+#          prefixLength: 2
+#          suffixLength: 2
+#          replacement: "*"
 ```
 {% endcode %}
 {% endtab %}
