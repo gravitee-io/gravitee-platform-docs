@@ -1,5 +1,18 @@
 # APIM 4.11.x
  
+## Gravitee API Management 4.11.8 - June 1, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Management API**
+
+* v4 HTTP Proxy API — null pathOperator in flow HTTP selector causes 500 NPE instead of 400 [#11491](https://github.com/gravitee-io/issues/issues/11491)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.11.7 - May 19, 2026
 <details>
 
