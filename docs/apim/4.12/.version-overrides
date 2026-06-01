@@ -42,3 +42,12 @@ analyze-and-monitor-apis/configure-gateway-for-opentelemetry-logs.md
 analyze-and-monitor-apis/enable-and-use-opentelemetry-logs-for-apis.md
 analyze-and-monitor-apis/opentelemetry-logs-integration-overview.md
 plugins/plugin-reference.md
+.gitbook/assets/apim-span-attribute-redaction-for-opentelemetry-tracing-step-01.png
+.gitbook/assets/apim-span-attribute-redaction-for-opentelemetry-tracing-step-02.png
+.gitbook/assets/apim-span-attribute-redaction-for-opentelemetry-tracing-step-03.png
+.gitbook/assets/apim-span-attribute-redaction-for-opentelemetry-tracing-step-04.png
+.gitbook/assets/apim-span-attribute-redaction-for-opentelemetry-tracing-step-05.png
+analyze-and-monitor-apis/span-attribute-redaction-overview-and-concepts.md
+configure-and-manage-the-platform/gravitee-gateway/configuring-global-redaction-rules-in-the-gateway.md
+create-and-configure-apis/configure-v4-apis/configuring-api-specific-redaction-rules-in-the-console.md
+create-and-configure-apis/configure-v4-apis/span-attribute-redaction-runtime-behavior-and-restrictions.md
