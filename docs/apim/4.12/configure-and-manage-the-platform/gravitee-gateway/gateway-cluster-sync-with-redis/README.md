@@ -237,6 +237,10 @@ To enable your distributed sync repository, you must enable the Search module on
 
 ## Verification
 
+## Verification
+
+{% tabs %}
+{% tab title="Docker" %}
 *   Your Gateway's logs show the following output:<br>
 
     ```yaml
@@ -258,3 +262,42 @@ To enable your distributed sync repository, you must enable the Search module on
 
     11:42:12.677 [main] [] INFO  i.g.node.container.AbstractNode - Gravitee.io - API Gateway id[da56a9b0-7e6a-4dec-96a9-b07e6a2decfd] version[4.3.6] pid[17705] build[${env.BUILD_NUMBER}#${env.GIT_COMMIT}] jvm[Eclipse Adoptium/OpenJDK 64-Bit Server VM/17.0.6+10] started in 8687 ms.
     ```
+
+{% endtab %}
+
+{% tab title="Kubernetes (Helm)" %}
+After `helm upgrade --install ... --wait` completes, complete the following steps to verify that Gateway cluster sync with Redis.
+
+1. Ensure that Both Gateway pods are `Running` and `Ready` with `kubectl -n gravitee-apim get pods -l app.kubernetes.io/component=gateway). With distributed sync enabled the default Helm `startupProbe` queries `/_node/health?probes=http-server,sync-process`.
+
+2. Ensure that the Hazelcast cluster has two members. Exec into either pod and grep the log wit hthe following command:
+
+   ```bash
+   kubectl -n gravitee-apim logs <pod> -c gravitee-apim-gateway | grep "MembershipEvent"
+   ```
+
+   You see `members=[Member [10.x.x.x]:5701 …, Member [10.y.y.y]:5701 …]`.
+
+3. Ensure that the Redis repository is loaded with the `DISTRIBUTED_SYNC` scope. Here is an example output:
+
+   ```text
+   INFO  i.g.p.r.i.RepositoryPluginHandler - Repository [DISTRIBUTED_SYNC] loaded by redis
+   ```
+
+4. Ensurew that the Distributed sync is writing to Redis (primary only) with the following command:
+
+   ```bash
+   kubectl -n gravitee-apim exec deploy/redis-stack -- redis-cli FT._LIST
+   # Expect at least: idx:distributed-sync-state, idx:distributed-sync-events
+   ```
+
+5. Ensure that All probes return `200` with the following command:
+
+   ```bash
+   kubectl -n gravitee-apim exec <pod> -c gravitee-apim-gateway -- \
+     curl -s "http://admin:<password>@127.0.0.1:18082/_node/health?probes=http-server,sync-process"
+   # Expect: {"sync-process":{"healthy":true},"http-server":{"healthy":true}}
+   ```
+
+{% endtab %}
+{% endtabs %}
