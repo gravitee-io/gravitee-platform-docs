@@ -75,7 +75,7 @@ You can test your SAML 2.0 connection using a web application created in AM.
     If the button is not visible, there may be a problem with the identity provider settings. Check the AM Gateway log for more information.
 3.  Click **Sign in with SAML 2.0**. You will be redirected your SAML 2.0 IdP login page to authenticate your user.
 
-    If your user is already connected (SSO session), the user will be automatically redirected to your application with an OAuth 2.0 access token and OpenID Connect ID token, if requested.
+    If your user is already connected (SSO session), the user will be automatically redirected to your application with an OAuth 2.0 access token and Open ID Connect ID token, if requested.
 
 {% hint style="info" %}
 SAML responses can be very large. If you see an error message in the Gateway logs like this one: `Size exceeds allowed maximum capacity`
