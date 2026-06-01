@@ -1,5 +1,50 @@
 # APIM 4.10.x
  
+## Gravitee API Management 4.10.16 - June 1, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Gateway primary stays unhealthy after restart when distributed sync is enabled [#11468](https://github.com/gravitee-io/issues/issues/11468)
+* Gateway sync can hang indefinitely on slow bridge responses (no per-request timeout) [#11469](https://github.com/gravitee-io/issues/issues/11469)
+
+**Management API**
+
+* MAPI v2 doesn't accept group names [#11351](https://github.com/gravitee-io/issues/issues/11351)
+
+**Console**
+
+* Audit Log event type filter in the APIM Console does not populate v4 APIs [#11429](https://github.com/gravitee-io/issues/issues/11429)
+* API v2 Logging configuration - Problem when using a combination of criteria in the EL expression  [#11472](https://github.com/gravitee-io/issues/issues/11472)
+
+**Other**
+
+* Setting Redoc viewer as default does not apply for v4 API documents [#11188](https://github.com/gravitee-io/issues/issues/11188)
+* Danish characters in category names are altered or not displayed correctly in Dev Portal [#11321](https://github.com/gravitee-io/issues/issues/11321)
+* Prometheus label http_route / http_path not appearing on proxy traffic metrics [#11335](https://github.com/gravitee-io/issues/issues/11335)
+* Viewing MD documentation in the developer portal [#11366](https://github.com/gravitee-io/issues/issues/11366)
+* Webhook notification configuration error [#11408](https://github.com/gravitee-io/issues/issues/11408)
+* Regression Dynamic Routing policy with retry policy [#11444](https://github.com/gravitee-io/issues/issues/11444)
+* Can't change group permission on api [#11449](https://github.com/gravitee-io/issues/issues/11449)
+* Scrolling issue in the API Management UI [#11465](https://github.com/gravitee-io/issues/issues/11465)
+* deadlocked on lock resources with another process errors [#11475](https://github.com/gravitee-io/issues/issues/11475)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Console**
+
+* DCR configuration UI: clarify {#client_id} placeholder and fix example renew secret endpoint [#11430](https://github.com/gravitee-io/issues/issues/11430)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.10.15 - May 19, 2026
 <details>
 
