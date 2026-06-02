@@ -96,6 +96,10 @@ For the Elasticsearch 7.x v4 Metrics Template, use the following field mappings:
               "index": true
           }
       }
+  },
+  "api-product-id": {
+      "type": "keyword",
+      "index": true
   }
 ```
 
