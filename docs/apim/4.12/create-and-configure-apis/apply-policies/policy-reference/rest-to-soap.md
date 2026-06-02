@@ -11,6 +11,18 @@ metaLinks:
 
 You can use the Rest-to-soap policy to expose SOAP backend service as a REST API. The policy passes the SOAP envelope message to the backend service as a POST request. SOAP envelopes support Expression Language to provide dynamic SOAP actions.
 
+### Automatic Application During WSDL Import
+
+The REST-to-SOAP policy can be automatically applied when importing WSDL 1.1 documents to create v4 HTTP Proxy APIs. When enabled during WSDL import, the policy automatically converts incoming RESTful JSON requests to SOAP XML messages and transforms SOAP XML responses back to JSON. This transformation requires the `xml-json` policy as a dependency, which is automatically added when REST-to-SOAP is enabled.
+
+#### Flow Generation Rules
+
+When importing WSDL documents, flow generation behavior depends on the `withPolicies` parameter:
+
+- When `withPolicies` is `null`, standard OpenAPI-derived flows are generated
+- When `withPolicies` is an empty list (`[]`), no flows are generated (the API will have an empty flows array)
+- When `withPolicies` contains `["rest-to-soap"]`, standard OpenAPI-derived flows are generated with REST-to-SOAP transformation policies applied
+
 ## Usage
 
 For example, a SOAP API `http(s)://GATEWAY_HOST:GATEWAY_PORT/soap?countryName=France` with the following `rest-to-soap`policy SOAP envelope content:

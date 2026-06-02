@@ -59,6 +59,16 @@
 * The `service.name` must match between tracer and logger (default: `gio_apim_gateway`) for Grafana correlation to function correctly.
 <!-- /PIPELINE:APIM-13463 -->
 
+
+<!-- PIPELINE:APIM-12279 -->
+#### **WSDL Import for v4 HTTP Proxy APIs**
+
+* Create or update v4 HTTP Proxy APIs by importing WSDL 1.1 documents, which are automatically converted to OpenAPI 3.x specifications.
+* Optionally apply REST-to-SOAP transformation policies during import to expose legacy SOAP services as RESTful APIs with automatic JSON-to-XML conversion.
+* Configure import options including automatic documentation generation from the converted OpenAPI spec and OAS validation policies (requires `rest-to-soap` and `oas-validation` policy plugins).
+* Supports both file upload and remote URL sources with SSRF protection blocking private IP ranges by default.
+<!-- /PIPELINE:APIM-12279 -->
+
 ## Improvements
 
 

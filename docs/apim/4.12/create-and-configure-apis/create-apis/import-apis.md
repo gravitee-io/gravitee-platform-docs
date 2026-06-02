@@ -37,7 +37,7 @@ To import your API:
     This loads the options for importing your API.
 
     <figure><img src="../../.gitbook/assets/00 import 2.png" alt=""><figcaption></figcaption></figure>
-5. Choose an **API format**. You can select either **Gravitee definition** or **OpenAPI specification**.
+5. Choose an **API format**. You can select **Gravitee definition**, **OpenAPI specification**, or **WSDL**.
 6.  Choose a **File source**.
 
     <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p><strong>Local file</strong> is currently the only supported <strong>File source</strong>.</p></div>
@@ -49,7 +49,11 @@ To import your API:
    *   **Add OpenAPI Specification Validation:** This adds an [OpenAPI Specification Validation policy](../apply-policies/policy-reference/oas-validation.md) to the imported API.
 
        <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>All options are initially enabled, but can be disabled by editing the policy configuration.</p></div>
-9. Click **Import**
+9. If you selected **WSDL** as the API format, you can choose to enable the following:
+   * **Apply REST to SOAP Transformer policy:** Enables REST-to-SOAP transformation and automatically adds the `xml-json` policy dependency.
+   * **Create documentation page from spec:** Generates a Swagger documentation page from the converted OpenAPI specification. Only enabled when REST-to-SOAP is active.
+   * **Add OAS Validation policy:** Adds OpenAPI validation policies to request and response flows. Only enabled when REST-to-SOAP is active.
+10. Click **Import**
 
 {% hint style="success" %}
 Once you've imported your API, it will be created as a private API and you will be brought to the API menu and details page.
@@ -153,7 +157,7 @@ To use a vendor extension, add the `x-graviteeio-definition` field at the root o
   * URL
 * Picture only accepts Data-URI format. Please see the example below.
 
-<pre class="language-yaml" data-title="Example"><code class="lang-yaml"><strong>openapi: "3.0.0"
+<pre class="language-yaml" data-title="Example"><code class="lang-yaml"><strong>OpenAPI: "3.0.0"
 </strong>info:
   version: 1.2.3
   title: Gravitee Echo API
