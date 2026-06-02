@@ -59,6 +59,16 @@
 * The `service.name` must match between tracer and logger (default: `gio_apim_gateway`) for Grafana correlation to function correctly.
 <!-- /PIPELINE:APIM-13463 -->
 
+
+<!-- PIPELINE:APIM-14122 -->
+#### **API Overview Page Templates for Developer Portal**
+
+* Introduces pre-structured Markdown templates for API overview pages in the Classic Developer Portal, including a standard template for general APIs and an MCP-specific template for Model Context Protocol proxy APIs.
+* Templates automatically populate API metadata (name, version, visibility, owner, deployment date) using FreeMarker variables and include styled information cards with primary color theming.
+* MCP proxy template includes a one-click installation component (`<gmd-install-mcp>`) that generates configuration for AI clients (Cursor, VS Code, Claude Desktop) and links to OAuth2 security documentation.
+* Templates display a three-column "Get started" section for standard APIs (Subscribe, Explore documentation, Integrate) and highlight MCP-specific capabilities (tools, prompts, resources) for MCP proxies.
+<!-- /PIPELINE:APIM-14122 -->
+
 ## Improvements
 
 

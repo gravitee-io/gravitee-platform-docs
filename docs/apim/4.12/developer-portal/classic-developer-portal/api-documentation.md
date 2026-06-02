@@ -31,7 +31,7 @@ To create documentation:
     <figure><img src="../../.gitbook/assets/documenation_folder.png" alt=""><figcaption><p>Sample documentation folder</p></figcaption></figure>
 * **Markdown Template:** Create templates reusable for site-wide and API Markdown documentation.
 * **Markdown:** Use the Markdown syntax for the documentation page.
-* **AsciiDoc:** Use the Asciidoc syntax for the documentation page.
+* **AsciiDoc:** Use the AsciiDoc syntax for the documentation page.
 * **OpenAPI (Swagger):** Use the OpenAPI syntax for the documentation page.
 * **AsyncAPI:** Use the AsyncAPI syntax for the documentation page.
 
@@ -248,6 +248,18 @@ Select a page to configure the following via the header tabs:
 <figure><img src="../../.gitbook/assets/documentation_page banner.png" alt=""><figcaption><p>Page management options</p></figcaption></figure>
 
 **Page**, **Translations** and **Access Control** are described in greater detail below.
+
+### Customize API overview pages
+
+When creating API overview pages, APIM provides pre-structured templates that display API metadata and guide consumers through subscription and integration workflows. The standard template includes a three-column "Get started" section covering subscription, documentation exploration, and integration. For Model Context Protocol proxy APIs, a specialized template includes an installation component for AI clients.
+
+Both templates include a "Customize this page" section with suggestions for replacing placeholder content with API-specific information:
+
+* Add a quick start guide
+* Link to guides or changelogs
+* For MCP proxy APIs, document available tools, authentication requirements, and environment setup steps
+
+Templates use FreeMarker variables to populate API metadata dynamically, such as `${api.name}`, `${api.version}`, and `${api.visibility}`. The API information card conditionally displays **Owner** and **Last deployed** fields when available.
 
 {% tabs %}
 {% tab title="Page" %}

@@ -166,6 +166,10 @@ User registration allows new users to create accounts during authentication.
 User registration is not required to secure an MCP API with OAuth2. Enable this feature only if you want to allow new users to self-register during authentication. This is useful for demonstration or development environments.
 {% endhint %}
 
+{% hint style="info" %}
+The MCP proxy API overview page template automatically links to this OAuth2 security documentation. You can document authentication requirements in your customized overview page.
+{% endhint %}
+
 Complete the following steps to enable user registration:
 
 1.  In the AM Console, navigate to **Settings**<br>
@@ -199,7 +203,7 @@ For more information on protected resource metadata discovery, see the [MCP spec
 3.  Click **+ Add Resource**.
 
     <figure><img src="../.gitbook/assets/add-resource-am.png" alt=""><figcaption></figcaption></figure>
-4.  In the Add API Resource screen, click **Oauth2**, select **Gravitee.io AM Authorization Server**, and then click **Select**.
+4.  In the Add API Resource screen, click **OAuth2**, select **Gravitee.io AM Authorization Server**, and then click **Select**.
 
     <figure><img src="../.gitbook/assets/gravitee-am-authorisation-server.png" alt=""><figcaption></figcaption></figure>
 5.  Configure the resource to establish the connection to your AM instance by providing the following values:

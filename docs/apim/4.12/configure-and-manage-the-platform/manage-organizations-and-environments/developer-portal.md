@@ -25,6 +25,8 @@ This will bring you to the home screen of the Developer Portal.
 
 From here, you can begin searching for APIs using the Developer Portal's full-context[^1] search. However, you will not be able to subscribe to any APIs until you create an application.
 
+When you navigate to an API in the Developer Portal, you'll see a structured overview page that provides subscription guidance, documentation links, and integration instructions. These overview pages are automatically generated based on the API type—standard APIs receive a general-purpose template with subscription and integration cards, while [Model Context Protocol (MCP) proxy APIs](../../ai-agent-management/secure-mcp-proxy-with-oauth2.md#create-the-mcp-proxy-api-in-apim) include one-click installation configurations for AI clients. API publishers can customize these templates to add quick start guides, changelogs, or API-specific setup instructions.
+
 ## Self-managed installation: Adding a Developer Portal link
 
 The Developer Portal host of self-managed installations can easily be modified. You can manually add the **Portal URL** to see the Developer Portal link in the Console UI.

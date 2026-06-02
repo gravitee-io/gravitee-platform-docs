@@ -33,10 +33,12 @@ Folders allow you to organize your documentation by grouping pages. To configure
 
 1. From the top-level **Home** directory, click **Add new folder**
 2. Specify the following:
-   * **Name:** This field is required
-   * **Visibility:** Select whether the folder visibility is **Public** or **Private**
-     * **Public:** This is the default visibility. The contents of the folder can be viewed in the Developer Portal by all users.
-     * **Private:** Users must be authenticated to view the contents of the folder in the Developer Portal
+
+* **Name:** This field is required.
+* **Visibility:** Select whether the folder visibility is **Public** or **Private**.
+  * **Public:** This is the default visibility. The contents of the folder can be viewed in the Developer Portal by all users.
+  * **Private:** Users must be authenticated to view the contents of the folder in the Developer Portal.
+
 
 <figure><img src="../../.gitbook/assets/docs_add folder 1.png" alt=""><figcaption><p>Add a folder</p></figcaption></figure>
 
@@ -148,6 +150,20 @@ The API owner is <#if api.primaryOwner.email??><a href="mailto:${api.primaryOwne
 The available API properties are listed in the following table:
 
 <table data-full-width="false"><thead><tr><th>Field name</th><th>Field type</th><th>Example</th></tr></thead><tbody><tr><td>id</td><td>String</td><td>70e72a24-59ac-4bad-a72a-2459acbbad39</td></tr><tr><td>name</td><td>String</td><td>My first API</td></tr><tr><td>description</td><td>String</td><td>My first API</td></tr><tr><td>version</td><td>String</td><td>1</td></tr><tr><td>metadata</td><td>Map</td><td>{"email-support": "support.contact@company.com"}</td></tr><tr><td>createdAt</td><td>Date</td><td>Jul 14, 2018 2:44:00 PM</td></tr><tr><td>updatedAt</td><td>Date</td><td>Jul 14, 2018 2:46:00 PM</td></tr><tr><td>deployedAt</td><td>Date</td><td>Jul 14, 2018 2:49:00 PM</td></tr><tr><td>picture</td><td>String</td><td>data:image/png;base64,iVBO…​</td></tr><tr><td>state</td><td>String</td><td>STARTED/STOPPED</td></tr><tr><td>visibility</td><td>String</td><td>PUBLIC/PRIVATE</td></tr><tr><td>tags</td><td>Array</td><td>["internal", "sales"]</td></tr><tr><td>primaryOwner.displayName</td><td>String</td><td>Firstname Lastname</td></tr><tr><td>primaryOwner.email</td><td>String</td><td>firstname.lastname@company.com</td></tr></tbody></table>
+
+**API overview page template variables**
+
+API overview page templates use FreeMarker variables to populate API metadata dynamically. The following variables are available for use in overview page templates:
+
+* `${api.name}`: API display name
+* `${api.version}`: API version identifier
+* `${api.visibility}`: API visibility level (PUBLIC or PRIVATE)
+* `${api.primaryOwner.displayName}`: Owner display name (conditional rendering)
+* `${api.deployedAt}`: Last deployment timestamp, formatted as `yyyy-MM-dd` (conditional rendering)
+* `${api.entrypoints[0]}`: First gateway entrypoint URL
+* `${api.mcp.mcpPath}`: MCP server path
+
+The `${api.deployedAt}` variable is formatted as `yyyy-MM-dd` and displayed only when present. The `${api.primaryOwner.displayName}` field is conditional and may not appear for all APIs. Use FreeMarker conditional syntax to handle optional fields: `<#if api.deployedAt??>` to check for presence before rendering.
 {% endtab %}
 
 {% tab title="Import from file" %}
@@ -247,9 +263,9 @@ Markdown, OpenAPI spec, and AsyncAPI spec documentation pages will be rendered i
 
 To view the documentation in the Developer Portal:
 
-1.  Click **Open API in Developer Portal**
+1.  Click **OpenAPI in Developer Portal**
 
-    <figure><img src="../../.gitbook/assets/docs_open api 1.png" alt=""><figcaption><p>Open API in Developer Portal</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/docs_open api 1.png" alt=""><figcaption><p>OpenAPI in Developer Portal</p></figcaption></figure>
 2.  Click on **Documentation** in the header options
 
     <figure><img src="../../.gitbook/assets/docs_dev portal docs 1.png" alt=""><figcaption><p>API documentation</p></figcaption></figure>
