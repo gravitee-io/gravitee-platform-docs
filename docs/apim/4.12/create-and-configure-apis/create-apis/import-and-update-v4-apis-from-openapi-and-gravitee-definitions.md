@@ -106,7 +106,7 @@ To update an existing v4 API:
 * A second import cannot be started while the first is in progress (enforced by UI state management).
 * Image validation is applied only to `apiPicture` and `apiBackground` in the Gravitee definition import endpoint; OpenAPI imports do not validate images.
 * The imported definition's type must match the existing API's type (Proxy, Message, or Native); a type mismatch is rejected with HTTP 400.
-* File format must match the selected API format: Gravitee v4 Definition requires `.json` files with `MAPI_V2` import type; OpenAPI Specification requires `.yml` or `.yaml` files with `SWAGGER` import type; mismatches trigger the error "The file does not match the selected API format".
+* File format must match the selected API format: Gravitee v4 Definition requires `.json` files with `MAPI_V2` import type; OpenAPI Specification requires `.yml`, `.yaml`, or `.json` files with `SWAGGER` import type; mismatches trigger the error "The file does not match the selected API format".
 
 ## Related Changes
 
