@@ -27,7 +27,7 @@ description: Documentation about apim 4.8.x in the context of APIs.
 
 * Setting Redoc viewer as default does not apply for v4 API documents [#11188](https://github.com/gravitee-io/issues/issues/11188)
 * Webhook notification configuration error [#11408](https://github.com/gravitee-io/issues/issues/11408)
-* Can't change group permission on api [#11449](https://github.com/gravitee-io/issues/issues/11449)
+* Can't change group permission on API [#11449](https://github.com/gravitee-io/issues/issues/11449)
 * Scrolling issue in the API Management UI [#11465](https://github.com/gravitee-io/issues/issues/11465)
 * deadlocked on lock resources with another process errors [#11475](https://github.com/gravitee-io/issues/issues/11475)
 
