@@ -23,6 +23,37 @@ When you import an API with a JSON payload that has duplicate keys, APIM keeps t
 To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection.md](../apply-policies/policy-reference/json-threat-protection.md "mention").
 {% endhint %}
 
+### WSDL-to-OpenAPI Conversion
+
+When a WSDL document is imported, the platform parses the WSDL 1.1 definition and generates an equivalent OpenAPI 3.x YAML specification. This converted specification is then processed through the standard v4 OpenAPI import pipeline, creating flows, endpoints, and documentation. The original WSDL structure (operations, bindings, messages) is mapped to RESTful paths and HTTP methods in the resulting API definition.
+
+### Policy Application Modes
+
+The behavior of flow generation and policy application depends on the `withPolicies` configuration:
+
+| Mode | Behavior |
+|:-----|:---------|
+| **With Policies** (non-empty `withPolicies` array) | Flows are generated from OpenAPI paths; specified policies are applied to each flow |
+| **Without Policies** (empty `withPolicies` array) | Flow generation is skipped; API is created with endpoints only |
+| **Null Policies** (`withPolicies` is null) | Flows are generated but no policies are applied |
+
+{% hint style="info" %}
+When OAS Validation is enabled alongside REST-to-SOAP transformation, the validation policy is split across two flows: request validation occurs in the first flow, and response validation is deferred to the last flow to allow the SOAP-to-REST transformation to complete before validation (see [`rest-to-soap` policy](../apply-policies/policy-reference/rest-to-soap.md)).
+{% endhint %}
+
+### Import Source Types
+
+AM supports two methods for importing WSDL definitions:
+
+| Type | Description | Example |
+|:-----|:------------|:--------|
+| **INLINE** | WSDL content is provided directly in the request payload | Full WSDL 1.1 XML document as a string |
+| **URL** | WSDL is fetched from a remote endpoint | `http://example.com/service?wsdl` |
+
+{% hint style="warning" %}
+Remote URLs are subject to SSRF protection. Private IP ranges (localhost, 127.0.0.1, 169.254.\*, 192.168.\*) are blocked unless **Allow Import From Private** is enabled in the import configuration.
+{% endhint %}
+
 ## Import your API
 
 To import your API:
@@ -54,6 +85,17 @@ To import your API:
 {% hint style="success" %}
 Once you've imported your API, it will be created as a private API and you will be brought to the API menu and details page.
 {% endhint %}
+
+### Restrictions
+
+- **WSDL version support**: WSDL import is restricted to WSDL 1.1 documents. WSDL 2.0 is not supported.
+- **REST-to-SOAP transformation**: REST-to-SOAP transformation requires the `rest-to-soap` policy to be installed. Without it, WSDL import creates an API with no flows and no documentation.
+- **OAS validation**: OAS validation requires the `oas-validation` policy to be installed. The **Enable OAS Validation** toggle is disabled if the policy is missing.
+- **Remote WSDL URLs**: Remote WSDL URLs are blocked if they resolve to private IP ranges (localhost, 127.0.0.1, 169.254.*, 192.168.*) unless `allowImportFromPrivate` is enabled in the import configuration.
+- **Flow generation**: When `withPolicies` is an empty array, flow generation is skipped and the API is created with endpoints only.
+- **OAS validation response step**: The OAS validation response step is deferred to the last flow only when WSDL format is used and `withPolicies` is non-empty.
+- **Policy visitor IDs**: The `withPolicies` array accepts policy visitor IDs (`rest-to-soap`, `json-validation`, `mock`, `validate-request`, `xml-validation`). Only `rest-to-soap` triggers automatic addition of the `xml-json` dependency.
+- **Path conflicts**: Converted OpenAPI paths must not conflict with existing API paths. Conflicts result in an `InvalidPathsException`.
 
 ## Import an OpenAPI spec
 
@@ -153,7 +195,7 @@ To use a vendor extension, add the `x-graviteeio-definition` field at the root o
   * URL
 * Picture only accepts Data-URI format. Please see the example below.
 
-<pre class="language-yaml" data-title="Example"><code class="lang-yaml"><strong>openapi: "3.0.0"
+<pre class="language-yaml" data-title="Example"><code class="lang-yaml"><strong>OpenAPI: "3.0.0"
 </strong>info:
   version: 1.2.3
   title: Gravitee Echo API

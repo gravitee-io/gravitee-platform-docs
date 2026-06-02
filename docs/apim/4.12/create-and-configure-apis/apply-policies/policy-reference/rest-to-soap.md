@@ -11,6 +11,27 @@ metaLinks:
 
 You can use the Rest-to-soap policy to expose SOAP backend service as a REST API. The policy passes the SOAP envelope message to the backend service as a POST request. SOAP envelopes support Expression Language to provide dynamic SOAP actions.
 
+## WSDL Import
+
+WSDL Import enables API administrators to create v4 HTTP Proxy APIs directly from WSDL 1.1 documents. The feature converts WSDL definitions to OpenAPI 3.x specifications and optionally applies REST-to-SOAP transformation policies, allowing legacy SOAP services to be exposed as RESTful APIs.
+
+### WSDL-to-OpenAPI Conversion
+
+When a WSDL document is imported, the platform parses the WSDL 1.1 definition and generates an equivalent OpenAPI 3.x YAML specification. This converted specification is then processed through the standard v4 OpenAPI import pipeline, creating flows, endpoints, and documentation. The original WSDL structure (operations, bindings, messages) is mapped to RESTful paths and HTTP methods in the resulting API definition.
+
+### REST-to-SOAP Transformation During Import
+
+When enabled during WSDL import, the REST-to-SOAP policy is automatically applied to all generated flows, and the XML-JSON policy is added as a dependency to handle content-type conversions. If the REST-to-SOAP policy is not installed in the platform, WSDL import creates an API with no flows and no applied policies.
+
+### Import Source Types
+
+| Type | Description | Example |
+|:-----|:------------|:--------|
+| **INLINE** | WSDL content is provided directly in the request payload | Full WSDL 1.1 XML document as a string |
+| **URL** | WSDL is fetched from a remote endpoint | `http://example.com/service?wsdl` |
+
+Remote URLs are subject to SSRF protection: private IP ranges (localhost, 127.0.0.1, 169.254.*, 192.168.*) are blocked unless `allowImportFromPrivate` is enabled in the import configuration.
+
 ## Usage
 
 For example, a SOAP API `http(s)://GATEWAY_HOST:GATEWAY_PORT/soap?countryName=France` with the following `rest-to-soap`policy SOAP envelope content:

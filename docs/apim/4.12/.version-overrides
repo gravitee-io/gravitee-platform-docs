@@ -42,3 +42,6 @@ analyze-and-monitor-apis/configure-gateway-for-opentelemetry-logs.md
 analyze-and-monitor-apis/enable-and-use-opentelemetry-logs-for-apis.md
 analyze-and-monitor-apis/opentelemetry-logs-integration-overview.md
 plugins/plugin-reference.md
+create-and-configure-apis/apply-policies/policy-reference/rest-to-soap.md
+create-and-configure-apis/create-apis/import-apis.md
+create-and-configure-apis/create-apis/wsdl-import-management-api-reference.md
