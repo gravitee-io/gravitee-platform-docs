@@ -20,7 +20,7 @@ Additional information that applies to importing an OpenAPI specification can be
 {% hint style="warning" %}
 When you import an API with a JSON payload that has duplicate keys, APIM keeps the last key.
 
-To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection.md](../apply-policies/policy-reference/json-threat-protection.md "mention").
+To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection.md](../apply-policies/policy-reference/json-threat-protection.md "mention") (see [Management API Reference](../../management-api-reference.md#management-api-reference)).
 {% endhint %}
 
 ## Import your API
@@ -153,7 +153,7 @@ To use a vendor extension, add the `x-graviteeio-definition` field at the root o
   * URL
 * Picture only accepts Data-URI format. Please see the example below.
 
-<pre class="language-yaml" data-title="Example"><code class="lang-yaml"><strong>openapi: "3.0.0"
+<pre class="language-yaml" data-title="Example"><code class="lang-yaml"><strong>OpenAPI: "3.0.0"
 </strong>info:
   version: 1.2.3
   title: Gravitee Echo API
@@ -233,6 +233,7 @@ For each operation, if a `application/xml` request body exists, then a XSD schem
 For more information, see the XML Validation policy in the [policy reference](../apply-policies/policy-reference/).
 {% endtab %}
 {% endtabs %}
+
 
 ## JSON Definition
 
