@@ -65,6 +65,15 @@ The process for creating a documentation page is identical to that for creating 
 
 <figure><img src="../../../.gitbook/assets/05.png" alt=""><figcaption></figcaption></figure>
 
+### API Overview Page Templates
+
+When creating documentation pages, you can use pre-built API Overview Page Templates. Two templates are available:
+
+- **Standard API Template**: Presents API information in a card-based layout with version, visibility, owner, and deployment details. A three-column "Get started" section guides consumers through subscription, documentation exploration, and integration workflows.
+- **MCP Proxy Template**: Designed for APIs exposing Model Context Protocol servers. Includes an `<gmd-install-mcp>` component that generates one-click installation configurations for AI clients (Cursor, VS Code, Claude Desktop) and highlights secure gateway routing.
+
+Both templates use FreeMarker variables to populate API metadata dynamically and include inline CSS styling with primary color theming. The MCP Proxy template is specifically for MCP server APIs, while the standard template is suitable for general API documentation.
+
 In addition, **Documentation Pages** supports the creation of folders. To create a folder, click **Add new folder**.
 
 <figure><img src="../../../.gitbook/assets/09.png" alt=""><figcaption></figcaption></figure>
