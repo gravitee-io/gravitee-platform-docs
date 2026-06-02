@@ -27,7 +27,7 @@
 * Viewing MD documentation in the Developer Portal [#11366](https://github.com/gravitee-io/issues/issues/11366)
 * Webhook notification configuration error [#11408](https://github.com/gravitee-io/issues/issues/11408)
 * Regression Dynamic Routing policy with retry policy [#11444](https://github.com/gravitee-io/issues/issues/11444)
-* Can't change group permission on api [#11449](https://github.com/gravitee-io/issues/issues/11449)
+* Can't change group permission on API [#11449](https://github.com/gravitee-io/issues/issues/11449)
 * Scrolling issue in the API Management UI [#11465](https://github.com/gravitee-io/issues/issues/11465)
 * deadlocked on lock resources with another process errors [#11475](https://github.com/gravitee-io/issues/issues/11475)
 
