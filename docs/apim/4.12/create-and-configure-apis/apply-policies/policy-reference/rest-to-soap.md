@@ -11,6 +11,26 @@ metaLinks:
 
 You can use the Rest-to-soap policy to expose SOAP backend service as a REST API. The policy passes the SOAP envelope message to the backend service as a POST request. SOAP envelopes support Expression Language to provide dynamic SOAP actions.
 
+## Automatic Application During WSDL Import
+
+When you [import a WSDL document](../../create-apis/import-apis.md#import-apis) to create a v4 HTTP Proxy API, the REST to SOAP Transformer policy can be automatically applied to generate per-operation flows that translate REST/JSON calls to SOAP/XML. This option is enabled by default when the `rest-to-soap` policy is installed in your environment.
+
+During WSDL import with REST-to-SOAP transformation enabled:
+- Per-operation flows are generated automatically for each SOAP operation
+- The `xml-json` policy is automatically included as a dependency
+- OAS validation response validation is deferred to the last flow to allow SOAP transformation to execute first
+
+When the `withPolicies` parameter is empty during WSDL import, no flows are generated—only API metadata and endpoints are updated.
+
+### WSDL Import UI Workflow
+
+The WSDL import wizard includes the following options:
+
+1. **Format Selection**: The WSDL format option is now enabled (previously marked "Coming soon")
+2. **REST to SOAP Transformer Toggle**: When the `rest-to-soap` policy is installed, a toggle labeled **Apply REST to SOAP Transformer policy** appears (enabled by default)
+3. **Dependent Options**: When the REST to SOAP Transformer toggle is ON, the **Documentation page** and **OpenAPI Specification Validation** options are enabled and checked by default. When OFF, both options are disabled and unchecked.
+4. **Review Step**: The review step displays a REST to SOAP Transformer status badge showing whether the transformation is Enabled or Disabled
+
 ## Usage
 
 For example, a SOAP API `http(s)://GATEWAY_HOST:GATEWAY_PORT/soap?countryName=France` with the following `rest-to-soap`policy SOAP envelope content:

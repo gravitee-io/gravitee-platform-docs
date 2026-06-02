@@ -9,7 +9,9 @@ metaLinks:
 
 ## Overview
 
-Gravitee supports importing APIs as either Gravitee API definitions or OpenAPI specifications. To import an API, the API file must be in YML, YAML, or JSON format.
+Gravitee supports importing APIs as Gravitee API definitions, OpenAPI specifications, or WSDL documents. To import an API, the API file must be in YML, YAML, JSON, or WSDL format.
+
+WSDL 1.1 documents can be imported inline or via URL. During import, the WSDL is converted to OpenAPI 3.x internally and optionally configured with REST-to-SOAP transformation policies. For more information, see [Import WSDL APIs](wsdl-import-for-v4-apis-overview-and-key-concepts.md#wsdl-import-for-v4-apis-overview-and-key-concepts).
 
 Every API includes a context path, virtual host(s), or host(s). These values must be unique across all APIs in your environment. A unique custom API ID can be specified in the definition.
 
@@ -153,7 +155,7 @@ To use a vendor extension, add the `x-graviteeio-definition` field at the root o
   * URL
 * Picture only accepts Data-URI format. Please see the example below.
 
-<pre class="language-yaml" data-title="Example"><code class="lang-yaml"><strong>openapi: "3.0.0"
+<pre class="language-yaml" data-title="Example"><code class="lang-yaml"><strong>OpenAPI: "3.0.0"
 </strong>info:
   version: 1.2.3
   title: Gravitee Echo API
