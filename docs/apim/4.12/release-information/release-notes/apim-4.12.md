@@ -59,6 +59,16 @@
 * The `service.name` must match between tracer and logger (default: `gio_apim_gateway`) for Grafana correlation to function correctly.
 <!-- /PIPELINE:APIM-13463 -->
 
+
+<!-- PIPELINE:APIM-14014 -->
+#### **Native API Connection Logs**
+
+* View connection-level events for native Kafka APIs, including connection attempts, status (connected, failed, disconnected, unknown), duration, and error details.
+* Connection metrics are reported to Elasticsearch or OpenSearch when enabled in the API's analytics configuration via the **Enable connection metrics reporting** toggle.
+* Access logs through the Management Console or Management API with time-range filtering. Requires `api-native_log-r` permission to view logs.
+* Connection metrics reporting is independent of message-level event metrics and can be enabled separately or simultaneously.
+<!-- /PIPELINE:APIM-14014 -->
+
 ## Improvements
 
 

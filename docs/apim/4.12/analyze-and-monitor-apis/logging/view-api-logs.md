@@ -2,7 +2,7 @@
 
 ## Overview
 
-Gravitee lets you collect runtime logs for v4 proxy APIs and v4 message APIs, and webhook logs for v4 message APIs that use a webhook entrypoint. The following sections describe how to view the logs for v4 APIs.
+Gravitee lets you collect runtime logs for v4 proxy APIs and v4 message APIs, webhook logs for v4 message APIs that use a webhook entrypoint, and connection logs for Native APIs. The following sections describe how to view the logs for v4 APIs and Native APIs.
 
 ## View runtime logs
 
@@ -120,3 +120,77 @@ Optionally, you can [enable logging for each of the following](configure-api-lev
 * Response body
 
 <figure><img src="../../.gitbook/assets/logging-webhook.png" alt=""><figcaption></figcaption></figure>
+
+## View Native API connection logs
+
+Native APIs provide connection logs that track client connection lifecycle events. To view connection logs for a Native API, navigate to **APIs > [Your Native API] > Logs**.
+
+### Access the connection logs list
+
+The connection logs list page displays a summary widget showing connection counts by status and a filterable, paginated table of log entries.
+
+<figure><img src="../../.gitbook/assets/apim-native-api-connection-logs-reporting-step-01.png" alt="Connection logs list showing timestamp, application, plan, client identifier, connection status, and duration columns"><figcaption></figcaption></figure>
+
+The table displays the following columns:
+
+* **Timestamp:** The date and time of the connection event.
+* **Application:** The consuming application name or ID.
+* **Plan:** The subscription plan name or ID.
+* **Client identifier:** The unique identifier for the client.
+* **Connection status:** A badge with icon indicating the lifecycle status (CONNECTED, CONNECTION_ERROR, SESSION_ERROR, INTERNAL_ERROR).
+* **Duration:** The formatted duration of the connection.
+* **View:** An icon button to view detailed log information.
+
+You can filter connection logs based on the following criteria:
+
+| Filter | Type | Description |
+|:-------|:-----|:------------|
+| Applications | Multi-select search | Filter by consuming application |
+| Plans | Multi-select search | Filter by subscription plan |
+| Connection status | Multi-select | Filter by lifecycle status (CONNECTED, CONNECTION_ERROR, SESSION_ERROR, INTERNAL_ERROR) |
+| Timeframe | Preset + custom range | Filter by time window |
+
+The table supports pagination with a default of 10 entries per page. You can select 10, 25, 50, or 100 entries per page.
+
+{% hint style="info" %}
+When connection metrics reporting is disabled, a banner appears with the message "Reporting Disabled."
+{% endhint %}
+
+### View connection log details
+
+To view the details of a specific connection log entry, click the **View** icon in the connection logs table. The detail page displays four cards with comprehensive connection information:
+
+<figure><img src="../../.gitbook/assets/apim-native-api-connection-logs-reporting-step-02.png" alt="Connection detail view displaying connection metadata, client information, server details, and error details for a failed authentication"><figcaption></figcaption></figure>
+
+The **Connection** card displays:
+
+* Timestamp
+* API id
+* Transaction id
+* Request id
+* Status (badge)
+* Duration
+
+The **Client** card displays:
+
+* Application id
+* Plan id
+* Subscription id
+* Client identifier
+* Client id
+* Remote address
+
+The **Server** card displays:
+
+* Gateway
+* Entrypoint id
+* Local address
+* Host
+* Broker id
+
+The **Error Details** card displays when the connection status is not CONNECTED:
+
+* Error key
+* Error message
+
+A **Back to Connection Logs** link preserves query parameters from the list page.
