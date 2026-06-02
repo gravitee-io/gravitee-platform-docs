@@ -54,18 +54,9 @@ After any business object is deployed, and only if distributed sync is enabled, 
 
 Before you enable the distributed sync with Redis, you must complete the following steps:
 
-{% hint style="info" %}
-A standard Redis deployment without the Search module appears to connect successfully but every distributed-sync write fails with `Unknown command 'FT.CREATE'` and the Gateway neevr reaches a "ready" state.
-{% endhint %}
-
-* Install Redis with the search module. Distributed sync requires the RedisSearch module. To ensure that you have the RedisSearch module, use of the following Redis modules:
-**  The `redis/redis-stack` Docker image, which bundles RediSearch.
-**  Redis 8+, which includes the Search module natively.
-**  Redis 7 or earlier with the RediSearch module loaded. You can load the module by adding`loadmodule /usr/local/lib/redis/modules/redisearch.so` to your Redis configuration.
- For more information about Redis and RedisSearch, see [redis.md](../../../prepare-a-production-environment/repositories/redis.md "mention") and [RedisSearch](https://redis.io/docs/latest/develop/interact/search-and-query/).
-* Obtain an Enterprise License. You must mount the license into every Gateway pod to start the `repository-redis` plugin and load `DISTRIBUTED_SYNC`. For more information about obtaining an enterprise license, see [enterprise-edition.md](../../../readme/enterprise-edition.md "mention").
+* Install Redis. For more information about Redis, see [redis.md](../../../prepare-a-production-environment/repositories/redis.md "mention").
+* Obtain an Enterprise License. For more information about obtaining an enterprise license, see [enterprise-edition.md](../../../readme/enterprise-edition.md "mention").
 * Deploy a fully Self-Hosted Installation or a Hybrid Installation of APIM. For more information about self-hosted installation, see [self-hosted-installation-guides](../../../self-hosted-installation-guides/ "mention") or [hybrid-installation-and-configuration-guides](../../../hybrid-installation-and-configuration-guides/ "mention").
-* Deploy at least 2 Gateway replicas. Distributed sync works only when `gateway.replicaCount` ≥ 2 **and** `gateway.autoscaling.enabled` is `false` because the Helm chart only honour `replicaCount` when the HPA is diabled. 
 
 ## Enable Distributed sync
 
@@ -76,6 +67,12 @@ To configure Distributed sync with Redis, complete the following steps:
 * [#configure-the-distributed-sync-on-the-apim-gateway](./#configure-the-distributed-sync-on-the-apim-gateway "mention")
 
 ### (Docker installations only) Configure your Hazelcast Cluster
+
+{% hint style="info" %}
+If you use Kubernetes (Helm), Hazelcast's auto-detection discovers gateway pods automatically on Kubernetes. For more information about Hazelcast's auto-dectection, go to [Kubernetes Auto Discovery.](https://docs.hazelcast.com/hazelcast/5.4/kubernetes/kubernetes-auto-discovery)
+
+To configure Gateway cluster sync, see [#configure-the-distributed-sync-on-the-apim-gateway](./#configure-the-distributed-sync-on-the-apim-gateway "mention").
+{% endhint %}
 
 1.  In your `gravitee.yml` file navigate to the `cluster` section, and then add the following configuration:
 
@@ -195,248 +192,51 @@ To enable your distributed sync repository, you must enable the Search module on
 {% endtab %}
 
 {% tab title="Helm" %}
-1.  In your `values.ymal` file, navigate to the `gateway.additionalPlugins` section, and then add the `gravitee-node-cluster-plugin-hazelcast` plugin. You must download the Hazlecast plugin at pod startup and it must match the `gravitee-node` version of your APIM release. For example, for 4.10.x, gravitee-node version is 7.26.x and the hazelcast plugin URL is: https://repo1.maven.org/maven2/io/gravitee/node/gravitee-node-cluster-plugin-hazelcast/7.26.3/gravitee-node-cluster-plugin-hazelcast-7.26.3.zip. To confirm the bundled `gravitee-node`, check the [gravitee-api-management `pom.xml`](https://github.com/gravitee-io/gravitee-api-management/blob/master/pom.xml) on the matching branch, which is`grep gravitee-node.version`. 
+1.  In your `values.yaml` file, navigate to the `gateway` section, and then, after the `name:gateway` line, uncomment the following configuration:<br>
 
-```yaml
-gateway:
-  additionalPlugins:
-    - https://repo1.maven.org/maven2/io/gravitee/node/gravitee-node-cluster-plugin-hazelcast/7.26.3/gravitee-node-cluster-plugin-hazelcast-7.26.3.zip
-```
-{% hint style="info" %}
-The Helm chart automatically downloads plugins listed in `additionalPlugins` using an init container at pod startup. Make sure the pod has outbound access to `repo1.maven.org` or mirror the file internally and adjust the URL.
-{% endhint %}
+    ```bash
+    replicaCount: 2
 
-2.  Create the Hazelcast configuration `ConfigMap` using the top-level `extraObjects` value. Hazelcast requires an XML configurationfor pods to discover each other. For Kuberenetes, use Hazlecast Kubernetes discovery. For more information about Hazelcast Kubernetes discovery, see [kubernetes auto discovery](https://docs.hazelcast.com/hazelcast/5.4/kubernetes/kubernetes-auto-discovery)<br>
+      # Cluster configuration for distributed sync
+      cluster:
+        type: hazelcast
 
-{% hint style="warning" %}
-**`<service-port>5701</service-port>` is mandatory.** Without the service port, Hazelcast's pod-label discovery silently fails. Peer pods are discovered but the cluster never forms because port `5701` is not declared as a `containerPort` on the gateway deployment. The `<service-port>` element tells Hazelcast which port to use against the discovered pods directly, which bypasses the missing `containerPort`/Service entry.
-{% endhint %}
-
-```yaml
-extraObjects:
-  - apiVersion: v1
-    kind: ConfigMap
-    metadata:
-      name: hazelcast-config
-    data:
-      hazelcast.xml: |
-        <?xml version="1.0" encoding="UTF-8"?>
-        <hazelcast xmlns="http://www.hazelcast.com/schema/config"
-                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                   xsi:schemaLocation="http://www.hazelcast.com/schema/config
-                   http://www.hazelcast.com/schema/config/hazelcast-config-5.3.xsd">
-
-            <cluster-name>gio-apim-cluster</cluster-name>
-
-            <properties>
-                <property name="hazelcast.logging.type">slf4j</property>
-                <property name="hazelcast.max.wait.seconds.before.join">20</property>
-                <property name="hazelcast.member.list.publish.interval.seconds">10</property>
-                <property name="hazelcast.socket.client.bind.any">false</property>
-                <property name="hazelcast.max.no.heartbeat.seconds">20</property>
-            </properties>
-
-            <network>
-                <port auto-increment="false">5701</port>
-                <join>
-                    <multicast enabled="false"/>
-                    <tcp-ip enabled="false"/>
-                    <kubernetes enabled="true">
-                        <namespace>YOUR_NAMESPACE</namespace>
-                        <pod-label-name>app.kubernetes.io/component</pod-label-name>
-                        <pod-label-value>gateway</pod-label-value>
-                        <service-port>5701</service-port>
-                    </kubernetes>
-                </join>
-            </network>
-        </hazelcast>
-```
-
-* Replace `YOUR_NAMESPACE` with the Kubernetes namespace where your gateways are deployed (e.g. `gravitee-apim`).
-
-3. Mount the ConfigMap into the Gateway with ``extraVolumes` and `extraVolumeMounts`.
-
-```yaml
-gateway:
-  extraVolumes: |
-    - name: hazelcast-config
-      configMap:
-        name: hazelcast-config
-  extraVolumeMounts: |
-    - name: hazelcast-config
-      mountPath: /opt/graviteeio-gateway/config/hazelcast.xml
-      subPath: hazelcast.xml
-```
-
-4. Grant the Gateway ServcieAccount the RBAC permissions it needs to list pods. Hazelcast's Kubernetes discovery plugin calls the Kubernetes API to list pods. The Gateway's `ServiceAccount` therefore needs `pods`, `endpoints`, `nodes`, and `services` read permissions. The chart's default role only includes `configmaps` and `secrets`. Append the Hazelcast rules with `apim.roleRules`:
-
-```yaml
-apim:
-  roleRules:
-    # Default chart rules — keep these.
-    - apiGroups: [""]
-      resources: [configmaps, secrets]
-      verbs: [get, list, watch]
-    # Required for Hazelcast Kubernetes auto-discovery.
-    - apiGroups: [""]
-      resources: [pods, endpoints, nodes, services]
-      verbs: [get, list]
-```
-
-{% hint style="warning" %}
-Without these RBAC rules, the Hazelcast plugin starts but fails to discover peers. You see `Forbidden: cannot list resource "pods"` in the gateway logs and the second Gateway never joins the cluster.
-{% endhint %}
-
-5. Enable clustering and sirtibuted sync by setting the following configuration in your `values.yaml` file:
-
-{% hint style="warning" %}
-**Do not enable `services.sync.kubernetes.enabled` unless you are running the [Gravitee Kubernetes Operator](https://documentation.gravitee.io/apim/install-and-upgrade-apim/install-gravitee-kubernetes-operator).** That property turns on a parallel sync source that reads API definitions from Kubernetes `ConfigMap`s, not a "use Kubernetes in distributed-sync mode" switch.
-{% endhint %}
-
-```yaml
-gateway:
-  replicaCount: 2
-  autoscaling:
-    enabled: false
-
-  cluster:
-    type: hazelcast
-    hazelcast:
-      configPath: /opt/graviteeio-gateway/config/hazelcast.xml
-
-  distributedSync:
-    enabled: true
-    type: redis
-    redis:
-      host: redis
-      port: 6379
-      # password:                  # if Redis requires auth
-      # ssl: false
-      # trustAll: true
-      # tlsProtocols: TLSv1.2
-      # sentinel:                  # uncomment for Sentinel
-      #   master: redis-master
-      #   nodes:
-      #     - host: sentinel1
-      #       port: 26379
-
-  services:
-    sync:
-      repository:
+      # Distributed sync configuration
+      distributedSync:
         enabled: true
-      distributed:
-        enabled: true
-      # Do NOT enable services.sync.kubernetes.enabled unless you are running
-      # the Gravitee Kubernetes Operator (GKO / dbLess mode). It is unrelated to
-      # distributed sync and is a frequent source of failing startup probes
-      # on secondary nodes — see the Troubleshooting section.
-```
+        type: redis
+        redis:
+          host: host.docker.internal
+          port: 6379
 
-6. Mount your Enterprise license and create the secret with the following configurations:
+      # Services configuration for distributed sync
+      services:
+        sync:
+          repository:
+            enabled: true
+          distributed:
+            enabled: true
+    ```
+2.  Deploy your installation with your new configurations using the following command:<br>
 
-```yaml
-license:
-  name: licensekey-apim   # K8s secret name holding key 'licensekey'
-```
-
-```bash
-kubectl -n gravitee-apim create secret generic licensekey-apim \
-  --from-file=licensekey=/path/to/license.key
-```
-Here is a full example `values.yaml` example:
-```yaml
-extraObjects:
-  - apiVersion: v1
-    kind: ConfigMap
-    metadata:
-      name: hazelcast-config
-    data:
-      hazelcast.xml: |
-        <?xml version="1.0" encoding="UTF-8"?>
-        <hazelcast xmlns="http://www.hazelcast.com/schema/config"
-                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                   xsi:schemaLocation="http://www.hazelcast.com/schema/config
-                   http://www.hazelcast.com/schema/config/hazelcast-config-5.3.xsd">
-            <cluster-name>gio-apim-cluster</cluster-name>
-            <properties>
-                <property name="hazelcast.logging.type">slf4j</property>
-                <property name="hazelcast.max.wait.seconds.before.join">20</property>
-                <property name="hazelcast.member.list.publish.interval.seconds">10</property>
-                <property name="hazelcast.socket.client.bind.any">false</property>
-                <property name="hazelcast.max.no.heartbeat.seconds">20</property>
-            </properties>
-            <network>
-                <port auto-increment="false">5701</port>
-                <join>
-                    <multicast enabled="false"/>
-                    <tcp-ip enabled="false"/>
-                    <kubernetes enabled="true">
-                        <namespace>gravitee-apim</namespace>
-                        <pod-label-name>app.kubernetes.io/component</pod-label-name>
-                        <pod-label-value>gateway</pod-label-value>
-                        <service-port>5701</service-port>
-                    </kubernetes>
-                </join>
-            </network>
-        </hazelcast>
-
-apim:
-  roleRules:
-    - apiGroups: [""]
-      resources: [configmaps, secrets]
-      verbs: [get, list, watch]
-    - apiGroups: [""]
-      resources: [pods, endpoints, nodes, services]
-      verbs: [get, list]
-
-license:
-  name: licensekey-apim
-
-gateway:
-  enabled: true
-  replicaCount: 2
-  autoscaling:
-    enabled: false
-
-  additionalPlugins:
-    - https://repo1.maven.org/maven2/io/gravitee/node/gravitee-node-cluster-plugin-hazelcast/7.26.3/gravitee-node-cluster-plugin-hazelcast-7.26.3.zip
-
-  cluster:
-    type: hazelcast
-    hazelcast:
-      configPath: /opt/graviteeio-gateway/config/hazelcast.xml
-
-  distributedSync:
-    enabled: true
-    type: redis
-    redis:
-      host: redis-stack
-      port: 6379
-
-  services:
-    sync:
-      repository:
-        enabled: true
-      distributed:
-        enabled: true
-
-  extraVolumes: |
-    - name: hazelcast-config
-      configMap:
-        name: hazelcast-config
-  extraVolumeMounts: |
-    - name: hazelcast-config
-      mountPath: /opt/graviteeio-gateway/config/hazelcast.xml
-      subPath: hazelcast.xml
-```
-
+    ```bash
+    helm upgrade --install graviteeio-apim . \
+      --namespace gravitee-apim \
+      --create-namespace \
+      --set gateway.replicaCount=2 \
+      --set gateway.distributedSync.enabled=true \
+      --set gateway.distributedSync.type=redis \
+      --set gateway.distributedSync.redis.host=redis \
+      --set gateway.distributedSync.redis.port=6379 \
+      --set gateway.services.sync.repository.enabled=true \
+      --set gateway.services.sync.distributed.enabled=true \
+      --wait
+    ```
 {% endtab %}
 {% endtabs %}
 
 ## Verification
 
-{% tabs %}
-{% tab title="Docker" %}
 *   Your Gateway's logs show the following output:<br>
 
     ```yaml
@@ -458,42 +258,3 @@ gateway:
 
     11:42:12.677 [main] [] INFO  i.g.node.container.AbstractNode - Gravitee.io - API Gateway id[da56a9b0-7e6a-4dec-96a9-b07e6a2decfd] version[4.3.6] pid[17705] build[${env.BUILD_NUMBER}#${env.GIT_COMMIT}] jvm[Eclipse Adoptium/OpenJDK 64-Bit Server VM/17.0.6+10] started in 8687 ms.
     ```
-
-{% endtab %}
-
-{% tab title="Kubernetes (Helm)" %}
-After `helm upgrade --install ... --wait` completes, complete the following steps to verify that Gateway cluster sync with Redis.
-
-1. Ensure that Both Gateway pods are `Running` and `Ready` with `kubectl -n gravitee-apim get pods -l app.kubernetes.io/component=gateway). With distributed sync enabled the default Helm `startupProbe` queries `/_node/health?probes=http-server,sync-process`.
-
-2. Ensure that the Hazelcast cluster has two members. Exec into either pod and grep the log wit hthe following command:
-
-   ```bash
-   kubectl -n gravitee-apim logs <pod> -c gravitee-apim-gateway | grep "MembershipEvent"
-   ```
-
-   You see `members=[Member [10.x.x.x]:5701 …, Member [10.y.y.y]:5701 …]`.
-
-3. Ensure that the Redis repository is loaded with the `DISTRIBUTED_SYNC` scope. Here is an example output:
-
-   ```text
-   INFO  i.g.p.r.i.RepositoryPluginHandler - Repository [DISTRIBUTED_SYNC] loaded by redis
-   ```
-
-4. Ensurew that the Distributed sync is writing to Redis (primary only) with the following command:
-
-   ```bash
-   kubectl -n gravitee-apim exec deploy/redis-stack -- redis-cli FT._LIST
-   # Expect at least: idx:distributed-sync-state, idx:distributed-sync-events
-   ```
-
-5. Ensure that All probes return `200` with the following command:
-
-   ```bash
-   kubectl -n gravitee-apim exec <pod> -c gravitee-apim-gateway -- \
-     curl -s "http://admin:<password>@127.0.0.1:18082/_node/health?probes=http-server,sync-process"
-   # Expect: {"sync-process":{"healthy":true},"http-server":{"healthy":true}}
-   ```
-
-{% endtab %}
-{% endtabs %}
