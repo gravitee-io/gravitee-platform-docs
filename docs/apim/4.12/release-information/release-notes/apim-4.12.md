@@ -59,6 +59,16 @@
 * The `service.name` must match between tracer and logger (default: `gio_apim_gateway`) for Grafana correlation to function correctly.
 <!-- /PIPELINE:APIM-13463 -->
 
+
+<!-- PIPELINE:APIM-13489 -->
+#### **API Product Analytics and Logging Integration**
+
+* API requests made through API Product subscriptions are now tagged with the API Product ID and name in logs, metrics, and analytics records, enabling administrators to monitor and analyze traffic at the API Product level.
+* The **API Product** filter in the Environment Logs page allows filtering by one or more API Products using equals and contains operators. The logs table displays the API Product name as a subtitle below the API name, or "Standalone API" when no product is associated.
+* API Product IDs are captured in all reporter formats: Elasticsearch indices, CSV exports (as `api-product-id` column), and Datadog tags (as `apiproductid` tag).
+* This feature applies to v4 APIs only. Elasticsearch index templates must be updated to include the `api-product-id` field mapping, which occurs automatically when `extendedRequestTracingEnabled` is enabled.
+<!-- /PIPELINE:APIM-13489 -->
+
 ## Improvements
 
 

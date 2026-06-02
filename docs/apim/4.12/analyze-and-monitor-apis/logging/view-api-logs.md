@@ -2,7 +2,18 @@
 
 ## Overview
 
-Gravitee lets you collect runtime logs for v4 proxy APIs and v4 message APIs, and webhook logs for v4 message APIs that use a webhook entrypoint. The following sections describe how to view the logs for v4 APIs.
+Gravitee lets you collect runtime logs for v4 proxy APIs and v4 message APIs, and webhook logs for v4 message APIs that use a webhook entrypoint. API Product Analytics and Logging Integration extends observability capabilities to track and filter API requests by API Product association. When users access APIs through API Product subscriptions, the system records the API Product ID and name in logs, metrics, and analytics records, enabling administrators to monitor and analyze traffic at the API Product level.
+
+The following sections describe how to view and filter the logs for v4 APIs.
+
+## Prerequisites
+
+Before you filter and view API Product data, ensure the following requirements are met:
+
+* Gravitee API Management 4.12 or later
+* v4 APIs (API Product filtering is not supported for v2 APIs)
+* Elasticsearch index templates updated to include `api-product-id` field mapping
+* `extendedRequestTracingEnabled` configuration enabled for automatic template updates
 
 ## View runtime logs
 
@@ -32,6 +43,7 @@ You can filter v4 proxy API and v4 message API runtime logs based on the followi
 * **Entrypoints:** The Entrypoint used to interact with the API.
 * **HTTP methods:** The method used to interact with the API.
 * **Plan:** The plan used to interact with the API.
+* **API Product:** The API Product associated with the request. Filter values are resolved from the database and support case-insensitive search by name. API Products with null names are excluded from filter results. The filter supports `EQ` (equals) and `IN` (contains) operators.
 
 The **More** button offers additional filtering options.
 
@@ -40,6 +52,17 @@ The **More** button offers additional filtering options.
 You can filter v4 message webhook logs based on time period, HTTP status, and application. The **More** button lets you filter by callback URL and a customized timeframe.
 
 <figure><img src="../../.gitbook/assets/logging-webhook-filters.png" alt=""><figcaption></figcaption></figure>
+
+#### Filtering logs by API Product
+
+To filter logs by API Product at the environment level:
+
+1. Navigate to **Environment > Logs**.
+2. Use the filter bar to select one or more API Products.
+
+    The **API Product** filter supports equals and contains operators. Filter values are resolved from the database and sorted case-insensitively by name. API Products with null names are excluded from the dropdown.
+
+    <figure><img src="../../.gitbook/assets/apim-api-product-analytics-and-logging-integration-step-01.png" alt="Logs page with API Product filter applied showing filtered results"><figcaption></figcaption></figure>
 
 ## View log details
 
@@ -57,9 +80,11 @@ The logs screen shows the following API-level logging information:
 
 The **Overview** section provides information about the request and response phases of the API.
 
-The **More details** drop-down menu shows information about the application, plan, endpoint, Gateway host, and Gateway IP associated with the API.
+The **More details** drop-down menu shows information about the application, plan, endpoint, Gateway host, and Gateway IP associated with the API. When the request is associated with an API Product, the **API Product** row displays the product name. When no API Product is associated, the row displays a dash.
 
 <figure><img src="../../.gitbook/assets/E28EB0D9-6405-4876-8730-BFA28645A4D5_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/apim-api-product-analytics-and-logging-integration-step-02.png" alt="Log detail view showing API Product field in More details section"><figcaption></figcaption></figure>
 
 The **Details** menu shows the details of the API request and response phases.
 
@@ -70,6 +95,8 @@ The **Request** panel shows the HTTP method and URI for the Gateway and consumer
 The **Response** panel shows the status of the Gateway and consumer, the headers sent by the user or the backend in the response phase, and the body returned in the response.
 
 <figure><img src="../../.gitbook/assets/2421DA4C-35BB-4DAD-A6FA-642B70A17486_4_5005_c.jpeg" alt=""><figcaption></figcaption></figure>
+
+The environment logs table displays the API Product name as a subtitle below the API name when the request is associated with an API Product. When no API Product is associated, the subtitle displays "Standalone API".
 
 ### v4 message API runtime logs
 
@@ -120,3 +147,11 @@ Optionally, you can [enable logging for each of the following](configure-api-lev
 * Response body
 
 <figure><img src="../../.gitbook/assets/logging-webhook.png" alt=""><figcaption></figcaption></figure>
+
+## API Product association
+
+API requests made through an API Product subscription are tagged with the API Product ID and name. Requests made directly to an API without an API Product subscription are labeled as "Standalone API" in the Console UI. When an API Product is deleted after a log entry is created, the API Product name cannot be resolved and remains null.
+
+## Reporter integration
+
+The API Product ID is captured in all reporter formats: Elasticsearch indices, CSV exports, and Datadog tags. In Elasticsearch and file-based reporters, the `apiProductId` field is conditionally included when present. In CSV exports, the `api-product-id` column writes an empty string for standalone API requests. In Datadog, the `apiproductid` tag is present only when the request is made through an API Product subscription; null values are suppressed.

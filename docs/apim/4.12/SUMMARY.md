@@ -351,6 +351,7 @@
   * [API Quality](analyze-and-monitor-apis/api-quality.md)
   * [Audit Trail](analyze-and-monitor-apis/audit-trail.md)
   * [Reporters](analyze-and-monitor-apis/reporters/README.md)
+    * [API Product Analytics Integration Reference](analyze-and-monitor-apis/reporters/api-product-analytics-integration-reference.md)
     * [Elasticsearch Reporter](analyze-and-monitor-apis/reporters/elasticsearch-reporter.md)
     * [File Reporter](analyze-and-monitor-apis/reporters/file-reporter.md)
     * [TCP Reporter](analyze-and-monitor-apis/reporters/tcp-reporter.md)
