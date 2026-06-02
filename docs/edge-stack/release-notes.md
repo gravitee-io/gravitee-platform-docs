@@ -5,6 +5,24 @@ noIndex: true
 
 # Release Notes
 
+### Version 3.13.2 (May 21, 2026) <a href="#id-3.13.2" id="id-3.13.2"></a>
+
+#### Upgrade to Envoy 1.37.1
+
+Ambassador Edge Stack is now built on Envoy v1.37.1, which includes security, performance, and feature enhancements. This update resolves multiple CVEs including CVE-2025-62409, CVE-2026-27135, and CVE-2025-62504. For more information, see [Envoy Proxy 1.37.1 Release Notes](https://www.envoyproxy.io/docs/envoy/v1.37.1/version_history/version_history).
+
+#### Upgrade Golang to 1.25.10
+
+Ambassador Edge Stack now uses Golang version 1.25.10. This update resolves various security fixes.
+
+#### Upgrade various dependencies
+
+Upgraded gRPC, the Prometheus client, OpenTelemetry, and other dependencies to resolve security fixes.
+
+#### Fixed admission webhook rejecting v2 Mapping resources
+
+In the 3.13.0 release, the admission webhook that validates Mapping resources rejected `getambassador.io/v2` Mappings because it only handled the `v3alpha1` version. The webhook now converts `v2` Mappings before validation so that both API versions are admitted correctly.
+
 ### Version 3.13.1 (April 22, 2026) <a href="#id-3.13.1" id="id-3.13.1"></a>
 
 #### Patch CSRF login vulnerability
@@ -23,7 +41,7 @@ Previously, the admin service APIs exposed on the health-check port accepted rem
 
 #### Admission webhook to prevent invalid Mappings from applying
 
-Added an admission webhook that validates `v3alpha1.Mapping` resources at apply time. Invalid Mappings are now rejected before they are admitted to the cluster, which prevents misconfigured resources from affecting routing.&#x20;
+Added an admission webhook that validates `v3alpha1.Mapping` resources at apply time. Invalid Mappings are now rejected before they are admitted to the cluster, which prevents misconfigured resources from affecting routing. The webhook is disabled by default. To enable it, set the environment variable `AMBASSADOR_VALIDATION_WEBHOOK_ENABLED=true` on the `emissary-apiext` deployment.
 
 #### **Helm chart ClusterRole changes**
 

@@ -4,6 +4,75 @@ description: Documentation about apim 4.8.x in the context of APIs.
 
 # APIM 4.8.x
  
+## Gravitee API Management 4.8.28 - June 1, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Gateway primary stays unhealthy after restart when distributed sync is enabled [#11468](https://github.com/gravitee-io/issues/issues/11468)
+* Gateway sync can hang indefinitely on slow bridge responses (no per-request timeout) [#11469](https://github.com/gravitee-io/issues/issues/11469)
+
+**Management API**
+
+* mAPI v2 doesn't accept group names [#11351](https://github.com/gravitee-io/issues/issues/11351)
+
+**Console**
+
+* Audit Log event type filter in the APIM Console does not populate v4 APIs [#11429](https://github.com/gravitee-io/issues/issues/11429)
+* API v2 Logging configuration - Problem when using a combination of criteria in the EL expression  [#11472](https://github.com/gravitee-io/issues/issues/11472)
+
+**Other**
+
+* Setting Redoc viewer as default does not apply for v4 API documents [#11188](https://github.com/gravitee-io/issues/issues/11188)
+* Webhook notification configuration error [#11408](https://github.com/gravitee-io/issues/issues/11408)
+* Can't change group permission on API [#11449](https://github.com/gravitee-io/issues/issues/11449)
+* Scrolling issue in the API Management UI [#11465](https://github.com/gravitee-io/issues/issues/11465)
+* deadlocked on lock resources with another process errors [#11475](https://github.com/gravitee-io/issues/issues/11475)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Console**
+
+* DCR configuration UI: clarify {#client_id} placeholder and fix example renew secret endpoint [#11430](https://github.com/gravitee-io/issues/issues/11430)
+
+</details>
+
+
+ 
+## Gravitee API Management 4.8.27 - May 19, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Health Check endpoint doesn't execute [#11394](https://github.com/gravitee-io/issues/issues/11394)
+
+**Management API**
+
+* Validation of duplicated context paths does not check secondary context paths [#11409](https://github.com/gravitee-io/issues/issues/11409)
+* Shared API key renewal persists new key with environmentId=null [#11439](https://github.com/gravitee-io/issues/issues/11439)
+
+**Console**
+
+* Deprecated plans missing from Policy Studio for v4 APIs [#11399](https://github.com/gravitee-io/issues/issues/11399)
+* Payload Search Not Working [#11403](https://github.com/gravitee-io/issues/issues/11403)
+
+**Portal**
+
+* Payload Search Not Working [#11403](https://github.com/gravitee-io/issues/issues/11403)
+* Error 500 when trying to filter logs in the developer portal [#11405](https://github.com/gravitee-io/issues/issues/11405)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.8.26 - May 7, 2026
 <details>
 

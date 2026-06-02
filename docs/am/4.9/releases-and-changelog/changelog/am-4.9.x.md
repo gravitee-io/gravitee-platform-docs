@@ -6,6 +6,78 @@ description: >-
 
 # AM 4.9.x
 
+## Gravitee Access Management 4.9.22 - June 1, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* TokenValidation should rely on the KID  [#11383](https://github.com/gravitee-io/issues/issues/11383)
+* Addition of ClientId in the Gravitee AccessLog [#11471](https://github.com/gravitee-io/issues/issues/11471)
+
+
+
+
+
+
+
+</details>
+
+
+## Gravitee Access Management 4.9.21 - May 25, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* UI Crash on Device Deletion [#11446](https://github.com/gravitee-io/issues/issues/11446)
+
+</details>
+
+
+## Gravitee Access Management 4.9.20 - May 15, 2026
+
+<details>
+
+<summary>What's new !</summary>
+
+=**What's new!**
+
+* UserProfile claims extension
+
+</details>
+
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* Improve CPU consumption with thousand of domain [#11411](https://github.com/gravitee-io/issues/issues/11411)
+* Addition of access log for the Gateway [#11415](https://github.com/gravitee-io/issues/issues/11415)
+* 'Master' attribute value is inconsistent when listing domains vs retrieving a specific domain [#11422](https://github.com/gravitee-io/issues/issues/11422)
+* SCIM PUT/PATCH switches internal flag to false [#11425](https://github.com/gravitee-io/issues/issues/11425)
+
+</details>
+
+
 ## Gravitee Access Management 4.9.19 - May 1, 2026
 
 <details>

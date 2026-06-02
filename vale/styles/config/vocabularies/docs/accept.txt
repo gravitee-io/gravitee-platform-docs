@@ -150,6 +150,7 @@ QoS
 # Monitoring, Logging & Observability
 # ============================================
 OpenTelemetry
+OTel
 OpenTracing
 Prometheus
 Grafana
@@ -198,6 +199,8 @@ Privileged Access Management
 Just-in-Time
 Human-in-the-Loop
 [Pp]asswordless
+client_id
+client_secret
 
 # ============================================
 # Java & JVM
@@ -210,7 +213,6 @@ JAAS
 JCE
 javax
 OpenJDK
-Freemarker
 FreeMarker
 Vert\.x
 
@@ -249,7 +251,7 @@ SOCKS[45]
 ACLs?
 JOSE
 ACME
-CVE
+CVEs?
 
 # ============================================
 # Networking & Protocols
@@ -262,6 +264,7 @@ SMTP
 URIs?
 URLs?
 [Ll]ocalhost
+[Ll]oopback
 Gzip
 CIDR
 SPA
@@ -281,7 +284,6 @@ HTML
 CSS
 CSV
 AsciiDoc
-Protobuf
 UTF
 RFC
 ISO
@@ -293,7 +295,6 @@ ISO
 [Ff]rontend
 [Cc]odebase
 [Cc]onfig
-[Dd]atastore
 [Ee]ntrypoints?
 [Ff]ailover
 [Ff]ilesystem
@@ -479,10 +480,321 @@ apim_subscription
 [Cc]iphertext
 JSONPath
 [Kk]eystores?
-GZIP
 [Hh]inglish
 [Mm]inuva
 JWTs?
 Okta
 [Pp]roxied
 Kibana
+[Ss]ubcomponents?
+[Pp]roductize
+Kandji
+Jamf
+DAImon
+Intune
+[Uu]nmanaged
+[Aa]llowlists?
+
+# ============================================
+# Gamma Platform
+# ============================================
+Gamma
+[Aa]gentic
+[Hh]yperscaler
+[Hh]yperscaler-[Ff]ederated
+[Ee]licitation
+[Gg]uardrails?
+MCPs?
+stdio
+ESM
+
+# ============================================
+# AI / LLM Ecosystem
+# ============================================
+Anthropic
+OpenAI
+Claude
+Sonnet
+ChatGPT
+Bedrock
+Vertex
+Foundry
+Cursor
+Copilot
+LangChain
+FastMCP
+Smithery
+HubSpot
+Stripe
+Auth0
+Garden
+
+# ============================================
+# Workload Identity & Authorization
+# ============================================
+Cedar
+SPIFFE
+SPIRE
+SVID
+PDP
+PEP
+PII
+MDM
+CIMD
+Kerberos
+
+# ============================================
+# Kafka & Event Streaming (additions)
+# ============================================
+AKHQ
+Confluent
+Conduktor
+MessagePack
+Snappy
+
+# ============================================
+# Misc additions
+# ============================================
+Jira
+GAP
+
+# ============================================
+# Spell-check sweep additions (2026-05-29)
+# Real product, infra, and technical terms surfaced by Vale.
+# ============================================
+
+# Products & tools
+Telepresence
+Nginx
+Linkerd
+Istio
+Infobip
+Postgres
+Lucene
+Petstore
+Mosquitto
+Traefik
+Knative
+Lightstep
+Coraza
+Thymeleaf
+Atlassian
+Datastax
+Temurin
+Opensearch
+Yubico
+Yubikey
+Feitian
+VSCode
+Jetbrains
+Citrix
+Nashorn
+Kafbat
+Jayway
+Dropbox
+Kaggle
+Wasm
+
+# Kubernetes & infrastructure
+HTTPRoute
+GRPCRoute
+TCPRoute
+TLSRoute
+UDPRoute
+kubeconfig
+kubelet
+etcd
+replicaset
+statefulsets
+clusterrole
+finalizers
+finalizer
+liveness
+millicore
+subnet
+subnets
+apiserver
+iptables
+nftables
+tolerations
+autoscaler
+ingester
+ingesters
+rollouts
+upgrader
+upgraders
+SELinux
+multicluster
+dataplane
+
+# Protocols & technical terms
+XPath
+ETag
+ETags
+Pragma
+keytab
+keytabs
+favicon
+backpressure
+pipelining
+proxying
+declaratively
+pluggable
+templated
+templatized
+performant
+misconfigured
+misconfiguration
+plaintext
+cleartext
+traceparent
+multitenant
+sanitization
+truststores
+zstd
+zlib
+gzipped
+semver
+golang
+posix
+htpasswd
+uncomment
+uncommenting
+multiline
+useragent
+datasource
+datasources
+addon
+keepalive
+systemctl
+sshfs
+systray
+unencrypted
+lookups
+architected
+substeps
+truthy
+docgen
+retrigger
+ulimits
+memlock
+jemalloc
+virtualhosts
+upstreams
+ratelimiting
+goroutines
+classloader
+throwable
+wsdl
+statsd
+healthz
+middleware
+busybox
+gunicorn
+prepended
+bindable
+readme
+artifactory
+charset
+keyspace
+codecs
+urlencoded
+eventloop
+deserialize
+datagram
+cacheability
+superset
+toolset
+loglevel
+nullable
+nullish
+destructuring
+interop
+interops
+mutator
+deallocates
+walkthroughs
+multicast
+accessor
+iterable
+enqueued
+passthrough
+passcodes
+overridable
+multimodal
+webservices
+datacenters
+datacenter
+trustable
+reallocations
+subnav
+subshell
+subprotocol
+subcommand
+subcommands
+gcloud
+backoff
+backported
+backport
+bugfix
+bugfixes
+airgapped
+auditable
+auditability
+discoverability
+subsecond
+conformant
+dockerize
+downscoping
+anonymization
+reauthentication
+unpublishing
+multifactor
+strikethrough
+fullscreen
+multimap
+multivalue
+multivalued
+tagless
+apiops
+odata
+kinesis
+
+# Acronym plurals
+LLMs
+SDKs
+SLAs
+UIs
+RPMs
+RBACs
+CLIs
+JDKs
+VPNs
+KPIs
+IDPs
+CIDRs
+ARNs
+TLDs
+UUIDs
+WAFs
+DBs
+OUs
+PDPs
+SPOFs
+GIDs
+IBANs
+SSNs
+
+# Fonts
+Arial
+Helvetica
+Verdana
+Tahoma
+Roboto
+Andale
+Lucida
+monospace
+Norasi
+Kalimati
+Luxi
+Bitstream

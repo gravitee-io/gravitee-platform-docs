@@ -141,7 +141,7 @@ managementcontext.gravitee.io/management-context-1 created
 
 Now that you've defined a way for GKO to communicate with a Gravitee API Management instance, you can create your first GKO-managed API.
 
-### Create an ApiV4Definition
+## Create an ApiV4Definition
 
 The `ApiV4Definition` CRD is used to create modern Gravitee v4 APIs (for all types of APIs, including HTTP, Event APIs, and AI Agentic services). It contains all of the parameters of a Gravitee API such as the entrypoint, endpoint, plans, policies, groups & members, and documentation pages. The CRD also lets you control whether the API is started or stopped, and whether or not it is published to the Developer Portal.
 
@@ -194,7 +194,7 @@ spec:
 There are a few things worth mentioning about the above resource:
 
 * This API definition references the `ManagementContext` we just created. This tells GKO to sync this API definition with the APIM installation referenced in the `ManagementContext`.
-* The API definition specifies that the API should be created in a `STARTED` state (i.e., deployed), and `PUBLISHED` on the Developer Portal with `PUBLIC` visibility.
+* The API definition specifies that the API should be created in a `STARTED` state (that is, deployed), and `PUBLISHED` on the Developer Portal with `PUBLIC` visibility.
 * The backend target (or "endpoint") for this API is a mock service hosted by Gravitee that echoes back information about the incoming call.
 
 Create the resource with the following command:

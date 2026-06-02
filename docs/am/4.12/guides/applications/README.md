@@ -391,6 +391,12 @@ curl -X PATCH \
 
 You can create a client and define it as a template. Registering a new application with a template allows you to specify which identity providers to use, and apply template forms (such as login, password management, and error forms) or emails (such as registration confirmation and password reset emails).
 
+Template mode is enabled for an Application in its **Settings** > **General** tab.
+
+{% hint style="warning" %}
+Once a client is set up as a template, it can no longer be used for authentication purposes.
+{% endhint %}
+
 #### Enable Dynamic Client Registration templates
 
 You can enable the template feature in the AM Dynamic Client Registration **Settings** tab:
@@ -411,29 +417,6 @@ curl -X PATCH \
       }}}' \
   http://GRAVITEEIO-AM-MGT-API-HOST/management/domains/:domainId
 ```
-
-#### Define which client must be used as a template
-
-In the Dynamic Client Registration **Client templates** tab, enable this feature to be used as a template in the client:
-
-<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-domain-define-dcr-templates.png" alt=""><figcaption><p>Specify clients</p></figcaption></figure>
-
-You can also enable this feature using AM API:
-
-```sh
-
-curl -X PATCH \
-  -H 'Authorization: Bearer :accessToken' \
-  -H 'Content-Type: application/json' \
-  -d '{"template":true}' \
-  http://GRAVITEEIO-AM-MGT-API-HOST/management/domains/:domainId/clients/:clientId
-```
-
-{% hint style="warning" %}
-Once a client is set up as a template, it can no longer be used for authentication purposes.
-{% endhint %}
-
-<figure><img src="../../.gitbook/assets/graviteeio-am-userguide-domain-dcr-templates.png" alt=""><figcaption><p>Client overview</p></figcaption></figure>
 
 #### Register call with template example
 

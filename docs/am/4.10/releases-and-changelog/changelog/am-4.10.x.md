@@ -6,6 +6,81 @@ description: >-
 
 # AM 4.10.x
 
+## Gravitee Access Management 4.10.13 - June 1, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* TokenValidation should rely on the KID  [#11383](https://github.com/gravitee-io/issues/issues/11383)
+* Revert KID initialization using cert alias [#11442](https://github.com/gravitee-io/issues/issues/11442)
+* Addition of ClientId in the Gravitee AccessLog [#11471](https://github.com/gravitee-io/issues/issues/11471)
+
+
+
+
+
+
+
+</details>
+
+
+## Gravitee Access Management 4.10.12 - May 25, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* Sync delay between GW when using DCR [#11443](https://github.com/gravitee-io/issues/issues/11443)
+* UI Crash on Device Deletion [#11446](https://github.com/gravitee-io/issues/issues/11446)
+
+</details>
+
+
+## Gravitee Access Management 4.10.11 - May 15, 2026
+
+<details>
+
+<summary>What's new !</summary>
+
+=**What's new!**
+
+* UserProfile claims extension
+
+</details>
+
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* Improve CPU consumption with thousand of domain [#11411](https://github.com/gravitee-io/issues/issues/11411)
+* Addition of access log for the Gateway [#11415](https://github.com/gravitee-io/issues/issues/11415)
+* 'Master' attribute value is inconsistent when listing domains vs retrieving a specific domain [#11422](https://github.com/gravitee-io/issues/issues/11422)
+* SCIM PUT/PATCH switches internal flag to false [#11425](https://github.com/gravitee-io/issues/issues/11425)
+* JWT tokens are invalid with multiple values in the aud claim [#11427](https://github.com/gravitee-io/issues/issues/11427)
+
+</details>
+
+
 ## Gravitee Access Management 4.10.10 - May 1, 2026
 
 <details>
