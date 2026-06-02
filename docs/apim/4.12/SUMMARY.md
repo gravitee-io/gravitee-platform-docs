@@ -308,6 +308,7 @@
       * [Configure Authentication with Login and Password](developer-portal/new-developer-portal/configure-authentication/configure-authentication-with-login-and-password.md)
       * [Configure Authentication with SSO](developer-portal/new-developer-portal/configure-authentication/configure-authentication-with-sso.md)
       * [Enforce User Authentication](developer-portal/new-developer-portal/configure-authentication/enforce-user-authentication.md)
+    * [Portal Navigation FreeMarker Template Validation](developer-portal/new-developer-portal/customize-the-navigation/portal-navigation-freemarker-template-validation.md)
     * [Subscription form technical implementation](developer-portal/new-developer-portal/subscription-form-technical-implementation.md)
   * [Classic Developer Portal](developer-portal/classic-developer-portal/README.md)
     * [Configuration File](developer-portal/classic-developer-portal/configuration-file.md)

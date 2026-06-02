@@ -71,4 +71,14 @@
 * Applies to v2 APIs, v4 HTTP/Proxy APIs, v4 Message APIs, and Shared Policy Groups.
 <!-- /PIPELINE:APIM-13462 -->
 
+
+<!-- PIPELINE:APIM-14123 -->
+#### **Portal Navigation Template Validation**
+
+* Portal page content using FreeMarker expressions is now validated on save, preventing runtime rendering failures caused by invalid syntax or missing variables.
+* Validation uses the appropriate context (API model for pages under API nodes, environment metadata for environment-level pages) determined by traversing the portal navigation hierarchy.
+* Template validation errors display specific messages identifying the problematic expression, while HTTP errors are handled by the global error interceptor to avoid duplicate notifications.
+* Pages without a linked navigation item skip validation entirely; custom `PortalPageContentValidator` implementations require method signature updates to include the `existingContent` parameter.
+<!-- /PIPELINE:APIM-14123 -->
+
 ## Bug Fixes
