@@ -42,3 +42,9 @@ analyze-and-monitor-apis/configure-gateway-for-opentelemetry-logs.md
 analyze-and-monitor-apis/enable-and-use-opentelemetry-logs-for-apis.md
 analyze-and-monitor-apis/opentelemetry-logs-integration-overview.md
 plugins/plugin-reference.md
+.gitbook/assets/apim-api-import-from-remote-url-step-01.png
+.gitbook/assets/apim-api-import-from-remote-url-step-02.png
+.gitbook/assets/apim-api-import-wizard-entry.png
+configure-and-manage-the-platform/gravitee-gateway/api-import-configuration-gateway-configuration-reference.md
+create-and-configure-apis/create-apis/api-import-from-remote-url-rest-api-reference.md
+create-and-configure-apis/create-apis/import-apis.md

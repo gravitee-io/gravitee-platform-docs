@@ -55,6 +55,15 @@ To import your API:
 Once you've imported your API, it will be created as a private API and you will be brought to the API menu and details page.
 {% endhint %}
 
+{% hint style="info" %}
+The backend validates all remote URLs against a configured whitelist and blocks private addresses by default to prevent security risks. Contact your administrator if a URL is blocked.
+{% endhint %}
+
+### Restrictions
+
+* **v4 APIs only**: Remote URL import endpoints do not support v2 APIs.
+* **OpenAPI import type requirement**: For OpenAPI imports, the `type` field in the `ImportSwaggerDescriptor` must be set to `URL` when the payload is a remote URL. It defaults to `INLINE` if omitted.
+
 ## Import an OpenAPI spec
 
 {% hint style="info" %}
@@ -153,7 +162,7 @@ To use a vendor extension, add the `x-graviteeio-definition` field at the root o
   * URL
 * Picture only accepts Data-URI format. Please see the example below.
 
-<pre class="language-yaml" data-title="Example"><code class="lang-yaml"><strong>openapi: "3.0.0"
+<pre class="language-yaml" data-title="Example"><code class="lang-yaml"><strong>OpenAPI: "3.0.0"
 </strong>info:
   version: 1.2.3
   title: Gravitee Echo API
@@ -260,26 +269,6 @@ The API import process uses the `crossId` to match existing entities with those 
 {% endtab %}
 {% endtabs %}
 
-### Importing endpoints
-
-Importing endpoints allows you to import an API from an API definition. The HTTP request body can contain either the JSON API definition or an HTTP link to the JSON API definition.The link requires the target organization and environment in the prefix: `/organizations/{organization.id}/environments/{environment.id}/`
-
-#### Creating a new API from an API definition
-
-To create a new API from an API definition, use [`POST /api/import`](https://gravitee-io-labs.github.io/mapi-v1-docs/#tag/apis/post/organizations/{orgId}/environments/{envId}/apis/import).
-
-*   In the API definition, set the `crossId` that will identify your API (and related entities) across environments. You can assign any string to this `crossId`.
-
-    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>An error will be raised if there is already an existing API in the target environment with the same <code>crossId</code>.</p></div>
-* Do not include a technical ID in your API definition. The server will automatically generate an ID for the newly created API. Even if you provide a technical ID, it will not be used.
-
-#### Updating an existing API from an API definition
-
-To update an existing API from an API definition, use [`PUT /api/import`](https://gravitee-io-labs.github.io/mapi-v1-docs/#tag/apis/put/organizations/{orgId}/environments/{envId}/apis/import).
-
-*   Including the technical ID in the URL is not mandatory. The `crossId` in your API definition will be used to find the target API. This allows you to use the same URL to update your API across all environments.
-
-    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>Alternatively, you can use the URL containing the API technical ID: <a href="https://gravitee-io-labs.github.io/mapi-v1-docs/#tag/apis/put/organizations/{orgId}/environments/{envId}/apis/{api}/import"><code>PUT /api/{api.id}/import</code></a>. An error will be raised if the <code>crossId</code> of your definition matches another API in the target environment.</p></div>
 
 #### API content behavior
 
@@ -368,3 +357,6 @@ Use the APIM Console.
     ```
 
 </details>
+
+
+<figure><img src="../../.gitbook/assets/apim-api-import-wizard-entry.png" alt="API list page with Add API button to access import wizard"><figcaption></figcaption></figure>
