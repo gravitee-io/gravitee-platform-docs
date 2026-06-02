@@ -337,6 +337,20 @@ You can use OpenTelemetry traces to view the following API transaction details:
 * If you call an API with invalid authentication, you can see a trace with a warning and logs with details about the errors.
 * For a POST or GET request, you see the following information: `request_body_size`, `request_content_length`, `context-path`, `host.name` and `http_status_code`.
 
+## Span Attribute Redaction
+
+Span Attribute Redaction masks sensitive metadata in OpenTelemetry traces before they leave the Gateway. Administrators configure pattern-based rules to replace or partially obscure span attributes such as authorization headers, API keys, consumer identifiers, and query parameters. Redaction occurs in-process before OTLP export, ensuring that sensitive observability data never reaches external collectors or tracing backends.
+
+Redaction rules match span attribute keys using glob patterns, short names, or regular expressions, and apply a masking strategy when the key (and optionally the value) matches. Rules are evaluated in order; the first matching rule wins. Global rules defined in `gravitee.yml` are applied first, followed by API-specific rules configured in the Console.
+
+Masking strategies include **FULL** (replace entire value with a replacement string) and **PARTIAL** (preserve a configurable number of leading and trailing characters, masking the middle section).
+
+For detailed configuration instructions, see:
+
+* {% content-ref url="../configure-and-manage-the-platform/gravitee-gateway/configuring-global-redaction-rules.md" %}
+[configuring-global-redaction-rules.md](../configure-and-manage-the-platform/gravitee-gateway/configuring-global-redaction-rules.md)
+{% endcontent-ref %}
+
 ## Kafka native API tracing
 
 OpenTelemetry tracing for Kafka native APIs covers the full Kafka protocol exchange between client and Gateway: connection lifecycle, authentication, and per-request spans with protocol-specific attributes (topics, batch counts, consumer groups, error codes).
