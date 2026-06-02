@@ -59,6 +59,16 @@
 * The `service.name` must match between tracer and logger (default: `gio_apim_gateway`) for Grafana correlation to function correctly.
 <!-- /PIPELINE:APIM-13463 -->
 
+
+<!-- PIPELINE:APIM-14123 -->
+#### **FreeMarker Templating for Portal Navigation Pages**
+
+* Portal navigation pages written in Gravitee Markdown now support FreeMarker templating to inject dynamic content based on page context.
+* Pages nested under an API node can reference API metadata using `${api.property}` expressions, while root-level pages can reference environment metadata using `${metadata.key}` expressions.
+* Template validation occurs at save time with improved error handling that surfaces specific validation messages (e.g., missing variables, syntax errors) instead of generic failure notifications.
+* The system automatically resolves the appropriate data model by walking the navigation tree to determine if the page is API-scoped or environment-scoped.
+<!-- /PIPELINE:APIM-14123 -->
+
 ## Improvements
 
 

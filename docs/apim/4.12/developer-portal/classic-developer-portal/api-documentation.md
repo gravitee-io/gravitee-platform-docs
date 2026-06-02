@@ -31,7 +31,7 @@ To create documentation:
     <figure><img src="../../.gitbook/assets/documenation_folder.png" alt=""><figcaption><p>Sample documentation folder</p></figcaption></figure>
 * **Markdown Template:** Create templates reusable for site-wide and API Markdown documentation.
 * **Markdown:** Use the Markdown syntax for the documentation page.
-* **AsciiDoc:** Use the Asciidoc syntax for the documentation page.
+* **AsciiDoc:** Use the AsciiDoc syntax for the documentation page.
 * **OpenAPI (Swagger):** Use the OpenAPI syntax for the documentation page.
 * **AsyncAPI:** Use the AsyncAPI syntax for the documentation page.
 
@@ -63,6 +63,12 @@ This method uses the text editor to generate content based on your selected docu
 Use the following syntax to access the API data in your API documentation: `${api.name} or ${api.metadata['foo-bar']}`.
 
 The sample script below creates a documentation template based on the Apache [FreeMarker template engine](https://freemarker.apache.org/):
+
+**FreeMarker templating in portal navigation pages**
+
+Portal navigation pages written in Gravitee Markdown support FreeMarker templating with context-dependent model availability. Pages nested under an API node in the navigation tree receive an `api` object containing API metadata. Pages at the root level or under non-API nodes receive a `metadata` object containing environment-level metadata.
+
+When you save a portal navigation page, the system validates the template by dry-rendering it with the appropriate model. If the template contains invalid expressions or references missing model properties, the save operation fails with a descriptive error message (e.g., `"Invalid expression or value is missing for <expression>"`). Template validation occurs only when a navigation page is linked to content.
 
 {% code overflow="wrap" fullWidth="false" %}
 ```ftl

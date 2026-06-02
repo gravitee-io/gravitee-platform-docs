@@ -60,7 +60,7 @@ To import documentation:
    3. Define how to create, or get, the documentation content:
       * Fill in the documentation inline yourself: If you select this option, you'll be given the option to start typing your documentation
       * Import the documentation from a file
-      * Import documentation from an external source: Gravitee supports Bitbucket, git repository, Github, GitLab, and public URLs
+      * Import documentation from an external source: Gravitee supports Bitbucket, git repository, GitHub, GitLab, and public URLs
 8. Click **SAVE**
 
 ## Add API metadata
@@ -77,3 +77,5 @@ To add metadata:
     <figure><img src="../../.gitbook/assets/v2 docs_metadata.png" alt=""><figcaption><p>Add API metadata</p></figcaption></figure>
 7. Choose a name for your API, select the format (string, numeric, boolean, date, mail, url), and define the value
 8. Click **Save**
+
+API metadata becomes available to portal navigation pages nested under API nodes in the navigation tree. When a portal navigation page is positioned under an API node, it can reference API metadata through the `api` template object in FreeMarker expressions (e.g., `${api.name}` or `${api.metadata.key}`). This allows dynamic content based on the API's metadata values.
