@@ -5,13 +5,13 @@ metaLinks:
     - release-notes.md
 ---
 
-# Release note
+# Release notes
 
 ## 1.0.0
 
 **Terraform Registry:** [gravitee-io/apim](https://registry.terraform.io/providers/gravitee-io/apim/1.0.0)
 
-Version **1.0.0** is the first **Generally Available (GA)** release of the Gravitee APIM Terraform provider. It graduates the provider from technical preview while keeping **Terraform resource schema version 0** (no `schema_version` bump and no state migration machinery in this release).
+Version **1.0.0** is the first **Generally Available (GA)** release of the Gravitee APIM Terraform provider.
 
 ### Highlights
 
@@ -19,51 +19,6 @@ Version **1.0.0** is the first **Generally Available (GA)** release of the Gravi
 - **Two new managed resources:** `apim_group`, `apim_dictionary` (and matching data sources).
 - **New optional attributes** on existing resources (API products, OpenTelemetry logs, console notifications, Kafka plan/listener fields, subscription consumer configuration, etc.).
 - **Stricter HRID validation** and removal of **`metadata.hidden`** (see [Breaking changes & migration](#breaking-changes--migration)).
-
-### Upgrade
-
-```hcl
-terraform {
-  required_providers {
-    apim = {
-      source  = "gravitee-io/apim"
-      version = "~> 1.0.0"
-    }
-  }
-}
-```
-
-Then run:
-
-```bash
-terraform init -upgrade
-terraform plan
-```
-
-Review [Breaking changes & migration](#breaking-changes--migration) before upgrading production workspaces.
-
-### Compatibility & support
-
-Wording follows the style of the [Gravitee Terraform compatibility matrix](https://documentation.gravitee.io/apim/terraform) and the platform [support model](https://documentation.gravitee.io/platform-overview/gravitee-platform/support-model) (12-month support per APIM minor).
-
-#### Provider ↔ APIM ↔ Terraform / OpenTofu
-
-| Provider version | APIM version | Capability | Terraform / OpenTofu |
-| --- | --- | --- | --- |
-| **1.0.x** | **4.12.x** | **Full** — all provider attributes supported against Automation API | **1.9+** / latest OpenTofu ([registry](https://registry.terraform.io/providers/gravitee-io/apim/latest)) |
-| **1.0.x** | **4.9.x – 4.11.x** | **Compatible** — existing configurations continue to work; **new 1.0 attributes are not managed** (see [New fields](#new-and-changed-fields-by-resource)) | **1.9+** / latest OpenTofu |
-| **0.5.x** | 4.11.x (and 4.10.x / 4.9.x without newest API features) | **Best effort only** — no standard maintenance commitment | 1.9+ / latest |
-| **0.4.x** | 4.10.x / 4.9.x | **Best effort only** | 1.10+ / latest |
-| **0.3.x and below** | 4.8.x – 4.10.x | **Best effort only** — upgrade strongly recommended | See [compatibility matrix](https://documentation.gravitee.io/apim/terraform) |
-
-#### Support policy
-
-| Provider line | Support level |
-| --- | --- |
-| **1.0.x** | **Standard maintenance** — bug fixes, security patches, and compatibility updates aligned with supported APIM minors. |
-| **0.5.x**, **0.4.x** | **Best effort only** — no guarantee of fixes; use only while blocked on migration to **1.0.x**. |
-
-> **Note:** Until the [Terraform documentation page](https://documentation.gravitee.io/apim/terraform) is updated for GA, the preview disclaimer (“tech preview”, “fixes mainly on latest”) applies to **0.x** lines only; **1.0.x** is the supported GA line.
 
 #### APIM version and “new fields”
 
@@ -169,6 +124,52 @@ Resource reference: [apim_subscription](https://registry.terraform.io/providers/
 | `dynamic.trigger.rate`, `dynamic.trigger.unit` | number / string | Poll interval |
 | `environment_id`, `organization_id`, `id` | string | |
 
+### Upgrade
+
+```hcl
+terraform {
+  required_providers {
+    apim = {
+      source  = "gravitee-io/apim"
+      version = "~> 1.0.0"
+    }
+  }
+}
+```
+
+Then run:
+
+```bash
+terraform init -upgrade
+terraform plan
+```
+
+Review [Breaking changes & migration](#breaking-changes--migration) before upgrading production workspaces.
+
+### Compatibility & support
+
+Wording follows the style of the platform [support model](https://documentation.gravitee.io/platform-overview/gravitee-platform/support-model) (12-month support per APIM minor).
+
+#### Provider ↔ APIM ↔ Terraform / OpenTofu
+
+| Provider version | APIM version | Capability | Terraform / OpenTofu |
+| --- | --- | --- | --- |
+| **1.0.x** | **4.12.x** | **Full** — all provider attributes supported against Automation API | **1.9+** / latest OpenTofu ([registry](https://registry.terraform.io/providers/gravitee-io/apim/latest)) |
+| **1.0.x** | **4.9.x – 4.11.x** | **Compatible** — existing configurations continue to work; **new 1.0 attributes are not managed** (see [New fields](#new-and-changed-fields-by-resource)) | **1.9+** / latest OpenTofu |
+| **0.5.x** | 4.11.x (and 4.10.x / 4.9.x without newest API features) | **Best effort only** — no standard maintenance commitment | 1.9+ / latest |
+| **0.4.x** | 4.10.x / 4.9.x | **Best effort only** | 1.10+ / latest |
+| **0.3.x and below** | 4.8.x – 4.10.x | **Little to no support** — upgrade strongly recommended | Not part of standard tests |
+
+#### Support policy
+
+| Provider line | Support level |
+| --- | --- |
+| **1.0.x** | **Standard maintenance** — bug fixes, security patches, and compatibility updates aligned with supported APIM minors. |
+| **0.5.x**, **0.4.x** | **Best effort only** — no guarantee of fixes; use only while blocked on migration to **1.0.x**. |
+
+> **Note:** Until the [Terraform documentation page](https://documentation.gravitee.io/apim/terraform) is updated for GA, the preview disclaimer (“tech preview”, “fixes mainly on latest”) applies to **0.x** lines only; **1.0.x** is the supported GA line.
+
+
 ### Breaking changes & migration
 
 Terraform **resource schema version remains 0**. There is **no automatic state upgrade** step in 1.0.0. Migration is **configuration and validation** cleanup plus APIM version alignment.
@@ -253,6 +254,8 @@ Attribute hrid value must be valid according to the regex pattern:
 * When you run `terraform plan` for APIs, several differences exist between state and remote. These do not impact runtime and will be fixed in upcoming patches.
   * State stores the dynamic properties service configuration as an encoded JSON string instead of plain JSON.
   * The encrypted properties payload is marked as changed because encrypted values replace unencrypted values.
+  * Group members order changes (no runtime impacts) cannot be changed, addition must come last
+  * All group members roles are returned (even if not set), following this specific order: API, APPLICATION, INTEGRATION (no runtime impacts) it is advised to set them all to avoid plan diff.
 
 ### Links
 
