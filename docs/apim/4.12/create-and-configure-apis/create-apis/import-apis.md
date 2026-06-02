@@ -9,13 +9,13 @@ metaLinks:
 
 ## Overview
 
-Gravitee supports importing APIs as either Gravitee API definitions or OpenAPI specifications. To import an API, the API file must be in YML, YAML, or JSON format.
+Gravitee supports importing APIs as either Gravitee API definitions, OpenAPI specifications, or WSDL documents. To import an API, the API file must be in YML, YAML, JSON, or XML format.
 
 Every API includes a context path, virtual host(s), or host(s). These values must be unique across all APIs in your environment. A unique custom API ID can be specified in the definition.
 
 All items from the import bundle are imported, for example, groups, members, pages, plans, and metadata.
 
-Additional information that applies to importing an OpenAPI specification can be found [below](import-apis.md#importing-an-openapi-spec).
+Additional information that applies to importing an OpenAPI specification can be found [below](import-apis.md#importing-an-openapi-spec). For WSDL imports, see the [WSDL import guide](../apply-policies/policy-reference/rest-to-soap.md#wsdl-import-integration). WSDL imports follow a similar workflow but convert WSDL 1.1 to OpenAPI 3 before processing through the v4 OpenAPI import pipeline (see [WSDL Import for v4 APIs](wsdl-import-for-v4-apis.md)).
 
 {% hint style="warning" %}
 When you import an API with a JSON payload that has duplicate keys, APIM keeps the last key.
@@ -153,7 +153,7 @@ To use a vendor extension, add the `x-graviteeio-definition` field at the root o
   * URL
 * Picture only accepts Data-URI format. Please see the example below.
 
-<pre class="language-yaml" data-title="Example"><code class="lang-yaml"><strong>openapi: "3.0.0"
+<pre class="language-yaml" data-title="Example"><code class="lang-yaml"><strong>OpenAPI: "3.0.0"
 </strong>info:
   version: 1.2.3
   title: Gravitee Echo API

@@ -11,6 +11,10 @@ metaLinks:
 
 You can use the Rest-to-soap policy to expose SOAP backend service as a REST API. The policy passes the SOAP envelope message to the backend service as a POST request. SOAP envelopes support Expression Language to provide dynamic SOAP actions.
 
+## WSDL Import Integration
+
+When you enable the REST to SOAP Transformer during WSDL import, the policy generates per-operation flows that translate REST/JSON calls to SOAP/XML. The `xml-json` policy is automatically included in the policy list. The import toggle is only visible when the `rest-to-soap` policy plugin is installed in your environment.
+
 ## Usage
 
 For example, a SOAP API `http(s)://GATEWAY_HOST:GATEWAY_PORT/soap?countryName=France` with the following `rest-to-soap`policy SOAP envelope content:
@@ -27,6 +31,10 @@ For example, a SOAP API `http(s)://GATEWAY_HOST:GATEWAY_PORT/soap?countryName=Fr
 ```
 
 Gives you the ISO country code for `France`.
+
+## WSDL Import Integration
+
+When you enable the REST to SOAP Transformer during WSDL import, the policy generates per-operation flows that translate REST/JSON calls to SOAP/XML. The `xml-json` policy is automatically included in the policy list. The import toggle is only visible when the `rest-to-soap` policy plugin is installed in your environment.
 
 ## ⚠️ Security Warning: XML Injection Prevention
 

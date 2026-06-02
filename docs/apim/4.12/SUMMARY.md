@@ -131,6 +131,7 @@
     * [Migrate APIs](create-and-configure-apis/create-apis/4.9-migrate-apis.md)
     * [Search for APIs in the Console](create-and-configure-apis/create-apis/search-for-apis-in-the-console.md)
     * [Promote APIs](create-and-configure-apis/create-apis/promote-apis.md)
+    * [WSDL Import for v4 APIs](create-and-configure-apis/create-apis/wsdl-import-for-v4-apis.md)
   * [Configure v4 APIs](create-and-configure-apis/configure-v4-apis/README.md)
     * [Entrypoint Connect phase configuration](create-and-configure-apis/configure-v4-apis/entrypoint-connect-phase.md)
     * [General Settings](create-and-configure-apis/configure-v4-apis/general-settings.md)
