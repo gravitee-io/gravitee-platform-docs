@@ -16,7 +16,7 @@ description: Documentation about apim 4.8.x in the context of APIs.
 
 **Management API**
 
-* MAPI v2 doesn't accept group names [#11351](https://github.com/gravitee-io/issues/issues/11351)
+* mAPI v2 doesn't accept group names [#11351](https://github.com/gravitee-io/issues/issues/11351)
 
 **Console**
 
