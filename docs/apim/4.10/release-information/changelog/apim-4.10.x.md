@@ -24,7 +24,7 @@
 * Setting Redoc viewer as default does not apply for v4 API documents [#11188](https://github.com/gravitee-io/issues/issues/11188)
 * Danish characters in category names are altered or not displayed correctly in Dev Portal [#11321](https://github.com/gravitee-io/issues/issues/11321)
 * Prometheus label http_route / http_path not appearing on proxy traffic metrics [#11335](https://github.com/gravitee-io/issues/issues/11335)
-* Viewing MD documentation in the developer portal [#11366](https://github.com/gravitee-io/issues/issues/11366)
+* Viewing MD documentation in the Developer Portal [#11366](https://github.com/gravitee-io/issues/issues/11366)
 * Webhook notification configuration error [#11408](https://github.com/gravitee-io/issues/issues/11408)
 * Regression Dynamic Routing policy with retry policy [#11444](https://github.com/gravitee-io/issues/issues/11444)
 * Can't change group permission on api [#11449](https://github.com/gravitee-io/issues/issues/11449)
