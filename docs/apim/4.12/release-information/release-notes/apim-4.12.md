@@ -59,6 +59,16 @@
 * The `service.name` must match between tracer and logger (default: `gio_apim_gateway`) for Grafana correlation to function correctly.
 <!-- /PIPELINE:APIM-13463 -->
 
+
+<!-- PIPELINE:APIM-14122 -->
+#### **API Overview Page Templates for Developer Portal**
+
+* Introduces pre-configured Markdown templates that automatically populate API overview pages with metadata, subscription guidance, and integration instructions.
+* Provides two template types: a standard template for traditional APIs emphasizing subscription workflows, and an MCP-specific template for Model Context Protocol servers with one-click AI assistant integration.
+* Templates use custom web components (`gmd-card`, `gmd-grid`, `gmd-install-mcp`) and FreeMarker variables to dynamically render API information including version, visibility, owner, and deployment date.
+* API publishers can customize generated templates to add Quick Start sections, integration guides, and changelog documentation specific to their API context.
+<!-- /PIPELINE:APIM-14122 -->
+
 ## Improvements
 
 
