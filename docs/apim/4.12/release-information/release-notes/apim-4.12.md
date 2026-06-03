@@ -92,6 +92,14 @@
 * Configure global redaction rules in `gravitee.yml` or API-specific rules in the Console for v4 HTTP/Proxy and TCP APIs with tracing enabled.
 * Rules are evaluated in order (global first, then API-specific) with first-match-wins behavior and case-insensitive key matching.
 <!-- /PIPELINE:APIM-13549 -->
+<!-- PIPELINE:APIM-14122 -->
+#### **API Overview Page Templates for Developer Portal**
+
+* The Developer Portal now automatically generates structured overview pages for published APIs using pre-configured Markdown templates.
+* Two templates are available: a standard template with API metadata and subscription guidance, and an MCP proxy template for Model Context Protocol servers with one-click client configuration.
+* The MCP template includes an embedded `<gmd-install-mcp>` component that generates configuration for AI clients (Cursor, VS Code, Claude Desktop) using the gateway endpoint and MCP path.
+* API publishers can customize the generated overview pages to add quick start guides, use case descriptions, and links to external documentation.
+<!-- /PIPELINE:APIM-14122 -->
 
 ## Improvements
 
