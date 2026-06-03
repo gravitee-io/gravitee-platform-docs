@@ -51,3 +51,44 @@ To open ports 8082 to 8085 through the firewall, use the following command:
 ```
 
 </details>
+
+<details>
+
+<summary>Port conflict error when saving a Kafka plan</summary>
+
+When configuring port-based routing for a native Kafka API plan, the console validates that the bootstrap port and broker port range do not conflict with other plans in the same environment. If you receive a port conflict error, verify that:
+
+- The bootstrap port is not used by another plan's bootstrap port or broker range.
+- The broker range does not overlap with another plan's broker range or bootstrap port.
+
+Port allocations are unique per environment. Plans in different environments may reuse the same ports.
+
+</details>
+
+<details>
+
+<summary>Kafka API deployment fails with port binding error</summary>
+
+A Kafka plan may save successfully in the console but fail to deploy if the configured ports are already bound by another process on the gateway host. The console does not verify OS-level port availability at plan save time.
+
+To resolve this issue:
+
+1. Check which process is using the port by running `sudo lsof -i :<port>` or `sudo netstat -tulpn | grep <port>`.
+2. Stop the conflicting process or assign different ports to the Kafka plan.
+3. Redeploy the API.
+
+</details>
+
+<details>
+
+<summary>Kafka clients disconnect after changing broker port range</summary>
+
+Modifying the broker range start or broker range end on a deployed Kafka plan reassigns broker slots, which breaks active client connections. Clients automatically reconnect on their next metadata refresh cycle. No client-side configuration change is required.
+
+If clients fail to reconnect:
+
+- Verify that the new broker ports are open on the gateway host and accessible from the client network.
+- Check client logs for connection errors or metadata refresh failures.
+- Confirm that the gateway has been redeployed with the updated plan configuration.
+
+</details>

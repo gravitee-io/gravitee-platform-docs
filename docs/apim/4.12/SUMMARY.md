@@ -398,6 +398,8 @@
       * [Enable OpenTelemetry Tracing for a Kafka API](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/enable-opentelemetry-tracing-for-a-kafka-api.md)
       * [Entrypoints](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/entrypoints.md)
       * [Endpoints](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/endpoints.md)
+      * [Kafka Port-Based Routing for Native APIs](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/kafka-port-based-routing-for-native-apis.md)
+      * [Kafka Port-Based Routing: Restrictions and Schema Changes](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/kafka-port-based-routing-restrictions-and-schema-changes.md)
       * [mTLS plans for Kafka native APIs](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/mtls-plans.md)
       * [Policies](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/policies.md)
       * [Consumers](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/consumers.md)

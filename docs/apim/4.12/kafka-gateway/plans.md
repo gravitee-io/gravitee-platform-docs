@@ -38,7 +38,7 @@ A plan can exist in one of four stages:
 * DEPRECATED. A deprecated plan won't be available on the Developer Portal and API consumers won't be able to subscribe to it. This can't be undone. Existing subscriptions aren't impacted, giving current API consumers time to migrate without breaking their application.
 * CLOSED. Once a plan is closed, all associated subscriptions are closed. API consumers subscribed to this plan won't be able to use the API. This can't be undone.
 
-Depending on the stage it's in, a plan can be edited, published, deprecated, or closed. See [this](create-and-configure-kafka-apis/configure-kafka-apis/consumers.md#plans) documentation for specific instructions.
+Depending on the stage it's in, a plan can be edited, published, deprecated, or closed. For specific instructions, see [Consumers](create-and-configure-kafka-apis/configure-kafka-apis/consumers.md#plans).
 
 ### Edit a plan
 

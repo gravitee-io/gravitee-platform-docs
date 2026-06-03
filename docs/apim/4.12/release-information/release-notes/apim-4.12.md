@@ -59,6 +59,16 @@
 * The `service.name` must match between tracer and logger (default: `gio_apim_gateway`) for Grafana correlation to function correctly.
 <!-- /PIPELINE:APIM-13463 -->
 
+
+<!-- PIPELINE:APIM-13467 -->
+#### **Kafka Port-Based Routing for Native APIs**
+
+* Enables administrators to assign dedicated TCP ports to individual native Kafka API plans, allowing clients to connect using port-specific bootstrap server addresses instead of SNI-based host routing.
+* Each plan requires three port values: a bootstrap port (client entry point), a broker range start, and a broker range end. The gateway maps the broker range to backend Kafka nodes sorted by node ID.
+* Requires gateway version 4.12.0 or later, environment-level enablement in the console, and available TCP ports in the range 1024–65535. Port routing is mutually exclusive with host routing and applies globally via the `kafka.routingMode` configuration property.
+* The console enforces port uniqueness across all plans in an environment, detecting conflicts such as overlapping broker ranges or duplicate bootstrap ports.
+<!-- /PIPELINE:APIM-13467 -->
+
 ## Improvements
 
 
