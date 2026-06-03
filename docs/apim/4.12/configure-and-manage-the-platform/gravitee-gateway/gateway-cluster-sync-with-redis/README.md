@@ -62,12 +62,12 @@ A standard Redis deployment without the Search module appears to connect success
 {% endhint %}
 
 * Install Redis with the search module. Distributed sync requires the RedisSearch module. To ensure that you have the RedisSearch module, use one of the following Redis modules:
-    ** The `redis/redis-stack` Docker image, which bundles RediSearch.
-    ** Redis 8+, which includes the Search module natively.
-    ** Redis 7 or earlier with the RediSearch module loaded. You can load the module by adding `loadmodule /usr/local/lib/redis/modules/redisearch.so` to your Redis configuration. For more information about Redis and RedisSearch, see [redis.md](../../../prepare-a-production-environment/repositories/redis.md "mention") and the [RedisSearch documentation](https://redis.io/docs/latest/develop/interact/search-and-query/).
+    * The `redis/redis-stack` Docker image, which bundles RediSearch.
+    * Redis 8+, which includes the Search module natively.
+    * Redis 7 or earlier with the RediSearch module loaded. You can load the module by adding `loadmodule /usr/local/lib/redis/modules/redisearch.so` to your Redis configuration. For more information about Redis and RedisSearch, see [redis.md](../../../prepare-a-production-environment/repositories/redis.md "mention") and the [RedisSearch documentation](https://redis.io/docs/latest/develop/interact/search-and-query/).
 * Obtain an Enterprise License. You must mount the license into every API Gateway pod to start the `repository-redis` plugin and load `DISTRIBUTED_SYNC`. For more information about obtaining an enterprise license, see [enterprise-edition.md](../../../readme/enterprise-edition.md "mention").
 * Deploy a fully Self-Hosted Installation or a Hybrid Installation of APIM. For more information about self-hosted installation, see [self-hosted-installation-guides](../../../self-hosted-installation-guides/ "mention") or [hybrid-installation-and-configuration-guides](../../../hybrid-installation-and-configuration-guides/ "mention").
-4. Deploy at least two API Gateway replicas. Distributed sync works only when `gateway.replicaCount` is greater than or equal to 2, and `gateway.autoscaling.enabled` is `false`, because the Helm chart only honors `replicaCount` when the HPA is disabled.
+* Deploy at least two API Gateway replicas. Distributed sync works only when `gateway.replicaCount` is greater than or equal to 2, and `gateway.autoscaling.enabled` is `false`, because the Helm chart only honors `replicaCount` when the HPA is disabled.
 
 ## Enable Distributed sync
 
