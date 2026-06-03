@@ -15,7 +15,7 @@
     * [Reactive Executive Engine and Legacy Execution Engine Comparison](overview/plugins-and-api-definitions/gravitee-api-definitions-and-execution-engines/engine-comparisons.md)
 * [Integrating Gravitee with other enterprise tooling](overview/integrations.md)
 * [Gravitee API Management Enterprise Edition](overview/gravitee-apim-enterprise-edition/README.md)
-  * [Enterprise Edition Licensing](https://documentation.gravitee.io/platform-overview/gravitee-essentials/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing)
+  * [Enterprise Edition Licensing](https://documentation.gravitee.io/apim/readme/enterprise-edition-licensing)
   * [Enterprise Support](overview/gravitee-apim-enterprise-edition/enterprise-support.md)
 * [Release Notes](overview/release-notes/README.md)
   * [APIM 4.5.x](overview/release-notes/apim-4.5.md)

@@ -9,9 +9,23 @@ metaLinks:
 
 ## Overview
 
-The Enterprise Edition (EE) version of API Management (APIM) distribution can include API Management, Event Management, and AI Agent Management features andcapabilities.
+The Enterprise Edition (EE) version of API Management (APIM) distribution can include API Management, Event Management, and AI Agent Management features and capabilities.
 
-The Gravitee APIM Enterprise Edition requires a [license](https://documentation.gravitee.io/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing). Licenses are available as different packages, each offering a different level of access to enterprise features and capabilities. For more information, go to the [pricing page](https://www.gravitee.io/pricing).
+The Gravitee APIM Enterprise Edition requires a [license](enterprise-edition-licensing.md). Licenses are available as different packages, each offering a different level of access to enterprise features and capabilities. For more information, go to the [pricing page](https://www.gravitee.io/pricing).
+
+## Community Edition vs Enterprise Edition
+
+Gravitee offers both a free Community Edition (CE) and a paid Enterprise Edition (EE). The edition determines which products and features you can access. The following table compares the two at the product level:
+
+| Community Edition | Enterprise Edition |
+| ---------- | ---------- |
+| Open source version of API Management | Enterprise version of API Management |
+| Open source version of Access Management | Enterprise version of Access Management |
+| Limited version of Gravitee Cloud | Enterprise version of Gravitee Cloud |
+| Limited version of API Designer | Enterprise version of API Designer |
+| Self-hosted deployments only | Self-hosted, Gravitee-managed, and hybrid deployments |
+
+For installation details, see [Enterprise Edition installation](enterprise-edition-installation.md). For licensing details, see [Enterprise Edition licensing](enterprise-edition-licensing.md).
 
 ## Global Enterprise Features
 
@@ -87,3 +101,7 @@ Gravitee EE is an investment in deployment flexibility. Choose the deployment mo
 | Deployment | [SaaS deployments](https://app.gitbook.com/s/QiHAMRWybFsowkRWSjCc/getting-started/getting-started-with-gravitee-cloud) | Let Gravitee fully host, manage, scale, and maintain all APIM components within its own enterprise-grade cloud environment, minimizing your operational overhead.       |
 | Deployment | [Hybrid deployments](../hybrid-installation-and-configuration-guides/)                                                 | Gravitee hosts and manages the Control Plane within its cloud environment, while you securely host and manage the Gateway (data plane) within your own private network. |
 | Deployment | [Fully self-hosted deployments](../self-hosted-installation-guides/)                                                   | Install and host APIM within your own private cloud/environment.                                                                                                        |
+
+## Support packages
+
+Gravitee offers enterprise-grade support to Enterprise Edition customers through different support packages, each with its own service-level agreements and benefits. For more information on the available packages, see the [pricing page](https://www.gravitee.io/pricing) or [contact Gravitee](https://www.gravitee.io/contact-us).

@@ -22,7 +22,7 @@ This article explains the syntax Gravitee uses to resolve secrets in v4 APIs and
 {% hint style="info" %}
 To learn more about Gravitee [Enterprise Edition](../../../readme/enterprise-edition.md) and what's included in various enterprise packages, please:
 
-* [Book a demo](https://documentation.gravitee.io/platform-overview/)
+* [Book a demo](https://documentation.gravitee.io/apim/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
 

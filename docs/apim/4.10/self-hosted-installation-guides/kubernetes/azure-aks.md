@@ -23,7 +23,7 @@ Before you install the Gravitee APIM, complete the following steps:
 * Install [helm](https://helm.sh/docs/intro/install/)
 * Install [kubectl](https://kubernetes.io/docs/tasks/tools/)
 * Have a valid [Azure subscription](https://azure.microsoft.com/en-us/pricing/purchase-options/azure-account)
-* (Optional) [License key](https://documentation.gravitee.io/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing) for Enterprise features
+* (Optional) [License key](https://documentation.gravitee.io/apim/readme/enterprise-edition-licensing) for Enterprise features
 * (Optional) Register a domain name in Azure DNS or have access to DNS management
 
 ## Components Overview

@@ -6,7 +6,7 @@ description: Gravitee's approach to software development and deployment
 
 ## Overview <a href="#tech-preview" id="tech-preview"></a>
 
-Gravitee currently has three types of releases: [Tech Preview](release-types-and-support-model.md#tech-preview-1), [Beta](release-types-and-support-model.md#beta), and [general availability](release-types-and-support-model.md#general-availability). Feature identification and usage considerations for each release type are summarized below:
+Gravitee currently has three types of releases: [Tech Preview](#tech-preview-1), [Beta](#beta), and [general availability](#general-availability). Feature identification and usage considerations for each release type are summarized below:
 
 <table><thead><tr><th width="149.66666666666666">Release type</th><th width="238">Identification</th><th>Usage</th></tr></thead><tbody><tr><td>Tech preview</td><td>A tech preview feature is available only to members of the Early Access program and tagged as <strong>Tech Preview</strong> in-product</td><td>Features are intended for experimental use only and are not suitable for production environments</td></tr><tr><td>Beta</td><td>A beta feature is publicly available and tagged as <strong>Beta</strong> in-product </td><td>Features are available for usability testing but are not suitable for production environments</td></tr><tr><td>General availability</td><td>A feature is considered generally available if its documentation lacks a <strong>Tech Preview</strong> or <strong>Beta</strong> tag</td><td>Features can be confidently deployed in production environments because they are stable and officially supported</td></tr></tbody></table>
 
@@ -50,6 +50,6 @@ When utilizing a beta feature or version, please note:
 
 ## General availability <a href="#general-availability" id="general-availability"></a>
 
-When a feature or release version reaches general availability, it signifies that the software has been publicly released and is fully supported according to [Gravitee's support and maintenance policy](support-model/README.md#support-model). Generally available features are officially documented and their interfaces are stable.
+When a feature or release version reaches general availability, it signifies that the software has been publicly released and is fully supported according to [Gravitee's support and maintenance policy](support-model.md). Generally available features are officially documented and their interfaces are stable.
 
 Interfaces associated with GA features adhere to a [semantic versioning model](https://semver.org/). This ensures that any changes made to the interfaces follow a consistent and predictable versioning scheme, maintaining compatibility with existing implementations.

@@ -11,7 +11,7 @@ metaLinks:
 
 The Enterprise Edition (EE) version of API Management (APIM) distribution can include API Management, Event Management, and AI Agent Management features andcapabilities.
 
-The Gravitee APIM Enterprise Edition requires a [license](https://documentation.gravitee.io/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing). Licenses are available as different packages, each offering a different level of access to enterprise features and capabilities. For more information, go to the [pricing page](https://www.gravitee.io/pricing).
+The Gravitee APIM Enterprise Edition requires a [license](https://documentation.gravitee.io/apim/readme/enterprise-edition-licensing). Licenses are available as different packages, each offering a different level of access to enterprise features and capabilities. For more information, go to the [pricing page](https://www.gravitee.io/pricing).
 
 ## Global Enterprise Features
 

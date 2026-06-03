@@ -13,7 +13,7 @@ Solace is an advanced event broker that enables an event mesh architecture. Sola
 Before you install the Solace federation agent, complete the following steps:
 
 * Obtain access to a Solace PubSub+ Cloud account. For more information, see [creating a Solace event portal to manage Event API.](https://api.solace.dev/cloud/reference/apim-getting-started)
-* Install Gravitee API Management version 4.4 or later, with an enterprise license. For more information about Enterprise edition, see[ Enterprise Edition Licensing.](https://documentation.gravitee.io/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing#license-support)
+* Install Gravitee API Management version 4.4 or later, with an enterprise license. For more information about Enterprise edition, see[ Enterprise Edition Licensing.](https://documentation.gravitee.io/apim/readme/enterprise-edition-licensing#license-support)
 * Create an access token. For more information, see [how to create a service account and an access token.](../federation-agent-service-account.md)
 * Generate Solace API token with appropriate permissions. See [#minimum-solace-permissions-required-by-the-agent](solace.md#minimum-solace-permissions-required-by-the-agent "mention")
 

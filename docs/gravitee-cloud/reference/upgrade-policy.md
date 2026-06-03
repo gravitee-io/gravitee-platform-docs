@@ -12,7 +12,7 @@ The upgrade policy applies only to Gravitee Cloud accounts. If you run a complet
 
 The upgrades occur 14 days after the release of API Management, which occurs once a quarter. Gravitee notifies you 14 days before the upgrade.
 
-For more information about the upgrade of API Management, see [Release Schedule.](https://documentation.gravitee.io/platform-overview/gravitee-platform/release-schedule)
+For more information about the upgrade of API Management, see [Release Schedule.](https://documentation.gravitee.io/apim/release-information/release-schedule)
 
 Gravitee automatically upgrades your Control plane.
 
@@ -24,7 +24,7 @@ Up to 30 days after the control plane upgrade, you can manually upgrade your Clo
 
 ## Hybrid gateway upgrades
 
-The upgrades are released every quarter. All supported gateway versions are compatible with control plane. For more information about supported gateways, see [Support Model](https://documentation.gravitee.io/platform-overview/gravitee-platform/support-model).
+The upgrades are released every quarter. All supported gateway versions are compatible with control plane. For more information about supported gateways, see [Support Model](https://documentation.gravitee.io/apim/release-information/support-model).
 
 You can upgrade your Hybrid gateway at any time. Gravitee does not automatically upgrade your gateway.
 
