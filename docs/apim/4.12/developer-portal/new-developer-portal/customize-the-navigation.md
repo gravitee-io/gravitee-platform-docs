@@ -3,6 +3,9 @@
 ## Overview
 
 {% hint style="warning" %}
+
+<figure><img src="../../.gitbook/assets/portal-navigation-apis-list.png" alt="APIs list page showing portal navigation entry point"><figcaption></figcaption></figure>
+
 This feature is in tech preview.
 {% endhint %}
 
@@ -10,12 +13,12 @@ In the New Developer Portal, you can customize the navigation of your Developer 
 
 You can create the following elements for your navigation:
 
-* **Pages**: Content of your New Developer Portal documentation.
+* **Pages**: Content of your New Developer Portal documentation. Pages written in Gravitee Markdown format support FreeMarker templating, allowing dynamic content injection based on API metadata or environment metadata.
 * **Folders**: Use these to group related pages together into sections.
 * **Links**: Connect your documentation to external sites or other internal resources.
 * **APIs**: List your APIs in the New Developer Portal documentation.
 
-When you add a new page, you can customize the page with Gravitee Markdown, which is standard Markdown enriched with dynamic components. For more information about Gravitee Markdown, see[gravitee-markdown-components.md](gravitee-markdown-components.md "mention").
+When you add a new page, you can customize the page with Gravitee Markdown, which is standard Markdown enriched with dynamic components. For more information about Gravitee Markdown, see [gravitee-markdown-components.md](gravitee-markdown-components.md "mention").
 
 ### Default navigation items
 
@@ -34,10 +37,26 @@ By default, some pages are already created for you with content. These pages are
 The default navigation appears on your New Developer Portal
 
 <figure><img src="../../.gitbook/assets/Screenshot 2025-12-19 at 19.06.57.png" alt=""><figcaption></figcaption></figure>
-
 Welcome page in the Developer Portal:
 
 <figure><img src="../../.gitbook/assets/Screenshot 2025-12-19 at 19.07.11.png" alt=""><figcaption></figcaption></figure>
+
+### FreeMarker templating in portal pages
+
+Portal navigation pages written in Gravitee Markdown can embed FreeMarker expressions to inject dynamic values. The template model depends on the page's position in the navigation hierarchy:
+
+* Pages nested under an API node receive an `${api.*}` model with API properties
+* Root-level pages receive an `${metadata.*}` model with environment metadata
+
+Template syntax is validated during save operations by dry-rendering the content with the appropriate model.
+
+### Template validation
+
+When a portal page is saved, the system locates all navigation items referencing that page and determines the enclosing API (if any) for each placement. The content is dry-rendered using FreeMarker with the corresponding model. If the template contains invalid syntax or references missing model properties, the save operation fails with a specific error message identifying the problematic expression.
+
+### Error handling
+
+HTTP error responses from portal page save operations now display the backend's specific validation message (for example, "Invalid expression or value is missing for ${api.unknownProperty}") instead of a generic "Failed to update page content" message. Non-HTTP errors continue to display the generic fallback message.
 
 ## Prerequisites
 

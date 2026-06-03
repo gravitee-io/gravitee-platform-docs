@@ -203,13 +203,39 @@ EL expressions use `{#...}`, `{(...)}`, or `{T(...)}` markers.
 
 #### Where FreeMarker is used
 
-Gravitee notifiers render their configuration payloads (for example, the webhook notifier body) through Apache FreeMarker. The notifier base class builds a FreeMarker `Template` from the configured payload and processes it against a parameters map before dispatching the notification.
+Gravitee uses Apache FreeMarker in two contexts:
+
+* **Notifiers**: Notifier configuration payloads (for example, the webhook notifier body) are rendered through FreeMarker. The notifier base class builds a FreeMarker `Template` from the configured payload and processes it against a parameters map before dispatching the notification.
+* **Portal navigation pages**: Portal navigation pages written in Gravitee Markdown can embed FreeMarker expressions to inject dynamic values. Pages nested under an API node in the navigation hierarchy receive an `${api.*}` model with API properties. Root-level pages receive an `${metadata.*}` model with environment metadata. Template syntax is validated when saving portal pages linked to navigation items.
 
 FreeMarker uses `${...}` placeholders and its own directive syntax, which is different from EL. For FreeMarker syntax, see the [Apache FreeMarker documentation](https://freemarker.apache.org/docs/index.html).
 
 {% hint style="warning" %}
-The notifier body is processed by FreeMarker, not the EL template engine. The EL parser doesn't recognize `${...}` as an expression marker, so FreeMarker syntax in a Gateway condition field is treated as literal text. Use the language that matches the field.
+The notifier body and portal navigation pages are processed by FreeMarker, not the EL template engine. The EL parser doesn't recognize `${...}` as an expression marker, so FreeMarker syntax in a Gateway condition field is treated as literal text. Use the language that matches the field.
 {% endhint %}
+
+#### FreeMarker model properties
+
+The FreeMarker template model depends on the context where the template is rendered.
+
+**Portal navigation pages under an API node**
+
+Pages nested under an API node in the navigation hierarchy receive an `${api.*}` model with the following properties:
+
+| Property | Description | Type | Example |
+|----------|-------------|------|---------|
+| id | Gateway API identifier | string | `${api.id}` |
+| name | Gateway API name | string | `${api.name}` |
+| version | Gateway API version | string | `${api.version}` |
+| properties | Custom properties defined on the API | key / value | `${api.properties['my-property']}` |
+
+**Portal navigation pages at root level**
+
+Root-level pages receive an `${metadata.*}` model with environment metadata key-value pairs. The available keys depend on the environment configuration.
+
+**Template validation constraints**
+
+When a portal page is saved, the system validates the template by dry-rendering it with the appropriate model. If the template references a missing property or contains invalid syntax, the save operation fails with an error message identifying the problematic expression (e.g., "Invalid expression or value is missing for ${api.unknownProperty}").
 
 ## Expression Language Assistant
 
@@ -563,7 +589,7 @@ The Kafka endpoint populates the following metadata keys on each consumed record
 {% tab title="MQTT5" %}
 The MQTT5 endpoint populates the following metadata keys on each received publish packet.
 
-<table><thead><tr><th width="210">Metadata key</th><th width="280">Description</th><th width="100">Type</th><th>Example</th></tr></thead><tbody><tr><td>topic</td><td>Topic the packet was published on</td><td>string</td><td><code>{#message.metadata['topic']}</code></td></tr><tr><td>type</td><td>MQTT5 packet type name reported by the client library</td><td>string</td><td><code>PUBLISH</code></td></tr><tr><td>qos</td><td>Numeric QoS level (<code>0</code>, <code>1</code>, or <code>2</code>)</td><td>int</td><td><code>{#message.metadata['qos']}</code></td></tr><tr><td>retain</td><td>Whether the retain flag was set on the publish</td><td>boolean</td><td><code>{#message.metadata['retain']}</code></td></tr><tr><td>contentType</td><td>MQTT5 content-type property, when the publisher set it</td><td>string</td><td><code>{#message.metadata['contentType']}</code></td></tr><tr><td>messageExpiryInterval</td><td>MQTT5 message expiry interval, in seconds. Returns <code>-1</code> when the publisher didn't set it.</td><td>long</td><td><code>{#message.metadata['messageExpiryInterval']}</code></td></tr><tr><td>responseTopic</td><td>MQTT5 response-topic property, when the publisher set it</td><td>string</td><td><code>{#message.metadata['responseTopic']}</code></td></tr></tbody></table>
+<table><thead><tr><th width="210">Metadata key</th><th width="280">Description</th><th width="100">Type</th><th>Example</th></tr></thead><tbody><tr><td>topic</td><td>Topic the packet was published on</td><td>string</td><td><code>{#message.metadata['topic']}</code></td></tr><tr><td>type</td><td>MQTT5 packet type name reported by the client library</td><td>string</td><td><code>PUBLISH</code></td></tr><tr><td>QoS</td><td>Numeric QoS level (<code>0</code>, <code>1</code>, or <code>2</code>)</td><td>int</td><td><code>{#message.metadata['QoS']}</code></td></tr><tr><td>retain</td><td>Whether the retain flag was set on the publish</td><td>boolean</td><td><code>{#message.metadata['retain']}</code></td></tr><tr><td>contentType</td><td>MQTT5 content-type property, when the publisher set it</td><td>string</td><td><code>{#message.metadata['contentType']}</code></td></tr><tr><td>messageExpiryInterval</td><td>MQTT5 message expiry interval, in seconds. Returns <code>-1</code> when the publisher didn't set it.</td><td>long</td><td><code>{#message.metadata['messageExpiryInterval']}</code></td></tr><tr><td>responseTopic</td><td>MQTT5 response-topic property, when the publisher set it</td><td>string</td><td><code>{#message.metadata['responseTopic']}</code></td></tr></tbody></table>
 
 **Examples**
 

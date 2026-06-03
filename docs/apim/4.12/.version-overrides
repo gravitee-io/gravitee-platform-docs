@@ -42,3 +42,9 @@ analyze-and-monitor-apis/configure-gateway-for-opentelemetry-logs.md
 analyze-and-monitor-apis/enable-and-use-opentelemetry-logs-for-apis.md
 analyze-and-monitor-apis/opentelemetry-logs-integration-overview.md
 plugins/plugin-reference.md
+.gitbook/assets/portal-navigation-apis-list.png
+.gitbook/assets/portal-navigation-editor.png
+developer-portal/new-developer-portal/customize-the-navigation.md
+developer-portal/new-developer-portal/customize-the-navigation/creating-templated-portal-navigation-pages.md
+developer-portal/new-developer-portal/customize-the-navigation/portal-navigation-templating-restrictions-and-technical-requirements.md
+gravitee-expression-language.md
