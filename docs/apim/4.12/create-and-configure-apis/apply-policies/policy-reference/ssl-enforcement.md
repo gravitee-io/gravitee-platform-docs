@@ -15,6 +15,8 @@ metaLinks:
 
 You can use the `ssl-enforcement` policy to filter incoming SSL requests. It allows you to restrict or allow access only to requests with client certificate authentication or only to a subset of valid clients.
 
+This policy validates client certificate attributes beyond distinguished names, enabling compliance with regulatory frameworks such as PSD2 and eIDAS. Administrators can require specific certificate policy OIDs and Subject Alternative Name patterns, ensuring that only certificates meeting regulatory or organizational standards are accepted. These enhancements support Open Banking and other use cases requiring fine-grained certificate validation.
+
 This policy is mainly used in plan configuration to allow access to consumers for a given set of certificates. The client is able to pass a valid certificate in one of two ways:
 
 * In session: This is the default behavior. The client certificate is accessible through the TLS session, which must remain active during the certificate request. If the session is terminated, the certificate will not be visible.
@@ -40,6 +42,25 @@ Sample policy configuration:
 }
 ```
 {% endtab %}
+
+{% tab title="PSD2 / Open Banking example" %}
+Sample policy configuration enforcing PSD2/eIDAS QWAC compliance:
+
+```json
+{
+  "ssl-enforcement": {
+    "requiresSsl": true,
+    "requiresClientAuthentication": true,
+    "requiredCertificatePolicies": [
+      "0.4.0.19495.1.3"
+    ],
+    "whitelistSubjectAlternativeNames": [
+      "PSDXX-XXX-*"
+    ]
+  }
+}
+```
+{% endtab %}
 {% endtabs %}
 
 ## Configuration
@@ -60,7 +81,40 @@ The phases checked below are supported by the `ssl-enforcement` policy:
 
 The `ssl-enforcement` policy can be configured with the following options:
 
-<table><thead><tr><th width="266">Property</th><th data-type="checkbox">Required</th><th width="222">Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>requiresSsl</td><td>false</td><td>Is SSL requires to access this resource?</td><td>boolean</td><td>true</td></tr><tr><td>requiresClientAuthentication</td><td>false</td><td>Is client authentication required to access this resource?</td><td>boolean</td><td>false</td></tr><tr><td>whitelistClientCertificates</td><td>false</td><td>List of allowed X.500 names (from client certificate)</td><td>array of strings</td><td>-</td></tr></tbody></table>
+<table><thead><tr><th width="266">Property</th><th data-type="checkbox">Required</th><th width="222">Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>requiresSsl</td><td>false</td><td>Is SSL required to access this resource?</td><td>boolean</td><td>true</td></tr><tr><td>requiresClientAuthentication</td><td>false</td><td>Is client authentication required to access this resource?</td><td>boolean</td><td>false</td></tr><tr><td>whitelistClientCertificates</td><td>false</td><td>List of allowed X.500 names (from client certificate). Supports Ant-pattern matching (e.g., <code>CN=localhost,O=GraviteeSource*,C=??</code>)</td><td>array of strings</td><td>-</td></tr><tr><td>requiredCertificatePolicies</td><td>false</td><td>List of OIDs (dotted-decimal format, e.g., <code>0.4.0.19495.1.3</code>) that must be present in the certificate's Certificate Policies extension. All listed OIDs must be present. Empty or unset means no OID validation.</td><td>array of strings</td><td>-</td></tr><tr><td>whitelistSubjectAlternativeNames</td><td>false</td><td>List of allowed Subject Alternative Name patterns. Supports Ant-pattern matching (e.g., <code>*.example.com</code>, <code>PSDXX-XXX-*</code>). At least one SAN must match at least one pattern. Empty or unset means no SAN validation.</td><td>array of strings</td><td>-</td></tr></tbody></table>
+
+### Certificate Policy OID Validation
+
+The policy can enforce that client certificates contain specific Object Identifiers (OIDs) in their Certificate Policies X.509 extension. OIDs are specified in dotted-decimal format (e.g., `0.4.0.19495.1.3` for PSD2/eIDAS QWAC). All listed OIDs must be present in the certificate for validation to succeed. If the Certificate Policies extension is absent or malformed, validation fails. An empty or unset list disables OID validation.
+
+OID values in **Required Certificate Policies** must match the regex `^\d+(\.\d+)+$` (dotted-decimal format). Invalid formats are rejected at configuration validation time.
+
+### Subject Alternative Name Whitelist
+
+The policy can restrict client certificates to those containing Subject Alternative Names (SANs) that match at least one Ant-style pattern (e.g., `*.example.com`, `PSDXX-XXX-*`). Matching is case-insensitive for DNS and email SANs per RFC 5280/6125. The policy checks all SAN types (DNS, email, URI, IP); if any SAN matches any pattern, validation succeeds. An empty or unset list disables SAN validation.
+
+SAN matching is case-insensitive for DNS and email types per RFC 5280/6125. Other SAN types (URI, IP) are matched as-is.
+
+### Validation Execution Order
+
+The policy enforces checks in the following sequence: SSL requirement, client authentication requirement, DN whitelist, required OIDs, and SAN whitelist. Each check runs only if its prerequisite conditions are met. For example, OID and SAN validation occur only when **Requires Client Authentication** is enabled and the respective configuration properties are non-empty.
+
+Both **Required Certificate Policies** and **Whitelist Subject Alternative Names** are skipped entirely when **Requires Client Authentication** is `false`.
+
+## Prerequisites
+
+* Gateway must be configured to terminate SSL/TLS connections or receive client certificates via HTTP headers
+* Client certificates must be X.509 format
+* For OID validation: certificates must include a valid Certificate Policies extension (OID `2.5.29.32`)
+* For SAN validation: certificates must include Subject Alternative Name extensions
+
+## Restrictions
+
+* OID validation requires certificates to include a valid Certificate Policies extension (OID `2.5.29.32`). Malformed extensions are treated as "no OIDs present" and cause validation failure if any OIDs are required. Parse errors are logged at debug level.
+* SAN validation requires certificates to include Subject Alternative Name extensions. If `getSubjectAlternativeNames()` throws an exception (e.g., malformed extension), the policy treats it as "no SANs present" and fails validation if any SANs are required. Exceptions are logged at debug level.
+* All OIDs in **Required Certificate Policies** must be present in the certificate for validation to succeed. Missing any OID causes failure.
+* At least one SAN must match at least one pattern in **Whitelist Subject Alternative Names** for validation to succeed.
+* Pattern matching for DN and SAN whitelists uses Spring's `AntPathMatcher`, supporting `*`, `?`, and `**` wildcards.
 
 ## Compatibility matrix
 
@@ -83,3 +137,7 @@ The error keys sent by this policy are as follows:
 ## Changelogs
 
 {% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-ssl-enforcement/blob/master/CHANGELOG.md" %}
+
+<figure><img src="../../../.gitbook/assets/ssl-enforcement-policy-catalog.png" alt="SSL Enforcement policy in policy catalog"><figcaption></figcaption></figure>
+
+<figure><img src="../../../.gitbook/assets/ssl-enforcement-client-auth-enabled.png" alt="SSL Enforcement policy configuration with client authentication enabled showing OID and SAN fields"><figcaption></figcaption></figure>
