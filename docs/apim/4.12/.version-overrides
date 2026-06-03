@@ -42,3 +42,9 @@ analyze-and-monitor-apis/configure-gateway-for-opentelemetry-logs.md
 analyze-and-monitor-apis/enable-and-use-opentelemetry-logs-for-apis.md
 analyze-and-monitor-apis/opentelemetry-logs-integration-overview.md
 plugins/plugin-reference.md
+.gitbook/assets/apim-api-product-analytics-and-logging-integration-step-01.png
+.gitbook/assets/apim-api-product-analytics-and-logging-integration-step-02.png
+.gitbook/assets/apim-api-product-analytics-and-logging-integration-step-03.png
+analyze-and-monitor-apis/logging/api-product-analytics-and-logging-overview-and-data-model.md
+analyze-and-monitor-apis/logging/configure-environment-level-logs.md
+analyze-and-monitor-apis/reporters/configuring-api-product-analytics-gateway-and-elasticsearch-setup.md

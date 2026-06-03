@@ -59,6 +59,17 @@
 * The `service.name` must match between tracer and logger (default: `gio_apim_gateway`) for Grafana correlation to function correctly.
 <!-- /PIPELINE:APIM-13463 -->
 
+
+<!-- PIPELINE:APIM-13489 -->
+#### **API Product Analytics and Logging**
+
+* Track and filter API requests by API Product association in logs, metrics, and analytics dashboards.
+* Log entries for v4 APIs now include `apiProductId` and `apiProductName` fields, enabling product-level monitoring and troubleshooting.
+* Use the `apiProductIds` query parameter in the Logs API to filter results by one or more API Product IDs.
+* Requires Elasticsearch index template updates to include the `api-product-id` keyword field for `gravitee-v4.log.*` and `gravitee-v4.metric.*` indices.
+* Only supported for v4 APIs; v2 APIs do not include API Product filtering.
+<!-- /PIPELINE:APIM-13489 -->
+
 ## Improvements
 
 
