@@ -118,6 +118,15 @@
 * The MCP template includes an embedded `<gmd-install-mcp>` component that generates configuration for AI clients (Cursor, VS Code, Claude Desktop) using the gateway endpoint and MCP path.
 * API publishers can customize the generated overview pages to add quick start guides, use case descriptions, and links to external documentation.
 <!-- /PIPELINE:APIM-14122 -->
+<!-- PIPELINE:APIM-12279 -->
+#### **WSDL Import for v4 APIs**
+
+* Create or update v4 HTTP Proxy APIs directly from WSDL 1.1 documents via file upload or remote URL.
+* Automatically converts WSDL to OpenAPI 3 specification, mapping SOAP operations to REST paths and XSD schemas to JSON request bodies.
+* Optionally applies REST to SOAP Transformer policy to enable REST/JSON-to-SOAP/XML translation with automatic flow generation.
+* Supports OpenAPI Specification Validation policy for request/response validation against the converted spec.
+* WSDL 2.0 is not supported; remote URLs must pass SSRF protection rules (private IPs blocked by default).
+<!-- /PIPELINE:APIM-12279 -->
 
 ## Improvements
 
