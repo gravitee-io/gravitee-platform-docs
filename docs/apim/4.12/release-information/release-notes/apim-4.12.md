@@ -59,6 +59,16 @@
 * The `service.name` must match between tracer and logger (default: `gio_apim_gateway`) for Grafana correlation to function correctly.
 <!-- /PIPELINE:APIM-13463 -->
 
+
+<!-- PIPELINE:APIM-12146 -->
+#### **API Import from Remote URL**
+
+* Create and update APIs by fetching API definitions from remote HTTP(S) endpoints, supporting both Gravitee API definitions and OpenAPI specifications (Swagger 2.0 or OpenAPI 3.x).
+* Remote URLs are validated server-side against configurable whitelists and automatically block private IP addresses to prevent SSRF attacks.
+* Configure security controls via `importConfiguration.importWhitelist` (allowed URL patterns) and `importConfiguration.allowImportFromPrivate` (default: `false`) in gateway settings.
+* Requires `ENVIRONMENT_API[CREATE]` permission for new APIs and `API_DEFINITION[UPDATE]` permission for updates; remote URLs must be accessible from the Management API server.
+<!-- /PIPELINE:APIM-12146 -->
+
 ## Improvements
 
 

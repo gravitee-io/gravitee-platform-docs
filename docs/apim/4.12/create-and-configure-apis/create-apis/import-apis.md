@@ -37,6 +37,8 @@ To import your API:
     This loads the options for importing your API.
 
     <figure><img src="../../.gitbook/assets/00 import 2.png" alt=""><figcaption></figcaption></figure>
+
+    <figure><img src="../../.gitbook/assets/import-api-home.png" alt="API import home page showing format and source options"><figcaption></figcaption></figure>
 5. Choose an **API format**. You can select either **Gravitee definition** or **OpenAPI specification**.
 6.  Choose a **File source**.
 
@@ -55,12 +57,22 @@ To import your API:
 Once you've imported your API, it will be created as a private API and you will be brought to the API menu and details page.
 {% endhint %}
 
+## Security Configuration
+
+### URL Security Controls
+
+All remote imports enforce URL validation to prevent SSRF attacks. The gateway checks each URL against an optional whitelist of allowed patterns and blocks requests to private or link-local IP addresses (e.g., `169.254.169.254`, `localhost`) unless explicitly permitted. These controls apply to both Gravitee definition imports and OpenAPI imports.
+
+<figure><img src="../../.gitbook/assets/openapi-remote-url-entered.png" alt="Remote OpenAPI specification URL entered in the import form"><figcaption></figcaption></figure>
+
 ## Import an OpenAPI spec
 
 {% hint style="info" %}
+
+<figure><img src="../../.gitbook/assets/openapi-remote-source-selected.png" alt="OpenAPI format with remote source card selected"><figcaption></figcaption></figure>
+
 Gravitee v4 native APIs, for example, Kafka APIs, are currently not supported via OpenAPI spec import.
 {% endhint %}
-
 ### **Context-path resolution**
 
 #### Swagger (V2)
@@ -368,3 +380,9 @@ Use the APIM Console.
     ```
 
 </details>
+
+
+<figure><img src="../../.gitbook/assets/gravitee-remote-source-selected.png" alt="Gravitee format with remote source card selected"><figcaption></figcaption></figure>
+
+
+<figure><img src="../../.gitbook/assets/gravitee-remote-url-entered.png" alt="Remote Gravitee definition URL entered in the import form"><figcaption></figcaption></figure>
