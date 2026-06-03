@@ -9,7 +9,13 @@ metaLinks:
 
 ## Overview
 
-Gravitee supports importing APIs as either Gravitee API definitions or OpenAPI specifications. To import an API, the API file must be in YML, YAML, or JSON format.
+Gravitee supports importing APIs from multiple formats:
+- Gravitee API definitions
+- OpenAPI/Swagger specifications
+- AsyncAPI specifications
+- WSDL 1.1 documents (WSDL 2.0 not supported)
+
+To import an API, the file must be in YML, YAML, JSON, WSDL, or XML format.
 
 Every API includes a context path, virtual host(s), or host(s). These values must be unique across all APIs in your environment. A unique custom API ID can be specified in the definition.
 

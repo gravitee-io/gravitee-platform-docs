@@ -28,6 +28,10 @@ For example, a SOAP API `http(s)://GATEWAY_HOST:GATEWAY_PORT/soap?countryName=Fr
 
 Gives you the ISO country code for `France`.
 
+### Automatic Application During WSDL Import
+
+When you import a WSDL document and enable the **Apply REST to SOAP Transformer policy** toggle, the `rest-to-soap` policy is automatically applied to generate per-operation flows. This toggle also automatically includes the `xml-json` policy and overwrites all existing policies.
+
 ## ⚠️ Security Warning: XML Injection Prevention
 
 **Important**: When you use the REST-to-SOAP policy, you must be aware of potential XML injection vulnerabilities. User input embedded directly into SOAP envelopes without proper escaping might expose your API to security risks.

@@ -42,3 +42,14 @@ analyze-and-monitor-apis/configure-gateway-for-opentelemetry-logs.md
 analyze-and-monitor-apis/enable-and-use-opentelemetry-logs-for-apis.md
 analyze-and-monitor-apis/opentelemetry-logs-integration-overview.md
 plugins/plugin-reference.md
+.gitbook/assets/wsdl-file-uploaded.png
+.gitbook/assets/wsdl-format-selected.png
+.gitbook/assets/wsdl-import-options-default.png
+.gitbook/assets/wsdl-import-options-disabled.png
+.gitbook/assets/wsdl-import-review.png
+create-and-configure-apis/apply-policies/policy-reference/rest-to-soap.md
+create-and-configure-apis/create-apis/creating-a-v4-api-from-wsdl-in-the-console.md
+create-and-configure-apis/create-apis/import-apis.md
+create-and-configure-apis/create-apis/v4-api-creation-wizard.md
+create-and-configure-apis/create-apis/wsdl-import-for-v4-apis-overview-and-conversion-process.md
+create-and-configure-apis/create-apis/wsdl-import-management-api-reference.md
