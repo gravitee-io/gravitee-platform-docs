@@ -42,3 +42,6 @@ analyze-and-monitor-apis/configure-gateway-for-opentelemetry-logs.md
 analyze-and-monitor-apis/enable-and-use-opentelemetry-logs-for-apis.md
 analyze-and-monitor-apis/opentelemetry-logs-integration-overview.md
 plugins/plugin-reference.md
+analyze-and-monitor-apis/logging/configuring-and-viewing-native-api-connection-logs.md
+analyze-and-monitor-apis/logging/native-api-connection-logs-concepts-and-architecture.md
+configure-and-manage-the-platform/management-api/native-api-connection-logs-management-api-reference.md
