@@ -25,7 +25,7 @@ To avoid any errors because of duplicate keys, apply the JSON threat protection 
 
 #### Import Payload Types
 
-AM supports two methods for importing WSDL documents:
+APIM supports two methods for importing WSDL documents:
 
 | Type | Description | Validation |
 |:-----|:------------|:-----------|
@@ -35,6 +35,10 @@ AM supports two methods for importing WSDL documents:
 {% hint style="info" %}
 When using the **URL** type, ensure the remote endpoint is accessible and complies with your organization's security policies. The URL will be validated against configured import whitelists and private network restrictions.
 {% endhint %}
+
+<figure><img src="../../.gitbook/assets/wsdl-format-selected.png" alt="WSDL format card selected in API import form"><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/wsdl-file-uploaded.png" alt="WSDL file uploaded in payload field"><figcaption></figcaption></figure>
 
 ## Import your API
 
@@ -67,6 +71,10 @@ To import your API:
 {% hint style="success" %}
 Once you've imported your API, it will be created as a private API and you will be brought to the API menu and details page.
 {% endhint %}
+
+<figure><img src="../../.gitbook/assets/wsdl-options-default.png" alt="WSDL import options with REST to SOAP Transformer enabled by default"><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/wsdl-rest-to-soap-disabled.png" alt="REST to SOAP Transformer toggle disabled, dependent toggles grayed out"><figcaption></figcaption></figure>
 
 ## Restrictions
 
@@ -187,7 +195,7 @@ To use a vendor extension, add the `x-graviteeio-definition` field at the root o
   * URL
 * Picture only accepts Data-URI format. Please see the example below.
 
-<pre class="language-yaml" data-title="Example"><code class="lang-yaml"><strong>OpenAPI: "3.0.0"
+<pre class="language-yaml" data-title="Example"><code class="lang-yaml"><strong>openapi: "3.0.0"
 </strong>info:
   version: 1.2.3
   title: Gravitee Echo API
@@ -402,11 +410,3 @@ Use the APIM Console.
 
 </details>
 
-
-<figure><img src="../../.gitbook/assets/wsdl-options-default.png" alt="WSDL import options with REST to SOAP Transformer enabled by default"><figcaption></figcaption></figure>
-
-<figure><img src="../../.gitbook/assets/wsdl-file-uploaded.png" alt="WSDL file uploaded in payload field"><figcaption></figcaption></figure>
-
-<figure><img src="../../.gitbook/assets/wsdl-format-selected.png" alt="WSDL format card selected in API import form"><figcaption></figcaption></figure>
-
-<figure><img src="../../.gitbook/assets/wsdl-rest-to-soap-disabled.png" alt="REST to SOAP Transformer toggle disabled, dependent toggles grayed out"><figcaption></figcaption></figure>
