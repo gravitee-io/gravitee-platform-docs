@@ -48,10 +48,6 @@ jobs:
         with:
           reviewdog_version: latest
 
-      - name: Install spelling-suggestion helper deps
-        if: steps.changed-files.outputs.files != ''
-        run: pip install --quiet pyspellchecker
-
       - name: Run Vale on changed files
         if: steps.changed-files.outputs.files != ''
         env:
@@ -61,7 +57,6 @@ jobs:
             if [ -n "$file" ] && [ -f "$file" ]; then
               echo "Linting: $file" >&2
               /tmp/vale-bin/vale --output=JSON "$file" \
-                | python3 vale/add-spelling-suggestions.py \
                 | jq -c -f vale/to-rdjsonl.jq \
                 || true
             fi
