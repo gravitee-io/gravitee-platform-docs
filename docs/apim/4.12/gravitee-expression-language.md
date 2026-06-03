@@ -216,26 +216,121 @@ The notifier body and portal navigation pages are processed by FreeMarker, not t
 
 #### FreeMarker model properties
 
-The FreeMarker template model depends on the context where the template is rendered.
+The FreeMarker template model depends on the context where the template is rendered. Only one of the two root variables (`api` or `metadata`) is present in any given render call — they are mutually exclusive.
 
 **Portal navigation pages under an API node**
 
-Pages nested under an API node in the navigation hierarchy receive an `${api.*}` model with the following properties:
+Pages nested under an API node in the navigation hierarchy receive an `api` variable with the following properties:
 
 | Property | Description | Type | Example |
 |----------|-------------|------|---------|
-| id | Gateway API identifier | string | `${api.id}` |
-| name | Gateway API name | string | `${api.name}` |
-| version | Gateway API version | string | `${api.version}` |
-| properties | Custom properties defined on the API | key / value | `${api.properties['my-property']}` |
+| `id` | Technical UUID of the API | `String` | `"9b0ed842-2f3a-..."` |
+| `name` | Human-readable display name | `String` | `"Payments API"` |
+| `description` | Short free-text description | `String` | `"Public payments API"` |
+| `version` | API version string. On V4/Federated this is an alias for `apiVersion` | `String` | `"1.0"` |
+| `apiVersion` | Preferred version accessor on V4 and Federated APIs. Not available for V2 | `String` | `"1.0"` |
+| `definitionVersion` | API definition schema version. Values: `V1`, `V2`, `V4`, `FEDERATED`, `FEDERATED_AGENT` | `DefinitionVersion` enum | `"V4"` |
+| `createdAt` | Timestamp when the API was created. Format with `?string['yyyy-MM-dd']` | `Date` | `2024-01-15` |
+| `updatedAt` | Timestamp of the last configuration change | `Date` | `2024-06-01` |
+| `deployedAt` | Timestamp of the last successful gateway deployment. May be `null` — guard with `??` | `Date` | `2024-06-01` |
+| `state` | Runtime state on the gateway. Values: `STARTED`, `STOPPED` | `Lifecycle.State` enum | `"STARTED"` |
+| `lifecycleState` | Classic Portal only. Publication stage. Values: `CREATED`, `PUBLISHED`, `UNPUBLISHED`, `DEPRECATED`, `ARCHIVED` | `ApiLifecycleState` enum | `"PUBLISHED"` |
+| `visibility` | Classic Portal only. API visibility. Values: `PUBLIC` (no login required), `PRIVATE` (group members only) | `Visibility` enum | `"PUBLIC"` |
+| `tags` | Set of deployment sharding tag names | `Set<String>` | `["internal", "eu"]` |
+| `groups` | Set of access-control group IDs | `Set<String>` | `["group-id-1"]` |
+| `categories` | Set of portal catalog category slugs | `Set<String>` | `["billing", "finance"]` |
+| `picture` | API logo as a base64-encoded data URI. May be `null` — guard with `??` | `String` | `"data:image/png;base64,..."` |
+| `primaryOwner` | Owning user or group — see **`primaryOwner` sub-object** below | `PrimaryOwnerEntity` | — |
+| `disableMembershipNotifications` | When `true`, membership-change notification emails are suppressed | `boolean` | `false` |
+| `metadata` | Flat map of API metadata key/value pairs, pre-resolved through FreeMarker — see **`api.metadata` map** below | `Map<String, String>` | — |
+| `type` | Broad communication type. Not available for V2 or Federated. Values: `SYNC`, `ASYNC`, `NATIVE` | `ApiType` enum | `"SYNC"` |
+| `listeners` | List of listener configurations defining how the gateway accepts inbound traffic. Not available for V2 or Federated | `List<Listener>` | — |
+| `endpointGroups` | List of endpoint group configurations defining where the gateway routes outbound traffic. Not available for V2 or Federated | `List<EndpointGroup>` | — |
+| `properties` | API-level dynamic properties. V4: `List<Property>` where each entry has a `key` and `value`; V2: `Properties` wrapper object. Not available for Federated | `List<Property>` / `Properties` | `"my-value"` |
+| `services` | Service configurations such as health-check, dynamic property polling, and endpoint discovery. Not available for Federated | `ApiServices` / `Services` | — |
+| `failover` | Failover policy configuration. V4 HTTP only. May be `null` — guard with `??` | `Failover` | — |
+| `proxy` | Full HTTP proxy configuration including virtual hosts, load-balancer strategy, and endpoint list. V2 only | `Proxy` | — |
+| `executionMode` | Policy execution engine mode. V2 only. Values: `V3`, `V4_EMULATION_ENGINE` | `ExecutionMode` enum | `"V4_EMULATION_ENGINE"` |
+
+**`primaryOwner` sub-object**
+
+Accessible on all API types as `${api.primaryOwner.<field>}`:
+
+| Property | Description | Type | Example |
+|----------|-------------|------|---------|
+| `id` | UUID of the owning user or group | `String` | `"abc-123"` |
+| `email` | Email address | `String` | `"owner@example.com"` |
+| `displayName` | Human-readable name | `String` | `"John Doe"` |
+| `type` | Owner type | `String` | `"USER"` or `"GROUP"` |
+
+**`api.metadata` map**
+
+`${api.metadata}` is a `Map<String, String>` populated from the API's configured metadata entries. Values are pre-resolved through FreeMarker before being exposed, so metadata values may themselves contain FreeMarker expressions referencing `${api.*}`. Access individual entries with bracket notation:
+
+```freemarker
+${api.metadata['email-support']}
+${api.metadata['custom-key']}
+```
+
+Special key `email-support`: if `api.metadata['email-support']` is blank after resolution, it is automatically replaced with the primary owner's email address.
 
 **Portal navigation pages at root level**
 
-Root-level pages receive an `${metadata.*}` model with environment metadata key-value pairs. The available keys depend on the environment configuration.
+Root-level pages receive a `metadata` variable — a flat `Map<String, String>` of environment-level key/value pairs set in the portal configuration. The available keys depend on the environment configuration:
+
+```freemarker
+${metadata['portal-name']}
+${metadata['support-email']}
+```
 
 **Template validation constraints**
 
-When a portal page is saved, the system validates the template by dry-rendering it with the appropriate model. If the template references a missing property or contains invalid syntax, the save operation fails with an error message identifying the problematic expression (e.g., "Invalid expression or value is missing for ${api.unknownProperty}").
+When a portal page is saved, the system validates the template by dry-rendering it with the appropriate model. If the template references a missing property or contains invalid syntax, the save operation fails with an error message identifying the problematic expression (e.g., `Invalid expression or value is missing for ${api.unknownProperty}`).
+
+**FreeMarker usage examples**
+
+Basic API info header:
+
+```freemarker
+# ${api.name} — ${api.version}
+
+> ${api.description}
+
+**Status:** ${api.lifecycleState}
+**Owner:** ${api.primaryOwner.displayName} (${api.primaryOwner.email})
+```
+
+Support contact block with fallback:
+
+```freemarker
+<#if api.metadata['email-support']?has_content>
+Contact us at [${api.metadata['email-support']}](mailto:${api.metadata['email-support']}).
+<#else>
+No support contact configured.
+</#if>
+```
+
+Conditional section by API generation:
+
+```freemarker
+<#if api.definitionVersion == "V4">
+This is a next-generation V4 API.
+<#elseif api.definitionVersion == "FEDERATED">
+This API is managed by a federated provider.
+<#else>
+This is a classic V2 API.
+</#if>
+```
+
+Deployment timestamp with date formatting:
+
+```freemarker
+<#if api.deployedAt??>
+Last deployed: ${api.deployedAt?string['yyyy-MM-dd HH:mm']}
+<#else>
+Not yet deployed.
+</#if>
+```
 
 ## Expression Language Assistant
 
