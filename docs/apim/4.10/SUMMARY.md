@@ -99,6 +99,8 @@
     * [Tenants](configure-and-manage-the-platform/gravitee-gateway/tenants.md)
     * [Header IDs](configure-and-manage-the-platform/gravitee-gateway/header-ids.md)
     * [Gateway Cluster sync with Redis](configure-and-manage-the-platform/gravitee-gateway/gateway-cluster-sync-with-redis/README.md)
+      * [Gateway Cluster sync with Redis using Docker](configure-and-manage-the-platform/gravitee-gateway/gateway-cluster-sync-with-redis/gateway-cluster-sync-with-redis-using-docker.md)
+      * [Gateway Cluster sync with Redis using Kubernetes (Helm)](configure-and-manage-the-platform/gravitee-gateway/gateway-cluster-sync-with-redis/gateway-cluster-sync-with-redis-using-kubernetes-helm.md)
       * [Test that a new Gateway syncs without access to the database](configure-and-manage-the-platform/gravitee-gateway/gateway-cluster-sync-with-redis/test-that-a-new-gateway-syncs-without-access-to-the-database.md)
       * [Test the election of a new master node](configure-and-manage-the-platform/gravitee-gateway/gateway-cluster-sync-with-redis/test-the-election-of-a-new-master-node.md)
       * [Test that a new Gateway in a cluster user bridge syncs if the bridge crashes](configure-and-manage-the-platform/gravitee-gateway/gateway-cluster-sync-with-redis/test-that-a-new-gateway-in-a-cluster-user-bridge-syncs-if-the-bridge-crashes.md)
