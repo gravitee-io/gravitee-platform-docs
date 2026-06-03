@@ -42,3 +42,7 @@ analyze-and-monitor-apis/configure-gateway-for-opentelemetry-logs.md
 analyze-and-monitor-apis/enable-and-use-opentelemetry-logs-for-apis.md
 analyze-and-monitor-apis/opentelemetry-logs-integration-overview.md
 plugins/plugin-reference.md
+kafka-gateway/README.md
+kafka-gateway/create-and-configure-kafka-apis/create-kafka-apis.md
+kafka-gateway/create-and-configure-kafka-clusters.md
+kafka-gateway/kafka-virtual-cluster-gateway-configuration-reference.md

@@ -59,6 +59,16 @@
 * The `service.name` must match between tracer and logger (default: `gio_apim_gateway`) for Grafana correlation to function correctly.
 <!-- /PIPELINE:APIM-13463 -->
 
+
+<!-- PIPELINE:APIM-13666 -->
+#### **Kafka Virtual Cluster and Multi-Cluster Routing**
+
+* Aggregate multiple Kafka clusters behind a single virtual endpoint to simplify multi-region or multi-tenant deployments.
+* Route client requests transparently across backend clusters based on topic, partition, or consumer group affinity while merging metadata into a unified view.
+* Maintain producer ID session mappings to ensure transactional producer stability and replay SASL PLAIN credentials for cross-cluster operations.
+* Requires Gravitee APIM 4.12.0+ and `gravitee-node` 9.0.0-alpha.8+. SASL credential replay supports PLAIN mechanism only; time-bound and challenge-response mechanisms are not captured.
+<!-- /PIPELINE:APIM-13666 -->
+
 ## Improvements
 
 

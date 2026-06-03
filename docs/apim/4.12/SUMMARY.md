@@ -388,6 +388,7 @@
 * [Kafka Gateway](kafka-gateway/README.md)
   * [Configure the Kafka Client & Gateway](kafka-gateway/configure-the-kafka-client-and-gateway.md)
   * [Deploy a Kafka Gateway with Gravitee Cloud](kafka-gateway/deploy-a-kafka-gateway-with-gravitee-cloud.md)
+  * [Kafka Virtual Cluster Gateway Configuration Reference](kafka-gateway/kafka-virtual-cluster-gateway-configuration-reference.md)
   * [Produce and Consume Kafka Messages with Gravitee Cloud](kafka-gateway/produce-and-consume-kafka-messages-with-gravitee-cloud.md)
   * [Create & Configure Kafka APIs](kafka-gateway/create-and-configure-kafka-apis/README.md)
     * [Create Kafka APIs](kafka-gateway/create-and-configure-kafka-apis/create-kafka-apis.md)

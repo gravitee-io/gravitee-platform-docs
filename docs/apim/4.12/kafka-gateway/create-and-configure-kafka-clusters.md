@@ -13,7 +13,13 @@ metaLinks:
 This feature is in tech preview. Contact your customer team to request access to this feature.
 {% endhint %}
 
-The Kafka UI is accessible from the APIM Console. It is the user interface from which you can create and manage Kafka clusters, configure cluster connection information, and manage user access and permissions.
+The Kafka UI is accessible from the APIM Console. It is the user interface from which you can create and manage Kafka clusters and virtual clusters, configure cluster connection information, manage cluster lifecycle (deploy, undeploy, delete), and manage user access and permissions.
+
+The console navigation includes a **Kafka** menu with three sub-items:
+
+* **Standalone**
+* **Clusters**
+* **Virtual Clusters**
 
 ## Prerequisites
 
@@ -32,12 +38,49 @@ Kafka Console is currently only available for self-hosted deployments and not co
 
     <figure><img src="../.gitbook/assets/902A4021-EA90-4AB6-84B4-C0F9E995F54E_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
 3. In the **Create a new cluster** pop-up window, complete the following sub-steps:
-   1. In the **Cluster name** field, enter a name for your cluster.
-   2. (Optional) In the description field, enter a description for your cluster.
-   3. In the **Bootstrap Servers** field, enter the bootstrap servers for your cluster.
-   4.  Click **Create**. You are brought to the cluster's configuration screen.
+   1. In the **Cluster name** field, enter a name for your cluster (required, max 512 characters).
+   2. (Optional) In the description field, enter a description for your cluster (max 1024 characters).
+   3. In the **Connections** section, add one or more named connections. For each connection:
+      1. Enter a **Name** for the connection.
+      2. In the **Bootstrap Servers** field, enter the bootstrap servers for your cluster (comma-separated list of `host:port` pairs).
+      3. Select a **Security Protocol** (`PLAINTEXT`, `SASL_PLAINTEXT`, `SASL_SSL`, or `SSL`).
+      4. If the protocol is `SASL_PLAINTEXT` or `SASL_SSL`, select a **SASL Mechanism** (`PLAIN`, `SCRAM-SHA-256`, `SCRAM-SHA-512`, `AWS_MSK_IAM`, `GSSAPI`, `OAUTHBEARER`, `OAUTHBEARER_TOKEN`, or `DELEGATE_TO_BROKER`).
+   4.  Click **Create**. You are brought to the cluster's configuration screen. The cluster is created in the `UNDEPLOYED` state.
 
        <figure><img src="../.gitbook/assets/F7727719-AE67-4E84-A45B-478A4D66E2F5_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+
+**Kafka Cluster Configuration Reference:**
+
+| Field | Description | Example |
+|:------|:------------|:--------|
+| Name | Cluster name | `us-east-kafka` |
+| Description | Optional cluster description | `Production Kafka cluster in US East` |
+| Connections | Array of named connections | `[{ name: "primary", bootstrapServers: "broker1:9092,broker2:9092", security: {...} }]` |
+| Bootstrap Servers | Comma-separated broker addresses | `broker1:9092,broker2:9092` |
+| Security Protocol | Connection security protocol | `SASL_SSL` |
+| SASL Mechanism | SASL authentication mechanism (if protocol is `SASL_*`) | `PLAIN` |
+
+## Create a Kafka Virtual Cluster
+
+1. Navigate to **Kafka > Virtual Clusters** in the console.
+2. Click **Add Virtual Cluster**.
+3. In the **Create a new virtual cluster** pop-up window, complete the following sub-steps:
+   1. In the **Name** field, enter a name for your virtual cluster (required, max 512 characters).
+   2. (Optional) In the **Description** field, enter a description for your virtual cluster (max 1024 characters).
+   3. In the **Backends** section, add one or more backend references. For each backend:
+      1. Select a **Cluster** from the autocomplete dropdown (filters to deployed `KAFKA_CLUSTER` instances).
+      2. Select a **Connection** from the autocomplete dropdown (filters to connections within the selected cluster).
+   4. Click **Create**. The virtual cluster is created in the `UNDEPLOYED` state.
+
+**Kafka Virtual Cluster Configuration Reference:**
+
+| Field | Description | Example |
+|:------|:------------|:--------|
+| Name | Virtual cluster name | `global-kafka` |
+| Description | Optional virtual cluster description | `Aggregated view of US and EU clusters` |
+| Backends | Array of backend cluster references | `[{ clusterCrossId: "abc123", connectionCrossId: "conn1" }]` |
+| Cluster | Deployed cluster to reference | `us-east-kafka` |
+| Connection | Connection within the selected cluster | `primary` |
 
 ## Configure your Kafka cluster
 
@@ -55,11 +98,28 @@ In the **General** tab, you can perform the following actions:
 * View or edit the description of the cluster.
 * View the day and time that the cluster was created.
 * View the day and time that the cluster was last updated.
+* View the read-only **Cross ID** field.
+
+#### Deploy a cluster
+
+To deploy a cluster, navigate to the **Danger Zone** section, and then click **Deploy**. The cluster transitions to `PENDING` and then `DEPLOYED` once the configuration is propagated to all gateways. Deployed clusters are available for selection in virtual cluster backends and API endpoint configurations.
+
+The gateway retries bind failures up to 3 times with exponential backoff (50ms, 100ms, 200ms). Persistent bind failures fail gateway boot after 350ms.
+
+#### Undeploy a cluster
+
+To undeploy a cluster, navigate to the **Danger Zone** section, and then click **Undeploy**. The cluster transitions to `PENDING` and then `UNDEPLOYED` once all gateways release cached endpoints and pooled connections. Undeployed clusters are removed from virtual cluster backend autocomplete dropdowns.
+
+{% hint style="warning" %}
+Deployed clusters (`KAFKA_CLUSTER`, `KAFKA_VIRTUAL_CLUSTER`) must be undeployed before deletion. Direct API calls must invoke `POST /clusters/{id}/_undeploy` before `DELETE /clusters/{id}`.
+{% endhint %}
+
+#### Delete a cluster
 
 To delete the cluster, complete the following steps:
 
 {% hint style="warning" %}
-Once you delete a cluster, this action cannot be undone.
+Once you delete a cluster, this action cannot be undone. If the cluster is `DEPLOYED` or `PENDING`, it will be undeployed and then deleted.
 {% endhint %}
 
 1. Navigate to the **Danger Zone** section, and then click **Delete**.
@@ -79,6 +139,8 @@ In the **Configuration** tab, you can configure the following elements of the cl
   *   SSL
 
       <figure><img src="../.gitbook/assets/9FAEF4B2-47B4-4D19-B2D2-D063ED96CAED_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+
+The cluster **Configuration** tab uses custom autocomplete controls (`cluster-type`, `cluster-connection-type`) that filter to deployed clusters and validate against the deployed clusters API.
 
 ### User permissions
 
@@ -125,3 +187,38 @@ To add members to your Kafka cluster, complete the following steps:
 3.  Click **Select**.
 
     <figure><img src="../.gitbook/assets/00 kafkaUI 4.png" alt=""><figcaption></figcaption></figure>
+
+## Cluster list tables
+
+The cluster list tables display a **Status** badge for `KAFKA_CLUSTER` and `KAFKA_VIRTUAL_CLUSTER` types:
+
+* `DEPLOYED` (green badge)
+* `PENDING` (yellow badge)
+* `UNDEPLOYED` (gray badge)
+
+## API creation flow
+
+The API creation flow for Native Kafka APIs requires explicit endpoint selection in Step 3 (Endpoints). The previous auto-selection of both entrypoint and endpoint has been removed.
+
+The `KAFKA_CLUSTER_CONNECTION` endpoint type has been renamed to `KAFKA_CLUSTER_STANDALONE` with the UI label "Standalone".
+
+## Restrictions
+
+* Only the `PLAIN` SASL mechanism supports credential replay for cross-cluster operations. `AWS_MSK_IAM`, `SCRAM-SHA-*`, and `GSSAPI` mechanisms are not captured and cannot be replayed on backend connections.
+* Producer ID sessions are lost on gateway pod restart or round-robin reconnection unless a distributed `CacheManager` (Hazelcast or Redis) is configured. The gateway returns `PRODUCER_FENCED` (error code 90) instead of `UNKNOWN_PRODUCER_ID` (error code 59) when a producer ID session is missing. This forces Kafka clients to re-initialize the producer.
+* Virtual clusters strip KIP-848 and KIP-932 group APIs (consumer group protocol v3) from `ApiVersions` responses. Clients downgrade to the classic group protocol.
+* Backend connection pooling is scoped per-API, not process-wide. Multiple APIs targeting the same backend cluster open separate connection pools.
+* Virtual cluster metadata (controller ID, cluster ID) is cached after the first metadata merge. Until then, frame rewriters fall back to per-cluster values, which may cause instability across client reconnects.
+
+## Database schema changes
+
+The database schema includes new columns in the `clusters` table:
+
+* `type`
+* `crossId`
+* `lifecycleState`
+* `deployedAt`
+* `version`
+
+Existing clusters are backfilled with `type = 'KAFKA_CLUSTER_STANDALONE'` via JDBC migration and MongoDB upgrader.
+
