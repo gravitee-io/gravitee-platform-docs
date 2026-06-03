@@ -35,7 +35,7 @@ You can filter v4 proxy API and v4 message API runtime logs based on the followi
 
 The **More** button offers additional filtering options.
 
-<figure><img src="../../.gitbook/assets/analyze-and-monitor-apis-logging-view-ap-363-1-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/analyze-and-monitor-apis-logging-view-ap-363-1-1 (1).png" alt=""><figcaption></figcaption></figure>
 
 You can filter v4 message webhook logs based on time period, HTTP status, and application. The **More** button lets you filter by callback URL and a customized timeframe.
 
@@ -53,7 +53,7 @@ To view the details of any entry in the list of runtime logs, select **Logs** fr
 
 The logs screen shows the following API-level logging information:
 
-<figure><img src="../../.gitbook/assets/analyze-and-monitor-apis-logging-view-ap-14-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/analyze-and-monitor-apis-logging-view-ap-14-1 (1).png" alt=""><figcaption></figcaption></figure>
 
 The **Overview** section provides information about the request and response phases of the API.
 
@@ -65,7 +65,7 @@ The **Details** menu shows the details of the API request and response phases.
 
 The **Request** panel shows the HTTP method and URI for the Gateway and consumer, the headers sent by the user or the backend in the request phase, and the request body.
 
-<figure><img src="../../.gitbook/assets/analyze-and-monitor-apis-logging-view-ap-369-1-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/analyze-and-monitor-apis-logging-view-ap-369-1-1 (1).png" alt=""><figcaption></figcaption></figure>
 
 The **Response** panel shows the status of the Gateway and consumer, the headers sent by the user or the backend in the response phase, and the body returned in the response.
 

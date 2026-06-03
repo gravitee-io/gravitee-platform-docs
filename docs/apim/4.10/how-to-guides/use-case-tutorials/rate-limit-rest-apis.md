@@ -59,7 +59,7 @@ To add a Quota policy to each plan of this API:
 
     **Flows vs. policies** Flows are a collection of policies. Flows can be specified for each individual plan, e.g., API Key (SILVER), API Key (GOLD), and API Key (PLATINUM). Alternatively, a common flow can be applied to all plans within the specific AP&#x49;_._<br>
 
-    <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-ra-194.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-ra-194 (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Step 2: Add a Quota policy for each user group <a href="#step-2-add-a-quota-policy-for-each-user-group" id="step-2-add-a-quota-policy-for-each-user-group"></a>
 
@@ -79,21 +79,21 @@ Add differentiated Quota policies to each plan per the instructions below.
 
 5. Use the search bar or scroll to navigate to the **Quota** policy, then click **Select**.
 
-<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-rate-li-29-2-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-rate-li-29-2-1 (1).png" alt=""><figcaption></figcaption></figure>
 
 6.  Toggle **Add response headers** ON and click **Save**.<br>
 
-    <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-ra-195.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-ra-195 (1).png" alt=""><figcaption></figcaption></figure>
 7.  Enter values for **Max requests (static)**_,_ **Time duration**, and **Time unit**, e.g., 100 requests per 1 month<br>
 
-    <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-ra-196.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-ra-196 (1).png" alt=""><figcaption></figcaption></figure>
 8. Click **Add policy**
 9.  On the **Policies** page, click **Save**<br>
 
-    <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-ra-197.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-ra-197 (1).png" alt=""><figcaption></figcaption></figure>
 10. Click **Deploy API** to redeploy the API and have the changes take effect<br>
 
-    <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-ra-198.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-ra-198 (1).png" alt=""><figcaption></figcaption></figure>
 
 #### **Gold Tier plan**
 
@@ -112,27 +112,27 @@ To ensure all API consumers, regardless of their plan, do not overwhelm the API,
 1. Select the **+** icon next to **Common flows**
 2.  Modify the flow name, operator, path, methods, and conditions as desired (leaving name and path blank will apply default values)<br>
 
-    <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-ra-199.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-ra-199 (1).png" alt=""><figcaption></figcaption></figure>
 3. Click **Create**
 4.  Select the **+** icon within the request phase section. This lets us use the Rate Limit policy to limit the number of requests any API consumer can make to the API within a short period of time.<br>
 
-    <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-ra-200.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-ra-200 (1).png" alt=""><figcaption></figcaption></figure>
 5.  Use the search bar or scroll to navigate to the **Rate Limit** policy, then click **Select**<br>
 
-    <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-ra-201.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-ra-201 (1).png" alt=""><figcaption></figcaption></figure>
 6.  Enter values for **Max requests (static)**_,_ **Time duration**, and **Time unit**, e.g., 5 requests per 1 second
 
     The Rate Limit time period is shorter than the Quota time period.<br>
 
-    <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-ra-202.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-ra-202 (1).png" alt=""><figcaption></figcaption></figure>
 7. Click **Add policy**
 8. On the **Policies** page, click **Save**
 
-<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-rate-li-38-2-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-rate-li-38-2-1 (1).png" alt=""><figcaption></figcaption></figure>
 
 9.  Click **Deploy API** to redeploy the API and have the changes take effect<br>
 
-    <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-ra-198.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-ra-198 (1).png" alt=""><figcaption></figcaption></figure>
 
 ### **Step 4: Add Spike Arrest policy via Common flows** <a href="#step-4-add-spike-arrest-policy-via-common-flows" id="step-4-add-spike-arrest-policy-via-common-flows"></a>
 
@@ -141,24 +141,24 @@ Now, let's mitigate traffic spikes and maintain quality of service for all consu
 1. Select the **+** icon next to **Common flows**
 2.  Modify the flow name, operator, path, methods, and conditions as desired (leaving name and path blank will apply default values)<br>
 
-    <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-ra-199.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-ra-199 (1).png" alt=""><figcaption></figcaption></figure>
 3. Click **Create**
 4. Select the **+** icon within the request phase section to use the Spike Arrest policy to limit sudden spikes in traffic. Configured as a **Common flow**, the Spike Arrest policy applies to all API consumers.
 
-<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-rate-li-41-1-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-rate-li-41-1-1 (1).png" alt=""><figcaption></figcaption></figure>
 
 5. Use the search bar or scroll to navigate to the **Rate Limit** policy, then click **Select**
 
-<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-rate-li-42-1-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-rate-li-42-1-1 (1).png" alt=""><figcaption></figcaption></figure>
 
 6. Enter values for **Max requests (static)**_,_ **Time duration**, and **Time unit**, e.g., 100 requests per 1 second
 
-<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-rate-li-43-1-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-rate-li-43-1-1 (1).png" alt=""><figcaption></figcaption></figure>
 
 7. Click **Add policy**
 8. On the **Policies** page, click **Save**
 
-<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-rate-li-44-1-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-rate-li-44-1-1 (1).png" alt=""><figcaption></figcaption></figure>
 
 9. Click **Deploy API** to redeploy the API and have the changes take effect
 
@@ -171,21 +171,21 @@ Rate limiting policies can also be added during the API creation process. Let's 
 1. Complete the steps of the API creation wizard until it gets to the part about plans
 2. In the plans section, click **Add plan**. All created APIs will include a **Default Keyless (UNSECURED)** plan. You may modify or delete this plan.
 
-<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-rate-li-45-2-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-rate-li-45-2-1 (1).png" alt=""><figcaption></figcaption></figure>
 
 3. Click **API Key**
 4.  Enter a plan **Name**, **Description** (optional), and modify **Subscriptions** and **Access-Control** (optional)<br>
 
-    <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-ra-208.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-ra-208 (1).png" alt=""><figcaption></figcaption></figure>
 5. Click **Next**, then optionally propagate the API Key to upstream API or add a selectional rule
 
-<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-rate-li-47-2-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-rate-li-47-2-1 (1).png" alt=""><figcaption></figcaption></figure>
 
 6. Click **Next** to add Quota and/or Rate Limit policies
 
 The Spike Arrest policy cannot be added during the API creation process.
 
-<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-rate-li-48-2-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-rate-li-48-2-1 (1).png" alt=""><figcaption></figcaption></figure>
 
 7. Toggle Rate Limiting and/or Quota ON to configure rate limiting policies for the plan
 
@@ -196,9 +196,9 @@ Rate limiting policies added during the API creation process will applied to the
 * Enter a **Key** to specify the consumer group against which the policy will be applied (leave blank to use the default plan/subscription pair)
 * Enter values for **Max requests (static)**, **Time duration**, and **Time unit** intended for that consumer group
 
-<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-rate-li-49-2-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-rate-li-49-2-1 (1).png" alt=""><figcaption></figcaption></figure>
 
 9. Click **Add plan**
 10. Add additional plans or select **Validate my plans** to continue with the API creation process
 
-<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-rate-li-50-2-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-rate-li-50-2-1 (1).png" alt=""><figcaption></figcaption></figure>

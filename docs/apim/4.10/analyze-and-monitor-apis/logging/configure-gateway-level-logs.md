@@ -41,7 +41,7 @@ Limit logging duration to avoid excessive CPU/memory consumption and the prolong
 
 The default maximum duration is 90000 ms. This value logs minimal call information. A value of 0 is interpreted as no maximum duration.
 
-<figure><img src="../../.gitbook/assets/analyze-and-monitor-apis-logging-configu-360-1-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/analyze-and-monitor-apis-logging-configu-360-1-1 (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Audit
 
@@ -50,13 +50,13 @@ Enable the following options to track who accessed specific data from the audit 
 * **Enable audit on API Logging consultation:** Records who accessed API logs.
 * **Generate API Logging audit events (API\_LOGGING\_ENABLED, API\_LOGGING\_DISABLED, API\_LOGGING\_UPDATED):** Records changes to the API logging configuration.
 
-<figure><img src="../../.gitbook/assets/analyze-and-monitor-apis-logging-configu-361-1-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/analyze-and-monitor-apis-logging-configu-361-1-1 (1).png" alt=""><figcaption></figcaption></figure>
 
 ### User
 
 Enable **Display end user on API Logging (in case of OAuth2/JWT plan)** to include information about the end user in the logs. This is applicable to OAuth2 or JWT plans.
 
-<figure><img src="../../.gitbook/assets/analyze-and-monitor-apis-logging-configu-362-1-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/analyze-and-monitor-apis-logging-configu-362-1-1 (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Message sampling defaults and limits
 
@@ -78,7 +78,7 @@ Set the defaults and limits of the following strategies to control how messages 
     * **Default limit: 10** - No less than 10 messages should be sampled.<br>
 
     <figure><img src="../../.gitbook/assets/logging-count.png" alt=""><figcaption></figcaption></figure>
-*   **Temporal:** Messages are sampled at a specified time duration value that conforms to ISO-8601 format.&#x20;
+*   **Temporal:** Messages are sampled at a specified time duration value that conforms to ISO-8601 format.
 
     * **Default value: PT1S** - One message is sampled every seconds.
     * **Default limit: PT1S** - No less than one message per second can be logged.<br>
@@ -90,8 +90,6 @@ Set the defaults and limits of the following strategies to control how messages 
     * **Default limit: 1/PT1S** - One message cannot be sampled more than once per second.<br>
 
     <figure><img src="../../.gitbook/assets/logging-windowed.png" alt=""><figcaption></figcaption></figure>
-
-
 
 ## Message sampling system-level defaults
 
@@ -149,7 +147,7 @@ api:
 * **Probabilistic:** Must be a `double` < 1 representing a percentage.
 * **Count:** Must be an `integer`.
 * **Temporal:** Must be a `string` in ISO 8601 format.
-* **Windowed count:** Must be a `string`  formatted as `COUNT/DURATION`, where `COUNT` is a positive integer and `DURATION` is string in ISO 8601 format.
+* **Windowed count:** Must be a `string` formatted as `COUNT/DURATION`, where `COUNT` is a positive integer and `DURATION` is string in ISO 8601 format.
 
 ## Configure the maximum logged payload size
 
@@ -178,17 +176,17 @@ gateway:
 {% endtab %}
 {% endtabs %}
 
-You can use the following convention to set the max size: `{positive integer}[unit]`.&#x20;
+You can use the following convention to set the max size: `{positive integer}[unit]`.
 
 * `G` or `GB` for gigabytes
 * `M` or `MB` for megabytes
 * `K` or `KB` for kilobytes
 * `B` for bytes
-* No unit = `MB`&#x20;
+* No unit = `MB`
 
-For example: `4MB` equivalent of  `4M` or  `4096KB`.
+For example: `4MB` equivalent of `4M` or `4096KB`.
 
-## Available metrics&#x20;
+## Available metrics
 
 This section lists and describes available metrics specific to API Management.
 

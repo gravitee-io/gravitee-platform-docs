@@ -23,7 +23,7 @@ This guide explains how to add the **Rate Limit** policy to your API.
     <figure><img src="../../.gitbook/assets/D2F7C967-F0C7-4992-984D-0684E5BE02C4.jpeg" alt=""><figcaption></figcaption></figure>
 2.  Click your API that you created in [create-an-api.md](create-an-api.md "mention").
 
-    <figure><img src="../../.gitbook/assets/gs-first-api-add-a-policy-321.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gs-first-api-add-a-policy-321 (1).png" alt=""><figcaption></figcaption></figure>
 3.  Click **Policies**.
 
     <figure><img src="../../.gitbook/assets/241E3A83-3746-47BA-9361-76312CA849E5.jpeg" alt=""><figcaption></figcaption></figure>
@@ -50,7 +50,7 @@ This guide explains how to add the **Rate Limit** policy to your API.
     <figure><img src="../../.gitbook/assets/1E2DDE15-217B-45E8-A1E6-20A12282B0E8.jpeg" alt=""><figcaption></figcaption></figure>
 11. In the **Deploy your API** pop-up window, click **Deploy**.
 
-    <figure><img src="../../.gitbook/assets/gs-first-api-add-a-policy-322.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/gs-first-api-add-a-policy-322 (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Verification
 

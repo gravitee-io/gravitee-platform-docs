@@ -61,7 +61,7 @@ Within your APIs' _Policies_ page, ensure you have created a _Flow_. If not, the
 
 1. Click the \[+] button (within the **Request phase**) to add a new Policy into your Flow.
 
-<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-aggrega-4-1 (1).png" alt=""><figcaption><p>Click on the [+] button - within the Request phase - to add a new HTTP Callout Policy into the Flow</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-aggrega-4-1.png" alt=""><figcaption><p>Click on the [+] button - within the Request phase - to add a new HTTP Callout Policy into the Flow</p></figcaption></figure>
 
 2. Browse the list of policies for the HTTP Callout policy, and click Select.
 3. Provide the necessary information, such as the HTTP method and URL. Optional fields include the request headers and request body.

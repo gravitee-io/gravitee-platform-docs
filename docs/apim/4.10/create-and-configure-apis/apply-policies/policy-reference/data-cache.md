@@ -68,19 +68,19 @@ The full example is shown below:
 {% tab title="Policy Studio" %}
 The sequence of policies is as follows:
 
-<figure><img src="../../../.gitbook/assets/config-apis-apply-policies-policy-r-145.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/config-apis-apply-policies-policy-r-145 (1).png" alt=""><figcaption></figcaption></figure>
 
 The configuration for the first data cache policy is:
 
-<figure><img src="../../../.gitbook/assets/config-apis-apply-policies-policy-r-146.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/config-apis-apply-policies-policy-r-146 (1).png" alt=""><figcaption></figcaption></figure>
 
 Then the HTTP Callout policy has a trigger condition representing the attribute. The return value is put in a context variable called `access-token`:
 
-<figure><img src="../../../.gitbook/assets/create-and-configure-apis-apply-policies-147-1-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/create-and-configure-apis-apply-policies-147-1-1 (1).png" alt=""><figcaption></figcaption></figure>
 
 Lastly, if the first policy resulted in a cache miss, put the token from the HTTP callout policy in the cache:
 
-<figure><img src="../../../.gitbook/assets/config-apis-apply-policies-policy-r-148.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/config-apis-apply-policies-policy-r-148 (1).png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="API Definition" %}
