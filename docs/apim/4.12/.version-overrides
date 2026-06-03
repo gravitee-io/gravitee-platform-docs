@@ -42,3 +42,5 @@ analyze-and-monitor-apis/configure-gateway-for-opentelemetry-logs.md
 analyze-and-monitor-apis/enable-and-use-opentelemetry-logs-for-apis.md
 analyze-and-monitor-apis/opentelemetry-logs-integration-overview.md
 plugins/plugin-reference.md
+create-and-configure-apis/configure-v4-apis/documentation.md
+developer-portal/new-developer-portal/api-overview-page-templates.md
