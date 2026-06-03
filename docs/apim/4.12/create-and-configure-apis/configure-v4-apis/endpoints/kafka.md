@@ -19,6 +19,15 @@ To proxy a Kafka cluster using the native Kafka protocol (over TCP), use the [Gr
 
 This page discusses the [configuration](kafka.md#configuration) and [implementation](kafka.md#implementation) of the Kafka endpoint and includes a [reference](kafka.md#reference) section.
 
+### Routing Modes for Native Kafka APIs
+
+Native Kafka APIs support two routing strategies controlled by the gateway configuration property `kafka.routingMode`:
+
+- **Host routing (SNI-based):** Uses a single bootstrap port for all APIs and routes traffic based on the hostname in the TLS handshake. This is the default mode when `kafka.routingMode` is unset or unrecognized.
+- **Port routing:** Assigns each plan a dedicated bootstrap port and broker port range, routing traffic based on the destination port. This mode allows multiple Kafka APIs to coexist on the same gateway instance without requiring distinct hostnames.
+
+Port routing is designed for environments where SNI-based routing is impractical or unavailable. To enable port routing, set `kafka.routingMode=port` in the gateway configuration. For detailed configuration and usage instructions, refer to the [Kafka Gateway documentation](../../../kafka-gateway/).
+
 ## Configuration
 
 For the API to connect to the Kafka cluster, it is required to configure a bootstrap server list and, when consuming, a list of topics. You can [override the default configuration](kafka.md#user-content-dynamic-configuration) for the topics at runtime.
@@ -31,8 +40,8 @@ You first define a comma-separated list of host/port pairs to use for establishi
 
 You can configure the Kafka client to act as a producer, a consumer, or both a producer and consumer. Choose **Use Consumer**, **Use Producer**, or **Use Consumer and Producer** from the drop-down menu to do one of the following:
 
-* **Use Producer:** the gateway's Kafka client can only produce to the configured topic. Use this option if you want to only allow publishing data to the cluster. This can be used with the HTTP POST and Websocket entrypoints.
-* **Use Consumer:** the gateway's Kafka cluster can only consume messages from the configured topic list. Use this option if you want to allow only consuming data from the cluster. This can be used with the HTTP GET, Websocket, Webhook, and SSE entrypoints.
+* **Use Producer:** the gateway's Kafka client can only produce to the configured topic. Use this option if you want to only allow publishing data to the cluster. This can be used with the HTTP POST and WebSocket entrypoints.
+* **Use Consumer:** the gateway's Kafka cluster can only consume messages from the configured topic list. Use this option if you want to allow only consuming data from the cluster. This can be used with the HTTP GET, WebSocket, Webhook, and SSE entrypoints.
 * **Use Producer and Consumer:** clients can both consume from topics and produce messages to topics on the cluster.
 
 ### Endpoint security settings
@@ -192,7 +201,7 @@ Also, you can define specific Kafka client configurations using the [Assign Attr
 * To override the consumer group, set `gravitee.attribute.kafka.groupId`. If you cannot create consumer groups in your cluster, you may need to set this attribute .
 * To override the record key, set `gravitee.attribute.kafka.recordKey`.
 
-### Documentation for Specific Environments
+## Documentation for Specific Environments
 
 The following situations require special configuration.
 

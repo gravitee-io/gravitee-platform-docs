@@ -42,3 +42,11 @@ analyze-and-monitor-apis/configure-gateway-for-opentelemetry-logs.md
 analyze-and-monitor-apis/enable-and-use-opentelemetry-logs-for-apis.md
 analyze-and-monitor-apis/opentelemetry-logs-integration-overview.md
 plugins/plugin-reference.md
+.gitbook/assets/plan-bootstrap-port-filled.png
+.gitbook/assets/plan-broker-range-end-filled.png
+.gitbook/assets/plan-broker-range-start-filled.png
+.gitbook/assets/plan-broker-range-warning.png
+create-and-configure-apis/configure-v4-apis/endpoints/kafka.md
+kafka-gateway/configure-the-kafka-client-and-gateway.md
+kafka-gateway/configuring-kafka-port-routing-gateway-and-console.md
+kafka-gateway/creating-and-updating-plans-with-port-routing.md

@@ -387,6 +387,8 @@
   * [Gravitee Resources](terraform/example-resource-configurations.md)
 * [Kafka Gateway](kafka-gateway/README.md)
   * [Configure the Kafka Client & Gateway](kafka-gateway/configure-the-kafka-client-and-gateway.md)
+  * [Configuring Kafka Port Routing (Gateway and Console)](kafka-gateway/configuring-kafka-port-routing-gateway-and-console.md)
+  * [Creating and Updating Plans with Port Routing](kafka-gateway/creating-and-updating-plans-with-port-routing.md)
   * [Deploy a Kafka Gateway with Gravitee Cloud](kafka-gateway/deploy-a-kafka-gateway-with-gravitee-cloud.md)
   * [Produce and Consume Kafka Messages with Gravitee Cloud](kafka-gateway/produce-and-consume-kafka-messages-with-gravitee-cloud.md)
   * [Create & Configure Kafka APIs](kafka-gateway/create-and-configure-kafka-apis/README.md)

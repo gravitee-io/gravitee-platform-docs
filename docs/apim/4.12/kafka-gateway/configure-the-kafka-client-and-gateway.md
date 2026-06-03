@@ -20,11 +20,10 @@ Running the Kafka Gateway requires an Enterprise license with the Kafka Gateway 
 To run the Kafka Gateway, enable the Gateway server in `gravitee.yml`. The full example of the configuration is defined [below](configure-the-kafka-client-and-gateway.md#appendix-full-gateway-configuration). The baseline required configuration is:
 
 ```yaml
-
 kafka:
   enabled: true
 
-  routingMode: host # default is host. Only host is supported for now.
+  routingMode: host # default is host. Supported values: host, port. For port-based routing, see [Port allocation for port-based routing](configure-the-kafka-client-and-gateway.md#port-allocation-for-port-based-routing).
   # Routing Host Mode
   routingHostMode:
     brokerPrefix: "broker-" # default is broker-
@@ -52,7 +51,6 @@ kafka:
 If you have restrictions on the domain names you can use for APIs, you can override the default hostname by updating the Gateway configuration. For example, instead of `{apiHost}.{defaultDomain}` as the hostname, you can set the pattern to `my-bootstrap-{apiHost}.mycompany.org` by configuring the variables below:
 
 ```yaml
-
 kafka:
   enabled: true
 
@@ -94,7 +92,6 @@ The mapping combines the `brokerPrefix`, `brokerSeparator`, and `defaultDomain` 
 If you have restrictions on the domain names you can use for APIs, then, as [above](configure-the-kafka-client-and-gateway.md#what-if-i-have-restrictions-on-the-domains-i-can-use), you can override the broker domain pattern. The configuration will then be as follows (with `brokerDomainPattern` being the relevant option):
 
 ```yaml
-
 kafka:
   enabled: true
 
@@ -144,6 +141,27 @@ To add more APIs, you will need to add another API host to the first line and tw
 ```
 
 </details>
+
+### Port allocation for port-based routing
+
+When using port-based routing, each plan requires three port values:
+
+* **Bootstrap port**: The entry point clients use to connect (range: 1024–65535).
+* **Broker range start**: The beginning of the contiguous port range allocated for backend Kafka brokers (range: 1024–65535).
+* **Broker range end**: The end of the contiguous port range allocated for backend Kafka brokers (range: 1024–65535).
+
+The broker range must not overlap with the bootstrap port or with port allocations from other plans in the same environment.
+
+### Port conflict detection
+
+The Gateway enforces four conflict rules within each environment to prevent port allocation conflicts:
+
+* Broker ranges from different plans cannot overlap.
+* A plan's bootstrap port cannot fall within another plan's broker range.
+* A plan's broker range cannot contain another plan's bootstrap port.
+* Bootstrap ports must be unique across all plans.
+
+Conflict detection runs before plan creation or update and blocks operations that would violate these rules.
 
 ### Configure mTLS authentication
 
@@ -288,7 +306,6 @@ The following example provides a template for how to produce and consume message
 Here is a reference for the full server configuration of the Kafka Gateway.
 
 ```yaml
-
 kafka:
   enabled: false
 
