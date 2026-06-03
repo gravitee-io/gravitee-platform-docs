@@ -59,6 +59,17 @@
 * The `service.name` must match between tracer and logger (default: `gio_apim_gateway`) for Grafana correlation to function correctly.
 <!-- /PIPELINE:APIM-13463 -->
 
+
+<!-- PIPELINE:APIM-13459 -->
+#### **Portal Analytics Dashboards**
+
+* API consumers and administrators can now view pre-configured analytics dashboards in the New Developer Portal, displaying API traffic, performance, and usage metrics through customizable widgets (stats, charts, time-series).
+* Dashboards aggregate data from HTTP requests, response times, and status codes, with filtering by API, application, or HTTP status. Users can pin up to 4 dashboards for quick access.
+* Access is controlled by user role and API/application visibility. Environment administrators see all APIs but no application data; authenticated users see authorized APIs and their own applications.
+* Requires `PORTAL_NEXT_ANALYTICS_ENABLED=true` environment parameter and `portalNext.analytics.enabled=true` portal configuration flag.
+* Dashboards are environment-scoped and isolated—cross-environment access returns 404 errors.
+<!-- /PIPELINE:APIM-13459 -->
+
 ## Improvements
 
 
