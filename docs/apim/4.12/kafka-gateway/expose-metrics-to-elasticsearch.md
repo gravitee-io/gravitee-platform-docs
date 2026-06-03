@@ -69,6 +69,8 @@ The Gateway collects metrics when your API produces or consumes Kafka messages. 
 
 The following tables describe all available metrics collected by the Elasticsearch reporter.
 
+Native API connection metrics are stored in Elasticsearch or OpenSearch as additional metric keys when connection metrics reporting is enabled. Retention settings configured in your Elasticsearch Index Lifecycle Management policy affect the availability of connection logs.
+
 ### Common dimensions
 
 All metrics include the following dimensions for filtering and grouping data:
