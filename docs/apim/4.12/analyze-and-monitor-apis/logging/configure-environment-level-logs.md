@@ -26,7 +26,7 @@ The logs table displays a paginated list of log entries across all v4 proxy APIs
 * **Timestamp:** The date and time of the request.
 * **HTTP method:** The HTTP method used in the request.
 * **Status:** The HTTP response status code.
-* **API:** The name of the API that received the request.
+* **API:** The name of the API that received the request. When a log entry is associated with an API Product, the product name appears in a lighter font beneath the API name. Logs from standalone APIs display **Standalone API** as the product name.
 * **Path:** The request path.
 * **Application:** The application that made the request.
 * **Plan:** The plan associated with the API call.
@@ -64,9 +64,10 @@ The **More** button opens a panel with additional filtering options, which are o
 
 * **Transaction ID:** Filter by a transaction ID (UUID format) to find all requests associated with a specific transaction.
 * **Request ID:** Filter by a specific request ID (UUID format) to locate an individual request.
-* **URI:** Filter by request path. Dor example, `/api/v1/users`.
+* **URI:** Filter by request path. For example, `/api/v1/users`.
 * **Response time (ms):** Filter for requests with a response time greater than or equal to the specified value, in milliseconds.
 * **Error Types:** Filter by specific error types. The available options are dynamically populated based on errors observed within the selected date range.
+* **API Product:** Filter by one or more API Products using the `apiProductIds` query parameter. This parameter accepts an array of API Product IDs and is only supported for v4 APIs. The filter returns logs where the API Product ID field matches one of the provided IDs. API Product IDs are not indexed in analytics log records; filter queries always hit the database.
 
 You can combine multiple filters to refine the results. Applied filters appear after the filter bar. Use the **Reset filters** button to clear all active filters.
 
@@ -81,7 +82,7 @@ To view the details of any entry in the list of logs, click the entry in the log
 The log details page shows the following information:
 
 * The **Overview** section provides general information about the request and response phases, including the timestamp, HTTP method, path, and response status.
-* The **More details** dropdown menu shows information about the application, plan, endpoint, Gateway host, and Gateway IP associated with the request.
+* The **More details** dropdown menu shows information about the application, plan, endpoint, Gateway host, and Gateway IP associated with the request. The **API Product** field displays the resolved product name or a dash (`—`) when no product is associated.
 * The **Request** panel shows the HTTP method and URI for the Gateway and consumer, the headers sent in the request phase, and the request body.
 * The **Response** panel shows the status of the Gateway and consumer, the headers sent in the response phase, and the body returned in the response.
 
