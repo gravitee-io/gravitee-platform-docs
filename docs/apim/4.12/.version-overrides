@@ -73,3 +73,8 @@ configure-and-manage-the-platform/gravitee-gateway/span-attribute-redaction-over
 developer-portal/new-developer-portal/api-overview-page-templates.md
 developer-portal/new-developer-portal/customize-the-navigation.md
 developer-portal/new-developer-portal/gravitee-markdown-components.md
+.gitbook/assets/wsdl-format-selected.png
+.gitbook/assets/wsdl-options-default.png
+.gitbook/assets/wsdl-review-rest-to-soap-enabled.png
+create-and-configure-apis/apply-policies/policy-reference/rest-to-soap.md
+create-and-configure-apis/create-apis/wsdl-import-for-v4-apis.md
