@@ -38,10 +38,10 @@ To import your API:
 
     <figure><img src="../../.gitbook/assets/00 import 2.png" alt=""><figcaption></figcaption></figure>
 5. Choose an **API format**. You can select either **Gravitee definition** or **OpenAPI specification**.
-6.  Choose a **File source**.
-
-    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p><strong>Local file</strong> is currently the only supported <strong>File source</strong>.</p></div>
-7. Drag and drop your API file into the **File** panel. Supported file formats are YML, YAML, and JSON.
+6. Choose a **File source**.
+   * **Local file**: Drag and drop your API file into the **File** panel. Supported file formats are YML, YAML, and JSON.
+   * **Remote source** (v4 APIs only): Provide an HTTP(S) URL to a Gravitee definition or OpenAPI specification. The gateway fetches the definition server-side. Remote URLs must match the [configured import whitelist](../../prepare-a-production-environment/configuring-the-import-whitelist.md). For detailed instructions, see [Import and Update APIs from Remote URLs](import-and-update-apis-from-remote-urls.md).
+7. If you selected **Local file**, drag and drop your API file into the **File** panel. If you selected **Remote source**, enter the URL in the **URL** field.
 8. If you selected **OpenAPI specification** as the API format, you can choose to enable the following:
    *   **Create documentation page from spec.** This creates an API documentation page from the imported OpenAPI specification.
 

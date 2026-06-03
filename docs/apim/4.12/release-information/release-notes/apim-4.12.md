@@ -59,6 +59,16 @@
 * The `service.name` must match between tracer and logger (default: `gio_apim_gateway`) for Grafana correlation to function correctly.
 <!-- /PIPELINE:APIM-13463 -->
 
+
+<!-- PIPELINE:APIM-12146 -->
+#### **API Import from Remote URLs**
+
+* Create and update v4 APIs by importing Gravitee API definitions or OpenAPI specifications from remote HTTP(S) endpoints.
+* The gateway fetches definitions server-side, eliminating browser CORS restrictions and enforcing URL whitelist validation and SSRF protection.
+* Configure the import whitelist and private-address policy in the gateway's `ImportConfiguration` to control which remote sources are permitted.
+* Remote URLs must match at least one pattern in the configured whitelist; private or link-local addresses require the `allowImportFromPrivate` flag to be enabled.
+<!-- /PIPELINE:APIM-12146 -->
+
 ## Improvements
 
 
