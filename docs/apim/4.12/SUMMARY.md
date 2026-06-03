@@ -91,6 +91,8 @@
     * [Tenants](configure-and-manage-the-platform/gravitee-gateway/tenants.md)
     * [Header IDs](configure-and-manage-the-platform/gravitee-gateway/header-ids.md)
     * [Gateway Cluster sync with Redis](configure-and-manage-the-platform/gravitee-gateway/gateway-cluster-sync-with-redis/README.md)
+     * [Gateway Cluster sync with Redis](configure-and-manage-the-platform/gravitee-gateway/gateway-cluster-sync-with-redis/gateway-cluster-sync-with-redis-using-docker.md)
+     * [Gateway Cluster sync with Redis using Kubernetes (Helm)](configure-and-manage-the-platform/gravitee-gateway/gateway-cluster-sync-with-redis/gateway-cluster-sync-with-redis-using-kubernetes-helm.md)
     * [Gateway Configuration for mTLS Certificate Management](configure-and-manage-the-platform/gravitee-gateway/gateway-configuration-for-mtls-certificate-management.md)
   * [Management API](configure-and-manage-the-platform/management-api/README.md)
     * [MAPI Internal API](configure-and-manage-the-platform/management-api/mapi-internal-api.md)
