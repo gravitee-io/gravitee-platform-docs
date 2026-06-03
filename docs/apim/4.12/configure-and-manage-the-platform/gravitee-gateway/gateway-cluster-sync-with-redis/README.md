@@ -226,7 +226,7 @@ To configure the distributed sync, follow the instructions that are relevant for
 2. Create the Hazelcast configuration `ConfigMap` using the top-level `extraObjects` value. Hazelcast requires an XML configuration for pods to discover each other. For Kubernetes, use Hazelcast Kubernetes discovery. For more information about Hazelcast Kubernetes discovery, see the [Kubernetes auto discovery documentation](https://docs.hazelcast.com/hazelcast/5.4/kubernetes/kubernetes-auto-discovery).
 
     {% hint style="warning" %}
-    `<service-port>5701</service-port>` is mandatory. Without the service port, the pod-label discovery of Hazelcast silently fails. Peer pods are discovered, but the cluster never forms because port `5701` is not declared as a `containerPort` on the gateway deployment. The `<service-port>` element tells Hazelcast which port to use against the discovered pods directly. This bypasses the missing `containerPort` or Service entry.
+    `<service-port>5701</service-port>` is mandatory. Without the service port, the pod-label discovery of Hazelcast silently fails. Peer pods are discovered, but the cluster never forms because port `5701` is not declared as a `containerPort` on the Gateway deployment. The `<service-port>` element tells Hazelcast which port to use against the discovered pods directly. This bypasses the missing `containerPort` or Service entry.
     {% endhint %}
 
     {% code title="values.yaml" %}
