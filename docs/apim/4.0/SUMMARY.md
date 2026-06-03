@@ -7,7 +7,7 @@
 * [Plugins](overview/plugins.md)
 * [Integrations](overview/integrations.md)
 * [Gravitee APIM Enterprise Edition](overview/ee-vs-oss/README.md)
-  * [Enterprise Edition Licensing](https://documentation.gravitee.io/platform-overview/gravitee-essentials/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing)
+  * [Enterprise Edition Licensing](https://documentation.gravitee.io/apim/readme/enterprise-edition-licensing)
 * [Gravitee API Definitions and Execution Engines](overview/gravitee-api-definitions-and-execution-engines/README.md)
   * [Reactive execution engine](overview/gravitee-api-definitions-and-execution-engines/reactive-execution-engine.md)
   * [Policy execution](overview/gravitee-api-definitions-and-execution-engines/policy-execution.md)

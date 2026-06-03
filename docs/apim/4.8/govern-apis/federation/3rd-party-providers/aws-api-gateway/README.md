@@ -15,7 +15,7 @@ Before you install the AWS API Gateway federation agent, complete the following 
 * An AWS account with permissions to access the AWS API Gateway console.
 * AWS authentication credentials: access key and secret, or IAM `role/instanceRole-based` authentication.
 * The account needs a minimum set of permissions for the federation agent. See [#minimum-aws-permissions-required-by-the-agent](./#minimum-aws-permissions-required-by-the-agent "mention") for the complete list.
-* Gravitee API Management version 4.4 or later, with an enterprise license. For more information about Enterprise edition, see [Enterprise Edition Licensing.](https://documentation.gravitee.io/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing#license-support)
+* Gravitee API Management version 4.4 or later, with an enterprise license. For more information about Enterprise edition, see [Enterprise Edition Licensing.](https://documentation.gravitee.io/apim/readme/enterprise-edition-licensing#license-support)
 * A Federation agent service account. For more information,[ see how to create a service account and an access token.](../../federation-agent-service-account.md)
 
 ## Integrate AWS API Gateway with Gravitee APIM

@@ -16,4 +16,4 @@ The following table shows the expected timeline for the upcoming releases of maj
 | 4.13    | Second half of October |
 | 4.14    | First half of January  |
 
-For more information about versions of Gravitee that have been released, see [support-model](support-model/ "mention").
+For more information about versions of Gravitee that have been released, see [Support Model](support-model.md).
