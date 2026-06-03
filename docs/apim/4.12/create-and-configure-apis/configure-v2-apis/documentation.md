@@ -40,8 +40,14 @@ To import documentation:
        * ASYNCAPI
        * SWAGGER
        * MARKDOWN
-     * At the bottom of the configuration page, click **Choose File**.
-     * After you select your file, click **SAVE**.
+       * WSDL
+     * Configure the import options:
+       * **Payload**: Upload a WSDL file or enter a remote HTTP(S) URL
+       * **Apply REST to SOAP Transformer policy**: Toggle to enable REST-to-SOAP transformation (enabled by default when the `rest-to-soap` policy is installed)
+       * **Create documentation page from spec**: Toggle to publish a Swagger page from the converted OpenAPI specification (enabled by default when REST to SOAP Transformer is enabled)
+       * **Add OAS Validation policy**: Toggle to validate requests and responses against the converted OpenAPI spec (enabled by default when REST to SOAP Transformer is enabled and the `oas-validation` policy is installed)
+     * At the bottom of the configuration page, click **Choose File** (for inline WSDL) or enter the URL.
+     * After you configure your import, click **SAVE**.
 
 ## Create API documentation
 
@@ -60,7 +66,7 @@ To import documentation:
    3. Define how to create, or get, the documentation content:
       * Fill in the documentation inline yourself: If you select this option, you'll be given the option to start typing your documentation
       * Import the documentation from a file
-      * Import documentation from an external source: Gravitee supports Bitbucket, git repository, Github, GitLab, and public URLs
+      * Import documentation from an external source: Gravitee supports Bitbucket, git repository, GitHub, GitLab, and public URLs
 8. Click **SAVE**
 
 ## Add API metadata

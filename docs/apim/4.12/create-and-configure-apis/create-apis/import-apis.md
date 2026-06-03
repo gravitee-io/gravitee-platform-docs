@@ -23,6 +23,19 @@ When you import an API with a JSON payload that has duplicate keys, APIM keeps t
 To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection.md](../apply-policies/policy-reference/json-threat-protection.md "mention").
 {% endhint %}
 
+#### Import Payload Types
+
+AM supports two methods for importing WSDL documents:
+
+| Type | Description | Validation |
+|:-----|:------------|:-----------|
+| INLINE | Raw WSDL content uploaded as a string (file upload) | No URL validation; content parsed directly |
+| URL | Remote HTTP(S) URL pointing to a WSDL document | Validated against import whitelist and private-network settings |
+
+{% hint style="info" %}
+When using the **URL** type, ensure the remote endpoint is accessible and complies with your organization's security policies. The URL will be validated against configured import whitelists and private network restrictions.
+{% endhint %}
+
 ## Import your API
 
 To import your API:
@@ -54,6 +67,27 @@ To import your API:
 {% hint style="success" %}
 Once you've imported your API, it will be created as a private API and you will be brought to the API menu and details page.
 {% endhint %}
+
+## Restrictions
+
+* Only WSDL 1.1 is supported.
+* Invalid WSDL documents will throw a `SwaggerDescriptorException`.
+* WSDL import from private or local URLs is blocked by default unless `importConfiguration.isAllowImportFromPrivate()` is `true`.
+* When `allowImportFromPrivate = false`, the following URL patterns are blocked:
+  * `http://localhost:*`
+  * `http://127.0.0.1/*`
+  * `http://169.254.*` (link-local)
+  * `http://192.168.*` (private network)
+  * `file:///*`
+  * `ftp://*`
+* The `withPolicies` field accepts policy visitor IDs as strings. Invalid IDs are not validated at the API layer.
+* When `withPolicies` contains `rest-to-soap`, the OpenAPI Specification Validation policy is split into two flows:
+  * Request validation in the first flow
+  * Response validation in the last flow
+  
+  This split accommodates SOAP transformation.
+* When `withPolicies` is an empty list, no flows are generated (`skipFlows = true`).
+* When `withPolicies` is `null`, flows are generated from OpenAPI paths (`skipFlows = false`).
 
 ## Import an OpenAPI spec
 
@@ -153,7 +187,7 @@ To use a vendor extension, add the `x-graviteeio-definition` field at the root o
   * URL
 * Picture only accepts Data-URI format. Please see the example below.
 
-<pre class="language-yaml" data-title="Example"><code class="lang-yaml"><strong>openapi: "3.0.0"
+<pre class="language-yaml" data-title="Example"><code class="lang-yaml"><strong>OpenAPI: "3.0.0"
 </strong>info:
   version: 1.2.3
   title: Gravitee Echo API
@@ -267,7 +301,6 @@ Importing endpoints allows you to import an API from an API definition. The HTTP
 #### Creating a new API from an API definition
 
 To create a new API from an API definition, use [`POST /api/import`](https://gravitee-io-labs.github.io/mapi-v1-docs/#tag/apis/post/organizations/{orgId}/environments/{envId}/apis/import).
-
 *   In the API definition, set the `crossId` that will identify your API (and related entities) across environments. You can assign any string to this `crossId`.
 
     <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>An error will be raised if there is already an existing API in the target environment with the same <code>crossId</code>.</p></div>
@@ -368,3 +401,12 @@ Use the APIM Console.
     ```
 
 </details>
+
+
+<figure><img src="../../.gitbook/assets/wsdl-options-default.png" alt="WSDL import options with REST to SOAP Transformer enabled by default"><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/wsdl-file-uploaded.png" alt="WSDL file uploaded in payload field"><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/wsdl-format-selected.png" alt="WSDL format card selected in API import form"><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/wsdl-rest-to-soap-disabled.png" alt="REST to SOAP Transformer toggle disabled, dependent toggles grayed out"><figcaption></figcaption></figure>

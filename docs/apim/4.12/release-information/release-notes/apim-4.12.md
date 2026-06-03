@@ -59,6 +59,17 @@
 * The `service.name` must match between tracer and logger (default: `gio_apim_gateway`) for Grafana correlation to function correctly.
 <!-- /PIPELINE:APIM-13463 -->
 
+
+<!-- PIPELINE:APIM-12279 -->
+#### **WSDL Import for v4 APIs**
+
+* Import WSDL 1.1 documents to create or update v4 HTTP Proxy APIs via file upload or remote URL.
+* WSDL is automatically converted to OpenAPI 3 specification, with SOAP operations mapped to REST paths and SOAP metadata preserved as OpenAPI extensions.
+* Enable the REST to SOAP Transformer policy during import to generate per-operation flows that translate REST/JSON calls to SOAP/XML.
+* OpenAPI Specification Validation policy can be applied to validate requests and responses against the converted specification.
+* URL-based imports are subject to import whitelist and private-network validation settings.
+<!-- /PIPELINE:APIM-12279 -->
+
 ## Improvements
 
 
