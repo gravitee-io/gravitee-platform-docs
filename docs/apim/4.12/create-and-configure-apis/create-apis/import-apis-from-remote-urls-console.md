@@ -17,11 +17,11 @@
 
 6. Complete the import wizard and review the API configuration.
 
-The Console sends a `POST` request to `/environments/{envId}/apis/_import/definition-url` with the URL as plain text. The Management API validates the URL against the whitelist, fetches the definition, and creates the API.
+The Console sends a `POST` request to `/environments/{envId}/apis/_import/definition-url` with the URL as plain text. The Management API validates the URL (SSRF protection and, if configured, the import whitelist), fetches the definition, and creates the API.
 
 | Field | Description |
 |:------|:------------|
-| **Remote URL** | The HTTP(S) URL of the Gravitee API definition JSON file. Must be permitted by the import whitelist. |
+| **Remote URL** | The HTTP(S) URL of the Gravitee API definition JSON file. If an import whitelist is configured, the URL must match it. |
 
 ### OpenAPI/Swagger Import
 
@@ -38,7 +38,7 @@ The Console sends a `POST` request to `/environments/{envId}/apis/_import/swagge
 
 | Field | Description |
 |:------|:------------|
-| **Remote URL** | The HTTP(S) URL of the OpenAPI or Swagger specification file. Must be permitted by the import whitelist. |
+| **Remote URL** | The HTTP(S) URL of the OpenAPI or Swagger specification file. If an import whitelist is configured, the URL must match it. |
 | **Import Documentation** | When enabled, imports API documentation from the OpenAPI specification. |
 | **Create a Policy to Validate Requests According to the OpenAPI Specification** | When enabled, adds an OAS validation policy to the API. |
 

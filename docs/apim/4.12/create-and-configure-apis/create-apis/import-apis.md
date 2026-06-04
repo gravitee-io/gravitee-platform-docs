@@ -40,7 +40,7 @@ To import your API:
 5. Choose an **API format**. You can select either **Gravitee definition** or **OpenAPI specification**.
 6.  Choose a **File source**. You can select either **Local file** or **Remote source**.
 
-    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p><strong>Remote source</strong> is available only for v4 APIs. Remote URLs must match the configured import whitelist and are subject to SSRF protection. For more information, see <a href="remote-url-import-concepts-and-security.md">Remote URL Import: Concepts and Security</a>. When private-address blocking is enabled, URLs resolving to private, link-local, or loopback addresses are rejected.</p></div>
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p><strong>Remote source</strong> is available only for v4 APIs. Remote URLs are subject to SSRF protection and, if an import whitelist is configured, must match it. For more information, see <a href="remote-url-import-concepts-and-security.md">Remote URL Import: Concepts and Security</a>. When private-address blocking is enabled, URLs resolving to private, link-local, or loopback addresses are rejected.</p></div>
 
 ### Import from Local File
 
@@ -56,7 +56,7 @@ To import your API:
 
 ### Import from Remote URL
 
-7. Enter the remote URL in the **Remote URL** field. The URL must be permitted by the configured import whitelist.
+7. Enter the remote URL in the **Remote URL** field. If an import whitelist is configured, the URL must match it.
 8. If you selected **OpenAPI specification** as the API format, you can choose to enable the following:
    *   **Create documentation page from spec.** This creates an API documentation page from the imported OpenAPI specification.
 
