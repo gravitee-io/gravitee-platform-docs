@@ -14,7 +14,7 @@ Navigate to the analytics dashboard and open the filter bar. Select **API Produc
 
 ### Viewing API Product Information in Environment Logs
 
-The environment logs table displays the API Product name below the API name in the **API** column. When a log entry is associated with an API Product, the product name appears in a lighter font beneath the API name. Logs from standalone APIs display **Standalone API** as the product name. Open the log detail panel to view the **API Product** field in the **More Details** section; this field shows the resolved product name or a dash (`—`) when no product is associated.
+The environment logs table displays the API Product name below the API name in the **API** column. When a log entry is associated with an API Product, the product name appears in a lighter font beneath the API name. Logs from standalone APIs display **Standalone API** as the product name. Open the log detail panel to view the **API Product** field in the **More Details** section.
 
 ### Filtering Environment Logs by API Product
 
