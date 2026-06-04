@@ -27,6 +27,17 @@
 * Designed for AI agents and Model Context Protocol (MCP) clients requiring agent-driven authentication workflows without manual registration.
 <!-- /PIPELINE:AM-6906 -->
 
+
+<!-- PIPELINE:AM-6980 -->
+#### **Application Filtering, Cursor Pagination, and Expand Parameters**
+
+* Filter applications by status (`enabled`/`disabled`) and owner email address using query parameters on the application list API.
+* Expand API responses to include OAuth client IDs with the `expand=clientId` parameter, reducing the need for follow-up API calls.
+* Use cursor-based pagination (`/applications/search/_cursor`) for efficient traversal of large application datasets with opaque Base64-encoded tokens.
+* Combine filters with AND logic (status and owner) and OR logic (application types) to enable granular application discovery workflows.
+* Requires `DOMAIN_APPLICATION[LIST]` permission for the target domain and `ORGANIZATION_USER[READ]` permission to filter by owner email.
+<!-- /PIPELINE:AM-6980 -->
+
 ## Improvements
 
 ## Bug Fixes
