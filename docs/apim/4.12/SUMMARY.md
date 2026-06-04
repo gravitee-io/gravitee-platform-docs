@@ -300,7 +300,6 @@
   * [API Products configuration reference](secure-and-expose-apis/api-products-configuration-reference.md)
 * [Developer Portal](developer-portal/README.md)
   * [New Developer Portal](developer-portal/new-developer-portal/README.md)
-    * [API Overview Page Templates](developer-portal/new-developer-portal/api-overview-page-templates.md)
     * [Catalog](developer-portal/new-developer-portal/catalog.md)
     * [Configure mTLS certificate management (administrator guide)](developer-portal/new-developer-portal/configuring-mtls-certificate-management-administrator-guide.md)
     * [Create an Application](developer-portal/new-developer-portal/create-an-application.md)
