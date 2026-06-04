@@ -49,6 +49,14 @@
 <!-- /PIPELINE:APIM-13461 -->
 
 
+<!-- PIPELINE:APIM-12132 -->
+#### **Import and Update v4 APIs from OpenAPI and Gravitee Definitions**
+
+* Import or update v4 HTTP Proxy, Message, and Native APIs using Gravitee v4 API definitions or OpenAPI Specifications (JSON/YAML) from local files or remote URLs.
+* Imported definitions fully overwrite existing API configurations, including endpoints, flows, plans, pages, and metadata, while preserving API ID and deployment state.
+* OpenAPI imports automatically generate flows and endpoints, with optional documentation page creation and OAS Validation policy attachment.
+* Requires `API_DEFINITION[UPDATE]` permission and is unavailable for Kubernetes-managed APIs or v2 APIs (which use the legacy import dialog).
+<!-- /PIPELINE:APIM-12132 -->
 <!-- PIPELINE:APIM-13463 -->
 #### **OpenTelemetry Logs Integration for Log-to-Trace Correlation**
 
@@ -69,6 +77,14 @@
 * Access requires `api-native_log-r` permission for list view and summary, plus `api-native_analytics-r` permission to inspect individual connection details.
 * Requires Elasticsearch or OpenSearch reporter configuration to store and retrieve connection log data.
 <!-- /PIPELINE:APIM-14014 -->
+<!-- PIPELINE:APIM-13549 -->
+#### **Span Attribute Redaction for OpenTelemetry Tracing**
+
+* Masks sensitive metadata in OpenTelemetry traces before export to external collectors, preventing exposure of authorization headers, API keys, consumer identifiers, and query parameters.
+* Supports pattern-based redaction rules using glob patterns, short names, or regular expressions with FULL (complete replacement) or PARTIAL (prefix/suffix preservation) masking strategies.
+* Configure global redaction rules in `gravitee.yml` or API-specific rules in the Console for v4 HTTP/Proxy and TCP APIs with tracing enabled.
+* Rules are evaluated in order (global first, then API-specific) with first-match-wins behavior and case-insensitive key matching.
+<!-- /PIPELINE:APIM-13549 -->
 
 ## Improvements
 
