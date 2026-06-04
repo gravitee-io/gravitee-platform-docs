@@ -48,7 +48,7 @@ In this guide, you'll learn how to import AI agents from their Agent Cards, enri
    3. The **Well-known URL** for your Agent card.
 5.  Click **Create Integration**.
 
-    <figure><img src="../.gitbook/assets/agent-mesh-add-agents-to-your-agent-cata-282-1-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/agent-mesh-add-agents-to-your-agent-cata-282-1-1 (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 Your Integration appears in the **Integrations** screen.
@@ -73,7 +73,7 @@ The configuration screen displays the agent card for the Agent.
 
 1.  From the **Dashboard**, click **Integrations**.
 
-    <figure><img src="../.gitbook/assets/agent-mesh-add-agents-to-your-agent-cata-283-1-1.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/agent-mesh-add-agents-to-your-agent-cata-283-1-1 (1).png" alt=""><figcaption></figcaption></figure>
 2.  From the **Integrations page**, click your A2A integration.
 
     <figure><img src="../.gitbook/assets/76AD6B3F-28DB-44E1-899F-BF030327D9A0_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
