@@ -93,6 +93,16 @@
 * Rules are evaluated in order (global first, then API-specific) with first-match-wins behavior and case-insensitive key matching.
 <!-- /PIPELINE:APIM-13549 -->
 
+
+<!-- PIPELINE:APIM-13666 -->
+#### **Kafka Virtual Cluster and Multi-Cluster Routing**
+
+* Aggregate multiple Kafka clusters behind a single virtual endpoint and route client requests transparently across backend clusters.
+* Support for idempotent producer sessions with producer ID mapping and SASL credential replay for cross-cluster operations (PLAIN mechanism only).
+* Manage cluster lifecycle states (deploy/undeploy) for `KAFKA_CLUSTER` and `KAFKA_VIRTUAL_CLUSTER` types via the Console UI.
+* Requires database migration for the new `type` column in the `clusters` table and a distributed cache (Hazelcast or Redis) for session persistence across gateway instances.
+<!-- /PIPELINE:APIM-13666 -->
+
 ## Improvements
 
 
