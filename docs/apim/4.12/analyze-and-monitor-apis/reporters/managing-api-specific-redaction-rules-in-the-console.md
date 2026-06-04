@@ -1,66 +1,77 @@
-# Managing API-Specific Redaction Rules in the Console
+---
+description: Manage API-specific span attribute redaction rules in the Management Console.
+---
 
-## Creating API-Specific Redaction Rules
+# Manage API-Specific Redaction Rules in the Management Console
 
-API-specific redaction rules are configured in the Console under **Reporter Settings → Proxy → Span Attribute Redaction**. This section is visible only when tracing is enabled and verbose mode is active. API-specific rules are appended after global rules and take precedence for matching attributes.
+## Create API-Specific Redaction Rules
+
+You configure API-specific redaction rules in the Management Console under **Reporter Settings**, **Proxy**, and then **Span Attribute Redaction**. This section is visible only when tracing is enabled and verbose mode is active. The system appends API-specific rules after global rules. They take precedence for matching attributes.
 
 <figure><img src="../../.gitbook/assets/apim-span-attribute-redaction-for-opentelemetry-tracing-step-02.png" alt="Span attribute redaction section with empty rules table and add rule button"><figcaption></figcaption></figure>
 
-1. Navigate to **Reporter Settings → Proxy → Span Attribute Redaction**.
+To create API-specific redaction rules, complete the following steps:
+1. Navigate to **Reporter Settings**, **Proxy**, and then **Span Attribute Redaction**.
 2. Click **Add rule** to open the redaction rule dialog.
-3. Enter an **Attribute Name Pattern** (e.g., `http.request.header.authorization`, `enduser.*`, `regex:payment\.(card|token)`).
-4. Select a **Masking Type** (`FULL` to replace the entire value, or `PARTIAL` to keep prefix/suffix visible).
-5. For FULL masking, optionally enter **Replacement Text** (leave blank to use the default `[REDACTED]`).
-6. For PARTIAL masking, configure **Visible Prefix (chars)**, **Visible Suffix (chars)**, and **Mask Character** (single character, default `*`). A live preview displays the masking result.
-7. Optionally enter a **Value Filter** (Java regex, partial match). The rule fires only when the attribute value matches this pattern.
+3. Enter an **Attribute Name Pattern**. Here are some examples: `http.request.header.authorization`, `enduser.*`, and `regex:payment\.(card|token)`.
+4. Select a **Masking Type**. Select `FULL` to replace the entire value, or select `PARTIAL` to keep the prefix and suffix visible.
+5. (Optional) If you select FULL masking, enter **Replacement Text**. Leave this blank to use the default `[REDACTED]`.
+6. If you select PARTIAL masking, configure **Visible Prefix (chars)**, **Visible Suffix (chars)**, and **Mask Character**. The default mask character is a single `*`. A live preview displays the masking result.
+7. (Optional) Enter a **Value Filter**. This uses a Java regex for a partial match. The rule fires only when the attribute value matches this pattern.
 8. Click **Add** to save the rule.
 
-**Reference Table:**
+The following table describes the fields for redaction rules:
 
 | Field | Description | Example |
 |:------|:------------|:--------|
-| Attribute Name Pattern | Glob pattern, short name, or `regex:`-prefixed Java regex matching the span attribute key. Short names without dots match any namespace; `*` matches one segment; `**` matches any depth; prefix with `regex:` for exact regex. | `http.request.header.*` |
-| Masking Type | `FULL` (replace entire value) or `PARTIAL` (keep prefix/suffix visible). | `FULL` |
-| Replacement Text | For FULL: replacement text (default `[REDACTED]`). | `[REDACTED]` |
-| Visible Prefix (chars) | PARTIAL only: number of leading characters to keep visible. | `2` |
-| Visible Suffix (chars) | PARTIAL only: number of trailing characters to keep visible. | `4` |
-| Mask Character | PARTIAL only: single character used for masking. | `*` |
-| Value Filter | Optional Java regex (partial match). Rule fires only when the attribute value matches. | `Bearer .*` |
+| Attribute Name Pattern | This is a glob pattern, short name, or `regex:`-prefixed Java regex that matches the span attribute key. Short names without dots match any namespace. `*` matches one segment. `**` matches any depth. Prefix with `regex:` for exact regex. | `http.request.header.*` |
+| Masking Type | `FULL` or `PARTIAL`. `FULL` replaces the entire value. `PARTIAL` keeps the prefix and suffix visible. | `FULL` |
+| Replacement Text | For FULL masking, this is the replacement text. The default is `[REDACTED]`. | `[REDACTED]` |
+| Visible Prefix (chars) | For PARTIAL masking only, this is the number of leading characters to keep visible. | `2` |
+| Visible Suffix (chars) | For PARTIAL masking only, this is the number of trailing characters to keep visible. | `4` |
+| Mask Character | For PARTIAL masking only, this is the single character used for masking. | `*` |
+| Value Filter | Optional Java regex partial match. The rule fires only when the attribute value matches. | `Bearer .*` |
 
-The Console displays existing rules in a table with columns for rule index, attribute pattern, masking strategy, value filter, and edit/delete actions. A banner notes that global redaction rules are always applied first, and API-specific rules are appended after them.
+The Management Console displays existing rules in a table with columns for rule index, attribute pattern, masking strategy, value filter, and edit and delete actions. A banner notes that global redaction rules always apply first, and API-specific rules append after them.
 
-## Managing Redaction Rules
+## Manage Redaction Rules
+
+To manage redaction rules, complete the following steps:
+1. [Editing Rules](#editing-rules)
+2. [Deleting Rules](#deleting-rules)
 
 ### Editing Rules
 
-Click the **Edit** button in the rule table row to open the redaction rule dialog with pre-filled values. Modify the fields and click **Save** to update the rule.
+1. Click **Edit** in the rule table row to open the redaction rule dialog with pre-filled values.
+2. Modify the fields, and then click **Save** to update the rule.
 
-### Deleting Rules
+### Delete Rules
 
-Click the **Delete** button in the rule table row to remove the rule. Changes take effect when the API configuration is saved and deployed.
+* Click **Delete** in the rule table row to remove the rule. Changes take effect when you save and deploy the API configuration.
 
 ### Rule Evaluation Order
 
-Rules are evaluated in the order they appear in the configuration. The first matching rule wins; subsequent rules for the same attribute are ignored. Global (YAML) rules are applied first, followed by API-specific rules in the order they were added.
+Rules evaluate in the order they appear in the configuration. The first matching rule wins, and the system ignores subsequent rules for the same attribute. The system applies global (YAML) rules first, followed by API-specific rules in the order you added them.
 
 ### Configuration Merge Behavior
 
-When both global and API-specific rules are defined, the Gateway merges them by appending API rules after global rules. The `defaultReplacement` value from the global configuration is preserved unless the API configuration explicitly overrides it.
+When you define both global and API-specific rules, the API Gateway merges them by appending API rules after global rules. The system preserves the `defaultReplacement` value from the global configuration unless the API configuration explicitly overrides it.
 
 ## Restrictions
 
-* Partial mask character must be exactly one character; multi-character mask strings (e.g., `"XX"`) throw an error at construction time.
-* Value patterns are case-sensitive, unlike key patterns (which are case-insensitive).
-* Value patterns use partial matching; operators must use `^…$` anchors for full-string matching.
-* Non-string attributes (Long, Boolean, Double, StringArray) are coerced to String when redacted; the original typed key is removed from the attributes map.
-* First matching rule wins; if multiple rules match the same attribute key, only the first rule's masking strategy is applied.
-* Short name expansion is automatic; patterns without dots, wildcards, or `regex:` prefix are treated as short names and expanded to `regex:(.*[._])?<pattern>$`.
-* YAML rule index must be contiguous; configuration parsing stops at the first missing index.
-* Redaction applies to span attributes and events only; span name, trace ID, span ID, and status are not redacted.
-* Resource attributes (e.g., `service.instance.id`, `hostname`, `ip`) are redacted once at tracer creation time and reused for all spans; they are not re-evaluated per span.
-* API-specific redaction rules are available only for v4 HTTP/Proxy and v4 TCP APIs.
-* Read-only mode is triggered when the API definition context origin is `KUBERNETES`; the Console hides the "Add rule" button and row action buttons.
+Review the following restrictions for redaction rules:
+* The partial mask character must be exactly one character. Multi-character mask strings throw an error at construction time.
+* Value patterns are case-sensitive, and key patterns are case-insensitive.
+* Value patterns use partial matching. Operators must use `^…$` anchors for full-string matching.
+* Non-string attributes are coerced to String when redacted. The original typed key is removed from the attributes map. Non-string attributes include Long, Boolean, Double, and StringArray.
+* The first matching rule wins. If multiple rules match the same attribute key, only the first rule's masking strategy applies.
+* Short name expansion is automatic. The system treats patterns without dots, wildcards, or the `regex:` prefix as short names and expands them to `regex:(.*[._])?<pattern>$`.
+* The YAML rule index must be contiguous. Configuration parsing stops at the first missing index.
+* Redaction applies only to span attributes and events. The system does not redact the span name, trace ID, span ID, and status.
+* The system redacts resource attributes once at tracer creation time and reuses them for all spans. It does not re-evaluate them per span. Resource attributes include `service.instance.id`, `hostname`, and `ip`.
+* API-specific redaction rules are available only for v4 HTTP proxy APIs and v4 TCP proxy APIs.
+* Read-only mode triggers when the API definition context origin is `Kubernetes`. The Management Console hides the **Add rule** button and row action buttons.
 
 ## Related Changes
 
-The Console UI adds a **Span Attribute Redaction** section under Reporter Settings → Proxy, visible only when tracing is enabled and verbose mode is active. The section displays a table of redaction rules with columns for rule index, attribute pattern, masking strategy, value filter, and edit/delete actions. A redaction rule dialog supports adding and editing rules with live preview for partial masking. The Management API v2 schema includes new types `TracingRedactionConfig`, `TracingRedactionRule`, and `TracingMaskingStrategy` to support API-level redaction configuration. The `Tracing` model in the API definition includes an optional `redaction` field.
+The Management Console UI adds a **Span Attribute Redaction** section under **Reporter Settings** and **Proxy**. This is visible only when tracing is enabled and verbose mode is active. The section displays a table of redaction rules with columns for rule index, attribute pattern, masking strategy, value filter, and edit and delete actions. A redaction rule dialog supports adding and editing rules with a live preview for partial masking. The Management API (mAPI) v2 schema includes new types to support API-level redaction configuration. These types include `TracingRedactionConfig`, `TracingRedactionRule`, and `TracingMaskingStrategy`. The `Tracing` model in the API definition includes an optional `redaction` field.

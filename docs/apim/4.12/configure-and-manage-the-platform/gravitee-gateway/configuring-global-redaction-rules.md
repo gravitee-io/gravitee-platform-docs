@@ -1,10 +1,10 @@
-# Configuring Global Redaction Rules
+# Configure Global Redaction Rules
 
 ## Gateway configuration
 
 ### Global redaction rules
 
-Configure platform-wide redaction rules in `gravitee.yml` under `services.opentelemetry.redaction`. Global rules are applied first, before any API-specific rules.
+Before any API-specific rule, configure platform-wide redaction rules in `gravitee.yml` under `services.opentelemetry.redaction`. Global rules are applied first.
 
 | Property | Description | Example |
 |:---------|:------------|:--------|
