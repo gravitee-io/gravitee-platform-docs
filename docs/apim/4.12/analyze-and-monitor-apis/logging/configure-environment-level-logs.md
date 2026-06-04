@@ -86,7 +86,7 @@ To view the details of any entry in the list of logs, click the entry in the log
 The log details page shows the following information:
 
 * The **Overview** section provides general information about the request and response phases, including the timestamp, HTTP method, path, and response status.
-* The **More details** dropdown menu shows information about the application, plan, endpoint, Gateway host, and Gateway IP associated with the request. The **API Product** field displays the resolved product name or a dash (`—`) when no product is associated.
+* The **More details** dropdown menu shows information about the application, plan, endpoint, Gateway host, and Gateway IP associated with the request.
 
 <figure><img src="../../.gitbook/assets/apim-product-analytics-log-detail.png" alt="Log detail page showing the More details section with the API Product field highlighted"><figcaption><p>Log detail showing the API Product field in More details</p></figcaption></figure>
 * The **Request** panel shows the HTTP method and URI for the Gateway and consumer, the headers sent in the request phase, and the request body.
