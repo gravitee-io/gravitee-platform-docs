@@ -68,6 +68,15 @@
 <!-- /PIPELINE:APIM-13463 -->
 
 
+<!-- PIPELINE:APIM-14014 -->
+#### **Native API Connection Logs**
+
+* View and analyze client connection lifecycle events for Kafka-protocol APIs through a dedicated Logs page with summary metrics and filterable connection records.
+* Each connection log captures lifecycle status (Connected, Disconnected, Failed, Unknown), client identifiers, server metadata, and error details when applicable.
+* Control connection metrics reporting via a toggle in Reporter Settings—when disabled, no new logs are written and the Logs page displays a banner indicating reporting is off.
+* Access requires `api-native_log-r` permission for list view and summary, plus `api-native_analytics-r` permission to inspect individual connection details.
+* Requires Elasticsearch or OpenSearch reporter configuration to store and retrieve connection log data.
+<!-- /PIPELINE:APIM-14014 -->
 <!-- PIPELINE:APIM-13549 -->
 #### **Span Attribute Redaction for OpenTelemetry Tracing**
 
