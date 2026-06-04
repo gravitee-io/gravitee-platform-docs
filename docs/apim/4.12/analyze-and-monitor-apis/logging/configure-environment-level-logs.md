@@ -69,7 +69,7 @@ The **More** button opens a panel with additional filtering options, which are o
 * **URI:** Filter by request path. For example, `/api/v1/users`.
 * **Response time (ms):** Filter for requests with a response time greater than or equal to the specified value, in milliseconds.
 * **Error Types:** Filter by specific error types. The available options are dynamically populated based on errors observed within the selected date range.
-* **API Product:** Filter by one or more API Products. This filter is only supported for v4 APIs.
+* **API Product:** Filter by one or more API Products. API Product associations are tracked only for v4 request/response APIs — v2 and streaming (message) APIs are not included.
 
 <figure><img src="../../.gitbook/assets/apim-product-analytics-filter-dialog.png" alt="Add a filter dialog with API Product selected as the filter type showing available product values"><figcaption><p>Adding an API Product filter to environment logs</p></figcaption></figure>
 

@@ -1,5 +1,5 @@
 # Infrastructure Changes for API Product Analytics
 
-To enable filtering by API Product, you must update the Elasticsearch index templates for the v4-log and v4-metrics indices to include the `api-product-id` keyword field mapping. Apply the updated templates and roll over existing indices.
+If you use the Elasticsearch reporter, APIM automatically applies the updated `v4-log` and `v4-metrics` index templates — which already include the `api-product-id` keyword mapping — during the upgrade; you do not need to edit the templates by hand. Because an index template only affects indices created after it is applied, existing indices keep working but do not gain the filterable field until they are rolled over. Roll over the `v4-log` and `v4-metrics` indices (or wait for the next scheduled rollover) so new indices pick up the mapping.
 
-Existing indices without this field continue to work, but filtering by API Product is not available until the mapping is added and the indices are rolled over.
+If you manage your Elasticsearch templates independently, add the `api-product-id` keyword mapping to your v4-metrics and v4-log index templates before upgrading to 4.12.

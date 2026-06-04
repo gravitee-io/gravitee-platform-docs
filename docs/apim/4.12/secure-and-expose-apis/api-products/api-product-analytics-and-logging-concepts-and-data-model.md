@@ -16,4 +16,4 @@ You can filter analytics by one or more API Products. This filtering is availabl
 
 ### Reporter Integration
 
-Reporters capture API Product IDs in their output formats. The Datadog reporter emits an `apiproductid` tag when the request is made through an API Product subscription; the tag is absent for standalone API access. The CSV reporter writes an `api-product-id` column for all requests, using an empty string when no API Product subscription is used. Log payloads sent to Elasticsearch, file, or TCP reporters include the `apiProductId` field automatically.
+Reporters capture the API Product ID in their output. The Datadog reporter adds an `ApiProductId:<value>` metric tag when the request is made through an API Product subscription; the tag is absent for standalone API access. For the file and TCP reporters the field name depends on the configured output format: `apiProductId` in JSON output, and `api-product-id` in Elasticsearch output. The Elasticsearch reporter indexes the field as `api-product-id`. In CSV output the value is appended to each record, using an empty string when no API Product subscription is used.
