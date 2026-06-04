@@ -1,11 +1,13 @@
 ---
-description: Change logs
+description: Changelogs
 metaLinks:
   alternates:
     - changelog.md
 ---
 
-# Change logs
+
+# Changelogs
+<!--INSERT_BELOW-->
 
 ## 0.5.x
 
