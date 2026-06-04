@@ -43,13 +43,9 @@ Navigate to **Import API** in the Console and follow the wizard:
     <figure><img src="../../.gitbook/assets/wsdl-format-selected.png" alt="WSDL format card selected in API import wizard"><figcaption></figcaption></figure>
 2. Upload a WSDL file or enter a remote HTTP(S) URL in the **Payload** field.
 3.  Toggle **Apply REST to SOAP Transformer policy** to enable REST-to-JSON-to-SOAP transformation (visible only when the `rest-to-soap` policy is installed; defaults to enabled).
-
-    <figure><img src="../../.gitbook/assets/wsdl-options-default.png" alt="WSDL import options with REST to SOAP Transformer enabled by default"><figcaption></figcaption></figure>
 4. Toggle **Generate a Swagger documentation page** to publish a Swagger page from the converted OpenAPI spec (enabled automatically when REST to SOAP Transformer is on).
 5. Toggle **Add an OAS Validation policy** to validate requests and responses against the converted OpenAPI spec (enabled automatically when REST to SOAP Transformer is on and the `oas-validation` policy is installed).
 6.  Review the import settings and confirm.
-
-    <figure><img src="../../.gitbook/assets/wsdl-review-rest-to-soap-enabled.png" alt="WSDL import review step showing REST to SOAP Transformer badge enabled"><figcaption></figcaption></figure>
 
 | Field | Description | Default |
 |:------|:------------|:--------|
@@ -60,11 +56,7 @@ Navigate to **Import API** in the Console and follow the wizard:
 
 When **Apply REST to SOAP Transformer policy** is disabled, the **Generate a Swagger documentation page** and **Add an OAS Validation policy** toggles are disabled and set to `false`.
 
-<figure><img src="../../../.gitbook/assets/wsdl-format-selected.png" alt="WSDL format card selected in API import wizard"><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/wsdl-options-default.png" alt="WSDL import options with REST to SOAP Transformer enabled by default"><figcaption></figcaption></figure>
-
-<figure><img src="../../../.gitbook/assets/wsdl-review-rest-to-soap-enabled.png" alt="WSDL import review step showing REST to SOAP Transformer badge enabled"><figcaption></figcaption></figure>
 ## Management API
 
 ### Creating an API from WSDL
