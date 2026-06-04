@@ -97,6 +97,8 @@ Use the following syntax to access the API data in your API documentation: `${ap
 Ensure that the reference in the template leads to a valid object. If you reference an object that does not exist, the templating does not work. For more information about templating, go to [Apache FreeMaker Manual](https://freemarker.apache.org/docs/index.html).
 {% endhint %}
 
+When an API is published to the Developer Portal, an overview page is automatically generated using a card-based template. The standard template is applied to general APIs, while the MCP proxy template is used for APIs exposing Model Context Protocol servers. These templates replace previous plain markdown list formats and provide a structured presentation of API metadata, subscription guidance, and integration instructions.
+
 The sample script below creates a documentation template based on the Apache [FreeMarker template engine](https://freemarker.apache.org/):
 
 {% code overflow="wrap" fullWidth="false" %}
@@ -141,13 +143,16 @@ You can rate and put a comment for this API <a href='/#!/apis/${api.id}/ratings'
 The support contact is <a href="mailto:${api.metadata['email-support']}">${api.metadata['email-support']}</a>.
 </#if>
 
+<#if api.primaryOwner.displayName??>
 The API owner is <#if api.primaryOwner.email??><a href="mailto:${api.primaryOwner.email}">${api.primaryOwner.displayName}</a><#else>${api.primaryOwner.displayName}</#if>.
+</#if>
 ```
 {% endcode %}
 
 The available API properties are listed in the following table:
 
 <table data-full-width="false"><thead><tr><th>Field name</th><th>Field type</th><th>Example</th></tr></thead><tbody><tr><td>id</td><td>String</td><td>70e72a24-59ac-4bad-a72a-2459acbbad39</td></tr><tr><td>name</td><td>String</td><td>My first API</td></tr><tr><td>description</td><td>String</td><td>My first API</td></tr><tr><td>version</td><td>String</td><td>1</td></tr><tr><td>metadata</td><td>Map</td><td>{"email-support": "support.contact@company.com"}</td></tr><tr><td>createdAt</td><td>Date</td><td>Jul 14, 2018 2:44:00 PM</td></tr><tr><td>updatedAt</td><td>Date</td><td>Jul 14, 2018 2:46:00 PM</td></tr><tr><td>deployedAt</td><td>Date</td><td>Jul 14, 2018 2:49:00 PM</td></tr><tr><td>picture</td><td>String</td><td>data:image/png;base64,iVBO…​</td></tr><tr><td>state</td><td>String</td><td>STARTED/STOPPED</td></tr><tr><td>visibility</td><td>String</td><td>PUBLIC/PRIVATE</td></tr><tr><td>tags</td><td>Array</td><td>["internal", "sales"]</td></tr><tr><td>primaryOwner.displayName</td><td>String</td><td>Firstname Lastname</td></tr><tr><td>primaryOwner.email</td><td>String</td><td>firstname.lastname@company.com</td></tr></tbody></table>
+
 {% endtab %}
 
 {% tab title="Import from file" %}
