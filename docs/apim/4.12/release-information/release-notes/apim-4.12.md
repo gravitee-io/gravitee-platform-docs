@@ -49,6 +49,14 @@
 <!-- /PIPELINE:APIM-13461 -->
 
 
+<!-- PIPELINE:APIM-12132 -->
+#### **Import and Update v4 APIs from OpenAPI and Gravitee Definitions**
+
+* Import or update v4 HTTP Proxy, Message, and Native APIs using Gravitee v4 API definitions or OpenAPI Specifications (JSON/YAML) from local files or remote URLs.
+* Imported definitions fully overwrite existing API configurations, including endpoints, flows, plans, pages, and metadata, while preserving API ID and deployment state.
+* OpenAPI imports automatically generate flows and endpoints, with optional documentation page creation and OAS Validation policy attachment.
+* Requires `API_DEFINITION[UPDATE]` permission and is unavailable for Kubernetes-managed APIs or v2 APIs (which use the legacy import dialog).
+<!-- /PIPELINE:APIM-12132 -->
 <!-- PIPELINE:APIM-13463 -->
 #### **OpenTelemetry Logs Integration for Log-to-Trace Correlation**
 
