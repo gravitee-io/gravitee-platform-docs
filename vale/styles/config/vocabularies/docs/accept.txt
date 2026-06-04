@@ -685,7 +685,7 @@ ratelimiting
 goroutines
 classloader
 throwable
-wsdl
+WSDL
 statsd
 healthz
 middleware
