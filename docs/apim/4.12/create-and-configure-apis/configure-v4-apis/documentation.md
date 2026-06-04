@@ -252,9 +252,9 @@ Markdown, OpenAPI spec, and AsyncAPI spec documentation pages will be rendered i
 
 To view the documentation in the Developer Portal:
 
-1.  Click **OpenAPI in Developer Portal**
+1.  Click **Open API in Developer Portal**
 
-    <figure><img src="../../.gitbook/assets/docs_open api 1.png" alt=""><figcaption><p>OpenAPI in Developer Portal</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/docs_open api 1.png" alt=""><figcaption><p>Open API in Developer Portal</p></figcaption></figure>
 2.  Click on **Documentation** in the header options
 
     <figure><img src="../../.gitbook/assets/docs_dev portal docs 1.png" alt=""><figcaption><p>API documentation</p></figcaption></figure>
