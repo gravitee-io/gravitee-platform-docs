@@ -63,10 +63,9 @@
 <!-- PIPELINE:APIM-12146 -->
 #### **Remote URL Import for API Definitions**
 
-* Import v4 APIs directly from remote HTTP(S) endpoints hosting Gravitee API definitions or OpenAPI specifications.
-* The Management API fetches definition files server-side, enforcing URL whitelist validation and SSRF protection to prevent unauthorized access to internal network resources.
-* Remote URL import is available only for v4 APIs and requires `ENVIRONMENT_API[CREATE]` or `API_DEFINITION[UPDATE]` permissions.
-* URLs must match configured import whitelist patterns, and private-address blocking prevents resolution to internal, link-local, or loopback addresses.
+* Import v4 APIs directly from remote HTTP(S) endpoints hosting Gravitee API definitions or OpenAPI specifications, when creating a new API or updating an existing one.
+* Optional security controls let administrators restrict imports to an approved list of URLs and block imports from private or internal network addresses.
+* Available only for v4 APIs. Creating an API requires permission to create APIs in the environment; updating an API requires permission to update the API definition.
 <!-- /PIPELINE:APIM-12146 -->
 
 ## Improvements
