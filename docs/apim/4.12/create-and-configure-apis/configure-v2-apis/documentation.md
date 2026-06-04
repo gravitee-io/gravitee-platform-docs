@@ -41,9 +41,6 @@ To import documentation:
        * SWAGGER
        * MARKDOWN
      * At the bottom of the configuration page, click **Choose File**.
-     * For OpenAPI Specification imports, configure options:
-       * Enable **Create documentation page from spec** to generate a Documentation page from the imported OpenAPI specification
-       * Enable **Add OpenAPI Specification Validation policy** to attach the OAS Validation policy to generated flows (enabled by default if the policy is installed in the gateway; requires policy installation)
      * After you select your file, click **SAVE**.
 
 ## Create API documentation
@@ -63,7 +60,7 @@ To import documentation:
    3. Define how to create, or get, the documentation content:
       * Fill in the documentation inline yourself: If you select this option, you'll be given the option to start typing your documentation
       * Import the documentation from a file
-      * Import documentation from an external source: Gravitee supports Bitbucket, git repository, GitHub, GitLab, and public URLs
+      * Import documentation from an external source: Gravitee supports Bitbucket, git repository, Github, GitLab, and public URLs
 8. Click **SAVE**
 
 ## Add API metadata
