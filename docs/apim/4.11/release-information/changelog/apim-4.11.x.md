@@ -60,6 +60,20 @@
 * DCR configuration UI: clarify {#client_id} placeholder and fix example renew secret endpoint [#11430](https://github.com/gravitee-io/issues/issues/11430)
 * Cap `count()` cost on paginated Mongo repository searches with `maxTimeMS` [#11438](https://github.com/gravitee-io/issues/issues/11438)
 
+**New indexes**
+* Added the following indexes, which you can add manually before you upgrade to 4.11.9:
+```bash
+db.apis.createIndex({ environmentId:1, categories:1, name:1 }, { name: "ei1c1n1" });
+  db.apis.createIndex({ environmentId:1, definitionVersion:1, name:1 }, { name: "ei1dv1n1" });
+  db.keys.createIndex({ environmentId:1, updatedAt:1, _id:1 }, { name: "e1ua1i1" });
+  db.keys.createIndex({ revoked:1, expireAt:1 }, { name: "r1ea1" });
+  db.plans.createIndex({ crossId:1 }, { name: "ci1" });
+  db.subscriptions.createIndex({ environmentId:1, updatedAt:1, _id:1 }, { name: "e1ua1i1" });
+  db.subscriptions.createIndex({ plan:1, _id:1 }, { name: "p1i1" });
+  db.subscriptions.createIndex({ plan:1, updatedAt:1 }, { name: "p1ua1" });
+  db.subscriptions.createIndex({ status:1, endingAt:1 }, { name: "s1ea1" });
+  db.audits.createIndex({ environmentId:1, createdAt:1 }, { name: "e1c1" });
+```
 </details>
 
 
