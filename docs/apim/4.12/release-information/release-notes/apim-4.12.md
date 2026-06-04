@@ -93,6 +93,17 @@
 * Rules are evaluated in order (global first, then API-specific) with first-match-wins behavior and case-insensitive key matching.
 <!-- /PIPELINE:APIM-13549 -->
 
+
+<!-- PIPELINE:APIM-13666 -->
+#### **Kafka Virtual Clusters and Producer ID Rewrite**
+
+* Kafka Virtual Clusters enable API administrators to present multiple backend Kafka clusters as a single unified cluster to client applications, simplifying multi-cluster routing and failover scenarios.
+* Reusable Kafka Cluster entities store connection profiles (bootstrap servers, security configuration) that can be referenced by multiple APIs, with updates propagating automatically to all referencing endpoints.
+* Producer ID rewrite ensures idempotent producers function correctly when routing through virtual clusters by translating producer IDs and epochs in-place and recalculating checksums for each backend.
+* Requires database migration to add lifecycle state tracking (`UNDEPLOYED`, `PENDING`, `DEPLOYED`) and version columns to the `clusters` table.
+* Delegate SASL replay is supported for SASL PLAIN authentication only; AWS_MSK_IAM, SCRAM, and GSSAPI mechanisms are not replay-safe for cross-cluster fan-out requests.
+<!-- /PIPELINE:APIM-13666 -->
+
 ## Improvements
 
 

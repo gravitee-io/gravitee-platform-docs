@@ -10,6 +10,22 @@ Endpoints define the protocol and configuration settings the Gateway API uses to
 
 <figure><img src="../../../.gitbook/assets/sample-kafka-api-endpoint.png" alt=""><figcaption></figcaption></figure>
 
+## Endpoint connector types
+
+Native Kafka APIs support three endpoint connector types: **Broker**, **Cluster**, and **Virtual Cluster**. Each type determines how the gateway routes traffic to backend Kafka infrastructure.
+
+| Endpoint Type | Connector ID | When to Use | Configuration Stored |
+| ------------- | ------------ | ----------- | -------------------- |
+| **Broker** | `native-kafka` | One-shot API where broker config is not reused elsewhere | Bootstrap servers inline |
+| **Cluster** | `native-kafka-cluster` | Reusable Cluster entity; multiple APIs share the same backend config | `clusterCrossId`, `connectionCrossId` |
+| **Virtual Cluster** | `native-kafka-virtual-cluster` | Fan-out across multiple backend clusters | `virtualClusterCrossId` |
+
+**Broker** endpoints store bootstrap server addresses directly in the API definition. Use this type for APIs with unique backend configurations that won't be reused.
+
+**Cluster** endpoints reference a Kafka Cluster entity and one of its connections. Changes to the Cluster entity propagate to all referencing APIs. Use this type when multiple APIs share the same backend configuration.
+
+**Virtual Cluster** endpoints reference a Kafka Virtual Cluster entity that spans multiple backend clusters. The gateway fans out requests across all backends. Use this type for multi-region or disaster recovery scenarios.
+
 ## Multi-tenant endpoint support
 
 Multi-tenant endpoint support enables a single Kafka API definition to route traffic to different backend clusters based on the gateway's configured tenant identifier. This eliminates the need to duplicate API definitions across deployment zones (VPN, DMZ, cloud regions) while maintaining governance, analytics, and lifecycle operations in a single artifact. Platform administrators assign a tenant to each gateway node; the runtime automatically filters and activates only the endpoints tagged with that tenant.
