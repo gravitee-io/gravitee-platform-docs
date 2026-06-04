@@ -54,15 +54,15 @@ The only field to configure for the Kafka API entrypoint is the **Host prefix**,
 
 Select the endpoint type for your Kafka API. The available endpoint types are:
 
-- **Standalone**: Configure a direct connection to a single Kafka cluster by specifying bootstrap servers and security settings.
-- **Clusters**: Select a deployed cluster from the cluster registry.
-- **Virtual Clusters**: Select a deployed virtual cluster that aggregates multiple backend clusters.
+- **Broker** (connector `native-kafka`): Configure a direct connection to a single Kafka cluster by specifying bootstrap servers and security settings inline on the API.
+- **Cluster** (connector `native-kafka-cluster`): Reference a deployed Kafka cluster from the cluster registry. Only clusters in `DEPLOYED` state are listed.
+- **Virtual Cluster** (connector `native-kafka-virtual-cluster`): Reference a deployed virtual cluster that aggregates multiple backend clusters. Only virtual clusters in `DEPLOYED` state are listed.
 
 <figure><img src="../../.gitbook/assets/endpoint-create-kafka.png" alt=""><figcaption></figcaption></figure>
 
-### Standalone Endpoint Configuration
+### Broker Endpoint Configuration
 
-When you select **Standalone**, configure the bootstrap server list and security protocol to talk to the cluster directly.
+When you select **Broker**, configure the bootstrap server list and security protocol to talk to the cluster directly.
 
 Of the following configuration settings, only entering a host/port pair is required. Modifying any other configuration parameters is optional.
 
@@ -133,7 +133,7 @@ The Gravitee plans supported by Kafka APIs are summarized below, in increasing o
 <table><thead><tr><th width="201">Plan</th><th>Description</th></tr></thead><tbody><tr><td>Keyless (public)</td><td>When configured, this plan does not add security. It is considered an "open" plan.</td></tr><tr><td>API Key</td><td>The gateway only accepts connections from clients that pass an API key corresponding to a valid subscription to the proxy in the client properties. The API key is used as the password, and the md5 hash of the API key is used as the username, as part of the SASL/SSL with SASL PLAIN authentication method.</td></tr><tr><td>JWT</td><td>The gateway only accepts connections from clients that pass a valid JWT with a client ID claim corresponding to a valid subscription to the proxy in the client properties. This is equivalent to SASL/SSL with SASL OAUTHBEARER authentication, where the JWT is used as the OAuth token.</td></tr><tr><td>OAuth2</td><td>The gateway only accepts connections from clients that pass a valid OAuth token with a client ID corresponding to a valid subscription to the proxy in the client properties. This is equivalent to SASL/SSL with SASL OAUTHBEARER authentication.</td></tr></tbody></table>
 
 {% hint style="info" %}
-To learn more about how plans function in Gravitee, refer to the [plans](configure-kafka-apis/mtls-plans.md).
+To learn more about how plans function in Gravitee, refer to the [plans](../../secure-and-expose-apis/plans/) documentation. For mTLS plan configuration with Kafka APIs, see [mTLS plans](configure-kafka-apis/mtls-plans.md).
 {% endhint %}
 
 Individual plan configurations as they pertain to Kafka APIs are described in detail below.

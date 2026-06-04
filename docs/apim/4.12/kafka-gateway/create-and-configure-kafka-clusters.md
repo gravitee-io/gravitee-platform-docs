@@ -140,7 +140,7 @@ In the **Configuration** tab, you can configure the following elements of the cl
 
       <figure><img src="../.gitbook/assets/9FAEF4B2-47B4-4D19-B2D2-D063ED96CAED_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 
-The cluster **Configuration** tab uses custom autocomplete controls (`cluster-type`, `cluster-connection-type`) that filter to deployed clusters and validate against the deployed clusters API.
+The cluster autocomplete only lists clusters in `DEPLOYED` state; undeployed and pending clusters are hidden.
 
 ### User permissions
 
@@ -188,37 +188,11 @@ To add members to your Kafka cluster, complete the following steps:
 
     <figure><img src="../.gitbook/assets/00 kafkaUI 4.png" alt=""><figcaption></figcaption></figure>
 
-## Cluster list tables
+## Virtual cluster restrictions
 
-The cluster list tables display a **Status** badge for `KAFKA_CLUSTER` and `KAFKA_VIRTUAL_CLUSTER` types:
-
-* `DEPLOYED` (green badge)
-* `PENDING` (yellow badge)
-* `UNDEPLOYED` (gray badge)
-
-## API creation flow
-
-The API creation flow for Native Kafka APIs requires explicit endpoint selection in Step 3 (Endpoints). The previous auto-selection of both entrypoint and endpoint has been removed.
-
-The `KAFKA_CLUSTER_CONNECTION` endpoint type has been renamed to `KAFKA_CLUSTER_STANDALONE` with the UI label "Standalone".
-
-## Restrictions
-
+* Transactional producers are not supported on virtual clusters.
 * Only the `PLAIN` SASL mechanism supports credential replay for cross-cluster operations. `AWS_MSK_IAM`, `SCRAM-SHA-*`, and `GSSAPI` mechanisms are not captured and cannot be replayed on backend connections.
-* Producer ID sessions are lost on gateway pod restart or round-robin reconnection unless a distributed `CacheManager` (Hazelcast or Redis) is configured. The gateway returns `PRODUCER_FENCED` (error code 90) instead of `UNKNOWN_PRODUCER_ID` (error code 59) when a producer ID session is missing. This forces Kafka clients to re-initialize the producer.
-* Virtual clusters strip KIP-848 and KIP-932 group APIs (consumer group protocol v3) from `ApiVersions` responses. Clients downgrade to the classic group protocol.
+* Virtual clusters strip the share-group API (KIP-932) from `ApiVersions` responses; share groups are not supported.
 * Backend connection pooling is scoped per-API, not process-wide. Multiple APIs targeting the same backend cluster open separate connection pools.
 * Virtual cluster metadata (controller ID, cluster ID) is cached after the first metadata merge. Until then, frame rewriters fall back to per-cluster values, which may cause instability across client reconnects.
-
-## Database schema changes
-
-The database schema includes new columns in the `clusters` table:
-
-* `type`
-* `crossId`
-* `lifecycleState`
-* `deployedAt`
-* `version`
-
-Existing clusters are backfilled with `type = 'KAFKA_CLUSTER_STANDALONE'` via JDBC migration and MongoDB upgrader.
 

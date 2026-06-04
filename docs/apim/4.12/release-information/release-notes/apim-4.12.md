@@ -65,7 +65,7 @@
 
 * Aggregate multiple Kafka clusters behind a single virtual endpoint to simplify multi-region or multi-tenant deployments.
 * Route client requests transparently across backend clusters based on topic, partition, or consumer group affinity while merging metadata into a unified view.
-* Maintain producer ID session mappings to ensure transactional producer stability and replay SASL PLAIN credentials for cross-cluster operations.
+* Replay SASL PLAIN credentials for cross-cluster operations. Transactional producers are not yet supported on virtual clusters.
 * Requires Gravitee APIM 4.12.0+ and `gravitee-node` 9.0.0-alpha.8+. SASL credential replay supports PLAIN mechanism only; time-bound and challenge-response mechanisms are not captured.
 <!-- /PIPELINE:APIM-13666 -->
 
