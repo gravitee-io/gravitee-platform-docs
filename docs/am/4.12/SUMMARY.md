@@ -50,6 +50,7 @@
     * [Configure Gravitee Access Management](getting-started/tutorial-getting-started-with-am/secure-your-apis/configure-gravitee.io-access-management.md)
   * [Configure a Flow](getting-started/tutorial-getting-started-with-am/configure-a-flow.md)
   * [Add Custom Claims to Tokens](getting-started/tutorial-getting-started-with-am/add-custom-claims-to-tokens.md)
+* [Application Filtering, Cursor Pagination, and Field Expansion](application-filtering-cursor-pagination-and-field-expansion.md)
 
 ## Guides
 

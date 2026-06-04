@@ -59,6 +59,17 @@
 * The `service.name` must match between tracer and logger (default: `gio_apim_gateway`) for Grafana correlation to function correctly.
 <!-- /PIPELINE:APIM-13463 -->
 
+
+<!-- PIPELINE:AM-6980 -->
+#### **Application Filtering, Cursor Pagination, and Field Expansion**
+
+* Filter applications by status, owner email, and type using query parameters on the application list API.
+* Use cursor-based pagination for efficient navigation of large application datasets with `nextCursor` tokens.
+* Optionally expand OAuth client IDs in responses using the `expand=clientId` parameter to reduce payload size when not needed.
+* Requires `APPLICATION[LIST]` permission; filtering by owner email requires `ORGANIZATION_USER[READ]` permission on the organization.
+* Cursor pagination supports `updatedAt` and `name` sort fields; cursor tokens are deployment-specific and may not persist across schema changes.
+<!-- /PIPELINE:AM-6980 -->
+
 ## Improvements
 
 
