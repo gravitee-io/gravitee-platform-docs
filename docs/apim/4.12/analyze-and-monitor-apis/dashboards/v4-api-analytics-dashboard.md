@@ -24,39 +24,9 @@ You can view the following metrics for your V4 APIs:
 * [#key-metrics](v4-api-analytics-dashboard.md#key-metrics "mention")
 * [#tables-and-graphs](v4-api-analytics-dashboard.md#tables-and-graphs "mention")
 
-## Management API
-
-The portal analytics dashboard exposes REST endpoints for retrieving dashboard definitions and computing analytics measures, facets, and time-series data. All endpoints are scoped to a single environment and enforce environment isolation.
-
-### List Dashboards
-
-**Endpoint:** `GET /portal/environments/{envId}/analytics/dashboards`
-
-Returns a paginated list of analytics dashboards. Query parameters `page` (default: 1) and `size` (default: 20) control pagination. The response includes an array of dashboard objects and pagination metadata.
-
-### Get Dashboard Detail
-
-**Endpoint:** `GET /portal/environments/{envId}/analytics/dashboards/{dashboardId}`
-
-Returns the full definition of a single dashboard, including all widget configurations. If the dashboard's environment ID does not match the execution context's environment ID, the endpoint returns 404.
-
-### Compute Measures
-
-**Endpoint:** `POST /portal/environments/{envId}/analytics/computation/measures`
-
-Computes aggregated measures (COUNT, SUM, AVG, MIN, MAX) for one or more metrics over a specified time range. The request body includes `timeRange` (from/to timestamps), optional global `filters`, and a `metrics` array. The response returns computed measure values with units.
-
-### Compute Facets
-
-**Endpoint:** `POST /portal/environments/{envId}/analytics/computation/facets`
-
-Computes faceted (grouped) measures by one or more dimensions (API, APPLICATION, HTTP_STATUS_CODE_GROUP, HTTP_STATUS). The request extends the measures request with `by` (grouping dimensions), `limit` (max buckets per dimension), and optional `ranges`. The response returns a hierarchical bucket structure with keys, names, and measures for each group.
-
-### Compute Time-Series
-
-**Endpoint:** `POST /portal/environments/{envId}/analytics/computation/time-series`
-
-Computes time-series data with optional faceting. The request extends the facets request with `interval` (milliseconds or duration shorthand: `5m`, `1h`, `1d`). The response returns buckets keyed by timestamp, each containing measures for that time interval.
+{% hint style="info" %}
+Looking for the New Developer Portal consumer analytics endpoints? See [Portal analytics API reference](../../configure-and-manage-the-platform/management-api/portal-analytics-management-api-reference.md).
+{% endhint %}
 
 ### Key Metrics
 

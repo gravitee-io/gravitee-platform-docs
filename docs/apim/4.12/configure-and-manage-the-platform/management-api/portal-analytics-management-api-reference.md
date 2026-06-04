@@ -1,23 +1,21 @@
-# Portal Analytics Management API Reference
+# Portal analytics API reference
 
-## Management API
+The portal analytics REST endpoints let API consumers and administrators retrieve dashboard definitions and run analytics queries from the New Developer Portal. These endpoints are part of the Portal API, are scoped to a single environment, and require the `portal.next.analytics.enabled` environment parameter. When it's disabled, every analytics endpoint returns `403`. Results are scoped to the APIs and applications the authenticated user is allowed to see.
 
-The Portal Analytics Management API provides REST endpoints for programmatically accessing and querying analytics dashboards. All endpoints require the `PORTAL_NEXT_ANALYTICS_ENABLED` environment parameter to be enabled. When this parameter is disabled, all analytics endpoints return 403.
-
-### List dashboards
+## List dashboards
 
 **Endpoint:** `GET /portal/environments/{envId}/analytics/dashboards`
 
 Returns a paginated list of analytics dashboards for the specified environment.
 
-**Query Parameters:**
+**Query parameters:**
 
 | Parameter | Type | Default | Description |
 |:----------|:-----|:--------|:------------|
 | `page` | integer | 1 | Page number for pagination |
-| `size` | integer | 20 | Number of dashboards per page |
+| `size` | integer | 10 | Number of dashboards per page |
 
-**Response Schema:**
+**Response schema:**
 
 ```json
 {
@@ -43,13 +41,19 @@ Returns a paginated list of analytics dashboards for the specified environment.
 }
 ```
 
-### Compute Measures
+## Get a dashboard
 
-**Endpoint:** `POST /portal/environments/{envId}/analytics/computation/measures`
+**Endpoint:** `GET /portal/environments/{envId}/analytics/dashboards/{dashboardId}`
+
+Returns the full definition of a single dashboard, including all widget configurations. If the dashboard's environment doesn't match the request's environment, the endpoint returns `404` rather than `403`, so it doesn't disclose that the dashboard exists in another environment.
+
+## Compute measures
+
+**Endpoint:** `POST /portal/environments/{envId}/analytics/measures`
 
 Computes aggregated measures for one or more metrics over a specified time range.
 
-**Request Schema:**
+**Request schema:**
 
 ```json
 {
@@ -61,32 +65,32 @@ Computes aggregated measures for one or more metrics over a specified time range
   "metrics": [
     {
       "name": "HTTP_REQUESTS",
-      "measures": ["COUNT", "SUM", "AVG", "MIN", "MAX"],
+      "measures": ["COUNT", "AVG"],
       "filters": []
     }
   ]
 }
 ```
 
-**Request Fields:**
+**Request fields:**
 
 | Field | Type | Required | Description |
 |:------|:-----|:---------|:------------|
-| `timeRange` | object | Yes | Time range for the query with `from` and `to` timestamps |
-| `filters` | array | No | Global filters applied to all metrics |
+| `timeRange` | object | Yes | Time range for the query, with `from` and `to` timestamps |
+| `filters` | array | No | Top-level filters applied to every metric |
 | `metrics` | array | Yes | Array of metric definitions to compute |
-| `metrics[].name` | string | Yes | Metric name (e.g., `HTTP_REQUESTS`) |
-| `metrics[].measures` | array | Yes | Aggregation functions: `COUNT`, `SUM`, `AVG`, `MIN`, `MAX` |
+| `metrics[].name` | string | Yes | Metric name, for example `HTTP_REQUESTS` |
+| `metrics[].measures` | array | No | Aggregation functions: `COUNT`, `AVG`, `MIN`, `MAX`, `P50`, `P90`, `P95`, `P99`, `PERCENTAGE` |
 | `metrics[].filters` | array | No | Metric-specific filters |
 
-**Response Schema:**
+**Response schema:**
 
 ```json
 {
   "metrics": [
     {
       "name": "HTTP_REQUESTS",
-      "unit": "COUNT",
+      "unit": "NUMBER",
       "measures": [
         { "name": "COUNT", "value": 12345 }
       ]
@@ -95,26 +99,26 @@ Computes aggregated measures for one or more metrics over a specified time range
 }
 ```
 
-**Response Fields:**
+**Response fields:**
 
 | Field | Type | Description |
 |:------|:-----|:------------|
 | `metrics` | array | Array of computed metric results |
 | `metrics[].name` | string | Metric name |
-| `metrics[].unit` | string | Unit of measurement: `COUNT`, `BYTES`, or `MILLISECONDS` |
+| `metrics[].unit` | string | Unit of measurement: `NUMBER`, `BYTES`, `MILLISECONDS`, or `PERCENT` |
 | `metrics[].measures` | array | Computed measure values |
-| `metrics[].measures[].name` | string | Measure name (e.g., `COUNT`, `AVG`) |
+| `metrics[].measures[].name` | string | Measure name, for example `COUNT` or `AVG` |
 | `metrics[].measures[].value` | number | Computed value |
 
-### Compute Facets
+## Compute facets
 
-**Endpoint:** `POST /portal/environments/{envId}/analytics/computation/facets`
+**Endpoint:** `POST /portal/environments/{envId}/analytics/facets`
 
 Computes faceted measures grouped by one or more dimensions.
 
-**Request Schema:**
+**Request schema:**
 
-Extends the measures request with additional grouping parameters:
+Extends the measures request with grouping parameters:
 
 ```json
 {
@@ -139,22 +143,24 @@ Extends the measures request with additional grouping parameters:
 }
 ```
 
-**Additional Request Fields:**
+**Additional request fields:**
 
 | Field | Type | Required | Description |
 |:------|:-----|:---------|:------------|
-| `by` | array | Yes | Grouping dimensions: `API`, `APPLICATION`, `HTTP_STATUS_CODE_GROUP`, `HTTP_STATUS` |
-| `limit` | integer | No | Maximum number of buckets per dimension |
-| `ranges` | array | No | Numeric grouping ranges with `from` and `to` values |
+| `by` | array | Yes | Grouping dimensions. Accepts any analytics facet name, for example `API`, `APPLICATION`, `HTTP_STATUS_CODE_GROUP`, or `HTTP_STATUS`. Maximum of three dimensions. |
+| `limit` | integer | No | Maximum number of buckets to return |
+| `ranges` | array | No | Numeric ranges to bucket values into, with `from` and `to` values, applied to the last facet |
 
-**Response Schema:**
+Each metric can also carry a `sorts` array (a `measure` and an `order` of `ASC` or `DESC`) to sort the buckets of the last facet.
+
+**Response schema:**
 
 ```json
 {
   "metrics": [
     {
       "name": "HTTP_REQUESTS",
-      "unit": "COUNT",
+      "unit": "NUMBER",
       "buckets": [
         {
           "type": "LEAF",
@@ -174,7 +180,7 @@ Extends the measures request with additional grouping parameters:
 }
 ```
 
-**Response Fields:**
+**Response fields:**
 
 | Field | Type | Description |
 |:------|:-----|:------------|
@@ -182,18 +188,18 @@ Extends the measures request with additional grouping parameters:
 | `metrics[].buckets[].type` | string | Bucket type: `LEAF` (single value) or `GROUP` (nested buckets) |
 | `metrics[].buckets[].key` | string | Bucket identifier |
 | `metrics[].buckets[].name` | string | Human-readable bucket name |
-| `metrics[].buckets[].measures` | array | Computed measures for this bucket |
-| `metrics[].buckets[].buckets` | array | Nested buckets (for `GROUP` type only) |
+| `metrics[].buckets[].measures` | array | Computed measures for this bucket (`LEAF` only) |
+| `metrics[].buckets[].buckets` | array | Nested buckets (`GROUP` only) |
 
-### Compute Time-Series
+## Compute time-series
 
-**Endpoint:** `POST /portal/environments/{envId}/analytics/computation/time-series`
+**Endpoint:** `POST /portal/environments/{envId}/analytics/time-series`
 
 Computes time-series data with optional faceting.
 
-**Request Schema:**
+**Request schema:**
 
-Extends the facets request with an interval parameter:
+Extends the facets request with an `interval`. Time-series queries accept a maximum of two facet dimensions in `by`.
 
 ```json
 {
@@ -215,30 +221,31 @@ Extends the facets request with an interval parameter:
 }
 ```
 
-**Additional Request Fields:**
+**Additional request fields:**
 
 | Field | Type | Required | Description |
 |:------|:-----|:---------|:------------|
-| `interval` | number or string | Yes | Time interval in milliseconds (e.g., `60000`) or duration shorthand (e.g., `5m`, `1h`, `1d`) |
+| `interval` | number or string | Yes | Time interval in milliseconds, for example `60000`, or a duration shorthand, for example `30s`, `5m`, `1h`, or `1d` |
 
-**Interval Format:**
+**Interval format:**
 
 The `interval` field accepts:
-- Milliseconds as a number (e.g., `60000`)
-- Duration shorthand strings: `5m`, `1h`, `1d`
+
+* Milliseconds as a number, for example `60000`
+* Duration shorthand strings that match `<number><unit>`, where the unit is `s`, `m`, `h`, or `d`, for example `30s`, `5m`, `1h`, or `1d`
 
 {% hint style="info" %}
-ISO 8601 duration format (e.g., `PT5M`) is not directly supported by the shorthand parser.
+The ISO 8601 duration format, for example `PT5M`, isn't supported by the shorthand parser.
 {% endhint %}
 
-**Response Schema:**
+**Response schema:**
 
 ```json
 {
   "metrics": [
     {
       "name": "HTTP_REQUESTS",
-      "unit": "COUNT",
+      "unit": "NUMBER",
       "buckets": [
         {
           "type": "LEAF",
@@ -252,7 +259,7 @@ ISO 8601 duration format (e.g., `PT5M`) is not directly supported by the shortha
 }
 ```
 
-**Response Fields:**
+**Response fields:**
 
 | Field | Type | Description |
 |:------|:-----|:------------|
@@ -260,13 +267,13 @@ ISO 8601 duration format (e.g., `PT5M`) is not directly supported by the shortha
 | `metrics[].buckets[].timestamp` | number | Unix timestamp in milliseconds |
 | `metrics[].buckets[].measures` | array | Computed measures for this time interval |
 
-Time-series can be combined with faceting to produce multi-dimensional time-series (e.g., requests per API over time).
+Time-series queries can be combined with faceting to produce multi-dimensional time-series, for example requests per API over time.
 
-**Filter Schema:**
+## Filters
 
-All computation endpoints support the following filter types:
+All computation endpoints accept the following filter types.
 
-**String Filter:**
+**String filter:**
 
 ```json
 {
@@ -276,7 +283,7 @@ All computation endpoints support the following filter types:
 }
 ```
 
-**Array Filter:**
+**Array filter:**
 
 ```json
 {
@@ -286,7 +293,7 @@ All computation endpoints support the following filter types:
 }
 ```
 
-**Number Filter:**
+**Number filter:**
 
 ```json
 {
@@ -296,28 +303,32 @@ All computation endpoints support the following filter types:
 }
 ```
 
-**Supported Filter Operators:**
+**Supported filter operators:**
 
-| Operator | Description | Applicable Types |
-|:---------|:------------|:-----------------|
-| `EQ` | Equals | String, Number |
-| `IN` | In array | String, Array |
+The operator determines the value shape of the filter.
+
+| Operator | Description | Value |
+|:---------|:------------|:------|
+| `EQ` | Equals | String |
+| `IN` | In a list | Array of strings |
 | `LTE` | Less than or equal | Number |
 | `GTE` | Greater than or equal | Number |
 
 {% hint style="warning" %}
-Other operators (e.g., `NEQ`, `NOT_IN`) are not exposed in the API.
+No other operators are exposed. The API accepts only `EQ`, `IN`, `LTE`, and `GTE`.
 {% endhint %}
 
-**Filter Dimensions:**
+**Filter dimensions:**
+
+The portal UI exposes the following filter dimensions. The Portal API itself accepts any analytics filter name.
 
 | Dimension | Type | Operators | Values |
 |:----------|:-----|:----------|:-------|
-| `API` | KEYWORD | `EQ`, `IN` | Dynamic (user's authorized APIs) |
-| `APPLICATION` | KEYWORD | `EQ`, `IN` | Dynamic (user's applications) |
+| `API` | KEYWORD | `EQ`, `IN` | Dynamic (the user's authorized APIs) |
+| `APPLICATION` | KEYWORD | `EQ`, `IN` | Dynamic (the user's applications) |
 | `HTTP_STATUS_CODE_GROUP` | ENUM | `EQ`, `IN` | `1XX`, `2XX`, `3XX`, `4XX`, `5XX` |
-| `HTTP_STATUS` | NUMBER | `EQ`, `LTE`, `GTE` | 100–599 |
+| `HTTP_STATUS` | NUMBER | `EQ`, `LTE`, `GTE` | 100 to 599 |
 
 {% hint style="info" %}
-ENUM filter values for `HTTP_STATUS_CODE_GROUP` are hardcoded. Dynamic value loading is not supported.
+The `HTTP_STATUS_CODE_GROUP` values are a fixed set. Dynamic value loading isn't supported for this dimension.
 {% endhint %}

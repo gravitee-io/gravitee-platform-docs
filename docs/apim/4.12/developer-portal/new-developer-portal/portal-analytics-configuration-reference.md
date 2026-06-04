@@ -1,24 +1,16 @@
-# Portal Analytics Configuration Reference
+# Portal analytics configuration reference
 
 ## Prerequisites
 
-Before using Portal Analytics Dashboards, ensure the following conditions are met:
+Before using portal analytics dashboards, make sure these conditions are met:
 
-- The `PORTAL_NEXT_ANALYTICS_ENABLED` environment parameter must be set to `true` by an administrator.
-- The `portalNext.analytics.enabled` configuration flag must be `true` in the portal client configuration.
-- Users must have at least one authorized API or application to view meaningful analytics data.
-- For time-series and faceted queries, the analytics backend must support the requested interval and grouping dimensions.
+* An administrator has set the `portal.next.analytics.enabled` environment parameter to `true`. The New Developer Portal reads the same parameter (surfaced as `portalNext.analytics.enabled` in the portal configuration) to show the **Analytics** navigation and route guards, so this single parameter controls both the API and the UI.
+* The user has at least one authorized API or application, so the dashboards have data to display.
 
-## Gateway Configuration
+## Environment parameter
 
-### Environment Parameters
+Portal analytics is controlled by one environment-scoped parameter.
 
-| Property | Description | Example |
-|:---------|:------------|:--------|
-| `PORTAL_NEXT_ANALYTICS_ENABLED` | Controls access to portal analytics endpoints and UI. When `false`, all analytics requests return 403. | `true` |
-
-### Portal Client Configuration
-
-| Property | Description | Example |
-|:---------|:------------|:--------|
-| `portalNext.analytics.enabled` | Enables analytics features in the Next Gen Portal UI, including navigation links and route guards. | `true` |
+| Property | Description | Default | Required |
+|:---------|:------------|:--------|:---------|
+| `portal.next.analytics.enabled` | Controls access to portal analytics endpoints and the New Developer Portal analytics UI. When it's `false`, all analytics requests return `403`. | `false` | Yes |

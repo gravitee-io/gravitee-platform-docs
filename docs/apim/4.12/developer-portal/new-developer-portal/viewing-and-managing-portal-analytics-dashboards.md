@@ -1,11 +1,25 @@
-# Viewing and Managing Portal Analytics Dashboards
+# View and manage portal analytics dashboards
 
-## Creating Portal Analytics Dashboards
+The New Developer Portal presents pre-configured analytics dashboards that API consumers and administrators can browse, pin, and filter. Dashboards are read-only in the portal. They're created and managed in the Console.
 
-Users access analytics dashboards by navigating to the **Analytics** section from the user avatar menu (desktop) or mobile menu. The analytics list page displays all available dashboards in a paginated grid (20 per page). Pinned dashboards appear in a separate **Pinned** section at the top with a 3px accent border. Each dashboard card shows the title, widget count, last modified date, and up to 2 labels (with a "+N" badge for additional labels).
+## View dashboards
 
-Users can pin a dashboard by clicking the pin icon in the top-right corner of the card. The button is disabled with a "Pin limit reached" tooltip when 4 dashboards are already pinned. Pinned dashboard IDs are stored in browser `localStorage` under the key `analytics-pinned-dashboards`. Clearing browser data or switching devices resets the pinned state.
+To open analytics, click **Analytics** in the user avatar menu on desktop, or in the menu on mobile. The analytics list page displays the available dashboards in a paginated grid of 20 per page. Pinned dashboards appear in a separate **Pinned** section at the top, marked with an accent border. Each dashboard card shows the title, the widget count, the last modified date, and the dashboard's labels. When the labels don't all fit, the card shows as many as fit and adds a `+N` badge for the rest.
 
-Clicking a dashboard card navigates to the detail page, where the dashboard renders with all configured widgets. The detail page includes a timeframe selector (preset periods: 5m, 15m, 1h, or custom range) and a filter bar for adding global filters (**API**, **APPLICATION**, **HTTP_STATUS_CODE_GROUP**, **HTTP_STATUS**). Filters are applied across all widgets in the dashboard and can be edited or removed individually, or cleared all at once. The dashboard automatically refreshes when the timeframe, interval, or filters change.
+<!-- TODO: Screenshot of the analytics list page with the Pinned section at the top -->
+<figure><img src="../../.gitbook/assets/PLACEHOLDER-portal-analytics-list.png" alt=""><figcaption><p>The analytics list page</p></figcaption></figure>
 
-Users can only filter by APIs they are authorized to view and applications they own. If a dashboard's name is empty, the breadcrumb label uses the dashboard ID.
+## Pin and unpin dashboards
+
+To pin a dashboard, click the pin icon in the top-right corner of its card. You can pin up to 4 dashboards. When 4 are already pinned, the pin icon is disabled and shows a **Pin limit reached** tooltip. Pinned dashboard IDs are stored in the browser under the `analytics-pinned-dashboards` `localStorage` key, so clearing browser data or switching devices resets which dashboards are pinned. To unpin a dashboard, click the pin icon again.
+
+## Open a dashboard and adjust the view
+
+Click a dashboard card to open its detail page, where the dashboard renders with all of its configured widgets. The detail page includes a timeframe selector with preset periods (Last minute, Last 5 minutes, Last hour, Last day, Last week, and Last month) and a custom range. The default is Last 5 minutes.
+
+<!-- TODO: Screenshot of a dashboard detail page showing widgets, the timeframe selector, and the filter bar -->
+<figure><img src="../../.gitbook/assets/PLACEHOLDER-portal-analytics-detail.png" alt=""><figcaption><p>A dashboard detail page</p></figcaption></figure>
+
+A filter bar lets you add global filters for **API**, **APPLICATION**, **HTTP_STATUS_CODE_GROUP**, and **HTTP_STATUS**. Filters apply across all widgets in the dashboard. You can edit or remove each filter individually, or clear them all at once. The dashboard refreshes automatically when the timeframe, interval, or filters change.
+
+You can only filter by APIs you're authorized to view and applications you own. If a dashboard's name is empty, the breadcrumb label uses the dashboard ID.
