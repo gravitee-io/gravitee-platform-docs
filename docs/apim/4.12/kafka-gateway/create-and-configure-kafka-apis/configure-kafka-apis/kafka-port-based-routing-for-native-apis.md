@@ -58,15 +58,9 @@ Navigate to the plan configuration form for a native Kafka API. When the environ
 
 1.  Enter a value in the **Bootstrap port** field (1024–65535). This is the port clients will use in their bootstrap server address.
 
-    <figure><img src="../../../.gitbook/assets/bootstrap-port-filled.png" alt="Bootstrap port field filled with value 9092"><figcaption></figcaption></figure>
-
 2.  Enter a value in the **Broker range start** field (1024–65535). This is the first port in the broker slot range.
 
-    <figure><img src="../../../.gitbook/assets/broker-range-start-filled.png" alt="Broker range start field filled with value 9093"><figcaption></figcaption></figure>
-
 3.  Enter a value in the **Broker range end** field (1024–65535). This is the last port in the broker slot range.
-
-    <figure><img src="../../../.gitbook/assets/broker-range-end-filled.png" alt="Broker range end field filled with value 9095"><figcaption></figcaption></figure>
 
 The console validates that the bootstrap port does not fall within the broker range, that the range start is less than or equal to the range end, and that no conflicts exist with other plans in the environment. If you set a bootstrap port and leave the broker range fields empty, the console auto-fills `brokerRangeStart = bootstrapPort + 1` and `brokerRangeEnd = bootstrapPort + 3` (allocating three broker slots by default). Save the plan and deploy the API to open the configured TCP listeners on the gateway.
 
