@@ -42,6 +42,11 @@ analyze-and-monitor-apis/configure-gateway-for-opentelemetry-logs.md
 analyze-and-monitor-apis/enable-and-use-opentelemetry-logs-for-apis.md
 analyze-and-monitor-apis/opentelemetry-logs-integration-overview.md
 plugins/plugin-reference.md
+.gitbook/assets/apim-api-import-from-remote-url-step-01.png
+.gitbook/assets/apim-api-import-from-remote-url-step-02.png
+create-and-configure-apis/create-apis/import-apis-from-remote-urls-console.md
+create-and-configure-apis/create-apis/import-apis.md
+create-and-configure-apis/create-apis/remote-url-import-concepts-and-security.md
 analyze-and-monitor-apis/logging/configuring-and-viewing-native-api-connection-logs.md
 analyze-and-monitor-apis/logging/native-api-connection-logs-concepts-and-architecture.md
 configure-and-manage-the-platform/management-api/native-api-connection-logs-management-api-reference.md
