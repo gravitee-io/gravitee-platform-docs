@@ -6,7 +6,7 @@ description: Span Attribute Redaction masks sensitive metadata in OpenTelemetry 
 
 ## Overview
 
-Span Attribute Redaction masks sensitive metadata in OpenTelemetry traces before they leave the API Gateway. You configure pattern-based rules to replace or partially obscure span attributes such as authorization headers, API keys, consumer identifiers, and query parameters. Redaction occurs in-process at the API Gateway before OTLP export. This ensures that sensitive observability data never reaches external collectors or tracing backends.
+Span Attribute Redaction masks sensitive metadata in OpenTelemetry traces before they leave the API Gateway. You configure pattern-based rules to replace or obscure span attributes such as authorization headers, API keys, consumer identifiers, and query parameters. Redaction occurs in-process at the API Gateway before OTLP export. This ensures that sensitive observability data never reaches external collectors or tracing backends.
 
 ## Key Concepts
 
