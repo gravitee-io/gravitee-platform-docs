@@ -68,6 +68,13 @@
 <!-- /PIPELINE:APIM-13463 -->
 
 
+<!-- PIPELINE:APIM-12146 -->
+#### **Remote URL Import for API Definitions**
+
+* Import v4 APIs directly from remote HTTP(S) endpoints hosting Gravitee API definitions or OpenAPI specifications, when creating a new API or updating an existing one.
+* Optional security controls let administrators restrict imports to an approved list of URLs and block imports from private or internal network addresses.
+* Available only for v4 APIs. Creating an API requires permission to create APIs in the environment; updating an API requires permission to update the API definition.
+<!-- /PIPELINE:APIM-12146 -->
 <!-- PIPELINE:APIM-14014 -->
 #### **Native API Connection Logs**
 

@@ -134,6 +134,8 @@
     * [v4 API Creation Wizard](create-and-configure-apis/create-apis/v4-api-creation-wizard.md)
     * [v2 API Creation Wizard](create-and-configure-apis/create-apis/v2-api-creation-wizard.md)
     * [Import APIs](create-and-configure-apis/create-apis/import-apis.md)
+      * [Remote URL Import: Concepts and Security](create-and-configure-apis/create-apis/remote-url-import-concepts-and-security.md)
+      * [Import APIs from Remote URLs (Console)](create-and-configure-apis/create-apis/import-apis-from-remote-urls-console.md)
     * [Migrate APIs](create-and-configure-apis/create-apis/4.9-migrate-apis.md)
     * [Search for APIs in the Console](create-and-configure-apis/create-apis/search-for-apis-in-the-console.md)
     * [Promote APIs](create-and-configure-apis/create-apis/promote-apis.md)
