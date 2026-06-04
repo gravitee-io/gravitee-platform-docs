@@ -2,7 +2,7 @@
 
 ## Overview
 
-API Import from Remote URL enables administrators to create or update v4 APIs by fetching Gravitee API definitions or OpenAPI specifications from remote HTTP(S) endpoints. The Management API server retrieves the definition file server-side, enforcing SSRF protection and any configured URL whitelist. This feature streamlines API lifecycle management when definitions are hosted in version control systems, CDNs, or internal repositories.
+API Import from Remote URL enables administrators to create or update v4 APIs by fetching Gravitee API definitions or OpenAPI specifications from remote HTTP(S) endpoints. The Management API server retrieves the definition file server-side. This feature streamlines API lifecycle management when definitions are hosted in version control systems, CDNs, or internal repositories.
 
 ## Key Concepts
 
