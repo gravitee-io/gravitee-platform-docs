@@ -10,7 +10,7 @@
 
 ### Filtering Analytics by API Product
 
-Navigate to the analytics dashboard and open the filter bar. Select **API Product** from the filter dropdown and choose one or more API Products using the `EQ` or `IN` operator. The analytics engine queries the database for matching API Product IDs and returns aggregated metrics.
+Navigate to the analytics dashboard and open the filter bar. Select **API Product** from the filter dropdown and choose one or more API Products. The dashboard displays aggregated metrics for the selected API Products.
 
 ### Viewing API Product Information in Environment Logs
 
@@ -18,12 +18,10 @@ The environment logs table displays the API Product name below the API name in t
 
 ### Filtering Environment Logs by API Product
 
-Use the `apiProductIds` query parameter in the logs API to filter logs by API Product ID. This parameter accepts an array of API Product IDs and is only supported for v4 APIs. The filter returns logs where the `apiProductId` field matches one of the provided IDs.
+Open the filter panel and select **API Product** to filter environment logs by one or more API Products. This filter is only supported for v4 APIs.
 
 ## Restrictions
 
 - API Product tracking is only supported for v4 request/response APIs. v2 APIs and streaming APIs (message logs, message metrics) do not track API Product associations.
-- The `API_PRODUCT` filter and facet are only available for v4 APIs.
-- API Product IDs are not indexed in analytics log records. Filter queries always query the database, not Elasticsearch.
-- Displaying API Product names in logs requires a batch query to the API Product service. If the product is deleted or inaccessible, the name will be `null`.
+- If an API Product has been deleted or is inaccessible, its name might not display in logs and analytics.
 - Elasticsearch index templates must be updated to include the `api-product-id` keyword mapping. Existing indices without this field will not break, but filtering by API Product will not work until the mapping is updated and indices are rolled over.
