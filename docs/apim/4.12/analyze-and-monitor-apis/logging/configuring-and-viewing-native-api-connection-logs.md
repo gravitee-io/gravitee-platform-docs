@@ -47,9 +47,13 @@ The filter state is mirrored to the URL query string for shareable links. Refres
 
 The table is cleared if a filter request fails — the global HTTP error snackbar surfaces the failure. The user is never left looking at the previous result set under a new filter. When no data matches the filter, an empty state displays: "No data to display. More data may be available. Try widening your timeframe or adjusting your filters."
 
+<figure><img src="../../.gitbook/assets/apim-native-connection-logs-list.png" alt="Native API connection logs list showing timestamp, application, plan, client identifier, connection status pills, and duration columns"><figcaption><p>Connection logs list with status indicators</p></figcaption></figure>
+
 ### Connection Log Detail Page
 
 Click the eye icon (right-most column) on any row in the connection logs table. The URL pattern is `.../v4/runtime-logs-native/<requestId>?from=...&to=...&<filters>` — direct-linkable. The page has a back link top-left and four stacked cards:
+
+<figure><img src="../../.gitbook/assets/apim-native-connection-log-detail.png" alt="Connection log detail page showing Connection, Client, and Server information cards for a connected session"><figcaption><p>Connection log detail for a successful connection</p></figcaption></figure>
 
 **1. Connection** — outcome at a glance:
 
@@ -89,6 +93,8 @@ Click the eye icon (right-most column) on any row in the connection logs table. 
 |:------|:-------|
 | **Error Key** | `errorKey` |
 | **Error Message** | `errorMessage` |
+
+<figure><img src="../../.gitbook/assets/apim-native-connection-log-detail-error.png" alt="Connection log detail page for a failed connection showing Connection, Client, Server, and Error details cards with AUTH_FAILED error"><figcaption><p>Connection log detail showing the Error details card for a failed connection</p></figcaption></figure>
 
 **Not Found Banner**: "Log not found. No log was found for request id {requestId} within the selected time window. The window may be outside the configured retention."
 
