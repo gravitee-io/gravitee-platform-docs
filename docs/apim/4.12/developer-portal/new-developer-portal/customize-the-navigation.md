@@ -199,6 +199,17 @@ However, there are some limitations of APIs compared to folders:
 
 6. In the **Publish API** pop-up box, click **Publish**.
 
+**Default Overview page**
+
+When you add an API to the navigation, the New Developer Portal automatically creates a default **Overview** page nested under that API. The page uses [Gravitee Markdown](gravitee-markdown-components.md) templating to display the API's data, such as its name, version, and visibility.
+
+The content of the Overview page depends on the API type:
+
+* For most API types, the Overview page presents the API information alongside guidance on subscribing to a plan, exploring the documentation, and integrating with the API.
+* For MCP Proxy APIs, the Overview page presents Model Context Protocol (MCP) guidance and embeds a one-click installer that helps consumers add the MCP server to AI clients like Cursor, VS Code, and Claude Desktop.
+
+Gravitee creates the Overview page only when the API doesn't already have a page, so existing pages aren't overwritten. The page is created unpublished. To make it visible in the New Developer Portal, publish it like any other page. You can also edit the Overview page to tailor it for your consumers.
+
 **Add a page to an API**
 
 When you add a page to an API, that page becomes a menu item within that API in the New Developer Portal.
