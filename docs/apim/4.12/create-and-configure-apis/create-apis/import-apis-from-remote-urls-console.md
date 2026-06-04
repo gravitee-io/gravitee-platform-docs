@@ -17,11 +17,9 @@
 
 6. Complete the import wizard and review the API configuration.
 
-The Console sends a `POST` request to `/environments/{envId}/apis/_import/definition-url` with the URL as plain text. The Management API validates the URL (SSRF protection and, if configured, the import whitelist), fetches the definition, and creates the API.
-
 | Field | Description |
 |:------|:------------|
-| **Remote URL** | The HTTP(S) URL of the Gravitee API definition JSON file. If an import whitelist is configured, the URL must match it. |
+| **Remote URL** | The HTTP(S) URL of the Gravitee API definition JSON file. |
 
 ### OpenAPI/Swagger Import
 
@@ -34,11 +32,9 @@ The Console sends a `POST` request to `/environments/{envId}/apis/_import/defini
 7. Toggle **Create a policy to validate requests according to the OpenAPI Specification** to add an OAS validation policy.
 8. Complete the import wizard and review the API configuration.
 
-The Console sends a `POST` request to `/environments/{envId}/apis/_import/swagger` with an `ImportSwaggerDescriptor` payload where `type` is `URL` and `payload` is the remote URL.
-
 | Field | Description |
 |:------|:------------|
-| **Remote URL** | The HTTP(S) URL of the OpenAPI or Swagger specification file. If an import whitelist is configured, the URL must match it. |
+| **Remote URL** | The HTTP(S) URL of the OpenAPI or Swagger specification file. |
 | **Import Documentation** | When enabled, imports API documentation from the OpenAPI specification. |
 | **Create a Policy to Validate Requests According to the OpenAPI Specification** | When enabled, adds an OAS validation policy to the API. |
 
@@ -53,8 +49,6 @@ To update an existing v4 API from a remote Gravitee definition URL:
 3. Choose **Gravitee** format and **Remote source**.
 4. Enter the remote URL.
 
-The Console sends a `PUT` request to `/environments/{envId}/apis/{apiId}/_import/definition-url` with the URL as plain text. The API ID from the path parameter takes precedence over any `api.id` field in the fetched definition.
-
 ### OpenAPI/Swagger Update
 
 To update an existing v4 API from a remote OpenAPI specification:
@@ -63,5 +57,3 @@ To update an existing v4 API from a remote OpenAPI specification:
 2. Select **Import**.
 3. Choose **OpenAPI** format and **Remote source**.
 4. Enter the remote URL and configure documentation and validation options.
-
-The Console sends a `PUT` request to `/environments/{envId}/apis/{apiId}/_import/swagger` with an `ImportSwaggerDescriptor` payload where `type` is `URL`.
