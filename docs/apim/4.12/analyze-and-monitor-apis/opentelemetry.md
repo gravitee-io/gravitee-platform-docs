@@ -339,7 +339,7 @@ You can use OpenTelemetry traces to view the following API transaction details:
 
 ## Span Attribute Redaction
 
-Span Attribute Redaction masks sensitive metadata in OpenTelemetry traces before they leave the Gateway. Administrators configure pattern-based rules to replace or partially obscure span attributes such as authorization headers, API keys, consumer identifiers, and query parameters. Redaction occurs in-process before OTLP export, ensuring that sensitive observability data never reaches external collectors or tracing backends.
+Span Attribute Redaction masks sensitive metadata in OpenTelemetry traces before they leave the Gateway. Administrators configure pattern-based rules to replace or obscure span attributes such as authorization headers, API keys, consumer identifiers, and query parameters. Redaction occurs in-process before OTLP export, ensuring that sensitive observability data never reaches external collectors or tracing backends.
 
 Redaction rules match span attribute keys using glob patterns, short names, or regular expressions, and apply a masking strategy when the key (and optionally the value) matches. Rules are evaluated in order; the first matching rule wins. Global rules defined in `gravitee.yml` are applied first, followed by API-specific rules configured in the Console.
 
