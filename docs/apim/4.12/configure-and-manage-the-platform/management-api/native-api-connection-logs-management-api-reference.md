@@ -54,10 +54,11 @@ The Management API v2 exposes three endpoints for programmatic access to native 
 
 ### Query Validation Rules
 
-| Rule | Behavior |
+Invalid query parameters are rejected with HTTP 400 and a descriptive error message:
+
+| Rule | Response |
 |:-----|:---------|
-| `apiId` is null | Throws `NullPointerException` with message `"apiId"` |
-| `page < 1` | Throws `IllegalArgumentException`: `"page must be >= 1, was {page}"` |
-| `size < 1` | Throws `IllegalArgumentException`: `"size must be >= 1, was {size}"` |
-| `from > to` | Throws `IllegalArgumentException`: `"from must be <= to, was from={from} to={to}"` |
-| `from` or `to` missing | Returns HTTP 400 |
+| `page` < 1 | HTTP 400 — `page must be >= 1` |
+| `perPage` < 1 | HTTP 400 — `perPage must be >= 1` |
+| `from` > `to` | HTTP 400 — `from must be <= to` |
+| `from` or `to` missing | HTTP 400 |

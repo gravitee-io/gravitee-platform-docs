@@ -10,14 +10,14 @@ Native API connection logs record every client connection lifecycle event for Ka
 
 Each connection log entry is tagged with one of four lifecycle outcomes:
 
-| Status | Meaning | Trigger |
-|:-------|:--------|:--------|
-| **Connected** | Handshake completed; session is active or ended cleanly | Healthy connection established |
-| **Disconnected** | Connection terminated by transport-level error after successful handshake | Policy failure during interact flow (e.g., broken pipe mid-session) |
-| **Failed** | Handshake or authentication failed | `InterruptConnectionException` during initialize or entrypointConnect (e.g., SASL handshake failure, invalid credentials) |
-| **Unknown** | Gateway-side error, not attributable to client or transport | Backend broker becomes unreachable mid-session |
+| Status | API Value | Meaning | Trigger |
+|:-------|:----------|:--------|:--------|
+| **Connected** | `CONNECTED` | Handshake completed; session is active or ended cleanly | Healthy connection established |
+| **Disconnected** | `SESSION_ERROR` | Connection terminated by transport-level error after successful handshake | Policy failure during interact flow (e.g., broken pipe mid-session) |
+| **Failed** | `CONNECTION_ERROR` | Handshake or authentication failed | `InterruptConnectionException` during initialize or entrypointConnect (e.g., SASL handshake failure, invalid credentials) |
+| **Unknown** | `INTERNAL_ERROR` | Gateway-side error, not attributable to client or transport | Backend broker becomes unreachable mid-session |
 
-Each status is paired with a fixed color palette and icon used consistently in summary cards, table pills, and detail page badges.
+The **Status** column is the label shown in the console UI; the **API Value** is the raw `connectionStatus` enum returned by the Management API. Each status is paired with a fixed color palette and icon used consistently in summary cards, table pills, and detail page badges.
 
 ### Connection Metrics Reporting
 
