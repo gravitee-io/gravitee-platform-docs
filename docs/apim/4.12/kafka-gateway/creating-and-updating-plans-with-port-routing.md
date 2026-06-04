@@ -6,15 +6,9 @@ Navigate to the plan configuration screen for a native Kafka API. When port rout
 
 1.  Enter a value in the **Bootstrap port** field (range: 1024–65535). This is the port clients use to connect to the API.
 
-    <figure><img src="../.gitbook/assets/plan-bootstrap-port-filled.png" alt="Bootstrap port field filled with value 9092"><figcaption></figcaption></figure>
-
 2.  Enter a value in the **Broker range start** field (range: 1024–65535). This defines the beginning of the port range allocated for backend brokers.
 
-    <figure><img src="../.gitbook/assets/plan-broker-range-start-filled.png" alt="Broker range start field filled with value 9100"><figcaption></figcaption></figure>
-
 3.  Enter a value in the **Broker range end** field (range: 1024–65535). This defines the end of the port range allocated for backend brokers.
-
-    <figure><img src="../.gitbook/assets/plan-broker-range-end-filled.png" alt="Broker range end field filled with value 9102"><figcaption></figcaption></figure>
 
 When you set a bootstrap port and leave the broker range fields empty, the console auto-fills the broker range start to `bootstrapPort + 1` and the broker range end to `bootstrapPort + 3` (allocating three broker slots by default). User-edited ranges are never overwritten by auto-fill logic.
 
@@ -32,6 +26,6 @@ When editing a plan for a deployed API, changing the broker range displays a war
 
 > "Changing the broker port range will cause a brief reconnection for active consumers. Clients will automatically reconnect on their next metadata refresh — no configuration change required on the client side."
 
-<figure><img src="../.gitbook/assets/plan-broker-range-warning.png" alt="Warning banner displayed when changing broker port range"><figcaption></figcaption></figure>
+
 
 Changing the bootstrap port triggers a confirmation dialog before saving. The dialog resolves to `true` to proceed with the save or `false` to abort. The confirmation is not triggered when setting a bootstrap port for the first time or when the bootstrap port is unchanged.
