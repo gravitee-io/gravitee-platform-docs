@@ -137,7 +137,3 @@ The error keys sent by this policy are as follows:
 ## Changelogs
 
 {% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-ssl-enforcement/blob/master/CHANGELOG.md" %}
-
-<figure><img src="../../../.gitbook/assets/ssl-enforcement-policy-catalog.png" alt="SSL Enforcement policy in policy catalog"><figcaption></figcaption></figure>
-
-<figure><img src="../../../.gitbook/assets/ssl-enforcement-client-auth-enabled.png" alt="SSL Enforcement policy configuration with client authentication enabled showing OID and SAN fields"><figcaption></figcaption></figure>
