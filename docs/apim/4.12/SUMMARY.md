@@ -127,6 +127,7 @@
     * [v2 and v4 API Comparison](create-and-configure-apis/gravitee-api-definitions/v2-and-v4-api-comparison.md)
     * [Execution Engine](create-and-configure-apis/gravitee-api-definitions/execution-engine.md)
   * [Create APIs](create-and-configure-apis/create-apis/README.md)
+    * [Import and Update v4 APIs from OpenAPI and Gravitee Definitions](create-and-configure-apis/create-apis/import-and-update-v4-apis-from-openapi-and-gravitee-definitions.md)
     * [v4 API Creation Wizard](create-and-configure-apis/create-apis/v4-api-creation-wizard.md)
     * [v2 API Creation Wizard](create-and-configure-apis/create-apis/v2-api-creation-wizard.md)
     * [Import APIs](create-and-configure-apis/create-apis/import-apis.md)
