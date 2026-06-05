@@ -71,3 +71,83 @@ All metadata and logo fetches are subject to Server-Side Request Forgery (SSRF) 
 | **Cache TTL (seconds)** | Metadata cache time-to-live | 86400 |
 | **Cache Max Entries** | Maximum cache entries | 1000 |
 | **Revoke Tokens and Consents When Client Metadata Changes** | Revoke tokens when metadata hash changes | Disabled |
+
+## CIMD API Reference
+
+### Validate CIMD URL
+
+**POST** `/organizations/{organizationId}/environments/{environmentId}/domains/{domain}/cimd/validate`
+
+Validates a CIMD URL and returns a preview of the parsed metadata.
+
+**Request Body:**
+
+```json
+{
+  "url": "https://agents.example.com/metadata/hotel-agent"
+}
+```
+
+**Response:**
+
+```json
+{
+  "url": "https://agents.example.com/metadata/hotel-agent",
+  "hasInlineJwks": true,
+  "missing": {
+    "clientId": false,
+    "clientName": false
+  },
+  "metadata": {
+    "client_id": "https://agents.example.com/metadata/hotel-agent",
+    "client_name": "Hotel Agent",
+    "redirect_uris": ["https://app.example.com/callback"],
+    "grant_types": ["authorization_code"],
+    "token_endpoint_auth_method": "private_key_jwt",
+    "jwks": { "keys": [...] }
+  }
+}
+```
+
+**Response Fields:**
+
+| Field | Description |
+|:------|:------------|
+| `url` | The validated CIMD URL |
+| `hasInlineJwks` | Whether the metadata contains an inline JWKS |
+| `missing.clientId` | Whether `client_id` is missing from the metadata |
+| `missing.clientName` | Whether `client_name` is missing from the metadata |
+| `metadata` | The parsed CIMD metadata document |
+
+### Create Application from CIMD
+
+**POST** `/organizations/{organizationId}/environments/{environmentId}/domains/{domain}/cimd/applications`
+
+Creates an application from a CIMD URL.
+
+**Request Body:**
+
+```json
+{
+  "cimdUrl": "https://agents.example.com/metadata/hotel-agent",
+  "name": "Hotel Agent",
+  "clientName": "Hotel Agent",
+  "description": "AI agent for hotel bookings",
+  "type": "WEB"
+}
+```
+
+**Request Fields:**
+
+| Field | Description | Required |
+|:------|:------------|:---------|
+| `cimdUrl` | CIMD URL to fetch metadata from | Yes |
+| `name` | Application name | Yes if `client_name` missing in metadata |
+| `clientName` | OAuth client name | No |
+| `description` | Application description | No |
+| `type` | Application type (WEB, NATIVE, BROWSER, SERVICE, RESOURCE_SERVER) | Yes |
+
+
+<figure><img src="../../../.gitbook/assets/am-cimd-ssrf-protection.png" alt="CIMD SSRF protection settings"><figcaption></figcaption></figure>
+
+<figure><img src="../../../.gitbook/assets/am-cimd-cache-settings.png" alt="CIMD cache configuration"><figcaption></figcaption></figure>

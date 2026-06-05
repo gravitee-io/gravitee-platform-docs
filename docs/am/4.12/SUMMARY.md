@@ -53,6 +53,7 @@
 
 ## Guides
 
+* [Managing Trust Domains](guides/managing-trust-domains.md)
 * [OAuth 2.0 Token Exchange](guides/oauth-2.0-token-exchange-concepts/README.md)
   * [OAuth 2.0 Token Exchange Configuration](guides/oauth-2.0-token-exchange-concepts/oauth-2.0-token-exchange-configuration-reference.md)
   * [OAuth 2.0 Token Exchange API](guides/oauth-2.0-token-exchange-concepts/oauth-2.0-token-exchange-api-reference.md)
@@ -102,6 +103,8 @@
   * [AuthZen](guides/authorization-engines/authzen.md)
 * [Applications](guides/applications/README.md)
   * [Client Secrets](guides/applications/client-secrets.md)
+  * [Creating Agent Applications](guides/applications/creating-agent-applications.md)
+  * [SPIFFE Workload Identity & Agent Applications Overview](guides/applications/spiffe-workload-identity-agent-applications-overview.md)
 * [Branding](guides/branding/README.md)
   * [CSS Custom Variables Reference](guides/branding/css-custom-variables-reference.md)
   * [Language Default Properties Reference](guides/branding/language-default-properties-reference.md)
@@ -139,6 +142,7 @@
   * [AWS Certificate plugin](guides/certificates/aws-certificate-plugin.md)
   * [AWS CloudHSM plugin](guides/certificates/aws-cloudhsm-plugin.md)
   * [Configure Domain Certificate Fallback](guides/certificates/configure-domain-certificate-fallback.md)
+* [Trust Domains, CIMD, and Application Filtering API Reference](guides/trust-domains-cimd-and-application-filtering-api-reference.md)
 * [User Management](guides/user-management/README.md)
   * [Users](guides/user-management/users/README.md)
     * [Password Options](guides/user-management/users/password-options.md)

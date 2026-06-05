@@ -28,6 +28,10 @@ Application definitions apply at the _security domain_ level.
 
 <figure><img src="../../.gitbook/assets/guide-applications-readme-81.png" alt=""><figcaption><p>Application settings</p></figcaption></figure>
 
+{% hint style="info" %}
+A top-level **Agents** navigation entry provides a dedicated agent list and creation flow, separate from the standard **Applications** area. The **Applications** list excludes agent applications by default.
+{% endhint %}
+
 ### AM API
 
 {% code overflow="wrap" %}
@@ -99,6 +103,49 @@ However, if you are using identifier-first login:
 * If the rule is empty, the provider **WILL NOT BE** taken into account (this is to be retro-compatible when migrating from a previous version)
 * Otherwise, AM will authenticate with the first identity provider where the rule matches.
 
+## Agent applications
+
+Agent applications represent workload identities and enforce specific constraints to support secure machine-to-machine authentication. Agent applications are available in three kinds:
+
+* **USER_EMBEDDED**: Agents that act on behalf of a user and require user interaction.
+* **HOSTED_DELEGATED**: Agents that act on behalf of a user but are hosted by a third party.
+* **AUTONOMOUS**: Agents that act independently without user interaction.
+
+### Agent Kind configuration
+
+When creating an agent application, the application creation wizard includes an **Agent Kind** dropdown to select USER_EMBEDDED, HOSTED_DELEGATED, or AUTONOMOUS. Application forms also include a **Subject Match Mode** dropdown (EXACT, PREFIX) in the Workload Identity Settings section.
+
+### Restrictions
+
+Agent applications enforce the following constraints:
+
+* **SPIFFE PREFIX subject matching**: Only `HOSTED_DELEGATED` and `AUTONOMOUS` agent applications can use PREFIX subject matching mode. `USER_EMBEDDED` agents must use EXACT matching.
+* **PREFIX subject format**: When `subjectMatchMode` is set to PREFIX, the configured `subject` must end with `/` to ensure prefix matching occurs at path boundaries (e.g., `spiffe://example.org/hotel-agent/`).
+* **Forbidden grant types**: Agent applications cannot use `implicit`, `password`, or `refresh_token` grant types.
+* **Grant type constraints (USER_EMBEDDED and HOSTED_DELEGATED)**: `USER_EMBEDDED` and `HOSTED_DELEGATED` agents cannot use the `client_credentials` grant type.
+* **Grant type constraints (AUTONOMOUS)**: `AUTONOMOUS` agents cannot use the `authorization_code` grant type.
+* **Redirect URI requirements**: `USER_EMBEDDED` and `HOSTED_DELEGATED` agents require at least one redirect URI. `AUTONOMOUS` agents cannot configure redirect URIs.
+* **CIMD URL scheme**: CIMD URLs must use `https://` unless `cimdSettings.allowUnsecuredHttpUri` is enabled on the domain.
+* **CIMD URL IP restrictions**: CIMD URLs must resolve to public IP addresses unless `cimdSettings.allowPrivateIpAddress` is enabled.
+* **CIMD URL domain restrictions**: When `cimdSettings.allowedDomains` is non-empty, CIMD URLs must match one of the allowed domains.
+* **CIMD authentication methods**: CIMD clients cannot use `client_secret_basic`, `client_secret_post`, or `client_secret_jwt` token endpoint authentication methods.
+* **JWKS URL scheme**: JWKS URLs for trust domains must use `https://` unless `spiffeSettings.allowUnsecuredHttpUri` is enabled.
+* **JWKS URL IP restrictions**: JWKS URLs for trust domains must resolve to public IP addresses unless `spiffeSettings.allowPrivateIpAddress` is enabled.
+* **Trust domain deletion**: Trust domains cannot be deleted if they are referenced by active applications.
+* **JWT-SVID signing algorithms**: JWT-SVIDs must use allowed signing algorithms only. The `none` algorithm and HMAC algorithms are forbidden.
+* **JWT-SVID subject validation**: The JWT-SVID `sub` claim must be a SPIFFE ID within the configured trust domain.
+* **JWT-SVID audience validation**: The JWT-SVID `aud` claim must contain the token endpoint URL.
+* **JWT-SVID time validation**: JWT-SVID `iat`, `exp`, and `nbf` claims are validated with clock skew tolerance.
+* **SPIFFE JWT assertion type**: When using `spiffe_jwt` authentication, the `client_assertion_type` must be `urn:ietf:params:oauth:client-assertion-type:jwt-spiffe`.
+* **Agent JWT-bearer assertion type**: When using agent JWT-bearer authentication, the `client_assertion_type` must be `urn:ietf:params:oauth:client-assertion-type:agent-jwt-bearer`.
+* **SPIRE local-stack HTTP warning**: The SPIRE local-stack overlay uses plain HTTP for the OIDC provider (`insecure_addr = ":8443"`). Production deployments must serve over TLS.
+
+### Token claims for agent applications
+
+* Tokens issued to user-bound agents (USER_EMBEDDED, HOSTED_DELEGATED) now set `act.sub` to the agent instance ID when known, falling back to `client_id` when no instance ID is available.
+* AUTONOMOUS agents continue to use the instance ID as the top-level `sub`.
+* All agent tokens emit `client_profile` and `sub_profile` claims, propagated through `act` delegation chains in token exchange, ID tokens, and audit logs.
+
 ## Dynamic Client Registration (DCR)
 
 Another way to create applications in AM is to use the OpenID Connect Dynamic Client Registration endpoint. This specification enables Relying Parties (clients) to register applications in the OpenID Provider (OP).
@@ -117,10 +164,13 @@ There is another parameter called **Enable\Disable Open Dynamic Client Registrat
 
 <figure><img src="../../.gitbook/assets/guide-applications-readme-84.png" alt=""><figcaption><p>Enable DCR</p></figcaption></figure>
 
+{% hint style="info" %}
+The application creation wizard includes a **Manual / CIMD** toggle (visible when CIMD is enabled) and a **CIMD confirm** step that displays a read-only preview of parsed metadata before creation.
+{% endhint %}
+
 ### Enable Dynamic Client Registration with AM API
 
 ```sh
-
 curl -X PATCH \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -176,7 +226,6 @@ Unlike confidential clients, public clients are clients who cannot keep their cr
 The following example creates a web application (`access_token` is kept on a backend server).
 
 ```sh
-
 curl -X POST \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -198,7 +247,6 @@ curl -X POST \
 As a SPA does not use a backend, we recommend you use the following implicit flow:
 
 ```sh
-
 curl -X POST \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -222,7 +270,6 @@ Sometimes you may have a bot/software that needs to be authenticated as an appli
 For this, you need to use a `client_credentials` flow:
 
 ```sh
-
 curl -X POST \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -247,7 +294,6 @@ curl -X POST \
 For a mobile app, the `authorization_code` grant is recommended, in addition to [Proof Key for Code Exchange](https://tools.ietf.org/html/rfc7636):
 
 ```sh
-
 curl -X POST \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -266,7 +312,6 @@ curl -X POST \
 To register an agent application programmatically, send a POST request to the DCR endpoint with `application_type` set to `"agent"`. The system strips forbidden grant types (`implicit`, `password`, `refresh_token`) from the request. If no valid grant types remain after stripping, the system defaults to `["authorization_code"]`. The `redirect_uris` field is required. If `token_endpoint_auth_method` is omitted, the system defaults to `client_secret_basic`. The DCR flow validates agent constraints and strips forbidden response types (`token`, `id_token`, `id_token token`) during registration. If response types become empty and `authorization_code` is granted, the system adds `"code"`.
 
 ```sh
-
 curl -X POST \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -292,7 +337,6 @@ This access token contains a `dcr` scope which can not be obtained, even if you 
 A new registration access token is generated each time the client is updated through the Dynamic Client Registration URI endpoint, which will revoke the previous value.
 
 ```sh
-
 curl -X PATCH \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -312,7 +356,6 @@ The `renew_secret` endpoint does not need a body.
 When you update a client, a new registration access token is generated each time you renew the client secret.
 
 ```sh
-
 curl -X POST \
   -H 'Authorization: Bearer :accessToken' \
   http://GRAVITEEIO-AM-GATEWAY-HOST/::domain/oidc/register/:client_id/renew_secret
@@ -331,7 +374,6 @@ To achieve this, you need to first enable the feature and then select the allowe
 You can also enable this feature using AM API:
 
 ```sh
-
 curl -X PATCH \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -351,7 +393,6 @@ To enable this feature, you simply select which scopes you want to be automatica
 You can also enable this feature using AM API:
 
 ```sh
-
 curl -X PATCH \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -374,7 +415,6 @@ Since there is no longer a requested scope in the request, the default scopes wi
 You can also enable this feature using AM API:
 
 ```sh
-
 curl -X PATCH \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -397,6 +437,10 @@ Template mode is enabled for an Application in its **Settings** > **General** ta
 Once a client is set up as a template, it can no longer be used for authentication purposes.
 {% endhint %}
 
+{% hint style="info" %}
+The **Template** checkbox is now enabled for agent applications.
+{% endhint %}
+
 #### Enable Dynamic Client Registration templates
 
 You can enable the template feature in the AM Dynamic Client Registration **Settings** tab:
@@ -406,7 +450,6 @@ You can enable the template feature in the AM Dynamic Client Registration **Sett
 You can also enable this feature using AM API:
 
 ```sh
-
 curl -X PATCH \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -423,7 +466,6 @@ curl -X PATCH \
 You need to retrieve the `software_id` of the template, which is available under the `registration_templates_endpoint` provided by the OpenID discovery endpoint.
 
 ```sh
-
 curl -X POST \
   -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
@@ -438,3 +480,23 @@ curl -X POST \
 You can override some properties of the template by filling in some metadata, such as `client_name` in the example above.
 
 Some critical information is not copied from the template (e.g. `client_secret` and `redirect_uris`). This is why in the example above, we need to provide valid `redirect_uris` metadata, since in the example, the template we are using is a Single Page Application.
+
+## Related changes
+
+The following changes have been introduced to support agent applications and workload identity:
+
+### Management Console
+
+* A new **Workload Identity** section under domain settings manages trust domains (list, create, edit, delete).
+
+### Database Schema
+
+Database migration is required:
+
+* **JDBC**: A new `sub_type` column is added to the `applications` table.
+* **MongoDB**: A `subType` field is added to the `applications` collection.
+* The `workloadIdentitySettings` object includes a new `subjectMatchMode` field (defaults to EXACT when absent).
+
+### Trust Bundle Behavior
+
+Trust bundle caching honors per-domain refresh intervals and serves the last known good bundle on transient fetch errors.
