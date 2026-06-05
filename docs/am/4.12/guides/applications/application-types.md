@@ -6,6 +6,8 @@
 
 Application definitions apply at the *security domain* level.
 
+AM supports multiple application types, including a specialized **AGENT** type for AI agents and autonomous services. Agent applications are managed separately from the Applications area and have distinct personas (User-Embedded, Hosted Delegated, Autonomous). See the [Agents](../agents/) section for details on creating and managing agent applications.
+
 ## Create an application
 
 ### AM Console
@@ -45,7 +47,9 @@ After you have created the new application, you will be redirected to the applic
 
 The quickest way to test your newly created application is to request an OAuth2 access token, as described in [set up your first application](https://documentation.gravitee.io/apim/~/changes/337/broken-reference). If you manage to retrieve an access token, your application is all set.
 
-## Application identity providers
+
+<figure><img src="../../.gitbook/assets/guide-applications-readme-83.png" alt=""><figcaption><p>Application Identity Provider selection options</p></figcaption></figure>
+## Application Identity Providers
 
 AM allows your application to use different identity providers (IdPs). If you haven’t configured your providers yet, visit the [Identity Provider guide.](https://documentation.gravitee.io/apim/~/changes/337/broken-reference)
 
@@ -58,63 +62,10 @@ The application identity providers are separated into two sections:
 
 You can enable/disable them to include them within your authentication flow.
 
-### Priority
-
-Identity provider priority enables processing authentication in a certain order. It gives more control over the authentication flow by deciding which provider should evaluate credentials first.
-
-In order to change the priority of the providers:
-
-* Make sure your provider is **selected**
-* Simply **drag-and-drop** the providers
-* Save your settings
-
-### Selection rules
-
-Identity provider selection rules also give you more control over the authentication via Gravitee's Expression Language.
-
-When coupled with [flows](https://documentation.gravitee.io/apim/~/changes/337/broken-reference) you can decide which provider will be used to authenticate your end users.
-
-<figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2F7UVSKkrgAwci5ByULvnt%2Fimage.png?alt=media&#x26;token=b2467736-9baf-4377-a096-f407879c4658" alt="Define selection rule for Identity Provider"><figcaption><p>Define selection rule for Identity Provider</p></figcaption></figure>
-
-To apply a selection rule:
-
-* Click on the **Selection rule** icon
-* Enter your expression language rule
-* Validate and save your settings
-
-When applying rules on **regular** Identity Providers:
-
-* If the rule is empty, the provider **will be** taken into account (this is to be retro-compatible when migrating from a previous version)
-* Otherwise, AM will authenticate with the first identity provider where the rule matches.
-
-If you are not using[ identifier-first login](https://documentation.gravitee.io/apim/~/changes/337/broken-reference), the rule won’t be effective on Social/Enterprise providers
-
-However, if you are using identifier-first login:
-
-* If the rule is empty, the provider **WILL NOT BE** taken into account (this is to be retro-compatible when migrating from a previous version)
-* Otherwise, AM will authenticate with the first identity provider where the rule matches.
-
 ## Dynamic client registration
 
 Another way to create applications in AM is to use the OpenID Connect Dynamic Client Registration endpoint. This specification enables Relying Parties (clients) to register applications in the OpenID Provider (OP).
 
-### Enable Dynamic Client Registration with AM Console
-
-By default this feature is disabled. You can enable it through the domain settings:
-
-1. Log in to AM Console.
-2. Click **Settings**, then in the **OPENID** section click **Client Registration**.
-3. Click the toggle button to **Enable Dynamic Client Registration**.
-
-{% hint style="danger" %}
-There is another parameter called **Enable\Disable Open Dynamic Client Registration**. This parameter is used to allow any unauthenticated requests to register new clients through the registration endpoint. It is part of the OpenID specification, but for security reasons, it is disabled by default.
-{% endhint %}
-
-<figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2FNpZEti5QaHAHkSMhlAlA%2Fimage.png?alt=media&#x26;token=d5ffe0d3-ea7e-41de-80b5-d9987e44f749" alt="Enable dynamic client registration"><figcaption><p>Enable Dynamic Client Registration</p></figcaption></figure>
-
-### Enable Dynamic Client Registration with AM API
-
-```sh
 # enable Dynamic Client Registration
 curl -X PATCH \
   -H 'Authorization: Bearer :accessToken' \
@@ -127,52 +78,6 @@ curl -X PATCH \
   http://GRAVITEEIO-AM-MGT-API-HOST/management/domains/:domainId
 ```
 
-### Register a new client
-
-#### Obtain an access token
-
-Unless you enabled open dynamic registration, you need to obtain an access token via the `client_credentials` flow, with a `dcr_admin` scope.
-
-{% hint style="danger" %}
-The `dcr_admin` scope grants CRUD access to any clients in your domain. You must only allow this scope for trusted RPs (clients).
-{% endhint %}
-
-{% code overflow="wrap" %}
-
-```sh
-#Request a token
-curl -X POST \
-  'http://GRAVITEEIO-AM-GATEWAY-HOST/:domain/oauth/token?grant_type=client_credentials&scope=dcr_admin&client_id=:clientId&client_secret=:clientSecret'
-```
-
-{% endcode %}
-
-#### Register new RP (client)
-
-Once you obtain the access token, you can call AM Gateway through the registration endpoint. You can specify many client properties, such as `client_name`, but only the `redirect_uris` property is mandatory. See the [OpenID Connect Dynamic Client Registration](https://openid.net/specs/openid-connect-registration-1_0.html) specification for more details.
-
-The endpoint used to register an application is available in the OpenID discovery endpoint (e.g., `http(s)://your-am-gateway-host/your-domain/oidc/.well-known/openid-configuration`) under the `registration_endpoint` property.
-
-The response will contain some additional fields, including the `client_id` and `client_secret` information.
-
-You will also find the `registration_access_endpoint` and the `registration_client_uri` in the response. These are used to read/update/delete the client id and client secret.
-
-{% hint style="warning" %}
-According to the [specification](https://tools.ietf.org/html/rfc6749#section-10.6), an Authorization Server MUST require public clients and SHOULD require confidential clients to register their redirection URIs.\
-Confidential clients are clients that can keep their credentials secret, for example:\
-\- web applications (using a web server to save their credentials): `authorization_code`\
-\- server applications (treating credentials saved on a server as safe): `client_credentials`\
-Unlike confidential clients, public clients are clients who cannot keep their credentials secret, for example:\
-\- Single Page Applications: `implicit`\
-\- Native mobile application: `authorization_code`\
-**Because mobile and web applications use the same grant, we force `redirect_uri` only for implicit grants.**
-{% endhint %}
-
-**Register Web application example**
-
-The following example creates a web application (`access_token` is kept on a backend server).
-
-```sh
 # Register a new Relying Party (client)
 curl -X POST \
   -H 'Authorization: Bearer :accessToken' \
@@ -367,19 +272,6 @@ curl -X PATCH \
   http://GRAVITEEIO-AM-MGT-API-HOST/management/domains/:domainId
 ```
 
-### Register new client using templates
-
-You can create a client and define it as a template. Registering a new application with a template allows you to specify which identity providers to use, and apply template forms (such as login, password management, and error forms) or emails (such as registration confirmation and password reset emails).
-
-#### Enable Dynamic Client Registration templates
-
-You can enable the template feature in the AM Dynamic Client Registration **Settings** tab:
-
-<figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2FRYd5yI62dr7Mh1M8word%2Fimage.png?alt=media&#x26;token=2dc2ea2b-7e8d-41fc-8112-7eb5a7551aae" alt=""><figcaption></figcaption></figure>
-
-You can also enable this feature using AM API:
-
-```sh
 # enable Dynamic Client Registration
 curl -X PATCH \
   -H 'Authorization: Bearer :accessToken' \

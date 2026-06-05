@@ -40,15 +40,31 @@ curl -H "Authorization: Bearer :accessToken" \
 ```
 {% endcode %}
 
+You can filter applications by type using the `type` query parameter. The parameter supports multiple values.
+
+To filter for a single application type:
+
+{% code overflow="wrap" %}
+```sh
+curl -H "Authorization: Bearer :accessToken" \
+     http://GRAVITEEIO-AM-MGT-API-HOST/management/organizations/DEFAULT/environments/DEFAULT/domains/:domainId/applications?type=AGENT
+```
+{% endcode %}
+
+To filter for multiple application types, include multiple `type` parameters:
+
+{% code overflow="wrap" %}
+```sh
+curl -H "Authorization: Bearer :accessToken" \
+     http://GRAVITEEIO-AM-MGT-API-HOST/management/organizations/DEFAULT/environments/DEFAULT/domains/:domainId/applications?type=WEB&type=NATIVE
+```
+{% endcode %}
+
 ### Configure the application
 
 After you have created the new application, you will be redirected to the application's `Overview` page, which contains some documentation and code samples to help you start configuring the application.
 
 <figure><img src="../../.gitbook/assets/guide-applications-readme-82.png" alt=""><figcaption><p>Application overview</p></figcaption></figure>
-
-### Test the application
-
-The quickest way to test your newly created application is to request an OAuth2 access token, as described in [set up your first application](../../getting-started/tutorial-getting-started-with-am/set-up-your-first-application.md). If you manage to retrieve an access token, your application is all set.
 
 ## Application identity providers
 
@@ -99,6 +115,8 @@ However, if you are using identifier-first login:
 * If the rule is empty, the provider **WILL NOT BE** taken into account (this is to be retro-compatible when migrating from a previous version)
 * Otherwise, AM will authenticate with the first identity provider where the rule matches.
 
+
+<figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2F7UVSKkrgAwci5ByULvnt%2Fimage.png?alt=media&#x26;token=b2467736-9baf-4377-a096-f407879c4658" alt="Define selection rule for Identity Provider"><figcaption><p>Define selection rule for Identity Provider</p></figcaption></figure>
 ## Dynamic Client Registration (DCR)
 
 Another way to create applications in AM is to use the OpenID Connect Dynamic Client Registration endpoint. This specification enables Relying Parties (clients) to register applications in the OpenID Provider (OP).
@@ -117,6 +135,8 @@ There is another parameter called **Enable\Disable Open Dynamic Client Registrat
 
 <figure><img src="../../.gitbook/assets/guide-applications-readme-84.png" alt=""><figcaption><p>Enable DCR</p></figcaption></figure>
 
+
+<figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2FNpZEti5QaHAHkSMhlAlA%2Fimage.png?alt=media&#x26;token=d5ffe0d3-ea7e-41de-80b5-d9987e44f749" alt="Enable dynamic client registration"><figcaption><p>Enable Dynamic Client Registration</p></figcaption></figure>
 ### Enable Dynamic Client Registration with AM API
 
 ```sh
@@ -438,3 +458,7 @@ curl -X POST \
 You can override some properties of the template by filling in some metadata, such as `client_name` in the example above.
 
 Some critical information is not copied from the template (e.g. `client_secret` and `redirect_uris`). This is why in the example above, we need to provide valid `redirect_uris` metadata, since in the example, the template we are using is a Single Page Application.
+
+<figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2FRYd5yI62dr7Mh1M8word%2Fimage.png?alt=media&#x26;token=2dc2ea2b-7e8d-41fc-8112-7eb5a7551aae" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2F3X8Q9cjacCh38w1S79cj%2Fimage.png?alt=media&#x26;token=bbb88c68-2e57-436e-9f44-f0d2f30b48e6" alt=""><figcaption></figcaption></figure>

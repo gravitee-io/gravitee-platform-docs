@@ -7,3 +7,14 @@ releases-and-changelog/release-notes/am-4.12.md
 .gitbook/assets/am-cimd-settings-overview.png
 guides/applications/README.md
 guides/auth-protocols/oauth-2.0/cimd.md
+.gitbook/assets/am-agent-wizard-cimd-mode.png
+.gitbook/assets/am-agents-list.png
+.gitbook/assets/am-cimd-cache-settings.png
+.gitbook/assets/am-cimd-ssrf-protection.png
+guides/applications/agent-application-restrictions-and-related-changes.md
+guides/applications/application-types.md
+guides/applications/creating-agent-applications.md
+guides/auth-protocols/oauth-2.0/authenticating-with-spiffe-jwt-svids-and-agent-assertions.md
+guides/auth-protocols/oauth-2.0/spiffe-workload-identity-agent-applications-overview.md
+guides/gateway-configuration-for-spire-testing.md
+guides/security-domains/managing-trust-domains.md

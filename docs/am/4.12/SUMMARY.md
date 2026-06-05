@@ -53,12 +53,15 @@
 
 ## Guides
 
+* [Gateway Configuration for SPIRE Testing](guides/gateway-configuration-for-spire-testing.md)
 * [OAuth 2.0 Token Exchange](guides/oauth-2.0-token-exchange-concepts/README.md)
   * [OAuth 2.0 Token Exchange Configuration](guides/oauth-2.0-token-exchange-concepts/oauth-2.0-token-exchange-configuration-reference.md)
   * [OAuth 2.0 Token Exchange API](guides/oauth-2.0-token-exchange-concepts/oauth-2.0-token-exchange-api-reference.md)
 * [Prologue](guides/prologue.md)
 * [Auth Protocols](guides/auth-protocols/README.md)
   * [OAuth 2.0](guides/auth-protocols/oauth-2.0/README.md)
+    * [Authenticating with SPIFFE JWT-SVIDs and Agent Assertions](guides/auth-protocols/oauth-2.0/authenticating-with-spiffe-jwt-svids-and-agent-assertions.md)
+    * [SPIFFE Workload Identity & Agent Applications Overview](guides/auth-protocols/oauth-2.0/spiffe-workload-identity-agent-applications-overview.md)
     * [Which Flow Should I Use?](guides/auth-protocols/oauth-2.0/which-flow-should-i-use.md)
     * [Proof Key for Code Exchange (PKCE)](guides/auth-protocols/oauth-2.0/proof-key-for-code-exchange-pkce.md)
     * [Best Practices](guides/auth-protocols/oauth-2.0/best-practices.md)
@@ -74,6 +77,7 @@
   * [SAML 2.0](guides/auth-protocols/saml-2.0.md)
 * [Security Domains](guides/security-domains/README.md)
   * [Configure CORS for Security Domains](guides/security-domains/configure-cors-for-security-domains.md)
+  * [Managing Trust Domains](guides/security-domains/managing-trust-domains.md)
 * [Identity Providers](guides/identity-providers/README.md)
   * [Create an Identity Provider](guides/identity-providers/create-an-identity-provider.md)
   * [User, Role and Group Mapping](guides/identity-providers/user-and-role-mapping.md)
@@ -101,7 +105,9 @@
   * [OpenFGA](guides/authorization-engines/openfga.md)
   * [AuthZen](guides/authorization-engines/authzen.md)
 * [Applications](guides/applications/README.md)
+  * [Agent Application Restrictions and Related Changes](guides/applications/agent-application-restrictions-and-related-changes.md)
   * [Client Secrets](guides/applications/client-secrets.md)
+  * [Creating Agent Applications](guides/applications/creating-agent-applications.md)
 * [Branding](guides/branding/README.md)
   * [CSS Custom Variables Reference](guides/branding/css-custom-variables-reference.md)
   * [Language Default Properties Reference](guides/branding/language-default-properties-reference.md)
