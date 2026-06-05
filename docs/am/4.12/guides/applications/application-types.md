@@ -17,6 +17,28 @@ Application definitions apply at the *security domain* level.
 5. Select the [application type](../applications/application-types.md) and click **Next**.
 
    <figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2FBUA3LgGgCOdrW4VrUn6u%2Fimage.png?alt=media&#x26;token=f8e06806-b745-43ae-b641-19bfee0c580e" alt=""><figcaption><p>Select application type</p></figcaption></figure>
+
+   Available application types:
+
+   | Type | Description | Redirect URIs | Allowed Grant Types |
+   |:-----|:------------|:--------------|:--------------------|
+   | **WEB** | Server-side web application | Required | `authorization_code`, `refresh_token`, `client_credentials` |
+   | **NATIVE** | Mobile or desktop application | Required | `authorization_code`, `refresh_token` |
+   | **BROWSER** | Single-page application (SPA) | Required | `implicit`, `authorization_code` |
+   | **SERVICE** | Server-to-server application | Not required | `client_credentials` |
+   | **RESOURCE_SERVER** | Protected resource server | Not required | N/A |
+   | **AGENT** | AI agent application | Depends on persona | Depends on persona |
+
+   **AGENT** applications support three personas:
+
+   | Persona | Description | Redirect URIs | Allowed Grant Types |
+   |:--------|:------------|:--------------|:--------------------|
+   | **User-Embedded** | Agent acts on behalf of an authenticated user within a user-facing application | Required | `authorization_code`, `refresh_token` |
+   | **Hosted Delegated** | Agent runs in a hosted environment and acts on behalf of users | Required | `authorization_code`, `refresh_token`, `client_credentials` |
+   | **Autonomous** | Agent operates independently without user context | Not required | `client_credentials` |
+
+   Agent applications forbid `implicit`, `password`, and `urn:ietf:params:oauth:grant-type:uma-ticket` grant types. Tokens issued to agents include `client_profile` and `sub_profile` claims identifying the agent persona. The `act.sub` claim carries the agent instance ID for User-Embedded and Hosted Delegated agents.
+
 6. Specify the application details and click **Create**.
 
    <figure><img src="https://128066588-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbGmDEarvnV52XdcOiV8o%2Fuploads%2FCIwunUNnCyI15nkVzi1d%2Fimage.png?alt=media&#x26;token=df4a9be5-3f9f-43a8-ae5a-50543bc3095d" alt=""><figcaption><p>Create Application form</p></figcaption></figure>
