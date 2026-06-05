@@ -25,7 +25,7 @@ You can view the following metrics for your V4 APIs:
 * [#tables-and-graphs](v4-api-analytics-dashboard.md#tables-and-graphs "mention")
 
 {% hint style="info" %}
-Looking for the New Developer Portal consumer analytics endpoints? See [Portal analytics API reference](../../configure-and-manage-the-platform/management-api/portal-analytics-management-api-reference.md).
+This page documents the APIM Console V4 analytics dashboard. For the New Developer Portal analytics feature (dashboard list, pinning, and Portal API endpoints), see [Portal analytics dashboards overview](portal-analytics-dashboards-overview.md).
 {% endhint %}
 
 ### Key Metrics

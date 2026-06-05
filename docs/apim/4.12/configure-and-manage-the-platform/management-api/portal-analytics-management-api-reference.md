@@ -1,10 +1,16 @@
 # Portal analytics API reference
 
-The portal analytics REST endpoints let API consumers and administrators retrieve dashboard definitions and run analytics queries from the New Developer Portal. These endpoints are part of the Portal API, are scoped to a single environment, and require the `portal.next.analytics.enabled` environment parameter. When it's disabled, every analytics endpoint returns `403`. Results are scoped to the APIs and applications the authenticated user is allowed to see.
+The portal analytics REST endpoints let API consumers and administrators retrieve dashboard definitions and run analytics queries from the New Developer Portal. These endpoints belong to the **Portal API**, not the Management API. They are scoped to a single environment, require authentication, and require the `portal.next.analytics.enabled` environment parameter. When it's disabled, every analytics endpoint returns `403`. Results are scoped to the APIs and applications the authenticated user is allowed to see.
+
+## Portal API
+
+Base path: `/portal/environments/{envId}/analytics`
+
+All paths below are relative to this base path. For enablement and UI behavior, see [Portal analytics configuration reference](../../developer-portal/new-developer-portal/portal-analytics-configuration-reference.md).
 
 ## List dashboards
 
-**Endpoint:** `GET /portal/environments/{envId}/analytics/dashboards`
+**Endpoint:** `GET /analytics/dashboards`
 
 Returns a paginated list of analytics dashboards for the specified environment.
 
@@ -43,13 +49,13 @@ Returns a paginated list of analytics dashboards for the specified environment.
 
 ## Get a dashboard
 
-**Endpoint:** `GET /portal/environments/{envId}/analytics/dashboards/{dashboardId}`
+**Endpoint:** `GET /analytics/dashboards/{dashboardId}`
 
 Returns the full definition of a single dashboard, including all widget configurations. If the dashboard's environment doesn't match the request's environment, the endpoint returns `404` rather than `403`, so it doesn't disclose that the dashboard exists in another environment.
 
 ## Compute measures
 
-**Endpoint:** `POST /portal/environments/{envId}/analytics/measures`
+**Endpoint:** `POST /analytics/measures`
 
 Computes aggregated measures for one or more metrics over a specified time range.
 
@@ -112,7 +118,7 @@ Computes aggregated measures for one or more metrics over a specified time range
 
 ## Compute facets
 
-**Endpoint:** `POST /portal/environments/{envId}/analytics/facets`
+**Endpoint:** `POST /analytics/facets`
 
 Computes faceted measures grouped by one or more dimensions.
 
@@ -193,7 +199,7 @@ Each metric can also carry a `sorts` array (a `measure` and an `order` of `ASC` 
 
 ## Compute time-series
 
-**Endpoint:** `POST /portal/environments/{envId}/analytics/time-series`
+**Endpoint:** `POST /analytics/time-series`
 
 Computes time-series data with optional faceting.
 

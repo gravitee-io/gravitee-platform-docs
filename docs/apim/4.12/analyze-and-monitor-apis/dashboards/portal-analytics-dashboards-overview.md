@@ -2,7 +2,9 @@
 
 ## Overview
 
-Portal analytics dashboards provide API consumers and administrators with pre-configured visualizations of API traffic, performance, and usage metrics. Dashboards aggregate data from HTTP requests, response times, and status codes, so users can monitor trends, identify issues, and analyze API consumption patterns. This feature is available to authenticated users with access to APIs or applications in the portal, and to administrators managing environment-wide analytics.
+Portal analytics dashboards provide API consumers and administrators with pre-configured visualizations of API traffic, performance, and usage metrics. Dashboards aggregate data from HTTP requests, response times, and status codes, so users can monitor trends, identify issues, and analyze API consumption patterns. Users must be signed in to the New Developer Portal to open analytics. Data is scoped to the APIs and applications each user is allowed to see.
+
+For setup, see [Portal analytics configuration reference](../../developer-portal/new-developer-portal/portal-analytics-configuration-reference.md). To create dashboards in the Console, see [Create portal analytics dashboards](creating-portal-analytics-dashboards.md). For end-user workflows, see [View and manage portal analytics dashboards](../../developer-portal/new-developer-portal/viewing-and-managing-portal-analytics-dashboards.md). For REST endpoints, see [Portal analytics API reference](../../configure-and-manage-the-platform/management-api/portal-analytics-management-api-reference.md).
 
 ## Key concepts
 
@@ -50,7 +52,6 @@ Analytics access is determined by user role and API or application visibility:
 |:----------|:----------------|:------------------------|
 | Environment admin | All APIs in the environment | None |
 | Organization admin | All APIs in the environment | None |
-| Authenticated user | APIs visible in portal navigation, plus APIs the user is a member of or subscribed to | The user's applications |
-| Anonymous user | Public APIs visible in portal navigation | None |
+| Authenticated user | Published APIs in the New Developer Portal navigation (public APIs, and private APIs where the user is a member or has an active subscription) | The user's applications |
 
-The feature is gated by the `portal.next.analytics.enabled` environment parameter, which defaults to `false`. When it's disabled, all analytics endpoints return `403`.
+The feature is gated by the `portal.next.analytics.enabled` environment parameter, which defaults to `false`. When it's disabled, all analytics endpoints return `403`. Portal analytics REST endpoints also require authentication.

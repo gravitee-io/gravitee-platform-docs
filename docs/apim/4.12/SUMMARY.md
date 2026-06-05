@@ -349,6 +349,7 @@
   * [Dashboards](analyze-and-monitor-apis/dashboards/README.md)
     * [Overview dashboard](analyze-and-monitor-apis/dashboards/overview-dashboard.md)
     * [Portal analytics dashboards overview](analyze-and-monitor-apis/dashboards/portal-analytics-dashboards-overview.md)
+    * [Create portal analytics dashboards](analyze-and-monitor-apis/dashboards/creating-portal-analytics-dashboards.md)
     * [V4 Proxy API traffic dashboard](analyze-and-monitor-apis/dashboards/4.9-api-proxy-dashboard.md)
     * [V4 API analytics dashboard](analyze-and-monitor-apis/dashboards/v4-api-analytics-dashboard.md)
     * [V2 API analytics dashboards](analyze-and-monitor-apis/dashboards/v2-api-analytics-dashboards.md)

@@ -42,6 +42,7 @@ analyze-and-monitor-apis/configure-gateway-for-opentelemetry-logs.md
 analyze-and-monitor-apis/enable-and-use-opentelemetry-logs-for-apis.md
 analyze-and-monitor-apis/opentelemetry-logs-integration-overview.md
 plugins/plugin-reference.md
+analyze-and-monitor-apis/dashboards/creating-portal-analytics-dashboards.md
 analyze-and-monitor-apis/dashboards/portal-analytics-dashboards-overview.md
 analyze-and-monitor-apis/dashboards/v4-api-analytics-dashboard.md
 configure-and-manage-the-platform/management-api/portal-analytics-management-api-reference.md
