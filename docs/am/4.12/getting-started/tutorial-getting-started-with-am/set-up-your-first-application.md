@@ -63,6 +63,10 @@ $ curl -H "Authorization: Bearer :accessToken" \
 
 Before you can work with AM Gateway, you must create an _application_. The application will provide the necessary information (such as the client ID and client Secret) for authentication and authorization. The application can be a native mobile app, a single page front-end web application or a regular web application that executes on a server.
 
+{% hint style="info" %}
+**Agent applications** are created through a separate workflow under the **Agents** navigation entry, not through the standard application creation flow. For instructions on creating agent applications, see [SPIFFE Workload Identity & Agent Applications](../../guides/applications/spiffe-workload-identity-agent-applications-overview.md#spiffe-workload-identity-agent-applications-overview).
+{% endhint %}
+
 In this example, we will create a regular web application.
 
 1. Click **Applications**.
@@ -119,4 +123,4 @@ You will be redirected to the Login page where you can enter the credentials con
 
 Once logged in you will be redirected to the configured `redirect_uri` with the correct parameters regarding your OAuth2 configuration.
 
-To fine-grain tune your application, you can check in detail the [User Guide.](../../guides/prologue.md)
+To fine-grain tune your application, you can check in detail the [User Guide](../../guides/prologue.md).

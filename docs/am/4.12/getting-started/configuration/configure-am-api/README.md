@@ -652,6 +652,68 @@ httpClient:
     keepAliveTimeout: 60 # in seconds
 ```
 
+### Configure SPIFFE workload identity
+
+SPIFFE workload identity settings control how AM validates JWT-SVIDs presented by agent applications. These settings apply globally to all trust domains and agent applications within the AM instance.
+
+```yaml
+gravitee:
+  oidc:
+    spiffeSettings:
+      enabled: true
+      allowPrivateIpAddress: false
+      allowUnsecuredHttpUri: false
+      cacheMaxEntries: 100
+      cacheTtlSeconds: 3600
+      clockSkewSeconds: 30
+      defaultAllowedAlgorithms:
+        - RS256
+        - ES256
+      fetchTimeoutMs: 5000
+      maxJwtLifetimeSeconds: 300
+      maxResponseSizeKb: 512
+```
+
+| Property | Description | Default |
+|:---------|:------------|:--------|
+| `enabled` | Enables SPIFFE workload identity authentication | `true` |
+| `allowPrivateIpAddress` | Permits JWKS URLs resolving to private IP addresses | `false` |
+| `allowUnsecuredHttpUri` | Permits HTTP (non-TLS) JWKS URLs | `false` |
+| `cacheMaxEntries` | Maximum number of cached JWKS entries | `100` |
+| `cacheTtlSeconds` | TTL for cached JWKS entries | `3600` |
+| `clockSkewSeconds` | Allowed clock skew for JWT validation | `30` |
+| `defaultAllowedAlgorithms` | Default signing algorithms accepted for JWT-SVIDs | `["RS256", "ES256"]` |
+| `fetchTimeoutMs` | HTTP timeout for JWKS fetches | `5000` |
+| `maxJwtLifetimeSeconds` | Maximum allowed JWT lifetime | `300` |
+| `maxResponseSizeKb` | Maximum JWKS response size | `512` |
+
+### Configure CIMD
+
+Client Identity Metadata Document (CIMD) settings control how AM fetches and validates metadata documents when creating agent applications from hosted metadata URLs.
+
+```yaml
+gravitee:
+  oidc:
+    cimdSettings:
+      enabled: true
+      allowedDomains:
+        - example.com
+        - trusted.org
+      allowPrivateIpAddress: false
+      allowUnsecuredHttpUri: false
+      fetchTimeoutMs: 5000
+      maxResponseSizeKb: 256
+```
+
+| Property | Description | Default |
+|:---------|:------------|:--------|
+| `enabled` | Enables CIMD (Client Identity Metadata Document) flows | `true` |
+| `allowedDomains` | Whitelist of domains permitted for CIMD URLs | `[]` |
+| `allowPrivateIpAddress` | Permits CIMD URLs resolving to private IPs | `false` |
+| `allowUnsecuredHttpUri` | Permits HTTP CIMD URLs | `false` |
+| `fetchTimeoutMs` | HTTP timeout for CIMD document fetches | `5000` |
+| `maxResponseSizeKb` | Maximum CIMD document size | `256` |
+
 ## Configure load balancing
 
 If you are planning to use multiple instances, you need to implement sticky sessions in your load balancer, until [this issue](https://github.com/gravitee-io/issues/issues/2523) is closed.
@@ -661,7 +723,7 @@ If you are planning to use multiple instances, you need to implement sticky sess
 Example using three instances of AM API. We add an additional cookie named ROUTEID. TLS termination is configured in Apache, so we just use HTTP.
 
 {% code overflow="wrap" %}
-```
+```xml
 <Proxy balancer://amm_hcluster>
         BalancerMember http://GRAVITEEIO-AM-MGT-API-HOST1:8093 route=apim1-test
         BalancerMember http://GRAVITEEIO-AM-MGT-API-HOST2:8093 route=apim2-test

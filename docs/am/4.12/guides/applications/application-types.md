@@ -6,6 +6,18 @@
 
 Application definitions apply at the *security domain* level.
 
+### Agent Applications
+
+Agent applications represent AI agents as OAuth/OIDC clients with three distinct personas:
+
+- **User-Embedded**: Agents acting on behalf of an authenticated user. Require redirect URIs and support authorization code flow only (no client credentials). Default to public client authentication.
+- **Hosted Delegated**: Agents acting both on behalf of users and autonomously. Require redirect URIs and must support both authorization code and client credentials grants. Default to private key JWT authentication.
+- **Autonomous**: Agents acting independently without user context. No redirect URIs required. Support client credentials flow only (no authorization code). Default to private key JWT authentication.
+
+All agent types forbid implicit, password, and refresh token grants.
+
+Agent applications are managed separately from standard applications in the console via the **Agents** navigation entry.
+
 ## Create an application
 
 ### AM Console
@@ -43,7 +55,7 @@ After you have created the new application, you will be redirected to the applic
 
 ### Test the application
 
-The quickest way to test your newly created application is to request an OAuth2 access token, as described in [set up your first application](https://documentation.gravitee.io/apim/~/changes/337/broken-reference). If you manage to retrieve an access token, your application is all set.
+The quickest way to test your newly created application is to request an OAuth2 access token, as described in [set up your first application](../../getting-started/tutorial-getting-started-with-am/set-up-your-first-application.md#set-up-your-first-application). If you manage to retrieve an access token, your application is all set.
 
 ## Application identity providers
 

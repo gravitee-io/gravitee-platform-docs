@@ -40,6 +40,22 @@ curl -H "Authorization: Bearer :accessToken" \
 ```
 {% endcode %}
 
+You can filter the application listing endpoint by type using the `type` query parameter. The parameter accepts multiple values to filter by one or more application types:
+
+{% code overflow="wrap" %}
+```sh
+# Filter by a single type
+curl -H "Authorization: Bearer :accessToken" \
+     http://GRAVITEEIO-AM-MGT-API-HOST/management/organizations/DEFAULT/environments/DEFAULT/domains/:domainId/applications?type=AGENT
+
+# Filter by multiple types
+curl -H "Authorization: Bearer :accessToken" \
+     http://GRAVITEEIO-AM-MGT-API-HOST/management/organizations/DEFAULT/environments/DEFAULT/domains/:domainId/applications?type=WEB&type=NATIVE
+```
+{% endcode %}
+
+Valid application type values include `WEB`, `NATIVE`, `BROWSER`, `SERVICE`, `RESOURCE_SERVER`, and `AGENT`.
+
 ### Configure the application
 
 After you have created the new application, you will be redirected to the application's `Overview` page, which contains some documentation and code samples to help you start configuring the application.
