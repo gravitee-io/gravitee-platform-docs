@@ -42,25 +42,6 @@ Sample policy configuration:
 }
 ```
 {% endtab %}
-
-{% tab title="PSD2 / Open Banking example" %}
-Sample policy configuration enforcing PSD2/eIDAS QWAC compliance:
-
-```json
-{
-  "ssl-enforcement": {
-    "requiresSsl": true,
-    "requiresClientAuthentication": true,
-    "requiredCertificatePolicies": [
-      "0.4.0.19495.1.3"
-    ],
-    "whitelistSubjectAlternativeNames": [
-      "partner.psd2-bank.com"
-    ]
-  }
-}
-```
-{% endtab %}
 {% endtabs %}
 
 ## Configuration
