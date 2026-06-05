@@ -383,6 +383,8 @@
   * [Quick Start Guide](terraform/quick-start-guide.md)
   * [Define an APIM service account for Terraform](terraform/define-an-apim-service-account-for-terraform.md)
   * [Gravitee Resources](terraform/example-resource-configurations.md)
+  * [Release notes](terraform/release-notes.md)
+  * [Changelog](terraform/changelog.md)
 * [Kafka Gateway](kafka-gateway/README.md)
   * [Configure the Kafka Client & Gateway](kafka-gateway/configure-the-kafka-client-and-gateway.md)
   * [Deploy a Kafka Gateway with Gravitee Cloud](kafka-gateway/deploy-a-kafka-gateway-with-gravitee-cloud.md)

@@ -23,6 +23,8 @@ Users of OpenTofu can use the APIM provider as well: [https://search.opentofu.or
 {% endhint %}
 
 <table data-view="cards"><thead><tr><th data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody>
-<tr><td><a href="quick-start-guide.md">quick-start-guide.md</a></td><td><a href="release-notes.md">release-notes.md</a></td></tr>
+<tr><td><a href="quick-start-guide.md">quick-start-guide.md</a></td><td></td></tr>
 <tr><td><a href="example-resource-configurations.md">example-resource-configurations.md</a></td><td></td></tr>
+<tr><td><a href="release-notes.md">release-notes.md</a></td><td></td></tr>
+<tr><td><a href="changelog.md">changelog.md</a></td><td></td></tr>
 </tbody></table>
