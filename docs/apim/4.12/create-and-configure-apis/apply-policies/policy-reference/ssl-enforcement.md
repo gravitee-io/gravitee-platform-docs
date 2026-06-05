@@ -46,11 +46,11 @@ Sample policy configuration:
 
 ## Configuration
 
-The implementation of the `ssl-enforcement` policy supports Ant-style path patterns, where URL mapping matches URLs using the following rules:
+The `ssl-enforcement` policy uses Ant-style patterns when matching certificate distinguished names and Subject Alternative Names, with the following wildcards:
 
 * `?` matches one character
 * `*` matches zero or more characters
-* `**` matches zero or more directories in a path
+* `**` matches zero or more path segments
 
 ### Phases
 
