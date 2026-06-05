@@ -57,3 +57,5 @@ configure-and-manage-the-platform/gravitee-gateway/configuring-global-redaction-
 configure-and-manage-the-platform/gravitee-gateway/span-attribute-redaction-overview.md
 create-and-configure-apis/configure-v4-apis/documentation.md
 developer-portal/new-developer-portal/api-overview-page-templates.md
+developer-portal/new-developer-portal/customize-the-navigation.md
+developer-portal/new-developer-portal/gravitee-markdown-components.md

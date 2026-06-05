@@ -95,7 +95,7 @@
 <!-- PIPELINE:APIM-14122 -->
 #### **API Overview Page Templates for Developer Portal**
 
-* The Developer Portal now automatically generates structured overview pages for published APIs using pre-configured Markdown templates.
+* When APIs are added to the New Developer Portal navigation, Gravitee automatically creates unpublished Overview pages using pre-configured Gravitee Markdown templates.
 * Two templates are available: a standard template with API metadata and subscription guidance, and an MCP proxy template for Model Context Protocol servers with one-click client configuration.
 * The MCP template includes an embedded `<gmd-install-mcp>` component that generates configuration for AI clients (Cursor, VS Code, Claude Desktop) using the gateway endpoint and MCP path.
 * API publishers can customize the generated overview pages to add quick start guides, use case descriptions, and links to external documentation.
