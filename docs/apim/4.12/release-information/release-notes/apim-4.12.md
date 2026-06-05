@@ -76,9 +76,9 @@
 #### **Enhanced Certificate Validation for SSL Enforcement Policy**
 
 * The SSL Enforcement policy now validates client certificate attributes beyond distinguished names, including Certificate Policy OIDs and Subject Alternative Name (SAN) patterns.
-* Administrators can enforce specific OIDs (e.g., `0.4.0.19495.1.3` for PSD2/eIDAS QWAC) and SAN patterns using Ant-style matching (e.g., `*.example.com`, `PSDXX-XXX-*`).
+* OIDs are configured in dotted-decimal format (e.g., `1.3.6.1.4.1.99999.1`); SAN patterns support Ant-style matching (e.g., `*.example.com`, `partner.example.com`).
 * All specified OIDs must be present in the certificate's Certificate Policies extension; at least one SAN must match a configured pattern for validation to succeed.
-* These enhancements support regulatory compliance requirements for Open Banking, PSD2, and other use cases requiring fine-grained certificate validation.
+* Both new fields are additive and disabled when their list is empty, so existing policy configurations are unaffected.
 <!-- /PIPELINE:APIM-13498 -->
 
 ## Bug Fixes
