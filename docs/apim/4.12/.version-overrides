@@ -42,6 +42,9 @@ analyze-and-monitor-apis/configure-gateway-for-opentelemetry-logs.md
 analyze-and-monitor-apis/enable-and-use-opentelemetry-logs-for-apis.md
 analyze-and-monitor-apis/opentelemetry-logs-integration-overview.md
 plugins/plugin-reference.md
+.gitbook/assets/ssl-enforcement-client-auth-enabled.png
+.gitbook/assets/ssl-enforcement-policy-catalog.png
+create-and-configure-apis/apply-policies/policy-reference/ssl-enforcement.md
 .gitbook/assets/apim-api-import-from-remote-url-step-01.png
 .gitbook/assets/apim-api-import-from-remote-url-step-02.png
 create-and-configure-apis/create-apis/import-apis-from-remote-urls-console.md
