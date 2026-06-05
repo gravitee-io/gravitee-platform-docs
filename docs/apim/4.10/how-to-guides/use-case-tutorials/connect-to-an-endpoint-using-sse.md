@@ -52,21 +52,21 @@ Identify the endpoint from which you are going to consume messages. For testing 
 1. Log in to your Gravitee APIM Console.
 2.  Select **APIs** from the nav and click **+ Add API**.
 
-    <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-co-166.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-co-166 (1).png" alt=""><figcaption></figcaption></figure>
 3.  In the **Create New API** section, click **Create V4 API.**
 
     <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>v2 APIs are also compliant with SSE.</p></div>
 
-    <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-co-167.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-co-167 (1).png" alt=""><figcaption></figcaption></figure>
 4.  Enter your API's name and version number, then click **Validate my API details**.
 
     <figure><img src="../../.gitbook/assets/1 sse.png" alt=""><figcaption></figcaption></figure>
 5.  Select **Proxy Generic Protocol** and click **Select my API architecture**.
 
-    <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-co-169.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-co-169 (1).png" alt=""><figcaption></figcaption></figure>
 6.  Select **HTTP Proxy** and click **Select my entrypoints**.
 
-    <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-co-170.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/how-to-guides-use-case-tutorials-co-170 (1).png" alt=""><figcaption></figcaption></figure>
 7.  Set a unique **Context-path**, for example, `/sseconsumer`, then click **Validate my entrypoints**.
 
     <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>To avoid potential communication issues, do not use characters separated by multiple forward slashes "/" for your context-path.</p></div>

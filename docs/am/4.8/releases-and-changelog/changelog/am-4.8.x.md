@@ -6,6 +6,26 @@ description: >-
 
 # AM 4.8.x
 
+## Gravitee Access Management 4.8.38 - June 1, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* TokenValidation should rely on the KID  [#11383](https://github.com/gravitee-io/issues/issues/11383)
+* Addition of ClientId in the Gravitee AccessLog [#11471](https://github.com/gravitee-io/issues/issues/11471)
+
+
+
+
+
+
+
+</details>
+
+
 ## Gravitee Access Management 4.8.37 - May 25, 2026
 
 <details>
