@@ -28,14 +28,15 @@ The proxy automatically routes requests to the right provider and model, which d
 * **Bedrock** - AWS Bedrock Converse API
 * **OpenAI** - Direct passthrough (full compatibility)
 * **OpenAI-compatible** - Providers following OpenAI API format
+* **Anthropic** - Anthropic Messages API (Claude models)
 
 ### Supported Endpoints
 
-| Endpoint            | Gemini | Bedrock | OpenAI | OpenAI-Compatible |
-| ------------------- | ------ | ------- | ------ | ----------------- |
-| `/chat/completions` | ✅      | ✅       | ✅      | ✅                 |
-| `/responses`        | ✅      | ✅       | ✅      | ✅                 |
-| `/embeddings`       | ✅      | ✅       | ✅      | ✅                 |
+| Endpoint | Gemini | Bedrock | OpenAI | OpenAI-Compatible | Anthropic |
+| ------------------- | ------ | ------- | ------ | ----------------- | --- |
+| `/chat/completions` | ✅ | ✅ | ✅ | ✅ | ✅ |
+| `/responses` | ✅ | ✅ | ✅ | ✅ | ✅ |
+| `/embeddings` | ✅ | ✅ | ✅ | ✅ | ❌ |
 
 ### Feature Support Matrix
 
@@ -47,39 +48,39 @@ The proxy automatically routes requests to the right provider and model, which d
 
 #### Chat Completions and Responses
 
-| Feature                                                                                      | Parameter                     | Gemini | Bedrock | OpenAI | OpenAI-Compatible | Notes                                    |
-| -------------------------------------------------------------------------------------------- | ----------------------------- | ------ | ------- | ------ | ----------------- | ---------------------------------------- |
-| **Messages**                                                                                 | `messages` / `input`          | ✅      | ✅       | ✅      | ✅                 |                                          |
-| **Max Tokens**                                                                               | `max_completion_tokens`       | ✅      | ✅       | ✅      | ✅                 | Primary token limit parameter            |
-|                                                                                              | `max_tokens`                  | ✅      | ✅       | ✅      | ✅                 | Fallback for chat completions            |
-|                                                                                              | `max_output_tokens`           | ✅      | ✅       | ✅      | ✅                 | For responses endpoint                   |
-| **Temperature**                                                                              | `temperature`                 | ✅      | ✅       | ✅      | ✅                 | Controls randomness (0.0-2.0 for Gemini) |
-| **Top P**                                                                                    | `top_p`                       | ✅      | ✅       | ✅      | ✅                 | Nucleus sampling (0.0-1.0)               |
-| **Stop Sequences**                                                                           | `stop`                        | ✅      | ✅       | ✅      | ✅                 | Array of stop sequences                  |
-| <p><strong>Tool calling</strong><br><br>Note: This feature is for only chat completions.</p> | <p><code>tools</code><br></p> | ✅      | ✅       | ✅      | ✅                 |                                          |
-|                                                                                              | `tool_choice`                 | ✅      | ✅       | ✅      | ✅                 |                                          |
-| **Seed**                                                                                     | `seed`                        | ✅      | ❌       | ✅      | ✅                 | Reproducible generation                  |
-| **Streaming**                                                                                | `stream`                      | ✅      | ❌       | ✅      | ✅                 | SSE streaming                            |
-| **Frequency Penalty**                                                                        | `frequency_penalty`           | ❌      | ❌       | ✅      | ✅                 |                                          |
-| **Presence Penalty**                                                                         | `presence_penalty`            | ❌      | ❌       | ✅      | ✅                 |                                          |
-| **Logit Bias**                                                                               | `logit_bias`                  | ❌      | ❌       | ✅      | ✅                 |                                          |
-| **Log Probabilities**                                                                        | `logprobs`                    | ❌      | ❌       | ✅      | ✅                 |                                          |
-|                                                                                              | `top_logprobs`                | ❌      | ❌       | ✅      | ✅                 |                                          |
-| **Multiple Choices**                                                                         | `n`                           | ❌      | ❌       | ✅      | ✅                 |                                          |
-| **User ID**                                                                                  | `user`                        | ❌      | ❌       | ✅      | ✅                 |                                          |
-| **Top K**                                                                                    | `top_k`                       | ❌      | ❌       | ✅      | ✅                 |                                          |
+| Feature | Parameter | Gemini | Bedrock | OpenAI | OpenAI-Compatible | Anthropic | Notes |
+| -------------------------------------------------------------------------------------------- | ----------------------------- | ------ | ------- | ------ | ----------------- | --- | ---------------------------------------- |
+| **Messages** | `messages` / `input` | ✅ | ✅ | ✅ | ✅ | ✅ |  |
+| **Max Tokens** | `max_completion_tokens` | ✅ | ✅ | ✅ | ✅ | ✅ | Primary token limit parameter |
+|  | `max_tokens` | ✅ | ✅ | ✅ | ✅ | ✅ | Fallback for chat completions |
+|  | `max_output_tokens` | ✅ | ✅ | ✅ | ✅ | ✅ | For responses endpoint |
+| **Temperature** | `temperature` | ✅ | ✅ | ✅ | ✅ | ✅ | Controls randomness (0.0-2.0 for Gemini) |
+| **Top P** | `top_p` | ✅ | ✅ | ✅ | ✅ | ✅ | Nucleus sampling (0.0-1.0) |
+| **Stop Sequences** | `stop` | ✅ | ✅ | ✅ | ✅ | ✅ | Array of stop sequences |
+| <p><strong>Tool calling</strong><br><br>Note: This feature is for only chat completions.</p> | <p><code>tools</code><br></p> | ✅ | ✅ | ✅ | ✅ | ✅ |  |
+|  | `tool_choice` | ✅ | ✅ | ✅ | ✅ | ✅ |  |
+| **Seed** | `seed` | ✅ | ❌ | ✅ | ✅ | ❌ | Reproducible generation |
+| **Streaming** | `stream` | ✅ | ❌ | ✅ | ✅ | ✅ | SSE streaming |
+| **Frequency Penalty** | `frequency_penalty` | ❌ | ❌ | ✅ | ✅ | ❌ |  |
+| **Presence Penalty** | `presence_penalty` | ❌ | ❌ | ✅ | ✅ | ❌ |  |
+| **Logit Bias** | `logit_bias` | ❌ | ❌ | ✅ | ✅ | ❌ |  |
+| **Log Probabilities** | `logprobs` | ❌ | ❌ | ✅ | ✅ | ❌ |  |
+|  | `top_logprobs` | ❌ | ❌ | ✅ | ✅ | ❌ |  |
+| **Multiple Choices** | `n` | ❌ | ❌ | ✅ | ✅ | ❌ |  |
+| **User ID** | `user` | ❌ | ❌ | ✅ | ✅ | ❌ |  |
+| **Top K** | `top_k` | ❌ | ❌ | ✅ | ✅ | ❌ |  |
 
 #### Embeddings
 
-| Feature             | Parameter         | Gemini | Bedrock | OpenAI | OpenAI-Compatible | Notes                                |
-| ------------------- | ----------------- | ------ | ------- | ------ | ----------------- | ------------------------------------ |
-| **Input**           | `input`           | ✅      | ⚠️      | ✅      | ✅                 | Bedrock: string only, no arrays      |
-|                     |                   |        |         |        |                   | Gemini: string or array              |
-| **Model**           | `model`           | ✅      | ✅       | ✅      | ✅                 | Mapped to provider model identifiers |
-| **Dimensions**      | `dimensions`      | ✅      | ⚠️      | ✅      | ✅                 | Bedrock: only 256, 512, 1024         |
-|                     |                   |        |         |        |                   | Gemini: flexible                     |
-| **Encoding Format** | `encoding_format` | ⚠️     | ⚠️      | ✅      | ✅                 | Only "float" supported by both       |
-| **User ID**         | `user`            | ❌      | ❌       | ✅      | ✅                 | Not mapped                           |
+| Feature | Parameter | Gemini | Bedrock | OpenAI | OpenAI-Compatible | Anthropic | Notes |
+| ------------------- | ----------------- | ------ | ------- | ------ | ----------------- | --- | ------------------------------------ |
+| **Input** | `input` | ✅ | ⚠️ | ✅ | ✅ | ❌ | Bedrock: string only, no arrays |
+|  |  |  |  |  |  |  | Gemini: string or array |
+| **Model** | `model` | ✅ | ✅ | ✅ | ✅ | ❌ | Mapped to provider model identifiers |
+| **Dimensions** | `dimensions` | ✅ | ⚠️ | ✅ | ✅ | ❌ | Bedrock: only 256, 512, 1024 |
+|  |  |  |  |  |  |  | Gemini: flexible |
+| **Encoding Format** | `encoding_format` | ⚠️ | ⚠️ | ✅ | ✅ | ❌ | Only "float" supported by both |
+| **User ID** | `user` | ❌ | ❌ | ✅ | ✅ | ❌ | Not mapped |
 
 ### Provider-Specific Details
 
@@ -218,6 +219,63 @@ Bedrock requires specific model ID formats:
 * Model availability varies by AWS region
 * Ensure correct model ID format for your region
 
+#### Anthropic
+
+{% tabs %}
+{% tab title="Request format" %}
+* Accepts OpenAI-compatible requests on the `/chat/completions` and `/responses` endpoints
+* Transforms to Anthropic's Messages API (`POST /v1/messages`)
+* System messages are hoisted to the top-level `system` array
+* Assistant role is preserved
+* `tool` messages are mapped to `user` messages with `tool_result` content blocks
+* Adds the required `anthropic-version` header (default `2023-06-01`)
+* `max_tokens` is required by Anthropic and optional in OpenAI, so the proxy injects a default of `4096` when the request omits a token limit
+{% endtab %}
+
+{% tab title="Streaming support" %}
+**Chat completions**
+
+* Streaming support via Server-Sent Events (SSE) when `stream` is `true`
+* Each chunk contains incremental text deltas
+* Streaming tool calls are supported through `input_json_delta` events
+* Final chunk includes the finish reason and token usage
+* Terminated with the `[DONE]` marker
+
+**Responses**
+
+* Multi-event streaming
+* Event types: `response.created`, `response.output_text.delta`, `response.function_call_arguments.delta`, `response.output_item.added`, and `response.completed`
+* Final event includes complete usage statistics
+* Terminated with the `[DONE]` marker
+{% endtab %}
+
+{% tab title="Token usage" %}
+All supported endpoints return token counts mapped from Anthropic's `input_tokens` and `output_tokens`:
+
+* Chat completions: `prompt_tokens`, `completion_tokens`, and `total_tokens`
+* Responses: `input_tokens`, `output_tokens`, and `total_tokens`
+{% endtab %}
+
+{% tab title="Message handling" %}
+* System messages: hoisted to the top-level `system` array
+* User and assistant messages: preserved with role conversion
+* Tool results: mapped to `user` messages with `tool_result` content blocks
+{% endtab %}
+
+{% tab title="Embeddings" %}
+Embeddings aren't supported for Anthropic. The `/embeddings` endpoint returns a not-implemented response.
+{% endtab %}
+{% endtabs %}
+
+**Finish Reasons**
+
+| Anthropic | OpenAI | Description |
+| --------------- | ------------ | ----------------------- |
+| `end_turn` | `stop` | Natural completion |
+| `stop_sequence` | `stop` | Hit stop sequence |
+| `max_tokens` | `length` | Token limit reached |
+| `tool_use` | `tool_calls` | Tool/function requested |
+
 ### Limitations and Constraints
 
 #### Common Limitations (All Providers)
@@ -271,6 +329,15 @@ The following OpenAI features are not currently supported by any provider:
 
 {% tab title="Content" %}
 Warning generated if multiple content parts exist
+{% endtab %}
+{% endtabs %}
+
+#### Anthropic-Specific Limitations
+
+{% tabs %}
+{% tab title="Embeddings" %}
+* Embeddings aren't supported
+* The `/embeddings` endpoint returns a not-implemented response
 {% endtab %}
 {% endtabs %}
 
