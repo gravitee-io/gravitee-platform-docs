@@ -141,7 +141,7 @@ ActiveMQ
 ActiveMQConnectionFactory
 ConnectionFactory
 DLQs?
-AVRO
+[Aa][Vv][Rr][Oo]
 Protobuf
 JOLT
 QoS
@@ -277,7 +277,7 @@ Event-Driven Architecture
 # ============================================
 # Formats & Standards
 # ============================================
-JSON
+[Jj][Ss][Oo][Nn]
 XML
 YAML
 HTML
@@ -345,6 +345,7 @@ ISO
 [Mm]ulti-broker
 [Dd]eserialization
 [Dd]eserialized
+[Dd]eserializes
 [Dd]eletable
 [Aa]nonymized
 [Bb]ackchannel
@@ -685,7 +686,7 @@ ratelimiting
 goroutines
 classloader
 throwable
-wsdl
+WSDL
 statsd
 healthz
 middleware
