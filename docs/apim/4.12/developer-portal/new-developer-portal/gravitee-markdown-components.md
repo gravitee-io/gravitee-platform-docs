@@ -16,6 +16,7 @@ Here are available Gravitee Markdown components:
 * [#button](gravitee-markdown-components.md#button "mention")
 * [#card](gravitee-markdown-components.md#card "mention")
 * [#grid](gravitee-markdown-components.md#grid "mention")
+* [#install-mcp](gravitee-markdown-components.md#install-mcp "mention")
 
 ### Block
 
@@ -324,3 +325,22 @@ Here are some use cases examples:
 ```
 {% endtab %}
 {% endtabs %}
+
+### Install MCP
+
+The `<gmd-install-mcp>` component renders one-click installer actions and copyable configuration snippets for supported MCP clients: Cursor, VS Code, and Claude Desktop.
+
+Use it on remote MCP servers exposed through the Gravitee gateway:
+
+```markdown
+<gmd-install-mcp name="weather" transport="http" url="https://api.example.com/mcp" />
+```
+
+| Attribute | Description |
+|:----------|:------------|
+| `name` | MCP server name used in generated client configurations |
+| `transport` | MCP transport: `http`, `sse`, or `stdio` |
+| `url` | Remote MCP endpoint URL for `http` and `sse` transports |
+| `clients` | Optional comma-separated list of installer ids to display (for example, `cursor,vscode,claude-desktop`) |
+
+If required inputs are missing, the component renders a placeholder instead of installer actions. The MCP proxy API Overview template uses this component automatically. For more information, see [API Overview Page Templates](api-overview-page-templates.md).
