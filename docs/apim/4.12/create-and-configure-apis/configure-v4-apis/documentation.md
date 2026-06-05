@@ -97,7 +97,9 @@ Use the following syntax to access the API data in your API documentation: `${ap
 Ensure that the reference in the template leads to a valid object. If you reference an object that does not exist, the templating does not work. For more information about templating, go to [Apache FreeMaker Manual](https://freemarker.apache.org/docs/index.html).
 {% endhint %}
 
-When an API is published to the Developer Portal, an overview page is automatically generated using a card-based template. The standard template is applied to general APIs, while the MCP proxy template is used for APIs exposing Model Context Protocol servers. These templates replace previous plain markdown list formats and provide a structured presentation of API metadata, subscription guidance, and integration instructions.
+{% hint style="info" %}
+For auto-generated Overview pages in the New Developer Portal (when you add an API to portal navigation), see [API Overview Page Templates](../../developer-portal/new-developer-portal/api-overview-page-templates.md).
+{% endhint %}
 
 The sample script below creates a documentation template based on the Apache [FreeMarker template engine](https://freemarker.apache.org/):
 
