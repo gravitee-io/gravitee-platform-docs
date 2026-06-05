@@ -113,4 +113,14 @@
 * Applies to v2 APIs, v4 HTTP/Proxy APIs, v4 Message APIs, and Shared Policy Groups.
 <!-- /PIPELINE:APIM-13462 -->
 
+
+<!-- PIPELINE:APIM-13498 -->
+#### **Enhanced Certificate Validation for SSL Enforcement Policy**
+
+* The SSL Enforcement policy now validates client certificate attributes beyond distinguished names, including Certificate Policy OIDs and Subject Alternative Name (SAN) patterns.
+* OIDs are configured in dotted-decimal format (e.g., `1.3.6.1.4.1.99999.1`); SAN patterns support Ant-style matching (e.g., `*.example.com`, `partner.example.com`).
+* All specified OIDs must be present in the certificate's Certificate Policies extension; at least one SAN must match a configured pattern for validation to succeed.
+* Both new fields are additive and disabled when their list is empty, so existing policy configurations are unaffected.
+<!-- /PIPELINE:APIM-13498 -->
+
 ## Bug Fixes
