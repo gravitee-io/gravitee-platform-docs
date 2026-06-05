@@ -6,6 +6,8 @@
 
 Application definitions apply at the *security domain* level.
 
+Access Management supports multiple application types, including standard OAuth clients (Web, Single Page, Native, Service) and AI agent applications. Agent applications authenticate using SPIFFE workload identities and support three personas: User-Embedded, Hosted Delegated, and Autonomous.
+
 ## Create an application
 
 ### AM Console

@@ -26,7 +26,7 @@ Use the following HTTP Authorization request header to call the API: `Authorizat
 
 ### Token endpoint
 
-You can use the `token` endpoint to retrieve the `AM Management API token` . To retrieve the token, present the user credentials in the `Basic authentication scheme`.
+You can use the `token` endpoint to retrieve the `AM Management API token`. To retrieve the token, present the user credentials in the `Basic authentication scheme`.
 
 The following example exchanges default admin account credentials (`admin/adminadmin`) for a token:
 
@@ -83,3 +83,52 @@ POST http(s)://AM_MANAGEMENT_API/management/auth/login
 For user migrations from an alternative OIDC provider to Access Management, you can define the `lastPasswordReset` attribute. This attribute ensures that a password policy with password expiry requests a password reset according to the value provided during the migration.
 
 In Management REST API, `lastPasswordReset` attribute in the User definition is a long value representing the number of milliseconds since the standard base time known as "the epoch".
+
+## API Endpoints
+
+### Trust domain CRUD
+
+The following endpoints manage trust domains within a security domain:
+
+```
+GET    /domains/{domain}/trust-domains
+POST   /domains/{domain}/trust-domains
+GET    /domains/{domain}/trust-domains/{trustDomainId}
+PUT    /domains/{domain}/trust-domains/{trustDomainId}
+DELETE /domains/{domain}/trust-domains/{trustDomainId}
+```
+
+**Request schema (POST/PUT):**
+
+```json
+{
+  "name": "string",
+  "description": "string",
+  "type": "string",
+  "configuration": "string"
+}
+```
+
+**Response schema:**
+
+```json
+{
+  "id": "string",
+  "name": "string",
+  "description": "string",
+  "type": "string",
+  "configuration": "string",
+  "createdAt": 0,
+  "updatedAt": 0
+}
+```
+
+### Application filtering
+
+The following endpoint supports filtering applications by type:
+
+```
+GET /applications?type=AGENT&type=WEB
+```
+
+The `type` query parameter accepts multiple values to filter applications by type. Omit the parameter to list all applications.

@@ -56,18 +56,3 @@ All metadata and logo fetches are subject to Server-Side Request Forgery (SSRF) 
     <figure><img src="../../../.gitbook/assets/am-cimd-allowed-domains.png" alt="CIMD allowed domains chip list for domain restriction"><figcaption></figcaption></figure>
 
 5. Click **SAVE**.
-
-### CIMD Settings Reference
-
-| Field | Description | Default |
-|:------|:------------|:--------|
-| **Enable CIMD** | Enable/disable Client ID Metadata Document support | Disabled |
-| **Template Application** | Template application for CIMD clients | None (required) |
-| **Allow Private/Loopback IP Addresses** | SSRF protection: allow metadata requests to private IPs | Disabled |
-| **Allow Unsecured HTTP URIs** | SSRF protection: allow metadata requests to HTTP URIs | Disabled |
-| **Fetch Timeout (ms)** | Timeout for metadata fetch | 5000 |
-| **Max Response Size (KB)** | Maximum metadata response size | 10 |
-| **Allowed Domains** | Restrict metadata to these domains (supports `*.example.com`) | Empty (allow all) |
-| **Cache TTL (seconds)** | Metadata cache time-to-live | 86400 |
-| **Cache Max Entries** | Maximum cache entries | 1000 |
-| **Revoke Tokens and Consents When Client Metadata Changes** | Revoke tokens when metadata hash changes | Disabled |
