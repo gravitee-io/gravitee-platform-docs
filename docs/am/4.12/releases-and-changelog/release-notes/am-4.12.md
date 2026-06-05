@@ -27,6 +27,17 @@
 * Designed for AI agents and Model Context Protocol (MCP) clients requiring agent-driven authentication workflows without manual registration.
 <!-- /PIPELINE:AM-6906 -->
 
+
+<!-- PIPELINE:AM-7077 -->
+#### **SPIFFE Workload Identity and Agent Applications**
+
+* Introduces AI agents and service workloads as first-class OAuth/OIDC identities authenticated via SPIFFE JWT-SVIDs issued by SPIRE.
+* Supports three agent personas: User-Embedded (acts on behalf of end users with authorization code flow), Hosted Delegated (acts on behalf of users with token exchange), and Autonomous (service-to-service with client credentials).
+* Administrators can create agent applications from hosted Client Identity Metadata Documents (CIMD) or configure them manually with SPIFFE subject matching (exact or prefix mode).
+* Trust Domains define SPIFFE trust boundaries and reference JWKS endpoints or static key sets for SVID verification, with automatic bundle refresh.
+* Requires database migration (adds `sub_type` column to `applications` table and creates `trust_domains` table) and gateway configuration to enable SPIFFE authentication per domain.
+<!-- /PIPELINE:AM-7077 -->
+
 ## Improvements
 
 ## Bug Fixes

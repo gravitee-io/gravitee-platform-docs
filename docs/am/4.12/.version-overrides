@@ -7,3 +7,9 @@ releases-and-changelog/release-notes/am-4.12.md
 .gitbook/assets/am-cimd-settings-overview.png
 guides/applications/README.md
 guides/auth-protocols/oauth-2.0/cimd.md
+getting-started/configuration/configure-am-gateway/configure-spiffe-and-cimd-gateway-settings.md
+guides/applications/spiffe-and-cimd-restrictions-and-validation-rules.md
+guides/auth-protocols/oauth-2.0/create-and-configure-agent-applications.md
+guides/auth-protocols/oauth-2.0/spiffe-workload-identity-agent-applications-overview.md
+guides/auth-protocols/oauth-2.0/trust-domains-and-cimd-management-api-reference.md
+guides/security-domains/manage-trust-domains.md

@@ -12,6 +12,17 @@ _Applications_ act on behalf of the user to request tokens, hold user identity i
 
 Application definitions apply at the _security domain_ level.
 
+Applications can represent different types of clients:
+
+- **Web Applications**: Server-side applications that can securely store credentials
+- **Native Applications**: Mobile or desktop applications
+- **Browser Applications**: Single-page applications (SPAs) running in a browser
+- **Service Applications**: Backend services for machine-to-machine communication
+- **Resource Server Applications**: APIs that validate access tokens
+- **Agent Applications**: AI agents, automation workflows, or service-to-service integrations
+
+Agent applications are managed separately in the **Agents** section of the console and support specialized authentication methods including SPIFFE workload identity. See the [agent application creation guide](../auth-protocols/oauth-2.0/create-and-configure-agent-applications.md) for details on configuring agent-type applications.
+
 ## Create an application
 
 ### AM Console
@@ -261,22 +272,9 @@ curl -X POST \
   http://GRAVITEEIO-AM-GATEWAY-HOST/::domain/oidc/register
 ```
 
-**Register agent application example**
-
-To register an agent application programmatically, send a POST request to the DCR endpoint with `application_type` set to `"agent"`. The system strips forbidden grant types (`implicit`, `password`, `refresh_token`) from the request. If no valid grant types remain after stripping, the system defaults to `["authorization_code"]`. The `redirect_uris` field is required. If `token_endpoint_auth_method` is omitted, the system defaults to `client_secret_basic`. The DCR flow validates agent constraints and strips forbidden response types (`token`, `id_token`, `id_token token`) during registration. If response types become empty and `authorization_code` is granted, the system adds `"code"`.
-
-```sh
-
-curl -X POST \
-  -H 'Authorization: Bearer :accessToken' \
-  -H 'Content-Type: application/json' \
-  -d '{ \
-        "application_type": "agent", \
-        "grant_types": [ "authorization_code","client_credentials" ], \
-        "redirect_uris": ["https://example.com/callback"] \
-      }' \
-  http://GRAVITEEIO-AM-GATEWAY-HOST/::domain/oidc/register
-```
+{% hint style="info" %}
+**Agent applications** are managed in the **Agents** section of the console and support specialized authentication methods including SPIFFE workload identity. For agent-specific DCR workflows and configuration details, see the agent application creation guide.
+{% endhint %}
 
 #### Read/update/delete client information
 
