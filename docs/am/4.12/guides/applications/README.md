@@ -12,6 +12,8 @@ _Applications_ act on behalf of the user to request tokens, hold user identity i
 
 Application definitions apply at the _security domain_ level.
 
+Access Management supports multiple application types: web applications, native applications, browser-based applications, service applications, and agent applications. Agent applications represent autonomous or user-delegated AI workloads and appear in a dedicated **Agents** area with separate navigation and creation workflows. Agent applications are excluded from the standard **Applications** list.
+
 ## Create an application
 
 ### AM Console
@@ -263,20 +265,7 @@ curl -X POST \
 
 **Register agent application example**
 
-To register an agent application programmatically, send a POST request to the DCR endpoint with `application_type` set to `"agent"`. The system strips forbidden grant types (`implicit`, `password`, `refresh_token`) from the request. If no valid grant types remain after stripping, the system defaults to `["authorization_code"]`. The `redirect_uris` field is required. If `token_endpoint_auth_method` is omitted, the system defaults to `client_secret_basic`. The DCR flow validates agent constraints and strips forbidden response types (`token`, `id_token`, `id_token token`) during registration. If response types become empty and `authorization_code` is granted, the system adds `"code"`.
-
-```sh
-
-curl -X POST \
-  -H 'Authorization: Bearer :accessToken' \
-  -H 'Content-Type: application/json' \
-  -d '{ \
-        "application_type": "agent", \
-        "grant_types": [ "authorization_code","client_credentials" ], \
-        "redirect_uris": ["https://example.com/callback"] \
-      }' \
-  http://GRAVITEEIO-AM-GATEWAY-HOST/::domain/oidc/register
-```
+For agent application registration details, see [SPIFFE integration](../spiffe-integration/).
 
 #### Read/update/delete client information
 

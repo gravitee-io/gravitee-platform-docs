@@ -24,10 +24,12 @@ The template application defines default settings and restrictions for all CIMD 
 - `scope`: Intersected with template scopes when present in metadata; otherwise uses template scopes verbatim
 
 {% hint style="info" %}
-Applications are individually elected to be templates in their **Settings** > **General tab**.
+Applications are individually elected to be templates in their **Settings** > **General tab**. Agent applications can also be marked as DCR/CIMD registration templates. When an agent application is used as a template, the blueprint `client_id` is permitted as `software_id` in DCR requests.
 {% endhint %}
 
 Non-OAuth application configurations (identity providers, metadata, token validity, certificates, MFA) can only be defined in the [template application](../../applications/). The template application cannot be deleted or un-templated while CIMD is enabled.
+
+CIMD documents using secret-based `token_endpoint_auth_method` (`client_secret_basic`, `client_secret_post`, `client_secret_jwt`) are rejected. Documents using `private_key_jwt` must include either `jwks_uri` or inline `jwks`.
 
 ### Metadata Caching and Change Detection
 
@@ -68,6 +70,3 @@ All metadata and logo fetches are subject to Server-Side Request Forgery (SSRF) 
 | **Fetch Timeout (ms)** | Timeout for metadata fetch | 5000 |
 | **Max Response Size (KB)** | Maximum metadata response size | 10 |
 | **Allowed Domains** | Restrict metadata to these domains (supports `*.example.com`) | Empty (allow all) |
-| **Cache TTL (seconds)** | Metadata cache time-to-live | 86400 |
-| **Cache Max Entries** | Maximum cache entries | 1000 |
-| **Revoke Tokens and Consents When Client Metadata Changes** | Revoke tokens when metadata hash changes | Disabled |

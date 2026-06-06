@@ -65,6 +65,10 @@ Before you can work with AM Gateway, you must create an _application_. The appli
 
 In this example, we will create a regular web application.
 
+{% hint style="info" %}
+Agent applications are created through a separate workflow. See [Creating Agent Applications](../../guides/applications/spiffe-workload-identity-agent-applications-creating-agent-applications.md#creating-agent-applications) in the SPIFFE Workload Identity & Agent Applications guide.
+{% endhint %}
+
 1. Click **Applications**.
 2. In the Applications page, click the plus icon ![plus icon](../../.gitbook/assets/plus-icon.png).
 3. Choose a **Web** application type.

@@ -7,3 +7,10 @@ releases-and-changelog/release-notes/am-4.12.md
 .gitbook/assets/am-cimd-settings-overview.png
 guides/applications/README.md
 guides/auth-protocols/oauth-2.0/cimd.md
+getting-started/install-and-upgrade-guides/4.7-upgrade-guide.md
+getting-started/tutorial-getting-started-with-am/set-up-your-first-application.md
+guides/applications/spiffe-workload-identity-agent-applications-creating-agent-applications.md
+guides/applications/spiffe-workload-identity-agent-applications-prerequisites-restrictions-and-related-changes.md
+guides/auth-protocols/oauth-2.0/spiffe-workload-identity-agent-applications-gateway-configuration.md
+guides/auth-protocols/oauth-2.0/spiffe-workload-identity-agent-applications-management-api-reference.md
+guides/spiffe-workload-identity-agent-applications-managing-trust-domains.md
