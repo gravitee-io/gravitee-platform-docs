@@ -6,6 +6,28 @@
 
 Application definitions apply at the *security domain* level.
 
+### Application types
+
+Access Management supports the following application types:
+
+| Type | Description | Use Case |
+|------|-------------|----------|
+| **WEB** | Server-side web applications | Traditional web apps with backend servers |
+| **NATIVE** | Mobile or desktop applications | Native mobile apps, desktop clients |
+| **BROWSER** | Single-page applications (SPAs) | JavaScript apps running in browsers |
+| **SERVICE** | Machine-to-machine applications | Backend services, APIs, scheduled jobs |
+| **AGENT** | AI agent applications with workload identity | Personal assistants, hosted agents, autonomous processors |
+
+Agent applications introduce three personas defined by the `subType` field:
+
+| Persona | Description | Use Case |
+|:--------|:------------|:---------|
+| **User-Embedded** | Agent acts on behalf of an authenticated user; user identity appears in top-level `sub` claim | Personal assistants, browser extensions |
+| **Hosted Delegated** | Agent acts on behalf of a user but runs in a hosted environment; supports delegation chains | Multi-tenant SaaS agents |
+| **Autonomous** | Agent acts independently without user context; agent identity appears in top-level `sub` | Background processors, scheduled tasks |
+
+User-Embedded and Hosted Delegated agents require at least one redirect URI. Autonomous agents use only `client_credentials` grant. All agent applications emit a `client_profile` claim (`ai_agent <persona>`) and propagate `sub_profile` through delegation chains.
+
 ## Create an application
 
 ### AM Console

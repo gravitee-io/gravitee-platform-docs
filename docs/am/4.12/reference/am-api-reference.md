@@ -83,3 +83,24 @@ POST http(s)://AM_MANAGEMENT_API/management/auth/login
 For user migrations from an alternative OIDC provider to Access Management, you can define the `lastPasswordReset` attribute. This attribute ensures that a password policy with password expiry requests a password reset according to the value provided during the migration.
 
 In Management REST API, `lastPasswordReset` attribute in the User definition is a long value representing the number of milliseconds since the standard base time known as "the epoch".
+
+## Trust Domain Management API
+
+Trust domains are managed via the Management API at `/organizations/{organizationId}/environments/{environmentId}/domains/{domain}/trust-domains`.
+
+| Method | Path | Summary |
+|:-------|:-----|:--------|
+| GET | `/trust-domains` | List trust domains |
+| POST | `/trust-domains` | Create a trust domain |
+| GET | `/trust-domains/{trustDomainId}` | Get a trust domain |
+| PUT | `/trust-domains/{trustDomainId}` | Update a trust domain |
+| DELETE | `/trust-domains/{trustDomainId}` | Delete a trust domain |
+
+## CIMD API
+
+CIMD validation and application creation are available via the Management API at `/organizations/{organizationId}/environments/{environmentId}/domains/{domain}/cimd`. Both endpoints require `APPLICATION[CREATE]` permission.
+
+| Method | Path | Summary |
+|:-------|:-----|:--------|
+| POST | `/cimd/validate` | Validate a CIMD URL and return parsed metadata preview |
+| POST | `/cimd/applications` | Create an application from a CIMD document URL |
