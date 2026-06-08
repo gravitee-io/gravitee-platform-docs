@@ -49,39 +49,39 @@ The proxy automatically routes requests to the right provider and model, which d
 
 #### Chat Completions and Responses
 
-| Feature | Parameter | Gemini | Bedrock | OpenAI | OpenAI-Compatible | Anthropic | Notes |
-| -------------------------------------------------------------------------------------------- | ----------------------------- | ------ | ------- | ------ | ----------------- | --- | ---------------------------------------- |
-| **Messages** | `messages` / `input` | ✅ | ✅ | ✅ | ✅ | ✅ |  |
-| **Max Tokens** | `max_completion_tokens` | ✅ | ✅ | ✅ | ✅ | ✅ | Primary token limit parameter |
-|  | `max_tokens` | ✅ | ✅ | ✅ | ✅ | ✅ | Fallback for chat completions |
-|  | `max_output_tokens` | ✅ | ✅ | ✅ | ✅ | ✅ | For responses endpoint |
-| **Temperature** | `temperature` | ✅ | ✅ | ✅ | ✅ | ✅ | Controls randomness (0.0-2.0 for Gemini) |
-| **Top P** | `top_p` | ✅ | ✅ | ✅ | ✅ | ✅ | Nucleus sampling (0.0-1.0) |
-| **Stop Sequences** | `stop` | ✅ | ✅ | ✅ | ✅ | ✅ | Array of stop sequences |
-| <p><strong>Tool calling</strong><br><br>Note: This feature is for only chat completions.</p> | <p><code>tools</code><br></p> | ✅ | ✅ | ✅ | ✅ | ✅ |  |
-|  | `tool_choice` | ✅ | ✅ | ✅ | ✅ | ✅ |  |
-| **Seed** | `seed` | ✅ | ❌ | ✅ | ✅ | ❌ | Reproducible generation |
-| **Streaming** | `stream` | ✅ | ❌ | ✅ | ✅ | ✅ | SSE streaming |
-| **Frequency Penalty** | `frequency_penalty` | ❌ | ❌ | ✅ | ✅ | ❌ |  |
-| **Presence Penalty** | `presence_penalty` | ❌ | ❌ | ✅ | ✅ | ❌ |  |
-| **Logit Bias** | `logit_bias` | ❌ | ❌ | ✅ | ✅ | ❌ |  |
-| **Log Probabilities** | `logprobs` | ❌ | ❌ | ✅ | ✅ | ❌ |  |
-|  | `top_logprobs` | ❌ | ❌ | ✅ | ✅ | ❌ |  |
-| **Multiple Choices** | `n` | ❌ | ❌ | ✅ | ✅ | ❌ |  |
-| **User ID** | `user` | ❌ | ❌ | ✅ | ✅ | ❌ |  |
-| **Top K** | `top_k` | ❌ | ❌ | ✅ | ✅ | ❌ |  |
+| Feature | Parameter | Gemini | Bedrock | OpenAI | OpenAI-Compatible | Anthropic | Vertex AI (Google) | Vertex AI (Anthropic) | Notes |
+| -------------------------------------------------------------------------------------------- | ----------------------------- | ------ | ------- | ------ | ----------------- | --- | ------------------ | --------------------- | ---------------------------------------- |
+| **Messages** | `messages` / `input` | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |  |
+| **Max Tokens** | `max_completion_tokens` | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | Primary token limit parameter |
+|  | `max_tokens` | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | Fallback for chat completions |
+|  | `max_output_tokens` | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | For responses endpoint |
+| **Temperature** | `temperature` | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | Controls randomness (0.0-2.0 for Gemini) |
+| **Top P** | `top_p` | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | Nucleus sampling (0.0-1.0) |
+| **Stop Sequences** | `stop` | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | Array of stop sequences |
+| <p><strong>Tool calling</strong><br><br>Note: This feature is for only chat completions.</p> | <p><code>tools</code><br></p> | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |  |
+|  | `tool_choice` | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |  |
+| **Seed** | `seed` | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | ❌ | Reproducible generation |
+| **Streaming** | `stream` | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | SSE streaming |
+| **Frequency Penalty** | `frequency_penalty` | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ |  |
+| **Presence Penalty** | `presence_penalty` | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ |  |
+| **Logit Bias** | `logit_bias` | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ |  |
+| **Log Probabilities** | `logprobs` | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ |  |
+|  | `top_logprobs` | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ |  |
+| **Multiple Choices** | `n` | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ |  |
+| **User ID** | `user` | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ |  |
+| **Top K** | `top_k` | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ |  |
 
 #### Embeddings
 
-| Feature | Parameter | Gemini | Bedrock | OpenAI | OpenAI-Compatible | Anthropic | Notes |
-| ------------------- | ----------------- | ------ | ------- | ------ | ----------------- | --- | ------------------------------------ |
-| **Input** | `input` | ✅ | ⚠️ | ✅ | ✅ | ❌ | Bedrock: string only, no arrays |
-|  |  |  |  |  |  |  | Gemini: string or array |
-| **Model** | `model` | ✅ | ✅ | ✅ | ✅ | ❌ | Mapped to provider model identifiers |
-| **Dimensions** | `dimensions` | ✅ | ⚠️ | ✅ | ✅ | ❌ | Bedrock: only 256, 512, 1024 |
-|  |  |  |  |  |  |  | Gemini: flexible |
-| **Encoding Format** | `encoding_format` | ⚠️ | ⚠️ | ✅ | ✅ | ❌ | Only "float" supported by both |
-| **User ID** | `user` | ❌ | ❌ | ✅ | ✅ | ❌ | Not mapped |
+| Feature | Parameter | Gemini | Bedrock | OpenAI | OpenAI-Compatible | Anthropic | Vertex AI (Google) | Vertex AI (Anthropic) | Notes |
+| ------------------- | ----------------- | ------ | ------- | ------ | ----------------- | --- | ------------------ | --------------------- | ------------------------------------ |
+| **Input** | `input` | ✅ | ⚠️ | ✅ | ✅ | ❌ | ✅ | ❌ | Bedrock: string only, no arrays |
+|  |  |  |  |  |  |  |  |  | Gemini: string or array |
+| **Model** | `model` | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | Mapped to provider model identifiers |
+| **Dimensions** | `dimensions` | ✅ | ⚠️ | ✅ | ✅ | ❌ | ✅ | ❌ | Bedrock: only 256, 512, 1024 |
+|  |  |  |  |  |  |  |  |  | Gemini: flexible |
+| **Encoding Format** | `encoding_format` | ⚠️ | ⚠️ | ✅ | ✅ | ❌ | ⚠️ | ❌ | Only "float" supported by both |
+| **User ID** | `user` | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | Not mapped |
 
 ### Provider-Specific Details
 
