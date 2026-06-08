@@ -6,6 +6,25 @@ description: >-
 
 # AM 4.9.x
 
+## Gravitee Access Management 4.9.23 - June 8, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* Kafka Client OAUTH not working [#11501](https://github.com/gravitee-io/issues/issues/11501)
+
+</details>
+
+
 ## Gravitee Access Management 4.9.22 - June 1, 2026
 
 <details>
