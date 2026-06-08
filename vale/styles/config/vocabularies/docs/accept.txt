@@ -269,6 +269,7 @@ Gzip
 CIDR
 SPA
 LLM
+[Ll]ogit
 MCP
 Fully Qualified Domain Name
 Remote Procedure Call
