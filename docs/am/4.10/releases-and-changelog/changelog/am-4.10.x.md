@@ -6,6 +6,27 @@ description: >-
 
 # AM 4.10.x
 
+## Gravitee Access Management 4.10.14 - June 8, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Request-object signature pre-check NPE [#11486](https://github.com/gravitee-io/issues/issues/11486)
+
+
+
+
+
+**Other**
+
+* Kafka Client OAUTH not working [#11501](https://github.com/gravitee-io/issues/issues/11501)
+
+</details>
+
+
 ## Gravitee Access Management 4.10.13 - June 1, 2026
 
 <details>
