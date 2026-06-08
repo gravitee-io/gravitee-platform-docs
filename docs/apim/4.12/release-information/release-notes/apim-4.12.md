@@ -68,6 +68,15 @@
 <!-- /PIPELINE:APIM-13463 -->
 
 
+<!-- PIPELINE:APIM-13459 -->
+#### **Portal Analytics Dashboards**
+
+* API consumers and administrators can now view pre-configured analytics dashboards in the New Developer Portal, displaying API traffic, performance, and usage metrics through customizable widgets (stats, charts, time-series).
+* Dashboards aggregate data from HTTP requests, response times, and status codes, with filtering by API, application, or HTTP status. Users can pin up to 4 dashboards for quick access.
+* Access is controlled by user role and API/application visibility. Environment administrators see all APIs but no application data; authenticated users see authorized APIs and their own applications.
+* Requires the `portal.next.analytics.enabled` environment parameter set to `true`, which enables both the analytics endpoints and the New Developer Portal analytics UI.
+* Dashboards are environment-scoped and isolated. Cross-environment access returns a `404` error.
+<!-- /PIPELINE:APIM-13459 -->
 <!-- PIPELINE:APIM-12146 -->
 #### **Remote URL Import for API Definitions**
 
@@ -112,5 +121,15 @@
 * The attribute is only emitted when a non-blank description is set and verbose tracing is enabled at both the API and gateway level.
 * Applies to v2 APIs, v4 HTTP/Proxy APIs, v4 Message APIs, and Shared Policy Groups.
 <!-- /PIPELINE:APIM-13462 -->
+
+
+<!-- PIPELINE:APIM-13498 -->
+#### **Enhanced Certificate Validation for SSL Enforcement Policy**
+
+* The SSL Enforcement policy now validates client certificate attributes beyond distinguished names, including Certificate Policy OIDs and Subject Alternative Name (SAN) patterns.
+* OIDs are configured in dotted-decimal format (e.g., `1.3.6.1.4.1.99999.1`); SAN patterns support Ant-style matching (e.g., `*.example.com`, `partner.example.com`).
+* All specified OIDs must be present in the certificate's Certificate Policies extension; at least one SAN must match a configured pattern for validation to succeed.
+* Both new fields are additive and disabled when their list is empty, so existing policy configurations are unaffected.
+<!-- /PIPELINE:APIM-13498 -->
 
 ## Bug Fixes

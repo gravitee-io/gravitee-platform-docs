@@ -26,6 +26,8 @@ APIs
 API's
 REST
 RESTful
+# allow the lowercase English word "rest" so Vale.Terms stops treating it as the REST acronym
+rest
 GraphQL
 gRPC
 AsyncAPI
@@ -450,7 +452,7 @@ async
 [Mm]anagement [Cc]onsole
 [Aa]llows?
 [Aa]gainst
-[Ee]num[s]?
+[Ee]num[s]?|ENUM
 [Rr]eorderable
 [Dd]rag and [Dd]rop
 [Cc]allout[s]?
@@ -559,6 +561,7 @@ Snappy
 # ============================================
 Jira
 GAP
+enablement
 
 # ============================================
 # Spell-check sweep additions (2026-05-29)
