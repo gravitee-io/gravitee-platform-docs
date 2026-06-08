@@ -1,5 +1,96 @@
 # APIM 4.11.x
  
+## Gravitee API Management 4.11.9 - June 1, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Gateway primary stays unhealthy after restart when distributed sync is enabled [#11468](https://github.com/gravitee-io/issues/issues/11468)
+* Gateway sync can hang indefinitely on slow bridge responses (no per-request timeout) [#11469](https://github.com/gravitee-io/issues/issues/11469)
+
+**Management API**
+
+* MAPI v2 doesn't accept group names [#11351](https://github.com/gravitee-io/issues/issues/11351)
+* Audit retention cleaner fails with SocketTimeoutException on populated `audits` collections [#11434](https://github.com/gravitee-io/issues/issues/11434)
+
+**Console**
+
+* Audit Log event type filter in the APIM Console does not populate v4 APIs [#11429](https://github.com/gravitee-io/issues/issues/11429)
+* API v2 Logging configuration - Problem when using a combination of criteria in the EL expression  [#11472](https://github.com/gravitee-io/issues/issues/11472)
+
+**Other**
+
+* Setting Redoc viewer as default does not apply for v4 API documents [#11188](https://github.com/gravitee-io/issues/issues/11188)
+* Prometheus label http_route / http_path not appearing on proxy traffic metrics [#11335](https://github.com/gravitee-io/issues/issues/11335)
+* Viewing MD documentation in the developer portal [#11366](https://github.com/gravitee-io/issues/issues/11366)
+* Groups settings are not accessible, requires read permissions on organisation settings [#11388](https://github.com/gravitee-io/issues/issues/11388)
+* Incorrect Response Status and Missing Error Details in Azure Service Bus Logs [#11392](https://github.com/gravitee-io/issues/issues/11392)
+* Promoting APIs that exist in the target env causes subscription errors [#11398](https://github.com/gravitee-io/issues/issues/11398)
+* Webhook notification configuration error [#11408](https://github.com/gravitee-io/issues/issues/11408)
+* Advanced configuration is not accessible for push plan subscriptions [#11414](https://github.com/gravitee-io/issues/issues/11414)
+* Regression Dynamic Routing policy with retry policy [#11444](https://github.com/gravitee-io/issues/issues/11444)
+* Can't change group permission on api [#11449](https://github.com/gravitee-io/issues/issues/11449)
+* Scrolling issue in the API Management UI [#11465](https://github.com/gravitee-io/issues/issues/11465)
+* deadlocked on lock resources with another process errors [#11475](https://github.com/gravitee-io/issues/issues/11475)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Gateway**
+
+* Optimize gateway-sync SubscriptionFetcher: env-prefix index and cursor pagination [#11432](https://github.com/gravitee-io/issues/issues/11432)
+* Optimize gateway-sync ApiKeyFetcher + ApiKeyAppender: cursor pagination (mirror of APIM-14087) [#11474](https://github.com/gravitee-io/issues/issues/11474)
+
+**Management API**
+
+* Optimize subscription expiration schedulers: ESR-correct index and remove redundant default sort [#11431](https://github.com/gravitee-io/issues/issues/11431)
+* Optimize APIs search: collapse `$or \[definitionVersion IN, isNull]` and add ESR-ordered compound index [#11433](https://github.com/gravitee-io/issues/issues/11433)
+* Add compound index for subscription search by plan list [#11436](https://github.com/gravitee-io/issues/issues/11436)
+* Add compound index on `apis` collection for catalog category filtering [#11437](https://github.com/gravitee-io/issues/issues/11437)
+* Cap `count()` cost on paginated Mongo repository searches with `maxTimeMS` [#11438](https://github.com/gravitee-io/issues/issues/11438)
+* Optimize ApiKey pre-expiration scheduler fan-out (mirror of APIM-14086) [#11456](https://github.com/gravitee-io/issues/issues/11456)
+
+**Console**
+
+* DCR configuration UI: clarify {#client_id} placeholder and fix example renew secret endpoint [#11430](https://github.com/gravitee-io/issues/issues/11430)
+* Cap `count()` cost on paginated Mongo repository searches with `maxTimeMS` [#11438](https://github.com/gravitee-io/issues/issues/11438)
+
+**New indexes**
+* Added the following indexes, which you can add manually before you upgrade to 4.11.9:
+```bash
+db.apis.createIndex({ environmentId:1, categories:1, name:1 }, { name: "ei1c1n1" });
+  db.apis.createIndex({ environmentId:1, definitionVersion:1, name:1 }, { name: "ei1dv1n1" });
+  db.keys.createIndex({ environmentId:1, updatedAt:1, _id:1 }, { name: "e1ua1i1" });
+  db.keys.createIndex({ revoked:1, expireAt:1 }, { name: "r1ea1" });
+  db.plans.createIndex({ crossId:1 }, { name: "ci1" });
+  db.subscriptions.createIndex({ environmentId:1, updatedAt:1, _id:1 }, { name: "e1ua1i1" });
+  db.subscriptions.createIndex({ plan:1, _id:1 }, { name: "p1i1" });
+  db.subscriptions.createIndex({ plan:1, updatedAt:1 }, { name: "p1ua1" });
+  db.subscriptions.createIndex({ status:1, endingAt:1 }, { name: "s1ea1" });
+  db.audits.createIndex({ environmentId:1, createdAt:1 }, { name: "e1c1" });
+```
+</details>
+
+
+ 
+## Gravitee API Management 4.11.8 - June 1, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Management API**
+
+* v4 HTTP Proxy API — null pathOperator in flow HTTP selector causes 500 NPE instead of 400 [#11491](https://github.com/gravitee-io/issues/issues/11491)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.11.7 - May 19, 2026
 <details>
 
