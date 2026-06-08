@@ -8,9 +8,6 @@ metaLinks:
 
 # Layout and Theme
 
-{% hint style="warning" %}
-This feature is in tech preview.
-{% endhint %}
 
 ## Update the Category layout
 
