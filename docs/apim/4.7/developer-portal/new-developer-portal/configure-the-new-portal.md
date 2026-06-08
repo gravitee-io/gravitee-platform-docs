@@ -4,9 +4,6 @@ description: An overview about configure the new portal.
 
 # Configure the New Portal
 
-{% hint style="warning" %}
-This feature is in tech preview.
-{% endhint %}
 
 ## Overview
 
