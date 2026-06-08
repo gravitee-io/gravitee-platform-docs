@@ -134,6 +134,78 @@ All endpoints return accurate token counts:
 * Uses batch API internally for multiple inputs
 * Each input generates separate embedding in response array
 {% endtab %}
+
+{% tab title="Example" %}
+**Request from the client (OpenAI format)**
+
+```json
+{
+  "model": "Gemini:gemini-2.0-flash",
+  "messages": [
+    { "role": "system", "content": "You are a helpful assistant." },
+    { "role": "user", "content": "Hello world" }
+  ],
+  "max_completion_tokens": 12,
+  "temperature": 0.314159,
+  "top_p": 0.271828,
+  "stop": ["stop"],
+  "seed": 1
+}
+```
+
+**Request forwarded to Gemini** (`POST /v1beta/models/gemini-2.0-flash:generateContent`)
+
+```json
+{
+  "contents": [
+    { "role": "user", "parts": [ { "text": "Hello world" } ] }
+  ],
+  "systemInstruction": { "parts": [ { "text": "You are a helpful assistant." } ] },
+  "generationConfig": {
+    "maxOutputTokens": 12,
+    "temperature": 0.314159,
+    "topP": 0.271828,
+    "stop": ["stop"],
+    "seed": 1
+  }
+}
+```
+
+**Response from Gemini**
+
+```json
+{
+  "candidates": [
+    {
+      "content": { "parts": [ { "text": "Hello world! How can I help you today?" } ], "role": "model" },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": { "promptTokenCount": 8, "candidatesTokenCount": 11, "totalTokenCount": 19 },
+  "modelVersion": "gemini-2.0-flash",
+  "responseId": "xWsgabPOOPClvdIP1rmqqAE"
+}
+```
+
+**Response returned to the client (OpenAI format)**
+
+```json
+{
+  "id": "xWsgabPOOPClvdIP1rmqqAE",
+  "object": "chat.completion",
+  "created": 0,
+  "model": "gemini-2.0-flash",
+  "choices": [
+    {
+      "index": 0,
+      "message": { "role": "assistant", "content": "Hello world! How can I help you today?" },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": { "prompt_tokens": 8, "completion_tokens": 11 }
+}
+```
+{% endtab %}
 {% endtabs %}
 
 **Finish Reasons**
@@ -197,6 +269,67 @@ Token data extracted from Bedrock's usage metadata.
 * Only "float" encoding format
 
 These constraints come from the underlying Bedrock embedding models.
+{% endtab %}
+
+{% tab title="Example" %}
+**Request from the client (OpenAI format)**
+
+```json
+{
+  "model": "Bedrock:anthropic.claude-3-sonnet-20240229-v1:0",
+  "messages": [
+    { "role": "system", "content": "You are a helpful assistant." },
+    { "role": "user", "content": "Explain how the Bedrock API works." }
+  ]
+}
+```
+
+**Request forwarded to Bedrock** (`POST /model/anthropic.claude-3-sonnet-20240229-v1:0/converse`)
+
+```json
+{
+  "messages": [
+    { "role": "user", "content": [ { "text": "Explain how the Bedrock API works." } ] }
+  ],
+  "system": [ { "text": "You are a helpful assistant." } ]
+}
+```
+
+**Response from Bedrock**
+
+```json
+{
+  "output": {
+    "message": {
+      "role": "assistant",
+      "content": [ { "text": "The Bedrock API exposes a unified Converse endpoint." } ]
+    }
+  },
+  "stopReason": "end_turn",
+  "usage": { "inputTokens": 26, "outputTokens": 615, "totalTokens": 641 }
+}
+```
+
+**Response returned to the client (OpenAI format)**
+
+The `id` is taken from the Bedrock `x-amzn-requestid` response header.
+
+```json
+{
+  "id": "5cfbb8ff-3977-4502-80f6-d4a2b29a376a",
+  "object": "chat.completion",
+  "created": 0,
+  "model": "anthropic.claude-3-sonnet-20240229-v1:0",
+  "choices": [
+    {
+      "index": 0,
+      "message": { "role": "assistant", "content": "The Bedrock API exposes a unified Converse endpoint." },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": { "prompt_tokens": 26, "completion_tokens": 615 }
+}
+```
 {% endtab %}
 {% endtabs %}
 
@@ -266,6 +399,76 @@ All supported endpoints return token counts mapped from Anthropic's `input_token
 {% tab title="Embeddings" %}
 Embeddings aren't supported for Anthropic. The `/embeddings` endpoint returns a not-implemented response.
 {% endtab %}
+
+{% tab title="Example" %}
+**Request from the client (OpenAI format)**
+
+```json
+{
+  "model": "Anthropic:claude-3-5-sonnet-20240620",
+  "messages": [
+    { "role": "system", "content": "You are a helpful assistant." },
+    { "role": "user", "content": "Hello world" }
+  ],
+  "max_completion_tokens": 12,
+  "temperature": 0.314159,
+  "top_p": 0.271828,
+  "stop": ["stop"],
+  "seed": 1
+}
+```
+
+**Request forwarded to Anthropic** (`POST /v1/messages`, header `anthropic-version: 2023-06-01`)
+
+The `seed` parameter is dropped because Anthropic doesn't support it.
+
+```json
+{
+  "system": [ { "type": "text", "text": "You are a helpful assistant." } ],
+  "messages": [
+    { "role": "user", "content": [ { "type": "text", "text": "Hello world" } ] }
+  ],
+  "model": "claude-3-5-sonnet-20240620",
+  "max_tokens": 12,
+  "temperature": 0.314159,
+  "top_p": 0.271828,
+  "stop_sequences": ["stop"]
+}
+```
+
+**Response from Anthropic**
+
+```json
+{
+  "id": "msg_01XFDUDYJgAACzvnptvVoYEE",
+  "type": "message",
+  "role": "assistant",
+  "content": [ { "type": "text", "text": "Hello! How can I help you today?" } ],
+  "model": "claude-3-5-sonnet-20240620",
+  "stop_reason": "end_turn",
+  "usage": { "input_tokens": 12, "output_tokens": 10 }
+}
+```
+
+**Response returned to the client (OpenAI format)**
+
+```json
+{
+  "id": "msg_01XFDUDYJgAACzvnptvVoYEE",
+  "object": "chat.completion",
+  "created": 0,
+  "model": "claude-3-5-sonnet-20240620",
+  "choices": [
+    {
+      "index": 0,
+      "message": { "role": "assistant", "content": "Hello! How can I help you today?" },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": { "prompt_tokens": 12, "completion_tokens": 10, "total_tokens": 22 }
+}
+```
+{% endtab %}
 {% endtabs %}
 
 **Finish Reasons**
@@ -295,6 +498,57 @@ Vertex AI is a composite provider. It routes each request to a Vertex AI publish
 * Rewrites the request path to Vertex AI format. The Gemini path `/models/{model}:{action}` becomes `/v1/projects/{projectId}/locations/{location}/publishers/google/models/{model}:{action}`.
 * Preserves query strings such as `?alt=sse` through the rewrite.
 * Supports `/chat/completions`, `/responses`, and `/embeddings`.
+
+**Example**
+
+Request from the client (OpenAI format):
+
+```json
+{
+  "model": "VertexAI:gemini-2.0-flash",
+  "messages": [
+    { "role": "system", "content": "You are a test assistant." },
+    { "role": "user", "content": "Hello world" }
+  ]
+}
+```
+
+Gravitee forwards the request to `POST /v1/projects/{projectId}/locations/{location}/publishers/google/models/gemini-2.0-flash:generateContent`. The body uses the Gemini-native format shown in the Gemini example above.
+
+Response from Vertex AI:
+
+```json
+{
+  "candidates": [
+    {
+      "content": { "parts": [ { "text": "Hello from Vertex AI!" } ], "role": "model" },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": { "promptTokenCount": 8, "candidatesTokenCount": 5, "totalTokenCount": 13 },
+  "modelVersion": "gemini-2.0-flash",
+  "responseId": "vertex-ai-test-id"
+}
+```
+
+Response returned to the client (OpenAI format):
+
+```json
+{
+  "id": "vertex-ai-test-id",
+  "object": "chat.completion",
+  "created": 0,
+  "model": "gemini-2.0-flash",
+  "choices": [
+    {
+      "index": 0,
+      "message": { "role": "assistant", "content": "Hello from Vertex AI!" },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": { "prompt_tokens": 8, "completion_tokens": 5 }
+}
+```
 {% endtab %}
 
 {% tab title="Publisher: anthropic" %}
@@ -303,6 +557,54 @@ Vertex AI is a composite provider. It routes each request to a Vertex AI publish
 * Adapts the request body for Vertex AI. Removes `model` and `stream` because both come from the path, removes `context_management` and `output_config`, and adds `anthropic_version: "vertex-2023-10-16"`.
 * Doesn't set the `anthropic-version` HTTP header. Vertex AI uses the body-level `anthropic_version` field instead.
 * Supports `/chat/completions` and `/responses`. Embeddings aren't supported.
+
+**Example**
+
+Request from the client (OpenAI format):
+
+```json
+{
+  "model": "VertexAI:claude-sonnet-4-20250514",
+  "messages": [
+    { "role": "user", "content": "Hello Claude" }
+  ]
+}
+```
+
+Gravitee forwards the request to `POST /v1/projects/{projectId}/locations/{location}/publishers/anthropic/models/claude-sonnet-4-20250514:rawPredict`. The body uses the Anthropic Messages format shown in the Anthropic example above, with `model` and `stream` removed and `anthropic_version: "vertex-2023-10-16"` added.
+
+Response from Vertex AI:
+
+```json
+{
+  "id": "msg_vertex_test_01",
+  "type": "message",
+  "role": "assistant",
+  "content": [ { "type": "text", "text": "Hello from Claude on Vertex AI!" } ],
+  "model": "claude-sonnet-4-20250514",
+  "stop_reason": "end_turn",
+  "usage": { "input_tokens": 12, "output_tokens": 8 }
+}
+```
+
+Response returned to the client (OpenAI format):
+
+```json
+{
+  "id": "msg_vertex_test_01",
+  "object": "chat.completion",
+  "created": 0,
+  "model": "claude-sonnet-4-20250514",
+  "choices": [
+    {
+      "index": 0,
+      "message": { "role": "assistant", "content": "Hello from Claude on Vertex AI!" },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": { "prompt_tokens": 12, "completion_tokens": 8, "total_tokens": 20 }
+}
+```
 {% endtab %}
 {% endtabs %}
 
