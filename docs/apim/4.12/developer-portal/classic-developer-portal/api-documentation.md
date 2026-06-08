@@ -31,7 +31,7 @@ To create documentation:
     <figure><img src="../../.gitbook/assets/documenation_folder.png" alt=""><figcaption><p>Sample documentation folder</p></figcaption></figure>
 * **Markdown Template:** Create templates reusable for site-wide and API Markdown documentation.
 * **Markdown:** Use the Markdown syntax for the documentation page.
-* **AsciiDoc:** Use the Asciidoc syntax for the documentation page.
+* **AsciiDoc:** Use the AsciiDoc syntax for the documentation page.
 * **OpenAPI (Swagger):** Use the OpenAPI syntax for the documentation page.
 * **AsyncAPI:** Use the AsyncAPI syntax for the documentation page.
 
@@ -121,6 +121,80 @@ The API owner is <#if api.primaryOwner.email??><a href="mailto:${api.primaryOwne
 The above sample script creates the following in the Developer Portal:
 
 <figure><img src="../../.gitbook/assets/graviteeio-page-documentation-template.png" alt=""><figcaption><p>Result of templating engine example</p></figcaption></figure>
+
+**Additional templating examples**
+
+The following examples demonstrate common FreeMarker patterns for portal pages:
+
+**Basic API information header:**
+
+```markdown
+# ${api.name} — ${api.version}
+
+> ${api.description}
+
+**Status:** ${api.lifecycleState}  
+**Visibility:** ${api.visibility}  
+**Owner:** ${api.primaryOwner.displayName} (${api.primaryOwner.email})
+```
+
+**Conditional support contact block:**
+
+```markdown
+## Support
+
+<#if api.metadata['email-support']?has_content>
+Contact us at [${api.metadata['email-support']}](mailto:${api.metadata['email-support']}).
+<#else>
+No support contact configured.
+</#if>
+```
+
+**Listing categories and tags:**
+
+```markdown
+**Categories:** <#list api.categories as cat>${cat}<#sep>, </#list>
+
+**Tags:** <#list api.tags as tag>`${tag}`<#sep>  </#list>
+```
+
+**Deployment timestamp with date formatting:**
+
+```markdown
+<#if api.deployedAt??>
+Last deployed: ${api.deployedAt?string['yyyy-MM-dd HH:mm']}
+<#else>
+Not yet deployed.
+</#if>
+```
+
+**Loop over V4 listeners:**
+
+```markdown
+## Endpoints
+
+<#list api.listeners as listener>
+- **${listener.type}**
+</#list>
+```
+
+**Owner type check:**
+
+```markdown
+<#if api.primaryOwner.type == "GROUP">
+Maintained by the **${api.primaryOwner.displayName}** team.
+<#else>
+Maintained by **${api.primaryOwner.displayName}**.
+</#if>
+```
+
+**Environment metadata access (environment pages):**
+
+```markdown
+# Welcome to ${metadata['portal-name']!api.name}
+
+For assistance, reach out to [support](mailto:${metadata['support-email']}).
+```
 
 **API properties reference**
 
