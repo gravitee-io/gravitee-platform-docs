@@ -35,6 +35,28 @@ curl -H "Authorization: Bearer :accessToken" \
 
 {% endcode %}
 
+The `GET /applications` endpoint accepts multiple `type` values to filter applications by type. For example, to retrieve only agent applications:
+
+{% code overflow="wrap" %}
+
+```sh
+curl -H "Authorization: Bearer :accessToken" \
+     http://GRAVITEEIO-AM-MGT-API-HOST/management/organizations/DEFAULT/environments/DEFAULT/domains/:domainId/applications?type=AGENT
+```
+
+{% endcode %}
+
+To retrieve multiple application types in a single request:
+
+{% code overflow="wrap" %}
+
+```sh
+curl -H "Authorization: Bearer :accessToken" \
+     http://GRAVITEEIO-AM-MGT-API-HOST/management/organizations/DEFAULT/environments/DEFAULT/domains/:domainId/applications?type=WEB&type=AGENT
+```
+
+{% endcode %}
+
 ### Configure the application
 
 After you have created the new application, you will be redirected to the application’s `Overview` page, which contains some documentation and code samples to help you start configuring the application.

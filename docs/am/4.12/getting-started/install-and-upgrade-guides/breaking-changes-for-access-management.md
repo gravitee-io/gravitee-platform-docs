@@ -14,6 +14,63 @@ metaLinks:
 
 Here are the breaking changes from versions 4.X of Gravitee.
 
+### 4.12
+
+#### Restrictions
+
+#### Agent application restrictions
+
+- SPIFFE Prefix subject matching mode is restricted to Hosted Delegated and Autonomous agent applications. User-Embedded agents must use Exact mode.
+- Agent applications cannot use the following grant types: `implicit`, `password`, `urn:ietf:params:oauth:grant-type:saml2-bearer`.
+- User-Embedded agents cannot use the `client_credentials` grant.
+- Autonomous agents cannot use the `authorization_code` grant.
+- Hosted Delegated agents cannot use the `client_credentials` grant.
+- User-Embedded and Hosted Delegated agents require at least one redirect URI.
+
+##### SPIFFE authentication restrictions
+
+- SPIFFE JWT-SVIDs arriving with `client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer` (instead of `jwt-spiffe`) are rejected with error: `"SPIFFE JWT-SVID must be sent with client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-spiffe"`.
+- SPIFFE subject must start with `spiffe://<trust-domain>/` where `<trust-domain>` matches the configured trust domain name.
+- SPIFFE subject in Prefix mode must end with `/` so prefixes only match at path boundaries.
+- Agent instance ID synthesis (Prefix mode) only occurs for Hosted Delegated and Autonomous agents. Non-agent clients using SPIFFE authentication do not populate `agentInstanceId`.
+
+##### CIMD validation restrictions
+
+- CIMD validation rejects documents using secret-based token endpoint authentication methods (`client_secret_basic`, `client_secret_post`, `client_secret_jwt`).
+- CIMD validation rejects documents with `token_endpoint_auth_method=private_key_jwt` that lack both `jwks` and `jwks_uri`.
+- CIMD URLs resolving to private IP addresses are rejected unless **Allow Private IP Address** is enabled.
+- CIMD URLs using HTTP (non-TLS) are rejected unless **Allow Unsecured HTTP URI** is enabled.
+- CIMD URLs must resolve to a host in the **Allowed Domains** list.
+
+##### JWKS restrictions
+
+- JWKS URLs resolving to private IP addresses are rejected unless **Allow Private IP Address** is enabled (enforced at configuration time and fetch time).
+- JWKS URLs using HTTP (non-TLS) are rejected unless **Allow Unsecured HTTP URI** is enabled.
+- Trust domain JWKS caching respects `Cache-Control: max-age` and `no-store` headers. When `no-store` is present, the JWKS is fetched on every validation.
+
+##### Application filtering restrictions
+
+- Application list filtering by multiple types (e.g., `?type=WEB&type=AGENT`) routes through the `ApplicationCriteria` filter path. Single-type queries use the legacy repository method signature.
+
+#### Related Changes
+
+The management console introduces a top-level **Agents** navigation entry with a dedicated agent list and creation flow, separate from the standard **Applications** area. The **Applications** list now scopes itself to exclude agents. A new **Workload Identity** section under domain settings provides trust domain management (list, create, edit, delete). Application creation wizards include a **CIMD** toggle on step 2 (when CIMD is enabled), allowing administrators to create applications from a metadata document URL. Agent applications can now be marked as DCR/CIMD registration templates using the existing "Use as DCR / CIMD registration template" toggle.
+
+##### Database Migration
+
+Database migration is required:
+
+* **JDBC deployments** must run Liquibase changelog `4.12.0-applications-add-sub-type.yml` to add the `sub_type` column to the `applications` table and create the `trust_domains` table.
+* **MongoDB deployments** require manual updates to existing agent applications to move `settings.agent.agentType` to the top-level `subType` field. The `settings.agent` object is removed. A new `trust_domains` collection is added.
+
+##### Token Claims
+
+Issued tokens for user-bound agents (User-Embedded, Hosted Delegated) now populate `act.sub` with the agent instance ID when known, rather than falling back to the blueprint `client_id`. The `client_profile` claim is set to `"ai_agent <persona>"` (e.g., `"ai_agent autonomous"`), and the `act.sub_profile` claim carries the lowercase persona name (e.g., `"hosted_delegated"`).
+
+##### SPIRE Integration
+
+A docker-compose SPIRE overlay (`docker-compose.spire.yml`) is available for local development and testing with trust domain `am.local` and JWKS endpoint `http://localhost:18443/keys`.
+
 ### 4.11.0
 
 **Modified Token Signing Behavior**&#x20;
@@ -47,7 +104,7 @@ reporters:
   audits:
     clientAuthentication:
       success:
-        enabled: true        
+        enabled: true
 ```
 
 #### **Enhanced Introspection with Audience (aud) Support**
@@ -75,7 +132,7 @@ Starting with AM versions 4.5.20, 4.6.14, 4.7.8, and 4.8.1, GitHub issue [10573]
 
 In version 4.9.0, this option is enabled by default, making MongoDB queries for SCIM and user searches on the Management API case-sensitive. To revert to the previous behavior of case-insensitive searches, you must explicitly configure this option in the `gravitee.yaml` file:
 
-```
+```yaml
 legacy:
   mongodb:
     regexCaseInsensitive: true
@@ -157,12 +214,12 @@ Also, you defined the settings related to the repositories at the root level of 
 ```yaml
 management:
   type: mongodb
-  mongodb: 
+  mongodb:
     uri: ...
-    
+
 oauth2:
   type: mongodb
-  mongodb: 
+  mongodb:
     uri: ...
 ```
 {% endcode %}
@@ -176,17 +233,17 @@ Also, a `repositories` section has been introduced to identify the settings rela
 repositories:
   management:
     type: mongodb
-    mongodb: 
+    mongodb:
       uri: ...
-    
+
   oauth2:
     type: mongodb
-    mongodb: 
+    mongodb:
       uri: ...
-  
+
   gateway:
     type: mongodb
-    mongodb: 
+    mongodb:
       uri: ...
 ```
 {% endcode %}
@@ -262,7 +319,7 @@ If a username cannot be duplicate, there is an error into the logs referencing t
 
 {% hint style="info" %}
 * In case of liquibase script error, the management API may fail to start and the **databasechangeloglock** has the `locked` column set to true. Once the duplicate is managed manually, the `locked` columns have to be updated to false to make the liquibase execution possible. You can update the lock using this query : `UPDATE DATABASECHANGELOGLOCK SET LOCKED=0`
-* After the migration, make sure that the **idp\_users\_xxx** tables contains a unique index in the username column. If there is no index, create this index.
+* After the migration, make sure that the **IdP\_users\_xxx** tables contains a unique index in the username column. If there is no index, create this index.
 {% endhint %}
 
 Here are two types of User entry errors:
@@ -332,7 +389,7 @@ select id, username from idp_table where username = 'duplicateuser';
 "yyyyyyyy-ef9b-4c6a-bc0b-7bef9bec6af4"	"duplicateuser"
 ```
 
-4. Based on the users table query output, choose the one that you want to preserve, and then rename to order into the the users table and into the idp table. Ensure that the user you are updating the exrernal\_id in the users table matching the user id into the idp table.
+4. Based on the users table query output, choose the one that you want to preserve, and then rename to order into the the users table and into the IdP table. Ensure that the user you are updating the exrernal\_id in the users table matching the user id into the IdP table.
 
 **Rename duplicate from Organization users Table**
 
@@ -407,7 +464,7 @@ By default in AM 3.20, to improve security on default installations of AccessMan
 
 Gateway CSP:
 
-```
+```yaml
 csp:
     script-inline-nonce: true
     directives:
@@ -421,14 +478,14 @@ csp:
 
 Gateway XSS-Protection:
 
-```
+```yaml
  xss:
     action: 1; mode=block
 ```
 
 Gateway X-Frame-Option:
 
-```
+```yaml
  xframe:
     action: DENY
 ```
@@ -450,7 +507,7 @@ If you use docker to start AM, after a docker-compose, you find a snippet that m
 * To deploy enterprise plugins in an additional plugin directory.
 * To deploy the license file.
 
-```
+```yaml
 management:
     image: graviteeio/am-management-api:3.18.0
     container_name: gio_am_management
@@ -477,7 +534,7 @@ _Deploy AM EE with Helm_
 
 If you use helm, you have to mount the license file using a secret, and then in the `additionalPlugins` section for the gateway and the api, specify which EE plugin to download.
 
-```
+```yaml
 gateway:
   additionalPlugins:
   - https://download.gravitee.io/graviteeio-ee/am/plugins/idps/gravitee-am-identityprovider-saml2-generic/gravitee-am-identityprovider-saml2-generic-<version>.zip
@@ -507,7 +564,7 @@ api:
 
 To better match the recommendation asked by Apple to use biometric devices for WebAuthn (passwordless) feature, backend APIs and JavaScript scripts have been updated to reflect that change.
 
-If you use webauthn JavaScript scripts in your custom HTML templates, we strongly advise you to use the v2 version started from the 3.18.0 version.
+If you use WebAuthn JavaScript scripts in your custom HTML templates, we strongly advise you to use the v2 version started from the 3.18.0 version.
 
 For more information about the recommendation from Apple, go to [WebKit Bugzilla](https://bugs.webkit.org/show_bug.cgi?id=213595).
 
@@ -589,7 +646,7 @@ Also, at management-api level, the schema changes to save the new application co
 
 * Prior to this update:
 
-```
+```json
 {
     ...
     "identities": [
@@ -601,7 +658,7 @@ Also, at management-api level, the schema changes to save the new application co
 
 * After this update:
 
-```
+```json
 {
     ...
     "identityProviders":[

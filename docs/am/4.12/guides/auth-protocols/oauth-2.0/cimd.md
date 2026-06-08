@@ -71,3 +71,84 @@ All metadata and logo fetches are subject to Server-Side Request Forgery (SSRF) 
 | **Cache TTL (seconds)** | Metadata cache time-to-live | 86400 |
 | **Cache Max Entries** | Maximum cache entries | 1000 |
 | **Revoke Tokens and Consents When Client Metadata Changes** | Revoke tokens when metadata hash changes | Disabled |
+
+<figure><img src="../../../.gitbook/assets/am-cimd-settings-ssrf.png" alt="CIMD SSRF protection settings"><figcaption></figcaption></figure>
+
+<figure><img src="../../../.gitbook/assets/am-cimd-settings-fetch.png" alt="CIMD fetch timeout and response size settings"><figcaption></figcaption></figure>
+## Creating Applications from CIMD
+
+Navigate to **Applications** in the left sidebar.
+
+<figure><img src="../../../.gitbook/assets/am-applications-list-with-cimd-button.png" alt="Applications list showing Add Application button"><figcaption></figcaption></figure>
+
+1. Click the **+** button in the bottom-right corner to add a new application.
+2. On step 2 of the wizard, toggle to **CIMD** mode (available when CIMD is enabled on the domain). In CIMD mode, the administrator supplies only the document URL.
+3. Enter the **CIMD URL** (e.g., `https://example.com/.well-known/client-metadata`).
+4. Click **Validate**. Access Management fetches and validates the document server-side.
+5. Review the parsed metadata in the read-only preview (CIMD confirm step). If the document does not include a `client_name`, enter an **Application Name**.
+6. Select an **Application Type** (e.g., Web, Native, Browser, Service, Resource Server).
+7. Click **Create**.
+
+The CIMD URL becomes the application's `client_id`. All parsed metadata (redirect URIs, grants, scopes, JWKS, mTLS, CIBA, software metadata) is persisted on creation.
+
+| Field | Description |
+|:------|:------------|
+| **CIMD URL** | URL of the Client Identity Metadata Document |
+| **Application Name** | Display name (auto-filled from `client_name` if present) |
+| **Application Type** | OAuth application type (Web, Native, Browser, Service, Resource Server) |
+
+
+<figure><img src="../../../.gitbook/assets/am-applications-list-with-cimd-button.png" alt="Applications list showing Add Application button"><figcaption></figcaption></figure>
+
+## CIMD API Reference
+
+### CIMD Validation API
+
+**Endpoint:** `POST /domains/{domain}/cimd/validate`
+
+Validates a CIMD URL and returns parsed metadata without creating an application. Requires `APPLICATION[CREATE]` permission and a CIMD-enabled domain.
+
+**Request:**
+```json
+{
+  "url": "https://example.com/.well-known/client-metadata"
+}
+```
+
+**Response:**
+```json
+{
+  "url": "https://example.com/.well-known/client-metadata",
+  "hasInlineJwks": false,
+  "missing": {
+    "clientId": false,
+    "clientName": false
+  },
+  "metadata": {
+    "client_id": "example-client",
+    "client_name": "Example Application",
+    "redirect_uris": ["https://example.com/callback"],
+    "grant_types": ["authorization_code"],
+    "response_types": ["code"],
+    "token_endpoint_auth_method": "private_key_jwt",
+    "jwks_uri": "https://example.com/.well-known/jwks.json"
+  }
+}
+```
+
+### CIMD Application Creation API
+
+**Endpoint:** `POST /domains/{domain}/cimd/applications`
+
+Creates an application from a CIMD URL. Requires `APPLICATION[CREATE]` permission and a CIMD-enabled domain.
+
+**Request:**
+```json
+{
+  "cimdUrl": "https://example.com/.well-known/client-metadata",
+  "name": "Example Application",
+  "clientName": "Example Client",
+  "description": "Application created from CIMD",
+  "type": "WEB"
+}
+```

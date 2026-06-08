@@ -26,7 +26,7 @@ Use the following HTTP Authorization request header to call the API: `Authorizat
 
 ### Token endpoint
 
-You can use the `token` endpoint to retrieve the `AM Management API token` . To retrieve the token, present the user credentials in the `Basic authentication scheme`.
+You can use the `token` endpoint to retrieve the `AM Management API token`. To retrieve the token, present the user credentials in the `Basic authentication scheme`.
 
 The following example exchanges default admin account credentials (`admin/adminadmin`) for a token:
 
@@ -77,6 +77,25 @@ POST http(s)://AM_MANAGEMENT_API/management/auth/login
 {% endcode %}
 
 * `redirect_uri`: redirection endpoint after authentication success
+
+## Endpoints
+
+### Trust Domain Endpoints
+
+The Management API provides endpoints to manage trust domains within a security domain. For more information, see [Trust Domain Management](../guides/trust-domain-management/).
+
+* `GET /domains/{domain}/trust-domains` — List trust domains
+* `POST /domains/{domain}/trust-domains` — Create trust domain
+* `GET /domains/{domain}/trust-domains/{trustDomainId}` — Get trust domain
+* `PUT /domains/{domain}/trust-domains/{trustDomainId}` — Update trust domain
+* `DELETE /domains/{domain}/trust-domains/{trustDomainId}` — Delete trust domain
+
+### Application Filtering
+
+The `/applications` listing endpoint accepts a multi-valued `type` query parameter, allowing the Console to request agent applications only or multiple application types in a single call:
+
+* `GET /domains/{domain}/applications?type=AGENT` — List agent applications only
+* `GET /domains/{domain}/applications?type=WEB&type=AGENT` — List multiple application types
 
 ### User Migration
 
