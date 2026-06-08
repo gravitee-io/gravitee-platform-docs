@@ -15,10 +15,10 @@ Dictionaries come in two types: `MANUAL` and `DYNAMIC`. Manual dictionaries stor
 | `MANUAL` | Static `properties` map | Deployed or undeployed on the gateway |
 | `DYNAMIC` | HTTP provider with a JOLT specification | Polling provider started or stopped |
 
-### HRID and uniqueness
+### Dictionary key
 
-Each dictionary is identified by a human-readable ID (HRID) that matches the pattern `^[a-zA-Z0-9][a-zA-Z0-9_-]+[a-zA-Z0-9]$` with a maximum length of 256 characters. The HRID is used as the dictionary key, and HRIDs are unique within an environment. The same HRID can be used in different environments without conflict.
+The Gravitee Kubernetes Operator builds each dictionary's key from the namespace and name of the `Dictionary` resource, joined with a hyphen: `<namespace>-<name>`. For example, a dictionary named `e2e-dict-manual` in the `default` namespace has the key `default-e2e-dict-manual`. Reference this key in Gravitee Expression Language to read a dictionary property: `{#dictionaries['<namespace>-<name>']['<property>']}`.
 
 ### Deployment state
 
-A dictionary's deployment state controls whether it's active on the gateway. For a manual dictionary, `deployed: true` deploys the dictionary to the gateway, and `deployed: false` undeploys it. For a dynamic dictionary, `deployed: true` starts the polling provider (its state becomes `STARTED`), and `deployed: false` stops it.
+A dictionary's deployment state controls whether it's active on the gateway. For a manual dictionary, `deployed: true` deploys the dictionary to the gateway, and `deployed: false` undeploys it. For a dynamic dictionary, `deployed: true` starts the polling provider and deploys the retrieved values to the gateway. Setting `deployed: false` stops the polling and undeploys the values from the gateway.
