@@ -263,7 +263,7 @@ curl -X POST \
 
 **Register agent application example**
 
-To register an agent application programmatically, send a POST request to the DCR endpoint with `application_type` set to `"agent"`. The system strips forbidden grant types (`implicit`, `password`, `refresh_token`) from the request. If no valid grant types remain after stripping, the system defaults to `["authorization_code"]`. The `redirect_uris` field is required. If `token_endpoint_auth_method` is omitted, the system defaults to `client_secret_basic`. The DCR flow validates agent constraints and strips forbidden response types (`token`, `id_token`, `id_token token`) during registration. If response types become empty and `authorization_code` is granted, the system adds `"code"`.
+To register an agent application programmatically, send a POST request to the DCR endpoint with `application_type` set to `"agent"`. The system strips forbidden grant types (`implicit`, `password`, `refresh_token`) from the request. Grant type restrictions vary by agent persona: USER_EMBEDDED agents cannot use `client_credentials`, AUTONOMOUS agents cannot use `authorization_code`, and HOSTED_DELEGATED agents cannot use both `client_credentials` and `authorization_code` simultaneously. If no valid grant types remain after stripping, the system defaults to `["authorization_code"]`. The `redirect_uris` field is required. If `token_endpoint_auth_method` is omitted, the system defaults to `client_secret_basic`. The DCR flow validates agent constraints and strips forbidden response types (`token`, `id_token`, `id_token token`) during registration. If response types become empty and `authorization_code` is granted, the system adds `"code"`.
 
 ```sh
 

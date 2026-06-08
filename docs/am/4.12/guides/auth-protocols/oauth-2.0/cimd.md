@@ -43,31 +43,101 @@ When clients declare a `jwks_uri`, public keys are resolved using the [JWKS reso
 
 All metadata and logo fetches are subject to Server-Side Request Forgery (SSRF) protection. The gateway validates that URLs do not resolve to private, loopback, link-local, or any-local IP addresses (unless explicitly allowed), enforces HTTPS (unless HTTP is explicitly allowed), restricts requests to allowed domains (when configured), and enforces fetch timeout and maximum response size limits. JWKS URIs declared in metadata are validated with the same SSRF rules.
 
-## Creating a CIMD-Enabled Domain
+## Creating Agent Applications
 
-1. Navigate to **Settings → OAuth 2.0 → CIMD** in the domain console.
+For agent application creation, see [Agent Applications](../../applications/application-types.md#agent-applications).
 
-    <figure><img src="../../../.gitbook/assets/am-cimd-settings-overview.png" alt="CIMD settings page showing Enable CIMD toggle and Template Application selector"><figcaption></figcaption></figure>
+## Domain-Level CIMD Settings
 
-2. Toggle **Enable CIMD** to enable Client ID Metadata Document support.
-3. Select a **Template Application** from the autocomplete dropdown.
-4. Add domains to the **Allowed Domains** chip list to restrict metadata fetching to specific domains (supports `*.example.com` wildcard for first-level subdomains; empty list allows all domains).
+Configure CIMD metadata fetching behavior at the domain level via **Settings → OAuth 2.0 → CIMD**.
 
-    <figure><img src="../../../.gitbook/assets/am-cimd-allowed-domains.png" alt="CIMD allowed domains chip list for domain restriction"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/am-cimd-ssrf-protection.png" alt="CIMD SSRF protection settings showing private IP and unsecured HTTP URI toggles"><figcaption></figcaption></figure>
 
-5. Click **SAVE**.
+<figure><img src="../../../.gitbook/assets/am-cimd-fetch-settings.png" alt="CIMD fetch timeout and max response size configuration"><figcaption></figcaption></figure>
 
-### CIMD Settings Reference
+| Setting | Description | Default |
+|:--------|:------------|:--------|
+| **Allow Private IP Address** | Allow CIMD URLs resolving to private IP addresses | Disabled |
+| **Allow Unsecured HTTP URI** | Allow unsecured HTTP URIs for CIMD URLs (development only) | Disabled |
+| **Fetch Timeout (ms)** | Fetch timeout for CIMD URLs in milliseconds | 5000 |
+| **Max Response Size (KB)** | Maximum CIMD response size in kilobytes | 512 |
 
-| Field | Description | Default |
-|:------|:------------|:--------|
-| **Enable CIMD** | Enable/disable Client ID Metadata Document support | Disabled |
-| **Template Application** | Template application for CIMD clients | None (required) |
-| **Allow Private/Loopback IP Addresses** | SSRF protection: allow metadata requests to private IPs | Disabled |
-| **Allow Unsecured HTTP URIs** | SSRF protection: allow metadata requests to HTTP URIs | Disabled |
-| **Fetch Timeout (ms)** | Timeout for metadata fetch | 5000 |
-| **Max Response Size (KB)** | Maximum metadata response size | 10 |
-| **Allowed Domains** | Restrict metadata to these domains (supports `*.example.com`) | Empty (allow all) |
-| **Cache TTL (seconds)** | Metadata cache time-to-live | 86400 |
-| **Cache Max Entries** | Maximum cache entries | 1000 |
-| **Revoke Tokens and Consents When Client Metadata Changes** | Revoke tokens when metadata hash changes | Disabled |
+
+<figure><img src="../../../.gitbook/assets/am-cimd-ssrf-protection.png" alt="CIMD SSRF protection settings showing private IP and unsecured HTTP URI toggles"><figcaption></figcaption></figure>
+
+<figure><img src="../../../.gitbook/assets/am-cimd-settings-overview.png" alt="CIMD domain settings overview showing enabled state and basic configuration"><figcaption></figcaption></figure>
+
+<figure><img src="../../../.gitbook/assets/am-cimd-fetch-settings.png" alt="CIMD fetch timeout and max response size configuration"><figcaption></figcaption></figure>
+
+## Management API Endpoints
+
+### CIMD Validation
+
+**POST** `/organizations/{organizationId}/environments/{environmentId}/domains/{domain}/cimd/validate`
+
+Validate a CIMD URL and preview metadata. Requires `APPLICATION[CREATE]` permission and a CIMD-enabled domain.
+
+Request body:
+
+```json
+{
+  "url": "https://agents.example.com/.well-known/client-metadata"
+}
+```
+
+Response:
+
+```json
+{
+  "url": "https://agents.example.com/.well-known/client-metadata",
+  "hasInlineJwks": true,
+  "missing": {
+    "clientId": false,
+    "clientName": false
+  },
+  "metadata": {
+    "client_id": "spiffe://prod.example/hotel-agent",
+    "client_name": "Hotel Agent",
+    "redirect_uris": ["https://app.example.com/callback"],
+    "grant_types": ["authorization_code"],
+    "token_endpoint_auth_method": "spiffe_jwt",
+    "jwks": { "keys": [...] }
+  }
+}
+```
+
+### CIMD Application Creation
+
+**POST** `/organizations/{organizationId}/environments/{environmentId}/domains/{domain}/cimd/applications`
+
+Create an application from a CIMD URL. Requires `APPLICATION[CREATE]` permission and a CIMD-enabled domain.
+
+Request body:
+
+```json
+{
+  "cimdUrl": "https://agents.example.com/.well-known/client-metadata",
+  "name": "Hotel Agent",
+  "clientName": "Hotel Agent",
+  "description": "AI agent for hotel bookings",
+  "type": "AGENT"
+}
+```
+
+### Application Filtering
+
+**GET** `/organizations/{organizationId}/environments/{environmentId}/domains/{domain}/applications`
+
+List applications with optional type filtering. The endpoint accepts a multi-valued `type` filter parameter.
+
+Query parameters:
+
+- `type`: Array of application types (e.g., `type=AGENT`, `type=WEB&type=SERVICE`)
+- `page`: Page number (default 0)
+- `size`: Page size (default 50)
+- `q`: Search query
+- `expand`: Array of fields to expand
+- `status`: `enabled` or `disabled`
+- `owner.email`: Filter by owner email
+
+Example: `GET /applications?type=AGENT` returns only agent applications. `GET /applications?type=WEB&type=SERVICE` returns applications where `type IN (WEB, SERVICE)`.

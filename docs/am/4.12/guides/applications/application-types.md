@@ -6,6 +6,18 @@
 
 Application definitions apply at the *security domain* level.
 
+### Agent Applications
+
+Agent applications represent AI agents, autonomous services, or embedded client components that act on behalf of users or operate independently. Three agent personas define the authentication and authorization model:
+
+- **USER_EMBEDDED**: Agents embedded in user-facing applications that act on behalf of authenticated users. Requires at least one redirect URI. Cannot use `client_credentials` grant.
+- **HOSTED_DELEGATED**: Agents hosted by third parties that delegate user actions. Requires at least one redirect URI. Cannot use both `client_credentials` and `authorization_code` grants simultaneously.
+- **AUTONOMOUS**: Agents that operate independently without user context. No redirect URIs needed. Uses `client_credentials` grant only.
+
+All agent applications emit a `client_profile` claim in the format `"ai_agent <persona>"`. Agent applications cannot use `implicit`, `password`, or `refresh_token` grants.
+
+Agent applications can be registered through AM Console, AM API, or Dynamic Client Registration. When using Dynamic Client Registration, specify the agent persona in the application metadata to ensure proper authentication flow configuration.
+
 ## Create an application
 
 ### AM Console
@@ -96,7 +108,7 @@ However, if you are using identifier-first login:
 
 ## Dynamic client registration
 
-Another way to create applications in AM is to use the OpenID Connect Dynamic Client Registration endpoint. This specification enables Relying Parties (clients) to register applications in the OpenID Provider (OP).
+You can also create applications using the OpenID Connect Dynamic Client Registration endpoint. This specification enables Relying Parties (clients) to register applications in the OpenID Provider (OP).
 
 ### Enable Dynamic Client Registration with AM Console
 

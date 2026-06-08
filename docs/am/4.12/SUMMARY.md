@@ -102,6 +102,7 @@
   * [AuthZen](guides/authorization-engines/authzen.md)
 * [Applications](guides/applications/README.md)
   * [Client Secrets](guides/applications/client-secrets.md)
+  * [SPIFFE Workload Identity & Agent Applications](guides/applications/spiffe-workload-identity-agent-applications.md)
 * [Branding](guides/branding/README.md)
   * [CSS Custom Variables Reference](guides/branding/css-custom-variables-reference.md)
   * [Language Default Properties Reference](guides/branding/language-default-properties-reference.md)
