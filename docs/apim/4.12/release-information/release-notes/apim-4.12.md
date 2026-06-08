@@ -68,6 +68,15 @@
 <!-- /PIPELINE:APIM-13463 -->
 
 
+<!-- PIPELINE:APIM-14123 -->
+#### **Portal Navigation Templating with FreeMarker Expressions**
+
+* Developer Portal pages now support FreeMarker template expressions (`${...}`) to embed dynamic, context-aware content based on API metadata, lifecycle state, ownership, and environment properties.
+* API-scoped pages expose an `api` root variable containing the full API model object (V2, V4 HTTP/Async, V4 Native, or Federated), while environment-scoped pages expose a `metadata` root variable with environment-level key/value pairs.
+* Templates are evaluated at render time (when the page is requested), not when saved, ensuring real-time data accuracy.
+* Enhanced error handling surfaces specific backend validation messages instead of generic client-side notifications when template expressions fail.
+* The `api` variable provides access to common fields (ID, name, version, state, lifecycle state, visibility, tags, categories, primary owner) and type-specific fields (proxy configuration for V2, listeners/endpoint groups for V4, failover for V4 HTTP).
+<!-- /PIPELINE:APIM-14123 -->
 <!-- PIPELINE:APIM-13459 -->
 #### **Portal Analytics Dashboards**
 
