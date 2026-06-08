@@ -1,44 +1,44 @@
-# Dictionary Management Restrictions and Validation
+# Dictionary management restrictions and validation
 
 ## Restrictions
 
-Dictionary management enforces the following constraints and validation rules:
+Dictionary management enforces the following constraints and validation rules.
 
-### HRID and Naming Constraints
+### HRID and naming constraints
 
-- HRIDs must match the pattern `^[a-zA-Z0-9][a-zA-Z0-9_-]+[a-zA-Z0-9]$` with a maximum length of 256 characters.
-- Dictionary names must be at least 3 characters long.
-- HRIDs are unique within an environment. Cross-environment collisions are not prevented.
+- An HRID matches the pattern `^[a-zA-Z0-9][a-zA-Z0-9_-]+[a-zA-Z0-9]$` with a maximum length of 256 characters.
+- HRIDs are unique within an environment. The same HRID in a different environment is treated as a separate dictionary, so cross-environment collisions aren't prevented.
 
-### Type-Specific Constraints
+### Type-specific constraints
+
+The following rules apply per dictionary type.
 
 **Manual dictionaries:**
-- Must include at least one property in `manual.properties`.
-- Must not define `dynamic.provider` or `dynamic.trigger`.
+- Include at least one property in `manual.properties`.
+- Don't define `dynamic.provider` or `dynamic.trigger`.
 
 **Dynamic dictionaries:**
-- Must define both `dynamic.provider` and `dynamic.trigger`.
-- Must not include `manual.properties`.
+- Define both `dynamic.provider` and `dynamic.trigger`.
+- Don't include `manual.properties`.
 
-### Validation Limitations
+### Validation limitations
 
-- Dry-run validation does not test provider connectivity for dynamic dictionaries.
-- APIs with only `SubscriptionListener` skip HTTP validation. Dictionaries are not validated in this context.
+Dry-run validation checks the structure of the specification. It doesn't test provider connectivity for dynamic dictionaries.
 
-### Permission-Based Behavior
+### Permission-based behavior
 
-Users without `CREATE`, `UPDATE`, or `DELETE` permissions on `ENVIRONMENT_DICTIONARY` cannot view `dynamic` configuration in GET responses.
+A caller that doesn't hold the `CREATE`, `UPDATE`, or `DELETE` action on `ENVIRONMENT_DICTIONARY` can't view the `dynamic` configuration in `GET` responses.
 
-### Kubernetes Resource Dependencies
+### Kubernetes resource dependencies
 
-Kubernetes Secrets and ConfigMaps must exist before dictionary creation. No automatic retry occurs on secret creation. Example:
+When a dynamic dictionary references a Kubernetes Secret or ConfigMap, create that Secret or ConfigMap before you create the dictionary. The operator reads the referenced value during reconciliation, and reconciliation fails if the value isn't found. Each template expression uses `[[ ]]` delimiters and takes a single `<resource-name>/<key>` argument:
 
 ```yaml
 dynamic:
   provider:
     type: HTTP
-    url: "{{ secret `my-secret` `url` }}"
+    url: "[[ secret `my-secret/url` ]]"
     headers:
       - name: Authorization
-        value: "{{ secret `my-secret` `token` }}"
+        value: "[[ secret `my-secret/token` ]]"
 ```
