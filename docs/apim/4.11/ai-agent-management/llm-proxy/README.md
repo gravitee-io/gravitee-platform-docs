@@ -29,14 +29,15 @@ The proxy automatically routes requests to the right provider and model, which d
 * **OpenAI** - Direct passthrough (full compatibility)
 * **OpenAI-compatible** - Providers following OpenAI API format
 * **Anthropic** - Anthropic Messages API (Claude models)
+* **Vertex AI** - Google Cloud Vertex AI (Gemini and Anthropic Claude models)
 
 ### Supported Endpoints
 
-| Endpoint | Gemini | Bedrock | OpenAI | OpenAI-Compatible | Anthropic |
-| ------------------- | ------ | ------- | ------ | ----------------- | --- |
-| `/chat/completions` | ✅ | ✅ | ✅ | ✅ | ✅ |
-| `/responses` | ✅ | ✅ | ✅ | ✅ | ✅ |
-| `/embeddings` | ✅ | ✅ | ✅ | ✅ | ❌ |
+| Endpoint | Gemini | Bedrock | OpenAI | OpenAI-Compatible | Anthropic | Vertex AI (Google) | Vertex AI (Anthropic) |
+| ------------------- | ------ | ------- | ------ | ----------------- | --- | ------------------ | --------------------- |
+| `/chat/completions` | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| `/responses` | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| `/embeddings` | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
 
 ### Feature Support Matrix
 
@@ -276,6 +277,39 @@ Embeddings aren't supported for Anthropic. The `/embeddings` endpoint returns a 
 | `max_tokens` | `length` | Token limit reached |
 | `tool_use` | `tool_calls` | Tool/function requested |
 
+#### Vertex AI
+
+Vertex AI is a composite provider. It routes each request to a Vertex AI publisher based on the `publisher` setting: `google` for Gemini models (the default) or `anthropic` for Claude models. Each publisher reuses the matching Gravitee mapper and adds Vertex AI path rewriting on top.
+
+{% tabs %}
+{% tab title="Configuration" %}
+* Set `provider` to `VERTEX_AI`.
+* `projectId` (GCP Project ID): the Google Cloud project ID. Required.
+* `location` (GCP Region): the GCP region. Default `global`. Set it to a region where your model is available.
+* `publisher`: the model publisher. Use `google` for Gemini models (the default) or `anthropic` for Claude models.
+* Authenticate with a GCP service account key in JSON format. The proxy fetches an access token before each request. If authentication fails, the request returns `502 Bad Gateway` with the key `GCP_AUTHENTICATION_ERROR`.
+{% endtab %}
+
+{% tab title="Publisher: google" %}
+* Reuses the Gemini transformation. See the Gemini provider details above for request format, streaming, token usage, and message handling.
+* Rewrites the request path to Vertex AI format. The Gemini path `/models/{model}:{action}` becomes `/v1/projects/{projectId}/locations/{location}/publishers/google/models/{model}:{action}`.
+* Preserves query strings such as `?alt=sse` through the rewrite.
+* Supports `/chat/completions`, `/responses`, and `/embeddings`.
+{% endtab %}
+
+{% tab title="Publisher: anthropic" %}
+* Reuses the Anthropic transformation. See the Anthropic provider details above for request format, streaming, token usage, and message handling.
+* Rewrites the request path to `/v1/projects/{projectId}/locations/{location}/publishers/anthropic/models/{model}:rawPredict` for non-streaming requests, and `:streamRawPredict` for streaming requests. The action suffix comes from the `stream` field.
+* Adapts the request body for Vertex AI. Removes `model` and `stream` because both come from the path, removes `context_management` and `output_config`, and adds `anthropic_version: "vertex-2023-10-16"`.
+* Doesn't set the `anthropic-version` HTTP header. Vertex AI uses the body-level `anthropic_version` field instead.
+* Supports `/chat/completions` and `/responses`. Embeddings aren't supported.
+{% endtab %}
+{% endtabs %}
+
+**Finish Reasons**
+
+Finish reasons follow the configured publisher. For `google`, they match the Gemini finish reasons. For `anthropic`, they match the Anthropic finish reasons.
+
 ### Limitations and Constraints
 
 #### Common Limitations (All Providers)
@@ -341,6 +375,25 @@ Warning generated if multiple content parts exist
 {% endtab %}
 {% endtabs %}
 
+#### Vertex AI-Specific Limitations
+
+{% tabs %}
+{% tab title="Publisher: google" %}
+* Inherits all Gemini limitations
+{% endtab %}
+
+{% tab title="Publisher: anthropic" %}
+* Embeddings aren't supported
+* `seed` isn't supported
+* `context_management` and `output_config` are removed from the request
+{% endtab %}
+
+{% tab title="Platform" %}
+* Supports only the `google` and `anthropic` publishers. Other Vertex AI publishers, for example Meta Llama or Mistral, aren't supported
+* The default region `global` doesn't apply to all models. Set `location` to a region where your model is available
+{% endtab %}
+{% endtabs %}
+
 #### Error Handling
 
 **Explicit Errors Returned For:**
@@ -350,6 +403,7 @@ Warning generated if multiple content parts exist
 * Invalid dimension values for Bedrock embeddings
 * Unsupported encoding formats
 * Invalid endpoint paths or HTTP methods
+* GCP service account authentication failure on Vertex AI (`502 Bad Gateway`, `GCP_AUTHENTICATION_ERROR`)
 
 **Silent Ignoring:**
 
