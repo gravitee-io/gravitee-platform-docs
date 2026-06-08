@@ -8,9 +8,6 @@ metaLinks:
 
 # Enable the New Developer Portal
 
-{% hint style="warning" %}
-This feature is in tech preview.
-{% endhint %}
 
 ## Overview
 
