@@ -7,9 +7,6 @@ metaLinks:
 
 # Configure Webhook Subscriptions
 
-{% hint style="warning" %}
-This feature is in tech preview.
-{% endhint %}
 
 ## Prerequisites
 

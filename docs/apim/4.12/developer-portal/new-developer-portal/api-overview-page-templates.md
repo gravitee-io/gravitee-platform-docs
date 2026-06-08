@@ -4,9 +4,6 @@ description: API Overview page templates for the New Developer Portal.
 
 # API Overview Page Templates
 
-{% hint style="warning" %}
-This feature is in tech preview.
-{% endhint %}
 
 ## Overview
 
