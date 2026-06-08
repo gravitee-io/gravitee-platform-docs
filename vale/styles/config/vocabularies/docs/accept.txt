@@ -35,6 +35,8 @@ OpenAPI
 OpenID
 OAuth2?
 OIDC
+OID
+OIDs
 SAML
 SASL
 SCIM
@@ -271,6 +273,7 @@ Gzip
 CIDR
 SPA
 LLM
+[Ll]ogit
 MCP
 Fully Qualified Domain Name
 Remote Procedure Call
@@ -585,7 +588,7 @@ Thymeleaf
 Atlassian
 Datastax
 Temurin
-Opensearch
+OpenSearch
 Yubico
 Yubikey
 Feitian
