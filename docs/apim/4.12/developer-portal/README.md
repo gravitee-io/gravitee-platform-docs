@@ -22,9 +22,9 @@ Gravitee offers the following two implementations of the Developer Portal:
 
 The **Classic Developer Portal** (recommended) is Gravitee’s mature and most feature-rich Portal offering. It provides a robust, stable experience for organizations looking to deliver a production-ready API catalog or marketplace.
 
-### [New Developer Portal](new-developer-portal/) (Tech Preview – Modern UX)
+### [New Developer Portal](new-developer-portal/)
 
-The **New Developer Portal**, introduced as a Tech Preview in APIM 4.4 (Enterprise Edition only), is Gravitee’s next-generation Portal that focuses on an updated user experience and modern UI components. It is designed to deliver a visually engaging, intuitive, and faster developer experience.
+The **New Developer Portal**, introduced in APIM 4.4 (Enterprise Edition only), is Gravitee’s next-generation Portal that focuses on an updated user experience and modern UI components. It is designed to deliver a visually engaging, intuitive, and faster developer experience.
 
 Key characteristics:
 

@@ -7,9 +7,6 @@ metaLinks:
 
 # API Score
 
-{% hint style="warning" %}
-API Score is a tech preview. This feature is not recommended for production environments.
-{% endhint %}
 
 <table data-view="cards"><thead><tr><th data-type="content-ref"></th></tr></thead><tbody><tr><td><a href="enable-api-score.md">enable-api-score.md</a></td></tr><tr><td><a href="view-api-scores.md">view-api-scores.md</a></td></tr><tr><td><a href="rulesets-and-functions.md">rulesets-and-functions.md</a></td></tr><tr><td><a href="types-of-assets.md">types-of-assets.md</a></td></tr><tr><td><a href="generate-an-api-score.md">generate-an-api-score.md</a></td></tr></tbody></table>
 

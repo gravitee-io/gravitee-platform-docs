@@ -4,10 +4,6 @@ description: An overview about enable the new developer portal.
 
 # Enable the New Developer Portal
 
-{% hint style="warning" %}
-This feature is in tech preview.
-{% endhint %}
-
 ## Overview
 
 The New Developer Portal has an updated interface and improved customization options. By default, Gravitee launches the Classic Developer Portal. But you can access, test, and preview the New Developer Portal using the API Management (APIM) Console. This does not change your default settings.

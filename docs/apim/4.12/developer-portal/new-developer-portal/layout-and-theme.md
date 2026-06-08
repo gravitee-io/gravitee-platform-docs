@@ -4,10 +4,6 @@ description: Documentation about layout and theme in the context of APIs.
 
 # Layout and Theme
 
-{% hint style="warning" %}
-This feature is in tech preview.
-{% endhint %}
-
 ## Update the Category layout
 
 In the New Developer Portal catalog, you can search for an API based on an associated category. By default, categories are shown as header tabs, but you can elect to view categories as tiles. To change how API categories are displayed, complete the following steps:

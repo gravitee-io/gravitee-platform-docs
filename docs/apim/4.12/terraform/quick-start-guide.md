@@ -9,10 +9,6 @@ metaLinks:
 
 ## Overview
 
-{% hint style="warning" %}
-This feature is in tech preview.
-{% endhint %}
-
 Terraform lets you manage APIs and other entities via configuration rather than manual updates in the APIM Console. This lets you automate and version changes to your APIM instance for an Infrastructure as Code (IaC) experience.
 
 You can use Gravitee's Terraform provider to create and manage Gravitee's Terraform resources. The role of the provider is to apply your resources and synchronize them with the Control Plane.

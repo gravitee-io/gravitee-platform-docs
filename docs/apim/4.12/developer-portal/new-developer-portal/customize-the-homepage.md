@@ -6,10 +6,6 @@ description: An overview about customize the homepage.
 
 ## Overview
 
-{% hint style="warning" %}
-This feature is in tech preview.
-{% endhint %}
-
 In the New Developer Portal, you can customize the homepage of your Developer Portal with standard Markdown and Gravitee Markdown (GMD). Gravitee Markdown is standard Markdown enriched with custom Gravitee components. For more information about Gravitee Markdown, see [gravitee-markdown-components.md](gravitee-markdown-components.md "mention").
 
 You can edit the homepage with a Markdown editor. A preview appears next to the Markdown editor.
