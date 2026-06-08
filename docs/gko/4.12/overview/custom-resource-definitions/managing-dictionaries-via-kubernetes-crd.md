@@ -1,19 +1,23 @@
-# Managing Dictionaries via Kubernetes CRD
+# Dictionary CRD reference
 
-## Kubernetes CRD Configuration
+## Kubernetes CRD configuration
 
-### Dictionary Resource Specification
+This section describes the `Dictionary` resource specification and how to reference Kubernetes Secrets and ConfigMaps from a dynamic dictionary.
 
-Define a Dictionary resource using the `gravitee.io/v1alpha1` API version and `Dictionary` kind. The `spec` must include:
+### Dictionary resource specification
 
-* `contextRef`: Points to a `ManagementContext` resource
-* `name`: Dictionary name (minimum 3 characters)
+Define a Dictionary resource using the `gravitee.io/v1alpha1` API version and the `Dictionary` kind. The `spec` includes these required fields:
+
+* `contextRef`: Reference to a `ManagementContext` resource that determines which APIM instance the dictionary is synced to
+* `name`: Display name of the dictionary
 * `type`: Either `MANUAL` or `DYNAMIC`
-* `deployed`: Boolean flag controlling deployment state
+* `deployed`: Boolean flag that controls the deployment state
+
+The `description` field is optional. Provide `manual` when `type` is `MANUAL`, and `dynamic` when `type` is `DYNAMIC`.
 
 For manual dictionaries, provide a `manual.properties` map with at least one key-value pair. For dynamic dictionaries, define:
 
-* `dynamic.provider`: HTTP provider configuration with `type`, `url`, `method`, `specification` (JOLT), optional `body`, `useSystemProxy`, and `headers`
+* `dynamic.provider`: HTTP provider configuration with `type`, `url`, `method`, `specification` (JOLT), and optional `body`, `useSystemProxy`, and `headers`
 * `dynamic.trigger`: Polling configuration with `rate` and `unit`
 
 ```yaml
@@ -33,22 +37,22 @@ spec:
       key1: value1
 ```
 
-### Secret and ConfigMap References
+### Secret and ConfigMap references
 
-For dynamic dictionaries, reference Secrets or ConfigMaps in the provider configuration using Go template syntax. The dictionary key in API references follows the pattern `<namespace>-<name>`.
+For dynamic dictionaries, reference Kubernetes Secrets or ConfigMaps in the provider configuration using template expressions. Each expression uses `[[ ]]` delimiters and takes a single `<resource-name>/<key>` argument. When the dictionary is referenced from an API, the dictionary key follows the pattern `<namespace>-<name>`.
 
 {% hint style="warning" %}
-Secrets must exist before dictionary creation. The operator does not retry on secret creation.
+Create the referenced Secret or ConfigMap before you create the dictionary. The operator reads the value during reconciliation, and reconciliation fails if the value isn't found.
 {% endhint %}
 
 ```yaml
 dynamic:
   provider:
     type: HTTP
-    url: "{{ secret `my-secret` `url` }}"
+    url: "[[ secret `my-secret/url` ]]"
     headers:
       - name: Authorization
-        value: "{{ secret `my-secret` `token` }}"
+        value: "[[ secret `my-secret/token` ]]"
 ```
 
 ConfigMap references use the same syntax:
@@ -57,13 +61,13 @@ ConfigMap references use the same syntax:
 dynamic:
   provider:
     type: HTTP
-    url: "{{ configmap `my-config` `url` }}"
+    url: "[[ configmap `my-config/url` ]]"
     headers:
       - name: Authorization
-        value: "{{ configmap `my-config` `token` }}"
+        value: "[[ configmap `my-config/token` ]]"
 ```
 
-### Status and Conditions
+### Status and conditions
 
 The Dictionary status includes:
 
@@ -73,18 +77,13 @@ The Dictionary status includes:
 * `conditions`: Array of condition objects
 * `errors`: Object containing `severe` and `warning` arrays
 
-The `conditions` array tracks resource state:
+The `conditions` array tracks the resource state:
 
 | Condition | Description |
 |:----------|:------------|
-| `Accepted` | Indicates successful creation in APIM |
-| `ResolvedRefs` | Validates the `contextRef` points to an existing `ManagementContext` |
+| `Accepted` | The dictionary was created in APIM |
+| `ResolvedRefs` | The `contextRef` points to an existing `ManagementContext` |
 
-The operator sets the following annotations:
-
-| Annotation | Purpose |
-|:-----------|:--------|
-| `gravitee.io/last-spec-hash` | Triggers reconciliation when spec changes |
-| `gravitee.io/automation-api-managed` | Marks dictionaries managed via Automation API |
+The operator sets the `gravitee.io/last-spec-hash` annotation, which triggers reconciliation when the spec changes.
 
 The `errors` object is populated during admission validation and contains validation failures categorized by severity.

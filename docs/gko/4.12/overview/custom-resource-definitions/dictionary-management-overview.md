@@ -1,24 +1,24 @@
-# Dictionary Management Overview
+# Dictionary management overview
 
-## Overview
+Dictionary management lets administrators create, update, and delete dictionaries through the Automation API and the Kubernetes CRD. Dictionaries store key-value pairs that can be referenced in API policies and configurations using Gravitee Expression Language. Manual dictionaries hold static properties, while dynamic dictionaries poll an external HTTP provider to refresh values automatically.
 
-Dictionary Management enables administrators to create, update, and delete dictionaries via the Automation API and Kubernetes CRD. Dictionaries store key-value pairs that can be referenced in API policies and configurations. Manual dictionaries hold static properties, while dynamic dictionaries poll external HTTP providers to refresh values automatically.
+## Key concepts
 
-## Key Concepts
+The sections below describe the dictionary types, how dictionaries are identified, and how their deployment state works.
 
-### Dictionary Types
+### Dictionary types
 
-Dictionaries exist in two types: `MANUAL` and `DYNAMIC`. Manual dictionaries store static key-value pairs defined at creation time. Dynamic dictionaries fetch properties from an external HTTP endpoint at scheduled intervals using a JOLT transformation specification to map the response into key-value pairs. Both types can be deployed to the gateway (manual) or started/stopped (dynamic) to control availability.
+Dictionaries come in two types: `MANUAL` and `DYNAMIC`. Manual dictionaries store static key-value pairs defined at creation time. Dynamic dictionaries fetch properties from an external HTTP endpoint at scheduled intervals, using a JOLT transformation specification to map the response into key-value pairs.
 
-| Type | Properties Source | Deployment Behavior |
+| Type | Properties source | Deployment behavior |
 |:-----|:-----------------|:--------------------|
-| `MANUAL` | Static `properties` map | Deploy/undeploy to gateway |
-| `DYNAMIC` | HTTP provider with JOLT spec | Start/stop polling provider |
+| `MANUAL` | Static `properties` map | Deployed or undeployed on the gateway |
+| `DYNAMIC` | HTTP provider with a JOLT specification | Polling provider started or stopped |
 
-### HRID and Uniqueness
+### HRID and uniqueness
 
-Each dictionary is identified by a human-readable ID (HRID) that must match the pattern `^[a-zA-Z0-9][a-zA-Z0-9_-]+[a-zA-Z0-9]$` with a maximum length of 256 characters. HRIDs are unique within an environment. When creating a dictionary via the Automation API, the HRID is used as the primary key. If not provided, the system derives an ID from the dictionary name.
+Each dictionary is identified by a human-readable ID (HRID) that matches the pattern `^[a-zA-Z0-9][a-zA-Z0-9_-]+[a-zA-Z0-9]$` with a maximum length of 256 characters. The HRID is used as the dictionary key, and HRIDs are unique within an environment. The same HRID can be used in different environments without conflict.
 
-### Deployment State
+### Deployment state
 
-A dictionary's deployment state determines whether it is active on the gateway. For manual dictionaries, `deployed: true` means the dictionary is deployed to the gateway (indicated by a non-null `deployedAt` timestamp). For dynamic dictionaries, `deployed: true` starts the polling provider (state becomes `STARTED`). Setting `deployed: false` undeploys manual dictionaries (sets `deployedAt` to null) or stops dynamic dictionaries.
+A dictionary's deployment state controls whether it's active on the gateway. For a manual dictionary, `deployed: true` deploys the dictionary to the gateway, and `deployed: false` undeploys it. For a dynamic dictionary, `deployed: true` starts the polling provider (its state becomes `STARTED`), and `deployed: false` stops it.
