@@ -14,6 +14,76 @@ metaLinks:
 
 Here are the breaking changes from versions 4.X of Gravitee.
 
+### 4.12
+
+#### Restrictions
+
+* **Trust bundle caching**: SPIFFE trust bundles are cached per `cacheTtlSeconds`. Changes to remote JWKS may not be reflected immediately.
+* **CIMD URL validation**: CIMD URL validation relies on DNS resolution at validation time. DNS changes after validation are not re-checked.
+* **Agent instance ID propagation**: For PREFIX subject matching, the full SPIFFE ID is set as `agentInstanceId` only for Hosted Delegated and Autonomous agents. User Embedded agents do not synthesize per-instance clients.
+* **FAPI compliance**: Agent JWT-bearer assertions enforce PS256 signature algorithm only when the domain's FAPI profile is enabled.
+* **Client authentication methods**: CIMD documents specifying `client_secret_basic`, `client_secret_post`, or `client_secret_jwt` are rejected. No secret provisioning flow exists for CIMD-sourced applications.
+* **Trust domain deletion**: Deleting a trust domain does not cascade-delete applications referencing it. Applications will fail authentication until reconfigured.
+* **JWKS URL IP restrictions**: JWKS URLs resolving to private, loopback, or link-local IP addresses are rejected unless **Allow Private IP Address** is enabled. This is enforced at configuration time and fetch time.
+* **CIMD URL IP restrictions**: CIMD URLs resolving to private IPs are rejected unless **Allow Private IP Address** is enabled under CIMD settings.
+* **Trust bundle URL security**: HTTP (non-TLS) trust bundle URLs are rejected unless **Allow Unsecured HTTP URI** is enabled.
+* **CIMD URL security**: HTTP CIMD URLs are rejected unless **Allow Unsecured HTTP URI** is enabled under CIMD settings.
+* **CIMD domain allowlist**: CIMD URLs must match one entry in **Allowed Domains** (if configured).
+* **PREFIX subject matching requirements**: PREFIX subject matching requires the subject to end with `/` to ensure prefixes only match at path boundaries. Only allowed for Hosted Delegated and Autonomous agents.
+* **Agent grant type restrictions**:
+  * Agent applications cannot use `implicit`, `password`, or `refresh_token` grants.
+  * User Embedded and Hosted Delegated agents cannot use `client_credentials` grant.
+  * Autonomous agents cannot use `authorization_code` grant.
+* **Redirect URI requirements**: User Embedded and Hosted Delegated agents require at least one redirect URI.
+* **SPIFFE JWT client authentication requirements**:
+  * SPIFFE JWT client authentication requires **Workload Identity Settings** with **Trust Domain** and **Subject**.
+  * The **Subject** must start with `spiffe://<trustDomain>/`.
+  * The **Trust Domain** must exist in the domain's trust domain registry.
+* **SPIFFE ID assertion restrictions**: Presenting a SPIFFE ID on the standard `jwt-bearer` assertion type is rejected.
+
+#### Related Changes
+
+The following changes have been introduced to support agent management and workload identity:
+
+##### Management Console Updates
+
+* A top-level **Agents** navigation entry has been added with a dedicated agent list and creation wizard, separate from the standard Applications area.
+* The Applications list now excludes agents.
+* The application type filter accepts multiple values via a multi-select dropdown.
+* A new **Workload Identity** section under domain settings provides CRUD operations for trust domains.
+* The CIMD application creation wizard includes:
+  * A validation step with a read-only metadata preview
+  * A confirmation step for application details
+
+##### Database Migration
+
+Database migration is required to support these changes:
+
+{% tabs %}
+{% tab title="JDBC" %}
+* Adds a `sub_type` column to the `applications` table
+* Creates a `trust_domains` table
+{% endtab %}
+
+{% tab title="MongoDB" %}
+* Adds `subType` and `settings.workloadIdentitySettings` fields to the `applications` collection
+* Creates a `trust_domains` collection
+{% endtab %}
+{% endtabs %}
+
+##### Token Claims
+
+Tokens issued to agent applications include the following claims:
+
+* `client_profile`
+* `sub_profile`
+
+These claims are propagated through `act` delegation chains. For User Embedded and Hosted Delegated agents, `act.sub` is set to the agent instance ID when known.
+
+##### Data Model Changes
+
+The agent persona field is stored as a top-level `subType` field, replacing the earlier nested `settings.agent` shape across the public API, persistence layer, and UI.
+
 ### 4.11.0
 
 **Modified Token Signing Behavior**&#x20;
@@ -75,7 +145,7 @@ Starting with AM versions 4.5.20, 4.6.14, 4.7.8, and 4.8.1, GitHub issue [10573]
 
 In version 4.9.0, this option is enabled by default, making MongoDB queries for SCIM and user searches on the Management API case-sensitive. To revert to the previous behavior of case-insensitive searches, you must explicitly configure this option in the `gravitee.yaml` file:
 
-```
+```yaml
 legacy:
   mongodb:
     regexCaseInsensitive: true
@@ -262,7 +332,7 @@ If a username cannot be duplicate, there is an error into the logs referencing t
 
 {% hint style="info" %}
 * In case of liquibase script error, the management API may fail to start and the **databasechangeloglock** has the `locked` column set to true. Once the duplicate is managed manually, the `locked` columns have to be updated to false to make the liquibase execution possible. You can update the lock using this query : `UPDATE DATABASECHANGELOGLOCK SET LOCKED=0`
-* After the migration, make sure that the **idp\_users\_xxx** tables contains a unique index in the username column. If there is no index, create this index.
+* After the migration, make sure that the **IdP\_users\_xxx** tables contains a unique index in the username column. If there is no index, create this index.
 {% endhint %}
 
 Here are two types of User entry errors:
@@ -332,7 +402,7 @@ select id, username from idp_table where username = 'duplicateuser';
 "yyyyyyyy-ef9b-4c6a-bc0b-7bef9bec6af4"	"duplicateuser"
 ```
 
-4. Based on the users table query output, choose the one that you want to preserve, and then rename to order into the the users table and into the idp table. Ensure that the user you are updating the exrernal\_id in the users table matching the user id into the idp table.
+4. Based on the users table query output, choose the one that you want to preserve, and then rename to order into the the users table and into the IdP table. Ensure that the user you are updating the exrernal\_id in the users table matching the user id into the IdP table.
 
 **Rename duplicate from Organization users Table**
 
@@ -382,7 +452,7 @@ Analyze your deployment needs to adapt the default values that we put in place.
 
 **Theme and Branding**
 
-With this update, there is a [**theme builder**](https://docs.gravitee.io/am/current/am_userguide_branding_theme_builder.html)**,** which enables Access Management (AM) users to create unique AM templates. The theme builder has new assets that are used by the default forms and emails of AM. All the assets provided before AM 3.19 are still served by the Gateway to render the old form templates. Those assets are deprecated and will be removed in a future version. Here is a list of deprecated assets:
+With this update, there is a **theme builder****,** which enables Access Management (AM) users to create unique AM templates. The theme builder has new assets that are used by the default forms and emails of AM. All the assets provided before AM 3.19 are still served by the Gateway to render the old form templates. Those assets are deprecated and will be removed in a future version. Here is a list of deprecated assets:
 
 * css/access\_confirmation.css
 * css/forgot\_password.css
@@ -407,7 +477,7 @@ By default in AM 3.20, to improve security on default installations of AccessMan
 
 Gateway CSP:
 
-```
+```yaml
 csp:
     script-inline-nonce: true
     directives:
@@ -421,14 +491,14 @@ csp:
 
 Gateway XSS-Protection:
 
-```
+```yaml
  xss:
     action: 1; mode=block
 ```
 
 Gateway X-Frame-Option:
 
-```
+```yaml
  xframe:
     action: DENY
 ```
@@ -438,7 +508,7 @@ Gateway X-Frame-Option:
 **Bundle Community Edition and Enterprise Edition**
 
 {% hint style="warning" %}
-Access Management versions from 3.17.2 to 3.17.4 haven been impacted by a regression introduced in the 3.17.2 version of AM. We strongly advise you to upgrade directly to the 3.17.5 or 3.18.4 minimum. For more details about this change, see [Upgrade to 3.18](https://docs.gravitee.io/am/current/am_installguide_migration.html#upgrade_to_3_17_2_3_17_3_3_17_4_3_18_0_3_18_1_3_18_2_3_18_3).
+Access Management versions from 3.17.2 to 3.17.4 haven been impacted by a regression introduced in the 3.17.2 version of AM. We strongly advise you to upgrade directly to the 3.17.5 or 3.18.4 minimum. For more details about this change, see Upgrade to 3.18.
 {% endhint %}
 
 With this update, Gravitee provides a single bundle for the Access Management (AM) Community Edition (CE) and Enterprise Edition (EE). By default, this bundle or docker image provide CE features and they do not contain EE plugins. If you want to start AM EE with plugins that you paid for, you have to deploy the license key and EE plugin that you need.
@@ -450,7 +520,7 @@ If you use docker to start AM, after a docker-compose, you find a snippet that m
 * To deploy enterprise plugins in an additional plugin directory.
 * To deploy the license file.
 
-```
+```yaml
 management:
     image: graviteeio/am-management-api:3.18.0
     container_name: gio_am_management
@@ -477,7 +547,7 @@ _Deploy AM EE with Helm_
 
 If you use helm, you have to mount the license file using a secret, and then in the `additionalPlugins` section for the gateway and the api, specify which EE plugin to download.
 
-```
+```yaml
 gateway:
   additionalPlugins:
   - https://download.gravitee.io/graviteeio-ee/am/plugins/idps/gravitee-am-identityprovider-saml2-generic/gravitee-am-identityprovider-saml2-generic-<version>.zip
@@ -507,7 +577,7 @@ api:
 
 To better match the recommendation asked by Apple to use biometric devices for WebAuthn (passwordless) feature, backend APIs and JavaScript scripts have been updated to reflect that change.
 
-If you use webauthn JavaScript scripts in your custom HTML templates, we strongly advise you to use the v2 version started from the 3.18.0 version.
+If you use WebAuthn JavaScript scripts in your custom HTML templates, we strongly advise you to use the v2 version started from the 3.18.0 version.
 
 For more information about the recommendation from Apple, go to [WebKit Bugzilla](https://bugs.webkit.org/show_bug.cgi?id=213595).
 
@@ -552,7 +622,7 @@ If the use have consented to these, you can simply add those inputs as `hidden` 
     <input class="mdl-checkbox__input" type="hidden" th:value="on"  id="uc_ua" name="uc_ua">
 ```
 
-For more information about this change, see [Risk-based MFA](https://docs.gravitee.io/am/current/am_userguide_mfa_risk_based.html#user_activity_and_consent).
+For more information about this change, see Risk-based MFA.
 
 {% hint style="info" %}
 From **3.18.6**, you can implicit user consent in **gravitee.yml** file on the gateway side. In the **consent** section of the yml file, variable **ip** and **user-agent** is introduced for collecting user consent implicitly.
@@ -561,7 +631,7 @@ From **3.18.6**, you can implicit user consent in **gravitee.yml** file on the g
 ### 3.17.2
 
 {% hint style="warning" %}
-Access Management versions from 3.17.2 to 3.17.4 haven been impacted by a regression introduced in the 3.17.2 version of AM. We strongly advise you to upgrade directly to the 3.17.5 or 3.18.4 minimum. For more details about this change, see [Upgrade to 3.18](https://docs.gravitee.io/am/current/am_installguide_migration.html#upgrade_to_3_17_2_3_17_3_3_17_4_3_18_0_3_18_1_3_18_2_3_18_3).
+Access Management versions from 3.17.2 to 3.17.4 haven been impacted by a regression introduced in the 3.17.2 version of AM. We strongly advise you to upgrade directly to the 3.17.5 or 3.18.4 minimum. For more details about this change, see Upgrade to 3.18.
 {% endhint %}
 
 **Automatic redirection to External IDP**
@@ -574,7 +644,7 @@ With this update, the rules on external identity providers are evaluated also du
 
 **Allowed domain lists**
 
-Due to the selection rule feature added in application identity providers, domain whitelists now operate after login and not after identifier-first login. For more information about this change, see[Identifier-first Login Flow](https://docs.gravitee.io/am/current/am_userguide_login_identifier_first_login_flow.html)
+Due to the selection rule feature added in application identity providers, domain whitelists now operate after login and not after identifier-first login. For more information about this change, see Identifier-first Login Flow
 
 **Application Identity Providers**
 
@@ -583,13 +653,13 @@ At application level, identity providers support the following actions:
 * Priority: When the end user tries to log in, the application will first try to log in with the highest priority identity provider.
 * Selection rule: When the end user tries to log in, the application will try to log in with the identity provider that matches the rule.
 
-For more information about this change, see [Application Identity Providers](https://docs.gravitee.io/am/current/am_userguide_client_identity_providers.html).
+For more information about this change, see Application Identity Providers.
 
 Also, at management-api level, the schema changes to save the new application configuration:
 
 * Prior to this update:
 
-```
+```json
 {
     ...
     "identities": [
@@ -601,7 +671,7 @@ Also, at management-api level, the schema changes to save the new application co
 
 * After this update:
 
-```
+```json
 {
     ...
     "identityProviders":[
@@ -613,7 +683,7 @@ Also, at management-api level, the schema changes to save the new application co
 }
 ```
 
-Finally, you can check the API reference. To check the APU reference, go to [Management API reference](https://docs.gravitee.io/am/current/am_devguide_management_api_documentation.html).
+Finally, you can check the API reference. To check the APU reference, go to Management API reference.
 
 ### 3.15
 

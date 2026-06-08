@@ -30,6 +30,7 @@
 * [Configuration](getting-started/configuration/README.md)
   * [AM Gateway](getting-started/configuration/configure-am-gateway/README.md)
     * [Internal API](getting-started/configuration/configure-am-gateway/internal-api.md)
+    * [Gateway Configuration for SPIFFE and CIMD](getting-started/configuration/configure-am-gateway/gateway-configuration-for-spiffe-and-cimd.md)
   * [AM API](getting-started/configuration/configure-am-api/README.md)
     * [Internal API](getting-started/configuration/configure-am-api/internal-api.md)
   * [AM Console](getting-started/configuration/configure-am-console.md)
@@ -53,6 +54,7 @@
 
 ## Guides
 
+* [Management API for Trust Domains, CIMD, and Application Filtering](guides/management-api-for-trust-domains-cimd-and-application-filtering.md)
 * [OAuth 2.0 Token Exchange](guides/oauth-2.0-token-exchange-concepts/README.md)
   * [OAuth 2.0 Token Exchange Configuration](guides/oauth-2.0-token-exchange-concepts/oauth-2.0-token-exchange-configuration-reference.md)
   * [OAuth 2.0 Token Exchange API](guides/oauth-2.0-token-exchange-concepts/oauth-2.0-token-exchange-api-reference.md)
@@ -102,6 +104,8 @@
   * [AuthZen](guides/authorization-engines/authzen.md)
 * [Applications](guides/applications/README.md)
   * [Client Secrets](guides/applications/client-secrets.md)
+  * [Creating Agent Applications and Managing Trust Domains](guides/applications/creating-agent-applications-and-managing-trust-domains.md)
+  * [SPIFFE Workload Identity & Agent Applications Overview](guides/applications/spiffe-workload-identity-agent-applications-overview.md)
 * [Branding](guides/branding/README.md)
   * [CSS Custom Variables Reference](guides/branding/css-custom-variables-reference.md)
   * [Language Default Properties Reference](guides/branding/language-default-properties-reference.md)

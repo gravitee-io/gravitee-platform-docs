@@ -12,6 +12,29 @@ _Applications_ act on behalf of the user to request tokens, hold user identity i
 
 Application definitions apply at the _security domain_ level.
 
+### Application Types
+
+Access Management supports the following application types:
+
+- **Web**: Server-side web applications
+- **Native**: Mobile or desktop applications
+- **Browser**: Single-page applications (SPAs)
+- **Service**: Server-to-server applications
+- **Resource Server**: Protected resource servers
+- **Agent**: AI agents or autonomous services (managed separately in the Agents area)
+
+{% hint style="info" %}
+Agent Applications are created through a separate workflow documented in the SPIFFE Workload Identity & Agent Applications guide. They are excluded from the standard Applications list and managed in a dedicated Agents area of the console.
+{% endhint %}
+
+### Agent Application Restrictions
+
+Agent applications have the following grant type restrictions:
+
+- All agent types forbid `implicit`, `password`, and `refresh_token` grants
+- User Embedded and Hosted Delegated agents cannot use `client_credentials`
+- Autonomous agents cannot use `authorization_code`
+
 ## Create an application
 
 ### AM Console
