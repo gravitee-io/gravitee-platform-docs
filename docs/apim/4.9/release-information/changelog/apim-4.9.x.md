@@ -7,6 +7,49 @@ metaLinks:
 
 # APIM 4.9.x
  
+## Gravitee API Management 4.9.22 - June 8, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* \[Kafka Topic Mapping policy] OffsetFetch fails with UNKNOWN_SERVER_ERROR when client requests offsets for all topics of a group [#11495](https://github.com/gravitee-io/issues/issues/11495)
+
+**Management API**
+
+* MCP Tool Generation – Nullable field handling in generated inputSchema (OpenAPI import) [#11340](https://github.com/gravitee-io/issues/issues/11340)
+* API rollback of undeployed changes leaves API in "out of sync" state [#11459](https://github.com/gravitee-io/issues/issues/11459)
+* V4 _import/crd create path ignores flowExecution and persists defaults (mode=default, matchRequired=false) [#11476](https://github.com/gravitee-io/issues/issues/11476)
+* encodage UTF-8 [#11480](https://github.com/gravitee-io/issues/issues/11480)
+* v4 HTTP Proxy API — null pathOperator in flow HTTP selector causes 500 NPE instead of 400 [#11491](https://github.com/gravitee-io/issues/issues/11491)
+* Group error when updating V2 API settings after upgrade to 4.11.9, 4.10.16, 4.9.21 or 4.8.28 [#11510](https://github.com/gravitee-io/issues/issues/11510)
+
+**Console**
+
+* Platform alert API filter dropdown fails to load any APIs (v2 or v4) in v4.8.8 [#11466](https://github.com/gravitee-io/issues/issues/11466)
+* Documentation - Swagger viewing issue  [#11485](https://github.com/gravitee-io/issues/issues/11485)
+
+**Other**
+
+* Allow default role mapping through API V2 group endpoint [#11300](https://github.com/gravitee-io/issues/issues/11300)
+* Token type validation disabled still rejects tokens with typ: JWS due to restrictive Nimbus default verifier [#11380](https://github.com/gravitee-io/issues/issues/11380)
+* SSO Icon icons/thirdparty.svg not displaying in dev portal -> login [#11418](https://github.com/gravitee-io/issues/issues/11418)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Other**
+
+* HTTP Callout Policy "Request body" needs to support multi-line UI. [#11504](https://github.com/gravitee-io/issues/issues/11504)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.9.21 - June 1, 2026
 <details>
 
