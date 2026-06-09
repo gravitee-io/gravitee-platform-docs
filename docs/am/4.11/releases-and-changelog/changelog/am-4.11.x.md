@@ -6,6 +6,28 @@ description: >-
 
 # AM 4.11.x
 
+## Gravitee Access Management 4.11.7 - June 8, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Parameterized scope are not properly managed during TokenExchange [#11448](https://github.com/gravitee-io/issues/issues/11448)
+* Request-object signature pre-check NPE [#11486](https://github.com/gravitee-io/issues/issues/11486)
+
+
+
+
+
+**Other**
+
+* Kafka Client OAUTH not working [#11501](https://github.com/gravitee-io/issues/issues/11501)
+
+</details>
+
+
 ## Gravitee Access Management 4.11.6 - June 1, 2026
 
 <details>
