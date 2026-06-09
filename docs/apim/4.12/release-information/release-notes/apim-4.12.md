@@ -68,6 +68,14 @@
 <!-- /PIPELINE:APIM-13463 -->
 
 
+<!-- PIPELINE:APIM-13667 -->
+#### **Kafka Port-Based Routing for Native APIs**
+
+* Enables the gateway to route native Kafka API traffic using dedicated TCP ports instead of SNI-based host routing, allowing multiple Kafka APIs to coexist on the same gateway instance without requiring distinct hostnames.
+* Each plan receives a unique bootstrap port (1024–65535) and broker port range, with automatic conflict detection preventing overlapping port allocations across plans in the same environment.
+* Requires gateway version 4.12.0 or later with `kafka.routingMode=port` configured and console version 4.12.0 or later with `console.kafka.portRouting.enabled=true`.
+* Applies only to native Kafka API types; proxy and message APIs continue to use host-based routing.
+<!-- /PIPELINE:APIM-13667 -->
 <!-- PIPELINE:APIM-14123 -->
 #### **Portal Navigation Templating with FreeMarker Expressions**
 
