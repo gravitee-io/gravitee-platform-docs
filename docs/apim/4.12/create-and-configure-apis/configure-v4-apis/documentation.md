@@ -97,6 +97,10 @@ Use the following syntax to access the API data in your API documentation: `${ap
 Ensure that the reference in the template leads to a valid object. If you reference an object that does not exist, the templating does not work. For more information about templating, go to [Apache FreeMaker Manual](https://freemarker.apache.org/docs/index.html).
 {% endhint %}
 
+{% hint style="info" %}
+For auto-generated Overview pages in the New Developer Portal (when you add an API to portal navigation), see [API Overview Page Templates](../../developer-portal/new-developer-portal/api-overview-page-templates.md).
+{% endhint %}
+
 The sample script below creates a documentation template based on the Apache [FreeMarker template engine](https://freemarker.apache.org/):
 
 {% code overflow="wrap" fullWidth="false" %}
@@ -141,13 +145,26 @@ You can rate and put a comment for this API <a href='/#!/apis/${api.id}/ratings'
 The support contact is <a href="mailto:${api.metadata['email-support']}">${api.metadata['email-support']}</a>.
 </#if>
 
+<#if api.primaryOwner.displayName??>
 The API owner is <#if api.primaryOwner.email??><a href="mailto:${api.primaryOwner.email}">${api.primaryOwner.displayName}</a><#else>${api.primaryOwner.displayName}</#if>.
+</#if>
 ```
 {% endcode %}
 
-The available API properties are listed in the following table:
+The available API properties depend on the API definition version. The following table lists common fields available across all API types:
 
-<table data-full-width="false"><thead><tr><th>Field name</th><th>Field type</th><th>Example</th></tr></thead><tbody><tr><td>id</td><td>String</td><td>70e72a24-59ac-4bad-a72a-2459acbbad39</td></tr><tr><td>name</td><td>String</td><td>My first API</td></tr><tr><td>description</td><td>String</td><td>My first API</td></tr><tr><td>version</td><td>String</td><td>1</td></tr><tr><td>metadata</td><td>Map</td><td>{"email-support": "support.contact@company.com"}</td></tr><tr><td>createdAt</td><td>Date</td><td>Jul 14, 2018 2:44:00 PM</td></tr><tr><td>updatedAt</td><td>Date</td><td>Jul 14, 2018 2:46:00 PM</td></tr><tr><td>deployedAt</td><td>Date</td><td>Jul 14, 2018 2:49:00 PM</td></tr><tr><td>picture</td><td>String</td><td>data:image/png;base64,iVBO…​</td></tr><tr><td>state</td><td>String</td><td>STARTED/STOPPED</td></tr><tr><td>visibility</td><td>String</td><td>PUBLIC/PRIVATE</td></tr><tr><td>tags</td><td>Array</td><td>["internal", "sales"]</td></tr><tr><td>primaryOwner.displayName</td><td>String</td><td>Firstname Lastname</td></tr><tr><td>primaryOwner.email</td><td>String</td><td>firstname.lastname@company.com</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th>Field name</th><th>Field type</th><th>Example</th></tr></thead><tbody><tr><td>id</td><td>String</td><td>70e72a24-59ac-4bad-a72a-2459acbbad39</td></tr><tr><td>name</td><td>String</td><td>My first API</td></tr><tr><td>description</td><td>String</td><td>My first API</td></tr><tr><td>version</td><td>String</td><td>1</td></tr><tr><td>apiVersion</td><td>String</td><td>v1.0</td></tr><tr><td>definitionVersion</td><td>Enum</td><td>V1, V2, V4, FEDERATED, FEDERATED_AGENT</td></tr><tr><td>metadata</td><td>Map</td><td>{"email-support": "support.contact@company.com"}</td></tr><tr><td>createdAt</td><td>Date</td><td>Jul 14, 2018 2:44:00 PM</td></tr><tr><td>updatedAt</td><td>Date</td><td>Jul 14, 2018 2:46:00 PM</td></tr><tr><td>deployedAt</td><td>Date</td><td>Jul 14, 2018 2:49:00 PM</td></tr><tr><td>picture</td><td>String</td><td>data:image/png;base64,iVBO…​</td></tr><tr><td>state</td><td>Enum</td><td>STARTED/STOPPED</td></tr><tr><td>lifecycleState</td><td>Enum</td><td>CREATED, PUBLISHED, UNPUBLISHED, DEPRECATED, ARCHIVED</td></tr><tr><td>visibility</td><td>Enum</td><td>PUBLIC/PRIVATE</td></tr><tr><td>tags</td><td>Set</td><td>["internal", "sales"]</td></tr><tr><td>groups</td><td>Set</td><td>["group-id-1", "group-id-2"]</td></tr><tr><td>categories</td><td>Set</td><td>["finance", "operations"]</td></tr><tr><td>primaryOwner.id</td><td>String</td><td>user-uuid-or-group-uuid</td></tr><tr><td>primaryOwner.displayName</td><td>String</td><td>Firstname Lastname</td></tr><tr><td>primaryOwner.email</td><td>String</td><td>firstname.lastname@company.com</td></tr><tr><td>primaryOwner.type</td><td>String</td><td>USER/GROUP</td></tr><tr><td>disableMembershipNotifications</td><td>boolean</td><td>true/false</td></tr></tbody></table>
+
+**Version-specific fields:**
+
+* **V2 APIs** (definition versions `V1`, `V2`): `proxy`, `executionMode`, `properties` (V2 structure), `services` (V2 structure)
+* **V4 HTTP/Async APIs** (definition version `V4`): `type`, `listeners`, `endpointGroups`, `properties` (V4 structure), `services` (V4 structure), `failover` (HTTP only)
+* **V4 Native APIs** (definition version `V4`): `type`, `listeners`, `endpointGroups`, `properties` (V4 structure), `services` (V4 structure)
+* **Federated APIs** (definition versions `FEDERATED`, `FEDERATED_AGENT`): `type`, `listeners`, `endpointGroups` (subset of fields populated)
+
+**Metadata resolution:**
+
+The `${api.metadata}` map contains pre-resolved values. Metadata values may themselves contain FreeMarker expressions referencing `${api.*}`. If `api.metadata['email-support']` is blank after resolution, it is automatically replaced with the primary owner's email address.
 {% endtab %}
 
 {% tab title="Import from file" %}
@@ -247,9 +264,9 @@ Markdown, OpenAPI spec, and AsyncAPI spec documentation pages will be rendered i
 
 To view the documentation in the Developer Portal:
 
-1.  Click **Open API in Developer Portal**
+1.  Click **OpenAPI in Developer Portal**
 
-    <figure><img src="../../.gitbook/assets/docs_open api 1.png" alt=""><figcaption><p>Open API in Developer Portal</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/docs_open api 1.png" alt=""><figcaption><p>OpenAPI in Developer Portal</p></figcaption></figure>
 2.  Click on **Documentation** in the header options
 
     <figure><img src="../../.gitbook/assets/docs_dev portal docs 1.png" alt=""><figcaption><p>API documentation</p></figcaption></figure>

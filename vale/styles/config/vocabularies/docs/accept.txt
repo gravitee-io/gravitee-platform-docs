@@ -26,6 +26,8 @@ APIs
 API's
 REST
 RESTful
+# allow the lowercase English word "rest" so Vale.Terms stops treating it as the REST acronym
+rest
 GraphQL
 gRPC
 AsyncAPI
@@ -33,6 +35,8 @@ OpenAPI
 OpenID
 OAuth2?
 OIDC
+OID
+OIDs
 SAML
 SASL
 SCIM
@@ -141,7 +145,7 @@ ActiveMQ
 ActiveMQConnectionFactory
 ConnectionFactory
 DLQs?
-AVRO
+[Aa][Vv][Rr][Oo]
 Protobuf
 JOLT
 QoS
@@ -269,6 +273,7 @@ Gzip
 CIDR
 SPA
 LLM
+[Ll]ogit
 MCP
 Fully Qualified Domain Name
 Remote Procedure Call
@@ -277,7 +282,7 @@ Event-Driven Architecture
 # ============================================
 # Formats & Standards
 # ============================================
-JSON
+[Jj][Ss][Oo][Nn]
 XML
 YAML
 HTML
@@ -345,6 +350,7 @@ ISO
 [Mm]ulti-broker
 [Dd]eserialization
 [Dd]eserialized
+[Dd]eserializes
 [Dd]eletable
 [Aa]nonymized
 [Bb]ackchannel
@@ -372,6 +378,7 @@ ApiResource
 ApiVersion
 UUID
 [Ss]yslog
+[Hh][Rr][Ii][Dd]s?
 
 # ============================================
 # Misc Technical Terms
@@ -400,6 +407,7 @@ GPG
 [Ff]ingerprint
 [Aa]uth[Nn]
 A2A
+bool
 
 # ============================================
 # Cloud Providers & Services
@@ -448,7 +456,7 @@ async
 [Mm]anagement [Cc]onsole
 [Aa]llows?
 [Aa]gainst
-[Ee]num[s]?
+[Ee]num[s]?|ENUM
 [Rr]eorderable
 [Dd]rag and [Dd]rop
 [Cc]allout[s]?
@@ -557,6 +565,7 @@ Snappy
 # ============================================
 Jira
 GAP
+enablement
 
 # ============================================
 # Spell-check sweep additions (2026-05-29)
@@ -581,7 +590,7 @@ Thymeleaf
 Atlassian
 Datastax
 Temurin
-Opensearch
+OpenSearch
 Yubico
 Yubikey
 Feitian
@@ -685,7 +694,7 @@ ratelimiting
 goroutines
 classloader
 throwable
-wsdl
+WSDL
 statsd
 healthz
 middleware
