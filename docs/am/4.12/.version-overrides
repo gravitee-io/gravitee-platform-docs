@@ -7,3 +7,16 @@ releases-and-changelog/release-notes/am-4.12.md
 .gitbook/assets/am-cimd-settings-overview.png
 guides/applications/README.md
 guides/auth-protocols/oauth-2.0/cimd.md
+.gitbook/assets/am-agent-wizard-basic-settings.png
+.gitbook/assets/am-agent-wizard-cimd-mode.png
+.gitbook/assets/am-agent-wizard-kind-selection.png
+.gitbook/assets/am-agent-wizard-workload-identity.png
+.gitbook/assets/am-agents-list.png
+.gitbook/assets/am-cimd-settings-cache.png
+.gitbook/assets/am-cimd-settings-ssrf.png
+.gitbook/assets/am-spiffe-settings-cache.png
+.gitbook/assets/am-spiffe-settings-overview.png
+.gitbook/assets/am-trust-domain-create-jwks-url.png
+.gitbook/assets/am-trust-domain-create-static-jwks.png
+.gitbook/assets/am-trust-domains-list.png
+guides/applications/spiffe-workload-identity-agent-applications.md

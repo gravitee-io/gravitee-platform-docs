@@ -71,3 +71,22 @@ All metadata and logo fetches are subject to Server-Side Request Forgery (SSRF) 
 | **Cache TTL (seconds)** | Metadata cache time-to-live | 86400 |
 | **Cache Max Entries** | Maximum cache entries | 1000 |
 | **Revoke Tokens and Consents When Client Metadata Changes** | Revoke tokens when metadata hash changes | Disabled |
+
+### SPIFFE Settings
+
+Configure SPIFFE workload identity validation at the domain level:
+
+1. Navigate to **Settings → OAuth 2.0 → SPIFFE Settings** in the domain console.
+2. Toggle **Enable SPIFFE** to allow clients to authenticate using the `spiffe_jwt` token-endpoint method.
+3. Configure SSRF Protection, JWKS fetch limits, and validation policy:
+   - Toggle **Allow private/loopback IP addresses** to permit SPIFFE JWKS URLs resolving to private IPs.
+   - Toggle **Allow unsecured HTTP URIs** to permit `http://` SPIFFE JWKS URLs.
+   - Set **Fetch Timeout (ms)**.
+   - Set **Max Response Size (KB)**.
+   - Set **Clock Skew (seconds)** for SPIFFE JWT-SVID validation.
+   - Set **Max JWT Lifetime (seconds)**.
+   - Configure **Default Allowed Algorithms** for SPIFFE JWT-SVIDs.
+4. Configure **Cache Settings**:
+   - Set **Cache TTL (seconds)**.
+   - Set **Cache Max Entries**.
+5. Click **SAVE**.
