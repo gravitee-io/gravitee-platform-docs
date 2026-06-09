@@ -32,13 +32,6 @@ The `console.kafka.portRouting.enabled` property controls the visibility of port
 |:---------|:------------|:--------|
 | `console.kafka.portRouting.enabled` | Environment-level toggle for Kafka port routing UI fields. When `false`, port fields are hidden even for native APIs. | `true` |
 
-### Metrics Labels
-
-The `services.metrics.labels` property configures user-defined labels for Vert.x metrics.
-
-| Property | Description | Example |
-|:---------|:------------|:--------|
-| `services.metrics.labels` | User-configured Vert.x metrics labels passed to the metrics subsystem. | `["local", "remote"]` |
 
 {% hint style="info" %}
 When switching from port routing mode to host routing mode, clear the port fields on all plans (set to `null` or leave empty). The gateway reverts to SNI-based routing. Existing `kafka_port_ranges` data remains in the database but is unused.
