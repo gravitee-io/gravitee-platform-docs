@@ -379,6 +379,7 @@ ApiResource
 ApiVersion
 UUID
 [Ss]yslog
+[Hh][Rr][Ii][Dd]s?
 
 # ============================================
 # Misc Technical Terms
@@ -407,6 +408,7 @@ GPG
 [Ff]ingerprint
 [Aa]uth[Nn]
 A2A
+bool
 
 # ============================================
 # Cloud Providers & Services
