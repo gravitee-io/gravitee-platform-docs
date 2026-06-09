@@ -1,5 +1,11 @@
 # Table of contents
-
+  * [Introduction](README.md
+    * [Core Concepts](introduction/core-concepts.md)
+    * [Enterprise Edition](introduction/enterprise-edition.md)
+    * [Integrations](introduction/integrations.md)
+    * [Community Forum](introduction/community-forum.md)
+    * [Contribute to APIM](introduction/contribute-to-apim.md)
+  * [Getting started](getting-started/README.md)
   * [Next-Gen Cloud Free Trial](https://eu.cloud.gravitee.io/)
   * [Fully self-hosted installation with Vanilla Kubernetes](getting-started/vanilla-kubernetes.md)
   * [Fully self-hosted installation with Docker](getting-started/local-install-with-docker.md)
