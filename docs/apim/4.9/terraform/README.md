@@ -16,6 +16,6 @@ The Gravitee Terraform Provider is an open source plugin that is publicly availa
 
 Terraform configuration files are written in HashiCorp Configuration Language (HCL). They define the properties of providers and resources, which Terraform stores as the desired state of the system. When you update a configuration file, Terraform detects the changes to your resources and applies them automatically.
 
-Click on the cards below to learn more about Gravitee's Terraform provider. If you are familiar with Terraform, you can visit the [Gravitee "apim" Terraform Regisitry documentation](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/guides/setup) to get started.
+Click on the cards below to learn more about Gravitee's Terraform provider. If you are familiar with Terraform, you can visit the [Gravitee "apim" Terraform Registry documentation](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/guides/setup) to get started.
 
 <table data-view="cards"><thead><tr><th data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><a href="quick-start-guide.md">quick-start-guide.md</a></td><td></td></tr><tr><td><a href="example-resource-configurations.md">example-resource-configurations.md</a></td><td></td></tr></tbody></table>
