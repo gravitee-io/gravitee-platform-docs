@@ -375,6 +375,7 @@
   * [Convert REST APIS to an MCP Server](ai-agent-management/convert-your-apis-to-mcp-servers.md)
   * [LLM proxy](ai-agent-management/llm-proxy/README.md)
     * [Proxy your LLMs](ai-agent-management/llm-proxy/proxy-your-llms.md)
+    * [Accepted request formats](ai-agent-management/llm-proxy/accepted-request-formats.md)
     * [Add the Token Rate Limit policy to your LLM proxy](ai-agent-management/llm-proxy/add-the-token-rate-limit-policy-to-your-llm-proxy.md)
     * [Add the Guard Rails policy to your LLM proxy](ai-agent-management/llm-proxy/add-the-guard-rails-policy-to-your-llm-proxy.md)
     * [Consume your LLM proxy with the OpenAI Python SDK](ai-agent-management/llm-proxy/consume-your-llm-proxy-with-the-openai-python-sdk.md)
