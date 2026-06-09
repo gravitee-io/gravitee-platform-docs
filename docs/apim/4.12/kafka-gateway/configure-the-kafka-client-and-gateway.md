@@ -1,5 +1,5 @@
 ---
-description: An overview about configure the kafka client & gateway.
+description: Configure the Gravitee Kafka Gateway and Kafka client to proxy a Kafka cluster, including TLS, broker mapping, mTLS authentication, and producing and consuming messages.
 metaLinks:
   alternates:
     - configure-the-kafka-client-and-gateway.md
@@ -9,7 +9,7 @@ metaLinks:
 
 ## Overview
 
-Before you can use Gravitee to proxy in a Kafka cluster, you need to configure the Gravitee Kafka Gateway and a Kafka client.
+To use Gravitee to proxy a Kafka cluster, configure the Gravitee Kafka Gateway and a Kafka client.
 
 ## Configure the Kafka Gateway
 
@@ -36,13 +36,13 @@ kafka:
 
 ### Bootstrap server domain
 
-* The Gateway runs multiple APIs on different **domains**. The Kafka client will connect to the API using the bootstrap server `{apiHost}.{defaultDomain}:{defaultPort}`, where `{apiHost}` is host prefix defined for each API.
+* The Gateway runs multiple APIs on different **domains**. The Kafka client connects to the API using the bootstrap server `{apiHost}.{defaultDomain}:{defaultPort}`, where `{apiHost}` is host prefix defined for each API.
 
 <figure><img src="../.gitbook/assets/kafka-gateway-configure-the-kafka-client-17-1.png" alt="" width="555"><figcaption><p>The Kafka client routes to the correct API through the gateway using SNI routing.</p></figcaption></figure>
 
-* To route to the correct API, the Gateway uses [SNI routing](https://en.wikipedia.org/wiki/Server_Name_Indication), which is part of the TLS protocol. Consequently, all client connections **must** happen over TLS (with at least `security.protocol=SSL` set in the Kafka client configuration).
-* The client **must** trust the certificate provided by the Gateway. To handle the variable host in the proxy bootstrap server URL, you will likely need to request a wildcard SAN to use as the certificate presented by the Gateway.
-* Using the default configuration, you will ideally need a wildcard DNS entry, so that you don't need a new DNS entry for every API. In this example, the DNS and wildcard certificate should be for `*.mycompany.org`.
+* To route to the correct API, the Gateway uses [SNI routing](https://en.wikipedia.org/wiki/Server_Name_Indication), which is part of the TLS protocol. Consequently, all client connections **must** happen over TLS, with at least `security.protocol=SSL` set in the Kafka client configuration.
+* The client **must** trust the certificate provided by the Gateway. To handle the variable host in the proxy bootstrap server URL, you likely need to request a wildcard SAN to use as the certificate presented by the Gateway.
+* With the default configuration, you need a wildcard DNS entry so that you don't need a new DNS entry for every API. In this example, the DNS and wildcard certificate are for `*.mycompany.org`.
 
 <details>
 
@@ -89,7 +89,7 @@ The mapping combines the `brokerPrefix`, `brokerSeparator`, and `defaultDomain` 
 
 <summary>What if I have restrictions on the domains I can use?</summary>
 
-If you have restrictions on the domain names you can use for APIs, then, as [above](configure-the-kafka-client-and-gateway.md#what-if-i-have-restrictions-on-the-domains-i-can-use), you can override the broker domain pattern. The configuration will then be as follows (with `brokerDomainPattern` being the relevant option):
+If you have restrictions on the domain names you can use for APIs, you can override the broker domain pattern, as described in [What if I have restrictions on the domains I can use?](configure-the-kafka-client-and-gateway.md#what-if-i-have-restrictions-on-the-domains-i-can-use). The configuration will then be as follows (with `brokerDomainPattern` being the relevant option):
 
 ```yaml
 kafka:
@@ -169,7 +169,7 @@ Conflict detection runs before plan creation or update and blocks operations tha
 All Kafka plans already use TLS for transport encryption by default. The configuration below is **only** required when using an mTLS plan, which adds client certificate authentication on top of standard TLS.
 {% endhint %}
 
-To require client certificate authentication for Kafka native APIs, add the following SSL properties to `gravitee.yml`. This is an infrastructure-level configuration that applies globally to all Kafka native APIs deployed on the gateway.
+To require client certificate authentication for Native Kafka APIs, add the following SSL properties to `gravitee.yml`. This is an infrastructure-level configuration that applies globally to all Native Kafka APIs deployed on the gateway:
 
 | Property                        | Description                                                              | Example                          |
 | ------------------------------- | ------------------------------------------------------------------------ | -------------------------------- |
@@ -183,7 +183,7 @@ To require client certificate authentication for Kafka native APIs, add the foll
 
 The gateway truststore must contain the CA certificate that signed the client certificates. The gateway keystore contains the gateway's identity certificate.
 
-To reject connections from clients whose certificates have been revoked, add a `kafka.ssl.crl` block to `gravitee.yml`. The CRL options mirror the HTTP server's CRL options — see[ Reject revoked client certificates with a CRL](../prepare-a-production-environment/configure-your-http-server.md#reject-revoked-client-certificates-with-a-crl) for the full reference and behaviour.
+To reject connections from clients whose certificates have been revoked, add a `kafka.ssl.crl` block to `gravitee.yml`. The CRL options mirror the HTTP server's CRL options — see [Reject revoked client certificates with a CRL](../prepare-a-production-environment/configure-your-http-server.md#reject-revoked-client-certificates-with-a-crl) for the full reference and behavior.
 
 ```yaml
 kafka:
@@ -199,9 +199,9 @@ By default, clients talk to Kafka APIs by setting the bootstrap server as `{apiH
 
 To configure the APIM Console to use the Kafka domain and port values for your Organization:
 
-1. Log in to your APIM Console.
-2. Select **Organization** from the bottom of the left nav.
-3. Select **Entrypoints & Sharding Tags** from the left nav.
+1. Log in to your Management Console.
+2. Select **Organization**.
+3. Select **Entrypoints & Sharding Tags**.
 4.  In the **Entrypoint Configuration** section, confirm that the **Default Kafka domain** and **Default Kafka port** values match those of your Kafka API.
 
     <figure><img src="../.gitbook/assets/00 kafka.png" alt=""><figcaption></figcaption></figure>
@@ -221,9 +221,9 @@ As of the 4.6.0 release, the Kafka Gateway requires the Kafka client to be versi
 The default client to talk to Kafka is packaged within the Kafka binary and is based on Java. The prerequisite for using this client is a JRE. See the [Java documentation](https://www.java.com/en/) for more information on how to install a JRE.
 
 1. Download Kafka. Gravitee Kafka Gateway is compatible with the source code or either binary download of each supported Kafka release. For more information about downloading Kafka, go to [Kafka's download page](https://kafka.apache.org/downloads).
-2. Store the downloaded file structure in a secure place. The root folder will be your working directory when calling your Kafka API.
+2. Store the downloaded file structure in a secure place. The root folder is your working directory when calling your Kafka API.
 
-The client is now ready to use, but to produce and consume messages you must create a `.properties` file in the root folder as described below.
+The client is now ready to use. To produce and consume messages, create a `.properties` file in the root folder, as described in the [Example](#example) section.
 
 {% hint style="info" %}
 At this point, you can begin creating and deploying APIs to the Gravitee Kafka Gateway.
@@ -263,7 +263,9 @@ For plan, application, subscription, and resource information, see the following
 
 ### Plan security mutual exclusion
 
-Kafka native APIs enforce strict separation between plan security types. You can't mix Keyless, mTLS, and authentication plans (OAuth2, JWT, API Key) in published state. When you publish a plan of one type, all published plans of conflicting types are automatically closed. Multiple plans of the same security type (for example, two mTLS plans) can coexist.
+Native Kafka APIs enforce strict separation between plan security types. You can't mix Keyless, mTLS, and authentication plans such as OAuth2, JWT, and API Key in published state. When you publish a plan of one type, all published plans of conflicting types are automatically closed. Multiple plans of the same security type can coexist. For example, two mTLS plans can coexist.
+
+The following table summarizes plan type coexistence rules:
 
 | Plan Type            | Can Coexist With           | Conflicts With                |
 | -------------------- | -------------------------- | ----------------------------- |
@@ -291,19 +293,19 @@ The following example provides a template for how to produce and consume message
 
 1. In the top-level folder of your Kafka download, create an empty `.properties` file named `connect.properties`.
 2. Go to the Developer Portal and find your API.
-3. After selecting your API, click on the **My Subscriptions** tab.
-4.  Copy the script in the **Review Kafka Properties** section and paste it into your `connect.properties` file.
+3. After selecting your API, click the **My Subscriptions** tab.
+4.  Copy the script in the **Review Kafka Properties** section, and then paste it into your `connect.properties` file.
 
     <div align="left"><figure><img src="../.gitbook/assets/1 pc 2.png" alt="" width="563"><figcaption></figcaption></figure></div>
 5.  Copy either the produce or consume commands from the **Calling the API** section.
 
     <div align="left"><figure><img src="../.gitbook/assets/00 kafka 2.png" alt="" width="563"><figcaption></figcaption></figure></div>
 6. In a terminal, change your working directory to the top-level folder of your Kafka download.
-7. Paste and execute the commands you copied to produce or consume messages.
+7. Paste the commands you copied, and then execute them to produce or consume messages.
 
 ## Appendix: Full Gateway Configuration
 
-Here is a reference for the full server configuration of the Kafka Gateway.
+The following is the full server configuration for the Kafka Gateway.
 
 ```yaml
 kafka:
