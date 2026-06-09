@@ -27,6 +27,17 @@
 * Designed for AI agents and Model Context Protocol (MCP) clients requiring agent-driven authentication workflows without manual registration.
 <!-- /PIPELINE:AM-6906 -->
 
+
+<!-- PIPELINE:AM-6850 -->
+#### **Automation API for Programmatic Resource Management**
+
+* Provides a machine-oriented HTTP interface for managing AM domains, identity providers, certificates, and reporters through infrastructure-as-code workflows.
+* Uses idempotent PUT operations following API Management Automation API conventions, with resources organized under a three-level hierarchy (organizations > environments > domains).
+* Supports system resources pre-configured via `gravitee.yml` and user-defined resources identified by immutable keys following the pattern `^[a-z0-9]([a-z0-9-]*[a-z0-9])?$`.
+* Requires enabling via `api.http.api.automation.enabled: true` in `gravitee.yml` and authentication using JWT bearer tokens, service-account access tokens, or HTTP Basic credentials.
+* OpenAPI specification available at the configured entrypoint (default: `/management/automation`) for integration with automation tools like the Gravitee Terraform provider (currently in technical preview).
+<!-- /PIPELINE:AM-6850 -->
+
 ## Improvements
 
 ## Bug Fixes

@@ -69,6 +69,8 @@ curl -H "Authorization: Bearer :accessToken" \
 ```
 {% endcode %}
 
+Alternatively, you can use the Automation API to create and manage certificates programmatically. The Automation API provides idempotent PUT operations at the path `/organizations/{orgId}/environments/{envId}/domains/{domainKey}/certificates`. System certificates can be created by setting `system: true` in the request body, which references the domain's default certificate configuration from `gravitee.yml`.
+
 ### Public keys
 
 You can use public keys to verify a token payload's integrity. To obtain the public key for your certificate:

@@ -138,6 +138,35 @@ jetty:
       password:
 ```
 
+## Configure Automation API
+
+The Automation API provides a machine-oriented HTTP interface for programmatically managing AM domains, identity providers, certificates, and reporters. Enable the Automation API by configuring the following properties in `gravitee.yml`:
+
+```yaml
+api:
+  http:
+    api:
+      automation:
+        enabled: true
+        entrypoint: /management/automation
+
+http:
+  blockingGet:
+    timeoutMillis: 120000
+```
+
+| Property | Description | Default |
+|:---------|:------------|:--------|
+| `api.http.api.automation.enabled` | Enables the Automation API HTTP endpoint | `false` |
+| `api.http.api.automation.entrypoint` | Custom base path for the Automation API | `/management/automation` |
+| `http.blockingGet.timeoutMillis` | Timeout in milliseconds for blocking repository lookups during authentication; set to `0` to disable timeout | `120000` |
+
+For Docker Compose deployments, use the following environment variable:
+
+```bash
+GRAVITEE_HTTP_API_AUTOMATION_ENABLED=true
+```
+
 #### **Enable HTTPS support**
 
 First, you need to provide a keystore. If you don’t have one, you can generate it:
@@ -661,7 +690,7 @@ If you are planning to use multiple instances, you need to implement sticky sess
 Example using three instances of AM API. We add an additional cookie named ROUTEID. TLS termination is configured in Apache, so we just use HTTP.
 
 {% code overflow="wrap" %}
-```
+```xml
 <Proxy balancer://amm_hcluster>
         BalancerMember http://GRAVITEEIO-AM-MGT-API-HOST1:8093 route=apim1-test
         BalancerMember http://GRAVITEEIO-AM-MGT-API-HOST2:8093 route=apim2-test

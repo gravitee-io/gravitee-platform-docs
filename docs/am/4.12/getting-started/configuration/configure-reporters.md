@@ -26,7 +26,7 @@ When you create a domain, the MongoDB reporter is created automatically based on
 
 When MongoDB is used as a backend, the `readPreference` option can be specified in the `reporters` section of the `gravitee.yaml` file:
 
-```
+```yaml
 reporters:
   mongodb: # Configuration of read preference for querying audit records from mongodb, defaults to primary if not provided
     readPreference: secondary # primary, secondary, primaryPreferred, secondaryPreferred, nearest
@@ -232,3 +232,9 @@ api:
         retention:
           days: 90
 ```
+
+## Programmatic reporter management
+
+You can create and manage reporters programmatically using the Automation API. Send PUT requests to `/organizations/{orgId}/environments/{envId}/domains/{domainKey}/reporters` with the reporter key and configuration in the request body. Database reporter types (`mongodb`, `reporter-am-jdbc`) are system-only and can't be created manually via the Automation API.
+
+For details on the Automation API, see the [Automation API documentation](../../automation-api/).
