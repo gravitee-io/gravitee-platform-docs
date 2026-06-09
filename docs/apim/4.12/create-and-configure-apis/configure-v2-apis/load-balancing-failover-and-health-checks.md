@@ -3,6 +3,8 @@ description: An overview about load-balancing, failover, & health-checks.
 metaLinks:
   alternates:
     - load-balancing-failover-and-health-checks.md
+hidden: true
+noIndex: true
 ---
 
 # Load-balancing, Failover, & Health-checks

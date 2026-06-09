@@ -3,6 +3,8 @@ description: An overview about configure dcr.
 metaLinks:
   alternates:
     - configure-dcr.md
+hidden: true
+noIndex: true
 ---
 
 # Configure DCR

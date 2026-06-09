@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # AI Semantic Caching policy
 
 ## Overview

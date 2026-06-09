@@ -1,5 +1,7 @@
 ---
 description: An overview about gravitee gateway.
+hidden: true
+noIndex: true
 ---
 
 # Gravitee Gateway

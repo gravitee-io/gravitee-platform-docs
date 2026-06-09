@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Managing API Products with the Management API
 
 ## Create an API Product

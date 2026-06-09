@@ -5,6 +5,8 @@ description: >-
 metaLinks:
   alternates:
     - portal-settings.md
+hidden: true
+noIndex: true
 ---
 
 # Portal Settings

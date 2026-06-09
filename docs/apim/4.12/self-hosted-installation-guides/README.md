@@ -3,6 +3,8 @@ description: An overview about self-hosted installation guides.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # Self-Hosted Installation Guides

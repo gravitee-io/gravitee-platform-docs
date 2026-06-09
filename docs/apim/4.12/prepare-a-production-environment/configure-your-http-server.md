@@ -3,6 +3,8 @@ description: Configuration guide for configure your http server.
 metaLinks:
   alternates:
     - configure-your-http-server.md
+hidden: true
+noIndex: true
 ---
 
 # Configure your HTTP Server

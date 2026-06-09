@@ -3,6 +3,8 @@ description: Documentation about govern apis in the context of APIs.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # Govern APIs

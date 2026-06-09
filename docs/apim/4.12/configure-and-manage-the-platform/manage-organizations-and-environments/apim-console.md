@@ -3,6 +3,8 @@ description: An overview about apim console.
 metaLinks:
   alternates:
     - apim-console.md
+hidden: true
+noIndex: true
 ---
 
 # APIM Console

@@ -3,6 +3,8 @@ description: An overview about tenants.
 metaLinks:
   alternates:
     - tenants.md
+hidden: true
+noIndex: true
 ---
 
 # Tenants

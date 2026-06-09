@@ -3,6 +3,8 @@ description: An overview about azure service bus.
 metaLinks:
   alternates:
     - azure-service-bus.md
+hidden: true
+noIndex: true
 ---
 
 # Azure Service Bus

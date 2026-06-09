@@ -3,6 +3,8 @@ description: An overview about debug logging.
 metaLinks:
   alternates:
     - debug-logging.md
+hidden: true
+noIndex: true
 ---
 
 # Debug Logging

@@ -3,6 +3,8 @@ description: An overview about changelog.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # Changelog

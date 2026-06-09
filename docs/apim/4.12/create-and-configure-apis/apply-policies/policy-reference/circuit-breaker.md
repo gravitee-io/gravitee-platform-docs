@@ -3,6 +3,8 @@ description: An overview about circuit breaker.
 metaLinks:
   alternates:
     - circuit-breaker.md
+hidden: true
+noIndex: true
 ---
 
 # Circuit Breaker

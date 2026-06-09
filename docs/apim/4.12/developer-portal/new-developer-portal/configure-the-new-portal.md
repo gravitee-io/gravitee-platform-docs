@@ -1,5 +1,7 @@
 ---
 description: An overview about enable the new developer portal.
+hidden: true
+noIndex: true
 ---
 
 # Enable the New Developer Portal

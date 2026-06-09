@@ -3,6 +3,8 @@ description: An overview about multi-tenancy.
 metaLinks:
   alternates:
     - multi-tenancy.md
+hidden: true
+noIndex: true
 ---
 
 # Multi-tenancy

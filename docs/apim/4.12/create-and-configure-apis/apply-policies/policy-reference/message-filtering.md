@@ -3,6 +3,8 @@ description: An overview about message filtering.
 metaLinks:
   alternates:
     - message-filtering.md
+hidden: true
+noIndex: true
 ---
 
 # Message Filtering

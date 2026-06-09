@@ -3,6 +3,8 @@ description: An overview about kafka.
 metaLinks:
   alternates:
     - kafka.md
+hidden: true
+noIndex: true
 ---
 
 # Kafka

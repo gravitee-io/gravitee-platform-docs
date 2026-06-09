@@ -3,6 +3,8 @@ description: An overview about deployment.
 metaLinks:
   alternates:
     - deployment.md
+hidden: true
+noIndex: true
 ---
 
 # Deployment

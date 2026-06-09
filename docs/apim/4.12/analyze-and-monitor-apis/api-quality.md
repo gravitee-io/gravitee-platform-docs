@@ -3,6 +3,8 @@ description: An overview about api quality.
 metaLinks:
   alternates:
     - api-quality.md
+hidden: true
+noIndex: true
 ---
 
 # API Quality

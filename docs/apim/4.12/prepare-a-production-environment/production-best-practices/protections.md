@@ -3,6 +3,8 @@ description: Tutorial on protections.
 metaLinks:
   alternates:
     - protections.md
+hidden: true
+noIndex: true
 ---
 
 # Protections

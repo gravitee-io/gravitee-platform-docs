@@ -3,6 +3,8 @@ description: Configuration guide for docker compose.
 metaLinks:
   alternates:
     - docker-compose.md
+hidden: true
+noIndex: true
 ---
 
 # Docker Compose

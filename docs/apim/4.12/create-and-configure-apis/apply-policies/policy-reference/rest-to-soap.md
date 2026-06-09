@@ -3,6 +3,8 @@ description: An overview about rest to soap.
 metaLinks:
   alternates:
     - rest-to-soap.md
+hidden: true
+noIndex: true
 ---
 
 # REST to SOAP

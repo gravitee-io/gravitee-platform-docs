@@ -3,6 +3,8 @@ description: An overview about mqtt5.
 metaLinks:
   alternates:
     - mqtt5.md
+hidden: true
+noIndex: true
 ---
 
 # MQTT5

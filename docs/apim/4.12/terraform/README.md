@@ -1,5 +1,7 @@
 ---
 description: Configuration guide for terraform.
+hidden: true
+noIndex: true
 ---
 
 # Terraform

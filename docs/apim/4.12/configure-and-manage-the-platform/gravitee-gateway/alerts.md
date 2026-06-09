@@ -3,6 +3,8 @@ description: An overview about alerts.
 metaLinks:
   alternates:
     - alerts.md
+hidden: true
+noIndex: true
 ---
 
 # Alerts

@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # A2A Proxy API Type Overview
 
 ## Overview

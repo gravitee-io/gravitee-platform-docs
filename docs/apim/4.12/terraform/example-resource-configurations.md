@@ -3,6 +3,8 @@ description: An overview about gravitee resources.
 metaLinks:
   alternates:
     - example-resource-configurations.md
+hidden: true
+noIndex: true
 ---
 
 # Gravitee Resources

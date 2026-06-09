@@ -3,6 +3,8 @@ description: Configuration guide for quick start.
 metaLinks:
   alternates:
     - quick-start.md
+hidden: true
+noIndex: true
 ---
 
 # Quick Start

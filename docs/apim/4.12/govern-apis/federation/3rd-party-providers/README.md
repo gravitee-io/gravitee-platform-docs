@@ -3,6 +3,8 @@ description: An overview about 3rd-party providers.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # 3rd-Party Providers

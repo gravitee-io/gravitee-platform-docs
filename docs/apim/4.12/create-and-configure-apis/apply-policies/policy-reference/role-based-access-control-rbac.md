@@ -3,6 +3,8 @@ description: An overview about role-based access control (rbac).
 metaLinks:
   alternates:
     - role-based-access-control-rbac.md
+hidden: true
+noIndex: true
 ---
 
 # Role-based Access Control (RBAC)

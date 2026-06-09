@@ -3,6 +3,8 @@ description: An overview about debug mode.
 metaLinks:
   alternates:
     - debug-mode.md
+hidden: true
+noIndex: true
 ---
 
 # Debug Mode

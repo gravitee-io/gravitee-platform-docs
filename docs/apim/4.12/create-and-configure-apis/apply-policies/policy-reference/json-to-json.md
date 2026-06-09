@@ -3,6 +3,8 @@ description: An overview about json to json.
 metaLinks:
   alternates:
     - json-to-json.md
+hidden: true
+noIndex: true
 ---
 
 # JSON to JSON

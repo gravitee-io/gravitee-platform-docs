@@ -3,6 +3,8 @@ description: Configuration guide for apim 4.4.+ & hybrid gateways.
 metaLinks:
   alternates:
     - apim-4.4.+-and-hybrid-gateways.md
+hidden: true
+noIndex: true
 ---
 
 # APIM 4.4.+ & Hybrid Gateways

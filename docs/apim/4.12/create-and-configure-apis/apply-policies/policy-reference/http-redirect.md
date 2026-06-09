@@ -3,6 +3,8 @@ description: An overview about http redirect.
 metaLinks:
   alternates:
     - http-redirect.md
+hidden: true
+noIndex: true
 ---
 
 # HTTP Redirect

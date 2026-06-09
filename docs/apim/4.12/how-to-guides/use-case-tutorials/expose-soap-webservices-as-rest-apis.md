@@ -3,6 +3,8 @@ description: An overview about expose soap webservices as rest apis.
 metaLinks:
   alternates:
     - expose-soap-webservices-as-rest-apis.md
+hidden: true
+noIndex: true
 ---
 
 # Expose SOAP Webservices as REST APIs

@@ -3,6 +3,8 @@ description: An overview about apply policies.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # Apply Policies

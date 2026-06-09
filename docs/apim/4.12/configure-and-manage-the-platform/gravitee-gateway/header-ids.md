@@ -3,6 +3,8 @@ description: Configuration guide for header ids.
 metaLinks:
   alternates:
     - header-ids.md
+hidden: true
+noIndex: true
 ---
 
 # Header IDs

@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Enforce Logging Rules with ArchUnit Maven Plugin
 
 ## Overview

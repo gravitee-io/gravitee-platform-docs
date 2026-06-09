@@ -3,6 +3,8 @@ description: Documentation about transfer subscriptions in the context of APIs.
 metaLinks:
   alternates:
     - transfer-subscriptions.md
+hidden: true
+noIndex: true
 ---
 
 # Transfer Subscriptions

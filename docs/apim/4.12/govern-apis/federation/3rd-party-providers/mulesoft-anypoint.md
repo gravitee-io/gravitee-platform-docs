@@ -3,6 +3,8 @@ description: An overview about mulesoft anypoint.
 metaLinks:
   alternates:
     - mulesoft-anypoint.md
+hidden: true
+noIndex: true
 ---
 
 # Mulesoft Anypoint

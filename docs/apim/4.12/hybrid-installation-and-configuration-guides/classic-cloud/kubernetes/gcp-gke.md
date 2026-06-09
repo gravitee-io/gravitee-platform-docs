@@ -3,6 +3,8 @@ description: Tutorial on gcp gke.
 metaLinks:
   alternates:
     - gcp-gke.md
+hidden: true
+noIndex: true
 ---
 
 # GCP GKE

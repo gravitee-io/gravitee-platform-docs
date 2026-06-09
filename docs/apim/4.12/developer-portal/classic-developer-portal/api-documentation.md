@@ -1,5 +1,7 @@
 ---
 description: Configuration guide for api documentation.
+hidden: true
+noIndex: true
 ---
 
 # API Documentation

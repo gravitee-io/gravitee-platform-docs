@@ -3,6 +3,8 @@ description: Configuration guide for hybrid installation & configuration guides.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # Hybrid Installation & Configuration Guides

@@ -3,6 +3,8 @@ description: An overview about v2 api policy studio.
 metaLinks:
   alternates:
     - v2-api-policy-studio.md
+hidden: true
+noIndex: true
 ---
 
 # v2 API Policy Studio

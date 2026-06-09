@@ -3,6 +3,8 @@ description: An overview about assign content.
 metaLinks:
   alternates:
     - assign-content.md
+hidden: true
+noIndex: true
 ---
 
 # Assign Content

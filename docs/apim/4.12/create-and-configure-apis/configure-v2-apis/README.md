@@ -3,6 +3,8 @@ description: Configuration guide for configure v2 apis.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # Configure v2 APIs

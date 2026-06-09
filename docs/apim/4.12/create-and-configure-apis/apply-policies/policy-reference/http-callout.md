@@ -3,6 +3,8 @@ description: An overview about http callout.
 metaLinks:
   alternates:
     - http-callout.md
+hidden: true
+noIndex: true
 ---
 
 # HTTP Callout

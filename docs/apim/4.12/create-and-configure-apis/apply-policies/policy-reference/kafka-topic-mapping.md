@@ -3,6 +3,8 @@ description: An overview about kafka topic mapping.
 metaLinks:
   alternates:
     - kafka-topic-mapping.md
+hidden: true
+noIndex: true
 ---
 
 # Kafka Topic Mapping

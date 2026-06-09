@@ -3,6 +3,8 @@ description: An overview about kafka message filtering.
 metaLinks:
   alternates:
     - kafka-message-filtering.md
+hidden: true
+noIndex: true
 ---
 
 # Kafka Message Filtering

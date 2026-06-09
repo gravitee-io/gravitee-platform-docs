@@ -3,6 +3,8 @@ description: An overview about assign attributes.
 metaLinks:
   alternates:
     - assign-attributes.md
+hidden: true
+noIndex: true
 ---
 
 # Assign Attributes

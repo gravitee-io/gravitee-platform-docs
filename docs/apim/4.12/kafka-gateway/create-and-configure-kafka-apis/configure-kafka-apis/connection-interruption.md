@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Connection interruption in the Entrypoint Connect phase
 
 ## Template engine variables

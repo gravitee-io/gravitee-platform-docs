@@ -3,6 +3,8 @@ description: An overview about json threat protection.
 metaLinks:
   alternates:
     - json-threat-protection.md
+hidden: true
+noIndex: true
 ---
 
 # JSON Threat Protection

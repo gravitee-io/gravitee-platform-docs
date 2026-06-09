@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Table of contents
 
   * [Next-Gen Cloud Free Trial](https://eu.cloud.gravitee.io/)

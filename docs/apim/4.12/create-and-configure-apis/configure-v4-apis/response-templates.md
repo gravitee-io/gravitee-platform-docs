@@ -3,6 +3,8 @@ description: An overview about response templates.
 metaLinks:
   alternates:
     - response-templates.md
+hidden: true
+noIndex: true
 ---
 
 # Response Templates

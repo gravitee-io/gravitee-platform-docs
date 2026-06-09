@@ -3,6 +3,8 @@ description: Configuration guide for datadog reporter.
 metaLinks:
   alternates:
     - datadog-reporter.md
+hidden: true
+noIndex: true
 ---
 
 # Datadog Reporter

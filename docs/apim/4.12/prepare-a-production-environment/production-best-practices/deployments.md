@@ -3,6 +3,8 @@ description: Configuration guide for deployments.
 metaLinks:
   alternates:
     - deployments.md
+hidden: true
+noIndex: true
 ---
 
 # Deployments

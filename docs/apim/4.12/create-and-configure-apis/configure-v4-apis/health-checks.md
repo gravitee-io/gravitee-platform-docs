@@ -3,6 +3,8 @@ description: An overview about health-checks.
 metaLinks:
   alternates:
     - health-checks.md
+hidden: true
+noIndex: true
 ---
 
 # Health-checks

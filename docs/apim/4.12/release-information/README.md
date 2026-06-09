@@ -3,6 +3,8 @@ description: Information about release information.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # Release Information

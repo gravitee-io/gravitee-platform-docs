@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Context-aware logging in plugins
 
 ## Overview

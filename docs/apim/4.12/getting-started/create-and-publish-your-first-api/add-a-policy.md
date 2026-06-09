@@ -3,6 +3,8 @@ description: An overview about add a policy.
 metaLinks:
   alternates:
     - add-a-policy.md
+hidden: true
+noIndex: true
 ---
 
 # Add a Policy

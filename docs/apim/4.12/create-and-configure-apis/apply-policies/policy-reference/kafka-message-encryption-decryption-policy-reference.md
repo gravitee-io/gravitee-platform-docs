@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Kafka message encryption and decryption
 
 ## Overview

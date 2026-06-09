@@ -3,6 +3,8 @@ description: An overview about contribute to apim.
 metaLinks:
   alternates:
     - contribute-to-apim.md
+hidden: true
+noIndex: true
 ---
 
 # Contribute to APIM

@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Configuring the Hazelcast Rate-Limit Repository for Standalone Gateways
 
 ## Gateway Configuration

@@ -3,6 +3,8 @@ description: An overview about proxy settings.
 metaLinks:
   alternates:
     - proxy-settings.md
+hidden: true
+noIndex: true
 ---
 
 # Proxy Settings

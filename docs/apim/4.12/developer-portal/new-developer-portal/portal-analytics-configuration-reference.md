@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Portal analytics configuration reference
 
 ## Prerequisites

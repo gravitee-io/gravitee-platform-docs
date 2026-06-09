@@ -3,6 +3,8 @@ description: An overview about create and configure kafka clusters.
 metaLinks:
   alternates:
     - create-and-configure-kafka-clusters.md
+hidden: true
+noIndex: true
 ---
 
 # Create and Configure Kafka Clusters

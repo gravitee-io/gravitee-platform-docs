@@ -5,6 +5,8 @@ description: >-
 metaLinks:
   alternates:
     - local-install-with-docker.md
+hidden: true
+noIndex: true
 ---
 
 # Fully self-hosted installation with Docker

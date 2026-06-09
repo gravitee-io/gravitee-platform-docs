@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Expose Metrics to Prometheus
 
 ## Overview

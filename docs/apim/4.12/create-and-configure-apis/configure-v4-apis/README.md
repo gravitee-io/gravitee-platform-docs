@@ -3,6 +3,8 @@ description: Configuration guide for configure v4 apis.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # Configure v4 APIs

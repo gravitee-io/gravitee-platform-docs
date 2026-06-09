@@ -1,5 +1,7 @@
 ---
 description: Documentation about analyze & monitor apis in the context of APIs.
+hidden: true
+noIndex: true
 ---
 
 # Analyze & Monitor APIs

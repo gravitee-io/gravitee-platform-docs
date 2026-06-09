@@ -3,6 +3,8 @@ description: An overview about xml threat protection.
 metaLinks:
   alternates:
     - xml-threat-protection.md
+hidden: true
+noIndex: true
 ---
 
 # XML Threat Protection

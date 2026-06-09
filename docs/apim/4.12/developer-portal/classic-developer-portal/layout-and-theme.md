@@ -3,6 +3,8 @@ description: An overview about layout and theme.
 metaLinks:
   alternates:
     - layout-and-theme.md
+hidden: true
+noIndex: true
 ---
 
 # Layout and Theme

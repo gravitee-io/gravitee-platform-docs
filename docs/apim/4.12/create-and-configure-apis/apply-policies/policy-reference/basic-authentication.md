@@ -3,6 +3,8 @@ description: An overview about basic authentication.
 metaLinks:
   alternates:
     - basic-authentication.md
+hidden: true
+noIndex: true
 ---
 
 # Basic Authentication

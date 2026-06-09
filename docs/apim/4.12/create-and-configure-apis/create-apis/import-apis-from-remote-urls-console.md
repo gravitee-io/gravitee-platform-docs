@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Import APIs from Remote URLs (Console)
 
 ## Creating APIs from Remote URLs

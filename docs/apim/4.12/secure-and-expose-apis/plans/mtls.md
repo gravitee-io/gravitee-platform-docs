@@ -3,6 +3,8 @@ description: An overview about mtls.
 metaLinks:
   alternates:
     - mtls.md
+hidden: true
+noIndex: true
 ---
 
 # mTLS

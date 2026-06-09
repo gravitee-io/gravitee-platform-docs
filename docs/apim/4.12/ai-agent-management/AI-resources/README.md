@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # AI Resources
 
 The following resources support AI-powered policies and features in APIM. They provide model inference and vector storage capabilities used by policies such as AI Prompt Guardrails and PII Filtering.

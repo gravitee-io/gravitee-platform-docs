@@ -3,6 +3,8 @@ description: Guide on applying policies related to mtls.
 metaLinks:
   alternates:
     - mtls.md
+hidden: true
+noIndex: true
 ---
 
 # mTLS

@@ -3,6 +3,8 @@ description: An overview about openshift.
 metaLinks:
   alternates:
     - openshift.md
+hidden: true
+noIndex: true
 ---
 
 # OpenShift

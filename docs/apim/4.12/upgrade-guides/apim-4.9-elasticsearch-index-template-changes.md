@@ -3,6 +3,8 @@ description: An overview about apim 4.9 elasticsearch index template changes.
 metaLinks:
   alternates:
     - apim-4.9-elasticsearch-index-template-changes.md
+hidden: true
+noIndex: true
 ---
 
 # APIM 4.9 Elasticsearch Index Template Changes

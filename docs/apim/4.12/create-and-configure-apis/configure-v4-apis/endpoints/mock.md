@@ -3,6 +3,8 @@ description: Configuration guide for mock.
 metaLinks:
   alternates:
     - mock.md
+hidden: true
+noIndex: true
 ---
 
 # Mock

@@ -3,6 +3,8 @@ description: An overview about customization.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # Customization

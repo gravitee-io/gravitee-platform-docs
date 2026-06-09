@@ -3,6 +3,8 @@ description: An overview about javascript.
 metaLinks:
   alternates:
     - javascript.md
+hidden: true
+noIndex: true
 ---
 
 # JavaScript

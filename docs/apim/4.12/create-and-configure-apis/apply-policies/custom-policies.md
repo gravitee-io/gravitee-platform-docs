@@ -3,6 +3,8 @@ description: An overview about custom policies.
 metaLinks:
   alternates:
     - custom-policies.md
+hidden: true
+noIndex: true
 ---
 
 # Custom Policies

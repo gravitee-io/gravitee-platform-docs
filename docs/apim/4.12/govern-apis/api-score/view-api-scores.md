@@ -3,6 +3,8 @@ description: An overview about view api scores.
 metaLinks:
   alternates:
     - view-api-scores.md
+hidden: true
+noIndex: true
 ---
 
 # View API Scores

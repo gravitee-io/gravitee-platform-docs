@@ -3,6 +3,8 @@ description: An overview about support.
 metaLinks:
   alternates:
     - support.md
+hidden: true
+noIndex: true
 ---
 
 # Support

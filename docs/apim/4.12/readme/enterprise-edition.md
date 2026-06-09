@@ -3,6 +3,8 @@ description: An overview about enterprise edition.
 metaLinks:
   alternates:
     - enterprise-edition.md
+hidden: true
+noIndex: true
 ---
 
 # Enterprise Edition

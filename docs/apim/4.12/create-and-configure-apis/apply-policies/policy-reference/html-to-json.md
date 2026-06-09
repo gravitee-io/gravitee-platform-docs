@@ -3,6 +3,8 @@ description: An overview about html to json.
 metaLinks:
   alternates:
     - html-to-json.md
+hidden: true
+noIndex: true
 ---
 
 # HTML to JSON

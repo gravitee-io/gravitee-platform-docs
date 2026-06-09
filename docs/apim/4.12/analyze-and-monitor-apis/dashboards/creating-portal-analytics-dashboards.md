@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Create portal analytics dashboards
 
 Portal analytics dashboards are environment-scoped dashboards that administrators create in the APIM Console. After you enable portal analytics, every dashboard in the environment appears in the New Developer Portal analytics list. Portal users can browse, pin, and filter those dashboards, but cannot edit their layout or widgets.

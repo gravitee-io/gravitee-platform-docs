@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # AI - Token Rate Limit
 
 ### Overview

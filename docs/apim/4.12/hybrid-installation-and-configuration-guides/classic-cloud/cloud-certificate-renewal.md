@@ -3,6 +3,8 @@ description: An overview about cloud certificate renewal.
 metaLinks:
   alternates:
     - cloud-certificate-renewal.md
+hidden: true
+noIndex: true
 ---
 
 # Cloud Certificate Renewal

@@ -3,6 +3,8 @@ description: Documentation about documentation sanitizer in the context of APIs.
 metaLinks:
   alternates:
     - documentation-sanitizer.md
+hidden: true
+noIndex: true
 ---
 
 # Documentation Sanitizer

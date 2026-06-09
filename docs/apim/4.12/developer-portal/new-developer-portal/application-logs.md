@@ -3,6 +3,8 @@ description: Documentation about application logs in the context of APIs.
 metaLinks:
   alternates:
     - application-logs.md
+hidden: true
+noIndex: true
 ---
 
 # Application Logs

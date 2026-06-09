@@ -3,6 +3,8 @@ description: Documentation about mongodb index management in the context of APIs
 metaLinks:
   alternates:
     - mongodb-index-management.md
+hidden: true
+noIndex: true
 ---
 
 # MongoDB Index Management

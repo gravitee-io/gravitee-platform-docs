@@ -3,6 +3,8 @@ description: An overview about graphql rate limit.
 metaLinks:
   alternates:
     - graphql-rate-limit.md
+hidden: true
+noIndex: true
 ---
 
 # GraphQL Rate Limit

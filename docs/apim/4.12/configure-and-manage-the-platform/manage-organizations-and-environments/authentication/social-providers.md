@@ -3,6 +3,8 @@ description: Documentation about social providers in the context of APIs.
 metaLinks:
   alternates:
     - social-providers.md
+hidden: true
+noIndex: true
 ---
 
 # Social Providers

@@ -3,6 +3,8 @@ description: Configuration guide for file reporter.
 metaLinks:
   alternates:
     - file-reporter.md
+hidden: true
+noIndex: true
 ---
 
 # File Reporter

@@ -3,6 +3,8 @@ description: An overview about regex threat protection.
 metaLinks:
   alternates:
     - regex-threat-protection.md
+hidden: true
+noIndex: true
 ---
 
 # Regex Threat Protection

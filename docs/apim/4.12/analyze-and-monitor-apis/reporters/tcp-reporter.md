@@ -3,6 +3,8 @@ description: Configuration guide for tcp reporter.
 metaLinks:
   alternates:
     - tcp-reporter.md
+hidden: true
+noIndex: true
 ---
 
 # TCP Reporter

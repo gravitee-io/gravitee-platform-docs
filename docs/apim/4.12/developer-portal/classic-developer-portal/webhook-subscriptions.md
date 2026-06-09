@@ -3,6 +3,8 @@ description: An overview about webhook subscriptions.
 metaLinks:
   alternates:
     - webhook-subscriptions.md
+hidden: true
+noIndex: true
 ---
 
 # Webhook Subscriptions

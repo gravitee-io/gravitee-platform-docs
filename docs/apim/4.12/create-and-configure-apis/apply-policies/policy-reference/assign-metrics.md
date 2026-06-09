@@ -3,6 +3,8 @@ description: An overview about assign metrics.
 metaLinks:
   alternates:
     - assign-metrics.md
+hidden: true
+noIndex: true
 ---
 
 # Assign Metrics

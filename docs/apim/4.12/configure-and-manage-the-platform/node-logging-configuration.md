@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Node logging configuration
 
 Configure MDC filtering, log patterns, and Logback overrides for the Gravitee Gateway and Management API via `gravitee.yml`.

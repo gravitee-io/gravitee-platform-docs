@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Enable and Use OpenTelemetry Logs for APIs
 
 ## Create an OpeneTelemetry Logs Configuration

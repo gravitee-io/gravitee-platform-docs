@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # API Product Membership and Ownership Models
 
 ## Overview 

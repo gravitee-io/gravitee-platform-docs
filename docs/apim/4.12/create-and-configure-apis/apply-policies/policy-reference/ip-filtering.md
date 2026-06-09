@@ -3,6 +3,8 @@ description: An overview about ip filtering.
 metaLinks:
   alternates:
     - ip-filtering.md
+hidden: true
+noIndex: true
 ---
 
 # IP Filtering

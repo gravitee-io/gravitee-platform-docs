@@ -3,6 +3,8 @@ description: Information about kubernetes.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # Kubernetes

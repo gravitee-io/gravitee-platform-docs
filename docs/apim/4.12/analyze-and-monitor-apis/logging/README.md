@@ -1,5 +1,7 @@
 ---
 description: An overview about logging.
+hidden: true
+noIndex: true
 ---
 
 # Logging

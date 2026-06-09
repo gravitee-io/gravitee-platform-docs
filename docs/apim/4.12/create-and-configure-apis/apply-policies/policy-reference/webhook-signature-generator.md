@@ -1,5 +1,7 @@
 ---
 description: An overview about webhook signature generator.
+hidden: true
+noIndex: true
 ---
 
 # Webhook Signature Generator

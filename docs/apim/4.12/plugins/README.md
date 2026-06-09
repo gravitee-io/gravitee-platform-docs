@@ -3,6 +3,8 @@ description: An overview about plugins.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # Plugins

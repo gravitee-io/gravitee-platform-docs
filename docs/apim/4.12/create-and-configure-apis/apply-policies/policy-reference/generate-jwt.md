@@ -3,6 +3,8 @@ description: An overview about generate jwt.
 metaLinks:
   alternates:
     - generate-jwt.md
+hidden: true
+noIndex: true
 ---
 
 # Generate JWT

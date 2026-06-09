@@ -3,6 +3,8 @@ description: Configuration guide for settings.
 metaLinks:
   alternates:
     - settings.md
+hidden: true
+noIndex: true
 ---
 
 # Settings

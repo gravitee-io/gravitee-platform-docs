@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Reporter Settings — OpenTelemetry section (native APIs)
 
 The Reporter Settings page of a V4 native API includes an **OpenTelemetry** section with **Enabled** and **Verbose** toggles for configuring per-API tracing.

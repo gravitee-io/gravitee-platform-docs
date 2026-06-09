@@ -3,6 +3,8 @@ description: An overview about kafka offloading.
 metaLinks:
   alternates:
     - kafka-offloading.md
+hidden: true
+noIndex: true
 ---
 
 # Kafka Offloading

@@ -3,6 +3,8 @@ description: An overview about configure the kafka client & gateway.
 metaLinks:
   alternates:
     - configure-the-kafka-client-and-gateway.md
+hidden: true
+noIndex: true
 ---
 
 # Configure the Kafka Client & Gateway

@@ -3,6 +3,8 @@ description: An overview about gateway internal api.
 metaLinks:
   alternates:
     - gateway-internal-api.md
+hidden: true
+noIndex: true
 ---
 
 # Gateway Internal API

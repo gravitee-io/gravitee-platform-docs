@@ -3,6 +3,8 @@ description: An overview about cache.
 metaLinks:
   alternates:
     - cache.md
+hidden: true
+noIndex: true
 ---
 
 # Cache

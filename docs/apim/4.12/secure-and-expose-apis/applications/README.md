@@ -3,6 +3,8 @@ description: Tutorial on applications.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # Applications

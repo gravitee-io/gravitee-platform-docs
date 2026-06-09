@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Create and manage mTLS certificates (application owner guide)
 
 This guide shows application owners how to upload, rotate, and delete mTLS client certificates for their applications from the new Developer Portal.

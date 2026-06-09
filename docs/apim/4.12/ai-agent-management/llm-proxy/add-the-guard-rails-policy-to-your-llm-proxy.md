@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Add the Guard Rails policy to your LLM proxy
 
 ## Overview

@@ -1,5 +1,7 @@
 ---
 description: Learn how to configure Cloud gateway client
+hidden: true
+noIndex: true
 ---
 
 # Configure Cloud Gateway Client

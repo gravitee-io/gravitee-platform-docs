@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # LLM proxy
 
 <table data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Proxy your LLMs</td><td><a href="proxy-your-llms.md">proxy-your-llms.md</a></td></tr><tr><td>Add the Token Rate Limit policy to your LLM Proxy</td><td><a href="add-the-token-rate-limit-policy-to-your-llm-proxy.md">add-the-token-rate-limit-policy-to-your-llm-proxy.md</a></td></tr><tr><td>Add the Guard Rails policy to your LLM proxy</td><td><a href="add-the-guard-rails-policy-to-your-llm-proxy.md">add-the-guard-rails-policy-to-your-llm-proxy.md</a></td></tr><tr><td>Proxy your LLMs with SDKs</td><td><a href="consume-your-llm-proxy-with-the-openai-python-sdk.md">consume-your-llm-proxy-with-the-openai-python-sdk.md</a></td></tr></tbody></table>

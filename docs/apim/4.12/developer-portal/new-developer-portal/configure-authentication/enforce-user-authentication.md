@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Enforce User Authentication
 
 ## Overview&#x20;

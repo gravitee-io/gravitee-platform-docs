@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # API Products Console UI reference
 
 ## Navigation

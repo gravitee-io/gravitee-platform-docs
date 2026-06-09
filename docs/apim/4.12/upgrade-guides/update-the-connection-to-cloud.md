@@ -3,6 +3,8 @@ description: An overview about update the connection to cloud.
 metaLinks:
   alternates:
     - update-the-connection-to-cloud.md
+hidden: true
+noIndex: true
 ---
 
 # Update the Connection to Cloud

@@ -3,6 +3,8 @@ description: Learn how to consume secured APIs
 metaLinks:
   alternates:
     - applications.md
+hidden: true
+noIndex: true
 ---
 
 # Applications

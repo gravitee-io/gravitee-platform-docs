@@ -3,6 +3,8 @@ description: An overview about avro to protobuf.
 metaLinks:
   alternates:
     - avro-to-protobuf.md
+hidden: true
+noIndex: true
 ---
 
 # Avro to Protobuf

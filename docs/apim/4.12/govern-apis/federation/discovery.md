@@ -3,6 +3,8 @@ description: An overview about discovery.
 metaLinks:
   alternates:
     - discovery.md
+hidden: true
+noIndex: true
 ---
 
 # Discovery

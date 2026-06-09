@@ -3,6 +3,8 @@ description: An overview about traffic shadowing.
 metaLinks:
   alternates:
     - traffic-shadowing.md
+hidden: true
+noIndex: true
 ---
 
 # Traffic Shadowing

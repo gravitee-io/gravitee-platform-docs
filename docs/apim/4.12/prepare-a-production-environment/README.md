@@ -3,6 +3,8 @@ description: Configuration guide for prepare a production environment.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # Prepare a Production Environment

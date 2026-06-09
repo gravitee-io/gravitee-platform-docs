@@ -3,6 +3,8 @@ description: An overview about create and publish an api using the management ap
 metaLinks:
   alternates:
     - create-and-publish-an-api-using-the-management-api.md
+hidden: true
+noIndex: true
 ---
 
 # Create and Publish an API Using the Management API

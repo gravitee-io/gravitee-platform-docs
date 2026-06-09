@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Creating and Managing Templated Portal Pages
 
 ## Prerequisites

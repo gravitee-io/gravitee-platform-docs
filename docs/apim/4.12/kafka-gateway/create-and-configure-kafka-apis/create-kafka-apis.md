@@ -1,5 +1,7 @@
 ---
 description: An overview about create kafka apis.
+hidden: true
+noIndex: true
 ---
 
 # Create Kafka APIs

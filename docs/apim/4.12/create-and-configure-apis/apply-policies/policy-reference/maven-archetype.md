@@ -3,6 +3,8 @@ description: Guide on applying policies related to maven archetype.
 metaLinks:
   alternates:
     - maven-archetype.md
+hidden: true
+noIndex: true
 ---
 
 # Maven Archetype

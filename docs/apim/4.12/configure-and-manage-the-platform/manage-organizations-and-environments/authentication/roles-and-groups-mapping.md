@@ -3,6 +3,8 @@ description: An overview about roles and groups mapping.
 metaLinks:
   alternates:
     - roles-and-groups-mapping.md
+hidden: true
+noIndex: true
 ---
 
 # Roles and Groups Mapping

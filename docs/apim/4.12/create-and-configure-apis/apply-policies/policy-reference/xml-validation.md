@@ -3,6 +3,8 @@ description: An overview about xml validation.
 metaLinks:
   alternates:
     - xml-validation.md
+hidden: true
+noIndex: true
 ---
 
 # XML Validation

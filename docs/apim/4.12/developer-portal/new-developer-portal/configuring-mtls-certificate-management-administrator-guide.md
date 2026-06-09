@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Configure mTLS certificate management (administrator guide)
 
 This guide shows administrators how to enable the self-service mTLS certificate management feature for application owners in the new Developer Portal.

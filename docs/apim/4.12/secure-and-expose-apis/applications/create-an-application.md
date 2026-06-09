@@ -3,6 +3,8 @@ description: An overview about create an application.
 metaLinks:
   alternates:
     - create-an-application.md
+hidden: true
+noIndex: true
 ---
 
 # Create an Application

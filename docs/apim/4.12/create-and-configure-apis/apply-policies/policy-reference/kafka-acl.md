@@ -3,6 +3,8 @@ description: An overview about kafka acl.
 metaLinks:
   alternates:
     - kafka-acl.md
+hidden: true
+noIndex: true
 ---
 
 # Kafka ACL

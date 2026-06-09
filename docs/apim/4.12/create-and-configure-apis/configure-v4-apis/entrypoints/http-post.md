@@ -3,6 +3,8 @@ description: Configuration guide for http post.
 metaLinks:
   alternates:
     - http-post.md
+hidden: true
+noIndex: true
 ---
 
 # HTTP POST

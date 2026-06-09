@@ -3,6 +3,8 @@ description: An overview about search for apis in the console.
 metaLinks:
   alternates:
     - search-for-apis-in-the-console.md
+hidden: true
+noIndex: true
 ---
 
 # Search for APIs in the Console

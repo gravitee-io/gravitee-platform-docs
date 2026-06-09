@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Customize the Navigation
 
 ## Overview

@@ -3,6 +3,8 @@ description: An overview about configure and deploy kafka console.
 metaLinks:
   alternates:
     - configure-and-deploy-kafka-console.md
+hidden: true
+noIndex: true
 ---
 
 # Configure and Deploy Kafka Console

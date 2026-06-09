@@ -3,6 +3,8 @@ description: An overview about mapi internal api.
 metaLinks:
   alternates:
     - mapi-internal-api.md
+hidden: true
+noIndex: true
 ---
 
 # MAPI Internal API

@@ -1,5 +1,7 @@
 ---
 description: An overview about configure kafka apis.
+hidden: true
+noIndex: true
 ---
 
 # Configure Kafka APIs

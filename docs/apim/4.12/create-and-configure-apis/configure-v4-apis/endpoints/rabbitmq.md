@@ -3,6 +3,8 @@ description: An overview about rabbitmq.
 metaLinks:
   alternates:
     - rabbitmq.md
+hidden: true
+noIndex: true
 ---
 
 # RabbitMQ

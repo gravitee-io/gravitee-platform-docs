@@ -3,6 +3,8 @@ description: An overview about federated apis.
 metaLinks:
   alternates:
     - federated-apis.md
+hidden: true
+noIndex: true
 ---
 
 # Federated APIs
