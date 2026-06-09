@@ -30,6 +30,7 @@
 * [Configuration](getting-started/configuration/README.md)
   * [AM Gateway](getting-started/configuration/configure-am-gateway/README.md)
     * [Internal API](getting-started/configuration/configure-am-gateway/internal-api.md)
+    * [Enable the Automation API](getting-started/configuration/configure-am-gateway/enable-the-automation-api.md)
   * [AM API](getting-started/configuration/configure-am-api/README.md)
     * [Internal API](getting-started/configuration/configure-am-api/internal-api.md)
   * [AM Console](getting-started/configuration/configure-am-console.md)
@@ -171,6 +172,9 @@
 ## Reference
 
 * [API Reference](reference/am-api-reference.md)
+  * [Automation API Overview](reference/automation-api-overview.md)
+  * [Create and Manage Resources with the Automation API](reference/create-and-manage-resources-with-the-automation-api.md)
+  * [Automation API Restrictions and Changes](reference/automation-api-restrictions-and-changes.md)
 
 ## Releases & Changelog
 

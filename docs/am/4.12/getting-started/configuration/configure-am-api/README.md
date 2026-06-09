@@ -136,6 +136,18 @@ jetty:
     truststore:
       path:
       password:
+
+http:
+  blockingGet:
+    # Timeout in milliseconds for blocking repository lookups during authentication.
+    # Set to 0 to disable timeout.
+    timeoutMillis: 120000
+  api:
+    automation:
+      # Enable the Automation API HTTP endpoint
+      enabled: false
+      # Base path for Automation API endpoints
+      entrypoint: /management/automation
 ```
 
 #### **Enable HTTPS support**
@@ -661,7 +673,7 @@ If you are planning to use multiple instances, you need to implement sticky sess
 Example using three instances of AM API. We add an additional cookie named ROUTEID. TLS termination is configured in Apache, so we just use HTTP.
 
 {% code overflow="wrap" %}
-```
+```xml
 <Proxy balancer://amm_hcluster>
         BalancerMember http://GRAVITEEIO-AM-MGT-API-HOST1:8093 route=apim1-test
         BalancerMember http://GRAVITEEIO-AM-MGT-API-HOST2:8093 route=apim2-test
