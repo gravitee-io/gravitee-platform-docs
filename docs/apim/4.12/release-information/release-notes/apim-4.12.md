@@ -136,6 +136,16 @@
 * WSDL 2.0 is not supported; remote URLs must pass SSRF protection rules (private IPs blocked by default).
 <!-- /PIPELINE:APIM-12279 -->
 
+
+<!-- PIPELINE:APIM-14244 -->
+#### **MCP Proxy API Support in Developer Portal**
+
+* Portal Next now supports MCP Proxy APIs with dedicated documentation templates and one-click installer widgets for MCP clients (Cursor, VS Code, Claude Desktop).
+* API publishers can embed the `<gmd-install-mcp>` Gravitee Markdown component in portal pages to generate client-specific configuration snippets and deep links based on the API's entrypoint and MCP path.
+* When an MCP Proxy API is published, the portal automatically seeds an Overview page with pre-configured install instructions for `http`, `sse`, and `stdio` transport protocols.
+* Requires APIs to be published with at least one configured V4 entrypoint of type `mcp` or `mcp-proxy`.
+<!-- /PIPELINE:APIM-14244 -->
+
 ## Improvements
 
 

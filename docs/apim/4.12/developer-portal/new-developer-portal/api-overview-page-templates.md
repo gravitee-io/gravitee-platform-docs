@@ -27,7 +27,7 @@ The MCP proxy template is tailored for Model Context Protocol servers published 
 |:----------|:--------|:-----------|
 | `<gmd-card>` | Styled container for API information and guidance sections | `class="overview-info"` for metadata, `class="overview-card"` for action cards |
 | `<gmd-grid>` | Three-column layout for action cards | `columns="3"` |
-| `<gmd-install-mcp>` | One-click MCP server configuration generator (MCP template only) | `name`, `transport="http"`, `url` (gateway endpoint + MCP path) |
+| `<gmd-install-mcp>` | One-click MCP server configuration generator for remote (`http`, `sse`) and local (`stdio`) MCP servers | `name`, `transport` (`http`, `sse`, or `stdio`), `url` (for remote), `headers` (optional, for remote), `command` (for stdio), `args` (optional, for stdio), `env` (optional, for stdio), `clients` (optional) |
 
 ## Prerequisites
 
