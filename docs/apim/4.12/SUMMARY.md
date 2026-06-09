@@ -508,3 +508,6 @@
     * [APIM 4.2.x](https://documentation.gravitee.io/apim/4.2/overview/changelog/apim-4.2.x)
     * [APIM 4.1.x](https://documentation.gravitee.io/apim/4.1/releases-and-changelog/changelogs/apim-4.1.x-changelog)
     * [APIM 4.0.x](https://documentation.gravitee.io/apim/4.0/releases-and-changelog/changelog/apim-4.0.x)
+* [MCP Proxy API Documentation Overview](guides/mcp-proxy-api-documentation-overview.md)
+  * [Creating MCP Install Instructions](guides/creating-mcp-install-instructions.md)
+  * [MCP Proxy API Documentation: Troubleshooting and Reference](guides/mcp-proxy-api-documentation-troubleshooting-and-reference.md)

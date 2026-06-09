@@ -136,6 +136,16 @@
 * WSDL 2.0 is not supported; remote URLs must pass SSRF protection rules (private IPs blocked by default).
 <!-- /PIPELINE:APIM-12279 -->
 
+
+<!-- PIPELINE:APIM-14244 -->
+#### **MCP Proxy API Documentation and Client Installation**
+
+* The Developer Portal now automatically generates installation instructions for MCP Proxy APIs, supporting popular AI clients including Cursor, VS Code, and Claude Desktop.
+* When you publish an MCP Proxy API, the portal seeds a default Overview page with one-click installer actions and copyable configuration snippets for both remote HTTP/SSE transports and local stdio-based MCP servers.
+* Custom documentation pages can use the `<gmd-install-mcp>` component and FreeMarker template variables (`api.entrypoints`, `api.mcp`) to dynamically generate client-specific installation commands and configuration.
+* The feature requires at least one entrypoint configured with type `mcp` or `mcp-proxy` to populate installation URLs and configuration data.
+<!-- /PIPELINE:APIM-14244 -->
+
 ## Improvements
 
 
