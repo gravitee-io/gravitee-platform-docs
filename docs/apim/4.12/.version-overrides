@@ -88,3 +88,10 @@ developer-portal/new-developer-portal/gravitee-markdown-components.md
 .gitbook/assets/wsdl-review-rest-to-soap-enabled.png
 create-and-configure-apis/apply-policies/policy-reference/rest-to-soap.md
 create-and-configure-apis/create-apis/wsdl-import-for-v4-apis.md
+.gitbook/assets/mcp-install-component-editor.png
+.gitbook/assets/mcp-install-freemarker-template.png
+.gitbook/assets/mcp-proxy-api-general.png
+.gitbook/assets/mcp-proxy-documentation-list.png
+ai-agent-management/mcp-proxy-api-overview-and-creation.md
+mcp-installation-component-reference.md
+mcp-proxy-api-overview-and-creation.md

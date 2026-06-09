@@ -55,12 +55,24 @@ API publishers can edit the generated Overview page in the Console to add contex
 
 Both templates include a link to Gravitee documentation: the standard template links to the [Developer Portal overview](https://documentation.gravitee.io/apim/developer-portal/new-developer-portal), while the MCP proxy template links to the [OAuth2 security guide for MCP proxies](https://documentation.gravitee.io/apim/ai-agent-management/secure-mcp-proxy-with-oauth2).
 
+## Template variables
+
+API Overview Page Templates have access to standard API metadata variables and MCP-specific variables for MCP Proxy APIs:
+
+| Variable | Type | Description | Availability |
+|:---------|:-----|:------------|:-------------|
+| `api.entrypoints` | `list` | List of API entry URLs | MCP Proxy APIs only |
+| `api.mcp` | `map` | MCP configuration extracted from the first listener's first entrypoint (e.g., `mcpPath`) | MCP Proxy APIs only |
+
+If the MCP entrypoint configuration is not valid JSON, `api.mcp` defaults to an empty map.
+
 ## Restrictions
 
 * The **Type** and **Identifier** fields previously displayed in API information sections are no longer included in the new templates.
 * The **Owner** field is displayed only if `api.primaryOwner.displayName` is present.
 * The **Last deployed** field is displayed only if `api.deployedAt` is available.
 * The `<gmd-install-mcp>` component is available only in the MCP proxy template and requires `api.entrypoints[0]` and `api.mcp.mcpPath` to be defined.
+* MCP Proxy APIs automatically seed an overview page template containing installation instructions using the `gmd-install-mcp` component, distinct from the standard overview template.
 
 ## Related Changes
 

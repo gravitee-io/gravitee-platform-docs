@@ -317,7 +317,7 @@ Here are some use cases examples:
 {% endtab %}
 
 {% tab title="Grid with a button component" %}
-```
+```xml
 <gmd-grid columns="2">
   <gmd-button>Left content</gmd-button>
   <gmd-button>Right content</gmd-button>
@@ -336,11 +336,25 @@ Use it on remote MCP servers exposed through the Gravitee gateway:
 <gmd-install-mcp name="weather" transport="http" url="https://api.example.com/mcp" />
 ```
 
-| Attribute | Description |
-|:----------|:------------|
-| `name` | MCP server name used in generated client configurations |
-| `transport` | MCP transport: `http`, `sse`, or `stdio` |
-| `url` | Remote MCP endpoint URL for `http` and `sse` transports |
-| `clients` | Optional comma-separated list of installer ids to display (for example, `cursor,vscode,claude-desktop`) |
+#### HTTP Transport Example
 
-If required inputs are missing, the component renders a placeholder instead of installer actions. The MCP proxy API Overview template uses this component automatically. For more information, see [API Overview Page Templates](api-overview-page-templates.md).
+```markdown
+<gmd-install-mcp name="weather" url="https://api.example.com/mcp" clients="cursor,vscode,claude-desktop" />
+```
+
+#### Stdio Transport Example
+
+```markdown
+<gmd-install-mcp name="weather" transport="stdio" command="npx" args='["-y","@acme/weather-mcp"]' clients="cursor,vscode,claude-desktop" />
+```
+
+{% hint style="info" %}
+If required inputs are missing, the component renders a placeholder message: `"Provide a server name and URL, or use stdio inputs for a local MCP server."`
+{% endhint %}
+
+Customize the component's appearance using the `@gmd.install-mcp-overrides()` SCSS mixin.
+
+The MCP proxy API Overview template uses this component automatically. For more information, see [API Overview Page Templates](api-overview-page-templates.md).
+
+##
+

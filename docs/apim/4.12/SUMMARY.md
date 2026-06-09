@@ -395,6 +395,7 @@
     * [Enable and Use OpenTelemetry Logs for APIs](analyze-and-monitor-apis/enable-and-use-opentelemetry-logs-for-apis.md)
   * [Execution Transparency Analytics](analyze-and-monitor-apis/execution-transparency-analytics.md)
 * [AI Agent Management](ai-agent-management/README.md)
+  * [AI - MCP Proxy API Overview and Creation](ai-agent-management/mcp-proxy-api-overview-and-creation.md)
   * [Set Up an AI Agent (A2A) Proxy](ai-agent-management/create-an-a2a-proxy.md)
   * [Discover and Catalog AI Agents (A2A)](ai-agent-management/add-agents-to-your-agent-catalog.md)
   * [Convert REST APIS to an MCP Server](ai-agent-management/convert-your-apis-to-mcp-servers.md)

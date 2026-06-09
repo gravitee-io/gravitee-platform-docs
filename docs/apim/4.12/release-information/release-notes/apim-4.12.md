@@ -136,6 +136,16 @@
 * WSDL 2.0 is not supported; remote URLs must pass SSRF protection rules (private IPs blocked by default).
 <!-- /PIPELINE:APIM-12279 -->
 
+
+<!-- PIPELINE:APIM-14244 -->
+#### **MCP Proxy API Support**
+
+* Expose Model Context Protocol (MCP) servers through the API gateway using a new `MCP_PROXY` API type that supports HTTP, SSE, and stdio transports.
+* Generate one-click installation instructions for popular MCP clients (Cursor, VS Code, Claude Desktop) with client-specific configuration snippets and deep links.
+* Automatically seed API documentation with an embeddable `gmd-install-mcp` component that renders copyable JSON configurations and installer actions based on the MCP server's transport protocol.
+* Configure MCP-specific settings such as custom paths using the `mcp` configuration map, with new template variables (`api.entrypoints`, `api.mcp`) available for documentation customization.
+<!-- /PIPELINE:APIM-14244 -->
+
 ## Improvements
 
 
