@@ -25,6 +25,12 @@ This will bring you to the home screen of the Developer Portal.
 
 From here, you can begin searching for APIs using the Developer Portal's full-context[^1] search. However, you will not be able to subscribe to any APIs until you create an application.
 
+## Portal overview pages
+
+When APIs are published to the Developer Portal, they automatically receive overview pages that provide essential information to API consumers. For MCP Proxy APIs, these overview pages include embedded installation widgets that generate client-specific configuration snippets and deep links for AI development tools like Claude Desktop, Cursor, and VS Code.
+
+Portal administrators can customize overview pages and other portal content. For more information about managing portal pages and using Gravitee Markdown components, see the [portal pages documentation](../portal-pages/).
+
 ## Self-managed installation: Adding a Developer Portal link
 
 The Developer Portal host of self-managed installations can easily be modified. You can manually add the **Portal URL** to see the Developer Portal link in the Console UI.
