@@ -7,10 +7,6 @@ metaLinks:
 
 # API Score
 
-{% hint style="warning" %}
-API Score is a tech preview. This feature is not recommended for production environments.
-{% endhint %}
-
 <table data-view="cards"><thead><tr><th data-type="content-ref"></th></tr></thead><tbody><tr><td><a href="enable-api-score.md">enable-api-score.md</a></td></tr><tr><td><a href="view-api-scores.md">view-api-scores.md</a></td></tr><tr><td><a href="rulesets-and-functions.md">rulesets-and-functions.md</a></td></tr><tr><td><a href="types-of-assets.md">types-of-assets.md</a></td></tr><tr><td><a href="generate-an-api-score.md">generate-an-api-score.md</a></td></tr></tbody></table>
 
 ## Overview
@@ -18,8 +14,6 @@ API Score is a tech preview. This feature is not recommended for production envi
 API Score is Gravitee’s automated governance capability. It lets you score your APIs based on criteria like security, documentation, and consistency. As a static tool, API Score evaluates how your APIs are configured and designed, but does not perform tests on the data plane.
 
 The API Score feature uses rulesets to score APIs. Gravitee provides default rulesets, but you can also create your own custom rulesets.
-
-API Score is a technology preview, meaning that it is deactivated by default and you must opt-in to use it.
 
 ## How API Score works
 

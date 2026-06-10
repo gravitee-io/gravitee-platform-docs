@@ -1,9 +1,5 @@
 # Generate an API Score
 
-{% hint style="warning" %}
-API Score is a technology preview. This feature isn't recommended for production environments.
-{% endhint %}
-
 ## Overview
 
 API Score doesn't generate scores automatically. After you enable API Score, each API's score stays **Not available** until you run an evaluation on that API. Scores are also static: once an API is evaluated, its score doesn't change when you edit the API, update its documentation, or import a new ruleset. To reflect any change in the score, run the evaluation again.

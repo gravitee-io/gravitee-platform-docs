@@ -8,10 +8,6 @@ metaLinks:
 
 # Rulesets and Functions
 
-{% hint style="warning" %}
-API Score is a technology preview. This feature is not recommended for production environments.
-{% endhint %}
-
 ## Overview
 
 API Score rulesets contain the rules that are used by API Score to rate your API. Under the hood, Gravitee uses an open source linting tool called [Spectral](https://github.com/stoplightio/spectral) to power the API Score capability.

@@ -4,10 +4,6 @@ description: An overview about view api scores.
 
 # View API Scores
 
-{% hint style="warning" %}
-API Score is a technology preview. This feature is not recommended for production environments.
-{% endhint %}
-
 ## High-level API Score statistics
 
 High-level API Score statistics are shown on the **API Score** page. To get to your API Score dashboard:
