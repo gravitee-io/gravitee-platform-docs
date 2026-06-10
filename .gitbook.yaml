@@ -7,3 +7,22 @@ root: ./
 redirects:
   gravitee-cloud/guides/hybrid/install-on-docker: gravitee-cloud/guides/hybrid.md
   gravitee-cloud/guides/hybrid/install-on-kubernetes: gravitee-cloud/guides/hybrid.md
+  # platform-overview section removed in PR #1650 — old URLs redirect into APIM (bump 4.11 at each version cutover)
+  platform-overview: apim/4.11/README.md
+  platform-overview/gravitee-platform/gravitee-core-concepts: apim/4.11/readme/core-concepts.md
+  platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee: apim/4.11/readme/enterprise-edition.md
+  platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-installation: apim/4.11/readme/enterprise-edition-installation.md
+  platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing: apim/4.11/readme/enterprise-edition-licensing.md
+  platform-overview/gravitee-platform/release-types-and-support-model: apim/4.11/release-information/release-types.md
+  platform-overview/gravitee-platform/release-schedule: apim/4.11/release-information/release-schedule.md
+  platform-overview/gravitee-platform/support-model: apim/4.11/release-information/support-model.md
+  platform-overview/gravitee-platform/support-model/support-for-v1-apis: apim/4.11/release-information/support-for-v1-apis.md
+  platform-overview/before-you-begin/api-fundamentals: apim/4.11/readme/api-fundamentals/README.md
+  platform-overview/before-you-begin/api-fundamentals/api-basics: apim/4.11/readme/api-fundamentals/api-basics.md
+  platform-overview/before-you-begin/api-fundamentals/web-apis: apim/4.11/readme/api-fundamentals/web-apis.md
+  platform-overview/before-you-begin/api-fundamentals/categorizing-web-apis: apim/4.11/readme/api-fundamentals/categorizing-web-apis.md
+  platform-overview/before-you-begin/glossary: apim/4.11/readme/glossary.md
+  platform-overview/community/community: apim/4.11/readme/community-forum.md
+  platform-overview/community/enterprise-support: apim/4.11/readme/enterprise-edition.md
+  platform-overview/contribute/contribute-to-gravitee-docs: apim/4.11/readme/contribute-to-apim.md
+  platform-overview/contribute/contribute-to-the-codebase: apim/4.11/readme/contribute-to-apim.md
