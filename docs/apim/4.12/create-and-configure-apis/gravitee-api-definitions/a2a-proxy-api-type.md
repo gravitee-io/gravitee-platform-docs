@@ -8,6 +8,8 @@ The A2A Proxy is a V4 API type that enables agent-to-agent communication through
 
 A2A Proxy APIs are defined with `"type": "A2A_PROXY"` and `"definitionVersion": "V4"`. They use HTTP selectors for flow routing and support REQUEST and RESPONSE flow phases. The management console displays A2A Proxy APIs with the label "A2A Proxy" and the `gio-literal:a2a-proxy` icon.
 
+The Developer Portal now accepts three new API types in addition to `PROXY`, `MESSAGE`, and `NATIVE`: `MCP_PROXY`, `LLM_PROXY`, and `A2A_PROXY`. Only `MCP_PROXY` APIs trigger MCP-specific Overview page seeding when default portal pages are created; `LLM_PROXY` and `A2A_PROXY` types use the generic template.
+
 ## Reactor Architecture
 
 The A2A Proxy uses a dedicated reactor plugin (`gravitee-reactor-a2a-proxy`) that operates independently from the message API reactor. The architecture includes:

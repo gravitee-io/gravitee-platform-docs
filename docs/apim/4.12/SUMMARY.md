@@ -330,6 +330,7 @@
       * [Configure Authentication with Login and Password](developer-portal/new-developer-portal/configure-authentication/configure-authentication-with-login-and-password.md)
       * [Configure Authentication with SSO](developer-portal/new-developer-portal/configure-authentication/configure-authentication-with-sso.md)
       * [Enforce User Authentication](developer-portal/new-developer-portal/configure-authentication/enforce-user-authentication.md)
+    * [MCP Installation Widget Reference](developer-portal/new-developer-portal/mcp-installation-widget-reference.md)
     * [Portal analytics configuration reference](developer-portal/new-developer-portal/portal-analytics-configuration-reference.md)
     * [Subscription form technical implementation](developer-portal/new-developer-portal/subscription-form-technical-implementation.md)
     * [View and manage portal analytics dashboards](developer-portal/new-developer-portal/viewing-and-managing-portal-analytics-dashboards.md)

@@ -14,3 +14,5 @@ documentation:
   markdown:
     sanitize: true
 ```
+
+The HTML sanitizer preserves the `<gmd-install-mcp>` tag and its attributes (`name`, `transport`, `url`, `headers`, `command`, `args`, `env`, `clients`) when storing Gravitee Markdown portal pages.
