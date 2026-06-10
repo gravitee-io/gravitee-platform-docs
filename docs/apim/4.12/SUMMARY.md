@@ -513,3 +513,6 @@
     * [APIM 4.2.x](https://documentation.gravitee.io/apim/4.2/overview/changelog/apim-4.2.x)
     * [APIM 4.1.x](https://documentation.gravitee.io/apim/4.1/releases-and-changelog/changelogs/apim-4.1.x-changelog)
     * [APIM 4.0.x](https://documentation.gravitee.io/apim/4.0/releases-and-changelog/changelog/apim-4.0.x)
+* [MCP Server Installation Widget Overview](guides/mcp-server-installation-widget-overview.md)
+  * [Adding MCP Install Widgets to Portal Pages](guides/adding-mcp-install-widgets-to-portal-pages.md)
+  * [Automatic MCP Overview Page Seeding for APIs](guides/automatic-mcp-overview-page-seeding-for-apis.md)

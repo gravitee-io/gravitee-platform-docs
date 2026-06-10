@@ -29,6 +29,15 @@ The MCP proxy template is tailored for Model Context Protocol servers published 
 | `<gmd-grid>` | Three-column layout for action cards | `columns="3"` |
 | `<gmd-install-mcp>` | One-click MCP server configuration generator (MCP template only) | `name`, `transport="http"`, `url` (gateway endpoint + MCP path) |
 
+### Template Variables
+
+Portal page templates use FreeMarker expressions to access API metadata. Two variables are commonly used in MCP install URLs:
+
+- **api.entrypoints**: List of gateway entrypoint URLs. The first element (`${api.entrypoints[0]}`) provides the base URL.
+- **api.mcp**: Map of MCP configuration extracted from the API's first listener. Contains properties like `mcpPath` (the path segment for the MCP endpoint).
+
+The `api.mcp` map is populated only when the first listener contains an entrypoint with type `mcp` or `mcp-proxy`. If the API has no listeners, no entrypoints, or no matching MCP entrypoint, the map is empty. MCP install URLs are typically constructed as `${api.entrypoints[0]}${api.mcp.mcpPath}`.
+
 ## Prerequisites
 
 * Enable the New Developer Portal. For more information, see [Configure the New Portal](configure-the-new-portal.md).

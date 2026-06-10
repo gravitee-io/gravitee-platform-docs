@@ -145,6 +145,17 @@
 * WSDL 2.0 is not supported; remote URLs must pass SSRF protection rules (private IPs blocked by default).
 <!-- /PIPELINE:APIM-12279 -->
 
+
+<!-- PIPELINE:APIM-14244 -->
+#### **MCP Server Installation Widget for Portal Pages**
+
+* API publishers can now embed one-click MCP server installers directly into portal pages using the `<gmd-install-mcp>` widget in Gravitee Markdown content.
+* The widget generates deep links for Cursor and VS Code clients and provides copyable configuration snippets for Claude Desktop, supporting HTTP, SSE, and stdio transport protocols.
+* MCP_PROXY APIs automatically receive a pre-configured Overview page with installation instructions when published to the portal.
+* Widget configuration uses API template variables (`api.entrypoints`, `api.mcp`) to dynamically populate server URLs and paths from the API's first listener configuration.
+* Manual configuration is required for authorization headers—the widget does not render default `Authorization` headers in remote server snippets.
+<!-- /PIPELINE:APIM-14244 -->
+
 ## Improvements
 
 
