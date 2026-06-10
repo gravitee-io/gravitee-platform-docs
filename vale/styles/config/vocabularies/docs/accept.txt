@@ -24,7 +24,7 @@ Gravitee Cloud
 API
 APIs
 API's
-REST
+REST|rest
 RESTful
 GraphQL
 gRPC
@@ -33,6 +33,8 @@ OpenAPI
 OpenID
 OAuth2?
 OIDC
+OID
+OIDs
 SAML
 SASL
 SCIM
@@ -53,6 +55,7 @@ CSRF
 FAPI
 PKCE
 HMAC
+(?i)HRIDs?
 JWKS?
 JWS
 JWT
@@ -141,7 +144,7 @@ ActiveMQ
 ActiveMQConnectionFactory
 ConnectionFactory
 DLQs?
-AVRO
+[Aa][Vv][Rr][Oo]
 Protobuf
 JOLT
 QoS
@@ -262,13 +265,14 @@ UDP
 SMTP
 [Hh]ostnames?
 URIs?
-URLs?
+URLs?|url
 [Ll]ocalhost
 [Ll]oopback
 Gzip
 CIDR
 SPA
 LLM
+[Ll]ogit
 MCP
 Fully Qualified Domain Name
 Remote Procedure Call
@@ -277,7 +281,7 @@ Event-Driven Architecture
 # ============================================
 # Formats & Standards
 # ============================================
-JSON
+[Jj][Ss][Oo][Nn]
 XML
 YAML
 HTML
@@ -334,7 +338,7 @@ ISO
 [Cc]hangelog[s]?
 [Ss]erverless
 [Cc]loud
-[Ee]mail[s]?
+[Ee]mail[s]?|EMAIL
 [Rr]epo
 [Uu]pstream
 [Dd]ownstream
@@ -345,6 +349,7 @@ ISO
 [Mm]ulti-broker
 [Dd]eserialization
 [Dd]eserialized
+[Dd]eserializes
 [Dd]eletable
 [Aa]nonymized
 [Bb]ackchannel
@@ -372,6 +377,7 @@ ApiResource
 ApiVersion
 UUID
 [Ss]yslog
+[Hh][Rr][Ii][Dd]s?
 
 # ============================================
 # Misc Technical Terms
@@ -400,6 +406,7 @@ GPG
 [Ff]ingerprint
 [Aa]uth[Nn]
 A2A
+bool
 
 # ============================================
 # Cloud Providers & Services
@@ -432,7 +439,7 @@ balancer's
 # ============================================
 # Additional Accepted Terms
 # ============================================
-[Aa]gent[s]?
+[Aa]gent[s]?|AGENT
 [Aa]llowlisting
 [Ss]harding
 [Kk]eyless
@@ -448,7 +455,7 @@ async
 [Mm]anagement [Cc]onsole
 [Aa]llows?
 [Aa]gainst
-[Ee]num[s]?
+[Ee]num[s]?|ENUM
 [Rr]eorderable
 [Dd]rag and [Dd]rop
 [Cc]allout[s]?
@@ -540,7 +547,7 @@ PDP
 PEP
 PII
 MDM
-CIMD
+CIMD|cimd
 Kerberos
 
 # ============================================
@@ -557,6 +564,7 @@ Snappy
 # ============================================
 Jira
 GAP
+enablement
 
 # ============================================
 # Spell-check sweep additions (2026-05-29)
@@ -581,7 +589,7 @@ Thymeleaf
 Atlassian
 Datastax
 Temurin
-Opensearch
+OpenSearch
 Yubico
 Yubikey
 Feitian
@@ -685,7 +693,7 @@ ratelimiting
 goroutines
 classloader
 throwable
-wsdl
+WSDL
 statsd
 healthz
 middleware

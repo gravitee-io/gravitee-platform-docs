@@ -49,6 +49,14 @@
 <!-- /PIPELINE:APIM-13461 -->
 
 
+<!-- PIPELINE:APIM-12132 -->
+#### **Import and Update v4 APIs from OpenAPI and Gravitee Definitions**
+
+* Import or update v4 HTTP Proxy, Message, and Native APIs using Gravitee v4 API definitions or OpenAPI Specifications (JSON/YAML) from local files or remote URLs.
+* Imported definitions fully overwrite existing API configurations, including endpoints, flows, plans, pages, and metadata, while preserving API ID and deployment state.
+* OpenAPI imports automatically generate flows and endpoints, with optional documentation page creation and OAS Validation policy attachment.
+* Requires `API_DEFINITION[UPDATE]` permission and is unavailable for Kubernetes-managed APIs or v2 APIs (which use the legacy import dialog).
+<!-- /PIPELINE:APIM-12132 -->
 <!-- PIPELINE:APIM-13463 -->
 #### **OpenTelemetry Logs Integration for Log-to-Trace Correlation**
 
@@ -69,6 +77,73 @@
 * The Elasticsearch, File, TCP, and Datadog reporters capture the API Product ID in their output when requests use an API Product subscription. The File and TCP reporters emit it in whichever output format you configure — as `apiProductId` in JSON, `api-product-id` in Elasticsearch format, or a trailing value in CSV — and the Datadog reporter adds it as an `ApiProductId` metric tag.
 * Available for v4 request/response APIs only. The Elasticsearch reporter applies the required `api-product-id` keyword mapping automatically on upgrade; self-managed Elasticsearch installations must add the mapping themselves.
 <!-- /PIPELINE:APIM-13489 -->
+<!-- PIPELINE:APIM-13667 -->
+#### **Kafka Port-Based Routing for Native APIs**
+
+* Enables the gateway to route native Kafka API traffic using dedicated TCP ports instead of SNI-based host routing, allowing multiple Kafka APIs to coexist on the same gateway instance without requiring distinct hostnames.
+* Each plan receives a unique bootstrap port (1024–65535) and broker port range, with automatic conflict detection preventing overlapping port allocations across plans in the same environment.
+* Requires gateway version 4.12.0 or later with `kafka.routingMode=port` configured and console version 4.12.0 or later with `console.kafka.portRouting.enabled=true`.
+* Applies only to native Kafka API types; proxy and message APIs continue to use host-based routing.
+<!-- /PIPELINE:APIM-13667 -->
+<!-- PIPELINE:APIM-14123 -->
+#### **Portal Navigation Templating with FreeMarker Expressions**
+
+* Developer Portal pages now support FreeMarker template expressions (`${...}`) to embed dynamic, context-aware content based on API metadata, lifecycle state, ownership, and environment properties.
+* API-scoped pages expose an `api` root variable containing the full API model object (V2, V4 HTTP/Async, V4 Native, or Federated), while environment-scoped pages expose a `metadata` root variable with environment-level key/value pairs.
+* Templates are evaluated at render time (when the page is requested), not when saved, ensuring real-time data accuracy.
+* Enhanced error handling surfaces specific backend validation messages instead of generic client-side notifications when template expressions fail.
+* The `api` variable provides access to common fields (ID, name, version, state, lifecycle state, visibility, tags, categories, primary owner) and type-specific fields (proxy configuration for V2, listeners/endpoint groups for V4, failover for V4 HTTP).
+<!-- /PIPELINE:APIM-14123 -->
+<!-- PIPELINE:APIM-13459 -->
+#### **Portal Analytics Dashboards**
+
+* API consumers and administrators can now view pre-configured analytics dashboards in the New Developer Portal, displaying API traffic, performance, and usage metrics through customizable widgets (stats, charts, time-series).
+* Dashboards aggregate data from HTTP requests, response times, and status codes, with filtering by API, application, or HTTP status. Users can pin up to 4 dashboards for quick access.
+* Access is controlled by user role and API/application visibility. Environment administrators see all APIs but no application data; authenticated users see authorized APIs and their own applications.
+* Requires the `portal.next.analytics.enabled` environment parameter set to `true`, which enables both the analytics endpoints and the New Developer Portal analytics UI.
+* Dashboards are environment-scoped and isolated. Cross-environment access returns a `404` error.
+<!-- /PIPELINE:APIM-13459 -->
+<!-- PIPELINE:APIM-12146 -->
+#### **Remote URL Import for API Definitions**
+
+* Import v4 APIs directly from remote HTTP(S) endpoints hosting Gravitee API definitions or OpenAPI specifications, when creating a new API or updating an existing one.
+* Optional security controls let administrators restrict imports to an approved list of URLs and block imports from private or internal network addresses.
+* Available only for v4 APIs. Creating an API requires permission to create APIs in the environment; updating an API requires permission to update the API definition.
+<!-- /PIPELINE:APIM-12146 -->
+<!-- PIPELINE:APIM-14014 -->
+#### **Native API Connection Logs**
+
+* View and analyze client connection lifecycle events for Kafka-protocol APIs through a dedicated Logs page with summary metrics and filterable connection records.
+* Each connection log captures lifecycle status (Connected, Disconnected, Failed, Unknown), client identifiers, server metadata, and error details when applicable.
+* Control connection metrics reporting via a toggle in Reporter Settings—when disabled, no new logs are written and the Logs page displays a banner indicating reporting is off.
+* Access requires `api-native_log-r` permission for list view and summary, plus `api-native_analytics-r` permission to inspect individual connection details.
+* Requires Elasticsearch or OpenSearch reporter configuration to store and retrieve connection log data.
+<!-- /PIPELINE:APIM-14014 -->
+<!-- PIPELINE:APIM-13549 -->
+#### **Span Attribute Redaction for OpenTelemetry Tracing**
+
+* Masks sensitive metadata in OpenTelemetry traces before export to external collectors, preventing exposure of authorization headers, API keys, consumer identifiers, and query parameters.
+* Supports pattern-based redaction rules using glob patterns, short names, or regular expressions with FULL (complete replacement) or PARTIAL (prefix/suffix preservation) masking strategies.
+* Configure global redaction rules in `gravitee.yml` or API-specific rules in the Console for v4 HTTP/Proxy and TCP APIs with tracing enabled.
+* Rules are evaluated in order (global first, then API-specific) with first-match-wins behavior and case-insensitive key matching.
+<!-- /PIPELINE:APIM-13549 -->
+<!-- PIPELINE:APIM-14122 -->
+#### **API Overview Page Templates for Developer Portal**
+
+* When APIs are added to the New Developer Portal navigation, Gravitee automatically creates unpublished Overview pages using pre-configured Gravitee Markdown templates.
+* Two templates are available: a standard template with API metadata and subscription guidance, and an MCP proxy template for Model Context Protocol servers with one-click client configuration.
+* The MCP template includes an embedded `<gmd-install-mcp>` component that generates configuration for AI clients (Cursor, VS Code, Claude Desktop) using the gateway endpoint and MCP path.
+* API publishers can customize the generated overview pages to add quick start guides, use case descriptions, and links to external documentation.
+<!-- /PIPELINE:APIM-14122 -->
+<!-- PIPELINE:APIM-12279 -->
+#### **WSDL Import for v4 APIs**
+
+* Create or update v4 HTTP Proxy APIs directly from WSDL 1.1 documents via file upload or remote URL.
+* Automatically converts WSDL to OpenAPI 3 specification, mapping SOAP operations to REST paths and XSD schemas to JSON request bodies.
+* Optionally applies REST to SOAP Transformer policy to enable REST/JSON-to-SOAP/XML translation with automatic flow generation.
+* Supports OpenAPI Specification Validation policy for request/response validation against the converted spec.
+* WSDL 2.0 is not supported; remote URLs must pass SSRF protection rules (private IPs blocked by default).
+<!-- /PIPELINE:APIM-12279 -->
 
 ## Improvements
 
@@ -81,5 +156,15 @@
 * The attribute is only emitted when a non-blank description is set and verbose tracing is enabled at both the API and gateway level.
 * Applies to v2 APIs, v4 HTTP/Proxy APIs, v4 Message APIs, and Shared Policy Groups.
 <!-- /PIPELINE:APIM-13462 -->
+
+
+<!-- PIPELINE:APIM-13498 -->
+#### **Enhanced Certificate Validation for SSL Enforcement Policy**
+
+* The SSL Enforcement policy now validates client certificate attributes beyond distinguished names, including Certificate Policy OIDs and Subject Alternative Name (SAN) patterns.
+* OIDs are configured in dotted-decimal format (e.g., `1.3.6.1.4.1.99999.1`); SAN patterns support Ant-style matching (e.g., `*.example.com`, `partner.example.com`).
+* All specified OIDs must be present in the certificate's Certificate Policies extension; at least one SAN must match a configured pattern for validation to succeed.
+* Both new fields are additive and disabled when their list is empty, so existing policy configurations are unaffected.
+<!-- /PIPELINE:APIM-13498 -->
 
 ## Bug Fixes
