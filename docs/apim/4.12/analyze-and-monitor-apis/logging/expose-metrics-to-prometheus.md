@@ -102,3 +102,7 @@ scrape_configs:
 {% hint style="info" %}
 When running Prometheus, the UI is exposed at `http://localhost:9090/graph` by default.
 {% endhint %}
+
+## Visualize metrics in Grafana
+
+For a complete, runnable example that deploys Prometheus and Grafana with Docker Compose and imports a sample APIM dashboard, see [Monitor APIM with Prometheus and Grafana using Docker Compose](../../how-to-guides/use-case-tutorials/monitor-apim-with-prometheus-and-grafana.md).
