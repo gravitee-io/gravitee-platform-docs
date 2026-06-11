@@ -21,6 +21,7 @@ At the request/response level, the policy does nothing if the processed request/
 
 At message level, the policy does nothing if the processed message has no content. This means that the message will be sent again as is.
 
+
 ## Basic Usage
 
 ### Append a new attribute to existing content

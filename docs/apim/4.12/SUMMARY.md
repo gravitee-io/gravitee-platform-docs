@@ -280,6 +280,7 @@
       * [XSLT](create-and-configure-apis/apply-policies/policy-reference/xslt.md)
   * [Development Tools](create-and-configure-apis/development-tools/README.md)
     * [Enforcing logging rules with ArchUnit Maven plugin](create-and-configure-apis/development-tools/enforcing-logging-rules-with-archunit-maven-plugin.md)
+  * [Partial Updates for V4 HTTP Proxy APIs and Plans](create-and-configure-apis/partial-updates-for-v4-http-proxy-apis-and-plans.md)
 * [Secure & Expose APIs](secure-and-expose-apis/README.md)
   * [Plans](secure-and-expose-apis/plans/README.md)
     * [Keyless](secure-and-expose-apis/plans/keyless.md)
