@@ -92,3 +92,7 @@ developer-portal/new-developer-portal/gravitee-markdown-components.md
 .gitbook/assets/wsdl-review-rest-to-soap-enabled.png
 create-and-configure-apis/apply-policies/policy-reference/rest-to-soap.md
 create-and-configure-apis/create-apis/wsdl-import-for-v4-apis.md
+.gitbook/assets/mcp-overview-page-default.png
+guides/creating-mcp-proxy-overview-pages.md
+guides/embedding-the-mcp-installation-widget-in-portal-pages.md
+guides/mcp-client-installation-widget-overview.md

@@ -4,10 +4,13 @@ description: API Overview page templates for the New Developer Portal.
 
 # API Overview Page Templates
 
-
 ## Overview
 
-API Overview Page Templates provide pre-configured Gravitee Markdown content for API pages in the New Developer Portal. When you add an API to the portal navigation in the Console, Gravitee automatically creates an unpublished **Overview** child page (unless the API navigation item already has a child page). The page uses FreeMarker templating to render API metadata, subscription guidance, and integration instructions. Two templates are available: a standard template for general APIs and an MCP proxy template for Model Context Protocol servers.
+API Overview Page Templates provide pre-configured Gravitee Markdown content for API pages in the New Developer Portal. When you add an API to the portal navigation in the Console, Gravitee automatically creates an unpublished **Overview** child page (unless the API navigation item already has a child page). The page uses FreeMarker templating to render API metadata, subscription guidance, and integration instructions.
+
+For MCP Proxy APIs, Portal Next automatically generates MCP-specific Overview pages that enable API consumers to install and configure MCP servers in AI clients with one click. The Overview page includes deep links for Cursor, VS Code, and Claude Desktop, plus copyable configuration snippets for HTTP, SSE, and stdio transports.
+
+Two templates are available: a standard template for general APIs and an MCP proxy template for Model Context Protocol servers.
 
 For step-by-step instructions, see [Customize the Navigation](customize-the-navigation.md#api). For Gravitee Markdown component reference, see [Gravitee Markdown components](gravitee-markdown-components.md).
 
@@ -21,6 +24,10 @@ The standard template presents API information in a card-based layout with three
 
 The MCP proxy template is tailored for Model Context Protocol servers published through the Gravitee gateway. It includes the same API metadata card as the standard template, an **Install in your AI client** section with a `<gmd-install-mcp>` component for one-click configuration in Cursor, VS Code, and Claude Desktop, and a **What you can do** section with action cards emphasizing MCP-specific workflows: discovering tools and resources, understanding secure gateway routing, and subscribing for credentials.
 
+### MCP Proxy API Type
+
+MCP Proxy APIs (`MCP_PROXY`) expose Model Context Protocol servers through Gravitee's gateway. When default portal pages are seeded for an MCP Proxy API, the system automatically creates an unpublished Overview page using the MCP-specific template (`api-overview-mcp-proxy-page-content.md`). This template embeds the `<gmd-install-mcp>` component with the API's first entrypoint URL and MCP path configuration. Other API types (`PROXY`, `MESSAGE`, `NATIVE`, `LLM_PROXY`, `A2A_PROXY`) receive the generic Overview template.
+
 ### Template Components
 
 | Component | Purpose | Attributes |
@@ -29,11 +36,27 @@ The MCP proxy template is tailored for Model Context Protocol servers published 
 | `<gmd-grid>` | Three-column layout for action cards | `columns="3"` |
 | `<gmd-install-mcp>` | One-click MCP server configuration generator (MCP template only) | `name`, `transport="http"`, `url` (gateway endpoint + MCP path) |
 
+### FreeMarker Template Variables
+
+Portal page templates use FreeMarker expressions to access API metadata and configuration. The `api.entrypoints` list provides gateway entrypoint URLs, and the `api.mcp` map exposes MCP-specific configuration from V4 entrypoints (`mcpPath` for `mcp` or `mcp-proxy` entrypoint types). Template authors should include null and size checks when accessing list elements.
+
+| Variable | Description | Example Expression |
+|:---------|:------------|:-------------------|
+| `api.name` | API name | `${api.name}` |
+| `api.description` | API description | `${api.description}` |
+| `api.version` | API version | `${api.version}` |
+| `api.type` | API type | `${api.type}` |
+| `api.visibility` | API visibility | `${api.visibility}` |
+| `api.id` | API identifier | `${api.id}` |
+| `api.entrypoints` | List of gateway entrypoint URLs | `${api.entrypoints[0]}` |
+| `api.mcp.mcpPath` | MCP path appended to entrypoint URL | `${api.mcp.mcpPath}` |
+
 ## Prerequisites
 
 * Enable the New Developer Portal. For more information, see [Configure the New Portal](configure-the-new-portal.md).
 * Add the API to the New Developer Portal navigation in the Console. For more information, see [Customize the Navigation](customize-the-navigation.md#api).
-* For the MCP proxy template: the API type must be **MCP Proxy**, with a gateway entrypoint and `api.mcp.mcpPath` configured so the `<gmd-install-mcp>` component can build a valid URL.
+* Published API with at least one configured entrypoint.
+* For the MCP proxy template: the API type must be **MCP Proxy**, with a gateway entrypoint and `api.mcp.mcpPath` configured so the `<gmd-install-mcp>` component can build a valid URL. The V4 entrypoint must have `mcp` or `mcp-proxy` type and `mcpPath` configuration.
 
 ## Creating API Overview Pages
 
@@ -52,6 +75,8 @@ A customization section at the bottom encourages API publishers to enhance the o
 ## Customizing Templates
 
 API publishers can edit the generated Overview page in the Console to add context-specific content. The standard template suggests adding a quick start section, highlighting key use cases, and linking to external guides or changelogs. The MCP proxy template recommends listing available MCP tools, documenting authentication requirements, and describing expected use cases.
+
+API publishers can also manually author custom portal pages using the `<gmd-install-mcp>` Gravitee Markdown component and FreeMarker template variables.
 
 Both templates include a link to Gravitee documentation: the standard template links to the [Developer Portal overview](https://documentation.gravitee.io/apim/developer-portal/new-developer-portal), while the MCP proxy template links to the [OAuth2 security guide for MCP proxies](https://documentation.gravitee.io/apim/ai-agent-management/secure-mcp-proxy-with-oauth2).
 

@@ -317,7 +317,7 @@ Here are some use cases examples:
 {% endtab %}
 
 {% tab title="Grid with a button component" %}
-```
+```xml
 <gmd-grid columns="2">
   <gmd-button>Left content</gmd-button>
   <gmd-button>Right content</gmd-button>

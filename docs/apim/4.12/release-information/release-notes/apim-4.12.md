@@ -145,6 +145,16 @@
 * WSDL 2.0 is not supported; remote URLs must pass SSRF protection rules (private IPs blocked by default).
 <!-- /PIPELINE:APIM-12279 -->
 
+
+<!-- PIPELINE:APIM-14244 -->
+#### **MCP Proxy API Overview Pages with One-Click Installation**
+
+* Portal Next automatically generates MCP-specific Overview pages for MCP Proxy APIs, enabling API consumers to install and configure MCP servers in AI clients with one click.
+* The Overview page includes deep links for Cursor, VS Code, and Claude Desktop, plus copyable configuration snippets for HTTP, SSE, and stdio transports.
+* API publishers can manually author custom portal pages using the `<gmd-install-mcp>` Gravitee Markdown component with FreeMarker template variables to access API metadata and MCP configuration.
+* The component requires specific attributes based on transport type (e.g., `url` for HTTP/SSE, `command` for stdio) and displays a placeholder when misconfigured.
+<!-- /PIPELINE:APIM-14244 -->
+
 ## Improvements
 
 
