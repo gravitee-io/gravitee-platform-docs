@@ -6,6 +6,133 @@ This guide walks through deploying a full monitoring stack for Gravitee API Mana
 This guide uses third-party tools. For their full configuration options, see the [Docker Compose](https://docs.docker.com/compose/), [Prometheus](https://prometheus.io/docs/), and [Grafana](https://grafana.com/docs/) documentation.
 {% endhint %}
 
+## Set up monitoring on an existing Gateway
+
+If you already run a Gravitee Gateway (self-hosted or hybrid), follow these steps to push its metrics to Prometheus and Grafana. To try the full stack on a single machine instead, see the Docker Compose example below.
+
+### Enable the Prometheus metrics service
+
+The Gateway exposes Prometheus-formatted metrics through its internal API. The metrics service is disabled by default. Enable it on the Gateway, then enable the Prometheus output.
+
+{% tabs %}
+{% tab title="Self-hosted (gravitee.yml)" %}
+{% code title="gravitee.yml" %}
+```yaml
+services:
+  metrics:
+    enabled: true
+    prometheus:
+      enabled: true
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="Hybrid (Helm values.yaml)" %}
+{% code title="values.yaml" %}
+```yaml
+gateway:
+  services:
+    metrics:
+      enabled: true
+      prometheus:
+        enabled: true
+        concurrencyLimit: 3
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
+
+For the full set of options, including label configuration and Vert.x metric naming versions, see [Expose Metrics to Prometheus](../../analyze-and-monitor-apis/logging/expose-metrics-to-prometheus.md).
+
+### Expose and secure the internal API
+
+The metrics endpoint is served by the Gateway internal API. By default this API is bound to `localhost` on port `18082` and protected with basic authentication. To let Prometheus scrape it, make the endpoint reachable and set credentials you control.
+
+{% tabs %}
+{% tab title="Self-hosted (gravitee.yml)" %}
+{% code title="gravitee.yml" %}
+```yaml
+services:
+  core:
+    http:
+      enabled: true
+      port: 18082
+      host: 0.0.0.0
+      authentication:
+        type: basic
+        users:
+          admin: <your-password>
+```
+{% endcode %}
+
+Set `host` to `0.0.0.0` or a specific interface so Prometheus can reach the endpoint from another host. The default is `localhost`, which only accepts local connections.
+{% endtab %}
+
+{% tab title="Hybrid (Helm values.yaml)" %}
+In Kubernetes the Gateway internal API binds to `0.0.0.0` inside the pod by default. To let Prometheus reach it, enable a service for the core API:
+
+{% code title="values.yaml" %}
+```yaml
+gateway:
+  services:
+    core:
+      http:
+        enabled: true
+        port: 18082
+        host: 0.0.0.0
+        authentication:
+          type: basic
+          password: <your-password>
+      service:
+        enabled: true
+        type: ClusterIP
+        externalPort: 18082
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
+
+The metrics are exposed at the path `/_node/metrics/prometheus`.
+
+{% hint style="warning" %}
+The default credentials are `admin` / `adminadmin`. Change the password before you expose the endpoint, and restrict network access to the internal API to your monitoring infrastructure.
+{% endhint %}
+
+### Configure Prometheus to scrape the Gateway
+
+Add a scrape job that targets the Gateway internal API. Replace `<gateway-host>` with the host or service that exposes port `18082`, and use the credentials you set above.
+
+{% code title="prometheus.yml" %}
+```yaml
+scrape_configs:
+  - job_name: 'gravitee-gateway'
+    basic_auth:
+      username: admin
+      password: <your-password>
+    metrics_path: /_node/metrics/prometheus
+    static_configs:
+      - targets: ['<gateway-host>:18082']
+```
+{% endcode %}
+
+### Add Prometheus as a Grafana data source
+
+In Grafana, add your Prometheus instance as a data source. For the exact steps, see [Add a data source](https://grafana.com/docs/grafana/latest/datasources/) in the Grafana documentation.
+
+### Import the example dashboard
+
+Gravitee provides an example dashboard to get you started. It includes panels for API traffic, JVM health, and host system usage.
+
+1. Download the dashboard: [gravitee-apim-grafana-dashboard.json](../../.gitbook/assets/gravitee-apim-grafana-dashboard.json).
+2. In Grafana, import the file. For the exact steps, see [Import a dashboard](https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/import-dashboards/) in the Grafana documentation.
+3. Select your Prometheus data source when prompted.
+
+The full dashboard JSON is also included in the Docker Compose example below.
+
+## Try it locally with Docker Compose
+
+This section deploys a complete monitoring stack with Docker Compose so you can try the integration end to end on a single machine.
+
 ## Architecture
 
 The stack runs the following components as Docker Compose services:

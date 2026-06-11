@@ -1,0 +1,109 @@
+{
+  "annotations": { "list": [] },
+  "editable": true,
+  "schemaVersion": 30,
+  "style": "dark",
+  "time": { "from": "now-15m", "to": "now" },
+  "title": "Gravitee APIM + JVM Dashboard",
+  "panels": [
+    {
+      "type": "graph",
+      "title": "API Requests Rate",
+      "gridPos": { "x": 0, "y": 0, "w": 12, "h": 6 },
+      "lines": true,
+      "targets": [
+        { "expr": "rate(http_server_requests_total[1m])", "legendFormat": "{{method}}", "refId": "A", "nullPointMode": "null" }
+      ]
+    },
+    {
+      "type": "graph",
+      "title": "HTTP Status Codes",
+      "gridPos": { "x": 12, "y": 0, "w": 12, "h": 6 },
+      "lines": true,
+      "targets": [
+        { "expr": "sum by (code) (rate(http_server_requests_total[1m]))", "legendFormat": "{{code}}", "refId": "B", "nullPointMode": "null" }
+      ]
+    },
+    {
+      "type": "graph",
+      "title": "Average Response Time",
+      "gridPos": { "x": 0, "y": 6, "w": 12, "h": 6 },
+      "lines": true,
+      "targets": [
+        { "expr": "rate(http_server_response_time_seconds_sum[1m]) / rate(http_server_response_time_seconds_count[1m])", "refId": "C", "legendFormat": "Avg", "nullPointMode": "null" }
+      ]
+    },
+    {
+      "type": "graph",
+      "title": "Error Rate (5xx)",
+      "gridPos": { "x": 12, "y": 6, "w": 12, "h": 6 },
+      "lines": true,
+      "targets": [
+        { "expr": "sum(rate(http_server_requests_total{code=~\"5..\"}[1m])) / sum(rate(http_server_requests_total[1m]))", "refId": "F", "nullPointMode": "null" }
+      ]
+    },
+    {
+      "type": "graph",
+      "title": "Active Server Connections",
+      "gridPos": { "x": 0, "y": 12, "w": 12, "h": 6 },
+      "lines": true,
+      "targets": [
+        { "expr": "http_server_active_connections", "refId": "G", "nullPointMode": "null" }
+      ]
+    },
+    {
+      "type": "graph",
+      "title": "JVM Heap Used",
+      "gridPos": { "x": 12, "y": 12, "w": 12, "h": 6 },
+      "lines": true,
+      "targets": [
+        { "expr": "jvm_memory_used_bytes{area=\"heap\"}", "refId": "H", "nullPointMode": "null" }
+      ]
+    },
+    {
+      "type": "graph",
+      "title": "JVM Non-Heap Used",
+      "gridPos": { "x": 0, "y": 18, "w": 12, "h": 6 },
+      "lines": true,
+      "targets": [
+        { "expr": "jvm_memory_used_bytes{area=\"nonheap\"}", "refId": "I", "nullPointMode": "null" }
+      ]
+    },
+    {
+      "type": "graph",
+      "title": "JVM GC Activity",
+      "gridPos": { "x": 12, "y": 18, "w": 12, "h": 6 },
+      "lines": true,
+      "targets": [
+        { "expr": "rate(jvm_gc_pause_seconds_sum[1m])", "refId": "J", "nullPointMode": "null" }
+      ]
+    },
+    {
+      "type": "graph",
+      "title": "JVM Threads",
+      "gridPos": { "x": 0, "y": 24, "w": 12, "h": 6 },
+      "lines": true,
+      "targets": [
+        { "expr": "jvm_threads_live_threads", "refId": "K", "nullPointMode": "null" }
+      ]
+    },
+    {
+      "type": "graph",
+      "title": "Process CPU Usage",
+      "gridPos": { "x": 12, "y": 24, "w": 12, "h": 6 },
+      "lines": true,
+      "targets": [
+        { "expr": "process_cpu_usage", "refId": "L", "nullPointMode": "null" }
+      ]
+    },
+    {
+      "type": "graph",
+      "title": "System CPU Usage",
+      "gridPos": { "x": 0, "y": 30, "w": 24, "h": 6 },
+      "lines": true,
+      "targets": [
+        { "expr": "system_cpu_usage", "refId": "M", "nullPointMode": "null" }
+      ]
+    }
+  ]
+}
