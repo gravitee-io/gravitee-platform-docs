@@ -17,6 +17,7 @@ Here are available Gravitee Markdown components:
 * [#card](gravitee-markdown-components.md#card "mention")
 * [#grid](gravitee-markdown-components.md#grid "mention")
 * [#install-mcp](gravitee-markdown-components.md#install-mcp "mention")
+* [#install-mcp](gravitee-markdown-components.md#install-mcp "mention")
 
 ### Block
 
@@ -317,7 +318,7 @@ Here are some use cases examples:
 {% endtab %}
 
 {% tab title="Grid with a button component" %}
-```
+```xml
 <gmd-grid columns="2">
   <gmd-button>Left content</gmd-button>
   <gmd-button>Right content</gmd-button>
