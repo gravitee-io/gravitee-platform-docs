@@ -145,6 +145,16 @@
 * WSDL 2.0 is not supported; remote URLs must pass SSRF protection rules (private IPs blocked by default).
 <!-- /PIPELINE:APIM-12279 -->
 
+
+<!-- PIPELINE:APIM-12245 -->
+#### **Partial Updates for V4 HTTP Proxy APIs**
+
+* Use the PATCH endpoint to update V4 HTTP Proxy APIs without replacing the entire resource, supporting both JSON Merge Patch (RFC 7396) for simple field updates and JSON Patch (RFC 6902) for fine-grained modifications.
+* Enforce optimistic concurrency control via `If-Match` and `ETag` headers using the same convention as existing PUT operations, preventing conflicting updates across multiple clients.
+* Validate patches before applying them by setting `dryRun=true` to preview the result without persisting changes.
+* Requires `API_DEFINITION[UPDATE]` or `API_GATEWAY_DEFINITION[UPDATE]` permission and applies only to V4 HTTP Proxy APIs.
+<!-- /PIPELINE:APIM-12245 -->
+
 ## Improvements
 
 

@@ -40,7 +40,7 @@ To set up roles, complete the following steps:
 5. Click **Create**
 
 {% hint style="warning" %}
-Custom Roles is an [Enterprise Edition](../../readme/enterprise-edition.md) capability. To learn more about Gravitee Enterprise and what's included in various enterprise packages, [book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/) or [check out the pricing page](https://www.gravitee.io/pricing).
+Custom Roles is an [Enterprise Edition](../../introduction/enterprise-edition.md) capability. To learn more about Gravitee Enterprise and what's included in various enterprise packages, [book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/) or [check out the pricing page](https://www.gravitee.io/pricing).
 {% endhint %}
 
 <details>
@@ -90,11 +90,11 @@ API-level permissions are listed in the following table.
 | ALERT               | Manages API alerting                                                                                                                        |
 | ANALYTICS           | Manages API analytics. Only the `READ` permission is used.                                                                                  |
 | AUDIT               | Manages API audits. Only the `READ` permission is used.                                                                                     |
-| DEFINITION          | Manages the API definition                                                                                                                  |
+| DEFINITION          | Manages the API definition. The `UPDATE` permission is required for partial updates via PATCH `/management/v2/environments/{envId}/apis/{apiId}`. |
 | DISCOVERY           | Manages service discovery                                                                                                                   |
 | DOCUMENTATION       | Manages API documentation                                                                                                                   |
 | EVENT               | Manages API events. Only the `READ` permission is used.                                                                                     |
-| GATEWAY\_DEFINITION | A specific permission used to update the context-path (`UPDATE`) and to give access to sensitive data (`READ`) such as endpoints and paths. |
+| GATEWAY\_DEFINITION | A specific permission used to update the context-path (`UPDATE`) and to give access to sensitive data (`READ`) such as endpoints and paths. The `UPDATE` permission is also required for partial updates via PATCH `/management/v2/environments/{envId}/apis/{apiId}`. |
 | HEALTH              | Manages API health checks                                                                                                                   |
 | LOG                 | Manages API logs. Only the `READ` permission is used.                                                                                       |
 | MEMBER              | Manages API members                                                                                                                         |

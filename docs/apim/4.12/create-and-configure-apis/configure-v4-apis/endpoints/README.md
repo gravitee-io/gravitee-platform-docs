@@ -30,6 +30,22 @@ Edit the endpoint's settings under the **General** and **Configuration** tabs.
 
 <figure><img src="../../../.gitbook/assets/edit HTTP endpoint settings.png" alt=""><figcaption><p>Define the endpoint's General and Configuration settings</p></figcaption></figure>
 
+#### Partial updates via Management API
+
+V4 HTTP Proxy APIs support partial updates through the Management API PATCH endpoint. Use PATCH when you need to modify specific fields without replacing the entire API definition.
+
+**When to use PATCH vs PUT:**
+
+- **PATCH**: Update individual fields (description, labels, flows) while preserving unchanged configuration
+- **PUT**: Replace the entire API definition
+
+**Patch format selection:**
+
+- **JSON Merge Patch** (RFC 7396): Simple field updates. Fields in the patch replace existing values, omitted fields remain unchanged, and `null` clears a value.
+- **JSON Patch** (RFC 6902): Fine-grained operations using JSON Pointer paths. Use for precise edits like inserting flows or reordering endpoint groups.
+
+For technical details, request/response schemas, and examples, refer to the [Management API reference](../../../management-api-reference.md).
+
 {% tabs %}
 {% tab title="General" %}
 **1. Define your endpoint name**
@@ -171,7 +187,7 @@ Select from the following options.
 {% hint style="warning" %}
 **Enterprise-only**
 
-The ability to create APIs with message API endpoints is an [Enterprise Edition](../../../readme/enterprise-edition.md) capability. To learn more about Gravitee Enterprise Edition and what's included in various enterprise packages:
+The ability to create APIs with message API endpoints is an [Enterprise Edition](../../../introduction/enterprise-edition.md) capability. To learn more about Gravitee Enterprise Edition and what's included in various enterprise packages:
 
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)

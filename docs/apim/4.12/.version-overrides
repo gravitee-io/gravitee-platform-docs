@@ -92,3 +92,8 @@ developer-portal/new-developer-portal/gravitee-markdown-components.md
 .gitbook/assets/wsdl-review-rest-to-soap-enabled.png
 create-and-configure-apis/apply-policies/policy-reference/rest-to-soap.md
 create-and-configure-apis/create-apis/wsdl-import-for-v4-apis.md
+configure-and-manage-the-platform/manage-organizations-and-environments/user-management.md
+create-and-configure-apis/apply-policies/policy-reference/json-validation.md
+create-and-configure-apis/configure-v4-apis/endpoints/README.md
+partial-updates-for-v4-http-proxy-apis.md
+prepare-a-production-environment/production-best-practices/general-recommendations/property-encryption.md

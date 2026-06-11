@@ -22,3 +22,7 @@ api:
 ```
 
 You can find additional details about property encryption in [Properties](../../../create-and-configure-apis/apply-policies/v4-api-policy-studio.md#api-properties).
+
+## Encryption During PATCH Operations
+
+Properties marked `encryptable: true` are encrypted during PATCH operations. The response includes the encrypted value with `encrypted: true` and ciphertext in the `value` field, in both real and dry-run responses. Already-encrypted properties are not re-encrypted when patching unrelated fields.

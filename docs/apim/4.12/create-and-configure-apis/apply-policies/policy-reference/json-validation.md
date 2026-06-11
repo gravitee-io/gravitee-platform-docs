@@ -1,3 +1,4 @@
+
 ---
 description: An overview about json validation.
 metaLinks:
@@ -10,6 +11,69 @@ metaLinks:
 ## Overview
 
 You can use the `json-validation` policy to validate JSON payloads. This policy uses [JSON Schema Validator](https://github.com/java-json-tools/json-schema-validator). It returns `400 BAD REQUEST` when request validation fails and `500 INTERNAL ERROR` when response validation fails, with a custom error message body. It can inject processing report messages into request metrics for analytics.
+
+## JSON Merge Patch (RFC 7396)
+
+JSON Merge Patch applies a partial object to an existing resource. Fields present in the patch replace existing values, omitted fields remain unchanged, and fields set to `null` clear the value for optional fields. Required fields reject `null` values with a 400 error.
+
+**Content-Type Selection:**
+
+The endpoint accepts three content types for merge patch:
+- `application/merge-patch+json` (explicit merge patch)
+- `application/json` (treated as merge patch for backward compatibility)
+- Any other content type returns 415 Unsupported Media Type
+
+**Example:**
+
+```json
+{
+  "description": "Updated description",
+  "labels": ["production", "critical"]
+}
+```
+
+## JSON Patch (RFC 6902)
+
+JSON Patch applies an ordered sequence of operations using JSON Pointer (RFC 6901) paths. The endpoint accepts `application/json-patch+json` as the content type for JSON Patch operations.
+
+**Supported Operations:**
+
+- `add`
+- `remove`
+- `replace`
+- `move`
+- `copy`
+- `test`
+
+**JSON Pointer Path Syntax:**
+
+Paths must start with `/` and follow RFC 6901 format. Root pointer paths (`""` or `"/"`) are rejected with validation error.
+
+**Constraints:**
+
+| Constraint | Value | Error |
+|:-----------|:------|:------|
+| Maximum operations | 200 | "JSON Patch request exceeds maximum of 200 operations" |
+| `path` field required | Yes | "JSON Patch operation at index {N} is missing required 'path' field" |
+| `from` field required for `move`/`copy` | Yes | "JSON Patch operation at index {N} is missing required 'from' field" |
+
+**Deep Configuration Path Restrictions:**
+
+JSON Patch operations targeting nested configuration objects are rejected. Replace the full configuration object at its top-level pointer instead.
+
+**Discriminator Field Requirements:**
+
+Discriminator fields require uppercase values. Lowercase values are rejected with an `invalidValue` error.
+
+**Example:**
+
+```json
+[
+  {"op": "add", "path": "/labels/-", "value": "new-label"},
+  {"op": "remove", "path": "/tags/0"}
+]
+```
+
 
 ## Examples
 
