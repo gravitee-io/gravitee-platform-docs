@@ -167,7 +167,7 @@
       * [MQTT5](create-and-configure-apis/configure-v4-apis/endpoints/mqtt5.md)
       * [Solace](create-and-configure-apis/configure-v4-apis/endpoints/solace.md)
       * [RabbitMQ](create-and-configure-apis/configure-v4-apis/endpoints/rabbitmq.md)
-    * [Partial Updates for V4 HTTP Proxy APIs and Plans](create-and-configure-apis/configure-v4-apis/partial-updates-for-v4-http-proxy-apis-and-plans.md)
+    * [Partial Updates for V4 HTTP Proxy APIs](create-and-configure-apis/configure-v4-apis/partial-updates-for-v4-http-proxy-apis.md)
     * [Reporter Settings UI for Native APIs (OpenTelemetry Section)](create-and-configure-apis/configure-v4-apis/reporter-settings-ui-for-native-apis-opentelemetry-section.md)
     * [User Permissions](create-and-configure-apis/configure-v4-apis/user-permissions.md)
     * [Quality of Service](create-and-configure-apis/configure-v4-apis/quality-of-service.md)
