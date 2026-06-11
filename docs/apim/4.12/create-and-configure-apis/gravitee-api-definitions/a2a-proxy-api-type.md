@@ -8,6 +8,17 @@ The A2A Proxy is a V4 API type that enables agent-to-agent communication through
 
 A2A Proxy APIs are defined with `"type": "A2A_PROXY"` and `"definitionVersion": "V4"`. They use HTTP selectors for flow routing and support REQUEST and RESPONSE flow phases. The management console displays A2A Proxy APIs with the label "A2A Proxy" and the `gio-literal:a2a-proxy` icon.
 
+The A2A Proxy type is one of six API types supported by Gravitee API Management:
+
+| API Type | Description |
+|:---------|:------------|
+| `PROXY` | Standard HTTP proxy APIs |
+| `MESSAGE` | Message-based APIs for asynchronous communication |
+| `NATIVE` | Native Kafka APIs |
+| `MCP_PROXY` | Model Context Protocol proxy APIs (triggers automatic MCP-specific Overview page seeding) |
+| `LLM_PROXY` | Large Language Model proxy APIs |
+| `A2A_PROXY` | Agent-to-Agent proxy APIs |
+
 ## Reactor Architecture
 
 The A2A Proxy uses a dedicated reactor plugin (`gravitee-reactor-a2a-proxy`) that operates independently from the message API reactor. The architecture includes:

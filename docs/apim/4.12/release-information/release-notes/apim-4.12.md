@@ -145,6 +145,16 @@
 * WSDL 2.0 is not supported; remote URLs must pass SSRF protection rules (private IPs blocked by default).
 <!-- /PIPELINE:APIM-12279 -->
 
+
+<!-- PIPELINE:APIM-14244 -->
+#### **MCP Client Installation Widget for Portal Pages**
+
+* Portal page authors can embed one-click installation links for Model Context Protocol (MCP) servers using the `<gmd-install-mcp>` Gravitee Markdown component.
+* The widget provides deep-link installers for Cursor, VS Code, and Claude Desktop clients, with automatic configuration generation for HTTP, SSE, and stdio MCP transports.
+* MCP Proxy APIs automatically seed Overview pages with installation widgets and expose `api.entrypoints` and `api.mcp` fields in FreeMarker templates.
+* Requires published APIs with configured entrypoints; MCP Proxy APIs require V4 entrypoints with type `mcp` or `mcp-proxy`.
+<!-- /PIPELINE:APIM-14244 -->
+
 ## Improvements
 
 
