@@ -16,7 +16,7 @@ To use IAM role-based authentication, deploy the federation agent on AWS (for ex
 
 Before you begin, verify the following:
 
-* Gravitee API Management version 4.4 or later, with an enterprise license. For more information about Enterprise edition, see [Enterprise Edition Licensing](https://documentation.gravitee.io/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing#license-support).
+* Gravitee API Management version 4.4 or later, with an enterprise license. For more information about Enterprise edition, see [Enterprise Edition Licensing](https://documentation.gravitee.io/apim/readme/enterprise-edition-licensing#license-support).
 * A Federation agent service account. For more information, see [Federation agent service account](https://documentation.gravitee.io/apim/govern-apis/federation/federation-agent-service-account).
 * An AWS API Gateway integration created in the Gravitee APIM Console. For more information, see [Create an AWS API Management integration in the Gravitee APIM Console](https://documentation.gravitee.io/apim/govern-apis/federation/3rd-party-providers/aws-api-gateway#create-an-aws-api-management-integration-in-the-gravitee-apim-console).
 * An EC2 instance running Amazon Linux 2 or Ubuntu, with Docker installed.
