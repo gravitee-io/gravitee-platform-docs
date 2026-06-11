@@ -40,6 +40,96 @@ curl -H "Authorization: Bearer :accessToken" \
 ```
 {% endcode %}
 
+## List applications
+
+### Query parameters
+
+The application list endpoint supports filtering, field expansion, and pagination. Use query parameters to refine results:
+
+| Parameter | Type | Default | Description |
+|:----------|:-----|:--------|:------------|
+| `status` | string | — | Filter by status. Values: `enabled`, `disabled` |
+| `owner.email` | string | — | Filter by owner email address (requires `ORGANIZATION_USER[READ]` permission) |
+| `expand` | array[string] | — | Fields to expand. Supported: `clientId` |
+| `q` | string | — | Search query (supports wildcard `*`) |
+| `type` | array[string] | — | Filter by type. Values: `WEB`, `NATIVE`, `BROWSER`, `SERVICE`, `RESOURCE_SERVER`, `AGENT` |
+| `limit` | integer | 50 | Maximum results per page |
+| `sort` | string | `updatedAt` | Sort field. Supported: `updatedAt`, `name` |
+| `dir` | string | `DESC` | Sort direction. Values: `ASC`, `DESC` |
+| `page` | integer | 0 | Page number (zero-indexed) |
+
+For complete API specifications and cursor pagination details, see [Application Filtering, Cursor Pagination, and Expand Parameters](../../reference/application-filtering-cursor-pagination-and-expand-parameters.md).
+
+### Cursor-based pagination
+
+For large result sets, use the cursor-based search endpoint:
+
+{% code overflow="wrap" %}
+```sh
+curl -H "Authorization: Bearer :accessToken" \
+     http://GRAVITEEIO-AM-MGT-API-HOST/management/organizations/DEFAULT/environments/DEFAULT/domains/:domainId/applications/search/_cursor?limit=50
+```
+{% endcode %}
+
+The response includes a `nextCursor` path for retrieving the next page:
+
+```json
+{
+  "data": [
+    {
+      "id": "app-id",
+      "name": "My App",
+      "type": "SERVICE",
+      "enabled": true,
+      "template": false,
+      "updatedAt": "2024-01-15T10:30:00Z"
+    }
+  ],
+  "nextCursor": "/management/organizations/DEFAULT/environments/DEFAULT/domains/:domainId/applications/search/_cursor?cursor=YXBwLWlkIyMyMDI0LTAxLTE1VDEwOjMwOjAwWg==&page=1",
+  "hasNext": true,
+  "totalCount": 150,
+  "page": 0
+}
+```
+
+To retrieve the next page, use the `nextCursor` path:
+
+{% code overflow="wrap" %}
+```sh
+curl -H "Authorization: Bearer :accessToken" \
+     http://GRAVITEEIO-AM-MGT-API-HOST/management/organizations/DEFAULT/environments/DEFAULT/domains/:domainId/applications/search/_cursor?cursor=YXBwLWlkIyMyMDI0LTAxLTE1VDEwOjMwOjAwWg==&page=1
+```
+{% endcode %}
+
+### Field expansion
+
+Include `expand=clientId` to retrieve OAuth client IDs in the response:
+
+{% code overflow="wrap" %}
+```sh
+curl -H "Authorization: Bearer :accessToken" \
+     http://GRAVITEEIO-AM-MGT-API-HOST/management/organizations/DEFAULT/environments/DEFAULT/domains/:domainId/applications/search?expand=clientId
+```
+{% endcode %}
+
+The response includes the `clientId` field:
+
+```json
+{
+  "data": [
+    {
+      "id": "app-id",
+      "name": "My App",
+      "type": "SERVICE",
+      "enabled": true,
+      "template": false,
+      "updatedAt": "2024-01-15T10:30:00Z",
+      "clientId": "oauth-client-id"
+    }
+  ]
+}
+```
+
 ### Configure the application
 
 After you have created the new application, you will be redirected to the application's `Overview` page, which contains some documentation and code samples to help you start configuring the application.
