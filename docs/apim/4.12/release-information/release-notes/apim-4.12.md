@@ -68,6 +68,15 @@
 <!-- /PIPELINE:APIM-13463 -->
 
 
+<!-- PIPELINE:APIM-13489 -->
+#### **API Product Analytics and Logging**
+
+* Track and filter API requests by API Product association across analytics dashboards, environment logs, and reporter outputs.
+* When an API is accessed through an API Product subscription, the request is associated with that product for product-level observability across logs, metrics, and analytics.
+* Filter analytics and environment logs by API Product to view metrics for specific API Products.
+* The Elasticsearch, File, TCP, and Datadog reporters capture the API Product ID in their output when requests use an API Product subscription. The File and TCP reporters emit it in whichever output format you configure — as `apiProductId` in JSON, `api-product-id` in Elasticsearch format, or a trailing value in CSV — and the Datadog reporter adds it as an `ApiProductId` metric tag.
+* Available for v4 request/response APIs only. The Elasticsearch reporter applies the required `api-product-id` keyword mapping automatically on upgrade; self-managed Elasticsearch installations must add the mapping themselves.
+<!-- /PIPELINE:APIM-13489 -->
 <!-- PIPELINE:APIM-13667 -->
 #### **Kafka Port-Based Routing for Native APIs**
 
