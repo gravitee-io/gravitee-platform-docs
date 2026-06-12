@@ -41,7 +41,7 @@ When you add an API to the portal navigation, the Console calls the Management A
 
 The seeded page is created **unpublished**. Publish the Overview page—or publish the parent API navigation item, which cascades to child pages—to make it visible on the New Developer Portal.
 
-The standard template is applied to general APIs; the MCP proxy template is used when the API type is **MCP Proxy**.
+The system determines which template to apply based on the API type retrieved from `apiCrudService.findById(apiId)`. If the API type is `MCP_PROXY`, the system applies the `api-overview-mcp-proxy-page-content.md` template, which includes an embedded `<gmd-install-mcp>` component pre-configured with `transport="http"` and a URL constructed from the first gateway entrypoint and the MCP path (`${api.entrypoints[0]}${api.mcp.mcpPath}`). All other API types (`PROXY`, `MESSAGE`, `NATIVE`, `A2A_PROXY`, `LLM_PROXY`) receive the generic `api-overview-page-content.md` template without the MCP installation widget.
 
 The page header displays the API name as the title and includes a descriptive subtitle explaining the API's purpose and access model. An API information card presents the version, visibility level, owner display name (if available), and last deployment date (formatted as `yyyy-MM-dd`, if available).
 

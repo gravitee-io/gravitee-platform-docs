@@ -513,3 +513,4 @@
     * [APIM 4.2.x](https://documentation.gravitee.io/apim/4.2/overview/changelog/apim-4.2.x)
     * [APIM 4.1.x](https://documentation.gravitee.io/apim/4.1/releases-and-changelog/changelogs/apim-4.1.x-changelog)
     * [APIM 4.0.x](https://documentation.gravitee.io/apim/4.0/releases-and-changelog/changelog/apim-4.0.x)
+* [MCP Server Installation Widget for Portal Pages](mcp-server-installation-widget-for-portal-pages.md)
