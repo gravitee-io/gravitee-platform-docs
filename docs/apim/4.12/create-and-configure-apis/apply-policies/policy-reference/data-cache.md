@@ -21,13 +21,37 @@ The Data Cache policy allows you to get, set, and expire arbitrary key-value pai
 * You specify the cache key to use for getting, setting, or expiring. The key name is dynamic and can be set using expression language.
 * When using the `SET` operation, you specify the `value` to set in the cache. The value is also dynamic and supports expression language.
 
+## Operations
+
+The Data Cache policy supports three operations: `SET`, `GET`, and `EVICT`. The operation can be configured in the policy or overridden at runtime via the `gravitee.policy.data-cache.operation` request attribute.
+
+### SET Operation
+
+Stores a value in the cache. The **Value** field is required and provides the value to store (supports expression language). The cache key is derived from the **Cache Key** field (supports expression language). The TTL can be configured in the policy or overridden at runtime via the `gravitee.policy.data-cache.cache-ttl` request attribute.
+
+### GET Operation
+
+Retrieves a value from the cache. The **Value** field is ignored. The cached element's value is stored on the execution context under an attribute named after the resolved cache key. If the cache entry does not exist (cache miss), the policy sets the `cacheMissAttributeKey` attribute to `true`.
+
+### EVICT Operation
+
+Removes a value from the cache. The **Value** field is ignored. The policy performs a `getAsync` followed by `evictAsync`. The cached element's value is stored on the execution context under an attribute named after the resolved cache key before eviction. If the cache entry does not exist (cache miss), the policy sets the `cacheMissAttributeKey` attribute to `true` and still calls the eviction operation.
+
+### Runtime Operation Override
+
+To override the configured operation at runtime, set the `gravitee.policy.data-cache.operation` request attribute to `SET`, `GET`, or `EVICT` (case-sensitive). The policy checks for the `gravitee.policy.data-cache.operation` request attribute and overrides the `defaultOperation` if present. If the attribute value is not a valid operation, the policy throws an error.
+
+### Runtime TTL Override
+
+To override the configured TTL for `SET` operations at runtime, set the `gravitee.policy.data-cache.cache-ttl` request attribute to an integer value (in seconds). The policy checks for the `gravitee.policy.data-cache.cache-ttl` request attribute and overrides the configured `timeToLive` for `SET` operations. If the attribute cannot be parsed as an integer, the policy interrupts with an `INVALID_TTL` failure (HTTP 400).
+
 ## Manipulating Return Values
 
 Suppose the cache key is named `my-key`. Then, when running the `GET` operation, the value will be accessible in the execution context via the `my-key` context attribute.
 
 For example, in the assign attributes policy, you can modify the value by using `{#context.attributes['my-key']}`. Note that you may need to cast the result to a different data type, as many caches store data in plain text. For example, to increment a value by 1 when it is obtained from Redis, use the expression:
 
-```
+```json
 {new Integer(#context.attributes['my-key']) + 1}
 ```
 
@@ -38,7 +62,7 @@ When performing a `GET` operation, the policy will set a context attribute to `t
 * In the HTTP Callout policy, you can set the `Trigger condition` field to `{#gravitee.policy.data-cache.cache-miss}`, so as to only trigger the callout when a key is not found in the cache.
 * If you want to increment a counter or start at 1 if the value is not found in the cache, you can use the assign attributes policy and set the attribute as:
 
-```
+```json
 {#context.attributes['gravitee.policy.data-cache.cache-miss'] ? 1 : new Integer(#context.attributes['my-key']) + 1}
 ```
 
@@ -256,7 +280,9 @@ You can configure the policy with the following options:
 
 Example configuration:
 
-```
+{% tabs %}
+{% tab title="SET Operation" %}
+```json
 {
     "configuration": {
         "resource": "my-cache-resource",
@@ -268,6 +294,34 @@ Example configuration:
     }
 }
 ```
+{% endtab %}
+
+{% tab title="GET Operation" %}
+```json
+{
+    "configuration": {
+        "resource": "my-cache-resource",
+        "cacheKey": "my-cache-key",
+        "defaultOperation": "GET",
+        "cacheMissAttributeKey": "gravitee.policy.data-cache.cache-miss"
+    }
+}
+```
+{% endtab %}
+
+{% tab title="EVICT Operation" %}
+```json
+{
+    "configuration": {
+        "resource": "my-cache-resource",
+        "cacheKey": "my-cache-key",
+        "defaultOperation": "EVICT",
+        "cacheMissAttributeKey": "gravitee.policy.data-cache.cache-miss"
+    }
+}
+```
+{% endtab %}
+{% endtabs %}
 
 #### Value <a href="#user-content-value" id="user-content-value"></a>
 

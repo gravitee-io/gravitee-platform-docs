@@ -167,4 +167,15 @@
 * Both new fields are additive and disabled when their list is empty, so existing policy configurations are unaffected.
 <!-- /PIPELINE:APIM-13498 -->
 
+
+<!-- PIPELINE:APIM-13625 -->
+#### **Redis Cache Resource Performance Enhancements**
+
+* Redis cache resources now use a shared connection pool architecture that eliminates per-API connection overhead when multiple APIs target the same Redis endpoint.
+* Cached responses are stored in a binary frame format that preserves HTTP status codes, headers (including multi-value headers), and response bodies without character-encoding transformations.
+* Gateway administrators configure pool size, connection timeout, and recycling behavior globally in `gravitee.yml` under `resources.cacheRedis.*`, while per-API Redis connection details remain in the resource configuration.
+* All cache operations in the Data Cache and OAuth2 policies are now asynchronous and non-blocking, improving gateway throughput.
+* Legacy JSON cache entries written by Cache policy versions ≤ 4.0.0-alpha.2 are served read-only during rolling upgrades and naturally migrate to the binary format on TTL expiry.
+<!-- /PIPELINE:APIM-13625 -->
+
 ## Bug Fixes
