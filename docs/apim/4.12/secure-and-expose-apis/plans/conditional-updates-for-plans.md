@@ -1,4 +1,4 @@
-# Conditional Updates and Plan Management
+# Conditional Updates for Plans
 
 ## Overview
 
@@ -21,6 +21,7 @@ Optimistic concurrency control prevents lost updates when multiple clients modif
 ## Prerequisites
 
 - Access to the Management API v2 (`/management/v2/environments/{envId}/apis/{apiId}/plans/{planId}`)
+- The `API_PLAN[UPDATE]` permission on the API (required for plan PATCH operations)
 - A plan with a non-null `updatedAt` timestamp (plans without this field will not return ETag or Last-Modified headers)
 
 ## Managing Plan Updates
@@ -129,8 +130,10 @@ To partially update a V4 HTTP Proxy API plan, send a PATCH request to `/manageme
 
 * `200 OK` — Returns the patched plan with `ETag` and `Last-Modified` headers
 * `400 Bad Request` — Validation failure, disallowed field, or unsupported plan type
+* `403 Forbidden` — Missing the required `API_PLAN[UPDATE]` permission
 * `404 Not Found` — Plan not found or does not belong to specified API
 * `412 Precondition Failed` — `If-Match` header mismatch
+* `415 Unsupported Media Type` — `Content-Type` is not `application/json`, `application/merge-patch+json`, or `application/json-patch+json`
 
 **Security Type Immutability**:
 

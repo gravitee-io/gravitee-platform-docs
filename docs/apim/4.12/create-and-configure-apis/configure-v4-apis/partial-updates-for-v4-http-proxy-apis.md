@@ -123,7 +123,7 @@ The domain service validator may modify submitted values (e.g., injecting plugin
 | `services`                           | Yes      | Service configurations                                                                                                                                       |
 | `resources`                          | Yes      | Resource configurations                                                                                                                                      |
 | `endpointGroups`                     | Yes      | Endpoint group configurations                                                                                                                                |
-| `listeners`                          | Yes      | Listener configurations; `null` clears to empty; empty arrays are accepted (no minimum-items enforcement), matching PUT                                      |
+| `listeners`                          | No       | Listener configurations. Required—a PATCH that empties, nulls, or removes the listeners array is rejected with `400` (`listeners.missing`). To leave listeners unchanged, omit the field from the merge-patch body. |
 | `allowedInApiProducts`               | No       | Whether API can be included in API products; `null` in storage is rendered as `false` in API responses (but stored value remains `null` until explicitly set) |
 | `allowMultiJwtOauth2Subscriptions`   | No       | Whether multiple JWT/OAuth2 subscriptions are allowed                                                                                                        |
 | `disableMembershipNotifications`     | No       | Whether membership notifications are disabled                                                                                                                |
@@ -172,6 +172,13 @@ Properties with `"encryptable": true` are encrypted before persistence. Encrypte
 * Setting `groups` to `null` (Merge Patch) or using JSON Patch `remove` on `/groups` clears groups.
 * Unknown group IDs are rejected by the domain service.
 
+**Listeners Handling**:
+
+* At least one listener must remain after the patch.
+* Sending `{"listeners": []}` (empty), `{"listeners": null}`, or a JSON Patch `remove` on `/listeners` is rejected with `400` (`listeners.missing`).
+* Omitting `listeners` from a merge-patch body preserves the existing listeners.
+* Only `HTTP` and `TCP` listener types are accepted; `SUBSCRIPTION` and `KAFKA` are rejected with `400`.
+
 **JSON Patch Path Restrictions**:
 
 The following deep configuration paths are rejected with `400 Bad Request`:
@@ -189,4 +196,4 @@ Root pointer paths (`""` or `"/"`) are rejected with message: `"does not target 
 
 **Flow Selector Type Discriminators**:
 
-Flow selector `type` values must be uppercase: `HTTP`, `CHANNEL`, `CONDITION`, `MCP`. Lowercase variants (`http`, `channel`, etc.) are rejected with `400 Bad Request`. Listener `type` values (`HTTP`, `TCP`, `SUBSCRIPTION`, `KAFKA`) must also be uppercase. The exception is `endpointGroups[*].type`, which is a plugin identifier (e.g., `http-proxy`) and remains lowercase.
+Flow selector `type` values must be uppercase: `HTTP`, `CHANNEL`, `CONDITION`, `MCP`. Lowercase variants (`http`, `channel`, etc.) are rejected with `400 Bad Request`. Listener `type` values (`HTTP`, `TCP`) must also be uppercase. `SUBSCRIPTION` and `KAFKA` are message/native listener types and are not valid on the HTTP-proxy PATCH path (patching one returns `400`). The exception is `endpointGroups[*].type`, which is a plugin identifier (e.g., `http-proxy`) and remains lowercase.
