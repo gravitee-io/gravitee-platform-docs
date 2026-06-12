@@ -70,8 +70,8 @@ Register the installation using the detailed instructions in the **How to regist
 
 There are two ways to log in to an installation in GC:
 
-* Click the login icon ![cockpit login icon](../.gitbook/assets/cockpit-login-icon.png) on the installation in the hierarchy map
-* Click **LOGIN** on the environment settings page of the linked environment:
+* Click the login icon ![cockpit login icon](../.gitbook/assets/cockpit-login-icon.png) on the environment in the hierarchy map
+* Click **Login** on the environment settings page of the linked environment:
 
 ![linked installations login](../.gitbook/assets/linked-installations-login.png)
 
