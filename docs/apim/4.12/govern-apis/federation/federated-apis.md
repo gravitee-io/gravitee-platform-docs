@@ -55,11 +55,13 @@ Follow the links below to visit the documentation for each configuration page.
 
 Plans for federated APIs are based on API products, usage plans, and similar concepts already defined and automatically imported from 3rd-party providers. A plan only exists to the extent that a matching concept exists in the 3rd-party provider.
 
+<figure><img src="../../.gitbook/assets/Screenshot 2024-06-18 at 4.10.09 PM.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/Screenshot 2024-06-18 at 4.12.15 PM.png" alt=""><figcaption></figcaption></figure>
+
 When Gravitee API plans are ingested from a 3rd-party provider, they enable subscriptions to the 3rd-party APIs be managed directly from within Gravitee. Under the hood, the federation agent will integrate with the third partie's management API to create the required objects that will enable the requested subscription. This may result in an API key being returned to the user in Gravitee APIM or in the Gravitee Developer portal. In other cases, it will simply create the right permissions on the third party, while access control is done using a 3rd-party OAuth server for instance.
 
 To manage your federated API's plans and their subscriptions, go to the **Consumers** tab for your federated API.
-
-<figure><img src="../../.gitbook/assets/Screenshot 2024-06-18 at 4.12.15 PM.png" alt=""><figcaption></figcaption></figure>
 
 Under the **Plans** tab, you'll see all of the plans for your API that are either in staging, published, deprecated or closed. You will only be able to alter your federated API plans as it pertains to:
 
@@ -68,7 +70,7 @@ Under the **Plans** tab, you'll see all of the plans for your API that are eithe
 * **Subscription options**: either allowing auto-validation of all subscription requests, or, enforcing API consumers to submit a request for manual approval by the API Publisher
 * Defining certain groups that can or cannot subscribe to your API via Gravitee groups
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-06-18 at 4.10.09 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/federated-keyless-plan.png" alt="Consumers page showing the Plans tab with a table displaying published plans, including columns for name, type, status, and deploy on"><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 By default, the plan state is set to published and the subscription validation policy is set to manual (subscription auto-validation is not enabled).
@@ -87,7 +89,7 @@ To view or add documentation to an existing federated API:
 3. Click on the federated API you're interested in
 4. Select **Documentation** from the inner left nav
 
-<figure><img src="../../.gitbook/assets/jonathan demo documentation.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/jonathan demo documentation.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 By default, the page is published with private visibility.
@@ -107,7 +109,7 @@ To publish an existing federated API:
 4. Select **Configuration** from the inner left nav
 5. In the **Danger Zone**, click **Publish the API**
 
-<figure><img src="../../.gitbook/assets/jonathan demo publish api.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/jonathan demo publish api.png" alt=""><figcaption></figcaption></figure>
 
 ### View your API in the Developer Portal
 
@@ -141,6 +143,33 @@ Depending on the subscription configuration, the application will either auto-va
 * For more information on how to create and manage applications in APIM, see [Applications](../../developer-portal/classic-developer-portal/create-an-application.md).
 * For more information on how to create and manage subscriptions in APIM, see [Subscriptions](../../secure-and-expose-apis/subscriptions/).
 {% endhint %}
+
+### View API access information
+
+The Developer Portal adapts the API access card display based on whether an API has available entrypoints. For federated APIs ingested from third-party providers, the portal hides empty access sections when no entrypoint URLs are defined, ensuring users see only relevant subscription and access information.
+
+To view API access information for a federated API subscription:
+
+1. In the API Management console, navigate to **APIs** in the left sidebar.
+2. Select the federated API from the list.
+3. Click **Consumers** in the API navigation menu.
+4. Click the **Subscriptions** tab to view all subscriptions for this API.
+
+    <figure><img src="../../.gitbook/assets/federated-apikey-subscription.png" alt="Subscriptions tab showing a table with filter options for plan, application, status, and API key, displaying one accepted API key subscription with columns for security type, plan, application, created at, processed at, start at, end at, and status"><figcaption></figcaption></figure>
+
+The API access card displays differently based on the API type and entrypoint availability:
+
+| Condition | API Access Card Visibility | Content Shown |
+|:----------|:---------------------------|:--------------|
+| Keyless plan + empty entrypoints | Hidden | N/A |
+| Keyless plan + undefined entrypoints | Hidden | N/A |
+| API Key plan + empty entrypoints + ACCEPTED subscription | Shown | API keys table only; "Calling the API" section hidden |
+| Native API type | Shown (if subscription ACCEPTED or keyless) | All access details |
+| OAUTH2 or JWT plan | Shown (if subscription ACCEPTED or keyless) | All access details |
+| API Key plan + non-empty entrypoints | Shown (if subscription ACCEPTED or keyless) | All access details |
+| Subscription status PENDING/REJECTED/PAUSED/CLOSED | Shown | Status message instead of access details |
+
+For native APIs and federated APIs with defined entrypoints, the card shows base URLs and curl command examples under the "Calling the API" section. For federated APIs with API key plans but no entrypoints, the card displays only the API keys table, hiding the empty "Calling the API" section. For federated APIs with keyless plans and no entrypoints, the entire API access card is hidden to avoid showing an empty section. When a subscription is in PENDING, REJECTED, PAUSED, or CLOSED status, the card always renders to display the subscription status message instead of access details.
 
 ## Delete federated APIs
 

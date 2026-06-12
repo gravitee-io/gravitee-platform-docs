@@ -25,9 +25,18 @@ When validating subscriptions, the gateway checks API Product subscriptions firs
 
 <figure><img src="../../.gitbook/assets/1 app sub 1.png" alt=""><figcaption></figcaption></figure>
 
-Use the eye icon to view subscription details.
+Use the eye icon to view subscription details. The API access card visibility depends on the API type (native vs federated), entrypoint availability, plan security type, and subscription status.
 
 <figure><img src="../../.gitbook/assets/1 app sub 3.png" alt=""><figcaption></figcaption></figure>
+
+The **Subscriptions** tab displays API access cards conditionally based on the API configuration:
+
+- **Native APIs**: Always show full access details for accepted subscriptions, including base URLs and curl command examples
+- **Federated APIs with keyless plans and no entrypoints**: Hide the entire API access card
+- **Federated APIs with API key plans and no entrypoints**: Show only the API keys table; the "Calling the API" section is hidden
+- **Federated APIs with defined entrypoints**: Show full access details regardless of plan type
+
+The [subscription flow](./) for federated APIs matches that of native APIs. However, the API access card display differs based on entrypoint availability to ensure users see only relevant subscription and access information.
 
 To filter subscriptions, use the **API** and **API Key** search fields and/or the **Status** drop-down menu. Subscriptions can have a status of accepted, closed, paused, pending, rejected, or resumed.
 

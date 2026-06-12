@@ -167,4 +167,13 @@
 * Both new fields are additive and disabled when their list is empty, so existing policy configurations are unaffected.
 <!-- /PIPELINE:APIM-13498 -->
 
+
+<!-- PIPELINE:APIM-14120 -->
+#### **Conditional API Access Card Display for Federated APIs**
+
+* The Developer Portal now hides the API access card for federated APIs with keyless plans when no entrypoint URLs are defined, ensuring users see only relevant subscription information.
+* For federated APIs with API key plans and no entrypoints, the access card displays only the API keys table while hiding the "Calling the API" section with base URLs and curl examples.
+* This improvement applies specifically to federated APIs ingested from third-party providers, where entrypoint URLs may not be available since the APIs remain hosted and managed by the provider.
+<!-- /PIPELINE:APIM-14120 -->
+
 ## Bug Fixes

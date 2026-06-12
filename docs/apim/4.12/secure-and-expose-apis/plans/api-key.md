@@ -30,6 +30,10 @@ By default, API keys are randomly generated for each subscription, but Gravitee 
 
     <figure><img src="../../.gitbook/assets/plan_key generation.png" alt=""><figcaption><p>API key generation settings</p></figcaption></figure>
 
+### Federated API subscriptions
+
+For federated APIs without entrypoints, API key plan subscriptions display only the API keys table in the Developer Portal. The "Calling the API" section with base URLs and curl examples is hidden when no entrypoint URLs are defined.
+
 ### Custom API key
 
 You can specify a custom API key for an API Key plan. This is particularly useful when you want to silently migrate to APIM and have a pre-defined API key. When prompted, you can choose to provide your custom API key or let APIM generate one for you by leaving the field empty.
