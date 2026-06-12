@@ -145,6 +145,17 @@
 * WSDL 2.0 is not supported; remote URLs must pass SSRF protection rules (private IPs blocked by default).
 <!-- /PIPELINE:APIM-12279 -->
 
+
+<!-- PIPELINE:APIM-13666 -->
+#### **Multi-Backend Kafka Routing (Virtual Clusters)**
+
+* Virtual clusters enable a single Kafka API to span multiple backend Kafka clusters, presenting them to clients as one unified cluster without requiring client-side topology awareness.
+* The gateway merges metadata from all backends, remaps broker IDs to a non-overlapping virtual address space (10,000 IDs per backend), and routes requests based on topic ownership determined by topic ID or name.
+* Consumer groups are routed to the backend cluster that owns their subscribed topics. Cross-cluster subscriptions are rejected in classic protocol mode and multiplexed via shadow groups in KIP-848 protocol mode.
+* Kafka Cluster entities provide reusable connection profiles that multiple APIs can reference. Each virtual cluster requires a minimum of two backend references to enable multi-cluster routing.
+* Internal topics (names starting with `__`) are excluded from merged metadata to prevent conflicts with system topics like `__consumer_offsets`.
+<!-- /PIPELINE:APIM-13666 -->
+
 ## Improvements
 
 

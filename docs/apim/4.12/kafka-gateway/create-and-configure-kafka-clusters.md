@@ -9,8 +9,9 @@ metaLinks:
 
 ## Overview
 
-
 The Kafka UI is accessible from the APIM Console. It is the user interface from which you can create and manage Kafka clusters, configure cluster connection information, and manage user access and permissions.
+
+Kafka clusters in Gravitee are reusable connection profiles to real Kafka backends. Each cluster can contain multiple connections, each specifying bootstrap servers and security configuration (PLAINTEXT, SSL, SASL_PLAINTEXT, or SASL_SSL). Multiple APIs can reference the same Kafka Cluster entity; updates to the entity propagate to all referencing APIs.
 
 ## Prerequisites
 
@@ -18,7 +19,7 @@ The Kafka UI is accessible from the APIM Console. It is the user interface from 
 Kafka Console is currently only available for self-hosted deployments and not compatible with next-gen cloud.
 {% endhint %}
 
-* You must have an Enterprise License with the apim-cluster feature. For more information about Gravitee Enterprise Edition, see [enterprise-edition.md](../readme/enterprise-edition.md "mention").
+* You must have an Enterprise License with the apim-cluster feature. For more information about Gravitee Enterprise Edition, see [enterprise-edition.md](../introduction/enterprise-edition.md "mention").
 
 ## Create a Kafka Cluster
 

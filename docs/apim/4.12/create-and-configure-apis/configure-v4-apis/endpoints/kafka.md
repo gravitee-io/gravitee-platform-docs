@@ -19,6 +19,14 @@ To proxy a Kafka cluster using the native Kafka protocol (over TCP), use the [Gr
 
 This page discusses the [configuration](kafka.md#configuration) and [implementation](kafka.md#implementation) of the Kafka endpoint and includes a [reference](kafka.md#reference) section.
 
+### Virtual Cluster Capability
+
+The Kafka endpoint supports **virtual cluster** routing, which enables a single Kafka API to span multiple backend Kafka clusters. Clients connect to a unified bootstrap address and interact with topics distributed across backends without awareness of the underlying topology.
+
+The gateway assigns each backend cluster a non-overlapping virtual broker ID range (10000–19999 for cluster 0, 20000–29999 for cluster 1, and so on). Real broker IDs are remapped to virtual IDs when served to clients. The gateway fetches metadata from all backend clusters in parallel, merges the results, and routes requests to the appropriate backend based on topic ownership.
+
+Virtual clusters are configured using the **Virtual Cluster** endpoint connector type when creating a Kafka API. For detailed configuration and usage instructions, refer to the [Kafka Gateway documentation](../../../kafka-gateway/create-and-configure-kafka-apis/create-kafka-apis.md#documentation).
+
 ### Routing Modes for Native Kafka APIs
 
 Native Kafka APIs support the following two routing strategies, controlled by the gateway configuration property `kafka.routingMode`:

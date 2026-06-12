@@ -123,6 +123,28 @@ Gravitee assigns each Kafka API endpoint group the default name **Default Broker
   * **PEM with path:** Enter the truststore file path and password and the keystore type.
 * **SASL\_SSL:** Configure both SASL authentication and SSL encryption, choose a **SASL** mechanism from the options listed under **SASL\_PLAINTEXT**, and then configure **SSL** settings as described in the **SSL** section.
 
+## Endpoint connector types
+
+Kafka APIs support three endpoint connector types, each designed for different configuration and reuse scenarios:
+
+| Type | ID | When to Use | Stores |
+|:-----|:---|:------------|:-------|
+| **Broker** | `native-kafka` | One-shot API where broker config is not reused elsewhere. Quickest setup. | Bootstrap servers directly (inline, `@Secret` annotated). |
+| **Cluster** | `native-kafka-cluster` | Reusable Cluster entity in this environment. Multiple APIs can share the same Cluster; changes propagate. | `{ clusterCrossId, connectionCrossId }` |
+| **Virtual Cluster** | `native-kafka-virtual-cluster` | API fans out across multiple backend clusters (MESH). | `{ virtualClusterCrossId }` |
+
+### Broker connector
+
+The Broker connector stores bootstrap servers and security configuration inline within the endpoint definition. This is the default connector type for new Kafka APIs and is suitable for APIs that don't share backend configuration with other APIs.
+
+### Cluster connector
+
+The Cluster connector references a reusable Kafka Cluster entity. Multiple APIs can reference the same Cluster entity; updates to the entity propagate to all referencing APIs. This connector type is suitable for environments where multiple APIs connect to the same backend cluster.
+
+### Virtual Cluster connector
+
+The Virtual Cluster connector references a Virtual Cluster entity that aggregates multiple backend Kafka clusters into a single logical cluster. Clients connect to a single bootstrap address and interact with topics distributed across backends without awareness of the underlying topology. This connector type is suitable for multi-region or multi-tenant Kafka deployments.
+
 ## Edit the endpoint
 
 Gravitee automatically assigns your Kafka API endpoint the name **Default Broker**. The Console endpoint table includes a **Tenants** column displaying comma-separated tenant names for each endpoint. The column is hidden if no endpoint in the group has tenants configured.
