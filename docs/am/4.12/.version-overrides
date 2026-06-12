@@ -7,3 +7,5 @@ releases-and-changelog/release-notes/am-4.12.md
 .gitbook/assets/am-cimd-settings-overview.png
 guides/applications/README.md
 guides/auth-protocols/oauth-2.0/cimd.md
+getting-started/configuration/configure-automation-api.md
+guides/automation-api.md
