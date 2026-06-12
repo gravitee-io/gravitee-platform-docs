@@ -3,6 +3,8 @@ description: Configuration guide for template.
 metaLinks:
   alternates:
     - template.md
+hidden: true
+noIndex: true
 ---
 
 # Template

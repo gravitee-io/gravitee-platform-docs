@@ -3,6 +3,8 @@ description: An overview about generate http signature.
 metaLinks:
   alternates:
     - generate-http-signature.md
+hidden: true
+noIndex: true
 ---
 
 # Generate HTTP Signature

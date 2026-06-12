@@ -3,6 +3,8 @@ description: Configuration guide for authentication.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # Authentication

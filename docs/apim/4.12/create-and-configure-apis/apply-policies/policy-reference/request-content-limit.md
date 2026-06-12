@@ -3,6 +3,8 @@ description: An overview about request content limit.
 metaLinks:
   alternates:
     - request-content-limit.md
+hidden: true
+noIndex: true
 ---
 
 # Request Content Limit

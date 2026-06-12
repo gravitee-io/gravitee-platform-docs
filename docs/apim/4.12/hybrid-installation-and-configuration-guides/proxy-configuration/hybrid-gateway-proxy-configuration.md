@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Hybrid Gateway Proxy Configuration
 
 ## Overview

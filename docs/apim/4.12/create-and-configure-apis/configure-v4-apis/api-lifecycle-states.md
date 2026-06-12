@@ -1,5 +1,7 @@
 ---
 description: Understand the lifecycle states for v4 APIs and the allowed transitions between them.
+hidden: true
+noIndex: true
 ---
 
 # API lifecycle states

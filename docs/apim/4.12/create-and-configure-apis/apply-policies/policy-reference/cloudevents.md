@@ -1,5 +1,7 @@
 ---
 description: Configuration guide for cloudevents.
+hidden: true
+noIndex: true
 ---
 
 # CloudEvents

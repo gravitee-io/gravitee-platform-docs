@@ -3,6 +3,8 @@ description: Configuration guide for websocket.
 metaLinks:
   alternates:
     - websocket.md
+hidden: true
+noIndex: true
 ---
 
 # WebSocket

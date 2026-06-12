@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # System Proxy for Backend APIs
 
 ## Overview

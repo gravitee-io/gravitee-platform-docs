@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Consuming APIs via API Products
 
 ## Overview

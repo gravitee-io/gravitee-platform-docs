@@ -1,5 +1,7 @@
 ---
 description: Tutorial on classic developer portal.
+hidden: true
+noIndex: true
 ---
 
 # Classic Developer Portal

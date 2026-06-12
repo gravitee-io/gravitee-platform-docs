@@ -3,6 +3,8 @@ description: An overview about ai - prompt guard rails.
 metaLinks:
   alternates:
     - ai-prompt-guard-rails.md
+hidden: true
+noIndex: true
 ---
 
 # AI - Prompt Guard Rails

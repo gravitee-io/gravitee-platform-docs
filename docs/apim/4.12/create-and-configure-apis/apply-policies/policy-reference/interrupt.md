@@ -3,6 +3,8 @@ description: An overview about interrupt.
 metaLinks:
   alternates:
     - interrupt.md
+hidden: true
+noIndex: true
 ---
 
 # Interrupt

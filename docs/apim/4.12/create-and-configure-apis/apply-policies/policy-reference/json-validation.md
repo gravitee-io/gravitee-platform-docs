@@ -3,6 +3,8 @@ description: An overview about json validation.
 metaLinks:
   alternates:
     - json-validation.md
+hidden: true
+noIndex: true
 ---
 
 # JSON Validation

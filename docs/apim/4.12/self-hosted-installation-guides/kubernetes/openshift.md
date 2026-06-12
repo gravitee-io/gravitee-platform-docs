@@ -3,6 +3,8 @@ description: Configuration guide for openshift.
 metaLinks:
   alternates:
     - openshift.md
+hidden: true
+noIndex: true
 ---
 
 # OpenShift

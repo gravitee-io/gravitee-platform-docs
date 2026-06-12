@@ -3,6 +3,8 @@ description: An overview about gravitee.io am authorization server.
 metaLinks:
   alternates:
     - gravitee.io-am-authorization-server.md
+hidden: true
+noIndex: true
 ---
 
 # Gravitee.io AM Authorization Server

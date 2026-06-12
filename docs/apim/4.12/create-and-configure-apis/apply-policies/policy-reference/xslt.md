@@ -3,6 +3,8 @@ description: An overview about xslt.
 metaLinks:
   alternates:
     - xslt.md
+hidden: true
+noIndex: true
 ---
 
 # XSLT

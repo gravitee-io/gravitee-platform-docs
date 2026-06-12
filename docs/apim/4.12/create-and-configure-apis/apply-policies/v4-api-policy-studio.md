@@ -3,6 +3,8 @@ description: An overview about v4 api policy studio.
 metaLinks:
   alternates:
     - v4-api-policy-studio.md
+hidden: true
+noIndex: true
 ---
 
 # v4 API Policy Studio

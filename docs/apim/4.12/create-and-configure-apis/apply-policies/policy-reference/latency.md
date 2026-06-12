@@ -3,6 +3,8 @@ description: An overview about latency.
 metaLinks:
   alternates:
     - latency.md
+hidden: true
+noIndex: true
 ---
 
 # Latency

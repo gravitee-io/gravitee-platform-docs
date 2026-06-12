@@ -3,6 +3,8 @@ description: An overview about rpm.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # RPM

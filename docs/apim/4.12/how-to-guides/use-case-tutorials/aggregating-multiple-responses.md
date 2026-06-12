@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Aggregating multiple responses
 
 ## Overview

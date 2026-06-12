@@ -3,6 +3,8 @@ description: An overview about ssl enforcement.
 metaLinks:
   alternates:
     - ssl-enforcement.md
+hidden: true
+noIndex: true
 ---
 
 # SSL Enforcement

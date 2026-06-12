@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Implement BFF pattern (with a Shared Policy Group)
 
 ## Overview

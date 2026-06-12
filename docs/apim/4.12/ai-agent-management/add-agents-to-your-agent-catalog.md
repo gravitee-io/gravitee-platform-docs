@@ -3,6 +3,8 @@ description: An overview about discover and catalog ai agents (a2a).
 metaLinks:
   alternates:
     - add-agents-to-your-agent-catalog.md
+hidden: true
+noIndex: true
 ---
 
 # Discover and Catalog AI Agents (A2A)

@@ -3,6 +3,8 @@ description: An overview about override http method.
 metaLinks:
   alternates:
     - override-http-method.md
+hidden: true
+noIndex: true
 ---
 
 # Override HTTP Method

@@ -3,6 +3,8 @@ description: An overview about configuration.
 metaLinks:
   alternates:
     - configuration.md
+hidden: true
+noIndex: true
 ---
 
 # Configuration

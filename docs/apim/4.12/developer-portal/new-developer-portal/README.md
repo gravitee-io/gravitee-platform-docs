@@ -1,5 +1,7 @@
 ---
 description: Tutorial on new developer portal.
+hidden: true
+noIndex: true
 ---
 
 # New Developer Portal

@@ -3,6 +3,8 @@ description: Configuration guide for federation.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # Federation

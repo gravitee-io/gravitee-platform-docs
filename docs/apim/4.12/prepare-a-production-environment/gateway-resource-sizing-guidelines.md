@@ -3,6 +3,8 @@ description: An overview about gateway resource sizing.
 metaLinks:
   alternates:
     - gateway-resource-sizing-guidelines.md
+hidden: true
+noIndex: true
 ---
 
 # Gateway Resource Sizing

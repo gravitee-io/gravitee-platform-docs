@@ -3,6 +3,8 @@ description: Guide on applying policies related to interops.
 metaLinks:
   alternates:
     - interops.md
+hidden: true
+noIndex: true
 ---
 
 # InterOPS

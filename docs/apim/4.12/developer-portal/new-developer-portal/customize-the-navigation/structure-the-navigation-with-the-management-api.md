@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Structure the navigation with the Management API
 
 ## Overview

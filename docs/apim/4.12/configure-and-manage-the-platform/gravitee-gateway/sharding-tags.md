@@ -3,6 +3,8 @@ description: An overview about sharding tags.
 metaLinks:
   alternates:
     - sharding-tags.md
+hidden: true
+noIndex: true
 ---
 
 # Sharding Tags

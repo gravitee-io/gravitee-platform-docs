@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Consume your LLM proxy with the OpenAI Python SDK
 
 ## Overview&#x20;

@@ -3,6 +3,8 @@ description: Configuration guide for default apim settings.
 metaLinks:
   alternates:
     - default-apim-settings.md
+hidden: true
+noIndex: true
 ---
 
 # Default APIM Settings

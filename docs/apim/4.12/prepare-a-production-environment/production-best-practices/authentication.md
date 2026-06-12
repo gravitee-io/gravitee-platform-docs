@@ -1,5 +1,7 @@
 ---
 description: Configuration guide for authentication.
+hidden: true
+noIndex: true
 ---
 
 # Authentication

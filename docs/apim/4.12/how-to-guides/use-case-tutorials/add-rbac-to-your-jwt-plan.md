@@ -3,6 +3,8 @@ description: An overview about add rbac to your jwt plan.
 metaLinks:
   alternates:
     - add-rbac-to-your-jwt-plan.md
+hidden: true
+noIndex: true
 ---
 
 # Add RBAC to your JWT Plan

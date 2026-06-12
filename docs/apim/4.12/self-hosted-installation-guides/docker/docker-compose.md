@@ -3,6 +3,8 @@ description: An overview about docker compose.
 metaLinks:
   alternates:
     - docker-compose.md
+hidden: true
+noIndex: true
 ---
 
 # Docker Compose

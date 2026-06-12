@@ -3,6 +3,8 @@ description: Configuration guide for server-sent events.
 metaLinks:
   alternates:
     - server-sent-events.md
+hidden: true
+noIndex: true
 ---
 
 # Server-Sent Events

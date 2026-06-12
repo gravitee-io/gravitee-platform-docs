@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # API Products restrictions and licensing
 
 ## Licensing

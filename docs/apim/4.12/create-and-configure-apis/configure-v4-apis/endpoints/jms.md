@@ -3,6 +3,8 @@ description: An overview about JMS.
 metaLinks:
   alternates:
     - jms.md
+hidden: true
+noIndex: true
 ---
 
 # JMS

@@ -3,6 +3,8 @@ description: An overview about apigee x.
 metaLinks:
   alternates:
     - apigee-x.md
+hidden: true
+noIndex: true
 ---
 
 # Apigee X

@@ -1,5 +1,7 @@
 ---
 description: An overview about fully self-hosted installation with  vanilla kubernetes.
+hidden: true
+noIndex: true
 ---
 
 # Fully self-hosted installation with Vanilla Kubernetes

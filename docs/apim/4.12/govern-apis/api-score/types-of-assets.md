@@ -3,6 +3,8 @@ description: An overview about types of assets.
 metaLinks:
   alternates:
     - types-of-assets.md
+hidden: true
+noIndex: true
 ---
 
 # Types of Assets

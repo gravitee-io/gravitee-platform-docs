@@ -3,6 +3,8 @@ description: An overview about enable api score.
 metaLinks:
   alternates:
     - enable-api-score.md
+hidden: true
+noIndex: true
 ---
 
 # Enable API Score

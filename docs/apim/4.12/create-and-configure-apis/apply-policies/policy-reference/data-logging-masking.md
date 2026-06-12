@@ -3,6 +3,8 @@ description: An overview about data logging masking.
 metaLinks:
   alternates:
     - data-logging-masking.md
+hidden: true
+noIndex: true
 ---
 
 # Data Logging Masking

@@ -3,6 +3,8 @@ description: Information about docker.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # Docker

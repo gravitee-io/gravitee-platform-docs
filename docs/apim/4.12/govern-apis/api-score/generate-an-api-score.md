@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Generate an API Score
 
 ## Overview

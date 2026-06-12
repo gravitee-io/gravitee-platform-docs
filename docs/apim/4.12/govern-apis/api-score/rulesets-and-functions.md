@@ -3,6 +3,8 @@ description: An overview about rulesets and functions.
 metaLinks:
   alternates:
     - rulesets-and-functions.md
+hidden: true
+noIndex: true
 ---
 
 # Rulesets and Functions

@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # PII Filtering
 
 ## Overview

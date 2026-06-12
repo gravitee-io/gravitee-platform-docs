@@ -1,5 +1,7 @@
 ---
 description: An overview about ai - prompt token tracking.
+hidden: true
+noIndex: true
 ---
 
 # AI - Prompt Token Tracking

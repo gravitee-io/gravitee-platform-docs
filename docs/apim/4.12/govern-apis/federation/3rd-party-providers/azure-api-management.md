@@ -3,6 +3,8 @@ description: An overview about azure api management.
 metaLinks:
   alternates:
     - azure-api-management.md
+hidden: true
+noIndex: true
 ---
 
 # Azure API Management

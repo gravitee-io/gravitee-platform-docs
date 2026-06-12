@@ -3,6 +3,8 @@ description: An overview about deploy a kafka gateway with gravitee cloud.
 metaLinks:
   alternates:
     - deploy-a-kafka-gateway-with-gravitee-cloud.md
+hidden: true
+noIndex: true
 ---
 
 # Deploy a Kafka Gateway with Gravitee Cloud

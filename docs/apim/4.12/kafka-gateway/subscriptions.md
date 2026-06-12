@@ -3,6 +3,8 @@ description: An overview about subscriptions.
 metaLinks:
   alternates:
     - subscriptions.md
+hidden: true
+noIndex: true
 ---
 
 # Subscriptions

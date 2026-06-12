@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Table of contents
   * [Introduction](README.md)
     * [Core Concepts](introduction/core-concepts.md)

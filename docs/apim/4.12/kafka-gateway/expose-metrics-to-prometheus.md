@@ -3,6 +3,8 @@ description: An overview about expose metrics to prometheus.
 metaLinks:
   alternates:
     - expose-metrics-to-prometheus.md
+hidden: true
+noIndex: true
 ---
 
 # Expose Metrics to Prometheus

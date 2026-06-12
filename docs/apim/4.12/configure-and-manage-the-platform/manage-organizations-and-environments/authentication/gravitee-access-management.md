@@ -3,6 +3,8 @@ description: An overview about gravitee access management.
 metaLinks:
   alternates:
     - gravitee-access-management.md
+hidden: true
+noIndex: true
 ---
 
 # Gravitee Access Management

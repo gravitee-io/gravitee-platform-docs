@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Hazelcast Rate-Limit Repository Restrictions and Known Limitations
 
 ## Restrictions

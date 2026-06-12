@@ -1,5 +1,7 @@
 ---
 description: An overview about produce and consume kafka messages with gravitee cloud.
+hidden: true
+noIndex: true
 ---
 
 # Produce and Consume Kafka Messages with Gravitee Cloud

@@ -3,6 +3,8 @@ description: Tutorial on use case tutorials.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # Use Case Tutorials

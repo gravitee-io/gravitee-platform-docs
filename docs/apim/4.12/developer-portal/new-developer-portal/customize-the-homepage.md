@@ -1,5 +1,7 @@
 ---
 description: An overview about customize the homepage.
+hidden: true
+noIndex: true
 ---
 
 # Customize the Homepage

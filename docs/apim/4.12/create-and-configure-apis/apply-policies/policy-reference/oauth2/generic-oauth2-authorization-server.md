@@ -3,6 +3,8 @@ description: An overview about generic oauth2 authorization server.
 metaLinks:
   alternates:
     - generic-oauth2-authorization-server.md
+hidden: true
+noIndex: true
 ---
 
 # Generic OAuth2 Authorization Server

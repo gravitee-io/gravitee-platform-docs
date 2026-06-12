@@ -3,6 +3,8 @@ description: Documentation about api review and quality in the context of APIs.
 metaLinks:
   alternates:
     - api-review-and-quality.md
+hidden: true
+noIndex: true
 ---
 
 # API Review and Quality

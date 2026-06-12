@@ -3,6 +3,8 @@ description: An overview about community forum.
 metaLinks:
   alternates:
     - community-forum.md
+hidden: true
+noIndex: true
 ---
 
 # Community Forum

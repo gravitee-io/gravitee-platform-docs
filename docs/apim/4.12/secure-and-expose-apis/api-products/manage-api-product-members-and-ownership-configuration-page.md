@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Manage API Product Members and Ownership
 
 ## Prerequisites

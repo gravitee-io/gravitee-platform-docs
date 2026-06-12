@@ -3,6 +3,8 @@ description: Release notes
 metaLinks:
   alternates:
     - release-notes.md
+hidden: true
+noIndex: true
 ---
 
 # Release notes

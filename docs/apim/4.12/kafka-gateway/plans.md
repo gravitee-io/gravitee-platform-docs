@@ -3,6 +3,8 @@ description: An overview about plans.
 metaLinks:
   alternates:
     - plans.md
+hidden: true
+noIndex: true
 ---
 
 # Plans

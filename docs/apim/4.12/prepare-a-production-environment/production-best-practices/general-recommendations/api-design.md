@@ -3,6 +3,8 @@ description: Tutorial on api design.
 metaLinks:
   alternates:
     - api-design.md
+hidden: true
+noIndex: true
 ---
 
 # API Design

@@ -3,6 +3,8 @@ description: An overview about push.
 metaLinks:
   alternates:
     - push.md
+hidden: true
+noIndex: true
 ---
 
 # Push

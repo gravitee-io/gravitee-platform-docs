@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Context-aware logging
 
 ## Overview

@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Gateway Configuration for mTLS Certificate Management
 
 ## Certificate Validation

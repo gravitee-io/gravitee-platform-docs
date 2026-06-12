@@ -3,6 +3,8 @@ description: Configuration guide for http get.
 metaLinks:
   alternates:
     - http-get.md
+hidden: true
+noIndex: true
 ---
 
 # HTTP GET

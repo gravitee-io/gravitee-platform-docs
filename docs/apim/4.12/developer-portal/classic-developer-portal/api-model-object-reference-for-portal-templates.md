@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # API Model Object Reference for Portal Templates
 
 ## API model object

@@ -3,6 +3,8 @@ description: Documentation about federation agent service account in the context
 metaLinks:
   alternates:
     - federation-agent-service-account.md
+hidden: true
+noIndex: true
 ---
 
 # Federation Agent Service Account

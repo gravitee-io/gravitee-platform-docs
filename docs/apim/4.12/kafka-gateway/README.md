@@ -3,6 +3,8 @@ description: Configuration guide for kafka gateway.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # Kafka Gateway

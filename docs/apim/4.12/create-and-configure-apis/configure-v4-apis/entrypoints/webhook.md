@@ -3,6 +3,8 @@ description: Configuration guide for webhook.
 metaLinks:
   alternates:
     - webhook.md
+hidden: true
+noIndex: true
 ---
 
 # Webhook

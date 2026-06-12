@@ -3,6 +3,8 @@ description: An overview about resource filtering.
 metaLinks:
   alternates:
     - resource-filtering.md
+hidden: true
+noIndex: true
 ---
 
 # Resource Filtering

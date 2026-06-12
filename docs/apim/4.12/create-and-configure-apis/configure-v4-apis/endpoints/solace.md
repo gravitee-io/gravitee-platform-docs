@@ -3,6 +3,8 @@ description: An overview about solace.
 metaLinks:
   alternates:
     - solace.md
+hidden: true
+noIndex: true
 ---
 
 # Solace

@@ -2,6 +2,8 @@
 description: >-
   This guide covers every supported deployment pattern for the Gravitee APIM
   Console and Portal UIs
+hidden: true
+noIndex: true
 ---
 
 # Configuring Portal and Console deployments

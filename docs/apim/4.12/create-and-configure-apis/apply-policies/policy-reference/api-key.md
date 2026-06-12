@@ -3,6 +3,8 @@ description: An overview about api key.
 metaLinks:
   alternates:
     - api-key.md
+hidden: true
+noIndex: true
 ---
 
 # API Key

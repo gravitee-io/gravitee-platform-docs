@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # MCP Usage Dashboard
 
 ## Overview

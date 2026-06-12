@@ -3,6 +3,8 @@ description: Configure the Kafka endpoint connector for v4 Message APIs, includi
 metaLinks:
   alternates:
     - kafka.md
+hidden: true
+noIndex: true
 ---
 
 # Kafka

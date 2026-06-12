@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Configure API Product Primary Owner Mode and Group Defaults
 
 ## Configure API Product Primary Owner mode

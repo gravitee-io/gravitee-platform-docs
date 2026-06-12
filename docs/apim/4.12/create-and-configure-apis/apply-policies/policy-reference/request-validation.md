@@ -3,6 +3,8 @@ description: An overview about request validation.
 metaLinks:
   alternates:
     - request-validation.md
+hidden: true
+noIndex: true
 ---
 
 # Request Validation

@@ -1,5 +1,7 @@
 ---
 description: An overview about rate limit.
+hidden: true
+noIndex: true
 ---
 
 # Rate Limit

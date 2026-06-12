@@ -3,6 +3,8 @@ description: An overview about dynamic routing.
 metaLinks:
   alternates:
     - dynamic-routing.md
+hidden: true
+noIndex: true
 ---
 
 # Dynamic Routing

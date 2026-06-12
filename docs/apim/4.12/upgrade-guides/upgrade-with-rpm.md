@@ -3,6 +3,8 @@ description: An overview about upgrade with rpm.
 metaLinks:
   alternates:
     - upgrade-with-rpm.md
+hidden: true
+noIndex: true
 ---
 
 # Upgrade with RPM

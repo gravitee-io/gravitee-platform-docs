@@ -3,6 +3,8 @@ description: An overview about kafka transform key.
 metaLinks:
   alternates:
     - kafka-transform-key.md
+hidden: true
+noIndex: true
 ---
 
 # Kafka Transform Key

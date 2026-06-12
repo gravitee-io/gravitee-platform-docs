@@ -3,6 +3,8 @@ description: An overview about custom query parameters parser.
 metaLinks:
   alternates:
     - custom-query-parameters-parser.md
+hidden: true
+noIndex: true
 ---
 
 # Custom Query Parameters Parser

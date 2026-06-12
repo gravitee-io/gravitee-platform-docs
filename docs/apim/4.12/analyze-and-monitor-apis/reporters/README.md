@@ -3,6 +3,8 @@ description: An overview about reporters.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # Reporters

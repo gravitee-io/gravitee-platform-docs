@@ -3,6 +3,8 @@ description: Documentation about notifiers in the context of APIs.
 metaLinks:
   alternates:
     - notifiers.md
+hidden: true
+noIndex: true
 ---
 
 # Notifiers

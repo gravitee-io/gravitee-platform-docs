@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Secure MCP Proxy with OAuth2
 
 ## Overview

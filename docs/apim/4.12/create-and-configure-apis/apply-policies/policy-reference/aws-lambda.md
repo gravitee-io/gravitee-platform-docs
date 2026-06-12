@@ -1,5 +1,7 @@
 ---
 description: An overview about aws lambda.
+hidden: true
+noIndex: true
 ---
 
 # AWS Lambda

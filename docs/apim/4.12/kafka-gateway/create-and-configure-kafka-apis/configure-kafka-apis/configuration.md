@@ -1,5 +1,7 @@
 ---
 description: An overview about configuration.
+hidden: true
+noIndex: true
 ---
 
 # Configuration

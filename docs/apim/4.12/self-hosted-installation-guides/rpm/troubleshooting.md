@@ -3,6 +3,8 @@ description: Configuration guide for troubleshooting.
 metaLinks:
   alternates:
     - troubleshooting.md
+hidden: true
+noIndex: true
 ---
 
 # Troubleshooting

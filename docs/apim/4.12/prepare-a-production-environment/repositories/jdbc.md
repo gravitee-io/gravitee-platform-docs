@@ -3,6 +3,8 @@ description: An overview about jdbc.
 metaLinks:
   alternates:
     - jdbc.md
+hidden: true
+noIndex: true
 ---
 
 # JDBC

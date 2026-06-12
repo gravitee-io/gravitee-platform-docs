@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Configure authentication with SSO
 
 ## Overview&#x20;

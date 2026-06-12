@@ -3,6 +3,8 @@ description: Documentation about classic cloud in the context of APIs.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # Classic Cloud

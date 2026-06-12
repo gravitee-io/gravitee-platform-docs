@@ -3,6 +3,8 @@ description: An overview about mock.
 metaLinks:
   alternates:
     - mock.md
+hidden: true
+noIndex: true
 ---
 
 # Mock

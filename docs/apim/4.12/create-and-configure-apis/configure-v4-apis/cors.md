@@ -3,6 +3,8 @@ description: An overview about cors.
 metaLinks:
   alternates:
     - cors.md
+hidden: true
+noIndex: true
 ---
 
 # CORS

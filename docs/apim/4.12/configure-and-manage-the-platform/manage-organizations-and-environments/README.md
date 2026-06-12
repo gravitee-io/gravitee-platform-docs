@@ -3,6 +3,8 @@ description: An overview about manage organizations & environments.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # Manage Organizations & Environments

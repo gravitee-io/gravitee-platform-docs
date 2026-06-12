@@ -3,6 +3,8 @@ description: Configuration guide for elasticsearch reporter.
 metaLinks:
   alternates:
     - elasticsearch-reporter.md
+hidden: true
+noIndex: true
 ---
 
 # Elasticsearch Reporter

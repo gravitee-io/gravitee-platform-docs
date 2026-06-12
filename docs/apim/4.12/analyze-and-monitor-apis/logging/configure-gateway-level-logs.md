@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Configure Gateway-level Logs
 
 ## Overview

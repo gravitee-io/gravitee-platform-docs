@@ -1,5 +1,7 @@
 ---
 description: An overview about authentication providers.
+hidden: true
+noIndex: true
 ---
 
 # Authentication Providers

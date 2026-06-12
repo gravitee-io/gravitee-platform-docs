@@ -3,6 +3,8 @@ description: An overview about create an api.
 metaLinks:
   alternates:
     - create-an-api.md
+hidden: true
+noIndex: true
 ---
 
 # Create an API

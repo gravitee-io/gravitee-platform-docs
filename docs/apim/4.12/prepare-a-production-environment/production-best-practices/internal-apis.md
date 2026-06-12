@@ -3,6 +3,8 @@ description: An overview about internal apis.
 metaLinks:
   alternates:
     - internal-apis.md
+hidden: true
+noIndex: true
 ---
 
 # Internal APIs

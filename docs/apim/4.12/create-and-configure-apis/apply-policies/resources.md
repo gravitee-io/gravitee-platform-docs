@@ -3,6 +3,8 @@ description: An overview about resources.
 metaLinks:
   alternates:
     - resources.md
+hidden: true
+noIndex: true
 ---
 
 # Resources

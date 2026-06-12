@@ -3,6 +3,8 @@ description: An overview about version history.
 metaLinks:
   alternates:
     - version-history.md
+hidden: true
+noIndex: true
 ---
 
 # Version History

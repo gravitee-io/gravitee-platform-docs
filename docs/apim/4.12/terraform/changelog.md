@@ -3,6 +3,8 @@ description: Changelogs
 metaLinks:
   alternates:
     - changelog.md
+hidden: true
+noIndex: true
 ---
 
 

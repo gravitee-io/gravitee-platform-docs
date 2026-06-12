@@ -3,6 +3,8 @@ description: An overview about shared policy groups.
 metaLinks:
   alternates:
     - shared-policy-groups.md
+hidden: true
+noIndex: true
 ---
 
 # Shared Policy Groups

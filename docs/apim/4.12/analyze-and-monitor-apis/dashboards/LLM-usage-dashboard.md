@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # LLM Usage Dashboard
 
 ## Overview

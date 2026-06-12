@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Promote APIs
 
 Overview

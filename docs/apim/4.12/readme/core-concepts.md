@@ -3,6 +3,8 @@ description: An overview about core concepts.
 metaLinks:
   alternates:
     - core-concepts.md
+hidden: true
+noIndex: true
 ---
 
 # Core Concepts

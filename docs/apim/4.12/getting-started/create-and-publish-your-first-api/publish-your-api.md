@@ -3,6 +3,8 @@ description: An overview about publish your api.
 metaLinks:
   alternates:
     - publish-your-api.md
+hidden: true
+noIndex: true
 ---
 
 # Publish your API

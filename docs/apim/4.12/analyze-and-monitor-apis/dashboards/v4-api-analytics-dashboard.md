@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # V4 API analytics dashboard
 
 ## Overview

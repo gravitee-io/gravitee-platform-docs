@@ -3,6 +3,8 @@ description: Guide on applying policies related to create & publish your first a
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # Create & Publish Your First API

@@ -1,5 +1,7 @@
 ---
 description: Configure automatic cleanup of events and audit data from the database.
+hidden: true
+noIndex: true
 ---
 
 # Cleanup Services

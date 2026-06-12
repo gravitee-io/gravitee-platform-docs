@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # WSDL Import for v4 APIs
 
 ## Overview

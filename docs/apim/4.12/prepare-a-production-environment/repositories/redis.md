@@ -3,6 +3,8 @@ description: An overview about redis.
 metaLinks:
   alternates:
     - redis.md
+hidden: true
+noIndex: true
 ---
 
 # Redis

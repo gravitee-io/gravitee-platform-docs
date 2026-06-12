@@ -3,6 +3,8 @@ description: An overview about jws validator.
 metaLinks:
   alternates:
     - jws-validator.md
+hidden: true
+noIndex: true
 ---
 
 # JWS Validator

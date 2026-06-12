@@ -3,6 +3,8 @@ description: An overview about developer portal.
 metaLinks:
   alternates:
     - developer-portal.md
+hidden: true
+noIndex: true
 ---
 
 # Developer Portal

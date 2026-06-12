@@ -3,6 +3,8 @@ description: An overview about transform headers.
 metaLinks:
   alternates:
     - transform-headers.md
+hidden: true
+noIndex: true
 ---
 
 # Transform Headers

@@ -1,5 +1,7 @@
 ---
 description: An overview about opentelemetry.
+hidden: true
+noIndex: true
 ---
 
 # OpenTelemetry

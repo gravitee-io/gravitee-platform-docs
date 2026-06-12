@@ -3,6 +3,8 @@ description: An overview about reference secrets in apis.
 metaLinks:
   alternates:
     - reference-secrets-in-apis.md
+hidden: true
+noIndex: true
 ---
 
 # Reference Secrets in APIs

@@ -3,6 +3,8 @@ description: Documentation about secure & expose apis in the context of APIs.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # Secure & Expose APIs

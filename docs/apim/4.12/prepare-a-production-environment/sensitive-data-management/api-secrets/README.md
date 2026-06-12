@@ -3,6 +3,8 @@ description: Configuration guide for api secrets.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # API Secrets

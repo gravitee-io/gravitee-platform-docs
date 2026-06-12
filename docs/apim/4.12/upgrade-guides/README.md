@@ -3,6 +3,8 @@ description: Documentation about upgrade guides in the context of APIs.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # Upgrade Guides

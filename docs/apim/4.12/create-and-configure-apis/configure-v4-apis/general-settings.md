@@ -3,6 +3,8 @@ description: An overview about general settings.
 metaLinks:
   alternates:
     - general-settings.md
+hidden: true
+noIndex: true
 ---
 
 # General Settings

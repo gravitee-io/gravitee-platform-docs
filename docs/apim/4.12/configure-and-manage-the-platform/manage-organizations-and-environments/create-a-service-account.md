@@ -3,6 +3,8 @@ description: Create a service account in Gravitee API Management for non-human a
 metaLinks:
   alternates:
     - create-a-service-account.md
+hidden: true
+noIndex: true
 ---
 
 # Create a service account

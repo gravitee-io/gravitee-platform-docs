@@ -1,5 +1,7 @@
 ---
 description: Set up IAM role-based authentication for the AWS API Gateway federation agent.
+hidden: true
+noIndex: true
 ---
 
 # AWS IAM Role-Based Authentication
