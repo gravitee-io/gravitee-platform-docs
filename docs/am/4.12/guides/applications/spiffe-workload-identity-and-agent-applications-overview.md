@@ -16,21 +16,11 @@ Agent applications represent AI agents that act on behalf of users or autonomous
 | HOSTED_DELEGATED | Agents hosted by the platform that act on behalf of users | `authorization_code` (for user delegation) and `client_credentials` (for autonomous tasks) | At least one redirect URI required | End user in `sub` (authorization_code); agent instance in `sub` (client_credentials) |
 | AUTONOMOUS | Fully autonomous agents with no user context | `client_credentials` | No redirect URIs required | Agent instance in `sub` |
 
-All agent applications emit a `client_profile` claim (for example: `"ai_agent autonomous"`) in issued tokens. Agent applications can be marked as DCR/CIMD registration templates via the "Use as DCR / CIMD registration template" toggle. When used as a template, the blueprint application ID is permitted as the `software_id` in dynamic client registration requests.
+All agent applications emit a `client_profile` claim (for example: `"ai_agent autonomous"`) in issued tokens. Agent applications can be marked as DCR/CIMD registration templates via the "Use as DCR / CIMD registration template" toggle.
 
 ### SPIFFE Workload Identity
 
-SPIFFE (Secure Production Identity Framework For Everyone) provides cryptographically verifiable workload identities. Agents authenticate to Access Management by presenting a JWT-SVID (SPIFFE Verifiable Identity Document) issued by their SPIRE deployment. AM validates the SVID against a registered trust domain's JWKS bundle and matches the SPIFFE ID against the application's configured subject.
-
-#### SVID Validation Rules
-
-AM validates JWT-SVIDs according to the following rules:
-
-- JWT header `typ` must be `JWT`
-- Signing algorithm must be in the trust domain's allowed algorithms list (no `none` or HMAC algorithms)
-- `sub` claim must be a SPIFFE ID inside the configured trust domain (format: `spiffe://<trust-domain>/<path>`)
-- `aud` claim must include the token endpoint URL
-- `iat`, `exp`, and `nbf` claims must be within bounds, with clock-skew tolerance applied
+SPIFFE (Secure Production Identity Framework For Everyone) provides cryptographically verifiable workload identities. Agents authenticate to Access Management by presenting a JWT-SVID (SPIFFE Verifiable Identity Document) issued by their SPIRE deployment. AM validates the SVID's signature against a registered trust domain's JWKS bundle, confirms the SPIFFE ID belongs to that trust domain, and checks the audience and expiry before matching the SPIFFE ID against the application's configured subject.
 
 #### Subject Match Modes
 
@@ -65,4 +55,3 @@ CIMD allows administrators to create applications by referencing a hosted metada
 - For PREFIX subject matching: application type must be AGENT with persona HOSTED_DELEGATED or AUTONOMOUS
 - `APPLICATION[CREATE]` permission required for CIMD validation and application creation endpoints
 - CIMD must be enabled for the domain to use CIMD-based application creation
-- Database migration required (adds `applications.sub_type` column and creates `trust_domains` table)

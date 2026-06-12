@@ -33,7 +33,7 @@
 
 * AM now supports SPIFFE workload identity authentication, enabling secure machine-to-machine communication using cryptographically verifiable identities instead of static credentials.
 * Configure SPIFFE trust domains to validate JWT-SVIDs from external workload identity providers like SPIRE, with support for JWKS URL or static bundle sources.
-* Create Agent applications with three persona types: Autonomous (self-contained AI agents), Hosted Delegated (human-supervised agents), and standard Agents for programmatic access.
+* Create Agent applications with three persona types: Autonomous (self-contained AI agents), Hosted Delegated (platform-hosted agents acting on behalf of users), and User-Embedded (agents embedded in user-facing applications).
 * Enable Client ID Metadata Document (CIMD) support to allow dynamic client registration and metadata discovery with built-in SSRF protection for private IP addresses and unsecured URIs.
 * SPIFFE authentication uses the `spiffe_jwt` token endpoint authentication method and requires trust domain configuration at the security domain level.
 <!-- /PIPELINE:AM-7077 -->
