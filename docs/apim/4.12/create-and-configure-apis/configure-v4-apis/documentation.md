@@ -229,13 +229,26 @@ To edit or delete folders or pages, or to change the documentation structure, se
 
 **Edit folders:** To edit a folder's name or visibility, click on the pencil icon in the folder's entry, change the name and/or visibility, then click **Save**. The changes made to a folder's visibility will impact who can see it in the Developer Portal.
 
+Visibility changes propagate differently depending on the action:
+
+| Action | Propagation Rule |
+|:-------|:-----------------|
+| Set folder/API to PRIVATE | Sets all nested documentation and APIs to PRIVATE |
+| Set folder/API to PUBLIC | No propagation (children remain at their current visibility) |
+
 **Edit pages:** To edit an existing page, click on the pencil icon in the page's entry, and change the name, visibility, and/or content, where both user-created and imported content can be edited via the Markdown editor. By enabling **Toggle preview**, you can view the content you enter and the rendered page side-by-side. Next, if the page is already published, click **Publish changes**. If the page is not published, you will have the option to **Save** or **Save and publish** your changes.
 
-**Publish/unpublish:** To publish or unpublish a page, click the cloud icon.
+**Publish/unpublish:** To publish or unpublish a page, click the cloud icon. When you publish or unpublish a folder or API section, the action automatically applies to all nested documentation pages, sub-folders, and APIs within it. A confirmation dialog appears before the operation:
+
+* **Unpublish confirmation:** "Unpublishing this folder will also unpublish all nested documentation and APIs. This action cannot be undone automatically. Do you want to proceed?"
+* **Publish confirmation:** "Publishing this folder will also publish all nested documentation and APIs. Do you want to proceed?"
 
 **Reorder:** To change the order of pages and folders in a directory, use the up and down arrows.
 
-**Delete:** To delete a page or folder, click the associated trash icon. Only empty folders can be deleted.
+**Delete:** To delete a page or folder, click the associated trash icon. When you delete a folder or API section, the action permanently removes the container and all nested folders, pages, and their content. A confirmation dialog appears before deletion:
+
+* **Non-empty container:** "This folder and all its nested items will be permanently deleted. This cannot be undone."
+* **Leaf item:** "This folder will no longer appear on your site."
 
 ## Link pages
 
