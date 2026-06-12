@@ -167,4 +167,13 @@
 * Both new fields are additive and disabled when their list is empty, so existing policy configurations are unaffected.
 <!-- /PIPELINE:APIM-13498 -->
 
+
+<!-- PIPELINE:APIM-14411 -->
+#### **Delete Empty Folders in API Documentation**
+
+* API publishers can now delete empty folders from the documentation structure in the Developer Portal.
+* The delete action is available in the **Documentation Pages** tab via the trash icon in the **ACTIONS** column.
+* Only empty folders can be deleted, and the action is irreversible once confirmed.
+<!-- /PIPELINE:APIM-14411 -->
+
 ## Bug Fixes

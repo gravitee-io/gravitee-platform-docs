@@ -92,3 +92,8 @@ developer-portal/new-developer-portal/gravitee-markdown-components.md
 .gitbook/assets/wsdl-review-rest-to-soap-enabled.png
 create-and-configure-apis/apply-policies/policy-reference/rest-to-soap.md
 create-and-configure-apis/create-apis/wsdl-import-for-v4-apis.md
+.gitbook/assets/delete-button-enabled.png
+.gitbook/assets/delete-confirmation-dialog.png
+.gitbook/assets/portal-nav-tree-initial.png
+developer-portal/new-developer-portal/customize-the-navigation/README.md
+developer-portal/new-developer-portal/customize-the-navigation/managing-portal-navigation-items.md

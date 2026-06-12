@@ -14,6 +14,8 @@ You can create the following elements for your navigation:
 
 When you add a new page, you can customize the page with Gravitee Markdown, which is standard Markdown enriched with dynamic components. For more information about Gravitee Markdown, see[gravitee-markdown-components.md](../gravitee-markdown-components.md "mention").
 
+For information about managing documentation pages and folder organization within individual APIs, see [Managing Portal Navigation Items](managing-portal-navigation-items.md).
+
 ### Default navigation items
 
 By default, some pages are already created for you with content. These pages are published and public by default. Here are the following folders, pages, and links that are created by default:

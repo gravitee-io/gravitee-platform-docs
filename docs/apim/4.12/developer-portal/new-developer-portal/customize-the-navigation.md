@@ -48,6 +48,7 @@ With the New Developer Portal, you can customize your navigation in the followin
 * [Add a folder](customize-the-navigation.md#folders)
 * [Add a link](customize-the-navigation.md#links)
 * [Add an API](customize-the-navigation.md#api)
+* [Delete folders and sections](customize-the-navigation/managing-portal-navigation-items.md#deleting-folders-and-api-sections)
 
 1.  From the **Dashboard**, click **Settings**.<br>
 

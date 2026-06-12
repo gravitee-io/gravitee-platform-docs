@@ -235,7 +235,11 @@ To edit or delete folders or pages, or to change the documentation structure, se
 
 **Reorder:** To change the order of pages and folders in a directory, use the up and down arrows.
 
-**Delete:** To delete a page or folder, click the associated trash icon. Only empty folders can be deleted.
+**Delete:** To delete a page or folder, click the associated trash icon. Only empty folders can be deleted. See [Deleting Folders and API Sections](#deleting-folders-and-api-sections) for detailed instructions.
+
+{% hint style="info" %}
+Deletion of folders and sections is irreversible. As part of documentation lifecycle management best practices, ensure you have backups or version control before removing content.
+{% endhint %}
 
 ## Link pages
 
