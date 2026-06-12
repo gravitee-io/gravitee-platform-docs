@@ -21,6 +21,9 @@ This guide explains how to install a Hybrid Gateway, deploy custom plugins and c
 * Ensure you have access to the self-hosted Kubernetes cluster where you want to install the Gateway.
 * Ensure the self-hosted target environment has outbound Internet connectivity to Gravitee Cloud using HTTPS/443.
 * Complete the steps in [#prepare-your-installation](../../#prepare-your-installation "mention").
+* Java 21 runtime (required for `gravitee-resource-cache-redis` 3.x).
+* Redis 3.2 or later (for Standalone/Sentinel modes); Redis 3.0 or later (for Cluster mode).
+* For Redis Cluster rate limiting: all cluster nodes must be reachable from the gateway.
 
 ## Deploy Redis with Sentinel
 

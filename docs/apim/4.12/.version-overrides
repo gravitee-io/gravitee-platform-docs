@@ -92,3 +92,10 @@ developer-portal/new-developer-portal/gravitee-markdown-components.md
 .gitbook/assets/wsdl-review-rest-to-soap-enabled.png
 create-and-configure-apis/apply-policies/policy-reference/rest-to-soap.md
 create-and-configure-apis/create-apis/wsdl-import-for-v4-apis.md
+configure-and-manage-the-platform/gravitee-gateway/gateway-cluster-sync-with-redis/gateway-cluster-sync-with-redis-using-kubernetes-helm.md
+configure-and-manage-the-platform/gravitee-gateway/gateway-wide-redis-connection-pool-configuration.md
+create-and-configure-apis/apply-policies/policy-reference/data-cache.md
+hybrid-installation-and-configuration-guides/next-gen-cloud/kubernetes/vanilla-kubernetes/deploy-a-hybrid-gateway-with-redis-sentinel.md
+migrating-to-gateway-wide-pool-configuration-and-updated-ssl-schema.md
+prepare-a-production-environment/repositories/redis.md
+upgrade-guides/migrate-from-redis-cache-resource-4.x-to-5.x.md

@@ -167,4 +167,15 @@
 * Both new fields are additive and disabled when their list is empty, so existing policy configurations are unaffected.
 <!-- /PIPELINE:APIM-13498 -->
 
+
+<!-- PIPELINE:APIM-13625 -->
+#### **Gateway-Wide Redis Connection Pooling and Cluster Support**
+
+* The Gateway now shares Redis client connections across APIs and resources targeting the same endpoint, reducing connection overhead and improving resource utilization.
+* Redis Cluster topology is now supported for rate limiting and cache resources, enabling horizontal scaling of Redis deployments with automatic command routing to the correct master node.
+* Connection pool sizing and timeout parameters have moved from per-API resource definitions to gateway-wide settings in `gravitee.yml` under `resources.cacheRedis.*` and `resources.aiVectorStoreRedis.*`.
+* Three mutually exclusive deployment modes are supported: Standalone (single host/port), Sentinel (high-availability master discovery), and Cluster (horizontal sharding).
+* Requires Java 21 runtime for `gravitee-resource-cache-redis` 3.x and Redis 3.0+ (Cluster) or 3.2+ (Standalone/Sentinel).
+<!-- /PIPELINE:APIM-13625 -->
+
 ## Bug Fixes

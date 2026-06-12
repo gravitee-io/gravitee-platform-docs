@@ -25,7 +25,7 @@ The following tables show the configuration options for different Redis implemen
 {% tab title="Standalone" %}
 Redis Standalone options:
 
-<table><thead><tr><th width="168">Parameter</th><th width="140">Default</th><th>Description</th></tr></thead><tbody><tr><td>host</td><td>localhost</td><td></td></tr><tr><td>port</td><td>6379</td><td></td></tr><tr><td>password</td><td></td><td></td></tr></tbody></table>
+<table><thead><tr><th width="168">Parameter</th><th width="140">Default</th><th>Description</th></tr></thead><tbody><tr><td>host</td><td>localhost</td><td></td></tr><tr><td>port</td><td>6379</td><td></td></tr><tr><td>username</td><td></td><td>Redis ACL username</td></tr><tr><td>password</td><td></td><td></td></tr></tbody></table>
 {% endtab %}
 
 {% tab title="Sentinel" %}
@@ -34,16 +34,30 @@ Redis Sentinel options:
 <table><thead><tr><th width="168.66666666666666">Parameter</th><th width="90">Default</th><th>Description</th></tr></thead><tbody><tr><td>sentinel.nodes</td><td></td><td>List of sentinels with host and port</td></tr><tr><td>sentinel.master</td><td></td><td>Mandatory when using Sentinel</td></tr><tr><td>password</td><td></td><td></td></tr></tbody></table>
 {% endtab %}
 
+{% tab title="Cluster" %}
+Redis Cluster options:
+
+<table><thead><tr><th width="168.66666666666666">Parameter</th><th width="90">Default</th><th>Description</th></tr></thead><tbody><tr><td>cluster.nodes</td><td></td><td>List of cluster nodes with host and port</td></tr><tr><td>cluster.useReplicas</td><td>NEVER</td><td>Replica read policy (hardcoded to NEVER for rate limiting)</td></tr></tbody></table>
+
+{% hint style="warning" %}
+Cluster mode is mutually exclusive with Sentinel mode. Configure cluster nodes or sentinel nodes, not both.
+{% endhint %}
+{% endtab %}
+
 {% tab title="SSL" %}
 Redis SSL options:
 
-<table><thead><tr><th width="140.66666666666666">Parameter</th><th width="146">Default</th><th>Description</th></tr></thead><tbody><tr><td>ssl</td><td>false</td><td></td></tr><tr><td>trustAll</td><td>true</td><td>Default value is true for backward compatibility but keep in mind that this is not a good practice and you should set to false and configure a truststore</td></tr><tr><td>tlsProtocols</td><td>See <a href="https://vertx.io/docs/vertx-core/java/#_configuring_tls_protocol_versions">Vert.x doc</a></td><td>List of TLS protocols to allow comma separated</td></tr><tr><td>tlsCiphers</td><td>See <a href="https://vertx.io/docs/vertx-core/java/#_configuring_tls_protocol_versions">Vert.x doc</a></td><td>List of TLS ciphers to allow comma separated</td></tr><tr><td>alpn</td><td>false</td><td></td></tr><tr><td>openssl</td><td>false</td><td>Used to rely on OpenSSL Engine instead of default JDK SSL Engine</td></tr><tr><td>keystore</td><td></td><td>Configuration for Mutual TLS. The keystore is used to select the client certificate to send to the backend server when connecting. See <a href="https://github.com/gravitee-io/gravitee-api-management/blob/master/gravitee-apim-repository/gravitee-apim-repository-redis/README.adoc#keystore-table">Redis SSL keystore options (client certificate, Mutual TLS)</a></td></tr><tr><td>truststore</td><td></td><td>Configuration for the truststore. The truststore is used to validate the server’s certificate. See <a href="https://github.com/gravitee-io/gravitee-api-management/blob/master/gravitee-apim-repository/gravitee-apim-repository-redis/README.adoc#truststore-table">Redis SSL truststore options</a></td></tr></tbody></table>
+<table><thead><tr><th width="140.66666666666666">Parameter</th><th width="146">Default</th><th>Description</th></tr></thead><tbody><tr><td>ssl</td><td>false</td><td></td></tr><tr><td>trustAll</td><td>true</td><td>Default value is true for backward compatibility but keep in mind that this is not a good practice and you should set to false and configure a truststore</td></tr><tr><td>hostnameVerificationAlgorithm</td><td></td><td>Hostname verification algorithm: HTTPS, LDAPS, or NONE</td></tr><tr><td>tlsProtocols</td><td>See <a href="https://vertx.io/docs/vertx-core/java/#_configuring_tls_protocol_versions">Vert.x doc</a></td><td>List of TLS protocols to allow comma separated</td></tr><tr><td>tlsCiphers</td><td>See <a href="https://vertx.io/docs/vertx-core/java/#_configuring_tls_protocol_versions">Vert.x doc</a></td><td>List of TLS ciphers to allow comma separated</td></tr><tr><td>alpn</td><td>false</td><td></td></tr><tr><td>openssl</td><td>false</td><td>Used to rely on OpenSSL Engine instead of default JDK SSL Engine</td></tr><tr><td>keystore</td><td></td><td>Configuration for Mutual TLS. The keystore is used to select the client certificate to send to the backend server when connecting. See <a href="https://github.com/gravitee-io/gravitee-api-management/blob/master/gravitee-apim-repository/gravitee-apim-repository-redis/README.adoc#keystore-table">Redis SSL keystore options (client certificate, Mutual TLS)</a></td></tr><tr><td>truststore</td><td></td><td>Configuration for the truststore. The truststore is used to validate the server's certificate. See <a href="https://github.com/gravitee-io/gravitee-api-management/blob/master/gravitee-apim-repository/gravitee-apim-repository-redis/README.adoc#truststore-table">Redis SSL truststore options</a></td></tr></tbody></table>
 {% endtab %}
 
 {% tab title="SSL keystore" %}
 Redis SSL keystore options (client certificate, Mutual TLS):
 
-<table><thead><tr><th width="168.66666666666666">Parameter</th><th width="90">Default</th><th>Description</th></tr></thead><tbody><tr><td>type</td><td></td><td>Supports <code>jks</code>, <code>pem</code>, <code>pkcs12</code></td></tr><tr><td>path</td><td></td><td>A path is required if certificate’s type is <code>jks</code> or <code>pkcs12</code></td></tr><tr><td>password</td><td></td><td></td></tr><tr><td>alias</td><td></td><td></td></tr><tr><td>certificates</td><td></td><td>List of certificates with cert and key. Certificates are required if keystore’s type is <code>pem</code></td></tr></tbody></table>
+<table><thead><tr><th width="168.66666666666666">Parameter</th><th width="90">Default</th><th>Description</th></tr></thead><tbody><tr><td>type</td><td></td><td>Supports <code>jks</code>, <code>pem</code>, <code>pkcs12</code></td></tr><tr><td>path</td><td></td><td>A path is required if certificate's type is <code>jks</code> or <code>pkcs12</code></td></tr><tr><td>password</td><td></td><td></td></tr><tr><td>alias</td><td></td><td></td></tr><tr><td>certificates</td><td></td><td>List of certificates with cert and key. Certificates are required if keystore's type is <code>pem</code></td></tr><tr><td>certPaths</td><td></td><td>Paths to multiple PEM certificate files (for multi-certificate keystores)</td></tr><tr><td>keyPaths</td><td></td><td>Paths to multiple PEM private key files (for multi-certificate keystores)</td></tr></tbody></table>
+
+{% hint style="info" %}
+When **certPaths** and **keyPaths** are populated, they must be the same size and both non-null. Index `i` of **certPaths** pairs with index `i` of **keyPaths**. Use this configuration to present multiple keypairs (e.g., RSA + ECDSA) for TLS negotiation.
+{% endhint %}
 {% endtab %}
 
 {% tab title="SSL truststore" %}
@@ -51,21 +65,32 @@ Redis SSL truststore options:
 
 <table><thead><tr><th width="168.66666666666666">Parameter</th><th width="90">Default</th><th>Description</th></tr></thead><tbody><tr><td>type</td><td></td><td>Supports <code>jks</code>, <code>pem</code>, <code>pkcs12</code></td></tr><tr><td>path</td><td></td><td></td></tr><tr><td>password</td><td></td><td></td></tr><tr><td>alias</td><td></td><td></td></tr></tbody></table>
 {% endtab %}
+
+{% tab title="Connection pooling" %}
+Redis connection pooling options:
+
+<table><thead><tr><th width="168.66666666666666">Parameter</th><th width="90">Default</th><th>Description</th></tr></thead><tbody><tr><td>maxPoolSize</td><td>6</td><td>Maximum connections in the pool (deprecated; use gateway-wide setting)</td></tr><tr><td>maxPoolWaiting</td><td>1024</td><td>Maximum requests waiting for a connection (deprecated; use gateway-wide setting)</td></tr><tr><td>poolCleanerInterval</td><td>30000</td><td>Pool cleaner interval in milliseconds (deprecated; use gateway-wide setting)</td></tr><tr><td>poolRecycleTimeout</td><td>180000</td><td>Idle connection recycle timeout in milliseconds (deprecated; use gateway-wide setting)</td></tr><tr><td>maxWaitingHandlers</td><td>1024</td><td>Maximum waiting handlers (deprecated; use gateway-wide setting)</td></tr><tr><td>connectTimeout</td><td>2000</td><td>TCP connect timeout in milliseconds (deprecated; use gateway-wide setting)</td></tr><tr><td>idleTimeout</td><td>0</td><td>Idle connection timeout in milliseconds; 0 disables idle timeout</td></tr></tbody></table>
+{% endtab %}
 {% endtabs %}
+
+## Gateway-wide connection pool configuration
+
+Configure gateway-wide connection pool parameters for cache-redis and AI vector store Redis resources in `gravitee.yml`:
+
+### AI vector store Redis pool settings
+
+<table><thead><tr><th width="300">Property</th><th width="90">Default</th><th>Description</th></tr></thead><tbody><tr><td>resources.aiVectorStoreRedis.maxPoolSize</td><td>6</td><td>Maximum simultaneous connections per Redis endpoint</td></tr><tr><td>resources.aiVectorStoreRedis.maxPoolWaiting</td><td>1024</td><td>Maximum queued requests waiting for a connection</td></tr><tr><td>resources.aiVectorStoreRedis.poolCleanerInterval</td><td>30000</td><td>Idle-connection cleaner interval (milliseconds)</td></tr><tr><td>resources.aiVectorStoreRedis.poolRecycleTimeout</td><td>180000</td><td>Idle connection recycle timeout (milliseconds)</td></tr><tr><td>resources.aiVectorStoreRedis.maxWaitingHandlers</td><td>1024</td><td>Maximum queued commands on a connection</td></tr><tr><td>resources.aiVectorStoreRedis.connectTimeout</td><td>2000</td><td>TCP connect timeout (milliseconds)</td></tr></tbody></table>
 
 Below is the minimum configuration needed to get started with a Redis database.
 
 ```yaml
-# ===================================================================
-# MINIMUM REDIS REPOSITORY PROPERTIES
-#
-# This is a minimal sample file declared connection to Redis
-# ===================================================================
+
 ratelimit:
   type: redis               # repository type
   redis:                    # redis repository
     host:                   # redis host (default localhost)
     port:                   # redis port (default 6379)
+    username:               # redis ACL username (default null)
     password:               # redis password (default null)
     timeout:                # redis timeout (default -1)
 
@@ -88,9 +113,28 @@ ratelimit:
         }
       ]
 
+    # Following properties are REQUIRED ONLY when running Redis in cluster mode
+    cluster:
+      nodes: [              # redis cluster node(s) list
+        {
+          host : redis-node1, # redis cluster node host
+          port : 6379         # redis cluster node port
+        },
+        {
+          host : redis-node2,
+          port : 6379
+        },
+        {
+          host : redis-node3,
+          port : 6379
+        }
+      ]
+      useReplicas: NEVER    # replica read policy (hardcoded to NEVER for rate limiting)
+
     # Following SSL settings are REQUIRED ONLY for Redis client SSL
     ssl: true                # redis ssl mode (default false)
     trustAll: false
+    hostnameVerificationAlgorithm: NONE
     tlsProtocols: TLSv1.2, TLSv1.3
     tlsCiphers: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
     alpn: false

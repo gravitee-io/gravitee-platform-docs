@@ -15,9 +15,9 @@ A standard Redis deployment without the Search module appears to connect success
 * Install Redis with the search module. Distributed sync requires the RedisSearch module. To ensure that you have the RedisSearch module, use one of the following Redis modules:
   * The `redis/redis-stack` Docker image, which bundles RediSearch.
   * Redis 8+, which includes the Search module natively.
-  * Redis 7 or earlier with the RediSearch module loaded. You can load the module by adding `loadmodule /usr/local/lib/redis/modules/redisearch.so` to your Redis configuration. For more information about Redis and RedisSearch, see [Redis](/apim/4.10/prepare-a-production-environment/repositories/redis.md) and the [RedisSearch documentation](https://redis.io/docs/latest/develop/interact/search-and-query/).
-* Obtain an Enterprise License. You must mount the license into every API Gateway pod to start the `repository-redis` plugin and load `DISTRIBUTED_SYNC`. For more information about obtaining an enterprise license, see [Enterprise Edition](/apim/4.10/readme/enterprise-edition.md).
-* Deploy a fully Self-Hosted Installation or a Hybrid Installation of APIM. For more information about self-hosted installation, see [Self-Hosted Installation Guides](/apim/4.10/self-hosted-installation-guides.md) or [Hybrid Installation & Configuration Guides](/apim/4.10/hybrid-installation-and-configuration-guides.md).
+  * Redis 7 or earlier with the RediSearch module loaded. You can load the module by adding `loadmodule /usr/local/lib/redis/modules/redisearch.so` to your Redis configuration. For more information about Redis and RedisSearch, see [Redis](../../../prepare-a-production-environment/repositories/redis.md) and the [RedisSearch documentation](https://redis.io/docs/latest/develop/interact/search-and-query/).
+* Obtain an Enterprise License. You must mount the license into every API Gateway pod to start the `repository-redis` plugin and load `DISTRIBUTED_SYNC`. For more information about obtaining an enterprise license, see [Enterprise Edition](../../../introduction/enterprise-edition.md).
+* Deploy a fully Self-Hosted Installation or a Hybrid Installation of APIM. For more information about self-hosted installation, see Self-Hosted Installation Guides or [Hybrid Installation & Configuration Guides](../../../create-and-configure-apis/apply-policies/policy-reference/data-cache.md#configuration).
 * Deploy at least two API Gateway replicas. Distributed sync works only when `gateway.replicaCount` is greater than or equal to 2, and `gateway.autoscaling.enabled` is `false`, because the Helm chart only honors `replicaCount` when the HPA is disabled.
 
 ## Configure the distributed sync on the APIM Gateway
@@ -130,6 +130,40 @@ A standard Redis deployment without the Search module appears to connect success
          #   nodes:
          #     - host: sentinel1
          #       port: 26379
+         # cluster:                   # uncomment for Cluster (mutually exclusive with sentinel)
+         #   nodes:
+         #     - host: redis-node1
+         #       port: 6379
+         #     - host: redis-node2
+         #       port: 6379
+
+     # Gateway-wide Redis connection pool settings for cache resources
+     cacheRedis:
+       maxPoolSize: 6
+       maxPoolWaiting: 1024
+       poolCleanerInterval: 30000
+       poolRecycleTimeout: 180000
+       maxWaitingHandlers: 1024
+       connectTimeout: 2000
+
+     # Gateway-wide Redis connection pool settings for AI vector store resources
+     aiVectorStoreRedis:
+       maxPoolSize: 6
+       maxPoolWaiting: 1024
+       poolCleanerInterval: 30000
+       poolRecycleTimeout: 180000
+       maxWaitingHandlers: 1024
+       connectTimeout: 2000
+
+     # Rate limit Redis cluster configuration (mutually exclusive with sentinel)
+     ratelimit:
+       redis:
+         cluster:
+           nodes:
+             - host: redis-node1
+               port: 6379
+             - host: redis-node2
+               port: 6379
 
      services:
        sync:
