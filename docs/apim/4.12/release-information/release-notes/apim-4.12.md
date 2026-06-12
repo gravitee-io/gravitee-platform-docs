@@ -145,6 +145,16 @@
 * WSDL 2.0 is not supported; remote URLs must pass SSRF protection rules (private IPs blocked by default).
 <!-- /PIPELINE:APIM-12279 -->
 
+
+<!-- PIPELINE:APIM-13666 -->
+#### **DELEGATE_TO_BROKER SASL Mechanism for Kafka Clusters**
+
+* Kafka cluster configurations now support the DELEGATE_TO_BROKER SASL mechanism, which forwards client SASL authentication directly to the backend Kafka broker without intermediate processing by the gateway.
+* The gateway passes the client's SASL handshake through to the backend broker as-is, allowing the broker to handle authentication directly.
+* This mechanism requires no additional configuration fields (no JAAS config or credentials) and is available when selecting SASL_PLAINTEXT or SASL_SSL security protocols.
+* Conditional display logic for SASL and SSL configuration sections in the Kafka cluster form has been corrected to use relative JSON path references, ensuring proper field visibility based on the selected security protocol.
+<!-- /PIPELINE:APIM-13666 -->
+
 ## Improvements
 
 

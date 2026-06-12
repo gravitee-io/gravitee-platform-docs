@@ -38,6 +38,8 @@ Two distinct permissions govern access to connection logs:
 
 If you only have the `api-native_log-r` permission, you can see the list and summary, but you cannot drill into individual connections—the per-row view icon is hidden.
 
+The built-in `OWNER` and `PRIMARY_OWNER` roles receive both `api-native_log-r` and `api-native_analytics-r` permissions automatically. Custom roles require manual grants of these permissions to view native Kafka API logs and analytics.
+
 ## Prerequisites
 
 To view connection logs, ensure you meet the following:

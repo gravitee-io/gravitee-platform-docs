@@ -36,6 +36,8 @@ For the API to connect to the Kafka cluster, it is required to configure a boots
 
 You first define a comma-separated list of host/port pairs to use for establishing the initial connection to the Kafka cluster. This list is used to discover the full set of brokers in the cluster. The client will make use of all discovered brokers, irrespective of which servers are listed in the bootstrap server list.
 
+A single Kafka Cluster can contain multiple connections to model different listeners on the same backend. For example, you can configure one connection using PLAINTEXT on port 9091 for internal clients and another connection using SASL_SSL on port 9095 for external partners. APIs referencing the cluster can select the appropriate connection based on their security requirements without duplicating the cluster configuration.
+
 ### Produce, Consume, or Both
 
 You can configure the Kafka client to act as a producer, a consumer, or both a producer and consumer. Choose **Use Consumer**, **Use Producer**, or **Use Consumer and Producer** from the drop-down menu to do one of the following:
