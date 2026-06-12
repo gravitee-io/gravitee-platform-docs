@@ -137,6 +137,10 @@ Gravitee automatically assigns your Kafka API endpoint the name **Default Broker
 
     <figure><img src="../../../.gitbook/assets/ovveride-endpoints-configuration.png" alt=""><figcaption></figcaption></figure>
 4. To assign tenant tags to the endpoint, select one or more tenants from the **Tenants** multi-select dropdown. The endpoint configuration form exposes a multi-select **Tenants** field populated from the organization's tenant list, with tenant descriptions shown as tooltips. Leave the tenant list empty to create a shared endpoint that matches any gateway.
+5. Select the endpoint connector type from the **Endpoint Connector Type** dropdown:
+   * **Broker** (`native-kafka`): Enter bootstrap servers directly in the endpoint configuration. Use for one-shot APIs where the broker config isn't reused elsewhere.
+   * **Cluster** (`native-kafka-cluster`): Select a Kafka Cluster from the dropdown (filtered by `clusterType=KAFKA_CLUSTER`) and select one of its connections. The API references the cluster by crossId — updating the cluster propagates changes to all dependent APIs.
+   * **Virtual Cluster** (`native-kafka-virtual-cluster`): Select a Kafka Virtual Cluster from the dropdown (filtered by `clusterType=KAFKA_VIRTUAL_CLUSTER`). The API fans out across all backend clusters referenced by the virtual cluster.
 
 ## Reorder endpoints
 

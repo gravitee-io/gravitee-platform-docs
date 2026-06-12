@@ -9,8 +9,45 @@ metaLinks:
 
 ## Overview
 
-
 The Kafka UI is accessible from the APIM Console. It is the user interface from which you can create and manage Kafka clusters, configure cluster connection information, and manage user access and permissions.
+
+Kafka Cluster Management enables API administrators to define reusable connection profiles to Kafka backends and reference them across multiple APIs. Instead of duplicating bootstrap server addresses and security credentials in every API definition, you create a Kafka Cluster entity once and reference it by cross-environment identifier. Virtual Clusters extend this model by aggregating multiple backend clusters into a single logical endpoint for fan-out scenarios.
+
+## Key Concepts
+
+### Kafka Cluster
+
+A Kafka Cluster is a reusable connection profile to a real Kafka backend. Each cluster contains one or more named connections, where each connection specifies bootstrap servers and security settings (PLAINTEXT, SSL, SASL_PLAINTEXT, or SASL_SSL). Multiple APIs can reference the same cluster — updating the cluster propagates changes to all dependent APIs. Clusters are scoped to an environment and identified by a cross-environment identifier (crossId) for portability across environments.
+
+### Kafka Virtual Cluster
+
+A Kafka Virtual Cluster aggregates multiple backend Kafka Clusters into a single logical endpoint. Each virtual cluster contains a list of backend references, where each backend is a (**Cluster Cross Id**, **Connection Cross Id**) pair pointing to one connection within an existing Kafka Cluster. Virtual clusters enable fan-out scenarios where a single API distributes requests across multiple backend clusters. Virtual clusters do not duplicate broker addresses or credentials — they store only references to existing cluster connections.
+
+### Cross-Environment Identifier (crossId)
+
+The crossId is a portable identifier that uniquely identifies a cluster within an environment. If not provided during creation, the system auto-generates it by slugifying the cluster name. The crossId is immutable after creation and enables configuration-as-code workflows and cross-environment references. Connection-level crossIds follow the same pattern, uniquely identifying connections within a cluster.
+
+### Lifecycle States
+
+Kafka Clusters and Virtual Clusters support three lifecycle states:
+
+| State | Description |
+|:------|:------------|
+| UNDEPLOYED | Cluster is defined but not active on the gateway. New clusters start in this state. |
+| DEPLOYED | Cluster is active on the gateway and available for API endpoint resolution. |
+| PENDING | Cluster configuration has been updated since the last deployment. Requires redeployment to propagate changes. |
+
+Deployment increments the cluster version and sets the deployedAt timestamp. Undeployment is required before deletion.
+
+### Endpoint Connector Types
+
+Native Kafka APIs support three endpoint connector types:
+
+| Type | ID | Use Case | Configuration |
+|:-----|:---|:---------|:--------------|
+| Broker | `native-kafka` | One-shot API where broker config is not reused elsewhere | Stores `bootstrapServers` directly (inline, secret-annotated) |
+| Cluster | `native-kafka-cluster` | Reusable cluster entity with centralized config shared across APIs | Stores **Cluster Cross Id** and **Connection Cross Id** |
+| Virtual Cluster | `native-kafka-virtual-cluster` | Fan-out across multiple backend clusters (MESH) | Stores **Virtual Cluster Cross Id** |
 
 ## Prerequisites
 
@@ -18,9 +55,13 @@ The Kafka UI is accessible from the APIM Console. It is the user interface from 
 Kafka Console is currently only available for self-hosted deployments and not compatible with next-gen cloud.
 {% endhint %}
 
-* You must have an Enterprise License with the apim-cluster feature. For more information about Gravitee Enterprise Edition, see [enterprise-edition.md](../readme/enterprise-edition.md "mention").
+* You must have an Enterprise License with the apim-cluster feature. For more information about Gravitee Enterprise Edition, see [enterprise-edition.md](../introduction/enterprise-edition.md "mention") (see [Enterprise Edition](../introduction/enterprise-edition.md)).
+* **Cluster management permission**: Cluster management is hidden from basic users by default. Grant the CLUSTER environment-scoped permission (READ + UPDATE) to roles that need cluster access. Navigate to **Organization → Roles → [Role Name]** and enable the CLUSTER row.
+* **Native API permissions** (for API-scoped access): Grant NATIVE_LOG and NATIVE_ANALYTICS permissions on the API scope to roles that need to read native Kafka API logs and analytics. The system automatically backfills these permissions on built-in OWNER and PRIMARY_OWNER roles; custom roles require manual grants.
+* **Default Kafka domain** (for HOST routing mode): Configure the default domain for SNI-based routing. Navigate to **Organization → Entrypoints & Sharding Tags** and set the **Default Kafka Domain** field. The gateway maps each API's host prefix to `<prefix>.<defaultDomain>:9092`.
+* **Wildcard certificate** (for HOST routing mode): Provision a wildcard certificate covering `*.<defaultDomain>` to support SNI dispatch across multiple APIs on a single bootstrap port. PORT routing mode does not require wildcard certificates.
 
-## Create a Kafka Cluster
+## Create a Kafka cluster
 
 1.  From the Dashboard, click **Kafka Cluster**.
 
@@ -30,11 +71,16 @@ Kafka Console is currently only available for self-hosted deployments and not co
     <figure><img src="../.gitbook/assets/902A4021-EA90-4AB6-84B4-C0F9E995F54E_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
 3. In the **Create a new cluster** pop-up window, complete the following sub-steps:
    1. In the **Cluster name** field, enter a name for your cluster.
-   2. (Optional) In the description field, enter a description for your cluster.
-   3. In the **Bootstrap Servers** field, enter the bootstrap servers for your cluster.
-   4.  Click **Create**. You are brought to the cluster's configuration screen.
+   2. (Optional) In the **Cross ID** field, enter a portable identifier for cross-environment references. If left empty, the system auto-generates it by slugifying the cluster name.
+   3. (Optional) In the description field, enter a description for your cluster.
+   4. In the **Bootstrap Servers** field, enter the bootstrap servers for your cluster.
+   5.  Click **Create**. You are brought to the cluster's configuration screen.
 
        <figure><img src="../.gitbook/assets/F7727719-AE67-4E84-A45B-478A4D66E2F5_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+
+{% hint style="info" %}
+The crossId is immutable after creation and enables configuration-as-code workflows and cross-environment references.
+{% endhint %}
 
 ## Configure your Kafka cluster
 
@@ -52,11 +98,33 @@ In the **General** tab, you can perform the following actions:
 * View or edit the description of the cluster.
 * View the day and time that the cluster was created.
 * View the day and time that the cluster was last updated.
+* View the lifecycle state (UNDEPLOYED, DEPLOYED, or PENDING).
+* View the cluster version and deployedAt timestamp.
+
+#### Deploy the cluster
+
+To activate the cluster on the gateway, complete the following steps:
+
+1. Navigate to the **General** tab.
+2. In the **Danger Zone** section, click **Deploy**.
+
+The lifecycle state changes to DEPLOYED, the version increments to 1, and the deployedAt timestamp is set. Updating a deployed cluster sets the state to PENDING — redeploy to propagate changes.
+
+#### Undeploy the cluster
+
+To deactivate the cluster on the gateway, complete the following steps:
+
+1. Navigate to the **General** tab.
+2. In the **Danger Zone** section, click **Undeploy**.
+
+The lifecycle state changes to UNDEPLOYED and the deployedAt timestamp is set.
+
+#### Delete the cluster
 
 To delete the cluster, complete the following steps:
 
 {% hint style="warning" %}
-Once you delete a cluster, this action cannot be undone.
+Once you delete a cluster, this action cannot be undone. Clusters in DEPLOYED or PENDING state cannot be deleted. Undeploy the cluster before deletion.
 {% endhint %}
 
 1. Navigate to the **Danger Zone** section, and then click **Delete**.
@@ -84,6 +152,8 @@ In the **User Permissions** tab, you can configure the following elements relate
 * [#manage-groups](create-and-configure-kafka-clusters.md#manage-groups "mention")
 * [#transfer-ownership](create-and-configure-kafka-clusters.md#transfer-ownership "mention")
 * [#add-members](create-and-configure-kafka-clusters.md#add-members "mention")
+
+User permissions scope visibility in the Kafka Console UI.
 
 #### Manage groups
 
@@ -122,3 +192,56 @@ To add members to your Kafka cluster, complete the following steps:
 3.  Click **Select**.
 
     <figure><img src="../.gitbook/assets/00 kafkaUI 4.png" alt=""><figcaption></figcaption></figure>
+
+## Create a Kafka Virtual Cluster
+
+1. Navigate to **Kafka → Virtual Clusters** and click **Add Kafka Virtual Cluster**.
+2. Enter the cluster name, optional Cross ID (auto-generated from name if left empty), and optional description.
+3. Click **Save** to create the virtual cluster in UNDEPLOYED state with no backends.
+
+## Configure your Kafka Virtual Cluster
+
+### Deploy a Kafka Virtual Cluster
+
+To activate the virtual cluster on the gateway, complete the following steps:
+
+1. Navigate to the **General** tab.
+2. In the danger zone, click **Deploy**.
+
+The lifecycle state changes to DEPLOYED, the version increments to 1, and the deployedAt timestamp is set. Updating a deployed virtual cluster sets the state to PENDING — redeploy to propagate changes.
+
+## Management API
+
+| Method | Path | Description |
+|:-------|:-----|:------------|
+| POST | `/environments/{envId}/clusters` | Create a new cluster (type discriminator in request body: `KAFKA_CLUSTER_STANDALONE`, `KAFKA_CLUSTER`, or `KAFKA_VIRTUAL_CLUSTER`) |
+| PUT | `/environments/{envId}/clusters/{clusterId}` | Update an existing cluster (Cross ID is immutable) |
+| DELETE | `/environments/{envId}/clusters/{clusterId}` | Delete a cluster (requires UNDEPLOYED state) |
+| POST | `/environments/{envId}/clusters/{clusterId}/_deploy` | Deploy cluster to gateway (sets state to DEPLOYED, increments version, sets deployedAt timestamp) |
+| POST | `/environments/{envId}/clusters/{clusterId}/_undeploy` | Undeploy cluster from gateway (sets state to UNDEPLOYED, sets deployedAt timestamp) |
+| GET | `/environments/{envId}/clusters/deployed` | List all deployed clusters with their connections |
+| GET | `/environments/{envId}/clusters/deployed?type={ClusterType}` | List deployed clusters filtered by type (`KAFKA_CLUSTER` or `KAFKA_VIRTUAL_CLUSTER`) |
+| GET | `/environments/{envId}/clusters/schema/configuration?type={ClusterType}` | Get JSON schema for cluster configuration (defaults to `KAFKA_CLUSTER_STANDALONE` if type not specified) |
+
+## Validation Rules
+
+### Cross ID Validation
+
+* Cross ID is auto-generated from the cluster name (using slug transformation) if not provided during creation.
+* Cross ID must be unique within the environment. The system returns `"A cluster with crossId 'X' already exists in this environment."` on duplicate.
+* Cross ID is immutable after creation. The system returns `"CrossId is immutable and cannot be changed after creation."` on update attempts.
+
+### Connection Validation (KAFKA_CLUSTER)
+
+* Connection names must be unique within a cluster. The system returns `"Connection names must be unique. Duplicates found: [names]"` on duplicate names.
+* Connection Cross IDs must be unique within a cluster. The system returns `"Connection crossIds must be unique within a cluster. Duplicates found: [...]"` on duplicate Cross IDs.
+* Bootstrap servers are required for each connection. The system returns `"bootstrapServers is required"` if missing.
+* Security protocol must be one of: PLAINTEXT, SSL, SASL_PLAINTEXT, SASL_SSL. The system returns `"protocol has invalid value"` for invalid protocols.
+
+### Backend Validation (KAFKA_VIRTUAL_CLUSTER)
+
+* Backend references must be unique within a virtual cluster. The system returns `"Backend references must be unique within a virtual cluster. Duplicates found: [...]"` on duplicate backends.
+
+### Cluster Deletion Rules
+
+Clusters in DEPLOYED or PENDING state cannot be deleted. Undeploy the cluster before deletion. The system returns the error `"Cluster must be undeployed before deletion."` if deletion is attempted on a deployed or pending cluster.

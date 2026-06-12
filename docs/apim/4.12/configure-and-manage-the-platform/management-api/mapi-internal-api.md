@@ -1,5 +1,5 @@
 ---
-description: An overview about mapi internal api.
+description: An overview about mAPI internal api.
 metaLinks:
   alternates:
     - mapi-internal-api.md
@@ -62,8 +62,10 @@ api:
             password: adminadmin
 ```
 
+
 {% hint style="info" %}
 The chart hardcodes the username to `admin`. To configure additional users, mount a custom `gravitee.yml` into the Management API container or inject indexed environment variables through the `api.env` array (for example, `gravitee_services_core_http_authentication_users_<username>`).
+dmin`. To configure additional users, mount a custom `gravitee.yml` into the Management API container or inject indexed environment variables through the `api.env` array (for example, `gravitee_services_core_http_authentication_users_<username>`).
 {% endhint %}
 {% endtab %}
 {% endtabs %}
@@ -192,7 +194,7 @@ Content-Type: application/json
         }
     ]
 }
-</code></pre></td></tr></tbody></table>
+</code></pre></td></tr><tr><td><code>POST /environments/{envId}/clusters</code></td><td>Creates a new cluster (Kafka Cluster or Kafka Virtual Cluster).</td><td></td></tr><tr><td><code>PUT /environments/{envId}/clusters/{clusterId}</code></td><td>Updates an existing cluster.</td><td></td></tr><tr><td><code>DELETE /environments/{envId}/clusters/{clusterId}</code></td><td>Deletes a cluster (requires UNDEPLOYED state).</td><td></td></tr><tr><td><code>POST /environments/{envId}/clusters/{clusterId}/_deploy</code></td><td>Deploys a cluster to the gateway.</td><td></td></tr><tr><td><code>POST /environments/{envId}/clusters/{clusterId}/_undeploy</code></td><td>Undeploys a cluster from the gateway.</td><td></td></tr><tr><td><code>GET /environments/{envId}/clusters/deployed</code></td><td>Lists all deployed clusters with their connections. Supports optional <code>type</code> query parameter to filter by cluster type (<code>KAFKA_CLUSTER</code> or <code>KAFKA_VIRTUAL_CLUSTER</code>).</td><td></td></tr><tr><td><code>GET /environments/{envId}/clusters/schema/configuration</code></td><td>Gets the JSON schema for cluster configuration. Supports optional <code>type</code> query parameter (defaults to <code>KAFKA_CLUSTER_STANDALONE</code> if not specified).</td><td></td></tr></tbody></table>
 
 ## Heap dump and thread dump endpoints
 

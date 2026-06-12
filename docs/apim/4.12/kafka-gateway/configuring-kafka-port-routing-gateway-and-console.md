@@ -20,13 +20,22 @@ Before configuring Kafka port routing, ensure the following requirements are met
 
 The `kafka.routingMode` property controls the routing strategy for Kafka APIs at the gateway level:
 
-| Property | Description | Example |
-|:---------|:------------|:--------|
-| `kafka.routingMode` | Routing strategy: `host` for SNI-based routing or `port` for port-based routing. Defaults to `host` when unset or unrecognized. | `port` |
+| Property | Value | Description |
+|:---------|:------|:------------|
+| `kafka.routingMode` | `HOST` (default) | Single bootstrap port (9092) for all APIs. Routing relies on TLS SNI — the gateway dispatches on `<apiPrefix>.<defaultDomain>` and `broker-<N>-<apiPrefix>.<defaultDomain>`. Requires a wildcard certificate covering `*.<defaultDomain>`. mTLS plans force HOST mode. |
+| `kafka.routingMode` | `PORT` | Each plan gets a dedicated bootstrap port and broker-port range (configured at plan level via `bootstrapPort`). Routing is by local listening port; no SNI dispatch. Use when wildcard certificates are not acceptable or when clients can't perform SNI. |
 
 {% hint style="warning" %}
 Plans without a configured bootstrap port are skipped in port routing mode and logged at WARN level. Port routing applies only to Native Kafka APIs.
 {% endhint %}
+
+### Cluster Registry
+
+The gateway maintains a cluster registry that resolves endpoint references at runtime. When an API uses the `native-kafka-cluster` or `native-kafka-virtual-cluster` endpoint connector, the gateway queries the registry by crossId to retrieve bootstrap servers and security configuration. If the referenced cluster or connection isn't found, the gateway returns an error:
+
+- `"Cluster not found: {Cluster Cross Id} in environment {environmentId}"`
+- `"Cluster is not a KAFKA_CLUSTER: {Cluster Cross Id}"`
+- `"Connection not found: {Connection Cross Id} in cluster {Cluster Cross Id}"`
 
 ### Console Port Routing Toggle
 

@@ -145,6 +145,17 @@
 * WSDL 2.0 is not supported; remote URLs must pass SSRF protection rules (private IPs blocked by default).
 <!-- /PIPELINE:APIM-12279 -->
 
+
+<!-- PIPELINE:APIM-13666 -->
+#### **Kafka Cluster Management**
+
+* Create reusable Kafka Cluster entities that store connection profiles (bootstrap servers, security settings) and reference them across multiple Native Kafka APIs, eliminating duplicate configuration.
+* Define Virtual Clusters that aggregate multiple backend Kafka Clusters into a single logical endpoint for fan-out scenarios, enabling MESH routing patterns.
+* Manage cluster lifecycle states (UNDEPLOYED, DEPLOYED, PENDING) with version control—updates require redeployment to propagate changes to dependent APIs.
+* Use cross-environment identifiers (crossId) for portable cluster references across environments, supporting configuration-as-code workflows.
+* Requires CLUSTER environment-scoped permission (READ + UPDATE) to access cluster management features in the Console.
+<!-- /PIPELINE:APIM-13666 -->
+
 ## Improvements
 
 
