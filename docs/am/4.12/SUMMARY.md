@@ -30,10 +30,10 @@
 * [Configuration](getting-started/configuration/README.md)
   * [AM Gateway](getting-started/configuration/configure-am-gateway/README.md)
     * [Internal API](getting-started/configuration/configure-am-gateway/internal-api.md)
-    * [Enable the Automation API](getting-started/configuration/configure-am-gateway/enable-the-automation-api.md)
   * [AM API](getting-started/configuration/configure-am-api/README.md)
     * [Internal API](getting-started/configuration/configure-am-api/internal-api.md)
   * [AM Console](getting-started/configuration/configure-am-console.md)
+  * [Automation API](getting-started/configuration/configure-automation-api.md)
   * [Repositories & Data Plane](getting-started/configuration/configure-repositories.md)
   * [Reporters](getting-started/configuration/configure-reporters.md)
   * [Monitoring](getting-started/configuration/configure-monitoring.md)
@@ -165,6 +165,7 @@
   * [Policies](guides/flows/policies/README.md)
     * [Rate Limit Policy](guides/flows/policies/rate-limit-policy.md)
 * [Administration](guides/administration.md)
+* [Automation API](guides/automation-api.md)
 * [AM Expression Language](guides/am-expression-language.md)
 * [Developer Contributions](guides/developer-contributions.md)
   * [Using OAuth 2.0 Token Exchange](guides/using-oauth-2.0-token-exchange.md)
@@ -172,9 +173,6 @@
 ## Reference
 
 * [API Reference](reference/am-api-reference.md)
-  * [Automation API Overview](reference/automation-api-overview.md)
-  * [Create and Manage Resources with the Automation API](reference/create-and-manage-resources-with-the-automation-api.md)
-  * [Automation API Restrictions and Changes](reference/automation-api-restrictions-and-changes.md)
 
 ## Releases & Changelog
 

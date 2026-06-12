@@ -136,18 +136,6 @@ jetty:
     truststore:
       path:
       password:
-
-http:
-  blockingGet:
-    # Timeout in milliseconds for blocking repository lookups during authentication.
-    # Set to 0 to disable timeout.
-    timeoutMillis: 120000
-  api:
-    automation:
-      # Enable the Automation API HTTP endpoint
-      enabled: false
-      # Base path for Automation API endpoints
-      entrypoint: /management/automation
 ```
 
 #### **Enable HTTPS support**

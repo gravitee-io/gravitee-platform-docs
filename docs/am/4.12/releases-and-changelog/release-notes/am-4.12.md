@@ -34,7 +34,7 @@
 * Introduces a machine-oriented HTTP API for managing AM domains, identity providers, certificates, and reporters using stable, user-defined keys instead of database-generated IDs.
 * Enables infrastructure-as-code workflows through idempotent PUT operations and an OpenAPI specification served at the configured entrypoint (default: `/management/automation`).
 * Supports system resources that inherit configuration from `gravitee.yml`, allowing centralized management of default identity providers and reporters.
-* Requires AM Gateway 4.6+ and must be explicitly enabled via `gravitee.http.api.automation.enabled: true` in gateway configuration.
+* Requires AM Gateway 4.12+ and must be explicitly enabled via `gravitee.http.api.automation.enabled: true` in gateway configuration.
 * Resources created through the Automation API are isolated from those created via the Management REST API or Console UI.
 <!-- /PIPELINE:AM-6850 -->
 
