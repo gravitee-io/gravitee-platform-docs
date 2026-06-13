@@ -327,6 +327,7 @@
     * [Gravitee Markdown Components](developer-portal/new-developer-portal/gravitee-markdown-components.md)
     * [MCP Server Installation Widget for Portal Pages](mcp-server-installation-widget-for-portal-pages.md)
     * [Application Logs](developer-portal/new-developer-portal/application-logs.md)
+    * [Manage API Keys in the Developer Portal](developer-portal/new-developer-portal/manage-api-keys-in-the-developer-portal.md)
     * [Manage Subscriptions](developer-portal/new-developer-portal/manage-subscriptions.md)
     * [Configure Webhook Subscriptions](developer-portal/new-developer-portal/configure-webhook-subscriptions.md)
     * [Configure Authentication](developer-portal/new-developer-portal/configure-authentication/README.md)
