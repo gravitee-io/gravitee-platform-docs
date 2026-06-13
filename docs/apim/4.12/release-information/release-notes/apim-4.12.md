@@ -167,4 +167,14 @@
 * Both new fields are additive and disabled when their list is empty, so existing policy configurations are unaffected.
 <!-- /PIPELINE:APIM-13498 -->
 
+
+<!-- PIPELINE:APIM-14120 -->
+#### **Conditional API Access Information Display for Federated APIs**
+
+* The Developer Portal now displays API access information only when it is available and relevant for federated APIs.
+* For keyless plans with empty entrypoints, the API access card is hidden entirely to avoid showing empty sections.
+* For API Key plans with empty entrypoints, the card displays provider-provisioned API keys but hides the empty base URL and curl command sections.
+* Federated APIs with defined entrypoints continue to display all access information normally, including base URLs and example commands.
+<!-- /PIPELINE:APIM-14120 -->
+
 ## Bug Fixes

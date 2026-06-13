@@ -55,11 +55,10 @@ Follow the links below to visit the documentation for each configuration page.
 
 Plans for federated APIs are based on API products, usage plans, and similar concepts already defined and automatically imported from 3rd-party providers. A plan only exists to the extent that a matching concept exists in the 3rd-party provider.
 
-When Gravitee API plans are ingested from a 3rd-party provider, they enable subscriptions to the 3rd-party APIs be managed directly from within Gravitee. Under the hood, the federation agent will integrate with the third partie's management API to create the required objects that will enable the requested subscription. This may result in an API key being returned to the user in Gravitee APIM or in the Gravitee Developer portal. In other cases, it will simply create the right permissions on the third party, while access control is done using a 3rd-party OAuth server for instance.
+When Gravitee API plans are ingested from a 3rd-party provider, they enable subscriptions to the 3rd-party APIs be managed directly from within Gravitee.
+ Under the hood, the federation agent will integrate with the third partie's management API to create the required objects that will enable the requested subscription. This may result in an API key being returned to the user in Gravitee APIM or in the Gravitee Developer portal. In other cases, it will simply create the right permissions on the third party, while access control is done using a 3rd-party OAuth server for instance.
 
 To manage your federated API's plans and their subscriptions, go to the **Consumers** tab for your federated API.
-
-<figure><img src="../../.gitbook/assets/Screenshot 2024-06-18 at 4.12.15 PM.png" alt=""><figcaption></figcaption></figure>
 
 Under the **Plans** tab, you'll see all of the plans for your API that are either in staging, published, deprecated or closed. You will only be able to alter your federated API plans as it pertains to:
 
@@ -68,7 +67,7 @@ Under the **Plans** tab, you'll see all of the plans for your API that are eithe
 * **Subscription options**: either allowing auto-validation of all subscription requests, or, enforcing API consumers to submit a request for manual approval by the API Publisher
 * Defining certain groups that can or cannot subscribe to your API via Gravitee groups
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-06-18 at 4.10.09 PM.png" alt=""><figcaption></figcaption></figure>
+
 
 {% hint style="info" %}
 By default, the plan state is set to published and the subscription validation policy is set to manual (subscription auto-validation is not enabled).
@@ -80,6 +79,8 @@ Before publishing your federated API to the Developer Portal, make sure that you
 
 Federation enables a centralized location where API consumers can discover unified API documentation for diverse API gateways and event brokers. While an integration is syncing, available assets (e.g., OAS/AsyncAPI definitions or Markdown files) are automatically imported from the 3rd-party provider to form the basis of the API's documentation published to the Developer Portal. New documentation pages and assets can also be created directly within Gravitee.
 
+<figure><img src="../../.gitbook/assets/federated-api-keyless-plan.png" alt="API Configuration page showing general settings for a federated API with name, version, description, and labels fields"><figcaption></figcaption></figure>
+
 To view or add documentation to an existing federated API:
 
 1. Log in to your APIM Console
@@ -87,7 +88,7 @@ To view or add documentation to an existing federated API:
 3. Click on the federated API you're interested in
 4. Select **Documentation** from the inner left nav
 
-<figure><img src="../../.gitbook/assets/jonathan demo documentation.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/jonathan demo documentation.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 By default, the page is published with private visibility.
@@ -107,7 +108,7 @@ To publish an existing federated API:
 4. Select **Configuration** from the inner left nav
 5. In the **Danger Zone**, click **Publish the API**
 
-<figure><img src="../../.gitbook/assets/jonathan demo publish api.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/jonathan demo publish api.png" alt=""><figcaption></figcaption></figure>
 
 ### View your API in the Developer Portal
 
@@ -142,6 +143,20 @@ Depending on the subscription configuration, the application will either auto-va
 * For more information on how to create and manage subscriptions in APIM, see [Subscriptions](../../secure-and-expose-apis/subscriptions/).
 {% endhint %}
 
+### View API access information
+
+The Developer Portal displays API access information only when it is available and relevant for federated APIs. Since federated APIs are ingested from third-party providers and may not have Gravitee-managed entrypoints, the portal automatically hides empty access sections to provide a cleaner, more intuitive subscription experience.
+
+<figure><img src="../../.gitbook/assets/federated-api-plan-list.png" alt="Plans page showing a published API Key plan with status and deployment information"><figcaption></figcaption></figure>
+
+The API access card displays subscription details, API keys, base URLs, and example curl commands for calling an API. For federated APIs with empty or undefined entrypoints, the card adapts its content based on the plan's security type:
+
+* **Native APIs**: The card and all content are always shown when the subscription is ACCEPTED or the plan is keyless.
+* **Federated APIs with OAuth2 or JWT plans**: The card is shown when the subscription is ACCEPTED.
+* **Federated APIs with API Key plans and ACCEPTED subscriptions**: The card displays the API keys table (for managing provider-provisioned keys) regardless of entrypoint availability, but the "Calling the API" section appears only when entrypoints are defined.
+* **Federated APIs with keyless plans and empty entrypoints**: The entire API access card is hidden.
+* **Non-ACCEPTED subscriptions** (PENDING, REJECTED, PAUSED, or CLOSED status): The card displays a status message instead of access details.
+
 ## Delete federated APIs
 
 Deleting a federated API will close or delete all objects inside of it such as plans, documentation pages, and subscriptions.
@@ -174,3 +189,5 @@ To delete all of an integration's federated APIs as a group:
 {% hint style="info" %}
 Federated APIs cannot be deleted if they are published. The **Delete APIs** action will delete unpublished APIs but ignore published APIs.
 {% endhint %}
+
+<figure><img src="../../.gitbook/assets/federated-api-apikey-subscription.png" alt="Subscriptions management page showing an accepted API Key plan subscription with filter options and subscription details table"><figcaption></figcaption></figure>

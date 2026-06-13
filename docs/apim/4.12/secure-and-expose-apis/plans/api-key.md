@@ -20,6 +20,12 @@ An API Key plan offers only basic security, acting more like a unique identifier
 * **Propagate API Key to upstream API:** Toggle ON to ensure the request to the backend API includes the API key header sent by the API consumer. This is useful for backend APIs that already have integrated API key authentication.
 * **Additional selection rule:** Allows you to use Gravitee Expression Language (EL) to filter plans of the same type by contextual data (request headers, tokens, attributes, etc.). For example, if there are multiple API key plans, you can set different selection rules on each plan to determine which plan handles each request.
 
+{% hint style="info" %}
+**Federated APIs with empty entrypoints**
+
+For federated APIs that have no defined entrypoints, the Developer Portal conditionally displays access information. API Key plans will display the API keys table but hide the base URL and curl command sections when entrypoints are empty.
+{% endhint %}
+
 ## **API Key generation**
 
 By default, API keys are randomly generated for each subscription, but Gravitee also offers custom API key generation and shared API key generation. Both of these settings can be enabled at the environment level:
