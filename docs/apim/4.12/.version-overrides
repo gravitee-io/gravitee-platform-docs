@@ -92,3 +92,10 @@ developer-portal/new-developer-portal/gravitee-markdown-components.md
 .gitbook/assets/wsdl-review-rest-to-soap-enabled.png
 create-and-configure-apis/apply-policies/policy-reference/rest-to-soap.md
 create-and-configure-apis/create-apis/wsdl-import-for-v4-apis.md
+.gitbook/assets/api-keys-table-active.png
+.gitbook/assets/api-keys-table-renewed.png
+.gitbook/assets/api-keys-table-revoked.png
+.gitbook/assets/renew-api-key-dialog.png
+.gitbook/assets/revoke-api-key-dialog.png
+developer-portal/new-developer-portal/manage-api-keys-in-the-developer-portal.md
+secure-and-expose-apis/subscriptions/manage-subscriptions.md

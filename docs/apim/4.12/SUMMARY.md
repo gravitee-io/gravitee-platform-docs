@@ -324,6 +324,7 @@
     * [Creating and Managing Templated Portal Pages](developer-portal/new-developer-portal/customize-the-navigation/creating-and-managing-templated-portal-pages.md)
     * [Gravitee Markdown Components](developer-portal/new-developer-portal/gravitee-markdown-components.md)
     * [Application Logs](developer-portal/new-developer-portal/application-logs.md)
+    * [Manage API Keys in the Developer Portal](developer-portal/new-developer-portal/manage-api-keys-in-the-developer-portal.md)
     * [Manage Subscriptions](developer-portal/new-developer-portal/manage-subscriptions.md)
     * [Configure Webhook Subscriptions](developer-portal/new-developer-portal/configure-webhook-subscriptions.md)
     * [Configure Authentication](developer-portal/new-developer-portal/configure-authentication/README.md)
