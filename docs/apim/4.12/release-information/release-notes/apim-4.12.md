@@ -155,6 +155,16 @@
 * Supports eight attributes: `name`, `transport`, `url`, `headers`, `command`, `args`, `env`, and `clients`.
 <!-- /PIPELINE:APIM-14244 -->
 
+
+<!-- PIPELINE:APIM-13672 -->
+#### **API Key Lifecycle Management in Developer Portal**
+
+* View all API keys associated with a subscription—active, revoked, and expired—in a paginated table on the subscription details page.
+* Revoke and renew API keys directly from the Developer Portal when you hold Subscription Update permission on the API or application.
+* API key status is determined by revocation and expiration dates, with active keys displaying a check-circle icon and inactive keys displaying an X-circle icon.
+* The "Calling the API" section is hidden when all API keys are inactive (revoked or expired) for API-Key-secured plans.
+<!-- /PIPELINE:APIM-13672 -->
+
 ## Improvements
 
 
