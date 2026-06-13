@@ -92,3 +92,9 @@ developer-portal/new-developer-portal/gravitee-markdown-components.md
 .gitbook/assets/wsdl-review-rest-to-soap-enabled.png
 create-and-configure-apis/apply-policies/policy-reference/rest-to-soap.md
 create-and-configure-apis/create-apis/wsdl-import-for-v4-apis.md
+.gitbook/assets/federated-api-apikey-subscription.png
+.gitbook/assets/federated-api-keyless-plan.png
+.gitbook/assets/federated-api-plan-list.png
+govern-apis/federation/federated-apis.md
+secure-and-expose-apis/plans/api-key.md
+secure-and-expose-apis/subscriptions/manage-subscriptions.md

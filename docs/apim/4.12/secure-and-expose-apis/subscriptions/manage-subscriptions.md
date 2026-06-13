@@ -77,3 +77,13 @@ Subscriptions to API Key plans include additional security management settings:
 *   **Expire:** Set a date/time to automatically invalidate an existing API key
 
     <figure><img src="../../.gitbook/assets/subscription_api key expire.png" alt=""><figcaption><p>Expire an API key</p></figcaption></figure>
+
+### Federated API subscriptions
+
+For federated APIs, the subscription experience varies based on plan type and entrypoint availability. Federated APIs are ingested from third-party providers and may not have Gravitee-managed entrypoints.
+
+For API Key plans, API keys are provisioned by the provider. The API access card displays the API keys table for managing provider-provisioned keys. When entrypoints aren't defined, the base URL and curl command sections are hidden.
+
+For keyless plans with empty entrypoints, the entire API access card is hidden since no access information is available.
+
+For federated APIs with defined entrypoints, all access information displays normally, including base URLs and example commands.
