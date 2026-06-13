@@ -168,6 +168,32 @@ To set a key on a message, the attribute `gravitee.attribute.kafka.recordKey` ca
 
 A shared producer is created by the endpoint and reused for all requests with that same configuration. The producer configuration includes the **ClientId**, **Topic**, and **Partitioning**. The client ID is generated for the producer in the format `gio-apim-producer-<first part of uuid>`, for example, `gio-apim-producer-a0eebc99`
 
+### SASL Delegate-to-Broker Authentication in Kafka Virtual Clusters
+
+When a backend cluster is configured with **SASL Mechanism** set to **Delegate To Broker**, the gateway captures the client's SASL credentials during the initial handshake and replays them when opening connections to backend clusters.
+
+**Credential Capture Flow:**
+
+1. Client sends `SASL_HANDSHAKE` with mechanism (e.g., `PLAIN`).
+2. Gateway stores the negotiated mechanism.
+3. Client sends `SASL_AUTHENTICATE` with authentication bytes.
+4. Gateway stores the authentication bytes and creates a `DelegateSaslCredentials` object in the connection context.
+
+**Credential Replay Flow:**
+
+1. Gateway retrieves credentials from the connection context.
+2. Gateway opens a fresh socket to the target backend.
+3. Gateway sends `SASL_HANDSHAKE` and `SASL_AUTHENTICATE` with the captured credentials.
+4. On success, the gateway sends the actual request frame and reads the response.
+
+**Virtual Cluster Bootstrap Authentication (Delegate-to-Broker Mode):**
+
+When all backend clusters in a virtual cluster are configured with **Delegate To Broker** SASL mechanism, the gateway opens parallel connections to all backends, fans out the client's SASL frames, and fetches metadata on the first client only. Subsequent clients skip the metadata fetch and authenticate with one cluster only for credential validation.
+
+**Virtual Cluster Bootstrap Authentication (Non-Delegate Mode):**
+
+When backend clusters are configured with gateway-owned credentials (PLAIN, SCRAM, OAUTHBEARER), the gateway serves cached metadata without backend connection. The client reconnects to a specific virtual broker SNI (from metadata) for subsequent requests.
+
 ### Dynamic configuration <a href="#user-content-dynamic-configuration" id="user-content-dynamic-configuration"></a>
 
 The Kafka endpoint includes the dynamic configuration feature, which you can use to complete the following actions:

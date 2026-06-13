@@ -17,6 +17,21 @@ To use Gravitee to proxy a Kafka cluster, configure the Gravitee Kafka Gateway a
 Running the Kafka Gateway requires an Enterprise license with the Kafka Gateway feature included. This does not come by default with a Universe license; it must be purchased separately from Gravitee.
 {% endhint %}
 
+### Prerequisites
+
+Before configuring the Kafka Gateway, ensure the following prerequisites are met:
+
+- For Kafka Virtual Clusters: At least 2 backend Kafka clusters configured (minimum 2 recommended to exercise multiplex functionality; practical ceiling is 5–10 backends)
+- Each backend cluster must expose fewer than 10,000 brokers (real broker IDs must be < 10,000)
+- Maximum 214,748 backend clusters per virtual cluster
+- For HOST routing mode (default): A wildcard TLS certificate covering `*.<defaultDomain>`
+- **CLUSTER** environment-scoped permission (READ + UPDATE) granted to users who will manage clusters
+- **NATIVE_LOG** and **NATIVE_ANALYTICS** API-scoped permissions granted to relevant roles for native Kafka API logs and analytics
+- mTLS plans force HOST routing mode (SNI handshake required for client certificate validation)
+- You cannot mix secure plans (API Key, JWT, OAuth2, mTLS) with Keyless plan on the same API
+
+### Gateway Configuration
+
 To run the Kafka Gateway, enable the Gateway server in `gravitee.yml`. The full example of the configuration is defined [below](configure-the-kafka-client-and-gateway.md#appendix-full-gateway-configuration). The baseline required configuration is:
 
 ```yaml

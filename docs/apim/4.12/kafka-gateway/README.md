@@ -19,6 +19,16 @@ The Kafka Gateway natively supports the Kafka protocol and is treated like a tra
 
 You can expose multiple Kafka topics within a single Kafka API, and expose multiple Kafka APIs through the Gravitee Kafka Gateway. Using the Kafka Gateway, data is processed in real time, and virtual topics and partitions enable scalable, cost-effective deployments.
 
+## Kafka Virtual Clusters
+
+Kafka Virtual Clusters enable you to present multiple backend Kafka clusters as a single unified cluster to client applications. A virtual cluster is a fan-out wrapper that aggregates multiple backend Kafka clusters into one virtual cluster. The gateway merges metadata from all backend clusters, rewrites broker IDs into non-overlapping virtual ranges, and routes client requests to the appropriate backend based on topic ownership.
+
+Each backend cluster is assigned a range of 10,000 virtual broker IDs. The gateway uses the formula `virtualBrokerId = (clusterIndex + 1) * 10000 + realBrokerId` to map real broker IDs to virtual IDs. The maximum number of clusters is 214,748, and each backend cluster must expose fewer than 10,000 brokers.
+
+Virtual clusters support consumer group multiplexing (classic protocol with range or round-robin assignors only), idempotent producer session management, and SASL credential delegation across backends. Transactions, share groups, and ACL operations are not supported on virtual clusters.
+
+For details on configuring and using virtual clusters, see [Configure the Kafka Client & Gateway](configure-the-kafka-client-and-gateway.md).
+
 To learn more about the Kafka Gateway, see the following articles:
 
 <table data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Configure the Kafka Client &#x26; gateway</td><td><a href="configure-the-kafka-client-and-gateway.md">configure-the-kafka-client-and-gateway.md</a></td></tr><tr><td>Create &#x26; Configure Kafka APIs</td><td><a href="create-and-configure-kafka-apis/">create-and-configure-kafka-apis</a></td></tr><tr><td>Plans</td><td><a href="plans.md">plans.md</a></td></tr><tr><td>Applications</td><td><a href="applications.md">applications.md</a></td></tr><tr><td>Subscriptions</td><td><a href="subscriptions.md">subscriptions.md</a></td></tr><tr><td>Other ways Gravitee supports Kafka</td><td><a href="other-ways-gravitee-supports-kafka.md">other-ways-gravitee-supports-kafka.md</a></td></tr></tbody></table>

@@ -145,6 +145,17 @@
 * WSDL 2.0 is not supported; remote URLs must pass SSRF protection rules (private IPs blocked by default).
 <!-- /PIPELINE:APIM-12279 -->
 
+
+<!-- PIPELINE:APIM-13666 -->
+#### **Kafka Virtual Clusters**
+
+* Present multiple backend Kafka clusters as a single unified cluster to client applications, simplifying multi-cluster architectures and enabling workload isolation without client-side complexity.
+* Automatically merge metadata from all backend clusters, rewrite broker IDs into non-overlapping virtual ranges, and route client requests to the appropriate backend based on topic ownership.
+* Support consumer group multiplexing across backends (classic protocol with range or round-robin assignors only), idempotent producer session management, and SASL credential delegation.
+* Configure via new Kafka Cluster and Kafka Virtual Cluster entities that share backend configuration across multiple APIs and allow switching between authentication profiles without re-creating cluster definitions.
+* Maximum 214,748 backend clusters supported; each backend must expose fewer than 10,000 brokers.
+<!-- /PIPELINE:APIM-13666 -->
+
 ## Improvements
 
 
