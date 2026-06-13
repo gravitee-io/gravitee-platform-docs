@@ -149,3 +149,16 @@ The parsed plan is selected for execution if all the following conditions are me
 
 * The request contains a token corresponding to the plan type (e.g., an `X-Gravitee-Api-Key` header for an API Key plan)
 * The plan condition rule is valid or not set
+
+## Plan security and federated API visibility
+
+For federated APIs with empty entrypoints, the plan security type affects how API access information is displayed in the Developer Portal:
+
+| Plan Security | Entrypoints Empty | API Access Card Behavior |
+|---------------|-------------------|--------------------------|
+| `KEY_LESS` | Yes | Entire card hidden |
+| `API_KEY` | Yes | API keys table shown; "Calling the API" section hidden (if no active keys) |
+| `OAUTH2` | Yes | Full card shown |
+| `JWT` | Yes | Full card shown |
+
+For native APIs, the API Access card is always displayed regardless of entrypoint availability.

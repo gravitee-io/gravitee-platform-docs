@@ -31,6 +31,15 @@ Use the eye icon to view subscription details.
 
 To filter subscriptions, use the **API** and **API Key** search fields and/or the **Status** drop-down menu. Subscriptions can have a status of accepted, closed, paused, pending, rejected, or resumed.
 
+When viewing subscription details, the [API Access card](../../govern-apis/federation/federated-api-access-information-display.md#api-access-card) displays status-specific messages for non-accepted subscriptions instead of access details:
+
+| Status | Header | Content |
+|--------|--------|---------|
+| `PENDING` | Subscription in progress | Your subscription request is being validated. Come back later. |
+| `REJECTED` | Subscription rejected | |
+| `PAUSED` | Subscription paused | |
+| `CLOSED` | Subscription closed | |
+
 <figure><img src="../../.gitbook/assets/1 app sub 2.png" alt=""><figcaption></figcaption></figure>
 
 To create a new subscription, click **+ Create a subscription** and search for the API you'd like to subscribe to. Refer to the [subscription](./) documentation for more information.

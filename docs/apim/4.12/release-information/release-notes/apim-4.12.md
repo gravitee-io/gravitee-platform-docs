@@ -167,4 +167,14 @@
 * Both new fields are additive and disabled when their list is empty, so existing policy configurations are unaffected.
 <!-- /PIPELINE:APIM-13498 -->
 
+
+<!-- PIPELINE:APIM-14120 -->
+#### **Federated API Access Information Display**
+
+* The Developer Portal now hides empty API access sections for federated APIs when entrypoint information is unavailable, providing a cleaner subscription experience.
+* For keyless federated APIs with no entrypoints, the entire API Access card is hidden after subscription approval.
+* For API key–based federated APIs with no entrypoints, the API keys table remains visible while the "Calling the API" section is hidden when no active keys exist.
+* Native Gravitee APIs continue to display the full API Access card regardless of entrypoint availability.
+<!-- /PIPELINE:APIM-14120 -->
+
 ## Bug Fixes

@@ -346,6 +346,7 @@
   * [Portal Page Content Validator API Changes](developer-portal/portal-page-content-validator-api-changes.md)
 * [Govern APIs](govern-apis/README.md)
   * [Federation](govern-apis/federation/README.md)
+    * [Federated API Access Information Display](govern-apis/federation/federated-api-access-information-display.md)
     * [Integrations](govern-apis/federation/integrations.md)
     * [Discovery](govern-apis/federation/discovery.md)
     * [Federated APIs](govern-apis/federation/federated-apis.md)
