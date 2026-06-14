@@ -145,6 +145,17 @@
 * WSDL 2.0 is not supported; remote URLs must pass SSRF protection rules (private IPs blocked by default).
 <!-- /PIPELINE:APIM-12279 -->
 
+
+<!-- PIPELINE:APIM-13666 -->
+#### **Kafka Virtual Clusters**
+
+* Present multiple backend Kafka clusters as a single unified cluster to client applications, enabling topic distribution across physical clusters without changing client configurations.
+* Create reusable Kafka Cluster entities with multiple named connections (each with distinct bootstrap servers and security settings) that can be shared across APIs.
+* Configure Virtual Cluster backends by referencing existing Kafka Cluster entities, supporting 2–10 backend clusters with automatic fan-out for consumer group operations.
+* Manage cluster lifecycle states (UNDEPLOYED, DEPLOYED, PENDING) with version control and deployment timestamps.
+* Choose between HOST routing mode (single port with TLS SNI, requires wildcard certificate) or PORT routing mode (dedicated port per API) via the `kafka.routingMode` gateway property.
+<!-- /PIPELINE:APIM-13666 -->
+
 ## Improvements
 
 

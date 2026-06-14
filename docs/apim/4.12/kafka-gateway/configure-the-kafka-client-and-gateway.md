@@ -23,7 +23,7 @@ To run the Kafka Gateway, enable the Gateway server in `gravitee.yml`. The full 
 kafka:
   enabled: true
 
-  routingMode: host # default is host. Supported values: host, port. For port-based routing, see [Port allocation for port-based routing](configure-the-kafka-client-and-gateway.md#port-allocation-for-port-based-routing).
+  routingMode: host # default is host. Supported values: host, port. For port-based routing, see [Port allocation for port-based routing](#port-allocation-for-port-based-routing).
   # Routing Host Mode
   routingHostMode:
     brokerPrefix: "broker-" # default is broker-
@@ -33,6 +33,17 @@ kafka:
     defaultDomain: "mycompany.org" # Should set according to the public wildcard DNS/Certificate. Default is empty
     defaultPort: 9092 # Default public port for Kafka APIs. Default is 9092
 ```
+
+### Routing modes
+
+The Kafka Gateway supports two global routing modes:
+
+| Mode | Mechanism | Wildcard Certificate Required | Use Case |
+|:-----|:----------|:------------------------------|:---------|
+| **HOST** (default) | Single bootstrap port (9092) for all APIs. Routing relies on TLS SNI — the gateway dispatches on `<apiPrefix>.<defaultDomain>` and `broker-<N>-<apiPrefix>.<defaultDomain>`. | Yes — a wildcard certificate covering `*.<defaultDomain>` is the simplest setup. | Most deployments. Allows hosting multiple APIs behind one port. |
+| **PORT** | Each plan gets a dedicated bootstrap port and broker-port range. Routing is by local listening port; no SNI dispatch. | No — per-port certificates are acceptable. | Environments where wildcard certificates are not acceptable or where the client cannot perform SNI. |
+
+mTLS plans force HOST mode because the SNI handshake is required for client certificate validation.
 
 ### Bootstrap server domain
 

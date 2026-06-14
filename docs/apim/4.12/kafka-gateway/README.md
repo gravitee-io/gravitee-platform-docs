@@ -19,6 +19,10 @@ The Kafka Gateway natively supports the Kafka protocol and is treated like a tra
 
 You can expose multiple Kafka topics within a single Kafka API, and expose multiple Kafka APIs through the Gravitee Kafka Gateway. Using the Kafka Gateway, data is processed in real time, and virtual topics and partitions enable scalable, cost-effective deployments.
 
+## Kafka Virtual Clusters
+
+Kafka Virtual Clusters enable you to present multiple backend Kafka clusters as a single unified cluster to client applications. This capability allows you to distribute topics across multiple physical Kafka clusters while maintaining a single connection point for producers and consumers. [Virtual Clusters enable cross-cluster topic distribution and workload isolation without changing client configurations](kafka-virtual-clusters-overview.md).
+
 To learn more about the Kafka Gateway, see the following articles:
 
 <table data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Configure the Kafka Client &#x26; gateway</td><td><a href="configure-the-kafka-client-and-gateway.md">configure-the-kafka-client-and-gateway.md</a></td></tr><tr><td>Create &#x26; Configure Kafka APIs</td><td><a href="create-and-configure-kafka-apis/">create-and-configure-kafka-apis</a></td></tr><tr><td>Plans</td><td><a href="plans.md">plans.md</a></td></tr><tr><td>Applications</td><td><a href="applications.md">applications.md</a></td></tr><tr><td>Subscriptions</td><td><a href="subscriptions.md">subscriptions.md</a></td></tr><tr><td>Other ways Gravitee supports Kafka</td><td><a href="other-ways-gravitee-supports-kafka.md">other-ways-gravitee-supports-kafka.md</a></td></tr></tbody></table>

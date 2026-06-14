@@ -129,6 +129,8 @@ For each incoming request, the Kafka endpoint retrieves information from the req
 {% tabs %}
 {% tab title="ConsumerGroup" %}
 The consumer group is computed from the request's client identifier and used to load-balance consumption. Kafka doesn't offer a way to manually create a consumer group; a consumer group can only be created through a new consumer instance. See the [Kafka documentation](https://docs.confluent.io/platform/current/clients/consumer.html#concepts) for more information.
+
+When consuming from a virtual cluster, the gateway creates shadow consumer groups on each backend cluster using the naming convention `{clientGroupId}__shadow-c{clusterIndex}`. The gateway aggregates responses from all shadow groups and presents a unified view to the client. Client group IDs matching the reserved pattern `__shadow-c\d+$` are rejected with `INVALID_GROUP_ID`.
 {% endtab %}
 
 {% tab title="ClientId" %}
