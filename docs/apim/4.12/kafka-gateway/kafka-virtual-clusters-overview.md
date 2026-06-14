@@ -48,7 +48,7 @@ When a consumer group subscribes to topics that span multiple backend clusters, 
 
 
 The gateway supports both the classic consumer protocol and the [next-generation consumer protocol (KIP-848)](https://cwiki.apache.org/confluence/display/KAFKA/KIP-848%3A+The+Next+Generation+of+the+Consumer+Rebalance+Protocol), `group.protocol=consumer`.
- For KIP-848 groups, the gateway allocates a virtual member ID in the format `gw-<UUID>` during bootstrap and persists shadow memberships in the `ConsumerGroupMultiplexStore`. Steady-state heartbeats route via the virtual member ID fast path.
+For KIP-848 groups, the gateway allocates a virtual member ID in the format `gw-<UUID>` during bootstrap and persists shadow memberships in the `ConsumerGroupMultiplexStore`. Steady-state heartbeats route via the virtual member ID fast path.
 
 ### Virtual Broker IDs
 

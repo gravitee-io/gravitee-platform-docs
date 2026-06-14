@@ -85,7 +85,7 @@ Of the following configuration settings, only entering a host/port pair is requi
      *   **DELEGATE\_TO\_BROKER:** No additional security configuration required.
 
          {% hint style="warning" %}
-         When using `DELEGATE_TO_BROKER`, the supported mechanisms available to the client are `PLAIN` and `AWS_IAM_MSK`. The `AWS_MSK_IAM` mechanism requires you to host the Kafka Gateway on AWS. Otherwise, authentication fails.
+         When using `DELEGATE_TO_BROKER`, the supported mechanisms available to the client are `PLAIN` and `AWS_MSK_IAM`. The `AWS_MSK_IAM` mechanism requires you to host the Kafka Gateway on AWS. Otherwise, authentication fails.
          {% endhint %}
    *   **SSL:** Choose whether to enable host name verification, then use the drop-down menu to configure a truststore type
 
@@ -150,7 +150,7 @@ The Gravitee plans supported by Kafka APIs are summarized below, in increasing o
 <table><thead><tr><th width="201">Plan</th><th>Description</th></tr></thead><tbody><tr><td>Keyless (public)</td><td>When configured, this plan does not add security. It is considered an "open" plan.</td></tr><tr><td>API Key</td><td>The gateway only accepts connections from clients that pass an API key corresponding to a valid subscription to the proxy in the client properties. The API key is used as the password, and the md5 hash of the API key is used as the username, as part of the SASL/SSL with SASL PLAIN authentication method.</td></tr><tr><td>JWT</td><td>The gateway only accepts connections from clients that pass a valid JWT with a client ID claim corresponding to a valid subscription to the proxy in the client properties. This is equivalent to SASL/SSL with SASL OAUTHBEARER authentication, where the JWT is used as the OAuth token.</td></tr><tr><td>OAuth2</td><td>The gateway only accepts connections from clients that pass a valid OAuth token with a client ID corresponding to a valid subscription to the proxy in the client properties. This is equivalent to SASL/SSL with SASL OAUTHBEARER authentication.</td></tr></tbody></table>
 
 {% hint style="info" %}
-To learn more about how plans function in Gravitee, refer to the [plans](configure-kafka-apis/mtls-plans.md).
+To learn more about how plans function in Gravitee, refer to the [plans](../../secure-and-expose-apis/plans/) documentation. For mTLS plan configuration with Kafka APIs, see [mTLS plans](mtls-plans.md).
 {% endhint %}
 
 Individual plan configurations as they pertain to Kafka APIs are described in detail below.
