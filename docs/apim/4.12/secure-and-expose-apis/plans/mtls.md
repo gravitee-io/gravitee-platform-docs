@@ -1,5 +1,5 @@
 ---
-description: An overview about mtls.
+description: An overview about mTLS.
 metaLinks:
   alternates:
     - mtls.md
@@ -42,6 +42,8 @@ Starting with APIM 4.11, application owners can upload, rotate, and retire multi
 ## How it works
 
 When using an mTLS plan, you don't need to manually define a Gateway truststore. The Gateway automatically retrieves all certificates from [Applications (that have a TLS Configuration)](mtls.md#how-to-add-a-client-certificate) and loads them into an in-memory truststore.
+
+mTLS plans force HOST routing mode because the SNI handshake is required for client-cert validation. Mixed secure plans (API Key, JWT, OAuth2, mTLS) with a Keyless plan on the same API are refused at API start.
 
 ## Initial Gateway configuration
 
