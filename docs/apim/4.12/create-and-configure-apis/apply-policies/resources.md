@@ -122,6 +122,141 @@ The **Cache Redis** plugin is not included in the default APIM distribution, but
 ```
 {% endcode %}
 
+##### Creating a Redis Cache Resource
+
+1. Navigate to **Configuration** in the left sidebar.
+2. Click the **Resources** tab.
+
+    <figure><img src="../../.gitbook/assets/redis-cache-resource-empty.png" alt="Configuration page showing Resources tab with empty resource list and Add resource button in top right"><figcaption></figcaption></figure>
+
+3. Click **Add resource** in the top right corner.
+4. Select **Cache Redis** from the resource type list.
+
+    <figure><img src="../../.gitbook/assets/redis-cache-resource-type-selection.png" alt="Add API Resource dialog showing Cache Redis option selected in resource type list"><figcaption></figcaption></figure>
+
+5. Click **Select** to open the Cache Redis configuration form.
+6. Enter a resource name in the **Name** field at the top of the form.
+7. Configure the **Host** field (supports EL).
+8. Configure the **Port** field (supports EL).
+9. (Optional) Enter a **Username** for Redis ACL authentication (supports EL and secrets).
+10. (Optional) Enter a **Password** (supports EL and secrets).
+11. Toggle **Use SSL** to enable SSL/TLS connections to Redis.
+
+    <figure><img src="../../.gitbook/assets/redis-cache-connection-settings.png" alt="Configure Cache Redis resource form showing Name, Host, Port, Password fields, Use SSL toggle enabled, and SSL Options section with Verify Host toggle enabled"><figcaption></figcaption></figure>
+
+12. (Optional) Configure **Timeout** in milliseconds (default: `2000`).
+13. (Optional) Toggle **Release Cache** to delete only keys matching the current deployment on clear.
+14. (Optional) Configure **Time To Live Seconds** (default: `0` for no expiration).
+
+Pool and timeout settings are sourced from `gravitee.yml` and apply to all resources sharing the same endpoint.
+
+**Redis Connection Settings:**
+
+| Field | Description | Default |
+|:------|:------------|:--------|
+| **Host** | Redis instance host (supports EL) | `localhost` |
+| **Port** | Redis instance port (supports EL) | `6379` |
+| **Username** | Username for Redis ACL authentication (supports EL and secrets) | `null` |
+| **Password** | Redis instance password (supports EL and secrets) | `null` |
+| **Use SSL** | Enable SSL/TLS connections to Redis | `false` |
+| **Timeout** | Command timeout in milliseconds | `2000` |
+| **Release Cache** | Delete only keys matching the current deployment on clear | `false` |
+| **Time To Live Seconds** | Default TTL for cache entries (0 = no expiration) | `0` |
+
+##### SSL/TLS Options
+
+When **Use SSL** is enabled, configure the SSL/TLS settings:
+
+<figure><img src="../../.gitbook/assets/redis-cache-ssl-settings.png" alt="SSL Options section showing Verify Host toggle enabled, Trust all toggle disabled, Truststore configuration with Type dropdown, and Keystore configuration with Type dropdown"><figcaption></figcaption></figure>
+
+15. Toggle **Verify Host** to enable hostname verification.
+16. (Optional) Toggle **Trust all** to trust all certificates (disables validation).
+17. (Optional) Configure **Truststore** by selecting a **Type** (`PEM`, `PKCS12`, or `JKS`) and providing the required paths and credentials.
+18. (Optional) Configure **Keystore** by selecting a **Type** (`PEM`, `PKCS12`, or `JKS`) and providing the required paths and credentials.
+19. (Optional) Configure advanced SSL options such as **Hostname Verification Algorithm**, **OpenSSL**, **ALPN**, **TLS Protocols**, and **TLS Ciphers**.
+
+When `useSsl=true` but no `ssl` configuration is provided, the resource falls back to `trustAll=true` and `hostnameVerifier=false` for backward compatibility. A warning is logged recommending explicit truststore and hostname verification configuration.
+
+##### Sentinel Configuration
+
+To configure Sentinel mode:
+
+20. Scroll to the **Sentinel** section.
+21. Toggle **Enabled** to activate Sentinel mode.
+22. Enter the **Master Id** (supports EL).
+23. (Optional) Enter the **Sentinel password** (supports EL and secrets).
+24. Configure **Sentinel nodes** by adding at least one node with **Host** and **Port** (both support EL).
+
+Sentinel mode is active when **Enabled** is `true` AND at least one node is declared. If **Enabled** is `true` but **Nodes** is empty, Sentinel mode is not active.
+
+**Sentinel Configuration:**
+
+| Field | Description | Default |
+|:------|:------------|:--------|
+| **Enabled** | Enable Sentinel mode | `true` |
+| **Master Id** | Sentinel master identifier (supports EL) | `sentinel-master` |
+| **Password** | Sentinel password (supports EL and secrets) | `null` |
+| **Nodes** | List of Sentinel nodes (each with **Host** and **Port**, both support EL) | `[{"host":"localhost","port":26379}]` |
+
+##### Cluster Configuration
+
+To configure Cluster mode (mutually exclusive with Sentinel):
+
+25. Scroll to the **Cluster** section.
+26. Toggle **Enabled** to activate Cluster mode.
+27. Configure **Nodes** by adding cluster nodes with **Host** and **Port** (both support EL).
+28. (Optional) Configure **Use Replicas** read-from-replica policy: `NEVER`, `SHARE`, or `ALWAYS` (default: `NEVER`).
+29. Click **Save** to create the resource.
+
+Cluster mode is mutually exclusive with Sentinel mode. Configuring both with non-empty nodes triggers a validation error. The mapper validates `cluster.useReplicas` against allowed values (`NEVER`, `SHARE`, `ALWAYS`) and throws `IllegalArgumentException` with message "Invalid Redis cluster 'useReplicas' value. Allowed values: NEVER, SHARE, ALWAYS" for invalid values.
+
+**Cluster Configuration:**
+
+| Field | Description | Default |
+|:------|:------------|:--------|
+| **Enabled** | Enable Cluster mode | `true` |
+| **Nodes** | List of Cluster nodes (each with **Host** and **Port**, both support EL) | `[]` |
+| **Use Replicas** | Read-from-replica policy: `NEVER`, `SHARE`, or `ALWAYS` | `NEVER` |
+
+##### Backward Compatibility
+
+- Legacy `standalone` object (with `enabled`, `host`, `port`) is deserialized into flat `host` and `port` fields.
+- Legacy `sentinelMode` boolean is treated as equivalent to `sentinel.enabled=true`.
+- Legacy `maxTotal` field (Lettuce pool setting) is silently ignored.
+- Legacy **Max Pool Size**, **Max Pool Waiting**, **Pool Cleaner Interval**, **Pool Recycle Timeout**, **Max Waiting Handlers**, and **Connect Timeout** fields are ignored; these settings are now sourced from `gravitee.yml`.
+
+##### Redis Connection String Credential Embedding
+
+Redis connection strings embed credentials differently depending on the topology:
+
+**Standalone:**
+
+```
+redis[s]://[username][:password]@host:port
+```
+
+Top-level `username` and `password` are URL-encoded and embedded in the connection string.
+
+**Sentinel:**
+
+```
+redis[s]://[:password]@sentinel-host:sentinel-port
+```
+
+Top-level `password` is embedded in each sentinel URI (applied to the master after discovery). The `sentinel.password` is set globally on `RedisOptions` for sentinel-node AUTH. Top-level `username` is **not** embedded in Sentinel URIs.
+
+**Cluster:**
+
+```
+redis[s]://username:password@node-host:node-port
+```
+
+Top-level `username` and `password` are embedded in every node URI for uniform auth across all cluster nodes.
+
+##### Cache Clear Operation Scoping
+
+When `releaseCache=true`, the `clear()` operation deletes only keys matching the pattern `gravitee:*:<deployAt>` (current deployment), preserving other deployments' keys. When `releaseCache=false`, `clear()` is a no-op and logs a debug message.
+
 #### OAuth2 Gravitee AM Authorization Server
 
 The OAuth2 Gravitee AM Authorization Server resource introspects an access token generated by a Gravitee AM instance.

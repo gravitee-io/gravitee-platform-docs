@@ -17,9 +17,17 @@ The Data Cache policy allows you to get, set, and expire arbitrary key-value pai
 
 ## Basic Usage
 
-* First, you create a [cache resource](https://github.com/gravitee-io/gravitee-platform-docs/blob/6f69d3d43334c5f35db35e34f1d23832790b9725/docs/apim/4.6/policies/resources.md) for the policy to use.
+* First, you create a [cache resource](../resources.md#cache-redis) for the policy to use.
 * You specify the cache key to use for getting, setting, or expiring. The key name is dynamic and can be set using expression language.
 * When using the `SET` operation, you specify the `value` to set in the cache. The value is also dynamic and supports expression language.
+
+The policy supports three operations:
+
+* **SET**: Store a value in the cache
+* **GET**: Retrieve a value from the cache
+* **EVICT**: Delete a value from the cache
+
+You can override the default operation and TTL at runtime using request attributes.
 
 ## Manipulating Return Values
 
@@ -27,7 +35,7 @@ Suppose the cache key is named `my-key`. Then, when running the `GET` operation,
 
 For example, in the assign attributes policy, you can modify the value by using `{#context.attributes['my-key']}`. Note that you may need to cast the result to a different data type, as many caches store data in plain text. For example, to increment a value by 1 when it is obtained from Redis, use the expression:
 
-```
+```json
 {new Integer(#context.attributes['my-key']) + 1}
 ```
 
@@ -38,7 +46,7 @@ When performing a `GET` operation, the policy will set a context attribute to `t
 * In the HTTP Callout policy, you can set the `Trigger condition` field to `{#gravitee.policy.data-cache.cache-miss}`, so as to only trigger the callout when a key is not found in the cache.
 * If you want to increment a counter or start at 1 if the value is not found in the cache, you can use the assign attributes policy and set the attribute as:
 
-```
+```json
 {#context.attributes['gravitee.policy.data-cache.cache-miss'] ? 1 : new Integer(#context.attributes['my-key']) + 1}
 ```
 
@@ -249,14 +257,14 @@ You can configure the policy with the following options:
 | --------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ------------------------------------- |
 | resource              | X        | The name of the cache resource to use.                                                                                                          | string  | \_                                    |
 | cacheKey              | X        | The cache key to look up. When the operation is GET, this key is used as the context attribute to refer to the cache value (Supports EL)        | string  | \_                                    |
-| value                 | X        | The value to store in the cache for the specified key. Used only for SET operation (Supports EL)                                                | string  | \_                                    |
-| defaultOperation      | X        | The default operation to use if the `gravitee.attributes.policy.cache.operation` attribute is not set.                                          | string  | \_                                    |
-| timeToLive            |          | The time to live in seconds. This value can be overridden by the `gravitee.attributes.policy.cache.ttl` attribute. Used only for SET operation. | integer | 3600                                  |
+| value                 |          | The value to store in the cache for the specified key. Used only for SET operation (Supports EL)                                                | string  | `null`                                |
+| defaultOperation      | X        | The default operation to use if the `gravitee.policy.data-cache.operation` attribute is not set. Valid values: `SET`, `GET`, `EVICT`            | string  | \_                                    |
+| timeToLive            |          | The time to live in seconds. This value can be overridden by the `gravitee.policy.data-cache.cache-ttl` attribute. Used only for SET operation. | integer | 3600                                  |
 | cacheMissAttributeKey |          | The attribute key to set when a cache miss occurs.                                                                                              | string  | gravitee.policy.data-cache.cache-miss |
 
 Example configuration:
 
-```
+```json
 {
     "configuration": {
         "resource": "my-cache-resource",
@@ -269,6 +277,13 @@ Example configuration:
 }
 ```
 
+#### Runtime Overrides
+
+You can override the default operation and TTL at runtime using request attributes:
+
+* Set the `gravitee.policy.data-cache.operation` request attribute to override the **Default Operation**. Valid values: `SET`, `GET`, `EVICT`. Invalid values trigger a `400 Bad Request` error with key `INVALID_OPERATION`.
+* Set the `gravitee.policy.data-cache.cache-ttl` request attribute to override the **Time To Live** (SET only). Non-integer values trigger a `400 Bad Request` error with key `INVALID_TTL`.
+
 #### Value <a href="#user-content-value" id="user-content-value"></a>
 
 The usage of the value depends on the operation:
@@ -279,11 +294,17 @@ The usage of the value depends on the operation:
 
 In all cases, the value supports EL and is optional. In case of value not provided, the policy will use the attribute with the key `gravitee.policy.data-cache.value`.
 
+#### Binary Cache API Validation
+
+The `putBinaryAsync` method requires `element.value()` to be a `byte[]`. If the value is not a byte array, the method returns a failed `Future` with `IllegalArgumentException` containing the message: "putBinaryAsync requires byte[] value for key '\<key>', got \<actual-type>".
+
 ### Errors <a href="#user-content-errors" id="user-content-errors"></a>
 
 With the provided default implementation, policy will fail if header `X-Template-Policy` value is equal to configured `errorKey` value.
 
-| Phase            | Code                          | Error template key  | Description                                   |
-| ---------------- | ----------------------------- | ------------------- | --------------------------------------------- |
-| REQUEST/RESPONSE | `500 - INTERNAL SERVER ERROR` | `NO_CACHE`          | The cache is not found in the cache resource. |
-| REQUEST/RESPONSE | `500 - INTERNAL SERVER ERROR` | `NO_CACHE_RESOURCE` | The cache resource is not found.              |
+| Phase            | Code                          | Error template key  | Description                                                                                                  |
+| ---------------- | ----------------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------ |
+| REQUEST/RESPONSE | `400 - BAD REQUEST`           | `INVALID_OPERATION` | The `gravitee.policy.data-cache.operation` attribute contains an invalid operation value.                    |
+| REQUEST/RESPONSE | `400 - BAD REQUEST`           | `INVALID_TTL`       | The `gravitee.policy.data-cache.cache-ttl` attribute contains a non-integer value.                           |
+| REQUEST/RESPONSE | `500 - INTERNAL SERVER ERROR` | `NO_CACHE`          | The cache is not found in the cache resource.                                                                |
+| REQUEST/RESPONSE | `500 - INTERNAL SERVER ERROR` | `NO_CACHE_RESOURCE` | The cache resource is not found.                                                                             |

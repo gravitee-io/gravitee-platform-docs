@@ -1,3 +1,4 @@
+
 ---
 description: An overview about redis.
 metaLinks:
@@ -9,7 +10,10 @@ metaLinks:
 
 ## Overview
 
-The Redis repository plugin enables you to connect to Redis databases to use the Rate Limit feature. The Redis plugin is part of the default distribution of APIM.
+The Redis repository plugin enables you to connect to Redis databases to use the Rate Limit feature and distributed synchronization. The Redis plugin is part of the default distribution of APIM.
+
+Starting with APIM 4.12, Redis Cluster topology is supported for rate limiting and distributed synchronization, alongside enhanced SSL/TLS configuration options. The Redis cache resource has been rewritten to use asynchronous operations and binary-safe storage, improving performance and reliability for high-throughput API gateways.
+
 
 ## Supported databases
 

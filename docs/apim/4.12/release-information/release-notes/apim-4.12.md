@@ -145,6 +145,17 @@
 * WSDL 2.0 is not supported; remote URLs must pass SSRF protection rules (private IPs blocked by default).
 <!-- /PIPELINE:APIM-12279 -->
 
+
+<!-- PIPELINE:APIM-13625 -->
+#### **Redis Cluster Support for Rate Limiting and Distributed Synchronization**
+
+* Redis Cluster topology is now supported for rate limiting and distributed synchronization, enabling horizontal scaling across multiple Redis master nodes with automatic hash slot routing.
+* Connection pooling is shared across APIs using the same Redis endpoint (host, port, credentials, topology), with pool size and timeout configured globally in `gravitee.yml` under `resources.cacheRedis.*` or `resources.aiVectorStoreRedis.*`.
+* Cache entries are stored in binary format (version `0x01`) instead of JSON, preserving exact byte sequences and eliminating serialization overhead for non-UTF-8 content.
+* Enhanced SSL/TLS configuration includes hostname verification algorithms (`HTTPS`, `LDAPS`), custom TLS protocol and cipher suite selection, and support for PEM keystores with multiple certificate/key pairs.
+* Cluster mode is mutually exclusive with Sentinel mode—configure one or the other, not both. For Cluster deployments, all nodes must share the same authentication credentials.
+<!-- /PIPELINE:APIM-13625 -->
+
 ## Improvements
 
 

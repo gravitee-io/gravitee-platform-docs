@@ -92,3 +92,11 @@ developer-portal/new-developer-portal/gravitee-markdown-components.md
 .gitbook/assets/wsdl-review-rest-to-soap-enabled.png
 create-and-configure-apis/apply-policies/policy-reference/rest-to-soap.md
 create-and-configure-apis/create-apis/wsdl-import-for-v4-apis.md
+.gitbook/assets/redis-cache-connection-settings.png
+.gitbook/assets/redis-cache-resource-empty.png
+.gitbook/assets/redis-cache-resource-type-selection.png
+.gitbook/assets/redis-cache-ssl-settings.png
+configure-and-manage-the-platform/gravitee-gateway/redis-cache-and-cluster-support-gateway-configuration-reference.md
+create-and-configure-apis/apply-policies/policy-reference/data-cache.md
+create-and-configure-apis/apply-policies/resources.md
+prepare-a-production-environment/repositories/redis.md

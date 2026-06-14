@@ -91,6 +91,7 @@
     * [Configuring the Hazelcast Rate-Limit Repository for Standalone Gateways](configure-and-manage-the-platform/gravitee-gateway/configuring-the-hazelcast-rate-limit-repository-for-standalone-gateways.md)
     * [Deploying the Hazelcast Rate-Limit Repository with Helm and Kubernetes Discovery](configure-and-manage-the-platform/gravitee-gateway/deploying-the-hazelcast-rate-limit-repository-with-helm-and-kubernetes-discovery.md)
     * [Proxy](configure-and-manage-the-platform/gravitee-gateway/proxy.md)
+    * [Redis Cache and Cluster Support — Gateway Configuration Reference](configure-and-manage-the-platform/gravitee-gateway/redis-cache-and-cluster-support-gateway-configuration-reference.md)
     * [Services](configure-and-manage-the-platform/gravitee-gateway/services.md)
     * [Dictionaries](configure-and-manage-the-platform/gravitee-gateway/dictionaries.md)
     * [Alerts](configure-and-manage-the-platform/gravitee-gateway/alerts.md)
