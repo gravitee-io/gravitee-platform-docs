@@ -145,6 +145,16 @@
 * WSDL 2.0 is not supported; remote URLs must pass SSRF protection rules (private IPs blocked by default).
 <!-- /PIPELINE:APIM-12279 -->
 
+
+<!-- PIPELINE:APIM-13666 -->
+#### **Kafka Virtual Clusters**
+
+* Present multiple backend Kafka clusters as a single unified cluster to client applications, enabling horizontal scaling and simplified client configuration while maintaining protocol-level compatibility.
+* Automatically multiplex consumer groups across backends with transparent rebalancing—clients see one group and one merged partition assignment, while the gateway manages shadow groups on each cluster.
+* Remap backend broker IDs into non-overlapping virtual ranges (10000–19999 for cluster 0, 20000–29999 for cluster 1, etc.) to prevent collisions in merged metadata responses.
+* Require a minimum of two backend clusters to enable multiplex behavior; backend broker IDs must be below 10,000, and cross-cluster topic subscriptions within a single consumer group are not supported.
+<!-- /PIPELINE:APIM-13666 -->
+
 ## Improvements
 
 

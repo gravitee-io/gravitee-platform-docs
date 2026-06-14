@@ -9,8 +9,9 @@ metaLinks:
 
 ## Overview
 
-
 The Kafka UI is accessible from the APIM Console. It is the user interface from which you can create and manage Kafka clusters, configure cluster connection information, and manage user access and permissions.
+
+Gravitee also supports **Kafka Virtual Clusters**, a MESH (Multi-Endpoint Single Host) capability that aggregates multiple backend Kafka clusters into a single logical cluster. Virtual clusters enable horizontal scaling across clusters and simplify client configuration while maintaining protocol-level compatibility with standard Kafka clients. For more information, see [kafka-virtual-clusters.md](kafka-virtual-clusters.md "mention").
 
 ## Prerequisites
 
@@ -18,7 +19,7 @@ The Kafka UI is accessible from the APIM Console. It is the user interface from 
 Kafka Console is currently only available for self-hosted deployments and not compatible with next-gen cloud.
 {% endhint %}
 
-* You must have an Enterprise License with the apim-cluster feature. For more information about Gravitee Enterprise Edition, see [enterprise-edition.md](../readme/enterprise-edition.md "mention").
+* You must have an Enterprise License with the apim-cluster feature. For more information about Gravitee Enterprise Edition, see [enterprise-edition.md](../introduction/enterprise-edition.md "mention").
 
 ## Create a Kafka Cluster
 

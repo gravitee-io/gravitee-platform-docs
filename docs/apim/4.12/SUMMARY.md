@@ -423,6 +423,8 @@
   * [Configuring Kafka Port Routing (Gateway and Console)](kafka-gateway/configuring-kafka-port-routing-gateway-and-console.md)
   * [Creating and Updating Plans with Port Routing](kafka-gateway/creating-and-updating-plans-with-port-routing.md)
   * [Deploy a Kafka Gateway with Gravitee Cloud](kafka-gateway/deploy-a-kafka-gateway-with-gravitee-cloud.md)
+  * [Kafka Virtual Clusters](kafka-gateway/kafka-virtual-clusters.md)
+  * [Kafka Virtual Clusters: Advanced Routing and Multiplex Reference](kafka-gateway/kafka-virtual-clusters-advanced-routing-and-multiplex-reference.md)
   * [Produce and Consume Kafka Messages with Gravitee Cloud](kafka-gateway/produce-and-consume-kafka-messages-with-gravitee-cloud.md)
   * [Create & Configure Kafka APIs](kafka-gateway/create-and-configure-kafka-apis/README.md)
     * [Create Kafka APIs](kafka-gateway/create-and-configure-kafka-apis/create-kafka-apis.md)

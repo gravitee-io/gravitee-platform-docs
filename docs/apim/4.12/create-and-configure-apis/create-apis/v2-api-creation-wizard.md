@@ -47,6 +47,10 @@ Optionally, you can select the **Advanced mode** hyperlink in the top right corn
 
 Define your **Backend**, which is the target backend where the request will be received.
 
+### Selecting an Endpoint Connector
+
+When configuring the backend, you can select the endpoint connector type. For Kafka APIs, the **Virtual Cluster** option allows you to route requests across multiple backend Kafka clusters as a single logical cluster. The Virtual Cluster dropdown displays all deployed virtual clusters in the environment. When you select a virtual cluster, the endpoint stores only the `virtualClusterCrossId` reference — connection details (bootstrap servers, authentication profiles, and cluster topology) are resolved at runtime from the virtual cluster entity.
+
 Optionally, you can select **Advanced mode** to define **Tenants** and/or **Sharding tags** for this API. These specify the Gateways to which the API is deployed.
 
 {% hint style="info" %}
