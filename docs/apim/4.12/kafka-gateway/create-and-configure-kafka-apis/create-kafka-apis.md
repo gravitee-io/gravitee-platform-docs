@@ -24,7 +24,7 @@ The API definitions for Kafka APIs can be generated using the APIM Console's API
 
 1. Log in to your APIM Console
 2. Click on **APIs** in the left nav
-3. In the Create New API , click on **Create V4 API**.
+3. In the Create New API, click on **[Create V4 API](../../create-and-configure-apis/create-apis/v4-api-creation-wizard.md)**.
 
 The API creation wizard comprises several steps, each of which requires you to define certain sets of information.
 
@@ -42,7 +42,7 @@ The name and version number are required, but we also recommend giving your API 
 
 When choosing how you want to expose your backend, you will be presented with three options: Proxy Generic Protocol, Protocol Mediation, and Kafka Protocol.
 
-Select Kafka Protocol to create a Kafka API. Kafka APIs proxy the native Kafka protocol, with the Gravitee Gateway acting as a Kafka broker to Kafka clients.<br>
+Select Kafka Protocol to create a Kafka API. Kafka APIs proxy the native Kafka protocol, with the Gravitee Gateway acting as a Kafka broker to Kafka clients.
 
 <figure><img src="../../.gitbook/assets/select-kafka-protocol.png" alt=""><figcaption></figcaption></figure>
 
@@ -52,7 +52,19 @@ The only field to configure for the Kafka API entrypoint is the **Host prefix**,
 
 ## Endpoints
 
-The Kafka endpoint configuration is the Kafka cluster being proxied by your API. Configure the bootstrap server list and security protocol to talk to the cluster.
+The Kafka endpoint configuration is the Kafka cluster being proxied by your API. When creating a Kafka API, you choose one of three endpoint connector types during the wizard's **Configure Endpoint** step.
+
+### Selecting an endpoint type
+
+| Endpoint Type | When to Use | Configuration Stored |
+|:--------------|:------------|:---------------------|
+| **Broker** (`native-kafka`) | One-shot API where you don't expect to reuse the broker configuration elsewhere. Quickest setup. | Bootstrap servers directly (inline, marked as secret). |
+| **Cluster** (`native-kafka-cluster`) | You have a reusable Kafka Cluster entity in this environment and want centralized configuration. Multiple APIs can share the same Cluster — changes propagate automatically. | Cluster Cross ID and Connection Cross ID. |
+| **Virtual Cluster** (`native-kafka-virtual-cluster`) | You want the API to fan out across multiple backend clusters. | Virtual Cluster Cross ID. |
+
+### Creating a Kafka API with a Broker endpoint
+
+Configure the bootstrap server list and security protocol to talk to the cluster.
 
 <figure><img src="../../.gitbook/assets/endpoint-create-kafka.png" alt=""><figcaption></figcaption></figure>
 
@@ -72,7 +84,9 @@ Of the following configuration settings, only entering a host/port pair is requi
      * **SCRAM-SHA-512:** Enter the username and password to connect to the broker.
      *   **DELEGATE\_TO\_BROKER:** No additional security configuration required.
 
-         <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>When using <code>DELEGATE_TO_BROKER</code>, the supported mechanisms available to the client are <code>PLAIN</code> and <code>AWS_IAM_MSK</code>. The <code>AWS_MSK_IAM</code> mechanism requires you to host the Kafka Gateway on AWS. Otherwise, authentication fails.</p></div>
+         {% hint style="warning" %}
+         When using `DELEGATE_TO_BROKER`, the supported mechanisms available to the client are `PLAIN` and `AWS_MSK_IAM`. The `AWS_MSK_IAM` mechanism requires you to host the Kafka Gateway on AWS. Otherwise, authentication fails.
+         {% endhint %}
    *   **SSL:** Choose whether to enable host name verification, then use the drop-down menu to configure a truststore type
 
        * **None**
@@ -93,6 +107,17 @@ Of the following configuration settings, only entering a host/port pair is requi
        * **PEM with content:** Enter the certificate and private key.
        * **PEM with path:** Enter the certificate path and private key path.
    * **SASL\_SSL:** Configure both SASL authentication and SSL encryption, choose a **SASL** mechanism from the options listed under **SASL\_PLAINTEXT**, and then configure **SSL** settings as described in the **SSL** section.
+
+### Creating a Kafka API with a Cluster endpoint
+
+1. In the **Configure Endpoint** step, select **Cluster** as the endpoint type.
+2. Select a **Cluster** from the dropdown. The dropdown is filtered to show only entities of type KAFKA_CLUSTER.
+3. Select a **Connection** from the dropdown. The dropdown shows connections defined within the selected Kafka Cluster.
+
+### Creating a Kafka API with a Virtual Cluster endpoint
+
+1. In the **Configure Endpoint** step, select **Virtual Cluster** as the endpoint type.
+2. Select a **Virtual Cluster** from the dropdown. The dropdown is filtered to show only entities of type KAFKA_VIRTUAL_CLUSTER.
 
 ### Gateway SSL Configuration for mTLS
 
@@ -125,7 +150,7 @@ The Gravitee plans supported by Kafka APIs are summarized below, in increasing o
 <table><thead><tr><th width="201">Plan</th><th>Description</th></tr></thead><tbody><tr><td>Keyless (public)</td><td>When configured, this plan does not add security. It is considered an "open" plan.</td></tr><tr><td>API Key</td><td>The gateway only accepts connections from clients that pass an API key corresponding to a valid subscription to the proxy in the client properties. The API key is used as the password, and the md5 hash of the API key is used as the username, as part of the SASL/SSL with SASL PLAIN authentication method.</td></tr><tr><td>JWT</td><td>The gateway only accepts connections from clients that pass a valid JWT with a client ID claim corresponding to a valid subscription to the proxy in the client properties. This is equivalent to SASL/SSL with SASL OAUTHBEARER authentication, where the JWT is used as the OAuth token.</td></tr><tr><td>OAuth2</td><td>The gateway only accepts connections from clients that pass a valid OAuth token with a client ID corresponding to a valid subscription to the proxy in the client properties. This is equivalent to SASL/SSL with SASL OAUTHBEARER authentication.</td></tr></tbody></table>
 
 {% hint style="info" %}
-To learn more about how plans function in Gravitee, refer to the [plans](../../secure-and-expose-apis/plans/) documentation. For mTLS plan configuration with Kafka APIs, see [mTLS plans](configure-kafka-apis/mtls-plans.md).
+To learn more about how plans function in Gravitee, refer to the [plans](../../secure-and-expose-apis/plans/) documentation. For mTLS plan configuration with Kafka APIs, see [mTLS plans](mtls-plans.md).
 {% endhint %}
 
 Individual plan configurations as they pertain to Kafka APIs are described in detail below.

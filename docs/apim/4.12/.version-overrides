@@ -92,3 +92,10 @@ developer-portal/new-developer-portal/gravitee-markdown-components.md
 .gitbook/assets/wsdl-review-rest-to-soap-enabled.png
 create-and-configure-apis/apply-policies/policy-reference/rest-to-soap.md
 create-and-configure-apis/create-apis/wsdl-import-for-v4-apis.md
+kafka-gateway/README.md
+kafka-gateway/create-and-configure-kafka-apis/create-kafka-apis.md
+kafka-gateway/create-and-configure-kafka-clusters.md
+kafka-gateway/creating-and-managing-kafka-virtual-cluster-entities.md
+kafka-gateway/kafka-virtual-clusters-overview.md
+kafka-gateway/kafka-virtual-clusters-prerequisites-and-gateway-configuration.md
+kafka-gateway/managing-kafka-virtual-clusters-and-apis-at-runtime.md
