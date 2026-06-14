@@ -58,7 +58,62 @@ The Cache Redis resource is the same as Cache, but the current implementation is
 The **Cache Redis** plugin is not included in the default APIM distribution, but you can [download](https://download.gravitee.io/#graviteeio-apim/plugins/resources/gravitee-resource-cache-redis/) and deploy it. For information on configuring cache in APIM, see Configure cache. For information on configuring the rate limit repository plugin for Redis, see Redis.
 {% endhint %}
 
-<table><thead><tr><th width="167">Config param</th><th width="304">Description</th><th>Default</th><th>EL support</th><th>Secret support</th></tr></thead><tbody><tr><td>name</td><td>Name of the cache</td><td>my-redis-cache</td><td>Yes</td><td>No</td></tr><tr><td>releaseCache</td><td><p>Enabled: The resource will release the cache when the API is stopped</p><p>Disabled: The cache must be managed manually on the Redis server</p></td><td>false</td><td>No</td><td>No</td></tr><tr><td>maxTotal</td><td>Maximum number of connections supported by the pool</td><td>8</td><td>No</td><td>No</td></tr><tr><td>password</td><td>The password for the instance</td><td>-</td><td>Yes</td><td>yes</td></tr><tr><td>timeToLiveSeconds</td><td>Maximum number of seconds an element can exist in the cache, regardless of usage. When this threshold is reached, the element expires and will no longer be returned from the cache. The default value is 0, i.e., no timeToLive (TTL) eviction takes place (infinite lifetime).</td><td>0</td><td>No</td><td>No</td></tr><tr><td>Timeout</td><td>Specifies the connection timeout and the read/write timeout</td><td>2000</td><td>No</td><td>No</td></tr><tr><td>useSsl</td><td>Toggle to use SSL connections</td><td>true</td><td>No</td><td>No</td></tr><tr><td>Use standalone mode</td><td>Toggle to use standalone mode</td><td>true</td><td></td><td></td></tr><tr><td>Host</td><td>The host of the instance<br><strong>*Standalone config only</strong></td><td>localhost</td><td>Yes</td><td>No</td></tr><tr><td>Port</td><td>The port of the instance<br><strong>*Standalone config only</strong></td><td>6379</td><td>No</td><td>No</td></tr><tr><td>sentielMode</td><td>Sentinel provides high availability for Redis. In practical terms this means that using Sentinel you can create a Redis deployment that resists without human intervention certain kinds of failures.</td><td>false</td><td>No</td><td>No</td></tr><tr><td>Master</td><td>Sentinel master ID<br><strong>*Sentinel config only</strong></td><td>sentinel-master</td><td>No</td><td>No</td></tr><tr><td>Sentinel password</td><td>Sentinel password<br><strong>*Sentinel config only</strong></td><td>-</td><td>Yes</td><td>Yes</td></tr><tr><td>Sentinel nodes</td><td>Array of sentinel nodes<br><strong>*Sentinel config only</strong></td><td>-</td><td>No</td><td>No</td></tr></tbody></table>
+##### Creating a Cache Redis resource
+
+1. In the left sidebar, click **APIs**.
+2. Select your API from the list.
+3. In the API navigation menu, click **Configuration**.
+4. Click the **Resources** tab.
+
+    <figure><img src="../../.gitbook/assets/redis-resource-empty-list.png" alt="API Resources tab showing empty resource list with search bar and pagination controls"><figcaption></figcaption></figure>
+
+5. Click **+ Add resource**.
+6. Select **Cache Redis** as the resource type.
+7. Configure the connection settings according to the [configuration parameters](#configuration-parameters).
+8. Click **Save** to create the resource.
+
+The resource shares a Redis client with other resources that connect to the same endpoint. Pool and timeout settings are gateway-wide and configured in `gravitee.yml` (see [`gravitee.yml`](policy-reference/cache.md#gateway-configuration-graviteeyml)).
+
+##### Configuration parameters
+
+<table><thead><tr><th width="167">Config param</th><th width="304">Description</th><th>Default</th><th>EL support</th><th>Secret support</th></tr></thead><tbody><tr><td>name</td><td>Name of the cache</td><td>my-redis-cache</td><td>Yes</td><td>No</td></tr><tr><td>releaseCache</td><td><p>Enabled: The resource will release the cache when the API is stopped (keys are suffixed with deployment timestamp)</p><p>Disabled: The cache must be managed manually on the Redis server</p></td><td>false</td><td>No</td><td>No</td></tr><tr><td>maxTotal</td><td>Maximum number of connections supported by the pool</td><td>8</td><td>No</td><td>No</td></tr><tr><td>password</td><td>The password for the instance</td><td>-</td><td>Yes</td><td>yes</td></tr><tr><td>timeToLiveSeconds</td><td>Maximum number of seconds an element can exist in the cache, regardless of usage. When this threshold is reached, the element expires and will no longer be returned from the cache. The default value is 0, i.e., no timeToLive (TTL) eviction takes place (infinite lifetime).</td><td>0</td><td>No</td><td>No</td></tr><tr><td>Timeout</td><td>Command timeout in milliseconds</td><td>2000</td><td>No</td><td>No</td></tr><tr><td>Idle Timeout</td><td>Time in milliseconds after which an idle connection is closed (0 = disabled)</td><td>0</td><td>Yes</td><td>No</td></tr><tr><td>useSsl</td><td>Toggle to use SSL/TLS connections</td><td>true</td><td>No</td><td>No</td></tr><tr><td>Use standalone mode</td><td>Toggle to use standalone mode</td><td>true</td><td></td><td></td></tr><tr><td>Host</td><td>The host of the instance<br><strong>*Standalone config only</strong></td><td>localhost</td><td>Yes</td><td>No</td></tr><tr><td>Port</td><td>The port of the instance<br><strong>*Standalone config only</strong></td><td>6379</td><td>Yes</td><td>No</td></tr><tr><td>Username</td><td>Redis username for ACL authentication<br><strong>*Standalone config only</strong></td><td>-</td><td>Yes</td><td>Yes</td></tr><tr><td>sentinelMode</td><td>Sentinel provides high availability for Redis. In practical terms this means that using Sentinel you can create a Redis deployment that resists without human intervention certain kinds of failures.</td><td>false</td><td>No</td><td>No</td></tr><tr><td>Master</td><td>Sentinel master ID<br><strong>*Sentinel config only</strong></td><td>sentinel-master</td><td>Yes</td><td>No</td></tr><tr><td>Sentinel password</td><td>Sentinel password<br><strong>*Sentinel config only</strong></td><td>-</td><td>Yes</td><td>Yes</td></tr><tr><td>Sentinel nodes</td><td>Array of sentinel nodes (each with Host and Port)<br><strong>*Sentinel config only</strong></td><td>-</td><td>No</td><td>No</td></tr><tr><td>Cluster enabled</td><td>Enable Redis Cluster mode for distributed caching (mutually exclusive with Sentinel mode)</td><td>false</td><td>No</td><td>No</td></tr><tr><td>Cluster nodes</td><td>Cluster nodes (each with Host and Port)<br><strong>*Cluster config only</strong></td><td>-</td><td>Yes (per node)</td><td>No</td></tr><tr><td>Use Replicas</td><td>Read-from-replica policy: NEVER, SHARE, or ALWAYS<br><strong>*Cluster config only</strong></td><td>NEVER</td><td>No</td><td>No</td></tr></tbody></table>
+
+    <figure><img src="../../.gitbook/assets/redis-resource-advanced-timeout.png" alt="Cache Redis resource configuration dialog showing Time to live field set to 0 and Timeout field set to 2000 milliseconds"><figcaption></figcaption></figure>
+
+##### SSL configuration
+
+Configure SSL/TLS options when **Use SSL** is enabled.
+
+<table><thead><tr><th width="220">Property</th><th width="350">Description</th><th>Default</th></tr></thead><tbody><tr><td>Trust All</td><td>Trust all certificates</td><td>false</td></tr><tr><td>Hostname Verifier</td><td>Enable hostname verification (deprecated; use Hostname Verification Algorithm instead)</td><td>true</td></tr><tr><td>Hostname Verification Algorithm</td><td>Hostname verification algorithm: HTTPS, LDAPS, or empty to disable (overrides Hostname Verifier when set)</td><td>-</td></tr><tr><td>Open SSL</td><td>Use OpenSSL engine</td><td>false</td></tr><tr><td>ALPN</td><td>Enable ALPN</td><td>false</td></tr><tr><td>TLS Protocols</td><td>Enabled TLS protocols (comma-delimited)</td><td>-</td></tr><tr><td>TLS Ciphers</td><td>Enabled TLS cipher suites (comma-delimited)</td><td>-</td></tr></tbody></table>
+
+##### Truststore configuration
+
+Configure the truststore to validate the Redis server certificate.
+
+<table><thead><tr><th width="167">Property</th><th width="350">Description</th><th>Default</th><th>Secret support</th></tr></thead><tbody><tr><td>Type</td><td>Truststore type: NONE, JKS, PKCS12, PEM</td><td>NONE</td><td>No</td></tr><tr><td>Path</td><td>Truststore file path</td><td>-</td><td>Yes</td></tr><tr><td>Password</td><td>Truststore password (PKCS12/JKS only)</td><td>-</td><td>Yes</td></tr></tbody></table>
+
+##### Keystore configuration
+
+Configure the keystore for mutual TLS authentication.
+
+<table><thead><tr><th width="167">Property</th><th width="350">Description</th><th>Default</th><th>Secret support</th></tr></thead><tbody><tr><td>Type</td><td>Keystore type: NONE, JKS, PKCS12, PEM</td><td>NONE</td><td>No</td></tr><tr><td>Path</td><td>Keystore file path (PKCS12/JKS only)</td><td>-</td><td>Yes</td></tr><tr><td>Password</td><td>Keystore password (PKCS12/JKS only)</td><td>-</td><td>Yes</td></tr><tr><td>Alias</td><td>Keystore alias (JKS only)</td><td>-</td><td>No</td></tr><tr><td>Key Path</td><td>Private key path (PEM only)</td><td>-</td><td>Yes</td></tr><tr><td>Cert Paths</td><td>Multiple certificate paths (PEM only; takes precedence over singular Cert Path)</td><td>-</td><td>Yes</td></tr><tr><td>Key Paths</td><td>Multiple key paths (PEM only; must be same size as Cert Paths)</td><td>-</td><td>Yes</td></tr></tbody></table>
+
+##### Sentinel configuration
+
+Enable Sentinel mode to use Redis Sentinel for automatic failover. Sentinel mode is active when **Enabled** is `true` AND at least one Sentinel node is declared.
+
+1. In the Cache Redis resource configuration dialog, locate the **Sentinel** section.
+2. Open the **Sentinel** dropdown and select **Sentinel enabled**.
+
+    <figure><img src="../../.gitbook/assets/redis-resource-sentinel-basic.png" alt="Cache Redis resource configuration dialog showing Sentinel section with dropdown set to Sentinel disabled and explanatory text about high availability"><figcaption></figcaption></figure>
+
+3. Configure the Sentinel settings according to the [configuration parameters](#configuration-parameters).
+
+##### Cluster configuration
+
+Enable Cluster mode to use Redis Cluster for distributed caching. Cluster mode is active when **Enabled** is `true` AND at least one cluster node is declared. Cluster and Sentinel modes are mutually exclusive.
+
+##### Configuration examples
 
 {% code title="Standalone example" %}
 ```json

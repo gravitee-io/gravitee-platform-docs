@@ -149,6 +149,10 @@ Make the following modifications to the `yaml` file:
 * Replace all instances of `<redis_master_name>` (shown as `mymaster` in the file) with the desired name for your Redis master group.
 * Apply this configuration to your cluster using `kubectl apply -f <filename>.yaml`.
 
+### Alternative: Redis Cluster Mode
+
+Redis Cluster mode distributes cache keys across multiple master nodes using hash slots. To deploy Redis in Cluster mode instead of Sentinel mode, configure the `cluster.enabled` and `cluster.nodes` properties in the gateway configuration. Cluster and Sentinel modes are mutually exclusive.
+
 ## Configure the Gravitee Hybrid Gateway
 
 This `values.yaml` file configures the Gravitee Hybrid Gateway Helm chart. It is used to connect to the Redis Sentinel service for rate limiting and to download custom plugins from an internal S3 bucket, which is used for environments without internet access.

@@ -575,6 +575,24 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
         gracefulShutdown:
             delay: 20
             unit: SECONDS
+        #Redis cache resource pool settings
+        #See https://documentation.gravitee.io/apim/configure-and-manage-the-platform/gravitee-gateway/configure-gateway-wide-redis-resource-settings
+        cacheRedis:
+            maxPoolSize: 60
+            maxPoolWaiting: 1024
+            poolCleanerInterval: 30000
+            poolRecycleTimeout: 180000
+            maxWaitingHandlers: 1024
+            connectTimeout: 2000
+        #AI vector store Redis resource pool settings
+        #See https://documentation.gravitee.io/apim/configure-and-manage-the-platform/gravitee-gateway/configure-gateway-wide-redis-resource-settings
+        aiVectorStoreRedis:
+            maxPoolSize: 12
+            maxPoolWaiting: 1024
+            poolCleanerInterval: 30000
+            poolRecycleTimeout: 180000
+            maxWaitingHandlers: 1024
+            connectTimeout: 2000
         ratelimit:
             #redis setup for the rate limit database
             redis:
@@ -582,6 +600,13 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
                 port: 6379
                 password: "<redis password>"
                 ssl: false
+                #Redis Cluster configuration for rate limiting
+                #cluster:
+                #    nodes:
+                #        - host: redis1.example.com
+                #          port: 6379
+                #        - host: redis2.example.com
+                #          port: 6379
             
     ratelimit:
         type: redis

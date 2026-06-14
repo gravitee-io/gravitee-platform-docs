@@ -17,7 +17,7 @@ The Data Cache policy allows you to get, set, and expire arbitrary key-value pai
 
 ## Basic Usage
 
-* First, you create a [cache resource](https://github.com/gravitee-io/gravitee-platform-docs/blob/6f69d3d43334c5f35db35e34f1d23832790b9725/docs/apim/4.6/policies/resources.md) for the policy to use.
+* First, you create a [cache resource](../resources.md#cache-redis) for the policy to use.
 * You specify the cache key to use for getting, setting, or expiring. The key name is dynamic and can be set using expression language.
 * When using the `SET` operation, you specify the `value` to set in the cache. The value is also dynamic and supports expression language.
 
@@ -27,7 +27,7 @@ Suppose the cache key is named `my-key`. Then, when running the `GET` operation,
 
 For example, in the assign attributes policy, you can modify the value by using `{#context.attributes['my-key']}`. Note that you may need to cast the result to a different data type, as many caches store data in plain text. For example, to increment a value by 1 when it is obtained from Redis, use the expression:
 
-```
+```json
 {new Integer(#context.attributes['my-key']) + 1}
 ```
 
@@ -38,7 +38,7 @@ When performing a `GET` operation, the policy will set a context attribute to `t
 * In the HTTP Callout policy, you can set the `Trigger condition` field to `{#gravitee.policy.data-cache.cache-miss}`, so as to only trigger the callout when a key is not found in the cache.
 * If you want to increment a counter or start at 1 if the value is not found in the cache, you can use the assign attributes policy and set the attribute as:
 
-```
+```json
 {#context.attributes['gravitee.policy.data-cache.cache-miss'] ? 1 : new Integer(#context.attributes['my-key']) + 1}
 ```
 
@@ -256,7 +256,7 @@ You can configure the policy with the following options:
 
 Example configuration:
 
-```
+```json
 {
     "configuration": {
         "resource": "my-cache-resource",
@@ -279,6 +279,13 @@ The usage of the value depends on the operation:
 
 In all cases, the value supports EL and is optional. In case of value not provided, the policy will use the attribute with the key `gravitee.policy.data-cache.value`.
 
+#### Request Attribute Overrides
+
+The following request attributes can override the configured policy behavior:
+
+* `gravitee.policy.data-cache.operation`: Overrides the configured **Default Operation**. Valid values are `SET`, `GET`, or `EVICT`. Invalid values trigger an `INVALID_OPERATION` error with status code 400.
+* `gravitee.policy.data-cache.cache-ttl`: Overrides the configured **Time To Live** for SET operations. Non-integer values trigger an `INVALID_TTL` error with status code 400.
+
 ### Errors <a href="#user-content-errors" id="user-content-errors"></a>
 
 With the provided default implementation, policy will fail if header `X-Template-Policy` value is equal to configured `errorKey` value.
@@ -287,3 +294,16 @@ With the provided default implementation, policy will fail if header `X-Template
 | ---------------- | ----------------------------- | ------------------- | --------------------------------------------- |
 | REQUEST/RESPONSE | `500 - INTERNAL SERVER ERROR` | `NO_CACHE`          | The cache is not found in the cache resource. |
 | REQUEST/RESPONSE | `500 - INTERNAL SERVER ERROR` | `NO_CACHE_RESOURCE` | The cache resource is not found.              |
+| REQUEST/RESPONSE | `400 - BAD REQUEST`           | `INVALID_OPERATION` | The operation specified in the request attribute is invalid. |
+| REQUEST/RESPONSE | `400 - BAD REQUEST`           | `INVALID_TTL`       | The TTL specified in the request attribute is not a valid integer. |
+
+#### Cache Policy
+
+The Cache policy caches HTTP responses in the configured Cache Redis resource. Responses are stored in a binary frame format that preserves exact header values and body bytes. The policy uses the async cache API to prevent event-loop deadlocks.
+
+Configure the policy to specify:
+
+* **Cache Key**: The key used to store and retrieve cached responses (supports EL)
+* **TTL**: Time-to-live in seconds for cached entries
+* **Cache Resource Name**: The name of the Cache Redis resource to use
+

@@ -15,6 +15,8 @@ This policy is based on a _cache resource_, which aligns the underlying cache sy
 
 Consumers can bypass the cache by adding a `cache=BY_PASS` query parameter or by providing a _`X-Gravitee-Cache=BY_PASS`_ HTTP header.
 
+Cached HTTP responses are stored in a binary frame format that preserves exact header values and body bytes without JSON serialization. Cache entries from Cache policy versions ≤ 4.0.0-alpha.2 (JSON format) remain readable during rolling upgrades but migrate to binary format on natural TTL expiry. Cache operations execute asynchronously to prevent event-loop deadlocks.
+
 {% hint style="info" %}
 **Make sure to define your Cache resource**
 

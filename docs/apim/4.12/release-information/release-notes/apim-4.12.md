@@ -167,4 +167,15 @@
 * Both new fields are additive and disabled when their list is empty, so existing policy configurations are unaffected.
 <!-- /PIPELINE:APIM-13498 -->
 
+
+<!-- PIPELINE:APIM-13625 -->
+#### **Redis Cache Resource Enhancements**
+
+* Redis cache operations now use an asynchronous, non-blocking client architecture that eliminates event-loop deadlocks and improves gateway performance under high load.
+* Added support for Redis Cluster and Redis Sentinel topologies, enabling distributed caching and automatic failover for production deployments.
+* Connection pooling is now configured gateway-wide in `gravitee.yml`, and Redis clients are automatically shared across all resources and policies connecting to the same endpoint.
+* Cached HTTP responses are stored in a compact binary frame format that preserves exact header values and body bytes without JSON serialization overhead.
+* SSL/TLS configuration now supports mutual TLS with PEM, PKCS12, and JKS keystores, including multiple certificate-key pairs for PEM keystores.
+<!-- /PIPELINE:APIM-13625 -->
+
 ## Bug Fixes

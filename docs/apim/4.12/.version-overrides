@@ -92,3 +92,14 @@ developer-portal/new-developer-portal/gravitee-markdown-components.md
 .gitbook/assets/wsdl-review-rest-to-soap-enabled.png
 create-and-configure-apis/apply-policies/policy-reference/rest-to-soap.md
 create-and-configure-apis/create-apis/wsdl-import-for-v4-apis.md
+.gitbook/assets/redis-resource-advanced-timeout.png
+.gitbook/assets/redis-resource-empty-list.png
+.gitbook/assets/redis-resource-sentinel-basic.png
+ai-agent-management/AI-resources/manage-ai-vector-store-redis-resources.md
+configure-and-manage-the-platform/gravitee-gateway/configure-gateway-wide-redis-resource-settings.md
+create-and-configure-apis/apply-policies/policy-reference/cache.md
+create-and-configure-apis/apply-policies/policy-reference/data-cache.md
+create-and-configure-apis/apply-policies/policy-reference/oauth2/README.md
+create-and-configure-apis/apply-policies/resources.md
+hybrid-installation-and-configuration-guides/next-gen-cloud/kubernetes/aws-eks.md
+hybrid-installation-and-configuration-guides/next-gen-cloud/kubernetes/vanilla-kubernetes/deploy-a-hybrid-gateway-with-redis-sentinel.md

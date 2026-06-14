@@ -1,5 +1,5 @@
 ---
-description: An overview about oauth2.
+description: An overview about OAuth2.
 metaLinks:
   alternates:
     - ./
@@ -19,6 +19,15 @@ The access token must be supplied in the `Authorization` HTTP request header:
 $ curl -H "Authorization: Bearer |accessToken|" \
            http://gateway/api/resource
 ```
+
+## Token introspection caching
+
+The `oauth2` policy caches token introspection responses in the configured Cache Redis resource to reduce load on the OAuth2 authorization server. The policy uses a two-tier cache architecture:
+
+1. **In-memory cache** (synchronous): The policy first checks an in-memory cache for the access token.
+2. **Policy-level cache**: On in-memory cache miss, the policy checks the policy-level cache via the async cache API.
+
+On cache miss at both levels, the policy calls the OAuth2 resource to introspect the token. The introspection result is stored in both caches. The policy-level cache write is fire-and-forget (async) to avoid blocking the request.
 
 ## Examples
 
@@ -50,7 +59,7 @@ You can extract the `username` from the payload using the following JsonPath:
 {% endtab %}
 {% endtabs %}
 
-### &#x20;Introspection with multiple OAuth2 plans
+### Introspection with multiple OAuth2 plans
 
 When an API has multiple OAuth2 plans, each backed by a different OAuth2 resource and the Gateway calls the introspection endpoint on **every** configured OAuth2 resource before evaluating plan selection rules. Selection rules can reference fields from `oauth.payload` (for example, `client_id`, `scope`, or `username`), which is only available after introspection completes.
 
