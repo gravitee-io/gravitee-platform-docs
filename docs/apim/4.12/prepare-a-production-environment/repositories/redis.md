@@ -34,6 +34,12 @@ Redis Sentinel options:
 <table><thead><tr><th width="168.66666666666666">Parameter</th><th width="90">Default</th><th>Description</th></tr></thead><tbody><tr><td>sentinel.nodes</td><td></td><td>List of sentinels with host and port</td></tr><tr><td>sentinel.master</td><td></td><td>Mandatory when using Sentinel</td></tr><tr><td>password</td><td></td><td></td></tr></tbody></table>
 {% endtab %}
 
+{% tab title="Cluster" %}
+Redis Cluster options:
+
+<table><thead><tr><th width="168.66666666666666">Parameter</th><th width="90">Default</th><th>Description</th></tr></thead><tbody><tr><td>cluster.nodes</td><td></td><td>List of cluster nodes with host and port</td></tr><tr><td>password</td><td></td><td></td></tr></tbody></table>
+{% endtab %}
+
 {% tab title="SSL" %}
 Redis SSL options:
 
@@ -85,6 +91,23 @@ ratelimit:
         {
           host : localhost,
           port : 26381
+        }
+      ]
+
+    # Following properties are REQUIRED ONLY when running Redis in cluster mode
+    cluster:
+      nodes: [              # redis cluster node(s) list
+        {
+          host : localhost, # redis cluster node host
+          port : 6379       # redis cluster node port
+        },
+        {
+          host : localhost,
+          port : 6380
+        },
+        {
+          host : localhost,
+          port : 6381
         }
       ]
 
