@@ -153,7 +153,7 @@
 * Select from predefined relative time periods (last 5 minutes, 1 hour, 1 day, 1 week, 1 month) or specify custom absolute date ranges.
 * Filters and time ranges are encoded in the URL, allowing users to share dashboard views and return to saved configurations.
 * Multiple filter values for the same field are automatically merged into array-based operators (e.g., `Status Code in [200, 404]`).
-* Requires `ENVIRONMENT_DASHBOARD` read permission to view dashboards and `environment-dashboard-u` permission to modify filters.
+* Requires `ENVIRONMENT_DASHBOARD` read permission to view dashboards and `ENVIRONMENT_DASHBOARD` update permission to modify filters.
 <!-- /PIPELINE:APIM-13474 -->
 
 ## Improvements

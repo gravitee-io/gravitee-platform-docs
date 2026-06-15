@@ -366,7 +366,7 @@ Each filter condition is encoded as `{ field, operator, value }`. Multiple value
 
 **Time range encoding:**
 
-Relative periods are stored as `{ type: 'relative', period: '5m' }`. Absolute ranges are stored as `{ type: 'absolute', from: <timestamp>, to: <timestamp> }`. The default period (`5m`) is omitted from the URL.
+Relative periods are stored as `{"type": "relative", "period": "5m"}`. Absolute ranges are stored as `{"type": "absolute", "from": <timestamp>, "to": <timestamp>}`. The default period (`5m`) is omitted from the URL.
 
 **Valid relative periods:**
 
@@ -382,7 +382,7 @@ Invalid periods are ignored during encoding and default to `5m` during decoding.
 
 ## Resolve filter labels
 
-**Endpoint:** `POST /environments/{envId}/observability/filters/resolve`
+**Endpoint:** `POST /observability/filters/resolve`
 
 Resolves filter value identifiers (API, APPLICATION, PLAN UUIDs) into display labels for the dashboard UI.
 

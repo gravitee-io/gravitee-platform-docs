@@ -266,7 +266,7 @@ Example warning:
 
 ### Filter Label Resolution Limits
 
-When viewing dashboards with filters for APIs, applications, or plans, the platform resolves identifiers into display labels via the `/environments/{envId}/observability/filters/resolve` endpoint. This endpoint enforces the following limits:
+When viewing dashboards with filters for APIs, applications, or plans, the platform resolves identifiers into display labels via the `/portal/environments/{envId}/analytics/observability/filters/resolve` endpoint. This endpoint enforces the following limits:
 
 * Maximum 10 filter entries per request
 * Maximum 100 identifiers per entry

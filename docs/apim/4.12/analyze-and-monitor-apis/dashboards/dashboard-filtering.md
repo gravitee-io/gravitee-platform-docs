@@ -16,14 +16,14 @@ Time ranges define the temporal scope of dashboard data. Users can select from p
 
 ### Filter Label Resolution
 
-Filter values for APIs, applications, and plans are stored as stable identifiers (UUIDs) but displayed with human-readable labels. The platform resolves these identifiers into display names via the `/environments/{envId}/observability/filters/resolve` endpoint. Label resolution requests are limited to 10 filter entries and 100 identifiers per entry.
+Filter values for APIs, applications, and plans are stored as stable identifiers (UUIDs) but displayed with human-readable labels. The platform resolves these identifiers into display names via the `/portal/environments/{envId}/analytics/observability/filters/resolve` endpoint. Label resolution requests are limited to 10 filter entries and 100 identifiers per entry.
 
 ## Prerequisites
 
 Before creating dashboard filters, ensure the following requirements are met:
 
 * User must have `ENVIRONMENT_DASHBOARD` read permission to view dashboards.
-* User must have `environment-dashboard-u` permission to add, edit, or remove filters.
+* User must have `ENVIRONMENT_DASHBOARD` update permission to add, edit, or remove filters.
 * Dashboard must be configured with filterable fields via the `FILTER_DEFINITION_PROVIDER` injection token.
 * For keyword-based filters (API, Application, Plan), the `FILTER_VALUES_PROVIDER` must supply autocomplete values.
 

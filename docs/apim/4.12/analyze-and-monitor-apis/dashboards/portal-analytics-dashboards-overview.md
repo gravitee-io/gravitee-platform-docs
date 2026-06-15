@@ -46,7 +46,7 @@ Filters apply at the widget level or globally across a dashboard. Users can only
 
 ### Time range
 
-Dashboards support relative and absolute time ranges. Relative periods include `1m`, `5m`, `1h`, `1d`, `1w`, and `1M`. Absolute ranges specify start and end timestamps. The selected time range is encoded in the URL as a `q` parameter with version marker `v=1`. Relative periods are stored as `{ type: 'relative', period: '5m' }`. Absolute ranges are stored as `{ type: 'absolute', from: <timestamp>, to: <timestamp> }`. The default period (`5m`) is omitted from the URL. Invalid periods are ignored during encoding and default to `5m` during decoding.
+Dashboards support relative and absolute time ranges. Relative periods include `1m`, `5m`, `1h`, `1d`, `1w`, and `1M`. Absolute ranges specify start and end timestamps. The selected time range is encoded in the URL as a `q` parameter with version marker `v=1`. Relative periods are stored as `{"type": "relative", "period": "5m"}`. Absolute ranges are stored as `{"type": "absolute", "from": <timestamp>, "to": <timestamp>}`. The default period (`5m`) is omitted from the URL. Invalid periods are ignored during encoding and default to `5m` during decoding.
 
 ### Access control
 
