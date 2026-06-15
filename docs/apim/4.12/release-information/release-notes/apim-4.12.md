@@ -155,6 +155,16 @@
 * Supports eight attributes: `name`, `transport`, `url`, `headers`, `command`, `args`, `env`, and `clients`.
 <!-- /PIPELINE:APIM-14244 -->
 
+
+<!-- PIPELINE:APIM-11584 -->
+#### **Application Membership Management in Developer Portal**
+
+* Application owners and authorized members can now manage application access directly from the Developer Portal, including adding members, updating roles, and transferring ownership.
+* Users can invite new members by email even if they are not yet registered on the platform. Invitations include a registration URL with an embedded JWT token that automatically grants the specified application role upon acceptance.
+* Pending invitations can be searched, resent, updated (role change), or deleted before acceptance. If an invited email matches exactly one existing platform user, that user is added directly as a member instead of creating a pending invitation.
+* Administrators control feature availability through configuration toggles. Invitation acceptance validates JWT tokens, creates or finalizes user accounts, grants required organization and environment roles, and adds users as application members with the invited role.
+<!-- /PIPELINE:APIM-11584 -->
+
 ## Improvements
 
 

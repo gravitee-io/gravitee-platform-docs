@@ -9,7 +9,9 @@ Both APIs operate on the same underlying client certificates and share the same 
 
 ## Management API v1
 
-Base path: `/management/v1/organizations/{orgId}/environments/{envId}/applications/{applicationId}/certificates`
+Base path: `/management/v1/organizations/{orgId}/environments/{envId}`
+
+### Certificate Management
 
 | Method | Path | Description | Permission |
 |:-------|:-----|:------------|:-----------|
@@ -19,6 +21,8 @@ Base path: `/management/v1/organizations/{orgId}/environments/{envId}/applicatio
 | `GET` | `/applications/{applicationId}/certificates/{certId}` | Get a single certificate. | `APPLICATION_DEFINITION[READ]` |
 | `PUT` | `/applications/{applicationId}/certificates/{certId}` | Update a certificate's name or activation window. | `APPLICATION_DEFINITION[UPDATE]` |
 | `DELETE` | `/applications/{applicationId}/certificates/{certId}` | Delete a certificate. | `APPLICATION_DEFINITION[DELETE]` |
+
+#
 
 ## Portal API
 

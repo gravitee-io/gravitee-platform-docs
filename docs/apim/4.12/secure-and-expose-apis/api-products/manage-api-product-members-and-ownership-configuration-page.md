@@ -24,7 +24,7 @@ To add a direct member, complete the following steps:
 
     <figure><img src="../../.gitbook/assets/apim-api-product-ownership-transfer-group-management-step-03.png" alt="Select users dialog with search field showing taylor s in results"><figcaption></figcaption></figure>
 
-4. Navigate to the user you added, and then, from the **Role** dropdown menu, select a role from the available roles.
+4. Navigate to the user you added, and then, from the **Role** dropdown menu, select a role from the available roles. Only assignable application roles (not system roles, not PRIMARY_OWNER) are offered in the dropdown.
 
     The member appears in the members table with the assigned role.
 
