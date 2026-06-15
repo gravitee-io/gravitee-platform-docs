@@ -72,7 +72,7 @@ The **Cache Redis** plugin is not included in the default APIM distribution, but
 7. Configure the connection settings according to the [configuration parameters](#configuration-parameters).
 8. Click **Save** to create the resource.
 
-The resource shares a Redis client with other resources that connect to the same endpoint. Pool and timeout settings are gateway-wide and configured in `gravitee.yml` (see [`gravitee.yml`](policy-reference/cache.md#gateway-configuration-graviteeyml)).
+The resource shares a Redis client with other resources that connect to the same endpoint. Pool and timeout settings are gateway-wide and configured in `gravitee.yml` (see [`gravitee.yml`](../../configure-and-manage-the-platform/gravitee-gateway/configure-gateway-wide-redis-resource-settings.md#redis-cache-resource-pool-settings)).
 
 ##### Configuration parameters
 

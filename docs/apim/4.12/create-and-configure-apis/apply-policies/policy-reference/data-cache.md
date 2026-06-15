@@ -27,7 +27,7 @@ Suppose the cache key is named `my-key`. Then, when running the `GET` operation,
 
 For example, in the assign attributes policy, you can modify the value by using `{#context.attributes['my-key']}`. Note that you may need to cast the result to a different data type, as many caches store data in plain text. For example, to increment a value by 1 when it is obtained from Redis, use the expression:
 
-```json
+```text
 {new Integer(#context.attributes['my-key']) + 1}
 ```
 
@@ -38,7 +38,7 @@ When performing a `GET` operation, the policy will set a context attribute to `t
 * In the HTTP Callout policy, you can set the `Trigger condition` field to `{#gravitee.policy.data-cache.cache-miss}`, so as to only trigger the callout when a key is not found in the cache.
 * If you want to increment a counter or start at 1 if the value is not found in the cache, you can use the assign attributes policy and set the attribute as:
 
-```json
+```text
 {#context.attributes['gravitee.policy.data-cache.cache-miss'] ? 1 : new Integer(#context.attributes['my-key']) + 1}
 ```
 
