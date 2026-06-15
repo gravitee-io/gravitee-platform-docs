@@ -338,3 +338,105 @@ The portal UI exposes the following filter dimensions. The Portal API itself acc
 {% hint style="info" %}
 The `HTTP_STATUS_CODE_GROUP` values are a fixed set. Dynamic value loading isn't supported for this dimension.
 {% endhint %}
+
+### Selecting time ranges
+
+Time ranges define the temporal scope of dashboard data. Users can select from predefined relative periods or specify a custom absolute range.
+
+**To select a time range:**
+
+1. Select a relative period from the dropdown (e.g., **Last 5 minutes**, **Last 1 hour**, **Last 1 day**).
+2. For a custom absolute range, select **Custom** from the dropdown, then choose start and end dates from the date pickers.
+3. Click **Apply** to confirm the custom range.
+4. Click **Refresh** to reload dashboard data with the current time range.
+
+**Valid relative periods:**
+
+`1m`, `5m`, `1h`, `1d`, `1w`, `1M`
+
+The default period is `5m`. The selected time range is encoded in the URL and persists across page reloads.
+
+### URL encoding for filters and time ranges
+
+Dashboard filters and time ranges are encoded in the URL as a `q` query parameter with version marker `v=1`. This allows users to share dashboard views and return to saved configurations.
+
+**Filter condition encoding:**
+
+Each filter condition is encoded as `{ field, operator, value }`. Multiple values for the same field are merged into array-based operators (`IN`, `NOT_IN`) when compatible.
+
+**Time range encoding:**
+
+Relative periods are stored as `{ type: 'relative', period: '5m' }`. Absolute ranges are stored as `{ type: 'absolute', from: <timestamp>, to: <timestamp> }`. The default period (`5m`) is omitted from the URL.
+
+**Valid relative periods:**
+
+`1m`, `5m`, `1h`, `1d`, `1w`, `1M`
+
+Invalid periods are ignored during encoding and default to `5m` during decoding.
+
+**Decoding validation rules:**
+
+- URL decoding returns default state if the version parameter `v` is not `1`.
+- Filters missing `field` or `operator` are silently discarded.
+- Filter labels and value labels are never persisted in URL encoding. On decode, `label` defaults to `field` value.
+
+## Resolve filter labels
+
+**Endpoint:** `POST /environments/{envId}/observability/filters/resolve`
+
+Resolves filter value identifiers (API, APPLICATION, PLAN UUIDs) into display labels for the dashboard UI.
+
+**Request schema:**
+
+```json
+{
+  "entries": [
+    {
+      "filterName": "API",
+      "ids": ["67e246cb-ab02-4da4-8f47-f9fa3e061d6b"]
+    }
+  ]
+}
+```
+
+**Request fields:**
+
+| Field | Type | Required | Description |
+|:------|:-----|:---------|:------------|
+| `entries` | array | Yes | Array of filter entries to resolve |
+| `entries[].filterName` | string | Yes | Filter name: `API`, `APPLICATION`, or `PLAN` |
+| `entries[].ids` | array | Yes | Array of identifiers to resolve (maximum 100 per entry) |
+
+**Response schema:**
+
+```json
+{
+  "entries": [
+    {
+      "filterName": "API",
+      "labels": {
+        "67e246cb-ab02-4da4-8f47-f9fa3e061d6b": "Public API"
+      }
+    }
+  ]
+}
+```
+
+**Response fields:**
+
+| Field | Type | Description |
+|:------|:-----|:------------|
+| `entries` | array | Array of resolved filter entries |
+| `entries[].filterName` | string | Filter name |
+| `entries[].labels` | object | Map of identifier to display label |
+
+**Validation limits:**
+
+- Maximum 10 entries per request
+- Maximum 100 identifiers per entry
+
+Requests exceeding these limits return a 400 error with message `"Too many filter entries to resolve"` or `"Too many filter ids to resolve"`.
+
+**Permissions:**
+
+User must have `ENVIRONMENT_DASHBOARD` read permission. Requests without this permission return a 403 error.

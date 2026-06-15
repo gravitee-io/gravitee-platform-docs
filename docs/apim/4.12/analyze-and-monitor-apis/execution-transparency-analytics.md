@@ -261,3 +261,31 @@ Example warning:
   "componentName": "rate-limit-policy"
 }
 ```
+
+## Troubleshooting
+
+### Filter Label Resolution Limits
+
+When viewing dashboards with filters for APIs, applications, or plans, the platform resolves identifiers into display labels via the `/environments/{envId}/observability/filters/resolve` endpoint. This endpoint enforces the following limits:
+
+* Maximum 10 filter entries per request
+* Maximum 100 identifiers per entry
+
+If you exceed these limits, the request returns a 400 error with message `"Too many filter entries to resolve"` or `"Too many filter ids to resolve"`.
+
+**Resolution**: Reduce the number of active filters or the number of values per filter condition.
+
+### Permission Errors
+
+Dashboard access requires the `ENVIRONMENT_DASHBOARD` read permission. If you attempt to view a dashboard or resolve filter labels without this permission, the request returns a 403 error.
+
+**Resolution**: Contact your platform administrator to request `ENVIRONMENT_DASHBOARD` read permission for your user account.
+
+### Invalid Time Range Handling
+
+The dashboard time range selector accepts relative periods (`1m`, `5m`, `1h`, `1d`, `1w`, `1M`) and custom absolute ranges. If you specify an unknown period or the URL version parameter is missing or invalid, the platform applies the following defaults:
+
+* Unknown relative periods default to `5m`
+* Missing or invalid version parameter (`v`) returns default state
+
+**Resolution**: Use only supported relative periods or specify a custom absolute range with valid start and end timestamps.

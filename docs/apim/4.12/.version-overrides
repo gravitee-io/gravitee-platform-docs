@@ -92,3 +92,6 @@ developer-portal/new-developer-portal/gravitee-markdown-components.md
 .gitbook/assets/wsdl-review-rest-to-soap-enabled.png
 create-and-configure-apis/apply-policies/policy-reference/rest-to-soap.md
 create-and-configure-apis/create-apis/wsdl-import-for-v4-apis.md
+analyze-and-monitor-apis/dashboards/dashboard-filtering.md
+analyze-and-monitor-apis/execution-transparency-analytics.md
+developer-portal/new-developer-portal/dashboard-component-migration-guide.md
