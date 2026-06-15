@@ -36,7 +36,7 @@ New Developer Portal pages support FreeMarker expressions to inject dynamic API 
 |:---------|:------------|:--------|
 | `api.name` | API name | `"Weather Service"` |
 | `api.description` | API description | `"Real-time weather data"` |
-| `api.entrypoints` | List of gateway entrypoint URLs | `["https://api.example.com"]` |
+| `api.entrypoints` | List of gateway entrypoint URLs | `https://api.example.com` |
 | `api.mcp.mcpPath` | MCP endpoint path from the entrypoint configuration | `"/mcp"` |
 
 The `api.mcp` map is populated from the first listener's first entrypoint of type `mcp` or `mcp-proxy`. If no such entrypoint exists, the map is empty.
