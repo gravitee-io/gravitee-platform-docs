@@ -155,6 +155,17 @@
 * Supports eight attributes: `name`, `transport`, `url`, `headers`, `command`, `args`, `env`, and `clients`.
 <!-- /PIPELINE:APIM-14244 -->
 
+
+<!-- PIPELINE:APIM-11584 -->
+#### **Application Membership Management**
+
+* Application owners and authorized members can now manage application access directly from the Developer Portal without administrator intervention.
+* Users can add registered platform users as members, invite new users by email, assign roles, transfer ownership, and manage pending invitations.
+* Invitations sent to registered users are automatically converted to direct memberships; invitations to unknown email addresses create pending invitations with optional email notifications.
+* Administrators control feature availability through configuration toggles, and application roles are managed at the organization level with automatic filtering of system roles from selection dropdowns.
+* Ownership transfers allow the current primary owner to designate a new owner while reassigning themselves to a different role, ensuring continuous application management.
+<!-- /PIPELINE:APIM-11584 -->
+
 ## Improvements
 
 

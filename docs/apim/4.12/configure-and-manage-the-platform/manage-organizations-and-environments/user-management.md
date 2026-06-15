@@ -40,7 +40,7 @@ To set up roles, complete the following steps:
 5. Click **Create**
 
 {% hint style="warning" %}
-Custom Roles is an [Enterprise Edition](../../readme/enterprise-edition.md) capability. To learn more about Gravitee Enterprise and what's included in various enterprise packages, [book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/) or [check out the pricing page](https://www.gravitee.io/pricing).
+Custom Roles is an [Enterprise Edition](../../introduction/enterprise-edition.md) capability. To learn more about Gravitee Enterprise and what's included in various enterprise packages, [book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/) or [check out the pricing page](https://www.gravitee.io/pricing).
 {% endhint %}
 
 <details>
@@ -122,6 +122,15 @@ Application-level permissions are listed in the following table.
 | MEMBER       | Manages application members                                        |
 | NOTIFICATION | Manages application notifications                                  |
 | SUBSCRIPTION | Manages application subscriptions                                  |
+
+### APPLICATION_MEMBER Permissions
+
+The `APPLICATION_MEMBER` permission controls access to application membership management features in the Developer Portal. These permissions determine the visibility and availability of member and invitation management actions:
+
+* **`READ`**: View the list of application members and pending invitations
+* **`CREATE`**: Add new members to the application or create invitations for new users
+* **`U`** (Update): Modify member roles, edit invitation roles, resend invitation emails, or transfer application ownership
+* **`D`** (Delete): Remove members from the application or delete pending invitations
 {% endtab %}
 {% endtabs %}
 

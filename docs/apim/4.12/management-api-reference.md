@@ -23,6 +23,7 @@ To explore the API documentation, select any of the following endpoint categorie
 * [**/management component documentation**](https://apim-api-docs.gravitee.io/?v=4.11&api=management)**:** provides the specification for the `management` endpoints. Use this component to complete the following actions:
   * Manage V2 APIs
   * Configure applications, dictionaries, sharding tags, users, and other entities
+  * Manage application membership and invitations
 * [**/management/v2 subcomponent documentation**](https://apim-api-docs.gravitee.io/?v=4.11&api=mgmt-v2-apis)**:** provides the specification for `management/v2` endpoints. Use this component to complete the following actions:
   * Manage V4 and Federated APIs
   * Configure multi-tenant aspects of APIM such as licenses, plugins, and OEM customization
