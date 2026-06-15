@@ -205,7 +205,7 @@ The content of the Overview page depends on the API type:
 * For most API types, the Overview page presents the API information alongside guidance on subscribing to a plan, exploring the documentation, and integrating with the API.
 * For MCP Proxy APIs, the Overview page presents Model Context Protocol (MCP) guidance and embeds a one-click installer that helps consumers add the MCP server to AI clients like Cursor, VS Code, and Claude Desktop.
 
-Gravitee creates the Overview page only when the API doesn't already have a page, so existing pages aren't overwritten. The page is created unpublished. To make it visible in the New Developer Portal, publish it like any other page. You can also edit the Overview page to tailor it for your consumers. For template details, see [API Overview Page Templates](api-overview-page-templates.md).
+Gravitee creates the Overview page only when the API doesn't already have a page, so existing pages aren't overwritten. The page is created unpublished. To make it visible in the New Developer Portal, publish it like any other page. You can also edit the Overview page to tailor it for your consumers. For template details, see [API Overview Page Templates](api-overview-page-templates.md). For `<gmd-install-mcp>` attributes, manual authoring, and troubleshooting, see [MCP Server Installation Widget for Portal Pages](../../mcp-server-installation-widget-for-portal-pages.md).
 
 **Add a page to an API**
 

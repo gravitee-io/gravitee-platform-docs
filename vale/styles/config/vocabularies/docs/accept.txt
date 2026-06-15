@@ -501,6 +501,7 @@ DAImon
 Intune
 [Uu]nmanaged
 [Aa]llowlists?
+[Ss]amples?
 
 # ============================================
 # Gamma Platform
