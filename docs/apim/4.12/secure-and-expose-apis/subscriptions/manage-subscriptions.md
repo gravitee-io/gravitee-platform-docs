@@ -85,5 +85,3 @@ For federated APIs, the subscription experience varies based on plan type and en
 For API Key plans, API keys are provisioned by the provider. The API access card displays the API keys table for managing provider-provisioned keys. When entrypoints aren't defined, the base URL and curl command sections are hidden.
 
 For keyless plans with empty entrypoints, the entire API access card is hidden since no access information is available.
-
-For federated APIs with defined entrypoints, all access information displays normally, including base URLs and example commands.
