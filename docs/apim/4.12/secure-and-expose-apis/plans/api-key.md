@@ -21,9 +21,9 @@ An API Key plan offers only basic security, acting more like a unique identifier
 * **Additional selection rule:** Allows you to use Gravitee Expression Language (EL) to filter plans of the same type by contextual data (request headers, tokens, attributes, etc.). For example, if there are multiple API key plans, you can set different selection rules on each plan to determine which plan handles each request.
 
 {% hint style="info" %}
-**Federated APIs with empty entrypoints**
+**Federated APIs have no entrypoints**
 
-For federated APIs that have no defined entrypoints, the Developer Portal conditionally displays access information. API Key plans will display the API keys table but hide the base URL and curl command sections when entrypoints are empty.
+Because federated APIs have no defined entrypoints, the Developer Portal conditionally displays access information. API Key plans will display the API keys table but hide the base URL and curl command sections when entrypoints are empty.
 {% endhint %}
 
 ## **API Key generation**
