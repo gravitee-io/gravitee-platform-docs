@@ -9,9 +9,13 @@ description: API Overview page templates for the New Developer Portal.
 
 API Overview Page Templates provide pre-configured Gravitee Markdown content for API pages in the New Developer Portal. When you add an API to the portal navigation in the Console, Gravitee automatically creates an unpublished **Overview** child page (unless the API navigation item already has a child page). The page uses FreeMarker templating to render API metadata, subscription guidance, and integration instructions. Two templates are available: a standard template for general APIs and an MCP proxy template for Model Context Protocol servers.
 
-For step-by-step instructions, see [Customize the Navigation](customize-the-navigation.md#api). For Gravitee Markdown component reference, see [Gravitee Markdown components](gravitee-markdown-components.md).
+For step-by-step instructions, see [Customize the Navigation](customize-the-navigation.md#api). For Gravitee Markdown component reference, see [Gravitee Markdown components](gravitee-markdown-components.md). For the `<gmd-install-mcp>` install widget used in the MCP proxy template, see [MCP Server Installation Widget for Portal Pages](../../mcp-server-installation-widget-for-portal-pages.md).
 
 ## Key Concepts
+
+### Portal API Types
+
+The New Developer Portal supports six API types: `NATIVE`, `MESSAGE`, `PROXY`, `A2A_PROXY`, `LLM_PROXY`, and `MCP_PROXY`. Only `MCP_PROXY` APIs receive the MCP-specific Overview page template with an embedded `<gmd-install-mcp>` component. All other types receive the generic Overview template.
 
 ### Standard API Template
 
@@ -37,11 +41,14 @@ The MCP proxy template is tailored for Model Context Protocol servers published 
 
 ## Creating API Overview Pages
 
-When you add an API to the portal navigation, the Console calls the Management API to seed a default **Overview** page under that API navigation item. Gravitee skips seeding if the API navigation item already has a child page, so existing pages are not overwritten.
+When you add APIs to the portal navigation in the Console, Gravitee automatically seeds a default **Overview** page under each API navigation item that does not already have a child page. Existing child pages are not overwritten.
 
 The seeded page is created **unpublished**. Publish the Overview page—or publish the parent API navigation item, which cascades to child pages—to make it visible on the New Developer Portal.
 
-The system determines which template to apply based on the API type retrieved from `apiCrudService.findById(apiId)`. If the API type is `MCP_PROXY`, the system applies the `api-overview-mcp-proxy-page-content.md` template, which includes an embedded `<gmd-install-mcp>` component pre-configured with `transport="http"` and a URL constructed from the first gateway entrypoint and the MCP path (`${api.entrypoints[0]}${api.mcp.mcpPath}`). All other API types (`PROXY`, `MESSAGE`, `NATIVE`, `A2A_PROXY`, `LLM_PROXY`) receive the generic `api-overview-page-content.md` template without the MCP installation widget.
+Gravitee selects the Overview template based on API type:
+
+* **`MCP_PROXY`**: The MCP proxy template is applied. It includes an embedded `<gmd-install-mcp>` component pre-configured with `transport="http"` and a URL constructed from the first gateway entrypoint and the MCP path (`${api.entrypoints[0]}${api.mcp.mcpPath}`).
+* **All other types** (`PROXY`, `MESSAGE`, `NATIVE`, `A2A_PROXY`, `LLM_PROXY`): The generic Overview template is applied without the MCP installation widget.
 
 The page header displays the API name as the title and includes a descriptive subtitle explaining the API's purpose and access model. An API information card presents the version, visibility level, owner display name (if available), and last deployment date (formatted as `yyyy-MM-dd`, if available).
 
@@ -51,7 +58,14 @@ A customization section at the bottom encourages API publishers to enhance the o
 
 ## Customizing Templates
 
-API publishers can edit the generated Overview page in the Console to add context-specific content. The standard template suggests adding a quick start section, highlighting key use cases, and linking to external guides or changelogs. The MCP proxy template recommends listing available MCP tools, documenting authentication requirements, and describing expected use cases.
+API publishers can edit the generated Overview page in the Console to add context-specific content:
+
+1. Go to **Portal → Navigation**.
+2. In the navigation tree, select the **Overview** child page under the API navigation item.
+3. Edit the Gravitee Markdown content in the editor, then click **Save**.
+4. Publish the page—or publish the parent API navigation item—to make changes visible in the New Developer Portal.
+
+The standard template suggests adding a quick start section, highlighting key use cases, and linking to external guides or changelogs. The MCP proxy template recommends listing available MCP tools, documenting authentication requirements, and describing expected use cases. If your MCP proxy requires OAuth2, see [Secure MCP Proxy with OAuth2](../../ai-agent-management/secure-mcp-proxy-with-oauth2.md).
 
 Both templates include a link to Gravitee documentation: the standard template links to the [Developer Portal overview](https://documentation.gravitee.io/apim/developer-portal/new-developer-portal), while the MCP proxy template links to the [OAuth2 security guide for MCP proxies](https://documentation.gravitee.io/apim/ai-agent-management/secure-mcp-proxy-with-oauth2).
 
@@ -67,3 +81,9 @@ Both templates include a link to Gravitee documentation: the standard template l
 The API overview page format has migrated from plain markdown lists to styled card components. Information cards now use an 8% primary color background with a 24% primary color border and 12px border radius, while action cards use a surface container background with a 12% primary color mixed border and 10px border radius. Card titles apply the `--gio-app-primary-main-color` CSS variable (default: `#32329f`).
 
 The page subtitle text is now tailored to the API type, with standard APIs emphasizing subscription and secure gateway access, and MCP proxy APIs highlighting Model Context Protocol integration and AI client connectivity.
+
+## Related Documentation
+
+* [MCP Server Installation Widget for Portal Pages](../../mcp-server-installation-widget-for-portal-pages.md)
+* [Secure MCP Proxy with OAuth2](../../ai-agent-management/secure-mcp-proxy-with-oauth2.md)
+* [APIM 4.12 release notes](../../release-information/release-notes/apim-4.12.md)

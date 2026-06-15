@@ -149,10 +149,10 @@
 <!-- PIPELINE:APIM-14244 -->
 #### **MCP Server Installation Widget for Portal Pages**
 
-* API publishers can embed one-click installer actions and copyable configuration snippets directly into portal documentation pages using the `<gmd-install-mcp>` Gravitee Markdown component.
-* The widget generates client-specific configuration for Cursor, VS Code, and Claude Desktop, providing deep-link buttons or JSON snippets based on the selected AI client.
-* MCP Proxy APIs automatically seed an Overview page with a pre-configured installation widget that adapts to both remote HTTP/SSE transports and local stdio-based MCP servers.
-* The Monaco editor provides autocomplete and hover support for the component's attributes: `name`, `transport`, and `url`.
+* API publishers can embed one-click installer actions and copyable configuration snippets directly into New Developer Portal pages using the `<gmd-install-mcp>` Gravitee Markdown component.
+* The widget generates client-specific configuration for Cursor, VS Code, and Claude Desktop, providing deep-link buttons (Cursor, VS Code) or a copyable JSON snippet (Claude Desktop).
+* MCP Proxy APIs automatically seed an unpublished Overview page with a pre-configured installation widget when added to the portal navigation. The widget adapts to both remote HTTP/SSE transports and local stdio-based MCP servers.
+* Supports eight attributes: `name`, `transport`, `url`, `headers`, `command`, `args`, `env`, and `clients`.
 <!-- /PIPELINE:APIM-14244 -->
 
 ## Improvements
