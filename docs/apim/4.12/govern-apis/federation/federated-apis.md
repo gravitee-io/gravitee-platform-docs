@@ -79,8 +79,6 @@ Before publishing your federated API to the Developer Portal, make sure that you
 
 Federation enables a centralized location where API consumers can discover unified API documentation for diverse API gateways and event brokers. While an integration is syncing, available assets (e.g., OAS/AsyncAPI definitions or Markdown files) are automatically imported from the 3rd-party provider to form the basis of the API's documentation published to the Developer Portal. New documentation pages and assets can also be created directly within Gravitee.
 
-<figure><img src="../../.gitbook/assets/federated-api-keyless-plan.png" alt="API Configuration page showing general settings for a federated API with name, version, description, and labels fields"><figcaption></figcaption></figure>
-
 To view or add documentation to an existing federated API:
 
 1. Log in to your APIM Console
@@ -147,8 +145,6 @@ Depending on the subscription configuration, the application will either auto-va
 
 The Developer Portal displays API access information only when it is available and relevant for federated APIs. Since federated APIs are ingested from third-party providers and may not have Gravitee-managed entrypoints, the portal automatically hides empty access sections to provide a cleaner, more intuitive subscription experience.
 
-<figure><img src="../../.gitbook/assets/federated-api-plan-list.png" alt="Plans page showing a published API Key plan with status and deployment information"><figcaption></figcaption></figure>
-
 The API access card displays subscription details, API keys, base URLs, and example curl commands for calling an API. For federated APIs with empty or undefined entrypoints, the card adapts its content based on the plan's security type:
 
 * **Native APIs**: The card and all content are always shown when the subscription is ACCEPTED or the plan is keyless.
@@ -189,5 +185,3 @@ To delete all of an integration's federated APIs as a group:
 {% hint style="info" %}
 Federated APIs cannot be deleted if they are published. The **Delete APIs** action will delete unpublished APIs but ignore published APIs.
 {% endhint %}
-
-<figure><img src="../../.gitbook/assets/federated-api-apikey-subscription.png" alt="Subscriptions management page showing an accepted API Key plan subscription with filter options and subscription details table"><figcaption></figcaption></figure>
