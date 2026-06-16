@@ -372,6 +372,8 @@
     * [Generate an API Score](govern-apis/api-score/generate-an-api-score.md)
 * [Analyze & Monitor APIs](analyze-and-monitor-apis/README.md)
   * [Dashboards](analyze-and-monitor-apis/dashboards/README.md)
+    * [Dashboard Filtering and Time Range Controls](analyze-and-monitor-apis/dashboards/dashboard-filtering-and-time-range-controls.md)
+    * [Dashboard View State URL Encoding Specification](analyze-and-monitor-apis/dashboards/dashboard-view-state-url-encoding-specification.md)
     * [Overview dashboard](analyze-and-monitor-apis/dashboards/overview-dashboard.md)
     * [Portal analytics dashboards overview](analyze-and-monitor-apis/dashboards/portal-analytics-dashboards-overview.md)
     * [Create portal analytics dashboards](analyze-and-monitor-apis/dashboards/creating-portal-analytics-dashboards.md)

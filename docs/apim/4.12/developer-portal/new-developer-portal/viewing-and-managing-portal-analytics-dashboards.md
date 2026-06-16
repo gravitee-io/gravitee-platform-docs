@@ -6,8 +6,7 @@ The New Developer Portal presents pre-configured analytics dashboards that API c
 
 You must be signed in to the New Developer Portal. To open analytics, click **Analytics** in the user avatar menu on desktop, or in the mobile menu. The analytics list page displays the available dashboards in a paginated grid of 20 per page. Pinned dashboards appear in a separate **Pinned** section at the top, marked with an accent border. Each dashboard card shows the title, the widget count, the last modified date, and the dashboard's labels. When the labels don't all fit, the card shows as many as fit and adds a `+N` badge for the rest.
 
-<!-- TODO: Screenshot of the analytics list page with the Pinned section at the top -->
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-portal-analytics-list.png" alt=""><figcaption><p>The analytics list page</p></figcaption></figure>
+<!-- SME-REQUIRED: Screenshot of the analytics list page with the Pinned section at the top -->
 
 ## Pin and unpin dashboards
 
@@ -17,10 +16,7 @@ To pin a dashboard, click the pin icon in the top-right corner of its card. You 
 
 Click a dashboard card to open its detail page, where the dashboard renders with all of its configured widgets. The detail page includes a timeframe selector with preset periods (Last minute, Last 5 minutes, Last hour, Last day, Last week, and Last month) and a custom range. The default is Last 5 minutes.
 
-<!-- TODO: Screenshot of a dashboard detail page showing widgets, the timeframe selector, and the filter bar -->
-<figure><img src="../../.gitbook/assets/PLACEHOLDER-portal-analytics-detail.png" alt=""><figcaption><p>A dashboard detail page</p></figcaption></figure>
-
-A filter bar lets you add global filters for **API**, **APPLICATION**, **HTTP_STATUS_CODE_GROUP**, and **HTTP_STATUS**. Filters apply across all widgets in the dashboard. You can edit or remove each filter individually, or clear them all at once. The dashboard refreshes automatically when the timeframe, interval, or filters change.
+A filter bar lets you add global filters for **API**, **APPLICATION**, **HTTP_STATUS_CODE_GROUP**, and **HTTP_STATUS**. Filters apply across all widgets in the dashboard. You can edit or remove each filter individually, or clear them all at once. The dashboard refreshes automatically when the timeframe, interval, or filters change. Dashboards support dynamic filtering by API, application, plan, status code, and custom time ranges with URL-based state persistence. For details, see [Dashboard Filtering and Time Range Controls](../../analyze-and-monitor-apis/dashboards/dashboard-filtering-and-time-range-controls.md).
 
 You can only filter by APIs you're authorized to view and applications you own. If a dashboard's name is empty, the breadcrumb label uses the dashboard ID.
 

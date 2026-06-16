@@ -101,3 +101,6 @@ secure-and-expose-apis/plans/conditional-updates-for-plans.md
 .gitbook/assets/mcp-select-markdown.png
 create-and-configure-apis/gravitee-api-definitions/a2a-proxy-api-type.md
 mcp-server-installation-widget-for-portal-pages.md
+analyze-and-monitor-apis/dashboards/dashboard-filtering-and-time-range-controls.md
+analyze-and-monitor-apis/dashboards/dashboard-view-state-url-encoding-specification.md
+configure-and-manage-the-platform/manage-organizations-and-environments/user-management.md

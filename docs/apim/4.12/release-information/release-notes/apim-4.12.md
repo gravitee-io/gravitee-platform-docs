@@ -155,6 +155,17 @@
 * Supports eight attributes: `name`, `transport`, `url`, `headers`, `command`, `args`, `env`, and `clients`.
 <!-- /PIPELINE:APIM-14244 -->
 
+
+<!-- PIPELINE:APIM-13474 -->
+#### **Dashboard Filtering and Time Range Controls**
+
+* Apply dynamic filters across all dashboard widgets to scope observability data by API, application, plan, status code, HTTP path, and custom time windows.
+* Filters and time ranges are encoded in the URL query parameter (`q`) for sharing and bookmarking dashboard views.
+* Supports multiple filter types including enum dropdowns, keyword autocomplete with backend search, numeric ranges, and free-text input.
+* Requires `ENVIRONMENT_DASHBOARD` read permission to view dashboards and `environment-dashboard-u` permission to modify filters.
+* Default time range is 5 minutes; supports relative periods (1m, 5m, 1h, 1d, 1w, 1M) and custom absolute ranges.
+<!-- /PIPELINE:APIM-13474 -->
+
 ## Improvements
 
 
