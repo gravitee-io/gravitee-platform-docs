@@ -137,7 +137,10 @@ The Client Secret is displayed only once. Copy and store it securely before clos
 Dynamic Client Registration (DCR) allows MCP clients to automatically register with AM without manual configuration.
 
 {% hint style="info" %}
-If DCR is not enabled, manually create an Application in AM for the MCP client and configure the redirect URLs accordingly. Also, configure the MCP client with the Client ID and Client Secret. For more information, see [Applications](https://documentation.gravitee.io/am/guides/applications)
+If DCR isn't enabled, you must create the client manually on both sides, using the same Client ID:
+
+* **In AM:** Create an Application for the MCP client and configure its redirect URLs. Configure the MCP client with this Application's Client ID and Client Secret. For more information, see [Applications](https://documentation.gravitee.io/am/guides/applications).
+* **In APIM:** Create an Application that uses the same Client ID, then subscribe it to the OAuth2 plan on your MCP proxy API. The Gateway matches the Client ID in each access token to an active subscription on the plan. If no matching subscription exists, the Gateway rejects the request with `401 Unauthorized`.
 {% endhint %}
 
 To enable DCR, complete the following steps:
