@@ -43,7 +43,7 @@ A JWT plan presents the following configuration options:
 * **Use system proxy:** When using **JWKS\_URL**, optionally route the JWKS retrieval call through the Gateway's [system proxy](../../self-hosted-installation-guides/proxy-configuration/system-proxy-for-backend-apis.md). Enable this option when the Gateway reaches external identity providers (for example, Microsoft Entra ID, Google, or Okta) through a corporate proxy.
 *   **Extract JWT Claims:** Allow claims to be accessed in the `jwt.claims` context attribute during request/response via Gravitee Expression Language (EL), e.g., extract the issuer claim from the JWT:
 
-    ```
+    ```json
     {#context.attributes['jwt.claims']['iss']}
     ```
 * **Propagate Authorization header:** Propagate the header containing the JWT token to the backend APIs
@@ -72,3 +72,10 @@ Configure these values in the JWT plan settings or in the API definition JSON.
 {% endhint %}
 
 Once JWT configuration is complete and the plan is created and published, your API will be JWT-secured and subscribed consumers must call the API with an `Authorization: Bearer your-JWT` HTTP header.
+
+### JWT Configuration
+
+| Property | Description | Example |
+|:---------|:------------|:--------|
+| `jwt.secret` | JWT signing secret used for invitation token generation and validation. Must be at least 256 bits. Mandatory. | (required) |
+| `jwt.issuer` | JWT issuer claim used for token verification. | `DEFAULT_JWT_ISSUER` |

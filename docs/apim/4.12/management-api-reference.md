@@ -27,3 +27,4 @@ To explore the API documentation, select any of the following endpoint categorie
   * Manage V4 and Federated APIs
   * Configure multi-tenant aspects of APIM such as licenses, plugins, and OEM customization
 * [**/portal component documentation**](https://apim-api-docs.gravitee.io/?v=4.11&api=portal)**:** productize APIs and manage applications and subscriptions
+* [**Application Membership Management API Reference**](management-api-reference.md)**:** manage application members, invitations, and ownership transfers

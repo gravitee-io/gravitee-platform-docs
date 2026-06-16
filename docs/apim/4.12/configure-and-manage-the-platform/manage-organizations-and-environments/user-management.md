@@ -40,7 +40,7 @@ To set up roles, complete the following steps:
 5. Click **Create**
 
 {% hint style="warning" %}
-Custom Roles is an [Enterprise Edition](../../readme/enterprise-edition.md) capability. To learn more about Gravitee Enterprise and what's included in various enterprise packages, [book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/) or [check out the pricing page](https://www.gravitee.io/pricing).
+Custom Roles is an [Enterprise Edition](../../introduction/enterprise-edition.md) capability. To learn more about Gravitee Enterprise and what's included in various enterprise packages, [book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/) or [check out the pricing page](https://www.gravitee.io/pricing).
 {% endhint %}
 
 <details>
@@ -119,7 +119,7 @@ Application-level permissions are listed in the following table.
 | ANALYTICS    | Manages application analytics. Only the `READ` permission is used. |
 | DEFINITION   | Manages the application definition                                 |
 | LOG          | Manages application logs. Only the `READ` permission is used.      |
-| MEMBER       | Manages application members                                        |
+| MEMBER       | Manages application membership. `CREATE` allows adding members and creating invitations, `READ` allows viewing members and invitations, `UPDATE` allows updating member roles and transferring ownership, `DELETE` allows removing members and deleting invitations. |
 | NOTIFICATION | Manages application notifications                                  |
 | SUBSCRIPTION | Manages application subscriptions                                  |
 {% endtab %}
