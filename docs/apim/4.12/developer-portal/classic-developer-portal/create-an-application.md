@@ -117,7 +117,7 @@ Once you've created an application, you can click on it and use the header optio
 *   **Subscriptions:** View the APIs your application is subscribed to. Use the **API** drop-down menu to choose a particular API and the **status** drop-down menu to list all APIs with the selected status.
 
     <figure><img src="../../.gitbook/assets/application_subscription info.png" alt=""><figcaption><p>Subscriptions</p></figcaption></figure>
-* **Members:** View and edit member information:
+* **Members:** Manage application team access, including adding registered users, adjusting roles, and transferring ownership. The **Members** and **Invitations** tabs are controlled by environment-level configuration toggles. For detailed guidance on managing application membership and invitations, see the [Application Membership & Invitations](../../secure-and-expose-apis/applications/application-membership-and-invitations-overview.md) guide.
   *   **MEMBERS LIST:** View the names and roles of current application members.
 
       <figure><img src="../../.gitbook/assets/application_members list.png" alt=""><figcaption><p>Members list</p></figcaption></figure>

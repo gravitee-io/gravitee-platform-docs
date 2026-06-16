@@ -12,6 +12,8 @@ You can create the following application types with the New Developer Portal:
 * Native. Mobile and desktop apps (iOS, Android) that authenticate through DCR.
 * Backend to backend. Machine-to-machine apps (scripts, daemons, CLIs) using DCR for API access.
 
+The New Developer Portal supports Application Membership Management, which enables team collaboration on applications without administrator intervention. Application owners and authorized members can add registered users, invite external users by email, adjust member roles, and transfer ownership directly from the Developer Portal.
+
 ## Prerequisites&#x20;
 
 * Enable the New Developer Portal. For more information about enabling the New Developer Portal, see [configure-the-new-portal.md](configure-the-new-portal.md "mention").

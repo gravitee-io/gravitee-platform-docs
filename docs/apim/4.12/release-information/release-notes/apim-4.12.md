@@ -155,6 +155,17 @@
 * Supports eight attributes: `name`, `transport`, `url`, `headers`, `command`, `args`, `env`, and `clients`.
 <!-- /PIPELINE:APIM-14244 -->
 
+
+<!-- PIPELINE:APIM-11584 -->
+#### **Application Membership and Invitations**
+
+* Application owners can now manage team access directly from the Developer Portal by adding registered users as members, inviting external users by email, and adjusting member roles without administrator intervention.
+* Invitations are sent via email with a JWT-encoded confirmation URL. When accepted, the system automatically creates or updates user accounts and assigns the specified application role along with default organization and environment roles.
+* Ownership transfer allows the current primary owner to reassign ownership to another application member while selecting a new role for themselves in a single atomic operation.
+* Administrators control feature availability through environment-level configuration toggles, and the `jwt.secret` configuration property (minimum 256 bits) is required for invitation token signing and verification.
+* Invitation management includes search and filtering by email address with case-insensitive partial matching, and sorting across multiple fields including creation date and role assignments.
+<!-- /PIPELINE:APIM-11584 -->
+
 ## Improvements
 
 
