@@ -20,6 +20,8 @@ For an API consumer to create an application, the following must be true:
   * **Dynamic Client Registration (DCR) for applications:** The API publisher must enable and configure DCR for the allowed application types. The client registration provider is responsible for creating the `client_id` and `client_secret` for each application that registers.
 * An API consumer must have a user account to register an application and subscribe to an API (see [User Management](user-management.md)).
 
+When an application owner invites a new user by email, accepting the invitation triggers automatic user registration and assigns default organization and environment roles required for portal access. For details on managing application members and invitations, see [Application Membership Management](../management-api/application-membership-management-api-reference.md#application-membership-management-api-reference).
+
 ## Default application configuration
 
 The default simple application enables an API consumer to define the `client_id` for use in JWT and OAuth API plans. To allow API consumers to create a simple application, complete the following steps:
@@ -70,7 +72,7 @@ api:
 ## DCR application configuration
 
 {% hint style="warning" %}
-Dynamic Client Registration is an [Enterprise Edition](../../readme/enterprise-edition.md) capability
+Dynamic Client Registration is an [Enterprise Edition](../../introduction/enterprise-edition.md) capability
 {% endhint %}
 
 The DCR protocol allows an OAuth client application to dynamically register with an OAuth server through the OpenID Connect (OIDC) client registration endpoint to obtain credentials and access protected resources.
@@ -253,14 +255,14 @@ The authorization code is a temporary code returned after requesting the authori
 **Additional information**
 
 * Authorization codes are single-use.
-* For server-side web apps, e.g., native (mobile) and Javascript, the [PKCE extension](https://tools.ietf.org/html/rfc7636) is used as part of the flow to provide protection against attacks where the authorization code may be intercepted
+* For server-side web apps, e.g., native (mobile) and JavaScript, the [PKCE extension](https://tools.ietf.org/html/rfc7636) is used as part of the flow to provide protection against attacks where the authorization code may be intercepted
 {% endtab %}
 
 {% tab title="Implicit" %}
 {% hint style="danger" %}
 **Security concerns**
 
-The OAuth standard discourages using an implicit grant to request access tokens from Javascript applications. Consider using an authorization code grant with a PKCE extension for all of your applications.
+The OAuth standard discourages using an implicit grant to request access tokens from JavaScript applications. Consider using an authorization code grant with a PKCE extension for all of your applications.
 {% endhint %}
 
 The implicit grant is a simplified authorization code flow. Instead of first getting a temporary code, you can retrieve an access token directly from web browser redirection.

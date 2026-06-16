@@ -117,7 +117,7 @@ Once you've created an application, you can click on it and use the header optio
 *   **Subscriptions:** View the APIs your application is subscribed to. Use the **API** drop-down menu to choose a particular API and the **status** drop-down menu to list all APIs with the selected status.
 
     <figure><img src="../../.gitbook/assets/application_subscription info.png" alt=""><figcaption><p>Subscriptions</p></figcaption></figure>
-* **Members:** View and edit member information:
+* **Members:** View and edit member information. The Members tab allows you to add registered platform users, update member roles, remove members, and transfer application ownership. For detailed instructions, see the [Application Membership Management](../../configure-and-manage-the-platform/management-api/application-membership-management-api-reference.md#application-membership-management-api-reference) guide.
   *   **MEMBERS LIST:** View the names and roles of current application members.
 
       <figure><img src="../../.gitbook/assets/application_members list.png" alt=""><figcaption><p>Members list</p></figcaption></figure>
@@ -130,6 +130,7 @@ Once you've created an application, you can click on it and use the header optio
   *   **INHERITED MEMBERS:** View the names and roles of members inherited from other groups.
 
       <figure><img src="../../.gitbook/assets/application_inherited members.png" alt=""><figcaption><p>Inherited members</p></figcaption></figure>
+* **Invitations:** Invite users by email to join the application. The Invitations tab allows you to create, resend, update, and delete pending invitations. For detailed instructions, see the [Application Membership Management](../../configure-and-manage-the-platform/management-api/application-membership-management-api-reference.md#application-membership-management-api-reference) guide.
 *   **Analytics:** Use the available filters to refine the application logs. Scroll down to view other metrics related to the application (top paths, top APIs, response times, etc.).
 
     <figure><img src="../../.gitbook/assets/application_analytics.png" alt=""><figcaption><p>Analytics</p></figcaption></figure>

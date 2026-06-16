@@ -155,6 +155,16 @@
 * Supports eight attributes: `name`, `transport`, `url`, `headers`, `command`, `args`, `env`, and `clients`.
 <!-- /PIPELINE:APIM-14244 -->
 
+
+<!-- PIPELINE:APIM-11584 -->
+#### **Application Membership Management**
+
+* Application owners and authorized members can now manage user access directly from the Developer Portal, including adding members, updating roles, and transferring ownership.
+* Users can invite new members by email. The system automatically adds existing platform users or creates pending invitations that grant the specified role upon acceptance.
+* Pending invitations can be searched, resent, updated, or deleted. Invitation acceptance creates user accounts, assigns default portal access roles, and adds members to the application.
+* Administrators control feature availability through configuration toggles.
+<!-- /PIPELINE:APIM-11584 -->
+
 ## Improvements
 
 
