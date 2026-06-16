@@ -27,6 +27,7 @@
   * [Add a service attachment to your private network](guides/establish-private-networks-with-gcp/add-a-service-attachment-to-your-private-network.md)
   * [Connect a Gateway to your private network](guides/establish-private-networks-with-gcp/connect-a-gateway-to-your-private-network.md)
   * [Disconnect a Gateway from your private network](guides/establish-private-networks-with-gcp/disconnect-a-gateway-from-your-private-network.md)
+* [Establish private networks with AWS](guides/establish-private-networks-with-aws.md)
 * [Configure TCP Reporter](guides/configure-tcp-reporter/README.md)
   * [Create and configure custom reporters](guides/configure-tcp-reporter/create-and-configure-custom-reporters.md)
   * [Custom reporters reference](guides/configure-tcp-reporter/custom-reporters-reference.md)
