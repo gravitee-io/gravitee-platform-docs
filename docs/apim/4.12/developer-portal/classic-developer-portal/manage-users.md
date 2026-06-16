@@ -65,6 +65,8 @@ Password requirements can be modified by changing the regex pattern under **User
 
 Once your password has been created, you will be able to sign in.
 
+The registration finalization process uses the `POST /user/registration/_finalize` endpoint, which accepts a JWT token, password, firstname, and lastname. This endpoint is used to complete user registration from application invitations and other invitation types.
+
 ## User overview
 
 All users can be viewed in the Management Console by anyone with administrator privileges. To view users:

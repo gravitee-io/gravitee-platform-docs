@@ -101,3 +101,12 @@ secure-and-expose-apis/plans/conditional-updates-for-plans.md
 .gitbook/assets/mcp-select-markdown.png
 create-and-configure-apis/gravitee-api-definitions/a2a-proxy-api-type.md
 mcp-server-installation-widget-for-portal-pages.md
+configure-and-manage-the-platform/management-api/application-membership-management-api-reference.md
+configure-and-manage-the-platform/management-api/mtls-certificate-management-api-reference.md
+create-and-configure-apis/configure-v4-apis/user-permissions.md
+developer-portal/classic-developer-portal/manage-users.md
+developer-portal/new-developer-portal/accept-application-invitation.md
+developer-portal/new-developer-portal/configure-application-membership-features.md
+developer-portal/new-developer-portal/create-an-application.md
+secure-and-expose-apis/applications/manage-application-invitations.md
+secure-and-expose-apis/applications/user-and-group-access.md

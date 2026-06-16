@@ -31,6 +31,15 @@ Click **+ Add members** to add members to your API or alter member roles, which 
 
 <figure><img src="../../.gitbook/assets/user permissions_add members alter roles.png" alt=""><figcaption><p>Add members and alter roles</p></figcaption></figure>
 
+### Members and Invitations tabs
+
+The **Members** and **Invitations** tabs provide additional membership management capabilities. These tabs are controlled by feature toggles and require specific permissions to access:
+
+| Tab | Feature Toggle | Required Permission | Description |
+|:----|:---------------|:--------------------|:------------|
+| **Members** | `portal.next.applications.membership.enabled` | `MEMBER[R]` | View and manage application members |
+| **Invitations** | `portal.next.applications.membership.enabled` and `portal.next.applications.membership.invitations.enabled` | `MEMBER[R]` | View and manage pending invitations |
+
 ### Add groups to an API
 
 To give groups access to your API, click **Manage groups** and select the desired group(s) from the drop-down menu. This will give all members of that group access to your API.

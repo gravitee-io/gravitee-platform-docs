@@ -155,6 +155,16 @@
 * Supports eight attributes: `name`, `transport`, `url`, `headers`, `command`, `args`, `env`, and `clients`.
 <!-- /PIPELINE:APIM-14244 -->
 
+
+<!-- PIPELINE:APIM-11584 -->
+#### **Application Membership Management in Developer Portal**
+
+* Application owners and authorized members can now manage application access directly from the Developer Portal, including adding members, updating roles, and transferring ownership.
+* Users can invite new members by email even if they are not yet registered on the platform. Invitations include a registration URL with an embedded JWT token and can be resent, updated, or deleted before acceptance.
+* Invited users accept invitations by completing registration, after which they are automatically granted the specified application role and default organization/environment roles for portal access.
+* Administrators control feature availability through configuration toggles. MongoDB deployments require the `ri1rt1e1` index on the `invitations` collection for case-insensitive email search.
+<!-- /PIPELINE:APIM-11584 -->
+
 ## Improvements
 
 

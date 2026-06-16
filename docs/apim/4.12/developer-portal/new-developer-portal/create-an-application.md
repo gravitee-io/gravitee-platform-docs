@@ -4,6 +4,8 @@
 
 You can create applications with the New Developer Portal. Unless the API has a keyless plan, a consumer must register an application and subscribe to a published API plan to access an API. Applications act on behalf of the user.
 
+Application owners can also invite new users to join their applications by email. Invited users receive a JWT-secured confirmation URL and complete registration by providing their first name, last name, and password. Upon acceptance, the user is automatically assigned the invited role.
+
 You can create the following application types with the New Developer Portal:
 
 * Simple. A standalone client where you manage your own client\_id. No DCR involved.

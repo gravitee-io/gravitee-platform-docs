@@ -9,16 +9,37 @@ Both APIs operate on the same underlying client certificates and share the same 
 
 ## Management API v1
 
-Base path: `/management/v1/organizations/{orgId}/environments/{envId}/applications/{applicationId}/certificates`
+Base path: `/management/v1/organizations/{orgId}/environments/{envId}/applications/{applicationId}`
+
+### Certificate Endpoints
 
 | Method | Path | Description | Permission |
 |:-------|:-----|:------------|:-----------|
-| `GET` | `/applications/{applicationId}/certificates?page={page}&size={size}` | List certificates with pagination. | `APPLICATION_DEFINITION[READ]` |
-| `POST` | `/applications/{applicationId}/certificates` | Create a new certificate. | `APPLICATION_DEFINITION[CREATE]` |
-| `POST` | `/applications/{applicationId}/certificates/_validate` | Parse and validate a PEM certificate without persisting it. | `APPLICATION_DEFINITION[READ]` |
-| `GET` | `/applications/{applicationId}/certificates/{certId}` | Get a single certificate. | `APPLICATION_DEFINITION[READ]` |
-| `PUT` | `/applications/{applicationId}/certificates/{certId}` | Update a certificate's name or activation window. | `APPLICATION_DEFINITION[UPDATE]` |
-| `DELETE` | `/applications/{applicationId}/certificates/{certId}` | Delete a certificate. | `APPLICATION_DEFINITION[DELETE]` |
+| `GET` | `/certificates?page={page}&size={size}` | List certificates with pagination. | `APPLICATION_DEFINITION[READ]` |
+| `POST` | `/certificates` | Create a new certificate. | `APPLICATION_DEFINITION[CREATE]` |
+| `POST` | `/certificates/_validate` | Parse and validate a PEM certificate without persisting it. | `APPLICATION_DEFINITION[READ]` |
+| `GET` | `/certificates/{certId}` | Get a single certificate. | `APPLICATION_DEFINITION[READ]` |
+| `PUT` | `/certificates/{certId}` | Update a certificate's name or activation window. | `APPLICATION_DEFINITION[UPDATE]` |
+| `DELETE` | `/certificates/{certId}` | Delete a certificate. | `APPLICATION_DEFINITION[DELETE]` |
+
+### Membership Endpoints
+
+| Method | Path | Description | Permission |
+|:-------|:-----|:------------|:-----------|
+| `POST` | `/members/_search` | Search application members with pagination. | `MEMBER[READ]` |
+| `POST` | `/members` | Add a new application member. | `MEMBER[CREATE]` |
+| `PUT` | `/members/{memberId}` | Update a member's role. | `MEMBER[UPDATE]` |
+| `POST` | `/members/_transfer_ownership` | Transfer application ownership to a new primary owner. | `MEMBER[UPDATE]` |
+
+### Invitation Endpoints
+
+| Method | Path | Description | Permission |
+|:-------|:-----|:------------|:-----------|
+| `POST` | `/invitations` | Create application invitations. | `MEMBER[CREATE]` |
+| `POST` | `/invitations/_search` | Search application invitations with pagination. | `MEMBER[READ]` |
+| `PUT` | `/invitations/{invitationId}` | Update an invitation's role. | `MEMBER[UPDATE]` |
+| `DELETE` | `/invitations/{invitationId}` | Delete a pending invitation. | `MEMBER[DELETE]` |
+| `POST` | `/invitations/{invitationId}/_resend` | Resend an invitation email. | `MEMBER[UPDATE]` |
 
 ## Portal API
 
