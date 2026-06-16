@@ -62,9 +62,9 @@ The table supports pagination with a default page size of 5 and options for 10 o
 3. In the confirmation dialog titled "Revoke your API Key", review the warning message "Revoke your subscription's API Key".
 4. Click **Revoke** to confirm, or **Cancel** to abort.
 
-After confirmation, the key is revoked via `POST /subscriptions/{subscriptionId}/keys/{apiKey}/_revoke`. The table refreshes to reflect the updated status, and the key's **Revoked/Expired At** column displays the revocation timestamp in `MMM d, y, h:mm:ss a` format. A success message—"API key revoked"—is displayed in a green notification banner at the bottom right of the screen.
+After confirmation, the key is revoked via `POST /subscriptions/{subscriptionId}/keys/{apiKey}/_revoke`. The table refreshes to reflect the updated status, and the key's **Revoked/Expired At** column displays the revocation timestamp in `MMM d, y, h:mm:ss a` format.
 
-<figure><img src="../../.gitbook/assets/api-keys-table-revoked.png" alt="API keys table showing one inactive API key with red X-circle icon, key value 55729257-754c-4b4c-b29, creation timestamp Jun 12, 2026, 10:33:36 PM, revocation timestamp Jun 12, 2026, 10:34:17 PM in Revoked/Expired at column, and green success notification banner displaying 'API key revoked' in the bottom right corner"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/api-keys-table-revoked.png" alt="API keys table showing one inactive API key with red X-circle icon, key value 55729257-754c-4b4c-b29, creation timestamp Jun 12, 2026, 10:33:36 PM, revocation timestamp Jun 12, 2026, 10:34:17 PM in Revoked/Expired at column"><figcaption></figcaption></figure>
 
 When all keys are inactive, the "Calling the API" section is hidden.
 
@@ -74,17 +74,13 @@ Revocation is blocked if the key is already inactive, if another revocation requ
 
 1. Click the **Renew** button below the API keys table on the subscription details page.
 
-    <figure><img src="../../.gitbook/assets/renew-api-key-dialog.png" alt="Renew your API Key dialog with warning message 'Your previous API Key will be no longer valid in 2 hours!' and optional Custom API Key input field with Cancel and Renew buttons"><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/renew-api-key-dialog.png" alt="Renew API Key dialog with Cancel and Yes, renew buttons"><figcaption></figcaption></figure>
 
-2. In the confirmation dialog titled "Renew your API Key", review the warning: "Your previous API Key will be no longer valid in 2 hours!"
-3. Optionally, provide a custom API key value in the **Custom API Key** text field.
-4. Click **Renew** to confirm, or **Cancel** to abort.
+2. In the confirmation dialog titled "Renew API Key?", click **Yes, renew** to confirm, or **Cancel** to abort.
 
-After confirmation, a new key is generated via `POST /subscriptions/{subscriptionId}/keys/_renew`. The table and the "Calling the API" cURL example refresh to reflect the new key. A success message—"API key renewed"—is displayed in a green notification banner at the bottom right of the screen with `aria-live="polite"`.
+After confirmation, a new key is generated via `POST /subscriptions/{subscriptionId}/keys/_renew`. The table and the "Calling the API" cURL example refresh to reflect the new key.
 
-<figure><img src="../../.gitbook/assets/api-keys-table-renewed.png" alt="API keys table showing two keys: one active key with green check-circle icon and key value a376e07b-1823-4406-810 created at Jun 12, 2026, 10:34:33 PM, and one inactive revoked key with red X-circle icon and key value 55729257-754c-4b4c-b29 with revocation timestamp Jun 12, 2026, 10:34:17 PM, with green success notification banner displaying 'API key renewed' in the bottom right corner"><figcaption></figcaption></figure>
-
-If the operation fails, an error message—"Failed to renew API key. Please try again."—is displayed with `role="alert"`.
+<figure><img src="../../.gitbook/assets/api-keys-table-renewed.png" alt="API keys table showing two keys: one active key with green check-circle icon and key value a376e07b-1823-4406-810 created at Jun 12, 2026, 10:34:33 PM, and one inactive revoked key with red X-circle icon and key value 55729257-754c-4b4c-b29 with revocation timestamp Jun 12, 2026, 10:34:17 PM"><figcaption></figcaption></figure>
 
 Renewal is blocked if another renewal request is in flight or if the user lacks update permissions. The renewal operation uses server-side defaults and does not accept custom expiration parameters.
 
