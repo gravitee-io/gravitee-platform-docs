@@ -155,6 +155,17 @@
 * Supports eight attributes: `name`, `transport`, `url`, `headers`, `command`, `args`, `env`, and `clients`.
 <!-- /PIPELINE:APIM-14244 -->
 
+
+<!-- PIPELINE:APIM-11584 -->
+#### **Application Membership Management**
+
+* Administrators can now add members directly to applications, invite external users via email, assign roles, and transfer application ownership through the Portal UI and REST API.
+* Members are assigned organization-specific roles that define their permissions for application-level operations. The system automatically assigns the lowest available application role when no role is specified.
+* Invitations are sent via email to users who do not yet have platform accounts. Existing users are added directly as members without requiring an invitation workflow.
+* Application membership management requires the `portal.next.applications.membership.enabled` configuration property to be set to `true`. Ownership transfer and invitations can be enabled separately via additional feature toggles.
+* Users must have appropriate `APPLICATION_MEMBER` and `APPLICATION_INVITATION` permissions to manage members and invitations. The `PRIMARY_OWNER` role can only be assigned through the ownership transfer operation.
+<!-- /PIPELINE:APIM-11584 -->
+
 ## Improvements
 
 

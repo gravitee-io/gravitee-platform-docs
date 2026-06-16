@@ -70,7 +70,7 @@ api:
 ## DCR application configuration
 
 {% hint style="warning" %}
-Dynamic Client Registration is an [Enterprise Edition](../../readme/enterprise-edition.md) capability
+Dynamic Client Registration is an [Enterprise Edition](../../introduction/enterprise-edition.md) capability
 {% endhint %}
 
 The DCR protocol allows an OAuth client application to dynamically register with an OAuth server through the OpenID Connect (OIDC) client registration endpoint to obtain credentials and access protected resources.
@@ -253,14 +253,14 @@ The authorization code is a temporary code returned after requesting the authori
 **Additional information**
 
 * Authorization codes are single-use.
-* For server-side web apps, e.g., native (mobile) and Javascript, the [PKCE extension](https://tools.ietf.org/html/rfc7636) is used as part of the flow to provide protection against attacks where the authorization code may be intercepted
+* For server-side web apps, e.g., native (mobile) and JavaScript, the [PKCE extension](https://tools.ietf.org/html/rfc7636) is used as part of the flow to provide protection against attacks where the authorization code may be intercepted
 {% endtab %}
 
 {% tab title="Implicit" %}
 {% hint style="danger" %}
 **Security concerns**
 
-The OAuth standard discourages using an implicit grant to request access tokens from Javascript applications. Consider using an authorization code grant with a PKCE extension for all of your applications.
+The OAuth standard discourages using an implicit grant to request access tokens from JavaScript applications. Consider using an authorization code grant with a PKCE extension for all of your applications.
 {% endhint %}
 
 The implicit grant is a simplified authorization code flow. Instead of first getting a temporary code, you can retrieve an access token directly from web browser redirection.
@@ -336,3 +336,16 @@ To delete an application, the primary owner must:
   * Notification settings are deleted.
 * An `ADMIN` can restore applications in the APIM Console and will become the primary owner of the application
   * An application’s subscriptions will be restored with `PENDING` status. The API publisher must manually reactivate previous subscriptions.
+
+## Manage applications
+
+An application is usually shared through a developer application and retrieves information such as API keys and API analytics. Initially, only the application's creator can view and manage the application. By default, APIM includes three membership roles:
+
+<table><thead><tr><th width="228">Role</th><th>Description</th></tr></thead><tbody><tr><td><strong>Primary owner</strong></td><td>The creator of the application. Can perform all possible API actions.</td></tr><tr><td><strong>Owner</strong></td><td>A lighter version of the primary owner role. Can perform all possible actions except delete the application.</td></tr><tr><td><strong>User</strong></td><td>A person who can access the application in read-only mode and use it to subscribe to an API.</td></tr></tbody></table>
+
+{% hint style="info" %}
+Only users with the required permissions can manage application members. See [User Management](user-management.md).
+{% endhint %}
+
+#
+

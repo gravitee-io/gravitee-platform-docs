@@ -4,7 +4,6 @@ description: An overview about enable the new developer portal.
 
 # Enable the New Developer Portal
 
-
 ## Overview
 
 The New Developer Portal has an updated interface and improved customization options. By default, Gravitee launches the Classic Developer Portal. But you can access, test, and preview the New Developer Portal using the API Management (APIM) Console. This does not change your default settings.
@@ -126,6 +125,7 @@ Here is an example of the environmental variables set in a `docker-compose-apim.
 *   In the APIM Console, click **Developer Portal**. The New Developer Portal opens in a new tab.
 
     <figure><img src="../../.gitbook/assets/developer-portal-new-developer-portal-co-13-1.png" alt=""><figcaption></figcaption></figure>
+
 
 ## Next Steps
 

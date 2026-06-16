@@ -325,6 +325,7 @@
     * [Customize the Navigation](developer-portal/new-developer-portal/customize-the-navigation.md)
     * [Creating and Managing Templated Portal Pages](developer-portal/new-developer-portal/customize-the-navigation/creating-and-managing-templated-portal-pages.md)
     * [Gravitee Markdown Components](developer-portal/new-developer-portal/gravitee-markdown-components.md)
+    * [Managing Application Invitations](developer-portal/new-developer-portal/managing-application-invitations.md)
     * [MCP Server Installation Widget for Portal Pages](mcp-server-installation-widget-for-portal-pages.md)
     * [Application Logs](developer-portal/new-developer-portal/application-logs.md)
     * [Manage Subscriptions](developer-portal/new-developer-portal/manage-subscriptions.md)
