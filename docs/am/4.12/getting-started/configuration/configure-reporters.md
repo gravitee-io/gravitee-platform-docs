@@ -55,6 +55,65 @@ Audit logs will be created in a directory tree that represents the resource hier
 
 For details on how to create a file reporter for a domain, see the [Audit trail](../../guides/audit-trail.md) documentation.
 
+## TCP reporter
+
+{% hint style="info" %}
+**Available from:** AM 4.12.
+{% endhint %}
+
+This implementation writes audit events to a TCP socket. It is particularly suited for SaaS/Cloud deployments where audit events are forwarded to an external collector (for example, Logstash) over the network.
+
+### Configuration
+
+The TCP reporter has two configuration layers:
+
+* **`gravitee.yml`** — controls the local fallback behavior only.
+* **Management Console / API** — controls all connection and security settings (host, port, output format, SSL/TLS).
+
+#### gravitee.yml — fallback settings
+
+When the TCP link is unavailable, the fallback mechanism persists audit events locally on disk. As soon as the connection is restored, the buffered events are replayed to the TCP server. If the connection is broken for too long and the maximum number of files is reached, the oldest files are discarded.
+
+```yaml
+reporters:
+  tcp:
+    fallback:
+      enabled: true           # enable local fallback (default: false)
+      directory: ${gravitee.home}/audit-logs/tcp-fallback/  # where fallback files are stored
+      maxSize: 50             # max size per file in MB
+      maxFiles: 10            # max number of fallback files; oldest are deleted when exceeded
+```
+
+{% hint style="warning" %}
+Fallback limits apply **per TCP reporter instance**. If you configure multiple TCP reporters, each instance independently enforces its own `maxSize` and `maxFiles` limits.
+{% endhint %}
+
+#### Management Console / API settings
+
+All other TCP reporter settings — including connection details and SSL/TLS — are configured per domain or organization via the Management Console or API. The following properties are available:
+
+| Property | Type | Description | Default |
+| -------- | ---- | ----------- | ------- |
+| `host` | string | TCP server hostname or IP address. | `localhost` |
+| `port` | integer | TCP server port. | `9000` |
+| `output` | string | Serialization format for audit events written to the TCP stream: `JSON`, `MESSAGE_PACK`, `ELASTICSEARCH`, `CSV`. | `JSON` |
+| `connectTimeout` | integer | Maximum time to wait for the TCP connection to be established, in milliseconds. | `10000` |
+| `reconnectAttempts` | integer | Number of reconnection attempts before giving up. Use `-1` for infinite retries. | `10` |
+| `reconnectInterval` | integer | Time to wait between reconnection attempts, in milliseconds. | `500` |
+| `retryTimeout` | integer | Time to wait before starting a new reconnection cycle after all attempts are exhausted, in milliseconds. | `5000` |
+| `ssl.enabled` | boolean | Enable SSL/TLS. | `false` |
+| `ssl.trustAll` | boolean | Accept any server certificate without validation. Not recommended for production. | `false` |
+| `ssl.verifyHost` | boolean | Verify that the server hostname matches the TLS certificate CN/SAN. | `true` |
+| `ssl.keystore.type` | string | Keystore format: `PEM`, `JKS`, or `PKCS12`. | — |
+| `ssl.keystore.value` | string | Base64-encoded keystore content (JKS or PKCS12 only). | — |
+| `ssl.keystore.password` | string | Keystore password (JKS or PKCS12 only). | — |
+| `ssl.keystore.certValue` | string | PEM certificate content (PEM type only). | — |
+| `ssl.keystore.keyValue` | string | PEM private key content (PEM type only). | — |
+| `ssl.truststore.type` | string | Truststore format: `PEM`, `JKS`, or `PKCS12`. | — |
+| `ssl.truststore.value` | string | Base64-encoded truststore content (JKS or PKCS12 only). | — |
+| `ssl.truststore.password` | string | Truststore password (JKS or PKCS12 only). | — |
+| `ssl.truststore.certValue` | string | PEM CA certificate content (PEM type only). | — |
+
 ## Kafka reporter
 
 This reporter sends all audit logs to Kafka Broker using JSON serialization.

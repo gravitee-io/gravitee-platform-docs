@@ -14,6 +14,20 @@ metaLinks:
 
 Here are the breaking changes from versions 4.X of Gravitee.
 
+### 4.12.0
+
+**Java 25 runtime requirement**
+
+Gravitee AM 4.12 now runs on Java 25. If you deploy AM using the distribution ZIP file or the RPM package, make sure a JRE 25 is installed and available in your environment before upgrading.
+
+**Upgrade to Eclipse Vert.x 5**
+
+Gravitee AM now runs on Eclipse Vert.x 5. If you develop custom plugins, make sure they are compatible with this new version before upgrading, as APIs and behaviors may have changed between Vert.x versions.
+
+**Resend code on MFA challenge screen**
+
+The behavior of the MFA challenge screen has changed. Previously, refreshing the page would invalidate (end) the existing code; now resending a code is handled explicitly through the resend option. If you use a custom MFA challenge template, it may need to be updated to take advantage of this feature. Refer to the [reference template](https://github.com/gravitee-io/gravitee-access-management/tree/4.12.x/gravitee-am-gateway/gravitee-am-gateway-handler/gravitee-am-gateway-handler-core/src/main/resources/webroot/views/mfa_challenge.html#L93) for the expected markup.
+
 ### 4.11.0
 
 **Modified Token Signing Behavior**&#x20;
