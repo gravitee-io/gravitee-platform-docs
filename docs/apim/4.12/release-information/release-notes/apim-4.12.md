@@ -193,4 +193,14 @@
 * Both new fields are additive and disabled when their list is empty, so existing policy configurations are unaffected.
 <!-- /PIPELINE:APIM-13498 -->
 
+
+<!-- PIPELINE:APIM-13473 -->
+#### **V2 API Analytics Continuity After Migration**
+
+* Migrating an HTTP Proxy API (v2) to v4 no longer causes loss of historical analytics data. The v4 analytics dashboard now queries both v4 and v2 analytics indices, providing complete analytics history for migrated APIs.
+* Analytics queries use v4 canonical field names (e.g., `api-id`, `gateway-response-time-ms`) which Elasticsearch resolves to v2 field names (e.g., `api`, `response-time`) via field aliases, enabling unified queries across both API definition versions.
+* The APIM gateway automatically updates the index template on startup. For existing `gravitee-request-*` indices created before this release, administrators must manually add field aliases using the mapping update request documented in the migration guide to enable v4 analytics queries to match v2 documents.
+* Requires Elasticsearch 7.x, 8.x, 9.x, or OpenSearch. Supported for V2 and V4 API definitions only; federated APIs and TCP proxy APIs are not supported.
+<!-- /PIPELINE:APIM-13473 -->
+
 ## Bug Fixes

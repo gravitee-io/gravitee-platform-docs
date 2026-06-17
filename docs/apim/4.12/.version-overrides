@@ -111,3 +111,6 @@ mcp-server-installation-widget-for-portal-pages.md
 .gitbook/assets/revoke-api-key-dialog.png
 developer-portal/new-developer-portal/manage-api-keys-in-the-developer-portal.md
 secure-and-expose-apis/subscriptions/manage-subscriptions.md
+create-and-configure-apis/create-apis/4.9-migrate-apis.md
+create-and-configure-apis/gravitee-api-definitions/v2-and-v4-api-comparison.md
+v2-api-analytics-continuity-after-migration.md
