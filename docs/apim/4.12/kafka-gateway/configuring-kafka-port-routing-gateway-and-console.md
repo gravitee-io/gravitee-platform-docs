@@ -22,7 +22,9 @@ The `kafka.routingMode` property controls the routing strategy for Kafka APIs at
 
 | Property | Description | Example |
 |:---------|:------------|:--------|
-| `kafka.routingMode` | Routing strategy: `host` for SNI-based routing or `port` for port-based routing. Defaults to `host` when unset or unrecognized. | `port` |
+| Kafka Routing Mode | Routing strategy: `host` for SNI-based routing or `port` for port-based routing. Defaults to `host` when unset or unrecognized. | `port` |
+
+For additional timeout settings that apply when using MESH mode with Kafka Virtual Clusters, see [Timeout Configuration](../create-and-configure-apis/configure-v4-apis/endpoints/kafka.md#configuration).
 
 {% hint style="warning" %}
 Plans without a configured bootstrap port are skipped in port routing mode and logged at WARN level. Port routing applies only to Native Kafka APIs.
@@ -34,7 +36,7 @@ The `console.kafka.portRouting.enabled` property controls the visibility of port
 
 | Property | Description | Example |
 |:---------|:------------|:--------|
-| `console.kafka.portRouting.enabled` | Environment-level toggle for Kafka port routing UI fields. When `false`, port fields are hidden even for Native Kafka APIs. | `true` |
+| Console Kafka Port Routing Enabled | Environment-level toggle for Kafka port routing UI fields. When `false`, port fields are hidden even for Native Kafka APIs. | `true` |
 
 {% hint style="info" %}
 When switching from port routing mode to host routing mode, clear the port fields on all plans by setting them to `null` or leaving them empty. The gateway reverts to SNI-based routing. Existing `kafka_port_ranges` data remains in the database but is unused.

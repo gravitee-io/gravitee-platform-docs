@@ -29,14 +29,16 @@ The **Enable connection metrics reporting** toggle on the **Reporter Settings** 
 
 ### Permissions Model
 
-Two distinct permissions govern access to connection logs:
+Two distinct API-scoped permissions govern access to connection logs:
 
 | Permission | Scope | Grants Access To |
 |:-----------|:------|:-----------------|
-| `api-native_log-r` | Summary visibility. | **Logs** menu, list view, and summary widget. |
-| `api-native_analytics-r` | Per-connection inspection. | Detail page with client identifiers and error details. |
+| Native Log | Summary visibility. | **Logs** menu, list view, and summary widget. |
+| Native Analytics | Per-connection inspection. | Detail page with client identifiers and error details. |
 
-If you only have the `api-native_log-r` permission, you can see the list and summary, but you cannot drill into individual connections—the per-row view icon is hidden.
+The `OWNER` and `PRIMARY_OWNER` roles receive both permissions automatically. Custom roles require manual grants.
+
+If you only have the `NATIVE_LOG` permission, you can see the list and summary, but you cannot drill into individual connections—the per-row view icon is hidden.
 
 ## Prerequisites
 

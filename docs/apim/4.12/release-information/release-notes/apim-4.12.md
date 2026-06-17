@@ -155,6 +155,17 @@
 * Supports eight attributes: `name`, `transport`, `url`, `headers`, `command`, `args`, `env`, and `clients`.
 <!-- /PIPELINE:APIM-14244 -->
 
+
+<!-- PIPELINE:APIM-13666 -->
+#### **Kafka Virtual Clusters**
+
+* Present multiple independent Kafka backends as a single unified cluster to client applications, simplifying multi-cluster architectures and enabling cross-cluster consumer groups without client-side coordination.
+* Configure reusable Kafka Cluster entities with multiple named connections (each with bootstrap servers and security protocol), allowing centralized management—updates propagate automatically to all referencing APIs.
+* Create Kafka Virtual Cluster (MESH) endpoints that fan out metadata requests across backends, merge topic lists, and remap broker IDs into non-overlapping virtual ranges.
+* Support three endpoint connector types: Broker (direct cluster connection), Virtual Cluster (multi-backend fan-out), and Confluent Cloud (managed service integration).
+* Requires topic namespace isolation across backends to avoid name collisions; topics with duplicate names will be collapsed to a single owner in the merged view.
+<!-- /PIPELINE:APIM-13666 -->
+
 ## Improvements
 
 

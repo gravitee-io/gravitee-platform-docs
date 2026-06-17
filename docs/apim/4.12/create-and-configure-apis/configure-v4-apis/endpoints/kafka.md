@@ -44,6 +44,14 @@ You can configure the Kafka client to act as a producer, a consumer, or both a p
 * **Use Consumer.** The gateway's Kafka cluster can only consume messages from the configured topic list. Use this option if you want to allow only consuming data from the cluster. This can be used with the HTTP GET, WebSocket, Webhook, and SSE entrypoints.
 * **Use Producer and Consumer.** Clients can both consume from topics and produce messages to topics on the cluster.
 
+### Endpoint Connector Type
+
+When creating a Kafka API, you select one of three endpoint connector types:
+
+- **Native Kafka Broker** (`native-kafka`): Enter bootstrap servers directly. Use this for one-shot APIs where you don't expect to reuse the broker configuration.
+- **Native Kafka Cluster** (`native-kafka-cluster`): Select a Kafka Cluster entity and one of its connections from the dropdowns. Use this when you have a reusable cluster entity and want centralized configuration management.
+- **Native Kafka Virtual Cluster** (`native-kafka-virtual-cluster`): Select a Kafka Virtual Cluster entity from the dropdown. Use this to fan out across N backend clusters (MESH mode). For more information, see [Kafka Virtual Clusters](../../../kafka-gateway/kafka-virtual-clusters-overview.md#kafka-virtual-clusters-overview).
+
 ### Endpoint security settings
 
 The API client connects to the API proxy through a subscription to a plan, but first, you define the security properties when connecting from the gateway to the cluster. Here, you choose between **PLAINTEXT**, **SASL\_PLAINTEXT**, **SASL\_SSL**, and **SSL** protocols.

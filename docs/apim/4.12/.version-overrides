@@ -101,3 +101,9 @@ secure-and-expose-apis/plans/conditional-updates-for-plans.md
 .gitbook/assets/mcp-select-markdown.png
 create-and-configure-apis/gravitee-api-definitions/a2a-proxy-api-type.md
 mcp-server-installation-widget-for-portal-pages.md
+create-and-configure-apis/apply-policies/policy-reference/kafka-message-encryption-decryption-policy-reference.md
+kafka-gateway/create-and-configure-kafka-apis/create-kafka-apis.md
+kafka-gateway/create-and-configure-kafka-clusters.md
+kafka-gateway/creating-and-managing-kafka-virtual-clusters.md
+kafka-gateway/kafka-virtual-cluster-runtime-behavior-reference.md
+kafka-gateway/kafka-virtual-clusters-overview.md
