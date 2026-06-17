@@ -152,6 +152,24 @@
 * Filter analytics dashboards by API, application, plan, status code, HTTP path, and other fields to focus on specific data subsets.
 * Select from predefined relative time periods (last 5 minutes, 1 hour, 1 day, 1 week, 1 month) or specify custom absolute date ranges.
 <!-- /PIPELINE:APIM-13474 -->
+<!-- PIPELINE:APIM-14244 -->
+#### **MCP Server Installation Widget for Portal Pages**
+
+* API publishers can embed one-click installer actions and copyable configuration snippets directly into New Developer Portal pages using the `<gmd-install-mcp>` Gravitee Markdown component.
+* The widget generates client-specific configuration for Cursor, VS Code, and Claude Desktop, providing deep-link buttons (Cursor, VS Code) or a copyable JSON snippet (Claude Desktop).
+* MCP Proxy APIs automatically seed an unpublished Overview page with a pre-configured installation widget when added to the portal navigation. The widget adapts to both remote HTTP/SSE transports and local stdio-based MCP servers.
+* Supports eight attributes: `name`, `transport`, `url`, `headers`, `command`, `args`, `env`, and `clients`.
+<!-- /PIPELINE:APIM-14244 -->
+
+
+<!-- PIPELINE:APIM-13672 -->
+#### **API Key Lifecycle Management in Developer Portal**
+
+* View all API keys associated with a subscription—active, revoked, and expired—in a paginated table on the subscription details page.
+* Revoke and renew API keys directly from the Developer Portal when you hold Subscription Update permission on the API or application.
+* API key status is determined by revocation and expiration dates, with active keys displaying a check-circle icon and inactive keys displaying an X-circle icon.
+* The "Calling the API" section is hidden when all API keys are inactive (revoked or expired) for API-Key-secured plans.
+<!-- /PIPELINE:APIM-13672 -->
 
 ## Improvements
 
