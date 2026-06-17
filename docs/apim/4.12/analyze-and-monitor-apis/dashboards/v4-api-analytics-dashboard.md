@@ -24,6 +24,10 @@ You can view the following metrics for your V4 APIs:
 * [#key-metrics](v4-api-analytics-dashboard.md#key-metrics "mention")
 * [#tables-and-graphs](v4-api-analytics-dashboard.md#tables-and-graphs "mention")
 
+{% hint style="info" %}
+This page documents the APIM Console V4 analytics dashboard. For the New Developer Portal analytics feature (dashboard list, pinning, and Portal API endpoints), see [Portal analytics dashboards overview](portal-analytics-dashboards-overview.md).
+{% endhint %}
+
 ### Key Metrics
 
 * **Requests**. This metric is the total number of calls made to your v4 APIs.

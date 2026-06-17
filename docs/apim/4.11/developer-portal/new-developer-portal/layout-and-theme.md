@@ -4,9 +4,6 @@ description: Documentation about layout and theme in the context of APIs.
 
 # Layout and Theme
 
-{% hint style="warning" %}
-This feature is in tech preview.
-{% endhint %}
 
 ## Update the Category layout
 

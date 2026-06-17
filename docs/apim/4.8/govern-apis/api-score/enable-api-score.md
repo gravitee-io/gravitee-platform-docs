@@ -4,10 +4,6 @@ description: An overview about enable api score.
 
 # Enable API Score
 
-{% hint style="warning" %}
-API Score is a technology preview. This feature is not recommended for production environments.
-{% endhint %}
-
 ## Overview
 
 {% hint style="info" %}
@@ -18,7 +14,7 @@ API Score is only available in Gravitee Cloud. If you are running a self-hosted 
 
 ## Enable API Score in the Console
 
-API Score is a technology preview feature, meaning you must to opt-in to use it. You can opt-in to API Score from the API Management Console:
+You can opt-in to API Score from the API Management Console:
 
 1.  From the home page, click **Settings**.
 
