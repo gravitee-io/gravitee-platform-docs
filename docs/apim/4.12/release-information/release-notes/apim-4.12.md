@@ -146,6 +146,12 @@
 <!-- /PIPELINE:APIM-12279 -->
 
 
+<!-- PIPELINE:APIM-13474 -->
+#### **Dashboard Filtering and Time Range Selection**
+
+* Filter analytics dashboards by API, application, plan, status code, HTTP path, and other fields to focus on specific data subsets.
+* Select from predefined relative time periods (last 5 minutes, 1 hour, 1 day, 1 week, 1 month) or specify custom absolute date ranges.
+<!-- /PIPELINE:APIM-13474 -->
 <!-- PIPELINE:APIM-14244 -->
 #### **MCP Server Installation Widget for Portal Pages**
 
