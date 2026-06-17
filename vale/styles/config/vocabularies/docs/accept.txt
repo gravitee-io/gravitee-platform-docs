@@ -21,9 +21,9 @@ Gravitee Cloud
 # ============================================
 # API & Protocol Terms
 # ============================================
-API
-APIs
-API's
+[Aa][Pp][Ii]
+[Aa][Pp][Ii]s
+[Aa][Pp][Ii]'s
 REST|rest
 RESTful
 GraphQL
