@@ -111,3 +111,7 @@ mcp-server-installation-widget-for-portal-pages.md
 .gitbook/assets/revoke-api-key-dialog.png
 developer-portal/new-developer-portal/manage-api-keys-in-the-developer-portal.md
 secure-and-expose-apis/subscriptions/manage-subscriptions.md
+.gitbook/assets/v4-analytics-connection-logs-combined.png
+.gitbook/assets/v4-analytics-response-time-combined.png
+create-and-configure-apis/create-apis/4.9-migrate-apis.md
+preserve-v2-analytics-after-migration-to-v4.md

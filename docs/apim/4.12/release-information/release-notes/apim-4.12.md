@@ -193,4 +193,14 @@
 * Both new fields are additive and disabled when their list is empty, so existing policy configurations are unaffected.
 <!-- /PIPELINE:APIM-13498 -->
 
+
+<!-- PIPELINE:APIM-13473 -->
+#### **Preserve V2 Analytics After API Migration**
+
+* Migrating an HTTP Proxy API (v2) to v4 now preserves all historical analytics data in the v4 analytics dashboard.
+* The v4 dashboard queries both `gravitee-v4-metrics-*` and `gravitee-request-*` indices using field aliases that map v4 field names to their v2 equivalents.
+* Requires a one-time manual update to existing Elasticsearch or OpenSearch indices to add field aliases (see upgrade guide for instructions).
+* The gateway automatically updates the `gravitee-request` index template on startup to include aliases for new indices.
+<!-- /PIPELINE:APIM-13473 -->
+
 ## Bug Fixes
