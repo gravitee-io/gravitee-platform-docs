@@ -9,3 +9,4 @@ guides/applications/README.md
 guides/auth-protocols/oauth-2.0/cimd.md
 getting-started/configuration/configure-automation-api.md
 guides/automation-api.md
+reference/automation-api-reference.md

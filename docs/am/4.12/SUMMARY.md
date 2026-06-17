@@ -173,6 +173,7 @@
 ## Reference
 
 * [API Reference](reference/am-api-reference.md)
+* [Automation API Reference](reference/automation-api-reference.md)
 
 ## Releases & Changelog
 
