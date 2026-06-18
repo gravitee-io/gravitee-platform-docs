@@ -46,7 +46,6 @@ GKO management is planned for several of the following examples. Please contact 
 
 GKO does not manage any **environment-level** objects, such as:
 
-* APIM dictionaries (coming soon)
 * Platform-level common policies
 * Developer Portal themes
 

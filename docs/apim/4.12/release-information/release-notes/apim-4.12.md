@@ -49,6 +49,14 @@
 <!-- /PIPELINE:APIM-13461 -->
 
 
+<!-- PIPELINE:APIM-14127 -->
+#### **Cron Schedule Frequency Limits**
+
+* Platform administrators can now enforce minimum intervals for cron-based services (documentation auto-fetch, dynamic properties, health-check) and dictionary polling to prevent performance degradation in shared or SaaS environments.
+* Frequency limits are configured in `gravitee.yml` using standard 6-field cron expressions (e.g., `0 */5 * * * *` for 5-minute minimum) or millisecond delays for dictionaries.
+* The Management API validates new or updated schedules against configured limits and rejects requests that exceed them with a validation error.
+* Existing configurations that exceed newly applied limits continue to function but are silently enforced at runtime using the slower schedule without requiring manual updates.
+<!-- /PIPELINE:APIM-14127 -->
 <!-- PIPELINE:APIM-12132 -->
 #### **Import and Update v4 APIs from OpenAPI and Gravitee Definitions**
 
@@ -68,6 +76,23 @@
 <!-- /PIPELINE:APIM-13463 -->
 
 
+<!-- PIPELINE:APIM-13489 -->
+#### **API Product Analytics and Logging**
+
+* Track and filter API requests by API Product association across analytics dashboards, environment logs, and reporter outputs.
+* When an API is accessed through an API Product subscription, the request is associated with that product for product-level observability across logs, metrics, and analytics.
+* Filter analytics and environment logs by API Product to view metrics for specific API Products.
+* The Elasticsearch, File, TCP, and Datadog reporters capture the API Product ID in their output when requests use an API Product subscription. The File and TCP reporters emit it in whichever output format you configure — as `apiProductId` in JSON, `api-product-id` in Elasticsearch format, or a trailing value in CSV — and the Datadog reporter adds it as an `ApiProductId` metric tag.
+* Available for v4 request/response APIs only. The Elasticsearch reporter applies the required `api-product-id` keyword mapping automatically on upgrade; self-managed Elasticsearch installations must add the mapping themselves.
+<!-- /PIPELINE:APIM-13489 -->
+<!-- PIPELINE:APIM-13667 -->
+#### **Kafka Port-Based Routing for Native APIs**
+
+* Enables the gateway to route native Kafka API traffic using dedicated TCP ports instead of SNI-based host routing, allowing multiple Kafka APIs to coexist on the same gateway instance without requiring distinct hostnames.
+* Each plan receives a unique bootstrap port (1024–65535) and broker port range, with automatic conflict detection preventing overlapping port allocations across plans in the same environment.
+* Requires gateway version 4.12.0 or later with `kafka.routingMode=port` configured and console version 4.12.0 or later with `console.kafka.portRouting.enabled=true`.
+* Applies only to native Kafka API types; proxy and message APIs continue to use host-based routing.
+<!-- /PIPELINE:APIM-13667 -->
 <!-- PIPELINE:APIM-14123 -->
 #### **Portal Navigation Templating with FreeMarker Expressions**
 
@@ -128,6 +153,42 @@
 * WSDL 2.0 is not supported; remote URLs must pass SSRF protection rules (private IPs blocked by default).
 <!-- /PIPELINE:APIM-12279 -->
 
+
+<!-- PIPELINE:APIM-13474 -->
+#### **Dashboard Filtering and Time Range Selection**
+
+* Filter analytics dashboards by API, application, plan, status code, HTTP path, and other fields to focus on specific data subsets.
+* Select from predefined relative time periods (last 5 minutes, 1 hour, 1 day, 1 week, 1 month) or specify custom absolute date ranges.
+<!-- /PIPELINE:APIM-13474 -->
+<!-- PIPELINE:APIM-14244 -->
+#### **MCP Server Installation Widget for Portal Pages**
+
+* API publishers can embed one-click installer actions and copyable configuration snippets directly into New Developer Portal pages using the `<gmd-install-mcp>` Gravitee Markdown component.
+* The widget generates client-specific configuration for Cursor, VS Code, and Claude Desktop, providing deep-link buttons (Cursor, VS Code) or a copyable JSON snippet (Claude Desktop).
+* MCP Proxy APIs automatically seed an unpublished Overview page with a pre-configured installation widget when added to the portal navigation. The widget adapts to both remote HTTP/SSE transports and local stdio-based MCP servers.
+* Supports eight attributes: `name`, `transport`, `url`, `headers`, `command`, `args`, `env`, and `clients`.
+<!-- /PIPELINE:APIM-14244 -->
+
+
+<!-- PIPELINE:APIM-13672 -->
+#### **API Key Lifecycle Management in Developer Portal**
+
+* View all API keys associated with a subscription—active, revoked, and expired—in a paginated table on the subscription details page.
+* Revoke and renew API keys directly from the Developer Portal when you hold Subscription Update permission on the API or application.
+* API key status is determined by revocation and expiration dates, with active keys displaying a check-circle icon and inactive keys displaying an X-circle icon.
+* The "Calling the API" section is hidden when all API keys are inactive (revoked or expired) for API-Key-secured plans.
+<!-- /PIPELINE:APIM-13672 -->
+
+
+<!-- PIPELINE:APIM-14474 -->
+#### **SSL Enforcement Policy: Issuer Whitelist for Client Certificates**
+
+* The SSL Enforcement policy now supports issuer Distinguished Name (DN) whitelisting, allowing API administrators to restrict client certificate access to specific Certificate Authorities within the gateway's trusted set.
+* Configure allowed issuers using order-insensitive DN matching with Ant-style pattern support (e.g., `CN=My Intermediate CA,O=GraviteeSource*,C=??`) in the policy's **Whitelist Issuers** field.
+* Issuer validation requires client authentication to be enabled and validates only the certificate's immediate issuer, not the entire chain or root CA.
+* An empty or unset whitelist disables issuer validation entirely, maintaining backward compatibility with existing configurations.
+<!-- /PIPELINE:APIM-14474 -->
+
 ## Improvements
 
 
@@ -149,5 +210,14 @@
 * All specified OIDs must be present in the certificate's Certificate Policies extension; at least one SAN must match a configured pattern for validation to succeed.
 * Both new fields are additive and disabled when their list is empty, so existing policy configurations are unaffected.
 <!-- /PIPELINE:APIM-13498 -->
+
+
+<!-- PIPELINE:APIM-13473 -->
+#### **V2 API Analytics Continuity After Migration**
+
+* Migrating an HTTP proxy API from v2 to v4 no longer causes loss of historical analytics data. After migration, the API's pre-migration (v2) and post-migration (v4) data appear together in the per-API analytics dashboard and connection logs. Analytics continuity doesn't extend to environment-level analytics.
+* The gateway updates the Elasticsearch or OpenSearch index template automatically on startup. For `gravitee-request-*` indices created before this release, an administrator adds field aliases manually with a one-time mapping update.
+* Requires Elasticsearch 7.x, 8.x, or 9.x, or OpenSearch.
+<!-- /PIPELINE:APIM-13473 -->
 
 ## Bug Fixes

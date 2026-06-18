@@ -10,6 +10,7 @@ GC
 Cockpit
 Blackbird
 DevPortal
+[Dd]ev
 GRAVITEEIO
 mAPI
 Gravitee API Management
@@ -21,20 +22,18 @@ Gravitee Cloud
 # ============================================
 # API & Protocol Terms
 # ============================================
-API
-APIs
-API's
-REST
+[Aa][Pp][Ii]
+[Aa][Pp][Ii]s
+[Aa][Pp][Ii]'s
+REST|rest
 RESTful
-# allow the lowercase English word "rest" so Vale.Terms stops treating it as the REST acronym
-rest
 GraphQL
 gRPC
 AsyncAPI
 OpenAPI
 OpenID
 OAuth2?
-OIDC
+OIDC|oidc
 OID
 OIDs
 SAML
@@ -57,6 +56,7 @@ CSRF
 FAPI
 PKCE
 HMAC
+(?i)HRIDs?
 JWKS?
 JWS
 JWT
@@ -128,7 +128,7 @@ MySQL
 MariaDB
 Elasticsearch
 Hazelcast
-Redis
+[Rr]edis
 DocumentDB
 R2DBC
 RDBMS
@@ -266,7 +266,7 @@ UDP
 SMTP
 [Hh]ostnames?
 URIs?
-URLs?
+URLs?|url
 [Ll]ocalhost
 [Ll]oopback
 Gzip
@@ -339,7 +339,7 @@ ISO
 [Cc]hangelog[s]?
 [Ss]erverless
 [Cc]loud
-[Ee]mail[s]?
+[Ee]mail[s]?|EMAIL
 [Rr]epo
 [Uu]pstream
 [Dd]ownstream
@@ -378,6 +378,7 @@ ApiResource
 ApiVersion
 UUID
 [Ss]yslog
+[Hh][Rr][Ii][Dd]s?
 
 # ============================================
 # Misc Technical Terms
@@ -406,6 +407,8 @@ GPG
 [Ff]ingerprint
 [Aa]uth[Nn]
 A2A
+bool
+[Cc]ron[s]?
 
 # ============================================
 # Cloud Providers & Services
@@ -438,7 +441,7 @@ balancer's
 # ============================================
 # Additional Accepted Terms
 # ============================================
-[Aa]gent[s]?
+[Aa]gent[s]?|AGENT
 [Aa]llowlisting
 [Ss]harding
 [Kk]eyless
@@ -500,6 +503,7 @@ DAImon
 Intune
 [Uu]nmanaged
 [Aa]llowlists?
+[Ss]amples?
 
 # ============================================
 # Gamma Platform
@@ -525,7 +529,7 @@ ChatGPT
 Bedrock
 Vertex
 Foundry
-Cursor
+[Cc]ursor
 Copilot
 LangChain
 FastMCP
@@ -546,7 +550,7 @@ PDP
 PEP
 PII
 MDM
-CIMD
+CIMD|cimd
 Kerberos
 
 # ============================================
