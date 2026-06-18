@@ -93,14 +93,14 @@ The issuer whitelist restricts access to certificates issued by specific Certifi
 
 **Validation Behavior:**
 
-* Malformed issuer DNs in **Whitelist Issuers** throw an error at policy construction time
+* Malformed issuer DNs in **Whitelist Issuers** are rejected when the configuration is validated
 * Empty or unset list disables issuer validation
 * Matching is order-insensitive across RDNs
 
 **Known Limitations:**
 
 * **Fail-closed RDN matching**: Matching is exact on the number of RDNs. A partial entry such as `CN=My Intermediate CA` will NOT match a full issuer DN `CN=My Intermediate CA,O=GraviteeSource,C=FR`. Provide the complete issuer DN; use Ant patterns for the values (e.g., `O=GraviteeSource*`), not to omit RDNs.
-* **Unknown attribute types render as OIDs**: Attribute types unknown to the JDK render as their OID. Fields such as `organizationIdentifier` (OID `2.5.4.97`) are emitted by the certificate as `2.5.4.97=#<hex>`, so a friendly-name whitelist entry will not match. CA issuer DNs are conventionally limited to `CN`/`O`/`C`, but keep this in mind for eIDAS/PSD2 certificates.
+* **Unknown attribute types render as OIDs**: Attribute types outside the standard DN name set render as their numeric OID. For example, `organizationIdentifier` (OID `2.5.4.97`) appears as `2.5.4.97=#<hex>`, so a friendly-name whitelist entry will not match. CA issuer DNs are conventionally limited to `CN`/`O`/`C`, but keep this in mind for eIDAS/PSD2 certificates.
 * **HEADER mode trust delegation**: In HEADER mode, the gateway performs no chain validation and trusts the terminating proxy. The issuer whitelist is a non-cryptographic filter on the leaf certificate's issuer field — not a substitute for trust-anchor pinning.
 * **Immediate issuer only**: The check validates the client certificate's immediate issuer, not the entire chain or root CA.
 
