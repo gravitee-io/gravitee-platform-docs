@@ -96,7 +96,6 @@ The issuer whitelist restricts access to certificates issued by specific Certifi
 * Malformed issuer DNs in **Whitelist Issuers** throw an error at policy construction time
 * Empty or unset list disables issuer validation
 * Matching is order-insensitive across RDNs
-* The check validates the client certificate's immediate issuer only, not the entire chain or root CA
 
 **Known Limitations:**
 
