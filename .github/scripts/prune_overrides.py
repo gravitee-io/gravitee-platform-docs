@@ -3,13 +3,23 @@ import sys
 
 def main():
     if len(sys.argv) < 5:
-        print("Usage: python prune_overrides.py <repo_path> <product> <current_version> <next_version>")
+        print("Usage: python prune_overrides.py [--dry-run] <repo_path> <product> <current_version> <next_version>")
         sys.exit(1)
 
-    repo_path = sys.argv[1]
-    product = sys.argv[2]
-    current_version = sys.argv[3]
-    next_version = sys.argv[4]
+    dry_run = False
+    args = sys.argv[1:]
+    if args[0] == "--dry-run":
+        dry_run = True
+        args = args[1:]
+
+    if len(args) < 4:
+        print("Usage: python prune_overrides.py [--dry-run] <repo_path> <product> <current_version> <next_version>")
+        sys.exit(1)
+
+    repo_path = args[0]
+    product = args[1]
+    current_version = args[2]
+    next_version = args[3]
 
     next_dir = os.path.join(repo_path, "docs", product, next_version)
     current_dir = os.path.join(repo_path, "docs", product, current_version)
@@ -68,10 +78,13 @@ def main():
             print(f"Pruned orphaned override: {stripped}")
 
     if pruned_count > 0:
-        # Write back cleanly
-        with open(overrides_file, "w") as f:
-            f.write("\n".join(new_lines) + "\n")
-        print(f"Successfully pruned {pruned_count} entries from {overrides_file}.")
+        if dry_run:
+            print(f"[DRY RUN] Would have successfully pruned {pruned_count} entries from {overrides_file}.")
+        else:
+            # Write back cleanly
+            with open(overrides_file, "w") as f:
+                f.write("\n".join(new_lines) + "\n")
+            print(f"Successfully pruned {pruned_count} entries from {overrides_file}.")
     else:
         print(f"No orphaned entries found in {overrides_file}.")
 
