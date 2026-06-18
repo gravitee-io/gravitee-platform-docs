@@ -24,6 +24,30 @@ To register new APIM or AM installations with GC, you need to:
 
 These steps are explained in detail when you register the installation.
 
+{% hint style="info" %}
+
+**Connecting through an HTTP proxy**
+
+If your self-hosted installation cannot reach Gravitee Cloud directly and must route outbound traffic through a corporate HTTP proxy, configure the Gravitee Cloud connector to use that proxy in your installation's `gravitee.yaml`:
+
+```yaml
+cloud:
+  enabled: true
+  connector:
+    ws:
+      proxy:
+        enabled: true
+        host: <proxy-host>
+        port: <proxy-port>
+        type: HTTP
+        username: <proxy-username>   # optional, if the proxy requires authentication
+        password: <proxy-password>   # optional, if the proxy requires authentication
+```
+
+The `username` and `password` fields are only required when the proxy enforces authentication. The WebSocket connection to Gravitee Cloud remains secured with TLS when routed through the proxy.
+
+{% endhint %}
+
 Register the installation using the detailed instructions in the **How to register a new installation** link, below **Installations** in the dashboard. After registration, the installation is displayed as a pending installation in GC:
 
 ![pending installations](../.gitbook/assets/pending-installations.png)
@@ -46,8 +70,8 @@ Register the installation using the detailed instructions in the **How to regist
 
 There are two ways to log in to an installation in GC:
 
-* Click the login icon ![cockpit login icon](../.gitbook/assets/cockpit-login-icon.png) on the installation in the hierarchy map
-* Click **LOGIN** on the environment settings page of the linked environment:
+* Click the login icon ![cockpit login icon](../.gitbook/assets/cockpit-login-icon.png) on the environment in the hierarchy map
+* Click **Login** on the environment settings page of the linked environment:
 
 ![linked installations login](../.gitbook/assets/linked-installations-login.png)
 
