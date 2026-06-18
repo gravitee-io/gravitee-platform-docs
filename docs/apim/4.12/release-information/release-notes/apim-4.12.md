@@ -220,4 +220,14 @@
 * Requires Elasticsearch 7.x, 8.x, or 9.x, or OpenSearch.
 <!-- /PIPELINE:APIM-13473 -->
 
+
+<!-- PIPELINE:APIM-14120 -->
+#### **Conditional API Access Display for Federated APIs**
+
+* The Developer Portal now hides empty API access sections when federated APIs have no entrypoint URLs defined, providing a cleaner subscription experience.
+* For KEY_LESS plans with no entrypoints, the entire API Access card is hidden; for API_KEY plans, only the API keys table displays (if keys exist) while base URLs and curl examples are hidden.
+* OAUTH2 and JWT plans display the Calling the API section only when entrypoint URLs are available; native (non-federated) APIs always show the API Access card regardless of entrypoint availability.
+* Subscription status messages (e.g., "in progress," "rejected") always display regardless of entrypoint availability or plan security type.
+<!-- /PIPELINE:APIM-14120 -->
+
 ## Bug Fixes
