@@ -146,6 +146,12 @@
 <!-- /PIPELINE:APIM-12279 -->
 
 
+<!-- PIPELINE:APIM-13474 -->
+#### **Dashboard Filtering and Time Range Selection**
+
+* Filter analytics dashboards by API, application, plan, status code, HTTP path, and other fields to focus on specific data subsets.
+* Select from predefined relative time periods (last 5 minutes, 1 hour, 1 day, 1 week, 1 month) or specify custom absolute date ranges.
+<!-- /PIPELINE:APIM-13474 -->
 <!-- PIPELINE:APIM-14244 -->
 #### **MCP Server Installation Widget for Portal Pages**
 
@@ -186,5 +192,14 @@
 * All specified OIDs must be present in the certificate's Certificate Policies extension; at least one SAN must match a configured pattern for validation to succeed.
 * Both new fields are additive and disabled when their list is empty, so existing policy configurations are unaffected.
 <!-- /PIPELINE:APIM-13498 -->
+
+
+<!-- PIPELINE:APIM-13473 -->
+#### **V2 API Analytics Continuity After Migration**
+
+* Migrating an HTTP proxy API from v2 to v4 no longer causes loss of historical analytics data. After migration, the API's pre-migration (v2) and post-migration (v4) data appear together in the per-API analytics dashboard and connection logs. Analytics continuity doesn't extend to environment-level analytics.
+* The gateway updates the Elasticsearch or OpenSearch index template automatically on startup. For `gravitee-request-*` indices created before this release, an administrator adds field aliases manually with a one-time mapping update.
+* Requires Elasticsearch 7.x, 8.x, or 9.x, or OpenSearch.
+<!-- /PIPELINE:APIM-13473 -->
 
 ## Bug Fixes

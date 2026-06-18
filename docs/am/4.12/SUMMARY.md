@@ -53,6 +53,7 @@
 
 ## Guides
 
+* [Manage SPIFFE Trust Domains](guides/manage-spiffe-trust-domains.md)
 * [OAuth 2.0 Token Exchange](guides/oauth-2.0-token-exchange-concepts/README.md)
   * [OAuth 2.0 Token Exchange Configuration](guides/oauth-2.0-token-exchange-concepts/oauth-2.0-token-exchange-configuration-reference.md)
   * [OAuth 2.0 Token Exchange API](guides/oauth-2.0-token-exchange-concepts/oauth-2.0-token-exchange-api-reference.md)
@@ -74,6 +75,7 @@
   * [SAML 2.0](guides/auth-protocols/saml-2.0.md)
 * [Security Domains](guides/security-domains/README.md)
   * [Configure CORS for Security Domains](guides/security-domains/configure-cors-for-security-domains.md)
+  * [Configure SPIFFE and CIMD Settings](guides/security-domains/configure-spiffe-and-cimd-settings.md)
 * [Identity Providers](guides/identity-providers/README.md)
   * [Create an Identity Provider](guides/identity-providers/create-an-identity-provider.md)
   * [User, Role and Group Mapping](guides/identity-providers/user-and-role-mapping.md)
@@ -102,6 +104,8 @@
   * [AuthZen](guides/authorization-engines/authzen.md)
 * [Applications](guides/applications/README.md)
   * [Client Secrets](guides/applications/client-secrets.md)
+  * [Create and Manage Agent Applications](guides/applications/create-and-manage-agent-applications.md)
+  * [SPIFFE Workload Identity and Agent Applications Overview](guides/applications/spiffe-workload-identity-and-agent-applications-overview.md)
 * [Branding](guides/branding/README.md)
   * [CSS Custom Variables Reference](guides/branding/css-custom-variables-reference.md)
   * [Language Default Properties Reference](guides/branding/language-default-properties-reference.md)

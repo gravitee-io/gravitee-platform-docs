@@ -118,7 +118,7 @@ Both paths share the same shape, with parameters in positions 2 and 4 and matchi
 | API Alerts                                                        | ✅                          | ✅                                                        | ✅                                                        |
 | Custom widgets                                                    | ✅                          | 🚫                                                       | 🚫                                                       |
 | V2 to V4 migration without analytics continuity                   | ✅                          | ✅                                                        | NA                                                       |
-| Maintain analytics continuity during v2 to v4 migration           | 🚫                         | 🚫                                                       | NA                                                       |
+| Maintain analytics continuity during v2 to v4 migration           | 🚫                         | ✅                                                        | NA                                                       |
 | API Score                                                         | ✅                          | ✅                                                        | ✅                                                        |
 
 ### Environment-level Analytics

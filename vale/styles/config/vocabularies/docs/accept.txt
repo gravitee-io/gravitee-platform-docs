@@ -10,6 +10,7 @@ GC
 Cockpit
 Blackbird
 DevPortal
+[Dd]ev
 GRAVITEEIO
 mAPI
 Gravitee API Management
@@ -32,7 +33,7 @@ AsyncAPI
 OpenAPI
 OpenID
 OAuth2?
-OIDC
+OIDC|oidc
 OID
 OIDs
 SAML
@@ -127,7 +128,7 @@ MySQL
 MariaDB
 Elasticsearch
 Hazelcast
-Redis
+[Rr]edis
 DocumentDB
 R2DBC
 RDBMS
@@ -407,6 +408,7 @@ GPG
 [Aa]uth[Nn]
 A2A
 bool
+[Cc]ron[s]?
 
 # ============================================
 # Cloud Providers & Services
@@ -527,7 +529,7 @@ ChatGPT
 Bedrock
 Vertex
 Foundry
-Cursor
+[Cc]ursor
 Copilot
 LangChain
 FastMCP
