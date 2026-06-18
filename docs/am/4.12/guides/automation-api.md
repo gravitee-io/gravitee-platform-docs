@@ -43,7 +43,7 @@ Every PUT carries the **complete desired state** of a resource, not a partial pa
 
 ### Resource visibility and ownership
 
-Resources created through the Automation API are stamped as automation-managed. Addressed by `key`, the API only ever sees, updates, or deletes its **own** resources — resources created via the console or Management REST API are invisible to its list and get-by-key operations, and a key whose deterministic id collides with a non-automation resource is rejected. This ownership boundary is what keeps automation-driven and manually-managed resources from interfering with each other. (To deliberately cross it, see [Brownfield resources](#brownfield-resources).)
+Resources created through the Automation API are stamped as automation-managed. Addressed by `key`, the API only ever sees, updates, or deletes its **own** resources — resources created via the console or Management REST API are invisible to its list and get-by-key operations, and a key whose deterministic id collides with a non-automation resource is rejected. This ownership boundary is what keeps automation-driven and manually managed resources from interfering with each other. (To deliberately cross it, see [Brownfield resources](#brownfield-resources).)
 
 ### Brownfield resources
 
