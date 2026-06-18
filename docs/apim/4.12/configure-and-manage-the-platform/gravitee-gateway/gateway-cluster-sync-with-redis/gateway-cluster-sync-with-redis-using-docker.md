@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Gateway Cluster sync with Redis using Docker
 
 ## Overview

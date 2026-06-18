@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Portal Navigation Templating Concepts
 
 ## Key Concepts

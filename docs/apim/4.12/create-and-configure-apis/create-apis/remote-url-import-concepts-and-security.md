@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Remote URL Import: Concepts and Security
 
 ## Overview

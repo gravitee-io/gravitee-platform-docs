@@ -3,6 +3,8 @@ description: Configuration guide for configuration file.
 metaLinks:
   alternates:
     - configuration-file.md
+hidden: true
+noIndex: true
 ---
 
 # Configuration File

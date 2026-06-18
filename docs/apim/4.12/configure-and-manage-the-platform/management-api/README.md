@@ -3,6 +3,8 @@ description: An overview about management api.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # Management API

@@ -3,6 +3,8 @@ description: An overview about user permissions.
 metaLinks:
   alternates:
     - user-permissions.md
+hidden: true
+noIndex: true
 ---
 
 # User Permissions

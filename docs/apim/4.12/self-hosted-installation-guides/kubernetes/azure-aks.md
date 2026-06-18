@@ -3,6 +3,8 @@ description: An overview about azure aks.
 metaLinks:
   alternates:
     - azure-aks.md
+hidden: true
+noIndex: true
 ---
 
 # Azure AKS

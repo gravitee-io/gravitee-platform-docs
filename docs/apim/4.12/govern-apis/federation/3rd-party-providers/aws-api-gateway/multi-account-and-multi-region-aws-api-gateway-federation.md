@@ -3,6 +3,8 @@ description: An overview about multi-account and multi-region aws api gateway fe
 metaLinks:
   alternates:
     - multi-account-and-multi-region-aws-api-gateway-federation.md
+hidden: true
+noIndex: true
 ---
 
 # Multi-Account and Multi-Region AWS API Gateway Federation

@@ -3,6 +3,8 @@ description: An overview about consumers.
 metaLinks:
   alternates:
     - consumers.md
+hidden: true
+noIndex: true
 ---
 
 # Consumers

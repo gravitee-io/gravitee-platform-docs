@@ -3,6 +3,8 @@ description: An overview about edge stack.
 metaLinks:
   alternates:
     - edge-stack.md
+hidden: true
+noIndex: true
 ---
 
 # Edge Stack

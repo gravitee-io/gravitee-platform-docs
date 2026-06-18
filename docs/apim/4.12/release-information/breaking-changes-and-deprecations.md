@@ -3,6 +3,8 @@ description: Information about breaking changes and deprecations.
 metaLinks:
   alternates:
     - breaking-changes-and-deprecations.md
+hidden: true
+noIndex: true
 ---
 
 # Breaking Changes and Deprecations

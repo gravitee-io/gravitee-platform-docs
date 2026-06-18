@@ -1,5 +1,7 @@
 ---
 description: Documentation about developer portal in the context of APIs.
+hidden: true
+noIndex: true
 ---
 
 # Developer Portal

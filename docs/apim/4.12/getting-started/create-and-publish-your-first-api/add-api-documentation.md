@@ -3,6 +3,8 @@ description: An overview about add api documentation.
 metaLinks:
   alternates:
     - add-api-documentation.md
+hidden: true
+noIndex: true
 ---
 
 # Add API Documentation

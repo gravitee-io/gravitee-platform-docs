@@ -1,5 +1,7 @@
 ---
 description: An overview about create an application.
+hidden: true
+noIndex: true
 ---
 
 # Create an Application

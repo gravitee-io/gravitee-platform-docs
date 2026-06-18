@@ -3,6 +3,8 @@ description: An overview about smtp configuration.
 metaLinks:
   alternates:
     - smtp-configuration.md
+hidden: true
+noIndex: true
 ---
 
 # SMTP Configuration

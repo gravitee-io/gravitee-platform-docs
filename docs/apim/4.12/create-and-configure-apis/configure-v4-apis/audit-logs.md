@@ -3,6 +3,8 @@ description: An overview about audit logs.
 metaLinks:
   alternates:
     - audit-logs.md
+hidden: true
+noIndex: true
 ---
 
 # Audit Logs

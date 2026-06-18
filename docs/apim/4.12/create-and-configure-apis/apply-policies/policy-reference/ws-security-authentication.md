@@ -3,6 +3,8 @@ description: An overview about ws security authentication.
 metaLinks:
   alternates:
     - ws-security-authentication.md
+hidden: true
+noIndex: true
 ---
 
 # WS Security Authentication

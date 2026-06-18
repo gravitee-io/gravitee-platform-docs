@@ -3,6 +3,8 @@ description: An overview about quality of service.
 metaLinks:
   alternates:
     - quality-of-service.md
+hidden: true
+noIndex: true
 ---
 
 # Quality of Service

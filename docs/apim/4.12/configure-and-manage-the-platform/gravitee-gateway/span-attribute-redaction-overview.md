@@ -1,5 +1,7 @@
 ---
 description: Span Attribute Redaction masks sensitive metadata in OpenTelemetry traces before the traces leave the API Gateway.
+hidden: true
+noIndex: true
 ---
 
 # Span Attribute Redaction Overview

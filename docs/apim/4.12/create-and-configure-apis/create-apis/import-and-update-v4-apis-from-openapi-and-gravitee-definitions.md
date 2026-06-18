@@ -1,5 +1,7 @@
 ---
 description: Import a Gravitee v4 API definition or an OpenAPI Specification to create or update v4 APIs.
+hidden: true
+noIndex: true
 ---
 
 # Import and Update v4 APIs from OpenAPI and Gravitee Definitions

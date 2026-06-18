@@ -1,5 +1,7 @@
 ---
 description: An overview about expose your apis as ai-ready tools with mcp.
+hidden: true
+noIndex: true
 ---
 
 # Convert REST APIS to an MCP Server

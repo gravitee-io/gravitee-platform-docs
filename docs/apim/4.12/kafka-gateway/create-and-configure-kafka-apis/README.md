@@ -3,6 +3,8 @@ description: Configuration guide for create & configure kafka apis.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # Create & Configure Kafka APIs

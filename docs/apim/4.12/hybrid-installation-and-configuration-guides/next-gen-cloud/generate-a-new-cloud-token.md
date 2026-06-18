@@ -3,6 +3,8 @@ description: An overview about generate a new cloud token.
 metaLinks:
   alternates:
     - generate-a-new-cloud-token.md
+hidden: true
+noIndex: true
 ---
 
 # Generate a New Cloud Token

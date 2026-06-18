@@ -1,5 +1,7 @@
 ---
 description: Configuration guide for dictionaries.
+hidden: true
+noIndex: true
 ---
 
 # Dictionaries

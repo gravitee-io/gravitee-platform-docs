@@ -1,5 +1,7 @@
 ---
 description: Tutorial on configure & manage the platform.
+hidden: true
+noIndex: true
 ---
 
 # Configure & Manage the Platform

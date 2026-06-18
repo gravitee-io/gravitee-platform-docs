@@ -3,6 +3,8 @@ description: An overview about link to a hybrid gateway.
 metaLinks:
   alternates:
     - link-to-a-hybrid-gateway.md
+hidden: true
+noIndex: true
 ---
 
 # Link to a Hybrid Gateway

@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # AI - Model Text Classification - Configuration and Usage
 
 ## Creating a text classification policy

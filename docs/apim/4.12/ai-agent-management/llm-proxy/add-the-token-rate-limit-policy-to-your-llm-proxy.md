@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Add the Token Rate Limit policy to your LLM proxy
 
 ## Overview

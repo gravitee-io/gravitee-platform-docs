@@ -3,6 +3,8 @@ description: An overview about metrics reporter.
 metaLinks:
   alternates:
     - metrics-reporter.md
+hidden: true
+noIndex: true
 ---
 
 # Metrics Reporter

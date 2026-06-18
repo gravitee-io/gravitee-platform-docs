@@ -3,6 +3,8 @@ description: An overview about microsoft entra id.
 metaLinks:
   alternates:
     - microsoft-entra-id.md
+hidden: true
+noIndex: true
 ---
 
 # Microsoft Entra ID

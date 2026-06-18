@@ -3,6 +3,8 @@ description: An overview about import apis.
 metaLinks:
   alternates:
     - import-apis.md
+hidden: true
+noIndex: true
 ---
 
 # Import APIs

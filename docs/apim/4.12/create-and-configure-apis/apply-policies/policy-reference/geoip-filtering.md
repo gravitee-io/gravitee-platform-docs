@@ -3,6 +3,8 @@ description: Configuration guide for geoip filtering.
 metaLinks:
   alternates:
     - geoip-filtering.md
+hidden: true
+noIndex: true
 ---
 
 # GeoIP Filtering

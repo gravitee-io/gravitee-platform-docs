@@ -3,6 +3,8 @@ description: An overview about management api reference.
 metaLinks:
   alternates:
     - management-api-reference.md
+hidden: true
+noIndex: true
 ---
 
 # Management API Reference

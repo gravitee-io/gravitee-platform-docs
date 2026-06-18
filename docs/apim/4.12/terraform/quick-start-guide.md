@@ -3,6 +3,8 @@ description: An overview about quick start guide.
 metaLinks:
   alternates:
     - quick-start-guide.md
+hidden: true
+noIndex: true
 ---
 
 # Quick Start Guide

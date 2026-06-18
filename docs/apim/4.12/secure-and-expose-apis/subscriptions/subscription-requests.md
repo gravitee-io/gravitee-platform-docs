@@ -3,6 +3,8 @@ description: An overview about subscription requests.
 metaLinks:
   alternates:
     - subscription-requests.md
+hidden: true
+noIndex: true
 ---
 
 # Subscription Requests

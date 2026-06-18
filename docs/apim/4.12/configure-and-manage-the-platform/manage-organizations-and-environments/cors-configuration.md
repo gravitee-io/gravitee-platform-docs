@@ -3,6 +3,8 @@ description: An overview about cors configuration.
 metaLinks:
   alternates:
     - cors-configuration.md
+hidden: true
+noIndex: true
 ---
 
 # CORS Configuration

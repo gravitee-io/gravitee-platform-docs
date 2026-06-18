@@ -3,6 +3,8 @@ description: An overview about aws api gateway.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # AWS API Gateway

@@ -3,6 +3,8 @@ description: Configuration guide for status code transformation.
 metaLinks:
   alternates:
     - status-code-transformation.md
+hidden: true
+noIndex: true
 ---
 
 # Status Code Transformation

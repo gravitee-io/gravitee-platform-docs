@@ -3,6 +3,8 @@ description: An overview about openid connect.
 metaLinks:
   alternates:
     - openid-connect.md
+hidden: true
+noIndex: true
 ---
 
 # OpenID Connect

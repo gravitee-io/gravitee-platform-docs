@@ -1,5 +1,7 @@
 ---
 description: Documentation about layout and theme in the context of APIs.
+hidden: true
+noIndex: true
 ---
 
 # Layout and Theme

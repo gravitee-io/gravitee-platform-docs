@@ -3,6 +3,8 @@ description: An overview about rate limit rest apis.
 metaLinks:
   alternates:
     - rate-limit-rest-apis.md
+hidden: true
+noIndex: true
 ---
 
 # Rate Limit REST APIs

@@ -3,6 +3,8 @@ description: An overview about docker cli.
 metaLinks:
   alternates:
     - docker-cli.md
+hidden: true
+noIndex: true
 ---
 
 # Docker CLI

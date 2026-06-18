@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Deploying the Hazelcast Rate-Limit Repository with Helm and Kubernetes Discovery
 
 ## Helm Chart Overrides

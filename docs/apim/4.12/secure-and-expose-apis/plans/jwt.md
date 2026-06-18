@@ -3,6 +3,8 @@ description: An overview about jwt.
 metaLinks:
   alternates:
     - jwt.md
+hidden: true
+noIndex: true
 ---
 
 # JWT

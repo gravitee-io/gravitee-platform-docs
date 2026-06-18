@@ -3,6 +3,8 @@ description: An overview about configure jwt security.
 metaLinks:
   alternates:
     - configure-jwt-security.md
+hidden: true
+noIndex: true
 ---
 
 # Configure JWT Security

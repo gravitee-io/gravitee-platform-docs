@@ -3,6 +3,8 @@ description: An overview about next-gen cloud.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # Next-Gen Cloud

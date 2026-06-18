@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Kafka governance rules policies
 
 ## Overview

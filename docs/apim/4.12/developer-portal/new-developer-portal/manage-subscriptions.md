@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Manage Subscriptions
 
 ### Overview <a href="#overview" id="overview"></a>

@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # mTLS certificate management for applications
 
 ## Overview

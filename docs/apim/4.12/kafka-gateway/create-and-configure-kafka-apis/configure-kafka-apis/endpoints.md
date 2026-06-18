@@ -1,5 +1,7 @@
 ---
 description: An overview about endpoints.
+hidden: true
+noIndex: true
 ---
 
 # Endpoints

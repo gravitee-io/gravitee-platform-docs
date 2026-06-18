@@ -3,6 +3,8 @@ description: Configuration guide for docker.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # Docker

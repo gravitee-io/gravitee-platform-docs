@@ -3,6 +3,8 @@ description: An overview about url rewriting.
 metaLinks:
   alternates:
     - url-rewriting.md
+hidden: true
+noIndex: true
 ---
 
 # URL Rewriting

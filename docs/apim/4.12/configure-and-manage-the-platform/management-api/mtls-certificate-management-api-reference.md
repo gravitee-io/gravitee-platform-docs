@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # mTLS certificate management API reference
 
 This page lists the REST endpoints used to manage application client certificates for mTLS authentication. There are two API surfaces:

@@ -1,5 +1,7 @@
 ---
 description: API Overview page templates for the New Developer Portal.
+hidden: true
+noIndex: true
 ---
 
 # API Overview Page Templates

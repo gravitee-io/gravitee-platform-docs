@@ -3,6 +3,8 @@ description: An overview about transform query parameters.
 metaLinks:
   alternates:
     - transform-query-parameters.md
+hidden: true
+noIndex: true
 ---
 
 # Transform Query Parameters

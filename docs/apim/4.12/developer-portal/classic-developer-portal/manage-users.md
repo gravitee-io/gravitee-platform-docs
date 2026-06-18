@@ -3,6 +3,8 @@ description: An overview about manage users.
 metaLinks:
   alternates:
     - manage-users.md
+hidden: true
+noIndex: true
 ---
 
 # Manage Users

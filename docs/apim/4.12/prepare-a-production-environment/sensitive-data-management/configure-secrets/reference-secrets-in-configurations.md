@@ -3,6 +3,8 @@ description: An overview about reference secrets in configurations.
 metaLinks:
   alternates:
     - reference-secrets-in-configurations.md
+hidden: true
+noIndex: true
 ---
 
 # Reference Secrets in Configurations

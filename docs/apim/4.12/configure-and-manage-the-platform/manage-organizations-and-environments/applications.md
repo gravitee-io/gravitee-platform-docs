@@ -3,6 +3,8 @@ description: An overview about applications.
 metaLinks:
   alternates:
     - applications.md
+hidden: true
+noIndex: true
 ---
 
 # Applications

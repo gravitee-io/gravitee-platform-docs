@@ -3,6 +3,8 @@ description: An overview about entrypoints.
 metaLinks:
   alternates:
     - entrypoints.md
+hidden: true
+noIndex: true
 ---
 
 # Entrypoints

@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # mTLS plans for Kafka native APIs
 
 ## Overview

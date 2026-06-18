@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Creating and managing subscription forms
 
 ## Creating subscription forms

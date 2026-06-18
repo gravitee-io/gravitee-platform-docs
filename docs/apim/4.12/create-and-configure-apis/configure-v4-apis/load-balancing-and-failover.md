@@ -1,5 +1,7 @@
 ---
 description: An overview of load balancing and failover for v4 HTTP proxy APIs.
+hidden: true
+noIndex: true
 ---
 
 # Load balancing and failover

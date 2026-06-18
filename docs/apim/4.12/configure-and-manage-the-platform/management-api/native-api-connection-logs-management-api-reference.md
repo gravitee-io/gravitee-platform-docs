@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Native API Connection Logs Management API Reference
 
 ## Management API

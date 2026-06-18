@@ -1,5 +1,7 @@
 ---
 description: Native Kafka API connection logs record every client connection lifecycle event.
+hidden: true
+noIndex: true
 ---
 
 # Native Kafka API Connection Logs: Concepts and Architecture

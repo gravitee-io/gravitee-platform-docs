@@ -3,6 +3,8 @@ description: An overview about secure and expose grpc services.
 metaLinks:
   alternates:
     - secure-and-expose-grpc-services.md
+hidden: true
+noIndex: true
 ---
 
 # Secure and Expose gRPC Services

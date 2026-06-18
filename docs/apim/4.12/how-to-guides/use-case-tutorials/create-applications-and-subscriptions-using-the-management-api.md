@@ -5,6 +5,8 @@ description: >-
 metaLinks:
   alternates:
     - create-applications-and-subscriptions-using-the-management-api.md
+hidden: true
+noIndex: true
 ---
 
 # Create Applications and Subscriptions Using the Management API

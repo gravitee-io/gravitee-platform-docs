@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # AI Model Text Classification - Model Reference and Performance Metrics
 
 ## Available models

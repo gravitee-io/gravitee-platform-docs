@@ -3,6 +3,8 @@ description: An overview about service discovery.
 metaLinks:
   alternates:
     - service-discovery.md
+hidden: true
+noIndex: true
 ---
 
 # Service Discovery

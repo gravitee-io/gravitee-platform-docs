@@ -3,6 +3,8 @@ description: An overview about api score.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # API Score

@@ -3,6 +3,8 @@ description: An overview about execution transparency analytics.
 metaLinks:
   alternates:
     - execution-transparency-analytics.md
+hidden: true
+noIndex: true
 ---
 
 # Execution Transparency Analytics

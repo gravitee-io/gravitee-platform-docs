@@ -3,6 +3,8 @@ description: An overview about data cache.
 metaLinks:
   alternates:
     - data-cache.md
+hidden: true
+noIndex: true
 ---
 
 # Data Cache

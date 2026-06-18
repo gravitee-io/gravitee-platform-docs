@@ -1,5 +1,7 @@
 ---
 description: Manage API-specific span attribute redaction rules in the Management Console.
+hidden: true
+noIndex: true
 ---
 
 # Manage API-Specific Redaction Rules in the Management Console

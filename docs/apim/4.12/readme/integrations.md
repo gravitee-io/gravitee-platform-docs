@@ -3,6 +3,8 @@ description: An overview about integrations.
 metaLinks:
   alternates:
     - integrations.md
+hidden: true
+noIndex: true
 ---
 
 # Integrations

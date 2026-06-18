@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Console UI changes for multi-tenant Kafka endpoints
 
 ## Overview

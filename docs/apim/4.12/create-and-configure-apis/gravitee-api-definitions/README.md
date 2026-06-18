@@ -3,6 +3,8 @@ description: An overview about gravitee api definitions.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # Gravitee API Definitions

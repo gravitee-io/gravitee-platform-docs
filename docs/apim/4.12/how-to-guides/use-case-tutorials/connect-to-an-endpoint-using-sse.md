@@ -3,6 +3,8 @@ description: An overview about connect to an endpoint using sse.
 metaLinks:
   alternates:
     - connect-to-an-endpoint-using-sse.md
+hidden: true
+noIndex: true
 ---
 
 # Connect to an Endpoint Using SSE

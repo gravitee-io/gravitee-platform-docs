@@ -1,5 +1,7 @@
 ---
 description: An overview about v4 api creation wizard.
+hidden: true
+noIndex: true
 ---
 
 # v4 API Creation Wizard

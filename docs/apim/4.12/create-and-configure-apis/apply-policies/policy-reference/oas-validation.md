@@ -3,6 +3,8 @@ description: An overview about oas validation.
 metaLinks:
   alternates:
     - oas-validation.md
+hidden: true
+noIndex: true
 ---
 
 # OAS Validation

@@ -3,6 +3,8 @@ description: Configuration guide for ws security sign.
 metaLinks:
   alternates:
     - ws-security-sign.md
+hidden: true
+noIndex: true
 ---
 
 # WS Security Sign

@@ -3,6 +3,8 @@ description: Configuration guide for avro to json.
 metaLinks:
   alternates:
     - avro-to-json.md
+hidden: true
+noIndex: true
 ---
 
 # Avro to JSON

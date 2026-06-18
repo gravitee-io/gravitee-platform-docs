@@ -3,6 +3,8 @@ description: An overview about notifications.
 metaLinks:
   alternates:
     - notifications.md
+hidden: true
+noIndex: true
 ---
 
 # Notifications

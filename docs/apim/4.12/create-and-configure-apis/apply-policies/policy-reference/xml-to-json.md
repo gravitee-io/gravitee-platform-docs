@@ -3,6 +3,8 @@ description: An overview about xml to json.
 metaLinks:
   alternates:
     - xml-to-json.md
+hidden: true
+noIndex: true
 ---
 
 # XML to JSON

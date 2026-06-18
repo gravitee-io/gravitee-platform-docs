@@ -2,6 +2,8 @@
 metaLinks:
   alternates:
     - confluent-platform.md
+hidden: true
+noIndex: true
 ---
 
 # Confluent Platform

@@ -3,6 +3,8 @@ description: An overview about proxy.
 metaLinks:
   alternates:
     - proxy.md
+hidden: true
+noIndex: true
 ---
 
 # Proxy

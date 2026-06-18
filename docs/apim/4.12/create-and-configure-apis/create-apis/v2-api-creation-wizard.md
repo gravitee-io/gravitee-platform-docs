@@ -3,6 +3,8 @@ description: An overview about v2 api creation wizard.
 metaLinks:
   alternates:
     - v2-api-creation-wizard.md
+hidden: true
+noIndex: true
 ---
 
 # v2 API Creation Wizard

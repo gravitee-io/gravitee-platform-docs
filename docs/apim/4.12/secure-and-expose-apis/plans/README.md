@@ -3,6 +3,8 @@ description: An overview about plans.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # Plans

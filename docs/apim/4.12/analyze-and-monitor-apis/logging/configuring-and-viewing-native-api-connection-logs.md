@@ -1,5 +1,7 @@
 ---
 description: Configure connection metrics reporting and view Native Kafka API connection logs.
+hidden: true
+noIndex: true
 ---
 
 # Configure and View Native Kafka API Connection Logs

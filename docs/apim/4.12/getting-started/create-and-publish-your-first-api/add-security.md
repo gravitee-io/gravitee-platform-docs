@@ -3,6 +3,8 @@ description: An overview about add security.
 metaLinks:
   alternates:
     - add-security.md
+hidden: true
+noIndex: true
 ---
 
 # Add Security

@@ -3,6 +3,8 @@ description: An overview about retry.
 metaLinks:
   alternates:
     - retry.md
+hidden: true
+noIndex: true
 ---
 
 # Retry

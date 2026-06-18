@@ -3,6 +3,8 @@ description: An overview about expose metrics to elasticsearch.
 metaLinks:
   alternates:
     - expose-metrics-to-elasticsearch.md
+hidden: true
+noIndex: true
 ---
 
 # Expose Metrics to Elasticsearch

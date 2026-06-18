@@ -3,6 +3,8 @@ description: Configuration guide for plugin support.
 metaLinks:
   alternates:
     - plugin-support.md
+hidden: true
+noIndex: true
 ---
 
 # Plugin support

@@ -3,6 +3,8 @@ description: An overview about keyless.
 metaLinks:
   alternates:
     - keyless.md
+hidden: true
+noIndex: true
 ---
 
 # Keyless

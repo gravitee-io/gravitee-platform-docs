@@ -3,6 +3,8 @@ description: An overview about openid connect userinfo.
 metaLinks:
   alternates:
     - openid-connect-userinfo.md
+hidden: true
+noIndex: true
 ---
 
 # OpenID Connect UserInfo

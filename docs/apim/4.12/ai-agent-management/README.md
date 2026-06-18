@@ -1,5 +1,7 @@
 ---
 description: An overview about AI Agent Management.
+hidden: true
+noIndex: true
 ---
 
 # AI Agent Management

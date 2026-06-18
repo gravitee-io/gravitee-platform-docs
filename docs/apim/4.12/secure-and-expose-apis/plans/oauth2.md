@@ -3,6 +3,8 @@ description: An overview about oauth2.
 metaLinks:
   alternates:
     - oauth2.md
+hidden: true
+noIndex: true
 ---
 
 # OAuth2

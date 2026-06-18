@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Native API phases
 
 ## Supported connector modes

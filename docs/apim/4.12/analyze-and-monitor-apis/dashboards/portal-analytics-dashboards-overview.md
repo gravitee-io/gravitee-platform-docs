@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Portal analytics dashboards overview
 
 ## Overview

@@ -3,6 +3,8 @@ description: Documentation about create apis in the context of APIs.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # Create APIs

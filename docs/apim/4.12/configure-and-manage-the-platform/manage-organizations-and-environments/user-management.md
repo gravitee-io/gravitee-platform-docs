@@ -3,6 +3,8 @@ description: An overview about user management.
 metaLinks:
   alternates:
     - user-management.md
+hidden: true
+noIndex: true
 ---
 
 # User Management

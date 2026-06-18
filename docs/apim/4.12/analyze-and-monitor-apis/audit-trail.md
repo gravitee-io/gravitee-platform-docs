@@ -3,6 +3,8 @@ description: An overview about audit trail.
 metaLinks:
   alternates:
     - audit-trail.md
+hidden: true
+noIndex: true
 ---
 
 # Audit Trail

@@ -3,6 +3,8 @@ description: An overview about delete a hybrid gateway.
 metaLinks:
   alternates:
     - delete-a-hybrid-gateway.md
+hidden: true
+noIndex: true
 ---
 
 # Delete a Hybrid Gateway

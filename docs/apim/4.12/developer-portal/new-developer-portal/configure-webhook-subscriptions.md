@@ -3,6 +3,8 @@ description: Configuration guide for configure webhook subscriptions.
 metaLinks:
   alternates:
     - configure-webhook-subscriptions.md
+hidden: true
+noIndex: true
 ---
 
 # Configure Webhook Subscriptions

@@ -3,6 +3,8 @@ description: An overview about repositories.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # Repositories

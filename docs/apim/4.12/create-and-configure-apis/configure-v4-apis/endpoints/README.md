@@ -3,6 +3,8 @@ description: An overview about endpoints.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # Endpoints

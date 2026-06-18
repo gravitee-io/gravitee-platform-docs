@@ -3,6 +3,8 @@ description: Information about general recommendations.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # General Recommendations

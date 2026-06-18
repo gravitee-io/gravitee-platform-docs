@@ -1,5 +1,7 @@
 ---
 description: An overview about elasticsearch.
+hidden: true
+noIndex: true
 ---
 
 # ElasticSearch

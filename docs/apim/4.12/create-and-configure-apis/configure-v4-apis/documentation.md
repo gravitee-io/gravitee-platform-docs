@@ -3,6 +3,8 @@ description: An overview about documentation.
 metaLinks:
   alternates:
     - documentation.md
+hidden: true
+noIndex: true
 ---
 
 # Documentation

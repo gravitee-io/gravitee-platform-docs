@@ -3,6 +3,8 @@ description: Guide on applying policies related to policy reference.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # Policy Reference

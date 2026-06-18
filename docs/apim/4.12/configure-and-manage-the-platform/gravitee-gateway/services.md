@@ -3,6 +3,8 @@ description: Configuration guide for services.
 metaLinks:
   alternates:
     - services.md
+hidden: true
+noIndex: true
 ---
 
 # Services

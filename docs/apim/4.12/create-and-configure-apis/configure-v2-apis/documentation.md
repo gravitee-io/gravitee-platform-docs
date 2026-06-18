@@ -3,6 +3,8 @@ description: This article describes how to create documentation for v2 APIs
 metaLinks:
   alternates:
     - documentation.md
+hidden: true
+noIndex: true
 ---
 
 # Documentation

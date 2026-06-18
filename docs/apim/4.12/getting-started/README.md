@@ -3,6 +3,8 @@ description: Tutorial on getting started.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # Getting Started

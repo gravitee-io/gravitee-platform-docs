@@ -3,6 +3,8 @@ description: An overview about kafka quota.
 metaLinks:
   alternates:
     - kafka-quota.md
+hidden: true
+noIndex: true
 ---
 
 # Kafka Quota

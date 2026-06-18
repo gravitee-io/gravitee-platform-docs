@@ -3,6 +3,8 @@ description: An overview about other ways gravitee supports kafka.
 metaLinks:
   alternates:
     - other-ways-gravitee-supports-kafka.md
+hidden: true
+noIndex: true
 ---
 
 # Other Ways Gravitee Supports Kafka

@@ -5,6 +5,8 @@ description: >-
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # Production Best Practices

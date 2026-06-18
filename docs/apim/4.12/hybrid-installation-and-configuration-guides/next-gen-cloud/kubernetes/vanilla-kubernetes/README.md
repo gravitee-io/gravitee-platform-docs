@@ -3,6 +3,8 @@ description: An overview about vanilla kubernetes.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # Vanilla Kubernetes

@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Configure Global Redaction Rules
 
 ## Gateway configuration

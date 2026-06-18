@@ -3,6 +3,8 @@ description: An overview about aws eks.
 metaLinks:
   alternates:
     - aws-eks.md
+hidden: true
+noIndex: true
 ---
 
 # AWS EKS

@@ -3,6 +3,8 @@ description: This page explains how to customize your Gravitee API Management on
 metaLinks:
   alternates:
     - customize-your-installation.md
+hidden: true
+noIndex: true
 ---
 
 # Customize your Installation

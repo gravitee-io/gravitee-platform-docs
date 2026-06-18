@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # JavaScript Policy (New) Reference
 
 ## Overview

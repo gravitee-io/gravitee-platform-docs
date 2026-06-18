@@ -3,6 +3,8 @@ description: An overview about policies.
 metaLinks:
   alternates:
     - policies.md
+hidden: true
+noIndex: true
 ---
 
 # Policies

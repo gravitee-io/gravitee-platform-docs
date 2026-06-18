@@ -3,6 +3,8 @@ description: An overview about protobuf to json.
 metaLinks:
   alternates:
     - protobuf-to-json.md
+hidden: true
+noIndex: true
 ---
 
 # Protobuf to JSON

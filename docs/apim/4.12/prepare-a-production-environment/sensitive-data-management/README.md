@@ -3,6 +3,8 @@ description: Configuration guide for sensitive data management.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # Sensitive Data Management

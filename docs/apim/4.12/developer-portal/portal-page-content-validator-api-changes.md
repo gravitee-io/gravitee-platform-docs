@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Portal Page Content Validator API Changes
 
 ## Related Changes

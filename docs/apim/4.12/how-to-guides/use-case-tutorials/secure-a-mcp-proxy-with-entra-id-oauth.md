@@ -1,5 +1,7 @@
 ---
 description: Configure an MCP-Proxy with the OAuth plan and Entra ID
+hidden: true
+noIndex: true
 ---
 
 # Configure an MCP-Proxy with the OAuth plan and Entra ID

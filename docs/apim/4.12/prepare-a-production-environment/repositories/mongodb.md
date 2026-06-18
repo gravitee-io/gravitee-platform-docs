@@ -3,6 +3,8 @@ description: An overview about mongodb.
 metaLinks:
   alternates:
     - mongodb.md
+hidden: true
+noIndex: true
 ---
 
 # MongoDB

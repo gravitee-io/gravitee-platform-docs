@@ -3,6 +3,8 @@ description: An overview about ibm api connect.
 metaLinks:
   alternates:
     - ibm-api-connect.md
+hidden: true
+noIndex: true
 ---
 
 # IBM API Connect

@@ -3,6 +3,8 @@ description: An overview about global settings.
 metaLinks:
   alternates:
     - global-settings.md
+hidden: true
+noIndex: true
 ---
 
 # Global Settings

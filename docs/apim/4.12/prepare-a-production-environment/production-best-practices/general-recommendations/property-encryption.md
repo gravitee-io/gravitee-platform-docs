@@ -3,6 +3,8 @@ description: Documentation about property encryption in the context of APIs.
 metaLinks:
   alternates:
     - property-encryption.md
+hidden: true
+noIndex: true
 ---
 
 # Property Encryption

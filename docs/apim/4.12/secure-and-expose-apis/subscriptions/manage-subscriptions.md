@@ -3,6 +3,8 @@ description: Documentation about manage subscriptions in the context of APIs.
 metaLinks:
   alternates:
     - manage-subscriptions.md
+hidden: true
+noIndex: true
 ---
 
 # Manage Subscriptions

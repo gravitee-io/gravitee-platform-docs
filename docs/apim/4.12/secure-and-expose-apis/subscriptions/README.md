@@ -3,6 +3,8 @@ description: Validating and managing subscriptions
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # Subscriptions

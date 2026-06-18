@@ -3,6 +3,8 @@ description: An overview about user and group access.
 metaLinks:
   alternates:
     - user-and-group-access.md
+hidden: true
+noIndex: true
 ---
 
 # User and Group Access

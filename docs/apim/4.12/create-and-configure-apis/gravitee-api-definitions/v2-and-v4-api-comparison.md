@@ -3,6 +3,8 @@ description: An overview about v2 and v4 api comparison.
 metaLinks:
   alternates:
     - v2-and-v4-api-comparison.md
+hidden: true
+noIndex: true
 ---
 
 # v2 and v4 API Comparison

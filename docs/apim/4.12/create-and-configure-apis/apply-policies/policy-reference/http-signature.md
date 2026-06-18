@@ -3,6 +3,8 @@ description: An overview about http signature.
 metaLinks:
   alternates:
     - http-signature.md
+hidden: true
+noIndex: true
 ---
 
 # HTTP Signature

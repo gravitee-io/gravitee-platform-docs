@@ -3,6 +3,8 @@ description: Tutorial on how-to guides.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # How-To Guides

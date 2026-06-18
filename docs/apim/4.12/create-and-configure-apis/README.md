@@ -3,6 +3,8 @@ description: Tutorial on create & configure apis.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # Create & Configure APIs

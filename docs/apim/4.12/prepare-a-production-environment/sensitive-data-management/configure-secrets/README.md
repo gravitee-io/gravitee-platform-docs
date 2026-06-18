@@ -3,6 +3,8 @@ description: Tutorial on configure secrets.
 metaLinks:
   alternates:
     - ./
+hidden: true
+noIndex: true
 ---
 
 # Configure Secrets

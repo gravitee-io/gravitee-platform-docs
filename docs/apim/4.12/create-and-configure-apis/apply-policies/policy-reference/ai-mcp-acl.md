@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # AI - MCP ACL
 
 ## Overview

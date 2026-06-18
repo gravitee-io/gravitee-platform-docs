@@ -3,6 +3,8 @@ description: Guide on applying policies related to default nginx security config
 metaLinks:
   alternates:
     - default-nginx-security-config.md
+hidden: true
+noIndex: true
 ---
 
 # Default Nginx Security Config
