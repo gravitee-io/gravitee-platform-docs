@@ -19,7 +19,7 @@ In addition to the distinguished name whitelist, the policy can validate client 
 
 This policy is mainly used in plan configuration to allow access to consumers for a given set of certificates. The client is able to pass a valid certificate in one of two ways:
 
-* In session: This is the default behavior. The client certificate is accessible through the TLS session, which must remain active during the certificate request. If the session is terminated, the certificate will not be visible. The TLS handshake has already validated the certificate chain against the listener truststore. The issuer whitelist meaningfully narrows "any trusted CA" down to a specific CA per API or plan.
+* In session: This is the default behavior. The client certificate is accessible through the TLS session, which must remain active during the certificate request. If the session is terminated, the certificate will not be visible. The TLS handshake has already validated the certificate chain against the listener truststore. The issuer whitelist narrows "any trusted CA" down to a specific CA per API or plan.
 * In header: A reverse proxy (e.g., NGINX, Apache) passes the client certificate using a specified header. This option requires the user to specify which header contains the certificate, which is base64-encoded. The gateway performs no chain validation and trusts the terminating proxy. The issuer whitelist is a non-cryptographic filter on the leaf certificate's issuer field and is not a substitute for trust-anchor pinning.
 
 ## Examples
