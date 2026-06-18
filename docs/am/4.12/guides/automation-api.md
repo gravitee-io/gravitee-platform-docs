@@ -47,7 +47,7 @@ Resources created through the Automation API are stamped as automation-managed. 
 
 ### Brownfield resources
 
-*Brownfield* resources are those the Automation API did **not** create — those provisioned earlier through the console or the Management REST API. They have a database-generated internal id and no automation `key`, so key-based addressing can't see them. To manage one, address it by its internal id with the `id:` prefix (for example `id:94157683-f481-45a9-9576-83f48145a9a0`) anywhere a reference is accepted — a path segment, the PUT body `key`, or a cross-resource reference. You can mix `key` and `id:` references freely in a single path.
+*Brownfield* resources are those the Automation API did **not** create — those provisioned earlier through the console or the Management REST API. They have a database-generated internal id and no automation `key`, so key-based addressing can't see them. To manage one, address it by its internal id with the `id:` prefix (for example `id:94157683-f481-45a9-9576-83f48145a9a0`) anywhere a reference is accepted — a path segment, the PUT body `key`, or a cross-resource reference. You can mix `key` and `id:` references in a single path.
 
 `id:` addressing behaves differently from key addressing in a few important ways:
 
