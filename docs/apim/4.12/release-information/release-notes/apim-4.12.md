@@ -179,6 +179,16 @@
 * The "Calling the API" section is hidden when all API keys are inactive (revoked or expired) for API-Key-secured plans.
 <!-- /PIPELINE:APIM-13672 -->
 
+
+<!-- PIPELINE:APIM-14474 -->
+#### **SSL Enforcement Policy: Issuer Whitelist for Client Certificates**
+
+* The SSL Enforcement policy now supports issuer Distinguished Name (DN) whitelisting, allowing API administrators to restrict client certificate access to specific Certificate Authorities within the gateway's trusted set.
+* Configure allowed issuers using order-insensitive DN matching with Ant-style pattern support (e.g., `CN=My Intermediate CA,O=GraviteeSource*,C=??`) in the policy's **Whitelist Issuers** field.
+* Issuer validation requires client authentication to be enabled and validates only the certificate's immediate issuer, not the entire chain or root CA.
+* An empty or unset whitelist disables issuer validation entirely, maintaining backward compatibility with existing configurations.
+<!-- /PIPELINE:APIM-14474 -->
+
 ## Improvements
 
 
