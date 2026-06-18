@@ -38,10 +38,25 @@ To import your API:
 
     <figure><img src="../../.gitbook/assets/00 import 2.png" alt=""><figcaption></figcaption></figure>
 5. Choose an **API format**. You can select either **Gravitee definition** or **OpenAPI specification**.
-6.  Choose a **File source**.
+6.  Choose a **File source**. You can select either **Local file** or **Remote source**.
 
-    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p><strong>Local file</strong> is currently the only supported <strong>File source</strong>.</p></div>
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p><strong>Remote source</strong> is available only for v4 APIs. Remote URLs are subject to SSRF protection and, if an import whitelist is configured, must match it. For more information, see <a href="remote-url-import-concepts-and-security.md">Remote URL Import: Concepts and Security</a>. When private-address blocking is enabled, URLs resolving to private, link-local, or loopback addresses are rejected.</p></div>
+
+### Import from Local File
+
 7. Drag and drop your API file into the **File** panel. Supported file formats are YML, YAML, and JSON.
+8. If you selected **OpenAPI specification** as the API format, you can choose to enable the following:
+   *   **Create documentation page from spec.** This creates an API documentation page from the imported OpenAPI specification.
+
+       <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>This page is published automatically, but can be unpublished from the <strong>API Documentation</strong> page in the Console.</p></div>
+   *   **Add OpenAPI Specification Validation:** This adds an [OpenAPI Specification Validation policy](../apply-policies/policy-reference/oas-validation.md) to the imported API.
+
+       <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>All options are initially enabled, but can be disabled by editing the policy configuration.</p></div>
+9. Click **Import**
+
+### Import from Remote URL
+
+7. Enter the remote URL in the **Remote URL** field. If an import whitelist is configured, the URL must match it.
 8. If you selected **OpenAPI specification** as the API format, you can choose to enable the following:
    *   **Create documentation page from spec.** This creates an API documentation page from the imported OpenAPI specification.
 

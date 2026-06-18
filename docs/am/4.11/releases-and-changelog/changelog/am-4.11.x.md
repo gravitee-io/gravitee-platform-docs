@@ -6,6 +6,74 @@ description: >-
 
 # AM 4.11.x
 
+## Gravitee Access Management 4.11.8 - June 16, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* OIDC IdP error response (query string) not propagated to client redirect URI in Auth Code PKCE flow [#11499](https://github.com/gravitee-io/issues/issues/11499)
+
+
+
+
+
+**Other**
+
+* Search Domain doesn't work with '_' [#11508](https://github.com/gravitee-io/issues/issues/11508)
+* OIDC login fails with SignatureException due to kid: "default" collision between System and Own certificates [#11509](https://github.com/gravitee-io/issues/issues/11509)
+* `policy-am-enrich-auth-flow` silently skips [#11521](https://github.com/gravitee-io/issues/issues/11521)
+* Filter out empty scopes in auth request [#11523](https://github.com/gravitee-io/issues/issues/11523)
+* Missing user.groups property in EL [#11524](https://github.com/gravitee-io/issues/issues/11524)
+* Add userId/username to error SCIM response  [#11539](https://github.com/gravitee-io/issues/issues/11539)
+* Extension Grant is not managing PS256 [#11542](https://github.com/gravitee-io/issues/issues/11542)
+
+</details>
+
+
+## Gravitee Access Management 4.11.6 - June 1, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* TokenValidation should rely on the KID  [#11383](https://github.com/gravitee-io/issues/issues/11383)
+* Revert KID initialization using cert alias [#11442](https://github.com/gravitee-io/issues/issues/11442)
+* Addition of ClientId in the Gravitee AccessLog [#11471](https://github.com/gravitee-io/issues/issues/11471)
+
+
+
+
+
+
+
+</details>
+
+
+## Gravitee Access Management 4.11.5 - May 25, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* Sync delay between GW when using DCR [#11443](https://github.com/gravitee-io/issues/issues/11443)
+* UI Crash on Device Deletion [#11446](https://github.com/gravitee-io/issues/issues/11446)
+
+</details>
+
+
 ## Gravitee Access Management 4.11.4 - May 15, 2026
 
 <details>

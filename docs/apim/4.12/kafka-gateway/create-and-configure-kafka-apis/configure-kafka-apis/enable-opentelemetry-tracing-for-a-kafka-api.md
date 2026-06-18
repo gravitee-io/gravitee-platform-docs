@@ -37,6 +37,7 @@ To disable tracing:
 |:---------|:------------|:--------|
 | `analytics.tracing.enabled` | Per-API OpenTelemetry tracing toggle | `true` |
 | `analytics.tracing.verbose` | Per-API verbose mode toggle | `false` |
+| `analytics.otelLogs.enabled` | Emit request and response payloads as OpenTelemetry log records correlated to the active trace. Only effective when `analytics.enabled` and `analytics.tracing.enabled` are both `true`. | `false` |
 
 ## Limitations
 

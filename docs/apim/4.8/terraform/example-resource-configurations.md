@@ -6,9 +6,6 @@ description: An overview about gravitee resources.
 
 ## Overview
 
-{% hint style="warning" %}
-This feature is in tech preview.
-{% endhint %}
 
 Terraform defines resources as basic infrastructure elements. It creates and manages these resources as part of its Infrastructure as Code (IaC) workflow. This lets you use configuration files to automate reproducible and version controlled APIs.
 

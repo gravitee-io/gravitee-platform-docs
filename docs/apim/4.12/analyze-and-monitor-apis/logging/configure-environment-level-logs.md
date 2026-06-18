@@ -26,12 +26,14 @@ The logs table displays a paginated list of log entries across all v4 proxy APIs
 * **Timestamp:** The date and time of the request.
 * **HTTP method:** The HTTP method used in the request.
 * **Status:** The HTTP response status code.
-* **API:** The name of the API that received the request.
+* **API:** The name of the API that received the request. When a log entry is associated with an API Product, the product name appears in a lighter font beneath the API name. Logs from standalone APIs display **Standalone API** as the product name.
 * **Path:** The request path.
 * **Application:** The application that made the request.
 * **Plan:** The plan associated with the API call.
 * **Gateway:** The Gateway instance that processed the request.
 * **Response time:** The time taken to process the request.
+
+<figure><img src="../../.gitbook/assets/apim-product-analytics-logs-filtered.png" alt="Environment logs table filtered by API Product showing product name beneath the API name in each row"><figcaption><p>Environment logs filtered by API Product</p></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/environment-_logs_nav.png" alt="Logs screen showing the logs highlighted in the navigation menu"><figcaption></figcaption></figure>
 
@@ -64,9 +66,12 @@ The **More** button opens a panel with additional filtering options, which are o
 
 * **Transaction ID:** Filter by a transaction ID (UUID format) to find all requests associated with a specific transaction.
 * **Request ID:** Filter by a specific request ID (UUID format) to locate an individual request.
-* **URI:** Filter by request path. Dor example, `/api/v1/users`.
+* **URI:** Filter by request path. For example, `/api/v1/users`.
 * **Response time (ms):** Filter for requests with a response time greater than or equal to the specified value, in milliseconds.
 * **Error Types:** Filter by specific error types. The available options are dynamically populated based on errors observed within the selected date range.
+* **API Product:** Filter by one or more API Products. API Product associations are tracked only for v4 request/response APIs — v2 and streaming (message) APIs are not included.
+
+<figure><img src="../../.gitbook/assets/apim-product-analytics-filter-dialog.png" alt="Add a filter dialog with API Product selected as the filter type showing available product values"><figcaption><p>Adding an API Product filter to environment logs</p></figcaption></figure>
 
 You can combine multiple filters to refine the results. Applied filters appear after the filter bar. Use the **Reset filters** button to clear all active filters.
 
@@ -82,6 +87,8 @@ The log details page shows the following information:
 
 * The **Overview** section provides general information about the request and response phases, including the timestamp, HTTP method, path, and response status.
 * The **More details** dropdown menu shows information about the application, plan, endpoint, Gateway host, and Gateway IP associated with the request.
+
+<figure><img src="../../.gitbook/assets/apim-product-analytics-log-detail.png" alt="Log detail page showing the More details section with the API Product field highlighted"><figcaption><p>Log detail showing the API Product field in More details</p></figcaption></figure>
 * The **Request** panel shows the HTTP method and URI for the Gateway and consumer, the headers sent in the request phase, and the request body.
 * The **Response** panel shows the status of the Gateway and consumer, the headers sent in the response phase, and the body returned in the response.
 

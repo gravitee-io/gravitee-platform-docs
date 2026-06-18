@@ -12,6 +12,12 @@
 #        (an adverb is almost always preceded by a space), guarded so it never
 #        underflows column 1. Microsoft.Adverbs and any other remove rule.
 #
+# docs.Spelling never carries a suggestion: Vale's JSON omits spelling
+# candidates, and reconstructing them is unsafe (the guessed replacement plus
+# Vale's character-based column span produced corrupt one-click fixes on lines
+# with multibyte characters). Spelling alerts post as a plain comment so the
+# writer fixes the typo, or adds the term to accept.txt, by hand.
+#
 # Rules with no deterministic fix (Microsoft.We, Microsoft.SentenceLength) and
 # Microsoft.Spacing (mechanical fix exists but corrupts identifiers like
 # "Vale.Terms" -> "Vale. Terms") post as plain comments, no button.

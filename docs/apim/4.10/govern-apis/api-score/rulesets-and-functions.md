@@ -7,10 +7,6 @@ metaLinks:
 
 # Rulesets and Functions
 
-{% hint style="warning" %}
-API Score is a technology preview. This feature is not recommended for production environments.
-{% endhint %}
-
 ## Overview
 
 API Score rulesets contain the rules that are used by API Score to rate your API. Under the hood, Gravitee uses an open source linting tool called [Spectral](https://github.com/stoplightio/spectral) to power the API Score capability.
@@ -87,16 +83,16 @@ To import custom rulesets, complete the following steps:
 
 1.  Log in to your APIM Console, then click **API Score**.
 
-    <figure><img src="../../.gitbook/assets/govern-api-score-rulesets-and-funct-211.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/govern-api-score-rulesets-and-funct-211 (1).png" alt=""><figcaption></figcaption></figure>
 2.  Click **Rulesets & Functions**.
 
-    <figure><img src="../../.gitbook/assets/govern-api-score-rulesets-and-funct-212.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/govern-api-score-rulesets-and-funct-212 (1).png" alt=""><figcaption></figcaption></figure>
 3.  Click **Import**.
 
-    <figure><img src="../../.gitbook/assets/govern-api-score-rulesets-and-funct-213.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/govern-api-score-rulesets-and-funct-213 (1).png" alt=""><figcaption></figcaption></figure>
 4.  In **Asset Format**, choose the format for your ruleset.
 
-    <figure><img src="../../.gitbook/assets/govern-api-score-rulesets-and-funct-214.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/govern-api-score-rulesets-and-funct-214 (1).png" alt=""><figcaption></figcaption></figure>
 5. In **Ruleset Information**, type the name of your ruleset.
 6. (Optional) Type a description for your ruleset.
 7. Attach the ruleset file. You can attach a file in the following formats:
@@ -113,15 +109,15 @@ To edit a ruleset:
 
 1.  Log in to your APIM Console, then click **API Score**.
 
-    <figure><img src="../../.gitbook/assets/govern-api-score-rulesets-and-funct-215.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/govern-api-score-rulesets-and-funct-215 (1).png" alt=""><figcaption></figcaption></figure>
 2.  Click **Rulesets & Functions**.
 
-    <figure><img src="../../.gitbook/assets/govern-api-score-rulesets-and-funct-216.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/govern-api-score-rulesets-and-funct-216 (1).png" alt=""><figcaption></figcaption></figure>
 3. In **Rulesets**, navigate to the ruleset that you want to edit.
 4. Click the ruleset.
 5.  Click **Edit**. You can now edit the ruleset.
 
-    <figure><img src="../../.gitbook/assets/govern-api-score-rulesets-and-funct-217.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/govern-api-score-rulesets-and-funct-217 (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Functions
 

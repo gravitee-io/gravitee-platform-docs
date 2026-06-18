@@ -33,6 +33,7 @@
   * [AM API](getting-started/configuration/configure-am-api/README.md)
     * [Internal API](getting-started/configuration/configure-am-api/internal-api.md)
   * [AM Console](getting-started/configuration/configure-am-console.md)
+  * [Automation API](getting-started/configuration/configure-automation-api.md)
   * [Repositories & Data Plane](getting-started/configuration/configure-repositories.md)
   * [Reporters](getting-started/configuration/configure-reporters.md)
   * [Monitoring](getting-started/configuration/configure-monitoring.md)
@@ -53,6 +54,7 @@
 
 ## Guides
 
+* [Manage SPIFFE Trust Domains](guides/manage-spiffe-trust-domains.md)
 * [OAuth 2.0 Token Exchange](guides/oauth-2.0-token-exchange-concepts/README.md)
   * [OAuth 2.0 Token Exchange Configuration](guides/oauth-2.0-token-exchange-concepts/oauth-2.0-token-exchange-configuration-reference.md)
   * [OAuth 2.0 Token Exchange API](guides/oauth-2.0-token-exchange-concepts/oauth-2.0-token-exchange-api-reference.md)
@@ -65,6 +67,7 @@
     * [Refresh Tokens](guides/auth-protocols/oauth-2.0/refresh-tokens.md)
     * [Extension Grants](guides/auth-protocols/oauth-2.0/extension-grants.md)
     * [Dynamic Redirect URI Parameters](guides/auth-protocols/oauth-2.0/dynamic-redirect-uri-parameters.md)
+    * [CIMD](guides/auth-protocols/oauth-2.0/cimd.md)
   * [OpenID Connect](guides/auth-protocols/openid-connect.md)
   * [UMA 2.0](guides/auth-protocols/uma-2.0.md)
   * [SCIM 2.0](guides/auth-protocols/scim-2.0.md)
@@ -73,6 +76,7 @@
   * [SAML 2.0](guides/auth-protocols/saml-2.0.md)
 * [Security Domains](guides/security-domains/README.md)
   * [Configure CORS for Security Domains](guides/security-domains/configure-cors-for-security-domains.md)
+  * [Configure SPIFFE and CIMD Settings](guides/security-domains/configure-spiffe-and-cimd-settings.md)
 * [Identity Providers](guides/identity-providers/README.md)
   * [Create an Identity Provider](guides/identity-providers/create-an-identity-provider.md)
   * [User, Role and Group Mapping](guides/identity-providers/user-and-role-mapping.md)
@@ -101,6 +105,8 @@
   * [AuthZen](guides/authorization-engines/authzen.md)
 * [Applications](guides/applications/README.md)
   * [Client Secrets](guides/applications/client-secrets.md)
+  * [Create and Manage Agent Applications](guides/applications/create-and-manage-agent-applications.md)
+  * [SPIFFE Workload Identity and Agent Applications Overview](guides/applications/spiffe-workload-identity-and-agent-applications-overview.md)
 * [Branding](guides/branding/README.md)
   * [CSS Custom Variables Reference](guides/branding/css-custom-variables-reference.md)
   * [Language Default Properties Reference](guides/branding/language-default-properties-reference.md)
@@ -163,6 +169,7 @@
   * [Policies](guides/flows/policies/README.md)
     * [Rate Limit Policy](guides/flows/policies/rate-limit-policy.md)
 * [Administration](guides/administration.md)
+* [Automation API](guides/automation-api.md)
 * [AM Expression Language](guides/am-expression-language.md)
 * [Developer Contributions](guides/developer-contributions.md)
   * [Using OAuth 2.0 Token Exchange](guides/using-oauth-2.0-token-exchange.md)
@@ -170,6 +177,7 @@
 ## Reference
 
 * [API Reference](reference/am-api-reference.md)
+* [Automation API Reference](reference/automation-api-reference.md)
 
 ## Releases & Changelog
 

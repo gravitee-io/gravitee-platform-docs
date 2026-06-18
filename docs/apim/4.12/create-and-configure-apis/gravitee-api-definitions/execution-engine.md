@@ -95,6 +95,7 @@ The following comparisons can be made between the reactive and legacy execution 
 * [Plan selection](execution-engine.md#plan-selection)
 * [Flow](execution-engine.md#flow)
 * [Logging](execution-engine.md#logging)
+* [Client disconnection](execution-engine.md#client-disconnection)
 * [Expression Language](execution-engine.md#expression-language)
 * [Bad requests](execution-engine.md#bad-requests)
 * [Origin validation](execution-engine.md#origin-validation)
@@ -268,6 +269,28 @@ The reactive execution engine implements the following improvements:
 <figure><img src="../../.gitbook/assets/event-native-api-management-logging-2.png" alt=""><figcaption><p>Sample 502 log with the reactive execution engine</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
+
+### Client disconnection
+
+A client disconnection happens when a client cancels a request before the Gateway receives a response from the backend. The two execution engines record this scenario differently.
+
+{% tabs %}
+{% tab title="Legacy engine behavior" %}
+When using the legacy execution engine, a client disconnection that occurs before the Gateway receives a response from the backend isn't surfaced in the Gateway logs and analytics. The call isn't recorded with a `499` status code.
+{% endtab %}
+
+{% tab title="Reactive engine improvements" %}
+When using the reactive execution engine, a client disconnection that occurs before the Gateway receives a response from the backend is detected and recorded with the HTTP status code `499` in the Gateway logs and analytics. v2 Gateway APIs running in [emulation mode](execution-engine.md#v2-gateway-api-emulation-mode) apply this behavior as well.
+
+This accurately reflects the state of the transaction. A `499` status code that appears after you enable emulation mode isn't necessarily a regression. It surfaces client-side cancellations, such as a proxy timeout, a load balancer timeout, or a manual cancellation, that previously went unrecorded.
+{% endtab %}
+{% endtabs %}
+
+{% hint style="info" %}
+**Migration considerations**
+
+After you enable emulation mode on a v2 Gateway API, the number of `499` status codes in the Gateway logs and analytics often increases. This is expected. The reactive engine records client disconnections that the legacy engine left unrecorded, so these entries reflect existing client-side cancellations rather than a new failure.
+{% endhint %}
 
 ### Expression Language
 
