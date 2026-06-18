@@ -29,7 +29,6 @@ kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/enable-opente
 developer-portal/classic-developer-portal/portal-settings.md
 secure-and-expose-apis/api-products/api-product-membership-and-ownership-models.md
 secure-and-expose-apis/api-products/manage-api-products-with-management-api.md
-secure-and-expose-apis/api-products/managing-api-product-members-and-ownership-configuration-page.md
 configure-and-manage-the-platform/gravitee-gateway/services.md
 configure-and-manage-the-platform/management-api/cron-schedule-frequency-limits.md
 developer-portal/classic-developer-portal/api-documentation.md
