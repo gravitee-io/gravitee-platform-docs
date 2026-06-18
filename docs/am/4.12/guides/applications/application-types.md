@@ -6,6 +6,14 @@
 
 Application definitions apply at the *security domain* level.
 
+AM supports multiple application types, including a specialized **AGENT** type for AI agents. Agent applications represent AI agents that act on behalf of users or autonomously, with three distinct personas:
+
+- **USER_EMBEDDED**: Agents embedded in user-facing applications that authenticate via `authorization_code` flow. Tokens carry the end user as `sub` and the agent instance in `act.sub`.
+- **HOSTED_DELEGATED**: Agents hosted by the platform that act on behalf of users. Support both `authorization_code` (for user delegation) and `client_credentials` (for autonomous tasks).
+- **AUTONOMOUS**: Fully autonomous agents with no user context. Use `client_credentials` flow only; tokens carry the agent instance as `sub`.
+
+All agent applications emit a `client_profile` claim in issued tokens. Agent applications can authenticate using SPIFFE JWT-SVIDs for workload identity attestation.
+
 ## Create an application
 
 ### AM Console
