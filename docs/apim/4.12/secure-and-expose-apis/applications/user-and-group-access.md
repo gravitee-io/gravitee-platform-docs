@@ -144,7 +144,7 @@ Navigate to the application's Invitations tab in Portal Next. The Invitations ta
 2. Enter one or more email addresses in the **Email** field. Press Enter or Tab after each email to add it as a chip. Emails are automatically trimmed and converted to lowercase.
 3. Select a **Role** from the dropdown. Only assignable roles (non-system roles excluding PRIMARY_OWNER) are available.
 4. Toggle **Notify** to enable or disable email notifications. When enabled, recipients receive an email with a registration link. This toggle is enabled by default.
-5. Enter a **Confirmation Page URL** in the text field. This URL is included in the invitation email and should point to the registration confirmation page in your portal (e.g., `https://portal.example.com/user/registration/confirm`).
+5. Enter a **Confirmation Page URL** in the text field. This URL is included in the invitation email and should point to the registration confirmation page in your portal (e.g., `https://portal.example.com/user/invitation/confirm`).
 6. Click **Invite** to create the invitations.
 
 The system validates each email address and checks for duplicates within the request. If a recipient email matches an existing platform user, that user is added directly as an application member and no invitation is created. If a recipient email matches multiple users, the request returns a `409 Conflict` error. If a pending invitation already exists for a recipient email, the request returns a `409 Conflict` error. If the role is PRIMARY_OWNER and any recipient matches an existing user, the request returns a `409 Conflict` error.
@@ -405,7 +405,7 @@ Create one or more application invitations. Recipients matching existing users a
   ],
   "role": "USER",
   "notify": true,
-  "confirmation_page_url": "https://portal.example.com/user/registration/confirm"
+  "confirmation_page_url": "https://portal.example.com/user/invitation/confirm"
 }
 ```
 
@@ -528,7 +528,7 @@ Resend an invitation email with a new JWT token.
 **Request Body:**
 ```json
 {
-  "confirmation_page_url": "https://portal.example.com/user/registration/confirm"
+  "confirmation_page_url": "https://portal.example.com/user/invitation/confirm"
 }
 ```
 
