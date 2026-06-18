@@ -106,6 +106,7 @@
      * [Gateway Cluster sync with Redis using Kubernetes (Helm)](configure-and-manage-the-platform/gravitee-gateway/gateway-cluster-sync-with-redis/gateway-cluster-sync-with-redis-using-kubernetes-helm.md)
     * [Gateway Configuration for mTLS Certificate Management](configure-and-manage-the-platform/gravitee-gateway/gateway-configuration-for-mtls-certificate-management.md)
   * [Management API](configure-and-manage-the-platform/management-api/README.md)
+    * [Cron Schedule Frequency Limits](configure-and-manage-the-platform/management-api/cron-schedule-frequency-limits.md)
     * [MAPI Internal API](configure-and-manage-the-platform/management-api/mapi-internal-api.md)
     * [mTLS certificate management API reference](configure-and-manage-the-platform/management-api/mtls-certificate-management-api-reference.md)
     * [Portal analytics API reference](configure-and-manage-the-platform/management-api/portal-analytics-management-api-reference.md)

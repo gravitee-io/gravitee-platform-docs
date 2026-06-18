@@ -32,6 +32,9 @@ secure-and-expose-apis/api-products/api-product-membership-and-ownership-models.
 secure-and-expose-apis/api-products/configuring-api-product-primary-owner-mode-and-group-defaults.md
 secure-and-expose-apis/api-products/manage-api-products-with-management-api.md
 secure-and-expose-apis/api-products/managing-api-product-members-and-ownership-configuration-page.md
+configure-and-manage-the-platform/gravitee-gateway/services.md
+configure-and-manage-the-platform/management-api/cron-schedule-frequency-limits.md
+developer-portal/classic-developer-portal/api-documentation.md
 .gitbook/assets/apim-opentelemetry-logs-integration-step-01.png
 .gitbook/assets/apim-opentelemetry-logs-integration-step-02.png
 .gitbook/assets/apim-opentelemetry-logs-integration-step-03.png

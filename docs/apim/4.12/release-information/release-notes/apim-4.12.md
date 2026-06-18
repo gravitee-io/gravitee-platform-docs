@@ -49,6 +49,14 @@
 <!-- /PIPELINE:APIM-13461 -->
 
 
+<!-- PIPELINE:APIM-14127 -->
+#### **Cron Schedule Frequency Limits**
+
+* Platform administrators can now enforce minimum intervals for cron-based services (documentation auto-fetch, dynamic properties, health-check) and dictionary polling to prevent performance degradation in shared or SaaS environments.
+* Frequency limits are configured in `gravitee.yml` using standard 6-field cron expressions (e.g., `0 */5 * * * *` for 5-minute minimum) or millisecond delays for dictionaries.
+* The Management API validates new or updated schedules against configured limits and rejects requests that exceed them with a validation error.
+* Existing configurations that exceed newly applied limits continue to function but are silently enforced at runtime using the slower schedule without requiring manual updates.
+<!-- /PIPELINE:APIM-14127 -->
 <!-- PIPELINE:APIM-12132 -->
 #### **Import and Update v4 APIs from OpenAPI and Gravitee Definitions**
 
