@@ -31,7 +31,7 @@ To create documentation:
     <figure><img src="../../.gitbook/assets/documenation_folder.png" alt=""><figcaption><p>Sample documentation folder</p></figcaption></figure>
 * **Markdown Template:** Create templates reusable for site-wide and API Markdown documentation.
 * **Markdown:** Use the Markdown syntax for the documentation page.
-* **AsciiDoc:** Use the Asciidoc syntax for the documentation page.
+* **AsciiDoc:** Use the AsciiDoc syntax for the documentation page.
 * **OpenAPI (Swagger):** Use the OpenAPI syntax for the documentation page.
 * **AsyncAPI:** Use the AsyncAPI syntax for the documentation page.
 
@@ -122,11 +122,87 @@ The above sample script creates the following in the Developer Portal:
 
 <figure><img src="../../.gitbook/assets/graviteeio-page-documentation-template.png" alt=""><figcaption><p>Result of templating engine example</p></figcaption></figure>
 
+**Additional templating examples**
+
+The following examples demonstrate common FreeMarker patterns for portal pages:
+
+**Basic API information header:**
+
+```markdown
+# ${api.name} — ${api.version}
+
+> ${api.description}
+
+**Status:** ${api.lifecycleState}  
+**Visibility:** ${api.visibility}  
+**Owner:** ${api.primaryOwner.displayName} (${api.primaryOwner.email})
+```
+
+**Conditional support contact block:**
+
+```markdown
+## Support
+
+<#if api.metadata['email-support']?has_content>
+Contact us at [${api.metadata['email-support']}](mailto:${api.metadata['email-support']}).
+<#else>
+No support contact configured.
+</#if>
+```
+
+**Listing categories and tags:**
+
+```markdown
+**Categories:** <#list api.categories as cat>${cat}<#sep>, </#list>
+
+**Tags:** <#list api.tags as tag>`${tag}`<#sep>  </#list>
+```
+
+**Deployment timestamp with date formatting:**
+
+```markdown
+<#if api.deployedAt??>
+Last deployed: ${api.deployedAt?string['yyyy-MM-dd HH:mm']}
+<#else>
+Not yet deployed.
+</#if>
+```
+
+**Loop over V4 listeners:**
+
+```markdown
+## Endpoints
+
+<#list api.listeners as listener>
+- **${listener.type}**
+</#list>
+```
+
+**Owner type check:**
+
+```markdown
+<#if api.primaryOwner.type == "GROUP">
+Maintained by the **${api.primaryOwner.displayName}** team.
+<#else>
+Maintained by **${api.primaryOwner.displayName}**.
+</#if>
+```
+
+**Environment metadata access (environment pages):**
+
+```markdown
+# Welcome to ${metadata['portal-name']!api.name}
+
+For assistance, reach out to [support](mailto:${metadata['support-email']}).
+```
+
 **API properties reference**
 
 The following reference table shows all available API properties. Access these properties in the Freemarker template with `${api.<Field name>}` as in the above sample script.
 
-<table data-full-width="false"><thead><tr><th width="155">Field name</th><th width="124">Field type</th><th>Example</th></tr></thead><tbody><tr><td>id</td><td>String</td><td>70e72a24-59ac-4bad-a72a-2459acbbad39</td></tr><tr><td>name</td><td>String</td><td>My first API</td></tr><tr><td>description</td><td>String</td><td>My first API</td></tr><tr><td>version</td><td>String</td><td>1</td></tr><tr><td>metadata</td><td>Map</td><td>{"email-support": "<a href="mailto:support.contact@company.com">support.contact@company.com</a>"}</td></tr><tr><td>createdAt</td><td>Date</td><td>12 juil. 2018 14:44:00</td></tr><tr><td>updatedAt</td><td>Date</td><td>12 juil. 2018 14:46:00</td></tr><tr><td>deployedAt</td><td>Date</td><td>12 juil. 2018 14:49:00</td></tr><tr><td>picture</td><td>String</td><td>data:image/png;base64,iVBO…​</td></tr><tr><td>state</td><td>String</td><td>STARTED/STOPPED</td></tr><tr><td>visibility</td><td>String</td><td>PUBLIC/PRIVATE</td></tr><tr><td>tags</td><td>Array</td><td>["internal", "sales"]</td></tr><tr><td>proxy.contextPath</td><td>String</td><td>/stores</td></tr><tr><td>primaryOwner.displayName</td><td>String</td><td>Firstname Lastname</td></tr><tr><td>primaryOwner.email</td><td>String</td><td><a href="mailto:firstname.lastname@company.com">firstname.lastname@company.com</a></td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="155">Field name</th><th width="124">Field type</th><th>Example</th></tr></thead><tbody><tr><td>id</td><td>String</td><td>70e72a24-59ac-4bad-a72a-2459acbbad39</td></tr><tr><td>name</td><td>String</td><td>My first API</td></tr><tr><td>description</td><td>String</td><td>My first API</td></tr><tr><td>version</td><td>String</td><td>1</td></tr><tr><td>metadata</td><td>Map</td><td>{"email-support": "<a href="mailto:support.contact@company.com">support.contact@company.com</a>"}</td></tr><tr><td>createdAt</td><td>Date</td><td>12 juil. 2018 14:44:00</td></tr><tr><td>updatedAt</td><td>Date</td><td>12 juil. 2018 14:46:00</td></tr><tr><td>deployedAt</td><td>Date</td><td>12 juil. 2018 14:49:00</td></tr><tr><td>picture</td><td>String</td><td>data:image/png;base64,iVBO…​</td></tr><tr><td>state</td><td>String</td><td>STARTED/STOPPED</td></tr><tr><td>visibility</td><td>String</td><td>PUBLIC/PRIVATE</td></tr><tr><td>tags</td><td>Array</td><td>["internal", "sales"]</td></tr><tr><td>proxy.contextPath</td><td>String</td><td>/stores</td></tr><tr><td>primaryOwner.displayName</td><td>String</td><td>Firstname Lastname</td></tr><tr><td>primaryOwner.email</td><td>String</td><td><a href="mailto:firstname.lastname@company.com">firstname.lastname@company.com</a></td></tr><tr><td>mcp.mcpPath</td><td>String</td><td>/mcp</td></tr></tbody></table>
+
+The `api.mcp` map is populated from the first listener's first entrypoint of type `mcp`. If no such entrypoint exists, the map is empty. Note: this applies to classic Developer Portal templates only; New Developer Portal templates additionally recognize entrypoints of type `mcp-proxy`.
 {% endtab %}
 
 {% tab title="Import from file" %}
@@ -224,7 +300,7 @@ A `cron` expression is a string consisting of six fields (representing seconds, 
 * Fetch every second: `* * */1 * * *`
 * At 00:00 on Saturday : `0 0 0 * * SAT`
 
-If the APIM administrator configured a maximum fetch frequency, the value configured by the APIM administrator will override the frequency you specify.
+Documentation auto-fetch schedules are subject to [platform-wide frequency limits](../../configure-and-manage-the-platform/management-api/cron-schedule-frequency-limits.md) configured by administrators. If you attempt to configure a schedule more frequent than the configured limit, a validation error will occur. If the APIM administrator configured a maximum fetch frequency, the value configured by the APIM administrator will override the frequency you specify.
 {% endhint %}
 
 9.  Select **IMPORT** for APIM to add the files to your documentation set
