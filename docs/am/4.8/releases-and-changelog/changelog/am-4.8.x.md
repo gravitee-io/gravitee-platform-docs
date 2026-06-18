@@ -16,10 +16,6 @@ description: >-
 
 * OIDC IdP error response (query string) not propagated to client redirect URI in Auth Code PKCE flow [#11499](https://github.com/gravitee-io/issues/issues/11499)
 
-
-
-
-
 **Other**
 
 * Search Domain doesn't work with '_' [#11508](https://github.com/gravitee-io/issues/issues/11508)
@@ -27,6 +23,20 @@ description: >-
 * Filter out empty scopes in auth request [#11523](https://github.com/gravitee-io/issues/issues/11523)
 * Missing user.groups property in EL [#11524](https://github.com/gravitee-io/issues/issues/11524)
 * Add userId/username to error SCIM response  [#11539](https://github.com/gravitee-io/issues/issues/11539)
+
+</details>
+
+## Gravitee Access Management 4.8.39 - June 8, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Other**
+
+* Kafka Client OAUTH not working [#11501](https://github.com/gravitee-io/issues/issues/11501)
+
+</details>
 
 </details>
 
