@@ -25,7 +25,7 @@ metaLinks:
 The general settings of the Developer Portal can be overridden with the `gravitee.yaml` file. For more information about the `gravitee.yaml` file, see the [gravitee-gateway](../../configure-and-manage-the-platform/gravitee-gateway/ "mention") documentation.
 {% endhint %}
 
-* **Api-key Header:** Modify the `api-key` header shown in the Developer Portal's CURL commands. This only impacts what is displayed in the Developer Portal's UI. You must modify the `gravitee.yaml` file to change how the Gateway handles the `api-key` header.
+* **Api-key Header:** Modify the `api-key` header shown in the Developer Portal's cURL commands. This only impacts what is displayed in the Developer Portal's UI. You must modify the `gravitee.yaml` file to change how the Gateway handles the `api-key` header. This setting corresponds to the `portal.apikeyHeader` configuration parameter and controls the HTTP header name used in the cURL command example displayed in the "Calling the API" section.
 *   **Portal URL:** Enter the URL of the Developer Portal. This will add a link to the Developer Portal on the top navigation bar of the Management Console. Additionally, the [theme editor](portal-settings.md#theme-customization) will show a live preview of the Developer Portal.
 
     <figure><img src="../../.gitbook/assets/dev_portal_link.png" alt=""><figcaption><p>Link to Developer Portal from Management Console</p></figcaption></figure>
