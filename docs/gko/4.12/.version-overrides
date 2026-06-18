@@ -7,3 +7,6 @@ guides/managing-dictionaries-via-automation-api.md
 overview/custom-resource-definitions/dictionary-management-overview.md
 overview/custom-resource-definitions/dictionary-management-restrictions-and-validation.md
 overview/custom-resource-definitions/managing-dictionaries-via-kubernetes-crd.md
+
+guides/manage-api-key-subscriptions-with-gko.md
+overview/compatibility-and-limitations.md
