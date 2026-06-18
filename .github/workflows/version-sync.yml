@@ -89,6 +89,11 @@ jobs:
         if: steps.changes.outputs.skip == 'false' && steps.check.outputs.exists == 'true'
         id: sync
         run: |
+          python .github/scripts/prune_overrides.py \
+            . \
+            ${{ matrix.product }} \
+            ${{ matrix.current }} \
+            ${{ matrix.next }}
           python .github/scripts/sync_versions.py \
             . \
             ${{ matrix.product }} \

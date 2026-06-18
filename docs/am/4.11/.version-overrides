@@ -5,12 +5,10 @@ getting-started/install-and-upgrade-guides/configure-a-production-ready-am-envir
 
 guides/applications/README.md
 guides/applications/application-types.md
-guides/applications/create-agent-application.md
 guides/authorization-engines/authzen.md
 guides/certificates/README.md
 guides/certificates/aws-cloudhsm-plugin.md
 guides/certificates/configure-domain-certificate-fallback.md
-guides/fetching_and_displaying_agentcard_metadata.md
 guides/login/magic-link-authentication.md
 guides/mcp-servers/client-authorization.md
 guides/mcp-servers/create-an-mcp-server.md
