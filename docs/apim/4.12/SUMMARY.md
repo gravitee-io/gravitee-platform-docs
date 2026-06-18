@@ -146,6 +146,7 @@
       * [Remote URL Import: Concepts and Security](create-and-configure-apis/create-apis/remote-url-import-concepts-and-security.md)
       * [Import APIs from Remote URLs (Console)](create-and-configure-apis/create-apis/import-apis-from-remote-urls-console.md)
     * [Migrate APIs](create-and-configure-apis/create-apis/4.9-migrate-apis.md)
+    * [Maintain analytics continuity after migrating v2 APIs to v4](v2-api-analytics-continuity-after-migration.md)
     * [Search for APIs in the Console](create-and-configure-apis/create-apis/search-for-apis-in-the-console.md)
     * [Promote APIs](create-and-configure-apis/create-apis/promote-apis.md)
     * [WSDL Import for v4 APIs](create-and-configure-apis/create-apis/wsdl-import-for-v4-apis.md)
@@ -518,4 +519,3 @@
     * [APIM 4.2.x](https://documentation.gravitee.io/apim/4.2/overview/changelog/apim-4.2.x)
     * [APIM 4.1.x](https://documentation.gravitee.io/apim/4.1/releases-and-changelog/changelogs/apim-4.1.x-changelog)
     * [APIM 4.0.x](https://documentation.gravitee.io/apim/4.0/releases-and-changelog/changelog/apim-4.0.x)
-* [V2 API Analytics Continuity After Migration](v2-api-analytics-continuity-after-migration.md)

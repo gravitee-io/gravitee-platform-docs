@@ -25,5 +25,3 @@ Open the filter panel and select **API Product** to filter environment logs by o
 - API Product tracking is only supported for v4 request/response APIs. v2 APIs and streaming APIs (message logs, message metrics) do not track API Product associations.
 - If an API Product has been deleted or is inaccessible, its name might not display in logs and analytics.
 - Elasticsearch index templates must be updated to include the `api-product-id` keyword mapping. Existing indices without this field will not break, but filtering by API Product will not work until the mapping is updated and indices are rolled over.
-- When querying unified v2/v4 analytics, the `entrypoint-id` field exists only in v4 indices. Queries using an `exists` filter on `entrypoint-id` will not match v2 documents. Terms aggregations on `entrypoint-id` will exclude v2 data.
-- Analytics queries for TCP proxy APIs and federated APIs are not supported.
