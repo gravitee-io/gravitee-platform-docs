@@ -49,6 +49,14 @@
 <!-- /PIPELINE:APIM-13461 -->
 
 
+<!-- PIPELINE:APIM-14127 -->
+#### **Cron Schedule Frequency Limits**
+
+* Platform administrators can now enforce minimum intervals for cron-based services (documentation auto-fetch, dynamic properties, health-check) and dictionary polling to prevent performance degradation in shared or SaaS environments.
+* Frequency limits are configured in `gravitee.yml` using standard 6-field cron expressions (e.g., `0 */5 * * * *` for 5-minute minimum) or millisecond delays for dictionaries.
+* The Management API validates new or updated schedules against configured limits and rejects requests that exceed them with a validation error.
+* Existing configurations that exceed newly applied limits continue to function but are silently enforced at runtime using the slower schedule without requiring manual updates.
+<!-- /PIPELINE:APIM-14127 -->
 <!-- PIPELINE:APIM-12132 -->
 #### **Import and Update v4 APIs from OpenAPI and Gravitee Definitions**
 
@@ -170,6 +178,16 @@
 * API key status is determined by revocation and expiration dates, with active keys displaying a check-circle icon and inactive keys displaying an X-circle icon.
 * The "Calling the API" section is hidden when all API keys are inactive (revoked or expired) for API-Key-secured plans.
 <!-- /PIPELINE:APIM-13672 -->
+
+
+<!-- PIPELINE:APIM-14474 -->
+#### **SSL Enforcement Policy: Issuer Whitelist for Client Certificates**
+
+* The SSL Enforcement policy now supports issuer Distinguished Name (DN) whitelisting, allowing API administrators to restrict client certificate access to specific Certificate Authorities within the gateway's trusted set.
+* Configure allowed issuers using order-insensitive DN matching with Ant-style pattern support (e.g., `CN=My Intermediate CA,O=GraviteeSource*,C=??`) in the policy's **Whitelist Issuers** field.
+* Issuer validation requires client authentication to be enabled and validates only the certificate's immediate issuer, not the entire chain or root CA.
+* An empty or unset whitelist disables issuer validation entirely, maintaining backward compatibility with existing configurations.
+<!-- /PIPELINE:APIM-14474 -->
 
 ## Improvements
 
