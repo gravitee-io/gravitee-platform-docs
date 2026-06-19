@@ -7,10 +7,16 @@
 #   2. Vale.Terms (built-in vocab, no action) -> parse "Use 'X' instead of 'Y'."
 #   3. action {name:"edit", params:["truncate", SEP]} -> first SEP-segment of
 #        Match. Vale.Repetition: Match "the the", SEP " " -> "the".
-#   4. action {name:"remove"}             -> delete the word (empty text). The
-#        range is widened one column left to also consume the preceding space
-#        (an adverb is almost always preceded by a space), guarded so it never
-#        underflows column 1. Microsoft.Adverbs and any other remove rule.
+#
+# action {name:"remove"} (Microsoft.Adverbs and any other remove rule) does NOT
+# carry a suggestion. The removal range is built from Vale's character column
+# span, which doesn't line up with the raw source line whenever the line holds
+# TokenIgnores-masked tokens (inline `code`, key=value, +literals+, URLs) or
+# multibyte characters (em dashes). The span then drifts left of the flagged
+# word and the splice corrupts real text -- e.g. "references freely" became
+# "refereeely" and "To deliberately cross it" became "(ly cross it". These
+# alerts post as a plain comment (rule message and link intact) so the writer
+# decides whether to drop the adverb by hand.
 #
 # docs.Spelling never carries a suggestion: Vale's JSON omits spelling
 # candidates, and reconstructing them is unsafe (the guessed replacement plus
@@ -67,11 +73,6 @@ to_entries[]
         then ( .Action.Params[1] as $sep
                | { text: ((.Match // "") | split($sep) | .[0]),
                    s: $pos.scol, e: $pos.ecol } )
-
-        elif (.Action.Name == "remove")
-        then { text: "",
-                s: (if $pos.scol > 1 then $pos.scol - 1 else $pos.scol end),
-                e: $pos.ecol }
 
         else null
         end
