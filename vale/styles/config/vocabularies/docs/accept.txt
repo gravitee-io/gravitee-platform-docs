@@ -1,10 +1,10 @@
 # ============================================
 # Gravitee Product & Platform Terms
 # ============================================
-Gravitee
+[Gg]ravitee
 [Aa][Pp][Ii][Mm]
 APID
-AM
+[Aa][Mm]
 GKO
 GC
 Cockpit
@@ -296,6 +296,9 @@ ISO
 # ============================================
 # Compound / Technical Words
 # ============================================
+auto-fetch
+auto-validate
+auto-validation
 [Bb]ackend
 [Ff]rontend
 [Cc]odebase
@@ -307,7 +310,7 @@ ISO
 [Hh]otfixes
 [Kk]eystore
 [Ll]ifecycle
-[Mm]etadata
+(?i)metadata
 [Mm]icroservices
 [Mm]onorepo
 [Oo]nboarding
