@@ -136,3 +136,6 @@ secure-and-expose-apis/api-products/manage-api-product-members-and-ownership-con
 .gitbook/assets/apim-api-import-update-from-openapi-and-gravitee-definition-step-01.png
 .gitbook/assets/apim-api-import-update-from-openapi-and-gravitee-definition-step-01.png
 upgrade-guides/README.md
+govern-apis/federation/federated-apis.md
+secure-and-expose-apis/plans/api-key.md
+secure-and-expose-apis/plans/keyless.md

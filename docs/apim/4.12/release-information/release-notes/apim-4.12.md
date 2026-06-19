@@ -220,4 +220,14 @@
 * Requires Elasticsearch 7.x, 8.x, or 9.x, or OpenSearch.
 <!-- /PIPELINE:APIM-13473 -->
 
+
+<!-- PIPELINE:APIM-14120 -->
+#### **Adaptive API Access Display for Federated APIs**
+
+* The Developer Portal now intelligently displays API access information based on plan type and available entrypoint URLs for federated APIs.
+* For federated APIs with keyless plans and no entrypoint URLs, the API access card is hidden entirely to avoid showing empty sections.
+* For federated APIs with API Key plans, the card displays provider-provisioned keys while hiding the "Calling the API" section when entrypoint URLs are unavailable.
+* Native APIs and federated APIs with OAuth2/JWT plans continue to display full access information when subscriptions are accepted.
+<!-- /PIPELINE:APIM-14120 -->
+
 ## Bug Fixes

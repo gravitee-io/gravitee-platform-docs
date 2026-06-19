@@ -54,6 +54,10 @@ The shared API key mode allows consumers to reuse the same API key across all AP
 
 API keys can only be shared across API Key plans that belong to distinct Gateway APIs. If you attempt to subscribe to two API Key plans on the same Gateway API, no prompt will be made to choose the application API key type and the default mode will be used automatically.
 
+**Federated APIs with API Key plans**
+
+For federated APIs with API Key plans, API keys are provisioned by the third-party provider and displayed in the Developer Portal. However, base URLs and curl commands may not be shown if entrypoint URLs are unavailable.
+
 <figure><img src="../../.gitbook/assets/shared-api-key-2-portal.png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2023-03-16 at 11.44.51 AM.png" alt=""><figcaption></figcaption></figure>

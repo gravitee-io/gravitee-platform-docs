@@ -18,3 +18,7 @@ A Keyless plan does not require configuration other than general plan settings a
 Due to not requiring a subscription and the lack of a consumer identifier token, Keyless consumers are set as `unknown application` in the API analytics section.
 
 You can configure basic authentication for Keyless plans by associating a Basic Authentication policy (see the [policy reference](../../create-and-configure-apis/apply-policies/policy-reference/)) that uses either an LDAP or inline resource.
+
+### Developer Portal Display Behavior
+
+For federated APIs with keyless plans, the API access card in the Developer Portal is hidden entirely when the API has no entrypoint URLs defined. This prevents users from seeing an empty access section with no actionable information.
