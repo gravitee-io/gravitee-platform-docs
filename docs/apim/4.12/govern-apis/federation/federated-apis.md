@@ -59,16 +59,15 @@ When Gravitee API plans are ingested from a 3rd-party provider, they enable subs
 
 To manage your federated API's plans and their subscriptions, go to the **Consumers** tab for your federated API.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-06-18 at 4.12.15 PM.png" alt=""><figcaption></figcaption></figure>
-
-Under the **Plans** tab, you'll see all of the plans for your API that are either in staging, published, deprecated or closed. You will only be able to alter your federated API plans as it pertains to:
+Under the **Plans** tab, you'll see all of the plans for your API that are either in staging, published, deprecated or closed.
+ You will only be able to alter your federated API plans as it pertains to:
 
 * Deprecation, publishing, closing your plans (deprecating or closing the plan will not alter the state of the usage plan in the third party provider, but will only stop the correlate Gravitee plan)
 * Defining general plan information, such as name, description, characteristics, and general conditions
 * **Subscription options**: either allowing auto-validation of all subscription requests, or, enforcing API consumers to submit a request for manual approval by the API Publisher
 * Defining certain groups that can or cannot subscribe to your API via Gravitee groups
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-06-18 at 4.10.09 PM.png" alt=""><figcaption></figcaption></figure>
+
 
 {% hint style="info" %}
 By default, the plan state is set to published and the subscription validation policy is set to manual (subscription auto-validation is not enabled).
@@ -87,7 +86,7 @@ To view or add documentation to an existing federated API:
 3. Click on the federated API you're interested in
 4. Select **Documentation** from the inner left nav
 
-<figure><img src="../../.gitbook/assets/jonathan demo documentation.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/jonathan demo documentation.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 By default, the page is published with private visibility.
@@ -107,7 +106,7 @@ To publish an existing federated API:
 4. Select **Configuration** from the inner left nav
 5. In the **Danger Zone**, click **Publish the API**
 
-<figure><img src="../../.gitbook/assets/jonathan demo publish api.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/jonathan demo publish api.png" alt=""><figcaption></figcaption></figure>
 
 ### View your API in the Developer Portal
 
@@ -122,6 +121,15 @@ From here, API consumers can access their Gravitee Developer Portal and search f
 * Self-service subscribe
 * View tickets
 * And more
+
+### Viewing federated APIs in the catalog
+
+1. Navigate to the Developer Portal.
+2. Click **Catalog** in the main navigation menu.
+
+    <figure><img src="../../.gitbook/assets/federated-api-catalog-view.png" alt="Developer Portal catalog page displaying API cards in grid view, including both native and federated APIs with MCP badges"><figcaption></figcaption></figure>
+
+The catalog displays all published APIs, including federated APIs discovered from integration agents. Federated APIs are marked with an **MCP** badge to distinguish them from native APIs managed directly in the Gravitee platform.
 
 ### Subscribe to APIs
 
@@ -141,6 +149,25 @@ Depending on the subscription configuration, the application will either auto-va
 * For more information on how to create and manage applications in APIM, see [Applications](../../developer-portal/classic-developer-portal/create-an-application.md).
 * For more information on how to create and manage subscriptions in APIM, see [Subscriptions](../../secure-and-expose-apis/subscriptions/).
 {% endhint %}
+
+### API access card behavior
+
+The API access card in the Developer Portal adapts its display based on the type of API and available connection information. For federated APIs, the portal hides empty access sections when entrypoint URLs are not available, ensuring users see only relevant connection details.
+
+When subscribing to a federated API in the Developer Portal, the API access card displays connection information appropriate to the API's configuration. For keyless federated APIs with no entrypoint URLs, the entire API access card is hidden from view, as there are no connection details or credentials to display. For API Key federated APIs without entrypoints, the card appears with the **API keys** section visible, allowing users to view and manage provider-provisioned keys, but the **Base URL** field and curl command examples remain hidden since no Gravitee-managed endpoints exist.
+
+Native APIs and federated APIs with defined entrypoints display the full API access card, including the **Calling the API** section with base URLs and example curl commands. For non-keyless plans (API Key, OAuth2, JWT), the card shows credential management interfaces regardless of subscription status. Subscriptions in PENDING, REJECTED, PAUSED, or CLOSED states display the card with an appropriate status message rather than connection details.
+
+The portal determines card visibility using the following logic:
+
+| Plan Security | Entrypoints | Subscription Status | Card Visibility | Content Shown |
+|:--------------|:------------|:--------------------|:----------------|:--------------|
+| KEY_LESS | Empty/undefined | Any | Hidden | None |
+| KEY_LESS | Present | ACCEPTED | Shown | Base URLs, curl examples |
+| API_KEY | Empty/undefined | ACCEPTED | Shown | API keys table only |
+| API_KEY | Present | ACCEPTED | Shown | API keys table, base URLs, curl examples |
+| OAUTH2/JWT | Any | ACCEPTED | Shown | Full access details |
+| Any | Any | PENDING/REJECTED/PAUSED/CLOSED | Shown | Status message |
 
 ## Delete federated APIs
 

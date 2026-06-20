@@ -13,6 +13,8 @@ The Developer Portal is a web application that provides a simplified, user-frien
 
 API consumers can easily discover and explore APIs, read documentation, test API endpoints, generate access tokens, view API analytics, and manage their API subscriptions in a single location. Additionally, administrators have significant control over the look and feel of the Developer Portal to deliver an accessible and on-brand experience to external API consumers.
 
+The Next-Generation Developer Portal includes adaptive API access card display for federated APIs, conditionally showing connection information based on available entrypoint URLs and plan security configuration. For details, see [Federated API Access Display](../../developer-portal/new-developer-portal/manage-api-keys-in-the-developer-portal.md#api-access-display).
+
 ## Access the Developer Portal
 
 Enterprise trial users should be able to immediately access the Developer Portal from the APIM Console by selecting the **Developer Portal** link in the top left of the Console's nav bar.

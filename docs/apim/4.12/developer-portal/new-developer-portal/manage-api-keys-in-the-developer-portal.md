@@ -23,7 +23,27 @@ Revoke and renew operations require update permissions on the subscription. A us
 
 ### API Access Visibility
 
-The "Calling the API" section—which displays the base URL and a cURL command example—is shown when at least one active API key exists for API-Key-secured plans. When all keys are inactive (revoked or expired), this section is hidden. For non-API-Key plans (e.g., OAuth2, JWT) or subscriptions that are not in the accepted state, the section follows different visibility rules.
+The API access card displays connection information for subscribed APIs, including base URLs, curl command examples, and API key management. The card's visibility and content sections are conditionally displayed based on plan security type, entrypoint availability, and subscription status.
+
+For API-Key-secured plans, the "Calling the API" section—which displays the base URL and a cURL command example—is shown when at least one active API key exists and entrypoints are available. When all keys are inactive (revoked or expired), this section is hidden. For non-API-Key plans (e.g., OAuth2, JWT) or subscriptions that are not in the accepted state, the section follows different visibility rules.
+
+Special behavior applies when entrypoints are empty or undefined:
+
+| Plan Security Type | Behavior with Empty Entrypoints |
+|:-------------------|:--------------------------------|
+| KEY_LESS | Entire API access card hidden |
+| API_KEY | Card shown with API keys section only; base URL and curl sections hidden |
+
+The portal determines card visibility using the following logic:
+
+| Plan Security | Entrypoints | Subscription Status | Card Visibility | Content Shown |
+|:--------------|:------------|:--------------------|:----------------|:--------------|
+| KEY_LESS | Empty/undefined | Any | Hidden | None |
+| KEY_LESS | Present | ACCEPTED | Shown | Base URLs, curl examples |
+| API_KEY | Empty/undefined | ACCEPTED | Shown | API keys table only |
+| API_KEY | Present | ACCEPTED | Shown | API keys table, base URLs, curl examples |
+| OAUTH2/JWT | Any | ACCEPTED | Shown | Full access details |
+| Any | Any | PENDING/REJECTED/PAUSED/CLOSED | Shown | Status message |
 
 ## Prerequisites
 

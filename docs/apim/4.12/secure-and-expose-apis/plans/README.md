@@ -149,3 +149,20 @@ The parsed plan is selected for execution if all the following conditions are me
 
 * The request contains a token corresponding to the plan type (e.g., an `X-Gravitee-Api-Key` header for an API Key plan)
 * The plan condition rule is valid or not set
+
+## API access card visibility in the Developer Portal
+
+The API access card in the Developer Portal displays connection information for subscribed APIs. For federated APIs, the card's visibility and content vary based on the plan's security type and whether entrypoint URLs are available.
+
+The portal determines card visibility using the following logic:
+
+| Plan Security | Entrypoints | Subscription Status | Card Visibility | Content Shown |
+|:--------------|:------------|:--------------------|:----------------|:--------------|
+| KEY_LESS | Empty/undefined | Any | Hidden | None |
+| KEY_LESS | Present | ACCEPTED | Shown | Base URLs, curl examples |
+| API_KEY | Empty/undefined | ACCEPTED | Shown | API keys table only |
+| API_KEY | Present | ACCEPTED | Shown | API keys table, base URLs, curl examples |
+| OAUTH2/JWT | Any | ACCEPTED | Shown | Full access details |
+| Any | Any | PENDING/REJECTED/PAUSED/CLOSED | Shown | Status message |
+
+For keyless federated APIs with no entrypoint URLs, the entire API access card is hidden. For API Key federated APIs without entrypoints, the card appears with the API keys section visible, but the base URL field and curl command examples remain hidden.
