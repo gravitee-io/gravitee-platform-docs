@@ -145,8 +145,6 @@ API consumers can access their Gravitee Developer Portal and search for the fede
 
 Depending on the subscription configuration, the application will either auto-validate or require approval.
 
-<figure><img src="../../.gitbook/assets/federated-api-console-subscriptions.png" alt="APIM Console subscriptions management page showing subscription list with plan, application, and status filters"><figcaption></figcaption></figure>
-
 {% hint style="info" %}
 * For more information on how to create and manage applications in APIM, see [Applications](../../developer-portal/classic-developer-portal/create-an-application.md).
 * For more information on how to create and manage subscriptions in APIM, see [Subscriptions](../../secure-and-expose-apis/subscriptions/).
