@@ -220,4 +220,14 @@
 * Requires Elasticsearch 7.x, 8.x, or 9.x, or OpenSearch.
 <!-- /PIPELINE:APIM-13473 -->
 
+
+<!-- PIPELINE:APIM-14120 -->
+#### **Improved Developer Portal Display for Federated APIs**
+
+* The Developer Portal now intelligently displays API access information for federated APIs based on available entrypoint data and security configuration.
+* For keyless federated APIs with no entrypoints, the API access card is hidden entirely to prevent displaying empty connection details.
+* For API key federated APIs with no entrypoints, only the API keys section appears, showing provider-provisioned credentials while hiding inapplicable base URL and curl command sections.
+* This enhancement provides a cleaner subscription experience for federated APIs ingested from third-party providers that may not have traditional Gravitee entrypoints.
+<!-- /PIPELINE:APIM-14120 -->
+
 ## Bug Fixes
