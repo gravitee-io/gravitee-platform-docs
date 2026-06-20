@@ -135,8 +135,6 @@ API consumers can access their Gravitee Developer Portal and search for the fede
     <figure><img src="../../.gitbook/assets/jonathan demo subscribe.png" alt=""><figcaption></figcaption></figure>
 2.  Select the plan you want to subscribe to, then click **Next**
 
-    <figure><img src="../../.gitbook/assets/jonathan demo plan.png" alt=""><figcaption></figcaption></figure>
-
     <figure><img src="../../.gitbook/assets/federated-api-plans-list.png" alt="Subscription plan selection page showing available plans for a federated API with plan details and approval requirements"><figcaption></figcaption></figure>
 
 3.  Use the **Choose an application** drop-down menu to select an application to use for the subscription, then click **Next.** If you do not yet have an application, please refer to the [Applications](../../developer-portal/classic-developer-portal/create-an-application.md) documentation to create a Gravitee Application.
