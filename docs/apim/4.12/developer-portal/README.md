@@ -13,6 +13,7 @@ The **Gravitee Developer Portal** is a user-friendly web application designed to
 * **Subscription management**: Easily subscribe to APIs, manage your subscriptions, and obtain the necessary access credentials.
 * **Application management**: Create and manage applications that consume APIs, monitor usage through an analytics dashboard and API logs, and analyze performance metrics.
 * **Full customization capabilities:** The Portal is fully customizable, where its appearance can be tailored to match company branding. Logos, colors, fonts, and layout elements can be adjusted to deliver a consistent and branded developer experience.
+* **Adaptive access information display:** For federated APIs that may not have Gravitee-managed entrypoints, the Portal automatically hides inapplicable access sections, ensuring a clean subscription experience. For more information, see [Federated API Access Information](../govern-apis/federation/federated-apis.md#viewing-api-access-information).
 
 ## Developer Portal implementations
 

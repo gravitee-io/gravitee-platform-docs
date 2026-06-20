@@ -220,4 +220,14 @@
 * Requires Elasticsearch 7.x, 8.x, or 9.x, or OpenSearch.
 <!-- /PIPELINE:APIM-13473 -->
 
+
+<!-- PIPELINE:APIM-14120 -->
+#### **Conditional API Access Display for Federated APIs**
+
+* The Developer Portal now displays API access information only when relevant for federated APIs, automatically hiding empty or inapplicable sections.
+* For KEY_LESS plans without entrypoints, the entire API Access card is hidden; for API_KEY plans without entrypoints, only the API keys table is shown.
+* For OAUTH2 or JWT plans, Client ID and Client Secret are displayed regardless of entrypoint availability.
+* This improvement ensures a cleaner subscription experience by removing confusing empty fields for APIs managed by external providers.
+<!-- /PIPELINE:APIM-14120 -->
+
 ## Bug Fixes
