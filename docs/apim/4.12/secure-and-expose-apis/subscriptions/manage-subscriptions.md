@@ -37,7 +37,7 @@ To filter subscriptions, use the **API** and **API Key** search fields and/or th
 
 To create a new subscription, click **+ Create a subscription** and search for the API you'd like to subscribe to. Refer to the [subscription](./) documentation for more information.
 
-After subscribing to an API, the visibility of API access information depends on the plan's security type and whether entrypoint data is available. For details on how access information is displayed based on these factors, see [API Access Information](../../govern-apis/federation/federated-apis.md#view-api-access-information).
+After subscribing to an API, the visibility of API access information depends on the plan's security type and whether the API is provider-managed (federated) or Gravitee-managed (native). For details, see [View API access information](../../govern-apis/federation/federated-apis.md#view-api-access-information).
 
 ## Subscription validation
 

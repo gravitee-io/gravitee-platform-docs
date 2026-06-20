@@ -56,7 +56,7 @@ Follow the links below to visit the documentation for each configuration page.
 Plans for federated APIs are based on API products, usage plans, and similar concepts already defined and automatically imported from 3rd-party providers. A plan only exists to the extent that a matching concept exists in the 3rd-party provider.
 
 When Gravitee API plans are ingested from a 3rd-party provider, they enable subscriptions to the 3rd-party APIs be managed directly from within Gravitee.
- Under the hood, the federation agent will integrate with the third partie's management API to create the required objects that will enable the requested subscription. This may result in an API key being returned to the user in Gravitee APIM or in the Gravitee Developer portal. In other cases, it will simply create the right permissions on the third party, while access control is done using a 3rd-party OAuth server for instance.
+Under the hood, the federation agent integrates with the third party's management API to create the required objects that enable the requested subscription. This may result in an API key being returned to the user in Gravitee APIM or in the Gravitee Developer portal. In other cases, it creates the right permissions on the third party, while access control is done using a 3rd-party OAuth server for instance.
 
 To manage your federated API's plans and their subscriptions, go to the **Consumers** tab for your federated API.
 
@@ -110,13 +110,17 @@ To publish an existing federated API:
 
 ### View your API in the Developer Portal
 
-To view the API that you just published, select **Developer Portal.** This will open your Gravitee Developer Portal in a new window. From here, you should be able to view your API, its documentation, and its subscription plan options.
+{% hint style="warning" %}
+Before the API appears in the Developer Portal catalog, you must publish at least one documentation page. Go to your API's **Documentation** page, select the page from the navigation settings, and publish it.
+{% endhint %}
+
+To view the API that you published, select **Developer Portal.** This opens your Gravitee Developer Portal in a new window. From here, you can view your API, its documentation, and its subscription plan options.
 
 <figure><img src="../../.gitbook/assets/federated-api-catalog-view.png" alt="Developer Portal API catalog showing available APIs including federated APIs marked with MCP badge"><figcaption></figcaption></figure>
 
 ## (For API consumers) Discover and subscribe to federated APIs in the Gravitee Developer Portal
 
-From here, API consumers can access their Gravitee Developer Portal and search for the federated APIs that API Publishers have published. Simply access the url of the Developer Portal and either search for the specific API or browse the larger catalog of APIs have been published from the Gravitee API Gateway. From here, consumers can:
+API consumers can access their Gravitee Developer Portal and search for the federated APIs that API Publishers have published. Access the URL of the Developer Portal and either search for the specific API or browse the larger catalog of APIs published from the Gravitee API Gateway. From here, consumers can:
 
 * View API documentation
 * Interface directly with the API Publisher
@@ -150,21 +154,21 @@ Depending on the subscription configuration, the application will either auto-va
 
 ### View API access information
 
-After subscription approval, the Developer Portal displays API access information based on the plan's security type and available entrypoint data. Federated APIs are distinguished by their definition version value of `FEDERATED` (for APIs ingested from third-party providers) or `FEDERATED_AGENT` (for internal federation agent APIs). This designation indicates that the API is provider-managed and may have different access patterns than native Gravitee APIs with definition versions `V1`, `V2`, or `V4`.
+After subscription approval, the Developer Portal displays API access information based on the plan's security type and the API's definition version. Because federated APIs are hosted and served by the third-party provider — not proxied through the Gravitee gateway — there are no Gravitee-managed endpoints to display. The portal adapts the API access card accordingly.
 
-The API access card visibility follows specific rules based on API type, plan security, subscription status, and entrypoint availability:
+The API access card visibility follows specific rules based on API type, plan security, and subscription status:
 
 | Condition | API Access Card Behavior |
 |:----------|:------------------------|
-| Plan security = `KEY_LESS` AND entrypoints empty/undefined | Entire card hidden |
-| Plan security = `API_KEY` AND entrypoints empty/undefined | Card shown with API keys table; base URL and curl sections hidden |
-| Plan security = `OAUTH2`, `JWT`, or `API_KEY` AND entrypoints exist | Full card shown with connection details |
-| API type = `NATIVE` | Full card always shown |
+| Federated API with `KEY_LESS` plan | Entire card hidden (no Gravitee-managed endpoints or credentials to display) |
+| Federated API with `API_KEY` plan | Card shown with provider-provisioned API keys only; base URL and curl sections hidden |
+| Federated API with `OAUTH2`, `JWT`, or `API_KEY` plan where provider supplies endpoints | Full card shown with connection details |
+| Native API (`V1`, `V2`, or `V4`) | Full card always shown |
 | Subscription status ≠ `ACCEPTED` AND plan security ≠ `KEY_LESS` | Card shown with subscription status message |
 
-For federated APIs with API key security, the API keys section displays provider-provisioned keys even when entrypoint URLs are not available. This allows users to manage their credentials while acknowledging that connection instructions come from the provider. Users should consult the provider's documentation for usage instructions when base URLs are not displayed in the portal.
+For federated APIs with API key security, the API keys section displays provider-provisioned keys. Consult the third-party provider's documentation for endpoint URLs and usage instructions.
 
-Native APIs (definition version `V1`, `V2`, or `V4`) always display the full API access card regardless of entrypoint availability.
+Native APIs always display the full API access card, as they are proxied through the Gravitee gateway and have Gravitee-managed endpoints.
 
 ## Delete federated APIs
 

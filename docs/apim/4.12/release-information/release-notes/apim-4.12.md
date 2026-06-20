@@ -222,12 +222,12 @@
 
 
 <!-- PIPELINE:APIM-14120 -->
-#### **Improved Developer Portal Display for Federated APIs**
+#### **Improved Developer Portal display for federated APIs**
 
-* The Developer Portal now intelligently displays API access information for federated APIs based on available entrypoint data and security configuration.
-* For keyless federated APIs with no entrypoints, the API access card is hidden entirely to prevent displaying empty connection details.
-* For API key federated APIs with no entrypoints, only the API keys section appears, showing provider-provisioned credentials while hiding inapplicable base URL and curl command sections.
-* This enhancement provides a cleaner subscription experience for federated APIs ingested from third-party providers that may not have traditional Gravitee entrypoints.
+* The Developer Portal now adapts API access information for federated APIs based on plan security type. Because federated APIs are hosted by the third-party provider and not proxied through the Gravitee gateway, the portal hides inapplicable connection details.
+* For keyless federated APIs, the API access card is hidden entirely since there are no Gravitee-managed endpoints or credentials to display.
+* For API key federated APIs, the API access card displays only the provider-provisioned API keys section, hiding the base URL and curl command sections.
+* API publishers must publish at least one documentation page before the federated API appears in the Developer Portal catalog.
 <!-- /PIPELINE:APIM-14120 -->
 
 ## Bug Fixes

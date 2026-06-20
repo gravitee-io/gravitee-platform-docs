@@ -25,7 +25,7 @@ This will bring you to the home screen of the Developer Portal.
 
 From here, you can begin searching for APIs using the Developer Portal's full-context[^1] search. However, you will not be able to subscribe to any APIs until you create an application.
 
-Federated APIs in the catalog display conditional access information based on entrypoint availability and plan security configuration. For more details, see [API Access Information](../../govern-apis/federation/federated-apis.md#view-api-access-information).
+Federated APIs in the catalog display access information based on the plan's security type and whether the API is provider-managed. For details, see [View API access information](../../govern-apis/federation/federated-apis.md#view-api-access-information).
 
 ## Self-managed installation: Adding a Developer Portal link
 
