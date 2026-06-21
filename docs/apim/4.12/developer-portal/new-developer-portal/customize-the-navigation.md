@@ -96,6 +96,8 @@ When you add a page that is not in a folder, the page appears as a root level me
 {% tab title="Folders" %}
 Folders group related pages together. A folder is a section on your New Developer Portal. When you add pages to your folder, they appear in the menu for that section instead of the top navigation.
 
+Folders now support cascade publishing, unpublishing, and deletion. For full details, see [portal-navigation-folder-management.md](portal-navigation-folder-management.md "mention").
+
 **Add a folder**
 
 1.  Click **Add**, and then click **Add Folder**.<br>

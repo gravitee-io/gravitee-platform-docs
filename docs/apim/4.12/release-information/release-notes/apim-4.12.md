@@ -220,4 +220,14 @@
 * Requires Elasticsearch 7.x, 8.x, or 9.x, or OpenSearch.
 <!-- /PIPELINE:APIM-13473 -->
 
+
+<!-- PIPELINE:APIM-14411 -->
+#### **Cascade Operations for Portal Navigation Folders**
+
+* Portal navigation folders and API sections now support cascade publishing and deletion, allowing administrators to publish or unpublish entire folder hierarchies in a single action.
+* Publishing a folder automatically publishes all nested documentation pages, sub-folders, and APIs; unpublishing propagates similarly to all descendants.
+* Folders containing nested items can be deleted without first removing their contents, with automatic cleanup of all descendant items and page content records.
+* Tree expansion state is preserved across all operations to maintain navigation context during folder management.
+<!-- /PIPELINE:APIM-14411 -->
+
 ## Bug Fixes

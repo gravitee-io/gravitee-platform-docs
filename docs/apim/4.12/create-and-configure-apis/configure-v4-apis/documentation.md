@@ -231,7 +231,7 @@ To edit or delete folders or pages, or to change the documentation structure, se
 
 **Edit pages:** To edit an existing page, click on the pencil icon in the page's entry, and change the name, visibility, and/or content, where both user-created and imported content can be edited via the Markdown editor. By enabling **Toggle preview**, you can view the content you enter and the rendered page side-by-side. Next, if the page is already published, click **Publish changes**. If the page is not published, you will have the option to **Save** or **Save and publish** your changes.
 
-**Publish/unpublish:** To publish or unpublish a page, click the cloud icon.
+**Publish/unpublish:** To publish or unpublish a page, click the cloud icon. Publishing or unpublishing a folder or API section cascades to all nested documentation and APIs. Visibility changes from PUBLIC to PRIVATE cascade to nested items, while changes from PRIVATE to PUBLIC do not propagate.
 
 **Reorder:** To change the order of pages and folders in a directory, use the up and down arrows.
 

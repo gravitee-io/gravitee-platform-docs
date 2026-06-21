@@ -136,3 +136,7 @@ secure-and-expose-apis/api-products/manage-api-product-members-and-ownership-con
 .gitbook/assets/apim-api-import-update-from-openapi-and-gravitee-definition-step-01.png
 .gitbook/assets/apim-api-import-update-from-openapi-and-gravitee-definition-step-01.png
 upgrade-guides/README.md
+.gitbook/assets/portal-navigation-tree-initial-view.png
+developer-portal/new-developer-portal/customize-the-navigation/README.md
+developer-portal/new-developer-portal/customize-the-navigation/cascade-operations-for-portal-navigation-folders.md
+hybrid-installation-and-configuration-guides/next-gen-cloud/delete-a-hybrid-gateway.md

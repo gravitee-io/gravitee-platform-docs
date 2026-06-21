@@ -125,6 +125,14 @@ Folders group related pages together. A folder is a section on your New Develope
 
 Unpublishing now works by cascade: all navigation items within a folder are unpublished with their parent.
 
+**Deleting folders**
+
+Deleting a folder removes the folder and all nested items recursively without requiring manual cleanup. After deletion, sibling items at the same level are automatically reordered to fill gaps in the sequence. For more information about cascade deletion, see [portal-navigation-folder-management.md](portal-navigation-folder-management.md "mention").
+
+**Tree expansion state**
+
+The navigation tree preserves your collapsed and expanded folder state after publish, unpublish, delete, and move operations. The tree expands all folders only on initial page load.
+
 **Add a page to a folder**
 
 When you add a page to a folder, that page becomes a menu item within that section of the New Developer Portal.
