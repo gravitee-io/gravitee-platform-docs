@@ -36,7 +36,7 @@ No gateway configuration is required for portal navigation folder management.
 3. Click **Documentation** in the API menu.
 4. Click the **Documentation Pages** tab.
 
-    <figure><img src="../../../.gitbook/assets/portal-navigation-tree-initial-view.png" alt="Documentation Pages tab showing the portal navigation tree with a Home folder and options to add new folders or pages"><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/portal-navigation-tree-initial-view.png" alt="Documentation Pages tab showing the portal navigation tree with a Home folder, Add new folder button, and the initial empty state before adding pages"><figcaption></figcaption></figure>
 
 Portal navigation items are managed through the portal navigation tree interface. Folders and API sections can contain nested items, forming hierarchical structures. Items are ordered within their parent level and can be moved, published, or deleted as needed.
 

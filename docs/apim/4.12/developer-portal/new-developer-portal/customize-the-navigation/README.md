@@ -127,7 +127,7 @@ Unpublishing now works by cascade: all navigation items within a folder are unpu
 
 **Deleting folders**
 
-Deleting a folder removes the folder and all nested items recursively without requiring manual cleanup. After deletion, sibling items at the same level are automatically reordered to fill gaps in the sequence. For more information about cascade deletion, see [portal-navigation-folder-management.md](portal-navigation-folder-management.md "mention").
+Deleting a folder removes the folder and all nested items recursively without requiring manual cleanup. After deletion, sibling items at the same level are automatically reordered to fill gaps in the sequence. For more information about cascade deletion, see [cascade-operations-for-portal-navigation-folders.md](cascade-operations-for-portal-navigation-folders.md "mention").
 
 **Tree expansion state**
 
