@@ -220,4 +220,14 @@
 * Requires Elasticsearch 7.x, 8.x, or 9.x, or OpenSearch.
 <!-- /PIPELINE:APIM-13473 -->
 
+
+<!-- PIPELINE:APIM-14411 -->
+#### **Cascade Operations for Portal Navigation**
+
+* Publishing, unpublishing, or deleting a portal navigation folder or API section now automatically applies the action to all nested items within it.
+* Delete operations permanently remove the selected item and its entire subtree, including all nested folders, pages, and associated content, with a confirmation dialog warning of the irreversible action.
+* The navigation tree preserves your expanded and collapsed folder states after publish, unpublish, delete, or move operations, maintaining your workspace layout.
+* Setting a folder or API section to Private propagates the private visibility to all nested items, while setting to Public does not propagate.
+<!-- /PIPELINE:APIM-14411 -->
+
 ## Bug Fixes

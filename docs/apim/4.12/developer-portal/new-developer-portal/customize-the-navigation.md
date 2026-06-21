@@ -2,7 +2,6 @@
 
 ## Overview
 
-
 In the New Developer Portal, you can customize the navigation of your Developer Portal by using the **Navigation items** section of the New Developer Portal settings.
 
 You can create the following elements for your navigation:
@@ -12,7 +11,8 @@ You can create the following elements for your navigation:
 * **Links**: Connect your documentation to external sites or other internal resources.
 * **APIs**: List your APIs in the New Developer Portal documentation.
 
-When you add a new page, you can customize the page with Gravitee Markdown, which is standard Markdown enriched with dynamic components. For more information about Gravitee Markdown, see[gravitee-markdown-components.md](gravitee-markdown-components.md "mention").
+When you add a new page, you can customize the page with Gravitee Markdown, which is standard Markdown enriched with dynamic components. For more information about Gravitee Markdown, see [gravitee-markdown-components.md](gravitee-markdown-components.md "mention").
+
 
 ### Default navigation items
 
@@ -80,9 +80,11 @@ When you add a page that is not in a folder, the page appears as a root level me
 6. Customize your page. The page contains default content that you can use to customize your new page with unique content. For more information about customizing your page with Gravitee Markdown, see [gravitee-markdown-components.md](gravitee-markdown-components.md "mention").
 7. Publish the page by completing either of the following steps:
 
-⚠️ A page can only be published if all of its ancestor folders are published or if it's a top level page.
+    {% hint style="warning" %}
+    A page can only be published if all of its ancestor folders are published or if it's a top level page.
+    {% endhint %}
 
-*   Click **Publish**.<br>
+    *   Click **Publish**.<br>
 
     <figure><img src="../../.gitbook/assets/138D78C1-526C-4741-89DF-C8F9BCF8137D_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 *   Navigate to the page in the navigation bar, click the **ellipses** (<i class="fa-ellipsis-vertical">:ellipsis-vertical:</i>), and then click **Publish**.<br>
@@ -108,7 +110,9 @@ Folders group related pages together. A folder is a section on your New Develope
     <figure><img src="../../.gitbook/assets/46A3BA38-DD28-42B3-8BBC-BA5B2ABABBE2_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 5.  Publish the folder. To publish the folder, complete either of the following steps:
 
-    ⚠️ A folder can be only published if all of its ancestor folders are published or if it's a top level folder.
+    {% hint style="warning" %}
+    A folder can be only published if all of its ancestor folders are published or if it's a top level folder.
+    {% endhint %}
 
     *   Click **Publish**.<br>
 
@@ -119,10 +123,6 @@ Folders group related pages together. A folder is a section on your New Develope
 6.  In the **Publish folder**, pop-up box, click **Publish**.<br>
 
     <figure><img src="../../.gitbook/assets/0C92FAF4-F289-4D79-89D2-62448A9E8FE8_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
-
-**Unpublishing cascade**
-
-Unpublishing now works by cascade: all navigation items within a folder are unpublished with their parent.
 
 **Add a page to a folder**
 
@@ -152,7 +152,9 @@ When you add a link, the link appears as a root level menu item. When you publis
     <figure><img src="../../.gitbook/assets/3476293A-507F-401E-855B-1CD3999E207E_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 4.  Publish the page. To publish the page, complete either of the following steps:
 
-    ⚠️ A link can be only published if all of its ancestor folders are published or if it's a top level link.
+    {% hint style="warning" %}
+    A link can be only published if all of its ancestor folders are published or if it's a top level link.
+    {% endhint %}
 
     *   Click **Publish**.<br>
 
@@ -189,7 +191,9 @@ However, there are some limitations of APIs compared to folders:
 4. Click **Add**.
 5. Publish the API. To publish the API, complete either of the following steps:
 
-⚠️ An API can be only published if all of its ancestor folders are published.
+{% hint style="warning" %}
+An API can be only published if all of its ancestor folders are published.
+{% endhint %}
 
 * Click **Publish**.
 * Navigate to the folder in the navigation bar, click the **ellipses**, and then click **Publish**.
@@ -224,6 +228,7 @@ When you add a folder to an API, that folder becomes nested within that API in t
 3. Click **Add folder**.
 {% endtab %}
 {% endtabs %}
+
 
 ## Verification
 

@@ -48,6 +48,9 @@ With the New Developer Portal, you can customize your navigation in the followin
 * [Add a folder](./#folders)
 * [Add a link](./#links)
 * [Add an API](./#api)
+* Cascade operations for folders and API sections
+
+The navigation tree preserves your expanded and collapsed folder states after publish, unpublish, delete, or move operations.
 
 1.  From the **Dashboard**, click **Settings**.<br>
 
