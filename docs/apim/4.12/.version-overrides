@@ -136,3 +136,8 @@ secure-and-expose-apis/api-products/manage-api-product-members-and-ownership-con
 .gitbook/assets/apim-api-import-update-from-openapi-and-gravitee-definition-step-01.png
 .gitbook/assets/apim-api-import-update-from-openapi-and-gravitee-definition-step-01.png
 upgrade-guides/README.md
+.gitbook/assets/federated-api-catalog-view.png
+.gitbook/assets/federated-api-console-subscriptions.png
+.gitbook/assets/federated-api-plans-list.png
+configure-and-manage-the-platform/manage-organizations-and-environments/developer-portal.md
+govern-apis/federation/federated-apis.md
