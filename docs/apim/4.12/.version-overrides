@@ -136,3 +136,6 @@ secure-and-expose-apis/api-products/manage-api-product-members-and-ownership-con
 .gitbook/assets/apim-api-import-update-from-openapi-and-gravitee-definition-step-01.png
 .gitbook/assets/apim-api-import-update-from-openapi-and-gravitee-definition-step-01.png
 upgrade-guides/README.md
+developer-portal/new-developer-portal/customize-the-navigation/README.md
+developer-portal/new-developer-portal/customize-the-navigation/portal-navigation-folder-cascade-operations.md
+developer-portal/new-developer-portal/customize-the-navigation/structure-the-navigation-with-the-management-api.md

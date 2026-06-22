@@ -124,6 +124,18 @@ Folders group related pages together. A folder is a section on your New Develope
 
 Unpublishing now works by cascade: all navigation items within a folder are unpublished with their parent.
 
+**Delete a folder**
+
+Folders can be deleted regardless of whether they contain children. When you delete a folder, the folder and its entire subtree are permanently removed.
+
+1. Navigate to the folder in the navigation bar.
+2. Click the **ellipses**.
+3. Click **Delete**.
+4. In the confirmation dialog, review the warning:
+   * **For folders with children**: "This folder and all its nested items will be permanently deleted. This cannot be undone."
+   * **For empty folders**: "This page will no longer appear on your site."
+5. Click **Delete** to confirm.
+
 **Add a page to a folder**
 
 When you add a page to a folder, that page becomes a menu item within that section of the New Developer Portal.

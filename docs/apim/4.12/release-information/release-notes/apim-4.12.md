@@ -189,6 +189,17 @@
 * An empty or unset whitelist disables issuer validation entirely, maintaining backward compatibility with existing configurations.
 <!-- /PIPELINE:APIM-14474 -->
 
+
+<!-- PIPELINE:APIM-14411 -->
+#### **Portal Navigation Folder Cascade Operations**
+
+* Publishing or unpublishing a folder now propagates the action to all nested documentation pages, APIs, and subfolders in a single operation.
+* Deleting a folder permanently removes the entire subtree, including all nested content, regardless of whether the folder contains children.
+* Changing a folder's visibility from PUBLIC to PRIVATE propagates the PRIVATE state to all nested items; changing from PRIVATE to PUBLIC does not propagate.
+* The navigation tree preserves your expansion state across all operations, maintaining your view context as you manage content.
+* Items created before v4.12.0 may experience slower performance for cascade operations on deep hierarchies due to recursive traversal instead of optimized queries.
+<!-- /PIPELINE:APIM-14411 -->
+
 ## Improvements
 
 

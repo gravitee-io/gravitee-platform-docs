@@ -27,8 +27,6 @@ Before you structure your navigation, complete the following steps:
 4. [#add-a-new-page-to-your-api](structure-the-navigation-with-the-management-api.md#add-a-new-page-to-your-api "mention")
 5. [#add-content-to-your-new-page](structure-the-navigation-with-the-management-api.md#add-content-to-your-new-page "mention")
 
-
-
 ### (One time operation) Create a Portal Folder
 
 {% hint style="info" %}
