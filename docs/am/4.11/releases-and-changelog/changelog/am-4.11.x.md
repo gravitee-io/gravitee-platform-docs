@@ -6,6 +6,28 @@ description: >-
 
 # AM 4.11.x
 
+## Gravitee Access Management 4.11.9 - June 19, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+**Management API**
+
+* Reduce impact of Audit retention  [#11458](https://github.com/gravitee-io/issues/issues/11458)
+* Audit logs purge does not respect the retention period limit [#11534](https://github.com/gravitee-io/issues/issues/11534)
+
+
+
+**Other**
+
+* Domain can't be deleted when it has fallback certificate assigned [#11519](https://github.com/gravitee-io/issues/issues/11519)
+
+</details>
+
+
 ## Gravitee Access Management 4.11.8 - June 16, 2026
 
 <details>
