@@ -62,6 +62,10 @@ This setting applies to both v2 and v4 proxy API health checks.
 For Helm-based deployments, configure this value with `gateway.services.healthcheck.jitterInMs` in your `values.yaml`.
 {% endhint %}
 
+### Service frequency limits
+
+Platform administrators can enforce minimum intervals for cron-based services to prevent schedules that run too frequently and risk degrading platform performance. For configuration details and property reference, see [Cron schedule frequency limits](../management-api/cron-schedule-frequency-limits.md#cron-schedule-frequency-limits).
+
 You can configure APIM API to start only the Management or Portal API. You can also change the API endpoints from their default values of `/management` and `/portal`.
 
 ```yaml

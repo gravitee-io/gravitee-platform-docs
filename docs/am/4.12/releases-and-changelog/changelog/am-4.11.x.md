@@ -6,6 +6,46 @@ description: >-
 
 # AM 4.11.x
 
+## Gravitee Access Management 4.11.8 - June 16, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* OIDC IdP error response (query string) not propagated to client redirect URI in Auth Code PKCE flow [#11499](https://github.com/gravitee-io/issues/issues/11499)
+
+**Other**
+
+* Search Domain doesn't work with '_' [#11508](https://github.com/gravitee-io/issues/issues/11508)
+* OIDC login fails with SignatureException due to kid: "default" collision between System and Own certificates [#11509](https://github.com/gravitee-io/issues/issues/11509)
+* `policy-am-enrich-auth-flow` silently skips [#11521](https://github.com/gravitee-io/issues/issues/11521)
+* Filter out empty scopes in auth request [#11523](https://github.com/gravitee-io/issues/issues/11523)
+* Missing user.groups property in EL [#11524](https://github.com/gravitee-io/issues/issues/11524)
+* Add userId/username to error SCIM response  [#11539](https://github.com/gravitee-io/issues/issues/11539)
+* Extension Grant is not managing PS256 [#11542](https://github.com/gravitee-io/issues/issues/11542)
+
+</details>
+
+## Gravitee Access Management 4.11.7 - June 8, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Parameterized scope are not properly managed during TokenExchange [#11448](https://github.com/gravitee-io/issues/issues/11448)
+* Request-object signature pre-check NPE [#11486](https://github.com/gravitee-io/issues/issues/11486)
+
+**Other**
+
+* Kafka Client OAUTH not working [#11501](https://github.com/gravitee-io/issues/issues/11501)
+
+</details>
+
+
 ## Gravitee Access Management 4.11.6 - June 1, 2026
 
 <details>

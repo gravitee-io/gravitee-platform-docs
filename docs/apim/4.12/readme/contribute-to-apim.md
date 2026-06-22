@@ -158,6 +158,10 @@ To `npm install`, you can duplicate this configuration and choose **Command > In
 {% endtab %}
 {% endtabs %}
 
+## Documentation feedback
+
+To provide feedback to the documentation team, [submit a Documentation Request on GitHub](https://github.com/gravitee-io/issues/issues/new/choose).
+
 {% hint style="success" %}
 Congratulations, you are now ready to contribute to Gravitee!
 {% endhint %}
