@@ -46,7 +46,7 @@ The behavior of the MFA challenge screen has changed. Previously, refreshing the
 
 #### **Policy Studio on Service Applications**
 
-* The Policy Studio / Flow editor is now available on Service applications, in addition to Web, SPA, and Native application types.
+* The Policy Studio / Flow editor is now available on Service applications, also to Web, SPA, and Native application types.
 * The **Design** menu for Service applications exposes the **Flows** tab, allowing policies to be applied on the `TOKEN` flows.
 * Policy configuration on Service applications follows the same experience as other application types.
 
