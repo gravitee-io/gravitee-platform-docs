@@ -157,7 +157,7 @@ The API access card visibility follows specific rules based on API type, plan se
 | Condition | API Access Card Behavior |
 |:----------|:------------------------|
 | Federated API with `KEY_LESS` plan | Entire card hidden (no Gravitee-managed endpoints or credentials to display) |
-| Federated API with `API_KEY` plan | Card shown with provider-provisioned API keys only; base URL and curl sections hidden |
+| Federated API with `API_KEY` plan where the provider supplies the endpoints | Card shown with provider-provisioned API keys only; base URL and curl sections hidden |
 | Federated API with `OAUTH2`, `JWT`, or `API_KEY` plan where provider supplies endpoints | Full card shown with connection details |
 | Native API (`V1`, `V2`, or `V4`) | Full card always shown |
 | Subscription status ≠ `ACCEPTED` AND plan security ≠ `KEY_LESS` | Card shown with subscription status message |
