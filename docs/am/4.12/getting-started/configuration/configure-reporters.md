@@ -61,16 +61,16 @@ For details on how to create a file reporter for a domain, see the [Audit trail]
 **Available from:** AM 4.12.
 {% endhint %}
 
-This implementation writes audit events to a TCP socket. It is particularly suited for SaaS/Cloud deployments where audit events are forwarded to an external collector (for example, Logstash) over the network.
+This implementation writes audit events to a TCP socket. It is particularly suited for SaaS/Cloud deployments where audit events are forwarded to an external collector, for example Logstash, over the network.
 
 ### Configuration
 
-The TCP reporter has two configuration layers:
+The TCP reporter has the following two configuration layers:
 
-* **`gravitee.yml`** — controls the local fallback behavior only.
-* **Management Console / API** — controls all connection and security settings (host, port, output format, SSL/TLS).
+* **`gravitee.yml`**. Controls the local fallback behavior only.
+* **Management Console / API**. Controls all connection and security settings (host, port, output format, SSL/TLS).
 
-#### gravitee.yml — fallback settings
+#### gravitee.yml—fallback settings
 
 When the TCP link is unavailable, the fallback mechanism persists audit events locally on disk. As soon as the connection is restored, the buffered events are replayed to the TCP server. If the connection is broken for too long and the maximum number of files is reached, the oldest files are discarded.
 
@@ -90,7 +90,7 @@ Fallback limits apply **per TCP reporter instance**. If you configure multiple T
 
 #### Management Console / API settings
 
-All other TCP reporter settings — including connection details and SSL/TLS — are configured per domain or organization via the Management Console or API. The following properties are available:
+All other TCP reporter settings—including connection details and SSL/TLS—are configured per domain or organization through the Management Console or API. The following properties are available:
 
 | Property | Type | Description | Default |
 | -------- | ---- | ----------- | ------- |

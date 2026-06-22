@@ -102,7 +102,7 @@ They can update the following options:
 **Available from:** AM 4.12.
 {% endhint %}
 
-AM now captures client-side WebAuthn errors that occur in the browser and sends them to the backend for logging and analysis. Previously, only server-level authentication outcomes (success/failure) were logged, leaving browser-side failures invisible — such as a user cancelling the biometric prompt, a device that does not support WebAuthn, or a misconfigured origin.
+AM now captures client-side WebAuthn errors that occur in the browser and sends them to the backend for logging and analysis. Previously, only server-level authentication outcomes, whether successful or failed, were logged, leaving browser-side failures invisible—such as a user canceling the biometric prompt, a device that does not support WebAuthn, or a misconfigured origin.
 
 ### Error classification
 
@@ -123,7 +123,7 @@ Each captured error is automatically mapped to a business-readable category:
 
 ### Error payload
 
-Each error event includes the following context — no sensitive data (biometric data or credential IDs) is ever captured:
+Each error event includes the following context—no sensitive data, such as biometric data or credential IDs, is ever captured:
 
 * Error name, category, and message
 * Timestamp
@@ -133,14 +133,14 @@ Each error event includes the following context — no sensitive data (biometric
 
 ### How to use it
 
-Error events are stored as structured JSON and forwarded through your configured reporters, making them searchable in your logging infrastructure (for example, Elasticsearch or a SIEM). Use them to:
+Error events are stored as structured JSON and forwarded through your configured reporters, making them searchable in your logging infrastructure, for example in Elasticsearch or a SIEM. Use them to:
 
 * Troubleshoot individual passwordless authentication failures
 * Detect abnormal patterns (for example, a spike in `SECURITY_ISSUE` errors indicating a misconfigured origin)
 * Identify UX friction points such as frequent user cancellations
 * Track WebAuthn adoption over time
 
-This feature can be enabled in the gravitee.yaml of the AM Gateway (disabled by default)
+This feature is disabled by default. To enable it, update your AM Gateway `gravitee.yaml`:
 
 ```yaml
 handlers:
@@ -150,12 +150,12 @@ handlers:
 ```
 
 {% hint style="info" %}
-**HTML Template:** To take benefit of this option, the HTML templates has to use the following JavaScript file:
-- assets/js/webauthn-telemetry-v4.js
-- assets/js/webauthn-login-v4.js
-- assets/js/webauthn-register-v4.js
+**HTML Template:** To take advantage of this option, your HTML templates must use the following JavaScript files:
+- `assets/js/webauthn-telemetry-v4.js`
+- `assets/js/webauthn-login-v4.js`
+- `assets/js/webauthn-register-v4.js`
 
-Default templates can be found on [github](https://github.com/gravitee-io/gravitee-access-management/tree/4.12.x/gravitee-am-gateway/gravitee-am-gateway-handler/gravitee-am-gateway-handler-core/src/main/resources/webroot/views) for reference.
+Default templates are available on [GitHub](https://github.com/gravitee-io/gravitee-access-management/tree/4.12.x/gravitee-am-gateway/gravitee-am-gateway-handler/gravitee-am-gateway-handler-core/src/main/resources/webroot/views) for reference.
 {% endhint %}
 
 ## Watch this space

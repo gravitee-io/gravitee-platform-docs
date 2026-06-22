@@ -8,11 +8,11 @@
 
 Gravitee AM 4.12 now runs on Java 25. If you deploy AM using the distribution ZIP file or the RPM package, make sure a JRE 25 is installed and available in your environment before upgrading.
 
-### **Upgrade to Eclipse Vert.x 5**
+#### **Upgrade to Eclipse Vert.x 5**
 
 Gravitee AM now runs on Eclipse Vert.x 5. If you develop custom plugins, make sure they are compatible with this new version before upgrading, as APIs and behaviors may have changed between Vert.x versions.
 
-### **Resend code on MFA challenge screen**
+#### **Resend code on MFA challenge screen**
 
 The behavior of the MFA challenge screen has changed. Previously, refreshing the page would invalidate (end) the existing code; now resending a code is handled explicitly through the resend option. If you use a custom MFA challenge template, it may need to be updated to take advantage of this feature. Refer to the [reference template](https://github.com/gravitee-io/gravitee-access-management/tree/4.12.x/gravitee-am-gateway/gravitee-am-gateway-handler/gravitee-am-gateway-handler-core/src/main/resources/webroot/views/mfa_challenge.html#L93) for the expected markup.
 
@@ -20,7 +20,7 @@ The behavior of the MFA challenge screen has changed. Previously, refreshing the
 
 #### **Resend code on MFA challenge screen**
 
-* MFA challenge screen can now trigger a resend of their verification code directly, without having to refresh the page. 
+* Users can now trigger a resend of their verification code directly from the MFA challenge screen, without refreshing the page.
 * Available for email and SMS factors.
 
 #### **New TCP reporter**
@@ -29,20 +29,20 @@ The behavior of the MFA challenge screen has changed. Previously, refreshing the
 
 #### **WebAuthn Client-Side Error Monitoring**
 
-* Client-side WebAuthn errors occurring in the browser (biometric failure, user cancellation, unsupported device, security issues) are now captured and sent to the backend for logging and analysis.
+* Client-side WebAuthn errors occurring in the browser, such as biometric failure, user cancellation, unsupported device, and security issues, are now captured and sent to the backend for logging and analysis.
 * Errors are automatically classified into business-readable categories such as `USER_CANCEL_OR_TIMEOUT`, `AUTHENTICATOR_FAILURE`, `NOT_SUPPORTED`, `SECURITY_ISSUE`, and `INVALID_REQUEST`.
-* Each error event is enriched with context (browser, user agent, correlation ID, RP ID) and stored as structured JSON — searchable in your logging infrastructure.
+* Each error event is enriched with context, including browser, user agent, correlation ID, and RP ID, and stored as structured JSON—searchable in your logging infrastructure.
 * No sensitive data (biometric data, credential IDs) is included in the error payload.
-* Improves troubleshooting of passwordless authentication failures, security monitoring, and WebAuthn adoption tracking across major browsers (Chrome, Edge, Firefox, Safari).
+* Improves troubleshooting of passwordless authentication failures, security monitoring, and WebAuthn adoption tracking across major browsers, including Chrome, Edge, Firefox, and Safari.
 
 #### **SAML Assertion Encryption**
 
 * Gravitee AM can now encrypt SAML assertions when acting as a SAML Identity Provider, ensuring sensitive identity attributes are protected end-to-end and only readable by the intended Service Provider.
-* Configure encryption per SP: upload the SP's public encryption certificate and choose to sign only, encrypt only, or sign and encrypt assertions.
+* Configure encryption per SP: upload the SP's public encryption certificate, and then choose to sign only, encrypt only, or sign and encrypt assertions.
 * Supports standard key transport algorithms (`RSA-OAEP`, `RSA1_5`) and data encryption algorithms (`AES-128`, `AES-256`), following modern security recommendations by default.
 * When enabled, the `<Assertion>` element is replaced by `<EncryptedAssertion>` in the SAML response; the SP decrypts it using its private key.
-* Encryption is disabled by default — existing SAML integrations continue to work without any changes.
-* Requires gravitee-am-gateway-handler-saml2-idp plugin in version 5.0 or higher
+* Encryption is disabled by default—existing SAML integrations continue to work without any changes.
+* Requires gravitee-am-gateway-handler-saml2-idp plugin in version 5.0 or higher.
 
 #### **Policy Studio on Service Applications**
 
