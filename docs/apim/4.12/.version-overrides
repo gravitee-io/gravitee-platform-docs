@@ -141,3 +141,7 @@ upgrade-guides/README.md
 .gitbook/assets/federated-api-plans-list.png
 configure-and-manage-the-platform/manage-organizations-and-environments/developer-portal.md
 govern-apis/federation/federated-apis.md
+developer-portal/new-developer-portal/README.md
+developer-portal/new-developer-portal/customize-the-navigation/README.md
+developer-portal/new-developer-portal/customize-the-navigation/portal-navigation-cascade-operations.md
+kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/documentation.md

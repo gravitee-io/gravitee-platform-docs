@@ -75,6 +75,14 @@ When prompted, give your folder a name and select either **Public** or **Private
 
 **Documentation Pages** supports a nested structure. Once you've added a folder, you can click into it to create additional folders or pages.
 
+### Publishing and Unpublishing API Sections
+
+Publishing or unpublishing an API section affects all nested documentation pages. When you publish an API section, all documentation pages within that section are published to the Developer Portal. When you unpublish an API section, all nested documentation pages are removed from the Developer Portal.
+
+### Deleting API Sections
+
+Deleting an API section removes the section and all nested documentation pages. This action is permanent and cannot be undone.
+
 {% hint style="info" %}
 The ACTIONS of a documentation page include arrows. If more than one page or folder is present, you can use arrows to move the entry up or down in the directory structure.
 {% endhint %}

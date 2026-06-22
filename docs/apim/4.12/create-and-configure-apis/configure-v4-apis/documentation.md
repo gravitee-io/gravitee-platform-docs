@@ -235,7 +235,11 @@ To edit or delete folders or pages, or to change the documentation structure, se
 
 **Reorder:** To change the order of pages and folders in a directory, use the up and down arrows.
 
-**Delete:** To delete a page or folder, click the associated trash icon. Only empty folders can be deleted.
+**Delete:** To delete a page or folder, click the associated trash icon.
+
+{% hint style="warning" %}
+Deleting a folder removes all nested folders, documentation pages, and APIs recursively. This action is permanent and cannot be undone. Sibling items are automatically reordered after deletion.
+{% endhint %}
 
 ## Link pages
 

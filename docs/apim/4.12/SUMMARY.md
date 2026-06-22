@@ -338,6 +338,7 @@
       * [Configure Authentication with SSO](developer-portal/new-developer-portal/configure-authentication/configure-authentication-with-sso.md)
       * [Enforce User Authentication](developer-portal/new-developer-portal/configure-authentication/enforce-user-authentication.md)
     * [Portal analytics configuration reference](developer-portal/new-developer-portal/portal-analytics-configuration-reference.md)
+    * [Portal Navigation Cascade Operations](developer-portal/new-developer-portal/customize-the-navigation/portal-navigation-cascade-operations.md)
     * [Subscription form technical implementation](developer-portal/new-developer-portal/subscription-form-technical-implementation.md)
     * [View and manage portal analytics dashboards](developer-portal/new-developer-portal/viewing-and-managing-portal-analytics-dashboards.md)
   * [Classic Developer Portal](developer-portal/classic-developer-portal/README.md)
