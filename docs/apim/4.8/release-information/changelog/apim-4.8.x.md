@@ -4,6 +4,44 @@ description: Documentation about apim 4.8.x in the context of APIs.
 
 # APIM 4.8.x
  
+## Gravitee API Management 4.8.30 - June 20, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Produce OpenTelemetry server spans [#11046](https://github.com/gravitee-io/issues/issues/11046)
+
+**Console**
+
+* Use default scopes for OpenID Connect identity providers [#11322](https://github.com/gravitee-io/issues/issues/11322)
+* Account settings - Problem updating avatar [#11538](https://github.com/gravitee-io/issues/issues/11538)
+
+**Other**
+
+* NGINX error on response when using Assing Content on Request [#11483](https://github.com/gravitee-io/issues/issues/11483)
+* APIM 4.11  – Developer Portal – Documentation Display Issue [#11496](https://github.com/gravitee-io/issues/issues/11496)
+* A single log entry with a malformed @timestamp breaks the entire logs page (HTTP 500) [#11529](https://github.com/gravitee-io/issues/issues/11529)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Console**
+
+* Events are not filtered in Global Analytics graphs [#11520](https://github.com/gravitee-io/issues/issues/11520)
+
+**Other**
+
+* API export silently returns empty file when serialization fails [#11320](https://github.com/gravitee-io/issues/issues/11320)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.8.29 - June 8, 2026
 <details>
 
