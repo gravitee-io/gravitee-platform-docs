@@ -8,8 +8,7 @@ The Automation API is disabled by default. Enable it by setting the following pr
 http:
   api:
     automation:
-      enabled: false
-      entrypoint: /automation
+      enabled: true
 ```
 
 {% hint style="info" %}
