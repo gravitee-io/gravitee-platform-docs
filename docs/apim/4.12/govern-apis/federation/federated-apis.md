@@ -56,7 +56,7 @@ Follow the links below to visit the documentation for each configuration page.
 Plans for federated APIs are based on API products, usage plans, and similar concepts already defined and automatically imported from 3rd-party providers. A plan only exists to the extent that a matching concept exists in the 3rd-party provider.
 
 When Gravitee API plans are ingested from a 3rd-party provider, they enable subscriptions to the 3rd-party APIs be managed directly from within Gravitee.
-Under the hood, the federation agent integrates with the third party's management API to create the required objects that enable the requested subscription. This may result in an API key being returned to the user in Gravitee APIM or in the Gravitee Developer portal. In other cases, it creates the right permissions on the third party, while access control is done using a 3rd-party OAuth server for instance.
+Under the hood, the federation agent integrates with the third party's management API to create the required objects that enable the requested subscription. This may result in an API key being returned to the user in Gravitee APIM or in the Gravitee Developer Portal. In other cases, it creates the right permissions on the third party, while access control is done using a 3rd-party OAuth server for instance.
 
 To manage your federated API's plans and their subscriptions, go to the **Consumers** tab for your federated API.
 
