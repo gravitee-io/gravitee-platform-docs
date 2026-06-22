@@ -1,5 +1,51 @@
 # APIM 4.10.x
  
+## Gravitee API Management 4.10.18 - June 20, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Produce OpenTelemetry server spans [#11046](https://github.com/gravitee-io/issues/issues/11046)
+* Disable external entities on the EL xmlContent XMLInputFactory (XXE hardening) [#11527](https://github.com/gravitee-io/issues/issues/11527)
+
+**Console**
+
+* Use default scopes for OpenID Connect identity providers [#11322](https://github.com/gravitee-io/issues/issues/11322)
+* Debug Mode Trailing Slash Behavior – Clarification [#11428](https://github.com/gravitee-io/issues/issues/11428)
+* Account settings - Problem updating avatar [#11538](https://github.com/gravitee-io/issues/issues/11538)
+
+**Other**
+
+* MCP Proxy built-in {{/.well-known/oauth-protected-resource}} handling breaks backward compatibility with externally deployed APIs at the same path [#11450](https://github.com/gravitee-io/issues/issues/11450)
+* EL not supported for Kafka producer topics [#11482](https://github.com/gravitee-io/issues/issues/11482)
+* NGINX error on response when using Assing Content on Request [#11483](https://github.com/gravitee-io/issues/issues/11483)
+* Gateway Cannot Write to /models Directory in Debian Image [#11492](https://github.com/gravitee-io/issues/issues/11492)
+* APIM 4.11  – Developer Portal – Documentation Display Issue [#11496](https://github.com/gravitee-io/issues/issues/11496)
+* Equals operator should not be able to be saved with a wildcard path in flow configuration [#11512](https://github.com/gravitee-io/issues/issues/11512)
+* Do not cache empty or errored EL resolution of ACL resource patterns [#11528](https://github.com/gravitee-io/issues/issues/11528)
+* A single log entry with a malformed @timestamp breaks the entire logs page (HTTP 500) [#11529](https://github.com/gravitee-io/issues/issues/11529)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Console**
+
+* Events are not filtered in Global Analytics graphs [#11520](https://github.com/gravitee-io/issues/issues/11520)
+
+**Other**
+
+* API export silently returns empty file when serialization fails [#11320](https://github.com/gravitee-io/issues/issues/11320)
+* AVRO→JSON: decode Kafka record key on subscribe phase [#11507](https://github.com/gravitee-io/issues/issues/11507)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.10.17 - June 8, 2026
 <details>
 
