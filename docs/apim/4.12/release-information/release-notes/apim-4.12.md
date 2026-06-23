@@ -196,7 +196,6 @@
 * Portal administrators can now publish, unpublish, and delete folders and API sections along with all nested content in a single action.
 * Publishing or unpublishing a folder propagates the visibility change to all nested documentation pages, sub-folders, and APIs. Unpublishing a folder sets all nested items to PRIVATE visibility.
 * Deleting a folder or API section removes the container and all descendants recursively. The delete button is now enabled for all items regardless of child count, and sibling items are automatically reordered after deletion.
-* The portal navigation tree preserves the user's collapsed and expanded folder state after operations, maintaining the current view state.
 <!-- /PIPELINE:APIM-14411 -->
 
 ## Improvements

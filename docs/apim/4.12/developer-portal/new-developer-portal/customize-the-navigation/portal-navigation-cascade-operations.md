@@ -19,11 +19,7 @@ When a folder or API section is published or unpublished, the action propagates 
 
 ### Cascade Deletion
 
-Deleting a folder or API section removes the container and all its descendants recursively. This includes nested folders, documentation pages, and their associated content. Previously, folders that contained children could not be deleted—the delete button was disabled and displayed a tooltip stating "Only empty folders can be deleted." The delete button is now enabled for all items regardless of child count. After deletion, sibling items at the same level are automatically reordered to maintain a continuous sequence. Deletion is permanent and cannot be undone.
-
-### Tree Expansion State
-
-The portal navigation tree preserves the user's collapsed and expanded folder state after publish, unpublish, delete, or move actions. The tree expands all folders by default on initial page load, but subsequent operations maintain the user's current view state.
+Deleting a folder or API section removes the container and all its descendants recursively. This includes nested folders, documentation pages, and their associated content. After deletion, sibling items at the same level are automatically reordered to maintain a continuous sequence. Deletion is permanent and cannot be undone.
 
 ## Prerequisites
 
@@ -67,6 +63,6 @@ To delete a folder or API section and all its nested content:
 4. Review the confirmation dialog.
 5. Confirm the deletion to permanently remove the item and all its descendants.
 
-The delete button is now enabled for all items regardless of whether they contain nested content. Previously, folders that contained children could not be deleted—the delete button was disabled for non-empty containers. For items with children, the confirmation dialog displays: "This [item type] and all its nested items will be permanently deleted. This cannot be undone." For items without children, the dialog states: "This [item type] will no longer appear on your site."
+The delete button is now enabled for all items regardless of whether they contain nested content. For items with children, the confirmation dialog displays: "This [item type] and all its nested items will be permanently deleted. This cannot be undone." For items without children, the dialog states: "This [item type] will no longer appear on your site."
 
 When a folder or API section is deleted, all nested folders, documentation pages, and APIs are removed recursively. Associated page content is also deleted. Sibling items at the same level are automatically reordered to fill gaps in the sequence.

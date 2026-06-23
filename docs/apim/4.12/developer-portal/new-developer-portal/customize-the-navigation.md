@@ -39,7 +39,6 @@ Welcome page in the Developer Portal:
 ## Prerequisites
 
 * Enable the New Developer Portal. For more information about enabling the New Developer Portal, see [configure-the-new-portal.md](configure-the-new-portal.md "mention").
-* `ENVIRONMENT_DOCUMENTATION` update permission to publish, unpublish, and delete navigation items with cascade effects.
 
 ## Customizing your navigation
 
