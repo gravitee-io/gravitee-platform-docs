@@ -15,6 +15,14 @@ Here are the breaking changes for versions 4.X of Gravitee and versions 3.X of G
 
 Here are the breaking changes from versions 4.X of Gravitee.
 
+#### 4.12.0
+
+**JSON Validation policy: response error keys corrected**
+
+The JSON Validation policy now emits the correct error keys for response-scope failures in V4 APIs. Previously, the keys were swapped: a response payload that failed schema validation emitted `JSON_INVALID_RESPONSE_FORMAT`, and a malformed JSON response body emitted `JSON_INVALID_RESPONSE_PAYLOAD`. Both now emit the key that matches their name and the published documentation.
+
+If you configured response templates keyed on `JSON_INVALID_RESPONSE_FORMAT` to handle payload validation failures, or on `JSON_INVALID_RESPONSE_PAYLOAD` to handle parse failures, update those templates to use the correct key names.
+
 #### 4.11.0
 
 **A2A Proxy APIs architecture**
