@@ -13,7 +13,7 @@ Sharding tags allow you to “tag” Gateways with a keyword and deploy specific
 
 Gateways can be tagged with one or more sharding tags. Additionally, the `!` symbol can be placed before the tag name to specify exclusion rules.
 
-To learn more about how to deploy APIs to specific Gateways based on sharding tags, refer to [Configure Deployments](../../create-and-configure-apis/configure-v2-apis/proxy-settings.md).
+To learn more about how to deploy APIs to specific Gateways based on sharding tags, refer to [Configure Deployments](../../create-and-configure-apis/configure-v2-apis/proxy-settings.md) (see [Configure API Product Deployment](../../secure-and-expose-apis/api-products/configure-api-product-deployment.md)).
 
 ## Tagged Gateway/API behavior
 
@@ -53,7 +53,7 @@ Internal Network Gateways:
 
 You can also exclude Gateways from tags. For example, the following sharding tag definition configures a Gateway to host APIs that are not dedicated to partners:
 
-```
+```yaml
   tags: 'product,store,!partner'
 ```
 
@@ -231,3 +231,54 @@ Your entrypoint mapping is displayed in **Entrypoint Mappings**.
 {% hint style="success" %}
 You've just learned how to configure sharding tags for your Gravitee API Gateways. To apply sharding tags to APIs to control where those APIs are deployed, refer to [this documentation](../../create-and-configure-apis/configure-v2-apis/proxy-settings.md).
 {% endhint %}
+
+### Overview
+
+API Product deployment control enables platform administrators to assign sharding tags to API Products and their plans, determining which gateway instances serve each product. By tagging products and plans with organization-level sharding tags, administrators can route API Products to specific geographic regions, environments, or gateway clusters. This capability extends the existing API-level sharding tag model to API Products, ensuring consistent deployment control across both standalone APIs and product-managed APIs.
+
+### Key Concepts
+
+#### Sharding Tags
+
+Sharding tags are organization-level identifiers that control where API Products, plans, and APIs are deployed. Each gateway instance declares one or more sharding tags in its configuration. The gateway indexes and serves only those entities whose tags intersect with its configured tags. Sharding tags defined at the organization level serve as the source of truth; API Product and plan tags must reference keys defined in the organization's sharding tag registry.
+
+#### API Product Tags
+
+API Product tags determine which gateway instances index and serve the product. A product with no tags is eligible on all gateways. A product with one or more tags is indexed only on gateways whose configured tags intersect with the product's tags. Product tags act as the ceiling for plan tags—no plan can be assigned a tag that the product itself does not have. When an API Product's tags are narrowed, any plan tags no longer present in the product tag set are automatically removed from affected plans.
+
+#### Plan Tags
+
+Plan tags refine deployment eligibility within the scope of the parent API Product. Plan tags must be a subset of the API Product's tags. A plan with no tags inherits the product's gateway eligibility—it is indexed on every gateway where the parent product is eligible. A plan with one or more tags is indexed only on gateways where both the product's tags and the plan's tags match the gateway's configured tags. Plan tags enable administrators to deploy different plans to different gateway clusters within the same product.
+
+#### Member API Deployment Eligibility
+
+A member API (an API included in an API Product) is deployed on a gateway if either its own sharding tags match the gateway, or it has at least one published or deprecated API Product plan indexed on that gateway. For the product plan path, the product's tags must match the gateway, and the plan's tags must be empty (inheriting product placement) or match the gateway. This dual-path eligibility model allows APIs without matching tags to run on gateways via product plan inclusion, while standalone APIs continue to deploy only when their own tags match.
+
+### Prerequisites
+
+* Organization-level sharding tags must be defined in **Organization → Entrypoints & Sharding Tags** before they can be assigned to API Products or plans.
+* Gateway instances must declare the corresponding sharding tag keys in their configuration files to index and serve tagged products.
+* Users assigning sharding tags must have the `API_PRODUCT_DEFINITION:UPDATE` permission for API Products and `API_PRODUCT_PLAN:CREATE` or `API_PRODUCT_PLAN:UPDATE` permission for plans.
+* Group-restricted sharding tags can only be assigned by users who are members of the tag's restricted groups.
+
+### Gateway Configuration
+
+Gateway instances must declare sharding tags in their configuration to participate in tag-based deployment filtering. When no sharding tags are configured, the gateway retrieves all API Products, plans, and APIs. When one or more sharding tags are configured, the gateway indexes only entities whose tags intersect with its configured tags.
+
+To configure sharding tags for a gateway, navigate to **Organization > Gateway > Entrypoints & Sharding Tags** in the Console. The **Sharding Tags** section displays all tags available for gateway configuration.
+
+<figure><img src="../../.gitbook/assets/apim-api-product-sharding-tags-step-17.png" alt="Organization settings page showing entrypoints and sharding tags configuration with a table displaying a single 'dit' tag"><figcaption></figcaption></figure>
+
+After creating or deleting a sharding tag, the Console displays a success notification and updates the sharding tags table to reflect the current state.
+
+<figure><img src="../../.gitbook/assets/apim-api-product-sharding-tags-step-18.png" alt="Organization entrypoints and sharding tags page showing empty sharding tags table with success notification"><figcaption></figcaption></figure>
+
+Sharding tags can be configured as **restricted** or **external**. To create or edit a restricted tag, click the edit icon next to the tag or click **Add a tag**. In the **Edit a tag** dialog, provide a name, key, and optional description. Select one or more restricted groups from the **Restricted groups** dropdown to limit which users can deploy APIs with this tag.
+
+<figure><img src="../../.gitbook/assets/apim-api-product-sharding-tags-step-19.png" alt="Edit tag dialog showing restricted tag configuration with name, key, description, and restricted groups fields"><figcaption></figcaption></figure>
+
+To create an external tag, provide only a name and key in the **Edit a tag** dialog. External tags do not require restricted group assignment and are available to all users.
+
+<figure><img src="../../.gitbook/assets/apim-api-product-sharding-tags-step-20.png" alt="Edit tag dialog showing external tag configuration with name and key fields"><figcaption></figcaption></figure>
+
+Once sharding tags are defined in the Console, add the tag keys to the API Gateway configuration file to enable tag-based filtering. The gateway will then retrieve only API Products, plans, and APIs that match its configured tags.

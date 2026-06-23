@@ -22,6 +22,8 @@ The system validates that:
 
 To verify name availability before creation, send a POST request to `/environments/{envId}/api-products/_verify` with the name in the request body. The response includes an `ok` boolean and an optional `reason` string if the name is unavailable.
 
+Assigning sharding tags to an API Product requires the `API_PRODUCT_DEFINITION:UPDATE` permission.
+
 ## Update an API Product
 
 Update an API Product by sending a PUT request to `/environments/{envId}/api-products/{id}` with the same JSON structure. The same validation rules apply.

@@ -198,6 +198,17 @@
 * An empty or unset whitelist disables issuer validation entirely, maintaining backward compatibility with existing configurations.
 <!-- /PIPELINE:APIM-14474 -->
 
+
+<!-- PIPELINE:APIM-14357 -->
+#### **API Product Deployment Control with Sharding Tags**
+
+* API Products and their plans can now be assigned organization-level sharding tags to control which gateway instances serve each product.
+* Product tags determine gateway eligibility, while plan tags refine deployment within the product's scope—plan tags must be a subset of product tags.
+* Member APIs deploy on gateways either through their own sharding tags or via published/deprecated product plans indexed on that gateway.
+* Sharding tags must be defined at **Organization → Entrypoints & Sharding Tags** before assignment, and gateways must declare corresponding tags in their configuration.
+* Users require `API_PRODUCT_DEFINITION:UPDATE` permission for products and `API_PRODUCT_PLAN:CREATE/UPDATE` permissions for plans to assign tags.
+<!-- /PIPELINE:APIM-14357 -->
+
 ## Improvements
 
 

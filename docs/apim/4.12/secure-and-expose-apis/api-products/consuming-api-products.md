@@ -28,6 +28,10 @@ When a request reaches the gateway, the gateway validates subscriptions in the f
 
 API Product plans take priority, but access through API-level plans is still possible when no API Product-level subscription applies. APIs within an API Product retain their own plans and subscriptions, so consumers can continue to subscribe to individual API plans independently of the API Product.
 
+## Gateway indexing and deployment eligibility
+
+Gateway instances evaluate API Product tags, plan tags, and member API eligibility when determining which entities to index and serve. A member API (an API included in an API Product) is deployed on a gateway if either its own sharding tags match the gateway, or it has at least one published or deprecated API Product plan indexed on that gateway. For the product plan path, the product's tags must match the gateway, and the plan's tags must be empty (inheriting product placement) or match the gateway. This dual-path eligibility model allows APIs without matching tags to run on gateways via product plan inclusion, while standalone APIs continue to deploy only when their own tags match.
+
 ## Gateway context attributes
 
 For API Product subscriptions, the gateway sets the following context attributes on the request execution context. Reference them from Gravitee Expression Language (EL) to write flow conditions that branch on the API Product or plan context:

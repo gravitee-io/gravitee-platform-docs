@@ -23,6 +23,10 @@ API Products support the following plan types:
 
 Keyless and OAuth plans aren't supported. The Console UI only displays API Key, JWT, and mTLS as available plan types when creating a plan for an API Product. The Management API rejects Keyless plans with a `400 Bad Request` error: "Plan Security Type KeyLess is not allowed."
 
+## Plan tag validation
+
+Plan tags must be a subset of the API Product's tags. If a plan includes tags that aren't present in the product's tag set, the operation fails with the error: "Plan tags mismatch the tags defined by the API Product."
+
 ## Naming requirements
 
 API Product names are unique within an environment. Name comparison is case-sensitive — for example, "Product A" and "product a" are treated as different names. The name is trimmed of leading and trailing whitespace before validation.
