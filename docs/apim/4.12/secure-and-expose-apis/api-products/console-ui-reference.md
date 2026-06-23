@@ -68,8 +68,9 @@ Access to API Product features is gated by the following permission scopes:
 
 | Permission | Access |
 |:-----------|:-------|
-| `API_PRODUCT-DEFINITION` READ | View Configuration and APIs tabs |
-| `api_product-definition-u` | Edit configuration, deploy |
-| `API_PRODUCT-PLAN` READ | View Plans tab |
-| `api_product-plan-u` | Create, publish, deprecate, close, reorder plans |
-| `api_product-subscription-r` | View Subscriptions tab |
+| `API_PRODUCT_DEFINITION` READ | View Configuration and APIs tabs |
+| `API_PRODUCT_DEFINITION` UPDATE | Edit configuration, assign sharding tags, deploy |
+| `API_PRODUCT_PLAN` CREATE | Create plans, assign sharding tags when creating a plan |
+| `API_PRODUCT_PLAN` READ | View Plans tab |
+| `API_PRODUCT_PLAN` UPDATE | Edit plans, assign sharding tags when editing a plan, publish, deprecate, close, reorder plans |
+| `API_PRODUCT_SUBSCRIPTION` READ | View Subscriptions tab |
