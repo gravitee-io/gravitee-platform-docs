@@ -215,6 +215,14 @@
 * When you publish or unpublish a folder, the visibility change propagates to all nested documentation pages, sub-folders, and APIs. When you unpublish a folder, all nested items are set to `PRIVATE` visibility.
 * When you delete a folder or API section, the container and all descendants are removed recursively. The **Delete** button is now enabled for all items regardless of child count, and sibling items are automatically reordered after deletion.
 <!-- /PIPELINE:APIM-14411 -->
+<!-- PIPELINE:APIM-14501 -->
+#### **Token-Bucket Rate Limiting Policy**
+
+* Introduces a new rate-limiting policy that allows controlled bursts of traffic while maintaining a steady average request rate, providing more flexible traffic management than fixed-window rate limits.
+* Supports both strict (per-request atomic enforcement) and async (approximate, higher-throughput) modes, with configurable burst capacity, refill rate, and refill period.
+* Available for HTTP proxy APIs and V4 message APIs, with optional custom key composition using Expression Language to identify consumers by IP address, user ID, or other attributes.
+* Requires a distributed repository (Redis, MongoDB, JDBC, or Hazelcast) for rate-limit state synchronization across gateway nodes.
+<!-- /PIPELINE:APIM-14501 -->
 
 ## Improvements
 

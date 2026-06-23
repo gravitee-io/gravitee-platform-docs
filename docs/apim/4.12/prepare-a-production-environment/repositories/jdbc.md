@@ -113,6 +113,9 @@ management:
         maxLifetime:            # jdbc max lifetime (default 1800000)
         minIdle:                # jdbc min idle (default 10)
         maxPoolSize:            # jdbc max pool size (default 10)
+ratelimit:
+  jdbc:
+    prefix:                     # rate-limit tables prefix (applies to tokenbucket table)
 ```
 {% endcode %}
 {% endtab %}
@@ -132,6 +135,7 @@ gravitee_management_jdbc_pool_idleTimeout=600000
 gravitee_management_jdbc_pool_maxLifetime=1800000
 gravitee_management_jdbc_pool_minIdle=10
 gravitee_management_jdbc_pool_maxPoolSize=10
+gravitee_ratelimit_jdbc_prefix=
 ```
 {% endtab %}
 
@@ -169,9 +173,17 @@ gateway:
   env:
     - name: gravitee_management_jdbc_prefix
       value: prefix_
+    - name: gravitee_ratelimit_jdbc_prefix
+      value: prefix_
 ```
 {% endtab %}
 {% endtabs %}
+
+### JDBC Schema Tables
+
+The JDBC repository creates the following tables automatically via Liquibase on gateway startup:
+
+<table><thead><tr><th width="200">Table</th><th>Purpose</th><th>Notes</th></tr></thead><tbody><tr><td><code>tokenbucket</code></td><td>Token-bucket rate-limit state</td><td>Created automatically by Liquibase. Respects <code>ratelimit.jdbc.prefix</code> configuration. Has no native row TTL—rows persist until purged externally. For high-cardinality keyspaces (per-subscription/per-resource), the table grows with the number of distinct keys ever seen.</td></tr></tbody></table>
 
 ## Gravitee Helm chart JDBC configuration details
 

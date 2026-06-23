@@ -274,6 +274,7 @@
       * [SSL Enforcement](create-and-configure-apis/apply-policies/policy-reference/ssl-enforcement.md)
       * [Status Code Transformation](create-and-configure-apis/apply-policies/policy-reference/status-code-transformation.md)
       * [Template](create-and-configure-apis/apply-policies/policy-reference/template.md)
+      * [Token-Bucket Rate Limiting](create-and-configure-apis/apply-policies/policy-reference/token-bucket-rate-limiting.md)
       * [Traffic Shadowing](create-and-configure-apis/apply-policies/policy-reference/traffic-shadowing.md)
       * [Transform Headers](create-and-configure-apis/apply-policies/policy-reference/transform-headers.md)
       * [Transform Query Parameters](create-and-configure-apis/apply-policies/policy-reference/transform-query-parameters.md)
