@@ -17,6 +17,8 @@ Select the application you're looking for, and then select **Subscriptions** fro
 
 From the **Subscriptions** header of this page, you can view, filter, and delete subscriptions. Subscriptions are tagged by security type, the plan and API or API Product they belong to, the times at which they were created, processed, started, and ended, and their status.
 
+In the Developer Portal, users with Subscription Update (`U`) permission on either the API or the application can view subscription details, including a paginated table of all API keys (active, revoked, and expired) with lifecycle timestamps. Active keys display a check-circle icon, while inactive keys display an X-circle icon. Users can revoke active keys and renew keys directly from the subscription details page.
+
 ### Subscription reference model
 
 As of version 4.11.0, subscriptions use a reference model that supports both API and API Product subscriptions. Each subscription includes a `referenceType` field (`API` or `API_PRODUCT`) and a `referenceId` pointing to the parent resource. The legacy `api` field is deprecated as of version 4.11.0 and shouldn't be used for new subscriptions.
@@ -34,6 +36,8 @@ To filter subscriptions, use the **API** and **API Key** search fields and/or th
 <figure><img src="../../.gitbook/assets/1 app sub 2.png" alt=""><figcaption></figcaption></figure>
 
 To create a new subscription, click **+ Create a subscription** and search for the API you'd like to subscribe to. Refer to the [subscription](./) documentation for more information.
+
+After subscribing to an API, the visibility of API access information depends on the plan's security type and whether the API is provider-managed (federated) or Gravitee-managed (native). For details, see [View API access information](../../govern-apis/federation/federated-apis.md#view-api-access-information).
 
 ## Subscription validation
 

@@ -9,9 +9,6 @@ metaLinks:
 
 ## Overview
 
-{% hint style="warning" %}
-This feature is in tech preview.
-{% endhint %}
 
 Terraform lets you manage APIs and other entities via configuration rather than manual updates in the APIM Console. This lets you automate and version changes to your APIM instance for an Infrastructure as Code (IaC) experience.
 

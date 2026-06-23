@@ -15,7 +15,7 @@ The Redis repository plugin enables you to connect to Redis databases to use the
 
 | Database | Version tested        |
 | -------- | --------------------- |
-| Redis    | 6.2.x / 7.0.x / 7.2.x |
+| Redis    | 6.2.x / 7.0.x / 7.2.x / 7.4.x/ 8.0.x |
 
 ## Configure the Rate Limit repository plugin
 

@@ -4,9 +4,6 @@ description: Configuration guide for terraform.
 
 # Terraform
 
-{% hint style="warning" %}
-This feature is in tech preview.
-{% endhint %}
 
 Terraform lets you use configuration files to build and manage your infrastructure. Starting with Gravitee 4.8, local installations of Gravitee support Terraform for an Infrastructure as Code (IaC) approach to API management. This enables users to automate and version control Gravitee APIs.
 
@@ -16,7 +13,7 @@ The Gravitee Terraform Provider is an open source plugin that is publicly availa
 
 Terraform configuration files are written in HashiCorp Configuration Language (HCL). They define the properties of providers and resources, which Terraform stores as the desired state of the system. When you update a configuration file, Terraform detects the changes to your resources and applies them automatically.
 
-Click on the cards below to learn more about Gravitee's Terraform provider. If you are familiar with Terraform, you can visit the [Gravitee "apim" Terraform Regisitry documentation](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/guides/setup) to get started.
+Click on the cards below to learn more about Gravitee's Terraform provider. If you are familiar with Terraform, you can visit the [Gravitee "apim" Terraform Registry documentation](https://registry.terraform.io/providers/gravitee-io/apim/latest/docs/guides/setup) to get started.
 
 {% hint style="info" %}
 Users of OpenTofu can use APIM provider as well\

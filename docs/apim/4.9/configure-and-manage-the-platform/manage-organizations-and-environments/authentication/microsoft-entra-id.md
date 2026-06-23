@@ -103,7 +103,7 @@ To avoid the use of a previous token or misconfiguration, reset the cache of you
 
 ### **Permissions, groups and roles**
 
-You can manually customize permissions, groups, and roles for new users, or use the automatic Roles and Groups Mapping feature. For more information about Roles and Mappings, see [broken-reference](broken-reference/ "mention").
+You can manually customize permissions, groups, and roles for new users, or use the automatic Roles and Groups Mapping feature. For more information about Roles and Mappings, see [roles-and-groups-mapping.md](roles-and-groups-mapping.md "mention").
 
 ### **Groups Mapping**
 
