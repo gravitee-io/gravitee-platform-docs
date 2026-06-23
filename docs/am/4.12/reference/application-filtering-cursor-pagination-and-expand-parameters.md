@@ -16,7 +16,7 @@ The Application list endpoint supports two filters: `status` filters Application
 
 ### Field Expansion
 
-The `expand` parameter controls which additional fields appear in the response. Setting `expand=clientId` includes the OAuth client ID for each Application. Unknown expansion values are silently ignored. This feature reduces the need for follow-up API calls when client IDs are required for integration workflows.
+The `expand` parameter controls which additional fields appear in the response. Setting `expand=clientId` includes the OAuth client ID for each Application. Unknown expansion values are ignored. This feature reduces the need for follow-up API calls when client IDs are required for integration workflows.
 
 ### Cursor Pagination
 
@@ -88,7 +88,7 @@ Note the following restrictions:
 
 - Filtering by `owner.email` requires `ORGANIZATION_USER[READ]` permission on the organization; requests without this permission return `403 Forbidden`
 - Only `updatedAt` and `name` are supported as sort fields; other values cause `400 Bad Request`
-- Wildcard searches using `*` cannot leverage database indexes efficiently and may perform poorly on large datasets
+- Wildcard searches using `*` cannot leverage database indexes efficiently and might not perform well on large datasets
 - Cursor tokens are invalidated if Applications are deleted or updated between pagination requests
 - Unknown values in the `expand` parameter are silently ignored
 - The `status` parameter accepts only `enabled` or `disabled`; other values cause `400 Bad Request`
