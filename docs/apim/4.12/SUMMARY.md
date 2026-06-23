@@ -310,6 +310,7 @@
     * [API Product Membership and Ownership Models](secure-and-expose-apis/api-products/api-product-membership-and-ownership-models.md)
     * [API Products console UI reference](secure-and-expose-apis/api-products/console-ui-reference.md)
     * [API Products restrictions and licensing](secure-and-expose-apis/api-products/restrictions-and-licensing.md)
+    * [Configure Plan Deployment](secure-and-expose-apis/api-products/configure-plan-deployment.md)
     * [Configuring API Product Primary Owner Mode and Group Defaults](secure-and-expose-apis/api-products/configure-api-product-primary-owner-mode-and-group-defaults.md)
     * [Consuming APIs via API Products](secure-and-expose-apis/api-products/consuming-api-products.md)
     * [Managing API Product Members and Ownership (Configuration Page)](secure-and-expose-apis/api-products/manage-api-product-members-and-ownership-configuration-page.md)

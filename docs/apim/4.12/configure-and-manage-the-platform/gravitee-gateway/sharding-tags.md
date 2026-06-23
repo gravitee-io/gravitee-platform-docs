@@ -42,7 +42,7 @@ If you have an architecture that includes both DMZ Gateways and internal corpora
 Before sharding tags can be defined in your APIM Console, you must define the configuration to assign a tag to a Gateway. For example:
 
 ```
-DMZ Gateways: 
+DMZ Gateways:
   tags: 'external'
 ```
 
@@ -53,7 +53,7 @@ Internal Network Gateways:
 
 You can also exclude Gateways from tags. For example, the following sharding tag definition configures a Gateway to host APIs that are not dedicated to partners:
 
-```
+```yaml
   tags: 'product,store,!partner'
 ```
 
@@ -231,3 +231,73 @@ Your entrypoint mapping is displayed in **Entrypoint Mappings**.
 {% hint style="success" %}
 You've just learned how to configure sharding tags for your Gravitee API Gateways. To apply sharding tags to APIs to control where those APIs are deployed, refer to [this documentation](../../create-and-configure-apis/configure-v2-apis/proxy-settings.md).
 {% endhint %}
+
+### Overview
+
+Organization-level sharding tags control where API Products and their plans are deployed across gateway instances. Sharding tags defined in the Organization settings serve as the source of truth for all API Products and plans. Each tag consists of a key, name, and optional description. Tags may be restricted to specific user groups, limiting which administrators can assign them.
+
+### Key Concepts
+
+#### Sharding Tags
+
+Sharding tags are organization-level identifiers that control deployment placement. Console tag assignment alone is not sufficient — each target gateway must declare the corresponding tag key in its configuration files to filter products and plans.
+
+#### API Product Tags
+
+API Product tags determine which gateway instances will index and serve the product. When an API Product is assigned sharding tags, only gateways configured with matching tags will retrieve the product during synchronization. A product with no tags is eligible on all gateways. Product tags establish the ceiling for plan tags — plans can only use tags that are already assigned to their parent product. All tag changes on API Products produce audit log entries on the affected resource.
+
+#### Plan Tags
+
+Plan tags provide deployment control at the plan level within an API Product. Plan tags must be a subset of the API Product's tags. A plan with no tags is eligible on every gateway where its parent product is eligible. When a plan has tags, it is only indexed on gateways where both the product tags and plan tags match the gateway's configuration. All tag changes on plans produce audit log entries on the affected resource.
+
+To learn more about how to configure plan deployment with sharding tags, refer to [Configure Plan Deployment](../../secure-and-expose-apis/api-products/configure-plan-deployment.md).
+
+#### Member API Deployment Eligibility
+
+Member APIs linked to an API Product can become deployable on a gateway through two paths: their own sharding tags match the gateway, or they have at least one published or deprecated API Product plan indexed on that gateway. For the product plan path, the product's tags must match the gateway, and the plan's tags must be empty or match the gateway. This allows APIs without matching tags to run on gateways via product plan eligibility.
+
+### Prerequisites
+
+* Organization-level sharding tags must be defined in **Organization → Gateway → Entrypoints & Sharding Tags** before they can be assigned to API Products or plans.
+* Gateway instances must declare the corresponding tag keys in their configuration files to filter products and plans. Console tag assignment alone is not sufficient.
+* Users assigning tags must have the `API_PRODUCT_DEFINITION:UPDATE` permission for API Products or `API_PRODUCT_PLAN:CREATE` / `API_PRODUCT_PLAN:UPDATE` for plans.
+* Group-restricted tags can only be assigned by members of the designated groups.
+
+### Gateway Configuration
+
+The Gateway Configuration section allows you to define default entrypoint values and manage sharding tags for API deployments.
+
+#### Configure sharding tags
+
+Sharding tags control how APIs are deployed across gateway instances. To add a sharding tag:
+
+1. Navigate to **Organization → Gateway → Entrypoints & Sharding Tags** in the Console.
+2. Scroll to the **Sharding Tags** section and click **Add a tag**.
+3. Enter the tag key and name, then save. The tag will appear in the sharding tags table.
+
+    <figure><img src="../../.gitbook/assets/apim-api-product-sharding-tags-step-03.png" alt="Organization settings page showing sharding tags table with 'dit' tag entry and empty entrypoint mappings section"><figcaption></figcaption></figure>
+<!-- GAP: verify product scenario for 'empty entrypoint' -->
+
+{% hint style="info" %}
+Add the sharding tag's key to the API Gateway configuration file in order to manage API deployments.
+{% endhint %}
+
+#### Configure default entrypoints
+
+Default entrypoint values are displayed in the Developer Portal for APIs. To configure entrypoints:
+
+1. In the **Entrypoint Configuration** section, set the default values for your environment:
+   * **Default HTTP entrypoint**: The base URL for API access (e.g., `https://api.company.com`)
+   * **Default TCP port**: The TCP port for API access (e.g., `4082`)
+   * **Default Kafka Bootstrap Domain Pattern**: The Kafka domain pattern (e.g., `{apiHost}`)
+   * **Default Kafka port**: The Kafka port (e.g., `9092`)
+
+       <figure><img src="../../.gitbook/assets/apim-api-product-sharding-tags-step-04.png" alt="Organization settings page showing entrypoint configuration and empty sharding tags table with 'No tag' message"><figcaption></figcaption></figure>
+
+{% hint style="info" %}
+Include entrypoint and sharding tag configuration according to the values already used by the deployed API Gateway(s).
+{% endhint %}
+
+#### Map entrypoints to sharding tags
+
+The **Entrypoint Mappings** section allows you to associate specific entrypoints with sharding tags. This determines which entrypoint is displayed in the Developer Portal when an API has a given tag. Click **Add a mapping** to create a new entrypoint-to-tag association.

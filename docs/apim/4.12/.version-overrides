@@ -144,3 +144,15 @@ upgrade-guides/README.md
 .gitbook/assets/federated-api-plans-list.png
 configure-and-manage-the-platform/manage-organizations-and-environments/developer-portal.md
 govern-apis/federation/federated-apis.md
+.gitbook/assets/apim-api-product-sharding-tags-step-01.png
+.gitbook/assets/apim-api-product-sharding-tags-step-02.png
+.gitbook/assets/apim-api-product-sharding-tags-step-03.png
+.gitbook/assets/apim-api-product-sharding-tags-step-04.png
+.gitbook/assets/apim-api-product-sharding-tags-step-05.png
+.gitbook/assets/apim-api-product-sharding-tags-step-06.png
+.gitbook/assets/apim-api-product-sharding-tags-step-07.png
+.gitbook/assets/apim-api-product-sharding-tags-step-08.png
+configure-and-manage-the-platform/gravitee-gateway/sharding-tags.md
+secure-and-expose-apis/api-products/configure-plan-deployment.md
+secure-and-expose-apis/api-products/console-ui-reference.md
+secure-and-expose-apis/plans/README.md
