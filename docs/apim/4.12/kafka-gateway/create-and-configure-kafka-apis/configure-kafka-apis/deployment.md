@@ -21,6 +21,8 @@ Multiple sharding tags can be assigned to your API. Once you've saved your selec
 
 <figure><img src="../../../.gitbook/assets/1 shard 2.png" alt=""><figcaption></figcaption></figure>
 
+API Product deployment configuration, including sharding tags, can also be managed through GKO CRDs. For more information, see the [API Product deployment guide](../../../secure-and-expose-apis/api-products/configuring-api-product-deployment-with-sharding-tags.md).
+
 ## Deployment History
 
 Selecting the **Deployment History** header displays the history of changes to your API deployment. These are the changes to your API definition from the perspective of the Kafka Gateway.

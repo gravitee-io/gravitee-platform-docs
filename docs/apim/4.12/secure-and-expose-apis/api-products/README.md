@@ -15,6 +15,7 @@ An API Product is an environment-level resource that groups V4 HTTP Proxy APIs u
 - A unique name within its environment (name comparison is case-sensitive, so "Product A" and "product a" are treated as different names)
 - A version
 - An optional description
+- Optional sharding tags for deployment targeting
 - API Product-level plans (API Key, JWT, or mTLS only — Keyless and OAuth plans aren't supported)
 - API Product-level subscriptions
 
@@ -55,7 +56,7 @@ Only V4 HTTP Proxy APIs with the **Allow in API Products** toggle enabled can be
 4. Enable the toggle.
 5. Click **Save** to apply the change.
 
-<figure><img src="../../.gitbook/assets/allow-in-api-products-toggle.png" alt=""><figcaption><p>"Allow in API Products" toggle on the API General Info page</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/allow-in-api-products-toggle.png" alt=""><figcaption><p>"Allow in API Products" toggle on the API General Info page</p></figcaption></figure>
 
 ## Prerequisites
 
@@ -72,7 +73,7 @@ Only V4 HTTP Proxy APIs with the **Allow in API Products** toggle enabled can be
 5. Optionally, enter a **Description**.
 6. Click **Create API Product**.
 
-<figure><img src="../../.gitbook/assets/create-api-product.png" alt=""><figcaption><p>Create API Product form</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/create-api-product.png" alt=""><figcaption><p>Create API Product form</p></figcaption></figure>
 
 ## Edit an API Product
 
@@ -171,6 +172,16 @@ The subscription is created with a status based on the plan's validation setting
 - **AUTO** validation: the subscription is immediately **Accepted**
 - **MANUAL** validation: the subscription is set to **Pending** and requires approval
 
+After a plan is configured with sharding tags, subscriptions to that plan display the plan name and associated tags in the subscription details page.
+
+<figure><img src="../../.gitbook/assets/apim-api-product-sharding-tags-step-22.png" alt=""><figcaption><p>Subscription details page showing plan, status, consumer status, and application information</p></figcaption></figure>
+
+The subscription details page shows the plan name, subscription status, consumer status, and application information for both API Product plans and standalone API plans.
+
+<figure><img src="../../.gitbook/assets/apim-api-product-sharding-tags-step-24.png" alt=""><figcaption><p>Subscription details page for API showing plan and application information</p></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/apim-api-product-sharding-tags-step-27.png" alt=""><figcaption><p>Subscription details page showing subscriber information, application details, timestamps, and API keys section</p></figcaption></figure>
+
 ### Filter subscriptions
 
 The subscription list provides filters to narrow results by:
@@ -215,4 +226,4 @@ The initial release of API Products has the following limitations:
 
 - [Consuming APIs via API Products](consuming-api-products.md)
 - [API Products restrictions and licensing](restrictions-and-licensing.md)
-- [Managing API Products via Management API](manage-api-products-via-management-api.md)
+- [Managing API Products via Management API](manage-api-products-with-management-api.md)

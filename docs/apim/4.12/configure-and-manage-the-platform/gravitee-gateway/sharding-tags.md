@@ -7,13 +7,15 @@ metaLinks:
 
 # Sharding Tags
 
+
 ## Overview
 
-Sharding tags allow you to “tag” Gateways with a keyword and deploy specific APIs to a specific Gateway with a certain tag. You can apply _sharding tags_ on APIM Gateway instances either at the system property level, with Helm `values.yaml` or with `gravitee.yml`.
+Sharding tags allow you to "tag" Gateways with a keyword and deploy specific APIs and API Products to a specific Gateway with a certain tag. You can apply _sharding tags_ on APIM Gateway instances either at the system property level, with Helm `values.yaml` or with `gravitee.yml`.
 
 Gateways can be tagged with one or more sharding tags. Additionally, the `!` symbol can be placed before the tag name to specify exclusion rules.
 
-To learn more about how to deploy APIs to specific Gateways based on sharding tags, refer to [Configure Deployments](../../create-and-configure-apis/configure-v2-apis/proxy-settings.md).
+To learn more about how to deploy APIs and API Products to specific Gateways based on sharding tags, refer to the dedicated deployment configuration guides for [APIs](../../create-and-configure-apis/configure-v2-apis/proxy-settings.md) and [API Products](../../secure-and-expose-apis/api-products/configuring-api-product-deployment-with-sharding-tags.md).
+
 
 ## Tagged Gateway/API behavior
 
@@ -53,7 +55,7 @@ Internal Network Gateways:
 
 You can also exclude Gateways from tags. For example, the following sharding tag definition configures a Gateway to host APIs that are not dedicated to partners:
 
-```
+```yaml
   tags: 'product,store,!partner'
 ```
 
