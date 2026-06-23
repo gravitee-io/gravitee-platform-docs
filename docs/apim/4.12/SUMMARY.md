@@ -514,6 +514,7 @@
   * [Configure your HTTP Server](prepare-a-production-environment/configure-your-http-server.md)
   * [Sensitive Data Management](prepare-a-production-environment/sensitive-data-management/README.md)
     * [Configure Secrets](prepare-a-production-environment/sensitive-data-management/configure-secrets/README.md)
+      * [Azure Key Vault Secret Provider Overview](prepare-a-production-environment/sensitive-data-management/configure-secrets/azure-key-vault-secret-provider-overview.md)
       * [Quick Start](prepare-a-production-environment/sensitive-data-management/configure-secrets/quick-start.md)
       * [Configuration](prepare-a-production-environment/sensitive-data-management/configure-secrets/configuration.md)
       * [Reference Secrets in Configurations](prepare-a-production-environment/sensitive-data-management/configure-secrets/reference-secrets-in-configurations.md)
