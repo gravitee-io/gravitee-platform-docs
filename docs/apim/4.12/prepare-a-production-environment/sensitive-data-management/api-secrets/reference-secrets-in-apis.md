@@ -17,7 +17,7 @@ This article explains the syntax that you can use to resolve secrets in v4 APIs 
 
 ### How to reference secrets
 
-Every secret provider plugin enabled in `gravitee.yml` is usable from inside a v4 API definition with the `{#secrets.get(...)}` Gravitee Expression Language syntax described in this article. This includes AWS Secrets Manager (`aws`), HashiCorp Vault (`vault`), and Kubernetes Secrets (`kubernetes`).
+Every secret provider plugin enabled in `gravitee.yml` is usable from inside a v4 API definition with the `{#secrets.get(...)}` Gravitee Expression Language syntax described in this article. This includes AWS Secrets Manager (`aws`), HashiCorp Vault (`vault`), Kubernetes Secrets (`kubernetes`), and Azure Key Vault (`azure-keyvault`).
 
 Inside a v4 API definition, the Gateway scans the following locations for secret references:
 
@@ -34,7 +34,7 @@ Inside a v4 API definition, the Gateway scans the following locations for secret
 Use a secret reference in any field within these locations that contains sensitive information, such as endpoint URLs, request and response headers, authentication credentials, and SSL/TLS or mTLS settings.
 
 {% hint style="warning" %}
-* This feature is available in Enterprise Edition only. To learn more about Gravitee Enterprise Edition, see [enterprise-edition.md](../../../readme/enterprise-edition.md "mention").
+* This feature is available in Enterprise Edition only. To learn more about Gravitee Enterprise Edition, see [enterprise-edition.md](../../../introduction/enterprise-edition.md "mention").
 * Secrets work with only v4 APIs.
 {% endhint %}
 
@@ -109,6 +109,36 @@ Here is an example with query parameters:
 
 `{#secrets.get('#expression_to_get_the_secret_path?`<mark style="color:orange;">`query_paramter`</mark>`')}`
 
+### Azure Key Vault secret references
+
+Reference Azure Key Vault secrets in API configurations, policies, and authentication flows using the `secret://azure-keyvault/` URL scheme. For JSON secrets, append `:<key>` to extract a specific field. For plain-text secrets, the value is available under the `secretValue` key. Use the `keymap` query parameter to map custom JSON keys to well-known identifiers.
+
+**Extract a field from a JSON secret:**
+
+```yaml
+secret://azure-keyvault/my-secret:username
+```
+
+**Reference a plain-text secret:**
+
+```yaml
+secret://azure-keyvault/my-secret:secretValue
+```
+
+**Map custom JSON keys to well-known keys:**
+
+```yaml
+secret://azure-keyvault/my-secret?keymap=usr:username&keymap=pwd:password
+```
+
+This maps the `usr` field in the JSON secret to the `USERNAME` well-known key and the `pwd` field to the `PASSWORD` well-known key.
+
+**Use in an API expression:**
+
+```json
+{#secrets.get('/azure-keyvault/my-secret:secretValue')}
+```
+
 ## Secret resolution and evaluation
 
 ### Resolution
@@ -153,13 +183,34 @@ When the key is an EL, those plugins can access: dictionaries, API properties, a
 If the secret cannot be resolved and retry is activated, the API is deployed, but executing the policy or endpoint fails until retry resolves the secret.
 {% endhint %}
 
+### Azure Key Vault secret value parsing
+
+When the Azure Key Vault Secret Provider retrieves a secret, it parses the value based on its format. If the value is a JSON flat object, each key-value pair becomes a separate secret entry accessible via the `:<key>` suffix. If the value is plain text, it is returned under the `secretValue` key. The plugin does not support nested JSON objects—only top-level key-value pairs are extracted.
+
+### Azure Key Vault watch limitations
+
+The Azure Key Vault Secret Provider does not support secret watching. Calling the `watch()` method logs a warning and returns an empty stream. Any `?watch=true` query parameter on the secret URL is ignored. Secrets are fetched on demand and cached according to the Gravitee secret manager cache policy.
+
+### Azure Key Vault error handling
+
+If a secret is not found in Azure Key Vault, the plugin treats it as an empty result rather than throwing an error. HTTP 404 responses from Azure are handled silently. Other errors (authentication failures, network issues, invalid SSL configuration) throw a `SecretManagerException` with a descriptive message. Configuration errors (missing required fields, blank values) throw a `SecretManagerConfigurationException` during plugin initialization.
+
+| Error Message | Trigger |
+|---------------|---------|
+| `"Azure Key Vault 'Vault Url' is required"` | **Vault Url** is null or blank when `enabled: true` |
+| `"Azure Key Vault 'auth.clientSecret' is required for CLIENT_SECRET auth"` | `auth.clientSecret` is null or blank for `CLIENT_SECRET` provider |
+| `"Azure Key Vault 'auth.certificateFile' is required for CERTIFICATE auth"` | `auth.certificateFile` is null or blank for `CERTIFICATE` provider |
+| `"Failed to retrieve secret '%s' from Azure Key Vault"` | Secret fetch failed for reasons other than 404 |
+| `"Failed to configure SSL for Azure Key Vault client"` | SSL context creation failed |
+| `"No certificates found in Azure Key Vault SSL PEM file: %s"` | PEM file is empty or contains no certificates |
+
 ## Secret renewal
 
 If some secrets may change in the secret manager, renew their values regularly to avoid missing new values.
 
 You can do this by using the following two query parameters:
 
-*   `renewable=true`. This parameter enables automatic renewal of a secret. When added to a secret reference, it activates a renewal mechanism that checks the secret’s TTL, and then refreshes its value when necessary. Here is an example URI with this query parameter:
+*   `renewable=true`. This parameter enables automatic renewal of a secret. When added to a secret reference, it activates a renewal mechanism that checks the secret's TTL, and then refreshes its value when necessary. Here is an example URI with this query parameter:
 
     `{#secrets.get('/`<mark style="color:red;">`provider`</mark>`/`<mark style="color:green;">`path`</mark>`:`<mark style="color:yellow;">`key`</mark>`?`<mark style="color:orange;">`renewable=true`</mark>`')}`
 * `reloadOnChange=true`. If this query parameter is set with the `renewable=true` parameter, the API is reloaded to use the new secret value. This ensures that the API operates with the most current value. Here is an example URI with this query parameter:\
