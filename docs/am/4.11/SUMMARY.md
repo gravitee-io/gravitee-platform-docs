@@ -9,7 +9,7 @@
   * [Plugin Reference](overview/plugins/plugin-reference.md)
   * [Compatibility Matrices](overview/plugins/compatibility-matrices.md)
 * [Gravitee AM Enterprise Edition](overview/open-source-vs-enterprise-am/README.md)
-  * [Enterprise Edition Licensing](https://documentation.gravitee.io/platform-overview/gravitee-essentials/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing)
+  * [Enterprise Edition Licensing](https://documentation.gravitee.io/apim/readme/enterprise-edition-licensing)
 
 ## Getting Started
 

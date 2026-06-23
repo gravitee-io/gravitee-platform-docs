@@ -13,7 +13,7 @@ Azure API Management is Azure's built-in API management solution that you can us
 Before you install the Azure API Management federation agent, complete the following steps:
 
 * Access to an Azure API Management account with permissions to access the Azure API Management console.
-* Gravitee API Management version 4.5 or later, with an enterprise license. For more information about Enterprise edition, see [Enterprise Edition Licensing.](https://documentation.gravitee.io/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing#license-support)
+* Gravitee API Management version 4.5 or later, with an enterprise license. For more information about Enterprise edition, see [Enterprise Edition Licensing.](https://documentation.gravitee.io/apim/readme/enterprise-edition-licensing#license-support)
 * Install and configure Azure CLI. For more information, see [Install the Azure CLI.](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
 * An access token. For more information, see [how to create a service account and an access token.](../federation-agent-service-account.md)
 * Obtain your Azure APIM Subscription ID, Resource Group name, Service name, and Tenant ID.

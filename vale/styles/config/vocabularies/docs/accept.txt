@@ -1,15 +1,16 @@
 # ============================================
 # Gravitee Product & Platform Terms
 # ============================================
-Gravitee
+[Gg]ravitee
 [Aa][Pp][Ii][Mm]
 APID
-AM
+[Aa][Mm]
 GKO
 GC
 Cockpit
 Blackbird
 DevPortal
+[Dd]ev
 GRAVITEEIO
 mAPI
 Gravitee API Management
@@ -21,9 +22,9 @@ Gravitee Cloud
 # ============================================
 # API & Protocol Terms
 # ============================================
-API
-APIs
-API's
+[Aa][Pp][Ii]
+[Aa][Pp][Ii]s
+[Aa][Pp][Ii]'s
 REST|rest
 RESTful
 GraphQL
@@ -32,7 +33,7 @@ AsyncAPI
 OpenAPI
 OpenID
 OAuth2?
-OIDC
+OIDC|oidc
 OID
 OIDs
 SAML
@@ -127,7 +128,7 @@ MySQL
 MariaDB
 Elasticsearch
 Hazelcast
-Redis
+[Rr]edis
 DocumentDB
 R2DBC
 RDBMS
@@ -295,6 +296,9 @@ ISO
 # ============================================
 # Compound / Technical Words
 # ============================================
+auto-fetch
+auto-validate
+auto-validation
 [Bb]ackend
 [Ff]rontend
 [Cc]odebase
@@ -306,7 +310,7 @@ ISO
 [Hh]otfixes
 [Kk]eystore
 [Ll]ifecycle
-[Mm]etadata
+(?i)metadata
 [Mm]icroservices
 [Mm]onorepo
 [Oo]nboarding
@@ -407,6 +411,7 @@ GPG
 [Aa]uth[Nn]
 A2A
 bool
+[Cc]ron[s]?
 
 # ============================================
 # Cloud Providers & Services
@@ -527,7 +532,7 @@ ChatGPT
 Bedrock
 Vertex
 Foundry
-Cursor
+[Cc]ursor
 Copilot
 LangChain
 FastMCP
