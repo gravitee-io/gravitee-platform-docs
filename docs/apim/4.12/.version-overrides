@@ -144,3 +144,4 @@ upgrade-guides/README.md
 .gitbook/assets/federated-api-plans-list.png
 configure-and-manage-the-platform/manage-organizations-and-environments/developer-portal.md
 govern-apis/federation/federated-apis.md
+release-information/breaking-changes-and-deprecations.md
