@@ -177,6 +177,7 @@
 ## Reference
 
 * [API Reference](reference/am-api-reference.md)
+  * [Application Filtering, Cursor Pagination, and Expand Parameters](reference/application-filtering-cursor-pagination-and-expand-parameters.md)
 * [Automation API Reference](reference/automation-api-reference.md)
 
 ## Releases & Changelog

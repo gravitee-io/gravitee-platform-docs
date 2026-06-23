@@ -7,6 +7,8 @@ releases-and-changelog/release-notes/am-4.12.md
 .gitbook/assets/am-cimd-settings-overview.png
 guides/applications/README.md
 guides/auth-protocols/oauth-2.0/cimd.md
+getting-started/install-and-upgrade-guides/upgrade-guide.md
+reference/application-filtering-cursor-pagination-and-expand-parameters.md
 getting-started/configuration/configure-automation-api.md
 guides/automation-api.md
 reference/automation-api-reference.md

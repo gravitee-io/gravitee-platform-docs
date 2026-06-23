@@ -70,6 +70,17 @@ The behavior of the MFA challenge screen has changed. Previously, refreshing the
 <!-- /PIPELINE:AM-6906 -->
 
 
+<!-- PIPELINE:AM-6980 -->
+#### **Application Filtering, Cursor Pagination, and Expand Parameters**
+
+This release includes the following capabilities:
+
+* Filter Applications by a `status` of `enabled` or `disabled`, or by owner email address, using query parameters on the Application list API.
+* Expand API responses to include OAuth client IDs with the `expand=clientId` parameter, reducing the need for follow-up API calls.
+* Use the cursor-based pagination endpoint `/applications/search/_cursor` for efficient traversal of large Application datasets with opaque Base64-encoded tokens.
+* Combine filters with AND logic between `status` and owner, and OR logic within application types, to enable granular Application discovery workflows.
+* Requires `DOMAIN_APPLICATION[LIST]` permission for the target domain and `ORGANIZATION_USER[READ]` permission to filter by owner email.
+<!-- /PIPELINE:AM-6980 -->
 <!-- PIPELINE:AM-6850 -->
 #### **Automation API for Declarative Resource Management**
 
