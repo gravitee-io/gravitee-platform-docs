@@ -1,5 +1,5 @@
 ---
-description: Documentation about mongodb index management in the context of APIs.
+description: Documentation about MongoDB index management in the context of APIs.
 metaLinks:
   alternates:
     - mongodb-index-management.md
@@ -26,3 +26,4 @@ Four new indexes are created on the `events` collection. For databases with even
 | `portal_page_contexts` | `ppc_ctx_env1`            | `contextType` (asc), `environmentId` (asc)                                                                         | Standard | Portal page context queries                   |
 | `portal_page_contexts` | `ppc_page_ctx_env_unique` | `pageId` (asc), `contextType` (asc), `environmentId` (asc)                                                         | Unique   | Ensure unique page contexts                   |
 | `subscriptions`        | `s1ca-1ea1`               | `status` (asc), `createdAt` (desc), `endingAt` (asc)                                                               | Standard | Subscription lifecycle queries                |
+| `tokenbucket`          | TTL index                 | `expire_at` (asc)                                                                                                  | TTL      | Automatic expiration of token-bucket entries  |

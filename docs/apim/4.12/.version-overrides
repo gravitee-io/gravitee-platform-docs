@@ -152,3 +152,8 @@ prepare-a-production-environment/repositories/redis.md
 developer-portal/new-developer-portal/README.md
 developer-portal/new-developer-portal/customize-the-navigation/README.md
 developer-portal/new-developer-portal/customize-the-navigation/portal-navigation-cascade-operations.md
+create-and-configure-apis/apply-policies/policy-reference/rate-limit.md
+create-and-configure-apis/apply-policies/policy-reference/token-bucket-rate-limiting.md
+how-to-guides/use-case-tutorials/rate-limit-rest-apis.md
+prepare-a-production-environment/repositories/jdbc.md
+upgrade-guides/mongodb-index-management.md
