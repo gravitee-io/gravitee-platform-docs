@@ -88,6 +88,20 @@ ds:
 
 <mark style="color:yellow;">`password`</mark>: The desired `key` (optional in some cases, but not here).
 {% endtab %}
+
+{% tab title="Azure Key Vault" %}
+```yaml
+ds:
+  mongodb:
+    password: secret://azure-keyvault/gravitee-mongo:password
+```
+
+<mark style="color:green;">`gravitee-mongo`</mark>: The secret name in Azure Key Vault (required).
+
+<mark style="color:yellow;">`password`</mark>: The desired `key` (optional in some cases, but not here).
+
+`?keymap`: Maps custom JSON keys to well-known identifiers (e.g., `?keymap=usr:username&keymap=pwd:password`).
+{% endtab %}
 {% endtabs %}
 
 ## Resolve secrets for TLS <a href="#resolving-secrets-for-tls" id="resolving-secrets-for-tls"></a>
@@ -119,7 +133,7 @@ To extract the certificate and private key and create a keystore to secure Gravi
 
 Here is an example:
 
-```
+```yaml
 secret://kubernetes/giotls?
   keymap=certificate:frontend-tls-cert&keymap=private_key:frontend-tls-priv-key
 ```
