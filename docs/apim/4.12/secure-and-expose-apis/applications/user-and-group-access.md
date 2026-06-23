@@ -9,39 +9,39 @@ metaLinks:
 
 ## Overview
 
-An application's **User and group access** page lets you manage user and group access to individual applications. Application membership management enables API platform administrators to control who can access and manage applications. Administrators can add members directly, invite external users via email, transfer application ownership, and assign role-based permissions. This feature supports both immediate member addition for existing platform users and invitation-based onboarding for new users.
+An application's **User and group access** page lets you manage user and group access to individual applications. Application membership management enables you to control who can access and manage applications. You can add members directly, invite external users by email, transfer application ownership, and assign role-based permissions. This feature supports both immediate member addition for existing platform users and invitation-based onboarding for new users.
 
 ## Key Concepts
 
 ### Application Members
 
-Application members are platform users assigned to an application with a specific role. Members can view, modify, or manage the application based on their assigned permissions. Each application has one PRIMARY_OWNER and may have multiple members with other roles (e.g., USER, OWNER). Members are added either directly (for existing users) or through the invitation workflow (for new users).
+Application members are platform users assigned to an application with a specific role. Members can view, modify, or manage the application based on their assigned permissions. Each application has one PRIMARY_OWNER and may have multiple members with other roles, such as USER or OWNER. Members are added either directly for existing users or through the invitation workflow for new users.
 
 ### Application Invitations
 
-Application invitations enable administrators to onboard users who do not yet have platform accounts. When an invitation is created, the system sends an email containing a registration link with a JWT token. Recipients complete registration by providing their name and password, after which they are automatically added as application members with the invited role. Invitations remain pending until accepted or deleted.
+Application invitations enable you to onboard users who do not yet have platform accounts. When an invitation is created, the system sends an email containing a registration link with a JWT token. Recipients complete registration by providing their name and password, after which they are automatically added as application members with the invited role. Invitations remain pending until accepted or deleted.
 
 ### Roles and Permissions
 
-Application roles define member capabilities within an application. Roles are organization-scoped and include both system roles (e.g., PRIMARY_OWNER) and custom roles. System roles and PRIMARY_OWNER cannot be assigned during member creation or invitation. The PRIMARY_OWNER role is unique per application and can only be transferred through the ownership transfer workflow. Role assignment is validated against the organization's role catalog.
+Application roles define member capabilities within an application. Roles are organization-scoped and include both system roles, such as PRIMARY_OWNER, and custom roles. System roles and PRIMARY_OWNER cannot be assigned during member creation or invitation. The PRIMARY_OWNER role is unique per application and can only be transferred through the ownership transfer workflow. Role assignment is validated against the organization's role catalog.
 
 ### Membership Enrichment
 
-User search results can include application membership status when the `includes.applicationMembership` parameter is provided. The response metadata contains a map keyed by user IDs indicating whether each user is already a member of the specified application. This enrichment enables administrators to filter out existing members when adding new ones.
+User search results can include application membership status when the `includes.applicationMembership` parameter is provided. The response metadata contains a map keyed by user IDs indicating whether each user is already a member of the specified application. This enrichment enables you to filter out existing members when adding new ones.
 
 ## Prerequisites
 
 Before managing application membership, ensure the following requirements are met:
 
-* User must have APPLICATION_MEMBER create permission to add members or create invitations
-* User must have APPLICATION_MEMBER read permission to view members or invitations
-* User must have APPLICATION_MEMBER update permission to edit member roles, update invitations, resend invitations, or transfer ownership
-* User must have APPLICATION_MEMBER delete permission to remove members or delete invitations
+* You must have `APPLICATION_MEMBER[CREATE]` permission to add members or create invitations
+* You must have `APPLICATION_MEMBER[READ]` permission to view members or invitations
+* You must have `APPLICATION_MEMBER[UPDATE]` permission to edit member roles, update invitations, resend invitations, or transfer ownership
+* You must have `APPLICATION_MEMBER[DELETE]` permission to remove members or delete invitations
 * `portal.next.applications.membership.enabled` must be set to `true` to access membership features
 * `portal.next.applications.membership.invitations.enabled` must be set to `true` to access invitation features
 * `portal.next.applications.membership.transferOwnership.enabled` must be set to `true` to access ownership transfer
 * `jwt.secret` must be configured for invitation token generation and validation
-* User registration must be enabled (`PORTAL_USERCREATION_ENABLED` or `CONSOLE_USERCREATION_ENABLED`) for invitation acceptance
+* You must enable user registration using `PORTAL_USERCREATION_ENABLED` or `CONSOLE_USERCREATION_ENABLED` for invitation acceptance
 * Default ORGANIZATION and ENVIRONMENT roles must be configured in organization settings
 
 ## Gateway Configuration
@@ -51,7 +51,7 @@ Before managing application membership, ensure the following requirements are me
 | Property | Description | Example |
 |:---------|:------------|:--------|
 | `portal.next.applications.membership.enabled` | Enables application membership settings in Portal Next. When disabled, the Members and Invitations tabs are hidden. | `true` |
-| `portal.next.applications.membership.transferOwnership.enabled` | Enables the transfer ownership feature. When disabled, the Transfer Ownership button is hidden even if the user is the current owner. | `false` |
+| `portal.next.applications.membership.transferOwnership.enabled` | Enables the transfer ownership feature. When disabled, the Transfer Ownership button is hidden even if you are the current owner. | `false` |
 | `portal.next.applications.membership.invitations.enabled` | Enables the application invitation feature. When disabled, the Invitations tab is hidden and invitation creation is disabled. | `false` |
 
 All membership properties are scoped to `ENVIRONMENT` reference type.
@@ -86,7 +86,7 @@ To configure user and group access, complete the following steps:
 
 ### Members
 
-Under the **Members** tab, you can add users or groups as members of your application and define their roles to manage and perform tasks and operations. The Members tab is visible when `portal.next.applications.membership.enabled` is `true` and the user has `APPLICATION_MEMBER[READ]` permission.
+Under the **Members** tab, you can add users or groups as members of your application and define their roles to manage and perform tasks and operations. The Members tab is visible when `portal.next.applications.membership.enabled` is `true` and you have `APPLICATION_MEMBER[READ]` permission.
 
 <figure><img src="../../.gitbook/assets/00 groups added to applications 3.png" alt=""><figcaption></figcaption></figure>
 
@@ -98,10 +98,12 @@ Under the **Members** tab, you can add users or groups as members of your applic
 1. Click **Add Member** to open the member creation dialog.
 2. Search for users by typing in the **User** autocomplete field. The search queries platform users and displays results with name, email, and avatar.
 3. Select one or more users from the autocomplete results. Selected users appear as chips below the input field and cannot be re-selected.
-4. Select a **Role** from the dropdown. Only assignable roles (non-system roles excluding PRIMARY_OWNER) are available.
+4. Select a **Role** from the dropdown. Only assignable roles, excluding system roles and PRIMARY_OWNER, are available.
 5. Click **Add** to create the memberships.
 
 The system validates that selected users are not already members of the application. If a user is already a member, the request returns a `409 Conflict` error. If no role is specified, the system assigns the lowest application role by default.
+
+The member creation dialog includes the following fields:
 
 | Field | Description | Required |
 |:------|:------------|:---------|
@@ -110,21 +112,21 @@ The system validates that selected users are not already members of the applicat
 
 #### Searching Members
 
-Enter a search term in the search bar above the members table to filter members by display name. The search performs case-insensitive substring matching with a 300ms debounce. If no members match the search, the table displays "No members match your search."
+Enter a search term in the search bar to filter members by display name. The search performs case-insensitive substring matching with a 300ms debounce. If no members match the search, the table displays "No members match your search."
 
-The members table displays the following columns: user display name with avatar, email address, assigned role, and action buttons. Pagination controls appear below the table when the member count exceeds the page size (default: 10).
+The members table displays the following columns: user display name with avatar, email address, assigned role, and action buttons. Pagination controls appear when the member count exceeds the page size, which defaults to 10.
 
 #### Editing Member Roles
 
-1. Click the **Edit** button (pencil icon) next to a member to open the role editor dialog.
+1. Click the **Edit** button next to a member to open the role editor dialog.
 2. Select a new **Role** from the dropdown.
 3. Click **Save** to update the member's role.
 
-The Edit button is visible only for members who are not the PRIMARY_OWNER and when the user has `APPLICATION_MEMBER[UPDATE]` permission. Role validation ensures the selected role exists and is assignable.
+The Edit button is visible only for members who are not the PRIMARY_OWNER and when you have `APPLICATION_MEMBER[UPDATE]` permission. Role validation ensures the selected role exists and is assignable.
 
 #### Removing Members
 
-Click the **Delete** button (trash icon) next to a member to remove them from the application. The Delete button is visible when the user has `APPLICATION_MEMBER[DELETE]` permission and is disabled when the member is the current user. The Delete button is not rendered for members with the PRIMARY_OWNER role.
+Click the **Delete** button next to a member to remove them from the application. The Delete button is visible when you have `APPLICATION_MEMBER[DELETE]` permission and is disabled when the member is yourself. The Delete button is not rendered for members with the PRIMARY_OWNER role.
 
 ### Groups
 
@@ -136,69 +138,71 @@ Selecting a group gives all members of that group access to your application.
 
 ### Invitations
 
-Navigate to the application's Invitations tab in Portal Next. The Invitations tab is visible when both `portal.next.applications.membership.enabled` and `portal.next.applications.membership.invitations.enabled` are `true` and the user has `APPLICATION_MEMBER[READ]` permission.
+Navigate to the application's Invitations tab in Portal Next. The Invitations tab is visible when both `portal.next.applications.membership.enabled` and `portal.next.applications.membership.invitations.enabled` are `true` and you have `APPLICATION_MEMBER[READ]` permission.
 
 #### Creating Invitations
 
 1. Click **Invite Members** to open the invitation creation dialog.
 2. Enter one or more email addresses in the **Email** field. Press Enter or Tab after each email to add it as a chip. Emails are automatically trimmed and converted to lowercase.
-3. Select a **Role** from the dropdown. Only assignable roles (non-system roles excluding PRIMARY_OWNER) are available.
+3. Select a **Role** from the dropdown. Only assignable roles, excluding system roles and PRIMARY_OWNER, are available.
 4. Toggle **Notify** to enable or disable email notifications. When enabled, recipients receive an email with a registration link. This toggle is enabled by default.
-5. Enter a **Confirmation Page URL** in the text field. This URL is included in the invitation email and should point to the registration confirmation page in your portal (e.g., `https://portal.example.com/user/invitation/confirm`).
+5. Enter a **Confirmation Page URL** in the text field. This URL is included in the invitation email and should point to the registration confirmation page in your portal, for example `https://portal.example.com/user/invitation/confirm`.
 6. Click **Invite** to create the invitations.
 
 The system validates each email address and checks for duplicates within the request. If a recipient email matches an existing platform user, that user is added directly as an application member and no invitation is created. If a recipient email matches multiple users, the request returns a `409 Conflict` error. If a pending invitation already exists for a recipient email, the request returns a `409 Conflict` error. If the role is PRIMARY_OWNER and any recipient matches an existing user, the request returns a `409 Conflict` error.
 
 The response contains only pending invitations. If all recipients matched existing users, the response data array is empty.
 
+The invitation creation dialog includes the following fields:
+
 | Field | Description | Required |
 |:------|:------------|:---------|
 | **Email** | Email address(es) of users to invite. Supports multiple entries. | Yes |
 | **Role** | Application role to assign upon invitation acceptance. Excludes system roles and PRIMARY_OWNER. | Yes |
 | **Notify** | When enabled, sends invitation email to recipients. Enabled by default. | No |
-| **Confirmation Page URL** | URL included in invitation email for registration completion. | Yes (when Notify is enabled) |
+| **Confirmation Page URL** | URL included in invitation email for registration completion. | Yes, when **Notify** is enabled |
 
 #### Searching Invitations
 
-Enter a search term in the search bar above the invitations table to filter invitations by email address. The search performs case-insensitive partial matching with a 300ms debounce.
+Enter a search term in the search bar to filter invitations by email address. The search performs case-insensitive partial matching with a 300ms debounce.
 
-The invitations table displays the following columns: recipient email address, assigned role, creation date, and action buttons. Pagination controls appear below the table when the invitation count exceeds the page size (default: 10).
+The invitations table displays the following columns: recipient email address, assigned role, creation date, and action buttons. Pagination controls appear when the invitation count exceeds the page size, which defaults to 10.
 
 #### Editing Invitation Roles
 
-1. Click the **Edit** button (pencil icon) next to an invitation to open the role editor dialog.
+1. Click the **Edit** button next to an invitation to open the role editor dialog.
 2. Select a new **Role** from the dropdown.
 3. Click **Save** to update the invitation's role.
 
-The Edit button is visible when the user has `APPLICATION_MEMBER[UPDATE]` permission. Role validation ensures the selected role exists and is assignable.
+The Edit button is visible when you have `APPLICATION_MEMBER[UPDATE]` permission. Role validation ensures the selected role exists and is assignable.
 
 #### Resending Invitations
 
-1. Click the **Resend** button (envelope icon) next to an invitation to open the resend dialog.
+1. Click the **Resend** button next to an invitation to open the resend dialog.
 2. Enter a **Confirmation Page URL** in the text field.
 3. Click **Resend** to send a new invitation email.
 
-The Resend button is visible when the user has `APPLICATION_MEMBER[UPDATE]` permission. The system generates a new JWT token and sends a new invitation email to the recipient.
+The Resend button is visible when you have `APPLICATION_MEMBER[UPDATE]` permission. The system generates a new JWT token and sends a new invitation email to the recipient.
 
 #### Deleting Invitations
 
-Click the **Delete** button (trash icon) next to an invitation to remove it. The Delete button is visible when the user has `APPLICATION_MEMBER[DELETE]` permission. Deleted invitations cannot be accepted.
+Click the **Delete** button next to an invitation to remove it. The Delete button is visible when you have `APPLICATION_MEMBER[DELETE]` permission. Deleted invitations cannot be accepted.
 
 #### Accepting Invitations
 
-When a user receives an invitation email, they click the registration link containing a JWT token. The link navigates to `/user/invitation/confirm/:token` in the portal. The confirmation page displays a registration form with the following fields:
+When you receive an invitation email, click the registration link containing a JWT token. The link navigates to `/user/invitation/confirm/:token` in the portal. The confirmation page displays a registration form with the following fields:
 
-1. **Email** (pre-filled, disabled): The recipient's email address extracted from the token.
-2. **First Name** (editable, empty by default): The user's first name.
-3. **Last Name** (editable, empty by default): The user's last name.
-4. **Password** (required): The user's password. Must meet platform password requirements.
-5. **Confirm Password** (required): Password confirmation field.
+1. **Email.** This field is pre-filled and disabled. It shows your email address extracted from the token.
+2. **First Name.** This field is editable and empty by default. Enter your first name.
+3. **Last Name.** This field is editable and empty by default. Enter your last name.
+4. **Password.** This field is required. It must meet platform password requirements.
+5. **Confirm Password.** This field is required. Re-enter your password to confirm it.
 
-When the user submits the form, the system calls the finalize registration endpoint with the token, first name, last name, and password. The backend decodes the JWT token, validates the token action (must be `USER_REGISTRATION`, `GROUP_INVITATION`, or `APPLICATION_INVITATION`), creates or finalizes the user account, processes all pending invitations for the user's email, assigns default `ORGANIZATION` and `ENVIRONMENT` roles, and adds the user to the application with the invitation role. Upon success, the confirmation page displays "Invitation accepted" with a link to the login page.
+When you submit the form, the system calls the finalize registration endpoint with the token, first name, last name, and password. The backend decodes the JWT token and validates the token action, which must be `USER_REGISTRATION`, `GROUP_INVITATION`, or `APPLICATION_INVITATION`. It then creates or finalizes your account, processes all pending invitations for your email, assigns default `ORGANIZATION` and `ENVIRONMENT` roles, and adds you to the application with the invitation role. Upon success, the confirmation page displays "Invitation accepted" with a link to the login page.
 
 ### Transfer ownership
 
-Under the **Transfer ownership** tab, you can grant complete application access to an application member or other user. The Transfer Ownership button is visible only when the user is the current owner, has `APPLICATION_MEMBER[UPDATE]` permission, and `portal.next.applications.membership.transferOwnership.enabled` is `true`.
+Under the **Transfer ownership** tab, you can grant complete application access to an application member or other user. The Transfer Ownership button is visible only when you are the current owner, have `APPLICATION_MEMBER[UPDATE]` permission, and `portal.next.applications.membership.transferOwnership.enabled` is `true`.
 
 Click **Application member** and use the drop-down menu to select a user who is already a member of your application.
 
@@ -216,6 +220,8 @@ Click **Other user** to search for someone who is not a member of your applicati
 4. Click **Transfer** to complete the ownership transfer.
 
 The system validates that the new role is assignable and is not PRIMARY_OWNER. If validation fails, the request returns a `400 Bad Request` error.
+
+The ownership transfer dialog includes the following fields:
 
 | Field | Description | Required |
 |:------|:------------|:---------|
@@ -260,8 +266,8 @@ Search application members with optional display name filtering and pagination.
 ```
 
 **Query Parameters:**
-- `page` (integer, default: 1)
-- `size` (integer, default: 10)
+- `page`. Integer. Defaults to 1.
+- `size`. Integer. Defaults to 10.
 
 **Response:** `200 OK`
 ```json
@@ -295,9 +301,9 @@ Search application members with optional display name filtering and pagination.
 ```
 
 **Error Responses:**
-- `400 Bad Request` — Invalid search input
-- `403 Forbidden` — Missing `APPLICATION_MEMBER[READ]` permission
-- `404 Not Found` — Application not found
+- `400 Bad Request`. Invalid search input.
+- `403 Forbidden`. Missing `APPLICATION_MEMBER[READ]` permission.
+- `404 Not Found`. Application not found.
 
 ### Create Member
 
@@ -324,10 +330,10 @@ Add an existing platform user as an application member.
 ```
 
 **Error Responses:**
-- `400 Bad Request` — User required, role required, or role not assignable
-- `403 Forbidden` — Missing `APPLICATION_MEMBER[CREATE]` permission
-- `404 Not Found` — Application not found
-- `409 Conflict` — User is already a member
+- `400 Bad Request`. User required, role required, or role not assignable.
+- `403 Forbidden`. Missing `APPLICATION_MEMBER[CREATE]` permission.
+- `404 Not Found`. Application not found.
+- `409 Conflict`. User is already a member.
 
 ### Update Member
 
@@ -352,9 +358,9 @@ Update an application member's role.
 ```
 
 **Error Responses:**
-- `400 Bad Request` — Role required or role not assignable
-- `403 Forbidden` — Missing `APPLICATION_MEMBER[UPDATE]` permission
-- `404 Not Found` — Application or member not found
+- `400 Bad Request`. Role required or role not assignable.
+- `403 Forbidden`. Missing `APPLICATION_MEMBER[UPDATE]` permission.
+- `404 Not Found`. Application or member not found.
 
 ### Delete Member
 
@@ -365,8 +371,8 @@ Remove a member from the application.
 **Response:** `204 No Content`
 
 **Error Responses:**
-- `403 Forbidden` — Missing `APPLICATION_MEMBER[DELETE]` permission
-- `404 Not Found` — Application or member not found
+- `403 Forbidden`. Missing `APPLICATION_MEMBER[DELETE]` permission.
+- `404 Not Found`. Application or member not found.
 
 ### Transfer Ownership
 
@@ -386,9 +392,9 @@ Transfer PRIMARY_OWNER role to another member and assign a new role to the curre
 **Response:** `204 No Content`
 
 **Error Responses:**
-- `400 Bad Request` — Role not assignable or role is PRIMARY_OWNER
-- `403 Forbidden` — Missing `APPLICATION_MEMBER[UPDATE]` permission or user is not current owner
-- `404 Not Found` — Application not found
+- `400 Bad Request`. Role not assignable or role is PRIMARY_OWNER.
+- `403 Forbidden`. Missing `APPLICATION_MEMBER[UPDATE]` permission or you are not the current owner.
+- `404 Not Found`. Application not found.
 
 ### Create Invitations
 
@@ -427,10 +433,10 @@ Create one or more application invitations. Recipients matching existing users a
 The response contains only pending invitations. If all recipients matched existing users, the data array is empty.
 
 **Error Responses:**
-- `400 Bad Request` — Invalid email format, duplicate email, or role not assignable
-- `403 Forbidden` — Missing `APPLICATION_MEMBER[CREATE]` permission
-- `404 Not Found` — Application not found
-- `409 Conflict` — Pending invitation exists, email matches multiple users, or PRIMARY_OWNER role with existing user
+- `400 Bad Request`. Invalid email format, duplicate email, or role not assignable.
+- `403 Forbidden`. Missing `APPLICATION_MEMBER[CREATE]` permission.
+- `404 Not Found`. Application not found.
+- `409 Conflict`. Pending invitation exists, email matches multiple users, or PRIMARY_OWNER role with existing user.
 
 ### Search Invitations
 
@@ -448,8 +454,8 @@ Search application invitations with optional email filtering and pagination.
 ```
 
 **Query Parameters:**
-- `page` (integer, default: 1)
-- `size` (integer, default: 10)
+- `page`. Integer. Defaults to 1.
+- `size`. Integer. Defaults to 10.
 
 **Response:** `200 OK`
 ```json
@@ -474,9 +480,9 @@ Search application invitations with optional email filtering and pagination.
 ```
 
 **Error Responses:**
-- `400 Bad Request` — Invalid search input
-- `403 Forbidden` — Missing `APPLICATION_MEMBER[READ]` permission
-- `404 Not Found` — Application not found
+- `400 Bad Request`. Invalid search input.
+- `403 Forbidden`. Missing `APPLICATION_MEMBER[READ]` permission.
+- `404 Not Found`. Application not found.
 
 ### Update Invitation
 
@@ -503,9 +509,9 @@ Update an invitation's role.
 ```
 
 **Error Responses:**
-- `400 Bad Request` — Role blank or role not assignable
-- `403 Forbidden` — Missing `APPLICATION_MEMBER[UPDATE]` permission
-- `404 Not Found` — Application or invitation not found
+- `400 Bad Request`. Role blank or role not assignable.
+- `403 Forbidden`. Missing `APPLICATION_MEMBER[UPDATE]` permission.
+- `404 Not Found`. Application or invitation not found.
 
 ### Delete Invitation
 
@@ -516,8 +522,8 @@ Delete a pending invitation.
 **Response:** `204 No Content`
 
 **Error Responses:**
-- `403 Forbidden` — Missing `APPLICATION_MEMBER[DELETE]` permission
-- `404 Not Found` — Application or invitation not found
+- `403 Forbidden`. Missing `APPLICATION_MEMBER[DELETE]` permission.
+- `404 Not Found`. Application or invitation not found.
 
 ### Resend Invitation
 
@@ -535,9 +541,9 @@ Resend an invitation email with a new JWT token.
 **Response:** `204 No Content`
 
 **Error Responses:**
-- `400 Bad Request` — Confirmation page URL required
-- `403 Forbidden` — Missing `APPLICATION_MEMBER[UPDATE]` permission
-- `404 Not Found` — Application or invitation not found
+- `400 Bad Request`. Confirmation page URL required.
+- `403 Forbidden`. Missing `APPLICATION_MEMBER[UPDATE]` permission.
+- `404 Not Found`. Application or invitation not found.
 
 ## Portal API: Platform Users
 
@@ -560,8 +566,8 @@ Search platform users with optional membership enrichment for a specific applica
 ```
 
 **Query Parameters:**
-- `page` (integer, default: 1)
-- `size` (integer, default: 20)
+- `page`. Integer. Defaults to 1.
+- `size`. Integer. Defaults to 20.
 
 **Response:** `200 OK`
 ```json
@@ -594,9 +600,9 @@ Search platform users with optional membership enrichment for a specific applica
 When `includes.applicationMembership` is provided, the response metadata includes an `applicationMembership` map keyed by user IDs. Users without IDs or with blank IDs are excluded from membership enrichment.
 
 **Error Responses:**
-- `400 Bad Request` — Invalid search input
-- `403 Forbidden` — Missing `MANAGEMENT_USERS[READ]` permission, or missing `APPLICATION_MEMBER[READ]` when `includes.applicationMembership` is provided
-- `404 Not Found` — Application not found (when `includes.applicationMembership` is provided)
+- `400 Bad Request`. Invalid search input.
+- `403 Forbidden`. Missing `MANAGEMENT_USERS[READ]` permission, or missing `APPLICATION_MEMBER[READ]` when `includes.applicationMembership` is provided.
+- `404 Not Found`. Application not found when `includes.applicationMembership` is provided.
 
 ### Finalize Registration
 
@@ -617,12 +623,12 @@ Accept an invitation and complete user registration.
 **Response:** `200 OK`
 
 **Error Responses:**
-- `400 Bad Request` — Invalid token or password format invalid
-- `409 Conflict` — Token action is `RESET_PASSWORD` or user already finalized
+- `400 Bad Request`. Invalid token or password format invalid.
+- `409 Conflict`. Token action is `RESET_PASSWORD` or user already finalized.
 
 The JWT token contains the following claims:
-- `action`: `USER_REGISTRATION`, `GROUP_INVITATION`, or `APPLICATION_INVITATION`
-- `email`: User email address
-- `sub`: User ID (optional)
+- `action`. Set to `USER_REGISTRATION`, `GROUP_INVITATION`, or `APPLICATION_INVITATION`.
+- `email`. The user email address.
+- `sub`. The user ID. This claim is optional.
 
 The token is verified using the `jwt.secret` configuration property and must have an issuer matching `jwt.issuer` (default: `gravitee-management-auth`).

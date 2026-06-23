@@ -157,13 +157,13 @@
 
 
 <!-- PIPELINE:APIM-11584 -->
-#### **Application Membership Management**
+#### Application Membership Management
 
-* Administrators can now add members directly to applications, assign role-based permissions, and transfer application ownership through the Portal Next interface.
-* External users can be invited via email to join applications. Invitations include a registration link with a JWT token, allowing recipients to create accounts and automatically become application members.
+* You can now add members directly to applications, assign role-based permissions, and transfer application ownership through the Portal Next interface.
+* External users can be invited by email to join applications. Invitations include a registration link with a JWT token, allowing recipients to create accounts and automatically become application members.
 * Membership features are controlled by feature toggles: `portal.next.applications.membership.enabled` enables the Members tab, `portal.next.applications.membership.invitations.enabled` enables the Invitations tab, and `portal.next.applications.membership.transferOwnership.enabled` enables ownership transfer.
-* User search results can include application membership status when the `includes.applicationMembership` parameter is provided, helping administrators identify existing members.
-* Requires `APPLICATION_MEMBER` permissions (CREATE, READ, UPDATE, DELETE) and a configured `jwt.secret` for invitation token generation.
+* User search results can include application membership status when you provide the `includes.applicationMembership` parameter, helping you identify existing members.
+* You must have `APPLICATION_MEMBER` permissions, including CREATE, READ, UPDATE, and DELETE, and a configured `jwt.secret` for invitation token generation.
 <!-- /PIPELINE:APIM-11584 -->
 
 ## Improvements
