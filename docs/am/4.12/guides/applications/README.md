@@ -44,12 +44,12 @@ curl -H "Authorization: Bearer :accessToken" \
 
 ### Query parameters
 
-The application list endpoint supports filtering, field expansion, and pagination. Use query parameters to refine results:
+The Application list endpoint supports the following query parameters for filtering, field expansion, and pagination:
 
 | Parameter | Type | Default | Description |
 |:----------|:-----|:--------|:------------|
 | `status` | string | — | Filter by status. Values: `enabled`, `disabled` |
-| `owner.email` | string | — | Filter by owner email address (requires `ORGANIZATION_USER[READ]` permission) |
+| `owner.email` | string | — | Filter by owner email address. Requires `ORGANIZATION_USER[READ]` permission. |
 | `expand` | array[string] | — | Fields to expand. Supported: `clientId` |
 | `q` | string | — | Search query (supports wildcard `*`) |
 | `type` | array[string] | — | Filter by type. Values: `WEB`, `NATIVE`, `BROWSER`, `SERVICE`, `RESOURCE_SERVER`, `AGENT` |
