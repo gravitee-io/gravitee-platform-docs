@@ -107,7 +107,7 @@ The member creation dialog includes the following fields:
 
 | Field | Description | Required |
 |:------|:------------|:---------|
-| **User** | Platform user(s) to add as members. Supports multi-select autocomplete with search. | Yes |
+| **User** | Platform user or users to add as members. Supports multi-select autocomplete with search. | Yes |
 | **Role** | Application role to assign. Excludes system roles and PRIMARY_OWNER. | Yes |
 
 #### Searching Members
@@ -157,7 +157,7 @@ The invitation creation dialog includes the following fields:
 
 | Field | Description | Required |
 |:------|:------------|:---------|
-| **Email** | Email address(es) of users to invite. Supports multiple entries. | Yes |
+| **Email** | Email address or addresses of users to invite. Supports multiple entries. | Yes |
 | **Role** | Application role to assign upon invitation acceptance. Excludes system roles and PRIMARY_OWNER. | Yes |
 | **Notify** | When enabled, sends invitation email to recipients. Enabled by default. | No |
 | **Confirmation Page URL** | URL included in invitation email for registration completion. | Yes, when **Notify** is enabled |
