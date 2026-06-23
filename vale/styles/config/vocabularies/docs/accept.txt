@@ -1,15 +1,16 @@
 # ============================================
 # Gravitee Product & Platform Terms
 # ============================================
-Gravitee
+[Gg]ravitee
 [Aa][Pp][Ii][Mm]
 APID
-AM
+[Aa][Mm]
 GKO
 GC
 Cockpit
 Blackbird
 DevPortal
+[Dd]ev
 GRAVITEEIO
 mAPI
 Gravitee API Management
@@ -21,10 +22,10 @@ Gravitee Cloud
 # ============================================
 # API & Protocol Terms
 # ============================================
-API
-APIs
-API's
-REST
+[Aa][Pp][Ii]
+[Aa][Pp][Ii]s
+[Aa][Pp][Ii]'s
+REST|rest
 RESTful
 GraphQL
 gRPC
@@ -32,7 +33,9 @@ AsyncAPI
 OpenAPI
 OpenID
 OAuth2?
-OIDC
+OIDC|oidc
+OID
+OIDs
 SAML
 SASL
 SCIM
@@ -53,6 +56,7 @@ CSRF
 FAPI
 PKCE
 HMAC
+(?i)HRIDs?
 JWKS?
 JWS
 JWT
@@ -124,7 +128,7 @@ MySQL
 MariaDB
 Elasticsearch
 Hazelcast
-Redis
+[Rr]edis
 DocumentDB
 R2DBC
 RDBMS
@@ -141,7 +145,7 @@ ActiveMQ
 ActiveMQConnectionFactory
 ConnectionFactory
 DLQs?
-AVRO
+[Aa][Vv][Rr][Oo]
 Protobuf
 JOLT
 QoS
@@ -262,13 +266,14 @@ UDP
 SMTP
 [Hh]ostnames?
 URIs?
-URLs?
+URLs?|url
 [Ll]ocalhost
 [Ll]oopback
 Gzip
 CIDR
 SPA
 LLM
+[Ll]ogit
 MCP
 Fully Qualified Domain Name
 Remote Procedure Call
@@ -277,7 +282,7 @@ Event-Driven Architecture
 # ============================================
 # Formats & Standards
 # ============================================
-JSON
+[Jj][Ss][Oo][Nn]
 XML
 YAML
 HTML
@@ -291,6 +296,9 @@ ISO
 # ============================================
 # Compound / Technical Words
 # ============================================
+auto-fetch
+auto-validate
+auto-validation
 [Bb]ackend
 [Ff]rontend
 [Cc]odebase
@@ -302,7 +310,7 @@ ISO
 [Hh]otfixes
 [Kk]eystore
 [Ll]ifecycle
-[Mm]etadata
+(?i)metadata
 [Mm]icroservices
 [Mm]onorepo
 [Oo]nboarding
@@ -334,7 +342,7 @@ ISO
 [Cc]hangelog[s]?
 [Ss]erverless
 [Cc]loud
-[Ee]mail[s]?
+[Ee]mail[s]?|EMAIL
 [Rr]epo
 [Uu]pstream
 [Dd]ownstream
@@ -345,6 +353,7 @@ ISO
 [Mm]ulti-broker
 [Dd]eserialization
 [Dd]eserialized
+[Dd]eserializes
 [Dd]eletable
 [Aa]nonymized
 [Bb]ackchannel
@@ -372,6 +381,7 @@ ApiResource
 ApiVersion
 UUID
 [Ss]yslog
+[Hh][Rr][Ii][Dd]s?
 
 # ============================================
 # Misc Technical Terms
@@ -400,6 +410,8 @@ GPG
 [Ff]ingerprint
 [Aa]uth[Nn]
 A2A
+bool
+[Cc]ron[s]?
 
 # ============================================
 # Cloud Providers & Services
@@ -432,7 +444,7 @@ balancer's
 # ============================================
 # Additional Accepted Terms
 # ============================================
-[Aa]gent[s]?
+[Aa]gent[s]?|AGENT
 [Aa]llowlisting
 [Ss]harding
 [Kk]eyless
@@ -448,7 +460,7 @@ async
 [Mm]anagement [Cc]onsole
 [Aa]llows?
 [Aa]gainst
-[Ee]num[s]?
+[Ee]num[s]?|ENUM
 [Rr]eorderable
 [Dd]rag and [Dd]rop
 [Cc]allout[s]?
@@ -494,6 +506,7 @@ DAImon
 Intune
 [Uu]nmanaged
 [Aa]llowlists?
+[Ss]amples?
 
 # ============================================
 # Gamma Platform
@@ -519,7 +532,7 @@ ChatGPT
 Bedrock
 Vertex
 Foundry
-Cursor
+[Cc]ursor
 Copilot
 LangChain
 FastMCP
@@ -540,7 +553,7 @@ PDP
 PEP
 PII
 MDM
-CIMD
+CIMD|cimd
 Kerberos
 
 # ============================================
@@ -557,6 +570,7 @@ Snappy
 # ============================================
 Jira
 GAP
+enablement
 
 # ============================================
 # Spell-check sweep additions (2026-05-29)
@@ -581,7 +595,7 @@ Thymeleaf
 Atlassian
 Datastax
 Temurin
-Opensearch
+OpenSearch
 Yubico
 Yubikey
 Feitian
@@ -685,7 +699,7 @@ ratelimiting
 goroutines
 classloader
 throwable
-wsdl
+WSDL
 statsd
 healthz
 middleware

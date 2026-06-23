@@ -6,6 +6,44 @@ description: >-
 
 # AM 4.10.x
 
+## Gravitee Access Management 4.10.15 - June 16, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* OIDC IdP error response (query string) not propagated to client redirect URI in Auth Code PKCE flow [#11499](https://github.com/gravitee-io/issues/issues/11499)
+
+**Other**
+
+* Search Domain doesn't work with '_' [#11508](https://github.com/gravitee-io/issues/issues/11508)
+* OIDC login fails with SignatureException due to kid: "default" collision between System and Own certificates [#11509](https://github.com/gravitee-io/issues/issues/11509)
+* Filter out empty scopes in auth request [#11523](https://github.com/gravitee-io/issues/issues/11523)
+* Missing user.groups property in EL [#11524](https://github.com/gravitee-io/issues/issues/11524)
+* Add userId/username to error SCIM response  [#11539](https://github.com/gravitee-io/issues/issues/11539)
+* Extension Grant is not managing PS256 [#11542](https://github.com/gravitee-io/issues/issues/11542)
+
+</details>
+
+## Gravitee Access Management 4.10.14 - June 8, 2026
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Request-object signature pre-check NPE [#11486](https://github.com/gravitee-io/issues/issues/11486)
+
+**Other**
+
+* Kafka Client OAUTH not working [#11501](https://github.com/gravitee-io/issues/issues/11501)
+
+</details>
+
+
 ## Gravitee Access Management 4.10.13 - June 1, 2026
 
 <details>

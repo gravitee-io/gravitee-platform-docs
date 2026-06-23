@@ -1,5 +1,110 @@
 # APIM 4.11.x
  
+## Gravitee API Management 4.11.11 - June 20, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Produce OpenTelemetry server spans [#11046](https://github.com/gravitee-io/issues/issues/11046)
+* Disable external entities on the EL xmlContent XMLInputFactory (XXE hardening) [#11527](https://github.com/gravitee-io/issues/issues/11527)
+* ClassCastException in reactive contextual logging when ATTR_REQUEST_METHOD is set to HttpMethod by rest-to-soap policy [#11532](https://github.com/gravitee-io/issues/issues/11532)
+
+**Console**
+
+* Use default scopes for OpenID Connect identity providers [#11322](https://github.com/gravitee-io/issues/issues/11322)
+* Debug Mode Trailing Slash Behavior – Clarification [#11428](https://github.com/gravitee-io/issues/issues/11428)
+* Account settings - Problem updating avatar [#11538](https://github.com/gravitee-io/issues/issues/11538)
+
+**Other**
+
+* MCP Proxy built-in {{/.well-known/oauth-protected-resource}} handling breaks backward compatibility with externally deployed APIs at the same path [#11450](https://github.com/gravitee-io/issues/issues/11450)
+* EL not supported for Kafka producer topics [#11482](https://github.com/gravitee-io/issues/issues/11482)
+* NGINX error on response when using Assing Content on Request [#11483](https://github.com/gravitee-io/issues/issues/11483)
+* Gateway Cannot Write to /models Directory in Debian Image [#11492](https://github.com/gravitee-io/issues/issues/11492)
+* APIM 4.11  – Developer Portal – Documentation Display Issue [#11496](https://github.com/gravitee-io/issues/issues/11496)
+* Equals operator should not be able to be saved with a wildcard path in flow configuration [#11512](https://github.com/gravitee-io/issues/issues/11512)
+* Subscription metadata silently ignored on POST /management/v2/environments/{envId}/apis/{apiId}/subscriptions [#11513](https://github.com/gravitee-io/issues/issues/11513)
+* Subscription metadata not synced to gateway in live requires restart to take effect [#11517](https://github.com/gravitee-io/issues/issues/11517)
+* Do not cache empty or errored EL resolution of ACL resource patterns [#11528](https://github.com/gravitee-io/issues/issues/11528)
+* A single log entry with a malformed @timestamp breaks the entire logs page (HTTP 500) [#11529](https://github.com/gravitee-io/issues/issues/11529)
+* Transform Headers policy addHeaders not propagated to upstream provider call on LLM Proxy APIs [#11531](https://github.com/gravitee-io/issues/issues/11531)
+* V2 API duplication with plans fails: plan not copied, "Api \[<environmentId>] cannot be found" [#11535](https://github.com/gravitee-io/issues/issues/11535)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Gateway**
+
+* Classify gateway to backend connection failures into specific error keys [#11554](https://github.com/gravitee-io/issues/issues/11554)
+
+**Console**
+
+* Events are not filtered in Global Analytics graphs [#11520](https://github.com/gravitee-io/issues/issues/11520)
+
+**Other**
+
+* API export silently returns empty file when serialization fails [#11320](https://github.com/gravitee-io/issues/issues/11320)
+* AVRO→JSON: decode Kafka record key on subscribe phase [#11507](https://github.com/gravitee-io/issues/issues/11507)
+
+</details>
+
+
+ 
+## Gravitee API Management 4.11.10 - June 8, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* BUG: LLM_PROXY, Bedrock streaming [#11426](https://github.com/gravitee-io/issues/issues/11426)
+* \[Kafka Topic Mapping policy] OffsetFetch fails with UNKNOWN_SERVER_ERROR when client requests offsets for all topics of a group [#11495](https://github.com/gravitee-io/issues/issues/11495)
+
+**Management API**
+
+* MCP Tool Generation – Nullable field handling in generated inputSchema (OpenAPI import) [#11340](https://github.com/gravitee-io/issues/issues/11340)
+* API rollback of undeployed changes leaves API in "out of sync" state [#11459](https://github.com/gravitee-io/issues/issues/11459)
+* V4 _import/crd create path ignores flowExecution and persists defaults (mode=default, matchRequired=false) [#11476](https://github.com/gravitee-io/issues/issues/11476)
+* encodage UTF-8 [#11480](https://github.com/gravitee-io/issues/issues/11480)
+* JDBC: gateway warmup ApiKey appender Seq-scans key_subscriptions (missing subscription_id index) [#11494](https://github.com/gravitee-io/issues/issues/11494)
+* Group error when updating V2 API settings after upgrade to 4.11.9, 4.10.16, 4.9.21 or 4.8.28 [#11510](https://github.com/gravitee-io/issues/issues/11510)
+
+**Console**
+
+* SharedPolicyGroup for API Message are undeployable [#11182](https://github.com/gravitee-io/issues/issues/11182)
+* Platform alert API filter dropdown fails to load any APIs (v2 or v4) in v4.8.8 [#11466](https://github.com/gravitee-io/issues/issues/11466)
+* Documentation - Swagger viewing issue  [#11485](https://github.com/gravitee-io/issues/issues/11485)
+* Observability & Analytics Sidebar Navigation Broken in APIM 4.11.x [#11505](https://github.com/gravitee-io/issues/issues/11505)
+
+**Portal**
+
+* Query params for Try it out does not work [#11481](https://github.com/gravitee-io/issues/issues/11481)
+
+**Other**
+
+* Allow default role mapping through API V2 group endpoint [#11300](https://github.com/gravitee-io/issues/issues/11300)
+* Token type validation disabled still rejects tokens with typ: JWS due to restrictive Nimbus default verifier [#11380](https://github.com/gravitee-io/issues/issues/11380)
+* SSO Icon icons/thirdparty.svg not displaying in dev portal -> login [#11418](https://github.com/gravitee-io/issues/issues/11418)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Other**
+
+* HTTP Callout Policy "Request body" needs to support multi-line UI. [#11504](https://github.com/gravitee-io/issues/issues/11504)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.11.9 - June 1, 2026
 <details>
 
@@ -60,6 +165,20 @@
 * DCR configuration UI: clarify {#client_id} placeholder and fix example renew secret endpoint [#11430](https://github.com/gravitee-io/issues/issues/11430)
 * Cap `count()` cost on paginated Mongo repository searches with `maxTimeMS` [#11438](https://github.com/gravitee-io/issues/issues/11438)
 
+**New indexes**
+* Added the following indexes, which you can add manually before you upgrade to 4.11.9:
+```bash
+db.apis.createIndex({ environmentId:1, categories:1, name:1 }, { name: "ei1c1n1" });
+  db.apis.createIndex({ environmentId:1, definitionVersion:1, name:1 }, { name: "ei1dv1n1" });
+  db.keys.createIndex({ environmentId:1, updatedAt:1, _id:1 }, { name: "e1ua1i1" });
+  db.keys.createIndex({ revoked:1, expireAt:1 }, { name: "r1ea1" });
+  db.plans.createIndex({ crossId:1 }, { name: "ci1" });
+  db.subscriptions.createIndex({ environmentId:1, updatedAt:1, _id:1 }, { name: "e1ua1i1" });
+  db.subscriptions.createIndex({ plan:1, _id:1 }, { name: "p1i1" });
+  db.subscriptions.createIndex({ plan:1, updatedAt:1 }, { name: "p1ua1" });
+  db.subscriptions.createIndex({ status:1, endingAt:1 }, { name: "s1ea1" });
+  db.audits.createIndex({ environmentId:1, createdAt:1 }, { name: "e1c1" });
+```
 </details>
 
 

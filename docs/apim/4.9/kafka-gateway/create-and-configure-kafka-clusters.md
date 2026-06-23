@@ -10,9 +10,6 @@ metaLinks:
 
 ## Overview
 
-{% hint style="warning" %}
-This feature is in tech preview. Contact your customer team to request access to this feature.
-{% endhint %}
 
 The Kafka UI is accessible from the APIM Console. It is the user interface from which you can create and manage Kafka clusters, configure cluster connection information, and manage user access and permissions.
 

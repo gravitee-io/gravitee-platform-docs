@@ -16,6 +16,7 @@ Here are available Gravitee Markdown components:
 * [#button](gravitee-markdown-components.md#button "mention")
 * [#card](gravitee-markdown-components.md#card "mention")
 * [#grid](gravitee-markdown-components.md#grid "mention")
+* [#install-mcp](gravitee-markdown-components.md#install-mcp "mention")
 
 ### Block
 
@@ -316,7 +317,7 @@ Here are some use cases examples:
 {% endtab %}
 
 {% tab title="Grid with a button component" %}
-```
+```markdown
 <gmd-grid columns="2">
   <gmd-button>Left content</gmd-button>
   <gmd-button>Right content</gmd-button>
@@ -324,3 +325,32 @@ Here are some use cases examples:
 ```
 {% endtab %}
 {% endtabs %}
+
+### Install MCP
+
+The `<gmd-install-mcp>` component renders one-click installer actions and copyable configuration snippets for supported MCP clients: Cursor, VS Code, and Claude Desktop.
+
+Use it on remote MCP servers exposed through the Gravitee gateway:
+
+```markdown
+<gmd-install-mcp name="weather" url="https://api.example.com/mcp" clients="cursor,vscode,claude-desktop" />
+```
+
+For local stdio-based MCP servers:
+
+```markdown
+<gmd-install-mcp name="weather-local" transport="stdio" command="npx" args='["-y","@acme/weather-mcp"]' clients="cursor,vscode,claude-desktop" />
+```
+
+| Attribute | Description |
+|:----------|:------------|
+| `name` | MCP server name used in generated client configurations |
+| `transport` | MCP transport protocol: `http`, `sse`, or `stdio` (default: `http`) |
+| `url` | Remote MCP endpoint URL for `http` and `sse` transports |
+| `headers` | JSON object of HTTP headers sent with remote transport requests |
+| `command` | Executable to start a local stdio MCP server |
+| `args` | JSON array of arguments for the stdio command |
+| `env` | JSON object of environment variables for stdio transport |
+| `clients` | Comma-separated client IDs to show as tabs; omit to show all supported clients (Cursor, VS Code, Claude Desktop) |
+
+If the required inputs (`name` and either `url` or `command`) are missing, the component renders a placeholder instead of installer actions. The MCP Proxy API Overview template uses this component automatically. For more information, see [API Overview Page Templates](api-overview-page-templates.md) and [MCP Server Installation Widget for Portal Pages](../../mcp-server-installation-widget-for-portal-pages.md).

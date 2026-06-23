@@ -6,9 +6,6 @@ description: An overview about define an apim service account for terraform.
 
 ## Overview
 
-{% hint style="warning" %}
-This feature is in tech preview.
-{% endhint %}
 
 For Terraform to use APIM, it needs to authenticate as a user of the APIM instance.
 
