@@ -53,7 +53,7 @@ Internal Network Gateways:
 
 You can also exclude Gateways from tags. For example, the following sharding tag definition configures a Gateway to host APIs that are not dedicated to partners:
 
-```
+```yaml
   tags: 'product,store,!partner'
 ```
 
@@ -231,3 +231,34 @@ Your entrypoint mapping is displayed in **Entrypoint Mappings**.
 {% hint style="success" %}
 You've just learned how to configure sharding tags for your Gravitee API Gateways. To apply sharding tags to APIs to control where those APIs are deployed, refer to [this documentation](../../create-and-configure-apis/configure-v2-apis/proxy-settings.md).
 {% endhint %}
+
+### Gateway Configuration
+
+To configure gateway-level entrypoint and sharding tag settings:
+
+1. In the Console, navigate to **Organization > Gateway > Entrypoints & Sharding Tags**.
+2. Review the **Entrypoint Configuration** section, which displays default entrypoint values shown in the Developer Portal. These values include:
+   * Default HTTP entrypoint
+   * Default TCP port
+   * Default Kafka Bootstrap Domain Pattern
+   * Default Kafka port
+3. Scroll down to the **Sharding Tags** section. This table displays all sharding tags configured for the organization.
+
+    <figure><img src="../../.gitbook/assets/apim-api-product-sharding-tags-step-06.png" alt="Organization settings page showing entrypoint configuration and sharding tags table with a single tag entry"><figcaption></figcaption></figure>
+
+4. To add a new sharding tag, click **+ Add a tag** in the Sharding Tags section.
+5. To remove an existing sharding tag, click the delete icon next to the tag entry in the table. The sharding tags table will update to reflect the removal.
+
+    <figure><img src="../../.gitbook/assets/apim-api-product-sharding-tags-step-07.png" alt="Organization settings showing entrypoint and sharding tags configuration with empty sharding tags table"><figcaption></figcaption></figure>
+
+{% hint style="info" %}
+Add the sharding tag's key to the API Gateway configuration file in order to manage API deployments. Console tag assignment alone does not enable deployment without corresponding gateway configuration.
+{% endhint %}
+
+{% hint style="info" %}
+Group-restricted tags can only be assigned by members of the specified groups. Users who are not members of the restricted groups will not see these tags as selectable options.
+{% endhint %}
+
+<figure><img src="../../.gitbook/assets/apim-api-product-sharding-tags-step-06.png" alt="Organization settings page showing entrypoint configuration and sharding tags table with a single tag entry"><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/apim-api-product-sharding-tags-step-07.png" alt="Organization settings showing entrypoint and sharding tags configuration with empty sharding tags table"><figcaption></figcaption></figure>
