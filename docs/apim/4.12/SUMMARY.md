@@ -312,6 +312,8 @@
     * [API Products restrictions and licensing](secure-and-expose-apis/api-products/restrictions-and-licensing.md)
     * [Configuring API Product Primary Owner Mode and Group Defaults](secure-and-expose-apis/api-products/configure-api-product-primary-owner-mode-and-group-defaults.md)
     * [Consuming APIs via API Products](secure-and-expose-apis/api-products/consuming-api-products.md)
+    * [Deploy API Product Plans to Specific Gateways](secure-and-expose-apis/api-products/deploy-api-product-plans-to-specific-gateways.md)
+    * [Deploy API Products to Specific Gateways](secure-and-expose-apis/api-products/deploy-api-products-to-specific-gateways.md)
     * [Managing API Product Members and Ownership (Configuration Page)](secure-and-expose-apis/api-products/manage-api-product-members-and-ownership-configuration-page.md)
     * [Managing API Products with the Management API](secure-and-expose-apis/api-products/manage-api-products-with-management-api.md)
   * [API Products configuration reference](secure-and-expose-apis/api-products-configuration-reference.md)

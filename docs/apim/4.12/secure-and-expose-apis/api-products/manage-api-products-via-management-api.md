@@ -52,9 +52,12 @@ Create a plan for an API Product by sending a POST request to `/environments/{en
     "type": "API_KEY",
     "configuration": {}
   },
-  "flows": []
+  "flows": [],
+  "tags": ["string"]
 }
 ```
+
+The `tags` field is an optional array of strings. Plan tags must be a subset of the API Product's tags.
 
 Supported values for `security.type`:
 
@@ -69,7 +72,7 @@ Manage plan lifecycle using these endpoints:
 - Publish: POST to `/_publish`
 - Deprecate: POST to `/_deprecate`
 - Close: POST to `/_close`
-- Update: PUT with the full plan definition
+- Update: PUT with the full plan definition (including `tags`)
 
 ## Manage subscriptions
 
