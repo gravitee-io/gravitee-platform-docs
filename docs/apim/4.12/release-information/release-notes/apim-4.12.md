@@ -170,6 +170,15 @@
 <!-- /PIPELINE:APIM-14244 -->
 
 
+<!-- PIPELINE:APIM-11584 -->
+#### Application Membership Management
+
+* You can now add members directly to applications, assign role-based permissions, and transfer application ownership through the Portal Next interface.
+* External users can be invited by email to join applications. Invitations include a registration link with a JWT token, allowing recipients to create accounts and automatically become application members.
+* Membership features are controlled by feature toggles: `portal.next.applications.membership.enabled` enables the Members tab, `portal.next.applications.membership.invitations.enabled` enables the Invitations tab, and `portal.next.applications.membership.transferOwnership.enabled` enables ownership transfer.
+* User search results can include application membership status when you provide the `includes.applicationMembership` parameter, helping you identify existing members.
+* You must have `APPLICATION_MEMBER` permissions, including CREATE, READ, UPDATE, and DELETE, and a configured `jwt.secret` for invitation token generation.
+<!-- /PIPELINE:APIM-11584 -->
 <!-- PIPELINE:APIM-13672 -->
 #### **API Key Lifecycle Management in Developer Portal**
 
@@ -199,6 +208,13 @@
 * Redis cache resource 2.0.0+ requires Java 21 runtime and APIM 4.12 minimum platform version. Cluster mode is mutually exclusive with Sentinel mode.
 * Rate limiting in Cluster mode enforces read policy `NEVER` (masters only) to ensure atomic counter operations and consistent state across sharded nodes.
 <!-- /PIPELINE:APIM-13625 -->
+<!-- PIPELINE:APIM-14411 -->
+#### **Cascade Operations for Portal Navigation**
+
+* You can now publish, unpublish, and delete folders and API sections along with all nested content in a single action.
+* When you publish or unpublish a folder, the visibility change propagates to all nested documentation pages, sub-folders, and APIs. When you unpublish a folder, all nested items are set to `PRIVATE` visibility.
+* When you delete a folder or API section, the container and all descendants are removed recursively. The **Delete** button is now enabled for all items regardless of child count, and sibling items are automatically reordered after deletion.
+<!-- /PIPELINE:APIM-14411 -->
 
 ## Improvements
 

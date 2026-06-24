@@ -134,12 +134,12 @@ To avoid the use of a previous token or misconfiguration, reset the cache of you
 
 ### **Permissions, groups and roles**
 
-You can manually customize permissions, groups, and roles for new users, or use the automatic Roles and Groups Mapping feature. For more information about Roles and Mappings, see [roles-and-groups-mapping.md](roles-and-groups-mapping.md "mention").
+You can manually customize permissions, groups, and roles for new users, or use the automatic Roles and Groups Mapping feature. For more information about Roles and Mappings, see[roles-and-groups-mapping.md](roles-and-groups-mapping.md "mention").
 
-### **Groups Mapping**
+### **Entra ID and Groups Mapping**
 
 Gravitee APIM can be configured to request the user's groups from an UserInfo endpoint of the OAuth2 server, but Entra ID cannot be configured to provide this information through their UserInfo endpoint.
 
 To obtain user groups, your Entra ID Administrator must choose to customize the tokens by mapping the Groups claim. More information can be found on the Microsoft site at [Add group claims to tokens for SAML applications using SSO configuration](https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-fed-group-claims#add-group-claims-to-tokens-for-saml-applications-using-sso-configuration).​
 
-Once the token includes the required `groups` claim, you can check if the user is a member of a group. For example, `{#jsonPath(#profile, '$.groups[0]').contains('your-group-objectID')}`.
+When the Entra ID `id_token` has been confirmed to include the `groups` claim, you can then map user groups to a Gravitee group. For example, `{#jsonPath(#idToken, '$.groups').contains('your-group-objectID')}`.

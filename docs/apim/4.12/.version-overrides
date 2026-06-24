@@ -94,6 +94,9 @@ secure-and-expose-apis/plans/conditional-updates-for-plans.md
 .gitbook/assets/mcp-select-markdown.png
 create-and-configure-apis/gravitee-api-definitions/a2a-proxy-api-type.md
 mcp-server-installation-widget-for-portal-pages.md
+configure-and-manage-the-platform/manage-organizations-and-environments/applications.md
+management-api-reference.md
+secure-and-expose-apis/applications/user-and-group-access.md
 .gitbook/assets/api-keys-table-active.png
 .gitbook/assets/api-keys-table-renewed.png
 .gitbook/assets/api-keys-table-revoked.png
@@ -146,3 +149,6 @@ create-and-configure-apis/apply-policies/configure-cache-policies-to-use-redis-c
 create-and-configure-apis/apply-policies/create-and-configure-redis-cache-resources.md
 create-and-configure-apis/apply-policies/policy-reference/oauth2/README.md
 prepare-a-production-environment/repositories/redis.md
+developer-portal/new-developer-portal/README.md
+developer-portal/new-developer-portal/customize-the-navigation/README.md
+developer-portal/new-developer-portal/customize-the-navigation/portal-navigation-cascade-operations.md
