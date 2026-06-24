@@ -277,7 +277,7 @@ The Spike Arrest policy configures the number of requests allow over a limited p
 
 By default, the Spike Arrest policy is applied to a plan, not a consumer. To apply a spike arrest to a consumer, you need to use the `key` attribute, which supports Expression Language.
 
-### Async Rate-Limit Service
+### Async rate-limit service
 
 The async rate-limit service is shared by the rate-limit, quota, spike-arrest, and token-bucket policies. When any of these policies are configured with async (non-strict) enforcement mode, local counters or buckets are reconciled to the distributed store at a configurable interval controlled by `services.ratelimit.async.flushInterval`. This global setting applies to all async enforcement modes across all rate-limiting policies.
 

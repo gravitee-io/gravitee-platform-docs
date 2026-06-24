@@ -31,9 +31,9 @@ Gravitee supports three rate-limiting policies:
 
 In summary, quota limits the total amount of usage over a period, while rate limit controls the rate at which requests can be made within that period. Both are important for managing API usage and ensuring fair access to resources. Spike arrest handles sudden spikes in traffic to ensure the stability and reliability of the API.
 
-### Traffic Shaping
+### Traffic shaping
 
-Token-bucket rate limiting allows burst traffic up to a configured capacity while maintaining average request rates through continuous token refill. See [Token-Bucket Rate Limiting](../../create-and-configure-apis/apply-policies/policy-reference/ai-token-rate-limit.md) guide for details.
+Token-bucket rate limiting allows burst traffic up to a configured capacity while maintaining average request rates through continuous token refill. For details, see the [Token-Bucket Rate Limiting](../../create-and-configure-apis/apply-policies/policy-reference/token-bucket-rate-limiting.md) guide.
 
 ## Use case: Rate limits based on consumer plan <a href="#use-case-rate-limits-based-on-consumer-plan" id="use-case-rate-limits-based-on-consumer-plan"></a>
 

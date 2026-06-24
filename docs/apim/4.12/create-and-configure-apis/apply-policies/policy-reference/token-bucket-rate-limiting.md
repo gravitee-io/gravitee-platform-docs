@@ -4,11 +4,11 @@
 
 Token-bucket rate limiting provides a flexible alternative to traditional rate-limiting policies by allowing controlled bursts of traffic while maintaining a steady average request rate. Unlike fixed-window rate limits, the token-bucket algorithm permits clients to consume tokens up to a configured burst capacity, with the bucket refilling at a constant rate over time. This policy is available for both HTTP proxy APIs and V4 message APIs, with support for strict (per-request) and async (approximate) enforcement modes.
 
-## Key Concepts
+## Key concepts
 
-### Token-Bucket Algorithm
+### Token-bucket algorithm
 
-The token-bucket algorithm maintains a bucket of tokens that refills at a constant rate. Each request consumes one token from the bucket. When the bucket is empty, requests are rejected with HTTP 429 (or message stream interruption on message APIs). The bucket starts full at its burst capacity, allowing immediate bursts of traffic up to that limit. Refill occurs continuously: tokens are added to the bucket at the configured **Refill Rate** every **Refill Period Time** (measured in the specified **Refill Period Time Unit**). The bucket never exceeds its **Burst Capacity**—excess tokens from refill are discarded. All calculations use whole-token arithmetic with integer division; fractional tokens are never credited or consumed.
+The token-bucket algorithm maintains a bucket of tokens that refills at a constant rate. Each request consumes one token from the bucket. When the bucket is empty, requests are rejected with HTTP 429 (or message stream interruption on message APIs). The bucket starts full at its burst capacity, allowing immediate bursts of traffic up to that limit. Refill occurs continuously: tokens are added to the bucket at the configured **Refill Rate** every **Refill Period Time** (measured in the specified **Refill Period Time Unit**). The bucket never exceeds its **Burst Capacity**. Excess tokens from refill are discarded. All calculations use whole-token arithmetic with integer division. Fractional tokens are never credited or consumed.
 
 | Parameter | Description | Example |
 |:----------|:------------|:--------|
@@ -19,20 +19,20 @@ The token-bucket algorithm maintains a bucket of tokens that refills at a consta
 
 For example, a configuration with `refillRate=100`, `refillPeriodTime=1`, `refillPeriodTimeUnit=MINUTES` adds 100 tokens per minute. A fresh bucket starts at full capacity, so the first burst is allowed immediately.
 
-### Enforcement Modes
+### Enforcement modes
 
 The policy supports two enforcement modes: strict and async (non-strict). Strict mode enforces the token-bucket limit on every request with atomic refill-and-consume operations against the distributed store, providing exact request-for-request accuracy. Async mode maintains a local bucket per gateway node that is reconciled to the distributed store periodically (every **Flush Interval** milliseconds), offering higher throughput at the cost of approximate enforcement. In async mode, backends may receive more requests than the configured rate within a reconcile window, and the distributed bucket is only eventually consistent across nodes.
 
 | Mode | Behavior | Store Round-Trips | Accuracy |
 |:-----|:---------|:------------------|:---------|
 | Strict (`async=false`) | Every request: atomic refill-and-consume against store | One per request | Exact, request-for-request |
-| Async (`async=true`) | Local bucket per node, reconciled to store every **Flush Interval** ms | One per **Flush Interval** per active key | Approximate; backend may receive more than configured rate |
+| Async (`async=true`) | Local bucket per node, reconciled to store every **Flush Interval** ms | One per **Flush Interval** per active key | Approximate, so a backend can receive more than the configured rate |
 
 During async reconciliation, the node's locally-consumed delta is pushed to the store as a single consume operation. If the store has fewer tokens than the delta, it debits nothing and returns `allowed=false`, causing the node to throttle to zero (local refill rate only). Over-served deltas (where the node admitted more requests than the store can cover) are dropped as a bounded one-time overshoot, not carried forward.
 
-### Bucket Key Composition
+### Bucket key composition
 
-Each token bucket is identified by a key composed from the plan, subscription, and an optional custom key. The **Key** field (supporting Expression Language) allows you to identify consumers by custom attributes (e.g., IP address, user ID). The **Use Key Only** flag determines whether the custom key is used alone or combined with the plan and subscription identifiers. All token-bucket keys include a `:tb` suffix to distinguish them from rate-limit, quota, and spike-arrest keys.
+Each token bucket is identified by a key composed from the plan, subscription, and an optional custom key. The **Key** field (supporting Expression Language) allows you to identify consumers by custom attributes (for example, IP address or user ID). The **Use Key Only** flag determines whether the custom key is used alone or combined with the plan and subscription identifiers. All token-bucket keys include a `:tb` suffix to distinguish them from rate-limit, quota, and spike-arrest keys.
 
 | **Use Key Only** | **Key** | Resulting Key Format |
 |:-----------------|:--------|:---------------------|
@@ -40,13 +40,13 @@ Each token bucket is identified by a key composed from the plan, subscription, a
 | `false` | `"custom-key"` | `"<plan><subscription>:custom-key:tb"` |
 | `false` | `null` or `""` | `"<plan><subscription>:tb"` |
 
-### Error Handling Strategy
+### Error handling strategy
 
-The **Error Strategy** field controls how the policy responds to infrastructure failures (e.g., store outages). The default `FALLBACK_PASS_TROUGH` strategy fails open: when the store is unavailable, requests pass through without throttling. The `BLOCK_ON_INTERNAL_ERROR` strategy fails closed: store failures result in HTTP 429 rejections, ensuring the rate limit is never bypassed.
+The **Error Strategy** field controls how the policy responds to infrastructure failures (for example, store outages). The default `FALLBACK_PASS_TROUGH` strategy fails open: when the store is unavailable, requests pass through without throttling. The `BLOCK_ON_INTERNAL_ERROR` strategy fails closed: store failures result in HTTP 429 rejections, ensuring the rate limit is never bypassed.
 
 | Strategy | Store Failure Behavior | Use Case |
 |:---------|:------------------------|:---------|
-| `FALLBACK_PASS_TROUGH` (default) | Request passes through; throttling disabled | Fail open: store outage must not block traffic |
+| `FALLBACK_PASS_TROUGH` (default) | Request passes through, throttling disabled | Fail open: store outage must not block traffic |
 | `BLOCK_ON_INTERNAL_ERROR` | Request rejected with 429 | Fail closed: store outage must not bypass limit |
 
 ## Prerequisites
@@ -59,9 +59,9 @@ Before you configure token-bucket rate limiting, ensure the following requiremen
 * For MongoDB deployments: the TTL index on `tokenbucket.expire_at` is created automatically on gateway startup
 * For async mode: the async rate-limit service must be enabled (`services.ratelimit.enabled=true`, default)
 
-## Gateway Configuration
+## Gateway configuration
 
-### Rate-Limit Service
+### Rate-limit service
 
 The async rate-limit service reconciles local token-bucket deltas with the distributed store at a configurable interval. This service is shared by rate-limit, quota, spike-arrest, and token-bucket policies.
 
@@ -70,7 +70,7 @@ The async rate-limit service reconciles local token-bucket deltas with the distr
 | `services.ratelimit.enabled` | Boolean | `true` | Enable/disable the async rate-limit service |
 | [Flush Interval](#rate-limit-service) | Long (ms) | `5000` | Global interval at which async (non-strict) local counters/buckets are reconciled to the store |
 
-**Helm Chart Configuration:**
+**Helm chart configuration:**
 
 ```yaml
 gateway:
@@ -82,7 +82,7 @@ gateway:
 
 Non-positive flush interval values (0 or negative) are silently clamped to the default 5000ms to prevent CPU busy-looping.
 
-### Repository-Specific Configuration
+### Repository-specific configuration
 
 #### JDBC
 
@@ -94,7 +94,7 @@ Non-positive flush interval values (0 or negative) are silently clamped to the d
 The `tokenbucket` table is created automatically by Liquibase on gateway startup. The table name respects the `ratelimit.jdbc.prefix` configuration (via the `${gravitee_rate_limit_prefix}` Liquibase property).
 
 {% hint style="warning" %}
-**JDBC Limitation:** Unlike MongoDB, Redis, and Hazelcast, the JDBC `tokenbucket` table has no native row TTL. Rows persist until purged externally. For high-cardinality keyspaces (per-subscription/per-resource), the table grows with the number of distinct keys ever seen. This is an operational trade-off, not a correctness issue: a stale row refills to full on next touch, identical to a fresh bucket.
+**JDBC limitation:** Unlike MongoDB, Redis, and Hazelcast, the JDBC `tokenbucket` table has no native row TTL. Rows persist until purged externally. For high-cardinality keyspaces (per-subscription/per-resource), the table grows with the number of distinct keys ever seen. This is an operational trade-off, not a correctness issue: a stale row refills to full on next touch, identical to a fresh bucket.
 {% endhint %}
 
 #### MongoDB
@@ -121,7 +121,7 @@ The `token-bucket.lua` script is loaded via `SCRIPT LOAD` on gateway startup (or
 
 The `token-buckets` map is created on-demand by Hazelcast when the first token-bucket operation occurs.
 
-## Creating a Token-Bucket Rate Limit
+## Creating a token-bucket rate limit
 
 To apply token-bucket rate limiting to an API, add the `token-bucket-rate-limit` policy to a plan or flow. Configure the policy with the following fields:
 
@@ -159,9 +159,9 @@ To apply token-bucket rate limiting to an API, add the `token-bucket-rate-limit`
 
 This configuration allows bursts of up to 100 requests, refilling at 10 tokens per second. The bucket starts full, so the first 100 requests are admitted immediately. Subsequent requests are throttled to 10 per second.
 
-## Managing Token-Bucket Rate Limits
+## Managing token-bucket rate limits
 
-### Response Headers
+### Response headers
 
 When **Add Headers** is enabled, the policy adds the following headers to HTTP responses:
 
@@ -170,22 +170,26 @@ When **Add Headers** is enabled, the policy adds the following headers to HTTP r
 * `X-Rate-Limit-Reset`: Epoch milliseconds when the bucket will next refill
 * `Retry-After`: Seconds until the next token is available (added to 429 responses only)
 
-### Rate-Limit Rejection
+### Rate-limit rejection
 
 When the bucket is empty (`tokens < tokensRequested`), the request is rejected:
 
 * **HTTP APIs:** HTTP 429 (Too Many Requests) with error key `TOKEN_BUCKET_RATE_LIMIT_TOO_MANY_REQUESTS`
 * **V4 Message APIs:** Message stream interrupted via `interruptMessagesWith`
 
-### Error Responses
+### Metering unit on V4 message APIs
+
+On V4 message APIs, the policy meters once per connection at the request phase, not once per message. A publish or subscribe connection consumes a single token when it's established, then streams any number of messages on that one token. When the bucket is empty, the connection's message stream is interrupted instead of returning HTTP 429. Burst capacity therefore caps the number of connections admitted in a burst for a given key, not the number of messages that flow on them.
+
+### Error responses
 
 | Error Key | HTTP Status | Context |
 |:----------|:------------|:--------|
-| `TOKEN_BUCKET_RATE_LIMIT_TOO_MANY_REQUESTS` | 429 | Bucket empty; request rejected |
+| `TOKEN_BUCKET_RATE_LIMIT_TOO_MANY_REQUESTS` | 429 | Bucket empty, request rejected |
 | `TOKEN_BUCKET_RATE_LIMIT_SERVER_ERROR` | 500 | Infrastructure failure (no service/config, zero config) |
 | `TOKEN_BUCKET_RATE_LIMIT_BLOCK_ON_INTERNAL_ERROR` | 429 | Store failure with `BLOCK_ON_INTERNAL_ERROR` strategy |
 | `TOKEN_BUCKET_RATE_LIMIT_NOT_APPLIED` | N/A (warning) | Store failure with `FALLBACK_PASS_TROUGH` strategy |
 
-### Floating-Point Backend Precision
+### Floating-point backend precision
 
-MongoDB and Redis use floating-point arithmetic for refill calculations. For configurations where `capacity * refillPeriodMillis` or `effectiveElapsed * refillRate` exceed 2^53, these backends may land one token off the integer backends (JDBC, Hazelcast, in-memory). This is a benign one-token divergence, never an over-admission. The bound is documented, not enforced, so existing high-capacity configurations are not rejected on upgrade. For realistic rate-limit configurations (e.g., capacity < 1 billion, refill period < 1 day), the products are many orders of magnitude below 2^53, and floating-point results match integer backends exactly.
+MongoDB and Redis use floating-point arithmetic for refill calculations. For configurations where `capacity * refillPeriodMillis` or `effectiveElapsed * refillRate` exceed 2^53, these backends may land one token off the integer backends (JDBC, Hazelcast, in-memory). This is a benign one-token divergence, never an over-admission. The bound is documented, not enforced, so existing high-capacity configurations are not rejected on upgrade. For realistic rate-limit configurations (for example, capacity below 1 billion and refill period under 1 day), the products are many orders of magnitude below 2^53, and floating-point results match integer backends exactly.
