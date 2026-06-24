@@ -123,7 +123,7 @@ Folders group related pages together. A folder is a section on your New Develope
 
 **Cascade operations**
 
-Publishing, unpublishing, and deleting folders now affect all nested content in a single action. When you publish or unpublish a folder, all nested documentation pages, sub-folders, and APIs are published or unpublished with their parent. When you delete a folder, all nested items are permanently removed. For more information about cascade operations, see [portal-navigation-cascade-operations.md](portal-navigation-cascade-operations.md "mention").
+You can publish, unpublish, and delete folders along with all nested content in a single action. When you publish or unpublish a folder, all nested documentation pages, sub-folders, and APIs are published or unpublished with their parent. When you delete a folder, all nested items are permanently removed. For more information about cascade operations, see [Portal Navigation Cascade Operations](portal-navigation-cascade-operations.md "mention").
 
 **Add a page to a folder**
 

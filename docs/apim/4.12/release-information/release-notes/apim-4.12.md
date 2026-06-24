@@ -193,9 +193,9 @@
 <!-- PIPELINE:APIM-14411 -->
 #### **Cascade Operations for Portal Navigation**
 
-* Portal administrators can now publish, unpublish, and delete folders and API sections along with all nested content in a single action.
-* Publishing or unpublishing a folder propagates the visibility change to all nested documentation pages, sub-folders, and APIs. Unpublishing a folder sets all nested items to PRIVATE visibility.
-* Deleting a folder or API section removes the container and all descendants recursively. The delete button is now enabled for all items regardless of child count, and sibling items are automatically reordered after deletion.
+* You can now publish, unpublish, and delete folders and API sections along with all nested content in a single action.
+* When you publish or unpublish a folder, the visibility change propagates to all nested documentation pages, sub-folders, and APIs. When you unpublish a folder, all nested items are set to `PRIVATE` visibility.
+* When you delete a folder or API section, the container and all descendants are removed recursively. The **Delete** button is now enabled for all items regardless of child count, and sibling items are automatically reordered after deletion.
 <!-- /PIPELINE:APIM-14411 -->
 
 ## Improvements
