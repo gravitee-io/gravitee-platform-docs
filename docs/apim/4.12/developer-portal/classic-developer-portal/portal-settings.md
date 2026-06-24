@@ -9,6 +9,10 @@ metaLinks:
 
 # Portal Settings
 
+## Overview
+
+Portal settings control the high-level configuration of the Developer Portal, including API display options, user registration, documentation viewers, and background task scheduling. For the next-generation Developer Portal, portal structure, API listings, and documentation can also be managed declaratively via the Automation API and Gravitee Kubernetes Operator (GKO) CRDs. For more information, see [Portal and Documentation Management](../new-developer-portal/portal-instance-management-next-gen-developer-portal.md).
+
 ## Configure settings
 
 1. Log in to the Management Console

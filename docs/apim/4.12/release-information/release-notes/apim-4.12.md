@@ -260,6 +260,17 @@
 * Automatically skips fuzzy matching for queries longer than 512 characters to maintain performance.
 <!-- /PIPELINE:APIM-14121 -->
 
+
+<!-- PIPELINE:APIM-14124 -->
+#### **Portal and Documentation Management via Automation API**
+
+* Enables CI/CD-driven configuration of next-generation Developer Portal structure, API listings, and documentation through the Automation API.
+* Supports declarative portal management using Gravitee Kubernetes Operator (GKO) CRDs or Terraform providers to define navigation hierarchies, publish APIs, and attach documentation pages.
+* Navigation paths use slash-separated strings (e.g., `/projects/alpha`) with optional display names and ordering; portal listings control API placement and sequence within the navigation tree.
+* Documentation pages support Gravitee Markdown, OpenAPI, and AsyncAPI formats and can be scoped to either the portal (platform-level) or specific APIs (appearing under each published API instance).
+* Currently supports one portal per environment (HRID: `default-portal`) with navigation sync limited to the top navigation bar area.
+<!-- /PIPELINE:APIM-14124 -->
+
 ## Improvements
 
 
