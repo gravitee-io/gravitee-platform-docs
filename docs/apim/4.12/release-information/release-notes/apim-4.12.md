@@ -233,6 +233,16 @@
 * Deleting an organization-level tag cascades to all API Products and plans across all environments, automatically removing the tag from affected resources.
 <!-- /PIPELINE:APIM-14357 -->
 
+
+<!-- PIPELINE:APIM-14121 -->
+#### **Typo-Tolerant API Search in Developer Portal**
+
+* Enables fuzzy search in the Developer Portal catalog, allowing users to find APIs even when search queries contain minor spelling errors.
+* Applies approximate matching to API names, descriptions, paths, labels, owners, and hosts using edit-distance rules (1-2 character edits based on token length).
+* Disabled by default and must be explicitly enabled via **Settings → Portal → New Developer Portal** in the Management Console or through the Management API.
+* Enforces query constraints (minimum 4-character tokens, maximum 512-character queries, maximum 96 fuzzy clauses) to prevent performance degradation.
+<!-- /PIPELINE:APIM-14121 -->
+
 ## Improvements
 
 

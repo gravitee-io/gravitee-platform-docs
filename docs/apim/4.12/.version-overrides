@@ -179,3 +179,5 @@ kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/deployment.md
 secure-and-expose-apis/api-products/README.md
 secure-and-expose-apis/api-products/configuring-api-product-deployment-with-sharding-tags.md
 secure-and-expose-apis/api-products/console-ui-reference.md
+create-and-configure-apis/create-apis/search-for-apis-in-the-console.md
+developer-portal/classic-developer-portal/layout-and-theme.md
