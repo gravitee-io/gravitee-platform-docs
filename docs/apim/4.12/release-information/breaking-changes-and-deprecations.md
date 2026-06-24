@@ -22,6 +22,19 @@ Here are the breaking changes from versions 4.X of Gravitee.
 The JSON Validation policy now emits the correct error keys for response-scope failures in V4 APIs. Previously, the keys were swapped: a response payload that failed schema validation emitted `JSON_INVALID_RESPONSE_FORMAT`, and a malformed JSON response body emitted `JSON_INVALID_RESPONSE_PAYLOAD`. Both now emit the key that matches their name and the published documentation.
 
 If you configured response templates keyed on `JSON_INVALID_RESPONSE_FORMAT` to handle payload validation failures, or on `JSON_INVALID_RESPONSE_PAYLOAD` to handle parse failures, update those templates to use the correct key names.
+**`gravitee-resource-cache-redis` requires version 5.0.0**
+
+If you use the `gravitee-resource-cache-redis` plugin, you must upgrade it to version 5.0.0 when upgrading to APIM 4.12. This plugin is not included in the default APIM bundle and must be managed independently. Running an older version of `gravitee-resource-cache-redis` with APIM 4.12 is not supported.
+
+**Redis cache resource now uses a shared connection pool**
+
+The Redis cache resource now uses a shared Redis client factory with gateway-wide connection pool and timeout settings. Previously, each API using a Redis cache resource maintained its own dedicated connection to Redis, so 100 APIs with a Redis cache resource resulted in 100 active Redis connections to the server.
+
+If you use the `gravitee-resource-cache-redis` or `aiVectorStoreRedis` resource, review and adjust the following settings to suit your workload:
+
+* `resources.aiVectorStoreRedis.maxPoolSize`
+* `gateway.cacheRedis.maxPoolSize`
+* Timeout settings for both resources
 
 #### 4.11.0
 
