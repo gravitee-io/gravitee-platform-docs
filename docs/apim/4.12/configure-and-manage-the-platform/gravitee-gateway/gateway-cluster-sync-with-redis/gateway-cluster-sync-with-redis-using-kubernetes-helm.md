@@ -15,9 +15,9 @@ A standard Redis deployment without the Search module appears to connect success
 * Install Redis with the search module. Distributed sync requires the RedisSearch module. To ensure that you have the RedisSearch module, use one of the following Redis modules:
   * The `redis/redis-stack` Docker image, which bundles RediSearch.
   * Redis 8+, which includes the Search module natively.
-  * Redis 7 or earlier with the RediSearch module loaded. You can load the module by adding `loadmodule /usr/local/lib/redis/modules/redisearch.so` to your Redis configuration. For more information about Redis and RedisSearch, see [Redis](/apim/4.10/prepare-a-production-environment/repositories/redis.md) and the [RedisSearch documentation](https://redis.io/docs/latest/develop/interact/search-and-query/).
-* Obtain an Enterprise License. You must mount the license into every API Gateway pod to start the `repository-redis` plugin and load `DISTRIBUTED_SYNC`. For more information about obtaining an enterprise license, see [Enterprise Edition](/apim/4.10/readme/enterprise-edition.md).
-* Deploy a fully Self-Hosted Installation or a Hybrid Installation of APIM. For more information about self-hosted installation, see [Self-Hosted Installation Guides](/apim/4.10/self-hosted-installation-guides.md) or [Hybrid Installation & Configuration Guides](/apim/4.10/hybrid-installation-and-configuration-guides.md).
+  * Redis 7 or earlier with the RediSearch module loaded. You can load the module by adding `loadmodule /usr/local/lib/redis/modules/redisearch.so` to your Redis configuration. For more information about Redis and RedisSearch, see [Redis](../../../prepare-a-production-environment/repositories/redis.md) and the [RedisSearch documentation](https://redis.io/docs/latest/develop/interact/search-and-query/).
+* Obtain an Enterprise License. You must mount the license into every API Gateway pod to start the `repository-redis` plugin and load `DISTRIBUTED_SYNC`. For more information about obtaining an enterprise license, see [Enterprise Edition](../../../introduction/enterprise-edition.md).
+* Deploy a fully Self-Hosted Installation or a Hybrid Installation of APIM. For more information about self-hosted installation, see [Self-Hosted Installation Guides](/docs/apim/4.12/self-hosted-installation-guides/README.md) or [Hybrid Installation & Configuration Guides](/docs/apim/4.12/hybrid-installation-and-configuration-guides/README.md).
 * Deploy at least two API Gateway replicas. Distributed sync works only when `gateway.replicaCount` is greater than or equal to 2, and `gateway.autoscaling.enabled` is `false`, because the Helm chart only honors `replicaCount` when the HPA is disabled.
 
 ## Configure the distributed sync on the APIM Gateway
@@ -30,6 +30,45 @@ A standard Redis deployment without the Search module appears to connect success
    </code></pre>
 
    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>The Helm chart automatically downloads plugins listed in <code>additionalPlugins</code> using an init container at pod startup. Ensure that the pod has outbound access to <code>repo1.maven.org</code>, or mirror the file internally and adjust the URL.</p></div>
+1a. (Optional) Configure Redis Cluster nodes for rate limiting and Redis resource pool settings for cache and AI vector store resources. These settings apply gateway-wide and are sourced from `gravitee.yml` in production deployments.
+
+   | Property | Description | Default |
+   |:---------|:------------|:--------|
+   | `gateway.ratelimit.redis.cluster.nodes` | Redis Cluster nodes for rate limiting (array of `{host, port}`) | `[]` |
+   | `gateway.cacheRedis.maxPoolSize` | Redis cache resource max connections per endpoint (gateway-wide) | `6` |
+   | `gateway.cacheRedis.maxPoolWaiting` | Redis cache resource max queued requests waiting for a connection | `1024` |
+   | `gateway.cacheRedis.poolCleanerInterval` | Redis cache resource idle-connection cleaner interval (ms) | `30000` |
+   | `gateway.cacheRedis.poolRecycleTimeout` | Redis cache resource idle connection recycle timeout (ms) | `180000` |
+   | `gateway.cacheRedis.maxWaitingHandlers` | Redis cache resource max queued commands on a connection | `1024` |
+   | `gateway.cacheRedis.connectTimeout` | Redis cache resource TCP connect timeout (ms) | `2000` |
+   | `gateway.aiVectorStoreRedis.maxPoolSize` | AI vector store Redis resource max connections per endpoint (APIM 4.12+) | `6` |
+   | `gateway.aiVectorStoreRedis.maxPoolWaiting` | AI vector store Redis resource max queued requests waiting for a connection | `1024` |
+   | `gateway.aiVectorStoreRedis.poolCleanerInterval` | AI vector store Redis resource idle-connection cleaner interval (ms) | `30000` |
+   | `gateway.aiVectorStoreRedis.poolRecycleTimeout` | AI vector store Redis resource idle connection recycle timeout (ms) | `180000` |
+   | `gateway.aiVectorStoreRedis.maxWaitingHandlers` | AI vector store Redis resource max queued commands on a connection | `1024` |
+   | `gateway.aiVectorStoreRedis.connectTimeout` | AI vector store Redis resource TCP connect timeout (ms) | `2000` |
+
+   **Example**:
+   <pre class="language-yaml" data-title="values.yaml"><code class="lang-yaml">gateway:
+     ratelimit:
+       redis:
+         cluster:
+           nodes:
+             - host: redis-node-1.example.com
+               port: 6379
+             - host: redis-node-2.example.com
+               port: 6379
+     cacheRedis:
+       maxPoolSize: 10
+       maxPoolWaiting: 2048
+       poolCleanerInterval: 30000
+       poolRecycleTimeout: 180000
+       maxWaitingHandlers: 1024
+       connectTimeout: 2000
+     aiVectorStoreRedis:
+       maxPoolSize: 10
+       maxPoolWaiting: 2048
+   </code></pre>
 2. Create the Hazelcast configuration `ConfigMap` using the top-level `extraObjects` value. Hazelcast requires an XML configuration for pods to discover each other. For Kubernetes, use Hazelcast Kubernetes discovery. For more information about Hazelcast Kubernetes discovery, see the [Kubernetes auto discovery documentation](https://docs.hazelcast.com/hazelcast/5.4/kubernetes/kubernetes-auto-discovery).
 
    <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p><code>&#x3C;service-port>5701&#x3C;/service-port></code> is mandatory. Without the service port, the pod-label discovery of Hazelcast silently fails. Peer pods are discovered, but the cluster never forms because port <code>5701</code> is not declared as a <code>containerPort</code> on the Gateway deployment. The <code>&#x3C;service-port></code> element tells Hazelcast which port to use against the discovered pods directly. This bypasses the missing <code>containerPort</code> or Service entry.</p></div>

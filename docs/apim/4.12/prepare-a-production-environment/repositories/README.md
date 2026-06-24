@@ -241,6 +241,26 @@ ratelimit:
 Redis Sentinel and Redis SSL configuration options are presented [here](redis.md#redis).
 {% endtab %}
 
+{% tab title="Redis Cluster" %}
+To store counters in Redis Cluster:
+
+```yaml
+ratelimit:
+  type: redis
+  redis:
+    cluster:
+      nodes:
+        - host: redis-node-1.example.com
+          port: 6379
+        - host: redis-node-2.example.com
+          port: 6379
+        - host: redis-node-3.example.com
+          port: 6379
+```
+
+Redis Cluster mode is mutually exclusive with Sentinel mode. The gateway enforces **Use Replicas**: NEVER for rate limiting to ensure atomic counter operations are always executed on master nodes.
+{% endtab %}
+
 {% tab title="Hazelcast" %}
 To store counters in Hazelcast:
 

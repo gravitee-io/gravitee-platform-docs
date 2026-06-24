@@ -193,6 +193,8 @@
     * [Debug Mode](create-and-configure-apis/apply-policies/debug-mode.md)
     * [Shared Policy Groups](create-and-configure-apis/apply-policies/shared-policy-groups.md)
     * [Resources](create-and-configure-apis/apply-policies/resources.md)
+      * [Create and Configure Redis Cache Resources](create-and-configure-apis/apply-policies/create-and-configure-redis-cache-resources.md)
+      * [Configure Cache Policies to Use Redis Cache Resources](create-and-configure-apis/apply-policies/configure-cache-policies-to-use-redis-cache-resources.md)
     * [Custom Policies](create-and-configure-apis/apply-policies/custom-policies.md)
     * [Policy Reference](create-and-configure-apis/apply-policies/policy-reference/README.md)
       * [AI - Model Text Classification - Model and Performance Metrics](create-and-configure-apis/apply-policies/policy-reference/ai-model-text-classification-model-reference-and-performance-metrics.md)
