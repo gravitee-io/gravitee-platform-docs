@@ -199,6 +199,15 @@
 <!-- /PIPELINE:APIM-14474 -->
 
 
+<!-- PIPELINE:APIM-13625 -->
+#### **Redis Cluster Support for Rate Limiting and Distributed Synchronization**
+
+* Gravitee APIM 4.12 introduces Redis Cluster support for rate limiting and distributed synchronization repositories, enabling horizontal scaling of Redis infrastructure across sharded deployments.
+* The gateway now shares Redis connection pools across resources and repositories that connect to the same endpoint, reducing connection overhead and improving performance under high load.
+* Cache policies store response payloads as binary frames instead of JSON envelopes, preserving byte-for-byte fidelity for non-text content and reducing serialization overhead.
+* Redis cache resource 2.0.0+ requires Java 21 runtime and APIM 4.12 minimum platform version. Cluster mode is mutually exclusive with Sentinel mode.
+* Rate limiting in Cluster mode enforces read policy `NEVER` (masters only) to ensure atomic counter operations and consistent state across sharded nodes.
+<!-- /PIPELINE:APIM-13625 -->
 <!-- PIPELINE:APIM-14411 -->
 #### **Cascade Operations for Portal Navigation**
 

@@ -1,5 +1,5 @@
 ---
-description: An overview about oauth2.
+description: An overview about OAuth2.
 metaLinks:
   alternates:
     - ./
@@ -62,6 +62,16 @@ The `oauth2` policy requires a resource to access an OAuth2 Authorization Server
 
 * [Generic OAuth2 Authorization Server](generic-oauth2-authorization-server.md): A resource which can be configured to cover any authorization server.
 * [Gravitee.io AM Authorization Server](gravitee.io-am-authorization-server.md): A resource which can be easily plugged into APIM using Gravitee.io Access Management with security domain support.
+
+### Token Introspection Caching
+
+The `oauth2` policy uses asynchronous cache operations for token introspection results, eliminating event-loop deadlocks when using the Redis cache resource. The authentication flow checks an in-memory cache first, then the configured cache resource, and finally introspects the token via the OAuth2 resource. Successful introspection results are stored in both caches asynchronously (fire-and-forget).
+
+**Authentication Flow**:
+1. Check in-memory cache (synchronous).
+2. If miss, check policy-level cache (async).
+3. If miss, introspect via OAuth2 resource.
+4. On success, store result in both in-memory cache and policy cache (async, fire-and-forget).
 
 {% code title="Sample Configuration" %}
 ```json
