@@ -7,6 +7,23 @@ metaLinks:
 
 # APIM 4.9.x
  
+## Gravitee API Management 4.9.24 - June 24, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Console**
+
+* Debug mode selects SaaS gateway instead of hybrid gateway when API has a sharding tag [#11533](https://github.com/gravitee-io/issues/issues/11533)
+
+**Other**
+
+* Dynamic Routing redirect rules broken  [#11571](https://github.com/gravitee-io/issues/issues/11571)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.9.23 - June 20, 2026
 <details>
 
