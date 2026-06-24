@@ -8,7 +8,7 @@ The Cache policy caches HTTP responses for a configurable time-to-live (TTL). Co
 
 **Binary Cache Storage Format**:
 
-Responses are stored as binary frames (version byte `0x01`) to preserve byte-for-byte fidelity for non-text content. Legacy JSON-format entries (policy version <= 4.0.0-alpha.2) remain readable during rolling upgrades but are not written by 4.12+ gateways.
+Responses are stored as binary frames (version byte `0x01`) to preserve byte-for-byte fidelity for non-text content. Legacy JSON-format entries (policy version <= 3.0.1) remain readable during rolling upgrades but are not written by 4.12+ gateways.
 
 **Cache Frame Deserialization Failure Handling**:
 

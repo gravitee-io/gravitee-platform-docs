@@ -39,11 +39,7 @@ The gateway deduplicates Redis clients across resources and repositories that co
 
 ### Binary cache storage
 
-Cache policies (Cache and Data Cache) now store response payloads and cached values as binary frames (version byte `0x01`) rather than JSON envelopes. This preserves byte-for-byte fidelity for non-text content and reduces serialization overhead. For policy version >= 4.0.0, entries are stored as binary frames; for policy version <= 4.0.0-alpha.2, entries are JSON envelopes served read-only during rolling upgrades. When frame deserialization fails, the gateway logs `"Cannot decode cache frame for key <key>, evicting and refetching"` and evicts the corrupted entry.
-
-### Binary cache API contract
-
-The `getBinaryAsync(Object key)` method returns `Element` with `value()` as `byte[]` for backends that distinguish text/binary storage (e.g., Redis). Backends that do not distinguish (e.g., in-memory) may return their native type (e.g., `String`); callers must handle both cases. The `putBinaryAsync(Element element)` method expects `element.value()` to be a `byte[]`. Implementations that distinguish text/binary storage must persist raw bytes without character-encoding transformations. Backends that do not override this method may fail at runtime (e.g., `ClassCastException`) when the underlying implementation expects a `String`-typed value. If `putBinaryAsync` receives a non-`byte[]` value, it throws `IllegalArgumentException` with message `"putBinaryAsync requires byte[] value for key '<key>', got <type>"`.
+Cache policies (Cache and Data Cache) now store response payloads and cached values as binary frames (version byte `0x01`) rather than JSON envelopes. This preserves byte-for-byte fidelity for non-text content and reduces serialization overhead. For policy version >= 4.0.0, entries are stored as binary frames; for policy version <= 3.0.1, entries are JSON envelopes served read-only during rolling upgrades. When frame deserialization fails, the gateway logs `"Cannot decode cache frame for key <key>, evicting and refetching"` and evicts the corrupted entry.
 
 ## Prerequisites
 
