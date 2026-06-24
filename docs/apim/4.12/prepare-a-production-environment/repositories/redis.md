@@ -91,7 +91,7 @@ When Use SSL is `true` but the `ssl` object is `null`, the gateway defaults to *
 
 **URL Scheme-Based TLS**:
 
-* For `rediss://` scheme: Use Ssl is `true` and default `SslOptions` with Trust All: `false`.
+* For `rediss://` scheme: Use SSL is `true` and default `SslOptions` with Trust All: `false`.
 * For `redis://` scheme: Use Ssl is `false`.
 {% endtab %}
 
