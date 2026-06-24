@@ -184,3 +184,5 @@ prepare-a-production-environment/sensitive-data-management/api-secrets/configura
 prepare-a-production-environment/sensitive-data-management/api-secrets/reference-secrets-in-apis.md
 prepare-a-production-environment/sensitive-data-management/configure-secrets/configuration.md
 prepare-a-production-environment/sensitive-data-management/configure-secrets/reference-secrets-in-configurations.md
+create-and-configure-apis/configure-v4-apis/cors.md
+developer-portal/new-developer-portal/customize-the-navigation/creating-asyncapi-documentation-pages.md
