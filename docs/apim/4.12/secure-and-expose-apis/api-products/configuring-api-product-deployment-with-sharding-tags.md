@@ -53,7 +53,7 @@ A member API is shard-eligible on a gateway if either:
 
 * Its own sharding tags match the gateway, or
 * It has at least one published or deprecated API Product plan indexed on that gateway, where:
-    * The product's tags match the gateway (tagless product matches all gateways), and
+    * The product's tags match the gateway (tagless product matches all tagless gateways), and
     * The plan's tags are empty (inherits product placement) or match the gateway (subset of product tags).
 
 Standalone APIs (not relying on product eligibility) are unchanged: they deploy only when their own tags match the gateway.
@@ -63,7 +63,7 @@ When an API Product is undeployed or its tags or plans change such that member A
 ### Tag Change Effects
 
 * **Product tags are the ceiling for plan tags.** Plan tags must be a subset of product tags. You cannot deploy a plan to a shard that the product itself does not cover.
-* **Tagless product vs tagless plan.** A product with no tags is eligible on all gateways (when deployed). A plan with no tags is eligible on all gateways where its parent product is eligible.
+* **Tagless product vs tagless plan.** A product with no tags is eligible on all tagless gateways (when deployed). A plan with no tags is eligible on all gateways where its parent product is eligible.
 * **Saving tags ≠ deploying.** Updating tags on the Deployment tab marks the product out of sync until Deploy is run. An "out of sync" banner does not mean the product is undeployed on gateways.
 * **Narrowing product tags auto-cleans plans.** Removing a tag from the product removes that tag from any plan that still had it. Widening product tags does not retroactively add tags to existing plans.
 * **Organization tag deletion is cascading.** Deleting a tag removes it from all API Products and their plans in all environments.
