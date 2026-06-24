@@ -19,6 +19,8 @@ CORS is a mechanism that allows resources on a web page to be requested from ano
 WebSocket entrypoints do not support CORS. CORS will not be applied if an API does not contain at least one of the following entrypoints: HTTP GET, HTTP POST, HTTP Proxy, or SSE.
 {% endhint %}
 
+If you enable Try It Out on OpenAPI documentation pages in the developer portal, you may need to configure CORS on the API entrypoint to allow browser-based API calls from the documentation viewer.
+
 ## Configuration
 
 To configure CORS for an API, follow the steps below.

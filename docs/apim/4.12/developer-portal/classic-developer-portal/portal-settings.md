@@ -40,7 +40,7 @@ The general settings of the Developer Portal can be overridden with the `gravite
   * **Add Google Analytics:** Add a Google Analytics tracking ID to the Developer Portal
   * **Allow Upload Images:** Allows documentation owners to attach images as additional resources
   * **Max size upload file (bytes):** Controls the size of images that documentation owners are allowed to attach
-* **OpenAPI Viewers:** Choose a viewer to display your API documentation
+* **OpenAPI Viewers:** Choose a viewer to display your API documentation. This setting applies only to Next-Gen portal documentation in the Portal Navigation settings screen; legacy API-level documentation screens are not impacted.
 * **Schedulers:** Configure the frequency with which the Developer Portal runs background tasks such as syncing data and sending/receiving notifications
 *   **(v2 APIs only) Documentation URL:** Set the URL shown at the end of the v2 API creation flow
 

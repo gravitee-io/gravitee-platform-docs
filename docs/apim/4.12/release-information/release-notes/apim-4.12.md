@@ -233,6 +233,17 @@
 * Deleting an organization-level tag cascades to all API Products and plans across all environments, automatically removing the tag from affected resources.
 <!-- /PIPELINE:APIM-14357 -->
 
+
+<!-- PIPELINE:APIM-13673 -->
+#### **Portal Documentation Page Types and Viewer Configuration**
+
+* Portal administrators can now create three types of documentation pages in the Portal Navigation settings: Gravitee Markdown, OpenAPI, and AsyncAPI.
+* OpenAPI pages support configurable viewers (Swagger UI or Redoc) with granular control over display options, Try It Out behavior, and server URL resolution.
+* AsyncAPI pages provide a split-pane YAML editor with live preview, real-time validation of the `asyncapi` version field, and interactive documentation rendering in the developer portal.
+* Existing OpenAPI pages without viewer configuration are automatically migrated to use Redoc viewer, preserving prior portal behavior.
+* AsyncAPI validation requires a properly formatted semantic version string (e.g., `3.0.0`) and rejects empty or invalid YAML content before saving.
+<!-- /PIPELINE:APIM-13673 -->
+
 ## Improvements
 
 

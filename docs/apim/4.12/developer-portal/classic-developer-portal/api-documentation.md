@@ -70,8 +70,6 @@ The sample script below creates a documentation template based on the Apache [Fr
 <img src="${api.picture}" style="float: right;max-width: 60px;"/>
 </#if>
 
-# Welcome to the API ${api.name}(${api.version})!
-
 The API is <span style="text-transform: lowercase;color: <#if api.state=='STARTED'>green<#else>red</#if>">${api.state}</span>.
 
 This API has been created on ${api.createdAt?datetime} and updated on ${api.updatedAt?datetime}.
@@ -129,12 +127,11 @@ The following examples demonstrate common FreeMarker patterns for portal pages:
 **Basic API information header:**
 
 ```markdown
-# ${api.name} — ${api.version}
 
 > ${api.description}
 
-**Status:** ${api.lifecycleState}  
-**Visibility:** ${api.visibility}  
+**Status:** ${api.lifecycleState}
+**Visibility:** ${api.visibility}
 **Owner:** ${api.primaryOwner.displayName} (${api.primaryOwner.email})
 ```
 
@@ -191,7 +188,6 @@ Maintained by **${api.primaryOwner.displayName}**.
 **Environment metadata access (environment pages):**
 
 ```markdown
-# Welcome to ${metadata['portal-name']!api.name}
 
 For assistance, reach out to [support](mailto:${metadata['support-email']}).
 ```
@@ -218,7 +214,7 @@ This method allows you to import your documentation from external sources. APIM 
 * **WWW:** Fetch your documentation from the web
 * **Bitbucket:** Fetch your documentation from a Bitbucket repository
 
-<figure><img src="../../.gitbook/assets/documentation_external source.png" alt=""><figcaption><p>Documentation fetcher configuration</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/documentation_external source.png" alt=""><figcaption><p>Documentation fetcher configuration</p></figcaption></figure>
 
 The documentation is fetched and stored locally in APIM in the following three scenarios:
 
@@ -321,7 +317,7 @@ Select a page to configure the following via the header tabs:
 * **Attached Resources:** Add additional files to your documentation page.
   * This requires the administrator to configure **Allow Upload Images** and **Max size upload file (bytes)** in [settings](portal-settings.md).
 
-<figure><img src="../../.gitbook/assets/documentation_page banner.png" alt=""><figcaption><p>Page management options</p></figcaption></figure>
+      <figure><img src="../../.gitbook/assets/documentation_page banner.png" alt=""><figcaption><p>Page management options</p></figcaption></figure>
 
 **Page**, **Translations** and **Access Control** are described in greater detail below.
 
@@ -341,7 +337,7 @@ You can add translations for your pages via the **Translations** tab:
 4. (Optional) You can edit the content to add translated content by toggling on the switch
 5. Click **Save Translation** at the bottom of the page
 
-<figure><img src="../../.gitbook/assets/graviteeio-page-documentation-translations-1.png" alt=""><figcaption><p>Translate a page</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/graviteeio-page-documentation-translations-1.png" alt=""><figcaption><p>Translate a page</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Access control" %}
@@ -350,10 +346,87 @@ From the **Access Control** tab:
 * You can mark a page as **Private** if you want to deny access to anonymous users.
 * If a page is **Private**, you can configure access lists to either require or exclude certain [roles and groups](../../configure-and-manage-the-platform/manage-organizations-and-environments/authentication/roles-and-groups-mapping.md) by toggling the **Excluded** option.
 
-<figure><img src="../../.gitbook/assets/graviteeio-page-documentation-access-control.png" alt=""><figcaption><p>Documentation access control</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/graviteeio-page-documentation-access-control.png" alt=""><figcaption><p>Documentation access control</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
 ## OpenAPI Viewer configuration
 
-When you use an OpenAPI spec as documentation, various configuration options are available. For more information on configuring the OpenAPI Viewer, see [#openapi-viewer-configuration](../../create-and-configure-apis/configure-v4-apis/documentation.md#openapi-viewer-configuration "mention").
+When you use an OpenAPI spec as documentation, various configuration options are available. These settings control the viewer, server URL resolution, Try It Out functionality, and display options.
+
+### Viewer selection and base URL
+
+When editing an OpenAPI page in portal navigation, open the **Configure OpenAPI Viewer** dialog to set the viewer and all applicable options. Settings are saved independently of the specification content and apply to both the Console preview and the published portal page.
+
+1. Select an **OpenAPI Documentation Viewer** from the dropdown: **Swagger** or **Redoc**.
+2. Enter a value in the **Base URL** field to set a custom server URL used when trying the API. If empty and entrypoints are not used, the server URL from the specification is used.
+
+### Server URL and Try It Out options
+
+The following options control how server URLs are resolved and whether users can execute API calls from the documentation page. When **Use API entrypoints as server URLs** is enabled, the custom **Base URL** field is disabled and cleared in the Console UI form.
+
+| Property | Description | Default |
+|:---------|:------------|:--------|
+| **Use API entrypoints as server URLs** | Replaces specification server URLs with the API's live gateway entrypoints. When enabled, the custom base URL field is not used. | `false` |
+| **Use API context-path as server URL path** | Applies the API's context-path to the server URL path (can be combined with entrypoints). | `false` |
+| **Enable 'Try It!' mode** | Lets authenticated portal users execute API calls from the documentation page. May require CORS to be configured on the API entrypoint. | `false` |
+| **Enable 'Try It!' mode for anonymous users** | Allows users who are not logged in to use Try It Out on public pages and public APIs. | `false` |
+| **Use PKCE with OAuth** | Uses PKCE when authenticating with an OAuth authorization-code flow from the documentation page. | `false` |
+
+### Display and behavior options (Swagger UI)
+
+The following options apply only when **Swagger** is selected as the viewer. They control default expansion, filtering, and extension display.
+
+| Property | Description | Default |
+|:---------|:------------|:--------|
+| **Expand content on the page** | Controls default expansion: `none` (default), `list` (tags only), or `full` (tags and operations). | `none` |
+| **Display the operationId in the operation list** | Shows the `operationId` in the operations list. | `false` |
+| **Add top bar to filter content** | Adds a filter bar for tags and operations. | `false` |
+| **Display vendor extensions** | Shows vendor extension (`x-`) fields on operations, parameters, and schemas. | `false` |
+| **Display extension fields for Parameters** | Shows pattern, maxLength, minLength, maximum, and minimum extensions on parameters. | `false` |
+| **Max number of tagged operations displayed** | Limits how many tagged operations are shown. Use `-1` to show all. | `-1` |
+| **Show URL to download content** | Loads the specification from its download URL instead of inline content. | `false` |
+| **Disable response body styling for large JSON payloads** | Turns off syntax highlighting on responses to improve performance with large payloads. | `false` |
+
+The OpenAPI editor keeps a split layout with the specification on one side and a live preview on the other. The preview matches the selected viewer: Swagger UI reflects Try It Out settings, expansion, filtering, extensions, and other options as they are changed; Redoc uses Redoc in preview. Preview updates during the editing session without requiring a separate save to see changes in the preview pane.
+
+### Viewing published documentation
+
+Published OpenAPI pages render according to the saved viewer configuration. Swagger UI honors all configured options, including Try It Out (authenticated and optionally anonymous), OAuth with PKCE, custom or entrypoint-derived server URLs, and display settings. When entrypoint or context-path options are enabled, the platform resolves the enclosing API and serves a specification with the correct server URLs applied so Try It Out targets the live API gateway. Redoc shows the page with the Redoc viewer; an optional base URL can be supplied where relevant.
+
+Published AsyncAPI pages are rendered using an interactive AsyncAPI documentation viewer. Visitors can browse channels, messages, and other spec details in the same way as for other embedded API documentation formats. AsyncAPI pages do not offer a choice of viewer — a single documentation viewer is used.
+
+### Portal API
+
+**Base path:** `/portal-navigation-items`
+
+**Endpoint:** `GET /{itemId}/content`
+
+Returns the content and configuration for a portal navigation item. The `type` field indicates the page type: `GRAVITEE_MARKDOWN`, `OPENAPI`, or `ASYNCAPI`. The `configuration` field contains viewer settings with snake_case keys (e.g., `try_it_url`, `doc_expansion`). The Portal API returns OpenAPI viewer configuration with snake_case keys, while the Management API v2 uses camelCase keys (e.g., `tryItURL`, `docExpansion`). Clients must handle this inconsistency.
+
+**Response** (`PortalPageContent`):
+
+| Property | Type | Description |
+|:---------|:-----|:------------|
+| `type` | `string` | Page content type: `GRAVITEE_MARKDOWN`, `OPENAPI`, or `ASYNCAPI` |
+| `content` | `string` | Page content (Markdown, OpenAPI spec, or AsyncAPI spec) |
+| `configuration` | `object` | Viewer configuration (snake_case keys) |
+
+**Configuration Properties** (snake_case):
+
+| Property | Type | Description | Default |
+|:---------|:-----|:------------|:--------|
+| `viewer` | `string` | Viewer type: `Swagger` or `Redoc` | `Swagger` |
+| `try_it_url` | `string` | Custom server URL | — |
+| `display_operation_id` | `boolean` | Display the operationId in the operation list | `false` |
+| `doc_expansion` | `string` | Expand content on the page: `list`, `full`, or `none` | `none` |
+| `enable_filtering` | `boolean` | Add top bar to filter content | `false` |
+| `max_displayed_tags` | `number` | Max number of tagged operations displayed | `-1` |
+| `show_extensions` | `boolean` | Display vendor extensions | `false` |
+| `show_common_extensions` | `boolean` | Display extension fields for Parameters | `false` |
+| `use_pkce` | `boolean` | Use PKCE with OAuth | `false` |
+| `try_it` | `boolean` | Enable Try It Out | `false` |
+| `disable_syntax_highlight` | `boolean` | Disable response body styling for large JSON payloads | `false` |
+| `try_it_anonymous` | `boolean` | Enable Try It Out for anonymous users | `false` |
+| `show_url` | `boolean` | Show URL to download content | `false` |
+

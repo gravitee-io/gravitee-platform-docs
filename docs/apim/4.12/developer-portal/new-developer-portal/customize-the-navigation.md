@@ -14,6 +14,8 @@ You can create the following elements for your navigation:
 
 When you add a new page, you can customize the page with Gravitee Markdown, which is standard Markdown enriched with dynamic components. For more information about Gravitee Markdown, see[gravitee-markdown-components.md](gravitee-markdown-components.md "mention").
 
+The New Developer Portal supports three page types: Gravitee Markdown, OpenAPI, and AsyncAPI. OpenAPI pages can be configured to use either Swagger UI or Redoc as the viewer, with granular control over display options, Try It Out behavior, and server URL resolution. For more information about page types and viewer configuration, see [portal-documentation-page-types-and-viewer-configuration.md](portal-documentation-page-types-and-viewer-configuration.md "mention").
+
 ### Default navigation items
 
 By default, some pages are already created for you with content. These pages are published and public by default. Here are the following folders, pages, and links that are created by default:
