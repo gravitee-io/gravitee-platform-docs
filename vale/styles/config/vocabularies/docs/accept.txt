@@ -435,7 +435,7 @@ external-dns
 cert-manager
 controllerName
 parametersRef
-[Oo]penssl
+(?i)openssl
 [Gg]ravitee\.io
 [Mm]inikube
 balancer's
@@ -813,3 +813,15 @@ Norasi
 Kalimati
 Luxi
 Bitstream
+
+# ============================================
+# Spell-check sweep additions (2026-06-24)
+# Terms surfaced by Vale across PRs #1770, #1800, #1805, #1806, #1807, #1810.
+# ============================================
+asc
+cacheRedis
+connectTimeout
+prefetch
+resync
+[Ss]harded
+tlsCiphers
