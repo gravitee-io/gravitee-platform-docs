@@ -157,3 +157,8 @@ create-and-configure-apis/apply-policies/policy-reference/token-bucket-rate-limi
 how-to-guides/use-case-tutorials/rate-limit-rest-apis.md
 prepare-a-production-environment/repositories/jdbc.md
 upgrade-guides/mongodb-index-management.md
+developer-portal/new-developer-portal/customize-the-navigation/creating-and-managing-portals.md
+developer-portal/new-developer-portal/customize-the-navigation/managing-documentation-pages.md
+developer-portal/new-developer-portal/customize-the-navigation/portal-automation-api-overview.md
+developer-portal/new-developer-portal/customize-the-navigation/publishing-apis-with-portal-listings.md
+kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/documentation.md

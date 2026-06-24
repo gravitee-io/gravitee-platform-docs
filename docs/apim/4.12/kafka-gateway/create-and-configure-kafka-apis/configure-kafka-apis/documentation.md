@@ -11,6 +11,8 @@ metaLinks:
 
 In the **Documentation** section, you can create pages that will appear in the Developer Portal and inform API consumers how to use your API.
 
+Documentation pages can also be created and managed programmatically via the Portal Automation API. This includes both portal-scoped pages (appearing in the portal's top-level navigation) and API-scoped pages (appearing under published API entries). For details, see [Managing Documentation Pages](../../../developer-portal/new-developer-portal/customize-the-navigation/managing-documentation-pages.md).
+
 ## Main Pages
 
 Under the **Main Pages** header, you can set up a homepage for your API in the Developer Portal. You can either create a new page or choose from existing pages.

@@ -224,6 +224,17 @@
 * Requires a distributed repository (Redis, MongoDB, JDBC, or Hazelcast) for rate-limit state synchronization across gateway nodes.
 <!-- /PIPELINE:APIM-14501 -->
 
+
+<!-- PIPELINE:APIM-14124 -->
+#### **Portal Automation API**
+
+* Enables CI/CD-driven configuration of next-generation developer portals through declarative resource definitions for portal structure, published APIs, and documentation.
+* Supports idempotent create-or-update operations via deterministic resource identifiers derived from human-readable IDs (HRIDs), ensuring consistent state reconciliation across deployments.
+* Consumable from Gravitee Kubernetes Operator (GKO) custom resources or Terraform providers for infrastructure-as-code workflows.
+* Navigation paths define portal folder hierarchies as slash-separated strings with automatic intermediate folder creation and URL-safe slugification.
+* Portal listings publish APIs to specific navigation locations with configurable display order, while documentation resources attach content pages to portals or individual APIs.
+<!-- /PIPELINE:APIM-14124 -->
+
 ## Improvements
 
 

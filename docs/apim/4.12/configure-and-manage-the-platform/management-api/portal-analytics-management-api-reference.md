@@ -8,6 +8,27 @@ Base path: `/portal/environments/{envId}/analytics`
 
 All paths below are relative to this base path. For enablement and UI behavior, see [Portal analytics configuration reference](../../developer-portal/new-developer-portal/portal-analytics-configuration-reference.md).
 
+## Portal Automation API
+
+The Portal Automation API enables CI/CD-driven configuration of next-generation developer portals. These endpoints belong to the **Management API** and require the `ENVIRONMENT_PORTAL` permission.
+
+**Base path:** `/organizations/{orgId}/environments/{envId}`
+
+| Endpoint | Method | Description |
+|:---------|:-------|:------------|
+| `/portals` | PUT | Create or update a portal |
+| `/portals/{portalHrid}` | GET | Retrieve a portal's current state |
+| `/portals/{portalHrid}` | DELETE | Delete a portal |
+| `/portals/{portalHrid}/listings` | PUT | Create or update a portal listing |
+| `/portals/{portalHrid}/listings/{hrid}` | GET | Retrieve a listing's current state |
+| `/portals/{portalHrid}/listings/{hrid}` | DELETE | Delete a listing |
+| `/portals/{portalHrid}/documentations` | PUT | Create or update portal-scoped documentation |
+| `/portals/{portalHrid}/documentations/{hrid}` | GET | Retrieve portal documentation |
+| `/portals/{portalHrid}/documentations/{hrid}` | DELETE | Delete portal documentation |
+| `/apis/{apiHrid}/documentations` | PUT | Create or update API-scoped documentation |
+| `/apis/{apiHrid}/documentations/{hrid}` | GET | Retrieve API documentation |
+| `/apis/{apiHrid}/documentations/{hrid}` | DELETE | Delete API documentation |
+
 ## List dashboards
 
 **Endpoint:** `GET /analytics/dashboards`
