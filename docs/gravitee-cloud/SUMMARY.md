@@ -34,6 +34,14 @@
   * [Manage custom reporter deployments](guides/configure-tcp-reporter/manage-custom-reporter-deployments.md)
   
 
+## API Designer
+
+* [Introduction to Gravitee API Designer (APID)](api-designer/README.md)
+* [Get Started with API Designer](api-designer/getting-started/get-started-with-api-designer.md)
+* [API Designer Workspace](api-designer/guides/api-designer-workspace/README.md)
+  * [Design Interface](api-designer/guides/api-designer-workspace/design-interface.md)
+  * [Push Interface](api-designer/guides/api-designer-workspace/push-interface.md)
+
 ## SELF-HOSTED
 
 * [Getting started with Self-hosted Profile](self-hosted/getting-started-with-self-hosted-profile.md)
