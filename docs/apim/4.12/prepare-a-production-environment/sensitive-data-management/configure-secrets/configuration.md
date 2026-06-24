@@ -395,7 +395,7 @@ The **Workload Identity** provider reads the federated token file path from `AZU
 
 #### SSL trust store behavior
 
-When `ssl.pemFile` is set, the plugin builds a custom trust store from that file and does **not** merge it with the JVM default trust store. Include the full certificate chain needed to validate the Azure Key Vault endpoint or any intermediate proxies. When `ssl.verify` is `false`, the plugin trusts all certificates regardless of the `ssl.pemFile` setting—use this only for local test environments.
+When `ssl.pemFile` is set, the plugin builds a custom trust store from that file and does **not** merge it with the JVM default trust store. Include the full certificate chain needed to validate the Azure Key Vault endpoint or any intermediate proxies. When `ssl.verify` is `false`, the plugin trusts all certificates regardless of the `ssl.pemFile` setting. Use this only for local test environments.
 
 ## Combine several secret managers
 

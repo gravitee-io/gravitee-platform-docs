@@ -185,24 +185,24 @@ If the secret cannot be resolved and retry is activated, the API is deployed, bu
 
 ### Azure Key Vault secret value parsing
 
-When the Azure Key Vault Secret Provider retrieves a secret, it parses the value based on its format. If the value is a JSON flat object, each key-value pair becomes a separate secret entry accessible via the `:<key>` suffix. If the value is plain text, it is returned under the `secretValue` key. The plugin does not support nested JSON objects—only top-level key-value pairs are extracted.
+When the Azure Key Vault Secret Provider retrieves a secret, it parses the value based on its format. If the value is a flat JSON object, each key-value pair becomes a separate secret entry accessible with the `:<key>` suffix. If the value is plain text, it's returned under the `secretValue` key. The provider extracts only top-level key-value pairs. It doesn't support nested JSON objects.
+
+The provider also maps common secret keys to well-known identifiers for use in authentication and TLS configurations:
+
+| Secret key | Well-known key |
+|------------|----------------|
+| `certificate` | `CERTIFICATE` |
+| `private_key` | `PRIVATE_KEY` |
+| `username` | `USERNAME` |
+| `password` | `PASSWORD` |
 
 ### Azure Key Vault watch limitations
 
-The Azure Key Vault Secret Provider does not support secret watching. Calling the `watch()` method logs a warning and returns an empty stream. Any `?watch=true` query parameter on the secret URL is ignored. Secrets are fetched on demand and cached according to the Gravitee secret manager cache policy.
+The Azure Key Vault Secret Provider doesn't support secret watching, so a `?watch=true` query parameter on a secret URL has no effect. Secrets are fetched on demand and cached according to the Gravitee secret manager cache policy.
 
 ### Azure Key Vault error handling
 
-If a secret is not found in Azure Key Vault, the plugin treats it as an empty result rather than throwing an error. HTTP 404 responses from Azure are handled silently. Other errors (authentication failures, network issues, invalid SSL configuration) throw a `SecretManagerException` with a descriptive message. Configuration errors (missing required fields, blank values) throw a `SecretManagerConfigurationException` during plugin initialization.
-
-| Error Message | Trigger |
-|---------------|---------|
-| `"Azure Key Vault 'Vault Url' is required"` | **Vault Url** is null or blank when `enabled: true` |
-| `"Azure Key Vault 'auth.clientSecret' is required for CLIENT_SECRET auth"` | `auth.clientSecret` is null or blank for `CLIENT_SECRET` provider |
-| `"Azure Key Vault 'auth.certificateFile' is required for CERTIFICATE auth"` | `auth.certificateFile` is null or blank for `CERTIFICATE` provider |
-| `"Failed to retrieve secret '%s' from Azure Key Vault"` | Secret fetch failed for reasons other than 404 |
-| `"Failed to configure SSL for Azure Key Vault client"` | SSL context creation failed |
-| `"No certificates found in Azure Key Vault SSL PEM file: %s"` | PEM file is empty or contains no certificates |
+If a secret isn't found in Azure Key Vault, the provider returns an empty result rather than failing. Authentication, network, or TLS errors fail secret resolution with a descriptive message. Configuration errors, such as a missing vault URL or a blank required credential, fail at gateway startup.
 
 ## Secret renewal
 
