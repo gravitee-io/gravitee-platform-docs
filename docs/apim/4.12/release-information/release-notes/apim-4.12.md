@@ -198,6 +198,15 @@
 * An empty or unset whitelist disables issuer validation entirely, maintaining backward compatibility with existing configurations.
 <!-- /PIPELINE:APIM-14474 -->
 
+
+<!-- PIPELINE:APIM-14411 -->
+#### **Cascade Operations for Portal Navigation**
+
+* You can now publish, unpublish, and delete folders and API sections along with all nested content in a single action.
+* When you publish or unpublish a folder, the visibility change propagates to all nested documentation pages, sub-folders, and APIs. When you unpublish a folder, all nested items are set to `PRIVATE` visibility.
+* When you delete a folder or API section, the container and all descendants are removed recursively. The **Delete** button is now enabled for all items regardless of child count, and sibling items are automatically reordered after deletion.
+<!-- /PIPELINE:APIM-14411 -->
+
 ## Improvements
 
 
