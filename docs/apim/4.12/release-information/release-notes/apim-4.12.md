@@ -241,6 +241,16 @@
 * Requires Gravitee APIM or AM 4.11.x or later and appropriate Azure AD credentials based on the selected authentication provider.
 <!-- /PIPELINE:APIM-14300 -->
 
+
+<!-- PIPELINE:APIM-13673 -->
+#### **Configurable Documentation Viewers for Portal Pages**
+
+* Portal administrators can now select between Swagger UI and Redoc viewers for OpenAPI documentation pages, with Swagger UI offering interactive Try It Out functionality and Redoc providing a read-focused reference layout.
+* AsyncAPI documentation pages render with an interactive viewer and include a starter AsyncAPI 3.0 template for new pages, with YAML validation enforced before saving.
+* Viewer configuration is managed through Portal Navigation settings in the Console, with live preview during editing and independent storage of viewer settings from specification content.
+* Swagger UI supports full configuration options including base URL override and OAuth with PKCE, while Redoc exposes viewer selection and optional base URL override only.
+<!-- /PIPELINE:APIM-13673 -->
+
 ## Improvements
 
 
