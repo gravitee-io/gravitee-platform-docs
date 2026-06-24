@@ -58,11 +58,11 @@ After creating sharding tags in the Console, you must add them to your API Gatew
 
 4. To create a new restricted sharding tag, click **+ Add a tag**. In the **Create a tag** dialog, enter the tag name, key, and description. Select one or more groups from the **Restricted groups** dropdown to limit deployment to members of those groups.
 
-    <figure><img src="../../.gitbook/assets/apim-api-product-sharding-tags-step-17.png" alt="Edit tag dialog showing form fields for creating a restricted sharding tag with name, key, description, and restricted groups dropdown"><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/apim-api-product-sharding-tags-step-17.png" alt="Create a tag dialog with the name, key, and description filled and a group selected in the Restricted groups dropdown for a restricted sharding tag"><figcaption></figcaption></figure>
 
 5. To create an unrestricted sharding tag, click **+ Add a tag**. In the **Create a tag** dialog, enter the tag name and key. Leave the **Restricted groups** field empty to allow all users to deploy on this tag.
 
-    <figure><img src="../../.gitbook/assets/apim-api-product-sharding-tags-step-18.png" alt="Edit tag dialog showing form for creating an 'external' sharding tag with name and key fields populated"><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/apim-api-product-sharding-tags-step-18.png" alt="Create a tag dialog with the name and key filled and the Restricted groups dropdown left empty for an unrestricted sharding tag"><figcaption></figcaption></figure>
 
 6. Click **Ok** to save the tag.
 
