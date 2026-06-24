@@ -14,7 +14,7 @@ Console tag assignment alone is not enough — each target gateway must declare 
 
 ### API Product Tags
 
-API Product tags define the maximum deployment scope for the product and all its plans. When an API Product is assigned sharding tags, only gateways whose configured tags intersect with the product's tags will index the product. A product with no tags is eligible on all gateways. Product tags act as the ceiling for plan tags — no plan can be deployed to a gateway that the product itself does not cover.
+API Product tags define the maximum deployment scope for the product and all its plans. When an API Product is assigned sharding tags, only gateways whose configured tags intersect with the product's tags will index the product. A product with no tags is eligible on all tagless gateways. Product tags act as the ceiling for plan tags. No plan can be deployed to a gateway that the product itself does not cover.
 
 Saving tags on the Deployment tab marks the product out of sync until the Deploy action is run. An "out of sync" banner does not mean the product is undeployed on gateways — it indicates that the configuration has changed and requires synchronization. After a tag change, the product shows out of sync until deployed.
 
@@ -56,11 +56,11 @@ After creating sharding tags in the Console, you must add them to your API Gatew
 
     <figure><img src="../../.gitbook/assets/apim-api-product-sharding-tags-step-16.png" alt="Organization entrypoints and sharding tags page showing empty sharding tags table with success notification"><figcaption></figcaption></figure>
 
-4. To create a new restricted sharding tag, click **+ Add a tag**. In the **Edit a tag** dialog, enter the tag name, key, and description. Select one or more groups from the **Restricted groups** dropdown to limit deployment to members of those groups.
+4. To create a new restricted sharding tag, click **+ Add a tag**. In the **Create a tag** dialog, enter the tag name, key, and description. Select one or more groups from the **Restricted groups** dropdown to limit deployment to members of those groups.
 
     <figure><img src="../../.gitbook/assets/apim-api-product-sharding-tags-step-17.png" alt="Edit tag dialog showing form fields for creating a restricted sharding tag with name, key, description, and restricted groups dropdown"><figcaption></figcaption></figure>
 
-5. To create an unrestricted sharding tag, click **+ Add a tag**. In the **Edit a tag** dialog, enter the tag name and key. Leave the **Restricted groups** field empty to allow all users to deploy on this tag.
+5. To create an unrestricted sharding tag, click **+ Add a tag**. In the **Create a tag** dialog, enter the tag name and key. Leave the **Restricted groups** field empty to allow all users to deploy on this tag.
 
     <figure><img src="../../.gitbook/assets/apim-api-product-sharding-tags-step-18.png" alt="Edit tag dialog showing form for creating an 'external' sharding tag with name and key fields populated"><figcaption></figcaption></figure>
 

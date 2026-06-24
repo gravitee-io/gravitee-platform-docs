@@ -172,7 +172,7 @@ The subscription is created with a status based on the plan's validation setting
 - **AUTO** validation: the subscription is immediately **Accepted**
 - **MANUAL** validation: the subscription is set to **Pending** and requires approval
 
-After a plan is configured with sharding tags, subscriptions to that plan display the plan name and associated tags in the subscription details page.
+After a plan is configured with sharding tags, the plan's tags appear in the **Deploy on** column of the plan list and on the plan details page, not on the subscription details page.
 
 <figure><img src="../../.gitbook/assets/apim-api-product-sharding-tags-step-22.png" alt=""><figcaption><p>Subscription details page showing plan, status, consumer status, and application information</p></figcaption></figure>
 
