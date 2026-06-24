@@ -331,6 +331,7 @@
     * [Layout and Theme](developer-portal/new-developer-portal/layout-and-theme.md)
     * [Customize the Homepage](developer-portal/new-developer-portal/customize-the-homepage.md)
     * [Customize the Navigation](developer-portal/new-developer-portal/customize-the-navigation.md)
+      * [Creating AsyncAPI Documentation Pages](developer-portal/new-developer-portal/customize-the-navigation/creating-asyncapi-documentation-pages.md)
     * [Creating and Managing Templated Portal Pages](developer-portal/new-developer-portal/customize-the-navigation/creating-and-managing-templated-portal-pages.md)
     * [Gravitee Markdown Components](developer-portal/new-developer-portal/gravitee-markdown-components.md)
     * [MCP Server Installation Widget for Portal Pages](mcp-server-installation-widget-for-portal-pages.md)

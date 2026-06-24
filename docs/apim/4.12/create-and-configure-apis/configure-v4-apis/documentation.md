@@ -52,7 +52,7 @@ A folder will be **Hidden**, or not visible in the Developer Portal, until it co
 
 ### Add pages
 
-Pages allow you to document your API using Markdown. The process of adding a page consists of the following steps:
+Pages allow you to document your API using Markdown, OpenAPI specifications, or AsyncAPI specifications. The process of adding a page consists of the following steps:
 
 #### Step 1: Configure a page
 
@@ -64,6 +64,12 @@ After selecting the page type, name the page and select whether the page is **Pu
 * **Visibility:** Select whether the folder visibility is **Public** or **Private**
   * **Public:** This is the default visibility. The page can be viewed in the Developer Portal by anonymous users.
   * **Private:** Users must be authenticated to view the page in the Developer Portal
+
+**Page Type Rendering:**
+
+* **Markdown** pages render as formatted markdown content
+* **OpenAPI** pages render using Swagger UI or Redoc (configurable via OpenAPI Viewer settings)
+* **AsyncAPI** pages render using an interactive AsyncAPI documentation viewer
 
 <figure><img src="../../.gitbook/assets/docs_add page 1.png" alt=""><figcaption><p>Markdown page configuration</p></figcaption></figure>
 
