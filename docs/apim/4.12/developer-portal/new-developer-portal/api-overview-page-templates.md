@@ -67,7 +67,7 @@ API publishers can edit the generated Overview page in the Console to add contex
 
 The standard template suggests adding a quick start section, highlighting key use cases, and linking to external guides or changelogs. The MCP proxy template recommends listing available MCP tools, documenting authentication requirements, and describing expected use cases. If your MCP proxy requires OAuth2, see [Secure MCP Proxy with OAuth2](../../ai-agent-management/secure-mcp-proxy-with-oauth2.md).
 
-Both templates include a link to Gravitee documentation: the standard template links to the [Developer Portal overview](https://documentation.gravitee.io/apim/developer-portal/new-developer-portal), while the MCP proxy template links to the [OAuth2 security guide for MCP proxies](https://documentation.gravitee.io/apim/ai-agent-management/secure-mcp-proxy-with-oauth2).
+Both templates include a link to Gravitee documentation: the standard template links to the [Developer Portal overview](README.md), while the MCP proxy template links to the [OAuth2 security guide for MCP proxies](../../ai-agent-management/secure-mcp-proxy-with-oauth2.md).
 
 ## Restrictions
 

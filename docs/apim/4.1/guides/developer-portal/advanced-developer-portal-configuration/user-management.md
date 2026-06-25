@@ -25,7 +25,7 @@ To configure SMTP settings:
 4. Configure the **SMTP** settings are at the bottom of the page
 
 {% hint style="info" %}
-By default, the `gravitee.yml` configuration file disables email because email requires configuring an SMTP email service. You must set up email for your APIM deployment per the [SMTP configuration guide](../../../getting-started/configuration/) to be able to modify the SMTP settings.
+By default, the `gravitee.yml` configuration file disables email because email requires configuring an SMTP email service. You must set up email for your APIM deployment per the [SMTP configuration guide](../../../getting-started/configuration/README.md) to be able to modify the SMTP settings.
 {% endhint %}
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2023-06-05 at 12.03.55 PM.png" alt=""><figcaption><p>SMTP default settings</p></figcaption></figure>
@@ -76,5 +76,5 @@ As an administrator, you can click on an entry for user details and to apply adm
 {% hint style="info" %}
 **Detailed user administration**
 
-For additional information on user management, including roles, groups, and permissions, see the [Administration guide.](../../administration/#introduction)
+For additional information on user management, including roles, groups, and permissions, see the [Administration guide.](../../administration/README.md#introduction)
 {% endhint %}
