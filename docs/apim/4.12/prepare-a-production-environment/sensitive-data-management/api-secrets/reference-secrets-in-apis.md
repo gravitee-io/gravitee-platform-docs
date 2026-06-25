@@ -109,35 +109,6 @@ Here is an example with query parameters:
 
 `{#secrets.get('#expression_to_get_the_secret_path?`<mark style="color:orange;">`query_paramter`</mark>`')}`
 
-### Azure Key Vault secret references
-
-Reference Azure Key Vault secrets in API configurations, policies, and authentication flows using the `secret://azure-keyvault/` URL scheme. For JSON secrets, append `:<key>` to extract a specific field. For plain-text secrets, the value is available under the `secretValue` key. Use the `keymap` query parameter to map custom JSON keys to well-known identifiers.
-
-**Extract a field from a JSON secret:**
-
-```yaml
-secret://azure-keyvault/my-secret:username
-```
-
-**Reference a plain-text secret:**
-
-```yaml
-secret://azure-keyvault/my-secret:secretValue
-```
-
-**Map custom JSON keys to well-known keys:**
-
-```yaml
-secret://azure-keyvault/my-secret?keymap=usr:username&keymap=pwd:password
-```
-
-This maps the `usr` field in the JSON secret to the `USERNAME` well-known key and the `pwd` field to the `PASSWORD` well-known key.
-
-**Use in an API expression:**
-
-```json
-{#secrets.get('/azure-keyvault/my-secret:secretValue')}
-```
 
 ## Secret resolution and evaluation
 

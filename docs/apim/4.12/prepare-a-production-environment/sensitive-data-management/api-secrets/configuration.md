@@ -388,6 +388,8 @@ Here are more options that can be used to configure your AWS secret manager:
 
 ### Azure Key Vault
 
+Reference Azure Key Vault secrets in API configurations, policies, and authentication flows. Only JSON secrets are supported, append `:<key>` to extract a specific field. Use the `keymap` query parameter to map custom JSON keys to well-known identifiers.
+
 The Azure Key Vault Secret Provider supports six authentication methods: `CLIENT_SECRET`, `CERTIFICATE`, `DEFAULT_AZURE_CREDENTIAL`, `MANAGED_IDENTITY`, `ENVIRONMENT`, and `WORKLOAD_IDENTITY`. The `MANAGED_IDENTITY` and `DEFAULT_AZURE_CREDENTIAL` providers support Azure managed identities (system-assigned and user-assigned). When using user-assigned managed identities, the plugin selects the identifier in the following priority order: `resourceId` > `objectId` > `clientId`.
 
 Here is an example configuration using client secret authentication:
@@ -425,6 +427,23 @@ api:
           auth:
             provider: MANAGED_IDENTITY
             managedIdentityClientId: mi-client-id
+```
+{% endcode %}
+
+Here is an example configuration using default azure credentials:
+
+{% code title="gravitee.yml" %}
+```yaml
+api:
+  secrets:
+    providers:
+      - id: azure-keyvault
+        plugin: azure-keyvault
+        configuration:
+          enabled: true
+          vaultUrl: https://my-vault.vault.azure.net
+          auth:
+            provider: DEFAULT_AZURE_CREDENTIAL
 ```
 {% endcode %}
 
