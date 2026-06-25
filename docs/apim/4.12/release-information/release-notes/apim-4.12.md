@@ -251,6 +251,15 @@
 * Swagger UI supports full configuration options including base URL override and OAuth with PKCE, while Redoc exposes viewer selection and optional base URL override only.
 <!-- /PIPELINE:APIM-13673 -->
 
+<!-- PIPELINE:APIM-14121 -->
+#### **Typo-Tolerant API Search**
+
+* Enables developers to find APIs in the Developer Portal catalog even when search queries contain minor spelling errors. For example, "paymnt" returns "payment" APIs.
+* Applies fuzzy matching based on Levenshtein distance: tokens with four to seven characters tolerate one edit, tokens with eight or more characters tolerate two edits, and tokens shorter than four characters require exact matches.
+* Disabled by default and configurable per environment by administrators with the `ENVIRONMENT_SETTINGS` update permission.
+* Automatically skips fuzzy matching for queries longer than 512 characters to maintain performance.
+<!-- /PIPELINE:APIM-14121 -->
+
 ## Improvements
 
 
