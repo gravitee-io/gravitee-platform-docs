@@ -9,7 +9,7 @@ metaLinks:
 
 ## Deployment methods
 
-* [Vanilla Kubernetes](vanilla-kubernetes/)
+* [Vanilla Kubernetes](vanilla-kubernetes/README.md)
 * [AWS EKS](aws-eks.md)
 * [Azure AKS](azure-aks.md)
 * [OpenShift](openshift.md)
@@ -36,7 +36,7 @@ gateway:
       value: "<proxy-port>"
 ```
 
-For the full configuration reference including proxy authentication and `gravitee.yml` equivalents, see [Configure Helm values](../proxy-configuration/system-proxy-for-backend-apis.md#configure-helm-values). For an overview of all proxy methods, see [Proxy Configuration](../proxy-configuration/).
+For the full configuration reference including proxy authentication and `gravitee.yml` equivalents, see [Configure Helm values](../proxy-configuration/system-proxy-for-backend-apis.md#configure-helm-values). For an overview of all proxy methods, see [Proxy Configuration](../proxy-configuration/README.md).
 
 ## Ingress body size limit
 

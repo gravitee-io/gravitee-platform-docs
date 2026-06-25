@@ -61,7 +61,7 @@ Message-based, asynchronous APIs such as Kafka, MQTT, WebSocket, SSE, and Webhoo
 
 The legacy execution engine supports all Gravitee policies that existed prior to the 4.0 release. These policies will continue to function without any changes to configuration or execution.
 
-All policies will also support the new reactive execution engine, but not all policies can being applied at the message level. Whether a policy can be applied to v4 proxy APIs and/or v4 message APIs is detailed per policy in the [Policies](./) section.
+All policies will also support the new reactive execution engine, but not all policies can being applied at the message level. Whether a policy can be applied to v4 proxy APIs and/or v4 message APIs is detailed per policy in the [Policies](README.md) section.
 
 ## v2 Gateway API emulation mode
 
@@ -196,7 +196,7 @@ When using the reactive execution engine, the OAuth2 plan is _not_ selected if t
 
 During OAuth2 plan selection, a token introspection is completed to retrieve the `client_id`, which allows searching for a subscription. When multiple OAuth2 plans are configured, the Gateway calls the introspection endpoint on **all** configured OAuth2 resources before evaluating selection rules. Selection rules can reference introspection response data (for example, `client_id`, `scope`, or `username` from `oauth.payload`), so introspection runs first to populate that data.
 
-If there are performance concerns, a cache system is available to avoid completing the same token introspection multiple times. Recommended: Use selection rules if there are multiple OAuth2 plans to reduce unnecessary processing after introspection. For more details, see [OAuth2 plan introspection behavior.](https://documentation.gravitee.io/apim/secure-and-expose-apis/plans/oauth2#introspection-behaviour-with-multiple-oauth2-plans)
+If there are performance concerns, a cache system is available to avoid completing the same token introspection multiple times. Recommended: Use selection rules if there are multiple OAuth2 plans to reduce unnecessary processing after introspection. For more details, see [OAuth2 plan introspection behavior.](../../secure-and-expose-apis/plans/oauth2.md#introspection-behaviour-with-multiple-oauth2-plans)
 {% endtab %}
 {% endtabs %}
 

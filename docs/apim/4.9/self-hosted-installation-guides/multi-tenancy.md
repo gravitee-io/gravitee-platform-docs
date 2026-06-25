@@ -9,7 +9,7 @@ metaLinks:
 # Multi-tenancy
 
 {% hint style="warning" %}
-Multi-tenancy requires running APIM 4.2 and an [enterprise-enabled Gravitee Cloud account](https://documentation.gravitee.io/apim/readme/enterprise-edition#enterprise-version-of-gravitee-cockpit).
+Multi-tenancy requires running APIM 4.2 and an [enterprise-enabled Gravitee Cloud account](../readme/enterprise-edition.md#enterprise-version-of-gravitee-cockpit).
 
 To learn more about Gravitee Enterprise and what's included in various enterprise packages, [book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/) or [check out the pricing page](https://www.gravitee.io/pricing).
 {% endhint %}
@@ -29,7 +29,7 @@ The isolation scheme of data and features between the logical hierarchical struc
 This page discusses how to deploy APIM and Cloud together in multi-tenant mode.
 
 {% hint style="info" %}
-For information on how to run a `standalone` (not multi-tenant) installation with APIM, refer to the [Upgrade Guide](../upgrade-guides/)
+For information on how to run a `standalone` (not multi-tenant) installation with APIM, refer to the [Upgrade Guide](../upgrade-guides/README.md)
 {% endhint %}
 
 ## How to set up multi-tenancy

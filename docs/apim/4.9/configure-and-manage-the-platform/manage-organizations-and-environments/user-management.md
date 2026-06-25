@@ -163,7 +163,7 @@ To pre-register a user:
     <figure><img src="../../.gitbook/assets/create user_user type (1) (1).png" alt=""><figcaption><p>Add a User user type</p></figcaption></figure>
 
     * Enter the user's info: **First Name**, **Last Name**, **Email**
-    * Using the drop-down menu, select the **Identity Provider** name. See [IdP configuration](../../../4.10/configure-and-manage-the-platform/manage-organizations-and-environments/#defining-organization-authentication-and-access-settings) for more details.
+    * Using the drop-down menu, select the **Identity Provider** name. See [IdP configuration](../../../4.10/configure-and-manage-the-platform/manage-organizations-and-environments/README.md#defining-organization-authentication-and-access-settings) for more details.
 
     **Pre-register a service account:** Set up a user as a service account to enable someone from a Gravitee servicer (e.g., partner, consultant) to subscribe to Gravitee email notifications
 

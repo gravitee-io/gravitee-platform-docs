@@ -21,7 +21,7 @@ To learn more about Gravitee [Enterprise Edition](../../readme/enterprise-editio
 
 ## Prerequisites to enable this feature
 
-1. You must configure one of the following secret managers in your `gravitee.yml` file or using the equivalent [environment variable](./): Kubernetes, Amazon Secret Manager, or Hashicorp Vault. For more information about these secret managers, see [Integrations](../../readme/integrations.md#secret-managers-integration).
+1. You must configure one of the following secret managers in your `gravitee.yml` file or using the equivalent [environment variable](README.md): Kubernetes, Amazon Secret Manager, or Hashicorp Vault. For more information about these secret managers, see [Integrations](../../readme/integrations.md#secret-managers-integration).
 2. Reference those secrets in your API definitions with a specialized syntax.
 
 ## Configuring Gravitee to access secret managers
