@@ -825,3 +825,9 @@ prefetch
 resync
 [Ss]harded
 tlsCiphers
+
+# ============================================
+# Release-stage terms (2026-06-25)
+# ============================================
+[Aa]lpha
+[Bb]eta
