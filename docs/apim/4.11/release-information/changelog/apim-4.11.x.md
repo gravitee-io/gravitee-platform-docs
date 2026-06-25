@@ -1,5 +1,18 @@
 # APIM 4.11.x
  
+## Gravitee API Management 4.11.13 - June 25, 2026
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Gateway with LLM proxy API deployed won't start  [#11574](https://github.com/gravitee-io/issues/issues/11574)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.11.12 - June 24, 2026
 <details>
 
