@@ -235,7 +235,7 @@
 <!-- PIPELINE:APIM-14300 -->
 #### **Azure Key Vault Secret Provider**
 
-* Retrieve secrets from Azure Key Vault at runtime using the `secret://azure-keyvault/` URL scheme in API configurations, policies, and authentication flows.
+* Retrieve JSON formatted secrets from Azure Key Vault in APIM or AM configuration using the `secret://azure-keyvault/` URL scheme and in APIM APIs configurations, policies, and authentication flows using `{#secrets.get('/azure-keyvault/secret:key')}`.
 * Supports six authentication methods: Client Secret, Certificate, Default Azure Credential, Managed Identity, Environment, and Workload Identity (beta) to accommodate different Azure deployment scenarios.
 * Automatically maps common secret keys (`username`, `password`, `certificate`, `private_key`) to well-known identifiers for use in authentication and TLS configurations.
 * Requires Gravitee APIM or AM 4.11.x or later and appropriate Azure AD credentials based on the selected authentication provider.

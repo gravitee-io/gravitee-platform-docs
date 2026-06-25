@@ -305,12 +305,13 @@ The Azure Key Vault Secret Provider is a paid plugin available in Gravitee API M
 
 Before configuring the Azure Key Vault Secret Provider, ensure the following requirements are met:
 
-* Azure Key Vault instance with secrets configured
+* Azure Key Vault instance with JSON formatted secrets configured
 * Azure AD tenant and appropriate credentials based on the selected authentication provider:
   * **Client Secret**: Azure AD app registration with client secret
   * **Certificate**: Azure AD app registration with client certificate in PEM format
+  * **Default Azure Credentials**: SDK Will try to find configured credentials on the host
   * **Managed Identity**: Azure VM, App Service, or AKS with system-assigned or user-assigned managed identity
-  * **Workload Identity**: Kubernetes cluster with workload identity federation configured and federated token file mounted
+  * **Workload Identity**: Kubernetes cluster with workload identity federation configured and federated token file mounted (beta)
   * **Environment**: `AZURE_TENANT_ID`, `AZURE_CLIENT_ID`, and `AZURE_CLIENT_SECRET` environment variables set on the Gravitee host
 
 #### Global secret provider configuration
@@ -321,7 +322,7 @@ Configure the Azure Key Vault secret provider in `gravitee.yml` to make secrets 
 |----------|-------------|---------|
 | `secrets.azure-keyvault.enabled` | Enable or disable the plugin | `true` |
 | `secrets.azure-keyvault.vaultUrl` | Azure Key Vault URL (required when enabled) | `https://my-vault.vault.azure.net` |
-| `secrets.azure-keyvault.auth.provider` | Authentication provider | `CLIENT_SECRET`, `CERTIFICATE`, `DEFAULT_AZURE_CREDENTIAL`, `MANAGED_IDENTITY`, `ENVIRONMENT`, `WORKLOAD_IDENTITY` |
+| `secrets.azure-keyvault.auth.provider` | Authentication provider (required when enabled) | `CLIENT_SECRET`, `CERTIFICATE`, `DEFAULT_AZURE_CREDENTIAL`, `MANAGED_IDENTITY`, `ENVIRONMENT`, `WORKLOAD_IDENTITY` |
 | `secrets.azure-keyvault.auth.tenantId` | Azure AD tenant ID (required for `CLIENT_SECRET` and `CERTIFICATE`; optional for `WORKLOAD_IDENTITY`) | `my-tenant-id` |
 | `secrets.azure-keyvault.auth.clientId` | App registration client ID (required for `CLIENT_SECRET` and `CERTIFICATE`; user-assigned managed identity client ID for `MANAGED_IDENTITY` and `DEFAULT_AZURE_CREDENTIAL` when `auth.managedIdentityClientId` is unset; optional for `WORKLOAD_IDENTITY`) | `my-client-id` |
 | `secrets.azure-keyvault.auth.clientSecret` | Client secret (required for `CLIENT_SECRET`) | `my-client-secret` |
@@ -330,7 +331,7 @@ Configure the Azure Key Vault secret provider in `gravitee.yml` to make secrets 
 | `secrets.azure-keyvault.auth.managedIdentityResourceId` | User-assigned managed identity ARM resource ID (mutually exclusive with client ID and object ID at runtime) | `/subscriptions/.../resourceGroups/.../providers/Microsoft.ManagedIdentity/userAssignedIdentities/...` |
 | `secrets.azure-keyvault.auth.managedIdentityObjectId` | User-assigned managed identity object ID (used when resource ID and client ID are unset) | `mi-object-id` |
 | `secrets.azure-keyvault.auth.workloadIdentityTokenFile` | Federated token file path (defaults to `AZURE_FEDERATED_TOKEN_FILE` environment variable when unset) | `/var/run/secrets/azure/tokens/azure-identity-token` |
-| `secrets.azure-keyvault.ssl.verify` | Verify TLS server certificates (set `false` only for local test doubles) | `true` |
+| `secrets.azure-keyvault.ssl.verify` | Verify TLS server certificates (set `false` only for local test) | `true` (default) |
 | `secrets.azure-keyvault.ssl.pemFile` | PEM file with custom CA certificate(s) for TLS trust | `/path/to/ca-bundle.pem` |
 
 **Example configuration (Client Secret):**
