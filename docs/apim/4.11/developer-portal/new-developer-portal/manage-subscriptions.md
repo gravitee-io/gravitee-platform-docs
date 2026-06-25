@@ -6,7 +6,7 @@ You can subscribe to APIs and manage your subscriptions with the New Developer P
 
 ### Prerequisites <a href="#prerequisites" id="prerequisites"></a>
 
-* Enable the New Developer Portal. For more information about enabling the New Developer Portal, see [Enable the New Developer Portal](https://documentation.gravitee.io/apim/developer-portal/new-developer-portal/configure-the-new-portal).
+* Enable the New Developer Portal. For more information about enabling the New Developer Portal, see [Enable the New Developer Portal](configure-the-new-portal.md).
 * Create an application in the New Developer Portal. For more information about creating applications in the New Developer Portal, see [create-an-application.md](create-an-application.md "mention")
 
 ### Subscribe to an API <a href="#create-an-application" id="create-an-application"></a>

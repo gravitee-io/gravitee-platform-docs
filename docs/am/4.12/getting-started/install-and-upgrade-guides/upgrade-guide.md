@@ -20,7 +20,7 @@ In AM 4.12.0 and later, database indexes are created automatically on the JDBC a
 
 ## 4.7 Upgrade guide 
 
-For the 4.7 upgrade guide, see [4.7 Upgrade guide](/docs/am/4.12/getting-started/install-and-upgrade-guides/4.7-upgrade-guide.md)
+For the 4.7 upgrade guide, see [4.7 Upgrade guide](4.7-upgrade-guide.md)
 
 ### 4.5 Upgrade guide
 

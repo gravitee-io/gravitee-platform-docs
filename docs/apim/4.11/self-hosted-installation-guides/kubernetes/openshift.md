@@ -41,7 +41,7 @@ The configuration types for OpenShift are the same configuration types for Kuber
 ### Configure the databases
 
 {% hint style="info" %}
-You can use other databases to store configuration management data (see [JDBC repositories](../../prepare-a-production-environment/repositories/)).
+You can use other databases to store configuration management data (see [JDBC repositories](../../prepare-a-production-environment/repositories/README.md)).
 {% endhint %}
 
 To deploy OpenShift, you must configure the MongoDB database. Also, you can configure PostgreSQL, ElasticSearch, and Redis if you need them.
@@ -561,4 +561,4 @@ gateway:
       value: "<proxy-port>"
 ```
 
-For the full configuration reference including proxy authentication and `gravitee.yml` equivalents, see [Configure Helm values](../proxy-configuration/system-proxy-for-backend-apis.md#configure-helm-values). For an overview of all proxy methods, see [Proxy Configuration](../proxy-configuration/).
+For the full configuration reference including proxy authentication and `gravitee.yml` equivalents, see [Configure Helm values](../proxy-configuration/system-proxy-for-backend-apis.md#configure-helm-values). For an overview of all proxy methods, see [Proxy Configuration](../proxy-configuration/README.md).

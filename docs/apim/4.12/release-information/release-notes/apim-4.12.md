@@ -215,6 +215,23 @@
 * When you publish or unpublish a folder, the visibility change propagates to all nested documentation pages, sub-folders, and APIs. When you unpublish a folder, all nested items are set to `PRIVATE` visibility.
 * When you delete a folder or API section, the container and all descendants are removed recursively. The **Delete** button is now enabled for all items regardless of child count, and sibling items are automatically reordered after deletion.
 <!-- /PIPELINE:APIM-14411 -->
+<!-- PIPELINE:APIM-14501 -->
+#### **Token-Bucket Rate Limiting Policy**
+
+* Introduces a new rate-limiting policy that allows controlled bursts of traffic while maintaining a steady average request rate, providing more flexible traffic management than fixed-window rate limits.
+* Supports both strict (per-request atomic enforcement) and async (approximate, higher-throughput) modes, with configurable burst capacity, refill rate, and refill period.
+* Available for HTTP proxy APIs and V4 message APIs, with optional custom key composition using Expression Language to identify consumers by IP address, user ID, or other attributes.
+* Requires a distributed repository (Redis, MongoDB, JDBC, or Hazelcast) for rate-limit state synchronization across gateway nodes.
+<!-- /PIPELINE:APIM-14501 -->
+<!-- PIPELINE:APIM-14357 -->
+#### **API Product Deployment with Sharding Tags**
+
+* API Products and their plans can now be assigned organization-level sharding tags to control deployment placement across gateway instances, enabling geographic distribution, environment segmentation, and multi-tenant isolation.
+* Product tags define the maximum deployment scope for all plans within that product. Plan tags must be a subset of product tags and refine placement within the product's scope. Plans with no tags inherit the full product deployment scope.
+* Member APIs become deployable on a gateway when either their own sharding tags match the gateway or they have at least one published or deprecated product plan indexed on that gateway (where product tags match and plan tags are empty or matching).
+* Gateways must declare matching tag keys in their configuration files to index and serve tagged products. Console tag assignment alone is insufficient for deployment.
+* Deleting an organization-level tag cascades to all API Products and plans across all environments, automatically removing the tag from affected resources.
+<!-- /PIPELINE:APIM-14357 -->
 
 ## Improvements
 

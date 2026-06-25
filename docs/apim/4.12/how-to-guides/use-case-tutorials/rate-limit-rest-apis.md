@@ -16,7 +16,7 @@ This tutorial explores various use cases where rate limiting plays a critical ro
 Before proceeding with this tutorial, be sure you're familiar with the following:
 
 * **REST APIs:** Review the key elements, methods, and design and architecture constraints of a RESTful architecture.
-* **Gravitee** [**policies**](../../create-and-configure-apis/apply-policies/policy-reference/)**:** Rules or logic that the Gateway can execute during the request or response of an API call, e.g., to enhance security, ensure reliability, or enable API monetization.
+* **Gravitee** [**policies**](../../create-and-configure-apis/apply-policies/policy-reference/README.md)**:** Rules or logic that the Gateway can execute during the request or response of an API call, e.g., to enhance security, ensure reliability, or enable API monetization.
 * **Gravitee APIs:** Refer to our API creation wizards for step-by-step guides to create APIs using the Gravitee [v2](../../create-and-configure-apis/create-apis/v2-api-creation-wizard.md) and [v4](../../create-and-configure-apis/create-apis/v4-api-creation-wizard.md) API definitions.
 
 ## Introduction to Gravitee rate limiting <a href="#introduction-to-gravitee-rate-limiting" id="introduction-to-gravitee-rate-limiting"></a>
@@ -30,6 +30,10 @@ Gravitee supports three rate-limiting policies:
 * **Spike Arrest:** Similar to rate limiting but helps prevent servers from being overwhelmed by spikes in traffic. It allows a certain number of requests to be processed immediately, but any requests exceeding that limit are delayed or rejected.
 
 In summary, quota limits the total amount of usage over a period, while rate limit controls the rate at which requests can be made within that period. Both are important for managing API usage and ensuring fair access to resources. Spike arrest handles sudden spikes in traffic to ensure the stability and reliability of the API.
+
+### Traffic shaping
+
+Token-bucket rate limiting allows burst traffic up to a configured capacity while maintaining average request rates through continuous token refill. For details, see the [Token-Bucket Rate Limiting](../../create-and-configure-apis/apply-policies/policy-reference/token-bucket-rate-limiting.md) guide.
 
 ## Use case: Rate limits based on consumer plan <a href="#use-case-rate-limits-based-on-consumer-plan" id="use-case-rate-limits-based-on-consumer-plan"></a>
 

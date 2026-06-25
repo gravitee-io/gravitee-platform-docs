@@ -65,7 +65,7 @@ To use Redis with Docker images, complete the following steps:
 
 To download the driver, complete the following sub-steps:
 
-1. Download the correct driver for your database. For more information about downloading the correct drive, go to [Supported databases.](../../prepare-a-production-environment/repositories/#supported-databases)
+1. Download the correct driver for your database. For more information about downloading the correct drive, go to [Supported databases.](../../prepare-a-production-environment/repositories/README.md#supported-databases)
 2.  Place the driver in the `plugins-ext` folder.
 
     <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><ul><li>For the API Gateway, the <code>plugin-ext</code> folder is located at <code>/gravitee/apim-gateway/plugins</code>.</li><li>For the Management API, the <code>plugin-ext</code>folder is located at the <code>/gravitee/apim-management-api/plugins</code>.</li></ul></div>
