@@ -11,18 +11,18 @@ redirects:
  administration/authentication/authentication-providers: getting-started/configuration/authentication.md
  administration/authentication/azure-entra-id: getting-started/configuration/authentication.md
  administration/authentication/gravitee-access-management: getting-started/configuration/authentication.md
- administration/authentication/openid-connect: reference/policy-reference/openid-connect-userinfo.md
+ administration/authentication/openid-connect: getting-started/configuration/authentication.md
  administration/authentication/roles-and-groups-mapping: getting-started/configuration/authentication.md
  administration/authentication/social-providers: getting-started/configuration/authentication.md
  administration/organizations-and-environments: guides/administration/administering-organizations-and-environments.md
- administration/user-management: guides/developer-portal/configuration/user-management.md
+ administration/user-management: getting-started/configuration/apim-management-api/user-and-management-configuration.md
  agent-mesh: README.md
  agent-mesh/add-agents-to-your-agent-catalog: README.md
  agent-mesh/convert-your-apis-to-mcp-servers: README.md
  agent-mesh/create-an-a2a-proxy: README.md
  agent-mesh/llm-proxy: README.md
  agent-mesh/llm-proxy/add-the-guard-rails-policy-to-your-llm-proxy: README.md
- agent-mesh/llm-proxy/add-the-token-rate-limit-policy-to-your-llm-proxy: reference/policy-reference/rate-limit.md
+ agent-mesh/llm-proxy/add-the-token-rate-limit-policy-to-your-llm-proxy: reference/policy-reference/request-content-limit.md
  agent-mesh/llm-proxy/consume-your-llm-proxy-with-the-openai-python-sdk: README.md
  agent-mesh/llm-proxy/proxy-your-llms: README.md
  agent-mesh/secure-mcp-proxy-with-oauth2: README.md
@@ -34,35 +34,44 @@ redirects:
  ai-agent-management/convert-your-apis-to-mcp-servers: README.md
  ai-agent-management/create-an-a2a-proxy: README.md
  ai-agent-management/llm-proxy: README.md
+ ai-agent-management/llm-proxy/accepted-request-formats: README.md
  ai-agent-management/llm-proxy/add-the-guard-rails-policy-to-your-llm-proxy: README.md
- ai-agent-management/llm-proxy/add-the-token-rate-limit-policy-to-your-llm-proxy: reference/policy-reference/rate-limit.md
+ ai-agent-management/llm-proxy/add-the-token-rate-limit-policy-to-your-llm-proxy: reference/policy-reference/request-content-limit.md
  ai-agent-management/llm-proxy/consume-your-llm-proxy-with-the-openai-python-sdk: README.md
  ai-agent-management/llm-proxy/proxy-your-llms: README.md
  ai-agent-management/secure-mcp-proxy-with-oauth2: README.md
  analyze-and-monitor-apis: README.md
- analyze-and-monitor-apis/4.9-api-proxy-dashboard: README.md
- analyze-and-monitor-apis/api-quality: README.md
+ analyze-and-monitor-apis/4.9-api-proxy-dashboard: guides/api-configuration/v4-api-configuration/endpoints/v4-proxy-api-endpoints.md
+ analyze-and-monitor-apis/api-quality: guides/api-measurement-tracking-and-analytics/using-the-api-quality-feature.md
  analyze-and-monitor-apis/audit-trail: README.md
+ analyze-and-monitor-apis/configure-gateway-for-opentelemetry-logs: README.md
  analyze-and-monitor-apis/dashboards: README.md
- analyze-and-monitor-apis/dashboards/4.9-api-proxy-dashboard: README.md
- analyze-and-monitor-apis/dashboards/LLM-usage-dashboard: README.md
- analyze-and-monitor-apis/dashboards/MCP-usage-dashboard: README.md
- analyze-and-monitor-apis/dashboards/overview-dashboard: README.md
- analyze-and-monitor-apis/dashboards/v2-api-analytics-dashboards: README.md
+ analyze-and-monitor-apis/dashboards/4.9-api-proxy-dashboard: guides/api-configuration/v4-api-configuration/endpoints/v4-proxy-api-endpoints.md
+ analyze-and-monitor-apis/dashboards/LLM-usage-dashboard: guides/api-measurement-tracking-and-analytics/configure-the-dashboard-with-custom-api-analytics.md
+ analyze-and-monitor-apis/dashboards/MCP-usage-dashboard: guides/api-measurement-tracking-and-analytics/configure-the-dashboard-with-custom-api-analytics.md
+ analyze-and-monitor-apis/dashboards/creating-portal-analytics-dashboards: README.md
+ analyze-and-monitor-apis/dashboards/overview-dashboard: guides/api-measurement-tracking-and-analytics/configure-the-dashboard-with-custom-api-analytics.md
+ analyze-and-monitor-apis/dashboards/portal-analytics-dashboards-overview: README.md
+ analyze-and-monitor-apis/dashboards/v2-api-analytics-dashboards: guides/api-measurement-tracking-and-analytics/configure-the-dashboard-with-custom-api-analytics.md
  analyze-and-monitor-apis/dashboards/v4-api-analytics-dashboard: guides/api-measurement-tracking-and-analytics/configure-the-dashboard-with-custom-api-analytics.md
- analyze-and-monitor-apis/execution-transparency-analytics: README.md
- analyze-and-monitor-apis/logging: getting-started/configuration/the-gravitee-api-gateway/logging.md
- analyze-and-monitor-apis/logging/configure-api-level-logs: getting-started/configuration/the-gravitee-api-gateway/logging.md
- analyze-and-monitor-apis/logging/configure-environment-level-logs: getting-started/configuration/the-gravitee-api-gateway/logging.md
- analyze-and-monitor-apis/logging/configure-gateway-level-logs: getting-started/configuration/the-gravitee-api-gateway/logging.md
- analyze-and-monitor-apis/logging/expose-metrics-to-prometheus: getting-started/configuration/the-gravitee-api-gateway/logging.md
- analyze-and-monitor-apis/logging/view-api-logs: getting-started/configuration/the-gravitee-api-gateway/logging.md
+ analyze-and-monitor-apis/enable-and-use-opentelemetry-logs-for-apis: README.md
+ analyze-and-monitor-apis/execution-transparency-analytics: guides/api-measurement-tracking-and-analytics/configure-and-use-api-logging.md
+ analyze-and-monitor-apis/logging: guides/api-measurement-tracking-and-analytics/configure-and-use-api-logging.md
+ analyze-and-monitor-apis/logging/configure-api-level-logs: guides/api-measurement-tracking-and-analytics/configure-and-use-api-logging.md
+ analyze-and-monitor-apis/logging/configure-environment-level-logs: guides/api-measurement-tracking-and-analytics/configure-and-use-api-logging.md
+ analyze-and-monitor-apis/logging/configure-gateway-level-logs: guides/api-measurement-tracking-and-analytics/configure-and-use-api-logging.md
+ analyze-and-monitor-apis/logging/configuring-and-viewing-native-api-connection-logs: guides/api-measurement-tracking-and-analytics/configure-and-use-api-logging.md
+ analyze-and-monitor-apis/logging/expose-metrics-to-prometheus: guides/api-measurement-tracking-and-analytics/configure-and-use-api-logging.md
+ analyze-and-monitor-apis/logging/native-api-connection-logs-concepts-and-architecture: guides/api-measurement-tracking-and-analytics/configure-and-use-api-logging.md
+ analyze-and-monitor-apis/logging/view-api-logs: guides/api-measurement-tracking-and-analytics/configure-and-use-api-logging.md
  analyze-and-monitor-apis/opentelemetry: README.md
+ analyze-and-monitor-apis/opentelemetry-logs-integration-overview: README.md
  analyze-and-monitor-apis/reporters: getting-started/configuration/reporters/README.md
  analyze-and-monitor-apis/reporters/datadog-reporter: getting-started/configuration/reporters/README.md
  analyze-and-monitor-apis/reporters/elasticsearch-reporter: getting-started/configuration/reporters/README.md
  analyze-and-monitor-apis/reporters/file-reporter: getting-started/configuration/reporters/README.md
- analyze-and-monitor-apis/reporters/tcp-reporter: getting-started/configuration/reporters/README.md
+ analyze-and-monitor-apis/reporters/managing-api-specific-redaction-rules-in-the-console: getting-started/configuration/reporters/README.md
+ analyze-and-monitor-apis/reporters/tcp-reporter: guides/create-apis/tcp-proxy-apis.md
  api-analytics/api-quality: guides/api-measurement-tracking-and-analytics/using-the-api-quality-feature.md
  api-analytics/audit-trail: README.md
  api-analytics/dashboards: README.md
@@ -75,10 +84,10 @@ redirects:
  configuration/authentication/authentication-providers: getting-started/configuration/authentication.md
  configuration/authentication/azure-ad-entra-id: getting-started/configuration/authentication.md
  configuration/authentication/azure-regions-for-saas-and-hybrid-deployments: getting-started/configuration/authentication.md
- configuration/authentication/custom-oauth2-openid-authorization-server: reference/policy-reference/oauth2/gravitee.io-am-authorization-server.md
+ configuration/authentication/custom-oauth2-openid-authorization-server: getting-started/configuration/authentication.md
  configuration/authentication/gravitee-am-authentication: getting-started/configuration/authentication.md
  configuration/authentication/social-providers: getting-started/configuration/authentication.md
- configuration/cache: README.md
+ configuration/cache: getting-started/configuration/cache.md
  configuration/http-reverse-proxy: getting-started/configuration/http-reverse-proxy.md
  configuration/repositories: getting-started/configuration/repositories/README.md
  configuration/repositories/elasticsearch: getting-started/configuration/repositories/elasticsearch.md
@@ -88,46 +97,59 @@ redirects:
  configuration/secret-providers: getting-started/configuration/secret-providers.md
  configure-and-manage-the-platform: README.md
  configure-and-manage-the-platform/debug-logging: README.md
- configure-and-manage-the-platform/gravitee-gateway: README.md
- configure-and-manage-the-platform/gravitee-gateway/alerts: README.md
+ configure-and-manage-the-platform/gravitee-gateway: getting-started/configuration/the-gravitee-api-gateway/general-configuration.md
+ configure-and-manage-the-platform/gravitee-gateway/alerts: getting-started/configuration/the-gravitee-api-gateway/gateway-internal-api.md
+ configure-and-manage-the-platform/gravitee-gateway/configuring-global-redaction-rules: getting-started/configuration/the-gravitee-api-gateway/general-configuration.md
+ configure-and-manage-the-platform/gravitee-gateway/configuring-the-hazelcast-rate-limit-repository-for-standalone-gateways: getting-started/configuration/the-gravitee-api-gateway/general-configuration.md
+ configure-and-manage-the-platform/gravitee-gateway/deploying-the-hazelcast-rate-limit-repository-with-helm-and-kubernetes-discovery: guides/gravitee-kubernetes-operator/installation/helm.md
  configure-and-manage-the-platform/gravitee-gateway/dictionaries: getting-started/configuration/the-gravitee-api-gateway/dictionaries.md
- configure-and-manage-the-platform/gravitee-gateway/gateway-cluster-sync-with-redis: README.md
- configure-and-manage-the-platform/gravitee-gateway/gateway-configuration-for-mtls-certificate-management: README.md
+ configure-and-manage-the-platform/gravitee-gateway/gateway-cluster-sync-with-redis: getting-started/configuration/repositories/redis.md
+ configure-and-manage-the-platform/gravitee-gateway/gateway-cluster-sync-with-redis/gateway-cluster-sync-with-redis-using-docker: getting-started/configuration/repositories/redis.md
+ configure-and-manage-the-platform/gravitee-gateway/gateway-cluster-sync-with-redis/gateway-cluster-sync-with-redis-using-kubernetes-helm: getting-started/configuration/repositories/redis.md
+ configure-and-manage-the-platform/gravitee-gateway/gateway-configuration-for-mtls-certificate-management: getting-started/configuration/the-gravitee-api-gateway/general-configuration.md
  configure-and-manage-the-platform/gravitee-gateway/gateway-internal-api: getting-started/configuration/the-gravitee-api-gateway/gateway-internal-api.md
- configure-and-manage-the-platform/gravitee-gateway/header-ids: README.md
+ configure-and-manage-the-platform/gravitee-gateway/header-ids: getting-started/configuration/the-gravitee-api-gateway/logging.md
  configure-and-manage-the-platform/gravitee-gateway/notifications: getting-started/configuration/notifications.md
- configure-and-manage-the-platform/gravitee-gateway/proxy: getting-started/quickstart-guide/gateway-apis-101-traditional-and-message-proxies/traditional-proxy.md
- configure-and-manage-the-platform/gravitee-gateway/services: README.md
+ configure-and-manage-the-platform/gravitee-gateway/proxy: getting-started/configuration/the-gravitee-api-gateway/gateway-internal-api.md
+ configure-and-manage-the-platform/gravitee-gateway/services: getting-started/configuration/the-gravitee-api-gateway/gateway-internal-api.md
  configure-and-manage-the-platform/gravitee-gateway/sharding-tags: getting-started/configuration/the-gravitee-api-gateway/sharding-tags.md
+ configure-and-manage-the-platform/gravitee-gateway/span-attribute-redaction-overview: getting-started/configuration/the-gravitee-api-gateway/general-configuration.md
  configure-and-manage-the-platform/gravitee-gateway/tenants: getting-started/configuration/the-gravitee-api-gateway/tenants.md
  configure-and-manage-the-platform/logging-infrastructure: README.md
  configure-and-manage-the-platform/manage-organizations-and-environments: guides/administration/administering-organizations-and-environments.md
- configure-and-manage-the-platform/manage-organizations-and-environments/apim-console: guides/administration/administering-organizations-and-environments.md
+ configure-and-manage-the-platform/manage-organizations-and-environments/apim-console: getting-started/configuration/apim-console.md
  configure-and-manage-the-platform/manage-organizations-and-environments/applications: guides/administration/administering-organizations-and-environments.md
- configure-and-manage-the-platform/manage-organizations-and-environments/authentication: guides/administration/administering-organizations-and-environments.md
- configure-and-manage-the-platform/manage-organizations-and-environments/authentication/authentication-providers: guides/administration/administering-organizations-and-environments.md
- configure-and-manage-the-platform/manage-organizations-and-environments/authentication/gravitee-access-management: guides/administration/administering-organizations-and-environments.md
- configure-and-manage-the-platform/manage-organizations-and-environments/authentication/microsoft-entra-id: guides/administration/administering-organizations-and-environments.md
- configure-and-manage-the-platform/manage-organizations-and-environments/authentication/openid-connect: reference/policy-reference/openid-connect-userinfo.md
- configure-and-manage-the-platform/manage-organizations-and-environments/authentication/roles-and-groups-mapping: guides/administration/administering-organizations-and-environments.md
- configure-and-manage-the-platform/manage-organizations-and-environments/authentication/social-providers: guides/administration/administering-organizations-and-environments.md
- configure-and-manage-the-platform/manage-organizations-and-environments/configuring-portal-and-console-deployments: guides/administration/administering-organizations-and-environments.md
+ configure-and-manage-the-platform/manage-organizations-and-environments/authentication: getting-started/configuration/authentication.md
+ configure-and-manage-the-platform/manage-organizations-and-environments/authentication/authentication-providers: getting-started/configuration/authentication.md
+ configure-and-manage-the-platform/manage-organizations-and-environments/authentication/gravitee-access-management: getting-started/configuration/authentication.md
+ configure-and-manage-the-platform/manage-organizations-and-environments/authentication/microsoft-entra-id: getting-started/configuration/authentication.md
+ configure-and-manage-the-platform/manage-organizations-and-environments/authentication/openid-connect: getting-started/configuration/authentication.md
+ configure-and-manage-the-platform/manage-organizations-and-environments/authentication/roles-and-groups-mapping: getting-started/configuration/authentication.md
+ configure-and-manage-the-platform/manage-organizations-and-environments/authentication/social-providers: getting-started/configuration/authentication.md
+ configure-and-manage-the-platform/manage-organizations-and-environments/configuring-portal-and-console-deployments: getting-started/configuration/apim-console.md
  configure-and-manage-the-platform/manage-organizations-and-environments/cors-configuration: guides/administration/administering-organizations-and-environments.md
+ configure-and-manage-the-platform/manage-organizations-and-environments/create-a-service-account: guides/administration/administering-organizations-and-environments.md
  configure-and-manage-the-platform/manage-organizations-and-environments/developer-portal: getting-started/quickstart-guide/developer-portal-101.md
+ configure-and-manage-the-platform/manage-organizations-and-environments/managing-organization-sharding-tags: guides/administration/administering-organizations-and-environments.md
+ configure-and-manage-the-platform/manage-organizations-and-environments/reviewing-api-product-memberships-across-users: guides/administration/administering-organizations-and-environments.md
  configure-and-manage-the-platform/manage-organizations-and-environments/smtp-configuration: guides/administration/administering-organizations-and-environments.md
  configure-and-manage-the-platform/manage-organizations-and-environments/support: guides/administration/support.md
- configure-and-manage-the-platform/manage-organizations-and-environments/user-management: guides/administration/administering-organizations-and-environments.md
+ configure-and-manage-the-platform/manage-organizations-and-environments/user-management: getting-started/configuration/apim-management-api/user-and-management-configuration.md
  configure-and-manage-the-platform/management-api: README.md
  configure-and-manage-the-platform/management-api/cleanup-services: README.md
- configure-and-manage-the-platform/management-api/mapi-internal-api: README.md
- configure-and-manage-the-platform/management-api/settings: README.md
- configure-and-manage-the-platform/node-logging-configuration: README.md
+ configure-and-manage-the-platform/management-api/cron-schedule-frequency-limits: README.md
+ configure-and-manage-the-platform/management-api/mapi-internal-api: getting-started/configuration/apim-management-api/internal-api-1.md
+ configure-and-manage-the-platform/management-api/mtls-certificate-management-api-reference: README.md
+ configure-and-manage-the-platform/management-api/native-api-connection-logs-management-api-reference: README.md
+ configure-and-manage-the-platform/management-api/portal-analytics-management-api-reference: README.md
+ configure-and-manage-the-platform/management-api/settings: getting-started/configuration/apim-management-api/user-and-management-configuration.md
+ configure-and-manage-the-platform/node-logging-configuration: getting-started/configuration/the-gravitee-api-gateway/logging.md
  configure-apim/apim-components: README.md
  configure-apim/apim-components/apim-console: getting-started/configuration/apim-console.md
  configure-apim/apim-components/developer-portal: getting-started/quickstart-guide/developer-portal-101.md
- configure-apim/apim-components/gravitee-gateway: README.md
- configure-apim/apim-components/management-api: README.md
- configure-apim/cache: README.md
+ configure-apim/apim-components/gravitee-gateway: getting-started/configuration/the-gravitee-api-gateway/general-configuration.md
+ configure-apim/apim-components/management-api: getting-started/configuration/apim-management-api/general-configuration.md
+ configure-apim/cache: getting-started/configuration/cache.md
  configure-apim/environment-properties: README.md
  configure-apim/repositories: getting-started/configuration/repositories/README.md
  configure-apim/repositories/elasticsearch: getting-started/configuration/repositories/elasticsearch.md
@@ -136,7 +158,7 @@ redirects:
  configure-apim/repositories/redis: getting-started/configuration/repositories/redis.md
  configure-apim/sensitive-data-management: README.md
  configure-apim/sensitive-data-management/configuration-level-secrets: README.md
- configure-apim/sensitive-data-management/secret-provider-plugins-configuration: README.md
+ configure-apim/sensitive-data-management/secret-provider-plugins-configuration: getting-started/configuration/secret-providers.md
  configure-v2-apis/documentation: README.md
  configure-v2-apis/general-settings: guides/api-configuration/v2-api-configuration/general-info-settings.md
  configure-v2-apis/load-balancing-failover-and-health-checks: guides/api-configuration/v2-api-configuration/load-balancing-failover-and-health-checks.md
@@ -167,9 +189,11 @@ redirects:
  configure-v4-apis/user-permissions: guides/administration/user-management-and-permissions.md
  configure-v4-apis/version-history: README.md
  create-and-configure-apis: README.md
- create-and-configure-apis/apply-policies: README.md
+ create-and-configure-apis/apply-policies: guides/developer-contributions/custom-policies.md
+ create-and-configure-apis/apply-policies/configure-cache-policies-to-use-redis-cache-resources: guides/developer-contributions/custom-policies.md
+ create-and-configure-apis/apply-policies/create-and-configure-redis-cache-resources: guides/developer-contributions/custom-policies.md
  create-and-configure-apis/apply-policies/custom-policies: guides/developer-contributions/custom-policies.md
- create-and-configure-apis/apply-policies/debug-mode: README.md
+ create-and-configure-apis/apply-policies/debug-mode: guides/developer-contributions/custom-policies.md
  create-and-configure-apis/apply-policies/policy-reference: reference/policy-reference/README.md
  create-and-configure-apis/apply-policies/policy-reference/4.9-groovy: reference/policy-reference/README.md
  create-and-configure-apis/apply-policies/policy-reference/4.9-jwt-validator: reference/policy-reference/README.md
@@ -249,10 +273,12 @@ redirects:
  create-and-configure-apis/apply-policies/policy-reference/ssl-enforcement: reference/policy-reference/ssl-enforcement.md
  create-and-configure-apis/apply-policies/policy-reference/status-code-transformation: reference/policy-reference/README.md
  create-and-configure-apis/apply-policies/policy-reference/template: reference/policy-reference/README.md
+ create-and-configure-apis/apply-policies/policy-reference/token-bucket-rate-limiting: reference/policy-reference/README.md
  create-and-configure-apis/apply-policies/policy-reference/traffic-shadowing: reference/policy-reference/traffic-shadowing.md
  create-and-configure-apis/apply-policies/policy-reference/transform-headers: reference/policy-reference/transform-headers.md
  create-and-configure-apis/apply-policies/policy-reference/transform-query-parameters: reference/policy-reference/transform-query-parameters.md
  create-and-configure-apis/apply-policies/policy-reference/url-rewriting: reference/policy-reference/README.md
+ create-and-configure-apis/apply-policies/policy-reference/webhook-signature-generator: reference/policy-reference/README.md
  create-and-configure-apis/apply-policies/policy-reference/ws-security-authentication: reference/policy-reference/ws-security-authentication.md
  create-and-configure-apis/apply-policies/policy-reference/ws-security-sign: reference/policy-reference/README.md
  create-and-configure-apis/apply-policies/policy-reference/xml-threat-protection: reference/policy-reference/xml-threat-protection.md
@@ -260,30 +286,31 @@ redirects:
  create-and-configure-apis/apply-policies/policy-reference/xml-validation: reference/policy-reference/xml-validation.md
  create-and-configure-apis/apply-policies/policy-reference/xslt: reference/policy-reference/xslt.md
  create-and-configure-apis/apply-policies/resources: guides/api-configuration/resources.md
- create-and-configure-apis/apply-policies/shared-policy-groups: README.md
+ create-and-configure-apis/apply-policies/shared-policy-groups: guides/policy-studio/v4-api-policy-studio.md
  create-and-configure-apis/apply-policies/v2-api-policy-studio: guides/policy-studio/v2-api-policy-studio.md
  create-and-configure-apis/apply-policies/v4-api-policy-studio: guides/policy-studio/v4-api-policy-studio.md
  create-and-configure-apis/configure-v2-apis: README.md
- create-and-configure-apis/configure-v2-apis/documentation: README.md
+ create-and-configure-apis/configure-v2-apis/documentation: guides/api-configuration/v2-api-configuration/documentation.md
  create-and-configure-apis/configure-v2-apis/general-settings: guides/api-configuration/v2-api-configuration/general-info-settings.md
  create-and-configure-apis/configure-v2-apis/load-balancing-failover-and-health-checks: guides/api-configuration/v2-api-configuration/load-balancing-failover-and-health-checks.md
  create-and-configure-apis/configure-v2-apis/proxy-settings: guides/api-configuration/v2-api-configuration/general-proxy-settings.md
  create-and-configure-apis/configure-v2-apis/service-discovery: guides/api-configuration/v2-api-configuration/service-discovery.md
  create-and-configure-apis/configure-v2-apis/user-and-group-access: guides/api-configuration/v2-api-configuration/configure-user-and-group-access.md
  create-and-configure-apis/configure-v4-apis: README.md
+ create-and-configure-apis/configure-v4-apis/api-lifecycle-states: README.md
  create-and-configure-apis/configure-v4-apis/audit-logs: README.md
  create-and-configure-apis/configure-v4-apis/cors: README.md
- create-and-configure-apis/configure-v4-apis/documentation: README.md
- create-and-configure-apis/configure-v4-apis/endpoints: guides/api-configuration/v4-api-configuration/endpoints/README.md
- create-and-configure-apis/configure-v4-apis/endpoints/azure-service-bus: guides/api-configuration/v4-api-configuration/endpoints/README.md
- create-and-configure-apis/configure-v4-apis/endpoints/jms: guides/api-configuration/v4-api-configuration/endpoints/README.md
+ create-and-configure-apis/configure-v4-apis/documentation: guides/api-configuration/v4-api-configuration/documentation.md
+ create-and-configure-apis/configure-v4-apis/endpoints: guides/api-configuration/v4-api-configuration/endpoints/v4-proxy-api-endpoints.md
+ create-and-configure-apis/configure-v4-apis/endpoints/azure-service-bus: guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/solace.md
+ create-and-configure-apis/configure-v4-apis/endpoints/jms: guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/mqtt5.md
  create-and-configure-apis/configure-v4-apis/endpoints/kafka: guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/kafka.md
  create-and-configure-apis/configure-v4-apis/endpoints/mock: guides/api-configuration/v4-api-configuration/endpoint-configuration/v4-message-api-endpoints/mock.md
  create-and-configure-apis/configure-v4-apis/endpoints/mqtt5: guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/mqtt5.md
  create-and-configure-apis/configure-v4-apis/endpoints/rabbitmq: guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/rabbitmq.md
  create-and-configure-apis/configure-v4-apis/endpoints/solace: guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/solace.md
  create-and-configure-apis/configure-v4-apis/entrypoint-connect-phase: README.md
- create-and-configure-apis/configure-v4-apis/entrypoints: guides/api-configuration/v4-api-configuration/entrypoints/README.md
+ create-and-configure-apis/configure-v4-apis/entrypoints: guides/api-configuration/v4-api-configuration/entrypoints/v4-proxy-api-entrypoints.md
  create-and-configure-apis/configure-v4-apis/entrypoints/http-get: guides/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints/http-get.md
  create-and-configure-apis/configure-v4-apis/entrypoints/http-post: guides/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints/http-post.md
  create-and-configure-apis/configure-v4-apis/entrypoints/server-sent-events: guides/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints/server-sent-events.md
@@ -291,21 +318,28 @@ redirects:
  create-and-configure-apis/configure-v4-apis/entrypoints/websocket: guides/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints/websocket.md
  create-and-configure-apis/configure-v4-apis/general-settings: guides/api-configuration/v4-api-configuration/general-info-settings.md
  create-and-configure-apis/configure-v4-apis/health-checks: guides/api-configuration/v2-api-configuration/load-balancing-failover-and-health-checks.md
+ create-and-configure-apis/configure-v4-apis/load-balancing-and-failover: README.md
+ create-and-configure-apis/configure-v4-apis/partial-updates-for-v4-http-proxy-apis: README.md
  create-and-configure-apis/configure-v4-apis/quality-of-service: guides/api-configuration/v4-api-configuration/quality-of-service.md
+ create-and-configure-apis/configure-v4-apis/reporter-settings-ui-for-native-apis-opentelemetry-section: README.md
  create-and-configure-apis/configure-v4-apis/response-templates: README.md
- create-and-configure-apis/configure-v4-apis/user-permissions: guides/administration/user-management-and-permissions.md
+ create-and-configure-apis/configure-v4-apis/user-permissions: guides/api-configuration/v4-api-configuration/user-and-group-access.md
  create-and-configure-apis/configure-v4-apis/version-history: README.md
  create-and-configure-apis/create-apis: guides/create-apis/README.md
  create-and-configure-apis/create-apis/4.9-migrate-apis: guides/create-apis/README.md
+ create-and-configure-apis/create-apis/import-and-update-v4-apis-from-openapi-and-gravitee-definitions: guides/create-apis/README.md
  create-and-configure-apis/create-apis/import-apis: guides/create-apis/import-apis/README.md
+ create-and-configure-apis/create-apis/import-apis-from-remote-urls-console: guides/create-apis/README.md
  create-and-configure-apis/create-apis/promote-apis: guides/create-apis/README.md
+ create-and-configure-apis/create-apis/remote-url-import-concepts-and-security: guides/create-apis/README.md
  create-and-configure-apis/create-apis/search-for-apis-in-the-console: guides/create-apis/README.md
  create-and-configure-apis/create-apis/v2-api-creation-wizard: guides/create-apis/the-api-creation-wizard/v2-api-creation-wizard.md
- create-and-configure-apis/create-apis/v4-api-creation-wizard: guides/create-apis/README.md
- create-and-configure-apis/development-tools: README.md
- create-and-configure-apis/development-tools/enforcing-logging-rules-with-archunit-maven-plugin: README.md
+ create-and-configure-apis/create-apis/v4-api-creation-wizard: guides/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md
+ create-and-configure-apis/create-apis/wsdl-import-for-v4-apis: guides/create-apis/README.md
+ create-and-configure-apis/development-tools: guides/developer-portal/tools-and-features/README.md
+ create-and-configure-apis/development-tools/enforcing-logging-rules-with-archunit-maven-plugin: guides/developer-portal/tools-and-features/README.md
  create-and-configure-apis/gravitee-api-definitions: README.md
- create-and-configure-apis/gravitee-api-definitions/a2a-proxy-api-type: README.md
+ create-and-configure-apis/gravitee-api-definitions/a2a-proxy-api-type: guides/create-apis/tcp-proxy-apis.md
  create-and-configure-apis/gravitee-api-definitions/execution-engine: overview/gravitee-api-definitions-and-execution-engines/reactive-execution-engine.md
  create-and-configure-apis/gravitee-api-definitions/native-api-phases: README.md
  create-and-configure-apis/gravitee-api-definitions/v2-and-v4-api-comparison: README.md
@@ -321,10 +355,12 @@ redirects:
  developer-portal/api-documentation: guides/developer-portal/configuration/documentation.md
  developer-portal/classic-developer-portal: guides/developer-portal/tools-and-features/README.md
  developer-portal/classic-developer-portal/api-documentation: guides/developer-portal/configuration/documentation.md
+ developer-portal/classic-developer-portal/api-model-object-reference-for-portal-templates: guides/developer-portal/tools-and-features/README.md
  developer-portal/classic-developer-portal/configuration-file: getting-started/configuration/apim-developer-portal.md
  developer-portal/classic-developer-portal/create-an-application: guides/developer-portal/tools-and-features/applications.md
  developer-portal/classic-developer-portal/layout-and-theme: guides/developer-portal/configuration/layout-and-theme-customization.md
  developer-portal/classic-developer-portal/manage-users: guides/developer-portal/configuration/user-management.md
+ developer-portal/classic-developer-portal/portal-navigation-templating-concepts: guides/developer-portal/tools-and-features/README.md
  developer-portal/classic-developer-portal/portal-settings: guides/developer-portal/configuration/general-settings.md
  developer-portal/classic-developer-portal/settings: guides/developer-portal/configuration/general-settings.md
  developer-portal/classic-developer-portal/webhook-subscriptions: guides/developer-portal/tools-and-features/webhook-subscription-management.md
@@ -332,23 +368,33 @@ redirects:
  developer-portal/create-an-application: guides/developer-portal/tools-and-features/applications.md
  developer-portal/layout-and-theme: guides/developer-portal/configuration/layout-and-theme-customization.md
  developer-portal/manage-users: guides/developer-portal/configuration/user-management.md
- developer-portal/new-developer-portal: guides/developer-portal/configuration/layout-and-theme-customization.md
+ developer-portal/new-developer-portal: getting-started/quickstart-guide/developer-portal-101.md
+ developer-portal/new-developer-portal/api-overview-page-templates: getting-started/quickstart-guide/developer-portal-101.md
  developer-portal/new-developer-portal/application-logs: guides/developer-portal/tools-and-features/documentation.md
  developer-portal/new-developer-portal/catalog: getting-started/quickstart-guide/developer-portal-101.md
- developer-portal/new-developer-portal/configure-authentication: guides/developer-portal/configuration/general-settings.md
+ developer-portal/new-developer-portal/configure-authentication: guides/developer-portal/configuration/user-management.md
  developer-portal/new-developer-portal/configure-authentication/configure-authentication-with-login-and-password: guides/developer-portal/configuration/user-management.md
  developer-portal/new-developer-portal/configure-authentication/configure-authentication-with-sso: guides/developer-portal/configuration/user-management.md
  developer-portal/new-developer-portal/configure-authentication/enforce-user-authentication: guides/developer-portal/configuration/user-management.md
  developer-portal/new-developer-portal/configure-the-new-portal: guides/developer-portal/configuration/general-settings.md
  developer-portal/new-developer-portal/configure-webhook-subscriptions: guides/developer-portal/tools-and-features/webhook-subscription-management.md
+ developer-portal/new-developer-portal/configuring-mtls-certificate-management-administrator-guide: guides/developer-portal/configuration/general-settings.md
  developer-portal/new-developer-portal/create-an-application: guides/developer-portal/tools-and-features/applications.md
- developer-portal/new-developer-portal/customize-the-homepage: guides/developer-portal/configuration/general-settings.md
- developer-portal/new-developer-portal/customize-the-navigation: guides/developer-portal/configuration/general-settings.md
- developer-portal/new-developer-portal/gravitee-markdown-components: guides/developer-portal/configuration/general-settings.md
+ developer-portal/new-developer-portal/creating-and-managing-mtls-certificates-application-owner-guide: guides/developer-portal/configuration/general-settings.md
+ developer-portal/new-developer-portal/customize-the-homepage: guides/developer-portal/configuration/layout-and-theme-customization.md
+ developer-portal/new-developer-portal/customize-the-navigation: guides/developer-portal/configuration/layout-and-theme-customization.md
+ developer-portal/new-developer-portal/customize-the-navigation/creating-and-managing-templated-portal-pages: guides/developer-portal/configuration/layout-and-theme-customization.md
+ developer-portal/new-developer-portal/customize-the-navigation/portal-navigation-cascade-operations: guides/developer-portal/configuration/layout-and-theme-customization.md
+ developer-portal/new-developer-portal/customize-the-navigation/structure-the-navigation-with-the-management-api: guides/developer-portal/configuration/layout-and-theme-customization.md
+ developer-portal/new-developer-portal/gravitee-markdown-components: guides/developer-portal/configuration/layout-and-theme-customization.md
  developer-portal/new-developer-portal/layout-and-theme: guides/developer-portal/configuration/layout-and-theme-customization.md
+ developer-portal/new-developer-portal/manage-api-keys-in-the-developer-portal: getting-started/quickstart-guide/developer-portal-101.md
  developer-portal/new-developer-portal/manage-subscriptions: getting-started/quickstart-guide/developer-portal-101.md
- developer-portal/new-developer-portal/subscription-form-technical-implementation: guides/developer-portal/configuration/general-settings.md
- developer-portal/overview: guides/developer-portal/configuration/general-settings.md
+ developer-portal/new-developer-portal/portal-analytics-configuration-reference: getting-started/quickstart-guide/developer-portal-101.md
+ developer-portal/new-developer-portal/subscription-form-technical-implementation: getting-started/quickstart-guide/developer-portal-101.md
+ developer-portal/new-developer-portal/viewing-and-managing-portal-analytics-dashboards: getting-started/quickstart-guide/developer-portal-101.md
+ developer-portal/overview: getting-started/quickstart-guide/developer-portal-101.md
+ developer-portal/portal-page-content-validator-api-changes: getting-started/quickstart-guide/developer-portal-101.md
  developer-portal/settings: guides/developer-portal/configuration/general-settings.md
  developer-portal/webhook-subscriptions: guides/developer-portal/tools-and-features/webhook-subscription-management.md
  expose-apis/applications: README.md
@@ -412,18 +458,18 @@ redirects:
  getting-started/configuration/configure-apim-management-api/internal-api: getting-started/configuration/apim-management-api/general-configuration.md
  getting-started/configuration/configure-apim-management-api/internal-api-1: getting-started/configuration/apim-management-api/internal-api-1.md
  getting-started/configuration/configure-apim-management-api/logging: getting-started/configuration/the-gravitee-api-gateway/logging.md
- getting-started/configuration/configure-apim-management-api/metrics: getting-started/configuration/README.md
+ getting-started/configuration/configure-apim-management-api/metrics: getting-started/configuration/apim-management-api/README.md
  getting-started/configuration/configure-apim-management-api/security: getting-started/configuration/apim-management-api/security.md
  getting-started/configuration/configure-apim-management-api/user-and-management-configuration: getting-started/configuration/apim-management-api/user-and-management-configuration.md
  getting-started/configuration/configure-apim-management-ui: getting-started/configuration/apim-console.md
- getting-started/configuration/configure-authentication: getting-started/configuration/authentication.md
- getting-started/configuration/configure-authentication/connect-with-apim-repository: getting-started/configuration/authentication.md
- getting-started/configuration/configure-authentication/connect-with-github: getting-started/configuration/authentication.md
- getting-started/configuration/configure-authentication/connect-with-google: getting-started/configuration/authentication.md
- getting-started/configuration/configure-authentication/connect-with-gravitee.io-access-management: getting-started/configuration/authentication.md
- getting-started/configuration/configure-authentication/connect-with-in-memory-users: getting-started/configuration/authentication.md
- getting-started/configuration/configure-authentication/connect-with-keycloak: getting-started/configuration/authentication.md
- getting-started/configuration/configure-authentication/connect-with-ldap-active-directory: getting-started/configuration/authentication.md
+ getting-started/configuration/configure-authentication: getting-started/configuration/README.md
+ getting-started/configuration/configure-authentication/connect-with-apim-repository: getting-started/configuration/README.md
+ getting-started/configuration/configure-authentication/connect-with-github: getting-started/configuration/README.md
+ getting-started/configuration/configure-authentication/connect-with-google: getting-started/configuration/README.md
+ getting-started/configuration/configure-authentication/connect-with-gravitee.io-access-management: getting-started/configuration/README.md
+ getting-started/configuration/configure-authentication/connect-with-in-memory-users: getting-started/configuration/README.md
+ getting-started/configuration/configure-authentication/connect-with-keycloak: getting-started/configuration/README.md
+ getting-started/configuration/configure-authentication/connect-with-ldap-active-directory: getting-started/configuration/README.md
  getting-started/configuration/configure-cache: getting-started/configuration/cache.md
  getting-started/configuration/configure-http-reverse-proxy: getting-started/configuration/http-reverse-proxy.md
  getting-started/configuration/configure-notifications: getting-started/configuration/notifications.md
@@ -440,7 +486,7 @@ redirects:
  getting-started/configuration/production-ready-apim-environment/brute-force-an-browser-protection: getting-started/configuration/README.md
  getting-started/configuration/production-ready-apim-environment/configuration-settings: getting-started/configuration/production-ready-apim-environment.md
  getting-started/configuration/production-ready-apim-environment/deployment: getting-started/configuration/production-ready-apim-environment.md
- getting-started/configuration/production-ready-apim-environment/internal-apis: getting-started/configuration/the-gravitee-api-gateway/gateway-internal-api.md
+ getting-started/configuration/production-ready-apim-environment/internal-apis: getting-started/configuration/apim-management-api/internal-api-1.md
  getting-started/configuration/the-gravitee-api-gateway/configure-dictionaries: getting-started/configuration/the-gravitee-api-gateway/dictionaries.md
  getting-started/configuration/the-gravitee-api-gateway/configure-sharding-tags-for-your-gravitee-api-gateways: getting-started/configuration/the-gravitee-api-gateway/sharding-tags.md
  getting-started/configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file: getting-started/configuration/the-gravitee-api-gateway/general-configuration.md
@@ -452,11 +498,11 @@ redirects:
  getting-started/create-and-publish-your-first-api/publish-your-api: getting-started/configuration/README.md
  getting-started/gravitee-expression-language: guides/gravitee-expression-language.md
  getting-started/install-and-upgrade-guides/4.0-upgrade-guide: getting-started/install-and-upgrade-guides/4.2-upgrade-guide.md
- getting-started/install-and-upgrade-guides/hybrid-deployment: getting-started/hybrid-deployment/README.md
- getting-started/install-and-upgrade-guides/hybrid-deployment/advanced-hybrid-deployment: getting-started/hybrid-deployment/advanced-hybrid-deployment.md
- getting-started/install-and-upgrade-guides/hybrid-deployment/hybrid-deployment-on-kubernetes: getting-started/install-and-upgrade-guides/install-on-kubernetes/README.md
+ getting-started/install-and-upgrade-guides/hybrid-deployment: getting-started/install-and-upgrade-guides/README.md
+ getting-started/install-and-upgrade-guides/hybrid-deployment/advanced-hybrid-deployment: getting-started/install-and-upgrade-guides/README.md
+ getting-started/install-and-upgrade-guides/hybrid-deployment/hybrid-deployment-on-kubernetes: getting-started/hybrid-deployment/hybrid-deployment-on-kubernetes.md
  getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform: getting-started/install-and-upgrade-guides/README.md
- getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-amazon: getting-started/install-and-upgrade-guides/install-on-amazon/quick-install.md
+ getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-amazon: getting-started/install-and-upgrade-guides/install-on-amazon/README.md
  getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-amazon/manual-install: getting-started/install-and-upgrade-guides/install-on-amazon/manual-install/prerequisites.md
  getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-amazon/quick-install: getting-started/install-and-upgrade-guides/install-on-amazon/quick-install.md
  getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-docker: getting-started/install-and-upgrade-guides/install-on-docker/README.md
@@ -497,11 +543,11 @@ redirects:
  getting-started/integrations: overview/integrations.md
  getting-started/local-install-with-docker: getting-started/configuration/README.md
  getting-started/plugins: overview/plugins.md
- getting-started/plugins/customization: getting-started/configuration/README.md
- getting-started/plugins/deployment: getting-started/configuration/README.md
+ getting-started/plugins/customization: overview/plugins.md
+ getting-started/plugins/deployment: overview/plugins.md
  getting-started/production-ready-environment: getting-started/configuration/production-ready-apim-environment.md
  getting-started/production-ready-environment/authentication: getting-started/configuration/production-ready-apim-environment.md
- getting-started/production-ready-environment/best-practices: getting-started/configuration/production-ready-apim-environment.md
+ getting-started/production-ready-environment/best-practices: getting-started/configuration/README.md
  getting-started/production-ready-environment/deployments: getting-started/configuration/README.md
  getting-started/production-ready-environment/internal-apis: getting-started/configuration/production-ready-apim-environment.md
  getting-started/production-ready-environment/protections: getting-started/configuration/production-ready-apim-environment.md
@@ -519,28 +565,29 @@ redirects:
  getting-started/use-case-tutorials/rate-limit-rest-apis: reference/policy-reference/rate-limit.md
  getting-started/use-case-tutorials/secure-and-expose-grpc-services: getting-started/configuration/README.md
  getting-started/vanilla-kubernetes: getting-started/configuration/README.md
- govern-apis: README.md
- govern-apis/api-score: README.md
- govern-apis/api-score/enable-api-score: README.md
- govern-apis/api-score/rulesets-and-functions: README.md
- govern-apis/api-score/types-of-assets: README.md
- govern-apis/api-score/view-api-scores: README.md
- govern-apis/federation: README.md
- govern-apis/federation/3rd-party-providers: README.md
- govern-apis/federation/3rd-party-providers/apigee-x: README.md
- govern-apis/federation/3rd-party-providers/aws-api-gateway: README.md
- govern-apis/federation/3rd-party-providers/aws-api-gateway/4.9-multi-account-and-multi-region-aws-api-gateway-federation: README.md
- govern-apis/federation/3rd-party-providers/aws-api-gateway/aws-iam-role-based-authentication: reference/policy-reference/role-based-access-control-rbac.md
- govern-apis/federation/3rd-party-providers/aws-api-gateway/multi-account-and-multi-region-aws-api-gateway-federation: README.md
- govern-apis/federation/3rd-party-providers/azure-api-management: README.md
- govern-apis/federation/3rd-party-providers/confluent-platform: README.md
- govern-apis/federation/3rd-party-providers/edge-stack: README.md
- govern-apis/federation/3rd-party-providers/ibm-api-connect: README.md
- govern-apis/federation/3rd-party-providers/mulesoft-anypoint: README.md
- govern-apis/federation/3rd-party-providers/solace: README.md
- govern-apis/federation/discovery: README.md
- govern-apis/federation/federated-apis: README.md
- govern-apis/federation/federation-agent-service-account: README.md
+ govern-apis: guides/administration/README.md
+ govern-apis/api-score: guides/administration/README.md
+ govern-apis/api-score/enable-api-score: guides/administration/README.md
+ govern-apis/api-score/generate-an-api-score: guides/administration/README.md
+ govern-apis/api-score/rulesets-and-functions: guides/administration/README.md
+ govern-apis/api-score/types-of-assets: guides/administration/README.md
+ govern-apis/api-score/view-api-scores: guides/administration/README.md
+ govern-apis/federation: guides/administration/README.md
+ govern-apis/federation/3rd-party-providers: guides/administration/README.md
+ govern-apis/federation/3rd-party-providers/apigee-x: guides/administration/README.md
+ govern-apis/federation/3rd-party-providers/aws-api-gateway: guides/administration/README.md
+ govern-apis/federation/3rd-party-providers/aws-api-gateway/4.9-multi-account-and-multi-region-aws-api-gateway-federation: guides/administration/README.md
+ govern-apis/federation/3rd-party-providers/aws-api-gateway/aws-iam-role-based-authentication: guides/administration/README.md
+ govern-apis/federation/3rd-party-providers/aws-api-gateway/multi-account-and-multi-region-aws-api-gateway-federation: guides/administration/README.md
+ govern-apis/federation/3rd-party-providers/azure-api-management: guides/administration/README.md
+ govern-apis/federation/3rd-party-providers/confluent-platform: guides/administration/README.md
+ govern-apis/federation/3rd-party-providers/edge-stack: guides/administration/README.md
+ govern-apis/federation/3rd-party-providers/ibm-api-connect: guides/administration/README.md
+ govern-apis/federation/3rd-party-providers/mulesoft-anypoint: guides/administration/README.md
+ govern-apis/federation/3rd-party-providers/solace: guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/solace.md
+ govern-apis/federation/discovery: guides/api-configuration/v2-api-configuration/service-discovery.md
+ govern-apis/federation/federated-apis: guides/administration/README.md
+ govern-apis/federation/federation-agent-service-account: guides/administration/README.md
  govern-apis/federation/integrations: overview/integrations.md
  governance/api-score: README.md
  governance/api-score/enable-api-score: README.md
@@ -577,7 +624,7 @@ redirects:
  gravitee-gateway/tenants: getting-started/configuration/the-gravitee-api-gateway/tenants.md
  guides/administration/authentication-and-sso: guides/administration/README.md
  guides/administration/how-to: guides/administration/administering-organizations-and-environments.md
- guides/api-configuration/dead-letter-queues-and-secure-callbacks-for-webhooks: guides/api-configuration/README.md
+ guides/api-configuration/dead-letter-queues-and-secure-callbacks-for-webhooks: guides/administration/README.md
  guides/api-configuration/load-balancing-failover-and-health-checks: guides/api-configuration/v2-api-configuration/load-balancing-failover-and-health-checks.md
  guides/api-configuration/v2-api-configuration/api-general-settings: guides/api-configuration/v2-api-configuration/general-info-settings.md
  guides/api-configuration/v2-api-configuration/api-general-settings-1: guides/api-configuration/v2-api-configuration/general-info-settings.md
@@ -587,23 +634,23 @@ redirects:
  guides/api-configuration/v4-api-configuration/api-general-settings: guides/api-configuration/v4-api-configuration/general-info-settings.md
  guides/api-configuration/v4-api-configuration/audit-logs: guides/api-configuration/v4-api-configuration/endpoints/README.md
  guides/api-configuration/v4-api-configuration/configure-user-and-group-access: guides/api-configuration/v4-api-configuration/user-and-group-access.md
- guides/api-configuration/v4-api-configuration/dead-letter-queues-and-secure-callbacks-for-webhooks: guides/api-configuration/README.md
- guides/api-configuration/v4-api-configuration/endpoint-configuration: guides/api-configuration/README.md
+ guides/api-configuration/v4-api-configuration/dead-letter-queues-and-secure-callbacks-for-webhooks: guides/administration/README.md
+ guides/api-configuration/v4-api-configuration/endpoint-configuration: guides/administration/README.md
  guides/api-configuration/v4-api-configuration/endpoint-implementation: guides/api-configuration/v4-api-configuration/documentation.md
  guides/api-configuration/v4-api-configuration/endpoints/health-check: guides/api-configuration/v4-api-configuration/endpoints/v4-proxy-api-endpoints.md
  guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/mock: guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/mqtt5.md
  guides/api-configuration/v4-api-configuration/entrypoint-configuration: guides/api-configuration/v4-api-configuration/entrypoints/README.md
  guides/api-configuration/v4-api-configuration/entrypoints/cors: guides/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints/README.md
- guides/api-configuration/v4-api-configuration/entrypoints/response-templates: guides/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints/README.md
+ guides/api-configuration/v4-api-configuration/entrypoints/response-templates: guides/administration/README.md
  guides/api-configuration/v4-api-configuration/user-permissions: guides/api-configuration/v4-api-configuration/user-and-group-access.md
- guides/api-configuration/v4-api-configuration/version-history: guides/api-configuration/README.md
+ guides/api-configuration/v4-api-configuration/version-history: guides/administration/README.md
  guides/api-exposure-plans-applications-and-subscriptions/plans-1: guides/api-exposure-plans-applications-and-subscriptions/applications.md
- guides/api-exposure-plans-applications-and-subscriptions/plans/api-key: guides/api-exposure-plans-applications-and-subscriptions/applications.md
+ guides/api-exposure-plans-applications-and-subscriptions/plans/api-key: guides/api-exposure-plans-applications-and-subscriptions/subscriptions.md
  guides/api-exposure-plans-applications-and-subscriptions/plans/jwt: guides/api-exposure-plans-applications-and-subscriptions/applications.md
  guides/api-exposure-plans-applications-and-subscriptions/plans/keyless: guides/api-exposure-plans-applications-and-subscriptions/subscriptions.md
  guides/api-exposure-plans-applications-and-subscriptions/plans/oauth2: guides/api-exposure-plans-applications-and-subscriptions/applications.md
  guides/api-exposure-plans-applications-and-subscriptions/plans/push: guides/api-exposure-plans-applications-and-subscriptions/README.md
- guides/api-measurement-tracking-and-analytics/audit-trail: guides/api-measurement-tracking-and-analytics/configure-the-dashboard-with-custom-api-analytics.md
+ guides/api-measurement-tracking-and-analytics/audit-trail: guides/api-measurement-tracking-and-analytics/configure-and-use-api-logging.md
  guides/api-measurement-tracking-and-analytics/configure-alerts-and-notifications: guides/api-measurement-tracking-and-analytics/configure-and-use-api-logging.md
  guides/api-measurement-tracking-and-analytics/create-a-dashboard: guides/api-measurement-tracking-and-analytics/configure-the-dashboard-with-custom-api-analytics.md
  guides/api-measurement-tracking-and-analytics/how-to: guides/api-measurement-tracking-and-analytics/configure-the-dashboard-with-custom-api-analytics.md
@@ -630,63 +677,66 @@ redirects:
  guides/gravitee-kubernetes-operator/custom-resource-definitions/managementcontext-resource: guides/gravitee-kubernetes-operator/custom-resource-definitions/managementcontext.md
  guides/gravitee-kubernetes-operator/custom-resource-definitions/sync-crds-with-apim-management-api: guides/gravitee-kubernetes-operator/custom-resource-definitions/sync-crds-with-api-management-api.md
  guides/policy-design: guides/policy-studio/README.md
- guides/policy-design/gravitee-api-definitions-compared: guides/administration/README.md
+ guides/policy-design/gravitee-api-definitions-compared: guides/policy-studio/v4-api-policy-studio.md
  guides/policy-design/gravitee-expression-language: guides/gravitee-expression-language.md
  guides/policy-design/policy-execution-engines-compared: overview/gravitee-api-definitions-and-execution-engines/reactive-execution-engine.md
  guides/policy-design/v2-api-policy-design-studio: guides/policy-studio/v2-api-policy-studio.md
  guides/policy-design/v4-api-policy-design-studio: guides/policy-studio/v4-api-policy-studio.md
- how-to-guides: README.md
- how-to-guides/create-and-publish-your-first-api: README.md
- how-to-guides/create-and-publish-your-first-api/add-a-policy: README.md
- how-to-guides/create-and-publish-your-first-api/add-api-documentation: README.md
- how-to-guides/create-and-publish-your-first-api/add-security: README.md
- how-to-guides/create-and-publish-your-first-api/create-an-api: README.md
- how-to-guides/create-and-publish-your-first-api/publish-your-api: README.md
- how-to-guides/use-case-tutorials: README.md
- how-to-guides/use-case-tutorials/add-rbac-to-your-jwt-plan: README.md
- how-to-guides/use-case-tutorials/aggregating-multiple-responses: README.md
- how-to-guides/use-case-tutorials/configure-dcr: README.md
- how-to-guides/use-case-tutorials/configure-jwt-security: README.md
- how-to-guides/use-case-tutorials/connect-to-an-endpoint-using-sse: README.md
- how-to-guides/use-case-tutorials/create-and-publish-an-api-using-the-management-api: README.md
- how-to-guides/use-case-tutorials/create-applications-and-subscriptions-using-the-management-api: guides/api-exposure-plans-applications-and-subscriptions/plans.md
+ how-to-guides: guides/administration/README.md
+ how-to-guides/create-and-publish-your-first-api: guides/administration/README.md
+ how-to-guides/create-and-publish-your-first-api/add-a-policy: guides/policy-studio/v4-api-policy-studio.md
+ how-to-guides/create-and-publish-your-first-api/add-api-documentation: guides/api-configuration/v4-api-configuration/documentation.md
+ how-to-guides/create-and-publish-your-first-api/add-security: guides/administration/README.md
+ how-to-guides/create-and-publish-your-first-api/create-an-api: guides/administration/README.md
+ how-to-guides/create-and-publish-your-first-api/publish-your-api: guides/administration/README.md
+ how-to-guides/use-case-tutorials: guides/administration/README.md
+ how-to-guides/use-case-tutorials/add-rbac-to-your-jwt-plan: guides/administration/README.md
+ how-to-guides/use-case-tutorials/aggregating-multiple-responses: guides/administration/README.md
+ how-to-guides/use-case-tutorials/configure-dcr: guides/administration/README.md
+ how-to-guides/use-case-tutorials/configure-jwt-security: guides/administration/README.md
+ how-to-guides/use-case-tutorials/connect-to-an-endpoint-using-sse: guides/administration/README.md
+ how-to-guides/use-case-tutorials/create-and-publish-an-api-using-the-management-api: guides/administration/README.md
+ how-to-guides/use-case-tutorials/create-applications-and-subscriptions-using-the-management-api: guides/api-exposure-plans-applications-and-subscriptions/subscriptions.md
  how-to-guides/use-case-tutorials/expose-soap-webservices-as-rest-apis: reference/policy-reference/rest-to-soap.md
- how-to-guides/use-case-tutorials/implement-bff-pattern-with-a-shared-policy-group: README.md
+ how-to-guides/use-case-tutorials/implement-bff-pattern-with-a-shared-policy-group: guides/administration/README.md
+ how-to-guides/use-case-tutorials/monitor-apim-with-prometheus-and-grafana: guides/administration/README.md
  how-to-guides/use-case-tutorials/rate-limit-rest-apis: reference/policy-reference/rate-limit.md
- how-to-guides/use-case-tutorials/secure-and-expose-grpc-services: README.md
+ how-to-guides/use-case-tutorials/secure-a-mcp-proxy-with-entra-id-oauth: guides/api-configuration/v2-api-configuration/general-proxy-settings.md
+ how-to-guides/use-case-tutorials/secure-and-expose-grpc-services: guides/administration/README.md
  hybrid-deployment/fluentd: README.md
- hybrid-deployment/hybrid-install-with-.zip: README.md
- hybrid-deployment/hybrid-install-with-docker: README.md
+ hybrid-deployment/hybrid-install-with-.zip: getting-started/hybrid-deployment/advanced-hybrid-deployment.md
+ hybrid-deployment/hybrid-install-with-docker: getting-started/hybrid-deployment/advanced-hybrid-deployment.md
  hybrid-deployment/hybrid-install-with-kubernetes: getting-started/hybrid-deployment/hybrid-deployment-on-kubernetes.md
  hybrid-deployment/logstash: README.md
- hybrid-deployment/overview: README.md
+ hybrid-deployment/overview: getting-started/hybrid-deployment/advanced-hybrid-deployment.md
  hybrid-deployment/redis: getting-started/configuration/repositories/redis.md
  hybrid-deployment/saas-alert-engine: README.md
- hybrid-installation-and-configuration-guides: README.md
- hybrid-installation-and-configuration-guides/classic-cloud: README.md
- hybrid-installation-and-configuration-guides/classic-cloud/.zip: README.md
- hybrid-installation-and-configuration-guides/classic-cloud/cloud-certificate-renewal: README.md
- hybrid-installation-and-configuration-guides/classic-cloud/docker: README.md
- hybrid-installation-and-configuration-guides/classic-cloud/docker/docker-compose: getting-started/install-and-upgrade-guides/install-on-docker/custom-install-with-docker-compose.md
+ hybrid-installation-and-configuration-guides: getting-started/hybrid-deployment/advanced-hybrid-deployment.md
+ hybrid-installation-and-configuration-guides/classic-cloud: getting-started/hybrid-deployment/README.md
+ hybrid-installation-and-configuration-guides/classic-cloud/.zip: getting-started/hybrid-deployment/README.md
+ hybrid-installation-and-configuration-guides/classic-cloud/cloud-certificate-renewal: getting-started/hybrid-deployment/README.md
+ hybrid-installation-and-configuration-guides/classic-cloud/docker: getting-started/hybrid-deployment/README.md
+ hybrid-installation-and-configuration-guides/classic-cloud/docker/docker-compose: getting-started/hybrid-deployment/README.md
  hybrid-installation-and-configuration-guides/classic-cloud/kubernetes: getting-started/hybrid-deployment/hybrid-deployment-on-kubernetes.md
  hybrid-installation-and-configuration-guides/classic-cloud/kubernetes/gcp-gke: getting-started/hybrid-deployment/hybrid-deployment-on-kubernetes.md
- hybrid-installation-and-configuration-guides/next-gen-cloud: README.md
- hybrid-installation-and-configuration-guides/next-gen-cloud/.zip: README.md
- hybrid-installation-and-configuration-guides/next-gen-cloud/delete-a-hybrid-gateway: README.md
- hybrid-installation-and-configuration-guides/next-gen-cloud/docker: README.md
- hybrid-installation-and-configuration-guides/next-gen-cloud/docker/docker-cli: README.md
- hybrid-installation-and-configuration-guides/next-gen-cloud/docker/docker-compose: getting-started/install-and-upgrade-guides/install-on-docker/quick-install-with-docker-compose.md
- hybrid-installation-and-configuration-guides/next-gen-cloud/generate-a-new-cloud-token: README.md
+ hybrid-installation-and-configuration-guides/next-gen-cloud: getting-started/hybrid-deployment/README.md
+ hybrid-installation-and-configuration-guides/next-gen-cloud/.zip: getting-started/hybrid-deployment/README.md
+ hybrid-installation-and-configuration-guides/next-gen-cloud/delete-a-hybrid-gateway: getting-started/hybrid-deployment/advanced-hybrid-deployment.md
+ hybrid-installation-and-configuration-guides/next-gen-cloud/docker: getting-started/hybrid-deployment/README.md
+ hybrid-installation-and-configuration-guides/next-gen-cloud/docker/docker-cli: getting-started/hybrid-deployment/README.md
+ hybrid-installation-and-configuration-guides/next-gen-cloud/docker/docker-compose: getting-started/hybrid-deployment/advanced-hybrid-deployment.md
+ hybrid-installation-and-configuration-guides/next-gen-cloud/generate-a-new-cloud-token: getting-started/hybrid-deployment/README.md
  hybrid-installation-and-configuration-guides/next-gen-cloud/kubernetes: getting-started/hybrid-deployment/hybrid-deployment-on-kubernetes.md
  hybrid-installation-and-configuration-guides/next-gen-cloud/kubernetes/aws-eks: getting-started/hybrid-deployment/hybrid-deployment-on-kubernetes.md
  hybrid-installation-and-configuration-guides/next-gen-cloud/kubernetes/azure-aks: getting-started/hybrid-deployment/hybrid-deployment-on-kubernetes.md
- hybrid-installation-and-configuration-guides/next-gen-cloud/kubernetes/openshift: getting-started/hybrid-deployment/hybrid-deployment-on-kubernetes.md
+ hybrid-installation-and-configuration-guides/next-gen-cloud/kubernetes/openshift: getting-started/hybrid-deployment/README.md
  hybrid-installation-and-configuration-guides/next-gen-cloud/kubernetes/vanilla-kubernetes: getting-started/hybrid-deployment/hybrid-deployment-on-kubernetes.md
- hybrid-installation-and-configuration-guides/next-gen-cloud/link-to-a-hybrid-gateway: README.md
- hybrid-installation-and-configuration-guides/next-gen-cloud/rpm: README.md
- hybrid-installation-and-configuration-guides/proxy-configuration: README.md
- hybrid-installation-and-configuration-guides/proxy-configuration/hybrid-gateway-proxy-configuration: README.md
- hybrid-installation-and-configuration-guides/proxy-configuration/system-proxy-for-backend-apis: README.md
+ hybrid-installation-and-configuration-guides/next-gen-cloud/link-to-a-hybrid-gateway: getting-started/hybrid-deployment/README.md
+ hybrid-installation-and-configuration-guides/next-gen-cloud/rpm: getting-started/hybrid-deployment/README.md
+ hybrid-installation-and-configuration-guides/proxy-configuration: getting-started/hybrid-deployment/README.md
+ hybrid-installation-and-configuration-guides/proxy-configuration/configure-cloud-gateway-client: getting-started/hybrid-deployment/README.md
+ hybrid-installation-and-configuration-guides/proxy-configuration/hybrid-gateway-proxy-configuration: getting-started/hybrid-deployment/README.md
+ hybrid-installation-and-configuration-guides/proxy-configuration/system-proxy-for-backend-apis: getting-started/hybrid-deployment/README.md
  install-and-upgrade/.zip: README.md
  install-and-upgrade/breaking-changes-and-deprecations: getting-started/install-and-upgrade-guides/breaking-changes-and-deprecated-functionality-for-api-management.md
  install-and-upgrade/certificate-renewal-guide: README.md
@@ -696,7 +746,7 @@ redirects:
  install-and-upgrade/docker/docker-images: getting-started/install-and-upgrade-guides/install-on-docker/docker-images-install.md
  install-and-upgrade/docker/quick-install: getting-started/install-and-upgrade-guides/install-on-docker/quick-install-with-docker-compose.md
  install-and-upgrade/gateway-resource-sizing-guidelines: README.md
- install-and-upgrade/kubernetes: README.md
+ install-and-upgrade/kubernetes: getting-started/hybrid-deployment/hybrid-deployment-on-kubernetes.md
  install-and-upgrade/multi-tenancy: getting-started/install-and-upgrade-guides/multi-tenancy.md
  install-and-upgrade/openshift: README.md
  install-and-upgrade/production-best-practices: README.md
@@ -722,27 +772,27 @@ redirects:
  installation-and-upgrades/advanced-hybrid-deployment: getting-started/hybrid-deployment/advanced-hybrid-deployment.md
  installation-and-upgrades/advanced-hybrid-deployment/gateway-and-bridge-compatibility-versions: getting-started/hybrid-deployment/advanced-hybrid-deployment.md
  installation-and-upgrades/install-gravitee-api-management: README.md
- installation-and-upgrades/install-gravitee-api-management/installing-a-gravitee-gateway-with-a-hybrid-deployment: README.md
- installation-and-upgrades/install-gravitee-api-management/installing-a-gravitee-gateway-with-a-hybrid-deployment/gateway-and-bridge-compatibility-versions: README.md
+ installation-and-upgrades/install-gravitee-api-management/installing-a-gravitee-gateway-with-a-hybrid-deployment: getting-started/hybrid-deployment/advanced-hybrid-deployment.md
+ installation-and-upgrades/install-gravitee-api-management/installing-a-gravitee-gateway-with-a-hybrid-deployment/gateway-and-bridge-compatibility-versions: getting-started/hybrid-deployment/advanced-hybrid-deployment.md
  installation-and-upgrades/install-gravitee-api-management/installing-a-gravitee-gateway-with-a-hybrid-deployment/hybrid-deployment-on-kubernetes: getting-started/hybrid-deployment/hybrid-deployment-on-kubernetes.md
  installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise: README.md
  installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-amazon: getting-started/install-and-upgrade-guides/install-on-amazon/README.md
  installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-amazon/manual-install: getting-started/install-and-upgrade-guides/install-on-amazon/manual-install/prerequisites.md
  installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-amazon/quick-install: getting-started/install-and-upgrade-guides/install-on-amazon/quick-install.md
  installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-docker: getting-started/install-and-upgrade-guides/install-on-docker/README.md
- installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-docker/custom-install-with-docker-compose: getting-started/install-and-upgrade-guides/install-on-docker/custom-install-with-docker-compose.md
+ installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-docker/custom-install-with-docker-compose: getting-started/install-and-upgrade-guides/install-on-docker/quick-install-with-docker-compose.md
  installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-docker/docker-images-install: getting-started/install-and-upgrade-guides/install-on-docker/docker-images-install.md
  installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-docker/quick-install-with-docker-compose: getting-started/install-and-upgrade-guides/install-on-docker/quick-install-with-docker-compose.md
- installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-kubernetes: getting-started/install-and-upgrade-guides/install-on-kubernetes/README.md
+ installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-kubernetes: getting-started/hybrid-deployment/hybrid-deployment-on-kubernetes.md
  installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-red-hat-and-centos: getting-started/install-and-upgrade-guides/install-on-red-hat-and-centos/apim-components-installation.md
  installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-with-.zip: getting-started/install-and-upgrade-guides/install-with-.zip.md
  installation-and-upgrades/install-gravitee-api-management/multi-tenancy: getting-started/install-and-upgrade-guides/multi-tenancy.md
  installation-and-upgrades/install-on-docker: getting-started/install-and-upgrade-guides/install-on-docker/README.md
- installation-and-upgrades/install-on-docker/custom-install-with-docker-compose: getting-started/install-and-upgrade-guides/install-on-docker/custom-install-with-docker-compose.md
+ installation-and-upgrades/install-on-docker/custom-install-with-docker-compose: getting-started/install-and-upgrade-guides/install-on-docker/quick-install-with-docker-compose.md
  installation-and-upgrades/install-on-docker/docker-images-install: getting-started/install-and-upgrade-guides/install-on-docker/docker-images-install.md
  installation-and-upgrades/install-on-docker/further-customization: getting-started/install-and-upgrade-guides/install-on-docker/further-customization.md
  installation-and-upgrades/install-on-docker/quick-install-with-docker-compose: getting-started/install-and-upgrade-guides/install-on-docker/quick-install-with-docker-compose.md
- installation-and-upgrades/install-on-kubernetes: getting-started/install-and-upgrade-guides/install-on-kubernetes/README.md
+ installation-and-upgrades/install-on-kubernetes: getting-started/hybrid-deployment/hybrid-deployment-on-kubernetes.md
  installation-and-upgrades/install-with-.zip: getting-started/install-and-upgrade-guides/install-with-.zip.md
  installation-and-upgrades/installing-on-openshift: README.md
  installation-and-upgrades/installing-with-rpm-packages: README.md
@@ -762,8 +812,8 @@ redirects:
  introduction/community-forum: README.md
  introduction/contribute-to-apim: README.md
  introduction/core-concepts: README.md
- introduction/enterprise-edition: overview/gravitee-apim-enterprise-edition/README.md
- introduction/integrations: overview/integrations.md
+ introduction/enterprise-edition: README.md
+ introduction/integrations: README.md
  kafka-gateway: README.md
  kafka-gateway/applications: README.md
  kafka-gateway/configure-and-deploy-kafka-console: README.md
@@ -780,6 +830,7 @@ redirects:
  kafka-gateway/configure-kafka-apis/policies/kafka-topic-mapping: reference/policy-reference/README.md
  kafka-gateway/configure-the-kafka-client-and-gateway: README.md
  kafka-gateway/configure-the-kafka-gateway-and-client: README.md
+ kafka-gateway/configuring-kafka-port-routing-gateway-and-console: README.md
  kafka-gateway/create-and-configure-kafka-apis: README.md
  kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis: README.md
  kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/configuration: README.md
@@ -788,6 +839,7 @@ redirects:
  kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/consumers: README.md
  kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/deployment: README.md
  kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/documentation: README.md
+ kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/enable-opentelemetry-tracing-for-a-kafka-api: README.md
  kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/endpoints: guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/kafka.md
  kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/entrypoints: guides/api-configuration/v4-api-configuration/entrypoints/README.md
  kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/mtls-plans: README.md
@@ -795,6 +847,7 @@ redirects:
  kafka-gateway/create-and-configure-kafka-apis/create-kafka-apis: README.md
  kafka-gateway/create-and-configure-kafka-clusters: README.md
  kafka-gateway/create-kafka-apis: README.md
+ kafka-gateway/creating-and-updating-plans-with-port-routing: README.md
  kafka-gateway/deploy-a-kafka-gateway-with-gravitee-cloud: README.md
  kafka-gateway/expose-metrics-to-elasticsearch: README.md
  kafka-gateway/expose-metrics-to-prometheus: README.md
@@ -808,12 +861,13 @@ redirects:
  kafka-gateway/produce-and-consume-kafka-messages-with-gravitee-cloud: README.md
  kafka-gateway/subscriptions: guides/api-exposure-plans-applications-and-subscriptions/subscriptions.md
  management-api-reference: reference/management-api-reference.md
- management-api/internal-api: README.md
+ management-api/internal-api: getting-started/configuration/apim-management-api/internal-api-1.md
  management-api/management-api-reference: reference/management-api-reference.md
  management-api/management-settings: README.md
- management-api/mapi-internal-api: README.md
+ management-api/mapi-internal-api: getting-started/configuration/apim-management-api/internal-api-1.md
  management-api/security: getting-started/configuration/apim-management-api/security.md
- management-api/user-settings: README.md
+ management-api/user-settings: getting-started/configuration/apim-management-api/user-and-management-configuration.md
+ mcp-server-installation-widget-for-portal-pages: README.md
  most-common-use-cases/adding-role-based-access-control-to-your-jwt-plan: reference/policy-reference/role-based-access-control-rbac.md
  most-common-use-cases/configure-dynamic-client-registration-with-apim: README.md
  most-common-use-cases/configure-jwt-security-with-apim: README.md
@@ -842,15 +896,15 @@ redirects:
  overview/gravitee-apim-enterprise-edition/enterprise-support: community-and-support/enterprise-support.md
  overview/introduction-to-gravitee-api-management-apim/apim-architecture: overview/apim-architecture/README.md
  overview/introduction-to-gravitee-api-management-apim/plugins: overview/plugins.md
- overview/plugins-and-api-definitions: overview/plugins.md
- overview/plugins-and-api-definitions-for-gravitee-api-management: overview/plugins.md
+ overview/plugins-and-api-definitions: overview/apim-architecture/README.md
+ overview/plugins-and-api-definitions-for-gravitee-api-management: overview/apim-architecture/README.md
  overview/plugins-and-api-definitions-for-gravitee-api-management/gravitee-api-definitions-and-execution-engines: overview/gravitee-api-definitions-and-execution-engines/README.md
  overview/plugins-and-api-definitions-for-gravitee-api-management/gravitee-api-definitions-and-execution-engines/engine-comparisons: overview/gravitee-api-definitions-and-execution-engines/reactive-execution-engine.md
  overview/plugins-and-api-definitions-for-gravitee-api-management/gravitee-api-definitions-and-execution-engines/reactive-execution-engine: overview/gravitee-api-definitions-and-execution-engines/reactive-execution-engine.md
  overview/plugins-and-api-definitions-for-gravitee-api-management/plugins: overview/plugins.md
  overview/plugins-and-api-definitions-for-gravitee-api-management/plugins/custom-plugins: guides/developer-contributions/custom-plugins.md
  overview/plugins-and-api-definitions-for-gravitee-api-management/plugins/deploying-plugins: overview/apim-architecture/README.md
- overview/plugins-and-api-definitions-for-gravitee-api-management/plugins/plugins-overview: overview/plugins.md
+ overview/plugins-and-api-definitions-for-gravitee-api-management/plugins/plugins-overview: overview/apim-architecture/README.md
  overview/plugins-and-api-definitions/gravitee-api-definitions-and-execution-engines: overview/gravitee-api-definitions-and-execution-engines/README.md
  overview/plugins-and-api-definitions/gravitee-api-definitions-and-execution-engines/engine-comparisons: overview/gravitee-api-definitions-and-execution-engines/reactive-execution-engine.md
  overview/plugins-and-api-definitions/gravitee-api-definitions-and-execution-engines/reactive-execution-engine: overview/gravitee-api-definitions-and-execution-engines/reactive-execution-engine.md
@@ -900,6 +954,8 @@ redirects:
  prepare-a-production-environment/production-best-practices/protections: getting-started/configuration/production-ready-apim-environment.md
  prepare-a-production-environment/repositories: getting-started/configuration/repositories/README.md
  prepare-a-production-environment/repositories/elasticsearch: getting-started/configuration/repositories/elasticsearch.md
+ prepare-a-production-environment/repositories/hazelcast-rate-limit-repository-overview-and-key-concepts: getting-started/configuration/repositories/README.md
+ prepare-a-production-environment/repositories/hazelcast-rate-limit-repository-restrictions-and-known-limitations: reference/policy-reference/rate-limit.md
  prepare-a-production-environment/repositories/jdbc: getting-started/configuration/repositories/jdbc.md
  prepare-a-production-environment/repositories/mongodb: getting-started/configuration/repositories/mongodb.md
  prepare-a-production-environment/repositories/redis: getting-started/configuration/repositories/redis.md
@@ -916,11 +972,18 @@ redirects:
  prepare-a-production-environment/sensitive-data-management/configure-secrets/quick-start: guides/gravitee-kubernetes-operator/quick-start.md
  prepare-a-production-environment/sensitive-data-management/configure-secrets/reference-secrets-in-configurations: getting-started/configuration/production-ready-apim-environment.md
  prepare-a-production-environment/sensitive-data-management/plugin-support: getting-started/configuration/production-ready-apim-environment.md
+ readme/api-fundamentals: README.md
+ readme/api-fundamentals/api-basics: README.md
+ readme/api-fundamentals/categorizing-web-apis: README.md
+ readme/api-fundamentals/web-apis: README.md
  readme/community-forum: README.md
  readme/contribute-to-apim: README.md
  readme/core-concepts: README.md
  readme/enterprise-edition: overview/gravitee-apim-enterprise-edition/README.md
- readme/integrations: README.md
+ readme/enterprise-edition-installation: README.md
+ readme/enterprise-edition-licensing: README.md
+ readme/glossary: README.md
+ readme/integrations: overview/integrations.md
  reference/policy-reference/avro-json: reference/policy-reference/README.md
  reference/policy-reference/custom-query-parameters-parser: reference/policy-reference/README.md
  reference/policy-reference/graphql-rate-limit: reference/policy-reference/README.md
@@ -931,15 +994,21 @@ redirects:
  release-information: README.md
  release-information/breaking-changes-and-deprecations: getting-started/install-and-upgrade-guides/breaking-changes-and-deprecated-functionality-for-api-management.md
  release-information/changelog: overview/changelog/README.md
- release-information/changelog/apim-4.10.x: overview/changelog/README.md
+ release-information/changelog/apim-4.10.x: overview/changelog/apim-4.2.x.md
+ release-information/changelog/apim-4.11.x: overview/changelog/apim-4.2.x.md
  release-information/changelog/apim-4.7.x: overview/changelog/apim-4.2.x.md
  release-information/changelog/apim-4.8.x: overview/changelog/apim-4.2.x.md
  release-information/changelog/apim-4.9.x: overview/changelog/apim-4.2.x.md
  release-information/release-notes: overview/release-notes/README.md
  release-information/release-notes/apim-4.10: overview/release-notes/apim-4.2.md
  release-information/release-notes/apim-4.11: overview/release-notes/apim-4.2.md
+ release-information/release-notes/apim-4.12: overview/release-notes/apim-4.2.md
  release-information/release-notes/apim-4.8: overview/release-notes/apim-4.2.md
  release-information/release-notes/apim-4.9: overview/release-notes/apim-4.2.md
+ release-information/release-schedule: README.md
+ release-information/release-types: README.md
+ release-information/support-for-v1-apis: README.md
+ release-information/support-model: README.md
  releases-and-changelog/changelog: overview/changelog/README.md
  releases-and-changelog/changelog/apim-4.0.x: overview/changelog/apim-4.2.x.md
  releases-and-changelog/changelog/apim-4.1.x: overview/changelog/apim-4.2.x.md
@@ -949,21 +1018,30 @@ redirects:
  secure-and-expose-apis: README.md
  secure-and-expose-apis/api-products: README.md
  secure-and-expose-apis/api-products-configuration-reference: README.md
+ secure-and-expose-apis/api-products/api-product-analytics-and-logging-concepts-and-data-model: README.md
+ secure-and-expose-apis/api-products/api-product-analytics-prerequisites-and-restrictions: README.md
+ secure-and-expose-apis/api-products/api-product-membership-and-ownership-models: README.md
+ secure-and-expose-apis/api-products/configure-api-product-primary-owner-mode-and-group-defaults: README.md
+ secure-and-expose-apis/api-products/configuring-api-product-deployment-with-sharding-tags: README.md
  secure-and-expose-apis/api-products/console-ui-reference: README.md
  secure-and-expose-apis/api-products/consuming-api-products: README.md
+ secure-and-expose-apis/api-products/manage-api-product-members-and-ownership-configuration-page: README.md
  secure-and-expose-apis/api-products/manage-api-products-via-management-api: README.md
+ secure-and-expose-apis/api-products/manage-api-products-with-management-api: README.md
  secure-and-expose-apis/api-products/restrictions-and-licensing: README.md
- secure-and-expose-apis/applications: README.md
- secure-and-expose-apis/applications/create-an-application: README.md
- secure-and-expose-apis/applications/global-settings: README.md
+ secure-and-expose-apis/applications: guides/api-exposure-plans-applications-and-subscriptions/applications.md
+ secure-and-expose-apis/applications/create-an-application: guides/api-exposure-plans-applications-and-subscriptions/applications.md
+ secure-and-expose-apis/applications/global-settings: guides/developer-portal/configuration/general-settings.md
+ secure-and-expose-apis/applications/mtls-certificate-management-for-applications-overview-and-concepts: guides/api-exposure-plans-applications-and-subscriptions/applications.md
  secure-and-expose-apis/applications/user-and-group-access: guides/api-configuration/v2-api-configuration/configure-user-and-group-access.md
- secure-and-expose-apis/plans: guides/api-exposure-plans-applications-and-subscriptions/plans.md
- secure-and-expose-apis/plans/api-key: reference/policy-reference/api-key.md
- secure-and-expose-apis/plans/jwt: guides/api-exposure-plans-applications-and-subscriptions/plans.md
- secure-and-expose-apis/plans/keyless: reference/policy-reference/keyless.md
- secure-and-expose-apis/plans/mtls: guides/api-exposure-plans-applications-and-subscriptions/plans.md
- secure-and-expose-apis/plans/oauth2: reference/policy-reference/oauth2/README.md
- secure-and-expose-apis/plans/push: guides/api-exposure-plans-applications-and-subscriptions/plans.md
+ secure-and-expose-apis/plans: guides/api-exposure-plans-applications-and-subscriptions/README.md
+ secure-and-expose-apis/plans/api-key: guides/api-exposure-plans-applications-and-subscriptions/subscriptions.md
+ secure-and-expose-apis/plans/conditional-updates-for-plans: guides/api-exposure-plans-applications-and-subscriptions/README.md
+ secure-and-expose-apis/plans/jwt: guides/api-exposure-plans-applications-and-subscriptions/applications.md
+ secure-and-expose-apis/plans/keyless: guides/api-exposure-plans-applications-and-subscriptions/subscriptions.md
+ secure-and-expose-apis/plans/mtls: guides/api-exposure-plans-applications-and-subscriptions/applications.md
+ secure-and-expose-apis/plans/oauth2: guides/api-exposure-plans-applications-and-subscriptions/applications.md
+ secure-and-expose-apis/plans/push: guides/api-exposure-plans-applications-and-subscriptions/README.md
  secure-and-expose-apis/subscriptions: guides/api-exposure-plans-applications-and-subscriptions/subscriptions.md
  secure-and-expose-apis/subscriptions/creating-and-managing-subscription-forms: guides/api-exposure-plans-applications-and-subscriptions/subscriptions.md
  secure-and-expose-apis/subscriptions/manage-subscriptions: guides/api-exposure-plans-applications-and-subscriptions/subscriptions.md
@@ -976,33 +1054,37 @@ redirects:
  self-hosted-installation-guides/docker/customize-your-installation: README.md
  self-hosted-installation-guides/docker/docker-cli: README.md
  self-hosted-installation-guides/docker/docker-compose: getting-started/install-and-upgrade-guides/install-on-docker/quick-install-with-docker-compose.md
- self-hosted-installation-guides/kubernetes: README.md
- self-hosted-installation-guides/kubernetes/aws-eks: README.md
- self-hosted-installation-guides/kubernetes/azure-aks: README.md
- self-hosted-installation-guides/kubernetes/openshift: README.md
- self-hosted-installation-guides/kubernetes/vanilla-kubernetes: README.md
+ self-hosted-installation-guides/kubernetes: getting-started/hybrid-deployment/hybrid-deployment-on-kubernetes.md
+ self-hosted-installation-guides/kubernetes/aws-eks: getting-started/hybrid-deployment/hybrid-deployment-on-kubernetes.md
+ self-hosted-installation-guides/kubernetes/azure-aks: getting-started/hybrid-deployment/hybrid-deployment-on-kubernetes.md
+ self-hosted-installation-guides/kubernetes/openshift: getting-started/hybrid-deployment/hybrid-deployment-on-kubernetes.md
+ self-hosted-installation-guides/kubernetes/vanilla-kubernetes: getting-started/hybrid-deployment/hybrid-deployment-on-kubernetes.md
  self-hosted-installation-guides/multi-tenancy: getting-started/install-and-upgrade-guides/multi-tenancy.md
  self-hosted-installation-guides/proxy-configuration: README.md
  self-hosted-installation-guides/proxy-configuration/system-proxy-for-backend-apis: README.md
  self-hosted-installation-guides/rpm: README.md
  self-hosted-installation-guides/rpm/troubleshooting: README.md
  terraform: README.md
+ terraform/changelog: README.md
  terraform/define-an-apim-service-account-for-terraform: README.md
  terraform/example-resource-configurations: README.md
  terraform/quick-start-guide: getting-started/quickstart-guide/README.md
+ terraform/release-notes: README.md
  upgrade-guides: README.md
+ upgrade-guides/apim-4.12-elasticsearch-index-template-changes: README.md
  upgrade-guides/apim-4.4.+-and-hybrid-gateways: README.md
  upgrade-guides/apim-4.9-elasticsearch-index-template-changes: README.md
+ upgrade-guides/infrastructure-changes-for-api-product-analytics: README.md
  upgrade-guides/mongodb-index-management: README.md
  upgrade-guides/update-the-connection-to-cloud: README.md
  upgrade-guides/upgrade-with-rpm: README.md
- using-the-product/administration: README.md
+ using-the-product/administration: guides/administration/README.md
  using-the-product/administration/administering-organizations-and-environments: guides/administration/administering-organizations-and-environments.md
  using-the-product/administration/authentication: getting-started/configuration/authentication.md
  using-the-product/administration/authentication/authentication-providers: getting-started/configuration/authentication.md
  using-the-product/administration/authentication/azure-ad-entra-id: getting-started/configuration/authentication.md
  using-the-product/administration/authentication/azure-regions-for-saas-and-hybrid-deployments: getting-started/configuration/authentication.md
- using-the-product/administration/authentication/custom-oauth2-openid-authorization-server: reference/policy-reference/oauth2/gravitee.io-am-authorization-server.md
+ using-the-product/administration/authentication/custom-oauth2-openid-authorization-server: getting-started/configuration/authentication.md
  using-the-product/administration/authentication/gravitee-am-authentication: getting-started/configuration/authentication.md
  using-the-product/administration/authentication/social-providers: getting-started/configuration/authentication.md
  using-the-product/administration/support: guides/administration/support.md
@@ -1027,7 +1109,7 @@ redirects:
  using-the-product/managing-your-apis-with-gravitee-api-management/api-exposure-plans-applications-and-subscriptions/subscriptions: guides/api-exposure-plans-applications-and-subscriptions/subscriptions.md
  using-the-product/managing-your-apis-with-gravitee-api-management/api-exposure-plans-applications-and-subscriptions/types-of-plans: guides/api-exposure-plans-applications-and-subscriptions/README.md
  using-the-product/managing-your-apis-with-gravitee-api-management/api-measurement-tracking-and-analytics: guides/api-measurement-tracking-and-analytics/README.md
- using-the-product/managing-your-apis-with-gravitee-api-management/api-measurement-tracking-and-analytics/audit-trail: guides/api-measurement-tracking-and-analytics/configure-the-dashboard-with-custom-api-analytics.md
+ using-the-product/managing-your-apis-with-gravitee-api-management/api-measurement-tracking-and-analytics/audit-trail: guides/api-measurement-tracking-and-analytics/configure-and-use-api-logging.md
  using-the-product/managing-your-apis-with-gravitee-api-management/api-measurement-tracking-and-analytics/create-a-dashboard: guides/api-measurement-tracking-and-analytics/configure-the-dashboard-with-custom-api-analytics.md
  using-the-product/managing-your-apis-with-gravitee-api-management/api-measurement-tracking-and-analytics/using-the-api-quality-feature: guides/api-measurement-tracking-and-analytics/using-the-api-quality-feature.md
  using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management: README.md
@@ -1198,7 +1280,7 @@ redirects:
  using-the-product/managing-your-apis/api-configuration/v4-api-configuration/user-permissions: guides/administration/user-management-and-permissions.md
  using-the-product/managing-your-apis/api-configuration/v4-api-configuration/version-history: README.md
  using-the-product/managing-your-apis/api-measurement-tracking-and-analytics: guides/api-measurement-tracking-and-analytics/README.md
- using-the-product/managing-your-apis/api-measurement-tracking-and-analytics/audit-trail: guides/api-measurement-tracking-and-analytics/configure-the-dashboard-with-custom-api-analytics.md
+ using-the-product/managing-your-apis/api-measurement-tracking-and-analytics/audit-trail: guides/api-measurement-tracking-and-analytics/configure-and-use-api-logging.md
  using-the-product/managing-your-apis/api-measurement-tracking-and-analytics/create-a-dashboard: guides/api-measurement-tracking-and-analytics/configure-the-dashboard-with-custom-api-analytics.md
  using-the-product/managing-your-apis/api-measurement-tracking-and-analytics/using-the-api-quality-feature: guides/api-measurement-tracking-and-analytics/using-the-api-quality-feature.md
  using-the-product/managing-your-apis/create-apis: README.md
@@ -1207,7 +1289,7 @@ redirects:
  using-the-product/managing-your-apis/create-apis/openapi-spec-import: guides/create-apis/import-apis/openapi-spec-import.md
  using-the-product/managing-your-apis/create-apis/the-api-creation-wizard: guides/create-apis/the-api-creation-wizard/README.md
  using-the-product/managing-your-apis/create-apis/the-api-creation-wizard/v2-api-creation-wizard: guides/create-apis/the-api-creation-wizard/v2-api-creation-wizard.md
- using-the-product/managing-your-apis/create-apis/the-api-creation-wizard/v4-api-creation-wizard: guides/create-apis/the-api-creation-wizard/README.md
+ using-the-product/managing-your-apis/create-apis/the-api-creation-wizard/v4-api-creation-wizard: guides/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md
  using-the-product/managing-your-apis/create-apis/v2-apis-and-v4-apis-comparison: README.md
  using-the-product/managing-your-apis/gravitee-expression-language: guides/gravitee-expression-language.md
  using-the-product/managing-your-apis/policy-studio: guides/policy-studio/README.md
@@ -1308,7 +1390,7 @@ redirects:
  using-the-product/production-ready-apim-environment/authentication: getting-started/configuration/production-ready-apim-environment.md
  using-the-product/production-ready-apim-environment/brute-force-an-browser-protection: getting-started/configuration/production-ready-apim-environment.md
  using-the-product/production-ready-apim-environment/configuration-settings: getting-started/configuration/production-ready-apim-environment.md
- using-the-product/production-ready-apim-environment/deployment: guides/developer-portal/configuration/general-settings.md
+ using-the-product/production-ready-apim-environment/deployment: getting-started/configuration/production-ready-apim-environment.md
  using-the-product/production-ready-apim-environment/internal-apis: getting-started/configuration/production-ready-apim-environment.md
  using-the-product/production-ready-apim-environment/production-deployments-and-capacity-planning: overview/apim-architecture/production-deployments-and-capacity-planning.md
  using-the-product/using-the-gravitee-api-management-components: README.md
@@ -1318,10 +1400,10 @@ redirects:
  using-the-product/using-the-gravitee-api-management-components/configuration: README.md
  using-the-product/using-the-gravitee-api-management-components/developer-portal: getting-started/quickstart-guide/developer-portal-101.md
  using-the-product/using-the-gravitee-api-management-components/developer-portal-101: getting-started/quickstart-guide/developer-portal-101.md
- using-the-product/using-the-gravitee-api-management-components/developer-portal-101/accessing-the-gravitee-developer-portal: guides/developer-portal/configuration/general-settings.md
- using-the-product/using-the-gravitee-api-management-components/developer-portal-101/configuring-and-customizing-the-gravitee-developer-portal: guides/developer-portal/configuration/general-settings.md
+ using-the-product/using-the-gravitee-api-management-components/developer-portal-101/accessing-the-gravitee-developer-portal: getting-started/quickstart-guide/developer-portal-101.md
+ using-the-product/using-the-gravitee-api-management-components/developer-portal-101/configuring-and-customizing-the-gravitee-developer-portal: guides/developer-portal/configuration/layout-and-theme-customization.md
  using-the-product/using-the-gravitee-api-management-components/developer-portal-101/configuring-and-customizing-the-gravitee-developer-portal/apim-developer-portal: getting-started/configuration/apim-developer-portal.md
- using-the-product/using-the-gravitee-api-management-components/developer-portal-101/creating-and-maintaining-applications-with-the-gravitee-developer-portal: guides/developer-portal/configuration/general-settings.md
+ using-the-product/using-the-gravitee-api-management-components/developer-portal-101/creating-and-maintaining-applications-with-the-gravitee-developer-portal: guides/developer-portal/configuration/layout-and-theme-customization.md
  using-the-product/using-the-gravitee-api-management-components/developer-portal-101/creating-and-maintaining-applications-with-the-gravitee-developer-portal/applications: guides/developer-portal/tools-and-features/applications.md
  using-the-product/using-the-gravitee-api-management-components/developer-portal-101/creating-and-maintaining-applications-with-the-gravitee-developer-portal/creating-an-application-with-the-gravitee-developer-portal: getting-started/quickstart-guide/developer-portal-101.md
  using-the-product/using-the-gravitee-api-management-components/developer-portal-101/managing-api-subscriptions-with-the-gravitee-developer-portal: guides/developer-portal/configuration/general-settings.md
@@ -1329,14 +1411,14 @@ redirects:
  using-the-product/using-the-gravitee-api-management-components/developer-portal-101/publishing-and-managing-apis-with-the-gravitee-developer-portal/publishing-your-api-with-the-gravitee-developer-portal: getting-started/quickstart-guide/developer-portal-101.md
  using-the-product/using-the-gravitee-api-management-components/developer-portal-101/webhook-subscription-management: guides/developer-portal/tools-and-features/webhook-subscription-management.md
  using-the-product/using-the-gravitee-api-management-components/developer-portal/accessing-the-gravitee-developer-portal: guides/developer-portal/configuration/general-settings.md
- using-the-product/using-the-gravitee-api-management-components/developer-portal/configuring-and-customizing-the-gravitee-developer-portal: guides/developer-portal/configuration/general-settings.md
+ using-the-product/using-the-gravitee-api-management-components/developer-portal/configuring-and-customizing-the-gravitee-developer-portal: guides/developer-portal/configuration/layout-and-theme-customization.md
  using-the-product/using-the-gravitee-api-management-components/developer-portal/configuring-and-customizing-the-gravitee-developer-portal/apim-developer-portal: getting-started/configuration/apim-developer-portal.md
  using-the-product/using-the-gravitee-api-management-components/developer-portal/configuring-and-customizing-the-gravitee-developer-portal/general-settings: guides/developer-portal/configuration/general-settings.md
  using-the-product/using-the-gravitee-api-management-components/developer-portal/configuring-and-customizing-the-gravitee-developer-portal/layout-and-theme-customization: guides/developer-portal/configuration/layout-and-theme-customization.md
- using-the-product/using-the-gravitee-api-management-components/developer-portal/creating-and-maintaining-applications-with-gravitee-developer-portal: guides/developer-portal/configuration/general-settings.md
+ using-the-product/using-the-gravitee-api-management-components/developer-portal/creating-and-maintaining-applications-with-gravitee-developer-portal: guides/developer-portal/configuration/layout-and-theme-customization.md
  using-the-product/using-the-gravitee-api-management-components/developer-portal/creating-and-maintaining-applications-with-gravitee-developer-portal/applications: guides/developer-portal/tools-and-features/applications.md
  using-the-product/using-the-gravitee-api-management-components/developer-portal/documentation: guides/developer-portal/tools-and-features/documentation.md
- using-the-product/using-the-gravitee-api-management-components/developer-portal/publishing-and-managing-apis-with-the-gravitee-developer-portal: guides/developer-portal/configuration/general-settings.md
+ using-the-product/using-the-gravitee-api-management-components/developer-portal/publishing-and-managing-apis-with-the-gravitee-developer-portal: getting-started/quickstart-guide/developer-portal-101.md
  using-the-product/using-the-gravitee-api-management-components/developer-portal/publishing-and-managing-apis-with-the-gravitee-developer-portal/documentation: guides/developer-portal/configuration/documentation.md
  using-the-product/using-the-gravitee-api-management-components/developer-portal/publishing-and-managing-apis-with-the-gravitee-developer-portal/publishing-your-api-with-the-gravitee-developer-portal: getting-started/quickstart-guide/developer-portal-101.md
  using-the-product/using-the-gravitee-api-management-components/developer-portal/user-management: guides/developer-portal/configuration/user-management.md
@@ -1379,3 +1461,4 @@ redirects:
  using-the-product/using-the-gravitee-api-management-components/general-configuration/shared-policy-groups/shared-policy-groups-overview: getting-started/configuration/the-gravitee-api-gateway/general-configuration.md
  using-the-product/using-the-gravitee-api-management-components/general-configuration/shared-policy-groups/viewing-version-history-of-the-shared-policy-group: getting-started/configuration/the-gravitee-api-gateway/general-configuration.md
  using-the-product/using-the-gravitee-api-management-components/general-configuration/tenants: getting-started/configuration/the-gravitee-api-gateway/tenants.md
+ v2-api-analytics-continuity-after-migration: README.md
