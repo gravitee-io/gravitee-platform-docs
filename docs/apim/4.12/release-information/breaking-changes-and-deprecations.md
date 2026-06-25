@@ -17,6 +17,12 @@ Here are the breaking changes from versions 4.X of Gravitee.
 
 #### 4.12.0
 
+**JSON Validation policy: response error keys corrected**
+
+The JSON Validation policy now emits error keys that match their documented names for response-scope failures in V4 APIs. Previously, the keys were swapped: `JSON_INVALID_RESPONSE_FORMAT` was emitted for parse failures, and `JSON_INVALID_RESPONSE_PAYLOAD` for schema validation failures.
+
+If you configured response templates using these error keys, you must update them to use the correct key names.
+
 **`gravitee-resource-cache-redis` requires version 5.0.0**
 
 If you use the `gravitee-resource-cache-redis` plugin, you must upgrade it to version 5.0.0 when upgrading to APIM 4.12. This plugin is not included in the default APIM bundle and must be managed independently. Running an older version of `gravitee-resource-cache-redis` with APIM 4.12 is not supported.

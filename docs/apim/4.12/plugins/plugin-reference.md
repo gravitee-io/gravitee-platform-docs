@@ -753,16 +753,7 @@ Sse does not offer particular QoS and, in case of network failure or issue on th
 
 **Webhook**
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-Webhook is the only entrypoint offering the `AT-MOST-ONCE` or `AT-LEAST-ONCE` QoS capability.
-Webhook subscription are running in background on the gateway and basically make a call to an external http url for each message consume. The message is acknowledged only in case of success call (eg: 2xx response from the remote service).
-=======
 Webhook is the only entrypoint offering the `AT-MOST-ONCE` or `AT-LEAST-ONCE` qos capability. Webhook subscription are running in background on the gateway and basically make a call to an external http url for each message consume. The message is acknowledged only in case of success call (eg: 2xx response from the remote service).
->>>>>>> origin/main
-=======
-Webhook is the only entrypoint offering the `AT-MOST-ONCE` or `AT-LEAST-ONCE` QoS capability. Webhook subscription are running in background on the gateway and basically make a call to an external http url for each message consume. The message is acknowledged only in case of success call (eg: 2xx response from the remote service).
->>>>>>> b6b611bcd3981e66e0d60e0304418d8a5c5b359d
 
 **Other entrypoints**
 
@@ -1418,28 +1409,12 @@ The configuration is provided when creating the subscription.
 
 It is possible to tune the underlying http client used to perform the calls to the webhook url.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-| Attributes | Default | Mandatory | Description |
-| --- | --- | --- | --- |
-| connectTimeout | 3000 | Yes | Maximum time to connect to the backend in milliseconds. |
-| readTimeout | 10000 | Yes | Maximum time given to the backend to complete the request (including response) in milliseconds. |
-| idleTimeout | 60000 | Yes | Maximum time a connection will stay in the pool without being used in milliseconds. Once the timeout has elapsed, the unused connection will be closed, allowing to free the eventual associated resources. |
-| maxConcurrentConnections | 5 | Yes | Maximum pool size for connections. It basically represents the maximum number of concurrent requests at a time. Max value is 20. Currency is automatically set to 1 when using QoS AT_LEAST_ONCE or AT_MOST_ONCE in order to ensure message delivery. |
-=======
-=======
->>>>>>> b6b611bcd3981e66e0d60e0304418d8a5c5b359d
 | Attributes               | Default | Mandatory | Description                                                                                                                                                                                                                                               |
 | ------------------------ | ------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | connectTimeout           | 3000    | Yes       | Maximum time to connect to the backend in milliseconds.                                                                                                                                                                                                   |
 | readTimeout              | 10000   | Yes       | Maximum time given to the backend to complete the request (including response) in milliseconds.                                                                                                                                                           |
 | idleTimeout              | 60000   | Yes       | Maximum time a connection will stay in the pool without being used in milliseconds. Once the timeout has elapsed, the unused connection will be closed, allowing to free the eventual associated resources.                                               |
-<<<<<<< HEAD
 | maxConcurrentConnections | 5       | Yes       | Maximum pool size for connections. It basically represents the maximum number of concurrent requests at a time. Max value is 20. Currency is automatically set to 1 when using qos AT\_LEAST\_ONCE or AT\_MOST\_ONCE in order to ensure message delivery. |
->>>>>>> origin/main
-=======
-| maxConcurrentConnections | 5       | Yes       | Maximum pool size for connections. It basically represents the maximum number of concurrent requests at a time. Max value is 20. Currency is automatically set to 1 when using QoS AT\_LEAST\_ONCE or AT\_MOST\_ONCE in order to ensure message delivery. |
->>>>>>> b6b611bcd3981e66e0d60e0304418d8a5c5b359d
 
 **Secured callbacks**
 
@@ -1592,15 +1567,7 @@ They describe what happened during the webhook call
 
 **Plugin ID**: `gravitee-entrypoint-websocket`
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-#### WebSocket Entrypoint
-=======
 **Websocket Entrypoint**
->>>>>>> origin/main
-=======
-**WebSocket Entrypoint**
->>>>>>> b6b611bcd3981e66e0d60e0304418d8a5c5b359d
 
 \[label label-enterprise]#Enterprise feature#
 
@@ -1748,15 +1715,7 @@ kubernetes:
 
 <summary>AWS API Gateway</summary>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-→ [Full documentation](../govern-apis/federation/3rd-party-providers/aws-api-gateway/README.md)
-=======
-→ [Full documentation](../govern-apis/federation/3rd-party-providers/aws-api-gateway/)
->>>>>>> origin/main
-=======
-→ [Full documentation](../govern-apis/federation/3rd-party-providers/aws-api-gateway/)
->>>>>>> b6b611bcd3981e66e0d60e0304418d8a5c5b359d
+→ [Full documentation](../../govern-apis/federation/3rd-party-providers/aws-api-gateway/)
 
 **Plugin ID**: `gravitee-federation-agent-aws-api-gateway`
 
@@ -8230,16 +8189,7 @@ policy:
 
 **Plugin ID**: `gravitee-policy-javascript`
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<!-- GENERATED CODE - DO NOT ALTER THIS OR THE FOLLOWING LINES -->
-# JavaScript
-=======
 ## Javascript
->>>>>>> origin/main
-=======
-## JavaScript
->>>>>>> b6b611bcd3981e66e0d60e0304418d8a5c5b359d
 
 ### Overview
 
@@ -8598,24 +8548,7 @@ Strikethrough text indicates that a version is deprecated.
 | 2.x            | 4.7.x and above  |
 | 1.x            | 3.18.x and above |
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-## Configuration options
-
-
-#### 
-| Name <br>`json name`  | Type <br>`constraint`  | Mandatory  | Default  | Description  |
-|:----------------------|:-----------------------|:----------:|:---------|:-------------|
-| Override content<br>`overrideContent`| boolean|  | | Enable to override the content of the request or response with the value returned by your script.|
-| Read content<br>`readContent`| boolean|  | | Enable if your script needs to access the content of the HTTP request or response in your script.|
-| Script<br>`script`| string|  | | JavaScript script to evaluate.|
-=======
 ### Configuration options
->>>>>>> origin/main
-=======
-### Configuration options
->>>>>>> b6b611bcd3981e66e0d60e0304418d8a5c5b359d
 
 
 
@@ -10413,112 +10346,7 @@ policy:
         kid-2016: ssh-rsa myCurrentValidationKey anEmail@domain.com
 ```
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-
-### Configuration options
-
-
-#### 
-| Name <br>`json name`  | Type <br>`constraint`  | Mandatory  | Default  | Description  |
-|:----------------------|:-----------------------|:----------:|:---------|:-------------|
-| Client ID claim<br>`clientIdClaim`| string|  | | Claim where the client ID can be extracted. Configuring this field will override the standard behavior.|
-| Confirmation Method Validation<br>`confirmationMethodValidation`| object|  | | <br/>See "Confirmation Method Validation" section.|
-| JWKS URL connect timeout<br>`connectTimeout`| integer|  | `2000`| Only applies when the resolver is JWKS_URL|
-| Extract JWT Claims<br>`extractClaims`| boolean|  | | Put claims into the 'jwt.claims' context attribute.|
-| Follow HTTP redirects<br>`followRedirects`| boolean|  | | Only applies when the resolver is JWKS_URL|
-| Propagate Authorization header<br>`propagateAuthHeader`| boolean|  | `true`| Allows to propagate Authorization header to the target endpoints|
-| JWKS resolver<br>`publicKeyResolver`| enum (string)| ✅| `GIVEN_KEY`| Define how the JSON Web Key Set is retrieved<br>Values: `GIVEN_KEY` `GATEWAY_KEYS` `JWKS_URL`|
-| JWKS URL request timeout<br>`requestTimeout`| integer|  | `2000`| Only applies when the resolver is JWKS_URL|
-| Resolver parameter<br>`resolverParameter`| string|  | | Set the signature key GIVEN_KEY or a JWKS_URL following selected resolver (support EL).|
-| Revocation Check<br>`revocationCheck`| object|  | | Define revocation check details. If enabled, will check the configured claim of the token against a cached revocation list and deny if a match is found. Disabled by default.<br/>See "Revocation Check" section.|
-| Send WWW-Authenticate header<br>`sendWwwAuthenticateHeader`| boolean|  | | Emit the WWW-Authenticate response header on unauthorized JWT requests.|
-| Signature<br>`signature`| enum (string)| ✅| `RSA_RS256`| Define how the JSON Web Token must be signed.<br>Values: `RSA_RS256` `RSA_RS384` `RSA_RS512` `HMAC_HS256` `HMAC_HS384` `HMAC_HS512`|
-| Token Type Validation<br>`tokenTypValidation`| object|  | | Define the token type to validate<br/>See "Token Type Validation" section.|
-| Use system proxy<br>`useSystemProxy`| boolean|  | | Use system proxy (make sense only when resolver is set to JWKS_URL)|
-| User claim<br>`userClaim`| string|  | `sub`| Claim where the user can be extracted|
-
-
-#### Confirmation Method Validation (Object)
-| Name <br>`json name`  | Type <br>`constraint`  | Mandatory  | Default  | Description  |
-|:----------------------|:-----------------------|:----------:|:---------|:-------------|
-| Certificate Bound thumbprint (x5t#S256)<br>`certificateBoundThumbprint`| object|  | | <br/>See "Certificate Bound thumbprint (x5t#S256)" section.|
-| Ignore missing CNF<br>`ignoreMissing`| boolean|  | | Will ignore CNF validation if the token doesn't contain any CNF information. Default is false.|
-
-
-#### Certificate Bound thumbprint (x5t#S256) (Object)
-| Name <br>`json name`  | Type <br>`constraint`  | Mandatory  | Default  | Description  |
-|:----------------------|:-----------------------|:----------:|:---------|:-------------|
-| Enable certificate bound thumbprint validation<br>`enabled`| boolean|  | | Will validate the certificate thumbprint extracted from the access_token with the one provided by the client. The default is false.|
-| Extract client certificate from headers<br>`extractCertificateFromHeader`| boolean|  | | Enabled to extract the client certificate from request header. Necessary when the mTLS connection is handled by a proxy.|
-| Header name<br>`headerName`| string|  | `ssl-client-cert`| Name of the header where to find the client certificate.|
-
-
-#### Revocation Check (Object)
-| Name <br>`json name`  | Type <br>`constraint`  | Mandatory  | Default  | Description  |
-|:----------------------|:-----------------------|:----------:|:---------|:-------------|
-| `additionalProperties`| string|  | | |
-| Revocation list security configuration<br>`auth`| object|  | | <br/>See "Revocation list security configuration" section.|
-| Revocation list connect timeout<br>`connectTimeout`| integer|  | `2000`| The connect timeout in milliseconds for retrieving the revocation list. Default is 2000.|
-| Enable revocation check<br>`enabled`| boolean|  | | Will check if the token has been revoked. Default is false.|
-| Revocation list follow redirects<br>`followRedirects`| boolean|  | | If should follow redirects for revocation list requests. Default is false.|
-| Revocation list refresh interval<br>`refreshInterval`| integer|  | `300`| The refresh interval in seconds for the cached revocation list. Default is 300.|
-| Revocation list request timeout<br>`requestTimeout`| integer|  | `2000`| The request timeout in milliseconds for retrieving the revocation list. Default is 2000.|
-| Revocation claim<br>`revocationClaim`| string|  | `jti`| The string claim which will be checked against the revocation list. Default is 'jti'.|
-| Revocation list URL<br>`revocationListUrl`| string|  | | The URL of the revocation list including protocol, should return a new line seperated list of strings, content type text/plain. No default is provided, required if enabled.|
-| Revocation list use system proxy<br>`useSystemProxy`| boolean|  | | If should use system proxy for revocation list requests. Default is false.|
-
-
-#### Revocation list security configuration (Object)
-| Name <br>`json name`  | Type <br>`constraint`  | Mandatory  | Description  |
-|:----------------------|:-----------------------|:----------:|:-------------|
-| Type<br>`type`| object| ✅| Type of Revocation list security configuration<br>Values: `none` `basic` `token`|
-
-
-#### Revocation list security configuration: No security `type = "none"` 
-| Name <br>`json name`  | Type <br>`constraint`  | Mandatory  | Default  | Description  |
-|:----------------------|:-----------------------|:----------:|:---------|:-------------|
-| No properties | | | | | | | 
-
-#### Revocation list security configuration: Basic security `type = "basic"` 
-| Name <br>`json name`  | Type <br>`constraint`  | Mandatory  | Default  | Description  |
-|:----------------------|:-----------------------|:----------:|:---------|:-------------|
-| Basic authentication configuration<br>`basic`| object| ✅| | <br/>See "Basic authentication configuration" section.|
-
-
-#### Basic authentication configuration (Object)
-| Name <br>`json name`  | Type <br>`constraint`  | Mandatory  | Description  |
-|:----------------------|:-----------------------|:----------:|:-------------|
-| Password<br>`password`| string<br>`[1, +Inf]`| ✅| Password which will be added to Authorization header in format 'basic user:password'|
-| Username<br>`username`| string<br>`[1, +Inf]`| ✅| Username which will be added to Authorization header in format 'basic user:password'|
-
-
-#### Revocation list security configuration: Token security `type = "token"` 
-| Name <br>`json name`  | Type <br>`constraint`  | Mandatory  | Default  | Description  |
-|:----------------------|:-----------------------|:----------:|:---------|:-------------|
-| Token authentication configuration<br>`token`| object| ✅| | <br/>See "Token authentication configuration" section.|
-
-
-#### Token authentication configuration (Object)
-| Name <br>`json name`  | Type <br>`constraint`  | Mandatory  | Description  |
-|:----------------------|:-----------------------|:----------:|:-------------|
-| Token value<br>`value`| string<br>`[1, +Inf]`| ✅| Token value which will be added to Authorization header in format 'bearer <token value>'|
-
-
-#### Token Type Validation (Object)
-| Name <br>`json name`  | Type <br>`constraint`  | Mandatory  | Default  | Description  |
-|:----------------------|:-----------------------|:----------:|:---------|:-------------|
-| Enable token type validation<br>`enabled`| boolean|  | | Will validate the token type extracted from the access_token with the one provided by the client. The default is false.|
-| Expected values<br>`expectedValues`| array (string)|  | `[JWT]`| List of expected token types. If the token type is not in the list, the validation will fail.|
-| Ignore case<br>`ignoreCase`| boolean|  | | Will ignore the case of the token type when comparing the expected values. Default is false.|
-| Ignore missing token type<br>`ignoreMissing`| boolean|  | | Will ignore token type validation if the token doesn't contain any token type information. Default is false.|
-=======
 #### Configuration options
->>>>>>> origin/main
-=======
-#### Configuration options
->>>>>>> b6b611bcd3981e66e0d60e0304418d8a5c5b359d
 
 
 
@@ -12873,17 +12701,7 @@ Strikethrough text indicates that a version is deprecated.
 
 **Features**
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-##### Features
-
-* change mTLS  logo ([b026a06](https://github.com/gravitee-io/gravitee-policy-mtls/commit/b026a064efe8d7b0fb552cb8d87f3b7043853733))
-=======
 * change mtls logo ([b026a06](https://github.com/gravitee-io/gravitee-policy-mtls/commit/b026a064efe8d7b0fb552cb8d87f3b7043853733))
->>>>>>> origin/main
-=======
-* change mTLS logo ([b026a06](https://github.com/gravitee-io/gravitee-policy-mtls/commit/b026a064efe8d7b0fb552cb8d87f3b7043853733))
->>>>>>> b6b611bcd3981e66e0d60e0304418d8a5c5b359d
 * complete README ([742f6e9](https://github.com/gravitee-io/gravitee-policy-mtls/commit/742f6e9f25160d376c0e6f4975134b3889d16699))
 * implement mTLS policy ([3086876](https://github.com/gravitee-io/gravitee-policy-mtls/commit/30868765e2c8a4873781e0fc81ae6af00a3aad88))
 * init no op mTLS policy ([bc353ab](https://github.com/gravitee-io/gravitee-policy-mtls/commit/bc353ab7af5989369c94a7e25adab98f5dd5380c))
@@ -12905,17 +12723,7 @@ Strikethrough text indicates that a version is deprecated.
 
 **Features**
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-##### Features
-
-* change mTLS  logo ([fc194c8](https://github.com/gravitee-io/gravitee-policy-mtls/commit/fc194c82ffc1369cdf3c3cd5119d35330683e5e7))
-=======
 * change mtls logo ([fc194c8](https://github.com/gravitee-io/gravitee-policy-mtls/commit/fc194c82ffc1369cdf3c3cd5119d35330683e5e7))
->>>>>>> origin/main
-=======
-* change mTLS logo ([fc194c8](https://github.com/gravitee-io/gravitee-policy-mtls/commit/fc194c82ffc1369cdf3c3cd5119d35330683e5e7))
->>>>>>> b6b611bcd3981e66e0d60e0304418d8a5c5b359d
 * complete README ([f7cf64f](https://github.com/gravitee-io/gravitee-policy-mtls/commit/f7cf64feb535802aece92fd4e67c8969d055447f))
 * implement mTLS policy ([1e72fb4](https://github.com/gravitee-io/gravitee-policy-mtls/commit/1e72fb4bc59db702731c0c1cc89b93a55dcc96d1))
 
@@ -13421,34 +13229,12 @@ The policy automatically detects the OpenAPI version from the specification and 
 
 You can configure the policy with the following options:
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-###### Common options
-[cols="3*", options=header]
-| Name | Description | Property | OpenAPI source from | OpenAPI Specification in Json or Yaml format. | `sourceJson` or `sourceYaml` or `sourceUrl` or `resourceName`  (string) (required) (default: true) | Base path | Optional base path. This can be useful if e.g. your Swagger specification has been created for a public URL but you are validating requests against an internal URL where the URL paths differ. | `basePath` (string) (optional) | Return detailed error report | Only for Bad Request (400) error. Return in the response the detailed error report. Like Schema validation errors on request/response body. This can be useful for debugging but can expose OpenAPI schema details. | `validationOptions. returnDetailedErrorReport` (boolean) (default: true) | Strict operation path matching | If true, a trailing slash indicates a different path than without. | `validationOptions. strictOperationPathMatching` (boolean) (default: true) | Log instead of throwing error | If true, the validation errors will be logged instead of throwing an error. This can be useful to not block the request/response flow in case of validation errors. | `validationOptions. logInsteadOfThrowError` (boolean) (default: false) |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-=======
-**Common options**
->>>>>>> origin/main
-
-\[cols="3\*", options=header]
-
-<<<<<<< HEAD
-[cols="3*", options=header]
-| Name | Description | Property | Validate path and method exist | This will validate that the path (minus the base path) and associated HTTP method matches one of the path patterns defined in the OpenAPI schema. | `validationOptions. validateRequestPathAndMethod` (boolean) (default: true) | Validate request content type | This will validate that the request matches the requestBody.content types defined in the OpenAPI schema. | `validationOptions. validateRequestContentType` (boolean) (default: true) | Validate request body | This will validate that the request matches the request body defined in the OpenAPI schema. Supported content types: `application/json`, `application/x-www-form-urlencoded`, `application/xml`, and `text/xml`. | `validationOptions. validateRequestBody` (boolean) (default: true) | Validate request parameters (PathParams, QueryParams, Headers, Cookie) | This will validate that parameters marked as required for the request exist and all request parameters match the valid values. | `validationOptions. validateRequestParameters` (boolean) (default: true) | Additional options for request parameters validation | Uncheck the request parameters that you don't want to validate. (may have an impact on parameter or security validation) | `validationOptions. validateRequestParameters` (enum) (default: "QUERY_PARAMS", "HEADERS", "COOKIES") | validationOptions. validateRequestQueryParamsUnexpected | This will validate that no additional query parameters are passed that are not found in the OpenAPI schema. | `validationOptions. validateRequestQueryParamsUnexpected` (boolean) (default: false) | Validate request security | This will validate that the request has the required security defined in the OpenAPI schema. | `validationOptions. validateRequestSecurity` (boolean) (default: false) |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-=======
-| Name | Description | Property | OpenApi source from | OpenAPI Specification in Json or Yaml format. | `sourceJson` or `sourceYaml` or `sourceUrl` or `resourceName` (string) (required) (default: true) | Base path | Optional base path. This can be useful if e.g. your Swagger specification has been created for a public URL but you are validating requests against an internal URL where the URL paths differ. | `basePath` (string) (optional) | Return detailed error report | Only for Bad Request (400) error. Return in the response the detailed error report. Like Schema validation errors on request/response body. This can be useful for debugging but can expose OpenApi schema details. | `validationOptions. returnDetailedErrorReport` (boolean) (default: true) | Strict operation path matching | If true, a trailing slash indicates a different path than without. | `validationOptions. strictOperationPathMatching` (boolean) (default: true) | Log instead of throwing error | If true, the validation errors will be logged instead of throwing an error. This can be useful to not block the request/response flow in case of validation errors. | `validationOptions. logInsteadOfThrowError` (boolean) (default: false) |
-| ---- | ----------- | -------- | ------------------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ | ------------------------------ | ------------------------------------------------------------------ | -------------------------------------------------------------------------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
->>>>>>> origin/main
-=======
 **Common options**
 
 \[cols="3\*", options=header]
 
 | Name | Description | Property | OpenApi source from | OpenAPI Specification in Json or Yaml format. | `sourceJson` or `sourceYaml` or `sourceUrl` or `resourceName` (string) (required) (default: true) | Base path | Optional base path. This can be useful if e.g. your Swagger specification has been created for a public URL but you are validating requests against an internal URL where the URL paths differ. | `basePath` (string) (optional) | Return detailed error report | Only for Bad Request (400) error. Return in the response the detailed error report. Like Schema validation errors on request/response body. This can be useful for debugging but can expose OpenApi schema details. | `validationOptions. returnDetailedErrorReport` (boolean) (default: true) | Strict operation path matching | If true, a trailing slash indicates a different path than without. | `validationOptions. strictOperationPathMatching` (boolean) (default: true) | Log instead of throwing error | If true, the validation errors will be logged instead of throwing an error. This can be useful to not block the request/response flow in case of validation errors. | `validationOptions. logInsteadOfThrowError` (boolean) (default: false) |
 | ---- | ----------- | -------- | ------------------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ | ------------------------------ | ------------------------------------------------------------------ | -------------------------------------------------------------------------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
->>>>>>> b6b611bcd3981e66e0d60e0304418d8a5c5b359d
 
 **Request validation options**
 
@@ -13461,19 +13247,8 @@ You can configure the policy with the following options:
 
 \[cols="3\*", options=header]
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-[cols="3*", options=header]
-| Name | Description | Property | Validate response body | This will validate that the response matches the response body defined in the OpenAPI schema. | `validationOptions. validateResponseBody` (boolean) (default: true) | Validate response content type | This will validate that the response matches the response content type defined in the OpenAPI schema. | `validationOptions. validateResponseContentType` (boolean) (default: true) | Validate response status code | This will validate that the response status code matches the response status code defined in the OpenAPI schema. | `validationOptions. validateResponseStatusCode` (boolean) (default: true) |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-=======
 | Name | Description | Property | Validate response body | This will validate that the response matches the response body defined in the OpenApi schema. | `validationOptions. validateResponseBody` (boolean) (default: true) | Validate response content type | This will validate that the response matches the response content type defined in the OpenApi schema. | `validationOptions. validateResponseContentType` (boolean) (default: true) | Validate response status code | This will validate that the response status code matches the response status code defined in the OpenApi schema. | `validationOptions. validateResponseStatusCode` (boolean) (default: true) |
 | ---- | ----------- | -------- | ---------------------- | --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------ | ----------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ----------------------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
->>>>>>> origin/main
-=======
-| Name | Description | Property | Validate response body | This will validate that the response matches the response body defined in the OpenApi schema. | `validationOptions. validateResponseBody` (boolean) (default: true) | Validate response content type | This will validate that the response matches the response content type defined in the OpenApi schema. | `validationOptions. validateResponseContentType` (boolean) (default: true) | Validate response status code | This will validate that the response status code matches the response status code defined in the OpenApi schema. | `validationOptions. validateResponseStatusCode` (boolean) (default: true) |
-| ---- | ----------- | -------- | ---------------------- | --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------ | ----------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ----------------------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
->>>>>>> b6b611bcd3981e66e0d60e0304418d8a5c5b359d
 
 **Errors**
 
@@ -13487,15 +13262,7 @@ You can configure the policy with the following options:
 
 <summary>API Management - Policy - OAuth2</summary>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-→ [Full documentation](../create-and-configure-apis/apply-policies/policy-reference/oauth2/README.md)
-=======
-→ [Full documentation](../secure-and-expose-apis/plans/oauth2.md)
->>>>>>> origin/main
-=======
-→ [Full documentation](../secure-and-expose-apis/plans/oauth2.md)
->>>>>>> b6b611bcd3981e66e0d60e0304418d8a5c5b359d
+→ [Full documentation](../../create-and-configure-apis/apply-policies/policy-reference/oauth2/)
 
 **Plugin ID**: `gravitee-policy-oauth2`
 
@@ -18135,15 +17902,7 @@ Here are the error keys sent by this policy:
 
 **Plugin ID**: `gravitee-policy-wssecurity-authentication`
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-#### WS-Security Authentication Policy
-=======
 **WS Security Authentication Policy**
->>>>>>> origin/main
-=======
-**WS Security Authentication Policy**
->>>>>>> b6b611bcd3981e66e0d60e0304418d8a5c5b359d
 
 **Phase**
 
@@ -21696,18 +21455,7 @@ Put the plugin archive in your gravitee gateway plugin workspace ( default is : 
 
 **Configuration**
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-The configuration is loaded from the common GraviteeIO Gateway configuration file (gravitee.yml)
-All configurations described by official Eureka discovery client documentation are available on the official GitHub repository: https://github.com/Netflix/eureka/wiki
-Gravitee Gateway uses Eureka Discovery client v1 and fetch configured Eureka Servers. It does not register the gateway application into Eureka registry.
-Please refer the official Eureka documentation for advanced uses and advanced concepts.
-=======
 The configuration is loaded from the common GraviteeIO Gateway configuration file (gravitee.yml) All configurations described by official Eureka discovery client documentation are available on the official github repository: https://github.com/Netflix/eureka/wiki Gravitee Gateway uses Eureka Discovery client v1 and fetch configured Eureka Servers. It does not register the gateway application into Eureka registry. Please refer the official Eureka documentation for advanced uses and advanced concepts.
->>>>>>> origin/main
-=======
-The configuration is loaded from the common GraviteeIO Gateway configuration file (gravitee.yml) All configurations described by official Eureka discovery client documentation are available on the official github repository: https://github.com/Netflix/eureka/wiki Gravitee Gateway uses Eureka Discovery client v1 and fetch configured Eureka Servers. It does not register the gateway application into Eureka registry. Please refer the official Eureka documentation for advanced uses and advanced concepts.
->>>>>>> b6b611bcd3981e66e0d60e0304418d8a5c5b359d
 
 And configure with API management your SERVICE\_ID for Eureka service discovery.
 

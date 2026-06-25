@@ -232,6 +232,33 @@
 * Gateways must declare matching tag keys in their configuration files to index and serve tagged products. Console tag assignment alone is insufficient for deployment.
 * Deleting an organization-level tag cascades to all API Products and plans across all environments, automatically removing the tag from affected resources.
 <!-- /PIPELINE:APIM-14357 -->
+<!-- PIPELINE:APIM-14300 -->
+#### **Azure Key Vault Secret Provider**
+
+* Retrieve JSON formatted secrets from Azure Key Vault using the `secret://azure-keyvault/` URL scheme in APIM or AM configuration. In API configurations, policies, and authentication flows, use the `{#secrets.get('/azure-keyvault/secret:key')}` Expression Language syntax.
+* Supports six authentication methods to accommodate different Azure deployment scenarios: Client Secret, Certificate, Default Azure Credential, Managed Identity, Environment, and Workload Identity. Workload Identity is currently in beta.
+* Automatically maps common secret keys—`username`, `password`, `certificate`, and `private_key`—to well-known identifiers for use in authentication and TLS configurations.
+* Requires Gravitee APIM or AM 4.11.x or later and appropriate Azure AD credentials based on the selected authentication provider.
+<!-- /PIPELINE:APIM-14300 -->
+
+
+<!-- PIPELINE:APIM-13673 -->
+#### **Configurable Documentation Viewers for Portal Pages**
+
+* Portal administrators can now select between Swagger UI and Redoc viewers for OpenAPI documentation pages, with Swagger UI offering interactive Try It Out functionality and Redoc providing a read-focused reference layout.
+* AsyncAPI documentation pages render with an interactive viewer and include a starter AsyncAPI 3.0 template for new pages, with YAML validation enforced before saving.
+* Viewer configuration is managed through Portal Navigation settings in the Console, with live preview during editing and independent storage of viewer settings from specification content.
+* Swagger UI supports full configuration options including base URL override and OAuth with PKCE, while Redoc exposes viewer selection and optional base URL override only.
+<!-- /PIPELINE:APIM-13673 -->
+
+<!-- PIPELINE:APIM-14121 -->
+#### **Typo-Tolerant API Search**
+
+* Enables developers to find APIs in the Developer Portal catalog even when search queries contain minor spelling errors. For example, "paymnt" returns "payment" APIs.
+* Applies fuzzy matching based on Levenshtein distance: tokens with four to seven characters tolerate one edit, tokens with eight or more characters tolerate two edits, and tokens shorter than four characters require exact matches.
+* Disabled by default and configurable per environment by administrators with the `ENVIRONMENT_SETTINGS` update permission.
+* Automatically skips fuzzy matching for queries longer than 512 characters to maintain performance.
+<!-- /PIPELINE:APIM-14121 -->
 
 ## Improvements
 
