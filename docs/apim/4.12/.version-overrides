@@ -184,3 +184,4 @@ prepare-a-production-environment/sensitive-data-management/configure-secrets/con
 prepare-a-production-environment/sensitive-data-management/configure-secrets/reference-secrets-in-configurations.md
 developer-portal/new-developer-portal/customize-the-navigation/creating-asyncapi-documentation-pages.md
 developer-portal/new-developer-portal/customize-the-navigation/creating-openapi-documentation-pages.md
+developer-portal/new-developer-portal/customize-the-navigation/structure-the-navigation-with-the-management-api.md
