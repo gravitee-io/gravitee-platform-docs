@@ -134,9 +134,9 @@ To avoid the use of a previous token or misconfiguration, reset the cache of you
 
 ### **Permissions, groups and roles**
 
-You can manually customize permissions, groups, and roles for new users, or use the automatic Roles and Groups Mapping feature. For more information about Roles and Mappings, see [roles-and-groups-mapping.md](roles-and-groups-mapping.md "mention").
+You can manually customize permissions, groups, and roles for new users, or use the automatic Roles and Groups Mapping feature. For more information about Roles and Mappings, see[roles-and-groups-mapping.md](roles-and-groups-mapping.md "mention").
 
-### :information\_source: **Entra ID and Groups Mapping**
+### **Entra ID and Groups Mapping**
 
 Gravitee APIM can be configured to request the user's groups from an UserInfo endpoint of the OAuth2 server, but Entra ID cannot be configured to provide this information through their UserInfo endpoint.
 
