@@ -359,6 +359,7 @@
     * [Create an Application](developer-portal/classic-developer-portal/create-an-application.md)
     * [API Documentation](developer-portal/classic-developer-portal/api-documentation.md)
   * [Portal Page Content Validator API Changes](developer-portal/portal-page-content-validator-api-changes.md)
+  * [Typo-tolerant API search](developer-portal/typo-tolerant-api-search.md)
 * [Govern APIs](govern-apis/README.md)
   * [Federation](govern-apis/federation/README.md)
     * [Integrations](govern-apis/federation/integrations.md)
