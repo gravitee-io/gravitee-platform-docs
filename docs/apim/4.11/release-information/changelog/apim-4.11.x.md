@@ -1,6 +1,11 @@
 # APIM 4.11.x
  
 ## Gravitee API Management 4.11.12 - June 24, 2026
+
+{% hint style="warning" %}
+There are Known Issues with this version of APIM. If you want to upgrade APIM, upgrade to the next available version. We are investigating the issues.
+{% endhint %}
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -18,6 +23,11 @@
 
  
 ## Gravitee API Management 4.11.11 - June 20, 2026
+
+{% hint style="warning" %}
+There are Known Issues with this version of APIM. If you want to upgrade APIM, upgrade to the next available version. We are investigating the issues.
+{% endhint %}
+
 <details>
 
 <summary>Bug Fixes</summary>
